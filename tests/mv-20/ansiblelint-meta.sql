@@ -3019,2456 +3019,6 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
-CREATE OR REPLACE FUNCTION _jm_cst_32(value JSONB)
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  constants JSONB = JSONB '["2008R2","2008x64","2008x86","2012","2012R2","2016","2019","2022","2025","all"]';
-BEGIN
-  RETURN constants @> value;
-END;
-$$ LANGUAGE plpgsql;
-
--- object .'$any_platform'.'|'.46
-CREATE OR REPLACE FUNCTION _jm_obj_47(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-  prop TEXT;
-  pval JSONB;
-  arr_47_idx INT8;
-  arr_47_item JSONB;
-BEGIN
-  IF NOT (JSONB_TYPEOF(val) = 'object') THEN
-    RETURN FALSE;
-  END IF;
-  FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF prop = 'name' THEN
-      -- handle may name property
-      -- .'$any_platform'.'|'.46.name
-      res := JSONB_TYPEOF(pval) = 'string' AND JSON_VALUE(pval, '$' RETURNING TEXT) = 'Windows';
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-    ELSEIF prop = 'versions' THEN
-      -- handle may versions property
-      -- .'$any_platform'.'|'.46.versions
-      res := JSONB_TYPEOF(pval) = 'array';
-      IF res THEN
-        FOR arr_47_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
-          arr_47_item := pval -> arr_47_idx;
-          -- .'$any_platform'.'|'.46.versions.0
-          res := JSONB_TYPEOF(arr_47_item) IN ('null', 'boolean', 'number', 'string') AND _jm_cst_32(arr_47_item);
-          IF NOT res THEN
-            EXIT;
-          END IF;
-        END LOOP;
-      END IF;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-    ELSE
-      RETURN FALSE;
-    END IF;
-  END LOOP;
-  RETURN TRUE;
-END;
-$$ LANGUAGE PLpgSQL;
-
-CREATE OR REPLACE FUNCTION _jm_cst_33(value JSONB)
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  constants JSONB = JSONB '["5.5","6.0","6.5","6.7","7.0","8.0","all"]';
-BEGIN
-  RETURN constants @> value;
-END;
-$$ LANGUAGE plpgsql;
-
--- object .'$any_platform'.'|'.45
-CREATE OR REPLACE FUNCTION _jm_obj_48(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-  prop TEXT;
-  pval JSONB;
-  arr_48_idx INT8;
-  arr_48_item JSONB;
-BEGIN
-  IF NOT (JSONB_TYPEOF(val) = 'object') THEN
-    RETURN FALSE;
-  END IF;
-  FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF prop = 'name' THEN
-      -- handle may name property
-      -- .'$any_platform'.'|'.45.name
-      res := JSONB_TYPEOF(pval) = 'string' AND JSON_VALUE(pval, '$' RETURNING TEXT) = 'vSphere';
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-    ELSEIF prop = 'versions' THEN
-      -- handle may versions property
-      -- .'$any_platform'.'|'.45.versions
-      res := JSONB_TYPEOF(pval) = 'array';
-      IF res THEN
-        FOR arr_48_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
-          arr_48_item := pval -> arr_48_idx;
-          -- .'$any_platform'.'|'.45.versions.0
-          res := JSONB_TYPEOF(arr_48_item) IN ('null', 'boolean', 'number', 'string') AND _jm_cst_33(arr_48_item);
-          IF NOT res THEN
-            EXIT;
-          END IF;
-        END LOOP;
-      END IF;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-    ELSE
-      RETURN FALSE;
-    END IF;
-  END LOOP;
-  RETURN TRUE;
-END;
-$$ LANGUAGE PLpgSQL;
-
--- object .'$any_platform'.'|'.44
-CREATE OR REPLACE FUNCTION _jm_obj_49(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-  prop TEXT;
-  pval JSONB;
-  arr_49_idx INT8;
-  arr_49_item JSONB;
-BEGIN
-  IF NOT (JSONB_TYPEOF(val) = 'object') THEN
-    RETURN FALSE;
-  END IF;
-  FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF prop = 'name' THEN
-      -- handle may name property
-      -- .'$any_platform'.'|'.44.name
-      res := JSONB_TYPEOF(pval) = 'string' AND JSON_VALUE(pval, '$' RETURNING TEXT) = 'Void Linux';
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-    ELSEIF prop = 'versions' THEN
-      -- handle may versions property
-      -- .'$any_platform'.'|'.44.versions
-      res := JSONB_TYPEOF(pval) = 'array';
-      IF res THEN
-        FOR arr_49_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
-          arr_49_item := pval -> arr_49_idx;
-          -- .'$any_platform'.'|'.44.versions.0
-          res := JSONB_TYPEOF(arr_49_item) = 'string' AND JSON_VALUE(arr_49_item, '$' RETURNING TEXT) = 'all';
-          IF NOT res THEN
-            EXIT;
-          END IF;
-        END LOOP;
-      END IF;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-    ELSE
-      RETURN FALSE;
-    END IF;
-  END LOOP;
-  RETURN TRUE;
-END;
-$$ LANGUAGE PLpgSQL;
-
-CREATE OR REPLACE FUNCTION _jm_cst_34(value JSONB)
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  constants JSONB = JSONB '["5.5","6.0","6.5","6.7","7.0","8.0","all"]';
-BEGIN
-  RETURN constants @> value;
-END;
-$$ LANGUAGE plpgsql;
-
--- object .'$any_platform'.'|'.43
-CREATE OR REPLACE FUNCTION _jm_obj_50(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-  prop TEXT;
-  pval JSONB;
-  arr_50_idx INT8;
-  arr_50_item JSONB;
-BEGIN
-  IF NOT (JSONB_TYPEOF(val) = 'object') THEN
-    RETURN FALSE;
-  END IF;
-  FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF prop = 'name' THEN
-      -- handle may name property
-      -- .'$any_platform'.'|'.43.name
-      res := JSONB_TYPEOF(pval) = 'string' AND JSON_VALUE(pval, '$' RETURNING TEXT) = 'vCenter';
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-    ELSEIF prop = 'versions' THEN
-      -- handle may versions property
-      -- .'$any_platform'.'|'.43.versions
-      res := JSONB_TYPEOF(pval) = 'array';
-      IF res THEN
-        FOR arr_50_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
-          arr_50_item := pval -> arr_50_idx;
-          -- .'$any_platform'.'|'.43.versions.0
-          res := JSONB_TYPEOF(arr_50_item) IN ('null', 'boolean', 'number', 'string') AND _jm_cst_34(arr_50_item);
-          IF NOT res THEN
-            EXIT;
-          END IF;
-        END LOOP;
-      END IF;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-    ELSE
-      RETURN FALSE;
-    END IF;
-  END LOOP;
-  RETURN TRUE;
-END;
-$$ LANGUAGE PLpgSQL;
-
-CREATE OR REPLACE FUNCTION _jm_cst_35(value JSONB)
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  constants JSONB = JSONB '["artful","bionic","cosmic","disco","eoan","focal","groovy","hirsute","impish","jammy","kinetic","lucid","lunar","mantic","noble","maverick","natty","oneiric","oracular","plucky","precise","quantal","raring","saucy","trusty","utopic","vivid","wily","xenial","yakkety","zesty","all"]';
-BEGIN
-  RETURN constants @> value;
-END;
-$$ LANGUAGE plpgsql;
-
--- object .'$any_platform'.'|'.42
-CREATE OR REPLACE FUNCTION _jm_obj_51(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-  prop TEXT;
-  pval JSONB;
-  arr_51_idx INT8;
-  arr_51_item JSONB;
-BEGIN
-  IF NOT (JSONB_TYPEOF(val) = 'object') THEN
-    RETURN FALSE;
-  END IF;
-  FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF prop = 'name' THEN
-      -- handle may name property
-      -- .'$any_platform'.'|'.42.name
-      res := JSONB_TYPEOF(pval) = 'string' AND JSON_VALUE(pval, '$' RETURNING TEXT) = 'Ubuntu';
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-    ELSEIF prop = 'versions' THEN
-      -- handle may versions property
-      -- .'$any_platform'.'|'.42.versions
-      res := JSONB_TYPEOF(pval) = 'array';
-      IF res THEN
-        FOR arr_51_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
-          arr_51_item := pval -> arr_51_idx;
-          -- .'$any_platform'.'|'.42.versions.0
-          res := JSONB_TYPEOF(arr_51_item) IN ('null', 'boolean', 'number', 'string') AND _jm_cst_35(arr_51_item);
-          IF NOT res THEN
-            EXIT;
-          END IF;
-        END LOOP;
-      END IF;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-    ELSE
-      RETURN FALSE;
-    END IF;
-  END LOOP;
-  RETURN TRUE;
-END;
-$$ LANGUAGE PLpgSQL;
-
-CREATE OR REPLACE FUNCTION _jm_cst_36(value JSONB)
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  constants JSONB = JSONB '["12.1","13.0","13.1","14.0","all"]';
-BEGIN
-  RETURN constants @> value;
-END;
-$$ LANGUAGE plpgsql;
-
--- object .'$any_platform'.'|'.41
-CREATE OR REPLACE FUNCTION _jm_obj_52(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-  prop TEXT;
-  pval JSONB;
-  arr_52_idx INT8;
-  arr_52_item JSONB;
-BEGIN
-  IF NOT (JSONB_TYPEOF(val) = 'object') THEN
-    RETURN FALSE;
-  END IF;
-  FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF prop = 'name' THEN
-      -- handle may name property
-      -- .'$any_platform'.'|'.41.name
-      res := JSONB_TYPEOF(pval) = 'string' AND JSON_VALUE(pval, '$' RETURNING TEXT) = 'TMOS';
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-    ELSEIF prop = 'versions' THEN
-      -- handle may versions property
-      -- .'$any_platform'.'|'.41.versions
-      res := JSONB_TYPEOF(pval) = 'array';
-      IF res THEN
-        FOR arr_52_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
-          arr_52_item := pval -> arr_52_idx;
-          -- .'$any_platform'.'|'.41.versions.0
-          res := JSONB_TYPEOF(arr_52_item) IN ('null', 'boolean', 'number', 'string') AND _jm_cst_36(arr_52_item);
-          IF NOT res THEN
-            EXIT;
-          END IF;
-        END LOOP;
-      END IF;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-    ELSE
-      RETURN FALSE;
-    END IF;
-  END LOOP;
-  RETURN TRUE;
-END;
-$$ LANGUAGE PLpgSQL;
-
-CREATE OR REPLACE FUNCTION _jm_cst_37(value JSONB)
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  constants JSONB = JSONB '["6.0","6.1","6.2","7.0","all"]';
-BEGIN
-  RETURN constants @> value;
-END;
-$$ LANGUAGE plpgsql;
-
--- object .'$any_platform'.'|'.40
-CREATE OR REPLACE FUNCTION _jm_obj_53(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-  prop TEXT;
-  pval JSONB;
-  arr_53_idx INT8;
-  arr_53_item JSONB;
-BEGIN
-  IF NOT (JSONB_TYPEOF(val) = 'object') THEN
-    RETURN FALSE;
-  END IF;
-  FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF prop = 'name' THEN
-      -- handle may name property
-      -- .'$any_platform'.'|'.40.name
-      res := JSONB_TYPEOF(pval) = 'string' AND JSON_VALUE(pval, '$' RETURNING TEXT) = 'Synology';
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-    ELSEIF prop = 'versions' THEN
-      -- handle may versions property
-      -- .'$any_platform'.'|'.40.versions
-      res := JSONB_TYPEOF(pval) = 'array';
-      IF res THEN
-        FOR arr_53_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
-          arr_53_item := pval -> arr_53_idx;
-          -- .'$any_platform'.'|'.40.versions.0
-          res := JSONB_TYPEOF(arr_53_item) IN ('null', 'boolean', 'number', 'string') AND _jm_cst_37(arr_53_item);
-          IF NOT res THEN
-            EXIT;
-          END IF;
-        END LOOP;
-      END IF;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-    ELSE
-      RETURN FALSE;
-    END IF;
-  END LOOP;
-  RETURN TRUE;
-END;
-$$ LANGUAGE PLpgSQL;
-
-CREATE OR REPLACE FUNCTION _jm_cst_38(value JSONB)
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  constants JSONB = JSONB '["10","11.0","11.1","11.2","11.3","11.4","all"]';
-BEGIN
-  RETURN constants @> value;
-END;
-$$ LANGUAGE plpgsql;
-
--- object .'$any_platform'.'|'.39
-CREATE OR REPLACE FUNCTION _jm_obj_54(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-  prop TEXT;
-  pval JSONB;
-  arr_54_idx INT8;
-  arr_54_item JSONB;
-BEGIN
-  IF NOT (JSONB_TYPEOF(val) = 'object') THEN
-    RETURN FALSE;
-  END IF;
-  FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF prop = 'name' THEN
-      -- handle may name property
-      -- .'$any_platform'.'|'.39.name
-      res := JSONB_TYPEOF(pval) = 'string' AND JSON_VALUE(pval, '$' RETURNING TEXT) = 'Solaris';
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-    ELSEIF prop = 'versions' THEN
-      -- handle may versions property
-      -- .'$any_platform'.'|'.39.versions
-      res := JSONB_TYPEOF(pval) = 'array';
-      IF res THEN
-        FOR arr_54_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
-          arr_54_item := pval -> arr_54_idx;
-          -- .'$any_platform'.'|'.39.versions.0
-          res := JSONB_TYPEOF(arr_54_item) IN ('null', 'boolean', 'number', 'string') AND _jm_cst_38(arr_54_item);
-          IF NOT res THEN
-            EXIT;
-          END IF;
-        END LOOP;
-      END IF;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-    ELSE
-      RETURN FALSE;
-    END IF;
-  END LOOP;
-  RETURN TRUE;
-END;
-$$ LANGUAGE PLpgSQL;
-
--- object .'$any_platform'.'|'.38
-CREATE OR REPLACE FUNCTION _jm_obj_55(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-  prop TEXT;
-  pval JSONB;
-  arr_55_idx INT8;
-  arr_55_item JSONB;
-BEGIN
-  IF NOT (JSONB_TYPEOF(val) = 'object') THEN
-    RETURN FALSE;
-  END IF;
-  FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF prop = 'name' THEN
-      -- handle may name property
-      -- .'$any_platform'.'|'.38.name
-      res := JSONB_TYPEOF(pval) = 'string' AND JSON_VALUE(pval, '$' RETURNING TEXT) = 'SmartOS';
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-    ELSEIF prop = 'versions' THEN
-      -- handle may versions property
-      -- .'$any_platform'.'|'.38.versions
-      res := JSONB_TYPEOF(pval) = 'array';
-      IF res THEN
-        FOR arr_55_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
-          arr_55_item := pval -> arr_55_idx;
-          -- .'$any_platform'.'|'.38.versions.0
-          res := JSONB_TYPEOF(arr_55_item) = 'string' AND JSON_VALUE(arr_55_item, '$' RETURNING TEXT) = 'all';
-          IF NOT res THEN
-            EXIT;
-          END IF;
-        END LOOP;
-      END IF;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-    ELSE
-      RETURN FALSE;
-    END IF;
-  END LOOP;
-  RETURN TRUE;
-END;
-$$ LANGUAGE PLpgSQL;
-
-CREATE OR REPLACE FUNCTION _jm_cst_39(value JSONB)
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  constants JSONB = JSONB '["10SP3","10SP4","11","11SP1","11SP2","11SP3","11SP4","12","12SP1","12SP2","12SP3","12SP4","12SP5","15","15SP1","15SP2","15SP3","15SP4","15SP5","15SP6","all"]';
-BEGIN
-  RETURN constants @> value;
-END;
-$$ LANGUAGE plpgsql;
-
--- object .'$any_platform'.'|'.37
-CREATE OR REPLACE FUNCTION _jm_obj_56(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-  prop TEXT;
-  pval JSONB;
-  arr_56_idx INT8;
-  arr_56_item JSONB;
-BEGIN
-  IF NOT (JSONB_TYPEOF(val) = 'object') THEN
-    RETURN FALSE;
-  END IF;
-  FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF prop = 'name' THEN
-      -- handle may name property
-      -- .'$any_platform'.'|'.37.name
-      res := JSONB_TYPEOF(pval) = 'string' AND JSON_VALUE(pval, '$' RETURNING TEXT) = 'SLES';
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-    ELSEIF prop = 'versions' THEN
-      -- handle may versions property
-      -- .'$any_platform'.'|'.37.versions
-      res := JSONB_TYPEOF(pval) = 'array';
-      IF res THEN
-        FOR arr_56_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
-          arr_56_item := pval -> arr_56_idx;
-          -- .'$any_platform'.'|'.37.versions.0
-          res := JSONB_TYPEOF(arr_56_item) IN ('null', 'boolean', 'number', 'string') AND _jm_cst_39(arr_56_item);
-          IF NOT res THEN
-            EXIT;
-          END IF;
-        END LOOP;
-      END IF;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-    ELSE
-      RETURN FALSE;
-    END IF;
-  END LOOP;
-  RETURN TRUE;
-END;
-$$ LANGUAGE PLpgSQL;
-
-CREATE OR REPLACE FUNCTION _jm_cst_40(value JSONB)
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  constants JSONB = JSONB '["8.0","8.1","8.2","8.3","8.4","8.5","8.6","8.7","8.8","9.0","9.1","9.2","all"]';
-BEGIN
-  RETURN constants @> value;
-END;
-$$ LANGUAGE plpgsql;
-
--- object .'$any_platform'.'|'.36
-CREATE OR REPLACE FUNCTION _jm_obj_57(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-  prop TEXT;
-  pval JSONB;
-  arr_57_idx INT8;
-  arr_57_item JSONB;
-BEGIN
-  IF NOT (JSONB_TYPEOF(val) = 'object') THEN
-    RETURN FALSE;
-  END IF;
-  FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF prop = 'name' THEN
-      -- handle may name property
-      -- .'$any_platform'.'|'.36.name
-      res := JSONB_TYPEOF(pval) = 'string' AND JSON_VALUE(pval, '$' RETURNING TEXT) = 'Rocky';
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-    ELSEIF prop = 'versions' THEN
-      -- handle may versions property
-      -- .'$any_platform'.'|'.36.versions
-      res := JSONB_TYPEOF(pval) = 'array';
-      IF res THEN
-        FOR arr_57_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
-          arr_57_item := pval -> arr_57_idx;
-          -- .'$any_platform'.'|'.36.versions.0
-          res := JSONB_TYPEOF(arr_57_item) IN ('null', 'boolean', 'number', 'string') AND _jm_cst_40(arr_57_item);
-          IF NOT res THEN
-            EXIT;
-          END IF;
-        END LOOP;
-      END IF;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-    ELSE
-      RETURN FALSE;
-    END IF;
-  END LOOP;
-  RETURN TRUE;
-END;
-$$ LANGUAGE PLpgSQL;
-
-CREATE OR REPLACE FUNCTION _jm_cst_41(value JSONB)
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  constants JSONB = JSONB '["7.1","8.0","8.1","9.0","all"]';
-BEGIN
-  RETURN constants @> value;
-END;
-$$ LANGUAGE plpgsql;
-
--- object .'$any_platform'.'|'.35
-CREATE OR REPLACE FUNCTION _jm_obj_58(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-  prop TEXT;
-  pval JSONB;
-  arr_58_idx INT8;
-  arr_58_item JSONB;
-BEGIN
-  IF NOT (JSONB_TYPEOF(val) = 'object') THEN
-    RETURN FALSE;
-  END IF;
-  FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF prop = 'name' THEN
-      -- handle may name property
-      -- .'$any_platform'.'|'.35.name
-      res := JSONB_TYPEOF(pval) = 'string' AND JSON_VALUE(pval, '$' RETURNING TEXT) = 'PAN-OS';
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-    ELSEIF prop = 'versions' THEN
-      -- handle may versions property
-      -- .'$any_platform'.'|'.35.versions
-      res := JSONB_TYPEOF(pval) = 'array';
-      IF res THEN
-        FOR arr_58_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
-          arr_58_item := pval -> arr_58_idx;
-          -- .'$any_platform'.'|'.35.versions.0
-          res := JSONB_TYPEOF(arr_58_item) IN ('null', 'boolean', 'number', 'string') AND _jm_cst_41(arr_58_item);
-          IF NOT res THEN
-            EXIT;
-          END IF;
-        END LOOP;
-      END IF;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-    ELSE
-      RETURN FALSE;
-    END IF;
-  END LOOP;
-  RETURN TRUE;
-END;
-$$ LANGUAGE PLpgSQL;
-
--- object .'$any_platform'.'|'.34
-CREATE OR REPLACE FUNCTION _jm_obj_59(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-  prop TEXT;
-  pval JSONB;
-  arr_59_idx INT8;
-  arr_59_item JSONB;
-BEGIN
-  IF NOT (JSONB_TYPEOF(val) = 'object') THEN
-    RETURN FALSE;
-  END IF;
-  FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF prop = 'name' THEN
-      -- handle may name property
-      -- .'$any_platform'.'|'.34.name
-      res := JSONB_TYPEOF(pval) = 'string' AND JSON_VALUE(pval, '$' RETURNING TEXT) = 'os10';
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-    ELSEIF prop = 'versions' THEN
-      -- handle may versions property
-      -- .'$any_platform'.'|'.34.versions
-      res := JSONB_TYPEOF(pval) = 'array';
-      IF res THEN
-        FOR arr_59_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
-          arr_59_item := pval -> arr_59_idx;
-          -- .'$any_platform'.'|'.34.versions.0
-          res := JSONB_TYPEOF(arr_59_item) = 'string' AND JSON_VALUE(arr_59_item, '$' RETURNING TEXT) = 'all';
-          IF NOT res THEN
-            EXIT;
-          END IF;
-        END LOOP;
-      END IF;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-    ELSE
-      RETURN FALSE;
-    END IF;
-  END LOOP;
-  RETURN TRUE;
-END;
-$$ LANGUAGE PLpgSQL;
-
-CREATE OR REPLACE FUNCTION _jm_cst_42(value JSONB)
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  constants JSONB = JSONB '["7.0","7.1","7.2","7.3","7.4","7.5","7.6","7.7","7.8","7.9","8.0","8.1","8.2","8.3","8.4","8.5","8.6","8.7","8.8","8.9","8.10","9.0","9.1","9.2","9.3","9.4","all"]';
-BEGIN
-  RETURN constants @> value;
-END;
-$$ LANGUAGE plpgsql;
-
--- object .'$any_platform'.'|'.33
-CREATE OR REPLACE FUNCTION _jm_obj_60(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-  prop TEXT;
-  pval JSONB;
-  arr_60_idx INT8;
-  arr_60_item JSONB;
-BEGIN
-  IF NOT (JSONB_TYPEOF(val) = 'object') THEN
-    RETURN FALSE;
-  END IF;
-  FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF prop = 'name' THEN
-      -- handle may name property
-      -- .'$any_platform'.'|'.33.name
-      res := JSONB_TYPEOF(pval) = 'string' AND JSON_VALUE(pval, '$' RETURNING TEXT) = 'OracleLinux';
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-    ELSEIF prop = 'versions' THEN
-      -- handle may versions property
-      -- .'$any_platform'.'|'.33.versions
-      res := JSONB_TYPEOF(pval) = 'array';
-      IF res THEN
-        FOR arr_60_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
-          arr_60_item := pval -> arr_60_idx;
-          -- .'$any_platform'.'|'.33.versions.0
-          res := JSONB_TYPEOF(arr_60_item) IN ('null', 'boolean', 'number', 'string') AND _jm_cst_42(arr_60_item);
-          IF NOT res THEN
-            EXIT;
-          END IF;
-        END LOOP;
-      END IF;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-    ELSE
-      RETURN FALSE;
-    END IF;
-  END LOOP;
-  RETURN TRUE;
-END;
-$$ LANGUAGE PLpgSQL;
-
-CREATE OR REPLACE FUNCTION _jm_cst_43(value JSONB)
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  constants JSONB = JSONB '["17.01","18.06","19.07","21.02","22.03","23.05","24.10","all"]';
-BEGIN
-  RETURN constants @> value;
-END;
-$$ LANGUAGE plpgsql;
-
--- object .'$any_platform'.'|'.32
-CREATE OR REPLACE FUNCTION _jm_obj_61(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-  prop TEXT;
-  pval JSONB;
-  arr_61_idx INT8;
-  arr_61_item JSONB;
-BEGIN
-  IF NOT (JSONB_TYPEOF(val) = 'object') THEN
-    RETURN FALSE;
-  END IF;
-  FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF prop = 'name' THEN
-      -- handle may name property
-      -- .'$any_platform'.'|'.32.name
-      res := JSONB_TYPEOF(pval) = 'string' AND JSON_VALUE(pval, '$' RETURNING TEXT) = 'OpenWrt';
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-    ELSEIF prop = 'versions' THEN
-      -- handle may versions property
-      -- .'$any_platform'.'|'.32.versions
-      res := JSONB_TYPEOF(pval) = 'array';
-      IF res THEN
-        FOR arr_61_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
-          arr_61_item := pval -> arr_61_idx;
-          -- .'$any_platform'.'|'.32.versions.0
-          res := JSONB_TYPEOF(arr_61_item) IN ('null', 'boolean', 'number', 'string') AND _jm_cst_43(arr_61_item);
-          IF NOT res THEN
-            EXIT;
-          END IF;
-        END LOOP;
-      END IF;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-    ELSE
-      RETURN FALSE;
-    END IF;
-  END LOOP;
-  RETURN TRUE;
-END;
-$$ LANGUAGE PLpgSQL;
-
-CREATE OR REPLACE FUNCTION _jm_cst_44(value JSONB)
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  constants JSONB = JSONB '["12.1","12.2","12.3","13.1","13.2","15.0","15.1","15.2","15.3","15.4","15.5","42.1","42.2","42.3","all"]';
-BEGIN
-  RETURN constants @> value;
-END;
-$$ LANGUAGE plpgsql;
-
--- object .'$any_platform'.'|'.31
-CREATE OR REPLACE FUNCTION _jm_obj_62(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-  prop TEXT;
-  pval JSONB;
-  arr_62_idx INT8;
-  arr_62_item JSONB;
-BEGIN
-  IF NOT (JSONB_TYPEOF(val) = 'object') THEN
-    RETURN FALSE;
-  END IF;
-  FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF prop = 'name' THEN
-      -- handle may name property
-      -- .'$any_platform'.'|'.31.name
-      res := JSONB_TYPEOF(pval) = 'string' AND JSON_VALUE(pval, '$' RETURNING TEXT) = 'opensuse';
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-    ELSEIF prop = 'versions' THEN
-      -- handle may versions property
-      -- .'$any_platform'.'|'.31.versions
-      res := JSONB_TYPEOF(pval) = 'array';
-      IF res THEN
-        FOR arr_62_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
-          arr_62_item := pval -> arr_62_idx;
-          -- .'$any_platform'.'|'.31.versions.0
-          res := JSONB_TYPEOF(arr_62_item) IN ('null', 'boolean', 'number', 'string') AND _jm_cst_44(arr_62_item);
-          IF NOT res THEN
-            EXIT;
-          END IF;
-        END LOOP;
-      END IF;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-    ELSE
-      RETURN FALSE;
-    END IF;
-  END LOOP;
-  RETURN TRUE;
-END;
-$$ LANGUAGE PLpgSQL;
-
-CREATE OR REPLACE FUNCTION _jm_cst_45(value JSONB)
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  constants JSONB = JSONB '["5.6","5.7","5.8","5.9","6.0","6.1","6.2","6.3","6.4","6.5","6.6","6.7","6.8","6.9","7.0","7.1","7.2","7.3","all"]';
-BEGIN
-  RETURN constants @> value;
-END;
-$$ LANGUAGE plpgsql;
-
--- object .'$any_platform'.'|'.30
-CREATE OR REPLACE FUNCTION _jm_obj_63(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-  prop TEXT;
-  pval JSONB;
-  arr_63_idx INT8;
-  arr_63_item JSONB;
-BEGIN
-  IF NOT (JSONB_TYPEOF(val) = 'object') THEN
-    RETURN FALSE;
-  END IF;
-  FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF prop = 'name' THEN
-      -- handle may name property
-      -- .'$any_platform'.'|'.30.name
-      res := JSONB_TYPEOF(pval) = 'string' AND JSON_VALUE(pval, '$' RETURNING TEXT) = 'OpenBSD';
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-    ELSEIF prop = 'versions' THEN
-      -- handle may versions property
-      -- .'$any_platform'.'|'.30.versions
-      res := JSONB_TYPEOF(pval) = 'array';
-      IF res THEN
-        FOR arr_63_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
-          arr_63_item := pval -> arr_63_idx;
-          -- .'$any_platform'.'|'.30.versions.0
-          res := JSONB_TYPEOF(arr_63_item) IN ('null', 'boolean', 'number', 'string') AND _jm_cst_45(arr_63_item);
-          IF NOT res THEN
-            EXIT;
-          END IF;
-        END LOOP;
-      END IF;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-    ELSE
-      RETURN FALSE;
-    END IF;
-  END LOOP;
-  RETURN TRUE;
-END;
-$$ LANGUAGE PLpgSQL;
-
--- object .'$any_platform'.'|'.29
-CREATE OR REPLACE FUNCTION _jm_obj_64(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-  prop TEXT;
-  pval JSONB;
-  arr_64_idx INT8;
-  arr_64_item JSONB;
-BEGIN
-  IF NOT (JSONB_TYPEOF(val) = 'object') THEN
-    RETURN FALSE;
-  END IF;
-  FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF prop = 'name' THEN
-      -- handle may name property
-      -- .'$any_platform'.'|'.29.name
-      res := JSONB_TYPEOF(pval) = 'string' AND JSON_VALUE(pval, '$' RETURNING TEXT) = 'NXOS';
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-    ELSEIF prop = 'versions' THEN
-      -- handle may versions property
-      -- .'$any_platform'.'|'.29.versions
-      res := JSONB_TYPEOF(pval) = 'array';
-      IF res THEN
-        FOR arr_64_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
-          arr_64_item := pval -> arr_64_idx;
-          -- .'$any_platform'.'|'.29.versions.0
-          res := JSONB_TYPEOF(arr_64_item) = 'string' AND JSON_VALUE(arr_64_item, '$' RETURNING TEXT) = 'all';
-          IF NOT res THEN
-            EXIT;
-          END IF;
-        END LOOP;
-      END IF;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-    ELSE
-      RETURN FALSE;
-    END IF;
-  END LOOP;
-  RETURN TRUE;
-END;
-$$ LANGUAGE PLpgSQL;
-
-CREATE OR REPLACE FUNCTION _jm_cst_46(value JSONB)
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  constants JSONB = JSONB '["7","8","all"]';
-BEGIN
-  RETURN constants @> value;
-END;
-$$ LANGUAGE plpgsql;
-
--- object .'$any_platform'.'|'.28
-CREATE OR REPLACE FUNCTION _jm_obj_65(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-  prop TEXT;
-  pval JSONB;
-  arr_65_idx INT8;
-  arr_65_item JSONB;
-BEGIN
-  IF NOT (JSONB_TYPEOF(val) = 'object') THEN
-    RETURN FALSE;
-  END IF;
-  FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF prop = 'name' THEN
-      -- handle may name property
-      -- .'$any_platform'.'|'.28.name
-      res := JSONB_TYPEOF(pval) = 'string' AND JSON_VALUE(pval, '$' RETURNING TEXT) = 'Megeia';
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-    ELSEIF prop = 'versions' THEN
-      -- handle may versions property
-      -- .'$any_platform'.'|'.28.versions
-      res := JSONB_TYPEOF(pval) = 'array';
-      IF res THEN
-        FOR arr_65_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
-          arr_65_item := pval -> arr_65_idx;
-          -- .'$any_platform'.'|'.28.versions.0
-          res := JSONB_TYPEOF(arr_65_item) IN ('null', 'boolean', 'number', 'string') AND _jm_cst_46(arr_65_item);
-          IF NOT res THEN
-            EXIT;
-          END IF;
-        END LOOP;
-      END IF;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-    ELSE
-      RETURN FALSE;
-    END IF;
-  END LOOP;
-  RETURN TRUE;
-END;
-$$ LANGUAGE PLpgSQL;
-
-CREATE OR REPLACE FUNCTION _jm_cst_47(value JSONB)
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  constants JSONB = JSONB '["10.7","10.8","10.9","10.10","10.11","10.12","10.13","10.14","10.15","all"]';
-BEGIN
-  RETURN constants @> value;
-END;
-$$ LANGUAGE plpgsql;
-
--- object .'$any_platform'.'|'.27
-CREATE OR REPLACE FUNCTION _jm_obj_66(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-  prop TEXT;
-  pval JSONB;
-  arr_66_idx INT8;
-  arr_66_item JSONB;
-BEGIN
-  IF NOT (JSONB_TYPEOF(val) = 'object') THEN
-    RETURN FALSE;
-  END IF;
-  FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF prop = 'name' THEN
-      -- handle may name property
-      -- .'$any_platform'.'|'.27.name
-      res := JSONB_TYPEOF(pval) = 'string' AND JSON_VALUE(pval, '$' RETURNING TEXT) = 'Kali';
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-    ELSEIF prop = 'versions' THEN
-      -- handle may versions property
-      -- .'$any_platform'.'|'.27.versions
-      res := JSONB_TYPEOF(pval) = 'array';
-      IF res THEN
-        FOR arr_66_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
-          arr_66_item := pval -> arr_66_idx;
-          -- .'$any_platform'.'|'.27.versions.0
-          res := JSONB_TYPEOF(arr_66_item) IN ('null', 'boolean', 'number', 'string') AND _jm_cst_47(arr_66_item);
-          IF NOT res THEN
-            EXIT;
-          END IF;
-        END LOOP;
-      END IF;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-    ELSE
-      RETURN FALSE;
-    END IF;
-  END LOOP;
-  RETURN TRUE;
-END;
-$$ LANGUAGE PLpgSQL;
-
-CREATE OR REPLACE FUNCTION _jm_cst_48(value JSONB)
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  constants JSONB = JSONB '["Big-Sur","Catalina","High-Sierra","Mojave","Monterey","Sierra","Sonoma","Ventura","all"]';
-BEGIN
-  RETURN constants @> value;
-END;
-$$ LANGUAGE plpgsql;
-
--- object .'$any_platform'.'|'.26
-CREATE OR REPLACE FUNCTION _jm_obj_67(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-  prop TEXT;
-  pval JSONB;
-  arr_67_idx INT8;
-  arr_67_item JSONB;
-BEGIN
-  IF NOT (JSONB_TYPEOF(val) = 'object') THEN
-    RETURN FALSE;
-  END IF;
-  FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF prop = 'name' THEN
-      -- handle may name property
-      -- .'$any_platform'.'|'.26.name
-      res := JSONB_TYPEOF(pval) = 'string' AND JSON_VALUE(pval, '$' RETURNING TEXT) = 'macOS';
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-    ELSEIF prop = 'versions' THEN
-      -- handle may versions property
-      -- .'$any_platform'.'|'.26.versions
-      res := JSONB_TYPEOF(pval) = 'array';
-      IF res THEN
-        FOR arr_67_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
-          arr_67_item := pval -> arr_67_idx;
-          -- .'$any_platform'.'|'.26.versions.0
-          res := JSONB_TYPEOF(arr_67_item) IN ('null', 'boolean', 'number', 'string') AND _jm_cst_48(arr_67_item);
-          IF NOT res THEN
-            EXIT;
-          END IF;
-        END LOOP;
-      END IF;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-    ELSE
-      RETURN FALSE;
-    END IF;
-  END LOOP;
-  RETURN TRUE;
-END;
-$$ LANGUAGE PLpgSQL;
-
-CREATE OR REPLACE FUNCTION _jm_cst_49(value JSONB)
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  constants JSONB = JSONB '["2.0","2016","2017","2018","2019","2020","2021","2022","2023","all"]';
-BEGIN
-  RETURN constants @> value;
-END;
-$$ LANGUAGE plpgsql;
-
--- object .'$any_platform'.'|'.25
-CREATE OR REPLACE FUNCTION _jm_obj_68(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-  prop TEXT;
-  pval JSONB;
-  arr_68_idx INT8;
-  arr_68_item JSONB;
-BEGIN
-  IF NOT (JSONB_TYPEOF(val) = 'object') THEN
-    RETURN FALSE;
-  END IF;
-  FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF prop = 'name' THEN
-      -- handle may name property
-      -- .'$any_platform'.'|'.25.name
-      res := JSONB_TYPEOF(pval) = 'string' AND JSON_VALUE(pval, '$' RETURNING TEXT) = 'Kali';
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-    ELSEIF prop = 'versions' THEN
-      -- handle may versions property
-      -- .'$any_platform'.'|'.25.versions
-      res := JSONB_TYPEOF(pval) = 'array';
-      IF res THEN
-        FOR arr_68_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
-          arr_68_item := pval -> arr_68_idx;
-          -- .'$any_platform'.'|'.25.versions.0
-          res := JSONB_TYPEOF(arr_68_item) IN ('null', 'boolean', 'number', 'string') AND _jm_cst_49(arr_68_item);
-          IF NOT res THEN
-            EXIT;
-          END IF;
-        END LOOP;
-      END IF;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-    ELSE
-      RETURN FALSE;
-    END IF;
-  END LOOP;
-  RETURN TRUE;
-END;
-$$ LANGUAGE PLpgSQL;
-
--- object .'$any_platform'.'|'.24
-CREATE OR REPLACE FUNCTION _jm_obj_69(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-  prop TEXT;
-  pval JSONB;
-  arr_69_idx INT8;
-  arr_69_item JSONB;
-BEGIN
-  IF NOT (JSONB_TYPEOF(val) = 'object') THEN
-    RETURN FALSE;
-  END IF;
-  FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF prop = 'name' THEN
-      -- handle may name property
-      -- .'$any_platform'.'|'.24.name
-      res := JSONB_TYPEOF(pval) = 'string' AND JSON_VALUE(pval, '$' RETURNING TEXT) = 'Junos';
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-    ELSEIF prop = 'versions' THEN
-      -- handle may versions property
-      -- .'$any_platform'.'|'.24.versions
-      res := JSONB_TYPEOF(pval) = 'array';
-      IF res THEN
-        FOR arr_69_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
-          arr_69_item := pval -> arr_69_idx;
-          -- .'$any_platform'.'|'.24.versions.0
-          res := JSONB_TYPEOF(arr_69_item) = 'string' AND JSON_VALUE(arr_69_item, '$' RETURNING TEXT) = 'all';
-          IF NOT res THEN
-            EXIT;
-          END IF;
-        END LOOP;
-      END IF;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-    ELSE
-      RETURN FALSE;
-    END IF;
-  END LOOP;
-  RETURN TRUE;
-END;
-$$ LANGUAGE PLpgSQL;
-
--- object .'$any_platform'.'|'.23
-CREATE OR REPLACE FUNCTION _jm_obj_70(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-  prop TEXT;
-  pval JSONB;
-  arr_70_idx INT8;
-  arr_70_item JSONB;
-BEGIN
-  IF NOT (JSONB_TYPEOF(val) = 'object') THEN
-    RETURN FALSE;
-  END IF;
-  FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF prop = 'name' THEN
-      -- handle may name property
-      -- .'$any_platform'.'|'.23.name
-      res := JSONB_TYPEOF(pval) = 'string' AND JSON_VALUE(pval, '$' RETURNING TEXT) = 'IOS';
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-    ELSEIF prop = 'versions' THEN
-      -- handle may versions property
-      -- .'$any_platform'.'|'.23.versions
-      res := JSONB_TYPEOF(pval) = 'array';
-      IF res THEN
-        FOR arr_70_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
-          arr_70_item := pval -> arr_70_idx;
-          -- .'$any_platform'.'|'.23.versions.0
-          res := JSONB_TYPEOF(arr_70_item) = 'string' AND JSON_VALUE(arr_70_item, '$' RETURNING TEXT) = 'all';
-          IF NOT res THEN
-            EXIT;
-          END IF;
-        END LOOP;
-      END IF;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-    ELSE
-      RETURN FALSE;
-    END IF;
-  END LOOP;
-  RETURN TRUE;
-END;
-$$ LANGUAGE PLpgSQL;
-
-CREATE OR REPLACE FUNCTION _jm_cst_50(value JSONB)
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  constants JSONB = JSONB '["10","11","all"]';
-BEGIN
-  RETURN constants @> value;
-END;
-$$ LANGUAGE plpgsql;
-
--- object .'$any_platform'.'|'.22
-CREATE OR REPLACE FUNCTION _jm_obj_71(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-  prop TEXT;
-  pval JSONB;
-  arr_71_idx INT8;
-  arr_71_item JSONB;
-BEGIN
-  IF NOT (JSONB_TYPEOF(val) = 'object') THEN
-    RETURN FALSE;
-  END IF;
-  FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF prop = 'name' THEN
-      -- handle may name property
-      -- .'$any_platform'.'|'.22.name
-      res := JSONB_TYPEOF(pval) = 'string' AND JSON_VALUE(pval, '$' RETURNING TEXT) = 'HardenedBSD';
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-    ELSEIF prop = 'versions' THEN
-      -- handle may versions property
-      -- .'$any_platform'.'|'.22.versions
-      res := JSONB_TYPEOF(pval) = 'array';
-      IF res THEN
-        FOR arr_71_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
-          arr_71_item := pval -> arr_71_idx;
-          -- .'$any_platform'.'|'.22.versions.0
-          res := JSONB_TYPEOF(arr_71_item) IN ('null', 'boolean', 'number', 'string') AND _jm_cst_50(arr_71_item);
-          IF NOT res THEN
-            EXIT;
-          END IF;
-        END LOOP;
-      END IF;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-    ELSE
-      RETURN FALSE;
-    END IF;
-  END LOOP;
-  RETURN TRUE;
-END;
-$$ LANGUAGE PLpgSQL;
-
--- object .'$any_platform'.'|'.21
-CREATE OR REPLACE FUNCTION _jm_obj_72(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-  prop TEXT;
-  pval JSONB;
-  arr_72_idx INT8;
-  arr_72_item JSONB;
-BEGIN
-  IF NOT (JSONB_TYPEOF(val) = 'object') THEN
-    RETURN FALSE;
-  END IF;
-  FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF prop = 'name' THEN
-      -- handle may name property
-      -- .'$any_platform'.'|'.21.name
-      res := JSONB_TYPEOF(pval) = 'string' AND JSON_VALUE(pval, '$' RETURNING TEXT) = 'Gentoo';
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-    ELSEIF prop = 'versions' THEN
-      -- handle may versions property
-      -- .'$any_platform'.'|'.21.versions
-      res := JSONB_TYPEOF(pval) = 'array';
-      IF res THEN
-        FOR arr_72_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
-          arr_72_item := pval -> arr_72_idx;
-          -- .'$any_platform'.'|'.21.versions.0
-          res := JSONB_TYPEOF(arr_72_item) = 'string' AND JSON_VALUE(arr_72_item, '$' RETURNING TEXT) = 'all';
-          IF NOT res THEN
-            EXIT;
-          END IF;
-        END LOOP;
-      END IF;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-    ELSE
-      RETURN FALSE;
-    END IF;
-  END LOOP;
-  RETURN TRUE;
-END;
-$$ LANGUAGE PLpgSQL;
-
--- object .'$any_platform'.'|'.20
-CREATE OR REPLACE FUNCTION _jm_obj_73(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-  prop TEXT;
-  pval JSONB;
-  arr_73_idx INT8;
-  arr_73_item JSONB;
-BEGIN
-  IF NOT (JSONB_TYPEOF(val) = 'object') THEN
-    RETURN FALSE;
-  END IF;
-  FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF prop = 'name' THEN
-      -- handle may name property
-      -- .'$any_platform'.'|'.20.name
-      res := JSONB_TYPEOF(pval) = 'string' AND JSON_VALUE(pval, '$' RETURNING TEXT) = 'GenericUNIX';
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-    ELSEIF prop = 'versions' THEN
-      -- handle may versions property
-      -- .'$any_platform'.'|'.20.versions
-      res := JSONB_TYPEOF(pval) = 'array';
-      IF res THEN
-        FOR arr_73_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
-          arr_73_item := pval -> arr_73_idx;
-          -- .'$any_platform'.'|'.20.versions.0
-          res := JSONB_TYPEOF(arr_73_item) = 'string' AND JSON_VALUE(arr_73_item, '$' RETURNING TEXT) = 'all';
-          IF NOT res THEN
-            EXIT;
-          END IF;
-        END LOOP;
-      END IF;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-    ELSE
-      RETURN FALSE;
-    END IF;
-  END LOOP;
-  RETURN TRUE;
-END;
-$$ LANGUAGE PLpgSQL;
-
--- object .'$any_platform'.'|'.19
-CREATE OR REPLACE FUNCTION _jm_obj_74(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-  prop TEXT;
-  pval JSONB;
-  arr_74_idx INT8;
-  arr_74_item JSONB;
-BEGIN
-  IF NOT (JSONB_TYPEOF(val) = 'object') THEN
-    RETURN FALSE;
-  END IF;
-  FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF prop = 'name' THEN
-      -- handle may name property
-      -- .'$any_platform'.'|'.19.name
-      res := JSONB_TYPEOF(pval) = 'string' AND JSON_VALUE(pval, '$' RETURNING TEXT) = 'GenericLinux';
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-    ELSEIF prop = 'versions' THEN
-      -- handle may versions property
-      -- .'$any_platform'.'|'.19.versions
-      res := JSONB_TYPEOF(pval) = 'array';
-      IF res THEN
-        FOR arr_74_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
-          arr_74_item := pval -> arr_74_idx;
-          -- .'$any_platform'.'|'.19.versions.0
-          res := JSONB_TYPEOF(arr_74_item) = 'string' AND JSON_VALUE(arr_74_item, '$' RETURNING TEXT) = 'all';
-          IF NOT res THEN
-            EXIT;
-          END IF;
-        END LOOP;
-      END IF;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-    ELSE
-      RETURN FALSE;
-    END IF;
-  END LOOP;
-  RETURN TRUE;
-END;
-$$ LANGUAGE PLpgSQL;
-
--- object .'$any_platform'.'|'.18
-CREATE OR REPLACE FUNCTION _jm_obj_75(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-  prop TEXT;
-  pval JSONB;
-  arr_75_idx INT8;
-  arr_75_item JSONB;
-BEGIN
-  IF NOT (JSONB_TYPEOF(val) = 'object') THEN
-    RETURN FALSE;
-  END IF;
-  FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF prop = 'name' THEN
-      -- handle may name property
-      -- .'$any_platform'.'|'.18.name
-      res := JSONB_TYPEOF(pval) = 'string' AND JSON_VALUE(pval, '$' RETURNING TEXT) = 'GenericBSD';
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-    ELSEIF prop = 'versions' THEN
-      -- handle may versions property
-      -- .'$any_platform'.'|'.18.versions
-      res := JSONB_TYPEOF(pval) = 'array';
-      IF res THEN
-        FOR arr_75_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
-          arr_75_item := pval -> arr_75_idx;
-          -- .'$any_platform'.'|'.18.versions.0
-          res := JSONB_TYPEOF(arr_75_item) = 'string' AND JSON_VALUE(arr_75_item, '$' RETURNING TEXT) = 'all';
-          IF NOT res THEN
-            EXIT;
-          END IF;
-        END LOOP;
-      END IF;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-    ELSE
-      RETURN FALSE;
-    END IF;
-  END LOOP;
-  RETURN TRUE;
-END;
-$$ LANGUAGE PLpgSQL;
-
-CREATE OR REPLACE FUNCTION _jm_cst_51(value JSONB)
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  constants JSONB = JSONB '["8.0","8.1","8.2","8.3","8.4","9.0","9.1","9.2","9.3","10.0","10.1","10.2","10.3","10.4","11.0","11.1","11.2","11.3","11.4","12.0","12.1","12.2","13.0","13.1","13.2","14.0","all"]';
-BEGIN
-  RETURN constants @> value;
-END;
-$$ LANGUAGE plpgsql;
-
--- object .'$any_platform'.'|'.17
-CREATE OR REPLACE FUNCTION _jm_obj_76(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-  prop TEXT;
-  pval JSONB;
-  arr_76_idx INT8;
-  arr_76_item JSONB;
-BEGIN
-  IF NOT (JSONB_TYPEOF(val) = 'object') THEN
-    RETURN FALSE;
-  END IF;
-  FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF prop = 'name' THEN
-      -- handle may name property
-      -- .'$any_platform'.'|'.17.name
-      res := JSONB_TYPEOF(pval) = 'string' AND JSON_VALUE(pval, '$' RETURNING TEXT) = 'FreeBSD';
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-    ELSEIF prop = 'versions' THEN
-      -- handle may versions property
-      -- .'$any_platform'.'|'.17.versions
-      res := JSONB_TYPEOF(pval) = 'array';
-      IF res THEN
-        FOR arr_76_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
-          arr_76_item := pval -> arr_76_idx;
-          -- .'$any_platform'.'|'.17.versions.0
-          res := JSONB_TYPEOF(arr_76_item) IN ('null', 'boolean', 'number', 'string') AND _jm_cst_51(arr_76_item);
-          IF NOT res THEN
-            EXIT;
-          END IF;
-        END LOOP;
-      END IF;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-    ELSE
-      RETURN FALSE;
-    END IF;
-  END LOOP;
-  RETURN TRUE;
-END;
-$$ LANGUAGE PLpgSQL;
-
-CREATE OR REPLACE FUNCTION _jm_cst_52(value JSONB)
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  constants JSONB = JSONB '["16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31","32","33","34","35","36","37","38","39","40","41","42","all"]';
-BEGIN
-  RETURN constants @> value;
-END;
-$$ LANGUAGE plpgsql;
-
--- object .'$any_platform'.'|'.16
-CREATE OR REPLACE FUNCTION _jm_obj_77(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-  prop TEXT;
-  pval JSONB;
-  arr_77_idx INT8;
-  arr_77_item JSONB;
-BEGIN
-  IF NOT (JSONB_TYPEOF(val) = 'object') THEN
-    RETURN FALSE;
-  END IF;
-  FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF prop = 'name' THEN
-      -- handle may name property
-      -- .'$any_platform'.'|'.16.name
-      res := JSONB_TYPEOF(pval) = 'string' AND JSON_VALUE(pval, '$' RETURNING TEXT) = 'Fedora';
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-    ELSEIF prop = 'versions' THEN
-      -- handle may versions property
-      -- .'$any_platform'.'|'.16.versions
-      res := JSONB_TYPEOF(pval) = 'array';
-      IF res THEN
-        FOR arr_77_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
-          arr_77_item := pval -> arr_77_idx;
-          -- .'$any_platform'.'|'.16.versions.0
-          res := JSONB_TYPEOF(arr_77_item) IN ('null', 'boolean', 'number', 'string') AND _jm_cst_52(arr_77_item);
-          IF NOT res THEN
-            EXIT;
-          END IF;
-        END LOOP;
-      END IF;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-    ELSE
-      RETURN FALSE;
-    END IF;
-  END LOOP;
-  RETURN TRUE;
-END;
-$$ LANGUAGE PLpgSQL;
-
--- object .'$any_platform'.'|'.15
-CREATE OR REPLACE FUNCTION _jm_obj_78(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-  prop TEXT;
-  pval JSONB;
-  arr_78_idx INT8;
-  arr_78_item JSONB;
-BEGIN
-  IF NOT (JSONB_TYPEOF(val) = 'object') THEN
-    RETURN FALSE;
-  END IF;
-  FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF prop = 'name' THEN
-      -- handle may name property
-      -- .'$any_platform'.'|'.15.name
-      res := JSONB_TYPEOF(pval) = 'string' AND JSON_VALUE(pval, '$' RETURNING TEXT) = 'eos';
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-    ELSEIF prop = 'versions' THEN
-      -- handle may versions property
-      -- .'$any_platform'.'|'.15.versions
-      res := JSONB_TYPEOF(pval) = 'array';
-      IF res THEN
-        FOR arr_78_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
-          arr_78_item := pval -> arr_78_idx;
-          -- .'$any_platform'.'|'.15.versions.0
-          res := JSONB_TYPEOF(arr_78_item) = 'string' AND JSON_VALUE(arr_78_item, '$' RETURNING TEXT) = 'all';
-          IF NOT res THEN
-            EXIT;
-          END IF;
-        END LOOP;
-      END IF;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-    ELSE
-      RETURN FALSE;
-    END IF;
-  END LOOP;
-  RETURN TRUE;
-END;
-$$ LANGUAGE PLpgSQL;
-
-CREATE OR REPLACE FUNCTION _jm_cst_53(value JSONB)
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  constants JSONB = JSONB '["5","6","7","8","9","10","all"]';
-BEGIN
-  RETURN constants @> value;
-END;
-$$ LANGUAGE plpgsql;
-
--- object .'$any_platform'.'|'.14
-CREATE OR REPLACE FUNCTION _jm_obj_79(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-  prop TEXT;
-  pval JSONB;
-  arr_79_idx INT8;
-  arr_79_item JSONB;
-BEGIN
-  IF NOT (JSONB_TYPEOF(val) = 'object') THEN
-    RETURN FALSE;
-  END IF;
-  FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF prop = 'name' THEN
-      -- handle may name property
-      -- .'$any_platform'.'|'.14.name
-      res := JSONB_TYPEOF(pval) = 'string' AND JSON_VALUE(pval, '$' RETURNING TEXT) = 'EL';
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-    ELSEIF prop = 'versions' THEN
-      -- handle may versions property
-      -- .'$any_platform'.'|'.14.versions
-      res := JSONB_TYPEOF(pval) = 'array';
-      IF res THEN
-        FOR arr_79_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
-          arr_79_item := pval -> arr_79_idx;
-          -- .'$any_platform'.'|'.14.versions.0
-          res := JSONB_TYPEOF(arr_79_item) IN ('null', 'boolean', 'number', 'string') AND _jm_cst_53(arr_79_item);
-          IF NOT res THEN
-            EXIT;
-          END IF;
-        END LOOP;
-      END IF;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-    ELSE
-      RETURN FALSE;
-    END IF;
-  END LOOP;
-  RETURN TRUE;
-END;
-$$ LANGUAGE PLpgSQL;
-
-CREATE OR REPLACE FUNCTION _jm_cst_54(value JSONB)
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  constants JSONB = JSONB '["5.2","5.4","5.6","5.8","6.0","6.2","6.4","all"]';
-BEGIN
-  RETURN constants @> value;
-END;
-$$ LANGUAGE plpgsql;
-
--- object .'$any_platform'.'|'.13
-CREATE OR REPLACE FUNCTION _jm_obj_80(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-  prop TEXT;
-  pval JSONB;
-  arr_80_idx INT8;
-  arr_80_item JSONB;
-BEGIN
-  IF NOT (JSONB_TYPEOF(val) = 'object') THEN
-    RETURN FALSE;
-  END IF;
-  FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF prop = 'name' THEN
-      -- handle may name property
-      -- .'$any_platform'.'|'.13.name
-      res := JSONB_TYPEOF(pval) = 'string' AND JSON_VALUE(pval, '$' RETURNING TEXT) = 'DragonFlyBSD';
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-    ELSEIF prop = 'versions' THEN
-      -- handle may versions property
-      -- .'$any_platform'.'|'.13.versions
-      res := JSONB_TYPEOF(pval) = 'array';
-      IF res THEN
-        FOR arr_80_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
-          arr_80_item := pval -> arr_80_idx;
-          -- .'$any_platform'.'|'.13.versions.0
-          res := JSONB_TYPEOF(arr_80_item) IN ('null', 'boolean', 'number', 'string') AND _jm_cst_54(arr_80_item);
-          IF NOT res THEN
-            EXIT;
-          END IF;
-        END LOOP;
-      END IF;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-    ELSE
-      RETURN FALSE;
-    END IF;
-  END LOOP;
-  RETURN TRUE;
-END;
-$$ LANGUAGE PLpgSQL;
-
-CREATE OR REPLACE FUNCTION _jm_cst_55(value JSONB)
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  constants JSONB = JSONB '["ascii","beowulf","chimaera","daedalus","jessie","all"]';
-BEGIN
-  RETURN constants @> value;
-END;
-$$ LANGUAGE plpgsql;
-
--- object .'$any_platform'.'|'.12
-CREATE OR REPLACE FUNCTION _jm_obj_81(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-  prop TEXT;
-  pval JSONB;
-  arr_81_idx INT8;
-  arr_81_item JSONB;
-BEGIN
-  IF NOT (JSONB_TYPEOF(val) = 'object') THEN
-    RETURN FALSE;
-  END IF;
-  FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF prop = 'name' THEN
-      -- handle may name property
-      -- .'$any_platform'.'|'.12.name
-      res := JSONB_TYPEOF(pval) = 'string' AND JSON_VALUE(pval, '$' RETURNING TEXT) = 'Devuan';
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-    ELSEIF prop = 'versions' THEN
-      -- handle may versions property
-      -- .'$any_platform'.'|'.12.versions
-      res := JSONB_TYPEOF(pval) = 'array';
-      IF res THEN
-        FOR arr_81_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
-          arr_81_item := pval -> arr_81_idx;
-          -- .'$any_platform'.'|'.12.versions.0
-          res := JSONB_TYPEOF(arr_81_item) IN ('null', 'boolean', 'number', 'string') AND _jm_cst_55(arr_81_item);
-          IF NOT res THEN
-            EXIT;
-          END IF;
-        END LOOP;
-      END IF;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-    ELSE
-      RETURN FALSE;
-    END IF;
-  END LOOP;
-  RETURN TRUE;
-END;
-$$ LANGUAGE PLpgSQL;
-
-CREATE OR REPLACE FUNCTION _jm_cst_56(value JSONB)
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  constants JSONB = JSONB '["10","6","9","all"]';
-BEGIN
-  RETURN constants @> value;
-END;
-$$ LANGUAGE plpgsql;
-
--- object .'$any_platform'.'|'.11
-CREATE OR REPLACE FUNCTION _jm_obj_82(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-  prop TEXT;
-  pval JSONB;
-  arr_82_idx INT8;
-  arr_82_item JSONB;
-BEGIN
-  IF NOT (JSONB_TYPEOF(val) = 'object') THEN
-    RETURN FALSE;
-  END IF;
-  FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF prop = 'name' THEN
-      -- handle may name property
-      -- .'$any_platform'.'|'.11.name
-      res := JSONB_TYPEOF(pval) = 'string' AND JSON_VALUE(pval, '$' RETURNING TEXT) = 'DellOS';
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-    ELSEIF prop = 'versions' THEN
-      -- handle may versions property
-      -- .'$any_platform'.'|'.11.versions
-      res := JSONB_TYPEOF(pval) = 'array';
-      IF res THEN
-        FOR arr_82_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
-          arr_82_item := pval -> arr_82_idx;
-          -- .'$any_platform'.'|'.11.versions.0
-          res := JSONB_TYPEOF(arr_82_item) IN ('null', 'boolean', 'number', 'string') AND _jm_cst_56(arr_82_item);
-          IF NOT res THEN
-            EXIT;
-          END IF;
-        END LOOP;
-      END IF;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-    ELSE
-      RETURN FALSE;
-    END IF;
-  END LOOP;
-  RETURN TRUE;
-END;
-$$ LANGUAGE PLpgSQL;
-
-CREATE OR REPLACE FUNCTION _jm_cst_57(value JSONB)
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  constants JSONB = JSONB '["bookworm","bullseye","buster","etch","jessie","lenny","sid","squeeze","stretch","trixie","wheezy","all"]';
-BEGIN
-  RETURN constants @> value;
-END;
-$$ LANGUAGE plpgsql;
-
--- object .'$any_platform'.'|'.10
-CREATE OR REPLACE FUNCTION _jm_obj_83(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-  prop TEXT;
-  pval JSONB;
-  arr_83_idx INT8;
-  arr_83_item JSONB;
-BEGIN
-  IF NOT (JSONB_TYPEOF(val) = 'object') THEN
-    RETURN FALSE;
-  END IF;
-  FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF prop = 'name' THEN
-      -- handle may name property
-      -- .'$any_platform'.'|'.10.name
-      res := JSONB_TYPEOF(pval) = 'string' AND JSON_VALUE(pval, '$' RETURNING TEXT) = 'Debian';
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-    ELSEIF prop = 'versions' THEN
-      -- handle may versions property
-      -- .'$any_platform'.'|'.10.versions
-      res := JSONB_TYPEOF(pval) = 'array';
-      IF res THEN
-        FOR arr_83_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
-          arr_83_item := pval -> arr_83_idx;
-          -- .'$any_platform'.'|'.10.versions.0
-          res := JSONB_TYPEOF(arr_83_item) IN ('null', 'boolean', 'number', 'string') AND _jm_cst_57(arr_83_item);
-          IF NOT res THEN
-            EXIT;
-          END IF;
-        END LOOP;
-      END IF;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-    ELSE
-      RETURN FALSE;
-    END IF;
-  END LOOP;
-  RETURN TRUE;
-END;
-$$ LANGUAGE PLpgSQL;
-
-CREATE OR REPLACE FUNCTION _jm_cst_58(value JSONB)
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  constants JSONB = JSONB '["8.0","8.1","8.2","9.0","9.1","9.2","9.3","10.0","all"]';
-BEGIN
-  RETURN constants @> value;
-END;
-$$ LANGUAGE plpgsql;
-
--- object .'$any_platform'.'|'.9
-CREATE OR REPLACE FUNCTION _jm_obj_84(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-  prop TEXT;
-  pval JSONB;
-  arr_84_idx INT8;
-  arr_84_item JSONB;
-BEGIN
-  IF NOT (JSONB_TYPEOF(val) = 'object') THEN
-    RETURN FALSE;
-  END IF;
-  FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF prop = 'name' THEN
-      -- handle may name property
-      -- .'$any_platform'.'|'.9.name
-      res := JSONB_TYPEOF(pval) = 'string' AND JSON_VALUE(pval, '$' RETURNING TEXT) = 'NetBSD';
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-    ELSEIF prop = 'versions' THEN
-      -- handle may versions property
-      -- .'$any_platform'.'|'.9.versions
-      res := JSONB_TYPEOF(pval) = 'array';
-      IF res THEN
-        FOR arr_84_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
-          arr_84_item := pval -> arr_84_idx;
-          -- .'$any_platform'.'|'.9.versions.0
-          res := JSONB_TYPEOF(arr_84_item) IN ('null', 'boolean', 'number', 'string') AND _jm_cst_58(arr_84_item);
-          IF NOT res THEN
-            EXIT;
-          END IF;
-        END LOOP;
-      END IF;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-    ELSE
-      RETURN FALSE;
-    END IF;
-  END LOOP;
-  RETURN TRUE;
-END;
-$$ LANGUAGE PLpgSQL;
-
-CREATE OR REPLACE FUNCTION _jm_cst_59(value JSONB)
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  constants JSONB = JSONB '["2.5","3.0","3.1","3.2","3.3","3.4","3.5","all"]';
-BEGIN
-  RETURN constants @> value;
-END;
-$$ LANGUAGE plpgsql;
-
--- object .'$any_platform'.'|'.8
-CREATE OR REPLACE FUNCTION _jm_obj_85(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-  prop TEXT;
-  pval JSONB;
-  arr_85_idx INT8;
-  arr_85_item JSONB;
-BEGIN
-  IF NOT (JSONB_TYPEOF(val) = 'object') THEN
-    RETURN FALSE;
-  END IF;
-  FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF prop = 'name' THEN
-      -- handle may name property
-      -- .'$any_platform'.'|'.8.name
-      res := JSONB_TYPEOF(pval) = 'string' AND JSON_VALUE(pval, '$' RETURNING TEXT) = 'Cumulus';
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-    ELSEIF prop = 'versions' THEN
-      -- handle may versions property
-      -- .'$any_platform'.'|'.8.versions
-      res := JSONB_TYPEOF(pval) = 'array';
-      IF res THEN
-        FOR arr_85_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
-          arr_85_item := pval -> arr_85_idx;
-          -- .'$any_platform'.'|'.8.versions.0
-          res := JSONB_TYPEOF(arr_85_item) IN ('null', 'boolean', 'number', 'string') AND _jm_cst_59(arr_85_item);
-          IF NOT res THEN
-            EXIT;
-          END IF;
-        END LOOP;
-      END IF;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-    ELSE
-      RETURN FALSE;
-    END IF;
-  END LOOP;
-  RETURN TRUE;
-END;
-$$ LANGUAGE PLpgSQL;
-
--- object .'$any_platform'.'|'.7
-CREATE OR REPLACE FUNCTION _jm_obj_86(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-  prop TEXT;
-  pval JSONB;
-  arr_86_idx INT8;
-  arr_86_item JSONB;
-BEGIN
-  IF NOT (JSONB_TYPEOF(val) = 'object') THEN
-    RETURN FALSE;
-  END IF;
-  FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF prop = 'name' THEN
-      -- handle may name property
-      -- .'$any_platform'.'|'.7.name
-      res := JSONB_TYPEOF(pval) = 'string' AND JSON_VALUE(pval, '$' RETURNING TEXT) = 'ClearLinux';
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-    ELSEIF prop = 'versions' THEN
-      -- handle may versions property
-      -- .'$any_platform'.'|'.7.versions
-      res := JSONB_TYPEOF(pval) = 'array';
-      IF res THEN
-        FOR arr_86_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
-          arr_86_item := pval -> arr_86_idx;
-          -- .'$any_platform'.'|'.7.versions.0
-          res := JSONB_TYPEOF(arr_86_item) = 'string' AND JSON_VALUE(arr_86_item, '$' RETURNING TEXT) = 'all';
-          IF NOT res THEN
-            EXIT;
-          END IF;
-        END LOOP;
-      END IF;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-    ELSE
-      RETURN FALSE;
-    END IF;
-  END LOOP;
-  RETURN TRUE;
-END;
-$$ LANGUAGE PLpgSQL;
-
-CREATE OR REPLACE FUNCTION _jm_cst_60(value JSONB)
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  constants JSONB = JSONB '["1.8","1.7","1.6","2.12","all"]';
-BEGIN
-  RETURN constants @> value;
-END;
-$$ LANGUAGE plpgsql;
-
--- object .'$any_platform'.'|'.6
-CREATE OR REPLACE FUNCTION _jm_obj_87(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-  prop TEXT;
-  pval JSONB;
-  arr_87_idx INT8;
-  arr_87_item JSONB;
-BEGIN
-  IF NOT (JSONB_TYPEOF(val) = 'object') THEN
-    RETURN FALSE;
-  END IF;
-  FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF prop = 'name' THEN
-      -- handle may name property
-      -- .'$any_platform'.'|'.6.name
-      res := JSONB_TYPEOF(pval) = 'string' AND JSON_VALUE(pval, '$' RETURNING TEXT) = 'Astra Linux';
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-    ELSEIF prop = 'versions' THEN
-      -- handle may versions property
-      -- .'$any_platform'.'|'.6.versions
-      res := JSONB_TYPEOF(pval) = 'array';
-      IF res THEN
-        FOR arr_87_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
-          arr_87_item := pval -> arr_87_idx;
-          -- .'$any_platform'.'|'.6.versions.0
-          res := JSONB_TYPEOF(arr_87_item) IN ('null', 'boolean', 'number', 'string') AND _jm_cst_60(arr_87_item);
-          IF NOT res THEN
-            EXIT;
-          END IF;
-        END LOOP;
-      END IF;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-    ELSE
-      RETURN FALSE;
-    END IF;
-  END LOOP;
-  RETURN TRUE;
-END;
-$$ LANGUAGE PLpgSQL;
-
--- object .'$any_platform'.'|'.5
-CREATE OR REPLACE FUNCTION _jm_obj_88(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-  prop TEXT;
-  pval JSONB;
-  arr_88_idx INT8;
-  arr_88_item JSONB;
-BEGIN
-  IF NOT (JSONB_TYPEOF(val) = 'object') THEN
-    RETURN FALSE;
-  END IF;
-  FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF prop = 'name' THEN
-      -- handle may name property
-      -- .'$any_platform'.'|'.5.name
-      res := JSONB_TYPEOF(pval) = 'string' AND JSON_VALUE(pval, '$' RETURNING TEXT) = 'ArchLinux';
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-    ELSEIF prop = 'versions' THEN
-      -- handle may versions property
-      -- .'$any_platform'.'|'.5.versions
-      res := JSONB_TYPEOF(pval) = 'array';
-      IF res THEN
-        FOR arr_88_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
-          arr_88_item := pval -> arr_88_idx;
-          -- .'$any_platform'.'|'.5.versions.0
-          res := JSONB_TYPEOF(arr_88_item) = 'string' AND JSON_VALUE(arr_88_item, '$' RETURNING TEXT) = 'all';
-          IF NOT res THEN
-            EXIT;
-          END IF;
-        END LOOP;
-      END IF;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-    ELSE
-      RETURN FALSE;
-    END IF;
-  END LOOP;
-  RETURN TRUE;
-END;
-$$ LANGUAGE PLpgSQL;
-
--- object .'$any_platform'.'|'.4
-CREATE OR REPLACE FUNCTION _jm_obj_89(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-  prop TEXT;
-  pval JSONB;
-  arr_89_idx INT8;
-  arr_89_item JSONB;
-BEGIN
-  IF NOT (JSONB_TYPEOF(val) = 'object') THEN
-    RETURN FALSE;
-  END IF;
-  FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF prop = 'name' THEN
-      -- handle may name property
-      -- .'$any_platform'.'|'.4.name
-      res := JSONB_TYPEOF(pval) = 'string' AND JSON_VALUE(pval, '$' RETURNING TEXT) = 'aos';
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-    ELSEIF prop = 'versions' THEN
-      -- handle may versions property
-      -- .'$any_platform'.'|'.4.versions
-      res := JSONB_TYPEOF(pval) = 'array';
-      IF res THEN
-        FOR arr_89_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
-          arr_89_item := pval -> arr_89_idx;
-          -- .'$any_platform'.'|'.4.versions.0
-          res := JSONB_TYPEOF(arr_89_item) = 'string' AND JSON_VALUE(arr_89_item, '$' RETURNING TEXT) = 'all';
-          IF NOT res THEN
-            EXIT;
-          END IF;
-        END LOOP;
-      END IF;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-    ELSE
-      RETURN FALSE;
-    END IF;
-  END LOOP;
-  RETURN TRUE;
-END;
-$$ LANGUAGE PLpgSQL;
-
-CREATE OR REPLACE FUNCTION _jm_cst_61(value JSONB)
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  constants JSONB = JSONB '["all","1","2","2023"]';
-BEGIN
-  RETURN constants @> value;
-END;
-$$ LANGUAGE plpgsql;
-
--- object .'$any_platform'.'|'.3
-CREATE OR REPLACE FUNCTION _jm_obj_90(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-  prop TEXT;
-  pval JSONB;
-  arr_90_idx INT8;
-  arr_90_item JSONB;
-BEGIN
-  IF NOT (JSONB_TYPEOF(val) = 'object') THEN
-    RETURN FALSE;
-  END IF;
-  FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF prop = 'name' THEN
-      -- handle may name property
-      -- .'$any_platform'.'|'.3.name
-      res := JSONB_TYPEOF(pval) = 'string' AND JSON_VALUE(pval, '$' RETURNING TEXT) = 'Amazon Linux';
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-    ELSEIF prop = 'versions' THEN
-      -- handle may versions property
-      -- .'$any_platform'.'|'.3.versions
-      res := JSONB_TYPEOF(pval) = 'array';
-      IF res THEN
-        FOR arr_90_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
-          arr_90_item := pval -> arr_90_idx;
-          -- .'$any_platform'.'|'.3.versions.0
-          res := JSONB_TYPEOF(arr_90_item) IN ('null', 'boolean', 'number', 'string') AND _jm_cst_61(arr_90_item);
-          IF NOT res THEN
-            EXIT;
-          END IF;
-        END LOOP;
-      END IF;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-    ELSE
-      RETURN FALSE;
-    END IF;
-  END LOOP;
-  RETURN TRUE;
-END;
-$$ LANGUAGE PLpgSQL;
-
-CREATE OR REPLACE FUNCTION _jm_cst_62(value JSONB)
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  constants JSONB = JSONB '["2013.03","2013.09","2014.03","2014.09","2015.03","2015.09","2016.03","2016.09","2017.03","2017.09","2017.12","2018.03","Candidate","all"]';
-BEGIN
-  RETURN constants @> value;
-END;
-$$ LANGUAGE plpgsql;
-
--- object .'$any_platform'.'|'.2
-CREATE OR REPLACE FUNCTION _jm_obj_91(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-  prop TEXT;
-  pval JSONB;
-  arr_91_idx INT8;
-  arr_91_item JSONB;
-BEGIN
-  IF NOT (JSONB_TYPEOF(val) = 'object') THEN
-    RETURN FALSE;
-  END IF;
-  FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF prop = 'name' THEN
-      -- handle may name property
-      -- .'$any_platform'.'|'.2.name
-      res := JSONB_TYPEOF(pval) = 'string' AND JSON_VALUE(pval, '$' RETURNING TEXT) = 'Amazon';
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-    ELSEIF prop = 'versions' THEN
-      -- handle may versions property
-      -- .'$any_platform'.'|'.2.versions
-      res := JSONB_TYPEOF(pval) = 'array';
-      IF res THEN
-        FOR arr_91_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
-          arr_91_item := pval -> arr_91_idx;
-          -- .'$any_platform'.'|'.2.versions.0
-          res := JSONB_TYPEOF(arr_91_item) IN ('null', 'boolean', 'number', 'string') AND _jm_cst_62(arr_91_item);
-          IF NOT res THEN
-            EXIT;
-          END IF;
-        END LOOP;
-      END IF;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-    ELSE
-      RETURN FALSE;
-    END IF;
-  END LOOP;
-  RETURN TRUE;
-END;
-$$ LANGUAGE PLpgSQL;
-
--- object .'$any_platform'.'|'.1
-CREATE OR REPLACE FUNCTION _jm_obj_92(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-  prop TEXT;
-  pval JSONB;
-  arr_92_idx INT8;
-  arr_92_item JSONB;
-BEGIN
-  IF NOT (JSONB_TYPEOF(val) = 'object') THEN
-    RETURN FALSE;
-  END IF;
-  FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF prop = 'name' THEN
-      -- handle may name property
-      -- .'$any_platform'.'|'.1.name
-      res := JSONB_TYPEOF(pval) = 'string' AND JSON_VALUE(pval, '$' RETURNING TEXT) = 'Alpine';
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-    ELSEIF prop = 'versions' THEN
-      -- handle may versions property
-      -- .'$any_platform'.'|'.1.versions
-      res := JSONB_TYPEOF(pval) = 'array';
-      IF res THEN
-        FOR arr_92_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
-          arr_92_item := pval -> arr_92_idx;
-          -- .'$any_platform'.'|'.1.versions.0
-          res := JSONB_TYPEOF(arr_92_item) = 'string' AND JSON_VALUE(arr_92_item, '$' RETURNING TEXT) = 'all';
-          IF NOT res THEN
-            EXIT;
-          END IF;
-        END LOOP;
-      END IF;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-    ELSE
-      RETURN FALSE;
-    END IF;
-  END LOOP;
-  RETURN TRUE;
-END;
-$$ LANGUAGE PLpgSQL;
-
-CREATE OR REPLACE FUNCTION _jm_cst_63(value JSONB)
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  constants JSONB = JSONB '["6.1","7.1","7.2","all"]';
-BEGIN
-  RETURN constants @> value;
-END;
-$$ LANGUAGE plpgsql;
-
--- object .'$any_platform'.'|'.0
-CREATE OR REPLACE FUNCTION _jm_obj_93(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-  prop TEXT;
-  pval JSONB;
-  arr_93_idx INT8;
-  arr_93_item JSONB;
-BEGIN
-  IF NOT (JSONB_TYPEOF(val) = 'object') THEN
-    RETURN FALSE;
-  END IF;
-  FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF prop = 'name' THEN
-      -- handle may name property
-      -- .'$any_platform'.'|'.0.name
-      res := JSONB_TYPEOF(pval) = 'string' AND JSON_VALUE(pval, '$' RETURNING TEXT) = 'AIX';
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-    ELSEIF prop = 'versions' THEN
-      -- handle may versions property
-      -- .'$any_platform'.'|'.0.versions
-      res := JSONB_TYPEOF(pval) = 'array';
-      IF res THEN
-        FOR arr_93_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
-          arr_93_item := pval -> arr_93_idx;
-          -- .'$any_platform'.'|'.0.versions.0
-          res := JSONB_TYPEOF(arr_93_item) IN ('null', 'boolean', 'number', 'string') AND _jm_cst_63(arr_93_item);
-          IF NOT res THEN
-            EXIT;
-          END IF;
-        END LOOP;
-      END IF;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-    ELSE
-      RETURN FALSE;
-    END IF;
-  END LOOP;
-  RETURN TRUE;
-END;
-$$ LANGUAGE PLpgSQL;
-
 -- check $any_platform (.'$any_platform')
 CREATE OR REPLACE FUNCTION json_model_49(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
@@ -5477,149 +3027,146 @@ DECLARE
 BEGIN
   -- FIXME: name is not mandatory, not sure it makes much sense… versions should be unique?
   -- .'$any_platform'
-  res := JSONB_TYPEOF(val) = 'object';
-  IF res THEN
-    -- .'$any_platform'.'|'.0
-    res := _jm_obj_93(val, path, rep);
+  -- .'$any_platform'.'|'.0
+  res := json_model_2(val, path, rep);
+  IF NOT res THEN
+    -- .'$any_platform'.'|'.1
+    res := json_model_3(val, path, rep);
     IF NOT res THEN
-      -- .'$any_platform'.'|'.1
-      res := _jm_obj_92(val, path, rep);
+      -- .'$any_platform'.'|'.2
+      res := json_model_5(val, path, rep);
       IF NOT res THEN
-        -- .'$any_platform'.'|'.2
-        res := _jm_obj_91(val, path, rep);
+        -- .'$any_platform'.'|'.3
+        res := json_model_4(val, path, rep);
         IF NOT res THEN
-          -- .'$any_platform'.'|'.3
-          res := _jm_obj_90(val, path, rep);
+          -- .'$any_platform'.'|'.4
+          res := json_model_42(val, path, rep);
           IF NOT res THEN
-            -- .'$any_platform'.'|'.4
-            res := _jm_obj_89(val, path, rep);
+            -- .'$any_platform'.'|'.5
+            res := json_model_6(val, path, rep);
             IF NOT res THEN
-              -- .'$any_platform'.'|'.5
-              res := _jm_obj_88(val, path, rep);
+              -- .'$any_platform'.'|'.6
+              res := json_model_7(val, path, rep);
               IF NOT res THEN
-                -- .'$any_platform'.'|'.6
-                res := _jm_obj_87(val, path, rep);
+                -- .'$any_platform'.'|'.7
+                res := json_model_8(val, path, rep);
                 IF NOT res THEN
-                  -- .'$any_platform'.'|'.7
-                  res := _jm_obj_86(val, path, rep);
+                  -- .'$any_platform'.'|'.8
+                  res := json_model_9(val, path, rep);
                   IF NOT res THEN
-                    -- .'$any_platform'.'|'.8
-                    res := _jm_obj_85(val, path, rep);
+                    -- .'$any_platform'.'|'.9
+                    res := json_model_28(val, path, rep);
                     IF NOT res THEN
-                      -- .'$any_platform'.'|'.9
-                      res := _jm_obj_84(val, path, rep);
+                      -- .'$any_platform'.'|'.10
+                      res := json_model_10(val, path, rep);
                       IF NOT res THEN
-                        -- .'$any_platform'.'|'.10
-                        res := _jm_obj_83(val, path, rep);
+                        -- .'$any_platform'.'|'.11
+                        res := json_model_11(val, path, rep);
                         IF NOT res THEN
-                          -- .'$any_platform'.'|'.11
-                          res := _jm_obj_82(val, path, rep);
+                          -- .'$any_platform'.'|'.12
+                          res := json_model_12(val, path, rep);
                           IF NOT res THEN
-                            -- .'$any_platform'.'|'.12
-                            res := _jm_obj_81(val, path, rep);
+                            -- .'$any_platform'.'|'.13
+                            res := json_model_13(val, path, rep);
                             IF NOT res THEN
-                              -- .'$any_platform'.'|'.13
-                              res := _jm_obj_80(val, path, rep);
+                              -- .'$any_platform'.'|'.14
+                              res := json_model_14(val, path, rep);
                               IF NOT res THEN
-                                -- .'$any_platform'.'|'.14
-                                res := _jm_obj_79(val, path, rep);
+                                -- .'$any_platform'.'|'.15
+                                res := json_model_43(val, path, rep);
                                 IF NOT res THEN
-                                  -- .'$any_platform'.'|'.15
-                                  res := _jm_obj_78(val, path, rep);
+                                  -- .'$any_platform'.'|'.16
+                                  res := json_model_15(val, path, rep);
                                   IF NOT res THEN
-                                    -- .'$any_platform'.'|'.16
-                                    res := _jm_obj_77(val, path, rep);
+                                    -- .'$any_platform'.'|'.17
+                                    res := json_model_16(val, path, rep);
                                     IF NOT res THEN
-                                      -- .'$any_platform'.'|'.17
-                                      res := _jm_obj_76(val, path, rep);
+                                      -- .'$any_platform'.'|'.18
+                                      res := json_model_17(val, path, rep);
                                       IF NOT res THEN
-                                        -- .'$any_platform'.'|'.18
-                                        res := _jm_obj_75(val, path, rep);
+                                        -- .'$any_platform'.'|'.19
+                                        res := json_model_18(val, path, rep);
                                         IF NOT res THEN
-                                          -- .'$any_platform'.'|'.19
-                                          res := _jm_obj_74(val, path, rep);
+                                          -- .'$any_platform'.'|'.20
+                                          res := json_model_19(val, path, rep);
                                           IF NOT res THEN
-                                            -- .'$any_platform'.'|'.20
-                                            res := _jm_obj_73(val, path, rep);
+                                            -- .'$any_platform'.'|'.21
+                                            res := json_model_20(val, path, rep);
                                             IF NOT res THEN
-                                              -- .'$any_platform'.'|'.21
-                                              res := _jm_obj_72(val, path, rep);
+                                              -- .'$any_platform'.'|'.22
+                                              res := json_model_21(val, path, rep);
                                               IF NOT res THEN
-                                                -- .'$any_platform'.'|'.22
-                                                res := _jm_obj_71(val, path, rep);
+                                                -- .'$any_platform'.'|'.23
+                                                res := json_model_22(val, path, rep);
                                                 IF NOT res THEN
-                                                  -- .'$any_platform'.'|'.23
-                                                  res := _jm_obj_70(val, path, rep);
+                                                  -- .'$any_platform'.'|'.24
+                                                  res := json_model_23(val, path, rep);
                                                   IF NOT res THEN
-                                                    -- .'$any_platform'.'|'.24
-                                                    res := _jm_obj_69(val, path, rep);
+                                                    -- .'$any_platform'.'|'.25
+                                                    res := json_model_24(val, path, rep);
                                                     IF NOT res THEN
-                                                      -- .'$any_platform'.'|'.25
-                                                      res := _jm_obj_68(val, path, rep);
+                                                      -- .'$any_platform'.'|'.26
+                                                      res := json_model_44(val, path, rep);
                                                       IF NOT res THEN
-                                                        -- .'$any_platform'.'|'.26
-                                                        res := _jm_obj_67(val, path, rep);
+                                                        -- .'$any_platform'.'|'.27
+                                                        res := json_model_25(val, path, rep);
                                                         IF NOT res THEN
-                                                          -- .'$any_platform'.'|'.27
-                                                          res := _jm_obj_66(val, path, rep);
+                                                          -- .'$any_platform'.'|'.28
+                                                          res := json_model_26(val, path, rep);
                                                           IF NOT res THEN
-                                                            -- .'$any_platform'.'|'.28
-                                                            res := _jm_obj_65(val, path, rep);
+                                                            -- .'$any_platform'.'|'.29
+                                                            res := json_model_27(val, path, rep);
                                                             IF NOT res THEN
-                                                              -- .'$any_platform'.'|'.29
-                                                              res := _jm_obj_64(val, path, rep);
+                                                              -- .'$any_platform'.'|'.30
+                                                              res := json_model_29(val, path, rep);
                                                               IF NOT res THEN
-                                                                -- .'$any_platform'.'|'.30
-                                                                res := _jm_obj_63(val, path, rep);
+                                                                -- .'$any_platform'.'|'.31
+                                                                res := json_model_45(val, path, rep);
                                                                 IF NOT res THEN
-                                                                  -- .'$any_platform'.'|'.31
-                                                                  res := _jm_obj_62(val, path, rep);
+                                                                  -- .'$any_platform'.'|'.32
+                                                                  res := json_model_30(val, path, rep);
                                                                   IF NOT res THEN
-                                                                    -- .'$any_platform'.'|'.32
-                                                                    res := _jm_obj_61(val, path, rep);
+                                                                    -- .'$any_platform'.'|'.33
+                                                                    res := json_model_31(val, path, rep);
                                                                     IF NOT res THEN
-                                                                      -- .'$any_platform'.'|'.33
-                                                                      res := _jm_obj_60(val, path, rep);
+                                                                      -- .'$any_platform'.'|'.34
+                                                                      res := json_model_46(val, path, rep);
                                                                       IF NOT res THEN
-                                                                        -- .'$any_platform'.'|'.34
-                                                                        res := _jm_obj_59(val, path, rep);
+                                                                        -- .'$any_platform'.'|'.35
+                                                                        res := json_model_32(val, path, rep);
                                                                         IF NOT res THEN
-                                                                          -- .'$any_platform'.'|'.35
-                                                                          res := _jm_obj_58(val, path, rep);
+                                                                          -- .'$any_platform'.'|'.36
+                                                                          res := json_model_33(val, path, rep);
                                                                           IF NOT res THEN
-                                                                            -- .'$any_platform'.'|'.36
-                                                                            res := _jm_obj_57(val, path, rep);
+                                                                            -- .'$any_platform'.'|'.37
+                                                                            res := json_model_34(val, path, rep);
                                                                             IF NOT res THEN
-                                                                              -- .'$any_platform'.'|'.37
-                                                                              res := _jm_obj_56(val, path, rep);
+                                                                              -- .'$any_platform'.'|'.38
+                                                                              res := json_model_35(val, path, rep);
                                                                               IF NOT res THEN
-                                                                                -- .'$any_platform'.'|'.38
-                                                                                res := _jm_obj_55(val, path, rep);
+                                                                                -- .'$any_platform'.'|'.39
+                                                                                res := json_model_36(val, path, rep);
                                                                                 IF NOT res THEN
-                                                                                  -- .'$any_platform'.'|'.39
-                                                                                  res := _jm_obj_54(val, path, rep);
+                                                                                  -- .'$any_platform'.'|'.40
+                                                                                  res := json_model_37(val, path, rep);
                                                                                   IF NOT res THEN
-                                                                                    -- .'$any_platform'.'|'.40
-                                                                                    res := _jm_obj_53(val, path, rep);
+                                                                                    -- .'$any_platform'.'|'.41
+                                                                                    res := json_model_38(val, path, rep);
                                                                                     IF NOT res THEN
-                                                                                      -- .'$any_platform'.'|'.41
-                                                                                      res := _jm_obj_52(val, path, rep);
+                                                                                      -- .'$any_platform'.'|'.42
+                                                                                      res := json_model_39(val, path, rep);
                                                                                       IF NOT res THEN
-                                                                                        -- .'$any_platform'.'|'.42
-                                                                                        res := _jm_obj_51(val, path, rep);
+                                                                                        -- .'$any_platform'.'|'.43
+                                                                                        res := json_model_47(val, path, rep);
                                                                                         IF NOT res THEN
-                                                                                          -- .'$any_platform'.'|'.43
-                                                                                          res := _jm_obj_50(val, path, rep);
+                                                                                          -- .'$any_platform'.'|'.44
+                                                                                          res := json_model_40(val, path, rep);
                                                                                           IF NOT res THEN
-                                                                                            -- .'$any_platform'.'|'.44
-                                                                                            res := _jm_obj_49(val, path, rep);
+                                                                                            -- .'$any_platform'.'|'.45
+                                                                                            res := json_model_48(val, path, rep);
                                                                                             IF NOT res THEN
-                                                                                              -- .'$any_platform'.'|'.45
-                                                                                              res := _jm_obj_48(val, path, rep);
-                                                                                              IF NOT res THEN
-                                                                                                -- .'$any_platform'.'|'.46
-                                                                                                res := _jm_obj_47(val, path, rep);
-                                                                                              END IF;
+                                                                                              -- .'$any_platform'.'|'.46
+                                                                                              res := json_model_41(val, path, rep);
                                                                                             END IF;
                                                                                           END IF;
                                                                                         END IF;
@@ -5670,7 +3217,7 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
-CREATE OR REPLACE FUNCTION _jm_cst_64(value JSONB)
+CREATE OR REPLACE FUNCTION _jm_cst_32(value JSONB)
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   constants JSONB = JSONB '["2008R2","2008x64","2008x86","2012","2012R2","2016","2019","2022","2025","all"]';
@@ -5680,13 +3227,13 @@ END;
 $$ LANGUAGE plpgsql;
 
 -- object .'$platforms'.0.'|'.46
-CREATE OR REPLACE FUNCTION _jm_obj_94(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_obj_47(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   pval JSONB;
   res bool;
-  arr_95_idx INT8;
-  arr_95_item JSONB;
+  arr_48_idx INT8;
+  arr_48_item JSONB;
 BEGIN
   -- check must only props
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
@@ -5705,10 +3252,10 @@ BEGIN
     -- .'$platforms'.0.'|'.46.versions
     res := JSONB_TYPEOF(pval) = 'array';
     IF res THEN
-      FOR arr_95_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
-        arr_95_item := pval -> arr_95_idx;
+      FOR arr_48_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
+        arr_48_item := pval -> arr_48_idx;
         -- .'$platforms'.0.'|'.46.versions.0
-        res := JSONB_TYPEOF(arr_95_item) IN ('null', 'boolean', 'number', 'string') AND _jm_cst_64(arr_95_item);
+        res := JSONB_TYPEOF(arr_48_item) IN ('null', 'boolean', 'number', 'string') AND _jm_cst_32(arr_48_item);
         IF NOT res THEN
           EXIT;
         END IF;
@@ -5722,7 +3269,7 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
-CREATE OR REPLACE FUNCTION _jm_cst_65(value JSONB)
+CREATE OR REPLACE FUNCTION _jm_cst_33(value JSONB)
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   constants JSONB = JSONB '["5.5","6.0","6.5","6.7","7.0","8.0","all"]';
@@ -5732,13 +3279,13 @@ END;
 $$ LANGUAGE plpgsql;
 
 -- object .'$platforms'.0.'|'.45
-CREATE OR REPLACE FUNCTION _jm_obj_95(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_obj_48(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   pval JSONB;
   res bool;
-  arr_96_idx INT8;
-  arr_96_item JSONB;
+  arr_49_idx INT8;
+  arr_49_item JSONB;
 BEGIN
   -- check must only props
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
@@ -5757,10 +3304,10 @@ BEGIN
     -- .'$platforms'.0.'|'.45.versions
     res := JSONB_TYPEOF(pval) = 'array';
     IF res THEN
-      FOR arr_96_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
-        arr_96_item := pval -> arr_96_idx;
+      FOR arr_49_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
+        arr_49_item := pval -> arr_49_idx;
         -- .'$platforms'.0.'|'.45.versions.0
-        res := JSONB_TYPEOF(arr_96_item) IN ('null', 'boolean', 'number', 'string') AND _jm_cst_65(arr_96_item);
+        res := JSONB_TYPEOF(arr_49_item) IN ('null', 'boolean', 'number', 'string') AND _jm_cst_33(arr_49_item);
         IF NOT res THEN
           EXIT;
         END IF;
@@ -5775,13 +3322,13 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- object .'$platforms'.0.'|'.44
-CREATE OR REPLACE FUNCTION _jm_obj_96(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_obj_49(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   pval JSONB;
   res bool;
-  arr_97_idx INT8;
-  arr_97_item JSONB;
+  arr_50_idx INT8;
+  arr_50_item JSONB;
 BEGIN
   -- check must only props
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
@@ -5800,10 +3347,10 @@ BEGIN
     -- .'$platforms'.0.'|'.44.versions
     res := JSONB_TYPEOF(pval) = 'array';
     IF res THEN
-      FOR arr_97_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
-        arr_97_item := pval -> arr_97_idx;
+      FOR arr_50_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
+        arr_50_item := pval -> arr_50_idx;
         -- .'$platforms'.0.'|'.44.versions.0
-        res := JSONB_TYPEOF(arr_97_item) = 'string' AND JSON_VALUE(arr_97_item, '$' RETURNING TEXT) = 'all';
+        res := JSONB_TYPEOF(arr_50_item) = 'string' AND JSON_VALUE(arr_50_item, '$' RETURNING TEXT) = 'all';
         IF NOT res THEN
           EXIT;
         END IF;
@@ -5817,7 +3364,7 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
-CREATE OR REPLACE FUNCTION _jm_cst_66(value JSONB)
+CREATE OR REPLACE FUNCTION _jm_cst_34(value JSONB)
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   constants JSONB = JSONB '["5.5","6.0","6.5","6.7","7.0","8.0","all"]';
@@ -5827,13 +3374,13 @@ END;
 $$ LANGUAGE plpgsql;
 
 -- object .'$platforms'.0.'|'.43
-CREATE OR REPLACE FUNCTION _jm_obj_97(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_obj_50(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   pval JSONB;
   res bool;
-  arr_98_idx INT8;
-  arr_98_item JSONB;
+  arr_51_idx INT8;
+  arr_51_item JSONB;
 BEGIN
   -- check must only props
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
@@ -5852,10 +3399,10 @@ BEGIN
     -- .'$platforms'.0.'|'.43.versions
     res := JSONB_TYPEOF(pval) = 'array';
     IF res THEN
-      FOR arr_98_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
-        arr_98_item := pval -> arr_98_idx;
+      FOR arr_51_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
+        arr_51_item := pval -> arr_51_idx;
         -- .'$platforms'.0.'|'.43.versions.0
-        res := JSONB_TYPEOF(arr_98_item) IN ('null', 'boolean', 'number', 'string') AND _jm_cst_66(arr_98_item);
+        res := JSONB_TYPEOF(arr_51_item) IN ('null', 'boolean', 'number', 'string') AND _jm_cst_34(arr_51_item);
         IF NOT res THEN
           EXIT;
         END IF;
@@ -5869,7 +3416,7 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
-CREATE OR REPLACE FUNCTION _jm_cst_67(value JSONB)
+CREATE OR REPLACE FUNCTION _jm_cst_35(value JSONB)
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   constants JSONB = JSONB '["artful","bionic","cosmic","disco","eoan","focal","groovy","hirsute","impish","jammy","kinetic","lucid","lunar","mantic","noble","maverick","natty","oneiric","oracular","plucky","precise","quantal","raring","saucy","trusty","utopic","vivid","wily","xenial","yakkety","zesty","all"]';
@@ -5879,13 +3426,13 @@ END;
 $$ LANGUAGE plpgsql;
 
 -- object .'$platforms'.0.'|'.42
-CREATE OR REPLACE FUNCTION _jm_obj_98(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_obj_51(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   pval JSONB;
   res bool;
-  arr_99_idx INT8;
-  arr_99_item JSONB;
+  arr_52_idx INT8;
+  arr_52_item JSONB;
 BEGIN
   -- check must only props
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
@@ -5904,10 +3451,10 @@ BEGIN
     -- .'$platforms'.0.'|'.42.versions
     res := JSONB_TYPEOF(pval) = 'array';
     IF res THEN
-      FOR arr_99_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
-        arr_99_item := pval -> arr_99_idx;
+      FOR arr_52_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
+        arr_52_item := pval -> arr_52_idx;
         -- .'$platforms'.0.'|'.42.versions.0
-        res := JSONB_TYPEOF(arr_99_item) IN ('null', 'boolean', 'number', 'string') AND _jm_cst_67(arr_99_item);
+        res := JSONB_TYPEOF(arr_52_item) IN ('null', 'boolean', 'number', 'string') AND _jm_cst_35(arr_52_item);
         IF NOT res THEN
           EXIT;
         END IF;
@@ -5921,7 +3468,7 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
-CREATE OR REPLACE FUNCTION _jm_cst_68(value JSONB)
+CREATE OR REPLACE FUNCTION _jm_cst_36(value JSONB)
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   constants JSONB = JSONB '["12.1","13.0","13.1","14.0","all"]';
@@ -5931,13 +3478,13 @@ END;
 $$ LANGUAGE plpgsql;
 
 -- object .'$platforms'.0.'|'.41
-CREATE OR REPLACE FUNCTION _jm_obj_99(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_obj_52(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   pval JSONB;
   res bool;
-  arr_100_idx INT8;
-  arr_100_item JSONB;
+  arr_53_idx INT8;
+  arr_53_item JSONB;
 BEGIN
   -- check must only props
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
@@ -5956,10 +3503,10 @@ BEGIN
     -- .'$platforms'.0.'|'.41.versions
     res := JSONB_TYPEOF(pval) = 'array';
     IF res THEN
-      FOR arr_100_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
-        arr_100_item := pval -> arr_100_idx;
+      FOR arr_53_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
+        arr_53_item := pval -> arr_53_idx;
         -- .'$platforms'.0.'|'.41.versions.0
-        res := JSONB_TYPEOF(arr_100_item) IN ('null', 'boolean', 'number', 'string') AND _jm_cst_68(arr_100_item);
+        res := JSONB_TYPEOF(arr_53_item) IN ('null', 'boolean', 'number', 'string') AND _jm_cst_36(arr_53_item);
         IF NOT res THEN
           EXIT;
         END IF;
@@ -5973,7 +3520,7 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
-CREATE OR REPLACE FUNCTION _jm_cst_69(value JSONB)
+CREATE OR REPLACE FUNCTION _jm_cst_37(value JSONB)
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   constants JSONB = JSONB '["6.0","6.1","6.2","7.0","all"]';
@@ -5983,13 +3530,13 @@ END;
 $$ LANGUAGE plpgsql;
 
 -- object .'$platforms'.0.'|'.40
-CREATE OR REPLACE FUNCTION _jm_obj_100(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_obj_53(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   pval JSONB;
   res bool;
-  arr_101_idx INT8;
-  arr_101_item JSONB;
+  arr_54_idx INT8;
+  arr_54_item JSONB;
 BEGIN
   -- check must only props
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
@@ -6008,10 +3555,10 @@ BEGIN
     -- .'$platforms'.0.'|'.40.versions
     res := JSONB_TYPEOF(pval) = 'array';
     IF res THEN
-      FOR arr_101_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
-        arr_101_item := pval -> arr_101_idx;
+      FOR arr_54_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
+        arr_54_item := pval -> arr_54_idx;
         -- .'$platforms'.0.'|'.40.versions.0
-        res := JSONB_TYPEOF(arr_101_item) IN ('null', 'boolean', 'number', 'string') AND _jm_cst_69(arr_101_item);
+        res := JSONB_TYPEOF(arr_54_item) IN ('null', 'boolean', 'number', 'string') AND _jm_cst_37(arr_54_item);
         IF NOT res THEN
           EXIT;
         END IF;
@@ -6025,7 +3572,7 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
-CREATE OR REPLACE FUNCTION _jm_cst_70(value JSONB)
+CREATE OR REPLACE FUNCTION _jm_cst_38(value JSONB)
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   constants JSONB = JSONB '["10","11.0","11.1","11.2","11.3","11.4","all"]';
@@ -6035,13 +3582,13 @@ END;
 $$ LANGUAGE plpgsql;
 
 -- object .'$platforms'.0.'|'.39
-CREATE OR REPLACE FUNCTION _jm_obj_101(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_obj_54(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   pval JSONB;
   res bool;
-  arr_102_idx INT8;
-  arr_102_item JSONB;
+  arr_55_idx INT8;
+  arr_55_item JSONB;
 BEGIN
   -- check must only props
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
@@ -6060,10 +3607,10 @@ BEGIN
     -- .'$platforms'.0.'|'.39.versions
     res := JSONB_TYPEOF(pval) = 'array';
     IF res THEN
-      FOR arr_102_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
-        arr_102_item := pval -> arr_102_idx;
+      FOR arr_55_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
+        arr_55_item := pval -> arr_55_idx;
         -- .'$platforms'.0.'|'.39.versions.0
-        res := JSONB_TYPEOF(arr_102_item) IN ('null', 'boolean', 'number', 'string') AND _jm_cst_70(arr_102_item);
+        res := JSONB_TYPEOF(arr_55_item) IN ('null', 'boolean', 'number', 'string') AND _jm_cst_38(arr_55_item);
         IF NOT res THEN
           EXIT;
         END IF;
@@ -6078,13 +3625,13 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- object .'$platforms'.0.'|'.38
-CREATE OR REPLACE FUNCTION _jm_obj_102(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_obj_55(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   pval JSONB;
   res bool;
-  arr_103_idx INT8;
-  arr_103_item JSONB;
+  arr_56_idx INT8;
+  arr_56_item JSONB;
 BEGIN
   -- check must only props
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
@@ -6103,10 +3650,10 @@ BEGIN
     -- .'$platforms'.0.'|'.38.versions
     res := JSONB_TYPEOF(pval) = 'array';
     IF res THEN
-      FOR arr_103_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
-        arr_103_item := pval -> arr_103_idx;
+      FOR arr_56_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
+        arr_56_item := pval -> arr_56_idx;
         -- .'$platforms'.0.'|'.38.versions.0
-        res := JSONB_TYPEOF(arr_103_item) = 'string' AND JSON_VALUE(arr_103_item, '$' RETURNING TEXT) = 'all';
+        res := JSONB_TYPEOF(arr_56_item) = 'string' AND JSON_VALUE(arr_56_item, '$' RETURNING TEXT) = 'all';
         IF NOT res THEN
           EXIT;
         END IF;
@@ -6120,7 +3667,7 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
-CREATE OR REPLACE FUNCTION _jm_cst_71(value JSONB)
+CREATE OR REPLACE FUNCTION _jm_cst_39(value JSONB)
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   constants JSONB = JSONB '["10SP3","10SP4","11","11SP1","11SP2","11SP3","11SP4","12","12SP1","12SP2","12SP3","12SP4","12SP5","15","15SP1","15SP2","15SP3","15SP4","15SP5","15SP6","all"]';
@@ -6130,13 +3677,13 @@ END;
 $$ LANGUAGE plpgsql;
 
 -- object .'$platforms'.0.'|'.37
-CREATE OR REPLACE FUNCTION _jm_obj_103(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_obj_56(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   pval JSONB;
   res bool;
-  arr_104_idx INT8;
-  arr_104_item JSONB;
+  arr_57_idx INT8;
+  arr_57_item JSONB;
 BEGIN
   -- check must only props
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
@@ -6155,10 +3702,10 @@ BEGIN
     -- .'$platforms'.0.'|'.37.versions
     res := JSONB_TYPEOF(pval) = 'array';
     IF res THEN
-      FOR arr_104_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
-        arr_104_item := pval -> arr_104_idx;
+      FOR arr_57_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
+        arr_57_item := pval -> arr_57_idx;
         -- .'$platforms'.0.'|'.37.versions.0
-        res := JSONB_TYPEOF(arr_104_item) IN ('null', 'boolean', 'number', 'string') AND _jm_cst_71(arr_104_item);
+        res := JSONB_TYPEOF(arr_57_item) IN ('null', 'boolean', 'number', 'string') AND _jm_cst_39(arr_57_item);
         IF NOT res THEN
           EXIT;
         END IF;
@@ -6172,7 +3719,7 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
-CREATE OR REPLACE FUNCTION _jm_cst_72(value JSONB)
+CREATE OR REPLACE FUNCTION _jm_cst_40(value JSONB)
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   constants JSONB = JSONB '["8.0","8.1","8.2","8.3","8.4","8.5","8.6","8.7","8.8","9.0","9.1","9.2","all"]';
@@ -6182,13 +3729,13 @@ END;
 $$ LANGUAGE plpgsql;
 
 -- object .'$platforms'.0.'|'.36
-CREATE OR REPLACE FUNCTION _jm_obj_104(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_obj_57(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   pval JSONB;
   res bool;
-  arr_105_idx INT8;
-  arr_105_item JSONB;
+  arr_58_idx INT8;
+  arr_58_item JSONB;
 BEGIN
   -- check must only props
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
@@ -6207,10 +3754,10 @@ BEGIN
     -- .'$platforms'.0.'|'.36.versions
     res := JSONB_TYPEOF(pval) = 'array';
     IF res THEN
-      FOR arr_105_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
-        arr_105_item := pval -> arr_105_idx;
+      FOR arr_58_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
+        arr_58_item := pval -> arr_58_idx;
         -- .'$platforms'.0.'|'.36.versions.0
-        res := JSONB_TYPEOF(arr_105_item) IN ('null', 'boolean', 'number', 'string') AND _jm_cst_72(arr_105_item);
+        res := JSONB_TYPEOF(arr_58_item) IN ('null', 'boolean', 'number', 'string') AND _jm_cst_40(arr_58_item);
         IF NOT res THEN
           EXIT;
         END IF;
@@ -6224,7 +3771,7 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
-CREATE OR REPLACE FUNCTION _jm_cst_73(value JSONB)
+CREATE OR REPLACE FUNCTION _jm_cst_41(value JSONB)
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   constants JSONB = JSONB '["7.1","8.0","8.1","9.0","all"]';
@@ -6234,13 +3781,13 @@ END;
 $$ LANGUAGE plpgsql;
 
 -- object .'$platforms'.0.'|'.35
-CREATE OR REPLACE FUNCTION _jm_obj_105(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_obj_58(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   pval JSONB;
   res bool;
-  arr_106_idx INT8;
-  arr_106_item JSONB;
+  arr_59_idx INT8;
+  arr_59_item JSONB;
 BEGIN
   -- check must only props
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
@@ -6259,10 +3806,10 @@ BEGIN
     -- .'$platforms'.0.'|'.35.versions
     res := JSONB_TYPEOF(pval) = 'array';
     IF res THEN
-      FOR arr_106_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
-        arr_106_item := pval -> arr_106_idx;
+      FOR arr_59_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
+        arr_59_item := pval -> arr_59_idx;
         -- .'$platforms'.0.'|'.35.versions.0
-        res := JSONB_TYPEOF(arr_106_item) IN ('null', 'boolean', 'number', 'string') AND _jm_cst_73(arr_106_item);
+        res := JSONB_TYPEOF(arr_59_item) IN ('null', 'boolean', 'number', 'string') AND _jm_cst_41(arr_59_item);
         IF NOT res THEN
           EXIT;
         END IF;
@@ -6277,13 +3824,13 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- object .'$platforms'.0.'|'.34
-CREATE OR REPLACE FUNCTION _jm_obj_106(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_obj_59(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   pval JSONB;
   res bool;
-  arr_107_idx INT8;
-  arr_107_item JSONB;
+  arr_60_idx INT8;
+  arr_60_item JSONB;
 BEGIN
   -- check must only props
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
@@ -6302,10 +3849,10 @@ BEGIN
     -- .'$platforms'.0.'|'.34.versions
     res := JSONB_TYPEOF(pval) = 'array';
     IF res THEN
-      FOR arr_107_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
-        arr_107_item := pval -> arr_107_idx;
+      FOR arr_60_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
+        arr_60_item := pval -> arr_60_idx;
         -- .'$platforms'.0.'|'.34.versions.0
-        res := JSONB_TYPEOF(arr_107_item) = 'string' AND JSON_VALUE(arr_107_item, '$' RETURNING TEXT) = 'all';
+        res := JSONB_TYPEOF(arr_60_item) = 'string' AND JSON_VALUE(arr_60_item, '$' RETURNING TEXT) = 'all';
         IF NOT res THEN
           EXIT;
         END IF;
@@ -6319,7 +3866,7 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
-CREATE OR REPLACE FUNCTION _jm_cst_74(value JSONB)
+CREATE OR REPLACE FUNCTION _jm_cst_42(value JSONB)
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   constants JSONB = JSONB '["7.0","7.1","7.2","7.3","7.4","7.5","7.6","7.7","7.8","7.9","8.0","8.1","8.2","8.3","8.4","8.5","8.6","8.7","8.8","8.9","8.10","9.0","9.1","9.2","9.3","9.4","all"]';
@@ -6329,13 +3876,13 @@ END;
 $$ LANGUAGE plpgsql;
 
 -- object .'$platforms'.0.'|'.33
-CREATE OR REPLACE FUNCTION _jm_obj_107(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_obj_60(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   pval JSONB;
   res bool;
-  arr_108_idx INT8;
-  arr_108_item JSONB;
+  arr_61_idx INT8;
+  arr_61_item JSONB;
 BEGIN
   -- check must only props
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
@@ -6354,10 +3901,10 @@ BEGIN
     -- .'$platforms'.0.'|'.33.versions
     res := JSONB_TYPEOF(pval) = 'array';
     IF res THEN
-      FOR arr_108_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
-        arr_108_item := pval -> arr_108_idx;
+      FOR arr_61_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
+        arr_61_item := pval -> arr_61_idx;
         -- .'$platforms'.0.'|'.33.versions.0
-        res := JSONB_TYPEOF(arr_108_item) IN ('null', 'boolean', 'number', 'string') AND _jm_cst_74(arr_108_item);
+        res := JSONB_TYPEOF(arr_61_item) IN ('null', 'boolean', 'number', 'string') AND _jm_cst_42(arr_61_item);
         IF NOT res THEN
           EXIT;
         END IF;
@@ -6371,7 +3918,7 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
-CREATE OR REPLACE FUNCTION _jm_cst_75(value JSONB)
+CREATE OR REPLACE FUNCTION _jm_cst_43(value JSONB)
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   constants JSONB = JSONB '["17.01","18.06","19.07","21.02","22.03","23.05","24.10","all"]';
@@ -6381,13 +3928,13 @@ END;
 $$ LANGUAGE plpgsql;
 
 -- object .'$platforms'.0.'|'.32
-CREATE OR REPLACE FUNCTION _jm_obj_108(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_obj_61(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   pval JSONB;
   res bool;
-  arr_109_idx INT8;
-  arr_109_item JSONB;
+  arr_62_idx INT8;
+  arr_62_item JSONB;
 BEGIN
   -- check must only props
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
@@ -6406,10 +3953,10 @@ BEGIN
     -- .'$platforms'.0.'|'.32.versions
     res := JSONB_TYPEOF(pval) = 'array';
     IF res THEN
-      FOR arr_109_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
-        arr_109_item := pval -> arr_109_idx;
+      FOR arr_62_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
+        arr_62_item := pval -> arr_62_idx;
         -- .'$platforms'.0.'|'.32.versions.0
-        res := JSONB_TYPEOF(arr_109_item) IN ('null', 'boolean', 'number', 'string') AND _jm_cst_75(arr_109_item);
+        res := JSONB_TYPEOF(arr_62_item) IN ('null', 'boolean', 'number', 'string') AND _jm_cst_43(arr_62_item);
         IF NOT res THEN
           EXIT;
         END IF;
@@ -6423,7 +3970,7 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
-CREATE OR REPLACE FUNCTION _jm_cst_76(value JSONB)
+CREATE OR REPLACE FUNCTION _jm_cst_44(value JSONB)
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   constants JSONB = JSONB '["12.1","12.2","12.3","13.1","13.2","15.0","15.1","15.2","15.3","15.4","15.5","42.1","42.2","42.3","all"]';
@@ -6433,13 +3980,13 @@ END;
 $$ LANGUAGE plpgsql;
 
 -- object .'$platforms'.0.'|'.31
-CREATE OR REPLACE FUNCTION _jm_obj_109(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_obj_62(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   pval JSONB;
   res bool;
-  arr_110_idx INT8;
-  arr_110_item JSONB;
+  arr_63_idx INT8;
+  arr_63_item JSONB;
 BEGIN
   -- check must only props
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
@@ -6458,10 +4005,10 @@ BEGIN
     -- .'$platforms'.0.'|'.31.versions
     res := JSONB_TYPEOF(pval) = 'array';
     IF res THEN
-      FOR arr_110_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
-        arr_110_item := pval -> arr_110_idx;
+      FOR arr_63_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
+        arr_63_item := pval -> arr_63_idx;
         -- .'$platforms'.0.'|'.31.versions.0
-        res := JSONB_TYPEOF(arr_110_item) IN ('null', 'boolean', 'number', 'string') AND _jm_cst_76(arr_110_item);
+        res := JSONB_TYPEOF(arr_63_item) IN ('null', 'boolean', 'number', 'string') AND _jm_cst_44(arr_63_item);
         IF NOT res THEN
           EXIT;
         END IF;
@@ -6475,7 +4022,7 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
-CREATE OR REPLACE FUNCTION _jm_cst_77(value JSONB)
+CREATE OR REPLACE FUNCTION _jm_cst_45(value JSONB)
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   constants JSONB = JSONB '["5.6","5.7","5.8","5.9","6.0","6.1","6.2","6.3","6.4","6.5","6.6","6.7","6.8","6.9","7.0","7.1","7.2","7.3","all"]';
@@ -6485,13 +4032,13 @@ END;
 $$ LANGUAGE plpgsql;
 
 -- object .'$platforms'.0.'|'.30
-CREATE OR REPLACE FUNCTION _jm_obj_110(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_obj_63(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   pval JSONB;
   res bool;
-  arr_111_idx INT8;
-  arr_111_item JSONB;
+  arr_64_idx INT8;
+  arr_64_item JSONB;
 BEGIN
   -- check must only props
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
@@ -6510,10 +4057,10 @@ BEGIN
     -- .'$platforms'.0.'|'.30.versions
     res := JSONB_TYPEOF(pval) = 'array';
     IF res THEN
-      FOR arr_111_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
-        arr_111_item := pval -> arr_111_idx;
+      FOR arr_64_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
+        arr_64_item := pval -> arr_64_idx;
         -- .'$platforms'.0.'|'.30.versions.0
-        res := JSONB_TYPEOF(arr_111_item) IN ('null', 'boolean', 'number', 'string') AND _jm_cst_77(arr_111_item);
+        res := JSONB_TYPEOF(arr_64_item) IN ('null', 'boolean', 'number', 'string') AND _jm_cst_45(arr_64_item);
         IF NOT res THEN
           EXIT;
         END IF;
@@ -6528,13 +4075,13 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- object .'$platforms'.0.'|'.29
-CREATE OR REPLACE FUNCTION _jm_obj_111(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_obj_64(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   pval JSONB;
   res bool;
-  arr_112_idx INT8;
-  arr_112_item JSONB;
+  arr_65_idx INT8;
+  arr_65_item JSONB;
 BEGIN
   -- check must only props
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
@@ -6553,10 +4100,10 @@ BEGIN
     -- .'$platforms'.0.'|'.29.versions
     res := JSONB_TYPEOF(pval) = 'array';
     IF res THEN
-      FOR arr_112_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
-        arr_112_item := pval -> arr_112_idx;
+      FOR arr_65_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
+        arr_65_item := pval -> arr_65_idx;
         -- .'$platforms'.0.'|'.29.versions.0
-        res := JSONB_TYPEOF(arr_112_item) = 'string' AND JSON_VALUE(arr_112_item, '$' RETURNING TEXT) = 'all';
+        res := JSONB_TYPEOF(arr_65_item) = 'string' AND JSON_VALUE(arr_65_item, '$' RETURNING TEXT) = 'all';
         IF NOT res THEN
           EXIT;
         END IF;
@@ -6570,7 +4117,7 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
-CREATE OR REPLACE FUNCTION _jm_cst_78(value JSONB)
+CREATE OR REPLACE FUNCTION _jm_cst_46(value JSONB)
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   constants JSONB = JSONB '["7","8","all"]';
@@ -6580,13 +4127,13 @@ END;
 $$ LANGUAGE plpgsql;
 
 -- object .'$platforms'.0.'|'.28
-CREATE OR REPLACE FUNCTION _jm_obj_112(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_obj_65(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   pval JSONB;
   res bool;
-  arr_113_idx INT8;
-  arr_113_item JSONB;
+  arr_66_idx INT8;
+  arr_66_item JSONB;
 BEGIN
   -- check must only props
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
@@ -6605,10 +4152,10 @@ BEGIN
     -- .'$platforms'.0.'|'.28.versions
     res := JSONB_TYPEOF(pval) = 'array';
     IF res THEN
-      FOR arr_113_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
-        arr_113_item := pval -> arr_113_idx;
+      FOR arr_66_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
+        arr_66_item := pval -> arr_66_idx;
         -- .'$platforms'.0.'|'.28.versions.0
-        res := JSONB_TYPEOF(arr_113_item) IN ('null', 'boolean', 'number', 'string') AND _jm_cst_78(arr_113_item);
+        res := JSONB_TYPEOF(arr_66_item) IN ('null', 'boolean', 'number', 'string') AND _jm_cst_46(arr_66_item);
         IF NOT res THEN
           EXIT;
         END IF;
@@ -6622,7 +4169,7 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
-CREATE OR REPLACE FUNCTION _jm_cst_79(value JSONB)
+CREATE OR REPLACE FUNCTION _jm_cst_47(value JSONB)
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   constants JSONB = JSONB '["10.7","10.8","10.9","10.10","10.11","10.12","10.13","10.14","10.15","all"]';
@@ -6632,13 +4179,13 @@ END;
 $$ LANGUAGE plpgsql;
 
 -- object .'$platforms'.0.'|'.27
-CREATE OR REPLACE FUNCTION _jm_obj_113(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_obj_66(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   pval JSONB;
   res bool;
-  arr_114_idx INT8;
-  arr_114_item JSONB;
+  arr_67_idx INT8;
+  arr_67_item JSONB;
 BEGIN
   -- check must only props
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
@@ -6657,10 +4204,10 @@ BEGIN
     -- .'$platforms'.0.'|'.27.versions
     res := JSONB_TYPEOF(pval) = 'array';
     IF res THEN
-      FOR arr_114_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
-        arr_114_item := pval -> arr_114_idx;
+      FOR arr_67_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
+        arr_67_item := pval -> arr_67_idx;
         -- .'$platforms'.0.'|'.27.versions.0
-        res := JSONB_TYPEOF(arr_114_item) IN ('null', 'boolean', 'number', 'string') AND _jm_cst_79(arr_114_item);
+        res := JSONB_TYPEOF(arr_67_item) IN ('null', 'boolean', 'number', 'string') AND _jm_cst_47(arr_67_item);
         IF NOT res THEN
           EXIT;
         END IF;
@@ -6674,7 +4221,7 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
-CREATE OR REPLACE FUNCTION _jm_cst_80(value JSONB)
+CREATE OR REPLACE FUNCTION _jm_cst_48(value JSONB)
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   constants JSONB = JSONB '["Big-Sur","Catalina","High-Sierra","Mojave","Monterey","Sierra","Sonoma","Ventura","all"]';
@@ -6684,13 +4231,13 @@ END;
 $$ LANGUAGE plpgsql;
 
 -- object .'$platforms'.0.'|'.26
-CREATE OR REPLACE FUNCTION _jm_obj_114(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_obj_67(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   pval JSONB;
   res bool;
-  arr_115_idx INT8;
-  arr_115_item JSONB;
+  arr_68_idx INT8;
+  arr_68_item JSONB;
 BEGIN
   -- check must only props
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
@@ -6709,10 +4256,10 @@ BEGIN
     -- .'$platforms'.0.'|'.26.versions
     res := JSONB_TYPEOF(pval) = 'array';
     IF res THEN
-      FOR arr_115_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
-        arr_115_item := pval -> arr_115_idx;
+      FOR arr_68_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
+        arr_68_item := pval -> arr_68_idx;
         -- .'$platforms'.0.'|'.26.versions.0
-        res := JSONB_TYPEOF(arr_115_item) IN ('null', 'boolean', 'number', 'string') AND _jm_cst_80(arr_115_item);
+        res := JSONB_TYPEOF(arr_68_item) IN ('null', 'boolean', 'number', 'string') AND _jm_cst_48(arr_68_item);
         IF NOT res THEN
           EXIT;
         END IF;
@@ -6726,7 +4273,7 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
-CREATE OR REPLACE FUNCTION _jm_cst_81(value JSONB)
+CREATE OR REPLACE FUNCTION _jm_cst_49(value JSONB)
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   constants JSONB = JSONB '["2.0","2016","2017","2018","2019","2020","2021","2022","2023","all"]';
@@ -6736,13 +4283,13 @@ END;
 $$ LANGUAGE plpgsql;
 
 -- object .'$platforms'.0.'|'.25
-CREATE OR REPLACE FUNCTION _jm_obj_115(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_obj_68(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   pval JSONB;
   res bool;
-  arr_116_idx INT8;
-  arr_116_item JSONB;
+  arr_69_idx INT8;
+  arr_69_item JSONB;
 BEGIN
   -- check must only props
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
@@ -6761,10 +4308,10 @@ BEGIN
     -- .'$platforms'.0.'|'.25.versions
     res := JSONB_TYPEOF(pval) = 'array';
     IF res THEN
-      FOR arr_116_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
-        arr_116_item := pval -> arr_116_idx;
+      FOR arr_69_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
+        arr_69_item := pval -> arr_69_idx;
         -- .'$platforms'.0.'|'.25.versions.0
-        res := JSONB_TYPEOF(arr_116_item) IN ('null', 'boolean', 'number', 'string') AND _jm_cst_81(arr_116_item);
+        res := JSONB_TYPEOF(arr_69_item) IN ('null', 'boolean', 'number', 'string') AND _jm_cst_49(arr_69_item);
         IF NOT res THEN
           EXIT;
         END IF;
@@ -6779,13 +4326,13 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- object .'$platforms'.0.'|'.24
-CREATE OR REPLACE FUNCTION _jm_obj_116(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_obj_69(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   pval JSONB;
   res bool;
-  arr_117_idx INT8;
-  arr_117_item JSONB;
+  arr_70_idx INT8;
+  arr_70_item JSONB;
 BEGIN
   -- check must only props
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
@@ -6804,10 +4351,10 @@ BEGIN
     -- .'$platforms'.0.'|'.24.versions
     res := JSONB_TYPEOF(pval) = 'array';
     IF res THEN
-      FOR arr_117_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
-        arr_117_item := pval -> arr_117_idx;
+      FOR arr_70_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
+        arr_70_item := pval -> arr_70_idx;
         -- .'$platforms'.0.'|'.24.versions.0
-        res := JSONB_TYPEOF(arr_117_item) = 'string' AND JSON_VALUE(arr_117_item, '$' RETURNING TEXT) = 'all';
+        res := JSONB_TYPEOF(arr_70_item) = 'string' AND JSON_VALUE(arr_70_item, '$' RETURNING TEXT) = 'all';
         IF NOT res THEN
           EXIT;
         END IF;
@@ -6822,13 +4369,13 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- object .'$platforms'.0.'|'.23
-CREATE OR REPLACE FUNCTION _jm_obj_117(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_obj_70(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   pval JSONB;
   res bool;
-  arr_118_idx INT8;
-  arr_118_item JSONB;
+  arr_71_idx INT8;
+  arr_71_item JSONB;
 BEGIN
   -- check must only props
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
@@ -6847,10 +4394,10 @@ BEGIN
     -- .'$platforms'.0.'|'.23.versions
     res := JSONB_TYPEOF(pval) = 'array';
     IF res THEN
-      FOR arr_118_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
-        arr_118_item := pval -> arr_118_idx;
+      FOR arr_71_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
+        arr_71_item := pval -> arr_71_idx;
         -- .'$platforms'.0.'|'.23.versions.0
-        res := JSONB_TYPEOF(arr_118_item) = 'string' AND JSON_VALUE(arr_118_item, '$' RETURNING TEXT) = 'all';
+        res := JSONB_TYPEOF(arr_71_item) = 'string' AND JSON_VALUE(arr_71_item, '$' RETURNING TEXT) = 'all';
         IF NOT res THEN
           EXIT;
         END IF;
@@ -6864,7 +4411,7 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
-CREATE OR REPLACE FUNCTION _jm_cst_82(value JSONB)
+CREATE OR REPLACE FUNCTION _jm_cst_50(value JSONB)
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   constants JSONB = JSONB '["10","11","all"]';
@@ -6874,13 +4421,13 @@ END;
 $$ LANGUAGE plpgsql;
 
 -- object .'$platforms'.0.'|'.22
-CREATE OR REPLACE FUNCTION _jm_obj_118(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_obj_71(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   pval JSONB;
   res bool;
-  arr_119_idx INT8;
-  arr_119_item JSONB;
+  arr_72_idx INT8;
+  arr_72_item JSONB;
 BEGIN
   -- check must only props
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
@@ -6899,10 +4446,10 @@ BEGIN
     -- .'$platforms'.0.'|'.22.versions
     res := JSONB_TYPEOF(pval) = 'array';
     IF res THEN
-      FOR arr_119_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
-        arr_119_item := pval -> arr_119_idx;
+      FOR arr_72_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
+        arr_72_item := pval -> arr_72_idx;
         -- .'$platforms'.0.'|'.22.versions.0
-        res := JSONB_TYPEOF(arr_119_item) IN ('null', 'boolean', 'number', 'string') AND _jm_cst_82(arr_119_item);
+        res := JSONB_TYPEOF(arr_72_item) IN ('null', 'boolean', 'number', 'string') AND _jm_cst_50(arr_72_item);
         IF NOT res THEN
           EXIT;
         END IF;
@@ -6917,13 +4464,13 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- object .'$platforms'.0.'|'.21
-CREATE OR REPLACE FUNCTION _jm_obj_119(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_obj_72(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   pval JSONB;
   res bool;
-  arr_120_idx INT8;
-  arr_120_item JSONB;
+  arr_73_idx INT8;
+  arr_73_item JSONB;
 BEGIN
   -- check must only props
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
@@ -6942,10 +4489,10 @@ BEGIN
     -- .'$platforms'.0.'|'.21.versions
     res := JSONB_TYPEOF(pval) = 'array';
     IF res THEN
-      FOR arr_120_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
-        arr_120_item := pval -> arr_120_idx;
+      FOR arr_73_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
+        arr_73_item := pval -> arr_73_idx;
         -- .'$platforms'.0.'|'.21.versions.0
-        res := JSONB_TYPEOF(arr_120_item) = 'string' AND JSON_VALUE(arr_120_item, '$' RETURNING TEXT) = 'all';
+        res := JSONB_TYPEOF(arr_73_item) = 'string' AND JSON_VALUE(arr_73_item, '$' RETURNING TEXT) = 'all';
         IF NOT res THEN
           EXIT;
         END IF;
@@ -6960,13 +4507,13 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- object .'$platforms'.0.'|'.20
-CREATE OR REPLACE FUNCTION _jm_obj_120(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_obj_73(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   pval JSONB;
   res bool;
-  arr_121_idx INT8;
-  arr_121_item JSONB;
+  arr_74_idx INT8;
+  arr_74_item JSONB;
 BEGIN
   -- check must only props
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
@@ -6985,10 +4532,10 @@ BEGIN
     -- .'$platforms'.0.'|'.20.versions
     res := JSONB_TYPEOF(pval) = 'array';
     IF res THEN
-      FOR arr_121_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
-        arr_121_item := pval -> arr_121_idx;
+      FOR arr_74_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
+        arr_74_item := pval -> arr_74_idx;
         -- .'$platforms'.0.'|'.20.versions.0
-        res := JSONB_TYPEOF(arr_121_item) = 'string' AND JSON_VALUE(arr_121_item, '$' RETURNING TEXT) = 'all';
+        res := JSONB_TYPEOF(arr_74_item) = 'string' AND JSON_VALUE(arr_74_item, '$' RETURNING TEXT) = 'all';
         IF NOT res THEN
           EXIT;
         END IF;
@@ -7003,13 +4550,13 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- object .'$platforms'.0.'|'.19
-CREATE OR REPLACE FUNCTION _jm_obj_121(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_obj_74(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   pval JSONB;
   res bool;
-  arr_122_idx INT8;
-  arr_122_item JSONB;
+  arr_75_idx INT8;
+  arr_75_item JSONB;
 BEGIN
   -- check must only props
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
@@ -7028,10 +4575,10 @@ BEGIN
     -- .'$platforms'.0.'|'.19.versions
     res := JSONB_TYPEOF(pval) = 'array';
     IF res THEN
-      FOR arr_122_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
-        arr_122_item := pval -> arr_122_idx;
+      FOR arr_75_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
+        arr_75_item := pval -> arr_75_idx;
         -- .'$platforms'.0.'|'.19.versions.0
-        res := JSONB_TYPEOF(arr_122_item) = 'string' AND JSON_VALUE(arr_122_item, '$' RETURNING TEXT) = 'all';
+        res := JSONB_TYPEOF(arr_75_item) = 'string' AND JSON_VALUE(arr_75_item, '$' RETURNING TEXT) = 'all';
         IF NOT res THEN
           EXIT;
         END IF;
@@ -7046,13 +4593,13 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- object .'$platforms'.0.'|'.18
-CREATE OR REPLACE FUNCTION _jm_obj_122(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_obj_75(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   pval JSONB;
   res bool;
-  arr_123_idx INT8;
-  arr_123_item JSONB;
+  arr_76_idx INT8;
+  arr_76_item JSONB;
 BEGIN
   -- check must only props
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
@@ -7071,10 +4618,10 @@ BEGIN
     -- .'$platforms'.0.'|'.18.versions
     res := JSONB_TYPEOF(pval) = 'array';
     IF res THEN
-      FOR arr_123_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
-        arr_123_item := pval -> arr_123_idx;
+      FOR arr_76_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
+        arr_76_item := pval -> arr_76_idx;
         -- .'$platforms'.0.'|'.18.versions.0
-        res := JSONB_TYPEOF(arr_123_item) = 'string' AND JSON_VALUE(arr_123_item, '$' RETURNING TEXT) = 'all';
+        res := JSONB_TYPEOF(arr_76_item) = 'string' AND JSON_VALUE(arr_76_item, '$' RETURNING TEXT) = 'all';
         IF NOT res THEN
           EXIT;
         END IF;
@@ -7088,7 +4635,7 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
-CREATE OR REPLACE FUNCTION _jm_cst_83(value JSONB)
+CREATE OR REPLACE FUNCTION _jm_cst_51(value JSONB)
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   constants JSONB = JSONB '["8.0","8.1","8.2","8.3","8.4","9.0","9.1","9.2","9.3","10.0","10.1","10.2","10.3","10.4","11.0","11.1","11.2","11.3","11.4","12.0","12.1","12.2","13.0","13.1","13.2","14.0","all"]';
@@ -7098,13 +4645,13 @@ END;
 $$ LANGUAGE plpgsql;
 
 -- object .'$platforms'.0.'|'.17
-CREATE OR REPLACE FUNCTION _jm_obj_123(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_obj_76(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   pval JSONB;
   res bool;
-  arr_124_idx INT8;
-  arr_124_item JSONB;
+  arr_77_idx INT8;
+  arr_77_item JSONB;
 BEGIN
   -- check must only props
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
@@ -7123,10 +4670,10 @@ BEGIN
     -- .'$platforms'.0.'|'.17.versions
     res := JSONB_TYPEOF(pval) = 'array';
     IF res THEN
-      FOR arr_124_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
-        arr_124_item := pval -> arr_124_idx;
+      FOR arr_77_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
+        arr_77_item := pval -> arr_77_idx;
         -- .'$platforms'.0.'|'.17.versions.0
-        res := JSONB_TYPEOF(arr_124_item) IN ('null', 'boolean', 'number', 'string') AND _jm_cst_83(arr_124_item);
+        res := JSONB_TYPEOF(arr_77_item) IN ('null', 'boolean', 'number', 'string') AND _jm_cst_51(arr_77_item);
         IF NOT res THEN
           EXIT;
         END IF;
@@ -7140,7 +4687,7 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
-CREATE OR REPLACE FUNCTION _jm_cst_84(value JSONB)
+CREATE OR REPLACE FUNCTION _jm_cst_52(value JSONB)
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   constants JSONB = JSONB '["16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31","32","33","34","35","36","37","38","39","40","41","42","all"]';
@@ -7150,13 +4697,13 @@ END;
 $$ LANGUAGE plpgsql;
 
 -- object .'$platforms'.0.'|'.16
-CREATE OR REPLACE FUNCTION _jm_obj_124(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_obj_77(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   pval JSONB;
   res bool;
-  arr_125_idx INT8;
-  arr_125_item JSONB;
+  arr_78_idx INT8;
+  arr_78_item JSONB;
 BEGIN
   -- check must only props
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
@@ -7175,10 +4722,10 @@ BEGIN
     -- .'$platforms'.0.'|'.16.versions
     res := JSONB_TYPEOF(pval) = 'array';
     IF res THEN
-      FOR arr_125_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
-        arr_125_item := pval -> arr_125_idx;
+      FOR arr_78_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
+        arr_78_item := pval -> arr_78_idx;
         -- .'$platforms'.0.'|'.16.versions.0
-        res := JSONB_TYPEOF(arr_125_item) IN ('null', 'boolean', 'number', 'string') AND _jm_cst_84(arr_125_item);
+        res := JSONB_TYPEOF(arr_78_item) IN ('null', 'boolean', 'number', 'string') AND _jm_cst_52(arr_78_item);
         IF NOT res THEN
           EXIT;
         END IF;
@@ -7193,13 +4740,13 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- object .'$platforms'.0.'|'.15
-CREATE OR REPLACE FUNCTION _jm_obj_125(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_obj_78(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   pval JSONB;
   res bool;
-  arr_126_idx INT8;
-  arr_126_item JSONB;
+  arr_79_idx INT8;
+  arr_79_item JSONB;
 BEGIN
   -- check must only props
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
@@ -7218,10 +4765,10 @@ BEGIN
     -- .'$platforms'.0.'|'.15.versions
     res := JSONB_TYPEOF(pval) = 'array';
     IF res THEN
-      FOR arr_126_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
-        arr_126_item := pval -> arr_126_idx;
+      FOR arr_79_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
+        arr_79_item := pval -> arr_79_idx;
         -- .'$platforms'.0.'|'.15.versions.0
-        res := JSONB_TYPEOF(arr_126_item) = 'string' AND JSON_VALUE(arr_126_item, '$' RETURNING TEXT) = 'all';
+        res := JSONB_TYPEOF(arr_79_item) = 'string' AND JSON_VALUE(arr_79_item, '$' RETURNING TEXT) = 'all';
         IF NOT res THEN
           EXIT;
         END IF;
@@ -7235,7 +4782,7 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
-CREATE OR REPLACE FUNCTION _jm_cst_85(value JSONB)
+CREATE OR REPLACE FUNCTION _jm_cst_53(value JSONB)
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   constants JSONB = JSONB '["5","6","7","8","9","10","all"]';
@@ -7245,13 +4792,13 @@ END;
 $$ LANGUAGE plpgsql;
 
 -- object .'$platforms'.0.'|'.14
-CREATE OR REPLACE FUNCTION _jm_obj_126(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_obj_79(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   pval JSONB;
   res bool;
-  arr_127_idx INT8;
-  arr_127_item JSONB;
+  arr_80_idx INT8;
+  arr_80_item JSONB;
 BEGIN
   -- check must only props
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
@@ -7270,10 +4817,10 @@ BEGIN
     -- .'$platforms'.0.'|'.14.versions
     res := JSONB_TYPEOF(pval) = 'array';
     IF res THEN
-      FOR arr_127_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
-        arr_127_item := pval -> arr_127_idx;
+      FOR arr_80_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
+        arr_80_item := pval -> arr_80_idx;
         -- .'$platforms'.0.'|'.14.versions.0
-        res := JSONB_TYPEOF(arr_127_item) IN ('null', 'boolean', 'number', 'string') AND _jm_cst_85(arr_127_item);
+        res := JSONB_TYPEOF(arr_80_item) IN ('null', 'boolean', 'number', 'string') AND _jm_cst_53(arr_80_item);
         IF NOT res THEN
           EXIT;
         END IF;
@@ -7287,7 +4834,7 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
-CREATE OR REPLACE FUNCTION _jm_cst_86(value JSONB)
+CREATE OR REPLACE FUNCTION _jm_cst_54(value JSONB)
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   constants JSONB = JSONB '["5.2","5.4","5.6","5.8","6.0","6.2","6.4","all"]';
@@ -7297,13 +4844,13 @@ END;
 $$ LANGUAGE plpgsql;
 
 -- object .'$platforms'.0.'|'.13
-CREATE OR REPLACE FUNCTION _jm_obj_127(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_obj_80(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   pval JSONB;
   res bool;
-  arr_128_idx INT8;
-  arr_128_item JSONB;
+  arr_81_idx INT8;
+  arr_81_item JSONB;
 BEGIN
   -- check must only props
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
@@ -7322,10 +4869,10 @@ BEGIN
     -- .'$platforms'.0.'|'.13.versions
     res := JSONB_TYPEOF(pval) = 'array';
     IF res THEN
-      FOR arr_128_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
-        arr_128_item := pval -> arr_128_idx;
+      FOR arr_81_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
+        arr_81_item := pval -> arr_81_idx;
         -- .'$platforms'.0.'|'.13.versions.0
-        res := JSONB_TYPEOF(arr_128_item) IN ('null', 'boolean', 'number', 'string') AND _jm_cst_86(arr_128_item);
+        res := JSONB_TYPEOF(arr_81_item) IN ('null', 'boolean', 'number', 'string') AND _jm_cst_54(arr_81_item);
         IF NOT res THEN
           EXIT;
         END IF;
@@ -7339,7 +4886,7 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
-CREATE OR REPLACE FUNCTION _jm_cst_87(value JSONB)
+CREATE OR REPLACE FUNCTION _jm_cst_55(value JSONB)
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   constants JSONB = JSONB '["ascii","beowulf","chimaera","daedalus","jessie","all"]';
@@ -7349,13 +4896,13 @@ END;
 $$ LANGUAGE plpgsql;
 
 -- object .'$platforms'.0.'|'.12
-CREATE OR REPLACE FUNCTION _jm_obj_128(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_obj_81(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   pval JSONB;
   res bool;
-  arr_129_idx INT8;
-  arr_129_item JSONB;
+  arr_82_idx INT8;
+  arr_82_item JSONB;
 BEGIN
   -- check must only props
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
@@ -7374,10 +4921,10 @@ BEGIN
     -- .'$platforms'.0.'|'.12.versions
     res := JSONB_TYPEOF(pval) = 'array';
     IF res THEN
-      FOR arr_129_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
-        arr_129_item := pval -> arr_129_idx;
+      FOR arr_82_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
+        arr_82_item := pval -> arr_82_idx;
         -- .'$platforms'.0.'|'.12.versions.0
-        res := JSONB_TYPEOF(arr_129_item) IN ('null', 'boolean', 'number', 'string') AND _jm_cst_87(arr_129_item);
+        res := JSONB_TYPEOF(arr_82_item) IN ('null', 'boolean', 'number', 'string') AND _jm_cst_55(arr_82_item);
         IF NOT res THEN
           EXIT;
         END IF;
@@ -7391,7 +4938,7 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
-CREATE OR REPLACE FUNCTION _jm_cst_88(value JSONB)
+CREATE OR REPLACE FUNCTION _jm_cst_56(value JSONB)
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   constants JSONB = JSONB '["10","6","9","all"]';
@@ -7401,13 +4948,13 @@ END;
 $$ LANGUAGE plpgsql;
 
 -- object .'$platforms'.0.'|'.11
-CREATE OR REPLACE FUNCTION _jm_obj_129(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_obj_82(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   pval JSONB;
   res bool;
-  arr_130_idx INT8;
-  arr_130_item JSONB;
+  arr_83_idx INT8;
+  arr_83_item JSONB;
 BEGIN
   -- check must only props
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
@@ -7426,10 +4973,10 @@ BEGIN
     -- .'$platforms'.0.'|'.11.versions
     res := JSONB_TYPEOF(pval) = 'array';
     IF res THEN
-      FOR arr_130_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
-        arr_130_item := pval -> arr_130_idx;
+      FOR arr_83_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
+        arr_83_item := pval -> arr_83_idx;
         -- .'$platforms'.0.'|'.11.versions.0
-        res := JSONB_TYPEOF(arr_130_item) IN ('null', 'boolean', 'number', 'string') AND _jm_cst_88(arr_130_item);
+        res := JSONB_TYPEOF(arr_83_item) IN ('null', 'boolean', 'number', 'string') AND _jm_cst_56(arr_83_item);
         IF NOT res THEN
           EXIT;
         END IF;
@@ -7443,7 +4990,7 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
-CREATE OR REPLACE FUNCTION _jm_cst_89(value JSONB)
+CREATE OR REPLACE FUNCTION _jm_cst_57(value JSONB)
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   constants JSONB = JSONB '["bookworm","bullseye","buster","etch","jessie","lenny","sid","squeeze","stretch","trixie","wheezy","all"]';
@@ -7453,13 +5000,13 @@ END;
 $$ LANGUAGE plpgsql;
 
 -- object .'$platforms'.0.'|'.10
-CREATE OR REPLACE FUNCTION _jm_obj_130(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_obj_83(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   pval JSONB;
   res bool;
-  arr_131_idx INT8;
-  arr_131_item JSONB;
+  arr_84_idx INT8;
+  arr_84_item JSONB;
 BEGIN
   -- check must only props
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
@@ -7478,10 +5025,10 @@ BEGIN
     -- .'$platforms'.0.'|'.10.versions
     res := JSONB_TYPEOF(pval) = 'array';
     IF res THEN
-      FOR arr_131_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
-        arr_131_item := pval -> arr_131_idx;
+      FOR arr_84_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
+        arr_84_item := pval -> arr_84_idx;
         -- .'$platforms'.0.'|'.10.versions.0
-        res := JSONB_TYPEOF(arr_131_item) IN ('null', 'boolean', 'number', 'string') AND _jm_cst_89(arr_131_item);
+        res := JSONB_TYPEOF(arr_84_item) IN ('null', 'boolean', 'number', 'string') AND _jm_cst_57(arr_84_item);
         IF NOT res THEN
           EXIT;
         END IF;
@@ -7495,7 +5042,7 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
-CREATE OR REPLACE FUNCTION _jm_cst_90(value JSONB)
+CREATE OR REPLACE FUNCTION _jm_cst_58(value JSONB)
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   constants JSONB = JSONB '["8.0","8.1","8.2","9.0","9.1","9.2","9.3","10.0","all"]';
@@ -7505,13 +5052,13 @@ END;
 $$ LANGUAGE plpgsql;
 
 -- object .'$platforms'.0.'|'.9
-CREATE OR REPLACE FUNCTION _jm_obj_131(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_obj_84(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   pval JSONB;
   res bool;
-  arr_132_idx INT8;
-  arr_132_item JSONB;
+  arr_85_idx INT8;
+  arr_85_item JSONB;
 BEGIN
   -- check must only props
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
@@ -7530,10 +5077,10 @@ BEGIN
     -- .'$platforms'.0.'|'.9.versions
     res := JSONB_TYPEOF(pval) = 'array';
     IF res THEN
-      FOR arr_132_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
-        arr_132_item := pval -> arr_132_idx;
+      FOR arr_85_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
+        arr_85_item := pval -> arr_85_idx;
         -- .'$platforms'.0.'|'.9.versions.0
-        res := JSONB_TYPEOF(arr_132_item) IN ('null', 'boolean', 'number', 'string') AND _jm_cst_90(arr_132_item);
+        res := JSONB_TYPEOF(arr_85_item) IN ('null', 'boolean', 'number', 'string') AND _jm_cst_58(arr_85_item);
         IF NOT res THEN
           EXIT;
         END IF;
@@ -7547,7 +5094,7 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
-CREATE OR REPLACE FUNCTION _jm_cst_91(value JSONB)
+CREATE OR REPLACE FUNCTION _jm_cst_59(value JSONB)
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   constants JSONB = JSONB '["2.5","3.0","3.1","3.2","3.3","3.4","3.5","all"]';
@@ -7557,13 +5104,13 @@ END;
 $$ LANGUAGE plpgsql;
 
 -- object .'$platforms'.0.'|'.8
-CREATE OR REPLACE FUNCTION _jm_obj_132(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_obj_85(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   pval JSONB;
   res bool;
-  arr_133_idx INT8;
-  arr_133_item JSONB;
+  arr_86_idx INT8;
+  arr_86_item JSONB;
 BEGIN
   -- check must only props
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
@@ -7582,10 +5129,10 @@ BEGIN
     -- .'$platforms'.0.'|'.8.versions
     res := JSONB_TYPEOF(pval) = 'array';
     IF res THEN
-      FOR arr_133_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
-        arr_133_item := pval -> arr_133_idx;
+      FOR arr_86_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
+        arr_86_item := pval -> arr_86_idx;
         -- .'$platforms'.0.'|'.8.versions.0
-        res := JSONB_TYPEOF(arr_133_item) IN ('null', 'boolean', 'number', 'string') AND _jm_cst_91(arr_133_item);
+        res := JSONB_TYPEOF(arr_86_item) IN ('null', 'boolean', 'number', 'string') AND _jm_cst_59(arr_86_item);
         IF NOT res THEN
           EXIT;
         END IF;
@@ -7600,13 +5147,13 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- object .'$platforms'.0.'|'.7
-CREATE OR REPLACE FUNCTION _jm_obj_133(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_obj_86(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   pval JSONB;
   res bool;
-  arr_134_idx INT8;
-  arr_134_item JSONB;
+  arr_87_idx INT8;
+  arr_87_item JSONB;
 BEGIN
   -- check must only props
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
@@ -7625,10 +5172,10 @@ BEGIN
     -- .'$platforms'.0.'|'.7.versions
     res := JSONB_TYPEOF(pval) = 'array';
     IF res THEN
-      FOR arr_134_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
-        arr_134_item := pval -> arr_134_idx;
+      FOR arr_87_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
+        arr_87_item := pval -> arr_87_idx;
         -- .'$platforms'.0.'|'.7.versions.0
-        res := JSONB_TYPEOF(arr_134_item) = 'string' AND JSON_VALUE(arr_134_item, '$' RETURNING TEXT) = 'all';
+        res := JSONB_TYPEOF(arr_87_item) = 'string' AND JSON_VALUE(arr_87_item, '$' RETURNING TEXT) = 'all';
         IF NOT res THEN
           EXIT;
         END IF;
@@ -7642,7 +5189,7 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
-CREATE OR REPLACE FUNCTION _jm_cst_92(value JSONB)
+CREATE OR REPLACE FUNCTION _jm_cst_60(value JSONB)
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   constants JSONB = JSONB '["1.8","1.7","1.6","2.12","all"]';
@@ -7652,13 +5199,13 @@ END;
 $$ LANGUAGE plpgsql;
 
 -- object .'$platforms'.0.'|'.6
-CREATE OR REPLACE FUNCTION _jm_obj_134(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_obj_87(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   pval JSONB;
   res bool;
-  arr_135_idx INT8;
-  arr_135_item JSONB;
+  arr_88_idx INT8;
+  arr_88_item JSONB;
 BEGIN
   -- check must only props
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
@@ -7677,10 +5224,10 @@ BEGIN
     -- .'$platforms'.0.'|'.6.versions
     res := JSONB_TYPEOF(pval) = 'array';
     IF res THEN
-      FOR arr_135_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
-        arr_135_item := pval -> arr_135_idx;
+      FOR arr_88_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
+        arr_88_item := pval -> arr_88_idx;
         -- .'$platforms'.0.'|'.6.versions.0
-        res := JSONB_TYPEOF(arr_135_item) IN ('null', 'boolean', 'number', 'string') AND _jm_cst_92(arr_135_item);
+        res := JSONB_TYPEOF(arr_88_item) IN ('null', 'boolean', 'number', 'string') AND _jm_cst_60(arr_88_item);
         IF NOT res THEN
           EXIT;
         END IF;
@@ -7695,13 +5242,13 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- object .'$platforms'.0.'|'.5
-CREATE OR REPLACE FUNCTION _jm_obj_135(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_obj_88(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   pval JSONB;
   res bool;
-  arr_136_idx INT8;
-  arr_136_item JSONB;
+  arr_89_idx INT8;
+  arr_89_item JSONB;
 BEGIN
   -- check must only props
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
@@ -7720,10 +5267,10 @@ BEGIN
     -- .'$platforms'.0.'|'.5.versions
     res := JSONB_TYPEOF(pval) = 'array';
     IF res THEN
-      FOR arr_136_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
-        arr_136_item := pval -> arr_136_idx;
+      FOR arr_89_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
+        arr_89_item := pval -> arr_89_idx;
         -- .'$platforms'.0.'|'.5.versions.0
-        res := JSONB_TYPEOF(arr_136_item) = 'string' AND JSON_VALUE(arr_136_item, '$' RETURNING TEXT) = 'all';
+        res := JSONB_TYPEOF(arr_89_item) = 'string' AND JSON_VALUE(arr_89_item, '$' RETURNING TEXT) = 'all';
         IF NOT res THEN
           EXIT;
         END IF;
@@ -7738,13 +5285,13 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- object .'$platforms'.0.'|'.4
-CREATE OR REPLACE FUNCTION _jm_obj_136(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_obj_89(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   pval JSONB;
   res bool;
-  arr_137_idx INT8;
-  arr_137_item JSONB;
+  arr_90_idx INT8;
+  arr_90_item JSONB;
 BEGIN
   -- check must only props
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
@@ -7763,10 +5310,10 @@ BEGIN
     -- .'$platforms'.0.'|'.4.versions
     res := JSONB_TYPEOF(pval) = 'array';
     IF res THEN
-      FOR arr_137_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
-        arr_137_item := pval -> arr_137_idx;
+      FOR arr_90_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
+        arr_90_item := pval -> arr_90_idx;
         -- .'$platforms'.0.'|'.4.versions.0
-        res := JSONB_TYPEOF(arr_137_item) = 'string' AND JSON_VALUE(arr_137_item, '$' RETURNING TEXT) = 'all';
+        res := JSONB_TYPEOF(arr_90_item) = 'string' AND JSON_VALUE(arr_90_item, '$' RETURNING TEXT) = 'all';
         IF NOT res THEN
           EXIT;
         END IF;
@@ -7780,7 +5327,7 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
-CREATE OR REPLACE FUNCTION _jm_cst_93(value JSONB)
+CREATE OR REPLACE FUNCTION _jm_cst_61(value JSONB)
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   constants JSONB = JSONB '["all","1","2","2023"]';
@@ -7790,13 +5337,13 @@ END;
 $$ LANGUAGE plpgsql;
 
 -- object .'$platforms'.0.'|'.3
-CREATE OR REPLACE FUNCTION _jm_obj_137(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_obj_90(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   pval JSONB;
   res bool;
-  arr_138_idx INT8;
-  arr_138_item JSONB;
+  arr_91_idx INT8;
+  arr_91_item JSONB;
 BEGIN
   -- check must only props
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
@@ -7815,10 +5362,10 @@ BEGIN
     -- .'$platforms'.0.'|'.3.versions
     res := JSONB_TYPEOF(pval) = 'array';
     IF res THEN
-      FOR arr_138_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
-        arr_138_item := pval -> arr_138_idx;
+      FOR arr_91_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
+        arr_91_item := pval -> arr_91_idx;
         -- .'$platforms'.0.'|'.3.versions.0
-        res := JSONB_TYPEOF(arr_138_item) IN ('null', 'boolean', 'number', 'string') AND _jm_cst_93(arr_138_item);
+        res := JSONB_TYPEOF(arr_91_item) IN ('null', 'boolean', 'number', 'string') AND _jm_cst_61(arr_91_item);
         IF NOT res THEN
           EXIT;
         END IF;
@@ -7832,7 +5379,7 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
-CREATE OR REPLACE FUNCTION _jm_cst_94(value JSONB)
+CREATE OR REPLACE FUNCTION _jm_cst_62(value JSONB)
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   constants JSONB = JSONB '["2013.03","2013.09","2014.03","2014.09","2015.03","2015.09","2016.03","2016.09","2017.03","2017.09","2017.12","2018.03","Candidate","all"]';
@@ -7842,13 +5389,13 @@ END;
 $$ LANGUAGE plpgsql;
 
 -- object .'$platforms'.0.'|'.2
-CREATE OR REPLACE FUNCTION _jm_obj_138(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_obj_91(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   pval JSONB;
   res bool;
-  arr_139_idx INT8;
-  arr_139_item JSONB;
+  arr_92_idx INT8;
+  arr_92_item JSONB;
 BEGIN
   -- check must only props
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
@@ -7867,10 +5414,10 @@ BEGIN
     -- .'$platforms'.0.'|'.2.versions
     res := JSONB_TYPEOF(pval) = 'array';
     IF res THEN
-      FOR arr_139_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
-        arr_139_item := pval -> arr_139_idx;
+      FOR arr_92_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
+        arr_92_item := pval -> arr_92_idx;
         -- .'$platforms'.0.'|'.2.versions.0
-        res := JSONB_TYPEOF(arr_139_item) IN ('null', 'boolean', 'number', 'string') AND _jm_cst_94(arr_139_item);
+        res := JSONB_TYPEOF(arr_92_item) IN ('null', 'boolean', 'number', 'string') AND _jm_cst_62(arr_92_item);
         IF NOT res THEN
           EXIT;
         END IF;
@@ -7885,13 +5432,13 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- object .'$platforms'.0.'|'.1
-CREATE OR REPLACE FUNCTION _jm_obj_139(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_obj_92(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   pval JSONB;
   res bool;
-  arr_140_idx INT8;
-  arr_140_item JSONB;
+  arr_93_idx INT8;
+  arr_93_item JSONB;
 BEGIN
   -- check must only props
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
@@ -7910,10 +5457,10 @@ BEGIN
     -- .'$platforms'.0.'|'.1.versions
     res := JSONB_TYPEOF(pval) = 'array';
     IF res THEN
-      FOR arr_140_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
-        arr_140_item := pval -> arr_140_idx;
+      FOR arr_93_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
+        arr_93_item := pval -> arr_93_idx;
         -- .'$platforms'.0.'|'.1.versions.0
-        res := JSONB_TYPEOF(arr_140_item) = 'string' AND JSON_VALUE(arr_140_item, '$' RETURNING TEXT) = 'all';
+        res := JSONB_TYPEOF(arr_93_item) = 'string' AND JSON_VALUE(arr_93_item, '$' RETURNING TEXT) = 'all';
         IF NOT res THEN
           EXIT;
         END IF;
@@ -7927,7 +5474,7 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
-CREATE OR REPLACE FUNCTION _jm_cst_95(value JSONB)
+CREATE OR REPLACE FUNCTION _jm_cst_63(value JSONB)
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   constants JSONB = JSONB '["6.1","7.1","7.2","all"]';
@@ -7937,13 +5484,13 @@ END;
 $$ LANGUAGE plpgsql;
 
 -- object .'$platforms'.0.'|'.0
-CREATE OR REPLACE FUNCTION _jm_obj_140(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_obj_93(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   pval JSONB;
   res bool;
-  arr_141_idx INT8;
-  arr_141_item JSONB;
+  arr_94_idx INT8;
+  arr_94_item JSONB;
 BEGIN
   -- check must only props
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
@@ -7962,10 +5509,10 @@ BEGIN
     -- .'$platforms'.0.'|'.0.versions
     res := JSONB_TYPEOF(pval) = 'array';
     IF res THEN
-      FOR arr_141_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
-        arr_141_item := pval -> arr_141_idx;
+      FOR arr_94_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
+        arr_94_item := pval -> arr_94_idx;
         -- .'$platforms'.0.'|'.0.versions.0
-        res := JSONB_TYPEOF(arr_141_item) IN ('null', 'boolean', 'number', 'string') AND _jm_cst_95(arr_141_item);
+        res := JSONB_TYPEOF(arr_94_item) IN ('null', 'boolean', 'number', 'string') AND _jm_cst_63(arr_94_item);
         IF NOT res THEN
           EXIT;
         END IF;
@@ -7984,157 +5531,157 @@ CREATE OR REPLACE FUNCTION json_model_50(val JSONB, path TEXT[], rep jm_report_e
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
-  arr_94_idx INT8;
-  arr_94_item JSONB;
+  arr_47_idx INT8;
+  arr_47_item JSONB;
 BEGIN
   -- .'$platforms'
   res := JSONB_TYPEOF(val) = 'array';
   IF res THEN
-    FOR arr_94_idx IN 0 .. JSONB_ARRAY_LENGTH(val) - 1 LOOP
-      arr_94_item := val -> arr_94_idx;
+    FOR arr_47_idx IN 0 .. JSONB_ARRAY_LENGTH(val) - 1 LOOP
+      arr_47_item := val -> arr_47_idx;
       -- .'$platforms'.0
-      res := JSONB_TYPEOF(arr_94_item) = 'object';
+      res := JSONB_TYPEOF(arr_47_item) = 'object';
       IF res THEN
         -- .'$platforms'.0.'|'.0
-        res := _jm_obj_140(arr_94_item, NULL, rep);
+        res := _jm_obj_93(arr_47_item, NULL, rep);
         IF NOT res THEN
           -- .'$platforms'.0.'|'.1
-          res := _jm_obj_139(arr_94_item, NULL, rep);
+          res := _jm_obj_92(arr_47_item, NULL, rep);
           IF NOT res THEN
             -- .'$platforms'.0.'|'.2
-            res := _jm_obj_138(arr_94_item, NULL, rep);
+            res := _jm_obj_91(arr_47_item, NULL, rep);
             IF NOT res THEN
               -- .'$platforms'.0.'|'.3
-              res := _jm_obj_137(arr_94_item, NULL, rep);
+              res := _jm_obj_90(arr_47_item, NULL, rep);
               IF NOT res THEN
                 -- .'$platforms'.0.'|'.4
-                res := _jm_obj_136(arr_94_item, NULL, rep);
+                res := _jm_obj_89(arr_47_item, NULL, rep);
                 IF NOT res THEN
                   -- .'$platforms'.0.'|'.5
-                  res := _jm_obj_135(arr_94_item, NULL, rep);
+                  res := _jm_obj_88(arr_47_item, NULL, rep);
                   IF NOT res THEN
                     -- .'$platforms'.0.'|'.6
-                    res := _jm_obj_134(arr_94_item, NULL, rep);
+                    res := _jm_obj_87(arr_47_item, NULL, rep);
                     IF NOT res THEN
                       -- .'$platforms'.0.'|'.7
-                      res := _jm_obj_133(arr_94_item, NULL, rep);
+                      res := _jm_obj_86(arr_47_item, NULL, rep);
                       IF NOT res THEN
                         -- .'$platforms'.0.'|'.8
-                        res := _jm_obj_132(arr_94_item, NULL, rep);
+                        res := _jm_obj_85(arr_47_item, NULL, rep);
                         IF NOT res THEN
                           -- .'$platforms'.0.'|'.9
-                          res := _jm_obj_131(arr_94_item, NULL, rep);
+                          res := _jm_obj_84(arr_47_item, NULL, rep);
                           IF NOT res THEN
                             -- .'$platforms'.0.'|'.10
-                            res := _jm_obj_130(arr_94_item, NULL, rep);
+                            res := _jm_obj_83(arr_47_item, NULL, rep);
                             IF NOT res THEN
                               -- .'$platforms'.0.'|'.11
-                              res := _jm_obj_129(arr_94_item, NULL, rep);
+                              res := _jm_obj_82(arr_47_item, NULL, rep);
                               IF NOT res THEN
                                 -- .'$platforms'.0.'|'.12
-                                res := _jm_obj_128(arr_94_item, NULL, rep);
+                                res := _jm_obj_81(arr_47_item, NULL, rep);
                                 IF NOT res THEN
                                   -- .'$platforms'.0.'|'.13
-                                  res := _jm_obj_127(arr_94_item, NULL, rep);
+                                  res := _jm_obj_80(arr_47_item, NULL, rep);
                                   IF NOT res THEN
                                     -- .'$platforms'.0.'|'.14
-                                    res := _jm_obj_126(arr_94_item, NULL, rep);
+                                    res := _jm_obj_79(arr_47_item, NULL, rep);
                                     IF NOT res THEN
                                       -- .'$platforms'.0.'|'.15
-                                      res := _jm_obj_125(arr_94_item, NULL, rep);
+                                      res := _jm_obj_78(arr_47_item, NULL, rep);
                                       IF NOT res THEN
                                         -- .'$platforms'.0.'|'.16
-                                        res := _jm_obj_124(arr_94_item, NULL, rep);
+                                        res := _jm_obj_77(arr_47_item, NULL, rep);
                                         IF NOT res THEN
                                           -- .'$platforms'.0.'|'.17
-                                          res := _jm_obj_123(arr_94_item, NULL, rep);
+                                          res := _jm_obj_76(arr_47_item, NULL, rep);
                                           IF NOT res THEN
                                             -- .'$platforms'.0.'|'.18
-                                            res := _jm_obj_122(arr_94_item, NULL, rep);
+                                            res := _jm_obj_75(arr_47_item, NULL, rep);
                                             IF NOT res THEN
                                               -- .'$platforms'.0.'|'.19
-                                              res := _jm_obj_121(arr_94_item, NULL, rep);
+                                              res := _jm_obj_74(arr_47_item, NULL, rep);
                                               IF NOT res THEN
                                                 -- .'$platforms'.0.'|'.20
-                                                res := _jm_obj_120(arr_94_item, NULL, rep);
+                                                res := _jm_obj_73(arr_47_item, NULL, rep);
                                                 IF NOT res THEN
                                                   -- .'$platforms'.0.'|'.21
-                                                  res := _jm_obj_119(arr_94_item, NULL, rep);
+                                                  res := _jm_obj_72(arr_47_item, NULL, rep);
                                                   IF NOT res THEN
                                                     -- .'$platforms'.0.'|'.22
-                                                    res := _jm_obj_118(arr_94_item, NULL, rep);
+                                                    res := _jm_obj_71(arr_47_item, NULL, rep);
                                                     IF NOT res THEN
                                                       -- .'$platforms'.0.'|'.23
-                                                      res := _jm_obj_117(arr_94_item, NULL, rep);
+                                                      res := _jm_obj_70(arr_47_item, NULL, rep);
                                                       IF NOT res THEN
                                                         -- .'$platforms'.0.'|'.24
-                                                        res := _jm_obj_116(arr_94_item, NULL, rep);
+                                                        res := _jm_obj_69(arr_47_item, NULL, rep);
                                                         IF NOT res THEN
                                                           -- .'$platforms'.0.'|'.25
-                                                          res := _jm_obj_115(arr_94_item, NULL, rep);
+                                                          res := _jm_obj_68(arr_47_item, NULL, rep);
                                                           IF NOT res THEN
                                                             -- .'$platforms'.0.'|'.26
-                                                            res := _jm_obj_114(arr_94_item, NULL, rep);
+                                                            res := _jm_obj_67(arr_47_item, NULL, rep);
                                                             IF NOT res THEN
                                                               -- .'$platforms'.0.'|'.27
-                                                              res := _jm_obj_113(arr_94_item, NULL, rep);
+                                                              res := _jm_obj_66(arr_47_item, NULL, rep);
                                                               IF NOT res THEN
                                                                 -- .'$platforms'.0.'|'.28
-                                                                res := _jm_obj_112(arr_94_item, NULL, rep);
+                                                                res := _jm_obj_65(arr_47_item, NULL, rep);
                                                                 IF NOT res THEN
                                                                   -- .'$platforms'.0.'|'.29
-                                                                  res := _jm_obj_111(arr_94_item, NULL, rep);
+                                                                  res := _jm_obj_64(arr_47_item, NULL, rep);
                                                                   IF NOT res THEN
                                                                     -- .'$platforms'.0.'|'.30
-                                                                    res := _jm_obj_110(arr_94_item, NULL, rep);
+                                                                    res := _jm_obj_63(arr_47_item, NULL, rep);
                                                                     IF NOT res THEN
                                                                       -- .'$platforms'.0.'|'.31
-                                                                      res := _jm_obj_109(arr_94_item, NULL, rep);
+                                                                      res := _jm_obj_62(arr_47_item, NULL, rep);
                                                                       IF NOT res THEN
                                                                         -- .'$platforms'.0.'|'.32
-                                                                        res := _jm_obj_108(arr_94_item, NULL, rep);
+                                                                        res := _jm_obj_61(arr_47_item, NULL, rep);
                                                                         IF NOT res THEN
                                                                           -- .'$platforms'.0.'|'.33
-                                                                          res := _jm_obj_107(arr_94_item, NULL, rep);
+                                                                          res := _jm_obj_60(arr_47_item, NULL, rep);
                                                                           IF NOT res THEN
                                                                             -- .'$platforms'.0.'|'.34
-                                                                            res := _jm_obj_106(arr_94_item, NULL, rep);
+                                                                            res := _jm_obj_59(arr_47_item, NULL, rep);
                                                                             IF NOT res THEN
                                                                               -- .'$platforms'.0.'|'.35
-                                                                              res := _jm_obj_105(arr_94_item, NULL, rep);
+                                                                              res := _jm_obj_58(arr_47_item, NULL, rep);
                                                                               IF NOT res THEN
                                                                                 -- .'$platforms'.0.'|'.36
-                                                                                res := _jm_obj_104(arr_94_item, NULL, rep);
+                                                                                res := _jm_obj_57(arr_47_item, NULL, rep);
                                                                                 IF NOT res THEN
                                                                                   -- .'$platforms'.0.'|'.37
-                                                                                  res := _jm_obj_103(arr_94_item, NULL, rep);
+                                                                                  res := _jm_obj_56(arr_47_item, NULL, rep);
                                                                                   IF NOT res THEN
                                                                                     -- .'$platforms'.0.'|'.38
-                                                                                    res := _jm_obj_102(arr_94_item, NULL, rep);
+                                                                                    res := _jm_obj_55(arr_47_item, NULL, rep);
                                                                                     IF NOT res THEN
                                                                                       -- .'$platforms'.0.'|'.39
-                                                                                      res := _jm_obj_101(arr_94_item, NULL, rep);
+                                                                                      res := _jm_obj_54(arr_47_item, NULL, rep);
                                                                                       IF NOT res THEN
                                                                                         -- .'$platforms'.0.'|'.40
-                                                                                        res := _jm_obj_100(arr_94_item, NULL, rep);
+                                                                                        res := _jm_obj_53(arr_47_item, NULL, rep);
                                                                                         IF NOT res THEN
                                                                                           -- .'$platforms'.0.'|'.41
-                                                                                          res := _jm_obj_99(arr_94_item, NULL, rep);
+                                                                                          res := _jm_obj_52(arr_47_item, NULL, rep);
                                                                                           IF NOT res THEN
                                                                                             -- .'$platforms'.0.'|'.42
-                                                                                            res := _jm_obj_98(arr_94_item, NULL, rep);
+                                                                                            res := _jm_obj_51(arr_47_item, NULL, rep);
                                                                                             IF NOT res THEN
                                                                                               -- .'$platforms'.0.'|'.43
-                                                                                              res := _jm_obj_97(arr_94_item, NULL, rep);
+                                                                                              res := _jm_obj_50(arr_47_item, NULL, rep);
                                                                                               IF NOT res THEN
                                                                                                 -- .'$platforms'.0.'|'.44
-                                                                                                res := _jm_obj_96(arr_94_item, NULL, rep);
+                                                                                                res := _jm_obj_49(arr_47_item, NULL, rep);
                                                                                                 IF NOT res THEN
                                                                                                   -- .'$platforms'.0.'|'.45
-                                                                                                  res := _jm_obj_95(arr_94_item, NULL, rep);
+                                                                                                  res := _jm_obj_48(arr_47_item, NULL, rep);
                                                                                                   IF NOT res THEN
                                                                                                     -- .'$platforms'.0.'|'.46
-                                                                                                    res := _jm_obj_94(arr_94_item, NULL, rep);
+                                                                                                    res := _jm_obj_47(arr_47_item, NULL, rep);
                                                                                                   END IF;
                                                                                                 END IF;
                                                                                               END IF;
@@ -8191,7 +5738,7 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_obj_141_map_cloud_platforms (.'$GalaxyInfoModelCollection'.cloud_platforms)
+-- check _jm_obj_94_map_cloud_platforms (.'$GalaxyInfoModelCollection'.cloud_platforms)
 CREATE OR REPLACE FUNCTION _jm_f_0(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
@@ -8203,21 +5750,21 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_obj_141_map_galaxy_tags (.'$GalaxyInfoModelCollection'.galaxy_tags)
+-- check _jm_obj_94_map_galaxy_tags (.'$GalaxyInfoModelCollection'.galaxy_tags)
 CREATE OR REPLACE FUNCTION _jm_f_1(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
-  arr_142_idx INT8;
-  arr_142_item JSONB;
+  arr_95_idx INT8;
+  arr_95_item JSONB;
 BEGIN
   -- .'$GalaxyInfoModelCollection'.galaxy_tags
   res := JSONB_TYPEOF(val) = 'array';
   IF res THEN
-    FOR arr_142_idx IN 0 .. JSONB_ARRAY_LENGTH(val) - 1 LOOP
-      arr_142_item := val -> arr_142_idx;
+    FOR arr_95_idx IN 0 .. JSONB_ARRAY_LENGTH(val) - 1 LOOP
+      arr_95_item := val -> arr_95_idx;
       -- .'$GalaxyInfoModelCollection'.galaxy_tags.0
-      res := JSONB_TYPEOF(arr_142_item) = 'string';
+      res := JSONB_TYPEOF(arr_95_item) = 'string';
       IF NOT res THEN
         EXIT;
       END IF;
@@ -8227,7 +5774,7 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_obj_141_map_min_ansible_version (.'$GalaxyInfoModelCollection'.min_ansible_version)
+-- check _jm_obj_94_map_min_ansible_version (.'$GalaxyInfoModelCollection'.min_ansible_version)
 CREATE OR REPLACE FUNCTION _jm_f_2(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
@@ -8247,7 +5794,7 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
--- check _jm_obj_141_map_namespace (.'$GalaxyInfoModelCollection'.namespace)
+-- check _jm_obj_94_map_namespace (.'$GalaxyInfoModelCollection'.namespace)
 CREATE OR REPLACE FUNCTION _jm_f_3(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
@@ -8260,7 +5807,7 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_obj_141_map_platforms (.'$GalaxyInfoModelCollection'.platforms)
+-- check _jm_obj_94_map_platforms (.'$GalaxyInfoModelCollection'.platforms)
 CREATE OR REPLACE FUNCTION _jm_f_4(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
@@ -8280,7 +5827,7 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
--- check _jm_obj_141_map_role_name (.'$GalaxyInfoModelCollection'.role_name)
+-- check _jm_obj_94_map_role_name (.'$GalaxyInfoModelCollection'.role_name)
 CREATE OR REPLACE FUNCTION _jm_f_5(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
@@ -8293,7 +5840,7 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_obj_141_map_video_links (.'$GalaxyInfoModelCollection'.video_links)
+-- check _jm_obj_94_map_video_links (.'$GalaxyInfoModelCollection'.video_links)
 CREATE OR REPLACE FUNCTION _jm_f_6(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
@@ -8309,7 +5856,7 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
-CREATE OR REPLACE FUNCTION _jm_obj_141_map(name TEXT)
+CREATE OR REPLACE FUNCTION _jm_obj_94_map(name TEXT)
 RETURNS TEXT STRICT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   map JSONB := JSONB '{"cloud_platforms":"_jm_f_0","galaxy_tags":"_jm_f_1","min_ansible_version":"_jm_f_2","namespace":"_jm_f_3","platforms":"_jm_f_4","role_name":"_jm_f_5","video_links":"_jm_f_6"}';
@@ -8319,7 +5866,7 @@ END;
 $$ LANGUAGE plpgsql;
 
 -- object .'$GalaxyInfoModelCollection'
-CREATE OR REPLACE FUNCTION _jm_obj_141(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_obj_94(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   pfun TEXT;
@@ -8330,9 +5877,9 @@ BEGIN
     RETURN FALSE;
   END IF;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF _jm_obj_141_map(prop) IS NOT NULL THEN
+    IF _jm_obj_94_map(prop) IS NOT NULL THEN
       -- handle 7 may props
-      pfun := _jm_obj_141_map(prop);
+      pfun := _jm_obj_94_map(prop);
       IF NOT jm_call(pfun, pval, NULL, rep) THEN
         RETURN FALSE;
       END IF;
@@ -8351,12 +5898,12 @@ DECLARE
   res bool;
 BEGIN
   -- .'$GalaxyInfoModelCollection'
-  res := _jm_obj_141(val, path, rep);
+  res := _jm_obj_94(val, path, rep);
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_obj_142_map_author (.'$GalaxyInfoModelLoose'.author)
+-- check _jm_obj_95_map_author (.'$GalaxyInfoModelLoose'.author)
 CREATE OR REPLACE FUNCTION _jm_f_7(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
@@ -8368,7 +5915,7 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_obj_142_map_company (.'$GalaxyInfoModelLoose'.company)
+-- check _jm_obj_95_map_company (.'$GalaxyInfoModelLoose'.company)
 CREATE OR REPLACE FUNCTION _jm_f_8(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
@@ -8380,7 +5927,7 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_obj_142_map_github_branch (.'$GalaxyInfoModelLoose'.github_branch)
+-- check _jm_obj_95_map_github_branch (.'$GalaxyInfoModelLoose'.github_branch)
 CREATE OR REPLACE FUNCTION _jm_f_9(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
@@ -8392,7 +5939,7 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_obj_142_map_issue_tracker_url (.'$GalaxyInfoModelLoose'.issue_tracker_url)
+-- check _jm_obj_95_map_issue_tracker_url (.'$GalaxyInfoModelLoose'.issue_tracker_url)
 CREATE OR REPLACE FUNCTION _jm_f_10(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
@@ -8404,7 +5951,7 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_obj_142_map_license (.'$GalaxyInfoModelLoose'.license)
+-- check _jm_obj_95_map_license (.'$GalaxyInfoModelLoose'.license)
 CREATE OR REPLACE FUNCTION _jm_f_11(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
@@ -8416,7 +5963,7 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_obj_142_map_min_ansible_container_version (.'$GalaxyInfoModelLoose'.min_ansible_container_version)
+-- check _jm_obj_95_map_min_ansible_container_version (.'$GalaxyInfoModelLoose'.min_ansible_container_version)
 CREATE OR REPLACE FUNCTION _jm_f_12(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
@@ -8428,7 +5975,7 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
-CREATE OR REPLACE FUNCTION _jm_obj_142_map(name TEXT)
+CREATE OR REPLACE FUNCTION _jm_obj_95_map(name TEXT)
 RETURNS TEXT STRICT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   map JSONB := JSONB '{"author":"_jm_f_7","company":"_jm_f_8","github_branch":"_jm_f_9","issue_tracker_url":"_jm_f_10","license":"_jm_f_11","min_ansible_container_version":"_jm_f_12"}';
@@ -8438,7 +5985,7 @@ END;
 $$ LANGUAGE plpgsql;
 
 -- object .'$GalaxyInfoModelLoose'
-CREATE OR REPLACE FUNCTION _jm_obj_142(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_obj_95(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -8460,9 +6007,9 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF _jm_obj_142_map(prop) IS NOT NULL THEN
+    ELSEIF _jm_obj_95_map(prop) IS NOT NULL THEN
       -- handle 6 may props
-      pfun := _jm_obj_142_map(prop);
+      pfun := _jm_obj_95_map(prop);
       IF NOT jm_call(pfun, pval, NULL, rep) THEN
         RETURN FALSE;
       END IF;
@@ -8485,12 +6032,12 @@ DECLARE
 BEGIN
   -- some $URL should be added?
   -- .'$GalaxyInfoModelLoose'
-  res := _jm_obj_142(val, path, rep);
+  res := _jm_obj_95(val, path, rep);
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_obj_143_map_cloud_platforms (.'$GalaxyInfoModelStandalone'.cloud_platforms)
+-- check _jm_obj_96_map_cloud_platforms (.'$GalaxyInfoModelStandalone'.cloud_platforms)
 CREATE OR REPLACE FUNCTION _jm_f_13(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
@@ -8502,7 +6049,7 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_obj_143_map_company (.'$GalaxyInfoModelStandalone'.company)
+-- check _jm_obj_96_map_company (.'$GalaxyInfoModelStandalone'.company)
 CREATE OR REPLACE FUNCTION _jm_f_14(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
@@ -8514,21 +6061,21 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_obj_143_map_galaxy_tags (.'$GalaxyInfoModelStandalone'.galaxy_tags)
+-- check _jm_obj_96_map_galaxy_tags (.'$GalaxyInfoModelStandalone'.galaxy_tags)
 CREATE OR REPLACE FUNCTION _jm_f_15(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
-  arr_143_idx INT8;
-  arr_143_item JSONB;
+  arr_96_idx INT8;
+  arr_96_item JSONB;
 BEGIN
   -- .'$GalaxyInfoModelStandalone'.galaxy_tags
   res := JSONB_TYPEOF(val) = 'array';
   IF res THEN
-    FOR arr_143_idx IN 0 .. JSONB_ARRAY_LENGTH(val) - 1 LOOP
-      arr_143_item := val -> arr_143_idx;
+    FOR arr_96_idx IN 0 .. JSONB_ARRAY_LENGTH(val) - 1 LOOP
+      arr_96_item := val -> arr_96_idx;
       -- .'$GalaxyInfoModelStandalone'.galaxy_tags.0
-      res := JSONB_TYPEOF(arr_143_item) = 'string';
+      res := JSONB_TYPEOF(arr_96_item) = 'string';
       IF NOT res THEN
         EXIT;
       END IF;
@@ -8538,7 +6085,7 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_obj_143_map_github_branch (.'$GalaxyInfoModelStandalone'.github_branch)
+-- check _jm_obj_96_map_github_branch (.'$GalaxyInfoModelStandalone'.github_branch)
 CREATE OR REPLACE FUNCTION _jm_f_16(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
@@ -8550,7 +6097,7 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_obj_143_map_issue_tracker_url (.'$GalaxyInfoModelStandalone'.issue_tracker_url)
+-- check _jm_obj_96_map_issue_tracker_url (.'$GalaxyInfoModelStandalone'.issue_tracker_url)
 CREATE OR REPLACE FUNCTION _jm_f_17(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
@@ -8562,7 +6109,7 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_obj_143_map_min_ansible_container_version (.'$GalaxyInfoModelStandalone'.min_ansible_container_version)
+-- check _jm_obj_96_map_min_ansible_container_version (.'$GalaxyInfoModelStandalone'.min_ansible_container_version)
 CREATE OR REPLACE FUNCTION _jm_f_18(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
@@ -8574,7 +6121,7 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_obj_143_map_namespace (.'$GalaxyInfoModelStandalone'.namespace)
+-- check _jm_obj_96_map_namespace (.'$GalaxyInfoModelStandalone'.namespace)
 CREATE OR REPLACE FUNCTION _jm_f_19(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
@@ -8587,7 +6134,7 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_obj_143_map_platforms (.'$GalaxyInfoModelStandalone'.platforms)
+-- check _jm_obj_96_map_platforms (.'$GalaxyInfoModelStandalone'.platforms)
 CREATE OR REPLACE FUNCTION _jm_f_20(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
@@ -8599,7 +6146,7 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_obj_143_map_role_name (.'$GalaxyInfoModelStandalone'.role_name)
+-- check _jm_obj_96_map_role_name (.'$GalaxyInfoModelStandalone'.role_name)
 CREATE OR REPLACE FUNCTION _jm_f_21(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
@@ -8612,7 +6159,7 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_obj_143_map_video_links (.'$GalaxyInfoModelStandalone'.video_links)
+-- check _jm_obj_96_map_video_links (.'$GalaxyInfoModelStandalone'.video_links)
 CREATE OR REPLACE FUNCTION _jm_f_22(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
@@ -8628,7 +6175,7 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
-CREATE OR REPLACE FUNCTION _jm_obj_143_map(name TEXT)
+CREATE OR REPLACE FUNCTION _jm_obj_96_map(name TEXT)
 RETURNS TEXT STRICT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   map JSONB := JSONB '{"cloud_platforms":"_jm_f_13","company":"_jm_f_14","galaxy_tags":"_jm_f_15","github_branch":"_jm_f_16","issue_tracker_url":"_jm_f_17","min_ansible_container_version":"_jm_f_18","namespace":"_jm_f_19","platforms":"_jm_f_20","role_name":"_jm_f_21","video_links":"_jm_f_22"}';
@@ -8638,7 +6185,7 @@ END;
 $$ LANGUAGE plpgsql;
 
 -- object .'$GalaxyInfoModelStandalone'
-CREATE OR REPLACE FUNCTION _jm_obj_143(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_obj_96(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -8692,9 +6239,9 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF _jm_obj_143_map(prop) IS NOT NULL THEN
+    ELSEIF _jm_obj_96_map(prop) IS NOT NULL THEN
       -- handle 10 may props
-      pfun := _jm_obj_143_map(prop);
+      pfun := _jm_obj_96_map(prop);
       IF NOT jm_call(pfun, pval, NULL, rep) THEN
         RETURN FALSE;
       END IF;
@@ -8716,62 +6263,62 @@ DECLARE
   res bool;
 BEGIN
   -- .'$GalaxyInfoModelStandalone'
-  res := _jm_obj_143(val, path, rep);
+  res := _jm_obj_96(val, path, rep);
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_obj_144_map_author (.'$GalaxyInfoModel'.'|'.2.author)
+-- check _jm_obj_97_map_author (.'$GalaxyInfoModel'.'|'.1.author)
 CREATE OR REPLACE FUNCTION _jm_f_23(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
 BEGIN
-  -- .'$GalaxyInfoModel'.'|'.2.author
+  -- .'$GalaxyInfoModel'.'|'.1.author
   res := JSONB_TYPEOF(val) = 'string';
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_obj_144_map_cloud_platforms (.'$GalaxyInfoModel'.'|'.2.cloud_platforms)
+-- check _jm_obj_97_map_cloud_platforms (.'$GalaxyInfoModel'.'|'.1.cloud_platforms)
 CREATE OR REPLACE FUNCTION _jm_f_24(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
 BEGIN
-  -- .'$GalaxyInfoModel'.'|'.2.cloud_platforms
+  -- .'$GalaxyInfoModel'.'|'.1.cloud_platforms
   res := TRUE;
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_obj_144_map_company (.'$GalaxyInfoModel'.'|'.2.company)
+-- check _jm_obj_97_map_company (.'$GalaxyInfoModel'.'|'.1.company)
 CREATE OR REPLACE FUNCTION _jm_f_25(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
 BEGIN
-  -- .'$GalaxyInfoModel'.'|'.2.company
+  -- .'$GalaxyInfoModel'.'|'.1.company
   res := JSONB_TYPEOF(val) = 'string';
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_obj_144_map_galaxy_tags (.'$GalaxyInfoModel'.'|'.2.galaxy_tags)
+-- check _jm_obj_97_map_galaxy_tags (.'$GalaxyInfoModel'.'|'.1.galaxy_tags)
 CREATE OR REPLACE FUNCTION _jm_f_26(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
-  arr_144_idx INT8;
-  arr_144_item JSONB;
+  arr_97_idx INT8;
+  arr_97_item JSONB;
 BEGIN
-  -- .'$GalaxyInfoModel'.'|'.2.galaxy_tags
+  -- .'$GalaxyInfoModel'.'|'.1.galaxy_tags
   res := JSONB_TYPEOF(val) = 'array';
   IF res THEN
-    FOR arr_144_idx IN 0 .. JSONB_ARRAY_LENGTH(val) - 1 LOOP
-      arr_144_item := val -> arr_144_idx;
-      -- .'$GalaxyInfoModel'.'|'.2.galaxy_tags.0
-      res := JSONB_TYPEOF(arr_144_item) = 'string';
+    FOR arr_97_idx IN 0 .. JSONB_ARRAY_LENGTH(val) - 1 LOOP
+      arr_97_item := val -> arr_97_idx;
+      -- .'$GalaxyInfoModel'.'|'.1.galaxy_tags.0
+      res := JSONB_TYPEOF(arr_97_item) = 'string';
       IF NOT res THEN
         EXIT;
       END IF;
@@ -8781,111 +6328,111 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_obj_144_map_github_branch (.'$GalaxyInfoModel'.'|'.2.github_branch)
+-- check _jm_obj_97_map_github_branch (.'$GalaxyInfoModel'.'|'.1.github_branch)
 CREATE OR REPLACE FUNCTION _jm_f_27(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
 BEGIN
-  -- .'$GalaxyInfoModel'.'|'.2.github_branch
+  -- .'$GalaxyInfoModel'.'|'.1.github_branch
   res := JSONB_TYPEOF(val) = 'string';
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_obj_144_map_issue_tracker_url (.'$GalaxyInfoModel'.'|'.2.issue_tracker_url)
+-- check _jm_obj_97_map_issue_tracker_url (.'$GalaxyInfoModel'.'|'.1.issue_tracker_url)
 CREATE OR REPLACE FUNCTION _jm_f_28(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
 BEGIN
-  -- .'$GalaxyInfoModel'.'|'.2.issue_tracker_url
+  -- .'$GalaxyInfoModel'.'|'.1.issue_tracker_url
   res := JSONB_TYPEOF(val) = 'string';
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_obj_144_map_license (.'$GalaxyInfoModel'.'|'.2.license)
+-- check _jm_obj_97_map_license (.'$GalaxyInfoModel'.'|'.1.license)
 CREATE OR REPLACE FUNCTION _jm_f_29(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
 BEGIN
-  -- .'$GalaxyInfoModel'.'|'.2.license
+  -- .'$GalaxyInfoModel'.'|'.1.license
   res := JSONB_TYPEOF(val) = 'string';
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_obj_144_map_min_ansible_container_version (.'$GalaxyInfoModel'.'|'.2.min_ansible_container_version)
+-- check _jm_obj_97_map_min_ansible_container_version (.'$GalaxyInfoModel'.'|'.1.min_ansible_container_version)
 CREATE OR REPLACE FUNCTION _jm_f_30(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
 BEGIN
-  -- .'$GalaxyInfoModel'.'|'.2.min_ansible_container_version
+  -- .'$GalaxyInfoModel'.'|'.1.min_ansible_container_version
   res := JSONB_TYPEOF(val) = 'string';
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_obj_144_map_min_ansible_version (.'$GalaxyInfoModel'.'|'.2.min_ansible_version)
+-- check _jm_obj_97_map_min_ansible_version (.'$GalaxyInfoModel'.'|'.1.min_ansible_version)
 CREATE OR REPLACE FUNCTION _jm_f_31(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
 BEGIN
-  -- .'$GalaxyInfoModel'.'|'.2.min_ansible_version
+  -- .'$GalaxyInfoModel'.'|'.1.min_ansible_version
   res := JSONB_TYPEOF(val) = 'string';
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_obj_144_map_namespace (.'$GalaxyInfoModel'.'|'.2.namespace)
+-- check _jm_obj_97_map_namespace (.'$GalaxyInfoModel'.'|'.1.namespace)
 CREATE OR REPLACE FUNCTION _jm_f_32(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
 BEGIN
-  -- .'$GalaxyInfoModel'.'|'.2.namespace
+  -- .'$GalaxyInfoModel'.'|'.1.namespace
   -- "/^[a-z][-a-z0-9_]+$/"
   res := JSONB_TYPEOF(val) = 'string' AND _jm_re_0(JSON_VALUE(val, '$' RETURNING TEXT), path, rep);
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_obj_144_map_platforms (.'$GalaxyInfoModel'.'|'.2.platforms)
+-- check _jm_obj_97_map_platforms (.'$GalaxyInfoModel'.'|'.1.platforms)
 CREATE OR REPLACE FUNCTION _jm_f_33(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
 BEGIN
-  -- .'$GalaxyInfoModel'.'|'.2.platforms
+  -- .'$GalaxyInfoModel'.'|'.1.platforms
   res := json_model_50(val, path, rep);
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_obj_144_map_role_name (.'$GalaxyInfoModel'.'|'.2.role_name)
+-- check _jm_obj_97_map_role_name (.'$GalaxyInfoModel'.'|'.1.role_name)
 CREATE OR REPLACE FUNCTION _jm_f_34(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
 BEGIN
-  -- .'$GalaxyInfoModel'.'|'.2.role_name
+  -- .'$GalaxyInfoModel'.'|'.1.role_name
   -- "/^[a-z][a-z0-9_]+$/"
   res := JSONB_TYPEOF(val) = 'string' AND _jm_re_1(JSON_VALUE(val, '$' RETURNING TEXT), path, rep);
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_obj_144_map_video_links (.'$GalaxyInfoModel'.'|'.2.video_links)
+-- check _jm_obj_97_map_video_links (.'$GalaxyInfoModel'.'|'.1.video_links)
 CREATE OR REPLACE FUNCTION _jm_f_35(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
 BEGIN
-  -- .'$GalaxyInfoModel'.'|'.2.video_links
+  -- .'$GalaxyInfoModel'.'|'.1.video_links
   res := JSONB_TYPEOF(val) = 'array';
   IF res THEN
     -- accept any array
@@ -8895,7 +6442,7 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
-CREATE OR REPLACE FUNCTION _jm_obj_144_map(name TEXT)
+CREATE OR REPLACE FUNCTION _jm_obj_97_map(name TEXT)
 RETURNS TEXT STRICT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   map JSONB := JSONB '{"author":"_jm_f_23","cloud_platforms":"_jm_f_24","company":"_jm_f_25","galaxy_tags":"_jm_f_26","github_branch":"_jm_f_27","issue_tracker_url":"_jm_f_28","license":"_jm_f_29","min_ansible_container_version":"_jm_f_30","min_ansible_version":"_jm_f_31","namespace":"_jm_f_32","platforms":"_jm_f_33","role_name":"_jm_f_34","video_links":"_jm_f_35"}';
@@ -8904,8 +6451,8 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
--- object .'$GalaxyInfoModel'.'|'.2
-CREATE OR REPLACE FUNCTION _jm_obj_144(val JSONB, path TEXT[], rep jm_report_entry[])
+-- object .'$GalaxyInfoModel'.'|'.1
+CREATE OR REPLACE FUNCTION _jm_obj_97(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -8922,14 +6469,14 @@ BEGIN
     IF prop = 'description' THEN
       -- handle must description property
       must_count := must_count + 1;
-      -- .'$GalaxyInfoModel'.'|'.2.description
+      -- .'$GalaxyInfoModel'.'|'.1.description
       res := JSONB_TYPEOF(pval) = 'string';
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF _jm_obj_144_map(prop) IS NOT NULL THEN
+    ELSEIF _jm_obj_97_map(prop) IS NOT NULL THEN
       -- handle 13 may props
-      pfun := _jm_obj_144_map(prop);
+      pfun := _jm_obj_97_map(prop);
       IF NOT jm_call(pfun, pval, NULL, rep) THEN
         RETURN FALSE;
       END IF;
@@ -8944,239 +6491,20 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_obj_145_map_author (.'$GalaxyInfoModel'.'|'.1.author)
+-- check _jm_obj_98_map_author (.'$GalaxyInfoModel'.'|'.0.author)
 CREATE OR REPLACE FUNCTION _jm_f_36(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
 BEGIN
-  -- .'$GalaxyInfoModel'.'|'.1.author
+  -- .'$GalaxyInfoModel'.'|'.0.author
   res := JSONB_TYPEOF(val) = 'string';
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_obj_145_map_cloud_platforms (.'$GalaxyInfoModel'.'|'.1.cloud_platforms)
+-- check _jm_obj_98_map_cloud_platforms (.'$GalaxyInfoModel'.'|'.0.cloud_platforms)
 CREATE OR REPLACE FUNCTION _jm_f_37(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .'$GalaxyInfoModel'.'|'.1.cloud_platforms
-  res := TRUE;
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
--- check _jm_obj_145_map_company (.'$GalaxyInfoModel'.'|'.1.company)
-CREATE OR REPLACE FUNCTION _jm_f_38(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .'$GalaxyInfoModel'.'|'.1.company
-  res := JSONB_TYPEOF(val) = 'string';
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
--- check _jm_obj_145_map_galaxy_tags (.'$GalaxyInfoModel'.'|'.1.galaxy_tags)
-CREATE OR REPLACE FUNCTION _jm_f_39(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-  arr_145_idx INT8;
-  arr_145_item JSONB;
-BEGIN
-  -- .'$GalaxyInfoModel'.'|'.1.galaxy_tags
-  res := JSONB_TYPEOF(val) = 'array';
-  IF res THEN
-    FOR arr_145_idx IN 0 .. JSONB_ARRAY_LENGTH(val) - 1 LOOP
-      arr_145_item := val -> arr_145_idx;
-      -- .'$GalaxyInfoModel'.'|'.1.galaxy_tags.0
-      res := JSONB_TYPEOF(arr_145_item) = 'string';
-      IF NOT res THEN
-        EXIT;
-      END IF;
-    END LOOP;
-  END IF;
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
--- check _jm_obj_145_map_github_branch (.'$GalaxyInfoModel'.'|'.1.github_branch)
-CREATE OR REPLACE FUNCTION _jm_f_40(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .'$GalaxyInfoModel'.'|'.1.github_branch
-  res := JSONB_TYPEOF(val) = 'string';
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
--- check _jm_obj_145_map_issue_tracker_url (.'$GalaxyInfoModel'.'|'.1.issue_tracker_url)
-CREATE OR REPLACE FUNCTION _jm_f_41(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .'$GalaxyInfoModel'.'|'.1.issue_tracker_url
-  res := JSONB_TYPEOF(val) = 'string';
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
--- check _jm_obj_145_map_license (.'$GalaxyInfoModel'.'|'.1.license)
-CREATE OR REPLACE FUNCTION _jm_f_42(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .'$GalaxyInfoModel'.'|'.1.license
-  res := JSONB_TYPEOF(val) = 'string';
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
--- check _jm_obj_145_map_min_ansible_container_version (.'$GalaxyInfoModel'.'|'.1.min_ansible_container_version)
-CREATE OR REPLACE FUNCTION _jm_f_43(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .'$GalaxyInfoModel'.'|'.1.min_ansible_container_version
-  res := JSONB_TYPEOF(val) = 'string';
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
--- check _jm_obj_145_map_min_ansible_version (.'$GalaxyInfoModel'.'|'.1.min_ansible_version)
-CREATE OR REPLACE FUNCTION _jm_f_44(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .'$GalaxyInfoModel'.'|'.1.min_ansible_version
-  res := JSONB_TYPEOF(val) = 'string';
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
--- check _jm_obj_145_map_namespace (.'$GalaxyInfoModel'.'|'.1.namespace)
-CREATE OR REPLACE FUNCTION _jm_f_45(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .'$GalaxyInfoModel'.'|'.1.namespace
-  -- "/^[a-z][-a-z0-9_]+$/"
-  res := JSONB_TYPEOF(val) = 'string' AND _jm_re_0(JSON_VALUE(val, '$' RETURNING TEXT), path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
--- check _jm_obj_145_map_platforms (.'$GalaxyInfoModel'.'|'.1.platforms)
-CREATE OR REPLACE FUNCTION _jm_f_46(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .'$GalaxyInfoModel'.'|'.1.platforms
-  res := json_model_50(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
--- check _jm_obj_145_map_role_name (.'$GalaxyInfoModel'.'|'.1.role_name)
-CREATE OR REPLACE FUNCTION _jm_f_47(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .'$GalaxyInfoModel'.'|'.1.role_name
-  -- "/^[a-z][a-z0-9_]+$/"
-  res := JSONB_TYPEOF(val) = 'string' AND _jm_re_1(JSON_VALUE(val, '$' RETURNING TEXT), path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
--- check _jm_obj_145_map_video_links (.'$GalaxyInfoModel'.'|'.1.video_links)
-CREATE OR REPLACE FUNCTION _jm_f_48(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .'$GalaxyInfoModel'.'|'.1.video_links
-  res := JSONB_TYPEOF(val) = 'array';
-  IF res THEN
-    -- accept any array
-    NULL;
-  END IF;
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
-CREATE OR REPLACE FUNCTION _jm_obj_145_map(name TEXT)
-RETURNS TEXT STRICT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  map JSONB := JSONB '{"author":"_jm_f_36","cloud_platforms":"_jm_f_37","company":"_jm_f_38","galaxy_tags":"_jm_f_39","github_branch":"_jm_f_40","issue_tracker_url":"_jm_f_41","license":"_jm_f_42","min_ansible_container_version":"_jm_f_43","min_ansible_version":"_jm_f_44","namespace":"_jm_f_45","platforms":"_jm_f_46","role_name":"_jm_f_47","video_links":"_jm_f_48"}';
-BEGIN
-  RETURN map->>name;
-END;
-$$ LANGUAGE plpgsql;
-
--- object .'$GalaxyInfoModel'.'|'.1
-CREATE OR REPLACE FUNCTION _jm_obj_145(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-  pfun TEXT;
-  must_count int;
-  prop TEXT;
-  pval JSONB;
-BEGIN
-  IF NOT (JSONB_TYPEOF(val) = 'object') THEN
-    RETURN FALSE;
-  END IF;
-  must_count := 0;
-  FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF prop = 'standalone' THEN
-      -- handle must standalone property
-      must_count := must_count + 1;
-      -- .'$GalaxyInfoModel'.'|'.1.standalone
-      res := JSONB_TYPEOF(pval) = 'boolean' AND (pval)::BOOL = FALSE;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-    ELSEIF prop = 'description' THEN
-      -- handle must description property
-      must_count := must_count + 1;
-      -- .'$GalaxyInfoModel'.'|'.1.description
-      res := JSONB_TYPEOF(pval) = 'string';
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-    ELSEIF _jm_obj_145_map(prop) IS NOT NULL THEN
-      -- handle 13 may props
-      pfun := _jm_obj_145_map(prop);
-      IF NOT jm_call(pfun, pval, NULL, rep) THEN
-        RETURN FALSE;
-      END IF;
-    ELSE
-      RETURN FALSE;
-    END IF;
-  END LOOP;
-  IF must_count <> 2 THEN
-    RETURN FALSE;
-  END IF;
-  RETURN TRUE;
-END;
-$$ LANGUAGE PLpgSQL;
-
--- check _jm_obj_146_map_cloud_platforms (.'$GalaxyInfoModel'.'|'.0.cloud_platforms)
-CREATE OR REPLACE FUNCTION _jm_f_49(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -9187,8 +6515,8 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_obj_146_map_company (.'$GalaxyInfoModel'.'|'.0.company)
-CREATE OR REPLACE FUNCTION _jm_f_50(val JSONB, path TEXT[], rep jm_report_entry[])
+-- check _jm_obj_98_map_company (.'$GalaxyInfoModel'.'|'.0.company)
+CREATE OR REPLACE FUNCTION _jm_f_38(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -9199,21 +6527,21 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_obj_146_map_galaxy_tags (.'$GalaxyInfoModel'.'|'.0.galaxy_tags)
-CREATE OR REPLACE FUNCTION _jm_f_51(val JSONB, path TEXT[], rep jm_report_entry[])
+-- check _jm_obj_98_map_galaxy_tags (.'$GalaxyInfoModel'.'|'.0.galaxy_tags)
+CREATE OR REPLACE FUNCTION _jm_f_39(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
-  arr_146_idx INT8;
-  arr_146_item JSONB;
+  arr_98_idx INT8;
+  arr_98_item JSONB;
 BEGIN
   -- .'$GalaxyInfoModel'.'|'.0.galaxy_tags
   res := JSONB_TYPEOF(val) = 'array';
   IF res THEN
-    FOR arr_146_idx IN 0 .. JSONB_ARRAY_LENGTH(val) - 1 LOOP
-      arr_146_item := val -> arr_146_idx;
+    FOR arr_98_idx IN 0 .. JSONB_ARRAY_LENGTH(val) - 1 LOOP
+      arr_98_item := val -> arr_98_idx;
       -- .'$GalaxyInfoModel'.'|'.0.galaxy_tags.0
-      res := JSONB_TYPEOF(arr_146_item) = 'string';
+      res := JSONB_TYPEOF(arr_98_item) = 'string';
       IF NOT res THEN
         EXIT;
       END IF;
@@ -9223,8 +6551,8 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_obj_146_map_github_branch (.'$GalaxyInfoModel'.'|'.0.github_branch)
-CREATE OR REPLACE FUNCTION _jm_f_52(val JSONB, path TEXT[], rep jm_report_entry[])
+-- check _jm_obj_98_map_github_branch (.'$GalaxyInfoModel'.'|'.0.github_branch)
+CREATE OR REPLACE FUNCTION _jm_f_40(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -9235,8 +6563,8 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_obj_146_map_issue_tracker_url (.'$GalaxyInfoModel'.'|'.0.issue_tracker_url)
-CREATE OR REPLACE FUNCTION _jm_f_53(val JSONB, path TEXT[], rep jm_report_entry[])
+-- check _jm_obj_98_map_issue_tracker_url (.'$GalaxyInfoModel'.'|'.0.issue_tracker_url)
+CREATE OR REPLACE FUNCTION _jm_f_41(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -9247,8 +6575,20 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_obj_146_map_min_ansible_container_version (.'$GalaxyInfoModel'.'|'.0.min_ansible_container_version)
-CREATE OR REPLACE FUNCTION _jm_f_54(val JSONB, path TEXT[], rep jm_report_entry[])
+-- check _jm_obj_98_map_license (.'$GalaxyInfoModel'.'|'.0.license)
+CREATE OR REPLACE FUNCTION _jm_f_42(val JSONB, path TEXT[], rep jm_report_entry[])
+RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
+DECLARE
+  res bool;
+BEGIN
+  -- .'$GalaxyInfoModel'.'|'.0.license
+  res := JSONB_TYPEOF(val) = 'string';
+  RETURN res;
+END;
+$$ LANGUAGE PLpgSQL;
+
+-- check _jm_obj_98_map_min_ansible_container_version (.'$GalaxyInfoModel'.'|'.0.min_ansible_container_version)
+CREATE OR REPLACE FUNCTION _jm_f_43(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -9259,8 +6599,20 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_obj_146_map_namespace (.'$GalaxyInfoModel'.'|'.0.namespace)
-CREATE OR REPLACE FUNCTION _jm_f_55(val JSONB, path TEXT[], rep jm_report_entry[])
+-- check _jm_obj_98_map_min_ansible_version (.'$GalaxyInfoModel'.'|'.0.min_ansible_version)
+CREATE OR REPLACE FUNCTION _jm_f_44(val JSONB, path TEXT[], rep jm_report_entry[])
+RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
+DECLARE
+  res bool;
+BEGIN
+  -- .'$GalaxyInfoModel'.'|'.0.min_ansible_version
+  res := JSONB_TYPEOF(val) = 'string';
+  RETURN res;
+END;
+$$ LANGUAGE PLpgSQL;
+
+-- check _jm_obj_98_map_namespace (.'$GalaxyInfoModel'.'|'.0.namespace)
+CREATE OR REPLACE FUNCTION _jm_f_45(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -9272,8 +6624,8 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_obj_146_map_platforms (.'$GalaxyInfoModel'.'|'.0.platforms)
-CREATE OR REPLACE FUNCTION _jm_f_56(val JSONB, path TEXT[], rep jm_report_entry[])
+-- check _jm_obj_98_map_platforms (.'$GalaxyInfoModel'.'|'.0.platforms)
+CREATE OR REPLACE FUNCTION _jm_f_46(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -9284,8 +6636,8 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_obj_146_map_role_name (.'$GalaxyInfoModel'.'|'.0.role_name)
-CREATE OR REPLACE FUNCTION _jm_f_57(val JSONB, path TEXT[], rep jm_report_entry[])
+-- check _jm_obj_98_map_role_name (.'$GalaxyInfoModel'.'|'.0.role_name)
+CREATE OR REPLACE FUNCTION _jm_f_47(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -9297,8 +6649,8 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_obj_146_map_video_links (.'$GalaxyInfoModel'.'|'.0.video_links)
-CREATE OR REPLACE FUNCTION _jm_f_58(val JSONB, path TEXT[], rep jm_report_entry[])
+-- check _jm_obj_98_map_video_links (.'$GalaxyInfoModel'.'|'.0.video_links)
+CREATE OR REPLACE FUNCTION _jm_f_48(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -9313,17 +6665,17 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
-CREATE OR REPLACE FUNCTION _jm_obj_146_map(name TEXT)
+CREATE OR REPLACE FUNCTION _jm_obj_98_map(name TEXT)
 RETURNS TEXT STRICT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
-  map JSONB := JSONB '{"cloud_platforms":"_jm_f_49","company":"_jm_f_50","galaxy_tags":"_jm_f_51","github_branch":"_jm_f_52","issue_tracker_url":"_jm_f_53","min_ansible_container_version":"_jm_f_54","namespace":"_jm_f_55","platforms":"_jm_f_56","role_name":"_jm_f_57","video_links":"_jm_f_58"}';
+  map JSONB := JSONB '{"author":"_jm_f_36","cloud_platforms":"_jm_f_37","company":"_jm_f_38","galaxy_tags":"_jm_f_39","github_branch":"_jm_f_40","issue_tracker_url":"_jm_f_41","license":"_jm_f_42","min_ansible_container_version":"_jm_f_43","min_ansible_version":"_jm_f_44","namespace":"_jm_f_45","platforms":"_jm_f_46","role_name":"_jm_f_47","video_links":"_jm_f_48"}';
 BEGIN
   RETURN map->>name;
 END;
 $$ LANGUAGE plpgsql;
 
 -- object .'$GalaxyInfoModel'.'|'.0
-CREATE OR REPLACE FUNCTION _jm_obj_146(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_obj_98(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -9341,7 +6693,7 @@ BEGIN
       -- handle must standalone property
       must_count := must_count + 1;
       -- .'$GalaxyInfoModel'.'|'.0.standalone
-      res := JSONB_TYPEOF(pval) = 'boolean' AND (pval)::BOOL = TRUE;
+      res := JSONB_TYPEOF(pval) = 'boolean' AND (pval)::BOOL = FALSE;
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -9353,33 +6705,9 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF prop = 'author' THEN
-      -- handle must author property
-      must_count := must_count + 1;
-      -- .'$GalaxyInfoModel'.'|'.0.author
-      res := JSONB_TYPEOF(pval) = 'string';
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-    ELSEIF prop = 'license' THEN
-      -- handle must license property
-      must_count := must_count + 1;
-      -- .'$GalaxyInfoModel'.'|'.0.license
-      res := JSONB_TYPEOF(pval) = 'string';
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-    ELSEIF prop = 'min_ansible_version' THEN
-      -- handle must min_ansible_version property
-      must_count := must_count + 1;
-      -- .'$GalaxyInfoModel'.'|'.0.min_ansible_version
-      res := JSONB_TYPEOF(pval) = 'string';
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-    ELSEIF _jm_obj_146_map(prop) IS NOT NULL THEN
-      -- handle 10 may props
-      pfun := _jm_obj_146_map(prop);
+    ELSEIF _jm_obj_98_map(prop) IS NOT NULL THEN
+      -- handle 13 may props
+      pfun := _jm_obj_98_map(prop);
       IF NOT jm_call(pfun, pval, NULL, rep) THEN
         RETURN FALSE;
       END IF;
@@ -9387,7 +6715,7 @@ BEGIN
       RETURN FALSE;
     END IF;
   END LOOP;
-  IF must_count <> 5 THEN
+  IF must_count <> 2 THEN
     RETURN FALSE;
   END IF;
   RETURN TRUE;
@@ -9405,15 +6733,15 @@ BEGIN
   res := JSONB_TYPEOF(val) = 'object';
   IF res THEN
     -- .'$GalaxyInfoModel'.'|'.0
-    res := _jm_obj_146(val, path, rep);
+    res := _jm_obj_98(val, path, rep);
     IF NOT res THEN
       -- .'$GalaxyInfoModel'.'|'.1
-      res := _jm_obj_145(val, path, rep);
-      IF NOT res THEN
-        -- .'$GalaxyInfoModel'.'|'.2
-        res := _jm_obj_144(val, path, rep);
-      END IF;
+      res := _jm_obj_97(val, path, rep);
     END IF;
+  END IF;
+  IF NOT res THEN
+    -- .'$GalaxyInfoModel'.'|'
+    res := json_model_53(val, path, rep);
   END IF;
   RETURN res;
 END;
@@ -9432,17 +6760,17 @@ CREATE OR REPLACE FUNCTION json_model_55(val JSONB, path TEXT[], rep jm_report_e
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
-  arr_147_idx INT8;
-  arr_147_item JSONB;
+  arr_99_idx INT8;
+  arr_99_item JSONB;
 BEGIN
   -- .'$collections'
   res := JSONB_TYPEOF(val) = 'array';
   IF res THEN
-    FOR arr_147_idx IN 0 .. JSONB_ARRAY_LENGTH(val) - 1 LOOP
-      arr_147_item := val -> arr_147_idx;
+    FOR arr_99_idx IN 0 .. JSONB_ARRAY_LENGTH(val) - 1 LOOP
+      arr_99_item := val -> arr_99_idx;
       -- .'$collections'.0
       -- "/^[a-z_]+\\.[a-z_]+$/"
-      res := JSONB_TYPEOF(arr_147_item) = 'string' AND _jm_re_2(JSON_VALUE(arr_147_item, '$' RETURNING TEXT), NULL, rep);
+      res := JSONB_TYPEOF(arr_99_item) = 'string' AND _jm_re_2(JSON_VALUE(arr_99_item, '$' RETURNING TEXT), NULL, rep);
       IF NOT res THEN
         EXIT;
       END IF;
@@ -9457,8 +6785,8 @@ CREATE OR REPLACE FUNCTION json_model_56(val JSONB, path TEXT[], rep jm_report_e
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
-  arr_148_idx INT8;
-  arr_148_item JSONB;
+  arr_100_idx INT8;
+  arr_100_item JSONB;
 BEGIN
   -- .'$complex_conditional'
   -- .'$complex_conditional'.'|'.0
@@ -9470,10 +6798,10 @@ BEGIN
       -- .'$complex_conditional'.'|'.2
       res := JSONB_TYPEOF(val) = 'array';
       IF res THEN
-        FOR arr_148_idx IN 0 .. JSONB_ARRAY_LENGTH(val) - 1 LOOP
-          arr_148_item := val -> arr_148_idx;
+        FOR arr_100_idx IN 0 .. JSONB_ARRAY_LENGTH(val) - 1 LOOP
+          arr_100_item := val -> arr_100_idx;
           -- .'$complex_conditional'.'|'.2.0
-          res := JSONB_TYPEOF(arr_148_item) = 'string';
+          res := JSONB_TYPEOF(arr_100_item) = 'string';
           IF NOT res THEN
             EXIT;
           END IF;
@@ -9485,7 +6813,7 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
-CREATE OR REPLACE FUNCTION _jm_cst_96(value JSONB)
+CREATE OR REPLACE FUNCTION _jm_cst_64(value JSONB)
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   constants JSONB = JSONB '["hg","git"]';
@@ -9495,7 +6823,7 @@ END;
 $$ LANGUAGE plpgsql;
 
 -- object .'$DependencyModelLoose'.vars
-CREATE OR REPLACE FUNCTION _jm_obj_148(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_obj_100(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
@@ -9507,13 +6835,13 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- object .'$DependencyModelLoose'
-CREATE OR REPLACE FUNCTION _jm_obj_147(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_obj_99(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   pval JSONB;
   res bool;
-  arr_149_idx INT8;
-  arr_149_item JSONB;
+  arr_101_idx INT8;
+  arr_101_item JSONB;
 BEGIN
   -- check must only props
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
@@ -9554,7 +6882,7 @@ BEGIN
   IF val ? 'scm' THEN
     pval := val -> 'scm';
     -- .'$DependencyModelLoose'.scm
-    res := JSONB_TYPEOF(pval) IN ('null', 'boolean', 'number', 'string') AND _jm_cst_96(pval);
+    res := JSONB_TYPEOF(pval) IN ('null', 'boolean', 'number', 'string') AND _jm_cst_64(pval);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -9568,10 +6896,10 @@ BEGIN
       -- .'$DependencyModelLoose'.tags.'|'.1
       res := JSONB_TYPEOF(pval) = 'array';
       IF res THEN
-        FOR arr_149_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
-          arr_149_item := pval -> arr_149_idx;
+        FOR arr_101_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
+          arr_101_item := pval -> arr_101_idx;
           -- .'$DependencyModelLoose'.tags.'|'.1.0
-          res := JSONB_TYPEOF(arr_149_item) = 'string';
+          res := JSONB_TYPEOF(arr_101_item) = 'string';
           IF NOT res THEN
             EXIT;
           END IF;
@@ -9585,7 +6913,7 @@ BEGIN
   IF val ? 'vars' THEN
     pval := val -> 'vars';
     -- .'$DependencyModelLoose'.vars
-    res := _jm_obj_148(pval, path, rep);
+    res := _jm_obj_100(pval, path, rep);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -9620,13 +6948,13 @@ BEGIN
   -- 
   -- Other keys are treated as role [parameters](https://docs.ansible.com/ansible/latest/user_guide/playbooks_reuse_roles.html#passing-different-parameters).
   -- .'$DependencyModelLoose'
-  res := _jm_obj_147(val, path, rep);
+  res := _jm_obj_99(val, path, rep);
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
 
 -- object .'$DependencyModel'.'&'.1.'|'.2
-CREATE OR REPLACE FUNCTION _jm_obj_149(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_obj_101(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   pval JSONB;
@@ -9650,7 +6978,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- object .'$DependencyModel'.'&'.1.'|'.1
-CREATE OR REPLACE FUNCTION _jm_obj_150(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_obj_102(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   pval JSONB;
@@ -9674,7 +7002,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- object .'$DependencyModel'.'&'.1.'|'.0
-CREATE OR REPLACE FUNCTION _jm_obj_151(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_obj_103(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   pval JSONB;
@@ -9714,13 +7042,13 @@ BEGIN
       res := JSONB_TYPEOF(val) = 'object';
       IF res THEN
         -- .'$DependencyModel'.'&'.1.'|'.0
-        res := _jm_obj_151(val, path, rep);
+        res := _jm_obj_103(val, path, rep);
         IF NOT res THEN
           -- .'$DependencyModel'.'&'.1.'|'.1
-          res := _jm_obj_150(val, path, rep);
+          res := _jm_obj_102(val, path, rep);
           IF NOT res THEN
             -- .'$DependencyModel'.'&'.1.'|'.2
-            res := _jm_obj_149(val, path, rep);
+            res := _jm_obj_101(val, path, rep);
           END IF;
         END IF;
       END IF;
@@ -9731,14 +7059,14 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- object .'$AnsibleMetaObj'
-CREATE OR REPLACE FUNCTION _jm_obj_152(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_obj_104(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
   prop TEXT;
   pval JSONB;
-  arr_150_idx INT8;
-  arr_150_item JSONB;
+  arr_102_idx INT8;
+  arr_102_item JSONB;
 BEGIN
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
@@ -9763,14 +7091,14 @@ BEGIN
       -- .'$AnsibleMetaObj'.dependencies
       res := JSONB_TYPEOF(pval) = 'array';
       IF res THEN
-        FOR arr_150_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
-          arr_150_item := pval -> arr_150_idx;
+        FOR arr_102_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
+          arr_102_item := pval -> arr_102_idx;
           -- .'$AnsibleMetaObj'.dependencies.0
           -- .'$AnsibleMetaObj'.dependencies.0.'|'.0
-          res := JSONB_TYPEOF(arr_150_item) = 'string';
+          res := JSONB_TYPEOF(arr_102_item) = 'string';
           IF NOT res THEN
             -- .'$AnsibleMetaObj'.dependencies.0.'|'.1
-            res := json_model_58(arr_150_item, NULL, rep);
+            res := json_model_58(arr_102_item, NULL, rep);
           END IF;
           IF NOT res THEN
             EXIT;
@@ -9802,73 +7130,8 @@ DECLARE
   res bool;
 BEGIN
   -- .'$AnsibleMetaObj'
-  res := _jm_obj_152(val, path, rep);
+  res := _jm_obj_104(val, path, rep);
   RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
--- object .'$AnsibleMeta'.'|'.1
-CREATE OR REPLACE FUNCTION _jm_obj_153(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-  prop TEXT;
-  pval JSONB;
-  arr_151_idx INT8;
-  arr_151_item JSONB;
-BEGIN
-  IF NOT (JSONB_TYPEOF(val) = 'object') THEN
-    RETURN FALSE;
-  END IF;
-  FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF prop = 'allow_duplicates' THEN
-      -- handle may allow_duplicates property
-      -- .'$AnsibleMeta'.'|'.1.allow_duplicates
-      res := JSONB_TYPEOF(pval) = 'boolean';
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-    ELSEIF prop = 'collections' THEN
-      -- handle may collections property
-      -- .'$AnsibleMeta'.'|'.1.collections
-      res := json_model_55(pval, NULL, rep);
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-    ELSEIF prop = 'dependencies' THEN
-      -- handle may dependencies property
-      -- .'$AnsibleMeta'.'|'.1.dependencies
-      res := JSONB_TYPEOF(pval) = 'array';
-      IF res THEN
-        FOR arr_151_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
-          arr_151_item := pval -> arr_151_idx;
-          -- .'$AnsibleMeta'.'|'.1.dependencies.0
-          -- .'$AnsibleMeta'.'|'.1.dependencies.0.'|'.0
-          res := JSONB_TYPEOF(arr_151_item) = 'string';
-          IF NOT res THEN
-            -- .'$AnsibleMeta'.'|'.1.dependencies.0.'|'.1
-            res := json_model_58(arr_151_item, NULL, rep);
-          END IF;
-          IF NOT res THEN
-            EXIT;
-          END IF;
-        END LOOP;
-      END IF;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-    ELSEIF prop = 'galaxy_info' THEN
-      -- handle may galaxy_info property
-      -- .'$AnsibleMeta'.'|'.1.galaxy_info
-      res := json_model_54(pval, NULL, rep);
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-    ELSE
-      RETURN FALSE;
-    END IF;
-  END LOOP;
-  RETURN TRUE;
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -9884,7 +7147,7 @@ BEGIN
   res := JSONB_TYPEOF(val) = 'null';
   IF NOT res THEN
     -- .'$AnsibleMeta'.'|'.1
-    res := _jm_obj_153(val, path, rep);
+    res := json_model_59(val, path, rep);
   END IF;
   RETURN res;
 END;

@@ -10,7 +10,6 @@ import * as runtime from "json_model_runtime"
 const JSON_MODEL_VERSION = "2";
 
 let _jm_cst_0 = new Set()
-let _jm_cst_1 = new Set()
 var _jm_obj_0_map = new Map()
 var check_model_map = new Map()
 
@@ -537,45 +536,41 @@ function _jm_f_24(val, path, rep)
     return res;
 }
 
-
 // check _jm_obj_0_map_type (.type)
 function _jm_f_25(val, path, rep)
 {
     let res;
     // .type
-    res = ((val === null || (typeof val === 'number' || val instanceof Number) || (typeof val === 'boolean' || val instanceof Boolean) || (typeof val === 'string' || val instanceof String))) && _jm_cst_1.has(val);
+    // .type.'|'.0
+    res = json_model_2(val, path, rep);
     if (! res)
     {
-        rep !== null && rep.push(["value not in enum [.type.'|']", path])
+        rep !== null && rep.push(["unexpected $allTypes [.type.'|'.0]", path])
     }
     if (! res)
     {
+        // .type.'|'.1
         res = Array.isArray(val);
-        if (! res)
-        {
-            rep !== null && rep.push(["unexpected type [.type.'|']", path])
-        }
         if (res)
         {
-            // .type.'|'.0
             for (let arr_3_idx = 0; arr_3_idx < val.length; arr_3_idx++)
             {
                 let arr_3_item = val[arr_3_idx]
                 let arr_3_lpath = path ? path.concat([arr_3_idx]) : null;
-                // .type.'|'.0.0
-                // .type.'|'.0.0.'|'.0
+                // .type.'|'.1.0
+                // .type.'|'.1.0.'|'.0
                 res = (typeof arr_3_item === 'string' || arr_3_item instanceof String);
                 if (! res)
                 {
-                    rep !== null && rep.push(["unexpected string [.type.'|'.0.0.'|'.0]", (path ? arr_3_lpath : null)])
+                    rep !== null && rep.push(["unexpected string [.type.'|'.1.0.'|'.0]", (path ? arr_3_lpath : null)])
                 }
                 if (! res)
                 {
-                    // .type.'|'.0.0.'|'.1
+                    // .type.'|'.1.0.'|'.1
                     res = json_model_1(arr_3_item, (path ? arr_3_lpath : null), rep);
                     if (! res)
                     {
-                        rep !== null && rep.push(["unexpected $Schema [.type.'|'.0.0.'|'.1]", (path ? arr_3_lpath : null)])
+                        rep !== null && rep.push(["unexpected $Schema [.type.'|'.1.0.'|'.1]", (path ? arr_3_lpath : null)])
                     }
                 }
                 if (res)
@@ -584,26 +579,26 @@ function _jm_f_25(val, path, rep)
                 }
                 else
                 {
-                    rep !== null && rep.push(["no model matched [.type.'|'.0.0.'|']", (path ? arr_3_lpath : null)])
+                    rep !== null && rep.push(["no model matched [.type.'|'.1.0.'|']", (path ? arr_3_lpath : null)])
                 }
                 if (! res)
                 {
                     break;
                 }
             }
-            if (! res)
-            {
-                rep !== null && rep.push(["not array or unexpected array [.type.'|'.0]", path])
-            }
-            if (res)
-            {
-                if (rep !== null) rep.length = 0
-            }
-            else
-            {
-                rep !== null && rep.push(["no model matched [.type.'|']", path])
-            }
         }
+        if (! res)
+        {
+            rep !== null && rep.push(["not array or unexpected array [.type.'|'.1]", path])
+        }
+    }
+    if (res)
+    {
+        if (rep !== null) rep.length = 0
+    }
+    else
+    {
+        rep !== null && rep.push(["no model matched [.type.'|']", path])
     }
     return res;
 }
@@ -671,14 +666,6 @@ export function check_model_init()
         _jm_cst_0.add("array")
         _jm_cst_0.add("object")
         _jm_cst_0.add("any")
-        _jm_cst_1.add("null")
-        _jm_cst_1.add("boolean")
-        _jm_cst_1.add("integer")
-        _jm_cst_1.add("number")
-        _jm_cst_1.add("string")
-        _jm_cst_1.add("array")
-        _jm_cst_1.add("object")
-        _jm_cst_1.add("any")
         _jm_obj_0_map.set("$schema", _jm_f_0)
         _jm_obj_0_map.set("additionalProperties", _jm_f_1)
         _jm_obj_0_map.set("contentEncoding", _jm_f_2)

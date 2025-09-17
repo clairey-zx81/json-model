@@ -65,73 +65,55 @@ function json_model_1(val, path, rep)
 {
     let res;
     // .
-    // .'|'.0
-    res = val === null;
-    if (! res)
+    // generic xor list
+    let xc_0 = 0;
+    let xr_0;
+    // .'^'.0
+    xr_0 = json_model_2(val, path, rep);
+    if (! xr_0)
     {
-        rep !== null && rep.push(["not null [.'|'.0]", path])
+        rep !== null && rep.push(["unexpected $X [.'^'.0]", path])
     }
-    if (! res)
+    if (xr_0)
     {
-        // .'|'.1
-        res = (typeof val === 'boolean' || val instanceof Boolean);
-        if (! res)
+        xc_0 += 1;
+    }
+    // .'^'.1
+    xr_0 = Array.isArray(val);
+    if (xr_0)
+    {
+        for (let arr_0_idx = 0; arr_0_idx < val.length; arr_0_idx++)
         {
-            rep !== null && rep.push(["not a bool [.'|'.1]", path])
-        }
-        if (! res)
-        {
-            // .'|'.2
-            res = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 1;
-            if (! res)
+            let arr_0_item = val[arr_0_idx]
+            let arr_0_lpath = path ? path.concat([arr_0_idx]) : null;
+            // .'^'.1.0
+            xr_0 = json_model_2(arr_0_item, (path ? arr_0_lpath : null), rep);
+            if (! xr_0)
             {
-                rep !== null && rep.push(["not a 1 strict int [.'|'.2]", path])
+                rep !== null && rep.push(["unexpected $X [.'^'.1.0]", (path ? arr_0_lpath : null)])
             }
-            if (! res)
+            if (! xr_0)
             {
-                // .'|'.3
-                res = ((typeof val === 'number' || val instanceof Number)) && val > 0.0;
-                if (! res)
-                {
-                    rep !== null && rep.push(["not a 1.0 strict float [.'|'.3]", path])
-                }
-                if (! res)
-                {
-                    // .'|'.4
-                    res = Array.isArray(val);
-                    if (res)
-                    {
-                        for (let arr_0_idx = 0; arr_0_idx < val.length; arr_0_idx++)
-                        {
-                            let arr_0_item = val[arr_0_idx]
-                            let arr_0_lpath = path ? path.concat([arr_0_idx]) : null;
-                            // .'|'.4.0
-                            res = json_model_2(arr_0_item, (path ? arr_0_lpath : null), rep);
-                            if (! res)
-                            {
-                                rep !== null && rep.push(["unexpected $X [.'|'.4.0]", (path ? arr_0_lpath : null)])
-                            }
-                            if (! res)
-                            {
-                                break;
-                            }
-                        }
-                    }
-                    if (! res)
-                    {
-                        rep !== null && rep.push(["not array or unexpected array [.'|'.4]", path])
-                    }
-                }
+                break;
             }
         }
     }
+    if (! xr_0)
+    {
+        rep !== null && rep.push(["not array or unexpected array [.'^'.1]", path])
+    }
+    if (xr_0)
+    {
+        xc_0 += 1;
+    }
+    res = xc_0 == 1;
     if (res)
     {
         if (rep !== null) rep.length = 0
     }
     else
     {
-        rep !== null && rep.push(["no model matched [.'|']", path])
+        rep !== null && rep.push(["not one model match [.'^']", path])
     }
     return res;
 }

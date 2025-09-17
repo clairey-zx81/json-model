@@ -102,15 +102,6 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
-CREATE OR REPLACE FUNCTION _jm_cst_0(value JSONB)
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  constants JSONB = JSONB '["null","boolean","integer","number","string","array","object"]';
-BEGIN
-  RETURN constants @> value;
-END;
-$$ LANGUAGE plpgsql;
-
 -- object .'$schema'
 CREATE OR REPLACE FUNCTION _jm_obj_0(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
@@ -350,9 +341,10 @@ BEGIN
   IF val ? 'type' THEN
     pval := val -> 'type';
     -- .'$schema'.type
-    res := JSONB_TYPEOF(pval) IN ('null', 'boolean', 'number', 'string') AND _jm_cst_0(pval);
+    -- .'$schema'.type.'|'.0
+    res := json_model_5(pval, path, rep);
     IF NOT res THEN
-      -- .'$schema'.type.'|'.0
+      -- .'$schema'.type.'|'.1
       res := json_model_7(pval, path, rep);
     END IF;
     IF NOT res THEN
@@ -474,6 +466,27 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
+CREATE OR REPLACE FUNCTION _jm_cst_0(value JSONB)
+RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
+DECLARE
+  constants JSONB = JSONB '["null","boolean","integer","number","string","array","object"]';
+BEGIN
+  RETURN constants @> value;
+END;
+$$ LANGUAGE plpgsql;
+
+-- check $schema#simpleTypes (.'$schema#simpleTypes')
+CREATE OR REPLACE FUNCTION json_model_5(val JSONB, path TEXT[], rep jm_report_entry[])
+RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
+DECLARE
+  res bool;
+BEGIN
+  -- .'$schema#simpleTypes'
+  res := JSONB_TYPEOF(val) IN ('null', 'boolean', 'number', 'string') AND _jm_cst_0(val);
+  RETURN res;
+END;
+$$ LANGUAGE PLpgSQL;
+
 -- check $schema#stringArray (.'$schema#stringArray')
 CREATE OR REPLACE FUNCTION json_model_6(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
@@ -530,27 +543,6 @@ BEGIN
     ival_3 := JSONB_ARRAY_LENGTH(val);
     res := jm_array_is_unique(val, path, rep) AND ival_3 >= 1;
   END IF;
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
-CREATE OR REPLACE FUNCTION _jm_cst_1(value JSONB)
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  constants JSONB = JSONB '["null","boolean","integer","number","string","array","object"]';
-BEGIN
-  RETURN constants @> value;
-END;
-$$ LANGUAGE plpgsql;
-
--- check $schema#simpleTypes (.'$schema#simpleTypes')
-CREATE OR REPLACE FUNCTION json_model_5(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .'$schema#simpleTypes'
-  res := JSONB_TYPEOF(val) IN ('null', 'boolean', 'number', 'string') AND _jm_cst_1(val);
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;

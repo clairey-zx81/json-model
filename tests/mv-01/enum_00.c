@@ -55,76 +55,24 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
     int64_t xc_0 = 0;
     bool xr_0;
     // .'^'.0
-    xr_0 = json_is_string(val) && strcmp(json_string_value(val), "Susie") == 0;
+    xr_0 = json_model_2(val, path, rep);
     if (! xr_0)
     {
-        if (rep) jm_report_add_entry(rep, "unexpected Susie [.'^'.0]", path);
+        if (rep) jm_report_add_entry(rep, "unexpected $p1 [.'^'.0]", path);
     }
     if (xr_0)
     {
         xc_0 += 1;
     }
     // .'^'.1
-    xr_0 = json_is_string(val) && strcmp(json_string_value(val), "Calvin") == 0;
+    xr_0 = json_model_3(val, path, rep);
     if (! xr_0)
     {
-        if (rep) jm_report_add_entry(rep, "unexpected Calvin [.'^'.1]", path);
+        if (rep) jm_report_add_entry(rep, "unexpected $p2 [.'^'.1]", path);
     }
     if (xr_0)
     {
         xc_0 += 1;
-    }
-    if (xc_0 <= 1)
-    {
-        // .'^'.2
-        xr_0 = json_is_string(val) && strcmp(json_string_value(val), "Hobbes") == 0;
-        if (! xr_0)
-        {
-            if (rep) jm_report_add_entry(rep, "unexpected Hobbes [.'^'.2]", path);
-        }
-        if (xr_0)
-        {
-            xc_0 += 1;
-        }
-    }
-    if (xc_0 <= 1)
-    {
-        // .'^'.3
-        xr_0 = json_is_string(val) && strcmp(json_string_value(val), "Moe") == 0;
-        if (! xr_0)
-        {
-            if (rep) jm_report_add_entry(rep, "unexpected Moe [.'^'.3]", path);
-        }
-        if (xr_0)
-        {
-            xc_0 += 1;
-        }
-    }
-    if (xc_0 <= 1)
-    {
-        // .'^'.4
-        xr_0 = json_is_string(val) && strcmp(json_string_value(val), "Bad") == 0;
-        if (! xr_0)
-        {
-            if (rep) jm_report_add_entry(rep, "unexpected Bad [.'^'.4]", path);
-        }
-        if (xr_0)
-        {
-            xc_0 += 1;
-        }
-    }
-    if (xc_0 <= 1)
-    {
-        // .'^'.5
-        xr_0 = json_model_3(val, path, rep);
-        if (! xr_0)
-        {
-            if (rep) jm_report_add_entry(rep, "unexpected $p2 [.'^'.5]", path);
-        }
-        if (xr_0)
-        {
-            xc_0 += 1;
-        }
     }
     res = xc_0 == 1;
     if (res)

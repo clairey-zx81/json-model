@@ -17,11 +17,9 @@ public class json_schema_draft_04_mongodb extends ModelChecker
 {
     static public final String VERSION = "2";
 
+    Map<String, Checker> _jm_obj_0_map_pmap;
     Set<Object> _jm_cst_0_set;
     Set<Object> _jm_cst_1_set;
-    Map<String, Checker> _jm_obj_0_map_pmap;
-    Set<Object> _jm_cst_2_set;
-    Set<Object> _jm_cst_3_set;
     public Map<String, Checker> json_schema_draft_04_mongodb_map_pmap;
 
     // check _jm_obj_0_map_additionalItems (.'$schema'.additionalItems)
@@ -112,27 +110,23 @@ public class json_schema_draft_04_mongodb extends ModelChecker
         return res;
     }
     
-    
     // check _jm_obj_0_map_bsonType (.'$schema'.bsonType)
     public boolean _jm_f_4(Object val, Path path, Report rep)
     {
         boolean res;
         // .'$schema'.bsonType
-        res = json.isScalar(val) && _jm_cst_0_set.contains(val);
+        // .'$schema'.bsonType.'|'.0
+        res = json_model_9(val, path, rep);
         if (! res)
         {
-            if (rep != null) rep.addEntry("value not in enum [.'$schema'.bsonType.'|']", path);
+            if (rep != null) rep.addEntry("unexpected $bsonType [.'$schema'.bsonType.'|'.0]", path);
         }
         if (! res)
         {
+            // .'$schema'.bsonType.'|'.1
             res = json.isArray(val);
-            if (! res)
-            {
-                if (rep != null) rep.addEntry("unexpected type [.'$schema'.bsonType.'|']", path);
-            }
             if (res)
             {
-                // .'$schema'.bsonType.'|'.0
                 int arr_0_idx = -1;
                 Iterator<Object> arr_0_item_loop = json.arrayIterator(val);
                 while (arr_0_item_loop.hasNext())
@@ -140,30 +134,30 @@ public class json_schema_draft_04_mongodb extends ModelChecker
                     arr_0_idx++;
                     Object arr_0_item = arr_0_item_loop.next();
                     Path arr_0_lpath = new Path(arr_0_idx, path);
-                    // .'$schema'.bsonType.'|'.0.0
+                    // .'$schema'.bsonType.'|'.1.0
                     res = json_model_9(arr_0_item, (path != null ? arr_0_lpath : null), rep);
                     if (! res)
                     {
-                        if (rep != null) rep.addEntry("unexpected $bsonType [.'$schema'.bsonType.'|'.0.0]", (path != null ? arr_0_lpath : null));
+                        if (rep != null) rep.addEntry("unexpected $bsonType [.'$schema'.bsonType.'|'.1.0]", (path != null ? arr_0_lpath : null));
                     }
                     if (! res)
                     {
                         break;
                     }
                 }
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("not array or unexpected array [.'$schema'.bsonType.'|'.0]", path);
-                }
-                if (res)
-                {
-                    if (rep != null) rep.clearEntries();
-                }
-                else
-                {
-                    if (rep != null) rep.addEntry("no model matched [.'$schema'.bsonType.'|']", path);
-                }
             }
+            if (! res)
+            {
+                if (rep != null) rep.addEntry("not array or unexpected array [.'$schema'.bsonType.'|'.1]", path);
+            }
+        }
+        if (res)
+        {
+            if (rep != null) rep.clearEntries();
+        }
+        else
+        {
+            if (rep != null) rep.addEntry("no model matched [.'$schema'.bsonType.'|']", path);
         }
         return res;
     }
@@ -594,33 +588,33 @@ public class json_schema_draft_04_mongodb extends ModelChecker
         return res;
     }
     
-    
     // check _jm_obj_0_map_type (.'$schema'.type)
     public boolean _jm_f_27(Object val, Path path, Report rep)
     {
         boolean res;
         // .'$schema'.type
-        res = json.isScalar(val) && _jm_cst_1_set.contains(val);
+        // .'$schema'.type.'|'.0
+        res = json_model_5(val, path, rep);
         if (! res)
         {
-            if (rep != null) rep.addEntry("value not in enum [.'$schema'.type.'|']", path);
+            if (rep != null) rep.addEntry("unexpected $simpleTypes [.'$schema'.type.'|'.0]", path);
         }
         if (! res)
         {
-            // .'$schema'.type.'|'.0
+            // .'$schema'.type.'|'.1
             res = json_model_7(val, path, rep);
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected $typeArray [.'$schema'.type.'|'.0]", path);
+                if (rep != null) rep.addEntry("unexpected $typeArray [.'$schema'.type.'|'.1]", path);
             }
-            if (res)
-            {
-                if (rep != null) rep.clearEntries();
-            }
-            else
-            {
-                if (rep != null) rep.addEntry("no model matched [.'$schema'.type.'|']", path);
-            }
+        }
+        if (res)
+        {
+            if (rep != null) rep.clearEntries();
+        }
+        else
+        {
+            if (rep != null) rep.addEntry("no model matched [.'$schema'.type.'|']", path);
         }
         return res;
     }
@@ -743,6 +737,20 @@ public class json_schema_draft_04_mongodb extends ModelChecker
         return res;
     }
     
+    
+    // check $schema#simpleTypes (.'$schema#simpleTypes')
+    public boolean json_model_5(Object val, Path path, Report rep)
+    {
+        boolean res;
+        // .'$schema#simpleTypes'
+        res = json.isScalar(val) && _jm_cst_0_set.contains(val);
+        if (! res)
+        {
+            if (rep != null) rep.addEntry("value not in enum [.'$schema#simpleTypes'.'|']", path);
+        }
+        return res;
+    }
+    
     // check $schema#stringArray (.'$schema#stringArray')
     public boolean json_model_6(Object val, Path path, Report rep)
     {
@@ -832,27 +840,13 @@ public class json_schema_draft_04_mongodb extends ModelChecker
     }
     
     
-    // check $schema#simpleTypes (.'$schema#simpleTypes')
-    public boolean json_model_5(Object val, Path path, Report rep)
-    {
-        boolean res;
-        // .'$schema#simpleTypes'
-        res = json.isScalar(val) && _jm_cst_2_set.contains(val);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("value not in enum [.'$schema#simpleTypes'.'|']", path);
-        }
-        return res;
-    }
-    
-    
     // check $schema#bsonType (.'$schema#bsonType')
     public boolean json_model_9(Object val, Path path, Report rep)
     {
         boolean res;
         // add a definition for BSON types
         // .'$schema#bsonType'
-        res = json.isScalar(val) && _jm_cst_3_set.contains(val);
+        res = json.isScalar(val) && _jm_cst_1_set.contains(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("value not in enum [.'$schema#bsonType'.'|']", path);
@@ -866,31 +860,6 @@ public class json_schema_draft_04_mongodb extends ModelChecker
         if (!initialized)
         {
             try {
-            _jm_cst_0_set = new HashSet<Object>();
-            _jm_cst_0_set.add(json.safeJSON("\"null\""));
-            _jm_cst_0_set.add(json.safeJSON("\"bool\""));
-            _jm_cst_0_set.add(json.safeJSON("\"string\""));
-            _jm_cst_0_set.add(json.safeJSON("\"object\""));
-            _jm_cst_0_set.add(json.safeJSON("\"array\""));
-            _jm_cst_0_set.add(json.safeJSON("\"double\""));
-            _jm_cst_0_set.add(json.safeJSON("\"int\""));
-            _jm_cst_0_set.add(json.safeJSON("\"long\""));
-            _jm_cst_0_set.add(json.safeJSON("\"decimal\""));
-            _jm_cst_0_set.add(json.safeJSON("\"binData\""));
-            _jm_cst_0_set.add(json.safeJSON("\"objectId\""));
-            _jm_cst_0_set.add(json.safeJSON("\"date\""));
-            _jm_cst_0_set.add(json.safeJSON("\"regex\""));
-            _jm_cst_0_set.add(json.safeJSON("\"javascript\""));
-            _jm_cst_0_set.add(json.safeJSON("\"timestamp\""));
-            _jm_cst_0_set.add(json.safeJSON("\"minKey\""));
-            _jm_cst_0_set.add(json.safeJSON("\"maxKey\""));
-            _jm_cst_1_set = new HashSet<Object>();
-            _jm_cst_1_set.add(json.safeJSON("\"null\""));
-            _jm_cst_1_set.add(json.safeJSON("\"boolean\""));
-            _jm_cst_1_set.add(json.safeJSON("\"number\""));
-            _jm_cst_1_set.add(json.safeJSON("\"string\""));
-            _jm_cst_1_set.add(json.safeJSON("\"array\""));
-            _jm_cst_1_set.add(json.safeJSON("\"object\""));
             _jm_obj_0_map_pmap = new HashMap<String, Checker>();
             _jm_obj_0_map_pmap.put("additionalItems", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_0(o, p, r);} });
             _jm_obj_0_map_pmap.put("additionalProperties", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_1(o, p, r);} });
@@ -921,31 +890,31 @@ public class json_schema_draft_04_mongodb extends ModelChecker
             _jm_obj_0_map_pmap.put("title", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_26(o, p, r);} });
             _jm_obj_0_map_pmap.put("type", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_27(o, p, r);} });
             _jm_obj_0_map_pmap.put("uniqueItems", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_28(o, p, r);} });
-            _jm_cst_2_set = new HashSet<Object>();
-            _jm_cst_2_set.add(json.safeJSON("\"null\""));
-            _jm_cst_2_set.add(json.safeJSON("\"boolean\""));
-            _jm_cst_2_set.add(json.safeJSON("\"number\""));
-            _jm_cst_2_set.add(json.safeJSON("\"string\""));
-            _jm_cst_2_set.add(json.safeJSON("\"array\""));
-            _jm_cst_2_set.add(json.safeJSON("\"object\""));
-            _jm_cst_3_set = new HashSet<Object>();
-            _jm_cst_3_set.add(json.safeJSON("\"null\""));
-            _jm_cst_3_set.add(json.safeJSON("\"bool\""));
-            _jm_cst_3_set.add(json.safeJSON("\"string\""));
-            _jm_cst_3_set.add(json.safeJSON("\"object\""));
-            _jm_cst_3_set.add(json.safeJSON("\"array\""));
-            _jm_cst_3_set.add(json.safeJSON("\"double\""));
-            _jm_cst_3_set.add(json.safeJSON("\"int\""));
-            _jm_cst_3_set.add(json.safeJSON("\"long\""));
-            _jm_cst_3_set.add(json.safeJSON("\"decimal\""));
-            _jm_cst_3_set.add(json.safeJSON("\"binData\""));
-            _jm_cst_3_set.add(json.safeJSON("\"objectId\""));
-            _jm_cst_3_set.add(json.safeJSON("\"date\""));
-            _jm_cst_3_set.add(json.safeJSON("\"regex\""));
-            _jm_cst_3_set.add(json.safeJSON("\"javascript\""));
-            _jm_cst_3_set.add(json.safeJSON("\"timestamp\""));
-            _jm_cst_3_set.add(json.safeJSON("\"minKey\""));
-            _jm_cst_3_set.add(json.safeJSON("\"maxKey\""));
+            _jm_cst_0_set = new HashSet<Object>();
+            _jm_cst_0_set.add(json.safeJSON("\"null\""));
+            _jm_cst_0_set.add(json.safeJSON("\"boolean\""));
+            _jm_cst_0_set.add(json.safeJSON("\"number\""));
+            _jm_cst_0_set.add(json.safeJSON("\"string\""));
+            _jm_cst_0_set.add(json.safeJSON("\"array\""));
+            _jm_cst_0_set.add(json.safeJSON("\"object\""));
+            _jm_cst_1_set = new HashSet<Object>();
+            _jm_cst_1_set.add(json.safeJSON("\"null\""));
+            _jm_cst_1_set.add(json.safeJSON("\"bool\""));
+            _jm_cst_1_set.add(json.safeJSON("\"string\""));
+            _jm_cst_1_set.add(json.safeJSON("\"object\""));
+            _jm_cst_1_set.add(json.safeJSON("\"array\""));
+            _jm_cst_1_set.add(json.safeJSON("\"double\""));
+            _jm_cst_1_set.add(json.safeJSON("\"int\""));
+            _jm_cst_1_set.add(json.safeJSON("\"long\""));
+            _jm_cst_1_set.add(json.safeJSON("\"decimal\""));
+            _jm_cst_1_set.add(json.safeJSON("\"binData\""));
+            _jm_cst_1_set.add(json.safeJSON("\"objectId\""));
+            _jm_cst_1_set.add(json.safeJSON("\"date\""));
+            _jm_cst_1_set.add(json.safeJSON("\"regex\""));
+            _jm_cst_1_set.add(json.safeJSON("\"javascript\""));
+            _jm_cst_1_set.add(json.safeJSON("\"timestamp\""));
+            _jm_cst_1_set.add(json.safeJSON("\"minKey\""));
+            _jm_cst_1_set.add(json.safeJSON("\"maxKey\""));
             json_schema_draft_04_mongodb_map_pmap = new HashMap<String, Checker>();
             json_schema_draft_04_mongodb_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_3(o, p, r);} });
             json_schema_draft_04_mongodb_map_pmap.put("schema", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_3(o, p, r);} });
@@ -962,11 +931,9 @@ public class json_schema_draft_04_mongodb extends ModelChecker
         if (initialized)
         {
             super.free();
+            _jm_obj_0_map_pmap = null;
             _jm_cst_0_set = null;
             _jm_cst_1_set = null;
-            _jm_obj_0_map_pmap = null;
-            _jm_cst_2_set = null;
-            _jm_cst_3_set = null;
             json_schema_draft_04_mongodb_map_pmap = null;
         }
     }

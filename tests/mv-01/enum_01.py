@@ -47,73 +47,22 @@ def json_model_3(val: Jsonable, path: Path, rep: Report) -> bool:
 def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .
-    # remove duplicate xor list
-    is_0: bool
-    res = True
-    # .'^'.9
-    is_0 = isinstance(val, str) and val == "Bad"
-    if not is_0:
-        rep is None or rep.append(("unexpected Bad [.'^'.9]", path))
-    res = not is_0
-    if res:
-        # generic xor list
-        xc_0: int = 0
-        xr_0: bool
-        # .'^'.0
-        xr_0 = isinstance(val, str) and val == "Susie"
-        if not xr_0:
-            rep is None or rep.append(("unexpected Susie [.'^'.0]", path))
-        if xr_0:
-            xc_0 += 1
-        # .'^'.1
-        xr_0 = isinstance(val, str) and val == "Calvin"
-        if not xr_0:
-            rep is None or rep.append(("unexpected Calvin [.'^'.1]", path))
-        if xr_0:
-            xc_0 += 1
-        if xc_0 <= 1:
-            # .'^'.2
-            xr_0 = isinstance(val, str) and val == "Hobbes"
-            if not xr_0:
-                rep is None or rep.append(("unexpected Hobbes [.'^'.2]", path))
-            if xr_0:
-                xc_0 += 1
-        if xc_0 <= 1:
-            # .'^'.3
-            xr_0 = isinstance(val, str) and val == "Moe"
-            if not xr_0:
-                rep is None or rep.append(("unexpected Moe [.'^'.3]", path))
-            if xr_0:
-                xc_0 += 1
-        if xc_0 <= 1:
-            # .'^'.5
-            xr_0 = isinstance(val, str) and (val == "Castafiore")
-            if not xr_0:
-                rep is None or rep.append(("unexpected Castafiore [.'^'.5]", path))
-            if xr_0:
-                xc_0 += 1
-        if xc_0 <= 1:
-            # .'^'.6
-            xr_0 = isinstance(val, str) and val == "Haddock"
-            if not xr_0:
-                rep is None or rep.append(("unexpected Haddock [.'^'.6]", path))
-            if xr_0:
-                xc_0 += 1
-        if xc_0 <= 1:
-            # .'^'.7
-            xr_0 = isinstance(val, str) and val == "Milou"
-            if not xr_0:
-                rep is None or rep.append(("unexpected Milou [.'^'.7]", path))
-            if xr_0:
-                xc_0 += 1
-        if xc_0 <= 1:
-            # .'^'.8
-            xr_0 = isinstance(val, str) and val == "Tintin"
-            if not xr_0:
-                rep is None or rep.append(("unexpected Tintin [.'^'.8]", path))
-            if xr_0:
-                xc_0 += 1
-        res = xc_0 == 1
+    # generic xor list
+    xc_0: int = 0
+    xr_0: bool
+    # .'^'.0
+    xr_0 = json_model_2(val, path, rep)
+    if not xr_0:
+        rep is None or rep.append(("unexpected $p1 [.'^'.0]", path))
+    if xr_0:
+        xc_0 += 1
+    # .'^'.1
+    xr_0 = json_model_3(val, path, rep)
+    if not xr_0:
+        rep is None or rep.append(("unexpected $p2 [.'^'.1]", path))
+    if xr_0:
+        xc_0 += 1
+    res = xc_0 == 1
     if res:
         rep is None or rep.clear()
     else:

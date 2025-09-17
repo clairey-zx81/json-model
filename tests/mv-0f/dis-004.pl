@@ -107,80 +107,8 @@ sub json_model_2($$$)
     return $res;
 }
 
-# object .'$B'.'|'.2
-sub _jm_obj_2($$$)
-{
-    my ($val, $path, $rep) = @_;
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
-    my $res;
-    my $must_count = 0;
-    scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
-    {
-        if ($prop eq 'b')
-        {
-            # handle must b property
-            $must_count++;
-            # .'$B'.'|'.2.b
-            $res = jm_is_integer($pval) && $pval >= 1;
-            if (! $res)
-            {
-                return 0;
-            }
-        }
-        else
-        {
-            return 0;
-        }
-    }
-    if ($must_count != 1)
-    {
-        return 0;
-    }
-    return 1;
-}
-
-# object .'$B'.'|'.1
-sub _jm_obj_3($$$)
-{
-    my ($val, $path, $rep) = @_;
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
-    my $res;
-    my $must_count = 0;
-    scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
-    {
-        if ($prop eq 'a')
-        {
-            # handle must a property
-            $must_count++;
-            # .'$B'.'|'.1.a
-            $res = jm_is_integer($pval) && $pval >= 0;
-            if (! $res)
-            {
-                return 0;
-            }
-        }
-        else
-        {
-            return 0;
-        }
-    }
-    if ($must_count != 1)
-    {
-        return 0;
-    }
-    return 1;
-}
-
 # object .'$B'.'|'.0
-sub _jm_obj_4($$$)
+sub _jm_obj_2($$$)
 {
     my ($val, $path, $rep) = @_;
     if (! jm_is_object($val))
@@ -221,21 +149,12 @@ sub json_model_3($$$)
     my ($val, $path, $rep) = @_;
     my $res;
     # .'$B'
-    $res = jm_is_object($val);
-    if ($res)
+    # .'$B'.'|'.0
+    $res = _jm_obj_2($val, $path, $rep);
+    if (! $res)
     {
-        # .'$B'.'|'.0
-        $res = _jm_obj_4($val, $path, $rep);
-        if (! $res)
-        {
-            # .'$B'.'|'.1
-            $res = _jm_obj_3($val, $path, $rep);
-            if (! $res)
-            {
-                # .'$B'.'|'.2
-                $res = _jm_obj_2($val, $path, $rep);
-            }
-        }
+        # .'$B'.'|'.1
+        $res = json_model_2($val, $path, $rep);
     }
     return $res;
 }

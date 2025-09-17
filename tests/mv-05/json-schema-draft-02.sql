@@ -436,15 +436,6 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
-CREATE OR REPLACE FUNCTION _jm_cst_1(value JSONB)
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  constants JSONB = JSONB '["null","boolean","integer","number","string","array","object","any"]';
-BEGIN
-  RETURN constants @> value;
-END;
-$$ LANGUAGE plpgsql;
-
 -- check _jm_obj_0_map_type (.type)
 CREATE OR REPLACE FUNCTION _jm_f_25(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
@@ -454,18 +445,19 @@ DECLARE
   arr_3_item JSONB;
 BEGIN
   -- .type
-  res := JSONB_TYPEOF(val) IN ('null', 'boolean', 'number', 'string') AND _jm_cst_1(val);
+  -- .type.'|'.0
+  res := json_model_2(val, path, rep);
   IF NOT res THEN
+    -- .type.'|'.1
     res := JSONB_TYPEOF(val) = 'array';
     IF res THEN
-      -- .type.'|'.0
       FOR arr_3_idx IN 0 .. JSONB_ARRAY_LENGTH(val) - 1 LOOP
         arr_3_item := val -> arr_3_idx;
-        -- .type.'|'.0.0
-        -- .type.'|'.0.0.'|'.0
+        -- .type.'|'.1.0
+        -- .type.'|'.1.0.'|'.0
         res := JSONB_TYPEOF(arr_3_item) = 'string';
         IF NOT res THEN
-          -- .type.'|'.0.0.'|'.1
+          -- .type.'|'.1.0.'|'.1
           res := json_model_1(arr_3_item, NULL, rep);
         END IF;
         IF NOT res THEN

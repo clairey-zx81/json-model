@@ -49,52 +49,16 @@ sub json_model_1($$$)
     my $xc_0 = 0;
     my $xr_0;
     # .'^'.0
-    $xr_0 = jm_is_string($val) && $val eq 'Susie';
+    $xr_0 = json_model_2($val, $path, $rep);
     if ($xr_0)
     {
         $xc_0++;
     }
     # .'^'.1
-    $xr_0 = jm_is_string($val) && $val eq 'Calvin';
+    $xr_0 = json_model_3($val, $path, $rep);
     if ($xr_0)
     {
         $xc_0++;
-    }
-    if ($xc_0 <= 1)
-    {
-        # .'^'.2
-        $xr_0 = jm_is_string($val) && $val eq 'Hobbes';
-        if ($xr_0)
-        {
-            $xc_0++;
-        }
-    }
-    if ($xc_0 <= 1)
-    {
-        # .'^'.3
-        $xr_0 = jm_is_string($val) && $val eq 'Moe';
-        if ($xr_0)
-        {
-            $xc_0++;
-        }
-    }
-    if ($xc_0 <= 1)
-    {
-        # .'^'.4
-        $xr_0 = jm_is_string($val) && $val eq 'Bad';
-        if ($xr_0)
-        {
-            $xc_0++;
-        }
-    }
-    if ($xc_0 <= 1)
-    {
-        # .'^'.5
-        $xr_0 = json_model_3($val, $path, $rep);
-        if ($xr_0)
-        {
-            $xc_0++;
-        }
     }
     $res = $xc_0 == 1;
     return $res;

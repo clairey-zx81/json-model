@@ -38,12 +38,13 @@ sub _jm_f_23($$$);
 sub _jm_f_24($$$);
 sub _jm_f_25($$$);
 sub _jm_f_26($$$);
-my %_jm_cst_1;
 sub _jm_f_27($$$);
 sub _jm_f_28($$$);
 my %_jm_obj_0_map;
 sub json_model_3($$$);
 sub json_model_1($$$);
+my %_jm_cst_1;
+sub json_model_4($$$);
 sub json_model_5($$$);
 my %check_model_map;
 
@@ -478,29 +479,29 @@ sub _jm_f_26($$$)
     return $res;
 }
 
-
 # check _jm_obj_0_map_type (.'$schema'.type)
 sub _jm_f_27($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
     # .'$schema'.type
-    $res = jm_is_scalar($val) && jm_is_string($val) && exists $_jm_cst_1{$val};
+    # .'$schema'.type.'|'.0
+    $res = json_model_4($val, $path, $rep);
     if (! $res)
     {
+        # .'$schema'.type.'|'.1
         $res = jm_is_array($val);
         if ($res)
         {
-            # .'$schema'.type.'|'.0
             for my $arr_3_idx (0 .. $#$val)
             {
                 my $arr_3_item = $$val[$arr_3_idx];
-                # .'$schema'.type.'|'.0.0
-                # .'$schema'.type.'|'.0.0.'|'.0
+                # .'$schema'.type.'|'.1.0
+                # .'$schema'.type.'|'.1.0.'|'.0
                 $res = jm_is_string($arr_3_item);
                 if (! $res)
                 {
-                    # .'$schema'.type.'|'.0.0.'|'.1
+                    # .'$schema'.type.'|'.1.0.'|'.1
                     $res = json_model_3($arr_3_item, undef, $rep);
                 }
                 if (! $res)
@@ -580,6 +581,17 @@ sub json_model_1($$$)
     return $res;
 }
 
+
+# check $schema#allTypes (.'$schema#allTypes')
+sub json_model_4($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$schema#allTypes'
+    $res = jm_is_scalar($val) && jm_is_string($val) && exists $_jm_cst_1{$val};
+    return $res;
+}
+
 # check $schema#distinctSchemaArray (.'$schema#distinctSchemaArray')
 sub json_model_5($$$)
 {
@@ -639,16 +651,6 @@ sub check_model_init()
             'ipv6' => 1,
             'host-name' => 1,
         );
-        %_jm_cst_1 = (
-            'null' => 1,
-            'boolean' => 1,
-            'integer' => 1,
-            'number' => 1,
-            'string' => 1,
-            'array' => 1,
-            'object' => 1,
-            'any' => 1,
-        );
         %_jm_obj_0_map = (
             '$ref' => \&_jm_f_0,
             '$schema' => \&_jm_f_1,
@@ -680,6 +682,16 @@ sub check_model_init()
             'type' => \&_jm_f_27,
             'uniqueItems' => \&_jm_f_28,
         );
+        %_jm_cst_1 = (
+            'null' => 1,
+            'boolean' => 1,
+            'integer' => 1,
+            'number' => 1,
+            'string' => 1,
+            'array' => 1,
+            'object' => 1,
+            'any' => 1,
+        );
         %check_model_map = (
             '' => \&json_model_3,
             'schema' => \&json_model_3,
@@ -693,8 +705,8 @@ sub check_model_free()
     {
         $initialized = 0;
         %_jm_cst_0 = ();
-        %_jm_cst_1 = ();
         %_jm_obj_0_map = ();
+        %_jm_cst_1 = ();
         %check_model_map = ();
     }
 }

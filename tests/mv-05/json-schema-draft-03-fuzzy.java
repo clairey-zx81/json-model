@@ -173,21 +173,18 @@ public class json_schema_draft_03_fuzzy extends ModelChecker
         {
             pval = json.objectValue(val, "type");
             // .'$schema'.type
-            res = json.isScalar(pval) && _jm_cst_0_set.contains(pval);
+            // .'$schema'.type.'|'.0
+            res = json_model_4(pval, path, rep);
             if (! res)
             {
-                if (rep != null) rep.addEntry("value not in enum [.'$schema'.type.'|']", path);
+                if (rep != null) rep.addEntry("unexpected $allTypes [.'$schema'.type.'|'.0]", path);
             }
             if (! res)
             {
+                // .'$schema'.type.'|'.1
                 res = json.isArray(pval);
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("unexpected type [.'$schema'.type.'|']", path);
-                }
                 if (res)
                 {
-                    // .'$schema'.type.'|'.0
                     int arr_0_idx = -1;
                     Iterator<Object> arr_0_item_loop = json.arrayIterator(pval);
                     while (arr_0_item_loop.hasNext())
@@ -195,20 +192,20 @@ public class json_schema_draft_03_fuzzy extends ModelChecker
                         arr_0_idx++;
                         Object arr_0_item = arr_0_item_loop.next();
                         Path arr_0_lpath = new Path(arr_0_idx, path);
-                        // .'$schema'.type.'|'.0.0
-                        // .'$schema'.type.'|'.0.0.'|'.0
+                        // .'$schema'.type.'|'.1.0
+                        // .'$schema'.type.'|'.1.0.'|'.0
                         res = json.isString(arr_0_item);
                         if (! res)
                         {
-                            if (rep != null) rep.addEntry("unexpected string [.'$schema'.type.'|'.0.0.'|'.0]", (path != null ? arr_0_lpath : null));
+                            if (rep != null) rep.addEntry("unexpected string [.'$schema'.type.'|'.1.0.'|'.0]", (path != null ? arr_0_lpath : null));
                         }
                         if (! res)
                         {
-                            // .'$schema'.type.'|'.0.0.'|'.1
+                            // .'$schema'.type.'|'.1.0.'|'.1
                             res = json_model_3(arr_0_item, (path != null ? arr_0_lpath : null), rep);
                             if (! res)
                             {
-                                if (rep != null) rep.addEntry("unexpected $Schema [.'$schema'.type.'|'.0.0.'|'.1]", (path != null ? arr_0_lpath : null));
+                                if (rep != null) rep.addEntry("unexpected $Schema [.'$schema'.type.'|'.1.0.'|'.1]", (path != null ? arr_0_lpath : null));
                             }
                         }
                         if (res)
@@ -217,26 +214,26 @@ public class json_schema_draft_03_fuzzy extends ModelChecker
                         }
                         else
                         {
-                            if (rep != null) rep.addEntry("no model matched [.'$schema'.type.'|'.0.0.'|']", (path != null ? arr_0_lpath : null));
+                            if (rep != null) rep.addEntry("no model matched [.'$schema'.type.'|'.1.0.'|']", (path != null ? arr_0_lpath : null));
                         }
                         if (! res)
                         {
                             break;
                         }
                     }
-                    if (! res)
-                    {
-                        if (rep != null) rep.addEntry("not array or unexpected array [.'$schema'.type.'|'.0]", path);
-                    }
-                    if (res)
-                    {
-                        if (rep != null) rep.clearEntries();
-                    }
-                    else
-                    {
-                        if (rep != null) rep.addEntry("no model matched [.'$schema'.type.'|']", path);
-                    }
                 }
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("not array or unexpected array [.'$schema'.type.'|'.1]", path);
+                }
+            }
+            if (res)
+            {
+                if (rep != null) rep.clearEntries();
+            }
+            else
+            {
+                if (rep != null) rep.addEntry("no model matched [.'$schema'.type.'|']", path);
             }
             if (! res)
             {
@@ -821,6 +818,20 @@ public class json_schema_draft_03_fuzzy extends ModelChecker
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected $schema [.]", path);
+        }
+        return res;
+    }
+    
+    
+    // check $schema#allTypes (.'$schema#allTypes')
+    public boolean json_model_4(Object val, Path path, Report rep)
+    {
+        boolean res;
+        // .'$schema#allTypes'
+        res = json.isScalar(val) && _jm_cst_0_set.contains(val);
+        if (! res)
+        {
+            if (rep != null) rep.addEntry("value not in enum [.'$schema#allTypes'.'|']", path);
         }
         return res;
     }

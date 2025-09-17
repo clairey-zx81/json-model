@@ -8,9 +8,7 @@
     "rec": {
       "|": [
         true,
-        {
-          "": "$rec"
-        }
+        "$obj"
       ],
       "#": "JsonModel 3"
     },

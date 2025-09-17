@@ -62,36 +62,6 @@ public class rec_00 extends ModelChecker
         return res;
     }
     
-    // object .'$rec'.'|'.1
-    public boolean _jm_obj_1(Object val, Path path, Report rep)
-    {
-        if (! json.isObject(val))
-        {
-            if (rep != null) rep.addEntry("not an object [.'$rec'.'|'.1]", path);
-            return false;
-        }
-        boolean res;
-        Iterator<String> prop_loop = json.objectIterator(val);
-        while (prop_loop.hasNext())
-        {
-            String prop = prop_loop.next();
-            Object pval = json.objectValue(val, prop);
-            Path lpath_1 = new Path(prop, path);
-            // handle other props
-            // .'$rec'.'|'.1.''
-            res = json_model_3(pval, (path != null ? lpath_1 : null), rep);
-            if (! res)
-            {
-                if (rep != null) rep.addEntry("unexpected $rec [.'$rec'.'|'.1.'']", (path != null ? lpath_1 : null));
-            }
-            if (! res)
-            {
-                return false;
-            }
-        }
-        return true;
-    }
-    
     // check $rec (.'$rec')
     public boolean json_model_3(Object val, Path path, Report rep)
     {
@@ -106,10 +76,10 @@ public class rec_00 extends ModelChecker
         if (! res)
         {
             // .'$rec'.'|'.1
-            res = _jm_obj_1(val, path, rep);
+            res = json_model_2(val, path, rep);
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected element [.'$rec'.'|'.1]", path);
+                if (rep != null) rep.addEntry("unexpected $obj [.'$rec'.'|'.1]", path);
             }
         }
         if (res)

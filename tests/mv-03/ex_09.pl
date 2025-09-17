@@ -16,6 +16,7 @@ sub json_model_4($$$);
 sub json_model_1($$$);
 sub json_model_6($$$);
 sub json_model_9($$$);
+sub json_model_8($$$);
 my %check_model_map;
 
 # check $ex08 (.'$ex08')
@@ -108,7 +109,28 @@ sub json_model_6($$$)
     return $res;
 }
 
-# object .'$ex08#EX08'.'|'.0
+# check $ex08#EX08 (.'$ex08#EX08')
+sub json_model_9($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$ex08#EX08'
+    # .'$ex08#EX08'.'|'.0
+    $res = json_model_8($val, $path, $rep);
+    if (! $res)
+    {
+        # .'$ex08#EX08'.'|'.1
+        $res = jm_is_string($val) && jm_is_valid_url($val, $path, $rep);
+        if (! $res)
+        {
+            # .'$ex08#EX08'.'|'.2
+            $res = json_model_6($val, $path, $rep);
+        }
+    }
+    return $res;
+}
+
+# object .'$ex08#map'
 sub _jm_obj_1($$$)
 {
     my ($val, $path, $rep) = @_;
@@ -123,7 +145,7 @@ sub _jm_obj_1($$$)
         if (jm_is_string($prop) && jm_is_valid_url($prop, undef, $rep))
         {
             # handle 1 key props
-            # .'$ex08#EX08'.'|'.0.'$URL'
+            # .'$ex08#map'.'$URL'
             $res = json_model_6($pval, undef, $rep);
             if (! $res)
             {
@@ -138,24 +160,13 @@ sub _jm_obj_1($$$)
     return 1;
 }
 
-# check $ex08#EX08 (.'$ex08#EX08')
-sub json_model_9($$$)
+# check $ex08#map (.'$ex08#map')
+sub json_model_8($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
-    # .'$ex08#EX08'
-    # .'$ex08#EX08'.'|'.0
+    # .'$ex08#map'
     $res = _jm_obj_1($val, $path, $rep);
-    if (! $res)
-    {
-        # .'$ex08#EX08'.'|'.1
-        $res = jm_is_string($val) && jm_is_valid_url($val, $path, $rep);
-        if (! $res)
-        {
-            # .'$ex08#EX08'.'|'.2
-            $res = json_model_6($val, $path, $rep);
-        }
-    }
     return $res;
 }
 

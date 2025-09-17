@@ -157,110 +157,8 @@ static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// object .'$B'.'|'.2
-static INLINE bool _jm_obj_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
-    if (! json_is_object(val))
-    {
-        if (rep) jm_report_add_entry(rep, "not an object [.'$B'.'|'.2]", path);
-        return false;
-    }
-    bool res;
-    int64_t must_count = 0;
-    const char *prop;
-    json_t *pval;
-    json_object_foreach((json_t *) val, prop, pval)
-    {
-        jm_path_t lpath_2 = (jm_path_t) { prop, 0, path, NULL };
-        if (strcmp(prop, "b") == 0)
-        {
-            // handle must b property
-            must_count += 1;
-            // .'$B'.'|'.2.b
-            res = json_is_integer(pval) && json_integer_value(pval) >= 1;
-            if (! res)
-            {
-                if (rep) jm_report_add_entry(rep, "not a 1 strict int [.'$B'.'|'.2.b]", (path ? &lpath_2 : NULL));
-            }
-            if (! res)
-            {
-                if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$B'.'|'.2.b]", (path ? &lpath_2 : NULL));
-                return false;
-            }
-        }
-        else
-        {
-            if (rep) jm_report_add_entry(rep, "unexpected prop [.'$B'.'|'.2]", (path ? &lpath_2 : NULL));
-            return false;
-        }
-    }
-    if (must_count != 1)
-    {
-        if (rep != NULL)
-        {
-            if (! (json_object_get(val, "b") != NULL))
-            {
-                if (rep) jm_report_add_entry(rep, "missing mandatory prop <b> [.'$B'.'|'.2]", path);
-            }
-        }
-        return false;
-    }
-    return true;
-}
-
-// object .'$B'.'|'.1
-static INLINE bool _jm_obj_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
-    if (! json_is_object(val))
-    {
-        if (rep) jm_report_add_entry(rep, "not an object [.'$B'.'|'.1]", path);
-        return false;
-    }
-    bool res;
-    int64_t must_count = 0;
-    const char *prop;
-    json_t *pval;
-    json_object_foreach((json_t *) val, prop, pval)
-    {
-        jm_path_t lpath_3 = (jm_path_t) { prop, 0, path, NULL };
-        if (strcmp(prop, "a") == 0)
-        {
-            // handle must a property
-            must_count += 1;
-            // .'$B'.'|'.1.a
-            res = json_is_integer(pval) && json_integer_value(pval) >= 0;
-            if (! res)
-            {
-                if (rep) jm_report_add_entry(rep, "not a 0 strict int [.'$B'.'|'.1.a]", (path ? &lpath_3 : NULL));
-            }
-            if (! res)
-            {
-                if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$B'.'|'.1.a]", (path ? &lpath_3 : NULL));
-                return false;
-            }
-        }
-        else
-        {
-            if (rep) jm_report_add_entry(rep, "unexpected prop [.'$B'.'|'.1]", (path ? &lpath_3 : NULL));
-            return false;
-        }
-    }
-    if (must_count != 1)
-    {
-        if (rep != NULL)
-        {
-            if (! (json_object_get(val, "a") != NULL))
-            {
-                if (rep) jm_report_add_entry(rep, "missing mandatory prop <a> [.'$B'.'|'.1]", path);
-            }
-        }
-        return false;
-    }
-    return true;
-}
-
 // object .'$B'.'|'.0
-static INLINE bool _jm_obj_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_obj_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (! json_is_object(val))
     {
@@ -273,7 +171,7 @@ static INLINE bool _jm_obj_4(const json_t *val, jm_path_t *path, jm_report_t *re
     json_t *pval;
     json_object_foreach((json_t *) val, prop, pval)
     {
-        jm_path_t lpath_4 = (jm_path_t) { prop, 0, path, NULL };
+        jm_path_t lpath_2 = (jm_path_t) { prop, 0, path, NULL };
         if (strcmp(prop, "c") == 0)
         {
             // handle must c property
@@ -282,17 +180,17 @@ static INLINE bool _jm_obj_4(const json_t *val, jm_path_t *path, jm_report_t *re
             res = json_is_integer(pval) && json_integer_value(pval) >= 0;
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "not a 0 strict int [.'$B'.'|'.0.c]", (path ? &lpath_4 : NULL));
+                if (rep) jm_report_add_entry(rep, "not a 0 strict int [.'$B'.'|'.0.c]", (path ? &lpath_2 : NULL));
             }
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$B'.'|'.0.c]", (path ? &lpath_4 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$B'.'|'.0.c]", (path ? &lpath_2 : NULL));
                 return false;
             }
         }
         else
         {
-            if (rep) jm_report_add_entry(rep, "unexpected prop [.'$B'.'|'.0]", (path ? &lpath_4 : NULL));
+            if (rep) jm_report_add_entry(rep, "unexpected prop [.'$B'.'|'.0]", (path ? &lpath_2 : NULL));
             return false;
         }
     }
@@ -315,45 +213,28 @@ static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
     // .'$B'
-    res = json_is_object(val);
+    // .'$B'.'|'.0
+    res = _jm_obj_2(val, path, rep);
     if (! res)
     {
-        if (rep) jm_report_add_entry(rep, "unexpected type [.'$B'.'|']", path);
+        if (rep) jm_report_add_entry(rep, "unexpected element [.'$B'.'|'.0]", path);
+    }
+    if (! res)
+    {
+        // .'$B'.'|'.1
+        res = json_model_2(val, path, rep);
+        if (! res)
+        {
+            if (rep) jm_report_add_entry(rep, "unexpected $A [.'$B'.'|'.1]", path);
+        }
     }
     if (res)
     {
-        // .'$B'.'|'.0
-        res = _jm_obj_4(val, path, rep);
-        if (! res)
-        {
-            if (rep) jm_report_add_entry(rep, "unexpected element [.'$B'.'|'.0]", path);
-        }
-        if (! res)
-        {
-            // .'$B'.'|'.1
-            res = _jm_obj_3(val, path, rep);
-            if (! res)
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected element [.'$B'.'|'.1]", path);
-            }
-            if (! res)
-            {
-                // .'$B'.'|'.2
-                res = _jm_obj_2(val, path, rep);
-                if (! res)
-                {
-                    if (rep) jm_report_add_entry(rep, "unexpected element [.'$B'.'|'.2]", path);
-                }
-            }
-        }
-        if (res)
-        {
-            if (rep) jm_report_free_entries(rep);
-        }
-        else
-        {
-            if (rep) jm_report_add_entry(rep, "no model matched [.'$B'.'|']", path);
-        }
+        if (rep) jm_report_free_entries(rep);
+    }
+    else
+    {
+        if (rep) jm_report_add_entry(rep, "no model matched [.'$B'.'|']", path);
     }
     return res;
 }

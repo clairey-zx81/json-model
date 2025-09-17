@@ -148,106 +148,8 @@ function json_model_2(val, path, rep)
     return res;
 }
 
-// object .'$B'.'|'.2
-function _jm_obj_2(val, path, rep)
-{
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
-    {
-        rep !== null && rep.push(["not an object [.'$B'.'|'.2]", path])
-        return false;
-    }
-    let res;
-    let must_count = 0;
-    for (const [prop, pval] of Object.entries(val))
-    {
-        let lpath_2 = path ? path.concat([prop]) : null;
-        if (prop == "b")
-        {
-            // handle must b property
-            must_count += 1;
-            // .'$B'.'|'.2.b
-            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 1;
-            if (! res)
-            {
-                rep !== null && rep.push(["not a 1 strict int [.'$B'.'|'.2.b]", (path ? lpath_2 : null)])
-            }
-            if (! res)
-            {
-                rep !== null && rep.push(["invalid mandatory prop value [.'$B'.'|'.2.b]", (path ? lpath_2 : null)])
-                return false;
-            }
-        }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.'$B'.'|'.2]", (path ? lpath_2 : null)])
-            return false;
-        }
-    }
-    if (must_count != 1)
-    {
-        if (rep !== null)
-        {
-            if (! val.hasOwnProperty("b"))
-            {
-                rep !== null && rep.push(["missing mandatory prop <b> [.'$B'.'|'.2]", path])
-            }
-        }
-        return false;
-    }
-    return true;
-}
-
-// object .'$B'.'|'.1
-function _jm_obj_3(val, path, rep)
-{
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
-    {
-        rep !== null && rep.push(["not an object [.'$B'.'|'.1]", path])
-        return false;
-    }
-    let res;
-    let must_count = 0;
-    for (const [prop, pval] of Object.entries(val))
-    {
-        let lpath_3 = path ? path.concat([prop]) : null;
-        if (prop == "a")
-        {
-            // handle must a property
-            must_count += 1;
-            // .'$B'.'|'.1.a
-            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0;
-            if (! res)
-            {
-                rep !== null && rep.push(["not a 0 strict int [.'$B'.'|'.1.a]", (path ? lpath_3 : null)])
-            }
-            if (! res)
-            {
-                rep !== null && rep.push(["invalid mandatory prop value [.'$B'.'|'.1.a]", (path ? lpath_3 : null)])
-                return false;
-            }
-        }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.'$B'.'|'.1]", (path ? lpath_3 : null)])
-            return false;
-        }
-    }
-    if (must_count != 1)
-    {
-        if (rep !== null)
-        {
-            if (! val.hasOwnProperty("a"))
-            {
-                rep !== null && rep.push(["missing mandatory prop <a> [.'$B'.'|'.1]", path])
-            }
-        }
-        return false;
-    }
-    return true;
-}
-
 // object .'$B'.'|'.0
-function _jm_obj_4(val, path, rep)
+function _jm_obj_2(val, path, rep)
 {
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
@@ -258,7 +160,7 @@ function _jm_obj_4(val, path, rep)
     let must_count = 0;
     for (const [prop, pval] of Object.entries(val))
     {
-        let lpath_4 = path ? path.concat([prop]) : null;
+        let lpath_2 = path ? path.concat([prop]) : null;
         if (prop == "c")
         {
             // handle must c property
@@ -267,17 +169,17 @@ function _jm_obj_4(val, path, rep)
             res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0;
             if (! res)
             {
-                rep !== null && rep.push(["not a 0 strict int [.'$B'.'|'.0.c]", (path ? lpath_4 : null)])
+                rep !== null && rep.push(["not a 0 strict int [.'$B'.'|'.0.c]", (path ? lpath_2 : null)])
             }
             if (! res)
             {
-                rep !== null && rep.push(["invalid mandatory prop value [.'$B'.'|'.0.c]", (path ? lpath_4 : null)])
+                rep !== null && rep.push(["invalid mandatory prop value [.'$B'.'|'.0.c]", (path ? lpath_2 : null)])
                 return false;
             }
         }
         else
         {
-            rep !== null && rep.push(["unexpected prop [.'$B'.'|'.0]", (path ? lpath_4 : null)])
+            rep !== null && rep.push(["unexpected prop [.'$B'.'|'.0]", (path ? lpath_2 : null)])
             return false;
         }
     }
@@ -300,45 +202,28 @@ function json_model_3(val, path, rep)
 {
     let res;
     // .'$B'
-    res = Object.prototype.toString.call(val) === '[object Object]';
+    // .'$B'.'|'.0
+    res = _jm_obj_2(val, path, rep);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected type [.'$B'.'|']", path])
+        rep !== null && rep.push(["unexpected element [.'$B'.'|'.0]", path])
+    }
+    if (! res)
+    {
+        // .'$B'.'|'.1
+        res = json_model_2(val, path, rep);
+        if (! res)
+        {
+            rep !== null && rep.push(["unexpected $A [.'$B'.'|'.1]", path])
+        }
     }
     if (res)
     {
-        // .'$B'.'|'.0
-        res = _jm_obj_4(val, path, rep);
-        if (! res)
-        {
-            rep !== null && rep.push(["unexpected element [.'$B'.'|'.0]", path])
-        }
-        if (! res)
-        {
-            // .'$B'.'|'.1
-            res = _jm_obj_3(val, path, rep);
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected element [.'$B'.'|'.1]", path])
-            }
-            if (! res)
-            {
-                // .'$B'.'|'.2
-                res = _jm_obj_2(val, path, rep);
-                if (! res)
-                {
-                    rep !== null && rep.push(["unexpected element [.'$B'.'|'.2]", path])
-                }
-            }
-        }
-        if (res)
-        {
-            if (rep !== null) rep.length = 0
-        }
-        else
-        {
-            rep !== null && rep.push(["no model matched [.'$B'.'|']", path])
-        }
+        if (rep !== null) rep.length = 0
+    }
+    else
+    {
+        rep !== null && rep.push(["no model matched [.'$B'.'|']", path])
     }
     return res;
 }

@@ -509,16 +509,11 @@ sub _jm_obj_4($$$)
         # handle other props
         # .'$Prereq'.''
         # .'$Prereq'.''.'|'.0
-        $res = json_model_9($pval, undef, $rep);
+        $res = json_model_10($pval, undef, $rep);
         if (! $res)
         {
             # .'$Prereq'.''.'|'.1
-            $res = jm_is_integer($pval) && $pval == 0;
-            if (! $res)
-            {
-                # .'$Prereq'.''.'|'.2
-                $res = json_model_12($pval, undef, $rep);
-            }
+            $res = json_model_12($pval, undef, $rep);
         }
         if (! $res)
         {

@@ -18,59 +18,10 @@
       },
       "Type": {
         "|": [
-          {
-            "?name": "",
-            "kind": "atomic",
-            "#": "could there be derived atomics as well?",
-            "baseType": "$atomic-types",
-            "?pattern": "",
-            "?length": 0,
-            "?minLength": 0,
-            "?maxLength": 0,
-            "?totalDigits": 0,
-            "?fractionDigits": 0,
-            "?maxInclusive": "$atomic",
-            "?maxExclusive": "$atomic",
-            "?minInclusive": "$atomic",
-            "?minExclusive": "$atomic",
-            "?enumeration": [
-              "$atomic"
-            ],
-            "?explicitTypeZone": {
-              "|": [
-                "required",
-                "prohibited",
-                "optional"
-              ]
-            }
-          },
-          {
-            "?name": "",
-            "kind": "object",
-            "?baseType": "",
-            "?content": [
-              "$Fields"
-            ],
-            "?closed": true
-          },
-          {
-            "?name": "",
-            "kind": "array",
-            "?baseType": "",
-            "#": "WTF about 'content'?",
-            "?content": "$type-or-ref",
-            "?minLength": 0,
-            "?maxLength": 0
-          },
-          {
-            "#": "jsound.jsound.json does not say that it is a type\u2026",
-            "name": "",
-            "kind": "union",
-            "?baseType": "",
-            "content": [
-              "$type-or-ref"
-            ]
-          }
+          "$Atomic",
+          "$Object",
+          "$Array",
+          "$Union"
         ],
         "#": "JsonModel 3"
       },
@@ -168,59 +119,7 @@
       "type-or-ref": {
         "|": [
           "",
-          {
-            "?name": "",
-            "kind": "atomic",
-            "#": "could there be derived atomics as well?",
-            "baseType": "$atomic-types",
-            "?pattern": "",
-            "?length": 0,
-            "?minLength": 0,
-            "?maxLength": 0,
-            "?totalDigits": 0,
-            "?fractionDigits": 0,
-            "?maxInclusive": "$atomic",
-            "?maxExclusive": "$atomic",
-            "?minInclusive": "$atomic",
-            "?minExclusive": "$atomic",
-            "?enumeration": [
-              "$atomic"
-            ],
-            "?explicitTypeZone": {
-              "|": [
-                "required",
-                "prohibited",
-                "optional"
-              ]
-            }
-          },
-          {
-            "?name": "",
-            "kind": "object",
-            "?baseType": "",
-            "?content": [
-              "$Fields"
-            ],
-            "?closed": true
-          },
-          {
-            "?name": "",
-            "kind": "array",
-            "?baseType": "",
-            "#": "WTF about 'content'?",
-            "?content": "$type-or-ref",
-            "?minLength": 0,
-            "?maxLength": 0
-          },
-          {
-            "#": "jsound.jsound.json does not say that it is a type\u2026",
-            "name": "",
-            "kind": "union",
-            "?baseType": "",
-            "content": [
-              "$type-or-ref"
-            ]
-          }
+          "$Type"
         ],
         "#": "JsonModel 11"
       },
@@ -245,59 +144,10 @@
   },
   {
     "|": [
-      {
-        "?name": "",
-        "kind": "atomic",
-        "#": "could there be derived atomics as well?",
-        "baseType": "$atomic-types",
-        "?pattern": "",
-        "?length": 0,
-        "?minLength": 0,
-        "?maxLength": 0,
-        "?totalDigits": 0,
-        "?fractionDigits": 0,
-        "?maxInclusive": "$atomic",
-        "?maxExclusive": "$atomic",
-        "?minInclusive": "$atomic",
-        "?minExclusive": "$atomic",
-        "?enumeration": [
-          "$atomic"
-        ],
-        "?explicitTypeZone": {
-          "|": [
-            "required",
-            "prohibited",
-            "optional"
-          ]
-        }
-      },
-      {
-        "?name": "",
-        "kind": "object",
-        "?baseType": "",
-        "?content": [
-          "$Fields"
-        ],
-        "?closed": true
-      },
-      {
-        "?name": "",
-        "kind": "array",
-        "?baseType": "",
-        "#": "WTF about 'content'?",
-        "?content": "$type-or-ref",
-        "?minLength": 0,
-        "?maxLength": 0
-      },
-      {
-        "#": "jsound.jsound.json does not say that it is a type\u2026",
-        "name": "",
-        "kind": "union",
-        "?baseType": "",
-        "content": [
-          "$type-or-ref"
-        ]
-      }
+      "$Atomic",
+      "$Object",
+      "$Array",
+      "$Union"
     ],
     "#": "JsonModel 3"
   },
@@ -395,59 +245,7 @@
   {
     "|": [
       "",
-      {
-        "?name": "",
-        "kind": "atomic",
-        "#": "could there be derived atomics as well?",
-        "baseType": "$atomic-types",
-        "?pattern": "",
-        "?length": 0,
-        "?minLength": 0,
-        "?maxLength": 0,
-        "?totalDigits": 0,
-        "?fractionDigits": 0,
-        "?maxInclusive": "$atomic",
-        "?maxExclusive": "$atomic",
-        "?minInclusive": "$atomic",
-        "?minExclusive": "$atomic",
-        "?enumeration": [
-          "$atomic"
-        ],
-        "?explicitTypeZone": {
-          "|": [
-            "required",
-            "prohibited",
-            "optional"
-          ]
-        }
-      },
-      {
-        "?name": "",
-        "kind": "object",
-        "?baseType": "",
-        "?content": [
-          "$Fields"
-        ],
-        "?closed": true
-      },
-      {
-        "?name": "",
-        "kind": "array",
-        "?baseType": "",
-        "#": "WTF about 'content'?",
-        "?content": "$type-or-ref",
-        "?minLength": 0,
-        "?maxLength": 0
-      },
-      {
-        "#": "jsound.jsound.json does not say that it is a type\u2026",
-        "name": "",
-        "kind": "union",
-        "?baseType": "",
-        "content": [
-          "$type-or-ref"
-        ]
-      }
+      "$Type"
     ],
     "#": "JsonModel 11"
   }

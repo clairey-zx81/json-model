@@ -73,76 +73,58 @@ public class xorxor_000 extends ModelChecker
     {
         boolean res;
         // .
-        // .'|'.0
-        res = json.isNull(val);
-        if (! res)
+        // generic xor list
+        long xc_0 = 0;
+        boolean xr_0;
+        // .'^'.0
+        xr_0 = json_model_2(val, path, rep);
+        if (! xr_0)
         {
-            if (rep != null) rep.addEntry("not null [.'|'.0]", path);
+            if (rep != null) rep.addEntry("unexpected $X [.'^'.0]", path);
         }
-        if (! res)
+        if (xr_0)
         {
-            // .'|'.1
-            res = json.isBoolean(val);
-            if (! res)
+            xc_0 += 1;
+        }
+        // .'^'.1
+        xr_0 = json.isArray(val);
+        if (xr_0)
+        {
+            int arr_0_idx = -1;
+            Iterator<Object> arr_0_item_loop = json.arrayIterator(val);
+            while (arr_0_item_loop.hasNext())
             {
-                if (rep != null) rep.addEntry("not a bool [.'|'.1]", path);
-            }
-            if (! res)
-            {
-                // .'|'.2
-                res = json.isInteger(val) && json.asLong(val) >= 1;
-                if (! res)
+                arr_0_idx++;
+                Object arr_0_item = arr_0_item_loop.next();
+                Path arr_0_lpath = new Path(arr_0_idx, path);
+                // .'^'.1.0
+                xr_0 = json_model_2(arr_0_item, (path != null ? arr_0_lpath : null), rep);
+                if (! xr_0)
                 {
-                    if (rep != null) rep.addEntry("not a 1 strict int [.'|'.2]", path);
+                    if (rep != null) rep.addEntry("unexpected $X [.'^'.1.0]", (path != null ? arr_0_lpath : null));
                 }
-                if (! res)
+                if (! xr_0)
                 {
-                    // .'|'.3
-                    res = json.isDouble(val) && json.asDouble(val) > 0.0;
-                    if (! res)
-                    {
-                        if (rep != null) rep.addEntry("not a 1.0 strict float [.'|'.3]", path);
-                    }
-                    if (! res)
-                    {
-                        // .'|'.4
-                        res = json.isArray(val);
-                        if (res)
-                        {
-                            int arr_0_idx = -1;
-                            Iterator<Object> arr_0_item_loop = json.arrayIterator(val);
-                            while (arr_0_item_loop.hasNext())
-                            {
-                                arr_0_idx++;
-                                Object arr_0_item = arr_0_item_loop.next();
-                                Path arr_0_lpath = new Path(arr_0_idx, path);
-                                // .'|'.4.0
-                                res = json_model_2(arr_0_item, (path != null ? arr_0_lpath : null), rep);
-                                if (! res)
-                                {
-                                    if (rep != null) rep.addEntry("unexpected $X [.'|'.4.0]", (path != null ? arr_0_lpath : null));
-                                }
-                                if (! res)
-                                {
-                                    break;
-                                }
-                            }
-                        }
-                        if (! res)
-                        {
-                            if (rep != null) rep.addEntry("not array or unexpected array [.'|'.4]", path);
-                        }
-                    }
+                    break;
                 }
             }
         }
+        if (! xr_0)
+        {
+            if (rep != null) rep.addEntry("not array or unexpected array [.'^'.1]", path);
+        }
+        if (xr_0)
+        {
+            xc_0 += 1;
+        }
+        res = xc_0 == 1;
         if (res)
         {
             if (rep != null) rep.clearEntries();
         }
         else
         {
-            if (rep != null) rep.addEntry("no model matched [.'|']", path);
+            if (rep != null) rep.addEntry("not one model match [.'^']", path);
         }
         return res;
     }

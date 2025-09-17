@@ -21,13 +21,7 @@
     "EX08": {
       "anyOf": [
         {
-          "type": "object",
-          "patternProperties": {
-            "^((https?|file)://.*|\\..*)$": {
-              "$ref": "#/$defs/VAL"
-            }
-          },
-          "additionalProperties": false
+          "$ref": "#/$defs/map"
         },
         {
           "type": "string",

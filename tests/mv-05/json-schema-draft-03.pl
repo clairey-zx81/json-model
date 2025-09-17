@@ -41,7 +41,6 @@ sub _jm_f_23($$$);
 sub _jm_f_24($$$);
 sub _jm_f_25($$$);
 sub _jm_f_26($$$);
-my %_jm_cst_2;
 sub _jm_f_27($$$);
 sub _jm_f_28($$$);
 my %_jm_obj_0_map;
@@ -523,29 +522,29 @@ sub _jm_f_26($$$)
     return $res;
 }
 
-
 # check _jm_obj_0_map_type (.type)
 sub _jm_f_27($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
     # .type
-    $res = jm_is_scalar($val) && jm_is_string($val) && exists $_jm_cst_2{$val};
+    # .type.'|'.0
+    $res = json_model_2($val, $path, $rep);
     if (! $res)
     {
+        # .type.'|'.1
         $res = jm_is_array($val);
         if ($res)
         {
-            # .type.'|'.0
             for my $arr_4_idx (0 .. $#$val)
             {
                 my $arr_4_item = $$val[$arr_4_idx];
-                # .type.'|'.0.0
-                # .type.'|'.0.0.'|'.0
+                # .type.'|'.1.0
+                # .type.'|'.1.0.'|'.0
                 $res = jm_is_string($arr_4_item);
                 if (! $res)
                 {
-                    # .type.'|'.0.0.'|'.1
+                    # .type.'|'.1.0.'|'.1
                     $res = json_model_1($arr_4_item, undef, $rep);
                 }
                 if (! $res)
@@ -643,16 +642,6 @@ sub check_model_init()
             'ipv6' => 1,
             'host-name' => 1,
         );
-        %_jm_cst_2 = (
-            'null' => 1,
-            'boolean' => 1,
-            'integer' => 1,
-            'number' => 1,
-            'string' => 1,
-            'array' => 1,
-            'object' => 1,
-            'any' => 1,
-        );
         %_jm_obj_0_map = (
             '$ref' => \&_jm_f_0,
             '$schema' => \&_jm_f_1,
@@ -700,7 +689,6 @@ sub check_model_free()
         $initialized = 0;
         %_jm_cst_0 = ();
         %_jm_cst_1 = ();
-        %_jm_cst_2 = ();
         %_jm_obj_0_map = ();
         %check_model_map = ();
     }

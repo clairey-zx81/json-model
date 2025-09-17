@@ -50,76 +50,24 @@ function json_model_1(val, path, rep)
     let xc_0 = 0;
     let xr_0;
     // .'^'.0
-    xr_0 = ((typeof val === 'string' || val instanceof String)) && val == "Susie";
+    xr_0 = json_model_2(val, path, rep);
     if (! xr_0)
     {
-        rep !== null && rep.push(["unexpected Susie [.'^'.0]", path])
+        rep !== null && rep.push(["unexpected $p1 [.'^'.0]", path])
     }
     if (xr_0)
     {
         xc_0 += 1;
     }
     // .'^'.1
-    xr_0 = ((typeof val === 'string' || val instanceof String)) && val == "Calvin";
+    xr_0 = json_model_3(val, path, rep);
     if (! xr_0)
     {
-        rep !== null && rep.push(["unexpected Calvin [.'^'.1]", path])
+        rep !== null && rep.push(["unexpected $p2 [.'^'.1]", path])
     }
     if (xr_0)
     {
         xc_0 += 1;
-    }
-    if (xc_0 <= 1)
-    {
-        // .'^'.2
-        xr_0 = ((typeof val === 'string' || val instanceof String)) && val == "Hobbes";
-        if (! xr_0)
-        {
-            rep !== null && rep.push(["unexpected Hobbes [.'^'.2]", path])
-        }
-        if (xr_0)
-        {
-            xc_0 += 1;
-        }
-    }
-    if (xc_0 <= 1)
-    {
-        // .'^'.3
-        xr_0 = ((typeof val === 'string' || val instanceof String)) && val == "Moe";
-        if (! xr_0)
-        {
-            rep !== null && rep.push(["unexpected Moe [.'^'.3]", path])
-        }
-        if (xr_0)
-        {
-            xc_0 += 1;
-        }
-    }
-    if (xc_0 <= 1)
-    {
-        // .'^'.4
-        xr_0 = ((typeof val === 'string' || val instanceof String)) && val == "Bad";
-        if (! xr_0)
-        {
-            rep !== null && rep.push(["unexpected Bad [.'^'.4]", path])
-        }
-        if (xr_0)
-        {
-            xc_0 += 1;
-        }
-    }
-    if (xc_0 <= 1)
-    {
-        // .'^'.5
-        xr_0 = json_model_3(val, path, rep);
-        if (! xr_0)
-        {
-            rep !== null && rep.push(["unexpected $p2 [.'^'.5]", path])
-        }
-        if (xr_0)
-        {
-            xc_0 += 1;
-        }
     }
     res = xc_0 == 1;
     if (res)

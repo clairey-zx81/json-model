@@ -20,8 +20,8 @@ def check_model(val: Jsonable, name: str = "", rep: Report = None) -> bool:
     checker = check_model_map[name]
     return checker(val, [], rep)
 
-_jm_cst_0: set[str]
 _jm_obj_0_map: PropMap
+_jm_cst_0: set[str]
 check_model_map: PropMap
 
 # check _jm_obj_0_map_$schema (.'$schema'.'$schema')
@@ -353,44 +353,42 @@ def _jm_f_24(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("unexpected string [.'$schema'.title]", path))
     return res
 
-
 # check _jm_obj_0_map_type (.'$schema'.type)
 def _jm_f_25(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$schema'.type
-    res = ((val is None or isinstance(val, (bool, int, float, str)))) and val in _jm_cst_0
+    # .'$schema'.type.'|'.0
+    res = json_model_4(val, path, rep)
     if not res:
-        rep is None or rep.append(("value not in enum [.'$schema'.type.'|']", path))
+        rep is None or rep.append(("unexpected $allTypes [.'$schema'.type.'|'.0]", path))
     if not res:
+        # .'$schema'.type.'|'.1
         res = isinstance(val, list)
-        if not res:
-            rep is None or rep.append(("unexpected type [.'$schema'.type.'|']", path))
         if res:
-            # .'$schema'.type.'|'.0
             for arr_3_idx, arr_3_item in enumerate(val):
                 arr_3_lpath: Path = (path + [ arr_3_idx ]) if path is not None else None
-                # .'$schema'.type.'|'.0.0
-                # .'$schema'.type.'|'.0.0.'|'.0
+                # .'$schema'.type.'|'.1.0
+                # .'$schema'.type.'|'.1.0.'|'.0
                 res = isinstance(arr_3_item, str)
                 if not res:
-                    rep is None or rep.append(("unexpected string [.'$schema'.type.'|'.0.0.'|'.0]", arr_3_lpath if path is not None else None))
+                    rep is None or rep.append(("unexpected string [.'$schema'.type.'|'.1.0.'|'.0]", arr_3_lpath if path is not None else None))
                 if not res:
-                    # .'$schema'.type.'|'.0.0.'|'.1
+                    # .'$schema'.type.'|'.1.0.'|'.1
                     res = json_model_3(arr_3_item, arr_3_lpath if path is not None else None, rep)
                     if not res:
-                        rep is None or rep.append(("unexpected $Schema [.'$schema'.type.'|'.0.0.'|'.1]", arr_3_lpath if path is not None else None))
+                        rep is None or rep.append(("unexpected $Schema [.'$schema'.type.'|'.1.0.'|'.1]", arr_3_lpath if path is not None else None))
                 if res:
                     rep is None or rep.clear()
                 else:
-                    rep is None or rep.append(("no model matched [.'$schema'.type.'|'.0.0.'|']", arr_3_lpath if path is not None else None))
+                    rep is None or rep.append(("no model matched [.'$schema'.type.'|'.1.0.'|']", arr_3_lpath if path is not None else None))
                 if not res:
                     break
-            if not res:
-                rep is None or rep.append(("not array or unexpected array [.'$schema'.type.'|'.0]", path))
-            if res:
-                rep is None or rep.clear()
-            else:
-                rep is None or rep.append(("no model matched [.'$schema'.type.'|']", path))
+        if not res:
+            rep is None or rep.append(("not array or unexpected array [.'$schema'.type.'|'.1]", path))
+    if res:
+        rep is None or rep.clear()
+    else:
+        rep is None or rep.append(("no model matched [.'$schema'.type.'|']", path))
     return res
 
 
@@ -439,6 +437,16 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 
+# check $schema#allTypes (.'$schema#allTypes')
+def json_model_4(val: Jsonable, path: Path, rep: Report) -> bool:
+    res: bool
+    # .'$schema#allTypes'
+    res = ((val is None or isinstance(val, (bool, int, float, str)))) and val in _jm_cst_0
+    if not res:
+        rep is None or rep.append(("value not in enum [.'$schema#allTypes'.'|']", path))
+    return res
+
+
 # initialization guard
 initialized: bool = False
 
@@ -447,8 +455,6 @@ def check_model_init():
     global initialized
     if not initialized:
         initialized = True
-        global _jm_cst_0
-        _jm_cst_0 = {'any', 'array', 'boolean', 'integer', 'null', 'number', 'object', 'string'}
         global _jm_obj_0_map
         _jm_obj_0_map = {
             "$schema": _jm_f_0,
@@ -478,6 +484,8 @@ def check_model_init():
             "title": _jm_f_24,
             "type": _jm_f_25,
         }
+        global _jm_cst_0
+        _jm_cst_0 = {'any', 'array', 'boolean', 'integer', 'null', 'number', 'object', 'string'}
         global check_model_map
         check_model_map = {
             "": json_model_3,

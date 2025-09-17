@@ -57,7 +57,6 @@ sub _jm_f_30($$$);
 sub _jm_f_31($$$);
 sub _jm_f_32($$$);
 sub _jm_f_33($$$);
-my %_jm_cst_1;
 sub _jm_f_34($$$);
 sub _jm_f_35($$$);
 my %_jm_obj_7_map;
@@ -80,7 +79,6 @@ sub _jm_f_49($$$);
 sub _jm_f_50($$$);
 my %_jm_obj_9_map;
 sub json_model_15($$$);
-my %_jm_cst_2;
 sub json_model_16($$$);
 sub json_model_17($$$);
 sub json_model_18($$$);
@@ -830,17 +828,17 @@ sub _jm_f_33($$$)
     return $res;
 }
 
-
 # check _jm_obj_7_map_type (.'$validation'.type)
 sub _jm_f_34($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
     # .'$validation'.type
-    $res = jm_is_scalar($val) && jm_is_string($val) && exists $_jm_cst_1{$val};
+    # .'$validation'.type.'|'.0
+    $res = json_model_9($val, $path, $rep);
     if (! $res)
     {
-        # .'$validation'.type.'|'.0
+        # .'$validation'.type.'|'.1
         $res = json_model_10($val, $path, $rep);
     }
     return $res;
@@ -1304,7 +1302,6 @@ sub _jm_obj_18($$$)
     return 1;
 }
 
-
 # object .'$ObjectSchema'.dependentRequired
 sub _jm_obj_19($$$)
 {
@@ -1366,16 +1363,11 @@ sub _jm_obj_21($$$)
         # handle other props
         # .'$ObjectSchema'.dependencies.''
         # .'$ObjectSchema'.dependencies.''.'|'.0
-        $res = jm_is_boolean($pval);
+        $res = json_model_17($pval, undef, $rep);
         if (! $res)
         {
             # .'$ObjectSchema'.dependencies.''.'|'.1
-            $res = json_model_16($pval, undef, $rep);
-            if (! $res)
-            {
-                # .'$ObjectSchema'.dependencies.''.'|'.2
-                $res = json_model_11($pval, undef, $rep);
-            }
+            $res = json_model_11($pval, undef, $rep);
         }
         if (! $res)
         {
@@ -1660,10 +1652,11 @@ sub _jm_obj_13($$$)
     {
         $pval = $$val{'type'};
         # .'$ObjectSchema'.type
-        $res = jm_is_scalar($pval) && jm_is_string($pval) && exists $_jm_cst_2{$pval};
+        # .'$ObjectSchema'.type.'|'.0
+        $res = json_model_9($pval, $path, $rep);
         if (! $res)
         {
-            # .'$ObjectSchema'.type.'|'.0
+            # .'$ObjectSchema'.type.'|'.1
             $res = json_model_10($pval, $path, $rep);
         }
         if (! $res)
@@ -2068,16 +2061,11 @@ sub _jm_obj_24($$$)
         # handle other props
         # .'$deprecated'.dependencies.''
         # .'$deprecated'.dependencies.''.'|'.0
-        $res = jm_is_boolean($pval);
+        $res = json_model_17($pval, undef, $rep);
         if (! $res)
         {
             # .'$deprecated'.dependencies.''.'|'.1
-            $res = json_model_16($pval, undef, $rep);
-            if (! $res)
-            {
-                # .'$deprecated'.dependencies.''.'|'.2
-                $res = json_model_11($pval, undef, $rep);
-            }
+            $res = json_model_11($pval, undef, $rep);
         }
         if (! $res)
         {
@@ -2228,15 +2216,6 @@ sub check_model_init()
             'object' => 1,
             'string' => 1,
         );
-        %_jm_cst_1 = (
-            'array' => 1,
-            'boolean' => 1,
-            'integer' => 1,
-            'null' => 1,
-            'number' => 1,
-            'object' => 1,
-            'string' => 1,
-        );
         %_jm_obj_7_map = (
             'const' => \&_jm_f_16,
             'dependentRequired' => \&_jm_f_17,
@@ -2276,15 +2255,6 @@ sub check_model_init()
             'propertyNames' => \&_jm_f_49,
             'then' => \&_jm_f_50,
         );
-        %_jm_cst_2 = (
-            'array' => 1,
-            'boolean' => 1,
-            'integer' => 1,
-            'null' => 1,
-            'number' => 1,
-            'object' => 1,
-            'string' => 1,
-        );
         %check_model_map = (
             '' => \&json_model_17,
             'URI-REFERENCE' => \&json_model_3,
@@ -2316,10 +2286,8 @@ sub check_model_free()
         %_jm_obj_0_map = ();
         %_jm_obj_3_map = ();
         %_jm_cst_0 = ();
-        %_jm_cst_1 = ();
         %_jm_obj_7_map = ();
         %_jm_obj_9_map = ();
-        %_jm_cst_2 = ();
         %check_model_map = ();
     }
 }

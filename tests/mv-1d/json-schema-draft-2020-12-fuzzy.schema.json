@@ -146,25 +146,7 @@
         "type": {
           "anyOf": [
             {
-              "const": "array"
-            },
-            {
-              "const": "boolean"
-            },
-            {
-              "const": "integer"
-            },
-            {
-              "const": "null"
-            },
-            {
-              "const": "number"
-            },
-            {
-              "const": "object"
-            },
-            {
-              "const": "string"
+              "$ref": "#/$defs/simpleTypes"
             },
             {
               "$ref": "#/$defs/simpleTypesArray"
@@ -404,25 +386,7 @@
         "type": {
           "anyOf": [
             {
-              "const": "array"
-            },
-            {
-              "const": "boolean"
-            },
-            {
-              "const": "integer"
-            },
-            {
-              "const": "null"
-            },
-            {
-              "const": "number"
-            },
-            {
-              "const": "object"
-            },
-            {
-              "const": "string"
+              "$ref": "#/$defs/simpleTypes"
             },
             {
               "$ref": "#/$defs/simpleTypesArray"
@@ -532,10 +496,7 @@
           "additionalProperties": {
             "anyOf": [
               {
-                "type": "boolean"
-              },
-              {
-                "$ref": "#/$defs/ObjectSchema"
+                "$ref": "#/$defs/Schema"
               },
               {
                 "$ref": "#/$defs/stringArray"
@@ -576,10 +537,7 @@
           "additionalProperties": {
             "anyOf": [
               {
-                "type": "boolean"
-              },
-              {
-                "$ref": "#/$defs/ObjectSchema"
+                "$ref": "#/$defs/Schema"
               },
               {
                 "$ref": "#/$defs/stringArray"

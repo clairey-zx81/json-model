@@ -14,10 +14,7 @@
           "type": "boolean"
         },
         {
-          "type": "object",
-          "additionalProperties": {
-            "$ref": "#/$defs/rec"
-          }
+          "$ref": "#/$defs/obj"
         }
       ]
     }

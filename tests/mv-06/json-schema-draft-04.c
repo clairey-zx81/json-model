@@ -47,7 +47,6 @@ static bool _jm_f_28(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_29(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_30(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_31(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static jm_constant_t _jm_cst_1[7];
 static bool _jm_f_32(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_33(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static jm_propmap_t _jm_obj_0_map_tab[34];
@@ -813,33 +812,33 @@ static bool _jm_f_31(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-
 // check _jm_obj_0_map_type (.type)
 static bool _jm_f_32(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
     // .type
-    res = jm_json_is_scalar(val) && json_is_string(val) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(val) } }, _jm_cst_1, 7);;
+    // .type.'|'.0
+    res = json_model_3(val, path, rep);
     if (! res)
     {
-        if (rep) jm_report_add_entry(rep, "value not in enum [.type.'|']", path);
+        if (rep) jm_report_add_entry(rep, "unexpected $simpleTypes [.type.'|'.0]", path);
     }
     if (! res)
     {
-        // .type.'|'.0
+        // .type.'|'.1
         res = json_model_5(val, path, rep);
         if (! res)
         {
-            if (rep) jm_report_add_entry(rep, "unexpected $typeArray [.type.'|'.0]", path);
+            if (rep) jm_report_add_entry(rep, "unexpected $typeArray [.type.'|'.1]", path);
         }
-        if (res)
-        {
-            if (rep) jm_report_free_entries(rep);
-        }
-        else
-        {
-            if (rep) jm_report_add_entry(rep, "no model matched [.type.'|']", path);
-        }
+    }
+    if (res)
+    {
+        if (rep) jm_report_free_entries(rep);
+    }
+    else
+    {
+        if (rep) jm_report_add_entry(rep, "no model matched [.type.'|']", path);
     }
     return res;
 }
@@ -930,15 +929,6 @@ const char *check_model_init(void)
         _jm_cst_0[5] = (jm_constant_t) { cst_is_string, { .s = "array" } };
         _jm_cst_0[6] = (jm_constant_t) { cst_is_string, { .s = "object" } };
         jm_sort_cst(_jm_cst_0, 7);
-        // initialize sorted set _jm_cst_1
-        _jm_cst_1[0] = (jm_constant_t) { cst_is_string, { .s = "null" } };
-        _jm_cst_1[1] = (jm_constant_t) { cst_is_string, { .s = "boolean" } };
-        _jm_cst_1[2] = (jm_constant_t) { cst_is_string, { .s = "integer" } };
-        _jm_cst_1[3] = (jm_constant_t) { cst_is_string, { .s = "number" } };
-        _jm_cst_1[4] = (jm_constant_t) { cst_is_string, { .s = "string" } };
-        _jm_cst_1[5] = (jm_constant_t) { cst_is_string, { .s = "array" } };
-        _jm_cst_1[6] = (jm_constant_t) { cst_is_string, { .s = "object" } };
-        jm_sort_cst(_jm_cst_1, 7);
         _jm_obj_0_map_tab[0] = (jm_propmap_t) { "$ref", _jm_f_0 };
         _jm_obj_0_map_tab[1] = (jm_propmap_t) { "$schema", _jm_f_1 };
         _jm_obj_0_map_tab[2] = (jm_propmap_t) { "additionalItems", _jm_f_2 };

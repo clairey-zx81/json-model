@@ -410,19 +410,14 @@ def _jm_obj_4(val: Jsonable, path: Path, rep: Report) -> bool:
         # handle other props
         # .'$Prereq'.''
         # .'$Prereq'.''.'|'.0
-        res = json_model_9(pval, lpath_4 if path is not None else None, rep)
+        res = json_model_10(pval, lpath_4 if path is not None else None, rep)
         if not res:
-            rep is None or rep.append(("unexpected $SemVer [.'$Prereq'.''.'|'.0]", lpath_4 if path is not None else None))
+            rep is None or rep.append(("unexpected $Version [.'$Prereq'.''.'|'.0]", lpath_4 if path is not None else None))
         if not res:
             # .'$Prereq'.''.'|'.1
-            res = isinstance(pval, int) and not isinstance(pval, bool) and pval == 0
+            res = json_model_12(pval, lpath_4 if path is not None else None, rep)
             if not res:
-                rep is None or rep.append(("unexpected =0 [.'$Prereq'.''.'|'.1]", lpath_4 if path is not None else None))
-            if not res:
-                # .'$Prereq'.''.'|'.2
-                res = json_model_12(pval, lpath_4 if path is not None else None, rep)
-                if not res:
-                    rep is None or rep.append(("unexpected $VersionRange [.'$Prereq'.''.'|'.2]", lpath_4 if path is not None else None))
+                rep is None or rep.append(("unexpected $VersionRange [.'$Prereq'.''.'|'.1]", lpath_4 if path is not None else None))
         if res:
             rep is None or rep.clear()
         else:

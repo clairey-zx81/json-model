@@ -18,7 +18,6 @@ public class json_schema_draft_06 extends ModelChecker
     static public final String VERSION = "2";
 
     Set<Object> _jm_cst_0_set;
-    Set<Object> _jm_cst_1_set;
     Map<String, Checker> _jm_obj_0_map_pmap;
     public Map<String, Checker> json_schema_draft_06_map_pmap;
 
@@ -362,27 +361,18 @@ public class json_schema_draft_06 extends ModelChecker
             // handle other props
             // .'$ObjectSchema'.dependencies.''
             // .'$ObjectSchema'.dependencies.''.'|'.0
-            res = json.isBoolean(pval);
+            res = json_model_8(pval, (path != null ? lpath_2 : null), rep);
             if (! res)
             {
-                if (rep != null) rep.addEntry("not a bool [.'$ObjectSchema'.dependencies.''.'|'.0]", (path != null ? lpath_2 : null));
+                if (rep != null) rep.addEntry("unexpected $Schema [.'$ObjectSchema'.dependencies.''.'|'.0]", (path != null ? lpath_2 : null));
             }
             if (! res)
             {
                 // .'$ObjectSchema'.dependencies.''.'|'.1
-                res = json_model_7(pval, (path != null ? lpath_2 : null), rep);
+                res = json_model_6(pval, (path != null ? lpath_2 : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $ObjectSchema [.'$ObjectSchema'.dependencies.''.'|'.1]", (path != null ? lpath_2 : null));
-                }
-                if (! res)
-                {
-                    // .'$ObjectSchema'.dependencies.''.'|'.2
-                    res = json_model_6(pval, (path != null ? lpath_2 : null), rep);
-                    if (! res)
-                    {
-                        if (rep != null) rep.addEntry("unexpected $stringArray [.'$ObjectSchema'.dependencies.''.'|'.2]", (path != null ? lpath_2 : null));
-                    }
+                    if (rep != null) rep.addEntry("unexpected $stringArray [.'$ObjectSchema'.dependencies.''.'|'.1]", (path != null ? lpath_2 : null));
                 }
             }
             if (res)
@@ -516,27 +506,18 @@ public class json_schema_draft_06 extends ModelChecker
         boolean res;
         // .'$ObjectSchema'.items
         // .'$ObjectSchema'.items.'|'.0
-        res = json.isBoolean(val);
+        res = json_model_8(val, path, rep);
         if (! res)
         {
-            if (rep != null) rep.addEntry("not a bool [.'$ObjectSchema'.items.'|'.0]", path);
+            if (rep != null) rep.addEntry("unexpected $Schema [.'$ObjectSchema'.items.'|'.0]", path);
         }
         if (! res)
         {
             // .'$ObjectSchema'.items.'|'.1
-            res = json_model_7(val, path, rep);
+            res = json_model_3(val, path, rep);
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected $ObjectSchema [.'$ObjectSchema'.items.'|'.1]", path);
-            }
-            if (! res)
-            {
-                // .'$ObjectSchema'.items.'|'.2
-                res = json_model_3(val, path, rep);
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("unexpected $schemaArray [.'$ObjectSchema'.items.'|'.2]", path);
-                }
+                if (rep != null) rep.addEntry("unexpected $schemaArray [.'$ObjectSchema'.items.'|'.1]", path);
             }
         }
         if (res)
@@ -839,33 +820,33 @@ public class json_schema_draft_06 extends ModelChecker
         return res;
     }
     
-    
     // check _jm_obj_0_map_type (.'$ObjectSchema'.type)
     public boolean _jm_f_36(Object val, Path path, Report rep)
     {
         boolean res;
         // .'$ObjectSchema'.type
-        res = json.isScalar(val) && _jm_cst_1_set.contains(val);
+        // .'$ObjectSchema'.type.'|'.0
+        res = json_model_4(val, path, rep);
         if (! res)
         {
-            if (rep != null) rep.addEntry("value not in enum [.'$ObjectSchema'.type.'|']", path);
+            if (rep != null) rep.addEntry("unexpected $simpleTypes [.'$ObjectSchema'.type.'|'.0]", path);
         }
         if (! res)
         {
-            // .'$ObjectSchema'.type.'|'.0
+            // .'$ObjectSchema'.type.'|'.1
             res = json_model_5(val, path, rep);
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected $typeArray [.'$ObjectSchema'.type.'|'.0]", path);
+                if (rep != null) rep.addEntry("unexpected $typeArray [.'$ObjectSchema'.type.'|'.1]", path);
             }
-            if (res)
-            {
-                if (rep != null) rep.clearEntries();
-            }
-            else
-            {
-                if (rep != null) rep.addEntry("no model matched [.'$ObjectSchema'.type.'|']", path);
-            }
+        }
+        if (res)
+        {
+            if (rep != null) rep.clearEntries();
+        }
+        else
+        {
+            if (rep != null) rep.addEntry("no model matched [.'$ObjectSchema'.type.'|']", path);
         }
         return res;
     }
@@ -990,14 +971,6 @@ public class json_schema_draft_06 extends ModelChecker
             _jm_cst_0_set.add(json.safeJSON("\"string\""));
             _jm_cst_0_set.add(json.safeJSON("\"array\""));
             _jm_cst_0_set.add(json.safeJSON("\"object\""));
-            _jm_cst_1_set = new HashSet<Object>();
-            _jm_cst_1_set.add(json.safeJSON("\"null\""));
-            _jm_cst_1_set.add(json.safeJSON("\"boolean\""));
-            _jm_cst_1_set.add(json.safeJSON("\"integer\""));
-            _jm_cst_1_set.add(json.safeJSON("\"number\""));
-            _jm_cst_1_set.add(json.safeJSON("\"string\""));
-            _jm_cst_1_set.add(json.safeJSON("\"array\""));
-            _jm_cst_1_set.add(json.safeJSON("\"object\""));
             _jm_obj_0_map_pmap = new HashMap<String, Checker>();
             _jm_obj_0_map_pmap.put("$id", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_0(o, p, r);} });
             _jm_obj_0_map_pmap.put("$ref", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_1(o, p, r);} });
@@ -1060,7 +1033,6 @@ public class json_schema_draft_06 extends ModelChecker
         {
             super.free();
             _jm_cst_0_set = null;
-            _jm_cst_1_set = null;
             _jm_obj_0_map_pmap = null;
             json_schema_draft_06_map_pmap = null;
         }

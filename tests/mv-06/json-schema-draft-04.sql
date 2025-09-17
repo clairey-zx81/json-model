@@ -622,15 +622,6 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
-CREATE OR REPLACE FUNCTION _jm_cst_1(value JSONB)
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  constants JSONB = JSONB '["null","boolean","integer","number","string","array","object"]';
-BEGIN
-  RETURN constants @> value;
-END;
-$$ LANGUAGE plpgsql;
-
 -- check _jm_obj_0_map_type (.type)
 CREATE OR REPLACE FUNCTION _jm_f_32(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
@@ -638,9 +629,10 @@ DECLARE
   res bool;
 BEGIN
   -- .type
-  res := JSONB_TYPEOF(val) IN ('null', 'boolean', 'number', 'string') AND _jm_cst_1(val);
+  -- .type.'|'.0
+  res := json_model_3(val, path, rep);
   IF NOT res THEN
-    -- .type.'|'.0
+    -- .type.'|'.1
     res := json_model_5(val, path, rep);
   END IF;
   RETURN res;

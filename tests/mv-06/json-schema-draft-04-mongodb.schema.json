@@ -126,22 +126,7 @@
         "type": {
           "anyOf": [
             {
-              "const": "null"
-            },
-            {
-              "const": "boolean"
-            },
-            {
-              "const": "number"
-            },
-            {
-              "const": "string"
-            },
-            {
-              "const": "array"
-            },
-            {
-              "const": "object"
+              "$ref": "#/$defs/simpleTypes"
             },
             {
               "$ref": "#/$defs/typeArray"
@@ -163,55 +148,7 @@
         "bsonType": {
           "anyOf": [
             {
-              "const": "null"
-            },
-            {
-              "const": "bool"
-            },
-            {
-              "const": "string"
-            },
-            {
-              "const": "object"
-            },
-            {
-              "const": "array"
-            },
-            {
-              "const": "double"
-            },
-            {
-              "const": "int"
-            },
-            {
-              "const": "long"
-            },
-            {
-              "const": "decimal"
-            },
-            {
-              "const": "binData"
-            },
-            {
-              "const": "objectId"
-            },
-            {
-              "const": "date"
-            },
-            {
-              "const": "regex"
-            },
-            {
-              "const": "javascript"
-            },
-            {
-              "const": "timestamp"
-            },
-            {
-              "const": "minKey"
-            },
-            {
-              "const": "maxKey"
+              "$ref": "#/$defs/bsonType"
             },
             {
               "type": "array",

@@ -152,8 +152,7 @@
       "Prereq": {
         "": {
           "|": [
-            "$SemVer",
-            "=0",
+            "$Version",
             "$VersionRange"
           ]
         },
@@ -284,8 +283,7 @@
   {
     "": {
       "|": [
-        "$SemVer",
-        "=0",
+        "$Version",
         "$VersionRange"
       ]
     },

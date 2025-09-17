@@ -4,14 +4,7 @@
     "schema": {
       "?type": {
         "|": [
-          "null",
-          "boolean",
-          "integer",
-          "number",
-          "string",
-          "array",
-          "object",
-          "any",
+          "$allTypes",
           [
             {
               "|": [

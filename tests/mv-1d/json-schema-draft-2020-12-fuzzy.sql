@@ -829,15 +829,6 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
-CREATE OR REPLACE FUNCTION _jm_cst_1(value JSONB)
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  constants JSONB = JSONB '["array","boolean","integer","null","number","object","string"]';
-BEGIN
-  RETURN constants @> value;
-END;
-$$ LANGUAGE plpgsql;
-
 -- check _jm_obj_7_map_type (.'$validation'.type)
 CREATE OR REPLACE FUNCTION _jm_f_34(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
@@ -845,9 +836,10 @@ DECLARE
   res bool;
 BEGIN
   -- .'$validation'.type
-  res := JSONB_TYPEOF(val) IN ('null', 'boolean', 'number', 'string') AND _jm_cst_1(val);
+  -- .'$validation'.type.'|'.0
+  res := json_model_9(val, path, rep);
   IF NOT res THEN
-    -- .'$validation'.type.'|'.0
+    -- .'$validation'.type.'|'.1
     res := json_model_10(val, path, rep);
   END IF;
   RETURN res;
@@ -1358,15 +1350,6 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
-CREATE OR REPLACE FUNCTION _jm_cst_2(value JSONB)
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  constants JSONB = JSONB '["array","boolean","integer","null","number","object","string"]';
-BEGIN
-  RETURN constants @> value;
-END;
-$$ LANGUAGE plpgsql;
-
 -- object .'$ObjectSchema'.dependentRequired
 CREATE OR REPLACE FUNCTION _jm_obj_19(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
@@ -1428,14 +1411,10 @@ BEGIN
     -- handle other props
     -- .'$ObjectSchema'.dependencies.''
     -- .'$ObjectSchema'.dependencies.''.'|'.0
-    res := JSONB_TYPEOF(pval) = 'boolean';
+    res := json_model_17(pval, NULL, rep);
     IF NOT res THEN
       -- .'$ObjectSchema'.dependencies.''.'|'.1
-      res := json_model_16(pval, NULL, rep);
-      IF NOT res THEN
-        -- .'$ObjectSchema'.dependencies.''.'|'.2
-        res := json_model_11(pval, NULL, rep);
-      END IF;
+      res := json_model_11(pval, NULL, rep);
     END IF;
     IF NOT res THEN
       RETURN FALSE;
@@ -1667,9 +1646,10 @@ BEGIN
   IF val ? 'type' THEN
     pval := val -> 'type';
     -- .'$ObjectSchema'.type
-    res := JSONB_TYPEOF(pval) IN ('null', 'boolean', 'number', 'string') AND _jm_cst_2(pval);
+    -- .'$ObjectSchema'.type.'|'.0
+    res := json_model_9(pval, path, rep);
     IF NOT res THEN
-      -- .'$ObjectSchema'.type.'|'.0
+      -- .'$ObjectSchema'.type.'|'.1
       res := json_model_10(pval, path, rep);
     END IF;
     IF NOT res THEN
@@ -2011,14 +1991,10 @@ BEGIN
     -- handle other props
     -- .'$deprecated'.dependencies.''
     -- .'$deprecated'.dependencies.''.'|'.0
-    res := JSONB_TYPEOF(pval) = 'boolean';
+    res := json_model_17(pval, NULL, rep);
     IF NOT res THEN
       -- .'$deprecated'.dependencies.''.'|'.1
-      res := json_model_16(pval, NULL, rep);
-      IF NOT res THEN
-        -- .'$deprecated'.dependencies.''.'|'.2
-        res := json_model_11(pval, NULL, rep);
-      END IF;
+      res := json_model_11(pval, NULL, rep);
     END IF;
     IF NOT res THEN
       RETURN FALSE;

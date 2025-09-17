@@ -1,16 +1,8 @@
 [
   {
     "^": [
-      "Susie",
-      "Calvin",
-      "Hobbes",
-      "Moe",
-      "Bad",
-      "Castafiore",
-      "Haddock",
-      "Milou",
-      "Tintin",
-      "Bad"
+      "$p1",
+      "$p2"
     ],
     "#": "JsonModel 1",
     "$": {

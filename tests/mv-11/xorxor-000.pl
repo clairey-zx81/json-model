@@ -46,41 +46,35 @@ sub json_model_1($$$)
     my ($val, $path, $rep) = @_;
     my $res;
     # .
-    # .'|'.0
-    $res = !defined($val);
-    if (! $res)
+    # generic xor list
+    my $xc_0 = 0;
+    my $xr_0;
+    # .'^'.0
+    $xr_0 = json_model_2($val, $path, $rep);
+    if ($xr_0)
     {
-        # .'|'.1
-        $res = jm_is_boolean($val);
-        if (! $res)
+        $xc_0++;
+    }
+    # .'^'.1
+    $xr_0 = jm_is_array($val);
+    if ($xr_0)
+    {
+        for my $arr_0_idx (0 .. $#$val)
         {
-            # .'|'.2
-            $res = jm_is_integer($val) && $val >= 1;
-            if (! $res)
+            my $arr_0_item = $$val[$arr_0_idx];
+            # .'^'.1.0
+            $xr_0 = json_model_2($arr_0_item, undef, $rep);
+            if (! $xr_0)
             {
-                # .'|'.3
-                $res = jm_is_numeric($val) && $val > 0.0;
-                if (! $res)
-                {
-                    # .'|'.4
-                    $res = jm_is_array($val);
-                    if ($res)
-                    {
-                        for my $arr_0_idx (0 .. $#$val)
-                        {
-                            my $arr_0_item = $$val[$arr_0_idx];
-                            # .'|'.4.0
-                            $res = json_model_2($arr_0_item, undef, $rep);
-                            if (! $res)
-                            {
-                                last;
-                            }
-                        }
-                    }
-                }
+                last;
             }
         }
     }
+    if ($xr_0)
+    {
+        $xc_0++;
+    }
+    $res = $xc_0 == 1;
     return $res;
 }
 

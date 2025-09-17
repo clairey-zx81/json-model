@@ -59,12 +59,7 @@
       },
       "?type": {
         "|": [
-          "null",
-          "boolean",
-          "number",
-          "string",
-          "array",
-          "object",
+          "$simpleTypes",
           "$typeArray"
         ]
       },
@@ -74,23 +69,7 @@
       "?not": "$Schema",
       "?bsonType": {
         "|": [
-          "null",
-          "bool",
-          "string",
-          "object",
-          "array",
-          "double",
-          "int",
-          "long",
-          "decimal",
-          "binData",
-          "objectId",
-          "date",
-          "regex",
-          "javascript",
-          "timestamp",
-          "minKey",
-          "maxKey",
+          "$bsonType",
           [
             "$bsonType"
           ]

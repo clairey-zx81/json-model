@@ -653,27 +653,18 @@ public class pgxn extends ModelChecker
             // handle other props
             // .'$Prereq'.''
             // .'$Prereq'.''.'|'.0
-            res = json_model_9(pval, (path != null ? lpath_4 : null), rep);
+            res = json_model_10(pval, (path != null ? lpath_4 : null), rep);
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected $SemVer [.'$Prereq'.''.'|'.0]", (path != null ? lpath_4 : null));
+                if (rep != null) rep.addEntry("unexpected $Version [.'$Prereq'.''.'|'.0]", (path != null ? lpath_4 : null));
             }
             if (! res)
             {
                 // .'$Prereq'.''.'|'.1
-                res = json.isInteger(pval) && json.asLong(pval) == 0;
+                res = json_model_12(pval, (path != null ? lpath_4 : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected =0 [.'$Prereq'.''.'|'.1]", (path != null ? lpath_4 : null));
-                }
-                if (! res)
-                {
-                    // .'$Prereq'.''.'|'.2
-                    res = json_model_12(pval, (path != null ? lpath_4 : null), rep);
-                    if (! res)
-                    {
-                        if (rep != null) rep.addEntry("unexpected $VersionRange [.'$Prereq'.''.'|'.2]", (path != null ? lpath_4 : null));
-                    }
+                    if (rep != null) rep.addEntry("unexpected $VersionRange [.'$Prereq'.''.'|'.1]", (path != null ? lpath_4 : null));
                 }
             }
             if (res)

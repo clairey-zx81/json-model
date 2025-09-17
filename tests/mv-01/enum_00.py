@@ -52,45 +52,17 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     xc_0: int = 0
     xr_0: bool
     # .'^'.0
-    xr_0 = isinstance(val, str) and val == "Susie"
+    xr_0 = json_model_2(val, path, rep)
     if not xr_0:
-        rep is None or rep.append(("unexpected Susie [.'^'.0]", path))
+        rep is None or rep.append(("unexpected $p1 [.'^'.0]", path))
     if xr_0:
         xc_0 += 1
     # .'^'.1
-    xr_0 = isinstance(val, str) and val == "Calvin"
+    xr_0 = json_model_3(val, path, rep)
     if not xr_0:
-        rep is None or rep.append(("unexpected Calvin [.'^'.1]", path))
+        rep is None or rep.append(("unexpected $p2 [.'^'.1]", path))
     if xr_0:
         xc_0 += 1
-    if xc_0 <= 1:
-        # .'^'.2
-        xr_0 = isinstance(val, str) and val == "Hobbes"
-        if not xr_0:
-            rep is None or rep.append(("unexpected Hobbes [.'^'.2]", path))
-        if xr_0:
-            xc_0 += 1
-    if xc_0 <= 1:
-        # .'^'.3
-        xr_0 = isinstance(val, str) and val == "Moe"
-        if not xr_0:
-            rep is None or rep.append(("unexpected Moe [.'^'.3]", path))
-        if xr_0:
-            xc_0 += 1
-    if xc_0 <= 1:
-        # .'^'.4
-        xr_0 = isinstance(val, str) and val == "Bad"
-        if not xr_0:
-            rep is None or rep.append(("unexpected Bad [.'^'.4]", path))
-        if xr_0:
-            xc_0 += 1
-    if xc_0 <= 1:
-        # .'^'.5
-        xr_0 = json_model_3(val, path, rep)
-        if not xr_0:
-            rep is None or rep.append(("unexpected $p2 [.'^'.5]", path))
-        if xr_0:
-            xc_0 += 1
     res = xc_0 == 1
     if res:
         rep is None or rep.clear()

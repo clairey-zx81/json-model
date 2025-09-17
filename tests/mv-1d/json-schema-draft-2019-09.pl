@@ -57,7 +57,6 @@ sub _jm_f_30($$$);
 sub _jm_f_31($$$);
 sub _jm_f_32($$$);
 sub _jm_f_33($$$);
-my %_jm_cst_1;
 sub _jm_f_34($$$);
 sub _jm_f_35($$$);
 my %_jm_obj_6_map;
@@ -134,7 +133,6 @@ sub _jm_f_101($$$);
 sub _jm_f_102($$$);
 sub _jm_f_103($$$);
 sub _jm_f_104($$$);
-my %_jm_cst_2;
 sub _jm_f_105($$$);
 sub _jm_f_106($$$);
 sub _jm_f_107($$$);
@@ -848,17 +846,17 @@ sub _jm_f_33($$$)
     return $res;
 }
 
-
 # check _jm_obj_6_map_type (.'$validation'.type)
 sub _jm_f_34($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
     # .'$validation'.type
-    $res = jm_is_scalar($val) && jm_is_string($val) && exists $_jm_cst_1{$val};
+    # .'$validation'.type.'|'.0
+    $res = json_model_8($val, $path, $rep);
     if (! $res)
     {
-        # .'$validation'.type.'|'.0
+        # .'$validation'.type.'|'.1
         $res = json_model_9($val, $path, $rep);
     }
     return $res;
@@ -1052,16 +1050,11 @@ sub _jm_f_44($$$)
     my $res;
     # .'$applicator'.items
     # .'$applicator'.items.'|'.0
-    $res = jm_is_boolean($val);
+    $res = json_model_16($val, $path, $rep);
     if (! $res)
     {
         # .'$applicator'.items.'|'.1
-        $res = json_model_15($val, $path, $rep);
-        if (! $res)
-        {
-            # .'$applicator'.items.'|'.2
-            $res = json_model_13($val, $path, $rep);
-        }
+        $res = json_model_13($val, $path, $rep);
     }
     return $res;
 }
@@ -1654,16 +1647,11 @@ sub _jm_f_83($$$)
     my $res;
     # .'$ObjectSchema'.items
     # .'$ObjectSchema'.items.'|'.0
-    $res = jm_is_boolean($val);
+    $res = json_model_16($val, $path, $rep);
     if (! $res)
     {
         # .'$ObjectSchema'.items.'|'.1
-        $res = json_model_15($val, $path, $rep);
-        if (! $res)
-        {
-            # .'$ObjectSchema'.items.'|'.2
-            $res = json_model_13($val, $path, $rep);
-        }
+        $res = json_model_13($val, $path, $rep);
     }
     return $res;
 }
@@ -1931,17 +1919,17 @@ sub _jm_f_104($$$)
     return $res;
 }
 
-
 # check _jm_obj_12_map_type (.'$ObjectSchema'.type)
 sub _jm_f_105($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
     # .'$ObjectSchema'.type
-    $res = jm_is_scalar($val) && jm_is_string($val) && exists $_jm_cst_2{$val};
+    # .'$ObjectSchema'.type.'|'.0
+    $res = json_model_8($val, $path, $rep);
     if (! $res)
     {
-        # .'$ObjectSchema'.type.'|'.0
+        # .'$ObjectSchema'.type.'|'.1
         $res = json_model_9($val, $path, $rep);
     }
     return $res;
@@ -2093,15 +2081,6 @@ sub check_model_init()
             'object' => 1,
             'string' => 1,
         );
-        %_jm_cst_1 = (
-            'array' => 1,
-            'boolean' => 1,
-            'integer' => 1,
-            'null' => 1,
-            'number' => 1,
-            'object' => 1,
-            'string' => 1,
-        );
         %_jm_obj_6_map = (
             'const' => \&_jm_f_16,
             'dependentRequired' => \&_jm_f_17,
@@ -2142,15 +2121,6 @@ sub check_model_init()
             'then' => \&_jm_f_50,
             'unevaluatedItems' => \&_jm_f_51,
             'unevaluatedProperties' => \&_jm_f_52,
-        );
-        %_jm_cst_2 = (
-            'array' => 1,
-            'boolean' => 1,
-            'integer' => 1,
-            'null' => 1,
-            'number' => 1,
-            'object' => 1,
-            'string' => 1,
         );
         %_jm_obj_12_map = (
             '$anchor' => \&_jm_f_53,
@@ -2240,10 +2210,8 @@ sub check_model_free()
         %_jm_obj_0_map = ();
         %_jm_obj_3_map = ();
         %_jm_cst_0 = ();
-        %_jm_cst_1 = ();
         %_jm_obj_6_map = ();
         %_jm_obj_8_map = ();
-        %_jm_cst_2 = ();
         %_jm_obj_12_map = ();
         %check_model_map = ();
     }

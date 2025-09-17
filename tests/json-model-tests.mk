@@ -14,7 +14,7 @@ JMC.cmd = \
 JSC = jsu-check --quiet
 
 # local makefile
-# -inline local.mk
+-include local.mk
 
 # inputs, skip _*
 F.mjs   = $(wildcard [a-zA-Z]*.model.js)

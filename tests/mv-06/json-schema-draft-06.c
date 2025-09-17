@@ -52,7 +52,6 @@ static bool _jm_f_32(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_33(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_34(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_35(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static jm_constant_t _jm_cst_1[7];
 static bool _jm_f_36(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_37(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static jm_propmap_t _jm_obj_0_map_tab[38];
@@ -394,27 +393,18 @@ static INLINE bool _jm_obj_2(const json_t *val, jm_path_t *path, jm_report_t *re
         // handle other props
         // .'$ObjectSchema'.dependencies.''
         // .'$ObjectSchema'.dependencies.''.'|'.0
-        res = json_is_boolean(pval);
+        res = json_model_8(pval, (path ? &lpath_2 : NULL), rep);
         if (! res)
         {
-            if (rep) jm_report_add_entry(rep, "not a bool [.'$ObjectSchema'.dependencies.''.'|'.0]", (path ? &lpath_2 : NULL));
+            if (rep) jm_report_add_entry(rep, "unexpected $Schema [.'$ObjectSchema'.dependencies.''.'|'.0]", (path ? &lpath_2 : NULL));
         }
         if (! res)
         {
             // .'$ObjectSchema'.dependencies.''.'|'.1
-            res = json_model_7(pval, (path ? &lpath_2 : NULL), rep);
+            res = json_model_6(pval, (path ? &lpath_2 : NULL), rep);
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "unexpected $ObjectSchema [.'$ObjectSchema'.dependencies.''.'|'.1]", (path ? &lpath_2 : NULL));
-            }
-            if (! res)
-            {
-                // .'$ObjectSchema'.dependencies.''.'|'.2
-                res = json_model_6(pval, (path ? &lpath_2 : NULL), rep);
-                if (! res)
-                {
-                    if (rep) jm_report_add_entry(rep, "unexpected $stringArray [.'$ObjectSchema'.dependencies.''.'|'.2]", (path ? &lpath_2 : NULL));
-                }
+                if (rep) jm_report_add_entry(rep, "unexpected $stringArray [.'$ObjectSchema'.dependencies.''.'|'.1]", (path ? &lpath_2 : NULL));
             }
         }
         if (res)
@@ -548,27 +538,18 @@ static bool _jm_f_18(const json_t *val, jm_path_t *path, jm_report_t *rep)
     bool res;
     // .'$ObjectSchema'.items
     // .'$ObjectSchema'.items.'|'.0
-    res = json_is_boolean(val);
+    res = json_model_8(val, path, rep);
     if (! res)
     {
-        if (rep) jm_report_add_entry(rep, "not a bool [.'$ObjectSchema'.items.'|'.0]", path);
+        if (rep) jm_report_add_entry(rep, "unexpected $Schema [.'$ObjectSchema'.items.'|'.0]", path);
     }
     if (! res)
     {
         // .'$ObjectSchema'.items.'|'.1
-        res = json_model_7(val, path, rep);
+        res = json_model_3(val, path, rep);
         if (! res)
         {
-            if (rep) jm_report_add_entry(rep, "unexpected $ObjectSchema [.'$ObjectSchema'.items.'|'.1]", path);
-        }
-        if (! res)
-        {
-            // .'$ObjectSchema'.items.'|'.2
-            res = json_model_3(val, path, rep);
-            if (! res)
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected $schemaArray [.'$ObjectSchema'.items.'|'.2]", path);
-            }
+            if (rep) jm_report_add_entry(rep, "unexpected $schemaArray [.'$ObjectSchema'.items.'|'.1]", path);
         }
     }
     if (res)
@@ -869,33 +850,33 @@ static bool _jm_f_35(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-
 // check _jm_obj_0_map_type (.'$ObjectSchema'.type)
 static bool _jm_f_36(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
     // .'$ObjectSchema'.type
-    res = jm_json_is_scalar(val) && json_is_string(val) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(val) } }, _jm_cst_1, 7);;
+    // .'$ObjectSchema'.type.'|'.0
+    res = json_model_4(val, path, rep);
     if (! res)
     {
-        if (rep) jm_report_add_entry(rep, "value not in enum [.'$ObjectSchema'.type.'|']", path);
+        if (rep) jm_report_add_entry(rep, "unexpected $simpleTypes [.'$ObjectSchema'.type.'|'.0]", path);
     }
     if (! res)
     {
-        // .'$ObjectSchema'.type.'|'.0
+        // .'$ObjectSchema'.type.'|'.1
         res = json_model_5(val, path, rep);
         if (! res)
         {
-            if (rep) jm_report_add_entry(rep, "unexpected $typeArray [.'$ObjectSchema'.type.'|'.0]", path);
+            if (rep) jm_report_add_entry(rep, "unexpected $typeArray [.'$ObjectSchema'.type.'|'.1]", path);
         }
-        if (res)
-        {
-            if (rep) jm_report_free_entries(rep);
-        }
-        else
-        {
-            if (rep) jm_report_add_entry(rep, "no model matched [.'$ObjectSchema'.type.'|']", path);
-        }
+    }
+    if (res)
+    {
+        if (rep) jm_report_free_entries(rep);
+    }
+    else
+    {
+        if (rep) jm_report_add_entry(rep, "no model matched [.'$ObjectSchema'.type.'|']", path);
     }
     return res;
 }
@@ -1031,15 +1012,6 @@ const char *check_model_init(void)
         _jm_cst_0[5] = (jm_constant_t) { cst_is_string, { .s = "array" } };
         _jm_cst_0[6] = (jm_constant_t) { cst_is_string, { .s = "object" } };
         jm_sort_cst(_jm_cst_0, 7);
-        // initialize sorted set _jm_cst_1
-        _jm_cst_1[0] = (jm_constant_t) { cst_is_string, { .s = "null" } };
-        _jm_cst_1[1] = (jm_constant_t) { cst_is_string, { .s = "boolean" } };
-        _jm_cst_1[2] = (jm_constant_t) { cst_is_string, { .s = "integer" } };
-        _jm_cst_1[3] = (jm_constant_t) { cst_is_string, { .s = "number" } };
-        _jm_cst_1[4] = (jm_constant_t) { cst_is_string, { .s = "string" } };
-        _jm_cst_1[5] = (jm_constant_t) { cst_is_string, { .s = "array" } };
-        _jm_cst_1[6] = (jm_constant_t) { cst_is_string, { .s = "object" } };
-        jm_sort_cst(_jm_cst_1, 7);
         _jm_obj_0_map_tab[0] = (jm_propmap_t) { "$id", _jm_f_0 };
         _jm_obj_0_map_tab[1] = (jm_propmap_t) { "$ref", _jm_f_1 };
         _jm_obj_0_map_tab[2] = (jm_propmap_t) { "$schema", _jm_f_2 };

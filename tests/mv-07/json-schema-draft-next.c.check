@@ -1,9 +1,9 @@
 json-schema-draft-next.values.json[0]: PASS
 json-schema-draft-next.values.json[1]: PASS
 json-schema-draft-next.values.json[2]: PASS
-json-schema-draft-next.values.json[3]: FAIL (.: unexpected $Schema [.'@']; .: no model matched [.'$Schema'.'|']; .: unexpected element [.'$Schema'.'|'.1]; .: not an object [.'$Schema'.'|'.1]; .: not a bool [.'$Schema'.'|'.0])
-json-schema-draft-next.values.json[4]: FAIL (.: unexpected $Schema [.'@']; .: no model matched [.'$Schema'.'|']; .: unexpected element [.'$Schema'.'|'.1]; .: not an object [.'$Schema'.'|'.1]; .: not a bool [.'$Schema'.'|'.0])
-json-schema-draft-next.values.json[5]: FAIL (.: unexpected $Schema [.'@']; .: no model matched [.'$Schema'.'|']; .: unexpected element [.'$Schema'.'|'.1]; .: not an object [.'$Schema'.'|'.1]; .: not a bool [.'$Schema'.'|'.0])
-json-schema-draft-next.values.json[6]: FAIL (.: unexpected $Schema [.'@']; .: no model matched [.'$Schema'.'|']; .: unexpected element [.'$Schema'.'|'.1]; .: not an object [.'$Schema'.'|'.1]; .: not a bool [.'$Schema'.'|'.0])
-json-schema-draft-next.values.json[7]: FAIL (.: unexpected $Schema [.'@']; .: no model matched [.'$Schema'.'|']; .: unexpected element [.'$Schema'.'|'.1]; .: not an object [.'$Schema'.'|'.1]; .: not a bool [.'$Schema'.'|'.0])
-json-schema-draft-next.values.json[8]: FAIL (.: unexpected $Schema [.'@']; .: no model matched [.'$Schema'.'|']; .: unexpected element [.'$Schema'.'|'.1]; .: not an object [.'$Schema'.'|'.1]; .: not a bool [.'$Schema'.'|'.0])
+json-schema-draft-next.values.json[3]: FAIL (.: unexpected $Schema [.'@']; .: no model matched [.'$Schema'.'|']; .: unexpected $ObjectSchema [.'$Schema'.'|'.1]; .: unexpected element [.'$ObjectSchema']; .: not an object [.'$ObjectSchema']; .: not a bool [.'$Schema'.'|'.0])
+json-schema-draft-next.values.json[4]: FAIL (.: unexpected $Schema [.'@']; .: no model matched [.'$Schema'.'|']; .: unexpected $ObjectSchema [.'$Schema'.'|'.1]; .: unexpected element [.'$ObjectSchema']; .: not an object [.'$ObjectSchema']; .: not a bool [.'$Schema'.'|'.0])
+json-schema-draft-next.values.json[5]: FAIL (.: unexpected $Schema [.'@']; .: no model matched [.'$Schema'.'|']; .: unexpected $ObjectSchema [.'$Schema'.'|'.1]; .: unexpected element [.'$ObjectSchema']; .: not an object [.'$ObjectSchema']; .: not a bool [.'$Schema'.'|'.0])
+json-schema-draft-next.values.json[6]: FAIL (.: unexpected $Schema [.'@']; .: no model matched [.'$Schema'.'|']; .: unexpected $ObjectSchema [.'$Schema'.'|'.1]; .: unexpected element [.'$ObjectSchema']; .: not an object [.'$ObjectSchema']; .: not a bool [.'$Schema'.'|'.0])
+json-schema-draft-next.values.json[7]: FAIL (.: unexpected $Schema [.'@']; .: no model matched [.'$Schema'.'|']; .: unexpected $ObjectSchema [.'$Schema'.'|'.1]; .: unexpected element [.'$ObjectSchema']; .: not an object [.'$ObjectSchema']; .: not a bool [.'$Schema'.'|'.0])
+json-schema-draft-next.values.json[8]: FAIL (.: unexpected $Schema [.'@']; .: no model matched [.'$Schema'.'|']; .: unexpected $ObjectSchema [.'$Schema'.'|'.1]; .: unexpected element [.'$ObjectSchema']; .: not an object [.'$ObjectSchema']; .: not a bool [.'$Schema'.'|'.0])

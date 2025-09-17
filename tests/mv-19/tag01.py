@@ -125,90 +125,6 @@ def json_model_3(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("unexpected element [.'$B']", path))
     return res
 
-# object .'|'.0
-def _jm_obj_2(val: Jsonable, path: Path, rep: Report) -> bool:
-    if not isinstance(val, dict):
-        rep is None or rep.append(("not an object [.'|'.0]", path))
-        return False
-    res: bool
-    must_count: int = 0
-    for prop, pval in val.items():
-        assert isinstance(prop, str)
-        lpath_2: Path = (path + [ prop ]) if path is not None else None
-        if prop == "t":
-            # handle must t property
-            must_count += 1
-            # .'|'.0.t
-            res = isinstance(pval, bool) and pval == True
-            if not res:
-                rep is None or rep.append(("unexpected =true [.'|'.0.t]", lpath_2 if path is not None else None))
-            if not res:
-                rep is None or rep.append(("invalid mandatory prop value [.'|'.0.t]", lpath_2 if path is not None else None))
-                return False
-        elif prop == "a":
-            # handle must a property
-            must_count += 1
-            # .'|'.0.a
-            res = isinstance(pval, int) and not isinstance(pval, bool) and pval >= 0
-            if not res:
-                rep is None or rep.append(("not a 0 strict int [.'|'.0.a]", lpath_2 if path is not None else None))
-            if not res:
-                rep is None or rep.append(("invalid mandatory prop value [.'|'.0.a]", lpath_2 if path is not None else None))
-                return False
-        else:
-            rep is None or rep.append(("unexpected prop [.'|'.0]", lpath_2 if path is not None else None))
-            return False
-    if must_count != 2:
-        if rep is not None:
-            if not "a" in val:
-                rep is None or rep.append(("missing mandatory prop <a> [.'|'.0]", path))
-            if not "t" in val:
-                rep is None or rep.append(("missing mandatory prop <t> [.'|'.0]", path))
-        return False
-    return True
-
-# object .'|'.1
-def _jm_obj_3(val: Jsonable, path: Path, rep: Report) -> bool:
-    if not isinstance(val, dict):
-        rep is None or rep.append(("not an object [.'|'.1]", path))
-        return False
-    res: bool
-    must_count: int = 0
-    for prop, pval in val.items():
-        assert isinstance(prop, str)
-        lpath_3: Path = (path + [ prop ]) if path is not None else None
-        if prop == "t":
-            # handle must t property
-            must_count += 1
-            # .'|'.1.t
-            res = isinstance(pval, bool) and pval == False
-            if not res:
-                rep is None or rep.append(("unexpected =false [.'|'.1.t]", lpath_3 if path is not None else None))
-            if not res:
-                rep is None or rep.append(("invalid mandatory prop value [.'|'.1.t]", lpath_3 if path is not None else None))
-                return False
-        elif prop == "b":
-            # handle must b property
-            must_count += 1
-            # .'|'.1.b
-            res = isinstance(pval, int) and not isinstance(pval, bool) and pval >= 0
-            if not res:
-                rep is None or rep.append(("not a 0 strict int [.'|'.1.b]", lpath_3 if path is not None else None))
-            if not res:
-                rep is None or rep.append(("invalid mandatory prop value [.'|'.1.b]", lpath_3 if path is not None else None))
-                return False
-        else:
-            rep is None or rep.append(("unexpected prop [.'|'.1]", lpath_3 if path is not None else None))
-            return False
-    if must_count != 2:
-        if rep is not None:
-            if not "b" in val:
-                rep is None or rep.append(("missing mandatory prop <b> [.'|'.1]", path))
-            if not "t" in val:
-                rep is None or rep.append(("missing mandatory prop <t> [.'|'.1]", path))
-        return False
-    return True
-
 
 # check $ (.)
 def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
@@ -241,8 +157,8 @@ def check_model_init():
     if not initialized:
         initialized = True
         global _jm_map_0
-        _jm_map_0[True] = _jm_obj_2
-        _jm_map_0[False] = _jm_obj_3
+        _jm_map_0[True] = json_model_2
+        _jm_map_0[False] = json_model_3
         global check_model_map
         check_model_map = {
             "": json_model_1,

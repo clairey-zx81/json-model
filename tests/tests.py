@@ -199,9 +199,11 @@ EXPECT: dict[str, int] = {
     "mv-21:values": 192,
     "mv-21:verrors:schema": 88,
     # mv-22
+    "mv-22:options": {"inline": True},
     "mv-22:models": 6,
     "mv-22:values": 700,
     # mv-23
+    "mv-23:options": {"inline": True},
     "mv-23:models": 2,
     "mv-23:values": 34,
     # miscellaneous tests
@@ -411,9 +413,10 @@ def test_preproc(directory):
     """Preprocessing optimizations."""
 
     resolver = Resolver(None, dirmap(directory))
+    options = EXPECT.get(f"{directory}:options", {})
 
     def generate_preproc(fmodel: str):
-        jm = model_from_url(fmodel, resolver=resolver, auto=True, follow=True)
+        jm = model_from_url(fmodel, resolver=resolver, auto=True, follow=True, **options)
         return jm.toModel(True)
 
     check_generated(directory, "preproc", ".PO.json", generate_preproc)
@@ -423,9 +426,10 @@ def test_schema(directory):
     """Model to Schema conversion."""
 
     resolver = Resolver(None, dirmap(directory))
+    options = EXPECT.get(f"{directory}:options", {})
 
     def generate_schema(fmodel: str):
-        jm = model_from_url(fmodel, resolver=resolver, auto=True, follow=True)
+        jm = model_from_url(fmodel, resolver=resolver, auto=True, follow=True, **options)
         return jm.toSchema(True)
 
     check_generated(directory, "schema", ".schema.json", generate_schema)
@@ -434,13 +438,14 @@ def test_schema(directory):
 def test_lang(directory, language):
     """Check compiled sources."""
     resolver = Resolver(None, dirmap(directory))
+    options = EXPECT.get(f"{directory}:options", {})
     suffix = f".{language}"
 
     # default are different for PL/pgSQL
     report = True if language != "sql" else False
 
     def generate_language(fmodel: str):
-        jm = model_from_url(fmodel, resolver=resolver, auto=True, follow=True)
+        jm = model_from_url(fmodel, resolver=resolver, auto=True, follow=True, *options)
         code = xstatic_compile(jm, "check_model", lang=language,
             map_threshold=5, report=report, short_version=True)
         return str(code)
@@ -651,11 +656,12 @@ def run_dyn(directory: pathlib.Path, gen_checker: GenChecker, name: str):
 def test_dyn_py(directory: pathlib.Path):
 
     resolver = Resolver(None, dirmap(directory))
+    options = EXPECT.get(f"{directory}:options", {})
 
     def gen_py_checker(fmodel: str):
         assert fmodel.endswith(".model.json")
         model = fmodel.replace(".model.json", "").replace(f"{directory}/", "")
-        return model_checker_from_url(model, resolver=resolver, follow=True, debug=False)
+        return model_checker_from_url(model, resolver=resolver, follow=True, debug=False, **options)
 
     run_dyn(directory, gen_py_checker, "dynpy")
 

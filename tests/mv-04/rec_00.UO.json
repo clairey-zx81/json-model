@@ -9,9 +9,7 @@
       "rec": {
         "|": [
           true,
-          {
-            "": "$rec"
-          }
+          "$obj"
         ],
         "#": "JsonModel 3"
       },
@@ -27,9 +25,7 @@
   {
     "|": [
       true,
-      {
-        "": "$rec"
-      }
+      "$obj"
     ],
     "#": "JsonModel 3"
   }

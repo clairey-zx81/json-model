@@ -85,51 +85,16 @@ function json_model_4(val, path, rep)
     return res;
 }
 
-// object .'$EX08'.'|'.0
-function _jm_obj_1(val, path, rep)
-{
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
-    {
-        rep !== null && rep.push(["not an object [.'$EX08'.'|'.0]", path])
-        return false;
-    }
-    let res;
-    for (const [prop, pval] of Object.entries(val))
-    {
-        let lpath_1 = path ? path.concat([prop]) : null;
-        if (runtime.jm_is_valid_url(prop))
-        {
-            // handle 1 key props
-            // .'$EX08'.'|'.0.'$URL'
-            res = json_model_2(pval, (path ? lpath_1 : null), rep);
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected $VAL [.'$EX08'.'|'.0.'$URL']", (path ? lpath_1 : null)])
-            }
-            if (! res)
-            {
-                return false;
-            }
-        }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.'$EX08'.'|'.0]", (path ? lpath_1 : null)])
-            return false;
-        }
-    }
-    return true;
-}
-
 // check $EX08 (.'$EX08')
 function json_model_5(val, path, rep)
 {
     let res;
     // .'$EX08'
     // .'$EX08'.'|'.0
-    res = _jm_obj_1(val, path, rep);
+    res = json_model_4(val, path, rep);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected element [.'$EX08'.'|'.0]", path])
+        rep !== null && rep.push(["unexpected $map [.'$EX08'.'|'.0]", path])
     }
     if (! res)
     {

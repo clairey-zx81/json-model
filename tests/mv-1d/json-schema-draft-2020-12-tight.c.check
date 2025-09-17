@@ -1,9 +1,9 @@
 json-schema-draft-2020-12-tight.values.json[0]: PASS
 json-schema-draft-2020-12-tight.values.json[1]: PASS
 json-schema-draft-2020-12-tight.values.json[2]: PASS
-json-schema-draft-2020-12-tight.values.json[3]: FAIL (.: not a bool [.'$Schema'.'|']; .: unexpected type [.'$Schema'.'|'])
-json-schema-draft-2020-12-tight.values.json[4]: FAIL (.: not a bool [.'$Schema'.'|']; .: unexpected type [.'$Schema'.'|'])
-json-schema-draft-2020-12-tight.values.json[5]: FAIL (.: not a bool [.'$Schema'.'|']; .: unexpected type [.'$Schema'.'|'])
-json-schema-draft-2020-12-tight.values.json[6]: FAIL (.: not a bool [.'$Schema'.'|']; .: unexpected type [.'$Schema'.'|'])
-json-schema-draft-2020-12-tight.values.json[7]: FAIL (.: not a bool [.'$Schema'.'|']; .: unexpected type [.'$Schema'.'|'])
-json-schema-draft-2020-12-tight.values.json[8]: FAIL (.: not a bool [.'$Schema'.'|']; .: unexpected type [.'$Schema'.'|'])
+json-schema-draft-2020-12-tight.values.json[3]: FAIL (.: no model matched [.'$Schema'.'|']; .: unexpected $TightSchema [.'$Schema'.'|'.1]; .: unexpected type [.'$TightSchema'.'|']; .: not a bool [.'$Schema'.'|'.0])
+json-schema-draft-2020-12-tight.values.json[4]: FAIL (.: no model matched [.'$Schema'.'|']; .: unexpected $TightSchema [.'$Schema'.'|'.1]; .: unexpected type [.'$TightSchema'.'|']; .: not a bool [.'$Schema'.'|'.0])
+json-schema-draft-2020-12-tight.values.json[5]: FAIL (.: no model matched [.'$Schema'.'|']; .: unexpected $TightSchema [.'$Schema'.'|'.1]; .: unexpected type [.'$TightSchema'.'|']; .: not a bool [.'$Schema'.'|'.0])
+json-schema-draft-2020-12-tight.values.json[6]: FAIL (.: no model matched [.'$Schema'.'|']; .: unexpected $TightSchema [.'$Schema'.'|'.1]; .: unexpected type [.'$TightSchema'.'|']; .: not a bool [.'$Schema'.'|'.0])
+json-schema-draft-2020-12-tight.values.json[7]: FAIL (.: no model matched [.'$Schema'.'|']; .: unexpected $TightSchema [.'$Schema'.'|'.1]; .: unexpected type [.'$TightSchema'.'|']; .: not a bool [.'$Schema'.'|'.0])
+json-schema-draft-2020-12-tight.values.json[8]: FAIL (.: no model matched [.'$Schema'.'|']; .: unexpected $TightSchema [.'$Schema'.'|'.1]; .: unexpected type [.'$TightSchema'.'|']; .: not a bool [.'$Schema'.'|'.0])

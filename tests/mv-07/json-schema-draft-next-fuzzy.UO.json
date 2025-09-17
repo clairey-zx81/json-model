@@ -241,13 +241,7 @@
       "validation": {
         "?type": {
           "|": [
-            "array",
-            "boolean",
-            "integer",
-            "null",
-            "number",
-            "object",
-            "string",
+            "$simpleTypes",
             "$simpleTypesArray"
           ]
         },
@@ -356,13 +350,7 @@
         "?unevaluatedProperties": "$Schema",
         "?type": {
           "|": [
-            "array",
-            "boolean",
-            "integer",
-            "null",
-            "number",
-            "object",
-            "string",
+            "$simpleTypes",
             "$simpleTypesArray"
           ]
         },
@@ -408,8 +396,7 @@
         "?dependencies": {
           "": {
             "|": [
-              true,
-              "$ObjectSchema",
+              "$Schema",
               "$stringArray"
             ]
           }
@@ -431,8 +418,7 @@
         "?dependencies": {
           "": {
             "|": [
-              true,
-              "$ObjectSchema",
+              "$Schema",
               "$stringArray"
             ]
           }
@@ -523,13 +509,7 @@
   {
     "?type": {
       "|": [
-        "array",
-        "boolean",
-        "integer",
-        "null",
-        "number",
-        "object",
-        "string",
+        "$simpleTypes",
         "$simpleTypesArray"
       ]
     },
@@ -638,13 +618,7 @@
     "?unevaluatedProperties": "$Schema",
     "?type": {
       "|": [
-        "array",
-        "boolean",
-        "integer",
-        "null",
-        "number",
-        "object",
-        "string",
+        "$simpleTypes",
         "$simpleTypesArray"
       ]
     },
@@ -690,8 +664,7 @@
     "?dependencies": {
       "": {
         "|": [
-          true,
-          "$ObjectSchema",
+          "$Schema",
           "$stringArray"
         ]
       }
@@ -713,8 +686,7 @@
     "?dependencies": {
       "": {
         "|": [
-          true,
-          "$ObjectSchema",
+          "$Schema",
           "$stringArray"
         ]
       }

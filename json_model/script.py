@@ -31,7 +31,7 @@ LANG = {
 
 def process_model(model: JsonModel, *,
                   check: bool = True, merge: bool = True, optimize: bool = True,
-                  inline: bool = True, debug: int = 0):
+                  inline: bool = False, debug: int = 0):
     """Apply necessary preprocessing to JsonModel."""
 
     # initial sanity check
@@ -76,7 +76,7 @@ def process_model(model: JsonModel, *,
 def model_from_json(
         mjson: Jsonable, *, auto: bool = False,
         debug: int = 0, murl: str = "",
-        check: bool = True, merge: bool = True, optimize: bool = True, inline: bool = True,
+        check: bool = True, merge: bool = True, optimize: bool = True, inline: bool = False,
         loose_int: bool|None = None, loose_float: bool|None = None,
         resolver: Resolver|None = None) -> JsonModel:
     """JsonModel instanciation from JSON data."""
@@ -111,7 +111,7 @@ def model_from_json(
 
 def model_from_url(murl: str, *, auto: bool = False, debug: int = 0,
                    check: bool = True, merge: bool = True, optimize: bool = True,
-                   inline: bool = True, loose_int: bool|None = None, loose_float: bool|None = None,
+                   inline: bool = False, loose_int: bool|None = None, loose_float: bool|None = None,
                    resolver: Resolver|None = None, follow: bool = True) -> JsonModel:
     """JsonModel instanciation from a URL."""
 
@@ -127,7 +127,7 @@ def model_from_url(murl: str, *, auto: bool = False, debug: int = 0,
 
 def model_from_str(mstring: str, *, auto: bool = False,
                    check: bool = True, merge: bool = True, optimize: bool = True,
-                   inline: bool = True, loose_int: bool|None = None, loose_float: bool|None = None,
+                   inline: bool = False, loose_int: bool|None = None, loose_float: bool|None = None,
                    debug: int = 0, murl: str = "", allow_duplicates: bool = False) -> JsonModel:
     """JsonModel instanciation from a string."""
 
@@ -154,29 +154,29 @@ def model_checker(jm: JsonModel, *, debug: bool = False) -> EntryCheckFun:
 
 def model_checker_from_json(
             mjson: Jsonable, *, auto: bool = False, debug: int = 0,
-            resolver: Resolver|None = None,
+            resolver: Resolver|None = None, inline: bool = False,
             loose_int: bool|None = None, loose_float: bool|None = None,
         ) -> EntryCheckFun:
     """Return an executable model checker from a URL."""
     jm = model_from_json(mjson, auto=auto, debug=debug, resolver=resolver,
-                         loose_int=loose_int, loose_float=loose_float)
+                         loose_int=loose_int, loose_float=loose_float, inline=inline)
     return model_checker(jm, debug=debug > 0)
 
 
 def model_checker_from_url(
             murl: str, *, auto: bool = False, debug: int = 0,
-            resolver: Resolver|None = None, follow: bool = True,
+            resolver: Resolver|None = None, follow: bool = True, inline: bool = False,
             loose_int: bool|None = None, loose_float: bool|None = None
         ) -> EntryCheckFun:
     """Return an executable model checker from a URL."""
     jm = model_from_url(murl, auto=auto, debug=debug, resolver=resolver, follow=follow,
-                        loose_int=loose_int, loose_float=loose_float)
+                        loose_int=loose_int, loose_float=loose_float, inline=inline)
     return model_checker(jm, debug=debug > 0)
 
 
 def create_model(murl: str, resolver: Resolver, *,
                  auto: bool = False, follow: bool = True, debug: int = 0,
-                 check: bool = True, merge: bool = True, optimize: bool = True, inline: bool = True,
+                 check: bool = True, merge: bool = True, optimize: bool = True, inline: bool = False,
                  loose_int: bool|None = None, loose_float: bool|None = None) -> JsonModel:
     """JsonModel instanciation without preprocessing."""
     return model_from_url(murl, auto=auto, follow=follow, debug=debug, resolver=resolver,

@@ -21,20 +21,9 @@
       ]
     }
   },
-  "anyOf": [
+  "oneOf": [
     {
-      "type": "null"
-    },
-    {
-      "type": "boolean"
-    },
-    {
-      "type": "integer",
-      "minimum": 1
-    },
-    {
-      "type": "number",
-      "exclusiveMinimum": 0.0
+      "$ref": "#/$defs/X"
     },
     {
       "type": "array",

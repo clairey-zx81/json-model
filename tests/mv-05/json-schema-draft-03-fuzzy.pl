@@ -10,9 +10,10 @@ use JSON::JsonModel;
 use constant JMC_VERSION => '2';
 
 
-my %_jm_cst_0;
 sub json_model_3($$$);
 sub json_model_1($$$);
+my %_jm_cst_0;
+sub json_model_4($$$);
 sub json_model_5($$$);
 my %check_model_map;
 
@@ -124,22 +125,23 @@ sub _jm_obj_0($$$)
     {
         $pval = $$val{'type'};
         # .'$schema'.type
-        $res = jm_is_scalar($pval) && jm_is_string($pval) && exists $_jm_cst_0{$pval};
+        # .'$schema'.type.'|'.0
+        $res = json_model_4($pval, $path, $rep);
         if (! $res)
         {
+            # .'$schema'.type.'|'.1
             $res = jm_is_array($pval);
             if ($res)
             {
-                # .'$schema'.type.'|'.0
                 for my $arr_0_idx (0 .. $#$pval)
                 {
                     my $arr_0_item = $$pval[$arr_0_idx];
-                    # .'$schema'.type.'|'.0.0
-                    # .'$schema'.type.'|'.0.0.'|'.0
+                    # .'$schema'.type.'|'.1.0
+                    # .'$schema'.type.'|'.1.0.'|'.0
                     $res = jm_is_string($arr_0_item);
                     if (! $res)
                     {
-                        # .'$schema'.type.'|'.0.0.'|'.1
+                        # .'$schema'.type.'|'.1.0.'|'.1
                         $res = json_model_3($arr_0_item, undef, $rep);
                     }
                     if (! $res)
@@ -512,6 +514,17 @@ sub json_model_1($$$)
     my $res;
     # .
     $res = json_model_3($val, $path, $rep);
+    return $res;
+}
+
+
+# check $schema#allTypes (.'$schema#allTypes')
+sub json_model_4($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$schema#allTypes'
+    $res = jm_is_scalar($val) && jm_is_string($val) && exists $_jm_cst_0{$val};
     return $res;
 }
 
