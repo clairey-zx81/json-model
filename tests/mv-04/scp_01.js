@@ -24,25 +24,25 @@ function json_model_2(val, path, rep)
     return res;
 }
 
-// check $B (.'$B')
+// check $Bb (.'$Bb')
 function json_model_3(val, path, rep)
 {
     let res;
-    // .'$B'
+    // .'$Bb'
     res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected string [.'$B']", path])
+        rep !== null && rep.push(["unexpected string [.'$Bb']", path])
     }
     return res;
 }
 
-// object .'$R'
+// object .'$Rr'
 function _jm_obj_0(val, path, rep)
 {
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
-        rep !== null && rep.push(["not an object [.'$R']", path])
+        rep !== null && rep.push(["not an object [.'$Rr']", path])
         return false;
     }
     let res;
@@ -52,36 +52,36 @@ function _jm_obj_0(val, path, rep)
         if (prop == "a")
         {
             // handle may a property
-            // .'$R'.a
+            // .'$Rr'.a
             res = json_model_7(pval, (path ? lpath_0 : null), rep);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected $A [.'$R'.a]", (path ? lpath_0 : null)])
+                rep !== null && rep.push(["unexpected $Aa [.'$Rr'.a]", (path ? lpath_0 : null)])
             }
             if (! res)
             {
-                rep !== null && rep.push(["invalid optional prop value [.'$R'.a]", (path ? lpath_0 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$Rr'.a]", (path ? lpath_0 : null)])
                 return false;
             }
         }
         else
         {
-            rep !== null && rep.push(["unexpected prop [.'$R']", (path ? lpath_0 : null)])
+            rep !== null && rep.push(["unexpected prop [.'$Rr']", (path ? lpath_0 : null)])
             return false;
         }
     }
     return true;
 }
 
-// check $R (.'$R')
+// check $Rr (.'$Rr')
 function json_model_5(val, path, rep)
 {
     let res;
-    // .'$R'
+    // .'$Rr'
     res = _jm_obj_0(val, path, rep);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected element [.'$R']", path])
+        rep !== null && rep.push(["unexpected element [.'$Rr']", path])
     }
     return res;
 }
@@ -107,7 +107,7 @@ function _jm_obj_1(val, path, rep)
             res = json_model_5(pval, (path ? lpath_1 : null), rep);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected $R [.RA]", (path ? lpath_1 : null)])
+                rep !== null && rep.push(["unexpected $Rr [.RA]", (path ? lpath_1 : null)])
             }
             if (! res)
             {
@@ -122,7 +122,7 @@ function _jm_obj_1(val, path, rep)
             res = json_model_3(pval, (path ? lpath_1 : null), rep);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected $B [.b]", (path ? lpath_1 : null)])
+                rep !== null && rep.push(["unexpected $Bb [.b]", (path ? lpath_1 : null)])
             }
             if (! res)
             {
@@ -137,7 +137,7 @@ function _jm_obj_1(val, path, rep)
             res = json_model_7(pval, (path ? lpath_1 : null), rep);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected $R#A [.a]", (path ? lpath_1 : null)])
+                rep !== null && rep.push(["unexpected $Rr#Aa [.a]", (path ? lpath_1 : null)])
             }
             if (! res)
             {
@@ -178,15 +178,15 @@ function json_model_1(val, path, rep)
     return res;
 }
 
-// check $R#A (.'$R#A')
+// check $Rr#Aa (.'$Rr#Aa')
 function json_model_7(val, path, rep)
 {
     let res;
-    // .'$R#A'
+    // .'$Rr#Aa'
     res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected string [.'$R#A']", path])
+        rep !== null && rep.push(["unexpected string [.'$Rr#Aa']", path])
     }
     return res;
 }
@@ -203,8 +203,8 @@ export function check_model_init()
         runtime.jm_set_rx(RegExp)
         check_model_map.set("", json_model_1)
         check_model_map.set("b", json_model_2)
-        check_model_map.set("B", json_model_3)
-        check_model_map.set("R", json_model_5)
+        check_model_map.set("Bb", json_model_3)
+        check_model_map.set("Rr", json_model_5)
     }
 }
 

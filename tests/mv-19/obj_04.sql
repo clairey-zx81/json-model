@@ -14,13 +14,13 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
--- check $XXX (.'$XXX')
+-- check $Xxx (.'$Xxx')
 CREATE OR REPLACE FUNCTION json_model_2(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
 BEGIN
-  -- .'$XXX'
+  -- .'$Xxx'
   res := JSONB_TYPEOF(val) IN ('null', 'boolean', 'number', 'string') AND _jm_cst_0(val);
   RETURN res;
 END;
@@ -40,7 +40,7 @@ BEGIN
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     IF json_model_2(TO_JSONB(prop), NULL, rep) THEN
       -- handle 1 key props
-      -- .'$XXX'
+      -- .'$Xxx'
       res := JSONB_TYPEOF(pval) = 'number' AND (pval)::FLOAT8 >= 0.0;
       IF NOT res THEN
         RETURN FALSE;
@@ -69,7 +69,7 @@ $$ LANGUAGE PLpgSQL;
 CREATE OR REPLACE FUNCTION check_model_map(name TEXT)
 RETURNS TEXT STRICT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
-  map JSONB := JSONB '{"":"json_model_1","XXX":"json_model_2"}';
+  map JSONB := JSONB '{"":"json_model_1","Xxx":"json_model_2"}';
 BEGIN
   RETURN map->>name;
 END;

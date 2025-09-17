@@ -4808,7 +4808,7 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- object .'$XML'
+-- object .'$xml'
 CREATE OR REPLACE FUNCTION _jm_obj_68(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
@@ -4822,42 +4822,42 @@ BEGIN
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     IF prop = 'name' THEN
       -- handle may name property
-      -- .'$XML'.name
+      -- .'$xml'.name
       res := JSONB_TYPEOF(pval) = 'string';
       IF NOT res THEN
         RETURN FALSE;
       END IF;
     ELSEIF prop = 'namespace' THEN
       -- handle may namespace property
-      -- .'$XML'.namespace
+      -- .'$xml'.namespace
       res := JSONB_TYPEOF(pval) = 'string';
       IF NOT res THEN
         RETURN FALSE;
       END IF;
     ELSEIF prop = 'prefix' THEN
       -- handle may prefix property
-      -- .'$XML'.prefix
+      -- .'$xml'.prefix
       res := JSONB_TYPEOF(pval) = 'string';
       IF NOT res THEN
         RETURN FALSE;
       END IF;
     ELSEIF prop = 'attribute' THEN
       -- handle may attribute property
-      -- .'$XML'.attribute
+      -- .'$xml'.attribute
       res := JSONB_TYPEOF(pval) = 'boolean';
       IF NOT res THEN
         RETURN FALSE;
       END IF;
     ELSEIF prop = 'wrapped' THEN
       -- handle may wrapped property
-      -- .'$XML'.wrapped
+      -- .'$xml'.wrapped
       res := JSONB_TYPEOF(pval) = 'boolean';
       IF NOT res THEN
         RETURN FALSE;
       END IF;
     ELSEIF STARTS_WITH(prop, 'x-') THEN
       -- handle 1 re props
-      -- .'$XML'.'/^x-/'
+      -- .'$xml'.'/^x-/'
       res := TRUE;
       IF NOT res THEN
         RETURN FALSE;
@@ -4870,13 +4870,13 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check $XML (.'$XML')
+-- check $xml (.'$xml')
 CREATE OR REPLACE FUNCTION json_model_34(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
 BEGIN
-  -- .'$XML'
+  -- .'$xml'
   res := _jm_obj_68(val, path, rep);
   RETURN res;
 END;
@@ -6821,7 +6821,7 @@ $$ LANGUAGE PLpgSQL;
 CREATE OR REPLACE FUNCTION check_model_map(name TEXT)
 RETURNS TEXT STRICT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
-  map JSONB := JSONB '{"":"json_model_2","OpenAPI":"json_model_2","Info":"json_model_3","Contact":"json_model_4","License":"json_model_5","Server":"json_model_6","ServerVariable":"json_model_7","Components":"json_model_8","Paths":"json_model_9","PathItem":"json_model_10","Operation":"json_model_11","ExternalDocumentation":"json_model_12","parameterShare":"json_model_13","commonParameter":"json_model_14","Style":"json_model_15","parameterSchemaOnly":"json_model_16","parameterContentOnly":"json_model_17","Parameter":"json_model_18","RequestBody":"json_model_19","MediaType":"json_model_20","Encoding":"json_model_21","Responses":"json_model_22","Response":"json_model_23","Callback":"json_model_24","Example":"json_model_25","Expression":"json_model_26","Link":"json_model_27","Header":"json_model_28","Tag":"json_model_29","Reference":"json_model_30","schema":"json_model_45","Schema":"json_model_32","Discriminator":"json_model_33","XML":"json_model_34","SS-apikey":"json_model_35","SS-http":"json_model_36","SS-http-bearer":"json_model_37","SS-oauth2":"json_model_38","SS-oic":"json_model_39","SecurityScheme":"json_model_40","OAuthFlows":"json_model_41","OAuthFlow":"json_model_42","SecurityRequirement":"json_model_43","Extension":"json_model_44"}';
+  map JSONB := JSONB '{"":"json_model_2","OpenAPI":"json_model_2","Info":"json_model_3","Contact":"json_model_4","License":"json_model_5","Server":"json_model_6","ServerVariable":"json_model_7","Components":"json_model_8","Paths":"json_model_9","PathItem":"json_model_10","Operation":"json_model_11","ExternalDocumentation":"json_model_12","parameterShare":"json_model_13","commonParameter":"json_model_14","Style":"json_model_15","parameterSchemaOnly":"json_model_16","parameterContentOnly":"json_model_17","Parameter":"json_model_18","RequestBody":"json_model_19","MediaType":"json_model_20","Encoding":"json_model_21","Responses":"json_model_22","Response":"json_model_23","Callback":"json_model_24","Example":"json_model_25","Expression":"json_model_26","Link":"json_model_27","Header":"json_model_28","Tag":"json_model_29","Reference":"json_model_30","schema":"json_model_45","Schema":"json_model_32","Discriminator":"json_model_33","xml":"json_model_34","SS-apikey":"json_model_35","SS-http":"json_model_36","SS-http-bearer":"json_model_37","SS-oauth2":"json_model_38","SS-oic":"json_model_39","SecurityScheme":"json_model_40","OAuthFlows":"json_model_41","OAuthFlow":"json_model_42","SecurityRequirement":"json_model_43","Extension":"json_model_44"}';
 BEGIN
   RETURN map->>name;
 END;

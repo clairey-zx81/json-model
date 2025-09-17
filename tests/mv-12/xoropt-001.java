@@ -19,76 +19,76 @@ public class xoropt_001 extends ModelChecker
 
     public Map<String, Checker> xoropt_001_map_pmap;
 
-    // check $N (.'$N')
+    // check $Nn (.'$Nn')
     public boolean json_model_2(Object val, Path path, Report rep)
     {
         boolean res;
-        // .'$N'
+        // .'$Nn'
         res = json.isNull(val);
         if (! res)
         {
-            if (rep != null) rep.addEntry("not null [.'$N']", path);
+            if (rep != null) rep.addEntry("not null [.'$Nn']", path);
         }
         return res;
     }
     
-    // check $B (.'$B')
+    // check $Bb (.'$Bb')
     public boolean json_model_3(Object val, Path path, Report rep)
     {
         boolean res;
-        // .'$B'
+        // .'$Bb'
         res = json.isBoolean(val);
         if (! res)
         {
-            if (rep != null) rep.addEntry("not a bool [.'$B']", path);
+            if (rep != null) rep.addEntry("not a bool [.'$Bb']", path);
         }
         return res;
     }
     
-    // check $I (.'$I')
+    // check $Ii (.'$Ii')
     public boolean json_model_4(Object val, Path path, Report rep)
     {
         boolean res;
-        // .'$I'
+        // .'$Ii'
         res = json.isInteger(val);
         if (! res)
         {
-            if (rep != null) rep.addEntry("not a -1 strict int [.'$I']", path);
+            if (rep != null) rep.addEntry("not a -1 strict int [.'$Ii']", path);
         }
         return res;
     }
     
-    // check $F (.'$F')
+    // check $Ff (.'$Ff')
     public boolean json_model_5(Object val, Path path, Report rep)
     {
         boolean res;
-        // .'$F'
+        // .'$Ff'
         res = json.isDouble(val);
         if (! res)
         {
-            if (rep != null) rep.addEntry("not a -1.0 strict float [.'$F']", path);
+            if (rep != null) rep.addEntry("not a -1.0 strict float [.'$Ff']", path);
         }
         return res;
     }
     
-    // check $S (.'$S')
+    // check $Ss (.'$Ss')
     public boolean json_model_6(Object val, Path path, Report rep)
     {
         boolean res;
-        // .'$S'
+        // .'$Ss'
         res = json.isString(val);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected string [.'$S']", path);
+            if (rep != null) rep.addEntry("unexpected string [.'$Ss']", path);
         }
         return res;
     }
     
-    // check $A (.'$A')
+    // check $Aa (.'$Aa')
     public boolean json_model_7(Object val, Path path, Report rep)
     {
         boolean res;
-        // .'$A'
+        // .'$Aa'
         res = json.isArray(val);
         if (res)
         {
@@ -99,11 +99,11 @@ public class xoropt_001 extends ModelChecker
                 arr_0_idx++;
                 Object arr_0_item = arr_0_item_loop.next();
                 Path arr_0_lpath = new Path(arr_0_idx, path);
-                // .'$A'.0
+                // .'$Aa'.0
                 res = json_model_9(arr_0_item, (path != null ? arr_0_lpath : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $Any [.'$A'.0]", (path != null ? arr_0_lpath : null));
+                    if (rep != null) rep.addEntry("unexpected $Any [.'$Aa'.0]", (path != null ? arr_0_lpath : null));
                 }
                 if (! res)
                 {
@@ -113,17 +113,17 @@ public class xoropt_001 extends ModelChecker
         }
         if (! res)
         {
-            if (rep != null) rep.addEntry("not array or unexpected array [.'$A']", path);
+            if (rep != null) rep.addEntry("not array or unexpected array [.'$Aa']", path);
         }
         return res;
     }
     
-    // object .'$O'
+    // object .'$Oo'
     public boolean _jm_obj_0(Object val, Path path, Report rep)
     {
         if (! json.isObject(val))
         {
-            if (rep != null) rep.addEntry("not an object [.'$O']", path);
+            if (rep != null) rep.addEntry("not an object [.'$Oo']", path);
             return false;
         }
         boolean res;
@@ -134,11 +134,11 @@ public class xoropt_001 extends ModelChecker
             Object pval = json.objectValue(val, prop);
             Path lpath_0 = new Path(prop, path);
             // handle other props
-            // .'$O'.''
+            // .'$Oo'.''
             res = json_model_9(pval, (path != null ? lpath_0 : null), rep);
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected $Any [.'$O'.'']", (path != null ? lpath_0 : null));
+                if (rep != null) rep.addEntry("unexpected $Any [.'$Oo'.'']", (path != null ? lpath_0 : null));
             }
             if (! res)
             {
@@ -148,15 +148,15 @@ public class xoropt_001 extends ModelChecker
         return true;
     }
     
-    // check $O (.'$O')
+    // check $Oo (.'$Oo')
     public boolean json_model_8(Object val, Path path, Report rep)
     {
         boolean res;
-        // .'$O'
+        // .'$Oo'
         res = _jm_obj_0(val, path, rep);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected element [.'$O']", path);
+            if (rep != null) rep.addEntry("unexpected element [.'$Oo']", path);
         }
         return res;
     }
@@ -178,7 +178,7 @@ public class xoropt_001 extends ModelChecker
             res = json_model_3(val, path, rep);
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected $B [.'$Any'.'|'.1]", path);
+                if (rep != null) rep.addEntry("unexpected $Bb [.'$Any'.'|'.1]", path);
             }
             if (! res)
             {
@@ -186,7 +186,7 @@ public class xoropt_001 extends ModelChecker
                 res = json_model_4(val, path, rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $I [.'$Any'.'|'.2]", path);
+                    if (rep != null) rep.addEntry("unexpected $Ii [.'$Any'.'|'.2]", path);
                 }
                 if (! res)
                 {
@@ -194,7 +194,7 @@ public class xoropt_001 extends ModelChecker
                     res = json_model_5(val, path, rep);
                     if (! res)
                     {
-                        if (rep != null) rep.addEntry("unexpected $F [.'$Any'.'|'.3]", path);
+                        if (rep != null) rep.addEntry("unexpected $Ff [.'$Any'.'|'.3]", path);
                     }
                     if (! res)
                     {
@@ -202,7 +202,7 @@ public class xoropt_001 extends ModelChecker
                         res = json_model_6(val, path, rep);
                         if (! res)
                         {
-                            if (rep != null) rep.addEntry("unexpected $S [.'$Any'.'|'.4]", path);
+                            if (rep != null) rep.addEntry("unexpected $Ss [.'$Any'.'|'.4]", path);
                         }
                         if (! res)
                         {
@@ -210,7 +210,7 @@ public class xoropt_001 extends ModelChecker
                             res = json_model_7(val, path, rep);
                             if (! res)
                             {
-                                if (rep != null) rep.addEntry("unexpected $A [.'$Any'.'|'.5]", path);
+                                if (rep != null) rep.addEntry("unexpected $Aa [.'$Any'.'|'.5]", path);
                             }
                             if (! res)
                             {
@@ -218,7 +218,7 @@ public class xoropt_001 extends ModelChecker
                                 res = json_model_8(val, path, rep);
                                 if (! res)
                                 {
-                                    if (rep != null) rep.addEntry("unexpected $O [.'$Any'.'|'.6]", path);
+                                    if (rep != null) rep.addEntry("unexpected $Oo [.'$Any'.'|'.6]", path);
                                 }
                             }
                         }
@@ -258,13 +258,13 @@ public class xoropt_001 extends ModelChecker
             try {
             xoropt_001_map_pmap = new HashMap<String, Checker>();
             xoropt_001_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_9(o, p, r);} });
-            xoropt_001_map_pmap.put("N", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_2(o, p, r);} });
-            xoropt_001_map_pmap.put("B", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_3(o, p, r);} });
-            xoropt_001_map_pmap.put("I", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
-            xoropt_001_map_pmap.put("F", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_5(o, p, r);} });
-            xoropt_001_map_pmap.put("S", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_6(o, p, r);} });
-            xoropt_001_map_pmap.put("A", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_7(o, p, r);} });
-            xoropt_001_map_pmap.put("O", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_8(o, p, r);} });
+            xoropt_001_map_pmap.put("Nn", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_2(o, p, r);} });
+            xoropt_001_map_pmap.put("Bb", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_3(o, p, r);} });
+            xoropt_001_map_pmap.put("Ii", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
+            xoropt_001_map_pmap.put("Ff", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_5(o, p, r);} });
+            xoropt_001_map_pmap.put("Ss", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_6(o, p, r);} });
+            xoropt_001_map_pmap.put("Aa", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_7(o, p, r);} });
+            xoropt_001_map_pmap.put("Oo", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_8(o, p, r);} });
             xoropt_001_map_pmap.put("Any", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_9(o, p, r);} });
                 super.init(json);
             }

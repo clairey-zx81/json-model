@@ -22,10 +22,10 @@ def check_model(val: Jsonable, name: str = "", rep: Report = None) -> bool:
 
 check_model_map: PropMap
 
-# object .'$A'
+# object .'$a'
 def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
     if not isinstance(val, dict):
-        rep is None or rep.append(("not an object [.'$A']", path))
+        rep is None or rep.append(("not an object [.'$a']", path))
         return False
     res: bool
     must_count: int = 0
@@ -35,48 +35,48 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
         if prop == "a":
             # handle must a property
             must_count += 1
-            # .'$A'.a
+            # .'$a'.a
             res = isinstance(pval, int) and not isinstance(pval, bool) and pval >= 0
             if not res:
-                rep is None or rep.append(("not a 0 strict int [.'$A'.a]", lpath_0 if path is not None else None))
+                rep is None or rep.append(("not a 0 strict int [.'$a'.a]", lpath_0 if path is not None else None))
             if not res:
-                rep is None or rep.append(("invalid mandatory prop value [.'$A'.a]", lpath_0 if path is not None else None))
+                rep is None or rep.append(("invalid mandatory prop value [.'$a'.a]", lpath_0 if path is not None else None))
                 return False
         elif prop == "b":
             # handle must b property
             must_count += 1
-            # .'$A'.b
+            # .'$a'.b
             res = isinstance(pval, int) and not isinstance(pval, bool) and pval >= 0
             if not res:
-                rep is None or rep.append(("not a 0 strict int [.'$A'.b]", lpath_0 if path is not None else None))
+                rep is None or rep.append(("not a 0 strict int [.'$a'.b]", lpath_0 if path is not None else None))
             if not res:
-                rep is None or rep.append(("invalid mandatory prop value [.'$A'.b]", lpath_0 if path is not None else None))
+                rep is None or rep.append(("invalid mandatory prop value [.'$a'.b]", lpath_0 if path is not None else None))
                 return False
         else:
-            rep is None or rep.append(("unexpected prop [.'$A']", lpath_0 if path is not None else None))
+            rep is None or rep.append(("unexpected prop [.'$a']", lpath_0 if path is not None else None))
             return False
     if must_count != 2:
         if rep is not None:
             if not "a" in val:
-                rep is None or rep.append(("missing mandatory prop <a> [.'$A']", path))
+                rep is None or rep.append(("missing mandatory prop <a> [.'$a']", path))
             if not "b" in val:
-                rep is None or rep.append(("missing mandatory prop <b> [.'$A']", path))
+                rep is None or rep.append(("missing mandatory prop <b> [.'$a']", path))
         return False
     return True
 
-# check $A (.'$A')
+# check $a (.'$a')
 def json_model_2(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
-    # .'$A'
+    # .'$a'
     res = _jm_obj_0(val, path, rep)
     if not res:
-        rep is None or rep.append(("unexpected element [.'$A']", path))
+        rep is None or rep.append(("unexpected element [.'$a']", path))
     return res
 
-# object .'$B'
+# object .'$b'
 def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
     if not isinstance(val, dict):
-        rep is None or rep.append(("not an object [.'$B']", path))
+        rep is None or rep.append(("not an object [.'$b']", path))
         return False
     res: bool
     must_count: int = 0
@@ -86,54 +86,54 @@ def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
         if prop == "a":
             # handle must a property
             must_count += 1
-            # .'$B'.a
+            # .'$b'.a
             res = isinstance(pval, int) and not isinstance(pval, bool) and pval >= 0
             if not res:
-                rep is None or rep.append(("not a 0 strict int [.'$B'.a]", lpath_1 if path is not None else None))
+                rep is None or rep.append(("not a 0 strict int [.'$b'.a]", lpath_1 if path is not None else None))
             if not res:
-                rep is None or rep.append(("invalid mandatory prop value [.'$B'.a]", lpath_1 if path is not None else None))
+                rep is None or rep.append(("invalid mandatory prop value [.'$b'.a]", lpath_1 if path is not None else None))
                 return False
         elif prop == "b":
             # handle must b property
             must_count += 1
-            # .'$B'.b
+            # .'$b'.b
             res = isinstance(pval, int) and not isinstance(pval, bool) and pval >= 0
             if not res:
-                rep is None or rep.append(("not a 0 strict int [.'$B'.b]", lpath_1 if path is not None else None))
+                rep is None or rep.append(("not a 0 strict int [.'$b'.b]", lpath_1 if path is not None else None))
             if not res:
-                rep is None or rep.append(("invalid mandatory prop value [.'$B'.b]", lpath_1 if path is not None else None))
+                rep is None or rep.append(("invalid mandatory prop value [.'$b'.b]", lpath_1 if path is not None else None))
                 return False
         elif prop == "c":
             # handle must c property
             must_count += 1
-            # .'$B'.c
+            # .'$b'.c
             res = isinstance(pval, int) and not isinstance(pval, bool) and pval >= 0
             if not res:
-                rep is None or rep.append(("not a 0 strict int [.'$B'.c]", lpath_1 if path is not None else None))
+                rep is None or rep.append(("not a 0 strict int [.'$b'.c]", lpath_1 if path is not None else None))
             if not res:
-                rep is None or rep.append(("invalid mandatory prop value [.'$B'.c]", lpath_1 if path is not None else None))
+                rep is None or rep.append(("invalid mandatory prop value [.'$b'.c]", lpath_1 if path is not None else None))
                 return False
         else:
-            rep is None or rep.append(("unexpected prop [.'$B']", lpath_1 if path is not None else None))
+            rep is None or rep.append(("unexpected prop [.'$b']", lpath_1 if path is not None else None))
             return False
     if must_count != 3:
         if rep is not None:
             if not "a" in val:
-                rep is None or rep.append(("missing mandatory prop <a> [.'$B']", path))
+                rep is None or rep.append(("missing mandatory prop <a> [.'$b']", path))
             if not "b" in val:
-                rep is None or rep.append(("missing mandatory prop <b> [.'$B']", path))
+                rep is None or rep.append(("missing mandatory prop <b> [.'$b']", path))
             if not "c" in val:
-                rep is None or rep.append(("missing mandatory prop <c> [.'$B']", path))
+                rep is None or rep.append(("missing mandatory prop <c> [.'$b']", path))
         return False
     return True
 
-# check $B (.'$B')
+# check $b (.'$b')
 def json_model_3(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
-    # .'$B'
+    # .'$b'
     res = _jm_obj_1(val, path, rep)
     if not res:
-        rep is None or rep.append(("unexpected element [.'$B']", path))
+        rep is None or rep.append(("unexpected element [.'$b']", path))
     return res
 
 # object .
@@ -168,8 +168,8 @@ def check_model_init():
         global check_model_map
         check_model_map = {
             "": json_model_1,
-            "A": json_model_2,
-            "B": json_model_3,
+            "a": json_model_2,
+            "b": json_model_3,
         }
 
 # differed module cleanup

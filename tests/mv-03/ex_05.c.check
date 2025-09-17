@@ -1,6 +1,6 @@
 ex_05.values.json[0]: PASS
 ex_05.values.json[1]: PASS
-ex_05.values.json[2]: FAIL (.: no model matched [.'|']; .: unexpected $EX05b [.'|'.1]; .: unexpected string [.'$EX05b']; .: unexpected $EX05a [.'|'.0]; .: not a 0 strict int [.'$EX05a'])
-ex_05.values.json[3]: FAIL (.: no model matched [.'|']; .: unexpected $EX05b [.'|'.1]; .: unexpected string [.'$EX05b']; .: unexpected $EX05a [.'|'.0]; .: not a 0 strict int [.'$EX05a'])
-ex_05.values.json[4]: FAIL (.: no model matched [.'|']; .: unexpected $EX05b [.'|'.1]; .: unexpected string [.'$EX05b']; .: unexpected $EX05a [.'|'.0]; .: not a 0 strict int [.'$EX05a'])
-ex_05.values.json[5]: FAIL (.: no model matched [.'|']; .: unexpected $EX05b [.'|'.1]; .: unexpected string [.'$EX05b']; .: unexpected $EX05a [.'|'.0]; .: not a 0 strict int [.'$EX05a'])
+ex_05.values.json[2]: FAIL (.: no model matched [.'|']; .: unexpected $Ex05b [.'|'.1]; .: unexpected string [.'$Ex05b']; .: unexpected $Ex05a [.'|'.0]; .: not a 0 strict int [.'$Ex05a'])
+ex_05.values.json[3]: FAIL (.: no model matched [.'|']; .: unexpected $Ex05b [.'|'.1]; .: unexpected string [.'$Ex05b']; .: unexpected $Ex05a [.'|'.0]; .: not a 0 strict int [.'$Ex05a'])
+ex_05.values.json[4]: FAIL (.: no model matched [.'|']; .: unexpected $Ex05b [.'|'.1]; .: unexpected string [.'$Ex05b']; .: unexpected $Ex05a [.'|'.0]; .: not a 0 strict int [.'$Ex05a'])
+ex_05.values.json[5]: FAIL (.: no model matched [.'|']; .: unexpected $Ex05b [.'|'.1]; .: unexpected string [.'$Ex05b']; .: unexpected $Ex05a [.'|'.0]; .: not a 0 strict int [.'$Ex05a'])

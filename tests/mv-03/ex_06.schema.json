@@ -5,27 +5,27 @@
     "ex5": {
       "anyOf": [
         {
-          "$ref": "#/$defs/EX05a"
+          "$ref": "#/$defs/Ex05a"
         },
         {
-          "$ref": "#/$defs/EX05b"
+          "$ref": "#/$defs/Ex05b"
         }
       ]
     },
-    "EX06": {
+    "Ex06": {
       "type": "boolean"
     }
   },
   "type": "array",
   "prefixItems": [
     {
-      "$ref": "#/$defs/ex5#EX05a"
+      "$ref": "#/$defs/ex5#Ex05a"
     },
     {
-      "$ref": "#/$defs/ex5#EX05b"
+      "$ref": "#/$defs/ex5#Ex05b"
     },
     {
-      "$ref": "#/$defs/EX06"
+      "$ref": "#/$defs/Ex06"
     }
   ],
   "items": false,

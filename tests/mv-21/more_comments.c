@@ -16,24 +16,24 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep);
 jm_propmap_t check_model_map_tab[3];
 const size_t check_model_map_size = 3;
 
-// check $P (.'$P')
+// check $Pp (.'$Pp')
 static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
-    // .'$P'
+    // .'$Pp'
     res = json_is_integer(val) && json_integer_value(val) >= 0;
     if (! res)
     {
-        if (rep) jm_report_add_entry(rep, "not a 0 strict int [.'$P']", path);
+        if (rep) jm_report_add_entry(rep, "not a 0 strict int [.'$Pp']", path);
     }
     return res;
 }
 
-// check $Q (.'$Q')
+// check $Qq (.'$Qq')
 static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
-    // .'$Q'
+    // .'$Qq'
     res = json_is_array(val);
     if (res)
     {
@@ -42,11 +42,11 @@ static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
         json_array_foreach(val, arr_0_idx, arr_0_item)
         {
             jm_path_t arr_0_lpath = (jm_path_t) { NULL, arr_0_idx, path, NULL };
-            // .'$Q'.0
+            // .'$Qq'.0
             res = json_model_2(arr_0_item, (path ? &arr_0_lpath : NULL), rep);
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "unexpected $P [.'$Q'.0]", (path ? &arr_0_lpath : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected $Pp [.'$Qq'.0]", (path ? &arr_0_lpath : NULL));
             }
             if (! res)
             {
@@ -56,7 +56,7 @@ static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
     }
     if (! res)
     {
-        if (rep) jm_report_add_entry(rep, "not array or unexpected array [.'$Q']", path);
+        if (rep) jm_report_add_entry(rep, "not array or unexpected array [.'$Qq']", path);
     }
     return res;
 }
@@ -82,7 +82,7 @@ static INLINE bool _jm_obj_1(const json_t *val, jm_path_t *path, jm_report_t *re
             res = json_model_2(pval, (path ? &lpath_1 : NULL), rep);
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "unexpected $P [.o.p]", (path ? &lpath_1 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected $Pp [.o.p]", (path ? &lpath_1 : NULL));
             }
             if (! res)
             {
@@ -97,7 +97,7 @@ static INLINE bool _jm_obj_1(const json_t *val, jm_path_t *path, jm_report_t *re
             res = json_model_3(pval, (path ? &lpath_1 : NULL), rep);
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "unexpected $Q [.o.q]", (path ? &lpath_1 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected $Qq [.o.q]", (path ? &lpath_1 : NULL));
             }
             if (! res)
             {
@@ -216,8 +216,8 @@ const char *check_model_init(void)
         initialized = true;
         jm_version_string = JSON_MODEL_VERSION;
         check_model_map_tab[0] = (jm_propmap_t) { "", json_model_1 };
-        check_model_map_tab[1] = (jm_propmap_t) { "P", json_model_2 };
-        check_model_map_tab[2] = (jm_propmap_t) { "Q", json_model_3 };
+        check_model_map_tab[1] = (jm_propmap_t) { "Pp", json_model_2 };
+        check_model_map_tab[2] = (jm_propmap_t) { "Qq", json_model_3 };
         jm_sort_propmap(check_model_map_tab, 3);
     }
     return NULL;

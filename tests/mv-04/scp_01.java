@@ -32,25 +32,25 @@ public class scp_01 extends ModelChecker
         return res;
     }
     
-    // check $B (.'$B')
+    // check $Bb (.'$Bb')
     public boolean json_model_3(Object val, Path path, Report rep)
     {
         boolean res;
-        // .'$B'
+        // .'$Bb'
         res = json.isString(val);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected string [.'$B']", path);
+            if (rep != null) rep.addEntry("unexpected string [.'$Bb']", path);
         }
         return res;
     }
     
-    // object .'$R'
+    // object .'$Rr'
     public boolean _jm_obj_0(Object val, Path path, Report rep)
     {
         if (! json.isObject(val))
         {
-            if (rep != null) rep.addEntry("not an object [.'$R']", path);
+            if (rep != null) rep.addEntry("not an object [.'$Rr']", path);
             return false;
         }
         boolean res;
@@ -63,36 +63,36 @@ public class scp_01 extends ModelChecker
             if (prop.compareTo("a") == 0)
             {
                 // handle may a property
-                // .'$R'.a
+                // .'$Rr'.a
                 res = json_model_7(pval, (path != null ? lpath_0 : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $A [.'$R'.a]", (path != null ? lpath_0 : null));
+                    if (rep != null) rep.addEntry("unexpected $Aa [.'$Rr'.a]", (path != null ? lpath_0 : null));
                 }
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$R'.a]", (path != null ? lpath_0 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$Rr'.a]", (path != null ? lpath_0 : null));
                     return false;
                 }
             }
             else
             {
-                if (rep != null) rep.addEntry("unexpected prop [.'$R']", (path != null ? lpath_0 : null));
+                if (rep != null) rep.addEntry("unexpected prop [.'$Rr']", (path != null ? lpath_0 : null));
                 return false;
             }
         }
         return true;
     }
     
-    // check $R (.'$R')
+    // check $Rr (.'$Rr')
     public boolean json_model_5(Object val, Path path, Report rep)
     {
         boolean res;
-        // .'$R'
+        // .'$Rr'
         res = _jm_obj_0(val, path, rep);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected element [.'$R']", path);
+            if (rep != null) rep.addEntry("unexpected element [.'$Rr']", path);
         }
         return res;
     }
@@ -121,7 +121,7 @@ public class scp_01 extends ModelChecker
                 res = json_model_5(pval, (path != null ? lpath_1 : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $R [.RA]", (path != null ? lpath_1 : null));
+                    if (rep != null) rep.addEntry("unexpected $Rr [.RA]", (path != null ? lpath_1 : null));
                 }
                 if (! res)
                 {
@@ -136,7 +136,7 @@ public class scp_01 extends ModelChecker
                 res = json_model_3(pval, (path != null ? lpath_1 : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $B [.b]", (path != null ? lpath_1 : null));
+                    if (rep != null) rep.addEntry("unexpected $Bb [.b]", (path != null ? lpath_1 : null));
                 }
                 if (! res)
                 {
@@ -151,7 +151,7 @@ public class scp_01 extends ModelChecker
                 res = json_model_7(pval, (path != null ? lpath_1 : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $R#A [.a]", (path != null ? lpath_1 : null));
+                    if (rep != null) rep.addEntry("unexpected $Rr#Aa [.a]", (path != null ? lpath_1 : null));
                 }
                 if (! res)
                 {
@@ -192,15 +192,15 @@ public class scp_01 extends ModelChecker
         return res;
     }
     
-    // check $R#A (.'$R#A')
+    // check $Rr#Aa (.'$Rr#Aa')
     public boolean json_model_7(Object val, Path path, Report rep)
     {
         boolean res;
-        // .'$R#A'
+        // .'$Rr#Aa'
         res = json.isString(val);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected string [.'$R#A']", path);
+            if (rep != null) rep.addEntry("unexpected string [.'$Rr#Aa']", path);
         }
         return res;
     }
@@ -214,8 +214,8 @@ public class scp_01 extends ModelChecker
             scp_01_map_pmap = new HashMap<String, Checker>();
             scp_01_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_1(o, p, r);} });
             scp_01_map_pmap.put("b", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_2(o, p, r);} });
-            scp_01_map_pmap.put("B", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_3(o, p, r);} });
-            scp_01_map_pmap.put("R", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_5(o, p, r);} });
+            scp_01_map_pmap.put("Bb", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_3(o, p, r);} });
+            scp_01_map_pmap.put("Rr", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_5(o, p, r);} });
                 super.init(json);
             }
             catch (Exception e) {

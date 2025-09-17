@@ -11,28 +11,28 @@ const JSON_MODEL_VERSION = "2";
 
 var check_model_map = new Map()
 
-// check $VAL (.'$VAL')
+// check $Val (.'$Val')
 function json_model_2(val, path, rep)
 {
     let res;
-    // .'$VAL'
+    // .'$Val'
     res = (typeof val === 'boolean' || val instanceof Boolean);
     if (! res)
     {
-        rep !== null && rep.push(["not a bool [.'$VAL']", path])
+        rep !== null && rep.push(["not a bool [.'$Val']", path])
     }
     return res;
 }
 
-// check $KEY (.'$KEY')
+// check $Key (.'$Key')
 function json_model_3(val, path, rep)
 {
     let res;
-    // .'$KEY'
+    // .'$Key'
     res = runtime.jm_is_valid_url(val);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected $URL [.'$KEY']", path])
+        rep !== null && rep.push(["unexpected $URL [.'$Key']", path])
     }
     return res;
 }
@@ -56,7 +56,7 @@ function _jm_obj_0(val, path, rep)
             res = json_model_2(pval, (path ? lpath_0 : null), rep);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected $VAL [.'$map'.'$URL']", (path ? lpath_0 : null)])
+                rep !== null && rep.push(["unexpected $Val [.'$map'.'$URL']", (path ? lpath_0 : null)])
             }
             if (! res)
             {
@@ -85,32 +85,32 @@ function json_model_4(val, path, rep)
     return res;
 }
 
-// check $EX08 (.'$EX08')
+// check $Ex08 (.'$Ex08')
 function json_model_5(val, path, rep)
 {
     let res;
-    // .'$EX08'
-    // .'$EX08'.'|'.0
+    // .'$Ex08'
+    // .'$Ex08'.'|'.0
     res = json_model_4(val, path, rep);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected $map [.'$EX08'.'|'.0]", path])
+        rep !== null && rep.push(["unexpected $map [.'$Ex08'.'|'.0]", path])
     }
     if (! res)
     {
-        // .'$EX08'.'|'.1
+        // .'$Ex08'.'|'.1
         res = runtime.jm_is_valid_url(val);
         if (! res)
         {
-            rep !== null && rep.push(["unexpected $URL [.'$EX08'.'|'.1]", path])
+            rep !== null && rep.push(["unexpected $URL [.'$Ex08'.'|'.1]", path])
         }
         if (! res)
         {
-            // .'$EX08'.'|'.2
+            // .'$Ex08'.'|'.2
             res = json_model_2(val, path, rep);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected $VAL [.'$EX08'.'|'.2]", path])
+                rep !== null && rep.push(["unexpected $Val [.'$Ex08'.'|'.2]", path])
             }
         }
     }
@@ -120,7 +120,7 @@ function json_model_5(val, path, rep)
     }
     else
     {
-        rep !== null && rep.push(["no model matched [.'$EX08'.'|']", path])
+        rep !== null && rep.push(["no model matched [.'$Ex08'.'|']", path])
     }
     return res;
 }
@@ -133,7 +133,7 @@ function json_model_1(val, path, rep)
     res = json_model_5(val, path, rep);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected $EX08 [.]", path])
+        rep !== null && rep.push(["unexpected $Ex08 [.]", path])
     }
     return res;
 }
@@ -149,10 +149,10 @@ export function check_model_init()
         initialized = true;
         runtime.jm_set_rx(RegExp)
         check_model_map.set("", json_model_5)
-        check_model_map.set("VAL", json_model_2)
-        check_model_map.set("KEY", json_model_3)
+        check_model_map.set("Val", json_model_2)
+        check_model_map.set("Key", json_model_3)
         check_model_map.set("map", json_model_4)
-        check_model_map.set("EX08", json_model_5)
+        check_model_map.set("Ex08", json_model_5)
     }
 }
 

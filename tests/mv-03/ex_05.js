@@ -11,28 +11,28 @@ const JSON_MODEL_VERSION = "2";
 
 var check_model_map = new Map()
 
-// check $EX05a (.'$EX05a')
+// check $Ex05a (.'$Ex05a')
 function json_model_2(val, path, rep)
 {
     let res;
-    // .'$EX05a'
+    // .'$Ex05a'
     res = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 0;
     if (! res)
     {
-        rep !== null && rep.push(["not a 0 strict int [.'$EX05a']", path])
+        rep !== null && rep.push(["not a 0 strict int [.'$Ex05a']", path])
     }
     return res;
 }
 
-// check $EX05b (.'$EX05b')
+// check $Ex05b (.'$Ex05b')
 function json_model_3(val, path, rep)
 {
     let res;
-    // .'$EX05b'
+    // .'$Ex05b'
     res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected string [.'$EX05b']", path])
+        rep !== null && rep.push(["unexpected string [.'$Ex05b']", path])
     }
     return res;
 }
@@ -46,7 +46,7 @@ function json_model_1(val, path, rep)
     res = json_model_2(val, path, rep);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected $EX05a [.'|'.0]", path])
+        rep !== null && rep.push(["unexpected $Ex05a [.'|'.0]", path])
     }
     if (! res)
     {
@@ -54,7 +54,7 @@ function json_model_1(val, path, rep)
         res = json_model_3(val, path, rep);
         if (! res)
         {
-            rep !== null && rep.push(["unexpected $EX05b [.'|'.1]", path])
+            rep !== null && rep.push(["unexpected $Ex05b [.'|'.1]", path])
         }
     }
     if (res)
@@ -79,8 +79,8 @@ export function check_model_init()
         initialized = true;
         runtime.jm_set_rx(RegExp)
         check_model_map.set("", json_model_1)
-        check_model_map.set("EX05a", json_model_2)
-        check_model_map.set("EX05b", json_model_3)
+        check_model_map.set("Ex05a", json_model_2)
+        check_model_map.set("Ex05b", json_model_3)
     }
 }
 

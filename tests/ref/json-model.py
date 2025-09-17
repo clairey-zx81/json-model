@@ -82,10 +82,10 @@ def json_model_4(val: Jsonable, path: Path, rep: Report) -> bool:
     res = isinstance(val, str)
     if res:
         # .'$Identifier'.'&'.0
-        # "/^\\w+$/"
+        # "/^\\w(\\w|-)*$/"
         res = _jm_re_2(val, path, rep)
         if not res:
-            rep is None or rep.append(("unexpected /^\\w+$/ [.'$Identifier'.'&'.0]", path))
+            rep is None or rep.append(("unexpected /^\\w(\\w|-)*$/ [.'$Identifier'.'&'.0]", path))
         if res:
             # .'$Identifier'.'&'.1
             # "/[^A-Z0-9]/"
@@ -3076,7 +3076,7 @@ def check_model_init():
         _jm_re_1_reco = re.compile("[^A-Z0-9]")
         _jm_re_1 = lambda s, p, r: _jm_re_1_reco.search(s) is not None
         global _jm_re_2_reco, _jm_re_2
-        _jm_re_2_reco = re.compile("^\\w+$")
+        _jm_re_2_reco = re.compile("^\\w(\\w|-)*$")
         _jm_re_2 = lambda s, p, r: _jm_re_2_reco.search(s) is not None
         global _jm_re_3_reco, _jm_re_3
         _jm_re_3_reco = re.compile("^\\$.")

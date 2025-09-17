@@ -11,12 +11,12 @@ const JSON_MODEL_VERSION = "2";
 
 var check_model_map = new Map()
 
-// object .'$O0'
+// object .'$Oo0'
 function _jm_obj_0(val, path, rep)
 {
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
-        rep !== null && rep.push(["not an object [.'$O0']", path])
+        rep !== null && rep.push(["not an object [.'$Oo0']", path])
         return false;
     }
     let res;
@@ -28,15 +28,15 @@ function _jm_obj_0(val, path, rep)
         {
             // handle must a property
             must_count += 1;
-            // .'$O0'.a
+            // .'$Oo0'.a
             res = (typeof pval === 'boolean' || pval instanceof Boolean);
             if (! res)
             {
-                rep !== null && rep.push(["not a bool [.'$O0'.a]", (path ? lpath_0 : null)])
+                rep !== null && rep.push(["not a bool [.'$Oo0'.a]", (path ? lpath_0 : null)])
             }
             if (! res)
             {
-                rep !== null && rep.push(["invalid mandatory prop value [.'$O0'.a]", (path ? lpath_0 : null)])
+                rep !== null && rep.push(["invalid mandatory prop value [.'$Oo0'.a]", (path ? lpath_0 : null)])
                 return false;
             }
         }
@@ -44,15 +44,15 @@ function _jm_obj_0(val, path, rep)
         {
             // handle must b property
             must_count += 1;
-            // .'$O0'.b
+            // .'$Oo0'.b
             res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0;
             if (! res)
             {
-                rep !== null && rep.push(["not a 0 strict int [.'$O0'.b]", (path ? lpath_0 : null)])
+                rep !== null && rep.push(["not a 0 strict int [.'$Oo0'.b]", (path ? lpath_0 : null)])
             }
             if (! res)
             {
-                rep !== null && rep.push(["invalid mandatory prop value [.'$O0'.b]", (path ? lpath_0 : null)])
+                rep !== null && rep.push(["invalid mandatory prop value [.'$Oo0'.b]", (path ? lpath_0 : null)])
                 return false;
             }
         }
@@ -60,15 +60,15 @@ function _jm_obj_0(val, path, rep)
         {
             // handle must c property
             must_count += 1;
-            // .'$O0'.c
+            // .'$Oo0'.c
             res = pval === null;
             if (! res)
             {
-                rep !== null && rep.push(["not null [.'$O0'.c]", (path ? lpath_0 : null)])
+                rep !== null && rep.push(["not null [.'$Oo0'.c]", (path ? lpath_0 : null)])
             }
             if (! res)
             {
-                rep !== null && rep.push(["invalid mandatory prop value [.'$O0'.c]", (path ? lpath_0 : null)])
+                rep !== null && rep.push(["invalid mandatory prop value [.'$Oo0'.c]", (path ? lpath_0 : null)])
                 return false;
             }
         }
@@ -76,26 +76,26 @@ function _jm_obj_0(val, path, rep)
         {
             // handle must d property
             must_count += 1;
-            // .'$O0'.d
+            // .'$Oo0'.d
             res = ((typeof pval === 'number' || pval instanceof Number)) && pval >= 0.0;
             if (! res)
             {
-                rep !== null && rep.push(["not a 0.0 strict float [.'$O0'.d]", (path ? lpath_0 : null)])
+                rep !== null && rep.push(["not a 0.0 strict float [.'$Oo0'.d]", (path ? lpath_0 : null)])
             }
             if (! res)
             {
-                rep !== null && rep.push(["invalid mandatory prop value [.'$O0'.d]", (path ? lpath_0 : null)])
+                rep !== null && rep.push(["invalid mandatory prop value [.'$Oo0'.d]", (path ? lpath_0 : null)])
                 return false;
             }
         }
         else
         {
             // handle other props
-            // .'$O0'.''
+            // .'$Oo0'.''
             res = runtime.jm_is_valid_date(pval, (path ? lpath_0 : null), rep);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected $DATE [.'$O0'.'']", (path ? lpath_0 : null)])
+                rep !== null && rep.push(["unexpected $DATE [.'$Oo0'.'']", (path ? lpath_0 : null)])
             }
             if (! res)
             {
@@ -109,19 +109,19 @@ function _jm_obj_0(val, path, rep)
         {
             if (! val.hasOwnProperty("a"))
             {
-                rep !== null && rep.push(["missing mandatory prop <a> [.'$O0'.'']", path])
+                rep !== null && rep.push(["missing mandatory prop <a> [.'$Oo0'.'']", path])
             }
             if (! val.hasOwnProperty("b"))
             {
-                rep !== null && rep.push(["missing mandatory prop <b> [.'$O0'.'']", path])
+                rep !== null && rep.push(["missing mandatory prop <b> [.'$Oo0'.'']", path])
             }
             if (! val.hasOwnProperty("c"))
             {
-                rep !== null && rep.push(["missing mandatory prop <c> [.'$O0'.'']", path])
+                rep !== null && rep.push(["missing mandatory prop <c> [.'$Oo0'.'']", path])
             }
             if (! val.hasOwnProperty("d"))
             {
-                rep !== null && rep.push(["missing mandatory prop <d> [.'$O0'.'']", path])
+                rep !== null && rep.push(["missing mandatory prop <d> [.'$Oo0'.'']", path])
             }
         }
         return false;
@@ -129,25 +129,25 @@ function _jm_obj_0(val, path, rep)
     return true;
 }
 
-// check $O0 (.'$O0')
+// check $Oo0 (.'$Oo0')
 function json_model_2(val, path, rep)
 {
     let res;
-    // .'$O0'
+    // .'$Oo0'
     res = _jm_obj_0(val, path, rep);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected element [.'$O0']", path])
+        rep !== null && rep.push(["unexpected element [.'$Oo0']", path])
     }
     return res;
 }
 
-// object .'$O1'
+// object .'$Oo1'
 function _jm_obj_1(val, path, rep)
 {
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
-        rep !== null && rep.push(["not an object [.'$O1']", path])
+        rep !== null && rep.push(["not an object [.'$Oo1']", path])
         return false;
     }
     let res;
@@ -159,81 +159,81 @@ function _jm_obj_1(val, path, rep)
         {
             // handle must z property
             must_count += 1;
-            // .'$O1'.z
+            // .'$Oo1'.z
             res = (typeof pval === 'boolean' || pval instanceof Boolean);
             if (! res)
             {
-                rep !== null && rep.push(["not a bool [.'$O1'.z]", (path ? lpath_1 : null)])
+                rep !== null && rep.push(["not a bool [.'$Oo1'.z]", (path ? lpath_1 : null)])
             }
             if (! res)
             {
-                rep !== null && rep.push(["invalid mandatory prop value [.'$O1'.z]", (path ? lpath_1 : null)])
+                rep !== null && rep.push(["invalid mandatory prop value [.'$Oo1'.z]", (path ? lpath_1 : null)])
                 return false;
             }
         }
         else if (prop == "a")
         {
             // handle may a property
-            // .'$O1'.a
+            // .'$Oo1'.a
             res = (typeof pval === 'boolean' || pval instanceof Boolean);
             if (! res)
             {
-                rep !== null && rep.push(["not a bool [.'$O1'.a]", (path ? lpath_1 : null)])
+                rep !== null && rep.push(["not a bool [.'$Oo1'.a]", (path ? lpath_1 : null)])
             }
             if (! res)
             {
-                rep !== null && rep.push(["invalid optional prop value [.'$O1'.a]", (path ? lpath_1 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$Oo1'.a]", (path ? lpath_1 : null)])
                 return false;
             }
         }
         else if (prop == "b")
         {
             // handle may b property
-            // .'$O1'.b
+            // .'$Oo1'.b
             res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0;
             if (! res)
             {
-                rep !== null && rep.push(["not a 0 strict int [.'$O1'.b]", (path ? lpath_1 : null)])
+                rep !== null && rep.push(["not a 0 strict int [.'$Oo1'.b]", (path ? lpath_1 : null)])
             }
             if (! res)
             {
-                rep !== null && rep.push(["invalid optional prop value [.'$O1'.b]", (path ? lpath_1 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$Oo1'.b]", (path ? lpath_1 : null)])
                 return false;
             }
         }
         else if (prop == "c")
         {
             // handle may c property
-            // .'$O1'.c
+            // .'$Oo1'.c
             res = pval === null;
             if (! res)
             {
-                rep !== null && rep.push(["not null [.'$O1'.c]", (path ? lpath_1 : null)])
+                rep !== null && rep.push(["not null [.'$Oo1'.c]", (path ? lpath_1 : null)])
             }
             if (! res)
             {
-                rep !== null && rep.push(["invalid optional prop value [.'$O1'.c]", (path ? lpath_1 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$Oo1'.c]", (path ? lpath_1 : null)])
                 return false;
             }
         }
         else if (prop == "d")
         {
             // handle may d property
-            // .'$O1'.d
+            // .'$Oo1'.d
             res = ((typeof pval === 'number' || pval instanceof Number)) && pval >= 0.0;
             if (! res)
             {
-                rep !== null && rep.push(["not a 0.0 strict float [.'$O1'.d]", (path ? lpath_1 : null)])
+                rep !== null && rep.push(["not a 0.0 strict float [.'$Oo1'.d]", (path ? lpath_1 : null)])
             }
             if (! res)
             {
-                rep !== null && rep.push(["invalid optional prop value [.'$O1'.d]", (path ? lpath_1 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$Oo1'.d]", (path ? lpath_1 : null)])
                 return false;
             }
         }
         else
         {
-            rep !== null && rep.push(["unexpected prop [.'$O1']", (path ? lpath_1 : null)])
+            rep !== null && rep.push(["unexpected prop [.'$Oo1']", (path ? lpath_1 : null)])
             return false;
         }
     }
@@ -243,7 +243,7 @@ function _jm_obj_1(val, path, rep)
         {
             if (! val.hasOwnProperty("z"))
             {
-                rep !== null && rep.push(["missing mandatory prop <z> [.'$O1']", path])
+                rep !== null && rep.push(["missing mandatory prop <z> [.'$Oo1']", path])
             }
         }
         return false;
@@ -251,25 +251,25 @@ function _jm_obj_1(val, path, rep)
     return true;
 }
 
-// check $O1 (.'$O1')
+// check $Oo1 (.'$Oo1')
 function json_model_3(val, path, rep)
 {
     let res;
-    // .'$O1'
+    // .'$Oo1'
     res = _jm_obj_1(val, path, rep);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected element [.'$O1']", path])
+        rep !== null && rep.push(["unexpected element [.'$Oo1']", path])
     }
     return res;
 }
 
-// object .'$O2'
+// object .'$Oo2'
 function _jm_obj_2(val, path, rep)
 {
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
-        rep !== null && rep.push(["not an object [.'$O2']", path])
+        rep !== null && rep.push(["not an object [.'$Oo2']", path])
         return false;
     }
     let res;
@@ -281,15 +281,15 @@ function _jm_obj_2(val, path, rep)
         {
             // handle must a property
             must_count += 1;
-            // .'$O2'.a
+            // .'$Oo2'.a
             res = (typeof pval === 'boolean' || pval instanceof Boolean);
             if (! res)
             {
-                rep !== null && rep.push(["not a bool [.'$O2'.a]", (path ? lpath_2 : null)])
+                rep !== null && rep.push(["not a bool [.'$Oo2'.a]", (path ? lpath_2 : null)])
             }
             if (! res)
             {
-                rep !== null && rep.push(["invalid mandatory prop value [.'$O2'.a]", (path ? lpath_2 : null)])
+                rep !== null && rep.push(["invalid mandatory prop value [.'$Oo2'.a]", (path ? lpath_2 : null)])
                 return false;
             }
         }
@@ -297,15 +297,15 @@ function _jm_obj_2(val, path, rep)
         {
             // handle must b property
             must_count += 1;
-            // .'$O2'.b
+            // .'$Oo2'.b
             res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0;
             if (! res)
             {
-                rep !== null && rep.push(["not a 0 strict int [.'$O2'.b]", (path ? lpath_2 : null)])
+                rep !== null && rep.push(["not a 0 strict int [.'$Oo2'.b]", (path ? lpath_2 : null)])
             }
             if (! res)
             {
-                rep !== null && rep.push(["invalid mandatory prop value [.'$O2'.b]", (path ? lpath_2 : null)])
+                rep !== null && rep.push(["invalid mandatory prop value [.'$Oo2'.b]", (path ? lpath_2 : null)])
                 return false;
             }
         }
@@ -313,15 +313,15 @@ function _jm_obj_2(val, path, rep)
         {
             // handle must c property
             must_count += 1;
-            // .'$O2'.c
+            // .'$Oo2'.c
             res = pval === null;
             if (! res)
             {
-                rep !== null && rep.push(["not null [.'$O2'.c]", (path ? lpath_2 : null)])
+                rep !== null && rep.push(["not null [.'$Oo2'.c]", (path ? lpath_2 : null)])
             }
             if (! res)
             {
-                rep !== null && rep.push(["invalid mandatory prop value [.'$O2'.c]", (path ? lpath_2 : null)])
+                rep !== null && rep.push(["invalid mandatory prop value [.'$Oo2'.c]", (path ? lpath_2 : null)])
                 return false;
             }
         }
@@ -329,36 +329,36 @@ function _jm_obj_2(val, path, rep)
         {
             // handle must d property
             must_count += 1;
-            // .'$O2'.d
+            // .'$Oo2'.d
             res = ((typeof pval === 'number' || pval instanceof Number)) && pval >= 0.0;
             if (! res)
             {
-                rep !== null && rep.push(["not a 0.0 strict float [.'$O2'.d]", (path ? lpath_2 : null)])
+                rep !== null && rep.push(["not a 0.0 strict float [.'$Oo2'.d]", (path ? lpath_2 : null)])
             }
             if (! res)
             {
-                rep !== null && rep.push(["invalid mandatory prop value [.'$O2'.d]", (path ? lpath_2 : null)])
+                rep !== null && rep.push(["invalid mandatory prop value [.'$Oo2'.d]", (path ? lpath_2 : null)])
                 return false;
             }
         }
         else if (prop == "y")
         {
             // handle may y property
-            // .'$O2'.y
+            // .'$Oo2'.y
             res = (typeof pval === 'boolean' || pval instanceof Boolean);
             if (! res)
             {
-                rep !== null && rep.push(["not a bool [.'$O2'.y]", (path ? lpath_2 : null)])
+                rep !== null && rep.push(["not a bool [.'$Oo2'.y]", (path ? lpath_2 : null)])
             }
             if (! res)
             {
-                rep !== null && rep.push(["invalid optional prop value [.'$O2'.y]", (path ? lpath_2 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$Oo2'.y]", (path ? lpath_2 : null)])
                 return false;
             }
         }
         else
         {
-            rep !== null && rep.push(["unexpected prop [.'$O2']", (path ? lpath_2 : null)])
+            rep !== null && rep.push(["unexpected prop [.'$Oo2']", (path ? lpath_2 : null)])
             return false;
         }
     }
@@ -368,19 +368,19 @@ function _jm_obj_2(val, path, rep)
         {
             if (! val.hasOwnProperty("a"))
             {
-                rep !== null && rep.push(["missing mandatory prop <a> [.'$O2']", path])
+                rep !== null && rep.push(["missing mandatory prop <a> [.'$Oo2']", path])
             }
             if (! val.hasOwnProperty("b"))
             {
-                rep !== null && rep.push(["missing mandatory prop <b> [.'$O2']", path])
+                rep !== null && rep.push(["missing mandatory prop <b> [.'$Oo2']", path])
             }
             if (! val.hasOwnProperty("c"))
             {
-                rep !== null && rep.push(["missing mandatory prop <c> [.'$O2']", path])
+                rep !== null && rep.push(["missing mandatory prop <c> [.'$Oo2']", path])
             }
             if (! val.hasOwnProperty("d"))
             {
-                rep !== null && rep.push(["missing mandatory prop <d> [.'$O2']", path])
+                rep !== null && rep.push(["missing mandatory prop <d> [.'$Oo2']", path])
             }
         }
         return false;
@@ -388,15 +388,15 @@ function _jm_obj_2(val, path, rep)
     return true;
 }
 
-// check $O2 (.'$O2')
+// check $Oo2 (.'$Oo2')
 function json_model_4(val, path, rep)
 {
     let res;
-    // .'$O2'
+    // .'$Oo2'
     res = _jm_obj_2(val, path, rep);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected element [.'$O2']", path])
+        rep !== null && rep.push(["unexpected element [.'$Oo2']", path])
     }
     return res;
 }
@@ -410,7 +410,7 @@ function json_model_1(val, path, rep)
     res = json_model_2(val, path, rep);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected $O0 [.'|'.0]", path])
+        rep !== null && rep.push(["unexpected $Oo0 [.'|'.0]", path])
     }
     if (! res)
     {
@@ -418,7 +418,7 @@ function json_model_1(val, path, rep)
         res = json_model_3(val, path, rep);
         if (! res)
         {
-            rep !== null && rep.push(["unexpected $O1 [.'|'.1]", path])
+            rep !== null && rep.push(["unexpected $Oo1 [.'|'.1]", path])
         }
         if (! res)
         {
@@ -426,7 +426,7 @@ function json_model_1(val, path, rep)
             res = json_model_4(val, path, rep);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected $O2 [.'|'.2]", path])
+                rep !== null && rep.push(["unexpected $Oo2 [.'|'.2]", path])
             }
         }
     }
@@ -452,9 +452,9 @@ export function check_model_init()
         initialized = true;
         runtime.jm_set_rx(RegExp)
         check_model_map.set("", json_model_1)
-        check_model_map.set("O0", json_model_2)
-        check_model_map.set("O1", json_model_3)
-        check_model_map.set("O2", json_model_4)
+        check_model_map.set("Oo0", json_model_2)
+        check_model_map.set("Oo1", json_model_3)
+        check_model_map.set("Oo2", json_model_4)
     }
 }
 

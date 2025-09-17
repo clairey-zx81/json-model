@@ -31,13 +31,13 @@ def json_model_2(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("unexpected _a [.'$a']", path))
     return res
 
-# check $A (.'$A')
+# check $Aa (.'$Aa')
 def json_model_3(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
-    # .'$A'
+    # .'$Aa'
     res = isinstance(val, str)
     if not res:
-        rep is None or rep.append(("unexpected string [.'$A']", path))
+        rep is None or rep.append(("unexpected string [.'$Aa']", path))
     return res
 
 # object .
@@ -54,7 +54,7 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
             # .a
             res = json_model_3(pval, lpath_0 if path is not None else None, rep)
             if not res:
-                rep is None or rep.append(("unexpected $A [.a]", lpath_0 if path is not None else None))
+                rep is None or rep.append(("unexpected $Aa [.a]", lpath_0 if path is not None else None))
             if not res:
                 rep is None or rep.append(("invalid optional prop value [.a]", lpath_0 if path is not None else None))
                 return False
@@ -85,7 +85,7 @@ def check_model_init():
         check_model_map = {
             "": json_model_1,
             "a": json_model_2,
-            "A": json_model_3,
+            "Aa": json_model_3,
         }
 
 # differed module cleanup

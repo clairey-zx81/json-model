@@ -24,7 +24,7 @@ const _jm_re_7_re = new runtime.RX("^([#|&^+/*@~=$%]|[<>!]=?)$", "")
 const _jm_re_8_re = new runtime.RX("^\\$.*$", "")
 const _jm_re_9_re = new runtime.RX("^((file|https?)://.+|\\./.*|\\.\\./.*)$", "")
 const _jm_re_10_re = new runtime.RX("[^A-Z0-9]", "")
-const _jm_re_11_re = new runtime.RX("^\\w+$", "")
+const _jm_re_11_re = new runtime.RX("^\\w(\\w|-)*$", "")
 var check_model_map = new Map()
 
 // check $Model (.'$Model')
@@ -3462,11 +3462,11 @@ function json_model_6(val, path, rep)
     if (res)
     {
         // .'$Model#Identifier'.'&'.0
-        // "/^\\w+$/"
+        // "/^\\w(\\w|-)*$/"
         res = _jm_re_11(val, path, rep);
         if (! res)
         {
-            rep !== null && rep.push(["unexpected /^\\w+$/ [.'$Model#Identifier'.'&'.0]", path])
+            rep !== null && rep.push(["unexpected /^\\w(\\w|-)*$/ [.'$Model#Identifier'.'&'.0]", path])
         }
         if (res)
         {

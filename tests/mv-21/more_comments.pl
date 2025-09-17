@@ -15,29 +15,29 @@ sub json_model_3($$$);
 sub json_model_1($$$);
 my %check_model_map;
 
-# check $P (.'$P')
+# check $Pp (.'$Pp')
 sub json_model_2($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
-    # .'$P'
+    # .'$Pp'
     $res = jm_is_integer($val) && $val >= 0;
     return $res;
 }
 
-# check $Q (.'$Q')
+# check $Qq (.'$Qq')
 sub json_model_3($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
-    # .'$Q'
+    # .'$Qq'
     $res = jm_is_array($val);
     if ($res)
     {
         for my $arr_0_idx (0 .. $#$val)
         {
             my $arr_0_item = $$val[$arr_0_idx];
-            # .'$Q'.0
+            # .'$Qq'.0
             $res = json_model_2($arr_0_item, undef, $rep);
             if (! $res)
             {
@@ -162,8 +162,8 @@ sub check_model_init()
         $initialized = 1;
         %check_model_map = (
             '' => \&json_model_1,
-            'P' => \&json_model_2,
-            'Q' => \&json_model_3,
+            'Pp' => \&json_model_2,
+            'Qq' => \&json_model_3,
         );
     }
 }

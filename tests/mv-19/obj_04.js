@@ -12,15 +12,15 @@ const JSON_MODEL_VERSION = "2";
 let _jm_cst_0 = new Set()
 var check_model_map = new Map()
 
-// check $XXX (.'$XXX')
+// check $Xxx (.'$Xxx')
 function json_model_2(val, path, rep)
 {
     let res;
-    // .'$XXX'
+    // .'$Xxx'
     res = ((val === null || (typeof val === 'number' || val instanceof Number) || (typeof val === 'boolean' || val instanceof Boolean) || (typeof val === 'string' || val instanceof String))) && _jm_cst_0.has(val);
     if (! res)
     {
-        rep !== null && rep.push(["value not in enum [.'$XXX'.'|']", path])
+        rep !== null && rep.push(["value not in enum [.'$Xxx'.'|']", path])
     }
     return res;
 }
@@ -40,11 +40,11 @@ function _jm_obj_0(val, path, rep)
         if (json_model_2(prop, (path ? lpath_0 : null), rep))
         {
             // handle 1 key props
-            // .'$XXX'
+            // .'$Xxx'
             res = ((typeof pval === 'number' || pval instanceof Number)) && pval >= 0.0;
             if (! res)
             {
-                rep !== null && rep.push(["not a 0.0 strict float [.'$XXX']", (path ? lpath_0 : null)])
+                rep !== null && rep.push(["not a 0.0 strict float [.'$Xxx']", (path ? lpath_0 : null)])
             }
             if (! res)
             {
@@ -88,7 +88,7 @@ export function check_model_init()
         _jm_cst_0.add("XX")
         _jm_cst_0.add("XXX")
         check_model_map.set("", json_model_1)
-        check_model_map.set("XXX", json_model_2)
+        check_model_map.set("Xxx", json_model_2)
     }
 }
 

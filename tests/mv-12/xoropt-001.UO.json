@@ -2,27 +2,27 @@
   {
     "#": "JsonModel 1 with defs",
     "$": {
-      "N": null,
-      "B": true,
-      "I": -1,
-      "F": -1.0,
-      "S": "",
-      "A": [
+      "Nn": null,
+      "Bb": true,
+      "Ii": -1,
+      "Ff": -1.0,
+      "Ss": "",
+      "Aa": [
         "$Any"
       ],
-      "O": {
+      "Oo": {
         "": "$Any",
         "#": "JsonModel 8"
       },
       "Any": {
         "|": [
           null,
-          "$B",
-          "$I",
-          "$F",
-          "$S",
-          "$A",
-          "$O"
+          "$Bb",
+          "$Ii",
+          "$Ff",
+          "$Ss",
+          "$Aa",
+          "$Oo"
         ],
         "#": "JsonModel 9"
       },
@@ -46,12 +46,12 @@
   {
     "|": [
       null,
-      "$B",
-      "$I",
-      "$F",
-      "$S",
-      "$A",
-      "$O"
+      "$Bb",
+      "$Ii",
+      "$Ff",
+      "$Ss",
+      "$Aa",
+      "$Oo"
     ],
     "#": "JsonModel 9"
   }

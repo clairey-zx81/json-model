@@ -28,7 +28,7 @@ public class ex_06 extends ModelChecker
         res = json_model_5(val, path, rep);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected $EX05a [.'$ex5'.'|'.0]", path);
+            if (rep != null) rep.addEntry("unexpected $Ex05a [.'$ex5'.'|'.0]", path);
         }
         if (! res)
         {
@@ -36,7 +36,7 @@ public class ex_06 extends ModelChecker
             res = json_model_6(val, path, rep);
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected $EX05b [.'$ex5'.'|'.1]", path);
+                if (rep != null) rep.addEntry("unexpected $Ex05b [.'$ex5'.'|'.1]", path);
             }
         }
         if (res)
@@ -50,15 +50,15 @@ public class ex_06 extends ModelChecker
         return res;
     }
     
-    // check $EX06 (.'$EX06')
+    // check $Ex06 (.'$Ex06')
     public boolean json_model_3(Object val, Path path, Report rep)
     {
         boolean res;
-        // .'$EX06'
+        // .'$Ex06'
         res = json.isBoolean(val);
         if (! res)
         {
-            if (rep != null) rep.addEntry("not a bool [.'$EX06']", path);
+            if (rep != null) rep.addEntry("not a bool [.'$Ex06']", path);
         }
         return res;
     }
@@ -76,7 +76,7 @@ public class ex_06 extends ModelChecker
             res = json_model_5(json.arrayItem(val, 0), (path != null ? lpath_0 : null), rep);
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected $ex5#EX05a [.0]", (path != null ? lpath_0 : null));
+                if (rep != null) rep.addEntry("unexpected $ex5#Ex05a [.0]", (path != null ? lpath_0 : null));
             }
             if (res)
             {
@@ -85,7 +85,7 @@ public class ex_06 extends ModelChecker
                 res = json_model_6(json.arrayItem(val, 1), (path != null ? lpath_0 : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $ex5#EX05b [.1]", (path != null ? lpath_0 : null));
+                    if (rep != null) rep.addEntry("unexpected $ex5#Ex05b [.1]", (path != null ? lpath_0 : null));
                 }
                 if (res)
                 {
@@ -94,7 +94,7 @@ public class ex_06 extends ModelChecker
                     res = json_model_3(json.arrayItem(val, 2), (path != null ? lpath_0 : null), rep);
                     if (! res)
                     {
-                        if (rep != null) rep.addEntry("unexpected $EX06 [.2]", (path != null ? lpath_0 : null));
+                        if (rep != null) rep.addEntry("unexpected $Ex06 [.2]", (path != null ? lpath_0 : null));
                     }
                 }
             }
@@ -106,28 +106,28 @@ public class ex_06 extends ModelChecker
         return res;
     }
     
-    // check $ex5#EX05a (.'$ex5#EX05a')
+    // check $ex5#Ex05a (.'$ex5#Ex05a')
     public boolean json_model_5(Object val, Path path, Report rep)
     {
         boolean res;
-        // .'$ex5#EX05a'
+        // .'$ex5#Ex05a'
         res = json.isInteger(val) && json.asLong(val) >= 0;
         if (! res)
         {
-            if (rep != null) rep.addEntry("not a 0 strict int [.'$ex5#EX05a']", path);
+            if (rep != null) rep.addEntry("not a 0 strict int [.'$ex5#Ex05a']", path);
         }
         return res;
     }
     
-    // check $ex5#EX05b (.'$ex5#EX05b')
+    // check $ex5#Ex05b (.'$ex5#Ex05b')
     public boolean json_model_6(Object val, Path path, Report rep)
     {
         boolean res;
-        // .'$ex5#EX05b'
+        // .'$ex5#Ex05b'
         res = json.isString(val);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected string [.'$ex5#EX05b']", path);
+            if (rep != null) rep.addEntry("unexpected string [.'$ex5#Ex05b']", path);
         }
         return res;
     }
@@ -141,7 +141,7 @@ public class ex_06 extends ModelChecker
             ex_06_map_pmap = new HashMap<String, Checker>();
             ex_06_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_1(o, p, r);} });
             ex_06_map_pmap.put("ex5", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
-            ex_06_map_pmap.put("EX06", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_3(o, p, r);} });
+            ex_06_map_pmap.put("Ex06", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_3(o, p, r);} });
                 super.init(json);
             }
             catch (Exception e) {

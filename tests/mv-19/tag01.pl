@@ -16,7 +16,7 @@ my %_jm_map_0;
 sub json_model_1($$$);
 my %check_model_map;
 
-# object .'$A'
+# object .'$Aa'
 sub _jm_obj_0($$$)
 {
     my ($val, $path, $rep) = @_;
@@ -33,7 +33,7 @@ sub _jm_obj_0($$$)
         {
             # handle must t property
             $must_count++;
-            # .'$A'.t
+            # .'$Aa'.t
             $res = jm_is_boolean($pval) && $pval == 1;
             if (! $res)
             {
@@ -44,7 +44,7 @@ sub _jm_obj_0($$$)
         {
             # handle must a property
             $must_count++;
-            # .'$A'.a
+            # .'$Aa'.a
             $res = jm_is_integer($pval) && $pval >= 0;
             if (! $res)
             {
@@ -63,17 +63,17 @@ sub _jm_obj_0($$$)
     return 1;
 }
 
-# check $A (.'$A')
+# check $Aa (.'$Aa')
 sub json_model_2($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
-    # .'$A'
+    # .'$Aa'
     $res = _jm_obj_0($val, $path, $rep);
     return $res;
 }
 
-# object .'$B'
+# object .'$Bb'
 sub _jm_obj_1($$$)
 {
     my ($val, $path, $rep) = @_;
@@ -90,7 +90,7 @@ sub _jm_obj_1($$$)
         {
             # handle must t property
             $must_count++;
-            # .'$B'.t
+            # .'$Bb'.t
             $res = jm_is_boolean($pval) && $pval == 0;
             if (! $res)
             {
@@ -101,7 +101,7 @@ sub _jm_obj_1($$$)
         {
             # handle must b property
             $must_count++;
-            # .'$B'.b
+            # .'$Bb'.b
             $res = jm_is_integer($pval) && $pval >= 0;
             if (! $res)
             {
@@ -120,12 +120,12 @@ sub _jm_obj_1($$$)
     return 1;
 }
 
-# check $B (.'$B')
+# check $Bb (.'$Bb')
 sub json_model_3($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
-    # .'$B'
+    # .'$Bb'
     $res = _jm_obj_1($val, $path, $rep);
     return $res;
 }
@@ -177,8 +177,8 @@ sub check_model_init()
         );
         %check_model_map = (
             '' => \&json_model_1,
-            'A' => \&json_model_2,
-            'B' => \&json_model_3,
+            'Aa' => \&json_model_2,
+            'Bb' => \&json_model_3,
         );
     }
 }

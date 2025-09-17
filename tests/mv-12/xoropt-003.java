@@ -25,41 +25,41 @@ public class xoropt_003 extends ModelChecker
         return _jm_re_0_pat.matcher(val).find();
     }
     
-    // check $A (.'$A')
+    // check $Aa (.'$Aa')
     public boolean json_model_2(Object val, Path path, Report rep)
     {
         boolean res;
-        // .'$A'
-        // .'$A'.'|'.0
+        // .'$Aa'
+        // .'$Aa'.'|'.0
         res = json.isBoolean(val);
         if (! res)
         {
-            if (rep != null) rep.addEntry("not a bool [.'$A'.'|'.0]", path);
+            if (rep != null) rep.addEntry("not a bool [.'$Aa'.'|'.0]", path);
         }
         if (! res)
         {
-            // .'$A'.'|'.1
+            // .'$Aa'.'|'.1
             res = json.isInteger(val) && json.asLong(val) >= 1;
             if (! res)
             {
-                if (rep != null) rep.addEntry("not a 1 strict int [.'$A'.'|'.1]", path);
+                if (rep != null) rep.addEntry("not a 1 strict int [.'$Aa'.'|'.1]", path);
             }
             if (! res)
             {
-                // .'$A'.'|'.2
+                // .'$Aa'.'|'.2
                 res = json.isDouble(val) && json.asDouble(val) > 0.0;
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("not a 1.0 strict float [.'$A'.'|'.2]", path);
+                    if (rep != null) rep.addEntry("not a 1.0 strict float [.'$Aa'.'|'.2]", path);
                 }
                 if (! res)
                 {
-                    // .'$A'.'|'.3
+                    // .'$Aa'.'|'.3
                     // "/[a-z]/"
                     res = json.isString(val) && _jm_re_0(json.asString(val), path, rep);
                     if (! res)
                     {
-                        if (rep != null) rep.addEntry("unexpected /[a-z]/ [.'$A'.'|'.3]", path);
+                        if (rep != null) rep.addEntry("unexpected /[a-z]/ [.'$Aa'.'|'.3]", path);
                     }
                 }
             }
@@ -70,7 +70,7 @@ public class xoropt_003 extends ModelChecker
         }
         else
         {
-            if (rep != null) rep.addEntry("no model matched [.'$A'.'|']", path);
+            if (rep != null) rep.addEntry("no model matched [.'$Aa'.'|']", path);
         }
         return res;
     }
@@ -83,7 +83,7 @@ public class xoropt_003 extends ModelChecker
         res = json_model_2(val, path, rep);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected $A [.]", path);
+            if (rep != null) rep.addEntry("unexpected $Aa [.]", path);
         }
         return res;
     }
@@ -97,7 +97,7 @@ public class xoropt_003 extends ModelChecker
             _jm_re_0_pat = Pattern.compile("[a-z]");
             xoropt_003_map_pmap = new HashMap<String, Checker>();
             xoropt_003_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_2(o, p, r);} });
-            xoropt_003_map_pmap.put("A", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_2(o, p, r);} });
+            xoropt_003_map_pmap.put("Aa", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_2(o, p, r);} });
                 super.init(json);
             }
             catch (Exception e) {

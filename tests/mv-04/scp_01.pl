@@ -27,17 +27,17 @@ sub json_model_2($$$)
     return $res;
 }
 
-# check $B (.'$B')
+# check $Bb (.'$Bb')
 sub json_model_3($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
-    # .'$B'
+    # .'$Bb'
     $res = jm_is_string($val);
     return $res;
 }
 
-# object .'$R'
+# object .'$Rr'
 sub _jm_obj_0($$$)
 {
     my ($val, $path, $rep) = @_;
@@ -52,7 +52,7 @@ sub _jm_obj_0($$$)
         if ($prop eq 'a')
         {
             # handle may a property
-            # .'$R'.a
+            # .'$Rr'.a
             $res = json_model_7($pval, undef, $rep);
             if (! $res)
             {
@@ -67,12 +67,12 @@ sub _jm_obj_0($$$)
     return 1;
 }
 
-# check $R (.'$R')
+# check $Rr (.'$Rr')
 sub json_model_5($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
-    # .'$R'
+    # .'$Rr'
     $res = _jm_obj_0($val, $path, $rep);
     return $res;
 }
@@ -143,12 +143,12 @@ sub json_model_1($$$)
     return $res;
 }
 
-# check $R#A (.'$R#A')
+# check $Rr#Aa (.'$Rr#Aa')
 sub json_model_7($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
-    # .'$R#A'
+    # .'$Rr#Aa'
     $res = jm_is_string($val);
     return $res;
 }
@@ -166,8 +166,8 @@ sub check_model_init()
         %check_model_map = (
             '' => \&json_model_1,
             'b' => \&json_model_2,
-            'B' => \&json_model_3,
-            'R' => \&json_model_5,
+            'Bb' => \&json_model_3,
+            'Rr' => \&json_model_5,
         );
     }
 }

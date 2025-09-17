@@ -24,41 +24,41 @@ static bool _jm_re_0(const char *s, jm_path_t *path, jm_report_t *rep)
     return cre2_match(_jm_re_0_re2, s, slen, 0, slen, CRE2_UNANCHORED, NULL, 0);
 }
 
-// check $A (.'$A')
+// check $Aa (.'$Aa')
 static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
-    // .'$A'
-    // .'$A'.'|'.0
+    // .'$Aa'
+    // .'$Aa'.'|'.0
     res = json_is_boolean(val);
     if (! res)
     {
-        if (rep) jm_report_add_entry(rep, "not a bool [.'$A'.'|'.0]", path);
+        if (rep) jm_report_add_entry(rep, "not a bool [.'$Aa'.'|'.0]", path);
     }
     if (! res)
     {
-        // .'$A'.'|'.1
+        // .'$Aa'.'|'.1
         res = json_is_integer(val) && json_integer_value(val) >= 1;
         if (! res)
         {
-            if (rep) jm_report_add_entry(rep, "not a 1 strict int [.'$A'.'|'.1]", path);
+            if (rep) jm_report_add_entry(rep, "not a 1 strict int [.'$Aa'.'|'.1]", path);
         }
         if (! res)
         {
-            // .'$A'.'|'.2
+            // .'$Aa'.'|'.2
             res = json_is_real(val) && json_real_value(val) > 0.0;
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "not a 1.0 strict float [.'$A'.'|'.2]", path);
+                if (rep) jm_report_add_entry(rep, "not a 1.0 strict float [.'$Aa'.'|'.2]", path);
             }
             if (! res)
             {
-                // .'$A'.'|'.3
+                // .'$Aa'.'|'.3
                 // "/[a-z]/"
                 res = json_is_string(val) && _jm_re_0(json_string_value(val), path, rep);
                 if (! res)
                 {
-                    if (rep) jm_report_add_entry(rep, "unexpected /[a-z]/ [.'$A'.'|'.3]", path);
+                    if (rep) jm_report_add_entry(rep, "unexpected /[a-z]/ [.'$Aa'.'|'.3]", path);
                 }
             }
         }
@@ -69,7 +69,7 @@ static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
     }
     else
     {
-        if (rep) jm_report_add_entry(rep, "no model matched [.'$A'.'|']", path);
+        if (rep) jm_report_add_entry(rep, "no model matched [.'$Aa'.'|']", path);
     }
     return res;
 }
@@ -82,7 +82,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
     res = json_model_2(val, path, rep);
     if (! res)
     {
-        if (rep) jm_report_add_entry(rep, "unexpected $A [.]", path);
+        if (rep) jm_report_add_entry(rep, "unexpected $Aa [.]", path);
     }
     return res;
 }
@@ -105,7 +105,7 @@ const char *check_model_init(void)
             return cre2_error_string(_jm_re_0_re2);
         _jm_re_0_nn = cre2_num_capturing_groups(_jm_re_0_re2) + 1;
         check_model_map_tab[0] = (jm_propmap_t) { "", json_model_2 };
-        check_model_map_tab[1] = (jm_propmap_t) { "A", json_model_2 };
+        check_model_map_tab[1] = (jm_propmap_t) { "Aa", json_model_2 };
         jm_sort_propmap(check_model_map_tab, 2);
     }
     return NULL;

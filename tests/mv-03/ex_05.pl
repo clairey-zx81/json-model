@@ -15,22 +15,22 @@ sub json_model_3($$$);
 sub json_model_1($$$);
 my %check_model_map;
 
-# check $EX05a (.'$EX05a')
+# check $Ex05a (.'$Ex05a')
 sub json_model_2($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
-    # .'$EX05a'
+    # .'$Ex05a'
     $res = jm_is_integer($val) && $val >= 0;
     return $res;
 }
 
-# check $EX05b (.'$EX05b')
+# check $Ex05b (.'$Ex05b')
 sub json_model_3($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
-    # .'$EX05b'
+    # .'$Ex05b'
     $res = jm_is_string($val);
     return $res;
 }
@@ -63,8 +63,8 @@ sub check_model_init()
         $initialized = 1;
         %check_model_map = (
             '' => \&json_model_1,
-            'EX05a' => \&json_model_2,
-            'EX05b' => \&json_model_3,
+            'Ex05a' => \&json_model_2,
+            'Ex05b' => \&json_model_3,
         );
     }
 }

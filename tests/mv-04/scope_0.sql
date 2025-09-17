@@ -13,13 +13,13 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
--- check $S (.'$S')
+-- check $s (.'$s')
 CREATE OR REPLACE FUNCTION json_model_2(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
 BEGIN
-  -- .'$S'
+  -- .'$s'
   -- "/[0-9]/"
   res := JSONB_TYPEOF(val) = 'string' AND _jm_re_0(JSON_VALUE(val, '$' RETURNING TEXT), path, rep);
   RETURN res;
@@ -49,7 +49,7 @@ $$ LANGUAGE PLpgSQL;
 CREATE OR REPLACE FUNCTION check_model_map(name TEXT)
 RETURNS TEXT STRICT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
-  map JSONB := JSONB '{"":"json_model_1","S":"json_model_2"}';
+  map JSONB := JSONB '{"":"json_model_1","s":"json_model_2"}';
 BEGIN
   RETURN map->>name;
 END;

@@ -25,12 +25,12 @@ sub json_model_2($$$)
     return $res;
 }
 
-# check $A (.'$A')
+# check $Aa (.'$Aa')
 sub json_model_3($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
-    # .'$A'
+    # .'$Aa'
     $res = jm_is_string($val);
     return $res;
 }
@@ -88,7 +88,7 @@ sub check_model_init()
         %check_model_map = (
             '' => \&json_model_1,
             'a' => \&json_model_2,
-            'A' => \&json_model_3,
+            'Aa' => \&json_model_3,
         );
     }
 }

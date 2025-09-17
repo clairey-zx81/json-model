@@ -19,24 +19,24 @@ public class more_comments extends ModelChecker
 
     public Map<String, Checker> more_comments_map_pmap;
 
-    // check $P (.'$P')
+    // check $Pp (.'$Pp')
     public boolean json_model_2(Object val, Path path, Report rep)
     {
         boolean res;
-        // .'$P'
+        // .'$Pp'
         res = json.isInteger(val) && json.asLong(val) >= 0;
         if (! res)
         {
-            if (rep != null) rep.addEntry("not a 0 strict int [.'$P']", path);
+            if (rep != null) rep.addEntry("not a 0 strict int [.'$Pp']", path);
         }
         return res;
     }
     
-    // check $Q (.'$Q')
+    // check $Qq (.'$Qq')
     public boolean json_model_3(Object val, Path path, Report rep)
     {
         boolean res;
-        // .'$Q'
+        // .'$Qq'
         res = json.isArray(val);
         if (res)
         {
@@ -47,11 +47,11 @@ public class more_comments extends ModelChecker
                 arr_0_idx++;
                 Object arr_0_item = arr_0_item_loop.next();
                 Path arr_0_lpath = new Path(arr_0_idx, path);
-                // .'$Q'.0
+                // .'$Qq'.0
                 res = json_model_2(arr_0_item, (path != null ? arr_0_lpath : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $P [.'$Q'.0]", (path != null ? arr_0_lpath : null));
+                    if (rep != null) rep.addEntry("unexpected $Pp [.'$Qq'.0]", (path != null ? arr_0_lpath : null));
                 }
                 if (! res)
                 {
@@ -61,7 +61,7 @@ public class more_comments extends ModelChecker
         }
         if (! res)
         {
-            if (rep != null) rep.addEntry("not array or unexpected array [.'$Q']", path);
+            if (rep != null) rep.addEntry("not array or unexpected array [.'$Qq']", path);
         }
         return res;
     }
@@ -88,7 +88,7 @@ public class more_comments extends ModelChecker
                 res = json_model_2(pval, (path != null ? lpath_1 : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $P [.o.p]", (path != null ? lpath_1 : null));
+                    if (rep != null) rep.addEntry("unexpected $Pp [.o.p]", (path != null ? lpath_1 : null));
                 }
                 if (! res)
                 {
@@ -103,7 +103,7 @@ public class more_comments extends ModelChecker
                 res = json_model_3(pval, (path != null ? lpath_1 : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $Q [.o.q]", (path != null ? lpath_1 : null));
+                    if (rep != null) rep.addEntry("unexpected $Qq [.o.q]", (path != null ? lpath_1 : null));
                 }
                 if (! res)
                 {
@@ -217,8 +217,8 @@ public class more_comments extends ModelChecker
             try {
             more_comments_map_pmap = new HashMap<String, Checker>();
             more_comments_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_1(o, p, r);} });
-            more_comments_map_pmap.put("P", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_2(o, p, r);} });
-            more_comments_map_pmap.put("Q", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_3(o, p, r);} });
+            more_comments_map_pmap.put("Pp", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_2(o, p, r);} });
+            more_comments_map_pmap.put("Qq", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_3(o, p, r);} });
                 super.init(json);
             }
             catch (Exception e) {

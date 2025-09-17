@@ -2,8 +2,8 @@
   "#": "Model replacement test: initial inclusion",
   "$": {
     "": "./trafo_2",
-    "Z": "$./trafo_0",
-    "z": "$Z#zero",
+    "Zz": "$./trafo_0",
+    "z": "$Zz#zero",
     "l": [ "$z" ]
   },
   "@": "$l"

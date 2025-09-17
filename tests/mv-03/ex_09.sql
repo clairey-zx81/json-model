@@ -17,19 +17,19 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check $EX08 (.'$EX08')
+-- check $Ex08 (.'$Ex08')
 CREATE OR REPLACE FUNCTION json_model_3(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
 BEGIN
-  -- .'$EX08'
+  -- .'$Ex08'
   res := json_model_9(val, path, rep);
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
 
--- object .'$EX09'
+-- object .'$Ex09'
 CREATE OR REPLACE FUNCTION _jm_obj_0(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
@@ -43,14 +43,14 @@ BEGIN
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     IF prop = '#' THEN
       -- handle may # property
-      -- .'$EX09'.'#'
+      -- .'$Ex09'.'#'
       res := JSONB_TYPEOF(pval) = 'string';
       IF NOT res THEN
         RETURN FALSE;
       END IF;
     ELSEIF jm_is_valid_url(prop, NULL, rep) THEN
       -- handle 1 key props
-      -- .'$EX09'.'$URL'
+      -- .'$Ex09'.'$URL'
       res := json_model_6(pval, NULL, rep);
       IF NOT res THEN
         RETURN FALSE;
@@ -63,13 +63,13 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check $EX09 (.'$EX09')
+-- check $Ex09 (.'$Ex09')
 CREATE OR REPLACE FUNCTION json_model_4(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
 BEGIN
-  -- .'$EX09'
+  -- .'$Ex09'
   res := _jm_obj_0(val, path, rep);
   RETURN res;
 END;
@@ -87,32 +87,32 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check $ex08#VAL (.'$ex08#VAL')
+-- check $ex08#Val (.'$ex08#Val')
 CREATE OR REPLACE FUNCTION json_model_6(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
 BEGIN
-  -- .'$ex08#VAL'
+  -- .'$ex08#Val'
   res := JSONB_TYPEOF(val) = 'boolean';
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check $ex08#EX08 (.'$ex08#EX08')
+-- check $ex08#Ex08 (.'$ex08#Ex08')
 CREATE OR REPLACE FUNCTION json_model_9(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
 BEGIN
-  -- .'$ex08#EX08'
-  -- .'$ex08#EX08'.'|'.0
+  -- .'$ex08#Ex08'
+  -- .'$ex08#Ex08'.'|'.0
   res := json_model_8(val, path, rep);
   IF NOT res THEN
-    -- .'$ex08#EX08'.'|'.1
+    -- .'$ex08#Ex08'.'|'.1
     res := JSONB_TYPEOF(val) = 'string' AND jm_is_valid_url(JSON_VALUE(val, '$' RETURNING TEXT), path, rep);
     IF NOT res THEN
-      -- .'$ex08#EX08'.'|'.2
+      -- .'$ex08#Ex08'.'|'.2
       res := json_model_6(val, path, rep);
     END IF;
   END IF;
@@ -162,7 +162,7 @@ $$ LANGUAGE PLpgSQL;
 CREATE OR REPLACE FUNCTION check_model_map(name TEXT)
 RETURNS TEXT STRICT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
-  map JSONB := JSONB '{"":"json_model_4","ex08":"json_model_3","EX08":"json_model_3","EX09":"json_model_4"}';
+  map JSONB := JSONB '{"":"json_model_4","ex08":"json_model_3","Ex08":"json_model_3","Ex09":"json_model_4"}';
 BEGIN
   RETURN map->>name;
 END;

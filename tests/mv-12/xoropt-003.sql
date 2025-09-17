@@ -13,23 +13,23 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
--- check $A (.'$A')
+-- check $Aa (.'$Aa')
 CREATE OR REPLACE FUNCTION json_model_2(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
 BEGIN
-  -- .'$A'
-  -- .'$A'.'|'.0
+  -- .'$Aa'
+  -- .'$Aa'.'|'.0
   res := JSONB_TYPEOF(val) = 'boolean';
   IF NOT res THEN
-    -- .'$A'.'|'.1
+    -- .'$Aa'.'|'.1
     res := JSONB_TYPEOF(val) = 'number' AND (val)::INT8 = (val)::FLOAT8 AND (val)::INT8 >= 1;
     IF NOT res THEN
-      -- .'$A'.'|'.2
+      -- .'$Aa'.'|'.2
       res := JSONB_TYPEOF(val) = 'number' AND (val)::FLOAT8 > 0.0;
       IF NOT res THEN
-        -- .'$A'.'|'.3
+        -- .'$Aa'.'|'.3
         -- "/[a-z]/"
         res := JSONB_TYPEOF(val) = 'string' AND _jm_re_0(JSON_VALUE(val, '$' RETURNING TEXT), path, rep);
       END IF;
@@ -54,7 +54,7 @@ $$ LANGUAGE PLpgSQL;
 CREATE OR REPLACE FUNCTION check_model_map(name TEXT)
 RETURNS TEXT STRICT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
-  map JSONB := JSONB '{"":"json_model_2","A":"json_model_2"}';
+  map JSONB := JSONB '{"":"json_model_2","Aa":"json_model_2"}';
 BEGIN
   RETURN map->>name;
 END;

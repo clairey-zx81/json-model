@@ -748,7 +748,7 @@
         "?contentSchema": "$schema#Schema",
         "?discriminator": "$Discriminator",
         "?externalDocs": "$ExternalDocumentation",
-        "?xml": "$XML",
+        "?xml": "$xml",
         "?example": "$ANY",
         "#": "JsonModel 32"
       },
@@ -760,7 +760,7 @@
         "/^x-/": "$ANY",
         "#": "JsonModel 33"
       },
-      "XML": {
+      "xml": {
         "?name": "",
         "?namespace": "",
         "?prefix": "",
@@ -1475,7 +1475,7 @@
     "?contentSchema": "$schema#Schema",
     "?discriminator": "$Discriminator",
     "?externalDocs": "$ExternalDocumentation",
-    "?xml": "$XML",
+    "?xml": "$xml",
     "?example": "$ANY",
     "#": "JsonModel 32"
   },

@@ -430,7 +430,7 @@ def test_schema(directory):
 
     def generate_schema(fmodel: str):
         jm = model_from_url(fmodel, resolver=resolver, auto=True, follow=True, **options)
-        return jm.toSchema(True)
+        return jm.toSchema(True, version=None)
 
     check_generated(directory, "schema", ".schema.json", generate_schema)
 

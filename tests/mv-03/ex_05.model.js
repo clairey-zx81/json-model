@@ -1,8 +1,8 @@
 // just 2 local definitions, for external ref tests
 {
   "$": {
-    "EX05a": 0,
-    "EX05b": ""
+    "Ex05a": 0,
+    "Ex05b": ""
   },
-  "@": {"|": [ "$EX05a", "$EX05b"]}
+  "@": {"|": [ "$Ex05a", "$Ex05b"]}
 }

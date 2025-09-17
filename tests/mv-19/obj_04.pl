@@ -15,12 +15,12 @@ sub json_model_2($$$);
 sub json_model_1($$$);
 my %check_model_map;
 
-# check $XXX (.'$XXX')
+# check $Xxx (.'$Xxx')
 sub json_model_2($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
-    # .'$XXX'
+    # .'$Xxx'
     $res = jm_is_scalar($val) && jm_is_string($val) && exists $_jm_cst_0{$val};
     return $res;
 }
@@ -40,7 +40,7 @@ sub _jm_obj_0($$$)
         if (json_model_2($prop, undef, $rep))
         {
             # handle 1 key props
-            # .'$XXX'
+            # .'$Xxx'
             $res = jm_is_numeric($pval) && $pval >= 0.0;
             if (! $res)
             {
@@ -83,7 +83,7 @@ sub check_model_init()
         );
         %check_model_map = (
             '' => \&json_model_1,
-            'XXX' => \&json_model_2,
+            'Xxx' => \&json_model_2,
         );
     }
 }

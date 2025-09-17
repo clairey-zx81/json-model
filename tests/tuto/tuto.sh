@@ -12,7 +12,7 @@ jmc -r Person-1 hobbes.json moe.json elysee.json
 
 echo "# person model v2, using definitions"
 jmc -r Person-2 hobbes.json moe.json elysee.json
-jmc -n PI Person-2 pi.json
+jmc -n Pi Person-2 pi.json
 
 echo "# reusing definitions"
 jmc Class cm1.json

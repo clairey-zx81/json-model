@@ -1,7 +1,7 @@
 {
   "#": "JsonModel 1 with defs",
   "$": {
-    "D": {
+    "Dd": {
       "#": "JsonModel 3 with defs",
       "$": "Symbol 3",
       "@": "$l"
@@ -9,5 +9,5 @@
     "#": "Symbol 1",
     "": "./trafo_3"
   },
-  "@": "$D"
+  "@": "$Dd"
 }

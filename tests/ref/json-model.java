@@ -87,11 +87,11 @@ public class json_model extends ModelChecker
         if (res)
         {
             // .'$Identifier'.'&'.0
-            // "/^\\w+$/"
+            // "/^\\w(\\w|-)*$/"
             res = _jm_re_2(json.asString(val), path, rep);
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected /^\\w+$/ [.'$Identifier'.'&'.0]", path);
+                if (rep != null) rep.addEntry("unexpected /^\\w(\\w|-)*$/ [.'$Identifier'.'&'.0]", path);
             }
             if (res)
             {
@@ -5234,7 +5234,7 @@ public class json_model extends ModelChecker
             _jm_cst_0_set.add(json.safeJSON("\"$NONE\""));
             _jm_cst_0_set.add(json.safeJSON("\"$ANY\""));
             _jm_re_1_pat = Pattern.compile("[^A-Z0-9]");
-            _jm_re_2_pat = Pattern.compile("^\\w+$");
+            _jm_re_2_pat = Pattern.compile("^\\w(\\w|-)*$");
             _jm_re_3_pat = Pattern.compile("^\\$.");
             _jm_re_4_pat = Pattern.compile("^=(null|true|false|[-+]?\\d+(\\.\\d+)?([Ee][-+]?\\d+)?)$");
             _jm_re_5_pat = Pattern.compile("^[A-Za-z0-9_]");

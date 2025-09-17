@@ -16,7 +16,7 @@ sub json_model_4($$$);
 sub json_model_1($$$);
 my %check_model_map;
 
-# object .'$O0'
+# object .'$Oo0'
 sub _jm_obj_0($$$)
 {
     my ($val, $path, $rep) = @_;
@@ -33,7 +33,7 @@ sub _jm_obj_0($$$)
         {
             # handle must a property
             $must_count++;
-            # .'$O0'.a
+            # .'$Oo0'.a
             $res = jm_is_boolean($pval);
             if (! $res)
             {
@@ -44,7 +44,7 @@ sub _jm_obj_0($$$)
         {
             # handle must b property
             $must_count++;
-            # .'$O0'.b
+            # .'$Oo0'.b
             $res = jm_is_integer($pval) && $pval >= 0;
             if (! $res)
             {
@@ -55,7 +55,7 @@ sub _jm_obj_0($$$)
         {
             # handle must c property
             $must_count++;
-            # .'$O0'.c
+            # .'$Oo0'.c
             $res = !defined($pval);
             if (! $res)
             {
@@ -66,7 +66,7 @@ sub _jm_obj_0($$$)
         {
             # handle must d property
             $must_count++;
-            # .'$O0'.d
+            # .'$Oo0'.d
             $res = jm_is_numeric($pval) && $pval >= 0.0;
             if (! $res)
             {
@@ -76,7 +76,7 @@ sub _jm_obj_0($$$)
         else
         {
             # handle other props
-            # .'$O0'.''
+            # .'$Oo0'.''
             $res = jm_is_string($pval) && jm_is_valid_date($pval, undef, $rep);
             if (! $res)
             {
@@ -91,17 +91,17 @@ sub _jm_obj_0($$$)
     return 1;
 }
 
-# check $O0 (.'$O0')
+# check $Oo0 (.'$Oo0')
 sub json_model_2($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
-    # .'$O0'
+    # .'$Oo0'
     $res = _jm_obj_0($val, $path, $rep);
     return $res;
 }
 
-# object .'$O1'
+# object .'$Oo1'
 sub _jm_obj_1($$$)
 {
     my ($val, $path, $rep) = @_;
@@ -118,7 +118,7 @@ sub _jm_obj_1($$$)
         {
             # handle must z property
             $must_count++;
-            # .'$O1'.z
+            # .'$Oo1'.z
             $res = jm_is_boolean($pval);
             if (! $res)
             {
@@ -128,7 +128,7 @@ sub _jm_obj_1($$$)
         elsif ($prop eq 'a')
         {
             # handle may a property
-            # .'$O1'.a
+            # .'$Oo1'.a
             $res = jm_is_boolean($pval);
             if (! $res)
             {
@@ -138,7 +138,7 @@ sub _jm_obj_1($$$)
         elsif ($prop eq 'b')
         {
             # handle may b property
-            # .'$O1'.b
+            # .'$Oo1'.b
             $res = jm_is_integer($pval) && $pval >= 0;
             if (! $res)
             {
@@ -148,7 +148,7 @@ sub _jm_obj_1($$$)
         elsif ($prop eq 'c')
         {
             # handle may c property
-            # .'$O1'.c
+            # .'$Oo1'.c
             $res = !defined($pval);
             if (! $res)
             {
@@ -158,7 +158,7 @@ sub _jm_obj_1($$$)
         elsif ($prop eq 'd')
         {
             # handle may d property
-            # .'$O1'.d
+            # .'$Oo1'.d
             $res = jm_is_numeric($pval) && $pval >= 0.0;
             if (! $res)
             {
@@ -177,17 +177,17 @@ sub _jm_obj_1($$$)
     return 1;
 }
 
-# check $O1 (.'$O1')
+# check $Oo1 (.'$Oo1')
 sub json_model_3($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
-    # .'$O1'
+    # .'$Oo1'
     $res = _jm_obj_1($val, $path, $rep);
     return $res;
 }
 
-# object .'$O2'
+# object .'$Oo2'
 sub _jm_obj_2($$$)
 {
     my ($val, $path, $rep) = @_;
@@ -204,7 +204,7 @@ sub _jm_obj_2($$$)
         {
             # handle must a property
             $must_count++;
-            # .'$O2'.a
+            # .'$Oo2'.a
             $res = jm_is_boolean($pval);
             if (! $res)
             {
@@ -215,7 +215,7 @@ sub _jm_obj_2($$$)
         {
             # handle must b property
             $must_count++;
-            # .'$O2'.b
+            # .'$Oo2'.b
             $res = jm_is_integer($pval) && $pval >= 0;
             if (! $res)
             {
@@ -226,7 +226,7 @@ sub _jm_obj_2($$$)
         {
             # handle must c property
             $must_count++;
-            # .'$O2'.c
+            # .'$Oo2'.c
             $res = !defined($pval);
             if (! $res)
             {
@@ -237,7 +237,7 @@ sub _jm_obj_2($$$)
         {
             # handle must d property
             $must_count++;
-            # .'$O2'.d
+            # .'$Oo2'.d
             $res = jm_is_numeric($pval) && $pval >= 0.0;
             if (! $res)
             {
@@ -247,7 +247,7 @@ sub _jm_obj_2($$$)
         elsif ($prop eq 'y')
         {
             # handle may y property
-            # .'$O2'.y
+            # .'$Oo2'.y
             $res = jm_is_boolean($pval);
             if (! $res)
             {
@@ -266,12 +266,12 @@ sub _jm_obj_2($$$)
     return 1;
 }
 
-# check $O2 (.'$O2')
+# check $Oo2 (.'$Oo2')
 sub json_model_4($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
-    # .'$O2'
+    # .'$Oo2'
     $res = _jm_obj_2($val, $path, $rep);
     return $res;
 }
@@ -309,9 +309,9 @@ sub check_model_init()
         $initialized = 1;
         %check_model_map = (
             '' => \&json_model_1,
-            'O0' => \&json_model_2,
-            'O1' => \&json_model_3,
-            'O2' => \&json_model_4,
+            'Oo0' => \&json_model_2,
+            'Oo1' => \&json_model_3,
+            'Oo2' => \&json_model_4,
         );
     }
 }

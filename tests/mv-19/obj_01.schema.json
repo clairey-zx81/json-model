@@ -3,7 +3,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "description": "object with must/may/regex/ref/others",
   "$defs": {
-    "XXX": {
+    "Xxx": {
       "enum": [
         "X",
         "XX",

@@ -21,25 +21,25 @@ sub _jm_re_0($$$)
     return $res;
 }
 
-# check $A (.'$A')
+# check $Aa (.'$Aa')
 sub json_model_2($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
-    # .'$A'
-    # .'$A'.'|'.0
+    # .'$Aa'
+    # .'$Aa'.'|'.0
     $res = jm_is_boolean($val);
     if (! $res)
     {
-        # .'$A'.'|'.1
+        # .'$Aa'.'|'.1
         $res = jm_is_integer($val) && $val >= 1;
         if (! $res)
         {
-            # .'$A'.'|'.2
+            # .'$Aa'.'|'.2
             $res = jm_is_numeric($val) && $val > 0.0;
             if (! $res)
             {
-                # .'$A'.'|'.3
+                # .'$Aa'.'|'.3
                 # "/[a-z]/"
                 $res = jm_is_string($val) && _jm_re_0($val, $path, $rep);
             }
@@ -70,7 +70,7 @@ sub check_model_init()
         $initialized = 1;
         %check_model_map = (
             '' => \&json_model_2,
-            'A' => \&json_model_2,
+            'Aa' => \&json_model_2,
         );
     }
 }

@@ -29,15 +29,15 @@ static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check $A (.'$A')
+// check $Aa (.'$Aa')
 static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
-    // .'$A'
+    // .'$Aa'
     res = json_is_string(val);
     if (! res)
     {
-        if (rep) jm_report_add_entry(rep, "unexpected string [.'$A']", path);
+        if (rep) jm_report_add_entry(rep, "unexpected string [.'$Aa']", path);
     }
     return res;
 }
@@ -63,7 +63,7 @@ static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *re
             res = json_model_3(pval, (path ? &lpath_0 : NULL), rep);
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "unexpected $A [.a]", (path ? &lpath_0 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected $Aa [.a]", (path ? &lpath_0 : NULL));
             }
             if (! res)
             {
@@ -108,7 +108,7 @@ const char *check_model_init(void)
         jm_version_string = JSON_MODEL_VERSION;
         check_model_map_tab[0] = (jm_propmap_t) { "", json_model_1 };
         check_model_map_tab[1] = (jm_propmap_t) { "a", json_model_2 };
-        check_model_map_tab[2] = (jm_propmap_t) { "A", json_model_3 };
+        check_model_map_tab[2] = (jm_propmap_t) { "Aa", json_model_3 };
         jm_sort_propmap(check_model_map_tab, 3);
     }
     return NULL;

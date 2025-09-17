@@ -15,7 +15,7 @@ sub json_model_3($$$);
 sub json_model_1($$$);
 my %check_model_map;
 
-# object .'$A'.'|'.1
+# object .'$Aa'.'|'.1
 sub _jm_obj_0($$$)
 {
     my ($val, $path, $rep) = @_;
@@ -32,7 +32,7 @@ sub _jm_obj_0($$$)
         {
             # handle must b property
             $must_count++;
-            # .'$A'.'|'.1.b
+            # .'$Aa'.'|'.1.b
             $res = jm_is_integer($pval) && $pval >= 1;
             if (! $res)
             {
@@ -51,7 +51,7 @@ sub _jm_obj_0($$$)
     return 1;
 }
 
-# object .'$A'.'|'.0
+# object .'$Aa'.'|'.0
 sub _jm_obj_1($$$)
 {
     my ($val, $path, $rep) = @_;
@@ -68,7 +68,7 @@ sub _jm_obj_1($$$)
         {
             # handle must a property
             $must_count++;
-            # .'$A'.'|'.0.a
+            # .'$Aa'.'|'.0.a
             $res = jm_is_integer($pval) && $pval >= 0;
             if (! $res)
             {
@@ -87,27 +87,27 @@ sub _jm_obj_1($$$)
     return 1;
 }
 
-# check $A (.'$A')
+# check $Aa (.'$Aa')
 sub json_model_2($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
-    # .'$A'
+    # .'$Aa'
     $res = jm_is_object($val);
     if ($res)
     {
-        # .'$A'.'|'.0
+        # .'$Aa'.'|'.0
         $res = _jm_obj_1($val, $path, $rep);
         if (! $res)
         {
-            # .'$A'.'|'.1
+            # .'$Aa'.'|'.1
             $res = _jm_obj_0($val, $path, $rep);
         }
     }
     return $res;
 }
 
-# object .'$B'.'|'.0
+# object .'$Bb'.'|'.0
 sub _jm_obj_2($$$)
 {
     my ($val, $path, $rep) = @_;
@@ -124,7 +124,7 @@ sub _jm_obj_2($$$)
         {
             # handle must c property
             $must_count++;
-            # .'$B'.'|'.0.c
+            # .'$Bb'.'|'.0.c
             $res = jm_is_integer($pval) && $pval >= 0;
             if (! $res)
             {
@@ -143,17 +143,17 @@ sub _jm_obj_2($$$)
     return 1;
 }
 
-# check $B (.'$B')
+# check $Bb (.'$Bb')
 sub json_model_3($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
-    # .'$B'
-    # .'$B'.'|'.0
+    # .'$Bb'
+    # .'$Bb'.'|'.0
     $res = _jm_obj_2($val, $path, $rep);
     if (! $res)
     {
-        # .'$B'.'|'.1
+        # .'$Bb'.'|'.1
         $res = json_model_2($val, $path, $rep);
     }
     return $res;
@@ -181,8 +181,8 @@ sub check_model_init()
         $initialized = 1;
         %check_model_map = (
             '' => \&json_model_3,
-            'A' => \&json_model_2,
-            'B' => \&json_model_3,
+            'Aa' => \&json_model_2,
+            'Bb' => \&json_model_3,
         );
     }
 }

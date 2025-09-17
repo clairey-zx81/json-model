@@ -12,7 +12,7 @@ const JSON_MODEL_VERSION = "2";
 const _jm_re_0_re = new runtime.RX("^((file|https?)://.+|\\./.*|\\.\\./.*)$", "")
 let _jm_cst_0 = new Set()
 const _jm_re_1_re = new runtime.RX("[^A-Z0-9]", "")
-const _jm_re_2_re = new runtime.RX("^\\w+$", "")
+const _jm_re_2_re = new runtime.RX("^\\w(\\w|-)*$", "")
 const _jm_re_3_re = new runtime.RX("^\\$.", "")
 const _jm_re_4_re = new runtime.RX("^=(null|true|false|[-+]?\\d+(\\.\\d+)?([Ee][-+]?\\d+)?)$", "")
 const _jm_re_5_re = new runtime.RX("^[A-Za-z0-9_]", "")
@@ -70,11 +70,11 @@ function json_model_4(val, path, rep)
     if (res)
     {
         // .'$Identifier'.'&'.0
-        // "/^\\w+$/"
+        // "/^\\w(\\w|-)*$/"
         res = _jm_re_2(val, path, rep);
         if (! res)
         {
-            rep !== null && rep.push(["unexpected /^\\w+$/ [.'$Identifier'.'&'.0]", path])
+            rep !== null && rep.push(["unexpected /^\\w(\\w|-)*$/ [.'$Identifier'.'&'.0]", path])
         }
         if (res)
         {

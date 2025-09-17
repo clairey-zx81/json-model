@@ -16,7 +16,7 @@
         "_$NONE", "_$ANY"
       ]
     },
-    "Identifier": { "&": [ "/^\\w+$/", "/[^A-Z0-9]/" ] },
+    "Identifier": { "&": [ "/^\\w(\\w|-)*$/", "/[^A-Z0-9]/" ] },
     "ArrayComment": "/^#/",
     "ObjectComment": { "?#": "", "/^#/": "$ANY" },
     "Ref": "/^\\$./",
@@ -30,7 +30,8 @@
     "StrModel": { "|": [ "$StrConst", "$ValConst", "$Regex", "$PreDef", "$Ref", "_" ] },
     "Any": { "&": [ ] },
     "None": { "|": [ ] },
-    "Array": [ { "|": ["$Model", "$ArrayComment"] } ],
+    "CModel": { "|": ["$Model", "$ArrayComment"] },
+    "Array": [ "$CModel" ],
     "Common": "$ObjectComment",
     "Constraint": {
       "_@": "$Model",
@@ -38,10 +39,10 @@
       "/^(=|!=)$/": "$EqValue",
       "?!": true
     },
-    "Or": { "_|": [ "$Model" ] },
-    "And": { "_&": [ "$Model" ] },
-    "Xor": { "_^": [ "$Model" ] },
-    "Add": { "_+": [ "$Model" ] },
+    "Or": { "_|": [ "$CModel" ] },
+    "And": { "_&": [ "$CModel" ] },
+    "Xor": { "_^": [ "$CModel" ] },
+    "Add": { "_+": [ "$CModel" ] },
     "Prop": { "|": [ "/^[?!]/", "$StrConst", "$Regex", "$Ref", "$Name", "_" ] },
     "Obj": { "$Prop": "$Model" },
     "Elem": { "|": [ "$Constraint", "$Or", "$And", "$Xor", "$Add", "$Obj" ] },

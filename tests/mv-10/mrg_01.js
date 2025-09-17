@@ -11,25 +11,25 @@ const JSON_MODEL_VERSION = "2";
 
 var check_model_map = new Map()
 
-// check $T (.'$T')
+// check $t (.'$t')
 function json_model_2(val, path, rep)
 {
     let res;
-    // .'$T'
+    // .'$t'
     res = ((typeof val === 'string' || val instanceof String)) && val == "cst_01";
     if (! res)
     {
-        rep !== null && rep.push(["unexpected _cst_01 [.'$T']", path])
+        rep !== null && rep.push(["unexpected _cst_01 [.'$t']", path])
     }
     return res;
 }
 
-// object .'$X'
+// object .'$x'
 function _jm_obj_0(val, path, rep)
 {
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
-        rep !== null && rep.push(["not an object [.'$X']", path])
+        rep !== null && rep.push(["not an object [.'$x']", path])
         return false;
     }
     let res;
@@ -41,15 +41,15 @@ function _jm_obj_0(val, path, rep)
         {
             // handle must a property
             must_count += 1;
-            // .'$X'.a
+            // .'$x'.a
             res = ((typeof pval === 'string' || pval instanceof String)) && pval == "cst_01";
             if (! res)
             {
-                rep !== null && rep.push(["unexpected _cst_01 [.'$X'.a]", (path ? lpath_0 : null)])
+                rep !== null && rep.push(["unexpected _cst_01 [.'$x'.a]", (path ? lpath_0 : null)])
             }
             if (! res)
             {
-                rep !== null && rep.push(["invalid mandatory prop value [.'$X'.a]", (path ? lpath_0 : null)])
+                rep !== null && rep.push(["invalid mandatory prop value [.'$x'.a]", (path ? lpath_0 : null)])
                 return false;
             }
         }
@@ -57,21 +57,21 @@ function _jm_obj_0(val, path, rep)
         {
             // handle must b property
             must_count += 1;
-            // .'$X'.b
+            // .'$x'.b
             res = ((typeof pval === 'string' || pval instanceof String)) && pval == "cst_01";
             if (! res)
             {
-                rep !== null && rep.push(["unexpected _cst_01 [.'$X'.b]", (path ? lpath_0 : null)])
+                rep !== null && rep.push(["unexpected _cst_01 [.'$x'.b]", (path ? lpath_0 : null)])
             }
             if (! res)
             {
-                rep !== null && rep.push(["invalid mandatory prop value [.'$X'.b]", (path ? lpath_0 : null)])
+                rep !== null && rep.push(["invalid mandatory prop value [.'$x'.b]", (path ? lpath_0 : null)])
                 return false;
             }
         }
         else
         {
-            rep !== null && rep.push(["unexpected prop [.'$X']", (path ? lpath_0 : null)])
+            rep !== null && rep.push(["unexpected prop [.'$x']", (path ? lpath_0 : null)])
             return false;
         }
     }
@@ -81,11 +81,11 @@ function _jm_obj_0(val, path, rep)
         {
             if (! val.hasOwnProperty("a"))
             {
-                rep !== null && rep.push(["missing mandatory prop <a> [.'$X']", path])
+                rep !== null && rep.push(["missing mandatory prop <a> [.'$x']", path])
             }
             if (! val.hasOwnProperty("b"))
             {
-                rep !== null && rep.push(["missing mandatory prop <b> [.'$X']", path])
+                rep !== null && rep.push(["missing mandatory prop <b> [.'$x']", path])
             }
         }
         return false;
@@ -93,25 +93,25 @@ function _jm_obj_0(val, path, rep)
     return true;
 }
 
-// check $X (.'$X')
+// check $x (.'$x')
 function json_model_3(val, path, rep)
 {
     let res;
-    // .'$X'
+    // .'$x'
     res = _jm_obj_0(val, path, rep);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected element [.'$X']", path])
+        rep !== null && rep.push(["unexpected element [.'$x']", path])
     }
     return res;
 }
 
-// object .'$Y'
+// object .'$y'
 function _jm_obj_1(val, path, rep)
 {
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
-        rep !== null && rep.push(["not an object [.'$Y']", path])
+        rep !== null && rep.push(["not an object [.'$y']", path])
         return false;
     }
     let res;
@@ -123,15 +123,15 @@ function _jm_obj_1(val, path, rep)
         {
             // handle must c property
             must_count += 1;
-            // .'$Y'.c
+            // .'$y'.c
             res = ((typeof pval === 'string' || pval instanceof String)) && pval == "cst_01";
             if (! res)
             {
-                rep !== null && rep.push(["unexpected _cst_01 [.'$Y'.c]", (path ? lpath_1 : null)])
+                rep !== null && rep.push(["unexpected _cst_01 [.'$y'.c]", (path ? lpath_1 : null)])
             }
             if (! res)
             {
-                rep !== null && rep.push(["invalid mandatory prop value [.'$Y'.c]", (path ? lpath_1 : null)])
+                rep !== null && rep.push(["invalid mandatory prop value [.'$y'.c]", (path ? lpath_1 : null)])
                 return false;
             }
         }
@@ -139,21 +139,21 @@ function _jm_obj_1(val, path, rep)
         {
             // handle must d property
             must_count += 1;
-            // .'$Y'.d
+            // .'$y'.d
             res = ((typeof pval === 'string' || pval instanceof String)) && pval == "cst_01";
             if (! res)
             {
-                rep !== null && rep.push(["unexpected _cst_01 [.'$Y'.d]", (path ? lpath_1 : null)])
+                rep !== null && rep.push(["unexpected _cst_01 [.'$y'.d]", (path ? lpath_1 : null)])
             }
             if (! res)
             {
-                rep !== null && rep.push(["invalid mandatory prop value [.'$Y'.d]", (path ? lpath_1 : null)])
+                rep !== null && rep.push(["invalid mandatory prop value [.'$y'.d]", (path ? lpath_1 : null)])
                 return false;
             }
         }
         else
         {
-            rep !== null && rep.push(["unexpected prop [.'$Y']", (path ? lpath_1 : null)])
+            rep !== null && rep.push(["unexpected prop [.'$y']", (path ? lpath_1 : null)])
             return false;
         }
     }
@@ -163,11 +163,11 @@ function _jm_obj_1(val, path, rep)
         {
             if (! val.hasOwnProperty("c"))
             {
-                rep !== null && rep.push(["missing mandatory prop <c> [.'$Y']", path])
+                rep !== null && rep.push(["missing mandatory prop <c> [.'$y']", path])
             }
             if (! val.hasOwnProperty("d"))
             {
-                rep !== null && rep.push(["missing mandatory prop <d> [.'$Y']", path])
+                rep !== null && rep.push(["missing mandatory prop <d> [.'$y']", path])
             }
         }
         return false;
@@ -175,15 +175,15 @@ function _jm_obj_1(val, path, rep)
     return true;
 }
 
-// check $Y (.'$Y')
+// check $y (.'$y')
 function json_model_4(val, path, rep)
 {
     let res;
-    // .'$Y'
+    // .'$y'
     res = _jm_obj_1(val, path, rep);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected element [.'$Y']", path])
+        rep !== null && rep.push(["unexpected element [.'$y']", path])
     }
     return res;
 }
@@ -321,9 +321,9 @@ export function check_model_init()
         initialized = true;
         runtime.jm_set_rx(RegExp)
         check_model_map.set("", json_model_1)
-        check_model_map.set("T", json_model_2)
-        check_model_map.set("X", json_model_3)
-        check_model_map.set("Y", json_model_4)
+        check_model_map.set("t", json_model_2)
+        check_model_map.set("x", json_model_3)
+        check_model_map.set("y", json_model_4)
     }
 }
 

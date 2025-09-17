@@ -1317,7 +1317,7 @@
           "$ref": "#/$defs/ExternalDocumentation"
         },
         "xml": {
-          "$ref": "#/$defs/XML"
+          "$ref": "#/$defs/xml"
         },
         "example": true
       },
@@ -1344,7 +1344,7 @@
       ],
       "additionalProperties": false
     },
-    "XML": {
+    "xml": {
       "type": "object",
       "patternProperties": {
         "^x-": true

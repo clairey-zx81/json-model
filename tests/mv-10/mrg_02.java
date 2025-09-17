@@ -20,25 +20,25 @@ public class mrg_02 extends ModelChecker
     Map<String, Checker> _jm_obj_2_mup_pmap;
     public Map<String, Checker> mrg_02_map_pmap;
 
-    // check $T (.'$T')
+    // check $t (.'$t')
     public boolean json_model_2(Object val, Path path, Report rep)
     {
         boolean res;
-        // .'$T'
+        // .'$t'
         res = json.isString(val) && json.asString(val).compareTo("cst_02") == 0;
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected _cst_02 [.'$T']", path);
+            if (rep != null) rep.addEntry("unexpected _cst_02 [.'$t']", path);
         }
         return res;
     }
     
-    // object .'$R'
+    // object .'$r'
     public boolean _jm_obj_0(Object val, Path path, Report rep)
     {
         if (! json.isObject(val))
         {
-            if (rep != null) rep.addEntry("not an object [.'$R']", path);
+            if (rep != null) rep.addEntry("not an object [.'$r']", path);
             return false;
         }
         boolean res;
@@ -53,15 +53,15 @@ public class mrg_02 extends ModelChecker
             {
                 // handle must a property
                 must_count += 1;
-                // .'$R'.a
+                // .'$r'.a
                 res = json.isString(pval) && json.asString(pval).compareTo("cst_01") == 0;
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected _cst_01 [.'$R'.a]", (path != null ? lpath_0 : null));
+                    if (rep != null) rep.addEntry("unexpected _cst_01 [.'$r'.a]", (path != null ? lpath_0 : null));
                 }
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("invalid mandatory prop value [.'$R'.a]", (path != null ? lpath_0 : null));
+                    if (rep != null) rep.addEntry("invalid mandatory prop value [.'$r'.a]", (path != null ? lpath_0 : null));
                     return false;
                 }
             }
@@ -69,15 +69,15 @@ public class mrg_02 extends ModelChecker
             {
                 // handle must b property
                 must_count += 1;
-                // .'$R'.b
+                // .'$r'.b
                 res = json.isString(pval) && json.asString(pval).compareTo("cst_01") == 0;
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected _cst_01 [.'$R'.b]", (path != null ? lpath_0 : null));
+                    if (rep != null) rep.addEntry("unexpected _cst_01 [.'$r'.b]", (path != null ? lpath_0 : null));
                 }
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("invalid mandatory prop value [.'$R'.b]", (path != null ? lpath_0 : null));
+                    if (rep != null) rep.addEntry("invalid mandatory prop value [.'$r'.b]", (path != null ? lpath_0 : null));
                     return false;
                 }
             }
@@ -85,15 +85,15 @@ public class mrg_02 extends ModelChecker
             {
                 // handle must c property
                 must_count += 1;
-                // .'$R'.c
+                // .'$r'.c
                 res = json.isString(pval) && json.asString(pval).compareTo("cst_01") == 0;
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected _cst_01 [.'$R'.c]", (path != null ? lpath_0 : null));
+                    if (rep != null) rep.addEntry("unexpected _cst_01 [.'$r'.c]", (path != null ? lpath_0 : null));
                 }
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("invalid mandatory prop value [.'$R'.c]", (path != null ? lpath_0 : null));
+                    if (rep != null) rep.addEntry("invalid mandatory prop value [.'$r'.c]", (path != null ? lpath_0 : null));
                     return false;
                 }
             }
@@ -101,21 +101,21 @@ public class mrg_02 extends ModelChecker
             {
                 // handle must d property
                 must_count += 1;
-                // .'$R'.d
+                // .'$r'.d
                 res = json.isString(pval) && json.asString(pval).compareTo("cst_01") == 0;
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected _cst_01 [.'$R'.d]", (path != null ? lpath_0 : null));
+                    if (rep != null) rep.addEntry("unexpected _cst_01 [.'$r'.d]", (path != null ? lpath_0 : null));
                 }
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("invalid mandatory prop value [.'$R'.d]", (path != null ? lpath_0 : null));
+                    if (rep != null) rep.addEntry("invalid mandatory prop value [.'$r'.d]", (path != null ? lpath_0 : null));
                     return false;
                 }
             }
             else
             {
-                if (rep != null) rep.addEntry("unexpected prop [.'$R']", (path != null ? lpath_0 : null));
+                if (rep != null) rep.addEntry("unexpected prop [.'$r']", (path != null ? lpath_0 : null));
                 return false;
             }
         }
@@ -125,19 +125,19 @@ public class mrg_02 extends ModelChecker
             {
                 if (! json.objectHasProp(val, "a"))
                 {
-                    if (rep != null) rep.addEntry("missing mandatory prop <a> [.'$R']", path);
+                    if (rep != null) rep.addEntry("missing mandatory prop <a> [.'$r']", path);
                 }
                 if (! json.objectHasProp(val, "b"))
                 {
-                    if (rep != null) rep.addEntry("missing mandatory prop <b> [.'$R']", path);
+                    if (rep != null) rep.addEntry("missing mandatory prop <b> [.'$r']", path);
                 }
                 if (! json.objectHasProp(val, "c"))
                 {
-                    if (rep != null) rep.addEntry("missing mandatory prop <c> [.'$R']", path);
+                    if (rep != null) rep.addEntry("missing mandatory prop <c> [.'$r']", path);
                 }
                 if (! json.objectHasProp(val, "d"))
                 {
-                    if (rep != null) rep.addEntry("missing mandatory prop <d> [.'$R']", path);
+                    if (rep != null) rep.addEntry("missing mandatory prop <d> [.'$r']", path);
                 }
             }
             return false;
@@ -145,25 +145,25 @@ public class mrg_02 extends ModelChecker
         return true;
     }
     
-    // check $R (.'$R')
+    // check $r (.'$r')
     public boolean json_model_5(Object val, Path path, Report rep)
     {
         boolean res;
-        // .'$R'
+        // .'$r'
         res = _jm_obj_0(val, path, rep);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected element [.'$R']", path);
+            if (rep != null) rep.addEntry("unexpected element [.'$r']", path);
         }
         return res;
     }
     
-    // object .'$Z'
+    // object .'$z'
     public boolean _jm_obj_1(Object val, Path path, Report rep)
     {
         if (! json.isObject(val))
         {
-            if (rep != null) rep.addEntry("not an object [.'$Z']", path);
+            if (rep != null) rep.addEntry("not an object [.'$z']", path);
             return false;
         }
         boolean res;
@@ -178,15 +178,15 @@ public class mrg_02 extends ModelChecker
             {
                 // handle must e property
                 must_count += 1;
-                // .'$Z'.e
+                // .'$z'.e
                 res = json.isString(pval) && json.asString(pval).compareTo("cst_02") == 0;
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected _cst_02 [.'$Z'.e]", (path != null ? lpath_1 : null));
+                    if (rep != null) rep.addEntry("unexpected _cst_02 [.'$z'.e]", (path != null ? lpath_1 : null));
                 }
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("invalid mandatory prop value [.'$Z'.e]", (path != null ? lpath_1 : null));
+                    if (rep != null) rep.addEntry("invalid mandatory prop value [.'$z'.e]", (path != null ? lpath_1 : null));
                     return false;
                 }
             }
@@ -194,21 +194,21 @@ public class mrg_02 extends ModelChecker
             {
                 // handle must f property
                 must_count += 1;
-                // .'$Z'.f
+                // .'$z'.f
                 res = json.isString(pval) && json.asString(pval).compareTo("cst_02") == 0;
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected _cst_02 [.'$Z'.f]", (path != null ? lpath_1 : null));
+                    if (rep != null) rep.addEntry("unexpected _cst_02 [.'$z'.f]", (path != null ? lpath_1 : null));
                 }
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("invalid mandatory prop value [.'$Z'.f]", (path != null ? lpath_1 : null));
+                    if (rep != null) rep.addEntry("invalid mandatory prop value [.'$z'.f]", (path != null ? lpath_1 : null));
                     return false;
                 }
             }
             else
             {
-                if (rep != null) rep.addEntry("unexpected prop [.'$Z']", (path != null ? lpath_1 : null));
+                if (rep != null) rep.addEntry("unexpected prop [.'$z']", (path != null ? lpath_1 : null));
                 return false;
             }
         }
@@ -218,11 +218,11 @@ public class mrg_02 extends ModelChecker
             {
                 if (! json.objectHasProp(val, "e"))
                 {
-                    if (rep != null) rep.addEntry("missing mandatory prop <e> [.'$Z']", path);
+                    if (rep != null) rep.addEntry("missing mandatory prop <e> [.'$z']", path);
                 }
                 if (! json.objectHasProp(val, "f"))
                 {
-                    if (rep != null) rep.addEntry("missing mandatory prop <f> [.'$Z']", path);
+                    if (rep != null) rep.addEntry("missing mandatory prop <f> [.'$z']", path);
                 }
             }
             return false;
@@ -230,15 +230,15 @@ public class mrg_02 extends ModelChecker
         return true;
     }
     
-    // check $Z (.'$Z')
+    // check $z (.'$z')
     public boolean json_model_4(Object val, Path path, Report rep)
     {
         boolean res;
-        // .'$Z'
+        // .'$z'
         res = _jm_obj_1(val, path, rep);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected element [.'$Z']", path);
+            if (rep != null) rep.addEntry("unexpected element [.'$z']", path);
         }
         return res;
     }
@@ -419,9 +419,9 @@ public class mrg_02 extends ModelChecker
             _jm_obj_2_mup_pmap.put("f", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_5(o, p, r);} });
             mrg_02_map_pmap = new HashMap<String, Checker>();
             mrg_02_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_1(o, p, r);} });
-            mrg_02_map_pmap.put("T", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_2(o, p, r);} });
-            mrg_02_map_pmap.put("R", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_5(o, p, r);} });
-            mrg_02_map_pmap.put("Z", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
+            mrg_02_map_pmap.put("t", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_2(o, p, r);} });
+            mrg_02_map_pmap.put("r", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_5(o, p, r);} });
+            mrg_02_map_pmap.put("z", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
                 super.init(json);
             }
             catch (Exception e) {

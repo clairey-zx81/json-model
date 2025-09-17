@@ -24,15 +24,15 @@ function json_model_2(val, path, rep)
     return res;
 }
 
-// check $A (.'$A')
+// check $Aa (.'$Aa')
 function json_model_3(val, path, rep)
 {
     let res;
-    // .'$A'
+    // .'$Aa'
     res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected string [.'$A']", path])
+        rep !== null && rep.push(["unexpected string [.'$Aa']", path])
     }
     return res;
 }
@@ -56,7 +56,7 @@ function _jm_obj_0(val, path, rep)
             res = json_model_3(pval, (path ? lpath_0 : null), rep);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected $A [.a]", (path ? lpath_0 : null)])
+                rep !== null && rep.push(["unexpected $Aa [.a]", (path ? lpath_0 : null)])
             }
             if (! res)
             {
@@ -98,7 +98,7 @@ export function check_model_init()
         runtime.jm_set_rx(RegExp)
         check_model_map.set("", json_model_1)
         check_model_map.set("a", json_model_2)
-        check_model_map.set("A", json_model_3)
+        check_model_map.set("Aa", json_model_3)
     }
 }
 

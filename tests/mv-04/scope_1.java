@@ -21,35 +21,35 @@ public class scope_1 extends ModelChecker
     public Pattern _jm_re_1_pat = null;
     public Map<String, Checker> scope_1_map_pmap;
 
-    // check $R (.'$R')
+    // check $r (.'$r')
     public boolean json_model_4(Object val, Path path, Report rep)
     {
         boolean res;
-        // .'$R'
+        // .'$r'
         res = json.isArray(val) && json.arrayLength(val) == 2;
         if (res)
         {
             Path lpath_0 = new Path(0, path);
-            // .'$R'.0
+            // .'$r'.0
             res = json_model_5(json.arrayItem(val, 0), (path != null ? lpath_0 : null), rep);
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected $S [.'$R'.0]", (path != null ? lpath_0 : null));
+                if (rep != null) rep.addEntry("unexpected $s [.'$r'.0]", (path != null ? lpath_0 : null));
             }
             if (res)
             {
                 lpath_0 = new Path(1, path);
-                // .'$R'.1
+                // .'$r'.1
                 res = json_model_5(json.arrayItem(val, 1), (path != null ? lpath_0 : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $S [.'$R'.1]", (path != null ? lpath_0 : null));
+                    if (rep != null) rep.addEntry("unexpected $s [.'$r'.1]", (path != null ? lpath_0 : null));
                 }
             }
         }
         if (! res)
         {
-            if (rep != null) rep.addEntry("not array or unexpected array [.'$R']", path);
+            if (rep != null) rep.addEntry("not array or unexpected array [.'$r']", path);
         }
         return res;
     }
@@ -59,16 +59,16 @@ public class scope_1 extends ModelChecker
         return _jm_re_0_pat.matcher(val).find();
     }
     
-    // check $S (.'$S')
+    // check $s (.'$s')
     public boolean json_model_3(Object val, Path path, Report rep)
     {
         boolean res;
-        // .'$S'
+        // .'$s'
         // "/[a-z]/"
         res = json.isString(val) && _jm_re_0(json.asString(val), path, rep);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected /[a-z]/ [.'$S']", path);
+            if (rep != null) rep.addEntry("unexpected /[a-z]/ [.'$s']", path);
         }
         return res;
     }
@@ -83,7 +83,7 @@ public class scope_1 extends ModelChecker
         res = json_model_3(val, path, rep);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected $S [.'|'.0]", path);
+            if (rep != null) rep.addEntry("unexpected $s [.'|'.0]", path);
         }
         if (! res)
         {
@@ -91,7 +91,7 @@ public class scope_1 extends ModelChecker
             res = json_model_5(val, path, rep);
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected $R#S [.'|'.1]", path);
+                if (rep != null) rep.addEntry("unexpected $r#s [.'|'.1]", path);
             }
         }
         if (res)
@@ -110,16 +110,16 @@ public class scope_1 extends ModelChecker
         return _jm_re_1_pat.matcher(val).find();
     }
     
-    // check $R#S (.'$R#S')
+    // check $r#s (.'$r#s')
     public boolean json_model_5(Object val, Path path, Report rep)
     {
         boolean res;
-        // .'$R#S'
+        // .'$r#s'
         // "/[0-9]/"
         res = json.isString(val) && _jm_re_1(json.asString(val), path, rep);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected /[0-9]/ [.'$R#S']", path);
+            if (rep != null) rep.addEntry("unexpected /[0-9]/ [.'$r#s']", path);
         }
         return res;
     }
@@ -134,8 +134,8 @@ public class scope_1 extends ModelChecker
             _jm_re_1_pat = Pattern.compile("[0-9]");
             scope_1_map_pmap = new HashMap<String, Checker>();
             scope_1_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_1(o, p, r);} });
-            scope_1_map_pmap.put("R", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
-            scope_1_map_pmap.put("S", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_3(o, p, r);} });
+            scope_1_map_pmap.put("r", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
+            scope_1_map_pmap.put("s", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_3(o, p, r);} });
                 super.init(json);
             }
             catch (Exception e) {

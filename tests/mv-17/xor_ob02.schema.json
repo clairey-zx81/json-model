@@ -3,7 +3,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "description": "props: a/b a/c b/c",
   "$defs": {
-    "A": {
+    "Aa": {
       "anyOf": [
         {
           "type": "object",
@@ -33,7 +33,7 @@
         }
       ]
     },
-    "B": {
+    "Bb": {
       "anyOf": [
         {
           "type": "object",
@@ -63,7 +63,7 @@
         }
       ]
     },
-    "C": {
+    "Cc": {
       "anyOf": [
         {
           "type": "object",

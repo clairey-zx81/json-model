@@ -5,14 +5,14 @@
     "b": {
       "const": "b"
     },
-    "B": {
+    "Bb": {
       "type": "string"
     },
-    "R": {
+    "Rr": {
       "type": "object",
       "properties": {
         "a": {
-          "$ref": "#/$defs/A"
+          "$ref": "#/$defs/Aa"
         }
       },
       "additionalProperties": false
@@ -21,13 +21,13 @@
   "type": "object",
   "properties": {
     "RA": {
-      "$ref": "#/$defs/R"
+      "$ref": "#/$defs/Rr"
     },
     "b": {
-      "$ref": "#/$defs/B"
+      "$ref": "#/$defs/Bb"
     },
     "a": {
-      "$ref": "#/$defs/R#A"
+      "$ref": "#/$defs/Rr#Aa"
     }
   },
   "required": [

@@ -3,30 +3,30 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "description": "a string with a lower case later or a digit",
   "$defs": {
-    "R": {
+    "r": {
       "type": "array",
       "prefixItems": [
         {
-          "$ref": "#/$defs/S"
+          "$ref": "#/$defs/s"
         },
         {
-          "$ref": "#/$defs/S"
+          "$ref": "#/$defs/s"
         }
       ],
       "items": false,
       "minItems": 2
     },
-    "S": {
+    "s": {
       "type": "string",
       "pattern": "[a-z]"
     }
   },
   "anyOf": [
     {
-      "$ref": "#/$defs/S"
+      "$ref": "#/$defs/s"
     },
     {
-      "$ref": "#/$defs/R#S"
+      "$ref": "#/$defs/r#s"
     }
   ]
 }

@@ -4109,7 +4109,7 @@ def _jm_f_129(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$Schema'.xml
     res = json_model_34(val, path, rep)
     if not res:
-        rep is None or rep.append(("unexpected $XML [.'$Schema'.xml]", path))
+        rep is None or rep.append(("unexpected $xml [.'$Schema'.xml]", path))
     return res
 
 
@@ -4215,10 +4215,10 @@ def json_model_33(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("unexpected element [.'$Discriminator']", path))
     return res
 
-# object .'$XML'
+# object .'$xml'
 def _jm_obj_68(val: Jsonable, path: Path, rep: Report) -> bool:
     if not isinstance(val, dict):
-        rep is None or rep.append(("not an object [.'$XML']", path))
+        rep is None or rep.append(("not an object [.'$xml']", path))
         return False
     res: bool
     for prop, pval in val.items():
@@ -4226,69 +4226,69 @@ def _jm_obj_68(val: Jsonable, path: Path, rep: Report) -> bool:
         lpath_66: Path = (path + [ prop ]) if path is not None else None
         if prop == "name":
             # handle may name property
-            # .'$XML'.name
+            # .'$xml'.name
             res = isinstance(pval, str)
             if not res:
-                rep is None or rep.append(("unexpected string [.'$XML'.name]", lpath_66 if path is not None else None))
+                rep is None or rep.append(("unexpected string [.'$xml'.name]", lpath_66 if path is not None else None))
             if not res:
-                rep is None or rep.append(("invalid optional prop value [.'$XML'.name]", lpath_66 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$xml'.name]", lpath_66 if path is not None else None))
                 return False
         elif prop == "namespace":
             # handle may namespace property
-            # .'$XML'.namespace
+            # .'$xml'.namespace
             res = isinstance(pval, str)
             if not res:
-                rep is None or rep.append(("unexpected string [.'$XML'.namespace]", lpath_66 if path is not None else None))
+                rep is None or rep.append(("unexpected string [.'$xml'.namespace]", lpath_66 if path is not None else None))
             if not res:
-                rep is None or rep.append(("invalid optional prop value [.'$XML'.namespace]", lpath_66 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$xml'.namespace]", lpath_66 if path is not None else None))
                 return False
         elif prop == "prefix":
             # handle may prefix property
-            # .'$XML'.prefix
+            # .'$xml'.prefix
             res = isinstance(pval, str)
             if not res:
-                rep is None or rep.append(("unexpected string [.'$XML'.prefix]", lpath_66 if path is not None else None))
+                rep is None or rep.append(("unexpected string [.'$xml'.prefix]", lpath_66 if path is not None else None))
             if not res:
-                rep is None or rep.append(("invalid optional prop value [.'$XML'.prefix]", lpath_66 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$xml'.prefix]", lpath_66 if path is not None else None))
                 return False
         elif prop == "attribute":
             # handle may attribute property
-            # .'$XML'.attribute
+            # .'$xml'.attribute
             res = isinstance(pval, bool)
             if not res:
-                rep is None or rep.append(("not a bool [.'$XML'.attribute]", lpath_66 if path is not None else None))
+                rep is None or rep.append(("not a bool [.'$xml'.attribute]", lpath_66 if path is not None else None))
             if not res:
-                rep is None or rep.append(("invalid optional prop value [.'$XML'.attribute]", lpath_66 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$xml'.attribute]", lpath_66 if path is not None else None))
                 return False
         elif prop == "wrapped":
             # handle may wrapped property
-            # .'$XML'.wrapped
+            # .'$xml'.wrapped
             res = isinstance(pval, bool)
             if not res:
-                rep is None or rep.append(("not a bool [.'$XML'.wrapped]", lpath_66 if path is not None else None))
+                rep is None or rep.append(("not a bool [.'$xml'.wrapped]", lpath_66 if path is not None else None))
             if not res:
-                rep is None or rep.append(("invalid optional prop value [.'$XML'.wrapped]", lpath_66 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$xml'.wrapped]", lpath_66 if path is not None else None))
                 return False
         elif prop.startswith("x-"):
             # handle 1 re props
-            # .'$XML'.'/^x-/'
+            # .'$xml'.'/^x-/'
             res = True
             if not res:
-                rep is None or rep.append(("unexpected $ANY [.'$XML'.'/^x-/']", lpath_66 if path is not None else None))
+                rep is None or rep.append(("unexpected $ANY [.'$xml'.'/^x-/']", lpath_66 if path is not None else None))
             if not res:
                 return False
         else:
-            rep is None or rep.append(("unexpected prop [.'$XML']", lpath_66 if path is not None else None))
+            rep is None or rep.append(("unexpected prop [.'$xml']", lpath_66 if path is not None else None))
             return False
     return True
 
-# check $XML (.'$XML')
+# check $xml (.'$xml')
 def json_model_34(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
-    # .'$XML'
+    # .'$xml'
     res = _jm_obj_68(val, path, rep)
     if not res:
-        rep is None or rep.append(("unexpected element [.'$XML']", path))
+        rep is None or rep.append(("unexpected element [.'$xml']", path))
     return res
 
 
@@ -6239,7 +6239,7 @@ def check_model_init():
             "schema": json_model_45,
             "Schema": json_model_32,
             "Discriminator": json_model_33,
-            "XML": json_model_34,
+            "xml": json_model_34,
             "SS-apikey": json_model_35,
             "SS-http": json_model_36,
             "SS-http-bearer": json_model_37,

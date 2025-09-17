@@ -3,7 +3,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "description": "4 property combinations: ac ad bc bd",
   "$defs": {
-    "A": {
+    "Aa": {
       "anyOf": [
         {
           "type": "object",
@@ -33,7 +33,7 @@
         }
       ]
     },
-    "B": {
+    "Bb": {
       "anyOf": [
         {
           "type": "object",

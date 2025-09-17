@@ -43,7 +43,7 @@
       "allOf": [
         {
           "type": "string",
-          "pattern": "^\\w+$"
+          "pattern": "^\\w(\\w|-)*$"
         },
         {
           "type": "string",

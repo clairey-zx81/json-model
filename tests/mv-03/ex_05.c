@@ -16,28 +16,28 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep);
 jm_propmap_t check_model_map_tab[3];
 const size_t check_model_map_size = 3;
 
-// check $EX05a (.'$EX05a')
+// check $Ex05a (.'$Ex05a')
 static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
-    // .'$EX05a'
+    // .'$Ex05a'
     res = json_is_integer(val) && json_integer_value(val) >= 0;
     if (! res)
     {
-        if (rep) jm_report_add_entry(rep, "not a 0 strict int [.'$EX05a']", path);
+        if (rep) jm_report_add_entry(rep, "not a 0 strict int [.'$Ex05a']", path);
     }
     return res;
 }
 
-// check $EX05b (.'$EX05b')
+// check $Ex05b (.'$Ex05b')
 static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
-    // .'$EX05b'
+    // .'$Ex05b'
     res = json_is_string(val);
     if (! res)
     {
-        if (rep) jm_report_add_entry(rep, "unexpected string [.'$EX05b']", path);
+        if (rep) jm_report_add_entry(rep, "unexpected string [.'$Ex05b']", path);
     }
     return res;
 }
@@ -51,7 +51,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
     res = json_model_2(val, path, rep);
     if (! res)
     {
-        if (rep) jm_report_add_entry(rep, "unexpected $EX05a [.'|'.0]", path);
+        if (rep) jm_report_add_entry(rep, "unexpected $Ex05a [.'|'.0]", path);
     }
     if (! res)
     {
@@ -59,7 +59,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
         res = json_model_3(val, path, rep);
         if (! res)
         {
-            if (rep) jm_report_add_entry(rep, "unexpected $EX05b [.'|'.1]", path);
+            if (rep) jm_report_add_entry(rep, "unexpected $Ex05b [.'|'.1]", path);
         }
     }
     if (res)
@@ -87,8 +87,8 @@ const char *check_model_init(void)
         initialized = true;
         jm_version_string = JSON_MODEL_VERSION;
         check_model_map_tab[0] = (jm_propmap_t) { "", json_model_1 };
-        check_model_map_tab[1] = (jm_propmap_t) { "EX05a", json_model_2 };
-        check_model_map_tab[2] = (jm_propmap_t) { "EX05b", json_model_3 };
+        check_model_map_tab[1] = (jm_propmap_t) { "Ex05a", json_model_2 };
+        check_model_map_tab[2] = (jm_propmap_t) { "Ex05b", json_model_3 };
         jm_sort_propmap(check_model_map_tab, 3);
     }
     return NULL;

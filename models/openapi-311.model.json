@@ -224,7 +224,7 @@
         {
           "?discriminator": "$Discriminator",
           "?externalDocs": "$ExternalDocumentation",
-          "?xml": "$XML",
+          "?xml": "$xml",
           "?example": "$ANY"
         }
       ]
@@ -234,7 +234,7 @@
       "?mapping": { "": "" },
       "/^x-/": "$ANY"
     },
-    "XML": {
+    "xml": {
       "?name": "",
       "?namespace": "",
       "?prefix": "",

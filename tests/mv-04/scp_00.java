@@ -32,15 +32,15 @@ public class scp_00 extends ModelChecker
         return res;
     }
     
-    // check $A (.'$A')
+    // check $Aa (.'$Aa')
     public boolean json_model_3(Object val, Path path, Report rep)
     {
         boolean res;
-        // .'$A'
+        // .'$Aa'
         res = json.isString(val);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected string [.'$A']", path);
+            if (rep != null) rep.addEntry("unexpected string [.'$Aa']", path);
         }
         return res;
     }
@@ -67,7 +67,7 @@ public class scp_00 extends ModelChecker
                 res = json_model_3(pval, (path != null ? lpath_0 : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $A [.a]", (path != null ? lpath_0 : null));
+                    if (rep != null) rep.addEntry("unexpected $Aa [.a]", (path != null ? lpath_0 : null));
                 }
                 if (! res)
                 {
@@ -106,7 +106,7 @@ public class scp_00 extends ModelChecker
             scp_00_map_pmap = new HashMap<String, Checker>();
             scp_00_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_1(o, p, r);} });
             scp_00_map_pmap.put("a", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_2(o, p, r);} });
-            scp_00_map_pmap.put("A", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_3(o, p, r);} });
+            scp_00_map_pmap.put("Aa", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_3(o, p, r);} });
                 super.init(json);
             }
             catch (Exception e) {

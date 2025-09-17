@@ -6842,7 +6842,7 @@ static bool _jm_f_129(const json_t *val, jm_path_t *path, jm_report_t *rep)
     res = json_model_34(val, path, rep);
     if (! res)
     {
-        if (rep) jm_report_add_entry(rep, "unexpected $XML [.'$Schema'.xml]", path);
+        if (rep) jm_report_add_entry(rep, "unexpected $xml [.'$Schema'.xml]", path);
     }
     return res;
 }
@@ -7019,12 +7019,12 @@ static bool json_model_33(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// object .'$XML'
+// object .'$xml'
 static INLINE bool _jm_obj_68(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (! json_is_object(val))
     {
-        if (rep) jm_report_add_entry(rep, "not an object [.'$XML']", path);
+        if (rep) jm_report_add_entry(rep, "not an object [.'$xml']", path);
         return false;
     }
     bool res;
@@ -7036,86 +7036,86 @@ static INLINE bool _jm_obj_68(const json_t *val, jm_path_t *path, jm_report_t *r
         if (strcmp(prop, "name") == 0)
         {
             // handle may name property
-            // .'$XML'.name
+            // .'$xml'.name
             res = json_is_string(pval);
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "unexpected string [.'$XML'.name]", (path ? &lpath_66 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected string [.'$xml'.name]", (path ? &lpath_66 : NULL));
             }
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$XML'.name]", (path ? &lpath_66 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$xml'.name]", (path ? &lpath_66 : NULL));
                 return false;
             }
         }
         else if (strcmp(prop, "namespace") == 0)
         {
             // handle may namespace property
-            // .'$XML'.namespace
+            // .'$xml'.namespace
             res = json_is_string(pval);
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "unexpected string [.'$XML'.namespace]", (path ? &lpath_66 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected string [.'$xml'.namespace]", (path ? &lpath_66 : NULL));
             }
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$XML'.namespace]", (path ? &lpath_66 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$xml'.namespace]", (path ? &lpath_66 : NULL));
                 return false;
             }
         }
         else if (strcmp(prop, "prefix") == 0)
         {
             // handle may prefix property
-            // .'$XML'.prefix
+            // .'$xml'.prefix
             res = json_is_string(pval);
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "unexpected string [.'$XML'.prefix]", (path ? &lpath_66 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected string [.'$xml'.prefix]", (path ? &lpath_66 : NULL));
             }
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$XML'.prefix]", (path ? &lpath_66 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$xml'.prefix]", (path ? &lpath_66 : NULL));
                 return false;
             }
         }
         else if (strcmp(prop, "attribute") == 0)
         {
             // handle may attribute property
-            // .'$XML'.attribute
+            // .'$xml'.attribute
             res = json_is_boolean(pval);
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "not a bool [.'$XML'.attribute]", (path ? &lpath_66 : NULL));
+                if (rep) jm_report_add_entry(rep, "not a bool [.'$xml'.attribute]", (path ? &lpath_66 : NULL));
             }
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$XML'.attribute]", (path ? &lpath_66 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$xml'.attribute]", (path ? &lpath_66 : NULL));
                 return false;
             }
         }
         else if (strcmp(prop, "wrapped") == 0)
         {
             // handle may wrapped property
-            // .'$XML'.wrapped
+            // .'$xml'.wrapped
             res = json_is_boolean(pval);
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "not a bool [.'$XML'.wrapped]", (path ? &lpath_66 : NULL));
+                if (rep) jm_report_add_entry(rep, "not a bool [.'$xml'.wrapped]", (path ? &lpath_66 : NULL));
             }
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$XML'.wrapped]", (path ? &lpath_66 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$xml'.wrapped]", (path ? &lpath_66 : NULL));
                 return false;
             }
         }
         else if (strncmp(prop, "x-", strlen("x-")) == 0)
         {
             // handle 1 re props
-            // .'$XML'.'/^x-/'
+            // .'$xml'.'/^x-/'
             res = true;
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "unexpected $ANY [.'$XML'.'/^x-/']", (path ? &lpath_66 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected $ANY [.'$xml'.'/^x-/']", (path ? &lpath_66 : NULL));
             }
             if (! res)
             {
@@ -7124,22 +7124,22 @@ static INLINE bool _jm_obj_68(const json_t *val, jm_path_t *path, jm_report_t *r
         }
         else
         {
-            if (rep) jm_report_add_entry(rep, "unexpected prop [.'$XML']", (path ? &lpath_66 : NULL));
+            if (rep) jm_report_add_entry(rep, "unexpected prop [.'$xml']", (path ? &lpath_66 : NULL));
             return false;
         }
     }
     return true;
 }
 
-// check $XML (.'$XML')
+// check $xml (.'$xml')
 static bool json_model_34(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
-    // .'$XML'
+    // .'$xml'
     res = _jm_obj_68(val, path, rep);
     if (! res)
     {
-        if (rep) jm_report_add_entry(rep, "unexpected element [.'$XML']", path);
+        if (rep) jm_report_add_entry(rep, "unexpected element [.'$xml']", path);
     }
     return res;
 }
@@ -10104,7 +10104,7 @@ const char *check_model_init(void)
         check_model_map_tab[30] = (jm_propmap_t) { "schema", json_model_45 };
         check_model_map_tab[31] = (jm_propmap_t) { "Schema", json_model_32 };
         check_model_map_tab[32] = (jm_propmap_t) { "Discriminator", json_model_33 };
-        check_model_map_tab[33] = (jm_propmap_t) { "XML", json_model_34 };
+        check_model_map_tab[33] = (jm_propmap_t) { "xml", json_model_34 };
         check_model_map_tab[34] = (jm_propmap_t) { "SS-apikey", json_model_35 };
         check_model_map_tab[35] = (jm_propmap_t) { "SS-http", json_model_36 };
         check_model_map_tab[36] = (jm_propmap_t) { "SS-http-bearer", json_model_37 };

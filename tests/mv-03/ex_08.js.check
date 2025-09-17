@@ -2,7 +2,7 @@ ex_08.values.json[0]: PASS
 ex_08.values.json[1]: PASS
 ex_08.values.json[2]: PASS
 ex_08.values.json[3]: PASS
-ex_08.values.json[4]: FAIL (.: no model matched [.'$EX08'.'|']; .: unexpected $VAL [.'$EX08'.'|'.2]; .: not a bool [.'$VAL']; .: unexpected $URL [.'$EX08'.'|'.1]; .: unexpected $map [.'$EX08'.'|'.0]; .: unexpected element [.'$map']; .: not an object [.'$map'])
-ex_08.values.json[5]: FAIL (.: no model matched [.'$EX08'.'|']; .: unexpected $VAL [.'$EX08'.'|'.2]; .: not a bool [.'$VAL']; .: unexpected $URL [.'$EX08'.'|'.1]; .: unexpected $map [.'$EX08'.'|'.0]; .: unexpected element [.'$map']; .: not an object [.'$map'])
-ex_08.values.json[6]: FAIL (.: no model matched [.'$EX08'.'|']; .: unexpected $VAL [.'$EX08'.'|'.2]; .: not a bool [.'$VAL']; .: unexpected $URL [.'$EX08'.'|'.1]; .: unexpected $map [.'$EX08'.'|'.0]; .: unexpected element [.'$map']; .foo: unexpected prop [.'$map'])
-ex_08.values.json[7]: FAIL (.: no model matched [.'$EX08'.'|']; .: unexpected $VAL [.'$EX08'.'|'.2]; .: not a bool [.'$VAL']; .: unexpected $URL [.'$EX08'.'|'.1]; .: unexpected $map [.'$EX08'.'|'.0]; .: unexpected element [.'$map']; .drôle d'url quand même !: unexpected prop [.'$map'])
+ex_08.values.json[4]: FAIL (.: no model matched [.'$Ex08'.'|']; .: unexpected $Val [.'$Ex08'.'|'.2]; .: not a bool [.'$Val']; .: unexpected $URL [.'$Ex08'.'|'.1]; .: unexpected $map [.'$Ex08'.'|'.0]; .: unexpected element [.'$map']; .: not an object [.'$map'])
+ex_08.values.json[5]: FAIL (.: no model matched [.'$Ex08'.'|']; .: unexpected $Val [.'$Ex08'.'|'.2]; .: not a bool [.'$Val']; .: unexpected $URL [.'$Ex08'.'|'.1]; .: unexpected $map [.'$Ex08'.'|'.0]; .: unexpected element [.'$map']; .: not an object [.'$map'])
+ex_08.values.json[6]: FAIL (.: no model matched [.'$Ex08'.'|']; .: unexpected $Val [.'$Ex08'.'|'.2]; .: not a bool [.'$Val']; .: unexpected $URL [.'$Ex08'.'|'.1]; .: unexpected $map [.'$Ex08'.'|'.0]; .: unexpected element [.'$map']; .foo: unexpected prop [.'$map'])
+ex_08.values.json[7]: FAIL (.: no model matched [.'$Ex08'.'|']; .: unexpected $Val [.'$Ex08'.'|'.2]; .: not a bool [.'$Val']; .: unexpected $URL [.'$Ex08'.'|'.1]; .: unexpected $map [.'$Ex08'.'|'.0]; .: unexpected element [.'$map']; .drôle d'url quand même !: unexpected prop [.'$map'])

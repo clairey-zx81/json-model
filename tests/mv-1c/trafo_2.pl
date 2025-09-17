@@ -17,12 +17,12 @@ sub json_model_1($$$);
 sub json_model_6($$$);
 my %check_model_map;
 
-# check $Z (.'$Z')
+# check $Zz (.'$Zz')
 sub json_model_5($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
-    # .'$Z'
+    # .'$Zz'
     $res = json_model_6($val, $path, $rep);
     return $res;
 }
@@ -70,7 +70,7 @@ sub json_model_1($$$)
     return $res;
 }
 
-# object .'$Z#zero'
+# object .'$Zz#zero'
 sub _jm_obj_0($$$)
 {
     my ($val, $path, $rep) = @_;
@@ -87,7 +87,7 @@ sub _jm_obj_0($$$)
         {
             # handle must za property
             $must_count++;
-            # .'$Z#zero'.za
+            # .'$Zz#zero'.za
             $res = jm_is_integer($pval) && $pval >= 0;
             if (! $res)
             {
@@ -98,7 +98,7 @@ sub _jm_obj_0($$$)
         {
             # handle must zb property
             $must_count++;
-            # .'$Z#zero'.zb
+            # .'$Zz#zero'.zb
             $res = jm_is_integer($pval) && $pval >= 0;
             if (! $res)
             {
@@ -117,12 +117,12 @@ sub _jm_obj_0($$$)
     return 1;
 }
 
-# check $Z#zero (.'$Z#zero')
+# check $Zz#zero (.'$Zz#zero')
 sub json_model_6($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
-    # .'$Z#zero'
+    # .'$Zz#zero'
     $res = _jm_obj_0($val, $path, $rep);
     return $res;
 }
@@ -139,7 +139,7 @@ sub check_model_init()
         $initialized = 1;
         %check_model_map = (
             '' => \&json_model_4,
-            'Z' => \&json_model_5,
+            'Zz' => \&json_model_5,
             'z' => \&json_model_3,
             'l' => \&json_model_4,
         );

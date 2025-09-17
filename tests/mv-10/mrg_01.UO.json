@@ -6,13 +6,13 @@
     "d": "_cst_01",
     "#": "JsonModel 1",
     "$": {
-      "T": "_cst_01",
-      "X": {
+      "t": "_cst_01",
+      "x": {
         "a": "_cst_01",
         "b": "_cst_01",
         "#": "JsonModel 3"
       },
-      "Y": {
+      "y": {
         "c": "_cst_01",
         "d": "_cst_01",
         "#": "JsonModel 4"

@@ -19,15 +19,15 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep);
 jm_propmap_t check_model_map_tab[2];
 const size_t check_model_map_size = 2;
 
-// check $XXX (.'$XXX')
+// check $Xxx (.'$Xxx')
 static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
-    // .'$XXX'
+    // .'$Xxx'
     res = jm_json_is_scalar(val) && json_is_string(val) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(val) } }, _jm_cst_0, 3);;
     if (! res)
     {
-        if (rep) jm_report_add_entry(rep, "value not in enum [.'$XXX'.'|']", path);
+        if (rep) jm_report_add_entry(rep, "value not in enum [.'$Xxx'.'|']", path);
     }
     return res;
 }
@@ -87,11 +87,11 @@ static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *re
         else if (jm_check_fun_string(json_model_2, prop, (path ? &lpath_0 : NULL), rep))
         {
             // handle 1 key props
-            // .'$XXX'
+            // .'$Xxx'
             res = json_is_real(pval) && json_real_value(pval) >= 0.0;
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "not a 0.0 strict float [.'$XXX']", (path ? &lpath_0 : NULL));
+                if (rep) jm_report_add_entry(rep, "not a 0.0 strict float [.'$Xxx']", (path ? &lpath_0 : NULL));
             }
             if (! res)
             {
@@ -178,7 +178,7 @@ const char *check_model_init(void)
             return cre2_error_string(_jm_re_0_re2);
         _jm_re_0_nn = cre2_num_capturing_groups(_jm_re_0_re2) + 1;
         check_model_map_tab[0] = (jm_propmap_t) { "", json_model_1 };
-        check_model_map_tab[1] = (jm_propmap_t) { "XXX", json_model_2 };
+        check_model_map_tab[1] = (jm_propmap_t) { "Xxx", json_model_2 };
         jm_sort_propmap(check_model_map_tab, 2);
     }
     return NULL;

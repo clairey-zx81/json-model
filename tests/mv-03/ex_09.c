@@ -28,30 +28,30 @@ static bool json_model_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
     res = json_model_9(val, path, rep);
     if (! res)
     {
-        if (rep) jm_report_add_entry(rep, "unexpected $EX08 [.'$ex08']", path);
+        if (rep) jm_report_add_entry(rep, "unexpected $Ex08 [.'$ex08']", path);
     }
     return res;
 }
 
-// check $EX08 (.'$EX08')
+// check $Ex08 (.'$Ex08')
 static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
-    // .'$EX08'
+    // .'$Ex08'
     res = json_model_9(val, path, rep);
     if (! res)
     {
-        if (rep) jm_report_add_entry(rep, "unexpected $ex08#EX08 [.'$EX08']", path);
+        if (rep) jm_report_add_entry(rep, "unexpected $ex08#Ex08 [.'$Ex08']", path);
     }
     return res;
 }
 
-// object .'$EX09'
+// object .'$Ex09'
 static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (! json_is_object(val))
     {
-        if (rep) jm_report_add_entry(rep, "not an object [.'$EX09']", path);
+        if (rep) jm_report_add_entry(rep, "not an object [.'$Ex09']", path);
         return false;
     }
     bool res;
@@ -63,26 +63,26 @@ static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *re
         if (strcmp(prop, "#") == 0)
         {
             // handle may # property
-            // .'$EX09'.'#'
+            // .'$Ex09'.'#'
             res = json_is_string(pval);
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "unexpected string [.'$EX09'.'#']", (path ? &lpath_0 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected string [.'$Ex09'.'#']", (path ? &lpath_0 : NULL));
             }
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$EX09'.'#']", (path ? &lpath_0 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Ex09'.'#']", (path ? &lpath_0 : NULL));
                 return false;
             }
         }
         else if (jm_is_valid_url(prop, (path ? &lpath_0 : NULL), rep))
         {
             // handle 1 key props
-            // .'$EX09'.'$URL'
+            // .'$Ex09'.'$URL'
             res = json_model_6(pval, (path ? &lpath_0 : NULL), rep);
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "unexpected $ex08#VAL [.'$EX09'.'$URL']", (path ? &lpath_0 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected $ex08#Val [.'$Ex09'.'$URL']", (path ? &lpath_0 : NULL));
             }
             if (! res)
             {
@@ -91,22 +91,22 @@ static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *re
         }
         else
         {
-            if (rep) jm_report_add_entry(rep, "unexpected prop [.'$EX09']", (path ? &lpath_0 : NULL));
+            if (rep) jm_report_add_entry(rep, "unexpected prop [.'$Ex09']", (path ? &lpath_0 : NULL));
             return false;
         }
     }
     return true;
 }
 
-// check $EX09 (.'$EX09')
+// check $Ex09 (.'$Ex09')
 static bool json_model_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
-    // .'$EX09'
+    // .'$Ex09'
     res = _jm_obj_0(val, path, rep);
     if (! res)
     {
-        if (rep) jm_report_add_entry(rep, "unexpected element [.'$EX09']", path);
+        if (rep) jm_report_add_entry(rep, "unexpected element [.'$Ex09']", path);
     }
     return res;
 }
@@ -119,50 +119,50 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
     res = json_model_4(val, path, rep);
     if (! res)
     {
-        if (rep) jm_report_add_entry(rep, "unexpected $EX09 [.]", path);
+        if (rep) jm_report_add_entry(rep, "unexpected $Ex09 [.]", path);
     }
     return res;
 }
 
-// check $ex08#VAL (.'$ex08#VAL')
+// check $ex08#Val (.'$ex08#Val')
 static bool json_model_6(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
-    // .'$ex08#VAL'
+    // .'$ex08#Val'
     res = json_is_boolean(val);
     if (! res)
     {
-        if (rep) jm_report_add_entry(rep, "not a bool [.'$ex08#VAL']", path);
+        if (rep) jm_report_add_entry(rep, "not a bool [.'$ex08#Val']", path);
     }
     return res;
 }
 
-// check $ex08#EX08 (.'$ex08#EX08')
+// check $ex08#Ex08 (.'$ex08#Ex08')
 static bool json_model_9(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
-    // .'$ex08#EX08'
-    // .'$ex08#EX08'.'|'.0
+    // .'$ex08#Ex08'
+    // .'$ex08#Ex08'.'|'.0
     res = json_model_8(val, path, rep);
     if (! res)
     {
-        if (rep) jm_report_add_entry(rep, "unexpected $map [.'$ex08#EX08'.'|'.0]", path);
+        if (rep) jm_report_add_entry(rep, "unexpected $map [.'$ex08#Ex08'.'|'.0]", path);
     }
     if (! res)
     {
-        // .'$ex08#EX08'.'|'.1
+        // .'$ex08#Ex08'.'|'.1
         res = jm_is_valid_url(json_string_value(val), path, rep);
         if (! res)
         {
-            if (rep) jm_report_add_entry(rep, "unexpected $URL [.'$ex08#EX08'.'|'.1]", path);
+            if (rep) jm_report_add_entry(rep, "unexpected $URL [.'$ex08#Ex08'.'|'.1]", path);
         }
         if (! res)
         {
-            // .'$ex08#EX08'.'|'.2
+            // .'$ex08#Ex08'.'|'.2
             res = json_model_6(val, path, rep);
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "unexpected $VAL [.'$ex08#EX08'.'|'.2]", path);
+                if (rep) jm_report_add_entry(rep, "unexpected $Val [.'$ex08#Ex08'.'|'.2]", path);
             }
         }
     }
@@ -172,7 +172,7 @@ static bool json_model_9(const json_t *val, jm_path_t *path, jm_report_t *rep)
     }
     else
     {
-        if (rep) jm_report_add_entry(rep, "no model matched [.'$ex08#EX08'.'|']", path);
+        if (rep) jm_report_add_entry(rep, "no model matched [.'$ex08#Ex08'.'|']", path);
     }
     return res;
 }
@@ -198,7 +198,7 @@ static INLINE bool _jm_obj_1(const json_t *val, jm_path_t *path, jm_report_t *re
             res = json_model_6(pval, (path ? &lpath_1 : NULL), rep);
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "unexpected $VAL [.'$ex08#map'.'$URL']", (path ? &lpath_1 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected $Val [.'$ex08#map'.'$URL']", (path ? &lpath_1 : NULL));
             }
             if (! res)
             {
@@ -242,8 +242,8 @@ const char *check_model_init(void)
         jm_version_string = JSON_MODEL_VERSION;
         check_model_map_tab[0] = (jm_propmap_t) { "", json_model_4 };
         check_model_map_tab[1] = (jm_propmap_t) { "ex08", json_model_3 };
-        check_model_map_tab[2] = (jm_propmap_t) { "EX08", json_model_3 };
-        check_model_map_tab[3] = (jm_propmap_t) { "EX09", json_model_4 };
+        check_model_map_tab[2] = (jm_propmap_t) { "Ex08", json_model_3 };
+        check_model_map_tab[3] = (jm_propmap_t) { "Ex09", json_model_4 };
         jm_sort_propmap(check_model_map_tab, 4);
     }
     return NULL;

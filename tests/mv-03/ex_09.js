@@ -19,30 +19,30 @@ function json_model_5(val, path, rep)
     res = json_model_9(val, path, rep);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected $EX08 [.'$ex08']", path])
+        rep !== null && rep.push(["unexpected $Ex08 [.'$ex08']", path])
     }
     return res;
 }
 
-// check $EX08 (.'$EX08')
+// check $Ex08 (.'$Ex08')
 function json_model_3(val, path, rep)
 {
     let res;
-    // .'$EX08'
+    // .'$Ex08'
     res = json_model_9(val, path, rep);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected $ex08#EX08 [.'$EX08']", path])
+        rep !== null && rep.push(["unexpected $ex08#Ex08 [.'$Ex08']", path])
     }
     return res;
 }
 
-// object .'$EX09'
+// object .'$Ex09'
 function _jm_obj_0(val, path, rep)
 {
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
-        rep !== null && rep.push(["not an object [.'$EX09']", path])
+        rep !== null && rep.push(["not an object [.'$Ex09']", path])
         return false;
     }
     let res;
@@ -52,26 +52,26 @@ function _jm_obj_0(val, path, rep)
         if (prop == "#")
         {
             // handle may # property
-            // .'$EX09'.'#'
+            // .'$Ex09'.'#'
             res = (typeof pval === 'string' || pval instanceof String);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected string [.'$EX09'.'#']", (path ? lpath_0 : null)])
+                rep !== null && rep.push(["unexpected string [.'$Ex09'.'#']", (path ? lpath_0 : null)])
             }
             if (! res)
             {
-                rep !== null && rep.push(["invalid optional prop value [.'$EX09'.'#']", (path ? lpath_0 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$Ex09'.'#']", (path ? lpath_0 : null)])
                 return false;
             }
         }
         else if (runtime.jm_is_valid_url(prop))
         {
             // handle 1 key props
-            // .'$EX09'.'$URL'
+            // .'$Ex09'.'$URL'
             res = json_model_6(pval, (path ? lpath_0 : null), rep);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected $ex08#VAL [.'$EX09'.'$URL']", (path ? lpath_0 : null)])
+                rep !== null && rep.push(["unexpected $ex08#Val [.'$Ex09'.'$URL']", (path ? lpath_0 : null)])
             }
             if (! res)
             {
@@ -80,22 +80,22 @@ function _jm_obj_0(val, path, rep)
         }
         else
         {
-            rep !== null && rep.push(["unexpected prop [.'$EX09']", (path ? lpath_0 : null)])
+            rep !== null && rep.push(["unexpected prop [.'$Ex09']", (path ? lpath_0 : null)])
             return false;
         }
     }
     return true;
 }
 
-// check $EX09 (.'$EX09')
+// check $Ex09 (.'$Ex09')
 function json_model_4(val, path, rep)
 {
     let res;
-    // .'$EX09'
+    // .'$Ex09'
     res = _jm_obj_0(val, path, rep);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected element [.'$EX09']", path])
+        rep !== null && rep.push(["unexpected element [.'$Ex09']", path])
     }
     return res;
 }
@@ -108,50 +108,50 @@ function json_model_1(val, path, rep)
     res = json_model_4(val, path, rep);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected $EX09 [.]", path])
+        rep !== null && rep.push(["unexpected $Ex09 [.]", path])
     }
     return res;
 }
 
-// check $ex08#VAL (.'$ex08#VAL')
+// check $ex08#Val (.'$ex08#Val')
 function json_model_6(val, path, rep)
 {
     let res;
-    // .'$ex08#VAL'
+    // .'$ex08#Val'
     res = (typeof val === 'boolean' || val instanceof Boolean);
     if (! res)
     {
-        rep !== null && rep.push(["not a bool [.'$ex08#VAL']", path])
+        rep !== null && rep.push(["not a bool [.'$ex08#Val']", path])
     }
     return res;
 }
 
-// check $ex08#EX08 (.'$ex08#EX08')
+// check $ex08#Ex08 (.'$ex08#Ex08')
 function json_model_9(val, path, rep)
 {
     let res;
-    // .'$ex08#EX08'
-    // .'$ex08#EX08'.'|'.0
+    // .'$ex08#Ex08'
+    // .'$ex08#Ex08'.'|'.0
     res = json_model_8(val, path, rep);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected $map [.'$ex08#EX08'.'|'.0]", path])
+        rep !== null && rep.push(["unexpected $map [.'$ex08#Ex08'.'|'.0]", path])
     }
     if (! res)
     {
-        // .'$ex08#EX08'.'|'.1
+        // .'$ex08#Ex08'.'|'.1
         res = runtime.jm_is_valid_url(val);
         if (! res)
         {
-            rep !== null && rep.push(["unexpected $URL [.'$ex08#EX08'.'|'.1]", path])
+            rep !== null && rep.push(["unexpected $URL [.'$ex08#Ex08'.'|'.1]", path])
         }
         if (! res)
         {
-            // .'$ex08#EX08'.'|'.2
+            // .'$ex08#Ex08'.'|'.2
             res = json_model_6(val, path, rep);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected $VAL [.'$ex08#EX08'.'|'.2]", path])
+                rep !== null && rep.push(["unexpected $Val [.'$ex08#Ex08'.'|'.2]", path])
             }
         }
     }
@@ -161,7 +161,7 @@ function json_model_9(val, path, rep)
     }
     else
     {
-        rep !== null && rep.push(["no model matched [.'$ex08#EX08'.'|']", path])
+        rep !== null && rep.push(["no model matched [.'$ex08#Ex08'.'|']", path])
     }
     return res;
 }
@@ -185,7 +185,7 @@ function _jm_obj_1(val, path, rep)
             res = json_model_6(pval, (path ? lpath_1 : null), rep);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected $VAL [.'$ex08#map'.'$URL']", (path ? lpath_1 : null)])
+                rep !== null && rep.push(["unexpected $Val [.'$ex08#map'.'$URL']", (path ? lpath_1 : null)])
             }
             if (! res)
             {
@@ -226,8 +226,8 @@ export function check_model_init()
         runtime.jm_set_rx(RegExp)
         check_model_map.set("", json_model_4)
         check_model_map.set("ex08", json_model_3)
-        check_model_map.set("EX08", json_model_3)
-        check_model_map.set("EX09", json_model_4)
+        check_model_map.set("Ex08", json_model_3)
+        check_model_map.set("Ex09", json_model_4)
     }
 }
 

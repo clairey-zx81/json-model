@@ -23,13 +23,13 @@ def check_model(val: Jsonable, name: str = "", rep: Report = None) -> bool:
 _jm_cst_0: set[str]
 check_model_map: PropMap
 
-# check $XXX (.'$XXX')
+# check $Xxx (.'$Xxx')
 def json_model_2(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
-    # .'$XXX'
+    # .'$Xxx'
     res = ((val is None or isinstance(val, (bool, int, float, str)))) and val in _jm_cst_0
     if not res:
-        rep is None or rep.append(("value not in enum [.'$XXX'.'|']", path))
+        rep is None or rep.append(("value not in enum [.'$Xxx'.'|']", path))
     return res
 
 # object .
@@ -43,10 +43,10 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
         lpath_0: Path = (path + [ prop ]) if path is not None else None
         if json_model_2(prop, lpath_0 if path is not None else None, rep):
             # handle 1 key props
-            # .'$XXX'
+            # .'$Xxx'
             res = isinstance(pval, float) and pval >= 0.0
             if not res:
-                rep is None or rep.append(("not a 0.0 strict float [.'$XXX']", lpath_0 if path is not None else None))
+                rep is None or rep.append(("not a 0.0 strict float [.'$Xxx']", lpath_0 if path is not None else None))
             if not res:
                 return False
         else:
@@ -78,7 +78,7 @@ def check_model_init():
         global check_model_map
         check_model_map = {
             "": json_model_1,
-            "XXX": json_model_2,
+            "Xxx": json_model_2,
         }
 
 # differed module cleanup

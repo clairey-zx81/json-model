@@ -2,7 +2,7 @@
   {
     "#": "JsonModel 1 with defs",
     "$": {
-      "A": {
+      "Aa": {
         "|": [
           true,
           1,
@@ -14,7 +14,7 @@
       "#": "Symbol 1",
       "": "./xoropt-003.model.json"
     },
-    "@": "$A"
+    "@": "$Aa"
   },
   {
     "|": [

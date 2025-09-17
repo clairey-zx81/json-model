@@ -3,14 +3,14 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "description": "trivial and non trivial comments",
   "$defs": {
-    "P": {
+    "Pp": {
       "type": "integer",
       "minimum": 0
     },
-    "Q": {
+    "Qq": {
       "type": "array",
       "items": {
-        "$ref": "#/$defs/P"
+        "$ref": "#/$defs/Pp"
       }
     }
   },
@@ -21,10 +21,10 @@
       "type": "object",
       "properties": {
         "p": {
-          "$ref": "#/$defs/P"
+          "$ref": "#/$defs/Pp"
         },
         "q": {
-          "$ref": "#/$defs/Q"
+          "$ref": "#/$defs/Qq"
         },
         "t": {
           "type": "array",

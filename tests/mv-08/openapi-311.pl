@@ -5073,7 +5073,7 @@ sub json_model_33($$$)
     return $res;
 }
 
-# object .'$XML'
+# object .'$xml'
 sub _jm_obj_68($$$)
 {
     my ($val, $path, $rep) = @_;
@@ -5088,7 +5088,7 @@ sub _jm_obj_68($$$)
         if ($prop eq 'name')
         {
             # handle may name property
-            # .'$XML'.name
+            # .'$xml'.name
             $res = jm_is_string($pval);
             if (! $res)
             {
@@ -5098,7 +5098,7 @@ sub _jm_obj_68($$$)
         elsif ($prop eq 'namespace')
         {
             # handle may namespace property
-            # .'$XML'.namespace
+            # .'$xml'.namespace
             $res = jm_is_string($pval);
             if (! $res)
             {
@@ -5108,7 +5108,7 @@ sub _jm_obj_68($$$)
         elsif ($prop eq 'prefix')
         {
             # handle may prefix property
-            # .'$XML'.prefix
+            # .'$xml'.prefix
             $res = jm_is_string($pval);
             if (! $res)
             {
@@ -5118,7 +5118,7 @@ sub _jm_obj_68($$$)
         elsif ($prop eq 'attribute')
         {
             # handle may attribute property
-            # .'$XML'.attribute
+            # .'$xml'.attribute
             $res = jm_is_boolean($pval);
             if (! $res)
             {
@@ -5128,7 +5128,7 @@ sub _jm_obj_68($$$)
         elsif ($prop eq 'wrapped')
         {
             # handle may wrapped property
-            # .'$XML'.wrapped
+            # .'$xml'.wrapped
             $res = jm_is_boolean($pval);
             if (! $res)
             {
@@ -5138,7 +5138,7 @@ sub _jm_obj_68($$$)
         elsif (jm_starts_with($prop, 'x-'))
         {
             # handle 1 re props
-            # .'$XML'.'/^x-/'
+            # .'$xml'.'/^x-/'
             $res = 1;
             if (! $res)
             {
@@ -5153,12 +5153,12 @@ sub _jm_obj_68($$$)
     return 1;
 }
 
-# check $XML (.'$XML')
+# check $xml (.'$xml')
 sub json_model_34($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
-    # .'$XML'
+    # .'$xml'
     $res = _jm_obj_68($val, $path, $rep);
     return $res;
 }
@@ -7358,7 +7358,7 @@ sub check_model_init()
             'schema' => \&json_model_45,
             'Schema' => \&json_model_32,
             'Discriminator' => \&json_model_33,
-            'XML' => \&json_model_34,
+            'xml' => \&json_model_34,
             'SS-apikey' => \&json_model_35,
             'SS-http' => \&json_model_36,
             'SS-http-bearer' => \&json_model_37,

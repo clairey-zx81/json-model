@@ -18,28 +18,28 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep);
 jm_propmap_t check_model_map_tab[5];
 const size_t check_model_map_size = 5;
 
-// check $VAL (.'$VAL')
+// check $Val (.'$Val')
 static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
-    // .'$VAL'
+    // .'$Val'
     res = json_is_boolean(val);
     if (! res)
     {
-        if (rep) jm_report_add_entry(rep, "not a bool [.'$VAL']", path);
+        if (rep) jm_report_add_entry(rep, "not a bool [.'$Val']", path);
     }
     return res;
 }
 
-// check $KEY (.'$KEY')
+// check $Key (.'$Key')
 static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
-    // .'$KEY'
+    // .'$Key'
     res = jm_is_valid_url(json_string_value(val), path, rep);
     if (! res)
     {
-        if (rep) jm_report_add_entry(rep, "unexpected $URL [.'$KEY']", path);
+        if (rep) jm_report_add_entry(rep, "unexpected $URL [.'$Key']", path);
     }
     return res;
 }
@@ -65,7 +65,7 @@ static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *re
             res = json_model_2(pval, (path ? &lpath_0 : NULL), rep);
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "unexpected $VAL [.'$map'.'$URL']", (path ? &lpath_0 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected $Val [.'$map'.'$URL']", (path ? &lpath_0 : NULL));
             }
             if (! res)
             {
@@ -94,32 +94,32 @@ static bool json_model_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check $EX08 (.'$EX08')
+// check $Ex08 (.'$Ex08')
 static bool json_model_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
-    // .'$EX08'
-    // .'$EX08'.'|'.0
+    // .'$Ex08'
+    // .'$Ex08'.'|'.0
     res = json_model_4(val, path, rep);
     if (! res)
     {
-        if (rep) jm_report_add_entry(rep, "unexpected $map [.'$EX08'.'|'.0]", path);
+        if (rep) jm_report_add_entry(rep, "unexpected $map [.'$Ex08'.'|'.0]", path);
     }
     if (! res)
     {
-        // .'$EX08'.'|'.1
+        // .'$Ex08'.'|'.1
         res = jm_is_valid_url(json_string_value(val), path, rep);
         if (! res)
         {
-            if (rep) jm_report_add_entry(rep, "unexpected $URL [.'$EX08'.'|'.1]", path);
+            if (rep) jm_report_add_entry(rep, "unexpected $URL [.'$Ex08'.'|'.1]", path);
         }
         if (! res)
         {
-            // .'$EX08'.'|'.2
+            // .'$Ex08'.'|'.2
             res = json_model_2(val, path, rep);
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "unexpected $VAL [.'$EX08'.'|'.2]", path);
+                if (rep) jm_report_add_entry(rep, "unexpected $Val [.'$Ex08'.'|'.2]", path);
             }
         }
     }
@@ -129,7 +129,7 @@ static bool json_model_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
     }
     else
     {
-        if (rep) jm_report_add_entry(rep, "no model matched [.'$EX08'.'|']", path);
+        if (rep) jm_report_add_entry(rep, "no model matched [.'$Ex08'.'|']", path);
     }
     return res;
 }
@@ -142,7 +142,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
     res = json_model_5(val, path, rep);
     if (! res)
     {
-        if (rep) jm_report_add_entry(rep, "unexpected $EX08 [.]", path);
+        if (rep) jm_report_add_entry(rep, "unexpected $Ex08 [.]", path);
     }
     return res;
 }
@@ -161,10 +161,10 @@ const char *check_model_init(void)
         initialized = true;
         jm_version_string = JSON_MODEL_VERSION;
         check_model_map_tab[0] = (jm_propmap_t) { "", json_model_5 };
-        check_model_map_tab[1] = (jm_propmap_t) { "VAL", json_model_2 };
-        check_model_map_tab[2] = (jm_propmap_t) { "KEY", json_model_3 };
+        check_model_map_tab[1] = (jm_propmap_t) { "Val", json_model_2 };
+        check_model_map_tab[2] = (jm_propmap_t) { "Key", json_model_3 };
         check_model_map_tab[3] = (jm_propmap_t) { "map", json_model_4 };
-        check_model_map_tab[4] = (jm_propmap_t) { "EX08", json_model_5 };
+        check_model_map_tab[4] = (jm_propmap_t) { "Ex08", json_model_5 };
         jm_sort_propmap(check_model_map_tab, 5);
     }
     return NULL;

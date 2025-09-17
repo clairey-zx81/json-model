@@ -17,22 +17,22 @@ sub json_model_5($$$);
 sub json_model_1($$$);
 my %check_model_map;
 
-# check $VAL (.'$VAL')
+# check $Val (.'$Val')
 sub json_model_2($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
-    # .'$VAL'
+    # .'$Val'
     $res = jm_is_boolean($val);
     return $res;
 }
 
-# check $KEY (.'$KEY')
+# check $Key (.'$Key')
 sub json_model_3($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
-    # .'$KEY'
+    # .'$Key'
     $res = jm_is_string($val) && jm_is_valid_url($val, $path, $rep);
     return $res;
 }
@@ -77,21 +77,21 @@ sub json_model_4($$$)
     return $res;
 }
 
-# check $EX08 (.'$EX08')
+# check $Ex08 (.'$Ex08')
 sub json_model_5($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
-    # .'$EX08'
-    # .'$EX08'.'|'.0
+    # .'$Ex08'
+    # .'$Ex08'.'|'.0
     $res = json_model_4($val, $path, $rep);
     if (! $res)
     {
-        # .'$EX08'.'|'.1
+        # .'$Ex08'.'|'.1
         $res = jm_is_string($val) && jm_is_valid_url($val, $path, $rep);
         if (! $res)
         {
-            # .'$EX08'.'|'.2
+            # .'$Ex08'.'|'.2
             $res = json_model_2($val, $path, $rep);
         }
     }
@@ -120,10 +120,10 @@ sub check_model_init()
         $initialized = 1;
         %check_model_map = (
             '' => \&json_model_5,
-            'VAL' => \&json_model_2,
-            'KEY' => \&json_model_3,
+            'Val' => \&json_model_2,
+            'Key' => \&json_model_3,
             'map' => \&json_model_4,
-            'EX08' => \&json_model_5,
+            'Ex08' => \&json_model_5,
         );
     }
 }

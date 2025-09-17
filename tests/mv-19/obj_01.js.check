@@ -1,9 +1,9 @@
 obj_01.values.json[0]: PASS
-obj_01.values.json[1]: PASS (.whatever: value not in enum [.'$XXX'.'|']; .314: value not in enum [.'$XXX'.'|'])
+obj_01.values.json[1]: PASS (.whatever: value not in enum [.'$Xxx'.'|']; .314: value not in enum [.'$Xxx'.'|'])
 obj_01.values.json[2]: FAIL (.: unexpected element [.]; .bla: invalid optional prop value [.bla]; .bla: not a bool [.bla])
-obj_01.values.json[3]: FAIL (.: unexpected element [.]; .X: not a 0.0 strict float [.'$XXX'])
-obj_01.values.json[4]: FAIL (.: unexpected element [.]; .418: not a 0 strict int [.'/^[0-9]+$/']; .418: value not in enum [.'$XXX'.'|'])
-obj_01.values.json[5]: FAIL (.: unexpected element [.]; .whatever: not null [.'']; .whatever: value not in enum [.'$XXX'.'|'])
+obj_01.values.json[3]: FAIL (.: unexpected element [.]; .X: not a 0.0 strict float [.'$Xxx'])
+obj_01.values.json[4]: FAIL (.: unexpected element [.]; .418: not a 0 strict int [.'/^[0-9]+$/']; .418: value not in enum [.'$Xxx'.'|'])
+obj_01.values.json[5]: FAIL (.: unexpected element [.]; .whatever: not null [.'']; .whatever: value not in enum [.'$Xxx'.'|'])
 obj_01.values.json[6]: FAIL (.: unexpected element [.]; .: missing mandatory prop <foo> [.''])
 obj_01.values.json[7]: FAIL (.: unexpected element [.]; .: not an object [.])
 obj_01.values.json[8]: FAIL (.: unexpected element [.]; .: not an object [.])

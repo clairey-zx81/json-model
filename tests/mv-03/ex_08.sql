@@ -5,25 +5,25 @@
 -- JSON_MODEL_VERSION is 2
 CREATE EXTENSION IF NOT EXISTS json_model;
 
--- check $VAL (.'$VAL')
+-- check $Val (.'$Val')
 CREATE OR REPLACE FUNCTION json_model_2(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
 BEGIN
-  -- .'$VAL'
+  -- .'$Val'
   res := JSONB_TYPEOF(val) = 'boolean';
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check $KEY (.'$KEY')
+-- check $Key (.'$Key')
 CREATE OR REPLACE FUNCTION json_model_3(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
 BEGIN
-  -- .'$KEY'
+  -- .'$Key'
   res := JSONB_TYPEOF(val) = 'string' AND jm_is_valid_url(JSON_VALUE(val, '$' RETURNING TEXT), path, rep);
   RETURN res;
 END;
@@ -68,20 +68,20 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check $EX08 (.'$EX08')
+-- check $Ex08 (.'$Ex08')
 CREATE OR REPLACE FUNCTION json_model_5(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
 BEGIN
-  -- .'$EX08'
-  -- .'$EX08'.'|'.0
+  -- .'$Ex08'
+  -- .'$Ex08'.'|'.0
   res := json_model_4(val, path, rep);
   IF NOT res THEN
-    -- .'$EX08'.'|'.1
+    -- .'$Ex08'.'|'.1
     res := JSONB_TYPEOF(val) = 'string' AND jm_is_valid_url(JSON_VALUE(val, '$' RETURNING TEXT), path, rep);
     IF NOT res THEN
-      -- .'$EX08'.'|'.2
+      -- .'$Ex08'.'|'.2
       res := json_model_2(val, path, rep);
     END IF;
   END IF;
@@ -104,7 +104,7 @@ $$ LANGUAGE PLpgSQL;
 CREATE OR REPLACE FUNCTION check_model_map(name TEXT)
 RETURNS TEXT STRICT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
-  map JSONB := JSONB '{"":"json_model_5","VAL":"json_model_2","KEY":"json_model_3","map":"json_model_4","EX08":"json_model_5"}';
+  map JSONB := JSONB '{"":"json_model_5","Val":"json_model_2","Key":"json_model_3","map":"json_model_4","Ex08":"json_model_5"}';
 BEGIN
   RETURN map->>name;
 END;

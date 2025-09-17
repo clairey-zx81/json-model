@@ -24,34 +24,34 @@ _jm_re_0_reco: object
 _jm_re_0: RegexFun
 check_model_map: PropMap
 
-# check $A (.'$A')
+# check $Aa (.'$Aa')
 def json_model_2(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
-    # .'$A'
-    # .'$A'.'|'.0
+    # .'$Aa'
+    # .'$Aa'.'|'.0
     res = isinstance(val, bool)
     if not res:
-        rep is None or rep.append(("not a bool [.'$A'.'|'.0]", path))
+        rep is None or rep.append(("not a bool [.'$Aa'.'|'.0]", path))
     if not res:
-        # .'$A'.'|'.1
+        # .'$Aa'.'|'.1
         res = isinstance(val, int) and not isinstance(val, bool) and val >= 1
         if not res:
-            rep is None or rep.append(("not a 1 strict int [.'$A'.'|'.1]", path))
+            rep is None or rep.append(("not a 1 strict int [.'$Aa'.'|'.1]", path))
         if not res:
-            # .'$A'.'|'.2
+            # .'$Aa'.'|'.2
             res = isinstance(val, float) and val > 0.0
             if not res:
-                rep is None or rep.append(("not a 1.0 strict float [.'$A'.'|'.2]", path))
+                rep is None or rep.append(("not a 1.0 strict float [.'$Aa'.'|'.2]", path))
             if not res:
-                # .'$A'.'|'.3
+                # .'$Aa'.'|'.3
                 # "/[a-z]/"
                 res = isinstance(val, str) and _jm_re_0(val, path, rep)
                 if not res:
-                    rep is None or rep.append(("unexpected /[a-z]/ [.'$A'.'|'.3]", path))
+                    rep is None or rep.append(("unexpected /[a-z]/ [.'$Aa'.'|'.3]", path))
     if res:
         rep is None or rep.clear()
     else:
-        rep is None or rep.append(("no model matched [.'$A'.'|']", path))
+        rep is None or rep.append(("no model matched [.'$Aa'.'|']", path))
     return res
 
 # check $ (.)
@@ -60,7 +60,7 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     # .
     res = json_model_2(val, path, rep)
     if not res:
-        rep is None or rep.append(("unexpected $A [.]", path))
+        rep is None or rep.append(("unexpected $Aa [.]", path))
     return res
 
 
@@ -78,7 +78,7 @@ def check_model_init():
         global check_model_map
         check_model_map = {
             "": json_model_2,
-            "A": json_model_2,
+            "Aa": json_model_2,
         }
 
 # differed module cleanup

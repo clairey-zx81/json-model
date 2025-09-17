@@ -5,14 +5,14 @@
     "a": {
       "const": "a"
     },
-    "A": {
+    "Aa": {
       "type": "string"
     }
   },
   "type": "object",
   "properties": {
     "a": {
-      "$ref": "#/$defs/A"
+      "$ref": "#/$defs/Aa"
     }
   },
   "additionalProperties": false

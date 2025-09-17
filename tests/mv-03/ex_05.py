@@ -22,22 +22,22 @@ def check_model(val: Jsonable, name: str = "", rep: Report = None) -> bool:
 
 check_model_map: PropMap
 
-# check $EX05a (.'$EX05a')
+# check $Ex05a (.'$Ex05a')
 def json_model_2(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
-    # .'$EX05a'
+    # .'$Ex05a'
     res = isinstance(val, int) and not isinstance(val, bool) and val >= 0
     if not res:
-        rep is None or rep.append(("not a 0 strict int [.'$EX05a']", path))
+        rep is None or rep.append(("not a 0 strict int [.'$Ex05a']", path))
     return res
 
-# check $EX05b (.'$EX05b')
+# check $Ex05b (.'$Ex05b')
 def json_model_3(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
-    # .'$EX05b'
+    # .'$Ex05b'
     res = isinstance(val, str)
     if not res:
-        rep is None or rep.append(("unexpected string [.'$EX05b']", path))
+        rep is None or rep.append(("unexpected string [.'$Ex05b']", path))
     return res
 
 # check $ (.)
@@ -47,12 +47,12 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'|'.0
     res = json_model_2(val, path, rep)
     if not res:
-        rep is None or rep.append(("unexpected $EX05a [.'|'.0]", path))
+        rep is None or rep.append(("unexpected $Ex05a [.'|'.0]", path))
     if not res:
         # .'|'.1
         res = json_model_3(val, path, rep)
         if not res:
-            rep is None or rep.append(("unexpected $EX05b [.'|'.1]", path))
+            rep is None or rep.append(("unexpected $Ex05b [.'|'.1]", path))
     if res:
         rep is None or rep.clear()
     else:
@@ -71,8 +71,8 @@ def check_model_init():
         global check_model_map
         check_model_map = {
             "": json_model_1,
-            "EX05a": json_model_2,
-            "EX05b": json_model_3,
+            "Ex05a": json_model_2,
+            "Ex05b": json_model_3,
         }
 
 # differed module cleanup

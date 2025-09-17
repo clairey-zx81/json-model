@@ -1,7 +1,7 @@
 {
   "#": "prop ref to enum",
   "$": {
-    "XXX": {"|": ["X", "XX", "XXX"]}
+    "Xxx": {"|": ["X", "XX", "XXX"]}
   },
-  "$XXX": 0.0
+  "$Xxx": 0.0
 }

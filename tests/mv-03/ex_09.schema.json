@@ -3,16 +3,16 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$defs": {
     "ex08": {
-      "$ref": "#/$defs/EX08"
+      "$ref": "#/$defs/Ex08"
     },
-    "EX08": {
-      "$ref": "#/$defs/ex08#EX08"
+    "Ex08": {
+      "$ref": "#/$defs/ex08#Ex08"
     },
-    "EX09": {
+    "Ex09": {
       "type": "object",
       "patternProperties": {
         "^((https?|file)://.*|\\..*)$": {
-          "$ref": "#/$defs/ex08#VAL"
+          "$ref": "#/$defs/ex08#Val"
         }
       },
       "properties": {
@@ -23,5 +23,5 @@
       "additionalProperties": false
     }
   },
-  "$ref": "#/$defs/EX09"
+  "$ref": "#/$defs/Ex09"
 }

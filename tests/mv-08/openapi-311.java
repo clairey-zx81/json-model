@@ -6653,7 +6653,7 @@ public class openapi_311 extends ModelChecker
         res = json_model_34(val, path, rep);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected $XML [.'$Schema'.xml]", path);
+            if (rep != null) rep.addEntry("unexpected $xml [.'$Schema'.xml]", path);
         }
         return res;
     }
@@ -6829,12 +6829,12 @@ public class openapi_311 extends ModelChecker
         return res;
     }
     
-    // object .'$XML'
+    // object .'$xml'
     public boolean _jm_obj_68(Object val, Path path, Report rep)
     {
         if (! json.isObject(val))
         {
-            if (rep != null) rep.addEntry("not an object [.'$XML']", path);
+            if (rep != null) rep.addEntry("not an object [.'$xml']", path);
             return false;
         }
         boolean res;
@@ -6847,86 +6847,86 @@ public class openapi_311 extends ModelChecker
             if (prop.compareTo("name") == 0)
             {
                 // handle may name property
-                // .'$XML'.name
+                // .'$xml'.name
                 res = json.isString(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.'$XML'.name]", (path != null ? lpath_66 : null));
+                    if (rep != null) rep.addEntry("unexpected string [.'$xml'.name]", (path != null ? lpath_66 : null));
                 }
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$XML'.name]", (path != null ? lpath_66 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$xml'.name]", (path != null ? lpath_66 : null));
                     return false;
                 }
             }
             else if (prop.compareTo("namespace") == 0)
             {
                 // handle may namespace property
-                // .'$XML'.namespace
+                // .'$xml'.namespace
                 res = json.isString(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.'$XML'.namespace]", (path != null ? lpath_66 : null));
+                    if (rep != null) rep.addEntry("unexpected string [.'$xml'.namespace]", (path != null ? lpath_66 : null));
                 }
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$XML'.namespace]", (path != null ? lpath_66 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$xml'.namespace]", (path != null ? lpath_66 : null));
                     return false;
                 }
             }
             else if (prop.compareTo("prefix") == 0)
             {
                 // handle may prefix property
-                // .'$XML'.prefix
+                // .'$xml'.prefix
                 res = json.isString(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.'$XML'.prefix]", (path != null ? lpath_66 : null));
+                    if (rep != null) rep.addEntry("unexpected string [.'$xml'.prefix]", (path != null ? lpath_66 : null));
                 }
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$XML'.prefix]", (path != null ? lpath_66 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$xml'.prefix]", (path != null ? lpath_66 : null));
                     return false;
                 }
             }
             else if (prop.compareTo("attribute") == 0)
             {
                 // handle may attribute property
-                // .'$XML'.attribute
+                // .'$xml'.attribute
                 res = json.isBoolean(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("not a bool [.'$XML'.attribute]", (path != null ? lpath_66 : null));
+                    if (rep != null) rep.addEntry("not a bool [.'$xml'.attribute]", (path != null ? lpath_66 : null));
                 }
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$XML'.attribute]", (path != null ? lpath_66 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$xml'.attribute]", (path != null ? lpath_66 : null));
                     return false;
                 }
             }
             else if (prop.compareTo("wrapped") == 0)
             {
                 // handle may wrapped property
-                // .'$XML'.wrapped
+                // .'$xml'.wrapped
                 res = json.isBoolean(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("not a bool [.'$XML'.wrapped]", (path != null ? lpath_66 : null));
+                    if (rep != null) rep.addEntry("not a bool [.'$xml'.wrapped]", (path != null ? lpath_66 : null));
                 }
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$XML'.wrapped]", (path != null ? lpath_66 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$xml'.wrapped]", (path != null ? lpath_66 : null));
                     return false;
                 }
             }
             else if (prop.startsWith("x-"))
             {
                 // handle 1 re props
-                // .'$XML'.'/^x-/'
+                // .'$xml'.'/^x-/'
                 res = true;
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $ANY [.'$XML'.'/^x-/']", (path != null ? lpath_66 : null));
+                    if (rep != null) rep.addEntry("unexpected $ANY [.'$xml'.'/^x-/']", (path != null ? lpath_66 : null));
                 }
                 if (! res)
                 {
@@ -6935,22 +6935,22 @@ public class openapi_311 extends ModelChecker
             }
             else
             {
-                if (rep != null) rep.addEntry("unexpected prop [.'$XML']", (path != null ? lpath_66 : null));
+                if (rep != null) rep.addEntry("unexpected prop [.'$xml']", (path != null ? lpath_66 : null));
                 return false;
             }
         }
         return true;
     }
     
-    // check $XML (.'$XML')
+    // check $xml (.'$xml')
     public boolean json_model_34(Object val, Path path, Report rep)
     {
         boolean res;
-        // .'$XML'
+        // .'$xml'
         res = _jm_obj_68(val, path, rep);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected element [.'$XML']", path);
+            if (rep != null) rep.addEntry("unexpected element [.'$xml']", path);
         }
         return res;
     }
@@ -9916,7 +9916,7 @@ public class openapi_311 extends ModelChecker
             openapi_311_map_pmap.put("schema", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_45(o, p, r);} });
             openapi_311_map_pmap.put("Schema", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_32(o, p, r);} });
             openapi_311_map_pmap.put("Discriminator", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_33(o, p, r);} });
-            openapi_311_map_pmap.put("XML", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_34(o, p, r);} });
+            openapi_311_map_pmap.put("xml", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_34(o, p, r);} });
             openapi_311_map_pmap.put("SS-apikey", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_35(o, p, r);} });
             openapi_311_map_pmap.put("SS-http", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_36(o, p, r);} });
             openapi_311_map_pmap.put("SS-http-bearer", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_37(o, p, r);} });

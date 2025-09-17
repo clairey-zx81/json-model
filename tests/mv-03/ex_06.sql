@@ -22,13 +22,13 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check $EX06 (.'$EX06')
+-- check $Ex06 (.'$Ex06')
 CREATE OR REPLACE FUNCTION json_model_3(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
 BEGIN
-  -- .'$EX06'
+  -- .'$Ex06'
   res := JSONB_TYPEOF(val) = 'boolean';
   RETURN res;
 END;
@@ -58,25 +58,25 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check $ex5#EX05a (.'$ex5#EX05a')
+-- check $ex5#Ex05a (.'$ex5#Ex05a')
 CREATE OR REPLACE FUNCTION json_model_5(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
 BEGIN
-  -- .'$ex5#EX05a'
+  -- .'$ex5#Ex05a'
   res := JSONB_TYPEOF(val) = 'number' AND (val)::INT8 = (val)::FLOAT8 AND (val)::INT8 >= 0;
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check $ex5#EX05b (.'$ex5#EX05b')
+-- check $ex5#Ex05b (.'$ex5#Ex05b')
 CREATE OR REPLACE FUNCTION json_model_6(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
 BEGIN
-  -- .'$ex5#EX05b'
+  -- .'$ex5#Ex05b'
   res := JSONB_TYPEOF(val) = 'string';
   RETURN res;
 END;
@@ -85,7 +85,7 @@ $$ LANGUAGE PLpgSQL;
 CREATE OR REPLACE FUNCTION check_model_map(name TEXT)
 RETURNS TEXT STRICT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
-  map JSONB := JSONB '{"":"json_model_1","ex5":"json_model_4","EX06":"json_model_3"}';
+  map JSONB := JSONB '{"":"json_model_1","ex5":"json_model_4","Ex06":"json_model_3"}';
 BEGIN
   RETURN map->>name;
 END;

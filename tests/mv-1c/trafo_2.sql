@@ -5,13 +5,13 @@
 -- JSON_MODEL_VERSION is 2
 CREATE EXTENSION IF NOT EXISTS json_model;
 
--- check $Z (.'$Z')
+-- check $Zz (.'$Zz')
 CREATE OR REPLACE FUNCTION json_model_5(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
 BEGIN
-  -- .'$Z'
+  -- .'$Zz'
   res := json_model_6(val, path, rep);
   RETURN res;
 END;
@@ -65,7 +65,7 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- object .'$Z#zero'
+-- object .'$Zz#zero'
 CREATE OR REPLACE FUNCTION _jm_obj_0(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
@@ -82,7 +82,7 @@ BEGIN
     IF prop = 'za' THEN
       -- handle must za property
       must_count := must_count + 1;
-      -- .'$Z#zero'.za
+      -- .'$Zz#zero'.za
       res := JSONB_TYPEOF(pval) = 'number' AND (pval)::INT8 = (pval)::FLOAT8 AND (pval)::INT8 >= 0;
       IF NOT res THEN
         RETURN FALSE;
@@ -90,7 +90,7 @@ BEGIN
     ELSEIF prop = 'zb' THEN
       -- handle must zb property
       must_count := must_count + 1;
-      -- .'$Z#zero'.zb
+      -- .'$Zz#zero'.zb
       res := JSONB_TYPEOF(pval) = 'number' AND (pval)::INT8 = (pval)::FLOAT8 AND (pval)::INT8 >= 0;
       IF NOT res THEN
         RETURN FALSE;
@@ -106,13 +106,13 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check $Z#zero (.'$Z#zero')
+-- check $Zz#zero (.'$Zz#zero')
 CREATE OR REPLACE FUNCTION json_model_6(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
 BEGIN
-  -- .'$Z#zero'
+  -- .'$Zz#zero'
   res := _jm_obj_0(val, path, rep);
   RETURN res;
 END;
@@ -121,7 +121,7 @@ $$ LANGUAGE PLpgSQL;
 CREATE OR REPLACE FUNCTION check_model_map(name TEXT)
 RETURNS TEXT STRICT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
-  map JSONB := JSONB '{"":"json_model_4","Z":"json_model_5","z":"json_model_3","l":"json_model_4"}';
+  map JSONB := JSONB '{"":"json_model_4","Zz":"json_model_5","z":"json_model_3","l":"json_model_4"}';
 BEGIN
   RETURN map->>name;
 END;

@@ -15,7 +15,7 @@ sub json_model_3($$$);
 sub json_model_1($$$);
 my %check_model_map;
 
-# object .'$B'.'|'.1
+# object .'$Bb'.'|'.1
 sub _jm_obj_0($$$)
 {
     my ($val, $path, $rep) = @_;
@@ -32,7 +32,7 @@ sub _jm_obj_0($$$)
         {
             # handle must b property
             $must_count++;
-            # .'$B'.'|'.1.b
+            # .'$Bb'.'|'.1.b
             $res = jm_is_integer($pval) && $pval >= 0;
             if (! $res)
             {
@@ -51,7 +51,7 @@ sub _jm_obj_0($$$)
     return 1;
 }
 
-# object .'$B'.'|'.0
+# object .'$Bb'.'|'.0
 sub _jm_obj_1($$$)
 {
     my ($val, $path, $rep) = @_;
@@ -68,7 +68,7 @@ sub _jm_obj_1($$$)
         {
             # handle must a property
             $must_count++;
-            # .'$B'.'|'.0.a
+            # .'$Bb'.'|'.0.a
             $res = jm_is_integer($pval) && $pval >= 0;
             if (! $res)
             {
@@ -87,27 +87,27 @@ sub _jm_obj_1($$$)
     return 1;
 }
 
-# check $B (.'$B')
+# check $Bb (.'$Bb')
 sub json_model_2($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
-    # .'$B'
+    # .'$Bb'
     $res = jm_is_object($val);
     if ($res)
     {
-        # .'$B'.'|'.0
+        # .'$Bb'.'|'.0
         $res = _jm_obj_1($val, $path, $rep);
         if (! $res)
         {
-            # .'$B'.'|'.1
+            # .'$Bb'.'|'.1
             $res = _jm_obj_0($val, $path, $rep);
         }
     }
     return $res;
 }
 
-# object .'$C'.'|'.1
+# object .'$Cc'.'|'.1
 sub _jm_obj_2($$$)
 {
     my ($val, $path, $rep) = @_;
@@ -124,7 +124,7 @@ sub _jm_obj_2($$$)
         {
             # handle must c property
             $must_count++;
-            # .'$C'.'|'.1.c
+            # .'$Cc'.'|'.1.c
             $res = jm_is_integer($pval) && $pval >= 0;
             if (! $res)
             {
@@ -143,7 +143,7 @@ sub _jm_obj_2($$$)
     return 1;
 }
 
-# object .'$C'.'|'.0
+# object .'$Cc'.'|'.0
 sub _jm_obj_3($$$)
 {
     my ($val, $path, $rep) = @_;
@@ -160,7 +160,7 @@ sub _jm_obj_3($$$)
         {
             # handle must a property
             $must_count++;
-            # .'$C'.'|'.0.a
+            # .'$Cc'.'|'.0.a
             $res = jm_is_integer($pval) && $pval >= 0;
             if (! $res)
             {
@@ -179,20 +179,20 @@ sub _jm_obj_3($$$)
     return 1;
 }
 
-# check $C (.'$C')
+# check $Cc (.'$Cc')
 sub json_model_3($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
-    # .'$C'
+    # .'$Cc'
     $res = jm_is_object($val);
     if ($res)
     {
-        # .'$C'.'|'.0
+        # .'$Cc'.'|'.0
         $res = _jm_obj_3($val, $path, $rep);
         if (! $res)
         {
-            # .'$C'.'|'.1
+            # .'$Cc'.'|'.1
             $res = _jm_obj_2($val, $path, $rep);
         }
     }
@@ -419,8 +419,8 @@ sub check_model_init()
         $initialized = 1;
         %check_model_map = (
             '' => \&json_model_1,
-            'B' => \&json_model_2,
-            'C' => \&json_model_3,
+            'Bb' => \&json_model_2,
+            'Cc' => \&json_model_3,
         );
     }
 }

@@ -14,16 +14,16 @@ var check_model_map = new Map()
 
 const _jm_re_0 = (s) => _jm_re_0_re.exec(s) !== null
 
-// check $S (.'$S')
+// check $s (.'$s')
 function json_model_2(val, path, rep)
 {
     let res;
-    // .'$S'
+    // .'$s'
     // "/[0-9]/"
     res = ((typeof val === 'string' || val instanceof String)) && _jm_re_0(val, path, rep);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected /[0-9]/ [.'$S']", path])
+        rep !== null && rep.push(["unexpected /[0-9]/ [.'$s']", path])
     }
     return res;
 }
@@ -41,7 +41,7 @@ function json_model_1(val, path, rep)
         res = json_model_2(val[0], (path ? lpath_0 : null), rep);
         if (! res)
         {
-            rep !== null && rep.push(["unexpected $S [.0]", (path ? lpath_0 : null)])
+            rep !== null && rep.push(["unexpected $s [.0]", (path ? lpath_0 : null)])
         }
         if (res)
         {
@@ -50,7 +50,7 @@ function json_model_1(val, path, rep)
             res = json_model_2(val[1], (path ? lpath_0 : null), rep);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected $S [.1]", (path ? lpath_0 : null)])
+                rep !== null && rep.push(["unexpected $s [.1]", (path ? lpath_0 : null)])
             }
         }
     }
@@ -72,7 +72,7 @@ export function check_model_init()
         initialized = true;
         runtime.jm_set_rx(RegExp)
         check_model_map.set("", json_model_1)
-        check_model_map.set("S", json_model_2)
+        check_model_map.set("s", json_model_2)
     }
 }
 

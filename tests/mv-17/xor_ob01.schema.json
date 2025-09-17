@@ -3,7 +3,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "description": "CAUTION ba is currently valid\u2026",
   "$defs": {
-    "B": {
+    "Bb": {
       "anyOf": [
         {
           "type": "object",
@@ -33,7 +33,7 @@
         }
       ]
     },
-    "C": {
+    "Cc": {
       "anyOf": [
         {
           "type": "object",

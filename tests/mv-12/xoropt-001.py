@@ -22,94 +22,94 @@ def check_model(val: Jsonable, name: str = "", rep: Report = None) -> bool:
 
 check_model_map: PropMap
 
-# check $N (.'$N')
+# check $Nn (.'$Nn')
 def json_model_2(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
-    # .'$N'
+    # .'$Nn'
     res = val is None
     if not res:
-        rep is None or rep.append(("not null [.'$N']", path))
+        rep is None or rep.append(("not null [.'$Nn']", path))
     return res
 
-# check $B (.'$B')
+# check $Bb (.'$Bb')
 def json_model_3(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
-    # .'$B'
+    # .'$Bb'
     res = isinstance(val, bool)
     if not res:
-        rep is None or rep.append(("not a bool [.'$B']", path))
+        rep is None or rep.append(("not a bool [.'$Bb']", path))
     return res
 
-# check $I (.'$I')
+# check $Ii (.'$Ii')
 def json_model_4(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
-    # .'$I'
+    # .'$Ii'
     res = isinstance(val, int) and not isinstance(val, bool)
     if not res:
-        rep is None or rep.append(("not a -1 strict int [.'$I']", path))
+        rep is None or rep.append(("not a -1 strict int [.'$Ii']", path))
     return res
 
-# check $F (.'$F')
+# check $Ff (.'$Ff')
 def json_model_5(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
-    # .'$F'
+    # .'$Ff'
     res = isinstance(val, float)
     if not res:
-        rep is None or rep.append(("not a -1.0 strict float [.'$F']", path))
+        rep is None or rep.append(("not a -1.0 strict float [.'$Ff']", path))
     return res
 
-# check $S (.'$S')
+# check $Ss (.'$Ss')
 def json_model_6(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
-    # .'$S'
+    # .'$Ss'
     res = isinstance(val, str)
     if not res:
-        rep is None or rep.append(("unexpected string [.'$S']", path))
+        rep is None or rep.append(("unexpected string [.'$Ss']", path))
     return res
 
-# check $A (.'$A')
+# check $Aa (.'$Aa')
 def json_model_7(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
-    # .'$A'
+    # .'$Aa'
     res = isinstance(val, list)
     if res:
         for arr_0_idx, arr_0_item in enumerate(val):
             arr_0_lpath: Path = (path + [ arr_0_idx ]) if path is not None else None
-            # .'$A'.0
+            # .'$Aa'.0
             res = json_model_9(arr_0_item, arr_0_lpath if path is not None else None, rep)
             if not res:
-                rep is None or rep.append(("unexpected $Any [.'$A'.0]", arr_0_lpath if path is not None else None))
+                rep is None or rep.append(("unexpected $Any [.'$Aa'.0]", arr_0_lpath if path is not None else None))
             if not res:
                 break
     if not res:
-        rep is None or rep.append(("not array or unexpected array [.'$A']", path))
+        rep is None or rep.append(("not array or unexpected array [.'$Aa']", path))
     return res
 
-# object .'$O'
+# object .'$Oo'
 def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
     if not isinstance(val, dict):
-        rep is None or rep.append(("not an object [.'$O']", path))
+        rep is None or rep.append(("not an object [.'$Oo']", path))
         return False
     res: bool
     for prop, pval in val.items():
         assert isinstance(prop, str)
         lpath_0: Path = (path + [ prop ]) if path is not None else None
         # handle other props
-        # .'$O'.''
+        # .'$Oo'.''
         res = json_model_9(pval, lpath_0 if path is not None else None, rep)
         if not res:
-            rep is None or rep.append(("unexpected $Any [.'$O'.'']", lpath_0 if path is not None else None))
+            rep is None or rep.append(("unexpected $Any [.'$Oo'.'']", lpath_0 if path is not None else None))
         if not res:
             return False
     return True
 
-# check $O (.'$O')
+# check $Oo (.'$Oo')
 def json_model_8(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
-    # .'$O'
+    # .'$Oo'
     res = _jm_obj_0(val, path, rep)
     if not res:
-        rep is None or rep.append(("unexpected element [.'$O']", path))
+        rep is None or rep.append(("unexpected element [.'$Oo']", path))
     return res
 
 # check $Any (.'$Any')
@@ -124,32 +124,32 @@ def json_model_9(val: Jsonable, path: Path, rep: Report) -> bool:
         # .'$Any'.'|'.1
         res = json_model_3(val, path, rep)
         if not res:
-            rep is None or rep.append(("unexpected $B [.'$Any'.'|'.1]", path))
+            rep is None or rep.append(("unexpected $Bb [.'$Any'.'|'.1]", path))
         if not res:
             # .'$Any'.'|'.2
             res = json_model_4(val, path, rep)
             if not res:
-                rep is None or rep.append(("unexpected $I [.'$Any'.'|'.2]", path))
+                rep is None or rep.append(("unexpected $Ii [.'$Any'.'|'.2]", path))
             if not res:
                 # .'$Any'.'|'.3
                 res = json_model_5(val, path, rep)
                 if not res:
-                    rep is None or rep.append(("unexpected $F [.'$Any'.'|'.3]", path))
+                    rep is None or rep.append(("unexpected $Ff [.'$Any'.'|'.3]", path))
                 if not res:
                     # .'$Any'.'|'.4
                     res = json_model_6(val, path, rep)
                     if not res:
-                        rep is None or rep.append(("unexpected $S [.'$Any'.'|'.4]", path))
+                        rep is None or rep.append(("unexpected $Ss [.'$Any'.'|'.4]", path))
                     if not res:
                         # .'$Any'.'|'.5
                         res = json_model_7(val, path, rep)
                         if not res:
-                            rep is None or rep.append(("unexpected $A [.'$Any'.'|'.5]", path))
+                            rep is None or rep.append(("unexpected $Aa [.'$Any'.'|'.5]", path))
                         if not res:
                             # .'$Any'.'|'.6
                             res = json_model_8(val, path, rep)
                             if not res:
-                                rep is None or rep.append(("unexpected $O [.'$Any'.'|'.6]", path))
+                                rep is None or rep.append(("unexpected $Oo [.'$Any'.'|'.6]", path))
     if res:
         rep is None or rep.clear()
     else:
@@ -177,13 +177,13 @@ def check_model_init():
         global check_model_map
         check_model_map = {
             "": json_model_9,
-            "N": json_model_2,
-            "B": json_model_3,
-            "I": json_model_4,
-            "F": json_model_5,
-            "S": json_model_6,
-            "A": json_model_7,
-            "O": json_model_8,
+            "Nn": json_model_2,
+            "Bb": json_model_3,
+            "Ii": json_model_4,
+            "Ff": json_model_5,
+            "Ss": json_model_6,
+            "Aa": json_model_7,
+            "Oo": json_model_8,
             "Any": json_model_9,
         }
 

@@ -6417,7 +6417,7 @@ function _jm_f_129(val, path, rep)
     res = json_model_34(val, path, rep);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected $XML [.'$Schema'.xml]", path])
+        rep !== null && rep.push(["unexpected $xml [.'$Schema'.xml]", path])
     }
     return res;
 }
@@ -6584,12 +6584,12 @@ function json_model_33(val, path, rep)
     return res;
 }
 
-// object .'$XML'
+// object .'$xml'
 function _jm_obj_68(val, path, rep)
 {
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
-        rep !== null && rep.push(["not an object [.'$XML']", path])
+        rep !== null && rep.push(["not an object [.'$xml']", path])
         return false;
     }
     let res;
@@ -6599,86 +6599,86 @@ function _jm_obj_68(val, path, rep)
         if (prop == "name")
         {
             // handle may name property
-            // .'$XML'.name
+            // .'$xml'.name
             res = (typeof pval === 'string' || pval instanceof String);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected string [.'$XML'.name]", (path ? lpath_66 : null)])
+                rep !== null && rep.push(["unexpected string [.'$xml'.name]", (path ? lpath_66 : null)])
             }
             if (! res)
             {
-                rep !== null && rep.push(["invalid optional prop value [.'$XML'.name]", (path ? lpath_66 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$xml'.name]", (path ? lpath_66 : null)])
                 return false;
             }
         }
         else if (prop == "namespace")
         {
             // handle may namespace property
-            // .'$XML'.namespace
+            // .'$xml'.namespace
             res = (typeof pval === 'string' || pval instanceof String);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected string [.'$XML'.namespace]", (path ? lpath_66 : null)])
+                rep !== null && rep.push(["unexpected string [.'$xml'.namespace]", (path ? lpath_66 : null)])
             }
             if (! res)
             {
-                rep !== null && rep.push(["invalid optional prop value [.'$XML'.namespace]", (path ? lpath_66 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$xml'.namespace]", (path ? lpath_66 : null)])
                 return false;
             }
         }
         else if (prop == "prefix")
         {
             // handle may prefix property
-            // .'$XML'.prefix
+            // .'$xml'.prefix
             res = (typeof pval === 'string' || pval instanceof String);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected string [.'$XML'.prefix]", (path ? lpath_66 : null)])
+                rep !== null && rep.push(["unexpected string [.'$xml'.prefix]", (path ? lpath_66 : null)])
             }
             if (! res)
             {
-                rep !== null && rep.push(["invalid optional prop value [.'$XML'.prefix]", (path ? lpath_66 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$xml'.prefix]", (path ? lpath_66 : null)])
                 return false;
             }
         }
         else if (prop == "attribute")
         {
             // handle may attribute property
-            // .'$XML'.attribute
+            // .'$xml'.attribute
             res = (typeof pval === 'boolean' || pval instanceof Boolean);
             if (! res)
             {
-                rep !== null && rep.push(["not a bool [.'$XML'.attribute]", (path ? lpath_66 : null)])
+                rep !== null && rep.push(["not a bool [.'$xml'.attribute]", (path ? lpath_66 : null)])
             }
             if (! res)
             {
-                rep !== null && rep.push(["invalid optional prop value [.'$XML'.attribute]", (path ? lpath_66 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$xml'.attribute]", (path ? lpath_66 : null)])
                 return false;
             }
         }
         else if (prop == "wrapped")
         {
             // handle may wrapped property
-            // .'$XML'.wrapped
+            // .'$xml'.wrapped
             res = (typeof pval === 'boolean' || pval instanceof Boolean);
             if (! res)
             {
-                rep !== null && rep.push(["not a bool [.'$XML'.wrapped]", (path ? lpath_66 : null)])
+                rep !== null && rep.push(["not a bool [.'$xml'.wrapped]", (path ? lpath_66 : null)])
             }
             if (! res)
             {
-                rep !== null && rep.push(["invalid optional prop value [.'$XML'.wrapped]", (path ? lpath_66 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$xml'.wrapped]", (path ? lpath_66 : null)])
                 return false;
             }
         }
         else if (prop.startsWith("x-"))
         {
             // handle 1 re props
-            // .'$XML'.'/^x-/'
+            // .'$xml'.'/^x-/'
             res = true;
             if (! res)
             {
-                rep !== null && rep.push(["unexpected $ANY [.'$XML'.'/^x-/']", (path ? lpath_66 : null)])
+                rep !== null && rep.push(["unexpected $ANY [.'$xml'.'/^x-/']", (path ? lpath_66 : null)])
             }
             if (! res)
             {
@@ -6687,22 +6687,22 @@ function _jm_obj_68(val, path, rep)
         }
         else
         {
-            rep !== null && rep.push(["unexpected prop [.'$XML']", (path ? lpath_66 : null)])
+            rep !== null && rep.push(["unexpected prop [.'$xml']", (path ? lpath_66 : null)])
             return false;
         }
     }
     return true;
 }
 
-// check $XML (.'$XML')
+// check $xml (.'$xml')
 function json_model_34(val, path, rep)
 {
     let res;
-    // .'$XML'
+    // .'$xml'
     res = _jm_obj_68(val, path, rep);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected element [.'$XML']", path])
+        rep !== null && rep.push(["unexpected element [.'$xml']", path])
     }
     return res;
 }
@@ -9567,7 +9567,7 @@ export function check_model_init()
         check_model_map.set("schema", json_model_45)
         check_model_map.set("Schema", json_model_32)
         check_model_map.set("Discriminator", json_model_33)
-        check_model_map.set("XML", json_model_34)
+        check_model_map.set("xml", json_model_34)
         check_model_map.set("SS-apikey", json_model_35)
         check_model_map.set("SS-http", json_model_36)
         check_model_map.set("SS-http-bearer", json_model_37)

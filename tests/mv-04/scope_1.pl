@@ -16,20 +16,20 @@ sub json_model_1($$$);
 sub json_model_5($$$);
 my %check_model_map;
 
-# check $R (.'$R')
+# check $r (.'$r')
 sub json_model_4($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
-    # .'$R'
+    # .'$r'
     $res = jm_is_array($val) && scalar @$val == 2;
     if ($res)
     {
-        # .'$R'.0
+        # .'$r'.0
         $res = json_model_5($$val[0], undef, $rep);
         if ($res)
         {
-            # .'$R'.1
+            # .'$r'.1
             $res = json_model_5($$val[1], undef, $rep);
         }
     }
@@ -43,12 +43,12 @@ sub _jm_re_0($$$)
     return $res;
 }
 
-# check $S (.'$S')
+# check $s (.'$s')
 sub json_model_3($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
-    # .'$S'
+    # .'$s'
     # "/[a-z]/"
     $res = jm_is_string($val) && _jm_re_0($val, $path, $rep);
     return $res;
@@ -78,12 +78,12 @@ sub _jm_re_1($$$)
     return $res;
 }
 
-# check $R#S (.'$R#S')
+# check $r#s (.'$r#s')
 sub json_model_5($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
-    # .'$R#S'
+    # .'$r#s'
     # "/[0-9]/"
     $res = jm_is_string($val) && _jm_re_1($val, $path, $rep);
     return $res;
@@ -101,8 +101,8 @@ sub check_model_init()
         $initialized = 1;
         %check_model_map = (
             '' => \&json_model_1,
-            'R' => \&json_model_4,
-            'S' => \&json_model_3,
+            'r' => \&json_model_4,
+            's' => \&json_model_3,
         );
     }
 }

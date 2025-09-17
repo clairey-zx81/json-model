@@ -1,16 +1,16 @@
 {
   "|": [
-    "$A",
-    "$B"
+    "$Aa",
+    "$Bb"
   ],
   "#": "JsonModel 1",
   "$": {
-    "A": {
+    "Aa": {
       "t": "=true",
       "a": 0,
       "#": "JsonModel 2"
     },
-    "B": {
+    "Bb": {
       "t": "=false",
       "b": 0,
       "#": "JsonModel 3"

@@ -212,7 +212,7 @@ with file `Person-2.model.json`:
       "birth": "$DATE",
       "?friends": [ "$Name" ]
     },
-    "PI": "=3.141592653589793238462643"
+    "Pi": "=3.141592653589793238462643"
   },
   "@": "$Person"
 }
@@ -237,10 +237,10 @@ for instance with file `pi.json`:
 3.141592653589793238462643
 ```
 
-We can check that its content conforms to PI definition inside the `Person-2` model:
+We can check that its content conforms to Pi definition inside the `Person-2` model:
 
 ```sh
-jmc --name PI Person-2 pi.json  # PASS
+jmc --name Pi Person-2 pi.json  # PASS
 ```
 
 ## Reusing Definitions
@@ -737,7 +737,7 @@ class Person(pydantic.BaseModel):
     birth: datetime.date
     friends: list[Name]|None = None
 
-PI: float = 3.141592653589793238462643
+Pi: float = 3.141592653589793238462643
 
 type Root = Person
 ```
@@ -780,7 +780,7 @@ $defs:
     - name
     - birth
     additionalProperties: false
-  PI:
+  Pi:
     const: 3.141592653589793
 $ref: '#/$defs/Person'
 ```
@@ -797,7 +797,7 @@ jmc -E Person-2 | jsu-model
   "#": "JSON Model generated from a JSON Schema with json-schema-utils",
   "$": {
     "Name": "/^\\w+( \\w+)*$/",
-    "PI": "=3.141592653589793",
+    "Pi": "=3.141592653589793",
     "Person": {
       "?friends": [ "$Name" ],
       "_birth": "$DATE",

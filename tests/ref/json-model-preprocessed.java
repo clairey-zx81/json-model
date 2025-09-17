@@ -3068,11 +3068,11 @@ public class json_model_preprocessed extends ModelChecker
         if (res)
         {
             // .'$Model#Identifier'.'&'.0
-            // "/^\\w+$/"
+            // "/^\\w(\\w|-)*$/"
             res = _jm_re_10(json.asString(val), path, rep);
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected /^\\w+$/ [.'$Model#Identifier'.'&'.0]", path);
+                if (rep != null) rep.addEntry("unexpected /^\\w(\\w|-)*$/ [.'$Model#Identifier'.'&'.0]", path);
             }
             if (res)
             {
@@ -3153,7 +3153,7 @@ public class json_model_preprocessed extends ModelChecker
             _jm_re_7_pat = Pattern.compile("^([#|&^+/*@~=$%]|[<>!]=?)$");
             _jm_re_8_pat = Pattern.compile("^((file|https?)://.+|\\./.*|\\.\\./.*)$");
             _jm_re_9_pat = Pattern.compile("[^A-Z0-9]");
-            _jm_re_10_pat = Pattern.compile("^\\w+$");
+            _jm_re_10_pat = Pattern.compile("^\\w(\\w|-)*$");
             json_model_preprocessed_map_pmap = new HashMap<String, Checker>();
             json_model_preprocessed_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_3(o, p, r);} });
             json_model_preprocessed_map_pmap.put("Model", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_3(o, p, r);} });

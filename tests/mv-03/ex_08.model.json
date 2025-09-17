@@ -1,9 +1,9 @@
 {
   "$": {
-    "VAL": true,
-    "KEY": "$URL",
-    "map": { "$KEY": "$VAL" },
-    "EX08": { "|": ["$map", "$KEY", "$VAL"] }
+    "Val": true,
+    "Key": "$URL",
+    "map": { "$Key": "$Val" },
+    "Ex08": { "|": ["$map", "$Key", "$Val"] }
   },
-  "@": "$EX08"
+  "@": "$Ex08"
 }

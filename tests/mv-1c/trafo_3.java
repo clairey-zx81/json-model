@@ -19,15 +19,15 @@ public class trafo_3 extends ModelChecker
 
     public Map<String, Checker> trafo_3_map_pmap;
 
-    // check $D (.'$D')
+    // check $Dd (.'$Dd')
     public boolean json_model_3(Object val, Path path, Report rep)
     {
         boolean res;
-        // .'$D'
+        // .'$Dd'
         res = json_model_6(val, path, rep);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected $l [.'$D']", path);
+            if (rep != null) rep.addEntry("unexpected $l [.'$Dd']", path);
         }
         return res;
     }
@@ -40,16 +40,16 @@ public class trafo_3 extends ModelChecker
         res = json_model_3(val, path, rep);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected $D [.]", path);
+            if (rep != null) rep.addEntry("unexpected $Dd [.]", path);
         }
         return res;
     }
     
-    // check $D#l (.'$D#l')
+    // check $Dd#l (.'$Dd#l')
     public boolean json_model_6(Object val, Path path, Report rep)
     {
         boolean res;
-        // .'$D#l'
+        // .'$Dd#l'
         res = json.isArray(val);
         if (res)
         {
@@ -60,11 +60,11 @@ public class trafo_3 extends ModelChecker
                 arr_0_idx++;
                 Object arr_0_item = arr_0_item_loop.next();
                 Path arr_0_lpath = new Path(arr_0_idx, path);
-                // .'$D#l'.0
+                // .'$Dd#l'.0
                 res = json_model_10(arr_0_item, (path != null ? arr_0_lpath : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $u [.'$D#l'.0]", (path != null ? arr_0_lpath : null));
+                    if (rep != null) rep.addEntry("unexpected $u [.'$Dd#l'.0]", (path != null ? arr_0_lpath : null));
                 }
                 if (! res)
                 {
@@ -74,30 +74,30 @@ public class trafo_3 extends ModelChecker
         }
         if (! res)
         {
-            if (rep != null) rep.addEntry("not array or unexpected array [.'$D#l']", path);
+            if (rep != null) rep.addEntry("not array or unexpected array [.'$Dd#l']", path);
         }
         return res;
     }
     
-    // check $D#u (.'$D#u')
+    // check $Dd#u (.'$Dd#u')
     public boolean json_model_10(Object val, Path path, Report rep)
     {
         boolean res;
-        // .'$D#u'
+        // .'$Dd#u'
         res = json_model_12(val, path, rep);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected $U#un [.'$D#u']", path);
+            if (rep != null) rep.addEntry("unexpected $Uu#un [.'$Dd#u']", path);
         }
         return res;
     }
     
-    // object .'$D#U#un'
+    // object .'$Dd#Uu#un'
     public boolean _jm_obj_0(Object val, Path path, Report rep)
     {
         if (! json.isObject(val))
         {
-            if (rep != null) rep.addEntry("not an object [.'$D#U#un']", path);
+            if (rep != null) rep.addEntry("not an object [.'$Dd#Uu#un']", path);
             return false;
         }
         boolean res;
@@ -112,15 +112,15 @@ public class trafo_3 extends ModelChecker
             {
                 // handle must ua property
                 must_count += 1;
-                // .'$D#U#un'.ua
+                // .'$Dd#Uu#un'.ua
                 res = json.isInteger(pval) && json.asLong(pval) >= 0;
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("not a 0 strict int [.'$D#U#un'.ua]", (path != null ? lpath_0 : null));
+                    if (rep != null) rep.addEntry("not a 0 strict int [.'$Dd#Uu#un'.ua]", (path != null ? lpath_0 : null));
                 }
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("invalid mandatory prop value [.'$D#U#un'.ua]", (path != null ? lpath_0 : null));
+                    if (rep != null) rep.addEntry("invalid mandatory prop value [.'$Dd#Uu#un'.ua]", (path != null ? lpath_0 : null));
                     return false;
                 }
             }
@@ -128,21 +128,21 @@ public class trafo_3 extends ModelChecker
             {
                 // handle must ub property
                 must_count += 1;
-                // .'$D#U#un'.ub
+                // .'$Dd#Uu#un'.ub
                 res = json.isInteger(pval) && json.asLong(pval) >= 0;
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("not a 0 strict int [.'$D#U#un'.ub]", (path != null ? lpath_0 : null));
+                    if (rep != null) rep.addEntry("not a 0 strict int [.'$Dd#Uu#un'.ub]", (path != null ? lpath_0 : null));
                 }
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("invalid mandatory prop value [.'$D#U#un'.ub]", (path != null ? lpath_0 : null));
+                    if (rep != null) rep.addEntry("invalid mandatory prop value [.'$Dd#Uu#un'.ub]", (path != null ? lpath_0 : null));
                     return false;
                 }
             }
             else
             {
-                if (rep != null) rep.addEntry("unexpected prop [.'$D#U#un']", (path != null ? lpath_0 : null));
+                if (rep != null) rep.addEntry("unexpected prop [.'$Dd#Uu#un']", (path != null ? lpath_0 : null));
                 return false;
             }
         }
@@ -152,11 +152,11 @@ public class trafo_3 extends ModelChecker
             {
                 if (! json.objectHasProp(val, "ua"))
                 {
-                    if (rep != null) rep.addEntry("missing mandatory prop <ua> [.'$D#U#un']", path);
+                    if (rep != null) rep.addEntry("missing mandatory prop <ua> [.'$Dd#Uu#un']", path);
                 }
                 if (! json.objectHasProp(val, "ub"))
                 {
-                    if (rep != null) rep.addEntry("missing mandatory prop <ub> [.'$D#U#un']", path);
+                    if (rep != null) rep.addEntry("missing mandatory prop <ub> [.'$Dd#Uu#un']", path);
                 }
             }
             return false;
@@ -164,15 +164,15 @@ public class trafo_3 extends ModelChecker
         return true;
     }
     
-    // check $D#U#un (.'$D#U#un')
+    // check $Dd#Uu#un (.'$Dd#Uu#un')
     public boolean json_model_12(Object val, Path path, Report rep)
     {
         boolean res;
-        // .'$D#U#un'
+        // .'$Dd#Uu#un'
         res = _jm_obj_0(val, path, rep);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected element [.'$D#U#un']", path);
+            if (rep != null) rep.addEntry("unexpected element [.'$Dd#Uu#un']", path);
         }
         return res;
     }
@@ -185,7 +185,7 @@ public class trafo_3 extends ModelChecker
             try {
             trafo_3_map_pmap = new HashMap<String, Checker>();
             trafo_3_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_3(o, p, r);} });
-            trafo_3_map_pmap.put("D", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_3(o, p, r);} });
+            trafo_3_map_pmap.put("Dd", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_3(o, p, r);} });
                 super.init(json);
             }
             catch (Exception e) {

@@ -43,12 +43,12 @@ sub _jm_re_0($$$)
     return $res;
 }
 
-# check $EX07 (.'$EX07')
+# check $Ex07 (.'$Ex07')
 sub json_model_3($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
-    # .'$EX07'
+    # .'$Ex07'
     # "/[a-z]/"
     $res = jm_is_string($val) && _jm_re_0($val, $path, $rep);
     return $res;
@@ -95,42 +95,42 @@ sub json_model_1($$$)
     return $res;
 }
 
-# check $ex5#EX05a (.'$ex5#EX05a')
+# check $ex5#Ex05a (.'$ex5#Ex05a')
 sub json_model_5($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
-    # .'$ex5#EX05a'
+    # .'$ex5#Ex05a'
     $res = jm_is_integer($val) && $val >= 0;
     return $res;
 }
 
-# check $ex5#EX05b (.'$ex5#EX05b')
+# check $ex5#Ex05b (.'$ex5#Ex05b')
 sub json_model_6($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
-    # .'$ex5#EX05b'
+    # .'$ex5#Ex05b'
     $res = jm_is_string($val);
     return $res;
 }
 
-# check $__external_0#EX05a (.'$__external_0#EX05a')
+# check $__external_0#Ex05a (.'$__external_0#Ex05a')
 sub json_model_8($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
-    # .'$__external_0#EX05a'
+    # .'$__external_0#Ex05a'
     $res = jm_is_integer($val) && $val >= 0;
     return $res;
 }
 
-# check $__external_0#EX05b (.'$__external_0#EX05b')
+# check $__external_0#Ex05b (.'$__external_0#Ex05b')
 sub json_model_9($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
-    # .'$__external_0#EX05b'
+    # .'$__external_0#Ex05b'
     $res = jm_is_string($val);
     return $res;
 }
@@ -148,7 +148,7 @@ sub check_model_init()
         %check_model_map = (
             '' => \&json_model_1,
             'ex5' => \&json_model_4,
-            'EX07' => \&json_model_3,
+            'Ex07' => \&json_model_3,
             '__external_0' => \&json_model_7,
         );
     }

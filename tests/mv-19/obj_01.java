@@ -21,15 +21,15 @@ public class obj_01 extends ModelChecker
     public Pattern _jm_re_0_pat = null;
     public Map<String, Checker> obj_01_map_pmap;
 
-    // check $XXX (.'$XXX')
+    // check $Xxx (.'$Xxx')
     public boolean json_model_2(Object val, Path path, Report rep)
     {
         boolean res;
-        // .'$XXX'
+        // .'$Xxx'
         res = json.isScalar(val) && _jm_cst_0_set.contains(val);
         if (! res)
         {
-            if (rep != null) rep.addEntry("value not in enum [.'$XXX'.'|']", path);
+            if (rep != null) rep.addEntry("value not in enum [.'$Xxx'.'|']", path);
         }
         return res;
     }
@@ -89,11 +89,11 @@ public class obj_01 extends ModelChecker
             else if (json_model_2(json.strToJSON(prop), (path != null ? lpath_0 : null), rep))
             {
                 // handle 1 key props
-                // .'$XXX'
+                // .'$Xxx'
                 res = json.isDouble(pval) && json.asDouble(pval) >= 0.0;
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("not a 0.0 strict float [.'$XXX']", (path != null ? lpath_0 : null));
+                    if (rep != null) rep.addEntry("not a 0.0 strict float [.'$Xxx']", (path != null ? lpath_0 : null));
                 }
                 if (! res)
                 {
@@ -170,7 +170,7 @@ public class obj_01 extends ModelChecker
             _jm_re_0_pat = Pattern.compile("^[0-9]+$");
             obj_01_map_pmap = new HashMap<String, Checker>();
             obj_01_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_1(o, p, r);} });
-            obj_01_map_pmap.put("XXX", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_2(o, p, r);} });
+            obj_01_map_pmap.put("Xxx", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_2(o, p, r);} });
                 super.init(json);
             }
             catch (Exception e) {

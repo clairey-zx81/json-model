@@ -25,16 +25,16 @@ public class scope_0 extends ModelChecker
         return _jm_re_0_pat.matcher(val).find();
     }
     
-    // check $S (.'$S')
+    // check $s (.'$s')
     public boolean json_model_2(Object val, Path path, Report rep)
     {
         boolean res;
-        // .'$S'
+        // .'$s'
         // "/[0-9]/"
         res = json.isString(val) && _jm_re_0(json.asString(val), path, rep);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected /[0-9]/ [.'$S']", path);
+            if (rep != null) rep.addEntry("unexpected /[0-9]/ [.'$s']", path);
         }
         return res;
     }
@@ -52,7 +52,7 @@ public class scope_0 extends ModelChecker
             res = json_model_2(json.arrayItem(val, 0), (path != null ? lpath_0 : null), rep);
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected $S [.0]", (path != null ? lpath_0 : null));
+                if (rep != null) rep.addEntry("unexpected $s [.0]", (path != null ? lpath_0 : null));
             }
             if (res)
             {
@@ -61,7 +61,7 @@ public class scope_0 extends ModelChecker
                 res = json_model_2(json.arrayItem(val, 1), (path != null ? lpath_0 : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $S [.1]", (path != null ? lpath_0 : null));
+                    if (rep != null) rep.addEntry("unexpected $s [.1]", (path != null ? lpath_0 : null));
                 }
             }
         }
@@ -81,7 +81,7 @@ public class scope_0 extends ModelChecker
             _jm_re_0_pat = Pattern.compile("[0-9]");
             scope_0_map_pmap = new HashMap<String, Checker>();
             scope_0_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_1(o, p, r);} });
-            scope_0_map_pmap.put("S", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_2(o, p, r);} });
+            scope_0_map_pmap.put("s", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_2(o, p, r);} });
                 super.init(json);
             }
             catch (Exception e) {

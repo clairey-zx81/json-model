@@ -11,15 +11,15 @@ const JSON_MODEL_VERSION = "2";
 
 var check_model_map = new Map()
 
-// check $Z (.'$Z')
+// check $Zz (.'$Zz')
 function json_model_5(val, path, rep)
 {
     let res;
-    // .'$Z'
+    // .'$Zz'
     res = json_model_6(val, path, rep);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected $zero [.'$Z']", path])
+        rep !== null && rep.push(["unexpected $zero [.'$Zz']", path])
     }
     return res;
 }
@@ -32,7 +32,7 @@ function json_model_3(val, path, rep)
     res = json_model_6(val, path, rep);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected $Z#zero [.'$z']", path])
+        rep !== null && rep.push(["unexpected $Zz#zero [.'$z']", path])
     }
     return res;
 }
@@ -81,12 +81,12 @@ function json_model_1(val, path, rep)
     return res;
 }
 
-// object .'$Z#zero'
+// object .'$Zz#zero'
 function _jm_obj_0(val, path, rep)
 {
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
-        rep !== null && rep.push(["not an object [.'$Z#zero']", path])
+        rep !== null && rep.push(["not an object [.'$Zz#zero']", path])
         return false;
     }
     let res;
@@ -98,15 +98,15 @@ function _jm_obj_0(val, path, rep)
         {
             // handle must za property
             must_count += 1;
-            // .'$Z#zero'.za
+            // .'$Zz#zero'.za
             res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0;
             if (! res)
             {
-                rep !== null && rep.push(["not a 0 strict int [.'$Z#zero'.za]", (path ? lpath_0 : null)])
+                rep !== null && rep.push(["not a 0 strict int [.'$Zz#zero'.za]", (path ? lpath_0 : null)])
             }
             if (! res)
             {
-                rep !== null && rep.push(["invalid mandatory prop value [.'$Z#zero'.za]", (path ? lpath_0 : null)])
+                rep !== null && rep.push(["invalid mandatory prop value [.'$Zz#zero'.za]", (path ? lpath_0 : null)])
                 return false;
             }
         }
@@ -114,21 +114,21 @@ function _jm_obj_0(val, path, rep)
         {
             // handle must zb property
             must_count += 1;
-            // .'$Z#zero'.zb
+            // .'$Zz#zero'.zb
             res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0;
             if (! res)
             {
-                rep !== null && rep.push(["not a 0 strict int [.'$Z#zero'.zb]", (path ? lpath_0 : null)])
+                rep !== null && rep.push(["not a 0 strict int [.'$Zz#zero'.zb]", (path ? lpath_0 : null)])
             }
             if (! res)
             {
-                rep !== null && rep.push(["invalid mandatory prop value [.'$Z#zero'.zb]", (path ? lpath_0 : null)])
+                rep !== null && rep.push(["invalid mandatory prop value [.'$Zz#zero'.zb]", (path ? lpath_0 : null)])
                 return false;
             }
         }
         else
         {
-            rep !== null && rep.push(["unexpected prop [.'$Z#zero']", (path ? lpath_0 : null)])
+            rep !== null && rep.push(["unexpected prop [.'$Zz#zero']", (path ? lpath_0 : null)])
             return false;
         }
     }
@@ -138,11 +138,11 @@ function _jm_obj_0(val, path, rep)
         {
             if (! val.hasOwnProperty("za"))
             {
-                rep !== null && rep.push(["missing mandatory prop <za> [.'$Z#zero']", path])
+                rep !== null && rep.push(["missing mandatory prop <za> [.'$Zz#zero']", path])
             }
             if (! val.hasOwnProperty("zb"))
             {
-                rep !== null && rep.push(["missing mandatory prop <zb> [.'$Z#zero']", path])
+                rep !== null && rep.push(["missing mandatory prop <zb> [.'$Zz#zero']", path])
             }
         }
         return false;
@@ -150,15 +150,15 @@ function _jm_obj_0(val, path, rep)
     return true;
 }
 
-// check $Z#zero (.'$Z#zero')
+// check $Zz#zero (.'$Zz#zero')
 function json_model_6(val, path, rep)
 {
     let res;
-    // .'$Z#zero'
+    // .'$Zz#zero'
     res = _jm_obj_0(val, path, rep);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected element [.'$Z#zero']", path])
+        rep !== null && rep.push(["unexpected element [.'$Zz#zero']", path])
     }
     return res;
 }
@@ -174,7 +174,7 @@ export function check_model_init()
         initialized = true;
         runtime.jm_set_rx(RegExp)
         check_model_map.set("", json_model_4)
-        check_model_map.set("Z", json_model_5)
+        check_model_map.set("Zz", json_model_5)
         check_model_map.set("z", json_model_3)
         check_model_map.set("l", json_model_4)
     }

@@ -3,21 +3,21 @@
   "$": {
     "#": "two definitions",
     "#.P": "definition of P",
-    "P": {
+    "Pp": {
       "#": "an int",
       "#.x": "hello world",
       "@": 0
     },
     "#.Q": "definition of Q",
-    "Q": [ "# some ints", "$P", "# are welcome", "# just a list" ]
+    "Qq": [ "# some ints", "$Pp", "# are welcome", "# just a list" ]
   },
   "#.o": "root is also an object",
   "?o": {
     "#": "an object",
     "#.p": "this is an interesting property!",
-    "?p": "$P",
+    "?p": "$Pp",
     "#.q": "this is also quite interesting",
-    "?q": "$Q",
+    "?q": "$Qq",
     "#.t": "and this one as well",
     "?t": [
       "# a tuple of stuff",

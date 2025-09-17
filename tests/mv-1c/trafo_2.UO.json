@@ -2,12 +2,12 @@
   {
     "#": "JsonModel 1 with defs",
     "$": {
-      "Z": {
+      "Zz": {
         "#": "JsonModel 5 with defs",
         "$": "Symbol 5",
         "@": "$zero"
       },
-      "z": "$Z#zero",
+      "z": "$Zz#zero",
       "l": [
         "$z"
       ],
@@ -16,7 +16,7 @@
     },
     "@": "$l"
   },
-  "$Z#zero",
+  "$Zz#zero",
   [
     "$z"
   ],

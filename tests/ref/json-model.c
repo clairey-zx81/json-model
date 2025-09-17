@@ -154,11 +154,11 @@ static bool json_model_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
     if (res)
     {
         // .'$Identifier'.'&'.0
-        // "/^\\w+$/"
+        // "/^\\w(\\w|-)*$/"
         res = _jm_re_2(json_string_value(val), path, rep);
         if (! res)
         {
-            if (rep) jm_report_add_entry(rep, "unexpected /^\\w+$/ [.'$Identifier'.'&'.0]", path);
+            if (rep) jm_report_add_entry(rep, "unexpected /^\\w(\\w|-)*$/ [.'$Identifier'.'&'.0]", path);
         }
         if (res)
         {
@@ -5258,7 +5258,7 @@ const char *check_model_init(void)
         if (cre2_error_code(_jm_re_1_re2))
             return cre2_error_string(_jm_re_1_re2);
         _jm_re_1_nn = cre2_num_capturing_groups(_jm_re_1_re2) + 1;
-        _jm_re_2_re2 = cre2_new("^\\w+$", strlen("^\\w+$"), NULL);
+        _jm_re_2_re2 = cre2_new("^\\w(\\w|-)*$", strlen("^\\w(\\w|-)*$"), NULL);
         if (cre2_error_code(_jm_re_2_re2))
             return cre2_error_string(_jm_re_2_re2);
         _jm_re_2_nn = cre2_num_capturing_groups(_jm_re_2_re2) + 1;

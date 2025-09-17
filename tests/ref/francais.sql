@@ -2122,11 +2122,11 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
--- regex=^\w+$ opts=n
+-- regex=^\w(\w|-)*$ opts=n
 CREATE OR REPLACE FUNCTION _jm_re_11(val TEXT, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
-  RETURN regexp_like(val, '^\w+$', 'n');
+  RETURN regexp_like(val, '^\w(\w|-)*$', 'n');
 END;
 $$ LANGUAGE plpgsql;
 
@@ -2140,7 +2140,7 @@ BEGIN
   res := JSONB_TYPEOF(val) = 'string';
   IF res THEN
     -- .'$Model#Identifier'.'&'.0
-    -- "/^\\w+$/"
+    -- "/^\\w(\\w|-)*$/"
     res := _jm_re_11(JSON_VALUE(val, '$' RETURNING TEXT), path, rep);
     IF res THEN
       -- .'$Model#Identifier'.'&'.1

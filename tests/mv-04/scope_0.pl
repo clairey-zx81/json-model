@@ -21,12 +21,12 @@ sub _jm_re_0($$$)
     return $res;
 }
 
-# check $S (.'$S')
+# check $s (.'$s')
 sub json_model_2($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
-    # .'$S'
+    # .'$s'
     # "/[0-9]/"
     $res = jm_is_string($val) && _jm_re_0($val, $path, $rep);
     return $res;
@@ -64,7 +64,7 @@ sub check_model_init()
         $initialized = 1;
         %check_model_map = (
             '' => \&json_model_1,
-            'S' => \&json_model_2,
+            's' => \&json_model_2,
         );
     }
 }

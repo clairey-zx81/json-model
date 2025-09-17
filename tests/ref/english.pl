@@ -2517,7 +2517,7 @@ sub _jm_re_10($$$)
 sub _jm_re_11($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res = $val =~ /^\w+$/;
+    my $res = $val =~ /^\w(\w|-)*$/;
     return $res;
 }
 
@@ -2531,7 +2531,7 @@ sub json_model_6($$$)
     if ($res)
     {
         # .'$Model#Identifier'.'&'.0
-        # "/^\\w+$/"
+        # "/^\\w(\\w|-)*$/"
         $res = _jm_re_11($val, $path, $rep);
         if ($res)
         {

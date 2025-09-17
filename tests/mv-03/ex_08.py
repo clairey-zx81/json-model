@@ -22,22 +22,22 @@ def check_model(val: Jsonable, name: str = "", rep: Report = None) -> bool:
 
 check_model_map: PropMap
 
-# check $VAL (.'$VAL')
+# check $Val (.'$Val')
 def json_model_2(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
-    # .'$VAL'
+    # .'$Val'
     res = isinstance(val, bool)
     if not res:
-        rep is None or rep.append(("not a bool [.'$VAL']", path))
+        rep is None or rep.append(("not a bool [.'$Val']", path))
     return res
 
-# check $KEY (.'$KEY')
+# check $Key (.'$Key')
 def json_model_3(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
-    # .'$KEY'
+    # .'$Key'
     res = is_valid_url(val, path, rep)
     if not res:
-        rep is None or rep.append(("unexpected $URL [.'$KEY']", path))
+        rep is None or rep.append(("unexpected $URL [.'$Key']", path))
     return res
 
 # object .'$map'
@@ -54,7 +54,7 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
             # .'$map'.'$URL'
             res = json_model_2(pval, lpath_0 if path is not None else None, rep)
             if not res:
-                rep is None or rep.append(("unexpected $VAL [.'$map'.'$URL']", lpath_0 if path is not None else None))
+                rep is None or rep.append(("unexpected $Val [.'$map'.'$URL']", lpath_0 if path is not None else None))
             if not res:
                 return False
         else:
@@ -71,28 +71,28 @@ def json_model_4(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("unexpected element [.'$map']", path))
     return res
 
-# check $EX08 (.'$EX08')
+# check $Ex08 (.'$Ex08')
 def json_model_5(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
-    # .'$EX08'
-    # .'$EX08'.'|'.0
+    # .'$Ex08'
+    # .'$Ex08'.'|'.0
     res = json_model_4(val, path, rep)
     if not res:
-        rep is None or rep.append(("unexpected $map [.'$EX08'.'|'.0]", path))
+        rep is None or rep.append(("unexpected $map [.'$Ex08'.'|'.0]", path))
     if not res:
-        # .'$EX08'.'|'.1
+        # .'$Ex08'.'|'.1
         res = is_valid_url(val, path, rep)
         if not res:
-            rep is None or rep.append(("unexpected $URL [.'$EX08'.'|'.1]", path))
+            rep is None or rep.append(("unexpected $URL [.'$Ex08'.'|'.1]", path))
         if not res:
-            # .'$EX08'.'|'.2
+            # .'$Ex08'.'|'.2
             res = json_model_2(val, path, rep)
             if not res:
-                rep is None or rep.append(("unexpected $VAL [.'$EX08'.'|'.2]", path))
+                rep is None or rep.append(("unexpected $Val [.'$Ex08'.'|'.2]", path))
     if res:
         rep is None or rep.clear()
     else:
-        rep is None or rep.append(("no model matched [.'$EX08'.'|']", path))
+        rep is None or rep.append(("no model matched [.'$Ex08'.'|']", path))
     return res
 
 # check $ (.)
@@ -101,7 +101,7 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     # .
     res = json_model_5(val, path, rep)
     if not res:
-        rep is None or rep.append(("unexpected $EX08 [.]", path))
+        rep is None or rep.append(("unexpected $Ex08 [.]", path))
     return res
 
 
@@ -116,10 +116,10 @@ def check_model_init():
         global check_model_map
         check_model_map = {
             "": json_model_5,
-            "VAL": json_model_2,
-            "KEY": json_model_3,
+            "Val": json_model_2,
+            "Key": json_model_3,
             "map": json_model_4,
-            "EX08": json_model_5,
+            "Ex08": json_model_5,
         }
 
 # differed module cleanup

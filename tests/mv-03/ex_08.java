@@ -19,28 +19,28 @@ public class ex_08 extends ModelChecker
 
     public Map<String, Checker> ex_08_map_pmap;
 
-    // check $VAL (.'$VAL')
+    // check $Val (.'$Val')
     public boolean json_model_2(Object val, Path path, Report rep)
     {
         boolean res;
-        // .'$VAL'
+        // .'$Val'
         res = json.isBoolean(val);
         if (! res)
         {
-            if (rep != null) rep.addEntry("not a bool [.'$VAL']", path);
+            if (rep != null) rep.addEntry("not a bool [.'$Val']", path);
         }
         return res;
     }
     
-    // check $KEY (.'$KEY')
+    // check $Key (.'$Key')
     public boolean json_model_3(Object val, Path path, Report rep)
     {
         boolean res;
-        // .'$KEY'
+        // .'$Key'
         res = json.isString(val) && rt.is_valid_url(json.asString(val));
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected $URL [.'$KEY']", path);
+            if (rep != null) rep.addEntry("unexpected $URL [.'$Key']", path);
         }
         return res;
     }
@@ -67,7 +67,7 @@ public class ex_08 extends ModelChecker
                 res = json_model_2(pval, (path != null ? lpath_0 : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $VAL [.'$map'.'$URL']", (path != null ? lpath_0 : null));
+                    if (rep != null) rep.addEntry("unexpected $Val [.'$map'.'$URL']", (path != null ? lpath_0 : null));
                 }
                 if (! res)
                 {
@@ -96,32 +96,32 @@ public class ex_08 extends ModelChecker
         return res;
     }
     
-    // check $EX08 (.'$EX08')
+    // check $Ex08 (.'$Ex08')
     public boolean json_model_5(Object val, Path path, Report rep)
     {
         boolean res;
-        // .'$EX08'
-        // .'$EX08'.'|'.0
+        // .'$Ex08'
+        // .'$Ex08'.'|'.0
         res = json_model_4(val, path, rep);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected $map [.'$EX08'.'|'.0]", path);
+            if (rep != null) rep.addEntry("unexpected $map [.'$Ex08'.'|'.0]", path);
         }
         if (! res)
         {
-            // .'$EX08'.'|'.1
+            // .'$Ex08'.'|'.1
             res = json.isString(val) && rt.is_valid_url(json.asString(val));
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected $URL [.'$EX08'.'|'.1]", path);
+                if (rep != null) rep.addEntry("unexpected $URL [.'$Ex08'.'|'.1]", path);
             }
             if (! res)
             {
-                // .'$EX08'.'|'.2
+                // .'$Ex08'.'|'.2
                 res = json_model_2(val, path, rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $VAL [.'$EX08'.'|'.2]", path);
+                    if (rep != null) rep.addEntry("unexpected $Val [.'$Ex08'.'|'.2]", path);
                 }
             }
         }
@@ -131,7 +131,7 @@ public class ex_08 extends ModelChecker
         }
         else
         {
-            if (rep != null) rep.addEntry("no model matched [.'$EX08'.'|']", path);
+            if (rep != null) rep.addEntry("no model matched [.'$Ex08'.'|']", path);
         }
         return res;
     }
@@ -144,7 +144,7 @@ public class ex_08 extends ModelChecker
         res = json_model_5(val, path, rep);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected $EX08 [.]", path);
+            if (rep != null) rep.addEntry("unexpected $Ex08 [.]", path);
         }
         return res;
     }
@@ -157,10 +157,10 @@ public class ex_08 extends ModelChecker
             try {
             ex_08_map_pmap = new HashMap<String, Checker>();
             ex_08_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_5(o, p, r);} });
-            ex_08_map_pmap.put("VAL", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_2(o, p, r);} });
-            ex_08_map_pmap.put("KEY", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_3(o, p, r);} });
+            ex_08_map_pmap.put("Val", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_2(o, p, r);} });
+            ex_08_map_pmap.put("Key", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_3(o, p, r);} });
             ex_08_map_pmap.put("map", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
-            ex_08_map_pmap.put("EX08", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_5(o, p, r);} });
+            ex_08_map_pmap.put("Ex08", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_5(o, p, r);} });
                 super.init(json);
             }
             catch (Exception e) {

@@ -1,8 +1,8 @@
 {
   "#": "a string with a lower case later or a digit",
   "$": {
-    "R": "$./scope_0",
-    "S": "/[a-z]/"
+    "r": "$./scope_0",
+    "s": "/[a-z]/"
   },
-  "|": ["$S", "$R#S"]
+  "|": ["$s", "$r#s"]
 }

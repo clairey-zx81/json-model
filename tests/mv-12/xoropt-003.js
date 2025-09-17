@@ -14,41 +14,41 @@ var check_model_map = new Map()
 
 const _jm_re_0 = (s) => _jm_re_0_re.exec(s) !== null
 
-// check $A (.'$A')
+// check $Aa (.'$Aa')
 function json_model_2(val, path, rep)
 {
     let res;
-    // .'$A'
-    // .'$A'.'|'.0
+    // .'$Aa'
+    // .'$Aa'.'|'.0
     res = (typeof val === 'boolean' || val instanceof Boolean);
     if (! res)
     {
-        rep !== null && rep.push(["not a bool [.'$A'.'|'.0]", path])
+        rep !== null && rep.push(["not a bool [.'$Aa'.'|'.0]", path])
     }
     if (! res)
     {
-        // .'$A'.'|'.1
+        // .'$Aa'.'|'.1
         res = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 1;
         if (! res)
         {
-            rep !== null && rep.push(["not a 1 strict int [.'$A'.'|'.1]", path])
+            rep !== null && rep.push(["not a 1 strict int [.'$Aa'.'|'.1]", path])
         }
         if (! res)
         {
-            // .'$A'.'|'.2
+            // .'$Aa'.'|'.2
             res = ((typeof val === 'number' || val instanceof Number)) && val > 0.0;
             if (! res)
             {
-                rep !== null && rep.push(["not a 1.0 strict float [.'$A'.'|'.2]", path])
+                rep !== null && rep.push(["not a 1.0 strict float [.'$Aa'.'|'.2]", path])
             }
             if (! res)
             {
-                // .'$A'.'|'.3
+                // .'$Aa'.'|'.3
                 // "/[a-z]/"
                 res = ((typeof val === 'string' || val instanceof String)) && _jm_re_0(val, path, rep);
                 if (! res)
                 {
-                    rep !== null && rep.push(["unexpected /[a-z]/ [.'$A'.'|'.3]", path])
+                    rep !== null && rep.push(["unexpected /[a-z]/ [.'$Aa'.'|'.3]", path])
                 }
             }
         }
@@ -59,7 +59,7 @@ function json_model_2(val, path, rep)
     }
     else
     {
-        rep !== null && rep.push(["no model matched [.'$A'.'|']", path])
+        rep !== null && rep.push(["no model matched [.'$Aa'.'|']", path])
     }
     return res;
 }
@@ -72,7 +72,7 @@ function json_model_1(val, path, rep)
     res = json_model_2(val, path, rep);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected $A [.]", path])
+        rep !== null && rep.push(["unexpected $Aa [.]", path])
     }
     return res;
 }
@@ -88,7 +88,7 @@ export function check_model_init()
         initialized = true;
         runtime.jm_set_rx(RegExp)
         check_model_map.set("", json_model_2)
-        check_model_map.set("A", json_model_2)
+        check_model_map.set("Aa", json_model_2)
     }
 }
 

@@ -23,17 +23,17 @@ my %_jm_obj_2_mup;
 sub json_model_1($$$);
 my %check_model_map;
 
-# check $T (.'$T')
+# check $t (.'$t')
 sub json_model_2($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
-    # .'$T'
+    # .'$t'
     $res = jm_is_string($val) && $val eq 'cst_02';
     return $res;
 }
 
-# object .'$R'
+# object .'$r'
 sub _jm_obj_0($$$)
 {
     my ($val, $path, $rep) = @_;
@@ -50,7 +50,7 @@ sub _jm_obj_0($$$)
         {
             # handle must a property
             $must_count++;
-            # .'$R'.a
+            # .'$r'.a
             $res = jm_is_string($pval) && $pval eq 'cst_01';
             if (! $res)
             {
@@ -61,7 +61,7 @@ sub _jm_obj_0($$$)
         {
             # handle must b property
             $must_count++;
-            # .'$R'.b
+            # .'$r'.b
             $res = jm_is_string($pval) && $pval eq 'cst_01';
             if (! $res)
             {
@@ -72,7 +72,7 @@ sub _jm_obj_0($$$)
         {
             # handle must c property
             $must_count++;
-            # .'$R'.c
+            # .'$r'.c
             $res = jm_is_string($pval) && $pval eq 'cst_01';
             if (! $res)
             {
@@ -83,7 +83,7 @@ sub _jm_obj_0($$$)
         {
             # handle must d property
             $must_count++;
-            # .'$R'.d
+            # .'$r'.d
             $res = jm_is_string($pval) && $pval eq 'cst_01';
             if (! $res)
             {
@@ -102,17 +102,17 @@ sub _jm_obj_0($$$)
     return 1;
 }
 
-# check $R (.'$R')
+# check $r (.'$r')
 sub json_model_5($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
-    # .'$R'
+    # .'$r'
     $res = _jm_obj_0($val, $path, $rep);
     return $res;
 }
 
-# object .'$Z'
+# object .'$z'
 sub _jm_obj_1($$$)
 {
     my ($val, $path, $rep) = @_;
@@ -129,7 +129,7 @@ sub _jm_obj_1($$$)
         {
             # handle must e property
             $must_count++;
-            # .'$Z'.e
+            # .'$z'.e
             $res = jm_is_string($pval) && $pval eq 'cst_02';
             if (! $res)
             {
@@ -140,7 +140,7 @@ sub _jm_obj_1($$$)
         {
             # handle must f property
             $must_count++;
-            # .'$Z'.f
+            # .'$z'.f
             $res = jm_is_string($pval) && $pval eq 'cst_02';
             if (! $res)
             {
@@ -159,12 +159,12 @@ sub _jm_obj_1($$$)
     return 1;
 }
 
-# check $Z (.'$Z')
+# check $z (.'$z')
 sub json_model_4($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
-    # .'$Z'
+    # .'$z'
     $res = _jm_obj_1($val, $path, $rep);
     return $res;
 }
@@ -297,9 +297,9 @@ sub check_model_init()
         );
         %check_model_map = (
             '' => \&json_model_1,
-            'T' => \&json_model_2,
-            'R' => \&json_model_5,
-            'Z' => \&json_model_4,
+            't' => \&json_model_2,
+            'r' => \&json_model_5,
+            'z' => \&json_model_4,
         );
     }
 }

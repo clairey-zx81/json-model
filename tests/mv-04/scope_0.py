@@ -24,14 +24,14 @@ _jm_re_0_reco: object
 _jm_re_0: RegexFun
 check_model_map: PropMap
 
-# check $S (.'$S')
+# check $s (.'$s')
 def json_model_2(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
-    # .'$S'
+    # .'$s'
     # "/[0-9]/"
     res = isinstance(val, str) and _jm_re_0(val, path, rep)
     if not res:
-        rep is None or rep.append(("unexpected /[0-9]/ [.'$S']", path))
+        rep is None or rep.append(("unexpected /[0-9]/ [.'$s']", path))
     return res
 
 # check $ (.)
@@ -44,13 +44,13 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
         # .0
         res = json_model_2(val[0], lpath_0 if path is not None else None, rep)
         if not res:
-            rep is None or rep.append(("unexpected $S [.0]", lpath_0 if path is not None else None))
+            rep is None or rep.append(("unexpected $s [.0]", lpath_0 if path is not None else None))
         if res:
             lpath_0 = (path + [ 1 ]) if path is not None else None
             # .1
             res = json_model_2(val[1], lpath_0 if path is not None else None, rep)
             if not res:
-                rep is None or rep.append(("unexpected $S [.1]", lpath_0 if path is not None else None))
+                rep is None or rep.append(("unexpected $s [.1]", lpath_0 if path is not None else None))
     if not res:
         rep is None or rep.append(("not array or unexpected array [.]", path))
     return res
@@ -70,7 +70,7 @@ def check_model_init():
         global check_model_map
         check_model_map = {
             "": json_model_1,
-            "S": json_model_2,
+            "s": json_model_2,
         }
 
 # differed module cleanup

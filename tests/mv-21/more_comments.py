@@ -22,31 +22,31 @@ def check_model(val: Jsonable, name: str = "", rep: Report = None) -> bool:
 
 check_model_map: PropMap
 
-# check $P (.'$P')
+# check $Pp (.'$Pp')
 def json_model_2(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
-    # .'$P'
+    # .'$Pp'
     res = isinstance(val, int) and not isinstance(val, bool) and val >= 0
     if not res:
-        rep is None or rep.append(("not a 0 strict int [.'$P']", path))
+        rep is None or rep.append(("not a 0 strict int [.'$Pp']", path))
     return res
 
-# check $Q (.'$Q')
+# check $Qq (.'$Qq')
 def json_model_3(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
-    # .'$Q'
+    # .'$Qq'
     res = isinstance(val, list)
     if res:
         for arr_0_idx, arr_0_item in enumerate(val):
             arr_0_lpath: Path = (path + [ arr_0_idx ]) if path is not None else None
-            # .'$Q'.0
+            # .'$Qq'.0
             res = json_model_2(arr_0_item, arr_0_lpath if path is not None else None, rep)
             if not res:
-                rep is None or rep.append(("unexpected $P [.'$Q'.0]", arr_0_lpath if path is not None else None))
+                rep is None or rep.append(("unexpected $Pp [.'$Qq'.0]", arr_0_lpath if path is not None else None))
             if not res:
                 break
     if not res:
-        rep is None or rep.append(("not array or unexpected array [.'$Q']", path))
+        rep is None or rep.append(("not array or unexpected array [.'$Qq']", path))
     return res
 
 # object .o
@@ -63,7 +63,7 @@ def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
             # .o.p
             res = json_model_2(pval, lpath_1 if path is not None else None, rep)
             if not res:
-                rep is None or rep.append(("unexpected $P [.o.p]", lpath_1 if path is not None else None))
+                rep is None or rep.append(("unexpected $Pp [.o.p]", lpath_1 if path is not None else None))
             if not res:
                 rep is None or rep.append(("invalid optional prop value [.o.p]", lpath_1 if path is not None else None))
                 return False
@@ -72,7 +72,7 @@ def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
             # .o.q
             res = json_model_3(pval, lpath_1 if path is not None else None, rep)
             if not res:
-                rep is None or rep.append(("unexpected $Q [.o.q]", lpath_1 if path is not None else None))
+                rep is None or rep.append(("unexpected $Qq [.o.q]", lpath_1 if path is not None else None))
             if not res:
                 rep is None or rep.append(("invalid optional prop value [.o.q]", lpath_1 if path is not None else None))
                 return False
@@ -148,8 +148,8 @@ def check_model_init():
         global check_model_map
         check_model_map = {
             "": json_model_1,
-            "P": json_model_2,
-            "Q": json_model_3,
+            "Pp": json_model_2,
+            "Qq": json_model_3,
         }
 
 # differed module cleanup

@@ -28,22 +28,22 @@ def json_model_5(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$ex08'
     res = json_model_9(val, path, rep)
     if not res:
-        rep is None or rep.append(("unexpected $EX08 [.'$ex08']", path))
+        rep is None or rep.append(("unexpected $Ex08 [.'$ex08']", path))
     return res
 
-# check $EX08 (.'$EX08')
+# check $Ex08 (.'$Ex08')
 def json_model_3(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
-    # .'$EX08'
+    # .'$Ex08'
     res = json_model_9(val, path, rep)
     if not res:
-        rep is None or rep.append(("unexpected $ex08#EX08 [.'$EX08']", path))
+        rep is None or rep.append(("unexpected $ex08#Ex08 [.'$Ex08']", path))
     return res
 
-# object .'$EX09'
+# object .'$Ex09'
 def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
     if not isinstance(val, dict):
-        rep is None or rep.append(("not an object [.'$EX09']", path))
+        rep is None or rep.append(("not an object [.'$Ex09']", path))
         return False
     res: bool
     for prop, pval in val.items():
@@ -51,33 +51,33 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
         lpath_0: Path = (path + [ prop ]) if path is not None else None
         if prop == "#":
             # handle may # property
-            # .'$EX09'.'#'
+            # .'$Ex09'.'#'
             res = isinstance(pval, str)
             if not res:
-                rep is None or rep.append(("unexpected string [.'$EX09'.'#']", lpath_0 if path is not None else None))
+                rep is None or rep.append(("unexpected string [.'$Ex09'.'#']", lpath_0 if path is not None else None))
             if not res:
-                rep is None or rep.append(("invalid optional prop value [.'$EX09'.'#']", lpath_0 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$Ex09'.'#']", lpath_0 if path is not None else None))
                 return False
         elif is_valid_url(prop, lpath_0 if path is not None else None, rep):
             # handle 1 key props
-            # .'$EX09'.'$URL'
+            # .'$Ex09'.'$URL'
             res = json_model_6(pval, lpath_0 if path is not None else None, rep)
             if not res:
-                rep is None or rep.append(("unexpected $ex08#VAL [.'$EX09'.'$URL']", lpath_0 if path is not None else None))
+                rep is None or rep.append(("unexpected $ex08#Val [.'$Ex09'.'$URL']", lpath_0 if path is not None else None))
             if not res:
                 return False
         else:
-            rep is None or rep.append(("unexpected prop [.'$EX09']", lpath_0 if path is not None else None))
+            rep is None or rep.append(("unexpected prop [.'$Ex09']", lpath_0 if path is not None else None))
             return False
     return True
 
-# check $EX09 (.'$EX09')
+# check $Ex09 (.'$Ex09')
 def json_model_4(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
-    # .'$EX09'
+    # .'$Ex09'
     res = _jm_obj_0(val, path, rep)
     if not res:
-        rep is None or rep.append(("unexpected element [.'$EX09']", path))
+        rep is None or rep.append(("unexpected element [.'$Ex09']", path))
     return res
 
 # check $ (.)
@@ -86,40 +86,40 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     # .
     res = json_model_4(val, path, rep)
     if not res:
-        rep is None or rep.append(("unexpected $EX09 [.]", path))
+        rep is None or rep.append(("unexpected $Ex09 [.]", path))
     return res
 
-# check $ex08#VAL (.'$ex08#VAL')
+# check $ex08#Val (.'$ex08#Val')
 def json_model_6(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
-    # .'$ex08#VAL'
+    # .'$ex08#Val'
     res = isinstance(val, bool)
     if not res:
-        rep is None or rep.append(("not a bool [.'$ex08#VAL']", path))
+        rep is None or rep.append(("not a bool [.'$ex08#Val']", path))
     return res
 
-# check $ex08#EX08 (.'$ex08#EX08')
+# check $ex08#Ex08 (.'$ex08#Ex08')
 def json_model_9(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
-    # .'$ex08#EX08'
-    # .'$ex08#EX08'.'|'.0
+    # .'$ex08#Ex08'
+    # .'$ex08#Ex08'.'|'.0
     res = json_model_8(val, path, rep)
     if not res:
-        rep is None or rep.append(("unexpected $map [.'$ex08#EX08'.'|'.0]", path))
+        rep is None or rep.append(("unexpected $map [.'$ex08#Ex08'.'|'.0]", path))
     if not res:
-        # .'$ex08#EX08'.'|'.1
+        # .'$ex08#Ex08'.'|'.1
         res = is_valid_url(val, path, rep)
         if not res:
-            rep is None or rep.append(("unexpected $URL [.'$ex08#EX08'.'|'.1]", path))
+            rep is None or rep.append(("unexpected $URL [.'$ex08#Ex08'.'|'.1]", path))
         if not res:
-            # .'$ex08#EX08'.'|'.2
+            # .'$ex08#Ex08'.'|'.2
             res = json_model_6(val, path, rep)
             if not res:
-                rep is None or rep.append(("unexpected $VAL [.'$ex08#EX08'.'|'.2]", path))
+                rep is None or rep.append(("unexpected $Val [.'$ex08#Ex08'.'|'.2]", path))
     if res:
         rep is None or rep.clear()
     else:
-        rep is None or rep.append(("no model matched [.'$ex08#EX08'.'|']", path))
+        rep is None or rep.append(("no model matched [.'$ex08#Ex08'.'|']", path))
     return res
 
 # object .'$ex08#map'
@@ -136,7 +136,7 @@ def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
             # .'$ex08#map'.'$URL'
             res = json_model_6(pval, lpath_1 if path is not None else None, rep)
             if not res:
-                rep is None or rep.append(("unexpected $VAL [.'$ex08#map'.'$URL']", lpath_1 if path is not None else None))
+                rep is None or rep.append(("unexpected $Val [.'$ex08#map'.'$URL']", lpath_1 if path is not None else None))
             if not res:
                 return False
         else:
@@ -166,8 +166,8 @@ def check_model_init():
         check_model_map = {
             "": json_model_4,
             "ex08": json_model_3,
-            "EX08": json_model_3,
-            "EX09": json_model_4,
+            "Ex08": json_model_3,
+            "Ex09": json_model_4,
         }
 
 # differed module cleanup

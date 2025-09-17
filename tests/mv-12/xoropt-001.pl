@@ -21,69 +21,69 @@ sub json_model_9($$$);
 sub json_model_1($$$);
 my %check_model_map;
 
-# check $N (.'$N')
+# check $Nn (.'$Nn')
 sub json_model_2($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
-    # .'$N'
+    # .'$Nn'
     $res = !defined($val);
     return $res;
 }
 
-# check $B (.'$B')
+# check $Bb (.'$Bb')
 sub json_model_3($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
-    # .'$B'
+    # .'$Bb'
     $res = jm_is_boolean($val);
     return $res;
 }
 
-# check $I (.'$I')
+# check $Ii (.'$Ii')
 sub json_model_4($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
-    # .'$I'
+    # .'$Ii'
     $res = jm_is_integer($val);
     return $res;
 }
 
-# check $F (.'$F')
+# check $Ff (.'$Ff')
 sub json_model_5($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
-    # .'$F'
+    # .'$Ff'
     $res = jm_is_numeric($val);
     return $res;
 }
 
-# check $S (.'$S')
+# check $Ss (.'$Ss')
 sub json_model_6($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
-    # .'$S'
+    # .'$Ss'
     $res = jm_is_string($val);
     return $res;
 }
 
-# check $A (.'$A')
+# check $Aa (.'$Aa')
 sub json_model_7($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
-    # .'$A'
+    # .'$Aa'
     $res = jm_is_array($val);
     if ($res)
     {
         for my $arr_0_idx (0 .. $#$val)
         {
             my $arr_0_item = $$val[$arr_0_idx];
-            # .'$A'.0
+            # .'$Aa'.0
             $res = json_model_9($arr_0_item, undef, $rep);
             if (! $res)
             {
@@ -94,7 +94,7 @@ sub json_model_7($$$)
     return $res;
 }
 
-# object .'$O'
+# object .'$Oo'
 sub _jm_obj_0($$$)
 {
     my ($val, $path, $rep) = @_;
@@ -107,7 +107,7 @@ sub _jm_obj_0($$$)
     while (my ($prop, $pval) = each %$val)
     {
         # handle other props
-        # .'$O'.''
+        # .'$Oo'.''
         $res = json_model_9($pval, undef, $rep);
         if (! $res)
         {
@@ -117,12 +117,12 @@ sub _jm_obj_0($$$)
     return 1;
 }
 
-# check $O (.'$O')
+# check $Oo (.'$Oo')
 sub json_model_8($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
-    # .'$O'
+    # .'$Oo'
     $res = _jm_obj_0($val, $path, $rep);
     return $res;
 }
@@ -190,13 +190,13 @@ sub check_model_init()
         $initialized = 1;
         %check_model_map = (
             '' => \&json_model_9,
-            'N' => \&json_model_2,
-            'B' => \&json_model_3,
-            'I' => \&json_model_4,
-            'F' => \&json_model_5,
-            'S' => \&json_model_6,
-            'A' => \&json_model_7,
-            'O' => \&json_model_8,
+            'Nn' => \&json_model_2,
+            'Bb' => \&json_model_3,
+            'Ii' => \&json_model_4,
+            'Ff' => \&json_model_5,
+            'Ss' => \&json_model_6,
+            'Aa' => \&json_model_7,
+            'Oo' => \&json_model_8,
             'Any' => \&json_model_9,
         );
     }
