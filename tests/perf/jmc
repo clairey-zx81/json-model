@@ -2,8 +2,9 @@
 #
 # run jmc command in docker
 #
+# env: JMC, WORKDIR
 
-docker_image="zx80/jmc"
+docker_image="zx80/jmc:${JMC:-latest}"
 docker_root="docker run --name awesome_jmc_$$ -v ${WORKDIR:-.}:/app/workspace --rm"
 docker_user="$docker_root --user $(id -u):$(id -g)"
 

@@ -18,8 +18,8 @@ function err()
 script_dir=$(dirname $0)
 
 # defaults
-PARA=8 LOOP=1000 COMP=5 JMC=latest JSC=latest
-cap_py=
+PARA=8 LOOP=1000 COMP=5 cap_py=
+export JMC=latest JSC=latest
 
 # get options
 while [[ "$1" == -* ]] ; do
