@@ -365,7 +365,7 @@ def jmc_script():
     arg("--check", "-c", action="store_true", default=False, help="check model validity")
     arg("--optimize", "-O", action="store_true", default=True, help="optimize model")
     arg("--no-optimize", "-nO", dest="optimize", action="store_false", help="do not optimize model")
-    arg("--inline-or", dest="inline_or", action="store_true", default=True,
+    arg("--inline-or", dest="inline_or", action="store_true", default=False,
         help="inline or references in some cases")
     arg("--no-inline-or", dest="inline_or", action="store_false",
         help="do not inline or references")
