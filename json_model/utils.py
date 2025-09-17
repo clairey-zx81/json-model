@@ -9,6 +9,7 @@ from importlib.resources import files as data_files
 import logging
 from .mtypes import ModelType, ModelPath, ModelError, ModelObject
 from .mtypes import Jsonable, JsonObject, ValueType, Symbols
+from .runtime import ConstSet
 
 __version__ = pkg_version("json_model_compiler")
 
@@ -238,6 +239,7 @@ def is_constructed(model: ModelType):
         ("|" in model or "&" in model or "^" in model or "+" in model or "@" in model)
 
 def constant_value(m: ModelType, mpath: ModelPath) -> tuple[bool, ValueType]:
+    """Return whether model is a scalar constant."""
     if m is None:
         return True, None
     elif isinstance(m, str):
@@ -269,6 +271,20 @@ def constant_value(m: ModelType, mpath: ModelPath) -> tuple[bool, ValueType]:
             return False, None
     else:
         return False, None
+
+def constant_values(model: ModelType, mpath: ModelPath) -> tuple[bool, list[ValueType]|None]:
+    """Return whether a model is a list of scalar constants."""
+    if isinstance(model, dict) and ("|" in model or "^" in model):
+        op = "|" if "|" in model else "^"
+        values = []
+        for c, lv in [ constant_values(m, mpath + [op]) for m in model[op] ]:
+            if not c:
+                return False, None
+            values += lv
+        return True, values
+    else:
+        c, v = constant_value(model, mpath)
+        return c, ([v] if c else None)
 
 def all_model_type(models: list[ModelType], mpath: ModelPath) -> tuple[bool, type|None]:
     first, current_type = True, None
@@ -380,26 +396,44 @@ def _dedup_models(models: list[ModelType]) -> list[ModelType]:
             dedups.append(m)
     return dedups
 
+# def _mandatory_props(m: ModelType) -> set[str]:
+#     assert is_a_simple_object(m)
+#     props = set()
+#     for a in m:
+#         assert isinstance(m, str)
+#         if (a in ("", "#", "%", "$", "~") or
+#             a.startswith("#") or a.startwith("/") or a.startswith("$") or a.startswith("?")):
+#             continue
+#         if a[0] in ("!", "_"):
+#             props.add(a[1])
+#         else:
+#             props.add(a)
+#     return props
+
 # FIXME consistency with _structurally_distinct_models…
 def _distinct_models(m1: ModelType, m2: ModelType, defs: Symbols, mpath: ModelPath) -> bool:
     """Whether m1 and m2 are provably distinct, i.e. do not have values in common."""
     m1, m2 = resolve_model(m1, defs), resolve_model(m2, defs)
-    # log.warning(f"m1={m1} m2={m2}")
-    # type
+    # log.warning(f"distinct models: m1={m1} m2={m2}")
     if isinstance(m1, str) and m1 and m1[0] == "$":  # unresolved reference
         return m1 == "$NONE"  # special case for none which interact with nothing
     if isinstance(m2, str) and m2 and m2[0] == "$":  # unresolved reference
         return m2 == "$NONE"
-    if is_constructed(m1) or is_constructed(m2):
+    if isinstance(m1, dict) and ("&" in m1 or "@" in m1):
+        return False
+    if isinstance(m2, dict) and ("&" in m2 or "@" in m2):
         return False
     if type(m1) is not type(m2):
-        # log.warning("distinct!")
         return True
     # else same type… try value
     c1, v1 = constant_value(m1, mpath)
     c2, v2 = constant_value(m2, mpath)
-    # log.warning(f"{c1} {v1} / {c2} {v2}")
     if c1 and c2 and (type(v1) is not type(v2) or v1 != v2):
+        return True
+    # try with constant_values?
+    c1, lv1 = constant_values(m1, mpath)
+    c2, lv2 = constant_values(m2, mpath)
+    if c1 and c2 and len(ConstSet(lv1) & ConstSet(lv2)) == 0:
         return True
     return False
 
@@ -647,6 +681,15 @@ def is_obj_model(model: ModelType, keywords: set[str]) -> bool:
         return False
     for prop in model:
         if not prop.startswith("#") and prop not in keywords:
+            return False
+    return True
+
+def is_a_simple_object(model: ModelType) -> bool:
+    """Whether model is for an object."""
+    if not isinstance(model, dict):
+        return False
+    for prop in model:
+        if prop in ("@", "|", "^", "&", "+"):
             return False
     return True
 

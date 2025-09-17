@@ -648,22 +648,96 @@
     "Elem": {
       "anyOf": [
         {
-          "$ref": "#/$defs/Constraint"
+          "type": "object",
+          "patternProperties": {
+            "^(<=|>=|<|>)$": {
+              "$ref": "#/$defs/CmpValue"
+            },
+            "^(=|!=)$": {
+              "$ref": "#/$defs/EqValue"
+            }
+          },
+          "properties": {
+            "@": {
+              "$ref": "#/$defs/Model"
+            },
+            "!": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "@"
+          ],
+          "additionalProperties": false
         },
         {
-          "$ref": "#/$defs/Or"
+          "type": "object",
+          "properties": {
+            "|": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/Model"
+              }
+            }
+          },
+          "required": [
+            "|"
+          ],
+          "additionalProperties": false
         },
         {
-          "$ref": "#/$defs/And"
+          "type": "object",
+          "properties": {
+            "&": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/Model"
+              }
+            }
+          },
+          "required": [
+            "&"
+          ],
+          "additionalProperties": false
         },
         {
-          "$ref": "#/$defs/Xor"
+          "type": "object",
+          "properties": {
+            "^": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/Model"
+              }
+            }
+          },
+          "required": [
+            "^"
+          ],
+          "additionalProperties": false
         },
         {
-          "$ref": "#/$defs/Add"
+          "type": "object",
+          "properties": {
+            "+": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/Model"
+              }
+            }
+          },
+          "required": [
+            "+"
+          ],
+          "additionalProperties": false
         },
         {
-          "$ref": "#/$defs/Obj"
+          "type": "object",
+          "patternProperties": {
+            "(^[?!]|^[A-Za-z0-9_]|^/(.*)/[a-z]*X[a-z]*$|^/(.*)/[a-z]*$|^\\$.|^\\..+$|^$)": {
+              "$ref": "#/$defs/Model"
+            }
+          },
+          "additionalProperties": false
         }
       ]
     },

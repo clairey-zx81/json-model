@@ -77,6 +77,36 @@ sub json_model_4($$$)
     return $res;
 }
 
+# object .'$EX08'.'|'.0
+sub _jm_obj_1($$$)
+{
+    my ($val, $path, $rep) = @_;
+    if (! jm_is_object($val))
+    {
+        return 0;
+    }
+    my $res;
+    scalar keys %$val;
+    while (my ($prop, $pval) = each %$val)
+    {
+        if (jm_is_string($prop) && jm_is_valid_url($prop, undef, $rep))
+        {
+            # handle 1 key props
+            # .'$EX08'.'|'.0.'$URL'
+            $res = json_model_2($pval, undef, $rep);
+            if (! $res)
+            {
+                return 0;
+            }
+        }
+        else
+        {
+            return 0;
+        }
+    }
+    return 1;
+}
+
 # check $EX08 (.'$EX08')
 sub json_model_5($$$)
 {
@@ -84,7 +114,7 @@ sub json_model_5($$$)
     my $res;
     # .'$EX08'
     # .'$EX08'.'|'.0
-    $res = json_model_4($val, $path, $rep);
+    $res = _jm_obj_1($val, $path, $rep);
     if (! $res)
     {
         # .'$EX08'.'|'.1

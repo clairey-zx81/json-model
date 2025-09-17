@@ -48,6 +48,29 @@ sub json_model_2($$$)
     return $res;
 }
 
+# object .'$rec'.'|'.1
+sub _jm_obj_1($$$)
+{
+    my ($val, $path, $rep) = @_;
+    if (! jm_is_object($val))
+    {
+        return 0;
+    }
+    my $res;
+    scalar keys %$val;
+    while (my ($prop, $pval) = each %$val)
+    {
+        # handle other props
+        # .'$rec'.'|'.1.''
+        $res = json_model_3($pval, undef, $rep);
+        if (! $res)
+        {
+            return 0;
+        }
+    }
+    return 1;
+}
+
 # check $rec (.'$rec')
 sub json_model_3($$$)
 {
@@ -59,7 +82,7 @@ sub json_model_3($$$)
     if (! $res)
     {
         # .'$rec'.'|'.1
-        $res = json_model_2($val, $path, $rep);
+        $res = _jm_obj_1($val, $path, $rep);
     }
     return $res;
 }

@@ -13,6 +13,9 @@ JMC.cmd = \
 # JSON Schema Checker
 JSC = jsu-check --quiet
 
+# local makefile
+# -inline local.mk
+
 # inputs, skip _*
 F.mjs   = $(wildcard [a-zA-Z]*.model.js)
 F.myaml = $(wildcard *.model.yaml)

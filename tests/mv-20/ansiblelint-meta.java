@@ -81,15 +81,48 @@ public class ansiblelint_meta extends ModelChecker
     Set<Object> _jm_cst_61_set;
     Set<Object> _jm_cst_62_set;
     Set<Object> _jm_cst_63_set;
+    Set<Object> _jm_cst_64_set;
+    Set<Object> _jm_cst_65_set;
+    Set<Object> _jm_cst_66_set;
+    Set<Object> _jm_cst_67_set;
+    Set<Object> _jm_cst_68_set;
+    Set<Object> _jm_cst_69_set;
+    Set<Object> _jm_cst_70_set;
+    Set<Object> _jm_cst_71_set;
+    Set<Object> _jm_cst_72_set;
+    Set<Object> _jm_cst_73_set;
+    Set<Object> _jm_cst_74_set;
+    Set<Object> _jm_cst_75_set;
+    Set<Object> _jm_cst_76_set;
+    Set<Object> _jm_cst_77_set;
+    Set<Object> _jm_cst_78_set;
+    Set<Object> _jm_cst_79_set;
+    Set<Object> _jm_cst_80_set;
+    Set<Object> _jm_cst_81_set;
+    Set<Object> _jm_cst_82_set;
+    Set<Object> _jm_cst_83_set;
+    Set<Object> _jm_cst_84_set;
+    Set<Object> _jm_cst_85_set;
+    Set<Object> _jm_cst_86_set;
+    Set<Object> _jm_cst_87_set;
+    Set<Object> _jm_cst_88_set;
+    Set<Object> _jm_cst_89_set;
+    Set<Object> _jm_cst_90_set;
+    Set<Object> _jm_cst_91_set;
+    Set<Object> _jm_cst_92_set;
+    Set<Object> _jm_cst_93_set;
+    Set<Object> _jm_cst_94_set;
+    Set<Object> _jm_cst_95_set;
     public Pattern _jm_re_0_pat = null;
     public Pattern _jm_re_1_pat = null;
-    Map<String, Checker> _jm_obj_94_map_pmap;
-    Map<String, Checker> _jm_obj_95_map_pmap;
-    Map<String, Checker> _jm_obj_96_map_pmap;
-    Map<String, Checker> _jm_obj_97_map_pmap;
-    Map<String, Checker> _jm_obj_98_map_pmap;
+    Map<String, Checker> _jm_obj_141_map_pmap;
+    Map<String, Checker> _jm_obj_142_map_pmap;
+    Map<String, Checker> _jm_obj_143_map_pmap;
+    Map<String, Checker> _jm_obj_144_map_pmap;
+    Map<String, Checker> _jm_obj_145_map_pmap;
+    Map<String, Checker> _jm_obj_146_map_pmap;
     public Pattern _jm_re_2_pat = null;
-    Set<Object> _jm_cst_64_set;
+    Set<Object> _jm_cst_96_set;
     public Map<String, Checker> ansiblelint_meta_map_pmap;
 
     // object .'$AIXPlatformModel'
@@ -4259,385 +4292,3950 @@ public class ansiblelint_meta extends ModelChecker
         return res;
     }
     
+    
+    // object .'$any_platform'.'|'.46
+    public boolean _jm_obj_47(Object val, Path path, Report rep)
+    {
+        if (! json.isObject(val))
+        {
+            if (rep != null) rep.addEntry("not an object [.'$any_platform'.'|'.46]", path);
+            return false;
+        }
+        boolean res;
+        Iterator<String> prop_loop = json.objectIterator(val);
+        while (prop_loop.hasNext())
+        {
+            String prop = prop_loop.next();
+            Object pval = json.objectValue(val, prop);
+            Path lpath_47 = new Path(prop, path);
+            if (prop.compareTo("name") == 0)
+            {
+                // handle may name property
+                // .'$any_platform'.'|'.46.name
+                res = json.isString(pval) && json.asString(pval).compareTo("Windows") == 0;
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected _Windows [.'$any_platform'.'|'.46.name]", (path != null ? lpath_47 : null));
+                }
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$any_platform'.'|'.46.name]", (path != null ? lpath_47 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("versions") == 0)
+            {
+                // handle may versions property
+                // .'$any_platform'.'|'.46.versions
+                res = json.isArray(pval);
+                if (res)
+                {
+                    int arr_47_idx = -1;
+                    Iterator<Object> arr_47_item_loop = json.arrayIterator(pval);
+                    while (arr_47_item_loop.hasNext())
+                    {
+                        arr_47_idx++;
+                        Object arr_47_item = arr_47_item_loop.next();
+                        Path arr_47_lpath = new Path(arr_47_idx, (path != null ? lpath_47 : null));
+                        // .'$any_platform'.'|'.46.versions.0
+                        res = json.isScalar(arr_47_item) && _jm_cst_32_set.contains(arr_47_item);
+                        if (! res)
+                        {
+                            if (rep != null) rep.addEntry("value not in enum [.'$any_platform'.'|'.46.versions.0.'|']", ((path != null ? lpath_47 : null) != null ? arr_47_lpath : null));
+                        }
+                        if (! res)
+                        {
+                            break;
+                        }
+                    }
+                }
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("not array or unexpected array [.'$any_platform'.'|'.46.versions]", (path != null ? lpath_47 : null));
+                }
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$any_platform'.'|'.46.versions]", (path != null ? lpath_47 : null));
+                    return false;
+                }
+            }
+            else
+            {
+                if (rep != null) rep.addEntry("unexpected prop [.'$any_platform'.'|'.46]", (path != null ? lpath_47 : null));
+                return false;
+            }
+        }
+        return true;
+    }
+    
+    
+    // object .'$any_platform'.'|'.45
+    public boolean _jm_obj_48(Object val, Path path, Report rep)
+    {
+        if (! json.isObject(val))
+        {
+            if (rep != null) rep.addEntry("not an object [.'$any_platform'.'|'.45]", path);
+            return false;
+        }
+        boolean res;
+        Iterator<String> prop_loop = json.objectIterator(val);
+        while (prop_loop.hasNext())
+        {
+            String prop = prop_loop.next();
+            Object pval = json.objectValue(val, prop);
+            Path lpath_48 = new Path(prop, path);
+            if (prop.compareTo("name") == 0)
+            {
+                // handle may name property
+                // .'$any_platform'.'|'.45.name
+                res = json.isString(pval) && json.asString(pval).compareTo("vSphere") == 0;
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected _vSphere [.'$any_platform'.'|'.45.name]", (path != null ? lpath_48 : null));
+                }
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$any_platform'.'|'.45.name]", (path != null ? lpath_48 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("versions") == 0)
+            {
+                // handle may versions property
+                // .'$any_platform'.'|'.45.versions
+                res = json.isArray(pval);
+                if (res)
+                {
+                    int arr_48_idx = -1;
+                    Iterator<Object> arr_48_item_loop = json.arrayIterator(pval);
+                    while (arr_48_item_loop.hasNext())
+                    {
+                        arr_48_idx++;
+                        Object arr_48_item = arr_48_item_loop.next();
+                        Path arr_48_lpath = new Path(arr_48_idx, (path != null ? lpath_48 : null));
+                        // .'$any_platform'.'|'.45.versions.0
+                        res = json.isScalar(arr_48_item) && _jm_cst_33_set.contains(arr_48_item);
+                        if (! res)
+                        {
+                            if (rep != null) rep.addEntry("value not in enum [.'$any_platform'.'|'.45.versions.0.'|']", ((path != null ? lpath_48 : null) != null ? arr_48_lpath : null));
+                        }
+                        if (! res)
+                        {
+                            break;
+                        }
+                    }
+                }
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("not array or unexpected array [.'$any_platform'.'|'.45.versions]", (path != null ? lpath_48 : null));
+                }
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$any_platform'.'|'.45.versions]", (path != null ? lpath_48 : null));
+                    return false;
+                }
+            }
+            else
+            {
+                if (rep != null) rep.addEntry("unexpected prop [.'$any_platform'.'|'.45]", (path != null ? lpath_48 : null));
+                return false;
+            }
+        }
+        return true;
+    }
+    
+    // object .'$any_platform'.'|'.44
+    public boolean _jm_obj_49(Object val, Path path, Report rep)
+    {
+        if (! json.isObject(val))
+        {
+            if (rep != null) rep.addEntry("not an object [.'$any_platform'.'|'.44]", path);
+            return false;
+        }
+        boolean res;
+        Iterator<String> prop_loop = json.objectIterator(val);
+        while (prop_loop.hasNext())
+        {
+            String prop = prop_loop.next();
+            Object pval = json.objectValue(val, prop);
+            Path lpath_49 = new Path(prop, path);
+            if (prop.compareTo("name") == 0)
+            {
+                // handle may name property
+                // .'$any_platform'.'|'.44.name
+                res = json.isString(pval) && json.asString(pval).compareTo("Void Linux") == 0;
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected _Void Linux [.'$any_platform'.'|'.44.name]", (path != null ? lpath_49 : null));
+                }
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$any_platform'.'|'.44.name]", (path != null ? lpath_49 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("versions") == 0)
+            {
+                // handle may versions property
+                // .'$any_platform'.'|'.44.versions
+                res = json.isArray(pval);
+                if (res)
+                {
+                    int arr_49_idx = -1;
+                    Iterator<Object> arr_49_item_loop = json.arrayIterator(pval);
+                    while (arr_49_item_loop.hasNext())
+                    {
+                        arr_49_idx++;
+                        Object arr_49_item = arr_49_item_loop.next();
+                        Path arr_49_lpath = new Path(arr_49_idx, (path != null ? lpath_49 : null));
+                        // .'$any_platform'.'|'.44.versions.0
+                        res = json.isString(arr_49_item) && json.asString(arr_49_item).compareTo("all") == 0;
+                        if (! res)
+                        {
+                            if (rep != null) rep.addEntry("unexpected all [.'$any_platform'.'|'.44.versions.0]", ((path != null ? lpath_49 : null) != null ? arr_49_lpath : null));
+                        }
+                        if (! res)
+                        {
+                            break;
+                        }
+                    }
+                }
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("not array or unexpected array [.'$any_platform'.'|'.44.versions]", (path != null ? lpath_49 : null));
+                }
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$any_platform'.'|'.44.versions]", (path != null ? lpath_49 : null));
+                    return false;
+                }
+            }
+            else
+            {
+                if (rep != null) rep.addEntry("unexpected prop [.'$any_platform'.'|'.44]", (path != null ? lpath_49 : null));
+                return false;
+            }
+        }
+        return true;
+    }
+    
+    
+    // object .'$any_platform'.'|'.43
+    public boolean _jm_obj_50(Object val, Path path, Report rep)
+    {
+        if (! json.isObject(val))
+        {
+            if (rep != null) rep.addEntry("not an object [.'$any_platform'.'|'.43]", path);
+            return false;
+        }
+        boolean res;
+        Iterator<String> prop_loop = json.objectIterator(val);
+        while (prop_loop.hasNext())
+        {
+            String prop = prop_loop.next();
+            Object pval = json.objectValue(val, prop);
+            Path lpath_50 = new Path(prop, path);
+            if (prop.compareTo("name") == 0)
+            {
+                // handle may name property
+                // .'$any_platform'.'|'.43.name
+                res = json.isString(pval) && json.asString(pval).compareTo("vCenter") == 0;
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected _vCenter [.'$any_platform'.'|'.43.name]", (path != null ? lpath_50 : null));
+                }
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$any_platform'.'|'.43.name]", (path != null ? lpath_50 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("versions") == 0)
+            {
+                // handle may versions property
+                // .'$any_platform'.'|'.43.versions
+                res = json.isArray(pval);
+                if (res)
+                {
+                    int arr_50_idx = -1;
+                    Iterator<Object> arr_50_item_loop = json.arrayIterator(pval);
+                    while (arr_50_item_loop.hasNext())
+                    {
+                        arr_50_idx++;
+                        Object arr_50_item = arr_50_item_loop.next();
+                        Path arr_50_lpath = new Path(arr_50_idx, (path != null ? lpath_50 : null));
+                        // .'$any_platform'.'|'.43.versions.0
+                        res = json.isScalar(arr_50_item) && _jm_cst_34_set.contains(arr_50_item);
+                        if (! res)
+                        {
+                            if (rep != null) rep.addEntry("value not in enum [.'$any_platform'.'|'.43.versions.0.'|']", ((path != null ? lpath_50 : null) != null ? arr_50_lpath : null));
+                        }
+                        if (! res)
+                        {
+                            break;
+                        }
+                    }
+                }
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("not array or unexpected array [.'$any_platform'.'|'.43.versions]", (path != null ? lpath_50 : null));
+                }
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$any_platform'.'|'.43.versions]", (path != null ? lpath_50 : null));
+                    return false;
+                }
+            }
+            else
+            {
+                if (rep != null) rep.addEntry("unexpected prop [.'$any_platform'.'|'.43]", (path != null ? lpath_50 : null));
+                return false;
+            }
+        }
+        return true;
+    }
+    
+    
+    // object .'$any_platform'.'|'.42
+    public boolean _jm_obj_51(Object val, Path path, Report rep)
+    {
+        if (! json.isObject(val))
+        {
+            if (rep != null) rep.addEntry("not an object [.'$any_platform'.'|'.42]", path);
+            return false;
+        }
+        boolean res;
+        Iterator<String> prop_loop = json.objectIterator(val);
+        while (prop_loop.hasNext())
+        {
+            String prop = prop_loop.next();
+            Object pval = json.objectValue(val, prop);
+            Path lpath_51 = new Path(prop, path);
+            if (prop.compareTo("name") == 0)
+            {
+                // handle may name property
+                // .'$any_platform'.'|'.42.name
+                res = json.isString(pval) && json.asString(pval).compareTo("Ubuntu") == 0;
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected _Ubuntu [.'$any_platform'.'|'.42.name]", (path != null ? lpath_51 : null));
+                }
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$any_platform'.'|'.42.name]", (path != null ? lpath_51 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("versions") == 0)
+            {
+                // handle may versions property
+                // .'$any_platform'.'|'.42.versions
+                res = json.isArray(pval);
+                if (res)
+                {
+                    int arr_51_idx = -1;
+                    Iterator<Object> arr_51_item_loop = json.arrayIterator(pval);
+                    while (arr_51_item_loop.hasNext())
+                    {
+                        arr_51_idx++;
+                        Object arr_51_item = arr_51_item_loop.next();
+                        Path arr_51_lpath = new Path(arr_51_idx, (path != null ? lpath_51 : null));
+                        // .'$any_platform'.'|'.42.versions.0
+                        res = json.isScalar(arr_51_item) && _jm_cst_35_set.contains(arr_51_item);
+                        if (! res)
+                        {
+                            if (rep != null) rep.addEntry("value not in enum [.'$any_platform'.'|'.42.versions.0.'|']", ((path != null ? lpath_51 : null) != null ? arr_51_lpath : null));
+                        }
+                        if (! res)
+                        {
+                            break;
+                        }
+                    }
+                }
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("not array or unexpected array [.'$any_platform'.'|'.42.versions]", (path != null ? lpath_51 : null));
+                }
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$any_platform'.'|'.42.versions]", (path != null ? lpath_51 : null));
+                    return false;
+                }
+            }
+            else
+            {
+                if (rep != null) rep.addEntry("unexpected prop [.'$any_platform'.'|'.42]", (path != null ? lpath_51 : null));
+                return false;
+            }
+        }
+        return true;
+    }
+    
+    
+    // object .'$any_platform'.'|'.41
+    public boolean _jm_obj_52(Object val, Path path, Report rep)
+    {
+        if (! json.isObject(val))
+        {
+            if (rep != null) rep.addEntry("not an object [.'$any_platform'.'|'.41]", path);
+            return false;
+        }
+        boolean res;
+        Iterator<String> prop_loop = json.objectIterator(val);
+        while (prop_loop.hasNext())
+        {
+            String prop = prop_loop.next();
+            Object pval = json.objectValue(val, prop);
+            Path lpath_52 = new Path(prop, path);
+            if (prop.compareTo("name") == 0)
+            {
+                // handle may name property
+                // .'$any_platform'.'|'.41.name
+                res = json.isString(pval) && json.asString(pval).compareTo("TMOS") == 0;
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected _TMOS [.'$any_platform'.'|'.41.name]", (path != null ? lpath_52 : null));
+                }
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$any_platform'.'|'.41.name]", (path != null ? lpath_52 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("versions") == 0)
+            {
+                // handle may versions property
+                // .'$any_platform'.'|'.41.versions
+                res = json.isArray(pval);
+                if (res)
+                {
+                    int arr_52_idx = -1;
+                    Iterator<Object> arr_52_item_loop = json.arrayIterator(pval);
+                    while (arr_52_item_loop.hasNext())
+                    {
+                        arr_52_idx++;
+                        Object arr_52_item = arr_52_item_loop.next();
+                        Path arr_52_lpath = new Path(arr_52_idx, (path != null ? lpath_52 : null));
+                        // .'$any_platform'.'|'.41.versions.0
+                        res = json.isScalar(arr_52_item) && _jm_cst_36_set.contains(arr_52_item);
+                        if (! res)
+                        {
+                            if (rep != null) rep.addEntry("value not in enum [.'$any_platform'.'|'.41.versions.0.'|']", ((path != null ? lpath_52 : null) != null ? arr_52_lpath : null));
+                        }
+                        if (! res)
+                        {
+                            break;
+                        }
+                    }
+                }
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("not array or unexpected array [.'$any_platform'.'|'.41.versions]", (path != null ? lpath_52 : null));
+                }
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$any_platform'.'|'.41.versions]", (path != null ? lpath_52 : null));
+                    return false;
+                }
+            }
+            else
+            {
+                if (rep != null) rep.addEntry("unexpected prop [.'$any_platform'.'|'.41]", (path != null ? lpath_52 : null));
+                return false;
+            }
+        }
+        return true;
+    }
+    
+    
+    // object .'$any_platform'.'|'.40
+    public boolean _jm_obj_53(Object val, Path path, Report rep)
+    {
+        if (! json.isObject(val))
+        {
+            if (rep != null) rep.addEntry("not an object [.'$any_platform'.'|'.40]", path);
+            return false;
+        }
+        boolean res;
+        Iterator<String> prop_loop = json.objectIterator(val);
+        while (prop_loop.hasNext())
+        {
+            String prop = prop_loop.next();
+            Object pval = json.objectValue(val, prop);
+            Path lpath_53 = new Path(prop, path);
+            if (prop.compareTo("name") == 0)
+            {
+                // handle may name property
+                // .'$any_platform'.'|'.40.name
+                res = json.isString(pval) && json.asString(pval).compareTo("Synology") == 0;
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected _Synology [.'$any_platform'.'|'.40.name]", (path != null ? lpath_53 : null));
+                }
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$any_platform'.'|'.40.name]", (path != null ? lpath_53 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("versions") == 0)
+            {
+                // handle may versions property
+                // .'$any_platform'.'|'.40.versions
+                res = json.isArray(pval);
+                if (res)
+                {
+                    int arr_53_idx = -1;
+                    Iterator<Object> arr_53_item_loop = json.arrayIterator(pval);
+                    while (arr_53_item_loop.hasNext())
+                    {
+                        arr_53_idx++;
+                        Object arr_53_item = arr_53_item_loop.next();
+                        Path arr_53_lpath = new Path(arr_53_idx, (path != null ? lpath_53 : null));
+                        // .'$any_platform'.'|'.40.versions.0
+                        res = json.isScalar(arr_53_item) && _jm_cst_37_set.contains(arr_53_item);
+                        if (! res)
+                        {
+                            if (rep != null) rep.addEntry("value not in enum [.'$any_platform'.'|'.40.versions.0.'|']", ((path != null ? lpath_53 : null) != null ? arr_53_lpath : null));
+                        }
+                        if (! res)
+                        {
+                            break;
+                        }
+                    }
+                }
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("not array or unexpected array [.'$any_platform'.'|'.40.versions]", (path != null ? lpath_53 : null));
+                }
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$any_platform'.'|'.40.versions]", (path != null ? lpath_53 : null));
+                    return false;
+                }
+            }
+            else
+            {
+                if (rep != null) rep.addEntry("unexpected prop [.'$any_platform'.'|'.40]", (path != null ? lpath_53 : null));
+                return false;
+            }
+        }
+        return true;
+    }
+    
+    
+    // object .'$any_platform'.'|'.39
+    public boolean _jm_obj_54(Object val, Path path, Report rep)
+    {
+        if (! json.isObject(val))
+        {
+            if (rep != null) rep.addEntry("not an object [.'$any_platform'.'|'.39]", path);
+            return false;
+        }
+        boolean res;
+        Iterator<String> prop_loop = json.objectIterator(val);
+        while (prop_loop.hasNext())
+        {
+            String prop = prop_loop.next();
+            Object pval = json.objectValue(val, prop);
+            Path lpath_54 = new Path(prop, path);
+            if (prop.compareTo("name") == 0)
+            {
+                // handle may name property
+                // .'$any_platform'.'|'.39.name
+                res = json.isString(pval) && json.asString(pval).compareTo("Solaris") == 0;
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected _Solaris [.'$any_platform'.'|'.39.name]", (path != null ? lpath_54 : null));
+                }
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$any_platform'.'|'.39.name]", (path != null ? lpath_54 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("versions") == 0)
+            {
+                // handle may versions property
+                // .'$any_platform'.'|'.39.versions
+                res = json.isArray(pval);
+                if (res)
+                {
+                    int arr_54_idx = -1;
+                    Iterator<Object> arr_54_item_loop = json.arrayIterator(pval);
+                    while (arr_54_item_loop.hasNext())
+                    {
+                        arr_54_idx++;
+                        Object arr_54_item = arr_54_item_loop.next();
+                        Path arr_54_lpath = new Path(arr_54_idx, (path != null ? lpath_54 : null));
+                        // .'$any_platform'.'|'.39.versions.0
+                        res = json.isScalar(arr_54_item) && _jm_cst_38_set.contains(arr_54_item);
+                        if (! res)
+                        {
+                            if (rep != null) rep.addEntry("value not in enum [.'$any_platform'.'|'.39.versions.0.'|']", ((path != null ? lpath_54 : null) != null ? arr_54_lpath : null));
+                        }
+                        if (! res)
+                        {
+                            break;
+                        }
+                    }
+                }
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("not array or unexpected array [.'$any_platform'.'|'.39.versions]", (path != null ? lpath_54 : null));
+                }
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$any_platform'.'|'.39.versions]", (path != null ? lpath_54 : null));
+                    return false;
+                }
+            }
+            else
+            {
+                if (rep != null) rep.addEntry("unexpected prop [.'$any_platform'.'|'.39]", (path != null ? lpath_54 : null));
+                return false;
+            }
+        }
+        return true;
+    }
+    
+    // object .'$any_platform'.'|'.38
+    public boolean _jm_obj_55(Object val, Path path, Report rep)
+    {
+        if (! json.isObject(val))
+        {
+            if (rep != null) rep.addEntry("not an object [.'$any_platform'.'|'.38]", path);
+            return false;
+        }
+        boolean res;
+        Iterator<String> prop_loop = json.objectIterator(val);
+        while (prop_loop.hasNext())
+        {
+            String prop = prop_loop.next();
+            Object pval = json.objectValue(val, prop);
+            Path lpath_55 = new Path(prop, path);
+            if (prop.compareTo("name") == 0)
+            {
+                // handle may name property
+                // .'$any_platform'.'|'.38.name
+                res = json.isString(pval) && json.asString(pval).compareTo("SmartOS") == 0;
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected _SmartOS [.'$any_platform'.'|'.38.name]", (path != null ? lpath_55 : null));
+                }
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$any_platform'.'|'.38.name]", (path != null ? lpath_55 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("versions") == 0)
+            {
+                // handle may versions property
+                // .'$any_platform'.'|'.38.versions
+                res = json.isArray(pval);
+                if (res)
+                {
+                    int arr_55_idx = -1;
+                    Iterator<Object> arr_55_item_loop = json.arrayIterator(pval);
+                    while (arr_55_item_loop.hasNext())
+                    {
+                        arr_55_idx++;
+                        Object arr_55_item = arr_55_item_loop.next();
+                        Path arr_55_lpath = new Path(arr_55_idx, (path != null ? lpath_55 : null));
+                        // .'$any_platform'.'|'.38.versions.0
+                        res = json.isString(arr_55_item) && json.asString(arr_55_item).compareTo("all") == 0;
+                        if (! res)
+                        {
+                            if (rep != null) rep.addEntry("unexpected all [.'$any_platform'.'|'.38.versions.0]", ((path != null ? lpath_55 : null) != null ? arr_55_lpath : null));
+                        }
+                        if (! res)
+                        {
+                            break;
+                        }
+                    }
+                }
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("not array or unexpected array [.'$any_platform'.'|'.38.versions]", (path != null ? lpath_55 : null));
+                }
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$any_platform'.'|'.38.versions]", (path != null ? lpath_55 : null));
+                    return false;
+                }
+            }
+            else
+            {
+                if (rep != null) rep.addEntry("unexpected prop [.'$any_platform'.'|'.38]", (path != null ? lpath_55 : null));
+                return false;
+            }
+        }
+        return true;
+    }
+    
+    
+    // object .'$any_platform'.'|'.37
+    public boolean _jm_obj_56(Object val, Path path, Report rep)
+    {
+        if (! json.isObject(val))
+        {
+            if (rep != null) rep.addEntry("not an object [.'$any_platform'.'|'.37]", path);
+            return false;
+        }
+        boolean res;
+        Iterator<String> prop_loop = json.objectIterator(val);
+        while (prop_loop.hasNext())
+        {
+            String prop = prop_loop.next();
+            Object pval = json.objectValue(val, prop);
+            Path lpath_56 = new Path(prop, path);
+            if (prop.compareTo("name") == 0)
+            {
+                // handle may name property
+                // .'$any_platform'.'|'.37.name
+                res = json.isString(pval) && json.asString(pval).compareTo("SLES") == 0;
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected _SLES [.'$any_platform'.'|'.37.name]", (path != null ? lpath_56 : null));
+                }
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$any_platform'.'|'.37.name]", (path != null ? lpath_56 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("versions") == 0)
+            {
+                // handle may versions property
+                // .'$any_platform'.'|'.37.versions
+                res = json.isArray(pval);
+                if (res)
+                {
+                    int arr_56_idx = -1;
+                    Iterator<Object> arr_56_item_loop = json.arrayIterator(pval);
+                    while (arr_56_item_loop.hasNext())
+                    {
+                        arr_56_idx++;
+                        Object arr_56_item = arr_56_item_loop.next();
+                        Path arr_56_lpath = new Path(arr_56_idx, (path != null ? lpath_56 : null));
+                        // .'$any_platform'.'|'.37.versions.0
+                        res = json.isScalar(arr_56_item) && _jm_cst_39_set.contains(arr_56_item);
+                        if (! res)
+                        {
+                            if (rep != null) rep.addEntry("value not in enum [.'$any_platform'.'|'.37.versions.0.'|']", ((path != null ? lpath_56 : null) != null ? arr_56_lpath : null));
+                        }
+                        if (! res)
+                        {
+                            break;
+                        }
+                    }
+                }
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("not array or unexpected array [.'$any_platform'.'|'.37.versions]", (path != null ? lpath_56 : null));
+                }
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$any_platform'.'|'.37.versions]", (path != null ? lpath_56 : null));
+                    return false;
+                }
+            }
+            else
+            {
+                if (rep != null) rep.addEntry("unexpected prop [.'$any_platform'.'|'.37]", (path != null ? lpath_56 : null));
+                return false;
+            }
+        }
+        return true;
+    }
+    
+    
+    // object .'$any_platform'.'|'.36
+    public boolean _jm_obj_57(Object val, Path path, Report rep)
+    {
+        if (! json.isObject(val))
+        {
+            if (rep != null) rep.addEntry("not an object [.'$any_platform'.'|'.36]", path);
+            return false;
+        }
+        boolean res;
+        Iterator<String> prop_loop = json.objectIterator(val);
+        while (prop_loop.hasNext())
+        {
+            String prop = prop_loop.next();
+            Object pval = json.objectValue(val, prop);
+            Path lpath_57 = new Path(prop, path);
+            if (prop.compareTo("name") == 0)
+            {
+                // handle may name property
+                // .'$any_platform'.'|'.36.name
+                res = json.isString(pval) && json.asString(pval).compareTo("Rocky") == 0;
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected _Rocky [.'$any_platform'.'|'.36.name]", (path != null ? lpath_57 : null));
+                }
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$any_platform'.'|'.36.name]", (path != null ? lpath_57 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("versions") == 0)
+            {
+                // handle may versions property
+                // .'$any_platform'.'|'.36.versions
+                res = json.isArray(pval);
+                if (res)
+                {
+                    int arr_57_idx = -1;
+                    Iterator<Object> arr_57_item_loop = json.arrayIterator(pval);
+                    while (arr_57_item_loop.hasNext())
+                    {
+                        arr_57_idx++;
+                        Object arr_57_item = arr_57_item_loop.next();
+                        Path arr_57_lpath = new Path(arr_57_idx, (path != null ? lpath_57 : null));
+                        // .'$any_platform'.'|'.36.versions.0
+                        res = json.isScalar(arr_57_item) && _jm_cst_40_set.contains(arr_57_item);
+                        if (! res)
+                        {
+                            if (rep != null) rep.addEntry("value not in enum [.'$any_platform'.'|'.36.versions.0.'|']", ((path != null ? lpath_57 : null) != null ? arr_57_lpath : null));
+                        }
+                        if (! res)
+                        {
+                            break;
+                        }
+                    }
+                }
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("not array or unexpected array [.'$any_platform'.'|'.36.versions]", (path != null ? lpath_57 : null));
+                }
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$any_platform'.'|'.36.versions]", (path != null ? lpath_57 : null));
+                    return false;
+                }
+            }
+            else
+            {
+                if (rep != null) rep.addEntry("unexpected prop [.'$any_platform'.'|'.36]", (path != null ? lpath_57 : null));
+                return false;
+            }
+        }
+        return true;
+    }
+    
+    
+    // object .'$any_platform'.'|'.35
+    public boolean _jm_obj_58(Object val, Path path, Report rep)
+    {
+        if (! json.isObject(val))
+        {
+            if (rep != null) rep.addEntry("not an object [.'$any_platform'.'|'.35]", path);
+            return false;
+        }
+        boolean res;
+        Iterator<String> prop_loop = json.objectIterator(val);
+        while (prop_loop.hasNext())
+        {
+            String prop = prop_loop.next();
+            Object pval = json.objectValue(val, prop);
+            Path lpath_58 = new Path(prop, path);
+            if (prop.compareTo("name") == 0)
+            {
+                // handle may name property
+                // .'$any_platform'.'|'.35.name
+                res = json.isString(pval) && json.asString(pval).compareTo("PAN-OS") == 0;
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected _PAN-OS [.'$any_platform'.'|'.35.name]", (path != null ? lpath_58 : null));
+                }
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$any_platform'.'|'.35.name]", (path != null ? lpath_58 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("versions") == 0)
+            {
+                // handle may versions property
+                // .'$any_platform'.'|'.35.versions
+                res = json.isArray(pval);
+                if (res)
+                {
+                    int arr_58_idx = -1;
+                    Iterator<Object> arr_58_item_loop = json.arrayIterator(pval);
+                    while (arr_58_item_loop.hasNext())
+                    {
+                        arr_58_idx++;
+                        Object arr_58_item = arr_58_item_loop.next();
+                        Path arr_58_lpath = new Path(arr_58_idx, (path != null ? lpath_58 : null));
+                        // .'$any_platform'.'|'.35.versions.0
+                        res = json.isScalar(arr_58_item) && _jm_cst_41_set.contains(arr_58_item);
+                        if (! res)
+                        {
+                            if (rep != null) rep.addEntry("value not in enum [.'$any_platform'.'|'.35.versions.0.'|']", ((path != null ? lpath_58 : null) != null ? arr_58_lpath : null));
+                        }
+                        if (! res)
+                        {
+                            break;
+                        }
+                    }
+                }
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("not array or unexpected array [.'$any_platform'.'|'.35.versions]", (path != null ? lpath_58 : null));
+                }
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$any_platform'.'|'.35.versions]", (path != null ? lpath_58 : null));
+                    return false;
+                }
+            }
+            else
+            {
+                if (rep != null) rep.addEntry("unexpected prop [.'$any_platform'.'|'.35]", (path != null ? lpath_58 : null));
+                return false;
+            }
+        }
+        return true;
+    }
+    
+    // object .'$any_platform'.'|'.34
+    public boolean _jm_obj_59(Object val, Path path, Report rep)
+    {
+        if (! json.isObject(val))
+        {
+            if (rep != null) rep.addEntry("not an object [.'$any_platform'.'|'.34]", path);
+            return false;
+        }
+        boolean res;
+        Iterator<String> prop_loop = json.objectIterator(val);
+        while (prop_loop.hasNext())
+        {
+            String prop = prop_loop.next();
+            Object pval = json.objectValue(val, prop);
+            Path lpath_59 = new Path(prop, path);
+            if (prop.compareTo("name") == 0)
+            {
+                // handle may name property
+                // .'$any_platform'.'|'.34.name
+                res = json.isString(pval) && json.asString(pval).compareTo("os10") == 0;
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected _os10 [.'$any_platform'.'|'.34.name]", (path != null ? lpath_59 : null));
+                }
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$any_platform'.'|'.34.name]", (path != null ? lpath_59 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("versions") == 0)
+            {
+                // handle may versions property
+                // .'$any_platform'.'|'.34.versions
+                res = json.isArray(pval);
+                if (res)
+                {
+                    int arr_59_idx = -1;
+                    Iterator<Object> arr_59_item_loop = json.arrayIterator(pval);
+                    while (arr_59_item_loop.hasNext())
+                    {
+                        arr_59_idx++;
+                        Object arr_59_item = arr_59_item_loop.next();
+                        Path arr_59_lpath = new Path(arr_59_idx, (path != null ? lpath_59 : null));
+                        // .'$any_platform'.'|'.34.versions.0
+                        res = json.isString(arr_59_item) && json.asString(arr_59_item).compareTo("all") == 0;
+                        if (! res)
+                        {
+                            if (rep != null) rep.addEntry("unexpected all [.'$any_platform'.'|'.34.versions.0]", ((path != null ? lpath_59 : null) != null ? arr_59_lpath : null));
+                        }
+                        if (! res)
+                        {
+                            break;
+                        }
+                    }
+                }
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("not array or unexpected array [.'$any_platform'.'|'.34.versions]", (path != null ? lpath_59 : null));
+                }
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$any_platform'.'|'.34.versions]", (path != null ? lpath_59 : null));
+                    return false;
+                }
+            }
+            else
+            {
+                if (rep != null) rep.addEntry("unexpected prop [.'$any_platform'.'|'.34]", (path != null ? lpath_59 : null));
+                return false;
+            }
+        }
+        return true;
+    }
+    
+    
+    // object .'$any_platform'.'|'.33
+    public boolean _jm_obj_60(Object val, Path path, Report rep)
+    {
+        if (! json.isObject(val))
+        {
+            if (rep != null) rep.addEntry("not an object [.'$any_platform'.'|'.33]", path);
+            return false;
+        }
+        boolean res;
+        Iterator<String> prop_loop = json.objectIterator(val);
+        while (prop_loop.hasNext())
+        {
+            String prop = prop_loop.next();
+            Object pval = json.objectValue(val, prop);
+            Path lpath_60 = new Path(prop, path);
+            if (prop.compareTo("name") == 0)
+            {
+                // handle may name property
+                // .'$any_platform'.'|'.33.name
+                res = json.isString(pval) && json.asString(pval).compareTo("OracleLinux") == 0;
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected _OracleLinux [.'$any_platform'.'|'.33.name]", (path != null ? lpath_60 : null));
+                }
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$any_platform'.'|'.33.name]", (path != null ? lpath_60 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("versions") == 0)
+            {
+                // handle may versions property
+                // .'$any_platform'.'|'.33.versions
+                res = json.isArray(pval);
+                if (res)
+                {
+                    int arr_60_idx = -1;
+                    Iterator<Object> arr_60_item_loop = json.arrayIterator(pval);
+                    while (arr_60_item_loop.hasNext())
+                    {
+                        arr_60_idx++;
+                        Object arr_60_item = arr_60_item_loop.next();
+                        Path arr_60_lpath = new Path(arr_60_idx, (path != null ? lpath_60 : null));
+                        // .'$any_platform'.'|'.33.versions.0
+                        res = json.isScalar(arr_60_item) && _jm_cst_42_set.contains(arr_60_item);
+                        if (! res)
+                        {
+                            if (rep != null) rep.addEntry("value not in enum [.'$any_platform'.'|'.33.versions.0.'|']", ((path != null ? lpath_60 : null) != null ? arr_60_lpath : null));
+                        }
+                        if (! res)
+                        {
+                            break;
+                        }
+                    }
+                }
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("not array or unexpected array [.'$any_platform'.'|'.33.versions]", (path != null ? lpath_60 : null));
+                }
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$any_platform'.'|'.33.versions]", (path != null ? lpath_60 : null));
+                    return false;
+                }
+            }
+            else
+            {
+                if (rep != null) rep.addEntry("unexpected prop [.'$any_platform'.'|'.33]", (path != null ? lpath_60 : null));
+                return false;
+            }
+        }
+        return true;
+    }
+    
+    
+    // object .'$any_platform'.'|'.32
+    public boolean _jm_obj_61(Object val, Path path, Report rep)
+    {
+        if (! json.isObject(val))
+        {
+            if (rep != null) rep.addEntry("not an object [.'$any_platform'.'|'.32]", path);
+            return false;
+        }
+        boolean res;
+        Iterator<String> prop_loop = json.objectIterator(val);
+        while (prop_loop.hasNext())
+        {
+            String prop = prop_loop.next();
+            Object pval = json.objectValue(val, prop);
+            Path lpath_61 = new Path(prop, path);
+            if (prop.compareTo("name") == 0)
+            {
+                // handle may name property
+                // .'$any_platform'.'|'.32.name
+                res = json.isString(pval) && json.asString(pval).compareTo("OpenWrt") == 0;
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected _OpenWrt [.'$any_platform'.'|'.32.name]", (path != null ? lpath_61 : null));
+                }
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$any_platform'.'|'.32.name]", (path != null ? lpath_61 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("versions") == 0)
+            {
+                // handle may versions property
+                // .'$any_platform'.'|'.32.versions
+                res = json.isArray(pval);
+                if (res)
+                {
+                    int arr_61_idx = -1;
+                    Iterator<Object> arr_61_item_loop = json.arrayIterator(pval);
+                    while (arr_61_item_loop.hasNext())
+                    {
+                        arr_61_idx++;
+                        Object arr_61_item = arr_61_item_loop.next();
+                        Path arr_61_lpath = new Path(arr_61_idx, (path != null ? lpath_61 : null));
+                        // .'$any_platform'.'|'.32.versions.0
+                        res = json.isScalar(arr_61_item) && _jm_cst_43_set.contains(arr_61_item);
+                        if (! res)
+                        {
+                            if (rep != null) rep.addEntry("value not in enum [.'$any_platform'.'|'.32.versions.0.'|']", ((path != null ? lpath_61 : null) != null ? arr_61_lpath : null));
+                        }
+                        if (! res)
+                        {
+                            break;
+                        }
+                    }
+                }
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("not array or unexpected array [.'$any_platform'.'|'.32.versions]", (path != null ? lpath_61 : null));
+                }
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$any_platform'.'|'.32.versions]", (path != null ? lpath_61 : null));
+                    return false;
+                }
+            }
+            else
+            {
+                if (rep != null) rep.addEntry("unexpected prop [.'$any_platform'.'|'.32]", (path != null ? lpath_61 : null));
+                return false;
+            }
+        }
+        return true;
+    }
+    
+    
+    // object .'$any_platform'.'|'.31
+    public boolean _jm_obj_62(Object val, Path path, Report rep)
+    {
+        if (! json.isObject(val))
+        {
+            if (rep != null) rep.addEntry("not an object [.'$any_platform'.'|'.31]", path);
+            return false;
+        }
+        boolean res;
+        Iterator<String> prop_loop = json.objectIterator(val);
+        while (prop_loop.hasNext())
+        {
+            String prop = prop_loop.next();
+            Object pval = json.objectValue(val, prop);
+            Path lpath_62 = new Path(prop, path);
+            if (prop.compareTo("name") == 0)
+            {
+                // handle may name property
+                // .'$any_platform'.'|'.31.name
+                res = json.isString(pval) && json.asString(pval).compareTo("opensuse") == 0;
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected _opensuse [.'$any_platform'.'|'.31.name]", (path != null ? lpath_62 : null));
+                }
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$any_platform'.'|'.31.name]", (path != null ? lpath_62 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("versions") == 0)
+            {
+                // handle may versions property
+                // .'$any_platform'.'|'.31.versions
+                res = json.isArray(pval);
+                if (res)
+                {
+                    int arr_62_idx = -1;
+                    Iterator<Object> arr_62_item_loop = json.arrayIterator(pval);
+                    while (arr_62_item_loop.hasNext())
+                    {
+                        arr_62_idx++;
+                        Object arr_62_item = arr_62_item_loop.next();
+                        Path arr_62_lpath = new Path(arr_62_idx, (path != null ? lpath_62 : null));
+                        // .'$any_platform'.'|'.31.versions.0
+                        res = json.isScalar(arr_62_item) && _jm_cst_44_set.contains(arr_62_item);
+                        if (! res)
+                        {
+                            if (rep != null) rep.addEntry("value not in enum [.'$any_platform'.'|'.31.versions.0.'|']", ((path != null ? lpath_62 : null) != null ? arr_62_lpath : null));
+                        }
+                        if (! res)
+                        {
+                            break;
+                        }
+                    }
+                }
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("not array or unexpected array [.'$any_platform'.'|'.31.versions]", (path != null ? lpath_62 : null));
+                }
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$any_platform'.'|'.31.versions]", (path != null ? lpath_62 : null));
+                    return false;
+                }
+            }
+            else
+            {
+                if (rep != null) rep.addEntry("unexpected prop [.'$any_platform'.'|'.31]", (path != null ? lpath_62 : null));
+                return false;
+            }
+        }
+        return true;
+    }
+    
+    
+    // object .'$any_platform'.'|'.30
+    public boolean _jm_obj_63(Object val, Path path, Report rep)
+    {
+        if (! json.isObject(val))
+        {
+            if (rep != null) rep.addEntry("not an object [.'$any_platform'.'|'.30]", path);
+            return false;
+        }
+        boolean res;
+        Iterator<String> prop_loop = json.objectIterator(val);
+        while (prop_loop.hasNext())
+        {
+            String prop = prop_loop.next();
+            Object pval = json.objectValue(val, prop);
+            Path lpath_63 = new Path(prop, path);
+            if (prop.compareTo("name") == 0)
+            {
+                // handle may name property
+                // .'$any_platform'.'|'.30.name
+                res = json.isString(pval) && json.asString(pval).compareTo("OpenBSD") == 0;
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected _OpenBSD [.'$any_platform'.'|'.30.name]", (path != null ? lpath_63 : null));
+                }
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$any_platform'.'|'.30.name]", (path != null ? lpath_63 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("versions") == 0)
+            {
+                // handle may versions property
+                // .'$any_platform'.'|'.30.versions
+                res = json.isArray(pval);
+                if (res)
+                {
+                    int arr_63_idx = -1;
+                    Iterator<Object> arr_63_item_loop = json.arrayIterator(pval);
+                    while (arr_63_item_loop.hasNext())
+                    {
+                        arr_63_idx++;
+                        Object arr_63_item = arr_63_item_loop.next();
+                        Path arr_63_lpath = new Path(arr_63_idx, (path != null ? lpath_63 : null));
+                        // .'$any_platform'.'|'.30.versions.0
+                        res = json.isScalar(arr_63_item) && _jm_cst_45_set.contains(arr_63_item);
+                        if (! res)
+                        {
+                            if (rep != null) rep.addEntry("value not in enum [.'$any_platform'.'|'.30.versions.0.'|']", ((path != null ? lpath_63 : null) != null ? arr_63_lpath : null));
+                        }
+                        if (! res)
+                        {
+                            break;
+                        }
+                    }
+                }
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("not array or unexpected array [.'$any_platform'.'|'.30.versions]", (path != null ? lpath_63 : null));
+                }
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$any_platform'.'|'.30.versions]", (path != null ? lpath_63 : null));
+                    return false;
+                }
+            }
+            else
+            {
+                if (rep != null) rep.addEntry("unexpected prop [.'$any_platform'.'|'.30]", (path != null ? lpath_63 : null));
+                return false;
+            }
+        }
+        return true;
+    }
+    
+    // object .'$any_platform'.'|'.29
+    public boolean _jm_obj_64(Object val, Path path, Report rep)
+    {
+        if (! json.isObject(val))
+        {
+            if (rep != null) rep.addEntry("not an object [.'$any_platform'.'|'.29]", path);
+            return false;
+        }
+        boolean res;
+        Iterator<String> prop_loop = json.objectIterator(val);
+        while (prop_loop.hasNext())
+        {
+            String prop = prop_loop.next();
+            Object pval = json.objectValue(val, prop);
+            Path lpath_64 = new Path(prop, path);
+            if (prop.compareTo("name") == 0)
+            {
+                // handle may name property
+                // .'$any_platform'.'|'.29.name
+                res = json.isString(pval) && json.asString(pval).compareTo("NXOS") == 0;
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected _NXOS [.'$any_platform'.'|'.29.name]", (path != null ? lpath_64 : null));
+                }
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$any_platform'.'|'.29.name]", (path != null ? lpath_64 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("versions") == 0)
+            {
+                // handle may versions property
+                // .'$any_platform'.'|'.29.versions
+                res = json.isArray(pval);
+                if (res)
+                {
+                    int arr_64_idx = -1;
+                    Iterator<Object> arr_64_item_loop = json.arrayIterator(pval);
+                    while (arr_64_item_loop.hasNext())
+                    {
+                        arr_64_idx++;
+                        Object arr_64_item = arr_64_item_loop.next();
+                        Path arr_64_lpath = new Path(arr_64_idx, (path != null ? lpath_64 : null));
+                        // .'$any_platform'.'|'.29.versions.0
+                        res = json.isString(arr_64_item) && json.asString(arr_64_item).compareTo("all") == 0;
+                        if (! res)
+                        {
+                            if (rep != null) rep.addEntry("unexpected all [.'$any_platform'.'|'.29.versions.0]", ((path != null ? lpath_64 : null) != null ? arr_64_lpath : null));
+                        }
+                        if (! res)
+                        {
+                            break;
+                        }
+                    }
+                }
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("not array or unexpected array [.'$any_platform'.'|'.29.versions]", (path != null ? lpath_64 : null));
+                }
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$any_platform'.'|'.29.versions]", (path != null ? lpath_64 : null));
+                    return false;
+                }
+            }
+            else
+            {
+                if (rep != null) rep.addEntry("unexpected prop [.'$any_platform'.'|'.29]", (path != null ? lpath_64 : null));
+                return false;
+            }
+        }
+        return true;
+    }
+    
+    
+    // object .'$any_platform'.'|'.28
+    public boolean _jm_obj_65(Object val, Path path, Report rep)
+    {
+        if (! json.isObject(val))
+        {
+            if (rep != null) rep.addEntry("not an object [.'$any_platform'.'|'.28]", path);
+            return false;
+        }
+        boolean res;
+        Iterator<String> prop_loop = json.objectIterator(val);
+        while (prop_loop.hasNext())
+        {
+            String prop = prop_loop.next();
+            Object pval = json.objectValue(val, prop);
+            Path lpath_65 = new Path(prop, path);
+            if (prop.compareTo("name") == 0)
+            {
+                // handle may name property
+                // .'$any_platform'.'|'.28.name
+                res = json.isString(pval) && json.asString(pval).compareTo("Megeia") == 0;
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected _Megeia [.'$any_platform'.'|'.28.name]", (path != null ? lpath_65 : null));
+                }
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$any_platform'.'|'.28.name]", (path != null ? lpath_65 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("versions") == 0)
+            {
+                // handle may versions property
+                // .'$any_platform'.'|'.28.versions
+                res = json.isArray(pval);
+                if (res)
+                {
+                    int arr_65_idx = -1;
+                    Iterator<Object> arr_65_item_loop = json.arrayIterator(pval);
+                    while (arr_65_item_loop.hasNext())
+                    {
+                        arr_65_idx++;
+                        Object arr_65_item = arr_65_item_loop.next();
+                        Path arr_65_lpath = new Path(arr_65_idx, (path != null ? lpath_65 : null));
+                        // .'$any_platform'.'|'.28.versions.0
+                        res = json.isScalar(arr_65_item) && _jm_cst_46_set.contains(arr_65_item);
+                        if (! res)
+                        {
+                            if (rep != null) rep.addEntry("value not in enum [.'$any_platform'.'|'.28.versions.0.'|']", ((path != null ? lpath_65 : null) != null ? arr_65_lpath : null));
+                        }
+                        if (! res)
+                        {
+                            break;
+                        }
+                    }
+                }
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("not array or unexpected array [.'$any_platform'.'|'.28.versions]", (path != null ? lpath_65 : null));
+                }
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$any_platform'.'|'.28.versions]", (path != null ? lpath_65 : null));
+                    return false;
+                }
+            }
+            else
+            {
+                if (rep != null) rep.addEntry("unexpected prop [.'$any_platform'.'|'.28]", (path != null ? lpath_65 : null));
+                return false;
+            }
+        }
+        return true;
+    }
+    
+    
+    // object .'$any_platform'.'|'.27
+    public boolean _jm_obj_66(Object val, Path path, Report rep)
+    {
+        if (! json.isObject(val))
+        {
+            if (rep != null) rep.addEntry("not an object [.'$any_platform'.'|'.27]", path);
+            return false;
+        }
+        boolean res;
+        Iterator<String> prop_loop = json.objectIterator(val);
+        while (prop_loop.hasNext())
+        {
+            String prop = prop_loop.next();
+            Object pval = json.objectValue(val, prop);
+            Path lpath_66 = new Path(prop, path);
+            if (prop.compareTo("name") == 0)
+            {
+                // handle may name property
+                // .'$any_platform'.'|'.27.name
+                res = json.isString(pval) && json.asString(pval).compareTo("Kali") == 0;
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected _Kali [.'$any_platform'.'|'.27.name]", (path != null ? lpath_66 : null));
+                }
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$any_platform'.'|'.27.name]", (path != null ? lpath_66 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("versions") == 0)
+            {
+                // handle may versions property
+                // .'$any_platform'.'|'.27.versions
+                res = json.isArray(pval);
+                if (res)
+                {
+                    int arr_66_idx = -1;
+                    Iterator<Object> arr_66_item_loop = json.arrayIterator(pval);
+                    while (arr_66_item_loop.hasNext())
+                    {
+                        arr_66_idx++;
+                        Object arr_66_item = arr_66_item_loop.next();
+                        Path arr_66_lpath = new Path(arr_66_idx, (path != null ? lpath_66 : null));
+                        // .'$any_platform'.'|'.27.versions.0
+                        res = json.isScalar(arr_66_item) && _jm_cst_47_set.contains(arr_66_item);
+                        if (! res)
+                        {
+                            if (rep != null) rep.addEntry("value not in enum [.'$any_platform'.'|'.27.versions.0.'|']", ((path != null ? lpath_66 : null) != null ? arr_66_lpath : null));
+                        }
+                        if (! res)
+                        {
+                            break;
+                        }
+                    }
+                }
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("not array or unexpected array [.'$any_platform'.'|'.27.versions]", (path != null ? lpath_66 : null));
+                }
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$any_platform'.'|'.27.versions]", (path != null ? lpath_66 : null));
+                    return false;
+                }
+            }
+            else
+            {
+                if (rep != null) rep.addEntry("unexpected prop [.'$any_platform'.'|'.27]", (path != null ? lpath_66 : null));
+                return false;
+            }
+        }
+        return true;
+    }
+    
+    
+    // object .'$any_platform'.'|'.26
+    public boolean _jm_obj_67(Object val, Path path, Report rep)
+    {
+        if (! json.isObject(val))
+        {
+            if (rep != null) rep.addEntry("not an object [.'$any_platform'.'|'.26]", path);
+            return false;
+        }
+        boolean res;
+        Iterator<String> prop_loop = json.objectIterator(val);
+        while (prop_loop.hasNext())
+        {
+            String prop = prop_loop.next();
+            Object pval = json.objectValue(val, prop);
+            Path lpath_67 = new Path(prop, path);
+            if (prop.compareTo("name") == 0)
+            {
+                // handle may name property
+                // .'$any_platform'.'|'.26.name
+                res = json.isString(pval) && json.asString(pval).compareTo("macOS") == 0;
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected _macOS [.'$any_platform'.'|'.26.name]", (path != null ? lpath_67 : null));
+                }
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$any_platform'.'|'.26.name]", (path != null ? lpath_67 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("versions") == 0)
+            {
+                // handle may versions property
+                // .'$any_platform'.'|'.26.versions
+                res = json.isArray(pval);
+                if (res)
+                {
+                    int arr_67_idx = -1;
+                    Iterator<Object> arr_67_item_loop = json.arrayIterator(pval);
+                    while (arr_67_item_loop.hasNext())
+                    {
+                        arr_67_idx++;
+                        Object arr_67_item = arr_67_item_loop.next();
+                        Path arr_67_lpath = new Path(arr_67_idx, (path != null ? lpath_67 : null));
+                        // .'$any_platform'.'|'.26.versions.0
+                        res = json.isScalar(arr_67_item) && _jm_cst_48_set.contains(arr_67_item);
+                        if (! res)
+                        {
+                            if (rep != null) rep.addEntry("value not in enum [.'$any_platform'.'|'.26.versions.0.'|']", ((path != null ? lpath_67 : null) != null ? arr_67_lpath : null));
+                        }
+                        if (! res)
+                        {
+                            break;
+                        }
+                    }
+                }
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("not array or unexpected array [.'$any_platform'.'|'.26.versions]", (path != null ? lpath_67 : null));
+                }
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$any_platform'.'|'.26.versions]", (path != null ? lpath_67 : null));
+                    return false;
+                }
+            }
+            else
+            {
+                if (rep != null) rep.addEntry("unexpected prop [.'$any_platform'.'|'.26]", (path != null ? lpath_67 : null));
+                return false;
+            }
+        }
+        return true;
+    }
+    
+    
+    // object .'$any_platform'.'|'.25
+    public boolean _jm_obj_68(Object val, Path path, Report rep)
+    {
+        if (! json.isObject(val))
+        {
+            if (rep != null) rep.addEntry("not an object [.'$any_platform'.'|'.25]", path);
+            return false;
+        }
+        boolean res;
+        Iterator<String> prop_loop = json.objectIterator(val);
+        while (prop_loop.hasNext())
+        {
+            String prop = prop_loop.next();
+            Object pval = json.objectValue(val, prop);
+            Path lpath_68 = new Path(prop, path);
+            if (prop.compareTo("name") == 0)
+            {
+                // handle may name property
+                // .'$any_platform'.'|'.25.name
+                res = json.isString(pval) && json.asString(pval).compareTo("Kali") == 0;
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected _Kali [.'$any_platform'.'|'.25.name]", (path != null ? lpath_68 : null));
+                }
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$any_platform'.'|'.25.name]", (path != null ? lpath_68 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("versions") == 0)
+            {
+                // handle may versions property
+                // .'$any_platform'.'|'.25.versions
+                res = json.isArray(pval);
+                if (res)
+                {
+                    int arr_68_idx = -1;
+                    Iterator<Object> arr_68_item_loop = json.arrayIterator(pval);
+                    while (arr_68_item_loop.hasNext())
+                    {
+                        arr_68_idx++;
+                        Object arr_68_item = arr_68_item_loop.next();
+                        Path arr_68_lpath = new Path(arr_68_idx, (path != null ? lpath_68 : null));
+                        // .'$any_platform'.'|'.25.versions.0
+                        res = json.isScalar(arr_68_item) && _jm_cst_49_set.contains(arr_68_item);
+                        if (! res)
+                        {
+                            if (rep != null) rep.addEntry("value not in enum [.'$any_platform'.'|'.25.versions.0.'|']", ((path != null ? lpath_68 : null) != null ? arr_68_lpath : null));
+                        }
+                        if (! res)
+                        {
+                            break;
+                        }
+                    }
+                }
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("not array or unexpected array [.'$any_platform'.'|'.25.versions]", (path != null ? lpath_68 : null));
+                }
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$any_platform'.'|'.25.versions]", (path != null ? lpath_68 : null));
+                    return false;
+                }
+            }
+            else
+            {
+                if (rep != null) rep.addEntry("unexpected prop [.'$any_platform'.'|'.25]", (path != null ? lpath_68 : null));
+                return false;
+            }
+        }
+        return true;
+    }
+    
+    // object .'$any_platform'.'|'.24
+    public boolean _jm_obj_69(Object val, Path path, Report rep)
+    {
+        if (! json.isObject(val))
+        {
+            if (rep != null) rep.addEntry("not an object [.'$any_platform'.'|'.24]", path);
+            return false;
+        }
+        boolean res;
+        Iterator<String> prop_loop = json.objectIterator(val);
+        while (prop_loop.hasNext())
+        {
+            String prop = prop_loop.next();
+            Object pval = json.objectValue(val, prop);
+            Path lpath_69 = new Path(prop, path);
+            if (prop.compareTo("name") == 0)
+            {
+                // handle may name property
+                // .'$any_platform'.'|'.24.name
+                res = json.isString(pval) && json.asString(pval).compareTo("Junos") == 0;
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected _Junos [.'$any_platform'.'|'.24.name]", (path != null ? lpath_69 : null));
+                }
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$any_platform'.'|'.24.name]", (path != null ? lpath_69 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("versions") == 0)
+            {
+                // handle may versions property
+                // .'$any_platform'.'|'.24.versions
+                res = json.isArray(pval);
+                if (res)
+                {
+                    int arr_69_idx = -1;
+                    Iterator<Object> arr_69_item_loop = json.arrayIterator(pval);
+                    while (arr_69_item_loop.hasNext())
+                    {
+                        arr_69_idx++;
+                        Object arr_69_item = arr_69_item_loop.next();
+                        Path arr_69_lpath = new Path(arr_69_idx, (path != null ? lpath_69 : null));
+                        // .'$any_platform'.'|'.24.versions.0
+                        res = json.isString(arr_69_item) && json.asString(arr_69_item).compareTo("all") == 0;
+                        if (! res)
+                        {
+                            if (rep != null) rep.addEntry("unexpected all [.'$any_platform'.'|'.24.versions.0]", ((path != null ? lpath_69 : null) != null ? arr_69_lpath : null));
+                        }
+                        if (! res)
+                        {
+                            break;
+                        }
+                    }
+                }
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("not array or unexpected array [.'$any_platform'.'|'.24.versions]", (path != null ? lpath_69 : null));
+                }
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$any_platform'.'|'.24.versions]", (path != null ? lpath_69 : null));
+                    return false;
+                }
+            }
+            else
+            {
+                if (rep != null) rep.addEntry("unexpected prop [.'$any_platform'.'|'.24]", (path != null ? lpath_69 : null));
+                return false;
+            }
+        }
+        return true;
+    }
+    
+    // object .'$any_platform'.'|'.23
+    public boolean _jm_obj_70(Object val, Path path, Report rep)
+    {
+        if (! json.isObject(val))
+        {
+            if (rep != null) rep.addEntry("not an object [.'$any_platform'.'|'.23]", path);
+            return false;
+        }
+        boolean res;
+        Iterator<String> prop_loop = json.objectIterator(val);
+        while (prop_loop.hasNext())
+        {
+            String prop = prop_loop.next();
+            Object pval = json.objectValue(val, prop);
+            Path lpath_70 = new Path(prop, path);
+            if (prop.compareTo("name") == 0)
+            {
+                // handle may name property
+                // .'$any_platform'.'|'.23.name
+                res = json.isString(pval) && json.asString(pval).compareTo("IOS") == 0;
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected _IOS [.'$any_platform'.'|'.23.name]", (path != null ? lpath_70 : null));
+                }
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$any_platform'.'|'.23.name]", (path != null ? lpath_70 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("versions") == 0)
+            {
+                // handle may versions property
+                // .'$any_platform'.'|'.23.versions
+                res = json.isArray(pval);
+                if (res)
+                {
+                    int arr_70_idx = -1;
+                    Iterator<Object> arr_70_item_loop = json.arrayIterator(pval);
+                    while (arr_70_item_loop.hasNext())
+                    {
+                        arr_70_idx++;
+                        Object arr_70_item = arr_70_item_loop.next();
+                        Path arr_70_lpath = new Path(arr_70_idx, (path != null ? lpath_70 : null));
+                        // .'$any_platform'.'|'.23.versions.0
+                        res = json.isString(arr_70_item) && json.asString(arr_70_item).compareTo("all") == 0;
+                        if (! res)
+                        {
+                            if (rep != null) rep.addEntry("unexpected all [.'$any_platform'.'|'.23.versions.0]", ((path != null ? lpath_70 : null) != null ? arr_70_lpath : null));
+                        }
+                        if (! res)
+                        {
+                            break;
+                        }
+                    }
+                }
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("not array or unexpected array [.'$any_platform'.'|'.23.versions]", (path != null ? lpath_70 : null));
+                }
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$any_platform'.'|'.23.versions]", (path != null ? lpath_70 : null));
+                    return false;
+                }
+            }
+            else
+            {
+                if (rep != null) rep.addEntry("unexpected prop [.'$any_platform'.'|'.23]", (path != null ? lpath_70 : null));
+                return false;
+            }
+        }
+        return true;
+    }
+    
+    
+    // object .'$any_platform'.'|'.22
+    public boolean _jm_obj_71(Object val, Path path, Report rep)
+    {
+        if (! json.isObject(val))
+        {
+            if (rep != null) rep.addEntry("not an object [.'$any_platform'.'|'.22]", path);
+            return false;
+        }
+        boolean res;
+        Iterator<String> prop_loop = json.objectIterator(val);
+        while (prop_loop.hasNext())
+        {
+            String prop = prop_loop.next();
+            Object pval = json.objectValue(val, prop);
+            Path lpath_71 = new Path(prop, path);
+            if (prop.compareTo("name") == 0)
+            {
+                // handle may name property
+                // .'$any_platform'.'|'.22.name
+                res = json.isString(pval) && json.asString(pval).compareTo("HardenedBSD") == 0;
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected _HardenedBSD [.'$any_platform'.'|'.22.name]", (path != null ? lpath_71 : null));
+                }
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$any_platform'.'|'.22.name]", (path != null ? lpath_71 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("versions") == 0)
+            {
+                // handle may versions property
+                // .'$any_platform'.'|'.22.versions
+                res = json.isArray(pval);
+                if (res)
+                {
+                    int arr_71_idx = -1;
+                    Iterator<Object> arr_71_item_loop = json.arrayIterator(pval);
+                    while (arr_71_item_loop.hasNext())
+                    {
+                        arr_71_idx++;
+                        Object arr_71_item = arr_71_item_loop.next();
+                        Path arr_71_lpath = new Path(arr_71_idx, (path != null ? lpath_71 : null));
+                        // .'$any_platform'.'|'.22.versions.0
+                        res = json.isScalar(arr_71_item) && _jm_cst_50_set.contains(arr_71_item);
+                        if (! res)
+                        {
+                            if (rep != null) rep.addEntry("value not in enum [.'$any_platform'.'|'.22.versions.0.'|']", ((path != null ? lpath_71 : null) != null ? arr_71_lpath : null));
+                        }
+                        if (! res)
+                        {
+                            break;
+                        }
+                    }
+                }
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("not array or unexpected array [.'$any_platform'.'|'.22.versions]", (path != null ? lpath_71 : null));
+                }
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$any_platform'.'|'.22.versions]", (path != null ? lpath_71 : null));
+                    return false;
+                }
+            }
+            else
+            {
+                if (rep != null) rep.addEntry("unexpected prop [.'$any_platform'.'|'.22]", (path != null ? lpath_71 : null));
+                return false;
+            }
+        }
+        return true;
+    }
+    
+    // object .'$any_platform'.'|'.21
+    public boolean _jm_obj_72(Object val, Path path, Report rep)
+    {
+        if (! json.isObject(val))
+        {
+            if (rep != null) rep.addEntry("not an object [.'$any_platform'.'|'.21]", path);
+            return false;
+        }
+        boolean res;
+        Iterator<String> prop_loop = json.objectIterator(val);
+        while (prop_loop.hasNext())
+        {
+            String prop = prop_loop.next();
+            Object pval = json.objectValue(val, prop);
+            Path lpath_72 = new Path(prop, path);
+            if (prop.compareTo("name") == 0)
+            {
+                // handle may name property
+                // .'$any_platform'.'|'.21.name
+                res = json.isString(pval) && json.asString(pval).compareTo("Gentoo") == 0;
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected _Gentoo [.'$any_platform'.'|'.21.name]", (path != null ? lpath_72 : null));
+                }
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$any_platform'.'|'.21.name]", (path != null ? lpath_72 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("versions") == 0)
+            {
+                // handle may versions property
+                // .'$any_platform'.'|'.21.versions
+                res = json.isArray(pval);
+                if (res)
+                {
+                    int arr_72_idx = -1;
+                    Iterator<Object> arr_72_item_loop = json.arrayIterator(pval);
+                    while (arr_72_item_loop.hasNext())
+                    {
+                        arr_72_idx++;
+                        Object arr_72_item = arr_72_item_loop.next();
+                        Path arr_72_lpath = new Path(arr_72_idx, (path != null ? lpath_72 : null));
+                        // .'$any_platform'.'|'.21.versions.0
+                        res = json.isString(arr_72_item) && json.asString(arr_72_item).compareTo("all") == 0;
+                        if (! res)
+                        {
+                            if (rep != null) rep.addEntry("unexpected all [.'$any_platform'.'|'.21.versions.0]", ((path != null ? lpath_72 : null) != null ? arr_72_lpath : null));
+                        }
+                        if (! res)
+                        {
+                            break;
+                        }
+                    }
+                }
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("not array or unexpected array [.'$any_platform'.'|'.21.versions]", (path != null ? lpath_72 : null));
+                }
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$any_platform'.'|'.21.versions]", (path != null ? lpath_72 : null));
+                    return false;
+                }
+            }
+            else
+            {
+                if (rep != null) rep.addEntry("unexpected prop [.'$any_platform'.'|'.21]", (path != null ? lpath_72 : null));
+                return false;
+            }
+        }
+        return true;
+    }
+    
+    // object .'$any_platform'.'|'.20
+    public boolean _jm_obj_73(Object val, Path path, Report rep)
+    {
+        if (! json.isObject(val))
+        {
+            if (rep != null) rep.addEntry("not an object [.'$any_platform'.'|'.20]", path);
+            return false;
+        }
+        boolean res;
+        Iterator<String> prop_loop = json.objectIterator(val);
+        while (prop_loop.hasNext())
+        {
+            String prop = prop_loop.next();
+            Object pval = json.objectValue(val, prop);
+            Path lpath_73 = new Path(prop, path);
+            if (prop.compareTo("name") == 0)
+            {
+                // handle may name property
+                // .'$any_platform'.'|'.20.name
+                res = json.isString(pval) && json.asString(pval).compareTo("GenericUNIX") == 0;
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected _GenericUNIX [.'$any_platform'.'|'.20.name]", (path != null ? lpath_73 : null));
+                }
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$any_platform'.'|'.20.name]", (path != null ? lpath_73 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("versions") == 0)
+            {
+                // handle may versions property
+                // .'$any_platform'.'|'.20.versions
+                res = json.isArray(pval);
+                if (res)
+                {
+                    int arr_73_idx = -1;
+                    Iterator<Object> arr_73_item_loop = json.arrayIterator(pval);
+                    while (arr_73_item_loop.hasNext())
+                    {
+                        arr_73_idx++;
+                        Object arr_73_item = arr_73_item_loop.next();
+                        Path arr_73_lpath = new Path(arr_73_idx, (path != null ? lpath_73 : null));
+                        // .'$any_platform'.'|'.20.versions.0
+                        res = json.isString(arr_73_item) && json.asString(arr_73_item).compareTo("all") == 0;
+                        if (! res)
+                        {
+                            if (rep != null) rep.addEntry("unexpected all [.'$any_platform'.'|'.20.versions.0]", ((path != null ? lpath_73 : null) != null ? arr_73_lpath : null));
+                        }
+                        if (! res)
+                        {
+                            break;
+                        }
+                    }
+                }
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("not array or unexpected array [.'$any_platform'.'|'.20.versions]", (path != null ? lpath_73 : null));
+                }
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$any_platform'.'|'.20.versions]", (path != null ? lpath_73 : null));
+                    return false;
+                }
+            }
+            else
+            {
+                if (rep != null) rep.addEntry("unexpected prop [.'$any_platform'.'|'.20]", (path != null ? lpath_73 : null));
+                return false;
+            }
+        }
+        return true;
+    }
+    
+    // object .'$any_platform'.'|'.19
+    public boolean _jm_obj_74(Object val, Path path, Report rep)
+    {
+        if (! json.isObject(val))
+        {
+            if (rep != null) rep.addEntry("not an object [.'$any_platform'.'|'.19]", path);
+            return false;
+        }
+        boolean res;
+        Iterator<String> prop_loop = json.objectIterator(val);
+        while (prop_loop.hasNext())
+        {
+            String prop = prop_loop.next();
+            Object pval = json.objectValue(val, prop);
+            Path lpath_74 = new Path(prop, path);
+            if (prop.compareTo("name") == 0)
+            {
+                // handle may name property
+                // .'$any_platform'.'|'.19.name
+                res = json.isString(pval) && json.asString(pval).compareTo("GenericLinux") == 0;
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected _GenericLinux [.'$any_platform'.'|'.19.name]", (path != null ? lpath_74 : null));
+                }
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$any_platform'.'|'.19.name]", (path != null ? lpath_74 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("versions") == 0)
+            {
+                // handle may versions property
+                // .'$any_platform'.'|'.19.versions
+                res = json.isArray(pval);
+                if (res)
+                {
+                    int arr_74_idx = -1;
+                    Iterator<Object> arr_74_item_loop = json.arrayIterator(pval);
+                    while (arr_74_item_loop.hasNext())
+                    {
+                        arr_74_idx++;
+                        Object arr_74_item = arr_74_item_loop.next();
+                        Path arr_74_lpath = new Path(arr_74_idx, (path != null ? lpath_74 : null));
+                        // .'$any_platform'.'|'.19.versions.0
+                        res = json.isString(arr_74_item) && json.asString(arr_74_item).compareTo("all") == 0;
+                        if (! res)
+                        {
+                            if (rep != null) rep.addEntry("unexpected all [.'$any_platform'.'|'.19.versions.0]", ((path != null ? lpath_74 : null) != null ? arr_74_lpath : null));
+                        }
+                        if (! res)
+                        {
+                            break;
+                        }
+                    }
+                }
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("not array or unexpected array [.'$any_platform'.'|'.19.versions]", (path != null ? lpath_74 : null));
+                }
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$any_platform'.'|'.19.versions]", (path != null ? lpath_74 : null));
+                    return false;
+                }
+            }
+            else
+            {
+                if (rep != null) rep.addEntry("unexpected prop [.'$any_platform'.'|'.19]", (path != null ? lpath_74 : null));
+                return false;
+            }
+        }
+        return true;
+    }
+    
+    // object .'$any_platform'.'|'.18
+    public boolean _jm_obj_75(Object val, Path path, Report rep)
+    {
+        if (! json.isObject(val))
+        {
+            if (rep != null) rep.addEntry("not an object [.'$any_platform'.'|'.18]", path);
+            return false;
+        }
+        boolean res;
+        Iterator<String> prop_loop = json.objectIterator(val);
+        while (prop_loop.hasNext())
+        {
+            String prop = prop_loop.next();
+            Object pval = json.objectValue(val, prop);
+            Path lpath_75 = new Path(prop, path);
+            if (prop.compareTo("name") == 0)
+            {
+                // handle may name property
+                // .'$any_platform'.'|'.18.name
+                res = json.isString(pval) && json.asString(pval).compareTo("GenericBSD") == 0;
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected _GenericBSD [.'$any_platform'.'|'.18.name]", (path != null ? lpath_75 : null));
+                }
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$any_platform'.'|'.18.name]", (path != null ? lpath_75 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("versions") == 0)
+            {
+                // handle may versions property
+                // .'$any_platform'.'|'.18.versions
+                res = json.isArray(pval);
+                if (res)
+                {
+                    int arr_75_idx = -1;
+                    Iterator<Object> arr_75_item_loop = json.arrayIterator(pval);
+                    while (arr_75_item_loop.hasNext())
+                    {
+                        arr_75_idx++;
+                        Object arr_75_item = arr_75_item_loop.next();
+                        Path arr_75_lpath = new Path(arr_75_idx, (path != null ? lpath_75 : null));
+                        // .'$any_platform'.'|'.18.versions.0
+                        res = json.isString(arr_75_item) && json.asString(arr_75_item).compareTo("all") == 0;
+                        if (! res)
+                        {
+                            if (rep != null) rep.addEntry("unexpected all [.'$any_platform'.'|'.18.versions.0]", ((path != null ? lpath_75 : null) != null ? arr_75_lpath : null));
+                        }
+                        if (! res)
+                        {
+                            break;
+                        }
+                    }
+                }
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("not array or unexpected array [.'$any_platform'.'|'.18.versions]", (path != null ? lpath_75 : null));
+                }
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$any_platform'.'|'.18.versions]", (path != null ? lpath_75 : null));
+                    return false;
+                }
+            }
+            else
+            {
+                if (rep != null) rep.addEntry("unexpected prop [.'$any_platform'.'|'.18]", (path != null ? lpath_75 : null));
+                return false;
+            }
+        }
+        return true;
+    }
+    
+    
+    // object .'$any_platform'.'|'.17
+    public boolean _jm_obj_76(Object val, Path path, Report rep)
+    {
+        if (! json.isObject(val))
+        {
+            if (rep != null) rep.addEntry("not an object [.'$any_platform'.'|'.17]", path);
+            return false;
+        }
+        boolean res;
+        Iterator<String> prop_loop = json.objectIterator(val);
+        while (prop_loop.hasNext())
+        {
+            String prop = prop_loop.next();
+            Object pval = json.objectValue(val, prop);
+            Path lpath_76 = new Path(prop, path);
+            if (prop.compareTo("name") == 0)
+            {
+                // handle may name property
+                // .'$any_platform'.'|'.17.name
+                res = json.isString(pval) && json.asString(pval).compareTo("FreeBSD") == 0;
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected _FreeBSD [.'$any_platform'.'|'.17.name]", (path != null ? lpath_76 : null));
+                }
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$any_platform'.'|'.17.name]", (path != null ? lpath_76 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("versions") == 0)
+            {
+                // handle may versions property
+                // .'$any_platform'.'|'.17.versions
+                res = json.isArray(pval);
+                if (res)
+                {
+                    int arr_76_idx = -1;
+                    Iterator<Object> arr_76_item_loop = json.arrayIterator(pval);
+                    while (arr_76_item_loop.hasNext())
+                    {
+                        arr_76_idx++;
+                        Object arr_76_item = arr_76_item_loop.next();
+                        Path arr_76_lpath = new Path(arr_76_idx, (path != null ? lpath_76 : null));
+                        // .'$any_platform'.'|'.17.versions.0
+                        res = json.isScalar(arr_76_item) && _jm_cst_51_set.contains(arr_76_item);
+                        if (! res)
+                        {
+                            if (rep != null) rep.addEntry("value not in enum [.'$any_platform'.'|'.17.versions.0.'|']", ((path != null ? lpath_76 : null) != null ? arr_76_lpath : null));
+                        }
+                        if (! res)
+                        {
+                            break;
+                        }
+                    }
+                }
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("not array or unexpected array [.'$any_platform'.'|'.17.versions]", (path != null ? lpath_76 : null));
+                }
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$any_platform'.'|'.17.versions]", (path != null ? lpath_76 : null));
+                    return false;
+                }
+            }
+            else
+            {
+                if (rep != null) rep.addEntry("unexpected prop [.'$any_platform'.'|'.17]", (path != null ? lpath_76 : null));
+                return false;
+            }
+        }
+        return true;
+    }
+    
+    
+    // object .'$any_platform'.'|'.16
+    public boolean _jm_obj_77(Object val, Path path, Report rep)
+    {
+        if (! json.isObject(val))
+        {
+            if (rep != null) rep.addEntry("not an object [.'$any_platform'.'|'.16]", path);
+            return false;
+        }
+        boolean res;
+        Iterator<String> prop_loop = json.objectIterator(val);
+        while (prop_loop.hasNext())
+        {
+            String prop = prop_loop.next();
+            Object pval = json.objectValue(val, prop);
+            Path lpath_77 = new Path(prop, path);
+            if (prop.compareTo("name") == 0)
+            {
+                // handle may name property
+                // .'$any_platform'.'|'.16.name
+                res = json.isString(pval) && json.asString(pval).compareTo("Fedora") == 0;
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected _Fedora [.'$any_platform'.'|'.16.name]", (path != null ? lpath_77 : null));
+                }
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$any_platform'.'|'.16.name]", (path != null ? lpath_77 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("versions") == 0)
+            {
+                // handle may versions property
+                // .'$any_platform'.'|'.16.versions
+                res = json.isArray(pval);
+                if (res)
+                {
+                    int arr_77_idx = -1;
+                    Iterator<Object> arr_77_item_loop = json.arrayIterator(pval);
+                    while (arr_77_item_loop.hasNext())
+                    {
+                        arr_77_idx++;
+                        Object arr_77_item = arr_77_item_loop.next();
+                        Path arr_77_lpath = new Path(arr_77_idx, (path != null ? lpath_77 : null));
+                        // .'$any_platform'.'|'.16.versions.0
+                        res = json.isScalar(arr_77_item) && _jm_cst_52_set.contains(arr_77_item);
+                        if (! res)
+                        {
+                            if (rep != null) rep.addEntry("value not in enum [.'$any_platform'.'|'.16.versions.0.'|']", ((path != null ? lpath_77 : null) != null ? arr_77_lpath : null));
+                        }
+                        if (! res)
+                        {
+                            break;
+                        }
+                    }
+                }
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("not array or unexpected array [.'$any_platform'.'|'.16.versions]", (path != null ? lpath_77 : null));
+                }
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$any_platform'.'|'.16.versions]", (path != null ? lpath_77 : null));
+                    return false;
+                }
+            }
+            else
+            {
+                if (rep != null) rep.addEntry("unexpected prop [.'$any_platform'.'|'.16]", (path != null ? lpath_77 : null));
+                return false;
+            }
+        }
+        return true;
+    }
+    
+    // object .'$any_platform'.'|'.15
+    public boolean _jm_obj_78(Object val, Path path, Report rep)
+    {
+        if (! json.isObject(val))
+        {
+            if (rep != null) rep.addEntry("not an object [.'$any_platform'.'|'.15]", path);
+            return false;
+        }
+        boolean res;
+        Iterator<String> prop_loop = json.objectIterator(val);
+        while (prop_loop.hasNext())
+        {
+            String prop = prop_loop.next();
+            Object pval = json.objectValue(val, prop);
+            Path lpath_78 = new Path(prop, path);
+            if (prop.compareTo("name") == 0)
+            {
+                // handle may name property
+                // .'$any_platform'.'|'.15.name
+                res = json.isString(pval) && json.asString(pval).compareTo("eos") == 0;
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected _eos [.'$any_platform'.'|'.15.name]", (path != null ? lpath_78 : null));
+                }
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$any_platform'.'|'.15.name]", (path != null ? lpath_78 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("versions") == 0)
+            {
+                // handle may versions property
+                // .'$any_platform'.'|'.15.versions
+                res = json.isArray(pval);
+                if (res)
+                {
+                    int arr_78_idx = -1;
+                    Iterator<Object> arr_78_item_loop = json.arrayIterator(pval);
+                    while (arr_78_item_loop.hasNext())
+                    {
+                        arr_78_idx++;
+                        Object arr_78_item = arr_78_item_loop.next();
+                        Path arr_78_lpath = new Path(arr_78_idx, (path != null ? lpath_78 : null));
+                        // .'$any_platform'.'|'.15.versions.0
+                        res = json.isString(arr_78_item) && json.asString(arr_78_item).compareTo("all") == 0;
+                        if (! res)
+                        {
+                            if (rep != null) rep.addEntry("unexpected all [.'$any_platform'.'|'.15.versions.0]", ((path != null ? lpath_78 : null) != null ? arr_78_lpath : null));
+                        }
+                        if (! res)
+                        {
+                            break;
+                        }
+                    }
+                }
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("not array or unexpected array [.'$any_platform'.'|'.15.versions]", (path != null ? lpath_78 : null));
+                }
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$any_platform'.'|'.15.versions]", (path != null ? lpath_78 : null));
+                    return false;
+                }
+            }
+            else
+            {
+                if (rep != null) rep.addEntry("unexpected prop [.'$any_platform'.'|'.15]", (path != null ? lpath_78 : null));
+                return false;
+            }
+        }
+        return true;
+    }
+    
+    
+    // object .'$any_platform'.'|'.14
+    public boolean _jm_obj_79(Object val, Path path, Report rep)
+    {
+        if (! json.isObject(val))
+        {
+            if (rep != null) rep.addEntry("not an object [.'$any_platform'.'|'.14]", path);
+            return false;
+        }
+        boolean res;
+        Iterator<String> prop_loop = json.objectIterator(val);
+        while (prop_loop.hasNext())
+        {
+            String prop = prop_loop.next();
+            Object pval = json.objectValue(val, prop);
+            Path lpath_79 = new Path(prop, path);
+            if (prop.compareTo("name") == 0)
+            {
+                // handle may name property
+                // .'$any_platform'.'|'.14.name
+                res = json.isString(pval) && json.asString(pval).compareTo("EL") == 0;
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected _EL [.'$any_platform'.'|'.14.name]", (path != null ? lpath_79 : null));
+                }
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$any_platform'.'|'.14.name]", (path != null ? lpath_79 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("versions") == 0)
+            {
+                // handle may versions property
+                // .'$any_platform'.'|'.14.versions
+                res = json.isArray(pval);
+                if (res)
+                {
+                    int arr_79_idx = -1;
+                    Iterator<Object> arr_79_item_loop = json.arrayIterator(pval);
+                    while (arr_79_item_loop.hasNext())
+                    {
+                        arr_79_idx++;
+                        Object arr_79_item = arr_79_item_loop.next();
+                        Path arr_79_lpath = new Path(arr_79_idx, (path != null ? lpath_79 : null));
+                        // .'$any_platform'.'|'.14.versions.0
+                        res = json.isScalar(arr_79_item) && _jm_cst_53_set.contains(arr_79_item);
+                        if (! res)
+                        {
+                            if (rep != null) rep.addEntry("value not in enum [.'$any_platform'.'|'.14.versions.0.'|']", ((path != null ? lpath_79 : null) != null ? arr_79_lpath : null));
+                        }
+                        if (! res)
+                        {
+                            break;
+                        }
+                    }
+                }
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("not array or unexpected array [.'$any_platform'.'|'.14.versions]", (path != null ? lpath_79 : null));
+                }
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$any_platform'.'|'.14.versions]", (path != null ? lpath_79 : null));
+                    return false;
+                }
+            }
+            else
+            {
+                if (rep != null) rep.addEntry("unexpected prop [.'$any_platform'.'|'.14]", (path != null ? lpath_79 : null));
+                return false;
+            }
+        }
+        return true;
+    }
+    
+    
+    // object .'$any_platform'.'|'.13
+    public boolean _jm_obj_80(Object val, Path path, Report rep)
+    {
+        if (! json.isObject(val))
+        {
+            if (rep != null) rep.addEntry("not an object [.'$any_platform'.'|'.13]", path);
+            return false;
+        }
+        boolean res;
+        Iterator<String> prop_loop = json.objectIterator(val);
+        while (prop_loop.hasNext())
+        {
+            String prop = prop_loop.next();
+            Object pval = json.objectValue(val, prop);
+            Path lpath_80 = new Path(prop, path);
+            if (prop.compareTo("name") == 0)
+            {
+                // handle may name property
+                // .'$any_platform'.'|'.13.name
+                res = json.isString(pval) && json.asString(pval).compareTo("DragonFlyBSD") == 0;
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected _DragonFlyBSD [.'$any_platform'.'|'.13.name]", (path != null ? lpath_80 : null));
+                }
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$any_platform'.'|'.13.name]", (path != null ? lpath_80 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("versions") == 0)
+            {
+                // handle may versions property
+                // .'$any_platform'.'|'.13.versions
+                res = json.isArray(pval);
+                if (res)
+                {
+                    int arr_80_idx = -1;
+                    Iterator<Object> arr_80_item_loop = json.arrayIterator(pval);
+                    while (arr_80_item_loop.hasNext())
+                    {
+                        arr_80_idx++;
+                        Object arr_80_item = arr_80_item_loop.next();
+                        Path arr_80_lpath = new Path(arr_80_idx, (path != null ? lpath_80 : null));
+                        // .'$any_platform'.'|'.13.versions.0
+                        res = json.isScalar(arr_80_item) && _jm_cst_54_set.contains(arr_80_item);
+                        if (! res)
+                        {
+                            if (rep != null) rep.addEntry("value not in enum [.'$any_platform'.'|'.13.versions.0.'|']", ((path != null ? lpath_80 : null) != null ? arr_80_lpath : null));
+                        }
+                        if (! res)
+                        {
+                            break;
+                        }
+                    }
+                }
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("not array or unexpected array [.'$any_platform'.'|'.13.versions]", (path != null ? lpath_80 : null));
+                }
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$any_platform'.'|'.13.versions]", (path != null ? lpath_80 : null));
+                    return false;
+                }
+            }
+            else
+            {
+                if (rep != null) rep.addEntry("unexpected prop [.'$any_platform'.'|'.13]", (path != null ? lpath_80 : null));
+                return false;
+            }
+        }
+        return true;
+    }
+    
+    
+    // object .'$any_platform'.'|'.12
+    public boolean _jm_obj_81(Object val, Path path, Report rep)
+    {
+        if (! json.isObject(val))
+        {
+            if (rep != null) rep.addEntry("not an object [.'$any_platform'.'|'.12]", path);
+            return false;
+        }
+        boolean res;
+        Iterator<String> prop_loop = json.objectIterator(val);
+        while (prop_loop.hasNext())
+        {
+            String prop = prop_loop.next();
+            Object pval = json.objectValue(val, prop);
+            Path lpath_81 = new Path(prop, path);
+            if (prop.compareTo("name") == 0)
+            {
+                // handle may name property
+                // .'$any_platform'.'|'.12.name
+                res = json.isString(pval) && json.asString(pval).compareTo("Devuan") == 0;
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected _Devuan [.'$any_platform'.'|'.12.name]", (path != null ? lpath_81 : null));
+                }
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$any_platform'.'|'.12.name]", (path != null ? lpath_81 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("versions") == 0)
+            {
+                // handle may versions property
+                // .'$any_platform'.'|'.12.versions
+                res = json.isArray(pval);
+                if (res)
+                {
+                    int arr_81_idx = -1;
+                    Iterator<Object> arr_81_item_loop = json.arrayIterator(pval);
+                    while (arr_81_item_loop.hasNext())
+                    {
+                        arr_81_idx++;
+                        Object arr_81_item = arr_81_item_loop.next();
+                        Path arr_81_lpath = new Path(arr_81_idx, (path != null ? lpath_81 : null));
+                        // .'$any_platform'.'|'.12.versions.0
+                        res = json.isScalar(arr_81_item) && _jm_cst_55_set.contains(arr_81_item);
+                        if (! res)
+                        {
+                            if (rep != null) rep.addEntry("value not in enum [.'$any_platform'.'|'.12.versions.0.'|']", ((path != null ? lpath_81 : null) != null ? arr_81_lpath : null));
+                        }
+                        if (! res)
+                        {
+                            break;
+                        }
+                    }
+                }
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("not array or unexpected array [.'$any_platform'.'|'.12.versions]", (path != null ? lpath_81 : null));
+                }
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$any_platform'.'|'.12.versions]", (path != null ? lpath_81 : null));
+                    return false;
+                }
+            }
+            else
+            {
+                if (rep != null) rep.addEntry("unexpected prop [.'$any_platform'.'|'.12]", (path != null ? lpath_81 : null));
+                return false;
+            }
+        }
+        return true;
+    }
+    
+    
+    // object .'$any_platform'.'|'.11
+    public boolean _jm_obj_82(Object val, Path path, Report rep)
+    {
+        if (! json.isObject(val))
+        {
+            if (rep != null) rep.addEntry("not an object [.'$any_platform'.'|'.11]", path);
+            return false;
+        }
+        boolean res;
+        Iterator<String> prop_loop = json.objectIterator(val);
+        while (prop_loop.hasNext())
+        {
+            String prop = prop_loop.next();
+            Object pval = json.objectValue(val, prop);
+            Path lpath_82 = new Path(prop, path);
+            if (prop.compareTo("name") == 0)
+            {
+                // handle may name property
+                // .'$any_platform'.'|'.11.name
+                res = json.isString(pval) && json.asString(pval).compareTo("DellOS") == 0;
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected _DellOS [.'$any_platform'.'|'.11.name]", (path != null ? lpath_82 : null));
+                }
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$any_platform'.'|'.11.name]", (path != null ? lpath_82 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("versions") == 0)
+            {
+                // handle may versions property
+                // .'$any_platform'.'|'.11.versions
+                res = json.isArray(pval);
+                if (res)
+                {
+                    int arr_82_idx = -1;
+                    Iterator<Object> arr_82_item_loop = json.arrayIterator(pval);
+                    while (arr_82_item_loop.hasNext())
+                    {
+                        arr_82_idx++;
+                        Object arr_82_item = arr_82_item_loop.next();
+                        Path arr_82_lpath = new Path(arr_82_idx, (path != null ? lpath_82 : null));
+                        // .'$any_platform'.'|'.11.versions.0
+                        res = json.isScalar(arr_82_item) && _jm_cst_56_set.contains(arr_82_item);
+                        if (! res)
+                        {
+                            if (rep != null) rep.addEntry("value not in enum [.'$any_platform'.'|'.11.versions.0.'|']", ((path != null ? lpath_82 : null) != null ? arr_82_lpath : null));
+                        }
+                        if (! res)
+                        {
+                            break;
+                        }
+                    }
+                }
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("not array or unexpected array [.'$any_platform'.'|'.11.versions]", (path != null ? lpath_82 : null));
+                }
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$any_platform'.'|'.11.versions]", (path != null ? lpath_82 : null));
+                    return false;
+                }
+            }
+            else
+            {
+                if (rep != null) rep.addEntry("unexpected prop [.'$any_platform'.'|'.11]", (path != null ? lpath_82 : null));
+                return false;
+            }
+        }
+        return true;
+    }
+    
+    
+    // object .'$any_platform'.'|'.10
+    public boolean _jm_obj_83(Object val, Path path, Report rep)
+    {
+        if (! json.isObject(val))
+        {
+            if (rep != null) rep.addEntry("not an object [.'$any_platform'.'|'.10]", path);
+            return false;
+        }
+        boolean res;
+        Iterator<String> prop_loop = json.objectIterator(val);
+        while (prop_loop.hasNext())
+        {
+            String prop = prop_loop.next();
+            Object pval = json.objectValue(val, prop);
+            Path lpath_83 = new Path(prop, path);
+            if (prop.compareTo("name") == 0)
+            {
+                // handle may name property
+                // .'$any_platform'.'|'.10.name
+                res = json.isString(pval) && json.asString(pval).compareTo("Debian") == 0;
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected _Debian [.'$any_platform'.'|'.10.name]", (path != null ? lpath_83 : null));
+                }
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$any_platform'.'|'.10.name]", (path != null ? lpath_83 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("versions") == 0)
+            {
+                // handle may versions property
+                // .'$any_platform'.'|'.10.versions
+                res = json.isArray(pval);
+                if (res)
+                {
+                    int arr_83_idx = -1;
+                    Iterator<Object> arr_83_item_loop = json.arrayIterator(pval);
+                    while (arr_83_item_loop.hasNext())
+                    {
+                        arr_83_idx++;
+                        Object arr_83_item = arr_83_item_loop.next();
+                        Path arr_83_lpath = new Path(arr_83_idx, (path != null ? lpath_83 : null));
+                        // .'$any_platform'.'|'.10.versions.0
+                        res = json.isScalar(arr_83_item) && _jm_cst_57_set.contains(arr_83_item);
+                        if (! res)
+                        {
+                            if (rep != null) rep.addEntry("value not in enum [.'$any_platform'.'|'.10.versions.0.'|']", ((path != null ? lpath_83 : null) != null ? arr_83_lpath : null));
+                        }
+                        if (! res)
+                        {
+                            break;
+                        }
+                    }
+                }
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("not array or unexpected array [.'$any_platform'.'|'.10.versions]", (path != null ? lpath_83 : null));
+                }
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$any_platform'.'|'.10.versions]", (path != null ? lpath_83 : null));
+                    return false;
+                }
+            }
+            else
+            {
+                if (rep != null) rep.addEntry("unexpected prop [.'$any_platform'.'|'.10]", (path != null ? lpath_83 : null));
+                return false;
+            }
+        }
+        return true;
+    }
+    
+    
+    // object .'$any_platform'.'|'.9
+    public boolean _jm_obj_84(Object val, Path path, Report rep)
+    {
+        if (! json.isObject(val))
+        {
+            if (rep != null) rep.addEntry("not an object [.'$any_platform'.'|'.9]", path);
+            return false;
+        }
+        boolean res;
+        Iterator<String> prop_loop = json.objectIterator(val);
+        while (prop_loop.hasNext())
+        {
+            String prop = prop_loop.next();
+            Object pval = json.objectValue(val, prop);
+            Path lpath_84 = new Path(prop, path);
+            if (prop.compareTo("name") == 0)
+            {
+                // handle may name property
+                // .'$any_platform'.'|'.9.name
+                res = json.isString(pval) && json.asString(pval).compareTo("NetBSD") == 0;
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected _NetBSD [.'$any_platform'.'|'.9.name]", (path != null ? lpath_84 : null));
+                }
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$any_platform'.'|'.9.name]", (path != null ? lpath_84 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("versions") == 0)
+            {
+                // handle may versions property
+                // .'$any_platform'.'|'.9.versions
+                res = json.isArray(pval);
+                if (res)
+                {
+                    int arr_84_idx = -1;
+                    Iterator<Object> arr_84_item_loop = json.arrayIterator(pval);
+                    while (arr_84_item_loop.hasNext())
+                    {
+                        arr_84_idx++;
+                        Object arr_84_item = arr_84_item_loop.next();
+                        Path arr_84_lpath = new Path(arr_84_idx, (path != null ? lpath_84 : null));
+                        // .'$any_platform'.'|'.9.versions.0
+                        res = json.isScalar(arr_84_item) && _jm_cst_58_set.contains(arr_84_item);
+                        if (! res)
+                        {
+                            if (rep != null) rep.addEntry("value not in enum [.'$any_platform'.'|'.9.versions.0.'|']", ((path != null ? lpath_84 : null) != null ? arr_84_lpath : null));
+                        }
+                        if (! res)
+                        {
+                            break;
+                        }
+                    }
+                }
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("not array or unexpected array [.'$any_platform'.'|'.9.versions]", (path != null ? lpath_84 : null));
+                }
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$any_platform'.'|'.9.versions]", (path != null ? lpath_84 : null));
+                    return false;
+                }
+            }
+            else
+            {
+                if (rep != null) rep.addEntry("unexpected prop [.'$any_platform'.'|'.9]", (path != null ? lpath_84 : null));
+                return false;
+            }
+        }
+        return true;
+    }
+    
+    
+    // object .'$any_platform'.'|'.8
+    public boolean _jm_obj_85(Object val, Path path, Report rep)
+    {
+        if (! json.isObject(val))
+        {
+            if (rep != null) rep.addEntry("not an object [.'$any_platform'.'|'.8]", path);
+            return false;
+        }
+        boolean res;
+        Iterator<String> prop_loop = json.objectIterator(val);
+        while (prop_loop.hasNext())
+        {
+            String prop = prop_loop.next();
+            Object pval = json.objectValue(val, prop);
+            Path lpath_85 = new Path(prop, path);
+            if (prop.compareTo("name") == 0)
+            {
+                // handle may name property
+                // .'$any_platform'.'|'.8.name
+                res = json.isString(pval) && json.asString(pval).compareTo("Cumulus") == 0;
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected _Cumulus [.'$any_platform'.'|'.8.name]", (path != null ? lpath_85 : null));
+                }
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$any_platform'.'|'.8.name]", (path != null ? lpath_85 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("versions") == 0)
+            {
+                // handle may versions property
+                // .'$any_platform'.'|'.8.versions
+                res = json.isArray(pval);
+                if (res)
+                {
+                    int arr_85_idx = -1;
+                    Iterator<Object> arr_85_item_loop = json.arrayIterator(pval);
+                    while (arr_85_item_loop.hasNext())
+                    {
+                        arr_85_idx++;
+                        Object arr_85_item = arr_85_item_loop.next();
+                        Path arr_85_lpath = new Path(arr_85_idx, (path != null ? lpath_85 : null));
+                        // .'$any_platform'.'|'.8.versions.0
+                        res = json.isScalar(arr_85_item) && _jm_cst_59_set.contains(arr_85_item);
+                        if (! res)
+                        {
+                            if (rep != null) rep.addEntry("value not in enum [.'$any_platform'.'|'.8.versions.0.'|']", ((path != null ? lpath_85 : null) != null ? arr_85_lpath : null));
+                        }
+                        if (! res)
+                        {
+                            break;
+                        }
+                    }
+                }
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("not array or unexpected array [.'$any_platform'.'|'.8.versions]", (path != null ? lpath_85 : null));
+                }
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$any_platform'.'|'.8.versions]", (path != null ? lpath_85 : null));
+                    return false;
+                }
+            }
+            else
+            {
+                if (rep != null) rep.addEntry("unexpected prop [.'$any_platform'.'|'.8]", (path != null ? lpath_85 : null));
+                return false;
+            }
+        }
+        return true;
+    }
+    
+    // object .'$any_platform'.'|'.7
+    public boolean _jm_obj_86(Object val, Path path, Report rep)
+    {
+        if (! json.isObject(val))
+        {
+            if (rep != null) rep.addEntry("not an object [.'$any_platform'.'|'.7]", path);
+            return false;
+        }
+        boolean res;
+        Iterator<String> prop_loop = json.objectIterator(val);
+        while (prop_loop.hasNext())
+        {
+            String prop = prop_loop.next();
+            Object pval = json.objectValue(val, prop);
+            Path lpath_86 = new Path(prop, path);
+            if (prop.compareTo("name") == 0)
+            {
+                // handle may name property
+                // .'$any_platform'.'|'.7.name
+                res = json.isString(pval) && json.asString(pval).compareTo("ClearLinux") == 0;
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected _ClearLinux [.'$any_platform'.'|'.7.name]", (path != null ? lpath_86 : null));
+                }
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$any_platform'.'|'.7.name]", (path != null ? lpath_86 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("versions") == 0)
+            {
+                // handle may versions property
+                // .'$any_platform'.'|'.7.versions
+                res = json.isArray(pval);
+                if (res)
+                {
+                    int arr_86_idx = -1;
+                    Iterator<Object> arr_86_item_loop = json.arrayIterator(pval);
+                    while (arr_86_item_loop.hasNext())
+                    {
+                        arr_86_idx++;
+                        Object arr_86_item = arr_86_item_loop.next();
+                        Path arr_86_lpath = new Path(arr_86_idx, (path != null ? lpath_86 : null));
+                        // .'$any_platform'.'|'.7.versions.0
+                        res = json.isString(arr_86_item) && json.asString(arr_86_item).compareTo("all") == 0;
+                        if (! res)
+                        {
+                            if (rep != null) rep.addEntry("unexpected all [.'$any_platform'.'|'.7.versions.0]", ((path != null ? lpath_86 : null) != null ? arr_86_lpath : null));
+                        }
+                        if (! res)
+                        {
+                            break;
+                        }
+                    }
+                }
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("not array or unexpected array [.'$any_platform'.'|'.7.versions]", (path != null ? lpath_86 : null));
+                }
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$any_platform'.'|'.7.versions]", (path != null ? lpath_86 : null));
+                    return false;
+                }
+            }
+            else
+            {
+                if (rep != null) rep.addEntry("unexpected prop [.'$any_platform'.'|'.7]", (path != null ? lpath_86 : null));
+                return false;
+            }
+        }
+        return true;
+    }
+    
+    
+    // object .'$any_platform'.'|'.6
+    public boolean _jm_obj_87(Object val, Path path, Report rep)
+    {
+        if (! json.isObject(val))
+        {
+            if (rep != null) rep.addEntry("not an object [.'$any_platform'.'|'.6]", path);
+            return false;
+        }
+        boolean res;
+        Iterator<String> prop_loop = json.objectIterator(val);
+        while (prop_loop.hasNext())
+        {
+            String prop = prop_loop.next();
+            Object pval = json.objectValue(val, prop);
+            Path lpath_87 = new Path(prop, path);
+            if (prop.compareTo("name") == 0)
+            {
+                // handle may name property
+                // .'$any_platform'.'|'.6.name
+                res = json.isString(pval) && json.asString(pval).compareTo("Astra Linux") == 0;
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected _Astra Linux [.'$any_platform'.'|'.6.name]", (path != null ? lpath_87 : null));
+                }
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$any_platform'.'|'.6.name]", (path != null ? lpath_87 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("versions") == 0)
+            {
+                // handle may versions property
+                // .'$any_platform'.'|'.6.versions
+                res = json.isArray(pval);
+                if (res)
+                {
+                    int arr_87_idx = -1;
+                    Iterator<Object> arr_87_item_loop = json.arrayIterator(pval);
+                    while (arr_87_item_loop.hasNext())
+                    {
+                        arr_87_idx++;
+                        Object arr_87_item = arr_87_item_loop.next();
+                        Path arr_87_lpath = new Path(arr_87_idx, (path != null ? lpath_87 : null));
+                        // .'$any_platform'.'|'.6.versions.0
+                        res = json.isScalar(arr_87_item) && _jm_cst_60_set.contains(arr_87_item);
+                        if (! res)
+                        {
+                            if (rep != null) rep.addEntry("value not in enum [.'$any_platform'.'|'.6.versions.0.'|']", ((path != null ? lpath_87 : null) != null ? arr_87_lpath : null));
+                        }
+                        if (! res)
+                        {
+                            break;
+                        }
+                    }
+                }
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("not array or unexpected array [.'$any_platform'.'|'.6.versions]", (path != null ? lpath_87 : null));
+                }
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$any_platform'.'|'.6.versions]", (path != null ? lpath_87 : null));
+                    return false;
+                }
+            }
+            else
+            {
+                if (rep != null) rep.addEntry("unexpected prop [.'$any_platform'.'|'.6]", (path != null ? lpath_87 : null));
+                return false;
+            }
+        }
+        return true;
+    }
+    
+    // object .'$any_platform'.'|'.5
+    public boolean _jm_obj_88(Object val, Path path, Report rep)
+    {
+        if (! json.isObject(val))
+        {
+            if (rep != null) rep.addEntry("not an object [.'$any_platform'.'|'.5]", path);
+            return false;
+        }
+        boolean res;
+        Iterator<String> prop_loop = json.objectIterator(val);
+        while (prop_loop.hasNext())
+        {
+            String prop = prop_loop.next();
+            Object pval = json.objectValue(val, prop);
+            Path lpath_88 = new Path(prop, path);
+            if (prop.compareTo("name") == 0)
+            {
+                // handle may name property
+                // .'$any_platform'.'|'.5.name
+                res = json.isString(pval) && json.asString(pval).compareTo("ArchLinux") == 0;
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected _ArchLinux [.'$any_platform'.'|'.5.name]", (path != null ? lpath_88 : null));
+                }
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$any_platform'.'|'.5.name]", (path != null ? lpath_88 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("versions") == 0)
+            {
+                // handle may versions property
+                // .'$any_platform'.'|'.5.versions
+                res = json.isArray(pval);
+                if (res)
+                {
+                    int arr_88_idx = -1;
+                    Iterator<Object> arr_88_item_loop = json.arrayIterator(pval);
+                    while (arr_88_item_loop.hasNext())
+                    {
+                        arr_88_idx++;
+                        Object arr_88_item = arr_88_item_loop.next();
+                        Path arr_88_lpath = new Path(arr_88_idx, (path != null ? lpath_88 : null));
+                        // .'$any_platform'.'|'.5.versions.0
+                        res = json.isString(arr_88_item) && json.asString(arr_88_item).compareTo("all") == 0;
+                        if (! res)
+                        {
+                            if (rep != null) rep.addEntry("unexpected all [.'$any_platform'.'|'.5.versions.0]", ((path != null ? lpath_88 : null) != null ? arr_88_lpath : null));
+                        }
+                        if (! res)
+                        {
+                            break;
+                        }
+                    }
+                }
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("not array or unexpected array [.'$any_platform'.'|'.5.versions]", (path != null ? lpath_88 : null));
+                }
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$any_platform'.'|'.5.versions]", (path != null ? lpath_88 : null));
+                    return false;
+                }
+            }
+            else
+            {
+                if (rep != null) rep.addEntry("unexpected prop [.'$any_platform'.'|'.5]", (path != null ? lpath_88 : null));
+                return false;
+            }
+        }
+        return true;
+    }
+    
+    // object .'$any_platform'.'|'.4
+    public boolean _jm_obj_89(Object val, Path path, Report rep)
+    {
+        if (! json.isObject(val))
+        {
+            if (rep != null) rep.addEntry("not an object [.'$any_platform'.'|'.4]", path);
+            return false;
+        }
+        boolean res;
+        Iterator<String> prop_loop = json.objectIterator(val);
+        while (prop_loop.hasNext())
+        {
+            String prop = prop_loop.next();
+            Object pval = json.objectValue(val, prop);
+            Path lpath_89 = new Path(prop, path);
+            if (prop.compareTo("name") == 0)
+            {
+                // handle may name property
+                // .'$any_platform'.'|'.4.name
+                res = json.isString(pval) && json.asString(pval).compareTo("aos") == 0;
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected _aos [.'$any_platform'.'|'.4.name]", (path != null ? lpath_89 : null));
+                }
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$any_platform'.'|'.4.name]", (path != null ? lpath_89 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("versions") == 0)
+            {
+                // handle may versions property
+                // .'$any_platform'.'|'.4.versions
+                res = json.isArray(pval);
+                if (res)
+                {
+                    int arr_89_idx = -1;
+                    Iterator<Object> arr_89_item_loop = json.arrayIterator(pval);
+                    while (arr_89_item_loop.hasNext())
+                    {
+                        arr_89_idx++;
+                        Object arr_89_item = arr_89_item_loop.next();
+                        Path arr_89_lpath = new Path(arr_89_idx, (path != null ? lpath_89 : null));
+                        // .'$any_platform'.'|'.4.versions.0
+                        res = json.isString(arr_89_item) && json.asString(arr_89_item).compareTo("all") == 0;
+                        if (! res)
+                        {
+                            if (rep != null) rep.addEntry("unexpected all [.'$any_platform'.'|'.4.versions.0]", ((path != null ? lpath_89 : null) != null ? arr_89_lpath : null));
+                        }
+                        if (! res)
+                        {
+                            break;
+                        }
+                    }
+                }
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("not array or unexpected array [.'$any_platform'.'|'.4.versions]", (path != null ? lpath_89 : null));
+                }
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$any_platform'.'|'.4.versions]", (path != null ? lpath_89 : null));
+                    return false;
+                }
+            }
+            else
+            {
+                if (rep != null) rep.addEntry("unexpected prop [.'$any_platform'.'|'.4]", (path != null ? lpath_89 : null));
+                return false;
+            }
+        }
+        return true;
+    }
+    
+    
+    // object .'$any_platform'.'|'.3
+    public boolean _jm_obj_90(Object val, Path path, Report rep)
+    {
+        if (! json.isObject(val))
+        {
+            if (rep != null) rep.addEntry("not an object [.'$any_platform'.'|'.3]", path);
+            return false;
+        }
+        boolean res;
+        Iterator<String> prop_loop = json.objectIterator(val);
+        while (prop_loop.hasNext())
+        {
+            String prop = prop_loop.next();
+            Object pval = json.objectValue(val, prop);
+            Path lpath_90 = new Path(prop, path);
+            if (prop.compareTo("name") == 0)
+            {
+                // handle may name property
+                // .'$any_platform'.'|'.3.name
+                res = json.isString(pval) && json.asString(pval).compareTo("Amazon Linux") == 0;
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected _Amazon Linux [.'$any_platform'.'|'.3.name]", (path != null ? lpath_90 : null));
+                }
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$any_platform'.'|'.3.name]", (path != null ? lpath_90 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("versions") == 0)
+            {
+                // handle may versions property
+                // .'$any_platform'.'|'.3.versions
+                res = json.isArray(pval);
+                if (res)
+                {
+                    int arr_90_idx = -1;
+                    Iterator<Object> arr_90_item_loop = json.arrayIterator(pval);
+                    while (arr_90_item_loop.hasNext())
+                    {
+                        arr_90_idx++;
+                        Object arr_90_item = arr_90_item_loop.next();
+                        Path arr_90_lpath = new Path(arr_90_idx, (path != null ? lpath_90 : null));
+                        // .'$any_platform'.'|'.3.versions.0
+                        res = json.isScalar(arr_90_item) && _jm_cst_61_set.contains(arr_90_item);
+                        if (! res)
+                        {
+                            if (rep != null) rep.addEntry("value not in enum [.'$any_platform'.'|'.3.versions.0.'|']", ((path != null ? lpath_90 : null) != null ? arr_90_lpath : null));
+                        }
+                        if (! res)
+                        {
+                            break;
+                        }
+                    }
+                }
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("not array or unexpected array [.'$any_platform'.'|'.3.versions]", (path != null ? lpath_90 : null));
+                }
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$any_platform'.'|'.3.versions]", (path != null ? lpath_90 : null));
+                    return false;
+                }
+            }
+            else
+            {
+                if (rep != null) rep.addEntry("unexpected prop [.'$any_platform'.'|'.3]", (path != null ? lpath_90 : null));
+                return false;
+            }
+        }
+        return true;
+    }
+    
+    
+    // object .'$any_platform'.'|'.2
+    public boolean _jm_obj_91(Object val, Path path, Report rep)
+    {
+        if (! json.isObject(val))
+        {
+            if (rep != null) rep.addEntry("not an object [.'$any_platform'.'|'.2]", path);
+            return false;
+        }
+        boolean res;
+        Iterator<String> prop_loop = json.objectIterator(val);
+        while (prop_loop.hasNext())
+        {
+            String prop = prop_loop.next();
+            Object pval = json.objectValue(val, prop);
+            Path lpath_91 = new Path(prop, path);
+            if (prop.compareTo("name") == 0)
+            {
+                // handle may name property
+                // .'$any_platform'.'|'.2.name
+                res = json.isString(pval) && json.asString(pval).compareTo("Amazon") == 0;
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected _Amazon [.'$any_platform'.'|'.2.name]", (path != null ? lpath_91 : null));
+                }
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$any_platform'.'|'.2.name]", (path != null ? lpath_91 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("versions") == 0)
+            {
+                // handle may versions property
+                // .'$any_platform'.'|'.2.versions
+                res = json.isArray(pval);
+                if (res)
+                {
+                    int arr_91_idx = -1;
+                    Iterator<Object> arr_91_item_loop = json.arrayIterator(pval);
+                    while (arr_91_item_loop.hasNext())
+                    {
+                        arr_91_idx++;
+                        Object arr_91_item = arr_91_item_loop.next();
+                        Path arr_91_lpath = new Path(arr_91_idx, (path != null ? lpath_91 : null));
+                        // .'$any_platform'.'|'.2.versions.0
+                        res = json.isScalar(arr_91_item) && _jm_cst_62_set.contains(arr_91_item);
+                        if (! res)
+                        {
+                            if (rep != null) rep.addEntry("value not in enum [.'$any_platform'.'|'.2.versions.0.'|']", ((path != null ? lpath_91 : null) != null ? arr_91_lpath : null));
+                        }
+                        if (! res)
+                        {
+                            break;
+                        }
+                    }
+                }
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("not array or unexpected array [.'$any_platform'.'|'.2.versions]", (path != null ? lpath_91 : null));
+                }
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$any_platform'.'|'.2.versions]", (path != null ? lpath_91 : null));
+                    return false;
+                }
+            }
+            else
+            {
+                if (rep != null) rep.addEntry("unexpected prop [.'$any_platform'.'|'.2]", (path != null ? lpath_91 : null));
+                return false;
+            }
+        }
+        return true;
+    }
+    
+    // object .'$any_platform'.'|'.1
+    public boolean _jm_obj_92(Object val, Path path, Report rep)
+    {
+        if (! json.isObject(val))
+        {
+            if (rep != null) rep.addEntry("not an object [.'$any_platform'.'|'.1]", path);
+            return false;
+        }
+        boolean res;
+        Iterator<String> prop_loop = json.objectIterator(val);
+        while (prop_loop.hasNext())
+        {
+            String prop = prop_loop.next();
+            Object pval = json.objectValue(val, prop);
+            Path lpath_92 = new Path(prop, path);
+            if (prop.compareTo("name") == 0)
+            {
+                // handle may name property
+                // .'$any_platform'.'|'.1.name
+                res = json.isString(pval) && json.asString(pval).compareTo("Alpine") == 0;
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected _Alpine [.'$any_platform'.'|'.1.name]", (path != null ? lpath_92 : null));
+                }
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$any_platform'.'|'.1.name]", (path != null ? lpath_92 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("versions") == 0)
+            {
+                // handle may versions property
+                // .'$any_platform'.'|'.1.versions
+                res = json.isArray(pval);
+                if (res)
+                {
+                    int arr_92_idx = -1;
+                    Iterator<Object> arr_92_item_loop = json.arrayIterator(pval);
+                    while (arr_92_item_loop.hasNext())
+                    {
+                        arr_92_idx++;
+                        Object arr_92_item = arr_92_item_loop.next();
+                        Path arr_92_lpath = new Path(arr_92_idx, (path != null ? lpath_92 : null));
+                        // .'$any_platform'.'|'.1.versions.0
+                        res = json.isString(arr_92_item) && json.asString(arr_92_item).compareTo("all") == 0;
+                        if (! res)
+                        {
+                            if (rep != null) rep.addEntry("unexpected all [.'$any_platform'.'|'.1.versions.0]", ((path != null ? lpath_92 : null) != null ? arr_92_lpath : null));
+                        }
+                        if (! res)
+                        {
+                            break;
+                        }
+                    }
+                }
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("not array or unexpected array [.'$any_platform'.'|'.1.versions]", (path != null ? lpath_92 : null));
+                }
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$any_platform'.'|'.1.versions]", (path != null ? lpath_92 : null));
+                    return false;
+                }
+            }
+            else
+            {
+                if (rep != null) rep.addEntry("unexpected prop [.'$any_platform'.'|'.1]", (path != null ? lpath_92 : null));
+                return false;
+            }
+        }
+        return true;
+    }
+    
+    
+    // object .'$any_platform'.'|'.0
+    public boolean _jm_obj_93(Object val, Path path, Report rep)
+    {
+        if (! json.isObject(val))
+        {
+            if (rep != null) rep.addEntry("not an object [.'$any_platform'.'|'.0]", path);
+            return false;
+        }
+        boolean res;
+        Iterator<String> prop_loop = json.objectIterator(val);
+        while (prop_loop.hasNext())
+        {
+            String prop = prop_loop.next();
+            Object pval = json.objectValue(val, prop);
+            Path lpath_93 = new Path(prop, path);
+            if (prop.compareTo("name") == 0)
+            {
+                // handle may name property
+                // .'$any_platform'.'|'.0.name
+                res = json.isString(pval) && json.asString(pval).compareTo("AIX") == 0;
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected _AIX [.'$any_platform'.'|'.0.name]", (path != null ? lpath_93 : null));
+                }
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$any_platform'.'|'.0.name]", (path != null ? lpath_93 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("versions") == 0)
+            {
+                // handle may versions property
+                // .'$any_platform'.'|'.0.versions
+                res = json.isArray(pval);
+                if (res)
+                {
+                    int arr_93_idx = -1;
+                    Iterator<Object> arr_93_item_loop = json.arrayIterator(pval);
+                    while (arr_93_item_loop.hasNext())
+                    {
+                        arr_93_idx++;
+                        Object arr_93_item = arr_93_item_loop.next();
+                        Path arr_93_lpath = new Path(arr_93_idx, (path != null ? lpath_93 : null));
+                        // .'$any_platform'.'|'.0.versions.0
+                        res = json.isScalar(arr_93_item) && _jm_cst_63_set.contains(arr_93_item);
+                        if (! res)
+                        {
+                            if (rep != null) rep.addEntry("value not in enum [.'$any_platform'.'|'.0.versions.0.'|']", ((path != null ? lpath_93 : null) != null ? arr_93_lpath : null));
+                        }
+                        if (! res)
+                        {
+                            break;
+                        }
+                    }
+                }
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("not array or unexpected array [.'$any_platform'.'|'.0.versions]", (path != null ? lpath_93 : null));
+                }
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$any_platform'.'|'.0.versions]", (path != null ? lpath_93 : null));
+                    return false;
+                }
+            }
+            else
+            {
+                if (rep != null) rep.addEntry("unexpected prop [.'$any_platform'.'|'.0]", (path != null ? lpath_93 : null));
+                return false;
+            }
+        }
+        return true;
+    }
+    
     // check $any_platform (.'$any_platform')
     public boolean json_model_49(Object val, Path path, Report rep)
     {
         boolean res;
         // FIXME: name is not mandatory, not sure it makes much sense… versions should be unique?
         // .'$any_platform'
-        // .'$any_platform'.'|'.0
-        res = json_model_2(val, path, rep);
+        res = json.isObject(val);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected $AIXPlatformModel [.'$any_platform'.'|'.0]", path);
+            if (rep != null) rep.addEntry("unexpected type [.'$any_platform'.'|']", path);
         }
-        if (! res)
+        if (res)
         {
-            // .'$any_platform'.'|'.1
-            res = json_model_3(val, path, rep);
+            // .'$any_platform'.'|'.0
+            res = _jm_obj_93(val, path, rep);
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected $AlpinePlatformModel [.'$any_platform'.'|'.1]", path);
+                if (rep != null) rep.addEntry("unexpected element [.'$any_platform'.'|'.0]", path);
             }
             if (! res)
             {
-                // .'$any_platform'.'|'.2
-                res = json_model_5(val, path, rep);
+                // .'$any_platform'.'|'.1
+                res = _jm_obj_92(val, path, rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $AmazonPlatformModel [.'$any_platform'.'|'.2]", path);
+                    if (rep != null) rep.addEntry("unexpected element [.'$any_platform'.'|'.1]", path);
                 }
                 if (! res)
                 {
-                    // .'$any_platform'.'|'.3
-                    res = json_model_4(val, path, rep);
+                    // .'$any_platform'.'|'.2
+                    res = _jm_obj_91(val, path, rep);
                     if (! res)
                     {
-                        if (rep != null) rep.addEntry("unexpected $AmazonLinuxPlatformModel [.'$any_platform'.'|'.3]", path);
+                        if (rep != null) rep.addEntry("unexpected element [.'$any_platform'.'|'.2]", path);
                     }
                     if (! res)
                     {
-                        // .'$any_platform'.'|'.4
-                        res = json_model_42(val, path, rep);
+                        // .'$any_platform'.'|'.3
+                        res = _jm_obj_90(val, path, rep);
                         if (! res)
                         {
-                            if (rep != null) rep.addEntry("unexpected $aosPlatformModel [.'$any_platform'.'|'.4]", path);
+                            if (rep != null) rep.addEntry("unexpected element [.'$any_platform'.'|'.3]", path);
                         }
                         if (! res)
                         {
-                            // .'$any_platform'.'|'.5
-                            res = json_model_6(val, path, rep);
+                            // .'$any_platform'.'|'.4
+                            res = _jm_obj_89(val, path, rep);
                             if (! res)
                             {
-                                if (rep != null) rep.addEntry("unexpected $ArchLinuxPlatformModel [.'$any_platform'.'|'.5]", path);
+                                if (rep != null) rep.addEntry("unexpected element [.'$any_platform'.'|'.4]", path);
                             }
                             if (! res)
                             {
-                                // .'$any_platform'.'|'.6
-                                res = json_model_7(val, path, rep);
+                                // .'$any_platform'.'|'.5
+                                res = _jm_obj_88(val, path, rep);
                                 if (! res)
                                 {
-                                    if (rep != null) rep.addEntry("unexpected $AstraLinuxPlatformModel [.'$any_platform'.'|'.6]", path);
+                                    if (rep != null) rep.addEntry("unexpected element [.'$any_platform'.'|'.5]", path);
                                 }
                                 if (! res)
                                 {
-                                    // .'$any_platform'.'|'.7
-                                    res = json_model_8(val, path, rep);
+                                    // .'$any_platform'.'|'.6
+                                    res = _jm_obj_87(val, path, rep);
                                     if (! res)
                                     {
-                                        if (rep != null) rep.addEntry("unexpected $ClearLinuxPlatformModel [.'$any_platform'.'|'.7]", path);
+                                        if (rep != null) rep.addEntry("unexpected element [.'$any_platform'.'|'.6]", path);
                                     }
                                     if (! res)
                                     {
-                                        // .'$any_platform'.'|'.8
-                                        res = json_model_9(val, path, rep);
+                                        // .'$any_platform'.'|'.7
+                                        res = _jm_obj_86(val, path, rep);
                                         if (! res)
                                         {
-                                            if (rep != null) rep.addEntry("unexpected $CumulusPlatformModel [.'$any_platform'.'|'.8]", path);
+                                            if (rep != null) rep.addEntry("unexpected element [.'$any_platform'.'|'.7]", path);
                                         }
                                         if (! res)
                                         {
-                                            // .'$any_platform'.'|'.9
-                                            res = json_model_28(val, path, rep);
+                                            // .'$any_platform'.'|'.8
+                                            res = _jm_obj_85(val, path, rep);
                                             if (! res)
                                             {
-                                                if (rep != null) rep.addEntry("unexpected $NetBSDPlatformModel [.'$any_platform'.'|'.9]", path);
+                                                if (rep != null) rep.addEntry("unexpected element [.'$any_platform'.'|'.8]", path);
                                             }
                                             if (! res)
                                             {
-                                                // .'$any_platform'.'|'.10
-                                                res = json_model_10(val, path, rep);
+                                                // .'$any_platform'.'|'.9
+                                                res = _jm_obj_84(val, path, rep);
                                                 if (! res)
                                                 {
-                                                    if (rep != null) rep.addEntry("unexpected $DebianPlatformModel [.'$any_platform'.'|'.10]", path);
+                                                    if (rep != null) rep.addEntry("unexpected element [.'$any_platform'.'|'.9]", path);
                                                 }
                                                 if (! res)
                                                 {
-                                                    // .'$any_platform'.'|'.11
-                                                    res = json_model_11(val, path, rep);
+                                                    // .'$any_platform'.'|'.10
+                                                    res = _jm_obj_83(val, path, rep);
                                                     if (! res)
                                                     {
-                                                        if (rep != null) rep.addEntry("unexpected $DellOSPlatformModel [.'$any_platform'.'|'.11]", path);
+                                                        if (rep != null) rep.addEntry("unexpected element [.'$any_platform'.'|'.10]", path);
                                                     }
                                                     if (! res)
                                                     {
-                                                        // .'$any_platform'.'|'.12
-                                                        res = json_model_12(val, path, rep);
+                                                        // .'$any_platform'.'|'.11
+                                                        res = _jm_obj_82(val, path, rep);
                                                         if (! res)
                                                         {
-                                                            if (rep != null) rep.addEntry("unexpected $DevuanPlatformModel [.'$any_platform'.'|'.12]", path);
+                                                            if (rep != null) rep.addEntry("unexpected element [.'$any_platform'.'|'.11]", path);
                                                         }
                                                         if (! res)
                                                         {
-                                                            // .'$any_platform'.'|'.13
-                                                            res = json_model_13(val, path, rep);
+                                                            // .'$any_platform'.'|'.12
+                                                            res = _jm_obj_81(val, path, rep);
                                                             if (! res)
                                                             {
-                                                                if (rep != null) rep.addEntry("unexpected $DragonFlyBSDPlatformModel [.'$any_platform'.'|'.13]", path);
+                                                                if (rep != null) rep.addEntry("unexpected element [.'$any_platform'.'|'.12]", path);
                                                             }
                                                             if (! res)
                                                             {
-                                                                // .'$any_platform'.'|'.14
-                                                                res = json_model_14(val, path, rep);
+                                                                // .'$any_platform'.'|'.13
+                                                                res = _jm_obj_80(val, path, rep);
                                                                 if (! res)
                                                                 {
-                                                                    if (rep != null) rep.addEntry("unexpected $ELPlatformModel [.'$any_platform'.'|'.14]", path);
+                                                                    if (rep != null) rep.addEntry("unexpected element [.'$any_platform'.'|'.13]", path);
                                                                 }
                                                                 if (! res)
                                                                 {
-                                                                    // .'$any_platform'.'|'.15
-                                                                    res = json_model_43(val, path, rep);
+                                                                    // .'$any_platform'.'|'.14
+                                                                    res = _jm_obj_79(val, path, rep);
                                                                     if (! res)
                                                                     {
-                                                                        if (rep != null) rep.addEntry("unexpected $eosPlatformModel [.'$any_platform'.'|'.15]", path);
+                                                                        if (rep != null) rep.addEntry("unexpected element [.'$any_platform'.'|'.14]", path);
                                                                     }
                                                                     if (! res)
                                                                     {
-                                                                        // .'$any_platform'.'|'.16
-                                                                        res = json_model_15(val, path, rep);
+                                                                        // .'$any_platform'.'|'.15
+                                                                        res = _jm_obj_78(val, path, rep);
                                                                         if (! res)
                                                                         {
-                                                                            if (rep != null) rep.addEntry("unexpected $FedoraPlatformModel [.'$any_platform'.'|'.16]", path);
+                                                                            if (rep != null) rep.addEntry("unexpected element [.'$any_platform'.'|'.15]", path);
                                                                         }
                                                                         if (! res)
                                                                         {
-                                                                            // .'$any_platform'.'|'.17
-                                                                            res = json_model_16(val, path, rep);
+                                                                            // .'$any_platform'.'|'.16
+                                                                            res = _jm_obj_77(val, path, rep);
                                                                             if (! res)
                                                                             {
-                                                                                if (rep != null) rep.addEntry("unexpected $FreeBSDPlatformModel [.'$any_platform'.'|'.17]", path);
+                                                                                if (rep != null) rep.addEntry("unexpected element [.'$any_platform'.'|'.16]", path);
                                                                             }
                                                                             if (! res)
                                                                             {
-                                                                                // .'$any_platform'.'|'.18
-                                                                                res = json_model_17(val, path, rep);
+                                                                                // .'$any_platform'.'|'.17
+                                                                                res = _jm_obj_76(val, path, rep);
                                                                                 if (! res)
                                                                                 {
-                                                                                    if (rep != null) rep.addEntry("unexpected $GenericBSDPlatformModel [.'$any_platform'.'|'.18]", path);
+                                                                                    if (rep != null) rep.addEntry("unexpected element [.'$any_platform'.'|'.17]", path);
                                                                                 }
                                                                                 if (! res)
                                                                                 {
-                                                                                    // .'$any_platform'.'|'.19
-                                                                                    res = json_model_18(val, path, rep);
+                                                                                    // .'$any_platform'.'|'.18
+                                                                                    res = _jm_obj_75(val, path, rep);
                                                                                     if (! res)
                                                                                     {
-                                                                                        if (rep != null) rep.addEntry("unexpected $GenericLinuxPlatformModel [.'$any_platform'.'|'.19]", path);
+                                                                                        if (rep != null) rep.addEntry("unexpected element [.'$any_platform'.'|'.18]", path);
                                                                                     }
                                                                                     if (! res)
                                                                                     {
-                                                                                        // .'$any_platform'.'|'.20
-                                                                                        res = json_model_19(val, path, rep);
+                                                                                        // .'$any_platform'.'|'.19
+                                                                                        res = _jm_obj_74(val, path, rep);
                                                                                         if (! res)
                                                                                         {
-                                                                                            if (rep != null) rep.addEntry("unexpected $GenericUNIXPlatformModel [.'$any_platform'.'|'.20]", path);
+                                                                                            if (rep != null) rep.addEntry("unexpected element [.'$any_platform'.'|'.19]", path);
                                                                                         }
                                                                                         if (! res)
                                                                                         {
-                                                                                            // .'$any_platform'.'|'.21
-                                                                                            res = json_model_20(val, path, rep);
+                                                                                            // .'$any_platform'.'|'.20
+                                                                                            res = _jm_obj_73(val, path, rep);
                                                                                             if (! res)
                                                                                             {
-                                                                                                if (rep != null) rep.addEntry("unexpected $GentooPlatformModel [.'$any_platform'.'|'.21]", path);
+                                                                                                if (rep != null) rep.addEntry("unexpected element [.'$any_platform'.'|'.20]", path);
                                                                                             }
                                                                                             if (! res)
                                                                                             {
-                                                                                                // .'$any_platform'.'|'.22
-                                                                                                res = json_model_21(val, path, rep);
+                                                                                                // .'$any_platform'.'|'.21
+                                                                                                res = _jm_obj_72(val, path, rep);
                                                                                                 if (! res)
                                                                                                 {
-                                                                                                    if (rep != null) rep.addEntry("unexpected $HardenedBSDPlatformModel [.'$any_platform'.'|'.22]", path);
+                                                                                                    if (rep != null) rep.addEntry("unexpected element [.'$any_platform'.'|'.21]", path);
                                                                                                 }
                                                                                                 if (! res)
                                                                                                 {
-                                                                                                    // .'$any_platform'.'|'.23
-                                                                                                    res = json_model_22(val, path, rep);
+                                                                                                    // .'$any_platform'.'|'.22
+                                                                                                    res = _jm_obj_71(val, path, rep);
                                                                                                     if (! res)
                                                                                                     {
-                                                                                                        if (rep != null) rep.addEntry("unexpected $IOSPlatformModel [.'$any_platform'.'|'.23]", path);
+                                                                                                        if (rep != null) rep.addEntry("unexpected element [.'$any_platform'.'|'.22]", path);
                                                                                                     }
                                                                                                     if (! res)
                                                                                                     {
-                                                                                                        // .'$any_platform'.'|'.24
-                                                                                                        res = json_model_23(val, path, rep);
+                                                                                                        // .'$any_platform'.'|'.23
+                                                                                                        res = _jm_obj_70(val, path, rep);
                                                                                                         if (! res)
                                                                                                         {
-                                                                                                            if (rep != null) rep.addEntry("unexpected $JunosPlatformModel [.'$any_platform'.'|'.24]", path);
+                                                                                                            if (rep != null) rep.addEntry("unexpected element [.'$any_platform'.'|'.23]", path);
                                                                                                         }
                                                                                                         if (! res)
                                                                                                         {
-                                                                                                            // .'$any_platform'.'|'.25
-                                                                                                            res = json_model_24(val, path, rep);
+                                                                                                            // .'$any_platform'.'|'.24
+                                                                                                            res = _jm_obj_69(val, path, rep);
                                                                                                             if (! res)
                                                                                                             {
-                                                                                                                if (rep != null) rep.addEntry("unexpected $KaliPlatformModel [.'$any_platform'.'|'.25]", path);
+                                                                                                                if (rep != null) rep.addEntry("unexpected element [.'$any_platform'.'|'.24]", path);
                                                                                                             }
                                                                                                             if (! res)
                                                                                                             {
-                                                                                                                // .'$any_platform'.'|'.26
-                                                                                                                res = json_model_44(val, path, rep);
+                                                                                                                // .'$any_platform'.'|'.25
+                                                                                                                res = _jm_obj_68(val, path, rep);
                                                                                                                 if (! res)
                                                                                                                 {
-                                                                                                                    if (rep != null) rep.addEntry("unexpected $macOSPlatformModel [.'$any_platform'.'|'.26]", path);
+                                                                                                                    if (rep != null) rep.addEntry("unexpected element [.'$any_platform'.'|'.25]", path);
                                                                                                                 }
                                                                                                                 if (! res)
                                                                                                                 {
-                                                                                                                    // .'$any_platform'.'|'.27
-                                                                                                                    res = json_model_25(val, path, rep);
+                                                                                                                    // .'$any_platform'.'|'.26
+                                                                                                                    res = _jm_obj_67(val, path, rep);
                                                                                                                     if (! res)
                                                                                                                     {
-                                                                                                                        if (rep != null) rep.addEntry("unexpected $MacOSXPlatformModel [.'$any_platform'.'|'.27]", path);
+                                                                                                                        if (rep != null) rep.addEntry("unexpected element [.'$any_platform'.'|'.26]", path);
                                                                                                                     }
                                                                                                                     if (! res)
                                                                                                                     {
-                                                                                                                        // .'$any_platform'.'|'.28
-                                                                                                                        res = json_model_26(val, path, rep);
+                                                                                                                        // .'$any_platform'.'|'.27
+                                                                                                                        res = _jm_obj_66(val, path, rep);
                                                                                                                         if (! res)
                                                                                                                         {
-                                                                                                                            if (rep != null) rep.addEntry("unexpected $MageiaPlatformModel [.'$any_platform'.'|'.28]", path);
+                                                                                                                            if (rep != null) rep.addEntry("unexpected element [.'$any_platform'.'|'.27]", path);
                                                                                                                         }
                                                                                                                         if (! res)
                                                                                                                         {
-                                                                                                                            // .'$any_platform'.'|'.29
-                                                                                                                            res = json_model_27(val, path, rep);
+                                                                                                                            // .'$any_platform'.'|'.28
+                                                                                                                            res = _jm_obj_65(val, path, rep);
                                                                                                                             if (! res)
                                                                                                                             {
-                                                                                                                                if (rep != null) rep.addEntry("unexpected $NXOSPlatformModel [.'$any_platform'.'|'.29]", path);
+                                                                                                                                if (rep != null) rep.addEntry("unexpected element [.'$any_platform'.'|'.28]", path);
                                                                                                                             }
                                                                                                                             if (! res)
                                                                                                                             {
-                                                                                                                                // .'$any_platform'.'|'.30
-                                                                                                                                res = json_model_29(val, path, rep);
+                                                                                                                                // .'$any_platform'.'|'.29
+                                                                                                                                res = _jm_obj_64(val, path, rep);
                                                                                                                                 if (! res)
                                                                                                                                 {
-                                                                                                                                    if (rep != null) rep.addEntry("unexpected $OpenBSDPlatformModel [.'$any_platform'.'|'.30]", path);
+                                                                                                                                    if (rep != null) rep.addEntry("unexpected element [.'$any_platform'.'|'.29]", path);
                                                                                                                                 }
                                                                                                                                 if (! res)
                                                                                                                                 {
-                                                                                                                                    // .'$any_platform'.'|'.31
-                                                                                                                                    res = json_model_45(val, path, rep);
+                                                                                                                                    // .'$any_platform'.'|'.30
+                                                                                                                                    res = _jm_obj_63(val, path, rep);
                                                                                                                                     if (! res)
                                                                                                                                     {
-                                                                                                                                        if (rep != null) rep.addEntry("unexpected $opensusePlatformModel [.'$any_platform'.'|'.31]", path);
+                                                                                                                                        if (rep != null) rep.addEntry("unexpected element [.'$any_platform'.'|'.30]", path);
                                                                                                                                     }
                                                                                                                                     if (! res)
                                                                                                                                     {
-                                                                                                                                        // .'$any_platform'.'|'.32
-                                                                                                                                        res = json_model_30(val, path, rep);
+                                                                                                                                        // .'$any_platform'.'|'.31
+                                                                                                                                        res = _jm_obj_62(val, path, rep);
                                                                                                                                         if (! res)
                                                                                                                                         {
-                                                                                                                                            if (rep != null) rep.addEntry("unexpected $OpenWrtPlatformModel [.'$any_platform'.'|'.32]", path);
+                                                                                                                                            if (rep != null) rep.addEntry("unexpected element [.'$any_platform'.'|'.31]", path);
                                                                                                                                         }
                                                                                                                                         if (! res)
                                                                                                                                         {
-                                                                                                                                            // .'$any_platform'.'|'.33
-                                                                                                                                            res = json_model_31(val, path, rep);
+                                                                                                                                            // .'$any_platform'.'|'.32
+                                                                                                                                            res = _jm_obj_61(val, path, rep);
                                                                                                                                             if (! res)
                                                                                                                                             {
-                                                                                                                                                if (rep != null) rep.addEntry("unexpected $OracleLinuxPlatformModel [.'$any_platform'.'|'.33]", path);
+                                                                                                                                                if (rep != null) rep.addEntry("unexpected element [.'$any_platform'.'|'.32]", path);
                                                                                                                                             }
                                                                                                                                             if (! res)
                                                                                                                                             {
-                                                                                                                                                // .'$any_platform'.'|'.34
-                                                                                                                                                res = json_model_46(val, path, rep);
+                                                                                                                                                // .'$any_platform'.'|'.33
+                                                                                                                                                res = _jm_obj_60(val, path, rep);
                                                                                                                                                 if (! res)
                                                                                                                                                 {
-                                                                                                                                                    if (rep != null) rep.addEntry("unexpected $os10PlatformModel [.'$any_platform'.'|'.34]", path);
+                                                                                                                                                    if (rep != null) rep.addEntry("unexpected element [.'$any_platform'.'|'.33]", path);
                                                                                                                                                 }
                                                                                                                                                 if (! res)
                                                                                                                                                 {
-                                                                                                                                                    // .'$any_platform'.'|'.35
-                                                                                                                                                    res = json_model_32(val, path, rep);
+                                                                                                                                                    // .'$any_platform'.'|'.34
+                                                                                                                                                    res = _jm_obj_59(val, path, rep);
                                                                                                                                                     if (! res)
                                                                                                                                                     {
-                                                                                                                                                        if (rep != null) rep.addEntry("unexpected $PAN-OSPlatformModel [.'$any_platform'.'|'.35]", path);
+                                                                                                                                                        if (rep != null) rep.addEntry("unexpected element [.'$any_platform'.'|'.34]", path);
                                                                                                                                                     }
                                                                                                                                                     if (! res)
                                                                                                                                                     {
-                                                                                                                                                        // .'$any_platform'.'|'.36
-                                                                                                                                                        res = json_model_33(val, path, rep);
+                                                                                                                                                        // .'$any_platform'.'|'.35
+                                                                                                                                                        res = _jm_obj_58(val, path, rep);
                                                                                                                                                         if (! res)
                                                                                                                                                         {
-                                                                                                                                                            if (rep != null) rep.addEntry("unexpected $RockyLinuxPlatformModel [.'$any_platform'.'|'.36]", path);
+                                                                                                                                                            if (rep != null) rep.addEntry("unexpected element [.'$any_platform'.'|'.35]", path);
                                                                                                                                                         }
                                                                                                                                                         if (! res)
                                                                                                                                                         {
-                                                                                                                                                            // .'$any_platform'.'|'.37
-                                                                                                                                                            res = json_model_34(val, path, rep);
+                                                                                                                                                            // .'$any_platform'.'|'.36
+                                                                                                                                                            res = _jm_obj_57(val, path, rep);
                                                                                                                                                             if (! res)
                                                                                                                                                             {
-                                                                                                                                                                if (rep != null) rep.addEntry("unexpected $SLESPlatformModel [.'$any_platform'.'|'.37]", path);
+                                                                                                                                                                if (rep != null) rep.addEntry("unexpected element [.'$any_platform'.'|'.36]", path);
                                                                                                                                                             }
                                                                                                                                                             if (! res)
                                                                                                                                                             {
-                                                                                                                                                                // .'$any_platform'.'|'.38
-                                                                                                                                                                res = json_model_35(val, path, rep);
+                                                                                                                                                                // .'$any_platform'.'|'.37
+                                                                                                                                                                res = _jm_obj_56(val, path, rep);
                                                                                                                                                                 if (! res)
                                                                                                                                                                 {
-                                                                                                                                                                    if (rep != null) rep.addEntry("unexpected $SmartOSPlatformModel [.'$any_platform'.'|'.38]", path);
+                                                                                                                                                                    if (rep != null) rep.addEntry("unexpected element [.'$any_platform'.'|'.37]", path);
                                                                                                                                                                 }
                                                                                                                                                                 if (! res)
                                                                                                                                                                 {
-                                                                                                                                                                    // .'$any_platform'.'|'.39
-                                                                                                                                                                    res = json_model_36(val, path, rep);
+                                                                                                                                                                    // .'$any_platform'.'|'.38
+                                                                                                                                                                    res = _jm_obj_55(val, path, rep);
                                                                                                                                                                     if (! res)
                                                                                                                                                                     {
-                                                                                                                                                                        if (rep != null) rep.addEntry("unexpected $SolarisPlatformModel [.'$any_platform'.'|'.39]", path);
+                                                                                                                                                                        if (rep != null) rep.addEntry("unexpected element [.'$any_platform'.'|'.38]", path);
                                                                                                                                                                     }
                                                                                                                                                                     if (! res)
                                                                                                                                                                     {
-                                                                                                                                                                        // .'$any_platform'.'|'.40
-                                                                                                                                                                        res = json_model_37(val, path, rep);
+                                                                                                                                                                        // .'$any_platform'.'|'.39
+                                                                                                                                                                        res = _jm_obj_54(val, path, rep);
                                                                                                                                                                         if (! res)
                                                                                                                                                                         {
-                                                                                                                                                                            if (rep != null) rep.addEntry("unexpected $SynologyPlatformModel [.'$any_platform'.'|'.40]", path);
+                                                                                                                                                                            if (rep != null) rep.addEntry("unexpected element [.'$any_platform'.'|'.39]", path);
                                                                                                                                                                         }
                                                                                                                                                                         if (! res)
                                                                                                                                                                         {
-                                                                                                                                                                            // .'$any_platform'.'|'.41
-                                                                                                                                                                            res = json_model_38(val, path, rep);
+                                                                                                                                                                            // .'$any_platform'.'|'.40
+                                                                                                                                                                            res = _jm_obj_53(val, path, rep);
                                                                                                                                                                             if (! res)
                                                                                                                                                                             {
-                                                                                                                                                                                if (rep != null) rep.addEntry("unexpected $TMOSPlatformModel [.'$any_platform'.'|'.41]", path);
+                                                                                                                                                                                if (rep != null) rep.addEntry("unexpected element [.'$any_platform'.'|'.40]", path);
                                                                                                                                                                             }
                                                                                                                                                                             if (! res)
                                                                                                                                                                             {
-                                                                                                                                                                                // .'$any_platform'.'|'.42
-                                                                                                                                                                                res = json_model_39(val, path, rep);
+                                                                                                                                                                                // .'$any_platform'.'|'.41
+                                                                                                                                                                                res = _jm_obj_52(val, path, rep);
                                                                                                                                                                                 if (! res)
                                                                                                                                                                                 {
-                                                                                                                                                                                    if (rep != null) rep.addEntry("unexpected $UbuntuPlatformModel [.'$any_platform'.'|'.42]", path);
+                                                                                                                                                                                    if (rep != null) rep.addEntry("unexpected element [.'$any_platform'.'|'.41]", path);
                                                                                                                                                                                 }
                                                                                                                                                                                 if (! res)
                                                                                                                                                                                 {
-                                                                                                                                                                                    // .'$any_platform'.'|'.43
-                                                                                                                                                                                    res = json_model_47(val, path, rep);
+                                                                                                                                                                                    // .'$any_platform'.'|'.42
+                                                                                                                                                                                    res = _jm_obj_51(val, path, rep);
                                                                                                                                                                                     if (! res)
                                                                                                                                                                                     {
-                                                                                                                                                                                        if (rep != null) rep.addEntry("unexpected $vCenterPlatformModel [.'$any_platform'.'|'.43]", path);
+                                                                                                                                                                                        if (rep != null) rep.addEntry("unexpected element [.'$any_platform'.'|'.42]", path);
                                                                                                                                                                                     }
                                                                                                                                                                                     if (! res)
                                                                                                                                                                                     {
-                                                                                                                                                                                        // .'$any_platform'.'|'.44
-                                                                                                                                                                                        res = json_model_40(val, path, rep);
+                                                                                                                                                                                        // .'$any_platform'.'|'.43
+                                                                                                                                                                                        res = _jm_obj_50(val, path, rep);
                                                                                                                                                                                         if (! res)
                                                                                                                                                                                         {
-                                                                                                                                                                                            if (rep != null) rep.addEntry("unexpected $Void_LinuxPlatformModel [.'$any_platform'.'|'.44]", path);
+                                                                                                                                                                                            if (rep != null) rep.addEntry("unexpected element [.'$any_platform'.'|'.43]", path);
                                                                                                                                                                                         }
                                                                                                                                                                                         if (! res)
                                                                                                                                                                                         {
-                                                                                                                                                                                            // .'$any_platform'.'|'.45
-                                                                                                                                                                                            res = json_model_48(val, path, rep);
+                                                                                                                                                                                            // .'$any_platform'.'|'.44
+                                                                                                                                                                                            res = _jm_obj_49(val, path, rep);
                                                                                                                                                                                             if (! res)
                                                                                                                                                                                             {
-                                                                                                                                                                                                if (rep != null) rep.addEntry("unexpected $vSpherePlatformModel [.'$any_platform'.'|'.45]", path);
+                                                                                                                                                                                                if (rep != null) rep.addEntry("unexpected element [.'$any_platform'.'|'.44]", path);
                                                                                                                                                                                             }
                                                                                                                                                                                             if (! res)
                                                                                                                                                                                             {
-                                                                                                                                                                                                // .'$any_platform'.'|'.46
-                                                                                                                                                                                                res = json_model_41(val, path, rep);
+                                                                                                                                                                                                // .'$any_platform'.'|'.45
+                                                                                                                                                                                                res = _jm_obj_48(val, path, rep);
                                                                                                                                                                                                 if (! res)
                                                                                                                                                                                                 {
-                                                                                                                                                                                                    if (rep != null) rep.addEntry("unexpected $WindowsPlatformModel [.'$any_platform'.'|'.46]", path);
+                                                                                                                                                                                                    if (rep != null) rep.addEntry("unexpected element [.'$any_platform'.'|'.45]", path);
+                                                                                                                                                                                                }
+                                                                                                                                                                                                if (! res)
+                                                                                                                                                                                                {
+                                                                                                                                                                                                    // .'$any_platform'.'|'.46
+                                                                                                                                                                                                    res = _jm_obj_47(val, path, rep);
+                                                                                                                                                                                                    if (! res)
+                                                                                                                                                                                                    {
+                                                                                                                                                                                                        if (rep != null) rep.addEntry("unexpected element [.'$any_platform'.'|'.46]", path);
+                                                                                                                                                                                                    }
                                                                                                                                                                                                 }
                                                                                                                                                                                             }
                                                                                                                                                                                         }
@@ -4684,21 +8282,21 @@ public class ansiblelint_meta extends ModelChecker
                     }
                 }
             }
-        }
-        if (res)
-        {
-            if (rep != null) rep.clearEntries();
-        }
-        else
-        {
-            if (rep != null) rep.addEntry("no model matched [.'$any_platform'.'|']", path);
+            if (res)
+            {
+                if (rep != null) rep.clearEntries();
+            }
+            else
+            {
+                if (rep != null) rep.addEntry("no model matched [.'$any_platform'.'|']", path);
+            }
         }
         return res;
     }
     
     
     // object .'$platforms'.0.'|'.46
-    public boolean _jm_obj_47(Object val, Path path, Report rep)
+    public boolean _jm_obj_94(Object val, Path path, Report rep)
     {
         // check must only props
         if (! json.isObject(val))
@@ -4730,18 +8328,18 @@ public class ansiblelint_meta extends ModelChecker
             res = json.isArray(pval);
             if (res)
             {
-                int arr_48_idx = -1;
-                Iterator<Object> arr_48_item_loop = json.arrayIterator(pval);
-                while (arr_48_item_loop.hasNext())
+                int arr_95_idx = -1;
+                Iterator<Object> arr_95_item_loop = json.arrayIterator(pval);
+                while (arr_95_item_loop.hasNext())
                 {
-                    arr_48_idx++;
-                    Object arr_48_item = arr_48_item_loop.next();
-                    Path arr_48_lpath = new Path(arr_48_idx, path);
+                    arr_95_idx++;
+                    Object arr_95_item = arr_95_item_loop.next();
+                    Path arr_95_lpath = new Path(arr_95_idx, path);
                     // .'$platforms'.0.'|'.46.versions.0
-                    res = json.isScalar(arr_48_item) && _jm_cst_32_set.contains(arr_48_item);
+                    res = json.isScalar(arr_95_item) && _jm_cst_64_set.contains(arr_95_item);
                     if (! res)
                     {
-                        if (rep != null) rep.addEntry("value not in enum [.'$platforms'.0.'|'.46.versions.0.'|']", (path != null ? arr_48_lpath : null));
+                        if (rep != null) rep.addEntry("value not in enum [.'$platforms'.0.'|'.46.versions.0.'|']", (path != null ? arr_95_lpath : null));
                     }
                     if (! res)
                     {
@@ -4764,7 +8362,7 @@ public class ansiblelint_meta extends ModelChecker
     
     
     // object .'$platforms'.0.'|'.45
-    public boolean _jm_obj_48(Object val, Path path, Report rep)
+    public boolean _jm_obj_95(Object val, Path path, Report rep)
     {
         // check must only props
         if (! json.isObject(val))
@@ -4796,18 +8394,18 @@ public class ansiblelint_meta extends ModelChecker
             res = json.isArray(pval);
             if (res)
             {
-                int arr_49_idx = -1;
-                Iterator<Object> arr_49_item_loop = json.arrayIterator(pval);
-                while (arr_49_item_loop.hasNext())
+                int arr_96_idx = -1;
+                Iterator<Object> arr_96_item_loop = json.arrayIterator(pval);
+                while (arr_96_item_loop.hasNext())
                 {
-                    arr_49_idx++;
-                    Object arr_49_item = arr_49_item_loop.next();
-                    Path arr_49_lpath = new Path(arr_49_idx, path);
+                    arr_96_idx++;
+                    Object arr_96_item = arr_96_item_loop.next();
+                    Path arr_96_lpath = new Path(arr_96_idx, path);
                     // .'$platforms'.0.'|'.45.versions.0
-                    res = json.isScalar(arr_49_item) && _jm_cst_33_set.contains(arr_49_item);
+                    res = json.isScalar(arr_96_item) && _jm_cst_65_set.contains(arr_96_item);
                     if (! res)
                     {
-                        if (rep != null) rep.addEntry("value not in enum [.'$platforms'.0.'|'.45.versions.0.'|']", (path != null ? arr_49_lpath : null));
+                        if (rep != null) rep.addEntry("value not in enum [.'$platforms'.0.'|'.45.versions.0.'|']", (path != null ? arr_96_lpath : null));
                     }
                     if (! res)
                     {
@@ -4829,7 +8427,7 @@ public class ansiblelint_meta extends ModelChecker
     }
     
     // object .'$platforms'.0.'|'.44
-    public boolean _jm_obj_49(Object val, Path path, Report rep)
+    public boolean _jm_obj_96(Object val, Path path, Report rep)
     {
         // check must only props
         if (! json.isObject(val))
@@ -4861,18 +8459,18 @@ public class ansiblelint_meta extends ModelChecker
             res = json.isArray(pval);
             if (res)
             {
-                int arr_50_idx = -1;
-                Iterator<Object> arr_50_item_loop = json.arrayIterator(pval);
-                while (arr_50_item_loop.hasNext())
+                int arr_97_idx = -1;
+                Iterator<Object> arr_97_item_loop = json.arrayIterator(pval);
+                while (arr_97_item_loop.hasNext())
                 {
-                    arr_50_idx++;
-                    Object arr_50_item = arr_50_item_loop.next();
-                    Path arr_50_lpath = new Path(arr_50_idx, path);
+                    arr_97_idx++;
+                    Object arr_97_item = arr_97_item_loop.next();
+                    Path arr_97_lpath = new Path(arr_97_idx, path);
                     // .'$platforms'.0.'|'.44.versions.0
-                    res = json.isString(arr_50_item) && json.asString(arr_50_item).compareTo("all") == 0;
+                    res = json.isString(arr_97_item) && json.asString(arr_97_item).compareTo("all") == 0;
                     if (! res)
                     {
-                        if (rep != null) rep.addEntry("unexpected all [.'$platforms'.0.'|'.44.versions.0]", (path != null ? arr_50_lpath : null));
+                        if (rep != null) rep.addEntry("unexpected all [.'$platforms'.0.'|'.44.versions.0]", (path != null ? arr_97_lpath : null));
                     }
                     if (! res)
                     {
@@ -4895,7 +8493,7 @@ public class ansiblelint_meta extends ModelChecker
     
     
     // object .'$platforms'.0.'|'.43
-    public boolean _jm_obj_50(Object val, Path path, Report rep)
+    public boolean _jm_obj_97(Object val, Path path, Report rep)
     {
         // check must only props
         if (! json.isObject(val))
@@ -4927,18 +8525,18 @@ public class ansiblelint_meta extends ModelChecker
             res = json.isArray(pval);
             if (res)
             {
-                int arr_51_idx = -1;
-                Iterator<Object> arr_51_item_loop = json.arrayIterator(pval);
-                while (arr_51_item_loop.hasNext())
+                int arr_98_idx = -1;
+                Iterator<Object> arr_98_item_loop = json.arrayIterator(pval);
+                while (arr_98_item_loop.hasNext())
                 {
-                    arr_51_idx++;
-                    Object arr_51_item = arr_51_item_loop.next();
-                    Path arr_51_lpath = new Path(arr_51_idx, path);
+                    arr_98_idx++;
+                    Object arr_98_item = arr_98_item_loop.next();
+                    Path arr_98_lpath = new Path(arr_98_idx, path);
                     // .'$platforms'.0.'|'.43.versions.0
-                    res = json.isScalar(arr_51_item) && _jm_cst_34_set.contains(arr_51_item);
+                    res = json.isScalar(arr_98_item) && _jm_cst_66_set.contains(arr_98_item);
                     if (! res)
                     {
-                        if (rep != null) rep.addEntry("value not in enum [.'$platforms'.0.'|'.43.versions.0.'|']", (path != null ? arr_51_lpath : null));
+                        if (rep != null) rep.addEntry("value not in enum [.'$platforms'.0.'|'.43.versions.0.'|']", (path != null ? arr_98_lpath : null));
                     }
                     if (! res)
                     {
@@ -4961,7 +8559,7 @@ public class ansiblelint_meta extends ModelChecker
     
     
     // object .'$platforms'.0.'|'.42
-    public boolean _jm_obj_51(Object val, Path path, Report rep)
+    public boolean _jm_obj_98(Object val, Path path, Report rep)
     {
         // check must only props
         if (! json.isObject(val))
@@ -4993,18 +8591,18 @@ public class ansiblelint_meta extends ModelChecker
             res = json.isArray(pval);
             if (res)
             {
-                int arr_52_idx = -1;
-                Iterator<Object> arr_52_item_loop = json.arrayIterator(pval);
-                while (arr_52_item_loop.hasNext())
+                int arr_99_idx = -1;
+                Iterator<Object> arr_99_item_loop = json.arrayIterator(pval);
+                while (arr_99_item_loop.hasNext())
                 {
-                    arr_52_idx++;
-                    Object arr_52_item = arr_52_item_loop.next();
-                    Path arr_52_lpath = new Path(arr_52_idx, path);
+                    arr_99_idx++;
+                    Object arr_99_item = arr_99_item_loop.next();
+                    Path arr_99_lpath = new Path(arr_99_idx, path);
                     // .'$platforms'.0.'|'.42.versions.0
-                    res = json.isScalar(arr_52_item) && _jm_cst_35_set.contains(arr_52_item);
+                    res = json.isScalar(arr_99_item) && _jm_cst_67_set.contains(arr_99_item);
                     if (! res)
                     {
-                        if (rep != null) rep.addEntry("value not in enum [.'$platforms'.0.'|'.42.versions.0.'|']", (path != null ? arr_52_lpath : null));
+                        if (rep != null) rep.addEntry("value not in enum [.'$platforms'.0.'|'.42.versions.0.'|']", (path != null ? arr_99_lpath : null));
                     }
                     if (! res)
                     {
@@ -5027,7 +8625,7 @@ public class ansiblelint_meta extends ModelChecker
     
     
     // object .'$platforms'.0.'|'.41
-    public boolean _jm_obj_52(Object val, Path path, Report rep)
+    public boolean _jm_obj_99(Object val, Path path, Report rep)
     {
         // check must only props
         if (! json.isObject(val))
@@ -5059,18 +8657,18 @@ public class ansiblelint_meta extends ModelChecker
             res = json.isArray(pval);
             if (res)
             {
-                int arr_53_idx = -1;
-                Iterator<Object> arr_53_item_loop = json.arrayIterator(pval);
-                while (arr_53_item_loop.hasNext())
+                int arr_100_idx = -1;
+                Iterator<Object> arr_100_item_loop = json.arrayIterator(pval);
+                while (arr_100_item_loop.hasNext())
                 {
-                    arr_53_idx++;
-                    Object arr_53_item = arr_53_item_loop.next();
-                    Path arr_53_lpath = new Path(arr_53_idx, path);
+                    arr_100_idx++;
+                    Object arr_100_item = arr_100_item_loop.next();
+                    Path arr_100_lpath = new Path(arr_100_idx, path);
                     // .'$platforms'.0.'|'.41.versions.0
-                    res = json.isScalar(arr_53_item) && _jm_cst_36_set.contains(arr_53_item);
+                    res = json.isScalar(arr_100_item) && _jm_cst_68_set.contains(arr_100_item);
                     if (! res)
                     {
-                        if (rep != null) rep.addEntry("value not in enum [.'$platforms'.0.'|'.41.versions.0.'|']", (path != null ? arr_53_lpath : null));
+                        if (rep != null) rep.addEntry("value not in enum [.'$platforms'.0.'|'.41.versions.0.'|']", (path != null ? arr_100_lpath : null));
                     }
                     if (! res)
                     {
@@ -5093,7 +8691,7 @@ public class ansiblelint_meta extends ModelChecker
     
     
     // object .'$platforms'.0.'|'.40
-    public boolean _jm_obj_53(Object val, Path path, Report rep)
+    public boolean _jm_obj_100(Object val, Path path, Report rep)
     {
         // check must only props
         if (! json.isObject(val))
@@ -5125,18 +8723,18 @@ public class ansiblelint_meta extends ModelChecker
             res = json.isArray(pval);
             if (res)
             {
-                int arr_54_idx = -1;
-                Iterator<Object> arr_54_item_loop = json.arrayIterator(pval);
-                while (arr_54_item_loop.hasNext())
+                int arr_101_idx = -1;
+                Iterator<Object> arr_101_item_loop = json.arrayIterator(pval);
+                while (arr_101_item_loop.hasNext())
                 {
-                    arr_54_idx++;
-                    Object arr_54_item = arr_54_item_loop.next();
-                    Path arr_54_lpath = new Path(arr_54_idx, path);
+                    arr_101_idx++;
+                    Object arr_101_item = arr_101_item_loop.next();
+                    Path arr_101_lpath = new Path(arr_101_idx, path);
                     // .'$platforms'.0.'|'.40.versions.0
-                    res = json.isScalar(arr_54_item) && _jm_cst_37_set.contains(arr_54_item);
+                    res = json.isScalar(arr_101_item) && _jm_cst_69_set.contains(arr_101_item);
                     if (! res)
                     {
-                        if (rep != null) rep.addEntry("value not in enum [.'$platforms'.0.'|'.40.versions.0.'|']", (path != null ? arr_54_lpath : null));
+                        if (rep != null) rep.addEntry("value not in enum [.'$platforms'.0.'|'.40.versions.0.'|']", (path != null ? arr_101_lpath : null));
                     }
                     if (! res)
                     {
@@ -5159,7 +8757,7 @@ public class ansiblelint_meta extends ModelChecker
     
     
     // object .'$platforms'.0.'|'.39
-    public boolean _jm_obj_54(Object val, Path path, Report rep)
+    public boolean _jm_obj_101(Object val, Path path, Report rep)
     {
         // check must only props
         if (! json.isObject(val))
@@ -5191,18 +8789,18 @@ public class ansiblelint_meta extends ModelChecker
             res = json.isArray(pval);
             if (res)
             {
-                int arr_55_idx = -1;
-                Iterator<Object> arr_55_item_loop = json.arrayIterator(pval);
-                while (arr_55_item_loop.hasNext())
+                int arr_102_idx = -1;
+                Iterator<Object> arr_102_item_loop = json.arrayIterator(pval);
+                while (arr_102_item_loop.hasNext())
                 {
-                    arr_55_idx++;
-                    Object arr_55_item = arr_55_item_loop.next();
-                    Path arr_55_lpath = new Path(arr_55_idx, path);
+                    arr_102_idx++;
+                    Object arr_102_item = arr_102_item_loop.next();
+                    Path arr_102_lpath = new Path(arr_102_idx, path);
                     // .'$platforms'.0.'|'.39.versions.0
-                    res = json.isScalar(arr_55_item) && _jm_cst_38_set.contains(arr_55_item);
+                    res = json.isScalar(arr_102_item) && _jm_cst_70_set.contains(arr_102_item);
                     if (! res)
                     {
-                        if (rep != null) rep.addEntry("value not in enum [.'$platforms'.0.'|'.39.versions.0.'|']", (path != null ? arr_55_lpath : null));
+                        if (rep != null) rep.addEntry("value not in enum [.'$platforms'.0.'|'.39.versions.0.'|']", (path != null ? arr_102_lpath : null));
                     }
                     if (! res)
                     {
@@ -5224,7 +8822,7 @@ public class ansiblelint_meta extends ModelChecker
     }
     
     // object .'$platforms'.0.'|'.38
-    public boolean _jm_obj_55(Object val, Path path, Report rep)
+    public boolean _jm_obj_102(Object val, Path path, Report rep)
     {
         // check must only props
         if (! json.isObject(val))
@@ -5256,18 +8854,18 @@ public class ansiblelint_meta extends ModelChecker
             res = json.isArray(pval);
             if (res)
             {
-                int arr_56_idx = -1;
-                Iterator<Object> arr_56_item_loop = json.arrayIterator(pval);
-                while (arr_56_item_loop.hasNext())
+                int arr_103_idx = -1;
+                Iterator<Object> arr_103_item_loop = json.arrayIterator(pval);
+                while (arr_103_item_loop.hasNext())
                 {
-                    arr_56_idx++;
-                    Object arr_56_item = arr_56_item_loop.next();
-                    Path arr_56_lpath = new Path(arr_56_idx, path);
+                    arr_103_idx++;
+                    Object arr_103_item = arr_103_item_loop.next();
+                    Path arr_103_lpath = new Path(arr_103_idx, path);
                     // .'$platforms'.0.'|'.38.versions.0
-                    res = json.isString(arr_56_item) && json.asString(arr_56_item).compareTo("all") == 0;
+                    res = json.isString(arr_103_item) && json.asString(arr_103_item).compareTo("all") == 0;
                     if (! res)
                     {
-                        if (rep != null) rep.addEntry("unexpected all [.'$platforms'.0.'|'.38.versions.0]", (path != null ? arr_56_lpath : null));
+                        if (rep != null) rep.addEntry("unexpected all [.'$platforms'.0.'|'.38.versions.0]", (path != null ? arr_103_lpath : null));
                     }
                     if (! res)
                     {
@@ -5290,7 +8888,7 @@ public class ansiblelint_meta extends ModelChecker
     
     
     // object .'$platforms'.0.'|'.37
-    public boolean _jm_obj_56(Object val, Path path, Report rep)
+    public boolean _jm_obj_103(Object val, Path path, Report rep)
     {
         // check must only props
         if (! json.isObject(val))
@@ -5322,18 +8920,18 @@ public class ansiblelint_meta extends ModelChecker
             res = json.isArray(pval);
             if (res)
             {
-                int arr_57_idx = -1;
-                Iterator<Object> arr_57_item_loop = json.arrayIterator(pval);
-                while (arr_57_item_loop.hasNext())
+                int arr_104_idx = -1;
+                Iterator<Object> arr_104_item_loop = json.arrayIterator(pval);
+                while (arr_104_item_loop.hasNext())
                 {
-                    arr_57_idx++;
-                    Object arr_57_item = arr_57_item_loop.next();
-                    Path arr_57_lpath = new Path(arr_57_idx, path);
+                    arr_104_idx++;
+                    Object arr_104_item = arr_104_item_loop.next();
+                    Path arr_104_lpath = new Path(arr_104_idx, path);
                     // .'$platforms'.0.'|'.37.versions.0
-                    res = json.isScalar(arr_57_item) && _jm_cst_39_set.contains(arr_57_item);
+                    res = json.isScalar(arr_104_item) && _jm_cst_71_set.contains(arr_104_item);
                     if (! res)
                     {
-                        if (rep != null) rep.addEntry("value not in enum [.'$platforms'.0.'|'.37.versions.0.'|']", (path != null ? arr_57_lpath : null));
+                        if (rep != null) rep.addEntry("value not in enum [.'$platforms'.0.'|'.37.versions.0.'|']", (path != null ? arr_104_lpath : null));
                     }
                     if (! res)
                     {
@@ -5356,7 +8954,7 @@ public class ansiblelint_meta extends ModelChecker
     
     
     // object .'$platforms'.0.'|'.36
-    public boolean _jm_obj_57(Object val, Path path, Report rep)
+    public boolean _jm_obj_104(Object val, Path path, Report rep)
     {
         // check must only props
         if (! json.isObject(val))
@@ -5388,18 +8986,18 @@ public class ansiblelint_meta extends ModelChecker
             res = json.isArray(pval);
             if (res)
             {
-                int arr_58_idx = -1;
-                Iterator<Object> arr_58_item_loop = json.arrayIterator(pval);
-                while (arr_58_item_loop.hasNext())
+                int arr_105_idx = -1;
+                Iterator<Object> arr_105_item_loop = json.arrayIterator(pval);
+                while (arr_105_item_loop.hasNext())
                 {
-                    arr_58_idx++;
-                    Object arr_58_item = arr_58_item_loop.next();
-                    Path arr_58_lpath = new Path(arr_58_idx, path);
+                    arr_105_idx++;
+                    Object arr_105_item = arr_105_item_loop.next();
+                    Path arr_105_lpath = new Path(arr_105_idx, path);
                     // .'$platforms'.0.'|'.36.versions.0
-                    res = json.isScalar(arr_58_item) && _jm_cst_40_set.contains(arr_58_item);
+                    res = json.isScalar(arr_105_item) && _jm_cst_72_set.contains(arr_105_item);
                     if (! res)
                     {
-                        if (rep != null) rep.addEntry("value not in enum [.'$platforms'.0.'|'.36.versions.0.'|']", (path != null ? arr_58_lpath : null));
+                        if (rep != null) rep.addEntry("value not in enum [.'$platforms'.0.'|'.36.versions.0.'|']", (path != null ? arr_105_lpath : null));
                     }
                     if (! res)
                     {
@@ -5422,7 +9020,7 @@ public class ansiblelint_meta extends ModelChecker
     
     
     // object .'$platforms'.0.'|'.35
-    public boolean _jm_obj_58(Object val, Path path, Report rep)
+    public boolean _jm_obj_105(Object val, Path path, Report rep)
     {
         // check must only props
         if (! json.isObject(val))
@@ -5454,18 +9052,18 @@ public class ansiblelint_meta extends ModelChecker
             res = json.isArray(pval);
             if (res)
             {
-                int arr_59_idx = -1;
-                Iterator<Object> arr_59_item_loop = json.arrayIterator(pval);
-                while (arr_59_item_loop.hasNext())
+                int arr_106_idx = -1;
+                Iterator<Object> arr_106_item_loop = json.arrayIterator(pval);
+                while (arr_106_item_loop.hasNext())
                 {
-                    arr_59_idx++;
-                    Object arr_59_item = arr_59_item_loop.next();
-                    Path arr_59_lpath = new Path(arr_59_idx, path);
+                    arr_106_idx++;
+                    Object arr_106_item = arr_106_item_loop.next();
+                    Path arr_106_lpath = new Path(arr_106_idx, path);
                     // .'$platforms'.0.'|'.35.versions.0
-                    res = json.isScalar(arr_59_item) && _jm_cst_41_set.contains(arr_59_item);
+                    res = json.isScalar(arr_106_item) && _jm_cst_73_set.contains(arr_106_item);
                     if (! res)
                     {
-                        if (rep != null) rep.addEntry("value not in enum [.'$platforms'.0.'|'.35.versions.0.'|']", (path != null ? arr_59_lpath : null));
+                        if (rep != null) rep.addEntry("value not in enum [.'$platforms'.0.'|'.35.versions.0.'|']", (path != null ? arr_106_lpath : null));
                     }
                     if (! res)
                     {
@@ -5487,7 +9085,7 @@ public class ansiblelint_meta extends ModelChecker
     }
     
     // object .'$platforms'.0.'|'.34
-    public boolean _jm_obj_59(Object val, Path path, Report rep)
+    public boolean _jm_obj_106(Object val, Path path, Report rep)
     {
         // check must only props
         if (! json.isObject(val))
@@ -5519,18 +9117,18 @@ public class ansiblelint_meta extends ModelChecker
             res = json.isArray(pval);
             if (res)
             {
-                int arr_60_idx = -1;
-                Iterator<Object> arr_60_item_loop = json.arrayIterator(pval);
-                while (arr_60_item_loop.hasNext())
+                int arr_107_idx = -1;
+                Iterator<Object> arr_107_item_loop = json.arrayIterator(pval);
+                while (arr_107_item_loop.hasNext())
                 {
-                    arr_60_idx++;
-                    Object arr_60_item = arr_60_item_loop.next();
-                    Path arr_60_lpath = new Path(arr_60_idx, path);
+                    arr_107_idx++;
+                    Object arr_107_item = arr_107_item_loop.next();
+                    Path arr_107_lpath = new Path(arr_107_idx, path);
                     // .'$platforms'.0.'|'.34.versions.0
-                    res = json.isString(arr_60_item) && json.asString(arr_60_item).compareTo("all") == 0;
+                    res = json.isString(arr_107_item) && json.asString(arr_107_item).compareTo("all") == 0;
                     if (! res)
                     {
-                        if (rep != null) rep.addEntry("unexpected all [.'$platforms'.0.'|'.34.versions.0]", (path != null ? arr_60_lpath : null));
+                        if (rep != null) rep.addEntry("unexpected all [.'$platforms'.0.'|'.34.versions.0]", (path != null ? arr_107_lpath : null));
                     }
                     if (! res)
                     {
@@ -5553,7 +9151,7 @@ public class ansiblelint_meta extends ModelChecker
     
     
     // object .'$platforms'.0.'|'.33
-    public boolean _jm_obj_60(Object val, Path path, Report rep)
+    public boolean _jm_obj_107(Object val, Path path, Report rep)
     {
         // check must only props
         if (! json.isObject(val))
@@ -5585,18 +9183,18 @@ public class ansiblelint_meta extends ModelChecker
             res = json.isArray(pval);
             if (res)
             {
-                int arr_61_idx = -1;
-                Iterator<Object> arr_61_item_loop = json.arrayIterator(pval);
-                while (arr_61_item_loop.hasNext())
+                int arr_108_idx = -1;
+                Iterator<Object> arr_108_item_loop = json.arrayIterator(pval);
+                while (arr_108_item_loop.hasNext())
                 {
-                    arr_61_idx++;
-                    Object arr_61_item = arr_61_item_loop.next();
-                    Path arr_61_lpath = new Path(arr_61_idx, path);
+                    arr_108_idx++;
+                    Object arr_108_item = arr_108_item_loop.next();
+                    Path arr_108_lpath = new Path(arr_108_idx, path);
                     // .'$platforms'.0.'|'.33.versions.0
-                    res = json.isScalar(arr_61_item) && _jm_cst_42_set.contains(arr_61_item);
+                    res = json.isScalar(arr_108_item) && _jm_cst_74_set.contains(arr_108_item);
                     if (! res)
                     {
-                        if (rep != null) rep.addEntry("value not in enum [.'$platforms'.0.'|'.33.versions.0.'|']", (path != null ? arr_61_lpath : null));
+                        if (rep != null) rep.addEntry("value not in enum [.'$platforms'.0.'|'.33.versions.0.'|']", (path != null ? arr_108_lpath : null));
                     }
                     if (! res)
                     {
@@ -5619,7 +9217,7 @@ public class ansiblelint_meta extends ModelChecker
     
     
     // object .'$platforms'.0.'|'.32
-    public boolean _jm_obj_61(Object val, Path path, Report rep)
+    public boolean _jm_obj_108(Object val, Path path, Report rep)
     {
         // check must only props
         if (! json.isObject(val))
@@ -5651,18 +9249,18 @@ public class ansiblelint_meta extends ModelChecker
             res = json.isArray(pval);
             if (res)
             {
-                int arr_62_idx = -1;
-                Iterator<Object> arr_62_item_loop = json.arrayIterator(pval);
-                while (arr_62_item_loop.hasNext())
+                int arr_109_idx = -1;
+                Iterator<Object> arr_109_item_loop = json.arrayIterator(pval);
+                while (arr_109_item_loop.hasNext())
                 {
-                    arr_62_idx++;
-                    Object arr_62_item = arr_62_item_loop.next();
-                    Path arr_62_lpath = new Path(arr_62_idx, path);
+                    arr_109_idx++;
+                    Object arr_109_item = arr_109_item_loop.next();
+                    Path arr_109_lpath = new Path(arr_109_idx, path);
                     // .'$platforms'.0.'|'.32.versions.0
-                    res = json.isScalar(arr_62_item) && _jm_cst_43_set.contains(arr_62_item);
+                    res = json.isScalar(arr_109_item) && _jm_cst_75_set.contains(arr_109_item);
                     if (! res)
                     {
-                        if (rep != null) rep.addEntry("value not in enum [.'$platforms'.0.'|'.32.versions.0.'|']", (path != null ? arr_62_lpath : null));
+                        if (rep != null) rep.addEntry("value not in enum [.'$platforms'.0.'|'.32.versions.0.'|']", (path != null ? arr_109_lpath : null));
                     }
                     if (! res)
                     {
@@ -5685,7 +9283,7 @@ public class ansiblelint_meta extends ModelChecker
     
     
     // object .'$platforms'.0.'|'.31
-    public boolean _jm_obj_62(Object val, Path path, Report rep)
+    public boolean _jm_obj_109(Object val, Path path, Report rep)
     {
         // check must only props
         if (! json.isObject(val))
@@ -5717,18 +9315,18 @@ public class ansiblelint_meta extends ModelChecker
             res = json.isArray(pval);
             if (res)
             {
-                int arr_63_idx = -1;
-                Iterator<Object> arr_63_item_loop = json.arrayIterator(pval);
-                while (arr_63_item_loop.hasNext())
+                int arr_110_idx = -1;
+                Iterator<Object> arr_110_item_loop = json.arrayIterator(pval);
+                while (arr_110_item_loop.hasNext())
                 {
-                    arr_63_idx++;
-                    Object arr_63_item = arr_63_item_loop.next();
-                    Path arr_63_lpath = new Path(arr_63_idx, path);
+                    arr_110_idx++;
+                    Object arr_110_item = arr_110_item_loop.next();
+                    Path arr_110_lpath = new Path(arr_110_idx, path);
                     // .'$platforms'.0.'|'.31.versions.0
-                    res = json.isScalar(arr_63_item) && _jm_cst_44_set.contains(arr_63_item);
+                    res = json.isScalar(arr_110_item) && _jm_cst_76_set.contains(arr_110_item);
                     if (! res)
                     {
-                        if (rep != null) rep.addEntry("value not in enum [.'$platforms'.0.'|'.31.versions.0.'|']", (path != null ? arr_63_lpath : null));
+                        if (rep != null) rep.addEntry("value not in enum [.'$platforms'.0.'|'.31.versions.0.'|']", (path != null ? arr_110_lpath : null));
                     }
                     if (! res)
                     {
@@ -5751,7 +9349,7 @@ public class ansiblelint_meta extends ModelChecker
     
     
     // object .'$platforms'.0.'|'.30
-    public boolean _jm_obj_63(Object val, Path path, Report rep)
+    public boolean _jm_obj_110(Object val, Path path, Report rep)
     {
         // check must only props
         if (! json.isObject(val))
@@ -5783,18 +9381,18 @@ public class ansiblelint_meta extends ModelChecker
             res = json.isArray(pval);
             if (res)
             {
-                int arr_64_idx = -1;
-                Iterator<Object> arr_64_item_loop = json.arrayIterator(pval);
-                while (arr_64_item_loop.hasNext())
+                int arr_111_idx = -1;
+                Iterator<Object> arr_111_item_loop = json.arrayIterator(pval);
+                while (arr_111_item_loop.hasNext())
                 {
-                    arr_64_idx++;
-                    Object arr_64_item = arr_64_item_loop.next();
-                    Path arr_64_lpath = new Path(arr_64_idx, path);
+                    arr_111_idx++;
+                    Object arr_111_item = arr_111_item_loop.next();
+                    Path arr_111_lpath = new Path(arr_111_idx, path);
                     // .'$platforms'.0.'|'.30.versions.0
-                    res = json.isScalar(arr_64_item) && _jm_cst_45_set.contains(arr_64_item);
+                    res = json.isScalar(arr_111_item) && _jm_cst_77_set.contains(arr_111_item);
                     if (! res)
                     {
-                        if (rep != null) rep.addEntry("value not in enum [.'$platforms'.0.'|'.30.versions.0.'|']", (path != null ? arr_64_lpath : null));
+                        if (rep != null) rep.addEntry("value not in enum [.'$platforms'.0.'|'.30.versions.0.'|']", (path != null ? arr_111_lpath : null));
                     }
                     if (! res)
                     {
@@ -5816,7 +9414,7 @@ public class ansiblelint_meta extends ModelChecker
     }
     
     // object .'$platforms'.0.'|'.29
-    public boolean _jm_obj_64(Object val, Path path, Report rep)
+    public boolean _jm_obj_111(Object val, Path path, Report rep)
     {
         // check must only props
         if (! json.isObject(val))
@@ -5848,18 +9446,18 @@ public class ansiblelint_meta extends ModelChecker
             res = json.isArray(pval);
             if (res)
             {
-                int arr_65_idx = -1;
-                Iterator<Object> arr_65_item_loop = json.arrayIterator(pval);
-                while (arr_65_item_loop.hasNext())
+                int arr_112_idx = -1;
+                Iterator<Object> arr_112_item_loop = json.arrayIterator(pval);
+                while (arr_112_item_loop.hasNext())
                 {
-                    arr_65_idx++;
-                    Object arr_65_item = arr_65_item_loop.next();
-                    Path arr_65_lpath = new Path(arr_65_idx, path);
+                    arr_112_idx++;
+                    Object arr_112_item = arr_112_item_loop.next();
+                    Path arr_112_lpath = new Path(arr_112_idx, path);
                     // .'$platforms'.0.'|'.29.versions.0
-                    res = json.isString(arr_65_item) && json.asString(arr_65_item).compareTo("all") == 0;
+                    res = json.isString(arr_112_item) && json.asString(arr_112_item).compareTo("all") == 0;
                     if (! res)
                     {
-                        if (rep != null) rep.addEntry("unexpected all [.'$platforms'.0.'|'.29.versions.0]", (path != null ? arr_65_lpath : null));
+                        if (rep != null) rep.addEntry("unexpected all [.'$platforms'.0.'|'.29.versions.0]", (path != null ? arr_112_lpath : null));
                     }
                     if (! res)
                     {
@@ -5882,7 +9480,7 @@ public class ansiblelint_meta extends ModelChecker
     
     
     // object .'$platforms'.0.'|'.28
-    public boolean _jm_obj_65(Object val, Path path, Report rep)
+    public boolean _jm_obj_112(Object val, Path path, Report rep)
     {
         // check must only props
         if (! json.isObject(val))
@@ -5914,18 +9512,18 @@ public class ansiblelint_meta extends ModelChecker
             res = json.isArray(pval);
             if (res)
             {
-                int arr_66_idx = -1;
-                Iterator<Object> arr_66_item_loop = json.arrayIterator(pval);
-                while (arr_66_item_loop.hasNext())
+                int arr_113_idx = -1;
+                Iterator<Object> arr_113_item_loop = json.arrayIterator(pval);
+                while (arr_113_item_loop.hasNext())
                 {
-                    arr_66_idx++;
-                    Object arr_66_item = arr_66_item_loop.next();
-                    Path arr_66_lpath = new Path(arr_66_idx, path);
+                    arr_113_idx++;
+                    Object arr_113_item = arr_113_item_loop.next();
+                    Path arr_113_lpath = new Path(arr_113_idx, path);
                     // .'$platforms'.0.'|'.28.versions.0
-                    res = json.isScalar(arr_66_item) && _jm_cst_46_set.contains(arr_66_item);
+                    res = json.isScalar(arr_113_item) && _jm_cst_78_set.contains(arr_113_item);
                     if (! res)
                     {
-                        if (rep != null) rep.addEntry("value not in enum [.'$platforms'.0.'|'.28.versions.0.'|']", (path != null ? arr_66_lpath : null));
+                        if (rep != null) rep.addEntry("value not in enum [.'$platforms'.0.'|'.28.versions.0.'|']", (path != null ? arr_113_lpath : null));
                     }
                     if (! res)
                     {
@@ -5948,7 +9546,7 @@ public class ansiblelint_meta extends ModelChecker
     
     
     // object .'$platforms'.0.'|'.27
-    public boolean _jm_obj_66(Object val, Path path, Report rep)
+    public boolean _jm_obj_113(Object val, Path path, Report rep)
     {
         // check must only props
         if (! json.isObject(val))
@@ -5980,18 +9578,18 @@ public class ansiblelint_meta extends ModelChecker
             res = json.isArray(pval);
             if (res)
             {
-                int arr_67_idx = -1;
-                Iterator<Object> arr_67_item_loop = json.arrayIterator(pval);
-                while (arr_67_item_loop.hasNext())
+                int arr_114_idx = -1;
+                Iterator<Object> arr_114_item_loop = json.arrayIterator(pval);
+                while (arr_114_item_loop.hasNext())
                 {
-                    arr_67_idx++;
-                    Object arr_67_item = arr_67_item_loop.next();
-                    Path arr_67_lpath = new Path(arr_67_idx, path);
+                    arr_114_idx++;
+                    Object arr_114_item = arr_114_item_loop.next();
+                    Path arr_114_lpath = new Path(arr_114_idx, path);
                     // .'$platforms'.0.'|'.27.versions.0
-                    res = json.isScalar(arr_67_item) && _jm_cst_47_set.contains(arr_67_item);
+                    res = json.isScalar(arr_114_item) && _jm_cst_79_set.contains(arr_114_item);
                     if (! res)
                     {
-                        if (rep != null) rep.addEntry("value not in enum [.'$platforms'.0.'|'.27.versions.0.'|']", (path != null ? arr_67_lpath : null));
+                        if (rep != null) rep.addEntry("value not in enum [.'$platforms'.0.'|'.27.versions.0.'|']", (path != null ? arr_114_lpath : null));
                     }
                     if (! res)
                     {
@@ -6014,7 +9612,7 @@ public class ansiblelint_meta extends ModelChecker
     
     
     // object .'$platforms'.0.'|'.26
-    public boolean _jm_obj_67(Object val, Path path, Report rep)
+    public boolean _jm_obj_114(Object val, Path path, Report rep)
     {
         // check must only props
         if (! json.isObject(val))
@@ -6046,18 +9644,18 @@ public class ansiblelint_meta extends ModelChecker
             res = json.isArray(pval);
             if (res)
             {
-                int arr_68_idx = -1;
-                Iterator<Object> arr_68_item_loop = json.arrayIterator(pval);
-                while (arr_68_item_loop.hasNext())
+                int arr_115_idx = -1;
+                Iterator<Object> arr_115_item_loop = json.arrayIterator(pval);
+                while (arr_115_item_loop.hasNext())
                 {
-                    arr_68_idx++;
-                    Object arr_68_item = arr_68_item_loop.next();
-                    Path arr_68_lpath = new Path(arr_68_idx, path);
+                    arr_115_idx++;
+                    Object arr_115_item = arr_115_item_loop.next();
+                    Path arr_115_lpath = new Path(arr_115_idx, path);
                     // .'$platforms'.0.'|'.26.versions.0
-                    res = json.isScalar(arr_68_item) && _jm_cst_48_set.contains(arr_68_item);
+                    res = json.isScalar(arr_115_item) && _jm_cst_80_set.contains(arr_115_item);
                     if (! res)
                     {
-                        if (rep != null) rep.addEntry("value not in enum [.'$platforms'.0.'|'.26.versions.0.'|']", (path != null ? arr_68_lpath : null));
+                        if (rep != null) rep.addEntry("value not in enum [.'$platforms'.0.'|'.26.versions.0.'|']", (path != null ? arr_115_lpath : null));
                     }
                     if (! res)
                     {
@@ -6080,7 +9678,7 @@ public class ansiblelint_meta extends ModelChecker
     
     
     // object .'$platforms'.0.'|'.25
-    public boolean _jm_obj_68(Object val, Path path, Report rep)
+    public boolean _jm_obj_115(Object val, Path path, Report rep)
     {
         // check must only props
         if (! json.isObject(val))
@@ -6112,18 +9710,18 @@ public class ansiblelint_meta extends ModelChecker
             res = json.isArray(pval);
             if (res)
             {
-                int arr_69_idx = -1;
-                Iterator<Object> arr_69_item_loop = json.arrayIterator(pval);
-                while (arr_69_item_loop.hasNext())
+                int arr_116_idx = -1;
+                Iterator<Object> arr_116_item_loop = json.arrayIterator(pval);
+                while (arr_116_item_loop.hasNext())
                 {
-                    arr_69_idx++;
-                    Object arr_69_item = arr_69_item_loop.next();
-                    Path arr_69_lpath = new Path(arr_69_idx, path);
+                    arr_116_idx++;
+                    Object arr_116_item = arr_116_item_loop.next();
+                    Path arr_116_lpath = new Path(arr_116_idx, path);
                     // .'$platforms'.0.'|'.25.versions.0
-                    res = json.isScalar(arr_69_item) && _jm_cst_49_set.contains(arr_69_item);
+                    res = json.isScalar(arr_116_item) && _jm_cst_81_set.contains(arr_116_item);
                     if (! res)
                     {
-                        if (rep != null) rep.addEntry("value not in enum [.'$platforms'.0.'|'.25.versions.0.'|']", (path != null ? arr_69_lpath : null));
+                        if (rep != null) rep.addEntry("value not in enum [.'$platforms'.0.'|'.25.versions.0.'|']", (path != null ? arr_116_lpath : null));
                     }
                     if (! res)
                     {
@@ -6145,7 +9743,7 @@ public class ansiblelint_meta extends ModelChecker
     }
     
     // object .'$platforms'.0.'|'.24
-    public boolean _jm_obj_69(Object val, Path path, Report rep)
+    public boolean _jm_obj_116(Object val, Path path, Report rep)
     {
         // check must only props
         if (! json.isObject(val))
@@ -6177,18 +9775,18 @@ public class ansiblelint_meta extends ModelChecker
             res = json.isArray(pval);
             if (res)
             {
-                int arr_70_idx = -1;
-                Iterator<Object> arr_70_item_loop = json.arrayIterator(pval);
-                while (arr_70_item_loop.hasNext())
+                int arr_117_idx = -1;
+                Iterator<Object> arr_117_item_loop = json.arrayIterator(pval);
+                while (arr_117_item_loop.hasNext())
                 {
-                    arr_70_idx++;
-                    Object arr_70_item = arr_70_item_loop.next();
-                    Path arr_70_lpath = new Path(arr_70_idx, path);
+                    arr_117_idx++;
+                    Object arr_117_item = arr_117_item_loop.next();
+                    Path arr_117_lpath = new Path(arr_117_idx, path);
                     // .'$platforms'.0.'|'.24.versions.0
-                    res = json.isString(arr_70_item) && json.asString(arr_70_item).compareTo("all") == 0;
+                    res = json.isString(arr_117_item) && json.asString(arr_117_item).compareTo("all") == 0;
                     if (! res)
                     {
-                        if (rep != null) rep.addEntry("unexpected all [.'$platforms'.0.'|'.24.versions.0]", (path != null ? arr_70_lpath : null));
+                        if (rep != null) rep.addEntry("unexpected all [.'$platforms'.0.'|'.24.versions.0]", (path != null ? arr_117_lpath : null));
                     }
                     if (! res)
                     {
@@ -6210,7 +9808,7 @@ public class ansiblelint_meta extends ModelChecker
     }
     
     // object .'$platforms'.0.'|'.23
-    public boolean _jm_obj_70(Object val, Path path, Report rep)
+    public boolean _jm_obj_117(Object val, Path path, Report rep)
     {
         // check must only props
         if (! json.isObject(val))
@@ -6242,18 +9840,18 @@ public class ansiblelint_meta extends ModelChecker
             res = json.isArray(pval);
             if (res)
             {
-                int arr_71_idx = -1;
-                Iterator<Object> arr_71_item_loop = json.arrayIterator(pval);
-                while (arr_71_item_loop.hasNext())
+                int arr_118_idx = -1;
+                Iterator<Object> arr_118_item_loop = json.arrayIterator(pval);
+                while (arr_118_item_loop.hasNext())
                 {
-                    arr_71_idx++;
-                    Object arr_71_item = arr_71_item_loop.next();
-                    Path arr_71_lpath = new Path(arr_71_idx, path);
+                    arr_118_idx++;
+                    Object arr_118_item = arr_118_item_loop.next();
+                    Path arr_118_lpath = new Path(arr_118_idx, path);
                     // .'$platforms'.0.'|'.23.versions.0
-                    res = json.isString(arr_71_item) && json.asString(arr_71_item).compareTo("all") == 0;
+                    res = json.isString(arr_118_item) && json.asString(arr_118_item).compareTo("all") == 0;
                     if (! res)
                     {
-                        if (rep != null) rep.addEntry("unexpected all [.'$platforms'.0.'|'.23.versions.0]", (path != null ? arr_71_lpath : null));
+                        if (rep != null) rep.addEntry("unexpected all [.'$platforms'.0.'|'.23.versions.0]", (path != null ? arr_118_lpath : null));
                     }
                     if (! res)
                     {
@@ -6276,7 +9874,7 @@ public class ansiblelint_meta extends ModelChecker
     
     
     // object .'$platforms'.0.'|'.22
-    public boolean _jm_obj_71(Object val, Path path, Report rep)
+    public boolean _jm_obj_118(Object val, Path path, Report rep)
     {
         // check must only props
         if (! json.isObject(val))
@@ -6308,18 +9906,18 @@ public class ansiblelint_meta extends ModelChecker
             res = json.isArray(pval);
             if (res)
             {
-                int arr_72_idx = -1;
-                Iterator<Object> arr_72_item_loop = json.arrayIterator(pval);
-                while (arr_72_item_loop.hasNext())
+                int arr_119_idx = -1;
+                Iterator<Object> arr_119_item_loop = json.arrayIterator(pval);
+                while (arr_119_item_loop.hasNext())
                 {
-                    arr_72_idx++;
-                    Object arr_72_item = arr_72_item_loop.next();
-                    Path arr_72_lpath = new Path(arr_72_idx, path);
+                    arr_119_idx++;
+                    Object arr_119_item = arr_119_item_loop.next();
+                    Path arr_119_lpath = new Path(arr_119_idx, path);
                     // .'$platforms'.0.'|'.22.versions.0
-                    res = json.isScalar(arr_72_item) && _jm_cst_50_set.contains(arr_72_item);
+                    res = json.isScalar(arr_119_item) && _jm_cst_82_set.contains(arr_119_item);
                     if (! res)
                     {
-                        if (rep != null) rep.addEntry("value not in enum [.'$platforms'.0.'|'.22.versions.0.'|']", (path != null ? arr_72_lpath : null));
+                        if (rep != null) rep.addEntry("value not in enum [.'$platforms'.0.'|'.22.versions.0.'|']", (path != null ? arr_119_lpath : null));
                     }
                     if (! res)
                     {
@@ -6341,7 +9939,7 @@ public class ansiblelint_meta extends ModelChecker
     }
     
     // object .'$platforms'.0.'|'.21
-    public boolean _jm_obj_72(Object val, Path path, Report rep)
+    public boolean _jm_obj_119(Object val, Path path, Report rep)
     {
         // check must only props
         if (! json.isObject(val))
@@ -6373,18 +9971,18 @@ public class ansiblelint_meta extends ModelChecker
             res = json.isArray(pval);
             if (res)
             {
-                int arr_73_idx = -1;
-                Iterator<Object> arr_73_item_loop = json.arrayIterator(pval);
-                while (arr_73_item_loop.hasNext())
+                int arr_120_idx = -1;
+                Iterator<Object> arr_120_item_loop = json.arrayIterator(pval);
+                while (arr_120_item_loop.hasNext())
                 {
-                    arr_73_idx++;
-                    Object arr_73_item = arr_73_item_loop.next();
-                    Path arr_73_lpath = new Path(arr_73_idx, path);
+                    arr_120_idx++;
+                    Object arr_120_item = arr_120_item_loop.next();
+                    Path arr_120_lpath = new Path(arr_120_idx, path);
                     // .'$platforms'.0.'|'.21.versions.0
-                    res = json.isString(arr_73_item) && json.asString(arr_73_item).compareTo("all") == 0;
+                    res = json.isString(arr_120_item) && json.asString(arr_120_item).compareTo("all") == 0;
                     if (! res)
                     {
-                        if (rep != null) rep.addEntry("unexpected all [.'$platforms'.0.'|'.21.versions.0]", (path != null ? arr_73_lpath : null));
+                        if (rep != null) rep.addEntry("unexpected all [.'$platforms'.0.'|'.21.versions.0]", (path != null ? arr_120_lpath : null));
                     }
                     if (! res)
                     {
@@ -6406,7 +10004,7 @@ public class ansiblelint_meta extends ModelChecker
     }
     
     // object .'$platforms'.0.'|'.20
-    public boolean _jm_obj_73(Object val, Path path, Report rep)
+    public boolean _jm_obj_120(Object val, Path path, Report rep)
     {
         // check must only props
         if (! json.isObject(val))
@@ -6438,18 +10036,18 @@ public class ansiblelint_meta extends ModelChecker
             res = json.isArray(pval);
             if (res)
             {
-                int arr_74_idx = -1;
-                Iterator<Object> arr_74_item_loop = json.arrayIterator(pval);
-                while (arr_74_item_loop.hasNext())
+                int arr_121_idx = -1;
+                Iterator<Object> arr_121_item_loop = json.arrayIterator(pval);
+                while (arr_121_item_loop.hasNext())
                 {
-                    arr_74_idx++;
-                    Object arr_74_item = arr_74_item_loop.next();
-                    Path arr_74_lpath = new Path(arr_74_idx, path);
+                    arr_121_idx++;
+                    Object arr_121_item = arr_121_item_loop.next();
+                    Path arr_121_lpath = new Path(arr_121_idx, path);
                     // .'$platforms'.0.'|'.20.versions.0
-                    res = json.isString(arr_74_item) && json.asString(arr_74_item).compareTo("all") == 0;
+                    res = json.isString(arr_121_item) && json.asString(arr_121_item).compareTo("all") == 0;
                     if (! res)
                     {
-                        if (rep != null) rep.addEntry("unexpected all [.'$platforms'.0.'|'.20.versions.0]", (path != null ? arr_74_lpath : null));
+                        if (rep != null) rep.addEntry("unexpected all [.'$platforms'.0.'|'.20.versions.0]", (path != null ? arr_121_lpath : null));
                     }
                     if (! res)
                     {
@@ -6471,7 +10069,7 @@ public class ansiblelint_meta extends ModelChecker
     }
     
     // object .'$platforms'.0.'|'.19
-    public boolean _jm_obj_74(Object val, Path path, Report rep)
+    public boolean _jm_obj_121(Object val, Path path, Report rep)
     {
         // check must only props
         if (! json.isObject(val))
@@ -6503,18 +10101,18 @@ public class ansiblelint_meta extends ModelChecker
             res = json.isArray(pval);
             if (res)
             {
-                int arr_75_idx = -1;
-                Iterator<Object> arr_75_item_loop = json.arrayIterator(pval);
-                while (arr_75_item_loop.hasNext())
+                int arr_122_idx = -1;
+                Iterator<Object> arr_122_item_loop = json.arrayIterator(pval);
+                while (arr_122_item_loop.hasNext())
                 {
-                    arr_75_idx++;
-                    Object arr_75_item = arr_75_item_loop.next();
-                    Path arr_75_lpath = new Path(arr_75_idx, path);
+                    arr_122_idx++;
+                    Object arr_122_item = arr_122_item_loop.next();
+                    Path arr_122_lpath = new Path(arr_122_idx, path);
                     // .'$platforms'.0.'|'.19.versions.0
-                    res = json.isString(arr_75_item) && json.asString(arr_75_item).compareTo("all") == 0;
+                    res = json.isString(arr_122_item) && json.asString(arr_122_item).compareTo("all") == 0;
                     if (! res)
                     {
-                        if (rep != null) rep.addEntry("unexpected all [.'$platforms'.0.'|'.19.versions.0]", (path != null ? arr_75_lpath : null));
+                        if (rep != null) rep.addEntry("unexpected all [.'$platforms'.0.'|'.19.versions.0]", (path != null ? arr_122_lpath : null));
                     }
                     if (! res)
                     {
@@ -6536,7 +10134,7 @@ public class ansiblelint_meta extends ModelChecker
     }
     
     // object .'$platforms'.0.'|'.18
-    public boolean _jm_obj_75(Object val, Path path, Report rep)
+    public boolean _jm_obj_122(Object val, Path path, Report rep)
     {
         // check must only props
         if (! json.isObject(val))
@@ -6568,18 +10166,18 @@ public class ansiblelint_meta extends ModelChecker
             res = json.isArray(pval);
             if (res)
             {
-                int arr_76_idx = -1;
-                Iterator<Object> arr_76_item_loop = json.arrayIterator(pval);
-                while (arr_76_item_loop.hasNext())
+                int arr_123_idx = -1;
+                Iterator<Object> arr_123_item_loop = json.arrayIterator(pval);
+                while (arr_123_item_loop.hasNext())
                 {
-                    arr_76_idx++;
-                    Object arr_76_item = arr_76_item_loop.next();
-                    Path arr_76_lpath = new Path(arr_76_idx, path);
+                    arr_123_idx++;
+                    Object arr_123_item = arr_123_item_loop.next();
+                    Path arr_123_lpath = new Path(arr_123_idx, path);
                     // .'$platforms'.0.'|'.18.versions.0
-                    res = json.isString(arr_76_item) && json.asString(arr_76_item).compareTo("all") == 0;
+                    res = json.isString(arr_123_item) && json.asString(arr_123_item).compareTo("all") == 0;
                     if (! res)
                     {
-                        if (rep != null) rep.addEntry("unexpected all [.'$platforms'.0.'|'.18.versions.0]", (path != null ? arr_76_lpath : null));
+                        if (rep != null) rep.addEntry("unexpected all [.'$platforms'.0.'|'.18.versions.0]", (path != null ? arr_123_lpath : null));
                     }
                     if (! res)
                     {
@@ -6602,7 +10200,7 @@ public class ansiblelint_meta extends ModelChecker
     
     
     // object .'$platforms'.0.'|'.17
-    public boolean _jm_obj_76(Object val, Path path, Report rep)
+    public boolean _jm_obj_123(Object val, Path path, Report rep)
     {
         // check must only props
         if (! json.isObject(val))
@@ -6634,18 +10232,18 @@ public class ansiblelint_meta extends ModelChecker
             res = json.isArray(pval);
             if (res)
             {
-                int arr_77_idx = -1;
-                Iterator<Object> arr_77_item_loop = json.arrayIterator(pval);
-                while (arr_77_item_loop.hasNext())
+                int arr_124_idx = -1;
+                Iterator<Object> arr_124_item_loop = json.arrayIterator(pval);
+                while (arr_124_item_loop.hasNext())
                 {
-                    arr_77_idx++;
-                    Object arr_77_item = arr_77_item_loop.next();
-                    Path arr_77_lpath = new Path(arr_77_idx, path);
+                    arr_124_idx++;
+                    Object arr_124_item = arr_124_item_loop.next();
+                    Path arr_124_lpath = new Path(arr_124_idx, path);
                     // .'$platforms'.0.'|'.17.versions.0
-                    res = json.isScalar(arr_77_item) && _jm_cst_51_set.contains(arr_77_item);
+                    res = json.isScalar(arr_124_item) && _jm_cst_83_set.contains(arr_124_item);
                     if (! res)
                     {
-                        if (rep != null) rep.addEntry("value not in enum [.'$platforms'.0.'|'.17.versions.0.'|']", (path != null ? arr_77_lpath : null));
+                        if (rep != null) rep.addEntry("value not in enum [.'$platforms'.0.'|'.17.versions.0.'|']", (path != null ? arr_124_lpath : null));
                     }
                     if (! res)
                     {
@@ -6668,7 +10266,7 @@ public class ansiblelint_meta extends ModelChecker
     
     
     // object .'$platforms'.0.'|'.16
-    public boolean _jm_obj_77(Object val, Path path, Report rep)
+    public boolean _jm_obj_124(Object val, Path path, Report rep)
     {
         // check must only props
         if (! json.isObject(val))
@@ -6700,18 +10298,18 @@ public class ansiblelint_meta extends ModelChecker
             res = json.isArray(pval);
             if (res)
             {
-                int arr_78_idx = -1;
-                Iterator<Object> arr_78_item_loop = json.arrayIterator(pval);
-                while (arr_78_item_loop.hasNext())
+                int arr_125_idx = -1;
+                Iterator<Object> arr_125_item_loop = json.arrayIterator(pval);
+                while (arr_125_item_loop.hasNext())
                 {
-                    arr_78_idx++;
-                    Object arr_78_item = arr_78_item_loop.next();
-                    Path arr_78_lpath = new Path(arr_78_idx, path);
+                    arr_125_idx++;
+                    Object arr_125_item = arr_125_item_loop.next();
+                    Path arr_125_lpath = new Path(arr_125_idx, path);
                     // .'$platforms'.0.'|'.16.versions.0
-                    res = json.isScalar(arr_78_item) && _jm_cst_52_set.contains(arr_78_item);
+                    res = json.isScalar(arr_125_item) && _jm_cst_84_set.contains(arr_125_item);
                     if (! res)
                     {
-                        if (rep != null) rep.addEntry("value not in enum [.'$platforms'.0.'|'.16.versions.0.'|']", (path != null ? arr_78_lpath : null));
+                        if (rep != null) rep.addEntry("value not in enum [.'$platforms'.0.'|'.16.versions.0.'|']", (path != null ? arr_125_lpath : null));
                     }
                     if (! res)
                     {
@@ -6733,7 +10331,7 @@ public class ansiblelint_meta extends ModelChecker
     }
     
     // object .'$platforms'.0.'|'.15
-    public boolean _jm_obj_78(Object val, Path path, Report rep)
+    public boolean _jm_obj_125(Object val, Path path, Report rep)
     {
         // check must only props
         if (! json.isObject(val))
@@ -6765,18 +10363,18 @@ public class ansiblelint_meta extends ModelChecker
             res = json.isArray(pval);
             if (res)
             {
-                int arr_79_idx = -1;
-                Iterator<Object> arr_79_item_loop = json.arrayIterator(pval);
-                while (arr_79_item_loop.hasNext())
+                int arr_126_idx = -1;
+                Iterator<Object> arr_126_item_loop = json.arrayIterator(pval);
+                while (arr_126_item_loop.hasNext())
                 {
-                    arr_79_idx++;
-                    Object arr_79_item = arr_79_item_loop.next();
-                    Path arr_79_lpath = new Path(arr_79_idx, path);
+                    arr_126_idx++;
+                    Object arr_126_item = arr_126_item_loop.next();
+                    Path arr_126_lpath = new Path(arr_126_idx, path);
                     // .'$platforms'.0.'|'.15.versions.0
-                    res = json.isString(arr_79_item) && json.asString(arr_79_item).compareTo("all") == 0;
+                    res = json.isString(arr_126_item) && json.asString(arr_126_item).compareTo("all") == 0;
                     if (! res)
                     {
-                        if (rep != null) rep.addEntry("unexpected all [.'$platforms'.0.'|'.15.versions.0]", (path != null ? arr_79_lpath : null));
+                        if (rep != null) rep.addEntry("unexpected all [.'$platforms'.0.'|'.15.versions.0]", (path != null ? arr_126_lpath : null));
                     }
                     if (! res)
                     {
@@ -6799,7 +10397,7 @@ public class ansiblelint_meta extends ModelChecker
     
     
     // object .'$platforms'.0.'|'.14
-    public boolean _jm_obj_79(Object val, Path path, Report rep)
+    public boolean _jm_obj_126(Object val, Path path, Report rep)
     {
         // check must only props
         if (! json.isObject(val))
@@ -6831,18 +10429,18 @@ public class ansiblelint_meta extends ModelChecker
             res = json.isArray(pval);
             if (res)
             {
-                int arr_80_idx = -1;
-                Iterator<Object> arr_80_item_loop = json.arrayIterator(pval);
-                while (arr_80_item_loop.hasNext())
+                int arr_127_idx = -1;
+                Iterator<Object> arr_127_item_loop = json.arrayIterator(pval);
+                while (arr_127_item_loop.hasNext())
                 {
-                    arr_80_idx++;
-                    Object arr_80_item = arr_80_item_loop.next();
-                    Path arr_80_lpath = new Path(arr_80_idx, path);
+                    arr_127_idx++;
+                    Object arr_127_item = arr_127_item_loop.next();
+                    Path arr_127_lpath = new Path(arr_127_idx, path);
                     // .'$platforms'.0.'|'.14.versions.0
-                    res = json.isScalar(arr_80_item) && _jm_cst_53_set.contains(arr_80_item);
+                    res = json.isScalar(arr_127_item) && _jm_cst_85_set.contains(arr_127_item);
                     if (! res)
                     {
-                        if (rep != null) rep.addEntry("value not in enum [.'$platforms'.0.'|'.14.versions.0.'|']", (path != null ? arr_80_lpath : null));
+                        if (rep != null) rep.addEntry("value not in enum [.'$platforms'.0.'|'.14.versions.0.'|']", (path != null ? arr_127_lpath : null));
                     }
                     if (! res)
                     {
@@ -6865,7 +10463,7 @@ public class ansiblelint_meta extends ModelChecker
     
     
     // object .'$platforms'.0.'|'.13
-    public boolean _jm_obj_80(Object val, Path path, Report rep)
+    public boolean _jm_obj_127(Object val, Path path, Report rep)
     {
         // check must only props
         if (! json.isObject(val))
@@ -6897,18 +10495,18 @@ public class ansiblelint_meta extends ModelChecker
             res = json.isArray(pval);
             if (res)
             {
-                int arr_81_idx = -1;
-                Iterator<Object> arr_81_item_loop = json.arrayIterator(pval);
-                while (arr_81_item_loop.hasNext())
+                int arr_128_idx = -1;
+                Iterator<Object> arr_128_item_loop = json.arrayIterator(pval);
+                while (arr_128_item_loop.hasNext())
                 {
-                    arr_81_idx++;
-                    Object arr_81_item = arr_81_item_loop.next();
-                    Path arr_81_lpath = new Path(arr_81_idx, path);
+                    arr_128_idx++;
+                    Object arr_128_item = arr_128_item_loop.next();
+                    Path arr_128_lpath = new Path(arr_128_idx, path);
                     // .'$platforms'.0.'|'.13.versions.0
-                    res = json.isScalar(arr_81_item) && _jm_cst_54_set.contains(arr_81_item);
+                    res = json.isScalar(arr_128_item) && _jm_cst_86_set.contains(arr_128_item);
                     if (! res)
                     {
-                        if (rep != null) rep.addEntry("value not in enum [.'$platforms'.0.'|'.13.versions.0.'|']", (path != null ? arr_81_lpath : null));
+                        if (rep != null) rep.addEntry("value not in enum [.'$platforms'.0.'|'.13.versions.0.'|']", (path != null ? arr_128_lpath : null));
                     }
                     if (! res)
                     {
@@ -6931,7 +10529,7 @@ public class ansiblelint_meta extends ModelChecker
     
     
     // object .'$platforms'.0.'|'.12
-    public boolean _jm_obj_81(Object val, Path path, Report rep)
+    public boolean _jm_obj_128(Object val, Path path, Report rep)
     {
         // check must only props
         if (! json.isObject(val))
@@ -6963,18 +10561,18 @@ public class ansiblelint_meta extends ModelChecker
             res = json.isArray(pval);
             if (res)
             {
-                int arr_82_idx = -1;
-                Iterator<Object> arr_82_item_loop = json.arrayIterator(pval);
-                while (arr_82_item_loop.hasNext())
+                int arr_129_idx = -1;
+                Iterator<Object> arr_129_item_loop = json.arrayIterator(pval);
+                while (arr_129_item_loop.hasNext())
                 {
-                    arr_82_idx++;
-                    Object arr_82_item = arr_82_item_loop.next();
-                    Path arr_82_lpath = new Path(arr_82_idx, path);
+                    arr_129_idx++;
+                    Object arr_129_item = arr_129_item_loop.next();
+                    Path arr_129_lpath = new Path(arr_129_idx, path);
                     // .'$platforms'.0.'|'.12.versions.0
-                    res = json.isScalar(arr_82_item) && _jm_cst_55_set.contains(arr_82_item);
+                    res = json.isScalar(arr_129_item) && _jm_cst_87_set.contains(arr_129_item);
                     if (! res)
                     {
-                        if (rep != null) rep.addEntry("value not in enum [.'$platforms'.0.'|'.12.versions.0.'|']", (path != null ? arr_82_lpath : null));
+                        if (rep != null) rep.addEntry("value not in enum [.'$platforms'.0.'|'.12.versions.0.'|']", (path != null ? arr_129_lpath : null));
                     }
                     if (! res)
                     {
@@ -6997,7 +10595,7 @@ public class ansiblelint_meta extends ModelChecker
     
     
     // object .'$platforms'.0.'|'.11
-    public boolean _jm_obj_82(Object val, Path path, Report rep)
+    public boolean _jm_obj_129(Object val, Path path, Report rep)
     {
         // check must only props
         if (! json.isObject(val))
@@ -7029,18 +10627,18 @@ public class ansiblelint_meta extends ModelChecker
             res = json.isArray(pval);
             if (res)
             {
-                int arr_83_idx = -1;
-                Iterator<Object> arr_83_item_loop = json.arrayIterator(pval);
-                while (arr_83_item_loop.hasNext())
+                int arr_130_idx = -1;
+                Iterator<Object> arr_130_item_loop = json.arrayIterator(pval);
+                while (arr_130_item_loop.hasNext())
                 {
-                    arr_83_idx++;
-                    Object arr_83_item = arr_83_item_loop.next();
-                    Path arr_83_lpath = new Path(arr_83_idx, path);
+                    arr_130_idx++;
+                    Object arr_130_item = arr_130_item_loop.next();
+                    Path arr_130_lpath = new Path(arr_130_idx, path);
                     // .'$platforms'.0.'|'.11.versions.0
-                    res = json.isScalar(arr_83_item) && _jm_cst_56_set.contains(arr_83_item);
+                    res = json.isScalar(arr_130_item) && _jm_cst_88_set.contains(arr_130_item);
                     if (! res)
                     {
-                        if (rep != null) rep.addEntry("value not in enum [.'$platforms'.0.'|'.11.versions.0.'|']", (path != null ? arr_83_lpath : null));
+                        if (rep != null) rep.addEntry("value not in enum [.'$platforms'.0.'|'.11.versions.0.'|']", (path != null ? arr_130_lpath : null));
                     }
                     if (! res)
                     {
@@ -7063,7 +10661,7 @@ public class ansiblelint_meta extends ModelChecker
     
     
     // object .'$platforms'.0.'|'.10
-    public boolean _jm_obj_83(Object val, Path path, Report rep)
+    public boolean _jm_obj_130(Object val, Path path, Report rep)
     {
         // check must only props
         if (! json.isObject(val))
@@ -7095,18 +10693,18 @@ public class ansiblelint_meta extends ModelChecker
             res = json.isArray(pval);
             if (res)
             {
-                int arr_84_idx = -1;
-                Iterator<Object> arr_84_item_loop = json.arrayIterator(pval);
-                while (arr_84_item_loop.hasNext())
+                int arr_131_idx = -1;
+                Iterator<Object> arr_131_item_loop = json.arrayIterator(pval);
+                while (arr_131_item_loop.hasNext())
                 {
-                    arr_84_idx++;
-                    Object arr_84_item = arr_84_item_loop.next();
-                    Path arr_84_lpath = new Path(arr_84_idx, path);
+                    arr_131_idx++;
+                    Object arr_131_item = arr_131_item_loop.next();
+                    Path arr_131_lpath = new Path(arr_131_idx, path);
                     // .'$platforms'.0.'|'.10.versions.0
-                    res = json.isScalar(arr_84_item) && _jm_cst_57_set.contains(arr_84_item);
+                    res = json.isScalar(arr_131_item) && _jm_cst_89_set.contains(arr_131_item);
                     if (! res)
                     {
-                        if (rep != null) rep.addEntry("value not in enum [.'$platforms'.0.'|'.10.versions.0.'|']", (path != null ? arr_84_lpath : null));
+                        if (rep != null) rep.addEntry("value not in enum [.'$platforms'.0.'|'.10.versions.0.'|']", (path != null ? arr_131_lpath : null));
                     }
                     if (! res)
                     {
@@ -7129,7 +10727,7 @@ public class ansiblelint_meta extends ModelChecker
     
     
     // object .'$platforms'.0.'|'.9
-    public boolean _jm_obj_84(Object val, Path path, Report rep)
+    public boolean _jm_obj_131(Object val, Path path, Report rep)
     {
         // check must only props
         if (! json.isObject(val))
@@ -7161,18 +10759,18 @@ public class ansiblelint_meta extends ModelChecker
             res = json.isArray(pval);
             if (res)
             {
-                int arr_85_idx = -1;
-                Iterator<Object> arr_85_item_loop = json.arrayIterator(pval);
-                while (arr_85_item_loop.hasNext())
+                int arr_132_idx = -1;
+                Iterator<Object> arr_132_item_loop = json.arrayIterator(pval);
+                while (arr_132_item_loop.hasNext())
                 {
-                    arr_85_idx++;
-                    Object arr_85_item = arr_85_item_loop.next();
-                    Path arr_85_lpath = new Path(arr_85_idx, path);
+                    arr_132_idx++;
+                    Object arr_132_item = arr_132_item_loop.next();
+                    Path arr_132_lpath = new Path(arr_132_idx, path);
                     // .'$platforms'.0.'|'.9.versions.0
-                    res = json.isScalar(arr_85_item) && _jm_cst_58_set.contains(arr_85_item);
+                    res = json.isScalar(arr_132_item) && _jm_cst_90_set.contains(arr_132_item);
                     if (! res)
                     {
-                        if (rep != null) rep.addEntry("value not in enum [.'$platforms'.0.'|'.9.versions.0.'|']", (path != null ? arr_85_lpath : null));
+                        if (rep != null) rep.addEntry("value not in enum [.'$platforms'.0.'|'.9.versions.0.'|']", (path != null ? arr_132_lpath : null));
                     }
                     if (! res)
                     {
@@ -7195,7 +10793,7 @@ public class ansiblelint_meta extends ModelChecker
     
     
     // object .'$platforms'.0.'|'.8
-    public boolean _jm_obj_85(Object val, Path path, Report rep)
+    public boolean _jm_obj_132(Object val, Path path, Report rep)
     {
         // check must only props
         if (! json.isObject(val))
@@ -7227,18 +10825,18 @@ public class ansiblelint_meta extends ModelChecker
             res = json.isArray(pval);
             if (res)
             {
-                int arr_86_idx = -1;
-                Iterator<Object> arr_86_item_loop = json.arrayIterator(pval);
-                while (arr_86_item_loop.hasNext())
+                int arr_133_idx = -1;
+                Iterator<Object> arr_133_item_loop = json.arrayIterator(pval);
+                while (arr_133_item_loop.hasNext())
                 {
-                    arr_86_idx++;
-                    Object arr_86_item = arr_86_item_loop.next();
-                    Path arr_86_lpath = new Path(arr_86_idx, path);
+                    arr_133_idx++;
+                    Object arr_133_item = arr_133_item_loop.next();
+                    Path arr_133_lpath = new Path(arr_133_idx, path);
                     // .'$platforms'.0.'|'.8.versions.0
-                    res = json.isScalar(arr_86_item) && _jm_cst_59_set.contains(arr_86_item);
+                    res = json.isScalar(arr_133_item) && _jm_cst_91_set.contains(arr_133_item);
                     if (! res)
                     {
-                        if (rep != null) rep.addEntry("value not in enum [.'$platforms'.0.'|'.8.versions.0.'|']", (path != null ? arr_86_lpath : null));
+                        if (rep != null) rep.addEntry("value not in enum [.'$platforms'.0.'|'.8.versions.0.'|']", (path != null ? arr_133_lpath : null));
                     }
                     if (! res)
                     {
@@ -7260,7 +10858,7 @@ public class ansiblelint_meta extends ModelChecker
     }
     
     // object .'$platforms'.0.'|'.7
-    public boolean _jm_obj_86(Object val, Path path, Report rep)
+    public boolean _jm_obj_133(Object val, Path path, Report rep)
     {
         // check must only props
         if (! json.isObject(val))
@@ -7292,18 +10890,18 @@ public class ansiblelint_meta extends ModelChecker
             res = json.isArray(pval);
             if (res)
             {
-                int arr_87_idx = -1;
-                Iterator<Object> arr_87_item_loop = json.arrayIterator(pval);
-                while (arr_87_item_loop.hasNext())
+                int arr_134_idx = -1;
+                Iterator<Object> arr_134_item_loop = json.arrayIterator(pval);
+                while (arr_134_item_loop.hasNext())
                 {
-                    arr_87_idx++;
-                    Object arr_87_item = arr_87_item_loop.next();
-                    Path arr_87_lpath = new Path(arr_87_idx, path);
+                    arr_134_idx++;
+                    Object arr_134_item = arr_134_item_loop.next();
+                    Path arr_134_lpath = new Path(arr_134_idx, path);
                     // .'$platforms'.0.'|'.7.versions.0
-                    res = json.isString(arr_87_item) && json.asString(arr_87_item).compareTo("all") == 0;
+                    res = json.isString(arr_134_item) && json.asString(arr_134_item).compareTo("all") == 0;
                     if (! res)
                     {
-                        if (rep != null) rep.addEntry("unexpected all [.'$platforms'.0.'|'.7.versions.0]", (path != null ? arr_87_lpath : null));
+                        if (rep != null) rep.addEntry("unexpected all [.'$platforms'.0.'|'.7.versions.0]", (path != null ? arr_134_lpath : null));
                     }
                     if (! res)
                     {
@@ -7326,7 +10924,7 @@ public class ansiblelint_meta extends ModelChecker
     
     
     // object .'$platforms'.0.'|'.6
-    public boolean _jm_obj_87(Object val, Path path, Report rep)
+    public boolean _jm_obj_134(Object val, Path path, Report rep)
     {
         // check must only props
         if (! json.isObject(val))
@@ -7358,18 +10956,18 @@ public class ansiblelint_meta extends ModelChecker
             res = json.isArray(pval);
             if (res)
             {
-                int arr_88_idx = -1;
-                Iterator<Object> arr_88_item_loop = json.arrayIterator(pval);
-                while (arr_88_item_loop.hasNext())
+                int arr_135_idx = -1;
+                Iterator<Object> arr_135_item_loop = json.arrayIterator(pval);
+                while (arr_135_item_loop.hasNext())
                 {
-                    arr_88_idx++;
-                    Object arr_88_item = arr_88_item_loop.next();
-                    Path arr_88_lpath = new Path(arr_88_idx, path);
+                    arr_135_idx++;
+                    Object arr_135_item = arr_135_item_loop.next();
+                    Path arr_135_lpath = new Path(arr_135_idx, path);
                     // .'$platforms'.0.'|'.6.versions.0
-                    res = json.isScalar(arr_88_item) && _jm_cst_60_set.contains(arr_88_item);
+                    res = json.isScalar(arr_135_item) && _jm_cst_92_set.contains(arr_135_item);
                     if (! res)
                     {
-                        if (rep != null) rep.addEntry("value not in enum [.'$platforms'.0.'|'.6.versions.0.'|']", (path != null ? arr_88_lpath : null));
+                        if (rep != null) rep.addEntry("value not in enum [.'$platforms'.0.'|'.6.versions.0.'|']", (path != null ? arr_135_lpath : null));
                     }
                     if (! res)
                     {
@@ -7391,7 +10989,7 @@ public class ansiblelint_meta extends ModelChecker
     }
     
     // object .'$platforms'.0.'|'.5
-    public boolean _jm_obj_88(Object val, Path path, Report rep)
+    public boolean _jm_obj_135(Object val, Path path, Report rep)
     {
         // check must only props
         if (! json.isObject(val))
@@ -7423,18 +11021,18 @@ public class ansiblelint_meta extends ModelChecker
             res = json.isArray(pval);
             if (res)
             {
-                int arr_89_idx = -1;
-                Iterator<Object> arr_89_item_loop = json.arrayIterator(pval);
-                while (arr_89_item_loop.hasNext())
+                int arr_136_idx = -1;
+                Iterator<Object> arr_136_item_loop = json.arrayIterator(pval);
+                while (arr_136_item_loop.hasNext())
                 {
-                    arr_89_idx++;
-                    Object arr_89_item = arr_89_item_loop.next();
-                    Path arr_89_lpath = new Path(arr_89_idx, path);
+                    arr_136_idx++;
+                    Object arr_136_item = arr_136_item_loop.next();
+                    Path arr_136_lpath = new Path(arr_136_idx, path);
                     // .'$platforms'.0.'|'.5.versions.0
-                    res = json.isString(arr_89_item) && json.asString(arr_89_item).compareTo("all") == 0;
+                    res = json.isString(arr_136_item) && json.asString(arr_136_item).compareTo("all") == 0;
                     if (! res)
                     {
-                        if (rep != null) rep.addEntry("unexpected all [.'$platforms'.0.'|'.5.versions.0]", (path != null ? arr_89_lpath : null));
+                        if (rep != null) rep.addEntry("unexpected all [.'$platforms'.0.'|'.5.versions.0]", (path != null ? arr_136_lpath : null));
                     }
                     if (! res)
                     {
@@ -7456,7 +11054,7 @@ public class ansiblelint_meta extends ModelChecker
     }
     
     // object .'$platforms'.0.'|'.4
-    public boolean _jm_obj_89(Object val, Path path, Report rep)
+    public boolean _jm_obj_136(Object val, Path path, Report rep)
     {
         // check must only props
         if (! json.isObject(val))
@@ -7488,18 +11086,18 @@ public class ansiblelint_meta extends ModelChecker
             res = json.isArray(pval);
             if (res)
             {
-                int arr_90_idx = -1;
-                Iterator<Object> arr_90_item_loop = json.arrayIterator(pval);
-                while (arr_90_item_loop.hasNext())
+                int arr_137_idx = -1;
+                Iterator<Object> arr_137_item_loop = json.arrayIterator(pval);
+                while (arr_137_item_loop.hasNext())
                 {
-                    arr_90_idx++;
-                    Object arr_90_item = arr_90_item_loop.next();
-                    Path arr_90_lpath = new Path(arr_90_idx, path);
+                    arr_137_idx++;
+                    Object arr_137_item = arr_137_item_loop.next();
+                    Path arr_137_lpath = new Path(arr_137_idx, path);
                     // .'$platforms'.0.'|'.4.versions.0
-                    res = json.isString(arr_90_item) && json.asString(arr_90_item).compareTo("all") == 0;
+                    res = json.isString(arr_137_item) && json.asString(arr_137_item).compareTo("all") == 0;
                     if (! res)
                     {
-                        if (rep != null) rep.addEntry("unexpected all [.'$platforms'.0.'|'.4.versions.0]", (path != null ? arr_90_lpath : null));
+                        if (rep != null) rep.addEntry("unexpected all [.'$platforms'.0.'|'.4.versions.0]", (path != null ? arr_137_lpath : null));
                     }
                     if (! res)
                     {
@@ -7522,7 +11120,7 @@ public class ansiblelint_meta extends ModelChecker
     
     
     // object .'$platforms'.0.'|'.3
-    public boolean _jm_obj_90(Object val, Path path, Report rep)
+    public boolean _jm_obj_137(Object val, Path path, Report rep)
     {
         // check must only props
         if (! json.isObject(val))
@@ -7554,18 +11152,18 @@ public class ansiblelint_meta extends ModelChecker
             res = json.isArray(pval);
             if (res)
             {
-                int arr_91_idx = -1;
-                Iterator<Object> arr_91_item_loop = json.arrayIterator(pval);
-                while (arr_91_item_loop.hasNext())
+                int arr_138_idx = -1;
+                Iterator<Object> arr_138_item_loop = json.arrayIterator(pval);
+                while (arr_138_item_loop.hasNext())
                 {
-                    arr_91_idx++;
-                    Object arr_91_item = arr_91_item_loop.next();
-                    Path arr_91_lpath = new Path(arr_91_idx, path);
+                    arr_138_idx++;
+                    Object arr_138_item = arr_138_item_loop.next();
+                    Path arr_138_lpath = new Path(arr_138_idx, path);
                     // .'$platforms'.0.'|'.3.versions.0
-                    res = json.isScalar(arr_91_item) && _jm_cst_61_set.contains(arr_91_item);
+                    res = json.isScalar(arr_138_item) && _jm_cst_93_set.contains(arr_138_item);
                     if (! res)
                     {
-                        if (rep != null) rep.addEntry("value not in enum [.'$platforms'.0.'|'.3.versions.0.'|']", (path != null ? arr_91_lpath : null));
+                        if (rep != null) rep.addEntry("value not in enum [.'$platforms'.0.'|'.3.versions.0.'|']", (path != null ? arr_138_lpath : null));
                     }
                     if (! res)
                     {
@@ -7588,7 +11186,7 @@ public class ansiblelint_meta extends ModelChecker
     
     
     // object .'$platforms'.0.'|'.2
-    public boolean _jm_obj_91(Object val, Path path, Report rep)
+    public boolean _jm_obj_138(Object val, Path path, Report rep)
     {
         // check must only props
         if (! json.isObject(val))
@@ -7620,18 +11218,18 @@ public class ansiblelint_meta extends ModelChecker
             res = json.isArray(pval);
             if (res)
             {
-                int arr_92_idx = -1;
-                Iterator<Object> arr_92_item_loop = json.arrayIterator(pval);
-                while (arr_92_item_loop.hasNext())
+                int arr_139_idx = -1;
+                Iterator<Object> arr_139_item_loop = json.arrayIterator(pval);
+                while (arr_139_item_loop.hasNext())
                 {
-                    arr_92_idx++;
-                    Object arr_92_item = arr_92_item_loop.next();
-                    Path arr_92_lpath = new Path(arr_92_idx, path);
+                    arr_139_idx++;
+                    Object arr_139_item = arr_139_item_loop.next();
+                    Path arr_139_lpath = new Path(arr_139_idx, path);
                     // .'$platforms'.0.'|'.2.versions.0
-                    res = json.isScalar(arr_92_item) && _jm_cst_62_set.contains(arr_92_item);
+                    res = json.isScalar(arr_139_item) && _jm_cst_94_set.contains(arr_139_item);
                     if (! res)
                     {
-                        if (rep != null) rep.addEntry("value not in enum [.'$platforms'.0.'|'.2.versions.0.'|']", (path != null ? arr_92_lpath : null));
+                        if (rep != null) rep.addEntry("value not in enum [.'$platforms'.0.'|'.2.versions.0.'|']", (path != null ? arr_139_lpath : null));
                     }
                     if (! res)
                     {
@@ -7653,7 +11251,7 @@ public class ansiblelint_meta extends ModelChecker
     }
     
     // object .'$platforms'.0.'|'.1
-    public boolean _jm_obj_92(Object val, Path path, Report rep)
+    public boolean _jm_obj_139(Object val, Path path, Report rep)
     {
         // check must only props
         if (! json.isObject(val))
@@ -7685,18 +11283,18 @@ public class ansiblelint_meta extends ModelChecker
             res = json.isArray(pval);
             if (res)
             {
-                int arr_93_idx = -1;
-                Iterator<Object> arr_93_item_loop = json.arrayIterator(pval);
-                while (arr_93_item_loop.hasNext())
+                int arr_140_idx = -1;
+                Iterator<Object> arr_140_item_loop = json.arrayIterator(pval);
+                while (arr_140_item_loop.hasNext())
                 {
-                    arr_93_idx++;
-                    Object arr_93_item = arr_93_item_loop.next();
-                    Path arr_93_lpath = new Path(arr_93_idx, path);
+                    arr_140_idx++;
+                    Object arr_140_item = arr_140_item_loop.next();
+                    Path arr_140_lpath = new Path(arr_140_idx, path);
                     // .'$platforms'.0.'|'.1.versions.0
-                    res = json.isString(arr_93_item) && json.asString(arr_93_item).compareTo("all") == 0;
+                    res = json.isString(arr_140_item) && json.asString(arr_140_item).compareTo("all") == 0;
                     if (! res)
                     {
-                        if (rep != null) rep.addEntry("unexpected all [.'$platforms'.0.'|'.1.versions.0]", (path != null ? arr_93_lpath : null));
+                        if (rep != null) rep.addEntry("unexpected all [.'$platforms'.0.'|'.1.versions.0]", (path != null ? arr_140_lpath : null));
                     }
                     if (! res)
                     {
@@ -7719,7 +11317,7 @@ public class ansiblelint_meta extends ModelChecker
     
     
     // object .'$platforms'.0.'|'.0
-    public boolean _jm_obj_93(Object val, Path path, Report rep)
+    public boolean _jm_obj_140(Object val, Path path, Report rep)
     {
         // check must only props
         if (! json.isObject(val))
@@ -7751,18 +11349,18 @@ public class ansiblelint_meta extends ModelChecker
             res = json.isArray(pval);
             if (res)
             {
-                int arr_94_idx = -1;
-                Iterator<Object> arr_94_item_loop = json.arrayIterator(pval);
-                while (arr_94_item_loop.hasNext())
+                int arr_141_idx = -1;
+                Iterator<Object> arr_141_item_loop = json.arrayIterator(pval);
+                while (arr_141_item_loop.hasNext())
                 {
-                    arr_94_idx++;
-                    Object arr_94_item = arr_94_item_loop.next();
-                    Path arr_94_lpath = new Path(arr_94_idx, path);
+                    arr_141_idx++;
+                    Object arr_141_item = arr_141_item_loop.next();
+                    Path arr_141_lpath = new Path(arr_141_idx, path);
                     // .'$platforms'.0.'|'.0.versions.0
-                    res = json.isScalar(arr_94_item) && _jm_cst_63_set.contains(arr_94_item);
+                    res = json.isScalar(arr_141_item) && _jm_cst_95_set.contains(arr_141_item);
                     if (! res)
                     {
-                        if (rep != null) rep.addEntry("value not in enum [.'$platforms'.0.'|'.0.versions.0.'|']", (path != null ? arr_94_lpath : null));
+                        if (rep != null) rep.addEntry("value not in enum [.'$platforms'.0.'|'.0.versions.0.'|']", (path != null ? arr_141_lpath : null));
                     }
                     if (! res)
                     {
@@ -7791,394 +11389,394 @@ public class ansiblelint_meta extends ModelChecker
         res = json.isArray(val);
         if (res)
         {
-            int arr_47_idx = -1;
-            Iterator<Object> arr_47_item_loop = json.arrayIterator(val);
-            while (arr_47_item_loop.hasNext())
+            int arr_94_idx = -1;
+            Iterator<Object> arr_94_item_loop = json.arrayIterator(val);
+            while (arr_94_item_loop.hasNext())
             {
-                arr_47_idx++;
-                Object arr_47_item = arr_47_item_loop.next();
-                Path arr_47_lpath = new Path(arr_47_idx, path);
+                arr_94_idx++;
+                Object arr_94_item = arr_94_item_loop.next();
+                Path arr_94_lpath = new Path(arr_94_idx, path);
                 // .'$platforms'.0
-                res = json.isObject(arr_47_item);
+                res = json.isObject(arr_94_item);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected type [.'$platforms'.0.'|']", (path != null ? arr_47_lpath : null));
+                    if (rep != null) rep.addEntry("unexpected type [.'$platforms'.0.'|']", (path != null ? arr_94_lpath : null));
                 }
                 if (res)
                 {
                     // .'$platforms'.0.'|'.0
-                    res = _jm_obj_93(arr_47_item, (path != null ? arr_47_lpath : null), rep);
+                    res = _jm_obj_140(arr_94_item, (path != null ? arr_94_lpath : null), rep);
                     if (! res)
                     {
-                        if (rep != null) rep.addEntry("unexpected element [.'$platforms'.0.'|'.0]", (path != null ? arr_47_lpath : null));
+                        if (rep != null) rep.addEntry("unexpected element [.'$platforms'.0.'|'.0]", (path != null ? arr_94_lpath : null));
                     }
                     if (! res)
                     {
                         // .'$platforms'.0.'|'.1
-                        res = _jm_obj_92(arr_47_item, (path != null ? arr_47_lpath : null), rep);
+                        res = _jm_obj_139(arr_94_item, (path != null ? arr_94_lpath : null), rep);
                         if (! res)
                         {
-                            if (rep != null) rep.addEntry("unexpected element [.'$platforms'.0.'|'.1]", (path != null ? arr_47_lpath : null));
+                            if (rep != null) rep.addEntry("unexpected element [.'$platforms'.0.'|'.1]", (path != null ? arr_94_lpath : null));
                         }
                         if (! res)
                         {
                             // .'$platforms'.0.'|'.2
-                            res = _jm_obj_91(arr_47_item, (path != null ? arr_47_lpath : null), rep);
+                            res = _jm_obj_138(arr_94_item, (path != null ? arr_94_lpath : null), rep);
                             if (! res)
                             {
-                                if (rep != null) rep.addEntry("unexpected element [.'$platforms'.0.'|'.2]", (path != null ? arr_47_lpath : null));
+                                if (rep != null) rep.addEntry("unexpected element [.'$platforms'.0.'|'.2]", (path != null ? arr_94_lpath : null));
                             }
                             if (! res)
                             {
                                 // .'$platforms'.0.'|'.3
-                                res = _jm_obj_90(arr_47_item, (path != null ? arr_47_lpath : null), rep);
+                                res = _jm_obj_137(arr_94_item, (path != null ? arr_94_lpath : null), rep);
                                 if (! res)
                                 {
-                                    if (rep != null) rep.addEntry("unexpected element [.'$platforms'.0.'|'.3]", (path != null ? arr_47_lpath : null));
+                                    if (rep != null) rep.addEntry("unexpected element [.'$platforms'.0.'|'.3]", (path != null ? arr_94_lpath : null));
                                 }
                                 if (! res)
                                 {
                                     // .'$platforms'.0.'|'.4
-                                    res = _jm_obj_89(arr_47_item, (path != null ? arr_47_lpath : null), rep);
+                                    res = _jm_obj_136(arr_94_item, (path != null ? arr_94_lpath : null), rep);
                                     if (! res)
                                     {
-                                        if (rep != null) rep.addEntry("unexpected element [.'$platforms'.0.'|'.4]", (path != null ? arr_47_lpath : null));
+                                        if (rep != null) rep.addEntry("unexpected element [.'$platforms'.0.'|'.4]", (path != null ? arr_94_lpath : null));
                                     }
                                     if (! res)
                                     {
                                         // .'$platforms'.0.'|'.5
-                                        res = _jm_obj_88(arr_47_item, (path != null ? arr_47_lpath : null), rep);
+                                        res = _jm_obj_135(arr_94_item, (path != null ? arr_94_lpath : null), rep);
                                         if (! res)
                                         {
-                                            if (rep != null) rep.addEntry("unexpected element [.'$platforms'.0.'|'.5]", (path != null ? arr_47_lpath : null));
+                                            if (rep != null) rep.addEntry("unexpected element [.'$platforms'.0.'|'.5]", (path != null ? arr_94_lpath : null));
                                         }
                                         if (! res)
                                         {
                                             // .'$platforms'.0.'|'.6
-                                            res = _jm_obj_87(arr_47_item, (path != null ? arr_47_lpath : null), rep);
+                                            res = _jm_obj_134(arr_94_item, (path != null ? arr_94_lpath : null), rep);
                                             if (! res)
                                             {
-                                                if (rep != null) rep.addEntry("unexpected element [.'$platforms'.0.'|'.6]", (path != null ? arr_47_lpath : null));
+                                                if (rep != null) rep.addEntry("unexpected element [.'$platforms'.0.'|'.6]", (path != null ? arr_94_lpath : null));
                                             }
                                             if (! res)
                                             {
                                                 // .'$platforms'.0.'|'.7
-                                                res = _jm_obj_86(arr_47_item, (path != null ? arr_47_lpath : null), rep);
+                                                res = _jm_obj_133(arr_94_item, (path != null ? arr_94_lpath : null), rep);
                                                 if (! res)
                                                 {
-                                                    if (rep != null) rep.addEntry("unexpected element [.'$platforms'.0.'|'.7]", (path != null ? arr_47_lpath : null));
+                                                    if (rep != null) rep.addEntry("unexpected element [.'$platforms'.0.'|'.7]", (path != null ? arr_94_lpath : null));
                                                 }
                                                 if (! res)
                                                 {
                                                     // .'$platforms'.0.'|'.8
-                                                    res = _jm_obj_85(arr_47_item, (path != null ? arr_47_lpath : null), rep);
+                                                    res = _jm_obj_132(arr_94_item, (path != null ? arr_94_lpath : null), rep);
                                                     if (! res)
                                                     {
-                                                        if (rep != null) rep.addEntry("unexpected element [.'$platforms'.0.'|'.8]", (path != null ? arr_47_lpath : null));
+                                                        if (rep != null) rep.addEntry("unexpected element [.'$platforms'.0.'|'.8]", (path != null ? arr_94_lpath : null));
                                                     }
                                                     if (! res)
                                                     {
                                                         // .'$platforms'.0.'|'.9
-                                                        res = _jm_obj_84(arr_47_item, (path != null ? arr_47_lpath : null), rep);
+                                                        res = _jm_obj_131(arr_94_item, (path != null ? arr_94_lpath : null), rep);
                                                         if (! res)
                                                         {
-                                                            if (rep != null) rep.addEntry("unexpected element [.'$platforms'.0.'|'.9]", (path != null ? arr_47_lpath : null));
+                                                            if (rep != null) rep.addEntry("unexpected element [.'$platforms'.0.'|'.9]", (path != null ? arr_94_lpath : null));
                                                         }
                                                         if (! res)
                                                         {
                                                             // .'$platforms'.0.'|'.10
-                                                            res = _jm_obj_83(arr_47_item, (path != null ? arr_47_lpath : null), rep);
+                                                            res = _jm_obj_130(arr_94_item, (path != null ? arr_94_lpath : null), rep);
                                                             if (! res)
                                                             {
-                                                                if (rep != null) rep.addEntry("unexpected element [.'$platforms'.0.'|'.10]", (path != null ? arr_47_lpath : null));
+                                                                if (rep != null) rep.addEntry("unexpected element [.'$platforms'.0.'|'.10]", (path != null ? arr_94_lpath : null));
                                                             }
                                                             if (! res)
                                                             {
                                                                 // .'$platforms'.0.'|'.11
-                                                                res = _jm_obj_82(arr_47_item, (path != null ? arr_47_lpath : null), rep);
+                                                                res = _jm_obj_129(arr_94_item, (path != null ? arr_94_lpath : null), rep);
                                                                 if (! res)
                                                                 {
-                                                                    if (rep != null) rep.addEntry("unexpected element [.'$platforms'.0.'|'.11]", (path != null ? arr_47_lpath : null));
+                                                                    if (rep != null) rep.addEntry("unexpected element [.'$platforms'.0.'|'.11]", (path != null ? arr_94_lpath : null));
                                                                 }
                                                                 if (! res)
                                                                 {
                                                                     // .'$platforms'.0.'|'.12
-                                                                    res = _jm_obj_81(arr_47_item, (path != null ? arr_47_lpath : null), rep);
+                                                                    res = _jm_obj_128(arr_94_item, (path != null ? arr_94_lpath : null), rep);
                                                                     if (! res)
                                                                     {
-                                                                        if (rep != null) rep.addEntry("unexpected element [.'$platforms'.0.'|'.12]", (path != null ? arr_47_lpath : null));
+                                                                        if (rep != null) rep.addEntry("unexpected element [.'$platforms'.0.'|'.12]", (path != null ? arr_94_lpath : null));
                                                                     }
                                                                     if (! res)
                                                                     {
                                                                         // .'$platforms'.0.'|'.13
-                                                                        res = _jm_obj_80(arr_47_item, (path != null ? arr_47_lpath : null), rep);
+                                                                        res = _jm_obj_127(arr_94_item, (path != null ? arr_94_lpath : null), rep);
                                                                         if (! res)
                                                                         {
-                                                                            if (rep != null) rep.addEntry("unexpected element [.'$platforms'.0.'|'.13]", (path != null ? arr_47_lpath : null));
+                                                                            if (rep != null) rep.addEntry("unexpected element [.'$platforms'.0.'|'.13]", (path != null ? arr_94_lpath : null));
                                                                         }
                                                                         if (! res)
                                                                         {
                                                                             // .'$platforms'.0.'|'.14
-                                                                            res = _jm_obj_79(arr_47_item, (path != null ? arr_47_lpath : null), rep);
+                                                                            res = _jm_obj_126(arr_94_item, (path != null ? arr_94_lpath : null), rep);
                                                                             if (! res)
                                                                             {
-                                                                                if (rep != null) rep.addEntry("unexpected element [.'$platforms'.0.'|'.14]", (path != null ? arr_47_lpath : null));
+                                                                                if (rep != null) rep.addEntry("unexpected element [.'$platforms'.0.'|'.14]", (path != null ? arr_94_lpath : null));
                                                                             }
                                                                             if (! res)
                                                                             {
                                                                                 // .'$platforms'.0.'|'.15
-                                                                                res = _jm_obj_78(arr_47_item, (path != null ? arr_47_lpath : null), rep);
+                                                                                res = _jm_obj_125(arr_94_item, (path != null ? arr_94_lpath : null), rep);
                                                                                 if (! res)
                                                                                 {
-                                                                                    if (rep != null) rep.addEntry("unexpected element [.'$platforms'.0.'|'.15]", (path != null ? arr_47_lpath : null));
+                                                                                    if (rep != null) rep.addEntry("unexpected element [.'$platforms'.0.'|'.15]", (path != null ? arr_94_lpath : null));
                                                                                 }
                                                                                 if (! res)
                                                                                 {
                                                                                     // .'$platforms'.0.'|'.16
-                                                                                    res = _jm_obj_77(arr_47_item, (path != null ? arr_47_lpath : null), rep);
+                                                                                    res = _jm_obj_124(arr_94_item, (path != null ? arr_94_lpath : null), rep);
                                                                                     if (! res)
                                                                                     {
-                                                                                        if (rep != null) rep.addEntry("unexpected element [.'$platforms'.0.'|'.16]", (path != null ? arr_47_lpath : null));
+                                                                                        if (rep != null) rep.addEntry("unexpected element [.'$platforms'.0.'|'.16]", (path != null ? arr_94_lpath : null));
                                                                                     }
                                                                                     if (! res)
                                                                                     {
                                                                                         // .'$platforms'.0.'|'.17
-                                                                                        res = _jm_obj_76(arr_47_item, (path != null ? arr_47_lpath : null), rep);
+                                                                                        res = _jm_obj_123(arr_94_item, (path != null ? arr_94_lpath : null), rep);
                                                                                         if (! res)
                                                                                         {
-                                                                                            if (rep != null) rep.addEntry("unexpected element [.'$platforms'.0.'|'.17]", (path != null ? arr_47_lpath : null));
+                                                                                            if (rep != null) rep.addEntry("unexpected element [.'$platforms'.0.'|'.17]", (path != null ? arr_94_lpath : null));
                                                                                         }
                                                                                         if (! res)
                                                                                         {
                                                                                             // .'$platforms'.0.'|'.18
-                                                                                            res = _jm_obj_75(arr_47_item, (path != null ? arr_47_lpath : null), rep);
+                                                                                            res = _jm_obj_122(arr_94_item, (path != null ? arr_94_lpath : null), rep);
                                                                                             if (! res)
                                                                                             {
-                                                                                                if (rep != null) rep.addEntry("unexpected element [.'$platforms'.0.'|'.18]", (path != null ? arr_47_lpath : null));
+                                                                                                if (rep != null) rep.addEntry("unexpected element [.'$platforms'.0.'|'.18]", (path != null ? arr_94_lpath : null));
                                                                                             }
                                                                                             if (! res)
                                                                                             {
                                                                                                 // .'$platforms'.0.'|'.19
-                                                                                                res = _jm_obj_74(arr_47_item, (path != null ? arr_47_lpath : null), rep);
+                                                                                                res = _jm_obj_121(arr_94_item, (path != null ? arr_94_lpath : null), rep);
                                                                                                 if (! res)
                                                                                                 {
-                                                                                                    if (rep != null) rep.addEntry("unexpected element [.'$platforms'.0.'|'.19]", (path != null ? arr_47_lpath : null));
+                                                                                                    if (rep != null) rep.addEntry("unexpected element [.'$platforms'.0.'|'.19]", (path != null ? arr_94_lpath : null));
                                                                                                 }
                                                                                                 if (! res)
                                                                                                 {
                                                                                                     // .'$platforms'.0.'|'.20
-                                                                                                    res = _jm_obj_73(arr_47_item, (path != null ? arr_47_lpath : null), rep);
+                                                                                                    res = _jm_obj_120(arr_94_item, (path != null ? arr_94_lpath : null), rep);
                                                                                                     if (! res)
                                                                                                     {
-                                                                                                        if (rep != null) rep.addEntry("unexpected element [.'$platforms'.0.'|'.20]", (path != null ? arr_47_lpath : null));
+                                                                                                        if (rep != null) rep.addEntry("unexpected element [.'$platforms'.0.'|'.20]", (path != null ? arr_94_lpath : null));
                                                                                                     }
                                                                                                     if (! res)
                                                                                                     {
                                                                                                         // .'$platforms'.0.'|'.21
-                                                                                                        res = _jm_obj_72(arr_47_item, (path != null ? arr_47_lpath : null), rep);
+                                                                                                        res = _jm_obj_119(arr_94_item, (path != null ? arr_94_lpath : null), rep);
                                                                                                         if (! res)
                                                                                                         {
-                                                                                                            if (rep != null) rep.addEntry("unexpected element [.'$platforms'.0.'|'.21]", (path != null ? arr_47_lpath : null));
+                                                                                                            if (rep != null) rep.addEntry("unexpected element [.'$platforms'.0.'|'.21]", (path != null ? arr_94_lpath : null));
                                                                                                         }
                                                                                                         if (! res)
                                                                                                         {
                                                                                                             // .'$platforms'.0.'|'.22
-                                                                                                            res = _jm_obj_71(arr_47_item, (path != null ? arr_47_lpath : null), rep);
+                                                                                                            res = _jm_obj_118(arr_94_item, (path != null ? arr_94_lpath : null), rep);
                                                                                                             if (! res)
                                                                                                             {
-                                                                                                                if (rep != null) rep.addEntry("unexpected element [.'$platforms'.0.'|'.22]", (path != null ? arr_47_lpath : null));
+                                                                                                                if (rep != null) rep.addEntry("unexpected element [.'$platforms'.0.'|'.22]", (path != null ? arr_94_lpath : null));
                                                                                                             }
                                                                                                             if (! res)
                                                                                                             {
                                                                                                                 // .'$platforms'.0.'|'.23
-                                                                                                                res = _jm_obj_70(arr_47_item, (path != null ? arr_47_lpath : null), rep);
+                                                                                                                res = _jm_obj_117(arr_94_item, (path != null ? arr_94_lpath : null), rep);
                                                                                                                 if (! res)
                                                                                                                 {
-                                                                                                                    if (rep != null) rep.addEntry("unexpected element [.'$platforms'.0.'|'.23]", (path != null ? arr_47_lpath : null));
+                                                                                                                    if (rep != null) rep.addEntry("unexpected element [.'$platforms'.0.'|'.23]", (path != null ? arr_94_lpath : null));
                                                                                                                 }
                                                                                                                 if (! res)
                                                                                                                 {
                                                                                                                     // .'$platforms'.0.'|'.24
-                                                                                                                    res = _jm_obj_69(arr_47_item, (path != null ? arr_47_lpath : null), rep);
+                                                                                                                    res = _jm_obj_116(arr_94_item, (path != null ? arr_94_lpath : null), rep);
                                                                                                                     if (! res)
                                                                                                                     {
-                                                                                                                        if (rep != null) rep.addEntry("unexpected element [.'$platforms'.0.'|'.24]", (path != null ? arr_47_lpath : null));
+                                                                                                                        if (rep != null) rep.addEntry("unexpected element [.'$platforms'.0.'|'.24]", (path != null ? arr_94_lpath : null));
                                                                                                                     }
                                                                                                                     if (! res)
                                                                                                                     {
                                                                                                                         // .'$platforms'.0.'|'.25
-                                                                                                                        res = _jm_obj_68(arr_47_item, (path != null ? arr_47_lpath : null), rep);
+                                                                                                                        res = _jm_obj_115(arr_94_item, (path != null ? arr_94_lpath : null), rep);
                                                                                                                         if (! res)
                                                                                                                         {
-                                                                                                                            if (rep != null) rep.addEntry("unexpected element [.'$platforms'.0.'|'.25]", (path != null ? arr_47_lpath : null));
+                                                                                                                            if (rep != null) rep.addEntry("unexpected element [.'$platforms'.0.'|'.25]", (path != null ? arr_94_lpath : null));
                                                                                                                         }
                                                                                                                         if (! res)
                                                                                                                         {
                                                                                                                             // .'$platforms'.0.'|'.26
-                                                                                                                            res = _jm_obj_67(arr_47_item, (path != null ? arr_47_lpath : null), rep);
+                                                                                                                            res = _jm_obj_114(arr_94_item, (path != null ? arr_94_lpath : null), rep);
                                                                                                                             if (! res)
                                                                                                                             {
-                                                                                                                                if (rep != null) rep.addEntry("unexpected element [.'$platforms'.0.'|'.26]", (path != null ? arr_47_lpath : null));
+                                                                                                                                if (rep != null) rep.addEntry("unexpected element [.'$platforms'.0.'|'.26]", (path != null ? arr_94_lpath : null));
                                                                                                                             }
                                                                                                                             if (! res)
                                                                                                                             {
                                                                                                                                 // .'$platforms'.0.'|'.27
-                                                                                                                                res = _jm_obj_66(arr_47_item, (path != null ? arr_47_lpath : null), rep);
+                                                                                                                                res = _jm_obj_113(arr_94_item, (path != null ? arr_94_lpath : null), rep);
                                                                                                                                 if (! res)
                                                                                                                                 {
-                                                                                                                                    if (rep != null) rep.addEntry("unexpected element [.'$platforms'.0.'|'.27]", (path != null ? arr_47_lpath : null));
+                                                                                                                                    if (rep != null) rep.addEntry("unexpected element [.'$platforms'.0.'|'.27]", (path != null ? arr_94_lpath : null));
                                                                                                                                 }
                                                                                                                                 if (! res)
                                                                                                                                 {
                                                                                                                                     // .'$platforms'.0.'|'.28
-                                                                                                                                    res = _jm_obj_65(arr_47_item, (path != null ? arr_47_lpath : null), rep);
+                                                                                                                                    res = _jm_obj_112(arr_94_item, (path != null ? arr_94_lpath : null), rep);
                                                                                                                                     if (! res)
                                                                                                                                     {
-                                                                                                                                        if (rep != null) rep.addEntry("unexpected element [.'$platforms'.0.'|'.28]", (path != null ? arr_47_lpath : null));
+                                                                                                                                        if (rep != null) rep.addEntry("unexpected element [.'$platforms'.0.'|'.28]", (path != null ? arr_94_lpath : null));
                                                                                                                                     }
                                                                                                                                     if (! res)
                                                                                                                                     {
                                                                                                                                         // .'$platforms'.0.'|'.29
-                                                                                                                                        res = _jm_obj_64(arr_47_item, (path != null ? arr_47_lpath : null), rep);
+                                                                                                                                        res = _jm_obj_111(arr_94_item, (path != null ? arr_94_lpath : null), rep);
                                                                                                                                         if (! res)
                                                                                                                                         {
-                                                                                                                                            if (rep != null) rep.addEntry("unexpected element [.'$platforms'.0.'|'.29]", (path != null ? arr_47_lpath : null));
+                                                                                                                                            if (rep != null) rep.addEntry("unexpected element [.'$platforms'.0.'|'.29]", (path != null ? arr_94_lpath : null));
                                                                                                                                         }
                                                                                                                                         if (! res)
                                                                                                                                         {
                                                                                                                                             // .'$platforms'.0.'|'.30
-                                                                                                                                            res = _jm_obj_63(arr_47_item, (path != null ? arr_47_lpath : null), rep);
+                                                                                                                                            res = _jm_obj_110(arr_94_item, (path != null ? arr_94_lpath : null), rep);
                                                                                                                                             if (! res)
                                                                                                                                             {
-                                                                                                                                                if (rep != null) rep.addEntry("unexpected element [.'$platforms'.0.'|'.30]", (path != null ? arr_47_lpath : null));
+                                                                                                                                                if (rep != null) rep.addEntry("unexpected element [.'$platforms'.0.'|'.30]", (path != null ? arr_94_lpath : null));
                                                                                                                                             }
                                                                                                                                             if (! res)
                                                                                                                                             {
                                                                                                                                                 // .'$platforms'.0.'|'.31
-                                                                                                                                                res = _jm_obj_62(arr_47_item, (path != null ? arr_47_lpath : null), rep);
+                                                                                                                                                res = _jm_obj_109(arr_94_item, (path != null ? arr_94_lpath : null), rep);
                                                                                                                                                 if (! res)
                                                                                                                                                 {
-                                                                                                                                                    if (rep != null) rep.addEntry("unexpected element [.'$platforms'.0.'|'.31]", (path != null ? arr_47_lpath : null));
+                                                                                                                                                    if (rep != null) rep.addEntry("unexpected element [.'$platforms'.0.'|'.31]", (path != null ? arr_94_lpath : null));
                                                                                                                                                 }
                                                                                                                                                 if (! res)
                                                                                                                                                 {
                                                                                                                                                     // .'$platforms'.0.'|'.32
-                                                                                                                                                    res = _jm_obj_61(arr_47_item, (path != null ? arr_47_lpath : null), rep);
+                                                                                                                                                    res = _jm_obj_108(arr_94_item, (path != null ? arr_94_lpath : null), rep);
                                                                                                                                                     if (! res)
                                                                                                                                                     {
-                                                                                                                                                        if (rep != null) rep.addEntry("unexpected element [.'$platforms'.0.'|'.32]", (path != null ? arr_47_lpath : null));
+                                                                                                                                                        if (rep != null) rep.addEntry("unexpected element [.'$platforms'.0.'|'.32]", (path != null ? arr_94_lpath : null));
                                                                                                                                                     }
                                                                                                                                                     if (! res)
                                                                                                                                                     {
                                                                                                                                                         // .'$platforms'.0.'|'.33
-                                                                                                                                                        res = _jm_obj_60(arr_47_item, (path != null ? arr_47_lpath : null), rep);
+                                                                                                                                                        res = _jm_obj_107(arr_94_item, (path != null ? arr_94_lpath : null), rep);
                                                                                                                                                         if (! res)
                                                                                                                                                         {
-                                                                                                                                                            if (rep != null) rep.addEntry("unexpected element [.'$platforms'.0.'|'.33]", (path != null ? arr_47_lpath : null));
+                                                                                                                                                            if (rep != null) rep.addEntry("unexpected element [.'$platforms'.0.'|'.33]", (path != null ? arr_94_lpath : null));
                                                                                                                                                         }
                                                                                                                                                         if (! res)
                                                                                                                                                         {
                                                                                                                                                             // .'$platforms'.0.'|'.34
-                                                                                                                                                            res = _jm_obj_59(arr_47_item, (path != null ? arr_47_lpath : null), rep);
+                                                                                                                                                            res = _jm_obj_106(arr_94_item, (path != null ? arr_94_lpath : null), rep);
                                                                                                                                                             if (! res)
                                                                                                                                                             {
-                                                                                                                                                                if (rep != null) rep.addEntry("unexpected element [.'$platforms'.0.'|'.34]", (path != null ? arr_47_lpath : null));
+                                                                                                                                                                if (rep != null) rep.addEntry("unexpected element [.'$platforms'.0.'|'.34]", (path != null ? arr_94_lpath : null));
                                                                                                                                                             }
                                                                                                                                                             if (! res)
                                                                                                                                                             {
                                                                                                                                                                 // .'$platforms'.0.'|'.35
-                                                                                                                                                                res = _jm_obj_58(arr_47_item, (path != null ? arr_47_lpath : null), rep);
+                                                                                                                                                                res = _jm_obj_105(arr_94_item, (path != null ? arr_94_lpath : null), rep);
                                                                                                                                                                 if (! res)
                                                                                                                                                                 {
-                                                                                                                                                                    if (rep != null) rep.addEntry("unexpected element [.'$platforms'.0.'|'.35]", (path != null ? arr_47_lpath : null));
+                                                                                                                                                                    if (rep != null) rep.addEntry("unexpected element [.'$platforms'.0.'|'.35]", (path != null ? arr_94_lpath : null));
                                                                                                                                                                 }
                                                                                                                                                                 if (! res)
                                                                                                                                                                 {
                                                                                                                                                                     // .'$platforms'.0.'|'.36
-                                                                                                                                                                    res = _jm_obj_57(arr_47_item, (path != null ? arr_47_lpath : null), rep);
+                                                                                                                                                                    res = _jm_obj_104(arr_94_item, (path != null ? arr_94_lpath : null), rep);
                                                                                                                                                                     if (! res)
                                                                                                                                                                     {
-                                                                                                                                                                        if (rep != null) rep.addEntry("unexpected element [.'$platforms'.0.'|'.36]", (path != null ? arr_47_lpath : null));
+                                                                                                                                                                        if (rep != null) rep.addEntry("unexpected element [.'$platforms'.0.'|'.36]", (path != null ? arr_94_lpath : null));
                                                                                                                                                                     }
                                                                                                                                                                     if (! res)
                                                                                                                                                                     {
                                                                                                                                                                         // .'$platforms'.0.'|'.37
-                                                                                                                                                                        res = _jm_obj_56(arr_47_item, (path != null ? arr_47_lpath : null), rep);
+                                                                                                                                                                        res = _jm_obj_103(arr_94_item, (path != null ? arr_94_lpath : null), rep);
                                                                                                                                                                         if (! res)
                                                                                                                                                                         {
-                                                                                                                                                                            if (rep != null) rep.addEntry("unexpected element [.'$platforms'.0.'|'.37]", (path != null ? arr_47_lpath : null));
+                                                                                                                                                                            if (rep != null) rep.addEntry("unexpected element [.'$platforms'.0.'|'.37]", (path != null ? arr_94_lpath : null));
                                                                                                                                                                         }
                                                                                                                                                                         if (! res)
                                                                                                                                                                         {
                                                                                                                                                                             // .'$platforms'.0.'|'.38
-                                                                                                                                                                            res = _jm_obj_55(arr_47_item, (path != null ? arr_47_lpath : null), rep);
+                                                                                                                                                                            res = _jm_obj_102(arr_94_item, (path != null ? arr_94_lpath : null), rep);
                                                                                                                                                                             if (! res)
                                                                                                                                                                             {
-                                                                                                                                                                                if (rep != null) rep.addEntry("unexpected element [.'$platforms'.0.'|'.38]", (path != null ? arr_47_lpath : null));
+                                                                                                                                                                                if (rep != null) rep.addEntry("unexpected element [.'$platforms'.0.'|'.38]", (path != null ? arr_94_lpath : null));
                                                                                                                                                                             }
                                                                                                                                                                             if (! res)
                                                                                                                                                                             {
                                                                                                                                                                                 // .'$platforms'.0.'|'.39
-                                                                                                                                                                                res = _jm_obj_54(arr_47_item, (path != null ? arr_47_lpath : null), rep);
+                                                                                                                                                                                res = _jm_obj_101(arr_94_item, (path != null ? arr_94_lpath : null), rep);
                                                                                                                                                                                 if (! res)
                                                                                                                                                                                 {
-                                                                                                                                                                                    if (rep != null) rep.addEntry("unexpected element [.'$platforms'.0.'|'.39]", (path != null ? arr_47_lpath : null));
+                                                                                                                                                                                    if (rep != null) rep.addEntry("unexpected element [.'$platforms'.0.'|'.39]", (path != null ? arr_94_lpath : null));
                                                                                                                                                                                 }
                                                                                                                                                                                 if (! res)
                                                                                                                                                                                 {
                                                                                                                                                                                     // .'$platforms'.0.'|'.40
-                                                                                                                                                                                    res = _jm_obj_53(arr_47_item, (path != null ? arr_47_lpath : null), rep);
+                                                                                                                                                                                    res = _jm_obj_100(arr_94_item, (path != null ? arr_94_lpath : null), rep);
                                                                                                                                                                                     if (! res)
                                                                                                                                                                                     {
-                                                                                                                                                                                        if (rep != null) rep.addEntry("unexpected element [.'$platforms'.0.'|'.40]", (path != null ? arr_47_lpath : null));
+                                                                                                                                                                                        if (rep != null) rep.addEntry("unexpected element [.'$platforms'.0.'|'.40]", (path != null ? arr_94_lpath : null));
                                                                                                                                                                                     }
                                                                                                                                                                                     if (! res)
                                                                                                                                                                                     {
                                                                                                                                                                                         // .'$platforms'.0.'|'.41
-                                                                                                                                                                                        res = _jm_obj_52(arr_47_item, (path != null ? arr_47_lpath : null), rep);
+                                                                                                                                                                                        res = _jm_obj_99(arr_94_item, (path != null ? arr_94_lpath : null), rep);
                                                                                                                                                                                         if (! res)
                                                                                                                                                                                         {
-                                                                                                                                                                                            if (rep != null) rep.addEntry("unexpected element [.'$platforms'.0.'|'.41]", (path != null ? arr_47_lpath : null));
+                                                                                                                                                                                            if (rep != null) rep.addEntry("unexpected element [.'$platforms'.0.'|'.41]", (path != null ? arr_94_lpath : null));
                                                                                                                                                                                         }
                                                                                                                                                                                         if (! res)
                                                                                                                                                                                         {
                                                                                                                                                                                             // .'$platforms'.0.'|'.42
-                                                                                                                                                                                            res = _jm_obj_51(arr_47_item, (path != null ? arr_47_lpath : null), rep);
+                                                                                                                                                                                            res = _jm_obj_98(arr_94_item, (path != null ? arr_94_lpath : null), rep);
                                                                                                                                                                                             if (! res)
                                                                                                                                                                                             {
-                                                                                                                                                                                                if (rep != null) rep.addEntry("unexpected element [.'$platforms'.0.'|'.42]", (path != null ? arr_47_lpath : null));
+                                                                                                                                                                                                if (rep != null) rep.addEntry("unexpected element [.'$platforms'.0.'|'.42]", (path != null ? arr_94_lpath : null));
                                                                                                                                                                                             }
                                                                                                                                                                                             if (! res)
                                                                                                                                                                                             {
                                                                                                                                                                                                 // .'$platforms'.0.'|'.43
-                                                                                                                                                                                                res = _jm_obj_50(arr_47_item, (path != null ? arr_47_lpath : null), rep);
+                                                                                                                                                                                                res = _jm_obj_97(arr_94_item, (path != null ? arr_94_lpath : null), rep);
                                                                                                                                                                                                 if (! res)
                                                                                                                                                                                                 {
-                                                                                                                                                                                                    if (rep != null) rep.addEntry("unexpected element [.'$platforms'.0.'|'.43]", (path != null ? arr_47_lpath : null));
+                                                                                                                                                                                                    if (rep != null) rep.addEntry("unexpected element [.'$platforms'.0.'|'.43]", (path != null ? arr_94_lpath : null));
                                                                                                                                                                                                 }
                                                                                                                                                                                                 if (! res)
                                                                                                                                                                                                 {
                                                                                                                                                                                                     // .'$platforms'.0.'|'.44
-                                                                                                                                                                                                    res = _jm_obj_49(arr_47_item, (path != null ? arr_47_lpath : null), rep);
+                                                                                                                                                                                                    res = _jm_obj_96(arr_94_item, (path != null ? arr_94_lpath : null), rep);
                                                                                                                                                                                                     if (! res)
                                                                                                                                                                                                     {
-                                                                                                                                                                                                        if (rep != null) rep.addEntry("unexpected element [.'$platforms'.0.'|'.44]", (path != null ? arr_47_lpath : null));
+                                                                                                                                                                                                        if (rep != null) rep.addEntry("unexpected element [.'$platforms'.0.'|'.44]", (path != null ? arr_94_lpath : null));
                                                                                                                                                                                                     }
                                                                                                                                                                                                     if (! res)
                                                                                                                                                                                                     {
                                                                                                                                                                                                         // .'$platforms'.0.'|'.45
-                                                                                                                                                                                                        res = _jm_obj_48(arr_47_item, (path != null ? arr_47_lpath : null), rep);
+                                                                                                                                                                                                        res = _jm_obj_95(arr_94_item, (path != null ? arr_94_lpath : null), rep);
                                                                                                                                                                                                         if (! res)
                                                                                                                                                                                                         {
-                                                                                                                                                                                                            if (rep != null) rep.addEntry("unexpected element [.'$platforms'.0.'|'.45]", (path != null ? arr_47_lpath : null));
+                                                                                                                                                                                                            if (rep != null) rep.addEntry("unexpected element [.'$platforms'.0.'|'.45]", (path != null ? arr_94_lpath : null));
                                                                                                                                                                                                         }
                                                                                                                                                                                                         if (! res)
                                                                                                                                                                                                         {
                                                                                                                                                                                                             // .'$platforms'.0.'|'.46
-                                                                                                                                                                                                            res = _jm_obj_47(arr_47_item, (path != null ? arr_47_lpath : null), rep);
+                                                                                                                                                                                                            res = _jm_obj_94(arr_94_item, (path != null ? arr_94_lpath : null), rep);
                                                                                                                                                                                                             if (! res)
                                                                                                                                                                                                             {
-                                                                                                                                                                                                                if (rep != null) rep.addEntry("unexpected element [.'$platforms'.0.'|'.46]", (path != null ? arr_47_lpath : null));
+                                                                                                                                                                                                                if (rep != null) rep.addEntry("unexpected element [.'$platforms'.0.'|'.46]", (path != null ? arr_94_lpath : null));
                                                                                                                                                                                                             }
                                                                                                                                                                                                         }
                                                                                                                                                                                                     }
@@ -8232,7 +11830,7 @@ public class ansiblelint_meta extends ModelChecker
                     }
                     else
                     {
-                        if (rep != null) rep.addEntry("no model matched [.'$platforms'.0.'|']", (path != null ? arr_47_lpath : null));
+                        if (rep != null) rep.addEntry("no model matched [.'$platforms'.0.'|']", (path != null ? arr_94_lpath : null));
                     }
                 }
                 if (! res)
@@ -8248,7 +11846,7 @@ public class ansiblelint_meta extends ModelChecker
         return res;
     }
     
-    // check _jm_obj_94_map_cloud_platforms (.'$GalaxyInfoModelCollection'.cloud_platforms)
+    // check _jm_obj_141_map_cloud_platforms (.'$GalaxyInfoModelCollection'.cloud_platforms)
     public boolean _jm_f_0(Object val, Path path, Report rep)
     {
         boolean res;
@@ -8261,7 +11859,7 @@ public class ansiblelint_meta extends ModelChecker
         return res;
     }
     
-    // check _jm_obj_94_map_galaxy_tags (.'$GalaxyInfoModelCollection'.galaxy_tags)
+    // check _jm_obj_141_map_galaxy_tags (.'$GalaxyInfoModelCollection'.galaxy_tags)
     public boolean _jm_f_1(Object val, Path path, Report rep)
     {
         boolean res;
@@ -8269,18 +11867,18 @@ public class ansiblelint_meta extends ModelChecker
         res = json.isArray(val);
         if (res)
         {
-            int arr_95_idx = -1;
-            Iterator<Object> arr_95_item_loop = json.arrayIterator(val);
-            while (arr_95_item_loop.hasNext())
+            int arr_142_idx = -1;
+            Iterator<Object> arr_142_item_loop = json.arrayIterator(val);
+            while (arr_142_item_loop.hasNext())
             {
-                arr_95_idx++;
-                Object arr_95_item = arr_95_item_loop.next();
-                Path arr_95_lpath = new Path(arr_95_idx, path);
+                arr_142_idx++;
+                Object arr_142_item = arr_142_item_loop.next();
+                Path arr_142_lpath = new Path(arr_142_idx, path);
                 // .'$GalaxyInfoModelCollection'.galaxy_tags.0
-                res = json.isString(arr_95_item);
+                res = json.isString(arr_142_item);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.'$GalaxyInfoModelCollection'.galaxy_tags.0]", (path != null ? arr_95_lpath : null));
+                    if (rep != null) rep.addEntry("unexpected string [.'$GalaxyInfoModelCollection'.galaxy_tags.0]", (path != null ? arr_142_lpath : null));
                 }
                 if (! res)
                 {
@@ -8295,7 +11893,7 @@ public class ansiblelint_meta extends ModelChecker
         return res;
     }
     
-    // check _jm_obj_94_map_min_ansible_version (.'$GalaxyInfoModelCollection'.min_ansible_version)
+    // check _jm_obj_141_map_min_ansible_version (.'$GalaxyInfoModelCollection'.min_ansible_version)
     public boolean _jm_f_2(Object val, Path path, Report rep)
     {
         boolean res;
@@ -8313,7 +11911,7 @@ public class ansiblelint_meta extends ModelChecker
         return _jm_re_0_pat.matcher(val).find();
     }
     
-    // check _jm_obj_94_map_namespace (.'$GalaxyInfoModelCollection'.namespace)
+    // check _jm_obj_141_map_namespace (.'$GalaxyInfoModelCollection'.namespace)
     public boolean _jm_f_3(Object val, Path path, Report rep)
     {
         boolean res;
@@ -8327,7 +11925,7 @@ public class ansiblelint_meta extends ModelChecker
         return res;
     }
     
-    // check _jm_obj_94_map_platforms (.'$GalaxyInfoModelCollection'.platforms)
+    // check _jm_obj_141_map_platforms (.'$GalaxyInfoModelCollection'.platforms)
     public boolean _jm_f_4(Object val, Path path, Report rep)
     {
         boolean res;
@@ -8345,7 +11943,7 @@ public class ansiblelint_meta extends ModelChecker
         return _jm_re_1_pat.matcher(val).find();
     }
     
-    // check _jm_obj_94_map_role_name (.'$GalaxyInfoModelCollection'.role_name)
+    // check _jm_obj_141_map_role_name (.'$GalaxyInfoModelCollection'.role_name)
     public boolean _jm_f_5(Object val, Path path, Report rep)
     {
         boolean res;
@@ -8359,7 +11957,7 @@ public class ansiblelint_meta extends ModelChecker
         return res;
     }
     
-    // check _jm_obj_94_map_video_links (.'$GalaxyInfoModelCollection'.video_links)
+    // check _jm_obj_141_map_video_links (.'$GalaxyInfoModelCollection'.video_links)
     public boolean _jm_f_6(Object val, Path path, Report rep)
     {
         boolean res;
@@ -8378,7 +11976,7 @@ public class ansiblelint_meta extends ModelChecker
     
     
     // object .'$GalaxyInfoModelCollection'
-    public boolean _jm_obj_94(Object val, Path path, Report rep)
+    public boolean _jm_obj_141(Object val, Path path, Report rep)
     {
         if (! json.isObject(val))
         {
@@ -8391,19 +11989,19 @@ public class ansiblelint_meta extends ModelChecker
         {
             String prop = prop_loop.next();
             Object pval = json.objectValue(val, prop);
-            Path lpath_47 = new Path(prop, path);
-            if ((pfun = _jm_obj_94_map_pmap.get(prop)) != null)
+            Path lpath_94 = new Path(prop, path);
+            if ((pfun = _jm_obj_141_map_pmap.get(prop)) != null)
             {
                 // handle 7 may props
-                if (pfun != null && ! (pfun.call(pval, (path != null ? lpath_47 : null), rep)))
+                if (pfun != null && ! (pfun.call(pval, (path != null ? lpath_94 : null), rep)))
                 {
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$GalaxyInfoModelCollection']", (path != null ? lpath_47 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$GalaxyInfoModelCollection']", (path != null ? lpath_94 : null));
                     return false;
                 }
             }
             else
             {
-                if (rep != null) rep.addEntry("unexpected prop [.'$GalaxyInfoModelCollection']", (path != null ? lpath_47 : null));
+                if (rep != null) rep.addEntry("unexpected prop [.'$GalaxyInfoModelCollection']", (path != null ? lpath_94 : null));
                 return false;
             }
         }
@@ -8415,7 +12013,7 @@ public class ansiblelint_meta extends ModelChecker
     {
         boolean res;
         // .'$GalaxyInfoModelCollection'
-        res = _jm_obj_94(val, path, rep);
+        res = _jm_obj_141(val, path, rep);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected element [.'$GalaxyInfoModelCollection']", path);
@@ -8423,7 +12021,7 @@ public class ansiblelint_meta extends ModelChecker
         return res;
     }
     
-    // check _jm_obj_95_map_author (.'$GalaxyInfoModelLoose'.author)
+    // check _jm_obj_142_map_author (.'$GalaxyInfoModelLoose'.author)
     public boolean _jm_f_7(Object val, Path path, Report rep)
     {
         boolean res;
@@ -8436,7 +12034,7 @@ public class ansiblelint_meta extends ModelChecker
         return res;
     }
     
-    // check _jm_obj_95_map_company (.'$GalaxyInfoModelLoose'.company)
+    // check _jm_obj_142_map_company (.'$GalaxyInfoModelLoose'.company)
     public boolean _jm_f_8(Object val, Path path, Report rep)
     {
         boolean res;
@@ -8449,7 +12047,7 @@ public class ansiblelint_meta extends ModelChecker
         return res;
     }
     
-    // check _jm_obj_95_map_github_branch (.'$GalaxyInfoModelLoose'.github_branch)
+    // check _jm_obj_142_map_github_branch (.'$GalaxyInfoModelLoose'.github_branch)
     public boolean _jm_f_9(Object val, Path path, Report rep)
     {
         boolean res;
@@ -8462,7 +12060,7 @@ public class ansiblelint_meta extends ModelChecker
         return res;
     }
     
-    // check _jm_obj_95_map_issue_tracker_url (.'$GalaxyInfoModelLoose'.issue_tracker_url)
+    // check _jm_obj_142_map_issue_tracker_url (.'$GalaxyInfoModelLoose'.issue_tracker_url)
     public boolean _jm_f_10(Object val, Path path, Report rep)
     {
         boolean res;
@@ -8475,7 +12073,7 @@ public class ansiblelint_meta extends ModelChecker
         return res;
     }
     
-    // check _jm_obj_95_map_license (.'$GalaxyInfoModelLoose'.license)
+    // check _jm_obj_142_map_license (.'$GalaxyInfoModelLoose'.license)
     public boolean _jm_f_11(Object val, Path path, Report rep)
     {
         boolean res;
@@ -8488,7 +12086,7 @@ public class ansiblelint_meta extends ModelChecker
         return res;
     }
     
-    // check _jm_obj_95_map_min_ansible_container_version (.'$GalaxyInfoModelLoose'.min_ansible_container_version)
+    // check _jm_obj_142_map_min_ansible_container_version (.'$GalaxyInfoModelLoose'.min_ansible_container_version)
     public boolean _jm_f_12(Object val, Path path, Report rep)
     {
         boolean res;
@@ -8503,7 +12101,7 @@ public class ansiblelint_meta extends ModelChecker
     
     
     // object .'$GalaxyInfoModelLoose'
-    public boolean _jm_obj_95(Object val, Path path, Report rep)
+    public boolean _jm_obj_142(Object val, Path path, Report rep)
     {
         if (! json.isObject(val))
         {
@@ -8518,7 +12116,7 @@ public class ansiblelint_meta extends ModelChecker
         {
             String prop = prop_loop.next();
             Object pval = json.objectValue(val, prop);
-            Path lpath_48 = new Path(prop, path);
+            Path lpath_95 = new Path(prop, path);
             if (prop.compareTo("description") == 0)
             {
                 // handle must description property
@@ -8527,26 +12125,26 @@ public class ansiblelint_meta extends ModelChecker
                 res = json.isString(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.'$GalaxyInfoModelLoose'.description]", (path != null ? lpath_48 : null));
+                    if (rep != null) rep.addEntry("unexpected string [.'$GalaxyInfoModelLoose'.description]", (path != null ? lpath_95 : null));
                 }
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("invalid mandatory prop value [.'$GalaxyInfoModelLoose'.description]", (path != null ? lpath_48 : null));
+                    if (rep != null) rep.addEntry("invalid mandatory prop value [.'$GalaxyInfoModelLoose'.description]", (path != null ? lpath_95 : null));
                     return false;
                 }
             }
-            else if ((pfun = _jm_obj_95_map_pmap.get(prop)) != null)
+            else if ((pfun = _jm_obj_142_map_pmap.get(prop)) != null)
             {
                 // handle 6 may props
-                if (pfun != null && ! (pfun.call(pval, (path != null ? lpath_48 : null), rep)))
+                if (pfun != null && ! (pfun.call(pval, (path != null ? lpath_95 : null), rep)))
                 {
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$GalaxyInfoModelLoose']", (path != null ? lpath_48 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$GalaxyInfoModelLoose']", (path != null ? lpath_95 : null));
                     return false;
                 }
             }
             else
             {
-                if (rep != null) rep.addEntry("unexpected prop [.'$GalaxyInfoModelLoose']", (path != null ? lpath_48 : null));
+                if (rep != null) rep.addEntry("unexpected prop [.'$GalaxyInfoModelLoose']", (path != null ? lpath_95 : null));
                 return false;
             }
         }
@@ -8570,7 +12168,7 @@ public class ansiblelint_meta extends ModelChecker
         boolean res;
         // some $URL should be added?
         // .'$GalaxyInfoModelLoose'
-        res = _jm_obj_95(val, path, rep);
+        res = _jm_obj_142(val, path, rep);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected element [.'$GalaxyInfoModelLoose']", path);
@@ -8578,7 +12176,7 @@ public class ansiblelint_meta extends ModelChecker
         return res;
     }
     
-    // check _jm_obj_96_map_cloud_platforms (.'$GalaxyInfoModelStandalone'.cloud_platforms)
+    // check _jm_obj_143_map_cloud_platforms (.'$GalaxyInfoModelStandalone'.cloud_platforms)
     public boolean _jm_f_13(Object val, Path path, Report rep)
     {
         boolean res;
@@ -8591,7 +12189,7 @@ public class ansiblelint_meta extends ModelChecker
         return res;
     }
     
-    // check _jm_obj_96_map_company (.'$GalaxyInfoModelStandalone'.company)
+    // check _jm_obj_143_map_company (.'$GalaxyInfoModelStandalone'.company)
     public boolean _jm_f_14(Object val, Path path, Report rep)
     {
         boolean res;
@@ -8604,7 +12202,7 @@ public class ansiblelint_meta extends ModelChecker
         return res;
     }
     
-    // check _jm_obj_96_map_galaxy_tags (.'$GalaxyInfoModelStandalone'.galaxy_tags)
+    // check _jm_obj_143_map_galaxy_tags (.'$GalaxyInfoModelStandalone'.galaxy_tags)
     public boolean _jm_f_15(Object val, Path path, Report rep)
     {
         boolean res;
@@ -8612,18 +12210,18 @@ public class ansiblelint_meta extends ModelChecker
         res = json.isArray(val);
         if (res)
         {
-            int arr_96_idx = -1;
-            Iterator<Object> arr_96_item_loop = json.arrayIterator(val);
-            while (arr_96_item_loop.hasNext())
+            int arr_143_idx = -1;
+            Iterator<Object> arr_143_item_loop = json.arrayIterator(val);
+            while (arr_143_item_loop.hasNext())
             {
-                arr_96_idx++;
-                Object arr_96_item = arr_96_item_loop.next();
-                Path arr_96_lpath = new Path(arr_96_idx, path);
+                arr_143_idx++;
+                Object arr_143_item = arr_143_item_loop.next();
+                Path arr_143_lpath = new Path(arr_143_idx, path);
                 // .'$GalaxyInfoModelStandalone'.galaxy_tags.0
-                res = json.isString(arr_96_item);
+                res = json.isString(arr_143_item);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.'$GalaxyInfoModelStandalone'.galaxy_tags.0]", (path != null ? arr_96_lpath : null));
+                    if (rep != null) rep.addEntry("unexpected string [.'$GalaxyInfoModelStandalone'.galaxy_tags.0]", (path != null ? arr_143_lpath : null));
                 }
                 if (! res)
                 {
@@ -8638,7 +12236,7 @@ public class ansiblelint_meta extends ModelChecker
         return res;
     }
     
-    // check _jm_obj_96_map_github_branch (.'$GalaxyInfoModelStandalone'.github_branch)
+    // check _jm_obj_143_map_github_branch (.'$GalaxyInfoModelStandalone'.github_branch)
     public boolean _jm_f_16(Object val, Path path, Report rep)
     {
         boolean res;
@@ -8651,7 +12249,7 @@ public class ansiblelint_meta extends ModelChecker
         return res;
     }
     
-    // check _jm_obj_96_map_issue_tracker_url (.'$GalaxyInfoModelStandalone'.issue_tracker_url)
+    // check _jm_obj_143_map_issue_tracker_url (.'$GalaxyInfoModelStandalone'.issue_tracker_url)
     public boolean _jm_f_17(Object val, Path path, Report rep)
     {
         boolean res;
@@ -8664,7 +12262,7 @@ public class ansiblelint_meta extends ModelChecker
         return res;
     }
     
-    // check _jm_obj_96_map_min_ansible_container_version (.'$GalaxyInfoModelStandalone'.min_ansible_container_version)
+    // check _jm_obj_143_map_min_ansible_container_version (.'$GalaxyInfoModelStandalone'.min_ansible_container_version)
     public boolean _jm_f_18(Object val, Path path, Report rep)
     {
         boolean res;
@@ -8677,7 +12275,7 @@ public class ansiblelint_meta extends ModelChecker
         return res;
     }
     
-    // check _jm_obj_96_map_namespace (.'$GalaxyInfoModelStandalone'.namespace)
+    // check _jm_obj_143_map_namespace (.'$GalaxyInfoModelStandalone'.namespace)
     public boolean _jm_f_19(Object val, Path path, Report rep)
     {
         boolean res;
@@ -8691,7 +12289,7 @@ public class ansiblelint_meta extends ModelChecker
         return res;
     }
     
-    // check _jm_obj_96_map_platforms (.'$GalaxyInfoModelStandalone'.platforms)
+    // check _jm_obj_143_map_platforms (.'$GalaxyInfoModelStandalone'.platforms)
     public boolean _jm_f_20(Object val, Path path, Report rep)
     {
         boolean res;
@@ -8704,7 +12302,7 @@ public class ansiblelint_meta extends ModelChecker
         return res;
     }
     
-    // check _jm_obj_96_map_role_name (.'$GalaxyInfoModelStandalone'.role_name)
+    // check _jm_obj_143_map_role_name (.'$GalaxyInfoModelStandalone'.role_name)
     public boolean _jm_f_21(Object val, Path path, Report rep)
     {
         boolean res;
@@ -8718,7 +12316,7 @@ public class ansiblelint_meta extends ModelChecker
         return res;
     }
     
-    // check _jm_obj_96_map_video_links (.'$GalaxyInfoModelStandalone'.video_links)
+    // check _jm_obj_143_map_video_links (.'$GalaxyInfoModelStandalone'.video_links)
     public boolean _jm_f_22(Object val, Path path, Report rep)
     {
         boolean res;
@@ -8737,7 +12335,7 @@ public class ansiblelint_meta extends ModelChecker
     
     
     // object .'$GalaxyInfoModelStandalone'
-    public boolean _jm_obj_96(Object val, Path path, Report rep)
+    public boolean _jm_obj_143(Object val, Path path, Report rep)
     {
         if (! json.isObject(val))
         {
@@ -8752,7 +12350,7 @@ public class ansiblelint_meta extends ModelChecker
         {
             String prop = prop_loop.next();
             Object pval = json.objectValue(val, prop);
-            Path lpath_49 = new Path(prop, path);
+            Path lpath_96 = new Path(prop, path);
             if (prop.compareTo("standalone") == 0)
             {
                 // handle must standalone property
@@ -8761,11 +12359,11 @@ public class ansiblelint_meta extends ModelChecker
                 res = json.isBoolean(pval) && json.asBoolean(pval) == true;
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected =true [.'$GalaxyInfoModelStandalone'.standalone]", (path != null ? lpath_49 : null));
+                    if (rep != null) rep.addEntry("unexpected =true [.'$GalaxyInfoModelStandalone'.standalone]", (path != null ? lpath_96 : null));
                 }
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("invalid mandatory prop value [.'$GalaxyInfoModelStandalone'.standalone]", (path != null ? lpath_49 : null));
+                    if (rep != null) rep.addEntry("invalid mandatory prop value [.'$GalaxyInfoModelStandalone'.standalone]", (path != null ? lpath_96 : null));
                     return false;
                 }
             }
@@ -8777,11 +12375,11 @@ public class ansiblelint_meta extends ModelChecker
                 res = json.isString(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.'$GalaxyInfoModelStandalone'.description]", (path != null ? lpath_49 : null));
+                    if (rep != null) rep.addEntry("unexpected string [.'$GalaxyInfoModelStandalone'.description]", (path != null ? lpath_96 : null));
                 }
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("invalid mandatory prop value [.'$GalaxyInfoModelStandalone'.description]", (path != null ? lpath_49 : null));
+                    if (rep != null) rep.addEntry("invalid mandatory prop value [.'$GalaxyInfoModelStandalone'.description]", (path != null ? lpath_96 : null));
                     return false;
                 }
             }
@@ -8793,11 +12391,11 @@ public class ansiblelint_meta extends ModelChecker
                 res = json.isString(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.'$GalaxyInfoModelStandalone'.author]", (path != null ? lpath_49 : null));
+                    if (rep != null) rep.addEntry("unexpected string [.'$GalaxyInfoModelStandalone'.author]", (path != null ? lpath_96 : null));
                 }
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("invalid mandatory prop value [.'$GalaxyInfoModelStandalone'.author]", (path != null ? lpath_49 : null));
+                    if (rep != null) rep.addEntry("invalid mandatory prop value [.'$GalaxyInfoModelStandalone'.author]", (path != null ? lpath_96 : null));
                     return false;
                 }
             }
@@ -8809,11 +12407,11 @@ public class ansiblelint_meta extends ModelChecker
                 res = json.isString(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.'$GalaxyInfoModelStandalone'.license]", (path != null ? lpath_49 : null));
+                    if (rep != null) rep.addEntry("unexpected string [.'$GalaxyInfoModelStandalone'.license]", (path != null ? lpath_96 : null));
                 }
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("invalid mandatory prop value [.'$GalaxyInfoModelStandalone'.license]", (path != null ? lpath_49 : null));
+                    if (rep != null) rep.addEntry("invalid mandatory prop value [.'$GalaxyInfoModelStandalone'.license]", (path != null ? lpath_96 : null));
                     return false;
                 }
             }
@@ -8825,26 +12423,26 @@ public class ansiblelint_meta extends ModelChecker
                 res = json.isString(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.'$GalaxyInfoModelStandalone'.min_ansible_version]", (path != null ? lpath_49 : null));
+                    if (rep != null) rep.addEntry("unexpected string [.'$GalaxyInfoModelStandalone'.min_ansible_version]", (path != null ? lpath_96 : null));
                 }
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("invalid mandatory prop value [.'$GalaxyInfoModelStandalone'.min_ansible_version]", (path != null ? lpath_49 : null));
+                    if (rep != null) rep.addEntry("invalid mandatory prop value [.'$GalaxyInfoModelStandalone'.min_ansible_version]", (path != null ? lpath_96 : null));
                     return false;
                 }
             }
-            else if ((pfun = _jm_obj_96_map_pmap.get(prop)) != null)
+            else if ((pfun = _jm_obj_143_map_pmap.get(prop)) != null)
             {
                 // handle 10 may props
-                if (pfun != null && ! (pfun.call(pval, (path != null ? lpath_49 : null), rep)))
+                if (pfun != null && ! (pfun.call(pval, (path != null ? lpath_96 : null), rep)))
                 {
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$GalaxyInfoModelStandalone']", (path != null ? lpath_49 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$GalaxyInfoModelStandalone']", (path != null ? lpath_96 : null));
                     return false;
                 }
             }
             else
             {
-                if (rep != null) rep.addEntry("unexpected prop [.'$GalaxyInfoModelStandalone']", (path != null ? lpath_49 : null));
+                if (rep != null) rep.addEntry("unexpected prop [.'$GalaxyInfoModelStandalone']", (path != null ? lpath_96 : null));
                 return false;
             }
         }
@@ -8883,7 +12481,7 @@ public class ansiblelint_meta extends ModelChecker
     {
         boolean res;
         // .'$GalaxyInfoModelStandalone'
-        res = _jm_obj_96(val, path, rep);
+        res = _jm_obj_143(val, path, rep);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected element [.'$GalaxyInfoModelStandalone']", path);
@@ -8891,8 +12489,267 @@ public class ansiblelint_meta extends ModelChecker
         return res;
     }
     
-    // check _jm_obj_97_map_author (.'$GalaxyInfoModel'.'|'.1.author)
+    // check _jm_obj_144_map_author (.'$GalaxyInfoModel'.'|'.2.author)
     public boolean _jm_f_23(Object val, Path path, Report rep)
+    {
+        boolean res;
+        // .'$GalaxyInfoModel'.'|'.2.author
+        res = json.isString(val);
+        if (! res)
+        {
+            if (rep != null) rep.addEntry("unexpected string [.'$GalaxyInfoModel'.'|'.2.author]", path);
+        }
+        return res;
+    }
+    
+    // check _jm_obj_144_map_cloud_platforms (.'$GalaxyInfoModel'.'|'.2.cloud_platforms)
+    public boolean _jm_f_24(Object val, Path path, Report rep)
+    {
+        boolean res;
+        // .'$GalaxyInfoModel'.'|'.2.cloud_platforms
+        res = true;
+        if (! res)
+        {
+            if (rep != null) rep.addEntry("unexpected $ANY [.'$GalaxyInfoModel'.'|'.2.cloud_platforms]", path);
+        }
+        return res;
+    }
+    
+    // check _jm_obj_144_map_company (.'$GalaxyInfoModel'.'|'.2.company)
+    public boolean _jm_f_25(Object val, Path path, Report rep)
+    {
+        boolean res;
+        // .'$GalaxyInfoModel'.'|'.2.company
+        res = json.isString(val);
+        if (! res)
+        {
+            if (rep != null) rep.addEntry("unexpected string [.'$GalaxyInfoModel'.'|'.2.company]", path);
+        }
+        return res;
+    }
+    
+    // check _jm_obj_144_map_galaxy_tags (.'$GalaxyInfoModel'.'|'.2.galaxy_tags)
+    public boolean _jm_f_26(Object val, Path path, Report rep)
+    {
+        boolean res;
+        // .'$GalaxyInfoModel'.'|'.2.galaxy_tags
+        res = json.isArray(val);
+        if (res)
+        {
+            int arr_144_idx = -1;
+            Iterator<Object> arr_144_item_loop = json.arrayIterator(val);
+            while (arr_144_item_loop.hasNext())
+            {
+                arr_144_idx++;
+                Object arr_144_item = arr_144_item_loop.next();
+                Path arr_144_lpath = new Path(arr_144_idx, path);
+                // .'$GalaxyInfoModel'.'|'.2.galaxy_tags.0
+                res = json.isString(arr_144_item);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected string [.'$GalaxyInfoModel'.'|'.2.galaxy_tags.0]", (path != null ? arr_144_lpath : null));
+                }
+                if (! res)
+                {
+                    break;
+                }
+            }
+        }
+        if (! res)
+        {
+            if (rep != null) rep.addEntry("not array or unexpected array [.'$GalaxyInfoModel'.'|'.2.galaxy_tags]", path);
+        }
+        return res;
+    }
+    
+    // check _jm_obj_144_map_github_branch (.'$GalaxyInfoModel'.'|'.2.github_branch)
+    public boolean _jm_f_27(Object val, Path path, Report rep)
+    {
+        boolean res;
+        // .'$GalaxyInfoModel'.'|'.2.github_branch
+        res = json.isString(val);
+        if (! res)
+        {
+            if (rep != null) rep.addEntry("unexpected string [.'$GalaxyInfoModel'.'|'.2.github_branch]", path);
+        }
+        return res;
+    }
+    
+    // check _jm_obj_144_map_issue_tracker_url (.'$GalaxyInfoModel'.'|'.2.issue_tracker_url)
+    public boolean _jm_f_28(Object val, Path path, Report rep)
+    {
+        boolean res;
+        // .'$GalaxyInfoModel'.'|'.2.issue_tracker_url
+        res = json.isString(val);
+        if (! res)
+        {
+            if (rep != null) rep.addEntry("unexpected string [.'$GalaxyInfoModel'.'|'.2.issue_tracker_url]", path);
+        }
+        return res;
+    }
+    
+    // check _jm_obj_144_map_license (.'$GalaxyInfoModel'.'|'.2.license)
+    public boolean _jm_f_29(Object val, Path path, Report rep)
+    {
+        boolean res;
+        // .'$GalaxyInfoModel'.'|'.2.license
+        res = json.isString(val);
+        if (! res)
+        {
+            if (rep != null) rep.addEntry("unexpected string [.'$GalaxyInfoModel'.'|'.2.license]", path);
+        }
+        return res;
+    }
+    
+    // check _jm_obj_144_map_min_ansible_container_version (.'$GalaxyInfoModel'.'|'.2.min_ansible_container_version)
+    public boolean _jm_f_30(Object val, Path path, Report rep)
+    {
+        boolean res;
+        // .'$GalaxyInfoModel'.'|'.2.min_ansible_container_version
+        res = json.isString(val);
+        if (! res)
+        {
+            if (rep != null) rep.addEntry("unexpected string [.'$GalaxyInfoModel'.'|'.2.min_ansible_container_version]", path);
+        }
+        return res;
+    }
+    
+    // check _jm_obj_144_map_min_ansible_version (.'$GalaxyInfoModel'.'|'.2.min_ansible_version)
+    public boolean _jm_f_31(Object val, Path path, Report rep)
+    {
+        boolean res;
+        // .'$GalaxyInfoModel'.'|'.2.min_ansible_version
+        res = json.isString(val);
+        if (! res)
+        {
+            if (rep != null) rep.addEntry("unexpected string [.'$GalaxyInfoModel'.'|'.2.min_ansible_version]", path);
+        }
+        return res;
+    }
+    
+    // check _jm_obj_144_map_namespace (.'$GalaxyInfoModel'.'|'.2.namespace)
+    public boolean _jm_f_32(Object val, Path path, Report rep)
+    {
+        boolean res;
+        // .'$GalaxyInfoModel'.'|'.2.namespace
+        // "/^[a-z][-a-z0-9_]+$/"
+        res = json.isString(val) && _jm_re_0(json.asString(val), path, rep);
+        if (! res)
+        {
+            if (rep != null) rep.addEntry("unexpected /^[a-z][-a-z0-9_]+$/ [.'$GalaxyInfoModel'.'|'.2.namespace]", path);
+        }
+        return res;
+    }
+    
+    // check _jm_obj_144_map_platforms (.'$GalaxyInfoModel'.'|'.2.platforms)
+    public boolean _jm_f_33(Object val, Path path, Report rep)
+    {
+        boolean res;
+        // .'$GalaxyInfoModel'.'|'.2.platforms
+        res = json_model_50(val, path, rep);
+        if (! res)
+        {
+            if (rep != null) rep.addEntry("unexpected $platforms [.'$GalaxyInfoModel'.'|'.2.platforms]", path);
+        }
+        return res;
+    }
+    
+    // check _jm_obj_144_map_role_name (.'$GalaxyInfoModel'.'|'.2.role_name)
+    public boolean _jm_f_34(Object val, Path path, Report rep)
+    {
+        boolean res;
+        // .'$GalaxyInfoModel'.'|'.2.role_name
+        // "/^[a-z][a-z0-9_]+$/"
+        res = json.isString(val) && _jm_re_1(json.asString(val), path, rep);
+        if (! res)
+        {
+            if (rep != null) rep.addEntry("unexpected /^[a-z][a-z0-9_]+$/ [.'$GalaxyInfoModel'.'|'.2.role_name]", path);
+        }
+        return res;
+    }
+    
+    // check _jm_obj_144_map_video_links (.'$GalaxyInfoModel'.'|'.2.video_links)
+    public boolean _jm_f_35(Object val, Path path, Report rep)
+    {
+        boolean res;
+        // .'$GalaxyInfoModel'.'|'.2.video_links
+        res = json.isArray(val);
+        if (res)
+        {
+            // accept any array
+        }
+        if (! res)
+        {
+            if (rep != null) rep.addEntry("not array or unexpected array [.'$GalaxyInfoModel'.'|'.2.video_links]", path);
+        }
+        return res;
+    }
+    
+    
+    // object .'$GalaxyInfoModel'.'|'.2
+    public boolean _jm_obj_144(Object val, Path path, Report rep)
+    {
+        if (! json.isObject(val))
+        {
+            if (rep != null) rep.addEntry("not an object [.'$GalaxyInfoModel'.'|'.2]", path);
+            return false;
+        }
+        boolean res;
+        Checker pfun;
+        long must_count = 0;
+        Iterator<String> prop_loop = json.objectIterator(val);
+        while (prop_loop.hasNext())
+        {
+            String prop = prop_loop.next();
+            Object pval = json.objectValue(val, prop);
+            Path lpath_97 = new Path(prop, path);
+            if (prop.compareTo("description") == 0)
+            {
+                // handle must description property
+                must_count += 1;
+                // .'$GalaxyInfoModel'.'|'.2.description
+                res = json.isString(pval);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected string [.'$GalaxyInfoModel'.'|'.2.description]", (path != null ? lpath_97 : null));
+                }
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("invalid mandatory prop value [.'$GalaxyInfoModel'.'|'.2.description]", (path != null ? lpath_97 : null));
+                    return false;
+                }
+            }
+            else if ((pfun = _jm_obj_144_map_pmap.get(prop)) != null)
+            {
+                // handle 13 may props
+                if (pfun != null && ! (pfun.call(pval, (path != null ? lpath_97 : null), rep)))
+                {
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$GalaxyInfoModel'.'|'.2]", (path != null ? lpath_97 : null));
+                    return false;
+                }
+            }
+            else
+            {
+                if (rep != null) rep.addEntry("unexpected prop [.'$GalaxyInfoModel'.'|'.2]", (path != null ? lpath_97 : null));
+                return false;
+            }
+        }
+        if (must_count != 1)
+        {
+            if (rep != null)
+            {
+                if (! json.objectHasProp(val, "description"))
+                {
+                    if (rep != null) rep.addEntry("missing mandatory prop <description> [.'$GalaxyInfoModel'.'|'.2]", path);
+                }
+            }
+            return false;
+        }
+        return true;
+    }
+    
+    // check _jm_obj_145_map_author (.'$GalaxyInfoModel'.'|'.1.author)
+    public boolean _jm_f_36(Object val, Path path, Report rep)
     {
         boolean res;
         // .'$GalaxyInfoModel'.'|'.1.author
@@ -8904,8 +12761,8 @@ public class ansiblelint_meta extends ModelChecker
         return res;
     }
     
-    // check _jm_obj_97_map_cloud_platforms (.'$GalaxyInfoModel'.'|'.1.cloud_platforms)
-    public boolean _jm_f_24(Object val, Path path, Report rep)
+    // check _jm_obj_145_map_cloud_platforms (.'$GalaxyInfoModel'.'|'.1.cloud_platforms)
+    public boolean _jm_f_37(Object val, Path path, Report rep)
     {
         boolean res;
         // .'$GalaxyInfoModel'.'|'.1.cloud_platforms
@@ -8917,8 +12774,8 @@ public class ansiblelint_meta extends ModelChecker
         return res;
     }
     
-    // check _jm_obj_97_map_company (.'$GalaxyInfoModel'.'|'.1.company)
-    public boolean _jm_f_25(Object val, Path path, Report rep)
+    // check _jm_obj_145_map_company (.'$GalaxyInfoModel'.'|'.1.company)
+    public boolean _jm_f_38(Object val, Path path, Report rep)
     {
         boolean res;
         // .'$GalaxyInfoModel'.'|'.1.company
@@ -8930,26 +12787,26 @@ public class ansiblelint_meta extends ModelChecker
         return res;
     }
     
-    // check _jm_obj_97_map_galaxy_tags (.'$GalaxyInfoModel'.'|'.1.galaxy_tags)
-    public boolean _jm_f_26(Object val, Path path, Report rep)
+    // check _jm_obj_145_map_galaxy_tags (.'$GalaxyInfoModel'.'|'.1.galaxy_tags)
+    public boolean _jm_f_39(Object val, Path path, Report rep)
     {
         boolean res;
         // .'$GalaxyInfoModel'.'|'.1.galaxy_tags
         res = json.isArray(val);
         if (res)
         {
-            int arr_97_idx = -1;
-            Iterator<Object> arr_97_item_loop = json.arrayIterator(val);
-            while (arr_97_item_loop.hasNext())
+            int arr_145_idx = -1;
+            Iterator<Object> arr_145_item_loop = json.arrayIterator(val);
+            while (arr_145_item_loop.hasNext())
             {
-                arr_97_idx++;
-                Object arr_97_item = arr_97_item_loop.next();
-                Path arr_97_lpath = new Path(arr_97_idx, path);
+                arr_145_idx++;
+                Object arr_145_item = arr_145_item_loop.next();
+                Path arr_145_lpath = new Path(arr_145_idx, path);
                 // .'$GalaxyInfoModel'.'|'.1.galaxy_tags.0
-                res = json.isString(arr_97_item);
+                res = json.isString(arr_145_item);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.'$GalaxyInfoModel'.'|'.1.galaxy_tags.0]", (path != null ? arr_97_lpath : null));
+                    if (rep != null) rep.addEntry("unexpected string [.'$GalaxyInfoModel'.'|'.1.galaxy_tags.0]", (path != null ? arr_145_lpath : null));
                 }
                 if (! res)
                 {
@@ -8964,8 +12821,8 @@ public class ansiblelint_meta extends ModelChecker
         return res;
     }
     
-    // check _jm_obj_97_map_github_branch (.'$GalaxyInfoModel'.'|'.1.github_branch)
-    public boolean _jm_f_27(Object val, Path path, Report rep)
+    // check _jm_obj_145_map_github_branch (.'$GalaxyInfoModel'.'|'.1.github_branch)
+    public boolean _jm_f_40(Object val, Path path, Report rep)
     {
         boolean res;
         // .'$GalaxyInfoModel'.'|'.1.github_branch
@@ -8977,8 +12834,8 @@ public class ansiblelint_meta extends ModelChecker
         return res;
     }
     
-    // check _jm_obj_97_map_issue_tracker_url (.'$GalaxyInfoModel'.'|'.1.issue_tracker_url)
-    public boolean _jm_f_28(Object val, Path path, Report rep)
+    // check _jm_obj_145_map_issue_tracker_url (.'$GalaxyInfoModel'.'|'.1.issue_tracker_url)
+    public boolean _jm_f_41(Object val, Path path, Report rep)
     {
         boolean res;
         // .'$GalaxyInfoModel'.'|'.1.issue_tracker_url
@@ -8990,8 +12847,8 @@ public class ansiblelint_meta extends ModelChecker
         return res;
     }
     
-    // check _jm_obj_97_map_license (.'$GalaxyInfoModel'.'|'.1.license)
-    public boolean _jm_f_29(Object val, Path path, Report rep)
+    // check _jm_obj_145_map_license (.'$GalaxyInfoModel'.'|'.1.license)
+    public boolean _jm_f_42(Object val, Path path, Report rep)
     {
         boolean res;
         // .'$GalaxyInfoModel'.'|'.1.license
@@ -9003,8 +12860,8 @@ public class ansiblelint_meta extends ModelChecker
         return res;
     }
     
-    // check _jm_obj_97_map_min_ansible_container_version (.'$GalaxyInfoModel'.'|'.1.min_ansible_container_version)
-    public boolean _jm_f_30(Object val, Path path, Report rep)
+    // check _jm_obj_145_map_min_ansible_container_version (.'$GalaxyInfoModel'.'|'.1.min_ansible_container_version)
+    public boolean _jm_f_43(Object val, Path path, Report rep)
     {
         boolean res;
         // .'$GalaxyInfoModel'.'|'.1.min_ansible_container_version
@@ -9016,8 +12873,8 @@ public class ansiblelint_meta extends ModelChecker
         return res;
     }
     
-    // check _jm_obj_97_map_min_ansible_version (.'$GalaxyInfoModel'.'|'.1.min_ansible_version)
-    public boolean _jm_f_31(Object val, Path path, Report rep)
+    // check _jm_obj_145_map_min_ansible_version (.'$GalaxyInfoModel'.'|'.1.min_ansible_version)
+    public boolean _jm_f_44(Object val, Path path, Report rep)
     {
         boolean res;
         // .'$GalaxyInfoModel'.'|'.1.min_ansible_version
@@ -9029,8 +12886,8 @@ public class ansiblelint_meta extends ModelChecker
         return res;
     }
     
-    // check _jm_obj_97_map_namespace (.'$GalaxyInfoModel'.'|'.1.namespace)
-    public boolean _jm_f_32(Object val, Path path, Report rep)
+    // check _jm_obj_145_map_namespace (.'$GalaxyInfoModel'.'|'.1.namespace)
+    public boolean _jm_f_45(Object val, Path path, Report rep)
     {
         boolean res;
         // .'$GalaxyInfoModel'.'|'.1.namespace
@@ -9043,8 +12900,8 @@ public class ansiblelint_meta extends ModelChecker
         return res;
     }
     
-    // check _jm_obj_97_map_platforms (.'$GalaxyInfoModel'.'|'.1.platforms)
-    public boolean _jm_f_33(Object val, Path path, Report rep)
+    // check _jm_obj_145_map_platforms (.'$GalaxyInfoModel'.'|'.1.platforms)
+    public boolean _jm_f_46(Object val, Path path, Report rep)
     {
         boolean res;
         // .'$GalaxyInfoModel'.'|'.1.platforms
@@ -9056,8 +12913,8 @@ public class ansiblelint_meta extends ModelChecker
         return res;
     }
     
-    // check _jm_obj_97_map_role_name (.'$GalaxyInfoModel'.'|'.1.role_name)
-    public boolean _jm_f_34(Object val, Path path, Report rep)
+    // check _jm_obj_145_map_role_name (.'$GalaxyInfoModel'.'|'.1.role_name)
+    public boolean _jm_f_47(Object val, Path path, Report rep)
     {
         boolean res;
         // .'$GalaxyInfoModel'.'|'.1.role_name
@@ -9070,8 +12927,8 @@ public class ansiblelint_meta extends ModelChecker
         return res;
     }
     
-    // check _jm_obj_97_map_video_links (.'$GalaxyInfoModel'.'|'.1.video_links)
-    public boolean _jm_f_35(Object val, Path path, Report rep)
+    // check _jm_obj_145_map_video_links (.'$GalaxyInfoModel'.'|'.1.video_links)
+    public boolean _jm_f_48(Object val, Path path, Report rep)
     {
         boolean res;
         // .'$GalaxyInfoModel'.'|'.1.video_links
@@ -9089,7 +12946,7 @@ public class ansiblelint_meta extends ModelChecker
     
     
     // object .'$GalaxyInfoModel'.'|'.1
-    public boolean _jm_obj_97(Object val, Path path, Report rep)
+    public boolean _jm_obj_145(Object val, Path path, Report rep)
     {
         if (! json.isObject(val))
         {
@@ -9104,8 +12961,24 @@ public class ansiblelint_meta extends ModelChecker
         {
             String prop = prop_loop.next();
             Object pval = json.objectValue(val, prop);
-            Path lpath_50 = new Path(prop, path);
-            if (prop.compareTo("description") == 0)
+            Path lpath_98 = new Path(prop, path);
+            if (prop.compareTo("standalone") == 0)
+            {
+                // handle must standalone property
+                must_count += 1;
+                // .'$GalaxyInfoModel'.'|'.1.standalone
+                res = json.isBoolean(pval) && json.asBoolean(pval) == false;
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected =false [.'$GalaxyInfoModel'.'|'.1.standalone]", (path != null ? lpath_98 : null));
+                }
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("invalid mandatory prop value [.'$GalaxyInfoModel'.'|'.1.standalone]", (path != null ? lpath_98 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("description") == 0)
             {
                 // handle must description property
                 must_count += 1;
@@ -9113,30 +12986,30 @@ public class ansiblelint_meta extends ModelChecker
                 res = json.isString(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.'$GalaxyInfoModel'.'|'.1.description]", (path != null ? lpath_50 : null));
+                    if (rep != null) rep.addEntry("unexpected string [.'$GalaxyInfoModel'.'|'.1.description]", (path != null ? lpath_98 : null));
                 }
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("invalid mandatory prop value [.'$GalaxyInfoModel'.'|'.1.description]", (path != null ? lpath_50 : null));
+                    if (rep != null) rep.addEntry("invalid mandatory prop value [.'$GalaxyInfoModel'.'|'.1.description]", (path != null ? lpath_98 : null));
                     return false;
                 }
             }
-            else if ((pfun = _jm_obj_97_map_pmap.get(prop)) != null)
+            else if ((pfun = _jm_obj_145_map_pmap.get(prop)) != null)
             {
                 // handle 13 may props
-                if (pfun != null && ! (pfun.call(pval, (path != null ? lpath_50 : null), rep)))
+                if (pfun != null && ! (pfun.call(pval, (path != null ? lpath_98 : null), rep)))
                 {
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$GalaxyInfoModel'.'|'.1]", (path != null ? lpath_50 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$GalaxyInfoModel'.'|'.1]", (path != null ? lpath_98 : null));
                     return false;
                 }
             }
             else
             {
-                if (rep != null) rep.addEntry("unexpected prop [.'$GalaxyInfoModel'.'|'.1]", (path != null ? lpath_50 : null));
+                if (rep != null) rep.addEntry("unexpected prop [.'$GalaxyInfoModel'.'|'.1]", (path != null ? lpath_98 : null));
                 return false;
             }
         }
-        if (must_count != 1)
+        if (must_count != 2)
         {
             if (rep != null)
             {
@@ -9144,27 +13017,18 @@ public class ansiblelint_meta extends ModelChecker
                 {
                     if (rep != null) rep.addEntry("missing mandatory prop <description> [.'$GalaxyInfoModel'.'|'.1]", path);
                 }
+                if (! json.objectHasProp(val, "standalone"))
+                {
+                    if (rep != null) rep.addEntry("missing mandatory prop <standalone> [.'$GalaxyInfoModel'.'|'.1]", path);
+                }
             }
             return false;
         }
         return true;
     }
     
-    // check _jm_obj_98_map_author (.'$GalaxyInfoModel'.'|'.0.author)
-    public boolean _jm_f_36(Object val, Path path, Report rep)
-    {
-        boolean res;
-        // .'$GalaxyInfoModel'.'|'.0.author
-        res = json.isString(val);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected string [.'$GalaxyInfoModel'.'|'.0.author]", path);
-        }
-        return res;
-    }
-    
-    // check _jm_obj_98_map_cloud_platforms (.'$GalaxyInfoModel'.'|'.0.cloud_platforms)
-    public boolean _jm_f_37(Object val, Path path, Report rep)
+    // check _jm_obj_146_map_cloud_platforms (.'$GalaxyInfoModel'.'|'.0.cloud_platforms)
+    public boolean _jm_f_49(Object val, Path path, Report rep)
     {
         boolean res;
         // .'$GalaxyInfoModel'.'|'.0.cloud_platforms
@@ -9176,8 +13040,8 @@ public class ansiblelint_meta extends ModelChecker
         return res;
     }
     
-    // check _jm_obj_98_map_company (.'$GalaxyInfoModel'.'|'.0.company)
-    public boolean _jm_f_38(Object val, Path path, Report rep)
+    // check _jm_obj_146_map_company (.'$GalaxyInfoModel'.'|'.0.company)
+    public boolean _jm_f_50(Object val, Path path, Report rep)
     {
         boolean res;
         // .'$GalaxyInfoModel'.'|'.0.company
@@ -9189,26 +13053,26 @@ public class ansiblelint_meta extends ModelChecker
         return res;
     }
     
-    // check _jm_obj_98_map_galaxy_tags (.'$GalaxyInfoModel'.'|'.0.galaxy_tags)
-    public boolean _jm_f_39(Object val, Path path, Report rep)
+    // check _jm_obj_146_map_galaxy_tags (.'$GalaxyInfoModel'.'|'.0.galaxy_tags)
+    public boolean _jm_f_51(Object val, Path path, Report rep)
     {
         boolean res;
         // .'$GalaxyInfoModel'.'|'.0.galaxy_tags
         res = json.isArray(val);
         if (res)
         {
-            int arr_98_idx = -1;
-            Iterator<Object> arr_98_item_loop = json.arrayIterator(val);
-            while (arr_98_item_loop.hasNext())
+            int arr_146_idx = -1;
+            Iterator<Object> arr_146_item_loop = json.arrayIterator(val);
+            while (arr_146_item_loop.hasNext())
             {
-                arr_98_idx++;
-                Object arr_98_item = arr_98_item_loop.next();
-                Path arr_98_lpath = new Path(arr_98_idx, path);
+                arr_146_idx++;
+                Object arr_146_item = arr_146_item_loop.next();
+                Path arr_146_lpath = new Path(arr_146_idx, path);
                 // .'$GalaxyInfoModel'.'|'.0.galaxy_tags.0
-                res = json.isString(arr_98_item);
+                res = json.isString(arr_146_item);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.'$GalaxyInfoModel'.'|'.0.galaxy_tags.0]", (path != null ? arr_98_lpath : null));
+                    if (rep != null) rep.addEntry("unexpected string [.'$GalaxyInfoModel'.'|'.0.galaxy_tags.0]", (path != null ? arr_146_lpath : null));
                 }
                 if (! res)
                 {
@@ -9223,8 +13087,8 @@ public class ansiblelint_meta extends ModelChecker
         return res;
     }
     
-    // check _jm_obj_98_map_github_branch (.'$GalaxyInfoModel'.'|'.0.github_branch)
-    public boolean _jm_f_40(Object val, Path path, Report rep)
+    // check _jm_obj_146_map_github_branch (.'$GalaxyInfoModel'.'|'.0.github_branch)
+    public boolean _jm_f_52(Object val, Path path, Report rep)
     {
         boolean res;
         // .'$GalaxyInfoModel'.'|'.0.github_branch
@@ -9236,8 +13100,8 @@ public class ansiblelint_meta extends ModelChecker
         return res;
     }
     
-    // check _jm_obj_98_map_issue_tracker_url (.'$GalaxyInfoModel'.'|'.0.issue_tracker_url)
-    public boolean _jm_f_41(Object val, Path path, Report rep)
+    // check _jm_obj_146_map_issue_tracker_url (.'$GalaxyInfoModel'.'|'.0.issue_tracker_url)
+    public boolean _jm_f_53(Object val, Path path, Report rep)
     {
         boolean res;
         // .'$GalaxyInfoModel'.'|'.0.issue_tracker_url
@@ -9249,21 +13113,8 @@ public class ansiblelint_meta extends ModelChecker
         return res;
     }
     
-    // check _jm_obj_98_map_license (.'$GalaxyInfoModel'.'|'.0.license)
-    public boolean _jm_f_42(Object val, Path path, Report rep)
-    {
-        boolean res;
-        // .'$GalaxyInfoModel'.'|'.0.license
-        res = json.isString(val);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected string [.'$GalaxyInfoModel'.'|'.0.license]", path);
-        }
-        return res;
-    }
-    
-    // check _jm_obj_98_map_min_ansible_container_version (.'$GalaxyInfoModel'.'|'.0.min_ansible_container_version)
-    public boolean _jm_f_43(Object val, Path path, Report rep)
+    // check _jm_obj_146_map_min_ansible_container_version (.'$GalaxyInfoModel'.'|'.0.min_ansible_container_version)
+    public boolean _jm_f_54(Object val, Path path, Report rep)
     {
         boolean res;
         // .'$GalaxyInfoModel'.'|'.0.min_ansible_container_version
@@ -9275,21 +13126,8 @@ public class ansiblelint_meta extends ModelChecker
         return res;
     }
     
-    // check _jm_obj_98_map_min_ansible_version (.'$GalaxyInfoModel'.'|'.0.min_ansible_version)
-    public boolean _jm_f_44(Object val, Path path, Report rep)
-    {
-        boolean res;
-        // .'$GalaxyInfoModel'.'|'.0.min_ansible_version
-        res = json.isString(val);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected string [.'$GalaxyInfoModel'.'|'.0.min_ansible_version]", path);
-        }
-        return res;
-    }
-    
-    // check _jm_obj_98_map_namespace (.'$GalaxyInfoModel'.'|'.0.namespace)
-    public boolean _jm_f_45(Object val, Path path, Report rep)
+    // check _jm_obj_146_map_namespace (.'$GalaxyInfoModel'.'|'.0.namespace)
+    public boolean _jm_f_55(Object val, Path path, Report rep)
     {
         boolean res;
         // .'$GalaxyInfoModel'.'|'.0.namespace
@@ -9302,8 +13140,8 @@ public class ansiblelint_meta extends ModelChecker
         return res;
     }
     
-    // check _jm_obj_98_map_platforms (.'$GalaxyInfoModel'.'|'.0.platforms)
-    public boolean _jm_f_46(Object val, Path path, Report rep)
+    // check _jm_obj_146_map_platforms (.'$GalaxyInfoModel'.'|'.0.platforms)
+    public boolean _jm_f_56(Object val, Path path, Report rep)
     {
         boolean res;
         // .'$GalaxyInfoModel'.'|'.0.platforms
@@ -9315,8 +13153,8 @@ public class ansiblelint_meta extends ModelChecker
         return res;
     }
     
-    // check _jm_obj_98_map_role_name (.'$GalaxyInfoModel'.'|'.0.role_name)
-    public boolean _jm_f_47(Object val, Path path, Report rep)
+    // check _jm_obj_146_map_role_name (.'$GalaxyInfoModel'.'|'.0.role_name)
+    public boolean _jm_f_57(Object val, Path path, Report rep)
     {
         boolean res;
         // .'$GalaxyInfoModel'.'|'.0.role_name
@@ -9329,8 +13167,8 @@ public class ansiblelint_meta extends ModelChecker
         return res;
     }
     
-    // check _jm_obj_98_map_video_links (.'$GalaxyInfoModel'.'|'.0.video_links)
-    public boolean _jm_f_48(Object val, Path path, Report rep)
+    // check _jm_obj_146_map_video_links (.'$GalaxyInfoModel'.'|'.0.video_links)
+    public boolean _jm_f_58(Object val, Path path, Report rep)
     {
         boolean res;
         // .'$GalaxyInfoModel'.'|'.0.video_links
@@ -9348,7 +13186,7 @@ public class ansiblelint_meta extends ModelChecker
     
     
     // object .'$GalaxyInfoModel'.'|'.0
-    public boolean _jm_obj_98(Object val, Path path, Report rep)
+    public boolean _jm_obj_146(Object val, Path path, Report rep)
     {
         if (! json.isObject(val))
         {
@@ -9363,20 +13201,20 @@ public class ansiblelint_meta extends ModelChecker
         {
             String prop = prop_loop.next();
             Object pval = json.objectValue(val, prop);
-            Path lpath_51 = new Path(prop, path);
+            Path lpath_99 = new Path(prop, path);
             if (prop.compareTo("standalone") == 0)
             {
                 // handle must standalone property
                 must_count += 1;
                 // .'$GalaxyInfoModel'.'|'.0.standalone
-                res = json.isBoolean(pval) && json.asBoolean(pval) == false;
+                res = json.isBoolean(pval) && json.asBoolean(pval) == true;
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected =false [.'$GalaxyInfoModel'.'|'.0.standalone]", (path != null ? lpath_51 : null));
+                    if (rep != null) rep.addEntry("unexpected =true [.'$GalaxyInfoModel'.'|'.0.standalone]", (path != null ? lpath_99 : null));
                 }
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("invalid mandatory prop value [.'$GalaxyInfoModel'.'|'.0.standalone]", (path != null ? lpath_51 : null));
+                    if (rep != null) rep.addEntry("invalid mandatory prop value [.'$GalaxyInfoModel'.'|'.0.standalone]", (path != null ? lpath_99 : null));
                     return false;
                 }
             }
@@ -9388,36 +13226,96 @@ public class ansiblelint_meta extends ModelChecker
                 res = json.isString(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.'$GalaxyInfoModel'.'|'.0.description]", (path != null ? lpath_51 : null));
+                    if (rep != null) rep.addEntry("unexpected string [.'$GalaxyInfoModel'.'|'.0.description]", (path != null ? lpath_99 : null));
                 }
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("invalid mandatory prop value [.'$GalaxyInfoModel'.'|'.0.description]", (path != null ? lpath_51 : null));
+                    if (rep != null) rep.addEntry("invalid mandatory prop value [.'$GalaxyInfoModel'.'|'.0.description]", (path != null ? lpath_99 : null));
                     return false;
                 }
             }
-            else if ((pfun = _jm_obj_98_map_pmap.get(prop)) != null)
+            else if (prop.compareTo("author") == 0)
             {
-                // handle 13 may props
-                if (pfun != null && ! (pfun.call(pval, (path != null ? lpath_51 : null), rep)))
+                // handle must author property
+                must_count += 1;
+                // .'$GalaxyInfoModel'.'|'.0.author
+                res = json.isString(pval);
+                if (! res)
                 {
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$GalaxyInfoModel'.'|'.0]", (path != null ? lpath_51 : null));
+                    if (rep != null) rep.addEntry("unexpected string [.'$GalaxyInfoModel'.'|'.0.author]", (path != null ? lpath_99 : null));
+                }
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("invalid mandatory prop value [.'$GalaxyInfoModel'.'|'.0.author]", (path != null ? lpath_99 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("license") == 0)
+            {
+                // handle must license property
+                must_count += 1;
+                // .'$GalaxyInfoModel'.'|'.0.license
+                res = json.isString(pval);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected string [.'$GalaxyInfoModel'.'|'.0.license]", (path != null ? lpath_99 : null));
+                }
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("invalid mandatory prop value [.'$GalaxyInfoModel'.'|'.0.license]", (path != null ? lpath_99 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("min_ansible_version") == 0)
+            {
+                // handle must min_ansible_version property
+                must_count += 1;
+                // .'$GalaxyInfoModel'.'|'.0.min_ansible_version
+                res = json.isString(pval);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected string [.'$GalaxyInfoModel'.'|'.0.min_ansible_version]", (path != null ? lpath_99 : null));
+                }
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("invalid mandatory prop value [.'$GalaxyInfoModel'.'|'.0.min_ansible_version]", (path != null ? lpath_99 : null));
+                    return false;
+                }
+            }
+            else if ((pfun = _jm_obj_146_map_pmap.get(prop)) != null)
+            {
+                // handle 10 may props
+                if (pfun != null && ! (pfun.call(pval, (path != null ? lpath_99 : null), rep)))
+                {
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$GalaxyInfoModel'.'|'.0]", (path != null ? lpath_99 : null));
                     return false;
                 }
             }
             else
             {
-                if (rep != null) rep.addEntry("unexpected prop [.'$GalaxyInfoModel'.'|'.0]", (path != null ? lpath_51 : null));
+                if (rep != null) rep.addEntry("unexpected prop [.'$GalaxyInfoModel'.'|'.0]", (path != null ? lpath_99 : null));
                 return false;
             }
         }
-        if (must_count != 2)
+        if (must_count != 5)
         {
             if (rep != null)
             {
+                if (! json.objectHasProp(val, "author"))
+                {
+                    if (rep != null) rep.addEntry("missing mandatory prop <author> [.'$GalaxyInfoModel'.'|'.0]", path);
+                }
                 if (! json.objectHasProp(val, "description"))
                 {
                     if (rep != null) rep.addEntry("missing mandatory prop <description> [.'$GalaxyInfoModel'.'|'.0]", path);
+                }
+                if (! json.objectHasProp(val, "license"))
+                {
+                    if (rep != null) rep.addEntry("missing mandatory prop <license> [.'$GalaxyInfoModel'.'|'.0]", path);
+                }
+                if (! json.objectHasProp(val, "min_ansible_version"))
+                {
+                    if (rep != null) rep.addEntry("missing mandatory prop <min_ansible_version> [.'$GalaxyInfoModel'.'|'.0]", path);
                 }
                 if (! json.objectHasProp(val, "standalone"))
                 {
@@ -9443,7 +13341,7 @@ public class ansiblelint_meta extends ModelChecker
         if (res)
         {
             // .'$GalaxyInfoModel'.'|'.0
-            res = _jm_obj_98(val, path, rep);
+            res = _jm_obj_146(val, path, rep);
             if (! res)
             {
                 if (rep != null) rep.addEntry("unexpected element [.'$GalaxyInfoModel'.'|'.0]", path);
@@ -9451,10 +13349,19 @@ public class ansiblelint_meta extends ModelChecker
             if (! res)
             {
                 // .'$GalaxyInfoModel'.'|'.1
-                res = _jm_obj_97(val, path, rep);
+                res = _jm_obj_145(val, path, rep);
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected element [.'$GalaxyInfoModel'.'|'.1]", path);
+                }
+                if (! res)
+                {
+                    // .'$GalaxyInfoModel'.'|'.2
+                    res = _jm_obj_144(val, path, rep);
+                    if (! res)
+                    {
+                        if (rep != null) rep.addEntry("unexpected element [.'$GalaxyInfoModel'.'|'.2]", path);
+                    }
                 }
             }
             if (res)
@@ -9464,15 +13371,6 @@ public class ansiblelint_meta extends ModelChecker
             else
             {
                 if (rep != null) rep.addEntry("no model matched [.'$GalaxyInfoModel'.'|']", path);
-            }
-        }
-        if (! res)
-        {
-            // .'$GalaxyInfoModel'.'|'
-            res = json_model_53(val, path, rep);
-            if (! res)
-            {
-                if (rep != null) rep.addEntry("unexpected $GalaxyInfoModelStandalone [.'$GalaxyInfoModel'.'|']", path);
             }
         }
         return res;
@@ -9491,19 +13389,19 @@ public class ansiblelint_meta extends ModelChecker
         res = json.isArray(val);
         if (res)
         {
-            int arr_99_idx = -1;
-            Iterator<Object> arr_99_item_loop = json.arrayIterator(val);
-            while (arr_99_item_loop.hasNext())
+            int arr_147_idx = -1;
+            Iterator<Object> arr_147_item_loop = json.arrayIterator(val);
+            while (arr_147_item_loop.hasNext())
             {
-                arr_99_idx++;
-                Object arr_99_item = arr_99_item_loop.next();
-                Path arr_99_lpath = new Path(arr_99_idx, path);
+                arr_147_idx++;
+                Object arr_147_item = arr_147_item_loop.next();
+                Path arr_147_lpath = new Path(arr_147_idx, path);
                 // .'$collections'.0
                 // "/^[a-z_]+\\.[a-z_]+$/"
-                res = json.isString(arr_99_item) && _jm_re_2(json.asString(arr_99_item), (path != null ? arr_99_lpath : null), rep);
+                res = json.isString(arr_147_item) && _jm_re_2(json.asString(arr_147_item), (path != null ? arr_147_lpath : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected /^[a-z_]+\\.[a-z_]+$/ [.'$collections'.0]", (path != null ? arr_99_lpath : null));
+                    if (rep != null) rep.addEntry("unexpected /^[a-z_]+\\.[a-z_]+$/ [.'$collections'.0]", (path != null ? arr_147_lpath : null));
                 }
                 if (! res)
                 {
@@ -9543,18 +13441,18 @@ public class ansiblelint_meta extends ModelChecker
                 res = json.isArray(val);
                 if (res)
                 {
-                    int arr_100_idx = -1;
-                    Iterator<Object> arr_100_item_loop = json.arrayIterator(val);
-                    while (arr_100_item_loop.hasNext())
+                    int arr_148_idx = -1;
+                    Iterator<Object> arr_148_item_loop = json.arrayIterator(val);
+                    while (arr_148_item_loop.hasNext())
                     {
-                        arr_100_idx++;
-                        Object arr_100_item = arr_100_item_loop.next();
-                        Path arr_100_lpath = new Path(arr_100_idx, path);
+                        arr_148_idx++;
+                        Object arr_148_item = arr_148_item_loop.next();
+                        Path arr_148_lpath = new Path(arr_148_idx, path);
                         // .'$complex_conditional'.'|'.2.0
-                        res = json.isString(arr_100_item);
+                        res = json.isString(arr_148_item);
                         if (! res)
                         {
-                            if (rep != null) rep.addEntry("unexpected string [.'$complex_conditional'.'|'.2.0]", (path != null ? arr_100_lpath : null));
+                            if (rep != null) rep.addEntry("unexpected string [.'$complex_conditional'.'|'.2.0]", (path != null ? arr_148_lpath : null));
                         }
                         if (! res)
                         {
@@ -9581,7 +13479,7 @@ public class ansiblelint_meta extends ModelChecker
     
     
     // object .'$DependencyModelLoose'.vars
-    public boolean _jm_obj_100(Object val, Path path, Report rep)
+    public boolean _jm_obj_148(Object val, Path path, Report rep)
     {
         if (! json.isObject(val))
         {
@@ -9593,7 +13491,7 @@ public class ansiblelint_meta extends ModelChecker
     }
     
     // object .'$DependencyModelLoose'
-    public boolean _jm_obj_99(Object val, Path path, Report rep)
+    public boolean _jm_obj_147(Object val, Path path, Report rep)
     {
         // check must only props
         if (! json.isObject(val))
@@ -9667,7 +13565,7 @@ public class ansiblelint_meta extends ModelChecker
         {
             pval = json.objectValue(val, "scm");
             // .'$DependencyModelLoose'.scm
-            res = json.isScalar(pval) && _jm_cst_64_set.contains(pval);
+            res = json.isScalar(pval) && _jm_cst_96_set.contains(pval);
             if (! res)
             {
                 if (rep != null) rep.addEntry("value not in enum [.'$DependencyModelLoose'.scm.'|']", path);
@@ -9694,18 +13592,18 @@ public class ansiblelint_meta extends ModelChecker
                 res = json.isArray(pval);
                 if (res)
                 {
-                    int arr_101_idx = -1;
-                    Iterator<Object> arr_101_item_loop = json.arrayIterator(pval);
-                    while (arr_101_item_loop.hasNext())
+                    int arr_149_idx = -1;
+                    Iterator<Object> arr_149_item_loop = json.arrayIterator(pval);
+                    while (arr_149_item_loop.hasNext())
                     {
-                        arr_101_idx++;
-                        Object arr_101_item = arr_101_item_loop.next();
-                        Path arr_101_lpath = new Path(arr_101_idx, path);
+                        arr_149_idx++;
+                        Object arr_149_item = arr_149_item_loop.next();
+                        Path arr_149_lpath = new Path(arr_149_idx, path);
                         // .'$DependencyModelLoose'.tags.'|'.1.0
-                        res = json.isString(arr_101_item);
+                        res = json.isString(arr_149_item);
                         if (! res)
                         {
-                            if (rep != null) rep.addEntry("unexpected string [.'$DependencyModelLoose'.tags.'|'.1.0]", (path != null ? arr_101_lpath : null));
+                            if (rep != null) rep.addEntry("unexpected string [.'$DependencyModelLoose'.tags.'|'.1.0]", (path != null ? arr_149_lpath : null));
                         }
                         if (! res)
                         {
@@ -9736,7 +13634,7 @@ public class ansiblelint_meta extends ModelChecker
         {
             pval = json.objectValue(val, "vars");
             // .'$DependencyModelLoose'.vars
-            res = _jm_obj_100(pval, path, rep);
+            res = _jm_obj_148(pval, path, rep);
             if (! res)
             {
                 if (rep != null) rep.addEntry("unexpected element [.'$DependencyModelLoose'.vars]", path);
@@ -9788,7 +13686,7 @@ public class ansiblelint_meta extends ModelChecker
         // 
         // Other keys are treated as role [parameters](https://docs.ansible.com/ansible/latest/user_guide/playbooks_reuse_roles.html#passing-different-parameters).
         // .'$DependencyModelLoose'
-        res = _jm_obj_99(val, path, rep);
+        res = _jm_obj_147(val, path, rep);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected element [.'$DependencyModelLoose']", path);
@@ -9797,7 +13695,7 @@ public class ansiblelint_meta extends ModelChecker
     }
     
     // object .'$DependencyModel'.'&'.1.'|'.2
-    public boolean _jm_obj_101(Object val, Path path, Report rep)
+    public boolean _jm_obj_149(Object val, Path path, Report rep)
     {
         // check must only props
         if (! json.isObject(val))
@@ -9828,7 +13726,7 @@ public class ansiblelint_meta extends ModelChecker
     }
     
     // object .'$DependencyModel'.'&'.1.'|'.1
-    public boolean _jm_obj_102(Object val, Path path, Report rep)
+    public boolean _jm_obj_150(Object val, Path path, Report rep)
     {
         // check must only props
         if (! json.isObject(val))
@@ -9859,7 +13757,7 @@ public class ansiblelint_meta extends ModelChecker
     }
     
     // object .'$DependencyModel'.'&'.1.'|'.0
-    public boolean _jm_obj_103(Object val, Path path, Report rep)
+    public boolean _jm_obj_151(Object val, Path path, Report rep)
     {
         // check must only props
         if (! json.isObject(val))
@@ -9915,7 +13813,7 @@ public class ansiblelint_meta extends ModelChecker
                 if (res)
                 {
                     // .'$DependencyModel'.'&'.1.'|'.0
-                    res = _jm_obj_103(val, path, rep);
+                    res = _jm_obj_151(val, path, rep);
                     if (! res)
                     {
                         if (rep != null) rep.addEntry("unexpected element [.'$DependencyModel'.'&'.1.'|'.0]", path);
@@ -9923,7 +13821,7 @@ public class ansiblelint_meta extends ModelChecker
                     if (! res)
                     {
                         // .'$DependencyModel'.'&'.1.'|'.1
-                        res = _jm_obj_102(val, path, rep);
+                        res = _jm_obj_150(val, path, rep);
                         if (! res)
                         {
                             if (rep != null) rep.addEntry("unexpected element [.'$DependencyModel'.'&'.1.'|'.1]", path);
@@ -9931,7 +13829,7 @@ public class ansiblelint_meta extends ModelChecker
                         if (! res)
                         {
                             // .'$DependencyModel'.'&'.1.'|'.2
-                            res = _jm_obj_101(val, path, rep);
+                            res = _jm_obj_149(val, path, rep);
                             if (! res)
                             {
                                 if (rep != null) rep.addEntry("unexpected element [.'$DependencyModel'.'&'.1.'|'.2]", path);
@@ -9961,7 +13859,7 @@ public class ansiblelint_meta extends ModelChecker
     }
     
     // object .'$AnsibleMetaObj'
-    public boolean _jm_obj_104(Object val, Path path, Report rep)
+    public boolean _jm_obj_152(Object val, Path path, Report rep)
     {
         if (! json.isObject(val))
         {
@@ -9974,7 +13872,7 @@ public class ansiblelint_meta extends ModelChecker
         {
             String prop = prop_loop.next();
             Object pval = json.objectValue(val, prop);
-            Path lpath_52 = new Path(prop, path);
+            Path lpath_100 = new Path(prop, path);
             if (prop.compareTo("allow_duplicates") == 0)
             {
                 // handle may allow_duplicates property
@@ -9982,11 +13880,11 @@ public class ansiblelint_meta extends ModelChecker
                 res = json.isBoolean(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("not a bool [.'$AnsibleMetaObj'.allow_duplicates]", (path != null ? lpath_52 : null));
+                    if (rep != null) rep.addEntry("not a bool [.'$AnsibleMetaObj'.allow_duplicates]", (path != null ? lpath_100 : null));
                 }
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$AnsibleMetaObj'.allow_duplicates]", (path != null ? lpath_52 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$AnsibleMetaObj'.allow_duplicates]", (path != null ? lpath_100 : null));
                     return false;
                 }
             }
@@ -9994,14 +13892,14 @@ public class ansiblelint_meta extends ModelChecker
             {
                 // handle may collections property
                 // .'$AnsibleMetaObj'.collections
-                res = json_model_55(pval, (path != null ? lpath_52 : null), rep);
+                res = json_model_55(pval, (path != null ? lpath_100 : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $collections [.'$AnsibleMetaObj'.collections]", (path != null ? lpath_52 : null));
+                    if (rep != null) rep.addEntry("unexpected $collections [.'$AnsibleMetaObj'.collections]", (path != null ? lpath_100 : null));
                 }
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$AnsibleMetaObj'.collections]", (path != null ? lpath_52 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$AnsibleMetaObj'.collections]", (path != null ? lpath_100 : null));
                     return false;
                 }
             }
@@ -10012,27 +13910,27 @@ public class ansiblelint_meta extends ModelChecker
                 res = json.isArray(pval);
                 if (res)
                 {
-                    int arr_102_idx = -1;
-                    Iterator<Object> arr_102_item_loop = json.arrayIterator(pval);
-                    while (arr_102_item_loop.hasNext())
+                    int arr_150_idx = -1;
+                    Iterator<Object> arr_150_item_loop = json.arrayIterator(pval);
+                    while (arr_150_item_loop.hasNext())
                     {
-                        arr_102_idx++;
-                        Object arr_102_item = arr_102_item_loop.next();
-                        Path arr_102_lpath = new Path(arr_102_idx, (path != null ? lpath_52 : null));
+                        arr_150_idx++;
+                        Object arr_150_item = arr_150_item_loop.next();
+                        Path arr_150_lpath = new Path(arr_150_idx, (path != null ? lpath_100 : null));
                         // .'$AnsibleMetaObj'.dependencies.0
                         // .'$AnsibleMetaObj'.dependencies.0.'|'.0
-                        res = json.isString(arr_102_item);
+                        res = json.isString(arr_150_item);
                         if (! res)
                         {
-                            if (rep != null) rep.addEntry("unexpected string [.'$AnsibleMetaObj'.dependencies.0.'|'.0]", ((path != null ? lpath_52 : null) != null ? arr_102_lpath : null));
+                            if (rep != null) rep.addEntry("unexpected string [.'$AnsibleMetaObj'.dependencies.0.'|'.0]", ((path != null ? lpath_100 : null) != null ? arr_150_lpath : null));
                         }
                         if (! res)
                         {
                             // .'$AnsibleMetaObj'.dependencies.0.'|'.1
-                            res = json_model_58(arr_102_item, ((path != null ? lpath_52 : null) != null ? arr_102_lpath : null), rep);
+                            res = json_model_58(arr_150_item, ((path != null ? lpath_100 : null) != null ? arr_150_lpath : null), rep);
                             if (! res)
                             {
-                                if (rep != null) rep.addEntry("unexpected $DependencyModel [.'$AnsibleMetaObj'.dependencies.0.'|'.1]", ((path != null ? lpath_52 : null) != null ? arr_102_lpath : null));
+                                if (rep != null) rep.addEntry("unexpected $DependencyModel [.'$AnsibleMetaObj'.dependencies.0.'|'.1]", ((path != null ? lpath_100 : null) != null ? arr_150_lpath : null));
                             }
                         }
                         if (res)
@@ -10041,7 +13939,7 @@ public class ansiblelint_meta extends ModelChecker
                         }
                         else
                         {
-                            if (rep != null) rep.addEntry("no model matched [.'$AnsibleMetaObj'.dependencies.0.'|']", ((path != null ? lpath_52 : null) != null ? arr_102_lpath : null));
+                            if (rep != null) rep.addEntry("no model matched [.'$AnsibleMetaObj'.dependencies.0.'|']", ((path != null ? lpath_100 : null) != null ? arr_150_lpath : null));
                         }
                         if (! res)
                         {
@@ -10051,11 +13949,11 @@ public class ansiblelint_meta extends ModelChecker
                 }
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("not array or unexpected array [.'$AnsibleMetaObj'.dependencies]", (path != null ? lpath_52 : null));
+                    if (rep != null) rep.addEntry("not array or unexpected array [.'$AnsibleMetaObj'.dependencies]", (path != null ? lpath_100 : null));
                 }
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$AnsibleMetaObj'.dependencies]", (path != null ? lpath_52 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$AnsibleMetaObj'.dependencies]", (path != null ? lpath_100 : null));
                     return false;
                 }
             }
@@ -10063,20 +13961,20 @@ public class ansiblelint_meta extends ModelChecker
             {
                 // handle may galaxy_info property
                 // .'$AnsibleMetaObj'.galaxy_info
-                res = json_model_54(pval, (path != null ? lpath_52 : null), rep);
+                res = json_model_54(pval, (path != null ? lpath_100 : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $GalaxyInfoModel [.'$AnsibleMetaObj'.galaxy_info]", (path != null ? lpath_52 : null));
+                    if (rep != null) rep.addEntry("unexpected $GalaxyInfoModel [.'$AnsibleMetaObj'.galaxy_info]", (path != null ? lpath_100 : null));
                 }
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$AnsibleMetaObj'.galaxy_info]", (path != null ? lpath_52 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$AnsibleMetaObj'.galaxy_info]", (path != null ? lpath_100 : null));
                     return false;
                 }
             }
             else
             {
-                if (rep != null) rep.addEntry("unexpected prop [.'$AnsibleMetaObj']", (path != null ? lpath_52 : null));
+                if (rep != null) rep.addEntry("unexpected prop [.'$AnsibleMetaObj']", (path != null ? lpath_100 : null));
                 return false;
             }
         }
@@ -10088,12 +13986,135 @@ public class ansiblelint_meta extends ModelChecker
     {
         boolean res;
         // .'$AnsibleMetaObj'
-        res = _jm_obj_104(val, path, rep);
+        res = _jm_obj_152(val, path, rep);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected element [.'$AnsibleMetaObj']", path);
         }
         return res;
+    }
+    
+    // object .'$AnsibleMeta'.'|'.1
+    public boolean _jm_obj_153(Object val, Path path, Report rep)
+    {
+        if (! json.isObject(val))
+        {
+            if (rep != null) rep.addEntry("not an object [.'$AnsibleMeta'.'|'.1]", path);
+            return false;
+        }
+        boolean res;
+        Iterator<String> prop_loop = json.objectIterator(val);
+        while (prop_loop.hasNext())
+        {
+            String prop = prop_loop.next();
+            Object pval = json.objectValue(val, prop);
+            Path lpath_101 = new Path(prop, path);
+            if (prop.compareTo("allow_duplicates") == 0)
+            {
+                // handle may allow_duplicates property
+                // .'$AnsibleMeta'.'|'.1.allow_duplicates
+                res = json.isBoolean(pval);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("not a bool [.'$AnsibleMeta'.'|'.1.allow_duplicates]", (path != null ? lpath_101 : null));
+                }
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$AnsibleMeta'.'|'.1.allow_duplicates]", (path != null ? lpath_101 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("collections") == 0)
+            {
+                // handle may collections property
+                // .'$AnsibleMeta'.'|'.1.collections
+                res = json_model_55(pval, (path != null ? lpath_101 : null), rep);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected $collections [.'$AnsibleMeta'.'|'.1.collections]", (path != null ? lpath_101 : null));
+                }
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$AnsibleMeta'.'|'.1.collections]", (path != null ? lpath_101 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("dependencies") == 0)
+            {
+                // handle may dependencies property
+                // .'$AnsibleMeta'.'|'.1.dependencies
+                res = json.isArray(pval);
+                if (res)
+                {
+                    int arr_151_idx = -1;
+                    Iterator<Object> arr_151_item_loop = json.arrayIterator(pval);
+                    while (arr_151_item_loop.hasNext())
+                    {
+                        arr_151_idx++;
+                        Object arr_151_item = arr_151_item_loop.next();
+                        Path arr_151_lpath = new Path(arr_151_idx, (path != null ? lpath_101 : null));
+                        // .'$AnsibleMeta'.'|'.1.dependencies.0
+                        // .'$AnsibleMeta'.'|'.1.dependencies.0.'|'.0
+                        res = json.isString(arr_151_item);
+                        if (! res)
+                        {
+                            if (rep != null) rep.addEntry("unexpected string [.'$AnsibleMeta'.'|'.1.dependencies.0.'|'.0]", ((path != null ? lpath_101 : null) != null ? arr_151_lpath : null));
+                        }
+                        if (! res)
+                        {
+                            // .'$AnsibleMeta'.'|'.1.dependencies.0.'|'.1
+                            res = json_model_58(arr_151_item, ((path != null ? lpath_101 : null) != null ? arr_151_lpath : null), rep);
+                            if (! res)
+                            {
+                                if (rep != null) rep.addEntry("unexpected $DependencyModel [.'$AnsibleMeta'.'|'.1.dependencies.0.'|'.1]", ((path != null ? lpath_101 : null) != null ? arr_151_lpath : null));
+                            }
+                        }
+                        if (res)
+                        {
+                            if (rep != null) rep.clearEntries();
+                        }
+                        else
+                        {
+                            if (rep != null) rep.addEntry("no model matched [.'$AnsibleMeta'.'|'.1.dependencies.0.'|']", ((path != null ? lpath_101 : null) != null ? arr_151_lpath : null));
+                        }
+                        if (! res)
+                        {
+                            break;
+                        }
+                    }
+                }
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("not array or unexpected array [.'$AnsibleMeta'.'|'.1.dependencies]", (path != null ? lpath_101 : null));
+                }
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$AnsibleMeta'.'|'.1.dependencies]", (path != null ? lpath_101 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("galaxy_info") == 0)
+            {
+                // handle may galaxy_info property
+                // .'$AnsibleMeta'.'|'.1.galaxy_info
+                res = json_model_54(pval, (path != null ? lpath_101 : null), rep);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected $GalaxyInfoModel [.'$AnsibleMeta'.'|'.1.galaxy_info]", (path != null ? lpath_101 : null));
+                }
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$AnsibleMeta'.'|'.1.galaxy_info]", (path != null ? lpath_101 : null));
+                    return false;
+                }
+            }
+            else
+            {
+                if (rep != null) rep.addEntry("unexpected prop [.'$AnsibleMeta'.'|'.1]", (path != null ? lpath_101 : null));
+                return false;
+            }
+        }
+        return true;
     }
     
     // check $AnsibleMeta (.'$AnsibleMeta')
@@ -10111,10 +14132,10 @@ public class ansiblelint_meta extends ModelChecker
         if (! res)
         {
             // .'$AnsibleMeta'.'|'.1
-            res = json_model_59(val, path, rep);
+            res = _jm_obj_153(val, path, rep);
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected $AnsibleMetaObj [.'$AnsibleMeta'.'|'.1]", path);
+                if (rep != null) rep.addEntry("unexpected element [.'$AnsibleMeta'.'|'.1]", path);
             }
         }
         if (res)
@@ -10915,66 +14936,461 @@ public class ansiblelint_meta extends ModelChecker
             _jm_cst_63_set.add(json.safeJSON("\"7.1\""));
             _jm_cst_63_set.add(json.safeJSON("\"7.2\""));
             _jm_cst_63_set.add(json.safeJSON("\"all\""));
+            _jm_cst_64_set = new HashSet<Object>();
+            _jm_cst_64_set.add(json.safeJSON("\"2008R2\""));
+            _jm_cst_64_set.add(json.safeJSON("\"2008x64\""));
+            _jm_cst_64_set.add(json.safeJSON("\"2008x86\""));
+            _jm_cst_64_set.add(json.safeJSON("\"2012\""));
+            _jm_cst_64_set.add(json.safeJSON("\"2012R2\""));
+            _jm_cst_64_set.add(json.safeJSON("\"2016\""));
+            _jm_cst_64_set.add(json.safeJSON("\"2019\""));
+            _jm_cst_64_set.add(json.safeJSON("\"2022\""));
+            _jm_cst_64_set.add(json.safeJSON("\"2025\""));
+            _jm_cst_64_set.add(json.safeJSON("\"all\""));
+            _jm_cst_65_set = new HashSet<Object>();
+            _jm_cst_65_set.add(json.safeJSON("\"5.5\""));
+            _jm_cst_65_set.add(json.safeJSON("\"6.0\""));
+            _jm_cst_65_set.add(json.safeJSON("\"6.5\""));
+            _jm_cst_65_set.add(json.safeJSON("\"6.7\""));
+            _jm_cst_65_set.add(json.safeJSON("\"7.0\""));
+            _jm_cst_65_set.add(json.safeJSON("\"8.0\""));
+            _jm_cst_65_set.add(json.safeJSON("\"all\""));
+            _jm_cst_66_set = new HashSet<Object>();
+            _jm_cst_66_set.add(json.safeJSON("\"5.5\""));
+            _jm_cst_66_set.add(json.safeJSON("\"6.0\""));
+            _jm_cst_66_set.add(json.safeJSON("\"6.5\""));
+            _jm_cst_66_set.add(json.safeJSON("\"6.7\""));
+            _jm_cst_66_set.add(json.safeJSON("\"7.0\""));
+            _jm_cst_66_set.add(json.safeJSON("\"8.0\""));
+            _jm_cst_66_set.add(json.safeJSON("\"all\""));
+            _jm_cst_67_set = new HashSet<Object>();
+            _jm_cst_67_set.add(json.safeJSON("\"artful\""));
+            _jm_cst_67_set.add(json.safeJSON("\"bionic\""));
+            _jm_cst_67_set.add(json.safeJSON("\"cosmic\""));
+            _jm_cst_67_set.add(json.safeJSON("\"disco\""));
+            _jm_cst_67_set.add(json.safeJSON("\"eoan\""));
+            _jm_cst_67_set.add(json.safeJSON("\"focal\""));
+            _jm_cst_67_set.add(json.safeJSON("\"groovy\""));
+            _jm_cst_67_set.add(json.safeJSON("\"hirsute\""));
+            _jm_cst_67_set.add(json.safeJSON("\"impish\""));
+            _jm_cst_67_set.add(json.safeJSON("\"jammy\""));
+            _jm_cst_67_set.add(json.safeJSON("\"kinetic\""));
+            _jm_cst_67_set.add(json.safeJSON("\"lucid\""));
+            _jm_cst_67_set.add(json.safeJSON("\"lunar\""));
+            _jm_cst_67_set.add(json.safeJSON("\"mantic\""));
+            _jm_cst_67_set.add(json.safeJSON("\"noble\""));
+            _jm_cst_67_set.add(json.safeJSON("\"maverick\""));
+            _jm_cst_67_set.add(json.safeJSON("\"natty\""));
+            _jm_cst_67_set.add(json.safeJSON("\"oneiric\""));
+            _jm_cst_67_set.add(json.safeJSON("\"oracular\""));
+            _jm_cst_67_set.add(json.safeJSON("\"plucky\""));
+            _jm_cst_67_set.add(json.safeJSON("\"precise\""));
+            _jm_cst_67_set.add(json.safeJSON("\"quantal\""));
+            _jm_cst_67_set.add(json.safeJSON("\"raring\""));
+            _jm_cst_67_set.add(json.safeJSON("\"saucy\""));
+            _jm_cst_67_set.add(json.safeJSON("\"trusty\""));
+            _jm_cst_67_set.add(json.safeJSON("\"utopic\""));
+            _jm_cst_67_set.add(json.safeJSON("\"vivid\""));
+            _jm_cst_67_set.add(json.safeJSON("\"wily\""));
+            _jm_cst_67_set.add(json.safeJSON("\"xenial\""));
+            _jm_cst_67_set.add(json.safeJSON("\"yakkety\""));
+            _jm_cst_67_set.add(json.safeJSON("\"zesty\""));
+            _jm_cst_67_set.add(json.safeJSON("\"all\""));
+            _jm_cst_68_set = new HashSet<Object>();
+            _jm_cst_68_set.add(json.safeJSON("\"12.1\""));
+            _jm_cst_68_set.add(json.safeJSON("\"13.0\""));
+            _jm_cst_68_set.add(json.safeJSON("\"13.1\""));
+            _jm_cst_68_set.add(json.safeJSON("\"14.0\""));
+            _jm_cst_68_set.add(json.safeJSON("\"all\""));
+            _jm_cst_69_set = new HashSet<Object>();
+            _jm_cst_69_set.add(json.safeJSON("\"6.0\""));
+            _jm_cst_69_set.add(json.safeJSON("\"6.1\""));
+            _jm_cst_69_set.add(json.safeJSON("\"6.2\""));
+            _jm_cst_69_set.add(json.safeJSON("\"7.0\""));
+            _jm_cst_69_set.add(json.safeJSON("\"all\""));
+            _jm_cst_70_set = new HashSet<Object>();
+            _jm_cst_70_set.add(json.safeJSON("\"10\""));
+            _jm_cst_70_set.add(json.safeJSON("\"11.0\""));
+            _jm_cst_70_set.add(json.safeJSON("\"11.1\""));
+            _jm_cst_70_set.add(json.safeJSON("\"11.2\""));
+            _jm_cst_70_set.add(json.safeJSON("\"11.3\""));
+            _jm_cst_70_set.add(json.safeJSON("\"11.4\""));
+            _jm_cst_70_set.add(json.safeJSON("\"all\""));
+            _jm_cst_71_set = new HashSet<Object>();
+            _jm_cst_71_set.add(json.safeJSON("\"10SP3\""));
+            _jm_cst_71_set.add(json.safeJSON("\"10SP4\""));
+            _jm_cst_71_set.add(json.safeJSON("\"11\""));
+            _jm_cst_71_set.add(json.safeJSON("\"11SP1\""));
+            _jm_cst_71_set.add(json.safeJSON("\"11SP2\""));
+            _jm_cst_71_set.add(json.safeJSON("\"11SP3\""));
+            _jm_cst_71_set.add(json.safeJSON("\"11SP4\""));
+            _jm_cst_71_set.add(json.safeJSON("\"12\""));
+            _jm_cst_71_set.add(json.safeJSON("\"12SP1\""));
+            _jm_cst_71_set.add(json.safeJSON("\"12SP2\""));
+            _jm_cst_71_set.add(json.safeJSON("\"12SP3\""));
+            _jm_cst_71_set.add(json.safeJSON("\"12SP4\""));
+            _jm_cst_71_set.add(json.safeJSON("\"12SP5\""));
+            _jm_cst_71_set.add(json.safeJSON("\"15\""));
+            _jm_cst_71_set.add(json.safeJSON("\"15SP1\""));
+            _jm_cst_71_set.add(json.safeJSON("\"15SP2\""));
+            _jm_cst_71_set.add(json.safeJSON("\"15SP3\""));
+            _jm_cst_71_set.add(json.safeJSON("\"15SP4\""));
+            _jm_cst_71_set.add(json.safeJSON("\"15SP5\""));
+            _jm_cst_71_set.add(json.safeJSON("\"15SP6\""));
+            _jm_cst_71_set.add(json.safeJSON("\"all\""));
+            _jm_cst_72_set = new HashSet<Object>();
+            _jm_cst_72_set.add(json.safeJSON("\"8.0\""));
+            _jm_cst_72_set.add(json.safeJSON("\"8.1\""));
+            _jm_cst_72_set.add(json.safeJSON("\"8.2\""));
+            _jm_cst_72_set.add(json.safeJSON("\"8.3\""));
+            _jm_cst_72_set.add(json.safeJSON("\"8.4\""));
+            _jm_cst_72_set.add(json.safeJSON("\"8.5\""));
+            _jm_cst_72_set.add(json.safeJSON("\"8.6\""));
+            _jm_cst_72_set.add(json.safeJSON("\"8.7\""));
+            _jm_cst_72_set.add(json.safeJSON("\"8.8\""));
+            _jm_cst_72_set.add(json.safeJSON("\"9.0\""));
+            _jm_cst_72_set.add(json.safeJSON("\"9.1\""));
+            _jm_cst_72_set.add(json.safeJSON("\"9.2\""));
+            _jm_cst_72_set.add(json.safeJSON("\"all\""));
+            _jm_cst_73_set = new HashSet<Object>();
+            _jm_cst_73_set.add(json.safeJSON("\"7.1\""));
+            _jm_cst_73_set.add(json.safeJSON("\"8.0\""));
+            _jm_cst_73_set.add(json.safeJSON("\"8.1\""));
+            _jm_cst_73_set.add(json.safeJSON("\"9.0\""));
+            _jm_cst_73_set.add(json.safeJSON("\"all\""));
+            _jm_cst_74_set = new HashSet<Object>();
+            _jm_cst_74_set.add(json.safeJSON("\"7.0\""));
+            _jm_cst_74_set.add(json.safeJSON("\"7.1\""));
+            _jm_cst_74_set.add(json.safeJSON("\"7.2\""));
+            _jm_cst_74_set.add(json.safeJSON("\"7.3\""));
+            _jm_cst_74_set.add(json.safeJSON("\"7.4\""));
+            _jm_cst_74_set.add(json.safeJSON("\"7.5\""));
+            _jm_cst_74_set.add(json.safeJSON("\"7.6\""));
+            _jm_cst_74_set.add(json.safeJSON("\"7.7\""));
+            _jm_cst_74_set.add(json.safeJSON("\"7.8\""));
+            _jm_cst_74_set.add(json.safeJSON("\"7.9\""));
+            _jm_cst_74_set.add(json.safeJSON("\"8.0\""));
+            _jm_cst_74_set.add(json.safeJSON("\"8.1\""));
+            _jm_cst_74_set.add(json.safeJSON("\"8.2\""));
+            _jm_cst_74_set.add(json.safeJSON("\"8.3\""));
+            _jm_cst_74_set.add(json.safeJSON("\"8.4\""));
+            _jm_cst_74_set.add(json.safeJSON("\"8.5\""));
+            _jm_cst_74_set.add(json.safeJSON("\"8.6\""));
+            _jm_cst_74_set.add(json.safeJSON("\"8.7\""));
+            _jm_cst_74_set.add(json.safeJSON("\"8.8\""));
+            _jm_cst_74_set.add(json.safeJSON("\"8.9\""));
+            _jm_cst_74_set.add(json.safeJSON("\"8.10\""));
+            _jm_cst_74_set.add(json.safeJSON("\"9.0\""));
+            _jm_cst_74_set.add(json.safeJSON("\"9.1\""));
+            _jm_cst_74_set.add(json.safeJSON("\"9.2\""));
+            _jm_cst_74_set.add(json.safeJSON("\"9.3\""));
+            _jm_cst_74_set.add(json.safeJSON("\"9.4\""));
+            _jm_cst_74_set.add(json.safeJSON("\"all\""));
+            _jm_cst_75_set = new HashSet<Object>();
+            _jm_cst_75_set.add(json.safeJSON("\"17.01\""));
+            _jm_cst_75_set.add(json.safeJSON("\"18.06\""));
+            _jm_cst_75_set.add(json.safeJSON("\"19.07\""));
+            _jm_cst_75_set.add(json.safeJSON("\"21.02\""));
+            _jm_cst_75_set.add(json.safeJSON("\"22.03\""));
+            _jm_cst_75_set.add(json.safeJSON("\"23.05\""));
+            _jm_cst_75_set.add(json.safeJSON("\"24.10\""));
+            _jm_cst_75_set.add(json.safeJSON("\"all\""));
+            _jm_cst_76_set = new HashSet<Object>();
+            _jm_cst_76_set.add(json.safeJSON("\"12.1\""));
+            _jm_cst_76_set.add(json.safeJSON("\"12.2\""));
+            _jm_cst_76_set.add(json.safeJSON("\"12.3\""));
+            _jm_cst_76_set.add(json.safeJSON("\"13.1\""));
+            _jm_cst_76_set.add(json.safeJSON("\"13.2\""));
+            _jm_cst_76_set.add(json.safeJSON("\"15.0\""));
+            _jm_cst_76_set.add(json.safeJSON("\"15.1\""));
+            _jm_cst_76_set.add(json.safeJSON("\"15.2\""));
+            _jm_cst_76_set.add(json.safeJSON("\"15.3\""));
+            _jm_cst_76_set.add(json.safeJSON("\"15.4\""));
+            _jm_cst_76_set.add(json.safeJSON("\"15.5\""));
+            _jm_cst_76_set.add(json.safeJSON("\"42.1\""));
+            _jm_cst_76_set.add(json.safeJSON("\"42.2\""));
+            _jm_cst_76_set.add(json.safeJSON("\"42.3\""));
+            _jm_cst_76_set.add(json.safeJSON("\"all\""));
+            _jm_cst_77_set = new HashSet<Object>();
+            _jm_cst_77_set.add(json.safeJSON("\"5.6\""));
+            _jm_cst_77_set.add(json.safeJSON("\"5.7\""));
+            _jm_cst_77_set.add(json.safeJSON("\"5.8\""));
+            _jm_cst_77_set.add(json.safeJSON("\"5.9\""));
+            _jm_cst_77_set.add(json.safeJSON("\"6.0\""));
+            _jm_cst_77_set.add(json.safeJSON("\"6.1\""));
+            _jm_cst_77_set.add(json.safeJSON("\"6.2\""));
+            _jm_cst_77_set.add(json.safeJSON("\"6.3\""));
+            _jm_cst_77_set.add(json.safeJSON("\"6.4\""));
+            _jm_cst_77_set.add(json.safeJSON("\"6.5\""));
+            _jm_cst_77_set.add(json.safeJSON("\"6.6\""));
+            _jm_cst_77_set.add(json.safeJSON("\"6.7\""));
+            _jm_cst_77_set.add(json.safeJSON("\"6.8\""));
+            _jm_cst_77_set.add(json.safeJSON("\"6.9\""));
+            _jm_cst_77_set.add(json.safeJSON("\"7.0\""));
+            _jm_cst_77_set.add(json.safeJSON("\"7.1\""));
+            _jm_cst_77_set.add(json.safeJSON("\"7.2\""));
+            _jm_cst_77_set.add(json.safeJSON("\"7.3\""));
+            _jm_cst_77_set.add(json.safeJSON("\"all\""));
+            _jm_cst_78_set = new HashSet<Object>();
+            _jm_cst_78_set.add(json.safeJSON("\"7\""));
+            _jm_cst_78_set.add(json.safeJSON("\"8\""));
+            _jm_cst_78_set.add(json.safeJSON("\"all\""));
+            _jm_cst_79_set = new HashSet<Object>();
+            _jm_cst_79_set.add(json.safeJSON("\"10.7\""));
+            _jm_cst_79_set.add(json.safeJSON("\"10.8\""));
+            _jm_cst_79_set.add(json.safeJSON("\"10.9\""));
+            _jm_cst_79_set.add(json.safeJSON("\"10.10\""));
+            _jm_cst_79_set.add(json.safeJSON("\"10.11\""));
+            _jm_cst_79_set.add(json.safeJSON("\"10.12\""));
+            _jm_cst_79_set.add(json.safeJSON("\"10.13\""));
+            _jm_cst_79_set.add(json.safeJSON("\"10.14\""));
+            _jm_cst_79_set.add(json.safeJSON("\"10.15\""));
+            _jm_cst_79_set.add(json.safeJSON("\"all\""));
+            _jm_cst_80_set = new HashSet<Object>();
+            _jm_cst_80_set.add(json.safeJSON("\"Big-Sur\""));
+            _jm_cst_80_set.add(json.safeJSON("\"Catalina\""));
+            _jm_cst_80_set.add(json.safeJSON("\"High-Sierra\""));
+            _jm_cst_80_set.add(json.safeJSON("\"Mojave\""));
+            _jm_cst_80_set.add(json.safeJSON("\"Monterey\""));
+            _jm_cst_80_set.add(json.safeJSON("\"Sierra\""));
+            _jm_cst_80_set.add(json.safeJSON("\"Sonoma\""));
+            _jm_cst_80_set.add(json.safeJSON("\"Ventura\""));
+            _jm_cst_80_set.add(json.safeJSON("\"all\""));
+            _jm_cst_81_set = new HashSet<Object>();
+            _jm_cst_81_set.add(json.safeJSON("\"2.0\""));
+            _jm_cst_81_set.add(json.safeJSON("\"2016\""));
+            _jm_cst_81_set.add(json.safeJSON("\"2017\""));
+            _jm_cst_81_set.add(json.safeJSON("\"2018\""));
+            _jm_cst_81_set.add(json.safeJSON("\"2019\""));
+            _jm_cst_81_set.add(json.safeJSON("\"2020\""));
+            _jm_cst_81_set.add(json.safeJSON("\"2021\""));
+            _jm_cst_81_set.add(json.safeJSON("\"2022\""));
+            _jm_cst_81_set.add(json.safeJSON("\"2023\""));
+            _jm_cst_81_set.add(json.safeJSON("\"all\""));
+            _jm_cst_82_set = new HashSet<Object>();
+            _jm_cst_82_set.add(json.safeJSON("\"10\""));
+            _jm_cst_82_set.add(json.safeJSON("\"11\""));
+            _jm_cst_82_set.add(json.safeJSON("\"all\""));
+            _jm_cst_83_set = new HashSet<Object>();
+            _jm_cst_83_set.add(json.safeJSON("\"8.0\""));
+            _jm_cst_83_set.add(json.safeJSON("\"8.1\""));
+            _jm_cst_83_set.add(json.safeJSON("\"8.2\""));
+            _jm_cst_83_set.add(json.safeJSON("\"8.3\""));
+            _jm_cst_83_set.add(json.safeJSON("\"8.4\""));
+            _jm_cst_83_set.add(json.safeJSON("\"9.0\""));
+            _jm_cst_83_set.add(json.safeJSON("\"9.1\""));
+            _jm_cst_83_set.add(json.safeJSON("\"9.2\""));
+            _jm_cst_83_set.add(json.safeJSON("\"9.3\""));
+            _jm_cst_83_set.add(json.safeJSON("\"10.0\""));
+            _jm_cst_83_set.add(json.safeJSON("\"10.1\""));
+            _jm_cst_83_set.add(json.safeJSON("\"10.2\""));
+            _jm_cst_83_set.add(json.safeJSON("\"10.3\""));
+            _jm_cst_83_set.add(json.safeJSON("\"10.4\""));
+            _jm_cst_83_set.add(json.safeJSON("\"11.0\""));
+            _jm_cst_83_set.add(json.safeJSON("\"11.1\""));
+            _jm_cst_83_set.add(json.safeJSON("\"11.2\""));
+            _jm_cst_83_set.add(json.safeJSON("\"11.3\""));
+            _jm_cst_83_set.add(json.safeJSON("\"11.4\""));
+            _jm_cst_83_set.add(json.safeJSON("\"12.0\""));
+            _jm_cst_83_set.add(json.safeJSON("\"12.1\""));
+            _jm_cst_83_set.add(json.safeJSON("\"12.2\""));
+            _jm_cst_83_set.add(json.safeJSON("\"13.0\""));
+            _jm_cst_83_set.add(json.safeJSON("\"13.1\""));
+            _jm_cst_83_set.add(json.safeJSON("\"13.2\""));
+            _jm_cst_83_set.add(json.safeJSON("\"14.0\""));
+            _jm_cst_83_set.add(json.safeJSON("\"all\""));
+            _jm_cst_84_set = new HashSet<Object>();
+            _jm_cst_84_set.add(json.safeJSON("\"16\""));
+            _jm_cst_84_set.add(json.safeJSON("\"17\""));
+            _jm_cst_84_set.add(json.safeJSON("\"18\""));
+            _jm_cst_84_set.add(json.safeJSON("\"19\""));
+            _jm_cst_84_set.add(json.safeJSON("\"20\""));
+            _jm_cst_84_set.add(json.safeJSON("\"21\""));
+            _jm_cst_84_set.add(json.safeJSON("\"22\""));
+            _jm_cst_84_set.add(json.safeJSON("\"23\""));
+            _jm_cst_84_set.add(json.safeJSON("\"24\""));
+            _jm_cst_84_set.add(json.safeJSON("\"25\""));
+            _jm_cst_84_set.add(json.safeJSON("\"26\""));
+            _jm_cst_84_set.add(json.safeJSON("\"27\""));
+            _jm_cst_84_set.add(json.safeJSON("\"28\""));
+            _jm_cst_84_set.add(json.safeJSON("\"29\""));
+            _jm_cst_84_set.add(json.safeJSON("\"30\""));
+            _jm_cst_84_set.add(json.safeJSON("\"31\""));
+            _jm_cst_84_set.add(json.safeJSON("\"32\""));
+            _jm_cst_84_set.add(json.safeJSON("\"33\""));
+            _jm_cst_84_set.add(json.safeJSON("\"34\""));
+            _jm_cst_84_set.add(json.safeJSON("\"35\""));
+            _jm_cst_84_set.add(json.safeJSON("\"36\""));
+            _jm_cst_84_set.add(json.safeJSON("\"37\""));
+            _jm_cst_84_set.add(json.safeJSON("\"38\""));
+            _jm_cst_84_set.add(json.safeJSON("\"39\""));
+            _jm_cst_84_set.add(json.safeJSON("\"40\""));
+            _jm_cst_84_set.add(json.safeJSON("\"41\""));
+            _jm_cst_84_set.add(json.safeJSON("\"42\""));
+            _jm_cst_84_set.add(json.safeJSON("\"all\""));
+            _jm_cst_85_set = new HashSet<Object>();
+            _jm_cst_85_set.add(json.safeJSON("\"5\""));
+            _jm_cst_85_set.add(json.safeJSON("\"6\""));
+            _jm_cst_85_set.add(json.safeJSON("\"7\""));
+            _jm_cst_85_set.add(json.safeJSON("\"8\""));
+            _jm_cst_85_set.add(json.safeJSON("\"9\""));
+            _jm_cst_85_set.add(json.safeJSON("\"10\""));
+            _jm_cst_85_set.add(json.safeJSON("\"all\""));
+            _jm_cst_86_set = new HashSet<Object>();
+            _jm_cst_86_set.add(json.safeJSON("\"5.2\""));
+            _jm_cst_86_set.add(json.safeJSON("\"5.4\""));
+            _jm_cst_86_set.add(json.safeJSON("\"5.6\""));
+            _jm_cst_86_set.add(json.safeJSON("\"5.8\""));
+            _jm_cst_86_set.add(json.safeJSON("\"6.0\""));
+            _jm_cst_86_set.add(json.safeJSON("\"6.2\""));
+            _jm_cst_86_set.add(json.safeJSON("\"6.4\""));
+            _jm_cst_86_set.add(json.safeJSON("\"all\""));
+            _jm_cst_87_set = new HashSet<Object>();
+            _jm_cst_87_set.add(json.safeJSON("\"ascii\""));
+            _jm_cst_87_set.add(json.safeJSON("\"beowulf\""));
+            _jm_cst_87_set.add(json.safeJSON("\"chimaera\""));
+            _jm_cst_87_set.add(json.safeJSON("\"daedalus\""));
+            _jm_cst_87_set.add(json.safeJSON("\"jessie\""));
+            _jm_cst_87_set.add(json.safeJSON("\"all\""));
+            _jm_cst_88_set = new HashSet<Object>();
+            _jm_cst_88_set.add(json.safeJSON("\"10\""));
+            _jm_cst_88_set.add(json.safeJSON("\"6\""));
+            _jm_cst_88_set.add(json.safeJSON("\"9\""));
+            _jm_cst_88_set.add(json.safeJSON("\"all\""));
+            _jm_cst_89_set = new HashSet<Object>();
+            _jm_cst_89_set.add(json.safeJSON("\"bookworm\""));
+            _jm_cst_89_set.add(json.safeJSON("\"bullseye\""));
+            _jm_cst_89_set.add(json.safeJSON("\"buster\""));
+            _jm_cst_89_set.add(json.safeJSON("\"etch\""));
+            _jm_cst_89_set.add(json.safeJSON("\"jessie\""));
+            _jm_cst_89_set.add(json.safeJSON("\"lenny\""));
+            _jm_cst_89_set.add(json.safeJSON("\"sid\""));
+            _jm_cst_89_set.add(json.safeJSON("\"squeeze\""));
+            _jm_cst_89_set.add(json.safeJSON("\"stretch\""));
+            _jm_cst_89_set.add(json.safeJSON("\"trixie\""));
+            _jm_cst_89_set.add(json.safeJSON("\"wheezy\""));
+            _jm_cst_89_set.add(json.safeJSON("\"all\""));
+            _jm_cst_90_set = new HashSet<Object>();
+            _jm_cst_90_set.add(json.safeJSON("\"8.0\""));
+            _jm_cst_90_set.add(json.safeJSON("\"8.1\""));
+            _jm_cst_90_set.add(json.safeJSON("\"8.2\""));
+            _jm_cst_90_set.add(json.safeJSON("\"9.0\""));
+            _jm_cst_90_set.add(json.safeJSON("\"9.1\""));
+            _jm_cst_90_set.add(json.safeJSON("\"9.2\""));
+            _jm_cst_90_set.add(json.safeJSON("\"9.3\""));
+            _jm_cst_90_set.add(json.safeJSON("\"10.0\""));
+            _jm_cst_90_set.add(json.safeJSON("\"all\""));
+            _jm_cst_91_set = new HashSet<Object>();
+            _jm_cst_91_set.add(json.safeJSON("\"2.5\""));
+            _jm_cst_91_set.add(json.safeJSON("\"3.0\""));
+            _jm_cst_91_set.add(json.safeJSON("\"3.1\""));
+            _jm_cst_91_set.add(json.safeJSON("\"3.2\""));
+            _jm_cst_91_set.add(json.safeJSON("\"3.3\""));
+            _jm_cst_91_set.add(json.safeJSON("\"3.4\""));
+            _jm_cst_91_set.add(json.safeJSON("\"3.5\""));
+            _jm_cst_91_set.add(json.safeJSON("\"all\""));
+            _jm_cst_92_set = new HashSet<Object>();
+            _jm_cst_92_set.add(json.safeJSON("\"1.8\""));
+            _jm_cst_92_set.add(json.safeJSON("\"1.7\""));
+            _jm_cst_92_set.add(json.safeJSON("\"1.6\""));
+            _jm_cst_92_set.add(json.safeJSON("\"2.12\""));
+            _jm_cst_92_set.add(json.safeJSON("\"all\""));
+            _jm_cst_93_set = new HashSet<Object>();
+            _jm_cst_93_set.add(json.safeJSON("\"all\""));
+            _jm_cst_93_set.add(json.safeJSON("\"1\""));
+            _jm_cst_93_set.add(json.safeJSON("\"2\""));
+            _jm_cst_93_set.add(json.safeJSON("\"2023\""));
+            _jm_cst_94_set = new HashSet<Object>();
+            _jm_cst_94_set.add(json.safeJSON("\"2013.03\""));
+            _jm_cst_94_set.add(json.safeJSON("\"2013.09\""));
+            _jm_cst_94_set.add(json.safeJSON("\"2014.03\""));
+            _jm_cst_94_set.add(json.safeJSON("\"2014.09\""));
+            _jm_cst_94_set.add(json.safeJSON("\"2015.03\""));
+            _jm_cst_94_set.add(json.safeJSON("\"2015.09\""));
+            _jm_cst_94_set.add(json.safeJSON("\"2016.03\""));
+            _jm_cst_94_set.add(json.safeJSON("\"2016.09\""));
+            _jm_cst_94_set.add(json.safeJSON("\"2017.03\""));
+            _jm_cst_94_set.add(json.safeJSON("\"2017.09\""));
+            _jm_cst_94_set.add(json.safeJSON("\"2017.12\""));
+            _jm_cst_94_set.add(json.safeJSON("\"2018.03\""));
+            _jm_cst_94_set.add(json.safeJSON("\"Candidate\""));
+            _jm_cst_94_set.add(json.safeJSON("\"all\""));
+            _jm_cst_95_set = new HashSet<Object>();
+            _jm_cst_95_set.add(json.safeJSON("\"6.1\""));
+            _jm_cst_95_set.add(json.safeJSON("\"7.1\""));
+            _jm_cst_95_set.add(json.safeJSON("\"7.2\""));
+            _jm_cst_95_set.add(json.safeJSON("\"all\""));
             _jm_re_0_pat = Pattern.compile("^[a-z][-a-z0-9_]+$");
             _jm_re_1_pat = Pattern.compile("^[a-z][a-z0-9_]+$");
-            _jm_obj_94_map_pmap = new HashMap<String, Checker>();
-            _jm_obj_94_map_pmap.put("cloud_platforms", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_0(o, p, r);} });
-            _jm_obj_94_map_pmap.put("galaxy_tags", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_1(o, p, r);} });
-            _jm_obj_94_map_pmap.put("min_ansible_version", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_2(o, p, r);} });
-            _jm_obj_94_map_pmap.put("namespace", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_3(o, p, r);} });
-            _jm_obj_94_map_pmap.put("platforms", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_4(o, p, r);} });
-            _jm_obj_94_map_pmap.put("role_name", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_5(o, p, r);} });
-            _jm_obj_94_map_pmap.put("video_links", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_6(o, p, r);} });
-            _jm_obj_95_map_pmap = new HashMap<String, Checker>();
-            _jm_obj_95_map_pmap.put("author", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_7(o, p, r);} });
-            _jm_obj_95_map_pmap.put("company", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_8(o, p, r);} });
-            _jm_obj_95_map_pmap.put("github_branch", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_9(o, p, r);} });
-            _jm_obj_95_map_pmap.put("issue_tracker_url", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_10(o, p, r);} });
-            _jm_obj_95_map_pmap.put("license", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_11(o, p, r);} });
-            _jm_obj_95_map_pmap.put("min_ansible_container_version", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_12(o, p, r);} });
-            _jm_obj_96_map_pmap = new HashMap<String, Checker>();
-            _jm_obj_96_map_pmap.put("cloud_platforms", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_13(o, p, r);} });
-            _jm_obj_96_map_pmap.put("company", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_14(o, p, r);} });
-            _jm_obj_96_map_pmap.put("galaxy_tags", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_15(o, p, r);} });
-            _jm_obj_96_map_pmap.put("github_branch", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_16(o, p, r);} });
-            _jm_obj_96_map_pmap.put("issue_tracker_url", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_17(o, p, r);} });
-            _jm_obj_96_map_pmap.put("min_ansible_container_version", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_18(o, p, r);} });
-            _jm_obj_96_map_pmap.put("namespace", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_19(o, p, r);} });
-            _jm_obj_96_map_pmap.put("platforms", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_20(o, p, r);} });
-            _jm_obj_96_map_pmap.put("role_name", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_21(o, p, r);} });
-            _jm_obj_96_map_pmap.put("video_links", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_22(o, p, r);} });
-            _jm_obj_97_map_pmap = new HashMap<String, Checker>();
-            _jm_obj_97_map_pmap.put("author", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_23(o, p, r);} });
-            _jm_obj_97_map_pmap.put("cloud_platforms", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_24(o, p, r);} });
-            _jm_obj_97_map_pmap.put("company", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_25(o, p, r);} });
-            _jm_obj_97_map_pmap.put("galaxy_tags", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_26(o, p, r);} });
-            _jm_obj_97_map_pmap.put("github_branch", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_27(o, p, r);} });
-            _jm_obj_97_map_pmap.put("issue_tracker_url", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_28(o, p, r);} });
-            _jm_obj_97_map_pmap.put("license", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_29(o, p, r);} });
-            _jm_obj_97_map_pmap.put("min_ansible_container_version", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_30(o, p, r);} });
-            _jm_obj_97_map_pmap.put("min_ansible_version", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_31(o, p, r);} });
-            _jm_obj_97_map_pmap.put("namespace", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_32(o, p, r);} });
-            _jm_obj_97_map_pmap.put("platforms", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_33(o, p, r);} });
-            _jm_obj_97_map_pmap.put("role_name", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_34(o, p, r);} });
-            _jm_obj_97_map_pmap.put("video_links", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_35(o, p, r);} });
-            _jm_obj_98_map_pmap = new HashMap<String, Checker>();
-            _jm_obj_98_map_pmap.put("author", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_36(o, p, r);} });
-            _jm_obj_98_map_pmap.put("cloud_platforms", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_37(o, p, r);} });
-            _jm_obj_98_map_pmap.put("company", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_38(o, p, r);} });
-            _jm_obj_98_map_pmap.put("galaxy_tags", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_39(o, p, r);} });
-            _jm_obj_98_map_pmap.put("github_branch", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_40(o, p, r);} });
-            _jm_obj_98_map_pmap.put("issue_tracker_url", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_41(o, p, r);} });
-            _jm_obj_98_map_pmap.put("license", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_42(o, p, r);} });
-            _jm_obj_98_map_pmap.put("min_ansible_container_version", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_43(o, p, r);} });
-            _jm_obj_98_map_pmap.put("min_ansible_version", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_44(o, p, r);} });
-            _jm_obj_98_map_pmap.put("namespace", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_45(o, p, r);} });
-            _jm_obj_98_map_pmap.put("platforms", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_46(o, p, r);} });
-            _jm_obj_98_map_pmap.put("role_name", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_47(o, p, r);} });
-            _jm_obj_98_map_pmap.put("video_links", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_48(o, p, r);} });
+            _jm_obj_141_map_pmap = new HashMap<String, Checker>();
+            _jm_obj_141_map_pmap.put("cloud_platforms", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_0(o, p, r);} });
+            _jm_obj_141_map_pmap.put("galaxy_tags", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_1(o, p, r);} });
+            _jm_obj_141_map_pmap.put("min_ansible_version", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_2(o, p, r);} });
+            _jm_obj_141_map_pmap.put("namespace", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_3(o, p, r);} });
+            _jm_obj_141_map_pmap.put("platforms", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_4(o, p, r);} });
+            _jm_obj_141_map_pmap.put("role_name", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_5(o, p, r);} });
+            _jm_obj_141_map_pmap.put("video_links", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_6(o, p, r);} });
+            _jm_obj_142_map_pmap = new HashMap<String, Checker>();
+            _jm_obj_142_map_pmap.put("author", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_7(o, p, r);} });
+            _jm_obj_142_map_pmap.put("company", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_8(o, p, r);} });
+            _jm_obj_142_map_pmap.put("github_branch", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_9(o, p, r);} });
+            _jm_obj_142_map_pmap.put("issue_tracker_url", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_10(o, p, r);} });
+            _jm_obj_142_map_pmap.put("license", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_11(o, p, r);} });
+            _jm_obj_142_map_pmap.put("min_ansible_container_version", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_12(o, p, r);} });
+            _jm_obj_143_map_pmap = new HashMap<String, Checker>();
+            _jm_obj_143_map_pmap.put("cloud_platforms", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_13(o, p, r);} });
+            _jm_obj_143_map_pmap.put("company", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_14(o, p, r);} });
+            _jm_obj_143_map_pmap.put("galaxy_tags", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_15(o, p, r);} });
+            _jm_obj_143_map_pmap.put("github_branch", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_16(o, p, r);} });
+            _jm_obj_143_map_pmap.put("issue_tracker_url", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_17(o, p, r);} });
+            _jm_obj_143_map_pmap.put("min_ansible_container_version", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_18(o, p, r);} });
+            _jm_obj_143_map_pmap.put("namespace", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_19(o, p, r);} });
+            _jm_obj_143_map_pmap.put("platforms", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_20(o, p, r);} });
+            _jm_obj_143_map_pmap.put("role_name", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_21(o, p, r);} });
+            _jm_obj_143_map_pmap.put("video_links", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_22(o, p, r);} });
+            _jm_obj_144_map_pmap = new HashMap<String, Checker>();
+            _jm_obj_144_map_pmap.put("author", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_23(o, p, r);} });
+            _jm_obj_144_map_pmap.put("cloud_platforms", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_24(o, p, r);} });
+            _jm_obj_144_map_pmap.put("company", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_25(o, p, r);} });
+            _jm_obj_144_map_pmap.put("galaxy_tags", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_26(o, p, r);} });
+            _jm_obj_144_map_pmap.put("github_branch", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_27(o, p, r);} });
+            _jm_obj_144_map_pmap.put("issue_tracker_url", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_28(o, p, r);} });
+            _jm_obj_144_map_pmap.put("license", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_29(o, p, r);} });
+            _jm_obj_144_map_pmap.put("min_ansible_container_version", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_30(o, p, r);} });
+            _jm_obj_144_map_pmap.put("min_ansible_version", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_31(o, p, r);} });
+            _jm_obj_144_map_pmap.put("namespace", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_32(o, p, r);} });
+            _jm_obj_144_map_pmap.put("platforms", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_33(o, p, r);} });
+            _jm_obj_144_map_pmap.put("role_name", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_34(o, p, r);} });
+            _jm_obj_144_map_pmap.put("video_links", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_35(o, p, r);} });
+            _jm_obj_145_map_pmap = new HashMap<String, Checker>();
+            _jm_obj_145_map_pmap.put("author", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_36(o, p, r);} });
+            _jm_obj_145_map_pmap.put("cloud_platforms", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_37(o, p, r);} });
+            _jm_obj_145_map_pmap.put("company", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_38(o, p, r);} });
+            _jm_obj_145_map_pmap.put("galaxy_tags", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_39(o, p, r);} });
+            _jm_obj_145_map_pmap.put("github_branch", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_40(o, p, r);} });
+            _jm_obj_145_map_pmap.put("issue_tracker_url", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_41(o, p, r);} });
+            _jm_obj_145_map_pmap.put("license", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_42(o, p, r);} });
+            _jm_obj_145_map_pmap.put("min_ansible_container_version", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_43(o, p, r);} });
+            _jm_obj_145_map_pmap.put("min_ansible_version", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_44(o, p, r);} });
+            _jm_obj_145_map_pmap.put("namespace", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_45(o, p, r);} });
+            _jm_obj_145_map_pmap.put("platforms", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_46(o, p, r);} });
+            _jm_obj_145_map_pmap.put("role_name", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_47(o, p, r);} });
+            _jm_obj_145_map_pmap.put("video_links", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_48(o, p, r);} });
+            _jm_obj_146_map_pmap = new HashMap<String, Checker>();
+            _jm_obj_146_map_pmap.put("cloud_platforms", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_49(o, p, r);} });
+            _jm_obj_146_map_pmap.put("company", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_50(o, p, r);} });
+            _jm_obj_146_map_pmap.put("galaxy_tags", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_51(o, p, r);} });
+            _jm_obj_146_map_pmap.put("github_branch", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_52(o, p, r);} });
+            _jm_obj_146_map_pmap.put("issue_tracker_url", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_53(o, p, r);} });
+            _jm_obj_146_map_pmap.put("min_ansible_container_version", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_54(o, p, r);} });
+            _jm_obj_146_map_pmap.put("namespace", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_55(o, p, r);} });
+            _jm_obj_146_map_pmap.put("platforms", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_56(o, p, r);} });
+            _jm_obj_146_map_pmap.put("role_name", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_57(o, p, r);} });
+            _jm_obj_146_map_pmap.put("video_links", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_58(o, p, r);} });
             _jm_re_2_pat = Pattern.compile("^[a-z_]+\\.[a-z_]+$");
-            _jm_cst_64_set = new HashSet<Object>();
-            _jm_cst_64_set.add(json.safeJSON("\"hg\""));
-            _jm_cst_64_set.add(json.safeJSON("\"git\""));
+            _jm_cst_96_set = new HashSet<Object>();
+            _jm_cst_96_set.add(json.safeJSON("\"hg\""));
+            _jm_cst_96_set.add(json.safeJSON("\"git\""));
             ansiblelint_meta_map_pmap = new HashMap<String, Checker>();
             ansiblelint_meta_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_60(o, p, r);} });
             ansiblelint_meta_map_pmap.put("AIXPlatformModel", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_2(o, p, r);} });
@@ -11113,15 +15529,48 @@ public class ansiblelint_meta extends ModelChecker
             _jm_cst_61_set = null;
             _jm_cst_62_set = null;
             _jm_cst_63_set = null;
+            _jm_cst_64_set = null;
+            _jm_cst_65_set = null;
+            _jm_cst_66_set = null;
+            _jm_cst_67_set = null;
+            _jm_cst_68_set = null;
+            _jm_cst_69_set = null;
+            _jm_cst_70_set = null;
+            _jm_cst_71_set = null;
+            _jm_cst_72_set = null;
+            _jm_cst_73_set = null;
+            _jm_cst_74_set = null;
+            _jm_cst_75_set = null;
+            _jm_cst_76_set = null;
+            _jm_cst_77_set = null;
+            _jm_cst_78_set = null;
+            _jm_cst_79_set = null;
+            _jm_cst_80_set = null;
+            _jm_cst_81_set = null;
+            _jm_cst_82_set = null;
+            _jm_cst_83_set = null;
+            _jm_cst_84_set = null;
+            _jm_cst_85_set = null;
+            _jm_cst_86_set = null;
+            _jm_cst_87_set = null;
+            _jm_cst_88_set = null;
+            _jm_cst_89_set = null;
+            _jm_cst_90_set = null;
+            _jm_cst_91_set = null;
+            _jm_cst_92_set = null;
+            _jm_cst_93_set = null;
+            _jm_cst_94_set = null;
+            _jm_cst_95_set = null;
             _jm_re_0_pat = null;
             _jm_re_1_pat = null;
-            _jm_obj_94_map_pmap = null;
-            _jm_obj_95_map_pmap = null;
-            _jm_obj_96_map_pmap = null;
-            _jm_obj_97_map_pmap = null;
-            _jm_obj_98_map_pmap = null;
+            _jm_obj_141_map_pmap = null;
+            _jm_obj_142_map_pmap = null;
+            _jm_obj_143_map_pmap = null;
+            _jm_obj_144_map_pmap = null;
+            _jm_obj_145_map_pmap = null;
+            _jm_obj_146_map_pmap = null;
             _jm_re_2_pat = null;
-            _jm_cst_64_set = null;
+            _jm_cst_96_set = null;
             ansiblelint_meta_map_pmap = null;
         }
     }

@@ -130,6 +130,100 @@ sub json_model_3($$$)
     return $res;
 }
 
+# object .'|'.0
+sub _jm_obj_2($$$)
+{
+    my ($val, $path, $rep) = @_;
+    if (! jm_is_object($val))
+    {
+        return 0;
+    }
+    my $res;
+    my $must_count = 0;
+    scalar keys %$val;
+    while (my ($prop, $pval) = each %$val)
+    {
+        if ($prop eq 't')
+        {
+            # handle must t property
+            $must_count++;
+            # .'|'.0.t
+            $res = jm_is_integer($pval) && $pval == 1;
+            if (! $res)
+            {
+                return 0;
+            }
+        }
+        elsif ($prop eq 'a')
+        {
+            # handle must a property
+            $must_count++;
+            # .'|'.0.a
+            $res = jm_is_integer($pval) && $pval >= 0;
+            if (! $res)
+            {
+                return 0;
+            }
+        }
+        else
+        {
+            return 0;
+        }
+    }
+    if ($must_count != 2)
+    {
+        return 0;
+    }
+    return 1;
+}
+
+# object .'|'.1
+sub _jm_obj_3($$$)
+{
+    my ($val, $path, $rep) = @_;
+    if (! jm_is_object($val))
+    {
+        return 0;
+    }
+    my $res;
+    my $must_count = 0;
+    scalar keys %$val;
+    while (my ($prop, $pval) = each %$val)
+    {
+        if ($prop eq 't')
+        {
+            # handle must t property
+            $must_count++;
+            # .'|'.1.t
+            $res = jm_is_integer($pval) && $pval == 2;
+            if (! $res)
+            {
+                return 0;
+            }
+        }
+        elsif ($prop eq 'b')
+        {
+            # handle must b property
+            $must_count++;
+            # .'|'.1.b
+            $res = jm_is_integer($pval) && $pval >= 0;
+            if (! $res)
+            {
+                return 0;
+            }
+        }
+        else
+        {
+            return 0;
+        }
+    }
+    if ($must_count != 2)
+    {
+        return 0;
+    }
+    return 1;
+}
+
 
 # check $ (.)
 sub json_model_1($$$)
@@ -172,8 +266,8 @@ sub check_model_init()
     {
         $initialized = 1;
         %_jm_map_0 = (
-            1 => \&json_model_2,
-            2 => \&json_model_3,
+            1 => \&_jm_obj_2,
+            2 => \&_jm_obj_3,
         );
         %check_model_map = (
             '' => \&json_model_1,

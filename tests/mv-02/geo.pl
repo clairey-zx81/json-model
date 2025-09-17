@@ -25,6 +25,7 @@ sub json_model_12($$$);
 my %_jm_map_1;
 sub json_model_13($$$);
 sub json_model_14($$$);
+my %_jm_map_2;
 sub json_model_1($$$);
 my %check_model_map;
 
@@ -1611,9 +1612,81 @@ sub _jm_obj_19($$$)
     return 1;
 }
 
+# object .'$Feature'.geometry.'|'.6
+sub _jm_obj_20($$$)
+{
+    my ($val, $path, $rep) = @_;
+    # check must only props
+    if (! jm_is_object($val))
+    {
+        return 0;
+    }
+    my $pval;
+    my $res;
+    if (! exists $$val{'type'})
+    {
+        return 0;
+    }
+    $pval = $$val{'type'};
+    # .'$Feature'.geometry.'|'.6.type
+    $res = jm_is_string($pval) && $pval eq 'GeometryCollection';
+    if (! $res)
+    {
+        return 0;
+    }
+    if (! exists $$val{'geometries'})
+    {
+        return 0;
+    }
+    $pval = $$val{'geometries'};
+    # .'$Feature'.geometry.'|'.6.geometries
+    $res = jm_is_array($pval);
+    if ($res)
+    {
+        for my $arr_38_idx (0 .. $#$pval)
+        {
+            my $arr_38_item = $$pval[$arr_38_idx];
+            # .'$Feature'.geometry.'|'.6.geometries.0
+            $res = json_model_11($arr_38_item, undef, $rep);
+            if (! $res)
+            {
+                last;
+            }
+        }
+    }
+    if (! $res)
+    {
+        return 0;
+    }
+    if (exists $$val{'bbox'})
+    {
+        $pval = $$val{'bbox'};
+        # .'$Feature'.geometry.'|'.6.bbox
+        $res = jm_is_array($pval);
+        if ($res)
+        {
+            for my $arr_39_idx (0 .. $#$pval)
+            {
+                my $arr_39_item = $$pval[$arr_39_idx];
+                # .'$Feature'.geometry.'|'.6.bbox.0
+                $res = jm_is_numeric($arr_39_item);
+                if (! $res)
+                {
+                    last;
+                }
+            }
+        }
+        if (! $res)
+        {
+            return 0;
+        }
+    }
+    return 1;
+}
+
 
 # object .'$Feature'.properties.'|'.1
-sub _jm_obj_20($$$)
+sub _jm_obj_21($$$)
 {
     my ($val, $path, $rep) = @_;
     if (! jm_is_object($val))
@@ -1675,13 +1748,8 @@ sub _jm_obj_13($$$)
     }
     if (! $res)
     {
-        # .'$Feature'.geometry.'|'.0
+        # .'$Feature'.geometry.'|'
         $res = !defined($pval);
-        if (! $res)
-        {
-            # .'$Feature'.geometry.'|'.1
-            $res = json_model_12($pval, $path, $rep);
-        }
     }
     if (! $res)
     {
@@ -1698,7 +1766,7 @@ sub _jm_obj_13($$$)
     if (! $res)
     {
         # .'$Feature'.properties.'|'.1
-        $res = _jm_obj_20($pval, $path, $rep);
+        $res = _jm_obj_21($pval, $path, $rep);
     }
     if (! $res)
     {
@@ -1727,11 +1795,11 @@ sub _jm_obj_13($$$)
         $res = jm_is_array($pval);
         if ($res)
         {
-            for my $arr_38_idx (0 .. $#$pval)
+            for my $arr_40_idx (0 .. $#$pval)
             {
-                my $arr_38_item = $$pval[$arr_38_idx];
+                my $arr_40_item = $$pval[$arr_40_idx];
                 # .'$Feature'.bbox.0
-                $res = jm_is_numeric($arr_38_item);
+                $res = jm_is_numeric($arr_40_item);
                 if (! $res)
                 {
                     last;
@@ -1757,7 +1825,7 @@ sub json_model_13($$$)
 }
 
 # object .'$FeatureCollection'
-sub _jm_obj_21($$$)
+sub _jm_obj_22($$$)
 {
     my ($val, $path, $rep) = @_;
     # check must only props
@@ -1787,11 +1855,11 @@ sub _jm_obj_21($$$)
     $res = jm_is_array($pval);
     if ($res)
     {
-        for my $arr_39_idx (0 .. $#$pval)
+        for my $arr_41_idx (0 .. $#$pval)
         {
-            my $arr_39_item = $$pval[$arr_39_idx];
+            my $arr_41_item = $$pval[$arr_41_idx];
             # .'$FeatureCollection'.features.0
-            $res = json_model_13($arr_39_item, undef, $rep);
+            $res = json_model_13($arr_41_item, undef, $rep);
             if (! $res)
             {
                 last;
@@ -1809,11 +1877,11 @@ sub _jm_obj_21($$$)
         $res = jm_is_array($pval);
         if ($res)
         {
-            for my $arr_40_idx (0 .. $#$pval)
+            for my $arr_42_idx (0 .. $#$pval)
             {
-                my $arr_40_item = $$pval[$arr_40_idx];
+                my $arr_42_item = $$pval[$arr_42_idx];
                 # .'$FeatureCollection'.bbox.0
-                $res = jm_is_numeric($arr_40_item);
+                $res = jm_is_numeric($arr_42_item);
                 if (! $res)
                 {
                     last;
@@ -1834,8 +1902,773 @@ sub json_model_14($$$)
     my ($val, $path, $rep) = @_;
     my $res;
     # .'$FeatureCollection'
-    $res = _jm_obj_21($val, $path, $rep);
+    $res = _jm_obj_22($val, $path, $rep);
     return $res;
+}
+
+# object .'^'.1
+sub _jm_obj_23($$$)
+{
+    my ($val, $path, $rep) = @_;
+    # check must only props
+    if (! jm_is_object($val))
+    {
+        return 0;
+    }
+    my $pval;
+    my $res;
+    if (! exists $$val{'type'})
+    {
+        return 0;
+    }
+    $pval = $$val{'type'};
+    # .'^'.1.type
+    $res = jm_is_string($pval) && $pval eq 'GeometryCollection';
+    if (! $res)
+    {
+        return 0;
+    }
+    if (! exists $$val{'geometries'})
+    {
+        return 0;
+    }
+    $pval = $$val{'geometries'};
+    # .'^'.1.geometries
+    $res = jm_is_array($pval);
+    if ($res)
+    {
+        for my $arr_43_idx (0 .. $#$pval)
+        {
+            my $arr_43_item = $$pval[$arr_43_idx];
+            # .'^'.1.geometries.0
+            $res = json_model_11($arr_43_item, undef, $rep);
+            if (! $res)
+            {
+                last;
+            }
+        }
+    }
+    if (! $res)
+    {
+        return 0;
+    }
+    if (exists $$val{'bbox'})
+    {
+        $pval = $$val{'bbox'};
+        # .'^'.1.bbox
+        $res = jm_is_array($pval);
+        if ($res)
+        {
+            for my $arr_44_idx (0 .. $#$pval)
+            {
+                my $arr_44_item = $$pval[$arr_44_idx];
+                # .'^'.1.bbox.0
+                $res = jm_is_numeric($arr_44_item);
+                if (! $res)
+                {
+                    last;
+                }
+            }
+        }
+        if (! $res)
+        {
+            return 0;
+        }
+    }
+    return 1;
+}
+
+# object .'^'.2.geometry.'|'.0
+sub _jm_obj_25($$$)
+{
+    my ($val, $path, $rep) = @_;
+    # check must only props
+    if (! jm_is_object($val))
+    {
+        return 0;
+    }
+    my $pval;
+    my $res;
+    if (! exists $$val{'type'})
+    {
+        return 0;
+    }
+    $pval = $$val{'type'};
+    # .'^'.2.geometry.'|'.0.type
+    $res = jm_is_string($pval) && $pval eq 'Point';
+    if (! $res)
+    {
+        return 0;
+    }
+    if (! exists $$val{'coordinates'})
+    {
+        return 0;
+    }
+    $pval = $$val{'coordinates'};
+    # .'^'.2.geometry.'|'.0.coordinates
+    $res = json_model_2($pval, $path, $rep);
+    if (! $res)
+    {
+        return 0;
+    }
+    if (exists $$val{'bbox'})
+    {
+        $pval = $$val{'bbox'};
+        # .'^'.2.geometry.'|'.0.bbox
+        $res = jm_is_array($pval);
+        if ($res)
+        {
+            for my $arr_45_idx (0 .. $#$pval)
+            {
+                my $arr_45_item = $$pval[$arr_45_idx];
+                # .'^'.2.geometry.'|'.0.bbox.0
+                $res = jm_is_numeric($arr_45_item);
+                if (! $res)
+                {
+                    last;
+                }
+            }
+        }
+        if (! $res)
+        {
+            return 0;
+        }
+    }
+    return 1;
+}
+
+# object .'^'.2.geometry.'|'.1
+sub _jm_obj_26($$$)
+{
+    my ($val, $path, $rep) = @_;
+    # check must only props
+    if (! jm_is_object($val))
+    {
+        return 0;
+    }
+    my $pval;
+    my $res;
+    if (! exists $$val{'type'})
+    {
+        return 0;
+    }
+    $pval = $$val{'type'};
+    # .'^'.2.geometry.'|'.1.type
+    $res = jm_is_string($pval) && $pval eq 'MultiPoint';
+    if (! $res)
+    {
+        return 0;
+    }
+    if (! exists $$val{'coordinates'})
+    {
+        return 0;
+    }
+    $pval = $$val{'coordinates'};
+    # .'^'.2.geometry.'|'.1.coordinates
+    $res = jm_is_array($pval);
+    if ($res)
+    {
+        for my $arr_46_idx (0 .. $#$pval)
+        {
+            my $arr_46_item = $$pval[$arr_46_idx];
+            # .'^'.2.geometry.'|'.1.coordinates.0
+            $res = json_model_2($arr_46_item, undef, $rep);
+            if (! $res)
+            {
+                last;
+            }
+        }
+    }
+    if (! $res)
+    {
+        return 0;
+    }
+    if (exists $$val{'bbox'})
+    {
+        $pval = $$val{'bbox'};
+        # .'^'.2.geometry.'|'.1.bbox
+        $res = jm_is_array($pval);
+        if ($res)
+        {
+            for my $arr_47_idx (0 .. $#$pval)
+            {
+                my $arr_47_item = $$pval[$arr_47_idx];
+                # .'^'.2.geometry.'|'.1.bbox.0
+                $res = jm_is_numeric($arr_47_item);
+                if (! $res)
+                {
+                    last;
+                }
+            }
+        }
+        if (! $res)
+        {
+            return 0;
+        }
+    }
+    return 1;
+}
+
+# object .'^'.2.geometry.'|'.2
+sub _jm_obj_27($$$)
+{
+    my ($val, $path, $rep) = @_;
+    # check must only props
+    if (! jm_is_object($val))
+    {
+        return 0;
+    }
+    my $pval;
+    my $res;
+    if (! exists $$val{'type'})
+    {
+        return 0;
+    }
+    $pval = $$val{'type'};
+    # .'^'.2.geometry.'|'.2.type
+    $res = jm_is_string($pval) && $pval eq 'LineString';
+    if (! $res)
+    {
+        return 0;
+    }
+    if (! exists $$val{'coordinates'})
+    {
+        return 0;
+    }
+    $pval = $$val{'coordinates'};
+    # .'^'.2.geometry.'|'.2.coordinates
+    $res = json_model_3($pval, $path, $rep);
+    if (! $res)
+    {
+        return 0;
+    }
+    if (exists $$val{'bbox'})
+    {
+        $pval = $$val{'bbox'};
+        # .'^'.2.geometry.'|'.2.bbox
+        $res = jm_is_array($pval);
+        if ($res)
+        {
+            for my $arr_48_idx (0 .. $#$pval)
+            {
+                my $arr_48_item = $$pval[$arr_48_idx];
+                # .'^'.2.geometry.'|'.2.bbox.0
+                $res = jm_is_numeric($arr_48_item);
+                if (! $res)
+                {
+                    last;
+                }
+            }
+        }
+        if (! $res)
+        {
+            return 0;
+        }
+    }
+    return 1;
+}
+
+# object .'^'.2.geometry.'|'.3
+sub _jm_obj_28($$$)
+{
+    my ($val, $path, $rep) = @_;
+    # check must only props
+    if (! jm_is_object($val))
+    {
+        return 0;
+    }
+    my $pval;
+    my $res;
+    if (! exists $$val{'type'})
+    {
+        return 0;
+    }
+    $pval = $$val{'type'};
+    # .'^'.2.geometry.'|'.3.type
+    $res = jm_is_string($pval) && $pval eq 'MultiLineString';
+    if (! $res)
+    {
+        return 0;
+    }
+    if (! exists $$val{'coordinates'})
+    {
+        return 0;
+    }
+    $pval = $$val{'coordinates'};
+    # .'^'.2.geometry.'|'.3.coordinates
+    $res = jm_is_array($pval);
+    if ($res)
+    {
+        for my $arr_49_idx (0 .. $#$pval)
+        {
+            my $arr_49_item = $$pval[$arr_49_idx];
+            # .'^'.2.geometry.'|'.3.coordinates.0
+            $res = json_model_3($arr_49_item, undef, $rep);
+            if (! $res)
+            {
+                last;
+            }
+        }
+    }
+    if (! $res)
+    {
+        return 0;
+    }
+    if (exists $$val{'bbox'})
+    {
+        $pval = $$val{'bbox'};
+        # .'^'.2.geometry.'|'.3.bbox
+        $res = jm_is_array($pval);
+        if ($res)
+        {
+            for my $arr_50_idx (0 .. $#$pval)
+            {
+                my $arr_50_item = $$pval[$arr_50_idx];
+                # .'^'.2.geometry.'|'.3.bbox.0
+                $res = jm_is_numeric($arr_50_item);
+                if (! $res)
+                {
+                    last;
+                }
+            }
+        }
+        if (! $res)
+        {
+            return 0;
+        }
+    }
+    return 1;
+}
+
+# object .'^'.2.geometry.'|'.4
+sub _jm_obj_29($$$)
+{
+    my ($val, $path, $rep) = @_;
+    # check must only props
+    if (! jm_is_object($val))
+    {
+        return 0;
+    }
+    my $pval;
+    my $res;
+    if (! exists $$val{'type'})
+    {
+        return 0;
+    }
+    $pval = $$val{'type'};
+    # .'^'.2.geometry.'|'.4.type
+    $res = jm_is_string($pval) && $pval eq 'Polygon';
+    if (! $res)
+    {
+        return 0;
+    }
+    if (! exists $$val{'coordinates'})
+    {
+        return 0;
+    }
+    $pval = $$val{'coordinates'};
+    # .'^'.2.geometry.'|'.4.coordinates
+    $res = jm_is_array($pval);
+    if ($res)
+    {
+        for my $arr_51_idx (0 .. $#$pval)
+        {
+            my $arr_51_item = $$pval[$arr_51_idx];
+            # .'^'.2.geometry.'|'.4.coordinates.0
+            $res = json_model_4($arr_51_item, undef, $rep);
+            if (! $res)
+            {
+                last;
+            }
+        }
+    }
+    if (! $res)
+    {
+        return 0;
+    }
+    if (exists $$val{'bbox'})
+    {
+        $pval = $$val{'bbox'};
+        # .'^'.2.geometry.'|'.4.bbox
+        $res = jm_is_array($pval);
+        if ($res)
+        {
+            for my $arr_52_idx (0 .. $#$pval)
+            {
+                my $arr_52_item = $$pval[$arr_52_idx];
+                # .'^'.2.geometry.'|'.4.bbox.0
+                $res = jm_is_numeric($arr_52_item);
+                if (! $res)
+                {
+                    last;
+                }
+            }
+        }
+        if (! $res)
+        {
+            return 0;
+        }
+    }
+    return 1;
+}
+
+# object .'^'.2.geometry.'|'.5
+sub _jm_obj_30($$$)
+{
+    my ($val, $path, $rep) = @_;
+    # check must only props
+    if (! jm_is_object($val))
+    {
+        return 0;
+    }
+    my $pval;
+    my $res;
+    if (! exists $$val{'type'})
+    {
+        return 0;
+    }
+    $pval = $$val{'type'};
+    # .'^'.2.geometry.'|'.5.type
+    $res = jm_is_string($pval) && $pval eq 'MultiPolygon';
+    if (! $res)
+    {
+        return 0;
+    }
+    if (! exists $$val{'coordinates'})
+    {
+        return 0;
+    }
+    $pval = $$val{'coordinates'};
+    # .'^'.2.geometry.'|'.5.coordinates
+    $res = jm_is_array($pval);
+    if ($res)
+    {
+        for my $arr_53_idx (0 .. $#$pval)
+        {
+            my $arr_53_item = $$pval[$arr_53_idx];
+            # .'^'.2.geometry.'|'.5.coordinates.0
+            $res = jm_is_array($arr_53_item);
+            if ($res)
+            {
+                for my $arr_54_idx (0 .. $#$arr_53_item)
+                {
+                    my $arr_54_item = $$arr_53_item[$arr_54_idx];
+                    # .'^'.2.geometry.'|'.5.coordinates.0.0
+                    $res = json_model_4($arr_54_item, undef, $rep);
+                    if (! $res)
+                    {
+                        last;
+                    }
+                }
+            }
+            if (! $res)
+            {
+                last;
+            }
+        }
+    }
+    if (! $res)
+    {
+        return 0;
+    }
+    if (exists $$val{'bbox'})
+    {
+        $pval = $$val{'bbox'};
+        # .'^'.2.geometry.'|'.5.bbox
+        $res = jm_is_array($pval);
+        if ($res)
+        {
+            for my $arr_55_idx (0 .. $#$pval)
+            {
+                my $arr_55_item = $$pval[$arr_55_idx];
+                # .'^'.2.geometry.'|'.5.bbox.0
+                $res = jm_is_numeric($arr_55_item);
+                if (! $res)
+                {
+                    last;
+                }
+            }
+        }
+        if (! $res)
+        {
+            return 0;
+        }
+    }
+    return 1;
+}
+
+# object .'^'.2.geometry.'|'.6
+sub _jm_obj_31($$$)
+{
+    my ($val, $path, $rep) = @_;
+    # check must only props
+    if (! jm_is_object($val))
+    {
+        return 0;
+    }
+    my $pval;
+    my $res;
+    if (! exists $$val{'type'})
+    {
+        return 0;
+    }
+    $pval = $$val{'type'};
+    # .'^'.2.geometry.'|'.6.type
+    $res = jm_is_string($pval) && $pval eq 'GeometryCollection';
+    if (! $res)
+    {
+        return 0;
+    }
+    if (! exists $$val{'geometries'})
+    {
+        return 0;
+    }
+    $pval = $$val{'geometries'};
+    # .'^'.2.geometry.'|'.6.geometries
+    $res = jm_is_array($pval);
+    if ($res)
+    {
+        for my $arr_56_idx (0 .. $#$pval)
+        {
+            my $arr_56_item = $$pval[$arr_56_idx];
+            # .'^'.2.geometry.'|'.6.geometries.0
+            $res = json_model_11($arr_56_item, undef, $rep);
+            if (! $res)
+            {
+                last;
+            }
+        }
+    }
+    if (! $res)
+    {
+        return 0;
+    }
+    if (exists $$val{'bbox'})
+    {
+        $pval = $$val{'bbox'};
+        # .'^'.2.geometry.'|'.6.bbox
+        $res = jm_is_array($pval);
+        if ($res)
+        {
+            for my $arr_57_idx (0 .. $#$pval)
+            {
+                my $arr_57_item = $$pval[$arr_57_idx];
+                # .'^'.2.geometry.'|'.6.bbox.0
+                $res = jm_is_numeric($arr_57_item);
+                if (! $res)
+                {
+                    last;
+                }
+            }
+        }
+        if (! $res)
+        {
+            return 0;
+        }
+    }
+    return 1;
+}
+
+
+# object .'^'.2.properties.'|'.1
+sub _jm_obj_32($$$)
+{
+    my ($val, $path, $rep) = @_;
+    if (! jm_is_object($val))
+    {
+        return 0;
+    }
+    # accept any object
+    return 1;
+}
+
+# object .'^'.2
+sub _jm_obj_24($$$)
+{
+    my ($val, $path, $rep) = @_;
+    # check must only props
+    if (! jm_is_object($val))
+    {
+        return 0;
+    }
+    my $pval;
+    my $res;
+    if (! exists $$val{'type'})
+    {
+        return 0;
+    }
+    $pval = $$val{'type'};
+    # .'^'.2.type
+    $res = jm_is_string($pval) && $pval eq 'Feature';
+    if (! $res)
+    {
+        return 0;
+    }
+    if (! exists $$val{'geometry'})
+    {
+        return 0;
+    }
+    $pval = $$val{'geometry'};
+    # .'^'.2.geometry
+    $res = jm_is_object($pval);
+    if ($res)
+    {
+        if (exists $$pval{'type'})
+        {
+            my $tag_2 = $$pval{'type'};
+            my $fun_2 = $_jm_map_2{$tag_2};
+            if (defined($fun_2))
+            {
+                $res = &$fun_2($pval, $path, $rep);
+            }
+            else
+            {
+                $res = 0;
+            }
+        }
+        else
+        {
+            $res = 0;
+        }
+    }
+    if (! $res)
+    {
+        # .'^'.2.geometry.'|'
+        $res = !defined($pval);
+    }
+    if (! $res)
+    {
+        return 0;
+    }
+    if (! exists $$val{'properties'})
+    {
+        return 0;
+    }
+    $pval = $$val{'properties'};
+    # .'^'.2.properties
+    # .'^'.2.properties.'|'.0
+    $res = !defined($pval);
+    if (! $res)
+    {
+        # .'^'.2.properties.'|'.1
+        $res = _jm_obj_32($pval, $path, $rep);
+    }
+    if (! $res)
+    {
+        return 0;
+    }
+    if (exists $$val{'id'})
+    {
+        $pval = $$val{'id'};
+        # .'^'.2.id
+        # .'^'.2.id.'|'.0
+        $res = jm_is_string($pval);
+        if (! $res)
+        {
+            # .'^'.2.id.'|'.1
+            $res = jm_is_numeric($pval);
+        }
+        if (! $res)
+        {
+            return 0;
+        }
+    }
+    if (exists $$val{'bbox'})
+    {
+        $pval = $$val{'bbox'};
+        # .'^'.2.bbox
+        $res = jm_is_array($pval);
+        if ($res)
+        {
+            for my $arr_58_idx (0 .. $#$pval)
+            {
+                my $arr_58_item = $$pval[$arr_58_idx];
+                # .'^'.2.bbox.0
+                $res = jm_is_numeric($arr_58_item);
+                if (! $res)
+                {
+                    last;
+                }
+            }
+        }
+        if (! $res)
+        {
+            return 0;
+        }
+    }
+    return 1;
+}
+
+# object .'^'.3
+sub _jm_obj_33($$$)
+{
+    my ($val, $path, $rep) = @_;
+    # check must only props
+    if (! jm_is_object($val))
+    {
+        return 0;
+    }
+    my $pval;
+    my $res;
+    if (! exists $$val{'type'})
+    {
+        return 0;
+    }
+    $pval = $$val{'type'};
+    # .'^'.3.type
+    $res = jm_is_string($pval) && $pval eq 'FeatureCollection';
+    if (! $res)
+    {
+        return 0;
+    }
+    if (! exists $$val{'features'})
+    {
+        return 0;
+    }
+    $pval = $$val{'features'};
+    # .'^'.3.features
+    $res = jm_is_array($pval);
+    if ($res)
+    {
+        for my $arr_59_idx (0 .. $#$pval)
+        {
+            my $arr_59_item = $$pval[$arr_59_idx];
+            # .'^'.3.features.0
+            $res = json_model_13($arr_59_item, undef, $rep);
+            if (! $res)
+            {
+                last;
+            }
+        }
+    }
+    if (! $res)
+    {
+        return 0;
+    }
+    if (exists $$val{'bbox'})
+    {
+        $pval = $$val{'bbox'};
+        # .'^'.3.bbox
+        $res = jm_is_array($pval);
+        if ($res)
+        {
+            for my $arr_60_idx (0 .. $#$pval)
+            {
+                my $arr_60_item = $$pval[$arr_60_idx];
+                # .'^'.3.bbox.0
+                $res = jm_is_numeric($arr_60_item);
+                if (! $res)
+                {
+                    last;
+                }
+            }
+        }
+        if (! $res)
+        {
+            return 0;
+        }
+    }
+    return 1;
 }
 
 # check $ (.)
@@ -1855,7 +2688,7 @@ sub json_model_1($$$)
         $xc_0++;
     }
     # .'^'.1
-    $xr_0 = json_model_12($val, $path, $rep);
+    $xr_0 = _jm_obj_23($val, $path, $rep);
     if ($xr_0)
     {
         $xc_0++;
@@ -1863,7 +2696,7 @@ sub json_model_1($$$)
     if ($xc_0 <= 1)
     {
         # .'^'.2
-        $xr_0 = json_model_13($val, $path, $rep);
+        $xr_0 = _jm_obj_24($val, $path, $rep);
         if ($xr_0)
         {
             $xc_0++;
@@ -1872,7 +2705,7 @@ sub json_model_1($$$)
     if ($xc_0 <= 1)
     {
         # .'^'.3
-        $xr_0 = json_model_14($val, $path, $rep);
+        $xr_0 = _jm_obj_33($val, $path, $rep);
         if ($xr_0)
         {
             $xc_0++;
@@ -1907,6 +2740,16 @@ sub check_model_init()
             'MultiLineString' => \&_jm_obj_17,
             'Polygon' => \&_jm_obj_18,
             'MultiPolygon' => \&_jm_obj_19,
+            'GeometryCollection' => \&_jm_obj_20,
+        );
+        %_jm_map_2 = (
+            'Point' => \&_jm_obj_25,
+            'MultiPoint' => \&_jm_obj_26,
+            'LineString' => \&_jm_obj_27,
+            'MultiLineString' => \&_jm_obj_28,
+            'Polygon' => \&_jm_obj_29,
+            'MultiPolygon' => \&_jm_obj_30,
+            'GeometryCollection' => \&_jm_obj_31,
         );
         %check_model_map = (
             '' => \&json_model_1,
@@ -1934,6 +2777,7 @@ sub check_model_free()
         $initialized = 0;
         %_jm_map_0 = ();
         %_jm_map_1 = ();
+        %_jm_map_2 = ();
         %check_model_map = ();
     }
 }

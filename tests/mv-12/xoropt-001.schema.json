@@ -50,7 +50,10 @@
           "$ref": "#/$defs/A"
         },
         {
-          "$ref": "#/$defs/O"
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/$defs/Any"
+          }
         }
       ]
     }

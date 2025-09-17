@@ -2,9 +2,120 @@
   {
     "^": [
       "$geometry",
-      "$GeometryCollection",
-      "$Feature",
-      "$FeatureCollection"
+      {
+        "type": "GeometryCollection",
+        "geometries": [
+          "$geometry"
+        ],
+        "?bbox": [
+          -1.0
+        ],
+        "": "$ANY"
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "|": [
+            null,
+            {
+              "type": "Point",
+              "coordinates": "$position",
+              "?bbox": [
+                -1.0
+              ],
+              "": "$ANY"
+            },
+            {
+              "type": "MultiPoint",
+              "coordinates": [
+                "$position"
+              ],
+              "?bbox": [
+                -1.0
+              ],
+              "": "$ANY"
+            },
+            {
+              "type": "LineString",
+              "coordinates": "$coord_array",
+              "?bbox": [
+                -1.0
+              ],
+              "": "$ANY"
+            },
+            {
+              "type": "MultiLineString",
+              "coordinates": [
+                "$coord_array"
+              ],
+              "?bbox": [
+                -1.0
+              ],
+              "": "$ANY"
+            },
+            {
+              "type": "Polygon",
+              "coordinates": [
+                "$linear_ring"
+              ],
+              "?bbox": [
+                -1.0
+              ],
+              "": "$ANY"
+            },
+            {
+              "type": "MultiPolygon",
+              "coordinates": [
+                [
+                  "$linear_ring"
+                ]
+              ],
+              "?bbox": [
+                -1.0
+              ],
+              "": "$ANY"
+            },
+            {
+              "type": "GeometryCollection",
+              "geometries": [
+                "$geometry"
+              ],
+              "?bbox": [
+                -1.0
+              ],
+              "": "$ANY"
+            }
+          ]
+        },
+        "properties": {
+          "|": [
+            null,
+            {
+              "": "$ANY"
+            }
+          ]
+        },
+        "?id": {
+          "|": [
+            "",
+            -1.0
+          ]
+        },
+        "?bbox": [
+          -1.0
+        ],
+        "": "$ANY"
+      },
+      {
+        "type": "FeatureCollection",
+        "features": [
+          "$Feature"
+        ],
+        "?bbox": [
+          -1.0
+        ],
+        "": "$ANY"
+      }
     ],
     "#": "JsonModel 1 (JSON_MODEL_LOOSE_FLOAT)",
     "$": {
@@ -225,7 +336,16 @@
               ],
               "": "$ANY"
             },
-            "$GeometryCollection"
+            {
+              "type": "GeometryCollection",
+              "geometries": [
+                "$geometry"
+              ],
+              "?bbox": [
+                -1.0
+              ],
+              "": "$ANY"
+            }
           ]
         },
         "properties": {
@@ -481,7 +601,16 @@
           ],
           "": "$ANY"
         },
-        "$GeometryCollection"
+        {
+          "type": "GeometryCollection",
+          "geometries": [
+            "$geometry"
+          ],
+          "?bbox": [
+            -1.0
+          ],
+          "": "$ANY"
+        }
       ]
     },
     "properties": {

@@ -41,16 +41,156 @@
     "Type": {
       "anyOf": [
         {
-          "$ref": "#/$defs/Atomic"
+          "description": "could there be derived atomics as well?",
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "kind": {
+              "const": "atomic"
+            },
+            "baseType": {
+              "$ref": "#/$defs/atomic-types"
+            },
+            "pattern": {
+              "type": "string"
+            },
+            "length": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "minLength": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "maxLength": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "totalDigits": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "fractionDigits": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "maxInclusive": {
+              "$ref": "#/$defs/atomic"
+            },
+            "maxExclusive": {
+              "$ref": "#/$defs/atomic"
+            },
+            "minInclusive": {
+              "$ref": "#/$defs/atomic"
+            },
+            "minExclusive": {
+              "$ref": "#/$defs/atomic"
+            },
+            "enumeration": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/atomic"
+              }
+            },
+            "explicitTypeZone": {
+              "enum": [
+                "required",
+                "prohibited",
+                "optional"
+              ]
+            }
+          },
+          "required": [
+            "kind",
+            "baseType"
+          ],
+          "additionalProperties": false
         },
         {
-          "$ref": "#/$defs/Object"
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "kind": {
+              "const": "object"
+            },
+            "baseType": {
+              "type": "string"
+            },
+            "content": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/Fields"
+              }
+            },
+            "closed": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "kind"
+          ],
+          "additionalProperties": false
         },
         {
-          "$ref": "#/$defs/Array"
+          "description": "WTF about 'content'?",
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "kind": {
+              "const": "array"
+            },
+            "baseType": {
+              "type": "string"
+            },
+            "content": {
+              "$ref": "#/$defs/type-or-ref"
+            },
+            "minLength": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "maxLength": {
+              "type": "integer",
+              "minimum": 0
+            }
+          },
+          "required": [
+            "kind"
+          ],
+          "additionalProperties": false
         },
         {
-          "$ref": "#/$defs/Union"
+          "description": "jsound.jsound.json does not say that it is a type\u2026",
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "kind": {
+              "const": "union"
+            },
+            "baseType": {
+              "type": "string"
+            },
+            "content": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/type-or-ref"
+              }
+            }
+          },
+          "required": [
+            "name",
+            "kind",
+            "content"
+          ],
+          "additionalProperties": false
         }
       ]
     },
@@ -272,16 +412,156 @@
           "type": "string"
         },
         {
-          "$ref": "#/$defs/Atomic"
+          "description": "could there be derived atomics as well?",
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "kind": {
+              "const": "atomic"
+            },
+            "baseType": {
+              "$ref": "#/$defs/atomic-types"
+            },
+            "pattern": {
+              "type": "string"
+            },
+            "length": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "minLength": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "maxLength": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "totalDigits": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "fractionDigits": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "maxInclusive": {
+              "$ref": "#/$defs/atomic"
+            },
+            "maxExclusive": {
+              "$ref": "#/$defs/atomic"
+            },
+            "minInclusive": {
+              "$ref": "#/$defs/atomic"
+            },
+            "minExclusive": {
+              "$ref": "#/$defs/atomic"
+            },
+            "enumeration": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/atomic"
+              }
+            },
+            "explicitTypeZone": {
+              "enum": [
+                "required",
+                "prohibited",
+                "optional"
+              ]
+            }
+          },
+          "required": [
+            "kind",
+            "baseType"
+          ],
+          "additionalProperties": false
         },
         {
-          "$ref": "#/$defs/Object"
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "kind": {
+              "const": "object"
+            },
+            "baseType": {
+              "type": "string"
+            },
+            "content": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/Fields"
+              }
+            },
+            "closed": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "kind"
+          ],
+          "additionalProperties": false
         },
         {
-          "$ref": "#/$defs/Array"
+          "description": "WTF about 'content'?",
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "kind": {
+              "const": "array"
+            },
+            "baseType": {
+              "type": "string"
+            },
+            "content": {
+              "$ref": "#/$defs/type-or-ref"
+            },
+            "minLength": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "maxLength": {
+              "type": "integer",
+              "minimum": 0
+            }
+          },
+          "required": [
+            "kind"
+          ],
+          "additionalProperties": false
         },
         {
-          "$ref": "#/$defs/Union"
+          "description": "jsound.jsound.json does not say that it is a type\u2026",
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "kind": {
+              "const": "union"
+            },
+            "baseType": {
+              "type": "string"
+            },
+            "content": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/type-or-ref"
+              }
+            }
+          },
+          "required": [
+            "name",
+            "kind",
+            "content"
+          ],
+          "additionalProperties": false
         }
       ]
     }

@@ -89,13 +89,88 @@
   },
   "anyOf": [
     {
-      "$ref": "#/$defs/O0"
+      "type": "object",
+      "properties": {
+        "a": {
+          "type": "boolean"
+        },
+        "b": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "c": {
+          "type": "null"
+        },
+        "d": {
+          "type": "number",
+          "minimum": 0.0
+        }
+      },
+      "required": [
+        "a",
+        "b",
+        "c",
+        "d"
+      ],
+      "additionalProperties": {
+        "type": "string",
+        "format": "date"
+      }
     },
     {
-      "$ref": "#/$defs/O1"
+      "type": "object",
+      "properties": {
+        "z": {
+          "type": "boolean"
+        },
+        "a": {
+          "type": "boolean"
+        },
+        "b": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "c": {
+          "type": "null"
+        },
+        "d": {
+          "type": "number",
+          "minimum": 0.0
+        }
+      },
+      "required": [
+        "z"
+      ],
+      "additionalProperties": false
     },
     {
-      "$ref": "#/$defs/O2"
+      "type": "object",
+      "properties": {
+        "a": {
+          "type": "boolean"
+        },
+        "b": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "c": {
+          "type": "null"
+        },
+        "d": {
+          "type": "number",
+          "minimum": 0.0
+        },
+        "y": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "a",
+        "b",
+        "c",
+        "d"
+      ],
+      "additionalProperties": false
     }
   ]
 }

@@ -124,6 +124,29 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
+-- object .'$Any'.'|'.6
+CREATE OR REPLACE FUNCTION _jm_obj_1(val JSONB, path TEXT[], rep jm_report_entry[])
+RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
+DECLARE
+  res bool;
+  prop TEXT;
+  pval JSONB;
+BEGIN
+  IF NOT (JSONB_TYPEOF(val) = 'object') THEN
+    RETURN FALSE;
+  END IF;
+  FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
+    -- handle other props
+    -- .'$Any'.'|'.6.''
+    res := json_model_9(pval, NULL, rep);
+    IF NOT res THEN
+      RETURN FALSE;
+    END IF;
+  END LOOP;
+  RETURN TRUE;
+END;
+$$ LANGUAGE PLpgSQL;
+
 -- check $Any (.'$Any')
 CREATE OR REPLACE FUNCTION json_model_9(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
@@ -150,7 +173,7 @@ BEGIN
             res := json_model_7(val, path, rep);
             IF NOT res THEN
               -- .'$Any'.'|'.6
-              res := json_model_8(val, path, rep);
+              res := _jm_obj_1(val, path, rep);
             END IF;
           END IF;
         END IF;

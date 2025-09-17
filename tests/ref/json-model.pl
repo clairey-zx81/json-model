@@ -1458,34 +1458,330 @@ sub json_model_26($$$)
     return $res;
 }
 
+# object .'$Elem'.'|'.5
+sub _jm_obj_13($$$)
+{
+    my ($val, $path, $rep) = @_;
+    if (! jm_is_object($val))
+    {
+        return 0;
+    }
+    my $res;
+    scalar keys %$val;
+    while (my ($prop, $pval) = each %$val)
+    {
+        if (json_model_25($prop, undef, $rep))
+        {
+            # handle 1 key props
+            # .'$Elem'.'|'.5.'$Prop'
+            $res = json_model_32($pval, undef, $rep);
+            if (! $res)
+            {
+                return 0;
+            }
+        }
+        else
+        {
+            return 0;
+        }
+    }
+    return 1;
+}
+
+# object .'$Elem'.'|'.4
+sub _jm_obj_14($$$)
+{
+    my ($val, $path, $rep) = @_;
+    if (! jm_is_object($val))
+    {
+        return 0;
+    }
+    my $res;
+    my $must_count = 0;
+    scalar keys %$val;
+    while (my ($prop, $pval) = each %$val)
+    {
+        if ($prop eq '+')
+        {
+            # handle must + property
+            $must_count++;
+            # .'$Elem'.'|'.4.'+'
+            $res = jm_is_array($pval);
+            if ($res)
+            {
+                for my $arr_9_idx (0 .. $#$pval)
+                {
+                    my $arr_9_item = $$pval[$arr_9_idx];
+                    # .'$Elem'.'|'.4.'+'.0
+                    $res = json_model_32($arr_9_item, undef, $rep);
+                    if (! $res)
+                    {
+                        last;
+                    }
+                }
+            }
+            if (! $res)
+            {
+                return 0;
+            }
+        }
+        else
+        {
+            return 0;
+        }
+    }
+    if ($must_count != 1)
+    {
+        return 0;
+    }
+    return 1;
+}
+
+# object .'$Elem'.'|'.3
+sub _jm_obj_15($$$)
+{
+    my ($val, $path, $rep) = @_;
+    if (! jm_is_object($val))
+    {
+        return 0;
+    }
+    my $res;
+    my $must_count = 0;
+    scalar keys %$val;
+    while (my ($prop, $pval) = each %$val)
+    {
+        if ($prop eq '^')
+        {
+            # handle must ^ property
+            $must_count++;
+            # .'$Elem'.'|'.3.'^'
+            $res = jm_is_array($pval);
+            if ($res)
+            {
+                for my $arr_10_idx (0 .. $#$pval)
+                {
+                    my $arr_10_item = $$pval[$arr_10_idx];
+                    # .'$Elem'.'|'.3.'^'.0
+                    $res = json_model_32($arr_10_item, undef, $rep);
+                    if (! $res)
+                    {
+                        last;
+                    }
+                }
+            }
+            if (! $res)
+            {
+                return 0;
+            }
+        }
+        else
+        {
+            return 0;
+        }
+    }
+    if ($must_count != 1)
+    {
+        return 0;
+    }
+    return 1;
+}
+
+# object .'$Elem'.'|'.2
+sub _jm_obj_16($$$)
+{
+    my ($val, $path, $rep) = @_;
+    if (! jm_is_object($val))
+    {
+        return 0;
+    }
+    my $res;
+    my $must_count = 0;
+    scalar keys %$val;
+    while (my ($prop, $pval) = each %$val)
+    {
+        if ($prop eq '&')
+        {
+            # handle must & property
+            $must_count++;
+            # .'$Elem'.'|'.2.'&'
+            $res = jm_is_array($pval);
+            if ($res)
+            {
+                for my $arr_11_idx (0 .. $#$pval)
+                {
+                    my $arr_11_item = $$pval[$arr_11_idx];
+                    # .'$Elem'.'|'.2.'&'.0
+                    $res = json_model_32($arr_11_item, undef, $rep);
+                    if (! $res)
+                    {
+                        last;
+                    }
+                }
+            }
+            if (! $res)
+            {
+                return 0;
+            }
+        }
+        else
+        {
+            return 0;
+        }
+    }
+    if ($must_count != 1)
+    {
+        return 0;
+    }
+    return 1;
+}
+
+# object .'$Elem'.'|'.1
+sub _jm_obj_17($$$)
+{
+    my ($val, $path, $rep) = @_;
+    if (! jm_is_object($val))
+    {
+        return 0;
+    }
+    my $res;
+    my $must_count = 0;
+    scalar keys %$val;
+    while (my ($prop, $pval) = each %$val)
+    {
+        if ($prop eq '|')
+        {
+            # handle must | property
+            $must_count++;
+            # .'$Elem'.'|'.1.'|'
+            $res = jm_is_array($pval);
+            if ($res)
+            {
+                for my $arr_12_idx (0 .. $#$pval)
+                {
+                    my $arr_12_item = $$pval[$arr_12_idx];
+                    # .'$Elem'.'|'.1.'|'.0
+                    $res = json_model_32($arr_12_item, undef, $rep);
+                    if (! $res)
+                    {
+                        last;
+                    }
+                }
+            }
+            if (! $res)
+            {
+                return 0;
+            }
+        }
+        else
+        {
+            return 0;
+        }
+    }
+    if ($must_count != 1)
+    {
+        return 0;
+    }
+    return 1;
+}
+
+# object .'$Elem'.'|'.0
+sub _jm_obj_18($$$)
+{
+    my ($val, $path, $rep) = @_;
+    if (! jm_is_object($val))
+    {
+        return 0;
+    }
+    my $res;
+    my $must_count = 0;
+    scalar keys %$val;
+    while (my ($prop, $pval) = each %$val)
+    {
+        if ($prop eq '@')
+        {
+            # handle must @ property
+            $must_count++;
+            # .'$Elem'.'|'.0.'@'
+            $res = json_model_32($pval, undef, $rep);
+            if (! $res)
+            {
+                return 0;
+            }
+        }
+        elsif ($prop eq '!')
+        {
+            # handle may ! property
+            # .'$Elem'.'|'.0.'!'
+            $res = jm_is_boolean($pval);
+            if (! $res)
+            {
+                return 0;
+            }
+        }
+        elsif (_jm_re_7($prop, $path, $rep))
+        {
+            # handle 2 re props
+            # .'$Elem'.'|'.0.'/^(<=|>=|<|>)$/'
+            $res = json_model_12($pval, undef, $rep);
+            if (! $res)
+            {
+                return 0;
+            }
+        }
+        elsif (_jm_re_8($prop, $path, $rep))
+        {
+            # handle 2 re props
+            # .'$Elem'.'|'.0.'/^(=|!=)$/'
+            $res = json_model_13($pval, undef, $rep);
+            if (! $res)
+            {
+                return 0;
+            }
+        }
+        else
+        {
+            return 0;
+        }
+    }
+    if ($must_count != 1)
+    {
+        return 0;
+    }
+    return 1;
+}
+
 # check $Elem (.'$Elem')
 sub json_model_27($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
     # .'$Elem'
-    # .'$Elem'.'|'.0
-    $res = json_model_20($val, $path, $rep);
-    if (! $res)
+    $res = jm_is_object($val);
+    if ($res)
     {
-        # .'$Elem'.'|'.1
-        $res = json_model_21($val, $path, $rep);
+        # .'$Elem'.'|'.0
+        $res = _jm_obj_18($val, $path, $rep);
         if (! $res)
         {
-            # .'$Elem'.'|'.2
-            $res = json_model_22($val, $path, $rep);
+            # .'$Elem'.'|'.1
+            $res = _jm_obj_17($val, $path, $rep);
             if (! $res)
             {
-                # .'$Elem'.'|'.3
-                $res = json_model_23($val, $path, $rep);
+                # .'$Elem'.'|'.2
+                $res = _jm_obj_16($val, $path, $rep);
                 if (! $res)
                 {
-                    # .'$Elem'.'|'.4
-                    $res = json_model_24($val, $path, $rep);
+                    # .'$Elem'.'|'.3
+                    $res = _jm_obj_15($val, $path, $rep);
                     if (! $res)
                     {
-                        # .'$Elem'.'|'.5
-                        $res = json_model_26($val, $path, $rep);
+                        # .'$Elem'.'|'.4
+                        $res = _jm_obj_14($val, $path, $rep);
+                        if (! $res)
+                        {
+                            # .'$Elem'.'|'.5
+                            $res = _jm_obj_13($val, $path, $rep);
+                        }
                     }
                 }
             }
@@ -1495,7 +1791,7 @@ sub json_model_27($$$)
 }
 
 # object .'$Element'.'|'.5
-sub _jm_obj_13($$$)
+sub _jm_obj_19($$$)
 {
     my ($val, $path, $rep) = @_;
     if (! jm_is_object($val))
@@ -1545,7 +1841,7 @@ sub _jm_obj_13($$$)
 }
 
 # object .'$Element'.'|'.4
-sub _jm_obj_14($$$)
+sub _jm_obj_20($$$)
 {
     my ($val, $path, $rep) = @_;
     if (! jm_is_object($val))
@@ -1565,11 +1861,11 @@ sub _jm_obj_14($$$)
             $res = jm_is_array($pval);
             if ($res)
             {
-                for my $arr_9_idx (0 .. $#$pval)
+                for my $arr_13_idx (0 .. $#$pval)
                 {
-                    my $arr_9_item = $$pval[$arr_9_idx];
+                    my $arr_13_item = $$pval[$arr_13_idx];
                     # .'$Element'.'|'.4.'+'.0
-                    $res = json_model_32($arr_9_item, undef, $rep);
+                    $res = json_model_32($arr_13_item, undef, $rep);
                     if (! $res)
                     {
                         last;
@@ -1614,7 +1910,7 @@ sub _jm_obj_14($$$)
 }
 
 # object .'$Element'.'|'.3
-sub _jm_obj_15($$$)
+sub _jm_obj_21($$$)
 {
     my ($val, $path, $rep) = @_;
     if (! jm_is_object($val))
@@ -1634,11 +1930,11 @@ sub _jm_obj_15($$$)
             $res = jm_is_array($pval);
             if ($res)
             {
-                for my $arr_10_idx (0 .. $#$pval)
+                for my $arr_14_idx (0 .. $#$pval)
                 {
-                    my $arr_10_item = $$pval[$arr_10_idx];
+                    my $arr_14_item = $$pval[$arr_14_idx];
                     # .'$Element'.'|'.3.'^'.0
-                    $res = json_model_32($arr_10_item, undef, $rep);
+                    $res = json_model_32($arr_14_item, undef, $rep);
                     if (! $res)
                     {
                         last;
@@ -1683,7 +1979,7 @@ sub _jm_obj_15($$$)
 }
 
 # object .'$Element'.'|'.2
-sub _jm_obj_16($$$)
+sub _jm_obj_22($$$)
 {
     my ($val, $path, $rep) = @_;
     if (! jm_is_object($val))
@@ -1703,11 +1999,11 @@ sub _jm_obj_16($$$)
             $res = jm_is_array($pval);
             if ($res)
             {
-                for my $arr_11_idx (0 .. $#$pval)
+                for my $arr_15_idx (0 .. $#$pval)
                 {
-                    my $arr_11_item = $$pval[$arr_11_idx];
+                    my $arr_15_item = $$pval[$arr_15_idx];
                     # .'$Element'.'|'.2.'&'.0
-                    $res = json_model_32($arr_11_item, undef, $rep);
+                    $res = json_model_32($arr_15_item, undef, $rep);
                     if (! $res)
                     {
                         last;
@@ -1752,7 +2048,7 @@ sub _jm_obj_16($$$)
 }
 
 # object .'$Element'.'|'.1
-sub _jm_obj_17($$$)
+sub _jm_obj_23($$$)
 {
     my ($val, $path, $rep) = @_;
     if (! jm_is_object($val))
@@ -1772,11 +2068,11 @@ sub _jm_obj_17($$$)
             $res = jm_is_array($pval);
             if ($res)
             {
-                for my $arr_12_idx (0 .. $#$pval)
+                for my $arr_16_idx (0 .. $#$pval)
                 {
-                    my $arr_12_item = $$pval[$arr_12_idx];
+                    my $arr_16_item = $$pval[$arr_16_idx];
                     # .'$Element'.'|'.1.'|'.0
-                    $res = json_model_32($arr_12_item, undef, $rep);
+                    $res = json_model_32($arr_16_item, undef, $rep);
                     if (! $res)
                     {
                         last;
@@ -1821,7 +2117,7 @@ sub _jm_obj_17($$$)
 }
 
 # object .'$Element'.'|'.0
-sub _jm_obj_18($$$)
+sub _jm_obj_24($$$)
 {
     my ($val, $path, $rep) = @_;
     if (! jm_is_object($val))
@@ -1916,27 +2212,27 @@ sub json_model_28($$$)
     if ($res)
     {
         # .'$Element'.'|'.0
-        $res = _jm_obj_18($val, $path, $rep);
+        $res = _jm_obj_24($val, $path, $rep);
         if (! $res)
         {
             # .'$Element'.'|'.1
-            $res = _jm_obj_17($val, $path, $rep);
+            $res = _jm_obj_23($val, $path, $rep);
             if (! $res)
             {
                 # .'$Element'.'|'.2
-                $res = _jm_obj_16($val, $path, $rep);
+                $res = _jm_obj_22($val, $path, $rep);
                 if (! $res)
                 {
                     # .'$Element'.'|'.3
-                    $res = _jm_obj_15($val, $path, $rep);
+                    $res = _jm_obj_21($val, $path, $rep);
                     if (! $res)
                     {
                         # .'$Element'.'|'.4
-                        $res = _jm_obj_14($val, $path, $rep);
+                        $res = _jm_obj_20($val, $path, $rep);
                         if (! $res)
                         {
                             # .'$Element'.'|'.5
-                            $res = _jm_obj_13($val, $path, $rep);
+                            $res = _jm_obj_19($val, $path, $rep);
                         }
                     }
                 }
@@ -1947,7 +2243,7 @@ sub json_model_28($$$)
 }
 
 # object .'$Trafo'.'~'
-sub _jm_obj_20($$$)
+sub _jm_obj_26($$$)
 {
     my ($val, $path, $rep) = @_;
     if (! jm_is_object($val))
@@ -1970,7 +2266,7 @@ sub _jm_obj_20($$$)
 }
 
 # object .'$Trafo'
-sub _jm_obj_19($$$)
+sub _jm_obj_25($$$)
 {
     my ($val, $path, $rep) = @_;
     if (! jm_is_object($val))
@@ -2026,7 +2322,7 @@ sub _jm_obj_19($$$)
         {
             # handle may ~ property
             # .'$Trafo'.'~'
-            $res = _jm_obj_20($pval, undef, $rep);
+            $res = _jm_obj_26($pval, undef, $rep);
             if (! $res)
             {
                 return 0;
@@ -2057,12 +2353,12 @@ sub json_model_29($$$)
     my $res;
     # remove, rename or add stuff
     # .'$Trafo'
-    $res = _jm_obj_19($val, $path, $rep);
+    $res = _jm_obj_25($val, $path, $rep);
     return $res;
 }
 
 # object .'$Transformation'.'|'.6.'~'
-sub _jm_obj_22($$$)
+sub _jm_obj_28($$$)
 {
     my ($val, $path, $rep) = @_;
     if (! jm_is_object($val))
@@ -2085,7 +2381,7 @@ sub _jm_obj_22($$$)
 }
 
 # object .'$Transformation'.'|'.6
-sub _jm_obj_21($$$)
+sub _jm_obj_27($$$)
 {
     my ($val, $path, $rep) = @_;
     if (! jm_is_object($val))
@@ -2151,7 +2447,7 @@ sub _jm_obj_21($$$)
         {
             # handle may ~ property
             # .'$Transformation'.'|'.6.'~'
-            $res = _jm_obj_22($pval, undef, $rep);
+            $res = _jm_obj_28($pval, undef, $rep);
             if (! $res)
             {
                 return 0;
@@ -2186,7 +2482,7 @@ sub _jm_obj_21($$$)
 }
 
 # object .'$Transformation'.'|'.5
-sub _jm_obj_23($$$)
+sub _jm_obj_29($$$)
 {
     my ($val, $path, $rep) = @_;
     if (! jm_is_object($val))
@@ -2236,7 +2532,7 @@ sub _jm_obj_23($$$)
 }
 
 # object .'$Transformation'.'|'.4
-sub _jm_obj_24($$$)
+sub _jm_obj_30($$$)
 {
     my ($val, $path, $rep) = @_;
     if (! jm_is_object($val))
@@ -2256,11 +2552,11 @@ sub _jm_obj_24($$$)
             $res = jm_is_array($pval);
             if ($res)
             {
-                for my $arr_13_idx (0 .. $#$pval)
+                for my $arr_17_idx (0 .. $#$pval)
                 {
-                    my $arr_13_item = $$pval[$arr_13_idx];
+                    my $arr_17_item = $$pval[$arr_17_idx];
                     # .'$Transformation'.'|'.4.'+'.0
-                    $res = json_model_32($arr_13_item, undef, $rep);
+                    $res = json_model_32($arr_17_item, undef, $rep);
                     if (! $res)
                     {
                         last;
@@ -2305,7 +2601,7 @@ sub _jm_obj_24($$$)
 }
 
 # object .'$Transformation'.'|'.3
-sub _jm_obj_25($$$)
+sub _jm_obj_31($$$)
 {
     my ($val, $path, $rep) = @_;
     if (! jm_is_object($val))
@@ -2325,11 +2621,11 @@ sub _jm_obj_25($$$)
             $res = jm_is_array($pval);
             if ($res)
             {
-                for my $arr_14_idx (0 .. $#$pval)
+                for my $arr_18_idx (0 .. $#$pval)
                 {
-                    my $arr_14_item = $$pval[$arr_14_idx];
+                    my $arr_18_item = $$pval[$arr_18_idx];
                     # .'$Transformation'.'|'.3.'^'.0
-                    $res = json_model_32($arr_14_item, undef, $rep);
+                    $res = json_model_32($arr_18_item, undef, $rep);
                     if (! $res)
                     {
                         last;
@@ -2374,7 +2670,7 @@ sub _jm_obj_25($$$)
 }
 
 # object .'$Transformation'.'|'.2
-sub _jm_obj_26($$$)
+sub _jm_obj_32($$$)
 {
     my ($val, $path, $rep) = @_;
     if (! jm_is_object($val))
@@ -2394,11 +2690,11 @@ sub _jm_obj_26($$$)
             $res = jm_is_array($pval);
             if ($res)
             {
-                for my $arr_15_idx (0 .. $#$pval)
+                for my $arr_19_idx (0 .. $#$pval)
                 {
-                    my $arr_15_item = $$pval[$arr_15_idx];
+                    my $arr_19_item = $$pval[$arr_19_idx];
                     # .'$Transformation'.'|'.2.'&'.0
-                    $res = json_model_32($arr_15_item, undef, $rep);
+                    $res = json_model_32($arr_19_item, undef, $rep);
                     if (! $res)
                     {
                         last;
@@ -2443,7 +2739,7 @@ sub _jm_obj_26($$$)
 }
 
 # object .'$Transformation'.'|'.1
-sub _jm_obj_27($$$)
+sub _jm_obj_33($$$)
 {
     my ($val, $path, $rep) = @_;
     if (! jm_is_object($val))
@@ -2463,11 +2759,11 @@ sub _jm_obj_27($$$)
             $res = jm_is_array($pval);
             if ($res)
             {
-                for my $arr_16_idx (0 .. $#$pval)
+                for my $arr_20_idx (0 .. $#$pval)
                 {
-                    my $arr_16_item = $$pval[$arr_16_idx];
+                    my $arr_20_item = $$pval[$arr_20_idx];
                     # .'$Transformation'.'|'.1.'|'.0
-                    $res = json_model_32($arr_16_item, undef, $rep);
+                    $res = json_model_32($arr_20_item, undef, $rep);
                     if (! $res)
                     {
                         last;
@@ -2512,7 +2808,7 @@ sub _jm_obj_27($$$)
 }
 
 # object .'$Transformation'.'|'.0
-sub _jm_obj_28($$$)
+sub _jm_obj_34($$$)
 {
     my ($val, $path, $rep) = @_;
     if (! jm_is_object($val))
@@ -2608,31 +2904,31 @@ sub json_model_30($$$)
     if ($res)
     {
         # .'$Transformation'.'|'.0
-        $res = _jm_obj_28($val, $path, $rep);
+        $res = _jm_obj_34($val, $path, $rep);
         if (! $res)
         {
             # .'$Transformation'.'|'.1
-            $res = _jm_obj_27($val, $path, $rep);
+            $res = _jm_obj_33($val, $path, $rep);
             if (! $res)
             {
                 # .'$Transformation'.'|'.2
-                $res = _jm_obj_26($val, $path, $rep);
+                $res = _jm_obj_32($val, $path, $rep);
                 if (! $res)
                 {
                     # .'$Transformation'.'|'.3
-                    $res = _jm_obj_25($val, $path, $rep);
+                    $res = _jm_obj_31($val, $path, $rep);
                     if (! $res)
                     {
                         # .'$Transformation'.'|'.4
-                        $res = _jm_obj_24($val, $path, $rep);
+                        $res = _jm_obj_30($val, $path, $rep);
                         if (! $res)
                         {
                             # .'$Transformation'.'|'.5
-                            $res = _jm_obj_23($val, $path, $rep);
+                            $res = _jm_obj_29($val, $path, $rep);
                             if (! $res)
                             {
                                 # .'$Transformation'.'|'.6
-                                $res = _jm_obj_21($val, $path, $rep);
+                                $res = _jm_obj_27($val, $path, $rep);
                             }
                         }
                     }
@@ -2798,7 +3094,7 @@ sub json_model_31($$$)
 }
 
 # object .'$Model'.'|'.5
-sub _jm_obj_29($$$)
+sub _jm_obj_35($$$)
 {
     my ($val, $path, $rep) = @_;
     if (! jm_is_object($val))
@@ -2848,7 +3144,7 @@ sub _jm_obj_29($$$)
 }
 
 # object .'$Model'.'|'.4
-sub _jm_obj_30($$$)
+sub _jm_obj_36($$$)
 {
     my ($val, $path, $rep) = @_;
     if (! jm_is_object($val))
@@ -2868,11 +3164,11 @@ sub _jm_obj_30($$$)
             $res = jm_is_array($pval);
             if ($res)
             {
-                for my $arr_17_idx (0 .. $#$pval)
+                for my $arr_21_idx (0 .. $#$pval)
                 {
-                    my $arr_17_item = $$pval[$arr_17_idx];
+                    my $arr_21_item = $$pval[$arr_21_idx];
                     # .'$Model'.'|'.4.'+'.0
-                    $res = json_model_32($arr_17_item, undef, $rep);
+                    $res = json_model_32($arr_21_item, undef, $rep);
                     if (! $res)
                     {
                         last;
@@ -2917,7 +3213,7 @@ sub _jm_obj_30($$$)
 }
 
 # object .'$Model'.'|'.3
-sub _jm_obj_31($$$)
+sub _jm_obj_37($$$)
 {
     my ($val, $path, $rep) = @_;
     if (! jm_is_object($val))
@@ -2937,11 +3233,11 @@ sub _jm_obj_31($$$)
             $res = jm_is_array($pval);
             if ($res)
             {
-                for my $arr_18_idx (0 .. $#$pval)
+                for my $arr_22_idx (0 .. $#$pval)
                 {
-                    my $arr_18_item = $$pval[$arr_18_idx];
+                    my $arr_22_item = $$pval[$arr_22_idx];
                     # .'$Model'.'|'.3.'^'.0
-                    $res = json_model_32($arr_18_item, undef, $rep);
+                    $res = json_model_32($arr_22_item, undef, $rep);
                     if (! $res)
                     {
                         last;
@@ -2986,7 +3282,7 @@ sub _jm_obj_31($$$)
 }
 
 # object .'$Model'.'|'.2
-sub _jm_obj_32($$$)
+sub _jm_obj_38($$$)
 {
     my ($val, $path, $rep) = @_;
     if (! jm_is_object($val))
@@ -3006,11 +3302,11 @@ sub _jm_obj_32($$$)
             $res = jm_is_array($pval);
             if ($res)
             {
-                for my $arr_19_idx (0 .. $#$pval)
+                for my $arr_23_idx (0 .. $#$pval)
                 {
-                    my $arr_19_item = $$pval[$arr_19_idx];
+                    my $arr_23_item = $$pval[$arr_23_idx];
                     # .'$Model'.'|'.2.'&'.0
-                    $res = json_model_32($arr_19_item, undef, $rep);
+                    $res = json_model_32($arr_23_item, undef, $rep);
                     if (! $res)
                     {
                         last;
@@ -3055,7 +3351,7 @@ sub _jm_obj_32($$$)
 }
 
 # object .'$Model'.'|'.1
-sub _jm_obj_33($$$)
+sub _jm_obj_39($$$)
 {
     my ($val, $path, $rep) = @_;
     if (! jm_is_object($val))
@@ -3075,11 +3371,11 @@ sub _jm_obj_33($$$)
             $res = jm_is_array($pval);
             if ($res)
             {
-                for my $arr_20_idx (0 .. $#$pval)
+                for my $arr_24_idx (0 .. $#$pval)
                 {
-                    my $arr_20_item = $$pval[$arr_20_idx];
+                    my $arr_24_item = $$pval[$arr_24_idx];
                     # .'$Model'.'|'.1.'|'.0
-                    $res = json_model_32($arr_20_item, undef, $rep);
+                    $res = json_model_32($arr_24_item, undef, $rep);
                     if (! $res)
                     {
                         last;
@@ -3124,7 +3420,7 @@ sub _jm_obj_33($$$)
 }
 
 # object .'$Model'.'|'.0
-sub _jm_obj_34($$$)
+sub _jm_obj_40($$$)
 {
     my ($val, $path, $rep) = @_;
     if (! jm_is_object($val))
@@ -3220,27 +3516,27 @@ sub json_model_32($$$)
     if ($res)
     {
         # .'$Model'.'|'.0
-        $res = _jm_obj_34($val, $path, $rep);
+        $res = _jm_obj_40($val, $path, $rep);
         if (! $res)
         {
             # .'$Model'.'|'.1
-            $res = _jm_obj_33($val, $path, $rep);
+            $res = _jm_obj_39($val, $path, $rep);
             if (! $res)
             {
                 # .'$Model'.'|'.2
-                $res = _jm_obj_32($val, $path, $rep);
+                $res = _jm_obj_38($val, $path, $rep);
                 if (! $res)
                 {
                     # .'$Model'.'|'.3
-                    $res = _jm_obj_31($val, $path, $rep);
+                    $res = _jm_obj_37($val, $path, $rep);
                     if (! $res)
                     {
                         # .'$Model'.'|'.4
-                        $res = _jm_obj_30($val, $path, $rep);
+                        $res = _jm_obj_36($val, $path, $rep);
                         if (! $res)
                         {
                             # .'$Model'.'|'.5
-                            $res = _jm_obj_29($val, $path, $rep);
+                            $res = _jm_obj_35($val, $path, $rep);
                         }
                     }
                 }
@@ -3327,7 +3623,7 @@ sub json_model_32($$$)
 }
 
 # object .'$Defs'
-sub _jm_obj_35($$$)
+sub _jm_obj_41($$$)
 {
     my ($val, $path, $rep) = @_;
     if (! jm_is_object($val))
@@ -3372,7 +3668,7 @@ sub json_model_33($$$)
     my ($val, $path, $rep) = @_;
     my $res;
     # .'$Defs'
-    $res = _jm_obj_35($val, $path, $rep);
+    $res = _jm_obj_41($val, $path, $rep);
     return $res;
 }
 
@@ -3384,7 +3680,7 @@ sub _jm_re_10($$$)
 }
 
 # object .'$Rename'
-sub _jm_obj_36($$$)
+sub _jm_obj_42($$$)
 {
     my ($val, $path, $rep) = @_;
     if (! jm_is_object($val))
@@ -3420,7 +3716,7 @@ sub json_model_34($$$)
     my ($val, $path, $rep) = @_;
     my $res;
     # .'$Rename'
-    $res = _jm_obj_36($val, $path, $rep);
+    $res = _jm_obj_42($val, $path, $rep);
     return $res;
 }
 
@@ -3432,7 +3728,7 @@ sub _jm_re_11($$$)
 }
 
 # object .'$Rewrite'
-sub _jm_obj_37($$$)
+sub _jm_obj_43($$$)
 {
     my ($val, $path, $rep) = @_;
     if (! jm_is_object($val))
@@ -3467,12 +3763,12 @@ sub json_model_35($$$)
     my ($val, $path, $rep) = @_;
     my $res;
     # .'$Rewrite'
-    $res = _jm_obj_37($val, $path, $rep);
+    $res = _jm_obj_43($val, $path, $rep);
     return $res;
 }
 
 # object .'$Import'
-sub _jm_obj_38($$$)
+sub _jm_obj_44($$$)
 {
     my ($val, $path, $rep) = @_;
     if (! jm_is_object($val))
@@ -3495,11 +3791,11 @@ sub _jm_obj_38($$$)
                 $res = jm_is_array($pval);
                 if ($res)
                 {
-                    for my $arr_21_idx (0 .. $#$pval)
+                    for my $arr_25_idx (0 .. $#$pval)
                     {
-                        my $arr_21_item = $$pval[$arr_21_idx];
+                        my $arr_25_item = $$pval[$arr_25_idx];
                         # .'$Import'.'<'.'|'.1.0
-                        $res = json_model_7($arr_21_item, undef, $rep);
+                        $res = json_model_7($arr_25_item, undef, $rep);
                         if (! $res)
                         {
                             last;
@@ -3526,12 +3822,12 @@ sub json_model_36($$$)
     my ($val, $path, $rep) = @_;
     my $res;
     # .'$Import'
-    $res = _jm_obj_38($val, $path, $rep);
+    $res = _jm_obj_44($val, $path, $rep);
     return $res;
 }
 
 # object .'$RootOnly'.'$'
-sub _jm_obj_40($$$)
+sub _jm_obj_46($$$)
 {
     my ($val, $path, $rep) = @_;
     if (! jm_is_object($val))
@@ -3591,7 +3887,7 @@ sub _jm_obj_40($$$)
 }
 
 # object .'$RootOnly'.'%'
-sub _jm_obj_41($$$)
+sub _jm_obj_47($$$)
 {
     my ($val, $path, $rep) = @_;
     if (! jm_is_object($val))
@@ -3624,11 +3920,11 @@ sub _jm_obj_41($$$)
                 $res = jm_is_array($pval);
                 if ($res)
                 {
-                    for my $arr_22_idx (0 .. $#$pval)
+                    for my $arr_26_idx (0 .. $#$pval)
                     {
-                        my $arr_22_item = $$pval[$arr_22_idx];
+                        my $arr_26_item = $$pval[$arr_26_idx];
                         # .'$RootOnly'.'%'.'<'.'|'.1.0
-                        $res = json_model_7($arr_22_item, undef, $rep);
+                        $res = json_model_7($arr_26_item, undef, $rep);
                         if (! $res)
                         {
                             last;
@@ -3681,7 +3977,7 @@ sub _jm_obj_41($$$)
 }
 
 # object .'$RootOnly'
-sub _jm_obj_39($$$)
+sub _jm_obj_45($$$)
 {
     my ($val, $path, $rep) = @_;
     if (! jm_is_object($val))
@@ -3706,7 +4002,7 @@ sub _jm_obj_39($$$)
         {
             # handle may $ property
             # .'$RootOnly'.'$'
-            $res = _jm_obj_40($pval, undef, $rep);
+            $res = _jm_obj_46($pval, undef, $rep);
             if (! $res)
             {
                 return 0;
@@ -3716,7 +4012,7 @@ sub _jm_obj_39($$$)
         {
             # handle may % property
             # .'$RootOnly'.'%'
-            $res = _jm_obj_41($pval, undef, $rep);
+            $res = _jm_obj_47($pval, undef, $rep);
             if (! $res)
             {
                 return 0;
@@ -3737,12 +4033,12 @@ sub json_model_37($$$)
     my $res;
     # symbols that can only appear at the model's root
     # .'$RootOnly'
-    $res = _jm_obj_39($val, $path, $rep);
+    $res = _jm_obj_45($val, $path, $rep);
     return $res;
 }
 
 # object .'$Root'.'|'.5.'$'
-sub _jm_obj_43($$$)
+sub _jm_obj_49($$$)
 {
     my ($val, $path, $rep) = @_;
     if (! jm_is_object($val))
@@ -3802,7 +4098,7 @@ sub _jm_obj_43($$$)
 }
 
 # object .'$Root'.'|'.5.'%'
-sub _jm_obj_44($$$)
+sub _jm_obj_50($$$)
 {
     my ($val, $path, $rep) = @_;
     if (! jm_is_object($val))
@@ -3835,11 +4131,11 @@ sub _jm_obj_44($$$)
                 $res = jm_is_array($pval);
                 if ($res)
                 {
-                    for my $arr_23_idx (0 .. $#$pval)
+                    for my $arr_27_idx (0 .. $#$pval)
                     {
-                        my $arr_23_item = $$pval[$arr_23_idx];
+                        my $arr_27_item = $$pval[$arr_27_idx];
                         # .'$Root'.'|'.5.'%'.'<'.'|'.1.0
-                        $res = json_model_7($arr_23_item, undef, $rep);
+                        $res = json_model_7($arr_27_item, undef, $rep);
                         if (! $res)
                         {
                             last;
@@ -3892,7 +4188,7 @@ sub _jm_obj_44($$$)
 }
 
 # object .'$Root'.'|'.5
-sub _jm_obj_42($$$)
+sub _jm_obj_48($$$)
 {
     my ($val, $path, $rep) = @_;
     if (! jm_is_object($val))
@@ -3917,7 +4213,7 @@ sub _jm_obj_42($$$)
         {
             # handle may $ property
             # .'$Root'.'|'.5.'$'
-            $res = _jm_obj_43($pval, undef, $rep);
+            $res = _jm_obj_49($pval, undef, $rep);
             if (! $res)
             {
                 return 0;
@@ -3927,7 +4223,7 @@ sub _jm_obj_42($$$)
         {
             # handle may % property
             # .'$Root'.'|'.5.'%'
-            $res = _jm_obj_44($pval, undef, $rep);
+            $res = _jm_obj_50($pval, undef, $rep);
             if (! $res)
             {
                 return 0;
@@ -3972,7 +4268,7 @@ sub _jm_obj_42($$$)
 }
 
 # object .'$Root'.'|'.4.'$'
-sub _jm_obj_46($$$)
+sub _jm_obj_52($$$)
 {
     my ($val, $path, $rep) = @_;
     if (! jm_is_object($val))
@@ -4032,7 +4328,7 @@ sub _jm_obj_46($$$)
 }
 
 # object .'$Root'.'|'.4.'%'
-sub _jm_obj_47($$$)
+sub _jm_obj_53($$$)
 {
     my ($val, $path, $rep) = @_;
     if (! jm_is_object($val))
@@ -4065,11 +4361,11 @@ sub _jm_obj_47($$$)
                 $res = jm_is_array($pval);
                 if ($res)
                 {
-                    for my $arr_25_idx (0 .. $#$pval)
+                    for my $arr_29_idx (0 .. $#$pval)
                     {
-                        my $arr_25_item = $$pval[$arr_25_idx];
+                        my $arr_29_item = $$pval[$arr_29_idx];
                         # .'$Root'.'|'.4.'%'.'<'.'|'.1.0
-                        $res = json_model_7($arr_25_item, undef, $rep);
+                        $res = json_model_7($arr_29_item, undef, $rep);
                         if (! $res)
                         {
                             last;
@@ -4122,7 +4418,7 @@ sub _jm_obj_47($$$)
 }
 
 # object .'$Root'.'|'.4
-sub _jm_obj_45($$$)
+sub _jm_obj_51($$$)
 {
     my ($val, $path, $rep) = @_;
     if (! jm_is_object($val))
@@ -4142,11 +4438,11 @@ sub _jm_obj_45($$$)
             $res = jm_is_array($pval);
             if ($res)
             {
-                for my $arr_24_idx (0 .. $#$pval)
+                for my $arr_28_idx (0 .. $#$pval)
                 {
-                    my $arr_24_item = $$pval[$arr_24_idx];
+                    my $arr_28_item = $$pval[$arr_28_idx];
                     # .'$Root'.'|'.4.'+'.0
-                    $res = json_model_32($arr_24_item, undef, $rep);
+                    $res = json_model_32($arr_28_item, undef, $rep);
                     if (! $res)
                     {
                         last;
@@ -4172,7 +4468,7 @@ sub _jm_obj_45($$$)
         {
             # handle may $ property
             # .'$Root'.'|'.4.'$'
-            $res = _jm_obj_46($pval, undef, $rep);
+            $res = _jm_obj_52($pval, undef, $rep);
             if (! $res)
             {
                 return 0;
@@ -4182,7 +4478,7 @@ sub _jm_obj_45($$$)
         {
             # handle may % property
             # .'$Root'.'|'.4.'%'
-            $res = _jm_obj_47($pval, undef, $rep);
+            $res = _jm_obj_53($pval, undef, $rep);
             if (! $res)
             {
                 return 0;
@@ -4221,7 +4517,7 @@ sub _jm_obj_45($$$)
 }
 
 # object .'$Root'.'|'.3.'$'
-sub _jm_obj_49($$$)
+sub _jm_obj_55($$$)
 {
     my ($val, $path, $rep) = @_;
     if (! jm_is_object($val))
@@ -4281,7 +4577,7 @@ sub _jm_obj_49($$$)
 }
 
 # object .'$Root'.'|'.3.'%'
-sub _jm_obj_50($$$)
+sub _jm_obj_56($$$)
 {
     my ($val, $path, $rep) = @_;
     if (! jm_is_object($val))
@@ -4314,11 +4610,11 @@ sub _jm_obj_50($$$)
                 $res = jm_is_array($pval);
                 if ($res)
                 {
-                    for my $arr_27_idx (0 .. $#$pval)
+                    for my $arr_31_idx (0 .. $#$pval)
                     {
-                        my $arr_27_item = $$pval[$arr_27_idx];
+                        my $arr_31_item = $$pval[$arr_31_idx];
                         # .'$Root'.'|'.3.'%'.'<'.'|'.1.0
-                        $res = json_model_7($arr_27_item, undef, $rep);
+                        $res = json_model_7($arr_31_item, undef, $rep);
                         if (! $res)
                         {
                             last;
@@ -4371,7 +4667,7 @@ sub _jm_obj_50($$$)
 }
 
 # object .'$Root'.'|'.3
-sub _jm_obj_48($$$)
+sub _jm_obj_54($$$)
 {
     my ($val, $path, $rep) = @_;
     if (! jm_is_object($val))
@@ -4391,11 +4687,11 @@ sub _jm_obj_48($$$)
             $res = jm_is_array($pval);
             if ($res)
             {
-                for my $arr_26_idx (0 .. $#$pval)
+                for my $arr_30_idx (0 .. $#$pval)
                 {
-                    my $arr_26_item = $$pval[$arr_26_idx];
+                    my $arr_30_item = $$pval[$arr_30_idx];
                     # .'$Root'.'|'.3.'^'.0
-                    $res = json_model_32($arr_26_item, undef, $rep);
+                    $res = json_model_32($arr_30_item, undef, $rep);
                     if (! $res)
                     {
                         last;
@@ -4421,7 +4717,7 @@ sub _jm_obj_48($$$)
         {
             # handle may $ property
             # .'$Root'.'|'.3.'$'
-            $res = _jm_obj_49($pval, undef, $rep);
+            $res = _jm_obj_55($pval, undef, $rep);
             if (! $res)
             {
                 return 0;
@@ -4431,7 +4727,7 @@ sub _jm_obj_48($$$)
         {
             # handle may % property
             # .'$Root'.'|'.3.'%'
-            $res = _jm_obj_50($pval, undef, $rep);
+            $res = _jm_obj_56($pval, undef, $rep);
             if (! $res)
             {
                 return 0;
@@ -4470,7 +4766,7 @@ sub _jm_obj_48($$$)
 }
 
 # object .'$Root'.'|'.2.'$'
-sub _jm_obj_52($$$)
+sub _jm_obj_58($$$)
 {
     my ($val, $path, $rep) = @_;
     if (! jm_is_object($val))
@@ -4530,7 +4826,7 @@ sub _jm_obj_52($$$)
 }
 
 # object .'$Root'.'|'.2.'%'
-sub _jm_obj_53($$$)
+sub _jm_obj_59($$$)
 {
     my ($val, $path, $rep) = @_;
     if (! jm_is_object($val))
@@ -4563,11 +4859,11 @@ sub _jm_obj_53($$$)
                 $res = jm_is_array($pval);
                 if ($res)
                 {
-                    for my $arr_29_idx (0 .. $#$pval)
+                    for my $arr_33_idx (0 .. $#$pval)
                     {
-                        my $arr_29_item = $$pval[$arr_29_idx];
+                        my $arr_33_item = $$pval[$arr_33_idx];
                         # .'$Root'.'|'.2.'%'.'<'.'|'.1.0
-                        $res = json_model_7($arr_29_item, undef, $rep);
+                        $res = json_model_7($arr_33_item, undef, $rep);
                         if (! $res)
                         {
                             last;
@@ -4620,7 +4916,7 @@ sub _jm_obj_53($$$)
 }
 
 # object .'$Root'.'|'.2
-sub _jm_obj_51($$$)
+sub _jm_obj_57($$$)
 {
     my ($val, $path, $rep) = @_;
     if (! jm_is_object($val))
@@ -4640,11 +4936,11 @@ sub _jm_obj_51($$$)
             $res = jm_is_array($pval);
             if ($res)
             {
-                for my $arr_28_idx (0 .. $#$pval)
+                for my $arr_32_idx (0 .. $#$pval)
                 {
-                    my $arr_28_item = $$pval[$arr_28_idx];
+                    my $arr_32_item = $$pval[$arr_32_idx];
                     # .'$Root'.'|'.2.'&'.0
-                    $res = json_model_32($arr_28_item, undef, $rep);
+                    $res = json_model_32($arr_32_item, undef, $rep);
                     if (! $res)
                     {
                         last;
@@ -4670,7 +4966,7 @@ sub _jm_obj_51($$$)
         {
             # handle may $ property
             # .'$Root'.'|'.2.'$'
-            $res = _jm_obj_52($pval, undef, $rep);
+            $res = _jm_obj_58($pval, undef, $rep);
             if (! $res)
             {
                 return 0;
@@ -4680,7 +4976,7 @@ sub _jm_obj_51($$$)
         {
             # handle may % property
             # .'$Root'.'|'.2.'%'
-            $res = _jm_obj_53($pval, undef, $rep);
+            $res = _jm_obj_59($pval, undef, $rep);
             if (! $res)
             {
                 return 0;
@@ -4719,7 +5015,7 @@ sub _jm_obj_51($$$)
 }
 
 # object .'$Root'.'|'.1.'$'
-sub _jm_obj_55($$$)
+sub _jm_obj_61($$$)
 {
     my ($val, $path, $rep) = @_;
     if (! jm_is_object($val))
@@ -4779,7 +5075,7 @@ sub _jm_obj_55($$$)
 }
 
 # object .'$Root'.'|'.1.'%'
-sub _jm_obj_56($$$)
+sub _jm_obj_62($$$)
 {
     my ($val, $path, $rep) = @_;
     if (! jm_is_object($val))
@@ -4812,11 +5108,11 @@ sub _jm_obj_56($$$)
                 $res = jm_is_array($pval);
                 if ($res)
                 {
-                    for my $arr_31_idx (0 .. $#$pval)
+                    for my $arr_35_idx (0 .. $#$pval)
                     {
-                        my $arr_31_item = $$pval[$arr_31_idx];
+                        my $arr_35_item = $$pval[$arr_35_idx];
                         # .'$Root'.'|'.1.'%'.'<'.'|'.1.0
-                        $res = json_model_7($arr_31_item, undef, $rep);
+                        $res = json_model_7($arr_35_item, undef, $rep);
                         if (! $res)
                         {
                             last;
@@ -4869,7 +5165,7 @@ sub _jm_obj_56($$$)
 }
 
 # object .'$Root'.'|'.1
-sub _jm_obj_54($$$)
+sub _jm_obj_60($$$)
 {
     my ($val, $path, $rep) = @_;
     if (! jm_is_object($val))
@@ -4889,11 +5185,11 @@ sub _jm_obj_54($$$)
             $res = jm_is_array($pval);
             if ($res)
             {
-                for my $arr_30_idx (0 .. $#$pval)
+                for my $arr_34_idx (0 .. $#$pval)
                 {
-                    my $arr_30_item = $$pval[$arr_30_idx];
+                    my $arr_34_item = $$pval[$arr_34_idx];
                     # .'$Root'.'|'.1.'|'.0
-                    $res = json_model_32($arr_30_item, undef, $rep);
+                    $res = json_model_32($arr_34_item, undef, $rep);
                     if (! $res)
                     {
                         last;
@@ -4919,7 +5215,7 @@ sub _jm_obj_54($$$)
         {
             # handle may $ property
             # .'$Root'.'|'.1.'$'
-            $res = _jm_obj_55($pval, undef, $rep);
+            $res = _jm_obj_61($pval, undef, $rep);
             if (! $res)
             {
                 return 0;
@@ -4929,7 +5225,7 @@ sub _jm_obj_54($$$)
         {
             # handle may % property
             # .'$Root'.'|'.1.'%'
-            $res = _jm_obj_56($pval, undef, $rep);
+            $res = _jm_obj_62($pval, undef, $rep);
             if (! $res)
             {
                 return 0;
@@ -4968,7 +5264,7 @@ sub _jm_obj_54($$$)
 }
 
 # object .'$Root'.'|'.0.'$'
-sub _jm_obj_58($$$)
+sub _jm_obj_64($$$)
 {
     my ($val, $path, $rep) = @_;
     if (! jm_is_object($val))
@@ -5028,7 +5324,7 @@ sub _jm_obj_58($$$)
 }
 
 # object .'$Root'.'|'.0.'%'
-sub _jm_obj_59($$$)
+sub _jm_obj_65($$$)
 {
     my ($val, $path, $rep) = @_;
     if (! jm_is_object($val))
@@ -5061,11 +5357,11 @@ sub _jm_obj_59($$$)
                 $res = jm_is_array($pval);
                 if ($res)
                 {
-                    for my $arr_32_idx (0 .. $#$pval)
+                    for my $arr_36_idx (0 .. $#$pval)
                     {
-                        my $arr_32_item = $$pval[$arr_32_idx];
+                        my $arr_36_item = $$pval[$arr_36_idx];
                         # .'$Root'.'|'.0.'%'.'<'.'|'.1.0
-                        $res = json_model_7($arr_32_item, undef, $rep);
+                        $res = json_model_7($arr_36_item, undef, $rep);
                         if (! $res)
                         {
                             last;
@@ -5118,7 +5414,7 @@ sub _jm_obj_59($$$)
 }
 
 # object .'$Root'.'|'.0
-sub _jm_obj_57($$$)
+sub _jm_obj_63($$$)
 {
     my ($val, $path, $rep) = @_;
     if (! jm_is_object($val))
@@ -5155,7 +5451,7 @@ sub _jm_obj_57($$$)
         {
             # handle may $ property
             # .'$Root'.'|'.0.'$'
-            $res = _jm_obj_58($pval, undef, $rep);
+            $res = _jm_obj_64($pval, undef, $rep);
             if (! $res)
             {
                 return 0;
@@ -5165,7 +5461,7 @@ sub _jm_obj_57($$$)
         {
             # handle may % property
             # .'$Root'.'|'.0.'%'
-            $res = _jm_obj_59($pval, undef, $rep);
+            $res = _jm_obj_65($pval, undef, $rep);
             if (! $res)
             {
                 return 0;
@@ -5243,27 +5539,27 @@ sub json_model_38($$$)
     if ($res)
     {
         # .'$Root'.'|'.0
-        $res = _jm_obj_57($val, $path, $rep);
+        $res = _jm_obj_63($val, $path, $rep);
         if (! $res)
         {
             # .'$Root'.'|'.1
-            $res = _jm_obj_54($val, $path, $rep);
+            $res = _jm_obj_60($val, $path, $rep);
             if (! $res)
             {
                 # .'$Root'.'|'.2
-                $res = _jm_obj_51($val, $path, $rep);
+                $res = _jm_obj_57($val, $path, $rep);
                 if (! $res)
                 {
                     # .'$Root'.'|'.3
-                    $res = _jm_obj_48($val, $path, $rep);
+                    $res = _jm_obj_54($val, $path, $rep);
                     if (! $res)
                     {
                         # .'$Root'.'|'.4
-                        $res = _jm_obj_45($val, $path, $rep);
+                        $res = _jm_obj_51($val, $path, $rep);
                         if (! $res)
                         {
                             # .'$Root'.'|'.5
-                            $res = _jm_obj_42($val, $path, $rep);
+                            $res = _jm_obj_48($val, $path, $rep);
                         }
                     }
                 }
@@ -5274,7 +5570,7 @@ sub json_model_38($$$)
 }
 
 # object .'$RootModel'.'|'.5.'$'
-sub _jm_obj_61($$$)
+sub _jm_obj_67($$$)
 {
     my ($val, $path, $rep) = @_;
     if (! jm_is_object($val))
@@ -5334,7 +5630,7 @@ sub _jm_obj_61($$$)
 }
 
 # object .'$RootModel'.'|'.5.'%'
-sub _jm_obj_62($$$)
+sub _jm_obj_68($$$)
 {
     my ($val, $path, $rep) = @_;
     if (! jm_is_object($val))
@@ -5367,11 +5663,11 @@ sub _jm_obj_62($$$)
                 $res = jm_is_array($pval);
                 if ($res)
                 {
-                    for my $arr_33_idx (0 .. $#$pval)
+                    for my $arr_37_idx (0 .. $#$pval)
                     {
-                        my $arr_33_item = $$pval[$arr_33_idx];
+                        my $arr_37_item = $$pval[$arr_37_idx];
                         # .'$RootModel'.'|'.5.'%'.'<'.'|'.1.0
-                        $res = json_model_7($arr_33_item, undef, $rep);
+                        $res = json_model_7($arr_37_item, undef, $rep);
                         if (! $res)
                         {
                             last;
@@ -5424,7 +5720,7 @@ sub _jm_obj_62($$$)
 }
 
 # object .'$RootModel'.'|'.5
-sub _jm_obj_60($$$)
+sub _jm_obj_66($$$)
 {
     my ($val, $path, $rep) = @_;
     if (! jm_is_object($val))
@@ -5449,7 +5745,7 @@ sub _jm_obj_60($$$)
         {
             # handle may $ property
             # .'$RootModel'.'|'.5.'$'
-            $res = _jm_obj_61($pval, undef, $rep);
+            $res = _jm_obj_67($pval, undef, $rep);
             if (! $res)
             {
                 return 0;
@@ -5459,7 +5755,7 @@ sub _jm_obj_60($$$)
         {
             # handle may % property
             # .'$RootModel'.'|'.5.'%'
-            $res = _jm_obj_62($pval, undef, $rep);
+            $res = _jm_obj_68($pval, undef, $rep);
             if (! $res)
             {
                 return 0;
@@ -5504,7 +5800,7 @@ sub _jm_obj_60($$$)
 }
 
 # object .'$RootModel'.'|'.4.'$'
-sub _jm_obj_64($$$)
+sub _jm_obj_70($$$)
 {
     my ($val, $path, $rep) = @_;
     if (! jm_is_object($val))
@@ -5564,7 +5860,7 @@ sub _jm_obj_64($$$)
 }
 
 # object .'$RootModel'.'|'.4.'%'
-sub _jm_obj_65($$$)
+sub _jm_obj_71($$$)
 {
     my ($val, $path, $rep) = @_;
     if (! jm_is_object($val))
@@ -5597,11 +5893,11 @@ sub _jm_obj_65($$$)
                 $res = jm_is_array($pval);
                 if ($res)
                 {
-                    for my $arr_35_idx (0 .. $#$pval)
+                    for my $arr_39_idx (0 .. $#$pval)
                     {
-                        my $arr_35_item = $$pval[$arr_35_idx];
+                        my $arr_39_item = $$pval[$arr_39_idx];
                         # .'$RootModel'.'|'.4.'%'.'<'.'|'.1.0
-                        $res = json_model_7($arr_35_item, undef, $rep);
+                        $res = json_model_7($arr_39_item, undef, $rep);
                         if (! $res)
                         {
                             last;
@@ -5654,7 +5950,7 @@ sub _jm_obj_65($$$)
 }
 
 # object .'$RootModel'.'|'.4
-sub _jm_obj_63($$$)
+sub _jm_obj_69($$$)
 {
     my ($val, $path, $rep) = @_;
     if (! jm_is_object($val))
@@ -5674,11 +5970,11 @@ sub _jm_obj_63($$$)
             $res = jm_is_array($pval);
             if ($res)
             {
-                for my $arr_34_idx (0 .. $#$pval)
+                for my $arr_38_idx (0 .. $#$pval)
                 {
-                    my $arr_34_item = $$pval[$arr_34_idx];
+                    my $arr_38_item = $$pval[$arr_38_idx];
                     # .'$RootModel'.'|'.4.'+'.0
-                    $res = json_model_32($arr_34_item, undef, $rep);
+                    $res = json_model_32($arr_38_item, undef, $rep);
                     if (! $res)
                     {
                         last;
@@ -5704,7 +6000,7 @@ sub _jm_obj_63($$$)
         {
             # handle may $ property
             # .'$RootModel'.'|'.4.'$'
-            $res = _jm_obj_64($pval, undef, $rep);
+            $res = _jm_obj_70($pval, undef, $rep);
             if (! $res)
             {
                 return 0;
@@ -5714,7 +6010,7 @@ sub _jm_obj_63($$$)
         {
             # handle may % property
             # .'$RootModel'.'|'.4.'%'
-            $res = _jm_obj_65($pval, undef, $rep);
+            $res = _jm_obj_71($pval, undef, $rep);
             if (! $res)
             {
                 return 0;
@@ -5753,7 +6049,7 @@ sub _jm_obj_63($$$)
 }
 
 # object .'$RootModel'.'|'.3.'$'
-sub _jm_obj_67($$$)
+sub _jm_obj_73($$$)
 {
     my ($val, $path, $rep) = @_;
     if (! jm_is_object($val))
@@ -5813,7 +6109,7 @@ sub _jm_obj_67($$$)
 }
 
 # object .'$RootModel'.'|'.3.'%'
-sub _jm_obj_68($$$)
+sub _jm_obj_74($$$)
 {
     my ($val, $path, $rep) = @_;
     if (! jm_is_object($val))
@@ -5846,11 +6142,11 @@ sub _jm_obj_68($$$)
                 $res = jm_is_array($pval);
                 if ($res)
                 {
-                    for my $arr_37_idx (0 .. $#$pval)
+                    for my $arr_41_idx (0 .. $#$pval)
                     {
-                        my $arr_37_item = $$pval[$arr_37_idx];
+                        my $arr_41_item = $$pval[$arr_41_idx];
                         # .'$RootModel'.'|'.3.'%'.'<'.'|'.1.0
-                        $res = json_model_7($arr_37_item, undef, $rep);
+                        $res = json_model_7($arr_41_item, undef, $rep);
                         if (! $res)
                         {
                             last;
@@ -5903,7 +6199,7 @@ sub _jm_obj_68($$$)
 }
 
 # object .'$RootModel'.'|'.3
-sub _jm_obj_66($$$)
+sub _jm_obj_72($$$)
 {
     my ($val, $path, $rep) = @_;
     if (! jm_is_object($val))
@@ -5923,11 +6219,11 @@ sub _jm_obj_66($$$)
             $res = jm_is_array($pval);
             if ($res)
             {
-                for my $arr_36_idx (0 .. $#$pval)
+                for my $arr_40_idx (0 .. $#$pval)
                 {
-                    my $arr_36_item = $$pval[$arr_36_idx];
+                    my $arr_40_item = $$pval[$arr_40_idx];
                     # .'$RootModel'.'|'.3.'^'.0
-                    $res = json_model_32($arr_36_item, undef, $rep);
+                    $res = json_model_32($arr_40_item, undef, $rep);
                     if (! $res)
                     {
                         last;
@@ -5953,7 +6249,7 @@ sub _jm_obj_66($$$)
         {
             # handle may $ property
             # .'$RootModel'.'|'.3.'$'
-            $res = _jm_obj_67($pval, undef, $rep);
+            $res = _jm_obj_73($pval, undef, $rep);
             if (! $res)
             {
                 return 0;
@@ -5963,7 +6259,7 @@ sub _jm_obj_66($$$)
         {
             # handle may % property
             # .'$RootModel'.'|'.3.'%'
-            $res = _jm_obj_68($pval, undef, $rep);
+            $res = _jm_obj_74($pval, undef, $rep);
             if (! $res)
             {
                 return 0;
@@ -6002,7 +6298,7 @@ sub _jm_obj_66($$$)
 }
 
 # object .'$RootModel'.'|'.2.'$'
-sub _jm_obj_70($$$)
+sub _jm_obj_76($$$)
 {
     my ($val, $path, $rep) = @_;
     if (! jm_is_object($val))
@@ -6062,7 +6358,7 @@ sub _jm_obj_70($$$)
 }
 
 # object .'$RootModel'.'|'.2.'%'
-sub _jm_obj_71($$$)
+sub _jm_obj_77($$$)
 {
     my ($val, $path, $rep) = @_;
     if (! jm_is_object($val))
@@ -6095,11 +6391,11 @@ sub _jm_obj_71($$$)
                 $res = jm_is_array($pval);
                 if ($res)
                 {
-                    for my $arr_39_idx (0 .. $#$pval)
+                    for my $arr_43_idx (0 .. $#$pval)
                     {
-                        my $arr_39_item = $$pval[$arr_39_idx];
+                        my $arr_43_item = $$pval[$arr_43_idx];
                         # .'$RootModel'.'|'.2.'%'.'<'.'|'.1.0
-                        $res = json_model_7($arr_39_item, undef, $rep);
+                        $res = json_model_7($arr_43_item, undef, $rep);
                         if (! $res)
                         {
                             last;
@@ -6152,7 +6448,7 @@ sub _jm_obj_71($$$)
 }
 
 # object .'$RootModel'.'|'.2
-sub _jm_obj_69($$$)
+sub _jm_obj_75($$$)
 {
     my ($val, $path, $rep) = @_;
     if (! jm_is_object($val))
@@ -6172,11 +6468,11 @@ sub _jm_obj_69($$$)
             $res = jm_is_array($pval);
             if ($res)
             {
-                for my $arr_38_idx (0 .. $#$pval)
+                for my $arr_42_idx (0 .. $#$pval)
                 {
-                    my $arr_38_item = $$pval[$arr_38_idx];
+                    my $arr_42_item = $$pval[$arr_42_idx];
                     # .'$RootModel'.'|'.2.'&'.0
-                    $res = json_model_32($arr_38_item, undef, $rep);
+                    $res = json_model_32($arr_42_item, undef, $rep);
                     if (! $res)
                     {
                         last;
@@ -6202,7 +6498,7 @@ sub _jm_obj_69($$$)
         {
             # handle may $ property
             # .'$RootModel'.'|'.2.'$'
-            $res = _jm_obj_70($pval, undef, $rep);
+            $res = _jm_obj_76($pval, undef, $rep);
             if (! $res)
             {
                 return 0;
@@ -6212,7 +6508,7 @@ sub _jm_obj_69($$$)
         {
             # handle may % property
             # .'$RootModel'.'|'.2.'%'
-            $res = _jm_obj_71($pval, undef, $rep);
+            $res = _jm_obj_77($pval, undef, $rep);
             if (! $res)
             {
                 return 0;
@@ -6251,7 +6547,7 @@ sub _jm_obj_69($$$)
 }
 
 # object .'$RootModel'.'|'.1.'$'
-sub _jm_obj_73($$$)
+sub _jm_obj_79($$$)
 {
     my ($val, $path, $rep) = @_;
     if (! jm_is_object($val))
@@ -6311,7 +6607,7 @@ sub _jm_obj_73($$$)
 }
 
 # object .'$RootModel'.'|'.1.'%'
-sub _jm_obj_74($$$)
+sub _jm_obj_80($$$)
 {
     my ($val, $path, $rep) = @_;
     if (! jm_is_object($val))
@@ -6344,11 +6640,11 @@ sub _jm_obj_74($$$)
                 $res = jm_is_array($pval);
                 if ($res)
                 {
-                    for my $arr_41_idx (0 .. $#$pval)
+                    for my $arr_45_idx (0 .. $#$pval)
                     {
-                        my $arr_41_item = $$pval[$arr_41_idx];
+                        my $arr_45_item = $$pval[$arr_45_idx];
                         # .'$RootModel'.'|'.1.'%'.'<'.'|'.1.0
-                        $res = json_model_7($arr_41_item, undef, $rep);
+                        $res = json_model_7($arr_45_item, undef, $rep);
                         if (! $res)
                         {
                             last;
@@ -6401,7 +6697,7 @@ sub _jm_obj_74($$$)
 }
 
 # object .'$RootModel'.'|'.1
-sub _jm_obj_72($$$)
+sub _jm_obj_78($$$)
 {
     my ($val, $path, $rep) = @_;
     if (! jm_is_object($val))
@@ -6421,11 +6717,11 @@ sub _jm_obj_72($$$)
             $res = jm_is_array($pval);
             if ($res)
             {
-                for my $arr_40_idx (0 .. $#$pval)
+                for my $arr_44_idx (0 .. $#$pval)
                 {
-                    my $arr_40_item = $$pval[$arr_40_idx];
+                    my $arr_44_item = $$pval[$arr_44_idx];
                     # .'$RootModel'.'|'.1.'|'.0
-                    $res = json_model_32($arr_40_item, undef, $rep);
+                    $res = json_model_32($arr_44_item, undef, $rep);
                     if (! $res)
                     {
                         last;
@@ -6451,7 +6747,7 @@ sub _jm_obj_72($$$)
         {
             # handle may $ property
             # .'$RootModel'.'|'.1.'$'
-            $res = _jm_obj_73($pval, undef, $rep);
+            $res = _jm_obj_79($pval, undef, $rep);
             if (! $res)
             {
                 return 0;
@@ -6461,7 +6757,7 @@ sub _jm_obj_72($$$)
         {
             # handle may % property
             # .'$RootModel'.'|'.1.'%'
-            $res = _jm_obj_74($pval, undef, $rep);
+            $res = _jm_obj_80($pval, undef, $rep);
             if (! $res)
             {
                 return 0;
@@ -6500,7 +6796,7 @@ sub _jm_obj_72($$$)
 }
 
 # object .'$RootModel'.'|'.0.'$'
-sub _jm_obj_76($$$)
+sub _jm_obj_82($$$)
 {
     my ($val, $path, $rep) = @_;
     if (! jm_is_object($val))
@@ -6560,7 +6856,7 @@ sub _jm_obj_76($$$)
 }
 
 # object .'$RootModel'.'|'.0.'%'
-sub _jm_obj_77($$$)
+sub _jm_obj_83($$$)
 {
     my ($val, $path, $rep) = @_;
     if (! jm_is_object($val))
@@ -6593,11 +6889,11 @@ sub _jm_obj_77($$$)
                 $res = jm_is_array($pval);
                 if ($res)
                 {
-                    for my $arr_42_idx (0 .. $#$pval)
+                    for my $arr_46_idx (0 .. $#$pval)
                     {
-                        my $arr_42_item = $$pval[$arr_42_idx];
+                        my $arr_46_item = $$pval[$arr_46_idx];
                         # .'$RootModel'.'|'.0.'%'.'<'.'|'.1.0
-                        $res = json_model_7($arr_42_item, undef, $rep);
+                        $res = json_model_7($arr_46_item, undef, $rep);
                         if (! $res)
                         {
                             last;
@@ -6650,7 +6946,7 @@ sub _jm_obj_77($$$)
 }
 
 # object .'$RootModel'.'|'.0
-sub _jm_obj_75($$$)
+sub _jm_obj_81($$$)
 {
     my ($val, $path, $rep) = @_;
     if (! jm_is_object($val))
@@ -6687,7 +6983,7 @@ sub _jm_obj_75($$$)
         {
             # handle may $ property
             # .'$RootModel'.'|'.0.'$'
-            $res = _jm_obj_76($pval, undef, $rep);
+            $res = _jm_obj_82($pval, undef, $rep);
             if (! $res)
             {
                 return 0;
@@ -6697,7 +6993,7 @@ sub _jm_obj_75($$$)
         {
             # handle may % property
             # .'$RootModel'.'|'.0.'%'
-            $res = _jm_obj_77($pval, undef, $rep);
+            $res = _jm_obj_83($pval, undef, $rep);
             if (! $res)
             {
                 return 0;
@@ -6776,27 +7072,27 @@ sub json_model_39($$$)
     if ($res)
     {
         # .'$RootModel'.'|'.0
-        $res = _jm_obj_75($val, $path, $rep);
+        $res = _jm_obj_81($val, $path, $rep);
         if (! $res)
         {
             # .'$RootModel'.'|'.1
-            $res = _jm_obj_72($val, $path, $rep);
+            $res = _jm_obj_78($val, $path, $rep);
             if (! $res)
             {
                 # .'$RootModel'.'|'.2
-                $res = _jm_obj_69($val, $path, $rep);
+                $res = _jm_obj_75($val, $path, $rep);
                 if (! $res)
                 {
                     # .'$RootModel'.'|'.3
-                    $res = _jm_obj_66($val, $path, $rep);
+                    $res = _jm_obj_72($val, $path, $rep);
                     if (! $res)
                     {
                         # .'$RootModel'.'|'.4
-                        $res = _jm_obj_63($val, $path, $rep);
+                        $res = _jm_obj_69($val, $path, $rep);
                         if (! $res)
                         {
                             # .'$RootModel'.'|'.5
-                            $res = _jm_obj_60($val, $path, $rep);
+                            $res = _jm_obj_66($val, $path, $rep);
                         }
                     }
                 }

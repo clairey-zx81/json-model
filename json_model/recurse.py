@@ -31,6 +31,8 @@ def _recModel(
     if not flt(model, path):
         return model
 
+    # log.debug(f"recurring at {path}")
+
     # actual recursion
     if isinstance(model, list):
         return rwt([_recModel(m, path + [i], flt, rwt, keys, False) for i, m in enumerate(model)], path)

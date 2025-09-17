@@ -98,14 +98,36 @@ def json_model_6(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("not a bool [.'$ex08#VAL']", path))
     return res
 
+# object .'$ex08#EX08'.'|'.0
+def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
+    if not isinstance(val, dict):
+        rep is None or rep.append(("not an object [.'$ex08#EX08'.'|'.0]", path))
+        return False
+    res: bool
+    for prop, pval in val.items():
+        assert isinstance(prop, str)
+        lpath_1: Path = (path + [ prop ]) if path is not None else None
+        if is_valid_url(prop, lpath_1 if path is not None else None, rep):
+            # handle 1 key props
+            # .'$ex08#EX08'.'|'.0.'$URL'
+            res = json_model_6(pval, lpath_1 if path is not None else None, rep)
+            if not res:
+                rep is None or rep.append(("unexpected $VAL [.'$ex08#EX08'.'|'.0.'$URL']", lpath_1 if path is not None else None))
+            if not res:
+                return False
+        else:
+            rep is None or rep.append(("unexpected prop [.'$ex08#EX08'.'|'.0]", lpath_1 if path is not None else None))
+            return False
+    return True
+
 # check $ex08#EX08 (.'$ex08#EX08')
 def json_model_9(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$ex08#EX08'
     # .'$ex08#EX08'.'|'.0
-    res = json_model_8(val, path, rep)
+    res = _jm_obj_1(val, path, rep)
     if not res:
-        rep is None or rep.append(("unexpected $map [.'$ex08#EX08'.'|'.0]", path))
+        rep is None or rep.append(("unexpected element [.'$ex08#EX08'.'|'.0]", path))
     if not res:
         # .'$ex08#EX08'.'|'.1
         res = is_valid_url(val, path, rep)
@@ -120,37 +142,6 @@ def json_model_9(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.clear()
     else:
         rep is None or rep.append(("no model matched [.'$ex08#EX08'.'|']", path))
-    return res
-
-# object .'$ex08#map'
-def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
-    if not isinstance(val, dict):
-        rep is None or rep.append(("not an object [.'$ex08#map']", path))
-        return False
-    res: bool
-    for prop, pval in val.items():
-        assert isinstance(prop, str)
-        lpath_1: Path = (path + [ prop ]) if path is not None else None
-        if is_valid_url(prop, lpath_1 if path is not None else None, rep):
-            # handle 1 key props
-            # .'$ex08#map'.'$URL'
-            res = json_model_6(pval, lpath_1 if path is not None else None, rep)
-            if not res:
-                rep is None or rep.append(("unexpected $VAL [.'$ex08#map'.'$URL']", lpath_1 if path is not None else None))
-            if not res:
-                return False
-        else:
-            rep is None or rep.append(("unexpected prop [.'$ex08#map']", lpath_1 if path is not None else None))
-            return False
-    return True
-
-# check $ex08#map (.'$ex08#map')
-def json_model_8(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .'$ex08#map'
-    res = _jm_obj_1(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected element [.'$ex08#map']", path))
     return res
 
 

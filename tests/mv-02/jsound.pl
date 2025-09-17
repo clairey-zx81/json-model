@@ -11,13 +11,8 @@ use constant JMC_VERSION => '2';
 
 
 sub json_model_2($$$);
-my %_jm_map_0;
-sub json_model_3($$$);
-my %_jm_cst_0;
-sub json_model_4($$$);
-sub json_model_5($$$);
 sub _jm_f_0($$$);
-my %_jm_cst_1;
+my %_jm_cst_0;
 sub _jm_f_1($$$);
 sub _jm_f_2($$$);
 sub _jm_f_3($$$);
@@ -31,11 +26,47 @@ sub _jm_f_10($$$);
 sub _jm_f_11($$$);
 sub _jm_f_12($$$);
 my %_jm_obj_2_map;
+my %_jm_map_0;
+sub json_model_3($$$);
+my %_jm_cst_1;
+sub json_model_4($$$);
+sub json_model_5($$$);
+sub _jm_f_13($$$);
+my %_jm_cst_2;
+sub _jm_f_14($$$);
+sub _jm_f_15($$$);
+sub _jm_f_16($$$);
+sub _jm_f_17($$$);
+sub _jm_f_18($$$);
+sub _jm_f_19($$$);
+sub _jm_f_20($$$);
+sub _jm_f_21($$$);
+sub _jm_f_22($$$);
+sub _jm_f_23($$$);
+sub _jm_f_24($$$);
+sub _jm_f_25($$$);
+my %_jm_obj_6_map;
 sub json_model_6($$$);
 sub json_model_7($$$);
 sub json_model_8($$$);
 sub json_model_9($$$);
 sub json_model_10($$$);
+sub _jm_f_26($$$);
+my %_jm_cst_3;
+sub _jm_f_27($$$);
+sub _jm_f_28($$$);
+sub _jm_f_29($$$);
+sub _jm_f_30($$$);
+sub _jm_f_31($$$);
+sub _jm_f_32($$$);
+sub _jm_f_33($$$);
+sub _jm_f_34($$$);
+sub _jm_f_35($$$);
+sub _jm_f_36($$$);
+sub _jm_f_37($$$);
+sub _jm_f_38($$$);
+my %_jm_obj_11_map;
+my %_jm_map_1;
 sub json_model_11($$$);
 sub json_model_1($$$);
 my %check_model_map;
@@ -182,6 +213,463 @@ sub json_model_2($$$)
     return $res;
 }
 
+# check _jm_obj_2_map_enumeration (.'$Type'.'|'.0.enumeration)
+sub _jm_f_0($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$Type'.'|'.0.enumeration
+    $res = jm_is_array($val);
+    if ($res)
+    {
+        for my $arr_2_idx (0 .. $#$val)
+        {
+            my $arr_2_item = $$val[$arr_2_idx];
+            # .'$Type'.'|'.0.enumeration.0
+            $res = json_model_5($arr_2_item, undef, $rep);
+            if (! $res)
+            {
+                last;
+            }
+        }
+    }
+    return $res;
+}
+
+
+# check _jm_obj_2_map_explicitTypeZone (.'$Type'.'|'.0.explicitTypeZone)
+sub _jm_f_1($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$Type'.'|'.0.explicitTypeZone
+    $res = jm_is_scalar($val) && jm_is_string($val) && exists $_jm_cst_0{$val};
+    return $res;
+}
+
+# check _jm_obj_2_map_fractionDigits (.'$Type'.'|'.0.fractionDigits)
+sub _jm_f_2($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$Type'.'|'.0.fractionDigits
+    $res = jm_is_integer($val) && $val >= 0;
+    return $res;
+}
+
+# check _jm_obj_2_map_length (.'$Type'.'|'.0.length)
+sub _jm_f_3($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$Type'.'|'.0.length
+    $res = jm_is_integer($val) && $val >= 0;
+    return $res;
+}
+
+# check _jm_obj_2_map_maxExclusive (.'$Type'.'|'.0.maxExclusive)
+sub _jm_f_4($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$Type'.'|'.0.maxExclusive
+    $res = json_model_5($val, $path, $rep);
+    return $res;
+}
+
+# check _jm_obj_2_map_maxInclusive (.'$Type'.'|'.0.maxInclusive)
+sub _jm_f_5($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$Type'.'|'.0.maxInclusive
+    $res = json_model_5($val, $path, $rep);
+    return $res;
+}
+
+# check _jm_obj_2_map_maxLength (.'$Type'.'|'.0.maxLength)
+sub _jm_f_6($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$Type'.'|'.0.maxLength
+    $res = jm_is_integer($val) && $val >= 0;
+    return $res;
+}
+
+# check _jm_obj_2_map_minExclusive (.'$Type'.'|'.0.minExclusive)
+sub _jm_f_7($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$Type'.'|'.0.minExclusive
+    $res = json_model_5($val, $path, $rep);
+    return $res;
+}
+
+# check _jm_obj_2_map_minInclusive (.'$Type'.'|'.0.minInclusive)
+sub _jm_f_8($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$Type'.'|'.0.minInclusive
+    $res = json_model_5($val, $path, $rep);
+    return $res;
+}
+
+# check _jm_obj_2_map_minLength (.'$Type'.'|'.0.minLength)
+sub _jm_f_9($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$Type'.'|'.0.minLength
+    $res = jm_is_integer($val) && $val >= 0;
+    return $res;
+}
+
+# check _jm_obj_2_map_name (.'$Type'.'|'.0.name)
+sub _jm_f_10($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$Type'.'|'.0.name
+    $res = jm_is_string($val);
+    return $res;
+}
+
+# check _jm_obj_2_map_pattern (.'$Type'.'|'.0.pattern)
+sub _jm_f_11($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$Type'.'|'.0.pattern
+    $res = jm_is_string($val);
+    return $res;
+}
+
+# check _jm_obj_2_map_totalDigits (.'$Type'.'|'.0.totalDigits)
+sub _jm_f_12($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$Type'.'|'.0.totalDigits
+    $res = jm_is_integer($val) && $val >= 0;
+    return $res;
+}
+
+
+# object .'$Type'.'|'.0
+sub _jm_obj_2($$$)
+{
+    my ($val, $path, $rep) = @_;
+    if (! jm_is_object($val))
+    {
+        return 0;
+    }
+    my $res;
+    my $pfun;
+    my $must_count = 0;
+    scalar keys %$val;
+    while (my ($prop, $pval) = each %$val)
+    {
+        if ($prop eq 'kind')
+        {
+            # handle must kind property
+            $must_count++;
+            # .'$Type'.'|'.0.kind
+            $res = jm_is_string($pval) && $pval eq 'atomic';
+            if (! $res)
+            {
+                return 0;
+            }
+        }
+        elsif ($prop eq 'baseType')
+        {
+            # handle must baseType property
+            $must_count++;
+            # .'$Type'.'|'.0.baseType
+            $res = json_model_4($pval, undef, $rep);
+            if (! $res)
+            {
+                return 0;
+            }
+        }
+        elsif (($pfun = $_jm_obj_2_map{$prop}))
+        {
+            # handle 13 may props
+            if (defined($pfun) && ! &$pfun($pval, undef, $rep))
+            {
+                return 0;
+            }
+        }
+        else
+        {
+            return 0;
+        }
+    }
+    if ($must_count != 2)
+    {
+        return 0;
+    }
+    return 1;
+}
+
+# object .'$Type'.'|'.1
+sub _jm_obj_3($$$)
+{
+    my ($val, $path, $rep) = @_;
+    if (! jm_is_object($val))
+    {
+        return 0;
+    }
+    my $res;
+    my $must_count = 0;
+    scalar keys %$val;
+    while (my ($prop, $pval) = each %$val)
+    {
+        if ($prop eq 'kind')
+        {
+            # handle must kind property
+            $must_count++;
+            # .'$Type'.'|'.1.kind
+            $res = jm_is_string($pval) && $pval eq 'object';
+            if (! $res)
+            {
+                return 0;
+            }
+        }
+        elsif ($prop eq 'name')
+        {
+            # handle may name property
+            # .'$Type'.'|'.1.name
+            $res = jm_is_string($pval);
+            if (! $res)
+            {
+                return 0;
+            }
+        }
+        elsif ($prop eq 'baseType')
+        {
+            # handle may baseType property
+            # .'$Type'.'|'.1.baseType
+            $res = jm_is_string($pval);
+            if (! $res)
+            {
+                return 0;
+            }
+        }
+        elsif ($prop eq 'content')
+        {
+            # handle may content property
+            # .'$Type'.'|'.1.content
+            $res = jm_is_array($pval);
+            if ($res)
+            {
+                for my $arr_3_idx (0 .. $#$pval)
+                {
+                    my $arr_3_item = $$pval[$arr_3_idx];
+                    # .'$Type'.'|'.1.content.0
+                    $res = json_model_8($arr_3_item, undef, $rep);
+                    if (! $res)
+                    {
+                        last;
+                    }
+                }
+            }
+            if (! $res)
+            {
+                return 0;
+            }
+        }
+        elsif ($prop eq 'closed')
+        {
+            # handle may closed property
+            # .'$Type'.'|'.1.closed
+            $res = jm_is_boolean($pval);
+            if (! $res)
+            {
+                return 0;
+            }
+        }
+        else
+        {
+            return 0;
+        }
+    }
+    if ($must_count != 1)
+    {
+        return 0;
+    }
+    return 1;
+}
+
+# object .'$Type'.'|'.2
+sub _jm_obj_4($$$)
+{
+    my ($val, $path, $rep) = @_;
+    if (! jm_is_object($val))
+    {
+        return 0;
+    }
+    my $res;
+    my $must_count = 0;
+    scalar keys %$val;
+    while (my ($prop, $pval) = each %$val)
+    {
+        if ($prop eq 'kind')
+        {
+            # handle must kind property
+            $must_count++;
+            # .'$Type'.'|'.2.kind
+            $res = jm_is_string($pval) && $pval eq 'array';
+            if (! $res)
+            {
+                return 0;
+            }
+        }
+        elsif ($prop eq 'name')
+        {
+            # handle may name property
+            # .'$Type'.'|'.2.name
+            $res = jm_is_string($pval);
+            if (! $res)
+            {
+                return 0;
+            }
+        }
+        elsif ($prop eq 'baseType')
+        {
+            # handle may baseType property
+            # .'$Type'.'|'.2.baseType
+            $res = jm_is_string($pval);
+            if (! $res)
+            {
+                return 0;
+            }
+        }
+        elsif ($prop eq 'content')
+        {
+            # handle may content property
+            # .'$Type'.'|'.2.content
+            $res = json_model_11($pval, undef, $rep);
+            if (! $res)
+            {
+                return 0;
+            }
+        }
+        elsif ($prop eq 'minLength')
+        {
+            # handle may minLength property
+            # .'$Type'.'|'.2.minLength
+            $res = jm_is_integer($pval) && $pval >= 0;
+            if (! $res)
+            {
+                return 0;
+            }
+        }
+        elsif ($prop eq 'maxLength')
+        {
+            # handle may maxLength property
+            # .'$Type'.'|'.2.maxLength
+            $res = jm_is_integer($pval) && $pval >= 0;
+            if (! $res)
+            {
+                return 0;
+            }
+        }
+        else
+        {
+            return 0;
+        }
+    }
+    if ($must_count != 1)
+    {
+        return 0;
+    }
+    return 1;
+}
+
+# object .'$Type'.'|'.3
+sub _jm_obj_5($$$)
+{
+    my ($val, $path, $rep) = @_;
+    if (! jm_is_object($val))
+    {
+        return 0;
+    }
+    my $res;
+    my $must_count = 0;
+    scalar keys %$val;
+    while (my ($prop, $pval) = each %$val)
+    {
+        if ($prop eq 'name')
+        {
+            # handle must name property
+            $must_count++;
+            # .'$Type'.'|'.3.name
+            $res = jm_is_string($pval);
+            if (! $res)
+            {
+                return 0;
+            }
+        }
+        elsif ($prop eq 'kind')
+        {
+            # handle must kind property
+            $must_count++;
+            # .'$Type'.'|'.3.kind
+            $res = jm_is_string($pval) && $pval eq 'union';
+            if (! $res)
+            {
+                return 0;
+            }
+        }
+        elsif ($prop eq 'content')
+        {
+            # handle must content property
+            $must_count++;
+            # .'$Type'.'|'.3.content
+            $res = jm_is_array($pval);
+            if ($res)
+            {
+                for my $arr_4_idx (0 .. $#$pval)
+                {
+                    my $arr_4_item = $$pval[$arr_4_idx];
+                    # .'$Type'.'|'.3.content.0
+                    $res = json_model_11($arr_4_item, undef, $rep);
+                    if (! $res)
+                    {
+                        last;
+                    }
+                }
+            }
+            if (! $res)
+            {
+                return 0;
+            }
+        }
+        elsif ($prop eq 'baseType')
+        {
+            # handle may baseType property
+            # .'$Type'.'|'.3.baseType
+            $res = jm_is_string($pval);
+            if (! $res)
+            {
+                return 0;
+            }
+        }
+        else
+        {
+            return 0;
+        }
+    }
+    if ($must_count != 3)
+    {
+        return 0;
+    }
+    return 1;
+}
+
 
 # check $Type (.'$Type')
 sub json_model_3($$$)
@@ -220,7 +708,7 @@ sub json_model_4($$$)
     my ($val, $path, $rep) = @_;
     my $res;
     # .'$atomic-types'
-    $res = jm_is_scalar($val) && jm_is_string($val) && exists $_jm_cst_0{$val};
+    $res = jm_is_scalar($val) && jm_is_string($val) && exists $_jm_cst_1{$val};
     return $res;
 }
 
@@ -255,8 +743,8 @@ sub json_model_5($$$)
     return $res;
 }
 
-# check _jm_obj_2_map_enumeration (.'$Atomic'.enumeration)
-sub _jm_f_0($$$)
+# check _jm_obj_6_map_enumeration (.'$Atomic'.enumeration)
+sub _jm_f_13($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
@@ -264,11 +752,11 @@ sub _jm_f_0($$$)
     $res = jm_is_array($val);
     if ($res)
     {
-        for my $arr_2_idx (0 .. $#$val)
+        for my $arr_5_idx (0 .. $#$val)
         {
-            my $arr_2_item = $$val[$arr_2_idx];
+            my $arr_5_item = $$val[$arr_5_idx];
             # .'$Atomic'.enumeration.0
-            $res = json_model_5($arr_2_item, undef, $rep);
+            $res = json_model_5($arr_5_item, undef, $rep);
             if (! $res)
             {
                 last;
@@ -279,18 +767,18 @@ sub _jm_f_0($$$)
 }
 
 
-# check _jm_obj_2_map_explicitTypeZone (.'$Atomic'.explicitTypeZone)
-sub _jm_f_1($$$)
+# check _jm_obj_6_map_explicitTypeZone (.'$Atomic'.explicitTypeZone)
+sub _jm_f_14($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
     # .'$Atomic'.explicitTypeZone
-    $res = jm_is_scalar($val) && jm_is_string($val) && exists $_jm_cst_1{$val};
+    $res = jm_is_scalar($val) && jm_is_string($val) && exists $_jm_cst_2{$val};
     return $res;
 }
 
-# check _jm_obj_2_map_fractionDigits (.'$Atomic'.fractionDigits)
-sub _jm_f_2($$$)
+# check _jm_obj_6_map_fractionDigits (.'$Atomic'.fractionDigits)
+sub _jm_f_15($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
@@ -299,8 +787,8 @@ sub _jm_f_2($$$)
     return $res;
 }
 
-# check _jm_obj_2_map_length (.'$Atomic'.length)
-sub _jm_f_3($$$)
+# check _jm_obj_6_map_length (.'$Atomic'.length)
+sub _jm_f_16($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
@@ -309,8 +797,8 @@ sub _jm_f_3($$$)
     return $res;
 }
 
-# check _jm_obj_2_map_maxExclusive (.'$Atomic'.maxExclusive)
-sub _jm_f_4($$$)
+# check _jm_obj_6_map_maxExclusive (.'$Atomic'.maxExclusive)
+sub _jm_f_17($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
@@ -319,8 +807,8 @@ sub _jm_f_4($$$)
     return $res;
 }
 
-# check _jm_obj_2_map_maxInclusive (.'$Atomic'.maxInclusive)
-sub _jm_f_5($$$)
+# check _jm_obj_6_map_maxInclusive (.'$Atomic'.maxInclusive)
+sub _jm_f_18($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
@@ -329,8 +817,8 @@ sub _jm_f_5($$$)
     return $res;
 }
 
-# check _jm_obj_2_map_maxLength (.'$Atomic'.maxLength)
-sub _jm_f_6($$$)
+# check _jm_obj_6_map_maxLength (.'$Atomic'.maxLength)
+sub _jm_f_19($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
@@ -339,8 +827,8 @@ sub _jm_f_6($$$)
     return $res;
 }
 
-# check _jm_obj_2_map_minExclusive (.'$Atomic'.minExclusive)
-sub _jm_f_7($$$)
+# check _jm_obj_6_map_minExclusive (.'$Atomic'.minExclusive)
+sub _jm_f_20($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
@@ -349,8 +837,8 @@ sub _jm_f_7($$$)
     return $res;
 }
 
-# check _jm_obj_2_map_minInclusive (.'$Atomic'.minInclusive)
-sub _jm_f_8($$$)
+# check _jm_obj_6_map_minInclusive (.'$Atomic'.minInclusive)
+sub _jm_f_21($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
@@ -359,8 +847,8 @@ sub _jm_f_8($$$)
     return $res;
 }
 
-# check _jm_obj_2_map_minLength (.'$Atomic'.minLength)
-sub _jm_f_9($$$)
+# check _jm_obj_6_map_minLength (.'$Atomic'.minLength)
+sub _jm_f_22($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
@@ -369,8 +857,8 @@ sub _jm_f_9($$$)
     return $res;
 }
 
-# check _jm_obj_2_map_name (.'$Atomic'.name)
-sub _jm_f_10($$$)
+# check _jm_obj_6_map_name (.'$Atomic'.name)
+sub _jm_f_23($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
@@ -379,8 +867,8 @@ sub _jm_f_10($$$)
     return $res;
 }
 
-# check _jm_obj_2_map_pattern (.'$Atomic'.pattern)
-sub _jm_f_11($$$)
+# check _jm_obj_6_map_pattern (.'$Atomic'.pattern)
+sub _jm_f_24($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
@@ -389,8 +877,8 @@ sub _jm_f_11($$$)
     return $res;
 }
 
-# check _jm_obj_2_map_totalDigits (.'$Atomic'.totalDigits)
-sub _jm_f_12($$$)
+# check _jm_obj_6_map_totalDigits (.'$Atomic'.totalDigits)
+sub _jm_f_25($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
@@ -401,7 +889,7 @@ sub _jm_f_12($$$)
 
 
 # object .'$Atomic'
-sub _jm_obj_2($$$)
+sub _jm_obj_6($$$)
 {
     my ($val, $path, $rep) = @_;
     if (! jm_is_object($val))
@@ -436,7 +924,7 @@ sub _jm_obj_2($$$)
                 return 0;
             }
         }
-        elsif (($pfun = $_jm_obj_2_map{$prop}))
+        elsif (($pfun = $_jm_obj_6_map{$prop}))
         {
             # handle 13 may props
             if (defined($pfun) && ! &$pfun($pval, undef, $rep))
@@ -463,12 +951,12 @@ sub json_model_6($$$)
     my $res;
     # could there be derived atomics as well?
     # .'$Atomic'
-    $res = _jm_obj_2($val, $path, $rep);
+    $res = _jm_obj_6($val, $path, $rep);
     return $res;
 }
 
 # object .'$Object'
-sub _jm_obj_3($$$)
+sub _jm_obj_7($$$)
 {
     my ($val, $path, $rep) = @_;
     if (! jm_is_object($val))
@@ -518,11 +1006,11 @@ sub _jm_obj_3($$$)
             $res = jm_is_array($pval);
             if ($res)
             {
-                for my $arr_3_idx (0 .. $#$pval)
+                for my $arr_6_idx (0 .. $#$pval)
                 {
-                    my $arr_3_item = $$pval[$arr_3_idx];
+                    my $arr_6_item = $$pval[$arr_6_idx];
                     # .'$Object'.content.0
-                    $res = json_model_8($arr_3_item, undef, $rep);
+                    $res = json_model_8($arr_6_item, undef, $rep);
                     if (! $res)
                     {
                         last;
@@ -562,12 +1050,12 @@ sub json_model_7($$$)
     my ($val, $path, $rep) = @_;
     my $res;
     # .'$Object'
-    $res = _jm_obj_3($val, $path, $rep);
+    $res = _jm_obj_7($val, $path, $rep);
     return $res;
 }
 
 # object .'$Fields'
-sub _jm_obj_4($$$)
+sub _jm_obj_8($$$)
 {
     my ($val, $path, $rep) = @_;
     if (! jm_is_object($val))
@@ -649,12 +1137,12 @@ sub json_model_8($$$)
     my ($val, $path, $rep) = @_;
     my $res;
     # .'$Fields'
-    $res = _jm_obj_4($val, $path, $rep);
+    $res = _jm_obj_8($val, $path, $rep);
     return $res;
 }
 
 # object .'$Array'
-sub _jm_obj_5($$$)
+sub _jm_obj_9($$$)
 {
     my ($val, $path, $rep) = @_;
     if (! jm_is_object($val))
@@ -746,12 +1234,12 @@ sub json_model_9($$$)
     my $res;
     # WTF about 'content'?
     # .'$Array'
-    $res = _jm_obj_5($val, $path, $rep);
+    $res = _jm_obj_9($val, $path, $rep);
     return $res;
 }
 
 # object .'$Union'
-sub _jm_obj_6($$$)
+sub _jm_obj_10($$$)
 {
     my ($val, $path, $rep) = @_;
     if (! jm_is_object($val))
@@ -793,11 +1281,11 @@ sub _jm_obj_6($$$)
             $res = jm_is_array($pval);
             if ($res)
             {
-                for my $arr_4_idx (0 .. $#$pval)
+                for my $arr_7_idx (0 .. $#$pval)
                 {
-                    my $arr_4_item = $$pval[$arr_4_idx];
+                    my $arr_7_item = $$pval[$arr_7_idx];
                     # .'$Union'.content.0
-                    $res = json_model_11($arr_4_item, undef, $rep);
+                    $res = json_model_11($arr_7_item, undef, $rep);
                     if (! $res)
                     {
                         last;
@@ -838,9 +1326,467 @@ sub json_model_10($$$)
     my $res;
     # jsound.jsound.json does not say that it is a type…
     # .'$Union'
-    $res = _jm_obj_6($val, $path, $rep);
+    $res = _jm_obj_10($val, $path, $rep);
     return $res;
 }
+
+# check _jm_obj_11_map_enumeration (.'$type-or-ref'.'|'.0.enumeration)
+sub _jm_f_26($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$type-or-ref'.'|'.0.enumeration
+    $res = jm_is_array($val);
+    if ($res)
+    {
+        for my $arr_8_idx (0 .. $#$val)
+        {
+            my $arr_8_item = $$val[$arr_8_idx];
+            # .'$type-or-ref'.'|'.0.enumeration.0
+            $res = json_model_5($arr_8_item, undef, $rep);
+            if (! $res)
+            {
+                last;
+            }
+        }
+    }
+    return $res;
+}
+
+
+# check _jm_obj_11_map_explicitTypeZone (.'$type-or-ref'.'|'.0.explicitTypeZone)
+sub _jm_f_27($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$type-or-ref'.'|'.0.explicitTypeZone
+    $res = jm_is_scalar($val) && jm_is_string($val) && exists $_jm_cst_3{$val};
+    return $res;
+}
+
+# check _jm_obj_11_map_fractionDigits (.'$type-or-ref'.'|'.0.fractionDigits)
+sub _jm_f_28($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$type-or-ref'.'|'.0.fractionDigits
+    $res = jm_is_integer($val) && $val >= 0;
+    return $res;
+}
+
+# check _jm_obj_11_map_length (.'$type-or-ref'.'|'.0.length)
+sub _jm_f_29($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$type-or-ref'.'|'.0.length
+    $res = jm_is_integer($val) && $val >= 0;
+    return $res;
+}
+
+# check _jm_obj_11_map_maxExclusive (.'$type-or-ref'.'|'.0.maxExclusive)
+sub _jm_f_30($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$type-or-ref'.'|'.0.maxExclusive
+    $res = json_model_5($val, $path, $rep);
+    return $res;
+}
+
+# check _jm_obj_11_map_maxInclusive (.'$type-or-ref'.'|'.0.maxInclusive)
+sub _jm_f_31($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$type-or-ref'.'|'.0.maxInclusive
+    $res = json_model_5($val, $path, $rep);
+    return $res;
+}
+
+# check _jm_obj_11_map_maxLength (.'$type-or-ref'.'|'.0.maxLength)
+sub _jm_f_32($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$type-or-ref'.'|'.0.maxLength
+    $res = jm_is_integer($val) && $val >= 0;
+    return $res;
+}
+
+# check _jm_obj_11_map_minExclusive (.'$type-or-ref'.'|'.0.minExclusive)
+sub _jm_f_33($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$type-or-ref'.'|'.0.minExclusive
+    $res = json_model_5($val, $path, $rep);
+    return $res;
+}
+
+# check _jm_obj_11_map_minInclusive (.'$type-or-ref'.'|'.0.minInclusive)
+sub _jm_f_34($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$type-or-ref'.'|'.0.minInclusive
+    $res = json_model_5($val, $path, $rep);
+    return $res;
+}
+
+# check _jm_obj_11_map_minLength (.'$type-or-ref'.'|'.0.minLength)
+sub _jm_f_35($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$type-or-ref'.'|'.0.minLength
+    $res = jm_is_integer($val) && $val >= 0;
+    return $res;
+}
+
+# check _jm_obj_11_map_name (.'$type-or-ref'.'|'.0.name)
+sub _jm_f_36($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$type-or-ref'.'|'.0.name
+    $res = jm_is_string($val);
+    return $res;
+}
+
+# check _jm_obj_11_map_pattern (.'$type-or-ref'.'|'.0.pattern)
+sub _jm_f_37($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$type-or-ref'.'|'.0.pattern
+    $res = jm_is_string($val);
+    return $res;
+}
+
+# check _jm_obj_11_map_totalDigits (.'$type-or-ref'.'|'.0.totalDigits)
+sub _jm_f_38($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$type-or-ref'.'|'.0.totalDigits
+    $res = jm_is_integer($val) && $val >= 0;
+    return $res;
+}
+
+
+# object .'$type-or-ref'.'|'.0
+sub _jm_obj_11($$$)
+{
+    my ($val, $path, $rep) = @_;
+    if (! jm_is_object($val))
+    {
+        return 0;
+    }
+    my $res;
+    my $pfun;
+    my $must_count = 0;
+    scalar keys %$val;
+    while (my ($prop, $pval) = each %$val)
+    {
+        if ($prop eq 'kind')
+        {
+            # handle must kind property
+            $must_count++;
+            # .'$type-or-ref'.'|'.0.kind
+            $res = jm_is_string($pval) && $pval eq 'atomic';
+            if (! $res)
+            {
+                return 0;
+            }
+        }
+        elsif ($prop eq 'baseType')
+        {
+            # handle must baseType property
+            $must_count++;
+            # .'$type-or-ref'.'|'.0.baseType
+            $res = json_model_4($pval, undef, $rep);
+            if (! $res)
+            {
+                return 0;
+            }
+        }
+        elsif (($pfun = $_jm_obj_11_map{$prop}))
+        {
+            # handle 13 may props
+            if (defined($pfun) && ! &$pfun($pval, undef, $rep))
+            {
+                return 0;
+            }
+        }
+        else
+        {
+            return 0;
+        }
+    }
+    if ($must_count != 2)
+    {
+        return 0;
+    }
+    return 1;
+}
+
+# object .'$type-or-ref'.'|'.1
+sub _jm_obj_12($$$)
+{
+    my ($val, $path, $rep) = @_;
+    if (! jm_is_object($val))
+    {
+        return 0;
+    }
+    my $res;
+    my $must_count = 0;
+    scalar keys %$val;
+    while (my ($prop, $pval) = each %$val)
+    {
+        if ($prop eq 'kind')
+        {
+            # handle must kind property
+            $must_count++;
+            # .'$type-or-ref'.'|'.1.kind
+            $res = jm_is_string($pval) && $pval eq 'object';
+            if (! $res)
+            {
+                return 0;
+            }
+        }
+        elsif ($prop eq 'name')
+        {
+            # handle may name property
+            # .'$type-or-ref'.'|'.1.name
+            $res = jm_is_string($pval);
+            if (! $res)
+            {
+                return 0;
+            }
+        }
+        elsif ($prop eq 'baseType')
+        {
+            # handle may baseType property
+            # .'$type-or-ref'.'|'.1.baseType
+            $res = jm_is_string($pval);
+            if (! $res)
+            {
+                return 0;
+            }
+        }
+        elsif ($prop eq 'content')
+        {
+            # handle may content property
+            # .'$type-or-ref'.'|'.1.content
+            $res = jm_is_array($pval);
+            if ($res)
+            {
+                for my $arr_9_idx (0 .. $#$pval)
+                {
+                    my $arr_9_item = $$pval[$arr_9_idx];
+                    # .'$type-or-ref'.'|'.1.content.0
+                    $res = json_model_8($arr_9_item, undef, $rep);
+                    if (! $res)
+                    {
+                        last;
+                    }
+                }
+            }
+            if (! $res)
+            {
+                return 0;
+            }
+        }
+        elsif ($prop eq 'closed')
+        {
+            # handle may closed property
+            # .'$type-or-ref'.'|'.1.closed
+            $res = jm_is_boolean($pval);
+            if (! $res)
+            {
+                return 0;
+            }
+        }
+        else
+        {
+            return 0;
+        }
+    }
+    if ($must_count != 1)
+    {
+        return 0;
+    }
+    return 1;
+}
+
+# object .'$type-or-ref'.'|'.2
+sub _jm_obj_13($$$)
+{
+    my ($val, $path, $rep) = @_;
+    if (! jm_is_object($val))
+    {
+        return 0;
+    }
+    my $res;
+    my $must_count = 0;
+    scalar keys %$val;
+    while (my ($prop, $pval) = each %$val)
+    {
+        if ($prop eq 'kind')
+        {
+            # handle must kind property
+            $must_count++;
+            # .'$type-or-ref'.'|'.2.kind
+            $res = jm_is_string($pval) && $pval eq 'array';
+            if (! $res)
+            {
+                return 0;
+            }
+        }
+        elsif ($prop eq 'name')
+        {
+            # handle may name property
+            # .'$type-or-ref'.'|'.2.name
+            $res = jm_is_string($pval);
+            if (! $res)
+            {
+                return 0;
+            }
+        }
+        elsif ($prop eq 'baseType')
+        {
+            # handle may baseType property
+            # .'$type-or-ref'.'|'.2.baseType
+            $res = jm_is_string($pval);
+            if (! $res)
+            {
+                return 0;
+            }
+        }
+        elsif ($prop eq 'content')
+        {
+            # handle may content property
+            # .'$type-or-ref'.'|'.2.content
+            $res = json_model_11($pval, undef, $rep);
+            if (! $res)
+            {
+                return 0;
+            }
+        }
+        elsif ($prop eq 'minLength')
+        {
+            # handle may minLength property
+            # .'$type-or-ref'.'|'.2.minLength
+            $res = jm_is_integer($pval) && $pval >= 0;
+            if (! $res)
+            {
+                return 0;
+            }
+        }
+        elsif ($prop eq 'maxLength')
+        {
+            # handle may maxLength property
+            # .'$type-or-ref'.'|'.2.maxLength
+            $res = jm_is_integer($pval) && $pval >= 0;
+            if (! $res)
+            {
+                return 0;
+            }
+        }
+        else
+        {
+            return 0;
+        }
+    }
+    if ($must_count != 1)
+    {
+        return 0;
+    }
+    return 1;
+}
+
+# object .'$type-or-ref'.'|'.3
+sub _jm_obj_14($$$)
+{
+    my ($val, $path, $rep) = @_;
+    if (! jm_is_object($val))
+    {
+        return 0;
+    }
+    my $res;
+    my $must_count = 0;
+    scalar keys %$val;
+    while (my ($prop, $pval) = each %$val)
+    {
+        if ($prop eq 'name')
+        {
+            # handle must name property
+            $must_count++;
+            # .'$type-or-ref'.'|'.3.name
+            $res = jm_is_string($pval);
+            if (! $res)
+            {
+                return 0;
+            }
+        }
+        elsif ($prop eq 'kind')
+        {
+            # handle must kind property
+            $must_count++;
+            # .'$type-or-ref'.'|'.3.kind
+            $res = jm_is_string($pval) && $pval eq 'union';
+            if (! $res)
+            {
+                return 0;
+            }
+        }
+        elsif ($prop eq 'content')
+        {
+            # handle must content property
+            $must_count++;
+            # .'$type-or-ref'.'|'.3.content
+            $res = jm_is_array($pval);
+            if ($res)
+            {
+                for my $arr_10_idx (0 .. $#$pval)
+                {
+                    my $arr_10_item = $$pval[$arr_10_idx];
+                    # .'$type-or-ref'.'|'.3.content.0
+                    $res = json_model_11($arr_10_item, undef, $rep);
+                    if (! $res)
+                    {
+                        last;
+                    }
+                }
+            }
+            if (! $res)
+            {
+                return 0;
+            }
+        }
+        elsif ($prop eq 'baseType')
+        {
+            # handle may baseType property
+            # .'$type-or-ref'.'|'.3.baseType
+            $res = jm_is_string($pval);
+            if (! $res)
+            {
+                return 0;
+            }
+        }
+        else
+        {
+            return 0;
+        }
+    }
+    if ($must_count != 3)
+    {
+        return 0;
+    }
+    return 1;
+}
+
 
 # check $type-or-ref (.'$type-or-ref')
 sub json_model_11($$$)
@@ -848,27 +1794,31 @@ sub json_model_11($$$)
     my ($val, $path, $rep) = @_;
     my $res;
     # .'$type-or-ref'
-    # .'$type-or-ref'.'|'.0
-    $res = jm_is_string($val);
-    if (! $res)
+    $res = jm_is_object($val);
+    if ($res)
     {
-        # .'$type-or-ref'.'|'.1
-        $res = json_model_6($val, $path, $rep);
-        if (! $res)
+        if (exists $$val{'kind'})
         {
-            # .'$type-or-ref'.'|'.2
-            $res = json_model_7($val, $path, $rep);
-            if (! $res)
+            my $tag_1 = $$val{'kind'};
+            my $fun_1 = $_jm_map_1{$tag_1};
+            if (defined($fun_1))
             {
-                # .'$type-or-ref'.'|'.3
-                $res = json_model_9($val, $path, $rep);
-                if (! $res)
-                {
-                    # .'$type-or-ref'.'|'.4
-                    $res = json_model_10($val, $path, $rep);
-                }
+                $res = &$fun_1($val, $path, $rep);
+            }
+            else
+            {
+                $res = 0;
             }
         }
+        else
+        {
+            $res = 0;
+        }
+    }
+    if (! $res)
+    {
+        # .'$type-or-ref'.'|'
+        $res = jm_is_string($val);
     }
     return $res;
 }
@@ -893,29 +1843,7 @@ sub check_model_init()
     if (!$initialized)
     {
         $initialized = 1;
-        %_jm_map_0 = (
-            'atomic' => \&json_model_6,
-            'object' => \&json_model_7,
-            'array' => \&json_model_9,
-            'union' => \&json_model_10,
-        );
         %_jm_cst_0 = (
-            'string' => 1,
-            'decimal' => 1,
-            'integer' => 1,
-            'double' => 1,
-            'boolean' => 1,
-            'anyURI' => 1,
-            'base64Binary' => 1,
-            'hexBinary' => 1,
-            'date' => 1,
-            'dateTime' => 1,
-            'time' => 1,
-            'dateTimeStamp' => 1,
-            'duration' => 1,
-            'null' => 1,
-        );
-        %_jm_cst_1 = (
             'required' => 1,
             'prohibited' => 1,
             'optional' => 1,
@@ -934,6 +1862,74 @@ sub check_model_init()
             'name' => \&_jm_f_10,
             'pattern' => \&_jm_f_11,
             'totalDigits' => \&_jm_f_12,
+        );
+        %_jm_map_0 = (
+            'atomic' => \&_jm_obj_2,
+            'object' => \&_jm_obj_3,
+            'array' => \&_jm_obj_4,
+            'union' => \&_jm_obj_5,
+        );
+        %_jm_cst_1 = (
+            'string' => 1,
+            'decimal' => 1,
+            'integer' => 1,
+            'double' => 1,
+            'boolean' => 1,
+            'anyURI' => 1,
+            'base64Binary' => 1,
+            'hexBinary' => 1,
+            'date' => 1,
+            'dateTime' => 1,
+            'time' => 1,
+            'dateTimeStamp' => 1,
+            'duration' => 1,
+            'null' => 1,
+        );
+        %_jm_cst_2 = (
+            'required' => 1,
+            'prohibited' => 1,
+            'optional' => 1,
+        );
+        %_jm_obj_6_map = (
+            'enumeration' => \&_jm_f_13,
+            'explicitTypeZone' => \&_jm_f_14,
+            'fractionDigits' => \&_jm_f_15,
+            'length' => \&_jm_f_16,
+            'maxExclusive' => \&_jm_f_17,
+            'maxInclusive' => \&_jm_f_18,
+            'maxLength' => \&_jm_f_19,
+            'minExclusive' => \&_jm_f_20,
+            'minInclusive' => \&_jm_f_21,
+            'minLength' => \&_jm_f_22,
+            'name' => \&_jm_f_23,
+            'pattern' => \&_jm_f_24,
+            'totalDigits' => \&_jm_f_25,
+        );
+        %_jm_cst_3 = (
+            'required' => 1,
+            'prohibited' => 1,
+            'optional' => 1,
+        );
+        %_jm_obj_11_map = (
+            'enumeration' => \&_jm_f_26,
+            'explicitTypeZone' => \&_jm_f_27,
+            'fractionDigits' => \&_jm_f_28,
+            'length' => \&_jm_f_29,
+            'maxExclusive' => \&_jm_f_30,
+            'maxInclusive' => \&_jm_f_31,
+            'maxLength' => \&_jm_f_32,
+            'minExclusive' => \&_jm_f_33,
+            'minInclusive' => \&_jm_f_34,
+            'minLength' => \&_jm_f_35,
+            'name' => \&_jm_f_36,
+            'pattern' => \&_jm_f_37,
+            'totalDigits' => \&_jm_f_38,
+        );
+        %_jm_map_1 = (
+            'atomic' => \&_jm_obj_11,
+            'object' => \&_jm_obj_12,
+            'array' => \&_jm_obj_13,
+            'union' => \&_jm_obj_14,
         );
         %check_model_map = (
             '' => \&json_model_2,
@@ -956,10 +1952,15 @@ sub check_model_free()
     if ($initialized)
     {
         $initialized = 0;
-        %_jm_map_0 = ();
         %_jm_cst_0 = ();
-        %_jm_cst_1 = ();
         %_jm_obj_2_map = ();
+        %_jm_map_0 = ();
+        %_jm_cst_1 = ();
+        %_jm_cst_2 = ();
+        %_jm_obj_6_map = ();
+        %_jm_cst_3 = ();
+        %_jm_obj_11_map = ();
+        %_jm_map_1 = ();
         %check_model_map = ();
     }
 }

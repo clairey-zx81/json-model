@@ -9,10 +9,15 @@ const require = createRequire(import.meta.url);
 import * as runtime from "json_model_runtime"
 const JSON_MODEL_VERSION = "2";
 
-let _jm_map_0 = new Map()
 let _jm_cst_0 = new Set()
-let _jm_cst_1 = new Set()
 var _jm_obj_2_map = new Map()
+let _jm_map_0 = new Map()
+let _jm_cst_1 = new Set()
+let _jm_cst_2 = new Set()
+var _jm_obj_6_map = new Map()
+let _jm_cst_3 = new Set()
+var _jm_obj_11_map = new Map()
+let _jm_map_1 = new Map()
 var check_model_map = new Map()
 
 // object .'$Schema'.metadata
@@ -209,6 +214,647 @@ function json_model_2(val, path, rep)
     return res;
 }
 
+// check _jm_obj_2_map_enumeration (.'$Type'.'|'.0.enumeration)
+function _jm_f_0(val, path, rep)
+{
+    let res;
+    // .'$Type'.'|'.0.enumeration
+    res = Array.isArray(val);
+    if (res)
+    {
+        for (let arr_2_idx = 0; arr_2_idx < val.length; arr_2_idx++)
+        {
+            let arr_2_item = val[arr_2_idx]
+            let arr_2_lpath = path ? path.concat([arr_2_idx]) : null;
+            // .'$Type'.'|'.0.enumeration.0
+            res = json_model_5(arr_2_item, (path ? arr_2_lpath : null), rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected $atomic [.'$Type'.'|'.0.enumeration.0]", (path ? arr_2_lpath : null)])
+            }
+            if (! res)
+            {
+                break;
+            }
+        }
+    }
+    if (! res)
+    {
+        rep !== null && rep.push(["not array or unexpected array [.'$Type'.'|'.0.enumeration]", path])
+    }
+    return res;
+}
+
+
+// check _jm_obj_2_map_explicitTypeZone (.'$Type'.'|'.0.explicitTypeZone)
+function _jm_f_1(val, path, rep)
+{
+    let res;
+    // .'$Type'.'|'.0.explicitTypeZone
+    res = ((val === null || (typeof val === 'number' || val instanceof Number) || (typeof val === 'boolean' || val instanceof Boolean) || (typeof val === 'string' || val instanceof String))) && _jm_cst_0.has(val);
+    if (! res)
+    {
+        rep !== null && rep.push(["value not in enum [.'$Type'.'|'.0.explicitTypeZone.'|']", path])
+    }
+    return res;
+}
+
+// check _jm_obj_2_map_fractionDigits (.'$Type'.'|'.0.fractionDigits)
+function _jm_f_2(val, path, rep)
+{
+    let res;
+    // .'$Type'.'|'.0.fractionDigits
+    res = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 0;
+    if (! res)
+    {
+        rep !== null && rep.push(["not a 0 strict int [.'$Type'.'|'.0.fractionDigits]", path])
+    }
+    return res;
+}
+
+// check _jm_obj_2_map_length (.'$Type'.'|'.0.length)
+function _jm_f_3(val, path, rep)
+{
+    let res;
+    // .'$Type'.'|'.0.length
+    res = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 0;
+    if (! res)
+    {
+        rep !== null && rep.push(["not a 0 strict int [.'$Type'.'|'.0.length]", path])
+    }
+    return res;
+}
+
+// check _jm_obj_2_map_maxExclusive (.'$Type'.'|'.0.maxExclusive)
+function _jm_f_4(val, path, rep)
+{
+    let res;
+    // .'$Type'.'|'.0.maxExclusive
+    res = json_model_5(val, path, rep);
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected $atomic [.'$Type'.'|'.0.maxExclusive]", path])
+    }
+    return res;
+}
+
+// check _jm_obj_2_map_maxInclusive (.'$Type'.'|'.0.maxInclusive)
+function _jm_f_5(val, path, rep)
+{
+    let res;
+    // .'$Type'.'|'.0.maxInclusive
+    res = json_model_5(val, path, rep);
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected $atomic [.'$Type'.'|'.0.maxInclusive]", path])
+    }
+    return res;
+}
+
+// check _jm_obj_2_map_maxLength (.'$Type'.'|'.0.maxLength)
+function _jm_f_6(val, path, rep)
+{
+    let res;
+    // .'$Type'.'|'.0.maxLength
+    res = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 0;
+    if (! res)
+    {
+        rep !== null && rep.push(["not a 0 strict int [.'$Type'.'|'.0.maxLength]", path])
+    }
+    return res;
+}
+
+// check _jm_obj_2_map_minExclusive (.'$Type'.'|'.0.minExclusive)
+function _jm_f_7(val, path, rep)
+{
+    let res;
+    // .'$Type'.'|'.0.minExclusive
+    res = json_model_5(val, path, rep);
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected $atomic [.'$Type'.'|'.0.minExclusive]", path])
+    }
+    return res;
+}
+
+// check _jm_obj_2_map_minInclusive (.'$Type'.'|'.0.minInclusive)
+function _jm_f_8(val, path, rep)
+{
+    let res;
+    // .'$Type'.'|'.0.minInclusive
+    res = json_model_5(val, path, rep);
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected $atomic [.'$Type'.'|'.0.minInclusive]", path])
+    }
+    return res;
+}
+
+// check _jm_obj_2_map_minLength (.'$Type'.'|'.0.minLength)
+function _jm_f_9(val, path, rep)
+{
+    let res;
+    // .'$Type'.'|'.0.minLength
+    res = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 0;
+    if (! res)
+    {
+        rep !== null && rep.push(["not a 0 strict int [.'$Type'.'|'.0.minLength]", path])
+    }
+    return res;
+}
+
+// check _jm_obj_2_map_name (.'$Type'.'|'.0.name)
+function _jm_f_10(val, path, rep)
+{
+    let res;
+    // .'$Type'.'|'.0.name
+    res = (typeof val === 'string' || val instanceof String);
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected string [.'$Type'.'|'.0.name]", path])
+    }
+    return res;
+}
+
+// check _jm_obj_2_map_pattern (.'$Type'.'|'.0.pattern)
+function _jm_f_11(val, path, rep)
+{
+    let res;
+    // .'$Type'.'|'.0.pattern
+    res = (typeof val === 'string' || val instanceof String);
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected string [.'$Type'.'|'.0.pattern]", path])
+    }
+    return res;
+}
+
+// check _jm_obj_2_map_totalDigits (.'$Type'.'|'.0.totalDigits)
+function _jm_f_12(val, path, rep)
+{
+    let res;
+    // .'$Type'.'|'.0.totalDigits
+    res = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 0;
+    if (! res)
+    {
+        rep !== null && rep.push(["not a 0 strict int [.'$Type'.'|'.0.totalDigits]", path])
+    }
+    return res;
+}
+
+
+// object .'$Type'.'|'.0
+function _jm_obj_2(val, path, rep)
+{
+    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    {
+        rep !== null && rep.push(["not an object [.'$Type'.'|'.0]", path])
+        return false;
+    }
+    let res;
+    let pfun;
+    let must_count = 0;
+    for (const [prop, pval] of Object.entries(val))
+    {
+        let lpath_2 = path ? path.concat([prop]) : null;
+        if (prop == "kind")
+        {
+            // handle must kind property
+            must_count += 1;
+            // .'$Type'.'|'.0.kind
+            res = ((typeof pval === 'string' || pval instanceof String)) && pval == "atomic";
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected atomic [.'$Type'.'|'.0.kind]", (path ? lpath_2 : null)])
+            }
+            if (! res)
+            {
+                rep !== null && rep.push(["invalid mandatory prop value [.'$Type'.'|'.0.kind]", (path ? lpath_2 : null)])
+                return false;
+            }
+        }
+        else if (prop == "baseType")
+        {
+            // handle must baseType property
+            must_count += 1;
+            // .'$Type'.'|'.0.baseType
+            res = json_model_4(pval, (path ? lpath_2 : null), rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected $atomic-types [.'$Type'.'|'.0.baseType]", (path ? lpath_2 : null)])
+            }
+            if (! res)
+            {
+                rep !== null && rep.push(["invalid mandatory prop value [.'$Type'.'|'.0.baseType]", (path ? lpath_2 : null)])
+                return false;
+            }
+        }
+        else if ((pfun = _jm_obj_2_map.get(prop)))
+        {
+            // handle 13 may props
+            if (pfun !== undefined && ! pfun(pval, (path ? lpath_2 : null), rep))
+            {
+                rep !== null && rep.push(["invalid optional prop value [.'$Type'.'|'.0]", (path ? lpath_2 : null)])
+                return false;
+            }
+        }
+        else
+        {
+            rep !== null && rep.push(["unexpected prop [.'$Type'.'|'.0]", (path ? lpath_2 : null)])
+            return false;
+        }
+    }
+    if (must_count != 2)
+    {
+        if (rep !== null)
+        {
+            if (! val.hasOwnProperty("baseType"))
+            {
+                rep !== null && rep.push(["missing mandatory prop <baseType> [.'$Type'.'|'.0]", path])
+            }
+            if (! val.hasOwnProperty("kind"))
+            {
+                rep !== null && rep.push(["missing mandatory prop <kind> [.'$Type'.'|'.0]", path])
+            }
+        }
+        return false;
+    }
+    return true;
+}
+
+// object .'$Type'.'|'.1
+function _jm_obj_3(val, path, rep)
+{
+    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    {
+        rep !== null && rep.push(["not an object [.'$Type'.'|'.1]", path])
+        return false;
+    }
+    let res;
+    let must_count = 0;
+    for (const [prop, pval] of Object.entries(val))
+    {
+        let lpath_3 = path ? path.concat([prop]) : null;
+        if (prop == "kind")
+        {
+            // handle must kind property
+            must_count += 1;
+            // .'$Type'.'|'.1.kind
+            res = ((typeof pval === 'string' || pval instanceof String)) && pval == "object";
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected object [.'$Type'.'|'.1.kind]", (path ? lpath_3 : null)])
+            }
+            if (! res)
+            {
+                rep !== null && rep.push(["invalid mandatory prop value [.'$Type'.'|'.1.kind]", (path ? lpath_3 : null)])
+                return false;
+            }
+        }
+        else if (prop == "name")
+        {
+            // handle may name property
+            // .'$Type'.'|'.1.name
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected string [.'$Type'.'|'.1.name]", (path ? lpath_3 : null)])
+            }
+            if (! res)
+            {
+                rep !== null && rep.push(["invalid optional prop value [.'$Type'.'|'.1.name]", (path ? lpath_3 : null)])
+                return false;
+            }
+        }
+        else if (prop == "baseType")
+        {
+            // handle may baseType property
+            // .'$Type'.'|'.1.baseType
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected string [.'$Type'.'|'.1.baseType]", (path ? lpath_3 : null)])
+            }
+            if (! res)
+            {
+                rep !== null && rep.push(["invalid optional prop value [.'$Type'.'|'.1.baseType]", (path ? lpath_3 : null)])
+                return false;
+            }
+        }
+        else if (prop == "content")
+        {
+            // handle may content property
+            // .'$Type'.'|'.1.content
+            res = Array.isArray(pval);
+            if (res)
+            {
+                for (let arr_3_idx = 0; arr_3_idx < pval.length; arr_3_idx++)
+                {
+                    let arr_3_item = pval[arr_3_idx]
+                    let arr_3_lpath = (path ? lpath_3 : null) ? (path ? lpath_3 : null).concat([arr_3_idx]) : null;
+                    // .'$Type'.'|'.1.content.0
+                    res = json_model_8(arr_3_item, ((path ? lpath_3 : null) ? arr_3_lpath : null), rep);
+                    if (! res)
+                    {
+                        rep !== null && rep.push(["unexpected $Fields [.'$Type'.'|'.1.content.0]", ((path ? lpath_3 : null) ? arr_3_lpath : null)])
+                    }
+                    if (! res)
+                    {
+                        break;
+                    }
+                }
+            }
+            if (! res)
+            {
+                rep !== null && rep.push(["not array or unexpected array [.'$Type'.'|'.1.content]", (path ? lpath_3 : null)])
+            }
+            if (! res)
+            {
+                rep !== null && rep.push(["invalid optional prop value [.'$Type'.'|'.1.content]", (path ? lpath_3 : null)])
+                return false;
+            }
+        }
+        else if (prop == "closed")
+        {
+            // handle may closed property
+            // .'$Type'.'|'.1.closed
+            res = (typeof pval === 'boolean' || pval instanceof Boolean);
+            if (! res)
+            {
+                rep !== null && rep.push(["not a bool [.'$Type'.'|'.1.closed]", (path ? lpath_3 : null)])
+            }
+            if (! res)
+            {
+                rep !== null && rep.push(["invalid optional prop value [.'$Type'.'|'.1.closed]", (path ? lpath_3 : null)])
+                return false;
+            }
+        }
+        else
+        {
+            rep !== null && rep.push(["unexpected prop [.'$Type'.'|'.1]", (path ? lpath_3 : null)])
+            return false;
+        }
+    }
+    if (must_count != 1)
+    {
+        if (rep !== null)
+        {
+            if (! val.hasOwnProperty("kind"))
+            {
+                rep !== null && rep.push(["missing mandatory prop <kind> [.'$Type'.'|'.1]", path])
+            }
+        }
+        return false;
+    }
+    return true;
+}
+
+// object .'$Type'.'|'.2
+function _jm_obj_4(val, path, rep)
+{
+    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    {
+        rep !== null && rep.push(["not an object [.'$Type'.'|'.2]", path])
+        return false;
+    }
+    let res;
+    let must_count = 0;
+    for (const [prop, pval] of Object.entries(val))
+    {
+        let lpath_4 = path ? path.concat([prop]) : null;
+        if (prop == "kind")
+        {
+            // handle must kind property
+            must_count += 1;
+            // .'$Type'.'|'.2.kind
+            res = ((typeof pval === 'string' || pval instanceof String)) && pval == "array";
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected array [.'$Type'.'|'.2.kind]", (path ? lpath_4 : null)])
+            }
+            if (! res)
+            {
+                rep !== null && rep.push(["invalid mandatory prop value [.'$Type'.'|'.2.kind]", (path ? lpath_4 : null)])
+                return false;
+            }
+        }
+        else if (prop == "name")
+        {
+            // handle may name property
+            // .'$Type'.'|'.2.name
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected string [.'$Type'.'|'.2.name]", (path ? lpath_4 : null)])
+            }
+            if (! res)
+            {
+                rep !== null && rep.push(["invalid optional prop value [.'$Type'.'|'.2.name]", (path ? lpath_4 : null)])
+                return false;
+            }
+        }
+        else if (prop == "baseType")
+        {
+            // handle may baseType property
+            // .'$Type'.'|'.2.baseType
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected string [.'$Type'.'|'.2.baseType]", (path ? lpath_4 : null)])
+            }
+            if (! res)
+            {
+                rep !== null && rep.push(["invalid optional prop value [.'$Type'.'|'.2.baseType]", (path ? lpath_4 : null)])
+                return false;
+            }
+        }
+        else if (prop == "content")
+        {
+            // handle may content property
+            // .'$Type'.'|'.2.content
+            res = json_model_11(pval, (path ? lpath_4 : null), rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected $type-or-ref [.'$Type'.'|'.2.content]", (path ? lpath_4 : null)])
+            }
+            if (! res)
+            {
+                rep !== null && rep.push(["invalid optional prop value [.'$Type'.'|'.2.content]", (path ? lpath_4 : null)])
+                return false;
+            }
+        }
+        else if (prop == "minLength")
+        {
+            // handle may minLength property
+            // .'$Type'.'|'.2.minLength
+            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0;
+            if (! res)
+            {
+                rep !== null && rep.push(["not a 0 strict int [.'$Type'.'|'.2.minLength]", (path ? lpath_4 : null)])
+            }
+            if (! res)
+            {
+                rep !== null && rep.push(["invalid optional prop value [.'$Type'.'|'.2.minLength]", (path ? lpath_4 : null)])
+                return false;
+            }
+        }
+        else if (prop == "maxLength")
+        {
+            // handle may maxLength property
+            // .'$Type'.'|'.2.maxLength
+            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0;
+            if (! res)
+            {
+                rep !== null && rep.push(["not a 0 strict int [.'$Type'.'|'.2.maxLength]", (path ? lpath_4 : null)])
+            }
+            if (! res)
+            {
+                rep !== null && rep.push(["invalid optional prop value [.'$Type'.'|'.2.maxLength]", (path ? lpath_4 : null)])
+                return false;
+            }
+        }
+        else
+        {
+            rep !== null && rep.push(["unexpected prop [.'$Type'.'|'.2]", (path ? lpath_4 : null)])
+            return false;
+        }
+    }
+    if (must_count != 1)
+    {
+        if (rep !== null)
+        {
+            if (! val.hasOwnProperty("kind"))
+            {
+                rep !== null && rep.push(["missing mandatory prop <kind> [.'$Type'.'|'.2]", path])
+            }
+        }
+        return false;
+    }
+    return true;
+}
+
+// object .'$Type'.'|'.3
+function _jm_obj_5(val, path, rep)
+{
+    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    {
+        rep !== null && rep.push(["not an object [.'$Type'.'|'.3]", path])
+        return false;
+    }
+    let res;
+    let must_count = 0;
+    for (const [prop, pval] of Object.entries(val))
+    {
+        let lpath_5 = path ? path.concat([prop]) : null;
+        if (prop == "name")
+        {
+            // handle must name property
+            must_count += 1;
+            // .'$Type'.'|'.3.name
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected string [.'$Type'.'|'.3.name]", (path ? lpath_5 : null)])
+            }
+            if (! res)
+            {
+                rep !== null && rep.push(["invalid mandatory prop value [.'$Type'.'|'.3.name]", (path ? lpath_5 : null)])
+                return false;
+            }
+        }
+        else if (prop == "kind")
+        {
+            // handle must kind property
+            must_count += 1;
+            // .'$Type'.'|'.3.kind
+            res = ((typeof pval === 'string' || pval instanceof String)) && pval == "union";
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected union [.'$Type'.'|'.3.kind]", (path ? lpath_5 : null)])
+            }
+            if (! res)
+            {
+                rep !== null && rep.push(["invalid mandatory prop value [.'$Type'.'|'.3.kind]", (path ? lpath_5 : null)])
+                return false;
+            }
+        }
+        else if (prop == "content")
+        {
+            // handle must content property
+            must_count += 1;
+            // .'$Type'.'|'.3.content
+            res = Array.isArray(pval);
+            if (res)
+            {
+                for (let arr_4_idx = 0; arr_4_idx < pval.length; arr_4_idx++)
+                {
+                    let arr_4_item = pval[arr_4_idx]
+                    let arr_4_lpath = (path ? lpath_5 : null) ? (path ? lpath_5 : null).concat([arr_4_idx]) : null;
+                    // .'$Type'.'|'.3.content.0
+                    res = json_model_11(arr_4_item, ((path ? lpath_5 : null) ? arr_4_lpath : null), rep);
+                    if (! res)
+                    {
+                        rep !== null && rep.push(["unexpected $type-or-ref [.'$Type'.'|'.3.content.0]", ((path ? lpath_5 : null) ? arr_4_lpath : null)])
+                    }
+                    if (! res)
+                    {
+                        break;
+                    }
+                }
+            }
+            if (! res)
+            {
+                rep !== null && rep.push(["not array or unexpected array [.'$Type'.'|'.3.content]", (path ? lpath_5 : null)])
+            }
+            if (! res)
+            {
+                rep !== null && rep.push(["invalid mandatory prop value [.'$Type'.'|'.3.content]", (path ? lpath_5 : null)])
+                return false;
+            }
+        }
+        else if (prop == "baseType")
+        {
+            // handle may baseType property
+            // .'$Type'.'|'.3.baseType
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected string [.'$Type'.'|'.3.baseType]", (path ? lpath_5 : null)])
+            }
+            if (! res)
+            {
+                rep !== null && rep.push(["invalid optional prop value [.'$Type'.'|'.3.baseType]", (path ? lpath_5 : null)])
+                return false;
+            }
+        }
+        else
+        {
+            rep !== null && rep.push(["unexpected prop [.'$Type'.'|'.3]", (path ? lpath_5 : null)])
+            return false;
+        }
+    }
+    if (must_count != 3)
+    {
+        if (rep !== null)
+        {
+            if (! val.hasOwnProperty("content"))
+            {
+                rep !== null && rep.push(["missing mandatory prop <content> [.'$Type'.'|'.3]", path])
+            }
+            if (! val.hasOwnProperty("kind"))
+            {
+                rep !== null && rep.push(["missing mandatory prop <kind> [.'$Type'.'|'.3]", path])
+            }
+            if (! val.hasOwnProperty("name"))
+            {
+                rep !== null && rep.push(["missing mandatory prop <name> [.'$Type'.'|'.3]", path])
+            }
+        }
+        return false;
+    }
+    return true;
+}
+
 
 // check $Type (.'$Type')
 function json_model_3(val, path, rep)
@@ -251,7 +897,7 @@ function json_model_4(val, path, rep)
 {
     let res;
     // .'$atomic-types'
-    res = ((val === null || (typeof val === 'number' || val instanceof Number) || (typeof val === 'boolean' || val instanceof Boolean) || (typeof val === 'string' || val instanceof String))) && _jm_cst_0.has(val);
+    res = ((val === null || (typeof val === 'number' || val instanceof Number) || (typeof val === 'boolean' || val instanceof Boolean) || (typeof val === 'string' || val instanceof String))) && _jm_cst_1.has(val);
     if (! res)
     {
         rep !== null && rep.push(["value not in enum [.'$atomic-types'.'|']", path])
@@ -317,23 +963,23 @@ function json_model_5(val, path, rep)
     return res;
 }
 
-// check _jm_obj_2_map_enumeration (.'$Atomic'.enumeration)
-function _jm_f_0(val, path, rep)
+// check _jm_obj_6_map_enumeration (.'$Atomic'.enumeration)
+function _jm_f_13(val, path, rep)
 {
     let res;
     // .'$Atomic'.enumeration
     res = Array.isArray(val);
     if (res)
     {
-        for (let arr_2_idx = 0; arr_2_idx < val.length; arr_2_idx++)
+        for (let arr_5_idx = 0; arr_5_idx < val.length; arr_5_idx++)
         {
-            let arr_2_item = val[arr_2_idx]
-            let arr_2_lpath = path ? path.concat([arr_2_idx]) : null;
+            let arr_5_item = val[arr_5_idx]
+            let arr_5_lpath = path ? path.concat([arr_5_idx]) : null;
             // .'$Atomic'.enumeration.0
-            res = json_model_5(arr_2_item, (path ? arr_2_lpath : null), rep);
+            res = json_model_5(arr_5_item, (path ? arr_5_lpath : null), rep);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected $atomic [.'$Atomic'.enumeration.0]", (path ? arr_2_lpath : null)])
+                rep !== null && rep.push(["unexpected $atomic [.'$Atomic'.enumeration.0]", (path ? arr_5_lpath : null)])
             }
             if (! res)
             {
@@ -349,12 +995,12 @@ function _jm_f_0(val, path, rep)
 }
 
 
-// check _jm_obj_2_map_explicitTypeZone (.'$Atomic'.explicitTypeZone)
-function _jm_f_1(val, path, rep)
+// check _jm_obj_6_map_explicitTypeZone (.'$Atomic'.explicitTypeZone)
+function _jm_f_14(val, path, rep)
 {
     let res;
     // .'$Atomic'.explicitTypeZone
-    res = ((val === null || (typeof val === 'number' || val instanceof Number) || (typeof val === 'boolean' || val instanceof Boolean) || (typeof val === 'string' || val instanceof String))) && _jm_cst_1.has(val);
+    res = ((val === null || (typeof val === 'number' || val instanceof Number) || (typeof val === 'boolean' || val instanceof Boolean) || (typeof val === 'string' || val instanceof String))) && _jm_cst_2.has(val);
     if (! res)
     {
         rep !== null && rep.push(["value not in enum [.'$Atomic'.explicitTypeZone.'|']", path])
@@ -362,8 +1008,8 @@ function _jm_f_1(val, path, rep)
     return res;
 }
 
-// check _jm_obj_2_map_fractionDigits (.'$Atomic'.fractionDigits)
-function _jm_f_2(val, path, rep)
+// check _jm_obj_6_map_fractionDigits (.'$Atomic'.fractionDigits)
+function _jm_f_15(val, path, rep)
 {
     let res;
     // .'$Atomic'.fractionDigits
@@ -375,8 +1021,8 @@ function _jm_f_2(val, path, rep)
     return res;
 }
 
-// check _jm_obj_2_map_length (.'$Atomic'.length)
-function _jm_f_3(val, path, rep)
+// check _jm_obj_6_map_length (.'$Atomic'.length)
+function _jm_f_16(val, path, rep)
 {
     let res;
     // .'$Atomic'.length
@@ -388,8 +1034,8 @@ function _jm_f_3(val, path, rep)
     return res;
 }
 
-// check _jm_obj_2_map_maxExclusive (.'$Atomic'.maxExclusive)
-function _jm_f_4(val, path, rep)
+// check _jm_obj_6_map_maxExclusive (.'$Atomic'.maxExclusive)
+function _jm_f_17(val, path, rep)
 {
     let res;
     // .'$Atomic'.maxExclusive
@@ -401,8 +1047,8 @@ function _jm_f_4(val, path, rep)
     return res;
 }
 
-// check _jm_obj_2_map_maxInclusive (.'$Atomic'.maxInclusive)
-function _jm_f_5(val, path, rep)
+// check _jm_obj_6_map_maxInclusive (.'$Atomic'.maxInclusive)
+function _jm_f_18(val, path, rep)
 {
     let res;
     // .'$Atomic'.maxInclusive
@@ -414,8 +1060,8 @@ function _jm_f_5(val, path, rep)
     return res;
 }
 
-// check _jm_obj_2_map_maxLength (.'$Atomic'.maxLength)
-function _jm_f_6(val, path, rep)
+// check _jm_obj_6_map_maxLength (.'$Atomic'.maxLength)
+function _jm_f_19(val, path, rep)
 {
     let res;
     // .'$Atomic'.maxLength
@@ -427,8 +1073,8 @@ function _jm_f_6(val, path, rep)
     return res;
 }
 
-// check _jm_obj_2_map_minExclusive (.'$Atomic'.minExclusive)
-function _jm_f_7(val, path, rep)
+// check _jm_obj_6_map_minExclusive (.'$Atomic'.minExclusive)
+function _jm_f_20(val, path, rep)
 {
     let res;
     // .'$Atomic'.minExclusive
@@ -440,8 +1086,8 @@ function _jm_f_7(val, path, rep)
     return res;
 }
 
-// check _jm_obj_2_map_minInclusive (.'$Atomic'.minInclusive)
-function _jm_f_8(val, path, rep)
+// check _jm_obj_6_map_minInclusive (.'$Atomic'.minInclusive)
+function _jm_f_21(val, path, rep)
 {
     let res;
     // .'$Atomic'.minInclusive
@@ -453,8 +1099,8 @@ function _jm_f_8(val, path, rep)
     return res;
 }
 
-// check _jm_obj_2_map_minLength (.'$Atomic'.minLength)
-function _jm_f_9(val, path, rep)
+// check _jm_obj_6_map_minLength (.'$Atomic'.minLength)
+function _jm_f_22(val, path, rep)
 {
     let res;
     // .'$Atomic'.minLength
@@ -466,8 +1112,8 @@ function _jm_f_9(val, path, rep)
     return res;
 }
 
-// check _jm_obj_2_map_name (.'$Atomic'.name)
-function _jm_f_10(val, path, rep)
+// check _jm_obj_6_map_name (.'$Atomic'.name)
+function _jm_f_23(val, path, rep)
 {
     let res;
     // .'$Atomic'.name
@@ -479,8 +1125,8 @@ function _jm_f_10(val, path, rep)
     return res;
 }
 
-// check _jm_obj_2_map_pattern (.'$Atomic'.pattern)
-function _jm_f_11(val, path, rep)
+// check _jm_obj_6_map_pattern (.'$Atomic'.pattern)
+function _jm_f_24(val, path, rep)
 {
     let res;
     // .'$Atomic'.pattern
@@ -492,8 +1138,8 @@ function _jm_f_11(val, path, rep)
     return res;
 }
 
-// check _jm_obj_2_map_totalDigits (.'$Atomic'.totalDigits)
-function _jm_f_12(val, path, rep)
+// check _jm_obj_6_map_totalDigits (.'$Atomic'.totalDigits)
+function _jm_f_25(val, path, rep)
 {
     let res;
     // .'$Atomic'.totalDigits
@@ -507,7 +1153,7 @@ function _jm_f_12(val, path, rep)
 
 
 // object .'$Atomic'
-function _jm_obj_2(val, path, rep)
+function _jm_obj_6(val, path, rep)
 {
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
@@ -519,7 +1165,7 @@ function _jm_obj_2(val, path, rep)
     let must_count = 0;
     for (const [prop, pval] of Object.entries(val))
     {
-        let lpath_2 = path ? path.concat([prop]) : null;
+        let lpath_6 = path ? path.concat([prop]) : null;
         if (prop == "kind")
         {
             // handle must kind property
@@ -528,11 +1174,11 @@ function _jm_obj_2(val, path, rep)
             res = ((typeof pval === 'string' || pval instanceof String)) && pval == "atomic";
             if (! res)
             {
-                rep !== null && rep.push(["unexpected atomic [.'$Atomic'.kind]", (path ? lpath_2 : null)])
+                rep !== null && rep.push(["unexpected atomic [.'$Atomic'.kind]", (path ? lpath_6 : null)])
             }
             if (! res)
             {
-                rep !== null && rep.push(["invalid mandatory prop value [.'$Atomic'.kind]", (path ? lpath_2 : null)])
+                rep !== null && rep.push(["invalid mandatory prop value [.'$Atomic'.kind]", (path ? lpath_6 : null)])
                 return false;
             }
         }
@@ -541,29 +1187,29 @@ function _jm_obj_2(val, path, rep)
             // handle must baseType property
             must_count += 1;
             // .'$Atomic'.baseType
-            res = json_model_4(pval, (path ? lpath_2 : null), rep);
+            res = json_model_4(pval, (path ? lpath_6 : null), rep);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected $atomic-types [.'$Atomic'.baseType]", (path ? lpath_2 : null)])
+                rep !== null && rep.push(["unexpected $atomic-types [.'$Atomic'.baseType]", (path ? lpath_6 : null)])
             }
             if (! res)
             {
-                rep !== null && rep.push(["invalid mandatory prop value [.'$Atomic'.baseType]", (path ? lpath_2 : null)])
+                rep !== null && rep.push(["invalid mandatory prop value [.'$Atomic'.baseType]", (path ? lpath_6 : null)])
                 return false;
             }
         }
-        else if ((pfun = _jm_obj_2_map.get(prop)))
+        else if ((pfun = _jm_obj_6_map.get(prop)))
         {
             // handle 13 may props
-            if (pfun !== undefined && ! pfun(pval, (path ? lpath_2 : null), rep))
+            if (pfun !== undefined && ! pfun(pval, (path ? lpath_6 : null), rep))
             {
-                rep !== null && rep.push(["invalid optional prop value [.'$Atomic']", (path ? lpath_2 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$Atomic']", (path ? lpath_6 : null)])
                 return false;
             }
         }
         else
         {
-            rep !== null && rep.push(["unexpected prop [.'$Atomic']", (path ? lpath_2 : null)])
+            rep !== null && rep.push(["unexpected prop [.'$Atomic']", (path ? lpath_6 : null)])
             return false;
         }
     }
@@ -591,7 +1237,7 @@ function json_model_6(val, path, rep)
     let res;
     // could there be derived atomics as well?
     // .'$Atomic'
-    res = _jm_obj_2(val, path, rep);
+    res = _jm_obj_6(val, path, rep);
     if (! res)
     {
         rep !== null && rep.push(["unexpected element [.'$Atomic']", path])
@@ -600,7 +1246,7 @@ function json_model_6(val, path, rep)
 }
 
 // object .'$Object'
-function _jm_obj_3(val, path, rep)
+function _jm_obj_7(val, path, rep)
 {
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
@@ -611,7 +1257,7 @@ function _jm_obj_3(val, path, rep)
     let must_count = 0;
     for (const [prop, pval] of Object.entries(val))
     {
-        let lpath_3 = path ? path.concat([prop]) : null;
+        let lpath_7 = path ? path.concat([prop]) : null;
         if (prop == "kind")
         {
             // handle must kind property
@@ -620,11 +1266,11 @@ function _jm_obj_3(val, path, rep)
             res = ((typeof pval === 'string' || pval instanceof String)) && pval == "object";
             if (! res)
             {
-                rep !== null && rep.push(["unexpected object [.'$Object'.kind]", (path ? lpath_3 : null)])
+                rep !== null && rep.push(["unexpected object [.'$Object'.kind]", (path ? lpath_7 : null)])
             }
             if (! res)
             {
-                rep !== null && rep.push(["invalid mandatory prop value [.'$Object'.kind]", (path ? lpath_3 : null)])
+                rep !== null && rep.push(["invalid mandatory prop value [.'$Object'.kind]", (path ? lpath_7 : null)])
                 return false;
             }
         }
@@ -635,11 +1281,11 @@ function _jm_obj_3(val, path, rep)
             res = (typeof pval === 'string' || pval instanceof String);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected string [.'$Object'.name]", (path ? lpath_3 : null)])
+                rep !== null && rep.push(["unexpected string [.'$Object'.name]", (path ? lpath_7 : null)])
             }
             if (! res)
             {
-                rep !== null && rep.push(["invalid optional prop value [.'$Object'.name]", (path ? lpath_3 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$Object'.name]", (path ? lpath_7 : null)])
                 return false;
             }
         }
@@ -650,11 +1296,11 @@ function _jm_obj_3(val, path, rep)
             res = (typeof pval === 'string' || pval instanceof String);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected string [.'$Object'.baseType]", (path ? lpath_3 : null)])
+                rep !== null && rep.push(["unexpected string [.'$Object'.baseType]", (path ? lpath_7 : null)])
             }
             if (! res)
             {
-                rep !== null && rep.push(["invalid optional prop value [.'$Object'.baseType]", (path ? lpath_3 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$Object'.baseType]", (path ? lpath_7 : null)])
                 return false;
             }
         }
@@ -665,15 +1311,15 @@ function _jm_obj_3(val, path, rep)
             res = Array.isArray(pval);
             if (res)
             {
-                for (let arr_3_idx = 0; arr_3_idx < pval.length; arr_3_idx++)
+                for (let arr_6_idx = 0; arr_6_idx < pval.length; arr_6_idx++)
                 {
-                    let arr_3_item = pval[arr_3_idx]
-                    let arr_3_lpath = (path ? lpath_3 : null) ? (path ? lpath_3 : null).concat([arr_3_idx]) : null;
+                    let arr_6_item = pval[arr_6_idx]
+                    let arr_6_lpath = (path ? lpath_7 : null) ? (path ? lpath_7 : null).concat([arr_6_idx]) : null;
                     // .'$Object'.content.0
-                    res = json_model_8(arr_3_item, ((path ? lpath_3 : null) ? arr_3_lpath : null), rep);
+                    res = json_model_8(arr_6_item, ((path ? lpath_7 : null) ? arr_6_lpath : null), rep);
                     if (! res)
                     {
-                        rep !== null && rep.push(["unexpected $Fields [.'$Object'.content.0]", ((path ? lpath_3 : null) ? arr_3_lpath : null)])
+                        rep !== null && rep.push(["unexpected $Fields [.'$Object'.content.0]", ((path ? lpath_7 : null) ? arr_6_lpath : null)])
                     }
                     if (! res)
                     {
@@ -683,11 +1329,11 @@ function _jm_obj_3(val, path, rep)
             }
             if (! res)
             {
-                rep !== null && rep.push(["not array or unexpected array [.'$Object'.content]", (path ? lpath_3 : null)])
+                rep !== null && rep.push(["not array or unexpected array [.'$Object'.content]", (path ? lpath_7 : null)])
             }
             if (! res)
             {
-                rep !== null && rep.push(["invalid optional prop value [.'$Object'.content]", (path ? lpath_3 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$Object'.content]", (path ? lpath_7 : null)])
                 return false;
             }
         }
@@ -698,17 +1344,17 @@ function _jm_obj_3(val, path, rep)
             res = (typeof pval === 'boolean' || pval instanceof Boolean);
             if (! res)
             {
-                rep !== null && rep.push(["not a bool [.'$Object'.closed]", (path ? lpath_3 : null)])
+                rep !== null && rep.push(["not a bool [.'$Object'.closed]", (path ? lpath_7 : null)])
             }
             if (! res)
             {
-                rep !== null && rep.push(["invalid optional prop value [.'$Object'.closed]", (path ? lpath_3 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$Object'.closed]", (path ? lpath_7 : null)])
                 return false;
             }
         }
         else
         {
-            rep !== null && rep.push(["unexpected prop [.'$Object']", (path ? lpath_3 : null)])
+            rep !== null && rep.push(["unexpected prop [.'$Object']", (path ? lpath_7 : null)])
             return false;
         }
     }
@@ -731,7 +1377,7 @@ function json_model_7(val, path, rep)
 {
     let res;
     // .'$Object'
-    res = _jm_obj_3(val, path, rep);
+    res = _jm_obj_7(val, path, rep);
     if (! res)
     {
         rep !== null && rep.push(["unexpected element [.'$Object']", path])
@@ -740,7 +1386,7 @@ function json_model_7(val, path, rep)
 }
 
 // object .'$Fields'
-function _jm_obj_4(val, path, rep)
+function _jm_obj_8(val, path, rep)
 {
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
@@ -751,7 +1397,7 @@ function _jm_obj_4(val, path, rep)
     let must_count = 0;
     for (const [prop, pval] of Object.entries(val))
     {
-        let lpath_4 = path ? path.concat([prop]) : null;
+        let lpath_8 = path ? path.concat([prop]) : null;
         if (prop == "name")
         {
             // handle must name property
@@ -760,11 +1406,11 @@ function _jm_obj_4(val, path, rep)
             res = (typeof pval === 'string' || pval instanceof String);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected string [.'$Fields'.name]", (path ? lpath_4 : null)])
+                rep !== null && rep.push(["unexpected string [.'$Fields'.name]", (path ? lpath_8 : null)])
             }
             if (! res)
             {
-                rep !== null && rep.push(["invalid mandatory prop value [.'$Fields'.name]", (path ? lpath_4 : null)])
+                rep !== null && rep.push(["invalid mandatory prop value [.'$Fields'.name]", (path ? lpath_8 : null)])
                 return false;
             }
         }
@@ -773,14 +1419,14 @@ function _jm_obj_4(val, path, rep)
             // handle must type property
             must_count += 1;
             // .'$Fields'.type
-            res = json_model_11(pval, (path ? lpath_4 : null), rep);
+            res = json_model_11(pval, (path ? lpath_8 : null), rep);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected $type-or-ref [.'$Fields'.type]", (path ? lpath_4 : null)])
+                rep !== null && rep.push(["unexpected $type-or-ref [.'$Fields'.type]", (path ? lpath_8 : null)])
             }
             if (! res)
             {
-                rep !== null && rep.push(["invalid mandatory prop value [.'$Fields'.type]", (path ? lpath_4 : null)])
+                rep !== null && rep.push(["invalid mandatory prop value [.'$Fields'.type]", (path ? lpath_8 : null)])
                 return false;
             }
         }
@@ -791,11 +1437,11 @@ function _jm_obj_4(val, path, rep)
             res = (typeof pval === 'boolean' || pval instanceof Boolean);
             if (! res)
             {
-                rep !== null && rep.push(["not a bool [.'$Fields'.required]", (path ? lpath_4 : null)])
+                rep !== null && rep.push(["not a bool [.'$Fields'.required]", (path ? lpath_8 : null)])
             }
             if (! res)
             {
-                rep !== null && rep.push(["invalid optional prop value [.'$Fields'.required]", (path ? lpath_4 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$Fields'.required]", (path ? lpath_8 : null)])
                 return false;
             }
         }
@@ -806,11 +1452,11 @@ function _jm_obj_4(val, path, rep)
             res = true;
             if (! res)
             {
-                rep !== null && rep.push(["unexpected $ANY [.'$Fields'.default]", (path ? lpath_4 : null)])
+                rep !== null && rep.push(["unexpected $ANY [.'$Fields'.default]", (path ? lpath_8 : null)])
             }
             if (! res)
             {
-                rep !== null && rep.push(["invalid optional prop value [.'$Fields'.default]", (path ? lpath_4 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$Fields'.default]", (path ? lpath_8 : null)])
                 return false;
             }
         }
@@ -821,17 +1467,17 @@ function _jm_obj_4(val, path, rep)
             res = (typeof pval === 'boolean' || pval instanceof Boolean);
             if (! res)
             {
-                rep !== null && rep.push(["not a bool [.'$Fields'.unique]", (path ? lpath_4 : null)])
+                rep !== null && rep.push(["not a bool [.'$Fields'.unique]", (path ? lpath_8 : null)])
             }
             if (! res)
             {
-                rep !== null && rep.push(["invalid optional prop value [.'$Fields'.unique]", (path ? lpath_4 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$Fields'.unique]", (path ? lpath_8 : null)])
                 return false;
             }
         }
         else
         {
-            rep !== null && rep.push(["unexpected prop [.'$Fields']", (path ? lpath_4 : null)])
+            rep !== null && rep.push(["unexpected prop [.'$Fields']", (path ? lpath_8 : null)])
             return false;
         }
     }
@@ -858,7 +1504,7 @@ function json_model_8(val, path, rep)
 {
     let res;
     // .'$Fields'
-    res = _jm_obj_4(val, path, rep);
+    res = _jm_obj_8(val, path, rep);
     if (! res)
     {
         rep !== null && rep.push(["unexpected element [.'$Fields']", path])
@@ -867,7 +1513,7 @@ function json_model_8(val, path, rep)
 }
 
 // object .'$Array'
-function _jm_obj_5(val, path, rep)
+function _jm_obj_9(val, path, rep)
 {
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
@@ -878,7 +1524,7 @@ function _jm_obj_5(val, path, rep)
     let must_count = 0;
     for (const [prop, pval] of Object.entries(val))
     {
-        let lpath_5 = path ? path.concat([prop]) : null;
+        let lpath_9 = path ? path.concat([prop]) : null;
         if (prop == "kind")
         {
             // handle must kind property
@@ -887,11 +1533,11 @@ function _jm_obj_5(val, path, rep)
             res = ((typeof pval === 'string' || pval instanceof String)) && pval == "array";
             if (! res)
             {
-                rep !== null && rep.push(["unexpected array [.'$Array'.kind]", (path ? lpath_5 : null)])
+                rep !== null && rep.push(["unexpected array [.'$Array'.kind]", (path ? lpath_9 : null)])
             }
             if (! res)
             {
-                rep !== null && rep.push(["invalid mandatory prop value [.'$Array'.kind]", (path ? lpath_5 : null)])
+                rep !== null && rep.push(["invalid mandatory prop value [.'$Array'.kind]", (path ? lpath_9 : null)])
                 return false;
             }
         }
@@ -902,11 +1548,11 @@ function _jm_obj_5(val, path, rep)
             res = (typeof pval === 'string' || pval instanceof String);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected string [.'$Array'.name]", (path ? lpath_5 : null)])
+                rep !== null && rep.push(["unexpected string [.'$Array'.name]", (path ? lpath_9 : null)])
             }
             if (! res)
             {
-                rep !== null && rep.push(["invalid optional prop value [.'$Array'.name]", (path ? lpath_5 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$Array'.name]", (path ? lpath_9 : null)])
                 return false;
             }
         }
@@ -917,11 +1563,11 @@ function _jm_obj_5(val, path, rep)
             res = (typeof pval === 'string' || pval instanceof String);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected string [.'$Array'.baseType]", (path ? lpath_5 : null)])
+                rep !== null && rep.push(["unexpected string [.'$Array'.baseType]", (path ? lpath_9 : null)])
             }
             if (! res)
             {
-                rep !== null && rep.push(["invalid optional prop value [.'$Array'.baseType]", (path ? lpath_5 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$Array'.baseType]", (path ? lpath_9 : null)])
                 return false;
             }
         }
@@ -929,14 +1575,14 @@ function _jm_obj_5(val, path, rep)
         {
             // handle may content property
             // .'$Array'.content
-            res = json_model_11(pval, (path ? lpath_5 : null), rep);
+            res = json_model_11(pval, (path ? lpath_9 : null), rep);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected $type-or-ref [.'$Array'.content]", (path ? lpath_5 : null)])
+                rep !== null && rep.push(["unexpected $type-or-ref [.'$Array'.content]", (path ? lpath_9 : null)])
             }
             if (! res)
             {
-                rep !== null && rep.push(["invalid optional prop value [.'$Array'.content]", (path ? lpath_5 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$Array'.content]", (path ? lpath_9 : null)])
                 return false;
             }
         }
@@ -947,11 +1593,11 @@ function _jm_obj_5(val, path, rep)
             res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0;
             if (! res)
             {
-                rep !== null && rep.push(["not a 0 strict int [.'$Array'.minLength]", (path ? lpath_5 : null)])
+                rep !== null && rep.push(["not a 0 strict int [.'$Array'.minLength]", (path ? lpath_9 : null)])
             }
             if (! res)
             {
-                rep !== null && rep.push(["invalid optional prop value [.'$Array'.minLength]", (path ? lpath_5 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$Array'.minLength]", (path ? lpath_9 : null)])
                 return false;
             }
         }
@@ -962,17 +1608,17 @@ function _jm_obj_5(val, path, rep)
             res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0;
             if (! res)
             {
-                rep !== null && rep.push(["not a 0 strict int [.'$Array'.maxLength]", (path ? lpath_5 : null)])
+                rep !== null && rep.push(["not a 0 strict int [.'$Array'.maxLength]", (path ? lpath_9 : null)])
             }
             if (! res)
             {
-                rep !== null && rep.push(["invalid optional prop value [.'$Array'.maxLength]", (path ? lpath_5 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$Array'.maxLength]", (path ? lpath_9 : null)])
                 return false;
             }
         }
         else
         {
-            rep !== null && rep.push(["unexpected prop [.'$Array']", (path ? lpath_5 : null)])
+            rep !== null && rep.push(["unexpected prop [.'$Array']", (path ? lpath_9 : null)])
             return false;
         }
     }
@@ -996,7 +1642,7 @@ function json_model_9(val, path, rep)
     let res;
     // WTF about 'content'?
     // .'$Array'
-    res = _jm_obj_5(val, path, rep);
+    res = _jm_obj_9(val, path, rep);
     if (! res)
     {
         rep !== null && rep.push(["unexpected element [.'$Array']", path])
@@ -1005,7 +1651,7 @@ function json_model_9(val, path, rep)
 }
 
 // object .'$Union'
-function _jm_obj_6(val, path, rep)
+function _jm_obj_10(val, path, rep)
 {
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
@@ -1016,7 +1662,7 @@ function _jm_obj_6(val, path, rep)
     let must_count = 0;
     for (const [prop, pval] of Object.entries(val))
     {
-        let lpath_6 = path ? path.concat([prop]) : null;
+        let lpath_10 = path ? path.concat([prop]) : null;
         if (prop == "name")
         {
             // handle must name property
@@ -1025,11 +1671,11 @@ function _jm_obj_6(val, path, rep)
             res = (typeof pval === 'string' || pval instanceof String);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected string [.'$Union'.name]", (path ? lpath_6 : null)])
+                rep !== null && rep.push(["unexpected string [.'$Union'.name]", (path ? lpath_10 : null)])
             }
             if (! res)
             {
-                rep !== null && rep.push(["invalid mandatory prop value [.'$Union'.name]", (path ? lpath_6 : null)])
+                rep !== null && rep.push(["invalid mandatory prop value [.'$Union'.name]", (path ? lpath_10 : null)])
                 return false;
             }
         }
@@ -1041,11 +1687,11 @@ function _jm_obj_6(val, path, rep)
             res = ((typeof pval === 'string' || pval instanceof String)) && pval == "union";
             if (! res)
             {
-                rep !== null && rep.push(["unexpected union [.'$Union'.kind]", (path ? lpath_6 : null)])
+                rep !== null && rep.push(["unexpected union [.'$Union'.kind]", (path ? lpath_10 : null)])
             }
             if (! res)
             {
-                rep !== null && rep.push(["invalid mandatory prop value [.'$Union'.kind]", (path ? lpath_6 : null)])
+                rep !== null && rep.push(["invalid mandatory prop value [.'$Union'.kind]", (path ? lpath_10 : null)])
                 return false;
             }
         }
@@ -1057,15 +1703,15 @@ function _jm_obj_6(val, path, rep)
             res = Array.isArray(pval);
             if (res)
             {
-                for (let arr_4_idx = 0; arr_4_idx < pval.length; arr_4_idx++)
+                for (let arr_7_idx = 0; arr_7_idx < pval.length; arr_7_idx++)
                 {
-                    let arr_4_item = pval[arr_4_idx]
-                    let arr_4_lpath = (path ? lpath_6 : null) ? (path ? lpath_6 : null).concat([arr_4_idx]) : null;
+                    let arr_7_item = pval[arr_7_idx]
+                    let arr_7_lpath = (path ? lpath_10 : null) ? (path ? lpath_10 : null).concat([arr_7_idx]) : null;
                     // .'$Union'.content.0
-                    res = json_model_11(arr_4_item, ((path ? lpath_6 : null) ? arr_4_lpath : null), rep);
+                    res = json_model_11(arr_7_item, ((path ? lpath_10 : null) ? arr_7_lpath : null), rep);
                     if (! res)
                     {
-                        rep !== null && rep.push(["unexpected $type-or-ref [.'$Union'.content.0]", ((path ? lpath_6 : null) ? arr_4_lpath : null)])
+                        rep !== null && rep.push(["unexpected $type-or-ref [.'$Union'.content.0]", ((path ? lpath_10 : null) ? arr_7_lpath : null)])
                     }
                     if (! res)
                     {
@@ -1075,11 +1721,11 @@ function _jm_obj_6(val, path, rep)
             }
             if (! res)
             {
-                rep !== null && rep.push(["not array or unexpected array [.'$Union'.content]", (path ? lpath_6 : null)])
+                rep !== null && rep.push(["not array or unexpected array [.'$Union'.content]", (path ? lpath_10 : null)])
             }
             if (! res)
             {
-                rep !== null && rep.push(["invalid mandatory prop value [.'$Union'.content]", (path ? lpath_6 : null)])
+                rep !== null && rep.push(["invalid mandatory prop value [.'$Union'.content]", (path ? lpath_10 : null)])
                 return false;
             }
         }
@@ -1090,17 +1736,17 @@ function _jm_obj_6(val, path, rep)
             res = (typeof pval === 'string' || pval instanceof String);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected string [.'$Union'.baseType]", (path ? lpath_6 : null)])
+                rep !== null && rep.push(["unexpected string [.'$Union'.baseType]", (path ? lpath_10 : null)])
             }
             if (! res)
             {
-                rep !== null && rep.push(["invalid optional prop value [.'$Union'.baseType]", (path ? lpath_6 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$Union'.baseType]", (path ? lpath_10 : null)])
                 return false;
             }
         }
         else
         {
-            rep !== null && rep.push(["unexpected prop [.'$Union']", (path ? lpath_6 : null)])
+            rep !== null && rep.push(["unexpected prop [.'$Union']", (path ? lpath_10 : null)])
             return false;
         }
     }
@@ -1132,7 +1778,7 @@ function json_model_10(val, path, rep)
     let res;
     // jsound.jsound.json does not say that it is a type…
     // .'$Union'
-    res = _jm_obj_6(val, path, rep);
+    res = _jm_obj_10(val, path, rep);
     if (! res)
     {
         rep !== null && rep.push(["unexpected element [.'$Union']", path])
@@ -1140,60 +1786,688 @@ function json_model_10(val, path, rep)
     return res;
 }
 
+// check _jm_obj_11_map_enumeration (.'$type-or-ref'.'|'.0.enumeration)
+function _jm_f_26(val, path, rep)
+{
+    let res;
+    // .'$type-or-ref'.'|'.0.enumeration
+    res = Array.isArray(val);
+    if (res)
+    {
+        for (let arr_8_idx = 0; arr_8_idx < val.length; arr_8_idx++)
+        {
+            let arr_8_item = val[arr_8_idx]
+            let arr_8_lpath = path ? path.concat([arr_8_idx]) : null;
+            // .'$type-or-ref'.'|'.0.enumeration.0
+            res = json_model_5(arr_8_item, (path ? arr_8_lpath : null), rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected $atomic [.'$type-or-ref'.'|'.0.enumeration.0]", (path ? arr_8_lpath : null)])
+            }
+            if (! res)
+            {
+                break;
+            }
+        }
+    }
+    if (! res)
+    {
+        rep !== null && rep.push(["not array or unexpected array [.'$type-or-ref'.'|'.0.enumeration]", path])
+    }
+    return res;
+}
+
+
+// check _jm_obj_11_map_explicitTypeZone (.'$type-or-ref'.'|'.0.explicitTypeZone)
+function _jm_f_27(val, path, rep)
+{
+    let res;
+    // .'$type-or-ref'.'|'.0.explicitTypeZone
+    res = ((val === null || (typeof val === 'number' || val instanceof Number) || (typeof val === 'boolean' || val instanceof Boolean) || (typeof val === 'string' || val instanceof String))) && _jm_cst_3.has(val);
+    if (! res)
+    {
+        rep !== null && rep.push(["value not in enum [.'$type-or-ref'.'|'.0.explicitTypeZone.'|']", path])
+    }
+    return res;
+}
+
+// check _jm_obj_11_map_fractionDigits (.'$type-or-ref'.'|'.0.fractionDigits)
+function _jm_f_28(val, path, rep)
+{
+    let res;
+    // .'$type-or-ref'.'|'.0.fractionDigits
+    res = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 0;
+    if (! res)
+    {
+        rep !== null && rep.push(["not a 0 strict int [.'$type-or-ref'.'|'.0.fractionDigits]", path])
+    }
+    return res;
+}
+
+// check _jm_obj_11_map_length (.'$type-or-ref'.'|'.0.length)
+function _jm_f_29(val, path, rep)
+{
+    let res;
+    // .'$type-or-ref'.'|'.0.length
+    res = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 0;
+    if (! res)
+    {
+        rep !== null && rep.push(["not a 0 strict int [.'$type-or-ref'.'|'.0.length]", path])
+    }
+    return res;
+}
+
+// check _jm_obj_11_map_maxExclusive (.'$type-or-ref'.'|'.0.maxExclusive)
+function _jm_f_30(val, path, rep)
+{
+    let res;
+    // .'$type-or-ref'.'|'.0.maxExclusive
+    res = json_model_5(val, path, rep);
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected $atomic [.'$type-or-ref'.'|'.0.maxExclusive]", path])
+    }
+    return res;
+}
+
+// check _jm_obj_11_map_maxInclusive (.'$type-or-ref'.'|'.0.maxInclusive)
+function _jm_f_31(val, path, rep)
+{
+    let res;
+    // .'$type-or-ref'.'|'.0.maxInclusive
+    res = json_model_5(val, path, rep);
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected $atomic [.'$type-or-ref'.'|'.0.maxInclusive]", path])
+    }
+    return res;
+}
+
+// check _jm_obj_11_map_maxLength (.'$type-or-ref'.'|'.0.maxLength)
+function _jm_f_32(val, path, rep)
+{
+    let res;
+    // .'$type-or-ref'.'|'.0.maxLength
+    res = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 0;
+    if (! res)
+    {
+        rep !== null && rep.push(["not a 0 strict int [.'$type-or-ref'.'|'.0.maxLength]", path])
+    }
+    return res;
+}
+
+// check _jm_obj_11_map_minExclusive (.'$type-or-ref'.'|'.0.minExclusive)
+function _jm_f_33(val, path, rep)
+{
+    let res;
+    // .'$type-or-ref'.'|'.0.minExclusive
+    res = json_model_5(val, path, rep);
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected $atomic [.'$type-or-ref'.'|'.0.minExclusive]", path])
+    }
+    return res;
+}
+
+// check _jm_obj_11_map_minInclusive (.'$type-or-ref'.'|'.0.minInclusive)
+function _jm_f_34(val, path, rep)
+{
+    let res;
+    // .'$type-or-ref'.'|'.0.minInclusive
+    res = json_model_5(val, path, rep);
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected $atomic [.'$type-or-ref'.'|'.0.minInclusive]", path])
+    }
+    return res;
+}
+
+// check _jm_obj_11_map_minLength (.'$type-or-ref'.'|'.0.minLength)
+function _jm_f_35(val, path, rep)
+{
+    let res;
+    // .'$type-or-ref'.'|'.0.minLength
+    res = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 0;
+    if (! res)
+    {
+        rep !== null && rep.push(["not a 0 strict int [.'$type-or-ref'.'|'.0.minLength]", path])
+    }
+    return res;
+}
+
+// check _jm_obj_11_map_name (.'$type-or-ref'.'|'.0.name)
+function _jm_f_36(val, path, rep)
+{
+    let res;
+    // .'$type-or-ref'.'|'.0.name
+    res = (typeof val === 'string' || val instanceof String);
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected string [.'$type-or-ref'.'|'.0.name]", path])
+    }
+    return res;
+}
+
+// check _jm_obj_11_map_pattern (.'$type-or-ref'.'|'.0.pattern)
+function _jm_f_37(val, path, rep)
+{
+    let res;
+    // .'$type-or-ref'.'|'.0.pattern
+    res = (typeof val === 'string' || val instanceof String);
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected string [.'$type-or-ref'.'|'.0.pattern]", path])
+    }
+    return res;
+}
+
+// check _jm_obj_11_map_totalDigits (.'$type-or-ref'.'|'.0.totalDigits)
+function _jm_f_38(val, path, rep)
+{
+    let res;
+    // .'$type-or-ref'.'|'.0.totalDigits
+    res = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 0;
+    if (! res)
+    {
+        rep !== null && rep.push(["not a 0 strict int [.'$type-or-ref'.'|'.0.totalDigits]", path])
+    }
+    return res;
+}
+
+
+// object .'$type-or-ref'.'|'.0
+function _jm_obj_11(val, path, rep)
+{
+    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    {
+        rep !== null && rep.push(["not an object [.'$type-or-ref'.'|'.0]", path])
+        return false;
+    }
+    let res;
+    let pfun;
+    let must_count = 0;
+    for (const [prop, pval] of Object.entries(val))
+    {
+        let lpath_11 = path ? path.concat([prop]) : null;
+        if (prop == "kind")
+        {
+            // handle must kind property
+            must_count += 1;
+            // .'$type-or-ref'.'|'.0.kind
+            res = ((typeof pval === 'string' || pval instanceof String)) && pval == "atomic";
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected atomic [.'$type-or-ref'.'|'.0.kind]", (path ? lpath_11 : null)])
+            }
+            if (! res)
+            {
+                rep !== null && rep.push(["invalid mandatory prop value [.'$type-or-ref'.'|'.0.kind]", (path ? lpath_11 : null)])
+                return false;
+            }
+        }
+        else if (prop == "baseType")
+        {
+            // handle must baseType property
+            must_count += 1;
+            // .'$type-or-ref'.'|'.0.baseType
+            res = json_model_4(pval, (path ? lpath_11 : null), rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected $atomic-types [.'$type-or-ref'.'|'.0.baseType]", (path ? lpath_11 : null)])
+            }
+            if (! res)
+            {
+                rep !== null && rep.push(["invalid mandatory prop value [.'$type-or-ref'.'|'.0.baseType]", (path ? lpath_11 : null)])
+                return false;
+            }
+        }
+        else if ((pfun = _jm_obj_11_map.get(prop)))
+        {
+            // handle 13 may props
+            if (pfun !== undefined && ! pfun(pval, (path ? lpath_11 : null), rep))
+            {
+                rep !== null && rep.push(["invalid optional prop value [.'$type-or-ref'.'|'.0]", (path ? lpath_11 : null)])
+                return false;
+            }
+        }
+        else
+        {
+            rep !== null && rep.push(["unexpected prop [.'$type-or-ref'.'|'.0]", (path ? lpath_11 : null)])
+            return false;
+        }
+    }
+    if (must_count != 2)
+    {
+        if (rep !== null)
+        {
+            if (! val.hasOwnProperty("baseType"))
+            {
+                rep !== null && rep.push(["missing mandatory prop <baseType> [.'$type-or-ref'.'|'.0]", path])
+            }
+            if (! val.hasOwnProperty("kind"))
+            {
+                rep !== null && rep.push(["missing mandatory prop <kind> [.'$type-or-ref'.'|'.0]", path])
+            }
+        }
+        return false;
+    }
+    return true;
+}
+
+// object .'$type-or-ref'.'|'.1
+function _jm_obj_12(val, path, rep)
+{
+    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    {
+        rep !== null && rep.push(["not an object [.'$type-or-ref'.'|'.1]", path])
+        return false;
+    }
+    let res;
+    let must_count = 0;
+    for (const [prop, pval] of Object.entries(val))
+    {
+        let lpath_12 = path ? path.concat([prop]) : null;
+        if (prop == "kind")
+        {
+            // handle must kind property
+            must_count += 1;
+            // .'$type-or-ref'.'|'.1.kind
+            res = ((typeof pval === 'string' || pval instanceof String)) && pval == "object";
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected object [.'$type-or-ref'.'|'.1.kind]", (path ? lpath_12 : null)])
+            }
+            if (! res)
+            {
+                rep !== null && rep.push(["invalid mandatory prop value [.'$type-or-ref'.'|'.1.kind]", (path ? lpath_12 : null)])
+                return false;
+            }
+        }
+        else if (prop == "name")
+        {
+            // handle may name property
+            // .'$type-or-ref'.'|'.1.name
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected string [.'$type-or-ref'.'|'.1.name]", (path ? lpath_12 : null)])
+            }
+            if (! res)
+            {
+                rep !== null && rep.push(["invalid optional prop value [.'$type-or-ref'.'|'.1.name]", (path ? lpath_12 : null)])
+                return false;
+            }
+        }
+        else if (prop == "baseType")
+        {
+            // handle may baseType property
+            // .'$type-or-ref'.'|'.1.baseType
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected string [.'$type-or-ref'.'|'.1.baseType]", (path ? lpath_12 : null)])
+            }
+            if (! res)
+            {
+                rep !== null && rep.push(["invalid optional prop value [.'$type-or-ref'.'|'.1.baseType]", (path ? lpath_12 : null)])
+                return false;
+            }
+        }
+        else if (prop == "content")
+        {
+            // handle may content property
+            // .'$type-or-ref'.'|'.1.content
+            res = Array.isArray(pval);
+            if (res)
+            {
+                for (let arr_9_idx = 0; arr_9_idx < pval.length; arr_9_idx++)
+                {
+                    let arr_9_item = pval[arr_9_idx]
+                    let arr_9_lpath = (path ? lpath_12 : null) ? (path ? lpath_12 : null).concat([arr_9_idx]) : null;
+                    // .'$type-or-ref'.'|'.1.content.0
+                    res = json_model_8(arr_9_item, ((path ? lpath_12 : null) ? arr_9_lpath : null), rep);
+                    if (! res)
+                    {
+                        rep !== null && rep.push(["unexpected $Fields [.'$type-or-ref'.'|'.1.content.0]", ((path ? lpath_12 : null) ? arr_9_lpath : null)])
+                    }
+                    if (! res)
+                    {
+                        break;
+                    }
+                }
+            }
+            if (! res)
+            {
+                rep !== null && rep.push(["not array or unexpected array [.'$type-or-ref'.'|'.1.content]", (path ? lpath_12 : null)])
+            }
+            if (! res)
+            {
+                rep !== null && rep.push(["invalid optional prop value [.'$type-or-ref'.'|'.1.content]", (path ? lpath_12 : null)])
+                return false;
+            }
+        }
+        else if (prop == "closed")
+        {
+            // handle may closed property
+            // .'$type-or-ref'.'|'.1.closed
+            res = (typeof pval === 'boolean' || pval instanceof Boolean);
+            if (! res)
+            {
+                rep !== null && rep.push(["not a bool [.'$type-or-ref'.'|'.1.closed]", (path ? lpath_12 : null)])
+            }
+            if (! res)
+            {
+                rep !== null && rep.push(["invalid optional prop value [.'$type-or-ref'.'|'.1.closed]", (path ? lpath_12 : null)])
+                return false;
+            }
+        }
+        else
+        {
+            rep !== null && rep.push(["unexpected prop [.'$type-or-ref'.'|'.1]", (path ? lpath_12 : null)])
+            return false;
+        }
+    }
+    if (must_count != 1)
+    {
+        if (rep !== null)
+        {
+            if (! val.hasOwnProperty("kind"))
+            {
+                rep !== null && rep.push(["missing mandatory prop <kind> [.'$type-or-ref'.'|'.1]", path])
+            }
+        }
+        return false;
+    }
+    return true;
+}
+
+// object .'$type-or-ref'.'|'.2
+function _jm_obj_13(val, path, rep)
+{
+    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    {
+        rep !== null && rep.push(["not an object [.'$type-or-ref'.'|'.2]", path])
+        return false;
+    }
+    let res;
+    let must_count = 0;
+    for (const [prop, pval] of Object.entries(val))
+    {
+        let lpath_13 = path ? path.concat([prop]) : null;
+        if (prop == "kind")
+        {
+            // handle must kind property
+            must_count += 1;
+            // .'$type-or-ref'.'|'.2.kind
+            res = ((typeof pval === 'string' || pval instanceof String)) && pval == "array";
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected array [.'$type-or-ref'.'|'.2.kind]", (path ? lpath_13 : null)])
+            }
+            if (! res)
+            {
+                rep !== null && rep.push(["invalid mandatory prop value [.'$type-or-ref'.'|'.2.kind]", (path ? lpath_13 : null)])
+                return false;
+            }
+        }
+        else if (prop == "name")
+        {
+            // handle may name property
+            // .'$type-or-ref'.'|'.2.name
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected string [.'$type-or-ref'.'|'.2.name]", (path ? lpath_13 : null)])
+            }
+            if (! res)
+            {
+                rep !== null && rep.push(["invalid optional prop value [.'$type-or-ref'.'|'.2.name]", (path ? lpath_13 : null)])
+                return false;
+            }
+        }
+        else if (prop == "baseType")
+        {
+            // handle may baseType property
+            // .'$type-or-ref'.'|'.2.baseType
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected string [.'$type-or-ref'.'|'.2.baseType]", (path ? lpath_13 : null)])
+            }
+            if (! res)
+            {
+                rep !== null && rep.push(["invalid optional prop value [.'$type-or-ref'.'|'.2.baseType]", (path ? lpath_13 : null)])
+                return false;
+            }
+        }
+        else if (prop == "content")
+        {
+            // handle may content property
+            // .'$type-or-ref'.'|'.2.content
+            res = json_model_11(pval, (path ? lpath_13 : null), rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected $type-or-ref [.'$type-or-ref'.'|'.2.content]", (path ? lpath_13 : null)])
+            }
+            if (! res)
+            {
+                rep !== null && rep.push(["invalid optional prop value [.'$type-or-ref'.'|'.2.content]", (path ? lpath_13 : null)])
+                return false;
+            }
+        }
+        else if (prop == "minLength")
+        {
+            // handle may minLength property
+            // .'$type-or-ref'.'|'.2.minLength
+            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0;
+            if (! res)
+            {
+                rep !== null && rep.push(["not a 0 strict int [.'$type-or-ref'.'|'.2.minLength]", (path ? lpath_13 : null)])
+            }
+            if (! res)
+            {
+                rep !== null && rep.push(["invalid optional prop value [.'$type-or-ref'.'|'.2.minLength]", (path ? lpath_13 : null)])
+                return false;
+            }
+        }
+        else if (prop == "maxLength")
+        {
+            // handle may maxLength property
+            // .'$type-or-ref'.'|'.2.maxLength
+            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0;
+            if (! res)
+            {
+                rep !== null && rep.push(["not a 0 strict int [.'$type-or-ref'.'|'.2.maxLength]", (path ? lpath_13 : null)])
+            }
+            if (! res)
+            {
+                rep !== null && rep.push(["invalid optional prop value [.'$type-or-ref'.'|'.2.maxLength]", (path ? lpath_13 : null)])
+                return false;
+            }
+        }
+        else
+        {
+            rep !== null && rep.push(["unexpected prop [.'$type-or-ref'.'|'.2]", (path ? lpath_13 : null)])
+            return false;
+        }
+    }
+    if (must_count != 1)
+    {
+        if (rep !== null)
+        {
+            if (! val.hasOwnProperty("kind"))
+            {
+                rep !== null && rep.push(["missing mandatory prop <kind> [.'$type-or-ref'.'|'.2]", path])
+            }
+        }
+        return false;
+    }
+    return true;
+}
+
+// object .'$type-or-ref'.'|'.3
+function _jm_obj_14(val, path, rep)
+{
+    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    {
+        rep !== null && rep.push(["not an object [.'$type-or-ref'.'|'.3]", path])
+        return false;
+    }
+    let res;
+    let must_count = 0;
+    for (const [prop, pval] of Object.entries(val))
+    {
+        let lpath_14 = path ? path.concat([prop]) : null;
+        if (prop == "name")
+        {
+            // handle must name property
+            must_count += 1;
+            // .'$type-or-ref'.'|'.3.name
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected string [.'$type-or-ref'.'|'.3.name]", (path ? lpath_14 : null)])
+            }
+            if (! res)
+            {
+                rep !== null && rep.push(["invalid mandatory prop value [.'$type-or-ref'.'|'.3.name]", (path ? lpath_14 : null)])
+                return false;
+            }
+        }
+        else if (prop == "kind")
+        {
+            // handle must kind property
+            must_count += 1;
+            // .'$type-or-ref'.'|'.3.kind
+            res = ((typeof pval === 'string' || pval instanceof String)) && pval == "union";
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected union [.'$type-or-ref'.'|'.3.kind]", (path ? lpath_14 : null)])
+            }
+            if (! res)
+            {
+                rep !== null && rep.push(["invalid mandatory prop value [.'$type-or-ref'.'|'.3.kind]", (path ? lpath_14 : null)])
+                return false;
+            }
+        }
+        else if (prop == "content")
+        {
+            // handle must content property
+            must_count += 1;
+            // .'$type-or-ref'.'|'.3.content
+            res = Array.isArray(pval);
+            if (res)
+            {
+                for (let arr_10_idx = 0; arr_10_idx < pval.length; arr_10_idx++)
+                {
+                    let arr_10_item = pval[arr_10_idx]
+                    let arr_10_lpath = (path ? lpath_14 : null) ? (path ? lpath_14 : null).concat([arr_10_idx]) : null;
+                    // .'$type-or-ref'.'|'.3.content.0
+                    res = json_model_11(arr_10_item, ((path ? lpath_14 : null) ? arr_10_lpath : null), rep);
+                    if (! res)
+                    {
+                        rep !== null && rep.push(["unexpected $type-or-ref [.'$type-or-ref'.'|'.3.content.0]", ((path ? lpath_14 : null) ? arr_10_lpath : null)])
+                    }
+                    if (! res)
+                    {
+                        break;
+                    }
+                }
+            }
+            if (! res)
+            {
+                rep !== null && rep.push(["not array or unexpected array [.'$type-or-ref'.'|'.3.content]", (path ? lpath_14 : null)])
+            }
+            if (! res)
+            {
+                rep !== null && rep.push(["invalid mandatory prop value [.'$type-or-ref'.'|'.3.content]", (path ? lpath_14 : null)])
+                return false;
+            }
+        }
+        else if (prop == "baseType")
+        {
+            // handle may baseType property
+            // .'$type-or-ref'.'|'.3.baseType
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected string [.'$type-or-ref'.'|'.3.baseType]", (path ? lpath_14 : null)])
+            }
+            if (! res)
+            {
+                rep !== null && rep.push(["invalid optional prop value [.'$type-or-ref'.'|'.3.baseType]", (path ? lpath_14 : null)])
+                return false;
+            }
+        }
+        else
+        {
+            rep !== null && rep.push(["unexpected prop [.'$type-or-ref'.'|'.3]", (path ? lpath_14 : null)])
+            return false;
+        }
+    }
+    if (must_count != 3)
+    {
+        if (rep !== null)
+        {
+            if (! val.hasOwnProperty("content"))
+            {
+                rep !== null && rep.push(["missing mandatory prop <content> [.'$type-or-ref'.'|'.3]", path])
+            }
+            if (! val.hasOwnProperty("kind"))
+            {
+                rep !== null && rep.push(["missing mandatory prop <kind> [.'$type-or-ref'.'|'.3]", path])
+            }
+            if (! val.hasOwnProperty("name"))
+            {
+                rep !== null && rep.push(["missing mandatory prop <name> [.'$type-or-ref'.'|'.3]", path])
+            }
+        }
+        return false;
+    }
+    return true;
+}
+
+
 // check $type-or-ref (.'$type-or-ref')
 function json_model_11(val, path, rep)
 {
     let res;
     // .'$type-or-ref'
-    // .'$type-or-ref'.'|'.0
-    res = (typeof val === 'string' || val instanceof String);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected string [.'$type-or-ref'.'|'.0]", path])
-    }
-    if (! res)
-    {
-        // .'$type-or-ref'.'|'.1
-        res = json_model_6(val, path, rep);
-        if (! res)
-        {
-            rep !== null && rep.push(["unexpected $Atomic [.'$type-or-ref'.'|'.1]", path])
-        }
-        if (! res)
-        {
-            // .'$type-or-ref'.'|'.2
-            res = json_model_7(val, path, rep);
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected $Object [.'$type-or-ref'.'|'.2]", path])
-            }
-            if (! res)
-            {
-                // .'$type-or-ref'.'|'.3
-                res = json_model_9(val, path, rep);
-                if (! res)
-                {
-                    rep !== null && rep.push(["unexpected $Array [.'$type-or-ref'.'|'.3]", path])
-                }
-                if (! res)
-                {
-                    // .'$type-or-ref'.'|'.4
-                    res = json_model_10(val, path, rep);
-                    if (! res)
-                    {
-                        rep !== null && rep.push(["unexpected $Union [.'$type-or-ref'.'|'.4]", path])
-                    }
-                }
-            }
-        }
-    }
+    res = Object.prototype.toString.call(val) === '[object Object]';
     if (res)
     {
-        if (rep !== null) rep.length = 0
+        if (val.hasOwnProperty("kind"))
+        {
+            let tag_1 = val["kind"];
+            let fun_1 = _jm_map_1.get(tag_1);
+            if (fun_1 !== undefined)
+            {
+                res = fun_1(val, path, rep);
+            }
+            else
+            {
+                res = false;
+                rep !== null && rep.push(["tag <kind> value not found [.'$type-or-ref'.'|']", path])
+            }
+        }
+        else
+        {
+            res = false;
+            rep !== null && rep.push(["tag prop <kind> is missing [.'$type-or-ref'.'|']", path])
+        }
     }
     else
     {
-        rep !== null && rep.push(["no model matched [.'$type-or-ref'.'|']", path])
+        rep !== null && rep.push(["value is not an object [.'$type-or-ref'.'|']", path])
+    }
+    if (! res)
+    {
+        // .'$type-or-ref'.'|'
+        res = (typeof val === 'string' || val instanceof String);
+        if (! res)
+        {
+            rep !== null && rep.push(["unexpected string [.'$type-or-ref'.'|']", path])
+        }
     }
     return res;
 }
@@ -1221,27 +2495,9 @@ export function check_model_init()
     {
         initialized = true;
         runtime.jm_set_rx(RegExp)
-        _jm_map_0.set("atomic", json_model_6)
-        _jm_map_0.set("object", json_model_7)
-        _jm_map_0.set("array", json_model_9)
-        _jm_map_0.set("union", json_model_10)
-        _jm_cst_0.add("string")
-        _jm_cst_0.add("decimal")
-        _jm_cst_0.add("integer")
-        _jm_cst_0.add("double")
-        _jm_cst_0.add("boolean")
-        _jm_cst_0.add("anyURI")
-        _jm_cst_0.add("base64Binary")
-        _jm_cst_0.add("hexBinary")
-        _jm_cst_0.add("date")
-        _jm_cst_0.add("dateTime")
-        _jm_cst_0.add("time")
-        _jm_cst_0.add("dateTimeStamp")
-        _jm_cst_0.add("duration")
-        _jm_cst_0.add("null")
-        _jm_cst_1.add("required")
-        _jm_cst_1.add("prohibited")
-        _jm_cst_1.add("optional")
+        _jm_cst_0.add("required")
+        _jm_cst_0.add("prohibited")
+        _jm_cst_0.add("optional")
         _jm_obj_2_map.set("enumeration", _jm_f_0)
         _jm_obj_2_map.set("explicitTypeZone", _jm_f_1)
         _jm_obj_2_map.set("fractionDigits", _jm_f_2)
@@ -1255,6 +2511,60 @@ export function check_model_init()
         _jm_obj_2_map.set("name", _jm_f_10)
         _jm_obj_2_map.set("pattern", _jm_f_11)
         _jm_obj_2_map.set("totalDigits", _jm_f_12)
+        _jm_map_0.set("atomic", _jm_obj_2)
+        _jm_map_0.set("object", _jm_obj_3)
+        _jm_map_0.set("array", _jm_obj_4)
+        _jm_map_0.set("union", _jm_obj_5)
+        _jm_cst_1.add("string")
+        _jm_cst_1.add("decimal")
+        _jm_cst_1.add("integer")
+        _jm_cst_1.add("double")
+        _jm_cst_1.add("boolean")
+        _jm_cst_1.add("anyURI")
+        _jm_cst_1.add("base64Binary")
+        _jm_cst_1.add("hexBinary")
+        _jm_cst_1.add("date")
+        _jm_cst_1.add("dateTime")
+        _jm_cst_1.add("time")
+        _jm_cst_1.add("dateTimeStamp")
+        _jm_cst_1.add("duration")
+        _jm_cst_1.add("null")
+        _jm_cst_2.add("required")
+        _jm_cst_2.add("prohibited")
+        _jm_cst_2.add("optional")
+        _jm_obj_6_map.set("enumeration", _jm_f_13)
+        _jm_obj_6_map.set("explicitTypeZone", _jm_f_14)
+        _jm_obj_6_map.set("fractionDigits", _jm_f_15)
+        _jm_obj_6_map.set("length", _jm_f_16)
+        _jm_obj_6_map.set("maxExclusive", _jm_f_17)
+        _jm_obj_6_map.set("maxInclusive", _jm_f_18)
+        _jm_obj_6_map.set("maxLength", _jm_f_19)
+        _jm_obj_6_map.set("minExclusive", _jm_f_20)
+        _jm_obj_6_map.set("minInclusive", _jm_f_21)
+        _jm_obj_6_map.set("minLength", _jm_f_22)
+        _jm_obj_6_map.set("name", _jm_f_23)
+        _jm_obj_6_map.set("pattern", _jm_f_24)
+        _jm_obj_6_map.set("totalDigits", _jm_f_25)
+        _jm_cst_3.add("required")
+        _jm_cst_3.add("prohibited")
+        _jm_cst_3.add("optional")
+        _jm_obj_11_map.set("enumeration", _jm_f_26)
+        _jm_obj_11_map.set("explicitTypeZone", _jm_f_27)
+        _jm_obj_11_map.set("fractionDigits", _jm_f_28)
+        _jm_obj_11_map.set("length", _jm_f_29)
+        _jm_obj_11_map.set("maxExclusive", _jm_f_30)
+        _jm_obj_11_map.set("maxInclusive", _jm_f_31)
+        _jm_obj_11_map.set("maxLength", _jm_f_32)
+        _jm_obj_11_map.set("minExclusive", _jm_f_33)
+        _jm_obj_11_map.set("minInclusive", _jm_f_34)
+        _jm_obj_11_map.set("minLength", _jm_f_35)
+        _jm_obj_11_map.set("name", _jm_f_36)
+        _jm_obj_11_map.set("pattern", _jm_f_37)
+        _jm_obj_11_map.set("totalDigits", _jm_f_38)
+        _jm_map_1.set("atomic", _jm_obj_11)
+        _jm_map_1.set("object", _jm_obj_12)
+        _jm_map_1.set("array", _jm_obj_13)
+        _jm_map_1.set("union", _jm_obj_14)
         check_model_map.set("", json_model_2)
         check_model_map.set("Schema", json_model_2)
         check_model_map.set("Type", json_model_3)

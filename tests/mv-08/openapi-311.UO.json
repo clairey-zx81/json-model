@@ -82,8 +82,100 @@
         "?responses": {
           "": {
             "|": [
-              "$Response",
-              "$Reference"
+              {
+                "?description": "",
+                "?headers": {
+                  "": {
+                    "|": [
+                      {
+                        "?description": "",
+                        "?required": true,
+                        "?deprecated": true,
+                        "?allowEmptyValue": true,
+                        "?style": "$Style",
+                        "?explode": true,
+                        "?allowReserved": true,
+                        "?schema": "$Schema",
+                        "?example": "$ANY",
+                        "?examples": {
+                          "": {
+                            "|": [
+                              {
+                                "?summary": "",
+                                "?description": "",
+                                "?value": "$ANY",
+                                "?externalValue": "",
+                                "/^x-/": "$ANY"
+                              },
+                              {
+                                "_$ref": "",
+                                "?summary": "",
+                                "?description": ""
+                              }
+                            ]
+                          }
+                        },
+                        "/^x-/": "$ANY"
+                      },
+                      {
+                        "?description": "",
+                        "?required": true,
+                        "?deprecated": true,
+                        "?allowEmptyValue": true,
+                        "?content": {
+                          "": "$MediaType"
+                        },
+                        "/^x-/": "$ANY"
+                      },
+                      {
+                        "_$ref": "",
+                        "?summary": "",
+                        "?description": ""
+                      }
+                    ]
+                  }
+                },
+                "?content": {
+                  "": "$MediaType"
+                },
+                "?links": {
+                  "": {
+                    "|": [
+                      {
+                        "operationRef": "",
+                        "?parameters": {
+                          "": "$ANY"
+                        },
+                        "?requestBody": "$ANY",
+                        "?description": "",
+                        "?server": "$Server",
+                        "/^x-/": "$ANY"
+                      },
+                      {
+                        "operationId": "",
+                        "?parameters": {
+                          "": "$ANY"
+                        },
+                        "?requestBody": "$ANY",
+                        "?description": "",
+                        "?server": "$Server",
+                        "/^x-/": "$ANY"
+                      },
+                      {
+                        "_$ref": "",
+                        "?summary": "",
+                        "?description": ""
+                      }
+                    ]
+                  }
+                },
+                "/^x-/": "$ANY"
+              },
+              {
+                "_$ref": "",
+                "?summary": "",
+                "?description": ""
+              }
             ]
           }
         },
@@ -112,8 +204,18 @@
                 "?examples": {
                   "": {
                     "|": [
-                      "$Example",
-                      "$Reference"
+                      {
+                        "?summary": "",
+                        "?description": "",
+                        "?value": "$ANY",
+                        "?externalValue": "",
+                        "/^x-/": "$ANY"
+                      },
+                      {
+                        "_$ref": "",
+                        "?summary": "",
+                        "?description": ""
+                      }
                     ]
                   }
                 },
@@ -138,23 +240,48 @@
                 },
                 "/^x-/": "$ANY"
               },
-              "$Reference"
+              {
+                "_$ref": "",
+                "?summary": "",
+                "?description": ""
+              }
             ]
           }
         },
         "?examples": {
           "": {
             "|": [
-              "$Example",
-              "$Reference"
+              {
+                "?summary": "",
+                "?description": "",
+                "?value": "$ANY",
+                "?externalValue": "",
+                "/^x-/": "$ANY"
+              },
+              {
+                "_$ref": "",
+                "?summary": "",
+                "?description": ""
+              }
             ]
           }
         },
         "?requestBodies": {
           "": {
             "|": [
-              "$RequestBody",
-              "$Reference"
+              {
+                "?description": "",
+                "?content": {
+                  "": "$MediaType"
+                },
+                "?required": true,
+                "/^x-/": "$ANY"
+              },
+              {
+                "_$ref": "",
+                "?summary": "",
+                "?description": ""
+              }
             ]
           }
         },
@@ -174,8 +301,18 @@
                 "?examples": {
                   "": {
                     "|": [
-                      "$Example",
-                      "$Reference"
+                      {
+                        "?summary": "",
+                        "?description": "",
+                        "?value": "$ANY",
+                        "?externalValue": "",
+                        "/^x-/": "$ANY"
+                      },
+                      {
+                        "_$ref": "",
+                        "?summary": "",
+                        "?description": ""
+                      }
                     ]
                   }
                 },
@@ -191,7 +328,11 @@
                 },
                 "/^x-/": "$ANY"
               },
-              "$Reference"
+              {
+                "_$ref": "",
+                "?summary": "",
+                "?description": ""
+              }
             ]
           }
         },
@@ -235,7 +376,11 @@
                 "?description": "",
                 "/^x-/": "$ANY"
               },
-              "$Reference"
+              {
+                "_$ref": "",
+                "?summary": "",
+                "?description": ""
+              }
             ]
           }
         },
@@ -262,23 +407,217 @@
                 "?server": "$Server",
                 "/^x-/": "$ANY"
               },
-              "$Reference"
+              {
+                "_$ref": "",
+                "?summary": "",
+                "?description": ""
+              }
             ]
           }
         },
         "?callbacks": {
           "": {
             "|": [
-              "$Callback",
-              "$Reference"
+              {
+                "$Expression": {
+                  "|": [
+                    {
+                      "?$ref": "$URI",
+                      "?summary": "",
+                      "?description": "",
+                      "?get": "$Operation",
+                      "?put": "$Operation",
+                      "?post": "$Operation",
+                      "?delete": "$Operation",
+                      "?options": "$Operation",
+                      "?head": "$Operation",
+                      "?patch": "$Operation",
+                      "?trace": "$Operation",
+                      "?servers": [
+                        "$Operation"
+                      ],
+                      "?parameters": [
+                        {
+                          "|": [
+                            {
+                              "name": "",
+                              "in": {
+                                "|": [
+                                  "query",
+                                  "header",
+                                  "path",
+                                  "cookie"
+                                ]
+                              },
+                              "?description": "",
+                              "?required": true,
+                              "?deprecated": true,
+                              "?allowEmptyValue": true,
+                              "?style": "$Style",
+                              "?explode": true,
+                              "?allowReserved": true,
+                              "?schema": "$Schema",
+                              "?example": "$ANY",
+                              "?examples": {
+                                "": {
+                                  "|": [
+                                    {
+                                      "?summary": "",
+                                      "?description": "",
+                                      "?value": "$ANY",
+                                      "?externalValue": "",
+                                      "/^x-/": "$ANY"
+                                    },
+                                    {
+                                      "_$ref": "",
+                                      "?summary": "",
+                                      "?description": ""
+                                    }
+                                  ]
+                                }
+                              },
+                              "/^x-/": "$ANY"
+                            },
+                            {
+                              "name": "",
+                              "in": {
+                                "|": [
+                                  "query",
+                                  "header",
+                                  "path",
+                                  "cookie"
+                                ]
+                              },
+                              "?description": "",
+                              "?required": true,
+                              "?deprecated": true,
+                              "?allowEmptyValue": true,
+                              "?content": {
+                                "": "$MediaType"
+                              },
+                              "/^x-/": "$ANY"
+                            },
+                            {
+                              "_$ref": "",
+                              "?summary": "",
+                              "?description": ""
+                            }
+                          ]
+                        }
+                      ],
+                      "/^x-/": "$ANY"
+                    },
+                    {
+                      "_$ref": "",
+                      "?summary": "",
+                      "?description": ""
+                    }
+                  ]
+                },
+                "/^x-/": "$ANY"
+              },
+              {
+                "_$ref": "",
+                "?summary": "",
+                "?description": ""
+              }
             ]
           }
         },
         "?pathItems": {
           "": {
             "|": [
-              "$PathItem",
-              "$Reference"
+              {
+                "?$ref": "$URI",
+                "?summary": "",
+                "?description": "",
+                "?get": "$Operation",
+                "?put": "$Operation",
+                "?post": "$Operation",
+                "?delete": "$Operation",
+                "?options": "$Operation",
+                "?head": "$Operation",
+                "?patch": "$Operation",
+                "?trace": "$Operation",
+                "?servers": [
+                  "$Operation"
+                ],
+                "?parameters": [
+                  {
+                    "|": [
+                      {
+                        "name": "",
+                        "in": {
+                          "|": [
+                            "query",
+                            "header",
+                            "path",
+                            "cookie"
+                          ]
+                        },
+                        "?description": "",
+                        "?required": true,
+                        "?deprecated": true,
+                        "?allowEmptyValue": true,
+                        "?style": "$Style",
+                        "?explode": true,
+                        "?allowReserved": true,
+                        "?schema": "$Schema",
+                        "?example": "$ANY",
+                        "?examples": {
+                          "": {
+                            "|": [
+                              {
+                                "?summary": "",
+                                "?description": "",
+                                "?value": "$ANY",
+                                "?externalValue": "",
+                                "/^x-/": "$ANY"
+                              },
+                              {
+                                "_$ref": "",
+                                "?summary": "",
+                                "?description": ""
+                              }
+                            ]
+                          }
+                        },
+                        "/^x-/": "$ANY"
+                      },
+                      {
+                        "name": "",
+                        "in": {
+                          "|": [
+                            "query",
+                            "header",
+                            "path",
+                            "cookie"
+                          ]
+                        },
+                        "?description": "",
+                        "?required": true,
+                        "?deprecated": true,
+                        "?allowEmptyValue": true,
+                        "?content": {
+                          "": "$MediaType"
+                        },
+                        "/^x-/": "$ANY"
+                      },
+                      {
+                        "_$ref": "",
+                        "?summary": "",
+                        "?description": ""
+                      }
+                    ]
+                  }
+                ],
+                "/^x-/": "$ANY"
+              },
+              {
+                "_$ref": "",
+                "?summary": "",
+                "?description": ""
+              }
             ]
           }
         },
@@ -330,8 +669,18 @@
                 "?examples": {
                   "": {
                     "|": [
-                      "$Example",
-                      "$Reference"
+                      {
+                        "?summary": "",
+                        "?description": "",
+                        "?value": "$ANY",
+                        "?externalValue": "",
+                        "/^x-/": "$ANY"
+                      },
+                      {
+                        "_$ref": "",
+                        "?summary": "",
+                        "?description": ""
+                      }
                     ]
                   }
                 },
@@ -356,7 +705,11 @@
                 },
                 "/^x-/": "$ANY"
               },
-              "$Reference"
+              {
+                "_$ref": "",
+                "?summary": "",
+                "?description": ""
+              }
             ]
           }
         ],
@@ -396,8 +749,18 @@
                 "?examples": {
                   "": {
                     "|": [
-                      "$Example",
-                      "$Reference"
+                      {
+                        "?summary": "",
+                        "?description": "",
+                        "?value": "$ANY",
+                        "?externalValue": "",
+                        "/^x-/": "$ANY"
+                      },
+                      {
+                        "_$ref": "",
+                        "?summary": "",
+                        "?description": ""
+                      }
                     ]
                   }
                 },
@@ -422,22 +785,138 @@
                 },
                 "/^x-/": "$ANY"
               },
-              "$Reference"
+              {
+                "_$ref": "",
+                "?summary": "",
+                "?description": ""
+              }
             ]
           }
         ],
         "?requestBody": {
           "|": [
-            "$RequestBody",
-            "$Reference"
+            {
+              "?description": "",
+              "?content": {
+                "": "$MediaType"
+              },
+              "?required": true,
+              "/^x-/": "$ANY"
+            },
+            {
+              "_$ref": "",
+              "?summary": "",
+              "?description": ""
+            }
           ]
         },
         "?responses": "$Responses",
         "?callbacks": {
           "": {
             "|": [
-              "$Callback",
-              "$Reference"
+              {
+                "$Expression": {
+                  "|": [
+                    {
+                      "?$ref": "$URI",
+                      "?summary": "",
+                      "?description": "",
+                      "?get": "$Operation",
+                      "?put": "$Operation",
+                      "?post": "$Operation",
+                      "?delete": "$Operation",
+                      "?options": "$Operation",
+                      "?head": "$Operation",
+                      "?patch": "$Operation",
+                      "?trace": "$Operation",
+                      "?servers": [
+                        "$Operation"
+                      ],
+                      "?parameters": [
+                        {
+                          "|": [
+                            {
+                              "name": "",
+                              "in": {
+                                "|": [
+                                  "query",
+                                  "header",
+                                  "path",
+                                  "cookie"
+                                ]
+                              },
+                              "?description": "",
+                              "?required": true,
+                              "?deprecated": true,
+                              "?allowEmptyValue": true,
+                              "?style": "$Style",
+                              "?explode": true,
+                              "?allowReserved": true,
+                              "?schema": "$Schema",
+                              "?example": "$ANY",
+                              "?examples": {
+                                "": {
+                                  "|": [
+                                    {
+                                      "?summary": "",
+                                      "?description": "",
+                                      "?value": "$ANY",
+                                      "?externalValue": "",
+                                      "/^x-/": "$ANY"
+                                    },
+                                    {
+                                      "_$ref": "",
+                                      "?summary": "",
+                                      "?description": ""
+                                    }
+                                  ]
+                                }
+                              },
+                              "/^x-/": "$ANY"
+                            },
+                            {
+                              "name": "",
+                              "in": {
+                                "|": [
+                                  "query",
+                                  "header",
+                                  "path",
+                                  "cookie"
+                                ]
+                              },
+                              "?description": "",
+                              "?required": true,
+                              "?deprecated": true,
+                              "?allowEmptyValue": true,
+                              "?content": {
+                                "": "$MediaType"
+                              },
+                              "/^x-/": "$ANY"
+                            },
+                            {
+                              "_$ref": "",
+                              "?summary": "",
+                              "?description": ""
+                            }
+                          ]
+                        }
+                      ],
+                      "/^x-/": "$ANY"
+                    },
+                    {
+                      "_$ref": "",
+                      "?summary": "",
+                      "?description": ""
+                    }
+                  ]
+                },
+                "/^x-/": "$ANY"
+              },
+              {
+                "_$ref": "",
+                "?summary": "",
+                "?description": ""
+              }
             ]
           }
         },
@@ -503,8 +982,18 @@
         "?examples": {
           "": {
             "|": [
-              "$Example",
-              "$Reference"
+              {
+                "?summary": "",
+                "?description": "",
+                "?value": "$ANY",
+                "?externalValue": "",
+                "/^x-/": "$ANY"
+              },
+              {
+                "_$ref": "",
+                "?summary": "",
+                "?description": ""
+              }
             ]
           }
         },
@@ -540,8 +1029,18 @@
             "?examples": {
               "": {
                 "|": [
-                  "$Example",
-                  "$Reference"
+                  {
+                    "?summary": "",
+                    "?description": "",
+                    "?value": "$ANY",
+                    "?externalValue": "",
+                    "/^x-/": "$ANY"
+                  },
+                  {
+                    "_$ref": "",
+                    "?summary": "",
+                    "?description": ""
+                  }
                 ]
               }
             },
@@ -584,8 +1083,18 @@
         "?examples": {
           "": {
             "|": [
-              "$Example",
-              "$Reference"
+              {
+                "?summary": "",
+                "?description": "",
+                "?value": "$ANY",
+                "?externalValue": "",
+                "/^x-/": "$ANY"
+              },
+              {
+                "_$ref": "",
+                "?summary": "",
+                "?description": ""
+              }
             ]
           }
         },
@@ -613,8 +1122,18 @@
                 "?examples": {
                   "": {
                     "|": [
-                      "$Example",
-                      "$Reference"
+                      {
+                        "?summary": "",
+                        "?description": "",
+                        "?value": "$ANY",
+                        "?externalValue": "",
+                        "/^x-/": "$ANY"
+                      },
+                      {
+                        "_$ref": "",
+                        "?summary": "",
+                        "?description": ""
+                      }
                     ]
                   }
                 },
@@ -630,7 +1149,11 @@
                 },
                 "/^x-/": "$ANY"
               },
-              "$Reference"
+              {
+                "_$ref": "",
+                "?summary": "",
+                "?description": ""
+              }
             ]
           }
         },
@@ -643,14 +1166,198 @@
       "Responses": {
         "/^[1-5](\\d\\d|XX)$/": {
           "|": [
-            "$Response",
-            "$Reference"
+            {
+              "?description": "",
+              "?headers": {
+                "": {
+                  "|": [
+                    {
+                      "?description": "",
+                      "?required": true,
+                      "?deprecated": true,
+                      "?allowEmptyValue": true,
+                      "?style": "$Style",
+                      "?explode": true,
+                      "?allowReserved": true,
+                      "?schema": "$Schema",
+                      "?example": "$ANY",
+                      "?examples": {
+                        "": {
+                          "|": [
+                            {
+                              "?summary": "",
+                              "?description": "",
+                              "?value": "$ANY",
+                              "?externalValue": "",
+                              "/^x-/": "$ANY"
+                            },
+                            {
+                              "_$ref": "",
+                              "?summary": "",
+                              "?description": ""
+                            }
+                          ]
+                        }
+                      },
+                      "/^x-/": "$ANY"
+                    },
+                    {
+                      "?description": "",
+                      "?required": true,
+                      "?deprecated": true,
+                      "?allowEmptyValue": true,
+                      "?content": {
+                        "": "$MediaType"
+                      },
+                      "/^x-/": "$ANY"
+                    },
+                    {
+                      "_$ref": "",
+                      "?summary": "",
+                      "?description": ""
+                    }
+                  ]
+                }
+              },
+              "?content": {
+                "": "$MediaType"
+              },
+              "?links": {
+                "": {
+                  "|": [
+                    {
+                      "operationRef": "",
+                      "?parameters": {
+                        "": "$ANY"
+                      },
+                      "?requestBody": "$ANY",
+                      "?description": "",
+                      "?server": "$Server",
+                      "/^x-/": "$ANY"
+                    },
+                    {
+                      "operationId": "",
+                      "?parameters": {
+                        "": "$ANY"
+                      },
+                      "?requestBody": "$ANY",
+                      "?description": "",
+                      "?server": "$Server",
+                      "/^x-/": "$ANY"
+                    },
+                    {
+                      "_$ref": "",
+                      "?summary": "",
+                      "?description": ""
+                    }
+                  ]
+                }
+              },
+              "/^x-/": "$ANY"
+            },
+            {
+              "_$ref": "",
+              "?summary": "",
+              "?description": ""
+            }
           ]
         },
         "?default": {
           "|": [
-            "$Response",
-            "$Reference"
+            {
+              "?description": "",
+              "?headers": {
+                "": {
+                  "|": [
+                    {
+                      "?description": "",
+                      "?required": true,
+                      "?deprecated": true,
+                      "?allowEmptyValue": true,
+                      "?style": "$Style",
+                      "?explode": true,
+                      "?allowReserved": true,
+                      "?schema": "$Schema",
+                      "?example": "$ANY",
+                      "?examples": {
+                        "": {
+                          "|": [
+                            {
+                              "?summary": "",
+                              "?description": "",
+                              "?value": "$ANY",
+                              "?externalValue": "",
+                              "/^x-/": "$ANY"
+                            },
+                            {
+                              "_$ref": "",
+                              "?summary": "",
+                              "?description": ""
+                            }
+                          ]
+                        }
+                      },
+                      "/^x-/": "$ANY"
+                    },
+                    {
+                      "?description": "",
+                      "?required": true,
+                      "?deprecated": true,
+                      "?allowEmptyValue": true,
+                      "?content": {
+                        "": "$MediaType"
+                      },
+                      "/^x-/": "$ANY"
+                    },
+                    {
+                      "_$ref": "",
+                      "?summary": "",
+                      "?description": ""
+                    }
+                  ]
+                }
+              },
+              "?content": {
+                "": "$MediaType"
+              },
+              "?links": {
+                "": {
+                  "|": [
+                    {
+                      "operationRef": "",
+                      "?parameters": {
+                        "": "$ANY"
+                      },
+                      "?requestBody": "$ANY",
+                      "?description": "",
+                      "?server": "$Server",
+                      "/^x-/": "$ANY"
+                    },
+                    {
+                      "operationId": "",
+                      "?parameters": {
+                        "": "$ANY"
+                      },
+                      "?requestBody": "$ANY",
+                      "?description": "",
+                      "?server": "$Server",
+                      "/^x-/": "$ANY"
+                    },
+                    {
+                      "_$ref": "",
+                      "?summary": "",
+                      "?description": ""
+                    }
+                  ]
+                }
+              },
+              "/^x-/": "$ANY"
+            },
+            {
+              "_$ref": "",
+              "?summary": "",
+              "?description": ""
+            }
           ]
         },
         "/^x-/": "$ANY",
@@ -674,8 +1381,18 @@
                 "?examples": {
                   "": {
                     "|": [
-                      "$Example",
-                      "$Reference"
+                      {
+                        "?summary": "",
+                        "?description": "",
+                        "?value": "$ANY",
+                        "?externalValue": "",
+                        "/^x-/": "$ANY"
+                      },
+                      {
+                        "_$ref": "",
+                        "?summary": "",
+                        "?description": ""
+                      }
                     ]
                   }
                 },
@@ -691,7 +1408,11 @@
                 },
                 "/^x-/": "$ANY"
               },
-              "$Reference"
+              {
+                "_$ref": "",
+                "?summary": "",
+                "?description": ""
+              }
             ]
           }
         },
@@ -721,7 +1442,11 @@
                 "?server": "$Server",
                 "/^x-/": "$ANY"
               },
-              "$Reference"
+              {
+                "_$ref": "",
+                "?summary": "",
+                "?description": ""
+              }
             ]
           }
         },
@@ -731,8 +1456,97 @@
       "Callback": {
         "$Expression": {
           "|": [
-            "$PathItem",
-            "$Reference"
+            {
+              "?$ref": "$URI",
+              "?summary": "",
+              "?description": "",
+              "?get": "$Operation",
+              "?put": "$Operation",
+              "?post": "$Operation",
+              "?delete": "$Operation",
+              "?options": "$Operation",
+              "?head": "$Operation",
+              "?patch": "$Operation",
+              "?trace": "$Operation",
+              "?servers": [
+                "$Operation"
+              ],
+              "?parameters": [
+                {
+                  "|": [
+                    {
+                      "name": "",
+                      "in": {
+                        "|": [
+                          "query",
+                          "header",
+                          "path",
+                          "cookie"
+                        ]
+                      },
+                      "?description": "",
+                      "?required": true,
+                      "?deprecated": true,
+                      "?allowEmptyValue": true,
+                      "?style": "$Style",
+                      "?explode": true,
+                      "?allowReserved": true,
+                      "?schema": "$Schema",
+                      "?example": "$ANY",
+                      "?examples": {
+                        "": {
+                          "|": [
+                            {
+                              "?summary": "",
+                              "?description": "",
+                              "?value": "$ANY",
+                              "?externalValue": "",
+                              "/^x-/": "$ANY"
+                            },
+                            {
+                              "_$ref": "",
+                              "?summary": "",
+                              "?description": ""
+                            }
+                          ]
+                        }
+                      },
+                      "/^x-/": "$ANY"
+                    },
+                    {
+                      "name": "",
+                      "in": {
+                        "|": [
+                          "query",
+                          "header",
+                          "path",
+                          "cookie"
+                        ]
+                      },
+                      "?description": "",
+                      "?required": true,
+                      "?deprecated": true,
+                      "?allowEmptyValue": true,
+                      "?content": {
+                        "": "$MediaType"
+                      },
+                      "/^x-/": "$ANY"
+                    },
+                    {
+                      "_$ref": "",
+                      "?summary": "",
+                      "?description": ""
+                    }
+                  ]
+                }
+              ],
+              "/^x-/": "$ANY"
+            },
+            {
+              "_$ref": "",
+              "?summary": "",
+              "?description": ""
+            }
           ]
         },
         "/^x-/": "$ANY",
@@ -787,8 +1601,18 @@
             "?examples": {
               "": {
                 "|": [
-                  "$Example",
-                  "$Reference"
+                  {
+                    "?summary": "",
+                    "?description": "",
+                    "?value": "$ANY",
+                    "?externalValue": "",
+                    "/^x-/": "$ANY"
+                  },
+                  {
+                    "_$ref": "",
+                    "?summary": "",
+                    "?description": ""
+                  }
                 ]
               }
             },
@@ -1266,8 +2090,100 @@
     "?responses": {
       "": {
         "|": [
-          "$Response",
-          "$Reference"
+          {
+            "?description": "",
+            "?headers": {
+              "": {
+                "|": [
+                  {
+                    "?description": "",
+                    "?required": true,
+                    "?deprecated": true,
+                    "?allowEmptyValue": true,
+                    "?style": "$Style",
+                    "?explode": true,
+                    "?allowReserved": true,
+                    "?schema": "$Schema",
+                    "?example": "$ANY",
+                    "?examples": {
+                      "": {
+                        "|": [
+                          {
+                            "?summary": "",
+                            "?description": "",
+                            "?value": "$ANY",
+                            "?externalValue": "",
+                            "/^x-/": "$ANY"
+                          },
+                          {
+                            "_$ref": "",
+                            "?summary": "",
+                            "?description": ""
+                          }
+                        ]
+                      }
+                    },
+                    "/^x-/": "$ANY"
+                  },
+                  {
+                    "?description": "",
+                    "?required": true,
+                    "?deprecated": true,
+                    "?allowEmptyValue": true,
+                    "?content": {
+                      "": "$MediaType"
+                    },
+                    "/^x-/": "$ANY"
+                  },
+                  {
+                    "_$ref": "",
+                    "?summary": "",
+                    "?description": ""
+                  }
+                ]
+              }
+            },
+            "?content": {
+              "": "$MediaType"
+            },
+            "?links": {
+              "": {
+                "|": [
+                  {
+                    "operationRef": "",
+                    "?parameters": {
+                      "": "$ANY"
+                    },
+                    "?requestBody": "$ANY",
+                    "?description": "",
+                    "?server": "$Server",
+                    "/^x-/": "$ANY"
+                  },
+                  {
+                    "operationId": "",
+                    "?parameters": {
+                      "": "$ANY"
+                    },
+                    "?requestBody": "$ANY",
+                    "?description": "",
+                    "?server": "$Server",
+                    "/^x-/": "$ANY"
+                  },
+                  {
+                    "_$ref": "",
+                    "?summary": "",
+                    "?description": ""
+                  }
+                ]
+              }
+            },
+            "/^x-/": "$ANY"
+          },
+          {
+            "_$ref": "",
+            "?summary": "",
+            "?description": ""
+          }
         ]
       }
     },
@@ -1296,8 +2212,18 @@
             "?examples": {
               "": {
                 "|": [
-                  "$Example",
-                  "$Reference"
+                  {
+                    "?summary": "",
+                    "?description": "",
+                    "?value": "$ANY",
+                    "?externalValue": "",
+                    "/^x-/": "$ANY"
+                  },
+                  {
+                    "_$ref": "",
+                    "?summary": "",
+                    "?description": ""
+                  }
                 ]
               }
             },
@@ -1322,23 +2248,48 @@
             },
             "/^x-/": "$ANY"
           },
-          "$Reference"
+          {
+            "_$ref": "",
+            "?summary": "",
+            "?description": ""
+          }
         ]
       }
     },
     "?examples": {
       "": {
         "|": [
-          "$Example",
-          "$Reference"
+          {
+            "?summary": "",
+            "?description": "",
+            "?value": "$ANY",
+            "?externalValue": "",
+            "/^x-/": "$ANY"
+          },
+          {
+            "_$ref": "",
+            "?summary": "",
+            "?description": ""
+          }
         ]
       }
     },
     "?requestBodies": {
       "": {
         "|": [
-          "$RequestBody",
-          "$Reference"
+          {
+            "?description": "",
+            "?content": {
+              "": "$MediaType"
+            },
+            "?required": true,
+            "/^x-/": "$ANY"
+          },
+          {
+            "_$ref": "",
+            "?summary": "",
+            "?description": ""
+          }
         ]
       }
     },
@@ -1358,8 +2309,18 @@
             "?examples": {
               "": {
                 "|": [
-                  "$Example",
-                  "$Reference"
+                  {
+                    "?summary": "",
+                    "?description": "",
+                    "?value": "$ANY",
+                    "?externalValue": "",
+                    "/^x-/": "$ANY"
+                  },
+                  {
+                    "_$ref": "",
+                    "?summary": "",
+                    "?description": ""
+                  }
                 ]
               }
             },
@@ -1375,7 +2336,11 @@
             },
             "/^x-/": "$ANY"
           },
-          "$Reference"
+          {
+            "_$ref": "",
+            "?summary": "",
+            "?description": ""
+          }
         ]
       }
     },
@@ -1419,7 +2384,11 @@
             "?description": "",
             "/^x-/": "$ANY"
           },
-          "$Reference"
+          {
+            "_$ref": "",
+            "?summary": "",
+            "?description": ""
+          }
         ]
       }
     },
@@ -1446,23 +2415,217 @@
             "?server": "$Server",
             "/^x-/": "$ANY"
           },
-          "$Reference"
+          {
+            "_$ref": "",
+            "?summary": "",
+            "?description": ""
+          }
         ]
       }
     },
     "?callbacks": {
       "": {
         "|": [
-          "$Callback",
-          "$Reference"
+          {
+            "$Expression": {
+              "|": [
+                {
+                  "?$ref": "$URI",
+                  "?summary": "",
+                  "?description": "",
+                  "?get": "$Operation",
+                  "?put": "$Operation",
+                  "?post": "$Operation",
+                  "?delete": "$Operation",
+                  "?options": "$Operation",
+                  "?head": "$Operation",
+                  "?patch": "$Operation",
+                  "?trace": "$Operation",
+                  "?servers": [
+                    "$Operation"
+                  ],
+                  "?parameters": [
+                    {
+                      "|": [
+                        {
+                          "name": "",
+                          "in": {
+                            "|": [
+                              "query",
+                              "header",
+                              "path",
+                              "cookie"
+                            ]
+                          },
+                          "?description": "",
+                          "?required": true,
+                          "?deprecated": true,
+                          "?allowEmptyValue": true,
+                          "?style": "$Style",
+                          "?explode": true,
+                          "?allowReserved": true,
+                          "?schema": "$Schema",
+                          "?example": "$ANY",
+                          "?examples": {
+                            "": {
+                              "|": [
+                                {
+                                  "?summary": "",
+                                  "?description": "",
+                                  "?value": "$ANY",
+                                  "?externalValue": "",
+                                  "/^x-/": "$ANY"
+                                },
+                                {
+                                  "_$ref": "",
+                                  "?summary": "",
+                                  "?description": ""
+                                }
+                              ]
+                            }
+                          },
+                          "/^x-/": "$ANY"
+                        },
+                        {
+                          "name": "",
+                          "in": {
+                            "|": [
+                              "query",
+                              "header",
+                              "path",
+                              "cookie"
+                            ]
+                          },
+                          "?description": "",
+                          "?required": true,
+                          "?deprecated": true,
+                          "?allowEmptyValue": true,
+                          "?content": {
+                            "": "$MediaType"
+                          },
+                          "/^x-/": "$ANY"
+                        },
+                        {
+                          "_$ref": "",
+                          "?summary": "",
+                          "?description": ""
+                        }
+                      ]
+                    }
+                  ],
+                  "/^x-/": "$ANY"
+                },
+                {
+                  "_$ref": "",
+                  "?summary": "",
+                  "?description": ""
+                }
+              ]
+            },
+            "/^x-/": "$ANY"
+          },
+          {
+            "_$ref": "",
+            "?summary": "",
+            "?description": ""
+          }
         ]
       }
     },
     "?pathItems": {
       "": {
         "|": [
-          "$PathItem",
-          "$Reference"
+          {
+            "?$ref": "$URI",
+            "?summary": "",
+            "?description": "",
+            "?get": "$Operation",
+            "?put": "$Operation",
+            "?post": "$Operation",
+            "?delete": "$Operation",
+            "?options": "$Operation",
+            "?head": "$Operation",
+            "?patch": "$Operation",
+            "?trace": "$Operation",
+            "?servers": [
+              "$Operation"
+            ],
+            "?parameters": [
+              {
+                "|": [
+                  {
+                    "name": "",
+                    "in": {
+                      "|": [
+                        "query",
+                        "header",
+                        "path",
+                        "cookie"
+                      ]
+                    },
+                    "?description": "",
+                    "?required": true,
+                    "?deprecated": true,
+                    "?allowEmptyValue": true,
+                    "?style": "$Style",
+                    "?explode": true,
+                    "?allowReserved": true,
+                    "?schema": "$Schema",
+                    "?example": "$ANY",
+                    "?examples": {
+                      "": {
+                        "|": [
+                          {
+                            "?summary": "",
+                            "?description": "",
+                            "?value": "$ANY",
+                            "?externalValue": "",
+                            "/^x-/": "$ANY"
+                          },
+                          {
+                            "_$ref": "",
+                            "?summary": "",
+                            "?description": ""
+                          }
+                        ]
+                      }
+                    },
+                    "/^x-/": "$ANY"
+                  },
+                  {
+                    "name": "",
+                    "in": {
+                      "|": [
+                        "query",
+                        "header",
+                        "path",
+                        "cookie"
+                      ]
+                    },
+                    "?description": "",
+                    "?required": true,
+                    "?deprecated": true,
+                    "?allowEmptyValue": true,
+                    "?content": {
+                      "": "$MediaType"
+                    },
+                    "/^x-/": "$ANY"
+                  },
+                  {
+                    "_$ref": "",
+                    "?summary": "",
+                    "?description": ""
+                  }
+                ]
+              }
+            ],
+            "/^x-/": "$ANY"
+          },
+          {
+            "_$ref": "",
+            "?summary": "",
+            "?description": ""
+          }
         ]
       }
     },
@@ -1514,8 +2677,18 @@
             "?examples": {
               "": {
                 "|": [
-                  "$Example",
-                  "$Reference"
+                  {
+                    "?summary": "",
+                    "?description": "",
+                    "?value": "$ANY",
+                    "?externalValue": "",
+                    "/^x-/": "$ANY"
+                  },
+                  {
+                    "_$ref": "",
+                    "?summary": "",
+                    "?description": ""
+                  }
                 ]
               }
             },
@@ -1540,7 +2713,11 @@
             },
             "/^x-/": "$ANY"
           },
-          "$Reference"
+          {
+            "_$ref": "",
+            "?summary": "",
+            "?description": ""
+          }
         ]
       }
     ],
@@ -1580,8 +2757,18 @@
             "?examples": {
               "": {
                 "|": [
-                  "$Example",
-                  "$Reference"
+                  {
+                    "?summary": "",
+                    "?description": "",
+                    "?value": "$ANY",
+                    "?externalValue": "",
+                    "/^x-/": "$ANY"
+                  },
+                  {
+                    "_$ref": "",
+                    "?summary": "",
+                    "?description": ""
+                  }
                 ]
               }
             },
@@ -1606,22 +2793,138 @@
             },
             "/^x-/": "$ANY"
           },
-          "$Reference"
+          {
+            "_$ref": "",
+            "?summary": "",
+            "?description": ""
+          }
         ]
       }
     ],
     "?requestBody": {
       "|": [
-        "$RequestBody",
-        "$Reference"
+        {
+          "?description": "",
+          "?content": {
+            "": "$MediaType"
+          },
+          "?required": true,
+          "/^x-/": "$ANY"
+        },
+        {
+          "_$ref": "",
+          "?summary": "",
+          "?description": ""
+        }
       ]
     },
     "?responses": "$Responses",
     "?callbacks": {
       "": {
         "|": [
-          "$Callback",
-          "$Reference"
+          {
+            "$Expression": {
+              "|": [
+                {
+                  "?$ref": "$URI",
+                  "?summary": "",
+                  "?description": "",
+                  "?get": "$Operation",
+                  "?put": "$Operation",
+                  "?post": "$Operation",
+                  "?delete": "$Operation",
+                  "?options": "$Operation",
+                  "?head": "$Operation",
+                  "?patch": "$Operation",
+                  "?trace": "$Operation",
+                  "?servers": [
+                    "$Operation"
+                  ],
+                  "?parameters": [
+                    {
+                      "|": [
+                        {
+                          "name": "",
+                          "in": {
+                            "|": [
+                              "query",
+                              "header",
+                              "path",
+                              "cookie"
+                            ]
+                          },
+                          "?description": "",
+                          "?required": true,
+                          "?deprecated": true,
+                          "?allowEmptyValue": true,
+                          "?style": "$Style",
+                          "?explode": true,
+                          "?allowReserved": true,
+                          "?schema": "$Schema",
+                          "?example": "$ANY",
+                          "?examples": {
+                            "": {
+                              "|": [
+                                {
+                                  "?summary": "",
+                                  "?description": "",
+                                  "?value": "$ANY",
+                                  "?externalValue": "",
+                                  "/^x-/": "$ANY"
+                                },
+                                {
+                                  "_$ref": "",
+                                  "?summary": "",
+                                  "?description": ""
+                                }
+                              ]
+                            }
+                          },
+                          "/^x-/": "$ANY"
+                        },
+                        {
+                          "name": "",
+                          "in": {
+                            "|": [
+                              "query",
+                              "header",
+                              "path",
+                              "cookie"
+                            ]
+                          },
+                          "?description": "",
+                          "?required": true,
+                          "?deprecated": true,
+                          "?allowEmptyValue": true,
+                          "?content": {
+                            "": "$MediaType"
+                          },
+                          "/^x-/": "$ANY"
+                        },
+                        {
+                          "_$ref": "",
+                          "?summary": "",
+                          "?description": ""
+                        }
+                      ]
+                    }
+                  ],
+                  "/^x-/": "$ANY"
+                },
+                {
+                  "_$ref": "",
+                  "?summary": "",
+                  "?description": ""
+                }
+              ]
+            },
+            "/^x-/": "$ANY"
+          },
+          {
+            "_$ref": "",
+            "?summary": "",
+            "?description": ""
+          }
         ]
       }
     },
@@ -1687,8 +2990,18 @@
     "?examples": {
       "": {
         "|": [
-          "$Example",
-          "$Reference"
+          {
+            "?summary": "",
+            "?description": "",
+            "?value": "$ANY",
+            "?externalValue": "",
+            "/^x-/": "$ANY"
+          },
+          {
+            "_$ref": "",
+            "?summary": "",
+            "?description": ""
+          }
         ]
       }
     },
@@ -1724,8 +3037,18 @@
         "?examples": {
           "": {
             "|": [
-              "$Example",
-              "$Reference"
+              {
+                "?summary": "",
+                "?description": "",
+                "?value": "$ANY",
+                "?externalValue": "",
+                "/^x-/": "$ANY"
+              },
+              {
+                "_$ref": "",
+                "?summary": "",
+                "?description": ""
+              }
             ]
           }
         },
@@ -1768,8 +3091,18 @@
     "?examples": {
       "": {
         "|": [
-          "$Example",
-          "$Reference"
+          {
+            "?summary": "",
+            "?description": "",
+            "?value": "$ANY",
+            "?externalValue": "",
+            "/^x-/": "$ANY"
+          },
+          {
+            "_$ref": "",
+            "?summary": "",
+            "?description": ""
+          }
         ]
       }
     },
@@ -1797,8 +3130,18 @@
             "?examples": {
               "": {
                 "|": [
-                  "$Example",
-                  "$Reference"
+                  {
+                    "?summary": "",
+                    "?description": "",
+                    "?value": "$ANY",
+                    "?externalValue": "",
+                    "/^x-/": "$ANY"
+                  },
+                  {
+                    "_$ref": "",
+                    "?summary": "",
+                    "?description": ""
+                  }
                 ]
               }
             },
@@ -1814,7 +3157,11 @@
             },
             "/^x-/": "$ANY"
           },
-          "$Reference"
+          {
+            "_$ref": "",
+            "?summary": "",
+            "?description": ""
+          }
         ]
       }
     },
@@ -1827,14 +3174,198 @@
   {
     "/^[1-5](\\d\\d|XX)$/": {
       "|": [
-        "$Response",
-        "$Reference"
+        {
+          "?description": "",
+          "?headers": {
+            "": {
+              "|": [
+                {
+                  "?description": "",
+                  "?required": true,
+                  "?deprecated": true,
+                  "?allowEmptyValue": true,
+                  "?style": "$Style",
+                  "?explode": true,
+                  "?allowReserved": true,
+                  "?schema": "$Schema",
+                  "?example": "$ANY",
+                  "?examples": {
+                    "": {
+                      "|": [
+                        {
+                          "?summary": "",
+                          "?description": "",
+                          "?value": "$ANY",
+                          "?externalValue": "",
+                          "/^x-/": "$ANY"
+                        },
+                        {
+                          "_$ref": "",
+                          "?summary": "",
+                          "?description": ""
+                        }
+                      ]
+                    }
+                  },
+                  "/^x-/": "$ANY"
+                },
+                {
+                  "?description": "",
+                  "?required": true,
+                  "?deprecated": true,
+                  "?allowEmptyValue": true,
+                  "?content": {
+                    "": "$MediaType"
+                  },
+                  "/^x-/": "$ANY"
+                },
+                {
+                  "_$ref": "",
+                  "?summary": "",
+                  "?description": ""
+                }
+              ]
+            }
+          },
+          "?content": {
+            "": "$MediaType"
+          },
+          "?links": {
+            "": {
+              "|": [
+                {
+                  "operationRef": "",
+                  "?parameters": {
+                    "": "$ANY"
+                  },
+                  "?requestBody": "$ANY",
+                  "?description": "",
+                  "?server": "$Server",
+                  "/^x-/": "$ANY"
+                },
+                {
+                  "operationId": "",
+                  "?parameters": {
+                    "": "$ANY"
+                  },
+                  "?requestBody": "$ANY",
+                  "?description": "",
+                  "?server": "$Server",
+                  "/^x-/": "$ANY"
+                },
+                {
+                  "_$ref": "",
+                  "?summary": "",
+                  "?description": ""
+                }
+              ]
+            }
+          },
+          "/^x-/": "$ANY"
+        },
+        {
+          "_$ref": "",
+          "?summary": "",
+          "?description": ""
+        }
       ]
     },
     "?default": {
       "|": [
-        "$Response",
-        "$Reference"
+        {
+          "?description": "",
+          "?headers": {
+            "": {
+              "|": [
+                {
+                  "?description": "",
+                  "?required": true,
+                  "?deprecated": true,
+                  "?allowEmptyValue": true,
+                  "?style": "$Style",
+                  "?explode": true,
+                  "?allowReserved": true,
+                  "?schema": "$Schema",
+                  "?example": "$ANY",
+                  "?examples": {
+                    "": {
+                      "|": [
+                        {
+                          "?summary": "",
+                          "?description": "",
+                          "?value": "$ANY",
+                          "?externalValue": "",
+                          "/^x-/": "$ANY"
+                        },
+                        {
+                          "_$ref": "",
+                          "?summary": "",
+                          "?description": ""
+                        }
+                      ]
+                    }
+                  },
+                  "/^x-/": "$ANY"
+                },
+                {
+                  "?description": "",
+                  "?required": true,
+                  "?deprecated": true,
+                  "?allowEmptyValue": true,
+                  "?content": {
+                    "": "$MediaType"
+                  },
+                  "/^x-/": "$ANY"
+                },
+                {
+                  "_$ref": "",
+                  "?summary": "",
+                  "?description": ""
+                }
+              ]
+            }
+          },
+          "?content": {
+            "": "$MediaType"
+          },
+          "?links": {
+            "": {
+              "|": [
+                {
+                  "operationRef": "",
+                  "?parameters": {
+                    "": "$ANY"
+                  },
+                  "?requestBody": "$ANY",
+                  "?description": "",
+                  "?server": "$Server",
+                  "/^x-/": "$ANY"
+                },
+                {
+                  "operationId": "",
+                  "?parameters": {
+                    "": "$ANY"
+                  },
+                  "?requestBody": "$ANY",
+                  "?description": "",
+                  "?server": "$Server",
+                  "/^x-/": "$ANY"
+                },
+                {
+                  "_$ref": "",
+                  "?summary": "",
+                  "?description": ""
+                }
+              ]
+            }
+          },
+          "/^x-/": "$ANY"
+        },
+        {
+          "_$ref": "",
+          "?summary": "",
+          "?description": ""
+        }
       ]
     },
     "/^x-/": "$ANY",
@@ -1858,8 +3389,18 @@
             "?examples": {
               "": {
                 "|": [
-                  "$Example",
-                  "$Reference"
+                  {
+                    "?summary": "",
+                    "?description": "",
+                    "?value": "$ANY",
+                    "?externalValue": "",
+                    "/^x-/": "$ANY"
+                  },
+                  {
+                    "_$ref": "",
+                    "?summary": "",
+                    "?description": ""
+                  }
                 ]
               }
             },
@@ -1875,7 +3416,11 @@
             },
             "/^x-/": "$ANY"
           },
-          "$Reference"
+          {
+            "_$ref": "",
+            "?summary": "",
+            "?description": ""
+          }
         ]
       }
     },
@@ -1905,7 +3450,11 @@
             "?server": "$Server",
             "/^x-/": "$ANY"
           },
-          "$Reference"
+          {
+            "_$ref": "",
+            "?summary": "",
+            "?description": ""
+          }
         ]
       }
     },
@@ -1915,8 +3464,97 @@
   {
     "$Expression": {
       "|": [
-        "$PathItem",
-        "$Reference"
+        {
+          "?$ref": "$URI",
+          "?summary": "",
+          "?description": "",
+          "?get": "$Operation",
+          "?put": "$Operation",
+          "?post": "$Operation",
+          "?delete": "$Operation",
+          "?options": "$Operation",
+          "?head": "$Operation",
+          "?patch": "$Operation",
+          "?trace": "$Operation",
+          "?servers": [
+            "$Operation"
+          ],
+          "?parameters": [
+            {
+              "|": [
+                {
+                  "name": "",
+                  "in": {
+                    "|": [
+                      "query",
+                      "header",
+                      "path",
+                      "cookie"
+                    ]
+                  },
+                  "?description": "",
+                  "?required": true,
+                  "?deprecated": true,
+                  "?allowEmptyValue": true,
+                  "?style": "$Style",
+                  "?explode": true,
+                  "?allowReserved": true,
+                  "?schema": "$Schema",
+                  "?example": "$ANY",
+                  "?examples": {
+                    "": {
+                      "|": [
+                        {
+                          "?summary": "",
+                          "?description": "",
+                          "?value": "$ANY",
+                          "?externalValue": "",
+                          "/^x-/": "$ANY"
+                        },
+                        {
+                          "_$ref": "",
+                          "?summary": "",
+                          "?description": ""
+                        }
+                      ]
+                    }
+                  },
+                  "/^x-/": "$ANY"
+                },
+                {
+                  "name": "",
+                  "in": {
+                    "|": [
+                      "query",
+                      "header",
+                      "path",
+                      "cookie"
+                    ]
+                  },
+                  "?description": "",
+                  "?required": true,
+                  "?deprecated": true,
+                  "?allowEmptyValue": true,
+                  "?content": {
+                    "": "$MediaType"
+                  },
+                  "/^x-/": "$ANY"
+                },
+                {
+                  "_$ref": "",
+                  "?summary": "",
+                  "?description": ""
+                }
+              ]
+            }
+          ],
+          "/^x-/": "$ANY"
+        },
+        {
+          "_$ref": "",
+          "?summary": "",
+          "?description": ""
+        }
       ]
     },
     "/^x-/": "$ANY",
@@ -1971,8 +3609,18 @@
         "?examples": {
           "": {
             "|": [
-              "$Example",
-              "$Reference"
+              {
+                "?summary": "",
+                "?description": "",
+                "?value": "$ANY",
+                "?externalValue": "",
+                "/^x-/": "$ANY"
+              },
+              {
+                "_$ref": "",
+                "?summary": "",
+                "?description": ""
+              }
             ]
           }
         },
@@ -2450,7 +4098,92 @@
       "Schema": {
         "|": [
           true,
-          "$ObjectSchema"
+          {
+            "?$id": "$URI-REFERENCE",
+            "?$schema": "_https://json-schema.org/draft/2020-12/schema",
+            "?$ref": "$URI-REFERENCE",
+            "?$anchor": "$URI-REFERENCE",
+            "?$dynamicRef": "$URI-REFERENCE",
+            "?$dynamicAnchor": "$URI-REFERENCE",
+            "?$vocabulary": {
+              "$URI": true
+            },
+            "?$comment": "",
+            "?$defs": {
+              "": "$Schema"
+            },
+            "?prefixItems": "$schemaArray",
+            "?items": "$Schema",
+            "?contains": "$Schema",
+            "?additionalProperties": "$Schema",
+            "?properties": {
+              "": "$Schema"
+            },
+            "?patternProperties": {
+              "$REGEX": "$Schema"
+            },
+            "?dependentSchemas": {
+              "": "$Schema"
+            },
+            "?propertyNames": "$Schema",
+            "?if": "$Schema",
+            "?then": "$Schema",
+            "?else": "$Schema",
+            "?not": "$Schema",
+            "?allOf": "$schemaArray",
+            "?anyOf": "$schemaArray",
+            "?oneOf": "$schemaArray",
+            "?unevaluatedItems": "$Schema",
+            "?unevaluatedProperties": "$Schema",
+            "?type": {
+              "|": [
+                "array",
+                "boolean",
+                "integer",
+                "null",
+                "number",
+                "object",
+                "string",
+                "$simpleTypesArray"
+              ]
+            },
+            "?const": "$ANY",
+            "?enum": [
+              "$ANY"
+            ],
+            "?multipleOf": 1.0,
+            "?maximum": -1.0,
+            "?exclusiveMaximum": -1.0,
+            "?minimum": -1.0,
+            "?exclusiveMinimum": -1.0,
+            "?maxLength": "$nonNegativeInteger",
+            "?minLength": "$nonNegativeInteger",
+            "?pattern": "$REGEX",
+            "?maxItems": "$nonNegativeInteger",
+            "?minItems": "$nonNegativeInteger",
+            "?uniqueItems": true,
+            "?maxContains": "$nonNegativeInteger",
+            "?minContains": "$nonNegativeInteger",
+            "?maxProperties": "$nonNegativeInteger",
+            "?minProperties": "$nonNegativeInteger",
+            "?required": "$stringArray",
+            "?dependentRequired": {
+              "": "$stringArray"
+            },
+            "?title": "",
+            "?description": "",
+            "?default": "$ANY",
+            "?deprecated": true,
+            "?readOnly": true,
+            "?writeOnly": true,
+            "?examples": [
+              "$ANY"
+            ],
+            "?format": "",
+            "?contentEncoding": "",
+            "?contentMediaType": "",
+            "?contentSchema": "$Schema"
+          }
         ],
         "#": "JsonModel 60 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)"
       },
@@ -2690,7 +4423,92 @@
   {
     "|": [
       true,
-      "$ObjectSchema"
+      {
+        "?$id": "$URI-REFERENCE",
+        "?$schema": "_https://json-schema.org/draft/2020-12/schema",
+        "?$ref": "$URI-REFERENCE",
+        "?$anchor": "$URI-REFERENCE",
+        "?$dynamicRef": "$URI-REFERENCE",
+        "?$dynamicAnchor": "$URI-REFERENCE",
+        "?$vocabulary": {
+          "$URI": true
+        },
+        "?$comment": "",
+        "?$defs": {
+          "": "$Schema"
+        },
+        "?prefixItems": "$schemaArray",
+        "?items": "$Schema",
+        "?contains": "$Schema",
+        "?additionalProperties": "$Schema",
+        "?properties": {
+          "": "$Schema"
+        },
+        "?patternProperties": {
+          "$REGEX": "$Schema"
+        },
+        "?dependentSchemas": {
+          "": "$Schema"
+        },
+        "?propertyNames": "$Schema",
+        "?if": "$Schema",
+        "?then": "$Schema",
+        "?else": "$Schema",
+        "?not": "$Schema",
+        "?allOf": "$schemaArray",
+        "?anyOf": "$schemaArray",
+        "?oneOf": "$schemaArray",
+        "?unevaluatedItems": "$Schema",
+        "?unevaluatedProperties": "$Schema",
+        "?type": {
+          "|": [
+            "array",
+            "boolean",
+            "integer",
+            "null",
+            "number",
+            "object",
+            "string",
+            "$simpleTypesArray"
+          ]
+        },
+        "?const": "$ANY",
+        "?enum": [
+          "$ANY"
+        ],
+        "?multipleOf": 1.0,
+        "?maximum": -1.0,
+        "?exclusiveMaximum": -1.0,
+        "?minimum": -1.0,
+        "?exclusiveMinimum": -1.0,
+        "?maxLength": "$nonNegativeInteger",
+        "?minLength": "$nonNegativeInteger",
+        "?pattern": "$REGEX",
+        "?maxItems": "$nonNegativeInteger",
+        "?minItems": "$nonNegativeInteger",
+        "?uniqueItems": true,
+        "?maxContains": "$nonNegativeInteger",
+        "?minContains": "$nonNegativeInteger",
+        "?maxProperties": "$nonNegativeInteger",
+        "?minProperties": "$nonNegativeInteger",
+        "?required": "$stringArray",
+        "?dependentRequired": {
+          "": "$stringArray"
+        },
+        "?title": "",
+        "?description": "",
+        "?default": "$ANY",
+        "?deprecated": true,
+        "?readOnly": true,
+        "?writeOnly": true,
+        "?examples": [
+          "$ANY"
+        ],
+        "?format": "",
+        "?contentEncoding": "",
+        "?contentMediaType": "",
+        "?contentSchema": "$Schema"
+      }
     ],
     "#": "JsonModel 60 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)"
   }

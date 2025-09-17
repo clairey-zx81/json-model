@@ -161,6 +161,36 @@ public class xoropt_001 extends ModelChecker
         return res;
     }
     
+    // object .'$Any'.'|'.6
+    public boolean _jm_obj_1(Object val, Path path, Report rep)
+    {
+        if (! json.isObject(val))
+        {
+            if (rep != null) rep.addEntry("not an object [.'$Any'.'|'.6]", path);
+            return false;
+        }
+        boolean res;
+        Iterator<String> prop_loop = json.objectIterator(val);
+        while (prop_loop.hasNext())
+        {
+            String prop = prop_loop.next();
+            Object pval = json.objectValue(val, prop);
+            Path lpath_1 = new Path(prop, path);
+            // handle other props
+            // .'$Any'.'|'.6.''
+            res = json_model_9(pval, (path != null ? lpath_1 : null), rep);
+            if (! res)
+            {
+                if (rep != null) rep.addEntry("unexpected $Any [.'$Any'.'|'.6.'']", (path != null ? lpath_1 : null));
+            }
+            if (! res)
+            {
+                return false;
+            }
+        }
+        return true;
+    }
+    
     // check $Any (.'$Any')
     public boolean json_model_9(Object val, Path path, Report rep)
     {
@@ -215,10 +245,10 @@ public class xoropt_001 extends ModelChecker
                             if (! res)
                             {
                                 // .'$Any'.'|'.6
-                                res = json_model_8(val, path, rep);
+                                res = _jm_obj_1(val, path, rep);
                                 if (! res)
                                 {
-                                    if (rep != null) rep.addEntry("unexpected $O [.'$Any'.'|'.6]", path);
+                                    if (rep != null) rep.addEntry("unexpected element [.'$Any'.'|'.6]", path);
                                 }
                             }
                         }

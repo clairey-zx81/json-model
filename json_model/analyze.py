@@ -312,6 +312,7 @@ def ultimate_model(jm: JsonModel, model: ModelType, constrained=True, strict=Fal
         case _:
             return model
 
+# this seems partially redundant with constant_values?
 def evalModel(jm: JsonModel, model: ModelType, lists: bool = False):
     """Tell if an ultimate model value has a constant."""
     # FIXME should it detect @ eq?
@@ -340,7 +341,7 @@ def evalModel(jm: JsonModel, model: ModelType, lists: bool = False):
     elif lists and tv is dict and ("|" in v or "^" in v):
         op = "|" if "|" in v else "^"
         orcst = [ evalModel(jm, m, False) for m in v[op] ]
-        log.debug(f"orcst = {orcst}")
+        # log.debug(f"orcst = {orcst}")
         return None if any(map(lambda c: c is None, orcst)) else orcst
     else:
         return None
@@ -369,19 +370,21 @@ def disjunct_analyse(jm: JsonModel, model: ModelType, mpath: ModelPath, lists: b
         return None
     # only objects: collect their direct mandatory properties
     all_props: list[set[str]] = [
-        set(k for k in m.keys() if k and k[0] not in ("$", "?", "/"))
-            for m in models if isinstance(m, dict)
+        set((k[1:] if k[0] in ("_", "!") else k)
+                for k in m.keys() if k and k[0] not in ("$", "?", "/"))
+                    for m in models if isinstance(m, dict)
     ]
     # get cleaned props and their constant values
     all_const_props: list[dict[str, Constants]] = []
     for props, model in zip(all_props, models):
         consts: dict[str, Constants] = {}
         assert isinstance(model, dict)
-        for prop in props:
+        for p in props:
+            # mandatory props should be normalized…
+            prop = f"_{p}" if f"_{p}" in model else f"!{p}" if f"!{p}" in model else p
             val = evalModel(jm, model[prop], lists)
             if val is not None:
-                key = prop[1:] if prop[0] in ("_", "!") else prop
-                consts[key] = val
+                consts[p] = val
         all_const_props.append(consts)
     log.debug(f"all_const_props = {all_const_props}")
     # tag candidates must:
@@ -431,7 +434,10 @@ def disjunct_analyse(jm: JsonModel, model: ModelType, mpath: ModelPath, lists: b
     # one tag with one type and only constants found!
     # FIXME determinism?
     tag_name = candidates_distinct.pop()
-    tag_type = ultimate_type(jm, all_const_props[0][tag_name])
-    assert tag_type in (bool, int, float, str)
+    one_tag_value = all_const_props[0][tag_name]
+    if isinstance(one_tag_value, list):  # list should not be empty
+        one_tag_value = one_tag_value[0]
+    tag_type = ultimate_type(jm, one_tag_value)
+    assert tag_type in (bool, int, float, str), f"type is ok: {tag_type}"
 
     return tag_name, tag_type, models, all_const_props

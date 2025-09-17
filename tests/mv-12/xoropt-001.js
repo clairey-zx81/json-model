@@ -147,6 +147,33 @@ function json_model_8(val, path, rep)
     return res;
 }
 
+// object .'$Any'.'|'.6
+function _jm_obj_1(val, path, rep)
+{
+    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    {
+        rep !== null && rep.push(["not an object [.'$Any'.'|'.6]", path])
+        return false;
+    }
+    let res;
+    for (const [prop, pval] of Object.entries(val))
+    {
+        let lpath_1 = path ? path.concat([prop]) : null;
+        // handle other props
+        // .'$Any'.'|'.6.''
+        res = json_model_9(pval, (path ? lpath_1 : null), rep);
+        if (! res)
+        {
+            rep !== null && rep.push(["unexpected $Any [.'$Any'.'|'.6.'']", (path ? lpath_1 : null)])
+        }
+        if (! res)
+        {
+            return false;
+        }
+    }
+    return true;
+}
+
 // check $Any (.'$Any')
 function json_model_9(val, path, rep)
 {
@@ -201,10 +228,10 @@ function json_model_9(val, path, rep)
                         if (! res)
                         {
                             // .'$Any'.'|'.6
-                            res = json_model_8(val, path, rep);
+                            res = _jm_obj_1(val, path, rep);
                             if (! res)
                             {
-                                rep !== null && rep.push(["unexpected $O [.'$Any'.'|'.6]", path])
+                                rep !== null && rep.push(["unexpected element [.'$Any'.'|'.6]", path])
                             }
                         }
                     }

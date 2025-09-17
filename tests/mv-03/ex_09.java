@@ -137,16 +137,54 @@ public class ex_09 extends ModelChecker
         return res;
     }
     
+    // object .'$ex08#EX08'.'|'.0
+    public boolean _jm_obj_1(Object val, Path path, Report rep)
+    {
+        if (! json.isObject(val))
+        {
+            if (rep != null) rep.addEntry("not an object [.'$ex08#EX08'.'|'.0]", path);
+            return false;
+        }
+        boolean res;
+        Iterator<String> prop_loop = json.objectIterator(val);
+        while (prop_loop.hasNext())
+        {
+            String prop = prop_loop.next();
+            Object pval = json.objectValue(val, prop);
+            Path lpath_1 = new Path(prop, path);
+            if (rt.is_valid_url(prop))
+            {
+                // handle 1 key props
+                // .'$ex08#EX08'.'|'.0.'$URL'
+                res = json_model_6(pval, (path != null ? lpath_1 : null), rep);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected $VAL [.'$ex08#EX08'.'|'.0.'$URL']", (path != null ? lpath_1 : null));
+                }
+                if (! res)
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                if (rep != null) rep.addEntry("unexpected prop [.'$ex08#EX08'.'|'.0]", (path != null ? lpath_1 : null));
+                return false;
+            }
+        }
+        return true;
+    }
+    
     // check $ex08#EX08 (.'$ex08#EX08')
     public boolean json_model_9(Object val, Path path, Report rep)
     {
         boolean res;
         // .'$ex08#EX08'
         // .'$ex08#EX08'.'|'.0
-        res = json_model_8(val, path, rep);
+        res = _jm_obj_1(val, path, rep);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected $map [.'$ex08#EX08'.'|'.0]", path);
+            if (rep != null) rep.addEntry("unexpected element [.'$ex08#EX08'.'|'.0]", path);
         }
         if (! res)
         {
@@ -173,57 +211,6 @@ public class ex_09 extends ModelChecker
         else
         {
             if (rep != null) rep.addEntry("no model matched [.'$ex08#EX08'.'|']", path);
-        }
-        return res;
-    }
-    
-    // object .'$ex08#map'
-    public boolean _jm_obj_1(Object val, Path path, Report rep)
-    {
-        if (! json.isObject(val))
-        {
-            if (rep != null) rep.addEntry("not an object [.'$ex08#map']", path);
-            return false;
-        }
-        boolean res;
-        Iterator<String> prop_loop = json.objectIterator(val);
-        while (prop_loop.hasNext())
-        {
-            String prop = prop_loop.next();
-            Object pval = json.objectValue(val, prop);
-            Path lpath_1 = new Path(prop, path);
-            if (rt.is_valid_url(prop))
-            {
-                // handle 1 key props
-                // .'$ex08#map'.'$URL'
-                res = json_model_6(pval, (path != null ? lpath_1 : null), rep);
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("unexpected $VAL [.'$ex08#map'.'$URL']", (path != null ? lpath_1 : null));
-                }
-                if (! res)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if (rep != null) rep.addEntry("unexpected prop [.'$ex08#map']", (path != null ? lpath_1 : null));
-                return false;
-            }
-        }
-        return true;
-    }
-    
-    // check $ex08#map (.'$ex08#map')
-    public boolean json_model_8(Object val, Path path, Report rep)
-    {
-        boolean res;
-        // .'$ex08#map'
-        res = _jm_obj_1(val, path, rep);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected element [.'$ex08#map']", path);
         }
         return res;
     }

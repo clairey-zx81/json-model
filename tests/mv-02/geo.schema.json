@@ -507,7 +507,29 @@
               "additionalProperties": true
             },
             {
-              "$ref": "#/$defs/GeometryCollection"
+              "type": "object",
+              "properties": {
+                "type": {
+                  "const": "GeometryCollection"
+                },
+                "geometries": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/$defs/geometry"
+                  }
+                },
+                "bbox": {
+                  "type": "array",
+                  "items": {
+                    "type": "number"
+                  }
+                }
+              },
+              "required": [
+                "type",
+                "geometries"
+              ],
+              "additionalProperties": true
             }
           ]
         },
@@ -577,13 +599,274 @@
       "$ref": "#/$defs/geometry"
     },
     {
-      "$ref": "#/$defs/GeometryCollection"
+      "type": "object",
+      "properties": {
+        "type": {
+          "const": "GeometryCollection"
+        },
+        "geometries": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/geometry"
+          }
+        },
+        "bbox": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          }
+        }
+      },
+      "required": [
+        "type",
+        "geometries"
+      ],
+      "additionalProperties": true
     },
     {
-      "$ref": "#/$defs/Feature"
+      "type": "object",
+      "properties": {
+        "type": {
+          "const": "Feature"
+        },
+        "geometry": {
+          "anyOf": [
+            {
+              "type": "null"
+            },
+            {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "const": "Point"
+                },
+                "coordinates": {
+                  "$ref": "#/$defs/position"
+                },
+                "bbox": {
+                  "type": "array",
+                  "items": {
+                    "type": "number"
+                  }
+                }
+              },
+              "required": [
+                "type",
+                "coordinates"
+              ],
+              "additionalProperties": true
+            },
+            {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "const": "MultiPoint"
+                },
+                "coordinates": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/$defs/position"
+                  }
+                },
+                "bbox": {
+                  "type": "array",
+                  "items": {
+                    "type": "number"
+                  }
+                }
+              },
+              "required": [
+                "type",
+                "coordinates"
+              ],
+              "additionalProperties": true
+            },
+            {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "const": "LineString"
+                },
+                "coordinates": {
+                  "$ref": "#/$defs/coord_array"
+                },
+                "bbox": {
+                  "type": "array",
+                  "items": {
+                    "type": "number"
+                  }
+                }
+              },
+              "required": [
+                "type",
+                "coordinates"
+              ],
+              "additionalProperties": true
+            },
+            {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "const": "MultiLineString"
+                },
+                "coordinates": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/$defs/coord_array"
+                  }
+                },
+                "bbox": {
+                  "type": "array",
+                  "items": {
+                    "type": "number"
+                  }
+                }
+              },
+              "required": [
+                "type",
+                "coordinates"
+              ],
+              "additionalProperties": true
+            },
+            {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "const": "Polygon"
+                },
+                "coordinates": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/$defs/linear_ring"
+                  }
+                },
+                "bbox": {
+                  "type": "array",
+                  "items": {
+                    "type": "number"
+                  }
+                }
+              },
+              "required": [
+                "type",
+                "coordinates"
+              ],
+              "additionalProperties": true
+            },
+            {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "const": "MultiPolygon"
+                },
+                "coordinates": {
+                  "type": "array",
+                  "items": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/$defs/linear_ring"
+                    }
+                  }
+                },
+                "bbox": {
+                  "type": "array",
+                  "items": {
+                    "type": "number"
+                  }
+                }
+              },
+              "required": [
+                "type",
+                "coordinates"
+              ],
+              "additionalProperties": true
+            },
+            {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "const": "GeometryCollection"
+                },
+                "geometries": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/$defs/geometry"
+                  }
+                },
+                "bbox": {
+                  "type": "array",
+                  "items": {
+                    "type": "number"
+                  }
+                }
+              },
+              "required": [
+                "type",
+                "geometries"
+              ],
+              "additionalProperties": true
+            }
+          ]
+        },
+        "properties": {
+          "anyOf": [
+            {
+              "type": "null"
+            },
+            {
+              "type": "object",
+              "additionalProperties": true
+            }
+          ]
+        },
+        "id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "number"
+            }
+          ]
+        },
+        "bbox": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          }
+        }
+      },
+      "required": [
+        "type",
+        "geometry",
+        "properties"
+      ],
+      "additionalProperties": true
     },
     {
-      "$ref": "#/$defs/FeatureCollection"
+      "type": "object",
+      "properties": {
+        "type": {
+          "const": "FeatureCollection"
+        },
+        "features": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Feature"
+          }
+        },
+        "bbox": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          }
+        }
+      },
+      "required": [
+        "type",
+        "features"
+      ],
+      "additionalProperties": true
     }
   ]
 }

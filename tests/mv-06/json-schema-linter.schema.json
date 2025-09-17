@@ -111,46 +111,732 @@
               "type": "boolean"
             },
             {
-              "$ref": "#/$defs/Null"
+              "type": "object",
+              "patternProperties": {
+                "^x-.*": true
+              },
+              "properties": {
+                "type": {
+                  "const": "null"
+                },
+                "$schema": {
+                  "type": "string"
+                },
+                "$id": {
+                  "type": "string"
+                },
+                "id": {
+                  "type": "string"
+                },
+                "$comment": {
+                  "type": "string"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "default": true,
+                "examples": {
+                  "type": "array",
+                  "items": true
+                },
+                "description": {
+                  "type": "string"
+                },
+                "$defs": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "$ref": "#/$defs/Schema"
+                  }
+                },
+                "definitions": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "$ref": "#/$defs/Schema"
+                  }
+                }
+              },
+              "required": [
+                "type"
+              ],
+              "additionalProperties": false
             },
             {
-              "$ref": "#/$defs/Bool"
+              "type": "object",
+              "patternProperties": {
+                "^x-.*": true
+              },
+              "properties": {
+                "type": {
+                  "const": "boolean"
+                },
+                "$schema": {
+                  "type": "string"
+                },
+                "$id": {
+                  "type": "string"
+                },
+                "id": {
+                  "type": "string"
+                },
+                "$comment": {
+                  "type": "string"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "default": true,
+                "examples": {
+                  "type": "array",
+                  "items": true
+                },
+                "description": {
+                  "type": "string"
+                },
+                "$defs": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "$ref": "#/$defs/Schema"
+                  }
+                },
+                "definitions": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "$ref": "#/$defs/Schema"
+                  }
+                }
+              },
+              "required": [
+                "type"
+              ],
+              "additionalProperties": false
             },
             {
-              "$ref": "#/$defs/Const"
+              "type": "object",
+              "patternProperties": {
+                "^x-.*": true
+              },
+              "properties": {
+                "const": {
+                  "$ref": "#/$defs/const"
+                },
+                "$schema": {
+                  "type": "string"
+                },
+                "$id": {
+                  "type": "string"
+                },
+                "id": {
+                  "type": "string"
+                },
+                "$comment": {
+                  "type": "string"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "default": true,
+                "examples": {
+                  "type": "array",
+                  "items": true
+                },
+                "description": {
+                  "type": "string"
+                },
+                "$defs": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "$ref": "#/$defs/Schema"
+                  }
+                },
+                "definitions": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "$ref": "#/$defs/Schema"
+                  }
+                }
+              },
+              "required": [
+                "const"
+              ],
+              "additionalProperties": false
             },
             {
-              "$ref": "#/$defs/Enum"
+              "type": "object",
+              "patternProperties": {
+                "^x-.*": true
+              },
+              "properties": {
+                "enum": {
+                  "$ref": "#/$defs/enum"
+                },
+                "$schema": {
+                  "type": "string"
+                },
+                "$id": {
+                  "type": "string"
+                },
+                "id": {
+                  "type": "string"
+                },
+                "$comment": {
+                  "type": "string"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "default": true,
+                "examples": {
+                  "type": "array",
+                  "items": true
+                },
+                "description": {
+                  "type": "string"
+                },
+                "$defs": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "$ref": "#/$defs/Schema"
+                  }
+                },
+                "definitions": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "$ref": "#/$defs/Schema"
+                  }
+                }
+              },
+              "required": [
+                "enum"
+              ],
+              "additionalProperties": false
             },
             {
-              "$ref": "#/$defs/Integer"
+              "type": "object",
+              "patternProperties": {
+                "^x-.*": true
+              },
+              "properties": {
+                "type": {
+                  "const": "integer"
+                },
+                "$schema": {
+                  "type": "string"
+                },
+                "$id": {
+                  "type": "string"
+                },
+                "id": {
+                  "type": "string"
+                },
+                "$comment": {
+                  "type": "string"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "default": true,
+                "examples": {
+                  "type": "array",
+                  "items": true
+                },
+                "description": {
+                  "type": "string"
+                },
+                "$defs": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "$ref": "#/$defs/Schema"
+                  }
+                },
+                "definitions": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "$ref": "#/$defs/Schema"
+                  }
+                },
+                "minimum": {
+                  "type": "number"
+                },
+                "maximum": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "type"
+              ],
+              "additionalProperties": false
             },
             {
-              "$ref": "#/$defs/Number"
+              "type": "object",
+              "patternProperties": {
+                "^x-.*": true
+              },
+              "properties": {
+                "type": {
+                  "const": "number"
+                },
+                "$schema": {
+                  "type": "string"
+                },
+                "$id": {
+                  "type": "string"
+                },
+                "id": {
+                  "type": "string"
+                },
+                "$comment": {
+                  "type": "string"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "default": true,
+                "examples": {
+                  "type": "array",
+                  "items": true
+                },
+                "description": {
+                  "type": "string"
+                },
+                "$defs": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "$ref": "#/$defs/Schema"
+                  }
+                },
+                "definitions": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "$ref": "#/$defs/Schema"
+                  }
+                },
+                "minimum": {
+                  "type": "number"
+                },
+                "maximum": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "type"
+              ],
+              "additionalProperties": false
             },
             {
-              "$ref": "#/$defs/String"
+              "type": "object",
+              "patternProperties": {
+                "^x-.*": true
+              },
+              "properties": {
+                "type": {
+                  "const": "string"
+                },
+                "$schema": {
+                  "type": "string"
+                },
+                "$id": {
+                  "type": "string"
+                },
+                "id": {
+                  "type": "string"
+                },
+                "$comment": {
+                  "type": "string"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "default": true,
+                "examples": {
+                  "type": "array",
+                  "items": true
+                },
+                "description": {
+                  "type": "string"
+                },
+                "$defs": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "$ref": "#/$defs/Schema"
+                  }
+                },
+                "definitions": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "$ref": "#/$defs/Schema"
+                  }
+                },
+                "pattern": {
+                  "type": "string",
+                  "format": "regex"
+                },
+                "minLength": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "maxLength": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "format": {
+                  "enum": [
+                    "uri",
+                    "uri-reference",
+                    "iri",
+                    "iri-reference",
+                    "date",
+                    "time",
+                    "date-time",
+                    "ipv4",
+                    "ipv6",
+                    "regex",
+                    "uuid",
+                    "hostname",
+                    "email",
+                    "idn-hostname",
+                    "idn-email",
+                    "duration",
+                    "int32",
+                    "int64",
+                    "uint",
+                    "uint32",
+                    "uint64",
+                    "json-pointer",
+                    "relative-json-pointer",
+                    "byte",
+                    "double",
+                    "int",
+                    "mime-type"
+                  ]
+                }
+              },
+              "required": [
+                "type"
+              ],
+              "additionalProperties": false
             },
             {
               "$ref": "#/$defs/Array"
             },
             {
-              "$ref": "#/$defs/Object"
+              "type": "object",
+              "patternProperties": {
+                "^x-.*": true
+              },
+              "properties": {
+                "type": {
+                  "const": "object"
+                },
+                "$schema": {
+                  "type": "string"
+                },
+                "$id": {
+                  "type": "string"
+                },
+                "id": {
+                  "type": "string"
+                },
+                "$comment": {
+                  "type": "string"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "default": true,
+                "examples": {
+                  "type": "array",
+                  "items": true
+                },
+                "description": {
+                  "type": "string"
+                },
+                "$defs": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "$ref": "#/$defs/Schema"
+                  }
+                },
+                "definitions": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "$ref": "#/$defs/Schema"
+                  }
+                },
+                "properties": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "$ref": "#/$defs/Schema"
+                  }
+                },
+                "required": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "additionalProperties": {
+                  "$ref": "#/$defs/Schema"
+                },
+                "patternProperties": {
+                  "type": "object",
+                  "patternProperties": {
+                    "^(?s).*$": {
+                      "$ref": "#/$defs/Schema"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              },
+              "required": [
+                "type"
+              ],
+              "additionalProperties": false
             },
             {
-              "$ref": "#/$defs/AllOf"
+              "type": "object",
+              "patternProperties": {
+                "^x-.*": true
+              },
+              "properties": {
+                "allOf": {
+                  "$ref": "#/$defs/schemaArray"
+                },
+                "$schema": {
+                  "type": "string"
+                },
+                "$id": {
+                  "type": "string"
+                },
+                "id": {
+                  "type": "string"
+                },
+                "$comment": {
+                  "type": "string"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "default": true,
+                "examples": {
+                  "type": "array",
+                  "items": true
+                },
+                "description": {
+                  "type": "string"
+                },
+                "$defs": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "$ref": "#/$defs/Schema"
+                  }
+                },
+                "definitions": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "$ref": "#/$defs/Schema"
+                  }
+                }
+              },
+              "required": [
+                "allOf"
+              ],
+              "additionalProperties": false
             },
             {
-              "$ref": "#/$defs/AnyOf"
+              "type": "object",
+              "patternProperties": {
+                "^x-.*": true
+              },
+              "properties": {
+                "anyOf": {
+                  "$ref": "#/$defs/schemaArray"
+                },
+                "$schema": {
+                  "type": "string"
+                },
+                "$id": {
+                  "type": "string"
+                },
+                "id": {
+                  "type": "string"
+                },
+                "$comment": {
+                  "type": "string"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "default": true,
+                "examples": {
+                  "type": "array",
+                  "items": true
+                },
+                "description": {
+                  "type": "string"
+                },
+                "$defs": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "$ref": "#/$defs/Schema"
+                  }
+                },
+                "definitions": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "$ref": "#/$defs/Schema"
+                  }
+                }
+              },
+              "required": [
+                "anyOf"
+              ],
+              "additionalProperties": false
             },
             {
-              "$ref": "#/$defs/OneOf"
+              "type": "object",
+              "patternProperties": {
+                "^x-.*": true
+              },
+              "properties": {
+                "oneOf": {
+                  "$ref": "#/$defs/schemaArray"
+                },
+                "$schema": {
+                  "type": "string"
+                },
+                "$id": {
+                  "type": "string"
+                },
+                "id": {
+                  "type": "string"
+                },
+                "$comment": {
+                  "type": "string"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "default": true,
+                "examples": {
+                  "type": "array",
+                  "items": true
+                },
+                "description": {
+                  "type": "string"
+                },
+                "$defs": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "$ref": "#/$defs/Schema"
+                  }
+                },
+                "definitions": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "$ref": "#/$defs/Schema"
+                  }
+                }
+              },
+              "required": [
+                "oneOf"
+              ],
+              "additionalProperties": false
             },
             {
-              "$ref": "#/$defs/Ref"
+              "type": "object",
+              "patternProperties": {
+                "^x-.*": true
+              },
+              "properties": {
+                "$ref": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "$schema": {
+                  "type": "string"
+                },
+                "$id": {
+                  "type": "string"
+                },
+                "id": {
+                  "type": "string"
+                },
+                "$comment": {
+                  "type": "string"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "default": true,
+                "examples": {
+                  "type": "array",
+                  "items": true
+                },
+                "description": {
+                  "type": "string"
+                },
+                "$defs": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "$ref": "#/$defs/Schema"
+                  }
+                },
+                "definitions": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "$ref": "#/$defs/Schema"
+                  }
+                }
+              },
+              "required": [
+                "$ref"
+              ],
+              "additionalProperties": false
             },
             {
-              "$ref": "#/$defs/metas"
+              "description": "there is a trick with $schema\u2026 in RootSchema below",
+              "type": "object",
+              "patternProperties": {
+                "^x-.*": true
+              },
+              "properties": {
+                "$schema": {
+                  "type": "string"
+                },
+                "$id": {
+                  "type": "string"
+                },
+                "id": {
+                  "type": "string"
+                },
+                "$comment": {
+                  "type": "string"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "default": true,
+                "examples": {
+                  "type": "array",
+                  "items": true
+                },
+                "description": {
+                  "type": "string"
+                },
+                "$defs": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "$ref": "#/$defs/Schema"
+                  }
+                },
+                "definitions": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "$ref": "#/$defs/Schema"
+                  }
+                }
+              },
+              "additionalProperties": false
             },
             {
               "$ref": "#/$defs/schemaArray"
@@ -409,46 +1095,732 @@
               "type": "boolean"
             },
             {
-              "$ref": "#/$defs/Null"
+              "type": "object",
+              "patternProperties": {
+                "^x-.*": true
+              },
+              "properties": {
+                "type": {
+                  "const": "null"
+                },
+                "$schema": {
+                  "type": "string"
+                },
+                "$id": {
+                  "type": "string"
+                },
+                "id": {
+                  "type": "string"
+                },
+                "$comment": {
+                  "type": "string"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "default": true,
+                "examples": {
+                  "type": "array",
+                  "items": true
+                },
+                "description": {
+                  "type": "string"
+                },
+                "$defs": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "$ref": "#/$defs/Schema"
+                  }
+                },
+                "definitions": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "$ref": "#/$defs/Schema"
+                  }
+                }
+              },
+              "required": [
+                "type"
+              ],
+              "additionalProperties": false
             },
             {
-              "$ref": "#/$defs/Bool"
+              "type": "object",
+              "patternProperties": {
+                "^x-.*": true
+              },
+              "properties": {
+                "type": {
+                  "const": "boolean"
+                },
+                "$schema": {
+                  "type": "string"
+                },
+                "$id": {
+                  "type": "string"
+                },
+                "id": {
+                  "type": "string"
+                },
+                "$comment": {
+                  "type": "string"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "default": true,
+                "examples": {
+                  "type": "array",
+                  "items": true
+                },
+                "description": {
+                  "type": "string"
+                },
+                "$defs": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "$ref": "#/$defs/Schema"
+                  }
+                },
+                "definitions": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "$ref": "#/$defs/Schema"
+                  }
+                }
+              },
+              "required": [
+                "type"
+              ],
+              "additionalProperties": false
             },
             {
-              "$ref": "#/$defs/Const"
+              "type": "object",
+              "patternProperties": {
+                "^x-.*": true
+              },
+              "properties": {
+                "const": {
+                  "$ref": "#/$defs/const"
+                },
+                "$schema": {
+                  "type": "string"
+                },
+                "$id": {
+                  "type": "string"
+                },
+                "id": {
+                  "type": "string"
+                },
+                "$comment": {
+                  "type": "string"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "default": true,
+                "examples": {
+                  "type": "array",
+                  "items": true
+                },
+                "description": {
+                  "type": "string"
+                },
+                "$defs": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "$ref": "#/$defs/Schema"
+                  }
+                },
+                "definitions": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "$ref": "#/$defs/Schema"
+                  }
+                }
+              },
+              "required": [
+                "const"
+              ],
+              "additionalProperties": false
             },
             {
-              "$ref": "#/$defs/Enum"
+              "type": "object",
+              "patternProperties": {
+                "^x-.*": true
+              },
+              "properties": {
+                "enum": {
+                  "$ref": "#/$defs/enum"
+                },
+                "$schema": {
+                  "type": "string"
+                },
+                "$id": {
+                  "type": "string"
+                },
+                "id": {
+                  "type": "string"
+                },
+                "$comment": {
+                  "type": "string"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "default": true,
+                "examples": {
+                  "type": "array",
+                  "items": true
+                },
+                "description": {
+                  "type": "string"
+                },
+                "$defs": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "$ref": "#/$defs/Schema"
+                  }
+                },
+                "definitions": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "$ref": "#/$defs/Schema"
+                  }
+                }
+              },
+              "required": [
+                "enum"
+              ],
+              "additionalProperties": false
             },
             {
-              "$ref": "#/$defs/Integer"
+              "type": "object",
+              "patternProperties": {
+                "^x-.*": true
+              },
+              "properties": {
+                "type": {
+                  "const": "integer"
+                },
+                "$schema": {
+                  "type": "string"
+                },
+                "$id": {
+                  "type": "string"
+                },
+                "id": {
+                  "type": "string"
+                },
+                "$comment": {
+                  "type": "string"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "default": true,
+                "examples": {
+                  "type": "array",
+                  "items": true
+                },
+                "description": {
+                  "type": "string"
+                },
+                "$defs": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "$ref": "#/$defs/Schema"
+                  }
+                },
+                "definitions": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "$ref": "#/$defs/Schema"
+                  }
+                },
+                "minimum": {
+                  "type": "number"
+                },
+                "maximum": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "type"
+              ],
+              "additionalProperties": false
             },
             {
-              "$ref": "#/$defs/Number"
+              "type": "object",
+              "patternProperties": {
+                "^x-.*": true
+              },
+              "properties": {
+                "type": {
+                  "const": "number"
+                },
+                "$schema": {
+                  "type": "string"
+                },
+                "$id": {
+                  "type": "string"
+                },
+                "id": {
+                  "type": "string"
+                },
+                "$comment": {
+                  "type": "string"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "default": true,
+                "examples": {
+                  "type": "array",
+                  "items": true
+                },
+                "description": {
+                  "type": "string"
+                },
+                "$defs": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "$ref": "#/$defs/Schema"
+                  }
+                },
+                "definitions": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "$ref": "#/$defs/Schema"
+                  }
+                },
+                "minimum": {
+                  "type": "number"
+                },
+                "maximum": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "type"
+              ],
+              "additionalProperties": false
             },
             {
-              "$ref": "#/$defs/String"
+              "type": "object",
+              "patternProperties": {
+                "^x-.*": true
+              },
+              "properties": {
+                "type": {
+                  "const": "string"
+                },
+                "$schema": {
+                  "type": "string"
+                },
+                "$id": {
+                  "type": "string"
+                },
+                "id": {
+                  "type": "string"
+                },
+                "$comment": {
+                  "type": "string"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "default": true,
+                "examples": {
+                  "type": "array",
+                  "items": true
+                },
+                "description": {
+                  "type": "string"
+                },
+                "$defs": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "$ref": "#/$defs/Schema"
+                  }
+                },
+                "definitions": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "$ref": "#/$defs/Schema"
+                  }
+                },
+                "pattern": {
+                  "type": "string",
+                  "format": "regex"
+                },
+                "minLength": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "maxLength": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "format": {
+                  "enum": [
+                    "uri",
+                    "uri-reference",
+                    "iri",
+                    "iri-reference",
+                    "date",
+                    "time",
+                    "date-time",
+                    "ipv4",
+                    "ipv6",
+                    "regex",
+                    "uuid",
+                    "hostname",
+                    "email",
+                    "idn-hostname",
+                    "idn-email",
+                    "duration",
+                    "int32",
+                    "int64",
+                    "uint",
+                    "uint32",
+                    "uint64",
+                    "json-pointer",
+                    "relative-json-pointer",
+                    "byte",
+                    "double",
+                    "int",
+                    "mime-type"
+                  ]
+                }
+              },
+              "required": [
+                "type"
+              ],
+              "additionalProperties": false
             },
             {
               "$ref": "#/$defs/Array"
             },
             {
-              "$ref": "#/$defs/Object"
+              "type": "object",
+              "patternProperties": {
+                "^x-.*": true
+              },
+              "properties": {
+                "type": {
+                  "const": "object"
+                },
+                "$schema": {
+                  "type": "string"
+                },
+                "$id": {
+                  "type": "string"
+                },
+                "id": {
+                  "type": "string"
+                },
+                "$comment": {
+                  "type": "string"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "default": true,
+                "examples": {
+                  "type": "array",
+                  "items": true
+                },
+                "description": {
+                  "type": "string"
+                },
+                "$defs": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "$ref": "#/$defs/Schema"
+                  }
+                },
+                "definitions": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "$ref": "#/$defs/Schema"
+                  }
+                },
+                "properties": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "$ref": "#/$defs/Schema"
+                  }
+                },
+                "required": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "additionalProperties": {
+                  "$ref": "#/$defs/Schema"
+                },
+                "patternProperties": {
+                  "type": "object",
+                  "patternProperties": {
+                    "^(?s).*$": {
+                      "$ref": "#/$defs/Schema"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              },
+              "required": [
+                "type"
+              ],
+              "additionalProperties": false
             },
             {
-              "$ref": "#/$defs/AllOf"
+              "type": "object",
+              "patternProperties": {
+                "^x-.*": true
+              },
+              "properties": {
+                "allOf": {
+                  "$ref": "#/$defs/schemaArray"
+                },
+                "$schema": {
+                  "type": "string"
+                },
+                "$id": {
+                  "type": "string"
+                },
+                "id": {
+                  "type": "string"
+                },
+                "$comment": {
+                  "type": "string"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "default": true,
+                "examples": {
+                  "type": "array",
+                  "items": true
+                },
+                "description": {
+                  "type": "string"
+                },
+                "$defs": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "$ref": "#/$defs/Schema"
+                  }
+                },
+                "definitions": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "$ref": "#/$defs/Schema"
+                  }
+                }
+              },
+              "required": [
+                "allOf"
+              ],
+              "additionalProperties": false
             },
             {
-              "$ref": "#/$defs/AnyOf"
+              "type": "object",
+              "patternProperties": {
+                "^x-.*": true
+              },
+              "properties": {
+                "anyOf": {
+                  "$ref": "#/$defs/schemaArray"
+                },
+                "$schema": {
+                  "type": "string"
+                },
+                "$id": {
+                  "type": "string"
+                },
+                "id": {
+                  "type": "string"
+                },
+                "$comment": {
+                  "type": "string"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "default": true,
+                "examples": {
+                  "type": "array",
+                  "items": true
+                },
+                "description": {
+                  "type": "string"
+                },
+                "$defs": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "$ref": "#/$defs/Schema"
+                  }
+                },
+                "definitions": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "$ref": "#/$defs/Schema"
+                  }
+                }
+              },
+              "required": [
+                "anyOf"
+              ],
+              "additionalProperties": false
             },
             {
-              "$ref": "#/$defs/OneOf"
+              "type": "object",
+              "patternProperties": {
+                "^x-.*": true
+              },
+              "properties": {
+                "oneOf": {
+                  "$ref": "#/$defs/schemaArray"
+                },
+                "$schema": {
+                  "type": "string"
+                },
+                "$id": {
+                  "type": "string"
+                },
+                "id": {
+                  "type": "string"
+                },
+                "$comment": {
+                  "type": "string"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "default": true,
+                "examples": {
+                  "type": "array",
+                  "items": true
+                },
+                "description": {
+                  "type": "string"
+                },
+                "$defs": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "$ref": "#/$defs/Schema"
+                  }
+                },
+                "definitions": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "$ref": "#/$defs/Schema"
+                  }
+                }
+              },
+              "required": [
+                "oneOf"
+              ],
+              "additionalProperties": false
             },
             {
-              "$ref": "#/$defs/Ref"
+              "type": "object",
+              "patternProperties": {
+                "^x-.*": true
+              },
+              "properties": {
+                "$ref": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "$schema": {
+                  "type": "string"
+                },
+                "$id": {
+                  "type": "string"
+                },
+                "id": {
+                  "type": "string"
+                },
+                "$comment": {
+                  "type": "string"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "default": true,
+                "examples": {
+                  "type": "array",
+                  "items": true
+                },
+                "description": {
+                  "type": "string"
+                },
+                "$defs": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "$ref": "#/$defs/Schema"
+                  }
+                },
+                "definitions": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "$ref": "#/$defs/Schema"
+                  }
+                }
+              },
+              "required": [
+                "$ref"
+              ],
+              "additionalProperties": false
             },
             {
-              "$ref": "#/$defs/metas"
+              "description": "there is a trick with $schema\u2026 in RootSchema below",
+              "type": "object",
+              "patternProperties": {
+                "^x-.*": true
+              },
+              "properties": {
+                "$schema": {
+                  "type": "string"
+                },
+                "$id": {
+                  "type": "string"
+                },
+                "id": {
+                  "type": "string"
+                },
+                "$comment": {
+                  "type": "string"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "default": true,
+                "examples": {
+                  "type": "array",
+                  "items": true
+                },
+                "description": {
+                  "type": "string"
+                },
+                "$defs": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "$ref": "#/$defs/Schema"
+                  }
+                },
+                "definitions": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "$ref": "#/$defs/Schema"
+                  }
+                }
+              },
+              "additionalProperties": false
             },
             {
               "$ref": "#/$defs/schemaArray"
@@ -1066,46 +2438,732 @@
       "description": "we could use ^ instead of | below",
       "anyOf": [
         {
-          "$ref": "#/$defs/Null"
+          "type": "object",
+          "patternProperties": {
+            "^x-.*": true
+          },
+          "properties": {
+            "type": {
+              "const": "null"
+            },
+            "$schema": {
+              "type": "string"
+            },
+            "$id": {
+              "type": "string"
+            },
+            "id": {
+              "type": "string"
+            },
+            "$comment": {
+              "type": "string"
+            },
+            "title": {
+              "type": "string"
+            },
+            "default": true,
+            "examples": {
+              "type": "array",
+              "items": true
+            },
+            "description": {
+              "type": "string"
+            },
+            "$defs": {
+              "type": "object",
+              "additionalProperties": {
+                "$ref": "#/$defs/Schema"
+              }
+            },
+            "definitions": {
+              "type": "object",
+              "additionalProperties": {
+                "$ref": "#/$defs/Schema"
+              }
+            }
+          },
+          "required": [
+            "type"
+          ],
+          "additionalProperties": false
         },
         {
-          "$ref": "#/$defs/Bool"
+          "type": "object",
+          "patternProperties": {
+            "^x-.*": true
+          },
+          "properties": {
+            "type": {
+              "const": "boolean"
+            },
+            "$schema": {
+              "type": "string"
+            },
+            "$id": {
+              "type": "string"
+            },
+            "id": {
+              "type": "string"
+            },
+            "$comment": {
+              "type": "string"
+            },
+            "title": {
+              "type": "string"
+            },
+            "default": true,
+            "examples": {
+              "type": "array",
+              "items": true
+            },
+            "description": {
+              "type": "string"
+            },
+            "$defs": {
+              "type": "object",
+              "additionalProperties": {
+                "$ref": "#/$defs/Schema"
+              }
+            },
+            "definitions": {
+              "type": "object",
+              "additionalProperties": {
+                "$ref": "#/$defs/Schema"
+              }
+            }
+          },
+          "required": [
+            "type"
+          ],
+          "additionalProperties": false
         },
         {
-          "$ref": "#/$defs/Const"
+          "type": "object",
+          "patternProperties": {
+            "^x-.*": true
+          },
+          "properties": {
+            "const": {
+              "$ref": "#/$defs/const"
+            },
+            "$schema": {
+              "type": "string"
+            },
+            "$id": {
+              "type": "string"
+            },
+            "id": {
+              "type": "string"
+            },
+            "$comment": {
+              "type": "string"
+            },
+            "title": {
+              "type": "string"
+            },
+            "default": true,
+            "examples": {
+              "type": "array",
+              "items": true
+            },
+            "description": {
+              "type": "string"
+            },
+            "$defs": {
+              "type": "object",
+              "additionalProperties": {
+                "$ref": "#/$defs/Schema"
+              }
+            },
+            "definitions": {
+              "type": "object",
+              "additionalProperties": {
+                "$ref": "#/$defs/Schema"
+              }
+            }
+          },
+          "required": [
+            "const"
+          ],
+          "additionalProperties": false
         },
         {
-          "$ref": "#/$defs/Enum"
+          "type": "object",
+          "patternProperties": {
+            "^x-.*": true
+          },
+          "properties": {
+            "enum": {
+              "$ref": "#/$defs/enum"
+            },
+            "$schema": {
+              "type": "string"
+            },
+            "$id": {
+              "type": "string"
+            },
+            "id": {
+              "type": "string"
+            },
+            "$comment": {
+              "type": "string"
+            },
+            "title": {
+              "type": "string"
+            },
+            "default": true,
+            "examples": {
+              "type": "array",
+              "items": true
+            },
+            "description": {
+              "type": "string"
+            },
+            "$defs": {
+              "type": "object",
+              "additionalProperties": {
+                "$ref": "#/$defs/Schema"
+              }
+            },
+            "definitions": {
+              "type": "object",
+              "additionalProperties": {
+                "$ref": "#/$defs/Schema"
+              }
+            }
+          },
+          "required": [
+            "enum"
+          ],
+          "additionalProperties": false
         },
         {
-          "$ref": "#/$defs/Integer"
+          "type": "object",
+          "patternProperties": {
+            "^x-.*": true
+          },
+          "properties": {
+            "type": {
+              "const": "integer"
+            },
+            "$schema": {
+              "type": "string"
+            },
+            "$id": {
+              "type": "string"
+            },
+            "id": {
+              "type": "string"
+            },
+            "$comment": {
+              "type": "string"
+            },
+            "title": {
+              "type": "string"
+            },
+            "default": true,
+            "examples": {
+              "type": "array",
+              "items": true
+            },
+            "description": {
+              "type": "string"
+            },
+            "$defs": {
+              "type": "object",
+              "additionalProperties": {
+                "$ref": "#/$defs/Schema"
+              }
+            },
+            "definitions": {
+              "type": "object",
+              "additionalProperties": {
+                "$ref": "#/$defs/Schema"
+              }
+            },
+            "minimum": {
+              "type": "number"
+            },
+            "maximum": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "type"
+          ],
+          "additionalProperties": false
         },
         {
-          "$ref": "#/$defs/Number"
+          "type": "object",
+          "patternProperties": {
+            "^x-.*": true
+          },
+          "properties": {
+            "type": {
+              "const": "number"
+            },
+            "$schema": {
+              "type": "string"
+            },
+            "$id": {
+              "type": "string"
+            },
+            "id": {
+              "type": "string"
+            },
+            "$comment": {
+              "type": "string"
+            },
+            "title": {
+              "type": "string"
+            },
+            "default": true,
+            "examples": {
+              "type": "array",
+              "items": true
+            },
+            "description": {
+              "type": "string"
+            },
+            "$defs": {
+              "type": "object",
+              "additionalProperties": {
+                "$ref": "#/$defs/Schema"
+              }
+            },
+            "definitions": {
+              "type": "object",
+              "additionalProperties": {
+                "$ref": "#/$defs/Schema"
+              }
+            },
+            "minimum": {
+              "type": "number"
+            },
+            "maximum": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "type"
+          ],
+          "additionalProperties": false
         },
         {
-          "$ref": "#/$defs/String"
+          "type": "object",
+          "patternProperties": {
+            "^x-.*": true
+          },
+          "properties": {
+            "type": {
+              "const": "string"
+            },
+            "$schema": {
+              "type": "string"
+            },
+            "$id": {
+              "type": "string"
+            },
+            "id": {
+              "type": "string"
+            },
+            "$comment": {
+              "type": "string"
+            },
+            "title": {
+              "type": "string"
+            },
+            "default": true,
+            "examples": {
+              "type": "array",
+              "items": true
+            },
+            "description": {
+              "type": "string"
+            },
+            "$defs": {
+              "type": "object",
+              "additionalProperties": {
+                "$ref": "#/$defs/Schema"
+              }
+            },
+            "definitions": {
+              "type": "object",
+              "additionalProperties": {
+                "$ref": "#/$defs/Schema"
+              }
+            },
+            "pattern": {
+              "type": "string",
+              "format": "regex"
+            },
+            "minLength": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "maxLength": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "format": {
+              "enum": [
+                "uri",
+                "uri-reference",
+                "iri",
+                "iri-reference",
+                "date",
+                "time",
+                "date-time",
+                "ipv4",
+                "ipv6",
+                "regex",
+                "uuid",
+                "hostname",
+                "email",
+                "idn-hostname",
+                "idn-email",
+                "duration",
+                "int32",
+                "int64",
+                "uint",
+                "uint32",
+                "uint64",
+                "json-pointer",
+                "relative-json-pointer",
+                "byte",
+                "double",
+                "int",
+                "mime-type"
+              ]
+            }
+          },
+          "required": [
+            "type"
+          ],
+          "additionalProperties": false
         },
         {
           "$ref": "#/$defs/Array"
         },
         {
-          "$ref": "#/$defs/Object"
+          "type": "object",
+          "patternProperties": {
+            "^x-.*": true
+          },
+          "properties": {
+            "type": {
+              "const": "object"
+            },
+            "$schema": {
+              "type": "string"
+            },
+            "$id": {
+              "type": "string"
+            },
+            "id": {
+              "type": "string"
+            },
+            "$comment": {
+              "type": "string"
+            },
+            "title": {
+              "type": "string"
+            },
+            "default": true,
+            "examples": {
+              "type": "array",
+              "items": true
+            },
+            "description": {
+              "type": "string"
+            },
+            "$defs": {
+              "type": "object",
+              "additionalProperties": {
+                "$ref": "#/$defs/Schema"
+              }
+            },
+            "definitions": {
+              "type": "object",
+              "additionalProperties": {
+                "$ref": "#/$defs/Schema"
+              }
+            },
+            "properties": {
+              "type": "object",
+              "additionalProperties": {
+                "$ref": "#/$defs/Schema"
+              }
+            },
+            "required": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "additionalProperties": {
+              "$ref": "#/$defs/Schema"
+            },
+            "patternProperties": {
+              "type": "object",
+              "patternProperties": {
+                "^(?s).*$": {
+                  "$ref": "#/$defs/Schema"
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "type"
+          ],
+          "additionalProperties": false
         },
         {
-          "$ref": "#/$defs/AllOf"
+          "type": "object",
+          "patternProperties": {
+            "^x-.*": true
+          },
+          "properties": {
+            "allOf": {
+              "$ref": "#/$defs/schemaArray"
+            },
+            "$schema": {
+              "type": "string"
+            },
+            "$id": {
+              "type": "string"
+            },
+            "id": {
+              "type": "string"
+            },
+            "$comment": {
+              "type": "string"
+            },
+            "title": {
+              "type": "string"
+            },
+            "default": true,
+            "examples": {
+              "type": "array",
+              "items": true
+            },
+            "description": {
+              "type": "string"
+            },
+            "$defs": {
+              "type": "object",
+              "additionalProperties": {
+                "$ref": "#/$defs/Schema"
+              }
+            },
+            "definitions": {
+              "type": "object",
+              "additionalProperties": {
+                "$ref": "#/$defs/Schema"
+              }
+            }
+          },
+          "required": [
+            "allOf"
+          ],
+          "additionalProperties": false
         },
         {
-          "$ref": "#/$defs/AnyOf"
+          "type": "object",
+          "patternProperties": {
+            "^x-.*": true
+          },
+          "properties": {
+            "anyOf": {
+              "$ref": "#/$defs/schemaArray"
+            },
+            "$schema": {
+              "type": "string"
+            },
+            "$id": {
+              "type": "string"
+            },
+            "id": {
+              "type": "string"
+            },
+            "$comment": {
+              "type": "string"
+            },
+            "title": {
+              "type": "string"
+            },
+            "default": true,
+            "examples": {
+              "type": "array",
+              "items": true
+            },
+            "description": {
+              "type": "string"
+            },
+            "$defs": {
+              "type": "object",
+              "additionalProperties": {
+                "$ref": "#/$defs/Schema"
+              }
+            },
+            "definitions": {
+              "type": "object",
+              "additionalProperties": {
+                "$ref": "#/$defs/Schema"
+              }
+            }
+          },
+          "required": [
+            "anyOf"
+          ],
+          "additionalProperties": false
         },
         {
-          "$ref": "#/$defs/OneOf"
+          "type": "object",
+          "patternProperties": {
+            "^x-.*": true
+          },
+          "properties": {
+            "oneOf": {
+              "$ref": "#/$defs/schemaArray"
+            },
+            "$schema": {
+              "type": "string"
+            },
+            "$id": {
+              "type": "string"
+            },
+            "id": {
+              "type": "string"
+            },
+            "$comment": {
+              "type": "string"
+            },
+            "title": {
+              "type": "string"
+            },
+            "default": true,
+            "examples": {
+              "type": "array",
+              "items": true
+            },
+            "description": {
+              "type": "string"
+            },
+            "$defs": {
+              "type": "object",
+              "additionalProperties": {
+                "$ref": "#/$defs/Schema"
+              }
+            },
+            "definitions": {
+              "type": "object",
+              "additionalProperties": {
+                "$ref": "#/$defs/Schema"
+              }
+            }
+          },
+          "required": [
+            "oneOf"
+          ],
+          "additionalProperties": false
         },
         {
-          "$ref": "#/$defs/Ref"
+          "type": "object",
+          "patternProperties": {
+            "^x-.*": true
+          },
+          "properties": {
+            "$ref": {
+              "type": "string",
+              "format": "uri"
+            },
+            "$schema": {
+              "type": "string"
+            },
+            "$id": {
+              "type": "string"
+            },
+            "id": {
+              "type": "string"
+            },
+            "$comment": {
+              "type": "string"
+            },
+            "title": {
+              "type": "string"
+            },
+            "default": true,
+            "examples": {
+              "type": "array",
+              "items": true
+            },
+            "description": {
+              "type": "string"
+            },
+            "$defs": {
+              "type": "object",
+              "additionalProperties": {
+                "$ref": "#/$defs/Schema"
+              }
+            },
+            "definitions": {
+              "type": "object",
+              "additionalProperties": {
+                "$ref": "#/$defs/Schema"
+              }
+            }
+          },
+          "required": [
+            "$ref"
+          ],
+          "additionalProperties": false
         },
         {
-          "$ref": "#/$defs/metas"
+          "description": "there is a trick with $schema\u2026 in RootSchema below",
+          "type": "object",
+          "patternProperties": {
+            "^x-.*": true
+          },
+          "properties": {
+            "$schema": {
+              "type": "string"
+            },
+            "$id": {
+              "type": "string"
+            },
+            "id": {
+              "type": "string"
+            },
+            "$comment": {
+              "type": "string"
+            },
+            "title": {
+              "type": "string"
+            },
+            "default": true,
+            "examples": {
+              "type": "array",
+              "items": true
+            },
+            "description": {
+              "type": "string"
+            },
+            "$defs": {
+              "type": "object",
+              "additionalProperties": {
+                "$ref": "#/$defs/Schema"
+              }
+            },
+            "definitions": {
+              "type": "object",
+              "additionalProperties": {
+                "$ref": "#/$defs/Schema"
+              }
+            }
+          },
+          "additionalProperties": false
         }
       ]
     },
@@ -1115,46 +3173,732 @@
           "type": "boolean"
         },
         {
-          "$ref": "#/$defs/Null"
+          "type": "object",
+          "patternProperties": {
+            "^x-.*": true
+          },
+          "properties": {
+            "type": {
+              "const": "null"
+            },
+            "$schema": {
+              "type": "string"
+            },
+            "$id": {
+              "type": "string"
+            },
+            "id": {
+              "type": "string"
+            },
+            "$comment": {
+              "type": "string"
+            },
+            "title": {
+              "type": "string"
+            },
+            "default": true,
+            "examples": {
+              "type": "array",
+              "items": true
+            },
+            "description": {
+              "type": "string"
+            },
+            "$defs": {
+              "type": "object",
+              "additionalProperties": {
+                "$ref": "#/$defs/Schema"
+              }
+            },
+            "definitions": {
+              "type": "object",
+              "additionalProperties": {
+                "$ref": "#/$defs/Schema"
+              }
+            }
+          },
+          "required": [
+            "type"
+          ],
+          "additionalProperties": false
         },
         {
-          "$ref": "#/$defs/Bool"
+          "type": "object",
+          "patternProperties": {
+            "^x-.*": true
+          },
+          "properties": {
+            "type": {
+              "const": "boolean"
+            },
+            "$schema": {
+              "type": "string"
+            },
+            "$id": {
+              "type": "string"
+            },
+            "id": {
+              "type": "string"
+            },
+            "$comment": {
+              "type": "string"
+            },
+            "title": {
+              "type": "string"
+            },
+            "default": true,
+            "examples": {
+              "type": "array",
+              "items": true
+            },
+            "description": {
+              "type": "string"
+            },
+            "$defs": {
+              "type": "object",
+              "additionalProperties": {
+                "$ref": "#/$defs/Schema"
+              }
+            },
+            "definitions": {
+              "type": "object",
+              "additionalProperties": {
+                "$ref": "#/$defs/Schema"
+              }
+            }
+          },
+          "required": [
+            "type"
+          ],
+          "additionalProperties": false
         },
         {
-          "$ref": "#/$defs/Const"
+          "type": "object",
+          "patternProperties": {
+            "^x-.*": true
+          },
+          "properties": {
+            "const": {
+              "$ref": "#/$defs/const"
+            },
+            "$schema": {
+              "type": "string"
+            },
+            "$id": {
+              "type": "string"
+            },
+            "id": {
+              "type": "string"
+            },
+            "$comment": {
+              "type": "string"
+            },
+            "title": {
+              "type": "string"
+            },
+            "default": true,
+            "examples": {
+              "type": "array",
+              "items": true
+            },
+            "description": {
+              "type": "string"
+            },
+            "$defs": {
+              "type": "object",
+              "additionalProperties": {
+                "$ref": "#/$defs/Schema"
+              }
+            },
+            "definitions": {
+              "type": "object",
+              "additionalProperties": {
+                "$ref": "#/$defs/Schema"
+              }
+            }
+          },
+          "required": [
+            "const"
+          ],
+          "additionalProperties": false
         },
         {
-          "$ref": "#/$defs/Enum"
+          "type": "object",
+          "patternProperties": {
+            "^x-.*": true
+          },
+          "properties": {
+            "enum": {
+              "$ref": "#/$defs/enum"
+            },
+            "$schema": {
+              "type": "string"
+            },
+            "$id": {
+              "type": "string"
+            },
+            "id": {
+              "type": "string"
+            },
+            "$comment": {
+              "type": "string"
+            },
+            "title": {
+              "type": "string"
+            },
+            "default": true,
+            "examples": {
+              "type": "array",
+              "items": true
+            },
+            "description": {
+              "type": "string"
+            },
+            "$defs": {
+              "type": "object",
+              "additionalProperties": {
+                "$ref": "#/$defs/Schema"
+              }
+            },
+            "definitions": {
+              "type": "object",
+              "additionalProperties": {
+                "$ref": "#/$defs/Schema"
+              }
+            }
+          },
+          "required": [
+            "enum"
+          ],
+          "additionalProperties": false
         },
         {
-          "$ref": "#/$defs/Integer"
+          "type": "object",
+          "patternProperties": {
+            "^x-.*": true
+          },
+          "properties": {
+            "type": {
+              "const": "integer"
+            },
+            "$schema": {
+              "type": "string"
+            },
+            "$id": {
+              "type": "string"
+            },
+            "id": {
+              "type": "string"
+            },
+            "$comment": {
+              "type": "string"
+            },
+            "title": {
+              "type": "string"
+            },
+            "default": true,
+            "examples": {
+              "type": "array",
+              "items": true
+            },
+            "description": {
+              "type": "string"
+            },
+            "$defs": {
+              "type": "object",
+              "additionalProperties": {
+                "$ref": "#/$defs/Schema"
+              }
+            },
+            "definitions": {
+              "type": "object",
+              "additionalProperties": {
+                "$ref": "#/$defs/Schema"
+              }
+            },
+            "minimum": {
+              "type": "number"
+            },
+            "maximum": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "type"
+          ],
+          "additionalProperties": false
         },
         {
-          "$ref": "#/$defs/Number"
+          "type": "object",
+          "patternProperties": {
+            "^x-.*": true
+          },
+          "properties": {
+            "type": {
+              "const": "number"
+            },
+            "$schema": {
+              "type": "string"
+            },
+            "$id": {
+              "type": "string"
+            },
+            "id": {
+              "type": "string"
+            },
+            "$comment": {
+              "type": "string"
+            },
+            "title": {
+              "type": "string"
+            },
+            "default": true,
+            "examples": {
+              "type": "array",
+              "items": true
+            },
+            "description": {
+              "type": "string"
+            },
+            "$defs": {
+              "type": "object",
+              "additionalProperties": {
+                "$ref": "#/$defs/Schema"
+              }
+            },
+            "definitions": {
+              "type": "object",
+              "additionalProperties": {
+                "$ref": "#/$defs/Schema"
+              }
+            },
+            "minimum": {
+              "type": "number"
+            },
+            "maximum": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "type"
+          ],
+          "additionalProperties": false
         },
         {
-          "$ref": "#/$defs/String"
+          "type": "object",
+          "patternProperties": {
+            "^x-.*": true
+          },
+          "properties": {
+            "type": {
+              "const": "string"
+            },
+            "$schema": {
+              "type": "string"
+            },
+            "$id": {
+              "type": "string"
+            },
+            "id": {
+              "type": "string"
+            },
+            "$comment": {
+              "type": "string"
+            },
+            "title": {
+              "type": "string"
+            },
+            "default": true,
+            "examples": {
+              "type": "array",
+              "items": true
+            },
+            "description": {
+              "type": "string"
+            },
+            "$defs": {
+              "type": "object",
+              "additionalProperties": {
+                "$ref": "#/$defs/Schema"
+              }
+            },
+            "definitions": {
+              "type": "object",
+              "additionalProperties": {
+                "$ref": "#/$defs/Schema"
+              }
+            },
+            "pattern": {
+              "type": "string",
+              "format": "regex"
+            },
+            "minLength": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "maxLength": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "format": {
+              "enum": [
+                "uri",
+                "uri-reference",
+                "iri",
+                "iri-reference",
+                "date",
+                "time",
+                "date-time",
+                "ipv4",
+                "ipv6",
+                "regex",
+                "uuid",
+                "hostname",
+                "email",
+                "idn-hostname",
+                "idn-email",
+                "duration",
+                "int32",
+                "int64",
+                "uint",
+                "uint32",
+                "uint64",
+                "json-pointer",
+                "relative-json-pointer",
+                "byte",
+                "double",
+                "int",
+                "mime-type"
+              ]
+            }
+          },
+          "required": [
+            "type"
+          ],
+          "additionalProperties": false
         },
         {
           "$ref": "#/$defs/Array"
         },
         {
-          "$ref": "#/$defs/Object"
+          "type": "object",
+          "patternProperties": {
+            "^x-.*": true
+          },
+          "properties": {
+            "type": {
+              "const": "object"
+            },
+            "$schema": {
+              "type": "string"
+            },
+            "$id": {
+              "type": "string"
+            },
+            "id": {
+              "type": "string"
+            },
+            "$comment": {
+              "type": "string"
+            },
+            "title": {
+              "type": "string"
+            },
+            "default": true,
+            "examples": {
+              "type": "array",
+              "items": true
+            },
+            "description": {
+              "type": "string"
+            },
+            "$defs": {
+              "type": "object",
+              "additionalProperties": {
+                "$ref": "#/$defs/Schema"
+              }
+            },
+            "definitions": {
+              "type": "object",
+              "additionalProperties": {
+                "$ref": "#/$defs/Schema"
+              }
+            },
+            "properties": {
+              "type": "object",
+              "additionalProperties": {
+                "$ref": "#/$defs/Schema"
+              }
+            },
+            "required": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "additionalProperties": {
+              "$ref": "#/$defs/Schema"
+            },
+            "patternProperties": {
+              "type": "object",
+              "patternProperties": {
+                "^(?s).*$": {
+                  "$ref": "#/$defs/Schema"
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "type"
+          ],
+          "additionalProperties": false
         },
         {
-          "$ref": "#/$defs/AllOf"
+          "type": "object",
+          "patternProperties": {
+            "^x-.*": true
+          },
+          "properties": {
+            "allOf": {
+              "$ref": "#/$defs/schemaArray"
+            },
+            "$schema": {
+              "type": "string"
+            },
+            "$id": {
+              "type": "string"
+            },
+            "id": {
+              "type": "string"
+            },
+            "$comment": {
+              "type": "string"
+            },
+            "title": {
+              "type": "string"
+            },
+            "default": true,
+            "examples": {
+              "type": "array",
+              "items": true
+            },
+            "description": {
+              "type": "string"
+            },
+            "$defs": {
+              "type": "object",
+              "additionalProperties": {
+                "$ref": "#/$defs/Schema"
+              }
+            },
+            "definitions": {
+              "type": "object",
+              "additionalProperties": {
+                "$ref": "#/$defs/Schema"
+              }
+            }
+          },
+          "required": [
+            "allOf"
+          ],
+          "additionalProperties": false
         },
         {
-          "$ref": "#/$defs/AnyOf"
+          "type": "object",
+          "patternProperties": {
+            "^x-.*": true
+          },
+          "properties": {
+            "anyOf": {
+              "$ref": "#/$defs/schemaArray"
+            },
+            "$schema": {
+              "type": "string"
+            },
+            "$id": {
+              "type": "string"
+            },
+            "id": {
+              "type": "string"
+            },
+            "$comment": {
+              "type": "string"
+            },
+            "title": {
+              "type": "string"
+            },
+            "default": true,
+            "examples": {
+              "type": "array",
+              "items": true
+            },
+            "description": {
+              "type": "string"
+            },
+            "$defs": {
+              "type": "object",
+              "additionalProperties": {
+                "$ref": "#/$defs/Schema"
+              }
+            },
+            "definitions": {
+              "type": "object",
+              "additionalProperties": {
+                "$ref": "#/$defs/Schema"
+              }
+            }
+          },
+          "required": [
+            "anyOf"
+          ],
+          "additionalProperties": false
         },
         {
-          "$ref": "#/$defs/OneOf"
+          "type": "object",
+          "patternProperties": {
+            "^x-.*": true
+          },
+          "properties": {
+            "oneOf": {
+              "$ref": "#/$defs/schemaArray"
+            },
+            "$schema": {
+              "type": "string"
+            },
+            "$id": {
+              "type": "string"
+            },
+            "id": {
+              "type": "string"
+            },
+            "$comment": {
+              "type": "string"
+            },
+            "title": {
+              "type": "string"
+            },
+            "default": true,
+            "examples": {
+              "type": "array",
+              "items": true
+            },
+            "description": {
+              "type": "string"
+            },
+            "$defs": {
+              "type": "object",
+              "additionalProperties": {
+                "$ref": "#/$defs/Schema"
+              }
+            },
+            "definitions": {
+              "type": "object",
+              "additionalProperties": {
+                "$ref": "#/$defs/Schema"
+              }
+            }
+          },
+          "required": [
+            "oneOf"
+          ],
+          "additionalProperties": false
         },
         {
-          "$ref": "#/$defs/Ref"
+          "type": "object",
+          "patternProperties": {
+            "^x-.*": true
+          },
+          "properties": {
+            "$ref": {
+              "type": "string",
+              "format": "uri"
+            },
+            "$schema": {
+              "type": "string"
+            },
+            "$id": {
+              "type": "string"
+            },
+            "id": {
+              "type": "string"
+            },
+            "$comment": {
+              "type": "string"
+            },
+            "title": {
+              "type": "string"
+            },
+            "default": true,
+            "examples": {
+              "type": "array",
+              "items": true
+            },
+            "description": {
+              "type": "string"
+            },
+            "$defs": {
+              "type": "object",
+              "additionalProperties": {
+                "$ref": "#/$defs/Schema"
+              }
+            },
+            "definitions": {
+              "type": "object",
+              "additionalProperties": {
+                "$ref": "#/$defs/Schema"
+              }
+            }
+          },
+          "required": [
+            "$ref"
+          ],
+          "additionalProperties": false
         },
         {
-          "$ref": "#/$defs/metas"
+          "description": "there is a trick with $schema\u2026 in RootSchema below",
+          "type": "object",
+          "patternProperties": {
+            "^x-.*": true
+          },
+          "properties": {
+            "$schema": {
+              "type": "string"
+            },
+            "$id": {
+              "type": "string"
+            },
+            "id": {
+              "type": "string"
+            },
+            "$comment": {
+              "type": "string"
+            },
+            "title": {
+              "type": "string"
+            },
+            "default": true,
+            "examples": {
+              "type": "array",
+              "items": true
+            },
+            "description": {
+              "type": "string"
+            },
+            "$defs": {
+              "type": "object",
+              "additionalProperties": {
+                "$ref": "#/$defs/Schema"
+              }
+            },
+            "definitions": {
+              "type": "object",
+              "additionalProperties": {
+                "$ref": "#/$defs/Schema"
+              }
+            }
+          },
+          "additionalProperties": false
         }
       ]
     },

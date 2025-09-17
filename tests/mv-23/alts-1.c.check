@@ -1,0 +1,35 @@
+alts-1.values.json[0]: PASS
+alts-1.values.json[1]: PASS
+alts-1.values.json[2]: PASS
+alts-1.values.json[3]: PASS
+alts-1.values.json[4]: PASS
+alts-1.values.json[5]: PASS
+alts-1.values.json[6]: PASS
+alts-1.values.json[7]: PASS
+alts-1.values.json[8]: PASS
+alts-1.values.json[9]: PASS
+alts-1.values.json[10]: PASS
+alts-1.values.json[11]: PASS
+alts-1.values.json[12]: FAIL (.: missing mandatory prop <v> [.'|'.0])
+alts-1.values.json[13]: FAIL (.: missing mandatory prop <v> [.'|'.0])
+alts-1.values.json[14]: FAIL (.: missing mandatory prop <v> [.'|'.1])
+alts-1.values.json[15]: FAIL (.: missing mandatory prop <v> [.'|'.1])
+alts-1.values.json[16]: FAIL (.: missing mandatory prop <v> [.'|'.1])
+alts-1.values.json[17]: FAIL (.: missing mandatory prop <v> [.'|'.1])
+alts-1.values.json[18]: FAIL (.: missing mandatory prop <v> [.'|'.3])
+alts-1.values.json[19]: FAIL (.: missing mandatory prop <v> [.'|'.3])
+alts-1.values.json[20]: FAIL (.: missing mandatory prop <v> [.'|'.2])
+alts-1.values.json[21]: FAIL (.: missing mandatory prop <v> [.'|'.2])
+alts-1.values.json[22]: FAIL (.: missing mandatory prop <v> [.'|'.2])
+alts-1.values.json[23]: FAIL (.: missing mandatory prop <v> [.'|'.2])
+alts-1.values.json[24]: FAIL (.: tag prop <t> is missing [.'|'])
+alts-1.values.json[25]: FAIL (.: tag prop <t> is missing [.'|'])
+alts-1.values.json[26]: FAIL (.: value is not an object [.'|'])
+alts-1.values.json[27]: FAIL (.: value is not an object [.'|'])
+alts-1.values.json[28]: FAIL (.: value is not an object [.'|'])
+alts-1.values.json[29]: FAIL (.: value is not an object [.'|'])
+alts-1.values.json[30]: FAIL (.: value is not an object [.'|'])
+alts-1.values.json[31]: FAIL (.: value is not an object [.'|'])
+alts-1.values.json[32]: FAIL (.: value is not an object [.'|'])
+alts-1.values.json[33]: FAIL (.: value is not an object [.'|'])
+alts-1.values.json[34]: FAIL (.: value is not an object [.'|'])

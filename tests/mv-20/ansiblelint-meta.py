@@ -84,18 +84,51 @@ _jm_cst_60: set[str]
 _jm_cst_61: set[str]
 _jm_cst_62: set[str]
 _jm_cst_63: set[str]
+_jm_cst_64: set[str]
+_jm_cst_65: set[str]
+_jm_cst_66: set[str]
+_jm_cst_67: set[str]
+_jm_cst_68: set[str]
+_jm_cst_69: set[str]
+_jm_cst_70: set[str]
+_jm_cst_71: set[str]
+_jm_cst_72: set[str]
+_jm_cst_73: set[str]
+_jm_cst_74: set[str]
+_jm_cst_75: set[str]
+_jm_cst_76: set[str]
+_jm_cst_77: set[str]
+_jm_cst_78: set[str]
+_jm_cst_79: set[str]
+_jm_cst_80: set[str]
+_jm_cst_81: set[str]
+_jm_cst_82: set[str]
+_jm_cst_83: set[str]
+_jm_cst_84: set[str]
+_jm_cst_85: set[str]
+_jm_cst_86: set[str]
+_jm_cst_87: set[str]
+_jm_cst_88: set[str]
+_jm_cst_89: set[str]
+_jm_cst_90: set[str]
+_jm_cst_91: set[str]
+_jm_cst_92: set[str]
+_jm_cst_93: set[str]
+_jm_cst_94: set[str]
+_jm_cst_95: set[str]
 _jm_re_0_reco: object
 _jm_re_0: RegexFun
 _jm_re_1_reco: object
 _jm_re_1: RegexFun
-_jm_obj_94_map: PropMap
-_jm_obj_95_map: PropMap
-_jm_obj_96_map: PropMap
-_jm_obj_97_map: PropMap
-_jm_obj_98_map: PropMap
+_jm_obj_141_map: PropMap
+_jm_obj_142_map: PropMap
+_jm_obj_143_map: PropMap
+_jm_obj_144_map: PropMap
+_jm_obj_145_map: PropMap
+_jm_obj_146_map: PropMap
 _jm_re_2_reco: object
 _jm_re_2: RegexFun
-_jm_cst_64: set[str]
+_jm_cst_96: set[str]
 check_model_map: PropMap
 
 # object .'$AIXPlatformModel'
@@ -2479,254 +2512,2217 @@ def json_model_48(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("unexpected element [.'$vSpherePlatformModel']", path))
     return res
 
+
+# object .'$any_platform'.'|'.46
+def _jm_obj_47(val: Jsonable, path: Path, rep: Report) -> bool:
+    if not isinstance(val, dict):
+        rep is None or rep.append(("not an object [.'$any_platform'.'|'.46]", path))
+        return False
+    res: bool
+    for prop, pval in val.items():
+        assert isinstance(prop, str)
+        lpath_47: Path = (path + [ prop ]) if path is not None else None
+        if prop == "name":
+            # handle may name property
+            # .'$any_platform'.'|'.46.name
+            res = isinstance(pval, str) and pval == "Windows"
+            if not res:
+                rep is None or rep.append(("unexpected _Windows [.'$any_platform'.'|'.46.name]", lpath_47 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid optional prop value [.'$any_platform'.'|'.46.name]", lpath_47 if path is not None else None))
+                return False
+        elif prop == "versions":
+            # handle may versions property
+            # .'$any_platform'.'|'.46.versions
+            res = isinstance(pval, list)
+            if res:
+                for arr_47_idx, arr_47_item in enumerate(pval):
+                    arr_47_lpath: Path = ((lpath_47 if path is not None else None) + [ arr_47_idx ]) if (lpath_47 if path is not None else None) is not None else None
+                    # .'$any_platform'.'|'.46.versions.0
+                    res = ((arr_47_item is None or isinstance(arr_47_item, (bool, int, float, str)))) and arr_47_item in _jm_cst_32
+                    if not res:
+                        rep is None or rep.append(("value not in enum [.'$any_platform'.'|'.46.versions.0.'|']", arr_47_lpath if (lpath_47 if path is not None else None) is not None else None))
+                    if not res:
+                        break
+            if not res:
+                rep is None or rep.append(("not array or unexpected array [.'$any_platform'.'|'.46.versions]", lpath_47 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid optional prop value [.'$any_platform'.'|'.46.versions]", lpath_47 if path is not None else None))
+                return False
+        else:
+            rep is None or rep.append(("unexpected prop [.'$any_platform'.'|'.46]", lpath_47 if path is not None else None))
+            return False
+    return True
+
+
+# object .'$any_platform'.'|'.45
+def _jm_obj_48(val: Jsonable, path: Path, rep: Report) -> bool:
+    if not isinstance(val, dict):
+        rep is None or rep.append(("not an object [.'$any_platform'.'|'.45]", path))
+        return False
+    res: bool
+    for prop, pval in val.items():
+        assert isinstance(prop, str)
+        lpath_48: Path = (path + [ prop ]) if path is not None else None
+        if prop == "name":
+            # handle may name property
+            # .'$any_platform'.'|'.45.name
+            res = isinstance(pval, str) and pval == "vSphere"
+            if not res:
+                rep is None or rep.append(("unexpected _vSphere [.'$any_platform'.'|'.45.name]", lpath_48 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid optional prop value [.'$any_platform'.'|'.45.name]", lpath_48 if path is not None else None))
+                return False
+        elif prop == "versions":
+            # handle may versions property
+            # .'$any_platform'.'|'.45.versions
+            res = isinstance(pval, list)
+            if res:
+                for arr_48_idx, arr_48_item in enumerate(pval):
+                    arr_48_lpath: Path = ((lpath_48 if path is not None else None) + [ arr_48_idx ]) if (lpath_48 if path is not None else None) is not None else None
+                    # .'$any_platform'.'|'.45.versions.0
+                    res = ((arr_48_item is None or isinstance(arr_48_item, (bool, int, float, str)))) and arr_48_item in _jm_cst_33
+                    if not res:
+                        rep is None or rep.append(("value not in enum [.'$any_platform'.'|'.45.versions.0.'|']", arr_48_lpath if (lpath_48 if path is not None else None) is not None else None))
+                    if not res:
+                        break
+            if not res:
+                rep is None or rep.append(("not array or unexpected array [.'$any_platform'.'|'.45.versions]", lpath_48 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid optional prop value [.'$any_platform'.'|'.45.versions]", lpath_48 if path is not None else None))
+                return False
+        else:
+            rep is None or rep.append(("unexpected prop [.'$any_platform'.'|'.45]", lpath_48 if path is not None else None))
+            return False
+    return True
+
+# object .'$any_platform'.'|'.44
+def _jm_obj_49(val: Jsonable, path: Path, rep: Report) -> bool:
+    if not isinstance(val, dict):
+        rep is None or rep.append(("not an object [.'$any_platform'.'|'.44]", path))
+        return False
+    res: bool
+    for prop, pval in val.items():
+        assert isinstance(prop, str)
+        lpath_49: Path = (path + [ prop ]) if path is not None else None
+        if prop == "name":
+            # handle may name property
+            # .'$any_platform'.'|'.44.name
+            res = isinstance(pval, str) and pval == "Void Linux"
+            if not res:
+                rep is None or rep.append(("unexpected _Void Linux [.'$any_platform'.'|'.44.name]", lpath_49 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid optional prop value [.'$any_platform'.'|'.44.name]", lpath_49 if path is not None else None))
+                return False
+        elif prop == "versions":
+            # handle may versions property
+            # .'$any_platform'.'|'.44.versions
+            res = isinstance(pval, list)
+            if res:
+                for arr_49_idx, arr_49_item in enumerate(pval):
+                    arr_49_lpath: Path = ((lpath_49 if path is not None else None) + [ arr_49_idx ]) if (lpath_49 if path is not None else None) is not None else None
+                    # .'$any_platform'.'|'.44.versions.0
+                    res = isinstance(arr_49_item, str) and arr_49_item == "all"
+                    if not res:
+                        rep is None or rep.append(("unexpected all [.'$any_platform'.'|'.44.versions.0]", arr_49_lpath if (lpath_49 if path is not None else None) is not None else None))
+                    if not res:
+                        break
+            if not res:
+                rep is None or rep.append(("not array or unexpected array [.'$any_platform'.'|'.44.versions]", lpath_49 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid optional prop value [.'$any_platform'.'|'.44.versions]", lpath_49 if path is not None else None))
+                return False
+        else:
+            rep is None or rep.append(("unexpected prop [.'$any_platform'.'|'.44]", lpath_49 if path is not None else None))
+            return False
+    return True
+
+
+# object .'$any_platform'.'|'.43
+def _jm_obj_50(val: Jsonable, path: Path, rep: Report) -> bool:
+    if not isinstance(val, dict):
+        rep is None or rep.append(("not an object [.'$any_platform'.'|'.43]", path))
+        return False
+    res: bool
+    for prop, pval in val.items():
+        assert isinstance(prop, str)
+        lpath_50: Path = (path + [ prop ]) if path is not None else None
+        if prop == "name":
+            # handle may name property
+            # .'$any_platform'.'|'.43.name
+            res = isinstance(pval, str) and pval == "vCenter"
+            if not res:
+                rep is None or rep.append(("unexpected _vCenter [.'$any_platform'.'|'.43.name]", lpath_50 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid optional prop value [.'$any_platform'.'|'.43.name]", lpath_50 if path is not None else None))
+                return False
+        elif prop == "versions":
+            # handle may versions property
+            # .'$any_platform'.'|'.43.versions
+            res = isinstance(pval, list)
+            if res:
+                for arr_50_idx, arr_50_item in enumerate(pval):
+                    arr_50_lpath: Path = ((lpath_50 if path is not None else None) + [ arr_50_idx ]) if (lpath_50 if path is not None else None) is not None else None
+                    # .'$any_platform'.'|'.43.versions.0
+                    res = ((arr_50_item is None or isinstance(arr_50_item, (bool, int, float, str)))) and arr_50_item in _jm_cst_34
+                    if not res:
+                        rep is None or rep.append(("value not in enum [.'$any_platform'.'|'.43.versions.0.'|']", arr_50_lpath if (lpath_50 if path is not None else None) is not None else None))
+                    if not res:
+                        break
+            if not res:
+                rep is None or rep.append(("not array or unexpected array [.'$any_platform'.'|'.43.versions]", lpath_50 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid optional prop value [.'$any_platform'.'|'.43.versions]", lpath_50 if path is not None else None))
+                return False
+        else:
+            rep is None or rep.append(("unexpected prop [.'$any_platform'.'|'.43]", lpath_50 if path is not None else None))
+            return False
+    return True
+
+
+# object .'$any_platform'.'|'.42
+def _jm_obj_51(val: Jsonable, path: Path, rep: Report) -> bool:
+    if not isinstance(val, dict):
+        rep is None or rep.append(("not an object [.'$any_platform'.'|'.42]", path))
+        return False
+    res: bool
+    for prop, pval in val.items():
+        assert isinstance(prop, str)
+        lpath_51: Path = (path + [ prop ]) if path is not None else None
+        if prop == "name":
+            # handle may name property
+            # .'$any_platform'.'|'.42.name
+            res = isinstance(pval, str) and pval == "Ubuntu"
+            if not res:
+                rep is None or rep.append(("unexpected _Ubuntu [.'$any_platform'.'|'.42.name]", lpath_51 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid optional prop value [.'$any_platform'.'|'.42.name]", lpath_51 if path is not None else None))
+                return False
+        elif prop == "versions":
+            # handle may versions property
+            # .'$any_platform'.'|'.42.versions
+            res = isinstance(pval, list)
+            if res:
+                for arr_51_idx, arr_51_item in enumerate(pval):
+                    arr_51_lpath: Path = ((lpath_51 if path is not None else None) + [ arr_51_idx ]) if (lpath_51 if path is not None else None) is not None else None
+                    # .'$any_platform'.'|'.42.versions.0
+                    res = ((arr_51_item is None or isinstance(arr_51_item, (bool, int, float, str)))) and arr_51_item in _jm_cst_35
+                    if not res:
+                        rep is None or rep.append(("value not in enum [.'$any_platform'.'|'.42.versions.0.'|']", arr_51_lpath if (lpath_51 if path is not None else None) is not None else None))
+                    if not res:
+                        break
+            if not res:
+                rep is None or rep.append(("not array or unexpected array [.'$any_platform'.'|'.42.versions]", lpath_51 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid optional prop value [.'$any_platform'.'|'.42.versions]", lpath_51 if path is not None else None))
+                return False
+        else:
+            rep is None or rep.append(("unexpected prop [.'$any_platform'.'|'.42]", lpath_51 if path is not None else None))
+            return False
+    return True
+
+
+# object .'$any_platform'.'|'.41
+def _jm_obj_52(val: Jsonable, path: Path, rep: Report) -> bool:
+    if not isinstance(val, dict):
+        rep is None or rep.append(("not an object [.'$any_platform'.'|'.41]", path))
+        return False
+    res: bool
+    for prop, pval in val.items():
+        assert isinstance(prop, str)
+        lpath_52: Path = (path + [ prop ]) if path is not None else None
+        if prop == "name":
+            # handle may name property
+            # .'$any_platform'.'|'.41.name
+            res = isinstance(pval, str) and pval == "TMOS"
+            if not res:
+                rep is None or rep.append(("unexpected _TMOS [.'$any_platform'.'|'.41.name]", lpath_52 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid optional prop value [.'$any_platform'.'|'.41.name]", lpath_52 if path is not None else None))
+                return False
+        elif prop == "versions":
+            # handle may versions property
+            # .'$any_platform'.'|'.41.versions
+            res = isinstance(pval, list)
+            if res:
+                for arr_52_idx, arr_52_item in enumerate(pval):
+                    arr_52_lpath: Path = ((lpath_52 if path is not None else None) + [ arr_52_idx ]) if (lpath_52 if path is not None else None) is not None else None
+                    # .'$any_platform'.'|'.41.versions.0
+                    res = ((arr_52_item is None or isinstance(arr_52_item, (bool, int, float, str)))) and arr_52_item in _jm_cst_36
+                    if not res:
+                        rep is None or rep.append(("value not in enum [.'$any_platform'.'|'.41.versions.0.'|']", arr_52_lpath if (lpath_52 if path is not None else None) is not None else None))
+                    if not res:
+                        break
+            if not res:
+                rep is None or rep.append(("not array or unexpected array [.'$any_platform'.'|'.41.versions]", lpath_52 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid optional prop value [.'$any_platform'.'|'.41.versions]", lpath_52 if path is not None else None))
+                return False
+        else:
+            rep is None or rep.append(("unexpected prop [.'$any_platform'.'|'.41]", lpath_52 if path is not None else None))
+            return False
+    return True
+
+
+# object .'$any_platform'.'|'.40
+def _jm_obj_53(val: Jsonable, path: Path, rep: Report) -> bool:
+    if not isinstance(val, dict):
+        rep is None or rep.append(("not an object [.'$any_platform'.'|'.40]", path))
+        return False
+    res: bool
+    for prop, pval in val.items():
+        assert isinstance(prop, str)
+        lpath_53: Path = (path + [ prop ]) if path is not None else None
+        if prop == "name":
+            # handle may name property
+            # .'$any_platform'.'|'.40.name
+            res = isinstance(pval, str) and pval == "Synology"
+            if not res:
+                rep is None or rep.append(("unexpected _Synology [.'$any_platform'.'|'.40.name]", lpath_53 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid optional prop value [.'$any_platform'.'|'.40.name]", lpath_53 if path is not None else None))
+                return False
+        elif prop == "versions":
+            # handle may versions property
+            # .'$any_platform'.'|'.40.versions
+            res = isinstance(pval, list)
+            if res:
+                for arr_53_idx, arr_53_item in enumerate(pval):
+                    arr_53_lpath: Path = ((lpath_53 if path is not None else None) + [ arr_53_idx ]) if (lpath_53 if path is not None else None) is not None else None
+                    # .'$any_platform'.'|'.40.versions.0
+                    res = ((arr_53_item is None or isinstance(arr_53_item, (bool, int, float, str)))) and arr_53_item in _jm_cst_37
+                    if not res:
+                        rep is None or rep.append(("value not in enum [.'$any_platform'.'|'.40.versions.0.'|']", arr_53_lpath if (lpath_53 if path is not None else None) is not None else None))
+                    if not res:
+                        break
+            if not res:
+                rep is None or rep.append(("not array or unexpected array [.'$any_platform'.'|'.40.versions]", lpath_53 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid optional prop value [.'$any_platform'.'|'.40.versions]", lpath_53 if path is not None else None))
+                return False
+        else:
+            rep is None or rep.append(("unexpected prop [.'$any_platform'.'|'.40]", lpath_53 if path is not None else None))
+            return False
+    return True
+
+
+# object .'$any_platform'.'|'.39
+def _jm_obj_54(val: Jsonable, path: Path, rep: Report) -> bool:
+    if not isinstance(val, dict):
+        rep is None or rep.append(("not an object [.'$any_platform'.'|'.39]", path))
+        return False
+    res: bool
+    for prop, pval in val.items():
+        assert isinstance(prop, str)
+        lpath_54: Path = (path + [ prop ]) if path is not None else None
+        if prop == "name":
+            # handle may name property
+            # .'$any_platform'.'|'.39.name
+            res = isinstance(pval, str) and pval == "Solaris"
+            if not res:
+                rep is None or rep.append(("unexpected _Solaris [.'$any_platform'.'|'.39.name]", lpath_54 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid optional prop value [.'$any_platform'.'|'.39.name]", lpath_54 if path is not None else None))
+                return False
+        elif prop == "versions":
+            # handle may versions property
+            # .'$any_platform'.'|'.39.versions
+            res = isinstance(pval, list)
+            if res:
+                for arr_54_idx, arr_54_item in enumerate(pval):
+                    arr_54_lpath: Path = ((lpath_54 if path is not None else None) + [ arr_54_idx ]) if (lpath_54 if path is not None else None) is not None else None
+                    # .'$any_platform'.'|'.39.versions.0
+                    res = ((arr_54_item is None or isinstance(arr_54_item, (bool, int, float, str)))) and arr_54_item in _jm_cst_38
+                    if not res:
+                        rep is None or rep.append(("value not in enum [.'$any_platform'.'|'.39.versions.0.'|']", arr_54_lpath if (lpath_54 if path is not None else None) is not None else None))
+                    if not res:
+                        break
+            if not res:
+                rep is None or rep.append(("not array or unexpected array [.'$any_platform'.'|'.39.versions]", lpath_54 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid optional prop value [.'$any_platform'.'|'.39.versions]", lpath_54 if path is not None else None))
+                return False
+        else:
+            rep is None or rep.append(("unexpected prop [.'$any_platform'.'|'.39]", lpath_54 if path is not None else None))
+            return False
+    return True
+
+# object .'$any_platform'.'|'.38
+def _jm_obj_55(val: Jsonable, path: Path, rep: Report) -> bool:
+    if not isinstance(val, dict):
+        rep is None or rep.append(("not an object [.'$any_platform'.'|'.38]", path))
+        return False
+    res: bool
+    for prop, pval in val.items():
+        assert isinstance(prop, str)
+        lpath_55: Path = (path + [ prop ]) if path is not None else None
+        if prop == "name":
+            # handle may name property
+            # .'$any_platform'.'|'.38.name
+            res = isinstance(pval, str) and pval == "SmartOS"
+            if not res:
+                rep is None or rep.append(("unexpected _SmartOS [.'$any_platform'.'|'.38.name]", lpath_55 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid optional prop value [.'$any_platform'.'|'.38.name]", lpath_55 if path is not None else None))
+                return False
+        elif prop == "versions":
+            # handle may versions property
+            # .'$any_platform'.'|'.38.versions
+            res = isinstance(pval, list)
+            if res:
+                for arr_55_idx, arr_55_item in enumerate(pval):
+                    arr_55_lpath: Path = ((lpath_55 if path is not None else None) + [ arr_55_idx ]) if (lpath_55 if path is not None else None) is not None else None
+                    # .'$any_platform'.'|'.38.versions.0
+                    res = isinstance(arr_55_item, str) and arr_55_item == "all"
+                    if not res:
+                        rep is None or rep.append(("unexpected all [.'$any_platform'.'|'.38.versions.0]", arr_55_lpath if (lpath_55 if path is not None else None) is not None else None))
+                    if not res:
+                        break
+            if not res:
+                rep is None or rep.append(("not array or unexpected array [.'$any_platform'.'|'.38.versions]", lpath_55 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid optional prop value [.'$any_platform'.'|'.38.versions]", lpath_55 if path is not None else None))
+                return False
+        else:
+            rep is None or rep.append(("unexpected prop [.'$any_platform'.'|'.38]", lpath_55 if path is not None else None))
+            return False
+    return True
+
+
+# object .'$any_platform'.'|'.37
+def _jm_obj_56(val: Jsonable, path: Path, rep: Report) -> bool:
+    if not isinstance(val, dict):
+        rep is None or rep.append(("not an object [.'$any_platform'.'|'.37]", path))
+        return False
+    res: bool
+    for prop, pval in val.items():
+        assert isinstance(prop, str)
+        lpath_56: Path = (path + [ prop ]) if path is not None else None
+        if prop == "name":
+            # handle may name property
+            # .'$any_platform'.'|'.37.name
+            res = isinstance(pval, str) and pval == "SLES"
+            if not res:
+                rep is None or rep.append(("unexpected _SLES [.'$any_platform'.'|'.37.name]", lpath_56 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid optional prop value [.'$any_platform'.'|'.37.name]", lpath_56 if path is not None else None))
+                return False
+        elif prop == "versions":
+            # handle may versions property
+            # .'$any_platform'.'|'.37.versions
+            res = isinstance(pval, list)
+            if res:
+                for arr_56_idx, arr_56_item in enumerate(pval):
+                    arr_56_lpath: Path = ((lpath_56 if path is not None else None) + [ arr_56_idx ]) if (lpath_56 if path is not None else None) is not None else None
+                    # .'$any_platform'.'|'.37.versions.0
+                    res = ((arr_56_item is None or isinstance(arr_56_item, (bool, int, float, str)))) and arr_56_item in _jm_cst_39
+                    if not res:
+                        rep is None or rep.append(("value not in enum [.'$any_platform'.'|'.37.versions.0.'|']", arr_56_lpath if (lpath_56 if path is not None else None) is not None else None))
+                    if not res:
+                        break
+            if not res:
+                rep is None or rep.append(("not array or unexpected array [.'$any_platform'.'|'.37.versions]", lpath_56 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid optional prop value [.'$any_platform'.'|'.37.versions]", lpath_56 if path is not None else None))
+                return False
+        else:
+            rep is None or rep.append(("unexpected prop [.'$any_platform'.'|'.37]", lpath_56 if path is not None else None))
+            return False
+    return True
+
+
+# object .'$any_platform'.'|'.36
+def _jm_obj_57(val: Jsonable, path: Path, rep: Report) -> bool:
+    if not isinstance(val, dict):
+        rep is None or rep.append(("not an object [.'$any_platform'.'|'.36]", path))
+        return False
+    res: bool
+    for prop, pval in val.items():
+        assert isinstance(prop, str)
+        lpath_57: Path = (path + [ prop ]) if path is not None else None
+        if prop == "name":
+            # handle may name property
+            # .'$any_platform'.'|'.36.name
+            res = isinstance(pval, str) and pval == "Rocky"
+            if not res:
+                rep is None or rep.append(("unexpected _Rocky [.'$any_platform'.'|'.36.name]", lpath_57 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid optional prop value [.'$any_platform'.'|'.36.name]", lpath_57 if path is not None else None))
+                return False
+        elif prop == "versions":
+            # handle may versions property
+            # .'$any_platform'.'|'.36.versions
+            res = isinstance(pval, list)
+            if res:
+                for arr_57_idx, arr_57_item in enumerate(pval):
+                    arr_57_lpath: Path = ((lpath_57 if path is not None else None) + [ arr_57_idx ]) if (lpath_57 if path is not None else None) is not None else None
+                    # .'$any_platform'.'|'.36.versions.0
+                    res = ((arr_57_item is None or isinstance(arr_57_item, (bool, int, float, str)))) and arr_57_item in _jm_cst_40
+                    if not res:
+                        rep is None or rep.append(("value not in enum [.'$any_platform'.'|'.36.versions.0.'|']", arr_57_lpath if (lpath_57 if path is not None else None) is not None else None))
+                    if not res:
+                        break
+            if not res:
+                rep is None or rep.append(("not array or unexpected array [.'$any_platform'.'|'.36.versions]", lpath_57 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid optional prop value [.'$any_platform'.'|'.36.versions]", lpath_57 if path is not None else None))
+                return False
+        else:
+            rep is None or rep.append(("unexpected prop [.'$any_platform'.'|'.36]", lpath_57 if path is not None else None))
+            return False
+    return True
+
+
+# object .'$any_platform'.'|'.35
+def _jm_obj_58(val: Jsonable, path: Path, rep: Report) -> bool:
+    if not isinstance(val, dict):
+        rep is None or rep.append(("not an object [.'$any_platform'.'|'.35]", path))
+        return False
+    res: bool
+    for prop, pval in val.items():
+        assert isinstance(prop, str)
+        lpath_58: Path = (path + [ prop ]) if path is not None else None
+        if prop == "name":
+            # handle may name property
+            # .'$any_platform'.'|'.35.name
+            res = isinstance(pval, str) and pval == "PAN-OS"
+            if not res:
+                rep is None or rep.append(("unexpected _PAN-OS [.'$any_platform'.'|'.35.name]", lpath_58 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid optional prop value [.'$any_platform'.'|'.35.name]", lpath_58 if path is not None else None))
+                return False
+        elif prop == "versions":
+            # handle may versions property
+            # .'$any_platform'.'|'.35.versions
+            res = isinstance(pval, list)
+            if res:
+                for arr_58_idx, arr_58_item in enumerate(pval):
+                    arr_58_lpath: Path = ((lpath_58 if path is not None else None) + [ arr_58_idx ]) if (lpath_58 if path is not None else None) is not None else None
+                    # .'$any_platform'.'|'.35.versions.0
+                    res = ((arr_58_item is None or isinstance(arr_58_item, (bool, int, float, str)))) and arr_58_item in _jm_cst_41
+                    if not res:
+                        rep is None or rep.append(("value not in enum [.'$any_platform'.'|'.35.versions.0.'|']", arr_58_lpath if (lpath_58 if path is not None else None) is not None else None))
+                    if not res:
+                        break
+            if not res:
+                rep is None or rep.append(("not array or unexpected array [.'$any_platform'.'|'.35.versions]", lpath_58 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid optional prop value [.'$any_platform'.'|'.35.versions]", lpath_58 if path is not None else None))
+                return False
+        else:
+            rep is None or rep.append(("unexpected prop [.'$any_platform'.'|'.35]", lpath_58 if path is not None else None))
+            return False
+    return True
+
+# object .'$any_platform'.'|'.34
+def _jm_obj_59(val: Jsonable, path: Path, rep: Report) -> bool:
+    if not isinstance(val, dict):
+        rep is None or rep.append(("not an object [.'$any_platform'.'|'.34]", path))
+        return False
+    res: bool
+    for prop, pval in val.items():
+        assert isinstance(prop, str)
+        lpath_59: Path = (path + [ prop ]) if path is not None else None
+        if prop == "name":
+            # handle may name property
+            # .'$any_platform'.'|'.34.name
+            res = isinstance(pval, str) and pval == "os10"
+            if not res:
+                rep is None or rep.append(("unexpected _os10 [.'$any_platform'.'|'.34.name]", lpath_59 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid optional prop value [.'$any_platform'.'|'.34.name]", lpath_59 if path is not None else None))
+                return False
+        elif prop == "versions":
+            # handle may versions property
+            # .'$any_platform'.'|'.34.versions
+            res = isinstance(pval, list)
+            if res:
+                for arr_59_idx, arr_59_item in enumerate(pval):
+                    arr_59_lpath: Path = ((lpath_59 if path is not None else None) + [ arr_59_idx ]) if (lpath_59 if path is not None else None) is not None else None
+                    # .'$any_platform'.'|'.34.versions.0
+                    res = isinstance(arr_59_item, str) and arr_59_item == "all"
+                    if not res:
+                        rep is None or rep.append(("unexpected all [.'$any_platform'.'|'.34.versions.0]", arr_59_lpath if (lpath_59 if path is not None else None) is not None else None))
+                    if not res:
+                        break
+            if not res:
+                rep is None or rep.append(("not array or unexpected array [.'$any_platform'.'|'.34.versions]", lpath_59 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid optional prop value [.'$any_platform'.'|'.34.versions]", lpath_59 if path is not None else None))
+                return False
+        else:
+            rep is None or rep.append(("unexpected prop [.'$any_platform'.'|'.34]", lpath_59 if path is not None else None))
+            return False
+    return True
+
+
+# object .'$any_platform'.'|'.33
+def _jm_obj_60(val: Jsonable, path: Path, rep: Report) -> bool:
+    if not isinstance(val, dict):
+        rep is None or rep.append(("not an object [.'$any_platform'.'|'.33]", path))
+        return False
+    res: bool
+    for prop, pval in val.items():
+        assert isinstance(prop, str)
+        lpath_60: Path = (path + [ prop ]) if path is not None else None
+        if prop == "name":
+            # handle may name property
+            # .'$any_platform'.'|'.33.name
+            res = isinstance(pval, str) and pval == "OracleLinux"
+            if not res:
+                rep is None or rep.append(("unexpected _OracleLinux [.'$any_platform'.'|'.33.name]", lpath_60 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid optional prop value [.'$any_platform'.'|'.33.name]", lpath_60 if path is not None else None))
+                return False
+        elif prop == "versions":
+            # handle may versions property
+            # .'$any_platform'.'|'.33.versions
+            res = isinstance(pval, list)
+            if res:
+                for arr_60_idx, arr_60_item in enumerate(pval):
+                    arr_60_lpath: Path = ((lpath_60 if path is not None else None) + [ arr_60_idx ]) if (lpath_60 if path is not None else None) is not None else None
+                    # .'$any_platform'.'|'.33.versions.0
+                    res = ((arr_60_item is None or isinstance(arr_60_item, (bool, int, float, str)))) and arr_60_item in _jm_cst_42
+                    if not res:
+                        rep is None or rep.append(("value not in enum [.'$any_platform'.'|'.33.versions.0.'|']", arr_60_lpath if (lpath_60 if path is not None else None) is not None else None))
+                    if not res:
+                        break
+            if not res:
+                rep is None or rep.append(("not array or unexpected array [.'$any_platform'.'|'.33.versions]", lpath_60 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid optional prop value [.'$any_platform'.'|'.33.versions]", lpath_60 if path is not None else None))
+                return False
+        else:
+            rep is None or rep.append(("unexpected prop [.'$any_platform'.'|'.33]", lpath_60 if path is not None else None))
+            return False
+    return True
+
+
+# object .'$any_platform'.'|'.32
+def _jm_obj_61(val: Jsonable, path: Path, rep: Report) -> bool:
+    if not isinstance(val, dict):
+        rep is None or rep.append(("not an object [.'$any_platform'.'|'.32]", path))
+        return False
+    res: bool
+    for prop, pval in val.items():
+        assert isinstance(prop, str)
+        lpath_61: Path = (path + [ prop ]) if path is not None else None
+        if prop == "name":
+            # handle may name property
+            # .'$any_platform'.'|'.32.name
+            res = isinstance(pval, str) and pval == "OpenWrt"
+            if not res:
+                rep is None or rep.append(("unexpected _OpenWrt [.'$any_platform'.'|'.32.name]", lpath_61 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid optional prop value [.'$any_platform'.'|'.32.name]", lpath_61 if path is not None else None))
+                return False
+        elif prop == "versions":
+            # handle may versions property
+            # .'$any_platform'.'|'.32.versions
+            res = isinstance(pval, list)
+            if res:
+                for arr_61_idx, arr_61_item in enumerate(pval):
+                    arr_61_lpath: Path = ((lpath_61 if path is not None else None) + [ arr_61_idx ]) if (lpath_61 if path is not None else None) is not None else None
+                    # .'$any_platform'.'|'.32.versions.0
+                    res = ((arr_61_item is None or isinstance(arr_61_item, (bool, int, float, str)))) and arr_61_item in _jm_cst_43
+                    if not res:
+                        rep is None or rep.append(("value not in enum [.'$any_platform'.'|'.32.versions.0.'|']", arr_61_lpath if (lpath_61 if path is not None else None) is not None else None))
+                    if not res:
+                        break
+            if not res:
+                rep is None or rep.append(("not array or unexpected array [.'$any_platform'.'|'.32.versions]", lpath_61 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid optional prop value [.'$any_platform'.'|'.32.versions]", lpath_61 if path is not None else None))
+                return False
+        else:
+            rep is None or rep.append(("unexpected prop [.'$any_platform'.'|'.32]", lpath_61 if path is not None else None))
+            return False
+    return True
+
+
+# object .'$any_platform'.'|'.31
+def _jm_obj_62(val: Jsonable, path: Path, rep: Report) -> bool:
+    if not isinstance(val, dict):
+        rep is None or rep.append(("not an object [.'$any_platform'.'|'.31]", path))
+        return False
+    res: bool
+    for prop, pval in val.items():
+        assert isinstance(prop, str)
+        lpath_62: Path = (path + [ prop ]) if path is not None else None
+        if prop == "name":
+            # handle may name property
+            # .'$any_platform'.'|'.31.name
+            res = isinstance(pval, str) and pval == "opensuse"
+            if not res:
+                rep is None or rep.append(("unexpected _opensuse [.'$any_platform'.'|'.31.name]", lpath_62 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid optional prop value [.'$any_platform'.'|'.31.name]", lpath_62 if path is not None else None))
+                return False
+        elif prop == "versions":
+            # handle may versions property
+            # .'$any_platform'.'|'.31.versions
+            res = isinstance(pval, list)
+            if res:
+                for arr_62_idx, arr_62_item in enumerate(pval):
+                    arr_62_lpath: Path = ((lpath_62 if path is not None else None) + [ arr_62_idx ]) if (lpath_62 if path is not None else None) is not None else None
+                    # .'$any_platform'.'|'.31.versions.0
+                    res = ((arr_62_item is None or isinstance(arr_62_item, (bool, int, float, str)))) and arr_62_item in _jm_cst_44
+                    if not res:
+                        rep is None or rep.append(("value not in enum [.'$any_platform'.'|'.31.versions.0.'|']", arr_62_lpath if (lpath_62 if path is not None else None) is not None else None))
+                    if not res:
+                        break
+            if not res:
+                rep is None or rep.append(("not array or unexpected array [.'$any_platform'.'|'.31.versions]", lpath_62 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid optional prop value [.'$any_platform'.'|'.31.versions]", lpath_62 if path is not None else None))
+                return False
+        else:
+            rep is None or rep.append(("unexpected prop [.'$any_platform'.'|'.31]", lpath_62 if path is not None else None))
+            return False
+    return True
+
+
+# object .'$any_platform'.'|'.30
+def _jm_obj_63(val: Jsonable, path: Path, rep: Report) -> bool:
+    if not isinstance(val, dict):
+        rep is None or rep.append(("not an object [.'$any_platform'.'|'.30]", path))
+        return False
+    res: bool
+    for prop, pval in val.items():
+        assert isinstance(prop, str)
+        lpath_63: Path = (path + [ prop ]) if path is not None else None
+        if prop == "name":
+            # handle may name property
+            # .'$any_platform'.'|'.30.name
+            res = isinstance(pval, str) and pval == "OpenBSD"
+            if not res:
+                rep is None or rep.append(("unexpected _OpenBSD [.'$any_platform'.'|'.30.name]", lpath_63 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid optional prop value [.'$any_platform'.'|'.30.name]", lpath_63 if path is not None else None))
+                return False
+        elif prop == "versions":
+            # handle may versions property
+            # .'$any_platform'.'|'.30.versions
+            res = isinstance(pval, list)
+            if res:
+                for arr_63_idx, arr_63_item in enumerate(pval):
+                    arr_63_lpath: Path = ((lpath_63 if path is not None else None) + [ arr_63_idx ]) if (lpath_63 if path is not None else None) is not None else None
+                    # .'$any_platform'.'|'.30.versions.0
+                    res = ((arr_63_item is None or isinstance(arr_63_item, (bool, int, float, str)))) and arr_63_item in _jm_cst_45
+                    if not res:
+                        rep is None or rep.append(("value not in enum [.'$any_platform'.'|'.30.versions.0.'|']", arr_63_lpath if (lpath_63 if path is not None else None) is not None else None))
+                    if not res:
+                        break
+            if not res:
+                rep is None or rep.append(("not array or unexpected array [.'$any_platform'.'|'.30.versions]", lpath_63 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid optional prop value [.'$any_platform'.'|'.30.versions]", lpath_63 if path is not None else None))
+                return False
+        else:
+            rep is None or rep.append(("unexpected prop [.'$any_platform'.'|'.30]", lpath_63 if path is not None else None))
+            return False
+    return True
+
+# object .'$any_platform'.'|'.29
+def _jm_obj_64(val: Jsonable, path: Path, rep: Report) -> bool:
+    if not isinstance(val, dict):
+        rep is None or rep.append(("not an object [.'$any_platform'.'|'.29]", path))
+        return False
+    res: bool
+    for prop, pval in val.items():
+        assert isinstance(prop, str)
+        lpath_64: Path = (path + [ prop ]) if path is not None else None
+        if prop == "name":
+            # handle may name property
+            # .'$any_platform'.'|'.29.name
+            res = isinstance(pval, str) and pval == "NXOS"
+            if not res:
+                rep is None or rep.append(("unexpected _NXOS [.'$any_platform'.'|'.29.name]", lpath_64 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid optional prop value [.'$any_platform'.'|'.29.name]", lpath_64 if path is not None else None))
+                return False
+        elif prop == "versions":
+            # handle may versions property
+            # .'$any_platform'.'|'.29.versions
+            res = isinstance(pval, list)
+            if res:
+                for arr_64_idx, arr_64_item in enumerate(pval):
+                    arr_64_lpath: Path = ((lpath_64 if path is not None else None) + [ arr_64_idx ]) if (lpath_64 if path is not None else None) is not None else None
+                    # .'$any_platform'.'|'.29.versions.0
+                    res = isinstance(arr_64_item, str) and arr_64_item == "all"
+                    if not res:
+                        rep is None or rep.append(("unexpected all [.'$any_platform'.'|'.29.versions.0]", arr_64_lpath if (lpath_64 if path is not None else None) is not None else None))
+                    if not res:
+                        break
+            if not res:
+                rep is None or rep.append(("not array or unexpected array [.'$any_platform'.'|'.29.versions]", lpath_64 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid optional prop value [.'$any_platform'.'|'.29.versions]", lpath_64 if path is not None else None))
+                return False
+        else:
+            rep is None or rep.append(("unexpected prop [.'$any_platform'.'|'.29]", lpath_64 if path is not None else None))
+            return False
+    return True
+
+
+# object .'$any_platform'.'|'.28
+def _jm_obj_65(val: Jsonable, path: Path, rep: Report) -> bool:
+    if not isinstance(val, dict):
+        rep is None or rep.append(("not an object [.'$any_platform'.'|'.28]", path))
+        return False
+    res: bool
+    for prop, pval in val.items():
+        assert isinstance(prop, str)
+        lpath_65: Path = (path + [ prop ]) if path is not None else None
+        if prop == "name":
+            # handle may name property
+            # .'$any_platform'.'|'.28.name
+            res = isinstance(pval, str) and pval == "Megeia"
+            if not res:
+                rep is None or rep.append(("unexpected _Megeia [.'$any_platform'.'|'.28.name]", lpath_65 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid optional prop value [.'$any_platform'.'|'.28.name]", lpath_65 if path is not None else None))
+                return False
+        elif prop == "versions":
+            # handle may versions property
+            # .'$any_platform'.'|'.28.versions
+            res = isinstance(pval, list)
+            if res:
+                for arr_65_idx, arr_65_item in enumerate(pval):
+                    arr_65_lpath: Path = ((lpath_65 if path is not None else None) + [ arr_65_idx ]) if (lpath_65 if path is not None else None) is not None else None
+                    # .'$any_platform'.'|'.28.versions.0
+                    res = ((arr_65_item is None or isinstance(arr_65_item, (bool, int, float, str)))) and arr_65_item in _jm_cst_46
+                    if not res:
+                        rep is None or rep.append(("value not in enum [.'$any_platform'.'|'.28.versions.0.'|']", arr_65_lpath if (lpath_65 if path is not None else None) is not None else None))
+                    if not res:
+                        break
+            if not res:
+                rep is None or rep.append(("not array or unexpected array [.'$any_platform'.'|'.28.versions]", lpath_65 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid optional prop value [.'$any_platform'.'|'.28.versions]", lpath_65 if path is not None else None))
+                return False
+        else:
+            rep is None or rep.append(("unexpected prop [.'$any_platform'.'|'.28]", lpath_65 if path is not None else None))
+            return False
+    return True
+
+
+# object .'$any_platform'.'|'.27
+def _jm_obj_66(val: Jsonable, path: Path, rep: Report) -> bool:
+    if not isinstance(val, dict):
+        rep is None or rep.append(("not an object [.'$any_platform'.'|'.27]", path))
+        return False
+    res: bool
+    for prop, pval in val.items():
+        assert isinstance(prop, str)
+        lpath_66: Path = (path + [ prop ]) if path is not None else None
+        if prop == "name":
+            # handle may name property
+            # .'$any_platform'.'|'.27.name
+            res = isinstance(pval, str) and pval == "Kali"
+            if not res:
+                rep is None or rep.append(("unexpected _Kali [.'$any_platform'.'|'.27.name]", lpath_66 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid optional prop value [.'$any_platform'.'|'.27.name]", lpath_66 if path is not None else None))
+                return False
+        elif prop == "versions":
+            # handle may versions property
+            # .'$any_platform'.'|'.27.versions
+            res = isinstance(pval, list)
+            if res:
+                for arr_66_idx, arr_66_item in enumerate(pval):
+                    arr_66_lpath: Path = ((lpath_66 if path is not None else None) + [ arr_66_idx ]) if (lpath_66 if path is not None else None) is not None else None
+                    # .'$any_platform'.'|'.27.versions.0
+                    res = ((arr_66_item is None or isinstance(arr_66_item, (bool, int, float, str)))) and arr_66_item in _jm_cst_47
+                    if not res:
+                        rep is None or rep.append(("value not in enum [.'$any_platform'.'|'.27.versions.0.'|']", arr_66_lpath if (lpath_66 if path is not None else None) is not None else None))
+                    if not res:
+                        break
+            if not res:
+                rep is None or rep.append(("not array or unexpected array [.'$any_platform'.'|'.27.versions]", lpath_66 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid optional prop value [.'$any_platform'.'|'.27.versions]", lpath_66 if path is not None else None))
+                return False
+        else:
+            rep is None or rep.append(("unexpected prop [.'$any_platform'.'|'.27]", lpath_66 if path is not None else None))
+            return False
+    return True
+
+
+# object .'$any_platform'.'|'.26
+def _jm_obj_67(val: Jsonable, path: Path, rep: Report) -> bool:
+    if not isinstance(val, dict):
+        rep is None or rep.append(("not an object [.'$any_platform'.'|'.26]", path))
+        return False
+    res: bool
+    for prop, pval in val.items():
+        assert isinstance(prop, str)
+        lpath_67: Path = (path + [ prop ]) if path is not None else None
+        if prop == "name":
+            # handle may name property
+            # .'$any_platform'.'|'.26.name
+            res = isinstance(pval, str) and pval == "macOS"
+            if not res:
+                rep is None or rep.append(("unexpected _macOS [.'$any_platform'.'|'.26.name]", lpath_67 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid optional prop value [.'$any_platform'.'|'.26.name]", lpath_67 if path is not None else None))
+                return False
+        elif prop == "versions":
+            # handle may versions property
+            # .'$any_platform'.'|'.26.versions
+            res = isinstance(pval, list)
+            if res:
+                for arr_67_idx, arr_67_item in enumerate(pval):
+                    arr_67_lpath: Path = ((lpath_67 if path is not None else None) + [ arr_67_idx ]) if (lpath_67 if path is not None else None) is not None else None
+                    # .'$any_platform'.'|'.26.versions.0
+                    res = ((arr_67_item is None or isinstance(arr_67_item, (bool, int, float, str)))) and arr_67_item in _jm_cst_48
+                    if not res:
+                        rep is None or rep.append(("value not in enum [.'$any_platform'.'|'.26.versions.0.'|']", arr_67_lpath if (lpath_67 if path is not None else None) is not None else None))
+                    if not res:
+                        break
+            if not res:
+                rep is None or rep.append(("not array or unexpected array [.'$any_platform'.'|'.26.versions]", lpath_67 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid optional prop value [.'$any_platform'.'|'.26.versions]", lpath_67 if path is not None else None))
+                return False
+        else:
+            rep is None or rep.append(("unexpected prop [.'$any_platform'.'|'.26]", lpath_67 if path is not None else None))
+            return False
+    return True
+
+
+# object .'$any_platform'.'|'.25
+def _jm_obj_68(val: Jsonable, path: Path, rep: Report) -> bool:
+    if not isinstance(val, dict):
+        rep is None or rep.append(("not an object [.'$any_platform'.'|'.25]", path))
+        return False
+    res: bool
+    for prop, pval in val.items():
+        assert isinstance(prop, str)
+        lpath_68: Path = (path + [ prop ]) if path is not None else None
+        if prop == "name":
+            # handle may name property
+            # .'$any_platform'.'|'.25.name
+            res = isinstance(pval, str) and pval == "Kali"
+            if not res:
+                rep is None or rep.append(("unexpected _Kali [.'$any_platform'.'|'.25.name]", lpath_68 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid optional prop value [.'$any_platform'.'|'.25.name]", lpath_68 if path is not None else None))
+                return False
+        elif prop == "versions":
+            # handle may versions property
+            # .'$any_platform'.'|'.25.versions
+            res = isinstance(pval, list)
+            if res:
+                for arr_68_idx, arr_68_item in enumerate(pval):
+                    arr_68_lpath: Path = ((lpath_68 if path is not None else None) + [ arr_68_idx ]) if (lpath_68 if path is not None else None) is not None else None
+                    # .'$any_platform'.'|'.25.versions.0
+                    res = ((arr_68_item is None or isinstance(arr_68_item, (bool, int, float, str)))) and arr_68_item in _jm_cst_49
+                    if not res:
+                        rep is None or rep.append(("value not in enum [.'$any_platform'.'|'.25.versions.0.'|']", arr_68_lpath if (lpath_68 if path is not None else None) is not None else None))
+                    if not res:
+                        break
+            if not res:
+                rep is None or rep.append(("not array or unexpected array [.'$any_platform'.'|'.25.versions]", lpath_68 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid optional prop value [.'$any_platform'.'|'.25.versions]", lpath_68 if path is not None else None))
+                return False
+        else:
+            rep is None or rep.append(("unexpected prop [.'$any_platform'.'|'.25]", lpath_68 if path is not None else None))
+            return False
+    return True
+
+# object .'$any_platform'.'|'.24
+def _jm_obj_69(val: Jsonable, path: Path, rep: Report) -> bool:
+    if not isinstance(val, dict):
+        rep is None or rep.append(("not an object [.'$any_platform'.'|'.24]", path))
+        return False
+    res: bool
+    for prop, pval in val.items():
+        assert isinstance(prop, str)
+        lpath_69: Path = (path + [ prop ]) if path is not None else None
+        if prop == "name":
+            # handle may name property
+            # .'$any_platform'.'|'.24.name
+            res = isinstance(pval, str) and pval == "Junos"
+            if not res:
+                rep is None or rep.append(("unexpected _Junos [.'$any_platform'.'|'.24.name]", lpath_69 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid optional prop value [.'$any_platform'.'|'.24.name]", lpath_69 if path is not None else None))
+                return False
+        elif prop == "versions":
+            # handle may versions property
+            # .'$any_platform'.'|'.24.versions
+            res = isinstance(pval, list)
+            if res:
+                for arr_69_idx, arr_69_item in enumerate(pval):
+                    arr_69_lpath: Path = ((lpath_69 if path is not None else None) + [ arr_69_idx ]) if (lpath_69 if path is not None else None) is not None else None
+                    # .'$any_platform'.'|'.24.versions.0
+                    res = isinstance(arr_69_item, str) and arr_69_item == "all"
+                    if not res:
+                        rep is None or rep.append(("unexpected all [.'$any_platform'.'|'.24.versions.0]", arr_69_lpath if (lpath_69 if path is not None else None) is not None else None))
+                    if not res:
+                        break
+            if not res:
+                rep is None or rep.append(("not array or unexpected array [.'$any_platform'.'|'.24.versions]", lpath_69 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid optional prop value [.'$any_platform'.'|'.24.versions]", lpath_69 if path is not None else None))
+                return False
+        else:
+            rep is None or rep.append(("unexpected prop [.'$any_platform'.'|'.24]", lpath_69 if path is not None else None))
+            return False
+    return True
+
+# object .'$any_platform'.'|'.23
+def _jm_obj_70(val: Jsonable, path: Path, rep: Report) -> bool:
+    if not isinstance(val, dict):
+        rep is None or rep.append(("not an object [.'$any_platform'.'|'.23]", path))
+        return False
+    res: bool
+    for prop, pval in val.items():
+        assert isinstance(prop, str)
+        lpath_70: Path = (path + [ prop ]) if path is not None else None
+        if prop == "name":
+            # handle may name property
+            # .'$any_platform'.'|'.23.name
+            res = isinstance(pval, str) and pval == "IOS"
+            if not res:
+                rep is None or rep.append(("unexpected _IOS [.'$any_platform'.'|'.23.name]", lpath_70 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid optional prop value [.'$any_platform'.'|'.23.name]", lpath_70 if path is not None else None))
+                return False
+        elif prop == "versions":
+            # handle may versions property
+            # .'$any_platform'.'|'.23.versions
+            res = isinstance(pval, list)
+            if res:
+                for arr_70_idx, arr_70_item in enumerate(pval):
+                    arr_70_lpath: Path = ((lpath_70 if path is not None else None) + [ arr_70_idx ]) if (lpath_70 if path is not None else None) is not None else None
+                    # .'$any_platform'.'|'.23.versions.0
+                    res = isinstance(arr_70_item, str) and arr_70_item == "all"
+                    if not res:
+                        rep is None or rep.append(("unexpected all [.'$any_platform'.'|'.23.versions.0]", arr_70_lpath if (lpath_70 if path is not None else None) is not None else None))
+                    if not res:
+                        break
+            if not res:
+                rep is None or rep.append(("not array or unexpected array [.'$any_platform'.'|'.23.versions]", lpath_70 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid optional prop value [.'$any_platform'.'|'.23.versions]", lpath_70 if path is not None else None))
+                return False
+        else:
+            rep is None or rep.append(("unexpected prop [.'$any_platform'.'|'.23]", lpath_70 if path is not None else None))
+            return False
+    return True
+
+
+# object .'$any_platform'.'|'.22
+def _jm_obj_71(val: Jsonable, path: Path, rep: Report) -> bool:
+    if not isinstance(val, dict):
+        rep is None or rep.append(("not an object [.'$any_platform'.'|'.22]", path))
+        return False
+    res: bool
+    for prop, pval in val.items():
+        assert isinstance(prop, str)
+        lpath_71: Path = (path + [ prop ]) if path is not None else None
+        if prop == "name":
+            # handle may name property
+            # .'$any_platform'.'|'.22.name
+            res = isinstance(pval, str) and pval == "HardenedBSD"
+            if not res:
+                rep is None or rep.append(("unexpected _HardenedBSD [.'$any_platform'.'|'.22.name]", lpath_71 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid optional prop value [.'$any_platform'.'|'.22.name]", lpath_71 if path is not None else None))
+                return False
+        elif prop == "versions":
+            # handle may versions property
+            # .'$any_platform'.'|'.22.versions
+            res = isinstance(pval, list)
+            if res:
+                for arr_71_idx, arr_71_item in enumerate(pval):
+                    arr_71_lpath: Path = ((lpath_71 if path is not None else None) + [ arr_71_idx ]) if (lpath_71 if path is not None else None) is not None else None
+                    # .'$any_platform'.'|'.22.versions.0
+                    res = ((arr_71_item is None or isinstance(arr_71_item, (bool, int, float, str)))) and arr_71_item in _jm_cst_50
+                    if not res:
+                        rep is None or rep.append(("value not in enum [.'$any_platform'.'|'.22.versions.0.'|']", arr_71_lpath if (lpath_71 if path is not None else None) is not None else None))
+                    if not res:
+                        break
+            if not res:
+                rep is None or rep.append(("not array or unexpected array [.'$any_platform'.'|'.22.versions]", lpath_71 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid optional prop value [.'$any_platform'.'|'.22.versions]", lpath_71 if path is not None else None))
+                return False
+        else:
+            rep is None or rep.append(("unexpected prop [.'$any_platform'.'|'.22]", lpath_71 if path is not None else None))
+            return False
+    return True
+
+# object .'$any_platform'.'|'.21
+def _jm_obj_72(val: Jsonable, path: Path, rep: Report) -> bool:
+    if not isinstance(val, dict):
+        rep is None or rep.append(("not an object [.'$any_platform'.'|'.21]", path))
+        return False
+    res: bool
+    for prop, pval in val.items():
+        assert isinstance(prop, str)
+        lpath_72: Path = (path + [ prop ]) if path is not None else None
+        if prop == "name":
+            # handle may name property
+            # .'$any_platform'.'|'.21.name
+            res = isinstance(pval, str) and pval == "Gentoo"
+            if not res:
+                rep is None or rep.append(("unexpected _Gentoo [.'$any_platform'.'|'.21.name]", lpath_72 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid optional prop value [.'$any_platform'.'|'.21.name]", lpath_72 if path is not None else None))
+                return False
+        elif prop == "versions":
+            # handle may versions property
+            # .'$any_platform'.'|'.21.versions
+            res = isinstance(pval, list)
+            if res:
+                for arr_72_idx, arr_72_item in enumerate(pval):
+                    arr_72_lpath: Path = ((lpath_72 if path is not None else None) + [ arr_72_idx ]) if (lpath_72 if path is not None else None) is not None else None
+                    # .'$any_platform'.'|'.21.versions.0
+                    res = isinstance(arr_72_item, str) and arr_72_item == "all"
+                    if not res:
+                        rep is None or rep.append(("unexpected all [.'$any_platform'.'|'.21.versions.0]", arr_72_lpath if (lpath_72 if path is not None else None) is not None else None))
+                    if not res:
+                        break
+            if not res:
+                rep is None or rep.append(("not array or unexpected array [.'$any_platform'.'|'.21.versions]", lpath_72 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid optional prop value [.'$any_platform'.'|'.21.versions]", lpath_72 if path is not None else None))
+                return False
+        else:
+            rep is None or rep.append(("unexpected prop [.'$any_platform'.'|'.21]", lpath_72 if path is not None else None))
+            return False
+    return True
+
+# object .'$any_platform'.'|'.20
+def _jm_obj_73(val: Jsonable, path: Path, rep: Report) -> bool:
+    if not isinstance(val, dict):
+        rep is None or rep.append(("not an object [.'$any_platform'.'|'.20]", path))
+        return False
+    res: bool
+    for prop, pval in val.items():
+        assert isinstance(prop, str)
+        lpath_73: Path = (path + [ prop ]) if path is not None else None
+        if prop == "name":
+            # handle may name property
+            # .'$any_platform'.'|'.20.name
+            res = isinstance(pval, str) and pval == "GenericUNIX"
+            if not res:
+                rep is None or rep.append(("unexpected _GenericUNIX [.'$any_platform'.'|'.20.name]", lpath_73 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid optional prop value [.'$any_platform'.'|'.20.name]", lpath_73 if path is not None else None))
+                return False
+        elif prop == "versions":
+            # handle may versions property
+            # .'$any_platform'.'|'.20.versions
+            res = isinstance(pval, list)
+            if res:
+                for arr_73_idx, arr_73_item in enumerate(pval):
+                    arr_73_lpath: Path = ((lpath_73 if path is not None else None) + [ arr_73_idx ]) if (lpath_73 if path is not None else None) is not None else None
+                    # .'$any_platform'.'|'.20.versions.0
+                    res = isinstance(arr_73_item, str) and arr_73_item == "all"
+                    if not res:
+                        rep is None or rep.append(("unexpected all [.'$any_platform'.'|'.20.versions.0]", arr_73_lpath if (lpath_73 if path is not None else None) is not None else None))
+                    if not res:
+                        break
+            if not res:
+                rep is None or rep.append(("not array or unexpected array [.'$any_platform'.'|'.20.versions]", lpath_73 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid optional prop value [.'$any_platform'.'|'.20.versions]", lpath_73 if path is not None else None))
+                return False
+        else:
+            rep is None or rep.append(("unexpected prop [.'$any_platform'.'|'.20]", lpath_73 if path is not None else None))
+            return False
+    return True
+
+# object .'$any_platform'.'|'.19
+def _jm_obj_74(val: Jsonable, path: Path, rep: Report) -> bool:
+    if not isinstance(val, dict):
+        rep is None or rep.append(("not an object [.'$any_platform'.'|'.19]", path))
+        return False
+    res: bool
+    for prop, pval in val.items():
+        assert isinstance(prop, str)
+        lpath_74: Path = (path + [ prop ]) if path is not None else None
+        if prop == "name":
+            # handle may name property
+            # .'$any_platform'.'|'.19.name
+            res = isinstance(pval, str) and pval == "GenericLinux"
+            if not res:
+                rep is None or rep.append(("unexpected _GenericLinux [.'$any_platform'.'|'.19.name]", lpath_74 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid optional prop value [.'$any_platform'.'|'.19.name]", lpath_74 if path is not None else None))
+                return False
+        elif prop == "versions":
+            # handle may versions property
+            # .'$any_platform'.'|'.19.versions
+            res = isinstance(pval, list)
+            if res:
+                for arr_74_idx, arr_74_item in enumerate(pval):
+                    arr_74_lpath: Path = ((lpath_74 if path is not None else None) + [ arr_74_idx ]) if (lpath_74 if path is not None else None) is not None else None
+                    # .'$any_platform'.'|'.19.versions.0
+                    res = isinstance(arr_74_item, str) and arr_74_item == "all"
+                    if not res:
+                        rep is None or rep.append(("unexpected all [.'$any_platform'.'|'.19.versions.0]", arr_74_lpath if (lpath_74 if path is not None else None) is not None else None))
+                    if not res:
+                        break
+            if not res:
+                rep is None or rep.append(("not array or unexpected array [.'$any_platform'.'|'.19.versions]", lpath_74 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid optional prop value [.'$any_platform'.'|'.19.versions]", lpath_74 if path is not None else None))
+                return False
+        else:
+            rep is None or rep.append(("unexpected prop [.'$any_platform'.'|'.19]", lpath_74 if path is not None else None))
+            return False
+    return True
+
+# object .'$any_platform'.'|'.18
+def _jm_obj_75(val: Jsonable, path: Path, rep: Report) -> bool:
+    if not isinstance(val, dict):
+        rep is None or rep.append(("not an object [.'$any_platform'.'|'.18]", path))
+        return False
+    res: bool
+    for prop, pval in val.items():
+        assert isinstance(prop, str)
+        lpath_75: Path = (path + [ prop ]) if path is not None else None
+        if prop == "name":
+            # handle may name property
+            # .'$any_platform'.'|'.18.name
+            res = isinstance(pval, str) and pval == "GenericBSD"
+            if not res:
+                rep is None or rep.append(("unexpected _GenericBSD [.'$any_platform'.'|'.18.name]", lpath_75 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid optional prop value [.'$any_platform'.'|'.18.name]", lpath_75 if path is not None else None))
+                return False
+        elif prop == "versions":
+            # handle may versions property
+            # .'$any_platform'.'|'.18.versions
+            res = isinstance(pval, list)
+            if res:
+                for arr_75_idx, arr_75_item in enumerate(pval):
+                    arr_75_lpath: Path = ((lpath_75 if path is not None else None) + [ arr_75_idx ]) if (lpath_75 if path is not None else None) is not None else None
+                    # .'$any_platform'.'|'.18.versions.0
+                    res = isinstance(arr_75_item, str) and arr_75_item == "all"
+                    if not res:
+                        rep is None or rep.append(("unexpected all [.'$any_platform'.'|'.18.versions.0]", arr_75_lpath if (lpath_75 if path is not None else None) is not None else None))
+                    if not res:
+                        break
+            if not res:
+                rep is None or rep.append(("not array or unexpected array [.'$any_platform'.'|'.18.versions]", lpath_75 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid optional prop value [.'$any_platform'.'|'.18.versions]", lpath_75 if path is not None else None))
+                return False
+        else:
+            rep is None or rep.append(("unexpected prop [.'$any_platform'.'|'.18]", lpath_75 if path is not None else None))
+            return False
+    return True
+
+
+# object .'$any_platform'.'|'.17
+def _jm_obj_76(val: Jsonable, path: Path, rep: Report) -> bool:
+    if not isinstance(val, dict):
+        rep is None or rep.append(("not an object [.'$any_platform'.'|'.17]", path))
+        return False
+    res: bool
+    for prop, pval in val.items():
+        assert isinstance(prop, str)
+        lpath_76: Path = (path + [ prop ]) if path is not None else None
+        if prop == "name":
+            # handle may name property
+            # .'$any_platform'.'|'.17.name
+            res = isinstance(pval, str) and pval == "FreeBSD"
+            if not res:
+                rep is None or rep.append(("unexpected _FreeBSD [.'$any_platform'.'|'.17.name]", lpath_76 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid optional prop value [.'$any_platform'.'|'.17.name]", lpath_76 if path is not None else None))
+                return False
+        elif prop == "versions":
+            # handle may versions property
+            # .'$any_platform'.'|'.17.versions
+            res = isinstance(pval, list)
+            if res:
+                for arr_76_idx, arr_76_item in enumerate(pval):
+                    arr_76_lpath: Path = ((lpath_76 if path is not None else None) + [ arr_76_idx ]) if (lpath_76 if path is not None else None) is not None else None
+                    # .'$any_platform'.'|'.17.versions.0
+                    res = ((arr_76_item is None or isinstance(arr_76_item, (bool, int, float, str)))) and arr_76_item in _jm_cst_51
+                    if not res:
+                        rep is None or rep.append(("value not in enum [.'$any_platform'.'|'.17.versions.0.'|']", arr_76_lpath if (lpath_76 if path is not None else None) is not None else None))
+                    if not res:
+                        break
+            if not res:
+                rep is None or rep.append(("not array or unexpected array [.'$any_platform'.'|'.17.versions]", lpath_76 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid optional prop value [.'$any_platform'.'|'.17.versions]", lpath_76 if path is not None else None))
+                return False
+        else:
+            rep is None or rep.append(("unexpected prop [.'$any_platform'.'|'.17]", lpath_76 if path is not None else None))
+            return False
+    return True
+
+
+# object .'$any_platform'.'|'.16
+def _jm_obj_77(val: Jsonable, path: Path, rep: Report) -> bool:
+    if not isinstance(val, dict):
+        rep is None or rep.append(("not an object [.'$any_platform'.'|'.16]", path))
+        return False
+    res: bool
+    for prop, pval in val.items():
+        assert isinstance(prop, str)
+        lpath_77: Path = (path + [ prop ]) if path is not None else None
+        if prop == "name":
+            # handle may name property
+            # .'$any_platform'.'|'.16.name
+            res = isinstance(pval, str) and (pval == "Fedora")
+            if not res:
+                rep is None or rep.append(("unexpected _Fedora [.'$any_platform'.'|'.16.name]", lpath_77 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid optional prop value [.'$any_platform'.'|'.16.name]", lpath_77 if path is not None else None))
+                return False
+        elif prop == "versions":
+            # handle may versions property
+            # .'$any_platform'.'|'.16.versions
+            res = isinstance(pval, list)
+            if res:
+                for arr_77_idx, arr_77_item in enumerate(pval):
+                    arr_77_lpath: Path = ((lpath_77 if path is not None else None) + [ arr_77_idx ]) if (lpath_77 if path is not None else None) is not None else None
+                    # .'$any_platform'.'|'.16.versions.0
+                    res = ((arr_77_item is None or isinstance(arr_77_item, (bool, int, float, str)))) and arr_77_item in _jm_cst_52
+                    if not res:
+                        rep is None or rep.append(("value not in enum [.'$any_platform'.'|'.16.versions.0.'|']", arr_77_lpath if (lpath_77 if path is not None else None) is not None else None))
+                    if not res:
+                        break
+            if not res:
+                rep is None or rep.append(("not array or unexpected array [.'$any_platform'.'|'.16.versions]", lpath_77 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid optional prop value [.'$any_platform'.'|'.16.versions]", lpath_77 if path is not None else None))
+                return False
+        else:
+            rep is None or rep.append(("unexpected prop [.'$any_platform'.'|'.16]", lpath_77 if path is not None else None))
+            return False
+    return True
+
+# object .'$any_platform'.'|'.15
+def _jm_obj_78(val: Jsonable, path: Path, rep: Report) -> bool:
+    if not isinstance(val, dict):
+        rep is None or rep.append(("not an object [.'$any_platform'.'|'.15]", path))
+        return False
+    res: bool
+    for prop, pval in val.items():
+        assert isinstance(prop, str)
+        lpath_78: Path = (path + [ prop ]) if path is not None else None
+        if prop == "name":
+            # handle may name property
+            # .'$any_platform'.'|'.15.name
+            res = isinstance(pval, str) and pval == "eos"
+            if not res:
+                rep is None or rep.append(("unexpected _eos [.'$any_platform'.'|'.15.name]", lpath_78 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid optional prop value [.'$any_platform'.'|'.15.name]", lpath_78 if path is not None else None))
+                return False
+        elif prop == "versions":
+            # handle may versions property
+            # .'$any_platform'.'|'.15.versions
+            res = isinstance(pval, list)
+            if res:
+                for arr_78_idx, arr_78_item in enumerate(pval):
+                    arr_78_lpath: Path = ((lpath_78 if path is not None else None) + [ arr_78_idx ]) if (lpath_78 if path is not None else None) is not None else None
+                    # .'$any_platform'.'|'.15.versions.0
+                    res = isinstance(arr_78_item, str) and arr_78_item == "all"
+                    if not res:
+                        rep is None or rep.append(("unexpected all [.'$any_platform'.'|'.15.versions.0]", arr_78_lpath if (lpath_78 if path is not None else None) is not None else None))
+                    if not res:
+                        break
+            if not res:
+                rep is None or rep.append(("not array or unexpected array [.'$any_platform'.'|'.15.versions]", lpath_78 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid optional prop value [.'$any_platform'.'|'.15.versions]", lpath_78 if path is not None else None))
+                return False
+        else:
+            rep is None or rep.append(("unexpected prop [.'$any_platform'.'|'.15]", lpath_78 if path is not None else None))
+            return False
+    return True
+
+
+# object .'$any_platform'.'|'.14
+def _jm_obj_79(val: Jsonable, path: Path, rep: Report) -> bool:
+    if not isinstance(val, dict):
+        rep is None or rep.append(("not an object [.'$any_platform'.'|'.14]", path))
+        return False
+    res: bool
+    for prop, pval in val.items():
+        assert isinstance(prop, str)
+        lpath_79: Path = (path + [ prop ]) if path is not None else None
+        if prop == "name":
+            # handle may name property
+            # .'$any_platform'.'|'.14.name
+            res = isinstance(pval, str) and pval == "EL"
+            if not res:
+                rep is None or rep.append(("unexpected _EL [.'$any_platform'.'|'.14.name]", lpath_79 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid optional prop value [.'$any_platform'.'|'.14.name]", lpath_79 if path is not None else None))
+                return False
+        elif prop == "versions":
+            # handle may versions property
+            # .'$any_platform'.'|'.14.versions
+            res = isinstance(pval, list)
+            if res:
+                for arr_79_idx, arr_79_item in enumerate(pval):
+                    arr_79_lpath: Path = ((lpath_79 if path is not None else None) + [ arr_79_idx ]) if (lpath_79 if path is not None else None) is not None else None
+                    # .'$any_platform'.'|'.14.versions.0
+                    res = ((arr_79_item is None or isinstance(arr_79_item, (bool, int, float, str)))) and arr_79_item in _jm_cst_53
+                    if not res:
+                        rep is None or rep.append(("value not in enum [.'$any_platform'.'|'.14.versions.0.'|']", arr_79_lpath if (lpath_79 if path is not None else None) is not None else None))
+                    if not res:
+                        break
+            if not res:
+                rep is None or rep.append(("not array or unexpected array [.'$any_platform'.'|'.14.versions]", lpath_79 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid optional prop value [.'$any_platform'.'|'.14.versions]", lpath_79 if path is not None else None))
+                return False
+        else:
+            rep is None or rep.append(("unexpected prop [.'$any_platform'.'|'.14]", lpath_79 if path is not None else None))
+            return False
+    return True
+
+
+# object .'$any_platform'.'|'.13
+def _jm_obj_80(val: Jsonable, path: Path, rep: Report) -> bool:
+    if not isinstance(val, dict):
+        rep is None or rep.append(("not an object [.'$any_platform'.'|'.13]", path))
+        return False
+    res: bool
+    for prop, pval in val.items():
+        assert isinstance(prop, str)
+        lpath_80: Path = (path + [ prop ]) if path is not None else None
+        if prop == "name":
+            # handle may name property
+            # .'$any_platform'.'|'.13.name
+            res = isinstance(pval, str) and pval == "DragonFlyBSD"
+            if not res:
+                rep is None or rep.append(("unexpected _DragonFlyBSD [.'$any_platform'.'|'.13.name]", lpath_80 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid optional prop value [.'$any_platform'.'|'.13.name]", lpath_80 if path is not None else None))
+                return False
+        elif prop == "versions":
+            # handle may versions property
+            # .'$any_platform'.'|'.13.versions
+            res = isinstance(pval, list)
+            if res:
+                for arr_80_idx, arr_80_item in enumerate(pval):
+                    arr_80_lpath: Path = ((lpath_80 if path is not None else None) + [ arr_80_idx ]) if (lpath_80 if path is not None else None) is not None else None
+                    # .'$any_platform'.'|'.13.versions.0
+                    res = ((arr_80_item is None or isinstance(arr_80_item, (bool, int, float, str)))) and arr_80_item in _jm_cst_54
+                    if not res:
+                        rep is None or rep.append(("value not in enum [.'$any_platform'.'|'.13.versions.0.'|']", arr_80_lpath if (lpath_80 if path is not None else None) is not None else None))
+                    if not res:
+                        break
+            if not res:
+                rep is None or rep.append(("not array or unexpected array [.'$any_platform'.'|'.13.versions]", lpath_80 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid optional prop value [.'$any_platform'.'|'.13.versions]", lpath_80 if path is not None else None))
+                return False
+        else:
+            rep is None or rep.append(("unexpected prop [.'$any_platform'.'|'.13]", lpath_80 if path is not None else None))
+            return False
+    return True
+
+
+# object .'$any_platform'.'|'.12
+def _jm_obj_81(val: Jsonable, path: Path, rep: Report) -> bool:
+    if not isinstance(val, dict):
+        rep is None or rep.append(("not an object [.'$any_platform'.'|'.12]", path))
+        return False
+    res: bool
+    for prop, pval in val.items():
+        assert isinstance(prop, str)
+        lpath_81: Path = (path + [ prop ]) if path is not None else None
+        if prop == "name":
+            # handle may name property
+            # .'$any_platform'.'|'.12.name
+            res = isinstance(pval, str) and pval == "Devuan"
+            if not res:
+                rep is None or rep.append(("unexpected _Devuan [.'$any_platform'.'|'.12.name]", lpath_81 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid optional prop value [.'$any_platform'.'|'.12.name]", lpath_81 if path is not None else None))
+                return False
+        elif prop == "versions":
+            # handle may versions property
+            # .'$any_platform'.'|'.12.versions
+            res = isinstance(pval, list)
+            if res:
+                for arr_81_idx, arr_81_item in enumerate(pval):
+                    arr_81_lpath: Path = ((lpath_81 if path is not None else None) + [ arr_81_idx ]) if (lpath_81 if path is not None else None) is not None else None
+                    # .'$any_platform'.'|'.12.versions.0
+                    res = ((arr_81_item is None or isinstance(arr_81_item, (bool, int, float, str)))) and arr_81_item in _jm_cst_55
+                    if not res:
+                        rep is None or rep.append(("value not in enum [.'$any_platform'.'|'.12.versions.0.'|']", arr_81_lpath if (lpath_81 if path is not None else None) is not None else None))
+                    if not res:
+                        break
+            if not res:
+                rep is None or rep.append(("not array or unexpected array [.'$any_platform'.'|'.12.versions]", lpath_81 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid optional prop value [.'$any_platform'.'|'.12.versions]", lpath_81 if path is not None else None))
+                return False
+        else:
+            rep is None or rep.append(("unexpected prop [.'$any_platform'.'|'.12]", lpath_81 if path is not None else None))
+            return False
+    return True
+
+
+# object .'$any_platform'.'|'.11
+def _jm_obj_82(val: Jsonable, path: Path, rep: Report) -> bool:
+    if not isinstance(val, dict):
+        rep is None or rep.append(("not an object [.'$any_platform'.'|'.11]", path))
+        return False
+    res: bool
+    for prop, pval in val.items():
+        assert isinstance(prop, str)
+        lpath_82: Path = (path + [ prop ]) if path is not None else None
+        if prop == "name":
+            # handle may name property
+            # .'$any_platform'.'|'.11.name
+            res = isinstance(pval, str) and pval == "DellOS"
+            if not res:
+                rep is None or rep.append(("unexpected _DellOS [.'$any_platform'.'|'.11.name]", lpath_82 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid optional prop value [.'$any_platform'.'|'.11.name]", lpath_82 if path is not None else None))
+                return False
+        elif prop == "versions":
+            # handle may versions property
+            # .'$any_platform'.'|'.11.versions
+            res = isinstance(pval, list)
+            if res:
+                for arr_82_idx, arr_82_item in enumerate(pval):
+                    arr_82_lpath: Path = ((lpath_82 if path is not None else None) + [ arr_82_idx ]) if (lpath_82 if path is not None else None) is not None else None
+                    # .'$any_platform'.'|'.11.versions.0
+                    res = ((arr_82_item is None or isinstance(arr_82_item, (bool, int, float, str)))) and arr_82_item in _jm_cst_56
+                    if not res:
+                        rep is None or rep.append(("value not in enum [.'$any_platform'.'|'.11.versions.0.'|']", arr_82_lpath if (lpath_82 if path is not None else None) is not None else None))
+                    if not res:
+                        break
+            if not res:
+                rep is None or rep.append(("not array or unexpected array [.'$any_platform'.'|'.11.versions]", lpath_82 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid optional prop value [.'$any_platform'.'|'.11.versions]", lpath_82 if path is not None else None))
+                return False
+        else:
+            rep is None or rep.append(("unexpected prop [.'$any_platform'.'|'.11]", lpath_82 if path is not None else None))
+            return False
+    return True
+
+
+# object .'$any_platform'.'|'.10
+def _jm_obj_83(val: Jsonable, path: Path, rep: Report) -> bool:
+    if not isinstance(val, dict):
+        rep is None or rep.append(("not an object [.'$any_platform'.'|'.10]", path))
+        return False
+    res: bool
+    for prop, pval in val.items():
+        assert isinstance(prop, str)
+        lpath_83: Path = (path + [ prop ]) if path is not None else None
+        if prop == "name":
+            # handle may name property
+            # .'$any_platform'.'|'.10.name
+            res = isinstance(pval, str) and pval == "Debian"
+            if not res:
+                rep is None or rep.append(("unexpected _Debian [.'$any_platform'.'|'.10.name]", lpath_83 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid optional prop value [.'$any_platform'.'|'.10.name]", lpath_83 if path is not None else None))
+                return False
+        elif prop == "versions":
+            # handle may versions property
+            # .'$any_platform'.'|'.10.versions
+            res = isinstance(pval, list)
+            if res:
+                for arr_83_idx, arr_83_item in enumerate(pval):
+                    arr_83_lpath: Path = ((lpath_83 if path is not None else None) + [ arr_83_idx ]) if (lpath_83 if path is not None else None) is not None else None
+                    # .'$any_platform'.'|'.10.versions.0
+                    res = ((arr_83_item is None or isinstance(arr_83_item, (bool, int, float, str)))) and arr_83_item in _jm_cst_57
+                    if not res:
+                        rep is None or rep.append(("value not in enum [.'$any_platform'.'|'.10.versions.0.'|']", arr_83_lpath if (lpath_83 if path is not None else None) is not None else None))
+                    if not res:
+                        break
+            if not res:
+                rep is None or rep.append(("not array or unexpected array [.'$any_platform'.'|'.10.versions]", lpath_83 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid optional prop value [.'$any_platform'.'|'.10.versions]", lpath_83 if path is not None else None))
+                return False
+        else:
+            rep is None or rep.append(("unexpected prop [.'$any_platform'.'|'.10]", lpath_83 if path is not None else None))
+            return False
+    return True
+
+
+# object .'$any_platform'.'|'.9
+def _jm_obj_84(val: Jsonable, path: Path, rep: Report) -> bool:
+    if not isinstance(val, dict):
+        rep is None or rep.append(("not an object [.'$any_platform'.'|'.9]", path))
+        return False
+    res: bool
+    for prop, pval in val.items():
+        assert isinstance(prop, str)
+        lpath_84: Path = (path + [ prop ]) if path is not None else None
+        if prop == "name":
+            # handle may name property
+            # .'$any_platform'.'|'.9.name
+            res = isinstance(pval, str) and pval == "NetBSD"
+            if not res:
+                rep is None or rep.append(("unexpected _NetBSD [.'$any_platform'.'|'.9.name]", lpath_84 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid optional prop value [.'$any_platform'.'|'.9.name]", lpath_84 if path is not None else None))
+                return False
+        elif prop == "versions":
+            # handle may versions property
+            # .'$any_platform'.'|'.9.versions
+            res = isinstance(pval, list)
+            if res:
+                for arr_84_idx, arr_84_item in enumerate(pval):
+                    arr_84_lpath: Path = ((lpath_84 if path is not None else None) + [ arr_84_idx ]) if (lpath_84 if path is not None else None) is not None else None
+                    # .'$any_platform'.'|'.9.versions.0
+                    res = ((arr_84_item is None or isinstance(arr_84_item, (bool, int, float, str)))) and arr_84_item in _jm_cst_58
+                    if not res:
+                        rep is None or rep.append(("value not in enum [.'$any_platform'.'|'.9.versions.0.'|']", arr_84_lpath if (lpath_84 if path is not None else None) is not None else None))
+                    if not res:
+                        break
+            if not res:
+                rep is None or rep.append(("not array or unexpected array [.'$any_platform'.'|'.9.versions]", lpath_84 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid optional prop value [.'$any_platform'.'|'.9.versions]", lpath_84 if path is not None else None))
+                return False
+        else:
+            rep is None or rep.append(("unexpected prop [.'$any_platform'.'|'.9]", lpath_84 if path is not None else None))
+            return False
+    return True
+
+
+# object .'$any_platform'.'|'.8
+def _jm_obj_85(val: Jsonable, path: Path, rep: Report) -> bool:
+    if not isinstance(val, dict):
+        rep is None or rep.append(("not an object [.'$any_platform'.'|'.8]", path))
+        return False
+    res: bool
+    for prop, pval in val.items():
+        assert isinstance(prop, str)
+        lpath_85: Path = (path + [ prop ]) if path is not None else None
+        if prop == "name":
+            # handle may name property
+            # .'$any_platform'.'|'.8.name
+            res = isinstance(pval, str) and pval == "Cumulus"
+            if not res:
+                rep is None or rep.append(("unexpected _Cumulus [.'$any_platform'.'|'.8.name]", lpath_85 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid optional prop value [.'$any_platform'.'|'.8.name]", lpath_85 if path is not None else None))
+                return False
+        elif prop == "versions":
+            # handle may versions property
+            # .'$any_platform'.'|'.8.versions
+            res = isinstance(pval, list)
+            if res:
+                for arr_85_idx, arr_85_item in enumerate(pval):
+                    arr_85_lpath: Path = ((lpath_85 if path is not None else None) + [ arr_85_idx ]) if (lpath_85 if path is not None else None) is not None else None
+                    # .'$any_platform'.'|'.8.versions.0
+                    res = ((arr_85_item is None or isinstance(arr_85_item, (bool, int, float, str)))) and arr_85_item in _jm_cst_59
+                    if not res:
+                        rep is None or rep.append(("value not in enum [.'$any_platform'.'|'.8.versions.0.'|']", arr_85_lpath if (lpath_85 if path is not None else None) is not None else None))
+                    if not res:
+                        break
+            if not res:
+                rep is None or rep.append(("not array or unexpected array [.'$any_platform'.'|'.8.versions]", lpath_85 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid optional prop value [.'$any_platform'.'|'.8.versions]", lpath_85 if path is not None else None))
+                return False
+        else:
+            rep is None or rep.append(("unexpected prop [.'$any_platform'.'|'.8]", lpath_85 if path is not None else None))
+            return False
+    return True
+
+# object .'$any_platform'.'|'.7
+def _jm_obj_86(val: Jsonable, path: Path, rep: Report) -> bool:
+    if not isinstance(val, dict):
+        rep is None or rep.append(("not an object [.'$any_platform'.'|'.7]", path))
+        return False
+    res: bool
+    for prop, pval in val.items():
+        assert isinstance(prop, str)
+        lpath_86: Path = (path + [ prop ]) if path is not None else None
+        if prop == "name":
+            # handle may name property
+            # .'$any_platform'.'|'.7.name
+            res = isinstance(pval, str) and pval == "ClearLinux"
+            if not res:
+                rep is None or rep.append(("unexpected _ClearLinux [.'$any_platform'.'|'.7.name]", lpath_86 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid optional prop value [.'$any_platform'.'|'.7.name]", lpath_86 if path is not None else None))
+                return False
+        elif prop == "versions":
+            # handle may versions property
+            # .'$any_platform'.'|'.7.versions
+            res = isinstance(pval, list)
+            if res:
+                for arr_86_idx, arr_86_item in enumerate(pval):
+                    arr_86_lpath: Path = ((lpath_86 if path is not None else None) + [ arr_86_idx ]) if (lpath_86 if path is not None else None) is not None else None
+                    # .'$any_platform'.'|'.7.versions.0
+                    res = isinstance(arr_86_item, str) and arr_86_item == "all"
+                    if not res:
+                        rep is None or rep.append(("unexpected all [.'$any_platform'.'|'.7.versions.0]", arr_86_lpath if (lpath_86 if path is not None else None) is not None else None))
+                    if not res:
+                        break
+            if not res:
+                rep is None or rep.append(("not array or unexpected array [.'$any_platform'.'|'.7.versions]", lpath_86 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid optional prop value [.'$any_platform'.'|'.7.versions]", lpath_86 if path is not None else None))
+                return False
+        else:
+            rep is None or rep.append(("unexpected prop [.'$any_platform'.'|'.7]", lpath_86 if path is not None else None))
+            return False
+    return True
+
+
+# object .'$any_platform'.'|'.6
+def _jm_obj_87(val: Jsonable, path: Path, rep: Report) -> bool:
+    if not isinstance(val, dict):
+        rep is None or rep.append(("not an object [.'$any_platform'.'|'.6]", path))
+        return False
+    res: bool
+    for prop, pval in val.items():
+        assert isinstance(prop, str)
+        lpath_87: Path = (path + [ prop ]) if path is not None else None
+        if prop == "name":
+            # handle may name property
+            # .'$any_platform'.'|'.6.name
+            res = isinstance(pval, str) and pval == "Astra Linux"
+            if not res:
+                rep is None or rep.append(("unexpected _Astra Linux [.'$any_platform'.'|'.6.name]", lpath_87 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid optional prop value [.'$any_platform'.'|'.6.name]", lpath_87 if path is not None else None))
+                return False
+        elif prop == "versions":
+            # handle may versions property
+            # .'$any_platform'.'|'.6.versions
+            res = isinstance(pval, list)
+            if res:
+                for arr_87_idx, arr_87_item in enumerate(pval):
+                    arr_87_lpath: Path = ((lpath_87 if path is not None else None) + [ arr_87_idx ]) if (lpath_87 if path is not None else None) is not None else None
+                    # .'$any_platform'.'|'.6.versions.0
+                    res = ((arr_87_item is None or isinstance(arr_87_item, (bool, int, float, str)))) and arr_87_item in _jm_cst_60
+                    if not res:
+                        rep is None or rep.append(("value not in enum [.'$any_platform'.'|'.6.versions.0.'|']", arr_87_lpath if (lpath_87 if path is not None else None) is not None else None))
+                    if not res:
+                        break
+            if not res:
+                rep is None or rep.append(("not array or unexpected array [.'$any_platform'.'|'.6.versions]", lpath_87 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid optional prop value [.'$any_platform'.'|'.6.versions]", lpath_87 if path is not None else None))
+                return False
+        else:
+            rep is None or rep.append(("unexpected prop [.'$any_platform'.'|'.6]", lpath_87 if path is not None else None))
+            return False
+    return True
+
+# object .'$any_platform'.'|'.5
+def _jm_obj_88(val: Jsonable, path: Path, rep: Report) -> bool:
+    if not isinstance(val, dict):
+        rep is None or rep.append(("not an object [.'$any_platform'.'|'.5]", path))
+        return False
+    res: bool
+    for prop, pval in val.items():
+        assert isinstance(prop, str)
+        lpath_88: Path = (path + [ prop ]) if path is not None else None
+        if prop == "name":
+            # handle may name property
+            # .'$any_platform'.'|'.5.name
+            res = isinstance(pval, str) and pval == "ArchLinux"
+            if not res:
+                rep is None or rep.append(("unexpected _ArchLinux [.'$any_platform'.'|'.5.name]", lpath_88 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid optional prop value [.'$any_platform'.'|'.5.name]", lpath_88 if path is not None else None))
+                return False
+        elif prop == "versions":
+            # handle may versions property
+            # .'$any_platform'.'|'.5.versions
+            res = isinstance(pval, list)
+            if res:
+                for arr_88_idx, arr_88_item in enumerate(pval):
+                    arr_88_lpath: Path = ((lpath_88 if path is not None else None) + [ arr_88_idx ]) if (lpath_88 if path is not None else None) is not None else None
+                    # .'$any_platform'.'|'.5.versions.0
+                    res = isinstance(arr_88_item, str) and arr_88_item == "all"
+                    if not res:
+                        rep is None or rep.append(("unexpected all [.'$any_platform'.'|'.5.versions.0]", arr_88_lpath if (lpath_88 if path is not None else None) is not None else None))
+                    if not res:
+                        break
+            if not res:
+                rep is None or rep.append(("not array or unexpected array [.'$any_platform'.'|'.5.versions]", lpath_88 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid optional prop value [.'$any_platform'.'|'.5.versions]", lpath_88 if path is not None else None))
+                return False
+        else:
+            rep is None or rep.append(("unexpected prop [.'$any_platform'.'|'.5]", lpath_88 if path is not None else None))
+            return False
+    return True
+
+# object .'$any_platform'.'|'.4
+def _jm_obj_89(val: Jsonable, path: Path, rep: Report) -> bool:
+    if not isinstance(val, dict):
+        rep is None or rep.append(("not an object [.'$any_platform'.'|'.4]", path))
+        return False
+    res: bool
+    for prop, pval in val.items():
+        assert isinstance(prop, str)
+        lpath_89: Path = (path + [ prop ]) if path is not None else None
+        if prop == "name":
+            # handle may name property
+            # .'$any_platform'.'|'.4.name
+            res = isinstance(pval, str) and pval == "aos"
+            if not res:
+                rep is None or rep.append(("unexpected _aos [.'$any_platform'.'|'.4.name]", lpath_89 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid optional prop value [.'$any_platform'.'|'.4.name]", lpath_89 if path is not None else None))
+                return False
+        elif prop == "versions":
+            # handle may versions property
+            # .'$any_platform'.'|'.4.versions
+            res = isinstance(pval, list)
+            if res:
+                for arr_89_idx, arr_89_item in enumerate(pval):
+                    arr_89_lpath: Path = ((lpath_89 if path is not None else None) + [ arr_89_idx ]) if (lpath_89 if path is not None else None) is not None else None
+                    # .'$any_platform'.'|'.4.versions.0
+                    res = isinstance(arr_89_item, str) and arr_89_item == "all"
+                    if not res:
+                        rep is None or rep.append(("unexpected all [.'$any_platform'.'|'.4.versions.0]", arr_89_lpath if (lpath_89 if path is not None else None) is not None else None))
+                    if not res:
+                        break
+            if not res:
+                rep is None or rep.append(("not array or unexpected array [.'$any_platform'.'|'.4.versions]", lpath_89 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid optional prop value [.'$any_platform'.'|'.4.versions]", lpath_89 if path is not None else None))
+                return False
+        else:
+            rep is None or rep.append(("unexpected prop [.'$any_platform'.'|'.4]", lpath_89 if path is not None else None))
+            return False
+    return True
+
+
+# object .'$any_platform'.'|'.3
+def _jm_obj_90(val: Jsonable, path: Path, rep: Report) -> bool:
+    if not isinstance(val, dict):
+        rep is None or rep.append(("not an object [.'$any_platform'.'|'.3]", path))
+        return False
+    res: bool
+    for prop, pval in val.items():
+        assert isinstance(prop, str)
+        lpath_90: Path = (path + [ prop ]) if path is not None else None
+        if prop == "name":
+            # handle may name property
+            # .'$any_platform'.'|'.3.name
+            res = isinstance(pval, str) and pval == "Amazon Linux"
+            if not res:
+                rep is None or rep.append(("unexpected _Amazon Linux [.'$any_platform'.'|'.3.name]", lpath_90 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid optional prop value [.'$any_platform'.'|'.3.name]", lpath_90 if path is not None else None))
+                return False
+        elif prop == "versions":
+            # handle may versions property
+            # .'$any_platform'.'|'.3.versions
+            res = isinstance(pval, list)
+            if res:
+                for arr_90_idx, arr_90_item in enumerate(pval):
+                    arr_90_lpath: Path = ((lpath_90 if path is not None else None) + [ arr_90_idx ]) if (lpath_90 if path is not None else None) is not None else None
+                    # .'$any_platform'.'|'.3.versions.0
+                    res = ((arr_90_item is None or isinstance(arr_90_item, (bool, int, float, str)))) and arr_90_item in _jm_cst_61
+                    if not res:
+                        rep is None or rep.append(("value not in enum [.'$any_platform'.'|'.3.versions.0.'|']", arr_90_lpath if (lpath_90 if path is not None else None) is not None else None))
+                    if not res:
+                        break
+            if not res:
+                rep is None or rep.append(("not array or unexpected array [.'$any_platform'.'|'.3.versions]", lpath_90 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid optional prop value [.'$any_platform'.'|'.3.versions]", lpath_90 if path is not None else None))
+                return False
+        else:
+            rep is None or rep.append(("unexpected prop [.'$any_platform'.'|'.3]", lpath_90 if path is not None else None))
+            return False
+    return True
+
+
+# object .'$any_platform'.'|'.2
+def _jm_obj_91(val: Jsonable, path: Path, rep: Report) -> bool:
+    if not isinstance(val, dict):
+        rep is None or rep.append(("not an object [.'$any_platform'.'|'.2]", path))
+        return False
+    res: bool
+    for prop, pval in val.items():
+        assert isinstance(prop, str)
+        lpath_91: Path = (path + [ prop ]) if path is not None else None
+        if prop == "name":
+            # handle may name property
+            # .'$any_platform'.'|'.2.name
+            res = isinstance(pval, str) and pval == "Amazon"
+            if not res:
+                rep is None or rep.append(("unexpected _Amazon [.'$any_platform'.'|'.2.name]", lpath_91 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid optional prop value [.'$any_platform'.'|'.2.name]", lpath_91 if path is not None else None))
+                return False
+        elif prop == "versions":
+            # handle may versions property
+            # .'$any_platform'.'|'.2.versions
+            res = isinstance(pval, list)
+            if res:
+                for arr_91_idx, arr_91_item in enumerate(pval):
+                    arr_91_lpath: Path = ((lpath_91 if path is not None else None) + [ arr_91_idx ]) if (lpath_91 if path is not None else None) is not None else None
+                    # .'$any_platform'.'|'.2.versions.0
+                    res = ((arr_91_item is None or isinstance(arr_91_item, (bool, int, float, str)))) and arr_91_item in _jm_cst_62
+                    if not res:
+                        rep is None or rep.append(("value not in enum [.'$any_platform'.'|'.2.versions.0.'|']", arr_91_lpath if (lpath_91 if path is not None else None) is not None else None))
+                    if not res:
+                        break
+            if not res:
+                rep is None or rep.append(("not array or unexpected array [.'$any_platform'.'|'.2.versions]", lpath_91 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid optional prop value [.'$any_platform'.'|'.2.versions]", lpath_91 if path is not None else None))
+                return False
+        else:
+            rep is None or rep.append(("unexpected prop [.'$any_platform'.'|'.2]", lpath_91 if path is not None else None))
+            return False
+    return True
+
+# object .'$any_platform'.'|'.1
+def _jm_obj_92(val: Jsonable, path: Path, rep: Report) -> bool:
+    if not isinstance(val, dict):
+        rep is None or rep.append(("not an object [.'$any_platform'.'|'.1]", path))
+        return False
+    res: bool
+    for prop, pval in val.items():
+        assert isinstance(prop, str)
+        lpath_92: Path = (path + [ prop ]) if path is not None else None
+        if prop == "name":
+            # handle may name property
+            # .'$any_platform'.'|'.1.name
+            res = isinstance(pval, str) and pval == "Alpine"
+            if not res:
+                rep is None or rep.append(("unexpected _Alpine [.'$any_platform'.'|'.1.name]", lpath_92 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid optional prop value [.'$any_platform'.'|'.1.name]", lpath_92 if path is not None else None))
+                return False
+        elif prop == "versions":
+            # handle may versions property
+            # .'$any_platform'.'|'.1.versions
+            res = isinstance(pval, list)
+            if res:
+                for arr_92_idx, arr_92_item in enumerate(pval):
+                    arr_92_lpath: Path = ((lpath_92 if path is not None else None) + [ arr_92_idx ]) if (lpath_92 if path is not None else None) is not None else None
+                    # .'$any_platform'.'|'.1.versions.0
+                    res = isinstance(arr_92_item, str) and arr_92_item == "all"
+                    if not res:
+                        rep is None or rep.append(("unexpected all [.'$any_platform'.'|'.1.versions.0]", arr_92_lpath if (lpath_92 if path is not None else None) is not None else None))
+                    if not res:
+                        break
+            if not res:
+                rep is None or rep.append(("not array or unexpected array [.'$any_platform'.'|'.1.versions]", lpath_92 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid optional prop value [.'$any_platform'.'|'.1.versions]", lpath_92 if path is not None else None))
+                return False
+        else:
+            rep is None or rep.append(("unexpected prop [.'$any_platform'.'|'.1]", lpath_92 if path is not None else None))
+            return False
+    return True
+
+
+# object .'$any_platform'.'|'.0
+def _jm_obj_93(val: Jsonable, path: Path, rep: Report) -> bool:
+    if not isinstance(val, dict):
+        rep is None or rep.append(("not an object [.'$any_platform'.'|'.0]", path))
+        return False
+    res: bool
+    for prop, pval in val.items():
+        assert isinstance(prop, str)
+        lpath_93: Path = (path + [ prop ]) if path is not None else None
+        if prop == "name":
+            # handle may name property
+            # .'$any_platform'.'|'.0.name
+            res = isinstance(pval, str) and pval == "AIX"
+            if not res:
+                rep is None or rep.append(("unexpected _AIX [.'$any_platform'.'|'.0.name]", lpath_93 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid optional prop value [.'$any_platform'.'|'.0.name]", lpath_93 if path is not None else None))
+                return False
+        elif prop == "versions":
+            # handle may versions property
+            # .'$any_platform'.'|'.0.versions
+            res = isinstance(pval, list)
+            if res:
+                for arr_93_idx, arr_93_item in enumerate(pval):
+                    arr_93_lpath: Path = ((lpath_93 if path is not None else None) + [ arr_93_idx ]) if (lpath_93 if path is not None else None) is not None else None
+                    # .'$any_platform'.'|'.0.versions.0
+                    res = ((arr_93_item is None or isinstance(arr_93_item, (bool, int, float, str)))) and arr_93_item in _jm_cst_63
+                    if not res:
+                        rep is None or rep.append(("value not in enum [.'$any_platform'.'|'.0.versions.0.'|']", arr_93_lpath if (lpath_93 if path is not None else None) is not None else None))
+                    if not res:
+                        break
+            if not res:
+                rep is None or rep.append(("not array or unexpected array [.'$any_platform'.'|'.0.versions]", lpath_93 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid optional prop value [.'$any_platform'.'|'.0.versions]", lpath_93 if path is not None else None))
+                return False
+        else:
+            rep is None or rep.append(("unexpected prop [.'$any_platform'.'|'.0]", lpath_93 if path is not None else None))
+            return False
+    return True
+
 # check $any_platform (.'$any_platform')
 def json_model_49(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # FIXME: name is not mandatory, not sure it makes much sense… versions should be unique?
     # .'$any_platform'
-    # .'$any_platform'.'|'.0
-    res = json_model_2(val, path, rep)
+    res = isinstance(val, dict)
     if not res:
-        rep is None or rep.append(("unexpected $AIXPlatformModel [.'$any_platform'.'|'.0]", path))
-    if not res:
-        # .'$any_platform'.'|'.1
-        res = json_model_3(val, path, rep)
-        if not res:
-            rep is None or rep.append(("unexpected $AlpinePlatformModel [.'$any_platform'.'|'.1]", path))
-        if not res:
-            # .'$any_platform'.'|'.2
-            res = json_model_5(val, path, rep)
-            if not res:
-                rep is None or rep.append(("unexpected $AmazonPlatformModel [.'$any_platform'.'|'.2]", path))
-            if not res:
-                # .'$any_platform'.'|'.3
-                res = json_model_4(val, path, rep)
-                if not res:
-                    rep is None or rep.append(("unexpected $AmazonLinuxPlatformModel [.'$any_platform'.'|'.3]", path))
-                if not res:
-                    # .'$any_platform'.'|'.4
-                    res = json_model_42(val, path, rep)
-                    if not res:
-                        rep is None or rep.append(("unexpected $aosPlatformModel [.'$any_platform'.'|'.4]", path))
-                    if not res:
-                        # .'$any_platform'.'|'.5
-                        res = json_model_6(val, path, rep)
-                        if not res:
-                            rep is None or rep.append(("unexpected $ArchLinuxPlatformModel [.'$any_platform'.'|'.5]", path))
-                        if not res:
-                            # .'$any_platform'.'|'.6
-                            res = json_model_7(val, path, rep)
-                            if not res:
-                                rep is None or rep.append(("unexpected $AstraLinuxPlatformModel [.'$any_platform'.'|'.6]", path))
-                            if not res:
-                                # .'$any_platform'.'|'.7
-                                res = json_model_8(val, path, rep)
-                                if not res:
-                                    rep is None or rep.append(("unexpected $ClearLinuxPlatformModel [.'$any_platform'.'|'.7]", path))
-                                if not res:
-                                    # .'$any_platform'.'|'.8
-                                    res = json_model_9(val, path, rep)
-                                    if not res:
-                                        rep is None or rep.append(("unexpected $CumulusPlatformModel [.'$any_platform'.'|'.8]", path))
-                                    if not res:
-                                        # .'$any_platform'.'|'.9
-                                        res = json_model_28(val, path, rep)
-                                        if not res:
-                                            rep is None or rep.append(("unexpected $NetBSDPlatformModel [.'$any_platform'.'|'.9]", path))
-                                        if not res:
-                                            # .'$any_platform'.'|'.10
-                                            res = json_model_10(val, path, rep)
-                                            if not res:
-                                                rep is None or rep.append(("unexpected $DebianPlatformModel [.'$any_platform'.'|'.10]", path))
-                                            if not res:
-                                                # .'$any_platform'.'|'.11
-                                                res = json_model_11(val, path, rep)
-                                                if not res:
-                                                    rep is None or rep.append(("unexpected $DellOSPlatformModel [.'$any_platform'.'|'.11]", path))
-                                                if not res:
-                                                    # .'$any_platform'.'|'.12
-                                                    res = json_model_12(val, path, rep)
-                                                    if not res:
-                                                        rep is None or rep.append(("unexpected $DevuanPlatformModel [.'$any_platform'.'|'.12]", path))
-                                                    if not res:
-                                                        # .'$any_platform'.'|'.13
-                                                        res = json_model_13(val, path, rep)
-                                                        if not res:
-                                                            rep is None or rep.append(("unexpected $DragonFlyBSDPlatformModel [.'$any_platform'.'|'.13]", path))
-                                                        if not res:
-                                                            # .'$any_platform'.'|'.14
-                                                            res = json_model_14(val, path, rep)
-                                                            if not res:
-                                                                rep is None or rep.append(("unexpected $ELPlatformModel [.'$any_platform'.'|'.14]", path))
-                                                            if not res:
-                                                                # .'$any_platform'.'|'.15
-                                                                res = json_model_43(val, path, rep)
-                                                                if not res:
-                                                                    rep is None or rep.append(("unexpected $eosPlatformModel [.'$any_platform'.'|'.15]", path))
-                                                                if not res:
-                                                                    # .'$any_platform'.'|'.16
-                                                                    res = json_model_15(val, path, rep)
-                                                                    if not res:
-                                                                        rep is None or rep.append(("unexpected $FedoraPlatformModel [.'$any_platform'.'|'.16]", path))
-                                                                    if not res:
-                                                                        # .'$any_platform'.'|'.17
-                                                                        res = json_model_16(val, path, rep)
-                                                                        if not res:
-                                                                            rep is None or rep.append(("unexpected $FreeBSDPlatformModel [.'$any_platform'.'|'.17]", path))
-                                                                        if not res:
-                                                                            # .'$any_platform'.'|'.18
-                                                                            res = json_model_17(val, path, rep)
-                                                                            if not res:
-                                                                                rep is None or rep.append(("unexpected $GenericBSDPlatformModel [.'$any_platform'.'|'.18]", path))
-                                                                            if not res:
-                                                                                # .'$any_platform'.'|'.19
-                                                                                res = json_model_18(val, path, rep)
-                                                                                if not res:
-                                                                                    rep is None or rep.append(("unexpected $GenericLinuxPlatformModel [.'$any_platform'.'|'.19]", path))
-                                                                                if not res:
-                                                                                    # .'$any_platform'.'|'.20
-                                                                                    res = json_model_19(val, path, rep)
-                                                                                    if not res:
-                                                                                        rep is None or rep.append(("unexpected $GenericUNIXPlatformModel [.'$any_platform'.'|'.20]", path))
-                                                                                    if not res:
-                                                                                        # .'$any_platform'.'|'.21
-                                                                                        res = json_model_20(val, path, rep)
-                                                                                        if not res:
-                                                                                            rep is None or rep.append(("unexpected $GentooPlatformModel [.'$any_platform'.'|'.21]", path))
-                                                                                        if not res:
-                                                                                            # .'$any_platform'.'|'.22
-                                                                                            res = json_model_21(val, path, rep)
-                                                                                            if not res:
-                                                                                                rep is None or rep.append(("unexpected $HardenedBSDPlatformModel [.'$any_platform'.'|'.22]", path))
-                                                                                            if not res:
-                                                                                                # .'$any_platform'.'|'.23
-                                                                                                res = json_model_22(val, path, rep)
-                                                                                                if not res:
-                                                                                                    rep is None or rep.append(("unexpected $IOSPlatformModel [.'$any_platform'.'|'.23]", path))
-                                                                                                if not res:
-                                                                                                    # .'$any_platform'.'|'.24
-                                                                                                    res = json_model_23(val, path, rep)
-                                                                                                    if not res:
-                                                                                                        rep is None or rep.append(("unexpected $JunosPlatformModel [.'$any_platform'.'|'.24]", path))
-                                                                                                    if not res:
-                                                                                                        # .'$any_platform'.'|'.25
-                                                                                                        res = json_model_24(val, path, rep)
-                                                                                                        if not res:
-                                                                                                            rep is None or rep.append(("unexpected $KaliPlatformModel [.'$any_platform'.'|'.25]", path))
-                                                                                                        if not res:
-                                                                                                            # .'$any_platform'.'|'.26
-                                                                                                            res = json_model_44(val, path, rep)
-                                                                                                            if not res:
-                                                                                                                rep is None or rep.append(("unexpected $macOSPlatformModel [.'$any_platform'.'|'.26]", path))
-                                                                                                            if not res:
-                                                                                                                # .'$any_platform'.'|'.27
-                                                                                                                res = json_model_25(val, path, rep)
-                                                                                                                if not res:
-                                                                                                                    rep is None or rep.append(("unexpected $MacOSXPlatformModel [.'$any_platform'.'|'.27]", path))
-                                                                                                                if not res:
-                                                                                                                    # .'$any_platform'.'|'.28
-                                                                                                                    res = json_model_26(val, path, rep)
-                                                                                                                    if not res:
-                                                                                                                        rep is None or rep.append(("unexpected $MageiaPlatformModel [.'$any_platform'.'|'.28]", path))
-                                                                                                                    if not res:
-                                                                                                                        # .'$any_platform'.'|'.29
-                                                                                                                        res = json_model_27(val, path, rep)
-                                                                                                                        if not res:
-                                                                                                                            rep is None or rep.append(("unexpected $NXOSPlatformModel [.'$any_platform'.'|'.29]", path))
-                                                                                                                        if not res:
-                                                                                                                            # .'$any_platform'.'|'.30
-                                                                                                                            res = json_model_29(val, path, rep)
-                                                                                                                            if not res:
-                                                                                                                                rep is None or rep.append(("unexpected $OpenBSDPlatformModel [.'$any_platform'.'|'.30]", path))
-                                                                                                                            if not res:
-                                                                                                                                # .'$any_platform'.'|'.31
-                                                                                                                                res = json_model_45(val, path, rep)
-                                                                                                                                if not res:
-                                                                                                                                    rep is None or rep.append(("unexpected $opensusePlatformModel [.'$any_platform'.'|'.31]", path))
-                                                                                                                                if not res:
-                                                                                                                                    # .'$any_platform'.'|'.32
-                                                                                                                                    res = json_model_30(val, path, rep)
-                                                                                                                                    if not res:
-                                                                                                                                        rep is None or rep.append(("unexpected $OpenWrtPlatformModel [.'$any_platform'.'|'.32]", path))
-                                                                                                                                    if not res:
-                                                                                                                                        # .'$any_platform'.'|'.33
-                                                                                                                                        res = json_model_31(val, path, rep)
-                                                                                                                                        if not res:
-                                                                                                                                            rep is None or rep.append(("unexpected $OracleLinuxPlatformModel [.'$any_platform'.'|'.33]", path))
-                                                                                                                                        if not res:
-                                                                                                                                            # .'$any_platform'.'|'.34
-                                                                                                                                            res = json_model_46(val, path, rep)
-                                                                                                                                            if not res:
-                                                                                                                                                rep is None or rep.append(("unexpected $os10PlatformModel [.'$any_platform'.'|'.34]", path))
-                                                                                                                                            if not res:
-                                                                                                                                                # .'$any_platform'.'|'.35
-                                                                                                                                                res = json_model_32(val, path, rep)
-                                                                                                                                                if not res:
-                                                                                                                                                    rep is None or rep.append(("unexpected $PAN-OSPlatformModel [.'$any_platform'.'|'.35]", path))
-                                                                                                                                                if not res:
-                                                                                                                                                    # .'$any_platform'.'|'.36
-                                                                                                                                                    res = json_model_33(val, path, rep)
-                                                                                                                                                    if not res:
-                                                                                                                                                        rep is None or rep.append(("unexpected $RockyLinuxPlatformModel [.'$any_platform'.'|'.36]", path))
-                                                                                                                                                    if not res:
-                                                                                                                                                        # .'$any_platform'.'|'.37
-                                                                                                                                                        res = json_model_34(val, path, rep)
-                                                                                                                                                        if not res:
-                                                                                                                                                            rep is None or rep.append(("unexpected $SLESPlatformModel [.'$any_platform'.'|'.37]", path))
-                                                                                                                                                        if not res:
-                                                                                                                                                            # .'$any_platform'.'|'.38
-                                                                                                                                                            res = json_model_35(val, path, rep)
-                                                                                                                                                            if not res:
-                                                                                                                                                                rep is None or rep.append(("unexpected $SmartOSPlatformModel [.'$any_platform'.'|'.38]", path))
-                                                                                                                                                            if not res:
-                                                                                                                                                                # .'$any_platform'.'|'.39
-                                                                                                                                                                res = json_model_36(val, path, rep)
-                                                                                                                                                                if not res:
-                                                                                                                                                                    rep is None or rep.append(("unexpected $SolarisPlatformModel [.'$any_platform'.'|'.39]", path))
-                                                                                                                                                                if not res:
-                                                                                                                                                                    # .'$any_platform'.'|'.40
-                                                                                                                                                                    res = json_model_37(val, path, rep)
-                                                                                                                                                                    if not res:
-                                                                                                                                                                        rep is None or rep.append(("unexpected $SynologyPlatformModel [.'$any_platform'.'|'.40]", path))
-                                                                                                                                                                    if not res:
-                                                                                                                                                                        # .'$any_platform'.'|'.41
-                                                                                                                                                                        res = json_model_38(val, path, rep)
-                                                                                                                                                                        if not res:
-                                                                                                                                                                            rep is None or rep.append(("unexpected $TMOSPlatformModel [.'$any_platform'.'|'.41]", path))
-                                                                                                                                                                        if not res:
-                                                                                                                                                                            # .'$any_platform'.'|'.42
-                                                                                                                                                                            res = json_model_39(val, path, rep)
-                                                                                                                                                                            if not res:
-                                                                                                                                                                                rep is None or rep.append(("unexpected $UbuntuPlatformModel [.'$any_platform'.'|'.42]", path))
-                                                                                                                                                                            if not res:
-                                                                                                                                                                                # .'$any_platform'.'|'.43
-                                                                                                                                                                                res = json_model_47(val, path, rep)
-                                                                                                                                                                                if not res:
-                                                                                                                                                                                    rep is None or rep.append(("unexpected $vCenterPlatformModel [.'$any_platform'.'|'.43]", path))
-                                                                                                                                                                                if not res:
-                                                                                                                                                                                    # .'$any_platform'.'|'.44
-                                                                                                                                                                                    res = json_model_40(val, path, rep)
-                                                                                                                                                                                    if not res:
-                                                                                                                                                                                        rep is None or rep.append(("unexpected $Void_LinuxPlatformModel [.'$any_platform'.'|'.44]", path))
-                                                                                                                                                                                    if not res:
-                                                                                                                                                                                        # .'$any_platform'.'|'.45
-                                                                                                                                                                                        res = json_model_48(val, path, rep)
-                                                                                                                                                                                        if not res:
-                                                                                                                                                                                            rep is None or rep.append(("unexpected $vSpherePlatformModel [.'$any_platform'.'|'.45]", path))
-                                                                                                                                                                                        if not res:
-                                                                                                                                                                                            # .'$any_platform'.'|'.46
-                                                                                                                                                                                            res = json_model_41(val, path, rep)
-                                                                                                                                                                                            if not res:
-                                                                                                                                                                                                rep is None or rep.append(("unexpected $WindowsPlatformModel [.'$any_platform'.'|'.46]", path))
+        rep is None or rep.append(("unexpected type [.'$any_platform'.'|']", path))
     if res:
-        rep is None or rep.clear()
-    else:
-        rep is None or rep.append(("no model matched [.'$any_platform'.'|']", path))
+        # .'$any_platform'.'|'.0
+        res = _jm_obj_93(val, path, rep)
+        if not res:
+            rep is None or rep.append(("unexpected element [.'$any_platform'.'|'.0]", path))
+        if not res:
+            # .'$any_platform'.'|'.1
+            res = _jm_obj_92(val, path, rep)
+            if not res:
+                rep is None or rep.append(("unexpected element [.'$any_platform'.'|'.1]", path))
+            if not res:
+                # .'$any_platform'.'|'.2
+                res = _jm_obj_91(val, path, rep)
+                if not res:
+                    rep is None or rep.append(("unexpected element [.'$any_platform'.'|'.2]", path))
+                if not res:
+                    # .'$any_platform'.'|'.3
+                    res = _jm_obj_90(val, path, rep)
+                    if not res:
+                        rep is None or rep.append(("unexpected element [.'$any_platform'.'|'.3]", path))
+                    if not res:
+                        # .'$any_platform'.'|'.4
+                        res = _jm_obj_89(val, path, rep)
+                        if not res:
+                            rep is None or rep.append(("unexpected element [.'$any_platform'.'|'.4]", path))
+                        if not res:
+                            # .'$any_platform'.'|'.5
+                            res = _jm_obj_88(val, path, rep)
+                            if not res:
+                                rep is None or rep.append(("unexpected element [.'$any_platform'.'|'.5]", path))
+                            if not res:
+                                # .'$any_platform'.'|'.6
+                                res = _jm_obj_87(val, path, rep)
+                                if not res:
+                                    rep is None or rep.append(("unexpected element [.'$any_platform'.'|'.6]", path))
+                                if not res:
+                                    # .'$any_platform'.'|'.7
+                                    res = _jm_obj_86(val, path, rep)
+                                    if not res:
+                                        rep is None or rep.append(("unexpected element [.'$any_platform'.'|'.7]", path))
+                                    if not res:
+                                        # .'$any_platform'.'|'.8
+                                        res = _jm_obj_85(val, path, rep)
+                                        if not res:
+                                            rep is None or rep.append(("unexpected element [.'$any_platform'.'|'.8]", path))
+                                        if not res:
+                                            # .'$any_platform'.'|'.9
+                                            res = _jm_obj_84(val, path, rep)
+                                            if not res:
+                                                rep is None or rep.append(("unexpected element [.'$any_platform'.'|'.9]", path))
+                                            if not res:
+                                                # .'$any_platform'.'|'.10
+                                                res = _jm_obj_83(val, path, rep)
+                                                if not res:
+                                                    rep is None or rep.append(("unexpected element [.'$any_platform'.'|'.10]", path))
+                                                if not res:
+                                                    # .'$any_platform'.'|'.11
+                                                    res = _jm_obj_82(val, path, rep)
+                                                    if not res:
+                                                        rep is None or rep.append(("unexpected element [.'$any_platform'.'|'.11]", path))
+                                                    if not res:
+                                                        # .'$any_platform'.'|'.12
+                                                        res = _jm_obj_81(val, path, rep)
+                                                        if not res:
+                                                            rep is None or rep.append(("unexpected element [.'$any_platform'.'|'.12]", path))
+                                                        if not res:
+                                                            # .'$any_platform'.'|'.13
+                                                            res = _jm_obj_80(val, path, rep)
+                                                            if not res:
+                                                                rep is None or rep.append(("unexpected element [.'$any_platform'.'|'.13]", path))
+                                                            if not res:
+                                                                # .'$any_platform'.'|'.14
+                                                                res = _jm_obj_79(val, path, rep)
+                                                                if not res:
+                                                                    rep is None or rep.append(("unexpected element [.'$any_platform'.'|'.14]", path))
+                                                                if not res:
+                                                                    # .'$any_platform'.'|'.15
+                                                                    res = _jm_obj_78(val, path, rep)
+                                                                    if not res:
+                                                                        rep is None or rep.append(("unexpected element [.'$any_platform'.'|'.15]", path))
+                                                                    if not res:
+                                                                        # .'$any_platform'.'|'.16
+                                                                        res = _jm_obj_77(val, path, rep)
+                                                                        if not res:
+                                                                            rep is None or rep.append(("unexpected element [.'$any_platform'.'|'.16]", path))
+                                                                        if not res:
+                                                                            # .'$any_platform'.'|'.17
+                                                                            res = _jm_obj_76(val, path, rep)
+                                                                            if not res:
+                                                                                rep is None or rep.append(("unexpected element [.'$any_platform'.'|'.17]", path))
+                                                                            if not res:
+                                                                                # .'$any_platform'.'|'.18
+                                                                                res = _jm_obj_75(val, path, rep)
+                                                                                if not res:
+                                                                                    rep is None or rep.append(("unexpected element [.'$any_platform'.'|'.18]", path))
+                                                                                if not res:
+                                                                                    # .'$any_platform'.'|'.19
+                                                                                    res = _jm_obj_74(val, path, rep)
+                                                                                    if not res:
+                                                                                        rep is None or rep.append(("unexpected element [.'$any_platform'.'|'.19]", path))
+                                                                                    if not res:
+                                                                                        # .'$any_platform'.'|'.20
+                                                                                        res = _jm_obj_73(val, path, rep)
+                                                                                        if not res:
+                                                                                            rep is None or rep.append(("unexpected element [.'$any_platform'.'|'.20]", path))
+                                                                                        if not res:
+                                                                                            # .'$any_platform'.'|'.21
+                                                                                            res = _jm_obj_72(val, path, rep)
+                                                                                            if not res:
+                                                                                                rep is None or rep.append(("unexpected element [.'$any_platform'.'|'.21]", path))
+                                                                                            if not res:
+                                                                                                # .'$any_platform'.'|'.22
+                                                                                                res = _jm_obj_71(val, path, rep)
+                                                                                                if not res:
+                                                                                                    rep is None or rep.append(("unexpected element [.'$any_platform'.'|'.22]", path))
+                                                                                                if not res:
+                                                                                                    # .'$any_platform'.'|'.23
+                                                                                                    res = _jm_obj_70(val, path, rep)
+                                                                                                    if not res:
+                                                                                                        rep is None or rep.append(("unexpected element [.'$any_platform'.'|'.23]", path))
+                                                                                                    if not res:
+                                                                                                        # .'$any_platform'.'|'.24
+                                                                                                        res = _jm_obj_69(val, path, rep)
+                                                                                                        if not res:
+                                                                                                            rep is None or rep.append(("unexpected element [.'$any_platform'.'|'.24]", path))
+                                                                                                        if not res:
+                                                                                                            # .'$any_platform'.'|'.25
+                                                                                                            res = _jm_obj_68(val, path, rep)
+                                                                                                            if not res:
+                                                                                                                rep is None or rep.append(("unexpected element [.'$any_platform'.'|'.25]", path))
+                                                                                                            if not res:
+                                                                                                                # .'$any_platform'.'|'.26
+                                                                                                                res = _jm_obj_67(val, path, rep)
+                                                                                                                if not res:
+                                                                                                                    rep is None or rep.append(("unexpected element [.'$any_platform'.'|'.26]", path))
+                                                                                                                if not res:
+                                                                                                                    # .'$any_platform'.'|'.27
+                                                                                                                    res = _jm_obj_66(val, path, rep)
+                                                                                                                    if not res:
+                                                                                                                        rep is None or rep.append(("unexpected element [.'$any_platform'.'|'.27]", path))
+                                                                                                                    if not res:
+                                                                                                                        # .'$any_platform'.'|'.28
+                                                                                                                        res = _jm_obj_65(val, path, rep)
+                                                                                                                        if not res:
+                                                                                                                            rep is None or rep.append(("unexpected element [.'$any_platform'.'|'.28]", path))
+                                                                                                                        if not res:
+                                                                                                                            # .'$any_platform'.'|'.29
+                                                                                                                            res = _jm_obj_64(val, path, rep)
+                                                                                                                            if not res:
+                                                                                                                                rep is None or rep.append(("unexpected element [.'$any_platform'.'|'.29]", path))
+                                                                                                                            if not res:
+                                                                                                                                # .'$any_platform'.'|'.30
+                                                                                                                                res = _jm_obj_63(val, path, rep)
+                                                                                                                                if not res:
+                                                                                                                                    rep is None or rep.append(("unexpected element [.'$any_platform'.'|'.30]", path))
+                                                                                                                                if not res:
+                                                                                                                                    # .'$any_platform'.'|'.31
+                                                                                                                                    res = _jm_obj_62(val, path, rep)
+                                                                                                                                    if not res:
+                                                                                                                                        rep is None or rep.append(("unexpected element [.'$any_platform'.'|'.31]", path))
+                                                                                                                                    if not res:
+                                                                                                                                        # .'$any_platform'.'|'.32
+                                                                                                                                        res = _jm_obj_61(val, path, rep)
+                                                                                                                                        if not res:
+                                                                                                                                            rep is None or rep.append(("unexpected element [.'$any_platform'.'|'.32]", path))
+                                                                                                                                        if not res:
+                                                                                                                                            # .'$any_platform'.'|'.33
+                                                                                                                                            res = _jm_obj_60(val, path, rep)
+                                                                                                                                            if not res:
+                                                                                                                                                rep is None or rep.append(("unexpected element [.'$any_platform'.'|'.33]", path))
+                                                                                                                                            if not res:
+                                                                                                                                                # .'$any_platform'.'|'.34
+                                                                                                                                                res = _jm_obj_59(val, path, rep)
+                                                                                                                                                if not res:
+                                                                                                                                                    rep is None or rep.append(("unexpected element [.'$any_platform'.'|'.34]", path))
+                                                                                                                                                if not res:
+                                                                                                                                                    # .'$any_platform'.'|'.35
+                                                                                                                                                    res = _jm_obj_58(val, path, rep)
+                                                                                                                                                    if not res:
+                                                                                                                                                        rep is None or rep.append(("unexpected element [.'$any_platform'.'|'.35]", path))
+                                                                                                                                                    if not res:
+                                                                                                                                                        # .'$any_platform'.'|'.36
+                                                                                                                                                        res = _jm_obj_57(val, path, rep)
+                                                                                                                                                        if not res:
+                                                                                                                                                            rep is None or rep.append(("unexpected element [.'$any_platform'.'|'.36]", path))
+                                                                                                                                                        if not res:
+                                                                                                                                                            # .'$any_platform'.'|'.37
+                                                                                                                                                            res = _jm_obj_56(val, path, rep)
+                                                                                                                                                            if not res:
+                                                                                                                                                                rep is None or rep.append(("unexpected element [.'$any_platform'.'|'.37]", path))
+                                                                                                                                                            if not res:
+                                                                                                                                                                # .'$any_platform'.'|'.38
+                                                                                                                                                                res = _jm_obj_55(val, path, rep)
+                                                                                                                                                                if not res:
+                                                                                                                                                                    rep is None or rep.append(("unexpected element [.'$any_platform'.'|'.38]", path))
+                                                                                                                                                                if not res:
+                                                                                                                                                                    # .'$any_platform'.'|'.39
+                                                                                                                                                                    res = _jm_obj_54(val, path, rep)
+                                                                                                                                                                    if not res:
+                                                                                                                                                                        rep is None or rep.append(("unexpected element [.'$any_platform'.'|'.39]", path))
+                                                                                                                                                                    if not res:
+                                                                                                                                                                        # .'$any_platform'.'|'.40
+                                                                                                                                                                        res = _jm_obj_53(val, path, rep)
+                                                                                                                                                                        if not res:
+                                                                                                                                                                            rep is None or rep.append(("unexpected element [.'$any_platform'.'|'.40]", path))
+                                                                                                                                                                        if not res:
+                                                                                                                                                                            # .'$any_platform'.'|'.41
+                                                                                                                                                                            res = _jm_obj_52(val, path, rep)
+                                                                                                                                                                            if not res:
+                                                                                                                                                                                rep is None or rep.append(("unexpected element [.'$any_platform'.'|'.41]", path))
+                                                                                                                                                                            if not res:
+                                                                                                                                                                                # .'$any_platform'.'|'.42
+                                                                                                                                                                                res = _jm_obj_51(val, path, rep)
+                                                                                                                                                                                if not res:
+                                                                                                                                                                                    rep is None or rep.append(("unexpected element [.'$any_platform'.'|'.42]", path))
+                                                                                                                                                                                if not res:
+                                                                                                                                                                                    # .'$any_platform'.'|'.43
+                                                                                                                                                                                    res = _jm_obj_50(val, path, rep)
+                                                                                                                                                                                    if not res:
+                                                                                                                                                                                        rep is None or rep.append(("unexpected element [.'$any_platform'.'|'.43]", path))
+                                                                                                                                                                                    if not res:
+                                                                                                                                                                                        # .'$any_platform'.'|'.44
+                                                                                                                                                                                        res = _jm_obj_49(val, path, rep)
+                                                                                                                                                                                        if not res:
+                                                                                                                                                                                            rep is None or rep.append(("unexpected element [.'$any_platform'.'|'.44]", path))
+                                                                                                                                                                                        if not res:
+                                                                                                                                                                                            # .'$any_platform'.'|'.45
+                                                                                                                                                                                            res = _jm_obj_48(val, path, rep)
+                                                                                                                                                                                            if not res:
+                                                                                                                                                                                                rep is None or rep.append(("unexpected element [.'$any_platform'.'|'.45]", path))
+                                                                                                                                                                                            if not res:
+                                                                                                                                                                                                # .'$any_platform'.'|'.46
+                                                                                                                                                                                                res = _jm_obj_47(val, path, rep)
+                                                                                                                                                                                                if not res:
+                                                                                                                                                                                                    rep is None or rep.append(("unexpected element [.'$any_platform'.'|'.46]", path))
+        if res:
+            rep is None or rep.clear()
+        else:
+            rep is None or rep.append(("no model matched [.'$any_platform'.'|']", path))
     return res
 
 
 # object .'$platforms'.0.'|'.46
-def _jm_obj_47(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_obj_94(val: Jsonable, path: Path, rep: Report) -> bool:
     # check must only props
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$platforms'.0.'|'.46]", path))
@@ -2747,12 +4743,12 @@ def _jm_obj_47(val: Jsonable, path: Path, rep: Report) -> bool:
         # .'$platforms'.0.'|'.46.versions
         res = isinstance(pval, list)
         if res:
-            for arr_48_idx, arr_48_item in enumerate(pval):
-                arr_48_lpath: Path = (path + [ arr_48_idx ]) if path is not None else None
+            for arr_95_idx, arr_95_item in enumerate(pval):
+                arr_95_lpath: Path = (path + [ arr_95_idx ]) if path is not None else None
                 # .'$platforms'.0.'|'.46.versions.0
-                res = ((arr_48_item is None or isinstance(arr_48_item, (bool, int, float, str)))) and arr_48_item in _jm_cst_32
+                res = ((arr_95_item is None or isinstance(arr_95_item, (bool, int, float, str)))) and arr_95_item in _jm_cst_64
                 if not res:
-                    rep is None or rep.append(("value not in enum [.'$platforms'.0.'|'.46.versions.0.'|']", arr_48_lpath if path is not None else None))
+                    rep is None or rep.append(("value not in enum [.'$platforms'.0.'|'.46.versions.0.'|']", arr_95_lpath if path is not None else None))
                 if not res:
                     break
         if not res:
@@ -2764,7 +4760,7 @@ def _jm_obj_47(val: Jsonable, path: Path, rep: Report) -> bool:
 
 
 # object .'$platforms'.0.'|'.45
-def _jm_obj_48(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_obj_95(val: Jsonable, path: Path, rep: Report) -> bool:
     # check must only props
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$platforms'.0.'|'.45]", path))
@@ -2785,12 +4781,12 @@ def _jm_obj_48(val: Jsonable, path: Path, rep: Report) -> bool:
         # .'$platforms'.0.'|'.45.versions
         res = isinstance(pval, list)
         if res:
-            for arr_49_idx, arr_49_item in enumerate(pval):
-                arr_49_lpath: Path = (path + [ arr_49_idx ]) if path is not None else None
+            for arr_96_idx, arr_96_item in enumerate(pval):
+                arr_96_lpath: Path = (path + [ arr_96_idx ]) if path is not None else None
                 # .'$platforms'.0.'|'.45.versions.0
-                res = ((arr_49_item is None or isinstance(arr_49_item, (bool, int, float, str)))) and arr_49_item in _jm_cst_33
+                res = ((arr_96_item is None or isinstance(arr_96_item, (bool, int, float, str)))) and arr_96_item in _jm_cst_65
                 if not res:
-                    rep is None or rep.append(("value not in enum [.'$platforms'.0.'|'.45.versions.0.'|']", arr_49_lpath if path is not None else None))
+                    rep is None or rep.append(("value not in enum [.'$platforms'.0.'|'.45.versions.0.'|']", arr_96_lpath if path is not None else None))
                 if not res:
                     break
         if not res:
@@ -2801,7 +4797,7 @@ def _jm_obj_48(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # object .'$platforms'.0.'|'.44
-def _jm_obj_49(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_obj_96(val: Jsonable, path: Path, rep: Report) -> bool:
     # check must only props
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$platforms'.0.'|'.44]", path))
@@ -2822,12 +4818,12 @@ def _jm_obj_49(val: Jsonable, path: Path, rep: Report) -> bool:
         # .'$platforms'.0.'|'.44.versions
         res = isinstance(pval, list)
         if res:
-            for arr_50_idx, arr_50_item in enumerate(pval):
-                arr_50_lpath: Path = (path + [ arr_50_idx ]) if path is not None else None
+            for arr_97_idx, arr_97_item in enumerate(pval):
+                arr_97_lpath: Path = (path + [ arr_97_idx ]) if path is not None else None
                 # .'$platforms'.0.'|'.44.versions.0
-                res = isinstance(arr_50_item, str) and arr_50_item == "all"
+                res = isinstance(arr_97_item, str) and arr_97_item == "all"
                 if not res:
-                    rep is None or rep.append(("unexpected all [.'$platforms'.0.'|'.44.versions.0]", arr_50_lpath if path is not None else None))
+                    rep is None or rep.append(("unexpected all [.'$platforms'.0.'|'.44.versions.0]", arr_97_lpath if path is not None else None))
                 if not res:
                     break
         if not res:
@@ -2839,7 +4835,7 @@ def _jm_obj_49(val: Jsonable, path: Path, rep: Report) -> bool:
 
 
 # object .'$platforms'.0.'|'.43
-def _jm_obj_50(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_obj_97(val: Jsonable, path: Path, rep: Report) -> bool:
     # check must only props
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$platforms'.0.'|'.43]", path))
@@ -2860,12 +4856,12 @@ def _jm_obj_50(val: Jsonable, path: Path, rep: Report) -> bool:
         # .'$platforms'.0.'|'.43.versions
         res = isinstance(pval, list)
         if res:
-            for arr_51_idx, arr_51_item in enumerate(pval):
-                arr_51_lpath: Path = (path + [ arr_51_idx ]) if path is not None else None
+            for arr_98_idx, arr_98_item in enumerate(pval):
+                arr_98_lpath: Path = (path + [ arr_98_idx ]) if path is not None else None
                 # .'$platforms'.0.'|'.43.versions.0
-                res = ((arr_51_item is None or isinstance(arr_51_item, (bool, int, float, str)))) and arr_51_item in _jm_cst_34
+                res = ((arr_98_item is None or isinstance(arr_98_item, (bool, int, float, str)))) and arr_98_item in _jm_cst_66
                 if not res:
-                    rep is None or rep.append(("value not in enum [.'$platforms'.0.'|'.43.versions.0.'|']", arr_51_lpath if path is not None else None))
+                    rep is None or rep.append(("value not in enum [.'$platforms'.0.'|'.43.versions.0.'|']", arr_98_lpath if path is not None else None))
                 if not res:
                     break
         if not res:
@@ -2877,7 +4873,7 @@ def _jm_obj_50(val: Jsonable, path: Path, rep: Report) -> bool:
 
 
 # object .'$platforms'.0.'|'.42
-def _jm_obj_51(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_obj_98(val: Jsonable, path: Path, rep: Report) -> bool:
     # check must only props
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$platforms'.0.'|'.42]", path))
@@ -2898,12 +4894,12 @@ def _jm_obj_51(val: Jsonable, path: Path, rep: Report) -> bool:
         # .'$platforms'.0.'|'.42.versions
         res = isinstance(pval, list)
         if res:
-            for arr_52_idx, arr_52_item in enumerate(pval):
-                arr_52_lpath: Path = (path + [ arr_52_idx ]) if path is not None else None
+            for arr_99_idx, arr_99_item in enumerate(pval):
+                arr_99_lpath: Path = (path + [ arr_99_idx ]) if path is not None else None
                 # .'$platforms'.0.'|'.42.versions.0
-                res = ((arr_52_item is None or isinstance(arr_52_item, (bool, int, float, str)))) and arr_52_item in _jm_cst_35
+                res = ((arr_99_item is None or isinstance(arr_99_item, (bool, int, float, str)))) and arr_99_item in _jm_cst_67
                 if not res:
-                    rep is None or rep.append(("value not in enum [.'$platforms'.0.'|'.42.versions.0.'|']", arr_52_lpath if path is not None else None))
+                    rep is None or rep.append(("value not in enum [.'$platforms'.0.'|'.42.versions.0.'|']", arr_99_lpath if path is not None else None))
                 if not res:
                     break
         if not res:
@@ -2915,7 +4911,7 @@ def _jm_obj_51(val: Jsonable, path: Path, rep: Report) -> bool:
 
 
 # object .'$platforms'.0.'|'.41
-def _jm_obj_52(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_obj_99(val: Jsonable, path: Path, rep: Report) -> bool:
     # check must only props
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$platforms'.0.'|'.41]", path))
@@ -2936,12 +4932,12 @@ def _jm_obj_52(val: Jsonable, path: Path, rep: Report) -> bool:
         # .'$platforms'.0.'|'.41.versions
         res = isinstance(pval, list)
         if res:
-            for arr_53_idx, arr_53_item in enumerate(pval):
-                arr_53_lpath: Path = (path + [ arr_53_idx ]) if path is not None else None
+            for arr_100_idx, arr_100_item in enumerate(pval):
+                arr_100_lpath: Path = (path + [ arr_100_idx ]) if path is not None else None
                 # .'$platforms'.0.'|'.41.versions.0
-                res = ((arr_53_item is None or isinstance(arr_53_item, (bool, int, float, str)))) and arr_53_item in _jm_cst_36
+                res = ((arr_100_item is None or isinstance(arr_100_item, (bool, int, float, str)))) and arr_100_item in _jm_cst_68
                 if not res:
-                    rep is None or rep.append(("value not in enum [.'$platforms'.0.'|'.41.versions.0.'|']", arr_53_lpath if path is not None else None))
+                    rep is None or rep.append(("value not in enum [.'$platforms'.0.'|'.41.versions.0.'|']", arr_100_lpath if path is not None else None))
                 if not res:
                     break
         if not res:
@@ -2953,7 +4949,7 @@ def _jm_obj_52(val: Jsonable, path: Path, rep: Report) -> bool:
 
 
 # object .'$platforms'.0.'|'.40
-def _jm_obj_53(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_obj_100(val: Jsonable, path: Path, rep: Report) -> bool:
     # check must only props
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$platforms'.0.'|'.40]", path))
@@ -2974,12 +4970,12 @@ def _jm_obj_53(val: Jsonable, path: Path, rep: Report) -> bool:
         # .'$platforms'.0.'|'.40.versions
         res = isinstance(pval, list)
         if res:
-            for arr_54_idx, arr_54_item in enumerate(pval):
-                arr_54_lpath: Path = (path + [ arr_54_idx ]) if path is not None else None
+            for arr_101_idx, arr_101_item in enumerate(pval):
+                arr_101_lpath: Path = (path + [ arr_101_idx ]) if path is not None else None
                 # .'$platforms'.0.'|'.40.versions.0
-                res = ((arr_54_item is None or isinstance(arr_54_item, (bool, int, float, str)))) and arr_54_item in _jm_cst_37
+                res = ((arr_101_item is None or isinstance(arr_101_item, (bool, int, float, str)))) and arr_101_item in _jm_cst_69
                 if not res:
-                    rep is None or rep.append(("value not in enum [.'$platforms'.0.'|'.40.versions.0.'|']", arr_54_lpath if path is not None else None))
+                    rep is None or rep.append(("value not in enum [.'$platforms'.0.'|'.40.versions.0.'|']", arr_101_lpath if path is not None else None))
                 if not res:
                     break
         if not res:
@@ -2991,7 +4987,7 @@ def _jm_obj_53(val: Jsonable, path: Path, rep: Report) -> bool:
 
 
 # object .'$platforms'.0.'|'.39
-def _jm_obj_54(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_obj_101(val: Jsonable, path: Path, rep: Report) -> bool:
     # check must only props
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$platforms'.0.'|'.39]", path))
@@ -3012,12 +5008,12 @@ def _jm_obj_54(val: Jsonable, path: Path, rep: Report) -> bool:
         # .'$platforms'.0.'|'.39.versions
         res = isinstance(pval, list)
         if res:
-            for arr_55_idx, arr_55_item in enumerate(pval):
-                arr_55_lpath: Path = (path + [ arr_55_idx ]) if path is not None else None
+            for arr_102_idx, arr_102_item in enumerate(pval):
+                arr_102_lpath: Path = (path + [ arr_102_idx ]) if path is not None else None
                 # .'$platforms'.0.'|'.39.versions.0
-                res = ((arr_55_item is None or isinstance(arr_55_item, (bool, int, float, str)))) and arr_55_item in _jm_cst_38
+                res = ((arr_102_item is None or isinstance(arr_102_item, (bool, int, float, str)))) and arr_102_item in _jm_cst_70
                 if not res:
-                    rep is None or rep.append(("value not in enum [.'$platforms'.0.'|'.39.versions.0.'|']", arr_55_lpath if path is not None else None))
+                    rep is None or rep.append(("value not in enum [.'$platforms'.0.'|'.39.versions.0.'|']", arr_102_lpath if path is not None else None))
                 if not res:
                     break
         if not res:
@@ -3028,7 +5024,7 @@ def _jm_obj_54(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # object .'$platforms'.0.'|'.38
-def _jm_obj_55(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_obj_102(val: Jsonable, path: Path, rep: Report) -> bool:
     # check must only props
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$platforms'.0.'|'.38]", path))
@@ -3049,12 +5045,12 @@ def _jm_obj_55(val: Jsonable, path: Path, rep: Report) -> bool:
         # .'$platforms'.0.'|'.38.versions
         res = isinstance(pval, list)
         if res:
-            for arr_56_idx, arr_56_item in enumerate(pval):
-                arr_56_lpath: Path = (path + [ arr_56_idx ]) if path is not None else None
+            for arr_103_idx, arr_103_item in enumerate(pval):
+                arr_103_lpath: Path = (path + [ arr_103_idx ]) if path is not None else None
                 # .'$platforms'.0.'|'.38.versions.0
-                res = isinstance(arr_56_item, str) and arr_56_item == "all"
+                res = isinstance(arr_103_item, str) and arr_103_item == "all"
                 if not res:
-                    rep is None or rep.append(("unexpected all [.'$platforms'.0.'|'.38.versions.0]", arr_56_lpath if path is not None else None))
+                    rep is None or rep.append(("unexpected all [.'$platforms'.0.'|'.38.versions.0]", arr_103_lpath if path is not None else None))
                 if not res:
                     break
         if not res:
@@ -3066,7 +5062,7 @@ def _jm_obj_55(val: Jsonable, path: Path, rep: Report) -> bool:
 
 
 # object .'$platforms'.0.'|'.37
-def _jm_obj_56(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_obj_103(val: Jsonable, path: Path, rep: Report) -> bool:
     # check must only props
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$platforms'.0.'|'.37]", path))
@@ -3087,12 +5083,12 @@ def _jm_obj_56(val: Jsonable, path: Path, rep: Report) -> bool:
         # .'$platforms'.0.'|'.37.versions
         res = isinstance(pval, list)
         if res:
-            for arr_57_idx, arr_57_item in enumerate(pval):
-                arr_57_lpath: Path = (path + [ arr_57_idx ]) if path is not None else None
+            for arr_104_idx, arr_104_item in enumerate(pval):
+                arr_104_lpath: Path = (path + [ arr_104_idx ]) if path is not None else None
                 # .'$platforms'.0.'|'.37.versions.0
-                res = ((arr_57_item is None or isinstance(arr_57_item, (bool, int, float, str)))) and arr_57_item in _jm_cst_39
+                res = ((arr_104_item is None or isinstance(arr_104_item, (bool, int, float, str)))) and arr_104_item in _jm_cst_71
                 if not res:
-                    rep is None or rep.append(("value not in enum [.'$platforms'.0.'|'.37.versions.0.'|']", arr_57_lpath if path is not None else None))
+                    rep is None or rep.append(("value not in enum [.'$platforms'.0.'|'.37.versions.0.'|']", arr_104_lpath if path is not None else None))
                 if not res:
                     break
         if not res:
@@ -3104,7 +5100,7 @@ def _jm_obj_56(val: Jsonable, path: Path, rep: Report) -> bool:
 
 
 # object .'$platforms'.0.'|'.36
-def _jm_obj_57(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_obj_104(val: Jsonable, path: Path, rep: Report) -> bool:
     # check must only props
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$platforms'.0.'|'.36]", path))
@@ -3125,12 +5121,12 @@ def _jm_obj_57(val: Jsonable, path: Path, rep: Report) -> bool:
         # .'$platforms'.0.'|'.36.versions
         res = isinstance(pval, list)
         if res:
-            for arr_58_idx, arr_58_item in enumerate(pval):
-                arr_58_lpath: Path = (path + [ arr_58_idx ]) if path is not None else None
+            for arr_105_idx, arr_105_item in enumerate(pval):
+                arr_105_lpath: Path = (path + [ arr_105_idx ]) if path is not None else None
                 # .'$platforms'.0.'|'.36.versions.0
-                res = ((arr_58_item is None or isinstance(arr_58_item, (bool, int, float, str)))) and arr_58_item in _jm_cst_40
+                res = ((arr_105_item is None or isinstance(arr_105_item, (bool, int, float, str)))) and arr_105_item in _jm_cst_72
                 if not res:
-                    rep is None or rep.append(("value not in enum [.'$platforms'.0.'|'.36.versions.0.'|']", arr_58_lpath if path is not None else None))
+                    rep is None or rep.append(("value not in enum [.'$platforms'.0.'|'.36.versions.0.'|']", arr_105_lpath if path is not None else None))
                 if not res:
                     break
         if not res:
@@ -3142,7 +5138,7 @@ def _jm_obj_57(val: Jsonable, path: Path, rep: Report) -> bool:
 
 
 # object .'$platforms'.0.'|'.35
-def _jm_obj_58(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_obj_105(val: Jsonable, path: Path, rep: Report) -> bool:
     # check must only props
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$platforms'.0.'|'.35]", path))
@@ -3163,12 +5159,12 @@ def _jm_obj_58(val: Jsonable, path: Path, rep: Report) -> bool:
         # .'$platforms'.0.'|'.35.versions
         res = isinstance(pval, list)
         if res:
-            for arr_59_idx, arr_59_item in enumerate(pval):
-                arr_59_lpath: Path = (path + [ arr_59_idx ]) if path is not None else None
+            for arr_106_idx, arr_106_item in enumerate(pval):
+                arr_106_lpath: Path = (path + [ arr_106_idx ]) if path is not None else None
                 # .'$platforms'.0.'|'.35.versions.0
-                res = ((arr_59_item is None or isinstance(arr_59_item, (bool, int, float, str)))) and arr_59_item in _jm_cst_41
+                res = ((arr_106_item is None or isinstance(arr_106_item, (bool, int, float, str)))) and arr_106_item in _jm_cst_73
                 if not res:
-                    rep is None or rep.append(("value not in enum [.'$platforms'.0.'|'.35.versions.0.'|']", arr_59_lpath if path is not None else None))
+                    rep is None or rep.append(("value not in enum [.'$platforms'.0.'|'.35.versions.0.'|']", arr_106_lpath if path is not None else None))
                 if not res:
                     break
         if not res:
@@ -3179,7 +5175,7 @@ def _jm_obj_58(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # object .'$platforms'.0.'|'.34
-def _jm_obj_59(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_obj_106(val: Jsonable, path: Path, rep: Report) -> bool:
     # check must only props
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$platforms'.0.'|'.34]", path))
@@ -3200,12 +5196,12 @@ def _jm_obj_59(val: Jsonable, path: Path, rep: Report) -> bool:
         # .'$platforms'.0.'|'.34.versions
         res = isinstance(pval, list)
         if res:
-            for arr_60_idx, arr_60_item in enumerate(pval):
-                arr_60_lpath: Path = (path + [ arr_60_idx ]) if path is not None else None
+            for arr_107_idx, arr_107_item in enumerate(pval):
+                arr_107_lpath: Path = (path + [ arr_107_idx ]) if path is not None else None
                 # .'$platforms'.0.'|'.34.versions.0
-                res = isinstance(arr_60_item, str) and arr_60_item == "all"
+                res = isinstance(arr_107_item, str) and arr_107_item == "all"
                 if not res:
-                    rep is None or rep.append(("unexpected all [.'$platforms'.0.'|'.34.versions.0]", arr_60_lpath if path is not None else None))
+                    rep is None or rep.append(("unexpected all [.'$platforms'.0.'|'.34.versions.0]", arr_107_lpath if path is not None else None))
                 if not res:
                     break
         if not res:
@@ -3217,7 +5213,7 @@ def _jm_obj_59(val: Jsonable, path: Path, rep: Report) -> bool:
 
 
 # object .'$platforms'.0.'|'.33
-def _jm_obj_60(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_obj_107(val: Jsonable, path: Path, rep: Report) -> bool:
     # check must only props
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$platforms'.0.'|'.33]", path))
@@ -3238,12 +5234,12 @@ def _jm_obj_60(val: Jsonable, path: Path, rep: Report) -> bool:
         # .'$platforms'.0.'|'.33.versions
         res = isinstance(pval, list)
         if res:
-            for arr_61_idx, arr_61_item in enumerate(pval):
-                arr_61_lpath: Path = (path + [ arr_61_idx ]) if path is not None else None
+            for arr_108_idx, arr_108_item in enumerate(pval):
+                arr_108_lpath: Path = (path + [ arr_108_idx ]) if path is not None else None
                 # .'$platforms'.0.'|'.33.versions.0
-                res = ((arr_61_item is None or isinstance(arr_61_item, (bool, int, float, str)))) and arr_61_item in _jm_cst_42
+                res = ((arr_108_item is None or isinstance(arr_108_item, (bool, int, float, str)))) and arr_108_item in _jm_cst_74
                 if not res:
-                    rep is None or rep.append(("value not in enum [.'$platforms'.0.'|'.33.versions.0.'|']", arr_61_lpath if path is not None else None))
+                    rep is None or rep.append(("value not in enum [.'$platforms'.0.'|'.33.versions.0.'|']", arr_108_lpath if path is not None else None))
                 if not res:
                     break
         if not res:
@@ -3255,7 +5251,7 @@ def _jm_obj_60(val: Jsonable, path: Path, rep: Report) -> bool:
 
 
 # object .'$platforms'.0.'|'.32
-def _jm_obj_61(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_obj_108(val: Jsonable, path: Path, rep: Report) -> bool:
     # check must only props
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$platforms'.0.'|'.32]", path))
@@ -3276,12 +5272,12 @@ def _jm_obj_61(val: Jsonable, path: Path, rep: Report) -> bool:
         # .'$platforms'.0.'|'.32.versions
         res = isinstance(pval, list)
         if res:
-            for arr_62_idx, arr_62_item in enumerate(pval):
-                arr_62_lpath: Path = (path + [ arr_62_idx ]) if path is not None else None
+            for arr_109_idx, arr_109_item in enumerate(pval):
+                arr_109_lpath: Path = (path + [ arr_109_idx ]) if path is not None else None
                 # .'$platforms'.0.'|'.32.versions.0
-                res = ((arr_62_item is None or isinstance(arr_62_item, (bool, int, float, str)))) and arr_62_item in _jm_cst_43
+                res = ((arr_109_item is None or isinstance(arr_109_item, (bool, int, float, str)))) and arr_109_item in _jm_cst_75
                 if not res:
-                    rep is None or rep.append(("value not in enum [.'$platforms'.0.'|'.32.versions.0.'|']", arr_62_lpath if path is not None else None))
+                    rep is None or rep.append(("value not in enum [.'$platforms'.0.'|'.32.versions.0.'|']", arr_109_lpath if path is not None else None))
                 if not res:
                     break
         if not res:
@@ -3293,7 +5289,7 @@ def _jm_obj_61(val: Jsonable, path: Path, rep: Report) -> bool:
 
 
 # object .'$platforms'.0.'|'.31
-def _jm_obj_62(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_obj_109(val: Jsonable, path: Path, rep: Report) -> bool:
     # check must only props
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$platforms'.0.'|'.31]", path))
@@ -3314,12 +5310,12 @@ def _jm_obj_62(val: Jsonable, path: Path, rep: Report) -> bool:
         # .'$platforms'.0.'|'.31.versions
         res = isinstance(pval, list)
         if res:
-            for arr_63_idx, arr_63_item in enumerate(pval):
-                arr_63_lpath: Path = (path + [ arr_63_idx ]) if path is not None else None
+            for arr_110_idx, arr_110_item in enumerate(pval):
+                arr_110_lpath: Path = (path + [ arr_110_idx ]) if path is not None else None
                 # .'$platforms'.0.'|'.31.versions.0
-                res = ((arr_63_item is None or isinstance(arr_63_item, (bool, int, float, str)))) and arr_63_item in _jm_cst_44
+                res = ((arr_110_item is None or isinstance(arr_110_item, (bool, int, float, str)))) and arr_110_item in _jm_cst_76
                 if not res:
-                    rep is None or rep.append(("value not in enum [.'$platforms'.0.'|'.31.versions.0.'|']", arr_63_lpath if path is not None else None))
+                    rep is None or rep.append(("value not in enum [.'$platforms'.0.'|'.31.versions.0.'|']", arr_110_lpath if path is not None else None))
                 if not res:
                     break
         if not res:
@@ -3331,7 +5327,7 @@ def _jm_obj_62(val: Jsonable, path: Path, rep: Report) -> bool:
 
 
 # object .'$platforms'.0.'|'.30
-def _jm_obj_63(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_obj_110(val: Jsonable, path: Path, rep: Report) -> bool:
     # check must only props
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$platforms'.0.'|'.30]", path))
@@ -3352,12 +5348,12 @@ def _jm_obj_63(val: Jsonable, path: Path, rep: Report) -> bool:
         # .'$platforms'.0.'|'.30.versions
         res = isinstance(pval, list)
         if res:
-            for arr_64_idx, arr_64_item in enumerate(pval):
-                arr_64_lpath: Path = (path + [ arr_64_idx ]) if path is not None else None
+            for arr_111_idx, arr_111_item in enumerate(pval):
+                arr_111_lpath: Path = (path + [ arr_111_idx ]) if path is not None else None
                 # .'$platforms'.0.'|'.30.versions.0
-                res = ((arr_64_item is None or isinstance(arr_64_item, (bool, int, float, str)))) and arr_64_item in _jm_cst_45
+                res = ((arr_111_item is None or isinstance(arr_111_item, (bool, int, float, str)))) and arr_111_item in _jm_cst_77
                 if not res:
-                    rep is None or rep.append(("value not in enum [.'$platforms'.0.'|'.30.versions.0.'|']", arr_64_lpath if path is not None else None))
+                    rep is None or rep.append(("value not in enum [.'$platforms'.0.'|'.30.versions.0.'|']", arr_111_lpath if path is not None else None))
                 if not res:
                     break
         if not res:
@@ -3368,7 +5364,7 @@ def _jm_obj_63(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # object .'$platforms'.0.'|'.29
-def _jm_obj_64(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_obj_111(val: Jsonable, path: Path, rep: Report) -> bool:
     # check must only props
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$platforms'.0.'|'.29]", path))
@@ -3389,12 +5385,12 @@ def _jm_obj_64(val: Jsonable, path: Path, rep: Report) -> bool:
         # .'$platforms'.0.'|'.29.versions
         res = isinstance(pval, list)
         if res:
-            for arr_65_idx, arr_65_item in enumerate(pval):
-                arr_65_lpath: Path = (path + [ arr_65_idx ]) if path is not None else None
+            for arr_112_idx, arr_112_item in enumerate(pval):
+                arr_112_lpath: Path = (path + [ arr_112_idx ]) if path is not None else None
                 # .'$platforms'.0.'|'.29.versions.0
-                res = isinstance(arr_65_item, str) and arr_65_item == "all"
+                res = isinstance(arr_112_item, str) and arr_112_item == "all"
                 if not res:
-                    rep is None or rep.append(("unexpected all [.'$platforms'.0.'|'.29.versions.0]", arr_65_lpath if path is not None else None))
+                    rep is None or rep.append(("unexpected all [.'$platforms'.0.'|'.29.versions.0]", arr_112_lpath if path is not None else None))
                 if not res:
                     break
         if not res:
@@ -3406,7 +5402,7 @@ def _jm_obj_64(val: Jsonable, path: Path, rep: Report) -> bool:
 
 
 # object .'$platforms'.0.'|'.28
-def _jm_obj_65(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_obj_112(val: Jsonable, path: Path, rep: Report) -> bool:
     # check must only props
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$platforms'.0.'|'.28]", path))
@@ -3427,12 +5423,12 @@ def _jm_obj_65(val: Jsonable, path: Path, rep: Report) -> bool:
         # .'$platforms'.0.'|'.28.versions
         res = isinstance(pval, list)
         if res:
-            for arr_66_idx, arr_66_item in enumerate(pval):
-                arr_66_lpath: Path = (path + [ arr_66_idx ]) if path is not None else None
+            for arr_113_idx, arr_113_item in enumerate(pval):
+                arr_113_lpath: Path = (path + [ arr_113_idx ]) if path is not None else None
                 # .'$platforms'.0.'|'.28.versions.0
-                res = ((arr_66_item is None or isinstance(arr_66_item, (bool, int, float, str)))) and arr_66_item in _jm_cst_46
+                res = ((arr_113_item is None or isinstance(arr_113_item, (bool, int, float, str)))) and arr_113_item in _jm_cst_78
                 if not res:
-                    rep is None or rep.append(("value not in enum [.'$platforms'.0.'|'.28.versions.0.'|']", arr_66_lpath if path is not None else None))
+                    rep is None or rep.append(("value not in enum [.'$platforms'.0.'|'.28.versions.0.'|']", arr_113_lpath if path is not None else None))
                 if not res:
                     break
         if not res:
@@ -3444,7 +5440,7 @@ def _jm_obj_65(val: Jsonable, path: Path, rep: Report) -> bool:
 
 
 # object .'$platforms'.0.'|'.27
-def _jm_obj_66(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_obj_113(val: Jsonable, path: Path, rep: Report) -> bool:
     # check must only props
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$platforms'.0.'|'.27]", path))
@@ -3465,12 +5461,12 @@ def _jm_obj_66(val: Jsonable, path: Path, rep: Report) -> bool:
         # .'$platforms'.0.'|'.27.versions
         res = isinstance(pval, list)
         if res:
-            for arr_67_idx, arr_67_item in enumerate(pval):
-                arr_67_lpath: Path = (path + [ arr_67_idx ]) if path is not None else None
+            for arr_114_idx, arr_114_item in enumerate(pval):
+                arr_114_lpath: Path = (path + [ arr_114_idx ]) if path is not None else None
                 # .'$platforms'.0.'|'.27.versions.0
-                res = ((arr_67_item is None or isinstance(arr_67_item, (bool, int, float, str)))) and arr_67_item in _jm_cst_47
+                res = ((arr_114_item is None or isinstance(arr_114_item, (bool, int, float, str)))) and arr_114_item in _jm_cst_79
                 if not res:
-                    rep is None or rep.append(("value not in enum [.'$platforms'.0.'|'.27.versions.0.'|']", arr_67_lpath if path is not None else None))
+                    rep is None or rep.append(("value not in enum [.'$platforms'.0.'|'.27.versions.0.'|']", arr_114_lpath if path is not None else None))
                 if not res:
                     break
         if not res:
@@ -3482,7 +5478,7 @@ def _jm_obj_66(val: Jsonable, path: Path, rep: Report) -> bool:
 
 
 # object .'$platforms'.0.'|'.26
-def _jm_obj_67(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_obj_114(val: Jsonable, path: Path, rep: Report) -> bool:
     # check must only props
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$platforms'.0.'|'.26]", path))
@@ -3503,12 +5499,12 @@ def _jm_obj_67(val: Jsonable, path: Path, rep: Report) -> bool:
         # .'$platforms'.0.'|'.26.versions
         res = isinstance(pval, list)
         if res:
-            for arr_68_idx, arr_68_item in enumerate(pval):
-                arr_68_lpath: Path = (path + [ arr_68_idx ]) if path is not None else None
+            for arr_115_idx, arr_115_item in enumerate(pval):
+                arr_115_lpath: Path = (path + [ arr_115_idx ]) if path is not None else None
                 # .'$platforms'.0.'|'.26.versions.0
-                res = ((arr_68_item is None or isinstance(arr_68_item, (bool, int, float, str)))) and arr_68_item in _jm_cst_48
+                res = ((arr_115_item is None or isinstance(arr_115_item, (bool, int, float, str)))) and arr_115_item in _jm_cst_80
                 if not res:
-                    rep is None or rep.append(("value not in enum [.'$platforms'.0.'|'.26.versions.0.'|']", arr_68_lpath if path is not None else None))
+                    rep is None or rep.append(("value not in enum [.'$platforms'.0.'|'.26.versions.0.'|']", arr_115_lpath if path is not None else None))
                 if not res:
                     break
         if not res:
@@ -3520,7 +5516,7 @@ def _jm_obj_67(val: Jsonable, path: Path, rep: Report) -> bool:
 
 
 # object .'$platforms'.0.'|'.25
-def _jm_obj_68(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_obj_115(val: Jsonable, path: Path, rep: Report) -> bool:
     # check must only props
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$platforms'.0.'|'.25]", path))
@@ -3541,12 +5537,12 @@ def _jm_obj_68(val: Jsonable, path: Path, rep: Report) -> bool:
         # .'$platforms'.0.'|'.25.versions
         res = isinstance(pval, list)
         if res:
-            for arr_69_idx, arr_69_item in enumerate(pval):
-                arr_69_lpath: Path = (path + [ arr_69_idx ]) if path is not None else None
+            for arr_116_idx, arr_116_item in enumerate(pval):
+                arr_116_lpath: Path = (path + [ arr_116_idx ]) if path is not None else None
                 # .'$platforms'.0.'|'.25.versions.0
-                res = ((arr_69_item is None or isinstance(arr_69_item, (bool, int, float, str)))) and arr_69_item in _jm_cst_49
+                res = ((arr_116_item is None or isinstance(arr_116_item, (bool, int, float, str)))) and arr_116_item in _jm_cst_81
                 if not res:
-                    rep is None or rep.append(("value not in enum [.'$platforms'.0.'|'.25.versions.0.'|']", arr_69_lpath if path is not None else None))
+                    rep is None or rep.append(("value not in enum [.'$platforms'.0.'|'.25.versions.0.'|']", arr_116_lpath if path is not None else None))
                 if not res:
                     break
         if not res:
@@ -3557,7 +5553,7 @@ def _jm_obj_68(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # object .'$platforms'.0.'|'.24
-def _jm_obj_69(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_obj_116(val: Jsonable, path: Path, rep: Report) -> bool:
     # check must only props
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$platforms'.0.'|'.24]", path))
@@ -3578,12 +5574,12 @@ def _jm_obj_69(val: Jsonable, path: Path, rep: Report) -> bool:
         # .'$platforms'.0.'|'.24.versions
         res = isinstance(pval, list)
         if res:
-            for arr_70_idx, arr_70_item in enumerate(pval):
-                arr_70_lpath: Path = (path + [ arr_70_idx ]) if path is not None else None
+            for arr_117_idx, arr_117_item in enumerate(pval):
+                arr_117_lpath: Path = (path + [ arr_117_idx ]) if path is not None else None
                 # .'$platforms'.0.'|'.24.versions.0
-                res = isinstance(arr_70_item, str) and arr_70_item == "all"
+                res = isinstance(arr_117_item, str) and arr_117_item == "all"
                 if not res:
-                    rep is None or rep.append(("unexpected all [.'$platforms'.0.'|'.24.versions.0]", arr_70_lpath if path is not None else None))
+                    rep is None or rep.append(("unexpected all [.'$platforms'.0.'|'.24.versions.0]", arr_117_lpath if path is not None else None))
                 if not res:
                     break
         if not res:
@@ -3594,7 +5590,7 @@ def _jm_obj_69(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # object .'$platforms'.0.'|'.23
-def _jm_obj_70(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_obj_117(val: Jsonable, path: Path, rep: Report) -> bool:
     # check must only props
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$platforms'.0.'|'.23]", path))
@@ -3615,12 +5611,12 @@ def _jm_obj_70(val: Jsonable, path: Path, rep: Report) -> bool:
         # .'$platforms'.0.'|'.23.versions
         res = isinstance(pval, list)
         if res:
-            for arr_71_idx, arr_71_item in enumerate(pval):
-                arr_71_lpath: Path = (path + [ arr_71_idx ]) if path is not None else None
+            for arr_118_idx, arr_118_item in enumerate(pval):
+                arr_118_lpath: Path = (path + [ arr_118_idx ]) if path is not None else None
                 # .'$platforms'.0.'|'.23.versions.0
-                res = isinstance(arr_71_item, str) and arr_71_item == "all"
+                res = isinstance(arr_118_item, str) and arr_118_item == "all"
                 if not res:
-                    rep is None or rep.append(("unexpected all [.'$platforms'.0.'|'.23.versions.0]", arr_71_lpath if path is not None else None))
+                    rep is None or rep.append(("unexpected all [.'$platforms'.0.'|'.23.versions.0]", arr_118_lpath if path is not None else None))
                 if not res:
                     break
         if not res:
@@ -3632,7 +5628,7 @@ def _jm_obj_70(val: Jsonable, path: Path, rep: Report) -> bool:
 
 
 # object .'$platforms'.0.'|'.22
-def _jm_obj_71(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_obj_118(val: Jsonable, path: Path, rep: Report) -> bool:
     # check must only props
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$platforms'.0.'|'.22]", path))
@@ -3653,12 +5649,12 @@ def _jm_obj_71(val: Jsonable, path: Path, rep: Report) -> bool:
         # .'$platforms'.0.'|'.22.versions
         res = isinstance(pval, list)
         if res:
-            for arr_72_idx, arr_72_item in enumerate(pval):
-                arr_72_lpath: Path = (path + [ arr_72_idx ]) if path is not None else None
+            for arr_119_idx, arr_119_item in enumerate(pval):
+                arr_119_lpath: Path = (path + [ arr_119_idx ]) if path is not None else None
                 # .'$platforms'.0.'|'.22.versions.0
-                res = ((arr_72_item is None or isinstance(arr_72_item, (bool, int, float, str)))) and arr_72_item in _jm_cst_50
+                res = ((arr_119_item is None or isinstance(arr_119_item, (bool, int, float, str)))) and arr_119_item in _jm_cst_82
                 if not res:
-                    rep is None or rep.append(("value not in enum [.'$platforms'.0.'|'.22.versions.0.'|']", arr_72_lpath if path is not None else None))
+                    rep is None or rep.append(("value not in enum [.'$platforms'.0.'|'.22.versions.0.'|']", arr_119_lpath if path is not None else None))
                 if not res:
                     break
         if not res:
@@ -3669,7 +5665,7 @@ def _jm_obj_71(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # object .'$platforms'.0.'|'.21
-def _jm_obj_72(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_obj_119(val: Jsonable, path: Path, rep: Report) -> bool:
     # check must only props
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$platforms'.0.'|'.21]", path))
@@ -3690,12 +5686,12 @@ def _jm_obj_72(val: Jsonable, path: Path, rep: Report) -> bool:
         # .'$platforms'.0.'|'.21.versions
         res = isinstance(pval, list)
         if res:
-            for arr_73_idx, arr_73_item in enumerate(pval):
-                arr_73_lpath: Path = (path + [ arr_73_idx ]) if path is not None else None
+            for arr_120_idx, arr_120_item in enumerate(pval):
+                arr_120_lpath: Path = (path + [ arr_120_idx ]) if path is not None else None
                 # .'$platforms'.0.'|'.21.versions.0
-                res = isinstance(arr_73_item, str) and arr_73_item == "all"
+                res = isinstance(arr_120_item, str) and arr_120_item == "all"
                 if not res:
-                    rep is None or rep.append(("unexpected all [.'$platforms'.0.'|'.21.versions.0]", arr_73_lpath if path is not None else None))
+                    rep is None or rep.append(("unexpected all [.'$platforms'.0.'|'.21.versions.0]", arr_120_lpath if path is not None else None))
                 if not res:
                     break
         if not res:
@@ -3706,7 +5702,7 @@ def _jm_obj_72(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # object .'$platforms'.0.'|'.20
-def _jm_obj_73(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_obj_120(val: Jsonable, path: Path, rep: Report) -> bool:
     # check must only props
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$platforms'.0.'|'.20]", path))
@@ -3727,12 +5723,12 @@ def _jm_obj_73(val: Jsonable, path: Path, rep: Report) -> bool:
         # .'$platforms'.0.'|'.20.versions
         res = isinstance(pval, list)
         if res:
-            for arr_74_idx, arr_74_item in enumerate(pval):
-                arr_74_lpath: Path = (path + [ arr_74_idx ]) if path is not None else None
+            for arr_121_idx, arr_121_item in enumerate(pval):
+                arr_121_lpath: Path = (path + [ arr_121_idx ]) if path is not None else None
                 # .'$platforms'.0.'|'.20.versions.0
-                res = isinstance(arr_74_item, str) and arr_74_item == "all"
+                res = isinstance(arr_121_item, str) and arr_121_item == "all"
                 if not res:
-                    rep is None or rep.append(("unexpected all [.'$platforms'.0.'|'.20.versions.0]", arr_74_lpath if path is not None else None))
+                    rep is None or rep.append(("unexpected all [.'$platforms'.0.'|'.20.versions.0]", arr_121_lpath if path is not None else None))
                 if not res:
                     break
         if not res:
@@ -3743,7 +5739,7 @@ def _jm_obj_73(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # object .'$platforms'.0.'|'.19
-def _jm_obj_74(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_obj_121(val: Jsonable, path: Path, rep: Report) -> bool:
     # check must only props
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$platforms'.0.'|'.19]", path))
@@ -3764,12 +5760,12 @@ def _jm_obj_74(val: Jsonable, path: Path, rep: Report) -> bool:
         # .'$platforms'.0.'|'.19.versions
         res = isinstance(pval, list)
         if res:
-            for arr_75_idx, arr_75_item in enumerate(pval):
-                arr_75_lpath: Path = (path + [ arr_75_idx ]) if path is not None else None
+            for arr_122_idx, arr_122_item in enumerate(pval):
+                arr_122_lpath: Path = (path + [ arr_122_idx ]) if path is not None else None
                 # .'$platforms'.0.'|'.19.versions.0
-                res = isinstance(arr_75_item, str) and arr_75_item == "all"
+                res = isinstance(arr_122_item, str) and arr_122_item == "all"
                 if not res:
-                    rep is None or rep.append(("unexpected all [.'$platforms'.0.'|'.19.versions.0]", arr_75_lpath if path is not None else None))
+                    rep is None or rep.append(("unexpected all [.'$platforms'.0.'|'.19.versions.0]", arr_122_lpath if path is not None else None))
                 if not res:
                     break
         if not res:
@@ -3780,7 +5776,7 @@ def _jm_obj_74(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # object .'$platforms'.0.'|'.18
-def _jm_obj_75(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_obj_122(val: Jsonable, path: Path, rep: Report) -> bool:
     # check must only props
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$platforms'.0.'|'.18]", path))
@@ -3801,12 +5797,12 @@ def _jm_obj_75(val: Jsonable, path: Path, rep: Report) -> bool:
         # .'$platforms'.0.'|'.18.versions
         res = isinstance(pval, list)
         if res:
-            for arr_76_idx, arr_76_item in enumerate(pval):
-                arr_76_lpath: Path = (path + [ arr_76_idx ]) if path is not None else None
+            for arr_123_idx, arr_123_item in enumerate(pval):
+                arr_123_lpath: Path = (path + [ arr_123_idx ]) if path is not None else None
                 # .'$platforms'.0.'|'.18.versions.0
-                res = isinstance(arr_76_item, str) and arr_76_item == "all"
+                res = isinstance(arr_123_item, str) and arr_123_item == "all"
                 if not res:
-                    rep is None or rep.append(("unexpected all [.'$platforms'.0.'|'.18.versions.0]", arr_76_lpath if path is not None else None))
+                    rep is None or rep.append(("unexpected all [.'$platforms'.0.'|'.18.versions.0]", arr_123_lpath if path is not None else None))
                 if not res:
                     break
         if not res:
@@ -3818,7 +5814,7 @@ def _jm_obj_75(val: Jsonable, path: Path, rep: Report) -> bool:
 
 
 # object .'$platforms'.0.'|'.17
-def _jm_obj_76(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_obj_123(val: Jsonable, path: Path, rep: Report) -> bool:
     # check must only props
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$platforms'.0.'|'.17]", path))
@@ -3839,12 +5835,12 @@ def _jm_obj_76(val: Jsonable, path: Path, rep: Report) -> bool:
         # .'$platforms'.0.'|'.17.versions
         res = isinstance(pval, list)
         if res:
-            for arr_77_idx, arr_77_item in enumerate(pval):
-                arr_77_lpath: Path = (path + [ arr_77_idx ]) if path is not None else None
+            for arr_124_idx, arr_124_item in enumerate(pval):
+                arr_124_lpath: Path = (path + [ arr_124_idx ]) if path is not None else None
                 # .'$platforms'.0.'|'.17.versions.0
-                res = ((arr_77_item is None or isinstance(arr_77_item, (bool, int, float, str)))) and arr_77_item in _jm_cst_51
+                res = ((arr_124_item is None or isinstance(arr_124_item, (bool, int, float, str)))) and arr_124_item in _jm_cst_83
                 if not res:
-                    rep is None or rep.append(("value not in enum [.'$platforms'.0.'|'.17.versions.0.'|']", arr_77_lpath if path is not None else None))
+                    rep is None or rep.append(("value not in enum [.'$platforms'.0.'|'.17.versions.0.'|']", arr_124_lpath if path is not None else None))
                 if not res:
                     break
         if not res:
@@ -3856,7 +5852,7 @@ def _jm_obj_76(val: Jsonable, path: Path, rep: Report) -> bool:
 
 
 # object .'$platforms'.0.'|'.16
-def _jm_obj_77(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_obj_124(val: Jsonable, path: Path, rep: Report) -> bool:
     # check must only props
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$platforms'.0.'|'.16]", path))
@@ -3877,12 +5873,12 @@ def _jm_obj_77(val: Jsonable, path: Path, rep: Report) -> bool:
         # .'$platforms'.0.'|'.16.versions
         res = isinstance(pval, list)
         if res:
-            for arr_78_idx, arr_78_item in enumerate(pval):
-                arr_78_lpath: Path = (path + [ arr_78_idx ]) if path is not None else None
+            for arr_125_idx, arr_125_item in enumerate(pval):
+                arr_125_lpath: Path = (path + [ arr_125_idx ]) if path is not None else None
                 # .'$platforms'.0.'|'.16.versions.0
-                res = ((arr_78_item is None or isinstance(arr_78_item, (bool, int, float, str)))) and arr_78_item in _jm_cst_52
+                res = ((arr_125_item is None or isinstance(arr_125_item, (bool, int, float, str)))) and arr_125_item in _jm_cst_84
                 if not res:
-                    rep is None or rep.append(("value not in enum [.'$platforms'.0.'|'.16.versions.0.'|']", arr_78_lpath if path is not None else None))
+                    rep is None or rep.append(("value not in enum [.'$platforms'.0.'|'.16.versions.0.'|']", arr_125_lpath if path is not None else None))
                 if not res:
                     break
         if not res:
@@ -3893,7 +5889,7 @@ def _jm_obj_77(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # object .'$platforms'.0.'|'.15
-def _jm_obj_78(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_obj_125(val: Jsonable, path: Path, rep: Report) -> bool:
     # check must only props
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$platforms'.0.'|'.15]", path))
@@ -3914,12 +5910,12 @@ def _jm_obj_78(val: Jsonable, path: Path, rep: Report) -> bool:
         # .'$platforms'.0.'|'.15.versions
         res = isinstance(pval, list)
         if res:
-            for arr_79_idx, arr_79_item in enumerate(pval):
-                arr_79_lpath: Path = (path + [ arr_79_idx ]) if path is not None else None
+            for arr_126_idx, arr_126_item in enumerate(pval):
+                arr_126_lpath: Path = (path + [ arr_126_idx ]) if path is not None else None
                 # .'$platforms'.0.'|'.15.versions.0
-                res = isinstance(arr_79_item, str) and arr_79_item == "all"
+                res = isinstance(arr_126_item, str) and arr_126_item == "all"
                 if not res:
-                    rep is None or rep.append(("unexpected all [.'$platforms'.0.'|'.15.versions.0]", arr_79_lpath if path is not None else None))
+                    rep is None or rep.append(("unexpected all [.'$platforms'.0.'|'.15.versions.0]", arr_126_lpath if path is not None else None))
                 if not res:
                     break
         if not res:
@@ -3931,7 +5927,7 @@ def _jm_obj_78(val: Jsonable, path: Path, rep: Report) -> bool:
 
 
 # object .'$platforms'.0.'|'.14
-def _jm_obj_79(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_obj_126(val: Jsonable, path: Path, rep: Report) -> bool:
     # check must only props
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$platforms'.0.'|'.14]", path))
@@ -3952,12 +5948,12 @@ def _jm_obj_79(val: Jsonable, path: Path, rep: Report) -> bool:
         # .'$platforms'.0.'|'.14.versions
         res = isinstance(pval, list)
         if res:
-            for arr_80_idx, arr_80_item in enumerate(pval):
-                arr_80_lpath: Path = (path + [ arr_80_idx ]) if path is not None else None
+            for arr_127_idx, arr_127_item in enumerate(pval):
+                arr_127_lpath: Path = (path + [ arr_127_idx ]) if path is not None else None
                 # .'$platforms'.0.'|'.14.versions.0
-                res = ((arr_80_item is None or isinstance(arr_80_item, (bool, int, float, str)))) and arr_80_item in _jm_cst_53
+                res = ((arr_127_item is None or isinstance(arr_127_item, (bool, int, float, str)))) and arr_127_item in _jm_cst_85
                 if not res:
-                    rep is None or rep.append(("value not in enum [.'$platforms'.0.'|'.14.versions.0.'|']", arr_80_lpath if path is not None else None))
+                    rep is None or rep.append(("value not in enum [.'$platforms'.0.'|'.14.versions.0.'|']", arr_127_lpath if path is not None else None))
                 if not res:
                     break
         if not res:
@@ -3969,7 +5965,7 @@ def _jm_obj_79(val: Jsonable, path: Path, rep: Report) -> bool:
 
 
 # object .'$platforms'.0.'|'.13
-def _jm_obj_80(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_obj_127(val: Jsonable, path: Path, rep: Report) -> bool:
     # check must only props
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$platforms'.0.'|'.13]", path))
@@ -3990,12 +5986,12 @@ def _jm_obj_80(val: Jsonable, path: Path, rep: Report) -> bool:
         # .'$platforms'.0.'|'.13.versions
         res = isinstance(pval, list)
         if res:
-            for arr_81_idx, arr_81_item in enumerate(pval):
-                arr_81_lpath: Path = (path + [ arr_81_idx ]) if path is not None else None
+            for arr_128_idx, arr_128_item in enumerate(pval):
+                arr_128_lpath: Path = (path + [ arr_128_idx ]) if path is not None else None
                 # .'$platforms'.0.'|'.13.versions.0
-                res = ((arr_81_item is None or isinstance(arr_81_item, (bool, int, float, str)))) and arr_81_item in _jm_cst_54
+                res = ((arr_128_item is None or isinstance(arr_128_item, (bool, int, float, str)))) and arr_128_item in _jm_cst_86
                 if not res:
-                    rep is None or rep.append(("value not in enum [.'$platforms'.0.'|'.13.versions.0.'|']", arr_81_lpath if path is not None else None))
+                    rep is None or rep.append(("value not in enum [.'$platforms'.0.'|'.13.versions.0.'|']", arr_128_lpath if path is not None else None))
                 if not res:
                     break
         if not res:
@@ -4007,7 +6003,7 @@ def _jm_obj_80(val: Jsonable, path: Path, rep: Report) -> bool:
 
 
 # object .'$platforms'.0.'|'.12
-def _jm_obj_81(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_obj_128(val: Jsonable, path: Path, rep: Report) -> bool:
     # check must only props
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$platforms'.0.'|'.12]", path))
@@ -4028,12 +6024,12 @@ def _jm_obj_81(val: Jsonable, path: Path, rep: Report) -> bool:
         # .'$platforms'.0.'|'.12.versions
         res = isinstance(pval, list)
         if res:
-            for arr_82_idx, arr_82_item in enumerate(pval):
-                arr_82_lpath: Path = (path + [ arr_82_idx ]) if path is not None else None
+            for arr_129_idx, arr_129_item in enumerate(pval):
+                arr_129_lpath: Path = (path + [ arr_129_idx ]) if path is not None else None
                 # .'$platforms'.0.'|'.12.versions.0
-                res = ((arr_82_item is None or isinstance(arr_82_item, (bool, int, float, str)))) and arr_82_item in _jm_cst_55
+                res = ((arr_129_item is None or isinstance(arr_129_item, (bool, int, float, str)))) and arr_129_item in _jm_cst_87
                 if not res:
-                    rep is None or rep.append(("value not in enum [.'$platforms'.0.'|'.12.versions.0.'|']", arr_82_lpath if path is not None else None))
+                    rep is None or rep.append(("value not in enum [.'$platforms'.0.'|'.12.versions.0.'|']", arr_129_lpath if path is not None else None))
                 if not res:
                     break
         if not res:
@@ -4045,7 +6041,7 @@ def _jm_obj_81(val: Jsonable, path: Path, rep: Report) -> bool:
 
 
 # object .'$platforms'.0.'|'.11
-def _jm_obj_82(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_obj_129(val: Jsonable, path: Path, rep: Report) -> bool:
     # check must only props
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$platforms'.0.'|'.11]", path))
@@ -4066,12 +6062,12 @@ def _jm_obj_82(val: Jsonable, path: Path, rep: Report) -> bool:
         # .'$platforms'.0.'|'.11.versions
         res = isinstance(pval, list)
         if res:
-            for arr_83_idx, arr_83_item in enumerate(pval):
-                arr_83_lpath: Path = (path + [ arr_83_idx ]) if path is not None else None
+            for arr_130_idx, arr_130_item in enumerate(pval):
+                arr_130_lpath: Path = (path + [ arr_130_idx ]) if path is not None else None
                 # .'$platforms'.0.'|'.11.versions.0
-                res = ((arr_83_item is None or isinstance(arr_83_item, (bool, int, float, str)))) and arr_83_item in _jm_cst_56
+                res = ((arr_130_item is None or isinstance(arr_130_item, (bool, int, float, str)))) and arr_130_item in _jm_cst_88
                 if not res:
-                    rep is None or rep.append(("value not in enum [.'$platforms'.0.'|'.11.versions.0.'|']", arr_83_lpath if path is not None else None))
+                    rep is None or rep.append(("value not in enum [.'$platforms'.0.'|'.11.versions.0.'|']", arr_130_lpath if path is not None else None))
                 if not res:
                     break
         if not res:
@@ -4083,7 +6079,7 @@ def _jm_obj_82(val: Jsonable, path: Path, rep: Report) -> bool:
 
 
 # object .'$platforms'.0.'|'.10
-def _jm_obj_83(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_obj_130(val: Jsonable, path: Path, rep: Report) -> bool:
     # check must only props
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$platforms'.0.'|'.10]", path))
@@ -4104,12 +6100,12 @@ def _jm_obj_83(val: Jsonable, path: Path, rep: Report) -> bool:
         # .'$platforms'.0.'|'.10.versions
         res = isinstance(pval, list)
         if res:
-            for arr_84_idx, arr_84_item in enumerate(pval):
-                arr_84_lpath: Path = (path + [ arr_84_idx ]) if path is not None else None
+            for arr_131_idx, arr_131_item in enumerate(pval):
+                arr_131_lpath: Path = (path + [ arr_131_idx ]) if path is not None else None
                 # .'$platforms'.0.'|'.10.versions.0
-                res = ((arr_84_item is None or isinstance(arr_84_item, (bool, int, float, str)))) and arr_84_item in _jm_cst_57
+                res = ((arr_131_item is None or isinstance(arr_131_item, (bool, int, float, str)))) and arr_131_item in _jm_cst_89
                 if not res:
-                    rep is None or rep.append(("value not in enum [.'$platforms'.0.'|'.10.versions.0.'|']", arr_84_lpath if path is not None else None))
+                    rep is None or rep.append(("value not in enum [.'$platforms'.0.'|'.10.versions.0.'|']", arr_131_lpath if path is not None else None))
                 if not res:
                     break
         if not res:
@@ -4121,7 +6117,7 @@ def _jm_obj_83(val: Jsonable, path: Path, rep: Report) -> bool:
 
 
 # object .'$platforms'.0.'|'.9
-def _jm_obj_84(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_obj_131(val: Jsonable, path: Path, rep: Report) -> bool:
     # check must only props
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$platforms'.0.'|'.9]", path))
@@ -4142,12 +6138,12 @@ def _jm_obj_84(val: Jsonable, path: Path, rep: Report) -> bool:
         # .'$platforms'.0.'|'.9.versions
         res = isinstance(pval, list)
         if res:
-            for arr_85_idx, arr_85_item in enumerate(pval):
-                arr_85_lpath: Path = (path + [ arr_85_idx ]) if path is not None else None
+            for arr_132_idx, arr_132_item in enumerate(pval):
+                arr_132_lpath: Path = (path + [ arr_132_idx ]) if path is not None else None
                 # .'$platforms'.0.'|'.9.versions.0
-                res = ((arr_85_item is None or isinstance(arr_85_item, (bool, int, float, str)))) and arr_85_item in _jm_cst_58
+                res = ((arr_132_item is None or isinstance(arr_132_item, (bool, int, float, str)))) and arr_132_item in _jm_cst_90
                 if not res:
-                    rep is None or rep.append(("value not in enum [.'$platforms'.0.'|'.9.versions.0.'|']", arr_85_lpath if path is not None else None))
+                    rep is None or rep.append(("value not in enum [.'$platforms'.0.'|'.9.versions.0.'|']", arr_132_lpath if path is not None else None))
                 if not res:
                     break
         if not res:
@@ -4159,7 +6155,7 @@ def _jm_obj_84(val: Jsonable, path: Path, rep: Report) -> bool:
 
 
 # object .'$platforms'.0.'|'.8
-def _jm_obj_85(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_obj_132(val: Jsonable, path: Path, rep: Report) -> bool:
     # check must only props
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$platforms'.0.'|'.8]", path))
@@ -4180,12 +6176,12 @@ def _jm_obj_85(val: Jsonable, path: Path, rep: Report) -> bool:
         # .'$platforms'.0.'|'.8.versions
         res = isinstance(pval, list)
         if res:
-            for arr_86_idx, arr_86_item in enumerate(pval):
-                arr_86_lpath: Path = (path + [ arr_86_idx ]) if path is not None else None
+            for arr_133_idx, arr_133_item in enumerate(pval):
+                arr_133_lpath: Path = (path + [ arr_133_idx ]) if path is not None else None
                 # .'$platforms'.0.'|'.8.versions.0
-                res = ((arr_86_item is None or isinstance(arr_86_item, (bool, int, float, str)))) and arr_86_item in _jm_cst_59
+                res = ((arr_133_item is None or isinstance(arr_133_item, (bool, int, float, str)))) and arr_133_item in _jm_cst_91
                 if not res:
-                    rep is None or rep.append(("value not in enum [.'$platforms'.0.'|'.8.versions.0.'|']", arr_86_lpath if path is not None else None))
+                    rep is None or rep.append(("value not in enum [.'$platforms'.0.'|'.8.versions.0.'|']", arr_133_lpath if path is not None else None))
                 if not res:
                     break
         if not res:
@@ -4196,7 +6192,7 @@ def _jm_obj_85(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # object .'$platforms'.0.'|'.7
-def _jm_obj_86(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_obj_133(val: Jsonable, path: Path, rep: Report) -> bool:
     # check must only props
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$platforms'.0.'|'.7]", path))
@@ -4217,12 +6213,12 @@ def _jm_obj_86(val: Jsonable, path: Path, rep: Report) -> bool:
         # .'$platforms'.0.'|'.7.versions
         res = isinstance(pval, list)
         if res:
-            for arr_87_idx, arr_87_item in enumerate(pval):
-                arr_87_lpath: Path = (path + [ arr_87_idx ]) if path is not None else None
+            for arr_134_idx, arr_134_item in enumerate(pval):
+                arr_134_lpath: Path = (path + [ arr_134_idx ]) if path is not None else None
                 # .'$platforms'.0.'|'.7.versions.0
-                res = isinstance(arr_87_item, str) and arr_87_item == "all"
+                res = isinstance(arr_134_item, str) and arr_134_item == "all"
                 if not res:
-                    rep is None or rep.append(("unexpected all [.'$platforms'.0.'|'.7.versions.0]", arr_87_lpath if path is not None else None))
+                    rep is None or rep.append(("unexpected all [.'$platforms'.0.'|'.7.versions.0]", arr_134_lpath if path is not None else None))
                 if not res:
                     break
         if not res:
@@ -4234,7 +6230,7 @@ def _jm_obj_86(val: Jsonable, path: Path, rep: Report) -> bool:
 
 
 # object .'$platforms'.0.'|'.6
-def _jm_obj_87(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_obj_134(val: Jsonable, path: Path, rep: Report) -> bool:
     # check must only props
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$platforms'.0.'|'.6]", path))
@@ -4255,12 +6251,12 @@ def _jm_obj_87(val: Jsonable, path: Path, rep: Report) -> bool:
         # .'$platforms'.0.'|'.6.versions
         res = isinstance(pval, list)
         if res:
-            for arr_88_idx, arr_88_item in enumerate(pval):
-                arr_88_lpath: Path = (path + [ arr_88_idx ]) if path is not None else None
+            for arr_135_idx, arr_135_item in enumerate(pval):
+                arr_135_lpath: Path = (path + [ arr_135_idx ]) if path is not None else None
                 # .'$platforms'.0.'|'.6.versions.0
-                res = ((arr_88_item is None or isinstance(arr_88_item, (bool, int, float, str)))) and arr_88_item in _jm_cst_60
+                res = ((arr_135_item is None or isinstance(arr_135_item, (bool, int, float, str)))) and arr_135_item in _jm_cst_92
                 if not res:
-                    rep is None or rep.append(("value not in enum [.'$platforms'.0.'|'.6.versions.0.'|']", arr_88_lpath if path is not None else None))
+                    rep is None or rep.append(("value not in enum [.'$platforms'.0.'|'.6.versions.0.'|']", arr_135_lpath if path is not None else None))
                 if not res:
                     break
         if not res:
@@ -4271,7 +6267,7 @@ def _jm_obj_87(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # object .'$platforms'.0.'|'.5
-def _jm_obj_88(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_obj_135(val: Jsonable, path: Path, rep: Report) -> bool:
     # check must only props
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$platforms'.0.'|'.5]", path))
@@ -4292,12 +6288,12 @@ def _jm_obj_88(val: Jsonable, path: Path, rep: Report) -> bool:
         # .'$platforms'.0.'|'.5.versions
         res = isinstance(pval, list)
         if res:
-            for arr_89_idx, arr_89_item in enumerate(pval):
-                arr_89_lpath: Path = (path + [ arr_89_idx ]) if path is not None else None
+            for arr_136_idx, arr_136_item in enumerate(pval):
+                arr_136_lpath: Path = (path + [ arr_136_idx ]) if path is not None else None
                 # .'$platforms'.0.'|'.5.versions.0
-                res = isinstance(arr_89_item, str) and arr_89_item == "all"
+                res = isinstance(arr_136_item, str) and arr_136_item == "all"
                 if not res:
-                    rep is None or rep.append(("unexpected all [.'$platforms'.0.'|'.5.versions.0]", arr_89_lpath if path is not None else None))
+                    rep is None or rep.append(("unexpected all [.'$platforms'.0.'|'.5.versions.0]", arr_136_lpath if path is not None else None))
                 if not res:
                     break
         if not res:
@@ -4308,7 +6304,7 @@ def _jm_obj_88(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # object .'$platforms'.0.'|'.4
-def _jm_obj_89(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_obj_136(val: Jsonable, path: Path, rep: Report) -> bool:
     # check must only props
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$platforms'.0.'|'.4]", path))
@@ -4329,12 +6325,12 @@ def _jm_obj_89(val: Jsonable, path: Path, rep: Report) -> bool:
         # .'$platforms'.0.'|'.4.versions
         res = isinstance(pval, list)
         if res:
-            for arr_90_idx, arr_90_item in enumerate(pval):
-                arr_90_lpath: Path = (path + [ arr_90_idx ]) if path is not None else None
+            for arr_137_idx, arr_137_item in enumerate(pval):
+                arr_137_lpath: Path = (path + [ arr_137_idx ]) if path is not None else None
                 # .'$platforms'.0.'|'.4.versions.0
-                res = isinstance(arr_90_item, str) and arr_90_item == "all"
+                res = isinstance(arr_137_item, str) and arr_137_item == "all"
                 if not res:
-                    rep is None or rep.append(("unexpected all [.'$platforms'.0.'|'.4.versions.0]", arr_90_lpath if path is not None else None))
+                    rep is None or rep.append(("unexpected all [.'$platforms'.0.'|'.4.versions.0]", arr_137_lpath if path is not None else None))
                 if not res:
                     break
         if not res:
@@ -4346,7 +6342,7 @@ def _jm_obj_89(val: Jsonable, path: Path, rep: Report) -> bool:
 
 
 # object .'$platforms'.0.'|'.3
-def _jm_obj_90(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_obj_137(val: Jsonable, path: Path, rep: Report) -> bool:
     # check must only props
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$platforms'.0.'|'.3]", path))
@@ -4367,12 +6363,12 @@ def _jm_obj_90(val: Jsonable, path: Path, rep: Report) -> bool:
         # .'$platforms'.0.'|'.3.versions
         res = isinstance(pval, list)
         if res:
-            for arr_91_idx, arr_91_item in enumerate(pval):
-                arr_91_lpath: Path = (path + [ arr_91_idx ]) if path is not None else None
+            for arr_138_idx, arr_138_item in enumerate(pval):
+                arr_138_lpath: Path = (path + [ arr_138_idx ]) if path is not None else None
                 # .'$platforms'.0.'|'.3.versions.0
-                res = ((arr_91_item is None or isinstance(arr_91_item, (bool, int, float, str)))) and arr_91_item in _jm_cst_61
+                res = ((arr_138_item is None or isinstance(arr_138_item, (bool, int, float, str)))) and arr_138_item in _jm_cst_93
                 if not res:
-                    rep is None or rep.append(("value not in enum [.'$platforms'.0.'|'.3.versions.0.'|']", arr_91_lpath if path is not None else None))
+                    rep is None or rep.append(("value not in enum [.'$platforms'.0.'|'.3.versions.0.'|']", arr_138_lpath if path is not None else None))
                 if not res:
                     break
         if not res:
@@ -4384,7 +6380,7 @@ def _jm_obj_90(val: Jsonable, path: Path, rep: Report) -> bool:
 
 
 # object .'$platforms'.0.'|'.2
-def _jm_obj_91(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_obj_138(val: Jsonable, path: Path, rep: Report) -> bool:
     # check must only props
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$platforms'.0.'|'.2]", path))
@@ -4405,12 +6401,12 @@ def _jm_obj_91(val: Jsonable, path: Path, rep: Report) -> bool:
         # .'$platforms'.0.'|'.2.versions
         res = isinstance(pval, list)
         if res:
-            for arr_92_idx, arr_92_item in enumerate(pval):
-                arr_92_lpath: Path = (path + [ arr_92_idx ]) if path is not None else None
+            for arr_139_idx, arr_139_item in enumerate(pval):
+                arr_139_lpath: Path = (path + [ arr_139_idx ]) if path is not None else None
                 # .'$platforms'.0.'|'.2.versions.0
-                res = ((arr_92_item is None or isinstance(arr_92_item, (bool, int, float, str)))) and arr_92_item in _jm_cst_62
+                res = ((arr_139_item is None or isinstance(arr_139_item, (bool, int, float, str)))) and arr_139_item in _jm_cst_94
                 if not res:
-                    rep is None or rep.append(("value not in enum [.'$platforms'.0.'|'.2.versions.0.'|']", arr_92_lpath if path is not None else None))
+                    rep is None or rep.append(("value not in enum [.'$platforms'.0.'|'.2.versions.0.'|']", arr_139_lpath if path is not None else None))
                 if not res:
                     break
         if not res:
@@ -4421,7 +6417,7 @@ def _jm_obj_91(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # object .'$platforms'.0.'|'.1
-def _jm_obj_92(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_obj_139(val: Jsonable, path: Path, rep: Report) -> bool:
     # check must only props
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$platforms'.0.'|'.1]", path))
@@ -4442,12 +6438,12 @@ def _jm_obj_92(val: Jsonable, path: Path, rep: Report) -> bool:
         # .'$platforms'.0.'|'.1.versions
         res = isinstance(pval, list)
         if res:
-            for arr_93_idx, arr_93_item in enumerate(pval):
-                arr_93_lpath: Path = (path + [ arr_93_idx ]) if path is not None else None
+            for arr_140_idx, arr_140_item in enumerate(pval):
+                arr_140_lpath: Path = (path + [ arr_140_idx ]) if path is not None else None
                 # .'$platforms'.0.'|'.1.versions.0
-                res = isinstance(arr_93_item, str) and arr_93_item == "all"
+                res = isinstance(arr_140_item, str) and arr_140_item == "all"
                 if not res:
-                    rep is None or rep.append(("unexpected all [.'$platforms'.0.'|'.1.versions.0]", arr_93_lpath if path is not None else None))
+                    rep is None or rep.append(("unexpected all [.'$platforms'.0.'|'.1.versions.0]", arr_140_lpath if path is not None else None))
                 if not res:
                     break
         if not res:
@@ -4459,7 +6455,7 @@ def _jm_obj_92(val: Jsonable, path: Path, rep: Report) -> bool:
 
 
 # object .'$platforms'.0.'|'.0
-def _jm_obj_93(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_obj_140(val: Jsonable, path: Path, rep: Report) -> bool:
     # check must only props
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$platforms'.0.'|'.0]", path))
@@ -4480,12 +6476,12 @@ def _jm_obj_93(val: Jsonable, path: Path, rep: Report) -> bool:
         # .'$platforms'.0.'|'.0.versions
         res = isinstance(pval, list)
         if res:
-            for arr_94_idx, arr_94_item in enumerate(pval):
-                arr_94_lpath: Path = (path + [ arr_94_idx ]) if path is not None else None
+            for arr_141_idx, arr_141_item in enumerate(pval):
+                arr_141_lpath: Path = (path + [ arr_141_idx ]) if path is not None else None
                 # .'$platforms'.0.'|'.0.versions.0
-                res = ((arr_94_item is None or isinstance(arr_94_item, (bool, int, float, str)))) and arr_94_item in _jm_cst_63
+                res = ((arr_141_item is None or isinstance(arr_141_item, (bool, int, float, str)))) and arr_141_item in _jm_cst_95
                 if not res:
-                    rep is None or rep.append(("value not in enum [.'$platforms'.0.'|'.0.versions.0.'|']", arr_94_lpath if path is not None else None))
+                    rep is None or rep.append(("value not in enum [.'$platforms'.0.'|'.0.versions.0.'|']", arr_141_lpath if path is not None else None))
                 if not res:
                     break
         if not res:
@@ -4501,258 +6497,258 @@ def json_model_50(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$platforms'
     res = isinstance(val, list)
     if res:
-        for arr_47_idx, arr_47_item in enumerate(val):
-            arr_47_lpath: Path = (path + [ arr_47_idx ]) if path is not None else None
+        for arr_94_idx, arr_94_item in enumerate(val):
+            arr_94_lpath: Path = (path + [ arr_94_idx ]) if path is not None else None
             # .'$platforms'.0
-            res = isinstance(arr_47_item, dict)
+            res = isinstance(arr_94_item, dict)
             if not res:
-                rep is None or rep.append(("unexpected type [.'$platforms'.0.'|']", arr_47_lpath if path is not None else None))
+                rep is None or rep.append(("unexpected type [.'$platforms'.0.'|']", arr_94_lpath if path is not None else None))
             if res:
                 # .'$platforms'.0.'|'.0
-                res = _jm_obj_93(arr_47_item, arr_47_lpath if path is not None else None, rep)
+                res = _jm_obj_140(arr_94_item, arr_94_lpath if path is not None else None, rep)
                 if not res:
-                    rep is None or rep.append(("unexpected element [.'$platforms'.0.'|'.0]", arr_47_lpath if path is not None else None))
+                    rep is None or rep.append(("unexpected element [.'$platforms'.0.'|'.0]", arr_94_lpath if path is not None else None))
                 if not res:
                     # .'$platforms'.0.'|'.1
-                    res = _jm_obj_92(arr_47_item, arr_47_lpath if path is not None else None, rep)
+                    res = _jm_obj_139(arr_94_item, arr_94_lpath if path is not None else None, rep)
                     if not res:
-                        rep is None or rep.append(("unexpected element [.'$platforms'.0.'|'.1]", arr_47_lpath if path is not None else None))
+                        rep is None or rep.append(("unexpected element [.'$platforms'.0.'|'.1]", arr_94_lpath if path is not None else None))
                     if not res:
                         # .'$platforms'.0.'|'.2
-                        res = _jm_obj_91(arr_47_item, arr_47_lpath if path is not None else None, rep)
+                        res = _jm_obj_138(arr_94_item, arr_94_lpath if path is not None else None, rep)
                         if not res:
-                            rep is None or rep.append(("unexpected element [.'$platforms'.0.'|'.2]", arr_47_lpath if path is not None else None))
+                            rep is None or rep.append(("unexpected element [.'$platforms'.0.'|'.2]", arr_94_lpath if path is not None else None))
                         if not res:
                             # .'$platforms'.0.'|'.3
-                            res = _jm_obj_90(arr_47_item, arr_47_lpath if path is not None else None, rep)
+                            res = _jm_obj_137(arr_94_item, arr_94_lpath if path is not None else None, rep)
                             if not res:
-                                rep is None or rep.append(("unexpected element [.'$platforms'.0.'|'.3]", arr_47_lpath if path is not None else None))
+                                rep is None or rep.append(("unexpected element [.'$platforms'.0.'|'.3]", arr_94_lpath if path is not None else None))
                             if not res:
                                 # .'$platforms'.0.'|'.4
-                                res = _jm_obj_89(arr_47_item, arr_47_lpath if path is not None else None, rep)
+                                res = _jm_obj_136(arr_94_item, arr_94_lpath if path is not None else None, rep)
                                 if not res:
-                                    rep is None or rep.append(("unexpected element [.'$platforms'.0.'|'.4]", arr_47_lpath if path is not None else None))
+                                    rep is None or rep.append(("unexpected element [.'$platforms'.0.'|'.4]", arr_94_lpath if path is not None else None))
                                 if not res:
                                     # .'$platforms'.0.'|'.5
-                                    res = _jm_obj_88(arr_47_item, arr_47_lpath if path is not None else None, rep)
+                                    res = _jm_obj_135(arr_94_item, arr_94_lpath if path is not None else None, rep)
                                     if not res:
-                                        rep is None or rep.append(("unexpected element [.'$platforms'.0.'|'.5]", arr_47_lpath if path is not None else None))
+                                        rep is None or rep.append(("unexpected element [.'$platforms'.0.'|'.5]", arr_94_lpath if path is not None else None))
                                     if not res:
                                         # .'$platforms'.0.'|'.6
-                                        res = _jm_obj_87(arr_47_item, arr_47_lpath if path is not None else None, rep)
+                                        res = _jm_obj_134(arr_94_item, arr_94_lpath if path is not None else None, rep)
                                         if not res:
-                                            rep is None or rep.append(("unexpected element [.'$platforms'.0.'|'.6]", arr_47_lpath if path is not None else None))
+                                            rep is None or rep.append(("unexpected element [.'$platforms'.0.'|'.6]", arr_94_lpath if path is not None else None))
                                         if not res:
                                             # .'$platforms'.0.'|'.7
-                                            res = _jm_obj_86(arr_47_item, arr_47_lpath if path is not None else None, rep)
+                                            res = _jm_obj_133(arr_94_item, arr_94_lpath if path is not None else None, rep)
                                             if not res:
-                                                rep is None or rep.append(("unexpected element [.'$platforms'.0.'|'.7]", arr_47_lpath if path is not None else None))
+                                                rep is None or rep.append(("unexpected element [.'$platforms'.0.'|'.7]", arr_94_lpath if path is not None else None))
                                             if not res:
                                                 # .'$platforms'.0.'|'.8
-                                                res = _jm_obj_85(arr_47_item, arr_47_lpath if path is not None else None, rep)
+                                                res = _jm_obj_132(arr_94_item, arr_94_lpath if path is not None else None, rep)
                                                 if not res:
-                                                    rep is None or rep.append(("unexpected element [.'$platforms'.0.'|'.8]", arr_47_lpath if path is not None else None))
+                                                    rep is None or rep.append(("unexpected element [.'$platforms'.0.'|'.8]", arr_94_lpath if path is not None else None))
                                                 if not res:
                                                     # .'$platforms'.0.'|'.9
-                                                    res = _jm_obj_84(arr_47_item, arr_47_lpath if path is not None else None, rep)
+                                                    res = _jm_obj_131(arr_94_item, arr_94_lpath if path is not None else None, rep)
                                                     if not res:
-                                                        rep is None or rep.append(("unexpected element [.'$platforms'.0.'|'.9]", arr_47_lpath if path is not None else None))
+                                                        rep is None or rep.append(("unexpected element [.'$platforms'.0.'|'.9]", arr_94_lpath if path is not None else None))
                                                     if not res:
                                                         # .'$platforms'.0.'|'.10
-                                                        res = _jm_obj_83(arr_47_item, arr_47_lpath if path is not None else None, rep)
+                                                        res = _jm_obj_130(arr_94_item, arr_94_lpath if path is not None else None, rep)
                                                         if not res:
-                                                            rep is None or rep.append(("unexpected element [.'$platforms'.0.'|'.10]", arr_47_lpath if path is not None else None))
+                                                            rep is None or rep.append(("unexpected element [.'$platforms'.0.'|'.10]", arr_94_lpath if path is not None else None))
                                                         if not res:
                                                             # .'$platforms'.0.'|'.11
-                                                            res = _jm_obj_82(arr_47_item, arr_47_lpath if path is not None else None, rep)
+                                                            res = _jm_obj_129(arr_94_item, arr_94_lpath if path is not None else None, rep)
                                                             if not res:
-                                                                rep is None or rep.append(("unexpected element [.'$platforms'.0.'|'.11]", arr_47_lpath if path is not None else None))
+                                                                rep is None or rep.append(("unexpected element [.'$platforms'.0.'|'.11]", arr_94_lpath if path is not None else None))
                                                             if not res:
                                                                 # .'$platforms'.0.'|'.12
-                                                                res = _jm_obj_81(arr_47_item, arr_47_lpath if path is not None else None, rep)
+                                                                res = _jm_obj_128(arr_94_item, arr_94_lpath if path is not None else None, rep)
                                                                 if not res:
-                                                                    rep is None or rep.append(("unexpected element [.'$platforms'.0.'|'.12]", arr_47_lpath if path is not None else None))
+                                                                    rep is None or rep.append(("unexpected element [.'$platforms'.0.'|'.12]", arr_94_lpath if path is not None else None))
                                                                 if not res:
                                                                     # .'$platforms'.0.'|'.13
-                                                                    res = _jm_obj_80(arr_47_item, arr_47_lpath if path is not None else None, rep)
+                                                                    res = _jm_obj_127(arr_94_item, arr_94_lpath if path is not None else None, rep)
                                                                     if not res:
-                                                                        rep is None or rep.append(("unexpected element [.'$platforms'.0.'|'.13]", arr_47_lpath if path is not None else None))
+                                                                        rep is None or rep.append(("unexpected element [.'$platforms'.0.'|'.13]", arr_94_lpath if path is not None else None))
                                                                     if not res:
                                                                         # .'$platforms'.0.'|'.14
-                                                                        res = _jm_obj_79(arr_47_item, arr_47_lpath if path is not None else None, rep)
+                                                                        res = _jm_obj_126(arr_94_item, arr_94_lpath if path is not None else None, rep)
                                                                         if not res:
-                                                                            rep is None or rep.append(("unexpected element [.'$platforms'.0.'|'.14]", arr_47_lpath if path is not None else None))
+                                                                            rep is None or rep.append(("unexpected element [.'$platforms'.0.'|'.14]", arr_94_lpath if path is not None else None))
                                                                         if not res:
                                                                             # .'$platforms'.0.'|'.15
-                                                                            res = _jm_obj_78(arr_47_item, arr_47_lpath if path is not None else None, rep)
+                                                                            res = _jm_obj_125(arr_94_item, arr_94_lpath if path is not None else None, rep)
                                                                             if not res:
-                                                                                rep is None or rep.append(("unexpected element [.'$platforms'.0.'|'.15]", arr_47_lpath if path is not None else None))
+                                                                                rep is None or rep.append(("unexpected element [.'$platforms'.0.'|'.15]", arr_94_lpath if path is not None else None))
                                                                             if not res:
                                                                                 # .'$platforms'.0.'|'.16
-                                                                                res = _jm_obj_77(arr_47_item, arr_47_lpath if path is not None else None, rep)
+                                                                                res = _jm_obj_124(arr_94_item, arr_94_lpath if path is not None else None, rep)
                                                                                 if not res:
-                                                                                    rep is None or rep.append(("unexpected element [.'$platforms'.0.'|'.16]", arr_47_lpath if path is not None else None))
+                                                                                    rep is None or rep.append(("unexpected element [.'$platforms'.0.'|'.16]", arr_94_lpath if path is not None else None))
                                                                                 if not res:
                                                                                     # .'$platforms'.0.'|'.17
-                                                                                    res = _jm_obj_76(arr_47_item, arr_47_lpath if path is not None else None, rep)
+                                                                                    res = _jm_obj_123(arr_94_item, arr_94_lpath if path is not None else None, rep)
                                                                                     if not res:
-                                                                                        rep is None or rep.append(("unexpected element [.'$platforms'.0.'|'.17]", arr_47_lpath if path is not None else None))
+                                                                                        rep is None or rep.append(("unexpected element [.'$platforms'.0.'|'.17]", arr_94_lpath if path is not None else None))
                                                                                     if not res:
                                                                                         # .'$platforms'.0.'|'.18
-                                                                                        res = _jm_obj_75(arr_47_item, arr_47_lpath if path is not None else None, rep)
+                                                                                        res = _jm_obj_122(arr_94_item, arr_94_lpath if path is not None else None, rep)
                                                                                         if not res:
-                                                                                            rep is None or rep.append(("unexpected element [.'$platforms'.0.'|'.18]", arr_47_lpath if path is not None else None))
+                                                                                            rep is None or rep.append(("unexpected element [.'$platforms'.0.'|'.18]", arr_94_lpath if path is not None else None))
                                                                                         if not res:
                                                                                             # .'$platforms'.0.'|'.19
-                                                                                            res = _jm_obj_74(arr_47_item, arr_47_lpath if path is not None else None, rep)
+                                                                                            res = _jm_obj_121(arr_94_item, arr_94_lpath if path is not None else None, rep)
                                                                                             if not res:
-                                                                                                rep is None or rep.append(("unexpected element [.'$platforms'.0.'|'.19]", arr_47_lpath if path is not None else None))
+                                                                                                rep is None or rep.append(("unexpected element [.'$platforms'.0.'|'.19]", arr_94_lpath if path is not None else None))
                                                                                             if not res:
                                                                                                 # .'$platforms'.0.'|'.20
-                                                                                                res = _jm_obj_73(arr_47_item, arr_47_lpath if path is not None else None, rep)
+                                                                                                res = _jm_obj_120(arr_94_item, arr_94_lpath if path is not None else None, rep)
                                                                                                 if not res:
-                                                                                                    rep is None or rep.append(("unexpected element [.'$platforms'.0.'|'.20]", arr_47_lpath if path is not None else None))
+                                                                                                    rep is None or rep.append(("unexpected element [.'$platforms'.0.'|'.20]", arr_94_lpath if path is not None else None))
                                                                                                 if not res:
                                                                                                     # .'$platforms'.0.'|'.21
-                                                                                                    res = _jm_obj_72(arr_47_item, arr_47_lpath if path is not None else None, rep)
+                                                                                                    res = _jm_obj_119(arr_94_item, arr_94_lpath if path is not None else None, rep)
                                                                                                     if not res:
-                                                                                                        rep is None or rep.append(("unexpected element [.'$platforms'.0.'|'.21]", arr_47_lpath if path is not None else None))
+                                                                                                        rep is None or rep.append(("unexpected element [.'$platforms'.0.'|'.21]", arr_94_lpath if path is not None else None))
                                                                                                     if not res:
                                                                                                         # .'$platforms'.0.'|'.22
-                                                                                                        res = _jm_obj_71(arr_47_item, arr_47_lpath if path is not None else None, rep)
+                                                                                                        res = _jm_obj_118(arr_94_item, arr_94_lpath if path is not None else None, rep)
                                                                                                         if not res:
-                                                                                                            rep is None or rep.append(("unexpected element [.'$platforms'.0.'|'.22]", arr_47_lpath if path is not None else None))
+                                                                                                            rep is None or rep.append(("unexpected element [.'$platforms'.0.'|'.22]", arr_94_lpath if path is not None else None))
                                                                                                         if not res:
                                                                                                             # .'$platforms'.0.'|'.23
-                                                                                                            res = _jm_obj_70(arr_47_item, arr_47_lpath if path is not None else None, rep)
+                                                                                                            res = _jm_obj_117(arr_94_item, arr_94_lpath if path is not None else None, rep)
                                                                                                             if not res:
-                                                                                                                rep is None or rep.append(("unexpected element [.'$platforms'.0.'|'.23]", arr_47_lpath if path is not None else None))
+                                                                                                                rep is None or rep.append(("unexpected element [.'$platforms'.0.'|'.23]", arr_94_lpath if path is not None else None))
                                                                                                             if not res:
                                                                                                                 # .'$platforms'.0.'|'.24
-                                                                                                                res = _jm_obj_69(arr_47_item, arr_47_lpath if path is not None else None, rep)
+                                                                                                                res = _jm_obj_116(arr_94_item, arr_94_lpath if path is not None else None, rep)
                                                                                                                 if not res:
-                                                                                                                    rep is None or rep.append(("unexpected element [.'$platforms'.0.'|'.24]", arr_47_lpath if path is not None else None))
+                                                                                                                    rep is None or rep.append(("unexpected element [.'$platforms'.0.'|'.24]", arr_94_lpath if path is not None else None))
                                                                                                                 if not res:
                                                                                                                     # .'$platforms'.0.'|'.25
-                                                                                                                    res = _jm_obj_68(arr_47_item, arr_47_lpath if path is not None else None, rep)
+                                                                                                                    res = _jm_obj_115(arr_94_item, arr_94_lpath if path is not None else None, rep)
                                                                                                                     if not res:
-                                                                                                                        rep is None or rep.append(("unexpected element [.'$platforms'.0.'|'.25]", arr_47_lpath if path is not None else None))
+                                                                                                                        rep is None or rep.append(("unexpected element [.'$platforms'.0.'|'.25]", arr_94_lpath if path is not None else None))
                                                                                                                     if not res:
                                                                                                                         # .'$platforms'.0.'|'.26
-                                                                                                                        res = _jm_obj_67(arr_47_item, arr_47_lpath if path is not None else None, rep)
+                                                                                                                        res = _jm_obj_114(arr_94_item, arr_94_lpath if path is not None else None, rep)
                                                                                                                         if not res:
-                                                                                                                            rep is None or rep.append(("unexpected element [.'$platforms'.0.'|'.26]", arr_47_lpath if path is not None else None))
+                                                                                                                            rep is None or rep.append(("unexpected element [.'$platforms'.0.'|'.26]", arr_94_lpath if path is not None else None))
                                                                                                                         if not res:
                                                                                                                             # .'$platforms'.0.'|'.27
-                                                                                                                            res = _jm_obj_66(arr_47_item, arr_47_lpath if path is not None else None, rep)
+                                                                                                                            res = _jm_obj_113(arr_94_item, arr_94_lpath if path is not None else None, rep)
                                                                                                                             if not res:
-                                                                                                                                rep is None or rep.append(("unexpected element [.'$platforms'.0.'|'.27]", arr_47_lpath if path is not None else None))
+                                                                                                                                rep is None or rep.append(("unexpected element [.'$platforms'.0.'|'.27]", arr_94_lpath if path is not None else None))
                                                                                                                             if not res:
                                                                                                                                 # .'$platforms'.0.'|'.28
-                                                                                                                                res = _jm_obj_65(arr_47_item, arr_47_lpath if path is not None else None, rep)
+                                                                                                                                res = _jm_obj_112(arr_94_item, arr_94_lpath if path is not None else None, rep)
                                                                                                                                 if not res:
-                                                                                                                                    rep is None or rep.append(("unexpected element [.'$platforms'.0.'|'.28]", arr_47_lpath if path is not None else None))
+                                                                                                                                    rep is None or rep.append(("unexpected element [.'$platforms'.0.'|'.28]", arr_94_lpath if path is not None else None))
                                                                                                                                 if not res:
                                                                                                                                     # .'$platforms'.0.'|'.29
-                                                                                                                                    res = _jm_obj_64(arr_47_item, arr_47_lpath if path is not None else None, rep)
+                                                                                                                                    res = _jm_obj_111(arr_94_item, arr_94_lpath if path is not None else None, rep)
                                                                                                                                     if not res:
-                                                                                                                                        rep is None or rep.append(("unexpected element [.'$platforms'.0.'|'.29]", arr_47_lpath if path is not None else None))
+                                                                                                                                        rep is None or rep.append(("unexpected element [.'$platforms'.0.'|'.29]", arr_94_lpath if path is not None else None))
                                                                                                                                     if not res:
                                                                                                                                         # .'$platforms'.0.'|'.30
-                                                                                                                                        res = _jm_obj_63(arr_47_item, arr_47_lpath if path is not None else None, rep)
+                                                                                                                                        res = _jm_obj_110(arr_94_item, arr_94_lpath if path is not None else None, rep)
                                                                                                                                         if not res:
-                                                                                                                                            rep is None or rep.append(("unexpected element [.'$platforms'.0.'|'.30]", arr_47_lpath if path is not None else None))
+                                                                                                                                            rep is None or rep.append(("unexpected element [.'$platforms'.0.'|'.30]", arr_94_lpath if path is not None else None))
                                                                                                                                         if not res:
                                                                                                                                             # .'$platforms'.0.'|'.31
-                                                                                                                                            res = _jm_obj_62(arr_47_item, arr_47_lpath if path is not None else None, rep)
+                                                                                                                                            res = _jm_obj_109(arr_94_item, arr_94_lpath if path is not None else None, rep)
                                                                                                                                             if not res:
-                                                                                                                                                rep is None or rep.append(("unexpected element [.'$platforms'.0.'|'.31]", arr_47_lpath if path is not None else None))
+                                                                                                                                                rep is None or rep.append(("unexpected element [.'$platforms'.0.'|'.31]", arr_94_lpath if path is not None else None))
                                                                                                                                             if not res:
                                                                                                                                                 # .'$platforms'.0.'|'.32
-                                                                                                                                                res = _jm_obj_61(arr_47_item, arr_47_lpath if path is not None else None, rep)
+                                                                                                                                                res = _jm_obj_108(arr_94_item, arr_94_lpath if path is not None else None, rep)
                                                                                                                                                 if not res:
-                                                                                                                                                    rep is None or rep.append(("unexpected element [.'$platforms'.0.'|'.32]", arr_47_lpath if path is not None else None))
+                                                                                                                                                    rep is None or rep.append(("unexpected element [.'$platforms'.0.'|'.32]", arr_94_lpath if path is not None else None))
                                                                                                                                                 if not res:
                                                                                                                                                     # .'$platforms'.0.'|'.33
-                                                                                                                                                    res = _jm_obj_60(arr_47_item, arr_47_lpath if path is not None else None, rep)
+                                                                                                                                                    res = _jm_obj_107(arr_94_item, arr_94_lpath if path is not None else None, rep)
                                                                                                                                                     if not res:
-                                                                                                                                                        rep is None or rep.append(("unexpected element [.'$platforms'.0.'|'.33]", arr_47_lpath if path is not None else None))
+                                                                                                                                                        rep is None or rep.append(("unexpected element [.'$platforms'.0.'|'.33]", arr_94_lpath if path is not None else None))
                                                                                                                                                     if not res:
                                                                                                                                                         # .'$platforms'.0.'|'.34
-                                                                                                                                                        res = _jm_obj_59(arr_47_item, arr_47_lpath if path is not None else None, rep)
+                                                                                                                                                        res = _jm_obj_106(arr_94_item, arr_94_lpath if path is not None else None, rep)
                                                                                                                                                         if not res:
-                                                                                                                                                            rep is None or rep.append(("unexpected element [.'$platforms'.0.'|'.34]", arr_47_lpath if path is not None else None))
+                                                                                                                                                            rep is None or rep.append(("unexpected element [.'$platforms'.0.'|'.34]", arr_94_lpath if path is not None else None))
                                                                                                                                                         if not res:
                                                                                                                                                             # .'$platforms'.0.'|'.35
-                                                                                                                                                            res = _jm_obj_58(arr_47_item, arr_47_lpath if path is not None else None, rep)
+                                                                                                                                                            res = _jm_obj_105(arr_94_item, arr_94_lpath if path is not None else None, rep)
                                                                                                                                                             if not res:
-                                                                                                                                                                rep is None or rep.append(("unexpected element [.'$platforms'.0.'|'.35]", arr_47_lpath if path is not None else None))
+                                                                                                                                                                rep is None or rep.append(("unexpected element [.'$platforms'.0.'|'.35]", arr_94_lpath if path is not None else None))
                                                                                                                                                             if not res:
                                                                                                                                                                 # .'$platforms'.0.'|'.36
-                                                                                                                                                                res = _jm_obj_57(arr_47_item, arr_47_lpath if path is not None else None, rep)
+                                                                                                                                                                res = _jm_obj_104(arr_94_item, arr_94_lpath if path is not None else None, rep)
                                                                                                                                                                 if not res:
-                                                                                                                                                                    rep is None or rep.append(("unexpected element [.'$platforms'.0.'|'.36]", arr_47_lpath if path is not None else None))
+                                                                                                                                                                    rep is None or rep.append(("unexpected element [.'$platforms'.0.'|'.36]", arr_94_lpath if path is not None else None))
                                                                                                                                                                 if not res:
                                                                                                                                                                     # .'$platforms'.0.'|'.37
-                                                                                                                                                                    res = _jm_obj_56(arr_47_item, arr_47_lpath if path is not None else None, rep)
+                                                                                                                                                                    res = _jm_obj_103(arr_94_item, arr_94_lpath if path is not None else None, rep)
                                                                                                                                                                     if not res:
-                                                                                                                                                                        rep is None or rep.append(("unexpected element [.'$platforms'.0.'|'.37]", arr_47_lpath if path is not None else None))
+                                                                                                                                                                        rep is None or rep.append(("unexpected element [.'$platforms'.0.'|'.37]", arr_94_lpath if path is not None else None))
                                                                                                                                                                     if not res:
                                                                                                                                                                         # .'$platforms'.0.'|'.38
-                                                                                                                                                                        res = _jm_obj_55(arr_47_item, arr_47_lpath if path is not None else None, rep)
+                                                                                                                                                                        res = _jm_obj_102(arr_94_item, arr_94_lpath if path is not None else None, rep)
                                                                                                                                                                         if not res:
-                                                                                                                                                                            rep is None or rep.append(("unexpected element [.'$platforms'.0.'|'.38]", arr_47_lpath if path is not None else None))
+                                                                                                                                                                            rep is None or rep.append(("unexpected element [.'$platforms'.0.'|'.38]", arr_94_lpath if path is not None else None))
                                                                                                                                                                         if not res:
                                                                                                                                                                             # .'$platforms'.0.'|'.39
-                                                                                                                                                                            res = _jm_obj_54(arr_47_item, arr_47_lpath if path is not None else None, rep)
+                                                                                                                                                                            res = _jm_obj_101(arr_94_item, arr_94_lpath if path is not None else None, rep)
                                                                                                                                                                             if not res:
-                                                                                                                                                                                rep is None or rep.append(("unexpected element [.'$platforms'.0.'|'.39]", arr_47_lpath if path is not None else None))
+                                                                                                                                                                                rep is None or rep.append(("unexpected element [.'$platforms'.0.'|'.39]", arr_94_lpath if path is not None else None))
                                                                                                                                                                             if not res:
                                                                                                                                                                                 # .'$platforms'.0.'|'.40
-                                                                                                                                                                                res = _jm_obj_53(arr_47_item, arr_47_lpath if path is not None else None, rep)
+                                                                                                                                                                                res = _jm_obj_100(arr_94_item, arr_94_lpath if path is not None else None, rep)
                                                                                                                                                                                 if not res:
-                                                                                                                                                                                    rep is None or rep.append(("unexpected element [.'$platforms'.0.'|'.40]", arr_47_lpath if path is not None else None))
+                                                                                                                                                                                    rep is None or rep.append(("unexpected element [.'$platforms'.0.'|'.40]", arr_94_lpath if path is not None else None))
                                                                                                                                                                                 if not res:
                                                                                                                                                                                     # .'$platforms'.0.'|'.41
-                                                                                                                                                                                    res = _jm_obj_52(arr_47_item, arr_47_lpath if path is not None else None, rep)
+                                                                                                                                                                                    res = _jm_obj_99(arr_94_item, arr_94_lpath if path is not None else None, rep)
                                                                                                                                                                                     if not res:
-                                                                                                                                                                                        rep is None or rep.append(("unexpected element [.'$platforms'.0.'|'.41]", arr_47_lpath if path is not None else None))
+                                                                                                                                                                                        rep is None or rep.append(("unexpected element [.'$platforms'.0.'|'.41]", arr_94_lpath if path is not None else None))
                                                                                                                                                                                     if not res:
                                                                                                                                                                                         # .'$platforms'.0.'|'.42
-                                                                                                                                                                                        res = _jm_obj_51(arr_47_item, arr_47_lpath if path is not None else None, rep)
+                                                                                                                                                                                        res = _jm_obj_98(arr_94_item, arr_94_lpath if path is not None else None, rep)
                                                                                                                                                                                         if not res:
-                                                                                                                                                                                            rep is None or rep.append(("unexpected element [.'$platforms'.0.'|'.42]", arr_47_lpath if path is not None else None))
+                                                                                                                                                                                            rep is None or rep.append(("unexpected element [.'$platforms'.0.'|'.42]", arr_94_lpath if path is not None else None))
                                                                                                                                                                                         if not res:
                                                                                                                                                                                             # .'$platforms'.0.'|'.43
-                                                                                                                                                                                            res = _jm_obj_50(arr_47_item, arr_47_lpath if path is not None else None, rep)
+                                                                                                                                                                                            res = _jm_obj_97(arr_94_item, arr_94_lpath if path is not None else None, rep)
                                                                                                                                                                                             if not res:
-                                                                                                                                                                                                rep is None or rep.append(("unexpected element [.'$platforms'.0.'|'.43]", arr_47_lpath if path is not None else None))
+                                                                                                                                                                                                rep is None or rep.append(("unexpected element [.'$platforms'.0.'|'.43]", arr_94_lpath if path is not None else None))
                                                                                                                                                                                             if not res:
                                                                                                                                                                                                 # .'$platforms'.0.'|'.44
-                                                                                                                                                                                                res = _jm_obj_49(arr_47_item, arr_47_lpath if path is not None else None, rep)
+                                                                                                                                                                                                res = _jm_obj_96(arr_94_item, arr_94_lpath if path is not None else None, rep)
                                                                                                                                                                                                 if not res:
-                                                                                                                                                                                                    rep is None or rep.append(("unexpected element [.'$platforms'.0.'|'.44]", arr_47_lpath if path is not None else None))
+                                                                                                                                                                                                    rep is None or rep.append(("unexpected element [.'$platforms'.0.'|'.44]", arr_94_lpath if path is not None else None))
                                                                                                                                                                                                 if not res:
                                                                                                                                                                                                     # .'$platforms'.0.'|'.45
-                                                                                                                                                                                                    res = _jm_obj_48(arr_47_item, arr_47_lpath if path is not None else None, rep)
+                                                                                                                                                                                                    res = _jm_obj_95(arr_94_item, arr_94_lpath if path is not None else None, rep)
                                                                                                                                                                                                     if not res:
-                                                                                                                                                                                                        rep is None or rep.append(("unexpected element [.'$platforms'.0.'|'.45]", arr_47_lpath if path is not None else None))
+                                                                                                                                                                                                        rep is None or rep.append(("unexpected element [.'$platforms'.0.'|'.45]", arr_94_lpath if path is not None else None))
                                                                                                                                                                                                     if not res:
                                                                                                                                                                                                         # .'$platforms'.0.'|'.46
-                                                                                                                                                                                                        res = _jm_obj_47(arr_47_item, arr_47_lpath if path is not None else None, rep)
+                                                                                                                                                                                                        res = _jm_obj_94(arr_94_item, arr_94_lpath if path is not None else None, rep)
                                                                                                                                                                                                         if not res:
-                                                                                                                                                                                                            rep is None or rep.append(("unexpected element [.'$platforms'.0.'|'.46]", arr_47_lpath if path is not None else None))
+                                                                                                                                                                                                            rep is None or rep.append(("unexpected element [.'$platforms'.0.'|'.46]", arr_94_lpath if path is not None else None))
                 if res:
                     rep is None or rep.clear()
                 else:
-                    rep is None or rep.append(("no model matched [.'$platforms'.0.'|']", arr_47_lpath if path is not None else None))
+                    rep is None or rep.append(("no model matched [.'$platforms'.0.'|']", arr_94_lpath if path is not None else None))
             if not res:
                 break
     if not res:
         rep is None or rep.append(("not array or unexpected array [.'$platforms']", path))
     return res
 
-# check _jm_obj_94_map_cloud_platforms (.'$GalaxyInfoModelCollection'.cloud_platforms)
+# check _jm_obj_141_map_cloud_platforms (.'$GalaxyInfoModelCollection'.cloud_platforms)
 def _jm_f_0(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$GalaxyInfoModelCollection'.cloud_platforms
@@ -4761,25 +6757,25 @@ def _jm_f_0(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("unexpected $ANY [.'$GalaxyInfoModelCollection'.cloud_platforms]", path))
     return res
 
-# check _jm_obj_94_map_galaxy_tags (.'$GalaxyInfoModelCollection'.galaxy_tags)
+# check _jm_obj_141_map_galaxy_tags (.'$GalaxyInfoModelCollection'.galaxy_tags)
 def _jm_f_1(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$GalaxyInfoModelCollection'.galaxy_tags
     res = isinstance(val, list)
     if res:
-        for arr_95_idx, arr_95_item in enumerate(val):
-            arr_95_lpath: Path = (path + [ arr_95_idx ]) if path is not None else None
+        for arr_142_idx, arr_142_item in enumerate(val):
+            arr_142_lpath: Path = (path + [ arr_142_idx ]) if path is not None else None
             # .'$GalaxyInfoModelCollection'.galaxy_tags.0
-            res = isinstance(arr_95_item, str)
+            res = isinstance(arr_142_item, str)
             if not res:
-                rep is None or rep.append(("unexpected string [.'$GalaxyInfoModelCollection'.galaxy_tags.0]", arr_95_lpath if path is not None else None))
+                rep is None or rep.append(("unexpected string [.'$GalaxyInfoModelCollection'.galaxy_tags.0]", arr_142_lpath if path is not None else None))
             if not res:
                 break
     if not res:
         rep is None or rep.append(("not array or unexpected array [.'$GalaxyInfoModelCollection'.galaxy_tags]", path))
     return res
 
-# check _jm_obj_94_map_min_ansible_version (.'$GalaxyInfoModelCollection'.min_ansible_version)
+# check _jm_obj_141_map_min_ansible_version (.'$GalaxyInfoModelCollection'.min_ansible_version)
 def _jm_f_2(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$GalaxyInfoModelCollection'.min_ansible_version
@@ -4789,7 +6785,7 @@ def _jm_f_2(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 
-# check _jm_obj_94_map_namespace (.'$GalaxyInfoModelCollection'.namespace)
+# check _jm_obj_141_map_namespace (.'$GalaxyInfoModelCollection'.namespace)
 def _jm_f_3(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$GalaxyInfoModelCollection'.namespace
@@ -4799,7 +6795,7 @@ def _jm_f_3(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("unexpected /^[a-z][-a-z0-9_]+$/ [.'$GalaxyInfoModelCollection'.namespace]", path))
     return res
 
-# check _jm_obj_94_map_platforms (.'$GalaxyInfoModelCollection'.platforms)
+# check _jm_obj_141_map_platforms (.'$GalaxyInfoModelCollection'.platforms)
 def _jm_f_4(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$GalaxyInfoModelCollection'.platforms
@@ -4809,7 +6805,7 @@ def _jm_f_4(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 
-# check _jm_obj_94_map_role_name (.'$GalaxyInfoModelCollection'.role_name)
+# check _jm_obj_141_map_role_name (.'$GalaxyInfoModelCollection'.role_name)
 def _jm_f_5(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$GalaxyInfoModelCollection'.role_name
@@ -4819,7 +6815,7 @@ def _jm_f_5(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("unexpected /^[a-z][a-z0-9_]+$/ [.'$GalaxyInfoModelCollection'.role_name]", path))
     return res
 
-# check _jm_obj_94_map_video_links (.'$GalaxyInfoModelCollection'.video_links)
+# check _jm_obj_141_map_video_links (.'$GalaxyInfoModelCollection'.video_links)
 def _jm_f_6(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$GalaxyInfoModelCollection'.video_links
@@ -4833,21 +6829,21 @@ def _jm_f_6(val: Jsonable, path: Path, rep: Report) -> bool:
 
 
 # object .'$GalaxyInfoModelCollection'
-def _jm_obj_94(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_obj_141(val: Jsonable, path: Path, rep: Report) -> bool:
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$GalaxyInfoModelCollection']", path))
         return False
     pfun: CheckFun
     for prop, pval in val.items():
         assert isinstance(prop, str)
-        lpath_47: Path = (path + [ prop ]) if path is not None else None
-        if pfun := _jm_obj_94_map.get(prop):
+        lpath_94: Path = (path + [ prop ]) if path is not None else None
+        if pfun := _jm_obj_141_map.get(prop):
             # handle 7 may props
-            if pfun != UNDEFINED and not pfun(pval, lpath_47 if path is not None else None, rep):
-                rep is None or rep.append(("invalid optional prop value [.'$GalaxyInfoModelCollection']", lpath_47 if path is not None else None))
+            if pfun != UNDEFINED and not pfun(pval, lpath_94 if path is not None else None, rep):
+                rep is None or rep.append(("invalid optional prop value [.'$GalaxyInfoModelCollection']", lpath_94 if path is not None else None))
                 return False
         else:
-            rep is None or rep.append(("unexpected prop [.'$GalaxyInfoModelCollection']", lpath_47 if path is not None else None))
+            rep is None or rep.append(("unexpected prop [.'$GalaxyInfoModelCollection']", lpath_94 if path is not None else None))
             return False
     return True
 
@@ -4855,12 +6851,12 @@ def _jm_obj_94(val: Jsonable, path: Path, rep: Report) -> bool:
 def json_model_51(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$GalaxyInfoModelCollection'
-    res = _jm_obj_94(val, path, rep)
+    res = _jm_obj_141(val, path, rep)
     if not res:
         rep is None or rep.append(("unexpected element [.'$GalaxyInfoModelCollection']", path))
     return res
 
-# check _jm_obj_95_map_author (.'$GalaxyInfoModelLoose'.author)
+# check _jm_obj_142_map_author (.'$GalaxyInfoModelLoose'.author)
 def _jm_f_7(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$GalaxyInfoModelLoose'.author
@@ -4869,7 +6865,7 @@ def _jm_f_7(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("unexpected string [.'$GalaxyInfoModelLoose'.author]", path))
     return res
 
-# check _jm_obj_95_map_company (.'$GalaxyInfoModelLoose'.company)
+# check _jm_obj_142_map_company (.'$GalaxyInfoModelLoose'.company)
 def _jm_f_8(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$GalaxyInfoModelLoose'.company
@@ -4878,7 +6874,7 @@ def _jm_f_8(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("unexpected string [.'$GalaxyInfoModelLoose'.company]", path))
     return res
 
-# check _jm_obj_95_map_github_branch (.'$GalaxyInfoModelLoose'.github_branch)
+# check _jm_obj_142_map_github_branch (.'$GalaxyInfoModelLoose'.github_branch)
 def _jm_f_9(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$GalaxyInfoModelLoose'.github_branch
@@ -4887,7 +6883,7 @@ def _jm_f_9(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("unexpected string [.'$GalaxyInfoModelLoose'.github_branch]", path))
     return res
 
-# check _jm_obj_95_map_issue_tracker_url (.'$GalaxyInfoModelLoose'.issue_tracker_url)
+# check _jm_obj_142_map_issue_tracker_url (.'$GalaxyInfoModelLoose'.issue_tracker_url)
 def _jm_f_10(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$GalaxyInfoModelLoose'.issue_tracker_url
@@ -4896,7 +6892,7 @@ def _jm_f_10(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("unexpected string [.'$GalaxyInfoModelLoose'.issue_tracker_url]", path))
     return res
 
-# check _jm_obj_95_map_license (.'$GalaxyInfoModelLoose'.license)
+# check _jm_obj_142_map_license (.'$GalaxyInfoModelLoose'.license)
 def _jm_f_11(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$GalaxyInfoModelLoose'.license
@@ -4905,7 +6901,7 @@ def _jm_f_11(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("unexpected string [.'$GalaxyInfoModelLoose'.license]", path))
     return res
 
-# check _jm_obj_95_map_min_ansible_container_version (.'$GalaxyInfoModelLoose'.min_ansible_container_version)
+# check _jm_obj_142_map_min_ansible_container_version (.'$GalaxyInfoModelLoose'.min_ansible_container_version)
 def _jm_f_12(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$GalaxyInfoModelLoose'.min_ansible_container_version
@@ -4916,7 +6912,7 @@ def _jm_f_12(val: Jsonable, path: Path, rep: Report) -> bool:
 
 
 # object .'$GalaxyInfoModelLoose'
-def _jm_obj_95(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_obj_142(val: Jsonable, path: Path, rep: Report) -> bool:
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$GalaxyInfoModelLoose']", path))
         return False
@@ -4925,24 +6921,24 @@ def _jm_obj_95(val: Jsonable, path: Path, rep: Report) -> bool:
     must_count: int = 0
     for prop, pval in val.items():
         assert isinstance(prop, str)
-        lpath_48: Path = (path + [ prop ]) if path is not None else None
+        lpath_95: Path = (path + [ prop ]) if path is not None else None
         if prop == "description":
             # handle must description property
             must_count += 1
             # .'$GalaxyInfoModelLoose'.description
             res = isinstance(pval, str)
             if not res:
-                rep is None or rep.append(("unexpected string [.'$GalaxyInfoModelLoose'.description]", lpath_48 if path is not None else None))
+                rep is None or rep.append(("unexpected string [.'$GalaxyInfoModelLoose'.description]", lpath_95 if path is not None else None))
             if not res:
-                rep is None or rep.append(("invalid mandatory prop value [.'$GalaxyInfoModelLoose'.description]", lpath_48 if path is not None else None))
+                rep is None or rep.append(("invalid mandatory prop value [.'$GalaxyInfoModelLoose'.description]", lpath_95 if path is not None else None))
                 return False
-        elif pfun := _jm_obj_95_map.get(prop):
+        elif pfun := _jm_obj_142_map.get(prop):
             # handle 6 may props
-            if pfun != UNDEFINED and not pfun(pval, lpath_48 if path is not None else None, rep):
-                rep is None or rep.append(("invalid optional prop value [.'$GalaxyInfoModelLoose']", lpath_48 if path is not None else None))
+            if pfun != UNDEFINED and not pfun(pval, lpath_95 if path is not None else None, rep):
+                rep is None or rep.append(("invalid optional prop value [.'$GalaxyInfoModelLoose']", lpath_95 if path is not None else None))
                 return False
         else:
-            rep is None or rep.append(("unexpected prop [.'$GalaxyInfoModelLoose']", lpath_48 if path is not None else None))
+            rep is None or rep.append(("unexpected prop [.'$GalaxyInfoModelLoose']", lpath_95 if path is not None else None))
             return False
     if must_count != 1:
         if rep is not None:
@@ -4956,12 +6952,12 @@ def json_model_52(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # some $URL should be added?
     # .'$GalaxyInfoModelLoose'
-    res = _jm_obj_95(val, path, rep)
+    res = _jm_obj_142(val, path, rep)
     if not res:
         rep is None or rep.append(("unexpected element [.'$GalaxyInfoModelLoose']", path))
     return res
 
-# check _jm_obj_96_map_cloud_platforms (.'$GalaxyInfoModelStandalone'.cloud_platforms)
+# check _jm_obj_143_map_cloud_platforms (.'$GalaxyInfoModelStandalone'.cloud_platforms)
 def _jm_f_13(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$GalaxyInfoModelStandalone'.cloud_platforms
@@ -4970,7 +6966,7 @@ def _jm_f_13(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("unexpected $ANY [.'$GalaxyInfoModelStandalone'.cloud_platforms]", path))
     return res
 
-# check _jm_obj_96_map_company (.'$GalaxyInfoModelStandalone'.company)
+# check _jm_obj_143_map_company (.'$GalaxyInfoModelStandalone'.company)
 def _jm_f_14(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$GalaxyInfoModelStandalone'.company
@@ -4979,25 +6975,25 @@ def _jm_f_14(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("unexpected string [.'$GalaxyInfoModelStandalone'.company]", path))
     return res
 
-# check _jm_obj_96_map_galaxy_tags (.'$GalaxyInfoModelStandalone'.galaxy_tags)
+# check _jm_obj_143_map_galaxy_tags (.'$GalaxyInfoModelStandalone'.galaxy_tags)
 def _jm_f_15(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$GalaxyInfoModelStandalone'.galaxy_tags
     res = isinstance(val, list)
     if res:
-        for arr_96_idx, arr_96_item in enumerate(val):
-            arr_96_lpath: Path = (path + [ arr_96_idx ]) if path is not None else None
+        for arr_143_idx, arr_143_item in enumerate(val):
+            arr_143_lpath: Path = (path + [ arr_143_idx ]) if path is not None else None
             # .'$GalaxyInfoModelStandalone'.galaxy_tags.0
-            res = isinstance(arr_96_item, str)
+            res = isinstance(arr_143_item, str)
             if not res:
-                rep is None or rep.append(("unexpected string [.'$GalaxyInfoModelStandalone'.galaxy_tags.0]", arr_96_lpath if path is not None else None))
+                rep is None or rep.append(("unexpected string [.'$GalaxyInfoModelStandalone'.galaxy_tags.0]", arr_143_lpath if path is not None else None))
             if not res:
                 break
     if not res:
         rep is None or rep.append(("not array or unexpected array [.'$GalaxyInfoModelStandalone'.galaxy_tags]", path))
     return res
 
-# check _jm_obj_96_map_github_branch (.'$GalaxyInfoModelStandalone'.github_branch)
+# check _jm_obj_143_map_github_branch (.'$GalaxyInfoModelStandalone'.github_branch)
 def _jm_f_16(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$GalaxyInfoModelStandalone'.github_branch
@@ -5006,7 +7002,7 @@ def _jm_f_16(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("unexpected string [.'$GalaxyInfoModelStandalone'.github_branch]", path))
     return res
 
-# check _jm_obj_96_map_issue_tracker_url (.'$GalaxyInfoModelStandalone'.issue_tracker_url)
+# check _jm_obj_143_map_issue_tracker_url (.'$GalaxyInfoModelStandalone'.issue_tracker_url)
 def _jm_f_17(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$GalaxyInfoModelStandalone'.issue_tracker_url
@@ -5015,7 +7011,7 @@ def _jm_f_17(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("unexpected string [.'$GalaxyInfoModelStandalone'.issue_tracker_url]", path))
     return res
 
-# check _jm_obj_96_map_min_ansible_container_version (.'$GalaxyInfoModelStandalone'.min_ansible_container_version)
+# check _jm_obj_143_map_min_ansible_container_version (.'$GalaxyInfoModelStandalone'.min_ansible_container_version)
 def _jm_f_18(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$GalaxyInfoModelStandalone'.min_ansible_container_version
@@ -5024,7 +7020,7 @@ def _jm_f_18(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("unexpected string [.'$GalaxyInfoModelStandalone'.min_ansible_container_version]", path))
     return res
 
-# check _jm_obj_96_map_namespace (.'$GalaxyInfoModelStandalone'.namespace)
+# check _jm_obj_143_map_namespace (.'$GalaxyInfoModelStandalone'.namespace)
 def _jm_f_19(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$GalaxyInfoModelStandalone'.namespace
@@ -5034,7 +7030,7 @@ def _jm_f_19(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("unexpected /^[a-z][-a-z0-9_]+$/ [.'$GalaxyInfoModelStandalone'.namespace]", path))
     return res
 
-# check _jm_obj_96_map_platforms (.'$GalaxyInfoModelStandalone'.platforms)
+# check _jm_obj_143_map_platforms (.'$GalaxyInfoModelStandalone'.platforms)
 def _jm_f_20(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$GalaxyInfoModelStandalone'.platforms
@@ -5043,7 +7039,7 @@ def _jm_f_20(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("unexpected $platforms [.'$GalaxyInfoModelStandalone'.platforms]", path))
     return res
 
-# check _jm_obj_96_map_role_name (.'$GalaxyInfoModelStandalone'.role_name)
+# check _jm_obj_143_map_role_name (.'$GalaxyInfoModelStandalone'.role_name)
 def _jm_f_21(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$GalaxyInfoModelStandalone'.role_name
@@ -5053,7 +7049,7 @@ def _jm_f_21(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("unexpected /^[a-z][a-z0-9_]+$/ [.'$GalaxyInfoModelStandalone'.role_name]", path))
     return res
 
-# check _jm_obj_96_map_video_links (.'$GalaxyInfoModelStandalone'.video_links)
+# check _jm_obj_143_map_video_links (.'$GalaxyInfoModelStandalone'.video_links)
 def _jm_f_22(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$GalaxyInfoModelStandalone'.video_links
@@ -5067,7 +7063,7 @@ def _jm_f_22(val: Jsonable, path: Path, rep: Report) -> bool:
 
 
 # object .'$GalaxyInfoModelStandalone'
-def _jm_obj_96(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_obj_143(val: Jsonable, path: Path, rep: Report) -> bool:
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$GalaxyInfoModelStandalone']", path))
         return False
@@ -5076,16 +7072,16 @@ def _jm_obj_96(val: Jsonable, path: Path, rep: Report) -> bool:
     must_count: int = 0
     for prop, pval in val.items():
         assert isinstance(prop, str)
-        lpath_49: Path = (path + [ prop ]) if path is not None else None
+        lpath_96: Path = (path + [ prop ]) if path is not None else None
         if prop == "standalone":
             # handle must standalone property
             must_count += 1
             # .'$GalaxyInfoModelStandalone'.standalone
             res = isinstance(pval, bool) and pval == True
             if not res:
-                rep is None or rep.append(("unexpected =true [.'$GalaxyInfoModelStandalone'.standalone]", lpath_49 if path is not None else None))
+                rep is None or rep.append(("unexpected =true [.'$GalaxyInfoModelStandalone'.standalone]", lpath_96 if path is not None else None))
             if not res:
-                rep is None or rep.append(("invalid mandatory prop value [.'$GalaxyInfoModelStandalone'.standalone]", lpath_49 if path is not None else None))
+                rep is None or rep.append(("invalid mandatory prop value [.'$GalaxyInfoModelStandalone'.standalone]", lpath_96 if path is not None else None))
                 return False
         elif prop == "description":
             # handle must description property
@@ -5093,9 +7089,9 @@ def _jm_obj_96(val: Jsonable, path: Path, rep: Report) -> bool:
             # .'$GalaxyInfoModelStandalone'.description
             res = isinstance(pval, str)
             if not res:
-                rep is None or rep.append(("unexpected string [.'$GalaxyInfoModelStandalone'.description]", lpath_49 if path is not None else None))
+                rep is None or rep.append(("unexpected string [.'$GalaxyInfoModelStandalone'.description]", lpath_96 if path is not None else None))
             if not res:
-                rep is None or rep.append(("invalid mandatory prop value [.'$GalaxyInfoModelStandalone'.description]", lpath_49 if path is not None else None))
+                rep is None or rep.append(("invalid mandatory prop value [.'$GalaxyInfoModelStandalone'.description]", lpath_96 if path is not None else None))
                 return False
         elif prop == "author":
             # handle must author property
@@ -5103,9 +7099,9 @@ def _jm_obj_96(val: Jsonable, path: Path, rep: Report) -> bool:
             # .'$GalaxyInfoModelStandalone'.author
             res = isinstance(pval, str)
             if not res:
-                rep is None or rep.append(("unexpected string [.'$GalaxyInfoModelStandalone'.author]", lpath_49 if path is not None else None))
+                rep is None or rep.append(("unexpected string [.'$GalaxyInfoModelStandalone'.author]", lpath_96 if path is not None else None))
             if not res:
-                rep is None or rep.append(("invalid mandatory prop value [.'$GalaxyInfoModelStandalone'.author]", lpath_49 if path is not None else None))
+                rep is None or rep.append(("invalid mandatory prop value [.'$GalaxyInfoModelStandalone'.author]", lpath_96 if path is not None else None))
                 return False
         elif prop == "license":
             # handle must license property
@@ -5113,9 +7109,9 @@ def _jm_obj_96(val: Jsonable, path: Path, rep: Report) -> bool:
             # .'$GalaxyInfoModelStandalone'.license
             res = isinstance(pval, str)
             if not res:
-                rep is None or rep.append(("unexpected string [.'$GalaxyInfoModelStandalone'.license]", lpath_49 if path is not None else None))
+                rep is None or rep.append(("unexpected string [.'$GalaxyInfoModelStandalone'.license]", lpath_96 if path is not None else None))
             if not res:
-                rep is None or rep.append(("invalid mandatory prop value [.'$GalaxyInfoModelStandalone'.license]", lpath_49 if path is not None else None))
+                rep is None or rep.append(("invalid mandatory prop value [.'$GalaxyInfoModelStandalone'.license]", lpath_96 if path is not None else None))
                 return False
         elif prop == "min_ansible_version":
             # handle must min_ansible_version property
@@ -5123,17 +7119,17 @@ def _jm_obj_96(val: Jsonable, path: Path, rep: Report) -> bool:
             # .'$GalaxyInfoModelStandalone'.min_ansible_version
             res = isinstance(pval, str)
             if not res:
-                rep is None or rep.append(("unexpected string [.'$GalaxyInfoModelStandalone'.min_ansible_version]", lpath_49 if path is not None else None))
+                rep is None or rep.append(("unexpected string [.'$GalaxyInfoModelStandalone'.min_ansible_version]", lpath_96 if path is not None else None))
             if not res:
-                rep is None or rep.append(("invalid mandatory prop value [.'$GalaxyInfoModelStandalone'.min_ansible_version]", lpath_49 if path is not None else None))
+                rep is None or rep.append(("invalid mandatory prop value [.'$GalaxyInfoModelStandalone'.min_ansible_version]", lpath_96 if path is not None else None))
                 return False
-        elif pfun := _jm_obj_96_map.get(prop):
+        elif pfun := _jm_obj_143_map.get(prop):
             # handle 10 may props
-            if pfun != UNDEFINED and not pfun(pval, lpath_49 if path is not None else None, rep):
-                rep is None or rep.append(("invalid optional prop value [.'$GalaxyInfoModelStandalone']", lpath_49 if path is not None else None))
+            if pfun != UNDEFINED and not pfun(pval, lpath_96 if path is not None else None, rep):
+                rep is None or rep.append(("invalid optional prop value [.'$GalaxyInfoModelStandalone']", lpath_96 if path is not None else None))
                 return False
         else:
-            rep is None or rep.append(("unexpected prop [.'$GalaxyInfoModelStandalone']", lpath_49 if path is not None else None))
+            rep is None or rep.append(("unexpected prop [.'$GalaxyInfoModelStandalone']", lpath_96 if path is not None else None))
             return False
     if must_count != 5:
         if rep is not None:
@@ -5154,13 +7150,181 @@ def _jm_obj_96(val: Jsonable, path: Path, rep: Report) -> bool:
 def json_model_53(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$GalaxyInfoModelStandalone'
-    res = _jm_obj_96(val, path, rep)
+    res = _jm_obj_143(val, path, rep)
     if not res:
         rep is None or rep.append(("unexpected element [.'$GalaxyInfoModelStandalone']", path))
     return res
 
-# check _jm_obj_97_map_author (.'$GalaxyInfoModel'.'|'.1.author)
+# check _jm_obj_144_map_author (.'$GalaxyInfoModel'.'|'.2.author)
 def _jm_f_23(val: Jsonable, path: Path, rep: Report) -> bool:
+    res: bool
+    # .'$GalaxyInfoModel'.'|'.2.author
+    res = isinstance(val, str)
+    if not res:
+        rep is None or rep.append(("unexpected string [.'$GalaxyInfoModel'.'|'.2.author]", path))
+    return res
+
+# check _jm_obj_144_map_cloud_platforms (.'$GalaxyInfoModel'.'|'.2.cloud_platforms)
+def _jm_f_24(val: Jsonable, path: Path, rep: Report) -> bool:
+    res: bool
+    # .'$GalaxyInfoModel'.'|'.2.cloud_platforms
+    res = True
+    if not res:
+        rep is None or rep.append(("unexpected $ANY [.'$GalaxyInfoModel'.'|'.2.cloud_platforms]", path))
+    return res
+
+# check _jm_obj_144_map_company (.'$GalaxyInfoModel'.'|'.2.company)
+def _jm_f_25(val: Jsonable, path: Path, rep: Report) -> bool:
+    res: bool
+    # .'$GalaxyInfoModel'.'|'.2.company
+    res = isinstance(val, str)
+    if not res:
+        rep is None or rep.append(("unexpected string [.'$GalaxyInfoModel'.'|'.2.company]", path))
+    return res
+
+# check _jm_obj_144_map_galaxy_tags (.'$GalaxyInfoModel'.'|'.2.galaxy_tags)
+def _jm_f_26(val: Jsonable, path: Path, rep: Report) -> bool:
+    res: bool
+    # .'$GalaxyInfoModel'.'|'.2.galaxy_tags
+    res = isinstance(val, list)
+    if res:
+        for arr_144_idx, arr_144_item in enumerate(val):
+            arr_144_lpath: Path = (path + [ arr_144_idx ]) if path is not None else None
+            # .'$GalaxyInfoModel'.'|'.2.galaxy_tags.0
+            res = isinstance(arr_144_item, str)
+            if not res:
+                rep is None or rep.append(("unexpected string [.'$GalaxyInfoModel'.'|'.2.galaxy_tags.0]", arr_144_lpath if path is not None else None))
+            if not res:
+                break
+    if not res:
+        rep is None or rep.append(("not array or unexpected array [.'$GalaxyInfoModel'.'|'.2.galaxy_tags]", path))
+    return res
+
+# check _jm_obj_144_map_github_branch (.'$GalaxyInfoModel'.'|'.2.github_branch)
+def _jm_f_27(val: Jsonable, path: Path, rep: Report) -> bool:
+    res: bool
+    # .'$GalaxyInfoModel'.'|'.2.github_branch
+    res = isinstance(val, str)
+    if not res:
+        rep is None or rep.append(("unexpected string [.'$GalaxyInfoModel'.'|'.2.github_branch]", path))
+    return res
+
+# check _jm_obj_144_map_issue_tracker_url (.'$GalaxyInfoModel'.'|'.2.issue_tracker_url)
+def _jm_f_28(val: Jsonable, path: Path, rep: Report) -> bool:
+    res: bool
+    # .'$GalaxyInfoModel'.'|'.2.issue_tracker_url
+    res = isinstance(val, str)
+    if not res:
+        rep is None or rep.append(("unexpected string [.'$GalaxyInfoModel'.'|'.2.issue_tracker_url]", path))
+    return res
+
+# check _jm_obj_144_map_license (.'$GalaxyInfoModel'.'|'.2.license)
+def _jm_f_29(val: Jsonable, path: Path, rep: Report) -> bool:
+    res: bool
+    # .'$GalaxyInfoModel'.'|'.2.license
+    res = isinstance(val, str)
+    if not res:
+        rep is None or rep.append(("unexpected string [.'$GalaxyInfoModel'.'|'.2.license]", path))
+    return res
+
+# check _jm_obj_144_map_min_ansible_container_version (.'$GalaxyInfoModel'.'|'.2.min_ansible_container_version)
+def _jm_f_30(val: Jsonable, path: Path, rep: Report) -> bool:
+    res: bool
+    # .'$GalaxyInfoModel'.'|'.2.min_ansible_container_version
+    res = isinstance(val, str)
+    if not res:
+        rep is None or rep.append(("unexpected string [.'$GalaxyInfoModel'.'|'.2.min_ansible_container_version]", path))
+    return res
+
+# check _jm_obj_144_map_min_ansible_version (.'$GalaxyInfoModel'.'|'.2.min_ansible_version)
+def _jm_f_31(val: Jsonable, path: Path, rep: Report) -> bool:
+    res: bool
+    # .'$GalaxyInfoModel'.'|'.2.min_ansible_version
+    res = isinstance(val, str)
+    if not res:
+        rep is None or rep.append(("unexpected string [.'$GalaxyInfoModel'.'|'.2.min_ansible_version]", path))
+    return res
+
+# check _jm_obj_144_map_namespace (.'$GalaxyInfoModel'.'|'.2.namespace)
+def _jm_f_32(val: Jsonable, path: Path, rep: Report) -> bool:
+    res: bool
+    # .'$GalaxyInfoModel'.'|'.2.namespace
+    # "/^[a-z][-a-z0-9_]+$/"
+    res = isinstance(val, str) and _jm_re_0(val, path, rep)
+    if not res:
+        rep is None or rep.append(("unexpected /^[a-z][-a-z0-9_]+$/ [.'$GalaxyInfoModel'.'|'.2.namespace]", path))
+    return res
+
+# check _jm_obj_144_map_platforms (.'$GalaxyInfoModel'.'|'.2.platforms)
+def _jm_f_33(val: Jsonable, path: Path, rep: Report) -> bool:
+    res: bool
+    # .'$GalaxyInfoModel'.'|'.2.platforms
+    res = json_model_50(val, path, rep)
+    if not res:
+        rep is None or rep.append(("unexpected $platforms [.'$GalaxyInfoModel'.'|'.2.platforms]", path))
+    return res
+
+# check _jm_obj_144_map_role_name (.'$GalaxyInfoModel'.'|'.2.role_name)
+def _jm_f_34(val: Jsonable, path: Path, rep: Report) -> bool:
+    res: bool
+    # .'$GalaxyInfoModel'.'|'.2.role_name
+    # "/^[a-z][a-z0-9_]+$/"
+    res = isinstance(val, str) and _jm_re_1(val, path, rep)
+    if not res:
+        rep is None or rep.append(("unexpected /^[a-z][a-z0-9_]+$/ [.'$GalaxyInfoModel'.'|'.2.role_name]", path))
+    return res
+
+# check _jm_obj_144_map_video_links (.'$GalaxyInfoModel'.'|'.2.video_links)
+def _jm_f_35(val: Jsonable, path: Path, rep: Report) -> bool:
+    res: bool
+    # .'$GalaxyInfoModel'.'|'.2.video_links
+    res = isinstance(val, list)
+    if res:
+        # accept any array
+        pass
+    if not res:
+        rep is None or rep.append(("not array or unexpected array [.'$GalaxyInfoModel'.'|'.2.video_links]", path))
+    return res
+
+
+# object .'$GalaxyInfoModel'.'|'.2
+def _jm_obj_144(val: Jsonable, path: Path, rep: Report) -> bool:
+    if not isinstance(val, dict):
+        rep is None or rep.append(("not an object [.'$GalaxyInfoModel'.'|'.2]", path))
+        return False
+    res: bool
+    pfun: CheckFun
+    must_count: int = 0
+    for prop, pval in val.items():
+        assert isinstance(prop, str)
+        lpath_97: Path = (path + [ prop ]) if path is not None else None
+        if prop == "description":
+            # handle must description property
+            must_count += 1
+            # .'$GalaxyInfoModel'.'|'.2.description
+            res = isinstance(pval, str)
+            if not res:
+                rep is None or rep.append(("unexpected string [.'$GalaxyInfoModel'.'|'.2.description]", lpath_97 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid mandatory prop value [.'$GalaxyInfoModel'.'|'.2.description]", lpath_97 if path is not None else None))
+                return False
+        elif pfun := _jm_obj_144_map.get(prop):
+            # handle 13 may props
+            if pfun != UNDEFINED and not pfun(pval, lpath_97 if path is not None else None, rep):
+                rep is None or rep.append(("invalid optional prop value [.'$GalaxyInfoModel'.'|'.2]", lpath_97 if path is not None else None))
+                return False
+        else:
+            rep is None or rep.append(("unexpected prop [.'$GalaxyInfoModel'.'|'.2]", lpath_97 if path is not None else None))
+            return False
+    if must_count != 1:
+        if rep is not None:
+            if not "description" in val:
+                rep is None or rep.append(("missing mandatory prop <description> [.'$GalaxyInfoModel'.'|'.2]", path))
+        return False
+    return True
+
+# check _jm_obj_145_map_author (.'$GalaxyInfoModel'.'|'.1.author)
+def _jm_f_36(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$GalaxyInfoModel'.'|'.1.author
     res = isinstance(val, str)
@@ -5168,8 +7332,8 @@ def _jm_f_23(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("unexpected string [.'$GalaxyInfoModel'.'|'.1.author]", path))
     return res
 
-# check _jm_obj_97_map_cloud_platforms (.'$GalaxyInfoModel'.'|'.1.cloud_platforms)
-def _jm_f_24(val: Jsonable, path: Path, rep: Report) -> bool:
+# check _jm_obj_145_map_cloud_platforms (.'$GalaxyInfoModel'.'|'.1.cloud_platforms)
+def _jm_f_37(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$GalaxyInfoModel'.'|'.1.cloud_platforms
     res = True
@@ -5177,8 +7341,8 @@ def _jm_f_24(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("unexpected $ANY [.'$GalaxyInfoModel'.'|'.1.cloud_platforms]", path))
     return res
 
-# check _jm_obj_97_map_company (.'$GalaxyInfoModel'.'|'.1.company)
-def _jm_f_25(val: Jsonable, path: Path, rep: Report) -> bool:
+# check _jm_obj_145_map_company (.'$GalaxyInfoModel'.'|'.1.company)
+def _jm_f_38(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$GalaxyInfoModel'.'|'.1.company
     res = isinstance(val, str)
@@ -5186,26 +7350,26 @@ def _jm_f_25(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("unexpected string [.'$GalaxyInfoModel'.'|'.1.company]", path))
     return res
 
-# check _jm_obj_97_map_galaxy_tags (.'$GalaxyInfoModel'.'|'.1.galaxy_tags)
-def _jm_f_26(val: Jsonable, path: Path, rep: Report) -> bool:
+# check _jm_obj_145_map_galaxy_tags (.'$GalaxyInfoModel'.'|'.1.galaxy_tags)
+def _jm_f_39(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$GalaxyInfoModel'.'|'.1.galaxy_tags
     res = isinstance(val, list)
     if res:
-        for arr_97_idx, arr_97_item in enumerate(val):
-            arr_97_lpath: Path = (path + [ arr_97_idx ]) if path is not None else None
+        for arr_145_idx, arr_145_item in enumerate(val):
+            arr_145_lpath: Path = (path + [ arr_145_idx ]) if path is not None else None
             # .'$GalaxyInfoModel'.'|'.1.galaxy_tags.0
-            res = isinstance(arr_97_item, str)
+            res = isinstance(arr_145_item, str)
             if not res:
-                rep is None or rep.append(("unexpected string [.'$GalaxyInfoModel'.'|'.1.galaxy_tags.0]", arr_97_lpath if path is not None else None))
+                rep is None or rep.append(("unexpected string [.'$GalaxyInfoModel'.'|'.1.galaxy_tags.0]", arr_145_lpath if path is not None else None))
             if not res:
                 break
     if not res:
         rep is None or rep.append(("not array or unexpected array [.'$GalaxyInfoModel'.'|'.1.galaxy_tags]", path))
     return res
 
-# check _jm_obj_97_map_github_branch (.'$GalaxyInfoModel'.'|'.1.github_branch)
-def _jm_f_27(val: Jsonable, path: Path, rep: Report) -> bool:
+# check _jm_obj_145_map_github_branch (.'$GalaxyInfoModel'.'|'.1.github_branch)
+def _jm_f_40(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$GalaxyInfoModel'.'|'.1.github_branch
     res = isinstance(val, str)
@@ -5213,8 +7377,8 @@ def _jm_f_27(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("unexpected string [.'$GalaxyInfoModel'.'|'.1.github_branch]", path))
     return res
 
-# check _jm_obj_97_map_issue_tracker_url (.'$GalaxyInfoModel'.'|'.1.issue_tracker_url)
-def _jm_f_28(val: Jsonable, path: Path, rep: Report) -> bool:
+# check _jm_obj_145_map_issue_tracker_url (.'$GalaxyInfoModel'.'|'.1.issue_tracker_url)
+def _jm_f_41(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$GalaxyInfoModel'.'|'.1.issue_tracker_url
     res = isinstance(val, str)
@@ -5222,8 +7386,8 @@ def _jm_f_28(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("unexpected string [.'$GalaxyInfoModel'.'|'.1.issue_tracker_url]", path))
     return res
 
-# check _jm_obj_97_map_license (.'$GalaxyInfoModel'.'|'.1.license)
-def _jm_f_29(val: Jsonable, path: Path, rep: Report) -> bool:
+# check _jm_obj_145_map_license (.'$GalaxyInfoModel'.'|'.1.license)
+def _jm_f_42(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$GalaxyInfoModel'.'|'.1.license
     res = isinstance(val, str)
@@ -5231,8 +7395,8 @@ def _jm_f_29(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("unexpected string [.'$GalaxyInfoModel'.'|'.1.license]", path))
     return res
 
-# check _jm_obj_97_map_min_ansible_container_version (.'$GalaxyInfoModel'.'|'.1.min_ansible_container_version)
-def _jm_f_30(val: Jsonable, path: Path, rep: Report) -> bool:
+# check _jm_obj_145_map_min_ansible_container_version (.'$GalaxyInfoModel'.'|'.1.min_ansible_container_version)
+def _jm_f_43(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$GalaxyInfoModel'.'|'.1.min_ansible_container_version
     res = isinstance(val, str)
@@ -5240,8 +7404,8 @@ def _jm_f_30(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("unexpected string [.'$GalaxyInfoModel'.'|'.1.min_ansible_container_version]", path))
     return res
 
-# check _jm_obj_97_map_min_ansible_version (.'$GalaxyInfoModel'.'|'.1.min_ansible_version)
-def _jm_f_31(val: Jsonable, path: Path, rep: Report) -> bool:
+# check _jm_obj_145_map_min_ansible_version (.'$GalaxyInfoModel'.'|'.1.min_ansible_version)
+def _jm_f_44(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$GalaxyInfoModel'.'|'.1.min_ansible_version
     res = isinstance(val, str)
@@ -5249,8 +7413,8 @@ def _jm_f_31(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("unexpected string [.'$GalaxyInfoModel'.'|'.1.min_ansible_version]", path))
     return res
 
-# check _jm_obj_97_map_namespace (.'$GalaxyInfoModel'.'|'.1.namespace)
-def _jm_f_32(val: Jsonable, path: Path, rep: Report) -> bool:
+# check _jm_obj_145_map_namespace (.'$GalaxyInfoModel'.'|'.1.namespace)
+def _jm_f_45(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$GalaxyInfoModel'.'|'.1.namespace
     # "/^[a-z][-a-z0-9_]+$/"
@@ -5259,8 +7423,8 @@ def _jm_f_32(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("unexpected /^[a-z][-a-z0-9_]+$/ [.'$GalaxyInfoModel'.'|'.1.namespace]", path))
     return res
 
-# check _jm_obj_97_map_platforms (.'$GalaxyInfoModel'.'|'.1.platforms)
-def _jm_f_33(val: Jsonable, path: Path, rep: Report) -> bool:
+# check _jm_obj_145_map_platforms (.'$GalaxyInfoModel'.'|'.1.platforms)
+def _jm_f_46(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$GalaxyInfoModel'.'|'.1.platforms
     res = json_model_50(val, path, rep)
@@ -5268,8 +7432,8 @@ def _jm_f_33(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("unexpected $platforms [.'$GalaxyInfoModel'.'|'.1.platforms]", path))
     return res
 
-# check _jm_obj_97_map_role_name (.'$GalaxyInfoModel'.'|'.1.role_name)
-def _jm_f_34(val: Jsonable, path: Path, rep: Report) -> bool:
+# check _jm_obj_145_map_role_name (.'$GalaxyInfoModel'.'|'.1.role_name)
+def _jm_f_47(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$GalaxyInfoModel'.'|'.1.role_name
     # "/^[a-z][a-z0-9_]+$/"
@@ -5278,8 +7442,8 @@ def _jm_f_34(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("unexpected /^[a-z][a-z0-9_]+$/ [.'$GalaxyInfoModel'.'|'.1.role_name]", path))
     return res
 
-# check _jm_obj_97_map_video_links (.'$GalaxyInfoModel'.'|'.1.video_links)
-def _jm_f_35(val: Jsonable, path: Path, rep: Report) -> bool:
+# check _jm_obj_145_map_video_links (.'$GalaxyInfoModel'.'|'.1.video_links)
+def _jm_f_48(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$GalaxyInfoModel'.'|'.1.video_links
     res = isinstance(val, list)
@@ -5292,7 +7456,7 @@ def _jm_f_35(val: Jsonable, path: Path, rep: Report) -> bool:
 
 
 # object .'$GalaxyInfoModel'.'|'.1
-def _jm_obj_97(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_obj_145(val: Jsonable, path: Path, rep: Report) -> bool:
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$GalaxyInfoModel'.'|'.1]", path))
         return False
@@ -5301,43 +7465,46 @@ def _jm_obj_97(val: Jsonable, path: Path, rep: Report) -> bool:
     must_count: int = 0
     for prop, pval in val.items():
         assert isinstance(prop, str)
-        lpath_50: Path = (path + [ prop ]) if path is not None else None
-        if prop == "description":
+        lpath_98: Path = (path + [ prop ]) if path is not None else None
+        if prop == "standalone":
+            # handle must standalone property
+            must_count += 1
+            # .'$GalaxyInfoModel'.'|'.1.standalone
+            res = isinstance(pval, bool) and pval == False
+            if not res:
+                rep is None or rep.append(("unexpected =false [.'$GalaxyInfoModel'.'|'.1.standalone]", lpath_98 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid mandatory prop value [.'$GalaxyInfoModel'.'|'.1.standalone]", lpath_98 if path is not None else None))
+                return False
+        elif prop == "description":
             # handle must description property
             must_count += 1
             # .'$GalaxyInfoModel'.'|'.1.description
             res = isinstance(pval, str)
             if not res:
-                rep is None or rep.append(("unexpected string [.'$GalaxyInfoModel'.'|'.1.description]", lpath_50 if path is not None else None))
+                rep is None or rep.append(("unexpected string [.'$GalaxyInfoModel'.'|'.1.description]", lpath_98 if path is not None else None))
             if not res:
-                rep is None or rep.append(("invalid mandatory prop value [.'$GalaxyInfoModel'.'|'.1.description]", lpath_50 if path is not None else None))
+                rep is None or rep.append(("invalid mandatory prop value [.'$GalaxyInfoModel'.'|'.1.description]", lpath_98 if path is not None else None))
                 return False
-        elif pfun := _jm_obj_97_map.get(prop):
+        elif pfun := _jm_obj_145_map.get(prop):
             # handle 13 may props
-            if pfun != UNDEFINED and not pfun(pval, lpath_50 if path is not None else None, rep):
-                rep is None or rep.append(("invalid optional prop value [.'$GalaxyInfoModel'.'|'.1]", lpath_50 if path is not None else None))
+            if pfun != UNDEFINED and not pfun(pval, lpath_98 if path is not None else None, rep):
+                rep is None or rep.append(("invalid optional prop value [.'$GalaxyInfoModel'.'|'.1]", lpath_98 if path is not None else None))
                 return False
         else:
-            rep is None or rep.append(("unexpected prop [.'$GalaxyInfoModel'.'|'.1]", lpath_50 if path is not None else None))
+            rep is None or rep.append(("unexpected prop [.'$GalaxyInfoModel'.'|'.1]", lpath_98 if path is not None else None))
             return False
-    if must_count != 1:
+    if must_count != 2:
         if rep is not None:
             if not "description" in val:
                 rep is None or rep.append(("missing mandatory prop <description> [.'$GalaxyInfoModel'.'|'.1]", path))
+            if not ("standalone" in val):
+                rep is None or rep.append(("missing mandatory prop <standalone> [.'$GalaxyInfoModel'.'|'.1]", path))
         return False
     return True
 
-# check _jm_obj_98_map_author (.'$GalaxyInfoModel'.'|'.0.author)
-def _jm_f_36(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .'$GalaxyInfoModel'.'|'.0.author
-    res = isinstance(val, str)
-    if not res:
-        rep is None or rep.append(("unexpected string [.'$GalaxyInfoModel'.'|'.0.author]", path))
-    return res
-
-# check _jm_obj_98_map_cloud_platforms (.'$GalaxyInfoModel'.'|'.0.cloud_platforms)
-def _jm_f_37(val: Jsonable, path: Path, rep: Report) -> bool:
+# check _jm_obj_146_map_cloud_platforms (.'$GalaxyInfoModel'.'|'.0.cloud_platforms)
+def _jm_f_49(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$GalaxyInfoModel'.'|'.0.cloud_platforms
     res = True
@@ -5345,8 +7512,8 @@ def _jm_f_37(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("unexpected $ANY [.'$GalaxyInfoModel'.'|'.0.cloud_platforms]", path))
     return res
 
-# check _jm_obj_98_map_company (.'$GalaxyInfoModel'.'|'.0.company)
-def _jm_f_38(val: Jsonable, path: Path, rep: Report) -> bool:
+# check _jm_obj_146_map_company (.'$GalaxyInfoModel'.'|'.0.company)
+def _jm_f_50(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$GalaxyInfoModel'.'|'.0.company
     res = isinstance(val, str)
@@ -5354,26 +7521,26 @@ def _jm_f_38(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("unexpected string [.'$GalaxyInfoModel'.'|'.0.company]", path))
     return res
 
-# check _jm_obj_98_map_galaxy_tags (.'$GalaxyInfoModel'.'|'.0.galaxy_tags)
-def _jm_f_39(val: Jsonable, path: Path, rep: Report) -> bool:
+# check _jm_obj_146_map_galaxy_tags (.'$GalaxyInfoModel'.'|'.0.galaxy_tags)
+def _jm_f_51(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$GalaxyInfoModel'.'|'.0.galaxy_tags
     res = isinstance(val, list)
     if res:
-        for arr_98_idx, arr_98_item in enumerate(val):
-            arr_98_lpath: Path = (path + [ arr_98_idx ]) if path is not None else None
+        for arr_146_idx, arr_146_item in enumerate(val):
+            arr_146_lpath: Path = (path + [ arr_146_idx ]) if path is not None else None
             # .'$GalaxyInfoModel'.'|'.0.galaxy_tags.0
-            res = isinstance(arr_98_item, str)
+            res = isinstance(arr_146_item, str)
             if not res:
-                rep is None or rep.append(("unexpected string [.'$GalaxyInfoModel'.'|'.0.galaxy_tags.0]", arr_98_lpath if path is not None else None))
+                rep is None or rep.append(("unexpected string [.'$GalaxyInfoModel'.'|'.0.galaxy_tags.0]", arr_146_lpath if path is not None else None))
             if not res:
                 break
     if not res:
         rep is None or rep.append(("not array or unexpected array [.'$GalaxyInfoModel'.'|'.0.galaxy_tags]", path))
     return res
 
-# check _jm_obj_98_map_github_branch (.'$GalaxyInfoModel'.'|'.0.github_branch)
-def _jm_f_40(val: Jsonable, path: Path, rep: Report) -> bool:
+# check _jm_obj_146_map_github_branch (.'$GalaxyInfoModel'.'|'.0.github_branch)
+def _jm_f_52(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$GalaxyInfoModel'.'|'.0.github_branch
     res = isinstance(val, str)
@@ -5381,8 +7548,8 @@ def _jm_f_40(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("unexpected string [.'$GalaxyInfoModel'.'|'.0.github_branch]", path))
     return res
 
-# check _jm_obj_98_map_issue_tracker_url (.'$GalaxyInfoModel'.'|'.0.issue_tracker_url)
-def _jm_f_41(val: Jsonable, path: Path, rep: Report) -> bool:
+# check _jm_obj_146_map_issue_tracker_url (.'$GalaxyInfoModel'.'|'.0.issue_tracker_url)
+def _jm_f_53(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$GalaxyInfoModel'.'|'.0.issue_tracker_url
     res = isinstance(val, str)
@@ -5390,17 +7557,8 @@ def _jm_f_41(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("unexpected string [.'$GalaxyInfoModel'.'|'.0.issue_tracker_url]", path))
     return res
 
-# check _jm_obj_98_map_license (.'$GalaxyInfoModel'.'|'.0.license)
-def _jm_f_42(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .'$GalaxyInfoModel'.'|'.0.license
-    res = isinstance(val, str)
-    if not res:
-        rep is None or rep.append(("unexpected string [.'$GalaxyInfoModel'.'|'.0.license]", path))
-    return res
-
-# check _jm_obj_98_map_min_ansible_container_version (.'$GalaxyInfoModel'.'|'.0.min_ansible_container_version)
-def _jm_f_43(val: Jsonable, path: Path, rep: Report) -> bool:
+# check _jm_obj_146_map_min_ansible_container_version (.'$GalaxyInfoModel'.'|'.0.min_ansible_container_version)
+def _jm_f_54(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$GalaxyInfoModel'.'|'.0.min_ansible_container_version
     res = isinstance(val, str)
@@ -5408,17 +7566,8 @@ def _jm_f_43(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("unexpected string [.'$GalaxyInfoModel'.'|'.0.min_ansible_container_version]", path))
     return res
 
-# check _jm_obj_98_map_min_ansible_version (.'$GalaxyInfoModel'.'|'.0.min_ansible_version)
-def _jm_f_44(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .'$GalaxyInfoModel'.'|'.0.min_ansible_version
-    res = isinstance(val, str)
-    if not res:
-        rep is None or rep.append(("unexpected string [.'$GalaxyInfoModel'.'|'.0.min_ansible_version]", path))
-    return res
-
-# check _jm_obj_98_map_namespace (.'$GalaxyInfoModel'.'|'.0.namespace)
-def _jm_f_45(val: Jsonable, path: Path, rep: Report) -> bool:
+# check _jm_obj_146_map_namespace (.'$GalaxyInfoModel'.'|'.0.namespace)
+def _jm_f_55(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$GalaxyInfoModel'.'|'.0.namespace
     # "/^[a-z][-a-z0-9_]+$/"
@@ -5427,8 +7576,8 @@ def _jm_f_45(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("unexpected /^[a-z][-a-z0-9_]+$/ [.'$GalaxyInfoModel'.'|'.0.namespace]", path))
     return res
 
-# check _jm_obj_98_map_platforms (.'$GalaxyInfoModel'.'|'.0.platforms)
-def _jm_f_46(val: Jsonable, path: Path, rep: Report) -> bool:
+# check _jm_obj_146_map_platforms (.'$GalaxyInfoModel'.'|'.0.platforms)
+def _jm_f_56(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$GalaxyInfoModel'.'|'.0.platforms
     res = json_model_50(val, path, rep)
@@ -5436,8 +7585,8 @@ def _jm_f_46(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("unexpected $platforms [.'$GalaxyInfoModel'.'|'.0.platforms]", path))
     return res
 
-# check _jm_obj_98_map_role_name (.'$GalaxyInfoModel'.'|'.0.role_name)
-def _jm_f_47(val: Jsonable, path: Path, rep: Report) -> bool:
+# check _jm_obj_146_map_role_name (.'$GalaxyInfoModel'.'|'.0.role_name)
+def _jm_f_57(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$GalaxyInfoModel'.'|'.0.role_name
     # "/^[a-z][a-z0-9_]+$/"
@@ -5446,8 +7595,8 @@ def _jm_f_47(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("unexpected /^[a-z][a-z0-9_]+$/ [.'$GalaxyInfoModel'.'|'.0.role_name]", path))
     return res
 
-# check _jm_obj_98_map_video_links (.'$GalaxyInfoModel'.'|'.0.video_links)
-def _jm_f_48(val: Jsonable, path: Path, rep: Report) -> bool:
+# check _jm_obj_146_map_video_links (.'$GalaxyInfoModel'.'|'.0.video_links)
+def _jm_f_58(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$GalaxyInfoModel'.'|'.0.video_links
     res = isinstance(val, list)
@@ -5460,7 +7609,7 @@ def _jm_f_48(val: Jsonable, path: Path, rep: Report) -> bool:
 
 
 # object .'$GalaxyInfoModel'.'|'.0
-def _jm_obj_98(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_obj_146(val: Jsonable, path: Path, rep: Report) -> bool:
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$GalaxyInfoModel'.'|'.0]", path))
         return False
@@ -5469,16 +7618,16 @@ def _jm_obj_98(val: Jsonable, path: Path, rep: Report) -> bool:
     must_count: int = 0
     for prop, pval in val.items():
         assert isinstance(prop, str)
-        lpath_51: Path = (path + [ prop ]) if path is not None else None
+        lpath_99: Path = (path + [ prop ]) if path is not None else None
         if prop == "standalone":
             # handle must standalone property
             must_count += 1
             # .'$GalaxyInfoModel'.'|'.0.standalone
-            res = isinstance(pval, bool) and pval == False
+            res = isinstance(pval, bool) and pval == True
             if not res:
-                rep is None or rep.append(("unexpected =false [.'$GalaxyInfoModel'.'|'.0.standalone]", lpath_51 if path is not None else None))
+                rep is None or rep.append(("unexpected =true [.'$GalaxyInfoModel'.'|'.0.standalone]", lpath_99 if path is not None else None))
             if not res:
-                rep is None or rep.append(("invalid mandatory prop value [.'$GalaxyInfoModel'.'|'.0.standalone]", lpath_51 if path is not None else None))
+                rep is None or rep.append(("invalid mandatory prop value [.'$GalaxyInfoModel'.'|'.0.standalone]", lpath_99 if path is not None else None))
                 return False
         elif prop == "description":
             # handle must description property
@@ -5486,22 +7635,58 @@ def _jm_obj_98(val: Jsonable, path: Path, rep: Report) -> bool:
             # .'$GalaxyInfoModel'.'|'.0.description
             res = isinstance(pval, str)
             if not res:
-                rep is None or rep.append(("unexpected string [.'$GalaxyInfoModel'.'|'.0.description]", lpath_51 if path is not None else None))
+                rep is None or rep.append(("unexpected string [.'$GalaxyInfoModel'.'|'.0.description]", lpath_99 if path is not None else None))
             if not res:
-                rep is None or rep.append(("invalid mandatory prop value [.'$GalaxyInfoModel'.'|'.0.description]", lpath_51 if path is not None else None))
+                rep is None or rep.append(("invalid mandatory prop value [.'$GalaxyInfoModel'.'|'.0.description]", lpath_99 if path is not None else None))
                 return False
-        elif pfun := _jm_obj_98_map.get(prop):
-            # handle 13 may props
-            if pfun != UNDEFINED and not pfun(pval, lpath_51 if path is not None else None, rep):
-                rep is None or rep.append(("invalid optional prop value [.'$GalaxyInfoModel'.'|'.0]", lpath_51 if path is not None else None))
+        elif prop == "author":
+            # handle must author property
+            must_count += 1
+            # .'$GalaxyInfoModel'.'|'.0.author
+            res = isinstance(pval, str)
+            if not res:
+                rep is None or rep.append(("unexpected string [.'$GalaxyInfoModel'.'|'.0.author]", lpath_99 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid mandatory prop value [.'$GalaxyInfoModel'.'|'.0.author]", lpath_99 if path is not None else None))
+                return False
+        elif prop == "license":
+            # handle must license property
+            must_count += 1
+            # .'$GalaxyInfoModel'.'|'.0.license
+            res = isinstance(pval, str)
+            if not res:
+                rep is None or rep.append(("unexpected string [.'$GalaxyInfoModel'.'|'.0.license]", lpath_99 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid mandatory prop value [.'$GalaxyInfoModel'.'|'.0.license]", lpath_99 if path is not None else None))
+                return False
+        elif prop == "min_ansible_version":
+            # handle must min_ansible_version property
+            must_count += 1
+            # .'$GalaxyInfoModel'.'|'.0.min_ansible_version
+            res = isinstance(pval, str)
+            if not res:
+                rep is None or rep.append(("unexpected string [.'$GalaxyInfoModel'.'|'.0.min_ansible_version]", lpath_99 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid mandatory prop value [.'$GalaxyInfoModel'.'|'.0.min_ansible_version]", lpath_99 if path is not None else None))
+                return False
+        elif pfun := _jm_obj_146_map.get(prop):
+            # handle 10 may props
+            if pfun != UNDEFINED and not pfun(pval, lpath_99 if path is not None else None, rep):
+                rep is None or rep.append(("invalid optional prop value [.'$GalaxyInfoModel'.'|'.0]", lpath_99 if path is not None else None))
                 return False
         else:
-            rep is None or rep.append(("unexpected prop [.'$GalaxyInfoModel'.'|'.0]", lpath_51 if path is not None else None))
+            rep is None or rep.append(("unexpected prop [.'$GalaxyInfoModel'.'|'.0]", lpath_99 if path is not None else None))
             return False
-    if must_count != 2:
+    if must_count != 5:
         if rep is not None:
+            if not ("author" in val):
+                rep is None or rep.append(("missing mandatory prop <author> [.'$GalaxyInfoModel'.'|'.0]", path))
             if not "description" in val:
                 rep is None or rep.append(("missing mandatory prop <description> [.'$GalaxyInfoModel'.'|'.0]", path))
+            if not "license" in val:
+                rep is None or rep.append(("missing mandatory prop <license> [.'$GalaxyInfoModel'.'|'.0]", path))
+            if not "min_ansible_version" in val:
+                rep is None or rep.append(("missing mandatory prop <min_ansible_version> [.'$GalaxyInfoModel'.'|'.0]", path))
             if not ("standalone" in val):
                 rep is None or rep.append(("missing mandatory prop <standalone> [.'$GalaxyInfoModel'.'|'.0]", path))
         return False
@@ -5517,23 +7702,23 @@ def json_model_54(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("unexpected type [.'$GalaxyInfoModel'.'|']", path))
     if res:
         # .'$GalaxyInfoModel'.'|'.0
-        res = _jm_obj_98(val, path, rep)
+        res = _jm_obj_146(val, path, rep)
         if not res:
             rep is None or rep.append(("unexpected element [.'$GalaxyInfoModel'.'|'.0]", path))
         if not res:
             # .'$GalaxyInfoModel'.'|'.1
-            res = _jm_obj_97(val, path, rep)
+            res = _jm_obj_145(val, path, rep)
             if not res:
                 rep is None or rep.append(("unexpected element [.'$GalaxyInfoModel'.'|'.1]", path))
+            if not res:
+                # .'$GalaxyInfoModel'.'|'.2
+                res = _jm_obj_144(val, path, rep)
+                if not res:
+                    rep is None or rep.append(("unexpected element [.'$GalaxyInfoModel'.'|'.2]", path))
         if res:
             rep is None or rep.clear()
         else:
             rep is None or rep.append(("no model matched [.'$GalaxyInfoModel'.'|']", path))
-    if not res:
-        # .'$GalaxyInfoModel'.'|'
-        res = json_model_53(val, path, rep)
-        if not res:
-            rep is None or rep.append(("unexpected $GalaxyInfoModelStandalone [.'$GalaxyInfoModel'.'|']", path))
     return res
 
 
@@ -5543,13 +7728,13 @@ def json_model_55(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$collections'
     res = isinstance(val, list)
     if res:
-        for arr_99_idx, arr_99_item in enumerate(val):
-            arr_99_lpath: Path = (path + [ arr_99_idx ]) if path is not None else None
+        for arr_147_idx, arr_147_item in enumerate(val):
+            arr_147_lpath: Path = (path + [ arr_147_idx ]) if path is not None else None
             # .'$collections'.0
             # "/^[a-z_]+\\.[a-z_]+$/"
-            res = isinstance(arr_99_item, str) and _jm_re_2(arr_99_item, arr_99_lpath if path is not None else None, rep)
+            res = isinstance(arr_147_item, str) and _jm_re_2(arr_147_item, arr_147_lpath if path is not None else None, rep)
             if not res:
-                rep is None or rep.append(("unexpected /^[a-z_]+\\.[a-z_]+$/ [.'$collections'.0]", arr_99_lpath if path is not None else None))
+                rep is None or rep.append(("unexpected /^[a-z_]+\\.[a-z_]+$/ [.'$collections'.0]", arr_147_lpath if path is not None else None))
             if not res:
                 break
     if not res:
@@ -5573,12 +7758,12 @@ def json_model_56(val: Jsonable, path: Path, rep: Report) -> bool:
             # .'$complex_conditional'.'|'.2
             res = isinstance(val, list)
             if res:
-                for arr_100_idx, arr_100_item in enumerate(val):
-                    arr_100_lpath: Path = (path + [ arr_100_idx ]) if path is not None else None
+                for arr_148_idx, arr_148_item in enumerate(val):
+                    arr_148_lpath: Path = (path + [ arr_148_idx ]) if path is not None else None
                     # .'$complex_conditional'.'|'.2.0
-                    res = isinstance(arr_100_item, str)
+                    res = isinstance(arr_148_item, str)
                     if not res:
-                        rep is None or rep.append(("unexpected string [.'$complex_conditional'.'|'.2.0]", arr_100_lpath if path is not None else None))
+                        rep is None or rep.append(("unexpected string [.'$complex_conditional'.'|'.2.0]", arr_148_lpath if path is not None else None))
                     if not res:
                         break
             if not res:
@@ -5591,7 +7776,7 @@ def json_model_56(val: Jsonable, path: Path, rep: Report) -> bool:
 
 
 # object .'$DependencyModelLoose'.vars
-def _jm_obj_100(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_obj_148(val: Jsonable, path: Path, rep: Report) -> bool:
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$DependencyModelLoose'.vars]", path))
         return False
@@ -5599,7 +7784,7 @@ def _jm_obj_100(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # object .'$DependencyModelLoose'
-def _jm_obj_99(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_obj_147(val: Jsonable, path: Path, rep: Report) -> bool:
     # check must only props
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$DependencyModelLoose']", path))
@@ -5645,7 +7830,7 @@ def _jm_obj_99(val: Jsonable, path: Path, rep: Report) -> bool:
     if "scm" in val:
         pval = val.get("scm", UNDEFINED)
         # .'$DependencyModelLoose'.scm
-        res = ((pval is None or isinstance(pval, (bool, int, float, str)))) and pval in _jm_cst_64
+        res = ((pval is None or isinstance(pval, (bool, int, float, str)))) and pval in _jm_cst_96
         if not res:
             rep is None or rep.append(("value not in enum [.'$DependencyModelLoose'.scm.'|']", path))
         if not res:
@@ -5662,12 +7847,12 @@ def _jm_obj_99(val: Jsonable, path: Path, rep: Report) -> bool:
             # .'$DependencyModelLoose'.tags.'|'.1
             res = isinstance(pval, list)
             if res:
-                for arr_101_idx, arr_101_item in enumerate(pval):
-                    arr_101_lpath: Path = (path + [ arr_101_idx ]) if path is not None else None
+                for arr_149_idx, arr_149_item in enumerate(pval):
+                    arr_149_lpath: Path = (path + [ arr_149_idx ]) if path is not None else None
                     # .'$DependencyModelLoose'.tags.'|'.1.0
-                    res = isinstance(arr_101_item, str)
+                    res = isinstance(arr_149_item, str)
                     if not res:
-                        rep is None or rep.append(("unexpected string [.'$DependencyModelLoose'.tags.'|'.1.0]", arr_101_lpath if path is not None else None))
+                        rep is None or rep.append(("unexpected string [.'$DependencyModelLoose'.tags.'|'.1.0]", arr_149_lpath if path is not None else None))
                     if not res:
                         break
             if not res:
@@ -5682,7 +7867,7 @@ def _jm_obj_99(val: Jsonable, path: Path, rep: Report) -> bool:
     if "vars" in val:
         pval = val.get("vars", UNDEFINED)
         # .'$DependencyModelLoose'.vars
-        res = _jm_obj_100(pval, path, rep)
+        res = _jm_obj_148(pval, path, rep)
         if not res:
             rep is None or rep.append(("unexpected element [.'$DependencyModelLoose'.vars]", path))
         if not res:
@@ -5715,13 +7900,13 @@ def json_model_57(val: Jsonable, path: Path, rep: Report) -> bool:
     # 
     # Other keys are treated as role [parameters](https://docs.ansible.com/ansible/latest/user_guide/playbooks_reuse_roles.html#passing-different-parameters).
     # .'$DependencyModelLoose'
-    res = _jm_obj_99(val, path, rep)
+    res = _jm_obj_147(val, path, rep)
     if not res:
         rep is None or rep.append(("unexpected element [.'$DependencyModelLoose']", path))
     return res
 
 # object .'$DependencyModel'.'&'.1.'|'.2
-def _jm_obj_101(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_obj_149(val: Jsonable, path: Path, rep: Report) -> bool:
     # check must only props
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$DependencyModel'.'&'.1.'|'.2]", path))
@@ -5742,7 +7927,7 @@ def _jm_obj_101(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # object .'$DependencyModel'.'&'.1.'|'.1
-def _jm_obj_102(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_obj_150(val: Jsonable, path: Path, rep: Report) -> bool:
     # check must only props
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$DependencyModel'.'&'.1.'|'.1]", path))
@@ -5763,7 +7948,7 @@ def _jm_obj_102(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # object .'$DependencyModel'.'&'.1.'|'.0
-def _jm_obj_103(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_obj_151(val: Jsonable, path: Path, rep: Report) -> bool:
     # check must only props
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$DependencyModel'.'&'.1.'|'.0]", path))
@@ -5801,17 +7986,17 @@ def json_model_58(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected type [.'$DependencyModel'.'&'.1.'|']", path))
             if res:
                 # .'$DependencyModel'.'&'.1.'|'.0
-                res = _jm_obj_103(val, path, rep)
+                res = _jm_obj_151(val, path, rep)
                 if not res:
                     rep is None or rep.append(("unexpected element [.'$DependencyModel'.'&'.1.'|'.0]", path))
                 if not res:
                     # .'$DependencyModel'.'&'.1.'|'.1
-                    res = _jm_obj_102(val, path, rep)
+                    res = _jm_obj_150(val, path, rep)
                     if not res:
                         rep is None or rep.append(("unexpected element [.'$DependencyModel'.'&'.1.'|'.1]", path))
                     if not res:
                         # .'$DependencyModel'.'&'.1.'|'.2
-                        res = _jm_obj_101(val, path, rep)
+                        res = _jm_obj_149(val, path, rep)
                         if not res:
                             rep is None or rep.append(("unexpected element [.'$DependencyModel'.'&'.1.'|'.2]", path))
                 if res:
@@ -5825,71 +8010,71 @@ def json_model_58(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # object .'$AnsibleMetaObj'
-def _jm_obj_104(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_obj_152(val: Jsonable, path: Path, rep: Report) -> bool:
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$AnsibleMetaObj']", path))
         return False
     res: bool
     for prop, pval in val.items():
         assert isinstance(prop, str)
-        lpath_52: Path = (path + [ prop ]) if path is not None else None
+        lpath_100: Path = (path + [ prop ]) if path is not None else None
         if prop == "allow_duplicates":
             # handle may allow_duplicates property
             # .'$AnsibleMetaObj'.allow_duplicates
             res = isinstance(pval, bool)
             if not res:
-                rep is None or rep.append(("not a bool [.'$AnsibleMetaObj'.allow_duplicates]", lpath_52 if path is not None else None))
+                rep is None or rep.append(("not a bool [.'$AnsibleMetaObj'.allow_duplicates]", lpath_100 if path is not None else None))
             if not res:
-                rep is None or rep.append(("invalid optional prop value [.'$AnsibleMetaObj'.allow_duplicates]", lpath_52 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$AnsibleMetaObj'.allow_duplicates]", lpath_100 if path is not None else None))
                 return False
         elif prop == "collections":
             # handle may collections property
             # .'$AnsibleMetaObj'.collections
-            res = json_model_55(pval, lpath_52 if path is not None else None, rep)
+            res = json_model_55(pval, lpath_100 if path is not None else None, rep)
             if not res:
-                rep is None or rep.append(("unexpected $collections [.'$AnsibleMetaObj'.collections]", lpath_52 if path is not None else None))
+                rep is None or rep.append(("unexpected $collections [.'$AnsibleMetaObj'.collections]", lpath_100 if path is not None else None))
             if not res:
-                rep is None or rep.append(("invalid optional prop value [.'$AnsibleMetaObj'.collections]", lpath_52 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$AnsibleMetaObj'.collections]", lpath_100 if path is not None else None))
                 return False
         elif prop == "dependencies":
             # handle may dependencies property
             # .'$AnsibleMetaObj'.dependencies
             res = isinstance(pval, list)
             if res:
-                for arr_102_idx, arr_102_item in enumerate(pval):
-                    arr_102_lpath: Path = ((lpath_52 if path is not None else None) + [ arr_102_idx ]) if (lpath_52 if path is not None else None) is not None else None
+                for arr_150_idx, arr_150_item in enumerate(pval):
+                    arr_150_lpath: Path = ((lpath_100 if path is not None else None) + [ arr_150_idx ]) if (lpath_100 if path is not None else None) is not None else None
                     # .'$AnsibleMetaObj'.dependencies.0
                     # .'$AnsibleMetaObj'.dependencies.0.'|'.0
-                    res = isinstance(arr_102_item, str)
+                    res = isinstance(arr_150_item, str)
                     if not res:
-                        rep is None or rep.append(("unexpected string [.'$AnsibleMetaObj'.dependencies.0.'|'.0]", arr_102_lpath if (lpath_52 if path is not None else None) is not None else None))
+                        rep is None or rep.append(("unexpected string [.'$AnsibleMetaObj'.dependencies.0.'|'.0]", arr_150_lpath if (lpath_100 if path is not None else None) is not None else None))
                     if not res:
                         # .'$AnsibleMetaObj'.dependencies.0.'|'.1
-                        res = json_model_58(arr_102_item, arr_102_lpath if (lpath_52 if path is not None else None) is not None else None, rep)
+                        res = json_model_58(arr_150_item, arr_150_lpath if (lpath_100 if path is not None else None) is not None else None, rep)
                         if not res:
-                            rep is None or rep.append(("unexpected $DependencyModel [.'$AnsibleMetaObj'.dependencies.0.'|'.1]", arr_102_lpath if (lpath_52 if path is not None else None) is not None else None))
+                            rep is None or rep.append(("unexpected $DependencyModel [.'$AnsibleMetaObj'.dependencies.0.'|'.1]", arr_150_lpath if (lpath_100 if path is not None else None) is not None else None))
                     if res:
                         rep is None or rep.clear()
                     else:
-                        rep is None or rep.append(("no model matched [.'$AnsibleMetaObj'.dependencies.0.'|']", arr_102_lpath if (lpath_52 if path is not None else None) is not None else None))
+                        rep is None or rep.append(("no model matched [.'$AnsibleMetaObj'.dependencies.0.'|']", arr_150_lpath if (lpath_100 if path is not None else None) is not None else None))
                     if not res:
                         break
             if not res:
-                rep is None or rep.append(("not array or unexpected array [.'$AnsibleMetaObj'.dependencies]", lpath_52 if path is not None else None))
+                rep is None or rep.append(("not array or unexpected array [.'$AnsibleMetaObj'.dependencies]", lpath_100 if path is not None else None))
             if not res:
-                rep is None or rep.append(("invalid optional prop value [.'$AnsibleMetaObj'.dependencies]", lpath_52 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$AnsibleMetaObj'.dependencies]", lpath_100 if path is not None else None))
                 return False
         elif prop == "galaxy_info":
             # handle may galaxy_info property
             # .'$AnsibleMetaObj'.galaxy_info
-            res = json_model_54(pval, lpath_52 if path is not None else None, rep)
+            res = json_model_54(pval, lpath_100 if path is not None else None, rep)
             if not res:
-                rep is None or rep.append(("unexpected $GalaxyInfoModel [.'$AnsibleMetaObj'.galaxy_info]", lpath_52 if path is not None else None))
+                rep is None or rep.append(("unexpected $GalaxyInfoModel [.'$AnsibleMetaObj'.galaxy_info]", lpath_100 if path is not None else None))
             if not res:
-                rep is None or rep.append(("invalid optional prop value [.'$AnsibleMetaObj'.galaxy_info]", lpath_52 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$AnsibleMetaObj'.galaxy_info]", lpath_100 if path is not None else None))
                 return False
         else:
-            rep is None or rep.append(("unexpected prop [.'$AnsibleMetaObj']", lpath_52 if path is not None else None))
+            rep is None or rep.append(("unexpected prop [.'$AnsibleMetaObj']", lpath_100 if path is not None else None))
             return False
     return True
 
@@ -5897,10 +8082,79 @@ def _jm_obj_104(val: Jsonable, path: Path, rep: Report) -> bool:
 def json_model_59(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$AnsibleMetaObj'
-    res = _jm_obj_104(val, path, rep)
+    res = _jm_obj_152(val, path, rep)
     if not res:
         rep is None or rep.append(("unexpected element [.'$AnsibleMetaObj']", path))
     return res
+
+# object .'$AnsibleMeta'.'|'.1
+def _jm_obj_153(val: Jsonable, path: Path, rep: Report) -> bool:
+    if not isinstance(val, dict):
+        rep is None or rep.append(("not an object [.'$AnsibleMeta'.'|'.1]", path))
+        return False
+    res: bool
+    for prop, pval in val.items():
+        assert isinstance(prop, str)
+        lpath_101: Path = (path + [ prop ]) if path is not None else None
+        if prop == "allow_duplicates":
+            # handle may allow_duplicates property
+            # .'$AnsibleMeta'.'|'.1.allow_duplicates
+            res = isinstance(pval, bool)
+            if not res:
+                rep is None or rep.append(("not a bool [.'$AnsibleMeta'.'|'.1.allow_duplicates]", lpath_101 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid optional prop value [.'$AnsibleMeta'.'|'.1.allow_duplicates]", lpath_101 if path is not None else None))
+                return False
+        elif prop == "collections":
+            # handle may collections property
+            # .'$AnsibleMeta'.'|'.1.collections
+            res = json_model_55(pval, lpath_101 if path is not None else None, rep)
+            if not res:
+                rep is None or rep.append(("unexpected $collections [.'$AnsibleMeta'.'|'.1.collections]", lpath_101 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid optional prop value [.'$AnsibleMeta'.'|'.1.collections]", lpath_101 if path is not None else None))
+                return False
+        elif prop == "dependencies":
+            # handle may dependencies property
+            # .'$AnsibleMeta'.'|'.1.dependencies
+            res = isinstance(pval, list)
+            if res:
+                for arr_151_idx, arr_151_item in enumerate(pval):
+                    arr_151_lpath: Path = ((lpath_101 if path is not None else None) + [ arr_151_idx ]) if (lpath_101 if path is not None else None) is not None else None
+                    # .'$AnsibleMeta'.'|'.1.dependencies.0
+                    # .'$AnsibleMeta'.'|'.1.dependencies.0.'|'.0
+                    res = isinstance(arr_151_item, str)
+                    if not res:
+                        rep is None or rep.append(("unexpected string [.'$AnsibleMeta'.'|'.1.dependencies.0.'|'.0]", arr_151_lpath if (lpath_101 if path is not None else None) is not None else None))
+                    if not res:
+                        # .'$AnsibleMeta'.'|'.1.dependencies.0.'|'.1
+                        res = json_model_58(arr_151_item, arr_151_lpath if (lpath_101 if path is not None else None) is not None else None, rep)
+                        if not res:
+                            rep is None or rep.append(("unexpected $DependencyModel [.'$AnsibleMeta'.'|'.1.dependencies.0.'|'.1]", arr_151_lpath if (lpath_101 if path is not None else None) is not None else None))
+                    if res:
+                        rep is None or rep.clear()
+                    else:
+                        rep is None or rep.append(("no model matched [.'$AnsibleMeta'.'|'.1.dependencies.0.'|']", arr_151_lpath if (lpath_101 if path is not None else None) is not None else None))
+                    if not res:
+                        break
+            if not res:
+                rep is None or rep.append(("not array or unexpected array [.'$AnsibleMeta'.'|'.1.dependencies]", lpath_101 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid optional prop value [.'$AnsibleMeta'.'|'.1.dependencies]", lpath_101 if path is not None else None))
+                return False
+        elif prop == "galaxy_info":
+            # handle may galaxy_info property
+            # .'$AnsibleMeta'.'|'.1.galaxy_info
+            res = json_model_54(pval, lpath_101 if path is not None else None, rep)
+            if not res:
+                rep is None or rep.append(("unexpected $GalaxyInfoModel [.'$AnsibleMeta'.'|'.1.galaxy_info]", lpath_101 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid optional prop value [.'$AnsibleMeta'.'|'.1.galaxy_info]", lpath_101 if path is not None else None))
+                return False
+        else:
+            rep is None or rep.append(("unexpected prop [.'$AnsibleMeta'.'|'.1]", lpath_101 if path is not None else None))
+            return False
+    return True
 
 # check $AnsibleMeta (.'$AnsibleMeta')
 def json_model_60(val: Jsonable, path: Path, rep: Report) -> bool:
@@ -5913,9 +8167,9 @@ def json_model_60(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("not null [.'$AnsibleMeta'.'|'.0]", path))
     if not res:
         # .'$AnsibleMeta'.'|'.1
-        res = json_model_59(val, path, rep)
+        res = _jm_obj_153(val, path, rep)
         if not res:
-            rep is None or rep.append(("unexpected $AnsibleMetaObj [.'$AnsibleMeta'.'|'.1]", path))
+            rep is None or rep.append(("unexpected element [.'$AnsibleMeta'.'|'.1]", path))
     if res:
         rep is None or rep.clear()
     else:
@@ -6068,14 +8322,78 @@ def check_model_init():
         _jm_cst_62 = {'2013.03', '2013.09', '2014.03', '2014.09', '2015.03', '2015.09', '2016.03', '2016.09', '2017.03', '2017.09', '2017.12', '2018.03', 'Candidate', 'all'}
         global _jm_cst_63
         _jm_cst_63 = {'6.1', '7.1', '7.2', 'all'}
+        global _jm_cst_64
+        _jm_cst_64 = {'2008R2', '2008x64', '2008x86', '2012', '2012R2', '2016', '2019', '2022', '2025', 'all'}
+        global _jm_cst_65
+        _jm_cst_65 = {'5.5', '6.0', '6.5', '6.7', '7.0', '8.0', 'all'}
+        global _jm_cst_66
+        _jm_cst_66 = {'5.5', '6.0', '6.5', '6.7', '7.0', '8.0', 'all'}
+        global _jm_cst_67
+        _jm_cst_67 = {'all', 'artful', 'bionic', 'cosmic', 'disco', 'eoan', 'focal', 'groovy', 'hirsute', 'impish', 'jammy', 'kinetic', 'lucid', 'lunar', 'mantic', 'maverick', 'natty', 'noble', 'oneiric', 'oracular', 'plucky', 'precise', 'quantal', 'raring', 'saucy', 'trusty', 'utopic', 'vivid', 'wily', 'xenial', 'yakkety', 'zesty'}
+        global _jm_cst_68
+        _jm_cst_68 = {'12.1', '13.0', '13.1', '14.0', 'all'}
+        global _jm_cst_69
+        _jm_cst_69 = {'6.0', '6.1', '6.2', '7.0', 'all'}
+        global _jm_cst_70
+        _jm_cst_70 = {'10', '11.0', '11.1', '11.2', '11.3', '11.4', 'all'}
+        global _jm_cst_71
+        _jm_cst_71 = {'10SP3', '10SP4', '11', '11SP1', '11SP2', '11SP3', '11SP4', '12', '12SP1', '12SP2', '12SP3', '12SP4', '12SP5', '15', '15SP1', '15SP2', '15SP3', '15SP4', '15SP5', '15SP6', 'all'}
+        global _jm_cst_72
+        _jm_cst_72 = {'8.0', '8.1', '8.2', '8.3', '8.4', '8.5', '8.6', '8.7', '8.8', '9.0', '9.1', '9.2', 'all'}
+        global _jm_cst_73
+        _jm_cst_73 = {'7.1', '8.0', '8.1', '9.0', 'all'}
+        global _jm_cst_74
+        _jm_cst_74 = {'7.0', '7.1', '7.2', '7.3', '7.4', '7.5', '7.6', '7.7', '7.8', '7.9', '8.0', '8.1', '8.10', '8.2', '8.3', '8.4', '8.5', '8.6', '8.7', '8.8', '8.9', '9.0', '9.1', '9.2', '9.3', '9.4', 'all'}
+        global _jm_cst_75
+        _jm_cst_75 = {'17.01', '18.06', '19.07', '21.02', '22.03', '23.05', '24.10', 'all'}
+        global _jm_cst_76
+        _jm_cst_76 = {'12.1', '12.2', '12.3', '13.1', '13.2', '15.0', '15.1', '15.2', '15.3', '15.4', '15.5', '42.1', '42.2', '42.3', 'all'}
+        global _jm_cst_77
+        _jm_cst_77 = {'5.6', '5.7', '5.8', '5.9', '6.0', '6.1', '6.2', '6.3', '6.4', '6.5', '6.6', '6.7', '6.8', '6.9', '7.0', '7.1', '7.2', '7.3', 'all'}
+        global _jm_cst_78
+        _jm_cst_78 = {'7', '8', 'all'}
+        global _jm_cst_79
+        _jm_cst_79 = {'10.10', '10.11', '10.12', '10.13', '10.14', '10.15', '10.7', '10.8', '10.9', 'all'}
+        global _jm_cst_80
+        _jm_cst_80 = {'Big-Sur', 'Catalina', 'High-Sierra', 'Mojave', 'Monterey', 'Sierra', 'Sonoma', 'Ventura', 'all'}
+        global _jm_cst_81
+        _jm_cst_81 = {'2.0', '2016', '2017', '2018', '2019', '2020', '2021', '2022', '2023', 'all'}
+        global _jm_cst_82
+        _jm_cst_82 = {'10', '11', 'all'}
+        global _jm_cst_83
+        _jm_cst_83 = {'10.0', '10.1', '10.2', '10.3', '10.4', '11.0', '11.1', '11.2', '11.3', '11.4', '12.0', '12.1', '12.2', '13.0', '13.1', '13.2', '14.0', '8.0', '8.1', '8.2', '8.3', '8.4', '9.0', '9.1', '9.2', '9.3', 'all'}
+        global _jm_cst_84
+        _jm_cst_84 = {'16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '28', '29', '30', '31', '32', '33', '34', '35', '36', '37', '38', '39', '40', '41', '42', 'all'}
+        global _jm_cst_85
+        _jm_cst_85 = {'10', '5', '6', '7', '8', '9', 'all'}
+        global _jm_cst_86
+        _jm_cst_86 = {'5.2', '5.4', '5.6', '5.8', '6.0', '6.2', '6.4', 'all'}
+        global _jm_cst_87
+        _jm_cst_87 = {'all', 'ascii', 'beowulf', 'chimaera', 'daedalus', 'jessie'}
+        global _jm_cst_88
+        _jm_cst_88 = {'10', '6', '9', 'all'}
+        global _jm_cst_89
+        _jm_cst_89 = {'all', 'bookworm', 'bullseye', 'buster', 'etch', 'jessie', 'lenny', 'sid', 'squeeze', 'stretch', 'trixie', 'wheezy'}
+        global _jm_cst_90
+        _jm_cst_90 = {'10.0', '8.0', '8.1', '8.2', '9.0', '9.1', '9.2', '9.3', 'all'}
+        global _jm_cst_91
+        _jm_cst_91 = {'2.5', '3.0', '3.1', '3.2', '3.3', '3.4', '3.5', 'all'}
+        global _jm_cst_92
+        _jm_cst_92 = {'1.6', '1.7', '1.8', '2.12', 'all'}
+        global _jm_cst_93
+        _jm_cst_93 = {'1', '2', '2023', 'all'}
+        global _jm_cst_94
+        _jm_cst_94 = {'2013.03', '2013.09', '2014.03', '2014.09', '2015.03', '2015.09', '2016.03', '2016.09', '2017.03', '2017.09', '2017.12', '2018.03', 'Candidate', 'all'}
+        global _jm_cst_95
+        _jm_cst_95 = {'6.1', '7.1', '7.2', 'all'}
         global _jm_re_0_reco, _jm_re_0
         _jm_re_0_reco = re.compile("^[a-z][-a-z0-9_]+$")
         _jm_re_0 = lambda s, p, r: _jm_re_0_reco.search(s) is not None
         global _jm_re_1_reco, _jm_re_1
         _jm_re_1_reco = re.compile("^[a-z][a-z0-9_]+$")
         _jm_re_1 = lambda s, p, r: _jm_re_1_reco.search(s) is not None
-        global _jm_obj_94_map
-        _jm_obj_94_map = {
+        global _jm_obj_141_map
+        _jm_obj_141_map = {
             "cloud_platforms": _jm_f_0,
             "galaxy_tags": _jm_f_1,
             "min_ansible_version": _jm_f_2,
@@ -6084,8 +8402,8 @@ def check_model_init():
             "role_name": _jm_f_5,
             "video_links": _jm_f_6,
         }
-        global _jm_obj_95_map
-        _jm_obj_95_map = {
+        global _jm_obj_142_map
+        _jm_obj_142_map = {
             "author": _jm_f_7,
             "company": _jm_f_8,
             "github_branch": _jm_f_9,
@@ -6093,8 +8411,8 @@ def check_model_init():
             "license": _jm_f_11,
             "min_ansible_container_version": _jm_f_12,
         }
-        global _jm_obj_96_map
-        _jm_obj_96_map = {
+        global _jm_obj_143_map
+        _jm_obj_143_map = {
             "cloud_platforms": _jm_f_13,
             "company": _jm_f_14,
             "galaxy_tags": _jm_f_15,
@@ -6106,8 +8424,8 @@ def check_model_init():
             "role_name": _jm_f_21,
             "video_links": _jm_f_22,
         }
-        global _jm_obj_97_map
-        _jm_obj_97_map = {
+        global _jm_obj_144_map
+        _jm_obj_144_map = {
             "author": _jm_f_23,
             "cloud_platforms": _jm_f_24,
             "company": _jm_f_25,
@@ -6122,8 +8440,8 @@ def check_model_init():
             "role_name": _jm_f_34,
             "video_links": _jm_f_35,
         }
-        global _jm_obj_98_map
-        _jm_obj_98_map = {
+        global _jm_obj_145_map
+        _jm_obj_145_map = {
             "author": _jm_f_36,
             "cloud_platforms": _jm_f_37,
             "company": _jm_f_38,
@@ -6138,11 +8456,24 @@ def check_model_init():
             "role_name": _jm_f_47,
             "video_links": _jm_f_48,
         }
+        global _jm_obj_146_map
+        _jm_obj_146_map = {
+            "cloud_platforms": _jm_f_49,
+            "company": _jm_f_50,
+            "galaxy_tags": _jm_f_51,
+            "github_branch": _jm_f_52,
+            "issue_tracker_url": _jm_f_53,
+            "min_ansible_container_version": _jm_f_54,
+            "namespace": _jm_f_55,
+            "platforms": _jm_f_56,
+            "role_name": _jm_f_57,
+            "video_links": _jm_f_58,
+        }
         global _jm_re_2_reco, _jm_re_2
         _jm_re_2_reco = re.compile("^[a-z_]+\\.[a-z_]+$")
         _jm_re_2 = lambda s, p, r: _jm_re_2_reco.search(s) is not None
-        global _jm_cst_64
-        _jm_cst_64 = {'git', 'hg'}
+        global _jm_cst_96
+        _jm_cst_96 = {'git', 'hg'}
         global check_model_map
         check_model_map = {
             "": json_model_60,

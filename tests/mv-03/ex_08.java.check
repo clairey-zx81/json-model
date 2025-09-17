@@ -2,7 +2,7 @@ ex_08.values.json[0]: PASS
 ex_08.values.json[1]: PASS
 ex_08.values.json[2]: PASS
 ex_08.values.json[3]: PASS
-ex_08.values.json[4]: FAIL (: not an object [.'$map']; : unexpected element [.'$map']; : unexpected $map [.'$EX08'.'|'.0]; : unexpected $URL [.'$EX08'.'|'.1]; : not a bool [.'$VAL']; : unexpected $VAL [.'$EX08'.'|'.2]; : no model matched [.'$EX08'.'|'])
-ex_08.values.json[5]: FAIL (: not an object [.'$map']; : unexpected element [.'$map']; : unexpected $map [.'$EX08'.'|'.0]; : unexpected $URL [.'$EX08'.'|'.1]; : not a bool [.'$VAL']; : unexpected $VAL [.'$EX08'.'|'.2]; : no model matched [.'$EX08'.'|'])
-ex_08.values.json[6]: FAIL (foo: unexpected prop [.'$map']; : unexpected element [.'$map']; : unexpected $map [.'$EX08'.'|'.0]; : unexpected $URL [.'$EX08'.'|'.1]; : not a bool [.'$VAL']; : unexpected $VAL [.'$EX08'.'|'.2]; : no model matched [.'$EX08'.'|'])
-ex_08.values.json[7]: FAIL (drôle d'url quand même !: unexpected prop [.'$map']; : unexpected element [.'$map']; : unexpected $map [.'$EX08'.'|'.0]; : unexpected $URL [.'$EX08'.'|'.1]; : not a bool [.'$VAL']; : unexpected $VAL [.'$EX08'.'|'.2]; : no model matched [.'$EX08'.'|'])
+ex_08.values.json[4]: FAIL (: not an object [.'$EX08'.'|'.0]; : unexpected element [.'$EX08'.'|'.0]; : unexpected $URL [.'$EX08'.'|'.1]; : not a bool [.'$VAL']; : unexpected $VAL [.'$EX08'.'|'.2]; : no model matched [.'$EX08'.'|'])
+ex_08.values.json[5]: FAIL (: not an object [.'$EX08'.'|'.0]; : unexpected element [.'$EX08'.'|'.0]; : unexpected $URL [.'$EX08'.'|'.1]; : not a bool [.'$VAL']; : unexpected $VAL [.'$EX08'.'|'.2]; : no model matched [.'$EX08'.'|'])
+ex_08.values.json[6]: FAIL (foo: unexpected prop [.'$EX08'.'|'.0]; : unexpected element [.'$EX08'.'|'.0]; : unexpected $URL [.'$EX08'.'|'.1]; : not a bool [.'$VAL']; : unexpected $VAL [.'$EX08'.'|'.2]; : no model matched [.'$EX08'.'|'])
+ex_08.values.json[7]: FAIL (drôle d'url quand même !: unexpected prop [.'$EX08'.'|'.0]; : unexpected element [.'$EX08'.'|'.0]; : unexpected $URL [.'$EX08'.'|'.1]; : not a bool [.'$VAL']; : unexpected $VAL [.'$EX08'.'|'.2]; : no model matched [.'$EX08'.'|'])

@@ -127,6 +127,29 @@ sub json_model_8($$$)
     return $res;
 }
 
+# object .'$Any'.'|'.6
+sub _jm_obj_1($$$)
+{
+    my ($val, $path, $rep) = @_;
+    if (! jm_is_object($val))
+    {
+        return 0;
+    }
+    my $res;
+    scalar keys %$val;
+    while (my ($prop, $pval) = each %$val)
+    {
+        # handle other props
+        # .'$Any'.'|'.6.''
+        $res = json_model_9($pval, undef, $rep);
+        if (! $res)
+        {
+            return 0;
+        }
+    }
+    return 1;
+}
+
 # check $Any (.'$Any')
 sub json_model_9($$$)
 {
@@ -158,7 +181,7 @@ sub json_model_9($$$)
                         if (! $res)
                         {
                             # .'$Any'.'|'.6
-                            $res = json_model_8($val, $path, $rep);
+                            $res = _jm_obj_1($val, $path, $rep);
                         }
                     }
                 }

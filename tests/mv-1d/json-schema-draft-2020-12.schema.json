@@ -537,7 +537,230 @@
           "type": "boolean"
         },
         {
-          "$ref": "#/$defs/ObjectSchema"
+          "type": "object",
+          "properties": {
+            "$id": {
+              "$ref": "#/$defs/URI-REFERENCE"
+            },
+            "$schema": {
+              "const": "https://json-schema.org/draft/2020-12/schema"
+            },
+            "$ref": {
+              "$ref": "#/$defs/URI-REFERENCE"
+            },
+            "$anchor": {
+              "$ref": "#/$defs/URI-REFERENCE"
+            },
+            "$dynamicRef": {
+              "$ref": "#/$defs/URI-REFERENCE"
+            },
+            "$dynamicAnchor": {
+              "$ref": "#/$defs/URI-REFERENCE"
+            },
+            "$vocabulary": {
+              "type": "object",
+              "patternProperties": {
+                "^((https?|file)://.*|\\..*)$": {
+                  "type": "boolean"
+                }
+              },
+              "additionalProperties": false
+            },
+            "$comment": {
+              "type": "string"
+            },
+            "$defs": {
+              "type": "object",
+              "additionalProperties": {
+                "$ref": "#/$defs/Schema"
+              }
+            },
+            "prefixItems": {
+              "$ref": "#/$defs/schemaArray"
+            },
+            "items": {
+              "$ref": "#/$defs/Schema"
+            },
+            "contains": {
+              "$ref": "#/$defs/Schema"
+            },
+            "additionalProperties": {
+              "$ref": "#/$defs/Schema"
+            },
+            "properties": {
+              "type": "object",
+              "additionalProperties": {
+                "$ref": "#/$defs/Schema"
+              }
+            },
+            "patternProperties": {
+              "type": "object",
+              "patternProperties": {
+                "^(?s).*$": {
+                  "$ref": "#/$defs/Schema"
+                }
+              },
+              "additionalProperties": false
+            },
+            "dependentSchemas": {
+              "type": "object",
+              "additionalProperties": {
+                "$ref": "#/$defs/Schema"
+              }
+            },
+            "propertyNames": {
+              "$ref": "#/$defs/Schema"
+            },
+            "if": {
+              "$ref": "#/$defs/Schema"
+            },
+            "then": {
+              "$ref": "#/$defs/Schema"
+            },
+            "else": {
+              "$ref": "#/$defs/Schema"
+            },
+            "not": {
+              "$ref": "#/$defs/Schema"
+            },
+            "allOf": {
+              "$ref": "#/$defs/schemaArray"
+            },
+            "anyOf": {
+              "$ref": "#/$defs/schemaArray"
+            },
+            "oneOf": {
+              "$ref": "#/$defs/schemaArray"
+            },
+            "unevaluatedItems": {
+              "$ref": "#/$defs/Schema"
+            },
+            "unevaluatedProperties": {
+              "$ref": "#/$defs/Schema"
+            },
+            "type": {
+              "anyOf": [
+                {
+                  "const": "array"
+                },
+                {
+                  "const": "boolean"
+                },
+                {
+                  "const": "integer"
+                },
+                {
+                  "const": "null"
+                },
+                {
+                  "const": "number"
+                },
+                {
+                  "const": "object"
+                },
+                {
+                  "const": "string"
+                },
+                {
+                  "$ref": "#/$defs/simpleTypesArray"
+                }
+              ]
+            },
+            "const": true,
+            "enum": {
+              "type": "array",
+              "items": true
+            },
+            "multipleOf": {
+              "type": "number",
+              "exclusiveMinimum": 0.0
+            },
+            "maximum": {
+              "type": "number"
+            },
+            "exclusiveMaximum": {
+              "type": "number"
+            },
+            "minimum": {
+              "type": "number"
+            },
+            "exclusiveMinimum": {
+              "type": "number"
+            },
+            "maxLength": {
+              "$ref": "#/$defs/nonNegativeInteger"
+            },
+            "minLength": {
+              "$ref": "#/$defs/nonNegativeInteger"
+            },
+            "pattern": {
+              "type": "string",
+              "format": "regex"
+            },
+            "maxItems": {
+              "$ref": "#/$defs/nonNegativeInteger"
+            },
+            "minItems": {
+              "$ref": "#/$defs/nonNegativeInteger"
+            },
+            "uniqueItems": {
+              "type": "boolean"
+            },
+            "maxContains": {
+              "$ref": "#/$defs/nonNegativeInteger"
+            },
+            "minContains": {
+              "$ref": "#/$defs/nonNegativeInteger"
+            },
+            "maxProperties": {
+              "$ref": "#/$defs/nonNegativeInteger"
+            },
+            "minProperties": {
+              "$ref": "#/$defs/nonNegativeInteger"
+            },
+            "required": {
+              "$ref": "#/$defs/stringArray"
+            },
+            "dependentRequired": {
+              "type": "object",
+              "additionalProperties": {
+                "$ref": "#/$defs/stringArray"
+              }
+            },
+            "title": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "default": true,
+            "deprecated": {
+              "type": "boolean"
+            },
+            "readOnly": {
+              "type": "boolean"
+            },
+            "writeOnly": {
+              "type": "boolean"
+            },
+            "examples": {
+              "type": "array",
+              "items": true
+            },
+            "format": {
+              "type": "string"
+            },
+            "contentEncoding": {
+              "type": "string"
+            },
+            "contentMediaType": {
+              "type": "string"
+            },
+            "contentSchema": {
+              "$ref": "#/$defs/Schema"
+            }
+          },
+          "additionalProperties": false
         }
       ]
     }

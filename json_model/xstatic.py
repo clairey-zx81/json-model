@@ -796,6 +796,7 @@ class CodeGenerator:
             return code
 
         # partial/full list of constants optimization
+        # TODO constant_values
         l_const = list(map(lambda m: constant_value(m, mpath), models))
         need_if = False
 

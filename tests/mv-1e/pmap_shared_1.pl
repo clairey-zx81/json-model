@@ -276,22 +276,256 @@ sub json_model_4($$$)
     return $res;
 }
 
+# object .'|'.2
+sub _jm_obj_3($$$)
+{
+    my ($val, $path, $rep) = @_;
+    if (! jm_is_object($val))
+    {
+        return 0;
+    }
+    my $res;
+    my $must_count = 0;
+    scalar keys %$val;
+    while (my ($prop, $pval) = each %$val)
+    {
+        if ($prop eq 'a')
+        {
+            # handle must a property
+            $must_count++;
+            # .'|'.2.a
+            $res = jm_is_boolean($pval);
+            if (! $res)
+            {
+                return 0;
+            }
+        }
+        elsif ($prop eq 'b')
+        {
+            # handle must b property
+            $must_count++;
+            # .'|'.2.b
+            $res = jm_is_integer($pval) && $pval >= 0;
+            if (! $res)
+            {
+                return 0;
+            }
+        }
+        elsif ($prop eq 'c')
+        {
+            # handle must c property
+            $must_count++;
+            # .'|'.2.c
+            $res = !defined($pval);
+            if (! $res)
+            {
+                return 0;
+            }
+        }
+        elsif ($prop eq 'd')
+        {
+            # handle must d property
+            $must_count++;
+            # .'|'.2.d
+            $res = jm_is_numeric($pval) && $pval >= 0.0;
+            if (! $res)
+            {
+                return 0;
+            }
+        }
+        elsif ($prop eq 'y')
+        {
+            # handle may y property
+            # .'|'.2.y
+            $res = jm_is_boolean($pval);
+            if (! $res)
+            {
+                return 0;
+            }
+        }
+        else
+        {
+            return 0;
+        }
+    }
+    if ($must_count != 4)
+    {
+        return 0;
+    }
+    return 1;
+}
+
+# object .'|'.1
+sub _jm_obj_4($$$)
+{
+    my ($val, $path, $rep) = @_;
+    if (! jm_is_object($val))
+    {
+        return 0;
+    }
+    my $res;
+    my $must_count = 0;
+    scalar keys %$val;
+    while (my ($prop, $pval) = each %$val)
+    {
+        if ($prop eq 'z')
+        {
+            # handle must z property
+            $must_count++;
+            # .'|'.1.z
+            $res = jm_is_boolean($pval);
+            if (! $res)
+            {
+                return 0;
+            }
+        }
+        elsif ($prop eq 'a')
+        {
+            # handle may a property
+            # .'|'.1.a
+            $res = jm_is_boolean($pval);
+            if (! $res)
+            {
+                return 0;
+            }
+        }
+        elsif ($prop eq 'b')
+        {
+            # handle may b property
+            # .'|'.1.b
+            $res = jm_is_integer($pval) && $pval >= 0;
+            if (! $res)
+            {
+                return 0;
+            }
+        }
+        elsif ($prop eq 'c')
+        {
+            # handle may c property
+            # .'|'.1.c
+            $res = !defined($pval);
+            if (! $res)
+            {
+                return 0;
+            }
+        }
+        elsif ($prop eq 'd')
+        {
+            # handle may d property
+            # .'|'.1.d
+            $res = jm_is_numeric($pval) && $pval >= 0.0;
+            if (! $res)
+            {
+                return 0;
+            }
+        }
+        else
+        {
+            return 0;
+        }
+    }
+    if ($must_count != 1)
+    {
+        return 0;
+    }
+    return 1;
+}
+
+# object .'|'.0
+sub _jm_obj_5($$$)
+{
+    my ($val, $path, $rep) = @_;
+    if (! jm_is_object($val))
+    {
+        return 0;
+    }
+    my $res;
+    my $must_count = 0;
+    scalar keys %$val;
+    while (my ($prop, $pval) = each %$val)
+    {
+        if ($prop eq 'a')
+        {
+            # handle must a property
+            $must_count++;
+            # .'|'.0.a
+            $res = jm_is_boolean($pval);
+            if (! $res)
+            {
+                return 0;
+            }
+        }
+        elsif ($prop eq 'b')
+        {
+            # handle must b property
+            $must_count++;
+            # .'|'.0.b
+            $res = jm_is_integer($pval) && $pval >= 0;
+            if (! $res)
+            {
+                return 0;
+            }
+        }
+        elsif ($prop eq 'c')
+        {
+            # handle must c property
+            $must_count++;
+            # .'|'.0.c
+            $res = !defined($pval);
+            if (! $res)
+            {
+                return 0;
+            }
+        }
+        elsif ($prop eq 'd')
+        {
+            # handle must d property
+            $must_count++;
+            # .'|'.0.d
+            $res = jm_is_numeric($pval) && $pval >= 0.0;
+            if (! $res)
+            {
+                return 0;
+            }
+        }
+        else
+        {
+            # handle other props
+            # .'|'.0.''
+            $res = jm_is_string($pval) && jm_is_valid_date($pval, undef, $rep);
+            if (! $res)
+            {
+                return 0;
+            }
+        }
+    }
+    if ($must_count != 4)
+    {
+        return 0;
+    }
+    return 1;
+}
+
 # check $ (.)
 sub json_model_1($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
     # .
-    # .'|'.0
-    $res = json_model_2($val, $path, $rep);
-    if (! $res)
+    $res = jm_is_object($val);
+    if ($res)
     {
-        # .'|'.1
-        $res = json_model_3($val, $path, $rep);
+        # .'|'.0
+        $res = _jm_obj_5($val, $path, $rep);
         if (! $res)
         {
-            # .'|'.2
-            $res = json_model_4($val, $path, $rep);
+            # .'|'.1
+            $res = _jm_obj_4($val, $path, $rep);
+            if (! $res)
+            {
+                # .'|'.2
+                $res = _jm_obj_3($val, $path, $rep);
+            }
         }
     }
     return $res;

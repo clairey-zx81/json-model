@@ -12,6 +12,9 @@
 - [x] static: detect discriminator on object part of or/xor
 - [x] static: accept discriminator with a list of constants
 - [x] optim: fix infinite recursion in `inline_or`
+- [x] optim: improve xor-to-or to handle more cases
+- [x] optim: add `-[-no]-inline-or` option
+- [ ] tests: allow options for specific tests from pytest
 - [ ] static: recognize already compile objects and reuse function esp under no no-reporting?
 - [ ] static: detect discriminators on objects sublists
 - [ ] artifact: make work with dind
@@ -97,7 +100,6 @@
 - [ ] python: how to keep looseness after inlining?
 - [ ] static: multi-type object disjunction?
 - [ ] tests: fix `./rwt/json-schema-draft-next-fuzzy.x.c unused variable res`
-- [ ] tests: allow options for specific tests from pytest
 - [ ] tests: improve schema tests by allowing more cases
 - [ ] static: improve failure reporting of extended regex
 - [ ] design: add `$URI-REF` or similar? `$PATH`?

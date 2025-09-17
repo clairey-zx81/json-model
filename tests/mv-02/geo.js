@@ -11,6 +11,7 @@ const JSON_MODEL_VERSION = "2";
 
 let _jm_map_0 = new Map()
 let _jm_map_1 = new Map()
+let _jm_map_2 = new Map()
 var check_model_map = new Map()
 
 // check $position (.'$position')
@@ -2216,9 +2217,108 @@ function _jm_obj_19(val, path, rep)
     return true;
 }
 
+// object .'$Feature'.geometry.'|'.6
+function _jm_obj_20(val, path, rep)
+{
+    // check must only props
+    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    {
+        rep !== null && rep.push(["not an object [.'$Feature'.geometry.'|'.6]", path])
+        return false;
+    }
+    let pval;
+    let res;
+    if (! val.hasOwnProperty("type"))
+    {
+        rep !== null && rep.push(["missing mandatory prop <type> [.'$Feature'.geometry.'|'.6]", path])
+        return false;
+    }
+    pval = val["type"];
+    // .'$Feature'.geometry.'|'.6.type
+    res = ((typeof pval === 'string' || pval instanceof String)) && pval == "GeometryCollection";
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected GeometryCollection [.'$Feature'.geometry.'|'.6.type]", path])
+    }
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected value for mandatory prop <type> [.'$Feature'.geometry.'|'.6]", path])
+        return false;
+    }
+    if (! val.hasOwnProperty("geometries"))
+    {
+        rep !== null && rep.push(["missing mandatory prop <geometries> [.'$Feature'.geometry.'|'.6]", path])
+        return false;
+    }
+    pval = val["geometries"];
+    // .'$Feature'.geometry.'|'.6.geometries
+    res = Array.isArray(pval);
+    if (res)
+    {
+        for (let arr_38_idx = 0; arr_38_idx < pval.length; arr_38_idx++)
+        {
+            let arr_38_item = pval[arr_38_idx]
+            let arr_38_lpath = path ? path.concat([arr_38_idx]) : null;
+            // .'$Feature'.geometry.'|'.6.geometries.0
+            res = json_model_11(arr_38_item, (path ? arr_38_lpath : null), rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected $geometry [.'$Feature'.geometry.'|'.6.geometries.0]", (path ? arr_38_lpath : null)])
+            }
+            if (! res)
+            {
+                break;
+            }
+        }
+    }
+    if (! res)
+    {
+        rep !== null && rep.push(["not array or unexpected array [.'$Feature'.geometry.'|'.6.geometries]", path])
+    }
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected value for mandatory prop <geometries> [.'$Feature'.geometry.'|'.6]", path])
+        return false;
+    }
+    if (val.hasOwnProperty("bbox"))
+    {
+        pval = val["bbox"];
+        // .'$Feature'.geometry.'|'.6.bbox
+        res = Array.isArray(pval);
+        if (res)
+        {
+            for (let arr_39_idx = 0; arr_39_idx < pval.length; arr_39_idx++)
+            {
+                let arr_39_item = pval[arr_39_idx]
+                let arr_39_lpath = path ? path.concat([arr_39_idx]) : null;
+                // .'$Feature'.geometry.'|'.6.bbox.0
+                res = (typeof arr_39_item === 'number' || arr_39_item instanceof Number);
+                if (! res)
+                {
+                    rep !== null && rep.push(["not a -1.0 loose float [.'$Feature'.geometry.'|'.6.bbox.0]", (path ? arr_39_lpath : null)])
+                }
+                if (! res)
+                {
+                    break;
+                }
+            }
+        }
+        if (! res)
+        {
+            rep !== null && rep.push(["not array or unexpected array [.'$Feature'.geometry.'|'.6.bbox]", path])
+        }
+        if (! res)
+        {
+            rep !== null && rep.push(["unexpected value for optional prop <bbox> [.'$Feature'.geometry.'|'.6]", path])
+            return false;
+        }
+    }
+    return true;
+}
+
 
 // object .'$Feature'.properties.'|'.1
-function _jm_obj_20(val, path, rep)
+function _jm_obj_21(val, path, rep)
 {
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
@@ -2293,28 +2393,11 @@ function _jm_obj_13(val, path, rep)
     }
     if (! res)
     {
-        // .'$Feature'.geometry.'|'.0
+        // .'$Feature'.geometry.'|'
         res = pval === null;
         if (! res)
         {
-            rep !== null && rep.push(["not null [.'$Feature'.geometry.'|'.0]", path])
-        }
-        if (! res)
-        {
-            // .'$Feature'.geometry.'|'.1
-            res = json_model_12(pval, path, rep);
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected $GeometryCollection [.'$Feature'.geometry.'|'.1]", path])
-            }
-        }
-        if (res)
-        {
-            if (rep !== null) rep.length = 0
-        }
-        else
-        {
-            rep !== null && rep.push(["no model matched [.'$Feature'.geometry.'|']", path])
+            rep !== null && rep.push(["not null [.'$Feature'.geometry.'|']", path])
         }
     }
     if (! res)
@@ -2338,7 +2421,7 @@ function _jm_obj_13(val, path, rep)
     if (! res)
     {
         // .'$Feature'.properties.'|'.1
-        res = _jm_obj_20(pval, path, rep);
+        res = _jm_obj_21(pval, path, rep);
         if (! res)
         {
             rep !== null && rep.push(["unexpected element [.'$Feature'.properties.'|'.1]", path])
@@ -2397,15 +2480,15 @@ function _jm_obj_13(val, path, rep)
         res = Array.isArray(pval);
         if (res)
         {
-            for (let arr_38_idx = 0; arr_38_idx < pval.length; arr_38_idx++)
+            for (let arr_40_idx = 0; arr_40_idx < pval.length; arr_40_idx++)
             {
-                let arr_38_item = pval[arr_38_idx]
-                let arr_38_lpath = path ? path.concat([arr_38_idx]) : null;
+                let arr_40_item = pval[arr_40_idx]
+                let arr_40_lpath = path ? path.concat([arr_40_idx]) : null;
                 // .'$Feature'.bbox.0
-                res = (typeof arr_38_item === 'number' || arr_38_item instanceof Number);
+                res = (typeof arr_40_item === 'number' || arr_40_item instanceof Number);
                 if (! res)
                 {
-                    rep !== null && rep.push(["not a -1.0 loose float [.'$Feature'.bbox.0]", (path ? arr_38_lpath : null)])
+                    rep !== null && rep.push(["not a -1.0 loose float [.'$Feature'.bbox.0]", (path ? arr_40_lpath : null)])
                 }
                 if (! res)
                 {
@@ -2440,7 +2523,7 @@ function json_model_13(val, path, rep)
 }
 
 // object .'$FeatureCollection'
-function _jm_obj_21(val, path, rep)
+function _jm_obj_22(val, path, rep)
 {
     // check must only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
@@ -2477,15 +2560,15 @@ function _jm_obj_21(val, path, rep)
     res = Array.isArray(pval);
     if (res)
     {
-        for (let arr_39_idx = 0; arr_39_idx < pval.length; arr_39_idx++)
+        for (let arr_41_idx = 0; arr_41_idx < pval.length; arr_41_idx++)
         {
-            let arr_39_item = pval[arr_39_idx]
-            let arr_39_lpath = path ? path.concat([arr_39_idx]) : null;
+            let arr_41_item = pval[arr_41_idx]
+            let arr_41_lpath = path ? path.concat([arr_41_idx]) : null;
             // .'$FeatureCollection'.features.0
-            res = json_model_13(arr_39_item, (path ? arr_39_lpath : null), rep);
+            res = json_model_13(arr_41_item, (path ? arr_41_lpath : null), rep);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected $Feature [.'$FeatureCollection'.features.0]", (path ? arr_39_lpath : null)])
+                rep !== null && rep.push(["unexpected $Feature [.'$FeatureCollection'.features.0]", (path ? arr_41_lpath : null)])
             }
             if (! res)
             {
@@ -2509,15 +2592,15 @@ function _jm_obj_21(val, path, rep)
         res = Array.isArray(pval);
         if (res)
         {
-            for (let arr_40_idx = 0; arr_40_idx < pval.length; arr_40_idx++)
+            for (let arr_42_idx = 0; arr_42_idx < pval.length; arr_42_idx++)
             {
-                let arr_40_item = pval[arr_40_idx]
-                let arr_40_lpath = path ? path.concat([arr_40_idx]) : null;
+                let arr_42_item = pval[arr_42_idx]
+                let arr_42_lpath = path ? path.concat([arr_42_idx]) : null;
                 // .'$FeatureCollection'.bbox.0
-                res = (typeof arr_40_item === 'number' || arr_40_item instanceof Number);
+                res = (typeof arr_42_item === 'number' || arr_42_item instanceof Number);
                 if (! res)
                 {
-                    rep !== null && rep.push(["not a -1.0 loose float [.'$FeatureCollection'.bbox.0]", (path ? arr_40_lpath : null)])
+                    rep !== null && rep.push(["not a -1.0 loose float [.'$FeatureCollection'.bbox.0]", (path ? arr_42_lpath : null)])
                 }
                 if (! res)
                 {
@@ -2543,12 +2626,1078 @@ function json_model_14(val, path, rep)
 {
     let res;
     // .'$FeatureCollection'
-    res = _jm_obj_21(val, path, rep);
+    res = _jm_obj_22(val, path, rep);
     if (! res)
     {
         rep !== null && rep.push(["unexpected element [.'$FeatureCollection']", path])
     }
     return res;
+}
+
+// object .'^'.1
+function _jm_obj_23(val, path, rep)
+{
+    // check must only props
+    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    {
+        rep !== null && rep.push(["not an object [.'^'.1]", path])
+        return false;
+    }
+    let pval;
+    let res;
+    if (! val.hasOwnProperty("type"))
+    {
+        rep !== null && rep.push(["missing mandatory prop <type> [.'^'.1]", path])
+        return false;
+    }
+    pval = val["type"];
+    // .'^'.1.type
+    res = ((typeof pval === 'string' || pval instanceof String)) && pval == "GeometryCollection";
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected GeometryCollection [.'^'.1.type]", path])
+    }
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected value for mandatory prop <type> [.'^'.1]", path])
+        return false;
+    }
+    if (! val.hasOwnProperty("geometries"))
+    {
+        rep !== null && rep.push(["missing mandatory prop <geometries> [.'^'.1]", path])
+        return false;
+    }
+    pval = val["geometries"];
+    // .'^'.1.geometries
+    res = Array.isArray(pval);
+    if (res)
+    {
+        for (let arr_43_idx = 0; arr_43_idx < pval.length; arr_43_idx++)
+        {
+            let arr_43_item = pval[arr_43_idx]
+            let arr_43_lpath = path ? path.concat([arr_43_idx]) : null;
+            // .'^'.1.geometries.0
+            res = json_model_11(arr_43_item, (path ? arr_43_lpath : null), rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected $geometry [.'^'.1.geometries.0]", (path ? arr_43_lpath : null)])
+            }
+            if (! res)
+            {
+                break;
+            }
+        }
+    }
+    if (! res)
+    {
+        rep !== null && rep.push(["not array or unexpected array [.'^'.1.geometries]", path])
+    }
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected value for mandatory prop <geometries> [.'^'.1]", path])
+        return false;
+    }
+    if (val.hasOwnProperty("bbox"))
+    {
+        pval = val["bbox"];
+        // .'^'.1.bbox
+        res = Array.isArray(pval);
+        if (res)
+        {
+            for (let arr_44_idx = 0; arr_44_idx < pval.length; arr_44_idx++)
+            {
+                let arr_44_item = pval[arr_44_idx]
+                let arr_44_lpath = path ? path.concat([arr_44_idx]) : null;
+                // .'^'.1.bbox.0
+                res = (typeof arr_44_item === 'number' || arr_44_item instanceof Number);
+                if (! res)
+                {
+                    rep !== null && rep.push(["not a -1.0 loose float [.'^'.1.bbox.0]", (path ? arr_44_lpath : null)])
+                }
+                if (! res)
+                {
+                    break;
+                }
+            }
+        }
+        if (! res)
+        {
+            rep !== null && rep.push(["not array or unexpected array [.'^'.1.bbox]", path])
+        }
+        if (! res)
+        {
+            rep !== null && rep.push(["unexpected value for optional prop <bbox> [.'^'.1]", path])
+            return false;
+        }
+    }
+    return true;
+}
+
+// object .'^'.2.geometry.'|'.0
+function _jm_obj_25(val, path, rep)
+{
+    // check must only props
+    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    {
+        rep !== null && rep.push(["not an object [.'^'.2.geometry.'|'.0]", path])
+        return false;
+    }
+    let pval;
+    let res;
+    if (! val.hasOwnProperty("type"))
+    {
+        rep !== null && rep.push(["missing mandatory prop <type> [.'^'.2.geometry.'|'.0]", path])
+        return false;
+    }
+    pval = val["type"];
+    // .'^'.2.geometry.'|'.0.type
+    res = ((typeof pval === 'string' || pval instanceof String)) && pval == "Point";
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected Point [.'^'.2.geometry.'|'.0.type]", path])
+    }
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected value for mandatory prop <type> [.'^'.2.geometry.'|'.0]", path])
+        return false;
+    }
+    if (! val.hasOwnProperty("coordinates"))
+    {
+        rep !== null && rep.push(["missing mandatory prop <coordinates> [.'^'.2.geometry.'|'.0]", path])
+        return false;
+    }
+    pval = val["coordinates"];
+    // .'^'.2.geometry.'|'.0.coordinates
+    res = json_model_2(pval, path, rep);
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected $position [.'^'.2.geometry.'|'.0.coordinates]", path])
+    }
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected value for mandatory prop <coordinates> [.'^'.2.geometry.'|'.0]", path])
+        return false;
+    }
+    if (val.hasOwnProperty("bbox"))
+    {
+        pval = val["bbox"];
+        // .'^'.2.geometry.'|'.0.bbox
+        res = Array.isArray(pval);
+        if (res)
+        {
+            for (let arr_45_idx = 0; arr_45_idx < pval.length; arr_45_idx++)
+            {
+                let arr_45_item = pval[arr_45_idx]
+                let arr_45_lpath = path ? path.concat([arr_45_idx]) : null;
+                // .'^'.2.geometry.'|'.0.bbox.0
+                res = (typeof arr_45_item === 'number' || arr_45_item instanceof Number);
+                if (! res)
+                {
+                    rep !== null && rep.push(["not a -1.0 loose float [.'^'.2.geometry.'|'.0.bbox.0]", (path ? arr_45_lpath : null)])
+                }
+                if (! res)
+                {
+                    break;
+                }
+            }
+        }
+        if (! res)
+        {
+            rep !== null && rep.push(["not array or unexpected array [.'^'.2.geometry.'|'.0.bbox]", path])
+        }
+        if (! res)
+        {
+            rep !== null && rep.push(["unexpected value for optional prop <bbox> [.'^'.2.geometry.'|'.0]", path])
+            return false;
+        }
+    }
+    return true;
+}
+
+// object .'^'.2.geometry.'|'.1
+function _jm_obj_26(val, path, rep)
+{
+    // check must only props
+    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    {
+        rep !== null && rep.push(["not an object [.'^'.2.geometry.'|'.1]", path])
+        return false;
+    }
+    let pval;
+    let res;
+    if (! val.hasOwnProperty("type"))
+    {
+        rep !== null && rep.push(["missing mandatory prop <type> [.'^'.2.geometry.'|'.1]", path])
+        return false;
+    }
+    pval = val["type"];
+    // .'^'.2.geometry.'|'.1.type
+    res = ((typeof pval === 'string' || pval instanceof String)) && pval == "MultiPoint";
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected MultiPoint [.'^'.2.geometry.'|'.1.type]", path])
+    }
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected value for mandatory prop <type> [.'^'.2.geometry.'|'.1]", path])
+        return false;
+    }
+    if (! val.hasOwnProperty("coordinates"))
+    {
+        rep !== null && rep.push(["missing mandatory prop <coordinates> [.'^'.2.geometry.'|'.1]", path])
+        return false;
+    }
+    pval = val["coordinates"];
+    // .'^'.2.geometry.'|'.1.coordinates
+    res = Array.isArray(pval);
+    if (res)
+    {
+        for (let arr_46_idx = 0; arr_46_idx < pval.length; arr_46_idx++)
+        {
+            let arr_46_item = pval[arr_46_idx]
+            let arr_46_lpath = path ? path.concat([arr_46_idx]) : null;
+            // .'^'.2.geometry.'|'.1.coordinates.0
+            res = json_model_2(arr_46_item, (path ? arr_46_lpath : null), rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected $position [.'^'.2.geometry.'|'.1.coordinates.0]", (path ? arr_46_lpath : null)])
+            }
+            if (! res)
+            {
+                break;
+            }
+        }
+    }
+    if (! res)
+    {
+        rep !== null && rep.push(["not array or unexpected array [.'^'.2.geometry.'|'.1.coordinates]", path])
+    }
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected value for mandatory prop <coordinates> [.'^'.2.geometry.'|'.1]", path])
+        return false;
+    }
+    if (val.hasOwnProperty("bbox"))
+    {
+        pval = val["bbox"];
+        // .'^'.2.geometry.'|'.1.bbox
+        res = Array.isArray(pval);
+        if (res)
+        {
+            for (let arr_47_idx = 0; arr_47_idx < pval.length; arr_47_idx++)
+            {
+                let arr_47_item = pval[arr_47_idx]
+                let arr_47_lpath = path ? path.concat([arr_47_idx]) : null;
+                // .'^'.2.geometry.'|'.1.bbox.0
+                res = (typeof arr_47_item === 'number' || arr_47_item instanceof Number);
+                if (! res)
+                {
+                    rep !== null && rep.push(["not a -1.0 loose float [.'^'.2.geometry.'|'.1.bbox.0]", (path ? arr_47_lpath : null)])
+                }
+                if (! res)
+                {
+                    break;
+                }
+            }
+        }
+        if (! res)
+        {
+            rep !== null && rep.push(["not array or unexpected array [.'^'.2.geometry.'|'.1.bbox]", path])
+        }
+        if (! res)
+        {
+            rep !== null && rep.push(["unexpected value for optional prop <bbox> [.'^'.2.geometry.'|'.1]", path])
+            return false;
+        }
+    }
+    return true;
+}
+
+// object .'^'.2.geometry.'|'.2
+function _jm_obj_27(val, path, rep)
+{
+    // check must only props
+    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    {
+        rep !== null && rep.push(["not an object [.'^'.2.geometry.'|'.2]", path])
+        return false;
+    }
+    let pval;
+    let res;
+    if (! val.hasOwnProperty("type"))
+    {
+        rep !== null && rep.push(["missing mandatory prop <type> [.'^'.2.geometry.'|'.2]", path])
+        return false;
+    }
+    pval = val["type"];
+    // .'^'.2.geometry.'|'.2.type
+    res = ((typeof pval === 'string' || pval instanceof String)) && pval == "LineString";
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected LineString [.'^'.2.geometry.'|'.2.type]", path])
+    }
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected value for mandatory prop <type> [.'^'.2.geometry.'|'.2]", path])
+        return false;
+    }
+    if (! val.hasOwnProperty("coordinates"))
+    {
+        rep !== null && rep.push(["missing mandatory prop <coordinates> [.'^'.2.geometry.'|'.2]", path])
+        return false;
+    }
+    pval = val["coordinates"];
+    // .'^'.2.geometry.'|'.2.coordinates
+    res = json_model_3(pval, path, rep);
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected $coord_array [.'^'.2.geometry.'|'.2.coordinates]", path])
+    }
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected value for mandatory prop <coordinates> [.'^'.2.geometry.'|'.2]", path])
+        return false;
+    }
+    if (val.hasOwnProperty("bbox"))
+    {
+        pval = val["bbox"];
+        // .'^'.2.geometry.'|'.2.bbox
+        res = Array.isArray(pval);
+        if (res)
+        {
+            for (let arr_48_idx = 0; arr_48_idx < pval.length; arr_48_idx++)
+            {
+                let arr_48_item = pval[arr_48_idx]
+                let arr_48_lpath = path ? path.concat([arr_48_idx]) : null;
+                // .'^'.2.geometry.'|'.2.bbox.0
+                res = (typeof arr_48_item === 'number' || arr_48_item instanceof Number);
+                if (! res)
+                {
+                    rep !== null && rep.push(["not a -1.0 loose float [.'^'.2.geometry.'|'.2.bbox.0]", (path ? arr_48_lpath : null)])
+                }
+                if (! res)
+                {
+                    break;
+                }
+            }
+        }
+        if (! res)
+        {
+            rep !== null && rep.push(["not array or unexpected array [.'^'.2.geometry.'|'.2.bbox]", path])
+        }
+        if (! res)
+        {
+            rep !== null && rep.push(["unexpected value for optional prop <bbox> [.'^'.2.geometry.'|'.2]", path])
+            return false;
+        }
+    }
+    return true;
+}
+
+// object .'^'.2.geometry.'|'.3
+function _jm_obj_28(val, path, rep)
+{
+    // check must only props
+    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    {
+        rep !== null && rep.push(["not an object [.'^'.2.geometry.'|'.3]", path])
+        return false;
+    }
+    let pval;
+    let res;
+    if (! val.hasOwnProperty("type"))
+    {
+        rep !== null && rep.push(["missing mandatory prop <type> [.'^'.2.geometry.'|'.3]", path])
+        return false;
+    }
+    pval = val["type"];
+    // .'^'.2.geometry.'|'.3.type
+    res = ((typeof pval === 'string' || pval instanceof String)) && pval == "MultiLineString";
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected MultiLineString [.'^'.2.geometry.'|'.3.type]", path])
+    }
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected value for mandatory prop <type> [.'^'.2.geometry.'|'.3]", path])
+        return false;
+    }
+    if (! val.hasOwnProperty("coordinates"))
+    {
+        rep !== null && rep.push(["missing mandatory prop <coordinates> [.'^'.2.geometry.'|'.3]", path])
+        return false;
+    }
+    pval = val["coordinates"];
+    // .'^'.2.geometry.'|'.3.coordinates
+    res = Array.isArray(pval);
+    if (res)
+    {
+        for (let arr_49_idx = 0; arr_49_idx < pval.length; arr_49_idx++)
+        {
+            let arr_49_item = pval[arr_49_idx]
+            let arr_49_lpath = path ? path.concat([arr_49_idx]) : null;
+            // .'^'.2.geometry.'|'.3.coordinates.0
+            res = json_model_3(arr_49_item, (path ? arr_49_lpath : null), rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected $coord_array [.'^'.2.geometry.'|'.3.coordinates.0]", (path ? arr_49_lpath : null)])
+            }
+            if (! res)
+            {
+                break;
+            }
+        }
+    }
+    if (! res)
+    {
+        rep !== null && rep.push(["not array or unexpected array [.'^'.2.geometry.'|'.3.coordinates]", path])
+    }
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected value for mandatory prop <coordinates> [.'^'.2.geometry.'|'.3]", path])
+        return false;
+    }
+    if (val.hasOwnProperty("bbox"))
+    {
+        pval = val["bbox"];
+        // .'^'.2.geometry.'|'.3.bbox
+        res = Array.isArray(pval);
+        if (res)
+        {
+            for (let arr_50_idx = 0; arr_50_idx < pval.length; arr_50_idx++)
+            {
+                let arr_50_item = pval[arr_50_idx]
+                let arr_50_lpath = path ? path.concat([arr_50_idx]) : null;
+                // .'^'.2.geometry.'|'.3.bbox.0
+                res = (typeof arr_50_item === 'number' || arr_50_item instanceof Number);
+                if (! res)
+                {
+                    rep !== null && rep.push(["not a -1.0 loose float [.'^'.2.geometry.'|'.3.bbox.0]", (path ? arr_50_lpath : null)])
+                }
+                if (! res)
+                {
+                    break;
+                }
+            }
+        }
+        if (! res)
+        {
+            rep !== null && rep.push(["not array or unexpected array [.'^'.2.geometry.'|'.3.bbox]", path])
+        }
+        if (! res)
+        {
+            rep !== null && rep.push(["unexpected value for optional prop <bbox> [.'^'.2.geometry.'|'.3]", path])
+            return false;
+        }
+    }
+    return true;
+}
+
+// object .'^'.2.geometry.'|'.4
+function _jm_obj_29(val, path, rep)
+{
+    // check must only props
+    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    {
+        rep !== null && rep.push(["not an object [.'^'.2.geometry.'|'.4]", path])
+        return false;
+    }
+    let pval;
+    let res;
+    if (! val.hasOwnProperty("type"))
+    {
+        rep !== null && rep.push(["missing mandatory prop <type> [.'^'.2.geometry.'|'.4]", path])
+        return false;
+    }
+    pval = val["type"];
+    // .'^'.2.geometry.'|'.4.type
+    res = ((typeof pval === 'string' || pval instanceof String)) && pval == "Polygon";
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected Polygon [.'^'.2.geometry.'|'.4.type]", path])
+    }
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected value for mandatory prop <type> [.'^'.2.geometry.'|'.4]", path])
+        return false;
+    }
+    if (! val.hasOwnProperty("coordinates"))
+    {
+        rep !== null && rep.push(["missing mandatory prop <coordinates> [.'^'.2.geometry.'|'.4]", path])
+        return false;
+    }
+    pval = val["coordinates"];
+    // .'^'.2.geometry.'|'.4.coordinates
+    res = Array.isArray(pval);
+    if (res)
+    {
+        for (let arr_51_idx = 0; arr_51_idx < pval.length; arr_51_idx++)
+        {
+            let arr_51_item = pval[arr_51_idx]
+            let arr_51_lpath = path ? path.concat([arr_51_idx]) : null;
+            // .'^'.2.geometry.'|'.4.coordinates.0
+            res = json_model_4(arr_51_item, (path ? arr_51_lpath : null), rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected $linear_ring [.'^'.2.geometry.'|'.4.coordinates.0]", (path ? arr_51_lpath : null)])
+            }
+            if (! res)
+            {
+                break;
+            }
+        }
+    }
+    if (! res)
+    {
+        rep !== null && rep.push(["not array or unexpected array [.'^'.2.geometry.'|'.4.coordinates]", path])
+    }
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected value for mandatory prop <coordinates> [.'^'.2.geometry.'|'.4]", path])
+        return false;
+    }
+    if (val.hasOwnProperty("bbox"))
+    {
+        pval = val["bbox"];
+        // .'^'.2.geometry.'|'.4.bbox
+        res = Array.isArray(pval);
+        if (res)
+        {
+            for (let arr_52_idx = 0; arr_52_idx < pval.length; arr_52_idx++)
+            {
+                let arr_52_item = pval[arr_52_idx]
+                let arr_52_lpath = path ? path.concat([arr_52_idx]) : null;
+                // .'^'.2.geometry.'|'.4.bbox.0
+                res = (typeof arr_52_item === 'number' || arr_52_item instanceof Number);
+                if (! res)
+                {
+                    rep !== null && rep.push(["not a -1.0 loose float [.'^'.2.geometry.'|'.4.bbox.0]", (path ? arr_52_lpath : null)])
+                }
+                if (! res)
+                {
+                    break;
+                }
+            }
+        }
+        if (! res)
+        {
+            rep !== null && rep.push(["not array or unexpected array [.'^'.2.geometry.'|'.4.bbox]", path])
+        }
+        if (! res)
+        {
+            rep !== null && rep.push(["unexpected value for optional prop <bbox> [.'^'.2.geometry.'|'.4]", path])
+            return false;
+        }
+    }
+    return true;
+}
+
+// object .'^'.2.geometry.'|'.5
+function _jm_obj_30(val, path, rep)
+{
+    // check must only props
+    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    {
+        rep !== null && rep.push(["not an object [.'^'.2.geometry.'|'.5]", path])
+        return false;
+    }
+    let pval;
+    let res;
+    if (! val.hasOwnProperty("type"))
+    {
+        rep !== null && rep.push(["missing mandatory prop <type> [.'^'.2.geometry.'|'.5]", path])
+        return false;
+    }
+    pval = val["type"];
+    // .'^'.2.geometry.'|'.5.type
+    res = ((typeof pval === 'string' || pval instanceof String)) && pval == "MultiPolygon";
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected MultiPolygon [.'^'.2.geometry.'|'.5.type]", path])
+    }
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected value for mandatory prop <type> [.'^'.2.geometry.'|'.5]", path])
+        return false;
+    }
+    if (! val.hasOwnProperty("coordinates"))
+    {
+        rep !== null && rep.push(["missing mandatory prop <coordinates> [.'^'.2.geometry.'|'.5]", path])
+        return false;
+    }
+    pval = val["coordinates"];
+    // .'^'.2.geometry.'|'.5.coordinates
+    res = Array.isArray(pval);
+    if (res)
+    {
+        for (let arr_53_idx = 0; arr_53_idx < pval.length; arr_53_idx++)
+        {
+            let arr_53_item = pval[arr_53_idx]
+            let arr_53_lpath = path ? path.concat([arr_53_idx]) : null;
+            // .'^'.2.geometry.'|'.5.coordinates.0
+            res = Array.isArray(arr_53_item);
+            if (res)
+            {
+                for (let arr_54_idx = 0; arr_54_idx < arr_53_item.length; arr_54_idx++)
+                {
+                    let arr_54_item = arr_53_item[arr_54_idx]
+                    let arr_54_lpath = (path ? arr_53_lpath : null) ? (path ? arr_53_lpath : null).concat([arr_54_idx]) : null;
+                    // .'^'.2.geometry.'|'.5.coordinates.0.0
+                    res = json_model_4(arr_54_item, ((path ? arr_53_lpath : null) ? arr_54_lpath : null), rep);
+                    if (! res)
+                    {
+                        rep !== null && rep.push(["unexpected $linear_ring [.'^'.2.geometry.'|'.5.coordinates.0.0]", ((path ? arr_53_lpath : null) ? arr_54_lpath : null)])
+                    }
+                    if (! res)
+                    {
+                        break;
+                    }
+                }
+            }
+            if (! res)
+            {
+                rep !== null && rep.push(["not array or unexpected array [.'^'.2.geometry.'|'.5.coordinates.0]", (path ? arr_53_lpath : null)])
+            }
+            if (! res)
+            {
+                break;
+            }
+        }
+    }
+    if (! res)
+    {
+        rep !== null && rep.push(["not array or unexpected array [.'^'.2.geometry.'|'.5.coordinates]", path])
+    }
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected value for mandatory prop <coordinates> [.'^'.2.geometry.'|'.5]", path])
+        return false;
+    }
+    if (val.hasOwnProperty("bbox"))
+    {
+        pval = val["bbox"];
+        // .'^'.2.geometry.'|'.5.bbox
+        res = Array.isArray(pval);
+        if (res)
+        {
+            for (let arr_55_idx = 0; arr_55_idx < pval.length; arr_55_idx++)
+            {
+                let arr_55_item = pval[arr_55_idx]
+                let arr_55_lpath = path ? path.concat([arr_55_idx]) : null;
+                // .'^'.2.geometry.'|'.5.bbox.0
+                res = (typeof arr_55_item === 'number' || arr_55_item instanceof Number);
+                if (! res)
+                {
+                    rep !== null && rep.push(["not a -1.0 loose float [.'^'.2.geometry.'|'.5.bbox.0]", (path ? arr_55_lpath : null)])
+                }
+                if (! res)
+                {
+                    break;
+                }
+            }
+        }
+        if (! res)
+        {
+            rep !== null && rep.push(["not array or unexpected array [.'^'.2.geometry.'|'.5.bbox]", path])
+        }
+        if (! res)
+        {
+            rep !== null && rep.push(["unexpected value for optional prop <bbox> [.'^'.2.geometry.'|'.5]", path])
+            return false;
+        }
+    }
+    return true;
+}
+
+// object .'^'.2.geometry.'|'.6
+function _jm_obj_31(val, path, rep)
+{
+    // check must only props
+    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    {
+        rep !== null && rep.push(["not an object [.'^'.2.geometry.'|'.6]", path])
+        return false;
+    }
+    let pval;
+    let res;
+    if (! val.hasOwnProperty("type"))
+    {
+        rep !== null && rep.push(["missing mandatory prop <type> [.'^'.2.geometry.'|'.6]", path])
+        return false;
+    }
+    pval = val["type"];
+    // .'^'.2.geometry.'|'.6.type
+    res = ((typeof pval === 'string' || pval instanceof String)) && pval == "GeometryCollection";
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected GeometryCollection [.'^'.2.geometry.'|'.6.type]", path])
+    }
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected value for mandatory prop <type> [.'^'.2.geometry.'|'.6]", path])
+        return false;
+    }
+    if (! val.hasOwnProperty("geometries"))
+    {
+        rep !== null && rep.push(["missing mandatory prop <geometries> [.'^'.2.geometry.'|'.6]", path])
+        return false;
+    }
+    pval = val["geometries"];
+    // .'^'.2.geometry.'|'.6.geometries
+    res = Array.isArray(pval);
+    if (res)
+    {
+        for (let arr_56_idx = 0; arr_56_idx < pval.length; arr_56_idx++)
+        {
+            let arr_56_item = pval[arr_56_idx]
+            let arr_56_lpath = path ? path.concat([arr_56_idx]) : null;
+            // .'^'.2.geometry.'|'.6.geometries.0
+            res = json_model_11(arr_56_item, (path ? arr_56_lpath : null), rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected $geometry [.'^'.2.geometry.'|'.6.geometries.0]", (path ? arr_56_lpath : null)])
+            }
+            if (! res)
+            {
+                break;
+            }
+        }
+    }
+    if (! res)
+    {
+        rep !== null && rep.push(["not array or unexpected array [.'^'.2.geometry.'|'.6.geometries]", path])
+    }
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected value for mandatory prop <geometries> [.'^'.2.geometry.'|'.6]", path])
+        return false;
+    }
+    if (val.hasOwnProperty("bbox"))
+    {
+        pval = val["bbox"];
+        // .'^'.2.geometry.'|'.6.bbox
+        res = Array.isArray(pval);
+        if (res)
+        {
+            for (let arr_57_idx = 0; arr_57_idx < pval.length; arr_57_idx++)
+            {
+                let arr_57_item = pval[arr_57_idx]
+                let arr_57_lpath = path ? path.concat([arr_57_idx]) : null;
+                // .'^'.2.geometry.'|'.6.bbox.0
+                res = (typeof arr_57_item === 'number' || arr_57_item instanceof Number);
+                if (! res)
+                {
+                    rep !== null && rep.push(["not a -1.0 loose float [.'^'.2.geometry.'|'.6.bbox.0]", (path ? arr_57_lpath : null)])
+                }
+                if (! res)
+                {
+                    break;
+                }
+            }
+        }
+        if (! res)
+        {
+            rep !== null && rep.push(["not array or unexpected array [.'^'.2.geometry.'|'.6.bbox]", path])
+        }
+        if (! res)
+        {
+            rep !== null && rep.push(["unexpected value for optional prop <bbox> [.'^'.2.geometry.'|'.6]", path])
+            return false;
+        }
+    }
+    return true;
+}
+
+
+// object .'^'.2.properties.'|'.1
+function _jm_obj_32(val, path, rep)
+{
+    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    {
+        rep !== null && rep.push(["not an object [.'^'.2.properties.'|'.1]", path])
+        return false;
+    }
+    // accept any object
+    return true;
+}
+
+// object .'^'.2
+function _jm_obj_24(val, path, rep)
+{
+    // check must only props
+    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    {
+        rep !== null && rep.push(["not an object [.'^'.2]", path])
+        return false;
+    }
+    let pval;
+    let res;
+    if (! val.hasOwnProperty("type"))
+    {
+        rep !== null && rep.push(["missing mandatory prop <type> [.'^'.2]", path])
+        return false;
+    }
+    pval = val["type"];
+    // .'^'.2.type
+    res = ((typeof pval === 'string' || pval instanceof String)) && pval == "Feature";
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected Feature [.'^'.2.type]", path])
+    }
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected value for mandatory prop <type> [.'^'.2]", path])
+        return false;
+    }
+    if (! val.hasOwnProperty("geometry"))
+    {
+        rep !== null && rep.push(["missing mandatory prop <geometry> [.'^'.2]", path])
+        return false;
+    }
+    pval = val["geometry"];
+    // .'^'.2.geometry
+    res = Object.prototype.toString.call(pval) === '[object Object]';
+    if (res)
+    {
+        if (pval.hasOwnProperty("type"))
+        {
+            let tag_2 = pval["type"];
+            let fun_2 = _jm_map_2.get(tag_2);
+            if (fun_2 !== undefined)
+            {
+                res = fun_2(pval, path, rep);
+            }
+            else
+            {
+                res = false;
+                rep !== null && rep.push(["tag <type> value not found [.'^'.2.geometry.'|']", path])
+            }
+        }
+        else
+        {
+            res = false;
+            rep !== null && rep.push(["tag prop <type> is missing [.'^'.2.geometry.'|']", path])
+        }
+    }
+    else
+    {
+        rep !== null && rep.push(["value is not an object [.'^'.2.geometry.'|']", path])
+    }
+    if (! res)
+    {
+        // .'^'.2.geometry.'|'
+        res = pval === null;
+        if (! res)
+        {
+            rep !== null && rep.push(["not null [.'^'.2.geometry.'|']", path])
+        }
+    }
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected value for mandatory prop <geometry> [.'^'.2]", path])
+        return false;
+    }
+    if (! val.hasOwnProperty("properties"))
+    {
+        rep !== null && rep.push(["missing mandatory prop <properties> [.'^'.2]", path])
+        return false;
+    }
+    pval = val["properties"];
+    // .'^'.2.properties
+    // .'^'.2.properties.'|'.0
+    res = pval === null;
+    if (! res)
+    {
+        rep !== null && rep.push(["not null [.'^'.2.properties.'|'.0]", path])
+    }
+    if (! res)
+    {
+        // .'^'.2.properties.'|'.1
+        res = _jm_obj_32(pval, path, rep);
+        if (! res)
+        {
+            rep !== null && rep.push(["unexpected element [.'^'.2.properties.'|'.1]", path])
+        }
+    }
+    if (res)
+    {
+        if (rep !== null) rep.length = 0
+    }
+    else
+    {
+        rep !== null && rep.push(["no model matched [.'^'.2.properties.'|']", path])
+    }
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected value for mandatory prop <properties> [.'^'.2]", path])
+        return false;
+    }
+    if (val.hasOwnProperty("id"))
+    {
+        pval = val["id"];
+        // .'^'.2.id
+        // .'^'.2.id.'|'.0
+        res = (typeof pval === 'string' || pval instanceof String);
+        if (! res)
+        {
+            rep !== null && rep.push(["unexpected string [.'^'.2.id.'|'.0]", path])
+        }
+        if (! res)
+        {
+            // .'^'.2.id.'|'.1
+            res = (typeof pval === 'number' || pval instanceof Number);
+            if (! res)
+            {
+                rep !== null && rep.push(["not a -1.0 loose float [.'^'.2.id.'|'.1]", path])
+            }
+        }
+        if (res)
+        {
+            if (rep !== null) rep.length = 0
+        }
+        else
+        {
+            rep !== null && rep.push(["no model matched [.'^'.2.id.'|']", path])
+        }
+        if (! res)
+        {
+            rep !== null && rep.push(["unexpected value for optional prop <id> [.'^'.2]", path])
+            return false;
+        }
+    }
+    if (val.hasOwnProperty("bbox"))
+    {
+        pval = val["bbox"];
+        // .'^'.2.bbox
+        res = Array.isArray(pval);
+        if (res)
+        {
+            for (let arr_58_idx = 0; arr_58_idx < pval.length; arr_58_idx++)
+            {
+                let arr_58_item = pval[arr_58_idx]
+                let arr_58_lpath = path ? path.concat([arr_58_idx]) : null;
+                // .'^'.2.bbox.0
+                res = (typeof arr_58_item === 'number' || arr_58_item instanceof Number);
+                if (! res)
+                {
+                    rep !== null && rep.push(["not a -1.0 loose float [.'^'.2.bbox.0]", (path ? arr_58_lpath : null)])
+                }
+                if (! res)
+                {
+                    break;
+                }
+            }
+        }
+        if (! res)
+        {
+            rep !== null && rep.push(["not array or unexpected array [.'^'.2.bbox]", path])
+        }
+        if (! res)
+        {
+            rep !== null && rep.push(["unexpected value for optional prop <bbox> [.'^'.2]", path])
+            return false;
+        }
+    }
+    return true;
+}
+
+// object .'^'.3
+function _jm_obj_33(val, path, rep)
+{
+    // check must only props
+    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    {
+        rep !== null && rep.push(["not an object [.'^'.3]", path])
+        return false;
+    }
+    let pval;
+    let res;
+    if (! val.hasOwnProperty("type"))
+    {
+        rep !== null && rep.push(["missing mandatory prop <type> [.'^'.3]", path])
+        return false;
+    }
+    pval = val["type"];
+    // .'^'.3.type
+    res = ((typeof pval === 'string' || pval instanceof String)) && pval == "FeatureCollection";
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected FeatureCollection [.'^'.3.type]", path])
+    }
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected value for mandatory prop <type> [.'^'.3]", path])
+        return false;
+    }
+    if (! val.hasOwnProperty("features"))
+    {
+        rep !== null && rep.push(["missing mandatory prop <features> [.'^'.3]", path])
+        return false;
+    }
+    pval = val["features"];
+    // .'^'.3.features
+    res = Array.isArray(pval);
+    if (res)
+    {
+        for (let arr_59_idx = 0; arr_59_idx < pval.length; arr_59_idx++)
+        {
+            let arr_59_item = pval[arr_59_idx]
+            let arr_59_lpath = path ? path.concat([arr_59_idx]) : null;
+            // .'^'.3.features.0
+            res = json_model_13(arr_59_item, (path ? arr_59_lpath : null), rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected $Feature [.'^'.3.features.0]", (path ? arr_59_lpath : null)])
+            }
+            if (! res)
+            {
+                break;
+            }
+        }
+    }
+    if (! res)
+    {
+        rep !== null && rep.push(["not array or unexpected array [.'^'.3.features]", path])
+    }
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected value for mandatory prop <features> [.'^'.3]", path])
+        return false;
+    }
+    if (val.hasOwnProperty("bbox"))
+    {
+        pval = val["bbox"];
+        // .'^'.3.bbox
+        res = Array.isArray(pval);
+        if (res)
+        {
+            for (let arr_60_idx = 0; arr_60_idx < pval.length; arr_60_idx++)
+            {
+                let arr_60_item = pval[arr_60_idx]
+                let arr_60_lpath = path ? path.concat([arr_60_idx]) : null;
+                // .'^'.3.bbox.0
+                res = (typeof arr_60_item === 'number' || arr_60_item instanceof Number);
+                if (! res)
+                {
+                    rep !== null && rep.push(["not a -1.0 loose float [.'^'.3.bbox.0]", (path ? arr_60_lpath : null)])
+                }
+                if (! res)
+                {
+                    break;
+                }
+            }
+        }
+        if (! res)
+        {
+            rep !== null && rep.push(["not array or unexpected array [.'^'.3.bbox]", path])
+        }
+        if (! res)
+        {
+            rep !== null && rep.push(["unexpected value for optional prop <bbox> [.'^'.3]", path])
+            return false;
+        }
+    }
+    return true;
 }
 
 // check $ (.)
@@ -2571,10 +3720,10 @@ function json_model_1(val, path, rep)
         xc_0 += 1;
     }
     // .'^'.1
-    xr_0 = json_model_12(val, path, rep);
+    xr_0 = _jm_obj_23(val, path, rep);
     if (! xr_0)
     {
-        rep !== null && rep.push(["unexpected $GeometryCollection [.'^'.1]", path])
+        rep !== null && rep.push(["unexpected element [.'^'.1]", path])
     }
     if (xr_0)
     {
@@ -2583,10 +3732,10 @@ function json_model_1(val, path, rep)
     if (xc_0 <= 1)
     {
         // .'^'.2
-        xr_0 = json_model_13(val, path, rep);
+        xr_0 = _jm_obj_24(val, path, rep);
         if (! xr_0)
         {
-            rep !== null && rep.push(["unexpected $Feature [.'^'.2]", path])
+            rep !== null && rep.push(["unexpected element [.'^'.2]", path])
         }
         if (xr_0)
         {
@@ -2596,10 +3745,10 @@ function json_model_1(val, path, rep)
     if (xc_0 <= 1)
     {
         // .'^'.3
-        xr_0 = json_model_14(val, path, rep);
+        xr_0 = _jm_obj_33(val, path, rep);
         if (! xr_0)
         {
-            rep !== null && rep.push(["unexpected $FeatureCollection [.'^'.3]", path])
+            rep !== null && rep.push(["unexpected element [.'^'.3]", path])
         }
         if (xr_0)
         {
@@ -2640,6 +3789,14 @@ export function check_model_init()
         _jm_map_1.set("MultiLineString", _jm_obj_17)
         _jm_map_1.set("Polygon", _jm_obj_18)
         _jm_map_1.set("MultiPolygon", _jm_obj_19)
+        _jm_map_1.set("GeometryCollection", _jm_obj_20)
+        _jm_map_2.set("Point", _jm_obj_25)
+        _jm_map_2.set("MultiPoint", _jm_obj_26)
+        _jm_map_2.set("LineString", _jm_obj_27)
+        _jm_map_2.set("MultiLineString", _jm_obj_28)
+        _jm_map_2.set("Polygon", _jm_obj_29)
+        _jm_map_2.set("MultiPolygon", _jm_obj_30)
+        _jm_map_2.set("GeometryCollection", _jm_obj_31)
         check_model_map.set("", json_model_1)
         check_model_map.set("position", json_model_2)
         check_model_map.set("coord_array", json_model_3)

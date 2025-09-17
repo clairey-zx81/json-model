@@ -58,6 +58,35 @@ static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
+// object .'$rec'.'|'.1
+static INLINE bool _jm_obj_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
+{
+    if (! json_is_object(val))
+    {
+        if (rep) jm_report_add_entry(rep, "not an object [.'$rec'.'|'.1]", path);
+        return false;
+    }
+    bool res;
+    const char *prop;
+    json_t *pval;
+    json_object_foreach((json_t *) val, prop, pval)
+    {
+        jm_path_t lpath_1 = (jm_path_t) { prop, 0, path, NULL };
+        // handle other props
+        // .'$rec'.'|'.1.''
+        res = json_model_3(pval, (path ? &lpath_1 : NULL), rep);
+        if (! res)
+        {
+            if (rep) jm_report_add_entry(rep, "unexpected $rec [.'$rec'.'|'.1.'']", (path ? &lpath_1 : NULL));
+        }
+        if (! res)
+        {
+            return false;
+        }
+    }
+    return true;
+}
+
 // check $rec (.'$rec')
 static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
@@ -72,10 +101,10 @@ static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
     if (! res)
     {
         // .'$rec'.'|'.1
-        res = json_model_2(val, path, rep);
+        res = _jm_obj_1(val, path, rep);
         if (! res)
         {
-            if (rep) jm_report_add_entry(rep, "unexpected $obj [.'$rec'.'|'.1]", path);
+            if (rep) jm_report_add_entry(rep, "unexpected element [.'$rec'.'|'.1]", path);
         }
     }
     if (res)

@@ -68,6 +68,33 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
+-- object .'$EX08'.'|'.0
+CREATE OR REPLACE FUNCTION _jm_obj_1(val JSONB, path TEXT[], rep jm_report_entry[])
+RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
+DECLARE
+  res bool;
+  prop TEXT;
+  pval JSONB;
+BEGIN
+  IF NOT (JSONB_TYPEOF(val) = 'object') THEN
+    RETURN FALSE;
+  END IF;
+  FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
+    IF jm_is_valid_url(prop, NULL, rep) THEN
+      -- handle 1 key props
+      -- .'$EX08'.'|'.0.'$URL'
+      res := json_model_2(pval, NULL, rep);
+      IF NOT res THEN
+        RETURN FALSE;
+      END IF;
+    ELSE
+      RETURN FALSE;
+    END IF;
+  END LOOP;
+  RETURN TRUE;
+END;
+$$ LANGUAGE PLpgSQL;
+
 -- check $EX08 (.'$EX08')
 CREATE OR REPLACE FUNCTION json_model_5(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
@@ -76,7 +103,7 @@ DECLARE
 BEGIN
   -- .'$EX08'
   -- .'$EX08'.'|'.0
-  res := json_model_4(val, path, rep);
+  res := _jm_obj_1(val, path, rep);
   IF NOT res THEN
     -- .'$EX08'.'|'.1
     res := JSONB_TYPEOF(val) = 'string' AND jm_is_valid_url(JSON_VALUE(val, '$' RETURNING TEXT), path, rep);

@@ -5,7 +5,7 @@ import copy
 
 from .mtypes import ModelPath, ModelType
 from .utils import log, is_cst, _structurally_distinct_models
-from .utils import constant_value, same_model, model_in_models
+from .utils import constant_value, constant_values, same_model, model_in_models, is_a_simple_object
 from .recurse import recModel, allFlt, builtFlt, noRwt
 from .model import JsonModel
 from .analyze import ultimate_type
@@ -65,11 +65,18 @@ def xor_to_or(jm: JsonModel):
             lpath = path + ["^"]
             assert isinstance(xor, list) and "|" not in model
 
-            consts = [constant_value(m, lpath + [i]) for i, m in enumerate(xor)]
+            consts = [constant_values(m, lpath + [i]) for i, m in enumerate(xor)]
 
             # constant-only enum case
             if all(consts[i][0] for i in range(len(xor))):
-                if len(ConstSet([consts[i][1] for i in range(len(xor))])) == len(xor):  # type: ignore
+                # check if all collected values are distinct
+                nconsts, sconsts = 0, ConstSet()
+                for i in range(len(xor)):
+                    lc = consts[i][1]
+                    nconsts += len(lc)
+                    for v in lc:
+                        sconsts.add(v)
+                if len(sconsts) == nconsts:  # no elements where merged
                     changes += 1
                     del model["^"]
                     model["|"] = xor
@@ -368,16 +375,35 @@ def _follow_local_def(jm: JsonModel, model: ModelType, skip: str|None) -> ModelT
             break
     return model
 
+def _contains_ref(model: ModelType, ref: str) -> bool:
+    """Tell whether there is a reference inside model."""
+    seen = False
+
+    def containFlt(m: ModelType, path: ModelPath) -> bool:
+        nonlocal seen
+        if isinstance(m, str) and m == ref:
+            seen = True
+        return not seen
+
+    recModel(model, containFlt, noRwt)
+
+    return seen
+
+
 # TODO consider or in xor or xor in or in some cases
 # NOTE infinite recursion prevention is unproven
 # NOTE correction under ^ is unclear
+# FIXME more infinite substitutions to be prevented
 def inline_or(jm: JsonModel) -> bool:
     """Inline local definitions in or/xor model lists to help flattening."""
 
     changes: int = 0
     dones: set[ModelPath] = set()
 
-    def inFlt(model: ModelType, path: ModelPath) -> ModelType:
+    def inFlt(model: ModelType, path: ModelPath) -> bool:
+
+        # log.debug(f"io: in {jm._dname} with {model} at {path}")
+
         nonlocal changes
         changed = False
         direct = len(path) == 0
@@ -396,15 +422,20 @@ def inline_or(jm: JsonModel) -> bool:
                             dones.add(pm)
                     # stupid direct self recursion can lead to infinite execution
                     if direct and jm._dname is not None and m == "$" + jm._dname:
-                        log.warning(f"skipping self recursion on {m} at {path}")
+                        log.info(f"inline-or: skipping self recursion on {m} at {path}")
                         changed = True
                         changes += 1
                         continue
                     md = _follow_local_def(jm, m, jm._dname)
-                    if isinstance(md, dict) and op in md:
+
+                    # reject self reference in substition (safe? best choice?)
+                    if isinstance(md, dict) and _contains_ref(md, m):
+                        log.info(f"inline-or: skipping self reference in {m} at {path}")
+                        models.append(m)
+                    elif isinstance(md, dict) and op in md:
                         for n in md[op]:
                             if direct and jm._dname is not None and n == "$" + jm._dname:
-                                log.warning(f"skipping self recursion on {m} at {path}")
+                                log.info(f"inline-or: skipping self recursion on {m} at {path}")
                                 changed = True
                                 changes += 1
                             elif op == "|" and not model_in_models(n, models):
@@ -412,12 +443,16 @@ def inline_or(jm: JsonModel) -> bool:
                                     models.append(copy.deepcopy(n))
                                     changed = True
                                     changes += 1
-                                else:
-                                    models.append(m)
+                                else:  # ???
+                                    models.append(copy.deepcopy(m))
                             elif op == "^":
                                 models.append(copy.deepcopy(n))
                                 changed = True
                                 changes += 1
+                    elif is_a_simple_object(md):
+                        models.append(copy.deepcopy(md))
+                        changed = True
+                        changes += 1
                     else:
                         models.append(m)
                 else:
@@ -591,8 +626,9 @@ def simplify(jm: JsonModel):
 
     return changes > 0
 
-def optimize(jm: JsonModel, inline: bool = True):
+def optimize(jm: JsonModel, *, inline: bool = True, debug: bool = False):
     changed = True
+    loop: int = 0
     while changed:
         changed = False
         changed |= const_prop(jm)
