@@ -1,0 +1,20 @@
+{
+  "#": "Diploma for Export",
+  "~": "https://json-model.org/models/json-model",
+  "$": {
+    "": "https://json-model.org/models/fresq-diploma-export"
+  },
+  "%": {
+    "#": "import and edit FRESQ model definitions",
+    "<": "$https://json-model.org/models/fresq",
+    "$Curriculum": {
+      "#": "remove technical attributes",
+      "/": [ "created", "last_modified", "curid" ]
+    },
+    "$Diploma": {
+      "/": [ "created", "last_modified", "dipid", "stages" ]
+    },
+    "$Diploma.curricula": [ "$Curriculum" ]
+  },
+  "@": "$Diploma"
+}

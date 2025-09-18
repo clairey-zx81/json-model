@@ -1,0 +1,17 @@
+{
+  "#": "Diploma for Official Publications",
+  "~": "https://json-model.org/models",
+  "$": {
+    "": "https://json-model.org/models/fresq-diploma-arrete"
+  },
+  "%": {
+    "#": "import and edit FRESQ definitions",
+    "<": "$https://json-model.org/models/fresq",
+    "$Diploma.last_modified": "$DATETIME",
+    "$Diploma.created": "$DATETIME",
+    "$Diploma": {
+      "/": [ "sites", "disciplines", "stages", "curricula" ]
+    }
+  },
+  "@": "$Diploma"
+}

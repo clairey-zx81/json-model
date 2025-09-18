@@ -1,0 +1,79 @@
+{
+  "#": "Simplified FRESQ data structures",
+  "~": "https://json-model.org/models/json-model",
+  "$": {
+    "": "https://json-model.org/models/fresq",
+    "geo": "$https://json-model.org/models/geo",
+    "uai": "/^\\d{7}[A-Z]$/",
+    "inf": "/^\\d{7}[A-Z]$/",
+    "infp": "/^\\d{7}-\\d{3}[A-Z]$/",
+    "infe": "$infp",
+    "siret": "/^\\d{14}$/",
+    "frcp": "/^(0[1-9]|[1-8]\\d|9[0-8])\\d{3}$/",
+    "rncp": "/^RNCP\\d{4,6}$/",
+    "person": 1,
+    "Academia": {
+      "acaid": "$UUID",
+      "name": "/./"
+    },
+    "Organization": {
+      "#.1": "Internal attributes",
+      "orgid": "$UUID",
+      "created": 1,
+      "last_modified": 1,
+      "#.2": "Business attributes",
+      "director": "$person",
+      "uai": "$uai",
+      "siret": "$siret",
+      "name": "/./",
+      "official_name": "/./",
+      "sigle": "/./",
+      "opened": "$DATE",
+      "academia": "$UUID",
+      "#": "and much more…"
+    },
+    "Site": {
+      "address": "",
+      "city": "",
+      "cp": "$frcp",
+      "geoloc": "$geo#Point",
+      "parent": "$uai",
+      "#": "and much more…"
+    },
+    "Diploma": {
+      "dipid": "$UUID",
+      "created": 1,
+      "last_modified": 1,
+      "inf": "$inf",
+      "rncp": "$rncp",
+      "title": "/./",
+      "grade": 1,
+      "disciplines": [ "" ],
+      "sites": [ "$Site" ],
+      "curricula": [ "$UUID" ],
+      "stages": [ "$UUID" ],
+      "keywords": [ "" ],
+      "accreditation_end": "$DATE",
+      "#": "and much more…"
+    },
+    "Curriculum": {
+      "curid": "$UUID",
+      "created": 1,
+      "last_modified": 1,
+      "inf-p": "$infp",
+      "title": "",
+      "uai": "$uai",
+      "diploma": "$inf",
+      "#": "and much more…"
+    },
+    "Stage": {
+      "staid": "$UUID",
+      "created": 1,
+      "last_modified": 1,
+      "inf-e": "$infe",
+      "title": "",
+      "level": 1,
+      "#": "and much more…"
+    }
+  }
+}
