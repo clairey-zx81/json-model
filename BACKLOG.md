@@ -2,25 +2,10 @@
 
 ## Current Tasks
 
-- [x] model: filter out all comments from transformations
-- [x] c-backend: improve overhead estimation accuracy
-- [x] static: optimize function mapping by skipping intermediate functions if possible
-- [x] docker: add subdirs to java classpath
-- [x] artifact: reduce task granularity
-- [x] artifact: add bench docker image base on docker-cli
-- [x] java-backend: update dependency versions
-- [x] static: detect discriminator on object part of or/xor
-- [x] static: accept discriminator with a list of constants
-- [x] optim: fix infinite recursion in `inline_or`
-- [x] optim: improve xor-to-or to handle more cases
-- [x] optim: add `-[-no]-inline-or` option
-- [x] artifact: fix selection of docker image between `benchmark.sh` and `run.sh`
-- [x] optim: turn off `--inline-or` by default, which can impact compile perf too much
-- [x] tests: allow options for specific tests from pytest
-- [x] tests: cleanup current status, back to 100\%
-- [ ] static: recognize already compile objects and reuse function esp under no no-reporting?
-- [ ] static: detect discriminators on objects sublists
+- [ ] static: detect discriminators from references
+- [ ] static: detect partial discriminators
 - [ ] artifact: make work with dind
+- [ ] static: recognize already compile objects and reuse function esp under no no-reporting?
 - [ ] tests: check how clang compares to gcc
 - [ ] pr: update tuto scripts to match current status
 - [ ] tests: add non regression tests to docker build
@@ -594,3 +579,19 @@
 - [x] pl-backend: work around reference issues
 - [x] command: add `--schema-version` to force schema version output
 - [x] pr: remove wip cover page from web site
+- [x] model: filter out all comments from transformations
+- [x] c-backend: improve overhead estimation accuracy
+- [x] static: optimize function mapping by skipping intermediate functions if possible
+- [x] docker: add subdirs to java classpath
+- [x] artifact: reduce task granularity
+- [x] artifact: add bench docker image base on docker-cli
+- [x] java-backend: update dependency versions
+- [x] static: detect discriminator on object part of or/xor
+- [x] static: accept discriminator with a list of constants
+- [x] optim: fix infinite recursion in `inline_or`
+- [x] optim: improve xor-to-or to handle more cases
+- [x] optim: add `-[-no]-inline-or` option
+- [x] artifact: fix selection of docker image between `benchmark.sh` and `run.sh`
+- [x] optim: turn off `--inline-or` by default, which can impact compile perf too much
+- [x] tests: allow options for specific tests from pytest
+- [x] tests: cleanup current status, back to 100\%
