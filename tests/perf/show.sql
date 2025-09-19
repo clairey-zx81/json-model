@@ -1,5 +1,6 @@
 .print # cases statistics
-SELECT COUNT(*) AS ncases, SUM(tests) AS ntests FROM Cases;
+.width 0 -5 -8 -8 -8
+SELECT * FROM ShowCases ORDER BY 1;
 
 .print # tool performance per case
 .width -2 16 -5 -7 -6 -6 -6 -6 -6 -6 -6

@@ -1,34 +1,45 @@
+--
+-- Performance summary queries
+--
+
 CREATE TABLE Run(
-  name TEXT NOT NULL,
-  tool TEXT NOT NULL,
-  line INTEGER NOT NULL,
-  runavg DOUBLE NOT NULL,
-  runstd DOUBLE NOT NULL,
-  empty DOUBLE NOT NULL,
+  name TEXT NOT NULL,            -- test name
+  tool TEXT NOT NULL,            -- tool name
+  line INTEGER NOT NULL,         -- test value line
+  runavg DOUBLE NOT NULL,        -- average run time
+  runstd DOUBLE NOT NULL,        -- standard deviation time
+  empty DOUBLE NOT NULL,         -- estimated measure overhead
   PRIMARY KEY(name, tool, line)
 );
 
 CREATE TABLE Compile(
-  name TEXT NOT NULL,
-  tool TEXT NOT NULL,
-  ran TIMESTAMP NOT NULL,
-  run DOUBLE NOT NULL,
+  name TEXT NOT NULL,            -- test name
+  tool TEXT NOT NULL,            -- tool name
+  ran TIMESTAMP NOT NULL,        -- compilation timestamp
+  run DOUBLE NOT NULL,           -- compilation time
   PRIMARY KEY(name, tool, ran)
 );
 
 CREATE TABLE Result(
-  name TEXT NOT NULL,
-  tool TEXT NOT NULL,
-  pass INT NOT NULL,
-  fail INT NOT NULL,
+  name TEXT NOT NULL,            -- test name
+  tool TEXT NOT NULL,            -- tool name
+  pass INT NOT NULL,             -- number of passes
+  fail INT NOT NULL,             -- number of fails
   PRIMARY KEY(name, tool)
 );
 
 CREATE TABLE Cases(
-  name TEXT PRIMARY KEY,
-  ssize INT NOT NULL,
-  msize INT NOT NULL,
-  tests INT NOT NULL
+  name TEXT PRIMARY KEY,         -- test name
+  ssize INT NOT NULL,            -- schema lines
+  msize INT NOT NULL,            -- model lines
+  tests INT NOT NULL             -- number of test values in test
+);
+
+CREATE TABLE CaseValues(
+  name TEXT NOT NULL,            -- test name
+  line INT NOT NULL,             -- value line number
+  vsize INT NOT NULL,            -- value size in bytes
+  PRIMARY KEY (name, line)
 );
 
 -- load raw data
@@ -37,6 +48,7 @@ CREATE TABLE Cases(
 .import compile.csv Compile
 .import result.csv Result
 .import cases.csv Cases
+.import casevalues.csv CaseValues
 
 -- shorten some names
 UPDATE Run SET name = 'gitpod' WHERE name = 'gitpod-configuration';
@@ -176,6 +188,21 @@ CREATE TABLE ResultComparison AS
     (SELECT pc FROM ResultRate AS r WHERE r.name = c.name AND r.tool = 'jmc-java-jsonp') AS jv3,
     (SELECT pc FROM ResultRate AS r WHERE r.name = c.name AND r.tool = 'jmc-py') AS py
   FROM Cases AS c
+  ORDER BY 1;
+
+-- case stats
+CREATE TABLE ShowCases AS
+  SELECT
+    name,
+    COUNT(*) AS nb,
+    MIN(vsize) AS "min (b)",
+    ROUND(AVG(vsize), 1) AS "avg (b)",
+    MAX(vsize) AS "max (b)"
+  FROM CaseValues
+  GROUP BY 1
+UNION
+  SELECT NULL, COUNT(*), MIN(vsize), ROUND(AVG(vsize), 1), MAX(vsize)
+  FROM CaseValues
   ORDER BY 1;
 
 -- relative execution time comparison per cases

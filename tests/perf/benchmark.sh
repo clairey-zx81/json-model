@@ -176,6 +176,13 @@ for dir in jsb/schemas/* ; do
   msize=$(jq < tmp/${name}_model.json | wc -l)
   tests=$(wc -l < $dir/instances.jsonl)
   echo "$name,$ssize,$msize,$tests"
+
+  # all cases stats
+  let n=0
+  while read value ; do
+    let n++
+    echo "$name,$n,${#value}"
+  done < $dir/instances.jsonl >> casevalues.csv
 done > cases.csv
 
 #

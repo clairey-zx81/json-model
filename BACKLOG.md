@@ -2,6 +2,7 @@
 
 ## Current Tasks
 
+- [x] artifact: add test case stats
 - [ ] static: detect discriminators from references
 - [ ] static: detect partial discriminators
 - [ ] artifact: make work with dind
