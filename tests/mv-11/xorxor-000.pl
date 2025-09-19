@@ -14,25 +14,25 @@ sub json_model_2($$$);
 sub json_model_1($$$);
 my %check_model_map;
 
-# check $X (.'$X')
+# check $Xx (.'$Xx')
 sub json_model_2($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
-    # .'$X'
-    # .'$X'.'|'.0
+    # .'$Xx'
+    # .'$Xx'.'|'.0
     $res = !defined($val);
     if (! $res)
     {
-        # .'$X'.'|'.1
+        # .'$Xx'.'|'.1
         $res = jm_is_boolean($val);
         if (! $res)
         {
-            # .'$X'.'|'.2
+            # .'$Xx'.'|'.2
             $res = jm_is_integer($val) && $val >= 1;
             if (! $res)
             {
-                # .'$X'.'|'.3
+                # .'$Xx'.'|'.3
                 $res = jm_is_numeric($val) && $val > 0.0;
             }
         }
@@ -90,7 +90,7 @@ sub check_model_init()
         $initialized = 1;
         %check_model_map = (
             '' => \&json_model_1,
-            'X' => \&json_model_2,
+            'Xx' => \&json_model_2,
         );
     }
 }

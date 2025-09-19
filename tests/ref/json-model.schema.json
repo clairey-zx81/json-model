@@ -157,17 +157,20 @@
     },
     "Any": true,
     "None": false,
+    "CModel": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/Model"
+        },
+        {
+          "$ref": "#/$defs/ArrayComment"
+        }
+      ]
+    },
     "Array": {
       "type": "array",
       "items": {
-        "anyOf": [
-          {
-            "$ref": "#/$defs/Model"
-          },
-          {
-            "$ref": "#/$defs/ArrayComment"
-          }
-        ]
+        "$ref": "#/$defs/CModel"
       }
     },
     "Common": {
@@ -202,7 +205,7 @@
         "|": {
           "type": "array",
           "items": {
-            "$ref": "#/$defs/Model"
+            "$ref": "#/$defs/CModel"
           }
         }
       },
@@ -217,7 +220,7 @@
         "&": {
           "type": "array",
           "items": {
-            "$ref": "#/$defs/Model"
+            "$ref": "#/$defs/CModel"
           }
         }
       },
@@ -232,7 +235,7 @@
         "^": {
           "type": "array",
           "items": {
-            "$ref": "#/$defs/Model"
+            "$ref": "#/$defs/CModel"
           }
         }
       },
@@ -247,7 +250,7 @@
         "+": {
           "type": "array",
           "items": {
-            "$ref": "#/$defs/Model"
+            "$ref": "#/$defs/CModel"
           }
         }
       },
@@ -348,7 +351,7 @@
             "|": {
               "type": "array",
               "items": {
-                "$ref": "#/$defs/Model"
+                "$ref": "#/$defs/CModel"
               }
             },
             "#": {
@@ -369,7 +372,7 @@
             "&": {
               "type": "array",
               "items": {
-                "$ref": "#/$defs/Model"
+                "$ref": "#/$defs/CModel"
               }
             },
             "#": {
@@ -390,7 +393,7 @@
             "^": {
               "type": "array",
               "items": {
-                "$ref": "#/$defs/Model"
+                "$ref": "#/$defs/CModel"
               }
             },
             "#": {
@@ -411,7 +414,7 @@
             "+": {
               "type": "array",
               "items": {
-                "$ref": "#/$defs/Model"
+                "$ref": "#/$defs/CModel"
               }
             },
             "#": {
@@ -728,7 +731,7 @@
             "|": {
               "type": "array",
               "items": {
-                "$ref": "#/$defs/Model"
+                "$ref": "#/$defs/CModel"
               }
             },
             "~": {
@@ -802,7 +805,7 @@
             "&": {
               "type": "array",
               "items": {
-                "$ref": "#/$defs/Model"
+                "$ref": "#/$defs/CModel"
               }
             },
             "~": {
@@ -876,7 +879,7 @@
             "^": {
               "type": "array",
               "items": {
-                "$ref": "#/$defs/Model"
+                "$ref": "#/$defs/CModel"
               }
             },
             "~": {
@@ -950,7 +953,7 @@
             "+": {
               "type": "array",
               "items": {
-                "$ref": "#/$defs/Model"
+                "$ref": "#/$defs/CModel"
               }
             },
             "~": {

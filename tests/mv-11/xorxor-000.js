@@ -11,40 +11,40 @@ const JSON_MODEL_VERSION = "2";
 
 var check_model_map = new Map()
 
-// check $X (.'$X')
+// check $Xx (.'$Xx')
 function json_model_2(val, path, rep)
 {
     let res;
-    // .'$X'
-    // .'$X'.'|'.0
+    // .'$Xx'
+    // .'$Xx'.'|'.0
     res = val === null;
     if (! res)
     {
-        rep !== null && rep.push(["not null [.'$X'.'|'.0]", path])
+        rep !== null && rep.push(["not null [.'$Xx'.'|'.0]", path])
     }
     if (! res)
     {
-        // .'$X'.'|'.1
+        // .'$Xx'.'|'.1
         res = (typeof val === 'boolean' || val instanceof Boolean);
         if (! res)
         {
-            rep !== null && rep.push(["not a bool [.'$X'.'|'.1]", path])
+            rep !== null && rep.push(["not a bool [.'$Xx'.'|'.1]", path])
         }
         if (! res)
         {
-            // .'$X'.'|'.2
+            // .'$Xx'.'|'.2
             res = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 1;
             if (! res)
             {
-                rep !== null && rep.push(["not a 1 strict int [.'$X'.'|'.2]", path])
+                rep !== null && rep.push(["not a 1 strict int [.'$Xx'.'|'.2]", path])
             }
             if (! res)
             {
-                // .'$X'.'|'.3
+                // .'$Xx'.'|'.3
                 res = ((typeof val === 'number' || val instanceof Number)) && val > 0.0;
                 if (! res)
                 {
-                    rep !== null && rep.push(["not a 1.0 strict float [.'$X'.'|'.3]", path])
+                    rep !== null && rep.push(["not a 1.0 strict float [.'$Xx'.'|'.3]", path])
                 }
             }
         }
@@ -55,7 +55,7 @@ function json_model_2(val, path, rep)
     }
     else
     {
-        rep !== null && rep.push(["no model matched [.'$X'.'|']", path])
+        rep !== null && rep.push(["no model matched [.'$Xx'.'|']", path])
     }
     return res;
 }
@@ -72,7 +72,7 @@ function json_model_1(val, path, rep)
     xr_0 = json_model_2(val, path, rep);
     if (! xr_0)
     {
-        rep !== null && rep.push(["unexpected $X [.'^'.0]", path])
+        rep !== null && rep.push(["unexpected $Xx [.'^'.0]", path])
     }
     if (xr_0)
     {
@@ -90,7 +90,7 @@ function json_model_1(val, path, rep)
             xr_0 = json_model_2(arr_0_item, (path ? arr_0_lpath : null), rep);
             if (! xr_0)
             {
-                rep !== null && rep.push(["unexpected $X [.'^'.1.0]", (path ? arr_0_lpath : null)])
+                rep !== null && rep.push(["unexpected $Xx [.'^'.1.0]", (path ? arr_0_lpath : null)])
             }
             if (! xr_0)
             {
@@ -129,7 +129,7 @@ export function check_model_init()
         initialized = true;
         runtime.jm_set_rx(RegExp)
         check_model_map.set("", json_model_1)
-        check_model_map.set("X", json_model_2)
+        check_model_map.set("Xx", json_model_2)
     }
 }
 

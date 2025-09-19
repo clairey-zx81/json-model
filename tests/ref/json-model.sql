@@ -422,8 +422,25 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check $Array (.'$Array')
+-- check $CModel (.'$CModel')
 CREATE OR REPLACE FUNCTION json_model_18(val JSONB, path TEXT[], rep jm_report_entry[])
+RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
+DECLARE
+  res bool;
+BEGIN
+  -- .'$CModel'
+  -- .'$CModel'.'|'.0
+  res := json_model_33(val, path, rep);
+  IF NOT res THEN
+    -- .'$CModel'.'|'.1
+    res := json_model_5(val, path, rep);
+  END IF;
+  RETURN res;
+END;
+$$ LANGUAGE PLpgSQL;
+
+-- check $Array (.'$Array')
+CREATE OR REPLACE FUNCTION json_model_19(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -436,12 +453,7 @@ BEGIN
     FOR arr_0_idx IN 0 .. JSONB_ARRAY_LENGTH(val) - 1 LOOP
       arr_0_item := val -> arr_0_idx;
       -- .'$Array'.0
-      -- .'$Array'.0.'|'.0
-      res := json_model_32(arr_0_item, NULL, rep);
-      IF NOT res THEN
-        -- .'$Array'.0.'|'.1
-        res := json_model_5(arr_0_item, NULL, rep);
-      END IF;
+      res := json_model_18(arr_0_item, NULL, rep);
       IF NOT res THEN
         EXIT;
       END IF;
@@ -452,7 +464,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check $Common (.'$Common')
-CREATE OR REPLACE FUNCTION json_model_19(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION json_model_20(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -497,7 +509,7 @@ BEGIN
       -- handle must @ property
       must_count := must_count + 1;
       -- .'$Constraint'.'@'
-      res := json_model_32(pval, NULL, rep);
+      res := json_model_33(pval, NULL, rep);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -534,7 +546,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check $Constraint (.'$Constraint')
-CREATE OR REPLACE FUNCTION json_model_20(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION json_model_21(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -570,7 +582,7 @@ BEGIN
         FOR arr_1_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
           arr_1_item := pval -> arr_1_idx;
           -- .'$Or'.'|'.0
-          res := json_model_32(arr_1_item, NULL, rep);
+          res := json_model_18(arr_1_item, NULL, rep);
           IF NOT res THEN
             EXIT;
           END IF;
@@ -591,7 +603,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check $Or (.'$Or')
-CREATE OR REPLACE FUNCTION json_model_21(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION json_model_22(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -627,7 +639,7 @@ BEGIN
         FOR arr_2_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
           arr_2_item := pval -> arr_2_idx;
           -- .'$And'.'&'.0
-          res := json_model_32(arr_2_item, NULL, rep);
+          res := json_model_18(arr_2_item, NULL, rep);
           IF NOT res THEN
             EXIT;
           END IF;
@@ -648,7 +660,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check $And (.'$And')
-CREATE OR REPLACE FUNCTION json_model_22(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION json_model_23(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -684,7 +696,7 @@ BEGIN
         FOR arr_3_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
           arr_3_item := pval -> arr_3_idx;
           -- .'$Xor'.'^'.0
-          res := json_model_32(arr_3_item, NULL, rep);
+          res := json_model_18(arr_3_item, NULL, rep);
           IF NOT res THEN
             EXIT;
           END IF;
@@ -705,7 +717,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check $Xor (.'$Xor')
-CREATE OR REPLACE FUNCTION json_model_23(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION json_model_24(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -741,7 +753,7 @@ BEGIN
         FOR arr_4_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
           arr_4_item := pval -> arr_4_idx;
           -- .'$Add'.'+'.0
-          res := json_model_32(arr_4_item, NULL, rep);
+          res := json_model_18(arr_4_item, NULL, rep);
           IF NOT res THEN
             EXIT;
           END IF;
@@ -762,7 +774,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check $Add (.'$Add')
-CREATE OR REPLACE FUNCTION json_model_24(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION json_model_25(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -782,7 +794,7 @@ END;
 $$ LANGUAGE plpgsql;
 
 -- check $Prop (.'$Prop')
-CREATE OR REPLACE FUNCTION json_model_25(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION json_model_26(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -827,10 +839,10 @@ BEGIN
     RETURN FALSE;
   END IF;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF json_model_25(TO_JSONB(prop), NULL, rep) THEN
+    IF json_model_26(TO_JSONB(prop), NULL, rep) THEN
       -- handle 1 key props
       -- .'$Obj'.'$Prop'
-      res := json_model_32(pval, NULL, rep);
+      res := json_model_33(pval, NULL, rep);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -843,7 +855,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check $Obj (.'$Obj')
-CREATE OR REPLACE FUNCTION json_model_26(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION json_model_27(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -855,29 +867,29 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check $Elem (.'$Elem')
-CREATE OR REPLACE FUNCTION json_model_27(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION json_model_28(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
 BEGIN
   -- .'$Elem'
   -- .'$Elem'.'|'.0
-  res := json_model_20(val, path, rep);
+  res := json_model_21(val, path, rep);
   IF NOT res THEN
     -- .'$Elem'.'|'.1
-    res := json_model_21(val, path, rep);
+    res := json_model_22(val, path, rep);
     IF NOT res THEN
       -- .'$Elem'.'|'.2
-      res := json_model_22(val, path, rep);
+      res := json_model_23(val, path, rep);
       IF NOT res THEN
         -- .'$Elem'.'|'.3
-        res := json_model_23(val, path, rep);
+        res := json_model_24(val, path, rep);
         IF NOT res THEN
           -- .'$Elem'.'|'.4
-          res := json_model_24(val, path, rep);
+          res := json_model_25(val, path, rep);
           IF NOT res THEN
             -- .'$Elem'.'|'.5
-            res := json_model_26(val, path, rep);
+            res := json_model_27(val, path, rep);
           END IF;
         END IF;
       END IF;
@@ -906,10 +918,10 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF json_model_25(TO_JSONB(prop), NULL, rep) THEN
+    ELSEIF json_model_26(TO_JSONB(prop), NULL, rep) THEN
       -- handle 1 key props
       -- .'$Element'.'|'.5.'$Prop'
-      res := json_model_32(pval, NULL, rep);
+      res := json_model_33(pval, NULL, rep);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -953,7 +965,7 @@ BEGIN
         FOR arr_5_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
           arr_5_item := pval -> arr_5_idx;
           -- .'$Element'.'|'.4.'+'.0
-          res := json_model_32(arr_5_item, NULL, rep);
+          res := json_model_18(arr_5_item, NULL, rep);
           IF NOT res THEN
             EXIT;
           END IF;
@@ -1012,7 +1024,7 @@ BEGIN
         FOR arr_6_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
           arr_6_item := pval -> arr_6_idx;
           -- .'$Element'.'|'.3.'^'.0
-          res := json_model_32(arr_6_item, NULL, rep);
+          res := json_model_18(arr_6_item, NULL, rep);
           IF NOT res THEN
             EXIT;
           END IF;
@@ -1071,7 +1083,7 @@ BEGIN
         FOR arr_7_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
           arr_7_item := pval -> arr_7_idx;
           -- .'$Element'.'|'.2.'&'.0
-          res := json_model_32(arr_7_item, NULL, rep);
+          res := json_model_18(arr_7_item, NULL, rep);
           IF NOT res THEN
             EXIT;
           END IF;
@@ -1130,7 +1142,7 @@ BEGIN
         FOR arr_8_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
           arr_8_item := pval -> arr_8_idx;
           -- .'$Element'.'|'.1.'|'.0
-          res := json_model_32(arr_8_item, NULL, rep);
+          res := json_model_18(arr_8_item, NULL, rep);
           IF NOT res THEN
             EXIT;
           END IF;
@@ -1182,7 +1194,7 @@ BEGIN
       -- handle must @ property
       must_count := must_count + 1;
       -- .'$Element'.'|'.0.'@'
-      res := json_model_32(pval, NULL, rep);
+      res := json_model_33(pval, NULL, rep);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -1233,7 +1245,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check $Element (.'$Element')
-CREATE OR REPLACE FUNCTION json_model_28(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION json_model_29(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -1342,7 +1354,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check $Trafo (.'$Trafo')
-CREATE OR REPLACE FUNCTION json_model_29(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION json_model_30(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -1442,14 +1454,14 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check $Transformation (.'$Transformation')
-CREATE OR REPLACE FUNCTION json_model_30(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION json_model_31(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
 BEGIN
   -- .'$Transformation'
   -- .'$Transformation'.'|'.0
-  res := json_model_32(val, path, rep);
+  res := json_model_33(val, path, rep);
   IF NOT res THEN
     -- .'$Transformation'.'|'.1
     res := _jm_obj_15(val, path, rep);
@@ -1459,7 +1471,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check $ScalarModel (.'$ScalarModel')
-CREATE OR REPLACE FUNCTION json_model_31(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION json_model_32(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -1476,20 +1488,20 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check $Model (.'$Model')
-CREATE OR REPLACE FUNCTION json_model_32(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION json_model_33(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
 BEGIN
   -- .'$Model'
   -- .'$Model'.'|'.0
-  res := json_model_31(val, path, rep);
+  res := json_model_32(val, path, rep);
   IF NOT res THEN
     -- .'$Model'.'|'.1
-    res := json_model_18(val, path, rep);
+    res := json_model_19(val, path, rep);
     IF NOT res THEN
       -- .'$Model'.'|'.2
-      res := json_model_28(val, path, rep);
+      res := json_model_29(val, path, rep);
     END IF;
   END IF;
   RETURN res;
@@ -1518,7 +1530,7 @@ BEGIN
     ELSEIF json_model_4(TO_JSONB(prop), NULL, rep) THEN
       -- handle 1 key props
       -- .'$Defs'.'$Identifier'
-      res := json_model_32(pval, NULL, rep);
+      res := json_model_33(pval, NULL, rep);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -1531,7 +1543,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check $Defs (.'$Defs')
-CREATE OR REPLACE FUNCTION json_model_33(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION json_model_34(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -1579,7 +1591,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check $Rename (.'$Rename')
-CREATE OR REPLACE FUNCTION json_model_34(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION json_model_35(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -1613,7 +1625,7 @@ BEGIN
     IF _jm_re_11(prop, path, rep) THEN
       -- handle 1 re props
       -- .'$Rewrite'.'/^\\$.*$/'
-      res := json_model_30(pval, NULL, rep);
+      res := json_model_31(pval, NULL, rep);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -1626,7 +1638,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check $Rewrite (.'$Rewrite')
-CREATE OR REPLACE FUNCTION json_model_35(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION json_model_36(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -1682,7 +1694,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check $Import (.'$Import')
-CREATE OR REPLACE FUNCTION json_model_36(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION json_model_37(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -1722,7 +1734,7 @@ BEGIN
     ELSEIF json_model_4(TO_JSONB(prop), NULL, rep) THEN
       -- handle 1 key props
       -- .'$RootOnly'.'$'.'$Identifier'
-      res := json_model_32(pval, NULL, rep);
+      res := json_model_33(pval, NULL, rep);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -1802,7 +1814,7 @@ BEGIN
     ELSEIF _jm_re_11(prop, path, rep) THEN
       -- handle 2 re props
       -- .'$RootOnly'.'%'.'/^\\$.*$/'
-      res := json_model_30(pval, NULL, rep);
+      res := json_model_31(pval, NULL, rep);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -1856,7 +1868,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check $RootOnly (.'$RootOnly')
-CREATE OR REPLACE FUNCTION json_model_37(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION json_model_38(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -1897,7 +1909,7 @@ BEGIN
     ELSEIF json_model_4(TO_JSONB(prop), NULL, rep) THEN
       -- handle 1 key props
       -- .'$Root'.'|'.5.'$'.'$Identifier'
-      res := json_model_32(pval, NULL, rep);
+      res := json_model_33(pval, NULL, rep);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -1977,7 +1989,7 @@ BEGIN
     ELSEIF _jm_re_11(prop, path, rep) THEN
       -- handle 2 re props
       -- .'$Root'.'|'.5.'%'.'/^\\$.*$/'
-      res := json_model_30(pval, NULL, rep);
+      res := json_model_31(pval, NULL, rep);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -2029,10 +2041,10 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF json_model_25(TO_JSONB(prop), NULL, rep) THEN
+    ELSEIF json_model_26(TO_JSONB(prop), NULL, rep) THEN
       -- handle 1 key props
       -- .'$Root'.'|'.5.'$Prop'
-      res := json_model_32(pval, NULL, rep);
+      res := json_model_33(pval, NULL, rep);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -2080,7 +2092,7 @@ BEGIN
     ELSEIF json_model_4(TO_JSONB(prop), NULL, rep) THEN
       -- handle 1 key props
       -- .'$Root'.'|'.4.'$'.'$Identifier'
-      res := json_model_32(pval, NULL, rep);
+      res := json_model_33(pval, NULL, rep);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -2160,7 +2172,7 @@ BEGIN
     ELSEIF _jm_re_11(prop, path, rep) THEN
       -- handle 2 re props
       -- .'$Root'.'|'.4.'%'.'/^\\$.*$/'
-      res := json_model_30(pval, NULL, rep);
+      res := json_model_31(pval, NULL, rep);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -2197,7 +2209,7 @@ BEGIN
         FOR arr_12_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
           arr_12_item := pval -> arr_12_idx;
           -- .'$Root'.'|'.4.'+'.0
-          res := json_model_32(arr_12_item, NULL, rep);
+          res := json_model_18(arr_12_item, NULL, rep);
           IF NOT res THEN
             EXIT;
           END IF;
@@ -2281,7 +2293,7 @@ BEGIN
     ELSEIF json_model_4(TO_JSONB(prop), NULL, rep) THEN
       -- handle 1 key props
       -- .'$Root'.'|'.3.'$'.'$Identifier'
-      res := json_model_32(pval, NULL, rep);
+      res := json_model_33(pval, NULL, rep);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -2361,7 +2373,7 @@ BEGIN
     ELSEIF _jm_re_11(prop, path, rep) THEN
       -- handle 2 re props
       -- .'$Root'.'|'.3.'%'.'/^\\$.*$/'
-      res := json_model_30(pval, NULL, rep);
+      res := json_model_31(pval, NULL, rep);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -2398,7 +2410,7 @@ BEGIN
         FOR arr_14_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
           arr_14_item := pval -> arr_14_idx;
           -- .'$Root'.'|'.3.'^'.0
-          res := json_model_32(arr_14_item, NULL, rep);
+          res := json_model_18(arr_14_item, NULL, rep);
           IF NOT res THEN
             EXIT;
           END IF;
@@ -2482,7 +2494,7 @@ BEGIN
     ELSEIF json_model_4(TO_JSONB(prop), NULL, rep) THEN
       -- handle 1 key props
       -- .'$Root'.'|'.2.'$'.'$Identifier'
-      res := json_model_32(pval, NULL, rep);
+      res := json_model_33(pval, NULL, rep);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -2562,7 +2574,7 @@ BEGIN
     ELSEIF _jm_re_11(prop, path, rep) THEN
       -- handle 2 re props
       -- .'$Root'.'|'.2.'%'.'/^\\$.*$/'
-      res := json_model_30(pval, NULL, rep);
+      res := json_model_31(pval, NULL, rep);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -2599,7 +2611,7 @@ BEGIN
         FOR arr_16_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
           arr_16_item := pval -> arr_16_idx;
           -- .'$Root'.'|'.2.'&'.0
-          res := json_model_32(arr_16_item, NULL, rep);
+          res := json_model_18(arr_16_item, NULL, rep);
           IF NOT res THEN
             EXIT;
           END IF;
@@ -2683,7 +2695,7 @@ BEGIN
     ELSEIF json_model_4(TO_JSONB(prop), NULL, rep) THEN
       -- handle 1 key props
       -- .'$Root'.'|'.1.'$'.'$Identifier'
-      res := json_model_32(pval, NULL, rep);
+      res := json_model_33(pval, NULL, rep);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -2763,7 +2775,7 @@ BEGIN
     ELSEIF _jm_re_11(prop, path, rep) THEN
       -- handle 2 re props
       -- .'$Root'.'|'.1.'%'.'/^\\$.*$/'
-      res := json_model_30(pval, NULL, rep);
+      res := json_model_31(pval, NULL, rep);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -2800,7 +2812,7 @@ BEGIN
         FOR arr_18_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
           arr_18_item := pval -> arr_18_idx;
           -- .'$Root'.'|'.1.'|'.0
-          res := json_model_32(arr_18_item, NULL, rep);
+          res := json_model_18(arr_18_item, NULL, rep);
           IF NOT res THEN
             EXIT;
           END IF;
@@ -2884,7 +2896,7 @@ BEGIN
     ELSEIF json_model_4(TO_JSONB(prop), NULL, rep) THEN
       -- handle 1 key props
       -- .'$Root'.'|'.0.'$'.'$Identifier'
-      res := json_model_32(pval, NULL, rep);
+      res := json_model_33(pval, NULL, rep);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -2964,7 +2976,7 @@ BEGIN
     ELSEIF _jm_re_11(prop, path, rep) THEN
       -- handle 2 re props
       -- .'$Root'.'|'.0.'%'.'/^\\$.*$/'
-      res := json_model_30(pval, NULL, rep);
+      res := json_model_31(pval, NULL, rep);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -2994,7 +3006,7 @@ BEGIN
       -- handle must @ property
       must_count := must_count + 1;
       -- .'$Root'.'|'.0.'@'
-      res := json_model_32(pval, NULL, rep);
+      res := json_model_33(pval, NULL, rep);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -3066,7 +3078,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check $Root (.'$Root')
-CREATE OR REPLACE FUNCTION json_model_38(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION json_model_39(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -3102,20 +3114,20 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check $RootModel (.'$RootModel')
-CREATE OR REPLACE FUNCTION json_model_39(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION json_model_40(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
 BEGIN
   -- .'$RootModel'
   -- .'$RootModel'.'|'.0
-  res := json_model_31(val, path, rep);
+  res := json_model_32(val, path, rep);
   IF NOT res THEN
     -- .'$RootModel'.'|'.1
-    res := json_model_18(val, path, rep);
+    res := json_model_19(val, path, rep);
     IF NOT res THEN
       -- .'$RootModel'.'|'.2
-      res := json_model_38(val, path, rep);
+      res := json_model_39(val, path, rep);
     END IF;
   END IF;
   RETURN res;
@@ -3129,7 +3141,7 @@ DECLARE
   res bool;
 BEGIN
   -- .
-  res := json_model_39(val, path, rep);
+  res := json_model_40(val, path, rep);
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
@@ -3137,7 +3149,7 @@ $$ LANGUAGE PLpgSQL;
 CREATE OR REPLACE FUNCTION check_model_map(name TEXT)
 RETURNS TEXT STRICT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
-  map JSONB := JSONB '{"":"json_model_39","Url":"json_model_2","PreDef":"json_model_3","Identifier":"json_model_4","ArrayComment":"json_model_5","ObjectComment":"json_model_6","Ref":"json_model_7","ValConst":"json_model_8","StrConst":"json_model_9","Regex":"json_model_10","Name":"json_model_11","CmpValue":"json_model_12","EqValue":"json_model_13","ValModel":"json_model_14","StrModel":"json_model_15","Any":"json_model_16","None":"json_model_17","Array":"json_model_18","Common":"json_model_6","Constraint":"json_model_20","Or":"json_model_21","And":"json_model_22","Xor":"json_model_23","Add":"json_model_24","Prop":"json_model_25","Obj":"json_model_26","Elem":"json_model_27","Element":"json_model_28","Trafo":"json_model_29","Transformation":"json_model_30","ScalarModel":"json_model_31","Model":"json_model_32","Defs":"json_model_33","Rename":"json_model_34","Rewrite":"json_model_35","Import":"json_model_36","RootOnly":"json_model_37","Root":"json_model_38","RootModel":"json_model_39"}';
+  map JSONB := JSONB '{"":"json_model_40","Url":"json_model_2","PreDef":"json_model_3","Identifier":"json_model_4","ArrayComment":"json_model_5","ObjectComment":"json_model_6","Ref":"json_model_7","ValConst":"json_model_8","StrConst":"json_model_9","Regex":"json_model_10","Name":"json_model_11","CmpValue":"json_model_12","EqValue":"json_model_13","ValModel":"json_model_14","StrModel":"json_model_15","Any":"json_model_16","None":"json_model_17","CModel":"json_model_18","Array":"json_model_19","Common":"json_model_6","Constraint":"json_model_21","Or":"json_model_22","And":"json_model_23","Xor":"json_model_24","Add":"json_model_25","Prop":"json_model_26","Obj":"json_model_27","Elem":"json_model_28","Element":"json_model_29","Trafo":"json_model_30","Transformation":"json_model_31","ScalarModel":"json_model_32","Model":"json_model_33","Defs":"json_model_34","Rename":"json_model_35","Rewrite":"json_model_36","Import":"json_model_37","RootOnly":"json_model_38","Root":"json_model_39","RootModel":"json_model_40"}';
 BEGIN
   RETURN map->>name;
 END;

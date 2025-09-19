@@ -35,7 +35,7 @@ done
 out="${TMPDIR:-/dev/shm}/jm_test_$$.out"
 db="jm_test_$$"
 
-createdb $db || {
+createdb --lc-collate C --template template0 $db || {
   echo "cannot create $db" >&2
   exit 2
 }

@@ -42,6 +42,7 @@ EXPECT: dict[str, int] = {
     # chunk 03
     "mv-03:js2json": 1,
     "mv-03:models": 10,
+    "mv-03:models:errors-jsg": 2,
     "mv-03:values": 78,
     "mv-03:verrors:schema": 26,
     # chunk 04
@@ -66,6 +67,7 @@ EXPECT: dict[str, int] = {
     "mv-08:models": 9,
     "mv-08:values": 129,
     "mv-08:verrors:schema": 43,
+    "mv-08:models:errors-jsg": 2,
     # chunk 09
     "mv-09:models": 10,
     "mv-09:values": 141,
@@ -171,13 +173,14 @@ EXPECT: dict[str, int] = {
     "mv-1b:verrors:schema": 13,
     # chunk 1C
     "mv-1c:models": 6,
+    "mv-1c:models:errors-jsg": 4,
     "mv-1c:values": 77,
     "mv-1c:verrors:schema": 32,
     # chunk 1D
     # FIXME schema missing Schema
     "mv-1d:models": 5,
     "mv-1d:values": 45,
-    "mv-1d:verrors:schema": 18,
+    "mv-1d:verrors:schema": 9,
     # chunk 1E
     "mv-1e:models": 10,
     "mv-1e:values": 151,
@@ -201,11 +204,12 @@ EXPECT: dict[str, int] = {
     # mv-22
     "mv-22:options": {"inline": True},
     "mv-22:models": 6,
-    "mv-22:values": 700,
+    "mv-22:values": 709,
+    "mv-22:verrors:schema": 36,
     # mv-23
     "mv-23:options": {"inline": True},
-    "mv-23:models": 2,
-    "mv-23:values": 34,
+    "mv-23:models": 4,
+    "mv-23:values": 83,
     # miscellaneous tests
     "bads:models": 58,
     # tests json models of json schema versions
@@ -445,7 +449,7 @@ def test_lang(directory, language):
     report = True if language != "sql" else False
 
     def generate_language(fmodel: str):
-        jm = model_from_url(fmodel, resolver=resolver, auto=True, follow=True, *options)
+        jm = model_from_url(fmodel, resolver=resolver, auto=True, follow=True, **options)
         code = xstatic_compile(jm, "check_model", lang=language,
             map_threshold=5, report=report, short_version=True)
         return str(code)
@@ -713,14 +717,16 @@ def test_dyn_json_schema(directory: pathlib.Path):
 # CHECK MODELS AGAINST META MODEL(S)
 #
 
-def check_models(directory, jmchecker: str):
-    ntests = 0
+def check_models(directory, jmchecker: str, errors: int = 0):
+    ntests, nerrors = 0, 0
     models = " ".join(map(str, sorted(directory.glob(f"*.model.json"))))
     log.error(f"{jmchecker} {models}")
     for line in os.popen(f"{jmchecker} {models}"):
         ntests += 1
-        assert ": PASS" in line
+        if ": PASS" not in line:
+            nerrors += 1
     assert ntests == EXPECT.get(f"{directory}:models", 0)
+    assert nerrors == errors
 
 @pytest.mark.skipif(not has_exec("cc"), reason="missing cc")
 def test_models_c(directory, jmchecker):
@@ -745,7 +751,8 @@ def test_models_jsm(directory):
     check_models(directory, "jsu-check --quiet json-model.schema.json")
 
 def test_models_jsg(directory):
-    check_models(directory, "jsu-check -e jschon --quiet ./ref/json-model.schema.json")
+    check_models(directory, "jsu-check -e jschon --quiet ./ref/json-model.schema.json",
+                 EXPECT.get(f"{directory}:models:errors-jsg", 0))
 
 def test_models_dpy(directory):
     """Check test model conformity to JSON Model meta model."""

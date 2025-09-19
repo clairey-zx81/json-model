@@ -12,10 +12,11 @@ use constant JMC_VERSION => '2';
 
 sub json_model_3($$$);
 sub json_model_1($$$);
-sub json_model_41($$$);
+sub json_model_42($$$);
+sub json_model_21($$$);
 sub json_model_20($$$);
 sub json_model_7($$$);
-sub json_model_33($$$);
+sub json_model_34($$$);
 sub json_model_16($$$);
 sub json_model_17($$$);
 my %_jm_cst_0;
@@ -26,13 +27,13 @@ sub json_model_11($$$);
 sub _jm_xre_0($$$);
 sub _jm_xre_1($$$);
 sub json_model_12($$$);
-sub json_model_34($$$);
-sub json_model_30($$$);
+sub json_model_35($$$);
+sub json_model_31($$$);
 sub json_model_14($$$);
 sub json_model_15($$$);
-sub json_model_27($$$);
+sub json_model_28($$$);
 sub json_model_13($$$);
-sub json_model_40($$$);
+sub json_model_41($$$);
 sub json_model_4($$$);
 sub json_model_6($$$);
 my %check_model_map;
@@ -43,7 +44,7 @@ sub json_model_3($$$)
     my ($val, $path, $rep) = @_;
     my $res;
     # .'$Model'
-    $res = json_model_41($val, $path, $rep);
+    $res = json_model_42($val, $path, $rep);
     return $res;
 }
 
@@ -58,28 +59,28 @@ sub json_model_1($$$)
 }
 
 # check $Model#RootModel (.'$Model#RootModel')
-sub json_model_41($$$)
+sub json_model_42($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
     # .'$Model#RootModel'
     # .'$Model#RootModel'.'|'.0
-    $res = json_model_33($val, $path, $rep);
+    $res = json_model_34($val, $path, $rep);
     if (! $res)
     {
         # .'$Model#RootModel'.'|'.1
-        $res = json_model_20($val, $path, $rep);
+        $res = json_model_21($val, $path, $rep);
         if (! $res)
         {
             # .'$Model#RootModel'.'|'.2
-            $res = json_model_40($val, $path, $rep);
+            $res = json_model_41($val, $path, $rep);
         }
     }
     return $res;
 }
 
 # check $Model#Array (.'$Model#Array')
-sub json_model_20($$$)
+sub json_model_21($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
@@ -91,18 +92,28 @@ sub json_model_20($$$)
         {
             my $arr_0_item = $$val[$arr_0_idx];
             # .'$Model#Array'.0
-            # .'$Model#Array'.0.'|'.0
-            $res = json_model_34($arr_0_item, undef, $rep);
-            if (! $res)
-            {
-                # .'$Model#Array'.0.'|'.1
-                $res = json_model_7($arr_0_item, undef, $rep);
-            }
+            $res = json_model_20($arr_0_item, undef, $rep);
             if (! $res)
             {
                 last;
             }
         }
+    }
+    return $res;
+}
+
+# check $Model#CModel (.'$Model#CModel')
+sub json_model_20($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$Model#CModel'
+    # .'$Model#CModel'.'|'.0
+    $res = json_model_35($val, $path, $rep);
+    if (! $res)
+    {
+        # .'$Model#CModel'.'|'.1
+        $res = json_model_7($val, $path, $rep);
     }
     return $res;
 }
@@ -119,7 +130,7 @@ sub json_model_7($$$)
 }
 
 # check $Model#ScalarModel (.'$Model#ScalarModel')
-sub json_model_33($$$)
+sub json_model_34($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
@@ -352,21 +363,21 @@ sub json_model_12($$$)
 }
 
 # check $Model#Model (.'$Model#Model')
-sub json_model_34($$$)
+sub json_model_35($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
     # .'$Model#Model'
     # .'$Model#Model'.'|'.0
-    $res = json_model_33($val, $path, $rep);
+    $res = json_model_34($val, $path, $rep);
     if (! $res)
     {
         # .'$Model#Model'.'|'.1
-        $res = json_model_20($val, $path, $rep);
+        $res = json_model_21($val, $path, $rep);
         if (! $res)
         {
             # .'$Model#Model'.'|'.2
-            $res = json_model_30($val, $path, $rep);
+            $res = json_model_31($val, $path, $rep);
         }
     }
     return $res;
@@ -394,11 +405,11 @@ sub _jm_obj_0($$$)
                 return 0;
             }
         }
-        elsif (json_model_27($prop, undef, $rep))
+        elsif (json_model_28($prop, undef, $rep))
         {
             # handle 1 key props
             # .'$Model#Element'.'|'.4.'$Prop'
-            $res = json_model_34($pval, undef, $rep);
+            $res = json_model_35($pval, undef, $rep);
             if (! $res)
             {
                 return 0;
@@ -447,7 +458,7 @@ sub _jm_obj_1($$$)
                 {
                     my $arr_1_item = $$pval[$arr_1_idx];
                     # .'$Model#Element'.'|'.3.'^'.0
-                    $res = json_model_34($arr_1_item, undef, $rep);
+                    $res = json_model_20($arr_1_item, undef, $rep);
                     if (! $res)
                     {
                         last;
@@ -516,7 +527,7 @@ sub _jm_obj_2($$$)
                 {
                     my $arr_2_item = $$pval[$arr_2_idx];
                     # .'$Model#Element'.'|'.2.'&'.0
-                    $res = json_model_34($arr_2_item, undef, $rep);
+                    $res = json_model_20($arr_2_item, undef, $rep);
                     if (! $res)
                     {
                         last;
@@ -585,7 +596,7 @@ sub _jm_obj_3($$$)
                 {
                     my $arr_3_item = $$pval[$arr_3_idx];
                     # .'$Model#Element'.'|'.1.'|'.0
-                    $res = json_model_34($arr_3_item, undef, $rep);
+                    $res = json_model_20($arr_3_item, undef, $rep);
                     if (! $res)
                     {
                         last;
@@ -661,7 +672,7 @@ sub _jm_obj_4($$$)
             # handle must @ property
             $must_count++;
             # .'$Model#Element'.'|'.0.'@'
-            $res = json_model_34($pval, undef, $rep);
+            $res = json_model_35($pval, undef, $rep);
             if (! $res)
             {
                 return 0;
@@ -730,7 +741,7 @@ sub _jm_obj_4($$$)
 }
 
 # check $Model#Element (.'$Model#Element')
-sub json_model_30($$$)
+sub json_model_31($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
@@ -814,7 +825,7 @@ sub _jm_re_5($$$)
 }
 
 # check $Model#Prop (.'$Model#Prop')
-sub json_model_27($$$)
+sub json_model_28($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
@@ -904,7 +915,7 @@ sub _jm_obj_6($$$)
         {
             # handle 1 key props
             # .'$Model#Root'.'|'.4.'$'.'$Identifier'
-            $res = json_model_34($pval, undef, $rep);
+            $res = json_model_35($pval, undef, $rep);
             if (! $res)
             {
                 return 0;
@@ -1067,11 +1078,11 @@ sub _jm_obj_5($$$)
                 return 0;
             }
         }
-        elsif (json_model_27($prop, undef, $rep))
+        elsif (json_model_28($prop, undef, $rep))
         {
             # handle 1 key props
             # .'$Model#Root'.'|'.4.'$Prop'
-            $res = json_model_34($pval, undef, $rep);
+            $res = json_model_35($pval, undef, $rep);
             if (! $res)
             {
                 return 0;
@@ -1131,7 +1142,7 @@ sub _jm_obj_9($$$)
         {
             # handle 1 key props
             # .'$Model#Root'.'|'.3.'$'.'$Identifier'
-            $res = json_model_34($pval, undef, $rep);
+            $res = json_model_35($pval, undef, $rep);
             if (! $res)
             {
                 return 0;
@@ -1260,7 +1271,7 @@ sub _jm_obj_8($$$)
                 {
                     my $arr_5_item = $$pval[$arr_5_idx];
                     # .'$Model#Root'.'|'.3.'^'.0
-                    $res = json_model_34($arr_5_item, undef, $rep);
+                    $res = json_model_20($arr_5_item, undef, $rep);
                     if (! $res)
                     {
                         last;
@@ -1370,7 +1381,7 @@ sub _jm_obj_12($$$)
         {
             # handle 1 key props
             # .'$Model#Root'.'|'.2.'$'.'$Identifier'
-            $res = json_model_34($pval, undef, $rep);
+            $res = json_model_35($pval, undef, $rep);
             if (! $res)
             {
                 return 0;
@@ -1499,7 +1510,7 @@ sub _jm_obj_11($$$)
                 {
                     my $arr_7_item = $$pval[$arr_7_idx];
                     # .'$Model#Root'.'|'.2.'&'.0
-                    $res = json_model_34($arr_7_item, undef, $rep);
+                    $res = json_model_20($arr_7_item, undef, $rep);
                     if (! $res)
                     {
                         last;
@@ -1609,7 +1620,7 @@ sub _jm_obj_15($$$)
         {
             # handle 1 key props
             # .'$Model#Root'.'|'.1.'$'.'$Identifier'
-            $res = json_model_34($pval, undef, $rep);
+            $res = json_model_35($pval, undef, $rep);
             if (! $res)
             {
                 return 0;
@@ -1738,7 +1749,7 @@ sub _jm_obj_14($$$)
                 {
                     my $arr_9_item = $$pval[$arr_9_idx];
                     # .'$Model#Root'.'|'.1.'|'.0
-                    $res = json_model_34($arr_9_item, undef, $rep);
+                    $res = json_model_20($arr_9_item, undef, $rep);
                     if (! $res)
                     {
                         last;
@@ -1848,7 +1859,7 @@ sub _jm_obj_18($$$)
         {
             # handle 1 key props
             # .'$Model#Root'.'|'.0.'$'.'$Identifier'
-            $res = json_model_34($pval, undef, $rep);
+            $res = json_model_35($pval, undef, $rep);
             if (! $res)
             {
                 return 0;
@@ -1970,7 +1981,7 @@ sub _jm_obj_17($$$)
             # handle must @ property
             $must_count++;
             # .'$Model#Root'.'|'.0.'@'
-            $res = json_model_34($pval, undef, $rep);
+            $res = json_model_35($pval, undef, $rep);
             if (! $res)
             {
                 return 0;
@@ -2069,7 +2080,7 @@ sub _jm_obj_17($$$)
 }
 
 # check $Model#Root (.'$Model#Root')
-sub json_model_40($$$)
+sub json_model_41($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;

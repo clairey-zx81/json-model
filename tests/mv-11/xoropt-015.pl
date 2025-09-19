@@ -18,23 +18,23 @@ sub json_model_6($$$);
 sub json_model_1($$$);
 my %check_model_map;
 
-# check $V (.'$V')
+# check $Vv (.'$Vv')
 sub json_model_2($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
-    # .'$V'
-    # .'$V'.'|'.0
+    # .'$Vv'
+    # .'$Vv'.'|'.0
     $res = jm_is_integer($val);
     if (! $res)
     {
-        # .'$V'.'|'.1
+        # .'$Vv'.'|'.1
         $res = jm_is_string($val);
     }
     return $res;
 }
 
-# object .'$X'
+# object .'$Xx'
 sub _jm_obj_0($$$)
 {
     my ($val, $path, $rep) = @_;
@@ -51,7 +51,7 @@ sub _jm_obj_0($$$)
         {
             # handle must X property
             $must_count++;
-            # .'$X'.X
+            # .'$Xx'.X
             $res = jm_is_string($pval);
             if (! $res)
             {
@@ -70,17 +70,17 @@ sub _jm_obj_0($$$)
     return 1;
 }
 
-# check $X (.'$X')
+# check $Xx (.'$Xx')
 sub json_model_3($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
-    # .'$X'
+    # .'$Xx'
     $res = _jm_obj_0($val, $path, $rep);
     return $res;
 }
 
-# object .'$Y'
+# object .'$Yy'
 sub _jm_obj_1($$$)
 {
     my ($val, $path, $rep) = @_;
@@ -97,7 +97,7 @@ sub _jm_obj_1($$$)
         {
             # handle must Y property
             $must_count++;
-            # .'$Y'.Y
+            # .'$Yy'.Y
             $res = jm_is_string($pval);
             if (! $res)
             {
@@ -116,17 +116,17 @@ sub _jm_obj_1($$$)
     return 1;
 }
 
-# check $Y (.'$Y')
+# check $Yy (.'$Yy')
 sub json_model_4($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
-    # .'$Y'
+    # .'$Yy'
     $res = _jm_obj_1($val, $path, $rep);
     return $res;
 }
 
-# object .'$E'.'|'.1
+# object .'$Ee'.'|'.1
 sub _jm_obj_2($$$)
 {
     my ($val, $path, $rep) = @_;
@@ -143,7 +143,7 @@ sub _jm_obj_2($$$)
         {
             # handle must Y property
             $must_count++;
-            # .'$E'.'|'.1.Y
+            # .'$Ee'.'|'.1.Y
             $res = jm_is_string($pval);
             if (! $res)
             {
@@ -153,7 +153,7 @@ sub _jm_obj_2($$$)
         elsif ($prop eq 'Z')
         {
             # handle may Z property
-            # .'$E'.'|'.1.Z
+            # .'$Ee'.'|'.1.Z
             $res = jm_is_string($pval);
             if (! $res)
             {
@@ -172,7 +172,7 @@ sub _jm_obj_2($$$)
     return 1;
 }
 
-# object .'$E'.'|'.0
+# object .'$Ee'.'|'.0
 sub _jm_obj_3($$$)
 {
     my ($val, $path, $rep) = @_;
@@ -189,7 +189,7 @@ sub _jm_obj_3($$$)
         {
             # handle must X property
             $must_count++;
-            # .'$E'.'|'.0.X
+            # .'$Ee'.'|'.0.X
             $res = jm_is_string($pval);
             if (! $res)
             {
@@ -199,7 +199,7 @@ sub _jm_obj_3($$$)
         elsif ($prop eq 'Z')
         {
             # handle may Z property
-            # .'$E'.'|'.0.Z
+            # .'$Ee'.'|'.0.Z
             $res = jm_is_string($pval);
             if (! $res)
             {
@@ -218,42 +218,42 @@ sub _jm_obj_3($$$)
     return 1;
 }
 
-# check $E (.'$E')
+# check $Ee (.'$Ee')
 sub json_model_5($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
-    # .'$E'
+    # .'$Ee'
     $res = jm_is_object($val);
     if ($res)
     {
-        # .'$E'.'|'.0
+        # .'$Ee'.'|'.0
         $res = _jm_obj_3($val, $path, $rep);
         if (! $res)
         {
-            # .'$E'.'|'.1
+            # .'$Ee'.'|'.1
             $res = _jm_obj_2($val, $path, $rep);
         }
     }
     return $res;
 }
 
-# check $M (.'$M')
+# check $Mm (.'$Mm')
 sub json_model_6($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
-    # .'$M'
+    # .'$Mm'
     # generic xor list
     my $xc_0 = 0;
     my $xr_0;
-    # .'$M'.'^'.0
+    # .'$Mm'.'^'.0
     $xr_0 = json_model_2($val, $path, $rep);
     if ($xr_0)
     {
         $xc_0++;
     }
-    # .'$M'.'^'.1
+    # .'$Mm'.'^'.1
     $xr_0 = json_model_5($val, $path, $rep);
     if ($xr_0)
     {
@@ -285,11 +285,11 @@ sub check_model_init()
         $initialized = 1;
         %check_model_map = (
             '' => \&json_model_6,
-            'V' => \&json_model_2,
-            'X' => \&json_model_3,
-            'Y' => \&json_model_4,
-            'E' => \&json_model_5,
-            'M' => \&json_model_6,
+            'Vv' => \&json_model_2,
+            'Xx' => \&json_model_3,
+            'Yy' => \&json_model_4,
+            'Ee' => \&json_model_5,
+            'Mm' => \&json_model_6,
         );
     }
 }

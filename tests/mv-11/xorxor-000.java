@@ -19,40 +19,40 @@ public class xorxor_000 extends ModelChecker
 
     public Map<String, Checker> xorxor_000_map_pmap;
 
-    // check $X (.'$X')
+    // check $Xx (.'$Xx')
     public boolean json_model_2(Object val, Path path, Report rep)
     {
         boolean res;
-        // .'$X'
-        // .'$X'.'|'.0
+        // .'$Xx'
+        // .'$Xx'.'|'.0
         res = json.isNull(val);
         if (! res)
         {
-            if (rep != null) rep.addEntry("not null [.'$X'.'|'.0]", path);
+            if (rep != null) rep.addEntry("not null [.'$Xx'.'|'.0]", path);
         }
         if (! res)
         {
-            // .'$X'.'|'.1
+            // .'$Xx'.'|'.1
             res = json.isBoolean(val);
             if (! res)
             {
-                if (rep != null) rep.addEntry("not a bool [.'$X'.'|'.1]", path);
+                if (rep != null) rep.addEntry("not a bool [.'$Xx'.'|'.1]", path);
             }
             if (! res)
             {
-                // .'$X'.'|'.2
+                // .'$Xx'.'|'.2
                 res = json.isInteger(val) && json.asLong(val) >= 1;
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("not a 1 strict int [.'$X'.'|'.2]", path);
+                    if (rep != null) rep.addEntry("not a 1 strict int [.'$Xx'.'|'.2]", path);
                 }
                 if (! res)
                 {
-                    // .'$X'.'|'.3
+                    // .'$Xx'.'|'.3
                     res = json.isDouble(val) && json.asDouble(val) > 0.0;
                     if (! res)
                     {
-                        if (rep != null) rep.addEntry("not a 1.0 strict float [.'$X'.'|'.3]", path);
+                        if (rep != null) rep.addEntry("not a 1.0 strict float [.'$Xx'.'|'.3]", path);
                     }
                 }
             }
@@ -63,7 +63,7 @@ public class xorxor_000 extends ModelChecker
         }
         else
         {
-            if (rep != null) rep.addEntry("no model matched [.'$X'.'|']", path);
+            if (rep != null) rep.addEntry("no model matched [.'$Xx'.'|']", path);
         }
         return res;
     }
@@ -80,7 +80,7 @@ public class xorxor_000 extends ModelChecker
         xr_0 = json_model_2(val, path, rep);
         if (! xr_0)
         {
-            if (rep != null) rep.addEntry("unexpected $X [.'^'.0]", path);
+            if (rep != null) rep.addEntry("unexpected $Xx [.'^'.0]", path);
         }
         if (xr_0)
         {
@@ -101,7 +101,7 @@ public class xorxor_000 extends ModelChecker
                 xr_0 = json_model_2(arr_0_item, (path != null ? arr_0_lpath : null), rep);
                 if (! xr_0)
                 {
-                    if (rep != null) rep.addEntry("unexpected $X [.'^'.1.0]", (path != null ? arr_0_lpath : null));
+                    if (rep != null) rep.addEntry("unexpected $Xx [.'^'.1.0]", (path != null ? arr_0_lpath : null));
                 }
                 if (! xr_0)
                 {
@@ -137,7 +137,7 @@ public class xorxor_000 extends ModelChecker
             try {
             xorxor_000_map_pmap = new HashMap<String, Checker>();
             xorxor_000_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_1(o, p, r);} });
-            xorxor_000_map_pmap.put("X", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_2(o, p, r);} });
+            xorxor_000_map_pmap.put("Xx", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_2(o, p, r);} });
                 super.init(json);
             }
             catch (Exception e) {

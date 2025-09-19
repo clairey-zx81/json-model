@@ -17,7 +17,7 @@
 - [x] artifact: fix selection of docker image between `benchmark.sh` and `run.sh`
 - [x] optim: turn off `--inline-or` by default, which can impact compile perf too much
 - [x] tests: allow options for specific tests from pytest
-- [ ] tests: cleanup current status (wip)
+- [x] tests: cleanup current status, back to 100\%
 - [ ] static: recognize already compile objects and reuse function esp under no no-reporting?
 - [ ] static: detect discriminators on objects sublists
 - [ ] artifact: make work with dind

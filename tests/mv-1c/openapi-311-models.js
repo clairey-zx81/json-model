@@ -5846,7 +5846,7 @@ function json_model_64(val, path, rep)
 {
     let res;
     // .'$openapi#Model'
-    res = json_model_96(val, path, rep);
+    res = json_model_97(val, path, rep);
     if (! res)
     {
         rep !== null && rep.push(["unexpected $model#Model [.'$openapi#Model']", path])
@@ -5855,12 +5855,12 @@ function json_model_64(val, path, rep)
 }
 
 // check $openapi#model#Model (.'$openapi#model#Model')
-function json_model_96(val, path, rep)
+function json_model_97(val, path, rep)
 {
     let res;
     // .'$openapi#model#Model'
     // .'$openapi#model#Model'.'|'.0
-    res = json_model_95(val, path, rep);
+    res = json_model_96(val, path, rep);
     if (! res)
     {
         rep !== null && rep.push(["unexpected $ScalarModel [.'$openapi#model#Model'.'|'.0]", path])
@@ -5868,7 +5868,7 @@ function json_model_96(val, path, rep)
     if (! res)
     {
         // .'$openapi#model#Model'.'|'.1
-        res = json_model_82(val, path, rep);
+        res = json_model_83(val, path, rep);
         if (! res)
         {
             rep !== null && rep.push(["unexpected $Array [.'$openapi#model#Model'.'|'.1]", path])
@@ -5876,7 +5876,7 @@ function json_model_96(val, path, rep)
         if (! res)
         {
             // .'$openapi#model#Model'.'|'.2
-            res = json_model_92(val, path, rep);
+            res = json_model_93(val, path, rep);
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $Element [.'$openapi#model#Model'.'|'.2]", path])
@@ -5895,7 +5895,7 @@ function json_model_96(val, path, rep)
 }
 
 // check $openapi#model#Array (.'$openapi#model#Array')
-function json_model_82(val, path, rep)
+function json_model_83(val, path, rep)
 {
     let res;
     // .'$openapi#model#Array'
@@ -5907,28 +5907,10 @@ function json_model_82(val, path, rep)
             let arr_11_item = val[arr_11_idx]
             let arr_11_lpath = path ? path.concat([arr_11_idx]) : null;
             // .'$openapi#model#Array'.0
-            // .'$openapi#model#Array'.0.'|'.0
-            res = json_model_96(arr_11_item, (path ? arr_11_lpath : null), rep);
+            res = json_model_82(arr_11_item, (path ? arr_11_lpath : null), rep);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected $Model [.'$openapi#model#Array'.0.'|'.0]", (path ? arr_11_lpath : null)])
-            }
-            if (! res)
-            {
-                // .'$openapi#model#Array'.0.'|'.1
-                res = json_model_69(arr_11_item, (path ? arr_11_lpath : null), rep);
-                if (! res)
-                {
-                    rep !== null && rep.push(["unexpected $ArrayComment [.'$openapi#model#Array'.0.'|'.1]", (path ? arr_11_lpath : null)])
-                }
-            }
-            if (res)
-            {
-                if (rep !== null) rep.length = 0
-            }
-            else
-            {
-                rep !== null && rep.push(["no model matched [.'$openapi#model#Array'.0.'|']", (path ? arr_11_lpath : null)])
+                rep !== null && rep.push(["unexpected $CModel [.'$openapi#model#Array'.0]", (path ? arr_11_lpath : null)])
             }
             if (! res)
             {
@@ -5939,6 +5921,37 @@ function json_model_82(val, path, rep)
     if (! res)
     {
         rep !== null && rep.push(["not array or unexpected array [.'$openapi#model#Array']", path])
+    }
+    return res;
+}
+
+// check $openapi#model#CModel (.'$openapi#model#CModel')
+function json_model_82(val, path, rep)
+{
+    let res;
+    // .'$openapi#model#CModel'
+    // .'$openapi#model#CModel'.'|'.0
+    res = json_model_97(val, path, rep);
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected $Model [.'$openapi#model#CModel'.'|'.0]", path])
+    }
+    if (! res)
+    {
+        // .'$openapi#model#CModel'.'|'.1
+        res = json_model_69(val, path, rep);
+        if (! res)
+        {
+            rep !== null && rep.push(["unexpected $ArrayComment [.'$openapi#model#CModel'.'|'.1]", path])
+        }
+    }
+    if (res)
+    {
+        if (rep !== null) rep.length = 0
+    }
+    else
+    {
+        rep !== null && rep.push(["no model matched [.'$openapi#model#CModel'.'|']", path])
     }
     return res;
 }
@@ -5984,11 +5997,11 @@ function _jm_obj_63(val, path, rep)
                 return false;
             }
         }
-        else if (json_model_89(prop, (path ? lpath_61 : null), rep))
+        else if (json_model_90(prop, (path ? lpath_61 : null), rep))
         {
             // handle 1 key props
             // .'$openapi#model#Element'.'|'.5.'$Prop'
-            res = json_model_96(pval, (path ? lpath_61 : null), rep);
+            res = json_model_97(pval, (path ? lpath_61 : null), rep);
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $Model [.'$openapi#model#Element'.'|'.5.'$Prop']", (path ? lpath_61 : null)])
@@ -6047,10 +6060,10 @@ function _jm_obj_64(val, path, rep)
                     let arr_12_item = pval[arr_12_idx]
                     let arr_12_lpath = (path ? lpath_62 : null) ? (path ? lpath_62 : null).concat([arr_12_idx]) : null;
                     // .'$openapi#model#Element'.'|'.4.'+'.0
-                    res = json_model_96(arr_12_item, ((path ? lpath_62 : null) ? arr_12_lpath : null), rep);
+                    res = json_model_82(arr_12_item, ((path ? lpath_62 : null) ? arr_12_lpath : null), rep);
                     if (! res)
                     {
-                        rep !== null && rep.push(["unexpected $Model [.'$openapi#model#Element'.'|'.4.'+'.0]", ((path ? lpath_62 : null) ? arr_12_lpath : null)])
+                        rep !== null && rep.push(["unexpected $CModel [.'$openapi#model#Element'.'|'.4.'+'.0]", ((path ? lpath_62 : null) ? arr_12_lpath : null)])
                     }
                     if (! res)
                     {
@@ -6143,10 +6156,10 @@ function _jm_obj_65(val, path, rep)
                     let arr_13_item = pval[arr_13_idx]
                     let arr_13_lpath = (path ? lpath_63 : null) ? (path ? lpath_63 : null).concat([arr_13_idx]) : null;
                     // .'$openapi#model#Element'.'|'.3.'^'.0
-                    res = json_model_96(arr_13_item, ((path ? lpath_63 : null) ? arr_13_lpath : null), rep);
+                    res = json_model_82(arr_13_item, ((path ? lpath_63 : null) ? arr_13_lpath : null), rep);
                     if (! res)
                     {
-                        rep !== null && rep.push(["unexpected $Model [.'$openapi#model#Element'.'|'.3.'^'.0]", ((path ? lpath_63 : null) ? arr_13_lpath : null)])
+                        rep !== null && rep.push(["unexpected $CModel [.'$openapi#model#Element'.'|'.3.'^'.0]", ((path ? lpath_63 : null) ? arr_13_lpath : null)])
                     }
                     if (! res)
                     {
@@ -6239,10 +6252,10 @@ function _jm_obj_66(val, path, rep)
                     let arr_14_item = pval[arr_14_idx]
                     let arr_14_lpath = (path ? lpath_64 : null) ? (path ? lpath_64 : null).concat([arr_14_idx]) : null;
                     // .'$openapi#model#Element'.'|'.2.'&'.0
-                    res = json_model_96(arr_14_item, ((path ? lpath_64 : null) ? arr_14_lpath : null), rep);
+                    res = json_model_82(arr_14_item, ((path ? lpath_64 : null) ? arr_14_lpath : null), rep);
                     if (! res)
                     {
-                        rep !== null && rep.push(["unexpected $Model [.'$openapi#model#Element'.'|'.2.'&'.0]", ((path ? lpath_64 : null) ? arr_14_lpath : null)])
+                        rep !== null && rep.push(["unexpected $CModel [.'$openapi#model#Element'.'|'.2.'&'.0]", ((path ? lpath_64 : null) ? arr_14_lpath : null)])
                     }
                     if (! res)
                     {
@@ -6335,10 +6348,10 @@ function _jm_obj_67(val, path, rep)
                     let arr_15_item = pval[arr_15_idx]
                     let arr_15_lpath = (path ? lpath_65 : null) ? (path ? lpath_65 : null).concat([arr_15_idx]) : null;
                     // .'$openapi#model#Element'.'|'.1.'|'.0
-                    res = json_model_96(arr_15_item, ((path ? lpath_65 : null) ? arr_15_lpath : null), rep);
+                    res = json_model_82(arr_15_item, ((path ? lpath_65 : null) ? arr_15_lpath : null), rep);
                     if (! res)
                     {
-                        rep !== null && rep.push(["unexpected $Model [.'$openapi#model#Element'.'|'.1.'|'.0]", ((path ? lpath_65 : null) ? arr_15_lpath : null)])
+                        rep !== null && rep.push(["unexpected $CModel [.'$openapi#model#Element'.'|'.1.'|'.0]", ((path ? lpath_65 : null) ? arr_15_lpath : null)])
                     }
                     if (! res)
                     {
@@ -6427,7 +6440,7 @@ function _jm_obj_68(val, path, rep)
             // handle must @ property
             must_count += 1;
             // .'$openapi#model#Element'.'|'.0.'@'
-            res = json_model_96(pval, (path ? lpath_66 : null), rep);
+            res = json_model_97(pval, (path ? lpath_66 : null), rep);
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $Model [.'$openapi#model#Element'.'|'.0.'@']", (path ? lpath_66 : null)])
@@ -6531,7 +6544,7 @@ function _jm_obj_68(val, path, rep)
 }
 
 // check $openapi#model#Element (.'$openapi#model#Element')
-function json_model_92(val, path, rep)
+function json_model_93(val, path, rep)
 {
     let res;
     // .'$openapi#model#Element'
@@ -6688,7 +6701,7 @@ function json_model_77(val, path, rep)
 const _jm_re_6 = (s) => _jm_re_6_re.exec(s) !== null
 
 // check $openapi#model#Prop (.'$openapi#model#Prop')
-function json_model_89(val, path, rep)
+function json_model_90(val, path, rep)
 {
     let res;
     // .'$openapi#model#Prop'
@@ -6881,7 +6894,7 @@ function json_model_75(val, path, rep)
 }
 
 // check $openapi#model#ScalarModel (.'$openapi#model#ScalarModel')
-function json_model_95(val, path, rep)
+function json_model_96(val, path, rep)
 {
     let res;
     // .'$openapi#model#ScalarModel'

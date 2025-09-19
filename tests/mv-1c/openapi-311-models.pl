@@ -115,20 +115,21 @@ sub json_model_43($$$);
 sub json_model_44($$$);
 sub json_model_45($$$);
 sub json_model_64($$$);
-sub json_model_96($$$);
+sub json_model_97($$$);
+sub json_model_83($$$);
 sub json_model_82($$$);
 sub json_model_69($$$);
-sub json_model_92($$$);
+sub json_model_93($$$);
 sub json_model_76($$$);
 sub json_model_77($$$);
-sub json_model_89($$$);
+sub json_model_90($$$);
 sub json_model_71($$$);
 sub json_model_73($$$);
 sub _jm_xre_0($$$);
 sub _jm_xre_1($$$);
 sub json_model_74($$$);
 sub json_model_75($$$);
-sub json_model_95($$$);
+sub json_model_96($$$);
 sub json_model_78($$$);
 sub json_model_79($$$);
 my %_jm_cst_4;
@@ -4303,33 +4304,33 @@ sub json_model_64($$$)
     my ($val, $path, $rep) = @_;
     my $res;
     # .'$openapi#Model'
-    $res = json_model_96($val, $path, $rep);
+    $res = json_model_97($val, $path, $rep);
     return $res;
 }
 
 # check $openapi#model#Model (.'$openapi#model#Model')
-sub json_model_96($$$)
+sub json_model_97($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
     # .'$openapi#model#Model'
     # .'$openapi#model#Model'.'|'.0
-    $res = json_model_95($val, $path, $rep);
+    $res = json_model_96($val, $path, $rep);
     if (! $res)
     {
         # .'$openapi#model#Model'.'|'.1
-        $res = json_model_82($val, $path, $rep);
+        $res = json_model_83($val, $path, $rep);
         if (! $res)
         {
             # .'$openapi#model#Model'.'|'.2
-            $res = json_model_92($val, $path, $rep);
+            $res = json_model_93($val, $path, $rep);
         }
     }
     return $res;
 }
 
 # check $openapi#model#Array (.'$openapi#model#Array')
-sub json_model_82($$$)
+sub json_model_83($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
@@ -4341,18 +4342,28 @@ sub json_model_82($$$)
         {
             my $arr_11_item = $$val[$arr_11_idx];
             # .'$openapi#model#Array'.0
-            # .'$openapi#model#Array'.0.'|'.0
-            $res = json_model_96($arr_11_item, undef, $rep);
-            if (! $res)
-            {
-                # .'$openapi#model#Array'.0.'|'.1
-                $res = json_model_69($arr_11_item, undef, $rep);
-            }
+            $res = json_model_82($arr_11_item, undef, $rep);
             if (! $res)
             {
                 last;
             }
         }
+    }
+    return $res;
+}
+
+# check $openapi#model#CModel (.'$openapi#model#CModel')
+sub json_model_82($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$openapi#model#CModel'
+    # .'$openapi#model#CModel'.'|'.0
+    $res = json_model_97($val, $path, $rep);
+    if (! $res)
+    {
+        # .'$openapi#model#CModel'.'|'.1
+        $res = json_model_69($val, $path, $rep);
     }
     return $res;
 }
@@ -4390,11 +4401,11 @@ sub _jm_obj_63($$$)
                 return 0;
             }
         }
-        elsif (json_model_89($prop, undef, $rep))
+        elsif (json_model_90($prop, undef, $rep))
         {
             # handle 1 key props
             # .'$openapi#model#Element'.'|'.5.'$Prop'
-            $res = json_model_96($pval, undef, $rep);
+            $res = json_model_97($pval, undef, $rep);
             if (! $res)
             {
                 return 0;
@@ -4443,7 +4454,7 @@ sub _jm_obj_64($$$)
                 {
                     my $arr_12_item = $$pval[$arr_12_idx];
                     # .'$openapi#model#Element'.'|'.4.'+'.0
-                    $res = json_model_96($arr_12_item, undef, $rep);
+                    $res = json_model_82($arr_12_item, undef, $rep);
                     if (! $res)
                     {
                         last;
@@ -4512,7 +4523,7 @@ sub _jm_obj_65($$$)
                 {
                     my $arr_13_item = $$pval[$arr_13_idx];
                     # .'$openapi#model#Element'.'|'.3.'^'.0
-                    $res = json_model_96($arr_13_item, undef, $rep);
+                    $res = json_model_82($arr_13_item, undef, $rep);
                     if (! $res)
                     {
                         last;
@@ -4581,7 +4592,7 @@ sub _jm_obj_66($$$)
                 {
                     my $arr_14_item = $$pval[$arr_14_idx];
                     # .'$openapi#model#Element'.'|'.2.'&'.0
-                    $res = json_model_96($arr_14_item, undef, $rep);
+                    $res = json_model_82($arr_14_item, undef, $rep);
                     if (! $res)
                     {
                         last;
@@ -4650,7 +4661,7 @@ sub _jm_obj_67($$$)
                 {
                     my $arr_15_item = $$pval[$arr_15_idx];
                     # .'$openapi#model#Element'.'|'.1.'|'.0
-                    $res = json_model_96($arr_15_item, undef, $rep);
+                    $res = json_model_82($arr_15_item, undef, $rep);
                     if (! $res)
                     {
                         last;
@@ -4726,7 +4737,7 @@ sub _jm_obj_68($$$)
             # handle must @ property
             $must_count++;
             # .'$openapi#model#Element'.'|'.0.'@'
-            $res = json_model_96($pval, undef, $rep);
+            $res = json_model_97($pval, undef, $rep);
             if (! $res)
             {
                 return 0;
@@ -4795,7 +4806,7 @@ sub _jm_obj_68($$$)
 }
 
 # check $openapi#model#Element (.'$openapi#model#Element')
-sub json_model_92($$$)
+sub json_model_93($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
@@ -4884,7 +4895,7 @@ sub _jm_re_6($$$)
 }
 
 # check $openapi#model#Prop (.'$openapi#model#Prop')
-sub json_model_89($$$)
+sub json_model_90($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
@@ -5045,7 +5056,7 @@ sub json_model_75($$$)
 }
 
 # check $openapi#model#ScalarModel (.'$openapi#model#ScalarModel')
-sub json_model_95($$$)
+sub json_model_96($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;

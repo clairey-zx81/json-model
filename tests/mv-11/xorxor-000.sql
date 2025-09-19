@@ -5,23 +5,23 @@
 -- JSON_MODEL_VERSION is 2
 CREATE EXTENSION IF NOT EXISTS json_model;
 
--- check $X (.'$X')
+-- check $Xx (.'$Xx')
 CREATE OR REPLACE FUNCTION json_model_2(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
 BEGIN
-  -- .'$X'
-  -- .'$X'.'|'.0
+  -- .'$Xx'
+  -- .'$Xx'.'|'.0
   res := JSONB_TYPEOF(val) = 'null';
   IF NOT res THEN
-    -- .'$X'.'|'.1
+    -- .'$Xx'.'|'.1
     res := JSONB_TYPEOF(val) = 'boolean';
     IF NOT res THEN
-      -- .'$X'.'|'.2
+      -- .'$Xx'.'|'.2
       res := JSONB_TYPEOF(val) = 'number' AND (val)::INT8 = (val)::FLOAT8 AND (val)::INT8 >= 1;
       IF NOT res THEN
-        -- .'$X'.'|'.3
+        -- .'$Xx'.'|'.3
         res := JSONB_TYPEOF(val) = 'number' AND (val)::FLOAT8 > 0.0;
       END IF;
     END IF;
@@ -71,7 +71,7 @@ $$ LANGUAGE PLpgSQL;
 CREATE OR REPLACE FUNCTION check_model_map(name TEXT)
 RETURNS TEXT STRICT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
-  map JSONB := JSONB '{"":"json_model_1","X":"json_model_2"}';
+  map JSONB := JSONB '{"":"json_model_1","Xx":"json_model_2"}';
 BEGIN
   RETURN map->>name;
 END;

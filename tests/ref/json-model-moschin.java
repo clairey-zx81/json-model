@@ -41,7 +41,7 @@ public class json_model_moschin extends ModelChecker
     {
         boolean res;
         // .'$Model'
-        res = json_model_41(val, path, rep);
+        res = json_model_42(val, path, rep);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected $RootModel [.'$Model']", path);
@@ -63,12 +63,12 @@ public class json_model_moschin extends ModelChecker
     }
     
     // check $Model#RootModel (.'$Model#RootModel')
-    public boolean json_model_41(Object val, Path path, Report rep)
+    public boolean json_model_42(Object val, Path path, Report rep)
     {
         boolean res;
         // .'$Model#RootModel'
         // .'$Model#RootModel'.'|'.0
-        res = json_model_33(val, path, rep);
+        res = json_model_34(val, path, rep);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected $ScalarModel [.'$Model#RootModel'.'|'.0]", path);
@@ -76,7 +76,7 @@ public class json_model_moschin extends ModelChecker
         if (! res)
         {
             // .'$Model#RootModel'.'|'.1
-            res = json_model_20(val, path, rep);
+            res = json_model_21(val, path, rep);
             if (! res)
             {
                 if (rep != null) rep.addEntry("unexpected $Array [.'$Model#RootModel'.'|'.1]", path);
@@ -84,7 +84,7 @@ public class json_model_moschin extends ModelChecker
             if (! res)
             {
                 // .'$Model#RootModel'.'|'.2
-                res = json_model_40(val, path, rep);
+                res = json_model_41(val, path, rep);
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected $Root [.'$Model#RootModel'.'|'.2]", path);
@@ -103,7 +103,7 @@ public class json_model_moschin extends ModelChecker
     }
     
     // check $Model#Array (.'$Model#Array')
-    public boolean json_model_20(Object val, Path path, Report rep)
+    public boolean json_model_21(Object val, Path path, Report rep)
     {
         boolean res;
         // .'$Model#Array'
@@ -118,28 +118,10 @@ public class json_model_moschin extends ModelChecker
                 Object arr_0_item = arr_0_item_loop.next();
                 Path arr_0_lpath = new Path(arr_0_idx, path);
                 // .'$Model#Array'.0
-                // .'$Model#Array'.0.'|'.0
-                res = json_model_34(arr_0_item, (path != null ? arr_0_lpath : null), rep);
+                res = json_model_20(arr_0_item, (path != null ? arr_0_lpath : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $Model [.'$Model#Array'.0.'|'.0]", (path != null ? arr_0_lpath : null));
-                }
-                if (! res)
-                {
-                    // .'$Model#Array'.0.'|'.1
-                    res = json_model_7(arr_0_item, (path != null ? arr_0_lpath : null), rep);
-                    if (! res)
-                    {
-                        if (rep != null) rep.addEntry("unexpected $ArrayComment [.'$Model#Array'.0.'|'.1]", (path != null ? arr_0_lpath : null));
-                    }
-                }
-                if (res)
-                {
-                    if (rep != null) rep.clearEntries();
-                }
-                else
-                {
-                    if (rep != null) rep.addEntry("no model matched [.'$Model#Array'.0.'|']", (path != null ? arr_0_lpath : null));
+                    if (rep != null) rep.addEntry("unexpected $CModel [.'$Model#Array'.0]", (path != null ? arr_0_lpath : null));
                 }
                 if (! res)
                 {
@@ -150,6 +132,37 @@ public class json_model_moschin extends ModelChecker
         if (! res)
         {
             if (rep != null) rep.addEntry("not array or unexpected array [.'$Model#Array']", path);
+        }
+        return res;
+    }
+    
+    // check $Model#CModel (.'$Model#CModel')
+    public boolean json_model_20(Object val, Path path, Report rep)
+    {
+        boolean res;
+        // .'$Model#CModel'
+        // .'$Model#CModel'.'|'.0
+        res = json_model_35(val, path, rep);
+        if (! res)
+        {
+            if (rep != null) rep.addEntry("unexpected $Model [.'$Model#CModel'.'|'.0]", path);
+        }
+        if (! res)
+        {
+            // .'$Model#CModel'.'|'.1
+            res = json_model_7(val, path, rep);
+            if (! res)
+            {
+                if (rep != null) rep.addEntry("unexpected $ArrayComment [.'$Model#CModel'.'|'.1]", path);
+            }
+        }
+        if (res)
+        {
+            if (rep != null) rep.clearEntries();
+        }
+        else
+        {
+            if (rep != null) rep.addEntry("no model matched [.'$Model#CModel'.'|']", path);
         }
         return res;
     }
@@ -169,7 +182,7 @@ public class json_model_moschin extends ModelChecker
     }
     
     // check $Model#ScalarModel (.'$Model#ScalarModel')
-    public boolean json_model_33(Object val, Path path, Report rep)
+    public boolean json_model_34(Object val, Path path, Report rep)
     {
         boolean res;
         // .'$Model#ScalarModel'
@@ -435,12 +448,12 @@ public class json_model_moschin extends ModelChecker
     }
     
     // check $Model#Model (.'$Model#Model')
-    public boolean json_model_34(Object val, Path path, Report rep)
+    public boolean json_model_35(Object val, Path path, Report rep)
     {
         boolean res;
         // .'$Model#Model'
         // .'$Model#Model'.'|'.0
-        res = json_model_33(val, path, rep);
+        res = json_model_34(val, path, rep);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected $ScalarModel [.'$Model#Model'.'|'.0]", path);
@@ -448,7 +461,7 @@ public class json_model_moschin extends ModelChecker
         if (! res)
         {
             // .'$Model#Model'.'|'.1
-            res = json_model_20(val, path, rep);
+            res = json_model_21(val, path, rep);
             if (! res)
             {
                 if (rep != null) rep.addEntry("unexpected $Array [.'$Model#Model'.'|'.1]", path);
@@ -456,7 +469,7 @@ public class json_model_moschin extends ModelChecker
             if (! res)
             {
                 // .'$Model#Model'.'|'.2
-                res = json_model_30(val, path, rep);
+                res = json_model_31(val, path, rep);
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected $Element [.'$Model#Model'.'|'.2]", path);
@@ -531,11 +544,11 @@ public class json_model_moschin extends ModelChecker
                     return false;
                 }
             }
-            else if (json_model_27(json.strToJSON(prop), (path != null ? lpath_0 : null), rep))
+            else if (json_model_28(json.strToJSON(prop), (path != null ? lpath_0 : null), rep))
             {
                 // handle 1 key props
                 // .'$Model#Element'.'|'.5.'$Prop'
-                res = json_model_34(pval, (path != null ? lpath_0 : null), rep);
+                res = json_model_35(pval, (path != null ? lpath_0 : null), rep);
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected $Model [.'$Model#Element'.'|'.5.'$Prop']", (path != null ? lpath_0 : null));
@@ -612,10 +625,10 @@ public class json_model_moschin extends ModelChecker
                         Object arr_1_item = arr_1_item_loop.next();
                         Path arr_1_lpath = new Path(arr_1_idx, (path != null ? lpath_1 : null));
                         // .'$Model#Element'.'|'.4.'+'.0
-                        res = json_model_34(arr_1_item, ((path != null ? lpath_1 : null) != null ? arr_1_lpath : null), rep);
+                        res = json_model_20(arr_1_item, ((path != null ? lpath_1 : null) != null ? arr_1_lpath : null), rep);
                         if (! res)
                         {
-                            if (rep != null) rep.addEntry("unexpected $Model [.'$Model#Element'.'|'.4.'+'.0]", ((path != null ? lpath_1 : null) != null ? arr_1_lpath : null));
+                            if (rep != null) rep.addEntry("unexpected $CModel [.'$Model#Element'.'|'.4.'+'.0]", ((path != null ? lpath_1 : null) != null ? arr_1_lpath : null));
                         }
                         if (! res)
                         {
@@ -741,10 +754,10 @@ public class json_model_moschin extends ModelChecker
                         Object arr_2_item = arr_2_item_loop.next();
                         Path arr_2_lpath = new Path(arr_2_idx, (path != null ? lpath_2 : null));
                         // .'$Model#Element'.'|'.3.'^'.0
-                        res = json_model_34(arr_2_item, ((path != null ? lpath_2 : null) != null ? arr_2_lpath : null), rep);
+                        res = json_model_20(arr_2_item, ((path != null ? lpath_2 : null) != null ? arr_2_lpath : null), rep);
                         if (! res)
                         {
-                            if (rep != null) rep.addEntry("unexpected $Model [.'$Model#Element'.'|'.3.'^'.0]", ((path != null ? lpath_2 : null) != null ? arr_2_lpath : null));
+                            if (rep != null) rep.addEntry("unexpected $CModel [.'$Model#Element'.'|'.3.'^'.0]", ((path != null ? lpath_2 : null) != null ? arr_2_lpath : null));
                         }
                         if (! res)
                         {
@@ -870,10 +883,10 @@ public class json_model_moschin extends ModelChecker
                         Object arr_3_item = arr_3_item_loop.next();
                         Path arr_3_lpath = new Path(arr_3_idx, (path != null ? lpath_3 : null));
                         // .'$Model#Element'.'|'.2.'&'.0
-                        res = json_model_34(arr_3_item, ((path != null ? lpath_3 : null) != null ? arr_3_lpath : null), rep);
+                        res = json_model_20(arr_3_item, ((path != null ? lpath_3 : null) != null ? arr_3_lpath : null), rep);
                         if (! res)
                         {
-                            if (rep != null) rep.addEntry("unexpected $Model [.'$Model#Element'.'|'.2.'&'.0]", ((path != null ? lpath_3 : null) != null ? arr_3_lpath : null));
+                            if (rep != null) rep.addEntry("unexpected $CModel [.'$Model#Element'.'|'.2.'&'.0]", ((path != null ? lpath_3 : null) != null ? arr_3_lpath : null));
                         }
                         if (! res)
                         {
@@ -999,10 +1012,10 @@ public class json_model_moschin extends ModelChecker
                         Object arr_4_item = arr_4_item_loop.next();
                         Path arr_4_lpath = new Path(arr_4_idx, (path != null ? lpath_4 : null));
                         // .'$Model#Element'.'|'.1.'|'.0
-                        res = json_model_34(arr_4_item, ((path != null ? lpath_4 : null) != null ? arr_4_lpath : null), rep);
+                        res = json_model_20(arr_4_item, ((path != null ? lpath_4 : null) != null ? arr_4_lpath : null), rep);
                         if (! res)
                         {
-                            if (rep != null) rep.addEntry("unexpected $Model [.'$Model#Element'.'|'.1.'|'.0]", ((path != null ? lpath_4 : null) != null ? arr_4_lpath : null));
+                            if (rep != null) rep.addEntry("unexpected $CModel [.'$Model#Element'.'|'.1.'|'.0]", ((path != null ? lpath_4 : null) != null ? arr_4_lpath : null));
                         }
                         if (! res)
                         {
@@ -1127,7 +1140,7 @@ public class json_model_moschin extends ModelChecker
                 // handle must @ property
                 must_count += 1;
                 // .'$Model#Element'.'|'.0.'@'
-                res = json_model_34(pval, (path != null ? lpath_5 : null), rep);
+                res = json_model_35(pval, (path != null ? lpath_5 : null), rep);
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected $Model [.'$Model#Element'.'|'.0.'@']", (path != null ? lpath_5 : null));
@@ -1202,7 +1215,7 @@ public class json_model_moschin extends ModelChecker
             {
                 // handle may .in property
                 // .'$Model#Element'.'|'.0.'.in'
-                res = json_model_34(pval, (path != null ? lpath_5 : null), rep);
+                res = json_model_35(pval, (path != null ? lpath_5 : null), rep);
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected $Model [.'$Model#Element'.'|'.0.'.in']", (path != null ? lpath_5 : null));
@@ -1276,7 +1289,7 @@ public class json_model_moschin extends ModelChecker
     }
     
     // check $Model#Element (.'$Model#Element')
-    public boolean json_model_30(Object val, Path path, Report rep)
+    public boolean json_model_31(Object val, Path path, Report rep)
     {
         boolean res;
         // .'$Model#Element'
@@ -1436,7 +1449,7 @@ public class json_model_moschin extends ModelChecker
     }
     
     // check $Model#Prop (.'$Model#Prop')
-    public boolean json_model_27(Object val, Path path, Report rep)
+    public boolean json_model_28(Object val, Path path, Report rep)
     {
         boolean res;
         // .'$Model#Prop'
@@ -1598,7 +1611,7 @@ public class json_model_moschin extends ModelChecker
             {
                 // handle 1 key props
                 // .'$Model#Root'.'|'.5.'$'.'$Identifier'
-                res = json_model_34(pval, (path != null ? lpath_7 : null), rep);
+                res = json_model_35(pval, (path != null ? lpath_7 : null), rep);
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected $Model [.'$Model#Root'.'|'.5.'$'.'$Identifier']", (path != null ? lpath_7 : null));
@@ -1785,7 +1798,7 @@ public class json_model_moschin extends ModelChecker
             {
                 // handle 2 re props
                 // .'$Model#Root'.'|'.5.'%'.'/^\\$.*$/'
-                res = json_model_32(pval, (path != null ? lpath_8 : null), rep);
+                res = json_model_33(pval, (path != null ? lpath_8 : null), rep);
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected $Transformation [.'$Model#Root'.'|'.5.'%'.'/^\\\\$.*$/']", (path != null ? lpath_8 : null));
@@ -1906,11 +1919,11 @@ public class json_model_moschin extends ModelChecker
                     return false;
                 }
             }
-            else if (json_model_27(json.strToJSON(prop), (path != null ? lpath_6 : null), rep))
+            else if (json_model_28(json.strToJSON(prop), (path != null ? lpath_6 : null), rep))
             {
                 // handle 1 key props
                 // .'$Model#Root'.'|'.5.'$Prop'
-                res = json_model_34(pval, (path != null ? lpath_6 : null), rep);
+                res = json_model_35(pval, (path != null ? lpath_6 : null), rep);
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected $Model [.'$Model#Root'.'|'.5.'$Prop']", (path != null ? lpath_6 : null));
@@ -2019,7 +2032,7 @@ public class json_model_moschin extends ModelChecker
             {
                 // handle 1 key props
                 // .'$Model#Root'.'|'.4.'$'.'$Identifier'
-                res = json_model_34(pval, (path != null ? lpath_10 : null), rep);
+                res = json_model_35(pval, (path != null ? lpath_10 : null), rep);
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected $Model [.'$Model#Root'.'|'.4.'$'.'$Identifier']", (path != null ? lpath_10 : null));
@@ -2196,7 +2209,7 @@ public class json_model_moschin extends ModelChecker
             {
                 // handle 2 re props
                 // .'$Model#Root'.'|'.4.'%'.'/^\\$.*$/'
-                res = json_model_32(pval, (path != null ? lpath_11 : null), rep);
+                res = json_model_33(pval, (path != null ? lpath_11 : null), rep);
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected $Transformation [.'$Model#Root'.'|'.4.'%'.'/^\\\\$.*$/']", (path != null ? lpath_11 : null));
@@ -2259,10 +2272,10 @@ public class json_model_moschin extends ModelChecker
                         Object arr_6_item = arr_6_item_loop.next();
                         Path arr_6_lpath = new Path(arr_6_idx, (path != null ? lpath_9 : null));
                         // .'$Model#Root'.'|'.4.'+'.0
-                        res = json_model_34(arr_6_item, ((path != null ? lpath_9 : null) != null ? arr_6_lpath : null), rep);
+                        res = json_model_20(arr_6_item, ((path != null ? lpath_9 : null) != null ? arr_6_lpath : null), rep);
                         if (! res)
                         {
-                            if (rep != null) rep.addEntry("unexpected $Model [.'$Model#Root'.'|'.4.'+'.0]", ((path != null ? lpath_9 : null) != null ? arr_6_lpath : null));
+                            if (rep != null) rep.addEntry("unexpected $CModel [.'$Model#Root'.'|'.4.'+'.0]", ((path != null ? lpath_9 : null) != null ? arr_6_lpath : null));
                         }
                         if (! res)
                         {
@@ -2465,7 +2478,7 @@ public class json_model_moschin extends ModelChecker
             {
                 // handle 1 key props
                 // .'$Model#Root'.'|'.3.'$'.'$Identifier'
-                res = json_model_34(pval, (path != null ? lpath_13 : null), rep);
+                res = json_model_35(pval, (path != null ? lpath_13 : null), rep);
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected $Model [.'$Model#Root'.'|'.3.'$'.'$Identifier']", (path != null ? lpath_13 : null));
@@ -2642,7 +2655,7 @@ public class json_model_moschin extends ModelChecker
             {
                 // handle 2 re props
                 // .'$Model#Root'.'|'.3.'%'.'/^\\$.*$/'
-                res = json_model_32(pval, (path != null ? lpath_14 : null), rep);
+                res = json_model_33(pval, (path != null ? lpath_14 : null), rep);
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected $Transformation [.'$Model#Root'.'|'.3.'%'.'/^\\\\$.*$/']", (path != null ? lpath_14 : null));
@@ -2705,10 +2718,10 @@ public class json_model_moschin extends ModelChecker
                         Object arr_8_item = arr_8_item_loop.next();
                         Path arr_8_lpath = new Path(arr_8_idx, (path != null ? lpath_12 : null));
                         // .'$Model#Root'.'|'.3.'^'.0
-                        res = json_model_34(arr_8_item, ((path != null ? lpath_12 : null) != null ? arr_8_lpath : null), rep);
+                        res = json_model_20(arr_8_item, ((path != null ? lpath_12 : null) != null ? arr_8_lpath : null), rep);
                         if (! res)
                         {
-                            if (rep != null) rep.addEntry("unexpected $Model [.'$Model#Root'.'|'.3.'^'.0]", ((path != null ? lpath_12 : null) != null ? arr_8_lpath : null));
+                            if (rep != null) rep.addEntry("unexpected $CModel [.'$Model#Root'.'|'.3.'^'.0]", ((path != null ? lpath_12 : null) != null ? arr_8_lpath : null));
                         }
                         if (! res)
                         {
@@ -2911,7 +2924,7 @@ public class json_model_moschin extends ModelChecker
             {
                 // handle 1 key props
                 // .'$Model#Root'.'|'.2.'$'.'$Identifier'
-                res = json_model_34(pval, (path != null ? lpath_16 : null), rep);
+                res = json_model_35(pval, (path != null ? lpath_16 : null), rep);
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected $Model [.'$Model#Root'.'|'.2.'$'.'$Identifier']", (path != null ? lpath_16 : null));
@@ -3088,7 +3101,7 @@ public class json_model_moschin extends ModelChecker
             {
                 // handle 2 re props
                 // .'$Model#Root'.'|'.2.'%'.'/^\\$.*$/'
-                res = json_model_32(pval, (path != null ? lpath_17 : null), rep);
+                res = json_model_33(pval, (path != null ? lpath_17 : null), rep);
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected $Transformation [.'$Model#Root'.'|'.2.'%'.'/^\\\\$.*$/']", (path != null ? lpath_17 : null));
@@ -3151,10 +3164,10 @@ public class json_model_moschin extends ModelChecker
                         Object arr_10_item = arr_10_item_loop.next();
                         Path arr_10_lpath = new Path(arr_10_idx, (path != null ? lpath_15 : null));
                         // .'$Model#Root'.'|'.2.'&'.0
-                        res = json_model_34(arr_10_item, ((path != null ? lpath_15 : null) != null ? arr_10_lpath : null), rep);
+                        res = json_model_20(arr_10_item, ((path != null ? lpath_15 : null) != null ? arr_10_lpath : null), rep);
                         if (! res)
                         {
-                            if (rep != null) rep.addEntry("unexpected $Model [.'$Model#Root'.'|'.2.'&'.0]", ((path != null ? lpath_15 : null) != null ? arr_10_lpath : null));
+                            if (rep != null) rep.addEntry("unexpected $CModel [.'$Model#Root'.'|'.2.'&'.0]", ((path != null ? lpath_15 : null) != null ? arr_10_lpath : null));
                         }
                         if (! res)
                         {
@@ -3357,7 +3370,7 @@ public class json_model_moschin extends ModelChecker
             {
                 // handle 1 key props
                 // .'$Model#Root'.'|'.1.'$'.'$Identifier'
-                res = json_model_34(pval, (path != null ? lpath_19 : null), rep);
+                res = json_model_35(pval, (path != null ? lpath_19 : null), rep);
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected $Model [.'$Model#Root'.'|'.1.'$'.'$Identifier']", (path != null ? lpath_19 : null));
@@ -3534,7 +3547,7 @@ public class json_model_moschin extends ModelChecker
             {
                 // handle 2 re props
                 // .'$Model#Root'.'|'.1.'%'.'/^\\$.*$/'
-                res = json_model_32(pval, (path != null ? lpath_20 : null), rep);
+                res = json_model_33(pval, (path != null ? lpath_20 : null), rep);
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected $Transformation [.'$Model#Root'.'|'.1.'%'.'/^\\\\$.*$/']", (path != null ? lpath_20 : null));
@@ -3597,10 +3610,10 @@ public class json_model_moschin extends ModelChecker
                         Object arr_12_item = arr_12_item_loop.next();
                         Path arr_12_lpath = new Path(arr_12_idx, (path != null ? lpath_18 : null));
                         // .'$Model#Root'.'|'.1.'|'.0
-                        res = json_model_34(arr_12_item, ((path != null ? lpath_18 : null) != null ? arr_12_lpath : null), rep);
+                        res = json_model_20(arr_12_item, ((path != null ? lpath_18 : null) != null ? arr_12_lpath : null), rep);
                         if (! res)
                         {
-                            if (rep != null) rep.addEntry("unexpected $Model [.'$Model#Root'.'|'.1.'|'.0]", ((path != null ? lpath_18 : null) != null ? arr_12_lpath : null));
+                            if (rep != null) rep.addEntry("unexpected $CModel [.'$Model#Root'.'|'.1.'|'.0]", ((path != null ? lpath_18 : null) != null ? arr_12_lpath : null));
                         }
                         if (! res)
                         {
@@ -3829,7 +3842,7 @@ public class json_model_moschin extends ModelChecker
             {
                 // handle 1 key props
                 // .'$Model#Root'.'|'.0.'$'.'$Identifier'
-                res = json_model_34(pval, (path != null ? lpath_22 : null), rep);
+                res = json_model_35(pval, (path != null ? lpath_22 : null), rep);
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected $Model [.'$Model#Root'.'|'.0.'$'.'$Identifier']", (path != null ? lpath_22 : null));
@@ -4019,7 +4032,7 @@ public class json_model_moschin extends ModelChecker
             {
                 // handle 2 re props
                 // .'$Model#Root'.'|'.0.'%'.'/^\\$.*$/'
-                res = json_model_32(pval, (path != null ? lpath_23 : null), rep);
+                res = json_model_33(pval, (path != null ? lpath_23 : null), rep);
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected $Transformation [.'$Model#Root'.'|'.0.'%'.'/^\\\\$.*$/']", (path != null ? lpath_23 : null));
@@ -4056,7 +4069,7 @@ public class json_model_moschin extends ModelChecker
     {
         boolean res;
         // .'$Model#Root'.'|'.0.'.in'
-        res = json_model_34(val, path, rep);
+        res = json_model_35(val, path, rep);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected $Model [.'$Model#Root'.'|'.0.'.in']", path);
@@ -4138,7 +4151,7 @@ public class json_model_moschin extends ModelChecker
                 // handle must @ property
                 must_count += 1;
                 // .'$Model#Root'.'|'.0.'@'
-                res = json_model_34(pval, (path != null ? lpath_21 : null), rep);
+                res = json_model_35(pval, (path != null ? lpath_21 : null), rep);
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected $Model [.'$Model#Root'.'|'.0.'@']", (path != null ? lpath_21 : null));
@@ -4221,7 +4234,7 @@ public class json_model_moschin extends ModelChecker
     }
     
     // check $Model#Root (.'$Model#Root')
-    public boolean json_model_40(Object val, Path path, Report rep)
+    public boolean json_model_41(Object val, Path path, Report rep)
     {
         boolean res;
         // .'$Model#Root'
@@ -4539,12 +4552,12 @@ public class json_model_moschin extends ModelChecker
     }
     
     // check $Model#Transformation (.'$Model#Transformation')
-    public boolean json_model_32(Object val, Path path, Report rep)
+    public boolean json_model_33(Object val, Path path, Report rep)
     {
         boolean res;
         // .'$Model#Transformation'
         // .'$Model#Transformation'.'|'.0
-        res = json_model_34(val, path, rep);
+        res = json_model_35(val, path, rep);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected $Model [.'$Model#Transformation'.'|'.0]", path);

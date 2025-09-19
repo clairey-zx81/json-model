@@ -288,7 +288,7 @@
   [ true,  { "or": { "o1": "12:34:56" } } ],
   [ false, { "or": { "o1": "" } } ],
   [ false, { "or": { "o1": "not a date or time" } } ],
-  [ false, { "or": { "o1": "2020-07-29T12:34:56" } } ],
+  [ false, { "or": { "o1": "2020-07-29 is a date..." } } ],
   [ false, { "or": { "o1": 123456 } } ],
   [ false, { "or": { "o1": null } } ],
   [ true,  { "or": { "o2": 42 } } ],

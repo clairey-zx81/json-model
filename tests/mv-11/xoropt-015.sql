@@ -5,24 +5,24 @@
 -- JSON_MODEL_VERSION is 2
 CREATE EXTENSION IF NOT EXISTS json_model;
 
--- check $V (.'$V')
+-- check $Vv (.'$Vv')
 CREATE OR REPLACE FUNCTION json_model_2(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
 BEGIN
-  -- .'$V'
-  -- .'$V'.'|'.0
+  -- .'$Vv'
+  -- .'$Vv'.'|'.0
   res := JSONB_TYPEOF(val) = 'number' AND (val)::INT8 = (val)::FLOAT8;
   IF NOT res THEN
-    -- .'$V'.'|'.1
+    -- .'$Vv'.'|'.1
     res := JSONB_TYPEOF(val) = 'string';
   END IF;
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
 
--- object .'$X'
+-- object .'$Xx'
 CREATE OR REPLACE FUNCTION _jm_obj_0(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
@@ -39,7 +39,7 @@ BEGIN
     IF prop = 'X' THEN
       -- handle must X property
       must_count := must_count + 1;
-      -- .'$X'.X
+      -- .'$Xx'.X
       res := JSONB_TYPEOF(pval) = 'string';
       IF NOT res THEN
         RETURN FALSE;
@@ -55,19 +55,19 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check $X (.'$X')
+-- check $Xx (.'$Xx')
 CREATE OR REPLACE FUNCTION json_model_3(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
 BEGIN
-  -- .'$X'
+  -- .'$Xx'
   res := _jm_obj_0(val, path, rep);
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
 
--- object .'$Y'
+-- object .'$Yy'
 CREATE OR REPLACE FUNCTION _jm_obj_1(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
@@ -84,7 +84,7 @@ BEGIN
     IF prop = 'Y' THEN
       -- handle must Y property
       must_count := must_count + 1;
-      -- .'$Y'.Y
+      -- .'$Yy'.Y
       res := JSONB_TYPEOF(pval) = 'string';
       IF NOT res THEN
         RETURN FALSE;
@@ -100,19 +100,19 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check $Y (.'$Y')
+-- check $Yy (.'$Yy')
 CREATE OR REPLACE FUNCTION json_model_4(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
 BEGIN
-  -- .'$Y'
+  -- .'$Yy'
   res := _jm_obj_1(val, path, rep);
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
 
--- object .'$E'.'|'.1
+-- object .'$Ee'.'|'.1
 CREATE OR REPLACE FUNCTION _jm_obj_2(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
@@ -129,14 +129,14 @@ BEGIN
     IF prop = 'Y' THEN
       -- handle must Y property
       must_count := must_count + 1;
-      -- .'$E'.'|'.1.Y
+      -- .'$Ee'.'|'.1.Y
       res := JSONB_TYPEOF(pval) = 'string';
       IF NOT res THEN
         RETURN FALSE;
       END IF;
     ELSEIF prop = 'Z' THEN
       -- handle may Z property
-      -- .'$E'.'|'.1.Z
+      -- .'$Ee'.'|'.1.Z
       res := JSONB_TYPEOF(pval) = 'string';
       IF NOT res THEN
         RETURN FALSE;
@@ -152,7 +152,7 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- object .'$E'.'|'.0
+-- object .'$Ee'.'|'.0
 CREATE OR REPLACE FUNCTION _jm_obj_3(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
@@ -169,14 +169,14 @@ BEGIN
     IF prop = 'X' THEN
       -- handle must X property
       must_count := must_count + 1;
-      -- .'$E'.'|'.0.X
+      -- .'$Ee'.'|'.0.X
       res := JSONB_TYPEOF(pval) = 'string';
       IF NOT res THEN
         RETURN FALSE;
       END IF;
     ELSEIF prop = 'Z' THEN
       -- handle may Z property
-      -- .'$E'.'|'.0.Z
+      -- .'$Ee'.'|'.0.Z
       res := JSONB_TYPEOF(pval) = 'string';
       IF NOT res THEN
         RETURN FALSE;
@@ -192,19 +192,19 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check $E (.'$E')
+-- check $Ee (.'$Ee')
 CREATE OR REPLACE FUNCTION json_model_5(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
 BEGIN
-  -- .'$E'
+  -- .'$Ee'
   res := JSONB_TYPEOF(val) = 'object';
   IF res THEN
-    -- .'$E'.'|'.0
+    -- .'$Ee'.'|'.0
     res := _jm_obj_3(val, path, rep);
     IF NOT res THEN
-      -- .'$E'.'|'.1
+      -- .'$Ee'.'|'.1
       res := _jm_obj_2(val, path, rep);
     END IF;
   END IF;
@@ -212,7 +212,7 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check $M (.'$M')
+-- check $Mm (.'$Mm')
 CREATE OR REPLACE FUNCTION json_model_6(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
@@ -220,15 +220,15 @@ DECLARE
   xc_0 int;
   xr_0 bool;
 BEGIN
-  -- .'$M'
+  -- .'$Mm'
   -- generic xor list
   xc_0 := 0;
-  -- .'$M'.'^'.0
+  -- .'$Mm'.'^'.0
   xr_0 := json_model_2(val, path, rep);
   IF xr_0 THEN
     xc_0 := xc_0 + 1;
   END IF;
-  -- .'$M'.'^'.1
+  -- .'$Mm'.'^'.1
   xr_0 := json_model_5(val, path, rep);
   IF xr_0 THEN
     xc_0 := xc_0 + 1;
@@ -253,7 +253,7 @@ $$ LANGUAGE PLpgSQL;
 CREATE OR REPLACE FUNCTION check_model_map(name TEXT)
 RETURNS TEXT STRICT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
-  map JSONB := JSONB '{"":"json_model_6","V":"json_model_2","X":"json_model_3","Y":"json_model_4","E":"json_model_5","M":"json_model_6"}';
+  map JSONB := JSONB '{"":"json_model_6","Vv":"json_model_2","Xx":"json_model_3","Yy":"json_model_4","Ee":"json_model_5","Mm":"json_model_6"}';
 BEGIN
   RETURN map->>name;
 END;

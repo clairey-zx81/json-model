@@ -22,33 +22,33 @@ def check_model(val: Jsonable, name: str = "", rep: Report = None) -> bool:
 
 check_model_map: PropMap
 
-# check $X (.'$X')
+# check $Xx (.'$Xx')
 def json_model_2(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
-    # .'$X'
-    # .'$X'.'|'.0
+    # .'$Xx'
+    # .'$Xx'.'|'.0
     res = val is None
     if not res:
-        rep is None or rep.append(("not null [.'$X'.'|'.0]", path))
+        rep is None or rep.append(("not null [.'$Xx'.'|'.0]", path))
     if not res:
-        # .'$X'.'|'.1
+        # .'$Xx'.'|'.1
         res = isinstance(val, bool)
         if not res:
-            rep is None or rep.append(("not a bool [.'$X'.'|'.1]", path))
+            rep is None or rep.append(("not a bool [.'$Xx'.'|'.1]", path))
         if not res:
-            # .'$X'.'|'.2
+            # .'$Xx'.'|'.2
             res = isinstance(val, int) and not isinstance(val, bool) and val >= 1
             if not res:
-                rep is None or rep.append(("not a 1 strict int [.'$X'.'|'.2]", path))
+                rep is None or rep.append(("not a 1 strict int [.'$Xx'.'|'.2]", path))
             if not res:
-                # .'$X'.'|'.3
+                # .'$Xx'.'|'.3
                 res = isinstance(val, float) and val > 0.0
                 if not res:
-                    rep is None or rep.append(("not a 1.0 strict float [.'$X'.'|'.3]", path))
+                    rep is None or rep.append(("not a 1.0 strict float [.'$Xx'.'|'.3]", path))
     if res:
         rep is None or rep.clear()
     else:
-        rep is None or rep.append(("no model matched [.'$X'.'|']", path))
+        rep is None or rep.append(("no model matched [.'$Xx'.'|']", path))
     return res
 
 # check $ (.)
@@ -61,7 +61,7 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'^'.0
     xr_0 = json_model_2(val, path, rep)
     if not xr_0:
-        rep is None or rep.append(("unexpected $X [.'^'.0]", path))
+        rep is None or rep.append(("unexpected $Xx [.'^'.0]", path))
     if xr_0:
         xc_0 += 1
     # .'^'.1
@@ -72,7 +72,7 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
             # .'^'.1.0
             xr_0 = json_model_2(arr_0_item, arr_0_lpath if path is not None else None, rep)
             if not xr_0:
-                rep is None or rep.append(("unexpected $X [.'^'.1.0]", arr_0_lpath if path is not None else None))
+                rep is None or rep.append(("unexpected $Xx [.'^'.1.0]", arr_0_lpath if path is not None else None))
             if not xr_0:
                 break
     if not xr_0:
@@ -98,7 +98,7 @@ def check_model_init():
         global check_model_map
         check_model_map = {
             "": json_model_1,
-            "X": json_model_2,
+            "Xx": json_model_2,
         }
 
 # differed module cleanup

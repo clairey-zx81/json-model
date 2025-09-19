@@ -3987,26 +3987,26 @@ DECLARE
   res bool;
 BEGIN
   -- .'$openapi#Model'
-  res := json_model_96(val, path, rep);
+  res := json_model_97(val, path, rep);
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
 
 -- check $openapi#model#Model (.'$openapi#model#Model')
-CREATE OR REPLACE FUNCTION json_model_96(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION json_model_97(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
 BEGIN
   -- .'$openapi#model#Model'
   -- .'$openapi#model#Model'.'|'.0
-  res := json_model_95(val, path, rep);
+  res := json_model_96(val, path, rep);
   IF NOT res THEN
     -- .'$openapi#model#Model'.'|'.1
-    res := json_model_82(val, path, rep);
+    res := json_model_83(val, path, rep);
     IF NOT res THEN
       -- .'$openapi#model#Model'.'|'.2
-      res := json_model_92(val, path, rep);
+      res := json_model_93(val, path, rep);
     END IF;
   END IF;
   RETURN res;
@@ -4014,7 +4014,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check $openapi#model#Array (.'$openapi#model#Array')
-CREATE OR REPLACE FUNCTION json_model_82(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION json_model_83(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -4027,16 +4027,28 @@ BEGIN
     FOR arr_11_idx IN 0 .. JSONB_ARRAY_LENGTH(val) - 1 LOOP
       arr_11_item := val -> arr_11_idx;
       -- .'$openapi#model#Array'.0
-      -- .'$openapi#model#Array'.0.'|'.0
-      res := json_model_96(arr_11_item, NULL, rep);
-      IF NOT res THEN
-        -- .'$openapi#model#Array'.0.'|'.1
-        res := json_model_69(arr_11_item, NULL, rep);
-      END IF;
+      res := json_model_82(arr_11_item, NULL, rep);
       IF NOT res THEN
         EXIT;
       END IF;
     END LOOP;
+  END IF;
+  RETURN res;
+END;
+$$ LANGUAGE PLpgSQL;
+
+-- check $openapi#model#CModel (.'$openapi#model#CModel')
+CREATE OR REPLACE FUNCTION json_model_82(val JSONB, path TEXT[], rep jm_report_entry[])
+RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
+DECLARE
+  res bool;
+BEGIN
+  -- .'$openapi#model#CModel'
+  -- .'$openapi#model#CModel'.'|'.0
+  res := json_model_97(val, path, rep);
+  IF NOT res THEN
+    -- .'$openapi#model#CModel'.'|'.1
+    res := json_model_69(val, path, rep);
   END IF;
   RETURN res;
 END;
@@ -4074,10 +4086,10 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF json_model_89(TO_JSONB(prop), NULL, rep) THEN
+    ELSEIF json_model_90(TO_JSONB(prop), NULL, rep) THEN
       -- handle 1 key props
       -- .'$openapi#model#Element'.'|'.5.'$Prop'
-      res := json_model_96(pval, NULL, rep);
+      res := json_model_97(pval, NULL, rep);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -4121,7 +4133,7 @@ BEGIN
         FOR arr_12_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
           arr_12_item := pval -> arr_12_idx;
           -- .'$openapi#model#Element'.'|'.4.'+'.0
-          res := json_model_96(arr_12_item, NULL, rep);
+          res := json_model_82(arr_12_item, NULL, rep);
           IF NOT res THEN
             EXIT;
           END IF;
@@ -4180,7 +4192,7 @@ BEGIN
         FOR arr_13_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
           arr_13_item := pval -> arr_13_idx;
           -- .'$openapi#model#Element'.'|'.3.'^'.0
-          res := json_model_96(arr_13_item, NULL, rep);
+          res := json_model_82(arr_13_item, NULL, rep);
           IF NOT res THEN
             EXIT;
           END IF;
@@ -4239,7 +4251,7 @@ BEGIN
         FOR arr_14_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
           arr_14_item := pval -> arr_14_idx;
           -- .'$openapi#model#Element'.'|'.2.'&'.0
-          res := json_model_96(arr_14_item, NULL, rep);
+          res := json_model_82(arr_14_item, NULL, rep);
           IF NOT res THEN
             EXIT;
           END IF;
@@ -4298,7 +4310,7 @@ BEGIN
         FOR arr_15_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
           arr_15_item := pval -> arr_15_idx;
           -- .'$openapi#model#Element'.'|'.1.'|'.0
-          res := json_model_96(arr_15_item, NULL, rep);
+          res := json_model_82(arr_15_item, NULL, rep);
           IF NOT res THEN
             EXIT;
           END IF;
@@ -4366,7 +4378,7 @@ BEGIN
       -- handle must @ property
       must_count := must_count + 1;
       -- .'$openapi#model#Element'.'|'.0.'@'
-      res := json_model_96(pval, NULL, rep);
+      res := json_model_97(pval, NULL, rep);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -4417,7 +4429,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check $openapi#model#Element (.'$openapi#model#Element')
-CREATE OR REPLACE FUNCTION json_model_92(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION json_model_93(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -4503,7 +4515,7 @@ END;
 $$ LANGUAGE plpgsql;
 
 -- check $openapi#model#Prop (.'$openapi#model#Prop')
-CREATE OR REPLACE FUNCTION json_model_89(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION json_model_90(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -4674,7 +4686,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check $openapi#model#ScalarModel (.'$openapi#model#ScalarModel')
-CREATE OR REPLACE FUNCTION json_model_95(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION json_model_96(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
