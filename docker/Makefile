@@ -45,18 +45,29 @@ docker.status:
 	docker container ps -a
 	docker image ls -a
 
+BRANCH  = $(shell git branch --show-current)
+GITVERS = $(shell git rev-parse --short=8 HEAD)
+VERSION = $(shell ./jmc --version)
+ifeq ($(BRANCH), main)
 TAG = latest
+else
+TAG = test
+endif
+
+.PHONY: versions
+versions:
+	@ \
+	echo " - tag: $(TAG)"; \
+	echo " - branch: $(BRANCH)"; \
+	echo " - gitvers: $(GITVERS)"; \
+	echo " - version: $(VERSION)"
 
 .PHONY: docker.tag
 docker.tag: .build
-	# tag latest
 	docker tag jmc zx80/jmc:$(TAG)
-	# tag package version
-	gitvers=$$(git rev-parse --short=8 HEAD)
-	docker tag jmc zx80/jmc:$$gitvers
-	# git commit
-	version=$$(./jmc --version| tr -d '\012\015')
-	docker tag jmc zx80/jmc:$$version
+	docker tag jmc zx80/jmc:$(BRANCH)
+	docker tag jmc zx80/jmc:$(GITVERS)
+	docker tag jmc zx80/jmc:$(VERSION)
 
 .PHONY: docker.push
 docker.push: docker.tag
