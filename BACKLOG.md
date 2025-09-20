@@ -34,6 +34,7 @@
 - [ ] c-backend: header file for generated code?
 - [ ] tests: perl _uninitialized value $tag_0 in hash element at `./mv-18/dis_01.pl:171._
 - [ ] backend: intermediate symbolic json code generation
+- [ ] models: write model for json code!
 - [ ] backend: optimize output patterns with previous representation
 - [ ] backend: generate output source code from symbolic json code
 
