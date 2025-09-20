@@ -37,6 +37,8 @@
 - [ ] models: write model for json code!
 - [ ] backend: optimize output patterns with previous representation
 - [ ] backend: generate output source code from symbolic json code
+- [ ] command: allow to pass some options from environment variables?
+- [ ] command: allow to pass some options from rc file?
 
 ## Re Do
 
