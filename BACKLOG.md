@@ -6,6 +6,7 @@
 - [x] static: detect discriminators from references
 - [x] static: detect partial discriminators
 - [x] static: detect partial discriminators with other stuff
+- [x] docker: generate image for current branch
 - [ ] artifact: make work with dind
 - [ ] static: skip model function to call obj function directly on references
 - [ ] static: recognize already compile objects and reuse function esp under no no-reporting?

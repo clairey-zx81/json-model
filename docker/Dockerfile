@@ -1,6 +1,8 @@
 #
 # JSON Model Compiler Multi-Language Environment
 #
+ARG JMC=main
+
 FROM ubuntu:24.04
 LABEL description="JSON Model Compiler"
 
@@ -63,7 +65,7 @@ RUN npm install re2
 # pip install json-model-compiler json-schema-utils
 # npm install json_model_runtime
 
-RUN git clone https://github.com/clairey-zx81/json-model.git
+RUN git clone -b ${JMC} https://github.com/clairey-zx81/json-model.git
 RUN /app/venv/bin/pip install -e ./json-model
 RUN npm install file:./json-model/json_model/runtime/js
 RUN ls -la node_modules
@@ -91,7 +93,12 @@ RUN for artifact in \
     do \
         mvn dependency:copy -Dartifact=$artifact -DoutputDirectory=$java ; \
     done
-ENV CLASSPATH=.:/app/workspace:/app/workspace/java:/app/workspace/tmp:/usr/share/java/gnu-getopt.jar:$java/json-model.jar:$java/gson-$gson.jar:$java/jackson-core-$jackson.jar:$java/jackson-databind-$jackson.jar:$java/jackson-annotations-$jackson_ann.jar:$java/jakarta.json-api-$jakarta.jar:$java/johnzon-core-$johnzon.jar
+ENV CLASSPATH=.:/app/workspace:/app/workspace/java:/app/workspace/tmp
+ENV CLASSPATH=$CLASSPATH:$java/json-model.jar
+ENV CLASSPATH=$CLASSPATH:/usr/share/java/gnu-getopt.jar
+ENV CLASSPATH=$CLASSPATH:$java/gson-$gson.jar
+ENV CLASSPATH=$CLASSPATH:$java/jackson-core-$jackson.jar:$java/jackson-databind-$jackson.jar:$java/jackson-annotations-$jackson_ann.jar
+ENV CLASSPATH=$CLASSPATH:$java/jakarta.json-api-$jakarta.jar:$java/johnzon-core-$johnzon.jar
 RUN make -C $java jar
 
 # convenient shell and vi environment

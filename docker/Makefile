@@ -5,6 +5,17 @@
 SHELL   = /bin/bash
 .ONESHELL:
 
+# settings, build for current branch
+BRANCH  = $(shell git branch --show-current)
+GITVERS = $(shell git rev-parse --short=8 HEAD)
+VERSION = $(shell ./jmc --version)
+
+ifeq ($(BRANCH), main)
+TAG = latest
+else
+TAG = test
+endif
+
 #
 # CLEAN
 #
@@ -27,12 +38,13 @@ docker.cleaner:
 # DOCKER
 #
 NOCACHE = --no-cache
+JMC     = $(BRANCH)
 
 .PHONY: docker.build
 docker.build: .build
 
 .build: Dockerfile jmc
-	docker build $(NOCACHE) -t jmc -f Dockerfile . && touch $@
+	docker build $(NOCACHE) --build-arg JMC=$(JMC) -t jmc -f Dockerfile . && touch $@
 
 .PHONY: docker.run
 docker.run: .build
@@ -44,15 +56,6 @@ docker.status:
 	docker system df
 	docker container ps -a
 	docker image ls -a
-
-BRANCH  = $(shell git branch --show-current)
-GITVERS = $(shell git rev-parse --short=8 HEAD)
-VERSION = $(shell ./jmc --version)
-ifeq ($(BRANCH), main)
-TAG = latest
-else
-TAG = test
-endif
 
 .PHONY: versions
 versions:
