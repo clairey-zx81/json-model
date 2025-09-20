@@ -137,6 +137,7 @@ DECLARE
   must_count int;
   prop TEXT;
   pval JSONB;
+  iso_0 bool;
   tag_0 JSONB;
   fun_0 TEXT;
 BEGIN
@@ -149,7 +150,8 @@ BEGIN
       -- handle must movie property
       must_count := must_count + 1;
       -- .movie
-      res := JSONB_TYPEOF(pval) = 'object';
+      iso_0 := JSONB_TYPEOF(pval) = 'object';
+      res := iso_0;
       IF res THEN
         IF pval ? 't' THEN
           tag_0 := pval -> 't';

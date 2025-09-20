@@ -600,7 +600,8 @@ sub json_model_11($$$)
     my ($val, $path, $rep) = @_;
     my $res;
     # .'$geometry'
-    $res = jm_is_object($val);
+    my $iso_0 = jm_is_object($val);
+    $res = $iso_0;
     if ($res)
     {
         if (exists $$val{'type'})

@@ -795,7 +795,8 @@ function json_model_11(val, path, rep)
 {
     let res;
     // .'$geometry'
-    res = Object.prototype.toString.call(val) === '[object Object]';
+    let iso_0 = Object.prototype.toString.call(val) === '[object Object]';
+    res = iso_0;
     if (res)
     {
         if (val.hasOwnProperty("type"))

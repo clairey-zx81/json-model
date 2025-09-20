@@ -1,0 +1,15 @@
+{
+  "#": "xor mix of tagged objects with lone tag",
+  "$": {
+    "d": {"t": "_d", "d": ""},
+    "alternative": {
+      "#": "expecting xor-to-or and tag detection, but not for u",
+      "^": [
+        {"u": "_a", "a": ""},
+        {"t": {"|": ["_b", "_c"]}, "bc": ""},
+        "$d"
+      ]
+    }
+  },
+  "@": "$alternative"
+}

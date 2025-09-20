@@ -71,7 +71,6 @@ my %_jm_obj_22_map;
 sub json_model_13($$$);
 sub json_model_14($$$);
 my %_jm_cst_0;
-my %_jm_cst_1;
 sub _jm_f_43($$$);
 sub _jm_f_44($$$);
 sub _jm_f_45($$$);
@@ -82,7 +81,9 @@ sub _jm_f_49($$$);
 sub _jm_f_50($$$);
 sub _jm_f_51($$$);
 sub _jm_f_52($$$);
-my %_jm_obj_27_map;
+my %_jm_obj_25_map;
+my %_jm_cst_1;
+my %_jm_map_0;
 sub json_model_20($$$);
 my %_jm_cst_2;
 sub json_model_17($$$);
@@ -110,6 +111,7 @@ sub json_model_30($$$);
 sub json_model_31($$$);
 sub json_model_32($$$);
 my %_jm_cst_3;
+my %_jm_map_1;
 sub json_model_42($$$);
 sub json_model_43($$$);
 sub json_model_44($$$);
@@ -1926,8 +1928,205 @@ sub json_model_14($$$)
 }
 
 
-# object .'$openapi#Parameter'.'|'.1.content
+# check _jm_obj_25_map_allowEmptyValue (.'$openapi#Parameter'.'|'.0.allowEmptyValue)
+sub _jm_f_43($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$openapi#Parameter'.'|'.0.allowEmptyValue
+    $res = jm_is_boolean($val);
+    return $res;
+}
+
+# check _jm_obj_25_map_allowReserved (.'$openapi#Parameter'.'|'.0.allowReserved)
+sub _jm_f_44($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$openapi#Parameter'.'|'.0.allowReserved
+    $res = jm_is_boolean($val);
+    return $res;
+}
+
+# check _jm_obj_25_map_deprecated (.'$openapi#Parameter'.'|'.0.deprecated)
+sub _jm_f_45($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$openapi#Parameter'.'|'.0.deprecated
+    $res = jm_is_boolean($val);
+    return $res;
+}
+
+# check _jm_obj_25_map_description (.'$openapi#Parameter'.'|'.0.description)
+sub _jm_f_46($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$openapi#Parameter'.'|'.0.description
+    $res = jm_is_string($val);
+    return $res;
+}
+
+# check _jm_obj_25_map_example (.'$openapi#Parameter'.'|'.0.example)
+sub _jm_f_47($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$openapi#Parameter'.'|'.0.example
+    $res = 1;
+    return $res;
+}
+
+# object .'$openapi#Parameter'.'|'.0.examples
 sub _jm_obj_26($$$)
+{
+    my ($val, $path, $rep) = @_;
+    if (! jm_is_object($val))
+    {
+        return 0;
+    }
+    my $res;
+    scalar keys %$val;
+    while (my ($prop, $pval) = each %$val)
+    {
+        # handle other props
+        # .'$openapi#Parameter'.'|'.0.examples.''
+        # .'$openapi#Parameter'.'|'.0.examples.''.'|'.0
+        $res = json_model_27($pval, undef, $rep);
+        if (! $res)
+        {
+            # .'$openapi#Parameter'.'|'.0.examples.''.'|'.1
+            $res = json_model_32($pval, undef, $rep);
+        }
+        if (! $res)
+        {
+            return 0;
+        }
+    }
+    return 1;
+}
+
+# check _jm_obj_25_map_examples (.'$openapi#Parameter'.'|'.0.examples)
+sub _jm_f_48($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$openapi#Parameter'.'|'.0.examples
+    $res = _jm_obj_26($val, $path, $rep);
+    return $res;
+}
+
+# check _jm_obj_25_map_explode (.'$openapi#Parameter'.'|'.0.explode)
+sub _jm_f_49($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$openapi#Parameter'.'|'.0.explode
+    $res = jm_is_boolean($val);
+    return $res;
+}
+
+# check _jm_obj_25_map_model (.'$openapi#Parameter'.'|'.0.model)
+sub _jm_f_50($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$openapi#Parameter'.'|'.0.model
+    $res = json_model_64($val, $path, $rep);
+    return $res;
+}
+
+# check _jm_obj_25_map_required (.'$openapi#Parameter'.'|'.0.required)
+sub _jm_f_51($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$openapi#Parameter'.'|'.0.required
+    $res = jm_is_boolean($val);
+    return $res;
+}
+
+# check _jm_obj_25_map_style (.'$openapi#Parameter'.'|'.0.style)
+sub _jm_f_52($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$openapi#Parameter'.'|'.0.style
+    $res = json_model_17($val, $path, $rep);
+    return $res;
+}
+
+
+# object .'$openapi#Parameter'.'|'.0
+sub _jm_obj_25($$$)
+{
+    my ($val, $path, $rep) = @_;
+    if (! jm_is_object($val))
+    {
+        return 0;
+    }
+    my $res;
+    my $pfun;
+    my $must_count = 0;
+    scalar keys %$val;
+    while (my ($prop, $pval) = each %$val)
+    {
+        if ($prop eq 'name')
+        {
+            # handle must name property
+            $must_count++;
+            # .'$openapi#Parameter'.'|'.0.name
+            $res = jm_is_string($pval);
+            if (! $res)
+            {
+                return 0;
+            }
+        }
+        elsif ($prop eq 'in')
+        {
+            # handle must in property
+            $must_count++;
+            # .'$openapi#Parameter'.'|'.0.in
+            $res = jm_is_scalar($pval) && jm_is_string($pval) && exists $_jm_cst_0{$pval};
+            if (! $res)
+            {
+                return 0;
+            }
+        }
+        elsif (($pfun = $_jm_obj_25_map{$prop}))
+        {
+            # handle 10 may props
+            if (defined($pfun) && ! &$pfun($pval, undef, $rep))
+            {
+                return 0;
+            }
+        }
+        elsif (jm_starts_with($prop, 'x-'))
+        {
+            # handle 1 re props
+            # .'$openapi#Parameter'.'|'.0.'/^x-/'
+            $res = 1;
+            if (! $res)
+            {
+                return 0;
+            }
+        }
+        else
+        {
+            return 0;
+        }
+    }
+    if ($must_count != 2)
+    {
+        return 0;
+    }
+    return 1;
+}
+
+
+# object .'$openapi#Parameter'.'|'.1.content
+sub _jm_obj_28($$$)
 {
     my ($val, $path, $rep) = @_;
     if (! jm_is_object($val))
@@ -1950,7 +2149,7 @@ sub _jm_obj_26($$$)
 }
 
 # object .'$openapi#Parameter'.'|'.1
-sub _jm_obj_25($$$)
+sub _jm_obj_27($$$)
 {
     my ($val, $path, $rep) = @_;
     if (! jm_is_object($val))
@@ -1978,7 +2177,7 @@ sub _jm_obj_25($$$)
             # handle must in property
             $must_count++;
             # .'$openapi#Parameter'.'|'.1.in
-            $res = jm_is_scalar($pval) && jm_is_string($pval) && exists $_jm_cst_0{$pval};
+            $res = jm_is_scalar($pval) && jm_is_string($pval) && exists $_jm_cst_1{$pval};
             if (! $res)
             {
                 return 0;
@@ -2028,7 +2227,7 @@ sub _jm_obj_25($$$)
         {
             # handle may content property
             # .'$openapi#Parameter'.'|'.1.content
-            $res = _jm_obj_26($pval, undef, $rep);
+            $res = _jm_obj_28($pval, undef, $rep);
             if (! $res)
             {
                 return 0;
@@ -2057,217 +2256,32 @@ sub _jm_obj_25($$$)
 }
 
 
-# check _jm_obj_27_map_allowEmptyValue (.'$openapi#Parameter'.'|'.0.allowEmptyValue)
-sub _jm_f_43($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$openapi#Parameter'.'|'.0.allowEmptyValue
-    $res = jm_is_boolean($val);
-    return $res;
-}
-
-# check _jm_obj_27_map_allowReserved (.'$openapi#Parameter'.'|'.0.allowReserved)
-sub _jm_f_44($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$openapi#Parameter'.'|'.0.allowReserved
-    $res = jm_is_boolean($val);
-    return $res;
-}
-
-# check _jm_obj_27_map_deprecated (.'$openapi#Parameter'.'|'.0.deprecated)
-sub _jm_f_45($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$openapi#Parameter'.'|'.0.deprecated
-    $res = jm_is_boolean($val);
-    return $res;
-}
-
-# check _jm_obj_27_map_description (.'$openapi#Parameter'.'|'.0.description)
-sub _jm_f_46($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$openapi#Parameter'.'|'.0.description
-    $res = jm_is_string($val);
-    return $res;
-}
-
-# check _jm_obj_27_map_example (.'$openapi#Parameter'.'|'.0.example)
-sub _jm_f_47($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$openapi#Parameter'.'|'.0.example
-    $res = 1;
-    return $res;
-}
-
-# object .'$openapi#Parameter'.'|'.0.examples
-sub _jm_obj_28($$$)
-{
-    my ($val, $path, $rep) = @_;
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
-    my $res;
-    scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
-    {
-        # handle other props
-        # .'$openapi#Parameter'.'|'.0.examples.''
-        # .'$openapi#Parameter'.'|'.0.examples.''.'|'.0
-        $res = json_model_27($pval, undef, $rep);
-        if (! $res)
-        {
-            # .'$openapi#Parameter'.'|'.0.examples.''.'|'.1
-            $res = json_model_32($pval, undef, $rep);
-        }
-        if (! $res)
-        {
-            return 0;
-        }
-    }
-    return 1;
-}
-
-# check _jm_obj_27_map_examples (.'$openapi#Parameter'.'|'.0.examples)
-sub _jm_f_48($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$openapi#Parameter'.'|'.0.examples
-    $res = _jm_obj_28($val, $path, $rep);
-    return $res;
-}
-
-# check _jm_obj_27_map_explode (.'$openapi#Parameter'.'|'.0.explode)
-sub _jm_f_49($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$openapi#Parameter'.'|'.0.explode
-    $res = jm_is_boolean($val);
-    return $res;
-}
-
-# check _jm_obj_27_map_model (.'$openapi#Parameter'.'|'.0.model)
-sub _jm_f_50($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$openapi#Parameter'.'|'.0.model
-    $res = json_model_64($val, $path, $rep);
-    return $res;
-}
-
-# check _jm_obj_27_map_required (.'$openapi#Parameter'.'|'.0.required)
-sub _jm_f_51($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$openapi#Parameter'.'|'.0.required
-    $res = jm_is_boolean($val);
-    return $res;
-}
-
-# check _jm_obj_27_map_style (.'$openapi#Parameter'.'|'.0.style)
-sub _jm_f_52($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$openapi#Parameter'.'|'.0.style
-    $res = json_model_17($val, $path, $rep);
-    return $res;
-}
-
-
-# object .'$openapi#Parameter'.'|'.0
-sub _jm_obj_27($$$)
-{
-    my ($val, $path, $rep) = @_;
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
-    my $res;
-    my $pfun;
-    my $must_count = 0;
-    scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
-    {
-        if ($prop eq 'name')
-        {
-            # handle must name property
-            $must_count++;
-            # .'$openapi#Parameter'.'|'.0.name
-            $res = jm_is_string($pval);
-            if (! $res)
-            {
-                return 0;
-            }
-        }
-        elsif ($prop eq 'in')
-        {
-            # handle must in property
-            $must_count++;
-            # .'$openapi#Parameter'.'|'.0.in
-            $res = jm_is_scalar($pval) && jm_is_string($pval) && exists $_jm_cst_1{$pval};
-            if (! $res)
-            {
-                return 0;
-            }
-        }
-        elsif (($pfun = $_jm_obj_27_map{$prop}))
-        {
-            # handle 10 may props
-            if (defined($pfun) && ! &$pfun($pval, undef, $rep))
-            {
-                return 0;
-            }
-        }
-        elsif (jm_starts_with($prop, 'x-'))
-        {
-            # handle 1 re props
-            # .'$openapi#Parameter'.'|'.0.'/^x-/'
-            $res = 1;
-            if (! $res)
-            {
-                return 0;
-            }
-        }
-        else
-        {
-            return 0;
-        }
-    }
-    if ($must_count != 2)
-    {
-        return 0;
-    }
-    return 1;
-}
-
 # check $openapi#Parameter (.'$openapi#Parameter')
 sub json_model_20($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
     # .'$openapi#Parameter'
-    $res = jm_is_object($val);
+    my $iso_0 = jm_is_object($val);
+    $res = $iso_0;
     if ($res)
     {
-        # .'$openapi#Parameter'.'|'.0
-        $res = _jm_obj_27($val, $path, $rep);
-        if (! $res)
+        if (exists $$val{'in'})
         {
-            # .'$openapi#Parameter'.'|'.1
-            $res = _jm_obj_25($val, $path, $rep);
+            my $tag_0 = $$val{'in'};
+            my $fun_0 = $_jm_map_0{$tag_0};
+            if (defined($fun_0))
+            {
+                $res = &$fun_0($val, $path, $rep);
+            }
+            else
+            {
+                $res = 0;
+            }
+        }
+        else
+        {
+            $res = 0;
         }
     }
     return $res;
@@ -3666,295 +3680,9 @@ sub json_model_32($$$)
     return $res;
 }
 
-# object .'$openapi#SecurityScheme'.'|'.5
-sub _jm_obj_53($$$)
-{
-    my ($val, $path, $rep) = @_;
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
-    my $res;
-    scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
-    {
-        if ($prop eq 'description')
-        {
-            # handle may description property
-            # .'$openapi#SecurityScheme'.'|'.5.description
-            $res = jm_is_string($pval);
-            if (! $res)
-            {
-                return 0;
-            }
-        }
-        elsif (jm_starts_with($prop, 'x-'))
-        {
-            # handle 1 re props
-            # .'$openapi#SecurityScheme'.'|'.5.'/^x-/'
-            $res = 1;
-            if (! $res)
-            {
-                return 0;
-            }
-        }
-        else
-        {
-            return 0;
-        }
-    }
-    return 1;
-}
-
-# object .'$openapi#SecurityScheme'.'|'.4
-sub _jm_obj_54($$$)
-{
-    my ($val, $path, $rep) = @_;
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
-    my $res;
-    my $must_count = 0;
-    scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
-    {
-        if ($prop eq 'type')
-        {
-            # handle must type property
-            $must_count++;
-            # .'$openapi#SecurityScheme'.'|'.4.type
-            $res = jm_is_string($pval) && $pval eq 'openIdConnect';
-            if (! $res)
-            {
-                return 0;
-            }
-        }
-        elsif ($prop eq 'openIdConnectUrl')
-        {
-            # handle must openIdConnectUrl property
-            $must_count++;
-            # .'$openapi#SecurityScheme'.'|'.4.openIdConnectUrl
-            $res = jm_is_string($pval) && jm_is_valid_url($pval, undef, $rep);
-            if (! $res)
-            {
-                return 0;
-            }
-        }
-        elsif ($prop eq 'description')
-        {
-            # handle may description property
-            # .'$openapi#SecurityScheme'.'|'.4.description
-            $res = jm_is_string($pval);
-            if (! $res)
-            {
-                return 0;
-            }
-        }
-        else
-        {
-            return 0;
-        }
-    }
-    if ($must_count != 2)
-    {
-        return 0;
-    }
-    return 1;
-}
-
-# object .'$openapi#SecurityScheme'.'|'.3
-sub _jm_obj_55($$$)
-{
-    my ($val, $path, $rep) = @_;
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
-    my $res;
-    my $must_count = 0;
-    scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
-    {
-        if ($prop eq 'type')
-        {
-            # handle must type property
-            $must_count++;
-            # .'$openapi#SecurityScheme'.'|'.3.type
-            $res = jm_is_string($pval) && $pval eq 'oauth2';
-            if (! $res)
-            {
-                return 0;
-            }
-        }
-        elsif ($prop eq 'flows')
-        {
-            # handle must flows property
-            $must_count++;
-            # .'$openapi#SecurityScheme'.'|'.3.flows
-            $res = json_model_43($pval, undef, $rep);
-            if (! $res)
-            {
-                return 0;
-            }
-        }
-        elsif ($prop eq 'description')
-        {
-            # handle may description property
-            # .'$openapi#SecurityScheme'.'|'.3.description
-            $res = jm_is_string($pval);
-            if (! $res)
-            {
-                return 0;
-            }
-        }
-        else
-        {
-            return 0;
-        }
-    }
-    if ($must_count != 2)
-    {
-        return 0;
-    }
-    return 1;
-}
-
-# object .'$openapi#SecurityScheme'.'|'.2
-sub _jm_obj_56($$$)
-{
-    my ($val, $path, $rep) = @_;
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
-    my $res;
-    my $must_count = 0;
-    scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
-    {
-        if ($prop eq 'type')
-        {
-            # handle must type property
-            $must_count++;
-            # .'$openapi#SecurityScheme'.'|'.2.type
-            $res = jm_is_string($pval) && $pval eq 'http';
-            if (! $res)
-            {
-                return 0;
-            }
-        }
-        elsif ($prop eq 'scheme')
-        {
-            # handle must scheme property
-            $must_count++;
-            # .'$openapi#SecurityScheme'.'|'.2.scheme
-            $res = jm_is_string($pval);
-            if (! $res)
-            {
-                return 0;
-            }
-        }
-        elsif ($prop eq 'description')
-        {
-            # handle may description property
-            # .'$openapi#SecurityScheme'.'|'.2.description
-            $res = jm_is_string($pval);
-            if (! $res)
-            {
-                return 0;
-            }
-        }
-        else
-        {
-            return 0;
-        }
-    }
-    if ($must_count != 2)
-    {
-        return 0;
-    }
-    return 1;
-}
-
-sub _jm_re_3($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res = $val =~ /bearer/i;
-    return $res;
-}
-
-# object .'$openapi#SecurityScheme'.'|'.1
-sub _jm_obj_57($$$)
-{
-    my ($val, $path, $rep) = @_;
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
-    my $res;
-    my $must_count = 0;
-    scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
-    {
-        if ($prop eq 'type')
-        {
-            # handle must type property
-            $must_count++;
-            # .'$openapi#SecurityScheme'.'|'.1.type
-            $res = jm_is_string($pval) && $pval eq 'http';
-            if (! $res)
-            {
-                return 0;
-            }
-        }
-        elsif ($prop eq 'scheme')
-        {
-            # handle must scheme property
-            $must_count++;
-            # .'$openapi#SecurityScheme'.'|'.1.scheme
-            # "/bearer/i"
-            $res = jm_is_string($pval) && _jm_re_3($pval, undef, $rep);
-            if (! $res)
-            {
-                return 0;
-            }
-        }
-        elsif ($prop eq 'bearerFormat')
-        {
-            # handle may bearerFormat property
-            # .'$openapi#SecurityScheme'.'|'.1.bearerFormat
-            $res = jm_is_string($pval);
-            if (! $res)
-            {
-                return 0;
-            }
-        }
-        elsif ($prop eq 'description')
-        {
-            # handle may description property
-            # .'$openapi#SecurityScheme'.'|'.1.description
-            $res = jm_is_string($pval);
-            if (! $res)
-            {
-                return 0;
-            }
-        }
-        else
-        {
-            return 0;
-        }
-    }
-    if ($must_count != 2)
-    {
-        return 0;
-    }
-    return 1;
-}
-
 
 # object .'$openapi#SecurityScheme'.'|'.0
-sub _jm_obj_58($$$)
+sub _jm_obj_53($$$)
 {
     my ($val, $path, $rep) = @_;
     if (! jm_is_object($val))
@@ -4021,42 +3749,325 @@ sub _jm_obj_58($$$)
     return 1;
 }
 
+sub _jm_re_3($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res = $val =~ /bearer/i;
+    return $res;
+}
+
+# object .'$openapi#SecurityScheme'.'|'.1
+sub _jm_obj_54($$$)
+{
+    my ($val, $path, $rep) = @_;
+    if (! jm_is_object($val))
+    {
+        return 0;
+    }
+    my $res;
+    my $must_count = 0;
+    scalar keys %$val;
+    while (my ($prop, $pval) = each %$val)
+    {
+        if ($prop eq 'type')
+        {
+            # handle must type property
+            $must_count++;
+            # .'$openapi#SecurityScheme'.'|'.1.type
+            $res = jm_is_string($pval) && $pval eq 'http';
+            if (! $res)
+            {
+                return 0;
+            }
+        }
+        elsif ($prop eq 'scheme')
+        {
+            # handle must scheme property
+            $must_count++;
+            # .'$openapi#SecurityScheme'.'|'.1.scheme
+            # "/bearer/i"
+            $res = jm_is_string($pval) && _jm_re_3($pval, undef, $rep);
+            if (! $res)
+            {
+                return 0;
+            }
+        }
+        elsif ($prop eq 'bearerFormat')
+        {
+            # handle may bearerFormat property
+            # .'$openapi#SecurityScheme'.'|'.1.bearerFormat
+            $res = jm_is_string($pval);
+            if (! $res)
+            {
+                return 0;
+            }
+        }
+        elsif ($prop eq 'description')
+        {
+            # handle may description property
+            # .'$openapi#SecurityScheme'.'|'.1.description
+            $res = jm_is_string($pval);
+            if (! $res)
+            {
+                return 0;
+            }
+        }
+        else
+        {
+            return 0;
+        }
+    }
+    if ($must_count != 2)
+    {
+        return 0;
+    }
+    return 1;
+}
+
+# object .'$openapi#SecurityScheme'.'|'.2
+sub _jm_obj_55($$$)
+{
+    my ($val, $path, $rep) = @_;
+    if (! jm_is_object($val))
+    {
+        return 0;
+    }
+    my $res;
+    my $must_count = 0;
+    scalar keys %$val;
+    while (my ($prop, $pval) = each %$val)
+    {
+        if ($prop eq 'type')
+        {
+            # handle must type property
+            $must_count++;
+            # .'$openapi#SecurityScheme'.'|'.2.type
+            $res = jm_is_string($pval) && $pval eq 'http';
+            if (! $res)
+            {
+                return 0;
+            }
+        }
+        elsif ($prop eq 'scheme')
+        {
+            # handle must scheme property
+            $must_count++;
+            # .'$openapi#SecurityScheme'.'|'.2.scheme
+            $res = jm_is_string($pval);
+            if (! $res)
+            {
+                return 0;
+            }
+        }
+        elsif ($prop eq 'description')
+        {
+            # handle may description property
+            # .'$openapi#SecurityScheme'.'|'.2.description
+            $res = jm_is_string($pval);
+            if (! $res)
+            {
+                return 0;
+            }
+        }
+        else
+        {
+            return 0;
+        }
+    }
+    if ($must_count != 2)
+    {
+        return 0;
+    }
+    return 1;
+}
+
+# object .'$openapi#SecurityScheme'.'|'.3
+sub _jm_obj_56($$$)
+{
+    my ($val, $path, $rep) = @_;
+    if (! jm_is_object($val))
+    {
+        return 0;
+    }
+    my $res;
+    my $must_count = 0;
+    scalar keys %$val;
+    while (my ($prop, $pval) = each %$val)
+    {
+        if ($prop eq 'type')
+        {
+            # handle must type property
+            $must_count++;
+            # .'$openapi#SecurityScheme'.'|'.3.type
+            $res = jm_is_string($pval) && $pval eq 'oauth2';
+            if (! $res)
+            {
+                return 0;
+            }
+        }
+        elsif ($prop eq 'flows')
+        {
+            # handle must flows property
+            $must_count++;
+            # .'$openapi#SecurityScheme'.'|'.3.flows
+            $res = json_model_43($pval, undef, $rep);
+            if (! $res)
+            {
+                return 0;
+            }
+        }
+        elsif ($prop eq 'description')
+        {
+            # handle may description property
+            # .'$openapi#SecurityScheme'.'|'.3.description
+            $res = jm_is_string($pval);
+            if (! $res)
+            {
+                return 0;
+            }
+        }
+        else
+        {
+            return 0;
+        }
+    }
+    if ($must_count != 2)
+    {
+        return 0;
+    }
+    return 1;
+}
+
+# object .'$openapi#SecurityScheme'.'|'.4
+sub _jm_obj_57($$$)
+{
+    my ($val, $path, $rep) = @_;
+    if (! jm_is_object($val))
+    {
+        return 0;
+    }
+    my $res;
+    my $must_count = 0;
+    scalar keys %$val;
+    while (my ($prop, $pval) = each %$val)
+    {
+        if ($prop eq 'type')
+        {
+            # handle must type property
+            $must_count++;
+            # .'$openapi#SecurityScheme'.'|'.4.type
+            $res = jm_is_string($pval) && $pval eq 'openIdConnect';
+            if (! $res)
+            {
+                return 0;
+            }
+        }
+        elsif ($prop eq 'openIdConnectUrl')
+        {
+            # handle must openIdConnectUrl property
+            $must_count++;
+            # .'$openapi#SecurityScheme'.'|'.4.openIdConnectUrl
+            $res = jm_is_string($pval) && jm_is_valid_url($pval, undef, $rep);
+            if (! $res)
+            {
+                return 0;
+            }
+        }
+        elsif ($prop eq 'description')
+        {
+            # handle may description property
+            # .'$openapi#SecurityScheme'.'|'.4.description
+            $res = jm_is_string($pval);
+            if (! $res)
+            {
+                return 0;
+            }
+        }
+        else
+        {
+            return 0;
+        }
+    }
+    if ($must_count != 2)
+    {
+        return 0;
+    }
+    return 1;
+}
+
+# object .'$openapi#SecurityScheme'.'|'.5
+sub _jm_obj_58($$$)
+{
+    my ($val, $path, $rep) = @_;
+    if (! jm_is_object($val))
+    {
+        return 0;
+    }
+    my $res;
+    scalar keys %$val;
+    while (my ($prop, $pval) = each %$val)
+    {
+        if ($prop eq 'description')
+        {
+            # handle may description property
+            # .'$openapi#SecurityScheme'.'|'.5.description
+            $res = jm_is_string($pval);
+            if (! $res)
+            {
+                return 0;
+            }
+        }
+        elsif (jm_starts_with($prop, 'x-'))
+        {
+            # handle 1 re props
+            # .'$openapi#SecurityScheme'.'|'.5.'/^x-/'
+            $res = 1;
+            if (! $res)
+            {
+                return 0;
+            }
+        }
+        else
+        {
+            return 0;
+        }
+    }
+    return 1;
+}
+
+
 # check $openapi#SecurityScheme (.'$openapi#SecurityScheme')
 sub json_model_42($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
     # .'$openapi#SecurityScheme'
-    $res = jm_is_object($val);
+    my $iso_1 = jm_is_object($val);
+    $res = $iso_1;
     if ($res)
     {
-        # .'$openapi#SecurityScheme'.'|'.0
-        $res = _jm_obj_58($val, $path, $rep);
-        if (! $res)
+        if (exists $$val{'type'})
         {
-            # .'$openapi#SecurityScheme'.'|'.1
-            $res = _jm_obj_57($val, $path, $rep);
-            if (! $res)
+            my $tag_1 = $$val{'type'};
+            my $fun_1 = $_jm_map_1{$tag_1};
+            if (defined($fun_1))
             {
-                # .'$openapi#SecurityScheme'.'|'.2
-                $res = _jm_obj_56($val, $path, $rep);
-                if (! $res)
-                {
-                    # .'$openapi#SecurityScheme'.'|'.3
-                    $res = _jm_obj_55($val, $path, $rep);
-                    if (! $res)
-                    {
-                        # .'$openapi#SecurityScheme'.'|'.4
-                        $res = _jm_obj_54($val, $path, $rep);
-                        if (! $res)
-                        {
-                            # .'$openapi#SecurityScheme'.'|'.5
-                            $res = _jm_obj_53($val, $path, $rep);
-                        }
-                    }
-                }
+                $res = &$fun_1($val, $path, $rep);
+            }
+            else
+            {
+                $res = 0;
             }
         }
+        else
+        {
+            $res = 0;
+        }
+    }
+    if (! $res)
+    {
+        # .'$openapi#SecurityScheme'.'|'.5
+        $res = _jm_obj_58($val, $path, $rep);
     }
     return $res;
 }
@@ -5249,13 +5260,7 @@ sub check_model_init()
             'path' => 1,
             'cookie' => 1,
         );
-        %_jm_cst_1 = (
-            'query' => 1,
-            'header' => 1,
-            'path' => 1,
-            'cookie' => 1,
-        );
-        %_jm_obj_27_map = (
+        %_jm_obj_25_map = (
             'allowEmptyValue' => \&_jm_f_43,
             'allowReserved' => \&_jm_f_44,
             'deprecated' => \&_jm_f_45,
@@ -5266,6 +5271,18 @@ sub check_model_init()
             'model' => \&_jm_f_50,
             'required' => \&_jm_f_51,
             'style' => \&_jm_f_52,
+        );
+        %_jm_cst_1 = (
+            'query' => 1,
+            'header' => 1,
+            'path' => 1,
+            'cookie' => 1,
+        );
+        %_jm_map_0 = (
+            'cookie' => \&_jm_obj_27,
+            'header' => \&_jm_obj_27,
+            'path' => \&_jm_obj_27,
+            'query' => \&_jm_obj_27,
         );
         %_jm_cst_2 = (
             'matrix' => 1,
@@ -5292,6 +5309,12 @@ sub check_model_init()
             'query' => 1,
             'header' => 1,
             'cookie' => 1,
+        );
+        %_jm_map_1 = (
+            'apiKey' => \&_jm_obj_53,
+            'http' => \&_jm_obj_55,
+            'oauth2' => \&_jm_obj_56,
+            'openIdConnect' => \&_jm_obj_57,
         );
         %_jm_cst_4 = (
             '$DATE' => 1,
@@ -5341,11 +5364,13 @@ sub check_model_free()
         %_jm_obj_21_map = ();
         %_jm_obj_22_map = ();
         %_jm_cst_0 = ();
+        %_jm_obj_25_map = ();
         %_jm_cst_1 = ();
-        %_jm_obj_27_map = ();
+        %_jm_map_0 = ();
         %_jm_cst_2 = ();
         %_jm_obj_49_map = ();
         %_jm_cst_3 = ();
+        %_jm_map_1 = ();
         %_jm_cst_4 = ();
         %check_model_map = ();
     }

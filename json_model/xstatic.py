@@ -356,80 +356,101 @@ class CodeGenerator:
         if dis is None:
             return None
 
-        tag_name, tag_type, models, all_const_props = dis
+        # disjunct: [(tag name, tag type, [0])], 0 -> p -> csts, 0 -> model
+        disjuncts, all_const_props, others = dis
         smpath = json_path(mpath)
         gen = self._lang
 
-        log.debug(f"disjunct: tag_name={tag_name} consts={all_const_props}")
+        assert disjuncts, "non empty disjunction"
 
         # Compile all object models in the list if needed
-        assert isinstance(model, dict)
+        models = model["|"]
+        assert isinstance(models, list)  # pyright hint
 
-        init = model["|"]
-        assert isinstance(init, list)  # pyright hint
-        assert len(models) == len(init)
+        mod_code: dict[int, Block] = {}
 
-        code = []
-
-        for i, m in enumerate(models):
+        for i, mi in enumerate(models):
             p = mpath + [i]
             tp = tuple(p)
-            mi = init[i]  # initial model
             if isinstance(mi, str) and mi and mi[0] == "$":
                 # it is a reference, it must be compiled for its name, no need to recompile it!
                 fun = self._getNameRef(jm, mi, p)
                 if tp not in self._paths:
                     # several path will lead to the same function
                     self._paths[tp] = fun
-                # else nothing to do?
+                mod_code[i] = gen.bool_var(res, gen.check_call(fun, val, vpath))
             elif tp not in self._paths:
-                # else compile the direct object as a side effect…
-                # BUT we need to recover the generated function name!
-                self._compileModel(jm, m, p, res, val, vpath)
-                # log.debug(f"{self._paths}")
+                mod_code[i] = self._compileModel(jm, mi, p, res, val, vpath)
 
-        cmap = self._lang.ident(self._prefix + "map")
-
-        # mapping from tag values to check functions
-        TAG_CHECKS: dict[JsonScalar, str] = {}
-        for i in range(len(models)):
-            consts = all_const_props[i]
-            tags = consts[tag_name]
-            if not isinstance(tags, list):
-                tags = [ tags ]
-            for t in tags:
-                TAG_CHECKS[t] = self._paths[tuple(mpath + [i])]
-
-        self._code.cmap(cmap, TAG_CHECKS)
+        # overall code
+        code = []
 
         isobj = gen.is_a(val, dict)
+        isovar = gen.ident("iso")
         isobj_needed = not known or isobj not in known
-        code += gen.bool_var(res, gen.is_a(val, dict) if isobj_needed else True)
 
-        tag = self._lang.ident("tag")
-        itag = gen.json_var(tag, gen.obj_prop_val(val, tag_name, False), declare=True)
+        code += gen.bool_var(isovar, isobj if isobj_needed else True, declare=True)
 
-        fun = self._lang.ident("fun")
-        ifun = gen.fun_var(fun, gen.get_cmap(cmap, tag, tag_type), True)
-        icall = gen.bool_var(res, gen.check_call(fun, val, vpath, is_ptr=True))
-        tagt = gen.if_stmt(
-            gen.has_prop(val, tag_name),
-            itag + ifun +
-            gen.if_stmt(gen.is_def(fun),
-                icall,
+        # generate disjunction code
+        alt_code: list[Block] = []
+        for tag_name, tag_type, lalts in disjuncts:
+            tag_code: Block = []
+            cmap = gen.ident(self._prefix + "map")
+
+            # mapping from tag values to check functions
+            TAG_CHECKS: dict[JsonScalar, str] = {}
+            for i in lalts:
+                consts = all_const_props[i]
+                tags = consts[tag_name]
+                for t in sorted(tags):
+                    TAG_CHECKS[t] = self._paths[tuple(mpath + [i])]
+            self._code.cmap(cmap, TAG_CHECKS)
+
+            tag = gen.ident("tag")
+            itag = gen.json_var(tag, gen.obj_prop_val(val, tag_name, False), declare=True)
+
+            fun = gen.ident("fun")
+            ifun = gen.fun_var(fun, gen.get_cmap(cmap, tag, tag_type), True)
+            icall = gen.bool_var(res, gen.check_call(fun, val, vpath, is_ptr=True))
+            tagt = gen.if_stmt(
+                gen.has_prop(val, tag_name),
+                itag +
+                ifun +
+                gen.if_stmt(gen.is_def(fun),
+                    icall,
+                    gen.bool_var(res, gen.false()) +
+                    gen.report(f"tag <{tag_name}> value not found [{smpath}]", vpath)),
                 gen.bool_var(res, gen.false()) +
-                gen.report(f"tag <{tag_name}> value not found [{smpath}]", vpath)),
-            gen.bool_var(res, gen.false()) +
-            gen.report(f"tag prop <{tag_name}> is missing [{smpath}]", vpath)
-        )
+                gen.report(f"tag prop <{tag_name}> is missing [{smpath}]", vpath)
+            )
 
-        # FIXME has_prop gets the tag value in C, so this means 2 get. alternate strategy?
-        if isobj_needed:
-            code += gen.if_stmt(res, tagt, gen.report(f"value is not an object [{smpath}]", vpath))
-        else:
-            code += tagt
+            # reset res object test
+            tag_code += gen.bool_var(res, gen.get_value(isovar, bool))
 
-        return code
+            # FIXME has_prop gets the tag value in C, so this means 2 get. alternate strategy?
+            if isobj_needed:
+                tag_code += gen.if_stmt(res, tagt, gen.report(f"value is not an object [{smpath}]", vpath))
+            else:
+                tag_code += tagt
+
+            alt_code.append(tag_code)
+ 
+        # build cascading alternative tests
+        or_code: Block = None
+
+        for i in reversed(others):
+            if or_code is None:
+                or_code = mod_code[i]
+            else:
+                or_code = mod_code[i] + gen.if_stmt(gen.not_op(res), or_code)
+
+        for c in reversed(alt_code):
+            if or_code is None:
+                or_code = c
+            else:
+                or_code = c + gen.if_stmt(gen.not_op(res), or_code)
+
+        return code + or_code
 
     def _gen_report(self, res: str, msg: str, path: str, cleanup: bool = False) -> Block:
         """Maybe generate a report."""
@@ -740,45 +761,6 @@ class CodeGenerator:
 
         return code
 
-    def _compileOrSplit(
-            self, jm: JsonModel, models: ModelArray, mpath: ModelPath,
-            res: str, val: str, vpath: str, known: set[BoolExpr]|None = None) -> Block:
-        """Compile an heterogeneous or-list of models."""
-
-        gen = self._lang
-
-        def _is_object(model: ModelType) -> bool:
-            # follow local references
-            while isinstance(model, str) and model.startswith("$"):
-                name = model[1:]
-                if name in jm._defs:
-                    model = jm._defs[name]
-                else:
-                    break
-            # direct object
-            return isinstance(model, dict) and not \
-                ("@" in model or "&" in model or "^" in model or "|" in model or "+" in model)
-
-        # separate objects from others
-        objs, others = [], []
-        for m in models:
-            if _is_object(m):
-                objs.append(m)
-            else:
-                others.append(m)
-        assert len(objs) + len(others) == len(models)
-
-        # is it worth trying?
-        if len(objs) <= 1 or len(others) == 0:
-            return self._compileOr(jm, models, mpath, res, val, vpath, known)
-        else:
-            obj_code = self._compileOr(jm, objs, mpath, res, val, vpath, known)
-            if len(others) > 1:
-                oth_code = self._compileOr(jm, others, mpath, res, val, vpath, known)
-            else:
-                oth_code = self._compileModel(jm, others[0], mpath, res, val, vpath, known)
-            return obj_code + gen.if_stmt(gen.not_op(res), oth_code)
-
     def _compileOr(self, jm: JsonModel, models: ModelArray, mpath: ModelPath,
                    res: str, val: str, vpath: str, known: set[BoolExpr]|None = None) -> Block:
         """Compile a general or-list of models."""
@@ -837,7 +819,6 @@ class CodeGenerator:
                 return code + gen.if_stmt(gen.not_op(res), dcode)
             else:
                 return code + dcode
-            return
 
         # homogeneous typed list shortcut
         same, expected = all_model_type(models, mpath)
@@ -1286,7 +1267,7 @@ class CodeGenerator:
                 elif "|" in model:
                     models = model["|"]
                     assert isinstance(models, list)  # pyright hint
-                    code += self._compileOrSplit(jm, models, mpath + ["|"], res, val, vpath, known)
+                    code += self._compileOr(jm, models, mpath + ["|"], res, val, vpath, known)
                 elif "&" in model:
                     models = model["&"]
                     assert isinstance(models, list)  # pyright hint

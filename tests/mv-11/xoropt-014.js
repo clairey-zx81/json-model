@@ -307,7 +307,8 @@ function _jm_obj_0(val, path, rep)
             // handle must movie property
             must_count += 1;
             // .movie
-            res = Object.prototype.toString.call(pval) === '[object Object]';
+            let iso_0 = Object.prototype.toString.call(pval) === '[object Object]';
+            res = iso_0;
             if (res)
             {
                 if (pval.hasOwnProperty("t"))

@@ -3986,61 +3986,47 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
+
 -- check $ObjectSchema (.'$ObjectSchema')
 CREATE OR REPLACE FUNCTION json_model_23(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
+  iso_0 bool;
+  tag_0 JSONB;
+  fun_0 TEXT;
 BEGIN
   -- we could use ^ instead of | below
   -- .'$ObjectSchema'
-  -- .'$ObjectSchema'.'|'.0
-  res := json_model_16(val, path, rep);
+  iso_0 := JSONB_TYPEOF(val) = 'object';
+  res := iso_0;
+  IF res THEN
+    IF val ? 'type' THEN
+      tag_0 := val -> 'type';
+      fun_0 := jm_cmap_get('_jm_map_0', tag_0);
+      IF fun_0 IS NOT NULL THEN
+        res := jm_call(fun_0, val, path, rep);
+      ELSE
+        res := FALSE;
+      END IF;
+    ELSE
+      res := FALSE;
+    END IF;
+  END IF;
   IF NOT res THEN
-    -- .'$ObjectSchema'.'|'.1
-    res := json_model_15(val, path, rep);
+    res := json_model_9(val, path, rep);
     IF NOT res THEN
-      -- .'$ObjectSchema'.'|'.2
       res := json_model_21(val, path, rep);
       IF NOT res THEN
-        -- .'$ObjectSchema'.'|'.3
         res := json_model_20(val, path, rep);
         IF NOT res THEN
-          -- .'$ObjectSchema'.'|'.4
-          res := json_model_13(val, path, rep);
+          res := json_model_17(val, path, rep);
           IF NOT res THEN
-            -- .'$ObjectSchema'.'|'.5
-            res := json_model_14(val, path, rep);
+            res := json_model_18(val, path, rep);
             IF NOT res THEN
-              -- .'$ObjectSchema'.'|'.6
-              res := json_model_10(val, path, rep);
+              res := json_model_19(val, path, rep);
               IF NOT res THEN
-                -- .'$ObjectSchema'.'|'.7
-                res := json_model_11(val, path, rep);
-                IF NOT res THEN
-                  -- .'$ObjectSchema'.'|'.8
-                  res := json_model_12(val, path, rep);
-                  IF NOT res THEN
-                    -- .'$ObjectSchema'.'|'.9
-                    res := json_model_17(val, path, rep);
-                    IF NOT res THEN
-                      -- .'$ObjectSchema'.'|'.10
-                      res := json_model_18(val, path, rep);
-                      IF NOT res THEN
-                        -- .'$ObjectSchema'.'|'.11
-                        res := json_model_19(val, path, rep);
-                        IF NOT res THEN
-                          -- .'$ObjectSchema'.'|'.12
-                          res := json_model_22(val, path, rep);
-                          IF NOT res THEN
-                            -- .'$ObjectSchema'.'|'.13
-                            res := json_model_9(val, path, rep);
-                          END IF;
-                        END IF;
-                      END IF;
-                    END IF;
-                  END IF;
-                END IF;
+                res := json_model_22(val, path, rep);
               END IF;
             END IF;
           END IF;
@@ -4139,6 +4125,15 @@ $$ LANGUAGE plpgsql;
 -- constant maps initialization
 --
 TRUNCATE jm_constant_maps;
+INSERT INTO jm_constant_maps(mapname, tagval, value) VALUES
+  ('_jm_map_0', JSONB '"null"', 'json_model_16'),
+  ('_jm_map_0', JSONB '"boolean"', 'json_model_15'),
+  ('_jm_map_0', JSONB '"integer"', 'json_model_13'),
+  ('_jm_map_0', JSONB '"number"', 'json_model_14'),
+  ('_jm_map_0', JSONB '"string"', 'json_model_10'),
+  ('_jm_map_0', JSONB '"array"', 'json_model_11'),
+  ('_jm_map_0', JSONB '"object"', 'json_model_12')
+;
 
 --
 -- JSON Model checking entry point

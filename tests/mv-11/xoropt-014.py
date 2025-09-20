@@ -206,7 +206,8 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
             # handle must movie property
             must_count += 1
             # .movie
-            res = isinstance(pval, dict)
+            iso_0: bool = isinstance(pval, dict)
+            res = iso_0
             if res:
                 if "t" in pval:
                     tag_0: Jsonable = pval.get("t", UNDEFINED)

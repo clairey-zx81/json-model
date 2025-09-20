@@ -155,7 +155,8 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # ^ to | on discriminant property
     # .
-    res = isinstance(val, dict)
+    iso_0: bool = isinstance(val, dict)
+    res = iso_0
     if res:
         if "d" in val:
             tag_0: Jsonable = val.get("d", UNDEFINED)

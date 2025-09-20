@@ -6466,7 +6466,15 @@ BEGIN
   END IF;
   must_count := 0;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF prop = 'description' THEN
+    IF prop = 'standalone' THEN
+      -- handle must standalone property
+      must_count := must_count + 1;
+      -- .'$GalaxyInfoModel'.'|'.1.standalone
+      res := JSONB_TYPEOF(pval) = 'boolean' AND (pval)::BOOL = FALSE;
+      IF NOT res THEN
+        RETURN FALSE;
+      END IF;
+    ELSEIF prop = 'description' THEN
       -- handle must description property
       must_count := must_count + 1;
       -- .'$GalaxyInfoModel'.'|'.1.description
@@ -6484,50 +6492,50 @@ BEGIN
       RETURN FALSE;
     END IF;
   END LOOP;
-  IF must_count <> 1 THEN
+  IF must_count <> 2 THEN
     RETURN FALSE;
   END IF;
   RETURN TRUE;
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_obj_98_map_author (.'$GalaxyInfoModel'.'|'.0.author)
+-- check _jm_obj_98_map_author (.'$GalaxyInfoModel'.'|'.2.author)
 CREATE OR REPLACE FUNCTION _jm_f_36(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
 BEGIN
-  -- .'$GalaxyInfoModel'.'|'.0.author
+  -- .'$GalaxyInfoModel'.'|'.2.author
   res := JSONB_TYPEOF(val) = 'string';
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_obj_98_map_cloud_platforms (.'$GalaxyInfoModel'.'|'.0.cloud_platforms)
+-- check _jm_obj_98_map_cloud_platforms (.'$GalaxyInfoModel'.'|'.2.cloud_platforms)
 CREATE OR REPLACE FUNCTION _jm_f_37(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
 BEGIN
-  -- .'$GalaxyInfoModel'.'|'.0.cloud_platforms
+  -- .'$GalaxyInfoModel'.'|'.2.cloud_platforms
   res := TRUE;
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_obj_98_map_company (.'$GalaxyInfoModel'.'|'.0.company)
+-- check _jm_obj_98_map_company (.'$GalaxyInfoModel'.'|'.2.company)
 CREATE OR REPLACE FUNCTION _jm_f_38(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
 BEGIN
-  -- .'$GalaxyInfoModel'.'|'.0.company
+  -- .'$GalaxyInfoModel'.'|'.2.company
   res := JSONB_TYPEOF(val) = 'string';
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_obj_98_map_galaxy_tags (.'$GalaxyInfoModel'.'|'.0.galaxy_tags)
+-- check _jm_obj_98_map_galaxy_tags (.'$GalaxyInfoModel'.'|'.2.galaxy_tags)
 CREATE OR REPLACE FUNCTION _jm_f_39(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
@@ -6535,12 +6543,12 @@ DECLARE
   arr_98_idx INT8;
   arr_98_item JSONB;
 BEGIN
-  -- .'$GalaxyInfoModel'.'|'.0.galaxy_tags
+  -- .'$GalaxyInfoModel'.'|'.2.galaxy_tags
   res := JSONB_TYPEOF(val) = 'array';
   IF res THEN
     FOR arr_98_idx IN 0 .. JSONB_ARRAY_LENGTH(val) - 1 LOOP
       arr_98_item := val -> arr_98_idx;
-      -- .'$GalaxyInfoModel'.'|'.0.galaxy_tags.0
+      -- .'$GalaxyInfoModel'.'|'.2.galaxy_tags.0
       res := JSONB_TYPEOF(arr_98_item) = 'string';
       IF NOT res THEN
         EXIT;
@@ -6551,111 +6559,111 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_obj_98_map_github_branch (.'$GalaxyInfoModel'.'|'.0.github_branch)
+-- check _jm_obj_98_map_github_branch (.'$GalaxyInfoModel'.'|'.2.github_branch)
 CREATE OR REPLACE FUNCTION _jm_f_40(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
 BEGIN
-  -- .'$GalaxyInfoModel'.'|'.0.github_branch
+  -- .'$GalaxyInfoModel'.'|'.2.github_branch
   res := JSONB_TYPEOF(val) = 'string';
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_obj_98_map_issue_tracker_url (.'$GalaxyInfoModel'.'|'.0.issue_tracker_url)
+-- check _jm_obj_98_map_issue_tracker_url (.'$GalaxyInfoModel'.'|'.2.issue_tracker_url)
 CREATE OR REPLACE FUNCTION _jm_f_41(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
 BEGIN
-  -- .'$GalaxyInfoModel'.'|'.0.issue_tracker_url
+  -- .'$GalaxyInfoModel'.'|'.2.issue_tracker_url
   res := JSONB_TYPEOF(val) = 'string';
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_obj_98_map_license (.'$GalaxyInfoModel'.'|'.0.license)
+-- check _jm_obj_98_map_license (.'$GalaxyInfoModel'.'|'.2.license)
 CREATE OR REPLACE FUNCTION _jm_f_42(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
 BEGIN
-  -- .'$GalaxyInfoModel'.'|'.0.license
+  -- .'$GalaxyInfoModel'.'|'.2.license
   res := JSONB_TYPEOF(val) = 'string';
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_obj_98_map_min_ansible_container_version (.'$GalaxyInfoModel'.'|'.0.min_ansible_container_version)
+-- check _jm_obj_98_map_min_ansible_container_version (.'$GalaxyInfoModel'.'|'.2.min_ansible_container_version)
 CREATE OR REPLACE FUNCTION _jm_f_43(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
 BEGIN
-  -- .'$GalaxyInfoModel'.'|'.0.min_ansible_container_version
+  -- .'$GalaxyInfoModel'.'|'.2.min_ansible_container_version
   res := JSONB_TYPEOF(val) = 'string';
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_obj_98_map_min_ansible_version (.'$GalaxyInfoModel'.'|'.0.min_ansible_version)
+-- check _jm_obj_98_map_min_ansible_version (.'$GalaxyInfoModel'.'|'.2.min_ansible_version)
 CREATE OR REPLACE FUNCTION _jm_f_44(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
 BEGIN
-  -- .'$GalaxyInfoModel'.'|'.0.min_ansible_version
+  -- .'$GalaxyInfoModel'.'|'.2.min_ansible_version
   res := JSONB_TYPEOF(val) = 'string';
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_obj_98_map_namespace (.'$GalaxyInfoModel'.'|'.0.namespace)
+-- check _jm_obj_98_map_namespace (.'$GalaxyInfoModel'.'|'.2.namespace)
 CREATE OR REPLACE FUNCTION _jm_f_45(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
 BEGIN
-  -- .'$GalaxyInfoModel'.'|'.0.namespace
+  -- .'$GalaxyInfoModel'.'|'.2.namespace
   -- "/^[a-z][-a-z0-9_]+$/"
   res := JSONB_TYPEOF(val) = 'string' AND _jm_re_0(JSON_VALUE(val, '$' RETURNING TEXT), path, rep);
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_obj_98_map_platforms (.'$GalaxyInfoModel'.'|'.0.platforms)
+-- check _jm_obj_98_map_platforms (.'$GalaxyInfoModel'.'|'.2.platforms)
 CREATE OR REPLACE FUNCTION _jm_f_46(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
 BEGIN
-  -- .'$GalaxyInfoModel'.'|'.0.platforms
+  -- .'$GalaxyInfoModel'.'|'.2.platforms
   res := json_model_50(val, path, rep);
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_obj_98_map_role_name (.'$GalaxyInfoModel'.'|'.0.role_name)
+-- check _jm_obj_98_map_role_name (.'$GalaxyInfoModel'.'|'.2.role_name)
 CREATE OR REPLACE FUNCTION _jm_f_47(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
 BEGIN
-  -- .'$GalaxyInfoModel'.'|'.0.role_name
+  -- .'$GalaxyInfoModel'.'|'.2.role_name
   -- "/^[a-z][a-z0-9_]+$/"
   res := JSONB_TYPEOF(val) = 'string' AND _jm_re_1(JSON_VALUE(val, '$' RETURNING TEXT), path, rep);
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_obj_98_map_video_links (.'$GalaxyInfoModel'.'|'.0.video_links)
+-- check _jm_obj_98_map_video_links (.'$GalaxyInfoModel'.'|'.2.video_links)
 CREATE OR REPLACE FUNCTION _jm_f_48(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
 BEGIN
-  -- .'$GalaxyInfoModel'.'|'.0.video_links
+  -- .'$GalaxyInfoModel'.'|'.2.video_links
   res := JSONB_TYPEOF(val) = 'array';
   IF res THEN
     -- accept any array
@@ -6674,7 +6682,7 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
--- object .'$GalaxyInfoModel'.'|'.0
+-- object .'$GalaxyInfoModel'.'|'.2
 CREATE OR REPLACE FUNCTION _jm_obj_98(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
@@ -6689,18 +6697,10 @@ BEGIN
   END IF;
   must_count := 0;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF prop = 'standalone' THEN
-      -- handle must standalone property
-      must_count := must_count + 1;
-      -- .'$GalaxyInfoModel'.'|'.0.standalone
-      res := JSONB_TYPEOF(pval) = 'boolean' AND (pval)::BOOL = FALSE;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-    ELSEIF prop = 'description' THEN
+    IF prop = 'description' THEN
       -- handle must description property
       must_count := must_count + 1;
-      -- .'$GalaxyInfoModel'.'|'.0.description
+      -- .'$GalaxyInfoModel'.'|'.2.description
       res := JSONB_TYPEOF(pval) = 'string';
       IF NOT res THEN
         RETURN FALSE;
@@ -6715,33 +6715,43 @@ BEGIN
       RETURN FALSE;
     END IF;
   END LOOP;
-  IF must_count <> 2 THEN
+  IF must_count <> 1 THEN
     RETURN FALSE;
   END IF;
   RETURN TRUE;
 END;
 $$ LANGUAGE PLpgSQL;
 
+
 -- check $GalaxyInfoModel (.'$GalaxyInfoModel')
 CREATE OR REPLACE FUNCTION json_model_54(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
+  iso_0 bool;
+  tag_0 JSONB;
+  fun_0 TEXT;
 BEGIN
   -- hmmmm, property standalone should probably be required…
   -- .'$GalaxyInfoModel'
-  res := JSONB_TYPEOF(val) = 'object';
+  iso_0 := JSONB_TYPEOF(val) = 'object';
+  res := iso_0;
   IF res THEN
-    -- .'$GalaxyInfoModel'.'|'.0
-    res := _jm_obj_98(val, path, rep);
-    IF NOT res THEN
-      -- .'$GalaxyInfoModel'.'|'.1
-      res := _jm_obj_97(val, path, rep);
+    IF val ? 'standalone' THEN
+      tag_0 := val -> 'standalone';
+      fun_0 := jm_cmap_get('_jm_map_0', tag_0);
+      IF fun_0 IS NOT NULL THEN
+        res := jm_call(fun_0, val, path, rep);
+      ELSE
+        res := FALSE;
+      END IF;
+    ELSE
+      res := FALSE;
     END IF;
   END IF;
   IF NOT res THEN
-    -- .'$GalaxyInfoModel'.'|'
-    res := json_model_53(val, path, rep);
+    -- .'$GalaxyInfoModel'.'|'.2
+    res := _jm_obj_98(val, path, rep);
   END IF;
   RETURN res;
 END;
@@ -7178,6 +7188,10 @@ $$ LANGUAGE plpgsql;
 -- constant maps initialization
 --
 TRUNCATE jm_constant_maps;
+INSERT INTO jm_constant_maps(mapname, tagval, value) VALUES
+  ('_jm_map_0', JSONB 'true', 'json_model_53'),
+  ('_jm_map_0', JSONB 'false', '_jm_obj_97')
+;
 
 --
 -- JSON Model checking entry point

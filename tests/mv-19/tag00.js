@@ -182,7 +182,8 @@ function json_model_1(val, path, rep)
 {
     let res;
     // .
-    res = Object.prototype.toString.call(val) === '[object Object]';
+    let iso_0 = Object.prototype.toString.call(val) === '[object Object]';
+    res = iso_0;
     if (res)
     {
         if (val.hasOwnProperty("t"))

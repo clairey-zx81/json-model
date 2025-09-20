@@ -39,6 +39,7 @@ _jm_obj_52_map: PropMap
 _jm_obj_56_map: PropMap
 _jm_obj_60_map: PropMap
 _jm_obj_64_map: PropMap
+_jm_map_0: dict[str, str]
 check_model_map: PropMap
 
 # check $const (.'$const')
@@ -4514,89 +4515,44 @@ def json_model_23(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("unexpected element [.'$DynRef']", path))
     return res
 
+
 # check $ObjectSchema (.'$ObjectSchema')
 def json_model_24(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # we could use ^ instead of | below
     # .'$ObjectSchema'
-    # .'$ObjectSchema'.'|'.0
-    res = json_model_16(val, path, rep)
+    iso_0: bool = isinstance(val, dict)
+    res = iso_0
+    if res:
+        if "type" in val:
+            tag_0: Jsonable = val.get("type", UNDEFINED)
+            fun_0: CheckFun = _jm_map_0.get(tag_0, UNDEFINED)
+            if fun_0 != UNDEFINED:
+                res = fun_0(val, path, rep)
+            else:
+                res = False
+                rep is None or rep.append(("tag <type> value not found [.'$ObjectSchema'.'|']", path))
+        else:
+            res = False
+            rep is None or rep.append(("tag prop <type> is missing [.'$ObjectSchema'.'|']", path))
+    else:
+        rep is None or rep.append(("value is not an object [.'$ObjectSchema'.'|']", path))
     if not res:
-        rep is None or rep.append(("unexpected $Null [.'$ObjectSchema'.'|'.0]", path))
-    if not res:
-        # .'$ObjectSchema'.'|'.1
-        res = json_model_15(val, path, rep)
+        res = json_model_9(val, path, rep)
         if not res:
-            rep is None or rep.append(("unexpected $Bool [.'$ObjectSchema'.'|'.1]", path))
-        if not res:
-            # .'$ObjectSchema'.'|'.2
             res = json_model_21(val, path, rep)
             if not res:
-                rep is None or rep.append(("unexpected $Const [.'$ObjectSchema'.'|'.2]", path))
-            if not res:
-                # .'$ObjectSchema'.'|'.3
                 res = json_model_20(val, path, rep)
                 if not res:
-                    rep is None or rep.append(("unexpected $Enum [.'$ObjectSchema'.'|'.3]", path))
-                if not res:
-                    # .'$ObjectSchema'.'|'.4
-                    res = json_model_13(val, path, rep)
+                    res = json_model_17(val, path, rep)
                     if not res:
-                        rep is None or rep.append(("unexpected $Integer [.'$ObjectSchema'.'|'.4]", path))
-                    if not res:
-                        # .'$ObjectSchema'.'|'.5
-                        res = json_model_14(val, path, rep)
+                        res = json_model_18(val, path, rep)
                         if not res:
-                            rep is None or rep.append(("unexpected $Number [.'$ObjectSchema'.'|'.5]", path))
-                        if not res:
-                            # .'$ObjectSchema'.'|'.6
-                            res = json_model_10(val, path, rep)
+                            res = json_model_19(val, path, rep)
                             if not res:
-                                rep is None or rep.append(("unexpected $String [.'$ObjectSchema'.'|'.6]", path))
-                            if not res:
-                                # .'$ObjectSchema'.'|'.7
-                                res = json_model_11(val, path, rep)
+                                res = json_model_22(val, path, rep)
                                 if not res:
-                                    rep is None or rep.append(("unexpected $Array [.'$ObjectSchema'.'|'.7]", path))
-                                if not res:
-                                    # .'$ObjectSchema'.'|'.8
-                                    res = json_model_12(val, path, rep)
-                                    if not res:
-                                        rep is None or rep.append(("unexpected $Object [.'$ObjectSchema'.'|'.8]", path))
-                                    if not res:
-                                        # .'$ObjectSchema'.'|'.9
-                                        res = json_model_17(val, path, rep)
-                                        if not res:
-                                            rep is None or rep.append(("unexpected $AllOf [.'$ObjectSchema'.'|'.9]", path))
-                                        if not res:
-                                            # .'$ObjectSchema'.'|'.10
-                                            res = json_model_18(val, path, rep)
-                                            if not res:
-                                                rep is None or rep.append(("unexpected $AnyOf [.'$ObjectSchema'.'|'.10]", path))
-                                            if not res:
-                                                # .'$ObjectSchema'.'|'.11
-                                                res = json_model_19(val, path, rep)
-                                                if not res:
-                                                    rep is None or rep.append(("unexpected $OneOf [.'$ObjectSchema'.'|'.11]", path))
-                                                if not res:
-                                                    # .'$ObjectSchema'.'|'.12
-                                                    res = json_model_22(val, path, rep)
-                                                    if not res:
-                                                        rep is None or rep.append(("unexpected $Ref [.'$ObjectSchema'.'|'.12]", path))
-                                                    if not res:
-                                                        # .'$ObjectSchema'.'|'.13
-                                                        res = json_model_23(val, path, rep)
-                                                        if not res:
-                                                            rep is None or rep.append(("unexpected $DynRef [.'$ObjectSchema'.'|'.13]", path))
-                                                        if not res:
-                                                            # .'$ObjectSchema'.'|'.14
-                                                            res = json_model_9(val, path, rep)
-                                                            if not res:
-                                                                rep is None or rep.append(("unexpected $metas [.'$ObjectSchema'.'|'.14]", path))
-    if res:
-        rep is None or rep.clear()
-    else:
-        rep is None or rep.append(("no model matched [.'$ObjectSchema'.'|']", path))
+                                    res = json_model_23(val, path, rep)
     return res
 
 # check $Schema (.'$Schema')
@@ -5011,6 +4967,16 @@ def check_model_init():
             "readOnly": _jm_f_275,
             "title": _jm_f_276,
             "writeOnly": _jm_f_277,
+        }
+        global _jm_map_0
+        _jm_map_0 = {
+            "null": json_model_16,
+            "boolean": json_model_15,
+            "integer": json_model_13,
+            "number": json_model_14,
+            "string": json_model_10,
+            "array": json_model_11,
+            "object": json_model_12,
         }
         global check_model_map
         check_model_map = {

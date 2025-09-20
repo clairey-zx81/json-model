@@ -20,6 +20,7 @@ def check_model(val: Jsonable, name: str = "", rep: Report = None) -> bool:
     checker = check_model_map[name]
     return checker(val, [], rep)
 
+_jm_map_0: dict[str, str]
 _jm_obj_1_map: PropMap
 _jm_cst_0: set[str]
 _jm_obj_4_map: PropMap
@@ -105,119 +106,42 @@ def json_model_27(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("not all model match [.'$tight#RootSchema'.'&']", path))
     return res
 
+
 # check $tight#ObjectSchema (.'$tight#ObjectSchema')
 def json_model_25(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # we could use ^ instead of | below
     # .'$tight#ObjectSchema'
-    # .'$tight#ObjectSchema'.'|'.0
-    res = json_model_18(val, path, rep)
+    iso_0: bool = isinstance(val, dict)
+    res = iso_0
+    if res:
+        if "type" in val:
+            tag_0: Jsonable = val.get("type", UNDEFINED)
+            fun_0: CheckFun = _jm_map_0.get(tag_0, UNDEFINED)
+            if fun_0 != UNDEFINED:
+                res = fun_0(val, path, rep)
+            else:
+                res = False
+                rep is None or rep.append(("tag <type> value not found [.'$tight#ObjectSchema'.'|']", path))
+        else:
+            res = False
+            rep is None or rep.append(("tag prop <type> is missing [.'$tight#ObjectSchema'.'|']", path))
+    else:
+        rep is None or rep.append(("value is not an object [.'$tight#ObjectSchema'.'|']", path))
     if not res:
-        rep is None or rep.append(("unexpected $Null [.'$tight#ObjectSchema'.'|'.0]", path))
-    if not res:
-        # .'$tight#ObjectSchema'.'|'.1
-        res = json_model_17(val, path, rep)
+        res = json_model_11(val, path, rep)
         if not res:
-            rep is None or rep.append(("unexpected $Bool [.'$tight#ObjectSchema'.'|'.1]", path))
-        if not res:
-            # .'$tight#ObjectSchema'.'|'.2
             res = json_model_23(val, path, rep)
             if not res:
-                rep is None or rep.append(("unexpected $Const [.'$tight#ObjectSchema'.'|'.2]", path))
-            if not res:
-                # .'$tight#ObjectSchema'.'|'.3
                 res = json_model_22(val, path, rep)
                 if not res:
-                    rep is None or rep.append(("unexpected $Enum [.'$tight#ObjectSchema'.'|'.3]", path))
-                if not res:
-                    # .'$tight#ObjectSchema'.'|'.4
-                    res = json_model_15(val, path, rep)
+                    res = json_model_19(val, path, rep)
                     if not res:
-                        rep is None or rep.append(("unexpected $Integer [.'$tight#ObjectSchema'.'|'.4]", path))
-                    if not res:
-                        # .'$tight#ObjectSchema'.'|'.5
-                        res = json_model_16(val, path, rep)
+                        res = json_model_20(val, path, rep)
                         if not res:
-                            rep is None or rep.append(("unexpected $Number [.'$tight#ObjectSchema'.'|'.5]", path))
-                        if not res:
-                            # .'$tight#ObjectSchema'.'|'.6
-                            res = json_model_12(val, path, rep)
+                            res = json_model_21(val, path, rep)
                             if not res:
-                                rep is None or rep.append(("unexpected $String [.'$tight#ObjectSchema'.'|'.6]", path))
-                            if not res:
-                                # .'$tight#ObjectSchema'.'|'.7
-                                res = json_model_13(val, path, rep)
-                                if not res:
-                                    rep is None or rep.append(("unexpected $Array [.'$tight#ObjectSchema'.'|'.7]", path))
-                                if not res:
-                                    # .'$tight#ObjectSchema'.'|'.8
-                                    res = json_model_14(val, path, rep)
-                                    if not res:
-                                        rep is None or rep.append(("unexpected $Object [.'$tight#ObjectSchema'.'|'.8]", path))
-                                    if not res:
-                                        # .'$tight#ObjectSchema'.'|'.9
-                                        res = json_model_19(val, path, rep)
-                                        if not res:
-                                            rep is None or rep.append(("unexpected $AllOf [.'$tight#ObjectSchema'.'|'.9]", path))
-                                        if not res:
-                                            # .'$tight#ObjectSchema'.'|'.10
-                                            res = json_model_20(val, path, rep)
-                                            if not res:
-                                                rep is None or rep.append(("unexpected $AnyOf [.'$tight#ObjectSchema'.'|'.10]", path))
-                                            if not res:
-                                                # .'$tight#ObjectSchema'.'|'.11
-                                                res = json_model_21(val, path, rep)
-                                                if not res:
-                                                    rep is None or rep.append(("unexpected $OneOf [.'$tight#ObjectSchema'.'|'.11]", path))
-                                                if not res:
-                                                    # .'$tight#ObjectSchema'.'|'.12
-                                                    res = json_model_24(val, path, rep)
-                                                    if not res:
-                                                        rep is None or rep.append(("unexpected $Ref [.'$tight#ObjectSchema'.'|'.12]", path))
-                                                    if not res:
-                                                        # .'$tight#ObjectSchema'.'|'.13
-                                                        res = json_model_11(val, path, rep)
-                                                        if not res:
-                                                            rep is None or rep.append(("unexpected $metas [.'$tight#ObjectSchema'.'|'.13]", path))
-                                                        if not res:
-                                                            # .'$tight#ObjectSchema'.'|'.14
-                                                            res = json_model_28(val, path, rep)
-                                                            if not res:
-                                                                rep is None or rep.append(("unexpected $EnumString [.'$tight#ObjectSchema'.'|'.14]", path))
-                                                            if not res:
-                                                                # .'$tight#ObjectSchema'.'|'.15
-                                                                res = json_model_29(val, path, rep)
-                                                                if not res:
-                                                                    rep is None or rep.append(("unexpected $EnumNum [.'$tight#ObjectSchema'.'|'.15]", path))
-                                                                if not res:
-                                                                    # .'$tight#ObjectSchema'.'|'.16
-                                                                    res = json_model_30(val, path, rep)
-                                                                    if not res:
-                                                                        rep is None or rep.append(("unexpected $EnumInt [.'$tight#ObjectSchema'.'|'.16]", path))
-                                                                    if not res:
-                                                                        # .'$tight#ObjectSchema'.'|'.17
-                                                                        res = json_model_31(val, path, rep)
-                                                                        if not res:
-                                                                            rep is None or rep.append(("unexpected $ConstString [.'$tight#ObjectSchema'.'|'.17]", path))
-                                                                        if not res:
-                                                                            # .'$tight#ObjectSchema'.'|'.18
-                                                                            res = json_model_32(val, path, rep)
-                                                                            if not res:
-                                                                                rep is None or rep.append(("unexpected $ConstNum [.'$tight#ObjectSchema'.'|'.18]", path))
-                                                                            if not res:
-                                                                                # .'$tight#ObjectSchema'.'|'.19
-                                                                                res = json_model_33(val, path, rep)
-                                                                                if not res:
-                                                                                    rep is None or rep.append(("unexpected $ConstInt [.'$tight#ObjectSchema'.'|'.19]", path))
-                                                                                if not res:
-                                                                                    # .'$tight#ObjectSchema'.'|'.20
-                                                                                    res = json_model_34(val, path, rep)
-                                                                                    if not res:
-                                                                                        rep is None or rep.append(("unexpected $ConstBool [.'$tight#ObjectSchema'.'|'.20]", path))
-    if res:
-        rep is None or rep.clear()
-    else:
-        rep is None or rep.append(("no model matched [.'$tight#ObjectSchema'.'|']", path))
+                                res = json_model_24(val, path, rep)
     return res
 
 # check _jm_obj_1_map_$comment (.'$tight#metas'.'$comment')
@@ -4341,6 +4265,16 @@ def check_model_init():
     global initialized
     if not initialized:
         initialized = True
+        global _jm_map_0
+        _jm_map_0 = {
+            "null": json_model_18,
+            "boolean": json_model_34,
+            "integer": json_model_33,
+            "number": json_model_32,
+            "string": json_model_31,
+            "array": json_model_13,
+            "object": json_model_14,
+        }
         global _jm_obj_1_map
         _jm_obj_1_map = {
             "$comment": _jm_f_0,

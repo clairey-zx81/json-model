@@ -17,12 +17,13 @@ var _jm_obj_10_map = new Map()
 var _jm_obj_15_map = new Map()
 var _jm_obj_16_map = new Map()
 var _jm_obj_19_map = new Map()
-var _jm_obj_26_map = new Map()
-var _jm_obj_29_map = new Map()
-var _jm_obj_32_map = new Map()
-var _jm_obj_35_map = new Map()
-var _jm_obj_38_map = new Map()
+var _jm_obj_22_map = new Map()
+var _jm_obj_25_map = new Map()
+var _jm_obj_28_map = new Map()
+var _jm_obj_31_map = new Map()
+var _jm_obj_34_map = new Map()
 var _jm_obj_41_map = new Map()
+let _jm_map_0 = new Map()
 var check_model_map = new Map()
 
 // check $URI-REFERENCE (.'$URI-REFERENCE')
@@ -1808,38 +1809,38 @@ function json_model_14(val, path, rep)
     return res;
 }
 
-// check _jm_obj_16_map_$anchor (.'$TightSchema'.'|'.7.'$anchor')
+// check _jm_obj_16_map_$anchor (.'$TightSchema'.'|'.0.'$anchor')
 function _jm_f_51(val, path, rep)
 {
     let res;
-    // .'$TightSchema'.'|'.7.'$anchor'
+    // .'$TightSchema'.'|'.0.'$anchor'
     res = json_model_2(val, path, rep);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected $URI-REFERENCE [.'$TightSchema'.'|'.7.'$anchor']", path])
+        rep !== null && rep.push(["unexpected $URI-REFERENCE [.'$TightSchema'.'|'.0.'$anchor']", path])
     }
     return res;
 }
 
-// check _jm_obj_16_map_$comment (.'$TightSchema'.'|'.7.'$comment')
+// check _jm_obj_16_map_$comment (.'$TightSchema'.'|'.0.'$comment')
 function _jm_f_52(val, path, rep)
 {
     let res;
-    // .'$TightSchema'.'|'.7.'$comment'
+    // .'$TightSchema'.'|'.0.'$comment'
     res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected string [.'$TightSchema'.'|'.7.'$comment']", path])
+        rep !== null && rep.push(["unexpected string [.'$TightSchema'.'|'.0.'$comment']", path])
     }
     return res;
 }
 
-// object .'$TightSchema'.'|'.7.'$defs'
+// object .'$TightSchema'.'|'.0.'$defs'
 function _jm_obj_17(val, path, rep)
 {
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
-        rep !== null && rep.push(["not an object [.'$TightSchema'.'|'.7.'$defs']", path])
+        rep !== null && rep.push(["not an object [.'$TightSchema'.'|'.0.'$defs']", path])
         return false;
     }
     let res;
@@ -1847,11 +1848,11 @@ function _jm_obj_17(val, path, rep)
     {
         let lpath_17 = path ? path.concat([prop]) : null;
         // handle other props
-        // .'$TightSchema'.'|'.7.'$defs'.''
+        // .'$TightSchema'.'|'.0.'$defs'.''
         res = json_model_16(pval, (path ? lpath_17 : null), rep);
         if (! res)
         {
-            rep !== null && rep.push(["unexpected $Schema [.'$TightSchema'.'|'.7.'$defs'.'']", (path ? lpath_17 : null)])
+            rep !== null && rep.push(["unexpected $Schema [.'$TightSchema'.'|'.0.'$defs'.'']", (path ? lpath_17 : null)])
         }
         if (! res)
         {
@@ -1861,90 +1862,90 @@ function _jm_obj_17(val, path, rep)
     return true;
 }
 
-// check _jm_obj_16_map_$defs (.'$TightSchema'.'|'.7.'$defs')
+// check _jm_obj_16_map_$defs (.'$TightSchema'.'|'.0.'$defs')
 function _jm_f_53(val, path, rep)
 {
     let res;
-    // .'$TightSchema'.'|'.7.'$defs'
+    // .'$TightSchema'.'|'.0.'$defs'
     res = _jm_obj_17(val, path, rep);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected element [.'$TightSchema'.'|'.7.'$defs']", path])
+        rep !== null && rep.push(["unexpected element [.'$TightSchema'.'|'.0.'$defs']", path])
     }
     return res;
 }
 
-// check _jm_obj_16_map_$dynamicAnchor (.'$TightSchema'.'|'.7.'$dynamicAnchor')
+// check _jm_obj_16_map_$dynamicAnchor (.'$TightSchema'.'|'.0.'$dynamicAnchor')
 function _jm_f_54(val, path, rep)
 {
     let res;
-    // .'$TightSchema'.'|'.7.'$dynamicAnchor'
+    // .'$TightSchema'.'|'.0.'$dynamicAnchor'
     res = json_model_2(val, path, rep);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected $URI-REFERENCE [.'$TightSchema'.'|'.7.'$dynamicAnchor']", path])
+        rep !== null && rep.push(["unexpected $URI-REFERENCE [.'$TightSchema'.'|'.0.'$dynamicAnchor']", path])
     }
     return res;
 }
 
-// check _jm_obj_16_map_$dynamicRef (.'$TightSchema'.'|'.7.'$dynamicRef')
+// check _jm_obj_16_map_$dynamicRef (.'$TightSchema'.'|'.0.'$dynamicRef')
 function _jm_f_55(val, path, rep)
 {
     let res;
-    // .'$TightSchema'.'|'.7.'$dynamicRef'
+    // .'$TightSchema'.'|'.0.'$dynamicRef'
     res = json_model_2(val, path, rep);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected $URI-REFERENCE [.'$TightSchema'.'|'.7.'$dynamicRef']", path])
+        rep !== null && rep.push(["unexpected $URI-REFERENCE [.'$TightSchema'.'|'.0.'$dynamicRef']", path])
     }
     return res;
 }
 
-// check _jm_obj_16_map_$id (.'$TightSchema'.'|'.7.'$id')
+// check _jm_obj_16_map_$id (.'$TightSchema'.'|'.0.'$id')
 function _jm_f_56(val, path, rep)
 {
     let res;
-    // .'$TightSchema'.'|'.7.'$id'
+    // .'$TightSchema'.'|'.0.'$id'
     res = json_model_2(val, path, rep);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected $URI-REFERENCE [.'$TightSchema'.'|'.7.'$id']", path])
+        rep !== null && rep.push(["unexpected $URI-REFERENCE [.'$TightSchema'.'|'.0.'$id']", path])
     }
     return res;
 }
 
-// check _jm_obj_16_map_$ref (.'$TightSchema'.'|'.7.'$ref')
+// check _jm_obj_16_map_$ref (.'$TightSchema'.'|'.0.'$ref')
 function _jm_f_57(val, path, rep)
 {
     let res;
-    // .'$TightSchema'.'|'.7.'$ref'
+    // .'$TightSchema'.'|'.0.'$ref'
     res = json_model_2(val, path, rep);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected $URI-REFERENCE [.'$TightSchema'.'|'.7.'$ref']", path])
+        rep !== null && rep.push(["unexpected $URI-REFERENCE [.'$TightSchema'.'|'.0.'$ref']", path])
     }
     return res;
 }
 
-// check _jm_obj_16_map_$schema (.'$TightSchema'.'|'.7.'$schema')
+// check _jm_obj_16_map_$schema (.'$TightSchema'.'|'.0.'$schema')
 function _jm_f_58(val, path, rep)
 {
     let res;
-    // .'$TightSchema'.'|'.7.'$schema'
+    // .'$TightSchema'.'|'.0.'$schema'
     res = runtime.jm_is_valid_url(val);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected $URI [.'$TightSchema'.'|'.7.'$schema']", path])
+        rep !== null && rep.push(["unexpected $URI [.'$TightSchema'.'|'.0.'$schema']", path])
     }
     return res;
 }
 
-// object .'$TightSchema'.'|'.7.'$vocabulary'
+// object .'$TightSchema'.'|'.0.'$vocabulary'
 function _jm_obj_18(val, path, rep)
 {
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
-        rep !== null && rep.push(["not an object [.'$TightSchema'.'|'.7.'$vocabulary']", path])
+        rep !== null && rep.push(["not an object [.'$TightSchema'.'|'.0.'$vocabulary']", path])
         return false;
     }
     let res;
@@ -1954,11 +1955,11 @@ function _jm_obj_18(val, path, rep)
         if (runtime.jm_is_valid_url(prop))
         {
             // handle 1 key props
-            // .'$TightSchema'.'|'.7.'$vocabulary'.'$URI'
+            // .'$TightSchema'.'|'.0.'$vocabulary'.'$URI'
             res = (typeof pval === 'boolean' || pval instanceof Boolean);
             if (! res)
             {
-                rep !== null && rep.push(["not a bool [.'$TightSchema'.'|'.7.'$vocabulary'.'$URI']", (path ? lpath_18 : null)])
+                rep !== null && rep.push(["not a bool [.'$TightSchema'.'|'.0.'$vocabulary'.'$URI']", (path ? lpath_18 : null)])
             }
             if (! res)
             {
@@ -1967,305 +1968,213 @@ function _jm_obj_18(val, path, rep)
         }
         else
         {
-            rep !== null && rep.push(["unexpected prop [.'$TightSchema'.'|'.7.'$vocabulary']", (path ? lpath_18 : null)])
+            rep !== null && rep.push(["unexpected prop [.'$TightSchema'.'|'.0.'$vocabulary']", (path ? lpath_18 : null)])
             return false;
         }
     }
     return true;
 }
 
-// check _jm_obj_16_map_$vocabulary (.'$TightSchema'.'|'.7.'$vocabulary')
+// check _jm_obj_16_map_$vocabulary (.'$TightSchema'.'|'.0.'$vocabulary')
 function _jm_f_59(val, path, rep)
 {
     let res;
-    // .'$TightSchema'.'|'.7.'$vocabulary'
+    // .'$TightSchema'.'|'.0.'$vocabulary'
     res = _jm_obj_18(val, path, rep);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected element [.'$TightSchema'.'|'.7.'$vocabulary']", path])
+        rep !== null && rep.push(["unexpected element [.'$TightSchema'.'|'.0.'$vocabulary']", path])
     }
     return res;
 }
 
-// check _jm_obj_16_map_allOf (.'$TightSchema'.'|'.7.allOf)
+// check _jm_obj_16_map_default (.'$TightSchema'.'|'.0.default)
 function _jm_f_60(val, path, rep)
 {
     let res;
-    // .'$TightSchema'.'|'.7.allOf
-    res = json_model_11(val, path, rep);
+    // .'$TightSchema'.'|'.0.default
+    res = true;
     if (! res)
     {
-        rep !== null && rep.push(["unexpected $schemaArray [.'$TightSchema'.'|'.7.allOf]", path])
+        rep !== null && rep.push(["unexpected $ANY [.'$TightSchema'.'|'.0.default]", path])
     }
     return res;
 }
 
-// check _jm_obj_16_map_anyOf (.'$TightSchema'.'|'.7.anyOf)
+// check _jm_obj_16_map_deprecated (.'$TightSchema'.'|'.0.deprecated)
 function _jm_f_61(val, path, rep)
 {
     let res;
-    // .'$TightSchema'.'|'.7.anyOf
-    res = json_model_11(val, path, rep);
+    // .'$TightSchema'.'|'.0.deprecated
+    res = (typeof val === 'boolean' || val instanceof Boolean);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected $schemaArray [.'$TightSchema'.'|'.7.anyOf]", path])
+        rep !== null && rep.push(["not a bool [.'$TightSchema'.'|'.0.deprecated]", path])
     }
     return res;
 }
 
-// check _jm_obj_16_map_const (.'$TightSchema'.'|'.7.const)
+// check _jm_obj_16_map_description (.'$TightSchema'.'|'.0.description)
 function _jm_f_62(val, path, rep)
 {
     let res;
-    // .'$TightSchema'.'|'.7.const
-    res = true;
+    // .'$TightSchema'.'|'.0.description
+    res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected $ANY [.'$TightSchema'.'|'.7.const]", path])
+        rep !== null && rep.push(["unexpected string [.'$TightSchema'.'|'.0.description]", path])
     }
     return res;
 }
 
-// check _jm_obj_16_map_default (.'$TightSchema'.'|'.7.default)
+// check _jm_obj_16_map_examples (.'$TightSchema'.'|'.0.examples)
 function _jm_f_63(val, path, rep)
 {
     let res;
-    // .'$TightSchema'.'|'.7.default
-    res = true;
+    // .'$TightSchema'.'|'.0.examples
+    res = Array.isArray(val);
+    if (res)
+    {
+        // accept any array
+    }
     if (! res)
     {
-        rep !== null && rep.push(["unexpected $ANY [.'$TightSchema'.'|'.7.default]", path])
+        rep !== null && rep.push(["not array or unexpected array [.'$TightSchema'.'|'.0.examples]", path])
     }
     return res;
 }
 
-// check _jm_obj_16_map_deprecated (.'$TightSchema'.'|'.7.deprecated)
+// check _jm_obj_16_map_readOnly (.'$TightSchema'.'|'.0.readOnly)
 function _jm_f_64(val, path, rep)
 {
     let res;
-    // .'$TightSchema'.'|'.7.deprecated
+    // .'$TightSchema'.'|'.0.readOnly
     res = (typeof val === 'boolean' || val instanceof Boolean);
     if (! res)
     {
-        rep !== null && rep.push(["not a bool [.'$TightSchema'.'|'.7.deprecated]", path])
+        rep !== null && rep.push(["not a bool [.'$TightSchema'.'|'.0.readOnly]", path])
     }
     return res;
 }
 
-// check _jm_obj_16_map_description (.'$TightSchema'.'|'.7.description)
+// check _jm_obj_16_map_title (.'$TightSchema'.'|'.0.title)
 function _jm_f_65(val, path, rep)
 {
     let res;
-    // .'$TightSchema'.'|'.7.description
+    // .'$TightSchema'.'|'.0.title
     res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected string [.'$TightSchema'.'|'.7.description]", path])
+        rep !== null && rep.push(["unexpected string [.'$TightSchema'.'|'.0.title]", path])
     }
     return res;
 }
 
-// check _jm_obj_16_map_else (.'$TightSchema'.'|'.7.else)
+// check _jm_obj_16_map_writeOnly (.'$TightSchema'.'|'.0.writeOnly)
 function _jm_f_66(val, path, rep)
 {
     let res;
-    // .'$TightSchema'.'|'.7.else
-    res = json_model_16(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $Schema [.'$TightSchema'.'|'.7.else]", path])
-    }
-    return res;
-}
-
-// check _jm_obj_16_map_enum (.'$TightSchema'.'|'.7.enum)
-function _jm_f_67(val, path, rep)
-{
-    let res;
-    // .'$TightSchema'.'|'.7.enum
-    res = Array.isArray(val);
-    if (res)
-    {
-        // accept any array
-    }
-    if (! res)
-    {
-        rep !== null && rep.push(["not array or unexpected array [.'$TightSchema'.'|'.7.enum]", path])
-    }
-    return res;
-}
-
-// check _jm_obj_16_map_examples (.'$TightSchema'.'|'.7.examples)
-function _jm_f_68(val, path, rep)
-{
-    let res;
-    // .'$TightSchema'.'|'.7.examples
-    res = Array.isArray(val);
-    if (res)
-    {
-        // accept any array
-    }
-    if (! res)
-    {
-        rep !== null && rep.push(["not array or unexpected array [.'$TightSchema'.'|'.7.examples]", path])
-    }
-    return res;
-}
-
-// check _jm_obj_16_map_if (.'$TightSchema'.'|'.7.if)
-function _jm_f_69(val, path, rep)
-{
-    let res;
-    // .'$TightSchema'.'|'.7.if
-    res = json_model_16(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $Schema [.'$TightSchema'.'|'.7.if]", path])
-    }
-    return res;
-}
-
-// check _jm_obj_16_map_not (.'$TightSchema'.'|'.7.not)
-function _jm_f_70(val, path, rep)
-{
-    let res;
-    // .'$TightSchema'.'|'.7.not
-    res = json_model_16(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $Schema [.'$TightSchema'.'|'.7.not]", path])
-    }
-    return res;
-}
-
-// check _jm_obj_16_map_oneOf (.'$TightSchema'.'|'.7.oneOf)
-function _jm_f_71(val, path, rep)
-{
-    let res;
-    // .'$TightSchema'.'|'.7.oneOf
-    res = json_model_11(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $schemaArray [.'$TightSchema'.'|'.7.oneOf]", path])
-    }
-    return res;
-}
-
-// check _jm_obj_16_map_readOnly (.'$TightSchema'.'|'.7.readOnly)
-function _jm_f_72(val, path, rep)
-{
-    let res;
-    // .'$TightSchema'.'|'.7.readOnly
+    // .'$TightSchema'.'|'.0.writeOnly
     res = (typeof val === 'boolean' || val instanceof Boolean);
     if (! res)
     {
-        rep !== null && rep.push(["not a bool [.'$TightSchema'.'|'.7.readOnly]", path])
-    }
-    return res;
-}
-
-// check _jm_obj_16_map_then (.'$TightSchema'.'|'.7.then)
-function _jm_f_73(val, path, rep)
-{
-    let res;
-    // .'$TightSchema'.'|'.7.then
-    res = json_model_16(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $Schema [.'$TightSchema'.'|'.7.then]", path])
-    }
-    return res;
-}
-
-// check _jm_obj_16_map_title (.'$TightSchema'.'|'.7.title)
-function _jm_f_74(val, path, rep)
-{
-    let res;
-    // .'$TightSchema'.'|'.7.title
-    res = (typeof val === 'string' || val instanceof String);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected string [.'$TightSchema'.'|'.7.title]", path])
-    }
-    return res;
-}
-
-// check _jm_obj_16_map_writeOnly (.'$TightSchema'.'|'.7.writeOnly)
-function _jm_f_75(val, path, rep)
-{
-    let res;
-    // .'$TightSchema'.'|'.7.writeOnly
-    res = (typeof val === 'boolean' || val instanceof Boolean);
-    if (! res)
-    {
-        rep !== null && rep.push(["not a bool [.'$TightSchema'.'|'.7.writeOnly]", path])
+        rep !== null && rep.push(["not a bool [.'$TightSchema'.'|'.0.writeOnly]", path])
     }
     return res;
 }
 
 
-// object .'$TightSchema'.'|'.7
+// object .'$TightSchema'.'|'.0
 function _jm_obj_16(val, path, rep)
 {
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
-        rep !== null && rep.push(["not an object [.'$TightSchema'.'|'.7]", path])
+        rep !== null && rep.push(["not an object [.'$TightSchema'.'|'.0]", path])
         return false;
     }
+    let res;
     let pfun;
+    let must_count = 0;
     for (const [prop, pval] of Object.entries(val))
     {
         let lpath_16 = path ? path.concat([prop]) : null;
-        if ((pfun = _jm_obj_16_map.get(prop)))
+        if (prop == "type")
         {
-            // handle 25 may props
+            // handle must type property
+            must_count += 1;
+            // .'$TightSchema'.'|'.0.type
+            res = ((typeof pval === 'string' || pval instanceof String)) && pval == "null";
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected _null [.'$TightSchema'.'|'.0.type]", (path ? lpath_16 : null)])
+            }
+            if (! res)
+            {
+                rep !== null && rep.push(["invalid mandatory prop value [.'$TightSchema'.'|'.0.type]", (path ? lpath_16 : null)])
+                return false;
+            }
+        }
+        else if ((pfun = _jm_obj_16_map.get(prop)))
+        {
+            // handle 16 may props
             if (pfun !== undefined && ! pfun(pval, (path ? lpath_16 : null), rep))
             {
-                rep !== null && rep.push(["invalid optional prop value [.'$TightSchema'.'|'.7]", (path ? lpath_16 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$TightSchema'.'|'.0]", (path ? lpath_16 : null)])
                 return false;
             }
         }
         else
         {
-            rep !== null && rep.push(["unexpected prop [.'$TightSchema'.'|'.7]", (path ? lpath_16 : null)])
+            rep !== null && rep.push(["unexpected prop [.'$TightSchema'.'|'.0]", (path ? lpath_16 : null)])
             return false;
         }
+    }
+    if (must_count != 1)
+    {
+        if (rep !== null)
+        {
+            if (! val.hasOwnProperty("type"))
+            {
+                rep !== null && rep.push(["missing mandatory prop <type> [.'$TightSchema'.'|'.0]", path])
+            }
+        }
+        return false;
     }
     return true;
 }
 
-// check _jm_obj_19_map_$anchor (.'$TightSchema'.'|'.6.'$anchor')
-function _jm_f_76(val, path, rep)
+// check _jm_obj_19_map_$anchor (.'$TightSchema'.'|'.1.'$anchor')
+function _jm_f_67(val, path, rep)
 {
     let res;
-    // .'$TightSchema'.'|'.6.'$anchor'
+    // .'$TightSchema'.'|'.1.'$anchor'
     res = json_model_2(val, path, rep);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected $URI-REFERENCE [.'$TightSchema'.'|'.6.'$anchor']", path])
+        rep !== null && rep.push(["unexpected $URI-REFERENCE [.'$TightSchema'.'|'.1.'$anchor']", path])
     }
     return res;
 }
 
-// check _jm_obj_19_map_$comment (.'$TightSchema'.'|'.6.'$comment')
-function _jm_f_77(val, path, rep)
+// check _jm_obj_19_map_$comment (.'$TightSchema'.'|'.1.'$comment')
+function _jm_f_68(val, path, rep)
 {
     let res;
-    // .'$TightSchema'.'|'.6.'$comment'
+    // .'$TightSchema'.'|'.1.'$comment'
     res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected string [.'$TightSchema'.'|'.6.'$comment']", path])
+        rep !== null && rep.push(["unexpected string [.'$TightSchema'.'|'.1.'$comment']", path])
     }
     return res;
 }
 
-// object .'$TightSchema'.'|'.6.'$defs'
+// object .'$TightSchema'.'|'.1.'$defs'
 function _jm_obj_20(val, path, rep)
 {
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
-        rep !== null && rep.push(["not an object [.'$TightSchema'.'|'.6.'$defs']", path])
+        rep !== null && rep.push(["not an object [.'$TightSchema'.'|'.1.'$defs']", path])
         return false;
     }
     let res;
@@ -2273,11 +2182,11 @@ function _jm_obj_20(val, path, rep)
     {
         let lpath_20 = path ? path.concat([prop]) : null;
         // handle other props
-        // .'$TightSchema'.'|'.6.'$defs'.''
+        // .'$TightSchema'.'|'.1.'$defs'.''
         res = json_model_16(pval, (path ? lpath_20 : null), rep);
         if (! res)
         {
-            rep !== null && rep.push(["unexpected $Schema [.'$TightSchema'.'|'.6.'$defs'.'']", (path ? lpath_20 : null)])
+            rep !== null && rep.push(["unexpected $Schema [.'$TightSchema'.'|'.1.'$defs'.'']", (path ? lpath_20 : null)])
         }
         if (! res)
         {
@@ -2287,90 +2196,90 @@ function _jm_obj_20(val, path, rep)
     return true;
 }
 
-// check _jm_obj_19_map_$defs (.'$TightSchema'.'|'.6.'$defs')
-function _jm_f_78(val, path, rep)
+// check _jm_obj_19_map_$defs (.'$TightSchema'.'|'.1.'$defs')
+function _jm_f_69(val, path, rep)
 {
     let res;
-    // .'$TightSchema'.'|'.6.'$defs'
+    // .'$TightSchema'.'|'.1.'$defs'
     res = _jm_obj_20(val, path, rep);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected element [.'$TightSchema'.'|'.6.'$defs']", path])
+        rep !== null && rep.push(["unexpected element [.'$TightSchema'.'|'.1.'$defs']", path])
     }
     return res;
 }
 
-// check _jm_obj_19_map_$dynamicAnchor (.'$TightSchema'.'|'.6.'$dynamicAnchor')
-function _jm_f_79(val, path, rep)
+// check _jm_obj_19_map_$dynamicAnchor (.'$TightSchema'.'|'.1.'$dynamicAnchor')
+function _jm_f_70(val, path, rep)
 {
     let res;
-    // .'$TightSchema'.'|'.6.'$dynamicAnchor'
+    // .'$TightSchema'.'|'.1.'$dynamicAnchor'
     res = json_model_2(val, path, rep);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected $URI-REFERENCE [.'$TightSchema'.'|'.6.'$dynamicAnchor']", path])
+        rep !== null && rep.push(["unexpected $URI-REFERENCE [.'$TightSchema'.'|'.1.'$dynamicAnchor']", path])
     }
     return res;
 }
 
-// check _jm_obj_19_map_$dynamicRef (.'$TightSchema'.'|'.6.'$dynamicRef')
-function _jm_f_80(val, path, rep)
+// check _jm_obj_19_map_$dynamicRef (.'$TightSchema'.'|'.1.'$dynamicRef')
+function _jm_f_71(val, path, rep)
 {
     let res;
-    // .'$TightSchema'.'|'.6.'$dynamicRef'
+    // .'$TightSchema'.'|'.1.'$dynamicRef'
     res = json_model_2(val, path, rep);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected $URI-REFERENCE [.'$TightSchema'.'|'.6.'$dynamicRef']", path])
+        rep !== null && rep.push(["unexpected $URI-REFERENCE [.'$TightSchema'.'|'.1.'$dynamicRef']", path])
     }
     return res;
 }
 
-// check _jm_obj_19_map_$id (.'$TightSchema'.'|'.6.'$id')
-function _jm_f_81(val, path, rep)
+// check _jm_obj_19_map_$id (.'$TightSchema'.'|'.1.'$id')
+function _jm_f_72(val, path, rep)
 {
     let res;
-    // .'$TightSchema'.'|'.6.'$id'
+    // .'$TightSchema'.'|'.1.'$id'
     res = json_model_2(val, path, rep);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected $URI-REFERENCE [.'$TightSchema'.'|'.6.'$id']", path])
+        rep !== null && rep.push(["unexpected $URI-REFERENCE [.'$TightSchema'.'|'.1.'$id']", path])
     }
     return res;
 }
 
-// check _jm_obj_19_map_$ref (.'$TightSchema'.'|'.6.'$ref')
-function _jm_f_82(val, path, rep)
+// check _jm_obj_19_map_$ref (.'$TightSchema'.'|'.1.'$ref')
+function _jm_f_73(val, path, rep)
 {
     let res;
-    // .'$TightSchema'.'|'.6.'$ref'
+    // .'$TightSchema'.'|'.1.'$ref'
     res = json_model_2(val, path, rep);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected $URI-REFERENCE [.'$TightSchema'.'|'.6.'$ref']", path])
+        rep !== null && rep.push(["unexpected $URI-REFERENCE [.'$TightSchema'.'|'.1.'$ref']", path])
     }
     return res;
 }
 
-// check _jm_obj_19_map_$schema (.'$TightSchema'.'|'.6.'$schema')
-function _jm_f_83(val, path, rep)
+// check _jm_obj_19_map_$schema (.'$TightSchema'.'|'.1.'$schema')
+function _jm_f_74(val, path, rep)
 {
     let res;
-    // .'$TightSchema'.'|'.6.'$schema'
+    // .'$TightSchema'.'|'.1.'$schema'
     res = runtime.jm_is_valid_url(val);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected $URI [.'$TightSchema'.'|'.6.'$schema']", path])
+        rep !== null && rep.push(["unexpected $URI [.'$TightSchema'.'|'.1.'$schema']", path])
     }
     return res;
 }
 
-// object .'$TightSchema'.'|'.6.'$vocabulary'
+// object .'$TightSchema'.'|'.1.'$vocabulary'
 function _jm_obj_21(val, path, rep)
 {
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
-        rep !== null && rep.push(["not an object [.'$TightSchema'.'|'.6.'$vocabulary']", path])
+        rep !== null && rep.push(["not an object [.'$TightSchema'.'|'.1.'$vocabulary']", path])
         return false;
     }
     let res;
@@ -2380,11 +2289,11 @@ function _jm_obj_21(val, path, rep)
         if (runtime.jm_is_valid_url(prop))
         {
             // handle 1 key props
-            // .'$TightSchema'.'|'.6.'$vocabulary'.'$URI'
+            // .'$TightSchema'.'|'.1.'$vocabulary'.'$URI'
             res = (typeof pval === 'boolean' || pval instanceof Boolean);
             if (! res)
             {
-                rep !== null && rep.push(["not a bool [.'$TightSchema'.'|'.6.'$vocabulary'.'$URI']", (path ? lpath_21 : null)])
+                rep !== null && rep.push(["not a bool [.'$TightSchema'.'|'.1.'$vocabulary'.'$URI']", (path ? lpath_21 : null)])
             }
             if (! res)
             {
@@ -2393,163 +2302,70 @@ function _jm_obj_21(val, path, rep)
         }
         else
         {
-            rep !== null && rep.push(["unexpected prop [.'$TightSchema'.'|'.6.'$vocabulary']", (path ? lpath_21 : null)])
+            rep !== null && rep.push(["unexpected prop [.'$TightSchema'.'|'.1.'$vocabulary']", (path ? lpath_21 : null)])
             return false;
         }
     }
     return true;
 }
 
-// check _jm_obj_19_map_$vocabulary (.'$TightSchema'.'|'.6.'$vocabulary')
-function _jm_f_84(val, path, rep)
+// check _jm_obj_19_map_$vocabulary (.'$TightSchema'.'|'.1.'$vocabulary')
+function _jm_f_75(val, path, rep)
 {
     let res;
-    // .'$TightSchema'.'|'.6.'$vocabulary'
+    // .'$TightSchema'.'|'.1.'$vocabulary'
     res = _jm_obj_21(val, path, rep);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected element [.'$TightSchema'.'|'.6.'$vocabulary']", path])
+        rep !== null && rep.push(["unexpected element [.'$TightSchema'.'|'.1.'$vocabulary']", path])
     }
     return res;
 }
 
-// check _jm_obj_19_map_additionalProperties (.'$TightSchema'.'|'.6.additionalProperties)
-function _jm_f_85(val, path, rep)
+// check _jm_obj_19_map_default (.'$TightSchema'.'|'.1.default)
+function _jm_f_76(val, path, rep)
 {
     let res;
-    // .'$TightSchema'.'|'.6.additionalProperties
-    res = json_model_16(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $Schema [.'$TightSchema'.'|'.6.additionalProperties]", path])
-    }
-    return res;
-}
-
-// check _jm_obj_19_map_default (.'$TightSchema'.'|'.6.default)
-function _jm_f_86(val, path, rep)
-{
-    let res;
-    // .'$TightSchema'.'|'.6.default
+    // .'$TightSchema'.'|'.1.default
     res = true;
     if (! res)
     {
-        rep !== null && rep.push(["unexpected $ANY [.'$TightSchema'.'|'.6.default]", path])
+        rep !== null && rep.push(["unexpected $ANY [.'$TightSchema'.'|'.1.default]", path])
     }
     return res;
 }
 
-// object .'$TightSchema'.'|'.6.dependentRequired
-function _jm_obj_22(val, path, rep)
-{
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
-    {
-        rep !== null && rep.push(["not an object [.'$TightSchema'.'|'.6.dependentRequired]", path])
-        return false;
-    }
-    let res;
-    for (const [prop, pval] of Object.entries(val))
-    {
-        let lpath_22 = path ? path.concat([prop]) : null;
-        // handle other props
-        // .'$TightSchema'.'|'.6.dependentRequired.''
-        res = json_model_10(pval, (path ? lpath_22 : null), rep);
-        if (! res)
-        {
-            rep !== null && rep.push(["unexpected $stringArray [.'$TightSchema'.'|'.6.dependentRequired.'']", (path ? lpath_22 : null)])
-        }
-        if (! res)
-        {
-            return false;
-        }
-    }
-    return true;
-}
-
-// check _jm_obj_19_map_dependentRequired (.'$TightSchema'.'|'.6.dependentRequired)
-function _jm_f_87(val, path, rep)
+// check _jm_obj_19_map_deprecated (.'$TightSchema'.'|'.1.deprecated)
+function _jm_f_77(val, path, rep)
 {
     let res;
-    // .'$TightSchema'.'|'.6.dependentRequired
-    res = _jm_obj_22(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected element [.'$TightSchema'.'|'.6.dependentRequired]", path])
-    }
-    return res;
-}
-
-// object .'$TightSchema'.'|'.6.dependentSchemas
-function _jm_obj_23(val, path, rep)
-{
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
-    {
-        rep !== null && rep.push(["not an object [.'$TightSchema'.'|'.6.dependentSchemas]", path])
-        return false;
-    }
-    let res;
-    for (const [prop, pval] of Object.entries(val))
-    {
-        let lpath_23 = path ? path.concat([prop]) : null;
-        // handle other props
-        // .'$TightSchema'.'|'.6.dependentSchemas.''
-        res = json_model_16(pval, (path ? lpath_23 : null), rep);
-        if (! res)
-        {
-            rep !== null && rep.push(["unexpected $Schema [.'$TightSchema'.'|'.6.dependentSchemas.'']", (path ? lpath_23 : null)])
-        }
-        if (! res)
-        {
-            return false;
-        }
-    }
-    return true;
-}
-
-// check _jm_obj_19_map_dependentSchemas (.'$TightSchema'.'|'.6.dependentSchemas)
-function _jm_f_88(val, path, rep)
-{
-    let res;
-    // .'$TightSchema'.'|'.6.dependentSchemas
-    res = _jm_obj_23(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected element [.'$TightSchema'.'|'.6.dependentSchemas]", path])
-    }
-    return res;
-}
-
-// check _jm_obj_19_map_deprecated (.'$TightSchema'.'|'.6.deprecated)
-function _jm_f_89(val, path, rep)
-{
-    let res;
-    // .'$TightSchema'.'|'.6.deprecated
+    // .'$TightSchema'.'|'.1.deprecated
     res = (typeof val === 'boolean' || val instanceof Boolean);
     if (! res)
     {
-        rep !== null && rep.push(["not a bool [.'$TightSchema'.'|'.6.deprecated]", path])
+        rep !== null && rep.push(["not a bool [.'$TightSchema'.'|'.1.deprecated]", path])
     }
     return res;
 }
 
-// check _jm_obj_19_map_description (.'$TightSchema'.'|'.6.description)
-function _jm_f_90(val, path, rep)
+// check _jm_obj_19_map_description (.'$TightSchema'.'|'.1.description)
+function _jm_f_78(val, path, rep)
 {
     let res;
-    // .'$TightSchema'.'|'.6.description
+    // .'$TightSchema'.'|'.1.description
     res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected string [.'$TightSchema'.'|'.6.description]", path])
+        rep !== null && rep.push(["unexpected string [.'$TightSchema'.'|'.1.description]", path])
     }
     return res;
 }
 
-// check _jm_obj_19_map_examples (.'$TightSchema'.'|'.6.examples)
-function _jm_f_91(val, path, rep)
+// check _jm_obj_19_map_examples (.'$TightSchema'.'|'.1.examples)
+function _jm_f_79(val, path, rep)
 {
     let res;
-    // .'$TightSchema'.'|'.6.examples
+    // .'$TightSchema'.'|'.1.examples
     res = Array.isArray(val);
     if (res)
     {
@@ -2557,210 +2373,57 @@ function _jm_f_91(val, path, rep)
     }
     if (! res)
     {
-        rep !== null && rep.push(["not array or unexpected array [.'$TightSchema'.'|'.6.examples]", path])
+        rep !== null && rep.push(["not array or unexpected array [.'$TightSchema'.'|'.1.examples]", path])
     }
     return res;
 }
 
-// check _jm_obj_19_map_maxProperties (.'$TightSchema'.'|'.6.maxProperties)
-function _jm_f_92(val, path, rep)
+// check _jm_obj_19_map_readOnly (.'$TightSchema'.'|'.1.readOnly)
+function _jm_f_80(val, path, rep)
 {
     let res;
-    // .'$TightSchema'.'|'.6.maxProperties
-    res = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 0;
-    if (! res)
-    {
-        rep !== null && rep.push(["not a 0 strict int [.'$TightSchema'.'|'.6.maxProperties]", path])
-    }
-    return res;
-}
-
-// check _jm_obj_19_map_minProperties (.'$TightSchema'.'|'.6.minProperties)
-function _jm_f_93(val, path, rep)
-{
-    let res;
-    // .'$TightSchema'.'|'.6.minProperties
-    res = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 0;
-    if (! res)
-    {
-        rep !== null && rep.push(["not a 0 strict int [.'$TightSchema'.'|'.6.minProperties]", path])
-    }
-    return res;
-}
-
-// object .'$TightSchema'.'|'.6.patternProperties
-function _jm_obj_24(val, path, rep)
-{
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
-    {
-        rep !== null && rep.push(["not an object [.'$TightSchema'.'|'.6.patternProperties]", path])
-        return false;
-    }
-    let res;
-    for (const [prop, pval] of Object.entries(val))
-    {
-        let lpath_24 = path ? path.concat([prop]) : null;
-        if (runtime.jm_is_valid_regex(prop, false))
-        {
-            // handle 1 key props
-            // .'$TightSchema'.'|'.6.patternProperties.'$REGEX'
-            res = json_model_16(pval, (path ? lpath_24 : null), rep);
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected $Schema [.'$TightSchema'.'|'.6.patternProperties.'$REGEX']", (path ? lpath_24 : null)])
-            }
-            if (! res)
-            {
-                return false;
-            }
-        }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.'$TightSchema'.'|'.6.patternProperties]", (path ? lpath_24 : null)])
-            return false;
-        }
-    }
-    return true;
-}
-
-// check _jm_obj_19_map_patternProperties (.'$TightSchema'.'|'.6.patternProperties)
-function _jm_f_94(val, path, rep)
-{
-    let res;
-    // .'$TightSchema'.'|'.6.patternProperties
-    res = _jm_obj_24(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected element [.'$TightSchema'.'|'.6.patternProperties]", path])
-    }
-    return res;
-}
-
-// object .'$TightSchema'.'|'.6.properties
-function _jm_obj_25(val, path, rep)
-{
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
-    {
-        rep !== null && rep.push(["not an object [.'$TightSchema'.'|'.6.properties]", path])
-        return false;
-    }
-    let res;
-    for (const [prop, pval] of Object.entries(val))
-    {
-        let lpath_25 = path ? path.concat([prop]) : null;
-        // handle other props
-        // .'$TightSchema'.'|'.6.properties.''
-        res = json_model_16(pval, (path ? lpath_25 : null), rep);
-        if (! res)
-        {
-            rep !== null && rep.push(["unexpected $Schema [.'$TightSchema'.'|'.6.properties.'']", (path ? lpath_25 : null)])
-        }
-        if (! res)
-        {
-            return false;
-        }
-    }
-    return true;
-}
-
-// check _jm_obj_19_map_properties (.'$TightSchema'.'|'.6.properties)
-function _jm_f_95(val, path, rep)
-{
-    let res;
-    // .'$TightSchema'.'|'.6.properties
-    res = _jm_obj_25(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected element [.'$TightSchema'.'|'.6.properties]", path])
-    }
-    return res;
-}
-
-// check _jm_obj_19_map_propertyNames (.'$TightSchema'.'|'.6.propertyNames)
-function _jm_f_96(val, path, rep)
-{
-    let res;
-    // .'$TightSchema'.'|'.6.propertyNames
-    res = json_model_16(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $Schema [.'$TightSchema'.'|'.6.propertyNames]", path])
-    }
-    return res;
-}
-
-// check _jm_obj_19_map_readOnly (.'$TightSchema'.'|'.6.readOnly)
-function _jm_f_97(val, path, rep)
-{
-    let res;
-    // .'$TightSchema'.'|'.6.readOnly
+    // .'$TightSchema'.'|'.1.readOnly
     res = (typeof val === 'boolean' || val instanceof Boolean);
     if (! res)
     {
-        rep !== null && rep.push(["not a bool [.'$TightSchema'.'|'.6.readOnly]", path])
+        rep !== null && rep.push(["not a bool [.'$TightSchema'.'|'.1.readOnly]", path])
     }
     return res;
 }
 
-// check _jm_obj_19_map_required (.'$TightSchema'.'|'.6.required)
-function _jm_f_98(val, path, rep)
+// check _jm_obj_19_map_title (.'$TightSchema'.'|'.1.title)
+function _jm_f_81(val, path, rep)
 {
     let res;
-    // .'$TightSchema'.'|'.6.required
-    res = json_model_10(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $stringArray [.'$TightSchema'.'|'.6.required]", path])
-    }
-    return res;
-}
-
-// check _jm_obj_19_map_title (.'$TightSchema'.'|'.6.title)
-function _jm_f_99(val, path, rep)
-{
-    let res;
-    // .'$TightSchema'.'|'.6.title
+    // .'$TightSchema'.'|'.1.title
     res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected string [.'$TightSchema'.'|'.6.title]", path])
+        rep !== null && rep.push(["unexpected string [.'$TightSchema'.'|'.1.title]", path])
     }
     return res;
 }
 
-// check _jm_obj_19_map_unevaluatedProperties (.'$TightSchema'.'|'.6.unevaluatedProperties)
-function _jm_f_100(val, path, rep)
+// check _jm_obj_19_map_writeOnly (.'$TightSchema'.'|'.1.writeOnly)
+function _jm_f_82(val, path, rep)
 {
     let res;
-    // .'$TightSchema'.'|'.6.unevaluatedProperties
-    res = json_model_16(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $Schema [.'$TightSchema'.'|'.6.unevaluatedProperties]", path])
-    }
-    return res;
-}
-
-// check _jm_obj_19_map_writeOnly (.'$TightSchema'.'|'.6.writeOnly)
-function _jm_f_101(val, path, rep)
-{
-    let res;
-    // .'$TightSchema'.'|'.6.writeOnly
+    // .'$TightSchema'.'|'.1.writeOnly
     res = (typeof val === 'boolean' || val instanceof Boolean);
     if (! res)
     {
-        rep !== null && rep.push(["not a bool [.'$TightSchema'.'|'.6.writeOnly]", path])
+        rep !== null && rep.push(["not a bool [.'$TightSchema'.'|'.1.writeOnly]", path])
     }
     return res;
 }
 
 
-// object .'$TightSchema'.'|'.6
+// object .'$TightSchema'.'|'.1
 function _jm_obj_19(val, path, rep)
 {
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
-        rep !== null && rep.push(["not an object [.'$TightSchema'.'|'.6]", path])
+        rep !== null && rep.push(["not an object [.'$TightSchema'.'|'.1]", path])
         return false;
     }
     let res;
@@ -2773,30 +2436,30 @@ function _jm_obj_19(val, path, rep)
         {
             // handle must type property
             must_count += 1;
-            // .'$TightSchema'.'|'.6.type
-            res = ((typeof pval === 'string' || pval instanceof String)) && pval == "object";
+            // .'$TightSchema'.'|'.1.type
+            res = ((typeof pval === 'string' || pval instanceof String)) && pval == "boolean";
             if (! res)
             {
-                rep !== null && rep.push(["unexpected _object [.'$TightSchema'.'|'.6.type]", (path ? lpath_19 : null)])
+                rep !== null && rep.push(["unexpected _boolean [.'$TightSchema'.'|'.1.type]", (path ? lpath_19 : null)])
             }
             if (! res)
             {
-                rep !== null && rep.push(["invalid mandatory prop value [.'$TightSchema'.'|'.6.type]", (path ? lpath_19 : null)])
+                rep !== null && rep.push(["invalid mandatory prop value [.'$TightSchema'.'|'.1.type]", (path ? lpath_19 : null)])
                 return false;
             }
         }
         else if ((pfun = _jm_obj_19_map.get(prop)))
         {
-            // handle 26 may props
+            // handle 16 may props
             if (pfun !== undefined && ! pfun(pval, (path ? lpath_19 : null), rep))
             {
-                rep !== null && rep.push(["invalid optional prop value [.'$TightSchema'.'|'.6]", (path ? lpath_19 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$TightSchema'.'|'.1]", (path ? lpath_19 : null)])
                 return false;
             }
         }
         else
         {
-            rep !== null && rep.push(["unexpected prop [.'$TightSchema'.'|'.6]", (path ? lpath_19 : null)])
+            rep !== null && rep.push(["unexpected prop [.'$TightSchema'.'|'.1]", (path ? lpath_19 : null)])
             return false;
         }
     }
@@ -2806,7 +2469,7 @@ function _jm_obj_19(val, path, rep)
         {
             if (! val.hasOwnProperty("type"))
             {
-                rep !== null && rep.push(["missing mandatory prop <type> [.'$TightSchema'.'|'.6]", path])
+                rep !== null && rep.push(["missing mandatory prop <type> [.'$TightSchema'.'|'.1]", path])
             }
         }
         return false;
@@ -2814,1283 +2477,8 @@ function _jm_obj_19(val, path, rep)
     return true;
 }
 
-// check _jm_obj_26_map_$anchor (.'$TightSchema'.'|'.5.'$anchor')
-function _jm_f_102(val, path, rep)
-{
-    let res;
-    // .'$TightSchema'.'|'.5.'$anchor'
-    res = json_model_2(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $URI-REFERENCE [.'$TightSchema'.'|'.5.'$anchor']", path])
-    }
-    return res;
-}
-
-// check _jm_obj_26_map_$comment (.'$TightSchema'.'|'.5.'$comment')
-function _jm_f_103(val, path, rep)
-{
-    let res;
-    // .'$TightSchema'.'|'.5.'$comment'
-    res = (typeof val === 'string' || val instanceof String);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected string [.'$TightSchema'.'|'.5.'$comment']", path])
-    }
-    return res;
-}
-
-// object .'$TightSchema'.'|'.5.'$defs'
-function _jm_obj_27(val, path, rep)
-{
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
-    {
-        rep !== null && rep.push(["not an object [.'$TightSchema'.'|'.5.'$defs']", path])
-        return false;
-    }
-    let res;
-    for (const [prop, pval] of Object.entries(val))
-    {
-        let lpath_27 = path ? path.concat([prop]) : null;
-        // handle other props
-        // .'$TightSchema'.'|'.5.'$defs'.''
-        res = json_model_16(pval, (path ? lpath_27 : null), rep);
-        if (! res)
-        {
-            rep !== null && rep.push(["unexpected $Schema [.'$TightSchema'.'|'.5.'$defs'.'']", (path ? lpath_27 : null)])
-        }
-        if (! res)
-        {
-            return false;
-        }
-    }
-    return true;
-}
-
-// check _jm_obj_26_map_$defs (.'$TightSchema'.'|'.5.'$defs')
-function _jm_f_104(val, path, rep)
-{
-    let res;
-    // .'$TightSchema'.'|'.5.'$defs'
-    res = _jm_obj_27(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected element [.'$TightSchema'.'|'.5.'$defs']", path])
-    }
-    return res;
-}
-
-// check _jm_obj_26_map_$dynamicAnchor (.'$TightSchema'.'|'.5.'$dynamicAnchor')
-function _jm_f_105(val, path, rep)
-{
-    let res;
-    // .'$TightSchema'.'|'.5.'$dynamicAnchor'
-    res = json_model_2(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $URI-REFERENCE [.'$TightSchema'.'|'.5.'$dynamicAnchor']", path])
-    }
-    return res;
-}
-
-// check _jm_obj_26_map_$dynamicRef (.'$TightSchema'.'|'.5.'$dynamicRef')
-function _jm_f_106(val, path, rep)
-{
-    let res;
-    // .'$TightSchema'.'|'.5.'$dynamicRef'
-    res = json_model_2(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $URI-REFERENCE [.'$TightSchema'.'|'.5.'$dynamicRef']", path])
-    }
-    return res;
-}
-
-// check _jm_obj_26_map_$id (.'$TightSchema'.'|'.5.'$id')
-function _jm_f_107(val, path, rep)
-{
-    let res;
-    // .'$TightSchema'.'|'.5.'$id'
-    res = json_model_2(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $URI-REFERENCE [.'$TightSchema'.'|'.5.'$id']", path])
-    }
-    return res;
-}
-
-// check _jm_obj_26_map_$ref (.'$TightSchema'.'|'.5.'$ref')
-function _jm_f_108(val, path, rep)
-{
-    let res;
-    // .'$TightSchema'.'|'.5.'$ref'
-    res = json_model_2(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $URI-REFERENCE [.'$TightSchema'.'|'.5.'$ref']", path])
-    }
-    return res;
-}
-
-// check _jm_obj_26_map_$schema (.'$TightSchema'.'|'.5.'$schema')
-function _jm_f_109(val, path, rep)
-{
-    let res;
-    // .'$TightSchema'.'|'.5.'$schema'
-    res = runtime.jm_is_valid_url(val);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $URI [.'$TightSchema'.'|'.5.'$schema']", path])
-    }
-    return res;
-}
-
-// object .'$TightSchema'.'|'.5.'$vocabulary'
-function _jm_obj_28(val, path, rep)
-{
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
-    {
-        rep !== null && rep.push(["not an object [.'$TightSchema'.'|'.5.'$vocabulary']", path])
-        return false;
-    }
-    let res;
-    for (const [prop, pval] of Object.entries(val))
-    {
-        let lpath_28 = path ? path.concat([prop]) : null;
-        if (runtime.jm_is_valid_url(prop))
-        {
-            // handle 1 key props
-            // .'$TightSchema'.'|'.5.'$vocabulary'.'$URI'
-            res = (typeof pval === 'boolean' || pval instanceof Boolean);
-            if (! res)
-            {
-                rep !== null && rep.push(["not a bool [.'$TightSchema'.'|'.5.'$vocabulary'.'$URI']", (path ? lpath_28 : null)])
-            }
-            if (! res)
-            {
-                return false;
-            }
-        }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.'$TightSchema'.'|'.5.'$vocabulary']", (path ? lpath_28 : null)])
-            return false;
-        }
-    }
-    return true;
-}
-
-// check _jm_obj_26_map_$vocabulary (.'$TightSchema'.'|'.5.'$vocabulary')
-function _jm_f_110(val, path, rep)
-{
-    let res;
-    // .'$TightSchema'.'|'.5.'$vocabulary'
-    res = _jm_obj_28(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected element [.'$TightSchema'.'|'.5.'$vocabulary']", path])
-    }
-    return res;
-}
-
-// check _jm_obj_26_map_contains (.'$TightSchema'.'|'.5.contains)
-function _jm_f_111(val, path, rep)
-{
-    let res;
-    // .'$TightSchema'.'|'.5.contains
-    res = json_model_16(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $Schema [.'$TightSchema'.'|'.5.contains]", path])
-    }
-    return res;
-}
-
-// check _jm_obj_26_map_default (.'$TightSchema'.'|'.5.default)
-function _jm_f_112(val, path, rep)
-{
-    let res;
-    // .'$TightSchema'.'|'.5.default
-    res = true;
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $ANY [.'$TightSchema'.'|'.5.default]", path])
-    }
-    return res;
-}
-
-// check _jm_obj_26_map_deprecated (.'$TightSchema'.'|'.5.deprecated)
-function _jm_f_113(val, path, rep)
-{
-    let res;
-    // .'$TightSchema'.'|'.5.deprecated
-    res = (typeof val === 'boolean' || val instanceof Boolean);
-    if (! res)
-    {
-        rep !== null && rep.push(["not a bool [.'$TightSchema'.'|'.5.deprecated]", path])
-    }
-    return res;
-}
-
-// check _jm_obj_26_map_description (.'$TightSchema'.'|'.5.description)
-function _jm_f_114(val, path, rep)
-{
-    let res;
-    // .'$TightSchema'.'|'.5.description
-    res = (typeof val === 'string' || val instanceof String);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected string [.'$TightSchema'.'|'.5.description]", path])
-    }
-    return res;
-}
-
-// check _jm_obj_26_map_examples (.'$TightSchema'.'|'.5.examples)
-function _jm_f_115(val, path, rep)
-{
-    let res;
-    // .'$TightSchema'.'|'.5.examples
-    res = Array.isArray(val);
-    if (res)
-    {
-        // accept any array
-    }
-    if (! res)
-    {
-        rep !== null && rep.push(["not array or unexpected array [.'$TightSchema'.'|'.5.examples]", path])
-    }
-    return res;
-}
-
-// check _jm_obj_26_map_items (.'$TightSchema'.'|'.5.items)
-function _jm_f_116(val, path, rep)
-{
-    let res;
-    // .'$TightSchema'.'|'.5.items
-    res = json_model_16(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $Schema [.'$TightSchema'.'|'.5.items]", path])
-    }
-    return res;
-}
-
-// check _jm_obj_26_map_maxContains (.'$TightSchema'.'|'.5.maxContains)
-function _jm_f_117(val, path, rep)
-{
-    let res;
-    // .'$TightSchema'.'|'.5.maxContains
-    res = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 0;
-    if (! res)
-    {
-        rep !== null && rep.push(["not a 0 strict int [.'$TightSchema'.'|'.5.maxContains]", path])
-    }
-    return res;
-}
-
-// check _jm_obj_26_map_maxItems (.'$TightSchema'.'|'.5.maxItems)
-function _jm_f_118(val, path, rep)
-{
-    let res;
-    // .'$TightSchema'.'|'.5.maxItems
-    res = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 0;
-    if (! res)
-    {
-        rep !== null && rep.push(["not a 0 strict int [.'$TightSchema'.'|'.5.maxItems]", path])
-    }
-    return res;
-}
-
-// check _jm_obj_26_map_minContains (.'$TightSchema'.'|'.5.minContains)
-function _jm_f_119(val, path, rep)
-{
-    let res;
-    // .'$TightSchema'.'|'.5.minContains
-    res = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 0;
-    if (! res)
-    {
-        rep !== null && rep.push(["not a 0 strict int [.'$TightSchema'.'|'.5.minContains]", path])
-    }
-    return res;
-}
-
-// check _jm_obj_26_map_minItems (.'$TightSchema'.'|'.5.minItems)
-function _jm_f_120(val, path, rep)
-{
-    let res;
-    // .'$TightSchema'.'|'.5.minItems
-    res = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 0;
-    if (! res)
-    {
-        rep !== null && rep.push(["not a 0 strict int [.'$TightSchema'.'|'.5.minItems]", path])
-    }
-    return res;
-}
-
-// check _jm_obj_26_map_prefixItems (.'$TightSchema'.'|'.5.prefixItems)
-function _jm_f_121(val, path, rep)
-{
-    let res;
-    // .'$TightSchema'.'|'.5.prefixItems
-    res = json_model_11(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $schemaArray [.'$TightSchema'.'|'.5.prefixItems]", path])
-    }
-    return res;
-}
-
-// check _jm_obj_26_map_readOnly (.'$TightSchema'.'|'.5.readOnly)
-function _jm_f_122(val, path, rep)
-{
-    let res;
-    // .'$TightSchema'.'|'.5.readOnly
-    res = (typeof val === 'boolean' || val instanceof Boolean);
-    if (! res)
-    {
-        rep !== null && rep.push(["not a bool [.'$TightSchema'.'|'.5.readOnly]", path])
-    }
-    return res;
-}
-
-// check _jm_obj_26_map_title (.'$TightSchema'.'|'.5.title)
-function _jm_f_123(val, path, rep)
-{
-    let res;
-    // .'$TightSchema'.'|'.5.title
-    res = (typeof val === 'string' || val instanceof String);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected string [.'$TightSchema'.'|'.5.title]", path])
-    }
-    return res;
-}
-
-// check _jm_obj_26_map_unevaluatedItems (.'$TightSchema'.'|'.5.unevaluatedItems)
-function _jm_f_124(val, path, rep)
-{
-    let res;
-    // .'$TightSchema'.'|'.5.unevaluatedItems
-    res = json_model_16(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $Schema [.'$TightSchema'.'|'.5.unevaluatedItems]", path])
-    }
-    return res;
-}
-
-// check _jm_obj_26_map_uniqueItems (.'$TightSchema'.'|'.5.uniqueItems)
-function _jm_f_125(val, path, rep)
-{
-    let res;
-    // .'$TightSchema'.'|'.5.uniqueItems
-    res = (typeof val === 'boolean' || val instanceof Boolean);
-    if (! res)
-    {
-        rep !== null && rep.push(["not a bool [.'$TightSchema'.'|'.5.uniqueItems]", path])
-    }
-    return res;
-}
-
-// check _jm_obj_26_map_writeOnly (.'$TightSchema'.'|'.5.writeOnly)
-function _jm_f_126(val, path, rep)
-{
-    let res;
-    // .'$TightSchema'.'|'.5.writeOnly
-    res = (typeof val === 'boolean' || val instanceof Boolean);
-    if (! res)
-    {
-        rep !== null && rep.push(["not a bool [.'$TightSchema'.'|'.5.writeOnly]", path])
-    }
-    return res;
-}
-
-
-// object .'$TightSchema'.'|'.5
-function _jm_obj_26(val, path, rep)
-{
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
-    {
-        rep !== null && rep.push(["not an object [.'$TightSchema'.'|'.5]", path])
-        return false;
-    }
-    let res;
-    let pfun;
-    let must_count = 0;
-    for (const [prop, pval] of Object.entries(val))
-    {
-        let lpath_26 = path ? path.concat([prop]) : null;
-        if (prop == "type")
-        {
-            // handle must type property
-            must_count += 1;
-            // .'$TightSchema'.'|'.5.type
-            res = ((typeof pval === 'string' || pval instanceof String)) && pval == "array";
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected _array [.'$TightSchema'.'|'.5.type]", (path ? lpath_26 : null)])
-            }
-            if (! res)
-            {
-                rep !== null && rep.push(["invalid mandatory prop value [.'$TightSchema'.'|'.5.type]", (path ? lpath_26 : null)])
-                return false;
-            }
-        }
-        else if ((pfun = _jm_obj_26_map.get(prop)))
-        {
-            // handle 25 may props
-            if (pfun !== undefined && ! pfun(pval, (path ? lpath_26 : null), rep))
-            {
-                rep !== null && rep.push(["invalid optional prop value [.'$TightSchema'.'|'.5]", (path ? lpath_26 : null)])
-                return false;
-            }
-        }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.'$TightSchema'.'|'.5]", (path ? lpath_26 : null)])
-            return false;
-        }
-    }
-    if (must_count != 1)
-    {
-        if (rep !== null)
-        {
-            if (! val.hasOwnProperty("type"))
-            {
-                rep !== null && rep.push(["missing mandatory prop <type> [.'$TightSchema'.'|'.5]", path])
-            }
-        }
-        return false;
-    }
-    return true;
-}
-
-// check _jm_obj_29_map_$anchor (.'$TightSchema'.'|'.4.'$anchor')
-function _jm_f_127(val, path, rep)
-{
-    let res;
-    // .'$TightSchema'.'|'.4.'$anchor'
-    res = json_model_2(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $URI-REFERENCE [.'$TightSchema'.'|'.4.'$anchor']", path])
-    }
-    return res;
-}
-
-// check _jm_obj_29_map_$comment (.'$TightSchema'.'|'.4.'$comment')
-function _jm_f_128(val, path, rep)
-{
-    let res;
-    // .'$TightSchema'.'|'.4.'$comment'
-    res = (typeof val === 'string' || val instanceof String);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected string [.'$TightSchema'.'|'.4.'$comment']", path])
-    }
-    return res;
-}
-
-// object .'$TightSchema'.'|'.4.'$defs'
-function _jm_obj_30(val, path, rep)
-{
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
-    {
-        rep !== null && rep.push(["not an object [.'$TightSchema'.'|'.4.'$defs']", path])
-        return false;
-    }
-    let res;
-    for (const [prop, pval] of Object.entries(val))
-    {
-        let lpath_30 = path ? path.concat([prop]) : null;
-        // handle other props
-        // .'$TightSchema'.'|'.4.'$defs'.''
-        res = json_model_16(pval, (path ? lpath_30 : null), rep);
-        if (! res)
-        {
-            rep !== null && rep.push(["unexpected $Schema [.'$TightSchema'.'|'.4.'$defs'.'']", (path ? lpath_30 : null)])
-        }
-        if (! res)
-        {
-            return false;
-        }
-    }
-    return true;
-}
-
-// check _jm_obj_29_map_$defs (.'$TightSchema'.'|'.4.'$defs')
-function _jm_f_129(val, path, rep)
-{
-    let res;
-    // .'$TightSchema'.'|'.4.'$defs'
-    res = _jm_obj_30(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected element [.'$TightSchema'.'|'.4.'$defs']", path])
-    }
-    return res;
-}
-
-// check _jm_obj_29_map_$dynamicAnchor (.'$TightSchema'.'|'.4.'$dynamicAnchor')
-function _jm_f_130(val, path, rep)
-{
-    let res;
-    // .'$TightSchema'.'|'.4.'$dynamicAnchor'
-    res = json_model_2(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $URI-REFERENCE [.'$TightSchema'.'|'.4.'$dynamicAnchor']", path])
-    }
-    return res;
-}
-
-// check _jm_obj_29_map_$dynamicRef (.'$TightSchema'.'|'.4.'$dynamicRef')
-function _jm_f_131(val, path, rep)
-{
-    let res;
-    // .'$TightSchema'.'|'.4.'$dynamicRef'
-    res = json_model_2(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $URI-REFERENCE [.'$TightSchema'.'|'.4.'$dynamicRef']", path])
-    }
-    return res;
-}
-
-// check _jm_obj_29_map_$id (.'$TightSchema'.'|'.4.'$id')
-function _jm_f_132(val, path, rep)
-{
-    let res;
-    // .'$TightSchema'.'|'.4.'$id'
-    res = json_model_2(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $URI-REFERENCE [.'$TightSchema'.'|'.4.'$id']", path])
-    }
-    return res;
-}
-
-// check _jm_obj_29_map_$ref (.'$TightSchema'.'|'.4.'$ref')
-function _jm_f_133(val, path, rep)
-{
-    let res;
-    // .'$TightSchema'.'|'.4.'$ref'
-    res = json_model_2(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $URI-REFERENCE [.'$TightSchema'.'|'.4.'$ref']", path])
-    }
-    return res;
-}
-
-// check _jm_obj_29_map_$schema (.'$TightSchema'.'|'.4.'$schema')
-function _jm_f_134(val, path, rep)
-{
-    let res;
-    // .'$TightSchema'.'|'.4.'$schema'
-    res = runtime.jm_is_valid_url(val);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $URI [.'$TightSchema'.'|'.4.'$schema']", path])
-    }
-    return res;
-}
-
-// object .'$TightSchema'.'|'.4.'$vocabulary'
-function _jm_obj_31(val, path, rep)
-{
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
-    {
-        rep !== null && rep.push(["not an object [.'$TightSchema'.'|'.4.'$vocabulary']", path])
-        return false;
-    }
-    let res;
-    for (const [prop, pval] of Object.entries(val))
-    {
-        let lpath_31 = path ? path.concat([prop]) : null;
-        if (runtime.jm_is_valid_url(prop))
-        {
-            // handle 1 key props
-            // .'$TightSchema'.'|'.4.'$vocabulary'.'$URI'
-            res = (typeof pval === 'boolean' || pval instanceof Boolean);
-            if (! res)
-            {
-                rep !== null && rep.push(["not a bool [.'$TightSchema'.'|'.4.'$vocabulary'.'$URI']", (path ? lpath_31 : null)])
-            }
-            if (! res)
-            {
-                return false;
-            }
-        }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.'$TightSchema'.'|'.4.'$vocabulary']", (path ? lpath_31 : null)])
-            return false;
-        }
-    }
-    return true;
-}
-
-// check _jm_obj_29_map_$vocabulary (.'$TightSchema'.'|'.4.'$vocabulary')
-function _jm_f_135(val, path, rep)
-{
-    let res;
-    // .'$TightSchema'.'|'.4.'$vocabulary'
-    res = _jm_obj_31(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected element [.'$TightSchema'.'|'.4.'$vocabulary']", path])
-    }
-    return res;
-}
-
-// check _jm_obj_29_map_contentEncoding (.'$TightSchema'.'|'.4.contentEncoding)
-function _jm_f_136(val, path, rep)
-{
-    let res;
-    // .'$TightSchema'.'|'.4.contentEncoding
-    res = (typeof val === 'string' || val instanceof String);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected string [.'$TightSchema'.'|'.4.contentEncoding]", path])
-    }
-    return res;
-}
-
-// check _jm_obj_29_map_contentMediaType (.'$TightSchema'.'|'.4.contentMediaType)
-function _jm_f_137(val, path, rep)
-{
-    let res;
-    // .'$TightSchema'.'|'.4.contentMediaType
-    res = (typeof val === 'string' || val instanceof String);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected string [.'$TightSchema'.'|'.4.contentMediaType]", path])
-    }
-    return res;
-}
-
-// check _jm_obj_29_map_contentSchema (.'$TightSchema'.'|'.4.contentSchema)
-function _jm_f_138(val, path, rep)
-{
-    let res;
-    // .'$TightSchema'.'|'.4.contentSchema
-    res = json_model_16(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $Schema [.'$TightSchema'.'|'.4.contentSchema]", path])
-    }
-    return res;
-}
-
-// check _jm_obj_29_map_default (.'$TightSchema'.'|'.4.default)
-function _jm_f_139(val, path, rep)
-{
-    let res;
-    // .'$TightSchema'.'|'.4.default
-    res = true;
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $ANY [.'$TightSchema'.'|'.4.default]", path])
-    }
-    return res;
-}
-
-// check _jm_obj_29_map_deprecated (.'$TightSchema'.'|'.4.deprecated)
-function _jm_f_140(val, path, rep)
-{
-    let res;
-    // .'$TightSchema'.'|'.4.deprecated
-    res = (typeof val === 'boolean' || val instanceof Boolean);
-    if (! res)
-    {
-        rep !== null && rep.push(["not a bool [.'$TightSchema'.'|'.4.deprecated]", path])
-    }
-    return res;
-}
-
-// check _jm_obj_29_map_description (.'$TightSchema'.'|'.4.description)
-function _jm_f_141(val, path, rep)
-{
-    let res;
-    // .'$TightSchema'.'|'.4.description
-    res = (typeof val === 'string' || val instanceof String);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected string [.'$TightSchema'.'|'.4.description]", path])
-    }
-    return res;
-}
-
-// check _jm_obj_29_map_examples (.'$TightSchema'.'|'.4.examples)
-function _jm_f_142(val, path, rep)
-{
-    let res;
-    // .'$TightSchema'.'|'.4.examples
-    res = Array.isArray(val);
-    if (res)
-    {
-        // accept any array
-    }
-    if (! res)
-    {
-        rep !== null && rep.push(["not array or unexpected array [.'$TightSchema'.'|'.4.examples]", path])
-    }
-    return res;
-}
-
-// check _jm_obj_29_map_format (.'$TightSchema'.'|'.4.format)
-function _jm_f_143(val, path, rep)
-{
-    let res;
-    // .'$TightSchema'.'|'.4.format
-    res = (typeof val === 'string' || val instanceof String);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected string [.'$TightSchema'.'|'.4.format]", path])
-    }
-    return res;
-}
-
-// check _jm_obj_29_map_maxLength (.'$TightSchema'.'|'.4.maxLength)
-function _jm_f_144(val, path, rep)
-{
-    let res;
-    // .'$TightSchema'.'|'.4.maxLength
-    res = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 0;
-    if (! res)
-    {
-        rep !== null && rep.push(["not a 0 strict int [.'$TightSchema'.'|'.4.maxLength]", path])
-    }
-    return res;
-}
-
-// check _jm_obj_29_map_minLength (.'$TightSchema'.'|'.4.minLength)
-function _jm_f_145(val, path, rep)
-{
-    let res;
-    // .'$TightSchema'.'|'.4.minLength
-    res = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 0;
-    if (! res)
-    {
-        rep !== null && rep.push(["not a 0 strict int [.'$TightSchema'.'|'.4.minLength]", path])
-    }
-    return res;
-}
-
-// check _jm_obj_29_map_pattern (.'$TightSchema'.'|'.4.pattern)
-function _jm_f_146(val, path, rep)
-{
-    let res;
-    // .'$TightSchema'.'|'.4.pattern
-    res = runtime.jm_is_valid_regex(val, false);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $REGEX [.'$TightSchema'.'|'.4.pattern]", path])
-    }
-    return res;
-}
-
-// check _jm_obj_29_map_readOnly (.'$TightSchema'.'|'.4.readOnly)
-function _jm_f_147(val, path, rep)
-{
-    let res;
-    // .'$TightSchema'.'|'.4.readOnly
-    res = (typeof val === 'boolean' || val instanceof Boolean);
-    if (! res)
-    {
-        rep !== null && rep.push(["not a bool [.'$TightSchema'.'|'.4.readOnly]", path])
-    }
-    return res;
-}
-
-// check _jm_obj_29_map_title (.'$TightSchema'.'|'.4.title)
-function _jm_f_148(val, path, rep)
-{
-    let res;
-    // .'$TightSchema'.'|'.4.title
-    res = (typeof val === 'string' || val instanceof String);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected string [.'$TightSchema'.'|'.4.title]", path])
-    }
-    return res;
-}
-
-// check _jm_obj_29_map_writeOnly (.'$TightSchema'.'|'.4.writeOnly)
-function _jm_f_149(val, path, rep)
-{
-    let res;
-    // .'$TightSchema'.'|'.4.writeOnly
-    res = (typeof val === 'boolean' || val instanceof Boolean);
-    if (! res)
-    {
-        rep !== null && rep.push(["not a bool [.'$TightSchema'.'|'.4.writeOnly]", path])
-    }
-    return res;
-}
-
-
-// object .'$TightSchema'.'|'.4
-function _jm_obj_29(val, path, rep)
-{
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
-    {
-        rep !== null && rep.push(["not an object [.'$TightSchema'.'|'.4]", path])
-        return false;
-    }
-    let res;
-    let pfun;
-    let must_count = 0;
-    for (const [prop, pval] of Object.entries(val))
-    {
-        let lpath_29 = path ? path.concat([prop]) : null;
-        if (prop == "type")
-        {
-            // handle must type property
-            must_count += 1;
-            // .'$TightSchema'.'|'.4.type
-            res = ((typeof pval === 'string' || pval instanceof String)) && pval == "string";
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected _string [.'$TightSchema'.'|'.4.type]", (path ? lpath_29 : null)])
-            }
-            if (! res)
-            {
-                rep !== null && rep.push(["invalid mandatory prop value [.'$TightSchema'.'|'.4.type]", (path ? lpath_29 : null)])
-                return false;
-            }
-        }
-        else if ((pfun = _jm_obj_29_map.get(prop)))
-        {
-            // handle 23 may props
-            if (pfun !== undefined && ! pfun(pval, (path ? lpath_29 : null), rep))
-            {
-                rep !== null && rep.push(["invalid optional prop value [.'$TightSchema'.'|'.4]", (path ? lpath_29 : null)])
-                return false;
-            }
-        }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.'$TightSchema'.'|'.4]", (path ? lpath_29 : null)])
-            return false;
-        }
-    }
-    if (must_count != 1)
-    {
-        if (rep !== null)
-        {
-            if (! val.hasOwnProperty("type"))
-            {
-                rep !== null && rep.push(["missing mandatory prop <type> [.'$TightSchema'.'|'.4]", path])
-            }
-        }
-        return false;
-    }
-    return true;
-}
-
-// check _jm_obj_32_map_$anchor (.'$TightSchema'.'|'.3.'$anchor')
-function _jm_f_150(val, path, rep)
-{
-    let res;
-    // .'$TightSchema'.'|'.3.'$anchor'
-    res = json_model_2(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $URI-REFERENCE [.'$TightSchema'.'|'.3.'$anchor']", path])
-    }
-    return res;
-}
-
-// check _jm_obj_32_map_$comment (.'$TightSchema'.'|'.3.'$comment')
-function _jm_f_151(val, path, rep)
-{
-    let res;
-    // .'$TightSchema'.'|'.3.'$comment'
-    res = (typeof val === 'string' || val instanceof String);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected string [.'$TightSchema'.'|'.3.'$comment']", path])
-    }
-    return res;
-}
-
-// object .'$TightSchema'.'|'.3.'$defs'
-function _jm_obj_33(val, path, rep)
-{
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
-    {
-        rep !== null && rep.push(["not an object [.'$TightSchema'.'|'.3.'$defs']", path])
-        return false;
-    }
-    let res;
-    for (const [prop, pval] of Object.entries(val))
-    {
-        let lpath_33 = path ? path.concat([prop]) : null;
-        // handle other props
-        // .'$TightSchema'.'|'.3.'$defs'.''
-        res = json_model_16(pval, (path ? lpath_33 : null), rep);
-        if (! res)
-        {
-            rep !== null && rep.push(["unexpected $Schema [.'$TightSchema'.'|'.3.'$defs'.'']", (path ? lpath_33 : null)])
-        }
-        if (! res)
-        {
-            return false;
-        }
-    }
-    return true;
-}
-
-// check _jm_obj_32_map_$defs (.'$TightSchema'.'|'.3.'$defs')
-function _jm_f_152(val, path, rep)
-{
-    let res;
-    // .'$TightSchema'.'|'.3.'$defs'
-    res = _jm_obj_33(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected element [.'$TightSchema'.'|'.3.'$defs']", path])
-    }
-    return res;
-}
-
-// check _jm_obj_32_map_$dynamicAnchor (.'$TightSchema'.'|'.3.'$dynamicAnchor')
-function _jm_f_153(val, path, rep)
-{
-    let res;
-    // .'$TightSchema'.'|'.3.'$dynamicAnchor'
-    res = json_model_2(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $URI-REFERENCE [.'$TightSchema'.'|'.3.'$dynamicAnchor']", path])
-    }
-    return res;
-}
-
-// check _jm_obj_32_map_$dynamicRef (.'$TightSchema'.'|'.3.'$dynamicRef')
-function _jm_f_154(val, path, rep)
-{
-    let res;
-    // .'$TightSchema'.'|'.3.'$dynamicRef'
-    res = json_model_2(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $URI-REFERENCE [.'$TightSchema'.'|'.3.'$dynamicRef']", path])
-    }
-    return res;
-}
-
-// check _jm_obj_32_map_$id (.'$TightSchema'.'|'.3.'$id')
-function _jm_f_155(val, path, rep)
-{
-    let res;
-    // .'$TightSchema'.'|'.3.'$id'
-    res = json_model_2(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $URI-REFERENCE [.'$TightSchema'.'|'.3.'$id']", path])
-    }
-    return res;
-}
-
-// check _jm_obj_32_map_$ref (.'$TightSchema'.'|'.3.'$ref')
-function _jm_f_156(val, path, rep)
-{
-    let res;
-    // .'$TightSchema'.'|'.3.'$ref'
-    res = json_model_2(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $URI-REFERENCE [.'$TightSchema'.'|'.3.'$ref']", path])
-    }
-    return res;
-}
-
-// check _jm_obj_32_map_$schema (.'$TightSchema'.'|'.3.'$schema')
-function _jm_f_157(val, path, rep)
-{
-    let res;
-    // .'$TightSchema'.'|'.3.'$schema'
-    res = runtime.jm_is_valid_url(val);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $URI [.'$TightSchema'.'|'.3.'$schema']", path])
-    }
-    return res;
-}
-
-// object .'$TightSchema'.'|'.3.'$vocabulary'
-function _jm_obj_34(val, path, rep)
-{
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
-    {
-        rep !== null && rep.push(["not an object [.'$TightSchema'.'|'.3.'$vocabulary']", path])
-        return false;
-    }
-    let res;
-    for (const [prop, pval] of Object.entries(val))
-    {
-        let lpath_34 = path ? path.concat([prop]) : null;
-        if (runtime.jm_is_valid_url(prop))
-        {
-            // handle 1 key props
-            // .'$TightSchema'.'|'.3.'$vocabulary'.'$URI'
-            res = (typeof pval === 'boolean' || pval instanceof Boolean);
-            if (! res)
-            {
-                rep !== null && rep.push(["not a bool [.'$TightSchema'.'|'.3.'$vocabulary'.'$URI']", (path ? lpath_34 : null)])
-            }
-            if (! res)
-            {
-                return false;
-            }
-        }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.'$TightSchema'.'|'.3.'$vocabulary']", (path ? lpath_34 : null)])
-            return false;
-        }
-    }
-    return true;
-}
-
-// check _jm_obj_32_map_$vocabulary (.'$TightSchema'.'|'.3.'$vocabulary')
-function _jm_f_158(val, path, rep)
-{
-    let res;
-    // .'$TightSchema'.'|'.3.'$vocabulary'
-    res = _jm_obj_34(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected element [.'$TightSchema'.'|'.3.'$vocabulary']", path])
-    }
-    return res;
-}
-
-// check _jm_obj_32_map_default (.'$TightSchema'.'|'.3.default)
-function _jm_f_159(val, path, rep)
-{
-    let res;
-    // .'$TightSchema'.'|'.3.default
-    res = true;
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $ANY [.'$TightSchema'.'|'.3.default]", path])
-    }
-    return res;
-}
-
-// check _jm_obj_32_map_deprecated (.'$TightSchema'.'|'.3.deprecated)
-function _jm_f_160(val, path, rep)
-{
-    let res;
-    // .'$TightSchema'.'|'.3.deprecated
-    res = (typeof val === 'boolean' || val instanceof Boolean);
-    if (! res)
-    {
-        rep !== null && rep.push(["not a bool [.'$TightSchema'.'|'.3.deprecated]", path])
-    }
-    return res;
-}
-
-// check _jm_obj_32_map_description (.'$TightSchema'.'|'.3.description)
-function _jm_f_161(val, path, rep)
-{
-    let res;
-    // .'$TightSchema'.'|'.3.description
-    res = (typeof val === 'string' || val instanceof String);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected string [.'$TightSchema'.'|'.3.description]", path])
-    }
-    return res;
-}
-
-// check _jm_obj_32_map_examples (.'$TightSchema'.'|'.3.examples)
-function _jm_f_162(val, path, rep)
-{
-    let res;
-    // .'$TightSchema'.'|'.3.examples
-    res = Array.isArray(val);
-    if (res)
-    {
-        // accept any array
-    }
-    if (! res)
-    {
-        rep !== null && rep.push(["not array or unexpected array [.'$TightSchema'.'|'.3.examples]", path])
-    }
-    return res;
-}
-
-// check _jm_obj_32_map_exclusiveMaximum (.'$TightSchema'.'|'.3.exclusiveMaximum)
-function _jm_f_163(val, path, rep)
-{
-    let res;
-    // .'$TightSchema'.'|'.3.exclusiveMaximum
-    res = (typeof val === 'number' || val instanceof Number) && Number.isInteger(val);
-    if (! res)
-    {
-        rep !== null && rep.push(["not a -1 strict int [.'$TightSchema'.'|'.3.exclusiveMaximum]", path])
-    }
-    return res;
-}
-
-// check _jm_obj_32_map_exclusiveMinimum (.'$TightSchema'.'|'.3.exclusiveMinimum)
-function _jm_f_164(val, path, rep)
-{
-    let res;
-    // .'$TightSchema'.'|'.3.exclusiveMinimum
-    res = (typeof val === 'number' || val instanceof Number) && Number.isInteger(val);
-    if (! res)
-    {
-        rep !== null && rep.push(["not a -1 strict int [.'$TightSchema'.'|'.3.exclusiveMinimum]", path])
-    }
-    return res;
-}
-
-// check _jm_obj_32_map_maximum (.'$TightSchema'.'|'.3.maximum)
-function _jm_f_165(val, path, rep)
-{
-    let res;
-    // .'$TightSchema'.'|'.3.maximum
-    res = (typeof val === 'number' || val instanceof Number) && Number.isInteger(val);
-    if (! res)
-    {
-        rep !== null && rep.push(["not a -1 strict int [.'$TightSchema'.'|'.3.maximum]", path])
-    }
-    return res;
-}
-
-// check _jm_obj_32_map_minimum (.'$TightSchema'.'|'.3.minimum)
-function _jm_f_166(val, path, rep)
-{
-    let res;
-    // .'$TightSchema'.'|'.3.minimum
-    res = (typeof val === 'number' || val instanceof Number) && Number.isInteger(val);
-    if (! res)
-    {
-        rep !== null && rep.push(["not a -1 strict int [.'$TightSchema'.'|'.3.minimum]", path])
-    }
-    return res;
-}
-
-// check _jm_obj_32_map_multipleOf (.'$TightSchema'.'|'.3.multipleOf)
-function _jm_f_167(val, path, rep)
-{
-    let res;
-    // .'$TightSchema'.'|'.3.multipleOf
-    res = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 1;
-    if (! res)
-    {
-        rep !== null && rep.push(["not a 1 strict int [.'$TightSchema'.'|'.3.multipleOf]", path])
-    }
-    return res;
-}
-
-// check _jm_obj_32_map_readOnly (.'$TightSchema'.'|'.3.readOnly)
-function _jm_f_168(val, path, rep)
-{
-    let res;
-    // .'$TightSchema'.'|'.3.readOnly
-    res = (typeof val === 'boolean' || val instanceof Boolean);
-    if (! res)
-    {
-        rep !== null && rep.push(["not a bool [.'$TightSchema'.'|'.3.readOnly]", path])
-    }
-    return res;
-}
-
-// check _jm_obj_32_map_title (.'$TightSchema'.'|'.3.title)
-function _jm_f_169(val, path, rep)
-{
-    let res;
-    // .'$TightSchema'.'|'.3.title
-    res = (typeof val === 'string' || val instanceof String);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected string [.'$TightSchema'.'|'.3.title]", path])
-    }
-    return res;
-}
-
-// check _jm_obj_32_map_writeOnly (.'$TightSchema'.'|'.3.writeOnly)
-function _jm_f_170(val, path, rep)
-{
-    let res;
-    // .'$TightSchema'.'|'.3.writeOnly
-    res = (typeof val === 'boolean' || val instanceof Boolean);
-    if (! res)
-    {
-        rep !== null && rep.push(["not a bool [.'$TightSchema'.'|'.3.writeOnly]", path])
-    }
-    return res;
-}
-
-
-// object .'$TightSchema'.'|'.3
-function _jm_obj_32(val, path, rep)
-{
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
-    {
-        rep !== null && rep.push(["not an object [.'$TightSchema'.'|'.3]", path])
-        return false;
-    }
-    let res;
-    let pfun;
-    let must_count = 0;
-    for (const [prop, pval] of Object.entries(val))
-    {
-        let lpath_32 = path ? path.concat([prop]) : null;
-        if (prop == "type")
-        {
-            // handle must type property
-            must_count += 1;
-            // .'$TightSchema'.'|'.3.type
-            res = ((typeof pval === 'string' || pval instanceof String)) && pval == "integer";
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected _integer [.'$TightSchema'.'|'.3.type]", (path ? lpath_32 : null)])
-            }
-            if (! res)
-            {
-                rep !== null && rep.push(["invalid mandatory prop value [.'$TightSchema'.'|'.3.type]", (path ? lpath_32 : null)])
-                return false;
-            }
-        }
-        else if ((pfun = _jm_obj_32_map.get(prop)))
-        {
-            // handle 21 may props
-            if (pfun !== undefined && ! pfun(pval, (path ? lpath_32 : null), rep))
-            {
-                rep !== null && rep.push(["invalid optional prop value [.'$TightSchema'.'|'.3]", (path ? lpath_32 : null)])
-                return false;
-            }
-        }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.'$TightSchema'.'|'.3]", (path ? lpath_32 : null)])
-            return false;
-        }
-    }
-    if (must_count != 1)
-    {
-        if (rep !== null)
-        {
-            if (! val.hasOwnProperty("type"))
-            {
-                rep !== null && rep.push(["missing mandatory prop <type> [.'$TightSchema'.'|'.3]", path])
-            }
-        }
-        return false;
-    }
-    return true;
-}
-
-// check _jm_obj_35_map_$anchor (.'$TightSchema'.'|'.2.'$anchor')
-function _jm_f_171(val, path, rep)
+// check _jm_obj_22_map_$anchor (.'$TightSchema'.'|'.2.'$anchor')
+function _jm_f_83(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.2.'$anchor'
@@ -4102,8 +2490,8 @@ function _jm_f_171(val, path, rep)
     return res;
 }
 
-// check _jm_obj_35_map_$comment (.'$TightSchema'.'|'.2.'$comment')
-function _jm_f_172(val, path, rep)
+// check _jm_obj_22_map_$comment (.'$TightSchema'.'|'.2.'$comment')
+function _jm_f_84(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.2.'$comment'
@@ -4116,7 +2504,7 @@ function _jm_f_172(val, path, rep)
 }
 
 // object .'$TightSchema'.'|'.2.'$defs'
-function _jm_obj_36(val, path, rep)
+function _jm_obj_23(val, path, rep)
 {
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
@@ -4126,13 +2514,13 @@ function _jm_obj_36(val, path, rep)
     let res;
     for (const [prop, pval] of Object.entries(val))
     {
-        let lpath_36 = path ? path.concat([prop]) : null;
+        let lpath_23 = path ? path.concat([prop]) : null;
         // handle other props
         // .'$TightSchema'.'|'.2.'$defs'.''
-        res = json_model_16(pval, (path ? lpath_36 : null), rep);
+        res = json_model_16(pval, (path ? lpath_23 : null), rep);
         if (! res)
         {
-            rep !== null && rep.push(["unexpected $Schema [.'$TightSchema'.'|'.2.'$defs'.'']", (path ? lpath_36 : null)])
+            rep !== null && rep.push(["unexpected $Schema [.'$TightSchema'.'|'.2.'$defs'.'']", (path ? lpath_23 : null)])
         }
         if (! res)
         {
@@ -4142,12 +2530,12 @@ function _jm_obj_36(val, path, rep)
     return true;
 }
 
-// check _jm_obj_35_map_$defs (.'$TightSchema'.'|'.2.'$defs')
-function _jm_f_173(val, path, rep)
+// check _jm_obj_22_map_$defs (.'$TightSchema'.'|'.2.'$defs')
+function _jm_f_85(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.2.'$defs'
-    res = _jm_obj_36(val, path, rep);
+    res = _jm_obj_23(val, path, rep);
     if (! res)
     {
         rep !== null && rep.push(["unexpected element [.'$TightSchema'.'|'.2.'$defs']", path])
@@ -4155,8 +2543,8 @@ function _jm_f_173(val, path, rep)
     return res;
 }
 
-// check _jm_obj_35_map_$dynamicAnchor (.'$TightSchema'.'|'.2.'$dynamicAnchor')
-function _jm_f_174(val, path, rep)
+// check _jm_obj_22_map_$dynamicAnchor (.'$TightSchema'.'|'.2.'$dynamicAnchor')
+function _jm_f_86(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.2.'$dynamicAnchor'
@@ -4168,8 +2556,8 @@ function _jm_f_174(val, path, rep)
     return res;
 }
 
-// check _jm_obj_35_map_$dynamicRef (.'$TightSchema'.'|'.2.'$dynamicRef')
-function _jm_f_175(val, path, rep)
+// check _jm_obj_22_map_$dynamicRef (.'$TightSchema'.'|'.2.'$dynamicRef')
+function _jm_f_87(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.2.'$dynamicRef'
@@ -4181,8 +2569,8 @@ function _jm_f_175(val, path, rep)
     return res;
 }
 
-// check _jm_obj_35_map_$id (.'$TightSchema'.'|'.2.'$id')
-function _jm_f_176(val, path, rep)
+// check _jm_obj_22_map_$id (.'$TightSchema'.'|'.2.'$id')
+function _jm_f_88(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.2.'$id'
@@ -4194,8 +2582,8 @@ function _jm_f_176(val, path, rep)
     return res;
 }
 
-// check _jm_obj_35_map_$ref (.'$TightSchema'.'|'.2.'$ref')
-function _jm_f_177(val, path, rep)
+// check _jm_obj_22_map_$ref (.'$TightSchema'.'|'.2.'$ref')
+function _jm_f_89(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.2.'$ref'
@@ -4207,8 +2595,8 @@ function _jm_f_177(val, path, rep)
     return res;
 }
 
-// check _jm_obj_35_map_$schema (.'$TightSchema'.'|'.2.'$schema')
-function _jm_f_178(val, path, rep)
+// check _jm_obj_22_map_$schema (.'$TightSchema'.'|'.2.'$schema')
+function _jm_f_90(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.2.'$schema'
@@ -4221,7 +2609,7 @@ function _jm_f_178(val, path, rep)
 }
 
 // object .'$TightSchema'.'|'.2.'$vocabulary'
-function _jm_obj_37(val, path, rep)
+function _jm_obj_24(val, path, rep)
 {
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
@@ -4231,7 +2619,7 @@ function _jm_obj_37(val, path, rep)
     let res;
     for (const [prop, pval] of Object.entries(val))
     {
-        let lpath_37 = path ? path.concat([prop]) : null;
+        let lpath_24 = path ? path.concat([prop]) : null;
         if (runtime.jm_is_valid_url(prop))
         {
             // handle 1 key props
@@ -4239,7 +2627,7 @@ function _jm_obj_37(val, path, rep)
             res = (typeof pval === 'boolean' || pval instanceof Boolean);
             if (! res)
             {
-                rep !== null && rep.push(["not a bool [.'$TightSchema'.'|'.2.'$vocabulary'.'$URI']", (path ? lpath_37 : null)])
+                rep !== null && rep.push(["not a bool [.'$TightSchema'.'|'.2.'$vocabulary'.'$URI']", (path ? lpath_24 : null)])
             }
             if (! res)
             {
@@ -4248,19 +2636,19 @@ function _jm_obj_37(val, path, rep)
         }
         else
         {
-            rep !== null && rep.push(["unexpected prop [.'$TightSchema'.'|'.2.'$vocabulary']", (path ? lpath_37 : null)])
+            rep !== null && rep.push(["unexpected prop [.'$TightSchema'.'|'.2.'$vocabulary']", (path ? lpath_24 : null)])
             return false;
         }
     }
     return true;
 }
 
-// check _jm_obj_35_map_$vocabulary (.'$TightSchema'.'|'.2.'$vocabulary')
-function _jm_f_179(val, path, rep)
+// check _jm_obj_22_map_$vocabulary (.'$TightSchema'.'|'.2.'$vocabulary')
+function _jm_f_91(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.2.'$vocabulary'
-    res = _jm_obj_37(val, path, rep);
+    res = _jm_obj_24(val, path, rep);
     if (! res)
     {
         rep !== null && rep.push(["unexpected element [.'$TightSchema'.'|'.2.'$vocabulary']", path])
@@ -4268,8 +2656,8 @@ function _jm_f_179(val, path, rep)
     return res;
 }
 
-// check _jm_obj_35_map_default (.'$TightSchema'.'|'.2.default)
-function _jm_f_180(val, path, rep)
+// check _jm_obj_22_map_default (.'$TightSchema'.'|'.2.default)
+function _jm_f_92(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.2.default
@@ -4281,8 +2669,8 @@ function _jm_f_180(val, path, rep)
     return res;
 }
 
-// check _jm_obj_35_map_deprecated (.'$TightSchema'.'|'.2.deprecated)
-function _jm_f_181(val, path, rep)
+// check _jm_obj_22_map_deprecated (.'$TightSchema'.'|'.2.deprecated)
+function _jm_f_93(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.2.deprecated
@@ -4294,8 +2682,8 @@ function _jm_f_181(val, path, rep)
     return res;
 }
 
-// check _jm_obj_35_map_description (.'$TightSchema'.'|'.2.description)
-function _jm_f_182(val, path, rep)
+// check _jm_obj_22_map_description (.'$TightSchema'.'|'.2.description)
+function _jm_f_94(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.2.description
@@ -4307,8 +2695,8 @@ function _jm_f_182(val, path, rep)
     return res;
 }
 
-// check _jm_obj_35_map_examples (.'$TightSchema'.'|'.2.examples)
-function _jm_f_183(val, path, rep)
+// check _jm_obj_22_map_examples (.'$TightSchema'.'|'.2.examples)
+function _jm_f_95(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.2.examples
@@ -4324,8 +2712,8 @@ function _jm_f_183(val, path, rep)
     return res;
 }
 
-// check _jm_obj_35_map_exclusiveMaximum (.'$TightSchema'.'|'.2.exclusiveMaximum)
-function _jm_f_184(val, path, rep)
+// check _jm_obj_22_map_exclusiveMaximum (.'$TightSchema'.'|'.2.exclusiveMaximum)
+function _jm_f_96(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.2.exclusiveMaximum
@@ -4355,8 +2743,8 @@ function _jm_f_184(val, path, rep)
     return res;
 }
 
-// check _jm_obj_35_map_exclusiveMinimum (.'$TightSchema'.'|'.2.exclusiveMinimum)
-function _jm_f_185(val, path, rep)
+// check _jm_obj_22_map_exclusiveMinimum (.'$TightSchema'.'|'.2.exclusiveMinimum)
+function _jm_f_97(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.2.exclusiveMinimum
@@ -4386,8 +2774,8 @@ function _jm_f_185(val, path, rep)
     return res;
 }
 
-// check _jm_obj_35_map_maximum (.'$TightSchema'.'|'.2.maximum)
-function _jm_f_186(val, path, rep)
+// check _jm_obj_22_map_maximum (.'$TightSchema'.'|'.2.maximum)
+function _jm_f_98(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.2.maximum
@@ -4417,8 +2805,8 @@ function _jm_f_186(val, path, rep)
     return res;
 }
 
-// check _jm_obj_35_map_minimum (.'$TightSchema'.'|'.2.minimum)
-function _jm_f_187(val, path, rep)
+// check _jm_obj_22_map_minimum (.'$TightSchema'.'|'.2.minimum)
+function _jm_f_99(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.2.minimum
@@ -4448,8 +2836,8 @@ function _jm_f_187(val, path, rep)
     return res;
 }
 
-// check _jm_obj_35_map_multipleOf (.'$TightSchema'.'|'.2.multipleOf)
-function _jm_f_188(val, path, rep)
+// check _jm_obj_22_map_multipleOf (.'$TightSchema'.'|'.2.multipleOf)
+function _jm_f_100(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.2.multipleOf
@@ -4479,8 +2867,8 @@ function _jm_f_188(val, path, rep)
     return res;
 }
 
-// check _jm_obj_35_map_readOnly (.'$TightSchema'.'|'.2.readOnly)
-function _jm_f_189(val, path, rep)
+// check _jm_obj_22_map_readOnly (.'$TightSchema'.'|'.2.readOnly)
+function _jm_f_101(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.2.readOnly
@@ -4492,8 +2880,8 @@ function _jm_f_189(val, path, rep)
     return res;
 }
 
-// check _jm_obj_35_map_title (.'$TightSchema'.'|'.2.title)
-function _jm_f_190(val, path, rep)
+// check _jm_obj_22_map_title (.'$TightSchema'.'|'.2.title)
+function _jm_f_102(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.2.title
@@ -4505,8 +2893,8 @@ function _jm_f_190(val, path, rep)
     return res;
 }
 
-// check _jm_obj_35_map_writeOnly (.'$TightSchema'.'|'.2.writeOnly)
-function _jm_f_191(val, path, rep)
+// check _jm_obj_22_map_writeOnly (.'$TightSchema'.'|'.2.writeOnly)
+function _jm_f_103(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.2.writeOnly
@@ -4520,7 +2908,7 @@ function _jm_f_191(val, path, rep)
 
 
 // object .'$TightSchema'.'|'.2
-function _jm_obj_35(val, path, rep)
+function _jm_obj_22(val, path, rep)
 {
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
@@ -4532,7 +2920,7 @@ function _jm_obj_35(val, path, rep)
     let must_count = 0;
     for (const [prop, pval] of Object.entries(val))
     {
-        let lpath_35 = path ? path.concat([prop]) : null;
+        let lpath_22 = path ? path.concat([prop]) : null;
         if (prop == "type")
         {
             // handle must type property
@@ -4541,26 +2929,26 @@ function _jm_obj_35(val, path, rep)
             res = ((typeof pval === 'string' || pval instanceof String)) && pval == "number";
             if (! res)
             {
-                rep !== null && rep.push(["unexpected _number [.'$TightSchema'.'|'.2.type]", (path ? lpath_35 : null)])
+                rep !== null && rep.push(["unexpected _number [.'$TightSchema'.'|'.2.type]", (path ? lpath_22 : null)])
             }
             if (! res)
             {
-                rep !== null && rep.push(["invalid mandatory prop value [.'$TightSchema'.'|'.2.type]", (path ? lpath_35 : null)])
+                rep !== null && rep.push(["invalid mandatory prop value [.'$TightSchema'.'|'.2.type]", (path ? lpath_22 : null)])
                 return false;
             }
         }
-        else if ((pfun = _jm_obj_35_map.get(prop)))
+        else if ((pfun = _jm_obj_22_map.get(prop)))
         {
             // handle 21 may props
-            if (pfun !== undefined && ! pfun(pval, (path ? lpath_35 : null), rep))
+            if (pfun !== undefined && ! pfun(pval, (path ? lpath_22 : null), rep))
             {
-                rep !== null && rep.push(["invalid optional prop value [.'$TightSchema'.'|'.2]", (path ? lpath_35 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$TightSchema'.'|'.2]", (path ? lpath_22 : null)])
                 return false;
             }
         }
         else
         {
-            rep !== null && rep.push(["unexpected prop [.'$TightSchema'.'|'.2]", (path ? lpath_35 : null)])
+            rep !== null && rep.push(["unexpected prop [.'$TightSchema'.'|'.2]", (path ? lpath_22 : null)])
             return false;
         }
     }
@@ -4578,50 +2966,50 @@ function _jm_obj_35(val, path, rep)
     return true;
 }
 
-// check _jm_obj_38_map_$anchor (.'$TightSchema'.'|'.1.'$anchor')
-function _jm_f_192(val, path, rep)
+// check _jm_obj_25_map_$anchor (.'$TightSchema'.'|'.3.'$anchor')
+function _jm_f_104(val, path, rep)
 {
     let res;
-    // .'$TightSchema'.'|'.1.'$anchor'
+    // .'$TightSchema'.'|'.3.'$anchor'
     res = json_model_2(val, path, rep);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected $URI-REFERENCE [.'$TightSchema'.'|'.1.'$anchor']", path])
+        rep !== null && rep.push(["unexpected $URI-REFERENCE [.'$TightSchema'.'|'.3.'$anchor']", path])
     }
     return res;
 }
 
-// check _jm_obj_38_map_$comment (.'$TightSchema'.'|'.1.'$comment')
-function _jm_f_193(val, path, rep)
+// check _jm_obj_25_map_$comment (.'$TightSchema'.'|'.3.'$comment')
+function _jm_f_105(val, path, rep)
 {
     let res;
-    // .'$TightSchema'.'|'.1.'$comment'
+    // .'$TightSchema'.'|'.3.'$comment'
     res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected string [.'$TightSchema'.'|'.1.'$comment']", path])
+        rep !== null && rep.push(["unexpected string [.'$TightSchema'.'|'.3.'$comment']", path])
     }
     return res;
 }
 
-// object .'$TightSchema'.'|'.1.'$defs'
-function _jm_obj_39(val, path, rep)
+// object .'$TightSchema'.'|'.3.'$defs'
+function _jm_obj_26(val, path, rep)
 {
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
-        rep !== null && rep.push(["not an object [.'$TightSchema'.'|'.1.'$defs']", path])
+        rep !== null && rep.push(["not an object [.'$TightSchema'.'|'.3.'$defs']", path])
         return false;
     }
     let res;
     for (const [prop, pval] of Object.entries(val))
     {
-        let lpath_39 = path ? path.concat([prop]) : null;
+        let lpath_26 = path ? path.concat([prop]) : null;
         // handle other props
-        // .'$TightSchema'.'|'.1.'$defs'.''
-        res = json_model_16(pval, (path ? lpath_39 : null), rep);
+        // .'$TightSchema'.'|'.3.'$defs'.''
+        res = json_model_16(pval, (path ? lpath_26 : null), rep);
         if (! res)
         {
-            rep !== null && rep.push(["unexpected $Schema [.'$TightSchema'.'|'.1.'$defs'.'']", (path ? lpath_39 : null)])
+            rep !== null && rep.push(["unexpected $Schema [.'$TightSchema'.'|'.3.'$defs'.'']", (path ? lpath_26 : null)])
         }
         if (! res)
         {
@@ -4631,104 +3019,104 @@ function _jm_obj_39(val, path, rep)
     return true;
 }
 
-// check _jm_obj_38_map_$defs (.'$TightSchema'.'|'.1.'$defs')
-function _jm_f_194(val, path, rep)
+// check _jm_obj_25_map_$defs (.'$TightSchema'.'|'.3.'$defs')
+function _jm_f_106(val, path, rep)
 {
     let res;
-    // .'$TightSchema'.'|'.1.'$defs'
-    res = _jm_obj_39(val, path, rep);
+    // .'$TightSchema'.'|'.3.'$defs'
+    res = _jm_obj_26(val, path, rep);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected element [.'$TightSchema'.'|'.1.'$defs']", path])
+        rep !== null && rep.push(["unexpected element [.'$TightSchema'.'|'.3.'$defs']", path])
     }
     return res;
 }
 
-// check _jm_obj_38_map_$dynamicAnchor (.'$TightSchema'.'|'.1.'$dynamicAnchor')
-function _jm_f_195(val, path, rep)
+// check _jm_obj_25_map_$dynamicAnchor (.'$TightSchema'.'|'.3.'$dynamicAnchor')
+function _jm_f_107(val, path, rep)
 {
     let res;
-    // .'$TightSchema'.'|'.1.'$dynamicAnchor'
+    // .'$TightSchema'.'|'.3.'$dynamicAnchor'
     res = json_model_2(val, path, rep);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected $URI-REFERENCE [.'$TightSchema'.'|'.1.'$dynamicAnchor']", path])
+        rep !== null && rep.push(["unexpected $URI-REFERENCE [.'$TightSchema'.'|'.3.'$dynamicAnchor']", path])
     }
     return res;
 }
 
-// check _jm_obj_38_map_$dynamicRef (.'$TightSchema'.'|'.1.'$dynamicRef')
-function _jm_f_196(val, path, rep)
+// check _jm_obj_25_map_$dynamicRef (.'$TightSchema'.'|'.3.'$dynamicRef')
+function _jm_f_108(val, path, rep)
 {
     let res;
-    // .'$TightSchema'.'|'.1.'$dynamicRef'
+    // .'$TightSchema'.'|'.3.'$dynamicRef'
     res = json_model_2(val, path, rep);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected $URI-REFERENCE [.'$TightSchema'.'|'.1.'$dynamicRef']", path])
+        rep !== null && rep.push(["unexpected $URI-REFERENCE [.'$TightSchema'.'|'.3.'$dynamicRef']", path])
     }
     return res;
 }
 
-// check _jm_obj_38_map_$id (.'$TightSchema'.'|'.1.'$id')
-function _jm_f_197(val, path, rep)
+// check _jm_obj_25_map_$id (.'$TightSchema'.'|'.3.'$id')
+function _jm_f_109(val, path, rep)
 {
     let res;
-    // .'$TightSchema'.'|'.1.'$id'
+    // .'$TightSchema'.'|'.3.'$id'
     res = json_model_2(val, path, rep);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected $URI-REFERENCE [.'$TightSchema'.'|'.1.'$id']", path])
+        rep !== null && rep.push(["unexpected $URI-REFERENCE [.'$TightSchema'.'|'.3.'$id']", path])
     }
     return res;
 }
 
-// check _jm_obj_38_map_$ref (.'$TightSchema'.'|'.1.'$ref')
-function _jm_f_198(val, path, rep)
+// check _jm_obj_25_map_$ref (.'$TightSchema'.'|'.3.'$ref')
+function _jm_f_110(val, path, rep)
 {
     let res;
-    // .'$TightSchema'.'|'.1.'$ref'
+    // .'$TightSchema'.'|'.3.'$ref'
     res = json_model_2(val, path, rep);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected $URI-REFERENCE [.'$TightSchema'.'|'.1.'$ref']", path])
+        rep !== null && rep.push(["unexpected $URI-REFERENCE [.'$TightSchema'.'|'.3.'$ref']", path])
     }
     return res;
 }
 
-// check _jm_obj_38_map_$schema (.'$TightSchema'.'|'.1.'$schema')
-function _jm_f_199(val, path, rep)
+// check _jm_obj_25_map_$schema (.'$TightSchema'.'|'.3.'$schema')
+function _jm_f_111(val, path, rep)
 {
     let res;
-    // .'$TightSchema'.'|'.1.'$schema'
+    // .'$TightSchema'.'|'.3.'$schema'
     res = runtime.jm_is_valid_url(val);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected $URI [.'$TightSchema'.'|'.1.'$schema']", path])
+        rep !== null && rep.push(["unexpected $URI [.'$TightSchema'.'|'.3.'$schema']", path])
     }
     return res;
 }
 
-// object .'$TightSchema'.'|'.1.'$vocabulary'
-function _jm_obj_40(val, path, rep)
+// object .'$TightSchema'.'|'.3.'$vocabulary'
+function _jm_obj_27(val, path, rep)
 {
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
-        rep !== null && rep.push(["not an object [.'$TightSchema'.'|'.1.'$vocabulary']", path])
+        rep !== null && rep.push(["not an object [.'$TightSchema'.'|'.3.'$vocabulary']", path])
         return false;
     }
     let res;
     for (const [prop, pval] of Object.entries(val))
     {
-        let lpath_40 = path ? path.concat([prop]) : null;
+        let lpath_27 = path ? path.concat([prop]) : null;
         if (runtime.jm_is_valid_url(prop))
         {
             // handle 1 key props
-            // .'$TightSchema'.'|'.1.'$vocabulary'.'$URI'
+            // .'$TightSchema'.'|'.3.'$vocabulary'.'$URI'
             res = (typeof pval === 'boolean' || pval instanceof Boolean);
             if (! res)
             {
-                rep !== null && rep.push(["not a bool [.'$TightSchema'.'|'.1.'$vocabulary'.'$URI']", (path ? lpath_40 : null)])
+                rep !== null && rep.push(["not a bool [.'$TightSchema'.'|'.3.'$vocabulary'.'$URI']", (path ? lpath_27 : null)])
             }
             if (! res)
             {
@@ -4737,70 +3125,70 @@ function _jm_obj_40(val, path, rep)
         }
         else
         {
-            rep !== null && rep.push(["unexpected prop [.'$TightSchema'.'|'.1.'$vocabulary']", (path ? lpath_40 : null)])
+            rep !== null && rep.push(["unexpected prop [.'$TightSchema'.'|'.3.'$vocabulary']", (path ? lpath_27 : null)])
             return false;
         }
     }
     return true;
 }
 
-// check _jm_obj_38_map_$vocabulary (.'$TightSchema'.'|'.1.'$vocabulary')
-function _jm_f_200(val, path, rep)
+// check _jm_obj_25_map_$vocabulary (.'$TightSchema'.'|'.3.'$vocabulary')
+function _jm_f_112(val, path, rep)
 {
     let res;
-    // .'$TightSchema'.'|'.1.'$vocabulary'
-    res = _jm_obj_40(val, path, rep);
+    // .'$TightSchema'.'|'.3.'$vocabulary'
+    res = _jm_obj_27(val, path, rep);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected element [.'$TightSchema'.'|'.1.'$vocabulary']", path])
+        rep !== null && rep.push(["unexpected element [.'$TightSchema'.'|'.3.'$vocabulary']", path])
     }
     return res;
 }
 
-// check _jm_obj_38_map_default (.'$TightSchema'.'|'.1.default)
-function _jm_f_201(val, path, rep)
+// check _jm_obj_25_map_default (.'$TightSchema'.'|'.3.default)
+function _jm_f_113(val, path, rep)
 {
     let res;
-    // .'$TightSchema'.'|'.1.default
+    // .'$TightSchema'.'|'.3.default
     res = true;
     if (! res)
     {
-        rep !== null && rep.push(["unexpected $ANY [.'$TightSchema'.'|'.1.default]", path])
+        rep !== null && rep.push(["unexpected $ANY [.'$TightSchema'.'|'.3.default]", path])
     }
     return res;
 }
 
-// check _jm_obj_38_map_deprecated (.'$TightSchema'.'|'.1.deprecated)
-function _jm_f_202(val, path, rep)
+// check _jm_obj_25_map_deprecated (.'$TightSchema'.'|'.3.deprecated)
+function _jm_f_114(val, path, rep)
 {
     let res;
-    // .'$TightSchema'.'|'.1.deprecated
+    // .'$TightSchema'.'|'.3.deprecated
     res = (typeof val === 'boolean' || val instanceof Boolean);
     if (! res)
     {
-        rep !== null && rep.push(["not a bool [.'$TightSchema'.'|'.1.deprecated]", path])
+        rep !== null && rep.push(["not a bool [.'$TightSchema'.'|'.3.deprecated]", path])
     }
     return res;
 }
 
-// check _jm_obj_38_map_description (.'$TightSchema'.'|'.1.description)
-function _jm_f_203(val, path, rep)
+// check _jm_obj_25_map_description (.'$TightSchema'.'|'.3.description)
+function _jm_f_115(val, path, rep)
 {
     let res;
-    // .'$TightSchema'.'|'.1.description
+    // .'$TightSchema'.'|'.3.description
     res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected string [.'$TightSchema'.'|'.1.description]", path])
+        rep !== null && rep.push(["unexpected string [.'$TightSchema'.'|'.3.description]", path])
     }
     return res;
 }
 
-// check _jm_obj_38_map_examples (.'$TightSchema'.'|'.1.examples)
-function _jm_f_204(val, path, rep)
+// check _jm_obj_25_map_examples (.'$TightSchema'.'|'.3.examples)
+function _jm_f_116(val, path, rep)
 {
     let res;
-    // .'$TightSchema'.'|'.1.examples
+    // .'$TightSchema'.'|'.3.examples
     res = Array.isArray(val);
     if (res)
     {
@@ -4808,57 +3196,122 @@ function _jm_f_204(val, path, rep)
     }
     if (! res)
     {
-        rep !== null && rep.push(["not array or unexpected array [.'$TightSchema'.'|'.1.examples]", path])
+        rep !== null && rep.push(["not array or unexpected array [.'$TightSchema'.'|'.3.examples]", path])
     }
     return res;
 }
 
-// check _jm_obj_38_map_readOnly (.'$TightSchema'.'|'.1.readOnly)
-function _jm_f_205(val, path, rep)
+// check _jm_obj_25_map_exclusiveMaximum (.'$TightSchema'.'|'.3.exclusiveMaximum)
+function _jm_f_117(val, path, rep)
 {
     let res;
-    // .'$TightSchema'.'|'.1.readOnly
+    // .'$TightSchema'.'|'.3.exclusiveMaximum
+    res = (typeof val === 'number' || val instanceof Number) && Number.isInteger(val);
+    if (! res)
+    {
+        rep !== null && rep.push(["not a -1 strict int [.'$TightSchema'.'|'.3.exclusiveMaximum]", path])
+    }
+    return res;
+}
+
+// check _jm_obj_25_map_exclusiveMinimum (.'$TightSchema'.'|'.3.exclusiveMinimum)
+function _jm_f_118(val, path, rep)
+{
+    let res;
+    // .'$TightSchema'.'|'.3.exclusiveMinimum
+    res = (typeof val === 'number' || val instanceof Number) && Number.isInteger(val);
+    if (! res)
+    {
+        rep !== null && rep.push(["not a -1 strict int [.'$TightSchema'.'|'.3.exclusiveMinimum]", path])
+    }
+    return res;
+}
+
+// check _jm_obj_25_map_maximum (.'$TightSchema'.'|'.3.maximum)
+function _jm_f_119(val, path, rep)
+{
+    let res;
+    // .'$TightSchema'.'|'.3.maximum
+    res = (typeof val === 'number' || val instanceof Number) && Number.isInteger(val);
+    if (! res)
+    {
+        rep !== null && rep.push(["not a -1 strict int [.'$TightSchema'.'|'.3.maximum]", path])
+    }
+    return res;
+}
+
+// check _jm_obj_25_map_minimum (.'$TightSchema'.'|'.3.minimum)
+function _jm_f_120(val, path, rep)
+{
+    let res;
+    // .'$TightSchema'.'|'.3.minimum
+    res = (typeof val === 'number' || val instanceof Number) && Number.isInteger(val);
+    if (! res)
+    {
+        rep !== null && rep.push(["not a -1 strict int [.'$TightSchema'.'|'.3.minimum]", path])
+    }
+    return res;
+}
+
+// check _jm_obj_25_map_multipleOf (.'$TightSchema'.'|'.3.multipleOf)
+function _jm_f_121(val, path, rep)
+{
+    let res;
+    // .'$TightSchema'.'|'.3.multipleOf
+    res = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 1;
+    if (! res)
+    {
+        rep !== null && rep.push(["not a 1 strict int [.'$TightSchema'.'|'.3.multipleOf]", path])
+    }
+    return res;
+}
+
+// check _jm_obj_25_map_readOnly (.'$TightSchema'.'|'.3.readOnly)
+function _jm_f_122(val, path, rep)
+{
+    let res;
+    // .'$TightSchema'.'|'.3.readOnly
     res = (typeof val === 'boolean' || val instanceof Boolean);
     if (! res)
     {
-        rep !== null && rep.push(["not a bool [.'$TightSchema'.'|'.1.readOnly]", path])
+        rep !== null && rep.push(["not a bool [.'$TightSchema'.'|'.3.readOnly]", path])
     }
     return res;
 }
 
-// check _jm_obj_38_map_title (.'$TightSchema'.'|'.1.title)
-function _jm_f_206(val, path, rep)
+// check _jm_obj_25_map_title (.'$TightSchema'.'|'.3.title)
+function _jm_f_123(val, path, rep)
 {
     let res;
-    // .'$TightSchema'.'|'.1.title
+    // .'$TightSchema'.'|'.3.title
     res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected string [.'$TightSchema'.'|'.1.title]", path])
+        rep !== null && rep.push(["unexpected string [.'$TightSchema'.'|'.3.title]", path])
     }
     return res;
 }
 
-// check _jm_obj_38_map_writeOnly (.'$TightSchema'.'|'.1.writeOnly)
-function _jm_f_207(val, path, rep)
+// check _jm_obj_25_map_writeOnly (.'$TightSchema'.'|'.3.writeOnly)
+function _jm_f_124(val, path, rep)
 {
     let res;
-    // .'$TightSchema'.'|'.1.writeOnly
+    // .'$TightSchema'.'|'.3.writeOnly
     res = (typeof val === 'boolean' || val instanceof Boolean);
     if (! res)
     {
-        rep !== null && rep.push(["not a bool [.'$TightSchema'.'|'.1.writeOnly]", path])
+        rep !== null && rep.push(["not a bool [.'$TightSchema'.'|'.3.writeOnly]", path])
     }
     return res;
 }
 
 
-// object .'$TightSchema'.'|'.1
-function _jm_obj_38(val, path, rep)
+// object .'$TightSchema'.'|'.3
+function _jm_obj_25(val, path, rep)
 {
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
-        rep !== null && rep.push(["not an object [.'$TightSchema'.'|'.1]", path])
+        rep !== null && rep.push(["not an object [.'$TightSchema'.'|'.3]", path])
         return false;
     }
     let res;
@@ -4866,35 +3319,35 @@ function _jm_obj_38(val, path, rep)
     let must_count = 0;
     for (const [prop, pval] of Object.entries(val))
     {
-        let lpath_38 = path ? path.concat([prop]) : null;
+        let lpath_25 = path ? path.concat([prop]) : null;
         if (prop == "type")
         {
             // handle must type property
             must_count += 1;
-            // .'$TightSchema'.'|'.1.type
-            res = ((typeof pval === 'string' || pval instanceof String)) && pval == "boolean";
+            // .'$TightSchema'.'|'.3.type
+            res = ((typeof pval === 'string' || pval instanceof String)) && pval == "integer";
             if (! res)
             {
-                rep !== null && rep.push(["unexpected _boolean [.'$TightSchema'.'|'.1.type]", (path ? lpath_38 : null)])
+                rep !== null && rep.push(["unexpected _integer [.'$TightSchema'.'|'.3.type]", (path ? lpath_25 : null)])
             }
             if (! res)
             {
-                rep !== null && rep.push(["invalid mandatory prop value [.'$TightSchema'.'|'.1.type]", (path ? lpath_38 : null)])
+                rep !== null && rep.push(["invalid mandatory prop value [.'$TightSchema'.'|'.3.type]", (path ? lpath_25 : null)])
                 return false;
             }
         }
-        else if ((pfun = _jm_obj_38_map.get(prop)))
+        else if ((pfun = _jm_obj_25_map.get(prop)))
         {
-            // handle 16 may props
-            if (pfun !== undefined && ! pfun(pval, (path ? lpath_38 : null), rep))
+            // handle 21 may props
+            if (pfun !== undefined && ! pfun(pval, (path ? lpath_25 : null), rep))
             {
-                rep !== null && rep.push(["invalid optional prop value [.'$TightSchema'.'|'.1]", (path ? lpath_38 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$TightSchema'.'|'.3]", (path ? lpath_25 : null)])
                 return false;
             }
         }
         else
         {
-            rep !== null && rep.push(["unexpected prop [.'$TightSchema'.'|'.1]", (path ? lpath_38 : null)])
+            rep !== null && rep.push(["unexpected prop [.'$TightSchema'.'|'.3]", (path ? lpath_25 : null)])
             return false;
         }
     }
@@ -4904,7 +3357,7 @@ function _jm_obj_38(val, path, rep)
         {
             if (! val.hasOwnProperty("type"))
             {
-                rep !== null && rep.push(["missing mandatory prop <type> [.'$TightSchema'.'|'.1]", path])
+                rep !== null && rep.push(["missing mandatory prop <type> [.'$TightSchema'.'|'.3]", path])
             }
         }
         return false;
@@ -4912,50 +3365,50 @@ function _jm_obj_38(val, path, rep)
     return true;
 }
 
-// check _jm_obj_41_map_$anchor (.'$TightSchema'.'|'.0.'$anchor')
-function _jm_f_208(val, path, rep)
+// check _jm_obj_28_map_$anchor (.'$TightSchema'.'|'.4.'$anchor')
+function _jm_f_125(val, path, rep)
 {
     let res;
-    // .'$TightSchema'.'|'.0.'$anchor'
+    // .'$TightSchema'.'|'.4.'$anchor'
     res = json_model_2(val, path, rep);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected $URI-REFERENCE [.'$TightSchema'.'|'.0.'$anchor']", path])
+        rep !== null && rep.push(["unexpected $URI-REFERENCE [.'$TightSchema'.'|'.4.'$anchor']", path])
     }
     return res;
 }
 
-// check _jm_obj_41_map_$comment (.'$TightSchema'.'|'.0.'$comment')
-function _jm_f_209(val, path, rep)
+// check _jm_obj_28_map_$comment (.'$TightSchema'.'|'.4.'$comment')
+function _jm_f_126(val, path, rep)
 {
     let res;
-    // .'$TightSchema'.'|'.0.'$comment'
+    // .'$TightSchema'.'|'.4.'$comment'
     res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected string [.'$TightSchema'.'|'.0.'$comment']", path])
+        rep !== null && rep.push(["unexpected string [.'$TightSchema'.'|'.4.'$comment']", path])
     }
     return res;
 }
 
-// object .'$TightSchema'.'|'.0.'$defs'
-function _jm_obj_42(val, path, rep)
+// object .'$TightSchema'.'|'.4.'$defs'
+function _jm_obj_29(val, path, rep)
 {
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
-        rep !== null && rep.push(["not an object [.'$TightSchema'.'|'.0.'$defs']", path])
+        rep !== null && rep.push(["not an object [.'$TightSchema'.'|'.4.'$defs']", path])
         return false;
     }
     let res;
     for (const [prop, pval] of Object.entries(val))
     {
-        let lpath_42 = path ? path.concat([prop]) : null;
+        let lpath_29 = path ? path.concat([prop]) : null;
         // handle other props
-        // .'$TightSchema'.'|'.0.'$defs'.''
-        res = json_model_16(pval, (path ? lpath_42 : null), rep);
+        // .'$TightSchema'.'|'.4.'$defs'.''
+        res = json_model_16(pval, (path ? lpath_29 : null), rep);
         if (! res)
         {
-            rep !== null && rep.push(["unexpected $Schema [.'$TightSchema'.'|'.0.'$defs'.'']", (path ? lpath_42 : null)])
+            rep !== null && rep.push(["unexpected $Schema [.'$TightSchema'.'|'.4.'$defs'.'']", (path ? lpath_29 : null)])
         }
         if (! res)
         {
@@ -4965,90 +3418,1546 @@ function _jm_obj_42(val, path, rep)
     return true;
 }
 
-// check _jm_obj_41_map_$defs (.'$TightSchema'.'|'.0.'$defs')
-function _jm_f_210(val, path, rep)
+// check _jm_obj_28_map_$defs (.'$TightSchema'.'|'.4.'$defs')
+function _jm_f_127(val, path, rep)
 {
     let res;
-    // .'$TightSchema'.'|'.0.'$defs'
-    res = _jm_obj_42(val, path, rep);
+    // .'$TightSchema'.'|'.4.'$defs'
+    res = _jm_obj_29(val, path, rep);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected element [.'$TightSchema'.'|'.0.'$defs']", path])
+        rep !== null && rep.push(["unexpected element [.'$TightSchema'.'|'.4.'$defs']", path])
     }
     return res;
 }
 
-// check _jm_obj_41_map_$dynamicAnchor (.'$TightSchema'.'|'.0.'$dynamicAnchor')
-function _jm_f_211(val, path, rep)
+// check _jm_obj_28_map_$dynamicAnchor (.'$TightSchema'.'|'.4.'$dynamicAnchor')
+function _jm_f_128(val, path, rep)
 {
     let res;
-    // .'$TightSchema'.'|'.0.'$dynamicAnchor'
+    // .'$TightSchema'.'|'.4.'$dynamicAnchor'
     res = json_model_2(val, path, rep);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected $URI-REFERENCE [.'$TightSchema'.'|'.0.'$dynamicAnchor']", path])
+        rep !== null && rep.push(["unexpected $URI-REFERENCE [.'$TightSchema'.'|'.4.'$dynamicAnchor']", path])
     }
     return res;
 }
 
-// check _jm_obj_41_map_$dynamicRef (.'$TightSchema'.'|'.0.'$dynamicRef')
-function _jm_f_212(val, path, rep)
+// check _jm_obj_28_map_$dynamicRef (.'$TightSchema'.'|'.4.'$dynamicRef')
+function _jm_f_129(val, path, rep)
 {
     let res;
-    // .'$TightSchema'.'|'.0.'$dynamicRef'
+    // .'$TightSchema'.'|'.4.'$dynamicRef'
     res = json_model_2(val, path, rep);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected $URI-REFERENCE [.'$TightSchema'.'|'.0.'$dynamicRef']", path])
+        rep !== null && rep.push(["unexpected $URI-REFERENCE [.'$TightSchema'.'|'.4.'$dynamicRef']", path])
     }
     return res;
 }
 
-// check _jm_obj_41_map_$id (.'$TightSchema'.'|'.0.'$id')
-function _jm_f_213(val, path, rep)
+// check _jm_obj_28_map_$id (.'$TightSchema'.'|'.4.'$id')
+function _jm_f_130(val, path, rep)
 {
     let res;
-    // .'$TightSchema'.'|'.0.'$id'
+    // .'$TightSchema'.'|'.4.'$id'
     res = json_model_2(val, path, rep);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected $URI-REFERENCE [.'$TightSchema'.'|'.0.'$id']", path])
+        rep !== null && rep.push(["unexpected $URI-REFERENCE [.'$TightSchema'.'|'.4.'$id']", path])
     }
     return res;
 }
 
-// check _jm_obj_41_map_$ref (.'$TightSchema'.'|'.0.'$ref')
-function _jm_f_214(val, path, rep)
+// check _jm_obj_28_map_$ref (.'$TightSchema'.'|'.4.'$ref')
+function _jm_f_131(val, path, rep)
 {
     let res;
-    // .'$TightSchema'.'|'.0.'$ref'
+    // .'$TightSchema'.'|'.4.'$ref'
     res = json_model_2(val, path, rep);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected $URI-REFERENCE [.'$TightSchema'.'|'.0.'$ref']", path])
+        rep !== null && rep.push(["unexpected $URI-REFERENCE [.'$TightSchema'.'|'.4.'$ref']", path])
     }
     return res;
 }
 
-// check _jm_obj_41_map_$schema (.'$TightSchema'.'|'.0.'$schema')
-function _jm_f_215(val, path, rep)
+// check _jm_obj_28_map_$schema (.'$TightSchema'.'|'.4.'$schema')
+function _jm_f_132(val, path, rep)
 {
     let res;
-    // .'$TightSchema'.'|'.0.'$schema'
+    // .'$TightSchema'.'|'.4.'$schema'
     res = runtime.jm_is_valid_url(val);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected $URI [.'$TightSchema'.'|'.0.'$schema']", path])
+        rep !== null && rep.push(["unexpected $URI [.'$TightSchema'.'|'.4.'$schema']", path])
     }
     return res;
 }
 
-// object .'$TightSchema'.'|'.0.'$vocabulary'
+// object .'$TightSchema'.'|'.4.'$vocabulary'
+function _jm_obj_30(val, path, rep)
+{
+    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    {
+        rep !== null && rep.push(["not an object [.'$TightSchema'.'|'.4.'$vocabulary']", path])
+        return false;
+    }
+    let res;
+    for (const [prop, pval] of Object.entries(val))
+    {
+        let lpath_30 = path ? path.concat([prop]) : null;
+        if (runtime.jm_is_valid_url(prop))
+        {
+            // handle 1 key props
+            // .'$TightSchema'.'|'.4.'$vocabulary'.'$URI'
+            res = (typeof pval === 'boolean' || pval instanceof Boolean);
+            if (! res)
+            {
+                rep !== null && rep.push(["not a bool [.'$TightSchema'.'|'.4.'$vocabulary'.'$URI']", (path ? lpath_30 : null)])
+            }
+            if (! res)
+            {
+                return false;
+            }
+        }
+        else
+        {
+            rep !== null && rep.push(["unexpected prop [.'$TightSchema'.'|'.4.'$vocabulary']", (path ? lpath_30 : null)])
+            return false;
+        }
+    }
+    return true;
+}
+
+// check _jm_obj_28_map_$vocabulary (.'$TightSchema'.'|'.4.'$vocabulary')
+function _jm_f_133(val, path, rep)
+{
+    let res;
+    // .'$TightSchema'.'|'.4.'$vocabulary'
+    res = _jm_obj_30(val, path, rep);
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected element [.'$TightSchema'.'|'.4.'$vocabulary']", path])
+    }
+    return res;
+}
+
+// check _jm_obj_28_map_contentEncoding (.'$TightSchema'.'|'.4.contentEncoding)
+function _jm_f_134(val, path, rep)
+{
+    let res;
+    // .'$TightSchema'.'|'.4.contentEncoding
+    res = (typeof val === 'string' || val instanceof String);
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected string [.'$TightSchema'.'|'.4.contentEncoding]", path])
+    }
+    return res;
+}
+
+// check _jm_obj_28_map_contentMediaType (.'$TightSchema'.'|'.4.contentMediaType)
+function _jm_f_135(val, path, rep)
+{
+    let res;
+    // .'$TightSchema'.'|'.4.contentMediaType
+    res = (typeof val === 'string' || val instanceof String);
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected string [.'$TightSchema'.'|'.4.contentMediaType]", path])
+    }
+    return res;
+}
+
+// check _jm_obj_28_map_contentSchema (.'$TightSchema'.'|'.4.contentSchema)
+function _jm_f_136(val, path, rep)
+{
+    let res;
+    // .'$TightSchema'.'|'.4.contentSchema
+    res = json_model_16(val, path, rep);
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected $Schema [.'$TightSchema'.'|'.4.contentSchema]", path])
+    }
+    return res;
+}
+
+// check _jm_obj_28_map_default (.'$TightSchema'.'|'.4.default)
+function _jm_f_137(val, path, rep)
+{
+    let res;
+    // .'$TightSchema'.'|'.4.default
+    res = true;
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected $ANY [.'$TightSchema'.'|'.4.default]", path])
+    }
+    return res;
+}
+
+// check _jm_obj_28_map_deprecated (.'$TightSchema'.'|'.4.deprecated)
+function _jm_f_138(val, path, rep)
+{
+    let res;
+    // .'$TightSchema'.'|'.4.deprecated
+    res = (typeof val === 'boolean' || val instanceof Boolean);
+    if (! res)
+    {
+        rep !== null && rep.push(["not a bool [.'$TightSchema'.'|'.4.deprecated]", path])
+    }
+    return res;
+}
+
+// check _jm_obj_28_map_description (.'$TightSchema'.'|'.4.description)
+function _jm_f_139(val, path, rep)
+{
+    let res;
+    // .'$TightSchema'.'|'.4.description
+    res = (typeof val === 'string' || val instanceof String);
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected string [.'$TightSchema'.'|'.4.description]", path])
+    }
+    return res;
+}
+
+// check _jm_obj_28_map_examples (.'$TightSchema'.'|'.4.examples)
+function _jm_f_140(val, path, rep)
+{
+    let res;
+    // .'$TightSchema'.'|'.4.examples
+    res = Array.isArray(val);
+    if (res)
+    {
+        // accept any array
+    }
+    if (! res)
+    {
+        rep !== null && rep.push(["not array or unexpected array [.'$TightSchema'.'|'.4.examples]", path])
+    }
+    return res;
+}
+
+// check _jm_obj_28_map_format (.'$TightSchema'.'|'.4.format)
+function _jm_f_141(val, path, rep)
+{
+    let res;
+    // .'$TightSchema'.'|'.4.format
+    res = (typeof val === 'string' || val instanceof String);
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected string [.'$TightSchema'.'|'.4.format]", path])
+    }
+    return res;
+}
+
+// check _jm_obj_28_map_maxLength (.'$TightSchema'.'|'.4.maxLength)
+function _jm_f_142(val, path, rep)
+{
+    let res;
+    // .'$TightSchema'.'|'.4.maxLength
+    res = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 0;
+    if (! res)
+    {
+        rep !== null && rep.push(["not a 0 strict int [.'$TightSchema'.'|'.4.maxLength]", path])
+    }
+    return res;
+}
+
+// check _jm_obj_28_map_minLength (.'$TightSchema'.'|'.4.minLength)
+function _jm_f_143(val, path, rep)
+{
+    let res;
+    // .'$TightSchema'.'|'.4.minLength
+    res = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 0;
+    if (! res)
+    {
+        rep !== null && rep.push(["not a 0 strict int [.'$TightSchema'.'|'.4.minLength]", path])
+    }
+    return res;
+}
+
+// check _jm_obj_28_map_pattern (.'$TightSchema'.'|'.4.pattern)
+function _jm_f_144(val, path, rep)
+{
+    let res;
+    // .'$TightSchema'.'|'.4.pattern
+    res = runtime.jm_is_valid_regex(val, false);
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected $REGEX [.'$TightSchema'.'|'.4.pattern]", path])
+    }
+    return res;
+}
+
+// check _jm_obj_28_map_readOnly (.'$TightSchema'.'|'.4.readOnly)
+function _jm_f_145(val, path, rep)
+{
+    let res;
+    // .'$TightSchema'.'|'.4.readOnly
+    res = (typeof val === 'boolean' || val instanceof Boolean);
+    if (! res)
+    {
+        rep !== null && rep.push(["not a bool [.'$TightSchema'.'|'.4.readOnly]", path])
+    }
+    return res;
+}
+
+// check _jm_obj_28_map_title (.'$TightSchema'.'|'.4.title)
+function _jm_f_146(val, path, rep)
+{
+    let res;
+    // .'$TightSchema'.'|'.4.title
+    res = (typeof val === 'string' || val instanceof String);
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected string [.'$TightSchema'.'|'.4.title]", path])
+    }
+    return res;
+}
+
+// check _jm_obj_28_map_writeOnly (.'$TightSchema'.'|'.4.writeOnly)
+function _jm_f_147(val, path, rep)
+{
+    let res;
+    // .'$TightSchema'.'|'.4.writeOnly
+    res = (typeof val === 'boolean' || val instanceof Boolean);
+    if (! res)
+    {
+        rep !== null && rep.push(["not a bool [.'$TightSchema'.'|'.4.writeOnly]", path])
+    }
+    return res;
+}
+
+
+// object .'$TightSchema'.'|'.4
+function _jm_obj_28(val, path, rep)
+{
+    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    {
+        rep !== null && rep.push(["not an object [.'$TightSchema'.'|'.4]", path])
+        return false;
+    }
+    let res;
+    let pfun;
+    let must_count = 0;
+    for (const [prop, pval] of Object.entries(val))
+    {
+        let lpath_28 = path ? path.concat([prop]) : null;
+        if (prop == "type")
+        {
+            // handle must type property
+            must_count += 1;
+            // .'$TightSchema'.'|'.4.type
+            res = ((typeof pval === 'string' || pval instanceof String)) && pval == "string";
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected _string [.'$TightSchema'.'|'.4.type]", (path ? lpath_28 : null)])
+            }
+            if (! res)
+            {
+                rep !== null && rep.push(["invalid mandatory prop value [.'$TightSchema'.'|'.4.type]", (path ? lpath_28 : null)])
+                return false;
+            }
+        }
+        else if ((pfun = _jm_obj_28_map.get(prop)))
+        {
+            // handle 23 may props
+            if (pfun !== undefined && ! pfun(pval, (path ? lpath_28 : null), rep))
+            {
+                rep !== null && rep.push(["invalid optional prop value [.'$TightSchema'.'|'.4]", (path ? lpath_28 : null)])
+                return false;
+            }
+        }
+        else
+        {
+            rep !== null && rep.push(["unexpected prop [.'$TightSchema'.'|'.4]", (path ? lpath_28 : null)])
+            return false;
+        }
+    }
+    if (must_count != 1)
+    {
+        if (rep !== null)
+        {
+            if (! val.hasOwnProperty("type"))
+            {
+                rep !== null && rep.push(["missing mandatory prop <type> [.'$TightSchema'.'|'.4]", path])
+            }
+        }
+        return false;
+    }
+    return true;
+}
+
+// check _jm_obj_31_map_$anchor (.'$TightSchema'.'|'.5.'$anchor')
+function _jm_f_148(val, path, rep)
+{
+    let res;
+    // .'$TightSchema'.'|'.5.'$anchor'
+    res = json_model_2(val, path, rep);
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected $URI-REFERENCE [.'$TightSchema'.'|'.5.'$anchor']", path])
+    }
+    return res;
+}
+
+// check _jm_obj_31_map_$comment (.'$TightSchema'.'|'.5.'$comment')
+function _jm_f_149(val, path, rep)
+{
+    let res;
+    // .'$TightSchema'.'|'.5.'$comment'
+    res = (typeof val === 'string' || val instanceof String);
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected string [.'$TightSchema'.'|'.5.'$comment']", path])
+    }
+    return res;
+}
+
+// object .'$TightSchema'.'|'.5.'$defs'
+function _jm_obj_32(val, path, rep)
+{
+    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    {
+        rep !== null && rep.push(["not an object [.'$TightSchema'.'|'.5.'$defs']", path])
+        return false;
+    }
+    let res;
+    for (const [prop, pval] of Object.entries(val))
+    {
+        let lpath_32 = path ? path.concat([prop]) : null;
+        // handle other props
+        // .'$TightSchema'.'|'.5.'$defs'.''
+        res = json_model_16(pval, (path ? lpath_32 : null), rep);
+        if (! res)
+        {
+            rep !== null && rep.push(["unexpected $Schema [.'$TightSchema'.'|'.5.'$defs'.'']", (path ? lpath_32 : null)])
+        }
+        if (! res)
+        {
+            return false;
+        }
+    }
+    return true;
+}
+
+// check _jm_obj_31_map_$defs (.'$TightSchema'.'|'.5.'$defs')
+function _jm_f_150(val, path, rep)
+{
+    let res;
+    // .'$TightSchema'.'|'.5.'$defs'
+    res = _jm_obj_32(val, path, rep);
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected element [.'$TightSchema'.'|'.5.'$defs']", path])
+    }
+    return res;
+}
+
+// check _jm_obj_31_map_$dynamicAnchor (.'$TightSchema'.'|'.5.'$dynamicAnchor')
+function _jm_f_151(val, path, rep)
+{
+    let res;
+    // .'$TightSchema'.'|'.5.'$dynamicAnchor'
+    res = json_model_2(val, path, rep);
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected $URI-REFERENCE [.'$TightSchema'.'|'.5.'$dynamicAnchor']", path])
+    }
+    return res;
+}
+
+// check _jm_obj_31_map_$dynamicRef (.'$TightSchema'.'|'.5.'$dynamicRef')
+function _jm_f_152(val, path, rep)
+{
+    let res;
+    // .'$TightSchema'.'|'.5.'$dynamicRef'
+    res = json_model_2(val, path, rep);
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected $URI-REFERENCE [.'$TightSchema'.'|'.5.'$dynamicRef']", path])
+    }
+    return res;
+}
+
+// check _jm_obj_31_map_$id (.'$TightSchema'.'|'.5.'$id')
+function _jm_f_153(val, path, rep)
+{
+    let res;
+    // .'$TightSchema'.'|'.5.'$id'
+    res = json_model_2(val, path, rep);
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected $URI-REFERENCE [.'$TightSchema'.'|'.5.'$id']", path])
+    }
+    return res;
+}
+
+// check _jm_obj_31_map_$ref (.'$TightSchema'.'|'.5.'$ref')
+function _jm_f_154(val, path, rep)
+{
+    let res;
+    // .'$TightSchema'.'|'.5.'$ref'
+    res = json_model_2(val, path, rep);
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected $URI-REFERENCE [.'$TightSchema'.'|'.5.'$ref']", path])
+    }
+    return res;
+}
+
+// check _jm_obj_31_map_$schema (.'$TightSchema'.'|'.5.'$schema')
+function _jm_f_155(val, path, rep)
+{
+    let res;
+    // .'$TightSchema'.'|'.5.'$schema'
+    res = runtime.jm_is_valid_url(val);
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected $URI [.'$TightSchema'.'|'.5.'$schema']", path])
+    }
+    return res;
+}
+
+// object .'$TightSchema'.'|'.5.'$vocabulary'
+function _jm_obj_33(val, path, rep)
+{
+    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    {
+        rep !== null && rep.push(["not an object [.'$TightSchema'.'|'.5.'$vocabulary']", path])
+        return false;
+    }
+    let res;
+    for (const [prop, pval] of Object.entries(val))
+    {
+        let lpath_33 = path ? path.concat([prop]) : null;
+        if (runtime.jm_is_valid_url(prop))
+        {
+            // handle 1 key props
+            // .'$TightSchema'.'|'.5.'$vocabulary'.'$URI'
+            res = (typeof pval === 'boolean' || pval instanceof Boolean);
+            if (! res)
+            {
+                rep !== null && rep.push(["not a bool [.'$TightSchema'.'|'.5.'$vocabulary'.'$URI']", (path ? lpath_33 : null)])
+            }
+            if (! res)
+            {
+                return false;
+            }
+        }
+        else
+        {
+            rep !== null && rep.push(["unexpected prop [.'$TightSchema'.'|'.5.'$vocabulary']", (path ? lpath_33 : null)])
+            return false;
+        }
+    }
+    return true;
+}
+
+// check _jm_obj_31_map_$vocabulary (.'$TightSchema'.'|'.5.'$vocabulary')
+function _jm_f_156(val, path, rep)
+{
+    let res;
+    // .'$TightSchema'.'|'.5.'$vocabulary'
+    res = _jm_obj_33(val, path, rep);
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected element [.'$TightSchema'.'|'.5.'$vocabulary']", path])
+    }
+    return res;
+}
+
+// check _jm_obj_31_map_contains (.'$TightSchema'.'|'.5.contains)
+function _jm_f_157(val, path, rep)
+{
+    let res;
+    // .'$TightSchema'.'|'.5.contains
+    res = json_model_16(val, path, rep);
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected $Schema [.'$TightSchema'.'|'.5.contains]", path])
+    }
+    return res;
+}
+
+// check _jm_obj_31_map_default (.'$TightSchema'.'|'.5.default)
+function _jm_f_158(val, path, rep)
+{
+    let res;
+    // .'$TightSchema'.'|'.5.default
+    res = true;
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected $ANY [.'$TightSchema'.'|'.5.default]", path])
+    }
+    return res;
+}
+
+// check _jm_obj_31_map_deprecated (.'$TightSchema'.'|'.5.deprecated)
+function _jm_f_159(val, path, rep)
+{
+    let res;
+    // .'$TightSchema'.'|'.5.deprecated
+    res = (typeof val === 'boolean' || val instanceof Boolean);
+    if (! res)
+    {
+        rep !== null && rep.push(["not a bool [.'$TightSchema'.'|'.5.deprecated]", path])
+    }
+    return res;
+}
+
+// check _jm_obj_31_map_description (.'$TightSchema'.'|'.5.description)
+function _jm_f_160(val, path, rep)
+{
+    let res;
+    // .'$TightSchema'.'|'.5.description
+    res = (typeof val === 'string' || val instanceof String);
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected string [.'$TightSchema'.'|'.5.description]", path])
+    }
+    return res;
+}
+
+// check _jm_obj_31_map_examples (.'$TightSchema'.'|'.5.examples)
+function _jm_f_161(val, path, rep)
+{
+    let res;
+    // .'$TightSchema'.'|'.5.examples
+    res = Array.isArray(val);
+    if (res)
+    {
+        // accept any array
+    }
+    if (! res)
+    {
+        rep !== null && rep.push(["not array or unexpected array [.'$TightSchema'.'|'.5.examples]", path])
+    }
+    return res;
+}
+
+// check _jm_obj_31_map_items (.'$TightSchema'.'|'.5.items)
+function _jm_f_162(val, path, rep)
+{
+    let res;
+    // .'$TightSchema'.'|'.5.items
+    res = json_model_16(val, path, rep);
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected $Schema [.'$TightSchema'.'|'.5.items]", path])
+    }
+    return res;
+}
+
+// check _jm_obj_31_map_maxContains (.'$TightSchema'.'|'.5.maxContains)
+function _jm_f_163(val, path, rep)
+{
+    let res;
+    // .'$TightSchema'.'|'.5.maxContains
+    res = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 0;
+    if (! res)
+    {
+        rep !== null && rep.push(["not a 0 strict int [.'$TightSchema'.'|'.5.maxContains]", path])
+    }
+    return res;
+}
+
+// check _jm_obj_31_map_maxItems (.'$TightSchema'.'|'.5.maxItems)
+function _jm_f_164(val, path, rep)
+{
+    let res;
+    // .'$TightSchema'.'|'.5.maxItems
+    res = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 0;
+    if (! res)
+    {
+        rep !== null && rep.push(["not a 0 strict int [.'$TightSchema'.'|'.5.maxItems]", path])
+    }
+    return res;
+}
+
+// check _jm_obj_31_map_minContains (.'$TightSchema'.'|'.5.minContains)
+function _jm_f_165(val, path, rep)
+{
+    let res;
+    // .'$TightSchema'.'|'.5.minContains
+    res = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 0;
+    if (! res)
+    {
+        rep !== null && rep.push(["not a 0 strict int [.'$TightSchema'.'|'.5.minContains]", path])
+    }
+    return res;
+}
+
+// check _jm_obj_31_map_minItems (.'$TightSchema'.'|'.5.minItems)
+function _jm_f_166(val, path, rep)
+{
+    let res;
+    // .'$TightSchema'.'|'.5.minItems
+    res = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 0;
+    if (! res)
+    {
+        rep !== null && rep.push(["not a 0 strict int [.'$TightSchema'.'|'.5.minItems]", path])
+    }
+    return res;
+}
+
+// check _jm_obj_31_map_prefixItems (.'$TightSchema'.'|'.5.prefixItems)
+function _jm_f_167(val, path, rep)
+{
+    let res;
+    // .'$TightSchema'.'|'.5.prefixItems
+    res = json_model_11(val, path, rep);
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected $schemaArray [.'$TightSchema'.'|'.5.prefixItems]", path])
+    }
+    return res;
+}
+
+// check _jm_obj_31_map_readOnly (.'$TightSchema'.'|'.5.readOnly)
+function _jm_f_168(val, path, rep)
+{
+    let res;
+    // .'$TightSchema'.'|'.5.readOnly
+    res = (typeof val === 'boolean' || val instanceof Boolean);
+    if (! res)
+    {
+        rep !== null && rep.push(["not a bool [.'$TightSchema'.'|'.5.readOnly]", path])
+    }
+    return res;
+}
+
+// check _jm_obj_31_map_title (.'$TightSchema'.'|'.5.title)
+function _jm_f_169(val, path, rep)
+{
+    let res;
+    // .'$TightSchema'.'|'.5.title
+    res = (typeof val === 'string' || val instanceof String);
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected string [.'$TightSchema'.'|'.5.title]", path])
+    }
+    return res;
+}
+
+// check _jm_obj_31_map_unevaluatedItems (.'$TightSchema'.'|'.5.unevaluatedItems)
+function _jm_f_170(val, path, rep)
+{
+    let res;
+    // .'$TightSchema'.'|'.5.unevaluatedItems
+    res = json_model_16(val, path, rep);
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected $Schema [.'$TightSchema'.'|'.5.unevaluatedItems]", path])
+    }
+    return res;
+}
+
+// check _jm_obj_31_map_uniqueItems (.'$TightSchema'.'|'.5.uniqueItems)
+function _jm_f_171(val, path, rep)
+{
+    let res;
+    // .'$TightSchema'.'|'.5.uniqueItems
+    res = (typeof val === 'boolean' || val instanceof Boolean);
+    if (! res)
+    {
+        rep !== null && rep.push(["not a bool [.'$TightSchema'.'|'.5.uniqueItems]", path])
+    }
+    return res;
+}
+
+// check _jm_obj_31_map_writeOnly (.'$TightSchema'.'|'.5.writeOnly)
+function _jm_f_172(val, path, rep)
+{
+    let res;
+    // .'$TightSchema'.'|'.5.writeOnly
+    res = (typeof val === 'boolean' || val instanceof Boolean);
+    if (! res)
+    {
+        rep !== null && rep.push(["not a bool [.'$TightSchema'.'|'.5.writeOnly]", path])
+    }
+    return res;
+}
+
+
+// object .'$TightSchema'.'|'.5
+function _jm_obj_31(val, path, rep)
+{
+    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    {
+        rep !== null && rep.push(["not an object [.'$TightSchema'.'|'.5]", path])
+        return false;
+    }
+    let res;
+    let pfun;
+    let must_count = 0;
+    for (const [prop, pval] of Object.entries(val))
+    {
+        let lpath_31 = path ? path.concat([prop]) : null;
+        if (prop == "type")
+        {
+            // handle must type property
+            must_count += 1;
+            // .'$TightSchema'.'|'.5.type
+            res = ((typeof pval === 'string' || pval instanceof String)) && pval == "array";
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected _array [.'$TightSchema'.'|'.5.type]", (path ? lpath_31 : null)])
+            }
+            if (! res)
+            {
+                rep !== null && rep.push(["invalid mandatory prop value [.'$TightSchema'.'|'.5.type]", (path ? lpath_31 : null)])
+                return false;
+            }
+        }
+        else if ((pfun = _jm_obj_31_map.get(prop)))
+        {
+            // handle 25 may props
+            if (pfun !== undefined && ! pfun(pval, (path ? lpath_31 : null), rep))
+            {
+                rep !== null && rep.push(["invalid optional prop value [.'$TightSchema'.'|'.5]", (path ? lpath_31 : null)])
+                return false;
+            }
+        }
+        else
+        {
+            rep !== null && rep.push(["unexpected prop [.'$TightSchema'.'|'.5]", (path ? lpath_31 : null)])
+            return false;
+        }
+    }
+    if (must_count != 1)
+    {
+        if (rep !== null)
+        {
+            if (! val.hasOwnProperty("type"))
+            {
+                rep !== null && rep.push(["missing mandatory prop <type> [.'$TightSchema'.'|'.5]", path])
+            }
+        }
+        return false;
+    }
+    return true;
+}
+
+// check _jm_obj_34_map_$anchor (.'$TightSchema'.'|'.6.'$anchor')
+function _jm_f_173(val, path, rep)
+{
+    let res;
+    // .'$TightSchema'.'|'.6.'$anchor'
+    res = json_model_2(val, path, rep);
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected $URI-REFERENCE [.'$TightSchema'.'|'.6.'$anchor']", path])
+    }
+    return res;
+}
+
+// check _jm_obj_34_map_$comment (.'$TightSchema'.'|'.6.'$comment')
+function _jm_f_174(val, path, rep)
+{
+    let res;
+    // .'$TightSchema'.'|'.6.'$comment'
+    res = (typeof val === 'string' || val instanceof String);
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected string [.'$TightSchema'.'|'.6.'$comment']", path])
+    }
+    return res;
+}
+
+// object .'$TightSchema'.'|'.6.'$defs'
+function _jm_obj_35(val, path, rep)
+{
+    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    {
+        rep !== null && rep.push(["not an object [.'$TightSchema'.'|'.6.'$defs']", path])
+        return false;
+    }
+    let res;
+    for (const [prop, pval] of Object.entries(val))
+    {
+        let lpath_35 = path ? path.concat([prop]) : null;
+        // handle other props
+        // .'$TightSchema'.'|'.6.'$defs'.''
+        res = json_model_16(pval, (path ? lpath_35 : null), rep);
+        if (! res)
+        {
+            rep !== null && rep.push(["unexpected $Schema [.'$TightSchema'.'|'.6.'$defs'.'']", (path ? lpath_35 : null)])
+        }
+        if (! res)
+        {
+            return false;
+        }
+    }
+    return true;
+}
+
+// check _jm_obj_34_map_$defs (.'$TightSchema'.'|'.6.'$defs')
+function _jm_f_175(val, path, rep)
+{
+    let res;
+    // .'$TightSchema'.'|'.6.'$defs'
+    res = _jm_obj_35(val, path, rep);
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected element [.'$TightSchema'.'|'.6.'$defs']", path])
+    }
+    return res;
+}
+
+// check _jm_obj_34_map_$dynamicAnchor (.'$TightSchema'.'|'.6.'$dynamicAnchor')
+function _jm_f_176(val, path, rep)
+{
+    let res;
+    // .'$TightSchema'.'|'.6.'$dynamicAnchor'
+    res = json_model_2(val, path, rep);
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected $URI-REFERENCE [.'$TightSchema'.'|'.6.'$dynamicAnchor']", path])
+    }
+    return res;
+}
+
+// check _jm_obj_34_map_$dynamicRef (.'$TightSchema'.'|'.6.'$dynamicRef')
+function _jm_f_177(val, path, rep)
+{
+    let res;
+    // .'$TightSchema'.'|'.6.'$dynamicRef'
+    res = json_model_2(val, path, rep);
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected $URI-REFERENCE [.'$TightSchema'.'|'.6.'$dynamicRef']", path])
+    }
+    return res;
+}
+
+// check _jm_obj_34_map_$id (.'$TightSchema'.'|'.6.'$id')
+function _jm_f_178(val, path, rep)
+{
+    let res;
+    // .'$TightSchema'.'|'.6.'$id'
+    res = json_model_2(val, path, rep);
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected $URI-REFERENCE [.'$TightSchema'.'|'.6.'$id']", path])
+    }
+    return res;
+}
+
+// check _jm_obj_34_map_$ref (.'$TightSchema'.'|'.6.'$ref')
+function _jm_f_179(val, path, rep)
+{
+    let res;
+    // .'$TightSchema'.'|'.6.'$ref'
+    res = json_model_2(val, path, rep);
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected $URI-REFERENCE [.'$TightSchema'.'|'.6.'$ref']", path])
+    }
+    return res;
+}
+
+// check _jm_obj_34_map_$schema (.'$TightSchema'.'|'.6.'$schema')
+function _jm_f_180(val, path, rep)
+{
+    let res;
+    // .'$TightSchema'.'|'.6.'$schema'
+    res = runtime.jm_is_valid_url(val);
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected $URI [.'$TightSchema'.'|'.6.'$schema']", path])
+    }
+    return res;
+}
+
+// object .'$TightSchema'.'|'.6.'$vocabulary'
+function _jm_obj_36(val, path, rep)
+{
+    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    {
+        rep !== null && rep.push(["not an object [.'$TightSchema'.'|'.6.'$vocabulary']", path])
+        return false;
+    }
+    let res;
+    for (const [prop, pval] of Object.entries(val))
+    {
+        let lpath_36 = path ? path.concat([prop]) : null;
+        if (runtime.jm_is_valid_url(prop))
+        {
+            // handle 1 key props
+            // .'$TightSchema'.'|'.6.'$vocabulary'.'$URI'
+            res = (typeof pval === 'boolean' || pval instanceof Boolean);
+            if (! res)
+            {
+                rep !== null && rep.push(["not a bool [.'$TightSchema'.'|'.6.'$vocabulary'.'$URI']", (path ? lpath_36 : null)])
+            }
+            if (! res)
+            {
+                return false;
+            }
+        }
+        else
+        {
+            rep !== null && rep.push(["unexpected prop [.'$TightSchema'.'|'.6.'$vocabulary']", (path ? lpath_36 : null)])
+            return false;
+        }
+    }
+    return true;
+}
+
+// check _jm_obj_34_map_$vocabulary (.'$TightSchema'.'|'.6.'$vocabulary')
+function _jm_f_181(val, path, rep)
+{
+    let res;
+    // .'$TightSchema'.'|'.6.'$vocabulary'
+    res = _jm_obj_36(val, path, rep);
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected element [.'$TightSchema'.'|'.6.'$vocabulary']", path])
+    }
+    return res;
+}
+
+// check _jm_obj_34_map_additionalProperties (.'$TightSchema'.'|'.6.additionalProperties)
+function _jm_f_182(val, path, rep)
+{
+    let res;
+    // .'$TightSchema'.'|'.6.additionalProperties
+    res = json_model_16(val, path, rep);
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected $Schema [.'$TightSchema'.'|'.6.additionalProperties]", path])
+    }
+    return res;
+}
+
+// check _jm_obj_34_map_default (.'$TightSchema'.'|'.6.default)
+function _jm_f_183(val, path, rep)
+{
+    let res;
+    // .'$TightSchema'.'|'.6.default
+    res = true;
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected $ANY [.'$TightSchema'.'|'.6.default]", path])
+    }
+    return res;
+}
+
+// object .'$TightSchema'.'|'.6.dependentRequired
+function _jm_obj_37(val, path, rep)
+{
+    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    {
+        rep !== null && rep.push(["not an object [.'$TightSchema'.'|'.6.dependentRequired]", path])
+        return false;
+    }
+    let res;
+    for (const [prop, pval] of Object.entries(val))
+    {
+        let lpath_37 = path ? path.concat([prop]) : null;
+        // handle other props
+        // .'$TightSchema'.'|'.6.dependentRequired.''
+        res = json_model_10(pval, (path ? lpath_37 : null), rep);
+        if (! res)
+        {
+            rep !== null && rep.push(["unexpected $stringArray [.'$TightSchema'.'|'.6.dependentRequired.'']", (path ? lpath_37 : null)])
+        }
+        if (! res)
+        {
+            return false;
+        }
+    }
+    return true;
+}
+
+// check _jm_obj_34_map_dependentRequired (.'$TightSchema'.'|'.6.dependentRequired)
+function _jm_f_184(val, path, rep)
+{
+    let res;
+    // .'$TightSchema'.'|'.6.dependentRequired
+    res = _jm_obj_37(val, path, rep);
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected element [.'$TightSchema'.'|'.6.dependentRequired]", path])
+    }
+    return res;
+}
+
+// object .'$TightSchema'.'|'.6.dependentSchemas
+function _jm_obj_38(val, path, rep)
+{
+    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    {
+        rep !== null && rep.push(["not an object [.'$TightSchema'.'|'.6.dependentSchemas]", path])
+        return false;
+    }
+    let res;
+    for (const [prop, pval] of Object.entries(val))
+    {
+        let lpath_38 = path ? path.concat([prop]) : null;
+        // handle other props
+        // .'$TightSchema'.'|'.6.dependentSchemas.''
+        res = json_model_16(pval, (path ? lpath_38 : null), rep);
+        if (! res)
+        {
+            rep !== null && rep.push(["unexpected $Schema [.'$TightSchema'.'|'.6.dependentSchemas.'']", (path ? lpath_38 : null)])
+        }
+        if (! res)
+        {
+            return false;
+        }
+    }
+    return true;
+}
+
+// check _jm_obj_34_map_dependentSchemas (.'$TightSchema'.'|'.6.dependentSchemas)
+function _jm_f_185(val, path, rep)
+{
+    let res;
+    // .'$TightSchema'.'|'.6.dependentSchemas
+    res = _jm_obj_38(val, path, rep);
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected element [.'$TightSchema'.'|'.6.dependentSchemas]", path])
+    }
+    return res;
+}
+
+// check _jm_obj_34_map_deprecated (.'$TightSchema'.'|'.6.deprecated)
+function _jm_f_186(val, path, rep)
+{
+    let res;
+    // .'$TightSchema'.'|'.6.deprecated
+    res = (typeof val === 'boolean' || val instanceof Boolean);
+    if (! res)
+    {
+        rep !== null && rep.push(["not a bool [.'$TightSchema'.'|'.6.deprecated]", path])
+    }
+    return res;
+}
+
+// check _jm_obj_34_map_description (.'$TightSchema'.'|'.6.description)
+function _jm_f_187(val, path, rep)
+{
+    let res;
+    // .'$TightSchema'.'|'.6.description
+    res = (typeof val === 'string' || val instanceof String);
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected string [.'$TightSchema'.'|'.6.description]", path])
+    }
+    return res;
+}
+
+// check _jm_obj_34_map_examples (.'$TightSchema'.'|'.6.examples)
+function _jm_f_188(val, path, rep)
+{
+    let res;
+    // .'$TightSchema'.'|'.6.examples
+    res = Array.isArray(val);
+    if (res)
+    {
+        // accept any array
+    }
+    if (! res)
+    {
+        rep !== null && rep.push(["not array or unexpected array [.'$TightSchema'.'|'.6.examples]", path])
+    }
+    return res;
+}
+
+// check _jm_obj_34_map_maxProperties (.'$TightSchema'.'|'.6.maxProperties)
+function _jm_f_189(val, path, rep)
+{
+    let res;
+    // .'$TightSchema'.'|'.6.maxProperties
+    res = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 0;
+    if (! res)
+    {
+        rep !== null && rep.push(["not a 0 strict int [.'$TightSchema'.'|'.6.maxProperties]", path])
+    }
+    return res;
+}
+
+// check _jm_obj_34_map_minProperties (.'$TightSchema'.'|'.6.minProperties)
+function _jm_f_190(val, path, rep)
+{
+    let res;
+    // .'$TightSchema'.'|'.6.minProperties
+    res = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 0;
+    if (! res)
+    {
+        rep !== null && rep.push(["not a 0 strict int [.'$TightSchema'.'|'.6.minProperties]", path])
+    }
+    return res;
+}
+
+// object .'$TightSchema'.'|'.6.patternProperties
+function _jm_obj_39(val, path, rep)
+{
+    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    {
+        rep !== null && rep.push(["not an object [.'$TightSchema'.'|'.6.patternProperties]", path])
+        return false;
+    }
+    let res;
+    for (const [prop, pval] of Object.entries(val))
+    {
+        let lpath_39 = path ? path.concat([prop]) : null;
+        if (runtime.jm_is_valid_regex(prop, false))
+        {
+            // handle 1 key props
+            // .'$TightSchema'.'|'.6.patternProperties.'$REGEX'
+            res = json_model_16(pval, (path ? lpath_39 : null), rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected $Schema [.'$TightSchema'.'|'.6.patternProperties.'$REGEX']", (path ? lpath_39 : null)])
+            }
+            if (! res)
+            {
+                return false;
+            }
+        }
+        else
+        {
+            rep !== null && rep.push(["unexpected prop [.'$TightSchema'.'|'.6.patternProperties]", (path ? lpath_39 : null)])
+            return false;
+        }
+    }
+    return true;
+}
+
+// check _jm_obj_34_map_patternProperties (.'$TightSchema'.'|'.6.patternProperties)
+function _jm_f_191(val, path, rep)
+{
+    let res;
+    // .'$TightSchema'.'|'.6.patternProperties
+    res = _jm_obj_39(val, path, rep);
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected element [.'$TightSchema'.'|'.6.patternProperties]", path])
+    }
+    return res;
+}
+
+// object .'$TightSchema'.'|'.6.properties
+function _jm_obj_40(val, path, rep)
+{
+    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    {
+        rep !== null && rep.push(["not an object [.'$TightSchema'.'|'.6.properties]", path])
+        return false;
+    }
+    let res;
+    for (const [prop, pval] of Object.entries(val))
+    {
+        let lpath_40 = path ? path.concat([prop]) : null;
+        // handle other props
+        // .'$TightSchema'.'|'.6.properties.''
+        res = json_model_16(pval, (path ? lpath_40 : null), rep);
+        if (! res)
+        {
+            rep !== null && rep.push(["unexpected $Schema [.'$TightSchema'.'|'.6.properties.'']", (path ? lpath_40 : null)])
+        }
+        if (! res)
+        {
+            return false;
+        }
+    }
+    return true;
+}
+
+// check _jm_obj_34_map_properties (.'$TightSchema'.'|'.6.properties)
+function _jm_f_192(val, path, rep)
+{
+    let res;
+    // .'$TightSchema'.'|'.6.properties
+    res = _jm_obj_40(val, path, rep);
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected element [.'$TightSchema'.'|'.6.properties]", path])
+    }
+    return res;
+}
+
+// check _jm_obj_34_map_propertyNames (.'$TightSchema'.'|'.6.propertyNames)
+function _jm_f_193(val, path, rep)
+{
+    let res;
+    // .'$TightSchema'.'|'.6.propertyNames
+    res = json_model_16(val, path, rep);
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected $Schema [.'$TightSchema'.'|'.6.propertyNames]", path])
+    }
+    return res;
+}
+
+// check _jm_obj_34_map_readOnly (.'$TightSchema'.'|'.6.readOnly)
+function _jm_f_194(val, path, rep)
+{
+    let res;
+    // .'$TightSchema'.'|'.6.readOnly
+    res = (typeof val === 'boolean' || val instanceof Boolean);
+    if (! res)
+    {
+        rep !== null && rep.push(["not a bool [.'$TightSchema'.'|'.6.readOnly]", path])
+    }
+    return res;
+}
+
+// check _jm_obj_34_map_required (.'$TightSchema'.'|'.6.required)
+function _jm_f_195(val, path, rep)
+{
+    let res;
+    // .'$TightSchema'.'|'.6.required
+    res = json_model_10(val, path, rep);
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected $stringArray [.'$TightSchema'.'|'.6.required]", path])
+    }
+    return res;
+}
+
+// check _jm_obj_34_map_title (.'$TightSchema'.'|'.6.title)
+function _jm_f_196(val, path, rep)
+{
+    let res;
+    // .'$TightSchema'.'|'.6.title
+    res = (typeof val === 'string' || val instanceof String);
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected string [.'$TightSchema'.'|'.6.title]", path])
+    }
+    return res;
+}
+
+// check _jm_obj_34_map_unevaluatedProperties (.'$TightSchema'.'|'.6.unevaluatedProperties)
+function _jm_f_197(val, path, rep)
+{
+    let res;
+    // .'$TightSchema'.'|'.6.unevaluatedProperties
+    res = json_model_16(val, path, rep);
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected $Schema [.'$TightSchema'.'|'.6.unevaluatedProperties]", path])
+    }
+    return res;
+}
+
+// check _jm_obj_34_map_writeOnly (.'$TightSchema'.'|'.6.writeOnly)
+function _jm_f_198(val, path, rep)
+{
+    let res;
+    // .'$TightSchema'.'|'.6.writeOnly
+    res = (typeof val === 'boolean' || val instanceof Boolean);
+    if (! res)
+    {
+        rep !== null && rep.push(["not a bool [.'$TightSchema'.'|'.6.writeOnly]", path])
+    }
+    return res;
+}
+
+
+// object .'$TightSchema'.'|'.6
+function _jm_obj_34(val, path, rep)
+{
+    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    {
+        rep !== null && rep.push(["not an object [.'$TightSchema'.'|'.6]", path])
+        return false;
+    }
+    let res;
+    let pfun;
+    let must_count = 0;
+    for (const [prop, pval] of Object.entries(val))
+    {
+        let lpath_34 = path ? path.concat([prop]) : null;
+        if (prop == "type")
+        {
+            // handle must type property
+            must_count += 1;
+            // .'$TightSchema'.'|'.6.type
+            res = ((typeof pval === 'string' || pval instanceof String)) && pval == "object";
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected _object [.'$TightSchema'.'|'.6.type]", (path ? lpath_34 : null)])
+            }
+            if (! res)
+            {
+                rep !== null && rep.push(["invalid mandatory prop value [.'$TightSchema'.'|'.6.type]", (path ? lpath_34 : null)])
+                return false;
+            }
+        }
+        else if ((pfun = _jm_obj_34_map.get(prop)))
+        {
+            // handle 26 may props
+            if (pfun !== undefined && ! pfun(pval, (path ? lpath_34 : null), rep))
+            {
+                rep !== null && rep.push(["invalid optional prop value [.'$TightSchema'.'|'.6]", (path ? lpath_34 : null)])
+                return false;
+            }
+        }
+        else
+        {
+            rep !== null && rep.push(["unexpected prop [.'$TightSchema'.'|'.6]", (path ? lpath_34 : null)])
+            return false;
+        }
+    }
+    if (must_count != 1)
+    {
+        if (rep !== null)
+        {
+            if (! val.hasOwnProperty("type"))
+            {
+                rep !== null && rep.push(["missing mandatory prop <type> [.'$TightSchema'.'|'.6]", path])
+            }
+        }
+        return false;
+    }
+    return true;
+}
+
+// check _jm_obj_41_map_$anchor (.'$TightSchema'.'|'.7.'$anchor')
+function _jm_f_199(val, path, rep)
+{
+    let res;
+    // .'$TightSchema'.'|'.7.'$anchor'
+    res = json_model_2(val, path, rep);
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected $URI-REFERENCE [.'$TightSchema'.'|'.7.'$anchor']", path])
+    }
+    return res;
+}
+
+// check _jm_obj_41_map_$comment (.'$TightSchema'.'|'.7.'$comment')
+function _jm_f_200(val, path, rep)
+{
+    let res;
+    // .'$TightSchema'.'|'.7.'$comment'
+    res = (typeof val === 'string' || val instanceof String);
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected string [.'$TightSchema'.'|'.7.'$comment']", path])
+    }
+    return res;
+}
+
+// object .'$TightSchema'.'|'.7.'$defs'
+function _jm_obj_42(val, path, rep)
+{
+    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    {
+        rep !== null && rep.push(["not an object [.'$TightSchema'.'|'.7.'$defs']", path])
+        return false;
+    }
+    let res;
+    for (const [prop, pval] of Object.entries(val))
+    {
+        let lpath_42 = path ? path.concat([prop]) : null;
+        // handle other props
+        // .'$TightSchema'.'|'.7.'$defs'.''
+        res = json_model_16(pval, (path ? lpath_42 : null), rep);
+        if (! res)
+        {
+            rep !== null && rep.push(["unexpected $Schema [.'$TightSchema'.'|'.7.'$defs'.'']", (path ? lpath_42 : null)])
+        }
+        if (! res)
+        {
+            return false;
+        }
+    }
+    return true;
+}
+
+// check _jm_obj_41_map_$defs (.'$TightSchema'.'|'.7.'$defs')
+function _jm_f_201(val, path, rep)
+{
+    let res;
+    // .'$TightSchema'.'|'.7.'$defs'
+    res = _jm_obj_42(val, path, rep);
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected element [.'$TightSchema'.'|'.7.'$defs']", path])
+    }
+    return res;
+}
+
+// check _jm_obj_41_map_$dynamicAnchor (.'$TightSchema'.'|'.7.'$dynamicAnchor')
+function _jm_f_202(val, path, rep)
+{
+    let res;
+    // .'$TightSchema'.'|'.7.'$dynamicAnchor'
+    res = json_model_2(val, path, rep);
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected $URI-REFERENCE [.'$TightSchema'.'|'.7.'$dynamicAnchor']", path])
+    }
+    return res;
+}
+
+// check _jm_obj_41_map_$dynamicRef (.'$TightSchema'.'|'.7.'$dynamicRef')
+function _jm_f_203(val, path, rep)
+{
+    let res;
+    // .'$TightSchema'.'|'.7.'$dynamicRef'
+    res = json_model_2(val, path, rep);
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected $URI-REFERENCE [.'$TightSchema'.'|'.7.'$dynamicRef']", path])
+    }
+    return res;
+}
+
+// check _jm_obj_41_map_$id (.'$TightSchema'.'|'.7.'$id')
+function _jm_f_204(val, path, rep)
+{
+    let res;
+    // .'$TightSchema'.'|'.7.'$id'
+    res = json_model_2(val, path, rep);
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected $URI-REFERENCE [.'$TightSchema'.'|'.7.'$id']", path])
+    }
+    return res;
+}
+
+// check _jm_obj_41_map_$ref (.'$TightSchema'.'|'.7.'$ref')
+function _jm_f_205(val, path, rep)
+{
+    let res;
+    // .'$TightSchema'.'|'.7.'$ref'
+    res = json_model_2(val, path, rep);
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected $URI-REFERENCE [.'$TightSchema'.'|'.7.'$ref']", path])
+    }
+    return res;
+}
+
+// check _jm_obj_41_map_$schema (.'$TightSchema'.'|'.7.'$schema')
+function _jm_f_206(val, path, rep)
+{
+    let res;
+    // .'$TightSchema'.'|'.7.'$schema'
+    res = runtime.jm_is_valid_url(val);
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected $URI [.'$TightSchema'.'|'.7.'$schema']", path])
+    }
+    return res;
+}
+
+// object .'$TightSchema'.'|'.7.'$vocabulary'
 function _jm_obj_43(val, path, rep)
 {
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
-        rep !== null && rep.push(["not an object [.'$TightSchema'.'|'.0.'$vocabulary']", path])
+        rep !== null && rep.push(["not an object [.'$TightSchema'.'|'.7.'$vocabulary']", path])
         return false;
     }
     let res;
@@ -5058,11 +4967,11 @@ function _jm_obj_43(val, path, rep)
         if (runtime.jm_is_valid_url(prop))
         {
             // handle 1 key props
-            // .'$TightSchema'.'|'.0.'$vocabulary'.'$URI'
+            // .'$TightSchema'.'|'.7.'$vocabulary'.'$URI'
             res = (typeof pval === 'boolean' || pval instanceof Boolean);
             if (! res)
             {
-                rep !== null && rep.push(["not a bool [.'$TightSchema'.'|'.0.'$vocabulary'.'$URI']", (path ? lpath_43 : null)])
+                rep !== null && rep.push(["not a bool [.'$TightSchema'.'|'.7.'$vocabulary'.'$URI']", (path ? lpath_43 : null)])
             }
             if (! res)
             {
@@ -5071,70 +4980,122 @@ function _jm_obj_43(val, path, rep)
         }
         else
         {
-            rep !== null && rep.push(["unexpected prop [.'$TightSchema'.'|'.0.'$vocabulary']", (path ? lpath_43 : null)])
+            rep !== null && rep.push(["unexpected prop [.'$TightSchema'.'|'.7.'$vocabulary']", (path ? lpath_43 : null)])
             return false;
         }
     }
     return true;
 }
 
-// check _jm_obj_41_map_$vocabulary (.'$TightSchema'.'|'.0.'$vocabulary')
-function _jm_f_216(val, path, rep)
+// check _jm_obj_41_map_$vocabulary (.'$TightSchema'.'|'.7.'$vocabulary')
+function _jm_f_207(val, path, rep)
 {
     let res;
-    // .'$TightSchema'.'|'.0.'$vocabulary'
+    // .'$TightSchema'.'|'.7.'$vocabulary'
     res = _jm_obj_43(val, path, rep);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected element [.'$TightSchema'.'|'.0.'$vocabulary']", path])
+        rep !== null && rep.push(["unexpected element [.'$TightSchema'.'|'.7.'$vocabulary']", path])
     }
     return res;
 }
 
-// check _jm_obj_41_map_default (.'$TightSchema'.'|'.0.default)
-function _jm_f_217(val, path, rep)
+// check _jm_obj_41_map_allOf (.'$TightSchema'.'|'.7.allOf)
+function _jm_f_208(val, path, rep)
 {
     let res;
-    // .'$TightSchema'.'|'.0.default
+    // .'$TightSchema'.'|'.7.allOf
+    res = json_model_11(val, path, rep);
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected $schemaArray [.'$TightSchema'.'|'.7.allOf]", path])
+    }
+    return res;
+}
+
+// check _jm_obj_41_map_anyOf (.'$TightSchema'.'|'.7.anyOf)
+function _jm_f_209(val, path, rep)
+{
+    let res;
+    // .'$TightSchema'.'|'.7.anyOf
+    res = json_model_11(val, path, rep);
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected $schemaArray [.'$TightSchema'.'|'.7.anyOf]", path])
+    }
+    return res;
+}
+
+// check _jm_obj_41_map_const (.'$TightSchema'.'|'.7.const)
+function _jm_f_210(val, path, rep)
+{
+    let res;
+    // .'$TightSchema'.'|'.7.const
     res = true;
     if (! res)
     {
-        rep !== null && rep.push(["unexpected $ANY [.'$TightSchema'.'|'.0.default]", path])
+        rep !== null && rep.push(["unexpected $ANY [.'$TightSchema'.'|'.7.const]", path])
     }
     return res;
 }
 
-// check _jm_obj_41_map_deprecated (.'$TightSchema'.'|'.0.deprecated)
-function _jm_f_218(val, path, rep)
+// check _jm_obj_41_map_default (.'$TightSchema'.'|'.7.default)
+function _jm_f_211(val, path, rep)
 {
     let res;
-    // .'$TightSchema'.'|'.0.deprecated
+    // .'$TightSchema'.'|'.7.default
+    res = true;
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected $ANY [.'$TightSchema'.'|'.7.default]", path])
+    }
+    return res;
+}
+
+// check _jm_obj_41_map_deprecated (.'$TightSchema'.'|'.7.deprecated)
+function _jm_f_212(val, path, rep)
+{
+    let res;
+    // .'$TightSchema'.'|'.7.deprecated
     res = (typeof val === 'boolean' || val instanceof Boolean);
     if (! res)
     {
-        rep !== null && rep.push(["not a bool [.'$TightSchema'.'|'.0.deprecated]", path])
+        rep !== null && rep.push(["not a bool [.'$TightSchema'.'|'.7.deprecated]", path])
     }
     return res;
 }
 
-// check _jm_obj_41_map_description (.'$TightSchema'.'|'.0.description)
-function _jm_f_219(val, path, rep)
+// check _jm_obj_41_map_description (.'$TightSchema'.'|'.7.description)
+function _jm_f_213(val, path, rep)
 {
     let res;
-    // .'$TightSchema'.'|'.0.description
+    // .'$TightSchema'.'|'.7.description
     res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected string [.'$TightSchema'.'|'.0.description]", path])
+        rep !== null && rep.push(["unexpected string [.'$TightSchema'.'|'.7.description]", path])
     }
     return res;
 }
 
-// check _jm_obj_41_map_examples (.'$TightSchema'.'|'.0.examples)
-function _jm_f_220(val, path, rep)
+// check _jm_obj_41_map_else (.'$TightSchema'.'|'.7.else)
+function _jm_f_214(val, path, rep)
 {
     let res;
-    // .'$TightSchema'.'|'.0.examples
+    // .'$TightSchema'.'|'.7.else
+    res = json_model_16(val, path, rep);
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected $Schema [.'$TightSchema'.'|'.7.else]", path])
+    }
+    return res;
+}
+
+// check _jm_obj_41_map_enum (.'$TightSchema'.'|'.7.enum)
+function _jm_f_215(val, path, rep)
+{
+    let res;
+    // .'$TightSchema'.'|'.7.enum
     res = Array.isArray(val);
     if (res)
     {
@@ -5142,198 +5103,191 @@ function _jm_f_220(val, path, rep)
     }
     if (! res)
     {
-        rep !== null && rep.push(["not array or unexpected array [.'$TightSchema'.'|'.0.examples]", path])
+        rep !== null && rep.push(["not array or unexpected array [.'$TightSchema'.'|'.7.enum]", path])
     }
     return res;
 }
 
-// check _jm_obj_41_map_readOnly (.'$TightSchema'.'|'.0.readOnly)
+// check _jm_obj_41_map_examples (.'$TightSchema'.'|'.7.examples)
+function _jm_f_216(val, path, rep)
+{
+    let res;
+    // .'$TightSchema'.'|'.7.examples
+    res = Array.isArray(val);
+    if (res)
+    {
+        // accept any array
+    }
+    if (! res)
+    {
+        rep !== null && rep.push(["not array or unexpected array [.'$TightSchema'.'|'.7.examples]", path])
+    }
+    return res;
+}
+
+// check _jm_obj_41_map_if (.'$TightSchema'.'|'.7.if)
+function _jm_f_217(val, path, rep)
+{
+    let res;
+    // .'$TightSchema'.'|'.7.if
+    res = json_model_16(val, path, rep);
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected $Schema [.'$TightSchema'.'|'.7.if]", path])
+    }
+    return res;
+}
+
+// check _jm_obj_41_map_not (.'$TightSchema'.'|'.7.not)
+function _jm_f_218(val, path, rep)
+{
+    let res;
+    // .'$TightSchema'.'|'.7.not
+    res = json_model_16(val, path, rep);
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected $Schema [.'$TightSchema'.'|'.7.not]", path])
+    }
+    return res;
+}
+
+// check _jm_obj_41_map_oneOf (.'$TightSchema'.'|'.7.oneOf)
+function _jm_f_219(val, path, rep)
+{
+    let res;
+    // .'$TightSchema'.'|'.7.oneOf
+    res = json_model_11(val, path, rep);
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected $schemaArray [.'$TightSchema'.'|'.7.oneOf]", path])
+    }
+    return res;
+}
+
+// check _jm_obj_41_map_readOnly (.'$TightSchema'.'|'.7.readOnly)
+function _jm_f_220(val, path, rep)
+{
+    let res;
+    // .'$TightSchema'.'|'.7.readOnly
+    res = (typeof val === 'boolean' || val instanceof Boolean);
+    if (! res)
+    {
+        rep !== null && rep.push(["not a bool [.'$TightSchema'.'|'.7.readOnly]", path])
+    }
+    return res;
+}
+
+// check _jm_obj_41_map_then (.'$TightSchema'.'|'.7.then)
 function _jm_f_221(val, path, rep)
 {
     let res;
-    // .'$TightSchema'.'|'.0.readOnly
-    res = (typeof val === 'boolean' || val instanceof Boolean);
+    // .'$TightSchema'.'|'.7.then
+    res = json_model_16(val, path, rep);
     if (! res)
     {
-        rep !== null && rep.push(["not a bool [.'$TightSchema'.'|'.0.readOnly]", path])
+        rep !== null && rep.push(["unexpected $Schema [.'$TightSchema'.'|'.7.then]", path])
     }
     return res;
 }
 
-// check _jm_obj_41_map_title (.'$TightSchema'.'|'.0.title)
+// check _jm_obj_41_map_title (.'$TightSchema'.'|'.7.title)
 function _jm_f_222(val, path, rep)
 {
     let res;
-    // .'$TightSchema'.'|'.0.title
+    // .'$TightSchema'.'|'.7.title
     res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected string [.'$TightSchema'.'|'.0.title]", path])
+        rep !== null && rep.push(["unexpected string [.'$TightSchema'.'|'.7.title]", path])
     }
     return res;
 }
 
-// check _jm_obj_41_map_writeOnly (.'$TightSchema'.'|'.0.writeOnly)
+// check _jm_obj_41_map_writeOnly (.'$TightSchema'.'|'.7.writeOnly)
 function _jm_f_223(val, path, rep)
 {
     let res;
-    // .'$TightSchema'.'|'.0.writeOnly
+    // .'$TightSchema'.'|'.7.writeOnly
     res = (typeof val === 'boolean' || val instanceof Boolean);
     if (! res)
     {
-        rep !== null && rep.push(["not a bool [.'$TightSchema'.'|'.0.writeOnly]", path])
+        rep !== null && rep.push(["not a bool [.'$TightSchema'.'|'.7.writeOnly]", path])
     }
     return res;
 }
 
 
-// object .'$TightSchema'.'|'.0
+// object .'$TightSchema'.'|'.7
 function _jm_obj_41(val, path, rep)
 {
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
-        rep !== null && rep.push(["not an object [.'$TightSchema'.'|'.0]", path])
+        rep !== null && rep.push(["not an object [.'$TightSchema'.'|'.7]", path])
         return false;
     }
-    let res;
     let pfun;
-    let must_count = 0;
     for (const [prop, pval] of Object.entries(val))
     {
         let lpath_41 = path ? path.concat([prop]) : null;
-        if (prop == "type")
+        if ((pfun = _jm_obj_41_map.get(prop)))
         {
-            // handle must type property
-            must_count += 1;
-            // .'$TightSchema'.'|'.0.type
-            res = ((typeof pval === 'string' || pval instanceof String)) && pval == "null";
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected _null [.'$TightSchema'.'|'.0.type]", (path ? lpath_41 : null)])
-            }
-            if (! res)
-            {
-                rep !== null && rep.push(["invalid mandatory prop value [.'$TightSchema'.'|'.0.type]", (path ? lpath_41 : null)])
-                return false;
-            }
-        }
-        else if ((pfun = _jm_obj_41_map.get(prop)))
-        {
-            // handle 16 may props
+            // handle 25 may props
             if (pfun !== undefined && ! pfun(pval, (path ? lpath_41 : null), rep))
             {
-                rep !== null && rep.push(["invalid optional prop value [.'$TightSchema'.'|'.0]", (path ? lpath_41 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$TightSchema'.'|'.7]", (path ? lpath_41 : null)])
                 return false;
             }
         }
         else
         {
-            rep !== null && rep.push(["unexpected prop [.'$TightSchema'.'|'.0]", (path ? lpath_41 : null)])
+            rep !== null && rep.push(["unexpected prop [.'$TightSchema'.'|'.7]", (path ? lpath_41 : null)])
             return false;
         }
     }
-    if (must_count != 1)
-    {
-        if (rep !== null)
-        {
-            if (! val.hasOwnProperty("type"))
-            {
-                rep !== null && rep.push(["missing mandatory prop <type> [.'$TightSchema'.'|'.0]", path])
-            }
-        }
-        return false;
-    }
     return true;
 }
+
 
 // check $TightSchema (.'$TightSchema')
 function json_model_15(val, path, rep)
 {
     let res;
     // .'$TightSchema'
-    res = Object.prototype.toString.call(val) === '[object Object]';
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected type [.'$TightSchema'.'|']", path])
-    }
+    let iso_0 = Object.prototype.toString.call(val) === '[object Object]';
+    res = iso_0;
     if (res)
     {
-        // .'$TightSchema'.'|'.0
-        res = _jm_obj_41(val, path, rep);
-        if (! res)
+        if (val.hasOwnProperty("type"))
         {
-            rep !== null && rep.push(["unexpected element [.'$TightSchema'.'|'.0]", path])
-        }
-        if (! res)
-        {
-            // .'$TightSchema'.'|'.1
-            res = _jm_obj_38(val, path, rep);
-            if (! res)
+            let tag_0 = val["type"];
+            let fun_0 = _jm_map_0.get(tag_0);
+            if (fun_0 !== undefined)
             {
-                rep !== null && rep.push(["unexpected element [.'$TightSchema'.'|'.1]", path])
+                res = fun_0(val, path, rep);
             }
-            if (! res)
+            else
             {
-                // .'$TightSchema'.'|'.2
-                res = _jm_obj_35(val, path, rep);
-                if (! res)
-                {
-                    rep !== null && rep.push(["unexpected element [.'$TightSchema'.'|'.2]", path])
-                }
-                if (! res)
-                {
-                    // .'$TightSchema'.'|'.3
-                    res = _jm_obj_32(val, path, rep);
-                    if (! res)
-                    {
-                        rep !== null && rep.push(["unexpected element [.'$TightSchema'.'|'.3]", path])
-                    }
-                    if (! res)
-                    {
-                        // .'$TightSchema'.'|'.4
-                        res = _jm_obj_29(val, path, rep);
-                        if (! res)
-                        {
-                            rep !== null && rep.push(["unexpected element [.'$TightSchema'.'|'.4]", path])
-                        }
-                        if (! res)
-                        {
-                            // .'$TightSchema'.'|'.5
-                            res = _jm_obj_26(val, path, rep);
-                            if (! res)
-                            {
-                                rep !== null && rep.push(["unexpected element [.'$TightSchema'.'|'.5]", path])
-                            }
-                            if (! res)
-                            {
-                                // .'$TightSchema'.'|'.6
-                                res = _jm_obj_19(val, path, rep);
-                                if (! res)
-                                {
-                                    rep !== null && rep.push(["unexpected element [.'$TightSchema'.'|'.6]", path])
-                                }
-                                if (! res)
-                                {
-                                    // .'$TightSchema'.'|'.7
-                                    res = _jm_obj_16(val, path, rep);
-                                    if (! res)
-                                    {
-                                        rep !== null && rep.push(["unexpected element [.'$TightSchema'.'|'.7]", path])
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
+                res = false;
+                rep !== null && rep.push(["tag <type> value not found [.'$TightSchema'.'|']", path])
             }
-        }
-        if (res)
-        {
-            if (rep !== null) rep.length = 0
         }
         else
         {
-            rep !== null && rep.push(["no model matched [.'$TightSchema'.'|']", path])
+            res = false;
+            rep !== null && rep.push(["tag prop <type> is missing [.'$TightSchema'.'|']", path])
+        }
+    }
+    else
+    {
+        rep !== null && rep.push(["value is not an object [.'$TightSchema'.'|']", path])
+    }
+    if (! res)
+    {
+        // .'$TightSchema'.'|'.7
+        res = _jm_obj_41(val, path, rep);
+        if (! res)
+        {
+            rep !== null && rep.push(["unexpected element [.'$TightSchema'.'|'.7]", path])
         }
     }
     return res;
@@ -5453,170 +5407,177 @@ export function check_model_init()
         _jm_obj_16_map.set("$ref", _jm_f_57)
         _jm_obj_16_map.set("$schema", _jm_f_58)
         _jm_obj_16_map.set("$vocabulary", _jm_f_59)
-        _jm_obj_16_map.set("allOf", _jm_f_60)
-        _jm_obj_16_map.set("anyOf", _jm_f_61)
-        _jm_obj_16_map.set("const", _jm_f_62)
-        _jm_obj_16_map.set("default", _jm_f_63)
-        _jm_obj_16_map.set("deprecated", _jm_f_64)
-        _jm_obj_16_map.set("description", _jm_f_65)
-        _jm_obj_16_map.set("else", _jm_f_66)
-        _jm_obj_16_map.set("enum", _jm_f_67)
-        _jm_obj_16_map.set("examples", _jm_f_68)
-        _jm_obj_16_map.set("if", _jm_f_69)
-        _jm_obj_16_map.set("not", _jm_f_70)
-        _jm_obj_16_map.set("oneOf", _jm_f_71)
-        _jm_obj_16_map.set("readOnly", _jm_f_72)
-        _jm_obj_16_map.set("then", _jm_f_73)
-        _jm_obj_16_map.set("title", _jm_f_74)
-        _jm_obj_16_map.set("writeOnly", _jm_f_75)
-        _jm_obj_19_map.set("$anchor", _jm_f_76)
-        _jm_obj_19_map.set("$comment", _jm_f_77)
-        _jm_obj_19_map.set("$defs", _jm_f_78)
-        _jm_obj_19_map.set("$dynamicAnchor", _jm_f_79)
-        _jm_obj_19_map.set("$dynamicRef", _jm_f_80)
-        _jm_obj_19_map.set("$id", _jm_f_81)
-        _jm_obj_19_map.set("$ref", _jm_f_82)
-        _jm_obj_19_map.set("$schema", _jm_f_83)
-        _jm_obj_19_map.set("$vocabulary", _jm_f_84)
-        _jm_obj_19_map.set("additionalProperties", _jm_f_85)
-        _jm_obj_19_map.set("default", _jm_f_86)
-        _jm_obj_19_map.set("dependentRequired", _jm_f_87)
-        _jm_obj_19_map.set("dependentSchemas", _jm_f_88)
-        _jm_obj_19_map.set("deprecated", _jm_f_89)
-        _jm_obj_19_map.set("description", _jm_f_90)
-        _jm_obj_19_map.set("examples", _jm_f_91)
-        _jm_obj_19_map.set("maxProperties", _jm_f_92)
-        _jm_obj_19_map.set("minProperties", _jm_f_93)
-        _jm_obj_19_map.set("patternProperties", _jm_f_94)
-        _jm_obj_19_map.set("properties", _jm_f_95)
-        _jm_obj_19_map.set("propertyNames", _jm_f_96)
-        _jm_obj_19_map.set("readOnly", _jm_f_97)
-        _jm_obj_19_map.set("required", _jm_f_98)
-        _jm_obj_19_map.set("title", _jm_f_99)
-        _jm_obj_19_map.set("unevaluatedProperties", _jm_f_100)
-        _jm_obj_19_map.set("writeOnly", _jm_f_101)
-        _jm_obj_26_map.set("$anchor", _jm_f_102)
-        _jm_obj_26_map.set("$comment", _jm_f_103)
-        _jm_obj_26_map.set("$defs", _jm_f_104)
-        _jm_obj_26_map.set("$dynamicAnchor", _jm_f_105)
-        _jm_obj_26_map.set("$dynamicRef", _jm_f_106)
-        _jm_obj_26_map.set("$id", _jm_f_107)
-        _jm_obj_26_map.set("$ref", _jm_f_108)
-        _jm_obj_26_map.set("$schema", _jm_f_109)
-        _jm_obj_26_map.set("$vocabulary", _jm_f_110)
-        _jm_obj_26_map.set("contains", _jm_f_111)
-        _jm_obj_26_map.set("default", _jm_f_112)
-        _jm_obj_26_map.set("deprecated", _jm_f_113)
-        _jm_obj_26_map.set("description", _jm_f_114)
-        _jm_obj_26_map.set("examples", _jm_f_115)
-        _jm_obj_26_map.set("items", _jm_f_116)
-        _jm_obj_26_map.set("maxContains", _jm_f_117)
-        _jm_obj_26_map.set("maxItems", _jm_f_118)
-        _jm_obj_26_map.set("minContains", _jm_f_119)
-        _jm_obj_26_map.set("minItems", _jm_f_120)
-        _jm_obj_26_map.set("prefixItems", _jm_f_121)
-        _jm_obj_26_map.set("readOnly", _jm_f_122)
-        _jm_obj_26_map.set("title", _jm_f_123)
-        _jm_obj_26_map.set("unevaluatedItems", _jm_f_124)
-        _jm_obj_26_map.set("uniqueItems", _jm_f_125)
-        _jm_obj_26_map.set("writeOnly", _jm_f_126)
-        _jm_obj_29_map.set("$anchor", _jm_f_127)
-        _jm_obj_29_map.set("$comment", _jm_f_128)
-        _jm_obj_29_map.set("$defs", _jm_f_129)
-        _jm_obj_29_map.set("$dynamicAnchor", _jm_f_130)
-        _jm_obj_29_map.set("$dynamicRef", _jm_f_131)
-        _jm_obj_29_map.set("$id", _jm_f_132)
-        _jm_obj_29_map.set("$ref", _jm_f_133)
-        _jm_obj_29_map.set("$schema", _jm_f_134)
-        _jm_obj_29_map.set("$vocabulary", _jm_f_135)
-        _jm_obj_29_map.set("contentEncoding", _jm_f_136)
-        _jm_obj_29_map.set("contentMediaType", _jm_f_137)
-        _jm_obj_29_map.set("contentSchema", _jm_f_138)
-        _jm_obj_29_map.set("default", _jm_f_139)
-        _jm_obj_29_map.set("deprecated", _jm_f_140)
-        _jm_obj_29_map.set("description", _jm_f_141)
-        _jm_obj_29_map.set("examples", _jm_f_142)
-        _jm_obj_29_map.set("format", _jm_f_143)
-        _jm_obj_29_map.set("maxLength", _jm_f_144)
-        _jm_obj_29_map.set("minLength", _jm_f_145)
-        _jm_obj_29_map.set("pattern", _jm_f_146)
-        _jm_obj_29_map.set("readOnly", _jm_f_147)
-        _jm_obj_29_map.set("title", _jm_f_148)
-        _jm_obj_29_map.set("writeOnly", _jm_f_149)
-        _jm_obj_32_map.set("$anchor", _jm_f_150)
-        _jm_obj_32_map.set("$comment", _jm_f_151)
-        _jm_obj_32_map.set("$defs", _jm_f_152)
-        _jm_obj_32_map.set("$dynamicAnchor", _jm_f_153)
-        _jm_obj_32_map.set("$dynamicRef", _jm_f_154)
-        _jm_obj_32_map.set("$id", _jm_f_155)
-        _jm_obj_32_map.set("$ref", _jm_f_156)
-        _jm_obj_32_map.set("$schema", _jm_f_157)
-        _jm_obj_32_map.set("$vocabulary", _jm_f_158)
-        _jm_obj_32_map.set("default", _jm_f_159)
-        _jm_obj_32_map.set("deprecated", _jm_f_160)
-        _jm_obj_32_map.set("description", _jm_f_161)
-        _jm_obj_32_map.set("examples", _jm_f_162)
-        _jm_obj_32_map.set("exclusiveMaximum", _jm_f_163)
-        _jm_obj_32_map.set("exclusiveMinimum", _jm_f_164)
-        _jm_obj_32_map.set("maximum", _jm_f_165)
-        _jm_obj_32_map.set("minimum", _jm_f_166)
-        _jm_obj_32_map.set("multipleOf", _jm_f_167)
-        _jm_obj_32_map.set("readOnly", _jm_f_168)
-        _jm_obj_32_map.set("title", _jm_f_169)
-        _jm_obj_32_map.set("writeOnly", _jm_f_170)
-        _jm_obj_35_map.set("$anchor", _jm_f_171)
-        _jm_obj_35_map.set("$comment", _jm_f_172)
-        _jm_obj_35_map.set("$defs", _jm_f_173)
-        _jm_obj_35_map.set("$dynamicAnchor", _jm_f_174)
-        _jm_obj_35_map.set("$dynamicRef", _jm_f_175)
-        _jm_obj_35_map.set("$id", _jm_f_176)
-        _jm_obj_35_map.set("$ref", _jm_f_177)
-        _jm_obj_35_map.set("$schema", _jm_f_178)
-        _jm_obj_35_map.set("$vocabulary", _jm_f_179)
-        _jm_obj_35_map.set("default", _jm_f_180)
-        _jm_obj_35_map.set("deprecated", _jm_f_181)
-        _jm_obj_35_map.set("description", _jm_f_182)
-        _jm_obj_35_map.set("examples", _jm_f_183)
-        _jm_obj_35_map.set("exclusiveMaximum", _jm_f_184)
-        _jm_obj_35_map.set("exclusiveMinimum", _jm_f_185)
-        _jm_obj_35_map.set("maximum", _jm_f_186)
-        _jm_obj_35_map.set("minimum", _jm_f_187)
-        _jm_obj_35_map.set("multipleOf", _jm_f_188)
-        _jm_obj_35_map.set("readOnly", _jm_f_189)
-        _jm_obj_35_map.set("title", _jm_f_190)
-        _jm_obj_35_map.set("writeOnly", _jm_f_191)
-        _jm_obj_38_map.set("$anchor", _jm_f_192)
-        _jm_obj_38_map.set("$comment", _jm_f_193)
-        _jm_obj_38_map.set("$defs", _jm_f_194)
-        _jm_obj_38_map.set("$dynamicAnchor", _jm_f_195)
-        _jm_obj_38_map.set("$dynamicRef", _jm_f_196)
-        _jm_obj_38_map.set("$id", _jm_f_197)
-        _jm_obj_38_map.set("$ref", _jm_f_198)
-        _jm_obj_38_map.set("$schema", _jm_f_199)
-        _jm_obj_38_map.set("$vocabulary", _jm_f_200)
-        _jm_obj_38_map.set("default", _jm_f_201)
-        _jm_obj_38_map.set("deprecated", _jm_f_202)
-        _jm_obj_38_map.set("description", _jm_f_203)
-        _jm_obj_38_map.set("examples", _jm_f_204)
-        _jm_obj_38_map.set("readOnly", _jm_f_205)
-        _jm_obj_38_map.set("title", _jm_f_206)
-        _jm_obj_38_map.set("writeOnly", _jm_f_207)
-        _jm_obj_41_map.set("$anchor", _jm_f_208)
-        _jm_obj_41_map.set("$comment", _jm_f_209)
-        _jm_obj_41_map.set("$defs", _jm_f_210)
-        _jm_obj_41_map.set("$dynamicAnchor", _jm_f_211)
-        _jm_obj_41_map.set("$dynamicRef", _jm_f_212)
-        _jm_obj_41_map.set("$id", _jm_f_213)
-        _jm_obj_41_map.set("$ref", _jm_f_214)
-        _jm_obj_41_map.set("$schema", _jm_f_215)
-        _jm_obj_41_map.set("$vocabulary", _jm_f_216)
-        _jm_obj_41_map.set("default", _jm_f_217)
-        _jm_obj_41_map.set("deprecated", _jm_f_218)
-        _jm_obj_41_map.set("description", _jm_f_219)
-        _jm_obj_41_map.set("examples", _jm_f_220)
-        _jm_obj_41_map.set("readOnly", _jm_f_221)
+        _jm_obj_16_map.set("default", _jm_f_60)
+        _jm_obj_16_map.set("deprecated", _jm_f_61)
+        _jm_obj_16_map.set("description", _jm_f_62)
+        _jm_obj_16_map.set("examples", _jm_f_63)
+        _jm_obj_16_map.set("readOnly", _jm_f_64)
+        _jm_obj_16_map.set("title", _jm_f_65)
+        _jm_obj_16_map.set("writeOnly", _jm_f_66)
+        _jm_obj_19_map.set("$anchor", _jm_f_67)
+        _jm_obj_19_map.set("$comment", _jm_f_68)
+        _jm_obj_19_map.set("$defs", _jm_f_69)
+        _jm_obj_19_map.set("$dynamicAnchor", _jm_f_70)
+        _jm_obj_19_map.set("$dynamicRef", _jm_f_71)
+        _jm_obj_19_map.set("$id", _jm_f_72)
+        _jm_obj_19_map.set("$ref", _jm_f_73)
+        _jm_obj_19_map.set("$schema", _jm_f_74)
+        _jm_obj_19_map.set("$vocabulary", _jm_f_75)
+        _jm_obj_19_map.set("default", _jm_f_76)
+        _jm_obj_19_map.set("deprecated", _jm_f_77)
+        _jm_obj_19_map.set("description", _jm_f_78)
+        _jm_obj_19_map.set("examples", _jm_f_79)
+        _jm_obj_19_map.set("readOnly", _jm_f_80)
+        _jm_obj_19_map.set("title", _jm_f_81)
+        _jm_obj_19_map.set("writeOnly", _jm_f_82)
+        _jm_obj_22_map.set("$anchor", _jm_f_83)
+        _jm_obj_22_map.set("$comment", _jm_f_84)
+        _jm_obj_22_map.set("$defs", _jm_f_85)
+        _jm_obj_22_map.set("$dynamicAnchor", _jm_f_86)
+        _jm_obj_22_map.set("$dynamicRef", _jm_f_87)
+        _jm_obj_22_map.set("$id", _jm_f_88)
+        _jm_obj_22_map.set("$ref", _jm_f_89)
+        _jm_obj_22_map.set("$schema", _jm_f_90)
+        _jm_obj_22_map.set("$vocabulary", _jm_f_91)
+        _jm_obj_22_map.set("default", _jm_f_92)
+        _jm_obj_22_map.set("deprecated", _jm_f_93)
+        _jm_obj_22_map.set("description", _jm_f_94)
+        _jm_obj_22_map.set("examples", _jm_f_95)
+        _jm_obj_22_map.set("exclusiveMaximum", _jm_f_96)
+        _jm_obj_22_map.set("exclusiveMinimum", _jm_f_97)
+        _jm_obj_22_map.set("maximum", _jm_f_98)
+        _jm_obj_22_map.set("minimum", _jm_f_99)
+        _jm_obj_22_map.set("multipleOf", _jm_f_100)
+        _jm_obj_22_map.set("readOnly", _jm_f_101)
+        _jm_obj_22_map.set("title", _jm_f_102)
+        _jm_obj_22_map.set("writeOnly", _jm_f_103)
+        _jm_obj_25_map.set("$anchor", _jm_f_104)
+        _jm_obj_25_map.set("$comment", _jm_f_105)
+        _jm_obj_25_map.set("$defs", _jm_f_106)
+        _jm_obj_25_map.set("$dynamicAnchor", _jm_f_107)
+        _jm_obj_25_map.set("$dynamicRef", _jm_f_108)
+        _jm_obj_25_map.set("$id", _jm_f_109)
+        _jm_obj_25_map.set("$ref", _jm_f_110)
+        _jm_obj_25_map.set("$schema", _jm_f_111)
+        _jm_obj_25_map.set("$vocabulary", _jm_f_112)
+        _jm_obj_25_map.set("default", _jm_f_113)
+        _jm_obj_25_map.set("deprecated", _jm_f_114)
+        _jm_obj_25_map.set("description", _jm_f_115)
+        _jm_obj_25_map.set("examples", _jm_f_116)
+        _jm_obj_25_map.set("exclusiveMaximum", _jm_f_117)
+        _jm_obj_25_map.set("exclusiveMinimum", _jm_f_118)
+        _jm_obj_25_map.set("maximum", _jm_f_119)
+        _jm_obj_25_map.set("minimum", _jm_f_120)
+        _jm_obj_25_map.set("multipleOf", _jm_f_121)
+        _jm_obj_25_map.set("readOnly", _jm_f_122)
+        _jm_obj_25_map.set("title", _jm_f_123)
+        _jm_obj_25_map.set("writeOnly", _jm_f_124)
+        _jm_obj_28_map.set("$anchor", _jm_f_125)
+        _jm_obj_28_map.set("$comment", _jm_f_126)
+        _jm_obj_28_map.set("$defs", _jm_f_127)
+        _jm_obj_28_map.set("$dynamicAnchor", _jm_f_128)
+        _jm_obj_28_map.set("$dynamicRef", _jm_f_129)
+        _jm_obj_28_map.set("$id", _jm_f_130)
+        _jm_obj_28_map.set("$ref", _jm_f_131)
+        _jm_obj_28_map.set("$schema", _jm_f_132)
+        _jm_obj_28_map.set("$vocabulary", _jm_f_133)
+        _jm_obj_28_map.set("contentEncoding", _jm_f_134)
+        _jm_obj_28_map.set("contentMediaType", _jm_f_135)
+        _jm_obj_28_map.set("contentSchema", _jm_f_136)
+        _jm_obj_28_map.set("default", _jm_f_137)
+        _jm_obj_28_map.set("deprecated", _jm_f_138)
+        _jm_obj_28_map.set("description", _jm_f_139)
+        _jm_obj_28_map.set("examples", _jm_f_140)
+        _jm_obj_28_map.set("format", _jm_f_141)
+        _jm_obj_28_map.set("maxLength", _jm_f_142)
+        _jm_obj_28_map.set("minLength", _jm_f_143)
+        _jm_obj_28_map.set("pattern", _jm_f_144)
+        _jm_obj_28_map.set("readOnly", _jm_f_145)
+        _jm_obj_28_map.set("title", _jm_f_146)
+        _jm_obj_28_map.set("writeOnly", _jm_f_147)
+        _jm_obj_31_map.set("$anchor", _jm_f_148)
+        _jm_obj_31_map.set("$comment", _jm_f_149)
+        _jm_obj_31_map.set("$defs", _jm_f_150)
+        _jm_obj_31_map.set("$dynamicAnchor", _jm_f_151)
+        _jm_obj_31_map.set("$dynamicRef", _jm_f_152)
+        _jm_obj_31_map.set("$id", _jm_f_153)
+        _jm_obj_31_map.set("$ref", _jm_f_154)
+        _jm_obj_31_map.set("$schema", _jm_f_155)
+        _jm_obj_31_map.set("$vocabulary", _jm_f_156)
+        _jm_obj_31_map.set("contains", _jm_f_157)
+        _jm_obj_31_map.set("default", _jm_f_158)
+        _jm_obj_31_map.set("deprecated", _jm_f_159)
+        _jm_obj_31_map.set("description", _jm_f_160)
+        _jm_obj_31_map.set("examples", _jm_f_161)
+        _jm_obj_31_map.set("items", _jm_f_162)
+        _jm_obj_31_map.set("maxContains", _jm_f_163)
+        _jm_obj_31_map.set("maxItems", _jm_f_164)
+        _jm_obj_31_map.set("minContains", _jm_f_165)
+        _jm_obj_31_map.set("minItems", _jm_f_166)
+        _jm_obj_31_map.set("prefixItems", _jm_f_167)
+        _jm_obj_31_map.set("readOnly", _jm_f_168)
+        _jm_obj_31_map.set("title", _jm_f_169)
+        _jm_obj_31_map.set("unevaluatedItems", _jm_f_170)
+        _jm_obj_31_map.set("uniqueItems", _jm_f_171)
+        _jm_obj_31_map.set("writeOnly", _jm_f_172)
+        _jm_obj_34_map.set("$anchor", _jm_f_173)
+        _jm_obj_34_map.set("$comment", _jm_f_174)
+        _jm_obj_34_map.set("$defs", _jm_f_175)
+        _jm_obj_34_map.set("$dynamicAnchor", _jm_f_176)
+        _jm_obj_34_map.set("$dynamicRef", _jm_f_177)
+        _jm_obj_34_map.set("$id", _jm_f_178)
+        _jm_obj_34_map.set("$ref", _jm_f_179)
+        _jm_obj_34_map.set("$schema", _jm_f_180)
+        _jm_obj_34_map.set("$vocabulary", _jm_f_181)
+        _jm_obj_34_map.set("additionalProperties", _jm_f_182)
+        _jm_obj_34_map.set("default", _jm_f_183)
+        _jm_obj_34_map.set("dependentRequired", _jm_f_184)
+        _jm_obj_34_map.set("dependentSchemas", _jm_f_185)
+        _jm_obj_34_map.set("deprecated", _jm_f_186)
+        _jm_obj_34_map.set("description", _jm_f_187)
+        _jm_obj_34_map.set("examples", _jm_f_188)
+        _jm_obj_34_map.set("maxProperties", _jm_f_189)
+        _jm_obj_34_map.set("minProperties", _jm_f_190)
+        _jm_obj_34_map.set("patternProperties", _jm_f_191)
+        _jm_obj_34_map.set("properties", _jm_f_192)
+        _jm_obj_34_map.set("propertyNames", _jm_f_193)
+        _jm_obj_34_map.set("readOnly", _jm_f_194)
+        _jm_obj_34_map.set("required", _jm_f_195)
+        _jm_obj_34_map.set("title", _jm_f_196)
+        _jm_obj_34_map.set("unevaluatedProperties", _jm_f_197)
+        _jm_obj_34_map.set("writeOnly", _jm_f_198)
+        _jm_obj_41_map.set("$anchor", _jm_f_199)
+        _jm_obj_41_map.set("$comment", _jm_f_200)
+        _jm_obj_41_map.set("$defs", _jm_f_201)
+        _jm_obj_41_map.set("$dynamicAnchor", _jm_f_202)
+        _jm_obj_41_map.set("$dynamicRef", _jm_f_203)
+        _jm_obj_41_map.set("$id", _jm_f_204)
+        _jm_obj_41_map.set("$ref", _jm_f_205)
+        _jm_obj_41_map.set("$schema", _jm_f_206)
+        _jm_obj_41_map.set("$vocabulary", _jm_f_207)
+        _jm_obj_41_map.set("allOf", _jm_f_208)
+        _jm_obj_41_map.set("anyOf", _jm_f_209)
+        _jm_obj_41_map.set("const", _jm_f_210)
+        _jm_obj_41_map.set("default", _jm_f_211)
+        _jm_obj_41_map.set("deprecated", _jm_f_212)
+        _jm_obj_41_map.set("description", _jm_f_213)
+        _jm_obj_41_map.set("else", _jm_f_214)
+        _jm_obj_41_map.set("enum", _jm_f_215)
+        _jm_obj_41_map.set("examples", _jm_f_216)
+        _jm_obj_41_map.set("if", _jm_f_217)
+        _jm_obj_41_map.set("not", _jm_f_218)
+        _jm_obj_41_map.set("oneOf", _jm_f_219)
+        _jm_obj_41_map.set("readOnly", _jm_f_220)
+        _jm_obj_41_map.set("then", _jm_f_221)
         _jm_obj_41_map.set("title", _jm_f_222)
         _jm_obj_41_map.set("writeOnly", _jm_f_223)
+        _jm_map_0.set("null", _jm_obj_16)
+        _jm_map_0.set("boolean", _jm_obj_19)
+        _jm_map_0.set("number", _jm_obj_22)
+        _jm_map_0.set("integer", _jm_obj_25)
+        _jm_map_0.set("string", _jm_obj_28)
+        _jm_map_0.set("array", _jm_obj_31)
+        _jm_map_0.set("object", _jm_obj_34)
         check_model_map.set("", json_model_16)
         check_model_map.set("URI-REFERENCE", json_model_2)
         check_model_map.set("core", json_model_3)

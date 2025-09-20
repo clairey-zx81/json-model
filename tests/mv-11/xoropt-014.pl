@@ -221,7 +221,8 @@ sub _jm_obj_0($$$)
             # handle must movie property
             $must_count++;
             # .movie
-            $res = jm_is_object($pval);
+            my $iso_0 = jm_is_object($pval);
+            $res = $iso_0;
             if ($res)
             {
                 if (exists $$pval{'t'})

@@ -255,7 +255,8 @@ static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *re
             // handle must movie property
             must_count += 1;
             // .movie
-            res = json_is_object(pval);
+            bool iso_0 = json_is_object(pval);
+            res = iso_0;
             if (res)
             {
                 if (json_object_get(pval, "t") != NULL)

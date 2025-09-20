@@ -215,6 +215,7 @@ static bool _jm_f_162(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_163(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static jm_propmap_t _jm_obj_47_map_tab[10];
 static bool json_model_22(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static jm_constmap_t _jm_map_0_tab[7];
 static bool json_model_23(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_24(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_25(const json_t *val, jm_path_t *path, jm_report_t *rep);
@@ -5205,142 +5206,74 @@ static bool json_model_22(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
+static INLINE jm_check_fun_t _jm_map_0(json_t *val)
+{
+    jm_constant_t cst;
+    jm_set_cst(&cst, val);
+    return jm_search_constmap(&cst, _jm_map_0_tab, 7);
+}
+
 // check $ObjectSchema (.'$ObjectSchema')
 static bool json_model_23(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
     // we could use ^ instead of | below
     // .'$ObjectSchema'
-    // .'$ObjectSchema'.'|'.0
-    res = json_model_16(val, path, rep);
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected $Null [.'$ObjectSchema'.'|'.0]", path);
-    }
-    if (! res)
-    {
-        // .'$ObjectSchema'.'|'.1
-        res = json_model_15(val, path, rep);
-        if (! res)
-        {
-            if (rep) jm_report_add_entry(rep, "unexpected $Bool [.'$ObjectSchema'.'|'.1]", path);
-        }
-        if (! res)
-        {
-            // .'$ObjectSchema'.'|'.2
-            res = json_model_21(val, path, rep);
-            if (! res)
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected $Const [.'$ObjectSchema'.'|'.2]", path);
-            }
-            if (! res)
-            {
-                // .'$ObjectSchema'.'|'.3
-                res = json_model_20(val, path, rep);
-                if (! res)
-                {
-                    if (rep) jm_report_add_entry(rep, "unexpected $Enum [.'$ObjectSchema'.'|'.3]", path);
-                }
-                if (! res)
-                {
-                    // .'$ObjectSchema'.'|'.4
-                    res = json_model_13(val, path, rep);
-                    if (! res)
-                    {
-                        if (rep) jm_report_add_entry(rep, "unexpected $Integer [.'$ObjectSchema'.'|'.4]", path);
-                    }
-                    if (! res)
-                    {
-                        // .'$ObjectSchema'.'|'.5
-                        res = json_model_14(val, path, rep);
-                        if (! res)
-                        {
-                            if (rep) jm_report_add_entry(rep, "unexpected $Number [.'$ObjectSchema'.'|'.5]", path);
-                        }
-                        if (! res)
-                        {
-                            // .'$ObjectSchema'.'|'.6
-                            res = json_model_10(val, path, rep);
-                            if (! res)
-                            {
-                                if (rep) jm_report_add_entry(rep, "unexpected $String [.'$ObjectSchema'.'|'.6]", path);
-                            }
-                            if (! res)
-                            {
-                                // .'$ObjectSchema'.'|'.7
-                                res = json_model_11(val, path, rep);
-                                if (! res)
-                                {
-                                    if (rep) jm_report_add_entry(rep, "unexpected $Array [.'$ObjectSchema'.'|'.7]", path);
-                                }
-                                if (! res)
-                                {
-                                    // .'$ObjectSchema'.'|'.8
-                                    res = json_model_12(val, path, rep);
-                                    if (! res)
-                                    {
-                                        if (rep) jm_report_add_entry(rep, "unexpected $Object [.'$ObjectSchema'.'|'.8]", path);
-                                    }
-                                    if (! res)
-                                    {
-                                        // .'$ObjectSchema'.'|'.9
-                                        res = json_model_17(val, path, rep);
-                                        if (! res)
-                                        {
-                                            if (rep) jm_report_add_entry(rep, "unexpected $AllOf [.'$ObjectSchema'.'|'.9]", path);
-                                        }
-                                        if (! res)
-                                        {
-                                            // .'$ObjectSchema'.'|'.10
-                                            res = json_model_18(val, path, rep);
-                                            if (! res)
-                                            {
-                                                if (rep) jm_report_add_entry(rep, "unexpected $AnyOf [.'$ObjectSchema'.'|'.10]", path);
-                                            }
-                                            if (! res)
-                                            {
-                                                // .'$ObjectSchema'.'|'.11
-                                                res = json_model_19(val, path, rep);
-                                                if (! res)
-                                                {
-                                                    if (rep) jm_report_add_entry(rep, "unexpected $OneOf [.'$ObjectSchema'.'|'.11]", path);
-                                                }
-                                                if (! res)
-                                                {
-                                                    // .'$ObjectSchema'.'|'.12
-                                                    res = json_model_22(val, path, rep);
-                                                    if (! res)
-                                                    {
-                                                        if (rep) jm_report_add_entry(rep, "unexpected $Ref [.'$ObjectSchema'.'|'.12]", path);
-                                                    }
-                                                    if (! res)
-                                                    {
-                                                        // .'$ObjectSchema'.'|'.13
-                                                        res = json_model_9(val, path, rep);
-                                                        if (! res)
-                                                        {
-                                                            if (rep) jm_report_add_entry(rep, "unexpected $metas [.'$ObjectSchema'.'|'.13]", path);
-                                                        }
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    }
+    bool iso_0 = json_is_object(val);
+    res = iso_0;
     if (res)
     {
-        if (rep) jm_report_free_entries(rep);
+        if (json_object_get(val, "type") != NULL)
+        {
+            json_t * tag_0 = json_object_get(val, "type");
+            jm_check_fun_t fun_0 = _jm_map_0(tag_0);
+            if (fun_0 != NULL)
+            {
+                res = fun_0(val, path, rep);
+            }
+            else
+            {
+                res = false;
+                if (rep) jm_report_add_entry(rep, "tag <type> value not found [.'$ObjectSchema'.'|']", path);
+            }
+        }
+        else
+        {
+            res = false;
+            if (rep) jm_report_add_entry(rep, "tag prop <type> is missing [.'$ObjectSchema'.'|']", path);
+        }
     }
     else
     {
-        if (rep) jm_report_add_entry(rep, "no model matched [.'$ObjectSchema'.'|']", path);
+        if (rep) jm_report_add_entry(rep, "value is not an object [.'$ObjectSchema'.'|']", path);
+    }
+    if (! res)
+    {
+        res = json_model_9(val, path, rep);
+        if (! res)
+        {
+            res = json_model_21(val, path, rep);
+            if (! res)
+            {
+                res = json_model_20(val, path, rep);
+                if (! res)
+                {
+                    res = json_model_17(val, path, rep);
+                    if (! res)
+                    {
+                        res = json_model_18(val, path, rep);
+                        if (! res)
+                        {
+                            res = json_model_19(val, path, rep);
+                            if (! res)
+                            {
+                                res = json_model_22(val, path, rep);
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
     return res;
 }
@@ -5710,6 +5643,14 @@ const char *check_model_init(void)
         _jm_obj_47_map_tab[8] = (jm_propmap_t) { "id", _jm_f_162 };
         _jm_obj_47_map_tab[9] = (jm_propmap_t) { "title", _jm_f_163 };
         jm_sort_propmap(_jm_obj_47_map_tab, 10);
+        _jm_map_0_tab[0] = (jm_constmap_t) { (jm_constant_t) { cst_is_string, { .s = "null" } }, json_model_16 };
+        _jm_map_0_tab[1] = (jm_constmap_t) { (jm_constant_t) { cst_is_string, { .s = "boolean" } }, json_model_15 };
+        _jm_map_0_tab[2] = (jm_constmap_t) { (jm_constant_t) { cst_is_string, { .s = "integer" } }, json_model_13 };
+        _jm_map_0_tab[3] = (jm_constmap_t) { (jm_constant_t) { cst_is_string, { .s = "number" } }, json_model_14 };
+        _jm_map_0_tab[4] = (jm_constmap_t) { (jm_constant_t) { cst_is_string, { .s = "string" } }, json_model_10 };
+        _jm_map_0_tab[5] = (jm_constmap_t) { (jm_constant_t) { cst_is_string, { .s = "array" } }, json_model_11 };
+        _jm_map_0_tab[6] = (jm_constmap_t) { (jm_constant_t) { cst_is_string, { .s = "object" } }, json_model_12 };
+        jm_sort_constmap(_jm_map_0_tab, 7);
         check_model_map_tab[0] = (jm_propmap_t) { "", json_model_25 };
         check_model_map_tab[1] = (jm_propmap_t) { "const", json_model_2 };
         check_model_map_tab[2] = (jm_propmap_t) { "enum", json_model_3 };

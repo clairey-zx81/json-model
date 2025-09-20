@@ -258,7 +258,8 @@ static bool json_model_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
     // .'$oC'
-    res = json_is_object(val);
+    bool iso_0 = json_is_object(val);
+    res = iso_0;
     if (res)
     {
         if (json_object_get(val, "t") != NULL)
@@ -617,7 +618,8 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
     // .
-    res = json_is_object(val);
+    bool iso_1 = json_is_object(val);
+    res = iso_1;
     if (res)
     {
         if (json_object_get(val, "t") != NULL)

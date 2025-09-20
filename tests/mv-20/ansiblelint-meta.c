@@ -186,6 +186,7 @@ static bool _jm_f_46(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_47(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_48(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static jm_propmap_t _jm_obj_98_map_tab[13];
+static jm_constmap_t _jm_map_0_tab[2];
 static bool json_model_54(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static cre2_regexp_t *_jm_re_2_re2 = NULL;
 static int _jm_re_2_nn = 0;
@@ -8985,7 +8986,23 @@ static INLINE bool _jm_obj_97(const json_t *val, jm_path_t *path, jm_report_t *r
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_50 = (jm_path_t) { prop, 0, path, NULL };
-        if (strcmp(prop, "description") == 0)
+        if (strcmp(prop, "standalone") == 0)
+        {
+            // handle must standalone property
+            must_count += 1;
+            // .'$GalaxyInfoModel'.'|'.1.standalone
+            res = json_is_boolean(pval) && json_boolean_value(pval) == false;
+            if (! res)
+            {
+                if (rep) jm_report_add_entry(rep, "unexpected =false [.'$GalaxyInfoModel'.'|'.1.standalone]", (path ? &lpath_50 : NULL));
+            }
+            if (! res)
+            {
+                if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$GalaxyInfoModel'.'|'.1.standalone]", (path ? &lpath_50 : NULL));
+                return false;
+            }
+        }
+        else if (strcmp(prop, "description") == 0)
         {
             // handle must description property
             must_count += 1;
@@ -9016,7 +9033,7 @@ static INLINE bool _jm_obj_97(const json_t *val, jm_path_t *path, jm_report_t *r
             return false;
         }
     }
-    if (must_count != 1)
+    if (must_count != 2)
     {
         if (rep != NULL)
         {
@@ -9024,56 +9041,60 @@ static INLINE bool _jm_obj_97(const json_t *val, jm_path_t *path, jm_report_t *r
             {
                 if (rep) jm_report_add_entry(rep, "missing mandatory prop <description> [.'$GalaxyInfoModel'.'|'.1]", path);
             }
+            if (! (json_object_get(val, "standalone") != NULL))
+            {
+                if (rep) jm_report_add_entry(rep, "missing mandatory prop <standalone> [.'$GalaxyInfoModel'.'|'.1]", path);
+            }
         }
         return false;
     }
     return true;
 }
 
-// check _jm_obj_98_map_author (.'$GalaxyInfoModel'.'|'.0.author)
+// check _jm_obj_98_map_author (.'$GalaxyInfoModel'.'|'.2.author)
 static bool _jm_f_36(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
-    // .'$GalaxyInfoModel'.'|'.0.author
+    // .'$GalaxyInfoModel'.'|'.2.author
     res = json_is_string(val);
     if (! res)
     {
-        if (rep) jm_report_add_entry(rep, "unexpected string [.'$GalaxyInfoModel'.'|'.0.author]", path);
+        if (rep) jm_report_add_entry(rep, "unexpected string [.'$GalaxyInfoModel'.'|'.2.author]", path);
     }
     return res;
 }
 
-// check _jm_obj_98_map_cloud_platforms (.'$GalaxyInfoModel'.'|'.0.cloud_platforms)
+// check _jm_obj_98_map_cloud_platforms (.'$GalaxyInfoModel'.'|'.2.cloud_platforms)
 static bool _jm_f_37(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
-    // .'$GalaxyInfoModel'.'|'.0.cloud_platforms
+    // .'$GalaxyInfoModel'.'|'.2.cloud_platforms
     res = true;
     if (! res)
     {
-        if (rep) jm_report_add_entry(rep, "unexpected $ANY [.'$GalaxyInfoModel'.'|'.0.cloud_platforms]", path);
+        if (rep) jm_report_add_entry(rep, "unexpected $ANY [.'$GalaxyInfoModel'.'|'.2.cloud_platforms]", path);
     }
     return res;
 }
 
-// check _jm_obj_98_map_company (.'$GalaxyInfoModel'.'|'.0.company)
+// check _jm_obj_98_map_company (.'$GalaxyInfoModel'.'|'.2.company)
 static bool _jm_f_38(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
-    // .'$GalaxyInfoModel'.'|'.0.company
+    // .'$GalaxyInfoModel'.'|'.2.company
     res = json_is_string(val);
     if (! res)
     {
-        if (rep) jm_report_add_entry(rep, "unexpected string [.'$GalaxyInfoModel'.'|'.0.company]", path);
+        if (rep) jm_report_add_entry(rep, "unexpected string [.'$GalaxyInfoModel'.'|'.2.company]", path);
     }
     return res;
 }
 
-// check _jm_obj_98_map_galaxy_tags (.'$GalaxyInfoModel'.'|'.0.galaxy_tags)
+// check _jm_obj_98_map_galaxy_tags (.'$GalaxyInfoModel'.'|'.2.galaxy_tags)
 static bool _jm_f_39(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
-    // .'$GalaxyInfoModel'.'|'.0.galaxy_tags
+    // .'$GalaxyInfoModel'.'|'.2.galaxy_tags
     res = json_is_array(val);
     if (res)
     {
@@ -9082,11 +9103,11 @@ static bool _jm_f_39(const json_t *val, jm_path_t *path, jm_report_t *rep)
         json_array_foreach(val, arr_98_idx, arr_98_item)
         {
             jm_path_t arr_98_lpath = (jm_path_t) { NULL, arr_98_idx, path, NULL };
-            // .'$GalaxyInfoModel'.'|'.0.galaxy_tags.0
+            // .'$GalaxyInfoModel'.'|'.2.galaxy_tags.0
             res = json_is_string(arr_98_item);
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "unexpected string [.'$GalaxyInfoModel'.'|'.0.galaxy_tags.0]", (path ? &arr_98_lpath : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected string [.'$GalaxyInfoModel'.'|'.2.galaxy_tags.0]", (path ? &arr_98_lpath : NULL));
             }
             if (! res)
             {
@@ -9096,122 +9117,122 @@ static bool _jm_f_39(const json_t *val, jm_path_t *path, jm_report_t *rep)
     }
     if (! res)
     {
-        if (rep) jm_report_add_entry(rep, "not array or unexpected array [.'$GalaxyInfoModel'.'|'.0.galaxy_tags]", path);
+        if (rep) jm_report_add_entry(rep, "not array or unexpected array [.'$GalaxyInfoModel'.'|'.2.galaxy_tags]", path);
     }
     return res;
 }
 
-// check _jm_obj_98_map_github_branch (.'$GalaxyInfoModel'.'|'.0.github_branch)
+// check _jm_obj_98_map_github_branch (.'$GalaxyInfoModel'.'|'.2.github_branch)
 static bool _jm_f_40(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
-    // .'$GalaxyInfoModel'.'|'.0.github_branch
+    // .'$GalaxyInfoModel'.'|'.2.github_branch
     res = json_is_string(val);
     if (! res)
     {
-        if (rep) jm_report_add_entry(rep, "unexpected string [.'$GalaxyInfoModel'.'|'.0.github_branch]", path);
+        if (rep) jm_report_add_entry(rep, "unexpected string [.'$GalaxyInfoModel'.'|'.2.github_branch]", path);
     }
     return res;
 }
 
-// check _jm_obj_98_map_issue_tracker_url (.'$GalaxyInfoModel'.'|'.0.issue_tracker_url)
+// check _jm_obj_98_map_issue_tracker_url (.'$GalaxyInfoModel'.'|'.2.issue_tracker_url)
 static bool _jm_f_41(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
-    // .'$GalaxyInfoModel'.'|'.0.issue_tracker_url
+    // .'$GalaxyInfoModel'.'|'.2.issue_tracker_url
     res = json_is_string(val);
     if (! res)
     {
-        if (rep) jm_report_add_entry(rep, "unexpected string [.'$GalaxyInfoModel'.'|'.0.issue_tracker_url]", path);
+        if (rep) jm_report_add_entry(rep, "unexpected string [.'$GalaxyInfoModel'.'|'.2.issue_tracker_url]", path);
     }
     return res;
 }
 
-// check _jm_obj_98_map_license (.'$GalaxyInfoModel'.'|'.0.license)
+// check _jm_obj_98_map_license (.'$GalaxyInfoModel'.'|'.2.license)
 static bool _jm_f_42(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
-    // .'$GalaxyInfoModel'.'|'.0.license
+    // .'$GalaxyInfoModel'.'|'.2.license
     res = json_is_string(val);
     if (! res)
     {
-        if (rep) jm_report_add_entry(rep, "unexpected string [.'$GalaxyInfoModel'.'|'.0.license]", path);
+        if (rep) jm_report_add_entry(rep, "unexpected string [.'$GalaxyInfoModel'.'|'.2.license]", path);
     }
     return res;
 }
 
-// check _jm_obj_98_map_min_ansible_container_version (.'$GalaxyInfoModel'.'|'.0.min_ansible_container_version)
+// check _jm_obj_98_map_min_ansible_container_version (.'$GalaxyInfoModel'.'|'.2.min_ansible_container_version)
 static bool _jm_f_43(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
-    // .'$GalaxyInfoModel'.'|'.0.min_ansible_container_version
+    // .'$GalaxyInfoModel'.'|'.2.min_ansible_container_version
     res = json_is_string(val);
     if (! res)
     {
-        if (rep) jm_report_add_entry(rep, "unexpected string [.'$GalaxyInfoModel'.'|'.0.min_ansible_container_version]", path);
+        if (rep) jm_report_add_entry(rep, "unexpected string [.'$GalaxyInfoModel'.'|'.2.min_ansible_container_version]", path);
     }
     return res;
 }
 
-// check _jm_obj_98_map_min_ansible_version (.'$GalaxyInfoModel'.'|'.0.min_ansible_version)
+// check _jm_obj_98_map_min_ansible_version (.'$GalaxyInfoModel'.'|'.2.min_ansible_version)
 static bool _jm_f_44(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
-    // .'$GalaxyInfoModel'.'|'.0.min_ansible_version
+    // .'$GalaxyInfoModel'.'|'.2.min_ansible_version
     res = json_is_string(val);
     if (! res)
     {
-        if (rep) jm_report_add_entry(rep, "unexpected string [.'$GalaxyInfoModel'.'|'.0.min_ansible_version]", path);
+        if (rep) jm_report_add_entry(rep, "unexpected string [.'$GalaxyInfoModel'.'|'.2.min_ansible_version]", path);
     }
     return res;
 }
 
-// check _jm_obj_98_map_namespace (.'$GalaxyInfoModel'.'|'.0.namespace)
+// check _jm_obj_98_map_namespace (.'$GalaxyInfoModel'.'|'.2.namespace)
 static bool _jm_f_45(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
-    // .'$GalaxyInfoModel'.'|'.0.namespace
+    // .'$GalaxyInfoModel'.'|'.2.namespace
     // "/^[a-z][-a-z0-9_]+$/"
     res = json_is_string(val) && _jm_re_0(json_string_value(val), path, rep);
     if (! res)
     {
-        if (rep) jm_report_add_entry(rep, "unexpected /^[a-z][-a-z0-9_]+$/ [.'$GalaxyInfoModel'.'|'.0.namespace]", path);
+        if (rep) jm_report_add_entry(rep, "unexpected /^[a-z][-a-z0-9_]+$/ [.'$GalaxyInfoModel'.'|'.2.namespace]", path);
     }
     return res;
 }
 
-// check _jm_obj_98_map_platforms (.'$GalaxyInfoModel'.'|'.0.platforms)
+// check _jm_obj_98_map_platforms (.'$GalaxyInfoModel'.'|'.2.platforms)
 static bool _jm_f_46(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
-    // .'$GalaxyInfoModel'.'|'.0.platforms
+    // .'$GalaxyInfoModel'.'|'.2.platforms
     res = json_model_50(val, path, rep);
     if (! res)
     {
-        if (rep) jm_report_add_entry(rep, "unexpected $platforms [.'$GalaxyInfoModel'.'|'.0.platforms]", path);
+        if (rep) jm_report_add_entry(rep, "unexpected $platforms [.'$GalaxyInfoModel'.'|'.2.platforms]", path);
     }
     return res;
 }
 
-// check _jm_obj_98_map_role_name (.'$GalaxyInfoModel'.'|'.0.role_name)
+// check _jm_obj_98_map_role_name (.'$GalaxyInfoModel'.'|'.2.role_name)
 static bool _jm_f_47(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
-    // .'$GalaxyInfoModel'.'|'.0.role_name
+    // .'$GalaxyInfoModel'.'|'.2.role_name
     // "/^[a-z][a-z0-9_]+$/"
     res = json_is_string(val) && _jm_re_1(json_string_value(val), path, rep);
     if (! res)
     {
-        if (rep) jm_report_add_entry(rep, "unexpected /^[a-z][a-z0-9_]+$/ [.'$GalaxyInfoModel'.'|'.0.role_name]", path);
+        if (rep) jm_report_add_entry(rep, "unexpected /^[a-z][a-z0-9_]+$/ [.'$GalaxyInfoModel'.'|'.2.role_name]", path);
     }
     return res;
 }
 
-// check _jm_obj_98_map_video_links (.'$GalaxyInfoModel'.'|'.0.video_links)
+// check _jm_obj_98_map_video_links (.'$GalaxyInfoModel'.'|'.2.video_links)
 static bool _jm_f_48(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
-    // .'$GalaxyInfoModel'.'|'.0.video_links
+    // .'$GalaxyInfoModel'.'|'.2.video_links
     res = json_is_array(val);
     if (res)
     {
@@ -9219,7 +9240,7 @@ static bool _jm_f_48(const json_t *val, jm_path_t *path, jm_report_t *rep)
     }
     if (! res)
     {
-        if (rep) jm_report_add_entry(rep, "not array or unexpected array [.'$GalaxyInfoModel'.'|'.0.video_links]", path);
+        if (rep) jm_report_add_entry(rep, "not array or unexpected array [.'$GalaxyInfoModel'.'|'.2.video_links]", path);
     }
     return res;
 }
@@ -9229,12 +9250,12 @@ static INLINE jm_check_fun_t _jm_obj_98_map(const char *pname)
     return jm_search_propmap(pname, _jm_obj_98_map_tab, 13);
 }
 
-// object .'$GalaxyInfoModel'.'|'.0
+// object .'$GalaxyInfoModel'.'|'.2
 static INLINE bool _jm_obj_98(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (! json_is_object(val))
     {
-        if (rep) jm_report_add_entry(rep, "not an object [.'$GalaxyInfoModel'.'|'.0]", path);
+        if (rep) jm_report_add_entry(rep, "not an object [.'$GalaxyInfoModel'.'|'.2]", path);
         return false;
     }
     bool res;
@@ -9245,35 +9266,19 @@ static INLINE bool _jm_obj_98(const json_t *val, jm_path_t *path, jm_report_t *r
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_51 = (jm_path_t) { prop, 0, path, NULL };
-        if (strcmp(prop, "standalone") == 0)
-        {
-            // handle must standalone property
-            must_count += 1;
-            // .'$GalaxyInfoModel'.'|'.0.standalone
-            res = json_is_boolean(pval) && json_boolean_value(pval) == false;
-            if (! res)
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected =false [.'$GalaxyInfoModel'.'|'.0.standalone]", (path ? &lpath_51 : NULL));
-            }
-            if (! res)
-            {
-                if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$GalaxyInfoModel'.'|'.0.standalone]", (path ? &lpath_51 : NULL));
-                return false;
-            }
-        }
-        else if (strcmp(prop, "description") == 0)
+        if (strcmp(prop, "description") == 0)
         {
             // handle must description property
             must_count += 1;
-            // .'$GalaxyInfoModel'.'|'.0.description
+            // .'$GalaxyInfoModel'.'|'.2.description
             res = json_is_string(pval);
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "unexpected string [.'$GalaxyInfoModel'.'|'.0.description]", (path ? &lpath_51 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected string [.'$GalaxyInfoModel'.'|'.2.description]", (path ? &lpath_51 : NULL));
             }
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$GalaxyInfoModel'.'|'.0.description]", (path ? &lpath_51 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$GalaxyInfoModel'.'|'.2.description]", (path ? &lpath_51 : NULL));
                 return false;
             }
         }
@@ -9282,32 +9287,35 @@ static INLINE bool _jm_obj_98(const json_t *val, jm_path_t *path, jm_report_t *r
             // handle 13 may props
             if (pfun != NULL && ! pfun(pval, (path ? &lpath_51 : NULL), rep))
             {
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$GalaxyInfoModel'.'|'.0]", (path ? &lpath_51 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$GalaxyInfoModel'.'|'.2]", (path ? &lpath_51 : NULL));
                 return false;
             }
         }
         else
         {
-            if (rep) jm_report_add_entry(rep, "unexpected prop [.'$GalaxyInfoModel'.'|'.0]", (path ? &lpath_51 : NULL));
+            if (rep) jm_report_add_entry(rep, "unexpected prop [.'$GalaxyInfoModel'.'|'.2]", (path ? &lpath_51 : NULL));
             return false;
         }
     }
-    if (must_count != 2)
+    if (must_count != 1)
     {
         if (rep != NULL)
         {
             if (! (json_object_get(val, "description") != NULL))
             {
-                if (rep) jm_report_add_entry(rep, "missing mandatory prop <description> [.'$GalaxyInfoModel'.'|'.0]", path);
-            }
-            if (! (json_object_get(val, "standalone") != NULL))
-            {
-                if (rep) jm_report_add_entry(rep, "missing mandatory prop <standalone> [.'$GalaxyInfoModel'.'|'.0]", path);
+                if (rep) jm_report_add_entry(rep, "missing mandatory prop <description> [.'$GalaxyInfoModel'.'|'.2]", path);
             }
         }
         return false;
     }
     return true;
+}
+
+static INLINE jm_check_fun_t _jm_map_0(json_t *val)
+{
+    jm_constant_t cst;
+    jm_set_cst(&cst, val);
+    return jm_search_constmap(&cst, _jm_map_0_tab, 2);
 }
 
 // check $GalaxyInfoModel (.'$GalaxyInfoModel')
@@ -9316,44 +9324,41 @@ static bool json_model_54(const json_t *val, jm_path_t *path, jm_report_t *rep)
     bool res;
     // hmmmm, property standalone should probably be required…
     // .'$GalaxyInfoModel'
-    res = json_is_object(val);
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected type [.'$GalaxyInfoModel'.'|']", path);
-    }
+    bool iso_0 = json_is_object(val);
+    res = iso_0;
     if (res)
     {
-        // .'$GalaxyInfoModel'.'|'.0
-        res = _jm_obj_98(val, path, rep);
-        if (! res)
+        if (json_object_get(val, "standalone") != NULL)
         {
-            if (rep) jm_report_add_entry(rep, "unexpected element [.'$GalaxyInfoModel'.'|'.0]", path);
-        }
-        if (! res)
-        {
-            // .'$GalaxyInfoModel'.'|'.1
-            res = _jm_obj_97(val, path, rep);
-            if (! res)
+            json_t * tag_0 = json_object_get(val, "standalone");
+            jm_check_fun_t fun_0 = _jm_map_0(tag_0);
+            if (fun_0 != NULL)
             {
-                if (rep) jm_report_add_entry(rep, "unexpected element [.'$GalaxyInfoModel'.'|'.1]", path);
+                res = fun_0(val, path, rep);
             }
-        }
-        if (res)
-        {
-            if (rep) jm_report_free_entries(rep);
+            else
+            {
+                res = false;
+                if (rep) jm_report_add_entry(rep, "tag <standalone> value not found [.'$GalaxyInfoModel'.'|']", path);
+            }
         }
         else
         {
-            if (rep) jm_report_add_entry(rep, "no model matched [.'$GalaxyInfoModel'.'|']", path);
+            res = false;
+            if (rep) jm_report_add_entry(rep, "tag prop <standalone> is missing [.'$GalaxyInfoModel'.'|']", path);
         }
+    }
+    else
+    {
+        if (rep) jm_report_add_entry(rep, "value is not an object [.'$GalaxyInfoModel'.'|']", path);
     }
     if (! res)
     {
-        // .'$GalaxyInfoModel'.'|'
-        res = json_model_53(val, path, rep);
+        // .'$GalaxyInfoModel'.'|'.2
+        res = _jm_obj_98(val, path, rep);
         if (! res)
         {
-            if (rep) jm_report_add_entry(rep, "unexpected $GalaxyInfoModelStandalone [.'$GalaxyInfoModel'.'|']", path);
+            if (rep) jm_report_add_entry(rep, "unexpected element [.'$GalaxyInfoModel'.'|'.2]", path);
         }
     }
     return res;
@@ -10921,6 +10926,9 @@ const char *check_model_init(void)
         _jm_obj_98_map_tab[11] = (jm_propmap_t) { "role_name", _jm_f_47 };
         _jm_obj_98_map_tab[12] = (jm_propmap_t) { "video_links", _jm_f_48 };
         jm_sort_propmap(_jm_obj_98_map_tab, 13);
+        _jm_map_0_tab[0] = (jm_constmap_t) { (jm_constant_t) { cst_is_bool, { .b = true } }, json_model_53 };
+        _jm_map_0_tab[1] = (jm_constmap_t) { (jm_constant_t) { cst_is_bool, { .b = false } }, _jm_obj_97 };
+        jm_sort_constmap(_jm_map_0_tab, 2);
         _jm_re_2_re2 = cre2_new("^[a-z_]+\\.[a-z_]+$", strlen("^[a-z_]+\\.[a-z_]+$"), NULL);
         if (cre2_error_code(_jm_re_2_re2))
             return cre2_error_string(_jm_re_2_re2);

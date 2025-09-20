@@ -171,7 +171,8 @@ public class dis_03 extends ModelChecker
         boolean res;
         // boolean tag
         // .
-        res = json.isObject(val);
+        boolean iso_0 = json.isObject(val);
+        res = iso_0;
         if (res)
         {
             if (json.objectHasProp(val, "discriminator"))

@@ -1,0 +1,1 @@
+JMC.opts    += --no-reporting

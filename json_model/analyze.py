@@ -1,11 +1,14 @@
 #
 # Analyses
 #
+import functools
 import re
+
 from .mtypes import UnknownModel, ModelPath, ModelType, ModelFilter
 from .utils import log, CONST_RE, is_regex
 from .recurse import recModel, allFlt, noRwt
 from .model import JsonModel
+from .runtime import ConstSet, Const
 
 # JsonModel = typing.NewType("JsonModel", None)
 type Constants = bool|int|float|str|list[int|float|str]
@@ -313,7 +316,7 @@ def ultimate_model(jm: JsonModel, model: ModelType, constrained=True, strict=Fal
             return model
 
 # this seems partially redundant with constant_values?
-def evalModel(jm: JsonModel, model: ModelType, lists: bool = False):
+def evalModel(jm: JsonModel, model: ModelType, lists: bool = False) -> list|None:
     """Tell if an ultimate model value has a constant."""
     # FIXME should it detect @ eq?
     v = ultimate_model(jm, model)
@@ -326,118 +329,185 @@ def evalModel(jm: JsonModel, model: ModelType, lists: bool = False):
         assert isinstance(v, str)  # useless pyright hint
         if v == "":
             return None  # FIXME
-        elif v == "=null":
-            return None
+        elif v == "=null" or v == "$NULL":
+            return [ None ]
         elif re.search(r"^=(true|false)$", v) is not None:
-            return True if v == "=true" else False
+            return [ True if v == "=true" else False ]
         elif re.search(r"^=-?\d+$", v) is not None:
-            return int(v[1:])
+            return [ int(v[1:]) ]
         elif re.search(r"^=", v) is not None:
-            return float(v[1:])
+            return [ float(v[1:]) ]
         elif v[0] == "_":
-            return v[1:]
+            return [ v[1:] ]
+        elif v[0] in ("$", "/"):
+            # TODO improve on $?
+            return None
         else:
-            return v
+            return [ v ]
     elif lists and tv is dict and ("|" in v or "^" in v):
         op = "|" if "|" in v else "^"
         orcst = [ evalModel(jm, m, False) for m in v[op] ]
-        # log.debug(f"orcst = {orcst}")
-        return None if any(map(lambda c: c is None, orcst)) else orcst
+        if any(map(lambda c: c is None, orcst)) or not orcst:
+            return None
+        else:
+            return functools.reduce(lambda v, e: v + e, orcst, [])
     else:
         return None
 
 def disjunct_analyse(jm: JsonModel, model: ModelType, mpath: ModelPath, lists: bool = False) -> \
-        tuple[str, type, list, list]|None:
-    """Return the optimized check function if possible."""
+        tuple[list[tuple[str, type, list[int]]],
+              dict[int, dict[str, ConstSet]],
+              list[int]]|None:
+    """Return optimized discriminators for code generation.
+
+    Return struct:
+    - list of tag tests: tag name, tag type, list of models index in the or-list
+    - mapping from or-list model index to mapping from prop name to constant values
+    - rejected or-list indexes
+    """
     # FIXME if there is a ^, the preprocessor will have detected the discriminant
     # and turned it into a |.
+    # TODO ensure determinism at all stages
     assert isinstance(model, dict) and "|" in model
-    # first filter out
-    utype = ultimate_type(jm, model)
-    if utype is not dict:
-        log.debug(f"ultimate type not a dict: {utype}")
-        return None
     # get models
-    assert isinstance(models := model["|"], list)
-    models = [ultimate_model(jm, m) for m in models]
-    # should not happen, just in case
-    if len(models) < 2:
-        log.debug("not enough models for a disjunction")
+    orl = model["|"]
+    log.debug(f"disjunct_analyze on {orl}")
+    # sanity checks
+    assert isinstance(orl, list)
+    if len(orl) < 2:
+        log.debug(f"not enough models for disjunction ({len(orl)}")
         return None
-    # we may have some doubts yet (eg | in |)
-    if any(filter(lambda m: not isinstance(m, dict), models)):
-        log.debug("some models are not objects")
+    # kept and rejected _initial_ models by or index
+    kept: dict[int, ModelType] = { i: m for i, m in enumerate(orl) }
+    rejected: dict[int, ModelType] = {}
+    # get models, possibly following references and jumping over constraints?
+    models: dict[int, ModelType] = { i: ultimate_model(jm, m) for i, m in kept.items() }
+    log.debug(f"models: {models}")
+    # only keep objects
+    reject: list[int] = []
+    for i, m in models.items():
+        if not isinstance(m, dict) or "|" in m or "^" in m or "&" in m or "@" in m or "+" in m:
+            log.debug(f"rejecting m: {m}")
+            reject.append(i)
+    for i in reject:
+        del models[i]
+        rejected[i] = kept[i]
+        del kept[i]
+    if len(models) <= 1:
+        log.debug(f"not enough object models for disjunction ({len(models)})")
         return None
-    # only objects: collect their direct mandatory properties
-    all_props: list[set[str]] = [
-        set((k[1:] if k[0] in ("_", "!") else k)
-                for k in m.keys() if k and k[0] not in ("$", "?", "/"))
-                    for m in models if isinstance(m, dict)
-    ]
+    # collect direct mandatory properties
+    all_props: dict[int, set[str]] = {}
+    for i, m in models.items():
+        all_props[i] = {
+            (k[1:] if k[0] in ("_", "!") else k)
+                for k in m.keys() if k and k[0] not in ("$", "?", "/", "#")
+        }
+    # only objects with some mandatory properties
+    for i in [ i for i, m in all_props.items() if not m ]:
+        del all_props[i]
+        rejected[i] = kept[i]
+        del kept[i]
+    if len(all_props) <= 1:
+        log.debug("not enough objects with mandatory props for disjunction")
+        return None
     # get cleaned props and their constant values
-    all_const_props: list[dict[str, Constants]] = []
-    for props, model in zip(all_props, models):
-        consts: dict[str, Constants] = {}
-        assert isinstance(model, dict)
+    all_const_props: dict[int, dict[str, ConstSet]] = {}
+    for i, props in all_props.items():
+        consts: dict[str, ConstSet] = {}
         for p in props:
             # mandatory props should be normalized…
-            prop = f"_{p}" if f"_{p}" in model else f"!{p}" if f"!{p}" in model else p
-            val = evalModel(jm, model[prop], lists)
+            prop = f"_{p}" if f"_{p}" in models[i] else f"!{p}" if f"!{p}" in models[i] else p
+            val = evalModel(jm, models[i][prop], lists)
+            # log.debug(f"cst [{i}].{p} {models[i][prop]}: {val}")
             if val is not None:
-                consts[p] = val
-        all_const_props.append(consts)
-    log.debug(f"all_const_props = {all_const_props}")
-    # tag candidates must:
-    # - appear in all alternate models
-    #   TODO look for subsets?
-    candidates: set[str] = set(all_const_props[0].keys())
-    for props in all_const_props[1:]:
-        candidates.intersection_update(props.keys())
-    if not candidates:
-        log.debug("no property with constant values")
-        return None
-    # - have the same type (???)
-    candidates_typed: set[str] = set()
-    for prop in candidates:
-        types = set()
-        values = set()
-        nvalues = 0
-        for consts in all_const_props:
-            if isinstance(consts[prop], list):
-                types |= { type(t) for t in consts[prop] }
+                consts[p] = ConstSet(val)
             else:
-                types.add(type(consts[prop]))
-        if len(types) == 1:
-            candidates_typed.add(prop)
-    if not candidates_typed:
-        log.debug("no proprety with same type constants")
+                log.debug(f"no constants on alt [{i}].{p}")
+        if len(consts) > 0:
+            all_const_props[i] = consts
+        else:
+            log.debug(f"no constant props in {i}")
+            rejected[i] = kept[i]
+            del kept[i]
+    log.debug(f"all_const_props: {all_const_props}")
+    if len(all_const_props) <= 1:
+        log.debug("not enough object with mandatory constant props for disjunction")
         return None
-    # - have distinct constant values
-    candidates_distinct: set[str] = set()
-    for prop in candidates_typed:
-        values = set()
-        nvalues = 0
-        for consts in all_const_props:
-            if isinstance(consts[prop], list):
-                values |= set(consts[prop])
-                nvalues += len(consts[prop])
+    # build tag candidates, for each prop which models indexes are ok, and all values
+    tag_to_model: dict[str, set[int]] = {}
+    # cumulated constants
+    tag_to_csts: dict[str, ConstSet] = {}
+    # NOTE there is a subtility: if a tag can appear in rejected objects,
+    # we must keep an external "or" with rejected models
+    for i, p2c in all_const_props.items():
+        for p, csts in p2c.items():
+            if len(csts) == 0:
+                # FIXME should not happen?
+                continue
+            if p not in tag_to_model:
+                tag_to_model[p] = set()
+                tag_to_csts[p] = ConstSet()
+            if csts & tag_to_csts[p]:
+                # skip if some common values
+                pass
             else:
-                values.add(consts[prop])
-                nvalues += 1
-        if len(values) == nvalues:
-            candidates_distinct.add(prop)
-    if not candidates_distinct:
-        log.debug("no property with distinct values")
+                # handling null as a special case may be necessary for some benches
+                tag_to_model[p].add(i)
+                tag_to_csts[p] |= csts
+    # remove props which do not offer choices
+    for p in list(tag_to_model):
+        if len(tag_to_model[p]) <= 1:
+            del tag_to_model[p]
+            del tag_to_csts[p]
+    # FIXME for now we required homogeneous types
+    for p in list(tag_to_csts):
+        if len(tag_to_csts[p].ctypes()) > 1:
+            log.debug(f"removing multi type constant prop {p} from disjunction")
+            del tag_to_model[p]
+            del tag_to_csts[p]
+    if not tag_to_model:
+        log.debug(f"not any discriminant tag candidate for disjunction")
         return None
-    if len(candidates_distinct) > 1:
-        log.warning(f"several disjunctive properties: {candidates_distinct}")
-    # one tag with one type and only constants found!
-    # FIXME determinism?
-    tag_name = candidates_distinct.pop()
-    one_tag_value = all_const_props[0][tag_name]
-    if isinstance(one_tag_value, list):  # list should not be empty
-        one_tag_value = one_tag_value[0]
-    tag_type = ultimate_type(jm, one_tag_value)
-    assert tag_type in (bool, int, float, str), f"type is ok: {tag_type}"
-
-    return tag_name, tag_type, models, all_const_props
+    # TODO there is a nice optimization problem here, for now just skip to a basic heuristic
+    extracted: list[tuple[str, set[int]]] = []
+    ex_models: set[int] = set()
+    while tag_to_model:
+        best: str|None = None
+        for p, ms in tag_to_model.items():
+            if best is None:
+                best = p
+            else:  # max models min property
+                nb, np = len(tag_to_model[best]), len(tag_to_model[p])
+                if nb < np or nb == np and p < best:
+                    best = p
+        if best is None:
+            break
+        else:
+            tested: set[int] = tag_to_model[best]
+            ex_models |= tested
+            extracted.append((best, tag_to_model[best]))
+            # cleanup for next round
+            del tag_to_model[best]
+            for p, ms in list(tag_to_model.items()):
+                ms -= tested
+                # drop props without enough disjunct models
+                if len(ms) <= 1:
+                    del tag_to_model[p]
+    # there must be one if tag_to_model is not empty
+    assert extracted
+    log.debug(f"disjunction: {extracted}")
+    # update kept/rejected dicts
+    for i in list(kept):
+        if i not in ex_models:
+            rejected[i] = kept[i]
+            del kept[i]
+    # now build returned structure
+    disjuncts = []
+    for prop, smi in extracted:
+        lmi = list(sorted(smi))
+        assert len(lmi) > 1, f"discriminating discriminant on {prop}"
+        ctype = all_const_props[lmi[0]][prop].ctypes().pop()
+        disjuncts.append((prop, ctype, lmi))
+    # final result
+    return disjuncts, all_const_props, list(rejected)

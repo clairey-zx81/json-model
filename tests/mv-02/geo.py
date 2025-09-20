@@ -904,7 +904,8 @@ def _jm_obj_11(val: Jsonable, path: Path, rep: Report) -> bool:
 def json_model_11(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$geometry'
-    res = isinstance(val, dict)
+    iso_0: bool = isinstance(val, dict)
+    res = iso_0
     if res:
         if "type" in val:
             tag_0: Jsonable = val.get("type", UNDEFINED)

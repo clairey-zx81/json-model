@@ -185,11 +185,13 @@ CREATE OR REPLACE FUNCTION json_model_4(val JSONB, path TEXT[], rep jm_report_en
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
+  iso_0 bool;
   tag_0 JSONB;
   fun_0 TEXT;
 BEGIN
   -- .'$oC'
-  res := JSONB_TYPEOF(val) = 'object';
+  iso_0 := JSONB_TYPEOF(val) = 'object';
+  res := iso_0;
   IF res THEN
     IF val ? 't' THEN
       tag_0 := val -> 't';
@@ -462,11 +464,13 @@ CREATE OR REPLACE FUNCTION json_model_1(val JSONB, path TEXT[], rep jm_report_en
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
+  iso_1 bool;
   tag_1 JSONB;
   fun_1 TEXT;
 BEGIN
   -- .
-  res := JSONB_TYPEOF(val) = 'object';
+  iso_1 := JSONB_TYPEOF(val) = 'object';
+  res := iso_1;
   IF res THEN
     IF val ? 't' THEN
       tag_1 := val -> 't';

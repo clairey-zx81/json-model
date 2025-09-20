@@ -212,7 +212,8 @@ sub json_model_2($$$)
     my ($val, $path, $rep) = @_;
     my $res;
     # .'$ab'
-    $res = jm_is_object($val);
+    my $iso_0 = jm_is_object($val);
+    $res = $iso_0;
     if ($res)
     {
         if (exists $$val{'t'})
@@ -431,7 +432,8 @@ sub json_model_3($$$)
     my ($val, $path, $rep) = @_;
     my $res;
     # .'$cd'
-    $res = jm_is_object($val);
+    my $iso_1 = jm_is_object($val);
+    $res = $iso_1;
     if ($res)
     {
         if (exists $$val{'t'})

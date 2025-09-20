@@ -1,0 +1,21 @@
+{
+  "#": "xor mix of tagged objects with spice",
+  "$": {
+    "g": "_g",
+    "h_ou_i": { "|": ["_h", "_i"] }, 
+    "d": {"t": "_d", "d": ""},
+    "ef": {"t": {"|": ["_e", "_f"]}, "ef": ""},
+    "alternative": {
+      "#": "expecting xor-to-or and tag detection",
+      "^": [
+        {"t": "_a", "a": ""},
+        {"t": {"|": ["_b", "_c"]}, "bc": ""},
+        {"t": "$g", "g": ""},
+        {"t": "$h_ou_i", "hi": ""},
+        "$d",
+        "$ef"
+      ]
+    }
+  },
+  "@": "$alternative"
+}

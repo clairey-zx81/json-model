@@ -197,7 +197,8 @@ def _jm_obj_3(val: Jsonable, path: Path, rep: Report) -> bool:
 def json_model_2(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$ab'
-    res = isinstance(val, dict)
+    iso_0: bool = isinstance(val, dict)
+    res = iso_0
     if res:
         if "t" in val:
             tag_0: Jsonable = val.get("t", UNDEFINED)
@@ -387,7 +388,8 @@ def _jm_obj_7(val: Jsonable, path: Path, rep: Report) -> bool:
 def json_model_3(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$cd'
-    res = isinstance(val, dict)
+    iso_1: bool = isinstance(val, dict)
+    res = iso_1
     if res:
         if "t" in val:
             tag_1: Jsonable = val.get("t", UNDEFINED)

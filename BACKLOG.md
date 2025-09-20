@@ -3,12 +3,13 @@
 ## Current Tasks
 
 - [x] artifact: add test case stats
-- [ ] static: detect discriminators from references
-- [ ] static: detect partial discriminators
+- [x] static: detect discriminators from references
+- [x] static: detect partial discriminators
+- [x] static: detect partial discriminators with other stuff
 - [ ] artifact: make work with dind
+- [ ] static: skip model function to call obj function directly on references
 - [ ] static: recognize already compile objects and reuse function esp under no no-reporting?
 - [ ] tests: check how clang compares to gcc
-- [ ] pr: update tuto scripts to match current status
 - [ ] tests: add non regression tests to docker build
 - [ ] tests: fix sql test errors from `Makefile`
 - [ ] service: json to lang conversion API
@@ -585,7 +586,7 @@
 - [x] pl-backend: add function declarations, needed for some recursions
 - [x] pl-backend: work around reference issues
 - [x] command: add `--schema-version` to force schema version output
-- [x] pr: remove wip cover page from web site
+- [x] pr: remove _wip_ cover page from web site
 - [x] model: filter out all comments from transformations
 - [x] c-backend: improve overhead estimation accuracy
 - [x] static: optimize function mapping by skipping intermediate functions if possible
@@ -602,3 +603,4 @@
 - [x] optim: turn off `--inline-or` by default, which can impact compile perf too much
 - [x] tests: allow options for specific tests from pytest
 - [x] tests: cleanup current status, back to 100\%
+- [x] pr: update tuto scripts to match current status

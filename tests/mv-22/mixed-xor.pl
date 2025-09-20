@@ -117,7 +117,8 @@ sub json_model_2($$$)
     my ($val, $path, $rep) = @_;
     my $res;
     # .'$cs'
-    $res = jm_is_object($val);
+    my $iso_0 = jm_is_object($val);
+    $res = $iso_0;
     if ($res)
     {
         if (exists $$val{'t'})
@@ -336,7 +337,8 @@ sub json_model_1($$$)
     my ($val, $path, $rep) = @_;
     my $res;
     # .
-    $res = jm_is_object($val);
+    my $iso_1 = jm_is_object($val);
+    $res = $iso_1;
     if ($res)
     {
         if (exists $$val{'t'})
@@ -359,7 +361,7 @@ sub json_model_1($$$)
     }
     if (! $res)
     {
-        # .'|'
+        # .'|'.4
         $res = jm_is_boolean($val);
     }
     return $res;

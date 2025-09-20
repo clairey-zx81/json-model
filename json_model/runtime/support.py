@@ -77,15 +77,23 @@ class Const:
             self._val == val._val
         )
 
+    def ctype(self) -> type:
+        """Python type of this constant."""
+        return type(self._val)
+
+    def __str__(self) -> str:
+        return json.dumps(self._val)
+
 
 class ConstSet(MutableSet[JsonScalar]):
     """A set of constants, with strictly typed comparisons."""
 
-    def __init__(self, init: list[JsonScalar]|str|None = None):
+    def __init__(self, init: list[JsonScalar]|None = None):
         self._set: set[Const] = set()
         if init:
-            for item in init:
-                self.add(item)
+            if isinstance(init, list):
+                for item in init:
+                    self.add(item)
 
     def __len__(self):
         return len(self._set)
@@ -101,6 +109,16 @@ class ConstSet(MutableSet[JsonScalar]):
 
     def discard(self, value):
         self._set.discard(Const(value))
+
+    def ctypes(self) -> set[type]:
+        """Set of underlying constant types."""
+        return { c.ctype() for c in self._set }
+
+    def __str__(self) -> str:
+        return "[" + ", ".join(str(c) for c in self._set) + "]"
+
+    def __repr__(self) -> str:
+        return self.__str__()
 
 
 class ConstMap(MutableMapping[JsonScalar, CheckFun]):

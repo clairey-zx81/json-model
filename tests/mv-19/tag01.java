@@ -196,7 +196,8 @@ public class tag01 extends ModelChecker
     {
         boolean res;
         // .
-        res = json.isObject(val);
+        boolean iso_0 = json.isObject(val);
+        res = iso_0;
         if (res)
         {
             if (json.objectHasProp(val, "t"))

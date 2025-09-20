@@ -330,7 +330,8 @@ public class xoropt_014 extends ModelChecker
                 // handle must movie property
                 must_count += 1;
                 // .movie
-                res = json.isObject(pval);
+                boolean iso_0 = json.isObject(pval);
+                res = iso_0;
                 if (res)
                 {
                     if (json.objectHasProp(pval, "t"))

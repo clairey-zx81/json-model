@@ -32,8 +32,9 @@ _jm_cst_0: set[str]
 _jm_cst_1: set[str]
 _jm_obj_27_map: PropMap
 _jm_cst_2: set[str]
+_jm_obj_31_map: PropMap
 _jm_cst_3: set[str]
-_jm_obj_33_map: PropMap
+_jm_map_0: dict[str, str]
 _jm_re_2_reco: object
 _jm_re_2: RegexFun
 _jm_obj_55_map: PropMap
@@ -42,6 +43,7 @@ _jm_cst_4: set[str]
 _jm_re_3_reco: object
 _jm_re_3: RegexFun
 _jm_cst_5: set[str]
+_jm_map_1: dict[str, str]
 _jm_cst_6: set[str]
 _jm_obj_85_map: PropMap
 check_model_map: PropMap
@@ -1915,30 +1917,132 @@ def json_model_17(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 
-# object .'$Parameter'.'|'.1.content
+# check _jm_obj_31_map_allowEmptyValue (.'$Parameter'.'|'.0.allowEmptyValue)
+def _jm_f_49(val: Jsonable, path: Path, rep: Report) -> bool:
+    res: bool
+    # .'$Parameter'.'|'.0.allowEmptyValue
+    res = isinstance(val, bool)
+    if not res:
+        rep is None or rep.append(("not a bool [.'$Parameter'.'|'.0.allowEmptyValue]", path))
+    return res
+
+# check _jm_obj_31_map_allowReserved (.'$Parameter'.'|'.0.allowReserved)
+def _jm_f_50(val: Jsonable, path: Path, rep: Report) -> bool:
+    res: bool
+    # .'$Parameter'.'|'.0.allowReserved
+    res = isinstance(val, bool)
+    if not res:
+        rep is None or rep.append(("not a bool [.'$Parameter'.'|'.0.allowReserved]", path))
+    return res
+
+# check _jm_obj_31_map_deprecated (.'$Parameter'.'|'.0.deprecated)
+def _jm_f_51(val: Jsonable, path: Path, rep: Report) -> bool:
+    res: bool
+    # .'$Parameter'.'|'.0.deprecated
+    res = isinstance(val, bool)
+    if not res:
+        rep is None or rep.append(("not a bool [.'$Parameter'.'|'.0.deprecated]", path))
+    return res
+
+# check _jm_obj_31_map_description (.'$Parameter'.'|'.0.description)
+def _jm_f_52(val: Jsonable, path: Path, rep: Report) -> bool:
+    res: bool
+    # .'$Parameter'.'|'.0.description
+    res = isinstance(val, str)
+    if not res:
+        rep is None or rep.append(("unexpected string [.'$Parameter'.'|'.0.description]", path))
+    return res
+
+# check _jm_obj_31_map_example (.'$Parameter'.'|'.0.example)
+def _jm_f_53(val: Jsonable, path: Path, rep: Report) -> bool:
+    res: bool
+    # .'$Parameter'.'|'.0.example
+    res = True
+    if not res:
+        rep is None or rep.append(("unexpected $ANY [.'$Parameter'.'|'.0.example]", path))
+    return res
+
+# object .'$Parameter'.'|'.0.examples
 def _jm_obj_32(val: Jsonable, path: Path, rep: Report) -> bool:
     if not isinstance(val, dict):
-        rep is None or rep.append(("not an object [.'$Parameter'.'|'.1.content]", path))
+        rep is None or rep.append(("not an object [.'$Parameter'.'|'.0.examples]", path))
         return False
     res: bool
     for prop, pval in val.items():
         assert isinstance(prop, str)
         lpath_32: Path = (path + [ prop ]) if path is not None else None
         # handle other props
-        # .'$Parameter'.'|'.1.content.''
-        res = json_model_20(pval, lpath_32 if path is not None else None, rep)
+        # .'$Parameter'.'|'.0.examples.''
+        # .'$Parameter'.'|'.0.examples.''.'|'.0
+        res = json_model_25(pval, lpath_32 if path is not None else None, rep)
         if not res:
-            rep is None or rep.append(("unexpected $MediaType [.'$Parameter'.'|'.1.content.'']", lpath_32 if path is not None else None))
+            rep is None or rep.append(("unexpected $Example [.'$Parameter'.'|'.0.examples.''.'|'.0]", lpath_32 if path is not None else None))
+        if not res:
+            # .'$Parameter'.'|'.0.examples.''.'|'.1
+            res = json_model_30(pval, lpath_32 if path is not None else None, rep)
+            if not res:
+                rep is None or rep.append(("unexpected $Reference [.'$Parameter'.'|'.0.examples.''.'|'.1]", lpath_32 if path is not None else None))
+        if res:
+            rep is None or rep.clear()
+        else:
+            rep is None or rep.append(("no model matched [.'$Parameter'.'|'.0.examples.''.'|']", lpath_32 if path is not None else None))
         if not res:
             return False
     return True
 
-# object .'$Parameter'.'|'.1
+# check _jm_obj_31_map_examples (.'$Parameter'.'|'.0.examples)
+def _jm_f_54(val: Jsonable, path: Path, rep: Report) -> bool:
+    res: bool
+    # .'$Parameter'.'|'.0.examples
+    res = _jm_obj_32(val, path, rep)
+    if not res:
+        rep is None or rep.append(("unexpected element [.'$Parameter'.'|'.0.examples]", path))
+    return res
+
+# check _jm_obj_31_map_explode (.'$Parameter'.'|'.0.explode)
+def _jm_f_55(val: Jsonable, path: Path, rep: Report) -> bool:
+    res: bool
+    # .'$Parameter'.'|'.0.explode
+    res = isinstance(val, bool)
+    if not res:
+        rep is None or rep.append(("not a bool [.'$Parameter'.'|'.0.explode]", path))
+    return res
+
+# check _jm_obj_31_map_required (.'$Parameter'.'|'.0.required)
+def _jm_f_56(val: Jsonable, path: Path, rep: Report) -> bool:
+    res: bool
+    # .'$Parameter'.'|'.0.required
+    res = isinstance(val, bool)
+    if not res:
+        rep is None or rep.append(("not a bool [.'$Parameter'.'|'.0.required]", path))
+    return res
+
+# check _jm_obj_31_map_schema (.'$Parameter'.'|'.0.schema)
+def _jm_f_57(val: Jsonable, path: Path, rep: Report) -> bool:
+    res: bool
+    # .'$Parameter'.'|'.0.schema
+    res = json_model_32(val, path, rep)
+    if not res:
+        rep is None or rep.append(("unexpected $Schema [.'$Parameter'.'|'.0.schema]", path))
+    return res
+
+# check _jm_obj_31_map_style (.'$Parameter'.'|'.0.style)
+def _jm_f_58(val: Jsonable, path: Path, rep: Report) -> bool:
+    res: bool
+    # .'$Parameter'.'|'.0.style
+    res = json_model_15(val, path, rep)
+    if not res:
+        rep is None or rep.append(("unexpected $Style [.'$Parameter'.'|'.0.style]", path))
+    return res
+
+
+# object .'$Parameter'.'|'.0
 def _jm_obj_31(val: Jsonable, path: Path, rep: Report) -> bool:
     if not isinstance(val, dict):
-        rep is None or rep.append(("not an object [.'$Parameter'.'|'.1]", path))
+        rep is None or rep.append(("not an object [.'$Parameter'.'|'.0]", path))
         return False
     res: bool
+    pfun: CheckFun
     must_count: int = 0
     for prop, pval in val.items():
         assert isinstance(prop, str)
@@ -1946,78 +2050,152 @@ def _jm_obj_31(val: Jsonable, path: Path, rep: Report) -> bool:
         if prop == "name":
             # handle must name property
             must_count += 1
+            # .'$Parameter'.'|'.0.name
+            res = isinstance(pval, str)
+            if not res:
+                rep is None or rep.append(("unexpected string [.'$Parameter'.'|'.0.name]", lpath_31 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid mandatory prop value [.'$Parameter'.'|'.0.name]", lpath_31 if path is not None else None))
+                return False
+        elif prop == "in":
+            # handle must in property
+            must_count += 1
+            # .'$Parameter'.'|'.0.in
+            res = ((pval is None or isinstance(pval, (bool, int, float, str)))) and pval in _jm_cst_2
+            if not res:
+                rep is None or rep.append(("value not in enum [.'$Parameter'.'|'.0.in.'|']", lpath_31 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid mandatory prop value [.'$Parameter'.'|'.0.in]", lpath_31 if path is not None else None))
+                return False
+        elif pfun := _jm_obj_31_map.get(prop):
+            # handle 10 may props
+            if pfun != UNDEFINED and not pfun(pval, lpath_31 if path is not None else None, rep):
+                rep is None or rep.append(("invalid optional prop value [.'$Parameter'.'|'.0]", lpath_31 if path is not None else None))
+                return False
+        elif prop.startswith("x-"):
+            # handle 1 re props
+            # .'$Parameter'.'|'.0.'/^x-/'
+            res = True
+            if not res:
+                rep is None or rep.append(("unexpected $ANY [.'$Parameter'.'|'.0.'/^x-/']", lpath_31 if path is not None else None))
+            if not res:
+                return False
+        else:
+            rep is None or rep.append(("unexpected prop [.'$Parameter'.'|'.0]", lpath_31 if path is not None else None))
+            return False
+    if must_count != 2:
+        if rep is not None:
+            if not "in" in val:
+                rep is None or rep.append(("missing mandatory prop <in> [.'$Parameter'.'|'.0]", path))
+            if not "name" in val:
+                rep is None or rep.append(("missing mandatory prop <name> [.'$Parameter'.'|'.0]", path))
+        return False
+    return True
+
+
+# object .'$Parameter'.'|'.1.content
+def _jm_obj_34(val: Jsonable, path: Path, rep: Report) -> bool:
+    if not isinstance(val, dict):
+        rep is None or rep.append(("not an object [.'$Parameter'.'|'.1.content]", path))
+        return False
+    res: bool
+    for prop, pval in val.items():
+        assert isinstance(prop, str)
+        lpath_34: Path = (path + [ prop ]) if path is not None else None
+        # handle other props
+        # .'$Parameter'.'|'.1.content.''
+        res = json_model_20(pval, lpath_34 if path is not None else None, rep)
+        if not res:
+            rep is None or rep.append(("unexpected $MediaType [.'$Parameter'.'|'.1.content.'']", lpath_34 if path is not None else None))
+        if not res:
+            return False
+    return True
+
+# object .'$Parameter'.'|'.1
+def _jm_obj_33(val: Jsonable, path: Path, rep: Report) -> bool:
+    if not isinstance(val, dict):
+        rep is None or rep.append(("not an object [.'$Parameter'.'|'.1]", path))
+        return False
+    res: bool
+    must_count: int = 0
+    for prop, pval in val.items():
+        assert isinstance(prop, str)
+        lpath_33: Path = (path + [ prop ]) if path is not None else None
+        if prop == "name":
+            # handle must name property
+            must_count += 1
             # .'$Parameter'.'|'.1.name
             res = isinstance(pval, str)
             if not res:
-                rep is None or rep.append(("unexpected string [.'$Parameter'.'|'.1.name]", lpath_31 if path is not None else None))
+                rep is None or rep.append(("unexpected string [.'$Parameter'.'|'.1.name]", lpath_33 if path is not None else None))
             if not res:
-                rep is None or rep.append(("invalid mandatory prop value [.'$Parameter'.'|'.1.name]", lpath_31 if path is not None else None))
+                rep is None or rep.append(("invalid mandatory prop value [.'$Parameter'.'|'.1.name]", lpath_33 if path is not None else None))
                 return False
         elif prop == "in":
             # handle must in property
             must_count += 1
             # .'$Parameter'.'|'.1.in
-            res = ((pval is None or isinstance(pval, (bool, int, float, str)))) and pval in _jm_cst_2
+            res = ((pval is None or isinstance(pval, (bool, int, float, str)))) and pval in _jm_cst_3
             if not res:
-                rep is None or rep.append(("value not in enum [.'$Parameter'.'|'.1.in.'|']", lpath_31 if path is not None else None))
+                rep is None or rep.append(("value not in enum [.'$Parameter'.'|'.1.in.'|']", lpath_33 if path is not None else None))
             if not res:
-                rep is None or rep.append(("invalid mandatory prop value [.'$Parameter'.'|'.1.in]", lpath_31 if path is not None else None))
+                rep is None or rep.append(("invalid mandatory prop value [.'$Parameter'.'|'.1.in]", lpath_33 if path is not None else None))
                 return False
         elif prop == "description":
             # handle may description property
             # .'$Parameter'.'|'.1.description
             res = isinstance(pval, str)
             if not res:
-                rep is None or rep.append(("unexpected string [.'$Parameter'.'|'.1.description]", lpath_31 if path is not None else None))
+                rep is None or rep.append(("unexpected string [.'$Parameter'.'|'.1.description]", lpath_33 if path is not None else None))
             if not res:
-                rep is None or rep.append(("invalid optional prop value [.'$Parameter'.'|'.1.description]", lpath_31 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$Parameter'.'|'.1.description]", lpath_33 if path is not None else None))
                 return False
         elif prop == "required":
             # handle may required property
             # .'$Parameter'.'|'.1.required
             res = isinstance(pval, bool)
             if not res:
-                rep is None or rep.append(("not a bool [.'$Parameter'.'|'.1.required]", lpath_31 if path is not None else None))
+                rep is None or rep.append(("not a bool [.'$Parameter'.'|'.1.required]", lpath_33 if path is not None else None))
             if not res:
-                rep is None or rep.append(("invalid optional prop value [.'$Parameter'.'|'.1.required]", lpath_31 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$Parameter'.'|'.1.required]", lpath_33 if path is not None else None))
                 return False
         elif prop == "deprecated":
             # handle may deprecated property
             # .'$Parameter'.'|'.1.deprecated
             res = isinstance(pval, bool)
             if not res:
-                rep is None or rep.append(("not a bool [.'$Parameter'.'|'.1.deprecated]", lpath_31 if path is not None else None))
+                rep is None or rep.append(("not a bool [.'$Parameter'.'|'.1.deprecated]", lpath_33 if path is not None else None))
             if not res:
-                rep is None or rep.append(("invalid optional prop value [.'$Parameter'.'|'.1.deprecated]", lpath_31 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$Parameter'.'|'.1.deprecated]", lpath_33 if path is not None else None))
                 return False
         elif prop == "allowEmptyValue":
             # handle may allowEmptyValue property
             # .'$Parameter'.'|'.1.allowEmptyValue
             res = isinstance(pval, bool)
             if not res:
-                rep is None or rep.append(("not a bool [.'$Parameter'.'|'.1.allowEmptyValue]", lpath_31 if path is not None else None))
+                rep is None or rep.append(("not a bool [.'$Parameter'.'|'.1.allowEmptyValue]", lpath_33 if path is not None else None))
             if not res:
-                rep is None or rep.append(("invalid optional prop value [.'$Parameter'.'|'.1.allowEmptyValue]", lpath_31 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$Parameter'.'|'.1.allowEmptyValue]", lpath_33 if path is not None else None))
                 return False
         elif prop == "content":
             # handle may content property
             # .'$Parameter'.'|'.1.content
-            res = _jm_obj_32(pval, lpath_31 if path is not None else None, rep)
+            res = _jm_obj_34(pval, lpath_33 if path is not None else None, rep)
             if not res:
-                rep is None or rep.append(("unexpected element [.'$Parameter'.'|'.1.content]", lpath_31 if path is not None else None))
+                rep is None or rep.append(("unexpected element [.'$Parameter'.'|'.1.content]", lpath_33 if path is not None else None))
             if not res:
-                rep is None or rep.append(("invalid optional prop value [.'$Parameter'.'|'.1.content]", lpath_31 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$Parameter'.'|'.1.content]", lpath_33 if path is not None else None))
                 return False
         elif prop.startswith("x-"):
             # handle 1 re props
             # .'$Parameter'.'|'.1.'/^x-/'
             res = True
             if not res:
-                rep is None or rep.append(("unexpected $ANY [.'$Parameter'.'|'.1.'/^x-/']", lpath_31 if path is not None else None))
+                rep is None or rep.append(("unexpected $ANY [.'$Parameter'.'|'.1.'/^x-/']", lpath_33 if path is not None else None))
             if not res:
                 return False
         else:
-            rep is None or rep.append(("unexpected prop [.'$Parameter'.'|'.1]", lpath_31 if path is not None else None))
+            rep is None or rep.append(("unexpected prop [.'$Parameter'.'|'.1]", lpath_33 if path is not None else None))
             return False
     if must_count != 2:
         if rep is not None:
@@ -2029,202 +2207,26 @@ def _jm_obj_31(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 
-# check _jm_obj_33_map_allowEmptyValue (.'$Parameter'.'|'.0.allowEmptyValue)
-def _jm_f_49(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .'$Parameter'.'|'.0.allowEmptyValue
-    res = isinstance(val, bool)
-    if not res:
-        rep is None or rep.append(("not a bool [.'$Parameter'.'|'.0.allowEmptyValue]", path))
-    return res
-
-# check _jm_obj_33_map_allowReserved (.'$Parameter'.'|'.0.allowReserved)
-def _jm_f_50(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .'$Parameter'.'|'.0.allowReserved
-    res = isinstance(val, bool)
-    if not res:
-        rep is None or rep.append(("not a bool [.'$Parameter'.'|'.0.allowReserved]", path))
-    return res
-
-# check _jm_obj_33_map_deprecated (.'$Parameter'.'|'.0.deprecated)
-def _jm_f_51(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .'$Parameter'.'|'.0.deprecated
-    res = isinstance(val, bool)
-    if not res:
-        rep is None or rep.append(("not a bool [.'$Parameter'.'|'.0.deprecated]", path))
-    return res
-
-# check _jm_obj_33_map_description (.'$Parameter'.'|'.0.description)
-def _jm_f_52(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .'$Parameter'.'|'.0.description
-    res = isinstance(val, str)
-    if not res:
-        rep is None or rep.append(("unexpected string [.'$Parameter'.'|'.0.description]", path))
-    return res
-
-# check _jm_obj_33_map_example (.'$Parameter'.'|'.0.example)
-def _jm_f_53(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .'$Parameter'.'|'.0.example
-    res = True
-    if not res:
-        rep is None or rep.append(("unexpected $ANY [.'$Parameter'.'|'.0.example]", path))
-    return res
-
-# object .'$Parameter'.'|'.0.examples
-def _jm_obj_34(val: Jsonable, path: Path, rep: Report) -> bool:
-    if not isinstance(val, dict):
-        rep is None or rep.append(("not an object [.'$Parameter'.'|'.0.examples]", path))
-        return False
-    res: bool
-    for prop, pval in val.items():
-        assert isinstance(prop, str)
-        lpath_34: Path = (path + [ prop ]) if path is not None else None
-        # handle other props
-        # .'$Parameter'.'|'.0.examples.''
-        # .'$Parameter'.'|'.0.examples.''.'|'.0
-        res = json_model_25(pval, lpath_34 if path is not None else None, rep)
-        if not res:
-            rep is None or rep.append(("unexpected $Example [.'$Parameter'.'|'.0.examples.''.'|'.0]", lpath_34 if path is not None else None))
-        if not res:
-            # .'$Parameter'.'|'.0.examples.''.'|'.1
-            res = json_model_30(pval, lpath_34 if path is not None else None, rep)
-            if not res:
-                rep is None or rep.append(("unexpected $Reference [.'$Parameter'.'|'.0.examples.''.'|'.1]", lpath_34 if path is not None else None))
-        if res:
-            rep is None or rep.clear()
-        else:
-            rep is None or rep.append(("no model matched [.'$Parameter'.'|'.0.examples.''.'|']", lpath_34 if path is not None else None))
-        if not res:
-            return False
-    return True
-
-# check _jm_obj_33_map_examples (.'$Parameter'.'|'.0.examples)
-def _jm_f_54(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .'$Parameter'.'|'.0.examples
-    res = _jm_obj_34(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected element [.'$Parameter'.'|'.0.examples]", path))
-    return res
-
-# check _jm_obj_33_map_explode (.'$Parameter'.'|'.0.explode)
-def _jm_f_55(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .'$Parameter'.'|'.0.explode
-    res = isinstance(val, bool)
-    if not res:
-        rep is None or rep.append(("not a bool [.'$Parameter'.'|'.0.explode]", path))
-    return res
-
-# check _jm_obj_33_map_required (.'$Parameter'.'|'.0.required)
-def _jm_f_56(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .'$Parameter'.'|'.0.required
-    res = isinstance(val, bool)
-    if not res:
-        rep is None or rep.append(("not a bool [.'$Parameter'.'|'.0.required]", path))
-    return res
-
-# check _jm_obj_33_map_schema (.'$Parameter'.'|'.0.schema)
-def _jm_f_57(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .'$Parameter'.'|'.0.schema
-    res = json_model_32(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected $Schema [.'$Parameter'.'|'.0.schema]", path))
-    return res
-
-# check _jm_obj_33_map_style (.'$Parameter'.'|'.0.style)
-def _jm_f_58(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .'$Parameter'.'|'.0.style
-    res = json_model_15(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected $Style [.'$Parameter'.'|'.0.style]", path))
-    return res
-
-
-# object .'$Parameter'.'|'.0
-def _jm_obj_33(val: Jsonable, path: Path, rep: Report) -> bool:
-    if not isinstance(val, dict):
-        rep is None or rep.append(("not an object [.'$Parameter'.'|'.0]", path))
-        return False
-    res: bool
-    pfun: CheckFun
-    must_count: int = 0
-    for prop, pval in val.items():
-        assert isinstance(prop, str)
-        lpath_33: Path = (path + [ prop ]) if path is not None else None
-        if prop == "name":
-            # handle must name property
-            must_count += 1
-            # .'$Parameter'.'|'.0.name
-            res = isinstance(pval, str)
-            if not res:
-                rep is None or rep.append(("unexpected string [.'$Parameter'.'|'.0.name]", lpath_33 if path is not None else None))
-            if not res:
-                rep is None or rep.append(("invalid mandatory prop value [.'$Parameter'.'|'.0.name]", lpath_33 if path is not None else None))
-                return False
-        elif prop == "in":
-            # handle must in property
-            must_count += 1
-            # .'$Parameter'.'|'.0.in
-            res = ((pval is None or isinstance(pval, (bool, int, float, str)))) and pval in _jm_cst_3
-            if not res:
-                rep is None or rep.append(("value not in enum [.'$Parameter'.'|'.0.in.'|']", lpath_33 if path is not None else None))
-            if not res:
-                rep is None or rep.append(("invalid mandatory prop value [.'$Parameter'.'|'.0.in]", lpath_33 if path is not None else None))
-                return False
-        elif pfun := _jm_obj_33_map.get(prop):
-            # handle 10 may props
-            if pfun != UNDEFINED and not pfun(pval, lpath_33 if path is not None else None, rep):
-                rep is None or rep.append(("invalid optional prop value [.'$Parameter'.'|'.0]", lpath_33 if path is not None else None))
-                return False
-        elif prop.startswith("x-"):
-            # handle 1 re props
-            # .'$Parameter'.'|'.0.'/^x-/'
-            res = True
-            if not res:
-                rep is None or rep.append(("unexpected $ANY [.'$Parameter'.'|'.0.'/^x-/']", lpath_33 if path is not None else None))
-            if not res:
-                return False
-        else:
-            rep is None or rep.append(("unexpected prop [.'$Parameter'.'|'.0]", lpath_33 if path is not None else None))
-            return False
-    if must_count != 2:
-        if rep is not None:
-            if not "in" in val:
-                rep is None or rep.append(("missing mandatory prop <in> [.'$Parameter'.'|'.0]", path))
-            if not "name" in val:
-                rep is None or rep.append(("missing mandatory prop <name> [.'$Parameter'.'|'.0]", path))
-        return False
-    return True
-
 # check $Parameter (.'$Parameter')
 def json_model_18(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$Parameter'
-    res = isinstance(val, dict)
-    if not res:
-        rep is None or rep.append(("unexpected type [.'$Parameter'.'|']", path))
+    iso_0: bool = isinstance(val, dict)
+    res = iso_0
     if res:
-        # .'$Parameter'.'|'.0
-        res = _jm_obj_33(val, path, rep)
-        if not res:
-            rep is None or rep.append(("unexpected element [.'$Parameter'.'|'.0]", path))
-        if not res:
-            # .'$Parameter'.'|'.1
-            res = _jm_obj_31(val, path, rep)
-            if not res:
-                rep is None or rep.append(("unexpected element [.'$Parameter'.'|'.1]", path))
-        if res:
-            rep is None or rep.clear()
+        if "in" in val:
+            tag_0: Jsonable = val.get("in", UNDEFINED)
+            fun_0: CheckFun = _jm_map_0.get(tag_0, UNDEFINED)
+            if fun_0 != UNDEFINED:
+                res = fun_0(val, path, rep)
+            else:
+                res = False
+                rep is None or rep.append(("tag <in> value not found [.'$Parameter'.'|']", path))
         else:
-            rep is None or rep.append(("no model matched [.'$Parameter'.'|']", path))
+            res = False
+            rep is None or rep.append(("tag prop <in> is missing [.'$Parameter'.'|']", path))
+    else:
+        rep is None or rep.append(("value is not an object [.'$Parameter'.'|']", path))
     return res
 
 # object .'$RequestBody'.content
@@ -4570,254 +4572,9 @@ def json_model_39(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("unexpected element [.'$SS-oic']", path))
     return res
 
-# object .'$SecurityScheme'.'|'.5
-def _jm_obj_74(val: Jsonable, path: Path, rep: Report) -> bool:
-    if not isinstance(val, dict):
-        rep is None or rep.append(("not an object [.'$SecurityScheme'.'|'.5]", path))
-        return False
-    res: bool
-    for prop, pval in val.items():
-        assert isinstance(prop, str)
-        lpath_72: Path = (path + [ prop ]) if path is not None else None
-        if prop == "description":
-            # handle may description property
-            # .'$SecurityScheme'.'|'.5.description
-            res = isinstance(pval, str)
-            if not res:
-                rep is None or rep.append(("unexpected string [.'$SecurityScheme'.'|'.5.description]", lpath_72 if path is not None else None))
-            if not res:
-                rep is None or rep.append(("invalid optional prop value [.'$SecurityScheme'.'|'.5.description]", lpath_72 if path is not None else None))
-                return False
-        elif prop.startswith("x-"):
-            # handle 1 re props
-            # .'$SecurityScheme'.'|'.5.'/^x-/'
-            res = True
-            if not res:
-                rep is None or rep.append(("unexpected $ANY [.'$SecurityScheme'.'|'.5.'/^x-/']", lpath_72 if path is not None else None))
-            if not res:
-                return False
-        else:
-            rep is None or rep.append(("unexpected prop [.'$SecurityScheme'.'|'.5]", lpath_72 if path is not None else None))
-            return False
-    return True
-
-# object .'$SecurityScheme'.'|'.4
-def _jm_obj_75(val: Jsonable, path: Path, rep: Report) -> bool:
-    if not isinstance(val, dict):
-        rep is None or rep.append(("not an object [.'$SecurityScheme'.'|'.4]", path))
-        return False
-    res: bool
-    must_count: int = 0
-    for prop, pval in val.items():
-        assert isinstance(prop, str)
-        lpath_73: Path = (path + [ prop ]) if path is not None else None
-        if prop == "type":
-            # handle must type property
-            must_count += 1
-            # .'$SecurityScheme'.'|'.4.type
-            res = isinstance(pval, str) and pval == "openIdConnect"
-            if not res:
-                rep is None or rep.append(("unexpected _openIdConnect [.'$SecurityScheme'.'|'.4.type]", lpath_73 if path is not None else None))
-            if not res:
-                rep is None or rep.append(("invalid mandatory prop value [.'$SecurityScheme'.'|'.4.type]", lpath_73 if path is not None else None))
-                return False
-        elif prop == "openIdConnectUrl":
-            # handle must openIdConnectUrl property
-            must_count += 1
-            # .'$SecurityScheme'.'|'.4.openIdConnectUrl
-            res = is_valid_url(pval, lpath_73 if path is not None else None, rep)
-            if not res:
-                rep is None or rep.append(("unexpected $URL [.'$SecurityScheme'.'|'.4.openIdConnectUrl]", lpath_73 if path is not None else None))
-            if not res:
-                rep is None or rep.append(("invalid mandatory prop value [.'$SecurityScheme'.'|'.4.openIdConnectUrl]", lpath_73 if path is not None else None))
-                return False
-        elif prop == "description":
-            # handle may description property
-            # .'$SecurityScheme'.'|'.4.description
-            res = isinstance(pval, str)
-            if not res:
-                rep is None or rep.append(("unexpected string [.'$SecurityScheme'.'|'.4.description]", lpath_73 if path is not None else None))
-            if not res:
-                rep is None or rep.append(("invalid optional prop value [.'$SecurityScheme'.'|'.4.description]", lpath_73 if path is not None else None))
-                return False
-        else:
-            rep is None or rep.append(("unexpected prop [.'$SecurityScheme'.'|'.4]", lpath_73 if path is not None else None))
-            return False
-    if must_count != 2:
-        if rep is not None:
-            if not "openIdConnectUrl" in val:
-                rep is None or rep.append(("missing mandatory prop <openIdConnectUrl> [.'$SecurityScheme'.'|'.4]", path))
-            if not "type" in val:
-                rep is None or rep.append(("missing mandatory prop <type> [.'$SecurityScheme'.'|'.4]", path))
-        return False
-    return True
-
-# object .'$SecurityScheme'.'|'.3
-def _jm_obj_76(val: Jsonable, path: Path, rep: Report) -> bool:
-    if not isinstance(val, dict):
-        rep is None or rep.append(("not an object [.'$SecurityScheme'.'|'.3]", path))
-        return False
-    res: bool
-    must_count: int = 0
-    for prop, pval in val.items():
-        assert isinstance(prop, str)
-        lpath_74: Path = (path + [ prop ]) if path is not None else None
-        if prop == "type":
-            # handle must type property
-            must_count += 1
-            # .'$SecurityScheme'.'|'.3.type
-            res = isinstance(pval, str) and pval == "oauth2"
-            if not res:
-                rep is None or rep.append(("unexpected _oauth2 [.'$SecurityScheme'.'|'.3.type]", lpath_74 if path is not None else None))
-            if not res:
-                rep is None or rep.append(("invalid mandatory prop value [.'$SecurityScheme'.'|'.3.type]", lpath_74 if path is not None else None))
-                return False
-        elif prop == "flows":
-            # handle must flows property
-            must_count += 1
-            # .'$SecurityScheme'.'|'.3.flows
-            res = json_model_41(pval, lpath_74 if path is not None else None, rep)
-            if not res:
-                rep is None or rep.append(("unexpected $OAuthFlows [.'$SecurityScheme'.'|'.3.flows]", lpath_74 if path is not None else None))
-            if not res:
-                rep is None or rep.append(("invalid mandatory prop value [.'$SecurityScheme'.'|'.3.flows]", lpath_74 if path is not None else None))
-                return False
-        elif prop == "description":
-            # handle may description property
-            # .'$SecurityScheme'.'|'.3.description
-            res = isinstance(pval, str)
-            if not res:
-                rep is None or rep.append(("unexpected string [.'$SecurityScheme'.'|'.3.description]", lpath_74 if path is not None else None))
-            if not res:
-                rep is None or rep.append(("invalid optional prop value [.'$SecurityScheme'.'|'.3.description]", lpath_74 if path is not None else None))
-                return False
-        else:
-            rep is None or rep.append(("unexpected prop [.'$SecurityScheme'.'|'.3]", lpath_74 if path is not None else None))
-            return False
-    if must_count != 2:
-        if rep is not None:
-            if not "flows" in val:
-                rep is None or rep.append(("missing mandatory prop <flows> [.'$SecurityScheme'.'|'.3]", path))
-            if not "type" in val:
-                rep is None or rep.append(("missing mandatory prop <type> [.'$SecurityScheme'.'|'.3]", path))
-        return False
-    return True
-
-# object .'$SecurityScheme'.'|'.2
-def _jm_obj_77(val: Jsonable, path: Path, rep: Report) -> bool:
-    if not isinstance(val, dict):
-        rep is None or rep.append(("not an object [.'$SecurityScheme'.'|'.2]", path))
-        return False
-    res: bool
-    must_count: int = 0
-    for prop, pval in val.items():
-        assert isinstance(prop, str)
-        lpath_75: Path = (path + [ prop ]) if path is not None else None
-        if prop == "type":
-            # handle must type property
-            must_count += 1
-            # .'$SecurityScheme'.'|'.2.type
-            res = isinstance(pval, str) and pval == "http"
-            if not res:
-                rep is None or rep.append(("unexpected _http [.'$SecurityScheme'.'|'.2.type]", lpath_75 if path is not None else None))
-            if not res:
-                rep is None or rep.append(("invalid mandatory prop value [.'$SecurityScheme'.'|'.2.type]", lpath_75 if path is not None else None))
-                return False
-        elif prop == "scheme":
-            # handle must scheme property
-            must_count += 1
-            # .'$SecurityScheme'.'|'.2.scheme
-            res = isinstance(pval, str)
-            if not res:
-                rep is None or rep.append(("unexpected string [.'$SecurityScheme'.'|'.2.scheme]", lpath_75 if path is not None else None))
-            if not res:
-                rep is None or rep.append(("invalid mandatory prop value [.'$SecurityScheme'.'|'.2.scheme]", lpath_75 if path is not None else None))
-                return False
-        elif prop == "description":
-            # handle may description property
-            # .'$SecurityScheme'.'|'.2.description
-            res = isinstance(pval, str)
-            if not res:
-                rep is None or rep.append(("unexpected string [.'$SecurityScheme'.'|'.2.description]", lpath_75 if path is not None else None))
-            if not res:
-                rep is None or rep.append(("invalid optional prop value [.'$SecurityScheme'.'|'.2.description]", lpath_75 if path is not None else None))
-                return False
-        else:
-            rep is None or rep.append(("unexpected prop [.'$SecurityScheme'.'|'.2]", lpath_75 if path is not None else None))
-            return False
-    if must_count != 2:
-        if rep is not None:
-            if not "scheme" in val:
-                rep is None or rep.append(("missing mandatory prop <scheme> [.'$SecurityScheme'.'|'.2]", path))
-            if not "type" in val:
-                rep is None or rep.append(("missing mandatory prop <type> [.'$SecurityScheme'.'|'.2]", path))
-        return False
-    return True
-
-# object .'$SecurityScheme'.'|'.1
-def _jm_obj_78(val: Jsonable, path: Path, rep: Report) -> bool:
-    if not isinstance(val, dict):
-        rep is None or rep.append(("not an object [.'$SecurityScheme'.'|'.1]", path))
-        return False
-    res: bool
-    must_count: int = 0
-    for prop, pval in val.items():
-        assert isinstance(prop, str)
-        lpath_76: Path = (path + [ prop ]) if path is not None else None
-        if prop == "type":
-            # handle must type property
-            must_count += 1
-            # .'$SecurityScheme'.'|'.1.type
-            res = isinstance(pval, str) and pval == "http"
-            if not res:
-                rep is None or rep.append(("unexpected _http [.'$SecurityScheme'.'|'.1.type]", lpath_76 if path is not None else None))
-            if not res:
-                rep is None or rep.append(("invalid mandatory prop value [.'$SecurityScheme'.'|'.1.type]", lpath_76 if path is not None else None))
-                return False
-        elif prop == "scheme":
-            # handle must scheme property
-            must_count += 1
-            # .'$SecurityScheme'.'|'.1.scheme
-            # "/bearer/i"
-            res = isinstance(pval, str) and _jm_re_3(pval, lpath_76 if path is not None else None, rep)
-            if not res:
-                rep is None or rep.append(("unexpected /bearer/i [.'$SecurityScheme'.'|'.1.scheme]", lpath_76 if path is not None else None))
-            if not res:
-                rep is None or rep.append(("invalid mandatory prop value [.'$SecurityScheme'.'|'.1.scheme]", lpath_76 if path is not None else None))
-                return False
-        elif prop == "bearerFormat":
-            # handle may bearerFormat property
-            # .'$SecurityScheme'.'|'.1.bearerFormat
-            res = isinstance(pval, str)
-            if not res:
-                rep is None or rep.append(("unexpected string [.'$SecurityScheme'.'|'.1.bearerFormat]", lpath_76 if path is not None else None))
-            if not res:
-                rep is None or rep.append(("invalid optional prop value [.'$SecurityScheme'.'|'.1.bearerFormat]", lpath_76 if path is not None else None))
-                return False
-        elif prop == "description":
-            # handle may description property
-            # .'$SecurityScheme'.'|'.1.description
-            res = isinstance(pval, str)
-            if not res:
-                rep is None or rep.append(("unexpected string [.'$SecurityScheme'.'|'.1.description]", lpath_76 if path is not None else None))
-            if not res:
-                rep is None or rep.append(("invalid optional prop value [.'$SecurityScheme'.'|'.1.description]", lpath_76 if path is not None else None))
-                return False
-        else:
-            rep is None or rep.append(("unexpected prop [.'$SecurityScheme'.'|'.1]", lpath_76 if path is not None else None))
-            return False
-    if must_count != 2:
-        if rep is not None:
-            if not "scheme" in val:
-                rep is None or rep.append(("missing mandatory prop <scheme> [.'$SecurityScheme'.'|'.1]", path))
-            if not "type" in val:
-                rep is None or rep.append(("missing mandatory prop <type> [.'$SecurityScheme'.'|'.1]", path))
-        return False
-    return True
-
 
 # object .'$SecurityScheme'.'|'.0
-def _jm_obj_79(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_obj_74(val: Jsonable, path: Path, rep: Report) -> bool:
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$SecurityScheme'.'|'.0]", path))
         return False
@@ -4825,16 +4582,16 @@ def _jm_obj_79(val: Jsonable, path: Path, rep: Report) -> bool:
     must_count: int = 0
     for prop, pval in val.items():
         assert isinstance(prop, str)
-        lpath_77: Path = (path + [ prop ]) if path is not None else None
+        lpath_72: Path = (path + [ prop ]) if path is not None else None
         if prop == "type":
             # handle must type property
             must_count += 1
             # .'$SecurityScheme'.'|'.0.type
             res = isinstance(pval, str) and pval == "apiKey"
             if not res:
-                rep is None or rep.append(("unexpected _apiKey [.'$SecurityScheme'.'|'.0.type]", lpath_77 if path is not None else None))
+                rep is None or rep.append(("unexpected _apiKey [.'$SecurityScheme'.'|'.0.type]", lpath_72 if path is not None else None))
             if not res:
-                rep is None or rep.append(("invalid mandatory prop value [.'$SecurityScheme'.'|'.0.type]", lpath_77 if path is not None else None))
+                rep is None or rep.append(("invalid mandatory prop value [.'$SecurityScheme'.'|'.0.type]", lpath_72 if path is not None else None))
                 return False
         elif prop == "name":
             # handle must name property
@@ -4842,9 +4599,9 @@ def _jm_obj_79(val: Jsonable, path: Path, rep: Report) -> bool:
             # .'$SecurityScheme'.'|'.0.name
             res = isinstance(pval, str)
             if not res:
-                rep is None or rep.append(("unexpected string [.'$SecurityScheme'.'|'.0.name]", lpath_77 if path is not None else None))
+                rep is None or rep.append(("unexpected string [.'$SecurityScheme'.'|'.0.name]", lpath_72 if path is not None else None))
             if not res:
-                rep is None or rep.append(("invalid mandatory prop value [.'$SecurityScheme'.'|'.0.name]", lpath_77 if path is not None else None))
+                rep is None or rep.append(("invalid mandatory prop value [.'$SecurityScheme'.'|'.0.name]", lpath_72 if path is not None else None))
                 return False
         elif prop == "in":
             # handle must in property
@@ -4852,21 +4609,21 @@ def _jm_obj_79(val: Jsonable, path: Path, rep: Report) -> bool:
             # .'$SecurityScheme'.'|'.0.in
             res = ((pval is None or isinstance(pval, (bool, int, float, str)))) and pval in _jm_cst_5
             if not res:
-                rep is None or rep.append(("value not in enum [.'$SecurityScheme'.'|'.0.in.'|']", lpath_77 if path is not None else None))
+                rep is None or rep.append(("value not in enum [.'$SecurityScheme'.'|'.0.in.'|']", lpath_72 if path is not None else None))
             if not res:
-                rep is None or rep.append(("invalid mandatory prop value [.'$SecurityScheme'.'|'.0.in]", lpath_77 if path is not None else None))
+                rep is None or rep.append(("invalid mandatory prop value [.'$SecurityScheme'.'|'.0.in]", lpath_72 if path is not None else None))
                 return False
         elif prop == "description":
             # handle may description property
             # .'$SecurityScheme'.'|'.0.description
             res = isinstance(pval, str)
             if not res:
-                rep is None or rep.append(("unexpected string [.'$SecurityScheme'.'|'.0.description]", lpath_77 if path is not None else None))
+                rep is None or rep.append(("unexpected string [.'$SecurityScheme'.'|'.0.description]", lpath_72 if path is not None else None))
             if not res:
-                rep is None or rep.append(("invalid optional prop value [.'$SecurityScheme'.'|'.0.description]", lpath_77 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$SecurityScheme'.'|'.0.description]", lpath_72 if path is not None else None))
                 return False
         else:
-            rep is None or rep.append(("unexpected prop [.'$SecurityScheme'.'|'.0]", lpath_77 if path is not None else None))
+            rep is None or rep.append(("unexpected prop [.'$SecurityScheme'.'|'.0]", lpath_72 if path is not None else None))
             return False
     if must_count != 3:
         if rep is not None:
@@ -4879,47 +4636,277 @@ def _jm_obj_79(val: Jsonable, path: Path, rep: Report) -> bool:
         return False
     return True
 
+# object .'$SecurityScheme'.'|'.1
+def _jm_obj_75(val: Jsonable, path: Path, rep: Report) -> bool:
+    if not isinstance(val, dict):
+        rep is None or rep.append(("not an object [.'$SecurityScheme'.'|'.1]", path))
+        return False
+    res: bool
+    must_count: int = 0
+    for prop, pval in val.items():
+        assert isinstance(prop, str)
+        lpath_73: Path = (path + [ prop ]) if path is not None else None
+        if prop == "type":
+            # handle must type property
+            must_count += 1
+            # .'$SecurityScheme'.'|'.1.type
+            res = isinstance(pval, str) and pval == "http"
+            if not res:
+                rep is None or rep.append(("unexpected _http [.'$SecurityScheme'.'|'.1.type]", lpath_73 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid mandatory prop value [.'$SecurityScheme'.'|'.1.type]", lpath_73 if path is not None else None))
+                return False
+        elif prop == "scheme":
+            # handle must scheme property
+            must_count += 1
+            # .'$SecurityScheme'.'|'.1.scheme
+            # "/bearer/i"
+            res = isinstance(pval, str) and _jm_re_3(pval, lpath_73 if path is not None else None, rep)
+            if not res:
+                rep is None or rep.append(("unexpected /bearer/i [.'$SecurityScheme'.'|'.1.scheme]", lpath_73 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid mandatory prop value [.'$SecurityScheme'.'|'.1.scheme]", lpath_73 if path is not None else None))
+                return False
+        elif prop == "bearerFormat":
+            # handle may bearerFormat property
+            # .'$SecurityScheme'.'|'.1.bearerFormat
+            res = isinstance(pval, str)
+            if not res:
+                rep is None or rep.append(("unexpected string [.'$SecurityScheme'.'|'.1.bearerFormat]", lpath_73 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid optional prop value [.'$SecurityScheme'.'|'.1.bearerFormat]", lpath_73 if path is not None else None))
+                return False
+        elif prop == "description":
+            # handle may description property
+            # .'$SecurityScheme'.'|'.1.description
+            res = isinstance(pval, str)
+            if not res:
+                rep is None or rep.append(("unexpected string [.'$SecurityScheme'.'|'.1.description]", lpath_73 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid optional prop value [.'$SecurityScheme'.'|'.1.description]", lpath_73 if path is not None else None))
+                return False
+        else:
+            rep is None or rep.append(("unexpected prop [.'$SecurityScheme'.'|'.1]", lpath_73 if path is not None else None))
+            return False
+    if must_count != 2:
+        if rep is not None:
+            if not "scheme" in val:
+                rep is None or rep.append(("missing mandatory prop <scheme> [.'$SecurityScheme'.'|'.1]", path))
+            if not "type" in val:
+                rep is None or rep.append(("missing mandatory prop <type> [.'$SecurityScheme'.'|'.1]", path))
+        return False
+    return True
+
+# object .'$SecurityScheme'.'|'.2
+def _jm_obj_76(val: Jsonable, path: Path, rep: Report) -> bool:
+    if not isinstance(val, dict):
+        rep is None or rep.append(("not an object [.'$SecurityScheme'.'|'.2]", path))
+        return False
+    res: bool
+    must_count: int = 0
+    for prop, pval in val.items():
+        assert isinstance(prop, str)
+        lpath_74: Path = (path + [ prop ]) if path is not None else None
+        if prop == "type":
+            # handle must type property
+            must_count += 1
+            # .'$SecurityScheme'.'|'.2.type
+            res = isinstance(pval, str) and pval == "http"
+            if not res:
+                rep is None or rep.append(("unexpected _http [.'$SecurityScheme'.'|'.2.type]", lpath_74 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid mandatory prop value [.'$SecurityScheme'.'|'.2.type]", lpath_74 if path is not None else None))
+                return False
+        elif prop == "scheme":
+            # handle must scheme property
+            must_count += 1
+            # .'$SecurityScheme'.'|'.2.scheme
+            res = isinstance(pval, str)
+            if not res:
+                rep is None or rep.append(("unexpected string [.'$SecurityScheme'.'|'.2.scheme]", lpath_74 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid mandatory prop value [.'$SecurityScheme'.'|'.2.scheme]", lpath_74 if path is not None else None))
+                return False
+        elif prop == "description":
+            # handle may description property
+            # .'$SecurityScheme'.'|'.2.description
+            res = isinstance(pval, str)
+            if not res:
+                rep is None or rep.append(("unexpected string [.'$SecurityScheme'.'|'.2.description]", lpath_74 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid optional prop value [.'$SecurityScheme'.'|'.2.description]", lpath_74 if path is not None else None))
+                return False
+        else:
+            rep is None or rep.append(("unexpected prop [.'$SecurityScheme'.'|'.2]", lpath_74 if path is not None else None))
+            return False
+    if must_count != 2:
+        if rep is not None:
+            if not "scheme" in val:
+                rep is None or rep.append(("missing mandatory prop <scheme> [.'$SecurityScheme'.'|'.2]", path))
+            if not "type" in val:
+                rep is None or rep.append(("missing mandatory prop <type> [.'$SecurityScheme'.'|'.2]", path))
+        return False
+    return True
+
+# object .'$SecurityScheme'.'|'.3
+def _jm_obj_77(val: Jsonable, path: Path, rep: Report) -> bool:
+    if not isinstance(val, dict):
+        rep is None or rep.append(("not an object [.'$SecurityScheme'.'|'.3]", path))
+        return False
+    res: bool
+    must_count: int = 0
+    for prop, pval in val.items():
+        assert isinstance(prop, str)
+        lpath_75: Path = (path + [ prop ]) if path is not None else None
+        if prop == "type":
+            # handle must type property
+            must_count += 1
+            # .'$SecurityScheme'.'|'.3.type
+            res = isinstance(pval, str) and pval == "oauth2"
+            if not res:
+                rep is None or rep.append(("unexpected _oauth2 [.'$SecurityScheme'.'|'.3.type]", lpath_75 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid mandatory prop value [.'$SecurityScheme'.'|'.3.type]", lpath_75 if path is not None else None))
+                return False
+        elif prop == "flows":
+            # handle must flows property
+            must_count += 1
+            # .'$SecurityScheme'.'|'.3.flows
+            res = json_model_41(pval, lpath_75 if path is not None else None, rep)
+            if not res:
+                rep is None or rep.append(("unexpected $OAuthFlows [.'$SecurityScheme'.'|'.3.flows]", lpath_75 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid mandatory prop value [.'$SecurityScheme'.'|'.3.flows]", lpath_75 if path is not None else None))
+                return False
+        elif prop == "description":
+            # handle may description property
+            # .'$SecurityScheme'.'|'.3.description
+            res = isinstance(pval, str)
+            if not res:
+                rep is None or rep.append(("unexpected string [.'$SecurityScheme'.'|'.3.description]", lpath_75 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid optional prop value [.'$SecurityScheme'.'|'.3.description]", lpath_75 if path is not None else None))
+                return False
+        else:
+            rep is None or rep.append(("unexpected prop [.'$SecurityScheme'.'|'.3]", lpath_75 if path is not None else None))
+            return False
+    if must_count != 2:
+        if rep is not None:
+            if not "flows" in val:
+                rep is None or rep.append(("missing mandatory prop <flows> [.'$SecurityScheme'.'|'.3]", path))
+            if not "type" in val:
+                rep is None or rep.append(("missing mandatory prop <type> [.'$SecurityScheme'.'|'.3]", path))
+        return False
+    return True
+
+# object .'$SecurityScheme'.'|'.4
+def _jm_obj_78(val: Jsonable, path: Path, rep: Report) -> bool:
+    if not isinstance(val, dict):
+        rep is None or rep.append(("not an object [.'$SecurityScheme'.'|'.4]", path))
+        return False
+    res: bool
+    must_count: int = 0
+    for prop, pval in val.items():
+        assert isinstance(prop, str)
+        lpath_76: Path = (path + [ prop ]) if path is not None else None
+        if prop == "type":
+            # handle must type property
+            must_count += 1
+            # .'$SecurityScheme'.'|'.4.type
+            res = isinstance(pval, str) and pval == "openIdConnect"
+            if not res:
+                rep is None or rep.append(("unexpected _openIdConnect [.'$SecurityScheme'.'|'.4.type]", lpath_76 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid mandatory prop value [.'$SecurityScheme'.'|'.4.type]", lpath_76 if path is not None else None))
+                return False
+        elif prop == "openIdConnectUrl":
+            # handle must openIdConnectUrl property
+            must_count += 1
+            # .'$SecurityScheme'.'|'.4.openIdConnectUrl
+            res = is_valid_url(pval, lpath_76 if path is not None else None, rep)
+            if not res:
+                rep is None or rep.append(("unexpected $URL [.'$SecurityScheme'.'|'.4.openIdConnectUrl]", lpath_76 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid mandatory prop value [.'$SecurityScheme'.'|'.4.openIdConnectUrl]", lpath_76 if path is not None else None))
+                return False
+        elif prop == "description":
+            # handle may description property
+            # .'$SecurityScheme'.'|'.4.description
+            res = isinstance(pval, str)
+            if not res:
+                rep is None or rep.append(("unexpected string [.'$SecurityScheme'.'|'.4.description]", lpath_76 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid optional prop value [.'$SecurityScheme'.'|'.4.description]", lpath_76 if path is not None else None))
+                return False
+        else:
+            rep is None or rep.append(("unexpected prop [.'$SecurityScheme'.'|'.4]", lpath_76 if path is not None else None))
+            return False
+    if must_count != 2:
+        if rep is not None:
+            if not "openIdConnectUrl" in val:
+                rep is None or rep.append(("missing mandatory prop <openIdConnectUrl> [.'$SecurityScheme'.'|'.4]", path))
+            if not "type" in val:
+                rep is None or rep.append(("missing mandatory prop <type> [.'$SecurityScheme'.'|'.4]", path))
+        return False
+    return True
+
+# object .'$SecurityScheme'.'|'.5
+def _jm_obj_79(val: Jsonable, path: Path, rep: Report) -> bool:
+    if not isinstance(val, dict):
+        rep is None or rep.append(("not an object [.'$SecurityScheme'.'|'.5]", path))
+        return False
+    res: bool
+    for prop, pval in val.items():
+        assert isinstance(prop, str)
+        lpath_77: Path = (path + [ prop ]) if path is not None else None
+        if prop == "description":
+            # handle may description property
+            # .'$SecurityScheme'.'|'.5.description
+            res = isinstance(pval, str)
+            if not res:
+                rep is None or rep.append(("unexpected string [.'$SecurityScheme'.'|'.5.description]", lpath_77 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid optional prop value [.'$SecurityScheme'.'|'.5.description]", lpath_77 if path is not None else None))
+                return False
+        elif prop.startswith("x-"):
+            # handle 1 re props
+            # .'$SecurityScheme'.'|'.5.'/^x-/'
+            res = True
+            if not res:
+                rep is None or rep.append(("unexpected $ANY [.'$SecurityScheme'.'|'.5.'/^x-/']", lpath_77 if path is not None else None))
+            if not res:
+                return False
+        else:
+            rep is None or rep.append(("unexpected prop [.'$SecurityScheme'.'|'.5]", lpath_77 if path is not None else None))
+            return False
+    return True
+
+
 # check $SecurityScheme (.'$SecurityScheme')
 def json_model_40(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$SecurityScheme'
-    res = isinstance(val, dict)
-    if not res:
-        rep is None or rep.append(("unexpected type [.'$SecurityScheme'.'|']", path))
+    iso_1: bool = isinstance(val, dict)
+    res = iso_1
     if res:
-        # .'$SecurityScheme'.'|'.0
+        if "type" in val:
+            tag_1: Jsonable = val.get("type", UNDEFINED)
+            fun_1: CheckFun = _jm_map_1.get(tag_1, UNDEFINED)
+            if fun_1 != UNDEFINED:
+                res = fun_1(val, path, rep)
+            else:
+                res = False
+                rep is None or rep.append(("tag <type> value not found [.'$SecurityScheme'.'|']", path))
+        else:
+            res = False
+            rep is None or rep.append(("tag prop <type> is missing [.'$SecurityScheme'.'|']", path))
+    else:
+        rep is None or rep.append(("value is not an object [.'$SecurityScheme'.'|']", path))
+    if not res:
+        # .'$SecurityScheme'.'|'.5
         res = _jm_obj_79(val, path, rep)
         if not res:
-            rep is None or rep.append(("unexpected element [.'$SecurityScheme'.'|'.0]", path))
-        if not res:
-            # .'$SecurityScheme'.'|'.1
-            res = _jm_obj_78(val, path, rep)
-            if not res:
-                rep is None or rep.append(("unexpected element [.'$SecurityScheme'.'|'.1]", path))
-            if not res:
-                # .'$SecurityScheme'.'|'.2
-                res = _jm_obj_77(val, path, rep)
-                if not res:
-                    rep is None or rep.append(("unexpected element [.'$SecurityScheme'.'|'.2]", path))
-                if not res:
-                    # .'$SecurityScheme'.'|'.3
-                    res = _jm_obj_76(val, path, rep)
-                    if not res:
-                        rep is None or rep.append(("unexpected element [.'$SecurityScheme'.'|'.3]", path))
-                    if not res:
-                        # .'$SecurityScheme'.'|'.4
-                        res = _jm_obj_75(val, path, rep)
-                        if not res:
-                            rep is None or rep.append(("unexpected element [.'$SecurityScheme'.'|'.4]", path))
-                        if not res:
-                            # .'$SecurityScheme'.'|'.5
-                            res = _jm_obj_74(val, path, rep)
-                            if not res:
-                                rep is None or rep.append(("unexpected element [.'$SecurityScheme'.'|'.5]", path))
-        if res:
-            rep is None or rep.clear()
-        else:
-            rep is None or rep.append(("no model matched [.'$SecurityScheme'.'|']", path))
+            rep is None or rep.append(("unexpected element [.'$SecurityScheme'.'|'.5]", path))
     return res
 
 # object .'$OAuthFlows'
@@ -6040,10 +6027,8 @@ def check_model_init():
         }
         global _jm_cst_2
         _jm_cst_2 = {'cookie', 'header', 'path', 'query'}
-        global _jm_cst_3
-        _jm_cst_3 = {'cookie', 'header', 'path', 'query'}
-        global _jm_obj_33_map
-        _jm_obj_33_map = {
+        global _jm_obj_31_map
+        _jm_obj_31_map = {
             "allowEmptyValue": _jm_f_49,
             "allowReserved": _jm_f_50,
             "deprecated": _jm_f_51,
@@ -6054,6 +6039,15 @@ def check_model_init():
             "required": _jm_f_56,
             "schema": _jm_f_57,
             "style": _jm_f_58,
+        }
+        global _jm_cst_3
+        _jm_cst_3 = {'cookie', 'header', 'path', 'query'}
+        global _jm_map_0
+        _jm_map_0 = {
+            "cookie": _jm_obj_33,
+            "header": _jm_obj_33,
+            "path": _jm_obj_33,
+            "query": _jm_obj_33,
         }
         global _jm_re_2_reco, _jm_re_2
         _jm_re_2_reco = re.compile("^[1-5](\\d\\d|XX)$")
@@ -6142,6 +6136,13 @@ def check_model_init():
         _jm_re_3 = lambda s, p, r: _jm_re_3_reco.search(s) is not None
         global _jm_cst_5
         _jm_cst_5 = {'cookie', 'header', 'query'}
+        global _jm_map_1
+        _jm_map_1 = {
+            "apiKey": _jm_obj_74,
+            "http": _jm_obj_76,
+            "oauth2": _jm_obj_77,
+            "openIdConnect": _jm_obj_78,
+        }
         global _jm_cst_6
         _jm_cst_6 = {'array', 'boolean', 'integer', 'null', 'number', 'object', 'string'}
         global _jm_obj_85_map

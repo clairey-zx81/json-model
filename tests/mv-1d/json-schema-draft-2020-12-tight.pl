@@ -96,6 +96,7 @@ sub _jm_f_63($$$);
 sub _jm_f_64($$$);
 sub _jm_f_65($$$);
 sub _jm_f_66($$$);
+my %_jm_obj_16_map;
 sub _jm_f_67($$$);
 sub _jm_f_68($$$);
 sub _jm_f_69($$$);
@@ -105,7 +106,6 @@ sub _jm_f_72($$$);
 sub _jm_f_73($$$);
 sub _jm_f_74($$$);
 sub _jm_f_75($$$);
-my %_jm_obj_16_map;
 sub _jm_f_76($$$);
 sub _jm_f_77($$$);
 sub _jm_f_78($$$);
@@ -113,6 +113,7 @@ sub _jm_f_79($$$);
 sub _jm_f_80($$$);
 sub _jm_f_81($$$);
 sub _jm_f_82($$$);
+my %_jm_obj_19_map;
 sub _jm_f_83($$$);
 sub _jm_f_84($$$);
 sub _jm_f_85($$$);
@@ -132,9 +133,9 @@ sub _jm_f_98($$$);
 sub _jm_f_99($$$);
 sub _jm_f_100($$$);
 sub _jm_f_101($$$);
-my %_jm_obj_19_map;
 sub _jm_f_102($$$);
 sub _jm_f_103($$$);
+my %_jm_obj_22_map;
 sub _jm_f_104($$$);
 sub _jm_f_105($$$);
 sub _jm_f_106($$$);
@@ -156,9 +157,9 @@ sub _jm_f_121($$$);
 sub _jm_f_122($$$);
 sub _jm_f_123($$$);
 sub _jm_f_124($$$);
+my %_jm_obj_25_map;
 sub _jm_f_125($$$);
 sub _jm_f_126($$$);
-my %_jm_obj_26_map;
 sub _jm_f_127($$$);
 sub _jm_f_128($$$);
 sub _jm_f_129($$$);
@@ -180,9 +181,9 @@ sub _jm_f_144($$$);
 sub _jm_f_145($$$);
 sub _jm_f_146($$$);
 sub _jm_f_147($$$);
+my %_jm_obj_28_map;
 sub _jm_f_148($$$);
 sub _jm_f_149($$$);
-my %_jm_obj_29_map;
 sub _jm_f_150($$$);
 sub _jm_f_151($$$);
 sub _jm_f_152($$$);
@@ -204,9 +205,9 @@ sub _jm_f_167($$$);
 sub _jm_f_168($$$);
 sub _jm_f_169($$$);
 sub _jm_f_170($$$);
-my %_jm_obj_32_map;
 sub _jm_f_171($$$);
 sub _jm_f_172($$$);
+my %_jm_obj_31_map;
 sub _jm_f_173($$$);
 sub _jm_f_174($$$);
 sub _jm_f_175($$$);
@@ -226,7 +227,6 @@ sub _jm_f_188($$$);
 sub _jm_f_189($$$);
 sub _jm_f_190($$$);
 sub _jm_f_191($$$);
-my %_jm_obj_35_map;
 sub _jm_f_192($$$);
 sub _jm_f_193($$$);
 sub _jm_f_194($$$);
@@ -234,6 +234,7 @@ sub _jm_f_195($$$);
 sub _jm_f_196($$$);
 sub _jm_f_197($$$);
 sub _jm_f_198($$$);
+my %_jm_obj_34_map;
 sub _jm_f_199($$$);
 sub _jm_f_200($$$);
 sub _jm_f_201($$$);
@@ -243,7 +244,6 @@ sub _jm_f_204($$$);
 sub _jm_f_205($$$);
 sub _jm_f_206($$$);
 sub _jm_f_207($$$);
-my %_jm_obj_38_map;
 sub _jm_f_208($$$);
 sub _jm_f_209($$$);
 sub _jm_f_210($$$);
@@ -261,6 +261,7 @@ sub _jm_f_221($$$);
 sub _jm_f_222($$$);
 sub _jm_f_223($$$);
 my %_jm_obj_41_map;
+my %_jm_map_0;
 sub json_model_15($$$);
 sub json_model_16($$$);
 sub json_model_1($$$);
@@ -1605,2423 +1606,8 @@ sub json_model_14($$$)
     return $res;
 }
 
-# check _jm_obj_16_map_$anchor (.'$TightSchema'.'|'.7.'$anchor')
+# check _jm_obj_16_map_$anchor (.'$TightSchema'.'|'.0.'$anchor')
 sub _jm_f_51($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$TightSchema'.'|'.7.'$anchor'
-    $res = json_model_2($val, $path, $rep);
-    return $res;
-}
-
-# check _jm_obj_16_map_$comment (.'$TightSchema'.'|'.7.'$comment')
-sub _jm_f_52($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$TightSchema'.'|'.7.'$comment'
-    $res = jm_is_string($val);
-    return $res;
-}
-
-# object .'$TightSchema'.'|'.7.'$defs'
-sub _jm_obj_17($$$)
-{
-    my ($val, $path, $rep) = @_;
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
-    my $res;
-    scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
-    {
-        # handle other props
-        # .'$TightSchema'.'|'.7.'$defs'.''
-        $res = json_model_16($pval, undef, $rep);
-        if (! $res)
-        {
-            return 0;
-        }
-    }
-    return 1;
-}
-
-# check _jm_obj_16_map_$defs (.'$TightSchema'.'|'.7.'$defs')
-sub _jm_f_53($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$TightSchema'.'|'.7.'$defs'
-    $res = _jm_obj_17($val, $path, $rep);
-    return $res;
-}
-
-# check _jm_obj_16_map_$dynamicAnchor (.'$TightSchema'.'|'.7.'$dynamicAnchor')
-sub _jm_f_54($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$TightSchema'.'|'.7.'$dynamicAnchor'
-    $res = json_model_2($val, $path, $rep);
-    return $res;
-}
-
-# check _jm_obj_16_map_$dynamicRef (.'$TightSchema'.'|'.7.'$dynamicRef')
-sub _jm_f_55($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$TightSchema'.'|'.7.'$dynamicRef'
-    $res = json_model_2($val, $path, $rep);
-    return $res;
-}
-
-# check _jm_obj_16_map_$id (.'$TightSchema'.'|'.7.'$id')
-sub _jm_f_56($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$TightSchema'.'|'.7.'$id'
-    $res = json_model_2($val, $path, $rep);
-    return $res;
-}
-
-# check _jm_obj_16_map_$ref (.'$TightSchema'.'|'.7.'$ref')
-sub _jm_f_57($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$TightSchema'.'|'.7.'$ref'
-    $res = json_model_2($val, $path, $rep);
-    return $res;
-}
-
-# check _jm_obj_16_map_$schema (.'$TightSchema'.'|'.7.'$schema')
-sub _jm_f_58($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$TightSchema'.'|'.7.'$schema'
-    $res = jm_is_string($val) && jm_is_valid_url($val, $path, $rep);
-    return $res;
-}
-
-# object .'$TightSchema'.'|'.7.'$vocabulary'
-sub _jm_obj_18($$$)
-{
-    my ($val, $path, $rep) = @_;
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
-    my $res;
-    scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
-    {
-        if (jm_is_string($prop) && jm_is_valid_url($prop, undef, $rep))
-        {
-            # handle 1 key props
-            # .'$TightSchema'.'|'.7.'$vocabulary'.'$URI'
-            $res = jm_is_boolean($pval);
-            if (! $res)
-            {
-                return 0;
-            }
-        }
-        else
-        {
-            return 0;
-        }
-    }
-    return 1;
-}
-
-# check _jm_obj_16_map_$vocabulary (.'$TightSchema'.'|'.7.'$vocabulary')
-sub _jm_f_59($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$TightSchema'.'|'.7.'$vocabulary'
-    $res = _jm_obj_18($val, $path, $rep);
-    return $res;
-}
-
-# check _jm_obj_16_map_allOf (.'$TightSchema'.'|'.7.allOf)
-sub _jm_f_60($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$TightSchema'.'|'.7.allOf
-    $res = json_model_11($val, $path, $rep);
-    return $res;
-}
-
-# check _jm_obj_16_map_anyOf (.'$TightSchema'.'|'.7.anyOf)
-sub _jm_f_61($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$TightSchema'.'|'.7.anyOf
-    $res = json_model_11($val, $path, $rep);
-    return $res;
-}
-
-# check _jm_obj_16_map_const (.'$TightSchema'.'|'.7.const)
-sub _jm_f_62($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$TightSchema'.'|'.7.const
-    $res = 1;
-    return $res;
-}
-
-# check _jm_obj_16_map_default (.'$TightSchema'.'|'.7.default)
-sub _jm_f_63($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$TightSchema'.'|'.7.default
-    $res = 1;
-    return $res;
-}
-
-# check _jm_obj_16_map_deprecated (.'$TightSchema'.'|'.7.deprecated)
-sub _jm_f_64($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$TightSchema'.'|'.7.deprecated
-    $res = jm_is_boolean($val);
-    return $res;
-}
-
-# check _jm_obj_16_map_description (.'$TightSchema'.'|'.7.description)
-sub _jm_f_65($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$TightSchema'.'|'.7.description
-    $res = jm_is_string($val);
-    return $res;
-}
-
-# check _jm_obj_16_map_else (.'$TightSchema'.'|'.7.else)
-sub _jm_f_66($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$TightSchema'.'|'.7.else
-    $res = json_model_16($val, $path, $rep);
-    return $res;
-}
-
-# check _jm_obj_16_map_enum (.'$TightSchema'.'|'.7.enum)
-sub _jm_f_67($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$TightSchema'.'|'.7.enum
-    $res = jm_is_array($val);
-    if ($res)
-    {
-        # accept any array
-        ;
-    }
-    return $res;
-}
-
-# check _jm_obj_16_map_examples (.'$TightSchema'.'|'.7.examples)
-sub _jm_f_68($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$TightSchema'.'|'.7.examples
-    $res = jm_is_array($val);
-    if ($res)
-    {
-        # accept any array
-        ;
-    }
-    return $res;
-}
-
-# check _jm_obj_16_map_if (.'$TightSchema'.'|'.7.if)
-sub _jm_f_69($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$TightSchema'.'|'.7.if
-    $res = json_model_16($val, $path, $rep);
-    return $res;
-}
-
-# check _jm_obj_16_map_not (.'$TightSchema'.'|'.7.not)
-sub _jm_f_70($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$TightSchema'.'|'.7.not
-    $res = json_model_16($val, $path, $rep);
-    return $res;
-}
-
-# check _jm_obj_16_map_oneOf (.'$TightSchema'.'|'.7.oneOf)
-sub _jm_f_71($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$TightSchema'.'|'.7.oneOf
-    $res = json_model_11($val, $path, $rep);
-    return $res;
-}
-
-# check _jm_obj_16_map_readOnly (.'$TightSchema'.'|'.7.readOnly)
-sub _jm_f_72($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$TightSchema'.'|'.7.readOnly
-    $res = jm_is_boolean($val);
-    return $res;
-}
-
-# check _jm_obj_16_map_then (.'$TightSchema'.'|'.7.then)
-sub _jm_f_73($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$TightSchema'.'|'.7.then
-    $res = json_model_16($val, $path, $rep);
-    return $res;
-}
-
-# check _jm_obj_16_map_title (.'$TightSchema'.'|'.7.title)
-sub _jm_f_74($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$TightSchema'.'|'.7.title
-    $res = jm_is_string($val);
-    return $res;
-}
-
-# check _jm_obj_16_map_writeOnly (.'$TightSchema'.'|'.7.writeOnly)
-sub _jm_f_75($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$TightSchema'.'|'.7.writeOnly
-    $res = jm_is_boolean($val);
-    return $res;
-}
-
-
-# object .'$TightSchema'.'|'.7
-sub _jm_obj_16($$$)
-{
-    my ($val, $path, $rep) = @_;
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
-    my $pfun;
-    scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
-    {
-        if (($pfun = $_jm_obj_16_map{$prop}))
-        {
-            # handle 25 may props
-            if (defined($pfun) && ! &$pfun($pval, undef, $rep))
-            {
-                return 0;
-            }
-        }
-        else
-        {
-            return 0;
-        }
-    }
-    return 1;
-}
-
-# check _jm_obj_19_map_$anchor (.'$TightSchema'.'|'.6.'$anchor')
-sub _jm_f_76($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$TightSchema'.'|'.6.'$anchor'
-    $res = json_model_2($val, $path, $rep);
-    return $res;
-}
-
-# check _jm_obj_19_map_$comment (.'$TightSchema'.'|'.6.'$comment')
-sub _jm_f_77($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$TightSchema'.'|'.6.'$comment'
-    $res = jm_is_string($val);
-    return $res;
-}
-
-# object .'$TightSchema'.'|'.6.'$defs'
-sub _jm_obj_20($$$)
-{
-    my ($val, $path, $rep) = @_;
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
-    my $res;
-    scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
-    {
-        # handle other props
-        # .'$TightSchema'.'|'.6.'$defs'.''
-        $res = json_model_16($pval, undef, $rep);
-        if (! $res)
-        {
-            return 0;
-        }
-    }
-    return 1;
-}
-
-# check _jm_obj_19_map_$defs (.'$TightSchema'.'|'.6.'$defs')
-sub _jm_f_78($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$TightSchema'.'|'.6.'$defs'
-    $res = _jm_obj_20($val, $path, $rep);
-    return $res;
-}
-
-# check _jm_obj_19_map_$dynamicAnchor (.'$TightSchema'.'|'.6.'$dynamicAnchor')
-sub _jm_f_79($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$TightSchema'.'|'.6.'$dynamicAnchor'
-    $res = json_model_2($val, $path, $rep);
-    return $res;
-}
-
-# check _jm_obj_19_map_$dynamicRef (.'$TightSchema'.'|'.6.'$dynamicRef')
-sub _jm_f_80($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$TightSchema'.'|'.6.'$dynamicRef'
-    $res = json_model_2($val, $path, $rep);
-    return $res;
-}
-
-# check _jm_obj_19_map_$id (.'$TightSchema'.'|'.6.'$id')
-sub _jm_f_81($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$TightSchema'.'|'.6.'$id'
-    $res = json_model_2($val, $path, $rep);
-    return $res;
-}
-
-# check _jm_obj_19_map_$ref (.'$TightSchema'.'|'.6.'$ref')
-sub _jm_f_82($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$TightSchema'.'|'.6.'$ref'
-    $res = json_model_2($val, $path, $rep);
-    return $res;
-}
-
-# check _jm_obj_19_map_$schema (.'$TightSchema'.'|'.6.'$schema')
-sub _jm_f_83($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$TightSchema'.'|'.6.'$schema'
-    $res = jm_is_string($val) && jm_is_valid_url($val, $path, $rep);
-    return $res;
-}
-
-# object .'$TightSchema'.'|'.6.'$vocabulary'
-sub _jm_obj_21($$$)
-{
-    my ($val, $path, $rep) = @_;
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
-    my $res;
-    scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
-    {
-        if (jm_is_string($prop) && jm_is_valid_url($prop, undef, $rep))
-        {
-            # handle 1 key props
-            # .'$TightSchema'.'|'.6.'$vocabulary'.'$URI'
-            $res = jm_is_boolean($pval);
-            if (! $res)
-            {
-                return 0;
-            }
-        }
-        else
-        {
-            return 0;
-        }
-    }
-    return 1;
-}
-
-# check _jm_obj_19_map_$vocabulary (.'$TightSchema'.'|'.6.'$vocabulary')
-sub _jm_f_84($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$TightSchema'.'|'.6.'$vocabulary'
-    $res = _jm_obj_21($val, $path, $rep);
-    return $res;
-}
-
-# check _jm_obj_19_map_additionalProperties (.'$TightSchema'.'|'.6.additionalProperties)
-sub _jm_f_85($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$TightSchema'.'|'.6.additionalProperties
-    $res = json_model_16($val, $path, $rep);
-    return $res;
-}
-
-# check _jm_obj_19_map_default (.'$TightSchema'.'|'.6.default)
-sub _jm_f_86($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$TightSchema'.'|'.6.default
-    $res = 1;
-    return $res;
-}
-
-# object .'$TightSchema'.'|'.6.dependentRequired
-sub _jm_obj_22($$$)
-{
-    my ($val, $path, $rep) = @_;
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
-    my $res;
-    scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
-    {
-        # handle other props
-        # .'$TightSchema'.'|'.6.dependentRequired.''
-        $res = json_model_10($pval, undef, $rep);
-        if (! $res)
-        {
-            return 0;
-        }
-    }
-    return 1;
-}
-
-# check _jm_obj_19_map_dependentRequired (.'$TightSchema'.'|'.6.dependentRequired)
-sub _jm_f_87($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$TightSchema'.'|'.6.dependentRequired
-    $res = _jm_obj_22($val, $path, $rep);
-    return $res;
-}
-
-# object .'$TightSchema'.'|'.6.dependentSchemas
-sub _jm_obj_23($$$)
-{
-    my ($val, $path, $rep) = @_;
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
-    my $res;
-    scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
-    {
-        # handle other props
-        # .'$TightSchema'.'|'.6.dependentSchemas.''
-        $res = json_model_16($pval, undef, $rep);
-        if (! $res)
-        {
-            return 0;
-        }
-    }
-    return 1;
-}
-
-# check _jm_obj_19_map_dependentSchemas (.'$TightSchema'.'|'.6.dependentSchemas)
-sub _jm_f_88($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$TightSchema'.'|'.6.dependentSchemas
-    $res = _jm_obj_23($val, $path, $rep);
-    return $res;
-}
-
-# check _jm_obj_19_map_deprecated (.'$TightSchema'.'|'.6.deprecated)
-sub _jm_f_89($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$TightSchema'.'|'.6.deprecated
-    $res = jm_is_boolean($val);
-    return $res;
-}
-
-# check _jm_obj_19_map_description (.'$TightSchema'.'|'.6.description)
-sub _jm_f_90($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$TightSchema'.'|'.6.description
-    $res = jm_is_string($val);
-    return $res;
-}
-
-# check _jm_obj_19_map_examples (.'$TightSchema'.'|'.6.examples)
-sub _jm_f_91($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$TightSchema'.'|'.6.examples
-    $res = jm_is_array($val);
-    if ($res)
-    {
-        # accept any array
-        ;
-    }
-    return $res;
-}
-
-# check _jm_obj_19_map_maxProperties (.'$TightSchema'.'|'.6.maxProperties)
-sub _jm_f_92($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$TightSchema'.'|'.6.maxProperties
-    $res = jm_is_integer($val) && $val >= 0;
-    return $res;
-}
-
-# check _jm_obj_19_map_minProperties (.'$TightSchema'.'|'.6.minProperties)
-sub _jm_f_93($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$TightSchema'.'|'.6.minProperties
-    $res = jm_is_integer($val) && $val >= 0;
-    return $res;
-}
-
-# object .'$TightSchema'.'|'.6.patternProperties
-sub _jm_obj_24($$$)
-{
-    my ($val, $path, $rep) = @_;
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
-    my $res;
-    scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
-    {
-        if (jm_is_string($prop) && jm_is_valid_regex($prop, undef, $rep))
-        {
-            # handle 1 key props
-            # .'$TightSchema'.'|'.6.patternProperties.'$REGEX'
-            $res = json_model_16($pval, undef, $rep);
-            if (! $res)
-            {
-                return 0;
-            }
-        }
-        else
-        {
-            return 0;
-        }
-    }
-    return 1;
-}
-
-# check _jm_obj_19_map_patternProperties (.'$TightSchema'.'|'.6.patternProperties)
-sub _jm_f_94($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$TightSchema'.'|'.6.patternProperties
-    $res = _jm_obj_24($val, $path, $rep);
-    return $res;
-}
-
-# object .'$TightSchema'.'|'.6.properties
-sub _jm_obj_25($$$)
-{
-    my ($val, $path, $rep) = @_;
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
-    my $res;
-    scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
-    {
-        # handle other props
-        # .'$TightSchema'.'|'.6.properties.''
-        $res = json_model_16($pval, undef, $rep);
-        if (! $res)
-        {
-            return 0;
-        }
-    }
-    return 1;
-}
-
-# check _jm_obj_19_map_properties (.'$TightSchema'.'|'.6.properties)
-sub _jm_f_95($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$TightSchema'.'|'.6.properties
-    $res = _jm_obj_25($val, $path, $rep);
-    return $res;
-}
-
-# check _jm_obj_19_map_propertyNames (.'$TightSchema'.'|'.6.propertyNames)
-sub _jm_f_96($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$TightSchema'.'|'.6.propertyNames
-    $res = json_model_16($val, $path, $rep);
-    return $res;
-}
-
-# check _jm_obj_19_map_readOnly (.'$TightSchema'.'|'.6.readOnly)
-sub _jm_f_97($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$TightSchema'.'|'.6.readOnly
-    $res = jm_is_boolean($val);
-    return $res;
-}
-
-# check _jm_obj_19_map_required (.'$TightSchema'.'|'.6.required)
-sub _jm_f_98($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$TightSchema'.'|'.6.required
-    $res = json_model_10($val, $path, $rep);
-    return $res;
-}
-
-# check _jm_obj_19_map_title (.'$TightSchema'.'|'.6.title)
-sub _jm_f_99($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$TightSchema'.'|'.6.title
-    $res = jm_is_string($val);
-    return $res;
-}
-
-# check _jm_obj_19_map_unevaluatedProperties (.'$TightSchema'.'|'.6.unevaluatedProperties)
-sub _jm_f_100($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$TightSchema'.'|'.6.unevaluatedProperties
-    $res = json_model_16($val, $path, $rep);
-    return $res;
-}
-
-# check _jm_obj_19_map_writeOnly (.'$TightSchema'.'|'.6.writeOnly)
-sub _jm_f_101($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$TightSchema'.'|'.6.writeOnly
-    $res = jm_is_boolean($val);
-    return $res;
-}
-
-
-# object .'$TightSchema'.'|'.6
-sub _jm_obj_19($$$)
-{
-    my ($val, $path, $rep) = @_;
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
-    my $res;
-    my $pfun;
-    my $must_count = 0;
-    scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
-    {
-        if ($prop eq 'type')
-        {
-            # handle must type property
-            $must_count++;
-            # .'$TightSchema'.'|'.6.type
-            $res = jm_is_string($pval) && $pval eq 'object';
-            if (! $res)
-            {
-                return 0;
-            }
-        }
-        elsif (($pfun = $_jm_obj_19_map{$prop}))
-        {
-            # handle 26 may props
-            if (defined($pfun) && ! &$pfun($pval, undef, $rep))
-            {
-                return 0;
-            }
-        }
-        else
-        {
-            return 0;
-        }
-    }
-    if ($must_count != 1)
-    {
-        return 0;
-    }
-    return 1;
-}
-
-# check _jm_obj_26_map_$anchor (.'$TightSchema'.'|'.5.'$anchor')
-sub _jm_f_102($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$TightSchema'.'|'.5.'$anchor'
-    $res = json_model_2($val, $path, $rep);
-    return $res;
-}
-
-# check _jm_obj_26_map_$comment (.'$TightSchema'.'|'.5.'$comment')
-sub _jm_f_103($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$TightSchema'.'|'.5.'$comment'
-    $res = jm_is_string($val);
-    return $res;
-}
-
-# object .'$TightSchema'.'|'.5.'$defs'
-sub _jm_obj_27($$$)
-{
-    my ($val, $path, $rep) = @_;
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
-    my $res;
-    scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
-    {
-        # handle other props
-        # .'$TightSchema'.'|'.5.'$defs'.''
-        $res = json_model_16($pval, undef, $rep);
-        if (! $res)
-        {
-            return 0;
-        }
-    }
-    return 1;
-}
-
-# check _jm_obj_26_map_$defs (.'$TightSchema'.'|'.5.'$defs')
-sub _jm_f_104($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$TightSchema'.'|'.5.'$defs'
-    $res = _jm_obj_27($val, $path, $rep);
-    return $res;
-}
-
-# check _jm_obj_26_map_$dynamicAnchor (.'$TightSchema'.'|'.5.'$dynamicAnchor')
-sub _jm_f_105($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$TightSchema'.'|'.5.'$dynamicAnchor'
-    $res = json_model_2($val, $path, $rep);
-    return $res;
-}
-
-# check _jm_obj_26_map_$dynamicRef (.'$TightSchema'.'|'.5.'$dynamicRef')
-sub _jm_f_106($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$TightSchema'.'|'.5.'$dynamicRef'
-    $res = json_model_2($val, $path, $rep);
-    return $res;
-}
-
-# check _jm_obj_26_map_$id (.'$TightSchema'.'|'.5.'$id')
-sub _jm_f_107($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$TightSchema'.'|'.5.'$id'
-    $res = json_model_2($val, $path, $rep);
-    return $res;
-}
-
-# check _jm_obj_26_map_$ref (.'$TightSchema'.'|'.5.'$ref')
-sub _jm_f_108($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$TightSchema'.'|'.5.'$ref'
-    $res = json_model_2($val, $path, $rep);
-    return $res;
-}
-
-# check _jm_obj_26_map_$schema (.'$TightSchema'.'|'.5.'$schema')
-sub _jm_f_109($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$TightSchema'.'|'.5.'$schema'
-    $res = jm_is_string($val) && jm_is_valid_url($val, $path, $rep);
-    return $res;
-}
-
-# object .'$TightSchema'.'|'.5.'$vocabulary'
-sub _jm_obj_28($$$)
-{
-    my ($val, $path, $rep) = @_;
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
-    my $res;
-    scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
-    {
-        if (jm_is_string($prop) && jm_is_valid_url($prop, undef, $rep))
-        {
-            # handle 1 key props
-            # .'$TightSchema'.'|'.5.'$vocabulary'.'$URI'
-            $res = jm_is_boolean($pval);
-            if (! $res)
-            {
-                return 0;
-            }
-        }
-        else
-        {
-            return 0;
-        }
-    }
-    return 1;
-}
-
-# check _jm_obj_26_map_$vocabulary (.'$TightSchema'.'|'.5.'$vocabulary')
-sub _jm_f_110($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$TightSchema'.'|'.5.'$vocabulary'
-    $res = _jm_obj_28($val, $path, $rep);
-    return $res;
-}
-
-# check _jm_obj_26_map_contains (.'$TightSchema'.'|'.5.contains)
-sub _jm_f_111($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$TightSchema'.'|'.5.contains
-    $res = json_model_16($val, $path, $rep);
-    return $res;
-}
-
-# check _jm_obj_26_map_default (.'$TightSchema'.'|'.5.default)
-sub _jm_f_112($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$TightSchema'.'|'.5.default
-    $res = 1;
-    return $res;
-}
-
-# check _jm_obj_26_map_deprecated (.'$TightSchema'.'|'.5.deprecated)
-sub _jm_f_113($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$TightSchema'.'|'.5.deprecated
-    $res = jm_is_boolean($val);
-    return $res;
-}
-
-# check _jm_obj_26_map_description (.'$TightSchema'.'|'.5.description)
-sub _jm_f_114($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$TightSchema'.'|'.5.description
-    $res = jm_is_string($val);
-    return $res;
-}
-
-# check _jm_obj_26_map_examples (.'$TightSchema'.'|'.5.examples)
-sub _jm_f_115($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$TightSchema'.'|'.5.examples
-    $res = jm_is_array($val);
-    if ($res)
-    {
-        # accept any array
-        ;
-    }
-    return $res;
-}
-
-# check _jm_obj_26_map_items (.'$TightSchema'.'|'.5.items)
-sub _jm_f_116($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$TightSchema'.'|'.5.items
-    $res = json_model_16($val, $path, $rep);
-    return $res;
-}
-
-# check _jm_obj_26_map_maxContains (.'$TightSchema'.'|'.5.maxContains)
-sub _jm_f_117($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$TightSchema'.'|'.5.maxContains
-    $res = jm_is_integer($val) && $val >= 0;
-    return $res;
-}
-
-# check _jm_obj_26_map_maxItems (.'$TightSchema'.'|'.5.maxItems)
-sub _jm_f_118($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$TightSchema'.'|'.5.maxItems
-    $res = jm_is_integer($val) && $val >= 0;
-    return $res;
-}
-
-# check _jm_obj_26_map_minContains (.'$TightSchema'.'|'.5.minContains)
-sub _jm_f_119($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$TightSchema'.'|'.5.minContains
-    $res = jm_is_integer($val) && $val >= 0;
-    return $res;
-}
-
-# check _jm_obj_26_map_minItems (.'$TightSchema'.'|'.5.minItems)
-sub _jm_f_120($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$TightSchema'.'|'.5.minItems
-    $res = jm_is_integer($val) && $val >= 0;
-    return $res;
-}
-
-# check _jm_obj_26_map_prefixItems (.'$TightSchema'.'|'.5.prefixItems)
-sub _jm_f_121($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$TightSchema'.'|'.5.prefixItems
-    $res = json_model_11($val, $path, $rep);
-    return $res;
-}
-
-# check _jm_obj_26_map_readOnly (.'$TightSchema'.'|'.5.readOnly)
-sub _jm_f_122($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$TightSchema'.'|'.5.readOnly
-    $res = jm_is_boolean($val);
-    return $res;
-}
-
-# check _jm_obj_26_map_title (.'$TightSchema'.'|'.5.title)
-sub _jm_f_123($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$TightSchema'.'|'.5.title
-    $res = jm_is_string($val);
-    return $res;
-}
-
-# check _jm_obj_26_map_unevaluatedItems (.'$TightSchema'.'|'.5.unevaluatedItems)
-sub _jm_f_124($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$TightSchema'.'|'.5.unevaluatedItems
-    $res = json_model_16($val, $path, $rep);
-    return $res;
-}
-
-# check _jm_obj_26_map_uniqueItems (.'$TightSchema'.'|'.5.uniqueItems)
-sub _jm_f_125($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$TightSchema'.'|'.5.uniqueItems
-    $res = jm_is_boolean($val);
-    return $res;
-}
-
-# check _jm_obj_26_map_writeOnly (.'$TightSchema'.'|'.5.writeOnly)
-sub _jm_f_126($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$TightSchema'.'|'.5.writeOnly
-    $res = jm_is_boolean($val);
-    return $res;
-}
-
-
-# object .'$TightSchema'.'|'.5
-sub _jm_obj_26($$$)
-{
-    my ($val, $path, $rep) = @_;
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
-    my $res;
-    my $pfun;
-    my $must_count = 0;
-    scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
-    {
-        if ($prop eq 'type')
-        {
-            # handle must type property
-            $must_count++;
-            # .'$TightSchema'.'|'.5.type
-            $res = jm_is_string($pval) && $pval eq 'array';
-            if (! $res)
-            {
-                return 0;
-            }
-        }
-        elsif (($pfun = $_jm_obj_26_map{$prop}))
-        {
-            # handle 25 may props
-            if (defined($pfun) && ! &$pfun($pval, undef, $rep))
-            {
-                return 0;
-            }
-        }
-        else
-        {
-            return 0;
-        }
-    }
-    if ($must_count != 1)
-    {
-        return 0;
-    }
-    return 1;
-}
-
-# check _jm_obj_29_map_$anchor (.'$TightSchema'.'|'.4.'$anchor')
-sub _jm_f_127($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$TightSchema'.'|'.4.'$anchor'
-    $res = json_model_2($val, $path, $rep);
-    return $res;
-}
-
-# check _jm_obj_29_map_$comment (.'$TightSchema'.'|'.4.'$comment')
-sub _jm_f_128($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$TightSchema'.'|'.4.'$comment'
-    $res = jm_is_string($val);
-    return $res;
-}
-
-# object .'$TightSchema'.'|'.4.'$defs'
-sub _jm_obj_30($$$)
-{
-    my ($val, $path, $rep) = @_;
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
-    my $res;
-    scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
-    {
-        # handle other props
-        # .'$TightSchema'.'|'.4.'$defs'.''
-        $res = json_model_16($pval, undef, $rep);
-        if (! $res)
-        {
-            return 0;
-        }
-    }
-    return 1;
-}
-
-# check _jm_obj_29_map_$defs (.'$TightSchema'.'|'.4.'$defs')
-sub _jm_f_129($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$TightSchema'.'|'.4.'$defs'
-    $res = _jm_obj_30($val, $path, $rep);
-    return $res;
-}
-
-# check _jm_obj_29_map_$dynamicAnchor (.'$TightSchema'.'|'.4.'$dynamicAnchor')
-sub _jm_f_130($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$TightSchema'.'|'.4.'$dynamicAnchor'
-    $res = json_model_2($val, $path, $rep);
-    return $res;
-}
-
-# check _jm_obj_29_map_$dynamicRef (.'$TightSchema'.'|'.4.'$dynamicRef')
-sub _jm_f_131($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$TightSchema'.'|'.4.'$dynamicRef'
-    $res = json_model_2($val, $path, $rep);
-    return $res;
-}
-
-# check _jm_obj_29_map_$id (.'$TightSchema'.'|'.4.'$id')
-sub _jm_f_132($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$TightSchema'.'|'.4.'$id'
-    $res = json_model_2($val, $path, $rep);
-    return $res;
-}
-
-# check _jm_obj_29_map_$ref (.'$TightSchema'.'|'.4.'$ref')
-sub _jm_f_133($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$TightSchema'.'|'.4.'$ref'
-    $res = json_model_2($val, $path, $rep);
-    return $res;
-}
-
-# check _jm_obj_29_map_$schema (.'$TightSchema'.'|'.4.'$schema')
-sub _jm_f_134($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$TightSchema'.'|'.4.'$schema'
-    $res = jm_is_string($val) && jm_is_valid_url($val, $path, $rep);
-    return $res;
-}
-
-# object .'$TightSchema'.'|'.4.'$vocabulary'
-sub _jm_obj_31($$$)
-{
-    my ($val, $path, $rep) = @_;
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
-    my $res;
-    scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
-    {
-        if (jm_is_string($prop) && jm_is_valid_url($prop, undef, $rep))
-        {
-            # handle 1 key props
-            # .'$TightSchema'.'|'.4.'$vocabulary'.'$URI'
-            $res = jm_is_boolean($pval);
-            if (! $res)
-            {
-                return 0;
-            }
-        }
-        else
-        {
-            return 0;
-        }
-    }
-    return 1;
-}
-
-# check _jm_obj_29_map_$vocabulary (.'$TightSchema'.'|'.4.'$vocabulary')
-sub _jm_f_135($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$TightSchema'.'|'.4.'$vocabulary'
-    $res = _jm_obj_31($val, $path, $rep);
-    return $res;
-}
-
-# check _jm_obj_29_map_contentEncoding (.'$TightSchema'.'|'.4.contentEncoding)
-sub _jm_f_136($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$TightSchema'.'|'.4.contentEncoding
-    $res = jm_is_string($val);
-    return $res;
-}
-
-# check _jm_obj_29_map_contentMediaType (.'$TightSchema'.'|'.4.contentMediaType)
-sub _jm_f_137($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$TightSchema'.'|'.4.contentMediaType
-    $res = jm_is_string($val);
-    return $res;
-}
-
-# check _jm_obj_29_map_contentSchema (.'$TightSchema'.'|'.4.contentSchema)
-sub _jm_f_138($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$TightSchema'.'|'.4.contentSchema
-    $res = json_model_16($val, $path, $rep);
-    return $res;
-}
-
-# check _jm_obj_29_map_default (.'$TightSchema'.'|'.4.default)
-sub _jm_f_139($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$TightSchema'.'|'.4.default
-    $res = 1;
-    return $res;
-}
-
-# check _jm_obj_29_map_deprecated (.'$TightSchema'.'|'.4.deprecated)
-sub _jm_f_140($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$TightSchema'.'|'.4.deprecated
-    $res = jm_is_boolean($val);
-    return $res;
-}
-
-# check _jm_obj_29_map_description (.'$TightSchema'.'|'.4.description)
-sub _jm_f_141($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$TightSchema'.'|'.4.description
-    $res = jm_is_string($val);
-    return $res;
-}
-
-# check _jm_obj_29_map_examples (.'$TightSchema'.'|'.4.examples)
-sub _jm_f_142($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$TightSchema'.'|'.4.examples
-    $res = jm_is_array($val);
-    if ($res)
-    {
-        # accept any array
-        ;
-    }
-    return $res;
-}
-
-# check _jm_obj_29_map_format (.'$TightSchema'.'|'.4.format)
-sub _jm_f_143($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$TightSchema'.'|'.4.format
-    $res = jm_is_string($val);
-    return $res;
-}
-
-# check _jm_obj_29_map_maxLength (.'$TightSchema'.'|'.4.maxLength)
-sub _jm_f_144($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$TightSchema'.'|'.4.maxLength
-    $res = jm_is_integer($val) && $val >= 0;
-    return $res;
-}
-
-# check _jm_obj_29_map_minLength (.'$TightSchema'.'|'.4.minLength)
-sub _jm_f_145($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$TightSchema'.'|'.4.minLength
-    $res = jm_is_integer($val) && $val >= 0;
-    return $res;
-}
-
-# check _jm_obj_29_map_pattern (.'$TightSchema'.'|'.4.pattern)
-sub _jm_f_146($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$TightSchema'.'|'.4.pattern
-    $res = jm_is_string($val) && jm_is_valid_regex($val, $path, $rep);
-    return $res;
-}
-
-# check _jm_obj_29_map_readOnly (.'$TightSchema'.'|'.4.readOnly)
-sub _jm_f_147($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$TightSchema'.'|'.4.readOnly
-    $res = jm_is_boolean($val);
-    return $res;
-}
-
-# check _jm_obj_29_map_title (.'$TightSchema'.'|'.4.title)
-sub _jm_f_148($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$TightSchema'.'|'.4.title
-    $res = jm_is_string($val);
-    return $res;
-}
-
-# check _jm_obj_29_map_writeOnly (.'$TightSchema'.'|'.4.writeOnly)
-sub _jm_f_149($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$TightSchema'.'|'.4.writeOnly
-    $res = jm_is_boolean($val);
-    return $res;
-}
-
-
-# object .'$TightSchema'.'|'.4
-sub _jm_obj_29($$$)
-{
-    my ($val, $path, $rep) = @_;
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
-    my $res;
-    my $pfun;
-    my $must_count = 0;
-    scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
-    {
-        if ($prop eq 'type')
-        {
-            # handle must type property
-            $must_count++;
-            # .'$TightSchema'.'|'.4.type
-            $res = jm_is_string($pval) && $pval eq 'string';
-            if (! $res)
-            {
-                return 0;
-            }
-        }
-        elsif (($pfun = $_jm_obj_29_map{$prop}))
-        {
-            # handle 23 may props
-            if (defined($pfun) && ! &$pfun($pval, undef, $rep))
-            {
-                return 0;
-            }
-        }
-        else
-        {
-            return 0;
-        }
-    }
-    if ($must_count != 1)
-    {
-        return 0;
-    }
-    return 1;
-}
-
-# check _jm_obj_32_map_$anchor (.'$TightSchema'.'|'.3.'$anchor')
-sub _jm_f_150($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$TightSchema'.'|'.3.'$anchor'
-    $res = json_model_2($val, $path, $rep);
-    return $res;
-}
-
-# check _jm_obj_32_map_$comment (.'$TightSchema'.'|'.3.'$comment')
-sub _jm_f_151($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$TightSchema'.'|'.3.'$comment'
-    $res = jm_is_string($val);
-    return $res;
-}
-
-# object .'$TightSchema'.'|'.3.'$defs'
-sub _jm_obj_33($$$)
-{
-    my ($val, $path, $rep) = @_;
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
-    my $res;
-    scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
-    {
-        # handle other props
-        # .'$TightSchema'.'|'.3.'$defs'.''
-        $res = json_model_16($pval, undef, $rep);
-        if (! $res)
-        {
-            return 0;
-        }
-    }
-    return 1;
-}
-
-# check _jm_obj_32_map_$defs (.'$TightSchema'.'|'.3.'$defs')
-sub _jm_f_152($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$TightSchema'.'|'.3.'$defs'
-    $res = _jm_obj_33($val, $path, $rep);
-    return $res;
-}
-
-# check _jm_obj_32_map_$dynamicAnchor (.'$TightSchema'.'|'.3.'$dynamicAnchor')
-sub _jm_f_153($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$TightSchema'.'|'.3.'$dynamicAnchor'
-    $res = json_model_2($val, $path, $rep);
-    return $res;
-}
-
-# check _jm_obj_32_map_$dynamicRef (.'$TightSchema'.'|'.3.'$dynamicRef')
-sub _jm_f_154($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$TightSchema'.'|'.3.'$dynamicRef'
-    $res = json_model_2($val, $path, $rep);
-    return $res;
-}
-
-# check _jm_obj_32_map_$id (.'$TightSchema'.'|'.3.'$id')
-sub _jm_f_155($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$TightSchema'.'|'.3.'$id'
-    $res = json_model_2($val, $path, $rep);
-    return $res;
-}
-
-# check _jm_obj_32_map_$ref (.'$TightSchema'.'|'.3.'$ref')
-sub _jm_f_156($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$TightSchema'.'|'.3.'$ref'
-    $res = json_model_2($val, $path, $rep);
-    return $res;
-}
-
-# check _jm_obj_32_map_$schema (.'$TightSchema'.'|'.3.'$schema')
-sub _jm_f_157($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$TightSchema'.'|'.3.'$schema'
-    $res = jm_is_string($val) && jm_is_valid_url($val, $path, $rep);
-    return $res;
-}
-
-# object .'$TightSchema'.'|'.3.'$vocabulary'
-sub _jm_obj_34($$$)
-{
-    my ($val, $path, $rep) = @_;
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
-    my $res;
-    scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
-    {
-        if (jm_is_string($prop) && jm_is_valid_url($prop, undef, $rep))
-        {
-            # handle 1 key props
-            # .'$TightSchema'.'|'.3.'$vocabulary'.'$URI'
-            $res = jm_is_boolean($pval);
-            if (! $res)
-            {
-                return 0;
-            }
-        }
-        else
-        {
-            return 0;
-        }
-    }
-    return 1;
-}
-
-# check _jm_obj_32_map_$vocabulary (.'$TightSchema'.'|'.3.'$vocabulary')
-sub _jm_f_158($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$TightSchema'.'|'.3.'$vocabulary'
-    $res = _jm_obj_34($val, $path, $rep);
-    return $res;
-}
-
-# check _jm_obj_32_map_default (.'$TightSchema'.'|'.3.default)
-sub _jm_f_159($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$TightSchema'.'|'.3.default
-    $res = 1;
-    return $res;
-}
-
-# check _jm_obj_32_map_deprecated (.'$TightSchema'.'|'.3.deprecated)
-sub _jm_f_160($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$TightSchema'.'|'.3.deprecated
-    $res = jm_is_boolean($val);
-    return $res;
-}
-
-# check _jm_obj_32_map_description (.'$TightSchema'.'|'.3.description)
-sub _jm_f_161($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$TightSchema'.'|'.3.description
-    $res = jm_is_string($val);
-    return $res;
-}
-
-# check _jm_obj_32_map_examples (.'$TightSchema'.'|'.3.examples)
-sub _jm_f_162($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$TightSchema'.'|'.3.examples
-    $res = jm_is_array($val);
-    if ($res)
-    {
-        # accept any array
-        ;
-    }
-    return $res;
-}
-
-# check _jm_obj_32_map_exclusiveMaximum (.'$TightSchema'.'|'.3.exclusiveMaximum)
-sub _jm_f_163($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$TightSchema'.'|'.3.exclusiveMaximum
-    $res = jm_is_integer($val);
-    return $res;
-}
-
-# check _jm_obj_32_map_exclusiveMinimum (.'$TightSchema'.'|'.3.exclusiveMinimum)
-sub _jm_f_164($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$TightSchema'.'|'.3.exclusiveMinimum
-    $res = jm_is_integer($val);
-    return $res;
-}
-
-# check _jm_obj_32_map_maximum (.'$TightSchema'.'|'.3.maximum)
-sub _jm_f_165($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$TightSchema'.'|'.3.maximum
-    $res = jm_is_integer($val);
-    return $res;
-}
-
-# check _jm_obj_32_map_minimum (.'$TightSchema'.'|'.3.minimum)
-sub _jm_f_166($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$TightSchema'.'|'.3.minimum
-    $res = jm_is_integer($val);
-    return $res;
-}
-
-# check _jm_obj_32_map_multipleOf (.'$TightSchema'.'|'.3.multipleOf)
-sub _jm_f_167($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$TightSchema'.'|'.3.multipleOf
-    $res = jm_is_integer($val) && $val >= 1;
-    return $res;
-}
-
-# check _jm_obj_32_map_readOnly (.'$TightSchema'.'|'.3.readOnly)
-sub _jm_f_168($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$TightSchema'.'|'.3.readOnly
-    $res = jm_is_boolean($val);
-    return $res;
-}
-
-# check _jm_obj_32_map_title (.'$TightSchema'.'|'.3.title)
-sub _jm_f_169($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$TightSchema'.'|'.3.title
-    $res = jm_is_string($val);
-    return $res;
-}
-
-# check _jm_obj_32_map_writeOnly (.'$TightSchema'.'|'.3.writeOnly)
-sub _jm_f_170($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$TightSchema'.'|'.3.writeOnly
-    $res = jm_is_boolean($val);
-    return $res;
-}
-
-
-# object .'$TightSchema'.'|'.3
-sub _jm_obj_32($$$)
-{
-    my ($val, $path, $rep) = @_;
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
-    my $res;
-    my $pfun;
-    my $must_count = 0;
-    scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
-    {
-        if ($prop eq 'type')
-        {
-            # handle must type property
-            $must_count++;
-            # .'$TightSchema'.'|'.3.type
-            $res = jm_is_string($pval) && $pval eq 'integer';
-            if (! $res)
-            {
-                return 0;
-            }
-        }
-        elsif (($pfun = $_jm_obj_32_map{$prop}))
-        {
-            # handle 21 may props
-            if (defined($pfun) && ! &$pfun($pval, undef, $rep))
-            {
-                return 0;
-            }
-        }
-        else
-        {
-            return 0;
-        }
-    }
-    if ($must_count != 1)
-    {
-        return 0;
-    }
-    return 1;
-}
-
-# check _jm_obj_35_map_$anchor (.'$TightSchema'.'|'.2.'$anchor')
-sub _jm_f_171($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$TightSchema'.'|'.2.'$anchor'
-    $res = json_model_2($val, $path, $rep);
-    return $res;
-}
-
-# check _jm_obj_35_map_$comment (.'$TightSchema'.'|'.2.'$comment')
-sub _jm_f_172($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$TightSchema'.'|'.2.'$comment'
-    $res = jm_is_string($val);
-    return $res;
-}
-
-# object .'$TightSchema'.'|'.2.'$defs'
-sub _jm_obj_36($$$)
-{
-    my ($val, $path, $rep) = @_;
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
-    my $res;
-    scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
-    {
-        # handle other props
-        # .'$TightSchema'.'|'.2.'$defs'.''
-        $res = json_model_16($pval, undef, $rep);
-        if (! $res)
-        {
-            return 0;
-        }
-    }
-    return 1;
-}
-
-# check _jm_obj_35_map_$defs (.'$TightSchema'.'|'.2.'$defs')
-sub _jm_f_173($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$TightSchema'.'|'.2.'$defs'
-    $res = _jm_obj_36($val, $path, $rep);
-    return $res;
-}
-
-# check _jm_obj_35_map_$dynamicAnchor (.'$TightSchema'.'|'.2.'$dynamicAnchor')
-sub _jm_f_174($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$TightSchema'.'|'.2.'$dynamicAnchor'
-    $res = json_model_2($val, $path, $rep);
-    return $res;
-}
-
-# check _jm_obj_35_map_$dynamicRef (.'$TightSchema'.'|'.2.'$dynamicRef')
-sub _jm_f_175($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$TightSchema'.'|'.2.'$dynamicRef'
-    $res = json_model_2($val, $path, $rep);
-    return $res;
-}
-
-# check _jm_obj_35_map_$id (.'$TightSchema'.'|'.2.'$id')
-sub _jm_f_176($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$TightSchema'.'|'.2.'$id'
-    $res = json_model_2($val, $path, $rep);
-    return $res;
-}
-
-# check _jm_obj_35_map_$ref (.'$TightSchema'.'|'.2.'$ref')
-sub _jm_f_177($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$TightSchema'.'|'.2.'$ref'
-    $res = json_model_2($val, $path, $rep);
-    return $res;
-}
-
-# check _jm_obj_35_map_$schema (.'$TightSchema'.'|'.2.'$schema')
-sub _jm_f_178($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$TightSchema'.'|'.2.'$schema'
-    $res = jm_is_string($val) && jm_is_valid_url($val, $path, $rep);
-    return $res;
-}
-
-# object .'$TightSchema'.'|'.2.'$vocabulary'
-sub _jm_obj_37($$$)
-{
-    my ($val, $path, $rep) = @_;
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
-    my $res;
-    scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
-    {
-        if (jm_is_string($prop) && jm_is_valid_url($prop, undef, $rep))
-        {
-            # handle 1 key props
-            # .'$TightSchema'.'|'.2.'$vocabulary'.'$URI'
-            $res = jm_is_boolean($pval);
-            if (! $res)
-            {
-                return 0;
-            }
-        }
-        else
-        {
-            return 0;
-        }
-    }
-    return 1;
-}
-
-# check _jm_obj_35_map_$vocabulary (.'$TightSchema'.'|'.2.'$vocabulary')
-sub _jm_f_179($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$TightSchema'.'|'.2.'$vocabulary'
-    $res = _jm_obj_37($val, $path, $rep);
-    return $res;
-}
-
-# check _jm_obj_35_map_default (.'$TightSchema'.'|'.2.default)
-sub _jm_f_180($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$TightSchema'.'|'.2.default
-    $res = 1;
-    return $res;
-}
-
-# check _jm_obj_35_map_deprecated (.'$TightSchema'.'|'.2.deprecated)
-sub _jm_f_181($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$TightSchema'.'|'.2.deprecated
-    $res = jm_is_boolean($val);
-    return $res;
-}
-
-# check _jm_obj_35_map_description (.'$TightSchema'.'|'.2.description)
-sub _jm_f_182($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$TightSchema'.'|'.2.description
-    $res = jm_is_string($val);
-    return $res;
-}
-
-# check _jm_obj_35_map_examples (.'$TightSchema'.'|'.2.examples)
-sub _jm_f_183($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$TightSchema'.'|'.2.examples
-    $res = jm_is_array($val);
-    if ($res)
-    {
-        # accept any array
-        ;
-    }
-    return $res;
-}
-
-# check _jm_obj_35_map_exclusiveMaximum (.'$TightSchema'.'|'.2.exclusiveMaximum)
-sub _jm_f_184($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$TightSchema'.'|'.2.exclusiveMaximum
-    # .'$TightSchema'.'|'.2.exclusiveMaximum.'|'.0
-    $res = jm_is_integer($val);
-    if (! $res)
-    {
-        # .'$TightSchema'.'|'.2.exclusiveMaximum.'|'.1
-        $res = jm_is_numeric($val);
-    }
-    return $res;
-}
-
-# check _jm_obj_35_map_exclusiveMinimum (.'$TightSchema'.'|'.2.exclusiveMinimum)
-sub _jm_f_185($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$TightSchema'.'|'.2.exclusiveMinimum
-    # .'$TightSchema'.'|'.2.exclusiveMinimum.'|'.0
-    $res = jm_is_integer($val);
-    if (! $res)
-    {
-        # .'$TightSchema'.'|'.2.exclusiveMinimum.'|'.1
-        $res = jm_is_numeric($val);
-    }
-    return $res;
-}
-
-# check _jm_obj_35_map_maximum (.'$TightSchema'.'|'.2.maximum)
-sub _jm_f_186($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$TightSchema'.'|'.2.maximum
-    # .'$TightSchema'.'|'.2.maximum.'|'.0
-    $res = jm_is_integer($val);
-    if (! $res)
-    {
-        # .'$TightSchema'.'|'.2.maximum.'|'.1
-        $res = jm_is_numeric($val);
-    }
-    return $res;
-}
-
-# check _jm_obj_35_map_minimum (.'$TightSchema'.'|'.2.minimum)
-sub _jm_f_187($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$TightSchema'.'|'.2.minimum
-    # .'$TightSchema'.'|'.2.minimum.'|'.0
-    $res = jm_is_integer($val);
-    if (! $res)
-    {
-        # .'$TightSchema'.'|'.2.minimum.'|'.1
-        $res = jm_is_numeric($val);
-    }
-    return $res;
-}
-
-# check _jm_obj_35_map_multipleOf (.'$TightSchema'.'|'.2.multipleOf)
-sub _jm_f_188($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$TightSchema'.'|'.2.multipleOf
-    # .'$TightSchema'.'|'.2.multipleOf.'|'.0
-    $res = jm_is_integer($val) && $val >= 1;
-    if (! $res)
-    {
-        # .'$TightSchema'.'|'.2.multipleOf.'|'.1
-        $res = jm_is_numeric($val) && $val > 0.0;
-    }
-    return $res;
-}
-
-# check _jm_obj_35_map_readOnly (.'$TightSchema'.'|'.2.readOnly)
-sub _jm_f_189($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$TightSchema'.'|'.2.readOnly
-    $res = jm_is_boolean($val);
-    return $res;
-}
-
-# check _jm_obj_35_map_title (.'$TightSchema'.'|'.2.title)
-sub _jm_f_190($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$TightSchema'.'|'.2.title
-    $res = jm_is_string($val);
-    return $res;
-}
-
-# check _jm_obj_35_map_writeOnly (.'$TightSchema'.'|'.2.writeOnly)
-sub _jm_f_191($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$TightSchema'.'|'.2.writeOnly
-    $res = jm_is_boolean($val);
-    return $res;
-}
-
-
-# object .'$TightSchema'.'|'.2
-sub _jm_obj_35($$$)
-{
-    my ($val, $path, $rep) = @_;
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
-    my $res;
-    my $pfun;
-    my $must_count = 0;
-    scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
-    {
-        if ($prop eq 'type')
-        {
-            # handle must type property
-            $must_count++;
-            # .'$TightSchema'.'|'.2.type
-            $res = jm_is_string($pval) && $pval eq 'number';
-            if (! $res)
-            {
-                return 0;
-            }
-        }
-        elsif (($pfun = $_jm_obj_35_map{$prop}))
-        {
-            # handle 21 may props
-            if (defined($pfun) && ! &$pfun($pval, undef, $rep))
-            {
-                return 0;
-            }
-        }
-        else
-        {
-            return 0;
-        }
-    }
-    if ($must_count != 1)
-    {
-        return 0;
-    }
-    return 1;
-}
-
-# check _jm_obj_38_map_$anchor (.'$TightSchema'.'|'.1.'$anchor')
-sub _jm_f_192($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$TightSchema'.'|'.1.'$anchor'
-    $res = json_model_2($val, $path, $rep);
-    return $res;
-}
-
-# check _jm_obj_38_map_$comment (.'$TightSchema'.'|'.1.'$comment')
-sub _jm_f_193($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$TightSchema'.'|'.1.'$comment'
-    $res = jm_is_string($val);
-    return $res;
-}
-
-# object .'$TightSchema'.'|'.1.'$defs'
-sub _jm_obj_39($$$)
-{
-    my ($val, $path, $rep) = @_;
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
-    my $res;
-    scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
-    {
-        # handle other props
-        # .'$TightSchema'.'|'.1.'$defs'.''
-        $res = json_model_16($pval, undef, $rep);
-        if (! $res)
-        {
-            return 0;
-        }
-    }
-    return 1;
-}
-
-# check _jm_obj_38_map_$defs (.'$TightSchema'.'|'.1.'$defs')
-sub _jm_f_194($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$TightSchema'.'|'.1.'$defs'
-    $res = _jm_obj_39($val, $path, $rep);
-    return $res;
-}
-
-# check _jm_obj_38_map_$dynamicAnchor (.'$TightSchema'.'|'.1.'$dynamicAnchor')
-sub _jm_f_195($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$TightSchema'.'|'.1.'$dynamicAnchor'
-    $res = json_model_2($val, $path, $rep);
-    return $res;
-}
-
-# check _jm_obj_38_map_$dynamicRef (.'$TightSchema'.'|'.1.'$dynamicRef')
-sub _jm_f_196($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$TightSchema'.'|'.1.'$dynamicRef'
-    $res = json_model_2($val, $path, $rep);
-    return $res;
-}
-
-# check _jm_obj_38_map_$id (.'$TightSchema'.'|'.1.'$id')
-sub _jm_f_197($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$TightSchema'.'|'.1.'$id'
-    $res = json_model_2($val, $path, $rep);
-    return $res;
-}
-
-# check _jm_obj_38_map_$ref (.'$TightSchema'.'|'.1.'$ref')
-sub _jm_f_198($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$TightSchema'.'|'.1.'$ref'
-    $res = json_model_2($val, $path, $rep);
-    return $res;
-}
-
-# check _jm_obj_38_map_$schema (.'$TightSchema'.'|'.1.'$schema')
-sub _jm_f_199($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$TightSchema'.'|'.1.'$schema'
-    $res = jm_is_string($val) && jm_is_valid_url($val, $path, $rep);
-    return $res;
-}
-
-# object .'$TightSchema'.'|'.1.'$vocabulary'
-sub _jm_obj_40($$$)
-{
-    my ($val, $path, $rep) = @_;
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
-    my $res;
-    scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
-    {
-        if (jm_is_string($prop) && jm_is_valid_url($prop, undef, $rep))
-        {
-            # handle 1 key props
-            # .'$TightSchema'.'|'.1.'$vocabulary'.'$URI'
-            $res = jm_is_boolean($pval);
-            if (! $res)
-            {
-                return 0;
-            }
-        }
-        else
-        {
-            return 0;
-        }
-    }
-    return 1;
-}
-
-# check _jm_obj_38_map_$vocabulary (.'$TightSchema'.'|'.1.'$vocabulary')
-sub _jm_f_200($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$TightSchema'.'|'.1.'$vocabulary'
-    $res = _jm_obj_40($val, $path, $rep);
-    return $res;
-}
-
-# check _jm_obj_38_map_default (.'$TightSchema'.'|'.1.default)
-sub _jm_f_201($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$TightSchema'.'|'.1.default
-    $res = 1;
-    return $res;
-}
-
-# check _jm_obj_38_map_deprecated (.'$TightSchema'.'|'.1.deprecated)
-sub _jm_f_202($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$TightSchema'.'|'.1.deprecated
-    $res = jm_is_boolean($val);
-    return $res;
-}
-
-# check _jm_obj_38_map_description (.'$TightSchema'.'|'.1.description)
-sub _jm_f_203($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$TightSchema'.'|'.1.description
-    $res = jm_is_string($val);
-    return $res;
-}
-
-# check _jm_obj_38_map_examples (.'$TightSchema'.'|'.1.examples)
-sub _jm_f_204($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$TightSchema'.'|'.1.examples
-    $res = jm_is_array($val);
-    if ($res)
-    {
-        # accept any array
-        ;
-    }
-    return $res;
-}
-
-# check _jm_obj_38_map_readOnly (.'$TightSchema'.'|'.1.readOnly)
-sub _jm_f_205($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$TightSchema'.'|'.1.readOnly
-    $res = jm_is_boolean($val);
-    return $res;
-}
-
-# check _jm_obj_38_map_title (.'$TightSchema'.'|'.1.title)
-sub _jm_f_206($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$TightSchema'.'|'.1.title
-    $res = jm_is_string($val);
-    return $res;
-}
-
-# check _jm_obj_38_map_writeOnly (.'$TightSchema'.'|'.1.writeOnly)
-sub _jm_f_207($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$TightSchema'.'|'.1.writeOnly
-    $res = jm_is_boolean($val);
-    return $res;
-}
-
-
-# object .'$TightSchema'.'|'.1
-sub _jm_obj_38($$$)
-{
-    my ($val, $path, $rep) = @_;
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
-    my $res;
-    my $pfun;
-    my $must_count = 0;
-    scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
-    {
-        if ($prop eq 'type')
-        {
-            # handle must type property
-            $must_count++;
-            # .'$TightSchema'.'|'.1.type
-            $res = jm_is_string($pval) && $pval eq 'boolean';
-            if (! $res)
-            {
-                return 0;
-            }
-        }
-        elsif (($pfun = $_jm_obj_38_map{$prop}))
-        {
-            # handle 16 may props
-            if (defined($pfun) && ! &$pfun($pval, undef, $rep))
-            {
-                return 0;
-            }
-        }
-        else
-        {
-            return 0;
-        }
-    }
-    if ($must_count != 1)
-    {
-        return 0;
-    }
-    return 1;
-}
-
-# check _jm_obj_41_map_$anchor (.'$TightSchema'.'|'.0.'$anchor')
-sub _jm_f_208($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
@@ -4030,8 +1616,8 @@ sub _jm_f_208($$$)
     return $res;
 }
 
-# check _jm_obj_41_map_$comment (.'$TightSchema'.'|'.0.'$comment')
-sub _jm_f_209($$$)
+# check _jm_obj_16_map_$comment (.'$TightSchema'.'|'.0.'$comment')
+sub _jm_f_52($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
@@ -4041,7 +1627,7 @@ sub _jm_f_209($$$)
 }
 
 # object .'$TightSchema'.'|'.0.'$defs'
-sub _jm_obj_42($$$)
+sub _jm_obj_17($$$)
 {
     my ($val, $path, $rep) = @_;
     if (! jm_is_object($val))
@@ -4063,18 +1649,18 @@ sub _jm_obj_42($$$)
     return 1;
 }
 
-# check _jm_obj_41_map_$defs (.'$TightSchema'.'|'.0.'$defs')
-sub _jm_f_210($$$)
+# check _jm_obj_16_map_$defs (.'$TightSchema'.'|'.0.'$defs')
+sub _jm_f_53($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
     # .'$TightSchema'.'|'.0.'$defs'
-    $res = _jm_obj_42($val, $path, $rep);
+    $res = _jm_obj_17($val, $path, $rep);
     return $res;
 }
 
-# check _jm_obj_41_map_$dynamicAnchor (.'$TightSchema'.'|'.0.'$dynamicAnchor')
-sub _jm_f_211($$$)
+# check _jm_obj_16_map_$dynamicAnchor (.'$TightSchema'.'|'.0.'$dynamicAnchor')
+sub _jm_f_54($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
@@ -4083,8 +1669,8 @@ sub _jm_f_211($$$)
     return $res;
 }
 
-# check _jm_obj_41_map_$dynamicRef (.'$TightSchema'.'|'.0.'$dynamicRef')
-sub _jm_f_212($$$)
+# check _jm_obj_16_map_$dynamicRef (.'$TightSchema'.'|'.0.'$dynamicRef')
+sub _jm_f_55($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
@@ -4093,8 +1679,8 @@ sub _jm_f_212($$$)
     return $res;
 }
 
-# check _jm_obj_41_map_$id (.'$TightSchema'.'|'.0.'$id')
-sub _jm_f_213($$$)
+# check _jm_obj_16_map_$id (.'$TightSchema'.'|'.0.'$id')
+sub _jm_f_56($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
@@ -4103,8 +1689,8 @@ sub _jm_f_213($$$)
     return $res;
 }
 
-# check _jm_obj_41_map_$ref (.'$TightSchema'.'|'.0.'$ref')
-sub _jm_f_214($$$)
+# check _jm_obj_16_map_$ref (.'$TightSchema'.'|'.0.'$ref')
+sub _jm_f_57($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
@@ -4113,8 +1699,8 @@ sub _jm_f_214($$$)
     return $res;
 }
 
-# check _jm_obj_41_map_$schema (.'$TightSchema'.'|'.0.'$schema')
-sub _jm_f_215($$$)
+# check _jm_obj_16_map_$schema (.'$TightSchema'.'|'.0.'$schema')
+sub _jm_f_58($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
@@ -4124,7 +1710,7 @@ sub _jm_f_215($$$)
 }
 
 # object .'$TightSchema'.'|'.0.'$vocabulary'
-sub _jm_obj_43($$$)
+sub _jm_obj_18($$$)
 {
     my ($val, $path, $rep) = @_;
     if (! jm_is_object($val))
@@ -4153,18 +1739,18 @@ sub _jm_obj_43($$$)
     return 1;
 }
 
-# check _jm_obj_41_map_$vocabulary (.'$TightSchema'.'|'.0.'$vocabulary')
-sub _jm_f_216($$$)
+# check _jm_obj_16_map_$vocabulary (.'$TightSchema'.'|'.0.'$vocabulary')
+sub _jm_f_59($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
     # .'$TightSchema'.'|'.0.'$vocabulary'
-    $res = _jm_obj_43($val, $path, $rep);
+    $res = _jm_obj_18($val, $path, $rep);
     return $res;
 }
 
-# check _jm_obj_41_map_default (.'$TightSchema'.'|'.0.default)
-sub _jm_f_217($$$)
+# check _jm_obj_16_map_default (.'$TightSchema'.'|'.0.default)
+sub _jm_f_60($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
@@ -4173,8 +1759,8 @@ sub _jm_f_217($$$)
     return $res;
 }
 
-# check _jm_obj_41_map_deprecated (.'$TightSchema'.'|'.0.deprecated)
-sub _jm_f_218($$$)
+# check _jm_obj_16_map_deprecated (.'$TightSchema'.'|'.0.deprecated)
+sub _jm_f_61($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
@@ -4183,8 +1769,8 @@ sub _jm_f_218($$$)
     return $res;
 }
 
-# check _jm_obj_41_map_description (.'$TightSchema'.'|'.0.description)
-sub _jm_f_219($$$)
+# check _jm_obj_16_map_description (.'$TightSchema'.'|'.0.description)
+sub _jm_f_62($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
@@ -4193,8 +1779,8 @@ sub _jm_f_219($$$)
     return $res;
 }
 
-# check _jm_obj_41_map_examples (.'$TightSchema'.'|'.0.examples)
-sub _jm_f_220($$$)
+# check _jm_obj_16_map_examples (.'$TightSchema'.'|'.0.examples)
+sub _jm_f_63($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
@@ -4208,8 +1794,8 @@ sub _jm_f_220($$$)
     return $res;
 }
 
-# check _jm_obj_41_map_readOnly (.'$TightSchema'.'|'.0.readOnly)
-sub _jm_f_221($$$)
+# check _jm_obj_16_map_readOnly (.'$TightSchema'.'|'.0.readOnly)
+sub _jm_f_64($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
@@ -4218,8 +1804,8 @@ sub _jm_f_221($$$)
     return $res;
 }
 
-# check _jm_obj_41_map_title (.'$TightSchema'.'|'.0.title)
-sub _jm_f_222($$$)
+# check _jm_obj_16_map_title (.'$TightSchema'.'|'.0.title)
+sub _jm_f_65($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
@@ -4228,8 +1814,8 @@ sub _jm_f_222($$$)
     return $res;
 }
 
-# check _jm_obj_41_map_writeOnly (.'$TightSchema'.'|'.0.writeOnly)
-sub _jm_f_223($$$)
+# check _jm_obj_16_map_writeOnly (.'$TightSchema'.'|'.0.writeOnly)
+sub _jm_f_66($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
@@ -4240,7 +1826,7 @@ sub _jm_f_223($$$)
 
 
 # object .'$TightSchema'.'|'.0
-sub _jm_obj_41($$$)
+sub _jm_obj_16($$$)
 {
     my ($val, $path, $rep) = @_;
     if (! jm_is_object($val))
@@ -4264,7 +1850,7 @@ sub _jm_obj_41($$$)
                 return 0;
             }
         }
-        elsif (($pfun = $_jm_obj_41_map{$prop}))
+        elsif (($pfun = $_jm_obj_16_map{$prop}))
         {
             # handle 16 may props
             if (defined($pfun) && ! &$pfun($pval, undef, $rep))
@@ -4284,52 +1870,2454 @@ sub _jm_obj_41($$$)
     return 1;
 }
 
+# check _jm_obj_19_map_$anchor (.'$TightSchema'.'|'.1.'$anchor')
+sub _jm_f_67($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$TightSchema'.'|'.1.'$anchor'
+    $res = json_model_2($val, $path, $rep);
+    return $res;
+}
+
+# check _jm_obj_19_map_$comment (.'$TightSchema'.'|'.1.'$comment')
+sub _jm_f_68($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$TightSchema'.'|'.1.'$comment'
+    $res = jm_is_string($val);
+    return $res;
+}
+
+# object .'$TightSchema'.'|'.1.'$defs'
+sub _jm_obj_20($$$)
+{
+    my ($val, $path, $rep) = @_;
+    if (! jm_is_object($val))
+    {
+        return 0;
+    }
+    my $res;
+    scalar keys %$val;
+    while (my ($prop, $pval) = each %$val)
+    {
+        # handle other props
+        # .'$TightSchema'.'|'.1.'$defs'.''
+        $res = json_model_16($pval, undef, $rep);
+        if (! $res)
+        {
+            return 0;
+        }
+    }
+    return 1;
+}
+
+# check _jm_obj_19_map_$defs (.'$TightSchema'.'|'.1.'$defs')
+sub _jm_f_69($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$TightSchema'.'|'.1.'$defs'
+    $res = _jm_obj_20($val, $path, $rep);
+    return $res;
+}
+
+# check _jm_obj_19_map_$dynamicAnchor (.'$TightSchema'.'|'.1.'$dynamicAnchor')
+sub _jm_f_70($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$TightSchema'.'|'.1.'$dynamicAnchor'
+    $res = json_model_2($val, $path, $rep);
+    return $res;
+}
+
+# check _jm_obj_19_map_$dynamicRef (.'$TightSchema'.'|'.1.'$dynamicRef')
+sub _jm_f_71($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$TightSchema'.'|'.1.'$dynamicRef'
+    $res = json_model_2($val, $path, $rep);
+    return $res;
+}
+
+# check _jm_obj_19_map_$id (.'$TightSchema'.'|'.1.'$id')
+sub _jm_f_72($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$TightSchema'.'|'.1.'$id'
+    $res = json_model_2($val, $path, $rep);
+    return $res;
+}
+
+# check _jm_obj_19_map_$ref (.'$TightSchema'.'|'.1.'$ref')
+sub _jm_f_73($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$TightSchema'.'|'.1.'$ref'
+    $res = json_model_2($val, $path, $rep);
+    return $res;
+}
+
+# check _jm_obj_19_map_$schema (.'$TightSchema'.'|'.1.'$schema')
+sub _jm_f_74($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$TightSchema'.'|'.1.'$schema'
+    $res = jm_is_string($val) && jm_is_valid_url($val, $path, $rep);
+    return $res;
+}
+
+# object .'$TightSchema'.'|'.1.'$vocabulary'
+sub _jm_obj_21($$$)
+{
+    my ($val, $path, $rep) = @_;
+    if (! jm_is_object($val))
+    {
+        return 0;
+    }
+    my $res;
+    scalar keys %$val;
+    while (my ($prop, $pval) = each %$val)
+    {
+        if (jm_is_string($prop) && jm_is_valid_url($prop, undef, $rep))
+        {
+            # handle 1 key props
+            # .'$TightSchema'.'|'.1.'$vocabulary'.'$URI'
+            $res = jm_is_boolean($pval);
+            if (! $res)
+            {
+                return 0;
+            }
+        }
+        else
+        {
+            return 0;
+        }
+    }
+    return 1;
+}
+
+# check _jm_obj_19_map_$vocabulary (.'$TightSchema'.'|'.1.'$vocabulary')
+sub _jm_f_75($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$TightSchema'.'|'.1.'$vocabulary'
+    $res = _jm_obj_21($val, $path, $rep);
+    return $res;
+}
+
+# check _jm_obj_19_map_default (.'$TightSchema'.'|'.1.default)
+sub _jm_f_76($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$TightSchema'.'|'.1.default
+    $res = 1;
+    return $res;
+}
+
+# check _jm_obj_19_map_deprecated (.'$TightSchema'.'|'.1.deprecated)
+sub _jm_f_77($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$TightSchema'.'|'.1.deprecated
+    $res = jm_is_boolean($val);
+    return $res;
+}
+
+# check _jm_obj_19_map_description (.'$TightSchema'.'|'.1.description)
+sub _jm_f_78($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$TightSchema'.'|'.1.description
+    $res = jm_is_string($val);
+    return $res;
+}
+
+# check _jm_obj_19_map_examples (.'$TightSchema'.'|'.1.examples)
+sub _jm_f_79($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$TightSchema'.'|'.1.examples
+    $res = jm_is_array($val);
+    if ($res)
+    {
+        # accept any array
+        ;
+    }
+    return $res;
+}
+
+# check _jm_obj_19_map_readOnly (.'$TightSchema'.'|'.1.readOnly)
+sub _jm_f_80($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$TightSchema'.'|'.1.readOnly
+    $res = jm_is_boolean($val);
+    return $res;
+}
+
+# check _jm_obj_19_map_title (.'$TightSchema'.'|'.1.title)
+sub _jm_f_81($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$TightSchema'.'|'.1.title
+    $res = jm_is_string($val);
+    return $res;
+}
+
+# check _jm_obj_19_map_writeOnly (.'$TightSchema'.'|'.1.writeOnly)
+sub _jm_f_82($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$TightSchema'.'|'.1.writeOnly
+    $res = jm_is_boolean($val);
+    return $res;
+}
+
+
+# object .'$TightSchema'.'|'.1
+sub _jm_obj_19($$$)
+{
+    my ($val, $path, $rep) = @_;
+    if (! jm_is_object($val))
+    {
+        return 0;
+    }
+    my $res;
+    my $pfun;
+    my $must_count = 0;
+    scalar keys %$val;
+    while (my ($prop, $pval) = each %$val)
+    {
+        if ($prop eq 'type')
+        {
+            # handle must type property
+            $must_count++;
+            # .'$TightSchema'.'|'.1.type
+            $res = jm_is_string($pval) && $pval eq 'boolean';
+            if (! $res)
+            {
+                return 0;
+            }
+        }
+        elsif (($pfun = $_jm_obj_19_map{$prop}))
+        {
+            # handle 16 may props
+            if (defined($pfun) && ! &$pfun($pval, undef, $rep))
+            {
+                return 0;
+            }
+        }
+        else
+        {
+            return 0;
+        }
+    }
+    if ($must_count != 1)
+    {
+        return 0;
+    }
+    return 1;
+}
+
+# check _jm_obj_22_map_$anchor (.'$TightSchema'.'|'.2.'$anchor')
+sub _jm_f_83($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$TightSchema'.'|'.2.'$anchor'
+    $res = json_model_2($val, $path, $rep);
+    return $res;
+}
+
+# check _jm_obj_22_map_$comment (.'$TightSchema'.'|'.2.'$comment')
+sub _jm_f_84($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$TightSchema'.'|'.2.'$comment'
+    $res = jm_is_string($val);
+    return $res;
+}
+
+# object .'$TightSchema'.'|'.2.'$defs'
+sub _jm_obj_23($$$)
+{
+    my ($val, $path, $rep) = @_;
+    if (! jm_is_object($val))
+    {
+        return 0;
+    }
+    my $res;
+    scalar keys %$val;
+    while (my ($prop, $pval) = each %$val)
+    {
+        # handle other props
+        # .'$TightSchema'.'|'.2.'$defs'.''
+        $res = json_model_16($pval, undef, $rep);
+        if (! $res)
+        {
+            return 0;
+        }
+    }
+    return 1;
+}
+
+# check _jm_obj_22_map_$defs (.'$TightSchema'.'|'.2.'$defs')
+sub _jm_f_85($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$TightSchema'.'|'.2.'$defs'
+    $res = _jm_obj_23($val, $path, $rep);
+    return $res;
+}
+
+# check _jm_obj_22_map_$dynamicAnchor (.'$TightSchema'.'|'.2.'$dynamicAnchor')
+sub _jm_f_86($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$TightSchema'.'|'.2.'$dynamicAnchor'
+    $res = json_model_2($val, $path, $rep);
+    return $res;
+}
+
+# check _jm_obj_22_map_$dynamicRef (.'$TightSchema'.'|'.2.'$dynamicRef')
+sub _jm_f_87($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$TightSchema'.'|'.2.'$dynamicRef'
+    $res = json_model_2($val, $path, $rep);
+    return $res;
+}
+
+# check _jm_obj_22_map_$id (.'$TightSchema'.'|'.2.'$id')
+sub _jm_f_88($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$TightSchema'.'|'.2.'$id'
+    $res = json_model_2($val, $path, $rep);
+    return $res;
+}
+
+# check _jm_obj_22_map_$ref (.'$TightSchema'.'|'.2.'$ref')
+sub _jm_f_89($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$TightSchema'.'|'.2.'$ref'
+    $res = json_model_2($val, $path, $rep);
+    return $res;
+}
+
+# check _jm_obj_22_map_$schema (.'$TightSchema'.'|'.2.'$schema')
+sub _jm_f_90($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$TightSchema'.'|'.2.'$schema'
+    $res = jm_is_string($val) && jm_is_valid_url($val, $path, $rep);
+    return $res;
+}
+
+# object .'$TightSchema'.'|'.2.'$vocabulary'
+sub _jm_obj_24($$$)
+{
+    my ($val, $path, $rep) = @_;
+    if (! jm_is_object($val))
+    {
+        return 0;
+    }
+    my $res;
+    scalar keys %$val;
+    while (my ($prop, $pval) = each %$val)
+    {
+        if (jm_is_string($prop) && jm_is_valid_url($prop, undef, $rep))
+        {
+            # handle 1 key props
+            # .'$TightSchema'.'|'.2.'$vocabulary'.'$URI'
+            $res = jm_is_boolean($pval);
+            if (! $res)
+            {
+                return 0;
+            }
+        }
+        else
+        {
+            return 0;
+        }
+    }
+    return 1;
+}
+
+# check _jm_obj_22_map_$vocabulary (.'$TightSchema'.'|'.2.'$vocabulary')
+sub _jm_f_91($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$TightSchema'.'|'.2.'$vocabulary'
+    $res = _jm_obj_24($val, $path, $rep);
+    return $res;
+}
+
+# check _jm_obj_22_map_default (.'$TightSchema'.'|'.2.default)
+sub _jm_f_92($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$TightSchema'.'|'.2.default
+    $res = 1;
+    return $res;
+}
+
+# check _jm_obj_22_map_deprecated (.'$TightSchema'.'|'.2.deprecated)
+sub _jm_f_93($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$TightSchema'.'|'.2.deprecated
+    $res = jm_is_boolean($val);
+    return $res;
+}
+
+# check _jm_obj_22_map_description (.'$TightSchema'.'|'.2.description)
+sub _jm_f_94($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$TightSchema'.'|'.2.description
+    $res = jm_is_string($val);
+    return $res;
+}
+
+# check _jm_obj_22_map_examples (.'$TightSchema'.'|'.2.examples)
+sub _jm_f_95($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$TightSchema'.'|'.2.examples
+    $res = jm_is_array($val);
+    if ($res)
+    {
+        # accept any array
+        ;
+    }
+    return $res;
+}
+
+# check _jm_obj_22_map_exclusiveMaximum (.'$TightSchema'.'|'.2.exclusiveMaximum)
+sub _jm_f_96($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$TightSchema'.'|'.2.exclusiveMaximum
+    # .'$TightSchema'.'|'.2.exclusiveMaximum.'|'.0
+    $res = jm_is_integer($val);
+    if (! $res)
+    {
+        # .'$TightSchema'.'|'.2.exclusiveMaximum.'|'.1
+        $res = jm_is_numeric($val);
+    }
+    return $res;
+}
+
+# check _jm_obj_22_map_exclusiveMinimum (.'$TightSchema'.'|'.2.exclusiveMinimum)
+sub _jm_f_97($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$TightSchema'.'|'.2.exclusiveMinimum
+    # .'$TightSchema'.'|'.2.exclusiveMinimum.'|'.0
+    $res = jm_is_integer($val);
+    if (! $res)
+    {
+        # .'$TightSchema'.'|'.2.exclusiveMinimum.'|'.1
+        $res = jm_is_numeric($val);
+    }
+    return $res;
+}
+
+# check _jm_obj_22_map_maximum (.'$TightSchema'.'|'.2.maximum)
+sub _jm_f_98($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$TightSchema'.'|'.2.maximum
+    # .'$TightSchema'.'|'.2.maximum.'|'.0
+    $res = jm_is_integer($val);
+    if (! $res)
+    {
+        # .'$TightSchema'.'|'.2.maximum.'|'.1
+        $res = jm_is_numeric($val);
+    }
+    return $res;
+}
+
+# check _jm_obj_22_map_minimum (.'$TightSchema'.'|'.2.minimum)
+sub _jm_f_99($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$TightSchema'.'|'.2.minimum
+    # .'$TightSchema'.'|'.2.minimum.'|'.0
+    $res = jm_is_integer($val);
+    if (! $res)
+    {
+        # .'$TightSchema'.'|'.2.minimum.'|'.1
+        $res = jm_is_numeric($val);
+    }
+    return $res;
+}
+
+# check _jm_obj_22_map_multipleOf (.'$TightSchema'.'|'.2.multipleOf)
+sub _jm_f_100($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$TightSchema'.'|'.2.multipleOf
+    # .'$TightSchema'.'|'.2.multipleOf.'|'.0
+    $res = jm_is_integer($val) && $val >= 1;
+    if (! $res)
+    {
+        # .'$TightSchema'.'|'.2.multipleOf.'|'.1
+        $res = jm_is_numeric($val) && $val > 0.0;
+    }
+    return $res;
+}
+
+# check _jm_obj_22_map_readOnly (.'$TightSchema'.'|'.2.readOnly)
+sub _jm_f_101($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$TightSchema'.'|'.2.readOnly
+    $res = jm_is_boolean($val);
+    return $res;
+}
+
+# check _jm_obj_22_map_title (.'$TightSchema'.'|'.2.title)
+sub _jm_f_102($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$TightSchema'.'|'.2.title
+    $res = jm_is_string($val);
+    return $res;
+}
+
+# check _jm_obj_22_map_writeOnly (.'$TightSchema'.'|'.2.writeOnly)
+sub _jm_f_103($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$TightSchema'.'|'.2.writeOnly
+    $res = jm_is_boolean($val);
+    return $res;
+}
+
+
+# object .'$TightSchema'.'|'.2
+sub _jm_obj_22($$$)
+{
+    my ($val, $path, $rep) = @_;
+    if (! jm_is_object($val))
+    {
+        return 0;
+    }
+    my $res;
+    my $pfun;
+    my $must_count = 0;
+    scalar keys %$val;
+    while (my ($prop, $pval) = each %$val)
+    {
+        if ($prop eq 'type')
+        {
+            # handle must type property
+            $must_count++;
+            # .'$TightSchema'.'|'.2.type
+            $res = jm_is_string($pval) && $pval eq 'number';
+            if (! $res)
+            {
+                return 0;
+            }
+        }
+        elsif (($pfun = $_jm_obj_22_map{$prop}))
+        {
+            # handle 21 may props
+            if (defined($pfun) && ! &$pfun($pval, undef, $rep))
+            {
+                return 0;
+            }
+        }
+        else
+        {
+            return 0;
+        }
+    }
+    if ($must_count != 1)
+    {
+        return 0;
+    }
+    return 1;
+}
+
+# check _jm_obj_25_map_$anchor (.'$TightSchema'.'|'.3.'$anchor')
+sub _jm_f_104($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$TightSchema'.'|'.3.'$anchor'
+    $res = json_model_2($val, $path, $rep);
+    return $res;
+}
+
+# check _jm_obj_25_map_$comment (.'$TightSchema'.'|'.3.'$comment')
+sub _jm_f_105($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$TightSchema'.'|'.3.'$comment'
+    $res = jm_is_string($val);
+    return $res;
+}
+
+# object .'$TightSchema'.'|'.3.'$defs'
+sub _jm_obj_26($$$)
+{
+    my ($val, $path, $rep) = @_;
+    if (! jm_is_object($val))
+    {
+        return 0;
+    }
+    my $res;
+    scalar keys %$val;
+    while (my ($prop, $pval) = each %$val)
+    {
+        # handle other props
+        # .'$TightSchema'.'|'.3.'$defs'.''
+        $res = json_model_16($pval, undef, $rep);
+        if (! $res)
+        {
+            return 0;
+        }
+    }
+    return 1;
+}
+
+# check _jm_obj_25_map_$defs (.'$TightSchema'.'|'.3.'$defs')
+sub _jm_f_106($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$TightSchema'.'|'.3.'$defs'
+    $res = _jm_obj_26($val, $path, $rep);
+    return $res;
+}
+
+# check _jm_obj_25_map_$dynamicAnchor (.'$TightSchema'.'|'.3.'$dynamicAnchor')
+sub _jm_f_107($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$TightSchema'.'|'.3.'$dynamicAnchor'
+    $res = json_model_2($val, $path, $rep);
+    return $res;
+}
+
+# check _jm_obj_25_map_$dynamicRef (.'$TightSchema'.'|'.3.'$dynamicRef')
+sub _jm_f_108($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$TightSchema'.'|'.3.'$dynamicRef'
+    $res = json_model_2($val, $path, $rep);
+    return $res;
+}
+
+# check _jm_obj_25_map_$id (.'$TightSchema'.'|'.3.'$id')
+sub _jm_f_109($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$TightSchema'.'|'.3.'$id'
+    $res = json_model_2($val, $path, $rep);
+    return $res;
+}
+
+# check _jm_obj_25_map_$ref (.'$TightSchema'.'|'.3.'$ref')
+sub _jm_f_110($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$TightSchema'.'|'.3.'$ref'
+    $res = json_model_2($val, $path, $rep);
+    return $res;
+}
+
+# check _jm_obj_25_map_$schema (.'$TightSchema'.'|'.3.'$schema')
+sub _jm_f_111($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$TightSchema'.'|'.3.'$schema'
+    $res = jm_is_string($val) && jm_is_valid_url($val, $path, $rep);
+    return $res;
+}
+
+# object .'$TightSchema'.'|'.3.'$vocabulary'
+sub _jm_obj_27($$$)
+{
+    my ($val, $path, $rep) = @_;
+    if (! jm_is_object($val))
+    {
+        return 0;
+    }
+    my $res;
+    scalar keys %$val;
+    while (my ($prop, $pval) = each %$val)
+    {
+        if (jm_is_string($prop) && jm_is_valid_url($prop, undef, $rep))
+        {
+            # handle 1 key props
+            # .'$TightSchema'.'|'.3.'$vocabulary'.'$URI'
+            $res = jm_is_boolean($pval);
+            if (! $res)
+            {
+                return 0;
+            }
+        }
+        else
+        {
+            return 0;
+        }
+    }
+    return 1;
+}
+
+# check _jm_obj_25_map_$vocabulary (.'$TightSchema'.'|'.3.'$vocabulary')
+sub _jm_f_112($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$TightSchema'.'|'.3.'$vocabulary'
+    $res = _jm_obj_27($val, $path, $rep);
+    return $res;
+}
+
+# check _jm_obj_25_map_default (.'$TightSchema'.'|'.3.default)
+sub _jm_f_113($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$TightSchema'.'|'.3.default
+    $res = 1;
+    return $res;
+}
+
+# check _jm_obj_25_map_deprecated (.'$TightSchema'.'|'.3.deprecated)
+sub _jm_f_114($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$TightSchema'.'|'.3.deprecated
+    $res = jm_is_boolean($val);
+    return $res;
+}
+
+# check _jm_obj_25_map_description (.'$TightSchema'.'|'.3.description)
+sub _jm_f_115($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$TightSchema'.'|'.3.description
+    $res = jm_is_string($val);
+    return $res;
+}
+
+# check _jm_obj_25_map_examples (.'$TightSchema'.'|'.3.examples)
+sub _jm_f_116($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$TightSchema'.'|'.3.examples
+    $res = jm_is_array($val);
+    if ($res)
+    {
+        # accept any array
+        ;
+    }
+    return $res;
+}
+
+# check _jm_obj_25_map_exclusiveMaximum (.'$TightSchema'.'|'.3.exclusiveMaximum)
+sub _jm_f_117($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$TightSchema'.'|'.3.exclusiveMaximum
+    $res = jm_is_integer($val);
+    return $res;
+}
+
+# check _jm_obj_25_map_exclusiveMinimum (.'$TightSchema'.'|'.3.exclusiveMinimum)
+sub _jm_f_118($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$TightSchema'.'|'.3.exclusiveMinimum
+    $res = jm_is_integer($val);
+    return $res;
+}
+
+# check _jm_obj_25_map_maximum (.'$TightSchema'.'|'.3.maximum)
+sub _jm_f_119($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$TightSchema'.'|'.3.maximum
+    $res = jm_is_integer($val);
+    return $res;
+}
+
+# check _jm_obj_25_map_minimum (.'$TightSchema'.'|'.3.minimum)
+sub _jm_f_120($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$TightSchema'.'|'.3.minimum
+    $res = jm_is_integer($val);
+    return $res;
+}
+
+# check _jm_obj_25_map_multipleOf (.'$TightSchema'.'|'.3.multipleOf)
+sub _jm_f_121($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$TightSchema'.'|'.3.multipleOf
+    $res = jm_is_integer($val) && $val >= 1;
+    return $res;
+}
+
+# check _jm_obj_25_map_readOnly (.'$TightSchema'.'|'.3.readOnly)
+sub _jm_f_122($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$TightSchema'.'|'.3.readOnly
+    $res = jm_is_boolean($val);
+    return $res;
+}
+
+# check _jm_obj_25_map_title (.'$TightSchema'.'|'.3.title)
+sub _jm_f_123($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$TightSchema'.'|'.3.title
+    $res = jm_is_string($val);
+    return $res;
+}
+
+# check _jm_obj_25_map_writeOnly (.'$TightSchema'.'|'.3.writeOnly)
+sub _jm_f_124($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$TightSchema'.'|'.3.writeOnly
+    $res = jm_is_boolean($val);
+    return $res;
+}
+
+
+# object .'$TightSchema'.'|'.3
+sub _jm_obj_25($$$)
+{
+    my ($val, $path, $rep) = @_;
+    if (! jm_is_object($val))
+    {
+        return 0;
+    }
+    my $res;
+    my $pfun;
+    my $must_count = 0;
+    scalar keys %$val;
+    while (my ($prop, $pval) = each %$val)
+    {
+        if ($prop eq 'type')
+        {
+            # handle must type property
+            $must_count++;
+            # .'$TightSchema'.'|'.3.type
+            $res = jm_is_string($pval) && $pval eq 'integer';
+            if (! $res)
+            {
+                return 0;
+            }
+        }
+        elsif (($pfun = $_jm_obj_25_map{$prop}))
+        {
+            # handle 21 may props
+            if (defined($pfun) && ! &$pfun($pval, undef, $rep))
+            {
+                return 0;
+            }
+        }
+        else
+        {
+            return 0;
+        }
+    }
+    if ($must_count != 1)
+    {
+        return 0;
+    }
+    return 1;
+}
+
+# check _jm_obj_28_map_$anchor (.'$TightSchema'.'|'.4.'$anchor')
+sub _jm_f_125($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$TightSchema'.'|'.4.'$anchor'
+    $res = json_model_2($val, $path, $rep);
+    return $res;
+}
+
+# check _jm_obj_28_map_$comment (.'$TightSchema'.'|'.4.'$comment')
+sub _jm_f_126($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$TightSchema'.'|'.4.'$comment'
+    $res = jm_is_string($val);
+    return $res;
+}
+
+# object .'$TightSchema'.'|'.4.'$defs'
+sub _jm_obj_29($$$)
+{
+    my ($val, $path, $rep) = @_;
+    if (! jm_is_object($val))
+    {
+        return 0;
+    }
+    my $res;
+    scalar keys %$val;
+    while (my ($prop, $pval) = each %$val)
+    {
+        # handle other props
+        # .'$TightSchema'.'|'.4.'$defs'.''
+        $res = json_model_16($pval, undef, $rep);
+        if (! $res)
+        {
+            return 0;
+        }
+    }
+    return 1;
+}
+
+# check _jm_obj_28_map_$defs (.'$TightSchema'.'|'.4.'$defs')
+sub _jm_f_127($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$TightSchema'.'|'.4.'$defs'
+    $res = _jm_obj_29($val, $path, $rep);
+    return $res;
+}
+
+# check _jm_obj_28_map_$dynamicAnchor (.'$TightSchema'.'|'.4.'$dynamicAnchor')
+sub _jm_f_128($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$TightSchema'.'|'.4.'$dynamicAnchor'
+    $res = json_model_2($val, $path, $rep);
+    return $res;
+}
+
+# check _jm_obj_28_map_$dynamicRef (.'$TightSchema'.'|'.4.'$dynamicRef')
+sub _jm_f_129($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$TightSchema'.'|'.4.'$dynamicRef'
+    $res = json_model_2($val, $path, $rep);
+    return $res;
+}
+
+# check _jm_obj_28_map_$id (.'$TightSchema'.'|'.4.'$id')
+sub _jm_f_130($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$TightSchema'.'|'.4.'$id'
+    $res = json_model_2($val, $path, $rep);
+    return $res;
+}
+
+# check _jm_obj_28_map_$ref (.'$TightSchema'.'|'.4.'$ref')
+sub _jm_f_131($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$TightSchema'.'|'.4.'$ref'
+    $res = json_model_2($val, $path, $rep);
+    return $res;
+}
+
+# check _jm_obj_28_map_$schema (.'$TightSchema'.'|'.4.'$schema')
+sub _jm_f_132($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$TightSchema'.'|'.4.'$schema'
+    $res = jm_is_string($val) && jm_is_valid_url($val, $path, $rep);
+    return $res;
+}
+
+# object .'$TightSchema'.'|'.4.'$vocabulary'
+sub _jm_obj_30($$$)
+{
+    my ($val, $path, $rep) = @_;
+    if (! jm_is_object($val))
+    {
+        return 0;
+    }
+    my $res;
+    scalar keys %$val;
+    while (my ($prop, $pval) = each %$val)
+    {
+        if (jm_is_string($prop) && jm_is_valid_url($prop, undef, $rep))
+        {
+            # handle 1 key props
+            # .'$TightSchema'.'|'.4.'$vocabulary'.'$URI'
+            $res = jm_is_boolean($pval);
+            if (! $res)
+            {
+                return 0;
+            }
+        }
+        else
+        {
+            return 0;
+        }
+    }
+    return 1;
+}
+
+# check _jm_obj_28_map_$vocabulary (.'$TightSchema'.'|'.4.'$vocabulary')
+sub _jm_f_133($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$TightSchema'.'|'.4.'$vocabulary'
+    $res = _jm_obj_30($val, $path, $rep);
+    return $res;
+}
+
+# check _jm_obj_28_map_contentEncoding (.'$TightSchema'.'|'.4.contentEncoding)
+sub _jm_f_134($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$TightSchema'.'|'.4.contentEncoding
+    $res = jm_is_string($val);
+    return $res;
+}
+
+# check _jm_obj_28_map_contentMediaType (.'$TightSchema'.'|'.4.contentMediaType)
+sub _jm_f_135($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$TightSchema'.'|'.4.contentMediaType
+    $res = jm_is_string($val);
+    return $res;
+}
+
+# check _jm_obj_28_map_contentSchema (.'$TightSchema'.'|'.4.contentSchema)
+sub _jm_f_136($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$TightSchema'.'|'.4.contentSchema
+    $res = json_model_16($val, $path, $rep);
+    return $res;
+}
+
+# check _jm_obj_28_map_default (.'$TightSchema'.'|'.4.default)
+sub _jm_f_137($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$TightSchema'.'|'.4.default
+    $res = 1;
+    return $res;
+}
+
+# check _jm_obj_28_map_deprecated (.'$TightSchema'.'|'.4.deprecated)
+sub _jm_f_138($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$TightSchema'.'|'.4.deprecated
+    $res = jm_is_boolean($val);
+    return $res;
+}
+
+# check _jm_obj_28_map_description (.'$TightSchema'.'|'.4.description)
+sub _jm_f_139($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$TightSchema'.'|'.4.description
+    $res = jm_is_string($val);
+    return $res;
+}
+
+# check _jm_obj_28_map_examples (.'$TightSchema'.'|'.4.examples)
+sub _jm_f_140($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$TightSchema'.'|'.4.examples
+    $res = jm_is_array($val);
+    if ($res)
+    {
+        # accept any array
+        ;
+    }
+    return $res;
+}
+
+# check _jm_obj_28_map_format (.'$TightSchema'.'|'.4.format)
+sub _jm_f_141($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$TightSchema'.'|'.4.format
+    $res = jm_is_string($val);
+    return $res;
+}
+
+# check _jm_obj_28_map_maxLength (.'$TightSchema'.'|'.4.maxLength)
+sub _jm_f_142($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$TightSchema'.'|'.4.maxLength
+    $res = jm_is_integer($val) && $val >= 0;
+    return $res;
+}
+
+# check _jm_obj_28_map_minLength (.'$TightSchema'.'|'.4.minLength)
+sub _jm_f_143($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$TightSchema'.'|'.4.minLength
+    $res = jm_is_integer($val) && $val >= 0;
+    return $res;
+}
+
+# check _jm_obj_28_map_pattern (.'$TightSchema'.'|'.4.pattern)
+sub _jm_f_144($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$TightSchema'.'|'.4.pattern
+    $res = jm_is_string($val) && jm_is_valid_regex($val, $path, $rep);
+    return $res;
+}
+
+# check _jm_obj_28_map_readOnly (.'$TightSchema'.'|'.4.readOnly)
+sub _jm_f_145($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$TightSchema'.'|'.4.readOnly
+    $res = jm_is_boolean($val);
+    return $res;
+}
+
+# check _jm_obj_28_map_title (.'$TightSchema'.'|'.4.title)
+sub _jm_f_146($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$TightSchema'.'|'.4.title
+    $res = jm_is_string($val);
+    return $res;
+}
+
+# check _jm_obj_28_map_writeOnly (.'$TightSchema'.'|'.4.writeOnly)
+sub _jm_f_147($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$TightSchema'.'|'.4.writeOnly
+    $res = jm_is_boolean($val);
+    return $res;
+}
+
+
+# object .'$TightSchema'.'|'.4
+sub _jm_obj_28($$$)
+{
+    my ($val, $path, $rep) = @_;
+    if (! jm_is_object($val))
+    {
+        return 0;
+    }
+    my $res;
+    my $pfun;
+    my $must_count = 0;
+    scalar keys %$val;
+    while (my ($prop, $pval) = each %$val)
+    {
+        if ($prop eq 'type')
+        {
+            # handle must type property
+            $must_count++;
+            # .'$TightSchema'.'|'.4.type
+            $res = jm_is_string($pval) && $pval eq 'string';
+            if (! $res)
+            {
+                return 0;
+            }
+        }
+        elsif (($pfun = $_jm_obj_28_map{$prop}))
+        {
+            # handle 23 may props
+            if (defined($pfun) && ! &$pfun($pval, undef, $rep))
+            {
+                return 0;
+            }
+        }
+        else
+        {
+            return 0;
+        }
+    }
+    if ($must_count != 1)
+    {
+        return 0;
+    }
+    return 1;
+}
+
+# check _jm_obj_31_map_$anchor (.'$TightSchema'.'|'.5.'$anchor')
+sub _jm_f_148($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$TightSchema'.'|'.5.'$anchor'
+    $res = json_model_2($val, $path, $rep);
+    return $res;
+}
+
+# check _jm_obj_31_map_$comment (.'$TightSchema'.'|'.5.'$comment')
+sub _jm_f_149($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$TightSchema'.'|'.5.'$comment'
+    $res = jm_is_string($val);
+    return $res;
+}
+
+# object .'$TightSchema'.'|'.5.'$defs'
+sub _jm_obj_32($$$)
+{
+    my ($val, $path, $rep) = @_;
+    if (! jm_is_object($val))
+    {
+        return 0;
+    }
+    my $res;
+    scalar keys %$val;
+    while (my ($prop, $pval) = each %$val)
+    {
+        # handle other props
+        # .'$TightSchema'.'|'.5.'$defs'.''
+        $res = json_model_16($pval, undef, $rep);
+        if (! $res)
+        {
+            return 0;
+        }
+    }
+    return 1;
+}
+
+# check _jm_obj_31_map_$defs (.'$TightSchema'.'|'.5.'$defs')
+sub _jm_f_150($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$TightSchema'.'|'.5.'$defs'
+    $res = _jm_obj_32($val, $path, $rep);
+    return $res;
+}
+
+# check _jm_obj_31_map_$dynamicAnchor (.'$TightSchema'.'|'.5.'$dynamicAnchor')
+sub _jm_f_151($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$TightSchema'.'|'.5.'$dynamicAnchor'
+    $res = json_model_2($val, $path, $rep);
+    return $res;
+}
+
+# check _jm_obj_31_map_$dynamicRef (.'$TightSchema'.'|'.5.'$dynamicRef')
+sub _jm_f_152($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$TightSchema'.'|'.5.'$dynamicRef'
+    $res = json_model_2($val, $path, $rep);
+    return $res;
+}
+
+# check _jm_obj_31_map_$id (.'$TightSchema'.'|'.5.'$id')
+sub _jm_f_153($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$TightSchema'.'|'.5.'$id'
+    $res = json_model_2($val, $path, $rep);
+    return $res;
+}
+
+# check _jm_obj_31_map_$ref (.'$TightSchema'.'|'.5.'$ref')
+sub _jm_f_154($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$TightSchema'.'|'.5.'$ref'
+    $res = json_model_2($val, $path, $rep);
+    return $res;
+}
+
+# check _jm_obj_31_map_$schema (.'$TightSchema'.'|'.5.'$schema')
+sub _jm_f_155($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$TightSchema'.'|'.5.'$schema'
+    $res = jm_is_string($val) && jm_is_valid_url($val, $path, $rep);
+    return $res;
+}
+
+# object .'$TightSchema'.'|'.5.'$vocabulary'
+sub _jm_obj_33($$$)
+{
+    my ($val, $path, $rep) = @_;
+    if (! jm_is_object($val))
+    {
+        return 0;
+    }
+    my $res;
+    scalar keys %$val;
+    while (my ($prop, $pval) = each %$val)
+    {
+        if (jm_is_string($prop) && jm_is_valid_url($prop, undef, $rep))
+        {
+            # handle 1 key props
+            # .'$TightSchema'.'|'.5.'$vocabulary'.'$URI'
+            $res = jm_is_boolean($pval);
+            if (! $res)
+            {
+                return 0;
+            }
+        }
+        else
+        {
+            return 0;
+        }
+    }
+    return 1;
+}
+
+# check _jm_obj_31_map_$vocabulary (.'$TightSchema'.'|'.5.'$vocabulary')
+sub _jm_f_156($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$TightSchema'.'|'.5.'$vocabulary'
+    $res = _jm_obj_33($val, $path, $rep);
+    return $res;
+}
+
+# check _jm_obj_31_map_contains (.'$TightSchema'.'|'.5.contains)
+sub _jm_f_157($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$TightSchema'.'|'.5.contains
+    $res = json_model_16($val, $path, $rep);
+    return $res;
+}
+
+# check _jm_obj_31_map_default (.'$TightSchema'.'|'.5.default)
+sub _jm_f_158($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$TightSchema'.'|'.5.default
+    $res = 1;
+    return $res;
+}
+
+# check _jm_obj_31_map_deprecated (.'$TightSchema'.'|'.5.deprecated)
+sub _jm_f_159($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$TightSchema'.'|'.5.deprecated
+    $res = jm_is_boolean($val);
+    return $res;
+}
+
+# check _jm_obj_31_map_description (.'$TightSchema'.'|'.5.description)
+sub _jm_f_160($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$TightSchema'.'|'.5.description
+    $res = jm_is_string($val);
+    return $res;
+}
+
+# check _jm_obj_31_map_examples (.'$TightSchema'.'|'.5.examples)
+sub _jm_f_161($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$TightSchema'.'|'.5.examples
+    $res = jm_is_array($val);
+    if ($res)
+    {
+        # accept any array
+        ;
+    }
+    return $res;
+}
+
+# check _jm_obj_31_map_items (.'$TightSchema'.'|'.5.items)
+sub _jm_f_162($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$TightSchema'.'|'.5.items
+    $res = json_model_16($val, $path, $rep);
+    return $res;
+}
+
+# check _jm_obj_31_map_maxContains (.'$TightSchema'.'|'.5.maxContains)
+sub _jm_f_163($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$TightSchema'.'|'.5.maxContains
+    $res = jm_is_integer($val) && $val >= 0;
+    return $res;
+}
+
+# check _jm_obj_31_map_maxItems (.'$TightSchema'.'|'.5.maxItems)
+sub _jm_f_164($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$TightSchema'.'|'.5.maxItems
+    $res = jm_is_integer($val) && $val >= 0;
+    return $res;
+}
+
+# check _jm_obj_31_map_minContains (.'$TightSchema'.'|'.5.minContains)
+sub _jm_f_165($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$TightSchema'.'|'.5.minContains
+    $res = jm_is_integer($val) && $val >= 0;
+    return $res;
+}
+
+# check _jm_obj_31_map_minItems (.'$TightSchema'.'|'.5.minItems)
+sub _jm_f_166($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$TightSchema'.'|'.5.minItems
+    $res = jm_is_integer($val) && $val >= 0;
+    return $res;
+}
+
+# check _jm_obj_31_map_prefixItems (.'$TightSchema'.'|'.5.prefixItems)
+sub _jm_f_167($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$TightSchema'.'|'.5.prefixItems
+    $res = json_model_11($val, $path, $rep);
+    return $res;
+}
+
+# check _jm_obj_31_map_readOnly (.'$TightSchema'.'|'.5.readOnly)
+sub _jm_f_168($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$TightSchema'.'|'.5.readOnly
+    $res = jm_is_boolean($val);
+    return $res;
+}
+
+# check _jm_obj_31_map_title (.'$TightSchema'.'|'.5.title)
+sub _jm_f_169($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$TightSchema'.'|'.5.title
+    $res = jm_is_string($val);
+    return $res;
+}
+
+# check _jm_obj_31_map_unevaluatedItems (.'$TightSchema'.'|'.5.unevaluatedItems)
+sub _jm_f_170($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$TightSchema'.'|'.5.unevaluatedItems
+    $res = json_model_16($val, $path, $rep);
+    return $res;
+}
+
+# check _jm_obj_31_map_uniqueItems (.'$TightSchema'.'|'.5.uniqueItems)
+sub _jm_f_171($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$TightSchema'.'|'.5.uniqueItems
+    $res = jm_is_boolean($val);
+    return $res;
+}
+
+# check _jm_obj_31_map_writeOnly (.'$TightSchema'.'|'.5.writeOnly)
+sub _jm_f_172($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$TightSchema'.'|'.5.writeOnly
+    $res = jm_is_boolean($val);
+    return $res;
+}
+
+
+# object .'$TightSchema'.'|'.5
+sub _jm_obj_31($$$)
+{
+    my ($val, $path, $rep) = @_;
+    if (! jm_is_object($val))
+    {
+        return 0;
+    }
+    my $res;
+    my $pfun;
+    my $must_count = 0;
+    scalar keys %$val;
+    while (my ($prop, $pval) = each %$val)
+    {
+        if ($prop eq 'type')
+        {
+            # handle must type property
+            $must_count++;
+            # .'$TightSchema'.'|'.5.type
+            $res = jm_is_string($pval) && $pval eq 'array';
+            if (! $res)
+            {
+                return 0;
+            }
+        }
+        elsif (($pfun = $_jm_obj_31_map{$prop}))
+        {
+            # handle 25 may props
+            if (defined($pfun) && ! &$pfun($pval, undef, $rep))
+            {
+                return 0;
+            }
+        }
+        else
+        {
+            return 0;
+        }
+    }
+    if ($must_count != 1)
+    {
+        return 0;
+    }
+    return 1;
+}
+
+# check _jm_obj_34_map_$anchor (.'$TightSchema'.'|'.6.'$anchor')
+sub _jm_f_173($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$TightSchema'.'|'.6.'$anchor'
+    $res = json_model_2($val, $path, $rep);
+    return $res;
+}
+
+# check _jm_obj_34_map_$comment (.'$TightSchema'.'|'.6.'$comment')
+sub _jm_f_174($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$TightSchema'.'|'.6.'$comment'
+    $res = jm_is_string($val);
+    return $res;
+}
+
+# object .'$TightSchema'.'|'.6.'$defs'
+sub _jm_obj_35($$$)
+{
+    my ($val, $path, $rep) = @_;
+    if (! jm_is_object($val))
+    {
+        return 0;
+    }
+    my $res;
+    scalar keys %$val;
+    while (my ($prop, $pval) = each %$val)
+    {
+        # handle other props
+        # .'$TightSchema'.'|'.6.'$defs'.''
+        $res = json_model_16($pval, undef, $rep);
+        if (! $res)
+        {
+            return 0;
+        }
+    }
+    return 1;
+}
+
+# check _jm_obj_34_map_$defs (.'$TightSchema'.'|'.6.'$defs')
+sub _jm_f_175($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$TightSchema'.'|'.6.'$defs'
+    $res = _jm_obj_35($val, $path, $rep);
+    return $res;
+}
+
+# check _jm_obj_34_map_$dynamicAnchor (.'$TightSchema'.'|'.6.'$dynamicAnchor')
+sub _jm_f_176($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$TightSchema'.'|'.6.'$dynamicAnchor'
+    $res = json_model_2($val, $path, $rep);
+    return $res;
+}
+
+# check _jm_obj_34_map_$dynamicRef (.'$TightSchema'.'|'.6.'$dynamicRef')
+sub _jm_f_177($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$TightSchema'.'|'.6.'$dynamicRef'
+    $res = json_model_2($val, $path, $rep);
+    return $res;
+}
+
+# check _jm_obj_34_map_$id (.'$TightSchema'.'|'.6.'$id')
+sub _jm_f_178($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$TightSchema'.'|'.6.'$id'
+    $res = json_model_2($val, $path, $rep);
+    return $res;
+}
+
+# check _jm_obj_34_map_$ref (.'$TightSchema'.'|'.6.'$ref')
+sub _jm_f_179($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$TightSchema'.'|'.6.'$ref'
+    $res = json_model_2($val, $path, $rep);
+    return $res;
+}
+
+# check _jm_obj_34_map_$schema (.'$TightSchema'.'|'.6.'$schema')
+sub _jm_f_180($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$TightSchema'.'|'.6.'$schema'
+    $res = jm_is_string($val) && jm_is_valid_url($val, $path, $rep);
+    return $res;
+}
+
+# object .'$TightSchema'.'|'.6.'$vocabulary'
+sub _jm_obj_36($$$)
+{
+    my ($val, $path, $rep) = @_;
+    if (! jm_is_object($val))
+    {
+        return 0;
+    }
+    my $res;
+    scalar keys %$val;
+    while (my ($prop, $pval) = each %$val)
+    {
+        if (jm_is_string($prop) && jm_is_valid_url($prop, undef, $rep))
+        {
+            # handle 1 key props
+            # .'$TightSchema'.'|'.6.'$vocabulary'.'$URI'
+            $res = jm_is_boolean($pval);
+            if (! $res)
+            {
+                return 0;
+            }
+        }
+        else
+        {
+            return 0;
+        }
+    }
+    return 1;
+}
+
+# check _jm_obj_34_map_$vocabulary (.'$TightSchema'.'|'.6.'$vocabulary')
+sub _jm_f_181($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$TightSchema'.'|'.6.'$vocabulary'
+    $res = _jm_obj_36($val, $path, $rep);
+    return $res;
+}
+
+# check _jm_obj_34_map_additionalProperties (.'$TightSchema'.'|'.6.additionalProperties)
+sub _jm_f_182($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$TightSchema'.'|'.6.additionalProperties
+    $res = json_model_16($val, $path, $rep);
+    return $res;
+}
+
+# check _jm_obj_34_map_default (.'$TightSchema'.'|'.6.default)
+sub _jm_f_183($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$TightSchema'.'|'.6.default
+    $res = 1;
+    return $res;
+}
+
+# object .'$TightSchema'.'|'.6.dependentRequired
+sub _jm_obj_37($$$)
+{
+    my ($val, $path, $rep) = @_;
+    if (! jm_is_object($val))
+    {
+        return 0;
+    }
+    my $res;
+    scalar keys %$val;
+    while (my ($prop, $pval) = each %$val)
+    {
+        # handle other props
+        # .'$TightSchema'.'|'.6.dependentRequired.''
+        $res = json_model_10($pval, undef, $rep);
+        if (! $res)
+        {
+            return 0;
+        }
+    }
+    return 1;
+}
+
+# check _jm_obj_34_map_dependentRequired (.'$TightSchema'.'|'.6.dependentRequired)
+sub _jm_f_184($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$TightSchema'.'|'.6.dependentRequired
+    $res = _jm_obj_37($val, $path, $rep);
+    return $res;
+}
+
+# object .'$TightSchema'.'|'.6.dependentSchemas
+sub _jm_obj_38($$$)
+{
+    my ($val, $path, $rep) = @_;
+    if (! jm_is_object($val))
+    {
+        return 0;
+    }
+    my $res;
+    scalar keys %$val;
+    while (my ($prop, $pval) = each %$val)
+    {
+        # handle other props
+        # .'$TightSchema'.'|'.6.dependentSchemas.''
+        $res = json_model_16($pval, undef, $rep);
+        if (! $res)
+        {
+            return 0;
+        }
+    }
+    return 1;
+}
+
+# check _jm_obj_34_map_dependentSchemas (.'$TightSchema'.'|'.6.dependentSchemas)
+sub _jm_f_185($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$TightSchema'.'|'.6.dependentSchemas
+    $res = _jm_obj_38($val, $path, $rep);
+    return $res;
+}
+
+# check _jm_obj_34_map_deprecated (.'$TightSchema'.'|'.6.deprecated)
+sub _jm_f_186($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$TightSchema'.'|'.6.deprecated
+    $res = jm_is_boolean($val);
+    return $res;
+}
+
+# check _jm_obj_34_map_description (.'$TightSchema'.'|'.6.description)
+sub _jm_f_187($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$TightSchema'.'|'.6.description
+    $res = jm_is_string($val);
+    return $res;
+}
+
+# check _jm_obj_34_map_examples (.'$TightSchema'.'|'.6.examples)
+sub _jm_f_188($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$TightSchema'.'|'.6.examples
+    $res = jm_is_array($val);
+    if ($res)
+    {
+        # accept any array
+        ;
+    }
+    return $res;
+}
+
+# check _jm_obj_34_map_maxProperties (.'$TightSchema'.'|'.6.maxProperties)
+sub _jm_f_189($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$TightSchema'.'|'.6.maxProperties
+    $res = jm_is_integer($val) && $val >= 0;
+    return $res;
+}
+
+# check _jm_obj_34_map_minProperties (.'$TightSchema'.'|'.6.minProperties)
+sub _jm_f_190($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$TightSchema'.'|'.6.minProperties
+    $res = jm_is_integer($val) && $val >= 0;
+    return $res;
+}
+
+# object .'$TightSchema'.'|'.6.patternProperties
+sub _jm_obj_39($$$)
+{
+    my ($val, $path, $rep) = @_;
+    if (! jm_is_object($val))
+    {
+        return 0;
+    }
+    my $res;
+    scalar keys %$val;
+    while (my ($prop, $pval) = each %$val)
+    {
+        if (jm_is_string($prop) && jm_is_valid_regex($prop, undef, $rep))
+        {
+            # handle 1 key props
+            # .'$TightSchema'.'|'.6.patternProperties.'$REGEX'
+            $res = json_model_16($pval, undef, $rep);
+            if (! $res)
+            {
+                return 0;
+            }
+        }
+        else
+        {
+            return 0;
+        }
+    }
+    return 1;
+}
+
+# check _jm_obj_34_map_patternProperties (.'$TightSchema'.'|'.6.patternProperties)
+sub _jm_f_191($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$TightSchema'.'|'.6.patternProperties
+    $res = _jm_obj_39($val, $path, $rep);
+    return $res;
+}
+
+# object .'$TightSchema'.'|'.6.properties
+sub _jm_obj_40($$$)
+{
+    my ($val, $path, $rep) = @_;
+    if (! jm_is_object($val))
+    {
+        return 0;
+    }
+    my $res;
+    scalar keys %$val;
+    while (my ($prop, $pval) = each %$val)
+    {
+        # handle other props
+        # .'$TightSchema'.'|'.6.properties.''
+        $res = json_model_16($pval, undef, $rep);
+        if (! $res)
+        {
+            return 0;
+        }
+    }
+    return 1;
+}
+
+# check _jm_obj_34_map_properties (.'$TightSchema'.'|'.6.properties)
+sub _jm_f_192($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$TightSchema'.'|'.6.properties
+    $res = _jm_obj_40($val, $path, $rep);
+    return $res;
+}
+
+# check _jm_obj_34_map_propertyNames (.'$TightSchema'.'|'.6.propertyNames)
+sub _jm_f_193($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$TightSchema'.'|'.6.propertyNames
+    $res = json_model_16($val, $path, $rep);
+    return $res;
+}
+
+# check _jm_obj_34_map_readOnly (.'$TightSchema'.'|'.6.readOnly)
+sub _jm_f_194($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$TightSchema'.'|'.6.readOnly
+    $res = jm_is_boolean($val);
+    return $res;
+}
+
+# check _jm_obj_34_map_required (.'$TightSchema'.'|'.6.required)
+sub _jm_f_195($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$TightSchema'.'|'.6.required
+    $res = json_model_10($val, $path, $rep);
+    return $res;
+}
+
+# check _jm_obj_34_map_title (.'$TightSchema'.'|'.6.title)
+sub _jm_f_196($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$TightSchema'.'|'.6.title
+    $res = jm_is_string($val);
+    return $res;
+}
+
+# check _jm_obj_34_map_unevaluatedProperties (.'$TightSchema'.'|'.6.unevaluatedProperties)
+sub _jm_f_197($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$TightSchema'.'|'.6.unevaluatedProperties
+    $res = json_model_16($val, $path, $rep);
+    return $res;
+}
+
+# check _jm_obj_34_map_writeOnly (.'$TightSchema'.'|'.6.writeOnly)
+sub _jm_f_198($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$TightSchema'.'|'.6.writeOnly
+    $res = jm_is_boolean($val);
+    return $res;
+}
+
+
+# object .'$TightSchema'.'|'.6
+sub _jm_obj_34($$$)
+{
+    my ($val, $path, $rep) = @_;
+    if (! jm_is_object($val))
+    {
+        return 0;
+    }
+    my $res;
+    my $pfun;
+    my $must_count = 0;
+    scalar keys %$val;
+    while (my ($prop, $pval) = each %$val)
+    {
+        if ($prop eq 'type')
+        {
+            # handle must type property
+            $must_count++;
+            # .'$TightSchema'.'|'.6.type
+            $res = jm_is_string($pval) && $pval eq 'object';
+            if (! $res)
+            {
+                return 0;
+            }
+        }
+        elsif (($pfun = $_jm_obj_34_map{$prop}))
+        {
+            # handle 26 may props
+            if (defined($pfun) && ! &$pfun($pval, undef, $rep))
+            {
+                return 0;
+            }
+        }
+        else
+        {
+            return 0;
+        }
+    }
+    if ($must_count != 1)
+    {
+        return 0;
+    }
+    return 1;
+}
+
+# check _jm_obj_41_map_$anchor (.'$TightSchema'.'|'.7.'$anchor')
+sub _jm_f_199($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$TightSchema'.'|'.7.'$anchor'
+    $res = json_model_2($val, $path, $rep);
+    return $res;
+}
+
+# check _jm_obj_41_map_$comment (.'$TightSchema'.'|'.7.'$comment')
+sub _jm_f_200($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$TightSchema'.'|'.7.'$comment'
+    $res = jm_is_string($val);
+    return $res;
+}
+
+# object .'$TightSchema'.'|'.7.'$defs'
+sub _jm_obj_42($$$)
+{
+    my ($val, $path, $rep) = @_;
+    if (! jm_is_object($val))
+    {
+        return 0;
+    }
+    my $res;
+    scalar keys %$val;
+    while (my ($prop, $pval) = each %$val)
+    {
+        # handle other props
+        # .'$TightSchema'.'|'.7.'$defs'.''
+        $res = json_model_16($pval, undef, $rep);
+        if (! $res)
+        {
+            return 0;
+        }
+    }
+    return 1;
+}
+
+# check _jm_obj_41_map_$defs (.'$TightSchema'.'|'.7.'$defs')
+sub _jm_f_201($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$TightSchema'.'|'.7.'$defs'
+    $res = _jm_obj_42($val, $path, $rep);
+    return $res;
+}
+
+# check _jm_obj_41_map_$dynamicAnchor (.'$TightSchema'.'|'.7.'$dynamicAnchor')
+sub _jm_f_202($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$TightSchema'.'|'.7.'$dynamicAnchor'
+    $res = json_model_2($val, $path, $rep);
+    return $res;
+}
+
+# check _jm_obj_41_map_$dynamicRef (.'$TightSchema'.'|'.7.'$dynamicRef')
+sub _jm_f_203($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$TightSchema'.'|'.7.'$dynamicRef'
+    $res = json_model_2($val, $path, $rep);
+    return $res;
+}
+
+# check _jm_obj_41_map_$id (.'$TightSchema'.'|'.7.'$id')
+sub _jm_f_204($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$TightSchema'.'|'.7.'$id'
+    $res = json_model_2($val, $path, $rep);
+    return $res;
+}
+
+# check _jm_obj_41_map_$ref (.'$TightSchema'.'|'.7.'$ref')
+sub _jm_f_205($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$TightSchema'.'|'.7.'$ref'
+    $res = json_model_2($val, $path, $rep);
+    return $res;
+}
+
+# check _jm_obj_41_map_$schema (.'$TightSchema'.'|'.7.'$schema')
+sub _jm_f_206($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$TightSchema'.'|'.7.'$schema'
+    $res = jm_is_string($val) && jm_is_valid_url($val, $path, $rep);
+    return $res;
+}
+
+# object .'$TightSchema'.'|'.7.'$vocabulary'
+sub _jm_obj_43($$$)
+{
+    my ($val, $path, $rep) = @_;
+    if (! jm_is_object($val))
+    {
+        return 0;
+    }
+    my $res;
+    scalar keys %$val;
+    while (my ($prop, $pval) = each %$val)
+    {
+        if (jm_is_string($prop) && jm_is_valid_url($prop, undef, $rep))
+        {
+            # handle 1 key props
+            # .'$TightSchema'.'|'.7.'$vocabulary'.'$URI'
+            $res = jm_is_boolean($pval);
+            if (! $res)
+            {
+                return 0;
+            }
+        }
+        else
+        {
+            return 0;
+        }
+    }
+    return 1;
+}
+
+# check _jm_obj_41_map_$vocabulary (.'$TightSchema'.'|'.7.'$vocabulary')
+sub _jm_f_207($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$TightSchema'.'|'.7.'$vocabulary'
+    $res = _jm_obj_43($val, $path, $rep);
+    return $res;
+}
+
+# check _jm_obj_41_map_allOf (.'$TightSchema'.'|'.7.allOf)
+sub _jm_f_208($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$TightSchema'.'|'.7.allOf
+    $res = json_model_11($val, $path, $rep);
+    return $res;
+}
+
+# check _jm_obj_41_map_anyOf (.'$TightSchema'.'|'.7.anyOf)
+sub _jm_f_209($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$TightSchema'.'|'.7.anyOf
+    $res = json_model_11($val, $path, $rep);
+    return $res;
+}
+
+# check _jm_obj_41_map_const (.'$TightSchema'.'|'.7.const)
+sub _jm_f_210($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$TightSchema'.'|'.7.const
+    $res = 1;
+    return $res;
+}
+
+# check _jm_obj_41_map_default (.'$TightSchema'.'|'.7.default)
+sub _jm_f_211($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$TightSchema'.'|'.7.default
+    $res = 1;
+    return $res;
+}
+
+# check _jm_obj_41_map_deprecated (.'$TightSchema'.'|'.7.deprecated)
+sub _jm_f_212($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$TightSchema'.'|'.7.deprecated
+    $res = jm_is_boolean($val);
+    return $res;
+}
+
+# check _jm_obj_41_map_description (.'$TightSchema'.'|'.7.description)
+sub _jm_f_213($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$TightSchema'.'|'.7.description
+    $res = jm_is_string($val);
+    return $res;
+}
+
+# check _jm_obj_41_map_else (.'$TightSchema'.'|'.7.else)
+sub _jm_f_214($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$TightSchema'.'|'.7.else
+    $res = json_model_16($val, $path, $rep);
+    return $res;
+}
+
+# check _jm_obj_41_map_enum (.'$TightSchema'.'|'.7.enum)
+sub _jm_f_215($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$TightSchema'.'|'.7.enum
+    $res = jm_is_array($val);
+    if ($res)
+    {
+        # accept any array
+        ;
+    }
+    return $res;
+}
+
+# check _jm_obj_41_map_examples (.'$TightSchema'.'|'.7.examples)
+sub _jm_f_216($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$TightSchema'.'|'.7.examples
+    $res = jm_is_array($val);
+    if ($res)
+    {
+        # accept any array
+        ;
+    }
+    return $res;
+}
+
+# check _jm_obj_41_map_if (.'$TightSchema'.'|'.7.if)
+sub _jm_f_217($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$TightSchema'.'|'.7.if
+    $res = json_model_16($val, $path, $rep);
+    return $res;
+}
+
+# check _jm_obj_41_map_not (.'$TightSchema'.'|'.7.not)
+sub _jm_f_218($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$TightSchema'.'|'.7.not
+    $res = json_model_16($val, $path, $rep);
+    return $res;
+}
+
+# check _jm_obj_41_map_oneOf (.'$TightSchema'.'|'.7.oneOf)
+sub _jm_f_219($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$TightSchema'.'|'.7.oneOf
+    $res = json_model_11($val, $path, $rep);
+    return $res;
+}
+
+# check _jm_obj_41_map_readOnly (.'$TightSchema'.'|'.7.readOnly)
+sub _jm_f_220($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$TightSchema'.'|'.7.readOnly
+    $res = jm_is_boolean($val);
+    return $res;
+}
+
+# check _jm_obj_41_map_then (.'$TightSchema'.'|'.7.then)
+sub _jm_f_221($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$TightSchema'.'|'.7.then
+    $res = json_model_16($val, $path, $rep);
+    return $res;
+}
+
+# check _jm_obj_41_map_title (.'$TightSchema'.'|'.7.title)
+sub _jm_f_222($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$TightSchema'.'|'.7.title
+    $res = jm_is_string($val);
+    return $res;
+}
+
+# check _jm_obj_41_map_writeOnly (.'$TightSchema'.'|'.7.writeOnly)
+sub _jm_f_223($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$TightSchema'.'|'.7.writeOnly
+    $res = jm_is_boolean($val);
+    return $res;
+}
+
+
+# object .'$TightSchema'.'|'.7
+sub _jm_obj_41($$$)
+{
+    my ($val, $path, $rep) = @_;
+    if (! jm_is_object($val))
+    {
+        return 0;
+    }
+    my $pfun;
+    scalar keys %$val;
+    while (my ($prop, $pval) = each %$val)
+    {
+        if (($pfun = $_jm_obj_41_map{$prop}))
+        {
+            # handle 25 may props
+            if (defined($pfun) && ! &$pfun($pval, undef, $rep))
+            {
+                return 0;
+            }
+        }
+        else
+        {
+            return 0;
+        }
+    }
+    return 1;
+}
+
+
 # check $TightSchema (.'$TightSchema')
 sub json_model_15($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
     # .'$TightSchema'
-    $res = jm_is_object($val);
+    my $iso_0 = jm_is_object($val);
+    $res = $iso_0;
     if ($res)
     {
-        # .'$TightSchema'.'|'.0
-        $res = _jm_obj_41($val, $path, $rep);
-        if (! $res)
+        if (exists $$val{'type'})
         {
-            # .'$TightSchema'.'|'.1
-            $res = _jm_obj_38($val, $path, $rep);
-            if (! $res)
+            my $tag_0 = $$val{'type'};
+            my $fun_0 = $_jm_map_0{$tag_0};
+            if (defined($fun_0))
             {
-                # .'$TightSchema'.'|'.2
-                $res = _jm_obj_35($val, $path, $rep);
-                if (! $res)
-                {
-                    # .'$TightSchema'.'|'.3
-                    $res = _jm_obj_32($val, $path, $rep);
-                    if (! $res)
-                    {
-                        # .'$TightSchema'.'|'.4
-                        $res = _jm_obj_29($val, $path, $rep);
-                        if (! $res)
-                        {
-                            # .'$TightSchema'.'|'.5
-                            $res = _jm_obj_26($val, $path, $rep);
-                            if (! $res)
-                            {
-                                # .'$TightSchema'.'|'.6
-                                $res = _jm_obj_19($val, $path, $rep);
-                                if (! $res)
-                                {
-                                    # .'$TightSchema'.'|'.7
-                                    $res = _jm_obj_16($val, $path, $rep);
-                                }
-                            }
-                        }
-                    }
-                }
+                $res = &$fun_0($val, $path, $rep);
+            }
+            else
+            {
+                $res = 0;
             }
         }
+        else
+        {
+            $res = 0;
+        }
+    }
+    if (! $res)
+    {
+        # .'$TightSchema'.'|'.7
+        $res = _jm_obj_41($val, $path, $rep);
     }
     return $res;
 }
@@ -4443,184 +4431,193 @@ sub check_model_init()
             '$ref' => \&_jm_f_57,
             '$schema' => \&_jm_f_58,
             '$vocabulary' => \&_jm_f_59,
-            'allOf' => \&_jm_f_60,
-            'anyOf' => \&_jm_f_61,
-            'const' => \&_jm_f_62,
-            'default' => \&_jm_f_63,
-            'deprecated' => \&_jm_f_64,
-            'description' => \&_jm_f_65,
-            'else' => \&_jm_f_66,
-            'enum' => \&_jm_f_67,
-            'examples' => \&_jm_f_68,
-            'if' => \&_jm_f_69,
-            'not' => \&_jm_f_70,
-            'oneOf' => \&_jm_f_71,
-            'readOnly' => \&_jm_f_72,
-            'then' => \&_jm_f_73,
-            'title' => \&_jm_f_74,
-            'writeOnly' => \&_jm_f_75,
+            'default' => \&_jm_f_60,
+            'deprecated' => \&_jm_f_61,
+            'description' => \&_jm_f_62,
+            'examples' => \&_jm_f_63,
+            'readOnly' => \&_jm_f_64,
+            'title' => \&_jm_f_65,
+            'writeOnly' => \&_jm_f_66,
         );
         %_jm_obj_19_map = (
-            '$anchor' => \&_jm_f_76,
-            '$comment' => \&_jm_f_77,
-            '$defs' => \&_jm_f_78,
-            '$dynamicAnchor' => \&_jm_f_79,
-            '$dynamicRef' => \&_jm_f_80,
-            '$id' => \&_jm_f_81,
-            '$ref' => \&_jm_f_82,
-            '$schema' => \&_jm_f_83,
-            '$vocabulary' => \&_jm_f_84,
-            'additionalProperties' => \&_jm_f_85,
-            'default' => \&_jm_f_86,
-            'dependentRequired' => \&_jm_f_87,
-            'dependentSchemas' => \&_jm_f_88,
-            'deprecated' => \&_jm_f_89,
-            'description' => \&_jm_f_90,
-            'examples' => \&_jm_f_91,
-            'maxProperties' => \&_jm_f_92,
-            'minProperties' => \&_jm_f_93,
-            'patternProperties' => \&_jm_f_94,
-            'properties' => \&_jm_f_95,
-            'propertyNames' => \&_jm_f_96,
-            'readOnly' => \&_jm_f_97,
-            'required' => \&_jm_f_98,
-            'title' => \&_jm_f_99,
-            'unevaluatedProperties' => \&_jm_f_100,
-            'writeOnly' => \&_jm_f_101,
+            '$anchor' => \&_jm_f_67,
+            '$comment' => \&_jm_f_68,
+            '$defs' => \&_jm_f_69,
+            '$dynamicAnchor' => \&_jm_f_70,
+            '$dynamicRef' => \&_jm_f_71,
+            '$id' => \&_jm_f_72,
+            '$ref' => \&_jm_f_73,
+            '$schema' => \&_jm_f_74,
+            '$vocabulary' => \&_jm_f_75,
+            'default' => \&_jm_f_76,
+            'deprecated' => \&_jm_f_77,
+            'description' => \&_jm_f_78,
+            'examples' => \&_jm_f_79,
+            'readOnly' => \&_jm_f_80,
+            'title' => \&_jm_f_81,
+            'writeOnly' => \&_jm_f_82,
         );
-        %_jm_obj_26_map = (
-            '$anchor' => \&_jm_f_102,
-            '$comment' => \&_jm_f_103,
-            '$defs' => \&_jm_f_104,
-            '$dynamicAnchor' => \&_jm_f_105,
-            '$dynamicRef' => \&_jm_f_106,
-            '$id' => \&_jm_f_107,
-            '$ref' => \&_jm_f_108,
-            '$schema' => \&_jm_f_109,
-            '$vocabulary' => \&_jm_f_110,
-            'contains' => \&_jm_f_111,
-            'default' => \&_jm_f_112,
-            'deprecated' => \&_jm_f_113,
-            'description' => \&_jm_f_114,
-            'examples' => \&_jm_f_115,
-            'items' => \&_jm_f_116,
-            'maxContains' => \&_jm_f_117,
-            'maxItems' => \&_jm_f_118,
-            'minContains' => \&_jm_f_119,
-            'minItems' => \&_jm_f_120,
-            'prefixItems' => \&_jm_f_121,
+        %_jm_obj_22_map = (
+            '$anchor' => \&_jm_f_83,
+            '$comment' => \&_jm_f_84,
+            '$defs' => \&_jm_f_85,
+            '$dynamicAnchor' => \&_jm_f_86,
+            '$dynamicRef' => \&_jm_f_87,
+            '$id' => \&_jm_f_88,
+            '$ref' => \&_jm_f_89,
+            '$schema' => \&_jm_f_90,
+            '$vocabulary' => \&_jm_f_91,
+            'default' => \&_jm_f_92,
+            'deprecated' => \&_jm_f_93,
+            'description' => \&_jm_f_94,
+            'examples' => \&_jm_f_95,
+            'exclusiveMaximum' => \&_jm_f_96,
+            'exclusiveMinimum' => \&_jm_f_97,
+            'maximum' => \&_jm_f_98,
+            'minimum' => \&_jm_f_99,
+            'multipleOf' => \&_jm_f_100,
+            'readOnly' => \&_jm_f_101,
+            'title' => \&_jm_f_102,
+            'writeOnly' => \&_jm_f_103,
+        );
+        %_jm_obj_25_map = (
+            '$anchor' => \&_jm_f_104,
+            '$comment' => \&_jm_f_105,
+            '$defs' => \&_jm_f_106,
+            '$dynamicAnchor' => \&_jm_f_107,
+            '$dynamicRef' => \&_jm_f_108,
+            '$id' => \&_jm_f_109,
+            '$ref' => \&_jm_f_110,
+            '$schema' => \&_jm_f_111,
+            '$vocabulary' => \&_jm_f_112,
+            'default' => \&_jm_f_113,
+            'deprecated' => \&_jm_f_114,
+            'description' => \&_jm_f_115,
+            'examples' => \&_jm_f_116,
+            'exclusiveMaximum' => \&_jm_f_117,
+            'exclusiveMinimum' => \&_jm_f_118,
+            'maximum' => \&_jm_f_119,
+            'minimum' => \&_jm_f_120,
+            'multipleOf' => \&_jm_f_121,
             'readOnly' => \&_jm_f_122,
             'title' => \&_jm_f_123,
-            'unevaluatedItems' => \&_jm_f_124,
-            'uniqueItems' => \&_jm_f_125,
-            'writeOnly' => \&_jm_f_126,
+            'writeOnly' => \&_jm_f_124,
         );
-        %_jm_obj_29_map = (
-            '$anchor' => \&_jm_f_127,
-            '$comment' => \&_jm_f_128,
-            '$defs' => \&_jm_f_129,
-            '$dynamicAnchor' => \&_jm_f_130,
-            '$dynamicRef' => \&_jm_f_131,
-            '$id' => \&_jm_f_132,
-            '$ref' => \&_jm_f_133,
-            '$schema' => \&_jm_f_134,
-            '$vocabulary' => \&_jm_f_135,
-            'contentEncoding' => \&_jm_f_136,
-            'contentMediaType' => \&_jm_f_137,
-            'contentSchema' => \&_jm_f_138,
-            'default' => \&_jm_f_139,
-            'deprecated' => \&_jm_f_140,
-            'description' => \&_jm_f_141,
-            'examples' => \&_jm_f_142,
-            'format' => \&_jm_f_143,
-            'maxLength' => \&_jm_f_144,
-            'minLength' => \&_jm_f_145,
-            'pattern' => \&_jm_f_146,
-            'readOnly' => \&_jm_f_147,
-            'title' => \&_jm_f_148,
-            'writeOnly' => \&_jm_f_149,
+        %_jm_obj_28_map = (
+            '$anchor' => \&_jm_f_125,
+            '$comment' => \&_jm_f_126,
+            '$defs' => \&_jm_f_127,
+            '$dynamicAnchor' => \&_jm_f_128,
+            '$dynamicRef' => \&_jm_f_129,
+            '$id' => \&_jm_f_130,
+            '$ref' => \&_jm_f_131,
+            '$schema' => \&_jm_f_132,
+            '$vocabulary' => \&_jm_f_133,
+            'contentEncoding' => \&_jm_f_134,
+            'contentMediaType' => \&_jm_f_135,
+            'contentSchema' => \&_jm_f_136,
+            'default' => \&_jm_f_137,
+            'deprecated' => \&_jm_f_138,
+            'description' => \&_jm_f_139,
+            'examples' => \&_jm_f_140,
+            'format' => \&_jm_f_141,
+            'maxLength' => \&_jm_f_142,
+            'minLength' => \&_jm_f_143,
+            'pattern' => \&_jm_f_144,
+            'readOnly' => \&_jm_f_145,
+            'title' => \&_jm_f_146,
+            'writeOnly' => \&_jm_f_147,
         );
-        %_jm_obj_32_map = (
-            '$anchor' => \&_jm_f_150,
-            '$comment' => \&_jm_f_151,
-            '$defs' => \&_jm_f_152,
-            '$dynamicAnchor' => \&_jm_f_153,
-            '$dynamicRef' => \&_jm_f_154,
-            '$id' => \&_jm_f_155,
-            '$ref' => \&_jm_f_156,
-            '$schema' => \&_jm_f_157,
-            '$vocabulary' => \&_jm_f_158,
-            'default' => \&_jm_f_159,
-            'deprecated' => \&_jm_f_160,
-            'description' => \&_jm_f_161,
-            'examples' => \&_jm_f_162,
-            'exclusiveMaximum' => \&_jm_f_163,
-            'exclusiveMinimum' => \&_jm_f_164,
-            'maximum' => \&_jm_f_165,
-            'minimum' => \&_jm_f_166,
-            'multipleOf' => \&_jm_f_167,
+        %_jm_obj_31_map = (
+            '$anchor' => \&_jm_f_148,
+            '$comment' => \&_jm_f_149,
+            '$defs' => \&_jm_f_150,
+            '$dynamicAnchor' => \&_jm_f_151,
+            '$dynamicRef' => \&_jm_f_152,
+            '$id' => \&_jm_f_153,
+            '$ref' => \&_jm_f_154,
+            '$schema' => \&_jm_f_155,
+            '$vocabulary' => \&_jm_f_156,
+            'contains' => \&_jm_f_157,
+            'default' => \&_jm_f_158,
+            'deprecated' => \&_jm_f_159,
+            'description' => \&_jm_f_160,
+            'examples' => \&_jm_f_161,
+            'items' => \&_jm_f_162,
+            'maxContains' => \&_jm_f_163,
+            'maxItems' => \&_jm_f_164,
+            'minContains' => \&_jm_f_165,
+            'minItems' => \&_jm_f_166,
+            'prefixItems' => \&_jm_f_167,
             'readOnly' => \&_jm_f_168,
             'title' => \&_jm_f_169,
-            'writeOnly' => \&_jm_f_170,
+            'unevaluatedItems' => \&_jm_f_170,
+            'uniqueItems' => \&_jm_f_171,
+            'writeOnly' => \&_jm_f_172,
         );
-        %_jm_obj_35_map = (
-            '$anchor' => \&_jm_f_171,
-            '$comment' => \&_jm_f_172,
-            '$defs' => \&_jm_f_173,
-            '$dynamicAnchor' => \&_jm_f_174,
-            '$dynamicRef' => \&_jm_f_175,
-            '$id' => \&_jm_f_176,
-            '$ref' => \&_jm_f_177,
-            '$schema' => \&_jm_f_178,
-            '$vocabulary' => \&_jm_f_179,
-            'default' => \&_jm_f_180,
-            'deprecated' => \&_jm_f_181,
-            'description' => \&_jm_f_182,
-            'examples' => \&_jm_f_183,
-            'exclusiveMaximum' => \&_jm_f_184,
-            'exclusiveMinimum' => \&_jm_f_185,
-            'maximum' => \&_jm_f_186,
-            'minimum' => \&_jm_f_187,
-            'multipleOf' => \&_jm_f_188,
-            'readOnly' => \&_jm_f_189,
-            'title' => \&_jm_f_190,
-            'writeOnly' => \&_jm_f_191,
-        );
-        %_jm_obj_38_map = (
-            '$anchor' => \&_jm_f_192,
-            '$comment' => \&_jm_f_193,
-            '$defs' => \&_jm_f_194,
-            '$dynamicAnchor' => \&_jm_f_195,
-            '$dynamicRef' => \&_jm_f_196,
-            '$id' => \&_jm_f_197,
-            '$ref' => \&_jm_f_198,
-            '$schema' => \&_jm_f_199,
-            '$vocabulary' => \&_jm_f_200,
-            'default' => \&_jm_f_201,
-            'deprecated' => \&_jm_f_202,
-            'description' => \&_jm_f_203,
-            'examples' => \&_jm_f_204,
-            'readOnly' => \&_jm_f_205,
-            'title' => \&_jm_f_206,
-            'writeOnly' => \&_jm_f_207,
+        %_jm_obj_34_map = (
+            '$anchor' => \&_jm_f_173,
+            '$comment' => \&_jm_f_174,
+            '$defs' => \&_jm_f_175,
+            '$dynamicAnchor' => \&_jm_f_176,
+            '$dynamicRef' => \&_jm_f_177,
+            '$id' => \&_jm_f_178,
+            '$ref' => \&_jm_f_179,
+            '$schema' => \&_jm_f_180,
+            '$vocabulary' => \&_jm_f_181,
+            'additionalProperties' => \&_jm_f_182,
+            'default' => \&_jm_f_183,
+            'dependentRequired' => \&_jm_f_184,
+            'dependentSchemas' => \&_jm_f_185,
+            'deprecated' => \&_jm_f_186,
+            'description' => \&_jm_f_187,
+            'examples' => \&_jm_f_188,
+            'maxProperties' => \&_jm_f_189,
+            'minProperties' => \&_jm_f_190,
+            'patternProperties' => \&_jm_f_191,
+            'properties' => \&_jm_f_192,
+            'propertyNames' => \&_jm_f_193,
+            'readOnly' => \&_jm_f_194,
+            'required' => \&_jm_f_195,
+            'title' => \&_jm_f_196,
+            'unevaluatedProperties' => \&_jm_f_197,
+            'writeOnly' => \&_jm_f_198,
         );
         %_jm_obj_41_map = (
-            '$anchor' => \&_jm_f_208,
-            '$comment' => \&_jm_f_209,
-            '$defs' => \&_jm_f_210,
-            '$dynamicAnchor' => \&_jm_f_211,
-            '$dynamicRef' => \&_jm_f_212,
-            '$id' => \&_jm_f_213,
-            '$ref' => \&_jm_f_214,
-            '$schema' => \&_jm_f_215,
-            '$vocabulary' => \&_jm_f_216,
-            'default' => \&_jm_f_217,
-            'deprecated' => \&_jm_f_218,
-            'description' => \&_jm_f_219,
-            'examples' => \&_jm_f_220,
-            'readOnly' => \&_jm_f_221,
+            '$anchor' => \&_jm_f_199,
+            '$comment' => \&_jm_f_200,
+            '$defs' => \&_jm_f_201,
+            '$dynamicAnchor' => \&_jm_f_202,
+            '$dynamicRef' => \&_jm_f_203,
+            '$id' => \&_jm_f_204,
+            '$ref' => \&_jm_f_205,
+            '$schema' => \&_jm_f_206,
+            '$vocabulary' => \&_jm_f_207,
+            'allOf' => \&_jm_f_208,
+            'anyOf' => \&_jm_f_209,
+            'const' => \&_jm_f_210,
+            'default' => \&_jm_f_211,
+            'deprecated' => \&_jm_f_212,
+            'description' => \&_jm_f_213,
+            'else' => \&_jm_f_214,
+            'enum' => \&_jm_f_215,
+            'examples' => \&_jm_f_216,
+            'if' => \&_jm_f_217,
+            'not' => \&_jm_f_218,
+            'oneOf' => \&_jm_f_219,
+            'readOnly' => \&_jm_f_220,
+            'then' => \&_jm_f_221,
             'title' => \&_jm_f_222,
             'writeOnly' => \&_jm_f_223,
+        );
+        %_jm_map_0 = (
+            'null' => \&_jm_obj_16,
+            'boolean' => \&_jm_obj_19,
+            'number' => \&_jm_obj_22,
+            'integer' => \&_jm_obj_25,
+            'string' => \&_jm_obj_28,
+            'array' => \&_jm_obj_31,
+            'object' => \&_jm_obj_34,
         );
         %check_model_map = (
             '' => \&json_model_16,
@@ -4656,12 +4653,13 @@ sub check_model_free()
         %_jm_obj_15_map = ();
         %_jm_obj_16_map = ();
         %_jm_obj_19_map = ();
-        %_jm_obj_26_map = ();
-        %_jm_obj_29_map = ();
-        %_jm_obj_32_map = ();
-        %_jm_obj_35_map = ();
-        %_jm_obj_38_map = ();
+        %_jm_obj_22_map = ();
+        %_jm_obj_25_map = ();
+        %_jm_obj_28_map = ();
+        %_jm_obj_31_map = ();
+        %_jm_obj_34_map = ();
         %_jm_obj_41_map = ();
+        %_jm_map_0 = ();
         %check_model_map = ();
     }
 }

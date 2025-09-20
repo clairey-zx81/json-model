@@ -1,0 +1,50 @@
+[
+  {
+    "#": "JsonModel 1 with defs",
+    "$": {
+      "alternative": {
+        "|": [
+          {
+            "t": "_a",
+            "a": ""
+          },
+          {
+            "t": {
+              "|": [
+                "_b",
+                "_c"
+              ]
+            },
+            "bc": ""
+          },
+          0,
+          true
+        ],
+        "#": "JsonModel 2"
+      },
+      "#": "Symbol 1",
+      "": "./alter-4.model.json"
+    },
+    "@": "$alternative"
+  },
+  {
+    "|": [
+      {
+        "t": "_a",
+        "a": ""
+      },
+      {
+        "t": {
+          "|": [
+            "_b",
+            "_c"
+          ]
+        },
+        "bc": ""
+      },
+      0,
+      true
+    ],
+    "#": "JsonModel 2"
+  }
+]

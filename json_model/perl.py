@@ -66,6 +66,9 @@ class Perl(Language):
     def value(self, var: Var, tvar: type) -> Expr:
         return self._val(var)
 
+    def get_value(self, var: Var, tvar: type) -> Expr:
+        return self._val(var)
+
     def num_cmp(self, e1: NumExpr, op: str, e2: NumExpr) -> BoolExpr:
         return super().num_cmp(self._val(e1), op, e2)
 

@@ -36,6 +36,7 @@ public class json_schema_draft_tight extends ModelChecker
     Map<String, Checker> _jm_obj_56_map_pmap;
     Map<String, Checker> _jm_obj_60_map_pmap;
     Map<String, Checker> _jm_obj_64_map_pmap;
+    Map<Object, Checker> _jm_map_0_cmap;
     public Map<String, Checker> json_schema_draft_tight_map_pmap;
 
     // check $const (.'$const')
@@ -6962,151 +6963,72 @@ public class json_schema_draft_tight extends ModelChecker
         return res;
     }
     
+    
     // check $ObjectSchema (.'$ObjectSchema')
     public boolean json_model_24(Object val, Path path, Report rep)
     {
         boolean res;
         // we could use ^ instead of | below
         // .'$ObjectSchema'
-        // .'$ObjectSchema'.'|'.0
-        res = json_model_16(val, path, rep);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected $Null [.'$ObjectSchema'.'|'.0]", path);
-        }
-        if (! res)
-        {
-            // .'$ObjectSchema'.'|'.1
-            res = json_model_15(val, path, rep);
-            if (! res)
-            {
-                if (rep != null) rep.addEntry("unexpected $Bool [.'$ObjectSchema'.'|'.1]", path);
-            }
-            if (! res)
-            {
-                // .'$ObjectSchema'.'|'.2
-                res = json_model_21(val, path, rep);
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("unexpected $Const [.'$ObjectSchema'.'|'.2]", path);
-                }
-                if (! res)
-                {
-                    // .'$ObjectSchema'.'|'.3
-                    res = json_model_20(val, path, rep);
-                    if (! res)
-                    {
-                        if (rep != null) rep.addEntry("unexpected $Enum [.'$ObjectSchema'.'|'.3]", path);
-                    }
-                    if (! res)
-                    {
-                        // .'$ObjectSchema'.'|'.4
-                        res = json_model_13(val, path, rep);
-                        if (! res)
-                        {
-                            if (rep != null) rep.addEntry("unexpected $Integer [.'$ObjectSchema'.'|'.4]", path);
-                        }
-                        if (! res)
-                        {
-                            // .'$ObjectSchema'.'|'.5
-                            res = json_model_14(val, path, rep);
-                            if (! res)
-                            {
-                                if (rep != null) rep.addEntry("unexpected $Number [.'$ObjectSchema'.'|'.5]", path);
-                            }
-                            if (! res)
-                            {
-                                // .'$ObjectSchema'.'|'.6
-                                res = json_model_10(val, path, rep);
-                                if (! res)
-                                {
-                                    if (rep != null) rep.addEntry("unexpected $String [.'$ObjectSchema'.'|'.6]", path);
-                                }
-                                if (! res)
-                                {
-                                    // .'$ObjectSchema'.'|'.7
-                                    res = json_model_11(val, path, rep);
-                                    if (! res)
-                                    {
-                                        if (rep != null) rep.addEntry("unexpected $Array [.'$ObjectSchema'.'|'.7]", path);
-                                    }
-                                    if (! res)
-                                    {
-                                        // .'$ObjectSchema'.'|'.8
-                                        res = json_model_12(val, path, rep);
-                                        if (! res)
-                                        {
-                                            if (rep != null) rep.addEntry("unexpected $Object [.'$ObjectSchema'.'|'.8]", path);
-                                        }
-                                        if (! res)
-                                        {
-                                            // .'$ObjectSchema'.'|'.9
-                                            res = json_model_17(val, path, rep);
-                                            if (! res)
-                                            {
-                                                if (rep != null) rep.addEntry("unexpected $AllOf [.'$ObjectSchema'.'|'.9]", path);
-                                            }
-                                            if (! res)
-                                            {
-                                                // .'$ObjectSchema'.'|'.10
-                                                res = json_model_18(val, path, rep);
-                                                if (! res)
-                                                {
-                                                    if (rep != null) rep.addEntry("unexpected $AnyOf [.'$ObjectSchema'.'|'.10]", path);
-                                                }
-                                                if (! res)
-                                                {
-                                                    // .'$ObjectSchema'.'|'.11
-                                                    res = json_model_19(val, path, rep);
-                                                    if (! res)
-                                                    {
-                                                        if (rep != null) rep.addEntry("unexpected $OneOf [.'$ObjectSchema'.'|'.11]", path);
-                                                    }
-                                                    if (! res)
-                                                    {
-                                                        // .'$ObjectSchema'.'|'.12
-                                                        res = json_model_22(val, path, rep);
-                                                        if (! res)
-                                                        {
-                                                            if (rep != null) rep.addEntry("unexpected $Ref [.'$ObjectSchema'.'|'.12]", path);
-                                                        }
-                                                        if (! res)
-                                                        {
-                                                            // .'$ObjectSchema'.'|'.13
-                                                            res = json_model_23(val, path, rep);
-                                                            if (! res)
-                                                            {
-                                                                if (rep != null) rep.addEntry("unexpected $DynRef [.'$ObjectSchema'.'|'.13]", path);
-                                                            }
-                                                            if (! res)
-                                                            {
-                                                                // .'$ObjectSchema'.'|'.14
-                                                                res = json_model_9(val, path, rep);
-                                                                if (! res)
-                                                                {
-                                                                    if (rep != null) rep.addEntry("unexpected $metas [.'$ObjectSchema'.'|'.14]", path);
-                                                                }
-                                                            }
-                                                        }
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
+        boolean iso_0 = json.isObject(val);
+        res = iso_0;
         if (res)
         {
-            if (rep != null) rep.clearEntries();
+            if (json.objectHasProp(val, "type"))
+            {
+                Object tag_0 = json.objectValue(val, "type");
+                Checker fun_0 = _jm_map_0_cmap.get(tag_0);
+                if (fun_0 != null)
+                {
+                    res = fun_0.call(val, path, rep);
+                }
+                else
+                {
+                    res = false;
+                    if (rep != null) rep.addEntry("tag <type> value not found [.'$ObjectSchema'.'|']", path);
+                }
+            }
+            else
+            {
+                res = false;
+                if (rep != null) rep.addEntry("tag prop <type> is missing [.'$ObjectSchema'.'|']", path);
+            }
         }
         else
         {
-            if (rep != null) rep.addEntry("no model matched [.'$ObjectSchema'.'|']", path);
+            if (rep != null) rep.addEntry("value is not an object [.'$ObjectSchema'.'|']", path);
+        }
+        if (! res)
+        {
+            res = json_model_9(val, path, rep);
+            if (! res)
+            {
+                res = json_model_21(val, path, rep);
+                if (! res)
+                {
+                    res = json_model_20(val, path, rep);
+                    if (! res)
+                    {
+                        res = json_model_17(val, path, rep);
+                        if (! res)
+                        {
+                            res = json_model_18(val, path, rep);
+                            if (! res)
+                            {
+                                res = json_model_19(val, path, rep);
+                                if (! res)
+                                {
+                                    res = json_model_22(val, path, rep);
+                                    if (! res)
+                                    {
+                                        res = json_model_23(val, path, rep);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         }
         return res;
     }
@@ -7579,6 +7501,14 @@ public class json_schema_draft_tight extends ModelChecker
             _jm_obj_64_map_pmap.put("readOnly", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_275(o, p, r);} });
             _jm_obj_64_map_pmap.put("title", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_276(o, p, r);} });
             _jm_obj_64_map_pmap.put("writeOnly", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_277(o, p, r);} });
+            _jm_map_0_cmap = new HashMap<Object, Checker>();
+            _jm_map_0_cmap.put(json.safeJSON("\"null\""), new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_16(o, p, r);} });
+            _jm_map_0_cmap.put(json.safeJSON("\"boolean\""), new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_15(o, p, r);} });
+            _jm_map_0_cmap.put(json.safeJSON("\"integer\""), new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_13(o, p, r);} });
+            _jm_map_0_cmap.put(json.safeJSON("\"number\""), new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_14(o, p, r);} });
+            _jm_map_0_cmap.put(json.safeJSON("\"string\""), new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_10(o, p, r);} });
+            _jm_map_0_cmap.put(json.safeJSON("\"array\""), new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_11(o, p, r);} });
+            _jm_map_0_cmap.put(json.safeJSON("\"object\""), new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_12(o, p, r);} });
             json_schema_draft_tight_map_pmap = new HashMap<String, Checker>();
             json_schema_draft_tight_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_26(o, p, r);} });
             json_schema_draft_tight_map_pmap.put("const", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_2(o, p, r);} });
@@ -7638,6 +7568,7 @@ public class json_schema_draft_tight extends ModelChecker
             _jm_obj_56_map_pmap = null;
             _jm_obj_60_map_pmap = null;
             _jm_obj_64_map_pmap = null;
+            _jm_map_0_cmap = null;
             json_schema_draft_tight_map_pmap = null;
         }
     }

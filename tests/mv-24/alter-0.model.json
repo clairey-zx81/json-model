@@ -1,0 +1,17 @@
+{
+  "#": "xor mix of tagged objects",
+  "$": {
+    "d": {"t": "_d", "d": ""},
+    "ef": {"t": { "|": ["_e", "_f"]}, "ef": ""},
+    "alternative": {
+      "#": "expecting xor-to-or and tag detection",
+      "^": [
+        {"t": "_a", "a": ""},
+        {"t": {"|": ["_b", "_c"]}, "bc": ""},
+        "$d",
+        "$ef"
+      ]
+    }
+  },
+  "@": "$alternative"
+}

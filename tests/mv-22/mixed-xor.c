@@ -171,7 +171,8 @@ static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
     // .'$cs'
-    res = json_is_object(val);
+    bool iso_0 = json_is_object(val);
+    res = iso_0;
     if (res)
     {
         if (json_object_get(val, "t") != NULL)
@@ -497,7 +498,8 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
     // .
-    res = json_is_object(val);
+    bool iso_1 = json_is_object(val);
+    res = iso_1;
     if (res)
     {
         if (json_object_get(val, "t") != NULL)
@@ -526,11 +528,11 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
     }
     if (! res)
     {
-        // .'|'
+        // .'|'.4
         res = json_is_boolean(val);
         if (! res)
         {
-            if (rep) jm_report_add_entry(rep, "not a bool [.'|']", path);
+            if (rep) jm_report_add_entry(rep, "not a bool [.'|'.4]", path);
         }
     }
     return res;

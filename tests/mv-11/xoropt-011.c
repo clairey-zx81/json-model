@@ -181,7 +181,8 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
     bool res;
     // ^ to | on constants
     // .
-    res = json_is_object(val);
+    bool iso_0 = json_is_object(val);
+    res = iso_0;
     if (res)
     {
         if (json_object_get(val, "a") != NULL)

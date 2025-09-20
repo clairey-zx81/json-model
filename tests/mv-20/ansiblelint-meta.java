@@ -88,6 +88,7 @@ public class ansiblelint_meta extends ModelChecker
     Map<String, Checker> _jm_obj_96_map_pmap;
     Map<String, Checker> _jm_obj_97_map_pmap;
     Map<String, Checker> _jm_obj_98_map_pmap;
+    Map<Object, Checker> _jm_map_0_cmap;
     public Pattern _jm_re_2_pat = null;
     Set<Object> _jm_cst_64_set;
     public Map<String, Checker> ansiblelint_meta_map_pmap;
@@ -9105,7 +9106,23 @@ public class ansiblelint_meta extends ModelChecker
             String prop = prop_loop.next();
             Object pval = json.objectValue(val, prop);
             Path lpath_50 = new Path(prop, path);
-            if (prop.compareTo("description") == 0)
+            if (prop.compareTo("standalone") == 0)
+            {
+                // handle must standalone property
+                must_count += 1;
+                // .'$GalaxyInfoModel'.'|'.1.standalone
+                res = json.isBoolean(pval) && json.asBoolean(pval) == false;
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected =false [.'$GalaxyInfoModel'.'|'.1.standalone]", (path != null ? lpath_50 : null));
+                }
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("invalid mandatory prop value [.'$GalaxyInfoModel'.'|'.1.standalone]", (path != null ? lpath_50 : null));
+                    return false;
+                }
+            }
+            else if (prop.compareTo("description") == 0)
             {
                 // handle must description property
                 must_count += 1;
@@ -9136,7 +9153,7 @@ public class ansiblelint_meta extends ModelChecker
                 return false;
             }
         }
-        if (must_count != 1)
+        if (must_count != 2)
         {
             if (rep != null)
             {
@@ -9144,56 +9161,60 @@ public class ansiblelint_meta extends ModelChecker
                 {
                     if (rep != null) rep.addEntry("missing mandatory prop <description> [.'$GalaxyInfoModel'.'|'.1]", path);
                 }
+                if (! json.objectHasProp(val, "standalone"))
+                {
+                    if (rep != null) rep.addEntry("missing mandatory prop <standalone> [.'$GalaxyInfoModel'.'|'.1]", path);
+                }
             }
             return false;
         }
         return true;
     }
     
-    // check _jm_obj_98_map_author (.'$GalaxyInfoModel'.'|'.0.author)
+    // check _jm_obj_98_map_author (.'$GalaxyInfoModel'.'|'.2.author)
     public boolean _jm_f_36(Object val, Path path, Report rep)
     {
         boolean res;
-        // .'$GalaxyInfoModel'.'|'.0.author
+        // .'$GalaxyInfoModel'.'|'.2.author
         res = json.isString(val);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected string [.'$GalaxyInfoModel'.'|'.0.author]", path);
+            if (rep != null) rep.addEntry("unexpected string [.'$GalaxyInfoModel'.'|'.2.author]", path);
         }
         return res;
     }
     
-    // check _jm_obj_98_map_cloud_platforms (.'$GalaxyInfoModel'.'|'.0.cloud_platforms)
+    // check _jm_obj_98_map_cloud_platforms (.'$GalaxyInfoModel'.'|'.2.cloud_platforms)
     public boolean _jm_f_37(Object val, Path path, Report rep)
     {
         boolean res;
-        // .'$GalaxyInfoModel'.'|'.0.cloud_platforms
+        // .'$GalaxyInfoModel'.'|'.2.cloud_platforms
         res = true;
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected $ANY [.'$GalaxyInfoModel'.'|'.0.cloud_platforms]", path);
+            if (rep != null) rep.addEntry("unexpected $ANY [.'$GalaxyInfoModel'.'|'.2.cloud_platforms]", path);
         }
         return res;
     }
     
-    // check _jm_obj_98_map_company (.'$GalaxyInfoModel'.'|'.0.company)
+    // check _jm_obj_98_map_company (.'$GalaxyInfoModel'.'|'.2.company)
     public boolean _jm_f_38(Object val, Path path, Report rep)
     {
         boolean res;
-        // .'$GalaxyInfoModel'.'|'.0.company
+        // .'$GalaxyInfoModel'.'|'.2.company
         res = json.isString(val);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected string [.'$GalaxyInfoModel'.'|'.0.company]", path);
+            if (rep != null) rep.addEntry("unexpected string [.'$GalaxyInfoModel'.'|'.2.company]", path);
         }
         return res;
     }
     
-    // check _jm_obj_98_map_galaxy_tags (.'$GalaxyInfoModel'.'|'.0.galaxy_tags)
+    // check _jm_obj_98_map_galaxy_tags (.'$GalaxyInfoModel'.'|'.2.galaxy_tags)
     public boolean _jm_f_39(Object val, Path path, Report rep)
     {
         boolean res;
-        // .'$GalaxyInfoModel'.'|'.0.galaxy_tags
+        // .'$GalaxyInfoModel'.'|'.2.galaxy_tags
         res = json.isArray(val);
         if (res)
         {
@@ -9204,11 +9225,11 @@ public class ansiblelint_meta extends ModelChecker
                 arr_98_idx++;
                 Object arr_98_item = arr_98_item_loop.next();
                 Path arr_98_lpath = new Path(arr_98_idx, path);
-                // .'$GalaxyInfoModel'.'|'.0.galaxy_tags.0
+                // .'$GalaxyInfoModel'.'|'.2.galaxy_tags.0
                 res = json.isString(arr_98_item);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.'$GalaxyInfoModel'.'|'.0.galaxy_tags.0]", (path != null ? arr_98_lpath : null));
+                    if (rep != null) rep.addEntry("unexpected string [.'$GalaxyInfoModel'.'|'.2.galaxy_tags.0]", (path != null ? arr_98_lpath : null));
                 }
                 if (! res)
                 {
@@ -9218,122 +9239,122 @@ public class ansiblelint_meta extends ModelChecker
         }
         if (! res)
         {
-            if (rep != null) rep.addEntry("not array or unexpected array [.'$GalaxyInfoModel'.'|'.0.galaxy_tags]", path);
+            if (rep != null) rep.addEntry("not array or unexpected array [.'$GalaxyInfoModel'.'|'.2.galaxy_tags]", path);
         }
         return res;
     }
     
-    // check _jm_obj_98_map_github_branch (.'$GalaxyInfoModel'.'|'.0.github_branch)
+    // check _jm_obj_98_map_github_branch (.'$GalaxyInfoModel'.'|'.2.github_branch)
     public boolean _jm_f_40(Object val, Path path, Report rep)
     {
         boolean res;
-        // .'$GalaxyInfoModel'.'|'.0.github_branch
+        // .'$GalaxyInfoModel'.'|'.2.github_branch
         res = json.isString(val);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected string [.'$GalaxyInfoModel'.'|'.0.github_branch]", path);
+            if (rep != null) rep.addEntry("unexpected string [.'$GalaxyInfoModel'.'|'.2.github_branch]", path);
         }
         return res;
     }
     
-    // check _jm_obj_98_map_issue_tracker_url (.'$GalaxyInfoModel'.'|'.0.issue_tracker_url)
+    // check _jm_obj_98_map_issue_tracker_url (.'$GalaxyInfoModel'.'|'.2.issue_tracker_url)
     public boolean _jm_f_41(Object val, Path path, Report rep)
     {
         boolean res;
-        // .'$GalaxyInfoModel'.'|'.0.issue_tracker_url
+        // .'$GalaxyInfoModel'.'|'.2.issue_tracker_url
         res = json.isString(val);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected string [.'$GalaxyInfoModel'.'|'.0.issue_tracker_url]", path);
+            if (rep != null) rep.addEntry("unexpected string [.'$GalaxyInfoModel'.'|'.2.issue_tracker_url]", path);
         }
         return res;
     }
     
-    // check _jm_obj_98_map_license (.'$GalaxyInfoModel'.'|'.0.license)
+    // check _jm_obj_98_map_license (.'$GalaxyInfoModel'.'|'.2.license)
     public boolean _jm_f_42(Object val, Path path, Report rep)
     {
         boolean res;
-        // .'$GalaxyInfoModel'.'|'.0.license
+        // .'$GalaxyInfoModel'.'|'.2.license
         res = json.isString(val);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected string [.'$GalaxyInfoModel'.'|'.0.license]", path);
+            if (rep != null) rep.addEntry("unexpected string [.'$GalaxyInfoModel'.'|'.2.license]", path);
         }
         return res;
     }
     
-    // check _jm_obj_98_map_min_ansible_container_version (.'$GalaxyInfoModel'.'|'.0.min_ansible_container_version)
+    // check _jm_obj_98_map_min_ansible_container_version (.'$GalaxyInfoModel'.'|'.2.min_ansible_container_version)
     public boolean _jm_f_43(Object val, Path path, Report rep)
     {
         boolean res;
-        // .'$GalaxyInfoModel'.'|'.0.min_ansible_container_version
+        // .'$GalaxyInfoModel'.'|'.2.min_ansible_container_version
         res = json.isString(val);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected string [.'$GalaxyInfoModel'.'|'.0.min_ansible_container_version]", path);
+            if (rep != null) rep.addEntry("unexpected string [.'$GalaxyInfoModel'.'|'.2.min_ansible_container_version]", path);
         }
         return res;
     }
     
-    // check _jm_obj_98_map_min_ansible_version (.'$GalaxyInfoModel'.'|'.0.min_ansible_version)
+    // check _jm_obj_98_map_min_ansible_version (.'$GalaxyInfoModel'.'|'.2.min_ansible_version)
     public boolean _jm_f_44(Object val, Path path, Report rep)
     {
         boolean res;
-        // .'$GalaxyInfoModel'.'|'.0.min_ansible_version
+        // .'$GalaxyInfoModel'.'|'.2.min_ansible_version
         res = json.isString(val);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected string [.'$GalaxyInfoModel'.'|'.0.min_ansible_version]", path);
+            if (rep != null) rep.addEntry("unexpected string [.'$GalaxyInfoModel'.'|'.2.min_ansible_version]", path);
         }
         return res;
     }
     
-    // check _jm_obj_98_map_namespace (.'$GalaxyInfoModel'.'|'.0.namespace)
+    // check _jm_obj_98_map_namespace (.'$GalaxyInfoModel'.'|'.2.namespace)
     public boolean _jm_f_45(Object val, Path path, Report rep)
     {
         boolean res;
-        // .'$GalaxyInfoModel'.'|'.0.namespace
+        // .'$GalaxyInfoModel'.'|'.2.namespace
         // "/^[a-z][-a-z0-9_]+$/"
         res = json.isString(val) && _jm_re_0(json.asString(val), path, rep);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected /^[a-z][-a-z0-9_]+$/ [.'$GalaxyInfoModel'.'|'.0.namespace]", path);
+            if (rep != null) rep.addEntry("unexpected /^[a-z][-a-z0-9_]+$/ [.'$GalaxyInfoModel'.'|'.2.namespace]", path);
         }
         return res;
     }
     
-    // check _jm_obj_98_map_platforms (.'$GalaxyInfoModel'.'|'.0.platforms)
+    // check _jm_obj_98_map_platforms (.'$GalaxyInfoModel'.'|'.2.platforms)
     public boolean _jm_f_46(Object val, Path path, Report rep)
     {
         boolean res;
-        // .'$GalaxyInfoModel'.'|'.0.platforms
+        // .'$GalaxyInfoModel'.'|'.2.platforms
         res = json_model_50(val, path, rep);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected $platforms [.'$GalaxyInfoModel'.'|'.0.platforms]", path);
+            if (rep != null) rep.addEntry("unexpected $platforms [.'$GalaxyInfoModel'.'|'.2.platforms]", path);
         }
         return res;
     }
     
-    // check _jm_obj_98_map_role_name (.'$GalaxyInfoModel'.'|'.0.role_name)
+    // check _jm_obj_98_map_role_name (.'$GalaxyInfoModel'.'|'.2.role_name)
     public boolean _jm_f_47(Object val, Path path, Report rep)
     {
         boolean res;
-        // .'$GalaxyInfoModel'.'|'.0.role_name
+        // .'$GalaxyInfoModel'.'|'.2.role_name
         // "/^[a-z][a-z0-9_]+$/"
         res = json.isString(val) && _jm_re_1(json.asString(val), path, rep);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected /^[a-z][a-z0-9_]+$/ [.'$GalaxyInfoModel'.'|'.0.role_name]", path);
+            if (rep != null) rep.addEntry("unexpected /^[a-z][a-z0-9_]+$/ [.'$GalaxyInfoModel'.'|'.2.role_name]", path);
         }
         return res;
     }
     
-    // check _jm_obj_98_map_video_links (.'$GalaxyInfoModel'.'|'.0.video_links)
+    // check _jm_obj_98_map_video_links (.'$GalaxyInfoModel'.'|'.2.video_links)
     public boolean _jm_f_48(Object val, Path path, Report rep)
     {
         boolean res;
-        // .'$GalaxyInfoModel'.'|'.0.video_links
+        // .'$GalaxyInfoModel'.'|'.2.video_links
         res = json.isArray(val);
         if (res)
         {
@@ -9341,18 +9362,18 @@ public class ansiblelint_meta extends ModelChecker
         }
         if (! res)
         {
-            if (rep != null) rep.addEntry("not array or unexpected array [.'$GalaxyInfoModel'.'|'.0.video_links]", path);
+            if (rep != null) rep.addEntry("not array or unexpected array [.'$GalaxyInfoModel'.'|'.2.video_links]", path);
         }
         return res;
     }
     
     
-    // object .'$GalaxyInfoModel'.'|'.0
+    // object .'$GalaxyInfoModel'.'|'.2
     public boolean _jm_obj_98(Object val, Path path, Report rep)
     {
         if (! json.isObject(val))
         {
-            if (rep != null) rep.addEntry("not an object [.'$GalaxyInfoModel'.'|'.0]", path);
+            if (rep != null) rep.addEntry("not an object [.'$GalaxyInfoModel'.'|'.2]", path);
             return false;
         }
         boolean res;
@@ -9364,35 +9385,19 @@ public class ansiblelint_meta extends ModelChecker
             String prop = prop_loop.next();
             Object pval = json.objectValue(val, prop);
             Path lpath_51 = new Path(prop, path);
-            if (prop.compareTo("standalone") == 0)
-            {
-                // handle must standalone property
-                must_count += 1;
-                // .'$GalaxyInfoModel'.'|'.0.standalone
-                res = json.isBoolean(pval) && json.asBoolean(pval) == false;
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("unexpected =false [.'$GalaxyInfoModel'.'|'.0.standalone]", (path != null ? lpath_51 : null));
-                }
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("invalid mandatory prop value [.'$GalaxyInfoModel'.'|'.0.standalone]", (path != null ? lpath_51 : null));
-                    return false;
-                }
-            }
-            else if (prop.compareTo("description") == 0)
+            if (prop.compareTo("description") == 0)
             {
                 // handle must description property
                 must_count += 1;
-                // .'$GalaxyInfoModel'.'|'.0.description
+                // .'$GalaxyInfoModel'.'|'.2.description
                 res = json.isString(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.'$GalaxyInfoModel'.'|'.0.description]", (path != null ? lpath_51 : null));
+                    if (rep != null) rep.addEntry("unexpected string [.'$GalaxyInfoModel'.'|'.2.description]", (path != null ? lpath_51 : null));
                 }
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("invalid mandatory prop value [.'$GalaxyInfoModel'.'|'.0.description]", (path != null ? lpath_51 : null));
+                    if (rep != null) rep.addEntry("invalid mandatory prop value [.'$GalaxyInfoModel'.'|'.2.description]", (path != null ? lpath_51 : null));
                     return false;
                 }
             }
@@ -9401,27 +9406,23 @@ public class ansiblelint_meta extends ModelChecker
                 // handle 13 may props
                 if (pfun != null && ! (pfun.call(pval, (path != null ? lpath_51 : null), rep)))
                 {
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$GalaxyInfoModel'.'|'.0]", (path != null ? lpath_51 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$GalaxyInfoModel'.'|'.2]", (path != null ? lpath_51 : null));
                     return false;
                 }
             }
             else
             {
-                if (rep != null) rep.addEntry("unexpected prop [.'$GalaxyInfoModel'.'|'.0]", (path != null ? lpath_51 : null));
+                if (rep != null) rep.addEntry("unexpected prop [.'$GalaxyInfoModel'.'|'.2]", (path != null ? lpath_51 : null));
                 return false;
             }
         }
-        if (must_count != 2)
+        if (must_count != 1)
         {
             if (rep != null)
             {
                 if (! json.objectHasProp(val, "description"))
                 {
-                    if (rep != null) rep.addEntry("missing mandatory prop <description> [.'$GalaxyInfoModel'.'|'.0]", path);
-                }
-                if (! json.objectHasProp(val, "standalone"))
-                {
-                    if (rep != null) rep.addEntry("missing mandatory prop <standalone> [.'$GalaxyInfoModel'.'|'.0]", path);
+                    if (rep != null) rep.addEntry("missing mandatory prop <description> [.'$GalaxyInfoModel'.'|'.2]", path);
                 }
             }
             return false;
@@ -9429,50 +9430,48 @@ public class ansiblelint_meta extends ModelChecker
         return true;
     }
     
+    
     // check $GalaxyInfoModel (.'$GalaxyInfoModel')
     public boolean json_model_54(Object val, Path path, Report rep)
     {
         boolean res;
         // hmmmm, property standalone should probably be required…
         // .'$GalaxyInfoModel'
-        res = json.isObject(val);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected type [.'$GalaxyInfoModel'.'|']", path);
-        }
+        boolean iso_0 = json.isObject(val);
+        res = iso_0;
         if (res)
         {
-            // .'$GalaxyInfoModel'.'|'.0
-            res = _jm_obj_98(val, path, rep);
-            if (! res)
+            if (json.objectHasProp(val, "standalone"))
             {
-                if (rep != null) rep.addEntry("unexpected element [.'$GalaxyInfoModel'.'|'.0]", path);
-            }
-            if (! res)
-            {
-                // .'$GalaxyInfoModel'.'|'.1
-                res = _jm_obj_97(val, path, rep);
-                if (! res)
+                Object tag_0 = json.objectValue(val, "standalone");
+                Checker fun_0 = _jm_map_0_cmap.get(tag_0);
+                if (fun_0 != null)
                 {
-                    if (rep != null) rep.addEntry("unexpected element [.'$GalaxyInfoModel'.'|'.1]", path);
+                    res = fun_0.call(val, path, rep);
                 }
-            }
-            if (res)
-            {
-                if (rep != null) rep.clearEntries();
+                else
+                {
+                    res = false;
+                    if (rep != null) rep.addEntry("tag <standalone> value not found [.'$GalaxyInfoModel'.'|']", path);
+                }
             }
             else
             {
-                if (rep != null) rep.addEntry("no model matched [.'$GalaxyInfoModel'.'|']", path);
+                res = false;
+                if (rep != null) rep.addEntry("tag prop <standalone> is missing [.'$GalaxyInfoModel'.'|']", path);
             }
+        }
+        else
+        {
+            if (rep != null) rep.addEntry("value is not an object [.'$GalaxyInfoModel'.'|']", path);
         }
         if (! res)
         {
-            // .'$GalaxyInfoModel'.'|'
-            res = json_model_53(val, path, rep);
+            // .'$GalaxyInfoModel'.'|'.2
+            res = _jm_obj_98(val, path, rep);
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected $GalaxyInfoModelStandalone [.'$GalaxyInfoModel'.'|']", path);
+                if (rep != null) rep.addEntry("unexpected element [.'$GalaxyInfoModel'.'|'.2]", path);
             }
         }
         return res;
@@ -10971,6 +10970,9 @@ public class ansiblelint_meta extends ModelChecker
             _jm_obj_98_map_pmap.put("platforms", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_46(o, p, r);} });
             _jm_obj_98_map_pmap.put("role_name", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_47(o, p, r);} });
             _jm_obj_98_map_pmap.put("video_links", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_48(o, p, r);} });
+            _jm_map_0_cmap = new HashMap<Object, Checker>();
+            _jm_map_0_cmap.put(json.safeJSON("true"), new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_53(o, p, r);} });
+            _jm_map_0_cmap.put(json.safeJSON("false"), new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_97(o, p, r);} });
             _jm_re_2_pat = Pattern.compile("^[a-z_]+\\.[a-z_]+$");
             _jm_cst_64_set = new HashSet<Object>();
             _jm_cst_64_set.add(json.safeJSON("\"hg\""));
@@ -11120,6 +11122,7 @@ public class ansiblelint_meta extends ModelChecker
             _jm_obj_96_map_pmap = null;
             _jm_obj_97_map_pmap = null;
             _jm_obj_98_map_pmap = null;
+            _jm_map_0_cmap = null;
             _jm_re_2_pat = null;
             _jm_cst_64_set = null;
             ansiblelint_meta_map_pmap = null;

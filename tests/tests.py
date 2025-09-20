@@ -202,14 +202,18 @@ EXPECT: dict[str, int] = {
     "mv-21:values": 192,
     "mv-21:verrors:schema": 88,
     # mv-22
-    "mv-22:options": {"inline": True},
+    "mv-22:mod-opts": {"inline": True},
     "mv-22:models": 6,
     "mv-22:values": 709,
     "mv-22:verrors:schema": 36,
     # mv-23
-    "mv-23:options": {"inline": True},
+    "mv-23:mod-opts": {"inline": True},
     "mv-23:models": 4,
     "mv-23:values": 83,
+    # mv-24
+    "mv-24:cmp-opts": {"report": False},
+    "mv-24:models": 5,
+    "mv-24:values": 127,
     # miscellaneous tests
     "bads:models": 58,
     # tests json models of json schema versions
@@ -246,17 +250,17 @@ def has_exec(program: str) -> bool:
 # LOCAL FIXTURES
 #
 @pytest.fixture(
+    # all test directories
     params=[
         "./ref",
-        "./mv-00", "./mv-01", "./mv-02", "./mv-03",
-        "./mv-04", "./mv-05", "./mv-06", "./mv-07",
-        "./mv-08", "./mv-09", "./mv-0a", "./mv-0b",
-        "./mv-0c", "./mv-0d", "./mv-0e", "./mv-0f",
-        "./mv-10", "./mv-11", "./mv-12", "./mv-13",
-        "./mv-14", "./mv-15", "./mv-16", "./mv-17",
-        "./mv-18", "./mv-19", "./mv-1a", "./mv-1b",
-        "./mv-1c", "./mv-1d", "./mv-1e", "./mv-1f",
-        "./mv-20", "./mv-21", "./mv-22", "./mv-23",
+        "./mv-00", "./mv-01", "./mv-02", "./mv-03", "./mv-04",
+        "./mv-05", "./mv-06", "./mv-07", "./mv-08", "./mv-09",
+        "./mv-0a", "./mv-0b", "./mv-0c", "./mv-0d", "./mv-0e",
+        "./mv-0f", "./mv-10", "./mv-11", "./mv-12", "./mv-13",
+        "./mv-14", "./mv-15", "./mv-16", "./mv-17", "./mv-18",
+        "./mv-19", "./mv-1a", "./mv-1b", "./mv-1c", "./mv-1d",
+        "./mv-1e", "./mv-1f", "./mv-20", "./mv-21", "./mv-22",
+        "./mv-23", "./mv-24",
     ]
 )
 def directory(request):
@@ -442,16 +446,17 @@ def test_schema(directory):
 def test_lang(directory, language):
     """Check compiled sources."""
     resolver = Resolver(None, dirmap(directory))
-    options = EXPECT.get(f"{directory}:options", {})
+    mod_opts = EXPECT.get(f"{directory}:mod-opts", {})
+    cmp_opts = EXPECT.get(f"{directory}:cmp-opts", {})
     suffix = f".{language}"
 
     # default are different for PL/pgSQL
     report = True if language != "sql" else False
 
     def generate_language(fmodel: str):
-        jm = model_from_url(fmodel, resolver=resolver, auto=True, follow=True, **options)
+        jm = model_from_url(fmodel, resolver=resolver, auto=True, follow=True, **mod_opts)
         code = xstatic_compile(jm, "check_model", lang=language,
-            map_threshold=5, report=report, short_version=True)
+            map_threshold=5, short_version=True, **cmp_opts)
         return str(code)
 
     check_generated(directory, f"lang-{language}", f".{language}", generate_language)

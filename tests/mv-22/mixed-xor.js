@@ -157,7 +157,8 @@ function json_model_2(val, path, rep)
 {
     let res;
     // .'$cs'
-    res = Object.prototype.toString.call(val) === '[object Object]';
+    let iso_0 = Object.prototype.toString.call(val) === '[object Object]';
+    res = iso_0;
     if (res)
     {
         if (val.hasOwnProperty("t"))
@@ -469,7 +470,8 @@ function json_model_1(val, path, rep)
 {
     let res;
     // .
-    res = Object.prototype.toString.call(val) === '[object Object]';
+    let iso_1 = Object.prototype.toString.call(val) === '[object Object]';
+    res = iso_1;
     if (res)
     {
         if (val.hasOwnProperty("t"))
@@ -498,11 +500,11 @@ function json_model_1(val, path, rep)
     }
     if (! res)
     {
-        // .'|'
+        // .'|'.4
         res = (typeof val === 'boolean' || val instanceof Boolean);
         if (! res)
         {
-            rep !== null && rep.push(["not a bool [.'|']", path])
+            rep !== null && rep.push(["not a bool [.'|'.4]", path])
         }
     }
     return res;

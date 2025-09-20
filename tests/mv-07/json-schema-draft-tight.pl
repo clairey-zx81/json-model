@@ -329,6 +329,7 @@ sub _jm_f_276($$$);
 sub _jm_f_277($$$);
 my %_jm_obj_64_map;
 sub json_model_23($$$);
+my %_jm_map_0;
 sub json_model_24($$$);
 sub json_model_25($$$);
 sub json_model_26($$$);
@@ -5607,6 +5608,7 @@ sub json_model_23($$$)
     return $res;
 }
 
+
 # check $ObjectSchema (.'$ObjectSchema')
 sub json_model_24($$$)
 {
@@ -5614,70 +5616,52 @@ sub json_model_24($$$)
     my $res;
     # we could use ^ instead of | below
     # .'$ObjectSchema'
-    # .'$ObjectSchema'.'|'.0
-    $res = json_model_16($val, $path, $rep);
+    my $iso_0 = jm_is_object($val);
+    $res = $iso_0;
+    if ($res)
+    {
+        if (exists $$val{'type'})
+        {
+            my $tag_0 = $$val{'type'};
+            my $fun_0 = $_jm_map_0{$tag_0};
+            if (defined($fun_0))
+            {
+                $res = &$fun_0($val, $path, $rep);
+            }
+            else
+            {
+                $res = 0;
+            }
+        }
+        else
+        {
+            $res = 0;
+        }
+    }
     if (! $res)
     {
-        # .'$ObjectSchema'.'|'.1
-        $res = json_model_15($val, $path, $rep);
+        $res = json_model_9($val, $path, $rep);
         if (! $res)
         {
-            # .'$ObjectSchema'.'|'.2
             $res = json_model_21($val, $path, $rep);
             if (! $res)
             {
-                # .'$ObjectSchema'.'|'.3
                 $res = json_model_20($val, $path, $rep);
                 if (! $res)
                 {
-                    # .'$ObjectSchema'.'|'.4
-                    $res = json_model_13($val, $path, $rep);
+                    $res = json_model_17($val, $path, $rep);
                     if (! $res)
                     {
-                        # .'$ObjectSchema'.'|'.5
-                        $res = json_model_14($val, $path, $rep);
+                        $res = json_model_18($val, $path, $rep);
                         if (! $res)
                         {
-                            # .'$ObjectSchema'.'|'.6
-                            $res = json_model_10($val, $path, $rep);
+                            $res = json_model_19($val, $path, $rep);
                             if (! $res)
                             {
-                                # .'$ObjectSchema'.'|'.7
-                                $res = json_model_11($val, $path, $rep);
+                                $res = json_model_22($val, $path, $rep);
                                 if (! $res)
                                 {
-                                    # .'$ObjectSchema'.'|'.8
-                                    $res = json_model_12($val, $path, $rep);
-                                    if (! $res)
-                                    {
-                                        # .'$ObjectSchema'.'|'.9
-                                        $res = json_model_17($val, $path, $rep);
-                                        if (! $res)
-                                        {
-                                            # .'$ObjectSchema'.'|'.10
-                                            $res = json_model_18($val, $path, $rep);
-                                            if (! $res)
-                                            {
-                                                # .'$ObjectSchema'.'|'.11
-                                                $res = json_model_19($val, $path, $rep);
-                                                if (! $res)
-                                                {
-                                                    # .'$ObjectSchema'.'|'.12
-                                                    $res = json_model_22($val, $path, $rep);
-                                                    if (! $res)
-                                                    {
-                                                        # .'$ObjectSchema'.'|'.13
-                                                        $res = json_model_23($val, $path, $rep);
-                                                        if (! $res)
-                                                        {
-                                                            # .'$ObjectSchema'.'|'.14
-                                                            $res = json_model_9($val, $path, $rep);
-                                                        }
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
+                                    $res = json_model_23($val, $path, $rep);
                                 }
                             }
                         }
@@ -6141,6 +6125,15 @@ sub check_model_init()
             'title' => \&_jm_f_276,
             'writeOnly' => \&_jm_f_277,
         );
+        %_jm_map_0 = (
+            'null' => \&json_model_16,
+            'boolean' => \&json_model_15,
+            'integer' => \&json_model_13,
+            'number' => \&json_model_14,
+            'string' => \&json_model_10,
+            'array' => \&json_model_11,
+            'object' => \&json_model_12,
+        );
         %check_model_map = (
             '' => \&json_model_26,
             'const' => \&json_model_2,
@@ -6196,6 +6189,7 @@ sub check_model_free()
         %_jm_obj_56_map = ();
         %_jm_obj_60_map = ();
         %_jm_obj_64_map = ();
+        %_jm_map_0 = ();
         %check_model_map = ();
     }
 }

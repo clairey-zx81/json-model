@@ -295,7 +295,8 @@ function json_model_2(val, path, rep)
 {
     let res;
     // .'$ab'
-    res = Object.prototype.toString.call(val) === '[object Object]';
+    let iso_0 = Object.prototype.toString.call(val) === '[object Object]';
+    res = iso_0;
     if (res)
     {
         if (val.hasOwnProperty("t"))
@@ -607,7 +608,8 @@ function json_model_3(val, path, rep)
 {
     let res;
     // .'$cd'
-    res = Object.prototype.toString.call(val) === '[object Object]';
+    let iso_1 = Object.prototype.toString.call(val) === '[object Object]';
+    res = iso_1;
     if (res)
     {
         if (val.hasOwnProperty("t"))

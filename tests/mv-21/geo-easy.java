@@ -845,7 +845,8 @@ public class geo_easy extends ModelChecker
     {
         boolean res;
         // .'$geometry'
-        res = json.isObject(val);
+        boolean iso_0 = json.isObject(val);
+        res = iso_0;
         if (res)
         {
             if (json.objectHasProp(val, "type"))

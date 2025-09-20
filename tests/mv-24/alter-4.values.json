@@ -1,0 +1,23 @@
+[
+  [ true,  {"t": "a", "a": "Susie"} ],
+  [ true,  {"t": "b", "bc": "Calvin"} ],
+  [ true,  {"t": "c", "bc": "Hobbes"} ],
+  [ true,  true ],
+  [ true,  false ],
+  [ true,  42 ],
+  [ true,  0 ],
+  [ false, {"t": "a"} ],
+  [ false, {"t": "b"} ],
+  [ false, {"t": "c"} ],
+  [ false, {"t": "z"} ],
+  [ false, {} ],
+  [ false, {"a": "Susie"} ],
+  [ false, {"t": "a", "a": "Susie", "d": "Calvin"} ],
+  [ false, null ],
+  [ false, -42 ],
+  [ false, 3.1415927E0 ],
+  [ false, "" ],
+  [ false, "unexpected" ],
+  [ false, [] ],
+  [ false, [1, "expected"] ]
+]

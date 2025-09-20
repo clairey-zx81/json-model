@@ -241,6 +241,10 @@ class Language:
         else:
             raise Exception(f"unexpected type for value extraction: {tvar.__name__}")
 
+    def get_value(self, var: Var, tvar: type) -> Expr:
+        """Extract a typed value from a variable of this type."""
+        return var
+
     def arr_item_val(self, arr: Var, idx: IntExpr) -> JsonExpr:
         """Get array item for an index."""
         return f"{arr}[{idx}]"

@@ -243,7 +243,8 @@ public class dis_01 extends ModelChecker
         boolean res;
         // disjunction on an integer
         // .
-        res = json.isObject(val);
+        boolean iso_0 = json.isObject(val);
+        res = iso_0;
         if (res)
         {
             if (json.objectHasProp(val, "tag"))
