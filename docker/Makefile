@@ -16,6 +16,9 @@ else
 TAG = test
 endif
 
+# for jmc wrapper
+export JMC = $(BRANCH)
+
 #
 # CLEAN
 #
@@ -39,12 +42,14 @@ docker.cleaner:
 #
 NOCACHE = --no-cache
 JMC     = $(BRANCH)
+JSU     = main
 
 .PHONY: docker.build
 docker.build: .build
 
 .build: Dockerfile jmc
-	docker build $(NOCACHE) --build-arg JMC=$(JMC) -t jmc -f Dockerfile . && touch $@
+	docker build $(NOCACHE) --build-arg JMC=$(JMC) --build-arg JSU=$(JSU) \
+	    -t jmc -f Dockerfile . && touch $@
 
 .PHONY: docker.run
 docker.run: .build

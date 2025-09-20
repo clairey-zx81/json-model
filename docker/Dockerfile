@@ -1,10 +1,10 @@
 #
 # JSON Model Compiler Multi-Language Environment
 #
-ARG JMC=main
-
 FROM ubuntu:24.04
 LABEL description="JSON Model Compiler"
+ARG JMC=main
+ARG JSU=main
 
 # system update, installs, cleanup
 RUN apt update ; \
@@ -65,13 +65,13 @@ RUN npm install re2
 # pip install json-model-compiler json-schema-utils
 # npm install json_model_runtime
 
-RUN git clone -b ${JMC} https://github.com/clairey-zx81/json-model.git
+RUN git clone -b $JMC https://github.com/clairey-zx81/json-model.git
 RUN /app/venv/bin/pip install -e ./json-model
 RUN npm install file:./json-model/json_model/runtime/js
 RUN ls -la node_modules
 # RUN rm -rf ./json-model  # no, editable
 
-RUN git clone https://github.com/zx80/json-schema-utils.git
+RUN git clone -b $JSU https://github.com/zx80/json-schema-utils.git
 RUN /app/venv/bin/pip install -e ./json-schema-utils
 # RUN rm -rf ./json-schema-utils  # no, editable
 
