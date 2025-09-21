@@ -191,24 +191,34 @@ done > cases.csv
 echo "# create performance tables"
 sqlite3 perf.db < $script_dir/perf.sql
 
+# cpu data
+cpu_model=$(lscpu --extended=MODELNAME | sed -n 2p)
+cpu_count=$(lscpu --extended=CPU | sed 1d | wc -l)
+
 #
 # OUTPUT
 #
 {
-  echo "# benchmark parameters"
-  echo "## para: $PARA"
-  echo "## comp: $COMP"
-  echo "## loop: $LOOP"
-  echo "## jmc: $JMC"
-  echo "## jsc: $JSC"
-  echo "## cap_py: $cap_py"
-  echo "# benchmark versions"
-  echo "## jmc: $(jmc --version)"
-  echo "## js-cli: $(js-cli --version)"
-  echo "# statistics"
-  echo "## jsb uniq tests: $(cat jsb/schemas/*/instances.jsonl | sort -u | wc -l)"
+  echo "# JSON Model Compiler Benchmark Run"
+  echo "- now: $(date)"
+  echo "- host: $(hostname)"
+  echo "- model: $cpu_model"
+  echo "- cores: $cpu_count"
+  echo "- duration: $SECONDS"
+  echo "## benchmark parameters"
+  echo "- para: $PARA"
+  echo "- comp: $COMP"
+  echo "- loop: $LOOP"
+  echo "- jmc: $JMC"
+  echo "- jsc: $JSC"
+  echo "- cap_py: $cap_py"
+  echo "## Versions"
+  echo "- jmc: $(jmc --version)"
+  echo "- js-cli: $(js-cli --version)"
+  echo "## statistics"
+  echo "- jsb uniq tests: $(cat jsb/schemas/*/instances.jsonl | sort -u | wc -l)"
+  # TODO markdown
   sqlite3 -box perf.db < $script_dir/show.sql
-  echo "## benchmark duration: $SECONDS"
 } > benchmark.output
 
 sqlite3 -csv perf.db < $script_dir/show.sql > benchmark.csv

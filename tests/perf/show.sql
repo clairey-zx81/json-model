@@ -1,23 +1,23 @@
-.print # cases statistics
+.print ## cases statistics
 .width 0 -5 -8 -8 -8
 SELECT * FROM ShowCases ORDER BY 1;
 
-.print # tool performance per case
+.print ## tool performance per case
 .width -2 16 -5 -7 -6 -6 -6 -6 -6 -6 -6
 SELECT * FROM ShowPerfPerCase ORDER BY 1;
 
-.print # tool performance summary
+.print ## tool performance summary
 .width 0 -5 -5 -5 -5 -5 -5 -5
 SELECT * FROM ShowPerfSummary ORDER BY 1;
 
-.print # tool compile per case
+.print ## tool compile per case
 .width -2 16 -5 -5 -5 -5 -5
 SELECT * FROM ShowCompilePerCase ORDER BY 1;
 
-.print # tool compile summary
+.print ## tool compile summary
 .width 0 -5 -5 -5 -5 -5
 SELECT * FROM ShowCompileSummary ORDER BY 1;
 
-.print # result summary
+.print ## result summary
 .width -2 16 -5 -5 -5 -5 -5 -5 -5
 SELECT * FROM ShowBadResults ORDER BY 1;
