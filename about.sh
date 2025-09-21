@@ -36,6 +36,7 @@ cloc --md \
     json_model/url_cache.py \
     json_model/utils.py \
     json_model/xstatic.py \
+    json_model/irep.py \
     | sed -n -e '/^$/,$p' | head -4
 
 cat <<EOF

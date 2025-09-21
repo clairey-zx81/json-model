@@ -27,6 +27,7 @@ LANG = {
   "plpgsql": "PL/pgSQL",
   "pl": "Perl",
   "java": "Java",
+  "json": "IR",
 }
 
 def process_model(model: JsonModel, *,
@@ -427,7 +428,7 @@ def jmc_script():
             args.format = args.format or "c"
             args.op = args.op or "C"
             args.gen = args.gen or "source"
-        if args.output.endswith(".o"):
+        elif args.output.endswith(".o"):
             args.format = args.format or "c"
             args.op = args.op or "C"
             args.gen = args.gen or "module"
@@ -484,6 +485,9 @@ def jmc_script():
         elif args.output.endswith(".model.json"):
             args.format = args.format or "json"
             args.op = args.op or "P"
+        elif args.output.endswith(".ir.json"):
+            args.format = args.format or "json"
+            args.op = args.op or "C"
 
     args.entry = args.entry or "check_model"
 
@@ -515,7 +519,7 @@ def jmc_script():
             sys.exit(1)
     elif args.op == "C":
         args.format = args.format or "py"
-        if args.format not in ("py", "c", "js", "plpgsql", "pl", "java"):
+        if args.format not in LANG:
             log.error(f"unexpected format {args.format} for operation {args.op}")
             sys.exit(1)
     else:  # pragma: no cover
@@ -525,7 +529,7 @@ def jmc_script():
     if args.values and (args.op != "C" or args.format != "py"):
         log.error(f"Testing JSON values requires -C for Python: {args.op} {args.format}")
         sys.exit(1)
-    if args.gen == "source" and (args.op != "C" or args.format not in ("py", "c", "js", "plpgsql", "pl", "java")):
+    if args.gen == "source" and (args.op != "C" or args.format not in LANG):
         log.error(f"Showing code requires -C for C, Java, JavaScript, Perl, Python and PL/pgSQL: {args.op} {args.format}")
         sys.exit(1)
 
@@ -612,8 +616,7 @@ def jmc_script():
         show = model.toModel(True)
         print(json2str(show), file=output)
     elif args.op == "C":
-        assert args.format in ("py", "c", "js", "plpgsql", "pl", "java"), \
-            f"valid output language {args.format}"
+        assert args.format in LANG, f"valid output language {args.format}"
 
         # FIXME PL/pgSQL?
         if args.format in ("plpgsql", "js", "pl") and \

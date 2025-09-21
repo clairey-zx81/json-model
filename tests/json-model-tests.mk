@@ -41,7 +41,8 @@ F.out   = $(F.root:%=%.out)
 F.sql   = $(F.root:%=%.sql)
 F.pl    = $(F.root:%=%.pl)
 F.java  = $(F.root:%=%.java)
-F.class  = $(F.root:%=%.class)
+F.class = $(F.root:%=%.class)
+F.ir    = $(F.root:%=%.ir.json)
 # test results
 F.cc    = $(F.root:%=%.c.check)
 F.pyc   = $(F.root:%=%.py.check)
@@ -169,6 +170,12 @@ $(F.out): json-model.o main.o
 	if [ -f $*.values.json ] ; then
 	    $< -tr $*.values.json >> $@
 	fi
+
+#
+# JSON IR
+#
+%.ir.json: %.model.json
+	$(JMC.cmd) -v -C -F json ./$<  | jq > $@
 
 #
 # Python Backend

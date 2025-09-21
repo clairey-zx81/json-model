@@ -477,6 +477,10 @@ class Language:
         """Escape string, with double quotes."""
         return '"' + s.replace("\\", "\\\\").replace('"', r'\"') + '"'
 
+    def skip(self) -> Block:
+        """Skip one line."""
+        return [ "" ]
+
     #
     # paths:
     #
@@ -665,6 +669,43 @@ class Language:
         """Generate the deallocation function."""
         raise NotImplementedError("gen_free")
 
+    def gen_code(self, code: Block, entry: str, package: str|None, indent: bool = False) -> Block:
+        """Generate substituted code."""
+        if indent:
+            code = self.indent(code, False)
+        return [
+            line.replace("CHECK_FUNCTION_NAME", entry)
+                .replace("CHECK_PACKAGE_NAME", package or "")
+                    for line in code
+        ]
+
+    def gen_full_code(self,
+                defs: Block, inis: Block, dels: Block, subs: Block,
+                entry: str, package: str|None, exe: bool
+            ) -> Block:
+        """Generate final code block."""
+
+        # FIXME TODO remove, this is a bad idea
+        # compute init first as predefs may trigger more imports
+        inis = self.gen_init(inis)
+        dels = self.gen_free(dels)
+
+        # reduce with empty lines between parts
+        code: Block = self.gen_code(self.file_header(exe), entry, package)
+
+        for block in (defs, subs, inis, dels):
+            if code and block:
+                code += self.skip()
+            code += self.gen_code(block, entry, package, self.reindent)
+
+        code += self.gen_code(self.file_footer(exe), entry, package)
+
+        return code
+
+    def code_to_str(self, code: Block) -> str:
+        """Generate a final string for code display."""
+        return self._isep.join(filter(lambda s: s is not None, code)) + "\n"
+
 
 class Code:
     """Hold generated source code for a .
@@ -692,23 +733,23 @@ class Code:
     #
     # add blocks
     #
-    def defs(self, b: Block = [""]):
+    def defs(self, b: Block|None = None):
         """Add lines to definitions."""
-        self._defs += b
+        self._defs += b if b is not None else self._lang.skip()
 
-    def subs(self, b: Block = [""]):
+    def subs(self, b: Block|None = None):
         """Add lines to subroutines."""
         if self._subs:
             self._subs.append("")
-        self._subs += b
+        self._subs += b if b is not None else self._lang.skip()
 
-    def inis(self, b: Block = [""]):
+    def inis(self, b: Block|None = None):
         """Add lines to initialization code."""
-        self._inis += b
+        self._inis += b if b is not None else self._lang.skip()
 
-    def dels(self, b: Block = [""]):
+    def dels(self, b: Block|None = None):
         """Add lines to cleanup code."""
-        self._dels += b
+        self._dels += b if b is not None else self._lang.skip()
 
     # TODO rename!
     def sub(self, name: str, body: Block, *, comment: str = "", inline: bool = False):
@@ -750,32 +791,12 @@ class Code:
         self.defs(self._lang.def_strfun(name))
         self.subs(self._lang.sub_strfun(name, body))
 
-    def _code(self, code: Block, indent: bool = False):
-        """Process one code block."""
-        if indent:
-            code = self._lang.indent(code, False)
-        return [
-            line.replace("CHECK_FUNCTION_NAME", self._entry)
-                .replace("CHECK_PACKAGE_NAME", self._package or "")
-                    for line in code
-        ]
-
     def __str__(self):
         """Gather everything to generate the full source code."""
 
-        # compute init first as predefs may trigger more imports
-        inis = self._lang.gen_init(self._inis)
-        dels = self._lang.gen_free(self._dels)
+        code = self._lang.gen_full_code(
+            self._defs, self._inis, self._dels, self._subs,
+            self._entry, self._package, self._executable
+        )
 
-        # reduce with empty lines between parts
-        code: Block = self._code(self._lang.file_header(self._executable))
-
-        for block in (self._defs, self._subs, inis, dels):
-            if code and block:
-                code += [""]
-            code += self._code(block, self._lang.reindent)
-
-        code += self._code(self._lang.file_footer(self._executable))
-
-        # generate source code, skipping none instructions if any
-        return self._lang._isep.join(filter(lambda s: s is not None, code)) + "\n"
+        return self._lang.code_to_str(code)

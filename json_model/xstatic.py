@@ -1493,10 +1493,12 @@ def xstatic_compile(
                         with_package=package is not None)
         package = package or "Model"
     elif lang == "java":
-        # package?
         from .java import Java
         language = Java(debug=debug, with_report=report, with_path=report, relib=relib or "re",
                         with_package=package is not None)
+    elif lang == "json":
+        from .irep import IRep
+        language = IRep(debug=debug)
     else:
         raise NotImplementedError(f"no support yet for language: {lang}")
 

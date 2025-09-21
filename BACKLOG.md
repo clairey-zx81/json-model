@@ -8,6 +8,10 @@
 - [x] static: detect partial discriminators with other stuff
 - [x] docker: generate image for current branch
 - [x] artifact: improve docker image tagging
+- [x] backend: intermediate represention json code generation
+- [ ] models: write model for json code!
+- [ ] backend: optimize some output patterns on IR
+- [ ] backend: generate output source code from symbolic json code
 - [ ] artifact: make work with dind
 - [ ] static: skip model function to call obj function directly on references
 - [ ] static: recognize already compile objects and reuse function esp under no no-reporting?
@@ -36,10 +40,6 @@
 - [ ] frontends: reject json with duplicated props
 - [ ] c-backend: header file for generated code?
 - [ ] tests: perl _uninitialized value $tag_0 in hash element at `./mv-18/dis_01.pl:171._
-- [ ] backend: intermediate symbolic json code generation
-- [ ] models: write model for json code!
-- [ ] backend: optimize output patterns with previous representation
-- [ ] backend: generate output source code from symbolic json code
 - [ ] command: allow to pass some options from environment variables?
 - [ ] command: allow to pass some options from rc file?
 
