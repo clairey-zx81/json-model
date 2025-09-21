@@ -75,7 +75,7 @@ docker.tag: .build
 	docker tag jmc zx80/jmc:$(TAG)
 	docker tag jmc zx80/jmc:$(BRANCH)
 	docker tag jmc zx80/jmc:$(GITVERS)
-	docker tag jmc zx80/jmc:$(VERSION)
+	docker tag jmc zx80/jmc:$$(JMC=$(BRANCH) ./jmc --version)
 
 .PHONY: docker.push
 docker.push: docker.tag
