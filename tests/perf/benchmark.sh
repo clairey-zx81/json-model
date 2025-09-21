@@ -200,12 +200,13 @@ cpu_count=$(lscpu --extended=CPU | sed 1d | wc -l)
 #
 {
   echo "# JSON Model Compiler Benchmark Run"
+  echo "## Summary"
   echo "- now: $(date)"
   echo "- host: $(hostname)"
   echo "- model: $cpu_model"
   echo "- cores: $cpu_count"
   echo "- duration: $SECONDS"
-  echo "## benchmark parameters"
+  echo "## Benchmark Parameters"
   echo "- para: $PARA"
   echo "- comp: $COMP"
   echo "- loop: $LOOP"
@@ -215,7 +216,7 @@ cpu_count=$(lscpu --extended=CPU | sed 1d | wc -l)
   echo "## Versions"
   echo "- jmc: $(jmc --version)"
   echo "- js-cli: $(js-cli --version)"
-  echo "## statistics"
+  echo "## Statistics"
   echo "- jsb uniq tests: $(cat jsb/schemas/*/instances.jsonl | sort -u | wc -l)"
   # TODO markdown
   sqlite3 -box perf.db < $script_dir/show.sql
