@@ -9,7 +9,7 @@ docker tag jmc-bench zx80/jmc-bench
 docker push zx80/jmc-bench
 # in an empty directory
 docker run --rm --name imperial_jmcbench -v /var/run/docker.sock:/var/run/docker.sock \
-    -e WORKDIR=$PWD -v .:/workspace zx80/jmc-bench:latest -p 12 -l 10000
+    -e WORKDIR=$PWD -v .:/workspace zx80/jmc-bench:latest -p 12 -l 10000 --cap-py
 ```
 
 ## DinD
