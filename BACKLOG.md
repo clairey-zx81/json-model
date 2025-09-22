@@ -9,8 +9,8 @@
 - [x] docker: generate image for current branch
 - [x] artifact: improve docker image tagging
 - [x] backend: intermediate represention json code generation
+- [x] backend: optimize some output patterns on IR
 - [ ] models: write model for json code!
-- [ ] backend: optimize some output patterns on IR
 - [ ] backend: generate output source code from symbolic json code
 - [ ] artifact: make work with dind
 - [ ] static: skip model function to call obj function directly on references

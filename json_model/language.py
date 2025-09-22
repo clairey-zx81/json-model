@@ -412,6 +412,10 @@ class Language:
         else:
             return []
 
+    def sequence(self, seq: Block) -> Block:
+        """Block in block which may be created by IR optimizations."""
+        return seq
+
     def var(self, var: Var, val: Expr|None, tname: str|None) -> Block:
         """Declare and/or assign a variable with a type."""
         raise NotImplementedError("var")

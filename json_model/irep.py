@@ -4,29 +4,254 @@
 import functools
 import json
 
+from .utils import log
 from .language import Language, Block, Var, PropMap, ConstList
-from .language import JsonExpr, BoolExpr, IntExpr, StrExpr, PathExpr, Expr
+from .language import JsonExpr, BoolExpr, IntExpr, StrExpr, PathExpr, NumExpr, Expr
 from .mtypes import Jsonable, JsonScalar, Number
 
-def _j(op: str, **params) -> str:
+def _j(o: str, **params) -> str:
     """Generate a JSON operation."""
-    return json.dumps({"o": op, **params})
+    return json.dumps({"o": o, **params})
 
 def _l(s: str) -> Jsonable:
-    return json.loads(s) if s is not None and s and s[0] == "{" else s
+    """Parse a JSON operation or something else."""
+    return json.loads(s) if s is not None and s and (s[0] in '{["0123456789-' or s in ("true", "false")) else s
 
 def _u(block: Block) -> list[Jsonable]:
+    """Parse a JSON code block."""
+    # log.debug(f"_u: block = {block}")
     return [ _l(l) for l in filter(lambda s: s is not None and s != "", block) ]
+
+# compute RW effects on boolean variables
+type Sequence = list[Jsonable]
+# read, write, true, false
+type Effect = tuple[set[str], set[str], dict[str, bool]]
+type Effects = list[Effect]
+
+
+# NOTE there are quite a few implicit assumptions:
+# - variables names are used once, without aliases or shadowing
+# - early returns do not have an impact
+def _getEffect(op: Jsonable, bool_vars: set[str]) -> Effect:
+
+    # direct boolean variable
+    if isinstance(op, str) and op in bool_vars:
+        return set(op), set(), {}
+
+    # shortcut? error?
+    if not isinstance(op, dict) or "o" not in op:
+        return set(), set(), {}
+
+    read: set[str] = set()
+    write: set[str] = set()
+    value: dict[str, bool] = {}
+
+    # recursive computation
+    # value: dict[str, bool] = {}
+    # TODO interruption (retur)
+    # exit: bool
+
+    match op["o"]:
+        # no boolean effect expected on these
+        case "co"|"rep"|"cst"|"pl"|"isa"|"val"|"iv"|"i+"|"hp"|"isr"|"cr"|"brk"|"apf"|"id"|"ss"|"se"|"pre"|"no":
+            pass
+        # declaration/assignment
+        case "v":
+            var = op["var"]
+            op["tname"] == "bool" and bool_vars.add(var)
+            if var in bool_vars:
+                op["val"] is not None and write.add(var)
+                if isinstance(op["val"], bool):
+                    value[var] = op["val"]
+                elif var in value:
+                    del value[var]
+        # expressions
+        case "ret":
+            read, write, value = _getEffect(op["res"], bool_vars)
+        case "not":
+            read, write, value = _getEffect(op["e"], bool_vars)
+        case "iv"|"cc":
+            read, write, value = _getEffect(op["val"], bool_vars)
+        case "sc"|"nc":
+            read, write, value = _getEffect(op["e1"], bool_vars)
+            r, w, v = _getEffect(op["e2"], bool_vars)
+            read |= r; write |= w; value.update(v)
+        case "and"|"or":
+            for e in op["exprs"]:
+                r, w, v = _getEffect(e, bool_vars)
+                read |= r; write |= w; value.update(v)
+        # statements
+        case "if":
+            read, write, value = _getEffect(op["cond"], bool_vars)
+            r, w, v = _optimSeq(op["true"], bool_vars)
+            read |= r; write |= w
+            r, w, v = _optimSeq(op["false"], bool_vars)
+            read |= r; write |= w
+            # TODO intersect values?
+        case "ifs":
+            for tup in op["cond_true"]:
+                cond, true = tup
+                r, w, v = _getEffect(cond, bool_vars)
+                read |= r; write |= w
+                r, w, v = _optimSeq(true, bool_vars)
+                read |= r; write |= w
+            r, w, v = _optimSeq(op["false"], bool_vars)
+            read |= r; write |= w
+        case "ol"|"al"|"il":
+            read, write, value = _optimSeq(op["body"], bool_vars)
+        case _:
+            raise Exception(f"missing effect computation on operation {op['o']}")
+
+    return read, write, value
+
+def _isOp(op: Jsonable, o: str) -> bool:
+    return isinstance(op, dict) and "o" in op and op["o"] == o
+
+def _boolIf(op: Jsonable, bool_vars: set[str]) -> tuple[str, bool]|None:
+    if not _isOp(op, "if"):
+        return None
+    cond = op["cond"]
+    if isinstance(cond, str) and cond in bool_vars:
+        return cond, True
+    elif _isOp(cond, "not"):
+        note = cond["e"]
+        if isinstance(note, str) and note in bool_vars:
+            return note, False
+    return None
+
+def _optimSeq(seq: Sequence, bool_vars: set[str]) -> Effect:
+    """Optimize instruction sequence if/then patterns on boolean variables in place."""
+
+    effects: Effects = [ _getEffect(op, bool_vars) for op in seq ]
+    assert len(effects) == len(seq)
+
+    cum_read, cum_write, cum_value = set(), set(), {}
+
+    # cleanup seq using effects with pattern
+    # if [not] b:
+    #     then_1  # no W on b
+    #     else_1  # no W on b
+    # (maybe comments)
+    # if [not] b:
+    #     then_2
+    #     else_2
+
+    prev_var, prev_idx, prev_direct = None, 0, True
+
+    for i, (op, (read, write, value)) in enumerate(list(zip(seq, effects))):
+
+        # update cumulative analysis
+        cum_read |= read; cum_write |= write
+        for v in write:
+            if v in value:
+                cum_value[v] = value[v]
+            else:  # erase current value
+                if v in cum_value:
+                    del cum_value[v]
+
+        # skip comments, empty
+        if _isOp(op, "co") or _isOp(op, "no"):
+            continue
+
+        cur_var, cur_idx, cur_direct = None, 0, True
+
+        if prev_var and prev_var in write:
+            prev_var = None
+
+        if test := _boolIf(op, bool_vars):
+
+            var, direct = test
+
+            if var in cum_value:
+                # drop if
+                op["o"] = "seq"
+                op["seq"] = op["true" if direct == cum_value[var] else "false"]
+                del op["true"]
+                del op["false"]
+                op["#"] = "IRO dropped constant if"
+                prev_var = None
+                # NOTE could update effects?!
+                continue
+
+            if prev_var is None:
+                if var not in write:
+                    prev_var, prev_direct = var, direct
+                    prev_idx = i
+                # else nothing
+            else:
+                cur_var, cur_direct = var, direct
+                cur_idx = i
+                if prev_var == cur_var:  # merge!
+                    assert prev_idx != cur_idx
+                    # update sequence
+                    if cur_direct == prev_direct:
+                        seq[prev_idx]["true"] += seq[cur_idx]["true"]
+                        seq[prev_idx]["false"] += seq[cur_idx]["false"]
+                    else:
+                        seq[prev_idx]["true"] += seq[cur_idx]["false"]
+                        seq[prev_idx]["false"] += seq[cur_idx]["true"]
+                    # update corresponding effects
+                    effects[prev_idx] = (
+                        effects[prev_idx][0] | effects[cur_idx][0],
+                        effects[prev_idx][1] | effects[cur_idx][1],
+                        # FIXME empty instead?
+                        effects[prev_idx][2].update(effects[cur_idx][2])
+                    )
+                    # stop merge on this if variable is written
+                    if prev_var in effects[prev_idx][1]:
+                        prev_var = None
+                    # cleanup current instruction with a comment
+                    seq[cur_idx] = {"o": "no", "#": f"IRO if merged on {prev_idx}"}
+                    effects[cur_idx] = (set(), set(), {})
+        else:  # whatever else is bad news for merging
+            prev_var = None
+
+    for op in seq:
+        # remove "not" when "false" branch is not empty by exchanging true/false
+        if _isOp(op, "if") and _isOp(op["cond"], "not") and op["false"]:
+            op["cond"], op["true"], op["false"] = op["cond"]["e"], op["false"], op["true"]
+            op["#"] = "IRO inverted not"
+
+    return cum_read, cum_write, cum_value
+
+def optimizeIR(code: Jsonable, *, if_optim: bool = True) -> Jsonable:
+    """Optimize IR code."""
+
+    # TODO control
+
+    # sanity checks
+    assert isinstance(code, dict) and "o" in code and code["o"] == "fc", f"fine {code}"
+    assert "subs" in code
+    subs = code["subs"]
+    assert isinstance(subs, list)
+
+    # process function bodies
+    for ins in subs:
+        if isinstance(ins, dict) and "o" in ins and ins["o"] == "sfu":
+            _optimSeq(ins["body"], set())
+
+    # TODO remove nopes?
+    return code
 
 
 class IRep(Language):
-    """Generate JSON intermediate representation of backend code."""
+    """Generate JSON intermediate representation of backend code.
 
-    def __init__(self, debug: bool = False):
-        super().__init__("JSON", indent=",", debug=debug)
+    NOTE this is currently pretty inefficient, with useless back and forth json encodings
+    that artificially preserve the initial Block (list[str]) and Expr (str) typing.
+    """
+
+    def __init__(self, *, debug: bool = False, if_optim: bool = True,
+                 with_path: bool = True, with_report: bool = True, with_package: bool = False,
+                 with_comment: bool = True):
+        # TODO we need a target language for handling regular expressions transformations
+        super().__init__("JSON", indent=",", debug=debug,
+                         with_path=with_path, with_report=with_report,
+                         with_package=with_package, with_comment=with_comment)
+        self._if_optim = if_optim
 
     def lcom(self, text: str = "") -> Block:
-        return [ _j("co", text=text) ]
+        return [ _j("co", text=text) ] if self._with_comment else []
 
     def file_header(self, exe: bool = True) -> Block:
         return [ _j("fh", exe=exe, version=self.version()) ]
@@ -57,7 +282,7 @@ class IRep(Language):
 
     def predef(self, var: Var, name: str, path: Var, is_str: bool = False) -> BoolExpr:
         return _j("pre", var=_l(var), name=name, path=_l(path), is_str=is_str)
-    
+
     def value(self, var: Var, tvar: type) -> Expr:
         return _j("val", var=_l(var), tvar=tvar.__name__)
 
@@ -101,20 +326,24 @@ class IRep(Language):
     def str_cmp(self, e1: StrExpr, op: str, e2: StrExpr) -> BoolExpr:
         return _j("sc", e1=_l(e1), op=op, e2=_l(e2))
 
+    def num_cmp(self, e1: NumExpr, op: str, e2: NumExpr) -> BoolExpr:
+        return _j("nc", e1=_l(e1), op=op, e2=_l(e2))
+
     def nope(self) -> Block:
         return [ _j("no") ]
 
     def var(self, var: Var, val: Expr|None, tname: str|None) -> Block:
-        return [ _j("v", var=_l(val), val=_l(val), tname=tname) ]
+        # log.debug(f"var={var} val={val} tname={tname}")
+        return [ _j("v", var=_l(var), val=_l(val) if val is not None else None, tname=tname) ]
 
     def int_var(self, var: Var, val: IntExpr|None = None, declare: bool = False) -> Block:
-        return [ _j("iv", var=_l(var), val=_l(val), declare=declare) ]
+        return [ _j("iv", var=_l(var), val=_l(val) if val is not None else None, declare=declare) ]
 
     def brk(self) -> Block:
         return [ _j("brk") ]
 
     def inc_var(self, var: Var) -> Block:
-        return [ _j("iv", var=_l(var)) ]
+        return [ _j("i+", var=_l(var)) ]
 
     def ret(self, res: BoolExpr) -> Block:
         return [ _j("ret", res=_l(res)) ]
@@ -138,16 +367,16 @@ class IRep(Language):
         return _j("isr")
 
     def report(self, msg: str, path: Var) -> Block:
-        return [ _j("rep", msg=msg, path=_l(path)) ]
+        return [ _j("rep", msg=msg, path=_l(path)) ] if self._with_report else []
 
     def clean_report(self) -> Block:
-        return [ _j("cr") ]
+        return [ _j("cr") ] if self._with_report else []
 
     def path_val(self, pvar: Var, pseg: str|int, is_prop: bool) -> PathExpr:
-        return _j("pv", pvar=_l(pvar), pseg=pseg, is_prop=is_prop)
+        return _j("pv", pvar=_l(pvar), pseg=pseg, is_prop=is_prop) if self._with_path else "null"
 
     def path_lvar(self, lvar: Var, rvar: Var) -> PathExpr:
-        return _j("pl", lvar=_l(lvar), rvar=_l(rvar))
+        return _j("pl", lvar=_l(lvar), rvar=_l(rvar)) if self._with_path else "null"
 
     def indent(self, block: Block, sep: bool = True) -> Block:
         raise Exception("indentation not a IR operation")
@@ -169,7 +398,7 @@ class IRep(Language):
 
     # FIXME language dependent internal regex operations
     def regroup(self, name: str, pattern: str = ".*") -> str:
-        return f"(?P<{name}>{pattern})" if self._relib == "re2" else super().regroup(name, pattern)
+        return super().regroup(name, pattern)
 
     def def_re(self, name: str, regex: str, opts: str) -> Block:
         return [ _j("dr", name=name, regex=regex, opts=opts) ]
@@ -213,11 +442,14 @@ class IRep(Language):
     def sub_cset(self, name: str, constants: ConstList) -> Block:
         return [ _j("scs", name=name, constants=constants) ]
 
+    def sequence(self, seq: Block) -> Block:
+        return [ _j("seq", seq=_u(seq)) ]
+
     def in_cset(self, name: str, var: Var, constants: ConstList) -> BoolExpr:
         return _j("incs", name=name, var=var, constants=constants)
 
     def ini_cset(self, name: str, constants: ConstList) -> Block:
-        return [ _j("ics", name=name, var=var, constants=constants) ]
+        return [ _j("ics", name=name, constants=constants) ]
 
     def def_fun(self, name: str) -> Block:
         return [ _j("dfu", name=name) ]
@@ -253,13 +485,17 @@ class IRep(Language):
                     entry=entry, package=package, exe=exe) ]
 
     def code_to_str(self, code: Block) -> str:
-        if len(code) == 0:
-            return ""
-        elif len(code) == 1:
-            return code[0]
-        else:
-            return json.dumps([ _l(l) for l in code ])
 
+        if len(code) == 0:
+            return "null"
+        elif len(code) == 1:
+            return json.dumps(optimizeIR(_l(code[0]), if_optim=self._if_optim)) if self._if_optim else code[0]
+        else:
+            return "[" + ",".join(code) + "]"
+
+    #
+    # target language reconstruction
+    #
     def _str2type(self, tname: str|None) -> type:
         match tname:
             case None: return None
@@ -287,6 +523,8 @@ class IRep(Language):
                 case "co": return lang.lcom(text=code["text"])
                 case "fh": return lang.file_header(exe=code["exe"])
                 case "dfu": return lang.def_fun(name=code["name"])
+                case "seq": return lang.sequence(seq=code["seq"])
+                # TODO complete
                 case _: raise Exception(f"unexpected op code: {op}")
         elif isinstance(code, list):
             return [ ev(i) for i in code ]
