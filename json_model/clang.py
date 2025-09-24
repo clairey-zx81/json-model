@@ -237,13 +237,13 @@ class CLangJansson(Language):
     def nope(self) -> Block:
         return []
 
-    def var(self, var: Var, val: Expr|None, tname: str|None) -> Block:
+    def _var(self, var: Var, val: Expr|None, tname: str|None) -> Block:
         assign = f" = {val}" if val else ""
         decl = f"{tname} " if tname else ""
         return [ f"{decl}{var}{assign}{self._eoi}" ]
 
     def int_var(self, var: Var, val: IntExpr|None = None, declare: bool = False) -> Block:
-        return self.var(var, val, self._int if declare else None)
+        return self._var(var, val, self._int if declare else None)
 
     #
     # reporting

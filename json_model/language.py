@@ -25,6 +25,7 @@ type ConstList = list[None|bool|int|float|str]
 type ConstMap = dict[JsonScalar, str]
 type RegMap = dict[str, str]
 
+
 class Language:
     """Dumb abstraction of an imperative language to manipulate JSON data.
 
@@ -416,42 +417,42 @@ class Language:
         """Block in block which may be created by IR optimizations."""
         return seq
 
-    def var(self, var: Var, val: Expr|None, tname: str|None) -> Block:
+    def _var(self, var: Var, val: Expr|None, tname: str|None) -> Block:
         """Declare and/or assign a variable with a type."""
         raise NotImplementedError("var")
 
     def json_var(self, var: Var, val: JsonExpr|None = None, declare: bool = False) -> Block:
         """Declare a JSON variable."""
-        return self.var(var, val, self._json_t if declare else None)
+        return self._var(var, val, self._json_t if declare else None)
 
     def bool_var(self, var: Var, val: BoolExpr|None = None, declare: bool = False) -> Block:
         """Declare a boolean variable."""
-        return self.var(var, val, self._bool_t if declare else None)
+        return self._var(var, val, self._bool_t if declare else None)
 
     def int_var(self, var: Var, val: IntExpr|None = None, declare: bool = False) -> Block:
         """Declare and assign to int variable."""
-        return self.var(var, val, self._int_t if declare else None)
+        return self._var(var, val, self._int_t if declare else None)
 
-    def str_var(self, var: Var, val: IntExpr|None = None, declare: bool = False) -> Block:
+    def str_var(self, var: Var, val: StrExpr|None = None, declare: bool = False) -> Block:
         """Declare and assign to str variable."""
-        return self.var(var, val, self._str_t if declare else None)
+        return self._var(var, val, self._str_t if declare else None)
 
-    def flt_var(self, var: Var, val: IntExpr|None = None, declare: bool = False) -> Block:
+    def flt_var(self, var: Var, val: Expr|None = None, declare: bool = False) -> Block:
         """Declare and assign to str variable."""
-        return self.var(var, val, self._float_t if declare else None)
+        return self._var(var, val, self._float_t if declare else None)
 
     def fun_var(self, var: Var, val: Expr|None = None, declare: bool = False) -> Block:
         """Declare a check function variable pointer."""
         # FIXME should guard for scalar?
-        return self.var(var, val, self._check_t if declare else None)
+        return self._var(var, val, self._check_t if declare else None)
 
     def path_var(self, pvar: Var, val: PathExpr|None = None, declare: bool = False) -> Block:
         """Assign and possibly declare a value to a path variable."""
-        return self.var(pvar, val, self._path_t if declare else None) if self._with_path else []
+        return self._var(pvar, val, self._path_t if declare else None) if self._with_path else []
 
     def match_var(self, var: Var, val: Expr|None = None, declare: bool = False) -> Block:
         """Assign and possibly declare a match result variable."""
-        return self.var(var, val, self._match_t if declare else None)
+        return self._var(var, val, self._match_t if declare else None)
 
     def match_ko(self, var: Var) -> BoolExpr:
         return self.not_op(var)
@@ -522,6 +523,7 @@ class Language:
 
     def indent(self, block: Block, sep: bool = True) -> Block:
         """Indent a block."""
+        # log.warning(f"block = ({type(block)}) {block})")
         return [ (self._indent + line) for line in filter(lambda s: s is not None, block) ]
 
     def int_loop(self, idx: Var, start: IntExpr, end: IntExpr, body: Block) -> Block:
@@ -744,7 +746,7 @@ class Code:
     def subs(self, b: Block|None = None):
         """Add lines to subroutines."""
         if self._subs:
-            self._subs.append("")
+            self._subs += self._lang.skip()
         self._subs += b if b is not None else self._lang.skip()
 
     def inis(self, b: Block|None = None):
@@ -795,12 +797,12 @@ class Code:
         self.defs(self._lang.def_strfun(name))
         self.subs(self._lang.sub_strfun(name, body))
 
-    def __str__(self):
-        """Gather everything to generate the full source code."""
-
-        code = self._lang.gen_full_code(
+    def get_code(self):
+        return self._lang.gen_full_code(
             self._defs, self._inis, self._dels, self._subs,
             self._entry, self._package, self._executable
         )
 
-        return self._lang.code_to_str(code)
+    def __str__(self):
+        """Gather everything to generate the full source code."""
+        return self._lang.code_to_str(self.get_code())

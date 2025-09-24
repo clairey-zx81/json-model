@@ -206,16 +206,13 @@ class PLpgSQL(Language):
     def nope(self) -> Block:
         return [ "NULL;" ]
 
-    def var(self, var: Var, val: Expr|None, tname: str|None) -> Block:
+    def _var(self, var: Var, val: Expr|None, tname: str|None) -> Block:
         code = []
         if tname:
             code.append(f"{_DECL}{var} {tname};")
         if val:
             code.append(f"{var} := {val};")
         return code
-
-    def int_var(self, var: Var, val: IntExpr|None = None, declare: bool = False) -> Block:
-        return self.var(var, val, self._int_t if declare else None)
 
     def inc_var(self, var: Var) -> Block:
         return [f"{var} := {var} + 1;"]

@@ -158,13 +158,10 @@ class JavaScript(Language):
     def nope(self) -> Block:
         return []
 
-    def var(self, var: Var, val: Expr|None, tname: str|None) -> Block:
+    def _var(self, var: Var, val: Expr|None, tname: str|None) -> Block:
         assign = f" = {val}" if val else ""
         decl = "let " if tname else ""
         return [ f"{decl}{var}{assign}{self._eoi}" ]
-
-    def int_var(self, var: Var, val: IntExpr|None = None, declare: bool = False) -> Block:
-        return self.var(var, val, self._int_t if declare else None)
 
     #
     # reporting
@@ -242,10 +239,10 @@ class JavaScript(Language):
         return [ f"const {name} = (s) => {name}_re.exec(s) !== null" ]
 
     def match_var(self, var: str, val: Expr|None = None, declare: bool = False) -> Block:
-        return self.var(var, val, "Array")
+        return self._var(var, val, "Array")
 
     def match_str_var(self, rname: str, var: str, val: str, declare: bool = False) -> Block:
-        return self.var(var, val, "String")
+        return self._var(var, val, "String")
 
     def match_re(self, name: str, var: str, regex: str, opts: str) -> BoolExpr:
         return f"{name}_re.exec({var})"

@@ -10,8 +10,16 @@
 - [x] artifact: improve docker image tagging
 - [x] backend: intermediate represention json code generation
 - [x] backend: optimize some output patterns on IR
+- [x] backend: generate output source code from symbolic json code
+- [x] xstatic: skip IR if not needed
+- [x] command: add `--ir-optimize` option
+- [ ] tests: add ir optimized output
+- [ ] tests: drop language outputs for IR only?
+- [ ] backend: IR handling of ConstMap and ConstSet
+- [ ] backend: improve and extend IR optimizations?
+- [ ] command: activate ir optimization by default
+- [ ] command: add direct ir to lang conversion
 - [ ] models: write model for json code!
-- [ ] backend: generate output source code from symbolic json code
 - [ ] artifact: make work with dind
 - [ ] static: skip model function to call obj function directly on references
 - [ ] static: recognize already compile objects and reuse function esp under no no-reporting?

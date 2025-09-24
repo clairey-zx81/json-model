@@ -121,7 +121,7 @@ class Python(Language):
     def assign_prop_fun(self, fun: str, prop: str, mapname: str) -> BoolExpr:
         return f"{fun} := {mapname}.get({prop})"
 
-    def var(self, var: Var, val: Expr|None, tname: str|None) -> Block:
+    def _var(self, var: Var, val: Expr|None, tname: str|None) -> Block:
         assign = f" = {val}" if val else ""
         decl = f": {tname}" if tname else ""
         return [ f"{var}{decl}{assign}{self._eoi}" ]

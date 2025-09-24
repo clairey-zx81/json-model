@@ -5,7 +5,7 @@ import functools
 import json
 
 from .utils import log
-from .language import Language, Block, Var, PropMap, ConstList
+from .language import Language, Block, Var, PropMap, ConstList, Code
 from .language import JsonExpr, BoolExpr, IntExpr, StrExpr, PathExpr, NumExpr, Expr
 from .mtypes import Jsonable, JsonScalar, Number
 
@@ -19,7 +19,6 @@ def _l(s: str) -> Jsonable:
 
 def _u(block: Block) -> list[Jsonable]:
     """Parse a JSON code block."""
-    # log.debug(f"_u: block = {block}")
     return [ _l(l) for l in filter(lambda s: s is not None and s != "", block) ]
 
 # compute RW effects on boolean variables
@@ -53,30 +52,29 @@ def _getEffect(op: Jsonable, bool_vars: set[str]) -> Effect:
 
     match op["o"]:
         # no boolean effect expected on these
-        case "co"|"rep"|"cst"|"pl"|"isa"|"val"|"iv"|"i+"|"hp"|"isr"|"cr"|"brk"|"apf"|"id"|"ss"|"se"|"pre"|"no":
+        case "co"|"rep"|"cst"|"pl"|"isa"|"val"|"iv"|"i+"|"hp"|"isr"|"cr"|"brk"|"apf"|"id"|"ss"|"se"|"pre"|"no"|"esc"|"pvl":
             pass
         # declaration/assignment
-        case "v":
+        case "bv":
             var = op["var"]
-            op["tname"] == "bool" and bool_vars.add(var)
-            if var in bool_vars:
-                op["val"] is not None and write.add(var)
-                if isinstance(op["val"], bool):
-                    value[var] = op["val"]
-                elif var in value:
-                    del value[var]
+            bool_vars.add(var)
+            op["val"] is not None and write.add(var)
+            if isinstance(op["val"], bool):
+                value[var] = op["val"]
+            elif var in value:
+                del value[var]
         # expressions
         case "ret":
             read, write, value = _getEffect(op["res"], bool_vars)
         case "not":
             read, write, value = _getEffect(op["e"], bool_vars)
-        case "iv"|"cc":
+        case "iv"|"cc"|"pv"|"fv"|"Fv"|"sv":
             read, write, value = _getEffect(op["val"], bool_vars)
         case "sc"|"nc":
             read, write, value = _getEffect(op["e1"], bool_vars)
             r, w, v = _getEffect(op["e2"], bool_vars)
             read |= r; write |= w; value.update(v)
-        case "and"|"or":
+        case "&"|"|":
             for e in op["exprs"]:
                 r, w, v = _getEffect(e, bool_vars)
                 read |= r; write |= w; value.update(v)
@@ -97,7 +95,7 @@ def _getEffect(op: Jsonable, bool_vars: set[str]) -> Effect:
                 read |= r; write |= w
             r, w, v = _optimSeq(op["false"], bool_vars)
             read |= r; write |= w
-        case "ol"|"al"|"il":
+        case "oL"|"aL"|"iL":
             read, write, value = _optimSeq(op["body"], bool_vars)
         case _:
             raise Exception(f"missing effect computation on operation {op['o']}")
@@ -149,7 +147,7 @@ def _optimSeq(seq: Sequence, bool_vars: set[str]) -> Effect:
                 if v in cum_value:
                     del cum_value[v]
 
-        # skip comments, empty
+        # skip comments and nope
         if _isOp(op, "co") or _isOp(op, "no"):
             continue
 
@@ -206,52 +204,65 @@ def _optimSeq(seq: Sequence, bool_vars: set[str]) -> Effect:
         else:  # whatever else is bad news for merging
             prev_var = None
 
+    # remove "not" when "false" branch is not empty by exchanging true/false
     for op in seq:
-        # remove "not" when "false" branch is not empty by exchanging true/false
         if _isOp(op, "if") and _isOp(op["cond"], "not") and op["false"]:
             op["cond"], op["true"], op["false"] = op["cond"]["e"], op["false"], op["true"]
             op["#"] = "IRO inverted not"
 
+    # remove nopes
+    rm = []
+    for i, op in seq:
+        if _isOp(op, "no"):
+            rm.append(i)
+    if rm:
+        for i in reversed(rm):
+            op.pop(i)
+
     return cum_read, cum_write, cum_value
 
-def optimizeIR(code: Jsonable, *, if_optim: bool = True) -> Jsonable:
+def optimizeIR(code: list[Jsonable], *, if_optim: bool = True) -> Jsonable:
     """Optimize IR code."""
 
-    # TODO control
+    optimized: int = 0
 
-    # sanity checks
-    assert isinstance(code, dict) and "o" in code and code["o"] == "fc", f"fine {code}"
-    assert "subs" in code
-    subs = code["subs"]
-    assert isinstance(subs, list)
+    # TODO control
+    # TODO call substitution instead of inline?
+    # TODO remove nopes?
 
     # process function bodies
-    for ins in subs:
+    for i, c in list(enumerate(code)):
+        if c == "":
+            continue
+        # log.warning(f"code[{i}] = {c}")
+        ins = json.loads(c)
         if isinstance(ins, dict) and "o" in ins and ins["o"] == "sfu":
+            optimized += 1
             _optimSeq(ins["body"], set())
+            code[i] = json.dumps(ins)
 
-    # TODO remove nopes?
+    log.info(f"optimize ir: {optimized} functions processed")
+
     return code
 
 
 class IRep(Language):
     """Generate JSON intermediate representation of backend code.
 
+    This class basically defer code generation calls using an intermediate JSON structure
+    to hold the function and its parameters.
+
     NOTE this is currently pretty inefficient, with useless back and forth json encodings
     that artificially preserve the initial Block (list[str]) and Expr (str) typing.
     """
 
-    def __init__(self, *, debug: bool = False, if_optim: bool = True,
-                 with_path: bool = True, with_report: bool = True, with_package: bool = False,
-                 with_comment: bool = True):
-        # TODO we need a target language for handling regular expressions transformations
-        super().__init__("JSON", indent=",", debug=debug,
-                         with_path=with_path, with_report=with_report,
-                         with_package=with_package, with_comment=with_comment)
+    def __init__(self, lang: Language|None, *, debug: bool = False, if_optim: bool = True):
+        super().__init__("JSON", indent=",", debug=debug)
+        self._lang = lang or self
         self._if_optim = if_optim
 
     def lcom(self, text: str = "") -> Block:
-        return [ _j("co", text=text) ] if self._with_comment else []
+        return [ _j("co", text=text) ]
 
     def file_header(self, exe: bool = True) -> Block:
         return [ _j("fh", exe=exe, version=self.version()) ]
@@ -270,6 +281,9 @@ class IRep(Language):
 
     def is_a(self, var: Var, tval: type|None, loose: bool|None = None) -> BoolExpr:
         return _j("isa", var=_l(var), tval=tval if not tval else tval.__name__, loose=loose)
+
+    def esc(self, s: str) -> StrExpr:
+        return _j("esc", s=s)
 
     def json_cst(self, j: Jsonable) -> JsonExpr:
         return _j("jc", json=j)
@@ -313,6 +327,9 @@ class IRep(Language):
     def str_end(self, val: str, end: str) -> BoolExpr:
         return _j("se", val=val, end=end)
 
+    def str_check_call(self, name: str, val: StrExpr, path: Var) -> BoolExpr:
+        return _j("scc", name=name, val=_l(val), path=_l(path))
+
     def check_call(self, name: str, val: Expr, path: Var, *,
                    is_ptr: bool = False, is_raw: bool = False) -> BoolExpr:
         return _j("cc", name=name, val=_l(val), path=_l(path), is_ptr=is_ptr, is_raw=is_raw)
@@ -321,7 +338,7 @@ class IRep(Language):
         return _j("cu", val=_l(val), path=_l(path))
 
     def check_constraint(self, op: str, vop: int|float|str, val: JsonExpr, path: Var) -> BoolExpr:
-        return _j("cc", op=op, vop=vop, val=_l(val), path=_l(path))
+        return _j("ct", op=op, vop=vop, val=_l(val), path=_l(path))
 
     def str_cmp(self, e1: StrExpr, op: str, e2: StrExpr) -> BoolExpr:
         return _j("sc", e1=_l(e1), op=op, e2=_l(e2))
@@ -332,12 +349,26 @@ class IRep(Language):
     def nope(self) -> Block:
         return [ _j("no") ]
 
-    def var(self, var: Var, val: Expr|None, tname: str|None) -> Block:
-        # log.debug(f"var={var} val={val} tname={tname}")
-        return [ _j("v", var=_l(var), val=_l(val) if val is not None else None, tname=tname) ]
-
     def int_var(self, var: Var, val: IntExpr|None = None, declare: bool = False) -> Block:
-        return [ _j("iv", var=_l(var), val=_l(val) if val is not None else None, declare=declare) ]
+        return [ _j("iv", var=_l(var), val=_l(val), declare=declare) ]
+
+    def path_var(self, pvar: Var, val: PathExpr|None = None, declare: bool = False) -> Block:
+        return [ _j("pv", pvar=_l(pvar), val=_l(val), declare=declare) ]
+
+    def bool_var(self, var: Var, val: BoolExpr|None = None, declare: bool = False) -> Block:
+        return [ _j("bv", var=_l(var), val=_l(val), declare=declare) ]
+
+    def json_var(self, var: Var, val: JsonExpr|None = None, declare: bool = False) -> Block:
+        return [ _j("jv", var=_l(var), val=_l(val), declare=declare) ]
+
+    def str_var(self, var: Var, val: StrExpr|None = None, declare: bool = False) -> Block:
+        return [ _j("sv", var=_l(var), val=_l(val), declare=declare) ]
+
+    def flt_var(self, var: Var, val: Expr|None = None, declare: bool = False) -> Block:
+        return [ _j("fv", var=_l(var), val=_l(val), declare=declare) ]
+
+    def fun_var(self, var: Var, val: Expr|None = None, declare: bool = False) -> Block:
+        return [ _j("Fv", var=_l(var), val=_l(val), declare=declare) ]
 
     def brk(self) -> Block:
         return [ _j("brk") ]
@@ -352,13 +383,13 @@ class IRep(Language):
         return _j("not", e=_l(e))
 
     def and_op(self, *exprs: BoolExpr) -> BoolExpr:
-        return _j("and", exprs=_u(exprs))
+        return _j("&", exprs=_u(exprs))
 
     def iand_op(self, res: Var, e: BoolExpr) -> Block:
-        return [ _j("iand", res=_l(res), e=_l(e)) ]
+        return [ _j("i&", res=_l(res), e=_l(e)) ]
 
     def or_op(self, *exprs: BoolExpr) -> BoolExpr:
-        return _j("or", exprs=_u(exprs))
+        return _j("|", exprs=_u(exprs))
 
     def paren(self, e: Expr) -> Expr:
         return _j("()", e=_l(e))
@@ -367,28 +398,28 @@ class IRep(Language):
         return _j("isr")
 
     def report(self, msg: str, path: Var) -> Block:
-        return [ _j("rep", msg=msg, path=_l(path)) ] if self._with_report else []
+        return [ _j("rep", msg=msg, path=_l(path)) ]
 
     def clean_report(self) -> Block:
-        return [ _j("cr") ] if self._with_report else []
+        return [ _j("cr") ]
 
     def path_val(self, pvar: Var, pseg: str|int, is_prop: bool) -> PathExpr:
-        return _j("pv", pvar=_l(pvar), pseg=pseg, is_prop=is_prop) if self._with_path else "null"
+        return _j("pvl", pvar=_l(pvar), pseg=pseg, is_prop=is_prop)
 
     def path_lvar(self, lvar: Var, rvar: Var) -> PathExpr:
-        return _j("pl", lvar=_l(lvar), rvar=_l(rvar)) if self._with_path else "null"
+        return _j("pl", lvar=_l(lvar), rvar=_l(rvar))
 
     def indent(self, block: Block, sep: bool = True) -> Block:
         raise Exception("indentation not a IR operation")
 
     def arr_loop(self, arr: Var, idx: Var, val: Var, body: Block) -> Block:
-        return [ _j("al", arr=_l(arr), idx=_l(idx), val=_l(val), body=_u(body)) ]
+        return [ _j("aL", arr=_l(arr), idx=_l(idx), val=_l(val), body=_u(body)) ]
 
     def obj_loop(self, obj: Var, key: Var, val: Var, body: Block) -> Block:
-        return [ _j("ol", obj=_l(obj), key=_l(key), val=_l(val), body=_u(body)) ]
+        return [ _j("oL", obj=_l(obj), key=_l(key), val=_l(val), body=_u(body)) ]
 
     def int_loop(self, idx: Var, start: IntExpr, end: IntExpr, body: Block) -> Block:
-        return [ _j("il", idx=_l(idx), start=_l(start), end=_l(end), body=_u(body)) ]
+        return [ _j("iL", idx=_l(idx), start=_l(start), end=_l(end), body=_u(body)) ]
 
     def if_stmt(self, cond: BoolExpr, true: Block, false: Block = []) -> Block:
         return [ _j("if", cond=_l(cond), true=_u(true), false=_u(false)) ]
@@ -396,9 +427,12 @@ class IRep(Language):
     def mif_stmt(self, cond_true: list[tuple[BoolExpr, Block]], false: Block = []) -> Block:
         return [ _j("ifs", cond_true=[ (_l(c), _u(b)) for c, b in cond_true ], false=_u(false)) ]
 
-    # FIXME language dependent internal regex operations
+    def sequence(self, seq: Block) -> Block:
+        return [ _j("seq", seq=_u(seq)) ]
+
+    # language dependent regex management
     def regroup(self, name: str, pattern: str = ".*") -> str:
-        return super().regroup(name, pattern)
+        return self._lang.regroup(name, pattern) if self._lang != self else super().regroup(name, pattern)
 
     def def_re(self, name: str, regex: str, opts: str) -> Block:
         return [ _j("dr", name=name, regex=regex, opts=opts) ]
@@ -418,8 +452,14 @@ class IRep(Language):
     def match_re(self, name: str, var: str, regex: str, opts: str) -> BoolExpr:
         return _j("mr", name=name, var=var, regex=regex, opts=opts)
 
+    def match_var(self, var: Var, val: Expr|None = None, declare: bool = False) -> Block:
+        return [ _j("mv", var=_l(var), val=_l(val), declare=declare) ]
+
     def match_val(self, mname: str, rname: str, sname: str, dname: str, declare: bool = False) -> Block:
-        return [ _j("mv", mname=mname, rname=rname, sname=sname, dname=dname, declare=declare) ]
+        return [ _j("mvl", mname=mname, rname=rname, sname=sname, dname=dname, declare=declare) ]
+
+    def match_ko(self, var: Var) -> BoolExpr:
+        return _j("mko", var=_l(var))
 
     def def_strfun(self, name: str) -> Block:
         return [ _j("ds", name=name) ]
@@ -433,6 +473,9 @@ class IRep(Language):
     def ini_pmap(self, name: str, pmap: PropMap, public: bool) -> Block:
         return [ _j("ipm", name=name, pmap=pmap, public=public) ]
 
+    def del_pmap(self, name: str, pmap: PropMap, public: bool) -> Block:
+        return [ _j("rpm", name=name, pmap=pmap, public=public) ]
+
     def sub_pmap(self, name: str, pmap: PropMap, public: bool) -> Block:
         return [ _j("spm", name=name, pmap=pmap, public=public) ]
 
@@ -442,14 +485,14 @@ class IRep(Language):
     def sub_cset(self, name: str, constants: ConstList) -> Block:
         return [ _j("scs", name=name, constants=constants) ]
 
-    def sequence(self, seq: Block) -> Block:
-        return [ _j("seq", seq=_u(seq)) ]
-
     def in_cset(self, name: str, var: Var, constants: ConstList) -> BoolExpr:
-        return _j("incs", name=name, var=var, constants=constants)
+        return _j("incs", name=name, var=_d(var), constants=constants)
 
     def ini_cset(self, name: str, constants: ConstList) -> Block:
         return [ _j("ics", name=name, constants=constants) ]
+
+    def del_cset(self, name: str, constants: ConstList) -> Block:
+        return [ _j("rcs", name=name, constants=constants) ]
 
     def def_fun(self, name: str) -> Block:
         return [ _j("dfu", name=name) ]
@@ -467,6 +510,9 @@ class IRep(Language):
     def ini_cmap(self, name: str, mapping: dict[JsonScalar, str]) -> Block:
         return [ _j("icm", name=name, mapping=mapping) ]
 
+    def del_cmap(self, name: str, mapping: dict[JsonScalar, str]) -> Block:
+        return [ _j("rcm", name=name, mapping=mapping) ]
+
     def get_cmap(self, name: str, tag: Var, ttag: type) -> Expr:
         return _j("gcm", name=name, tag=_l(tag), ttag=ttag.__name__)
 
@@ -477,58 +523,154 @@ class IRep(Language):
         return [ _j("gf", free=_u(free)) ]
 
     def gen_code(self, code: Block, entry: str, package: str|None, indent: bool = False) -> Block:
-        return [ _j("c", code=_u(code), entry=entry, package=package, indent=indent) ]
+        return [ _j("gc", code=_u(code), entry=entry, package=package, indent=indent) ]
 
     def gen_full_code(self, defs: Block, inis: Block, dels: Block, subs: Block,
                       entry: str, package: str|None, exe: bool) -> Block:
-        return [ _j("fc", defs=_u(defs), inis=_u(inis), dels=_u(dels), subs=_u(subs),
+        return [ _j("gfc", defs=_u(defs), inis=_u(inis), dels=_u(dels), subs=_u(subs),
                     entry=entry, package=package, exe=exe) ]
 
-    def code_to_str(self, code: Block) -> str:
+#
+# target language reconstruction
+#
+def s2t(tname: str|None) -> type:
+    """String to type reconversion."""
+    match tname:
+        case None: return None
+        case "null": return None
+        case "bool": return bool
+        case "int": return int
+        case "float": return float
+        case "str": return str
+        case "list": return list
+        case "dict": return dict
+        case "Path": return Path
+        case "Report": return Report
+        case _: raise Exception(f"unexpected type name: {tname}")
 
-        if len(code) == 0:
-            return "null"
-        elif len(code) == 1:
-            return json.dumps(optimizeIR(_l(code[0]), if_optim=self._if_optim)) if self._if_optim else code[0]
-        else:
-            return "[" + ",".join(code) + "]"
+def _eval(jv: Jsonable, gen: Language) -> Block|Expr:
+    """Recursive IR evaluation for the target a language."""
 
-    #
-    # target language reconstruction
-    #
-    def _str2type(self, tname: str|None) -> type:
-        match tname:
-            case None: return None
-            case "null": return None
-            case "bool": return bool
-            case "int": return int
-            case "float": return float
-            case "str": return str
-            case "Path": return Path
-            case "Report": return Report
-            case _: raise Exception(f"unexpected type name: {tname}")
+    # convenient recursion shortcut
+    def ev(tag: str):
+        return _eval(jv[tag], gen)
 
-    def evaluate(self, code: Jsonable, lang: Language) -> Block|Expr:
-        """Evaluate IR for a target a language."""
+    if isinstance(jv, dict) and "o" in jv:
+        # introspection? generation? with a decorator?
+        op = jv["o"]
+        match op:
+            case "co": return gen.lcom(text=jv["text"])
+            case "fh": return gen.file_header(exe=jv["exe"])
+            case "ff": return gen.file_footer(exe=jv["exe"])
+            case "in": return gen.is_num(var=ev("var"))
+            case "is": return gen.is_scalar(var=ev("var"))
+            case "id": return gen.is_def(var=ev("var"))
+            case "isa": return gen.is_a(var=ev("var"), tval=s2t(jv["tval"]), loose=jv["loose"])
+            case "esc": return gen.esc(s=jv["s"])
+            case "jc": return gen.json_cst(j=jv["j"])
+            case "cst": return gen.const(c=jv["cst"])
+            case "hp": return gen.has_prop(obj=ev("obj"), prop=jv["prop"])
+            case "pre": return gen.predef(var=ev("var"), name=jv["name"], path=ev("path"), is_str=jv["is_str"])
+            case "val": return gen.value(var=ev("var"), tvar=s2t(jv["tvar"]))
+            case "aiv": return gen.arr_item_val(arr=ev("arr"), idx=ev("idx"))
+            case "opv": return gen.obj_prop_val(obj=ev("obj"), prop=ev("prop"), is_var=jv["is_var"])
+            case "ol": return gen.obj_yylen(var=ev("var"))
+            case "al": return gen.arr_len(var=ev("var"))
+            case "sl": return gen.str_len(var=ev("var"))
+            case "nl": return gen.any_len(var=ev("var"))
+            case "apf": return gen.assign_prop_fun(fun=jv["fun"], prop=jv["prop"], mapname=jv["mapname"])
+            case "ss": return gen.str_start(val=jv["val"], start=jv["start"])
+            case "se": return gen.str_end(val=jv["val"], end=jv["end"])
+            case "scc": return gen.str_check_call(name=jv["name"], val=ev("val"), path=ev("path"))
+            case "cc": return gen.check_call(name=jv["name"], val=ev("val"), path=ev("path"), is_ptr=jv["is_ptr"], is_raw=jv["is_raw"])
+            case "cu": return gen.check_unique(val=ev("val"), path=ev("path"))
+            case "ct": return gen.check_constraint(op=jv["op"], vop=jv["vop"], val=ev("val"), path=ev("path"))
+            case "sc": return gen.str_cmp(e1=ev("e1"), op=jv["op"], e2=ev("e2"))
+            case "nc": return gen.num_cmp(e1=ev("e1"), op=jv["op"], e2=ev("e2"))
+            case "no": return gen.nope()
+            case "v": return gen.var(var=ev("var"), val=ev("val"), tname=jv["tname"])
+            case "iv": return gen.int_var(var=ev("var"), val=ev("val"), declare=jv["declare"])
+            case "brk": return gen.brk()
+            case "i+": return gen.inc_var(var=ev("var"))
+            case "ret": return gen.ret(res=ev("res"))
+            case "not": return gen.not_op(e=ev("e"))
+            case "&": return gen.and_op(*[ _eval(e, gen) for e in jv["exprs"] ])
+            case "|": return gen.or_op(*[ _eval(e, gen) for e in jv["exprs"] ])
+            case "i&": return gen.iand_op(res=ev("res"), e=ev("e"))
+            case "()": return gen.paren(e=ev("e"))
+            case "isr": return gen.is_reporting()
+            case "rep": return gen.report(msg=jv["msg"], path=ev("path"))
+            case "cr": return gen.clean_report()
+            case "pv": return gen.path_var(pvar=ev("pvar"), val=ev("val"), declare=jv["declare"])
+            case "pvl": return gen.path_val(pvar=ev("pvar"), pseg=jv["pseg"], is_prop=jv["is_prop"])
+            case "pl": return gen.path_lvar(lvar=ev("lvar"), rvar=ev("rvar"))
+            case "bv": return gen.bool_var(var=ev("var"), val=ev("val"), declare=jv["declare"])
+            case "sv": return gen.str_var(var=ev("var"), val=ev("val"), declare=jv["declare"])
+            case "fv": return gen.flt_var(var=ev("var"), val=ev("val"), declare=jv["declare"])
+            case "Fv": return gen.fun_var(var=ev("var"), val=ev("val"), declare=jv["declare"])
+            # control
+            case "aL": return gen.arr_loop(arr=ev("arr"), idx=ev("idx"), val=ev("val"), body=ev("body"))
+            case "oL": return gen.obj_loop(obj=ev("obj"), key=ev("key"), val=ev("val"), body=ev("body"))
+            case "iL": return gen.int_loop(idx=ev("idx"), start=ev("start"), end=ev("end"), body=ev("body"))
+            case "if": return gen.if_stmt(cond=ev("cond"), true=ev("true"), false=ev("false"))
+            case "ifs":
+                ct = [ ( _eval(c, gen), _eval(b, gen) ) for c, b in jv["cond_true"] ]
+                return gen.mif_stmt(cond_true=ct, false=ev("false"))
+            case "seq": return gen.sequence(seq=ev("seq"))
+            # regex
+            case "dr": return gen.def_re(name=jv["name"], regex=jv["regex"], opts=jv["opts"])
+            case "sr": return gen.sub_re(name=jv["name"], regex=jv["regex"], opts=jv["opts"])
+            case "ir": return gen.ini_re(name=jv["name"], regex=jv["regex"], opts=jv["opts"])
+            case "rr": return gen.del_re(name=jv["name"], regex=jv["regex"], opts=jv["opts"])
+            case "mr": return gen.match_re(name=jv["name"], regex=jv["regex"], opts=jv["opts"])
+            case "msv": return gen.match_str_var(rname=jv["rname"], var=jv["var"], val=jv["val"], declare=jv["declare"])
+            case "mv": return gen.match_var(var=ev(var), val=ev(val), declare=jv["declare"])
+            case "mvl": return gen.match_val(mname=jv["mname"], rname=jv["rname"], sname=jv["sname"], dname=jv["dname"], declare=jv["declare"])
+            case "mko": return gen.match_ko(var=ev(var))
+            # str fun
+            case "dsf": return gen.def_strfun(name=jv["name"])
+            case "ssf": return gen.sub_strfun(name=jv["name"], body=ev("body"))
+            # property map
+            case "dpm": return gen.def_pmap(name=jv["name"], pmap=jv["pmap"], public=jv["public"])
+            case "ipm": return gen.ini_pmap(name=jv["name"], pmap=jv["pmap"], public=jv["public"])
+            case "spm": return gen.sub_pmap(name=jv["name"], pmap=jv["pmap"], public=jv["public"])
+            case "rpm": return gen.del_pmap(name=jv["name"], pmap=jv["pmap"], public=jv["public"])
+            # constant set
+            case "dcs": return gen.def_cset(name=jv["name"], constants=jv["constants"])
+            case "scs": return gen.sub_cset(name=jv["name"], constants=jv["constants"])
+            case "ics": return gen.ini_cset(name=jv["name"], constants=jv["constants"])
+            case "rcs": return gen.del_cset(name=jv["name"], constants=jv["constants"])
+            case "incs": return gen.in_cset(name=jv["name"], var=ev("var"), constants=jv["constants"])
+            # fun
+            case "dfu": return gen.def_fun(name=jv["name"])
+            case "sfu": return gen.sub_fun(name=jv["name"], body=ev("body"), inline=jv["inline"])
+            # constant map
+            case "dcm": return gen.def_cmap(name=jv["name"], mapping=jv["mapping"])
+            case "scm": return gen.sub_cmap(name=jv["name"], mapping=jv["mapping"])
+            case "icm": return gen.ini_cmap(name=jv["name"], mapping=jv["mapping"])
+            case "rcm": return gen.del_cmap(name=jv["name"], mapping=jv["mapping"])
+            case "gcm": return gen.get_cmap(name=jv["name"], tag=ev("tag"), ttag=s2t(jv["ttag"]))
+            # final generation
+            case "gi": return gen.gen_init(init=ev("init"))
+            case "gf": return gen.gen_free(free=ev("free"))
+            case "gc": return gen.gen_code(code=ev("code"), entry=jv["entry"], package=jv["package"], indent=jv["indent"])
+            case "gfc": return gen.gen_full_code(defs=ev("defs"), inis=ev("inis"), dels=ev("dels"), subs=ev("subs"),
+                                                 entry=jv["entry"], package=jv["package"], exe=jv["exe"])
+            case _: raise Exception(f"unexpected op code: {op}")
+    elif isinstance(jv, list):
+        # manage list of instructions
+        return functools.reduce(lambda l, i: l + _eval(i, gen), jv, [])
+    elif isinstance(jv, str) and jv == "":
+        return [ "" ]
+    else:
+        # probably a string, eg a variable name
+        # raise Exception(f"unexpected JSON value: {jv}")
+        return jv
 
-        # convenient recursion shortcut
-        def ev(v: Jsonable):
-            return self.evaluate(v, lang)
-
-        if code is None:
-            raise Exception("cannot evaluate null")
-        elif isinstance(code, dict) and "o" in code:
-            op = code["o"]
-            match op:
-                case "co": return lang.lcom(text=code["text"])
-                case "fh": return lang.file_header(exe=code["exe"])
-                case "dfu": return lang.def_fun(name=code["name"])
-                case "seq": return lang.sequence(seq=code["seq"])
-                # TODO complete
-                case _: raise Exception(f"unexpected op code: {op}")
-        elif isinstance(code, list):
-            return [ ev(i) for i in code ]
-        elif isinstance(code, str) and code == "":
-            return [ "" ]
-        else:  # optimistic!
-            return code
+def evaluate(ir: Code, lang: Language) -> Code:
+    code = Code(lang, ir._entry, ir._executable, ir._package)
+    code._defs = _eval(_u(ir._defs), lang)
+    code._subs = _eval(_u(ir._subs), lang)
+    code._inis = _eval(_u(ir._inis), lang)
+    code._dels = _eval(_u(ir._dels), lang)
+    return code

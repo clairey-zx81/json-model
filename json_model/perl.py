@@ -197,7 +197,7 @@ class Perl(Language):
         else:
             raise Exception("not implemented yet for list and dict") 
 
-    def var(self, var: Var, val: Expr|None, tname: str|None) -> Block:
+    def _var(self, var: Var, val: Expr|None, tname: str|None) -> Block:
         assign = f" = {val}" if val else ""
         decl = "my " if tname is not None else ""
         return [ f"{decl}${var}{assign};" ]

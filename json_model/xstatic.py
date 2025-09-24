@@ -12,6 +12,7 @@ from .runtime.support import _path as json_path
 from .analyze import ultimate_type, disjunct_analyse
 from .model import JsonModel
 from .language import Language, Code, Block, BoolExpr, PathExpr, PropMap, JsonExpr, StrExpr, Var
+from .irep import IRep, optimizeIR, evaluate
 
 
 class CodeGenerator:
@@ -1454,6 +1455,7 @@ def xstatic_compile(
         short_version: bool = False,
         package: str|None = None,
         inline: bool = True,
+        ir_optimize: bool = False,
     ) -> Code:
     """Generate the check source code for a model.
 
@@ -1468,6 +1470,7 @@ def xstatic_compile(
     - short_version: in generated code.
     - package: namespace to use (Perl module, Pg schema name, Java package).
     - inline: enable function inlining (for C)
+    - ir_optimize: enable IR optimizations
     """
     # target language
     if lang == "py":
@@ -1497,21 +1500,34 @@ def xstatic_compile(
         language = Java(debug=debug, with_report=report, with_path=report, relib=relib or "re",
                         with_package=package is not None)
     elif lang == "json":
-        from .irep import IRep
-        language = IRep(debug=debug)
+        language = None
     else:
         raise NotImplementedError(f"no support yet for language: {lang}")
 
+    # intermediate representation if needed
+    if ir_optimize or language is None:
+        target = IRep(debug=debug, lang=language)
+        if language:
+            language._short_version = short_version
+            target.set_caps = language.set_caps
+    else:  # not needed
+        target = language
+
     # cold override
-    language._short_version = short_version
+    target._short_version = short_version
 
     # cource code generator
-    gen = CodeGenerator(model._globs, language, fname, prefix=prefix,  # type: ignore
+    gen = CodeGenerator(model._globs, target, fname, prefix=prefix,  # type: ignore
                         execute=execute, map_threshold=map_threshold, map_share=map_share,
                         debug=debug, report=report, package=package)
 
-    # generate
-    code = gen.compileJsonModelHead(model)
+    # generate IR or final code
+    code: Code = gen.compileJsonModelHead(model)
 
-    # debug and log.debug(f"code = {code}")
+    # optimize IR
+    if ir_optimize:
+        optimizeIR(code._subs)
+        if language:
+            code = evaluate(code, language)
+
     return code

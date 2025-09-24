@@ -366,12 +366,20 @@ def jmc_script():
     arg("--check", "-c", action="store_true", default=False, help="check model validity")
     arg("--optimize", "-O", action="store_true", default=True, help="optimize model")
     arg("--no-optimize", "-nO", dest="optimize", action="store_false", help="do not optimize model")
+    # NOTE mostly a bad idea: it can trigger an large code size expansion
+    # TODO remove? keep as experimental?
     arg("--inline-or", dest="inline_or", action="store_true", default=False,
         help="inline or references in some cases")
     arg("--no-inline-or", dest="inline_or", action="store_false",
         help="do not inline or references")
     arg("--map-threshold", "-mt", default=5, type=int, help="property map threshold, default 5")
     arg("--map-share", "-ms", default=False, action="store_true", help="property map sharing")
+
+    # IR
+    arg("--ir-optimize", "-Oir", dest="ir_optimize", action="store_true", default=False,
+        help="enable IR optimizations")
+    arg("--no-ir-optimize", "-nOir", dest="ir_optimize", action="store_false",
+        help="disable IR optimizations")
 
     operation = ap.add_mutually_exclusive_group()
     ope = operation.add_argument
@@ -628,7 +636,7 @@ def jmc_script():
                                map_threshold=args.map_threshold, map_share=args.map_share,
                                debug=args.debug, report=args.reporting, relib=args.regex_engine,
                                short_version=args.short_version, package=args.package,
-                               inline=args.inline)
+                               inline=args.inline, ir_optimize=args.ir_optimize)
         source = str(code)
 
         # source to executable for C and java
