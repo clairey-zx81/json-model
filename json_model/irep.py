@@ -15,7 +15,7 @@ def _j(o: str, **params) -> str:
 
 def _l(s: str) -> Jsonable:
     """Parse a JSON operation or something else."""
-    return json.loads(s) if s is not None and s and (s[0] in '{["0123456789-' or s in ("true", "false")) else s
+    return json.loads(s) if isinstance(s, str) and s and (s[0] in '{["0123456789-' or s in ("true", "false", "null")) else s
 
 def _u(block: Block) -> list[Jsonable]:
     """Parse a JSON code block."""
@@ -52,7 +52,7 @@ def _getEffect(op: Jsonable, bool_vars: set[str]) -> Effect:
 
     match op["o"]:
         # no boolean effect expected on these
-        case "co"|"rep"|"cst"|"pl"|"isa"|"val"|"iv"|"i+"|"hp"|"isr"|"cr"|"brk"|"apf"|"id"|"ss"|"se"|"pre"|"no"|"esc"|"pvl":
+        case "co"|"rep"|"cst"|"pl"|"isa"|"val"|"iv"|"i+"|"hp"|"isr"|"cr"|"brk"|"apf"|"id"|"ss"|"se"|"pre"|"no"|"esc"|"pvl"|"scc"|"jv"|"gcm"|"hpf"|"gpf":
             pass
         # declaration/assignment
         case "bv":
@@ -117,6 +117,10 @@ def _boolIf(op: Jsonable, bool_vars: set[str]) -> tuple[str, bool]|None:
             return note, False
     return None
 
+def _noOps(seq: list[Jsonable]) -> bool:
+    """Sequence without effect, only comments or nopes."""
+    return all(map(lambda s: isinstance(s, dict) and "o" in s and s["o"] in ("co", "no"), seq))
+
 def _optimSeq(seq: Sequence, bool_vars: set[str]) -> Effect:
     """Optimize instruction sequence if/then patterns on boolean variables in place."""
 
@@ -125,7 +129,7 @@ def _optimSeq(seq: Sequence, bool_vars: set[str]) -> Effect:
 
     cum_read, cum_write, cum_value = set(), set(), {}
 
-    # cleanup seq using effects with pattern
+    # cleanup seq using effects with pattern:
     # if [not] b:
     #     then_1  # no W on b
     #     else_1  # no W on b
@@ -206,18 +210,34 @@ def _optimSeq(seq: Sequence, bool_vars: set[str]) -> Effect:
 
     # remove "not" when "false" branch is not empty by exchanging true/false
     for op in seq:
-        if _isOp(op, "if") and _isOp(op["cond"], "not") and op["false"]:
+        if _isOp(op, "if") and _isOp(op["cond"], "not") and not _noOps(op["false"]):
             op["cond"], op["true"], op["false"] = op["cond"]["e"], op["false"], op["true"]
             op["#"] = "IRO inverted not"
 
-    # remove nopes
-    rm = []
-    for i, op in seq:
-        if _isOp(op, "no"):
+    # TODO empty true (nope/co only) -> not false
+    for op in seq:
+        if _isOp(op, "if") and _noOps(op["true"]):
+            if _noOps(op["false"]):
+                op.clear()
+                op["o"] = "no"
+                op["#"] = "IRO empty if removed"
+            else:
+                op["cond"] = {"o": "not", "e": op["cond"], "#": "IRO empty true branch removed"}
+                op["true"], op["false"] = op["false"], []
+
+    # remove nopes (unless alone)
+    rm, nco = [], 0
+    for i, op in enumerate(seq):
+        if _isOp(op, "co"):
+            nco += 1
+        elif _isOp(op, "no"):
             rm.append(i)
     if rm:
+        if len(rm) + nco == len(seq):  # keep one
+            rm.pop()
         for i in reversed(rm):
-            op.pop(i)
+            seq.pop(i)
+            effects.pop(i)
 
     return cum_read, cum_write, cum_value
 
@@ -261,6 +281,13 @@ class IRep(Language):
         self._lang = lang or self
         self._if_optim = if_optim
 
+    # langage dependent stuff
+    def assign_expr(self) -> bool:
+        return self._lang.assign_expr() if self._lang != self else True
+
+    def regroup(self, name: str, pattern: str = ".*") -> str:
+        return self._lang.regroup(name, pattern) if self._lang != self else super().regroup(name, pattern)
+
     def lcom(self, text: str = "") -> Block:
         return [ _j("co", text=text) ]
 
@@ -300,6 +327,9 @@ class IRep(Language):
     def value(self, var: Var, tvar: type) -> Expr:
         return _j("val", var=_l(var), tvar=tvar.__name__)
 
+    def get_value(self, var: str, tvar: type) -> Expr:
+        return _j("gv", var=var, tvar=tvar.__name__)
+
     def arr_item_val(self, arr: Var, idx: IntExpr) -> JsonExpr:
         return _j("aiv", arr=_l(arr), idx=_l(idx))
 
@@ -320,6 +350,12 @@ class IRep(Language):
 
     def assign_prop_fun(self, fun: str, prop: str, mapname: str) -> BoolExpr:
         return _j("apf", fun=fun, prop=prop, mapname=mapname)
+
+    def has_prop_fun(self, prop: str, mapname: str) -> BoolExpr:
+        return _j("hpf", prop=prop, mapname=mapname)
+
+    def get_prop_fun(self, prop: str, mapname: str) -> BoolExpr:
+        return _j("gpf", prop=prop, mapname=mapname)
 
     def str_start(self, val: str, start: str) -> BoolExpr:
         return _j("ss", val=val, start=start)
@@ -352,11 +388,11 @@ class IRep(Language):
     def int_var(self, var: Var, val: IntExpr|None = None, declare: bool = False) -> Block:
         return [ _j("iv", var=_l(var), val=_l(val), declare=declare) ]
 
-    def path_var(self, pvar: Var, val: PathExpr|None = None, declare: bool = False) -> Block:
-        return [ _j("pv", pvar=_l(pvar), val=_l(val), declare=declare) ]
-
     def bool_var(self, var: Var, val: BoolExpr|None = None, declare: bool = False) -> Block:
         return [ _j("bv", var=_l(var), val=_l(val), declare=declare) ]
+
+    def path_var(self, pvar: Var, val: PathExpr|None = None, declare: bool = False) -> Block:
+        return [ _j("pv", pvar=_l(pvar), val=_l(val), declare=declare) ]
 
     def json_var(self, var: Var, val: JsonExpr|None = None, declare: bool = False) -> Block:
         return [ _j("jv", var=_l(var), val=_l(val), declare=declare) ]
@@ -372,6 +408,9 @@ class IRep(Language):
 
     def brk(self) -> Block:
         return [ _j("brk") ]
+
+    def skip(self) -> Block:
+        return [ _j("skip") ]
 
     def inc_var(self, var: Var) -> Block:
         return [ _j("i+", var=_l(var)) ]
@@ -430,10 +469,6 @@ class IRep(Language):
     def sequence(self, seq: Block) -> Block:
         return [ _j("seq", seq=_u(seq)) ]
 
-    # language dependent regex management
-    def regroup(self, name: str, pattern: str = ".*") -> str:
-        return self._lang.regroup(name, pattern) if self._lang != self else super().regroup(name, pattern)
-
     def def_re(self, name: str, regex: str, opts: str) -> Block:
         return [ _j("dr", name=name, regex=regex, opts=opts) ]
 
@@ -486,7 +521,7 @@ class IRep(Language):
         return [ _j("scs", name=name, constants=constants) ]
 
     def in_cset(self, name: str, var: Var, constants: ConstList) -> BoolExpr:
-        return _j("incs", name=name, var=_d(var), constants=constants)
+        return _j("incs", name=name, var=_l(var), constants=constants)
 
     def ini_cset(self, name: str, constants: ConstList) -> Block:
         return [ _j("ics", name=name, constants=constants) ]
@@ -572,13 +607,16 @@ def _eval(jv: Jsonable, gen: Language) -> Block|Expr:
             case "hp": return gen.has_prop(obj=ev("obj"), prop=jv["prop"])
             case "pre": return gen.predef(var=ev("var"), name=jv["name"], path=ev("path"), is_str=jv["is_str"])
             case "val": return gen.value(var=ev("var"), tvar=s2t(jv["tvar"]))
+            case "gv": return gen.get_value(var=jv["var"], tvar=s2t(jv["tvar"]))
             case "aiv": return gen.arr_item_val(arr=ev("arr"), idx=ev("idx"))
             case "opv": return gen.obj_prop_val(obj=ev("obj"), prop=ev("prop"), is_var=jv["is_var"])
-            case "ol": return gen.obj_yylen(var=ev("var"))
+            case "ol": return gen.obj_len(var=ev("var"))
             case "al": return gen.arr_len(var=ev("var"))
             case "sl": return gen.str_len(var=ev("var"))
             case "nl": return gen.any_len(var=ev("var"))
             case "apf": return gen.assign_prop_fun(fun=jv["fun"], prop=jv["prop"], mapname=jv["mapname"])
+            case "hpf": return gen.has_prop_fun(prop=jv["prop"], mapname=jv["mapname"])
+            case "gpf": return gen.get_prop_fun(prop=jv["prop"], mapname=jv["mapname"])
             case "ss": return gen.str_start(val=jv["val"], start=jv["start"])
             case "se": return gen.str_end(val=jv["val"], end=jv["end"])
             case "scc": return gen.str_check_call(name=jv["name"], val=ev("val"), path=ev("path"))
@@ -591,6 +629,7 @@ def _eval(jv: Jsonable, gen: Language) -> Block|Expr:
             case "v": return gen.var(var=ev("var"), val=ev("val"), tname=jv["tname"])
             case "iv": return gen.int_var(var=ev("var"), val=ev("val"), declare=jv["declare"])
             case "brk": return gen.brk()
+            case "skip": return gen.skip()
             case "i+": return gen.inc_var(var=ev("var"))
             case "ret": return gen.ret(res=ev("res"))
             case "not": return gen.not_op(e=ev("e"))
@@ -606,6 +645,7 @@ def _eval(jv: Jsonable, gen: Language) -> Block|Expr:
             case "pl": return gen.path_lvar(lvar=ev("lvar"), rvar=ev("rvar"))
             case "bv": return gen.bool_var(var=ev("var"), val=ev("val"), declare=jv["declare"])
             case "sv": return gen.str_var(var=ev("var"), val=ev("val"), declare=jv["declare"])
+            case "jv": return gen.json_var(var=ev("var"), val=ev("val"), declare=jv["declare"])
             case "fv": return gen.flt_var(var=ev("var"), val=ev("val"), declare=jv["declare"])
             case "Fv": return gen.fun_var(var=ev("var"), val=ev("val"), declare=jv["declare"])
             # control

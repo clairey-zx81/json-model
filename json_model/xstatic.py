@@ -1417,7 +1417,9 @@ class CodeGenerator:
             jm, gref = self._to_compile[min(todo)]
             self.compileOneJsonModel(jm, gref, [gref], True)
 
-        # optimize mapping by skipping intermediate functions on direct references
+        # optimize main mapping by skipping intermediate functions on direct references
+        # TODO also skip to object functions
+        # TODO optimize all mappings
         for name in list(entries.keys()):
             key, fun0 = name, entries[name]
             fun, seen = None, set()

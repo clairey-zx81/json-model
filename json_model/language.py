@@ -117,7 +117,8 @@ class Language:
 
     def is_a_var(self, expr: Expr) -> bool:
         """Return whether expression is just a variable name."""
-        return expr != self._null and re.search(r"^[_a-zA-Z]\w+$", expr) is not None  # type: ignore
+        return (expr != self._null and isinstance(expr, str) and
+                re.search(r"^[_a-zA-Z]\w+$", expr) is not None)  # type: ignore
 
     #
     # SOURCE FILE MANAGEMENT
@@ -242,7 +243,7 @@ class Language:
         else:
             raise Exception(f"unexpected type for value extraction: {tvar.__name__}")
 
-    def get_value(self, var: Var, tvar: type) -> Expr:
+    def get_value(self, var: str, tvar: type) -> Expr:
         """Extract a typed value from a variable of this type."""
         return var
 
@@ -522,9 +523,11 @@ class Language:
         raise NotImplementedError("see derived classes")
 
     def indent(self, block: Block, sep: bool = True) -> Block:
-        """Indent a block."""
-        # log.warning(f"block = ({type(block)}) {block})")
-        return [ (self._indent + line) for line in filter(lambda s: s is not None, block) ]
+        """Indent a block, but not empty lines though."""
+        return [
+            ((self._indent + line) if line else line)
+                for line in filter(lambda s: s is not None, block)
+        ]
 
     def int_loop(self, idx: Var, start: IntExpr, end: IntExpr, body: Block) -> Block:
         """Loop over integers from start to end (excluded)."""
