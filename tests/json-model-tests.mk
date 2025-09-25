@@ -55,6 +55,7 @@ DASHED  = $(wildcard *-*.model.json)
 FD.java = $(subst -,_,$(DASHED:%.model.json=%.java))
 
 # all generated
+# TODO F.ir
 F.gen   = \
     $(F.json) $(F.UO) $(F.PO) $(F.EO) \
     $(F.c) $(F.py) $(F.cc) $(F.sql) $(F.pl) $(F.java) \
@@ -176,6 +177,13 @@ $(F.out): json-model.o main.o
 #
 %.ir.json: %.model.json
 	$(JMC.cmd) -v -C -F json ./$<  | jq > $@
+
+.PHONY: clean.ir
+clean.ir:
+	$(RM) $(F.ir)
+
+.PHONY: ir
+ir: $(F.ir)
 
 #
 # Python Backend
