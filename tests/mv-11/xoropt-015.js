@@ -64,9 +64,6 @@ function _jm_obj_0(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected string [.'$Xx'.X]", (path ? lpath_0 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid mandatory prop value [.'$Xx'.X]", (path ? lpath_0 : null)])
                 return false;
             }
@@ -126,9 +123,6 @@ function _jm_obj_1(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected string [.'$Yy'.Y]", (path ? lpath_1 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid mandatory prop value [.'$Yy'.Y]", (path ? lpath_1 : null)])
                 return false;
             }
@@ -188,9 +182,6 @@ function _jm_obj_2(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected string [.'$Ee'.'|'.1.Y]", (path ? lpath_2 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid mandatory prop value [.'$Ee'.'|'.1.Y]", (path ? lpath_2 : null)])
                 return false;
             }
@@ -203,9 +194,6 @@ function _jm_obj_2(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected string [.'$Ee'.'|'.1.Z]", (path ? lpath_2 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid optional prop value [.'$Ee'.'|'.1.Z]", (path ? lpath_2 : null)])
                 return false;
             }
@@ -252,9 +240,6 @@ function _jm_obj_3(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected string [.'$Ee'.'|'.0.X]", (path ? lpath_3 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid mandatory prop value [.'$Ee'.'|'.0.X]", (path ? lpath_3 : null)])
                 return false;
             }
@@ -267,9 +252,6 @@ function _jm_obj_3(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected string [.'$Ee'.'|'.0.Z]", (path ? lpath_3 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid optional prop value [.'$Ee'.'|'.0.Z]", (path ? lpath_3 : null)])
                 return false;
             }
@@ -343,23 +325,23 @@ function json_model_6(val, path, rep)
     let xr_0;
     // .'$Mm'.'^'.0
     xr_0 = json_model_2(val, path, rep);
-    if (! xr_0)
+    if (xr_0)
+    {
+        xc_0 += 1;
+    }
+    else
     {
         rep !== null && rep.push(["unexpected $Vv [.'$Mm'.'^'.0]", path])
     }
-    if (xr_0)
-    {
-        xc_0 += 1;
-    }
     // .'$Mm'.'^'.1
     xr_0 = json_model_5(val, path, rep);
-    if (! xr_0)
-    {
-        rep !== null && rep.push(["unexpected $Ee [.'$Mm'.'^'.1]", path])
-    }
     if (xr_0)
     {
         xc_0 += 1;
+    }
+    else
+    {
+        rep !== null && rep.push(["unexpected $Ee [.'$Mm'.'^'.1]", path])
     }
     res = xc_0 == 1;
     if (res)

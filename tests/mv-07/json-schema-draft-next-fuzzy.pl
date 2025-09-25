@@ -606,11 +606,6 @@ sub _jm_obj_0($$$)
         $pval = $$val{'enum'};
         # .'$schema#ObjectSchema'.enum
         $res = jm_is_array($pval);
-        if ($res)
-        {
-            # accept any array
-            ;
-        }
         if (! $res)
         {
             return 0;
@@ -841,11 +836,6 @@ sub _jm_obj_0($$$)
         $pval = $$val{'examples'};
         # .'$schema#ObjectSchema'.examples
         $res = jm_is_array($pval);
-        if ($res)
-        {
-            # accept any array
-            ;
-        }
         if (! $res)
         {
             return 0;

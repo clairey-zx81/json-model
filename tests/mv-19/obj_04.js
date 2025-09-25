@@ -12,6 +12,7 @@ const JSON_MODEL_VERSION = "2";
 let _jm_cst_0 = new Set()
 var check_model_map = new Map()
 
+
 // check $Xxx (.'$Xxx')
 function json_model_2(val, path, rep)
 {
@@ -45,9 +46,6 @@ function _jm_obj_0(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["not a 0.0 strict float [.'$Xxx']", (path ? lpath_0 : null)])
-            }
-            if (! res)
-            {
                 return false;
             }
         }

@@ -69,7 +69,7 @@ public class dedup_002 extends ModelChecker
         }
         return res;
     }
-    
+
 
     public void init(JSON json)
     {

@@ -33,9 +33,6 @@ function _jm_obj_0(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["not a 0 loose int [.'$loose'.li]", (path ? lpath_0 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid mandatory prop value [.'$loose'.li]", (path ? lpath_0 : null)])
                 return false;
             }
@@ -96,9 +93,6 @@ function _jm_obj_1(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["not a 0 strict int [.'$strict'.si]", (path ? lpath_1 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid mandatory prop value [.'$strict'.si]", (path ? lpath_1 : null)])
                 return false;
             }
@@ -159,9 +153,6 @@ function _jm_obj_2(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["not a 0 strict int [.'$combined'.li]", (path ? lpath_2 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid mandatory prop value [.'$combined'.li]", (path ? lpath_2 : null)])
                 return false;
             }
@@ -175,9 +166,6 @@ function _jm_obj_2(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["not a 0 strict int [.'$combined'.si]", (path ? lpath_2 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid mandatory prop value [.'$combined'.si]", (path ? lpath_2 : null)])
                 return false;
             }

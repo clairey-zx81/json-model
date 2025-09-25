@@ -54,9 +54,6 @@ function json_model_1(val, path, rep)
                     if (! res)
                     {
                         rep !== null && rep.push(["not a bool [.'@'.2]", (path ? lpath_0 : null)])
-                    }
-                    if (! res)
-                    {
                         break;
                     }
                 }

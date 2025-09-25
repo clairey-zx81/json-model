@@ -51,7 +51,7 @@ public class arr_2 extends ModelChecker
         }
         return res;
     }
-    
+
 
     public void init(JSON json)
     {

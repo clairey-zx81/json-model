@@ -28,9 +28,6 @@ function json_model_2(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["not a 0 strict int [.'$li0'.0]", (path ? arr_0_lpath : null)])
-            }
-            if (! res)
-            {
                 break;
             }
         }
@@ -59,9 +56,6 @@ function json_model_3(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $URL [.'$ls0'.0]", (path ? arr_1_lpath : null)])
-            }
-            if (! res)
-            {
                 break;
             }
         }
@@ -90,9 +84,6 @@ function json_model_4(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $BOOL [.'$lb0'.0]", (path ? arr_2_lpath : null)])
-            }
-            if (! res)
-            {
                 break;
             }
         }
@@ -121,9 +112,6 @@ function json_model_5(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["not a 0.0 strict float [.'$lf0'.0]", (path ? arr_3_lpath : null)])
-            }
-            if (! res)
-            {
                 break;
             }
         }

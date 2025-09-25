@@ -276,10 +276,6 @@ BEGIN
       -- handle may a4 property
       -- .array.a4
       res := JSONB_TYPEOF(pval) = 'array';
-      IF res THEN
-        -- accept any array
-        NULL;
-      END IF;
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -930,10 +926,6 @@ BEGIN
   -- .constraints.cua0
   -- .constraints.cua0.'@'
   res := JSONB_TYPEOF(val) = 'array';
-  IF res THEN
-    -- accept any array
-    NULL;
-  END IF;
   IF res THEN
     res := jm_array_is_unique(val, path, rep);
   END IF;
@@ -2371,10 +2363,6 @@ BEGIN
         IF NOT res THEN
           -- .or.o2.'|'.2
           res := JSONB_TYPEOF(pval) = 'array';
-          IF res THEN
-            -- accept any array
-            NULL;
-          END IF;
           IF NOT res THEN
             -- .or.o2.'|'.3
             res := _jm_obj_34(pval, NULL, rep);

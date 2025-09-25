@@ -376,7 +376,7 @@ def jmc_script():
     arg("--map-share", "-ms", default=False, action="store_true", help="property map sharing")
 
     # IR
-    arg("--ir-optimize", "-Oir", dest="ir_optimize", action="store_true", default=False,
+    arg("--ir-optimize", "-Oir", dest="ir_optimize", action="store_true", default=True,
         help="enable IR optimizations")
     arg("--no-ir-optimize", "-nOir", dest="ir_optimize", action="store_false",
         help="disable IR optimizations")

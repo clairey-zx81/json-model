@@ -66,9 +66,6 @@ static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *re
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected _Susie [.a]", (path ? &lpath_0 : NULL));
-            }
-            if (! res)
-            {
                 if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.a]", (path ? &lpath_0 : NULL));
                 return false;
             }
@@ -82,9 +79,6 @@ static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *re
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected _Susie [.b]", (path ? &lpath_0 : NULL));
-            }
-            if (! res)
-            {
                 if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.b]", (path ? &lpath_0 : NULL));
                 return false;
             }

@@ -73,9 +73,6 @@ function _jm_obj_1(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["unexpected $Schema [.'$core'.'$defs'.'']", (path ? lpath_1 : null)])
-        }
-        if (! res)
-        {
             return false;
         }
     }
@@ -180,9 +177,6 @@ function _jm_obj_2(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["not a bool [.'$core'.'$vocabulary'.'$URI']", (path ? lpath_2 : null)])
-            }
-            if (! res)
-            {
                 return false;
             }
         }
@@ -297,10 +291,6 @@ function _jm_f_12(val, path, rep)
     let res;
     // .'$meta'.examples
     res = Array.isArray(val);
-    if (res)
-    {
-        // accept any array
-    }
     if (! res)
     {
         rep !== null && rep.push(["not array or unexpected array [.'$meta'.examples]", path])
@@ -411,9 +401,6 @@ function _jm_obj_4(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected string [.'$content'.contentEncoding]", (path ? lpath_4 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid optional prop value [.'$content'.contentEncoding]", (path ? lpath_4 : null)])
                 return false;
             }
@@ -426,9 +413,6 @@ function _jm_obj_4(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected string [.'$content'.contentMediaType]", (path ? lpath_4 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid optional prop value [.'$content'.contentMediaType]", (path ? lpath_4 : null)])
                 return false;
             }
@@ -441,9 +425,6 @@ function _jm_obj_4(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $Schema [.'$content'.contentSchema]", (path ? lpath_4 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid optional prop value [.'$content'.contentSchema]", (path ? lpath_4 : null)])
                 return false;
             }
@@ -490,9 +471,6 @@ function _jm_obj_5(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $Schema [.'$unevaluated'.unevaluatedItems]", (path ? lpath_5 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid optional prop value [.'$unevaluated'.unevaluatedItems]", (path ? lpath_5 : null)])
                 return false;
             }
@@ -505,9 +483,6 @@ function _jm_obj_5(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $Schema [.'$unevaluated'.unevaluatedProperties]", (path ? lpath_5 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid optional prop value [.'$unevaluated'.unevaluatedProperties]", (path ? lpath_5 : null)])
                 return false;
             }
@@ -554,9 +529,6 @@ function _jm_obj_6(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected string [.'$format'.format]", (path ? lpath_6 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid optional prop value [.'$format'.format]", (path ? lpath_6 : null)])
                 return false;
             }
@@ -615,9 +587,6 @@ function json_model_10(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $simpleTypes [.'$simpleTypesArray'.'@'.0]", (path ? arr_0_lpath : null)])
-            }
-            if (! res)
-            {
                 break;
             }
         }
@@ -656,9 +625,6 @@ function json_model_11(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected string [.'$stringArray'.'@'.0]", (path ? arr_1_lpath : null)])
-            }
-            if (! res)
-            {
                 break;
             }
         }
@@ -722,9 +688,6 @@ function _jm_obj_8(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["unexpected $stringArray [.'$validation'.dependentRequired.'']", (path ? lpath_8 : null)])
-        }
-        if (! res)
-        {
             return false;
         }
     }
@@ -750,10 +713,6 @@ function _jm_f_18(val, path, rep)
     let res;
     // .'$validation'.enum
     res = Array.isArray(val);
-    if (res)
-    {
-        // accept any array
-    }
     if (! res)
     {
         rep !== null && rep.push(["not array or unexpected array [.'$validation'.enum]", path])
@@ -1062,9 +1021,6 @@ function json_model_14(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $Schema [.'$schemaArray'.'@'.0]", (path ? arr_2_lpath : null)])
-            }
-            if (! res)
-            {
                 break;
             }
         }
@@ -1155,9 +1111,6 @@ function _jm_obj_10(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["unexpected $Schema [.'$applicator'.dependentSchemas.'']", (path ? lpath_10 : null)])
-        }
-        if (! res)
-        {
             return false;
         }
     }
@@ -1260,9 +1213,6 @@ function _jm_obj_11(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["unexpected $Schema [.'$applicator'.patternProperties.'']", (path ? lpath_11 : null)])
-        }
-        if (! res)
-        {
             return false;
         }
     }
@@ -1313,9 +1263,6 @@ function _jm_obj_12(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["unexpected $Schema [.'$applicator'.properties.'']", (path ? lpath_12 : null)])
-        }
-        if (! res)
-        {
             return false;
         }
     }
@@ -1425,9 +1372,6 @@ function _jm_obj_14(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["not a bool [.'$ObjectSchema'.'$vocabulary'.'$URI']", (path ? lpath_13 : null)])
-            }
-            if (! res)
-            {
                 return false;
             }
         }
@@ -1458,9 +1402,6 @@ function _jm_obj_15(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["unexpected $Schema [.'$ObjectSchema'.'$defs'.'']", (path ? lpath_14 : null)])
-        }
-        if (! res)
-        {
             return false;
         }
     }
@@ -1485,9 +1426,6 @@ function _jm_obj_16(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["unexpected $Schema [.'$ObjectSchema'.properties.'']", (path ? lpath_15 : null)])
-        }
-        if (! res)
-        {
             return false;
         }
     }
@@ -1512,9 +1450,6 @@ function _jm_obj_17(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["unexpected $Schema [.'$ObjectSchema'.patternProperties.'']", (path ? lpath_16 : null)])
-        }
-        if (! res)
-        {
             return false;
         }
     }
@@ -1539,9 +1474,6 @@ function _jm_obj_18(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["unexpected $Schema [.'$ObjectSchema'.dependentSchemas.'']", (path ? lpath_17 : null)])
-        }
-        if (! res)
-        {
             return false;
         }
     }
@@ -1566,9 +1498,6 @@ function _jm_obj_19(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["unexpected $stringArray [.'$ObjectSchema'.dependentRequired.'']", (path ? lpath_18 : null)])
-        }
-        if (! res)
-        {
             return false;
         }
     }
@@ -1593,9 +1522,6 @@ function _jm_obj_20(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["unexpected $Schema [.'$ObjectSchema'.definitions.'']", (path ? lpath_19 : null)])
-        }
-        if (! res)
-        {
             return false;
         }
     }
@@ -1638,9 +1564,6 @@ function _jm_obj_21(val, path, rep)
         else
         {
             rep !== null && rep.push(["no model matched [.'$ObjectSchema'.dependencies.''.'|']", (path ? lpath_20 : null)])
-        }
-        if (! res)
-        {
             return false;
         }
     }
@@ -1666,9 +1589,6 @@ function _jm_obj_13(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["unexpected $URI-REFERENCE [.'$ObjectSchema'.'$id']", path])
-        }
-        if (! res)
-        {
             rep !== null && rep.push(["unexpected value for optional prop <$id> [.'$ObjectSchema']", path])
             return false;
         }
@@ -1681,9 +1601,6 @@ function _jm_obj_13(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["unexpected $URL [.'$ObjectSchema'.'$schema']", path])
-        }
-        if (! res)
-        {
             rep !== null && rep.push(["unexpected value for optional prop <$schema> [.'$ObjectSchema']", path])
             return false;
         }
@@ -1696,9 +1613,6 @@ function _jm_obj_13(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["unexpected $URI-REFERENCE [.'$ObjectSchema'.'$ref']", path])
-        }
-        if (! res)
-        {
             rep !== null && rep.push(["unexpected value for optional prop <$ref> [.'$ObjectSchema']", path])
             return false;
         }
@@ -1711,9 +1625,6 @@ function _jm_obj_13(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["unexpected $URI-REFERENCE [.'$ObjectSchema'.'$anchor']", path])
-        }
-        if (! res)
-        {
             rep !== null && rep.push(["unexpected value for optional prop <$anchor> [.'$ObjectSchema']", path])
             return false;
         }
@@ -1726,9 +1637,6 @@ function _jm_obj_13(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["unexpected $URI-REFERENCE [.'$ObjectSchema'.'$dynamicRef']", path])
-        }
-        if (! res)
-        {
             rep !== null && rep.push(["unexpected value for optional prop <$dynamicRef> [.'$ObjectSchema']", path])
             return false;
         }
@@ -1741,9 +1649,6 @@ function _jm_obj_13(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["unexpected $URI-REFERENCE [.'$ObjectSchema'.'$dynamicAnchor']", path])
-        }
-        if (! res)
-        {
             rep !== null && rep.push(["unexpected value for optional prop <$dynamicAnchor> [.'$ObjectSchema']", path])
             return false;
         }
@@ -1756,9 +1661,6 @@ function _jm_obj_13(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["unexpected element [.'$ObjectSchema'.'$vocabulary']", path])
-        }
-        if (! res)
-        {
             rep !== null && rep.push(["unexpected value for optional prop <$vocabulary> [.'$ObjectSchema']", path])
             return false;
         }
@@ -1771,9 +1673,6 @@ function _jm_obj_13(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["unexpected string [.'$ObjectSchema'.'$comment']", path])
-        }
-        if (! res)
-        {
             rep !== null && rep.push(["unexpected value for optional prop <$comment> [.'$ObjectSchema']", path])
             return false;
         }
@@ -1786,9 +1685,6 @@ function _jm_obj_13(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["unexpected element [.'$ObjectSchema'.'$defs']", path])
-        }
-        if (! res)
-        {
             rep !== null && rep.push(["unexpected value for optional prop <$defs> [.'$ObjectSchema']", path])
             return false;
         }
@@ -1801,9 +1697,6 @@ function _jm_obj_13(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["unexpected $schemaArray [.'$ObjectSchema'.prefixItems]", path])
-        }
-        if (! res)
-        {
             rep !== null && rep.push(["unexpected value for optional prop <prefixItems> [.'$ObjectSchema']", path])
             return false;
         }
@@ -1816,9 +1709,6 @@ function _jm_obj_13(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["unexpected $Schema [.'$ObjectSchema'.items]", path])
-        }
-        if (! res)
-        {
             rep !== null && rep.push(["unexpected value for optional prop <items> [.'$ObjectSchema']", path])
             return false;
         }
@@ -1831,9 +1721,6 @@ function _jm_obj_13(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["unexpected $Schema [.'$ObjectSchema'.contains]", path])
-        }
-        if (! res)
-        {
             rep !== null && rep.push(["unexpected value for optional prop <contains> [.'$ObjectSchema']", path])
             return false;
         }
@@ -1846,9 +1733,6 @@ function _jm_obj_13(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["unexpected $Schema [.'$ObjectSchema'.additionalProperties]", path])
-        }
-        if (! res)
-        {
             rep !== null && rep.push(["unexpected value for optional prop <additionalProperties> [.'$ObjectSchema']", path])
             return false;
         }
@@ -1861,9 +1745,6 @@ function _jm_obj_13(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["unexpected element [.'$ObjectSchema'.properties]", path])
-        }
-        if (! res)
-        {
             rep !== null && rep.push(["unexpected value for optional prop <properties> [.'$ObjectSchema']", path])
             return false;
         }
@@ -1876,9 +1757,6 @@ function _jm_obj_13(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["unexpected element [.'$ObjectSchema'.patternProperties]", path])
-        }
-        if (! res)
-        {
             rep !== null && rep.push(["unexpected value for optional prop <patternProperties> [.'$ObjectSchema']", path])
             return false;
         }
@@ -1891,9 +1769,6 @@ function _jm_obj_13(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["unexpected element [.'$ObjectSchema'.dependentSchemas]", path])
-        }
-        if (! res)
-        {
             rep !== null && rep.push(["unexpected value for optional prop <dependentSchemas> [.'$ObjectSchema']", path])
             return false;
         }
@@ -1906,9 +1781,6 @@ function _jm_obj_13(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["unexpected $Schema [.'$ObjectSchema'.propertyNames]", path])
-        }
-        if (! res)
-        {
             rep !== null && rep.push(["unexpected value for optional prop <propertyNames> [.'$ObjectSchema']", path])
             return false;
         }
@@ -1921,9 +1793,6 @@ function _jm_obj_13(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["unexpected $Schema [.'$ObjectSchema'.if]", path])
-        }
-        if (! res)
-        {
             rep !== null && rep.push(["unexpected value for optional prop <if> [.'$ObjectSchema']", path])
             return false;
         }
@@ -1936,9 +1805,6 @@ function _jm_obj_13(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["unexpected $Schema [.'$ObjectSchema'.then]", path])
-        }
-        if (! res)
-        {
             rep !== null && rep.push(["unexpected value for optional prop <then> [.'$ObjectSchema']", path])
             return false;
         }
@@ -1951,9 +1817,6 @@ function _jm_obj_13(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["unexpected $Schema [.'$ObjectSchema'.else]", path])
-        }
-        if (! res)
-        {
             rep !== null && rep.push(["unexpected value for optional prop <else> [.'$ObjectSchema']", path])
             return false;
         }
@@ -1966,9 +1829,6 @@ function _jm_obj_13(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["unexpected $Schema [.'$ObjectSchema'.not]", path])
-        }
-        if (! res)
-        {
             rep !== null && rep.push(["unexpected value for optional prop <not> [.'$ObjectSchema']", path])
             return false;
         }
@@ -1981,9 +1841,6 @@ function _jm_obj_13(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["unexpected $schemaArray [.'$ObjectSchema'.allOf]", path])
-        }
-        if (! res)
-        {
             rep !== null && rep.push(["unexpected value for optional prop <allOf> [.'$ObjectSchema']", path])
             return false;
         }
@@ -1996,9 +1853,6 @@ function _jm_obj_13(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["unexpected $schemaArray [.'$ObjectSchema'.anyOf]", path])
-        }
-        if (! res)
-        {
             rep !== null && rep.push(["unexpected value for optional prop <anyOf> [.'$ObjectSchema']", path])
             return false;
         }
@@ -2011,9 +1865,6 @@ function _jm_obj_13(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["unexpected $schemaArray [.'$ObjectSchema'.oneOf]", path])
-        }
-        if (! res)
-        {
             rep !== null && rep.push(["unexpected value for optional prop <oneOf> [.'$ObjectSchema']", path])
             return false;
         }
@@ -2026,9 +1877,6 @@ function _jm_obj_13(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["unexpected $Schema [.'$ObjectSchema'.unevaluatedItems]", path])
-        }
-        if (! res)
-        {
             rep !== null && rep.push(["unexpected value for optional prop <unevaluatedItems> [.'$ObjectSchema']", path])
             return false;
         }
@@ -2041,9 +1889,6 @@ function _jm_obj_13(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["unexpected $Schema [.'$ObjectSchema'.unevaluatedProperties]", path])
-        }
-        if (! res)
-        {
             rep !== null && rep.push(["unexpected value for optional prop <unevaluatedProperties> [.'$ObjectSchema']", path])
             return false;
         }
@@ -2074,9 +1919,6 @@ function _jm_obj_13(val, path, rep)
         else
         {
             rep !== null && rep.push(["no model matched [.'$ObjectSchema'.type.'|']", path])
-        }
-        if (! res)
-        {
             rep !== null && rep.push(["unexpected value for optional prop <type> [.'$ObjectSchema']", path])
             return false;
         }
@@ -2086,16 +1928,9 @@ function _jm_obj_13(val, path, rep)
         pval = val["enum"];
         // .'$ObjectSchema'.enum
         res = Array.isArray(pval);
-        if (res)
-        {
-            // accept any array
-        }
         if (! res)
         {
             rep !== null && rep.push(["not array or unexpected array [.'$ObjectSchema'.enum]", path])
-        }
-        if (! res)
-        {
             rep !== null && rep.push(["unexpected value for optional prop <enum> [.'$ObjectSchema']", path])
             return false;
         }
@@ -2108,9 +1943,6 @@ function _jm_obj_13(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["not a 1.0 loose float [.'$ObjectSchema'.multipleOf]", path])
-        }
-        if (! res)
-        {
             rep !== null && rep.push(["unexpected value for optional prop <multipleOf> [.'$ObjectSchema']", path])
             return false;
         }
@@ -2123,9 +1955,6 @@ function _jm_obj_13(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["not a -1.0 loose float [.'$ObjectSchema'.maximum]", path])
-        }
-        if (! res)
-        {
             rep !== null && rep.push(["unexpected value for optional prop <maximum> [.'$ObjectSchema']", path])
             return false;
         }
@@ -2138,9 +1967,6 @@ function _jm_obj_13(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["not a -1.0 loose float [.'$ObjectSchema'.exclusiveMaximum]", path])
-        }
-        if (! res)
-        {
             rep !== null && rep.push(["unexpected value for optional prop <exclusiveMaximum> [.'$ObjectSchema']", path])
             return false;
         }
@@ -2153,9 +1979,6 @@ function _jm_obj_13(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["not a -1.0 loose float [.'$ObjectSchema'.minimum]", path])
-        }
-        if (! res)
-        {
             rep !== null && rep.push(["unexpected value for optional prop <minimum> [.'$ObjectSchema']", path])
             return false;
         }
@@ -2168,9 +1991,6 @@ function _jm_obj_13(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["not a -1.0 loose float [.'$ObjectSchema'.exclusiveMinimum]", path])
-        }
-        if (! res)
-        {
             rep !== null && rep.push(["unexpected value for optional prop <exclusiveMinimum> [.'$ObjectSchema']", path])
             return false;
         }
@@ -2183,9 +2003,6 @@ function _jm_obj_13(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["unexpected $nonNegativeInteger [.'$ObjectSchema'.maxLength]", path])
-        }
-        if (! res)
-        {
             rep !== null && rep.push(["unexpected value for optional prop <maxLength> [.'$ObjectSchema']", path])
             return false;
         }
@@ -2198,9 +2015,6 @@ function _jm_obj_13(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["unexpected $nonNegativeInteger [.'$ObjectSchema'.minLength]", path])
-        }
-        if (! res)
-        {
             rep !== null && rep.push(["unexpected value for optional prop <minLength> [.'$ObjectSchema']", path])
             return false;
         }
@@ -2213,9 +2027,6 @@ function _jm_obj_13(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["unexpected string [.'$ObjectSchema'.pattern]", path])
-        }
-        if (! res)
-        {
             rep !== null && rep.push(["unexpected value for optional prop <pattern> [.'$ObjectSchema']", path])
             return false;
         }
@@ -2228,9 +2039,6 @@ function _jm_obj_13(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["unexpected $nonNegativeInteger [.'$ObjectSchema'.maxItems]", path])
-        }
-        if (! res)
-        {
             rep !== null && rep.push(["unexpected value for optional prop <maxItems> [.'$ObjectSchema']", path])
             return false;
         }
@@ -2243,9 +2051,6 @@ function _jm_obj_13(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["unexpected $nonNegativeInteger [.'$ObjectSchema'.minItems]", path])
-        }
-        if (! res)
-        {
             rep !== null && rep.push(["unexpected value for optional prop <minItems> [.'$ObjectSchema']", path])
             return false;
         }
@@ -2258,9 +2063,6 @@ function _jm_obj_13(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["not a bool [.'$ObjectSchema'.uniqueItems]", path])
-        }
-        if (! res)
-        {
             rep !== null && rep.push(["unexpected value for optional prop <uniqueItems> [.'$ObjectSchema']", path])
             return false;
         }
@@ -2273,9 +2075,6 @@ function _jm_obj_13(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["unexpected $nonNegativeInteger [.'$ObjectSchema'.maxContains]", path])
-        }
-        if (! res)
-        {
             rep !== null && rep.push(["unexpected value for optional prop <maxContains> [.'$ObjectSchema']", path])
             return false;
         }
@@ -2288,9 +2087,6 @@ function _jm_obj_13(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["unexpected $nonNegativeInteger [.'$ObjectSchema'.minContains]", path])
-        }
-        if (! res)
-        {
             rep !== null && rep.push(["unexpected value for optional prop <minContains> [.'$ObjectSchema']", path])
             return false;
         }
@@ -2303,9 +2099,6 @@ function _jm_obj_13(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["unexpected $nonNegativeInteger [.'$ObjectSchema'.maxProperties]", path])
-        }
-        if (! res)
-        {
             rep !== null && rep.push(["unexpected value for optional prop <maxProperties> [.'$ObjectSchema']", path])
             return false;
         }
@@ -2318,9 +2111,6 @@ function _jm_obj_13(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["unexpected $nonNegativeInteger [.'$ObjectSchema'.minProperties]", path])
-        }
-        if (! res)
-        {
             rep !== null && rep.push(["unexpected value for optional prop <minProperties> [.'$ObjectSchema']", path])
             return false;
         }
@@ -2333,9 +2123,6 @@ function _jm_obj_13(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["unexpected $stringArray [.'$ObjectSchema'.required]", path])
-        }
-        if (! res)
-        {
             rep !== null && rep.push(["unexpected value for optional prop <required> [.'$ObjectSchema']", path])
             return false;
         }
@@ -2348,9 +2135,6 @@ function _jm_obj_13(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["unexpected element [.'$ObjectSchema'.dependentRequired]", path])
-        }
-        if (! res)
-        {
             rep !== null && rep.push(["unexpected value for optional prop <dependentRequired> [.'$ObjectSchema']", path])
             return false;
         }
@@ -2363,9 +2147,6 @@ function _jm_obj_13(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["unexpected string [.'$ObjectSchema'.title]", path])
-        }
-        if (! res)
-        {
             rep !== null && rep.push(["unexpected value for optional prop <title> [.'$ObjectSchema']", path])
             return false;
         }
@@ -2378,9 +2159,6 @@ function _jm_obj_13(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["unexpected string [.'$ObjectSchema'.description]", path])
-        }
-        if (! res)
-        {
             rep !== null && rep.push(["unexpected value for optional prop <description> [.'$ObjectSchema']", path])
             return false;
         }
@@ -2393,9 +2171,6 @@ function _jm_obj_13(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["not a bool [.'$ObjectSchema'.deprecated]", path])
-        }
-        if (! res)
-        {
             rep !== null && rep.push(["unexpected value for optional prop <deprecated> [.'$ObjectSchema']", path])
             return false;
         }
@@ -2408,9 +2183,6 @@ function _jm_obj_13(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["not a bool [.'$ObjectSchema'.readOnly]", path])
-        }
-        if (! res)
-        {
             rep !== null && rep.push(["unexpected value for optional prop <readOnly> [.'$ObjectSchema']", path])
             return false;
         }
@@ -2423,9 +2195,6 @@ function _jm_obj_13(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["not a bool [.'$ObjectSchema'.writeOnly]", path])
-        }
-        if (! res)
-        {
             rep !== null && rep.push(["unexpected value for optional prop <writeOnly> [.'$ObjectSchema']", path])
             return false;
         }
@@ -2435,16 +2204,9 @@ function _jm_obj_13(val, path, rep)
         pval = val["examples"];
         // .'$ObjectSchema'.examples
         res = Array.isArray(pval);
-        if (res)
-        {
-            // accept any array
-        }
         if (! res)
         {
             rep !== null && rep.push(["not array or unexpected array [.'$ObjectSchema'.examples]", path])
-        }
-        if (! res)
-        {
             rep !== null && rep.push(["unexpected value for optional prop <examples> [.'$ObjectSchema']", path])
             return false;
         }
@@ -2457,9 +2219,6 @@ function _jm_obj_13(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["unexpected string [.'$ObjectSchema'.format]", path])
-        }
-        if (! res)
-        {
             rep !== null && rep.push(["unexpected value for optional prop <format> [.'$ObjectSchema']", path])
             return false;
         }
@@ -2472,9 +2231,6 @@ function _jm_obj_13(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["unexpected string [.'$ObjectSchema'.contentEncoding]", path])
-        }
-        if (! res)
-        {
             rep !== null && rep.push(["unexpected value for optional prop <contentEncoding> [.'$ObjectSchema']", path])
             return false;
         }
@@ -2487,9 +2243,6 @@ function _jm_obj_13(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["unexpected string [.'$ObjectSchema'.contentMediaType]", path])
-        }
-        if (! res)
-        {
             rep !== null && rep.push(["unexpected value for optional prop <contentMediaType> [.'$ObjectSchema']", path])
             return false;
         }
@@ -2502,9 +2255,6 @@ function _jm_obj_13(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["unexpected $Schema [.'$ObjectSchema'.contentSchema]", path])
-        }
-        if (! res)
-        {
             rep !== null && rep.push(["unexpected value for optional prop <contentSchema> [.'$ObjectSchema']", path])
             return false;
         }
@@ -2517,9 +2267,6 @@ function _jm_obj_13(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["unexpected element [.'$ObjectSchema'.definitions]", path])
-        }
-        if (! res)
-        {
             rep !== null && rep.push(["unexpected value for optional prop <definitions> [.'$ObjectSchema']", path])
             return false;
         }
@@ -2532,9 +2279,6 @@ function _jm_obj_13(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["unexpected element [.'$ObjectSchema'.dependencies]", path])
-        }
-        if (! res)
-        {
             rep !== null && rep.push(["unexpected value for optional prop <dependencies> [.'$ObjectSchema']", path])
             return false;
         }
@@ -2547,9 +2291,6 @@ function _jm_obj_13(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["unexpected string [.'$ObjectSchema'.'$recursiveAnchor']", path])
-        }
-        if (! res)
-        {
             rep !== null && rep.push(["unexpected value for optional prop <$recursiveAnchor> [.'$ObjectSchema']", path])
             return false;
         }
@@ -2562,9 +2303,6 @@ function _jm_obj_13(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["unexpected string [.'$ObjectSchema'.'$recursiveRef']", path])
-        }
-        if (! res)
-        {
             rep !== null && rep.push(["unexpected value for optional prop <$recursiveRef> [.'$ObjectSchema']", path])
             return false;
         }
@@ -2634,9 +2372,6 @@ function _jm_obj_23(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["unexpected $Schema [.'$deprecated'.definitions.'']", (path ? lpath_22 : null)])
-        }
-        if (! res)
-        {
             return false;
         }
     }
@@ -2679,9 +2414,6 @@ function _jm_obj_24(val, path, rep)
         else
         {
             rep !== null && rep.push(["no model matched [.'$deprecated'.dependencies.''.'|']", (path ? lpath_23 : null)])
-        }
-        if (! res)
-        {
             return false;
         }
     }
@@ -2708,9 +2440,6 @@ function _jm_obj_22(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected element [.'$deprecated'.definitions]", (path ? lpath_21 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid optional prop value [.'$deprecated'.definitions]", (path ? lpath_21 : null)])
                 return false;
             }
@@ -2723,9 +2452,6 @@ function _jm_obj_22(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected element [.'$deprecated'.dependencies]", (path ? lpath_21 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid optional prop value [.'$deprecated'.dependencies]", (path ? lpath_21 : null)])
                 return false;
             }
@@ -2738,9 +2464,6 @@ function _jm_obj_22(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected string [.'$deprecated'.'$recursiveAnchor']", (path ? lpath_21 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid optional prop value [.'$deprecated'.'$recursiveAnchor']", (path ? lpath_21 : null)])
                 return false;
             }
@@ -2753,9 +2476,6 @@ function _jm_obj_22(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected string [.'$deprecated'.'$recursiveRef']", (path ? lpath_21 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid optional prop value [.'$deprecated'.'$recursiveRef']", (path ? lpath_21 : null)])
                 return false;
             }

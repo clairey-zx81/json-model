@@ -46,9 +46,6 @@ public class l10n extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected _$https://json-model.org/models/json-model [.'$'.Model]", (path != null ? lpath_1 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$'.Model]", (path != null ? lpath_1 : null));
                     return false;
                 }
@@ -61,9 +58,6 @@ public class l10n extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected $URL [.'$'.'']", (path != null ? lpath_1 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$'.'']", (path != null ? lpath_1 : null));
                     return false;
                 }
@@ -87,17 +81,17 @@ public class l10n extends ModelChecker
         }
         return true;
     }
-    
+
     public boolean _jm_re_0(String val, Path path, Report rep)
     {
         return _jm_re_0_pat.matcher(val).find();
     }
-    
+
     public boolean _jm_re_1(String val, Path path, Report rep)
     {
         return _jm_re_1_pat.matcher(val).find();
     }
-    
+
     // object .'%'
     public boolean _jm_obj_2(Object val, Path path, Report rep)
     {
@@ -121,9 +115,6 @@ public class l10n extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected string [.'%'.'#']", (path != null ? lpath_2 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.'%'.'#']", (path != null ? lpath_2 : null));
                     return false;
                 }
@@ -137,9 +128,6 @@ public class l10n extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected /^([#~$%@|&+^/*=]|[<>!]=?)$/ [.'%'.'/^\\\\..+$/']", (path != null ? lpath_2 : null));
-                }
-                if (! res)
-                {
                     return false;
                 }
             }
@@ -151,7 +139,7 @@ public class l10n extends ModelChecker
         }
         return true;
     }
-    
+
     // object .
     public boolean _jm_obj_0(Object val, Path path, Report rep)
     {
@@ -177,9 +165,6 @@ public class l10n extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected element [.'$']", (path != null ? lpath_0 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$']", (path != null ? lpath_0 : null));
                     return false;
                 }
@@ -193,9 +178,6 @@ public class l10n extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected _https://json-model.org/models/l10n [.'~']", (path != null ? lpath_0 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'~']", (path != null ? lpath_0 : null));
                     return false;
                 }
@@ -210,9 +192,6 @@ public class l10n extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected element [.'%']", (path != null ? lpath_0 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'%']", (path != null ? lpath_0 : null));
                     return false;
                 }
@@ -226,9 +205,6 @@ public class l10n extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected _$Model [.'@']", (path != null ? lpath_0 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'@']", (path != null ? lpath_0 : null));
                     return false;
                 }
@@ -241,9 +217,6 @@ public class l10n extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected string [.'#']", (path != null ? lpath_0 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.'#']", (path != null ? lpath_0 : null));
                     return false;
                 }
@@ -279,7 +252,7 @@ public class l10n extends ModelChecker
         }
         return true;
     }
-    
+
     // check $ (.)
     public boolean json_model_1(Object val, Path path, Report rep)
     {
@@ -293,7 +266,7 @@ public class l10n extends ModelChecker
         }
         return res;
     }
-    
+
 
     public void init(JSON json)
     {

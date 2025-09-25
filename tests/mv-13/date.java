@@ -31,7 +31,7 @@ public class date extends ModelChecker
         }
         return res;
     }
-    
+
 
     public void init(JSON json)
     {

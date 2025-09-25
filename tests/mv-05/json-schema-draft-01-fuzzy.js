@@ -30,9 +30,6 @@ function _jm_obj_1(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["unexpected $Schema [.'$schema'.properties.'']", (path ? lpath_0 : null)])
-        }
-        if (! res)
-        {
             return false;
         }
     }
@@ -93,9 +90,6 @@ function _jm_obj_0(val, path, rep)
                     else
                     {
                         rep !== null && rep.push(["no model matched [.'$schema'.type.'|'.1.0.'|']", (path ? arr_0_lpath : null)])
-                    }
-                    if (! res)
-                    {
                         break;
                     }
                 }
@@ -112,9 +106,6 @@ function _jm_obj_0(val, path, rep)
         else
         {
             rep !== null && rep.push(["no model matched [.'$schema'.type.'|']", path])
-        }
-        if (! res)
-        {
             rep !== null && rep.push(["unexpected value for optional prop <type> [.'$schema']", path])
             return false;
         }
@@ -127,9 +118,6 @@ function _jm_obj_0(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["unexpected element [.'$schema'.properties]", path])
-        }
-        if (! res)
-        {
             rep !== null && rep.push(["unexpected value for optional prop <properties> [.'$schema']", path])
             return false;
         }
@@ -159,9 +147,6 @@ function _jm_obj_0(val, path, rep)
                     if (! res)
                     {
                         rep !== null && rep.push(["unexpected $Schema [.'$schema'.items.'|'.1.0]", (path ? arr_1_lpath : null)])
-                    }
-                    if (! res)
-                    {
                         break;
                     }
                 }
@@ -178,9 +163,6 @@ function _jm_obj_0(val, path, rep)
         else
         {
             rep !== null && rep.push(["no model matched [.'$schema'.items.'|']", path])
-        }
-        if (! res)
-        {
             rep !== null && rep.push(["unexpected value for optional prop <items> [.'$schema']", path])
             return false;
         }
@@ -193,9 +175,6 @@ function _jm_obj_0(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["not a bool [.'$schema'.optional]", path])
-        }
-        if (! res)
-        {
             rep !== null && rep.push(["unexpected value for optional prop <optional> [.'$schema']", path])
             return false;
         }
@@ -226,9 +205,6 @@ function _jm_obj_0(val, path, rep)
         else
         {
             rep !== null && rep.push(["no model matched [.'$schema'.additionalProperties.'|']", path])
-        }
-        if (! res)
-        {
             rep !== null && rep.push(["unexpected value for optional prop <additionalProperties> [.'$schema']", path])
             return false;
         }
@@ -259,9 +235,6 @@ function _jm_obj_0(val, path, rep)
         else
         {
             rep !== null && rep.push(["no model matched [.'$schema'.requires.'|']", path])
-        }
-        if (! res)
-        {
             rep !== null && rep.push(["unexpected value for optional prop <requires> [.'$schema']", path])
             return false;
         }
@@ -274,9 +247,6 @@ function _jm_obj_0(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["not a -1.0 loose float [.'$schema'.minimum]", path])
-        }
-        if (! res)
-        {
             rep !== null && rep.push(["unexpected value for optional prop <minimum> [.'$schema']", path])
             return false;
         }
@@ -289,9 +259,6 @@ function _jm_obj_0(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["not a -1.0 loose float [.'$schema'.maximum]", path])
-        }
-        if (! res)
-        {
             rep !== null && rep.push(["unexpected value for optional prop <maximum> [.'$schema']", path])
             return false;
         }
@@ -304,9 +271,6 @@ function _jm_obj_0(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["not a bool [.'$schema'.minimumCanEqual]", path])
-        }
-        if (! res)
-        {
             rep !== null && rep.push(["unexpected value for optional prop <minimumCanEqual> [.'$schema']", path])
             return false;
         }
@@ -319,9 +283,6 @@ function _jm_obj_0(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["not a bool [.'$schema'.maximumCanEqual]", path])
-        }
-        if (! res)
-        {
             rep !== null && rep.push(["unexpected value for optional prop <maximumCanEqual> [.'$schema']", path])
             return false;
         }
@@ -334,9 +295,6 @@ function _jm_obj_0(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["not a 0 strict int [.'$schema'.minItems]", path])
-        }
-        if (! res)
-        {
             rep !== null && rep.push(["unexpected value for optional prop <minItems> [.'$schema']", path])
             return false;
         }
@@ -349,9 +307,6 @@ function _jm_obj_0(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["not a 0 strict int [.'$schema'.maxItems]", path])
-        }
-        if (! res)
-        {
             rep !== null && rep.push(["unexpected value for optional prop <maxItems> [.'$schema']", path])
             return false;
         }
@@ -364,9 +319,6 @@ function _jm_obj_0(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["unexpected $REGEX [.'$schema'.pattern]", path])
-        }
-        if (! res)
-        {
             rep !== null && rep.push(["unexpected value for optional prop <pattern> [.'$schema']", path])
             return false;
         }
@@ -379,9 +331,6 @@ function _jm_obj_0(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["not a 0 strict int [.'$schema'.minLength]", path])
-        }
-        if (! res)
-        {
             rep !== null && rep.push(["unexpected value for optional prop <minLength> [.'$schema']", path])
             return false;
         }
@@ -394,9 +343,6 @@ function _jm_obj_0(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["not a 0 strict int [.'$schema'.maxLength]", path])
-        }
-        if (! res)
-        {
             rep !== null && rep.push(["unexpected value for optional prop <maxLength> [.'$schema']", path])
             return false;
         }
@@ -407,10 +353,6 @@ function _jm_obj_0(val, path, rep)
         // .'$schema'.enum
         // .'$schema'.enum.'@'
         res = Array.isArray(pval);
-        if (res)
-        {
-            // accept any array
-        }
         if (! res)
         {
             rep !== null && rep.push(["not array or unexpected array [.'$schema'.enum.'@']", path])
@@ -438,9 +380,6 @@ function _jm_obj_0(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["unexpected string [.'$schema'.title]", path])
-        }
-        if (! res)
-        {
             rep !== null && rep.push(["unexpected value for optional prop <title> [.'$schema']", path])
             return false;
         }
@@ -453,9 +392,6 @@ function _jm_obj_0(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["unexpected string [.'$schema'.description]", path])
-        }
-        if (! res)
-        {
             rep !== null && rep.push(["unexpected value for optional prop <description> [.'$schema']", path])
             return false;
         }
@@ -468,9 +404,6 @@ function _jm_obj_0(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["unexpected string [.'$schema'.format]", path])
-        }
-        if (! res)
-        {
             rep !== null && rep.push(["unexpected value for optional prop <format> [.'$schema']", path])
             return false;
         }
@@ -483,9 +416,6 @@ function _jm_obj_0(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["unexpected string [.'$schema'.contentEncoding]", path])
-        }
-        if (! res)
-        {
             rep !== null && rep.push(["unexpected value for optional prop <contentEncoding> [.'$schema']", path])
             return false;
         }
@@ -498,9 +428,6 @@ function _jm_obj_0(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["not a 0 strict int [.'$schema'.maxDecimal]", path])
-        }
-        if (! res)
-        {
             rep !== null && rep.push(["unexpected value for optional prop <maxDecimal> [.'$schema']", path])
             return false;
         }
@@ -530,9 +457,6 @@ function _jm_obj_0(val, path, rep)
                     if (! res)
                     {
                         rep !== null && rep.push(["unexpected string [.'$schema'.disallow.'|'.1.0]", (path ? arr_2_lpath : null)])
-                    }
-                    if (! res)
-                    {
                         break;
                     }
                 }
@@ -549,9 +473,6 @@ function _jm_obj_0(val, path, rep)
         else
         {
             rep !== null && rep.push(["no model matched [.'$schema'.disallow.'|']", path])
-        }
-        if (! res)
-        {
             rep !== null && rep.push(["unexpected value for optional prop <disallow> [.'$schema']", path])
             return false;
         }
@@ -581,9 +502,6 @@ function _jm_obj_0(val, path, rep)
                     if (! res)
                     {
                         rep !== null && rep.push(["unexpected $Schema [.'$schema'.extends.'|'.1.0]", (path ? arr_3_lpath : null)])
-                    }
-                    if (! res)
-                    {
                         break;
                     }
                 }
@@ -600,9 +518,6 @@ function _jm_obj_0(val, path, rep)
         else
         {
             rep !== null && rep.push(["no model matched [.'$schema'.extends.'|']", path])
-        }
-        if (! res)
-        {
             rep !== null && rep.push(["unexpected value for optional prop <extends> [.'$schema']", path])
             return false;
         }
@@ -615,9 +530,6 @@ function _jm_obj_0(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["unexpected string [.'$schema'.id]", path])
-        }
-        if (! res)
-        {
             rep !== null && rep.push(["unexpected value for optional prop <id> [.'$schema']", path])
             return false;
         }
@@ -630,9 +542,6 @@ function _jm_obj_0(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["unexpected string [.'$schema'.'$schema']", path])
-        }
-        if (! res)
-        {
             rep !== null && rep.push(["unexpected value for optional prop <$schema> [.'$schema']", path])
             return false;
         }

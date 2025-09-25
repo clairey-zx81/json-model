@@ -39,9 +39,6 @@ public class dolsha extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected $self [.'$array'.0]", (path != null ? arr_0_lpath : null));
-                }
-                if (! res)
-                {
                     break;
                 }
             }
@@ -52,7 +49,7 @@ public class dolsha extends ModelChecker
         }
         return res;
     }
-    
+
     // object .
     public boolean _jm_obj_0(Object val, Path path, Report rep)
     {
@@ -76,9 +73,6 @@ public class dolsha extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected $self [.prop]", (path != null ? lpath_0 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.prop]", (path != null ? lpath_0 : null));
                     return false;
                 }
@@ -91,7 +85,7 @@ public class dolsha extends ModelChecker
         }
         return true;
     }
-    
+
     // check $ (.)
     public boolean json_model_1(Object val, Path path, Report rep)
     {
@@ -104,7 +98,7 @@ public class dolsha extends ModelChecker
         }
         return res;
     }
-    
+
 
     public void init(JSON json)
     {

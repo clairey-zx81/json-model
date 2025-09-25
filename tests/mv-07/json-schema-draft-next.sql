@@ -266,10 +266,6 @@ DECLARE
 BEGIN
   -- .'$meta'.examples
   res := JSONB_TYPEOF(val) = 'array';
-  IF res THEN
-    -- accept any array
-    NULL;
-  END IF;
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
@@ -641,10 +637,6 @@ DECLARE
 BEGIN
   -- .'$validation'.enum
   res := JSONB_TYPEOF(val) = 'array';
-  IF res THEN
-    -- accept any array
-    NULL;
-  END IF;
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
@@ -1673,10 +1665,6 @@ DECLARE
 BEGIN
   -- .'$ObjectSchema'.enum
   res := JSONB_TYPEOF(val) = 'array';
-  IF res THEN
-    -- accept any array
-    NULL;
-  END IF;
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
@@ -1689,10 +1677,6 @@ DECLARE
 BEGIN
   -- .'$ObjectSchema'.examples
   res := JSONB_TYPEOF(val) = 'array';
-  IF res THEN
-    -- accept any array
-    NULL;
-  END IF;
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;

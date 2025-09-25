@@ -33,7 +33,7 @@ public class json_schema_draft_04_nesting extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_0_map_$schema (.'$schema'.'$schema')
     public boolean _jm_f_1(Object val, Path path, Report rep)
     {
@@ -46,7 +46,7 @@ public class json_schema_draft_04_nesting extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_0_map_additionalItems (.'$schema'.additionalItems)
     public boolean _jm_f_2(Object val, Path path, Report rep)
     {
@@ -77,7 +77,7 @@ public class json_schema_draft_04_nesting extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_0_map_additionalProperties (.'$schema'.additionalProperties)
     public boolean _jm_f_3(Object val, Path path, Report rep)
     {
@@ -108,7 +108,7 @@ public class json_schema_draft_04_nesting extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_0_map_allOf (.'$schema'.allOf)
     public boolean _jm_f_4(Object val, Path path, Report rep)
     {
@@ -121,7 +121,7 @@ public class json_schema_draft_04_nesting extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_0_map_anyOf (.'$schema'.anyOf)
     public boolean _jm_f_5(Object val, Path path, Report rep)
     {
@@ -134,7 +134,7 @@ public class json_schema_draft_04_nesting extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_0_map_default (.'$schema'.default)
     public boolean _jm_f_6(Object val, Path path, Report rep)
     {
@@ -147,7 +147,7 @@ public class json_schema_draft_04_nesting extends ModelChecker
         }
         return res;
     }
-    
+
     // object .'$schema'.definitions
     public boolean _jm_obj_1(Object val, Path path, Report rep)
     {
@@ -169,15 +169,12 @@ public class json_schema_draft_04_nesting extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("unexpected $Schema [.'$schema'.definitions.'']", (path != null ? lpath_1 : null));
-            }
-            if (! res)
-            {
                 return false;
             }
         }
         return true;
     }
-    
+
     // check _jm_obj_0_map_definitions (.'$schema'.definitions)
     public boolean _jm_f_7(Object val, Path path, Report rep)
     {
@@ -190,7 +187,7 @@ public class json_schema_draft_04_nesting extends ModelChecker
         }
         return res;
     }
-    
+
     // object .'$schema'.dependencies
     public boolean _jm_obj_2(Object val, Path path, Report rep)
     {
@@ -230,15 +227,12 @@ public class json_schema_draft_04_nesting extends ModelChecker
             else
             {
                 if (rep != null) rep.addEntry("no model matched [.'$schema'.dependencies.''.'|']", (path != null ? lpath_2 : null));
-            }
-            if (! res)
-            {
                 return false;
             }
         }
         return true;
     }
-    
+
     // check _jm_obj_0_map_dependencies (.'$schema'.dependencies)
     public boolean _jm_f_8(Object val, Path path, Report rep)
     {
@@ -251,7 +245,7 @@ public class json_schema_draft_04_nesting extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_0_map_description (.'$schema'.description)
     public boolean _jm_f_9(Object val, Path path, Report rep)
     {
@@ -264,7 +258,7 @@ public class json_schema_draft_04_nesting extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_0_map_enum (.'$schema'.enum)
     public boolean _jm_f_10(Object val, Path path, Report rep)
     {
@@ -272,10 +266,6 @@ public class json_schema_draft_04_nesting extends ModelChecker
         // .'$schema'.enum
         // .'$schema'.enum.'@'
         res = json.isArray(val);
-        if (res)
-        {
-            // accept any array
-        }
         if (! res)
         {
             if (rep != null) rep.addEntry("not array or unexpected array [.'$schema'.enum.'@']", path);
@@ -291,7 +281,7 @@ public class json_schema_draft_04_nesting extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_0_map_exclusiveMaximum (.'$schema'.exclusiveMaximum)
     public boolean _jm_f_11(Object val, Path path, Report rep)
     {
@@ -304,7 +294,7 @@ public class json_schema_draft_04_nesting extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_0_map_exclusiveMinimum (.'$schema'.exclusiveMinimum)
     public boolean _jm_f_12(Object val, Path path, Report rep)
     {
@@ -317,7 +307,7 @@ public class json_schema_draft_04_nesting extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_0_map_format (.'$schema'.format)
     public boolean _jm_f_13(Object val, Path path, Report rep)
     {
@@ -330,7 +320,7 @@ public class json_schema_draft_04_nesting extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_0_map_id (.'$schema'.id)
     public boolean _jm_f_14(Object val, Path path, Report rep)
     {
@@ -343,7 +333,7 @@ public class json_schema_draft_04_nesting extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_0_map_items (.'$schema'.items)
     public boolean _jm_f_15(Object val, Path path, Report rep)
     {
@@ -374,7 +364,7 @@ public class json_schema_draft_04_nesting extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_0_map_maxItems (.'$schema'.maxItems)
     public boolean _jm_f_16(Object val, Path path, Report rep)
     {
@@ -387,7 +377,7 @@ public class json_schema_draft_04_nesting extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_0_map_maxLength (.'$schema'.maxLength)
     public boolean _jm_f_17(Object val, Path path, Report rep)
     {
@@ -400,7 +390,7 @@ public class json_schema_draft_04_nesting extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_0_map_maxProperties (.'$schema'.maxProperties)
     public boolean _jm_f_18(Object val, Path path, Report rep)
     {
@@ -413,7 +403,7 @@ public class json_schema_draft_04_nesting extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_0_map_maximum (.'$schema'.maximum)
     public boolean _jm_f_19(Object val, Path path, Report rep)
     {
@@ -426,7 +416,7 @@ public class json_schema_draft_04_nesting extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_0_map_minItems (.'$schema'.minItems)
     public boolean _jm_f_20(Object val, Path path, Report rep)
     {
@@ -439,7 +429,7 @@ public class json_schema_draft_04_nesting extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_0_map_minLength (.'$schema'.minLength)
     public boolean _jm_f_21(Object val, Path path, Report rep)
     {
@@ -452,7 +442,7 @@ public class json_schema_draft_04_nesting extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_0_map_minProperties (.'$schema'.minProperties)
     public boolean _jm_f_22(Object val, Path path, Report rep)
     {
@@ -465,7 +455,7 @@ public class json_schema_draft_04_nesting extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_0_map_minimum (.'$schema'.minimum)
     public boolean _jm_f_23(Object val, Path path, Report rep)
     {
@@ -478,7 +468,7 @@ public class json_schema_draft_04_nesting extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_0_map_multipleOf (.'$schema'.multipleOf)
     public boolean _jm_f_24(Object val, Path path, Report rep)
     {
@@ -491,7 +481,7 @@ public class json_schema_draft_04_nesting extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_0_map_not (.'$schema'.not)
     public boolean _jm_f_25(Object val, Path path, Report rep)
     {
@@ -504,7 +494,7 @@ public class json_schema_draft_04_nesting extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_0_map_oneOf (.'$schema'.oneOf)
     public boolean _jm_f_26(Object val, Path path, Report rep)
     {
@@ -517,7 +507,7 @@ public class json_schema_draft_04_nesting extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_0_map_pattern (.'$schema'.pattern)
     public boolean _jm_f_27(Object val, Path path, Report rep)
     {
@@ -530,7 +520,7 @@ public class json_schema_draft_04_nesting extends ModelChecker
         }
         return res;
     }
-    
+
     // object .'$schema'.patternProperties
     public boolean _jm_obj_3(Object val, Path path, Report rep)
     {
@@ -552,15 +542,12 @@ public class json_schema_draft_04_nesting extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("unexpected $Schema [.'$schema'.patternProperties.'']", (path != null ? lpath_3 : null));
-            }
-            if (! res)
-            {
                 return false;
             }
         }
         return true;
     }
-    
+
     // check _jm_obj_0_map_patternProperties (.'$schema'.patternProperties)
     public boolean _jm_f_28(Object val, Path path, Report rep)
     {
@@ -573,7 +560,7 @@ public class json_schema_draft_04_nesting extends ModelChecker
         }
         return res;
     }
-    
+
     // object .'$schema'.properties
     public boolean _jm_obj_4(Object val, Path path, Report rep)
     {
@@ -595,15 +582,12 @@ public class json_schema_draft_04_nesting extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("unexpected $Schema [.'$schema'.properties.'']", (path != null ? lpath_4 : null));
-            }
-            if (! res)
-            {
                 return false;
             }
         }
         return true;
     }
-    
+
     // check _jm_obj_0_map_properties (.'$schema'.properties)
     public boolean _jm_f_29(Object val, Path path, Report rep)
     {
@@ -616,7 +600,7 @@ public class json_schema_draft_04_nesting extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_0_map_required (.'$schema'.required)
     public boolean _jm_f_30(Object val, Path path, Report rep)
     {
@@ -629,7 +613,7 @@ public class json_schema_draft_04_nesting extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_0_map_title (.'$schema'.title)
     public boolean _jm_f_31(Object val, Path path, Report rep)
     {
@@ -642,7 +626,7 @@ public class json_schema_draft_04_nesting extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_0_map_type (.'$schema'.type)
     public boolean _jm_f_32(Object val, Path path, Report rep)
     {
@@ -673,7 +657,7 @@ public class json_schema_draft_04_nesting extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_0_map_uniqueItems (.'$schema'.uniqueItems)
     public boolean _jm_f_33(Object val, Path path, Report rep)
     {
@@ -686,8 +670,8 @@ public class json_schema_draft_04_nesting extends ModelChecker
         }
         return res;
     }
-    
-    
+
+
     // object .'$schema'
     public boolean _jm_obj_0(Object val, Path path, Report rep)
     {
@@ -721,16 +705,13 @@ public class json_schema_draft_04_nesting extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected $Schema [.'$schema'.'']", (path != null ? lpath_0 : null));
-                }
-                if (! res)
-                {
                     return false;
                 }
             }
         }
         return true;
     }
-    
+
     // check $schema (.'$schema')
     public boolean json_model_3(Object val, Path path, Report rep)
     {
@@ -744,7 +725,7 @@ public class json_schema_draft_04_nesting extends ModelChecker
         }
         return res;
     }
-    
+
     // check $ (.)
     public boolean json_model_1(Object val, Path path, Report rep)
     {
@@ -757,7 +738,7 @@ public class json_schema_draft_04_nesting extends ModelChecker
         }
         return res;
     }
-    
+
     // check $schema#schemaArray (.'$schema#schemaArray')
     public boolean json_model_4(Object val, Path path, Report rep)
     {
@@ -779,9 +760,6 @@ public class json_schema_draft_04_nesting extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected $Schema [.'$schema#schemaArray'.'@'.0]", (path != null ? arr_0_lpath : null));
-                }
-                if (! res)
-                {
                     break;
                 }
             }
@@ -801,8 +779,8 @@ public class json_schema_draft_04_nesting extends ModelChecker
         }
         return res;
     }
-    
-    
+
+
     // check $schema#simpleTypes (.'$schema#simpleTypes')
     public boolean json_model_5(Object val, Path path, Report rep)
     {
@@ -815,7 +793,7 @@ public class json_schema_draft_04_nesting extends ModelChecker
         }
         return res;
     }
-    
+
     // check $schema#stringArray (.'$schema#stringArray')
     public boolean json_model_6(Object val, Path path, Report rep)
     {
@@ -837,9 +815,6 @@ public class json_schema_draft_04_nesting extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected string [.'$schema#stringArray'.'@'.0]", (path != null ? arr_1_lpath : null));
-                }
-                if (! res)
-                {
                     break;
                 }
             }
@@ -859,7 +834,7 @@ public class json_schema_draft_04_nesting extends ModelChecker
         }
         return res;
     }
-    
+
     // check $schema#typeArray (.'$schema#typeArray')
     public boolean json_model_7(Object val, Path path, Report rep)
     {
@@ -881,9 +856,6 @@ public class json_schema_draft_04_nesting extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected $simpleTypes [.'$schema#typeArray'.'@'.0]", (path != null ? arr_2_lpath : null));
-                }
-                if (! res)
-                {
                     break;
                 }
             }
@@ -903,7 +875,7 @@ public class json_schema_draft_04_nesting extends ModelChecker
         }
         return res;
     }
-    
+
 
     public void init(JSON json)
     {

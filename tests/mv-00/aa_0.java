@@ -50,9 +50,6 @@ public class aa_0 extends ModelChecker
                         if (! res)
                         {
                             if (rep != null) rep.addEntry("unexpected string [.0.0]", ((path != null ? arr_0_lpath : null) != null ? arr_1_lpath : null));
-                        }
-                        if (! res)
-                        {
                             break;
                         }
                     }
@@ -60,9 +57,6 @@ public class aa_0 extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not array or unexpected array [.0]", (path != null ? arr_0_lpath : null));
-                }
-                if (! res)
-                {
                     break;
                 }
             }
@@ -73,7 +67,7 @@ public class aa_0 extends ModelChecker
         }
         return res;
     }
-    
+
 
     public void init(JSON json)
     {

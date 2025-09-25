@@ -31,7 +31,7 @@ public class fourty_two extends ModelChecker
         }
         return res;
     }
-    
+
 
     public void init(JSON json)
     {

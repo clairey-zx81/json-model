@@ -48,9 +48,6 @@ function _jm_obj_0(val, path, rep)
                         if (! res)
                         {
                             rep !== null && rep.push(["unexpected $root [.foo.'|'.1.0]", ((path ? lpath_0 : null) ? arr_0_lpath : null)])
-                        }
-                        if (! res)
-                        {
                             break;
                         }
                     }
@@ -67,9 +64,6 @@ function _jm_obj_0(val, path, rep)
             else
             {
                 rep !== null && rep.push(["no model matched [.foo.'|']", (path ? lpath_0 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid optional prop value [.foo]", (path ? lpath_0 : null)])
                 return false;
             }

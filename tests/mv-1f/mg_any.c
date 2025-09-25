@@ -47,9 +47,6 @@ static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *re
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "not a 1 strict int [.a]", (path ? &lpath_0 : NULL));
-            }
-            if (! res)
-            {
                 if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.a]", (path ? &lpath_0 : NULL));
                 return false;
             }
@@ -63,9 +60,6 @@ static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *re
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "not a 1 strict int [.b]", (path ? &lpath_0 : NULL));
-            }
-            if (! res)
-            {
                 if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.b]", (path ? &lpath_0 : NULL));
                 return false;
             }
@@ -78,9 +72,6 @@ static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *re
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "not a 1 strict int [.c]", (path ? &lpath_0 : NULL));
-            }
-            if (! res)
-            {
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.c]", (path ? &lpath_0 : NULL));
                 return false;
             }
@@ -93,9 +84,6 @@ static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *re
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "not a 1 strict int [.'$DATE']", (path ? &lpath_0 : NULL));
-            }
-            if (! res)
-            {
                 return false;
             }
         }
@@ -107,9 +95,6 @@ static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *re
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "not a 1 strict int [.'/foo/']", (path ? &lpath_0 : NULL));
-            }
-            if (! res)
-            {
                 return false;
             }
         }

@@ -31,7 +31,7 @@ public class eval_01 extends ModelChecker
         }
         return res;
     }
-    
+
 
     public void init(JSON json)
     {

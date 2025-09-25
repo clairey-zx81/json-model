@@ -13,11 +13,11 @@
 - [x] backend: generate output source code from symbolic json code
 - [x] xstatic: skip IR if not needed
 - [x] command: add `--ir-optimize` option
+- [x] command: activate ir optimization by default
 - [ ] tests: add ir optimized output
 - [ ] tests: drop language outputs for IR only?
 - [ ] backend: IR handling of ConstMap and ConstSet
 - [ ] backend: improve and extend IR optimizations?
-- [ ] command: activate ir optimization by default
 - [ ] command: add direct ir to lang conversion
 - [ ] models: write model for json code!
 - [ ] artifact: make work with dind

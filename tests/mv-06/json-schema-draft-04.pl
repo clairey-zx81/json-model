@@ -325,11 +325,6 @@ sub _jm_f_10($$$)
     $res = jm_is_array($val);
     if ($res)
     {
-        # accept any array
-        ;
-    }
-    if ($res)
-    {
         my $ival_3 = scalar @$val;
         $res = jm_is_unique_array($val, $path, $rep) && $ival_3 >= 1;
     }

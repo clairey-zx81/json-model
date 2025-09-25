@@ -23,6 +23,7 @@ def check_model(val: Jsonable, name: str = "", rep: Report = None) -> bool:
 _jm_cst_0: set[str]
 check_model_map: PropMap
 
+
 # check $ (.)
 def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool

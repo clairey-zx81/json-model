@@ -71,7 +71,7 @@ public class array_3 extends ModelChecker
         }
         return res;
     }
-    
+
 
     public void init(JSON json)
     {

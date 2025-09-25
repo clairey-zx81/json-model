@@ -49,7 +49,7 @@ public class fr_00 extends ModelChecker
         }
         return res;
     }
-    
+
 
     public void init(JSON json)
     {

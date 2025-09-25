@@ -24,15 +24,15 @@ sub json_model_1($$$)
     if ($res)
     {
         # .'|'.0
-        $res = $val == 1;
+        $res = jm_is_integer($val) && $val == 1;
         if (! $res)
         {
             # .'|'.1
-            $res = $val == 2;
+            $res = jm_is_integer($val) && $val == 2;
             if (! $res)
             {
                 # .'|'.2
-                $res = $val == 3;
+                $res = jm_is_integer($val) && $val == 3;
             }
         }
     }

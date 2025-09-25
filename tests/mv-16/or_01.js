@@ -13,6 +13,7 @@ let _jm_cst_0 = new Set()
 const _jm_re_0_re = new runtime.RX("[0-9]", "")
 var check_model_map = new Map()
 
+
 const _jm_re_0 = (s) => _jm_re_0_re.exec(s) !== null
 
 // check $ (.)
@@ -37,16 +38,13 @@ function json_model_1(val, path, rep)
             // .'|'.0
             // "/[0-9]/"
             res = _jm_re_0(val, path, rep);
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected /[0-9]/ [.'|'.0]", path])
-            }
             if (res)
             {
                 if (rep !== null) rep.length = 0
             }
             else
             {
+                rep !== null && rep.push(["unexpected /[0-9]/ [.'|'.0]", path])
                 rep !== null && rep.push(["no model matched [.'|']", path])
             }
         }

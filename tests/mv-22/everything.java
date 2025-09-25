@@ -44,7 +44,7 @@ public class everything extends ModelChecker
         }
         return res;
     }
-    
+
     // check $b (.'$b')
     public boolean json_model_3(Object val, Path path, Report rep)
     {
@@ -57,7 +57,7 @@ public class everything extends ModelChecker
         }
         return res;
     }
-    
+
     // object .'$ab'
     public boolean _jm_obj_0(Object val, Path path, Report rep)
     {
@@ -83,9 +83,6 @@ public class everything extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not a 0 strict int [.'$ab'.a]", (path != null ? lpath_0 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$ab'.a]", (path != null ? lpath_0 : null));
                     return false;
                 }
@@ -99,9 +96,6 @@ public class everything extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not a 0 strict int [.'$ab'.b]", (path != null ? lpath_0 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$ab'.b]", (path != null ? lpath_0 : null));
                     return false;
                 }
@@ -129,7 +123,7 @@ public class everything extends ModelChecker
         }
         return true;
     }
-    
+
     // check $ab (.'$ab')
     public boolean json_model_4(Object val, Path path, Report rep)
     {
@@ -142,7 +136,7 @@ public class everything extends ModelChecker
         }
         return res;
     }
-    
+
     // object .'$cd'
     public boolean _jm_obj_1(Object val, Path path, Report rep)
     {
@@ -168,9 +162,6 @@ public class everything extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not a 0 strict int [.'$cd'.c]", (path != null ? lpath_1 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$cd'.c]", (path != null ? lpath_1 : null));
                     return false;
                 }
@@ -184,9 +175,6 @@ public class everything extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not a 0 strict int [.'$cd'.d]", (path != null ? lpath_1 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$cd'.d]", (path != null ? lpath_1 : null));
                     return false;
                 }
@@ -214,7 +202,7 @@ public class everything extends ModelChecker
         }
         return true;
     }
-    
+
     // check $cd (.'$cd')
     public boolean json_model_5(Object val, Path path, Report rep)
     {
@@ -227,7 +215,7 @@ public class everything extends ModelChecker
         }
         return res;
     }
-    
+
     // object .and
     public boolean _jm_obj_3(Object val, Path path, Report rep)
     {
@@ -274,9 +262,6 @@ public class everything extends ModelChecker
                 else
                 {
                     if (rep != null) rep.addEntry("not all model match [.and.a0.'&']", (path != null ? lpath_3 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.and.a0]", (path != null ? lpath_3 : null));
                     return false;
                 }
@@ -289,7 +274,7 @@ public class everything extends ModelChecker
         }
         return true;
     }
-    
+
     // check _jm_obj_2_map_and (.and)
     public boolean _jm_f_0(Object val, Path path, Report rep)
     {
@@ -303,7 +288,7 @@ public class everything extends ModelChecker
         }
         return res;
     }
-    
+
     // object .array
     public boolean _jm_obj_4(Object val, Path path, Report rep)
     {
@@ -338,9 +323,6 @@ public class everything extends ModelChecker
                         if (! res)
                         {
                             if (rep != null) rep.addEntry("not a 0 strict int [.array.a0.0]", ((path != null ? lpath_4 : null) != null ? arr_0_lpath : null));
-                        }
-                        if (! res)
-                        {
                             break;
                         }
                     }
@@ -348,9 +330,6 @@ public class everything extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not array or unexpected array [.array.a0]", (path != null ? lpath_4 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.array.a0]", (path != null ? lpath_4 : null));
                     return false;
                 }
@@ -374,9 +353,6 @@ public class everything extends ModelChecker
                         if (! res)
                         {
                             if (rep != null) rep.addEntry("unexpected string [.array.a1.0]", ((path != null ? lpath_4 : null) != null ? arr_1_lpath : null));
-                        }
-                        if (! res)
-                        {
                             break;
                         }
                     }
@@ -384,9 +360,6 @@ public class everything extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not array or unexpected array [.array.a1]", (path != null ? lpath_4 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.array.a1]", (path != null ? lpath_4 : null));
                     return false;
                 }
@@ -410,9 +383,6 @@ public class everything extends ModelChecker
                         if (! res)
                         {
                             if (rep != null) rep.addEntry("unexpected $DATE [.array.a2.0]", ((path != null ? lpath_4 : null) != null ? arr_2_lpath : null));
-                        }
-                        if (! res)
-                        {
                             break;
                         }
                     }
@@ -420,9 +390,6 @@ public class everything extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not array or unexpected array [.array.a2]", (path != null ? lpath_4 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.array.a2]", (path != null ? lpath_4 : null));
                     return false;
                 }
@@ -446,9 +413,6 @@ public class everything extends ModelChecker
                         if (! res)
                         {
                             if (rep != null) rep.addEntry("not a bool [.array.a3.0]", ((path != null ? lpath_4 : null) != null ? arr_3_lpath : null));
-                        }
-                        if (! res)
-                        {
                             break;
                         }
                     }
@@ -456,9 +420,6 @@ public class everything extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not array or unexpected array [.array.a3]", (path != null ? lpath_4 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.array.a3]", (path != null ? lpath_4 : null));
                     return false;
                 }
@@ -468,16 +429,9 @@ public class everything extends ModelChecker
                 // handle may a4 property
                 // .array.a4
                 res = json.isArray(pval);
-                if (res)
-                {
-                    // accept any array
-                }
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not array or unexpected array [.array.a4]", (path != null ? lpath_4 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.array.a4]", (path != null ? lpath_4 : null));
                     return false;
                 }
@@ -490,7 +444,7 @@ public class everything extends ModelChecker
         }
         return true;
     }
-    
+
     // check _jm_obj_2_map_array (.array)
     public boolean _jm_f_1(Object val, Path path, Report rep)
     {
@@ -504,7 +458,7 @@ public class everything extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_5_map_b0 (.bool.b0)
     public boolean _jm_f_3(Object val, Path path, Report rep)
     {
@@ -517,7 +471,7 @@ public class everything extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_5_map_b1 (.bool.b1)
     public boolean _jm_f_4(Object val, Path path, Report rep)
     {
@@ -530,7 +484,7 @@ public class everything extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_5_map_b2 (.bool.b2)
     public boolean _jm_f_5(Object val, Path path, Report rep)
     {
@@ -543,7 +497,7 @@ public class everything extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_5_map_b3 (.bool.b3)
     public boolean _jm_f_6(Object val, Path path, Report rep)
     {
@@ -556,7 +510,7 @@ public class everything extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_5_map_b4 (.bool.b4)
     public boolean _jm_f_7(Object val, Path path, Report rep)
     {
@@ -569,8 +523,8 @@ public class everything extends ModelChecker
         }
         return res;
     }
-    
-    
+
+
     // check _jm_obj_5_map_b5 (.bool.b5)
     public boolean _jm_f_8(Object val, Path path, Report rep)
     {
@@ -583,8 +537,8 @@ public class everything extends ModelChecker
         }
         return res;
     }
-    
-    
+
+
     // object .bool
     public boolean _jm_obj_5(Object val, Path path, Report rep)
     {
@@ -617,7 +571,7 @@ public class everything extends ModelChecker
         }
         return true;
     }
-    
+
     // check _jm_obj_2_map_bool (.bool)
     public boolean _jm_f_2(Object val, Path path, Report rep)
     {
@@ -631,7 +585,7 @@ public class everything extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_6_map_cia0 (.constraints.cia0)
     public boolean _jm_f_10(Object val, Path path, Report rep)
     {
@@ -653,9 +607,6 @@ public class everything extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not a 0 strict int [.constraints.cia0.'@'.0]", (path != null ? arr_4_lpath : null));
-                }
-                if (! res)
-                {
                     break;
                 }
             }
@@ -675,7 +626,7 @@ public class everything extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_6_map_cia1 (.constraints.cia1)
     public boolean _jm_f_11(Object val, Path path, Report rep)
     {
@@ -697,9 +648,6 @@ public class everything extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not a 0 strict int [.constraints.cia1.'@'.0]", (path != null ? arr_5_lpath : null));
-                }
-                if (! res)
-                {
                     break;
                 }
             }
@@ -719,7 +667,7 @@ public class everything extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_6_map_cia2 (.constraints.cia2)
     public boolean _jm_f_12(Object val, Path path, Report rep)
     {
@@ -741,9 +689,6 @@ public class everything extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not a 0 strict int [.constraints.cia2.'@'.0]", (path != null ? arr_6_lpath : null));
-                }
-                if (! res)
-                {
                     break;
                 }
             }
@@ -763,7 +708,7 @@ public class everything extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_6_map_cii0 (.constraints.cii0)
     public boolean _jm_f_13(Object val, Path path, Report rep)
     {
@@ -776,7 +721,7 @@ public class everything extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_6_map_cii1 (.constraints.cii1)
     public boolean _jm_f_14(Object val, Path path, Report rep)
     {
@@ -799,7 +744,7 @@ public class everything extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_6_map_cii2 (.constraints.cii2)
     public boolean _jm_f_15(Object val, Path path, Report rep)
     {
@@ -822,7 +767,7 @@ public class everything extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_6_map_cin0 (.constraints.cin0)
     public boolean _jm_f_16(Object val, Path path, Report rep)
     {
@@ -845,7 +790,7 @@ public class everything extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_6_map_cin1 (.constraints.cin1)
     public boolean _jm_f_17(Object val, Path path, Report rep)
     {
@@ -868,7 +813,7 @@ public class everything extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_6_map_cin2 (.constraints.cin2)
     public boolean _jm_f_18(Object val, Path path, Report rep)
     {
@@ -891,7 +836,7 @@ public class everything extends ModelChecker
         }
         return res;
     }
-    
+
     // object .constraints.cio0.'@'
     public boolean _jm_obj_7(Object val, Path path, Report rep)
     {
@@ -903,7 +848,7 @@ public class everything extends ModelChecker
         // accept any object
         return true;
     }
-    
+
     // check _jm_obj_6_map_cio0 (.constraints.cio0)
     public boolean _jm_f_19(Object val, Path path, Report rep)
     {
@@ -926,7 +871,7 @@ public class everything extends ModelChecker
         }
         return res;
     }
-    
+
     // object .constraints.cio1.'@'
     public boolean _jm_obj_8(Object val, Path path, Report rep)
     {
@@ -938,7 +883,7 @@ public class everything extends ModelChecker
         // accept any object
         return true;
     }
-    
+
     // check _jm_obj_6_map_cio1 (.constraints.cio1)
     public boolean _jm_f_20(Object val, Path path, Report rep)
     {
@@ -961,7 +906,7 @@ public class everything extends ModelChecker
         }
         return res;
     }
-    
+
     // object .constraints.cio2.'@'
     public boolean _jm_obj_9(Object val, Path path, Report rep)
     {
@@ -973,7 +918,7 @@ public class everything extends ModelChecker
         // accept any object
         return true;
     }
-    
+
     // check _jm_obj_6_map_cio2 (.constraints.cio2)
     public boolean _jm_f_21(Object val, Path path, Report rep)
     {
@@ -996,7 +941,7 @@ public class everything extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_6_map_cis0 (.constraints.cis0)
     public boolean _jm_f_22(Object val, Path path, Report rep)
     {
@@ -1019,7 +964,7 @@ public class everything extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_6_map_cis1 (.constraints.cis1)
     public boolean _jm_f_23(Object val, Path path, Report rep)
     {
@@ -1042,7 +987,7 @@ public class everything extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_6_map_cis2 (.constraints.cis2)
     public boolean _jm_f_24(Object val, Path path, Report rep)
     {
@@ -1065,7 +1010,7 @@ public class everything extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_6_map_cni0 (.constraints.cni0)
     public boolean _jm_f_25(Object val, Path path, Report rep)
     {
@@ -1078,7 +1023,7 @@ public class everything extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_6_map_cni1 (.constraints.cni1)
     public boolean _jm_f_26(Object val, Path path, Report rep)
     {
@@ -1102,7 +1047,7 @@ public class everything extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_6_map_cni2 (.constraints.cni2)
     public boolean _jm_f_27(Object val, Path path, Report rep)
     {
@@ -1115,7 +1060,7 @@ public class everything extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_6_map_cnn0 (.constraints.cnn0)
     public boolean _jm_f_28(Object val, Path path, Report rep)
     {
@@ -1138,7 +1083,7 @@ public class everything extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_6_map_cnn1 (.constraints.cnn1)
     public boolean _jm_f_29(Object val, Path path, Report rep)
     {
@@ -1161,7 +1106,7 @@ public class everything extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_6_map_cnn2 (.constraints.cnn2)
     public boolean _jm_f_30(Object val, Path path, Report rep)
     {
@@ -1184,7 +1129,7 @@ public class everything extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_6_map_css0 (.constraints.css0)
     public boolean _jm_f_31(Object val, Path path, Report rep)
     {
@@ -1207,7 +1152,7 @@ public class everything extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_6_map_css1 (.constraints.css1)
     public boolean _jm_f_32(Object val, Path path, Report rep)
     {
@@ -1230,7 +1175,7 @@ public class everything extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_6_map_css2 (.constraints.css2)
     public boolean _jm_f_33(Object val, Path path, Report rep)
     {
@@ -1253,7 +1198,7 @@ public class everything extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_6_map_cua0 (.constraints.cua0)
     public boolean _jm_f_34(Object val, Path path, Report rep)
     {
@@ -1261,10 +1206,6 @@ public class everything extends ModelChecker
         // .constraints.cua0
         // .constraints.cua0.'@'
         res = json.isArray(val);
-        if (res)
-        {
-            // accept any array
-        }
         if (! res)
         {
             if (rep != null) rep.addEntry("not array or unexpected array [.constraints.cua0.'@']", path);
@@ -1279,8 +1220,8 @@ public class everything extends ModelChecker
         }
         return res;
     }
-    
-    
+
+
     // object .constraints
     public boolean _jm_obj_6(Object val, Path path, Report rep)
     {
@@ -1313,7 +1254,7 @@ public class everything extends ModelChecker
         }
         return true;
     }
-    
+
     // check _jm_obj_2_map_constraints (.constraints)
     public boolean _jm_f_9(Object val, Path path, Report rep)
     {
@@ -1326,11 +1267,11 @@ public class everything extends ModelChecker
         }
         return res;
     }
-    
-    
-    
-    
-    
+
+
+
+
+
     // object .enum
     public boolean _jm_obj_10(Object val, Path path, Report rep)
     {
@@ -1354,9 +1295,6 @@ public class everything extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("value not in enum [.enum.e0.'|']", (path != null ? lpath_7 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.enum.e0]", (path != null ? lpath_7 : null));
                     return false;
                 }
@@ -1369,9 +1307,6 @@ public class everything extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("value not in enum [.enum.e1.'|']", (path != null ? lpath_7 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.enum.e1]", (path != null ? lpath_7 : null));
                     return false;
                 }
@@ -1384,9 +1319,6 @@ public class everything extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("value not in enum [.enum.e2.'|']", (path != null ? lpath_7 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.enum.e2]", (path != null ? lpath_7 : null));
                     return false;
                 }
@@ -1399,9 +1331,6 @@ public class everything extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("value not in enum [.enum.e3.'|']", (path != null ? lpath_7 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.enum.e3]", (path != null ? lpath_7 : null));
                     return false;
                 }
@@ -1414,7 +1343,7 @@ public class everything extends ModelChecker
         }
         return true;
     }
-    
+
     // check _jm_obj_2_map_enum (.enum)
     public boolean _jm_f_35(Object val, Path path, Report rep)
     {
@@ -1428,7 +1357,7 @@ public class everything extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_11_map_f0 (.float.f0)
     public boolean _jm_f_37(Object val, Path path, Report rep)
     {
@@ -1441,7 +1370,7 @@ public class everything extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_11_map_f1 (.float.f1)
     public boolean _jm_f_38(Object val, Path path, Report rep)
     {
@@ -1454,7 +1383,7 @@ public class everything extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_11_map_f2 (.float.f2)
     public boolean _jm_f_39(Object val, Path path, Report rep)
     {
@@ -1467,7 +1396,7 @@ public class everything extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_11_map_f3 (.float.f3)
     public boolean _jm_f_40(Object val, Path path, Report rep)
     {
@@ -1480,7 +1409,7 @@ public class everything extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_11_map_f4 (.float.f4)
     public boolean _jm_f_41(Object val, Path path, Report rep)
     {
@@ -1493,7 +1422,7 @@ public class everything extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_11_map_f5 (.float.f5)
     public boolean _jm_f_42(Object val, Path path, Report rep)
     {
@@ -1506,7 +1435,7 @@ public class everything extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_11_map_f6 (.float.f6)
     public boolean _jm_f_43(Object val, Path path, Report rep)
     {
@@ -1519,7 +1448,7 @@ public class everything extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_11_map_f7 (.float.f7)
     public boolean _jm_f_44(Object val, Path path, Report rep)
     {
@@ -1532,7 +1461,7 @@ public class everything extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_11_map_f8 (.float.f8)
     public boolean _jm_f_45(Object val, Path path, Report rep)
     {
@@ -1545,8 +1474,8 @@ public class everything extends ModelChecker
         }
         return res;
     }
-    
-    
+
+
     // object .float
     public boolean _jm_obj_11(Object val, Path path, Report rep)
     {
@@ -1579,7 +1508,7 @@ public class everything extends ModelChecker
         }
         return true;
     }
-    
+
     // check _jm_obj_2_map_float (.float)
     public boolean _jm_f_36(Object val, Path path, Report rep)
     {
@@ -1593,7 +1522,7 @@ public class everything extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_12_map_i0 (.int.i0)
     public boolean _jm_f_47(Object val, Path path, Report rep)
     {
@@ -1606,7 +1535,7 @@ public class everything extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_12_map_i1 (.int.i1)
     public boolean _jm_f_48(Object val, Path path, Report rep)
     {
@@ -1619,7 +1548,7 @@ public class everything extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_12_map_i2 (.int.i2)
     public boolean _jm_f_49(Object val, Path path, Report rep)
     {
@@ -1632,7 +1561,7 @@ public class everything extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_12_map_i3 (.int.i3)
     public boolean _jm_f_50(Object val, Path path, Report rep)
     {
@@ -1645,7 +1574,7 @@ public class everything extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_12_map_i4 (.int.i4)
     public boolean _jm_f_51(Object val, Path path, Report rep)
     {
@@ -1658,7 +1587,7 @@ public class everything extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_12_map_i5 (.int.i5)
     public boolean _jm_f_52(Object val, Path path, Report rep)
     {
@@ -1671,7 +1600,7 @@ public class everything extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_12_map_i6 (.int.i6)
     public boolean _jm_f_53(Object val, Path path, Report rep)
     {
@@ -1684,7 +1613,7 @@ public class everything extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_12_map_i7 (.int.i7)
     public boolean _jm_f_54(Object val, Path path, Report rep)
     {
@@ -1697,7 +1626,7 @@ public class everything extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_12_map_i8 (.int.i8)
     public boolean _jm_f_55(Object val, Path path, Report rep)
     {
@@ -1710,7 +1639,7 @@ public class everything extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_12_map_i9 (.int.i9)
     public boolean _jm_f_56(Object val, Path path, Report rep)
     {
@@ -1723,7 +1652,7 @@ public class everything extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_12_map_ia (.int.ia)
     public boolean _jm_f_57(Object val, Path path, Report rep)
     {
@@ -1736,8 +1665,8 @@ public class everything extends ModelChecker
         }
         return res;
     }
-    
-    
+
+
     // object .int
     public boolean _jm_obj_12(Object val, Path path, Report rep)
     {
@@ -1770,7 +1699,7 @@ public class everything extends ModelChecker
         }
         return true;
     }
-    
+
     // check _jm_obj_2_map_int (.int)
     public boolean _jm_f_46(Object val, Path path, Report rep)
     {
@@ -1784,7 +1713,7 @@ public class everything extends ModelChecker
         }
         return res;
     }
-    
+
     // object .merge.m0
     public boolean _jm_obj_14(Object val, Path path, Report rep)
     {
@@ -1810,9 +1739,6 @@ public class everything extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not a 0 strict int [.merge.m0.a]", (path != null ? lpath_11 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.merge.m0.a]", (path != null ? lpath_11 : null));
                     return false;
                 }
@@ -1825,9 +1751,6 @@ public class everything extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not a 0 strict int [.merge.m0.b]", (path != null ? lpath_11 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.merge.m0.b]", (path != null ? lpath_11 : null));
                     return false;
                 }
@@ -1851,7 +1774,7 @@ public class everything extends ModelChecker
         }
         return true;
     }
-    
+
     // object .merge.m1.'|'.1
     public boolean _jm_obj_15(Object val, Path path, Report rep)
     {
@@ -1877,9 +1800,6 @@ public class everything extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not a 0 strict int [.merge.m1.'|'.1.a]", (path != null ? lpath_12 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.merge.m1.'|'.1.a]", (path != null ? lpath_12 : null));
                     return false;
                 }
@@ -1893,9 +1813,6 @@ public class everything extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not a 1 strict int [.merge.m1.'|'.1.c]", (path != null ? lpath_12 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.merge.m1.'|'.1.c]", (path != null ? lpath_12 : null));
                     return false;
                 }
@@ -1923,7 +1840,7 @@ public class everything extends ModelChecker
         }
         return true;
     }
-    
+
     // object .merge.m1.'|'.0
     public boolean _jm_obj_16(Object val, Path path, Report rep)
     {
@@ -1949,9 +1866,6 @@ public class everything extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not a 0 strict int [.merge.m1.'|'.0.a]", (path != null ? lpath_13 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.merge.m1.'|'.0.a]", (path != null ? lpath_13 : null));
                     return false;
                 }
@@ -1965,9 +1879,6 @@ public class everything extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not a 1 strict int [.merge.m1.'|'.0.b]", (path != null ? lpath_13 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.merge.m1.'|'.0.b]", (path != null ? lpath_13 : null));
                     return false;
                 }
@@ -1995,7 +1906,7 @@ public class everything extends ModelChecker
         }
         return true;
     }
-    
+
     // object .merge.m2.'|'.1
     public boolean _jm_obj_17(Object val, Path path, Report rep)
     {
@@ -2021,9 +1932,6 @@ public class everything extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not a 0 strict int [.merge.m2.'|'.1.a]", (path != null ? lpath_14 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.merge.m2.'|'.1.a]", (path != null ? lpath_14 : null));
                     return false;
                 }
@@ -2037,9 +1945,6 @@ public class everything extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not a 1 strict int [.merge.m2.'|'.1.c]", (path != null ? lpath_14 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.merge.m2.'|'.1.c]", (path != null ? lpath_14 : null));
                     return false;
                 }
@@ -2067,7 +1972,7 @@ public class everything extends ModelChecker
         }
         return true;
     }
-    
+
     // object .merge.m2.'|'.0
     public boolean _jm_obj_18(Object val, Path path, Report rep)
     {
@@ -2093,9 +1998,6 @@ public class everything extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not a 0 strict int [.merge.m2.'|'.0.a]", (path != null ? lpath_15 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.merge.m2.'|'.0.a]", (path != null ? lpath_15 : null));
                     return false;
                 }
@@ -2109,9 +2011,6 @@ public class everything extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not a 1 strict int [.merge.m2.'|'.0.b]", (path != null ? lpath_15 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.merge.m2.'|'.0.b]", (path != null ? lpath_15 : null));
                     return false;
                 }
@@ -2139,7 +2038,7 @@ public class everything extends ModelChecker
         }
         return true;
     }
-    
+
     // object .merge.m3.'|'.3
     public boolean _jm_obj_19(Object val, Path path, Report rep)
     {
@@ -2165,9 +2064,6 @@ public class everything extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not a 0 strict int [.merge.m3.'|'.3.b]", (path != null ? lpath_16 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.merge.m3.'|'.3.b]", (path != null ? lpath_16 : null));
                     return false;
                 }
@@ -2181,9 +2077,6 @@ public class everything extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not a 1 strict int [.merge.m3.'|'.3.d]", (path != null ? lpath_16 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.merge.m3.'|'.3.d]", (path != null ? lpath_16 : null));
                     return false;
                 }
@@ -2211,7 +2104,7 @@ public class everything extends ModelChecker
         }
         return true;
     }
-    
+
     // object .merge.m3.'|'.2
     public boolean _jm_obj_20(Object val, Path path, Report rep)
     {
@@ -2237,9 +2130,6 @@ public class everything extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not a 0 strict int [.merge.m3.'|'.2.b]", (path != null ? lpath_17 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.merge.m3.'|'.2.b]", (path != null ? lpath_17 : null));
                     return false;
                 }
@@ -2253,9 +2143,6 @@ public class everything extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not a 1 strict int [.merge.m3.'|'.2.c]", (path != null ? lpath_17 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.merge.m3.'|'.2.c]", (path != null ? lpath_17 : null));
                     return false;
                 }
@@ -2283,7 +2170,7 @@ public class everything extends ModelChecker
         }
         return true;
     }
-    
+
     // object .merge.m3.'|'.1
     public boolean _jm_obj_21(Object val, Path path, Report rep)
     {
@@ -2309,9 +2196,6 @@ public class everything extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not a 0 strict int [.merge.m3.'|'.1.a]", (path != null ? lpath_18 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.merge.m3.'|'.1.a]", (path != null ? lpath_18 : null));
                     return false;
                 }
@@ -2325,9 +2209,6 @@ public class everything extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not a 1 strict int [.merge.m3.'|'.1.d]", (path != null ? lpath_18 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.merge.m3.'|'.1.d]", (path != null ? lpath_18 : null));
                     return false;
                 }
@@ -2355,7 +2236,7 @@ public class everything extends ModelChecker
         }
         return true;
     }
-    
+
     // object .merge.m3.'|'.0
     public boolean _jm_obj_22(Object val, Path path, Report rep)
     {
@@ -2381,9 +2262,6 @@ public class everything extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not a 0 strict int [.merge.m3.'|'.0.a]", (path != null ? lpath_19 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.merge.m3.'|'.0.a]", (path != null ? lpath_19 : null));
                     return false;
                 }
@@ -2397,9 +2275,6 @@ public class everything extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not a 1 strict int [.merge.m3.'|'.0.c]", (path != null ? lpath_19 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.merge.m3.'|'.0.c]", (path != null ? lpath_19 : null));
                     return false;
                 }
@@ -2427,7 +2302,7 @@ public class everything extends ModelChecker
         }
         return true;
     }
-    
+
     // object .merge.m4
     public boolean _jm_obj_23(Object val, Path path, Report rep)
     {
@@ -2453,9 +2328,6 @@ public class everything extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not a 0 strict int [.merge.m4.a]", (path != null ? lpath_20 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.merge.m4.a]", (path != null ? lpath_20 : null));
                     return false;
                 }
@@ -2469,9 +2341,6 @@ public class everything extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not a 0 strict int [.merge.m4.b]", (path != null ? lpath_20 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.merge.m4.b]", (path != null ? lpath_20 : null));
                     return false;
                 }
@@ -2485,9 +2354,6 @@ public class everything extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not a 0 strict int [.merge.m4.c]", (path != null ? lpath_20 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.merge.m4.c]", (path != null ? lpath_20 : null));
                     return false;
                 }
@@ -2501,9 +2367,6 @@ public class everything extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not a 0 strict int [.merge.m4.d]", (path != null ? lpath_20 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.merge.m4.d]", (path != null ? lpath_20 : null));
                     return false;
                 }
@@ -2539,7 +2402,7 @@ public class everything extends ModelChecker
         }
         return true;
     }
-    
+
     // object .merge
     public boolean _jm_obj_13(Object val, Path path, Report rep)
     {
@@ -2563,9 +2426,6 @@ public class everything extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected element [.merge.m0]", (path != null ? lpath_10 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.merge.m0]", (path != null ? lpath_10 : null));
                     return false;
                 }
@@ -2719,9 +2579,6 @@ public class everything extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected element [.merge.m4]", (path != null ? lpath_10 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.merge.m4]", (path != null ? lpath_10 : null));
                     return false;
                 }
@@ -2734,7 +2591,7 @@ public class everything extends ModelChecker
         }
         return true;
     }
-    
+
     // check _jm_obj_2_map_merge (.merge)
     public boolean _jm_f_58(Object val, Path path, Report rep)
     {
@@ -2748,7 +2605,7 @@ public class everything extends ModelChecker
         }
         return res;
     }
-    
+
     // object .null
     public boolean _jm_obj_24(Object val, Path path, Report rep)
     {
@@ -2772,9 +2629,6 @@ public class everything extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not null [.null.n0]", (path != null ? lpath_21 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.null.n0]", (path != null ? lpath_21 : null));
                     return false;
                 }
@@ -2787,9 +2641,6 @@ public class everything extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected $NULL [.null.n1]", (path != null ? lpath_21 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.null.n1]", (path != null ? lpath_21 : null));
                     return false;
                 }
@@ -2802,9 +2653,6 @@ public class everything extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected =null [.null.n2]", (path != null ? lpath_21 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.null.n2]", (path != null ? lpath_21 : null));
                     return false;
                 }
@@ -2817,7 +2665,7 @@ public class everything extends ModelChecker
         }
         return true;
     }
-    
+
     // check _jm_obj_2_map_null (.null)
     public boolean _jm_f_59(Object val, Path path, Report rep)
     {
@@ -2831,7 +2679,7 @@ public class everything extends ModelChecker
         }
         return res;
     }
-    
+
     // object .object.o0
     public boolean _jm_obj_26(Object val, Path path, Report rep)
     {
@@ -2850,7 +2698,7 @@ public class everything extends ModelChecker
             return false;
         }
     }
-    
+
     // check _jm_obj_25_map_o0 (.object.o0)
     public boolean _jm_f_61(Object val, Path path, Report rep)
     {
@@ -2863,7 +2711,7 @@ public class everything extends ModelChecker
         }
         return res;
     }
-    
+
     // object .object.o1
     public boolean _jm_obj_27(Object val, Path path, Report rep)
     {
@@ -2889,9 +2737,6 @@ public class everything extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not a 0 strict int [.object.o1.a]", (path != null ? lpath_23 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.object.o1.a]", (path != null ? lpath_23 : null));
                     return false;
                 }
@@ -2905,9 +2750,6 @@ public class everything extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not a 0 strict int [.object.o1.b]", (path != null ? lpath_23 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.object.o1.b]", (path != null ? lpath_23 : null));
                     return false;
                 }
@@ -2921,9 +2763,6 @@ public class everything extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not a 0 strict int [.object.o1.c]", (path != null ? lpath_23 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.object.o1.c]", (path != null ? lpath_23 : null));
                     return false;
                 }
@@ -2955,7 +2794,7 @@ public class everything extends ModelChecker
         }
         return true;
     }
-    
+
     // check _jm_obj_25_map_o1 (.object.o1)
     public boolean _jm_f_62(Object val, Path path, Report rep)
     {
@@ -2968,7 +2807,7 @@ public class everything extends ModelChecker
         }
         return res;
     }
-    
+
     // object .object.o2
     public boolean _jm_obj_28(Object val, Path path, Report rep)
     {
@@ -2992,9 +2831,6 @@ public class everything extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not a 0 strict int [.object.o2.a]", (path != null ? lpath_24 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.object.o2.a]", (path != null ? lpath_24 : null));
                     return false;
                 }
@@ -3007,7 +2843,7 @@ public class everything extends ModelChecker
         }
         return true;
     }
-    
+
     // check _jm_obj_25_map_o2 (.object.o2)
     public boolean _jm_f_63(Object val, Path path, Report rep)
     {
@@ -3020,7 +2856,7 @@ public class everything extends ModelChecker
         }
         return res;
     }
-    
+
     // object .object.o3
     public boolean _jm_obj_29(Object val, Path path, Report rep)
     {
@@ -3044,9 +2880,6 @@ public class everything extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not a 0 strict int [.object.o3.'/^a/']", (path != null ? lpath_25 : null));
-                }
-                if (! res)
-                {
                     return false;
                 }
             }
@@ -3058,7 +2891,7 @@ public class everything extends ModelChecker
         }
         return true;
     }
-    
+
     // check _jm_obj_25_map_o3 (.object.o3)
     public boolean _jm_f_64(Object val, Path path, Report rep)
     {
@@ -3071,7 +2904,7 @@ public class everything extends ModelChecker
         }
         return res;
     }
-    
+
     // object .object.o4
     public boolean _jm_obj_30(Object val, Path path, Report rep)
     {
@@ -3095,9 +2928,6 @@ public class everything extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected string [.object.o4.'$DATE']", (path != null ? lpath_26 : null));
-                }
-                if (! res)
-                {
                     return false;
                 }
             }
@@ -3109,7 +2939,7 @@ public class everything extends ModelChecker
         }
         return true;
     }
-    
+
     // check _jm_obj_25_map_o4 (.object.o4)
     public boolean _jm_f_65(Object val, Path path, Report rep)
     {
@@ -3122,7 +2952,7 @@ public class everything extends ModelChecker
         }
         return res;
     }
-    
+
     // object .object.o5
     public boolean _jm_obj_31(Object val, Path path, Report rep)
     {
@@ -3144,15 +2974,12 @@ public class everything extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("not a 0 strict int [.object.o5.'']", (path != null ? lpath_27 : null));
-            }
-            if (! res)
-            {
                 return false;
             }
         }
         return true;
     }
-    
+
     // check _jm_obj_25_map_o5 (.object.o5)
     public boolean _jm_f_66(Object val, Path path, Report rep)
     {
@@ -3165,7 +2992,7 @@ public class everything extends ModelChecker
         }
         return res;
     }
-    
+
     // object .object.o6
     public boolean _jm_obj_32(Object val, Path path, Report rep)
     {
@@ -3177,7 +3004,7 @@ public class everything extends ModelChecker
         // accept any object
         return true;
     }
-    
+
     // check _jm_obj_25_map_o6 (.object.o6)
     public boolean _jm_f_67(Object val, Path path, Report rep)
     {
@@ -3190,8 +3017,8 @@ public class everything extends ModelChecker
         }
         return res;
     }
-    
-    
+
+
     // object .object
     public boolean _jm_obj_25(Object val, Path path, Report rep)
     {
@@ -3224,7 +3051,7 @@ public class everything extends ModelChecker
         }
         return true;
     }
-    
+
     // check _jm_obj_2_map_object (.object)
     public boolean _jm_f_60(Object val, Path path, Report rep)
     {
@@ -3238,7 +3065,7 @@ public class everything extends ModelChecker
         }
         return res;
     }
-    
+
     // object .or.o2.'|'.3
     public boolean _jm_obj_34(Object val, Path path, Report rep)
     {
@@ -3250,7 +3077,7 @@ public class everything extends ModelChecker
         // accept any object
         return true;
     }
-    
+
     // object .or
     public boolean _jm_obj_33(Object val, Path path, Report rep)
     {
@@ -3292,9 +3119,6 @@ public class everything extends ModelChecker
                 else
                 {
                     if (rep != null) rep.addEntry("no model matched [.or.o0.'|']", (path != null ? lpath_28 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.or.o0]", (path != null ? lpath_28 : null));
                     return false;
                 }
@@ -3325,9 +3149,6 @@ public class everything extends ModelChecker
                 else
                 {
                     if (rep != null) rep.addEntry("no model matched [.or.o1.'|']", (path != null ? lpath_28 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.or.o1]", (path != null ? lpath_28 : null));
                     return false;
                 }
@@ -3354,10 +3175,6 @@ public class everything extends ModelChecker
                     {
                         // .or.o2.'|'.2
                         res = json.isArray(pval);
-                        if (res)
-                        {
-                            // accept any array
-                        }
                         if (! res)
                         {
                             if (rep != null) rep.addEntry("not array or unexpected array [.or.o2.'|'.2]", (path != null ? lpath_28 : null));
@@ -3380,9 +3197,6 @@ public class everything extends ModelChecker
                 else
                 {
                     if (rep != null) rep.addEntry("no model matched [.or.o2.'|']", (path != null ? lpath_28 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.or.o2]", (path != null ? lpath_28 : null));
                     return false;
                 }
@@ -3395,7 +3209,7 @@ public class everything extends ModelChecker
         }
         return true;
     }
-    
+
     // check _jm_obj_2_map_or (.or)
     public boolean _jm_f_68(Object val, Path path, Report rep)
     {
@@ -3409,7 +3223,7 @@ public class everything extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_35_map_ANY (.predefs.ANY)
     public boolean _jm_f_70(Object val, Path path, Report rep)
     {
@@ -3422,7 +3236,7 @@ public class everything extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_35_map_BOOL (.predefs.BOOL)
     public boolean _jm_f_71(Object val, Path path, Report rep)
     {
@@ -3435,7 +3249,7 @@ public class everything extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_35_map_BOOLEAN (.predefs.BOOLEAN)
     public boolean _jm_f_72(Object val, Path path, Report rep)
     {
@@ -3448,7 +3262,7 @@ public class everything extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_35_map_DATE (.predefs.DATE)
     public boolean _jm_f_73(Object val, Path path, Report rep)
     {
@@ -3461,7 +3275,7 @@ public class everything extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_35_map_DATETIME (.predefs.DATETIME)
     public boolean _jm_f_74(Object val, Path path, Report rep)
     {
@@ -3474,7 +3288,7 @@ public class everything extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_35_map_EMAIL (.predefs.EMAIL)
     public boolean _jm_f_75(Object val, Path path, Report rep)
     {
@@ -3487,7 +3301,7 @@ public class everything extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_35_map_EXREG (.predefs.EXREG)
     public boolean _jm_f_76(Object val, Path path, Report rep)
     {
@@ -3500,7 +3314,7 @@ public class everything extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_35_map_F32 (.predefs.F32)
     public boolean _jm_f_77(Object val, Path path, Report rep)
     {
@@ -3513,7 +3327,7 @@ public class everything extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_35_map_F64 (.predefs.F64)
     public boolean _jm_f_78(Object val, Path path, Report rep)
     {
@@ -3526,7 +3340,7 @@ public class everything extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_35_map_FLOAT (.predefs.FLOAT)
     public boolean _jm_f_79(Object val, Path path, Report rep)
     {
@@ -3539,7 +3353,7 @@ public class everything extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_35_map_I32 (.predefs.I32)
     public boolean _jm_f_80(Object val, Path path, Report rep)
     {
@@ -3552,7 +3366,7 @@ public class everything extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_35_map_I64 (.predefs.I64)
     public boolean _jm_f_81(Object val, Path path, Report rep)
     {
@@ -3565,7 +3379,7 @@ public class everything extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_35_map_INT (.predefs.INT)
     public boolean _jm_f_82(Object val, Path path, Report rep)
     {
@@ -3578,7 +3392,7 @@ public class everything extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_35_map_INTEGER (.predefs.INTEGER)
     public boolean _jm_f_83(Object val, Path path, Report rep)
     {
@@ -3591,7 +3405,7 @@ public class everything extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_35_map_JSON (.predefs.JSON)
     public boolean _jm_f_84(Object val, Path path, Report rep)
     {
@@ -3604,7 +3418,7 @@ public class everything extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_35_map_NONE (.predefs.NONE)
     public boolean _jm_f_85(Object val, Path path, Report rep)
     {
@@ -3617,7 +3431,7 @@ public class everything extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_35_map_NULL (.predefs.NULL)
     public boolean _jm_f_86(Object val, Path path, Report rep)
     {
@@ -3630,7 +3444,7 @@ public class everything extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_35_map_NUMBER (.predefs.NUMBER)
     public boolean _jm_f_87(Object val, Path path, Report rep)
     {
@@ -3643,7 +3457,7 @@ public class everything extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_35_map_REGEX (.predefs.REGEX)
     public boolean _jm_f_88(Object val, Path path, Report rep)
     {
@@ -3656,7 +3470,7 @@ public class everything extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_35_map_STRING (.predefs.STRING)
     public boolean _jm_f_89(Object val, Path path, Report rep)
     {
@@ -3669,7 +3483,7 @@ public class everything extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_35_map_TIME (.predefs.TIME)
     public boolean _jm_f_90(Object val, Path path, Report rep)
     {
@@ -3682,7 +3496,7 @@ public class everything extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_35_map_U32 (.predefs.U32)
     public boolean _jm_f_91(Object val, Path path, Report rep)
     {
@@ -3695,7 +3509,7 @@ public class everything extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_35_map_U64 (.predefs.U64)
     public boolean _jm_f_92(Object val, Path path, Report rep)
     {
@@ -3708,7 +3522,7 @@ public class everything extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_35_map_URI (.predefs.URI)
     public boolean _jm_f_93(Object val, Path path, Report rep)
     {
@@ -3721,7 +3535,7 @@ public class everything extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_35_map_URL (.predefs.URL)
     public boolean _jm_f_94(Object val, Path path, Report rep)
     {
@@ -3734,7 +3548,7 @@ public class everything extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_35_map_UUID (.predefs.UUID)
     public boolean _jm_f_95(Object val, Path path, Report rep)
     {
@@ -3747,8 +3561,8 @@ public class everything extends ModelChecker
         }
         return res;
     }
-    
-    
+
+
     // object .predefs
     public boolean _jm_obj_35(Object val, Path path, Report rep)
     {
@@ -3781,7 +3595,7 @@ public class everything extends ModelChecker
         }
         return true;
     }
-    
+
     // check _jm_obj_2_map_predefs (.predefs)
     public boolean _jm_f_69(Object val, Path path, Report rep)
     {
@@ -3795,12 +3609,12 @@ public class everything extends ModelChecker
         }
         return res;
     }
-    
+
     public boolean _jm_re_0(String val, Path path, Report rep)
     {
         return _jm_re_0_pat.matcher(val).find();
     }
-    
+
     // object .string
     public boolean _jm_obj_36(Object val, Path path, Report rep)
     {
@@ -3824,9 +3638,6 @@ public class everything extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected string [.string.s0]", (path != null ? lpath_30 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.string.s0]", (path != null ? lpath_30 : null));
                     return false;
                 }
@@ -3839,9 +3650,6 @@ public class everything extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected $STRING [.string.s1]", (path != null ? lpath_30 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.string.s1]", (path != null ? lpath_30 : null));
                     return false;
                 }
@@ -3854,9 +3662,6 @@ public class everything extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected Susie [.string.s2]", (path != null ? lpath_30 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.string.s2]", (path != null ? lpath_30 : null));
                     return false;
                 }
@@ -3869,9 +3674,6 @@ public class everything extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected _Calvin [.string.s3]", (path != null ? lpath_30 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.string.s3]", (path != null ? lpath_30 : null));
                     return false;
                 }
@@ -3885,9 +3687,6 @@ public class everything extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected /^(Calvin|Susie)$/ [.string.s4]", (path != null ? lpath_30 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.string.s4]", (path != null ? lpath_30 : null));
                     return false;
                 }
@@ -3900,7 +3699,7 @@ public class everything extends ModelChecker
         }
         return true;
     }
-    
+
     // check _jm_obj_2_map_string (.string)
     public boolean _jm_f_96(Object val, Path path, Report rep)
     {
@@ -3914,7 +3713,7 @@ public class everything extends ModelChecker
         }
         return res;
     }
-    
+
     // object .tuple
     public boolean _jm_obj_37(Object val, Path path, Report rep)
     {
@@ -3938,9 +3737,6 @@ public class everything extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not array or unexpected array [.tuple.t0]", (path != null ? lpath_31 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.tuple.t0]", (path != null ? lpath_31 : null));
                     return false;
                 }
@@ -3965,9 +3761,6 @@ public class everything extends ModelChecker
                         if (! res)
                         {
                             if (rep != null) rep.addEntry("not a 0 strict int [.tuple.t1.'@'.0]", ((path != null ? lpath_31 : null) != null ? arr_7_lpath : null));
-                        }
-                        if (! res)
-                        {
                             break;
                         }
                     }
@@ -4019,9 +3812,6 @@ public class everything extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not array or unexpected array [.tuple.t2]", (path != null ? lpath_31 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.tuple.t2]", (path != null ? lpath_31 : null));
                     return false;
                 }
@@ -4064,9 +3854,6 @@ public class everything extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not array or unexpected array [.tuple.t3]", (path != null ? lpath_31 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.tuple.t3]", (path != null ? lpath_31 : null));
                     return false;
                 }
@@ -4101,9 +3888,6 @@ public class everything extends ModelChecker
                             if (! res)
                             {
                                 if (rep != null) rep.addEntry("not a 0 strict int [.tuple.t4.'@'.1]", ((path != null ? lpath_31 : null) != null ? lpath_34 : null));
-                            }
-                            if (! res)
-                            {
                                 break;
                             }
                         }
@@ -4136,7 +3920,7 @@ public class everything extends ModelChecker
         }
         return true;
     }
-    
+
     // check _jm_obj_2_map_tuple (.tuple)
     public boolean _jm_f_97(Object val, Path path, Report rep)
     {
@@ -4150,7 +3934,7 @@ public class everything extends ModelChecker
         }
         return res;
     }
-    
+
     // object .xor
     public boolean _jm_obj_38(Object val, Path path, Report rep)
     {
@@ -4192,9 +3976,6 @@ public class everything extends ModelChecker
                 else
                 {
                     if (rep != null) rep.addEntry("no model matched [.xor.x0.'|']", (path != null ? lpath_35 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.xor.x0]", (path != null ? lpath_35 : null));
                     return false;
                 }
@@ -4209,24 +3990,24 @@ public class everything extends ModelChecker
                 // .xor.x1.'^'.0
                 // "/^a/"
                 xr_0 = json.isString(pval) && json.asString(pval).startsWith("a");
-                if (! xr_0)
-                {
-                    if (rep != null) rep.addEntry("unexpected /^a/ [.xor.x1.'^'.0]", (path != null ? lpath_35 : null));
-                }
                 if (xr_0)
                 {
                     xc_0 += 1;
+                }
+                else
+                {
+                    if (rep != null) rep.addEntry("unexpected /^a/ [.xor.x1.'^'.0]", (path != null ? lpath_35 : null));
                 }
                 // .xor.x1.'^'.1
                 // "/z$/"
                 xr_0 = json.isString(pval) && json.asString(pval).endsWith("z");
-                if (! xr_0)
-                {
-                    if (rep != null) rep.addEntry("unexpected /z$/ [.xor.x1.'^'.1]", (path != null ? lpath_35 : null));
-                }
                 if (xr_0)
                 {
                     xc_0 += 1;
+                }
+                else
+                {
+                    if (rep != null) rep.addEntry("unexpected /z$/ [.xor.x1.'^'.1]", (path != null ? lpath_35 : null));
                 }
                 res = xc_0 == 1;
                 if (res)
@@ -4236,9 +4017,6 @@ public class everything extends ModelChecker
                 else
                 {
                     if (rep != null) rep.addEntry("not one model match [.xor.x1.'^']", (path != null ? lpath_35 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.xor.x1]", (path != null ? lpath_35 : null));
                     return false;
                 }
@@ -4252,23 +4030,23 @@ public class everything extends ModelChecker
                 boolean xr_1;
                 // .xor.x2.'^'.0
                 xr_1 = json.isInteger(pval);
-                if (! xr_1)
+                if (xr_1)
+                {
+                    xc_1 += 1;
+                }
+                else
                 {
                     if (rep != null) rep.addEntry("not a -1 strict int [.xor.x2.'^'.0]", (path != null ? lpath_35 : null));
                 }
-                if (xr_1)
-                {
-                    xc_1 += 1;
-                }
                 // .xor.x2.'^'.1
                 xr_1 = json.isInteger(pval) && json.asLong(pval) >= 0;
-                if (! xr_1)
-                {
-                    if (rep != null) rep.addEntry("not a 0 strict int [.xor.x2.'^'.1]", (path != null ? lpath_35 : null));
-                }
                 if (xr_1)
                 {
                     xc_1 += 1;
+                }
+                else
+                {
+                    if (rep != null) rep.addEntry("not a 0 strict int [.xor.x2.'^'.1]", (path != null ? lpath_35 : null));
                 }
                 res = xc_1 == 1;
                 if (res)
@@ -4278,9 +4056,6 @@ public class everything extends ModelChecker
                 else
                 {
                     if (rep != null) rep.addEntry("not one model match [.xor.x2.'^']", (path != null ? lpath_35 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.xor.x2]", (path != null ? lpath_35 : null));
                     return false;
                 }
@@ -4305,9 +4080,6 @@ public class everything extends ModelChecker
                 else
                 {
                     if (rep != null) rep.addEntry("not one model match [.xor.x3.'^']", (path != null ? lpath_35 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.xor.x3]", (path != null ? lpath_35 : null));
                     return false;
                 }
@@ -4320,7 +4092,7 @@ public class everything extends ModelChecker
         }
         return true;
     }
-    
+
     // check _jm_obj_2_map_xor (.xor)
     public boolean _jm_f_98(Object val, Path path, Report rep)
     {
@@ -4334,8 +4106,8 @@ public class everything extends ModelChecker
         }
         return res;
     }
-    
-    
+
+
     // object .
     public boolean _jm_obj_2(Object val, Path path, Report rep)
     {
@@ -4368,7 +4140,7 @@ public class everything extends ModelChecker
         }
         return true;
     }
-    
+
     // check $ (.)
     public boolean json_model_1(Object val, Path path, Report rep)
     {
@@ -4382,7 +4154,7 @@ public class everything extends ModelChecker
         }
         return res;
     }
-    
+
 
     public void init(JSON json)
     {

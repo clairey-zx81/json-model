@@ -31,7 +31,7 @@ public class over_01 extends ModelChecker
         }
         return res;
     }
-    
+
     // check $ (.)
     public boolean json_model_1(Object val, Path path, Report rep)
     {
@@ -44,7 +44,7 @@ public class over_01 extends ModelChecker
         }
         return res;
     }
-    
+
     // object .'$over#Foo'
     public boolean _jm_obj_0(Object val, Path path, Report rep)
     {
@@ -68,9 +68,6 @@ public class over_01 extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected _rewritten foo [.'$over#Foo'.foo]", (path != null ? lpath_0 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$over#Foo'.foo]", (path != null ? lpath_0 : null));
                     return false;
                 }
@@ -83,7 +80,7 @@ public class over_01 extends ModelChecker
         }
         return true;
     }
-    
+
     // check $over#Foo (.'$over#Foo')
     public boolean json_model_4(Object val, Path path, Report rep)
     {
@@ -96,7 +93,7 @@ public class over_01 extends ModelChecker
         }
         return res;
     }
-    
+
 
     public void init(JSON json)
     {

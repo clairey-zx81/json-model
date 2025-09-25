@@ -72,9 +72,6 @@ function _jm_obj_0(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected =false [.'|'.4.a]", (path ? lpath_0 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid mandatory prop value [.'|'.4.a]", (path ? lpath_0 : null)])
                 return false;
             }
@@ -121,9 +118,6 @@ function _jm_obj_1(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected =true [.'|'.3.a]", (path ? lpath_1 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid mandatory prop value [.'|'.3.a]", (path ? lpath_1 : null)])
                 return false;
             }
@@ -170,9 +164,6 @@ function _jm_obj_2(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected =1.0 [.'|'.2.a]", (path ? lpath_2 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid mandatory prop value [.'|'.2.a]", (path ? lpath_2 : null)])
                 return false;
             }
@@ -219,9 +210,6 @@ function _jm_obj_3(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected =10.0 [.'|'.1.a]", (path ? lpath_3 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid mandatory prop value [.'|'.1.a]", (path ? lpath_3 : null)])
                 return false;
             }
@@ -268,9 +256,6 @@ function _jm_obj_4(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected =null [.'|'.0.a]", (path ? lpath_4 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid mandatory prop value [.'|'.0.a]", (path ? lpath_4 : null)])
                 return false;
             }

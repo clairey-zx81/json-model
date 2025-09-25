@@ -20,11 +20,6 @@ sub json_model_1($$$)
     my $res;
     # .
     $res = jm_is_array($val);
-    if ($res)
-    {
-        # accept any array
-        ;
-    }
     return $res;
 }
 

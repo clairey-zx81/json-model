@@ -24,11 +24,6 @@ sub json_model_1($$$)
     $res = jm_is_array($val);
     if ($res)
     {
-        # accept any array
-        ;
-    }
-    if ($res)
-    {
         $res = jm_is_unique_array($val, $path, $rep);
     }
     return $res;

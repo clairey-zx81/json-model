@@ -97,7 +97,6 @@ def _jm_f_5(val: Jsonable, path: Path, rep: Report) -> bool:
                 res = isinstance(arr_0_item, str)
                 if not res:
                     rep is None or rep.append(("unexpected string [.'$schema'.disallow.'|'.1.0]", arr_0_lpath if path is not None else None))
-                if not res:
                     break
         if not res:
             rep is None or rep.append(("not array or unexpected array [.'$schema'.disallow.'|'.1]", path))
@@ -113,9 +112,6 @@ def _jm_f_6(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$schema'.enum
     # .'$schema'.enum.'@'
     res = isinstance(val, list)
-    if res:
-        # accept any array
-        pass
     if not res:
         rep is None or rep.append(("not array or unexpected array [.'$schema'.enum.'@']", path))
     if res:
@@ -143,7 +139,6 @@ def _jm_f_7(val: Jsonable, path: Path, rep: Report) -> bool:
                 res = json_model_3(arr_1_item, arr_1_lpath if path is not None else None, rep)
                 if not res:
                     rep is None or rep.append(("unexpected $Schema [.'$schema'.extends.'|'.1.0]", arr_1_lpath if path is not None else None))
-                if not res:
                     break
         if not res:
             rep is None or rep.append(("not array or unexpected array [.'$schema'.extends.'|'.1]", path))
@@ -189,7 +184,6 @@ def _jm_f_10(val: Jsonable, path: Path, rep: Report) -> bool:
                 res = json_model_3(arr_2_item, arr_2_lpath if path is not None else None, rep)
                 if not res:
                     rep is None or rep.append(("unexpected $Schema [.'$schema'.items.'|'.1.0]", arr_2_lpath if path is not None else None))
-                if not res:
                     break
         if not res:
             rep is None or rep.append(("not array or unexpected array [.'$schema'.items.'|'.1]", path))
@@ -312,7 +306,6 @@ def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
         res = json_model_3(pval, lpath_1 if path is not None else None, rep)
         if not res:
             rep is None or rep.append(("unexpected $Schema [.'$schema'.properties.'']", lpath_1 if path is not None else None))
-        if not res:
             return False
     return True
 
@@ -381,7 +374,6 @@ def _jm_f_25(val: Jsonable, path: Path, rep: Report) -> bool:
                     rep is None or rep.clear()
                 else:
                     rep is None or rep.append(("no model matched [.'$schema'.type.'|'.1.0.'|']", arr_3_lpath if path is not None else None))
-                if not res:
                     break
         if not res:
             rep is None or rep.append(("not array or unexpected array [.'$schema'.type.'|'.1]", path))
@@ -413,7 +405,6 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
             res = json_model_3(pval, lpath_0 if path is not None else None, rep)
             if not res:
                 rep is None or rep.append(("unexpected $Schema [.'$schema'.'']", lpath_0 if path is not None else None))
-            if not res:
                 return False
     return True
 

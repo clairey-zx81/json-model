@@ -31,7 +31,7 @@ public class opt_05 extends ModelChecker
         }
         return res;
     }
-    
+
 
     public void init(JSON json)
     {

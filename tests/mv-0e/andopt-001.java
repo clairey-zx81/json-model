@@ -53,7 +53,7 @@ public class andopt_001 extends ModelChecker
         }
         return res;
     }
-    
+
 
     public void init(JSON json)
     {

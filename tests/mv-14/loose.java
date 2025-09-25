@@ -44,9 +44,6 @@ public class loose extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not a 0 loose int [.li]", (path != null ? lpath_0 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.li]", (path != null ? lpath_0 : null));
                     return false;
                 }
@@ -70,7 +67,7 @@ public class loose extends ModelChecker
         }
         return true;
     }
-    
+
     // check $ (.)
     public boolean json_model_1(Object val, Path path, Report rep)
     {
@@ -84,7 +81,7 @@ public class loose extends ModelChecker
         }
         return res;
     }
-    
+
 
     public void init(JSON json)
     {

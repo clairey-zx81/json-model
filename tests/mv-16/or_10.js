@@ -33,9 +33,6 @@ function _jm_obj_0(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected string [.'|'.1.name]", (path ? lpath_0 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid mandatory prop value [.'|'.1.name]", (path ? lpath_0 : null)])
                 return false;
             }

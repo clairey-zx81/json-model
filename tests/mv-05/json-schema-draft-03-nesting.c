@@ -188,9 +188,6 @@ static INLINE bool _jm_obj_1(const json_t *val, jm_path_t *path, jm_report_t *re
                     if (! res)
                     {
                         if (rep) jm_report_add_entry(rep, "unexpected string [.'$schema'.dependencies.''.'|'.1.0]", ((path ? &lpath_1 : NULL) ? &arr_0_lpath : NULL));
-                    }
-                    if (! res)
-                    {
                         break;
                     }
                 }
@@ -216,9 +213,6 @@ static INLINE bool _jm_obj_1(const json_t *val, jm_path_t *path, jm_report_t *re
         else
         {
             if (rep) jm_report_add_entry(rep, "no model matched [.'$schema'.dependencies.''.'|']", (path ? &lpath_1 : NULL));
-        }
-        if (! res)
-        {
             return false;
         }
     }
@@ -302,10 +296,6 @@ static bool _jm_f_9(const json_t *val, jm_path_t *path, jm_report_t *rep)
     // .'$schema'.enum
     // .'$schema'.enum.'@'
     res = json_is_array(val);
-    if (res)
-    {
-        // accept any array
-    }
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "not array or unexpected array [.'$schema'.enum.'@']", path);
@@ -375,9 +365,6 @@ static bool _jm_f_12(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 if (! res)
                 {
                     if (rep) jm_report_add_entry(rep, "unexpected $Schema [.'$schema'.extends.'|'.1.0]", (path ? &arr_1_lpath : NULL));
-                }
-                if (! res)
-                {
                     break;
                 }
             }
@@ -452,9 +439,6 @@ static bool _jm_f_15(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 if (! res)
                 {
                     if (rep) jm_report_add_entry(rep, "unexpected $Schema [.'$schema'.items.'|'.1.0]", (path ? &arr_2_lpath : NULL));
-                }
-                if (! res)
-                {
                     break;
                 }
             }
@@ -586,9 +570,6 @@ static INLINE bool _jm_obj_2(const json_t *val, jm_path_t *path, jm_report_t *re
         if (! res)
         {
             if (rep) jm_report_add_entry(rep, "unexpected $Schema [.'$schema'.patternProperties.'']", (path ? &lpath_2 : NULL));
-        }
-        if (! res)
-        {
             return false;
         }
     }
@@ -628,9 +609,6 @@ static INLINE bool _jm_obj_3(const json_t *val, jm_path_t *path, jm_report_t *re
         if (! res)
         {
             if (rep) jm_report_add_entry(rep, "unexpected $Schema [.'$schema'.properties.'']", (path ? &lpath_3 : NULL));
-        }
-        if (! res)
-        {
             return false;
         }
     }
@@ -721,9 +699,6 @@ static bool _jm_f_27(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 else
                 {
                     if (rep) jm_report_add_entry(rep, "no model matched [.'$schema'.type.'|'.1.0.'|']", (path ? &arr_3_lpath : NULL));
-                }
-                if (! res)
-                {
                     break;
                 }
             }
@@ -794,9 +769,6 @@ static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *re
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected $Schema [.'$schema'.'']", (path ? &lpath_0 : NULL));
-            }
-            if (! res)
-            {
                 return false;
             }
         }
@@ -882,9 +854,6 @@ static bool json_model_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
             else
             {
                 if (rep) jm_report_add_entry(rep, "no model matched [.'$schema#distinctSchemaArray'.'@'.0.'|']", (path ? &arr_4_lpath : NULL));
-            }
-            if (! res)
-            {
                 break;
             }
         }

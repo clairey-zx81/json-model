@@ -31,7 +31,7 @@ public class eq_3p14 extends ModelChecker
         }
         return res;
     }
-    
+
 
     public void init(JSON json)
     {

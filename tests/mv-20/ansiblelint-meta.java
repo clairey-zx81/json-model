@@ -93,6 +93,7 @@ public class ansiblelint_meta extends ModelChecker
     Set<Object> _jm_cst_64_set;
     public Map<String, Checker> ansiblelint_meta_map_pmap;
 
+
     // object .'$AIXPlatformModel'
     public boolean _jm_obj_0(Object val, Path path, Report rep)
     {
@@ -116,9 +117,6 @@ public class ansiblelint_meta extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected _AIX [.'$AIXPlatformModel'.name]", (path != null ? lpath_0 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$AIXPlatformModel'.name]", (path != null ? lpath_0 : null));
                     return false;
                 }
@@ -142,9 +140,6 @@ public class ansiblelint_meta extends ModelChecker
                         if (! res)
                         {
                             if (rep != null) rep.addEntry("value not in enum [.'$AIXPlatformModel'.versions.0.'|']", ((path != null ? lpath_0 : null) != null ? arr_0_lpath : null));
-                        }
-                        if (! res)
-                        {
                             break;
                         }
                     }
@@ -152,9 +147,6 @@ public class ansiblelint_meta extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not array or unexpected array [.'$AIXPlatformModel'.versions]", (path != null ? lpath_0 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$AIXPlatformModel'.versions]", (path != null ? lpath_0 : null));
                     return false;
                 }
@@ -167,7 +159,7 @@ public class ansiblelint_meta extends ModelChecker
         }
         return true;
     }
-    
+
     // check $AIXPlatformModel (.'$AIXPlatformModel')
     public boolean json_model_2(Object val, Path path, Report rep)
     {
@@ -180,7 +172,7 @@ public class ansiblelint_meta extends ModelChecker
         }
         return res;
     }
-    
+
     // object .'$AlpinePlatformModel'
     public boolean _jm_obj_1(Object val, Path path, Report rep)
     {
@@ -204,9 +196,6 @@ public class ansiblelint_meta extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected _Alpine [.'$AlpinePlatformModel'.name]", (path != null ? lpath_1 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$AlpinePlatformModel'.name]", (path != null ? lpath_1 : null));
                     return false;
                 }
@@ -230,9 +219,6 @@ public class ansiblelint_meta extends ModelChecker
                         if (! res)
                         {
                             if (rep != null) rep.addEntry("unexpected all [.'$AlpinePlatformModel'.versions.0]", ((path != null ? lpath_1 : null) != null ? arr_1_lpath : null));
-                        }
-                        if (! res)
-                        {
                             break;
                         }
                     }
@@ -240,9 +226,6 @@ public class ansiblelint_meta extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not array or unexpected array [.'$AlpinePlatformModel'.versions]", (path != null ? lpath_1 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$AlpinePlatformModel'.versions]", (path != null ? lpath_1 : null));
                     return false;
                 }
@@ -255,7 +238,7 @@ public class ansiblelint_meta extends ModelChecker
         }
         return true;
     }
-    
+
     // check $AlpinePlatformModel (.'$AlpinePlatformModel')
     public boolean json_model_3(Object val, Path path, Report rep)
     {
@@ -268,8 +251,8 @@ public class ansiblelint_meta extends ModelChecker
         }
         return res;
     }
-    
-    
+
+
     // object .'$AmazonLinuxPlatformModel'
     public boolean _jm_obj_2(Object val, Path path, Report rep)
     {
@@ -293,9 +276,6 @@ public class ansiblelint_meta extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected _Amazon Linux [.'$AmazonLinuxPlatformModel'.name]", (path != null ? lpath_2 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$AmazonLinuxPlatformModel'.name]", (path != null ? lpath_2 : null));
                     return false;
                 }
@@ -319,9 +299,6 @@ public class ansiblelint_meta extends ModelChecker
                         if (! res)
                         {
                             if (rep != null) rep.addEntry("value not in enum [.'$AmazonLinuxPlatformModel'.versions.0.'|']", ((path != null ? lpath_2 : null) != null ? arr_2_lpath : null));
-                        }
-                        if (! res)
-                        {
                             break;
                         }
                     }
@@ -329,9 +306,6 @@ public class ansiblelint_meta extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not array or unexpected array [.'$AmazonLinuxPlatformModel'.versions]", (path != null ? lpath_2 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$AmazonLinuxPlatformModel'.versions]", (path != null ? lpath_2 : null));
                     return false;
                 }
@@ -344,7 +318,7 @@ public class ansiblelint_meta extends ModelChecker
         }
         return true;
     }
-    
+
     // check $AmazonLinuxPlatformModel (.'$AmazonLinuxPlatformModel')
     public boolean json_model_4(Object val, Path path, Report rep)
     {
@@ -357,8 +331,8 @@ public class ansiblelint_meta extends ModelChecker
         }
         return res;
     }
-    
-    
+
+
     // object .'$AmazonPlatformModel'
     public boolean _jm_obj_3(Object val, Path path, Report rep)
     {
@@ -382,9 +356,6 @@ public class ansiblelint_meta extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected _Amazon [.'$AmazonPlatformModel'.name]", (path != null ? lpath_3 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$AmazonPlatformModel'.name]", (path != null ? lpath_3 : null));
                     return false;
                 }
@@ -408,9 +379,6 @@ public class ansiblelint_meta extends ModelChecker
                         if (! res)
                         {
                             if (rep != null) rep.addEntry("value not in enum [.'$AmazonPlatformModel'.versions.0.'|']", ((path != null ? lpath_3 : null) != null ? arr_3_lpath : null));
-                        }
-                        if (! res)
-                        {
                             break;
                         }
                     }
@@ -418,9 +386,6 @@ public class ansiblelint_meta extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not array or unexpected array [.'$AmazonPlatformModel'.versions]", (path != null ? lpath_3 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$AmazonPlatformModel'.versions]", (path != null ? lpath_3 : null));
                     return false;
                 }
@@ -433,7 +398,7 @@ public class ansiblelint_meta extends ModelChecker
         }
         return true;
     }
-    
+
     // check $AmazonPlatformModel (.'$AmazonPlatformModel')
     public boolean json_model_5(Object val, Path path, Report rep)
     {
@@ -446,7 +411,7 @@ public class ansiblelint_meta extends ModelChecker
         }
         return res;
     }
-    
+
     // object .'$ArchLinuxPlatformModel'
     public boolean _jm_obj_4(Object val, Path path, Report rep)
     {
@@ -470,9 +435,6 @@ public class ansiblelint_meta extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected _ArchLinux [.'$ArchLinuxPlatformModel'.name]", (path != null ? lpath_4 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$ArchLinuxPlatformModel'.name]", (path != null ? lpath_4 : null));
                     return false;
                 }
@@ -496,9 +458,6 @@ public class ansiblelint_meta extends ModelChecker
                         if (! res)
                         {
                             if (rep != null) rep.addEntry("unexpected all [.'$ArchLinuxPlatformModel'.versions.0]", ((path != null ? lpath_4 : null) != null ? arr_4_lpath : null));
-                        }
-                        if (! res)
-                        {
                             break;
                         }
                     }
@@ -506,9 +465,6 @@ public class ansiblelint_meta extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not array or unexpected array [.'$ArchLinuxPlatformModel'.versions]", (path != null ? lpath_4 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$ArchLinuxPlatformModel'.versions]", (path != null ? lpath_4 : null));
                     return false;
                 }
@@ -521,7 +477,7 @@ public class ansiblelint_meta extends ModelChecker
         }
         return true;
     }
-    
+
     // check $ArchLinuxPlatformModel (.'$ArchLinuxPlatformModel')
     public boolean json_model_6(Object val, Path path, Report rep)
     {
@@ -534,8 +490,8 @@ public class ansiblelint_meta extends ModelChecker
         }
         return res;
     }
-    
-    
+
+
     // object .'$AstraLinuxPlatformModel'
     public boolean _jm_obj_5(Object val, Path path, Report rep)
     {
@@ -559,9 +515,6 @@ public class ansiblelint_meta extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected _Astra Linux [.'$AstraLinuxPlatformModel'.name]", (path != null ? lpath_5 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$AstraLinuxPlatformModel'.name]", (path != null ? lpath_5 : null));
                     return false;
                 }
@@ -585,9 +538,6 @@ public class ansiblelint_meta extends ModelChecker
                         if (! res)
                         {
                             if (rep != null) rep.addEntry("value not in enum [.'$AstraLinuxPlatformModel'.versions.0.'|']", ((path != null ? lpath_5 : null) != null ? arr_5_lpath : null));
-                        }
-                        if (! res)
-                        {
                             break;
                         }
                     }
@@ -595,9 +545,6 @@ public class ansiblelint_meta extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not array or unexpected array [.'$AstraLinuxPlatformModel'.versions]", (path != null ? lpath_5 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$AstraLinuxPlatformModel'.versions]", (path != null ? lpath_5 : null));
                     return false;
                 }
@@ -610,7 +557,7 @@ public class ansiblelint_meta extends ModelChecker
         }
         return true;
     }
-    
+
     // check $AstraLinuxPlatformModel (.'$AstraLinuxPlatformModel')
     public boolean json_model_7(Object val, Path path, Report rep)
     {
@@ -623,7 +570,7 @@ public class ansiblelint_meta extends ModelChecker
         }
         return res;
     }
-    
+
     // object .'$ClearLinuxPlatformModel'
     public boolean _jm_obj_6(Object val, Path path, Report rep)
     {
@@ -647,9 +594,6 @@ public class ansiblelint_meta extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected _ClearLinux [.'$ClearLinuxPlatformModel'.name]", (path != null ? lpath_6 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$ClearLinuxPlatformModel'.name]", (path != null ? lpath_6 : null));
                     return false;
                 }
@@ -673,9 +617,6 @@ public class ansiblelint_meta extends ModelChecker
                         if (! res)
                         {
                             if (rep != null) rep.addEntry("unexpected all [.'$ClearLinuxPlatformModel'.versions.0]", ((path != null ? lpath_6 : null) != null ? arr_6_lpath : null));
-                        }
-                        if (! res)
-                        {
                             break;
                         }
                     }
@@ -683,9 +624,6 @@ public class ansiblelint_meta extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not array or unexpected array [.'$ClearLinuxPlatformModel'.versions]", (path != null ? lpath_6 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$ClearLinuxPlatformModel'.versions]", (path != null ? lpath_6 : null));
                     return false;
                 }
@@ -698,7 +636,7 @@ public class ansiblelint_meta extends ModelChecker
         }
         return true;
     }
-    
+
     // check $ClearLinuxPlatformModel (.'$ClearLinuxPlatformModel')
     public boolean json_model_8(Object val, Path path, Report rep)
     {
@@ -711,8 +649,8 @@ public class ansiblelint_meta extends ModelChecker
         }
         return res;
     }
-    
-    
+
+
     // object .'$CumulusPlatformModel'
     public boolean _jm_obj_7(Object val, Path path, Report rep)
     {
@@ -736,9 +674,6 @@ public class ansiblelint_meta extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected _Cumulus [.'$CumulusPlatformModel'.name]", (path != null ? lpath_7 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$CumulusPlatformModel'.name]", (path != null ? lpath_7 : null));
                     return false;
                 }
@@ -762,9 +697,6 @@ public class ansiblelint_meta extends ModelChecker
                         if (! res)
                         {
                             if (rep != null) rep.addEntry("value not in enum [.'$CumulusPlatformModel'.versions.0.'|']", ((path != null ? lpath_7 : null) != null ? arr_7_lpath : null));
-                        }
-                        if (! res)
-                        {
                             break;
                         }
                     }
@@ -772,9 +704,6 @@ public class ansiblelint_meta extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not array or unexpected array [.'$CumulusPlatformModel'.versions]", (path != null ? lpath_7 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$CumulusPlatformModel'.versions]", (path != null ? lpath_7 : null));
                     return false;
                 }
@@ -787,7 +716,7 @@ public class ansiblelint_meta extends ModelChecker
         }
         return true;
     }
-    
+
     // check $CumulusPlatformModel (.'$CumulusPlatformModel')
     public boolean json_model_9(Object val, Path path, Report rep)
     {
@@ -800,8 +729,8 @@ public class ansiblelint_meta extends ModelChecker
         }
         return res;
     }
-    
-    
+
+
     // object .'$DebianPlatformModel'
     public boolean _jm_obj_8(Object val, Path path, Report rep)
     {
@@ -825,9 +754,6 @@ public class ansiblelint_meta extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected _Debian [.'$DebianPlatformModel'.name]", (path != null ? lpath_8 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$DebianPlatformModel'.name]", (path != null ? lpath_8 : null));
                     return false;
                 }
@@ -851,9 +777,6 @@ public class ansiblelint_meta extends ModelChecker
                         if (! res)
                         {
                             if (rep != null) rep.addEntry("value not in enum [.'$DebianPlatformModel'.versions.0.'|']", ((path != null ? lpath_8 : null) != null ? arr_8_lpath : null));
-                        }
-                        if (! res)
-                        {
                             break;
                         }
                     }
@@ -861,9 +784,6 @@ public class ansiblelint_meta extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not array or unexpected array [.'$DebianPlatformModel'.versions]", (path != null ? lpath_8 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$DebianPlatformModel'.versions]", (path != null ? lpath_8 : null));
                     return false;
                 }
@@ -876,7 +796,7 @@ public class ansiblelint_meta extends ModelChecker
         }
         return true;
     }
-    
+
     // check $DebianPlatformModel (.'$DebianPlatformModel')
     public boolean json_model_10(Object val, Path path, Report rep)
     {
@@ -889,8 +809,8 @@ public class ansiblelint_meta extends ModelChecker
         }
         return res;
     }
-    
-    
+
+
     // object .'$DellOSPlatformModel'
     public boolean _jm_obj_9(Object val, Path path, Report rep)
     {
@@ -914,9 +834,6 @@ public class ansiblelint_meta extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected _DellOS [.'$DellOSPlatformModel'.name]", (path != null ? lpath_9 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$DellOSPlatformModel'.name]", (path != null ? lpath_9 : null));
                     return false;
                 }
@@ -940,9 +857,6 @@ public class ansiblelint_meta extends ModelChecker
                         if (! res)
                         {
                             if (rep != null) rep.addEntry("value not in enum [.'$DellOSPlatformModel'.versions.0.'|']", ((path != null ? lpath_9 : null) != null ? arr_9_lpath : null));
-                        }
-                        if (! res)
-                        {
                             break;
                         }
                     }
@@ -950,9 +864,6 @@ public class ansiblelint_meta extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not array or unexpected array [.'$DellOSPlatformModel'.versions]", (path != null ? lpath_9 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$DellOSPlatformModel'.versions]", (path != null ? lpath_9 : null));
                     return false;
                 }
@@ -965,7 +876,7 @@ public class ansiblelint_meta extends ModelChecker
         }
         return true;
     }
-    
+
     // check $DellOSPlatformModel (.'$DellOSPlatformModel')
     public boolean json_model_11(Object val, Path path, Report rep)
     {
@@ -978,8 +889,8 @@ public class ansiblelint_meta extends ModelChecker
         }
         return res;
     }
-    
-    
+
+
     // object .'$DevuanPlatformModel'
     public boolean _jm_obj_10(Object val, Path path, Report rep)
     {
@@ -1003,9 +914,6 @@ public class ansiblelint_meta extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected _Devuan [.'$DevuanPlatformModel'.name]", (path != null ? lpath_10 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$DevuanPlatformModel'.name]", (path != null ? lpath_10 : null));
                     return false;
                 }
@@ -1029,9 +937,6 @@ public class ansiblelint_meta extends ModelChecker
                         if (! res)
                         {
                             if (rep != null) rep.addEntry("value not in enum [.'$DevuanPlatformModel'.versions.0.'|']", ((path != null ? lpath_10 : null) != null ? arr_10_lpath : null));
-                        }
-                        if (! res)
-                        {
                             break;
                         }
                     }
@@ -1039,9 +944,6 @@ public class ansiblelint_meta extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not array or unexpected array [.'$DevuanPlatformModel'.versions]", (path != null ? lpath_10 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$DevuanPlatformModel'.versions]", (path != null ? lpath_10 : null));
                     return false;
                 }
@@ -1054,7 +956,7 @@ public class ansiblelint_meta extends ModelChecker
         }
         return true;
     }
-    
+
     // check $DevuanPlatformModel (.'$DevuanPlatformModel')
     public boolean json_model_12(Object val, Path path, Report rep)
     {
@@ -1067,8 +969,8 @@ public class ansiblelint_meta extends ModelChecker
         }
         return res;
     }
-    
-    
+
+
     // object .'$DragonFlyBSDPlatformModel'
     public boolean _jm_obj_11(Object val, Path path, Report rep)
     {
@@ -1092,9 +994,6 @@ public class ansiblelint_meta extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected _DragonFlyBSD [.'$DragonFlyBSDPlatformModel'.name]", (path != null ? lpath_11 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$DragonFlyBSDPlatformModel'.name]", (path != null ? lpath_11 : null));
                     return false;
                 }
@@ -1118,9 +1017,6 @@ public class ansiblelint_meta extends ModelChecker
                         if (! res)
                         {
                             if (rep != null) rep.addEntry("value not in enum [.'$DragonFlyBSDPlatformModel'.versions.0.'|']", ((path != null ? lpath_11 : null) != null ? arr_11_lpath : null));
-                        }
-                        if (! res)
-                        {
                             break;
                         }
                     }
@@ -1128,9 +1024,6 @@ public class ansiblelint_meta extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not array or unexpected array [.'$DragonFlyBSDPlatformModel'.versions]", (path != null ? lpath_11 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$DragonFlyBSDPlatformModel'.versions]", (path != null ? lpath_11 : null));
                     return false;
                 }
@@ -1143,7 +1036,7 @@ public class ansiblelint_meta extends ModelChecker
         }
         return true;
     }
-    
+
     // check $DragonFlyBSDPlatformModel (.'$DragonFlyBSDPlatformModel')
     public boolean json_model_13(Object val, Path path, Report rep)
     {
@@ -1156,8 +1049,8 @@ public class ansiblelint_meta extends ModelChecker
         }
         return res;
     }
-    
-    
+
+
     // object .'$ELPlatformModel'
     public boolean _jm_obj_12(Object val, Path path, Report rep)
     {
@@ -1181,9 +1074,6 @@ public class ansiblelint_meta extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected _EL [.'$ELPlatformModel'.name]", (path != null ? lpath_12 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$ELPlatformModel'.name]", (path != null ? lpath_12 : null));
                     return false;
                 }
@@ -1207,9 +1097,6 @@ public class ansiblelint_meta extends ModelChecker
                         if (! res)
                         {
                             if (rep != null) rep.addEntry("value not in enum [.'$ELPlatformModel'.versions.0.'|']", ((path != null ? lpath_12 : null) != null ? arr_12_lpath : null));
-                        }
-                        if (! res)
-                        {
                             break;
                         }
                     }
@@ -1217,9 +1104,6 @@ public class ansiblelint_meta extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not array or unexpected array [.'$ELPlatformModel'.versions]", (path != null ? lpath_12 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$ELPlatformModel'.versions]", (path != null ? lpath_12 : null));
                     return false;
                 }
@@ -1232,7 +1116,7 @@ public class ansiblelint_meta extends ModelChecker
         }
         return true;
     }
-    
+
     // check $ELPlatformModel (.'$ELPlatformModel')
     public boolean json_model_14(Object val, Path path, Report rep)
     {
@@ -1245,8 +1129,8 @@ public class ansiblelint_meta extends ModelChecker
         }
         return res;
     }
-    
-    
+
+
     // object .'$FedoraPlatformModel'
     public boolean _jm_obj_13(Object val, Path path, Report rep)
     {
@@ -1270,9 +1154,6 @@ public class ansiblelint_meta extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected _Fedora [.'$FedoraPlatformModel'.name]", (path != null ? lpath_13 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$FedoraPlatformModel'.name]", (path != null ? lpath_13 : null));
                     return false;
                 }
@@ -1296,9 +1177,6 @@ public class ansiblelint_meta extends ModelChecker
                         if (! res)
                         {
                             if (rep != null) rep.addEntry("value not in enum [.'$FedoraPlatformModel'.versions.0.'|']", ((path != null ? lpath_13 : null) != null ? arr_13_lpath : null));
-                        }
-                        if (! res)
-                        {
                             break;
                         }
                     }
@@ -1306,9 +1184,6 @@ public class ansiblelint_meta extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not array or unexpected array [.'$FedoraPlatformModel'.versions]", (path != null ? lpath_13 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$FedoraPlatformModel'.versions]", (path != null ? lpath_13 : null));
                     return false;
                 }
@@ -1321,7 +1196,7 @@ public class ansiblelint_meta extends ModelChecker
         }
         return true;
     }
-    
+
     // check $FedoraPlatformModel (.'$FedoraPlatformModel')
     public boolean json_model_15(Object val, Path path, Report rep)
     {
@@ -1334,8 +1209,8 @@ public class ansiblelint_meta extends ModelChecker
         }
         return res;
     }
-    
-    
+
+
     // object .'$FreeBSDPlatformModel'
     public boolean _jm_obj_14(Object val, Path path, Report rep)
     {
@@ -1359,9 +1234,6 @@ public class ansiblelint_meta extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected _FreeBSD [.'$FreeBSDPlatformModel'.name]", (path != null ? lpath_14 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$FreeBSDPlatformModel'.name]", (path != null ? lpath_14 : null));
                     return false;
                 }
@@ -1385,9 +1257,6 @@ public class ansiblelint_meta extends ModelChecker
                         if (! res)
                         {
                             if (rep != null) rep.addEntry("value not in enum [.'$FreeBSDPlatformModel'.versions.0.'|']", ((path != null ? lpath_14 : null) != null ? arr_14_lpath : null));
-                        }
-                        if (! res)
-                        {
                             break;
                         }
                     }
@@ -1395,9 +1264,6 @@ public class ansiblelint_meta extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not array or unexpected array [.'$FreeBSDPlatformModel'.versions]", (path != null ? lpath_14 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$FreeBSDPlatformModel'.versions]", (path != null ? lpath_14 : null));
                     return false;
                 }
@@ -1410,7 +1276,7 @@ public class ansiblelint_meta extends ModelChecker
         }
         return true;
     }
-    
+
     // check $FreeBSDPlatformModel (.'$FreeBSDPlatformModel')
     public boolean json_model_16(Object val, Path path, Report rep)
     {
@@ -1423,7 +1289,7 @@ public class ansiblelint_meta extends ModelChecker
         }
         return res;
     }
-    
+
     // object .'$GenericBSDPlatformModel'
     public boolean _jm_obj_15(Object val, Path path, Report rep)
     {
@@ -1447,9 +1313,6 @@ public class ansiblelint_meta extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected _GenericBSD [.'$GenericBSDPlatformModel'.name]", (path != null ? lpath_15 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$GenericBSDPlatformModel'.name]", (path != null ? lpath_15 : null));
                     return false;
                 }
@@ -1473,9 +1336,6 @@ public class ansiblelint_meta extends ModelChecker
                         if (! res)
                         {
                             if (rep != null) rep.addEntry("unexpected all [.'$GenericBSDPlatformModel'.versions.0]", ((path != null ? lpath_15 : null) != null ? arr_15_lpath : null));
-                        }
-                        if (! res)
-                        {
                             break;
                         }
                     }
@@ -1483,9 +1343,6 @@ public class ansiblelint_meta extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not array or unexpected array [.'$GenericBSDPlatformModel'.versions]", (path != null ? lpath_15 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$GenericBSDPlatformModel'.versions]", (path != null ? lpath_15 : null));
                     return false;
                 }
@@ -1498,7 +1355,7 @@ public class ansiblelint_meta extends ModelChecker
         }
         return true;
     }
-    
+
     // check $GenericBSDPlatformModel (.'$GenericBSDPlatformModel')
     public boolean json_model_17(Object val, Path path, Report rep)
     {
@@ -1511,7 +1368,7 @@ public class ansiblelint_meta extends ModelChecker
         }
         return res;
     }
-    
+
     // object .'$GenericLinuxPlatformModel'
     public boolean _jm_obj_16(Object val, Path path, Report rep)
     {
@@ -1535,9 +1392,6 @@ public class ansiblelint_meta extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected _GenericLinux [.'$GenericLinuxPlatformModel'.name]", (path != null ? lpath_16 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$GenericLinuxPlatformModel'.name]", (path != null ? lpath_16 : null));
                     return false;
                 }
@@ -1561,9 +1415,6 @@ public class ansiblelint_meta extends ModelChecker
                         if (! res)
                         {
                             if (rep != null) rep.addEntry("unexpected all [.'$GenericLinuxPlatformModel'.versions.0]", ((path != null ? lpath_16 : null) != null ? arr_16_lpath : null));
-                        }
-                        if (! res)
-                        {
                             break;
                         }
                     }
@@ -1571,9 +1422,6 @@ public class ansiblelint_meta extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not array or unexpected array [.'$GenericLinuxPlatformModel'.versions]", (path != null ? lpath_16 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$GenericLinuxPlatformModel'.versions]", (path != null ? lpath_16 : null));
                     return false;
                 }
@@ -1586,7 +1434,7 @@ public class ansiblelint_meta extends ModelChecker
         }
         return true;
     }
-    
+
     // check $GenericLinuxPlatformModel (.'$GenericLinuxPlatformModel')
     public boolean json_model_18(Object val, Path path, Report rep)
     {
@@ -1599,7 +1447,7 @@ public class ansiblelint_meta extends ModelChecker
         }
         return res;
     }
-    
+
     // object .'$GenericUNIXPlatformModel'
     public boolean _jm_obj_17(Object val, Path path, Report rep)
     {
@@ -1623,9 +1471,6 @@ public class ansiblelint_meta extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected _GenericUNIX [.'$GenericUNIXPlatformModel'.name]", (path != null ? lpath_17 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$GenericUNIXPlatformModel'.name]", (path != null ? lpath_17 : null));
                     return false;
                 }
@@ -1649,9 +1494,6 @@ public class ansiblelint_meta extends ModelChecker
                         if (! res)
                         {
                             if (rep != null) rep.addEntry("unexpected all [.'$GenericUNIXPlatformModel'.versions.0]", ((path != null ? lpath_17 : null) != null ? arr_17_lpath : null));
-                        }
-                        if (! res)
-                        {
                             break;
                         }
                     }
@@ -1659,9 +1501,6 @@ public class ansiblelint_meta extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not array or unexpected array [.'$GenericUNIXPlatformModel'.versions]", (path != null ? lpath_17 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$GenericUNIXPlatformModel'.versions]", (path != null ? lpath_17 : null));
                     return false;
                 }
@@ -1674,7 +1513,7 @@ public class ansiblelint_meta extends ModelChecker
         }
         return true;
     }
-    
+
     // check $GenericUNIXPlatformModel (.'$GenericUNIXPlatformModel')
     public boolean json_model_19(Object val, Path path, Report rep)
     {
@@ -1687,7 +1526,7 @@ public class ansiblelint_meta extends ModelChecker
         }
         return res;
     }
-    
+
     // object .'$GentooPlatformModel'
     public boolean _jm_obj_18(Object val, Path path, Report rep)
     {
@@ -1711,9 +1550,6 @@ public class ansiblelint_meta extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected _Gentoo [.'$GentooPlatformModel'.name]", (path != null ? lpath_18 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$GentooPlatformModel'.name]", (path != null ? lpath_18 : null));
                     return false;
                 }
@@ -1737,9 +1573,6 @@ public class ansiblelint_meta extends ModelChecker
                         if (! res)
                         {
                             if (rep != null) rep.addEntry("unexpected all [.'$GentooPlatformModel'.versions.0]", ((path != null ? lpath_18 : null) != null ? arr_18_lpath : null));
-                        }
-                        if (! res)
-                        {
                             break;
                         }
                     }
@@ -1747,9 +1580,6 @@ public class ansiblelint_meta extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not array or unexpected array [.'$GentooPlatformModel'.versions]", (path != null ? lpath_18 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$GentooPlatformModel'.versions]", (path != null ? lpath_18 : null));
                     return false;
                 }
@@ -1762,7 +1592,7 @@ public class ansiblelint_meta extends ModelChecker
         }
         return true;
     }
-    
+
     // check $GentooPlatformModel (.'$GentooPlatformModel')
     public boolean json_model_20(Object val, Path path, Report rep)
     {
@@ -1775,8 +1605,8 @@ public class ansiblelint_meta extends ModelChecker
         }
         return res;
     }
-    
-    
+
+
     // object .'$HardenedBSDPlatformModel'
     public boolean _jm_obj_19(Object val, Path path, Report rep)
     {
@@ -1800,9 +1630,6 @@ public class ansiblelint_meta extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected _HardenedBSD [.'$HardenedBSDPlatformModel'.name]", (path != null ? lpath_19 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$HardenedBSDPlatformModel'.name]", (path != null ? lpath_19 : null));
                     return false;
                 }
@@ -1826,9 +1653,6 @@ public class ansiblelint_meta extends ModelChecker
                         if (! res)
                         {
                             if (rep != null) rep.addEntry("value not in enum [.'$HardenedBSDPlatformModel'.versions.0.'|']", ((path != null ? lpath_19 : null) != null ? arr_19_lpath : null));
-                        }
-                        if (! res)
-                        {
                             break;
                         }
                     }
@@ -1836,9 +1660,6 @@ public class ansiblelint_meta extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not array or unexpected array [.'$HardenedBSDPlatformModel'.versions]", (path != null ? lpath_19 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$HardenedBSDPlatformModel'.versions]", (path != null ? lpath_19 : null));
                     return false;
                 }
@@ -1851,7 +1672,7 @@ public class ansiblelint_meta extends ModelChecker
         }
         return true;
     }
-    
+
     // check $HardenedBSDPlatformModel (.'$HardenedBSDPlatformModel')
     public boolean json_model_21(Object val, Path path, Report rep)
     {
@@ -1864,7 +1685,7 @@ public class ansiblelint_meta extends ModelChecker
         }
         return res;
     }
-    
+
     // object .'$IOSPlatformModel'
     public boolean _jm_obj_20(Object val, Path path, Report rep)
     {
@@ -1888,9 +1709,6 @@ public class ansiblelint_meta extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected _IOS [.'$IOSPlatformModel'.name]", (path != null ? lpath_20 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$IOSPlatformModel'.name]", (path != null ? lpath_20 : null));
                     return false;
                 }
@@ -1914,9 +1732,6 @@ public class ansiblelint_meta extends ModelChecker
                         if (! res)
                         {
                             if (rep != null) rep.addEntry("unexpected all [.'$IOSPlatformModel'.versions.0]", ((path != null ? lpath_20 : null) != null ? arr_20_lpath : null));
-                        }
-                        if (! res)
-                        {
                             break;
                         }
                     }
@@ -1924,9 +1739,6 @@ public class ansiblelint_meta extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not array or unexpected array [.'$IOSPlatformModel'.versions]", (path != null ? lpath_20 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$IOSPlatformModel'.versions]", (path != null ? lpath_20 : null));
                     return false;
                 }
@@ -1939,7 +1751,7 @@ public class ansiblelint_meta extends ModelChecker
         }
         return true;
     }
-    
+
     // check $IOSPlatformModel (.'$IOSPlatformModel')
     public boolean json_model_22(Object val, Path path, Report rep)
     {
@@ -1952,7 +1764,7 @@ public class ansiblelint_meta extends ModelChecker
         }
         return res;
     }
-    
+
     // object .'$JunosPlatformModel'
     public boolean _jm_obj_21(Object val, Path path, Report rep)
     {
@@ -1976,9 +1788,6 @@ public class ansiblelint_meta extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected _Junos [.'$JunosPlatformModel'.name]", (path != null ? lpath_21 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$JunosPlatformModel'.name]", (path != null ? lpath_21 : null));
                     return false;
                 }
@@ -2002,9 +1811,6 @@ public class ansiblelint_meta extends ModelChecker
                         if (! res)
                         {
                             if (rep != null) rep.addEntry("unexpected all [.'$JunosPlatformModel'.versions.0]", ((path != null ? lpath_21 : null) != null ? arr_21_lpath : null));
-                        }
-                        if (! res)
-                        {
                             break;
                         }
                     }
@@ -2012,9 +1818,6 @@ public class ansiblelint_meta extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not array or unexpected array [.'$JunosPlatformModel'.versions]", (path != null ? lpath_21 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$JunosPlatformModel'.versions]", (path != null ? lpath_21 : null));
                     return false;
                 }
@@ -2027,7 +1830,7 @@ public class ansiblelint_meta extends ModelChecker
         }
         return true;
     }
-    
+
     // check $JunosPlatformModel (.'$JunosPlatformModel')
     public boolean json_model_23(Object val, Path path, Report rep)
     {
@@ -2040,8 +1843,8 @@ public class ansiblelint_meta extends ModelChecker
         }
         return res;
     }
-    
-    
+
+
     // object .'$KaliPlatformModel'
     public boolean _jm_obj_22(Object val, Path path, Report rep)
     {
@@ -2065,9 +1868,6 @@ public class ansiblelint_meta extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected _Kali [.'$KaliPlatformModel'.name]", (path != null ? lpath_22 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$KaliPlatformModel'.name]", (path != null ? lpath_22 : null));
                     return false;
                 }
@@ -2091,9 +1891,6 @@ public class ansiblelint_meta extends ModelChecker
                         if (! res)
                         {
                             if (rep != null) rep.addEntry("value not in enum [.'$KaliPlatformModel'.versions.0.'|']", ((path != null ? lpath_22 : null) != null ? arr_22_lpath : null));
-                        }
-                        if (! res)
-                        {
                             break;
                         }
                     }
@@ -2101,9 +1898,6 @@ public class ansiblelint_meta extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not array or unexpected array [.'$KaliPlatformModel'.versions]", (path != null ? lpath_22 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$KaliPlatformModel'.versions]", (path != null ? lpath_22 : null));
                     return false;
                 }
@@ -2116,7 +1910,7 @@ public class ansiblelint_meta extends ModelChecker
         }
         return true;
     }
-    
+
     // check $KaliPlatformModel (.'$KaliPlatformModel')
     public boolean json_model_24(Object val, Path path, Report rep)
     {
@@ -2129,8 +1923,8 @@ public class ansiblelint_meta extends ModelChecker
         }
         return res;
     }
-    
-    
+
+
     // object .'$MacOSXPlatformModel'
     public boolean _jm_obj_23(Object val, Path path, Report rep)
     {
@@ -2154,9 +1948,6 @@ public class ansiblelint_meta extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected _Kali [.'$MacOSXPlatformModel'.name]", (path != null ? lpath_23 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$MacOSXPlatformModel'.name]", (path != null ? lpath_23 : null));
                     return false;
                 }
@@ -2180,9 +1971,6 @@ public class ansiblelint_meta extends ModelChecker
                         if (! res)
                         {
                             if (rep != null) rep.addEntry("value not in enum [.'$MacOSXPlatformModel'.versions.0.'|']", ((path != null ? lpath_23 : null) != null ? arr_23_lpath : null));
-                        }
-                        if (! res)
-                        {
                             break;
                         }
                     }
@@ -2190,9 +1978,6 @@ public class ansiblelint_meta extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not array or unexpected array [.'$MacOSXPlatformModel'.versions]", (path != null ? lpath_23 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$MacOSXPlatformModel'.versions]", (path != null ? lpath_23 : null));
                     return false;
                 }
@@ -2205,7 +1990,7 @@ public class ansiblelint_meta extends ModelChecker
         }
         return true;
     }
-    
+
     // check $MacOSXPlatformModel (.'$MacOSXPlatformModel')
     public boolean json_model_25(Object val, Path path, Report rep)
     {
@@ -2218,8 +2003,8 @@ public class ansiblelint_meta extends ModelChecker
         }
         return res;
     }
-    
-    
+
+
     // object .'$MageiaPlatformModel'
     public boolean _jm_obj_24(Object val, Path path, Report rep)
     {
@@ -2243,9 +2028,6 @@ public class ansiblelint_meta extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected _Megeia [.'$MageiaPlatformModel'.name]", (path != null ? lpath_24 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$MageiaPlatformModel'.name]", (path != null ? lpath_24 : null));
                     return false;
                 }
@@ -2269,9 +2051,6 @@ public class ansiblelint_meta extends ModelChecker
                         if (! res)
                         {
                             if (rep != null) rep.addEntry("value not in enum [.'$MageiaPlatformModel'.versions.0.'|']", ((path != null ? lpath_24 : null) != null ? arr_24_lpath : null));
-                        }
-                        if (! res)
-                        {
                             break;
                         }
                     }
@@ -2279,9 +2058,6 @@ public class ansiblelint_meta extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not array or unexpected array [.'$MageiaPlatformModel'.versions]", (path != null ? lpath_24 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$MageiaPlatformModel'.versions]", (path != null ? lpath_24 : null));
                     return false;
                 }
@@ -2294,7 +2070,7 @@ public class ansiblelint_meta extends ModelChecker
         }
         return true;
     }
-    
+
     // check $MageiaPlatformModel (.'$MageiaPlatformModel')
     public boolean json_model_26(Object val, Path path, Report rep)
     {
@@ -2307,7 +2083,7 @@ public class ansiblelint_meta extends ModelChecker
         }
         return res;
     }
-    
+
     // object .'$NXOSPlatformModel'
     public boolean _jm_obj_25(Object val, Path path, Report rep)
     {
@@ -2331,9 +2107,6 @@ public class ansiblelint_meta extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected _NXOS [.'$NXOSPlatformModel'.name]", (path != null ? lpath_25 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$NXOSPlatformModel'.name]", (path != null ? lpath_25 : null));
                     return false;
                 }
@@ -2357,9 +2130,6 @@ public class ansiblelint_meta extends ModelChecker
                         if (! res)
                         {
                             if (rep != null) rep.addEntry("unexpected all [.'$NXOSPlatformModel'.versions.0]", ((path != null ? lpath_25 : null) != null ? arr_25_lpath : null));
-                        }
-                        if (! res)
-                        {
                             break;
                         }
                     }
@@ -2367,9 +2137,6 @@ public class ansiblelint_meta extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not array or unexpected array [.'$NXOSPlatformModel'.versions]", (path != null ? lpath_25 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$NXOSPlatformModel'.versions]", (path != null ? lpath_25 : null));
                     return false;
                 }
@@ -2382,7 +2149,7 @@ public class ansiblelint_meta extends ModelChecker
         }
         return true;
     }
-    
+
     // check $NXOSPlatformModel (.'$NXOSPlatformModel')
     public boolean json_model_27(Object val, Path path, Report rep)
     {
@@ -2395,8 +2162,8 @@ public class ansiblelint_meta extends ModelChecker
         }
         return res;
     }
-    
-    
+
+
     // object .'$NetBSDPlatformModel'
     public boolean _jm_obj_26(Object val, Path path, Report rep)
     {
@@ -2420,9 +2187,6 @@ public class ansiblelint_meta extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected _NetBSD [.'$NetBSDPlatformModel'.name]", (path != null ? lpath_26 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$NetBSDPlatformModel'.name]", (path != null ? lpath_26 : null));
                     return false;
                 }
@@ -2446,9 +2210,6 @@ public class ansiblelint_meta extends ModelChecker
                         if (! res)
                         {
                             if (rep != null) rep.addEntry("value not in enum [.'$NetBSDPlatformModel'.versions.0.'|']", ((path != null ? lpath_26 : null) != null ? arr_26_lpath : null));
-                        }
-                        if (! res)
-                        {
                             break;
                         }
                     }
@@ -2456,9 +2217,6 @@ public class ansiblelint_meta extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not array or unexpected array [.'$NetBSDPlatformModel'.versions]", (path != null ? lpath_26 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$NetBSDPlatformModel'.versions]", (path != null ? lpath_26 : null));
                     return false;
                 }
@@ -2471,7 +2229,7 @@ public class ansiblelint_meta extends ModelChecker
         }
         return true;
     }
-    
+
     // check $NetBSDPlatformModel (.'$NetBSDPlatformModel')
     public boolean json_model_28(Object val, Path path, Report rep)
     {
@@ -2484,8 +2242,8 @@ public class ansiblelint_meta extends ModelChecker
         }
         return res;
     }
-    
-    
+
+
     // object .'$OpenBSDPlatformModel'
     public boolean _jm_obj_27(Object val, Path path, Report rep)
     {
@@ -2509,9 +2267,6 @@ public class ansiblelint_meta extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected _OpenBSD [.'$OpenBSDPlatformModel'.name]", (path != null ? lpath_27 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$OpenBSDPlatformModel'.name]", (path != null ? lpath_27 : null));
                     return false;
                 }
@@ -2535,9 +2290,6 @@ public class ansiblelint_meta extends ModelChecker
                         if (! res)
                         {
                             if (rep != null) rep.addEntry("value not in enum [.'$OpenBSDPlatformModel'.versions.0.'|']", ((path != null ? lpath_27 : null) != null ? arr_27_lpath : null));
-                        }
-                        if (! res)
-                        {
                             break;
                         }
                     }
@@ -2545,9 +2297,6 @@ public class ansiblelint_meta extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not array or unexpected array [.'$OpenBSDPlatformModel'.versions]", (path != null ? lpath_27 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$OpenBSDPlatformModel'.versions]", (path != null ? lpath_27 : null));
                     return false;
                 }
@@ -2560,7 +2309,7 @@ public class ansiblelint_meta extends ModelChecker
         }
         return true;
     }
-    
+
     // check $OpenBSDPlatformModel (.'$OpenBSDPlatformModel')
     public boolean json_model_29(Object val, Path path, Report rep)
     {
@@ -2573,8 +2322,8 @@ public class ansiblelint_meta extends ModelChecker
         }
         return res;
     }
-    
-    
+
+
     // object .'$OpenWrtPlatformModel'
     public boolean _jm_obj_28(Object val, Path path, Report rep)
     {
@@ -2598,9 +2347,6 @@ public class ansiblelint_meta extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected _OpenWrt [.'$OpenWrtPlatformModel'.name]", (path != null ? lpath_28 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$OpenWrtPlatformModel'.name]", (path != null ? lpath_28 : null));
                     return false;
                 }
@@ -2624,9 +2370,6 @@ public class ansiblelint_meta extends ModelChecker
                         if (! res)
                         {
                             if (rep != null) rep.addEntry("value not in enum [.'$OpenWrtPlatformModel'.versions.0.'|']", ((path != null ? lpath_28 : null) != null ? arr_28_lpath : null));
-                        }
-                        if (! res)
-                        {
                             break;
                         }
                     }
@@ -2634,9 +2377,6 @@ public class ansiblelint_meta extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not array or unexpected array [.'$OpenWrtPlatformModel'.versions]", (path != null ? lpath_28 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$OpenWrtPlatformModel'.versions]", (path != null ? lpath_28 : null));
                     return false;
                 }
@@ -2649,7 +2389,7 @@ public class ansiblelint_meta extends ModelChecker
         }
         return true;
     }
-    
+
     // check $OpenWrtPlatformModel (.'$OpenWrtPlatformModel')
     public boolean json_model_30(Object val, Path path, Report rep)
     {
@@ -2662,8 +2402,8 @@ public class ansiblelint_meta extends ModelChecker
         }
         return res;
     }
-    
-    
+
+
     // object .'$OracleLinuxPlatformModel'
     public boolean _jm_obj_29(Object val, Path path, Report rep)
     {
@@ -2687,9 +2427,6 @@ public class ansiblelint_meta extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected _OracleLinux [.'$OracleLinuxPlatformModel'.name]", (path != null ? lpath_29 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$OracleLinuxPlatformModel'.name]", (path != null ? lpath_29 : null));
                     return false;
                 }
@@ -2713,9 +2450,6 @@ public class ansiblelint_meta extends ModelChecker
                         if (! res)
                         {
                             if (rep != null) rep.addEntry("value not in enum [.'$OracleLinuxPlatformModel'.versions.0.'|']", ((path != null ? lpath_29 : null) != null ? arr_29_lpath : null));
-                        }
-                        if (! res)
-                        {
                             break;
                         }
                     }
@@ -2723,9 +2457,6 @@ public class ansiblelint_meta extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not array or unexpected array [.'$OracleLinuxPlatformModel'.versions]", (path != null ? lpath_29 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$OracleLinuxPlatformModel'.versions]", (path != null ? lpath_29 : null));
                     return false;
                 }
@@ -2738,7 +2469,7 @@ public class ansiblelint_meta extends ModelChecker
         }
         return true;
     }
-    
+
     // check $OracleLinuxPlatformModel (.'$OracleLinuxPlatformModel')
     public boolean json_model_31(Object val, Path path, Report rep)
     {
@@ -2751,8 +2482,8 @@ public class ansiblelint_meta extends ModelChecker
         }
         return res;
     }
-    
-    
+
+
     // object .'$PAN-OSPlatformModel'
     public boolean _jm_obj_30(Object val, Path path, Report rep)
     {
@@ -2776,9 +2507,6 @@ public class ansiblelint_meta extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected _PAN-OS [.'$PAN-OSPlatformModel'.name]", (path != null ? lpath_30 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$PAN-OSPlatformModel'.name]", (path != null ? lpath_30 : null));
                     return false;
                 }
@@ -2802,9 +2530,6 @@ public class ansiblelint_meta extends ModelChecker
                         if (! res)
                         {
                             if (rep != null) rep.addEntry("value not in enum [.'$PAN-OSPlatformModel'.versions.0.'|']", ((path != null ? lpath_30 : null) != null ? arr_30_lpath : null));
-                        }
-                        if (! res)
-                        {
                             break;
                         }
                     }
@@ -2812,9 +2537,6 @@ public class ansiblelint_meta extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not array or unexpected array [.'$PAN-OSPlatformModel'.versions]", (path != null ? lpath_30 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$PAN-OSPlatformModel'.versions]", (path != null ? lpath_30 : null));
                     return false;
                 }
@@ -2827,7 +2549,7 @@ public class ansiblelint_meta extends ModelChecker
         }
         return true;
     }
-    
+
     // check $PAN-OSPlatformModel (.'$PAN-OSPlatformModel')
     public boolean json_model_32(Object val, Path path, Report rep)
     {
@@ -2840,8 +2562,8 @@ public class ansiblelint_meta extends ModelChecker
         }
         return res;
     }
-    
-    
+
+
     // object .'$RockyLinuxPlatformModel'
     public boolean _jm_obj_31(Object val, Path path, Report rep)
     {
@@ -2865,9 +2587,6 @@ public class ansiblelint_meta extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected _Rocky [.'$RockyLinuxPlatformModel'.name]", (path != null ? lpath_31 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$RockyLinuxPlatformModel'.name]", (path != null ? lpath_31 : null));
                     return false;
                 }
@@ -2891,9 +2610,6 @@ public class ansiblelint_meta extends ModelChecker
                         if (! res)
                         {
                             if (rep != null) rep.addEntry("value not in enum [.'$RockyLinuxPlatformModel'.versions.0.'|']", ((path != null ? lpath_31 : null) != null ? arr_31_lpath : null));
-                        }
-                        if (! res)
-                        {
                             break;
                         }
                     }
@@ -2901,9 +2617,6 @@ public class ansiblelint_meta extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not array or unexpected array [.'$RockyLinuxPlatformModel'.versions]", (path != null ? lpath_31 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$RockyLinuxPlatformModel'.versions]", (path != null ? lpath_31 : null));
                     return false;
                 }
@@ -2916,7 +2629,7 @@ public class ansiblelint_meta extends ModelChecker
         }
         return true;
     }
-    
+
     // check $RockyLinuxPlatformModel (.'$RockyLinuxPlatformModel')
     public boolean json_model_33(Object val, Path path, Report rep)
     {
@@ -2929,8 +2642,8 @@ public class ansiblelint_meta extends ModelChecker
         }
         return res;
     }
-    
-    
+
+
     // object .'$SLESPlatformModel'
     public boolean _jm_obj_32(Object val, Path path, Report rep)
     {
@@ -2954,9 +2667,6 @@ public class ansiblelint_meta extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected _SLES [.'$SLESPlatformModel'.name]", (path != null ? lpath_32 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$SLESPlatformModel'.name]", (path != null ? lpath_32 : null));
                     return false;
                 }
@@ -2980,9 +2690,6 @@ public class ansiblelint_meta extends ModelChecker
                         if (! res)
                         {
                             if (rep != null) rep.addEntry("value not in enum [.'$SLESPlatformModel'.versions.0.'|']", ((path != null ? lpath_32 : null) != null ? arr_32_lpath : null));
-                        }
-                        if (! res)
-                        {
                             break;
                         }
                     }
@@ -2990,9 +2697,6 @@ public class ansiblelint_meta extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not array or unexpected array [.'$SLESPlatformModel'.versions]", (path != null ? lpath_32 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$SLESPlatformModel'.versions]", (path != null ? lpath_32 : null));
                     return false;
                 }
@@ -3005,7 +2709,7 @@ public class ansiblelint_meta extends ModelChecker
         }
         return true;
     }
-    
+
     // check $SLESPlatformModel (.'$SLESPlatformModel')
     public boolean json_model_34(Object val, Path path, Report rep)
     {
@@ -3018,7 +2722,7 @@ public class ansiblelint_meta extends ModelChecker
         }
         return res;
     }
-    
+
     // object .'$SmartOSPlatformModel'
     public boolean _jm_obj_33(Object val, Path path, Report rep)
     {
@@ -3042,9 +2746,6 @@ public class ansiblelint_meta extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected _SmartOS [.'$SmartOSPlatformModel'.name]", (path != null ? lpath_33 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$SmartOSPlatformModel'.name]", (path != null ? lpath_33 : null));
                     return false;
                 }
@@ -3068,9 +2769,6 @@ public class ansiblelint_meta extends ModelChecker
                         if (! res)
                         {
                             if (rep != null) rep.addEntry("unexpected all [.'$SmartOSPlatformModel'.versions.0]", ((path != null ? lpath_33 : null) != null ? arr_33_lpath : null));
-                        }
-                        if (! res)
-                        {
                             break;
                         }
                     }
@@ -3078,9 +2776,6 @@ public class ansiblelint_meta extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not array or unexpected array [.'$SmartOSPlatformModel'.versions]", (path != null ? lpath_33 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$SmartOSPlatformModel'.versions]", (path != null ? lpath_33 : null));
                     return false;
                 }
@@ -3093,7 +2788,7 @@ public class ansiblelint_meta extends ModelChecker
         }
         return true;
     }
-    
+
     // check $SmartOSPlatformModel (.'$SmartOSPlatformModel')
     public boolean json_model_35(Object val, Path path, Report rep)
     {
@@ -3106,8 +2801,8 @@ public class ansiblelint_meta extends ModelChecker
         }
         return res;
     }
-    
-    
+
+
     // object .'$SolarisPlatformModel'
     public boolean _jm_obj_34(Object val, Path path, Report rep)
     {
@@ -3131,9 +2826,6 @@ public class ansiblelint_meta extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected _Solaris [.'$SolarisPlatformModel'.name]", (path != null ? lpath_34 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$SolarisPlatformModel'.name]", (path != null ? lpath_34 : null));
                     return false;
                 }
@@ -3157,9 +2849,6 @@ public class ansiblelint_meta extends ModelChecker
                         if (! res)
                         {
                             if (rep != null) rep.addEntry("value not in enum [.'$SolarisPlatformModel'.versions.0.'|']", ((path != null ? lpath_34 : null) != null ? arr_34_lpath : null));
-                        }
-                        if (! res)
-                        {
                             break;
                         }
                     }
@@ -3167,9 +2856,6 @@ public class ansiblelint_meta extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not array or unexpected array [.'$SolarisPlatformModel'.versions]", (path != null ? lpath_34 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$SolarisPlatformModel'.versions]", (path != null ? lpath_34 : null));
                     return false;
                 }
@@ -3182,7 +2868,7 @@ public class ansiblelint_meta extends ModelChecker
         }
         return true;
     }
-    
+
     // check $SolarisPlatformModel (.'$SolarisPlatformModel')
     public boolean json_model_36(Object val, Path path, Report rep)
     {
@@ -3195,8 +2881,8 @@ public class ansiblelint_meta extends ModelChecker
         }
         return res;
     }
-    
-    
+
+
     // object .'$SynologyPlatformModel'
     public boolean _jm_obj_35(Object val, Path path, Report rep)
     {
@@ -3220,9 +2906,6 @@ public class ansiblelint_meta extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected _Synology [.'$SynologyPlatformModel'.name]", (path != null ? lpath_35 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$SynologyPlatformModel'.name]", (path != null ? lpath_35 : null));
                     return false;
                 }
@@ -3246,9 +2929,6 @@ public class ansiblelint_meta extends ModelChecker
                         if (! res)
                         {
                             if (rep != null) rep.addEntry("value not in enum [.'$SynologyPlatformModel'.versions.0.'|']", ((path != null ? lpath_35 : null) != null ? arr_35_lpath : null));
-                        }
-                        if (! res)
-                        {
                             break;
                         }
                     }
@@ -3256,9 +2936,6 @@ public class ansiblelint_meta extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not array or unexpected array [.'$SynologyPlatformModel'.versions]", (path != null ? lpath_35 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$SynologyPlatformModel'.versions]", (path != null ? lpath_35 : null));
                     return false;
                 }
@@ -3271,7 +2948,7 @@ public class ansiblelint_meta extends ModelChecker
         }
         return true;
     }
-    
+
     // check $SynologyPlatformModel (.'$SynologyPlatformModel')
     public boolean json_model_37(Object val, Path path, Report rep)
     {
@@ -3284,8 +2961,8 @@ public class ansiblelint_meta extends ModelChecker
         }
         return res;
     }
-    
-    
+
+
     // object .'$TMOSPlatformModel'
     public boolean _jm_obj_36(Object val, Path path, Report rep)
     {
@@ -3309,9 +2986,6 @@ public class ansiblelint_meta extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected _TMOS [.'$TMOSPlatformModel'.name]", (path != null ? lpath_36 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$TMOSPlatformModel'.name]", (path != null ? lpath_36 : null));
                     return false;
                 }
@@ -3335,9 +3009,6 @@ public class ansiblelint_meta extends ModelChecker
                         if (! res)
                         {
                             if (rep != null) rep.addEntry("value not in enum [.'$TMOSPlatformModel'.versions.0.'|']", ((path != null ? lpath_36 : null) != null ? arr_36_lpath : null));
-                        }
-                        if (! res)
-                        {
                             break;
                         }
                     }
@@ -3345,9 +3016,6 @@ public class ansiblelint_meta extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not array or unexpected array [.'$TMOSPlatformModel'.versions]", (path != null ? lpath_36 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$TMOSPlatformModel'.versions]", (path != null ? lpath_36 : null));
                     return false;
                 }
@@ -3360,7 +3028,7 @@ public class ansiblelint_meta extends ModelChecker
         }
         return true;
     }
-    
+
     // check $TMOSPlatformModel (.'$TMOSPlatformModel')
     public boolean json_model_38(Object val, Path path, Report rep)
     {
@@ -3373,8 +3041,8 @@ public class ansiblelint_meta extends ModelChecker
         }
         return res;
     }
-    
-    
+
+
     // object .'$UbuntuPlatformModel'
     public boolean _jm_obj_37(Object val, Path path, Report rep)
     {
@@ -3398,9 +3066,6 @@ public class ansiblelint_meta extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected _Ubuntu [.'$UbuntuPlatformModel'.name]", (path != null ? lpath_37 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$UbuntuPlatformModel'.name]", (path != null ? lpath_37 : null));
                     return false;
                 }
@@ -3424,9 +3089,6 @@ public class ansiblelint_meta extends ModelChecker
                         if (! res)
                         {
                             if (rep != null) rep.addEntry("value not in enum [.'$UbuntuPlatformModel'.versions.0.'|']", ((path != null ? lpath_37 : null) != null ? arr_37_lpath : null));
-                        }
-                        if (! res)
-                        {
                             break;
                         }
                     }
@@ -3434,9 +3096,6 @@ public class ansiblelint_meta extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not array or unexpected array [.'$UbuntuPlatformModel'.versions]", (path != null ? lpath_37 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$UbuntuPlatformModel'.versions]", (path != null ? lpath_37 : null));
                     return false;
                 }
@@ -3449,7 +3108,7 @@ public class ansiblelint_meta extends ModelChecker
         }
         return true;
     }
-    
+
     // check $UbuntuPlatformModel (.'$UbuntuPlatformModel')
     public boolean json_model_39(Object val, Path path, Report rep)
     {
@@ -3462,7 +3121,7 @@ public class ansiblelint_meta extends ModelChecker
         }
         return res;
     }
-    
+
     // object .'$Void_LinuxPlatformModel'
     public boolean _jm_obj_38(Object val, Path path, Report rep)
     {
@@ -3486,9 +3145,6 @@ public class ansiblelint_meta extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected _Void Linux [.'$Void_LinuxPlatformModel'.name]", (path != null ? lpath_38 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Void_LinuxPlatformModel'.name]", (path != null ? lpath_38 : null));
                     return false;
                 }
@@ -3512,9 +3168,6 @@ public class ansiblelint_meta extends ModelChecker
                         if (! res)
                         {
                             if (rep != null) rep.addEntry("unexpected all [.'$Void_LinuxPlatformModel'.versions.0]", ((path != null ? lpath_38 : null) != null ? arr_38_lpath : null));
-                        }
-                        if (! res)
-                        {
                             break;
                         }
                     }
@@ -3522,9 +3175,6 @@ public class ansiblelint_meta extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not array or unexpected array [.'$Void_LinuxPlatformModel'.versions]", (path != null ? lpath_38 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Void_LinuxPlatformModel'.versions]", (path != null ? lpath_38 : null));
                     return false;
                 }
@@ -3537,7 +3187,7 @@ public class ansiblelint_meta extends ModelChecker
         }
         return true;
     }
-    
+
     // check $Void_LinuxPlatformModel (.'$Void_LinuxPlatformModel')
     public boolean json_model_40(Object val, Path path, Report rep)
     {
@@ -3550,8 +3200,8 @@ public class ansiblelint_meta extends ModelChecker
         }
         return res;
     }
-    
-    
+
+
     // object .'$WindowsPlatformModel'
     public boolean _jm_obj_39(Object val, Path path, Report rep)
     {
@@ -3575,9 +3225,6 @@ public class ansiblelint_meta extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected _Windows [.'$WindowsPlatformModel'.name]", (path != null ? lpath_39 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$WindowsPlatformModel'.name]", (path != null ? lpath_39 : null));
                     return false;
                 }
@@ -3601,9 +3248,6 @@ public class ansiblelint_meta extends ModelChecker
                         if (! res)
                         {
                             if (rep != null) rep.addEntry("value not in enum [.'$WindowsPlatformModel'.versions.0.'|']", ((path != null ? lpath_39 : null) != null ? arr_39_lpath : null));
-                        }
-                        if (! res)
-                        {
                             break;
                         }
                     }
@@ -3611,9 +3255,6 @@ public class ansiblelint_meta extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not array or unexpected array [.'$WindowsPlatformModel'.versions]", (path != null ? lpath_39 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$WindowsPlatformModel'.versions]", (path != null ? lpath_39 : null));
                     return false;
                 }
@@ -3626,7 +3267,7 @@ public class ansiblelint_meta extends ModelChecker
         }
         return true;
     }
-    
+
     // check $WindowsPlatformModel (.'$WindowsPlatformModel')
     public boolean json_model_41(Object val, Path path, Report rep)
     {
@@ -3639,7 +3280,7 @@ public class ansiblelint_meta extends ModelChecker
         }
         return res;
     }
-    
+
     // object .'$aosPlatformModel'
     public boolean _jm_obj_40(Object val, Path path, Report rep)
     {
@@ -3663,9 +3304,6 @@ public class ansiblelint_meta extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected _aos [.'$aosPlatformModel'.name]", (path != null ? lpath_40 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$aosPlatformModel'.name]", (path != null ? lpath_40 : null));
                     return false;
                 }
@@ -3689,9 +3327,6 @@ public class ansiblelint_meta extends ModelChecker
                         if (! res)
                         {
                             if (rep != null) rep.addEntry("unexpected all [.'$aosPlatformModel'.versions.0]", ((path != null ? lpath_40 : null) != null ? arr_40_lpath : null));
-                        }
-                        if (! res)
-                        {
                             break;
                         }
                     }
@@ -3699,9 +3334,6 @@ public class ansiblelint_meta extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not array or unexpected array [.'$aosPlatformModel'.versions]", (path != null ? lpath_40 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$aosPlatformModel'.versions]", (path != null ? lpath_40 : null));
                     return false;
                 }
@@ -3714,7 +3346,7 @@ public class ansiblelint_meta extends ModelChecker
         }
         return true;
     }
-    
+
     // check $aosPlatformModel (.'$aosPlatformModel')
     public boolean json_model_42(Object val, Path path, Report rep)
     {
@@ -3727,7 +3359,7 @@ public class ansiblelint_meta extends ModelChecker
         }
         return res;
     }
-    
+
     // object .'$eosPlatformModel'
     public boolean _jm_obj_41(Object val, Path path, Report rep)
     {
@@ -3751,9 +3383,6 @@ public class ansiblelint_meta extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected _eos [.'$eosPlatformModel'.name]", (path != null ? lpath_41 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$eosPlatformModel'.name]", (path != null ? lpath_41 : null));
                     return false;
                 }
@@ -3777,9 +3406,6 @@ public class ansiblelint_meta extends ModelChecker
                         if (! res)
                         {
                             if (rep != null) rep.addEntry("unexpected all [.'$eosPlatformModel'.versions.0]", ((path != null ? lpath_41 : null) != null ? arr_41_lpath : null));
-                        }
-                        if (! res)
-                        {
                             break;
                         }
                     }
@@ -3787,9 +3413,6 @@ public class ansiblelint_meta extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not array or unexpected array [.'$eosPlatformModel'.versions]", (path != null ? lpath_41 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$eosPlatformModel'.versions]", (path != null ? lpath_41 : null));
                     return false;
                 }
@@ -3802,7 +3425,7 @@ public class ansiblelint_meta extends ModelChecker
         }
         return true;
     }
-    
+
     // check $eosPlatformModel (.'$eosPlatformModel')
     public boolean json_model_43(Object val, Path path, Report rep)
     {
@@ -3815,8 +3438,8 @@ public class ansiblelint_meta extends ModelChecker
         }
         return res;
     }
-    
-    
+
+
     // object .'$macOSPlatformModel'
     public boolean _jm_obj_42(Object val, Path path, Report rep)
     {
@@ -3840,9 +3463,6 @@ public class ansiblelint_meta extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected _macOS [.'$macOSPlatformModel'.name]", (path != null ? lpath_42 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$macOSPlatformModel'.name]", (path != null ? lpath_42 : null));
                     return false;
                 }
@@ -3866,9 +3486,6 @@ public class ansiblelint_meta extends ModelChecker
                         if (! res)
                         {
                             if (rep != null) rep.addEntry("value not in enum [.'$macOSPlatformModel'.versions.0.'|']", ((path != null ? lpath_42 : null) != null ? arr_42_lpath : null));
-                        }
-                        if (! res)
-                        {
                             break;
                         }
                     }
@@ -3876,9 +3493,6 @@ public class ansiblelint_meta extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not array or unexpected array [.'$macOSPlatformModel'.versions]", (path != null ? lpath_42 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$macOSPlatformModel'.versions]", (path != null ? lpath_42 : null));
                     return false;
                 }
@@ -3891,7 +3505,7 @@ public class ansiblelint_meta extends ModelChecker
         }
         return true;
     }
-    
+
     // check $macOSPlatformModel (.'$macOSPlatformModel')
     public boolean json_model_44(Object val, Path path, Report rep)
     {
@@ -3904,8 +3518,8 @@ public class ansiblelint_meta extends ModelChecker
         }
         return res;
     }
-    
-    
+
+
     // object .'$opensusePlatformModel'
     public boolean _jm_obj_43(Object val, Path path, Report rep)
     {
@@ -3929,9 +3543,6 @@ public class ansiblelint_meta extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected _opensuse [.'$opensusePlatformModel'.name]", (path != null ? lpath_43 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$opensusePlatformModel'.name]", (path != null ? lpath_43 : null));
                     return false;
                 }
@@ -3955,9 +3566,6 @@ public class ansiblelint_meta extends ModelChecker
                         if (! res)
                         {
                             if (rep != null) rep.addEntry("value not in enum [.'$opensusePlatformModel'.versions.0.'|']", ((path != null ? lpath_43 : null) != null ? arr_43_lpath : null));
-                        }
-                        if (! res)
-                        {
                             break;
                         }
                     }
@@ -3965,9 +3573,6 @@ public class ansiblelint_meta extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not array or unexpected array [.'$opensusePlatformModel'.versions]", (path != null ? lpath_43 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$opensusePlatformModel'.versions]", (path != null ? lpath_43 : null));
                     return false;
                 }
@@ -3980,7 +3585,7 @@ public class ansiblelint_meta extends ModelChecker
         }
         return true;
     }
-    
+
     // check $opensusePlatformModel (.'$opensusePlatformModel')
     public boolean json_model_45(Object val, Path path, Report rep)
     {
@@ -3993,7 +3598,7 @@ public class ansiblelint_meta extends ModelChecker
         }
         return res;
     }
-    
+
     // object .'$os10PlatformModel'
     public boolean _jm_obj_44(Object val, Path path, Report rep)
     {
@@ -4017,9 +3622,6 @@ public class ansiblelint_meta extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected _os10 [.'$os10PlatformModel'.name]", (path != null ? lpath_44 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$os10PlatformModel'.name]", (path != null ? lpath_44 : null));
                     return false;
                 }
@@ -4043,9 +3645,6 @@ public class ansiblelint_meta extends ModelChecker
                         if (! res)
                         {
                             if (rep != null) rep.addEntry("unexpected all [.'$os10PlatformModel'.versions.0]", ((path != null ? lpath_44 : null) != null ? arr_44_lpath : null));
-                        }
-                        if (! res)
-                        {
                             break;
                         }
                     }
@@ -4053,9 +3652,6 @@ public class ansiblelint_meta extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not array or unexpected array [.'$os10PlatformModel'.versions]", (path != null ? lpath_44 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$os10PlatformModel'.versions]", (path != null ? lpath_44 : null));
                     return false;
                 }
@@ -4068,7 +3664,7 @@ public class ansiblelint_meta extends ModelChecker
         }
         return true;
     }
-    
+
     // check $os10PlatformModel (.'$os10PlatformModel')
     public boolean json_model_46(Object val, Path path, Report rep)
     {
@@ -4081,8 +3677,8 @@ public class ansiblelint_meta extends ModelChecker
         }
         return res;
     }
-    
-    
+
+
     // object .'$vCenterPlatformModel'
     public boolean _jm_obj_45(Object val, Path path, Report rep)
     {
@@ -4106,9 +3702,6 @@ public class ansiblelint_meta extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected _vCenter [.'$vCenterPlatformModel'.name]", (path != null ? lpath_45 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$vCenterPlatformModel'.name]", (path != null ? lpath_45 : null));
                     return false;
                 }
@@ -4132,9 +3725,6 @@ public class ansiblelint_meta extends ModelChecker
                         if (! res)
                         {
                             if (rep != null) rep.addEntry("value not in enum [.'$vCenterPlatformModel'.versions.0.'|']", ((path != null ? lpath_45 : null) != null ? arr_45_lpath : null));
-                        }
-                        if (! res)
-                        {
                             break;
                         }
                     }
@@ -4142,9 +3732,6 @@ public class ansiblelint_meta extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not array or unexpected array [.'$vCenterPlatformModel'.versions]", (path != null ? lpath_45 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$vCenterPlatformModel'.versions]", (path != null ? lpath_45 : null));
                     return false;
                 }
@@ -4157,7 +3744,7 @@ public class ansiblelint_meta extends ModelChecker
         }
         return true;
     }
-    
+
     // check $vCenterPlatformModel (.'$vCenterPlatformModel')
     public boolean json_model_47(Object val, Path path, Report rep)
     {
@@ -4170,8 +3757,8 @@ public class ansiblelint_meta extends ModelChecker
         }
         return res;
     }
-    
-    
+
+
     // object .'$vSpherePlatformModel'
     public boolean _jm_obj_46(Object val, Path path, Report rep)
     {
@@ -4195,9 +3782,6 @@ public class ansiblelint_meta extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected _vSphere [.'$vSpherePlatformModel'.name]", (path != null ? lpath_46 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$vSpherePlatformModel'.name]", (path != null ? lpath_46 : null));
                     return false;
                 }
@@ -4221,9 +3805,6 @@ public class ansiblelint_meta extends ModelChecker
                         if (! res)
                         {
                             if (rep != null) rep.addEntry("value not in enum [.'$vSpherePlatformModel'.versions.0.'|']", ((path != null ? lpath_46 : null) != null ? arr_46_lpath : null));
-                        }
-                        if (! res)
-                        {
                             break;
                         }
                     }
@@ -4231,9 +3812,6 @@ public class ansiblelint_meta extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not array or unexpected array [.'$vSpherePlatformModel'.versions]", (path != null ? lpath_46 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$vSpherePlatformModel'.versions]", (path != null ? lpath_46 : null));
                     return false;
                 }
@@ -4246,7 +3824,7 @@ public class ansiblelint_meta extends ModelChecker
         }
         return true;
     }
-    
+
     // check $vSpherePlatformModel (.'$vSpherePlatformModel')
     public boolean json_model_48(Object val, Path path, Report rep)
     {
@@ -4259,7 +3837,7 @@ public class ansiblelint_meta extends ModelChecker
         }
         return res;
     }
-    
+
     // check $any_platform (.'$any_platform')
     public boolean json_model_49(Object val, Path path, Report rep)
     {
@@ -4696,8 +4274,8 @@ public class ansiblelint_meta extends ModelChecker
         }
         return res;
     }
-    
-    
+
+
     // object .'$platforms'.0.'|'.46
     public boolean _jm_obj_47(Object val, Path path, Report rep)
     {
@@ -4717,9 +4295,6 @@ public class ansiblelint_meta extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("unexpected _Windows [.'$platforms'.0.'|'.46.name]", path);
-            }
-            if (! res)
-            {
                 if (rep != null) rep.addEntry("unexpected value for optional prop <name> [.'$platforms'.0.'|'.46]", path);
                 return false;
             }
@@ -4743,9 +4318,6 @@ public class ansiblelint_meta extends ModelChecker
                     if (! res)
                     {
                         if (rep != null) rep.addEntry("value not in enum [.'$platforms'.0.'|'.46.versions.0.'|']", (path != null ? arr_48_lpath : null));
-                    }
-                    if (! res)
-                    {
                         break;
                     }
                 }
@@ -4753,17 +4325,14 @@ public class ansiblelint_meta extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("not array or unexpected array [.'$platforms'.0.'|'.46.versions]", path);
-            }
-            if (! res)
-            {
                 if (rep != null) rep.addEntry("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.46]", path);
                 return false;
             }
         }
         return true;
     }
-    
-    
+
+
     // object .'$platforms'.0.'|'.45
     public boolean _jm_obj_48(Object val, Path path, Report rep)
     {
@@ -4783,9 +4352,6 @@ public class ansiblelint_meta extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("unexpected _vSphere [.'$platforms'.0.'|'.45.name]", path);
-            }
-            if (! res)
-            {
                 if (rep != null) rep.addEntry("unexpected value for optional prop <name> [.'$platforms'.0.'|'.45]", path);
                 return false;
             }
@@ -4809,9 +4375,6 @@ public class ansiblelint_meta extends ModelChecker
                     if (! res)
                     {
                         if (rep != null) rep.addEntry("value not in enum [.'$platforms'.0.'|'.45.versions.0.'|']", (path != null ? arr_49_lpath : null));
-                    }
-                    if (! res)
-                    {
                         break;
                     }
                 }
@@ -4819,16 +4382,13 @@ public class ansiblelint_meta extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("not array or unexpected array [.'$platforms'.0.'|'.45.versions]", path);
-            }
-            if (! res)
-            {
                 if (rep != null) rep.addEntry("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.45]", path);
                 return false;
             }
         }
         return true;
     }
-    
+
     // object .'$platforms'.0.'|'.44
     public boolean _jm_obj_49(Object val, Path path, Report rep)
     {
@@ -4848,9 +4408,6 @@ public class ansiblelint_meta extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("unexpected _Void Linux [.'$platforms'.0.'|'.44.name]", path);
-            }
-            if (! res)
-            {
                 if (rep != null) rep.addEntry("unexpected value for optional prop <name> [.'$platforms'.0.'|'.44]", path);
                 return false;
             }
@@ -4874,9 +4431,6 @@ public class ansiblelint_meta extends ModelChecker
                     if (! res)
                     {
                         if (rep != null) rep.addEntry("unexpected all [.'$platforms'.0.'|'.44.versions.0]", (path != null ? arr_50_lpath : null));
-                    }
-                    if (! res)
-                    {
                         break;
                     }
                 }
@@ -4884,17 +4438,14 @@ public class ansiblelint_meta extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("not array or unexpected array [.'$platforms'.0.'|'.44.versions]", path);
-            }
-            if (! res)
-            {
                 if (rep != null) rep.addEntry("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.44]", path);
                 return false;
             }
         }
         return true;
     }
-    
-    
+
+
     // object .'$platforms'.0.'|'.43
     public boolean _jm_obj_50(Object val, Path path, Report rep)
     {
@@ -4914,9 +4465,6 @@ public class ansiblelint_meta extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("unexpected _vCenter [.'$platforms'.0.'|'.43.name]", path);
-            }
-            if (! res)
-            {
                 if (rep != null) rep.addEntry("unexpected value for optional prop <name> [.'$platforms'.0.'|'.43]", path);
                 return false;
             }
@@ -4940,9 +4488,6 @@ public class ansiblelint_meta extends ModelChecker
                     if (! res)
                     {
                         if (rep != null) rep.addEntry("value not in enum [.'$platforms'.0.'|'.43.versions.0.'|']", (path != null ? arr_51_lpath : null));
-                    }
-                    if (! res)
-                    {
                         break;
                     }
                 }
@@ -4950,17 +4495,14 @@ public class ansiblelint_meta extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("not array or unexpected array [.'$platforms'.0.'|'.43.versions]", path);
-            }
-            if (! res)
-            {
                 if (rep != null) rep.addEntry("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.43]", path);
                 return false;
             }
         }
         return true;
     }
-    
-    
+
+
     // object .'$platforms'.0.'|'.42
     public boolean _jm_obj_51(Object val, Path path, Report rep)
     {
@@ -4980,9 +4522,6 @@ public class ansiblelint_meta extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("unexpected _Ubuntu [.'$platforms'.0.'|'.42.name]", path);
-            }
-            if (! res)
-            {
                 if (rep != null) rep.addEntry("unexpected value for optional prop <name> [.'$platforms'.0.'|'.42]", path);
                 return false;
             }
@@ -5006,9 +4545,6 @@ public class ansiblelint_meta extends ModelChecker
                     if (! res)
                     {
                         if (rep != null) rep.addEntry("value not in enum [.'$platforms'.0.'|'.42.versions.0.'|']", (path != null ? arr_52_lpath : null));
-                    }
-                    if (! res)
-                    {
                         break;
                     }
                 }
@@ -5016,17 +4552,14 @@ public class ansiblelint_meta extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("not array or unexpected array [.'$platforms'.0.'|'.42.versions]", path);
-            }
-            if (! res)
-            {
                 if (rep != null) rep.addEntry("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.42]", path);
                 return false;
             }
         }
         return true;
     }
-    
-    
+
+
     // object .'$platforms'.0.'|'.41
     public boolean _jm_obj_52(Object val, Path path, Report rep)
     {
@@ -5046,9 +4579,6 @@ public class ansiblelint_meta extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("unexpected _TMOS [.'$platforms'.0.'|'.41.name]", path);
-            }
-            if (! res)
-            {
                 if (rep != null) rep.addEntry("unexpected value for optional prop <name> [.'$platforms'.0.'|'.41]", path);
                 return false;
             }
@@ -5072,9 +4602,6 @@ public class ansiblelint_meta extends ModelChecker
                     if (! res)
                     {
                         if (rep != null) rep.addEntry("value not in enum [.'$platforms'.0.'|'.41.versions.0.'|']", (path != null ? arr_53_lpath : null));
-                    }
-                    if (! res)
-                    {
                         break;
                     }
                 }
@@ -5082,17 +4609,14 @@ public class ansiblelint_meta extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("not array or unexpected array [.'$platforms'.0.'|'.41.versions]", path);
-            }
-            if (! res)
-            {
                 if (rep != null) rep.addEntry("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.41]", path);
                 return false;
             }
         }
         return true;
     }
-    
-    
+
+
     // object .'$platforms'.0.'|'.40
     public boolean _jm_obj_53(Object val, Path path, Report rep)
     {
@@ -5112,9 +4636,6 @@ public class ansiblelint_meta extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("unexpected _Synology [.'$platforms'.0.'|'.40.name]", path);
-            }
-            if (! res)
-            {
                 if (rep != null) rep.addEntry("unexpected value for optional prop <name> [.'$platforms'.0.'|'.40]", path);
                 return false;
             }
@@ -5138,9 +4659,6 @@ public class ansiblelint_meta extends ModelChecker
                     if (! res)
                     {
                         if (rep != null) rep.addEntry("value not in enum [.'$platforms'.0.'|'.40.versions.0.'|']", (path != null ? arr_54_lpath : null));
-                    }
-                    if (! res)
-                    {
                         break;
                     }
                 }
@@ -5148,17 +4666,14 @@ public class ansiblelint_meta extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("not array or unexpected array [.'$platforms'.0.'|'.40.versions]", path);
-            }
-            if (! res)
-            {
                 if (rep != null) rep.addEntry("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.40]", path);
                 return false;
             }
         }
         return true;
     }
-    
-    
+
+
     // object .'$platforms'.0.'|'.39
     public boolean _jm_obj_54(Object val, Path path, Report rep)
     {
@@ -5178,9 +4693,6 @@ public class ansiblelint_meta extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("unexpected _Solaris [.'$platforms'.0.'|'.39.name]", path);
-            }
-            if (! res)
-            {
                 if (rep != null) rep.addEntry("unexpected value for optional prop <name> [.'$platforms'.0.'|'.39]", path);
                 return false;
             }
@@ -5204,9 +4716,6 @@ public class ansiblelint_meta extends ModelChecker
                     if (! res)
                     {
                         if (rep != null) rep.addEntry("value not in enum [.'$platforms'.0.'|'.39.versions.0.'|']", (path != null ? arr_55_lpath : null));
-                    }
-                    if (! res)
-                    {
                         break;
                     }
                 }
@@ -5214,16 +4723,13 @@ public class ansiblelint_meta extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("not array or unexpected array [.'$platforms'.0.'|'.39.versions]", path);
-            }
-            if (! res)
-            {
                 if (rep != null) rep.addEntry("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.39]", path);
                 return false;
             }
         }
         return true;
     }
-    
+
     // object .'$platforms'.0.'|'.38
     public boolean _jm_obj_55(Object val, Path path, Report rep)
     {
@@ -5243,9 +4749,6 @@ public class ansiblelint_meta extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("unexpected _SmartOS [.'$platforms'.0.'|'.38.name]", path);
-            }
-            if (! res)
-            {
                 if (rep != null) rep.addEntry("unexpected value for optional prop <name> [.'$platforms'.0.'|'.38]", path);
                 return false;
             }
@@ -5269,9 +4772,6 @@ public class ansiblelint_meta extends ModelChecker
                     if (! res)
                     {
                         if (rep != null) rep.addEntry("unexpected all [.'$platforms'.0.'|'.38.versions.0]", (path != null ? arr_56_lpath : null));
-                    }
-                    if (! res)
-                    {
                         break;
                     }
                 }
@@ -5279,17 +4779,14 @@ public class ansiblelint_meta extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("not array or unexpected array [.'$platforms'.0.'|'.38.versions]", path);
-            }
-            if (! res)
-            {
                 if (rep != null) rep.addEntry("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.38]", path);
                 return false;
             }
         }
         return true;
     }
-    
-    
+
+
     // object .'$platforms'.0.'|'.37
     public boolean _jm_obj_56(Object val, Path path, Report rep)
     {
@@ -5309,9 +4806,6 @@ public class ansiblelint_meta extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("unexpected _SLES [.'$platforms'.0.'|'.37.name]", path);
-            }
-            if (! res)
-            {
                 if (rep != null) rep.addEntry("unexpected value for optional prop <name> [.'$platforms'.0.'|'.37]", path);
                 return false;
             }
@@ -5335,9 +4829,6 @@ public class ansiblelint_meta extends ModelChecker
                     if (! res)
                     {
                         if (rep != null) rep.addEntry("value not in enum [.'$platforms'.0.'|'.37.versions.0.'|']", (path != null ? arr_57_lpath : null));
-                    }
-                    if (! res)
-                    {
                         break;
                     }
                 }
@@ -5345,17 +4836,14 @@ public class ansiblelint_meta extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("not array or unexpected array [.'$platforms'.0.'|'.37.versions]", path);
-            }
-            if (! res)
-            {
                 if (rep != null) rep.addEntry("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.37]", path);
                 return false;
             }
         }
         return true;
     }
-    
-    
+
+
     // object .'$platforms'.0.'|'.36
     public boolean _jm_obj_57(Object val, Path path, Report rep)
     {
@@ -5375,9 +4863,6 @@ public class ansiblelint_meta extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("unexpected _Rocky [.'$platforms'.0.'|'.36.name]", path);
-            }
-            if (! res)
-            {
                 if (rep != null) rep.addEntry("unexpected value for optional prop <name> [.'$platforms'.0.'|'.36]", path);
                 return false;
             }
@@ -5401,9 +4886,6 @@ public class ansiblelint_meta extends ModelChecker
                     if (! res)
                     {
                         if (rep != null) rep.addEntry("value not in enum [.'$platforms'.0.'|'.36.versions.0.'|']", (path != null ? arr_58_lpath : null));
-                    }
-                    if (! res)
-                    {
                         break;
                     }
                 }
@@ -5411,17 +4893,14 @@ public class ansiblelint_meta extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("not array or unexpected array [.'$platforms'.0.'|'.36.versions]", path);
-            }
-            if (! res)
-            {
                 if (rep != null) rep.addEntry("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.36]", path);
                 return false;
             }
         }
         return true;
     }
-    
-    
+
+
     // object .'$platforms'.0.'|'.35
     public boolean _jm_obj_58(Object val, Path path, Report rep)
     {
@@ -5441,9 +4920,6 @@ public class ansiblelint_meta extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("unexpected _PAN-OS [.'$platforms'.0.'|'.35.name]", path);
-            }
-            if (! res)
-            {
                 if (rep != null) rep.addEntry("unexpected value for optional prop <name> [.'$platforms'.0.'|'.35]", path);
                 return false;
             }
@@ -5467,9 +4943,6 @@ public class ansiblelint_meta extends ModelChecker
                     if (! res)
                     {
                         if (rep != null) rep.addEntry("value not in enum [.'$platforms'.0.'|'.35.versions.0.'|']", (path != null ? arr_59_lpath : null));
-                    }
-                    if (! res)
-                    {
                         break;
                     }
                 }
@@ -5477,16 +4950,13 @@ public class ansiblelint_meta extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("not array or unexpected array [.'$platforms'.0.'|'.35.versions]", path);
-            }
-            if (! res)
-            {
                 if (rep != null) rep.addEntry("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.35]", path);
                 return false;
             }
         }
         return true;
     }
-    
+
     // object .'$platforms'.0.'|'.34
     public boolean _jm_obj_59(Object val, Path path, Report rep)
     {
@@ -5506,9 +4976,6 @@ public class ansiblelint_meta extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("unexpected _os10 [.'$platforms'.0.'|'.34.name]", path);
-            }
-            if (! res)
-            {
                 if (rep != null) rep.addEntry("unexpected value for optional prop <name> [.'$platforms'.0.'|'.34]", path);
                 return false;
             }
@@ -5532,9 +4999,6 @@ public class ansiblelint_meta extends ModelChecker
                     if (! res)
                     {
                         if (rep != null) rep.addEntry("unexpected all [.'$platforms'.0.'|'.34.versions.0]", (path != null ? arr_60_lpath : null));
-                    }
-                    if (! res)
-                    {
                         break;
                     }
                 }
@@ -5542,17 +5006,14 @@ public class ansiblelint_meta extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("not array or unexpected array [.'$platforms'.0.'|'.34.versions]", path);
-            }
-            if (! res)
-            {
                 if (rep != null) rep.addEntry("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.34]", path);
                 return false;
             }
         }
         return true;
     }
-    
-    
+
+
     // object .'$platforms'.0.'|'.33
     public boolean _jm_obj_60(Object val, Path path, Report rep)
     {
@@ -5572,9 +5033,6 @@ public class ansiblelint_meta extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("unexpected _OracleLinux [.'$platforms'.0.'|'.33.name]", path);
-            }
-            if (! res)
-            {
                 if (rep != null) rep.addEntry("unexpected value for optional prop <name> [.'$platforms'.0.'|'.33]", path);
                 return false;
             }
@@ -5598,9 +5056,6 @@ public class ansiblelint_meta extends ModelChecker
                     if (! res)
                     {
                         if (rep != null) rep.addEntry("value not in enum [.'$platforms'.0.'|'.33.versions.0.'|']", (path != null ? arr_61_lpath : null));
-                    }
-                    if (! res)
-                    {
                         break;
                     }
                 }
@@ -5608,17 +5063,14 @@ public class ansiblelint_meta extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("not array or unexpected array [.'$platforms'.0.'|'.33.versions]", path);
-            }
-            if (! res)
-            {
                 if (rep != null) rep.addEntry("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.33]", path);
                 return false;
             }
         }
         return true;
     }
-    
-    
+
+
     // object .'$platforms'.0.'|'.32
     public boolean _jm_obj_61(Object val, Path path, Report rep)
     {
@@ -5638,9 +5090,6 @@ public class ansiblelint_meta extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("unexpected _OpenWrt [.'$platforms'.0.'|'.32.name]", path);
-            }
-            if (! res)
-            {
                 if (rep != null) rep.addEntry("unexpected value for optional prop <name> [.'$platforms'.0.'|'.32]", path);
                 return false;
             }
@@ -5664,9 +5113,6 @@ public class ansiblelint_meta extends ModelChecker
                     if (! res)
                     {
                         if (rep != null) rep.addEntry("value not in enum [.'$platforms'.0.'|'.32.versions.0.'|']", (path != null ? arr_62_lpath : null));
-                    }
-                    if (! res)
-                    {
                         break;
                     }
                 }
@@ -5674,17 +5120,14 @@ public class ansiblelint_meta extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("not array or unexpected array [.'$platforms'.0.'|'.32.versions]", path);
-            }
-            if (! res)
-            {
                 if (rep != null) rep.addEntry("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.32]", path);
                 return false;
             }
         }
         return true;
     }
-    
-    
+
+
     // object .'$platforms'.0.'|'.31
     public boolean _jm_obj_62(Object val, Path path, Report rep)
     {
@@ -5704,9 +5147,6 @@ public class ansiblelint_meta extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("unexpected _opensuse [.'$platforms'.0.'|'.31.name]", path);
-            }
-            if (! res)
-            {
                 if (rep != null) rep.addEntry("unexpected value for optional prop <name> [.'$platforms'.0.'|'.31]", path);
                 return false;
             }
@@ -5730,9 +5170,6 @@ public class ansiblelint_meta extends ModelChecker
                     if (! res)
                     {
                         if (rep != null) rep.addEntry("value not in enum [.'$platforms'.0.'|'.31.versions.0.'|']", (path != null ? arr_63_lpath : null));
-                    }
-                    if (! res)
-                    {
                         break;
                     }
                 }
@@ -5740,17 +5177,14 @@ public class ansiblelint_meta extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("not array or unexpected array [.'$platforms'.0.'|'.31.versions]", path);
-            }
-            if (! res)
-            {
                 if (rep != null) rep.addEntry("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.31]", path);
                 return false;
             }
         }
         return true;
     }
-    
-    
+
+
     // object .'$platforms'.0.'|'.30
     public boolean _jm_obj_63(Object val, Path path, Report rep)
     {
@@ -5770,9 +5204,6 @@ public class ansiblelint_meta extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("unexpected _OpenBSD [.'$platforms'.0.'|'.30.name]", path);
-            }
-            if (! res)
-            {
                 if (rep != null) rep.addEntry("unexpected value for optional prop <name> [.'$platforms'.0.'|'.30]", path);
                 return false;
             }
@@ -5796,9 +5227,6 @@ public class ansiblelint_meta extends ModelChecker
                     if (! res)
                     {
                         if (rep != null) rep.addEntry("value not in enum [.'$platforms'.0.'|'.30.versions.0.'|']", (path != null ? arr_64_lpath : null));
-                    }
-                    if (! res)
-                    {
                         break;
                     }
                 }
@@ -5806,16 +5234,13 @@ public class ansiblelint_meta extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("not array or unexpected array [.'$platforms'.0.'|'.30.versions]", path);
-            }
-            if (! res)
-            {
                 if (rep != null) rep.addEntry("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.30]", path);
                 return false;
             }
         }
         return true;
     }
-    
+
     // object .'$platforms'.0.'|'.29
     public boolean _jm_obj_64(Object val, Path path, Report rep)
     {
@@ -5835,9 +5260,6 @@ public class ansiblelint_meta extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("unexpected _NXOS [.'$platforms'.0.'|'.29.name]", path);
-            }
-            if (! res)
-            {
                 if (rep != null) rep.addEntry("unexpected value for optional prop <name> [.'$platforms'.0.'|'.29]", path);
                 return false;
             }
@@ -5861,9 +5283,6 @@ public class ansiblelint_meta extends ModelChecker
                     if (! res)
                     {
                         if (rep != null) rep.addEntry("unexpected all [.'$platforms'.0.'|'.29.versions.0]", (path != null ? arr_65_lpath : null));
-                    }
-                    if (! res)
-                    {
                         break;
                     }
                 }
@@ -5871,17 +5290,14 @@ public class ansiblelint_meta extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("not array or unexpected array [.'$platforms'.0.'|'.29.versions]", path);
-            }
-            if (! res)
-            {
                 if (rep != null) rep.addEntry("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.29]", path);
                 return false;
             }
         }
         return true;
     }
-    
-    
+
+
     // object .'$platforms'.0.'|'.28
     public boolean _jm_obj_65(Object val, Path path, Report rep)
     {
@@ -5901,9 +5317,6 @@ public class ansiblelint_meta extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("unexpected _Megeia [.'$platforms'.0.'|'.28.name]", path);
-            }
-            if (! res)
-            {
                 if (rep != null) rep.addEntry("unexpected value for optional prop <name> [.'$platforms'.0.'|'.28]", path);
                 return false;
             }
@@ -5927,9 +5340,6 @@ public class ansiblelint_meta extends ModelChecker
                     if (! res)
                     {
                         if (rep != null) rep.addEntry("value not in enum [.'$platforms'.0.'|'.28.versions.0.'|']", (path != null ? arr_66_lpath : null));
-                    }
-                    if (! res)
-                    {
                         break;
                     }
                 }
@@ -5937,17 +5347,14 @@ public class ansiblelint_meta extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("not array or unexpected array [.'$platforms'.0.'|'.28.versions]", path);
-            }
-            if (! res)
-            {
                 if (rep != null) rep.addEntry("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.28]", path);
                 return false;
             }
         }
         return true;
     }
-    
-    
+
+
     // object .'$platforms'.0.'|'.27
     public boolean _jm_obj_66(Object val, Path path, Report rep)
     {
@@ -5967,9 +5374,6 @@ public class ansiblelint_meta extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("unexpected _Kali [.'$platforms'.0.'|'.27.name]", path);
-            }
-            if (! res)
-            {
                 if (rep != null) rep.addEntry("unexpected value for optional prop <name> [.'$platforms'.0.'|'.27]", path);
                 return false;
             }
@@ -5993,9 +5397,6 @@ public class ansiblelint_meta extends ModelChecker
                     if (! res)
                     {
                         if (rep != null) rep.addEntry("value not in enum [.'$platforms'.0.'|'.27.versions.0.'|']", (path != null ? arr_67_lpath : null));
-                    }
-                    if (! res)
-                    {
                         break;
                     }
                 }
@@ -6003,17 +5404,14 @@ public class ansiblelint_meta extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("not array or unexpected array [.'$platforms'.0.'|'.27.versions]", path);
-            }
-            if (! res)
-            {
                 if (rep != null) rep.addEntry("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.27]", path);
                 return false;
             }
         }
         return true;
     }
-    
-    
+
+
     // object .'$platforms'.0.'|'.26
     public boolean _jm_obj_67(Object val, Path path, Report rep)
     {
@@ -6033,9 +5431,6 @@ public class ansiblelint_meta extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("unexpected _macOS [.'$platforms'.0.'|'.26.name]", path);
-            }
-            if (! res)
-            {
                 if (rep != null) rep.addEntry("unexpected value for optional prop <name> [.'$platforms'.0.'|'.26]", path);
                 return false;
             }
@@ -6059,9 +5454,6 @@ public class ansiblelint_meta extends ModelChecker
                     if (! res)
                     {
                         if (rep != null) rep.addEntry("value not in enum [.'$platforms'.0.'|'.26.versions.0.'|']", (path != null ? arr_68_lpath : null));
-                    }
-                    if (! res)
-                    {
                         break;
                     }
                 }
@@ -6069,17 +5461,14 @@ public class ansiblelint_meta extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("not array or unexpected array [.'$platforms'.0.'|'.26.versions]", path);
-            }
-            if (! res)
-            {
                 if (rep != null) rep.addEntry("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.26]", path);
                 return false;
             }
         }
         return true;
     }
-    
-    
+
+
     // object .'$platforms'.0.'|'.25
     public boolean _jm_obj_68(Object val, Path path, Report rep)
     {
@@ -6099,9 +5488,6 @@ public class ansiblelint_meta extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("unexpected _Kali [.'$platforms'.0.'|'.25.name]", path);
-            }
-            if (! res)
-            {
                 if (rep != null) rep.addEntry("unexpected value for optional prop <name> [.'$platforms'.0.'|'.25]", path);
                 return false;
             }
@@ -6125,9 +5511,6 @@ public class ansiblelint_meta extends ModelChecker
                     if (! res)
                     {
                         if (rep != null) rep.addEntry("value not in enum [.'$platforms'.0.'|'.25.versions.0.'|']", (path != null ? arr_69_lpath : null));
-                    }
-                    if (! res)
-                    {
                         break;
                     }
                 }
@@ -6135,16 +5518,13 @@ public class ansiblelint_meta extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("not array or unexpected array [.'$platforms'.0.'|'.25.versions]", path);
-            }
-            if (! res)
-            {
                 if (rep != null) rep.addEntry("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.25]", path);
                 return false;
             }
         }
         return true;
     }
-    
+
     // object .'$platforms'.0.'|'.24
     public boolean _jm_obj_69(Object val, Path path, Report rep)
     {
@@ -6164,9 +5544,6 @@ public class ansiblelint_meta extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("unexpected _Junos [.'$platforms'.0.'|'.24.name]", path);
-            }
-            if (! res)
-            {
                 if (rep != null) rep.addEntry("unexpected value for optional prop <name> [.'$platforms'.0.'|'.24]", path);
                 return false;
             }
@@ -6190,9 +5567,6 @@ public class ansiblelint_meta extends ModelChecker
                     if (! res)
                     {
                         if (rep != null) rep.addEntry("unexpected all [.'$platforms'.0.'|'.24.versions.0]", (path != null ? arr_70_lpath : null));
-                    }
-                    if (! res)
-                    {
                         break;
                     }
                 }
@@ -6200,16 +5574,13 @@ public class ansiblelint_meta extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("not array or unexpected array [.'$platforms'.0.'|'.24.versions]", path);
-            }
-            if (! res)
-            {
                 if (rep != null) rep.addEntry("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.24]", path);
                 return false;
             }
         }
         return true;
     }
-    
+
     // object .'$platforms'.0.'|'.23
     public boolean _jm_obj_70(Object val, Path path, Report rep)
     {
@@ -6229,9 +5600,6 @@ public class ansiblelint_meta extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("unexpected _IOS [.'$platforms'.0.'|'.23.name]", path);
-            }
-            if (! res)
-            {
                 if (rep != null) rep.addEntry("unexpected value for optional prop <name> [.'$platforms'.0.'|'.23]", path);
                 return false;
             }
@@ -6255,9 +5623,6 @@ public class ansiblelint_meta extends ModelChecker
                     if (! res)
                     {
                         if (rep != null) rep.addEntry("unexpected all [.'$platforms'.0.'|'.23.versions.0]", (path != null ? arr_71_lpath : null));
-                    }
-                    if (! res)
-                    {
                         break;
                     }
                 }
@@ -6265,17 +5630,14 @@ public class ansiblelint_meta extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("not array or unexpected array [.'$platforms'.0.'|'.23.versions]", path);
-            }
-            if (! res)
-            {
                 if (rep != null) rep.addEntry("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.23]", path);
                 return false;
             }
         }
         return true;
     }
-    
-    
+
+
     // object .'$platforms'.0.'|'.22
     public boolean _jm_obj_71(Object val, Path path, Report rep)
     {
@@ -6295,9 +5657,6 @@ public class ansiblelint_meta extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("unexpected _HardenedBSD [.'$platforms'.0.'|'.22.name]", path);
-            }
-            if (! res)
-            {
                 if (rep != null) rep.addEntry("unexpected value for optional prop <name> [.'$platforms'.0.'|'.22]", path);
                 return false;
             }
@@ -6321,9 +5680,6 @@ public class ansiblelint_meta extends ModelChecker
                     if (! res)
                     {
                         if (rep != null) rep.addEntry("value not in enum [.'$platforms'.0.'|'.22.versions.0.'|']", (path != null ? arr_72_lpath : null));
-                    }
-                    if (! res)
-                    {
                         break;
                     }
                 }
@@ -6331,16 +5687,13 @@ public class ansiblelint_meta extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("not array or unexpected array [.'$platforms'.0.'|'.22.versions]", path);
-            }
-            if (! res)
-            {
                 if (rep != null) rep.addEntry("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.22]", path);
                 return false;
             }
         }
         return true;
     }
-    
+
     // object .'$platforms'.0.'|'.21
     public boolean _jm_obj_72(Object val, Path path, Report rep)
     {
@@ -6360,9 +5713,6 @@ public class ansiblelint_meta extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("unexpected _Gentoo [.'$platforms'.0.'|'.21.name]", path);
-            }
-            if (! res)
-            {
                 if (rep != null) rep.addEntry("unexpected value for optional prop <name> [.'$platforms'.0.'|'.21]", path);
                 return false;
             }
@@ -6386,9 +5736,6 @@ public class ansiblelint_meta extends ModelChecker
                     if (! res)
                     {
                         if (rep != null) rep.addEntry("unexpected all [.'$platforms'.0.'|'.21.versions.0]", (path != null ? arr_73_lpath : null));
-                    }
-                    if (! res)
-                    {
                         break;
                     }
                 }
@@ -6396,16 +5743,13 @@ public class ansiblelint_meta extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("not array or unexpected array [.'$platforms'.0.'|'.21.versions]", path);
-            }
-            if (! res)
-            {
                 if (rep != null) rep.addEntry("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.21]", path);
                 return false;
             }
         }
         return true;
     }
-    
+
     // object .'$platforms'.0.'|'.20
     public boolean _jm_obj_73(Object val, Path path, Report rep)
     {
@@ -6425,9 +5769,6 @@ public class ansiblelint_meta extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("unexpected _GenericUNIX [.'$platforms'.0.'|'.20.name]", path);
-            }
-            if (! res)
-            {
                 if (rep != null) rep.addEntry("unexpected value for optional prop <name> [.'$platforms'.0.'|'.20]", path);
                 return false;
             }
@@ -6451,9 +5792,6 @@ public class ansiblelint_meta extends ModelChecker
                     if (! res)
                     {
                         if (rep != null) rep.addEntry("unexpected all [.'$platforms'.0.'|'.20.versions.0]", (path != null ? arr_74_lpath : null));
-                    }
-                    if (! res)
-                    {
                         break;
                     }
                 }
@@ -6461,16 +5799,13 @@ public class ansiblelint_meta extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("not array or unexpected array [.'$platforms'.0.'|'.20.versions]", path);
-            }
-            if (! res)
-            {
                 if (rep != null) rep.addEntry("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.20]", path);
                 return false;
             }
         }
         return true;
     }
-    
+
     // object .'$platforms'.0.'|'.19
     public boolean _jm_obj_74(Object val, Path path, Report rep)
     {
@@ -6490,9 +5825,6 @@ public class ansiblelint_meta extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("unexpected _GenericLinux [.'$platforms'.0.'|'.19.name]", path);
-            }
-            if (! res)
-            {
                 if (rep != null) rep.addEntry("unexpected value for optional prop <name> [.'$platforms'.0.'|'.19]", path);
                 return false;
             }
@@ -6516,9 +5848,6 @@ public class ansiblelint_meta extends ModelChecker
                     if (! res)
                     {
                         if (rep != null) rep.addEntry("unexpected all [.'$platforms'.0.'|'.19.versions.0]", (path != null ? arr_75_lpath : null));
-                    }
-                    if (! res)
-                    {
                         break;
                     }
                 }
@@ -6526,16 +5855,13 @@ public class ansiblelint_meta extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("not array or unexpected array [.'$platforms'.0.'|'.19.versions]", path);
-            }
-            if (! res)
-            {
                 if (rep != null) rep.addEntry("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.19]", path);
                 return false;
             }
         }
         return true;
     }
-    
+
     // object .'$platforms'.0.'|'.18
     public boolean _jm_obj_75(Object val, Path path, Report rep)
     {
@@ -6555,9 +5881,6 @@ public class ansiblelint_meta extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("unexpected _GenericBSD [.'$platforms'.0.'|'.18.name]", path);
-            }
-            if (! res)
-            {
                 if (rep != null) rep.addEntry("unexpected value for optional prop <name> [.'$platforms'.0.'|'.18]", path);
                 return false;
             }
@@ -6581,9 +5904,6 @@ public class ansiblelint_meta extends ModelChecker
                     if (! res)
                     {
                         if (rep != null) rep.addEntry("unexpected all [.'$platforms'.0.'|'.18.versions.0]", (path != null ? arr_76_lpath : null));
-                    }
-                    if (! res)
-                    {
                         break;
                     }
                 }
@@ -6591,17 +5911,14 @@ public class ansiblelint_meta extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("not array or unexpected array [.'$platforms'.0.'|'.18.versions]", path);
-            }
-            if (! res)
-            {
                 if (rep != null) rep.addEntry("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.18]", path);
                 return false;
             }
         }
         return true;
     }
-    
-    
+
+
     // object .'$platforms'.0.'|'.17
     public boolean _jm_obj_76(Object val, Path path, Report rep)
     {
@@ -6621,9 +5938,6 @@ public class ansiblelint_meta extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("unexpected _FreeBSD [.'$platforms'.0.'|'.17.name]", path);
-            }
-            if (! res)
-            {
                 if (rep != null) rep.addEntry("unexpected value for optional prop <name> [.'$platforms'.0.'|'.17]", path);
                 return false;
             }
@@ -6647,9 +5961,6 @@ public class ansiblelint_meta extends ModelChecker
                     if (! res)
                     {
                         if (rep != null) rep.addEntry("value not in enum [.'$platforms'.0.'|'.17.versions.0.'|']", (path != null ? arr_77_lpath : null));
-                    }
-                    if (! res)
-                    {
                         break;
                     }
                 }
@@ -6657,17 +5968,14 @@ public class ansiblelint_meta extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("not array or unexpected array [.'$platforms'.0.'|'.17.versions]", path);
-            }
-            if (! res)
-            {
                 if (rep != null) rep.addEntry("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.17]", path);
                 return false;
             }
         }
         return true;
     }
-    
-    
+
+
     // object .'$platforms'.0.'|'.16
     public boolean _jm_obj_77(Object val, Path path, Report rep)
     {
@@ -6687,9 +5995,6 @@ public class ansiblelint_meta extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("unexpected _Fedora [.'$platforms'.0.'|'.16.name]", path);
-            }
-            if (! res)
-            {
                 if (rep != null) rep.addEntry("unexpected value for optional prop <name> [.'$platforms'.0.'|'.16]", path);
                 return false;
             }
@@ -6713,9 +6018,6 @@ public class ansiblelint_meta extends ModelChecker
                     if (! res)
                     {
                         if (rep != null) rep.addEntry("value not in enum [.'$platforms'.0.'|'.16.versions.0.'|']", (path != null ? arr_78_lpath : null));
-                    }
-                    if (! res)
-                    {
                         break;
                     }
                 }
@@ -6723,16 +6025,13 @@ public class ansiblelint_meta extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("not array or unexpected array [.'$platforms'.0.'|'.16.versions]", path);
-            }
-            if (! res)
-            {
                 if (rep != null) rep.addEntry("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.16]", path);
                 return false;
             }
         }
         return true;
     }
-    
+
     // object .'$platforms'.0.'|'.15
     public boolean _jm_obj_78(Object val, Path path, Report rep)
     {
@@ -6752,9 +6051,6 @@ public class ansiblelint_meta extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("unexpected _eos [.'$platforms'.0.'|'.15.name]", path);
-            }
-            if (! res)
-            {
                 if (rep != null) rep.addEntry("unexpected value for optional prop <name> [.'$platforms'.0.'|'.15]", path);
                 return false;
             }
@@ -6778,9 +6074,6 @@ public class ansiblelint_meta extends ModelChecker
                     if (! res)
                     {
                         if (rep != null) rep.addEntry("unexpected all [.'$platforms'.0.'|'.15.versions.0]", (path != null ? arr_79_lpath : null));
-                    }
-                    if (! res)
-                    {
                         break;
                     }
                 }
@@ -6788,17 +6081,14 @@ public class ansiblelint_meta extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("not array or unexpected array [.'$platforms'.0.'|'.15.versions]", path);
-            }
-            if (! res)
-            {
                 if (rep != null) rep.addEntry("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.15]", path);
                 return false;
             }
         }
         return true;
     }
-    
-    
+
+
     // object .'$platforms'.0.'|'.14
     public boolean _jm_obj_79(Object val, Path path, Report rep)
     {
@@ -6818,9 +6108,6 @@ public class ansiblelint_meta extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("unexpected _EL [.'$platforms'.0.'|'.14.name]", path);
-            }
-            if (! res)
-            {
                 if (rep != null) rep.addEntry("unexpected value for optional prop <name> [.'$platforms'.0.'|'.14]", path);
                 return false;
             }
@@ -6844,9 +6131,6 @@ public class ansiblelint_meta extends ModelChecker
                     if (! res)
                     {
                         if (rep != null) rep.addEntry("value not in enum [.'$platforms'.0.'|'.14.versions.0.'|']", (path != null ? arr_80_lpath : null));
-                    }
-                    if (! res)
-                    {
                         break;
                     }
                 }
@@ -6854,17 +6138,14 @@ public class ansiblelint_meta extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("not array or unexpected array [.'$platforms'.0.'|'.14.versions]", path);
-            }
-            if (! res)
-            {
                 if (rep != null) rep.addEntry("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.14]", path);
                 return false;
             }
         }
         return true;
     }
-    
-    
+
+
     // object .'$platforms'.0.'|'.13
     public boolean _jm_obj_80(Object val, Path path, Report rep)
     {
@@ -6884,9 +6165,6 @@ public class ansiblelint_meta extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("unexpected _DragonFlyBSD [.'$platforms'.0.'|'.13.name]", path);
-            }
-            if (! res)
-            {
                 if (rep != null) rep.addEntry("unexpected value for optional prop <name> [.'$platforms'.0.'|'.13]", path);
                 return false;
             }
@@ -6910,9 +6188,6 @@ public class ansiblelint_meta extends ModelChecker
                     if (! res)
                     {
                         if (rep != null) rep.addEntry("value not in enum [.'$platforms'.0.'|'.13.versions.0.'|']", (path != null ? arr_81_lpath : null));
-                    }
-                    if (! res)
-                    {
                         break;
                     }
                 }
@@ -6920,17 +6195,14 @@ public class ansiblelint_meta extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("not array or unexpected array [.'$platforms'.0.'|'.13.versions]", path);
-            }
-            if (! res)
-            {
                 if (rep != null) rep.addEntry("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.13]", path);
                 return false;
             }
         }
         return true;
     }
-    
-    
+
+
     // object .'$platforms'.0.'|'.12
     public boolean _jm_obj_81(Object val, Path path, Report rep)
     {
@@ -6950,9 +6222,6 @@ public class ansiblelint_meta extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("unexpected _Devuan [.'$platforms'.0.'|'.12.name]", path);
-            }
-            if (! res)
-            {
                 if (rep != null) rep.addEntry("unexpected value for optional prop <name> [.'$platforms'.0.'|'.12]", path);
                 return false;
             }
@@ -6976,9 +6245,6 @@ public class ansiblelint_meta extends ModelChecker
                     if (! res)
                     {
                         if (rep != null) rep.addEntry("value not in enum [.'$platforms'.0.'|'.12.versions.0.'|']", (path != null ? arr_82_lpath : null));
-                    }
-                    if (! res)
-                    {
                         break;
                     }
                 }
@@ -6986,17 +6252,14 @@ public class ansiblelint_meta extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("not array or unexpected array [.'$platforms'.0.'|'.12.versions]", path);
-            }
-            if (! res)
-            {
                 if (rep != null) rep.addEntry("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.12]", path);
                 return false;
             }
         }
         return true;
     }
-    
-    
+
+
     // object .'$platforms'.0.'|'.11
     public boolean _jm_obj_82(Object val, Path path, Report rep)
     {
@@ -7016,9 +6279,6 @@ public class ansiblelint_meta extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("unexpected _DellOS [.'$platforms'.0.'|'.11.name]", path);
-            }
-            if (! res)
-            {
                 if (rep != null) rep.addEntry("unexpected value for optional prop <name> [.'$platforms'.0.'|'.11]", path);
                 return false;
             }
@@ -7042,9 +6302,6 @@ public class ansiblelint_meta extends ModelChecker
                     if (! res)
                     {
                         if (rep != null) rep.addEntry("value not in enum [.'$platforms'.0.'|'.11.versions.0.'|']", (path != null ? arr_83_lpath : null));
-                    }
-                    if (! res)
-                    {
                         break;
                     }
                 }
@@ -7052,17 +6309,14 @@ public class ansiblelint_meta extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("not array or unexpected array [.'$platforms'.0.'|'.11.versions]", path);
-            }
-            if (! res)
-            {
                 if (rep != null) rep.addEntry("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.11]", path);
                 return false;
             }
         }
         return true;
     }
-    
-    
+
+
     // object .'$platforms'.0.'|'.10
     public boolean _jm_obj_83(Object val, Path path, Report rep)
     {
@@ -7082,9 +6336,6 @@ public class ansiblelint_meta extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("unexpected _Debian [.'$platforms'.0.'|'.10.name]", path);
-            }
-            if (! res)
-            {
                 if (rep != null) rep.addEntry("unexpected value for optional prop <name> [.'$platforms'.0.'|'.10]", path);
                 return false;
             }
@@ -7108,9 +6359,6 @@ public class ansiblelint_meta extends ModelChecker
                     if (! res)
                     {
                         if (rep != null) rep.addEntry("value not in enum [.'$platforms'.0.'|'.10.versions.0.'|']", (path != null ? arr_84_lpath : null));
-                    }
-                    if (! res)
-                    {
                         break;
                     }
                 }
@@ -7118,17 +6366,14 @@ public class ansiblelint_meta extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("not array or unexpected array [.'$platforms'.0.'|'.10.versions]", path);
-            }
-            if (! res)
-            {
                 if (rep != null) rep.addEntry("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.10]", path);
                 return false;
             }
         }
         return true;
     }
-    
-    
+
+
     // object .'$platforms'.0.'|'.9
     public boolean _jm_obj_84(Object val, Path path, Report rep)
     {
@@ -7148,9 +6393,6 @@ public class ansiblelint_meta extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("unexpected _NetBSD [.'$platforms'.0.'|'.9.name]", path);
-            }
-            if (! res)
-            {
                 if (rep != null) rep.addEntry("unexpected value for optional prop <name> [.'$platforms'.0.'|'.9]", path);
                 return false;
             }
@@ -7174,9 +6416,6 @@ public class ansiblelint_meta extends ModelChecker
                     if (! res)
                     {
                         if (rep != null) rep.addEntry("value not in enum [.'$platforms'.0.'|'.9.versions.0.'|']", (path != null ? arr_85_lpath : null));
-                    }
-                    if (! res)
-                    {
                         break;
                     }
                 }
@@ -7184,17 +6423,14 @@ public class ansiblelint_meta extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("not array or unexpected array [.'$platforms'.0.'|'.9.versions]", path);
-            }
-            if (! res)
-            {
                 if (rep != null) rep.addEntry("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.9]", path);
                 return false;
             }
         }
         return true;
     }
-    
-    
+
+
     // object .'$platforms'.0.'|'.8
     public boolean _jm_obj_85(Object val, Path path, Report rep)
     {
@@ -7214,9 +6450,6 @@ public class ansiblelint_meta extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("unexpected _Cumulus [.'$platforms'.0.'|'.8.name]", path);
-            }
-            if (! res)
-            {
                 if (rep != null) rep.addEntry("unexpected value for optional prop <name> [.'$platforms'.0.'|'.8]", path);
                 return false;
             }
@@ -7240,9 +6473,6 @@ public class ansiblelint_meta extends ModelChecker
                     if (! res)
                     {
                         if (rep != null) rep.addEntry("value not in enum [.'$platforms'.0.'|'.8.versions.0.'|']", (path != null ? arr_86_lpath : null));
-                    }
-                    if (! res)
-                    {
                         break;
                     }
                 }
@@ -7250,16 +6480,13 @@ public class ansiblelint_meta extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("not array or unexpected array [.'$platforms'.0.'|'.8.versions]", path);
-            }
-            if (! res)
-            {
                 if (rep != null) rep.addEntry("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.8]", path);
                 return false;
             }
         }
         return true;
     }
-    
+
     // object .'$platforms'.0.'|'.7
     public boolean _jm_obj_86(Object val, Path path, Report rep)
     {
@@ -7279,9 +6506,6 @@ public class ansiblelint_meta extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("unexpected _ClearLinux [.'$platforms'.0.'|'.7.name]", path);
-            }
-            if (! res)
-            {
                 if (rep != null) rep.addEntry("unexpected value for optional prop <name> [.'$platforms'.0.'|'.7]", path);
                 return false;
             }
@@ -7305,9 +6529,6 @@ public class ansiblelint_meta extends ModelChecker
                     if (! res)
                     {
                         if (rep != null) rep.addEntry("unexpected all [.'$platforms'.0.'|'.7.versions.0]", (path != null ? arr_87_lpath : null));
-                    }
-                    if (! res)
-                    {
                         break;
                     }
                 }
@@ -7315,17 +6536,14 @@ public class ansiblelint_meta extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("not array or unexpected array [.'$platforms'.0.'|'.7.versions]", path);
-            }
-            if (! res)
-            {
                 if (rep != null) rep.addEntry("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.7]", path);
                 return false;
             }
         }
         return true;
     }
-    
-    
+
+
     // object .'$platforms'.0.'|'.6
     public boolean _jm_obj_87(Object val, Path path, Report rep)
     {
@@ -7345,9 +6563,6 @@ public class ansiblelint_meta extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("unexpected _Astra Linux [.'$platforms'.0.'|'.6.name]", path);
-            }
-            if (! res)
-            {
                 if (rep != null) rep.addEntry("unexpected value for optional prop <name> [.'$platforms'.0.'|'.6]", path);
                 return false;
             }
@@ -7371,9 +6586,6 @@ public class ansiblelint_meta extends ModelChecker
                     if (! res)
                     {
                         if (rep != null) rep.addEntry("value not in enum [.'$platforms'.0.'|'.6.versions.0.'|']", (path != null ? arr_88_lpath : null));
-                    }
-                    if (! res)
-                    {
                         break;
                     }
                 }
@@ -7381,16 +6593,13 @@ public class ansiblelint_meta extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("not array or unexpected array [.'$platforms'.0.'|'.6.versions]", path);
-            }
-            if (! res)
-            {
                 if (rep != null) rep.addEntry("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.6]", path);
                 return false;
             }
         }
         return true;
     }
-    
+
     // object .'$platforms'.0.'|'.5
     public boolean _jm_obj_88(Object val, Path path, Report rep)
     {
@@ -7410,9 +6619,6 @@ public class ansiblelint_meta extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("unexpected _ArchLinux [.'$platforms'.0.'|'.5.name]", path);
-            }
-            if (! res)
-            {
                 if (rep != null) rep.addEntry("unexpected value for optional prop <name> [.'$platforms'.0.'|'.5]", path);
                 return false;
             }
@@ -7436,9 +6642,6 @@ public class ansiblelint_meta extends ModelChecker
                     if (! res)
                     {
                         if (rep != null) rep.addEntry("unexpected all [.'$platforms'.0.'|'.5.versions.0]", (path != null ? arr_89_lpath : null));
-                    }
-                    if (! res)
-                    {
                         break;
                     }
                 }
@@ -7446,16 +6649,13 @@ public class ansiblelint_meta extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("not array or unexpected array [.'$platforms'.0.'|'.5.versions]", path);
-            }
-            if (! res)
-            {
                 if (rep != null) rep.addEntry("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.5]", path);
                 return false;
             }
         }
         return true;
     }
-    
+
     // object .'$platforms'.0.'|'.4
     public boolean _jm_obj_89(Object val, Path path, Report rep)
     {
@@ -7475,9 +6675,6 @@ public class ansiblelint_meta extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("unexpected _aos [.'$platforms'.0.'|'.4.name]", path);
-            }
-            if (! res)
-            {
                 if (rep != null) rep.addEntry("unexpected value for optional prop <name> [.'$platforms'.0.'|'.4]", path);
                 return false;
             }
@@ -7501,9 +6698,6 @@ public class ansiblelint_meta extends ModelChecker
                     if (! res)
                     {
                         if (rep != null) rep.addEntry("unexpected all [.'$platforms'.0.'|'.4.versions.0]", (path != null ? arr_90_lpath : null));
-                    }
-                    if (! res)
-                    {
                         break;
                     }
                 }
@@ -7511,17 +6705,14 @@ public class ansiblelint_meta extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("not array or unexpected array [.'$platforms'.0.'|'.4.versions]", path);
-            }
-            if (! res)
-            {
                 if (rep != null) rep.addEntry("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.4]", path);
                 return false;
             }
         }
         return true;
     }
-    
-    
+
+
     // object .'$platforms'.0.'|'.3
     public boolean _jm_obj_90(Object val, Path path, Report rep)
     {
@@ -7541,9 +6732,6 @@ public class ansiblelint_meta extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("unexpected _Amazon Linux [.'$platforms'.0.'|'.3.name]", path);
-            }
-            if (! res)
-            {
                 if (rep != null) rep.addEntry("unexpected value for optional prop <name> [.'$platforms'.0.'|'.3]", path);
                 return false;
             }
@@ -7567,9 +6755,6 @@ public class ansiblelint_meta extends ModelChecker
                     if (! res)
                     {
                         if (rep != null) rep.addEntry("value not in enum [.'$platforms'.0.'|'.3.versions.0.'|']", (path != null ? arr_91_lpath : null));
-                    }
-                    if (! res)
-                    {
                         break;
                     }
                 }
@@ -7577,17 +6762,14 @@ public class ansiblelint_meta extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("not array or unexpected array [.'$platforms'.0.'|'.3.versions]", path);
-            }
-            if (! res)
-            {
                 if (rep != null) rep.addEntry("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.3]", path);
                 return false;
             }
         }
         return true;
     }
-    
-    
+
+
     // object .'$platforms'.0.'|'.2
     public boolean _jm_obj_91(Object val, Path path, Report rep)
     {
@@ -7607,9 +6789,6 @@ public class ansiblelint_meta extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("unexpected _Amazon [.'$platforms'.0.'|'.2.name]", path);
-            }
-            if (! res)
-            {
                 if (rep != null) rep.addEntry("unexpected value for optional prop <name> [.'$platforms'.0.'|'.2]", path);
                 return false;
             }
@@ -7633,9 +6812,6 @@ public class ansiblelint_meta extends ModelChecker
                     if (! res)
                     {
                         if (rep != null) rep.addEntry("value not in enum [.'$platforms'.0.'|'.2.versions.0.'|']", (path != null ? arr_92_lpath : null));
-                    }
-                    if (! res)
-                    {
                         break;
                     }
                 }
@@ -7643,16 +6819,13 @@ public class ansiblelint_meta extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("not array or unexpected array [.'$platforms'.0.'|'.2.versions]", path);
-            }
-            if (! res)
-            {
                 if (rep != null) rep.addEntry("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.2]", path);
                 return false;
             }
         }
         return true;
     }
-    
+
     // object .'$platforms'.0.'|'.1
     public boolean _jm_obj_92(Object val, Path path, Report rep)
     {
@@ -7672,9 +6845,6 @@ public class ansiblelint_meta extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("unexpected _Alpine [.'$platforms'.0.'|'.1.name]", path);
-            }
-            if (! res)
-            {
                 if (rep != null) rep.addEntry("unexpected value for optional prop <name> [.'$platforms'.0.'|'.1]", path);
                 return false;
             }
@@ -7698,9 +6868,6 @@ public class ansiblelint_meta extends ModelChecker
                     if (! res)
                     {
                         if (rep != null) rep.addEntry("unexpected all [.'$platforms'.0.'|'.1.versions.0]", (path != null ? arr_93_lpath : null));
-                    }
-                    if (! res)
-                    {
                         break;
                     }
                 }
@@ -7708,17 +6875,14 @@ public class ansiblelint_meta extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("not array or unexpected array [.'$platforms'.0.'|'.1.versions]", path);
-            }
-            if (! res)
-            {
                 if (rep != null) rep.addEntry("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.1]", path);
                 return false;
             }
         }
         return true;
     }
-    
-    
+
+
     // object .'$platforms'.0.'|'.0
     public boolean _jm_obj_93(Object val, Path path, Report rep)
     {
@@ -7738,9 +6902,6 @@ public class ansiblelint_meta extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("unexpected _AIX [.'$platforms'.0.'|'.0.name]", path);
-            }
-            if (! res)
-            {
                 if (rep != null) rep.addEntry("unexpected value for optional prop <name> [.'$platforms'.0.'|'.0]", path);
                 return false;
             }
@@ -7764,9 +6925,6 @@ public class ansiblelint_meta extends ModelChecker
                     if (! res)
                     {
                         if (rep != null) rep.addEntry("value not in enum [.'$platforms'.0.'|'.0.versions.0.'|']", (path != null ? arr_94_lpath : null));
-                    }
-                    if (! res)
-                    {
                         break;
                     }
                 }
@@ -7774,16 +6932,13 @@ public class ansiblelint_meta extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("not array or unexpected array [.'$platforms'.0.'|'.0.versions]", path);
-            }
-            if (! res)
-            {
                 if (rep != null) rep.addEntry("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.0]", path);
                 return false;
             }
         }
         return true;
     }
-    
+
     // check $platforms (.'$platforms')
     public boolean json_model_50(Object val, Path path, Report rep)
     {
@@ -8248,7 +7403,7 @@ public class ansiblelint_meta extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_94_map_cloud_platforms (.'$GalaxyInfoModelCollection'.cloud_platforms)
     public boolean _jm_f_0(Object val, Path path, Report rep)
     {
@@ -8261,7 +7416,7 @@ public class ansiblelint_meta extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_94_map_galaxy_tags (.'$GalaxyInfoModelCollection'.galaxy_tags)
     public boolean _jm_f_1(Object val, Path path, Report rep)
     {
@@ -8282,9 +7437,6 @@ public class ansiblelint_meta extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected string [.'$GalaxyInfoModelCollection'.galaxy_tags.0]", (path != null ? arr_95_lpath : null));
-                }
-                if (! res)
-                {
                     break;
                 }
             }
@@ -8295,7 +7447,7 @@ public class ansiblelint_meta extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_94_map_min_ansible_version (.'$GalaxyInfoModelCollection'.min_ansible_version)
     public boolean _jm_f_2(Object val, Path path, Report rep)
     {
@@ -8308,12 +7460,12 @@ public class ansiblelint_meta extends ModelChecker
         }
         return res;
     }
-    
+
     public boolean _jm_re_0(String val, Path path, Report rep)
     {
         return _jm_re_0_pat.matcher(val).find();
     }
-    
+
     // check _jm_obj_94_map_namespace (.'$GalaxyInfoModelCollection'.namespace)
     public boolean _jm_f_3(Object val, Path path, Report rep)
     {
@@ -8327,7 +7479,7 @@ public class ansiblelint_meta extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_94_map_platforms (.'$GalaxyInfoModelCollection'.platforms)
     public boolean _jm_f_4(Object val, Path path, Report rep)
     {
@@ -8340,12 +7492,12 @@ public class ansiblelint_meta extends ModelChecker
         }
         return res;
     }
-    
+
     public boolean _jm_re_1(String val, Path path, Report rep)
     {
         return _jm_re_1_pat.matcher(val).find();
     }
-    
+
     // check _jm_obj_94_map_role_name (.'$GalaxyInfoModelCollection'.role_name)
     public boolean _jm_f_5(Object val, Path path, Report rep)
     {
@@ -8359,25 +7511,21 @@ public class ansiblelint_meta extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_94_map_video_links (.'$GalaxyInfoModelCollection'.video_links)
     public boolean _jm_f_6(Object val, Path path, Report rep)
     {
         boolean res;
         // .'$GalaxyInfoModelCollection'.video_links
         res = json.isArray(val);
-        if (res)
-        {
-            // accept any array
-        }
         if (! res)
         {
             if (rep != null) rep.addEntry("not array or unexpected array [.'$GalaxyInfoModelCollection'.video_links]", path);
         }
         return res;
     }
-    
-    
+
+
     // object .'$GalaxyInfoModelCollection'
     public boolean _jm_obj_94(Object val, Path path, Report rep)
     {
@@ -8410,7 +7558,7 @@ public class ansiblelint_meta extends ModelChecker
         }
         return true;
     }
-    
+
     // check $GalaxyInfoModelCollection (.'$GalaxyInfoModelCollection')
     public boolean json_model_51(Object val, Path path, Report rep)
     {
@@ -8423,7 +7571,7 @@ public class ansiblelint_meta extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_95_map_author (.'$GalaxyInfoModelLoose'.author)
     public boolean _jm_f_7(Object val, Path path, Report rep)
     {
@@ -8436,7 +7584,7 @@ public class ansiblelint_meta extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_95_map_company (.'$GalaxyInfoModelLoose'.company)
     public boolean _jm_f_8(Object val, Path path, Report rep)
     {
@@ -8449,7 +7597,7 @@ public class ansiblelint_meta extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_95_map_github_branch (.'$GalaxyInfoModelLoose'.github_branch)
     public boolean _jm_f_9(Object val, Path path, Report rep)
     {
@@ -8462,7 +7610,7 @@ public class ansiblelint_meta extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_95_map_issue_tracker_url (.'$GalaxyInfoModelLoose'.issue_tracker_url)
     public boolean _jm_f_10(Object val, Path path, Report rep)
     {
@@ -8475,7 +7623,7 @@ public class ansiblelint_meta extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_95_map_license (.'$GalaxyInfoModelLoose'.license)
     public boolean _jm_f_11(Object val, Path path, Report rep)
     {
@@ -8488,7 +7636,7 @@ public class ansiblelint_meta extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_95_map_min_ansible_container_version (.'$GalaxyInfoModelLoose'.min_ansible_container_version)
     public boolean _jm_f_12(Object val, Path path, Report rep)
     {
@@ -8501,8 +7649,8 @@ public class ansiblelint_meta extends ModelChecker
         }
         return res;
     }
-    
-    
+
+
     // object .'$GalaxyInfoModelLoose'
     public boolean _jm_obj_95(Object val, Path path, Report rep)
     {
@@ -8529,9 +7677,6 @@ public class ansiblelint_meta extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected string [.'$GalaxyInfoModelLoose'.description]", (path != null ? lpath_48 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$GalaxyInfoModelLoose'.description]", (path != null ? lpath_48 : null));
                     return false;
                 }
@@ -8564,7 +7709,7 @@ public class ansiblelint_meta extends ModelChecker
         }
         return true;
     }
-    
+
     // check $GalaxyInfoModelLoose (.'$GalaxyInfoModelLoose')
     public boolean json_model_52(Object val, Path path, Report rep)
     {
@@ -8578,7 +7723,7 @@ public class ansiblelint_meta extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_96_map_cloud_platforms (.'$GalaxyInfoModelStandalone'.cloud_platforms)
     public boolean _jm_f_13(Object val, Path path, Report rep)
     {
@@ -8591,7 +7736,7 @@ public class ansiblelint_meta extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_96_map_company (.'$GalaxyInfoModelStandalone'.company)
     public boolean _jm_f_14(Object val, Path path, Report rep)
     {
@@ -8604,7 +7749,7 @@ public class ansiblelint_meta extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_96_map_galaxy_tags (.'$GalaxyInfoModelStandalone'.galaxy_tags)
     public boolean _jm_f_15(Object val, Path path, Report rep)
     {
@@ -8625,9 +7770,6 @@ public class ansiblelint_meta extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected string [.'$GalaxyInfoModelStandalone'.galaxy_tags.0]", (path != null ? arr_96_lpath : null));
-                }
-                if (! res)
-                {
                     break;
                 }
             }
@@ -8638,7 +7780,7 @@ public class ansiblelint_meta extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_96_map_github_branch (.'$GalaxyInfoModelStandalone'.github_branch)
     public boolean _jm_f_16(Object val, Path path, Report rep)
     {
@@ -8651,7 +7793,7 @@ public class ansiblelint_meta extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_96_map_issue_tracker_url (.'$GalaxyInfoModelStandalone'.issue_tracker_url)
     public boolean _jm_f_17(Object val, Path path, Report rep)
     {
@@ -8664,7 +7806,7 @@ public class ansiblelint_meta extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_96_map_min_ansible_container_version (.'$GalaxyInfoModelStandalone'.min_ansible_container_version)
     public boolean _jm_f_18(Object val, Path path, Report rep)
     {
@@ -8677,7 +7819,7 @@ public class ansiblelint_meta extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_96_map_namespace (.'$GalaxyInfoModelStandalone'.namespace)
     public boolean _jm_f_19(Object val, Path path, Report rep)
     {
@@ -8691,7 +7833,7 @@ public class ansiblelint_meta extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_96_map_platforms (.'$GalaxyInfoModelStandalone'.platforms)
     public boolean _jm_f_20(Object val, Path path, Report rep)
     {
@@ -8704,7 +7846,7 @@ public class ansiblelint_meta extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_96_map_role_name (.'$GalaxyInfoModelStandalone'.role_name)
     public boolean _jm_f_21(Object val, Path path, Report rep)
     {
@@ -8718,25 +7860,21 @@ public class ansiblelint_meta extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_96_map_video_links (.'$GalaxyInfoModelStandalone'.video_links)
     public boolean _jm_f_22(Object val, Path path, Report rep)
     {
         boolean res;
         // .'$GalaxyInfoModelStandalone'.video_links
         res = json.isArray(val);
-        if (res)
-        {
-            // accept any array
-        }
         if (! res)
         {
             if (rep != null) rep.addEntry("not array or unexpected array [.'$GalaxyInfoModelStandalone'.video_links]", path);
         }
         return res;
     }
-    
-    
+
+
     // object .'$GalaxyInfoModelStandalone'
     public boolean _jm_obj_96(Object val, Path path, Report rep)
     {
@@ -8763,9 +7901,6 @@ public class ansiblelint_meta extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected =true [.'$GalaxyInfoModelStandalone'.standalone]", (path != null ? lpath_49 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$GalaxyInfoModelStandalone'.standalone]", (path != null ? lpath_49 : null));
                     return false;
                 }
@@ -8779,9 +7914,6 @@ public class ansiblelint_meta extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected string [.'$GalaxyInfoModelStandalone'.description]", (path != null ? lpath_49 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$GalaxyInfoModelStandalone'.description]", (path != null ? lpath_49 : null));
                     return false;
                 }
@@ -8795,9 +7927,6 @@ public class ansiblelint_meta extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected string [.'$GalaxyInfoModelStandalone'.author]", (path != null ? lpath_49 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$GalaxyInfoModelStandalone'.author]", (path != null ? lpath_49 : null));
                     return false;
                 }
@@ -8811,9 +7940,6 @@ public class ansiblelint_meta extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected string [.'$GalaxyInfoModelStandalone'.license]", (path != null ? lpath_49 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$GalaxyInfoModelStandalone'.license]", (path != null ? lpath_49 : null));
                     return false;
                 }
@@ -8827,9 +7953,6 @@ public class ansiblelint_meta extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected string [.'$GalaxyInfoModelStandalone'.min_ansible_version]", (path != null ? lpath_49 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$GalaxyInfoModelStandalone'.min_ansible_version]", (path != null ? lpath_49 : null));
                     return false;
                 }
@@ -8878,7 +8001,7 @@ public class ansiblelint_meta extends ModelChecker
         }
         return true;
     }
-    
+
     // check $GalaxyInfoModelStandalone (.'$GalaxyInfoModelStandalone')
     public boolean json_model_53(Object val, Path path, Report rep)
     {
@@ -8891,7 +8014,7 @@ public class ansiblelint_meta extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_97_map_author (.'$GalaxyInfoModel'.'|'.1.author)
     public boolean _jm_f_23(Object val, Path path, Report rep)
     {
@@ -8904,7 +8027,7 @@ public class ansiblelint_meta extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_97_map_cloud_platforms (.'$GalaxyInfoModel'.'|'.1.cloud_platforms)
     public boolean _jm_f_24(Object val, Path path, Report rep)
     {
@@ -8917,7 +8040,7 @@ public class ansiblelint_meta extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_97_map_company (.'$GalaxyInfoModel'.'|'.1.company)
     public boolean _jm_f_25(Object val, Path path, Report rep)
     {
@@ -8930,7 +8053,7 @@ public class ansiblelint_meta extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_97_map_galaxy_tags (.'$GalaxyInfoModel'.'|'.1.galaxy_tags)
     public boolean _jm_f_26(Object val, Path path, Report rep)
     {
@@ -8951,9 +8074,6 @@ public class ansiblelint_meta extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected string [.'$GalaxyInfoModel'.'|'.1.galaxy_tags.0]", (path != null ? arr_97_lpath : null));
-                }
-                if (! res)
-                {
                     break;
                 }
             }
@@ -8964,7 +8084,7 @@ public class ansiblelint_meta extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_97_map_github_branch (.'$GalaxyInfoModel'.'|'.1.github_branch)
     public boolean _jm_f_27(Object val, Path path, Report rep)
     {
@@ -8977,7 +8097,7 @@ public class ansiblelint_meta extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_97_map_issue_tracker_url (.'$GalaxyInfoModel'.'|'.1.issue_tracker_url)
     public boolean _jm_f_28(Object val, Path path, Report rep)
     {
@@ -8990,7 +8110,7 @@ public class ansiblelint_meta extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_97_map_license (.'$GalaxyInfoModel'.'|'.1.license)
     public boolean _jm_f_29(Object val, Path path, Report rep)
     {
@@ -9003,7 +8123,7 @@ public class ansiblelint_meta extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_97_map_min_ansible_container_version (.'$GalaxyInfoModel'.'|'.1.min_ansible_container_version)
     public boolean _jm_f_30(Object val, Path path, Report rep)
     {
@@ -9016,7 +8136,7 @@ public class ansiblelint_meta extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_97_map_min_ansible_version (.'$GalaxyInfoModel'.'|'.1.min_ansible_version)
     public boolean _jm_f_31(Object val, Path path, Report rep)
     {
@@ -9029,7 +8149,7 @@ public class ansiblelint_meta extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_97_map_namespace (.'$GalaxyInfoModel'.'|'.1.namespace)
     public boolean _jm_f_32(Object val, Path path, Report rep)
     {
@@ -9043,7 +8163,7 @@ public class ansiblelint_meta extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_97_map_platforms (.'$GalaxyInfoModel'.'|'.1.platforms)
     public boolean _jm_f_33(Object val, Path path, Report rep)
     {
@@ -9056,7 +8176,7 @@ public class ansiblelint_meta extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_97_map_role_name (.'$GalaxyInfoModel'.'|'.1.role_name)
     public boolean _jm_f_34(Object val, Path path, Report rep)
     {
@@ -9070,25 +8190,21 @@ public class ansiblelint_meta extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_97_map_video_links (.'$GalaxyInfoModel'.'|'.1.video_links)
     public boolean _jm_f_35(Object val, Path path, Report rep)
     {
         boolean res;
         // .'$GalaxyInfoModel'.'|'.1.video_links
         res = json.isArray(val);
-        if (res)
-        {
-            // accept any array
-        }
         if (! res)
         {
             if (rep != null) rep.addEntry("not array or unexpected array [.'$GalaxyInfoModel'.'|'.1.video_links]", path);
         }
         return res;
     }
-    
-    
+
+
     // object .'$GalaxyInfoModel'.'|'.1
     public boolean _jm_obj_97(Object val, Path path, Report rep)
     {
@@ -9115,9 +8231,6 @@ public class ansiblelint_meta extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected =false [.'$GalaxyInfoModel'.'|'.1.standalone]", (path != null ? lpath_50 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$GalaxyInfoModel'.'|'.1.standalone]", (path != null ? lpath_50 : null));
                     return false;
                 }
@@ -9131,9 +8244,6 @@ public class ansiblelint_meta extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected string [.'$GalaxyInfoModel'.'|'.1.description]", (path != null ? lpath_50 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$GalaxyInfoModel'.'|'.1.description]", (path != null ? lpath_50 : null));
                     return false;
                 }
@@ -9170,7 +8280,7 @@ public class ansiblelint_meta extends ModelChecker
         }
         return true;
     }
-    
+
     // check _jm_obj_98_map_author (.'$GalaxyInfoModel'.'|'.2.author)
     public boolean _jm_f_36(Object val, Path path, Report rep)
     {
@@ -9183,7 +8293,7 @@ public class ansiblelint_meta extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_98_map_cloud_platforms (.'$GalaxyInfoModel'.'|'.2.cloud_platforms)
     public boolean _jm_f_37(Object val, Path path, Report rep)
     {
@@ -9196,7 +8306,7 @@ public class ansiblelint_meta extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_98_map_company (.'$GalaxyInfoModel'.'|'.2.company)
     public boolean _jm_f_38(Object val, Path path, Report rep)
     {
@@ -9209,7 +8319,7 @@ public class ansiblelint_meta extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_98_map_galaxy_tags (.'$GalaxyInfoModel'.'|'.2.galaxy_tags)
     public boolean _jm_f_39(Object val, Path path, Report rep)
     {
@@ -9230,9 +8340,6 @@ public class ansiblelint_meta extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected string [.'$GalaxyInfoModel'.'|'.2.galaxy_tags.0]", (path != null ? arr_98_lpath : null));
-                }
-                if (! res)
-                {
                     break;
                 }
             }
@@ -9243,7 +8350,7 @@ public class ansiblelint_meta extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_98_map_github_branch (.'$GalaxyInfoModel'.'|'.2.github_branch)
     public boolean _jm_f_40(Object val, Path path, Report rep)
     {
@@ -9256,7 +8363,7 @@ public class ansiblelint_meta extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_98_map_issue_tracker_url (.'$GalaxyInfoModel'.'|'.2.issue_tracker_url)
     public boolean _jm_f_41(Object val, Path path, Report rep)
     {
@@ -9269,7 +8376,7 @@ public class ansiblelint_meta extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_98_map_license (.'$GalaxyInfoModel'.'|'.2.license)
     public boolean _jm_f_42(Object val, Path path, Report rep)
     {
@@ -9282,7 +8389,7 @@ public class ansiblelint_meta extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_98_map_min_ansible_container_version (.'$GalaxyInfoModel'.'|'.2.min_ansible_container_version)
     public boolean _jm_f_43(Object val, Path path, Report rep)
     {
@@ -9295,7 +8402,7 @@ public class ansiblelint_meta extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_98_map_min_ansible_version (.'$GalaxyInfoModel'.'|'.2.min_ansible_version)
     public boolean _jm_f_44(Object val, Path path, Report rep)
     {
@@ -9308,7 +8415,7 @@ public class ansiblelint_meta extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_98_map_namespace (.'$GalaxyInfoModel'.'|'.2.namespace)
     public boolean _jm_f_45(Object val, Path path, Report rep)
     {
@@ -9322,7 +8429,7 @@ public class ansiblelint_meta extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_98_map_platforms (.'$GalaxyInfoModel'.'|'.2.platforms)
     public boolean _jm_f_46(Object val, Path path, Report rep)
     {
@@ -9335,7 +8442,7 @@ public class ansiblelint_meta extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_98_map_role_name (.'$GalaxyInfoModel'.'|'.2.role_name)
     public boolean _jm_f_47(Object val, Path path, Report rep)
     {
@@ -9349,25 +8456,21 @@ public class ansiblelint_meta extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_98_map_video_links (.'$GalaxyInfoModel'.'|'.2.video_links)
     public boolean _jm_f_48(Object val, Path path, Report rep)
     {
         boolean res;
         // .'$GalaxyInfoModel'.'|'.2.video_links
         res = json.isArray(val);
-        if (res)
-        {
-            // accept any array
-        }
         if (! res)
         {
             if (rep != null) rep.addEntry("not array or unexpected array [.'$GalaxyInfoModel'.'|'.2.video_links]", path);
         }
         return res;
     }
-    
-    
+
+
     // object .'$GalaxyInfoModel'.'|'.2
     public boolean _jm_obj_98(Object val, Path path, Report rep)
     {
@@ -9394,9 +8497,6 @@ public class ansiblelint_meta extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected string [.'$GalaxyInfoModel'.'|'.2.description]", (path != null ? lpath_51 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$GalaxyInfoModel'.'|'.2.description]", (path != null ? lpath_51 : null));
                     return false;
                 }
@@ -9429,8 +8529,8 @@ public class ansiblelint_meta extends ModelChecker
         }
         return true;
     }
-    
-    
+
+
     // check $GalaxyInfoModel (.'$GalaxyInfoModel')
     public boolean json_model_54(Object val, Path path, Report rep)
     {
@@ -9476,12 +8576,12 @@ public class ansiblelint_meta extends ModelChecker
         }
         return res;
     }
-    
+
     public boolean _jm_re_2(String val, Path path, Report rep)
     {
         return _jm_re_2_pat.matcher(val).find();
     }
-    
+
     // check $collections (.'$collections')
     public boolean json_model_55(Object val, Path path, Report rep)
     {
@@ -9503,9 +8603,6 @@ public class ansiblelint_meta extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected /^[a-z_]+\\.[a-z_]+$/ [.'$collections'.0]", (path != null ? arr_99_lpath : null));
-                }
-                if (! res)
-                {
                     break;
                 }
             }
@@ -9516,7 +8613,7 @@ public class ansiblelint_meta extends ModelChecker
         }
         return res;
     }
-    
+
     // check $complex_conditional (.'$complex_conditional')
     public boolean json_model_56(Object val, Path path, Report rep)
     {
@@ -9554,9 +8651,6 @@ public class ansiblelint_meta extends ModelChecker
                         if (! res)
                         {
                             if (rep != null) rep.addEntry("unexpected string [.'$complex_conditional'.'|'.2.0]", (path != null ? arr_100_lpath : null));
-                        }
-                        if (! res)
-                        {
                             break;
                         }
                     }
@@ -9577,8 +8671,8 @@ public class ansiblelint_meta extends ModelChecker
         }
         return res;
     }
-    
-    
+
+
     // object .'$DependencyModelLoose'.vars
     public boolean _jm_obj_100(Object val, Path path, Report rep)
     {
@@ -9590,7 +8684,7 @@ public class ansiblelint_meta extends ModelChecker
         // accept any object
         return true;
     }
-    
+
     // object .'$DependencyModelLoose'
     public boolean _jm_obj_99(Object val, Path path, Report rep)
     {
@@ -9610,9 +8704,6 @@ public class ansiblelint_meta extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("not a bool [.'$DependencyModelLoose'.become]", path);
-            }
-            if (! res)
-            {
                 if (rep != null) rep.addEntry("unexpected value for optional prop <become> [.'$DependencyModelLoose']", path);
                 return false;
             }
@@ -9625,9 +8716,6 @@ public class ansiblelint_meta extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("unexpected string [.'$DependencyModelLoose'.name]", path);
-            }
-            if (! res)
-            {
                 if (rep != null) rep.addEntry("unexpected value for optional prop <name> [.'$DependencyModelLoose']", path);
                 return false;
             }
@@ -9640,9 +8728,6 @@ public class ansiblelint_meta extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("unexpected string [.'$DependencyModelLoose'.role]", path);
-            }
-            if (! res)
-            {
                 if (rep != null) rep.addEntry("unexpected value for optional prop <role> [.'$DependencyModelLoose']", path);
                 return false;
             }
@@ -9655,9 +8740,6 @@ public class ansiblelint_meta extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("unexpected string [.'$DependencyModelLoose'.src]", path);
-            }
-            if (! res)
-            {
                 if (rep != null) rep.addEntry("unexpected value for optional prop <src> [.'$DependencyModelLoose']", path);
                 return false;
             }
@@ -9670,9 +8752,6 @@ public class ansiblelint_meta extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("value not in enum [.'$DependencyModelLoose'.scm.'|']", path);
-            }
-            if (! res)
-            {
                 if (rep != null) rep.addEntry("unexpected value for optional prop <scm> [.'$DependencyModelLoose']", path);
                 return false;
             }
@@ -9705,9 +8784,6 @@ public class ansiblelint_meta extends ModelChecker
                         if (! res)
                         {
                             if (rep != null) rep.addEntry("unexpected string [.'$DependencyModelLoose'.tags.'|'.1.0]", (path != null ? arr_101_lpath : null));
-                        }
-                        if (! res)
-                        {
                             break;
                         }
                     }
@@ -9724,9 +8800,6 @@ public class ansiblelint_meta extends ModelChecker
             else
             {
                 if (rep != null) rep.addEntry("no model matched [.'$DependencyModelLoose'.tags.'|']", path);
-            }
-            if (! res)
-            {
                 if (rep != null) rep.addEntry("unexpected value for optional prop <tags> [.'$DependencyModelLoose']", path);
                 return false;
             }
@@ -9739,9 +8812,6 @@ public class ansiblelint_meta extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("unexpected element [.'$DependencyModelLoose'.vars]", path);
-            }
-            if (! res)
-            {
                 if (rep != null) rep.addEntry("unexpected value for optional prop <vars> [.'$DependencyModelLoose']", path);
                 return false;
             }
@@ -9754,9 +8824,6 @@ public class ansiblelint_meta extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("unexpected string [.'$DependencyModelLoose'.version]", path);
-            }
-            if (! res)
-            {
                 if (rep != null) rep.addEntry("unexpected value for optional prop <version> [.'$DependencyModelLoose']", path);
                 return false;
             }
@@ -9769,16 +8836,13 @@ public class ansiblelint_meta extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("unexpected $complex_conditional [.'$DependencyModelLoose'.when]", path);
-            }
-            if (! res)
-            {
                 if (rep != null) rep.addEntry("unexpected value for optional prop <when> [.'$DependencyModelLoose']", path);
                 return false;
             }
         }
         return true;
     }
-    
+
     // check $DependencyModelLoose (.'$DependencyModelLoose')
     public boolean json_model_57(Object val, Path path, Report rep)
     {
@@ -9794,7 +8858,7 @@ public class ansiblelint_meta extends ModelChecker
         }
         return res;
     }
-    
+
     // object .'$DependencyModel'.'&'.1.'|'.2
     public boolean _jm_obj_101(Object val, Path path, Report rep)
     {
@@ -9817,15 +8881,12 @@ public class ansiblelint_meta extends ModelChecker
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$DependencyModel'.'&'.1.'|'.2.name]", path);
-        }
-        if (! res)
-        {
             if (rep != null) rep.addEntry("unexpected value for mandatory prop <name> [.'$DependencyModel'.'&'.1.'|'.2]", path);
             return false;
         }
         return true;
     }
-    
+
     // object .'$DependencyModel'.'&'.1.'|'.1
     public boolean _jm_obj_102(Object val, Path path, Report rep)
     {
@@ -9848,15 +8909,12 @@ public class ansiblelint_meta extends ModelChecker
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$DependencyModel'.'&'.1.'|'.1.src]", path);
-        }
-        if (! res)
-        {
             if (rep != null) rep.addEntry("unexpected value for mandatory prop <src> [.'$DependencyModel'.'&'.1.'|'.1]", path);
             return false;
         }
         return true;
     }
-    
+
     // object .'$DependencyModel'.'&'.1.'|'.0
     public boolean _jm_obj_103(Object val, Path path, Report rep)
     {
@@ -9879,15 +8937,12 @@ public class ansiblelint_meta extends ModelChecker
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$DependencyModel'.'&'.1.'|'.0.role]", path);
-        }
-        if (! res)
-        {
             if (rep != null) rep.addEntry("unexpected value for mandatory prop <role> [.'$DependencyModel'.'&'.1.'|'.0]", path);
             return false;
         }
         return true;
     }
-    
+
     // check $DependencyModel (.'$DependencyModel')
     public boolean json_model_58(Object val, Path path, Report rep)
     {
@@ -9958,7 +9013,7 @@ public class ansiblelint_meta extends ModelChecker
         }
         return res;
     }
-    
+
     // object .'$AnsibleMetaObj'
     public boolean _jm_obj_104(Object val, Path path, Report rep)
     {
@@ -9982,9 +9037,6 @@ public class ansiblelint_meta extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not a bool [.'$AnsibleMetaObj'.allow_duplicates]", (path != null ? lpath_52 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$AnsibleMetaObj'.allow_duplicates]", (path != null ? lpath_52 : null));
                     return false;
                 }
@@ -9997,9 +9049,6 @@ public class ansiblelint_meta extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected $collections [.'$AnsibleMetaObj'.collections]", (path != null ? lpath_52 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$AnsibleMetaObj'.collections]", (path != null ? lpath_52 : null));
                     return false;
                 }
@@ -10041,9 +9090,6 @@ public class ansiblelint_meta extends ModelChecker
                         else
                         {
                             if (rep != null) rep.addEntry("no model matched [.'$AnsibleMetaObj'.dependencies.0.'|']", ((path != null ? lpath_52 : null) != null ? arr_102_lpath : null));
-                        }
-                        if (! res)
-                        {
                             break;
                         }
                     }
@@ -10051,9 +9097,6 @@ public class ansiblelint_meta extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not array or unexpected array [.'$AnsibleMetaObj'.dependencies]", (path != null ? lpath_52 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$AnsibleMetaObj'.dependencies]", (path != null ? lpath_52 : null));
                     return false;
                 }
@@ -10066,9 +9109,6 @@ public class ansiblelint_meta extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected $GalaxyInfoModel [.'$AnsibleMetaObj'.galaxy_info]", (path != null ? lpath_52 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$AnsibleMetaObj'.galaxy_info]", (path != null ? lpath_52 : null));
                     return false;
                 }
@@ -10081,7 +9121,7 @@ public class ansiblelint_meta extends ModelChecker
         }
         return true;
     }
-    
+
     // check $AnsibleMetaObj (.'$AnsibleMetaObj')
     public boolean json_model_59(Object val, Path path, Report rep)
     {
@@ -10094,7 +9134,7 @@ public class ansiblelint_meta extends ModelChecker
         }
         return res;
     }
-    
+
     // check $AnsibleMeta (.'$AnsibleMeta')
     public boolean json_model_60(Object val, Path path, Report rep)
     {
@@ -10126,7 +9166,7 @@ public class ansiblelint_meta extends ModelChecker
         }
         return res;
     }
-    
+
     // check $ (.)
     public boolean json_model_1(Object val, Path path, Report rep)
     {
@@ -10139,7 +9179,7 @@ public class ansiblelint_meta extends ModelChecker
         }
         return res;
     }
-    
+
 
     public void init(JSON json)
     {

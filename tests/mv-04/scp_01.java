@@ -31,7 +31,7 @@ public class scp_01 extends ModelChecker
         }
         return res;
     }
-    
+
     // check $Bb (.'$Bb')
     public boolean json_model_3(Object val, Path path, Report rep)
     {
@@ -44,7 +44,7 @@ public class scp_01 extends ModelChecker
         }
         return res;
     }
-    
+
     // object .'$Rr'
     public boolean _jm_obj_0(Object val, Path path, Report rep)
     {
@@ -68,9 +68,6 @@ public class scp_01 extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected $Aa [.'$Rr'.a]", (path != null ? lpath_0 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Rr'.a]", (path != null ? lpath_0 : null));
                     return false;
                 }
@@ -83,7 +80,7 @@ public class scp_01 extends ModelChecker
         }
         return true;
     }
-    
+
     // check $Rr (.'$Rr')
     public boolean json_model_5(Object val, Path path, Report rep)
     {
@@ -96,7 +93,7 @@ public class scp_01 extends ModelChecker
         }
         return res;
     }
-    
+
     // object .
     public boolean _jm_obj_1(Object val, Path path, Report rep)
     {
@@ -122,9 +119,6 @@ public class scp_01 extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected $Rr [.RA]", (path != null ? lpath_1 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.RA]", (path != null ? lpath_1 : null));
                     return false;
                 }
@@ -137,9 +131,6 @@ public class scp_01 extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected $Bb [.b]", (path != null ? lpath_1 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.b]", (path != null ? lpath_1 : null));
                     return false;
                 }
@@ -152,9 +143,6 @@ public class scp_01 extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected $Rr#Aa [.a]", (path != null ? lpath_1 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.a]", (path != null ? lpath_1 : null));
                     return false;
                 }
@@ -178,7 +166,7 @@ public class scp_01 extends ModelChecker
         }
         return true;
     }
-    
+
     // check $ (.)
     public boolean json_model_1(Object val, Path path, Report rep)
     {
@@ -191,7 +179,7 @@ public class scp_01 extends ModelChecker
         }
         return res;
     }
-    
+
     // check $Rr#Aa (.'$Rr#Aa')
     public boolean json_model_7(Object val, Path path, Report rep)
     {
@@ -204,7 +192,7 @@ public class scp_01 extends ModelChecker
         }
         return res;
     }
-    
+
 
     public void init(JSON json)
     {

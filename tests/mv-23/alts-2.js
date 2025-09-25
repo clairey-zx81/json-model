@@ -66,9 +66,6 @@ function _jm_obj_0(val, path, rep)
         else
         {
             rep !== null && rep.push(["no model matched [.'$a'.''.'|']", (path ? lpath_0 : null)])
-        }
-        if (! res)
-        {
             return false;
         }
     }

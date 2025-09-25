@@ -37,7 +37,7 @@ public class base_003 extends ModelChecker
             return false;
         }
     }
-    
+
     // check $ (.)
     public boolean json_model_1(Object val, Path path, Report rep)
     {
@@ -50,7 +50,7 @@ public class base_003 extends ModelChecker
         }
         return res;
     }
-    
+
 
     public void init(JSON json)
     {

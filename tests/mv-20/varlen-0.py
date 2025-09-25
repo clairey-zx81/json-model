@@ -51,7 +51,6 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
                     res = isinstance(val[idx_0], bool)
                     if not res:
                         rep is None or rep.append(("not a bool [.'@'.2]", lpath_0 if path is not None else None))
-                    if not res:
                         break
     if not res:
         rep is None or rep.append(("not array or unexpected array [.'@']", path))

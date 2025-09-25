@@ -40,9 +40,6 @@ function _jm_obj_0(val, path, rep)
     if (! res)
     {
         rep !== null && rep.push(["not a 1 strict int [.'$oA'.v]", path])
-    }
-    if (! res)
-    {
         rep !== null && rep.push(["unexpected value for mandatory prop <v> [.'$oA']", path])
         return false;
     }
@@ -57,9 +54,6 @@ function _jm_obj_0(val, path, rep)
     if (! res)
     {
         rep !== null && rep.push(["unexpected _a [.'$oA'.t]", path])
-    }
-    if (! res)
-    {
         rep !== null && rep.push(["unexpected value for mandatory prop <t> [.'$oA']", path])
         return false;
     }
@@ -102,9 +96,6 @@ function _jm_obj_1(val, path, rep)
     if (! res)
     {
         rep !== null && rep.push(["not a 1 strict int [.'$oB'.v]", path])
-    }
-    if (! res)
-    {
         rep !== null && rep.push(["unexpected value for mandatory prop <v> [.'$oB']", path])
         return false;
     }
@@ -119,9 +110,6 @@ function _jm_obj_1(val, path, rep)
     if (! res)
     {
         rep !== null && rep.push(["value not in enum [.'$oB'.t.'|']", path])
-    }
-    if (! res)
-    {
         rep !== null && rep.push(["unexpected value for mandatory prop <t> [.'$oB']", path])
         return false;
     }
@@ -164,9 +152,6 @@ function _jm_obj_2(val, path, rep)
     if (! res)
     {
         rep !== null && rep.push(["not a 1 strict int [.'$oC'.'|'.0.v]", path])
-    }
-    if (! res)
-    {
         rep !== null && rep.push(["unexpected value for mandatory prop <v> [.'$oC'.'|'.0]", path])
         return false;
     }
@@ -181,9 +166,6 @@ function _jm_obj_2(val, path, rep)
     if (! res)
     {
         rep !== null && rep.push(["value not in enum [.'$oC'.'|'.0.t.'|']", path])
-    }
-    if (! res)
-    {
         rep !== null && rep.push(["unexpected value for mandatory prop <t> [.'$oC'.'|'.0]", path])
         return false;
     }
@@ -212,9 +194,6 @@ function _jm_obj_3(val, path, rep)
     if (! res)
     {
         rep !== null && rep.push(["not a 1 strict int [.'$oC'.'|'.1.v]", path])
-    }
-    if (! res)
-    {
         rep !== null && rep.push(["unexpected value for mandatory prop <v> [.'$oC'.'|'.1]", path])
         return false;
     }
@@ -229,9 +208,6 @@ function _jm_obj_3(val, path, rep)
     if (! res)
     {
         rep !== null && rep.push(["unexpected _d [.'$oC'.'|'.1.t]", path])
-    }
-    if (! res)
-    {
         rep !== null && rep.push(["unexpected value for mandatory prop <t> [.'$oC'.'|'.1]", path])
         return false;
     }
@@ -297,9 +273,6 @@ function _jm_obj_4(val, path, rep)
     if (! res)
     {
         rep !== null && rep.push(["not a 1 strict int [.'$oL'.v]", path])
-    }
-    if (! res)
-    {
         rep !== null && rep.push(["unexpected value for mandatory prop <v> [.'$oL']", path])
         return false;
     }
@@ -314,9 +287,6 @@ function _jm_obj_4(val, path, rep)
     if (! res)
     {
         rep !== null && rep.push(["unexpected _d [.'$oL'.t]", path])
-    }
-    if (! res)
-    {
         rep !== null && rep.push(["unexpected value for mandatory prop <t> [.'$oL']", path])
         return false;
     }
@@ -359,9 +329,6 @@ function _jm_obj_5(val, path, rep)
     if (! res)
     {
         rep !== null && rep.push(["not a 1 strict int [.'$oX'.v]", path])
-    }
-    if (! res)
-    {
         rep !== null && rep.push(["unexpected value for mandatory prop <v> [.'$oX']", path])
         return false;
     }
@@ -376,9 +343,6 @@ function _jm_obj_5(val, path, rep)
     if (! res)
     {
         rep !== null && rep.push(["value not in enum [.'$oX'.t.'|']", path])
-    }
-    if (! res)
-    {
         rep !== null && rep.push(["unexpected value for mandatory prop <t> [.'$oX']", path])
         return false;
     }
@@ -420,9 +384,6 @@ function _jm_obj_6(val, path, rep)
     if (! res)
     {
         rep !== null && rep.push(["not a 1 strict int [.'|'.0.v]", path])
-    }
-    if (! res)
-    {
         rep !== null && rep.push(["unexpected value for mandatory prop <v> [.'|'.0]", path])
         return false;
     }
@@ -437,9 +398,6 @@ function _jm_obj_6(val, path, rep)
     if (! res)
     {
         rep !== null && rep.push(["unexpected _a [.'|'.0.t]", path])
-    }
-    if (! res)
-    {
         rep !== null && rep.push(["unexpected value for mandatory prop <t> [.'|'.0]", path])
         return false;
     }
@@ -469,9 +427,6 @@ function _jm_obj_7(val, path, rep)
     if (! res)
     {
         rep !== null && rep.push(["not a 1 strict int [.'|'.1.v]", path])
-    }
-    if (! res)
-    {
         rep !== null && rep.push(["unexpected value for mandatory prop <v> [.'|'.1]", path])
         return false;
     }
@@ -486,9 +441,6 @@ function _jm_obj_7(val, path, rep)
     if (! res)
     {
         rep !== null && rep.push(["value not in enum [.'|'.1.t.'|']", path])
-    }
-    if (! res)
-    {
         rep !== null && rep.push(["unexpected value for mandatory prop <t> [.'|'.1]", path])
         return false;
     }
@@ -518,9 +470,6 @@ function _jm_obj_8(val, path, rep)
     if (! res)
     {
         rep !== null && rep.push(["not a 1 strict int [.'|'.2.v]", path])
-    }
-    if (! res)
-    {
         rep !== null && rep.push(["unexpected value for mandatory prop <v> [.'|'.2]", path])
         return false;
     }
@@ -535,9 +484,6 @@ function _jm_obj_8(val, path, rep)
     if (! res)
     {
         rep !== null && rep.push(["value not in enum [.'|'.2.t.'|']", path])
-    }
-    if (! res)
-    {
         rep !== null && rep.push(["unexpected value for mandatory prop <t> [.'|'.2]", path])
         return false;
     }
@@ -566,9 +512,6 @@ function _jm_obj_9(val, path, rep)
     if (! res)
     {
         rep !== null && rep.push(["not a 1 strict int [.'|'.3.v]", path])
-    }
-    if (! res)
-    {
         rep !== null && rep.push(["unexpected value for mandatory prop <v> [.'|'.3]", path])
         return false;
     }
@@ -583,9 +526,6 @@ function _jm_obj_9(val, path, rep)
     if (! res)
     {
         rep !== null && rep.push(["unexpected _d [.'|'.3.t]", path])
-    }
-    if (! res)
-    {
         rep !== null && rep.push(["unexpected value for mandatory prop <t> [.'|'.3]", path])
         return false;
     }

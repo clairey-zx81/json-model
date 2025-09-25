@@ -25,6 +25,8 @@ _jm_re_0_reco: object
 _jm_re_0: RegexFun
 check_model_map: PropMap
 
+
+
 # check $ (.)
 def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
@@ -40,11 +42,10 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
             # .'|'.0
             # "/[0-9]/"
             res = _jm_re_0(val, path, rep)
-            if not res:
-                rep is None or rep.append(("unexpected /[0-9]/ [.'|'.0]", path))
             if res:
                 rep is None or rep.clear()
             else:
+                rep is None or rep.append(("unexpected /[0-9]/ [.'|'.0]", path))
                 rep is None or rep.append(("no model matched [.'|']", path))
     return res
 

@@ -66,9 +66,6 @@ static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *re
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected $Aa [.'$Rr'.a]", (path ? &lpath_0 : NULL));
-            }
-            if (! res)
-            {
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Rr'.a]", (path ? &lpath_0 : NULL));
                 return false;
             }
@@ -119,9 +116,6 @@ static INLINE bool _jm_obj_1(const json_t *val, jm_path_t *path, jm_report_t *re
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected $Rr [.RA]", (path ? &lpath_1 : NULL));
-            }
-            if (! res)
-            {
                 if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.RA]", (path ? &lpath_1 : NULL));
                 return false;
             }
@@ -134,9 +128,6 @@ static INLINE bool _jm_obj_1(const json_t *val, jm_path_t *path, jm_report_t *re
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected $Bb [.b]", (path ? &lpath_1 : NULL));
-            }
-            if (! res)
-            {
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.b]", (path ? &lpath_1 : NULL));
                 return false;
             }
@@ -149,9 +140,6 @@ static INLINE bool _jm_obj_1(const json_t *val, jm_path_t *path, jm_report_t *re
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected $Rr#Aa [.a]", (path ? &lpath_1 : NULL));
-            }
-            if (! res)
-            {
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.a]", (path ? &lpath_1 : NULL));
                 return false;
             }

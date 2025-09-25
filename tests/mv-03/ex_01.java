@@ -31,7 +31,7 @@ public class ex_01 extends ModelChecker
         }
         return res;
     }
-    
+
     // check $x2 (.'$x2')
     public boolean json_model_5(Object val, Path path, Report rep)
     {
@@ -44,7 +44,7 @@ public class ex_01 extends ModelChecker
         }
         return res;
     }
-    
+
     // object .
     public boolean _jm_obj_0(Object val, Path path, Report rep)
     {
@@ -70,9 +70,6 @@ public class ex_01 extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected _Susie [.a]", (path != null ? lpath_0 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.a]", (path != null ? lpath_0 : null));
                     return false;
                 }
@@ -86,9 +83,6 @@ public class ex_01 extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected _Susie [.b]", (path != null ? lpath_0 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.b]", (path != null ? lpath_0 : null));
                     return false;
                 }
@@ -116,7 +110,7 @@ public class ex_01 extends ModelChecker
         }
         return true;
     }
-    
+
     // check $ (.)
     public boolean json_model_1(Object val, Path path, Report rep)
     {
@@ -129,7 +123,7 @@ public class ex_01 extends ModelChecker
         }
         return res;
     }
-    
+
 
     public void init(JSON json)
     {

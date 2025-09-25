@@ -42,9 +42,6 @@ public class base_028 extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected _South Africa [.country]", (path != null ? lpath_0 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.country]", (path != null ? lpath_0 : null));
                     return false;
                 }
@@ -57,7 +54,7 @@ public class base_028 extends ModelChecker
         }
         return true;
     }
-    
+
     // check $ (.)
     public boolean json_model_1(Object val, Path path, Report rep)
     {
@@ -71,7 +68,7 @@ public class base_028 extends ModelChecker
         }
         return res;
     }
-    
+
 
     public void init(JSON json)
     {

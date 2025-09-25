@@ -308,10 +308,6 @@ BEGIN
   -- .enum.'@'
   res := JSONB_TYPEOF(val) = 'array';
   IF res THEN
-    -- accept any array
-    NULL;
-  END IF;
-  IF res THEN
     ival_3 := JSONB_ARRAY_LENGTH(val);
     res := jm_array_is_unique(val, path, rep) AND ival_3 >= 1;
   END IF;

@@ -31,7 +31,7 @@ public class int_cons_2 extends ModelChecker
         }
         return res;
     }
-    
+
     // check $positif (.'$positif')
     public boolean json_model_3(Object val, Path path, Report rep)
     {
@@ -44,7 +44,7 @@ public class int_cons_2 extends ModelChecker
         }
         return res;
     }
-    
+
     // object .
     public boolean _jm_obj_0(Object val, Path path, Report rep)
     {
@@ -63,7 +63,7 @@ public class int_cons_2 extends ModelChecker
             return false;
         }
     }
-    
+
     // check $ (.)
     public boolean json_model_1(Object val, Path path, Report rep)
     {
@@ -76,7 +76,7 @@ public class int_cons_2 extends ModelChecker
         }
         return res;
     }
-    
+
 
     public void init(JSON json)
     {

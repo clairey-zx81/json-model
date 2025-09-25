@@ -31,7 +31,7 @@ public class eq_true extends ModelChecker
         }
         return res;
     }
-    
+
 
     public void init(JSON json)
     {

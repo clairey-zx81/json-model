@@ -25,6 +25,7 @@ _jm_cst_1: set[str]
 _jm_obj_0_map: PropMap
 check_model_map: PropMap
 
+
 # check $allTypes (.'$allTypes')
 def json_model_2(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
@@ -57,7 +58,6 @@ def json_model_3(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.clear()
             else:
                 rep is None or rep.append(("no model matched [.'$distinctSchemaArray'.'@'.0.'|']", arr_0_lpath if path is not None else None))
-            if not res:
                 break
     if not res:
         rep is None or rep.append(("not array or unexpected array [.'$distinctSchemaArray'.'@']", path))
@@ -157,7 +157,6 @@ def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
                     res = isinstance(arr_1_item, str)
                     if not res:
                         rep is None or rep.append(("unexpected string [.dependencies.''.'|'.1.0]", arr_1_lpath if (lpath_1 if path is not None else None) is not None else None))
-                    if not res:
                         break
             if not res:
                 rep is None or rep.append(("not array or unexpected array [.dependencies.''.'|'.1]", lpath_1 if path is not None else None))
@@ -170,7 +169,6 @@ def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
             rep is None or rep.clear()
         else:
             rep is None or rep.append(("no model matched [.dependencies.''.'|']", lpath_1 if path is not None else None))
-        if not res:
             return False
     return True
 
@@ -226,9 +224,6 @@ def _jm_f_9(val: Jsonable, path: Path, rep: Report) -> bool:
     # .enum
     # .enum.'@'
     res = isinstance(val, list)
-    if res:
-        # accept any array
-        pass
     if not res:
         rep is None or rep.append(("not array or unexpected array [.enum.'@']", path))
     if res:
@@ -274,7 +269,6 @@ def _jm_f_12(val: Jsonable, path: Path, rep: Report) -> bool:
                 res = json_model_1(arr_2_item, arr_2_lpath if path is not None else None, rep)
                 if not res:
                     rep is None or rep.append(("unexpected $Schema [.extends.'|'.1.0]", arr_2_lpath if path is not None else None))
-                if not res:
                     break
         if not res:
             rep is None or rep.append(("not array or unexpected array [.extends.'|'.1]", path))
@@ -321,7 +315,6 @@ def _jm_f_15(val: Jsonable, path: Path, rep: Report) -> bool:
                 res = json_model_1(arr_3_item, arr_3_lpath if path is not None else None, rep)
                 if not res:
                     rep is None or rep.append(("unexpected $Schema [.items.'|'.1.0]", arr_3_lpath if path is not None else None))
-                if not res:
                     break
         if not res:
             rep is None or rep.append(("not array or unexpected array [.items.'|'.1]", path))
@@ -408,7 +401,6 @@ def _jm_obj_2(val: Jsonable, path: Path, rep: Report) -> bool:
         res = json_model_1(pval, lpath_2 if path is not None else None, rep)
         if not res:
             rep is None or rep.append(("unexpected $Schema [.patternProperties.'']", lpath_2 if path is not None else None))
-        if not res:
             return False
     return True
 
@@ -435,7 +427,6 @@ def _jm_obj_3(val: Jsonable, path: Path, rep: Report) -> bool:
         res = json_model_1(pval, lpath_3 if path is not None else None, rep)
         if not res:
             rep is None or rep.append(("unexpected $Schema [.properties.'']", lpath_3 if path is not None else None))
-        if not res:
             return False
     return True
 
@@ -494,7 +485,6 @@ def _jm_f_27(val: Jsonable, path: Path, rep: Report) -> bool:
                     rep is None or rep.clear()
                 else:
                     rep is None or rep.append(("no model matched [.type.'|'.1.0.'|']", arr_4_lpath if path is not None else None))
-                if not res:
                     break
         if not res:
             rep is None or rep.append(("not array or unexpected array [.type.'|'.1]", path))

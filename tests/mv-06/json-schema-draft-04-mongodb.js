@@ -128,9 +128,6 @@ function _jm_f_4(val, path, rep)
                 if (! res)
                 {
                     rep !== null && rep.push(["unexpected $bsonType [.'$schema'.bsonType.'|'.1.0]", (path ? arr_0_lpath : null)])
-                }
-                if (! res)
-                {
                     break;
                 }
             }
@@ -187,9 +184,6 @@ function _jm_obj_1(val, path, rep)
         else
         {
             rep !== null && rep.push(["no model matched [.'$schema'.dependencies.''.'|']", (path ? lpath_1 : null)])
-        }
-        if (! res)
-        {
             return false;
         }
     }
@@ -229,10 +223,6 @@ function _jm_f_7(val, path, rep)
     // .'$schema'.enum
     // .'$schema'.enum.'@'
     res = Array.isArray(val);
-    if (res)
-    {
-        // accept any array
-    }
     if (! res)
     {
         rep !== null && rep.push(["not array or unexpected array [.'$schema'.enum.'@']", path])
@@ -480,9 +470,6 @@ function _jm_obj_2(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["unexpected $Schema [.'$schema'.patternProperties.'']", (path ? lpath_2 : null)])
-        }
-        if (! res)
-        {
             return false;
         }
     }
@@ -520,9 +507,6 @@ function _jm_obj_3(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["unexpected $Schema [.'$schema'.properties.'']", (path ? lpath_3 : null)])
-        }
-        if (! res)
-        {
             return false;
         }
     }
@@ -688,9 +672,6 @@ function json_model_4(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $Schema [.'$schema#schemaArray'.'@'.0]", (path ? arr_1_lpath : null)])
-            }
-            if (! res)
-            {
                 break;
             }
         }
@@ -743,9 +724,6 @@ function json_model_6(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected string [.'$schema#stringArray'.'@'.0]", (path ? arr_2_lpath : null)])
-            }
-            if (! res)
-            {
                 break;
             }
         }
@@ -784,9 +762,6 @@ function json_model_7(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $simpleTypes [.'$schema#typeArray'.'@'.0]", (path ? arr_3_lpath : null)])
-            }
-            if (! res)
-            {
                 break;
             }
         }

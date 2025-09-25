@@ -39,9 +39,6 @@ public class uniq_1 extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected string [.0]", (path != null ? arr_0_lpath : null));
-                }
-                if (! res)
-                {
                     break;
                 }
             }
@@ -52,7 +49,7 @@ public class uniq_1 extends ModelChecker
         }
         return res;
     }
-    
+
 
     public void init(JSON json)
     {

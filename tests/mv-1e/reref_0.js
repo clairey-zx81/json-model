@@ -13,6 +13,7 @@ let _jm_cst_0 = new Set()
 const _jm_xre_0_re_re = new runtime.RX("'(?<s1>\\w+)'.*'(?<s2>\\w+)'", "")
 var check_model_map = new Map()
 
+
 // check $character (.'$character')
 function json_model_2(val, path, rep)
 {

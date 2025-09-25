@@ -31,7 +31,7 @@ public class m06 extends ModelChecker
         }
         return res;
     }
-    
+
 
     public void init(JSON json)
     {

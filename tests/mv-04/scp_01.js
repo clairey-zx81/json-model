@@ -57,9 +57,6 @@ function _jm_obj_0(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $Aa [.'$Rr'.a]", (path ? lpath_0 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid optional prop value [.'$Rr'.a]", (path ? lpath_0 : null)])
                 return false;
             }
@@ -108,9 +105,6 @@ function _jm_obj_1(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $Rr [.RA]", (path ? lpath_1 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid mandatory prop value [.RA]", (path ? lpath_1 : null)])
                 return false;
             }
@@ -123,9 +117,6 @@ function _jm_obj_1(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $Bb [.b]", (path ? lpath_1 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid optional prop value [.b]", (path ? lpath_1 : null)])
                 return false;
             }
@@ -138,9 +129,6 @@ function _jm_obj_1(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $Rr#Aa [.a]", (path ? lpath_1 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid optional prop value [.a]", (path ? lpath_1 : null)])
                 return false;
             }

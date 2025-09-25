@@ -247,6 +247,7 @@ my %_jm_obj_7_map;
 sub json_model_1($$$);
 my %check_model_map;
 
+
 sub _jm_re_0($$$)
 {
     my ($val, $path, $rep) = @_;
@@ -3172,11 +3173,6 @@ sub _jm_f_139($$$)
     my $res;
     # .keybinding.universal.jumpToBlock
     $res = jm_is_array($val);
-    if ($res)
-    {
-        # accept any array
-        ;
-    }
     return $res;
 }
 

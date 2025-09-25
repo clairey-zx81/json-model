@@ -35,9 +35,6 @@ function _jm_obj_1(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected _$https://json-model.org/models/json-model [.'$'.Model]", (path ? lpath_1 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid mandatory prop value [.'$'.Model]", (path ? lpath_1 : null)])
                 return false;
             }
@@ -50,9 +47,6 @@ function _jm_obj_1(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $URL [.'$'.'']", (path ? lpath_1 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid optional prop value [.'$'.'']", (path ? lpath_1 : null)])
                 return false;
             }
@@ -101,9 +95,6 @@ function _jm_obj_2(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected string [.'%'.'#']", (path ? lpath_2 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid optional prop value [.'%'.'#']", (path ? lpath_2 : null)])
                 return false;
             }
@@ -117,9 +108,6 @@ function _jm_obj_2(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected /^([#~$%@|&+^/*=]|[<>!]=?)$/ [.'%'.'/^\\\\..+$/']", (path ? lpath_2 : null)])
-            }
-            if (! res)
-            {
                 return false;
             }
         }
@@ -154,9 +142,6 @@ function _jm_obj_0(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected element [.'$']", (path ? lpath_0 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid mandatory prop value [.'$']", (path ? lpath_0 : null)])
                 return false;
             }
@@ -170,9 +155,6 @@ function _jm_obj_0(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected _https://json-model.org/models/l10n [.'~']", (path ? lpath_0 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid mandatory prop value [.'~']", (path ? lpath_0 : null)])
                 return false;
             }
@@ -187,9 +169,6 @@ function _jm_obj_0(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected element [.'%']", (path ? lpath_0 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid mandatory prop value [.'%']", (path ? lpath_0 : null)])
                 return false;
             }
@@ -203,9 +182,6 @@ function _jm_obj_0(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected _$Model [.'@']", (path ? lpath_0 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid mandatory prop value [.'@']", (path ? lpath_0 : null)])
                 return false;
             }
@@ -218,9 +194,6 @@ function _jm_obj_0(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected string [.'#']", (path ? lpath_0 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid optional prop value [.'#']", (path ? lpath_0 : null)])
                 return false;
             }

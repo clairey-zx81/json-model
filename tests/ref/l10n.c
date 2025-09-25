@@ -44,9 +44,6 @@ static INLINE bool _jm_obj_1(const json_t *val, jm_path_t *path, jm_report_t *re
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected _$https://json-model.org/models/json-model [.'$'.Model]", (path ? &lpath_1 : NULL));
-            }
-            if (! res)
-            {
                 if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$'.Model]", (path ? &lpath_1 : NULL));
                 return false;
             }
@@ -59,9 +56,6 @@ static INLINE bool _jm_obj_1(const json_t *val, jm_path_t *path, jm_report_t *re
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected $URL [.'$'.'']", (path ? &lpath_1 : NULL));
-            }
-            if (! res)
-            {
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$'.'']", (path ? &lpath_1 : NULL));
                 return false;
             }
@@ -120,9 +114,6 @@ static INLINE bool _jm_obj_2(const json_t *val, jm_path_t *path, jm_report_t *re
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected string [.'%'.'#']", (path ? &lpath_2 : NULL));
-            }
-            if (! res)
-            {
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'%'.'#']", (path ? &lpath_2 : NULL));
                 return false;
             }
@@ -136,9 +127,6 @@ static INLINE bool _jm_obj_2(const json_t *val, jm_path_t *path, jm_report_t *re
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected /^([#~$%@|&+^/*=]|[<>!]=?)$/ [.'%'.'/^\\\\..+$/']", (path ? &lpath_2 : NULL));
-            }
-            if (! res)
-            {
                 return false;
             }
         }
@@ -175,9 +163,6 @@ static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *re
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected element [.'$']", (path ? &lpath_0 : NULL));
-            }
-            if (! res)
-            {
                 if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$']", (path ? &lpath_0 : NULL));
                 return false;
             }
@@ -191,9 +176,6 @@ static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *re
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected _https://json-model.org/models/l10n [.'~']", (path ? &lpath_0 : NULL));
-            }
-            if (! res)
-            {
                 if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'~']", (path ? &lpath_0 : NULL));
                 return false;
             }
@@ -208,9 +190,6 @@ static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *re
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected element [.'%']", (path ? &lpath_0 : NULL));
-            }
-            if (! res)
-            {
                 if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'%']", (path ? &lpath_0 : NULL));
                 return false;
             }
@@ -224,9 +203,6 @@ static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *re
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected _$Model [.'@']", (path ? &lpath_0 : NULL));
-            }
-            if (! res)
-            {
                 if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'@']", (path ? &lpath_0 : NULL));
                 return false;
             }
@@ -239,9 +215,6 @@ static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *re
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected string [.'#']", (path ? &lpath_0 : NULL));
-            }
-            if (! res)
-            {
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'#']", (path ? &lpath_0 : NULL));
                 return false;
             }

@@ -23,19 +23,19 @@ sub json_model_1($$$)
     if ($res)
     {
         # .'|'.0
-        $res = $val == 200;
+        $res = jm_is_integer($val) && $val == 200;
         if (! $res)
         {
             # .'|'.1
-            $res = $val == 300;
+            $res = jm_is_integer($val) && $val == 300;
             if (! $res)
             {
                 # .'|'.2
-                $res = $val == 400;
+                $res = jm_is_integer($val) && $val == 400;
                 if (! $res)
                 {
                     # .'|'.3
-                    $res = $val == 500;
+                    $res = jm_is_integer($val) && $val == 500;
                 }
             }
         }

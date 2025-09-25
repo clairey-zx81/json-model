@@ -46,9 +46,6 @@ function _jm_obj_0(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $root#Root [.'$Foo'.rt]", (path ? lpath_0 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid mandatory prop value [.'$Foo'.rt]", (path ? lpath_0 : null)])
                 return false;
             }
@@ -121,9 +118,6 @@ function _jm_obj_1(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected =0 [.'$root#Root'.id]", (path ? lpath_1 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid mandatory prop value [.'$root#Root'.id]", (path ? lpath_1 : null)])
                 return false;
             }
@@ -137,9 +131,6 @@ function _jm_obj_1(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected string [.'$root#Root'.name]", (path ? lpath_1 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid mandatory prop value [.'$root#Root'.name]", (path ? lpath_1 : null)])
                 return false;
             }

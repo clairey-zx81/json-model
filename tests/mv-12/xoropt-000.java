@@ -31,7 +31,7 @@ public class xoropt_000 extends ModelChecker
         }
         return res;
     }
-    
+
 
     public void init(JSON json)
     {

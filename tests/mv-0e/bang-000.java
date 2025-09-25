@@ -44,9 +44,6 @@ public class bang_000 extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not a 0 strict int [.'!']", (path != null ? lpath_0 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'!']", (path != null ? lpath_0 : null));
                     return false;
                 }
@@ -60,9 +57,6 @@ public class bang_000 extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not a bool [._]", (path != null ? lpath_0 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [._]", (path != null ? lpath_0 : null));
                     return false;
                 }
@@ -76,9 +70,6 @@ public class bang_000 extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not a 0 strict int [.a]", (path != null ? lpath_0 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.a]", (path != null ? lpath_0 : null));
                     return false;
                 }
@@ -92,9 +83,6 @@ public class bang_000 extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not a 0.0 strict float [.'?']", (path != null ? lpath_0 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'?']", (path != null ? lpath_0 : null));
                     return false;
                 }
@@ -108,9 +96,6 @@ public class bang_000 extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected =17 [.'/']", (path != null ? lpath_0 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'/']", (path != null ? lpath_0 : null));
                     return false;
                 }
@@ -123,9 +108,6 @@ public class bang_000 extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not null [.b]", (path != null ? lpath_0 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.b]", (path != null ? lpath_0 : null));
                     return false;
                 }
@@ -165,7 +147,7 @@ public class bang_000 extends ModelChecker
         }
         return true;
     }
-    
+
     // check $ (.)
     public boolean json_model_1(Object val, Path path, Report rep)
     {
@@ -178,7 +160,7 @@ public class bang_000 extends ModelChecker
         }
         return res;
     }
-    
+
 
     public void init(JSON json)
     {

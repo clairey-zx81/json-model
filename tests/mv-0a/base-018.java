@@ -26,10 +26,6 @@ public class base_018 extends ModelChecker
         // .
         // .'@'
         res = json.isArray(val);
-        if (res)
-        {
-            // accept any array
-        }
         if (! res)
         {
             if (rep != null) rep.addEntry("not array or unexpected array [.'@']", path);
@@ -44,7 +40,7 @@ public class base_018 extends ModelChecker
         }
         return res;
     }
-    
+
 
     public void init(JSON json)
     {

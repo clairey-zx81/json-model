@@ -82,9 +82,6 @@ function _jm_obj_0(val, path, rep)
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.'$tight#RootSchema'.'&'.0.'$schema']", path])
-    }
-    if (! res)
-    {
         rep !== null && rep.push(["unexpected value for mandatory prop <$schema> [.'$tight#RootSchema'.'&'.0]", path])
         return false;
     }
@@ -224,9 +221,6 @@ function _jm_obj_2(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["unexpected $Schema [.'$tight#metas'.'$defs'.'']", (path ? lpath_1 : null)])
-        }
-        if (! res)
-        {
             return false;
         }
     }
@@ -303,9 +297,6 @@ function _jm_obj_3(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["unexpected $Schema [.'$tight#metas'.definitions.'']", (path ? lpath_2 : null)])
-        }
-        if (! res)
-        {
             return false;
         }
     }
@@ -344,10 +335,6 @@ function _jm_f_7(val, path, rep)
     let res;
     // .'$tight#metas'.examples
     res = Array.isArray(val);
-    if (res)
-    {
-        // accept any array
-    }
     if (! res)
     {
         rep !== null && rep.push(["not array or unexpected array [.'$tight#metas'.examples]", path])
@@ -457,9 +444,6 @@ function _jm_obj_5(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["unexpected $Schema [.'$tight#String'.'$defs'.'']", (path ? lpath_4 : null)])
-        }
-        if (! res)
-        {
             return false;
         }
     }
@@ -536,9 +520,6 @@ function _jm_obj_6(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["unexpected $Schema [.'$tight#String'.definitions.'']", (path ? lpath_5 : null)])
-        }
-        if (! res)
-        {
             return false;
         }
     }
@@ -577,10 +558,6 @@ function _jm_f_17(val, path, rep)
     let res;
     // .'$tight#String'.examples
     res = Array.isArray(val);
-    if (res)
-    {
-        // accept any array
-    }
     if (! res)
     {
         rep !== null && rep.push(["not array or unexpected array [.'$tight#String'.examples]", path])
@@ -691,9 +668,6 @@ function _jm_obj_4(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected string [.'$tight#String'.type]", (path ? lpath_3 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid mandatory prop value [.'$tight#String'.type]", (path ? lpath_3 : null)])
                 return false;
             }
@@ -771,9 +745,6 @@ function _jm_obj_8(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["unexpected $Schema [.'$tight#Array'.'$defs'.'']", (path ? lpath_7 : null)])
-        }
-        if (! res)
-        {
             return false;
         }
     }
@@ -863,9 +834,6 @@ function _jm_obj_9(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["unexpected $Schema [.'$tight#Array'.definitions.'']", (path ? lpath_8 : null)])
-        }
-        if (! res)
-        {
             return false;
         }
     }
@@ -904,10 +872,6 @@ function _jm_f_32(val, path, rep)
     let res;
     // .'$tight#Array'.examples
     res = Array.isArray(val);
-    if (res)
-    {
-        // accept any array
-    }
     if (! res)
     {
         rep !== null && rep.push(["not array or unexpected array [.'$tight#Array'.examples]", path])
@@ -1048,9 +1012,6 @@ function _jm_obj_7(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected array [.'$tight#Array'.type]", (path ? lpath_6 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid mandatory prop value [.'$tight#Array'.type]", (path ? lpath_6 : null)])
                 return false;
             }
@@ -1114,9 +1075,6 @@ function json_model_6(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $Schema [.'$tight#schemaArray'.0]", (path ? arr_0_lpath : null)])
-            }
-            if (! res)
-            {
                 break;
             }
         }
@@ -1159,9 +1117,6 @@ function _jm_obj_11(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["unexpected $Schema [.'$tight#Object'.'$defs'.'']", (path ? lpath_10 : null)])
-        }
-        if (! res)
-        {
             return false;
         }
     }
@@ -1251,9 +1206,6 @@ function _jm_obj_12(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["unexpected $Schema [.'$tight#Object'.definitions.'']", (path ? lpath_11 : null)])
-        }
-        if (! res)
-        {
             return false;
         }
     }
@@ -1292,10 +1244,6 @@ function _jm_f_48(val, path, rep)
     let res;
     // .'$tight#Object'.examples
     res = Array.isArray(val);
-    if (res)
-    {
-        // accept any array
-    }
     if (! res)
     {
         rep !== null && rep.push(["not array or unexpected array [.'$tight#Object'.examples]", path])
@@ -1336,9 +1284,6 @@ function _jm_obj_13(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $Schema [.'$tight#Object'.patternProperties.'$REGEX']", (path ? lpath_12 : null)])
-            }
-            if (! res)
-            {
                 return false;
             }
         }
@@ -1382,9 +1327,6 @@ function _jm_obj_14(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["unexpected $Schema [.'$tight#Object'.properties.'']", (path ? lpath_13 : null)])
-        }
-        if (! res)
-        {
             return false;
         }
     }
@@ -1421,9 +1363,6 @@ function _jm_f_52(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected string [.'$tight#Object'.required.0]", (path ? arr_1_lpath : null)])
-            }
-            if (! res)
-            {
                 break;
             }
         }
@@ -1472,9 +1411,6 @@ function _jm_obj_10(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected object [.'$tight#Object'.type]", (path ? lpath_9 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid mandatory prop value [.'$tight#Object'.type]", (path ? lpath_9 : null)])
                 return false;
             }
@@ -1552,9 +1488,6 @@ function _jm_obj_16(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["unexpected $Schema [.'$tight#Integer'.'$defs'.'']", (path ? lpath_15 : null)])
-        }
-        if (! res)
-        {
             return false;
         }
     }
@@ -1631,9 +1564,6 @@ function _jm_obj_17(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["unexpected $Schema [.'$tight#Integer'.definitions.'']", (path ? lpath_16 : null)])
-        }
-        if (! res)
-        {
             return false;
         }
     }
@@ -1672,10 +1602,6 @@ function _jm_f_61(val, path, rep)
     let res;
     // .'$tight#Integer'.examples
     res = Array.isArray(val);
-    if (res)
-    {
-        // accept any array
-    }
     if (! res)
     {
         rep !== null && rep.push(["not array or unexpected array [.'$tight#Integer'.examples]", path])
@@ -1759,9 +1685,6 @@ function _jm_obj_15(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected integer [.'$tight#Integer'.type]", (path ? lpath_14 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid mandatory prop value [.'$tight#Integer'.type]", (path ? lpath_14 : null)])
                 return false;
             }
@@ -1839,9 +1762,6 @@ function _jm_obj_19(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["unexpected $Schema [.'$tight#Number'.'$defs'.'']", (path ? lpath_18 : null)])
-        }
-        if (! res)
-        {
             return false;
         }
     }
@@ -1918,9 +1838,6 @@ function _jm_obj_20(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["unexpected $Schema [.'$tight#Number'.definitions.'']", (path ? lpath_19 : null)])
-        }
-        if (! res)
-        {
             return false;
         }
     }
@@ -1959,10 +1876,6 @@ function _jm_f_73(val, path, rep)
     let res;
     // .'$tight#Number'.examples
     res = Array.isArray(val);
-    if (res)
-    {
-        // accept any array
-    }
     if (! res)
     {
         rep !== null && rep.push(["not array or unexpected array [.'$tight#Number'.examples]", path])
@@ -2046,9 +1959,6 @@ function _jm_obj_18(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected number [.'$tight#Number'.type]", (path ? lpath_17 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid mandatory prop value [.'$tight#Number'.type]", (path ? lpath_17 : null)])
                 return false;
             }
@@ -2126,9 +2036,6 @@ function _jm_obj_22(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["unexpected $Schema [.'$tight#Bool'.'$defs'.'']", (path ? lpath_21 : null)])
-        }
-        if (! res)
-        {
             return false;
         }
     }
@@ -2205,9 +2112,6 @@ function _jm_obj_23(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["unexpected $Schema [.'$tight#Bool'.definitions.'']", (path ? lpath_22 : null)])
-        }
-        if (! res)
-        {
             return false;
         }
     }
@@ -2246,10 +2150,6 @@ function _jm_f_85(val, path, rep)
     let res;
     // .'$tight#Bool'.examples
     res = Array.isArray(val);
-    if (res)
-    {
-        // accept any array
-    }
     if (! res)
     {
         rep !== null && rep.push(["not array or unexpected array [.'$tight#Bool'.examples]", path])
@@ -2307,9 +2207,6 @@ function _jm_obj_21(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected boolean [.'$tight#Bool'.type]", (path ? lpath_20 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid mandatory prop value [.'$tight#Bool'.type]", (path ? lpath_20 : null)])
                 return false;
             }
@@ -2387,9 +2284,6 @@ function _jm_obj_25(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["unexpected $Schema [.'$tight#Null'.'$defs'.'']", (path ? lpath_24 : null)])
-        }
-        if (! res)
-        {
             return false;
         }
     }
@@ -2466,9 +2360,6 @@ function _jm_obj_26(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["unexpected $Schema [.'$tight#Null'.definitions.'']", (path ? lpath_25 : null)])
-        }
-        if (! res)
-        {
             return false;
         }
     }
@@ -2507,10 +2398,6 @@ function _jm_f_95(val, path, rep)
     let res;
     // .'$tight#Null'.examples
     res = Array.isArray(val);
-    if (res)
-    {
-        // accept any array
-    }
     if (! res)
     {
         rep !== null && rep.push(["not array or unexpected array [.'$tight#Null'.examples]", path])
@@ -2568,9 +2455,6 @@ function _jm_obj_24(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected null [.'$tight#Null'.type]", (path ? lpath_23 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid mandatory prop value [.'$tight#Null'.type]", (path ? lpath_23 : null)])
                 return false;
             }
@@ -2648,9 +2532,6 @@ function _jm_obj_28(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["unexpected $Schema [.'$tight#AllOf'.'$defs'.'']", (path ? lpath_27 : null)])
-        }
-        if (! res)
-        {
             return false;
         }
     }
@@ -2727,9 +2608,6 @@ function _jm_obj_29(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["unexpected $Schema [.'$tight#AllOf'.definitions.'']", (path ? lpath_28 : null)])
-        }
-        if (! res)
-        {
             return false;
         }
     }
@@ -2768,10 +2646,6 @@ function _jm_f_105(val, path, rep)
     let res;
     // .'$tight#AllOf'.examples
     res = Array.isArray(val);
-    if (res)
-    {
-        // accept any array
-    }
     if (! res)
     {
         rep !== null && rep.push(["not array or unexpected array [.'$tight#AllOf'.examples]", path])
@@ -2829,9 +2703,6 @@ function _jm_obj_27(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $schemaArray [.'$tight#AllOf'.allOf]", (path ? lpath_26 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid mandatory prop value [.'$tight#AllOf'.allOf]", (path ? lpath_26 : null)])
                 return false;
             }
@@ -2909,9 +2780,6 @@ function _jm_obj_31(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["unexpected $Schema [.'$tight#AnyOf'.'$defs'.'']", (path ? lpath_30 : null)])
-        }
-        if (! res)
-        {
             return false;
         }
     }
@@ -2988,9 +2856,6 @@ function _jm_obj_32(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["unexpected $Schema [.'$tight#AnyOf'.definitions.'']", (path ? lpath_31 : null)])
-        }
-        if (! res)
-        {
             return false;
         }
     }
@@ -3029,10 +2894,6 @@ function _jm_f_115(val, path, rep)
     let res;
     // .'$tight#AnyOf'.examples
     res = Array.isArray(val);
-    if (res)
-    {
-        // accept any array
-    }
     if (! res)
     {
         rep !== null && rep.push(["not array or unexpected array [.'$tight#AnyOf'.examples]", path])
@@ -3090,9 +2951,6 @@ function _jm_obj_30(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $schemaArray [.'$tight#AnyOf'.anyOf]", (path ? lpath_29 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid mandatory prop value [.'$tight#AnyOf'.anyOf]", (path ? lpath_29 : null)])
                 return false;
             }
@@ -3170,9 +3028,6 @@ function _jm_obj_34(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["unexpected $Schema [.'$tight#OneOf'.'$defs'.'']", (path ? lpath_33 : null)])
-        }
-        if (! res)
-        {
             return false;
         }
     }
@@ -3249,9 +3104,6 @@ function _jm_obj_35(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["unexpected $Schema [.'$tight#OneOf'.definitions.'']", (path ? lpath_34 : null)])
-        }
-        if (! res)
-        {
             return false;
         }
     }
@@ -3290,10 +3142,6 @@ function _jm_f_125(val, path, rep)
     let res;
     // .'$tight#OneOf'.examples
     res = Array.isArray(val);
-    if (res)
-    {
-        // accept any array
-    }
     if (! res)
     {
         rep !== null && rep.push(["not array or unexpected array [.'$tight#OneOf'.examples]", path])
@@ -3351,9 +3199,6 @@ function _jm_obj_33(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $schemaArray [.'$tight#OneOf'.oneOf]", (path ? lpath_32 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid mandatory prop value [.'$tight#OneOf'.oneOf]", (path ? lpath_32 : null)])
                 return false;
             }
@@ -3431,9 +3276,6 @@ function _jm_obj_37(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["unexpected $Schema [.'$tight#Enum'.'$defs'.'']", (path ? lpath_36 : null)])
-        }
-        if (! res)
-        {
             return false;
         }
     }
@@ -3510,9 +3352,6 @@ function _jm_obj_38(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["unexpected $Schema [.'$tight#Enum'.definitions.'']", (path ? lpath_37 : null)])
-        }
-        if (! res)
-        {
             return false;
         }
     }
@@ -3551,10 +3390,6 @@ function _jm_f_135(val, path, rep)
     let res;
     // .'$tight#Enum'.examples
     res = Array.isArray(val);
-    if (res)
-    {
-        // accept any array
-    }
     if (! res)
     {
         rep !== null && rep.push(["not array or unexpected array [.'$tight#Enum'.examples]", path])
@@ -3612,9 +3447,6 @@ function _jm_obj_36(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $enum [.'$tight#Enum'.enum]", (path ? lpath_35 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid mandatory prop value [.'$tight#Enum'.enum]", (path ? lpath_35 : null)])
                 return false;
             }
@@ -3683,9 +3515,6 @@ function json_model_5(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected string [.'$tight#enum'.'|'.0.0]", (path ? arr_4_lpath : null)])
-            }
-            if (! res)
-            {
                 break;
             }
         }
@@ -3705,9 +3534,6 @@ function json_model_5(val, path, rep)
                 if (! res)
                 {
                     rep !== null && rep.push(["not a -1 strict int [.'$tight#enum'.'|'.1.0]", (path ? arr_3_lpath : null)])
-                }
-                if (! res)
-                {
                     break;
                 }
             }
@@ -3727,9 +3553,6 @@ function json_model_5(val, path, rep)
                     if (! res)
                     {
                         rep !== null && rep.push(["not a bool [.'$tight#enum'.'|'.2.0]", (path ? arr_2_lpath : null)])
-                    }
-                    if (! res)
-                    {
                         break;
                     }
                 }
@@ -3782,9 +3605,6 @@ function _jm_obj_40(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["unexpected $Schema [.'$tight#Const'.'$defs'.'']", (path ? lpath_39 : null)])
-        }
-        if (! res)
-        {
             return false;
         }
     }
@@ -3861,9 +3681,6 @@ function _jm_obj_41(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["unexpected $Schema [.'$tight#Const'.definitions.'']", (path ? lpath_40 : null)])
-        }
-        if (! res)
-        {
             return false;
         }
     }
@@ -3902,10 +3719,6 @@ function _jm_f_145(val, path, rep)
     let res;
     // .'$tight#Const'.examples
     res = Array.isArray(val);
-    if (res)
-    {
-        // accept any array
-    }
     if (! res)
     {
         rep !== null && rep.push(["not array or unexpected array [.'$tight#Const'.examples]", path])
@@ -3963,9 +3776,6 @@ function _jm_obj_39(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $const [.'$tight#Const'.const]", (path ? lpath_38 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid mandatory prop value [.'$tight#Const'.const]", (path ? lpath_38 : null)])
                 return false;
             }
@@ -4101,9 +3911,6 @@ function _jm_obj_43(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["unexpected $Schema [.'$tight#Ref'.'$defs'.'']", (path ? lpath_42 : null)])
-        }
-        if (! res)
-        {
             return false;
         }
     }
@@ -4180,9 +3987,6 @@ function _jm_obj_44(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["unexpected $Schema [.'$tight#Ref'.definitions.'']", (path ? lpath_43 : null)])
-        }
-        if (! res)
-        {
             return false;
         }
     }
@@ -4221,10 +4025,6 @@ function _jm_f_155(val, path, rep)
     let res;
     // .'$tight#Ref'.examples
     res = Array.isArray(val);
-    if (res)
-    {
-        // accept any array
-    }
     if (! res)
     {
         rep !== null && rep.push(["not array or unexpected array [.'$tight#Ref'.examples]", path])
@@ -4282,9 +4082,6 @@ function _jm_obj_42(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $URL [.'$tight#Ref'.'$ref']", (path ? lpath_41 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid mandatory prop value [.'$tight#Ref'.'$ref']", (path ? lpath_41 : null)])
                 return false;
             }
@@ -4393,9 +4190,6 @@ function _jm_obj_46(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["unexpected $Schema [.'$tight#EnumString'.'$defs'.'']", (path ? lpath_45 : null)])
-        }
-        if (! res)
-        {
             return false;
         }
     }
@@ -4472,9 +4266,6 @@ function _jm_obj_47(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["unexpected $Schema [.'$tight#EnumString'.definitions.'']", (path ? lpath_46 : null)])
-        }
-        if (! res)
-        {
             return false;
         }
     }
@@ -4513,10 +4304,6 @@ function _jm_f_165(val, path, rep)
     let res;
     // .'$tight#EnumString'.examples
     res = Array.isArray(val);
-    if (res)
-    {
-        // accept any array
-    }
     if (! res)
     {
         rep !== null && rep.push(["not array or unexpected array [.'$tight#EnumString'.examples]", path])
@@ -4582,9 +4369,6 @@ function _jm_obj_45(val, path, rep)
                     if (! res)
                     {
                         rep !== null && rep.push(["unexpected string [.'$tight#EnumString'.enum.0]", ((path ? lpath_44 : null) ? arr_5_lpath : null)])
-                    }
-                    if (! res)
-                    {
                         break;
                     }
                 }
@@ -4592,9 +4376,6 @@ function _jm_obj_45(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["not array or unexpected array [.'$tight#EnumString'.enum]", (path ? lpath_44 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid mandatory prop value [.'$tight#EnumString'.enum]", (path ? lpath_44 : null)])
                 return false;
             }
@@ -4608,9 +4389,6 @@ function _jm_obj_45(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected string [.'$tight#EnumString'.type]", (path ? lpath_44 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid mandatory prop value [.'$tight#EnumString'.type]", (path ? lpath_44 : null)])
                 return false;
             }
@@ -4692,9 +4470,6 @@ function _jm_obj_49(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["unexpected $Schema [.'$tight#EnumNum'.'$defs'.'']", (path ? lpath_48 : null)])
-        }
-        if (! res)
-        {
             return false;
         }
     }
@@ -4771,9 +4546,6 @@ function _jm_obj_50(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["unexpected $Schema [.'$tight#EnumNum'.definitions.'']", (path ? lpath_49 : null)])
-        }
-        if (! res)
-        {
             return false;
         }
     }
@@ -4812,10 +4584,6 @@ function _jm_f_175(val, path, rep)
     let res;
     // .'$tight#EnumNum'.examples
     res = Array.isArray(val);
-    if (res)
-    {
-        // accept any array
-    }
     if (! res)
     {
         rep !== null && rep.push(["not array or unexpected array [.'$tight#EnumNum'.examples]", path])
@@ -4881,9 +4649,6 @@ function _jm_obj_48(val, path, rep)
                     if (! res)
                     {
                         rep !== null && rep.push(["not a -1.0 strict float [.'$tight#EnumNum'.enum.0]", ((path ? lpath_47 : null) ? arr_6_lpath : null)])
-                    }
-                    if (! res)
-                    {
                         break;
                     }
                 }
@@ -4891,9 +4656,6 @@ function _jm_obj_48(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["not array or unexpected array [.'$tight#EnumNum'.enum]", (path ? lpath_47 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid mandatory prop value [.'$tight#EnumNum'.enum]", (path ? lpath_47 : null)])
                 return false;
             }
@@ -4907,9 +4669,6 @@ function _jm_obj_48(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected number [.'$tight#EnumNum'.type]", (path ? lpath_47 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid mandatory prop value [.'$tight#EnumNum'.type]", (path ? lpath_47 : null)])
                 return false;
             }
@@ -4991,9 +4750,6 @@ function _jm_obj_52(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["unexpected $Schema [.'$tight#EnumInt'.'$defs'.'']", (path ? lpath_51 : null)])
-        }
-        if (! res)
-        {
             return false;
         }
     }
@@ -5070,9 +4826,6 @@ function _jm_obj_53(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["unexpected $Schema [.'$tight#EnumInt'.definitions.'']", (path ? lpath_52 : null)])
-        }
-        if (! res)
-        {
             return false;
         }
     }
@@ -5111,10 +4864,6 @@ function _jm_f_185(val, path, rep)
     let res;
     // .'$tight#EnumInt'.examples
     res = Array.isArray(val);
-    if (res)
-    {
-        // accept any array
-    }
     if (! res)
     {
         rep !== null && rep.push(["not array or unexpected array [.'$tight#EnumInt'.examples]", path])
@@ -5180,9 +4929,6 @@ function _jm_obj_51(val, path, rep)
                     if (! res)
                     {
                         rep !== null && rep.push(["not a -1 strict int [.'$tight#EnumInt'.enum.0]", ((path ? lpath_50 : null) ? arr_7_lpath : null)])
-                    }
-                    if (! res)
-                    {
                         break;
                     }
                 }
@@ -5190,9 +4936,6 @@ function _jm_obj_51(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["not array or unexpected array [.'$tight#EnumInt'.enum]", (path ? lpath_50 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid mandatory prop value [.'$tight#EnumInt'.enum]", (path ? lpath_50 : null)])
                 return false;
             }
@@ -5206,9 +4949,6 @@ function _jm_obj_51(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected integer [.'$tight#EnumInt'.type]", (path ? lpath_50 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid mandatory prop value [.'$tight#EnumInt'.type]", (path ? lpath_50 : null)])
                 return false;
             }
@@ -5290,9 +5030,6 @@ function _jm_obj_55(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["unexpected $Schema [.'$tight#ConstString'.'$defs'.'']", (path ? lpath_54 : null)])
-        }
-        if (! res)
-        {
             return false;
         }
     }
@@ -5369,9 +5106,6 @@ function _jm_obj_56(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["unexpected $Schema [.'$tight#ConstString'.definitions.'']", (path ? lpath_55 : null)])
-        }
-        if (! res)
-        {
             return false;
         }
     }
@@ -5410,10 +5144,6 @@ function _jm_f_195(val, path, rep)
     let res;
     // .'$tight#ConstString'.examples
     res = Array.isArray(val);
-    if (res)
-    {
-        // accept any array
-    }
     if (! res)
     {
         rep !== null && rep.push(["not array or unexpected array [.'$tight#ConstString'.examples]", path])
@@ -5471,9 +5201,6 @@ function _jm_obj_54(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected string [.'$tight#ConstString'.const]", (path ? lpath_53 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid mandatory prop value [.'$tight#ConstString'.const]", (path ? lpath_53 : null)])
                 return false;
             }
@@ -5487,9 +5214,6 @@ function _jm_obj_54(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected string [.'$tight#ConstString'.type]", (path ? lpath_53 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid mandatory prop value [.'$tight#ConstString'.type]", (path ? lpath_53 : null)])
                 return false;
             }
@@ -5571,9 +5295,6 @@ function _jm_obj_58(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["unexpected $Schema [.'$tight#ConstNum'.'$defs'.'']", (path ? lpath_57 : null)])
-        }
-        if (! res)
-        {
             return false;
         }
     }
@@ -5650,9 +5371,6 @@ function _jm_obj_59(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["unexpected $Schema [.'$tight#ConstNum'.definitions.'']", (path ? lpath_58 : null)])
-        }
-        if (! res)
-        {
             return false;
         }
     }
@@ -5691,10 +5409,6 @@ function _jm_f_205(val, path, rep)
     let res;
     // .'$tight#ConstNum'.examples
     res = Array.isArray(val);
-    if (res)
-    {
-        // accept any array
-    }
     if (! res)
     {
         rep !== null && rep.push(["not array or unexpected array [.'$tight#ConstNum'.examples]", path])
@@ -5752,9 +5466,6 @@ function _jm_obj_57(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["not a -1.0 strict float [.'$tight#ConstNum'.const]", (path ? lpath_56 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid mandatory prop value [.'$tight#ConstNum'.const]", (path ? lpath_56 : null)])
                 return false;
             }
@@ -5768,9 +5479,6 @@ function _jm_obj_57(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected number [.'$tight#ConstNum'.type]", (path ? lpath_56 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid mandatory prop value [.'$tight#ConstNum'.type]", (path ? lpath_56 : null)])
                 return false;
             }
@@ -5852,9 +5560,6 @@ function _jm_obj_61(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["unexpected $Schema [.'$tight#ConstInt'.'$defs'.'']", (path ? lpath_60 : null)])
-        }
-        if (! res)
-        {
             return false;
         }
     }
@@ -5931,9 +5636,6 @@ function _jm_obj_62(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["unexpected $Schema [.'$tight#ConstInt'.definitions.'']", (path ? lpath_61 : null)])
-        }
-        if (! res)
-        {
             return false;
         }
     }
@@ -5972,10 +5674,6 @@ function _jm_f_215(val, path, rep)
     let res;
     // .'$tight#ConstInt'.examples
     res = Array.isArray(val);
-    if (res)
-    {
-        // accept any array
-    }
     if (! res)
     {
         rep !== null && rep.push(["not array or unexpected array [.'$tight#ConstInt'.examples]", path])
@@ -6033,9 +5731,6 @@ function _jm_obj_60(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["not a -1 strict int [.'$tight#ConstInt'.const]", (path ? lpath_59 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid mandatory prop value [.'$tight#ConstInt'.const]", (path ? lpath_59 : null)])
                 return false;
             }
@@ -6049,9 +5744,6 @@ function _jm_obj_60(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected integer [.'$tight#ConstInt'.type]", (path ? lpath_59 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid mandatory prop value [.'$tight#ConstInt'.type]", (path ? lpath_59 : null)])
                 return false;
             }
@@ -6133,9 +5825,6 @@ function _jm_obj_64(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["unexpected $Schema [.'$tight#ConstBool'.'$defs'.'']", (path ? lpath_63 : null)])
-        }
-        if (! res)
-        {
             return false;
         }
     }
@@ -6212,9 +5901,6 @@ function _jm_obj_65(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["unexpected $Schema [.'$tight#ConstBool'.definitions.'']", (path ? lpath_64 : null)])
-        }
-        if (! res)
-        {
             return false;
         }
     }
@@ -6253,10 +5939,6 @@ function _jm_f_225(val, path, rep)
     let res;
     // .'$tight#ConstBool'.examples
     res = Array.isArray(val);
-    if (res)
-    {
-        // accept any array
-    }
     if (! res)
     {
         rep !== null && rep.push(["not array or unexpected array [.'$tight#ConstBool'.examples]", path])
@@ -6314,9 +5996,6 @@ function _jm_obj_63(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["not a bool [.'$tight#ConstBool'.const]", (path ? lpath_62 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid mandatory prop value [.'$tight#ConstBool'.const]", (path ? lpath_62 : null)])
                 return false;
             }
@@ -6330,9 +6009,6 @@ function _jm_obj_63(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected boolean [.'$tight#ConstBool'.type]", (path ? lpath_62 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid mandatory prop value [.'$tight#ConstBool'.type]", (path ? lpath_62 : null)])
                 return false;
             }

@@ -31,7 +31,7 @@ public class float_0 extends ModelChecker
         }
         return res;
     }
-    
+
 
     public void init(JSON json)
     {

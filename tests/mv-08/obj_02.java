@@ -39,9 +39,6 @@ public class obj_02 extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not a 0 strict int [.'$li0'.0]", (path != null ? arr_0_lpath : null));
-                }
-                if (! res)
-                {
                     break;
                 }
             }
@@ -52,7 +49,7 @@ public class obj_02 extends ModelChecker
         }
         return res;
     }
-    
+
     // check $ls0 (.'$ls0')
     public boolean json_model_3(Object val, Path path, Report rep)
     {
@@ -73,9 +70,6 @@ public class obj_02 extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected $URL [.'$ls0'.0]", (path != null ? arr_1_lpath : null));
-                }
-                if (! res)
-                {
                     break;
                 }
             }
@@ -86,7 +80,7 @@ public class obj_02 extends ModelChecker
         }
         return res;
     }
-    
+
     // check $lb0 (.'$lb0')
     public boolean json_model_4(Object val, Path path, Report rep)
     {
@@ -107,9 +101,6 @@ public class obj_02 extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected $BOOL [.'$lb0'.0]", (path != null ? arr_2_lpath : null));
-                }
-                if (! res)
-                {
                     break;
                 }
             }
@@ -120,7 +111,7 @@ public class obj_02 extends ModelChecker
         }
         return res;
     }
-    
+
     // check $lf0 (.'$lf0')
     public boolean json_model_5(Object val, Path path, Report rep)
     {
@@ -141,9 +132,6 @@ public class obj_02 extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not a 0.0 strict float [.'$lf0'.0]", (path != null ? arr_3_lpath : null));
-                }
-                if (! res)
-                {
                     break;
                 }
             }
@@ -154,7 +142,7 @@ public class obj_02 extends ModelChecker
         }
         return res;
     }
-    
+
     // check $ (.)
     public boolean json_model_1(Object val, Path path, Report rep)
     {
@@ -203,7 +191,7 @@ public class obj_02 extends ModelChecker
         }
         return res;
     }
-    
+
 
     public void init(JSON json)
     {

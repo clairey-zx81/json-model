@@ -219,10 +219,6 @@ BEGIN
     -- .'$schema'.enum.'@'
     res := JSONB_TYPEOF(pval) = 'array';
     IF res THEN
-      -- accept any array
-      NULL;
-    END IF;
-    IF res THEN
       ival_0 := JSONB_ARRAY_LENGTH(pval);
       res := ival_0 >= 1;
     END IF;

@@ -40,7 +40,6 @@ def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
             res = isinstance(pval, str) and pval == "fr"
             if not res:
                 rep is None or rep.append(("unexpected fr [.movie.'|'.0.t]", lpath_1 if path is not None else None))
-            if not res:
                 rep is None or rep.append(("invalid mandatory prop value [.movie.'|'.0.t]", lpath_1 if path is not None else None))
                 return False
         elif prop == "titre":
@@ -50,7 +49,6 @@ def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
             res = isinstance(pval, str)
             if not res:
                 rep is None or rep.append(("unexpected string [.movie.'|'.0.titre]", lpath_1 if path is not None else None))
-            if not res:
                 rep is None or rep.append(("invalid mandatory prop value [.movie.'|'.0.titre]", lpath_1 if path is not None else None))
                 return False
         else:
@@ -82,7 +80,6 @@ def _jm_obj_2(val: Jsonable, path: Path, rep: Report) -> bool:
             res = isinstance(pval, str) and pval == "en"
             if not res:
                 rep is None or rep.append(("unexpected en [.movie.'|'.1.t]", lpath_2 if path is not None else None))
-            if not res:
                 rep is None or rep.append(("invalid mandatory prop value [.movie.'|'.1.t]", lpath_2 if path is not None else None))
                 return False
         elif prop == "title":
@@ -92,7 +89,6 @@ def _jm_obj_2(val: Jsonable, path: Path, rep: Report) -> bool:
             res = isinstance(pval, str)
             if not res:
                 rep is None or rep.append(("unexpected string [.movie.'|'.1.title]", lpath_2 if path is not None else None))
-            if not res:
                 rep is None or rep.append(("invalid mandatory prop value [.movie.'|'.1.title]", lpath_2 if path is not None else None))
                 return False
         else:
@@ -124,7 +120,6 @@ def _jm_obj_3(val: Jsonable, path: Path, rep: Report) -> bool:
             res = isinstance(pval, str) and pval == "de"
             if not res:
                 rep is None or rep.append(("unexpected de [.movie.'|'.2.t]", lpath_3 if path is not None else None))
-            if not res:
                 rep is None or rep.append(("invalid mandatory prop value [.movie.'|'.2.t]", lpath_3 if path is not None else None))
                 return False
         elif prop == "Title":
@@ -134,7 +129,6 @@ def _jm_obj_3(val: Jsonable, path: Path, rep: Report) -> bool:
             res = isinstance(pval, str)
             if not res:
                 rep is None or rep.append(("unexpected string [.movie.'|'.2.Title]", lpath_3 if path is not None else None))
-            if not res:
                 rep is None or rep.append(("invalid mandatory prop value [.movie.'|'.2.Title]", lpath_3 if path is not None else None))
                 return False
         else:
@@ -166,7 +160,6 @@ def _jm_obj_4(val: Jsonable, path: Path, rep: Report) -> bool:
             res = isinstance(pval, str) and pval == "ru"
             if not res:
                 rep is None or rep.append(("unexpected ru [.movie.'|'.3.t]", lpath_4 if path is not None else None))
-            if not res:
                 rep is None or rep.append(("invalid mandatory prop value [.movie.'|'.3.t]", lpath_4 if path is not None else None))
                 return False
         elif prop == "suti":
@@ -176,7 +169,6 @@ def _jm_obj_4(val: Jsonable, path: Path, rep: Report) -> bool:
             res = isinstance(pval, str)
             if not res:
                 rep is None or rep.append(("unexpected string [.movie.'|'.3.suti]", lpath_4 if path is not None else None))
-            if not res:
                 rep is None or rep.append(("invalid mandatory prop value [.movie.'|'.3.suti]", lpath_4 if path is not None else None))
                 return False
         else:

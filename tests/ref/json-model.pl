@@ -1459,11 +1459,6 @@ sub _jm_obj_13($$$)
             {
                 # .'$Trafo'.'/'.'|'.1
                 $res = jm_is_array($pval);
-                if ($res)
-                {
-                    # accept any array
-                    ;
-                }
             }
             if (! $res)
             {
@@ -1564,11 +1559,6 @@ sub _jm_obj_15($$$)
             {
                 # .'$Transformation'.'|'.1.'/'.'|'.1
                 $res = jm_is_array($pval);
-                if ($res)
-                {
-                    # accept any array
-                    ;
-                }
             }
             if (! $res)
             {

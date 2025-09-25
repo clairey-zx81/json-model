@@ -44,9 +44,6 @@ public class dis_004 extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not a 1 strict int [.'$Aa'.'|'.1.b]", (path != null ? lpath_0 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$Aa'.'|'.1.b]", (path != null ? lpath_0 : null));
                     return false;
                 }
@@ -70,7 +67,7 @@ public class dis_004 extends ModelChecker
         }
         return true;
     }
-    
+
     // object .'$Aa'.'|'.0
     public boolean _jm_obj_1(Object val, Path path, Report rep)
     {
@@ -96,9 +93,6 @@ public class dis_004 extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not a 0 strict int [.'$Aa'.'|'.0.a]", (path != null ? lpath_1 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$Aa'.'|'.0.a]", (path != null ? lpath_1 : null));
                     return false;
                 }
@@ -122,7 +116,7 @@ public class dis_004 extends ModelChecker
         }
         return true;
     }
-    
+
     // check $Aa (.'$Aa')
     public boolean json_model_2(Object val, Path path, Report rep)
     {
@@ -161,7 +155,7 @@ public class dis_004 extends ModelChecker
         }
         return res;
     }
-    
+
     // object .'$Bb'.'|'.0
     public boolean _jm_obj_2(Object val, Path path, Report rep)
     {
@@ -187,9 +181,6 @@ public class dis_004 extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not a 0 strict int [.'$Bb'.'|'.0.c]", (path != null ? lpath_2 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$Bb'.'|'.0.c]", (path != null ? lpath_2 : null));
                     return false;
                 }
@@ -213,7 +204,7 @@ public class dis_004 extends ModelChecker
         }
         return true;
     }
-    
+
     // check $Bb (.'$Bb')
     public boolean json_model_3(Object val, Path path, Report rep)
     {
@@ -244,7 +235,7 @@ public class dis_004 extends ModelChecker
         }
         return res;
     }
-    
+
     // check $ (.)
     public boolean json_model_1(Object val, Path path, Report rep)
     {
@@ -257,7 +248,7 @@ public class dis_004 extends ModelChecker
         }
         return res;
     }
-    
+
 
     public void init(JSON json)
     {

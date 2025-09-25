@@ -31,7 +31,7 @@ public class ex_09 extends ModelChecker
         }
         return res;
     }
-    
+
     // check $Ex08 (.'$Ex08')
     public boolean json_model_3(Object val, Path path, Report rep)
     {
@@ -44,7 +44,7 @@ public class ex_09 extends ModelChecker
         }
         return res;
     }
-    
+
     // object .'$Ex09'
     public boolean _jm_obj_0(Object val, Path path, Report rep)
     {
@@ -68,9 +68,6 @@ public class ex_09 extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected string [.'$Ex09'.'#']", (path != null ? lpath_0 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Ex09'.'#']", (path != null ? lpath_0 : null));
                     return false;
                 }
@@ -83,9 +80,6 @@ public class ex_09 extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected $ex08#Val [.'$Ex09'.'$URL']", (path != null ? lpath_0 : null));
-                }
-                if (! res)
-                {
                     return false;
                 }
             }
@@ -97,7 +91,7 @@ public class ex_09 extends ModelChecker
         }
         return true;
     }
-    
+
     // check $Ex09 (.'$Ex09')
     public boolean json_model_4(Object val, Path path, Report rep)
     {
@@ -110,7 +104,7 @@ public class ex_09 extends ModelChecker
         }
         return res;
     }
-    
+
     // check $ (.)
     public boolean json_model_1(Object val, Path path, Report rep)
     {
@@ -123,7 +117,7 @@ public class ex_09 extends ModelChecker
         }
         return res;
     }
-    
+
     // check $ex08#Val (.'$ex08#Val')
     public boolean json_model_6(Object val, Path path, Report rep)
     {
@@ -136,7 +130,7 @@ public class ex_09 extends ModelChecker
         }
         return res;
     }
-    
+
     // check $ex08#Ex08 (.'$ex08#Ex08')
     public boolean json_model_9(Object val, Path path, Report rep)
     {
@@ -176,7 +170,7 @@ public class ex_09 extends ModelChecker
         }
         return res;
     }
-    
+
     // object .'$ex08#map'
     public boolean _jm_obj_1(Object val, Path path, Report rep)
     {
@@ -200,9 +194,6 @@ public class ex_09 extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected $Val [.'$ex08#map'.'$URL']", (path != null ? lpath_1 : null));
-                }
-                if (! res)
-                {
                     return false;
                 }
             }
@@ -214,7 +205,7 @@ public class ex_09 extends ModelChecker
         }
         return true;
     }
-    
+
     // check $ex08#map (.'$ex08#map')
     public boolean json_model_8(Object val, Path path, Report rep)
     {
@@ -227,7 +218,7 @@ public class ex_09 extends ModelChecker
         }
         return res;
     }
-    
+
 
     public void init(JSON json)
     {

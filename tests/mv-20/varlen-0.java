@@ -62,9 +62,6 @@ public class varlen_0 extends ModelChecker
                         if (! res)
                         {
                             if (rep != null) rep.addEntry("not a bool [.'@'.2]", (path != null ? lpath_0 : null));
-                        }
-                        if (! res)
-                        {
                             break;
                         }
                     }
@@ -86,7 +83,7 @@ public class varlen_0 extends ModelChecker
         }
         return res;
     }
-    
+
 
     public void init(JSON json)
     {

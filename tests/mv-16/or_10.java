@@ -44,9 +44,6 @@ public class or_10 extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected string [.'|'.1.name]", (path != null ? lpath_0 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'|'.1.name]", (path != null ? lpath_0 : null));
                     return false;
                 }
@@ -70,7 +67,7 @@ public class or_10 extends ModelChecker
         }
         return true;
     }
-    
+
     // object .'|'.0
     public boolean _jm_obj_1(Object val, Path path, Report rep)
     {
@@ -89,7 +86,7 @@ public class or_10 extends ModelChecker
             return false;
         }
     }
-    
+
     // check $ (.)
     public boolean json_model_1(Object val, Path path, Report rep)
     {
@@ -128,7 +125,7 @@ public class or_10 extends ModelChecker
         }
         return res;
     }
-    
+
 
     public void init(JSON json)
     {

@@ -31,7 +31,7 @@ public class string_const_2 extends ModelChecker
         }
         return res;
     }
-    
+
 
     public void init(JSON json)
     {

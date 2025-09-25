@@ -41,7 +41,7 @@ public class base_019 extends ModelChecker
         }
         return res;
     }
-    
+
 
     public void init(JSON json)
     {

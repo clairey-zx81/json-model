@@ -56,9 +56,6 @@ function json_model_3(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $neStr [.'$neStrList'.'@'.0]", (path ? arr_0_lpath : null)])
-            }
-            if (! res)
-            {
                 break;
             }
         }
@@ -111,9 +108,6 @@ function json_model_5(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $License [.'$LicenseList'.'@'.0]", (path ? arr_1_lpath : null)])
-            }
-            if (! res)
-            {
                 break;
             }
         }
@@ -158,9 +152,6 @@ function _jm_obj_0(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected string [.'$Provide'.file]", (path ? lpath_0 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid mandatory prop value [.'$Provide'.file]", (path ? lpath_0 : null)])
                 return false;
             }
@@ -174,9 +165,6 @@ function _jm_obj_0(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $Version [.'$Provide'.version]", (path ? lpath_0 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid mandatory prop value [.'$Provide'.version]", (path ? lpath_0 : null)])
                 return false;
             }
@@ -189,9 +177,6 @@ function _jm_obj_0(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected string [.'$Provide'.abstract]", (path ? lpath_0 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid optional prop value [.'$Provide'.abstract]", (path ? lpath_0 : null)])
                 return false;
             }
@@ -204,9 +189,6 @@ function _jm_obj_0(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected string [.'$Provide'.docfile]", (path ? lpath_0 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid optional prop value [.'$Provide'.docfile]", (path ? lpath_0 : null)])
                 return false;
             }
@@ -219,9 +201,6 @@ function _jm_obj_0(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $ANY [.'$Provide'.'/^[Xx]_/']", (path ? lpath_0 : null)])
-            }
-            if (! res)
-            {
                 return false;
             }
         }
@@ -296,9 +275,6 @@ function _jm_obj_2(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $URL [.'$Resources'.bugtracker.web]", (path ? lpath_2 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid optional prop value [.'$Resources'.bugtracker.web]", (path ? lpath_2 : null)])
                 return false;
             }
@@ -311,9 +287,6 @@ function _jm_obj_2(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $EMAIL [.'$Resources'.bugtracker.mailto]", (path ? lpath_2 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid optional prop value [.'$Resources'.bugtracker.mailto]", (path ? lpath_2 : null)])
                 return false;
             }
@@ -326,9 +299,6 @@ function _jm_obj_2(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $ANY [.'$Resources'.bugtracker.'/^[Xx]_/']", (path ? lpath_2 : null)])
-            }
-            if (! res)
-            {
                 return false;
             }
         }
@@ -361,9 +331,6 @@ function _jm_obj_3(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $URL [.'$Resources'.repository.url]", (path ? lpath_3 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid optional prop value [.'$Resources'.repository.url]", (path ? lpath_3 : null)])
                 return false;
             }
@@ -376,9 +343,6 @@ function _jm_obj_3(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $URL [.'$Resources'.repository.web]", (path ? lpath_3 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid optional prop value [.'$Resources'.repository.web]", (path ? lpath_3 : null)])
                 return false;
             }
@@ -392,9 +356,6 @@ function _jm_obj_3(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected /./ [.'$Resources'.repository.type]", (path ? lpath_3 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid optional prop value [.'$Resources'.repository.type]", (path ? lpath_3 : null)])
                 return false;
             }
@@ -428,9 +389,6 @@ function _jm_obj_1(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $URL [.'$Resources'.homepage]", (path ? lpath_1 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid optional prop value [.'$Resources'.homepage]", (path ? lpath_1 : null)])
                 return false;
             }
@@ -443,9 +401,6 @@ function _jm_obj_1(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected element [.'$Resources'.bugtracker]", (path ? lpath_1 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid optional prop value [.'$Resources'.bugtracker]", (path ? lpath_1 : null)])
                 return false;
             }
@@ -458,9 +413,6 @@ function _jm_obj_1(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected element [.'$Resources'.repository]", (path ? lpath_1 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid optional prop value [.'$Resources'.repository]", (path ? lpath_1 : null)])
                 return false;
             }
@@ -630,9 +582,6 @@ function _jm_obj_4(val, path, rep)
         else
         {
             rep !== null && rep.push(["no model matched [.'$Prereq'.''.'|']", (path ? lpath_4 : null)])
-        }
-        if (! res)
-        {
             return false;
         }
     }
@@ -672,9 +621,6 @@ function _jm_obj_6(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $Prereq [.'$Prereqs'.'$Phase'.'$Relation']", (path ? lpath_6 : null)])
-            }
-            if (! res)
-            {
                 return false;
             }
         }
@@ -686,9 +632,6 @@ function _jm_obj_6(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $ANY [.'$Prereqs'.'$Phase'.'/^[Xx]_/']", (path ? lpath_6 : null)])
-            }
-            if (! res)
-            {
                 return false;
             }
         }
@@ -721,9 +664,6 @@ function _jm_obj_5(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected element [.'$Prereqs'.'$Phase']", (path ? lpath_5 : null)])
-            }
-            if (! res)
-            {
                 return false;
             }
         }
@@ -735,9 +675,6 @@ function _jm_obj_5(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $ANY [.'$Prereqs'.'/^[Xx]_/']", (path ? lpath_5 : null)])
-            }
-            if (! res)
-            {
                 return false;
             }
         }
@@ -794,9 +731,6 @@ function _jm_obj_8(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["unexpected $URL [.license.'^'.2.'']", (path ? lpath_8 : null)])
-        }
-        if (! res)
-        {
             return false;
         }
     }
@@ -813,35 +747,35 @@ function _jm_f_1(val, path, rep)
     let xr_0;
     // .license.'^'.0
     xr_0 = json_model_4(val, path, rep);
-    if (! xr_0)
+    if (xr_0)
+    {
+        xc_0 += 1;
+    }
+    else
     {
         rep !== null && rep.push(["unexpected $License [.license.'^'.0]", path])
     }
-    if (xr_0)
-    {
-        xc_0 += 1;
-    }
     // .license.'^'.1
     xr_0 = json_model_5(val, path, rep);
-    if (! xr_0)
-    {
-        rep !== null && rep.push(["unexpected $LicenseList [.license.'^'.1]", path])
-    }
     if (xr_0)
     {
         xc_0 += 1;
+    }
+    else
+    {
+        rep !== null && rep.push(["unexpected $LicenseList [.license.'^'.1]", path])
     }
     if (xc_0 <= 1)
     {
         // .license.'^'.2
         xr_0 = _jm_obj_8(val, path, rep);
-        if (! xr_0)
-        {
-            rep !== null && rep.push(["unexpected element [.license.'^'.2]", path])
-        }
         if (xr_0)
         {
             xc_0 += 1;
+        }
+        else
+        {
+            rep !== null && rep.push(["unexpected element [.license.'^'.2]", path])
         }
     }
     res = xc_0 == 1;
@@ -909,9 +843,6 @@ function _jm_obj_9(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected _1.0.0 [.'meta-spec'.version]", (path ? lpath_9 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid mandatory prop value [.'meta-spec'.version]", (path ? lpath_9 : null)])
                 return false;
             }
@@ -924,9 +855,6 @@ function _jm_obj_9(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $URL [.'meta-spec'.url]", (path ? lpath_9 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid optional prop value [.'meta-spec'.url]", (path ? lpath_9 : null)])
                 return false;
             }
@@ -939,9 +867,6 @@ function _jm_obj_9(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $ANY [.'meta-spec'.'/^[Xx]_/']", (path ? lpath_9 : null)])
-            }
-            if (! res)
-            {
                 return false;
             }
         }
@@ -1009,9 +934,6 @@ function _jm_obj_10(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["unexpected $Provide [.provides.'']", (path ? lpath_10 : null)])
-        }
-        if (! res)
-        {
             return false;
         }
     }
@@ -1091,9 +1013,6 @@ function _jm_obj_11(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $neStrList [.no_index.file]", (path ? lpath_11 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid optional prop value [.no_index.file]", (path ? lpath_11 : null)])
                 return false;
             }
@@ -1106,9 +1025,6 @@ function _jm_obj_11(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $neStrList [.no_index.directory]", (path ? lpath_11 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid optional prop value [.no_index.directory]", (path ? lpath_11 : null)])
                 return false;
             }
@@ -1245,9 +1161,6 @@ function _jm_obj_7(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $ANY [.'/^[Xx]_/']", (path ? lpath_7 : null)])
-            }
-            if (! res)
-            {
                 return false;
             }
         }

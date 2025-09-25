@@ -44,9 +44,6 @@ public class name_age extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected string [.name]", (path != null ? lpath_0 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.name]", (path != null ? lpath_0 : null));
                     return false;
                 }
@@ -60,9 +57,6 @@ public class name_age extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not a 0 strict int [.age]", (path != null ? lpath_0 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.age]", (path != null ? lpath_0 : null));
                     return false;
                 }
@@ -90,7 +84,7 @@ public class name_age extends ModelChecker
         }
         return true;
     }
-    
+
     // check $ (.)
     public boolean json_model_1(Object val, Path path, Report rep)
     {
@@ -103,7 +97,7 @@ public class name_age extends ModelChecker
         }
         return res;
     }
-    
+
 
     public void init(JSON json)
     {

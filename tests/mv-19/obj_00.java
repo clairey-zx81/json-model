@@ -40,15 +40,12 @@ public class obj_00 extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("not a 0 strict int [.'']", (path != null ? lpath_0 : null));
-            }
-            if (! res)
-            {
                 return false;
             }
         }
         return true;
     }
-    
+
     // check $ (.)
     public boolean json_model_1(Object val, Path path, Report rep)
     {
@@ -61,7 +58,7 @@ public class obj_00 extends ModelChecker
         }
         return res;
     }
-    
+
 
     public void init(JSON json)
     {

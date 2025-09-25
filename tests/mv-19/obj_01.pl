@@ -15,6 +15,7 @@ sub json_model_2($$$);
 sub json_model_1($$$);
 my %check_model_map;
 
+
 # check $Xxx (.'$Xxx')
 sub json_model_2($$$)
 {

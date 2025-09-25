@@ -41,9 +41,6 @@ public class must_0 extends ModelChecker
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.name]", path);
-        }
-        if (! res)
-        {
             if (rep != null) rep.addEntry("unexpected value for mandatory prop <name> [.]", path);
             return false;
         }
@@ -58,15 +55,12 @@ public class must_0 extends ModelChecker
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected $DATE [.born]", path);
-        }
-        if (! res)
-        {
             if (rep != null) rep.addEntry("unexpected value for mandatory prop <born> [.]", path);
             return false;
         }
         return true;
     }
-    
+
     // check $ (.)
     public boolean json_model_1(Object val, Path path, Report rep)
     {
@@ -80,7 +74,7 @@ public class must_0 extends ModelChecker
         }
         return res;
     }
-    
+
 
     public void init(JSON json)
     {

@@ -67,7 +67,7 @@ public class xorxor_000 extends ModelChecker
         }
         return res;
     }
-    
+
     // check $ (.)
     public boolean json_model_1(Object val, Path path, Report rep)
     {
@@ -78,13 +78,13 @@ public class xorxor_000 extends ModelChecker
         boolean xr_0;
         // .'^'.0
         xr_0 = json_model_2(val, path, rep);
-        if (! xr_0)
-        {
-            if (rep != null) rep.addEntry("unexpected $Xx [.'^'.0]", path);
-        }
         if (xr_0)
         {
             xc_0 += 1;
+        }
+        else
+        {
+            if (rep != null) rep.addEntry("unexpected $Xx [.'^'.0]", path);
         }
         // .'^'.1
         xr_0 = json.isArray(val);
@@ -102,20 +102,17 @@ public class xorxor_000 extends ModelChecker
                 if (! xr_0)
                 {
                     if (rep != null) rep.addEntry("unexpected $Xx [.'^'.1.0]", (path != null ? arr_0_lpath : null));
-                }
-                if (! xr_0)
-                {
                     break;
                 }
             }
         }
-        if (! xr_0)
-        {
-            if (rep != null) rep.addEntry("not array or unexpected array [.'^'.1]", path);
-        }
         if (xr_0)
         {
             xc_0 += 1;
+        }
+        else
+        {
+            if (rep != null) rep.addEntry("not array or unexpected array [.'^'.1]", path);
         }
         res = xc_0 == 1;
         if (res)
@@ -128,7 +125,7 @@ public class xorxor_000 extends ModelChecker
         }
         return res;
     }
-    
+
 
     public void init(JSON json)
     {

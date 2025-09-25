@@ -131,10 +131,6 @@ BEGIN
   -- .enum.'@'
   res := JSONB_TYPEOF(val) = 'array';
   IF res THEN
-    -- accept any array
-    NULL;
-  END IF;
-  IF res THEN
     ival_0 := JSONB_ARRAY_LENGTH(val);
     res := ival_0 >= 1;
   END IF;

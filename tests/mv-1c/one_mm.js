@@ -33,9 +33,6 @@ function _jm_obj_0(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["not a 0 strict int [.must]", (path ? lpath_0 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid mandatory prop value [.must]", (path ? lpath_0 : null)])
                 return false;
             }
@@ -48,9 +45,6 @@ function _jm_obj_0(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["not a bool [.may]", (path ? lpath_0 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid optional prop value [.may]", (path ? lpath_0 : null)])
                 return false;
             }

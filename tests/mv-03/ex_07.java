@@ -50,12 +50,12 @@ public class ex_07 extends ModelChecker
         }
         return res;
     }
-    
+
     public boolean _jm_re_0(String val, Path path, Report rep)
     {
         return _jm_re_0_pat.matcher(val).find();
     }
-    
+
     // check $Ex07 (.'$Ex07')
     public boolean json_model_3(Object val, Path path, Report rep)
     {
@@ -69,7 +69,7 @@ public class ex_07 extends ModelChecker
         }
         return res;
     }
-    
+
     // check $__external_0 (.'$__external_0')
     public boolean json_model_7(Object val, Path path, Report rep)
     {
@@ -100,7 +100,7 @@ public class ex_07 extends ModelChecker
         }
         return res;
     }
-    
+
     // check $ (.)
     public boolean json_model_1(Object val, Path path, Report rep)
     {
@@ -143,7 +143,7 @@ public class ex_07 extends ModelChecker
         }
         return res;
     }
-    
+
     // check $ex5#Ex05a (.'$ex5#Ex05a')
     public boolean json_model_5(Object val, Path path, Report rep)
     {
@@ -156,7 +156,7 @@ public class ex_07 extends ModelChecker
         }
         return res;
     }
-    
+
     // check $ex5#Ex05b (.'$ex5#Ex05b')
     public boolean json_model_6(Object val, Path path, Report rep)
     {
@@ -169,7 +169,7 @@ public class ex_07 extends ModelChecker
         }
         return res;
     }
-    
+
     // check $__external_0#Ex05a (.'$__external_0#Ex05a')
     public boolean json_model_8(Object val, Path path, Report rep)
     {
@@ -182,7 +182,7 @@ public class ex_07 extends ModelChecker
         }
         return res;
     }
-    
+
     // check $__external_0#Ex05b (.'$__external_0#Ex05b')
     public boolean json_model_9(Object val, Path path, Report rep)
     {
@@ -195,7 +195,7 @@ public class ex_07 extends ModelChecker
         }
         return res;
     }
-    
+
 
     public void init(JSON json)
     {

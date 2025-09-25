@@ -39,9 +39,6 @@ public class base_005 extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not a 0 strict int [.0]", (path != null ? arr_0_lpath : null));
-                }
-                if (! res)
-                {
                     break;
                 }
             }
@@ -52,7 +49,7 @@ public class base_005 extends ModelChecker
         }
         return res;
     }
-    
+
 
     public void init(JSON json)
     {

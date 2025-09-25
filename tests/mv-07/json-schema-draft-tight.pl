@@ -1059,11 +1059,6 @@ sub _jm_f_26($$$)
     my $res;
     # .'$metas'.examples
     $res = jm_is_array($val);
-    if ($res)
-    {
-        # accept any array
-        ;
-    }
     return $res;
 }
 
@@ -1340,11 +1335,6 @@ sub _jm_f_42($$$)
     my $res;
     # .'$String'.examples
     $res = jm_is_array($val);
-    if ($res)
-    {
-        # accept any array
-        ;
-    }
     return $res;
 }
 
@@ -1688,11 +1678,6 @@ sub _jm_f_63($$$)
     my $res;
     # .'$Array'.examples
     $res = jm_is_array($val);
-    if ($res)
-    {
-        # accept any array
-        ;
-    }
     return $res;
 }
 
@@ -2061,11 +2046,6 @@ sub _jm_f_86($$$)
     my $res;
     # .'$Object'.examples
     $res = jm_is_array($val);
-    if ($res)
-    {
-        # accept any array
-        ;
-    }
     return $res;
 }
 
@@ -2494,11 +2474,6 @@ sub _jm_f_109($$$)
     my $res;
     # .'$Integer'.examples
     $res = jm_is_array($val);
-    if ($res)
-    {
-        # accept any array
-        ;
-    }
     return $res;
 }
 
@@ -2811,11 +2786,6 @@ sub _jm_f_127($$$)
     my $res;
     # .'$Number'.examples
     $res = jm_is_array($val);
-    if ($res)
-    {
-        # accept any array
-        ;
-    }
     return $res;
 }
 
@@ -3128,11 +3098,6 @@ sub _jm_f_145($$$)
     my $res;
     # .'$Bool'.examples
     $res = jm_is_array($val);
-    if ($res)
-    {
-        # accept any array
-        ;
-    }
     return $res;
 }
 
@@ -3425,11 +3390,6 @@ sub _jm_f_161($$$)
     my $res;
     # .'$Null'.examples
     $res = jm_is_array($val);
-    if ($res)
-    {
-        # accept any array
-        ;
-    }
     return $res;
 }
 
@@ -3722,11 +3682,6 @@ sub _jm_f_177($$$)
     my $res;
     # .'$AllOf'.examples
     $res = jm_is_array($val);
-    if ($res)
-    {
-        # accept any array
-        ;
-    }
     return $res;
 }
 
@@ -4019,11 +3974,6 @@ sub _jm_f_193($$$)
     my $res;
     # .'$AnyOf'.examples
     $res = jm_is_array($val);
-    if ($res)
-    {
-        # accept any array
-        ;
-    }
     return $res;
 }
 
@@ -4316,11 +4266,6 @@ sub _jm_f_209($$$)
     my $res;
     # .'$OneOf'.examples
     $res = jm_is_array($val);
-    if ($res)
-    {
-        # accept any array
-        ;
-    }
     return $res;
 }
 
@@ -4613,11 +4558,6 @@ sub _jm_f_225($$$)
     my $res;
     # .'$Enum'.examples
     $res = jm_is_array($val);
-    if ($res)
-    {
-        # accept any array
-        ;
-    }
     return $res;
 }
 
@@ -4910,11 +4850,6 @@ sub _jm_f_241($$$)
     my $res;
     # .'$Const'.examples
     $res = jm_is_array($val);
-    if ($res)
-    {
-        # accept any array
-        ;
-    }
     return $res;
 }
 
@@ -5207,11 +5142,6 @@ sub _jm_f_257($$$)
     my $res;
     # .'$Ref'.examples
     $res = jm_is_array($val);
-    if ($res)
-    {
-        # accept any array
-        ;
-    }
     return $res;
 }
 
@@ -5504,11 +5434,6 @@ sub _jm_f_273($$$)
     my $res;
     # .'$DynRef'.examples
     $res = jm_is_array($val);
-    if ($res)
-    {
-        # accept any array
-        ;
-    }
     return $res;
 }
 

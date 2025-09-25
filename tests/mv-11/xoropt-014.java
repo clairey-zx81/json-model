@@ -45,9 +45,6 @@ public class xoropt_014 extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected fr [.movie.'|'.0.t]", (path != null ? lpath_1 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.movie.'|'.0.t]", (path != null ? lpath_1 : null));
                     return false;
                 }
@@ -61,9 +58,6 @@ public class xoropt_014 extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected string [.movie.'|'.0.titre]", (path != null ? lpath_1 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.movie.'|'.0.titre]", (path != null ? lpath_1 : null));
                     return false;
                 }
@@ -91,7 +85,7 @@ public class xoropt_014 extends ModelChecker
         }
         return true;
     }
-    
+
     // object .movie.'|'.1
     public boolean _jm_obj_2(Object val, Path path, Report rep)
     {
@@ -117,9 +111,6 @@ public class xoropt_014 extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected en [.movie.'|'.1.t]", (path != null ? lpath_2 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.movie.'|'.1.t]", (path != null ? lpath_2 : null));
                     return false;
                 }
@@ -133,9 +124,6 @@ public class xoropt_014 extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected string [.movie.'|'.1.title]", (path != null ? lpath_2 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.movie.'|'.1.title]", (path != null ? lpath_2 : null));
                     return false;
                 }
@@ -163,7 +151,7 @@ public class xoropt_014 extends ModelChecker
         }
         return true;
     }
-    
+
     // object .movie.'|'.2
     public boolean _jm_obj_3(Object val, Path path, Report rep)
     {
@@ -189,9 +177,6 @@ public class xoropt_014 extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected de [.movie.'|'.2.t]", (path != null ? lpath_3 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.movie.'|'.2.t]", (path != null ? lpath_3 : null));
                     return false;
                 }
@@ -205,9 +190,6 @@ public class xoropt_014 extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected string [.movie.'|'.2.Title]", (path != null ? lpath_3 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.movie.'|'.2.Title]", (path != null ? lpath_3 : null));
                     return false;
                 }
@@ -235,7 +217,7 @@ public class xoropt_014 extends ModelChecker
         }
         return true;
     }
-    
+
     // object .movie.'|'.3
     public boolean _jm_obj_4(Object val, Path path, Report rep)
     {
@@ -261,9 +243,6 @@ public class xoropt_014 extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected ru [.movie.'|'.3.t]", (path != null ? lpath_4 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.movie.'|'.3.t]", (path != null ? lpath_4 : null));
                     return false;
                 }
@@ -277,9 +256,6 @@ public class xoropt_014 extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected string [.movie.'|'.3.suti]", (path != null ? lpath_4 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.movie.'|'.3.suti]", (path != null ? lpath_4 : null));
                     return false;
                 }
@@ -307,8 +283,8 @@ public class xoropt_014 extends ModelChecker
         }
         return true;
     }
-    
-    
+
+
     // object .
     public boolean _jm_obj_0(Object val, Path path, Report rep)
     {
@@ -383,7 +359,7 @@ public class xoropt_014 extends ModelChecker
         }
         return true;
     }
-    
+
     // check $ (.)
     public boolean json_model_1(Object val, Path path, Report rep)
     {
@@ -396,7 +372,7 @@ public class xoropt_014 extends ModelChecker
         }
         return res;
     }
-    
+
 
     public void init(JSON json)
     {

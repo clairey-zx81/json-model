@@ -32,7 +32,7 @@ public class url_look extends ModelChecker
         }
         return res;
     }
-    
+
     // check $u2 (.'$u2')
     public boolean json_model_3(Object val, Path path, Report rep)
     {
@@ -45,8 +45,8 @@ public class url_look extends ModelChecker
         }
         return res;
     }
-    
-    
+
+
     // check $ (.)
     public boolean json_model_1(Object val, Path path, Report rep)
     {
@@ -60,7 +60,7 @@ public class url_look extends ModelChecker
         }
         return res;
     }
-    
+
 
     public void init(JSON json)
     {

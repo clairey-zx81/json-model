@@ -24,7 +24,7 @@ public class xor_04 extends ModelChecker
     {
         return _jm_re_0_pat.matcher(val).find();
     }
-    
+
     // check $ (.)
     public boolean json_model_1(Object val, Path path, Report rep)
     {
@@ -57,7 +57,7 @@ public class xor_04 extends ModelChecker
         }
         return res;
     }
-    
+
 
     public void init(JSON json)
     {

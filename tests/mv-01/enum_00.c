@@ -18,6 +18,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep);
 jm_propmap_t check_model_map_tab[3];
 const size_t check_model_map_size = 3;
 
+
 // check $p1 (.'$p1')
 static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
@@ -56,23 +57,23 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
     bool xr_0;
     // .'^'.0
     xr_0 = json_model_2(val, path, rep);
-    if (! xr_0)
+    if (xr_0)
+    {
+        xc_0 += 1;
+    }
+    else
     {
         if (rep) jm_report_add_entry(rep, "unexpected $p1 [.'^'.0]", path);
     }
-    if (xr_0)
-    {
-        xc_0 += 1;
-    }
     // .'^'.1
     xr_0 = json_model_3(val, path, rep);
-    if (! xr_0)
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected $p2 [.'^'.1]", path);
-    }
     if (xr_0)
     {
         xc_0 += 1;
+    }
+    else
+    {
+        if (rep) jm_report_add_entry(rep, "unexpected $p2 [.'^'.1]", path);
     }
     res = xc_0 == 1;
     if (res)

@@ -74,13 +74,13 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
     bool xr_0;
     // .'^'.0
     xr_0 = json_model_2(val, path, rep);
-    if (! xr_0)
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected $Xx [.'^'.0]", path);
-    }
     if (xr_0)
     {
         xc_0 += 1;
+    }
+    else
+    {
+        if (rep) jm_report_add_entry(rep, "unexpected $Xx [.'^'.0]", path);
     }
     // .'^'.1
     xr_0 = json_is_array(val);
@@ -96,20 +96,17 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
             if (! xr_0)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected $Xx [.'^'.1.0]", (path ? &arr_0_lpath : NULL));
-            }
-            if (! xr_0)
-            {
                 break;
             }
         }
     }
-    if (! xr_0)
-    {
-        if (rep) jm_report_add_entry(rep, "not array or unexpected array [.'^'.1]", path);
-    }
     if (xr_0)
     {
         xc_0 += 1;
+    }
+    else
+    {
+        if (rep) jm_report_add_entry(rep, "not array or unexpected array [.'^'.1]", path);
     }
     res = xc_0 == 1;
     if (res)

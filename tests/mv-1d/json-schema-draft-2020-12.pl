@@ -371,11 +371,6 @@ sub _jm_f_12($$$)
     my $res;
     # .'$meta'.examples
     $res = jm_is_array($val);
-    if ($res)
-    {
-        # accept any array
-        ;
-    }
     return $res;
 }
 
@@ -726,11 +721,6 @@ sub _jm_f_18($$$)
     my $res;
     # .'$validation'.enum
     $res = jm_is_array($val);
-    if ($res)
-    {
-        # accept any array
-        ;
-    }
     return $res;
 }
 
@@ -1579,11 +1569,6 @@ sub _jm_f_74($$$)
     my $res;
     # .'$ObjectSchema'.enum
     $res = jm_is_array($val);
-    if ($res)
-    {
-        # accept any array
-        ;
-    }
     return $res;
 }
 
@@ -1594,11 +1579,6 @@ sub _jm_f_75($$$)
     my $res;
     # .'$ObjectSchema'.examples
     $res = jm_is_array($val);
-    if ($res)
-    {
-        # accept any array
-        ;
-    }
     return $res;
 }
 

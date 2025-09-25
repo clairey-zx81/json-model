@@ -25,12 +25,12 @@ public class and_str00 extends ModelChecker
     {
         return _jm_re_0_pat.matcher(val).find();
     }
-    
+
     public boolean _jm_re_1(String val, Path path, Report rep)
     {
         return _jm_re_1_pat.matcher(val).find();
     }
-    
+
     // check $ (.)
     public boolean json_model_1(Object val, Path path, Report rep)
     {
@@ -67,7 +67,7 @@ public class and_str00 extends ModelChecker
         }
         return res;
     }
-    
+
 
     public void init(JSON json)
     {

@@ -36,9 +36,6 @@ function json_model_1(val, path, rep)
                     if (! res)
                     {
                         rep !== null && rep.push(["unexpected string [.0.0]", ((path ? arr_0_lpath : null) ? arr_1_lpath : null)])
-                    }
-                    if (! res)
-                    {
                         break;
                     }
                 }
@@ -46,9 +43,6 @@ function json_model_1(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["not array or unexpected array [.0]", (path ? arr_0_lpath : null)])
-            }
-            if (! res)
-            {
                 break;
             }
         }

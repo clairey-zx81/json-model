@@ -73,9 +73,6 @@ static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *re
         else
         {
             if (rep) jm_report_add_entry(rep, "no model matched [.'$a'.''.'|']", (path ? &lpath_0 : NULL));
-        }
-        if (! res)
-        {
             return false;
         }
     }

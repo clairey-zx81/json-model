@@ -67,7 +67,7 @@ public class obj_03 extends ModelChecker
         }
         return res;
     }
-    
+
     // check $ (.)
     public boolean json_model_1(Object val, Path path, Report rep)
     {
@@ -80,7 +80,7 @@ public class obj_03 extends ModelChecker
         }
         return res;
     }
-    
+
     // check $foo#li0 (.'$foo#li0')
     public boolean json_model_4(Object val, Path path, Report rep)
     {
@@ -101,9 +101,6 @@ public class obj_03 extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not a 0 strict int [.'$foo#li0'.0]", (path != null ? arr_0_lpath : null));
-                }
-                if (! res)
-                {
                     break;
                 }
             }
@@ -114,7 +111,7 @@ public class obj_03 extends ModelChecker
         }
         return res;
     }
-    
+
     // check $foo#ls0 (.'$foo#ls0')
     public boolean json_model_5(Object val, Path path, Report rep)
     {
@@ -135,9 +132,6 @@ public class obj_03 extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected $DATE [.'$foo#ls0'.0]", (path != null ? arr_1_lpath : null));
-                }
-                if (! res)
-                {
                     break;
                 }
             }
@@ -148,7 +142,7 @@ public class obj_03 extends ModelChecker
         }
         return res;
     }
-    
+
     // check $foo#lb0 (.'$foo#lb0')
     public boolean json_model_6(Object val, Path path, Report rep)
     {
@@ -169,9 +163,6 @@ public class obj_03 extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected $BOOL [.'$foo#lb0'.0]", (path != null ? arr_2_lpath : null));
-                }
-                if (! res)
-                {
                     break;
                 }
             }
@@ -182,7 +173,7 @@ public class obj_03 extends ModelChecker
         }
         return res;
     }
-    
+
     // check $foo#lf0 (.'$foo#lf0')
     public boolean json_model_7(Object val, Path path, Report rep)
     {
@@ -203,9 +194,6 @@ public class obj_03 extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not a 0.0 strict float [.'$foo#lf0'.0]", (path != null ? arr_3_lpath : null));
-                }
-                if (! res)
-                {
                     break;
                 }
             }
@@ -216,7 +204,7 @@ public class obj_03 extends ModelChecker
         }
         return res;
     }
-    
+
 
     public void init(JSON json)
     {

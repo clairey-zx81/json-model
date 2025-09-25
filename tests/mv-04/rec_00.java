@@ -40,15 +40,12 @@ public class rec_00 extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("unexpected $rec [.'$obj'.'']", (path != null ? lpath_0 : null));
-            }
-            if (! res)
-            {
                 return false;
             }
         }
         return true;
     }
-    
+
     // check $obj (.'$obj')
     public boolean json_model_2(Object val, Path path, Report rep)
     {
@@ -61,7 +58,7 @@ public class rec_00 extends ModelChecker
         }
         return res;
     }
-    
+
     // check $rec (.'$rec')
     public boolean json_model_3(Object val, Path path, Report rep)
     {
@@ -92,7 +89,7 @@ public class rec_00 extends ModelChecker
         }
         return res;
     }
-    
+
     // check $ (.)
     public boolean json_model_1(Object val, Path path, Report rep)
     {
@@ -105,7 +102,7 @@ public class rec_00 extends ModelChecker
         }
         return res;
     }
-    
+
 
     public void init(JSON json)
     {

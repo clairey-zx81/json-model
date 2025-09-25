@@ -68,9 +68,6 @@ static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *re
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected string [.'$Ex09'.'#']", (path ? &lpath_0 : NULL));
-            }
-            if (! res)
-            {
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Ex09'.'#']", (path ? &lpath_0 : NULL));
                 return false;
             }
@@ -83,9 +80,6 @@ static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *re
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected $ex08#Val [.'$Ex09'.'$URL']", (path ? &lpath_0 : NULL));
-            }
-            if (! res)
-            {
                 return false;
             }
         }
@@ -199,9 +193,6 @@ static INLINE bool _jm_obj_1(const json_t *val, jm_path_t *path, jm_report_t *re
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected $Val [.'$ex08#map'.'$URL']", (path ? &lpath_1 : NULL));
-            }
-            if (! res)
-            {
                 return false;
             }
         }

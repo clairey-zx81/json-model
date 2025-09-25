@@ -264,11 +264,6 @@ sub _jm_obj_0($$$)
         $res = jm_is_array($pval);
         if ($res)
         {
-            # accept any array
-            ;
-        }
-        if ($res)
-        {
             my $ival_0 = scalar @$pval;
             $res = $ival_0 >= 1;
         }

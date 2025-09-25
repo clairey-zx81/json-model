@@ -41,7 +41,7 @@ public class simp_cons_0 extends ModelChecker
         }
         return res;
     }
-    
+
 
     public void init(JSON json)
     {

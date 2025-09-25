@@ -21,6 +21,7 @@ public class obj_01 extends ModelChecker
     public Pattern _jm_re_0_pat = null;
     public Map<String, Checker> obj_01_map_pmap;
 
+
     // check $Xxx (.'$Xxx')
     public boolean json_model_2(Object val, Path path, Report rep)
     {
@@ -33,12 +34,12 @@ public class obj_01 extends ModelChecker
         }
         return res;
     }
-    
+
     public boolean _jm_re_0(String val, Path path, Report rep)
     {
         return _jm_re_0_pat.matcher(val).find();
     }
-    
+
     // object .
     public boolean _jm_obj_0(Object val, Path path, Report rep)
     {
@@ -64,9 +65,6 @@ public class obj_01 extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected $DATE [.foo]", (path != null ? lpath_0 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.foo]", (path != null ? lpath_0 : null));
                     return false;
                 }
@@ -79,9 +77,6 @@ public class obj_01 extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not a bool [.bla]", (path != null ? lpath_0 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.bla]", (path != null ? lpath_0 : null));
                     return false;
                 }
@@ -94,9 +89,6 @@ public class obj_01 extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not a 0.0 strict float [.'$Xxx']", (path != null ? lpath_0 : null));
-                }
-                if (! res)
-                {
                     return false;
                 }
             }
@@ -108,9 +100,6 @@ public class obj_01 extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not a 0 strict int [.'/^[0-9]+$/']", (path != null ? lpath_0 : null));
-                }
-                if (! res)
-                {
                     return false;
                 }
             }
@@ -122,9 +111,6 @@ public class obj_01 extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not null [.'']", (path != null ? lpath_0 : null));
-                }
-                if (! res)
-                {
                     return false;
                 }
             }
@@ -142,7 +128,7 @@ public class obj_01 extends ModelChecker
         }
         return true;
     }
-    
+
     // check $ (.)
     public boolean json_model_1(Object val, Path path, Report rep)
     {
@@ -156,7 +142,7 @@ public class obj_01 extends ModelChecker
         }
         return res;
     }
-    
+
 
     public void init(JSON json)
     {

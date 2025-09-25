@@ -31,7 +31,7 @@ public class im_1 extends ModelChecker
         }
         return res;
     }
-    
+
     // check $a (.'$a')
     public boolean json_model_4(Object val, Path path, Report rep)
     {
@@ -44,7 +44,7 @@ public class im_1 extends ModelChecker
         }
         return res;
     }
-    
+
     // check $b (.'$b')
     public boolean json_model_5(Object val, Path path, Report rep)
     {
@@ -57,7 +57,7 @@ public class im_1 extends ModelChecker
         }
         return res;
     }
-    
+
     // object .
     public boolean _jm_obj_0(Object val, Path path, Report rep)
     {
@@ -76,7 +76,7 @@ public class im_1 extends ModelChecker
             return false;
         }
     }
-    
+
     // check $ (.)
     public boolean json_model_1(Object val, Path path, Report rep)
     {
@@ -89,7 +89,7 @@ public class im_1 extends ModelChecker
         }
         return res;
     }
-    
+
 
     public void init(JSON json)
     {

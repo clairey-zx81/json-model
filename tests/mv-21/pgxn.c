@@ -104,9 +104,6 @@ static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected $neStr [.'$neStrList'.'@'.0]", (path ? &arr_0_lpath : NULL));
-            }
-            if (! res)
-            {
                 break;
             }
         }
@@ -160,9 +157,6 @@ static bool json_model_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected $License [.'$LicenseList'.'@'.0]", (path ? &arr_1_lpath : NULL));
-            }
-            if (! res)
-            {
                 break;
             }
         }
@@ -213,9 +207,6 @@ static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *re
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected string [.'$Provide'.file]", (path ? &lpath_0 : NULL));
-            }
-            if (! res)
-            {
                 if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$Provide'.file]", (path ? &lpath_0 : NULL));
                 return false;
             }
@@ -229,9 +220,6 @@ static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *re
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected $Version [.'$Provide'.version]", (path ? &lpath_0 : NULL));
-            }
-            if (! res)
-            {
                 if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$Provide'.version]", (path ? &lpath_0 : NULL));
                 return false;
             }
@@ -244,9 +232,6 @@ static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *re
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected string [.'$Provide'.abstract]", (path ? &lpath_0 : NULL));
-            }
-            if (! res)
-            {
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Provide'.abstract]", (path ? &lpath_0 : NULL));
                 return false;
             }
@@ -259,9 +244,6 @@ static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *re
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected string [.'$Provide'.docfile]", (path ? &lpath_0 : NULL));
-            }
-            if (! res)
-            {
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Provide'.docfile]", (path ? &lpath_0 : NULL));
                 return false;
             }
@@ -274,9 +256,6 @@ static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *re
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected $ANY [.'$Provide'.'/^[Xx]_/']", (path ? &lpath_0 : NULL));
-            }
-            if (! res)
-            {
                 return false;
             }
         }
@@ -353,9 +332,6 @@ static INLINE bool _jm_obj_2(const json_t *val, jm_path_t *path, jm_report_t *re
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected $URL [.'$Resources'.bugtracker.web]", (path ? &lpath_2 : NULL));
-            }
-            if (! res)
-            {
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Resources'.bugtracker.web]", (path ? &lpath_2 : NULL));
                 return false;
             }
@@ -368,9 +344,6 @@ static INLINE bool _jm_obj_2(const json_t *val, jm_path_t *path, jm_report_t *re
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected $EMAIL [.'$Resources'.bugtracker.mailto]", (path ? &lpath_2 : NULL));
-            }
-            if (! res)
-            {
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Resources'.bugtracker.mailto]", (path ? &lpath_2 : NULL));
                 return false;
             }
@@ -383,9 +356,6 @@ static INLINE bool _jm_obj_2(const json_t *val, jm_path_t *path, jm_report_t *re
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected $ANY [.'$Resources'.bugtracker.'/^[Xx]_/']", (path ? &lpath_2 : NULL));
-            }
-            if (! res)
-            {
                 return false;
             }
         }
@@ -420,9 +390,6 @@ static INLINE bool _jm_obj_3(const json_t *val, jm_path_t *path, jm_report_t *re
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected $URL [.'$Resources'.repository.url]", (path ? &lpath_3 : NULL));
-            }
-            if (! res)
-            {
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Resources'.repository.url]", (path ? &lpath_3 : NULL));
                 return false;
             }
@@ -435,9 +402,6 @@ static INLINE bool _jm_obj_3(const json_t *val, jm_path_t *path, jm_report_t *re
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected $URL [.'$Resources'.repository.web]", (path ? &lpath_3 : NULL));
-            }
-            if (! res)
-            {
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Resources'.repository.web]", (path ? &lpath_3 : NULL));
                 return false;
             }
@@ -451,9 +415,6 @@ static INLINE bool _jm_obj_3(const json_t *val, jm_path_t *path, jm_report_t *re
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected /./ [.'$Resources'.repository.type]", (path ? &lpath_3 : NULL));
-            }
-            if (! res)
-            {
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Resources'.repository.type]", (path ? &lpath_3 : NULL));
                 return false;
             }
@@ -489,9 +450,6 @@ static INLINE bool _jm_obj_1(const json_t *val, jm_path_t *path, jm_report_t *re
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected $URL [.'$Resources'.homepage]", (path ? &lpath_1 : NULL));
-            }
-            if (! res)
-            {
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Resources'.homepage]", (path ? &lpath_1 : NULL));
                 return false;
             }
@@ -504,9 +462,6 @@ static INLINE bool _jm_obj_1(const json_t *val, jm_path_t *path, jm_report_t *re
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected element [.'$Resources'.bugtracker]", (path ? &lpath_1 : NULL));
-            }
-            if (! res)
-            {
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Resources'.bugtracker]", (path ? &lpath_1 : NULL));
                 return false;
             }
@@ -519,9 +474,6 @@ static INLINE bool _jm_obj_1(const json_t *val, jm_path_t *path, jm_report_t *re
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected element [.'$Resources'.repository]", (path ? &lpath_1 : NULL));
-            }
-            if (! res)
-            {
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Resources'.repository]", (path ? &lpath_1 : NULL));
                 return false;
             }
@@ -705,9 +657,6 @@ static INLINE bool _jm_obj_4(const json_t *val, jm_path_t *path, jm_report_t *re
         else
         {
             if (rep) jm_report_add_entry(rep, "no model matched [.'$Prereq'.''.'|']", (path ? &lpath_4 : NULL));
-        }
-        if (! res)
-        {
             return false;
         }
     }
@@ -749,9 +698,6 @@ static INLINE bool _jm_obj_6(const json_t *val, jm_path_t *path, jm_report_t *re
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected $Prereq [.'$Prereqs'.'$Phase'.'$Relation']", (path ? &lpath_6 : NULL));
-            }
-            if (! res)
-            {
                 return false;
             }
         }
@@ -763,9 +709,6 @@ static INLINE bool _jm_obj_6(const json_t *val, jm_path_t *path, jm_report_t *re
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected $ANY [.'$Prereqs'.'$Phase'.'/^[Xx]_/']", (path ? &lpath_6 : NULL));
-            }
-            if (! res)
-            {
                 return false;
             }
         }
@@ -800,9 +743,6 @@ static INLINE bool _jm_obj_5(const json_t *val, jm_path_t *path, jm_report_t *re
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected element [.'$Prereqs'.'$Phase']", (path ? &lpath_5 : NULL));
-            }
-            if (! res)
-            {
                 return false;
             }
         }
@@ -814,9 +754,6 @@ static INLINE bool _jm_obj_5(const json_t *val, jm_path_t *path, jm_report_t *re
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected $ANY [.'$Prereqs'.'/^[Xx]_/']", (path ? &lpath_5 : NULL));
-            }
-            if (! res)
-            {
                 return false;
             }
         }
@@ -875,9 +812,6 @@ static INLINE bool _jm_obj_8(const json_t *val, jm_path_t *path, jm_report_t *re
         if (! res)
         {
             if (rep) jm_report_add_entry(rep, "unexpected $URL [.license.'^'.2.'']", (path ? &lpath_8 : NULL));
-        }
-        if (! res)
-        {
             return false;
         }
     }
@@ -894,35 +828,35 @@ static bool _jm_f_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
     bool xr_0;
     // .license.'^'.0
     xr_0 = json_model_4(val, path, rep);
-    if (! xr_0)
+    if (xr_0)
+    {
+        xc_0 += 1;
+    }
+    else
     {
         if (rep) jm_report_add_entry(rep, "unexpected $License [.license.'^'.0]", path);
     }
-    if (xr_0)
-    {
-        xc_0 += 1;
-    }
     // .license.'^'.1
     xr_0 = json_model_5(val, path, rep);
-    if (! xr_0)
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected $LicenseList [.license.'^'.1]", path);
-    }
     if (xr_0)
     {
         xc_0 += 1;
+    }
+    else
+    {
+        if (rep) jm_report_add_entry(rep, "unexpected $LicenseList [.license.'^'.1]", path);
     }
     if (xc_0 <= 1)
     {
         // .license.'^'.2
         xr_0 = _jm_obj_8(val, path, rep);
-        if (! xr_0)
-        {
-            if (rep) jm_report_add_entry(rep, "unexpected element [.license.'^'.2]", path);
-        }
         if (xr_0)
         {
             xc_0 += 1;
+        }
+        else
+        {
+            if (rep) jm_report_add_entry(rep, "unexpected element [.license.'^'.2]", path);
         }
     }
     res = xc_0 == 1;
@@ -992,9 +926,6 @@ static INLINE bool _jm_obj_9(const json_t *val, jm_path_t *path, jm_report_t *re
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected _1.0.0 [.'meta-spec'.version]", (path ? &lpath_9 : NULL));
-            }
-            if (! res)
-            {
                 if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'meta-spec'.version]", (path ? &lpath_9 : NULL));
                 return false;
             }
@@ -1007,9 +938,6 @@ static INLINE bool _jm_obj_9(const json_t *val, jm_path_t *path, jm_report_t *re
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected $URL [.'meta-spec'.url]", (path ? &lpath_9 : NULL));
-            }
-            if (! res)
-            {
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'meta-spec'.url]", (path ? &lpath_9 : NULL));
                 return false;
             }
@@ -1022,9 +950,6 @@ static INLINE bool _jm_obj_9(const json_t *val, jm_path_t *path, jm_report_t *re
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected $ANY [.'meta-spec'.'/^[Xx]_/']", (path ? &lpath_9 : NULL));
-            }
-            if (! res)
-            {
                 return false;
             }
         }
@@ -1094,9 +1019,6 @@ static INLINE bool _jm_obj_10(const json_t *val, jm_path_t *path, jm_report_t *r
         if (! res)
         {
             if (rep) jm_report_add_entry(rep, "unexpected $Provide [.provides.'']", (path ? &lpath_10 : NULL));
-        }
-        if (! res)
-        {
             return false;
         }
     }
@@ -1182,9 +1104,6 @@ static INLINE bool _jm_obj_11(const json_t *val, jm_path_t *path, jm_report_t *r
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected $neStrList [.no_index.file]", (path ? &lpath_11 : NULL));
-            }
-            if (! res)
-            {
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.no_index.file]", (path ? &lpath_11 : NULL));
                 return false;
             }
@@ -1197,9 +1116,6 @@ static INLINE bool _jm_obj_11(const json_t *val, jm_path_t *path, jm_report_t *r
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected $neStrList [.no_index.directory]", (path ? &lpath_11 : NULL));
-            }
-            if (! res)
-            {
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.no_index.directory]", (path ? &lpath_11 : NULL));
                 return false;
             }
@@ -1342,9 +1258,6 @@ static INLINE bool _jm_obj_7(const json_t *val, jm_path_t *path, jm_report_t *re
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected $ANY [.'/^[Xx]_/']", (path ? &lpath_7 : NULL));
-            }
-            if (! res)
-            {
                 return false;
             }
         }

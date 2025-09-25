@@ -31,8 +31,8 @@ public class alter_1 extends ModelChecker
         res = json.isString(val) && json.asString(val).compareTo("g") == 0;
         return res;
     }
-    
-    
+
+
     // check $h_ou_i (.'$h_ou_i')
     public boolean json_model_3(Object val, Path path, Report rep)
     {
@@ -41,7 +41,7 @@ public class alter_1 extends ModelChecker
         res = json.isScalar(val) && _jm_cst_0_set.contains(val);
         return res;
     }
-    
+
     // object .'$d'
     public boolean _jm_obj_0(Object val, Path path, Report rep)
     {
@@ -89,7 +89,7 @@ public class alter_1 extends ModelChecker
         }
         return true;
     }
-    
+
     // check $d (.'$d')
     public boolean json_model_4(Object val, Path path, Report rep)
     {
@@ -98,8 +98,8 @@ public class alter_1 extends ModelChecker
         res = _jm_obj_0(val, path, rep);
         return res;
     }
-    
-    
+
+
     // object .'$ef'
     public boolean _jm_obj_1(Object val, Path path, Report rep)
     {
@@ -147,7 +147,7 @@ public class alter_1 extends ModelChecker
         }
         return true;
     }
-    
+
     // check $ef (.'$ef')
     public boolean json_model_5(Object val, Path path, Report rep)
     {
@@ -156,7 +156,7 @@ public class alter_1 extends ModelChecker
         res = _jm_obj_1(val, path, rep);
         return res;
     }
-    
+
     // object .'$alternative'.'|'.0
     public boolean _jm_obj_2(Object val, Path path, Report rep)
     {
@@ -204,8 +204,8 @@ public class alter_1 extends ModelChecker
         }
         return true;
     }
-    
-    
+
+
     // object .'$alternative'.'|'.1
     public boolean _jm_obj_3(Object val, Path path, Report rep)
     {
@@ -253,7 +253,7 @@ public class alter_1 extends ModelChecker
         }
         return true;
     }
-    
+
     // object .'$alternative'.'|'.2
     public boolean _jm_obj_4(Object val, Path path, Report rep)
     {
@@ -301,7 +301,7 @@ public class alter_1 extends ModelChecker
         }
         return true;
     }
-    
+
     // object .'$alternative'.'|'.3
     public boolean _jm_obj_5(Object val, Path path, Report rep)
     {
@@ -349,8 +349,8 @@ public class alter_1 extends ModelChecker
         }
         return true;
     }
-    
-    
+
+
     // check $alternative (.'$alternative')
     public boolean json_model_6(Object val, Path path, Report rep)
     {
@@ -381,7 +381,7 @@ public class alter_1 extends ModelChecker
         }
         return res;
     }
-    
+
     // check $ (.)
     public boolean json_model_1(Object val, Path path, Report rep)
     {
@@ -390,7 +390,7 @@ public class alter_1 extends ModelChecker
         res = json_model_6(val, path, rep);
         return res;
     }
-    
+
 
     public void init(JSON json)
     {

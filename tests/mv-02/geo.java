@@ -41,9 +41,6 @@ public class geo extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not a -1.0 loose float [.'$position'.'@'.0]", (path != null ? arr_0_lpath : null));
-                }
-                if (! res)
-                {
                     break;
                 }
             }
@@ -63,7 +60,7 @@ public class geo extends ModelChecker
         }
         return res;
     }
-    
+
     // check $coord_array (.'$coord_array')
     public boolean json_model_3(Object val, Path path, Report rep)
     {
@@ -85,9 +82,6 @@ public class geo extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected $position [.'$coord_array'.'@'.0]", (path != null ? arr_1_lpath : null));
-                }
-                if (! res)
-                {
                     break;
                 }
             }
@@ -107,7 +101,7 @@ public class geo extends ModelChecker
         }
         return res;
     }
-    
+
     // check $linear_ring (.'$linear_ring')
     public boolean json_model_4(Object val, Path path, Report rep)
     {
@@ -129,9 +123,6 @@ public class geo extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected $position [.'$linear_ring'.'@'.0]", (path != null ? arr_2_lpath : null));
-                }
-                if (! res)
-                {
                     break;
                 }
             }
@@ -151,7 +142,7 @@ public class geo extends ModelChecker
         }
         return res;
     }
-    
+
     // object .'$Point'
     public boolean _jm_obj_0(Object val, Path path, Report rep)
     {
@@ -177,9 +168,6 @@ public class geo extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected Point [.'$Point'.type]", (path != null ? lpath_0 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$Point'.type]", (path != null ? lpath_0 : null));
                     return false;
                 }
@@ -193,9 +181,6 @@ public class geo extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected $position [.'$Point'.coordinates]", (path != null ? lpath_0 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$Point'.coordinates]", (path != null ? lpath_0 : null));
                     return false;
                 }
@@ -219,9 +204,6 @@ public class geo extends ModelChecker
                         if (! res)
                         {
                             if (rep != null) rep.addEntry("not a -1.0 loose float [.'$Point'.bbox.0]", ((path != null ? lpath_0 : null) != null ? arr_3_lpath : null));
-                        }
-                        if (! res)
-                        {
                             break;
                         }
                     }
@@ -229,9 +211,6 @@ public class geo extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not array or unexpected array [.'$Point'.bbox]", (path != null ? lpath_0 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Point'.bbox]", (path != null ? lpath_0 : null));
                     return false;
                 }
@@ -259,7 +238,7 @@ public class geo extends ModelChecker
         }
         return true;
     }
-    
+
     // check $Point (.'$Point')
     public boolean json_model_5(Object val, Path path, Report rep)
     {
@@ -272,7 +251,7 @@ public class geo extends ModelChecker
         }
         return res;
     }
-    
+
     // object .'$MultiPoint'
     public boolean _jm_obj_1(Object val, Path path, Report rep)
     {
@@ -298,9 +277,6 @@ public class geo extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected MultiPoint [.'$MultiPoint'.type]", (path != null ? lpath_1 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$MultiPoint'.type]", (path != null ? lpath_1 : null));
                     return false;
                 }
@@ -325,9 +301,6 @@ public class geo extends ModelChecker
                         if (! res)
                         {
                             if (rep != null) rep.addEntry("unexpected $position [.'$MultiPoint'.coordinates.0]", ((path != null ? lpath_1 : null) != null ? arr_4_lpath : null));
-                        }
-                        if (! res)
-                        {
                             break;
                         }
                     }
@@ -335,9 +308,6 @@ public class geo extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not array or unexpected array [.'$MultiPoint'.coordinates]", (path != null ? lpath_1 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$MultiPoint'.coordinates]", (path != null ? lpath_1 : null));
                     return false;
                 }
@@ -361,9 +331,6 @@ public class geo extends ModelChecker
                         if (! res)
                         {
                             if (rep != null) rep.addEntry("not a -1.0 loose float [.'$MultiPoint'.bbox.0]", ((path != null ? lpath_1 : null) != null ? arr_5_lpath : null));
-                        }
-                        if (! res)
-                        {
                             break;
                         }
                     }
@@ -371,9 +338,6 @@ public class geo extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not array or unexpected array [.'$MultiPoint'.bbox]", (path != null ? lpath_1 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$MultiPoint'.bbox]", (path != null ? lpath_1 : null));
                     return false;
                 }
@@ -401,7 +365,7 @@ public class geo extends ModelChecker
         }
         return true;
     }
-    
+
     // check $MultiPoint (.'$MultiPoint')
     public boolean json_model_6(Object val, Path path, Report rep)
     {
@@ -414,7 +378,7 @@ public class geo extends ModelChecker
         }
         return res;
     }
-    
+
     // object .'$LineString'
     public boolean _jm_obj_2(Object val, Path path, Report rep)
     {
@@ -440,9 +404,6 @@ public class geo extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected LineString [.'$LineString'.type]", (path != null ? lpath_2 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$LineString'.type]", (path != null ? lpath_2 : null));
                     return false;
                 }
@@ -456,9 +417,6 @@ public class geo extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected $coord_array [.'$LineString'.coordinates]", (path != null ? lpath_2 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$LineString'.coordinates]", (path != null ? lpath_2 : null));
                     return false;
                 }
@@ -482,9 +440,6 @@ public class geo extends ModelChecker
                         if (! res)
                         {
                             if (rep != null) rep.addEntry("not a -1.0 loose float [.'$LineString'.bbox.0]", ((path != null ? lpath_2 : null) != null ? arr_6_lpath : null));
-                        }
-                        if (! res)
-                        {
                             break;
                         }
                     }
@@ -492,9 +447,6 @@ public class geo extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not array or unexpected array [.'$LineString'.bbox]", (path != null ? lpath_2 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$LineString'.bbox]", (path != null ? lpath_2 : null));
                     return false;
                 }
@@ -522,7 +474,7 @@ public class geo extends ModelChecker
         }
         return true;
     }
-    
+
     // check $LineString (.'$LineString')
     public boolean json_model_7(Object val, Path path, Report rep)
     {
@@ -535,7 +487,7 @@ public class geo extends ModelChecker
         }
         return res;
     }
-    
+
     // object .'$MultiLineString'
     public boolean _jm_obj_3(Object val, Path path, Report rep)
     {
@@ -561,9 +513,6 @@ public class geo extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected MultiLineString [.'$MultiLineString'.type]", (path != null ? lpath_3 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$MultiLineString'.type]", (path != null ? lpath_3 : null));
                     return false;
                 }
@@ -588,9 +537,6 @@ public class geo extends ModelChecker
                         if (! res)
                         {
                             if (rep != null) rep.addEntry("unexpected $coord_array [.'$MultiLineString'.coordinates.0]", ((path != null ? lpath_3 : null) != null ? arr_7_lpath : null));
-                        }
-                        if (! res)
-                        {
                             break;
                         }
                     }
@@ -598,9 +544,6 @@ public class geo extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not array or unexpected array [.'$MultiLineString'.coordinates]", (path != null ? lpath_3 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$MultiLineString'.coordinates]", (path != null ? lpath_3 : null));
                     return false;
                 }
@@ -624,9 +567,6 @@ public class geo extends ModelChecker
                         if (! res)
                         {
                             if (rep != null) rep.addEntry("not a -1.0 loose float [.'$MultiLineString'.bbox.0]", ((path != null ? lpath_3 : null) != null ? arr_8_lpath : null));
-                        }
-                        if (! res)
-                        {
                             break;
                         }
                     }
@@ -634,9 +574,6 @@ public class geo extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not array or unexpected array [.'$MultiLineString'.bbox]", (path != null ? lpath_3 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$MultiLineString'.bbox]", (path != null ? lpath_3 : null));
                     return false;
                 }
@@ -664,7 +601,7 @@ public class geo extends ModelChecker
         }
         return true;
     }
-    
+
     // check $MultiLineString (.'$MultiLineString')
     public boolean json_model_8(Object val, Path path, Report rep)
     {
@@ -677,7 +614,7 @@ public class geo extends ModelChecker
         }
         return res;
     }
-    
+
     // object .'$Polygon'
     public boolean _jm_obj_4(Object val, Path path, Report rep)
     {
@@ -703,9 +640,6 @@ public class geo extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected Polygon [.'$Polygon'.type]", (path != null ? lpath_4 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$Polygon'.type]", (path != null ? lpath_4 : null));
                     return false;
                 }
@@ -730,9 +664,6 @@ public class geo extends ModelChecker
                         if (! res)
                         {
                             if (rep != null) rep.addEntry("unexpected $linear_ring [.'$Polygon'.coordinates.0]", ((path != null ? lpath_4 : null) != null ? arr_9_lpath : null));
-                        }
-                        if (! res)
-                        {
                             break;
                         }
                     }
@@ -740,9 +671,6 @@ public class geo extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not array or unexpected array [.'$Polygon'.coordinates]", (path != null ? lpath_4 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$Polygon'.coordinates]", (path != null ? lpath_4 : null));
                     return false;
                 }
@@ -766,9 +694,6 @@ public class geo extends ModelChecker
                         if (! res)
                         {
                             if (rep != null) rep.addEntry("not a -1.0 loose float [.'$Polygon'.bbox.0]", ((path != null ? lpath_4 : null) != null ? arr_10_lpath : null));
-                        }
-                        if (! res)
-                        {
                             break;
                         }
                     }
@@ -776,9 +701,6 @@ public class geo extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not array or unexpected array [.'$Polygon'.bbox]", (path != null ? lpath_4 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Polygon'.bbox]", (path != null ? lpath_4 : null));
                     return false;
                 }
@@ -806,7 +728,7 @@ public class geo extends ModelChecker
         }
         return true;
     }
-    
+
     // check $Polygon (.'$Polygon')
     public boolean json_model_9(Object val, Path path, Report rep)
     {
@@ -819,7 +741,7 @@ public class geo extends ModelChecker
         }
         return res;
     }
-    
+
     // object .'$MultiPolygon'
     public boolean _jm_obj_5(Object val, Path path, Report rep)
     {
@@ -845,9 +767,6 @@ public class geo extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected MultiPolygon [.'$MultiPolygon'.type]", (path != null ? lpath_5 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$MultiPolygon'.type]", (path != null ? lpath_5 : null));
                     return false;
                 }
@@ -883,9 +802,6 @@ public class geo extends ModelChecker
                                 if (! res)
                                 {
                                     if (rep != null) rep.addEntry("unexpected $linear_ring [.'$MultiPolygon'.coordinates.0.0]", (((path != null ? lpath_5 : null) != null ? arr_11_lpath : null) != null ? arr_12_lpath : null));
-                                }
-                                if (! res)
-                                {
                                     break;
                                 }
                             }
@@ -893,9 +809,6 @@ public class geo extends ModelChecker
                         if (! res)
                         {
                             if (rep != null) rep.addEntry("not array or unexpected array [.'$MultiPolygon'.coordinates.0]", ((path != null ? lpath_5 : null) != null ? arr_11_lpath : null));
-                        }
-                        if (! res)
-                        {
                             break;
                         }
                     }
@@ -903,9 +816,6 @@ public class geo extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not array or unexpected array [.'$MultiPolygon'.coordinates]", (path != null ? lpath_5 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$MultiPolygon'.coordinates]", (path != null ? lpath_5 : null));
                     return false;
                 }
@@ -929,9 +839,6 @@ public class geo extends ModelChecker
                         if (! res)
                         {
                             if (rep != null) rep.addEntry("not a -1.0 loose float [.'$MultiPolygon'.bbox.0]", ((path != null ? lpath_5 : null) != null ? arr_13_lpath : null));
-                        }
-                        if (! res)
-                        {
                             break;
                         }
                     }
@@ -939,9 +846,6 @@ public class geo extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not array or unexpected array [.'$MultiPolygon'.bbox]", (path != null ? lpath_5 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$MultiPolygon'.bbox]", (path != null ? lpath_5 : null));
                     return false;
                 }
@@ -969,7 +873,7 @@ public class geo extends ModelChecker
         }
         return true;
     }
-    
+
     // check $MultiPolygon (.'$MultiPolygon')
     public boolean json_model_10(Object val, Path path, Report rep)
     {
@@ -982,7 +886,7 @@ public class geo extends ModelChecker
         }
         return res;
     }
-    
+
     // object .'$geometry'.'|'.0
     public boolean _jm_obj_6(Object val, Path path, Report rep)
     {
@@ -1005,9 +909,6 @@ public class geo extends ModelChecker
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected Point [.'$geometry'.'|'.0.type]", path);
-        }
-        if (! res)
-        {
             if (rep != null) rep.addEntry("unexpected value for mandatory prop <type> [.'$geometry'.'|'.0]", path);
             return false;
         }
@@ -1022,9 +923,6 @@ public class geo extends ModelChecker
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected $position [.'$geometry'.'|'.0.coordinates]", path);
-        }
-        if (! res)
-        {
             if (rep != null) rep.addEntry("unexpected value for mandatory prop <coordinates> [.'$geometry'.'|'.0]", path);
             return false;
         }
@@ -1047,9 +945,6 @@ public class geo extends ModelChecker
                     if (! res)
                     {
                         if (rep != null) rep.addEntry("not a -1.0 loose float [.'$geometry'.'|'.0.bbox.0]", (path != null ? arr_14_lpath : null));
-                    }
-                    if (! res)
-                    {
                         break;
                     }
                 }
@@ -1057,16 +952,13 @@ public class geo extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("not array or unexpected array [.'$geometry'.'|'.0.bbox]", path);
-            }
-            if (! res)
-            {
                 if (rep != null) rep.addEntry("unexpected value for optional prop <bbox> [.'$geometry'.'|'.0]", path);
                 return false;
             }
         }
         return true;
     }
-    
+
     // object .'$geometry'.'|'.1
     public boolean _jm_obj_7(Object val, Path path, Report rep)
     {
@@ -1089,9 +981,6 @@ public class geo extends ModelChecker
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected MultiPoint [.'$geometry'.'|'.1.type]", path);
-        }
-        if (! res)
-        {
             if (rep != null) rep.addEntry("unexpected value for mandatory prop <type> [.'$geometry'.'|'.1]", path);
             return false;
         }
@@ -1117,9 +1006,6 @@ public class geo extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected $position [.'$geometry'.'|'.1.coordinates.0]", (path != null ? arr_15_lpath : null));
-                }
-                if (! res)
-                {
                     break;
                 }
             }
@@ -1127,9 +1013,6 @@ public class geo extends ModelChecker
         if (! res)
         {
             if (rep != null) rep.addEntry("not array or unexpected array [.'$geometry'.'|'.1.coordinates]", path);
-        }
-        if (! res)
-        {
             if (rep != null) rep.addEntry("unexpected value for mandatory prop <coordinates> [.'$geometry'.'|'.1]", path);
             return false;
         }
@@ -1152,9 +1035,6 @@ public class geo extends ModelChecker
                     if (! res)
                     {
                         if (rep != null) rep.addEntry("not a -1.0 loose float [.'$geometry'.'|'.1.bbox.0]", (path != null ? arr_16_lpath : null));
-                    }
-                    if (! res)
-                    {
                         break;
                     }
                 }
@@ -1162,16 +1042,13 @@ public class geo extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("not array or unexpected array [.'$geometry'.'|'.1.bbox]", path);
-            }
-            if (! res)
-            {
                 if (rep != null) rep.addEntry("unexpected value for optional prop <bbox> [.'$geometry'.'|'.1]", path);
                 return false;
             }
         }
         return true;
     }
-    
+
     // object .'$geometry'.'|'.2
     public boolean _jm_obj_8(Object val, Path path, Report rep)
     {
@@ -1194,9 +1071,6 @@ public class geo extends ModelChecker
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected LineString [.'$geometry'.'|'.2.type]", path);
-        }
-        if (! res)
-        {
             if (rep != null) rep.addEntry("unexpected value for mandatory prop <type> [.'$geometry'.'|'.2]", path);
             return false;
         }
@@ -1211,9 +1085,6 @@ public class geo extends ModelChecker
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected $coord_array [.'$geometry'.'|'.2.coordinates]", path);
-        }
-        if (! res)
-        {
             if (rep != null) rep.addEntry("unexpected value for mandatory prop <coordinates> [.'$geometry'.'|'.2]", path);
             return false;
         }
@@ -1236,9 +1107,6 @@ public class geo extends ModelChecker
                     if (! res)
                     {
                         if (rep != null) rep.addEntry("not a -1.0 loose float [.'$geometry'.'|'.2.bbox.0]", (path != null ? arr_17_lpath : null));
-                    }
-                    if (! res)
-                    {
                         break;
                     }
                 }
@@ -1246,16 +1114,13 @@ public class geo extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("not array or unexpected array [.'$geometry'.'|'.2.bbox]", path);
-            }
-            if (! res)
-            {
                 if (rep != null) rep.addEntry("unexpected value for optional prop <bbox> [.'$geometry'.'|'.2]", path);
                 return false;
             }
         }
         return true;
     }
-    
+
     // object .'$geometry'.'|'.3
     public boolean _jm_obj_9(Object val, Path path, Report rep)
     {
@@ -1278,9 +1143,6 @@ public class geo extends ModelChecker
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected MultiLineString [.'$geometry'.'|'.3.type]", path);
-        }
-        if (! res)
-        {
             if (rep != null) rep.addEntry("unexpected value for mandatory prop <type> [.'$geometry'.'|'.3]", path);
             return false;
         }
@@ -1306,9 +1168,6 @@ public class geo extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected $coord_array [.'$geometry'.'|'.3.coordinates.0]", (path != null ? arr_18_lpath : null));
-                }
-                if (! res)
-                {
                     break;
                 }
             }
@@ -1316,9 +1175,6 @@ public class geo extends ModelChecker
         if (! res)
         {
             if (rep != null) rep.addEntry("not array or unexpected array [.'$geometry'.'|'.3.coordinates]", path);
-        }
-        if (! res)
-        {
             if (rep != null) rep.addEntry("unexpected value for mandatory prop <coordinates> [.'$geometry'.'|'.3]", path);
             return false;
         }
@@ -1341,9 +1197,6 @@ public class geo extends ModelChecker
                     if (! res)
                     {
                         if (rep != null) rep.addEntry("not a -1.0 loose float [.'$geometry'.'|'.3.bbox.0]", (path != null ? arr_19_lpath : null));
-                    }
-                    if (! res)
-                    {
                         break;
                     }
                 }
@@ -1351,16 +1204,13 @@ public class geo extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("not array or unexpected array [.'$geometry'.'|'.3.bbox]", path);
-            }
-            if (! res)
-            {
                 if (rep != null) rep.addEntry("unexpected value for optional prop <bbox> [.'$geometry'.'|'.3]", path);
                 return false;
             }
         }
         return true;
     }
-    
+
     // object .'$geometry'.'|'.4
     public boolean _jm_obj_10(Object val, Path path, Report rep)
     {
@@ -1383,9 +1233,6 @@ public class geo extends ModelChecker
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected Polygon [.'$geometry'.'|'.4.type]", path);
-        }
-        if (! res)
-        {
             if (rep != null) rep.addEntry("unexpected value for mandatory prop <type> [.'$geometry'.'|'.4]", path);
             return false;
         }
@@ -1411,9 +1258,6 @@ public class geo extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected $linear_ring [.'$geometry'.'|'.4.coordinates.0]", (path != null ? arr_20_lpath : null));
-                }
-                if (! res)
-                {
                     break;
                 }
             }
@@ -1421,9 +1265,6 @@ public class geo extends ModelChecker
         if (! res)
         {
             if (rep != null) rep.addEntry("not array or unexpected array [.'$geometry'.'|'.4.coordinates]", path);
-        }
-        if (! res)
-        {
             if (rep != null) rep.addEntry("unexpected value for mandatory prop <coordinates> [.'$geometry'.'|'.4]", path);
             return false;
         }
@@ -1446,9 +1287,6 @@ public class geo extends ModelChecker
                     if (! res)
                     {
                         if (rep != null) rep.addEntry("not a -1.0 loose float [.'$geometry'.'|'.4.bbox.0]", (path != null ? arr_21_lpath : null));
-                    }
-                    if (! res)
-                    {
                         break;
                     }
                 }
@@ -1456,16 +1294,13 @@ public class geo extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("not array or unexpected array [.'$geometry'.'|'.4.bbox]", path);
-            }
-            if (! res)
-            {
                 if (rep != null) rep.addEntry("unexpected value for optional prop <bbox> [.'$geometry'.'|'.4]", path);
                 return false;
             }
         }
         return true;
     }
-    
+
     // object .'$geometry'.'|'.5
     public boolean _jm_obj_11(Object val, Path path, Report rep)
     {
@@ -1488,9 +1323,6 @@ public class geo extends ModelChecker
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected MultiPolygon [.'$geometry'.'|'.5.type]", path);
-        }
-        if (! res)
-        {
             if (rep != null) rep.addEntry("unexpected value for mandatory prop <type> [.'$geometry'.'|'.5]", path);
             return false;
         }
@@ -1527,9 +1359,6 @@ public class geo extends ModelChecker
                         if (! res)
                         {
                             if (rep != null) rep.addEntry("unexpected $linear_ring [.'$geometry'.'|'.5.coordinates.0.0]", ((path != null ? arr_22_lpath : null) != null ? arr_23_lpath : null));
-                        }
-                        if (! res)
-                        {
                             break;
                         }
                     }
@@ -1537,9 +1366,6 @@ public class geo extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not array or unexpected array [.'$geometry'.'|'.5.coordinates.0]", (path != null ? arr_22_lpath : null));
-                }
-                if (! res)
-                {
                     break;
                 }
             }
@@ -1547,9 +1373,6 @@ public class geo extends ModelChecker
         if (! res)
         {
             if (rep != null) rep.addEntry("not array or unexpected array [.'$geometry'.'|'.5.coordinates]", path);
-        }
-        if (! res)
-        {
             if (rep != null) rep.addEntry("unexpected value for mandatory prop <coordinates> [.'$geometry'.'|'.5]", path);
             return false;
         }
@@ -1572,9 +1395,6 @@ public class geo extends ModelChecker
                     if (! res)
                     {
                         if (rep != null) rep.addEntry("not a -1.0 loose float [.'$geometry'.'|'.5.bbox.0]", (path != null ? arr_24_lpath : null));
-                    }
-                    if (! res)
-                    {
                         break;
                     }
                 }
@@ -1582,17 +1402,14 @@ public class geo extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("not array or unexpected array [.'$geometry'.'|'.5.bbox]", path);
-            }
-            if (! res)
-            {
                 if (rep != null) rep.addEntry("unexpected value for optional prop <bbox> [.'$geometry'.'|'.5]", path);
                 return false;
             }
         }
         return true;
     }
-    
-    
+
+
     // check $geometry (.'$geometry')
     public boolean json_model_11(Object val, Path path, Report rep)
     {
@@ -1628,7 +1445,7 @@ public class geo extends ModelChecker
         }
         return res;
     }
-    
+
     // object .'$GeometryCollection'
     public boolean _jm_obj_12(Object val, Path path, Report rep)
     {
@@ -1651,9 +1468,6 @@ public class geo extends ModelChecker
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected GeometryCollection [.'$GeometryCollection'.type]", path);
-        }
-        if (! res)
-        {
             if (rep != null) rep.addEntry("unexpected value for mandatory prop <type> [.'$GeometryCollection']", path);
             return false;
         }
@@ -1679,9 +1493,6 @@ public class geo extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected $geometry [.'$GeometryCollection'.geometries.0]", (path != null ? arr_25_lpath : null));
-                }
-                if (! res)
-                {
                     break;
                 }
             }
@@ -1689,9 +1500,6 @@ public class geo extends ModelChecker
         if (! res)
         {
             if (rep != null) rep.addEntry("not array or unexpected array [.'$GeometryCollection'.geometries]", path);
-        }
-        if (! res)
-        {
             if (rep != null) rep.addEntry("unexpected value for mandatory prop <geometries> [.'$GeometryCollection']", path);
             return false;
         }
@@ -1714,9 +1522,6 @@ public class geo extends ModelChecker
                     if (! res)
                     {
                         if (rep != null) rep.addEntry("not a -1.0 loose float [.'$GeometryCollection'.bbox.0]", (path != null ? arr_26_lpath : null));
-                    }
-                    if (! res)
-                    {
                         break;
                     }
                 }
@@ -1724,16 +1529,13 @@ public class geo extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("not array or unexpected array [.'$GeometryCollection'.bbox]", path);
-            }
-            if (! res)
-            {
                 if (rep != null) rep.addEntry("unexpected value for optional prop <bbox> [.'$GeometryCollection']", path);
                 return false;
             }
         }
         return true;
     }
-    
+
     // check $GeometryCollection (.'$GeometryCollection')
     public boolean json_model_12(Object val, Path path, Report rep)
     {
@@ -1746,7 +1548,7 @@ public class geo extends ModelChecker
         }
         return res;
     }
-    
+
     // object .'$Feature'.properties.'|'.1
     public boolean _jm_obj_14(Object val, Path path, Report rep)
     {
@@ -1758,7 +1560,7 @@ public class geo extends ModelChecker
         // accept any object
         return true;
     }
-    
+
     // object .'$Feature'
     public boolean _jm_obj_13(Object val, Path path, Report rep)
     {
@@ -1781,9 +1583,6 @@ public class geo extends ModelChecker
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected Feature [.'$Feature'.type]", path);
-        }
-        if (! res)
-        {
             if (rep != null) rep.addEntry("unexpected value for mandatory prop <type> [.'$Feature']", path);
             return false;
         }
@@ -1825,9 +1624,6 @@ public class geo extends ModelChecker
         else
         {
             if (rep != null) rep.addEntry("no model matched [.'$Feature'.geometry.'|']", path);
-        }
-        if (! res)
-        {
             if (rep != null) rep.addEntry("unexpected value for mandatory prop <geometry> [.'$Feature']", path);
             return false;
         }
@@ -1860,9 +1656,6 @@ public class geo extends ModelChecker
         else
         {
             if (rep != null) rep.addEntry("no model matched [.'$Feature'.properties.'|']", path);
-        }
-        if (! res)
-        {
             if (rep != null) rep.addEntry("unexpected value for mandatory prop <properties> [.'$Feature']", path);
             return false;
         }
@@ -1892,9 +1685,6 @@ public class geo extends ModelChecker
             else
             {
                 if (rep != null) rep.addEntry("no model matched [.'$Feature'.id.'|']", path);
-            }
-            if (! res)
-            {
                 if (rep != null) rep.addEntry("unexpected value for optional prop <id> [.'$Feature']", path);
                 return false;
             }
@@ -1918,9 +1708,6 @@ public class geo extends ModelChecker
                     if (! res)
                     {
                         if (rep != null) rep.addEntry("not a -1.0 loose float [.'$Feature'.bbox.0]", (path != null ? arr_27_lpath : null));
-                    }
-                    if (! res)
-                    {
                         break;
                     }
                 }
@@ -1928,16 +1715,13 @@ public class geo extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("not array or unexpected array [.'$Feature'.bbox]", path);
-            }
-            if (! res)
-            {
                 if (rep != null) rep.addEntry("unexpected value for optional prop <bbox> [.'$Feature']", path);
                 return false;
             }
         }
         return true;
     }
-    
+
     // check $Feature (.'$Feature')
     public boolean json_model_13(Object val, Path path, Report rep)
     {
@@ -1950,7 +1734,7 @@ public class geo extends ModelChecker
         }
         return res;
     }
-    
+
     // object .'$FeatureCollection'
     public boolean _jm_obj_15(Object val, Path path, Report rep)
     {
@@ -1973,9 +1757,6 @@ public class geo extends ModelChecker
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected FeatureCollection [.'$FeatureCollection'.type]", path);
-        }
-        if (! res)
-        {
             if (rep != null) rep.addEntry("unexpected value for mandatory prop <type> [.'$FeatureCollection']", path);
             return false;
         }
@@ -2001,9 +1782,6 @@ public class geo extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected $Feature [.'$FeatureCollection'.features.0]", (path != null ? arr_28_lpath : null));
-                }
-                if (! res)
-                {
                     break;
                 }
             }
@@ -2011,9 +1789,6 @@ public class geo extends ModelChecker
         if (! res)
         {
             if (rep != null) rep.addEntry("not array or unexpected array [.'$FeatureCollection'.features]", path);
-        }
-        if (! res)
-        {
             if (rep != null) rep.addEntry("unexpected value for mandatory prop <features> [.'$FeatureCollection']", path);
             return false;
         }
@@ -2036,9 +1811,6 @@ public class geo extends ModelChecker
                     if (! res)
                     {
                         if (rep != null) rep.addEntry("not a -1.0 loose float [.'$FeatureCollection'.bbox.0]", (path != null ? arr_29_lpath : null));
-                    }
-                    if (! res)
-                    {
                         break;
                     }
                 }
@@ -2046,16 +1818,13 @@ public class geo extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("not array or unexpected array [.'$FeatureCollection'.bbox]", path);
-            }
-            if (! res)
-            {
                 if (rep != null) rep.addEntry("unexpected value for optional prop <bbox> [.'$FeatureCollection']", path);
                 return false;
             }
         }
         return true;
     }
-    
+
     // check $FeatureCollection (.'$FeatureCollection')
     public boolean json_model_14(Object val, Path path, Report rep)
     {
@@ -2068,7 +1837,7 @@ public class geo extends ModelChecker
         }
         return res;
     }
-    
+
     // check $ (.)
     public boolean json_model_1(Object val, Path path, Report rep)
     {
@@ -2080,48 +1849,48 @@ public class geo extends ModelChecker
         boolean xr_0;
         // .'^'.0
         xr_0 = json_model_11(val, path, rep);
-        if (! xr_0)
+        if (xr_0)
+        {
+            xc_0 += 1;
+        }
+        else
         {
             if (rep != null) rep.addEntry("unexpected $geometry [.'^'.0]", path);
         }
-        if (xr_0)
-        {
-            xc_0 += 1;
-        }
         // .'^'.1
         xr_0 = json_model_12(val, path, rep);
-        if (! xr_0)
-        {
-            if (rep != null) rep.addEntry("unexpected $GeometryCollection [.'^'.1]", path);
-        }
         if (xr_0)
         {
             xc_0 += 1;
+        }
+        else
+        {
+            if (rep != null) rep.addEntry("unexpected $GeometryCollection [.'^'.1]", path);
         }
         if (xc_0 <= 1)
         {
             // .'^'.2
             xr_0 = json_model_13(val, path, rep);
-            if (! xr_0)
-            {
-                if (rep != null) rep.addEntry("unexpected $Feature [.'^'.2]", path);
-            }
             if (xr_0)
             {
                 xc_0 += 1;
+            }
+            else
+            {
+                if (rep != null) rep.addEntry("unexpected $Feature [.'^'.2]", path);
             }
         }
         if (xc_0 <= 1)
         {
             // .'^'.3
             xr_0 = json_model_14(val, path, rep);
-            if (! xr_0)
-            {
-                if (rep != null) rep.addEntry("unexpected $FeatureCollection [.'^'.3]", path);
-            }
             if (xr_0)
             {
                 xc_0 += 1;
+            }
+            else
+            {
+                if (rep != null) rep.addEntry("unexpected $FeatureCollection [.'^'.3]", path);
             }
         }
         res = xc_0 == 1;
@@ -2135,7 +1904,7 @@ public class geo extends ModelChecker
         }
         return res;
     }
-    
+
 
     public void init(JSON json)
     {

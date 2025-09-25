@@ -110,9 +110,6 @@ function json_model_3(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected string [.'$enum'.'|'.0.0]", (path ? arr_2_lpath : null)])
-            }
-            if (! res)
-            {
                 break;
             }
         }
@@ -132,9 +129,6 @@ function json_model_3(val, path, rep)
                 if (! res)
                 {
                     rep !== null && rep.push(["not a -1 strict int [.'$enum'.'|'.1.0]", (path ? arr_1_lpath : null)])
-                }
-                if (! res)
-                {
                     break;
                 }
             }
@@ -154,9 +148,6 @@ function json_model_3(val, path, rep)
                     if (! res)
                     {
                         rep !== null && rep.push(["not a bool [.'$enum'.'|'.2.0]", (path ? arr_0_lpath : null)])
-                    }
-                    if (! res)
-                    {
                         break;
                     }
                 }
@@ -195,9 +186,6 @@ function json_model_4(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $Schema [.'$schemaArray'.0]", (path ? arr_3_lpath : null)])
-            }
-            if (! res)
-            {
                 break;
             }
         }
@@ -230,9 +218,6 @@ function _jm_obj_0(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $REGEX [.'$stringKeywords'.pattern]", (path ? lpath_0 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid optional prop value [.'$stringKeywords'.pattern]", (path ? lpath_0 : null)])
                 return false;
             }
@@ -245,9 +230,6 @@ function _jm_obj_0(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["not a 0 strict int [.'$stringKeywords'.minLength]", (path ? lpath_0 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid optional prop value [.'$stringKeywords'.minLength]", (path ? lpath_0 : null)])
                 return false;
             }
@@ -260,9 +242,6 @@ function _jm_obj_0(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["not a 0 strict int [.'$stringKeywords'.maxLength]", (path ? lpath_0 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid optional prop value [.'$stringKeywords'.maxLength]", (path ? lpath_0 : null)])
                 return false;
             }
@@ -275,9 +254,6 @@ function _jm_obj_0(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["value not in enum [.'$stringKeywords'.format.'|']", (path ? lpath_0 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid optional prop value [.'$stringKeywords'.format]", (path ? lpath_0 : null)])
                 return false;
             }
@@ -463,9 +439,6 @@ function _jm_obj_3(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["unexpected $Schema [.'$objectKeywords'.properties.'']", (path ? lpath_3 : null)])
-        }
-        if (! res)
-        {
             return false;
         }
     }
@@ -492,9 +465,6 @@ function _jm_obj_4(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $Schema [.'$objectKeywords'.patternProperties.'$REGEX']", (path ? lpath_4 : null)])
-            }
-            if (! res)
-            {
                 return false;
             }
         }
@@ -527,9 +497,6 @@ function _jm_obj_2(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected element [.'$objectKeywords'.properties]", (path ? lpath_2 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid optional prop value [.'$objectKeywords'.properties]", (path ? lpath_2 : null)])
                 return false;
             }
@@ -550,9 +517,6 @@ function _jm_obj_2(val, path, rep)
                     if (! res)
                     {
                         rep !== null && rep.push(["unexpected string [.'$objectKeywords'.required.0]", ((path ? lpath_2 : null) ? arr_4_lpath : null)])
-                    }
-                    if (! res)
-                    {
                         break;
                     }
                 }
@@ -560,9 +524,6 @@ function _jm_obj_2(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["not array or unexpected array [.'$objectKeywords'.required]", (path ? lpath_2 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid optional prop value [.'$objectKeywords'.required]", (path ? lpath_2 : null)])
                 return false;
             }
@@ -575,9 +536,6 @@ function _jm_obj_2(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $Schema [.'$objectKeywords'.additionalProperties]", (path ? lpath_2 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid optional prop value [.'$objectKeywords'.additionalProperties]", (path ? lpath_2 : null)])
                 return false;
             }
@@ -590,9 +548,6 @@ function _jm_obj_2(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected element [.'$objectKeywords'.patternProperties]", (path ? lpath_2 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid optional prop value [.'$objectKeywords'.patternProperties]", (path ? lpath_2 : null)])
                 return false;
             }
@@ -640,9 +595,6 @@ function _jm_obj_5(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["not a -1.0 strict float [.'$numberKeywords'.minimum]", (path ? lpath_5 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid optional prop value [.'$numberKeywords'.minimum]", (path ? lpath_5 : null)])
                 return false;
             }
@@ -655,9 +607,6 @@ function _jm_obj_5(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["not a -1.0 strict float [.'$numberKeywords'.maximum]", (path ? lpath_5 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid optional prop value [.'$numberKeywords'.maximum]", (path ? lpath_5 : null)])
                 return false;
             }
@@ -716,9 +665,6 @@ function _jm_obj_7(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["unexpected $Schema [.'$metas'.'$defs'.'']", (path ? lpath_7 : null)])
-        }
-        if (! res)
-        {
             return false;
         }
     }
@@ -795,9 +741,6 @@ function _jm_obj_8(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["unexpected $Schema [.'$metas'.definitions.'']", (path ? lpath_8 : null)])
-        }
-        if (! res)
-        {
             return false;
         }
     }
@@ -836,10 +779,6 @@ function _jm_f_13(val, path, rep)
     let res;
     // .'$metas'.examples
     res = Array.isArray(val);
-    if (res)
-    {
-        // accept any array
-    }
     if (! res)
     {
         rep !== null && rep.push(["not array or unexpected array [.'$metas'.examples]", path])
@@ -906,9 +845,6 @@ function _jm_obj_6(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $ANY [.'$metas'.'/^x-.*/']", (path ? lpath_6 : null)])
-            }
-            if (! res)
-            {
                 return false;
             }
         }
@@ -966,9 +902,6 @@ function _jm_obj_10(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["unexpected $Schema [.'$String'.'$defs'.'']", (path ? lpath_10 : null)])
-        }
-        if (! res)
-        {
             return false;
         }
     }
@@ -1045,9 +978,6 @@ function _jm_obj_11(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["unexpected $Schema [.'$String'.definitions.'']", (path ? lpath_11 : null)])
-        }
-        if (! res)
-        {
             return false;
         }
     }
@@ -1086,10 +1016,6 @@ function _jm_f_23(val, path, rep)
     let res;
     // .'$String'.examples
     res = Array.isArray(val);
-    if (res)
-    {
-        // accept any array
-    }
     if (! res)
     {
         rep !== null && rep.push(["not array or unexpected array [.'$String'.examples]", path])
@@ -1200,9 +1126,6 @@ function _jm_obj_9(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected string [.'$String'.type]", (path ? lpath_9 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid mandatory prop value [.'$String'.type]", (path ? lpath_9 : null)])
                 return false;
             }
@@ -1224,9 +1147,6 @@ function _jm_obj_9(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $ANY [.'$String'.'/^x-.*/']", (path ? lpath_9 : null)])
-            }
-            if (! res)
-            {
                 return false;
             }
         }
@@ -1294,9 +1214,6 @@ function _jm_obj_13(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["unexpected $Schema [.'$Array'.'$defs'.'']", (path ? lpath_13 : null)])
-        }
-        if (! res)
-        {
             return false;
         }
     }
@@ -1386,9 +1303,6 @@ function _jm_obj_14(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["unexpected $Schema [.'$Array'.definitions.'']", (path ? lpath_14 : null)])
-        }
-        if (! res)
-        {
             return false;
         }
     }
@@ -1427,10 +1341,6 @@ function _jm_f_38(val, path, rep)
     let res;
     // .'$Array'.examples
     res = Array.isArray(val);
-    if (res)
-    {
-        // accept any array
-    }
     if (! res)
     {
         rep !== null && rep.push(["not array or unexpected array [.'$Array'.examples]", path])
@@ -1571,9 +1481,6 @@ function _jm_obj_12(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected array [.'$Array'.type]", (path ? lpath_12 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid mandatory prop value [.'$Array'.type]", (path ? lpath_12 : null)])
                 return false;
             }
@@ -1595,9 +1502,6 @@ function _jm_obj_12(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $ANY [.'$Array'.'/^x-.*/']", (path ? lpath_12 : null)])
-            }
-            if (! res)
-            {
                 return false;
             }
         }
@@ -1665,9 +1569,6 @@ function _jm_obj_16(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["unexpected $Schema [.'$Object'.'$defs'.'']", (path ? lpath_16 : null)])
-        }
-        if (! res)
-        {
             return false;
         }
     }
@@ -1757,9 +1658,6 @@ function _jm_obj_17(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["unexpected $Schema [.'$Object'.definitions.'']", (path ? lpath_17 : null)])
-        }
-        if (! res)
-        {
             return false;
         }
     }
@@ -1798,10 +1696,6 @@ function _jm_f_54(val, path, rep)
     let res;
     // .'$Object'.examples
     res = Array.isArray(val);
-    if (res)
-    {
-        // accept any array
-    }
     if (! res)
     {
         rep !== null && rep.push(["not array or unexpected array [.'$Object'.examples]", path])
@@ -1842,9 +1736,6 @@ function _jm_obj_18(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $Schema [.'$Object'.patternProperties.'$REGEX']", (path ? lpath_18 : null)])
-            }
-            if (! res)
-            {
                 return false;
             }
         }
@@ -1888,9 +1779,6 @@ function _jm_obj_19(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["unexpected $Schema [.'$Object'.properties.'']", (path ? lpath_19 : null)])
-        }
-        if (! res)
-        {
             return false;
         }
     }
@@ -1927,9 +1815,6 @@ function _jm_f_58(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected string [.'$Object'.required.0]", (path ? arr_5_lpath : null)])
-            }
-            if (! res)
-            {
                 break;
             }
         }
@@ -1978,9 +1863,6 @@ function _jm_obj_15(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected object [.'$Object'.type]", (path ? lpath_15 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid mandatory prop value [.'$Object'.type]", (path ? lpath_15 : null)])
                 return false;
             }
@@ -2002,9 +1884,6 @@ function _jm_obj_15(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $ANY [.'$Object'.'/^x-.*/']", (path ? lpath_15 : null)])
-            }
-            if (! res)
-            {
                 return false;
             }
         }
@@ -2072,9 +1951,6 @@ function _jm_obj_21(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["unexpected $Schema [.'$Integer'.'$defs'.'']", (path ? lpath_21 : null)])
-        }
-        if (! res)
-        {
             return false;
         }
     }
@@ -2151,9 +2027,6 @@ function _jm_obj_22(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["unexpected $Schema [.'$Integer'.definitions.'']", (path ? lpath_22 : null)])
-        }
-        if (! res)
-        {
             return false;
         }
     }
@@ -2192,10 +2065,6 @@ function _jm_f_67(val, path, rep)
     let res;
     // .'$Integer'.examples
     res = Array.isArray(val);
-    if (res)
-    {
-        // accept any array
-    }
     if (! res)
     {
         rep !== null && rep.push(["not array or unexpected array [.'$Integer'.examples]", path])
@@ -2279,9 +2148,6 @@ function _jm_obj_20(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected integer [.'$Integer'.type]", (path ? lpath_20 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid mandatory prop value [.'$Integer'.type]", (path ? lpath_20 : null)])
                 return false;
             }
@@ -2303,9 +2169,6 @@ function _jm_obj_20(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $ANY [.'$Integer'.'/^x-.*/']", (path ? lpath_20 : null)])
-            }
-            if (! res)
-            {
                 return false;
             }
         }
@@ -2373,9 +2236,6 @@ function _jm_obj_24(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["unexpected $Schema [.'$Number'.'$defs'.'']", (path ? lpath_24 : null)])
-        }
-        if (! res)
-        {
             return false;
         }
     }
@@ -2452,9 +2312,6 @@ function _jm_obj_25(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["unexpected $Schema [.'$Number'.definitions.'']", (path ? lpath_25 : null)])
-        }
-        if (! res)
-        {
             return false;
         }
     }
@@ -2493,10 +2350,6 @@ function _jm_f_79(val, path, rep)
     let res;
     // .'$Number'.examples
     res = Array.isArray(val);
-    if (res)
-    {
-        // accept any array
-    }
     if (! res)
     {
         rep !== null && rep.push(["not array or unexpected array [.'$Number'.examples]", path])
@@ -2580,9 +2433,6 @@ function _jm_obj_23(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected number [.'$Number'.type]", (path ? lpath_23 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid mandatory prop value [.'$Number'.type]", (path ? lpath_23 : null)])
                 return false;
             }
@@ -2604,9 +2454,6 @@ function _jm_obj_23(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $ANY [.'$Number'.'/^x-.*/']", (path ? lpath_23 : null)])
-            }
-            if (! res)
-            {
                 return false;
             }
         }
@@ -2674,9 +2521,6 @@ function _jm_obj_27(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["unexpected $Schema [.'$Bool'.'$defs'.'']", (path ? lpath_27 : null)])
-        }
-        if (! res)
-        {
             return false;
         }
     }
@@ -2753,9 +2597,6 @@ function _jm_obj_28(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["unexpected $Schema [.'$Bool'.definitions.'']", (path ? lpath_28 : null)])
-        }
-        if (! res)
-        {
             return false;
         }
     }
@@ -2794,10 +2635,6 @@ function _jm_f_91(val, path, rep)
     let res;
     // .'$Bool'.examples
     res = Array.isArray(val);
-    if (res)
-    {
-        // accept any array
-    }
     if (! res)
     {
         rep !== null && rep.push(["not array or unexpected array [.'$Bool'.examples]", path])
@@ -2855,9 +2692,6 @@ function _jm_obj_26(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected boolean [.'$Bool'.type]", (path ? lpath_26 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid mandatory prop value [.'$Bool'.type]", (path ? lpath_26 : null)])
                 return false;
             }
@@ -2879,9 +2713,6 @@ function _jm_obj_26(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $ANY [.'$Bool'.'/^x-.*/']", (path ? lpath_26 : null)])
-            }
-            if (! res)
-            {
                 return false;
             }
         }
@@ -2949,9 +2780,6 @@ function _jm_obj_30(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["unexpected $Schema [.'$Null'.'$defs'.'']", (path ? lpath_30 : null)])
-        }
-        if (! res)
-        {
             return false;
         }
     }
@@ -3028,9 +2856,6 @@ function _jm_obj_31(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["unexpected $Schema [.'$Null'.definitions.'']", (path ? lpath_31 : null)])
-        }
-        if (! res)
-        {
             return false;
         }
     }
@@ -3069,10 +2894,6 @@ function _jm_f_101(val, path, rep)
     let res;
     // .'$Null'.examples
     res = Array.isArray(val);
-    if (res)
-    {
-        // accept any array
-    }
     if (! res)
     {
         rep !== null && rep.push(["not array or unexpected array [.'$Null'.examples]", path])
@@ -3130,9 +2951,6 @@ function _jm_obj_29(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected null [.'$Null'.type]", (path ? lpath_29 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid mandatory prop value [.'$Null'.type]", (path ? lpath_29 : null)])
                 return false;
             }
@@ -3154,9 +2972,6 @@ function _jm_obj_29(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $ANY [.'$Null'.'/^x-.*/']", (path ? lpath_29 : null)])
-            }
-            if (! res)
-            {
                 return false;
             }
         }
@@ -3224,9 +3039,6 @@ function _jm_obj_33(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["unexpected $Schema [.'$AllOf'.'$defs'.'']", (path ? lpath_33 : null)])
-        }
-        if (! res)
-        {
             return false;
         }
     }
@@ -3303,9 +3115,6 @@ function _jm_obj_34(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["unexpected $Schema [.'$AllOf'.definitions.'']", (path ? lpath_34 : null)])
-        }
-        if (! res)
-        {
             return false;
         }
     }
@@ -3344,10 +3153,6 @@ function _jm_f_111(val, path, rep)
     let res;
     // .'$AllOf'.examples
     res = Array.isArray(val);
-    if (res)
-    {
-        // accept any array
-    }
     if (! res)
     {
         rep !== null && rep.push(["not array or unexpected array [.'$AllOf'.examples]", path])
@@ -3405,9 +3210,6 @@ function _jm_obj_32(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $schemaArray [.'$AllOf'.allOf]", (path ? lpath_32 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid mandatory prop value [.'$AllOf'.allOf]", (path ? lpath_32 : null)])
                 return false;
             }
@@ -3429,9 +3231,6 @@ function _jm_obj_32(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $ANY [.'$AllOf'.'/^x-.*/']", (path ? lpath_32 : null)])
-            }
-            if (! res)
-            {
                 return false;
             }
         }
@@ -3499,9 +3298,6 @@ function _jm_obj_36(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["unexpected $Schema [.'$AnyOf'.'$defs'.'']", (path ? lpath_36 : null)])
-        }
-        if (! res)
-        {
             return false;
         }
     }
@@ -3578,9 +3374,6 @@ function _jm_obj_37(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["unexpected $Schema [.'$AnyOf'.definitions.'']", (path ? lpath_37 : null)])
-        }
-        if (! res)
-        {
             return false;
         }
     }
@@ -3619,10 +3412,6 @@ function _jm_f_121(val, path, rep)
     let res;
     // .'$AnyOf'.examples
     res = Array.isArray(val);
-    if (res)
-    {
-        // accept any array
-    }
     if (! res)
     {
         rep !== null && rep.push(["not array or unexpected array [.'$AnyOf'.examples]", path])
@@ -3680,9 +3469,6 @@ function _jm_obj_35(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $schemaArray [.'$AnyOf'.anyOf]", (path ? lpath_35 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid mandatory prop value [.'$AnyOf'.anyOf]", (path ? lpath_35 : null)])
                 return false;
             }
@@ -3704,9 +3490,6 @@ function _jm_obj_35(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $ANY [.'$AnyOf'.'/^x-.*/']", (path ? lpath_35 : null)])
-            }
-            if (! res)
-            {
                 return false;
             }
         }
@@ -3774,9 +3557,6 @@ function _jm_obj_39(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["unexpected $Schema [.'$OneOf'.'$defs'.'']", (path ? lpath_39 : null)])
-        }
-        if (! res)
-        {
             return false;
         }
     }
@@ -3853,9 +3633,6 @@ function _jm_obj_40(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["unexpected $Schema [.'$OneOf'.definitions.'']", (path ? lpath_40 : null)])
-        }
-        if (! res)
-        {
             return false;
         }
     }
@@ -3894,10 +3671,6 @@ function _jm_f_131(val, path, rep)
     let res;
     // .'$OneOf'.examples
     res = Array.isArray(val);
-    if (res)
-    {
-        // accept any array
-    }
     if (! res)
     {
         rep !== null && rep.push(["not array or unexpected array [.'$OneOf'.examples]", path])
@@ -3955,9 +3728,6 @@ function _jm_obj_38(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $schemaArray [.'$OneOf'.oneOf]", (path ? lpath_38 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid mandatory prop value [.'$OneOf'.oneOf]", (path ? lpath_38 : null)])
                 return false;
             }
@@ -3979,9 +3749,6 @@ function _jm_obj_38(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $ANY [.'$OneOf'.'/^x-.*/']", (path ? lpath_38 : null)])
-            }
-            if (! res)
-            {
                 return false;
             }
         }
@@ -4049,9 +3816,6 @@ function _jm_obj_42(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["unexpected $Schema [.'$Enum'.'$defs'.'']", (path ? lpath_42 : null)])
-        }
-        if (! res)
-        {
             return false;
         }
     }
@@ -4128,9 +3892,6 @@ function _jm_obj_43(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["unexpected $Schema [.'$Enum'.definitions.'']", (path ? lpath_43 : null)])
-        }
-        if (! res)
-        {
             return false;
         }
     }
@@ -4169,10 +3930,6 @@ function _jm_f_141(val, path, rep)
     let res;
     // .'$Enum'.examples
     res = Array.isArray(val);
-    if (res)
-    {
-        // accept any array
-    }
     if (! res)
     {
         rep !== null && rep.push(["not array or unexpected array [.'$Enum'.examples]", path])
@@ -4230,9 +3987,6 @@ function _jm_obj_41(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $enum [.'$Enum'.enum]", (path ? lpath_41 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid mandatory prop value [.'$Enum'.enum]", (path ? lpath_41 : null)])
                 return false;
             }
@@ -4254,9 +4008,6 @@ function _jm_obj_41(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $ANY [.'$Enum'.'/^x-.*/']", (path ? lpath_41 : null)])
-            }
-            if (! res)
-            {
                 return false;
             }
         }
@@ -4324,9 +4075,6 @@ function _jm_obj_45(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["unexpected $Schema [.'$Const'.'$defs'.'']", (path ? lpath_45 : null)])
-        }
-        if (! res)
-        {
             return false;
         }
     }
@@ -4403,9 +4151,6 @@ function _jm_obj_46(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["unexpected $Schema [.'$Const'.definitions.'']", (path ? lpath_46 : null)])
-        }
-        if (! res)
-        {
             return false;
         }
     }
@@ -4444,10 +4189,6 @@ function _jm_f_151(val, path, rep)
     let res;
     // .'$Const'.examples
     res = Array.isArray(val);
-    if (res)
-    {
-        // accept any array
-    }
     if (! res)
     {
         rep !== null && rep.push(["not array or unexpected array [.'$Const'.examples]", path])
@@ -4505,9 +4246,6 @@ function _jm_obj_44(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $const [.'$Const'.const]", (path ? lpath_44 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid mandatory prop value [.'$Const'.const]", (path ? lpath_44 : null)])
                 return false;
             }
@@ -4529,9 +4267,6 @@ function _jm_obj_44(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $ANY [.'$Const'.'/^x-.*/']", (path ? lpath_44 : null)])
-            }
-            if (! res)
-            {
                 return false;
             }
         }
@@ -4599,9 +4334,6 @@ function _jm_obj_48(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["unexpected $Schema [.'$Ref'.'$defs'.'']", (path ? lpath_48 : null)])
-        }
-        if (! res)
-        {
             return false;
         }
     }
@@ -4678,9 +4410,6 @@ function _jm_obj_49(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["unexpected $Schema [.'$Ref'.definitions.'']", (path ? lpath_49 : null)])
-        }
-        if (! res)
-        {
             return false;
         }
     }
@@ -4719,10 +4448,6 @@ function _jm_f_161(val, path, rep)
     let res;
     // .'$Ref'.examples
     res = Array.isArray(val);
-    if (res)
-    {
-        // accept any array
-    }
     if (! res)
     {
         rep !== null && rep.push(["not array or unexpected array [.'$Ref'.examples]", path])
@@ -4780,9 +4505,6 @@ function _jm_obj_47(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $URL [.'$Ref'.'$ref']", (path ? lpath_47 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid mandatory prop value [.'$Ref'.'$ref']", (path ? lpath_47 : null)])
                 return false;
             }
@@ -4804,9 +4526,6 @@ function _jm_obj_47(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $ANY [.'$Ref'.'/^x-.*/']", (path ? lpath_47 : null)])
-            }
-            if (! res)
-            {
                 return false;
             }
         }
@@ -4962,9 +4681,6 @@ function _jm_obj_50(val, path, rep)
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.'$RootSchema'.'&'.0.'$schema']", path])
-    }
-    if (! res)
-    {
         rep !== null && rep.push(["unexpected value for mandatory prop <$schema> [.'$RootSchema'.'&'.0]", path])
         return false;
     }

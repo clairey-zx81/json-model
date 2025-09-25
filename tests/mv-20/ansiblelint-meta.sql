@@ -5848,10 +5848,6 @@ DECLARE
 BEGIN
   -- .'$GalaxyInfoModelCollection'.video_links
   res := JSONB_TYPEOF(val) = 'array';
-  IF res THEN
-    -- accept any array
-    NULL;
-  END IF;
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
@@ -6167,10 +6163,6 @@ DECLARE
 BEGIN
   -- .'$GalaxyInfoModelStandalone'.video_links
   res := JSONB_TYPEOF(val) = 'array';
-  IF res THEN
-    -- accept any array
-    NULL;
-  END IF;
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
@@ -6434,10 +6426,6 @@ DECLARE
 BEGIN
   -- .'$GalaxyInfoModel'.'|'.1.video_links
   res := JSONB_TYPEOF(val) = 'array';
-  IF res THEN
-    -- accept any array
-    NULL;
-  END IF;
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
@@ -6665,10 +6653,6 @@ DECLARE
 BEGIN
   -- .'$GalaxyInfoModel'.'|'.2.video_links
   res := JSONB_TYPEOF(val) = 'array';
-  IF res THEN
-    -- accept any array
-    NULL;
-  END IF;
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;

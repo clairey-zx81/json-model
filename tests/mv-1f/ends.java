@@ -32,7 +32,7 @@ public class ends extends ModelChecker
         }
         return res;
     }
-    
+
 
     public void init(JSON json)
     {

@@ -66,7 +66,6 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
             res = isinstance(pval, bool) and pval == False
             if not res:
                 rep is None or rep.append(("unexpected =false [.'|'.4.a]", lpath_0 if path is not None else None))
-            if not res:
                 rep is None or rep.append(("invalid mandatory prop value [.'|'.4.a]", lpath_0 if path is not None else None))
                 return False
         else:
@@ -96,7 +95,6 @@ def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
             res = isinstance(pval, bool) and pval == True
             if not res:
                 rep is None or rep.append(("unexpected =true [.'|'.3.a]", lpath_1 if path is not None else None))
-            if not res:
                 rep is None or rep.append(("invalid mandatory prop value [.'|'.3.a]", lpath_1 if path is not None else None))
                 return False
         else:
@@ -126,7 +124,6 @@ def _jm_obj_2(val: Jsonable, path: Path, rep: Report) -> bool:
             res = isinstance(pval, float) and pval == 1.0
             if not res:
                 rep is None or rep.append(("unexpected =1.0 [.'|'.2.a]", lpath_2 if path is not None else None))
-            if not res:
                 rep is None or rep.append(("invalid mandatory prop value [.'|'.2.a]", lpath_2 if path is not None else None))
                 return False
         else:
@@ -156,7 +153,6 @@ def _jm_obj_3(val: Jsonable, path: Path, rep: Report) -> bool:
             res = isinstance(pval, float) and pval == 10.0
             if not res:
                 rep is None or rep.append(("unexpected =10.0 [.'|'.1.a]", lpath_3 if path is not None else None))
-            if not res:
                 rep is None or rep.append(("invalid mandatory prop value [.'|'.1.a]", lpath_3 if path is not None else None))
                 return False
         else:
@@ -186,7 +182,6 @@ def _jm_obj_4(val: Jsonable, path: Path, rep: Report) -> bool:
             res = pval is None
             if not res:
                 rep is None or rep.append(("unexpected =null [.'|'.0.a]", lpath_4 if path is not None else None))
-            if not res:
                 rep is None or rep.append(("invalid mandatory prop value [.'|'.0.a]", lpath_4 if path is not None else None))
                 return False
         else:

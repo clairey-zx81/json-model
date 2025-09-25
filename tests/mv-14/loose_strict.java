@@ -44,9 +44,6 @@ public class loose_strict extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not a 0 loose int [.'$loose'.li]", (path != null ? lpath_0 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$loose'.li]", (path != null ? lpath_0 : null));
                     return false;
                 }
@@ -70,7 +67,7 @@ public class loose_strict extends ModelChecker
         }
         return true;
     }
-    
+
     // check $loose (.'$loose')
     public boolean json_model_5(Object val, Path path, Report rep)
     {
@@ -84,7 +81,7 @@ public class loose_strict extends ModelChecker
         }
         return res;
     }
-    
+
     // object .'$strict'
     public boolean _jm_obj_1(Object val, Path path, Report rep)
     {
@@ -110,9 +107,6 @@ public class loose_strict extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not a 0 strict int [.'$strict'.si]", (path != null ? lpath_1 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$strict'.si]", (path != null ? lpath_1 : null));
                     return false;
                 }
@@ -136,7 +130,7 @@ public class loose_strict extends ModelChecker
         }
         return true;
     }
-    
+
     // check $strict (.'$strict')
     public boolean json_model_6(Object val, Path path, Report rep)
     {
@@ -150,7 +144,7 @@ public class loose_strict extends ModelChecker
         }
         return res;
     }
-    
+
     // object .'$combined'
     public boolean _jm_obj_2(Object val, Path path, Report rep)
     {
@@ -176,9 +170,6 @@ public class loose_strict extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not a 0 strict int [.'$combined'.li]", (path != null ? lpath_2 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$combined'.li]", (path != null ? lpath_2 : null));
                     return false;
                 }
@@ -192,9 +183,6 @@ public class loose_strict extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not a 0 strict int [.'$combined'.si]", (path != null ? lpath_2 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$combined'.si]", (path != null ? lpath_2 : null));
                     return false;
                 }
@@ -222,7 +210,7 @@ public class loose_strict extends ModelChecker
         }
         return true;
     }
-    
+
     // check $combined (.'$combined')
     public boolean json_model_4(Object val, Path path, Report rep)
     {
@@ -235,7 +223,7 @@ public class loose_strict extends ModelChecker
         }
         return res;
     }
-    
+
     // check $ (.)
     public boolean json_model_1(Object val, Path path, Report rep)
     {
@@ -248,7 +236,7 @@ public class loose_strict extends ModelChecker
         }
         return res;
     }
-    
+
 
     public void init(JSON json)
     {

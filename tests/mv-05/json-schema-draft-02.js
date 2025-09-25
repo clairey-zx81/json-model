@@ -13,6 +13,7 @@ let _jm_cst_0 = new Set()
 var _jm_obj_0_map = new Map()
 var check_model_map = new Map()
 
+
 // check $allTypes (.'$allTypes')
 function json_model_2(val, path, rep)
 {
@@ -44,9 +45,6 @@ function json_model_3(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected string [.'$distinctStringArray'.'@'.0]", (path ? arr_0_lpath : null)])
-            }
-            if (! res)
-            {
                 break;
             }
         }
@@ -200,10 +198,6 @@ function _jm_f_7(val, path, rep)
     // .enum
     // .enum.'@'
     res = Array.isArray(val);
-    if (res)
-    {
-        // accept any array
-    }
     if (! res)
     {
         rep !== null && rep.push(["not array or unexpected array [.enum.'@']", path])
@@ -246,9 +240,6 @@ function _jm_f_8(val, path, rep)
                 if (! res)
                 {
                     rep !== null && rep.push(["unexpected $Schema [.extends.'|'.1.0]", (path ? arr_1_lpath : null)])
-                }
-                if (! res)
-                {
                     break;
                 }
             }
@@ -321,9 +312,6 @@ function _jm_f_11(val, path, rep)
                 if (! res)
                 {
                     rep !== null && rep.push(["unexpected $Schema [.items.'|'.1.0]", (path ? arr_2_lpath : null)])
-                }
-                if (! res)
-                {
                     break;
                 }
             }
@@ -492,9 +480,6 @@ function _jm_obj_1(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["unexpected $Schema [.properties.'']", (path ? lpath_1 : null)])
-        }
-        if (! res)
-        {
             return false;
         }
     }
@@ -602,9 +587,6 @@ function _jm_f_25(val, path, rep)
                 else
                 {
                     rep !== null && rep.push(["no model matched [.type.'|'.1.0.'|']", (path ? arr_3_lpath : null)])
-                }
-                if (! res)
-                {
                     break;
                 }
             }

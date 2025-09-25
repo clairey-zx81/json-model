@@ -42,9 +42,6 @@ public class over_00 extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected _initial foo [.'$Foo'.foo]", (path != null ? lpath_0 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Foo'.foo]", (path != null ? lpath_0 : null));
                     return false;
                 }
@@ -57,7 +54,7 @@ public class over_00 extends ModelChecker
         }
         return true;
     }
-    
+
     // check $Foo (.'$Foo')
     public boolean json_model_2(Object val, Path path, Report rep)
     {
@@ -70,7 +67,7 @@ public class over_00 extends ModelChecker
         }
         return res;
     }
-    
+
     // check $ (.)
     public boolean json_model_1(Object val, Path path, Report rep)
     {
@@ -83,7 +80,7 @@ public class over_00 extends ModelChecker
         }
         return res;
     }
-    
+
 
     public void init(JSON json)
     {

@@ -266,10 +266,6 @@ DECLARE
 BEGIN
   -- .'$meta'.examples
   res := JSONB_TYPEOF(val) = 'array';
-  IF res THEN
-    -- accept any array
-    NULL;
-  END IF;
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
@@ -1339,10 +1335,6 @@ DECLARE
 BEGIN
   -- .'$Misc'.enum
   res := JSONB_TYPEOF(val) = 'array';
-  IF res THEN
-    -- accept any array
-    NULL;
-  END IF;
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
@@ -1644,10 +1636,6 @@ DECLARE
 BEGIN
   -- .'$TightSchema'.'|'.0.examples
   res := JSONB_TYPEOF(val) = 'array';
-  IF res THEN
-    -- accept any array
-    NULL;
-  END IF;
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
@@ -1939,10 +1927,6 @@ DECLARE
 BEGIN
   -- .'$TightSchema'.'|'.1.examples
   res := JSONB_TYPEOF(val) = 'array';
-  IF res THEN
-    -- accept any array
-    NULL;
-  END IF;
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
@@ -2234,10 +2218,6 @@ DECLARE
 BEGIN
   -- .'$TightSchema'.'|'.2.examples
   res := JSONB_TYPEOF(val) = 'array';
-  IF res THEN
-    -- accept any array
-    NULL;
-  END IF;
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
@@ -2614,10 +2594,6 @@ DECLARE
 BEGIN
   -- .'$TightSchema'.'|'.3.examples
   res := JSONB_TYPEOF(val) = 'array';
-  IF res THEN
-    -- accept any array
-    NULL;
-  END IF;
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
@@ -3005,10 +2981,6 @@ DECLARE
 BEGIN
   -- .'$TightSchema'.'|'.4.examples
   res := JSONB_TYPEOF(val) = 'array';
-  IF res THEN
-    -- accept any array
-    NULL;
-  END IF;
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
@@ -3360,10 +3332,6 @@ DECLARE
 BEGIN
   -- .'$TightSchema'.'|'.5.examples
   res := JSONB_TYPEOF(val) = 'array';
-  IF res THEN
-    -- accept any array
-    NULL;
-  END IF;
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
@@ -3833,10 +3801,6 @@ DECLARE
 BEGIN
   -- .'$TightSchema'.'|'.6.examples
   res := JSONB_TYPEOF(val) = 'array';
-  IF res THEN
-    -- accept any array
-    NULL;
-  END IF;
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
@@ -4310,10 +4274,6 @@ DECLARE
 BEGIN
   -- .'$TightSchema'.'|'.7.enum
   res := JSONB_TYPEOF(val) = 'array';
-  IF res THEN
-    -- accept any array
-    NULL;
-  END IF;
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
@@ -4326,10 +4286,6 @@ DECLARE
 BEGIN
   -- .'$TightSchema'.'|'.7.examples
   res := JSONB_TYPEOF(val) = 'array';
-  IF res THEN
-    -- accept any array
-    NULL;
-  END IF;
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;

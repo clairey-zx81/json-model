@@ -36,9 +36,6 @@ static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *re
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected string [.name]", path);
-    }
-    if (! res)
-    {
         if (rep) jm_report_add_entry(rep, "unexpected value for mandatory prop <name> [.]", path);
         return false;
     }
@@ -50,9 +47,6 @@ static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *re
         if (! res)
         {
             if (rep) jm_report_add_entry(rep, "unexpected $DATE [.born]", path);
-        }
-        if (! res)
-        {
             if (rep) jm_report_add_entry(rep, "unexpected value for optional prop <born> [.]", path);
             return false;
         }

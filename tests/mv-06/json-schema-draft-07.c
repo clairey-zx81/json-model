@@ -100,9 +100,6 @@ static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected $Schema [.'$schemaArray'.'@'.0]", (path ? &arr_0_lpath : NULL));
-            }
-            if (! res)
-            {
                 break;
             }
         }
@@ -156,9 +153,6 @@ static bool json_model_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected $simpleTypes [.'$arrayTypes'.'@'.0]", (path ? &arr_1_lpath : NULL));
-            }
-            if (! res)
-            {
                 break;
             }
         }
@@ -368,9 +362,6 @@ static INLINE bool _jm_obj_1(const json_t *val, jm_path_t *path, jm_report_t *re
         if (! res)
         {
             if (rep) jm_report_add_entry(rep, "unexpected $Schema [.'$ObjectSchema'.definitions.'']", (path ? &lpath_1 : NULL));
-        }
-        if (! res)
-        {
             return false;
         }
     }
@@ -428,9 +419,6 @@ static INLINE bool _jm_obj_2(const json_t *val, jm_path_t *path, jm_report_t *re
                     if (! res)
                     {
                         if (rep) jm_report_add_entry(rep, "unexpected string [.'$ObjectSchema'.dependencies.''.'|'.1.0]", ((path ? &lpath_2 : NULL) ? &arr_2_lpath : NULL));
-                    }
-                    if (! res)
-                    {
                         break;
                     }
                 }
@@ -447,9 +435,6 @@ static INLINE bool _jm_obj_2(const json_t *val, jm_path_t *path, jm_report_t *re
         else
         {
             if (rep) jm_report_add_entry(rep, "no model matched [.'$ObjectSchema'.dependencies.''.'|']", (path ? &lpath_2 : NULL));
-        }
-        if (! res)
-        {
             return false;
         }
     }
@@ -502,10 +487,6 @@ static bool _jm_f_17(const json_t *val, jm_path_t *path, jm_report_t *rep)
     // .'$ObjectSchema'.enum
     // .'$ObjectSchema'.enum.'@'
     res = json_is_array(val);
-    if (res)
-    {
-        // accept any array
-    }
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "not array or unexpected array [.'$ObjectSchema'.enum.'@']", path);
@@ -528,10 +509,6 @@ static bool _jm_f_18(const json_t *val, jm_path_t *path, jm_report_t *rep)
     bool res;
     // .'$ObjectSchema'.examples
     res = json_is_array(val);
-    if (res)
-    {
-        // accept any array
-    }
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "not array or unexpected array [.'$ObjectSchema'.examples]", path);
@@ -800,9 +777,6 @@ static INLINE bool _jm_obj_3(const json_t *val, jm_path_t *path, jm_report_t *re
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected $Schema [.'$ObjectSchema'.patternProperties.'$REGEX']", (path ? &lpath_3 : NULL));
-            }
-            if (! res)
-            {
                 return false;
             }
         }
@@ -848,9 +822,6 @@ static INLINE bool _jm_obj_4(const json_t *val, jm_path_t *path, jm_report_t *re
         if (! res)
         {
             if (rep) jm_report_add_entry(rep, "unexpected $Schema [.'$ObjectSchema'.properties.'']", (path ? &lpath_4 : NULL));
-        }
-        if (! res)
-        {
             return false;
         }
     }
@@ -914,9 +885,6 @@ static bool _jm_f_40(const json_t *val, jm_path_t *path, jm_report_t *rep)
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected string [.'$ObjectSchema'.required.0]", (path ? &arr_3_lpath : NULL));
-            }
-            if (! res)
-            {
                 break;
             }
         }

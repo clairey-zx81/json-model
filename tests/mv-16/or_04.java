@@ -22,16 +22,17 @@ public class or_04 extends ModelChecker
     public Pattern _jm_re_1_pat = null;
     public Map<String, Checker> or_04_map_pmap;
 
+
     public boolean _jm_re_0(String val, Path path, Report rep)
     {
         return _jm_re_0_pat.matcher(val).find();
     }
-    
+
     public boolean _jm_re_1(String val, Path path, Report rep)
     {
         return _jm_re_1_pat.matcher(val).find();
     }
-    
+
     // check $ (.)
     public boolean json_model_1(Object val, Path path, Report rep)
     {
@@ -81,7 +82,7 @@ public class or_04 extends ModelChecker
         }
         return res;
     }
-    
+
 
     public void init(JSON json)
     {

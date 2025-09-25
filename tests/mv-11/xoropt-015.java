@@ -49,7 +49,7 @@ public class xoropt_015 extends ModelChecker
         }
         return res;
     }
-    
+
     // object .'$Xx'
     public boolean _jm_obj_0(Object val, Path path, Report rep)
     {
@@ -75,9 +75,6 @@ public class xoropt_015 extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected string [.'$Xx'.X]", (path != null ? lpath_0 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$Xx'.X]", (path != null ? lpath_0 : null));
                     return false;
                 }
@@ -101,7 +98,7 @@ public class xoropt_015 extends ModelChecker
         }
         return true;
     }
-    
+
     // check $Xx (.'$Xx')
     public boolean json_model_3(Object val, Path path, Report rep)
     {
@@ -114,7 +111,7 @@ public class xoropt_015 extends ModelChecker
         }
         return res;
     }
-    
+
     // object .'$Yy'
     public boolean _jm_obj_1(Object val, Path path, Report rep)
     {
@@ -140,9 +137,6 @@ public class xoropt_015 extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected string [.'$Yy'.Y]", (path != null ? lpath_1 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$Yy'.Y]", (path != null ? lpath_1 : null));
                     return false;
                 }
@@ -166,7 +160,7 @@ public class xoropt_015 extends ModelChecker
         }
         return true;
     }
-    
+
     // check $Yy (.'$Yy')
     public boolean json_model_4(Object val, Path path, Report rep)
     {
@@ -179,7 +173,7 @@ public class xoropt_015 extends ModelChecker
         }
         return res;
     }
-    
+
     // object .'$Ee'.'|'.1
     public boolean _jm_obj_2(Object val, Path path, Report rep)
     {
@@ -205,9 +199,6 @@ public class xoropt_015 extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected string [.'$Ee'.'|'.1.Y]", (path != null ? lpath_2 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$Ee'.'|'.1.Y]", (path != null ? lpath_2 : null));
                     return false;
                 }
@@ -220,9 +211,6 @@ public class xoropt_015 extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected string [.'$Ee'.'|'.1.Z]", (path != null ? lpath_2 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Ee'.'|'.1.Z]", (path != null ? lpath_2 : null));
                     return false;
                 }
@@ -246,7 +234,7 @@ public class xoropt_015 extends ModelChecker
         }
         return true;
     }
-    
+
     // object .'$Ee'.'|'.0
     public boolean _jm_obj_3(Object val, Path path, Report rep)
     {
@@ -272,9 +260,6 @@ public class xoropt_015 extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected string [.'$Ee'.'|'.0.X]", (path != null ? lpath_3 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$Ee'.'|'.0.X]", (path != null ? lpath_3 : null));
                     return false;
                 }
@@ -287,9 +272,6 @@ public class xoropt_015 extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected string [.'$Ee'.'|'.0.Z]", (path != null ? lpath_3 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Ee'.'|'.0.Z]", (path != null ? lpath_3 : null));
                     return false;
                 }
@@ -313,7 +295,7 @@ public class xoropt_015 extends ModelChecker
         }
         return true;
     }
-    
+
     // check $Ee (.'$Ee')
     public boolean json_model_5(Object val, Path path, Report rep)
     {
@@ -352,7 +334,7 @@ public class xoropt_015 extends ModelChecker
         }
         return res;
     }
-    
+
     // check $Mm (.'$Mm')
     public boolean json_model_6(Object val, Path path, Report rep)
     {
@@ -363,23 +345,23 @@ public class xoropt_015 extends ModelChecker
         boolean xr_0;
         // .'$Mm'.'^'.0
         xr_0 = json_model_2(val, path, rep);
-        if (! xr_0)
+        if (xr_0)
+        {
+            xc_0 += 1;
+        }
+        else
         {
             if (rep != null) rep.addEntry("unexpected $Vv [.'$Mm'.'^'.0]", path);
         }
-        if (xr_0)
-        {
-            xc_0 += 1;
-        }
         // .'$Mm'.'^'.1
         xr_0 = json_model_5(val, path, rep);
-        if (! xr_0)
-        {
-            if (rep != null) rep.addEntry("unexpected $Ee [.'$Mm'.'^'.1]", path);
-        }
         if (xr_0)
         {
             xc_0 += 1;
+        }
+        else
+        {
+            if (rep != null) rep.addEntry("unexpected $Ee [.'$Mm'.'^'.1]", path);
         }
         res = xc_0 == 1;
         if (res)
@@ -392,7 +374,7 @@ public class xoropt_015 extends ModelChecker
         }
         return res;
     }
-    
+
     // check $ (.)
     public boolean json_model_1(Object val, Path path, Report rep)
     {
@@ -405,7 +387,7 @@ public class xoropt_015 extends ModelChecker
         }
         return res;
     }
-    
+
 
     public void init(JSON json)
     {

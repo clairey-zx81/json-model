@@ -47,9 +47,6 @@ public class op_list_int extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected =0 [.'|'.0.t]", (path != null ? lpath_0 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'|'.0.t]", (path != null ? lpath_0 : null));
                     return false;
                 }
@@ -63,9 +60,6 @@ public class op_list_int extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not a 1 strict int [.'|'.0.z]", (path != null ? lpath_0 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'|'.0.z]", (path != null ? lpath_0 : null));
                     return false;
                 }
@@ -93,8 +87,8 @@ public class op_list_int extends ModelChecker
         }
         return true;
     }
-    
-    
+
+
     // object .'|'.1
     public boolean _jm_obj_1(Object val, Path path, Report rep)
     {
@@ -120,9 +114,6 @@ public class op_list_int extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("value not in enum [.'|'.1.t.'|']", (path != null ? lpath_1 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'|'.1.t]", (path != null ? lpath_1 : null));
                     return false;
                 }
@@ -136,9 +127,6 @@ public class op_list_int extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not a 1 strict int [.'|'.1.p]", (path != null ? lpath_1 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'|'.1.p]", (path != null ? lpath_1 : null));
                     return false;
                 }
@@ -166,8 +154,8 @@ public class op_list_int extends ModelChecker
         }
         return true;
     }
-    
-    
+
+
     // object .'|'.2
     public boolean _jm_obj_2(Object val, Path path, Report rep)
     {
@@ -193,9 +181,6 @@ public class op_list_int extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("value not in enum [.'|'.2.t.'|']", (path != null ? lpath_2 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'|'.2.t]", (path != null ? lpath_2 : null));
                     return false;
                 }
@@ -209,9 +194,6 @@ public class op_list_int extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not a 1 strict int [.'|'.2.i]", (path != null ? lpath_2 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'|'.2.i]", (path != null ? lpath_2 : null));
                     return false;
                 }
@@ -239,7 +221,7 @@ public class op_list_int extends ModelChecker
         }
         return true;
     }
-    
+
     // object .'|'.3
     public boolean _jm_obj_3(Object val, Path path, Report rep)
     {
@@ -265,9 +247,6 @@ public class op_list_int extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected =10 [.'|'.3.t]", (path != null ? lpath_3 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'|'.3.t]", (path != null ? lpath_3 : null));
                     return false;
                 }
@@ -281,9 +260,6 @@ public class op_list_int extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not a 1 strict int [.'|'.3.d]", (path != null ? lpath_3 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'|'.3.d]", (path != null ? lpath_3 : null));
                     return false;
                 }
@@ -311,8 +287,8 @@ public class op_list_int extends ModelChecker
         }
         return true;
     }
-    
-    
+
+
     // check $ (.)
     public boolean json_model_1(Object val, Path path, Report rep)
     {
@@ -348,7 +324,7 @@ public class op_list_int extends ModelChecker
         }
         return res;
     }
-    
+
 
     public void init(JSON json)
     {

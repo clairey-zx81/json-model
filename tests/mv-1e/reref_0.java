@@ -21,6 +21,7 @@ public class reref_0 extends ModelChecker
     public Pattern _jm_xre_0_re_pat = null;
     public Map<String, Checker> reref_0_map_pmap;
 
+
     // check $character (.'$character')
     public boolean json_model_2(Object val, Path path, Report rep)
     {
@@ -33,12 +34,12 @@ public class reref_0 extends ModelChecker
         }
         return res;
     }
-    
+
     public boolean _jm_xre_0_re(String val, Path path, Report rep)
     {
         return _jm_xre_0_re_pat.matcher(val).find();
     }
-    
+
     public boolean _jm_xre_0(String val, Path path, Report rep)
     {
         Matcher _jm_xre_0_re_match;
@@ -59,7 +60,7 @@ public class reref_0 extends ModelChecker
         }
         return true;
     }
-    
+
     // check $ (.)
     public boolean json_model_1(Object val, Path path, Report rep)
     {
@@ -73,7 +74,7 @@ public class reref_0 extends ModelChecker
         }
         return res;
     }
-    
+
 
     public void init(JSON json)
     {

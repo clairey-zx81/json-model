@@ -3185,10 +3185,6 @@ DECLARE
 BEGIN
   -- .keybinding.universal.jumpToBlock
   res := JSONB_TYPEOF(val) = 'array';
-  IF res THEN
-    -- accept any array
-    NULL;
-  END IF;
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;

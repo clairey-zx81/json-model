@@ -48,9 +48,6 @@ public class alts_1 extends ModelChecker
         if (! res)
         {
             if (rep != null) rep.addEntry("not a 1 strict int [.'$oA'.v]", path);
-        }
-        if (! res)
-        {
             if (rep != null) rep.addEntry("unexpected value for mandatory prop <v> [.'$oA']", path);
             return false;
         }
@@ -65,15 +62,12 @@ public class alts_1 extends ModelChecker
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected _a [.'$oA'.t]", path);
-        }
-        if (! res)
-        {
             if (rep != null) rep.addEntry("unexpected value for mandatory prop <t> [.'$oA']", path);
             return false;
         }
         return true;
     }
-    
+
     // check $oA (.'$oA')
     public boolean json_model_2(Object val, Path path, Report rep)
     {
@@ -86,8 +80,8 @@ public class alts_1 extends ModelChecker
         }
         return res;
     }
-    
-    
+
+
     // object .'$oB'
     public boolean _jm_obj_1(Object val, Path path, Report rep)
     {
@@ -110,9 +104,6 @@ public class alts_1 extends ModelChecker
         if (! res)
         {
             if (rep != null) rep.addEntry("not a 1 strict int [.'$oB'.v]", path);
-        }
-        if (! res)
-        {
             if (rep != null) rep.addEntry("unexpected value for mandatory prop <v> [.'$oB']", path);
             return false;
         }
@@ -127,15 +118,12 @@ public class alts_1 extends ModelChecker
         if (! res)
         {
             if (rep != null) rep.addEntry("value not in enum [.'$oB'.t.'|']", path);
-        }
-        if (! res)
-        {
             if (rep != null) rep.addEntry("unexpected value for mandatory prop <t> [.'$oB']", path);
             return false;
         }
         return true;
     }
-    
+
     // check $oB (.'$oB')
     public boolean json_model_3(Object val, Path path, Report rep)
     {
@@ -148,8 +136,8 @@ public class alts_1 extends ModelChecker
         }
         return res;
     }
-    
-    
+
+
     // object .'$oC'.'|'.0
     public boolean _jm_obj_2(Object val, Path path, Report rep)
     {
@@ -172,9 +160,6 @@ public class alts_1 extends ModelChecker
         if (! res)
         {
             if (rep != null) rep.addEntry("not a 1 strict int [.'$oC'.'|'.0.v]", path);
-        }
-        if (! res)
-        {
             if (rep != null) rep.addEntry("unexpected value for mandatory prop <v> [.'$oC'.'|'.0]", path);
             return false;
         }
@@ -189,15 +174,12 @@ public class alts_1 extends ModelChecker
         if (! res)
         {
             if (rep != null) rep.addEntry("value not in enum [.'$oC'.'|'.0.t.'|']", path);
-        }
-        if (! res)
-        {
             if (rep != null) rep.addEntry("unexpected value for mandatory prop <t> [.'$oC'.'|'.0]", path);
             return false;
         }
         return true;
     }
-    
+
     // object .'$oC'.'|'.1
     public boolean _jm_obj_3(Object val, Path path, Report rep)
     {
@@ -220,9 +202,6 @@ public class alts_1 extends ModelChecker
         if (! res)
         {
             if (rep != null) rep.addEntry("not a 1 strict int [.'$oC'.'|'.1.v]", path);
-        }
-        if (! res)
-        {
             if (rep != null) rep.addEntry("unexpected value for mandatory prop <v> [.'$oC'.'|'.1]", path);
             return false;
         }
@@ -237,16 +216,13 @@ public class alts_1 extends ModelChecker
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected _d [.'$oC'.'|'.1.t]", path);
-        }
-        if (! res)
-        {
             if (rep != null) rep.addEntry("unexpected value for mandatory prop <t> [.'$oC'.'|'.1]", path);
             return false;
         }
         return true;
     }
-    
-    
+
+
     // check $oC (.'$oC')
     public boolean json_model_4(Object val, Path path, Report rep)
     {
@@ -282,7 +258,7 @@ public class alts_1 extends ModelChecker
         }
         return res;
     }
-    
+
     // object .'$oL'
     public boolean _jm_obj_4(Object val, Path path, Report rep)
     {
@@ -305,9 +281,6 @@ public class alts_1 extends ModelChecker
         if (! res)
         {
             if (rep != null) rep.addEntry("not a 1 strict int [.'$oL'.v]", path);
-        }
-        if (! res)
-        {
             if (rep != null) rep.addEntry("unexpected value for mandatory prop <v> [.'$oL']", path);
             return false;
         }
@@ -322,15 +295,12 @@ public class alts_1 extends ModelChecker
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected _d [.'$oL'.t]", path);
-        }
-        if (! res)
-        {
             if (rep != null) rep.addEntry("unexpected value for mandatory prop <t> [.'$oL']", path);
             return false;
         }
         return true;
     }
-    
+
     // check $oL (.'$oL')
     public boolean json_model_5(Object val, Path path, Report rep)
     {
@@ -343,8 +313,8 @@ public class alts_1 extends ModelChecker
         }
         return res;
     }
-    
-    
+
+
     // object .'$oX'
     public boolean _jm_obj_5(Object val, Path path, Report rep)
     {
@@ -367,9 +337,6 @@ public class alts_1 extends ModelChecker
         if (! res)
         {
             if (rep != null) rep.addEntry("not a 1 strict int [.'$oX'.v]", path);
-        }
-        if (! res)
-        {
             if (rep != null) rep.addEntry("unexpected value for mandatory prop <v> [.'$oX']", path);
             return false;
         }
@@ -384,15 +351,12 @@ public class alts_1 extends ModelChecker
         if (! res)
         {
             if (rep != null) rep.addEntry("value not in enum [.'$oX'.t.'|']", path);
-        }
-        if (! res)
-        {
             if (rep != null) rep.addEntry("unexpected value for mandatory prop <t> [.'$oX']", path);
             return false;
         }
         return true;
     }
-    
+
     // check $oX (.'$oX')
     public boolean json_model_6(Object val, Path path, Report rep)
     {
@@ -405,7 +369,7 @@ public class alts_1 extends ModelChecker
         }
         return res;
     }
-    
+
     // object .'|'.0
     public boolean _jm_obj_6(Object val, Path path, Report rep)
     {
@@ -428,9 +392,6 @@ public class alts_1 extends ModelChecker
         if (! res)
         {
             if (rep != null) rep.addEntry("not a 1 strict int [.'|'.0.v]", path);
-        }
-        if (! res)
-        {
             if (rep != null) rep.addEntry("unexpected value for mandatory prop <v> [.'|'.0]", path);
             return false;
         }
@@ -445,16 +406,13 @@ public class alts_1 extends ModelChecker
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected _a [.'|'.0.t]", path);
-        }
-        if (! res)
-        {
             if (rep != null) rep.addEntry("unexpected value for mandatory prop <t> [.'|'.0]", path);
             return false;
         }
         return true;
     }
-    
-    
+
+
     // object .'|'.1
     public boolean _jm_obj_7(Object val, Path path, Report rep)
     {
@@ -477,9 +435,6 @@ public class alts_1 extends ModelChecker
         if (! res)
         {
             if (rep != null) rep.addEntry("not a 1 strict int [.'|'.1.v]", path);
-        }
-        if (! res)
-        {
             if (rep != null) rep.addEntry("unexpected value for mandatory prop <v> [.'|'.1]", path);
             return false;
         }
@@ -494,16 +449,13 @@ public class alts_1 extends ModelChecker
         if (! res)
         {
             if (rep != null) rep.addEntry("value not in enum [.'|'.1.t.'|']", path);
-        }
-        if (! res)
-        {
             if (rep != null) rep.addEntry("unexpected value for mandatory prop <t> [.'|'.1]", path);
             return false;
         }
         return true;
     }
-    
-    
+
+
     // object .'|'.2
     public boolean _jm_obj_8(Object val, Path path, Report rep)
     {
@@ -526,9 +478,6 @@ public class alts_1 extends ModelChecker
         if (! res)
         {
             if (rep != null) rep.addEntry("not a 1 strict int [.'|'.2.v]", path);
-        }
-        if (! res)
-        {
             if (rep != null) rep.addEntry("unexpected value for mandatory prop <v> [.'|'.2]", path);
             return false;
         }
@@ -543,15 +492,12 @@ public class alts_1 extends ModelChecker
         if (! res)
         {
             if (rep != null) rep.addEntry("value not in enum [.'|'.2.t.'|']", path);
-        }
-        if (! res)
-        {
             if (rep != null) rep.addEntry("unexpected value for mandatory prop <t> [.'|'.2]", path);
             return false;
         }
         return true;
     }
-    
+
     // object .'|'.3
     public boolean _jm_obj_9(Object val, Path path, Report rep)
     {
@@ -574,9 +520,6 @@ public class alts_1 extends ModelChecker
         if (! res)
         {
             if (rep != null) rep.addEntry("not a 1 strict int [.'|'.3.v]", path);
-        }
-        if (! res)
-        {
             if (rep != null) rep.addEntry("unexpected value for mandatory prop <v> [.'|'.3]", path);
             return false;
         }
@@ -591,16 +534,13 @@ public class alts_1 extends ModelChecker
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected _d [.'|'.3.t]", path);
-        }
-        if (! res)
-        {
             if (rep != null) rep.addEntry("unexpected value for mandatory prop <t> [.'|'.3]", path);
             return false;
         }
         return true;
     }
-    
-    
+
+
     // check $ (.)
     public boolean json_model_1(Object val, Path path, Report rep)
     {
@@ -636,7 +576,7 @@ public class alts_1 extends ModelChecker
         }
         return res;
     }
-    
+
 
     public void init(JSON json)
     {

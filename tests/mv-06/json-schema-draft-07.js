@@ -44,9 +44,6 @@ function json_model_3(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $Schema [.'$schemaArray'.'@'.0]", (path ? arr_0_lpath : null)])
-            }
-            if (! res)
-            {
                 break;
             }
         }
@@ -99,9 +96,6 @@ function json_model_5(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $simpleTypes [.'$arrayTypes'.'@'.0]", (path ? arr_1_lpath : null)])
-            }
-            if (! res)
-            {
                 break;
             }
         }
@@ -309,9 +303,6 @@ function _jm_obj_1(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["unexpected $Schema [.'$ObjectSchema'.definitions.'']", (path ? lpath_1 : null)])
-        }
-        if (! res)
-        {
             return false;
         }
     }
@@ -366,9 +357,6 @@ function _jm_obj_2(val, path, rep)
                     if (! res)
                     {
                         rep !== null && rep.push(["unexpected string [.'$ObjectSchema'.dependencies.''.'|'.1.0]", ((path ? lpath_2 : null) ? arr_2_lpath : null)])
-                    }
-                    if (! res)
-                    {
                         break;
                     }
                 }
@@ -385,9 +373,6 @@ function _jm_obj_2(val, path, rep)
         else
         {
             rep !== null && rep.push(["no model matched [.'$ObjectSchema'.dependencies.''.'|']", (path ? lpath_2 : null)])
-        }
-        if (! res)
-        {
             return false;
         }
     }
@@ -440,10 +425,6 @@ function _jm_f_17(val, path, rep)
     // .'$ObjectSchema'.enum
     // .'$ObjectSchema'.enum.'@'
     res = Array.isArray(val);
-    if (res)
-    {
-        // accept any array
-    }
     if (! res)
     {
         rep !== null && rep.push(["not array or unexpected array [.'$ObjectSchema'.enum.'@']", path])
@@ -466,10 +447,6 @@ function _jm_f_18(val, path, rep)
     let res;
     // .'$ObjectSchema'.examples
     res = Array.isArray(val);
-    if (res)
-    {
-        // accept any array
-    }
     if (! res)
     {
         rep !== null && rep.push(["not array or unexpected array [.'$ObjectSchema'.examples]", path])
@@ -736,9 +713,6 @@ function _jm_obj_3(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $Schema [.'$ObjectSchema'.patternProperties.'$REGEX']", (path ? lpath_3 : null)])
-            }
-            if (! res)
-            {
                 return false;
             }
         }
@@ -782,9 +756,6 @@ function _jm_obj_4(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["unexpected $Schema [.'$ObjectSchema'.properties.'']", (path ? lpath_4 : null)])
-        }
-        if (! res)
-        {
             return false;
         }
     }
@@ -847,9 +818,6 @@ function _jm_f_40(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected string [.'$ObjectSchema'.required.0]", (path ? arr_3_lpath : null)])
-            }
-            if (! res)
-            {
                 break;
             }
         }

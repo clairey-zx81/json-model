@@ -23,6 +23,7 @@ def check_model(val: Jsonable, name: str = "", rep: Report = None) -> bool:
 _jm_cst_0: set[str]
 check_model_map: PropMap
 
+
 # check $Xxx (.'$Xxx')
 def json_model_2(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
@@ -47,7 +48,6 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
             res = isinstance(pval, float) and pval >= 0.0
             if not res:
                 rep is None or rep.append(("not a 0.0 strict float [.'$Xxx']", lpath_0 if path is not None else None))
-            if not res:
                 return False
         else:
             rep is None or rep.append(("unexpected prop [.]", lpath_0 if path is not None else None))

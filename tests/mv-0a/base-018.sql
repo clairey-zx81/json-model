@@ -15,10 +15,6 @@ BEGIN
   -- .'@'
   res := JSONB_TYPEOF(val) = 'array';
   IF res THEN
-    -- accept any array
-    NULL;
-  END IF;
-  IF res THEN
     res := jm_array_is_unique(val, path, rep);
   END IF;
   RETURN res;

@@ -30,9 +30,6 @@ function json_model_2(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["not a -1.0 loose float [.'$position'.'@'.0]", (path ? arr_0_lpath : null)])
-            }
-            if (! res)
-            {
                 break;
             }
         }
@@ -71,9 +68,6 @@ function json_model_3(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $position [.'$coord_array'.'@'.0]", (path ? arr_1_lpath : null)])
-            }
-            if (! res)
-            {
                 break;
             }
         }
@@ -112,9 +106,6 @@ function json_model_4(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $position [.'$linear_ring'.'@'.0]", (path ? arr_2_lpath : null)])
-            }
-            if (! res)
-            {
                 break;
             }
         }
@@ -157,9 +148,6 @@ function _jm_obj_0(val, path, rep)
     if (! res)
     {
         rep !== null && rep.push(["unexpected Point [.'$Point'.type]", path])
-    }
-    if (! res)
-    {
         rep !== null && rep.push(["unexpected value for mandatory prop <type> [.'$Point']", path])
         return false;
     }
@@ -174,9 +162,6 @@ function _jm_obj_0(val, path, rep)
     if (! res)
     {
         rep !== null && rep.push(["unexpected $position [.'$Point'.coordinates]", path])
-    }
-    if (! res)
-    {
         rep !== null && rep.push(["unexpected value for mandatory prop <coordinates> [.'$Point']", path])
         return false;
     }
@@ -196,9 +181,6 @@ function _jm_obj_0(val, path, rep)
                 if (! res)
                 {
                     rep !== null && rep.push(["not a -1.0 loose float [.'$Point'.bbox.0]", (path ? arr_3_lpath : null)])
-                }
-                if (! res)
-                {
                     break;
                 }
             }
@@ -206,9 +188,6 @@ function _jm_obj_0(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["not array or unexpected array [.'$Point'.bbox]", path])
-        }
-        if (! res)
-        {
             rep !== null && rep.push(["unexpected value for optional prop <bbox> [.'$Point']", path])
             return false;
         }
@@ -251,9 +230,6 @@ function _jm_obj_1(val, path, rep)
     if (! res)
     {
         rep !== null && rep.push(["unexpected MultiPoint [.'$MultiPoint'.type]", path])
-    }
-    if (! res)
-    {
         rep !== null && rep.push(["unexpected value for mandatory prop <type> [.'$MultiPoint']", path])
         return false;
     }
@@ -276,9 +252,6 @@ function _jm_obj_1(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $position [.'$MultiPoint'.coordinates.0]", (path ? arr_4_lpath : null)])
-            }
-            if (! res)
-            {
                 break;
             }
         }
@@ -286,9 +259,6 @@ function _jm_obj_1(val, path, rep)
     if (! res)
     {
         rep !== null && rep.push(["not array or unexpected array [.'$MultiPoint'.coordinates]", path])
-    }
-    if (! res)
-    {
         rep !== null && rep.push(["unexpected value for mandatory prop <coordinates> [.'$MultiPoint']", path])
         return false;
     }
@@ -308,9 +278,6 @@ function _jm_obj_1(val, path, rep)
                 if (! res)
                 {
                     rep !== null && rep.push(["not a -1.0 loose float [.'$MultiPoint'.bbox.0]", (path ? arr_5_lpath : null)])
-                }
-                if (! res)
-                {
                     break;
                 }
             }
@@ -318,9 +285,6 @@ function _jm_obj_1(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["not array or unexpected array [.'$MultiPoint'.bbox]", path])
-        }
-        if (! res)
-        {
             rep !== null && rep.push(["unexpected value for optional prop <bbox> [.'$MultiPoint']", path])
             return false;
         }
@@ -363,9 +327,6 @@ function _jm_obj_2(val, path, rep)
     if (! res)
     {
         rep !== null && rep.push(["unexpected LineString [.'$LineString'.type]", path])
-    }
-    if (! res)
-    {
         rep !== null && rep.push(["unexpected value for mandatory prop <type> [.'$LineString']", path])
         return false;
     }
@@ -380,9 +341,6 @@ function _jm_obj_2(val, path, rep)
     if (! res)
     {
         rep !== null && rep.push(["unexpected $coord_array [.'$LineString'.coordinates]", path])
-    }
-    if (! res)
-    {
         rep !== null && rep.push(["unexpected value for mandatory prop <coordinates> [.'$LineString']", path])
         return false;
     }
@@ -402,9 +360,6 @@ function _jm_obj_2(val, path, rep)
                 if (! res)
                 {
                     rep !== null && rep.push(["not a -1.0 loose float [.'$LineString'.bbox.0]", (path ? arr_6_lpath : null)])
-                }
-                if (! res)
-                {
                     break;
                 }
             }
@@ -412,9 +367,6 @@ function _jm_obj_2(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["not array or unexpected array [.'$LineString'.bbox]", path])
-        }
-        if (! res)
-        {
             rep !== null && rep.push(["unexpected value for optional prop <bbox> [.'$LineString']", path])
             return false;
         }
@@ -457,9 +409,6 @@ function _jm_obj_3(val, path, rep)
     if (! res)
     {
         rep !== null && rep.push(["unexpected MultiLineString [.'$MultiLineString'.type]", path])
-    }
-    if (! res)
-    {
         rep !== null && rep.push(["unexpected value for mandatory prop <type> [.'$MultiLineString']", path])
         return false;
     }
@@ -482,9 +431,6 @@ function _jm_obj_3(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $coord_array [.'$MultiLineString'.coordinates.0]", (path ? arr_7_lpath : null)])
-            }
-            if (! res)
-            {
                 break;
             }
         }
@@ -492,9 +438,6 @@ function _jm_obj_3(val, path, rep)
     if (! res)
     {
         rep !== null && rep.push(["not array or unexpected array [.'$MultiLineString'.coordinates]", path])
-    }
-    if (! res)
-    {
         rep !== null && rep.push(["unexpected value for mandatory prop <coordinates> [.'$MultiLineString']", path])
         return false;
     }
@@ -514,9 +457,6 @@ function _jm_obj_3(val, path, rep)
                 if (! res)
                 {
                     rep !== null && rep.push(["not a -1.0 loose float [.'$MultiLineString'.bbox.0]", (path ? arr_8_lpath : null)])
-                }
-                if (! res)
-                {
                     break;
                 }
             }
@@ -524,9 +464,6 @@ function _jm_obj_3(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["not array or unexpected array [.'$MultiLineString'.bbox]", path])
-        }
-        if (! res)
-        {
             rep !== null && rep.push(["unexpected value for optional prop <bbox> [.'$MultiLineString']", path])
             return false;
         }
@@ -569,9 +506,6 @@ function _jm_obj_4(val, path, rep)
     if (! res)
     {
         rep !== null && rep.push(["unexpected Polygon [.'$Polygon'.type]", path])
-    }
-    if (! res)
-    {
         rep !== null && rep.push(["unexpected value for mandatory prop <type> [.'$Polygon']", path])
         return false;
     }
@@ -594,9 +528,6 @@ function _jm_obj_4(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $linear_ring [.'$Polygon'.coordinates.0]", (path ? arr_9_lpath : null)])
-            }
-            if (! res)
-            {
                 break;
             }
         }
@@ -604,9 +535,6 @@ function _jm_obj_4(val, path, rep)
     if (! res)
     {
         rep !== null && rep.push(["not array or unexpected array [.'$Polygon'.coordinates]", path])
-    }
-    if (! res)
-    {
         rep !== null && rep.push(["unexpected value for mandatory prop <coordinates> [.'$Polygon']", path])
         return false;
     }
@@ -626,9 +554,6 @@ function _jm_obj_4(val, path, rep)
                 if (! res)
                 {
                     rep !== null && rep.push(["not a -1.0 loose float [.'$Polygon'.bbox.0]", (path ? arr_10_lpath : null)])
-                }
-                if (! res)
-                {
                     break;
                 }
             }
@@ -636,9 +561,6 @@ function _jm_obj_4(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["not array or unexpected array [.'$Polygon'.bbox]", path])
-        }
-        if (! res)
-        {
             rep !== null && rep.push(["unexpected value for optional prop <bbox> [.'$Polygon']", path])
             return false;
         }
@@ -681,9 +603,6 @@ function _jm_obj_5(val, path, rep)
     if (! res)
     {
         rep !== null && rep.push(["unexpected MultiPolygon [.'$MultiPolygon'.type]", path])
-    }
-    if (! res)
-    {
         rep !== null && rep.push(["unexpected value for mandatory prop <type> [.'$MultiPolygon']", path])
         return false;
     }
@@ -714,9 +633,6 @@ function _jm_obj_5(val, path, rep)
                     if (! res)
                     {
                         rep !== null && rep.push(["unexpected $linear_ring [.'$MultiPolygon'.coordinates.0.0]", ((path ? arr_11_lpath : null) ? arr_12_lpath : null)])
-                    }
-                    if (! res)
-                    {
                         break;
                     }
                 }
@@ -724,9 +640,6 @@ function _jm_obj_5(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["not array or unexpected array [.'$MultiPolygon'.coordinates.0]", (path ? arr_11_lpath : null)])
-            }
-            if (! res)
-            {
                 break;
             }
         }
@@ -734,9 +647,6 @@ function _jm_obj_5(val, path, rep)
     if (! res)
     {
         rep !== null && rep.push(["not array or unexpected array [.'$MultiPolygon'.coordinates]", path])
-    }
-    if (! res)
-    {
         rep !== null && rep.push(["unexpected value for mandatory prop <coordinates> [.'$MultiPolygon']", path])
         return false;
     }
@@ -756,9 +666,6 @@ function _jm_obj_5(val, path, rep)
                 if (! res)
                 {
                     rep !== null && rep.push(["not a -1.0 loose float [.'$MultiPolygon'.bbox.0]", (path ? arr_13_lpath : null)])
-                }
-                if (! res)
-                {
                     break;
                 }
             }
@@ -766,9 +673,6 @@ function _jm_obj_5(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["not array or unexpected array [.'$MultiPolygon'.bbox]", path])
-        }
-        if (! res)
-        {
             rep !== null && rep.push(["unexpected value for optional prop <bbox> [.'$MultiPolygon']", path])
             return false;
         }
@@ -848,9 +752,6 @@ function _jm_obj_6(val, path, rep)
     if (! res)
     {
         rep !== null && rep.push(["unexpected GeometryCollection [.'$GeometryCollection'.type]", path])
-    }
-    if (! res)
-    {
         rep !== null && rep.push(["unexpected value for mandatory prop <type> [.'$GeometryCollection']", path])
         return false;
     }
@@ -873,9 +774,6 @@ function _jm_obj_6(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $geometry [.'$GeometryCollection'.geometries.0]", (path ? arr_14_lpath : null)])
-            }
-            if (! res)
-            {
                 break;
             }
         }
@@ -883,9 +781,6 @@ function _jm_obj_6(val, path, rep)
     if (! res)
     {
         rep !== null && rep.push(["not array or unexpected array [.'$GeometryCollection'.geometries]", path])
-    }
-    if (! res)
-    {
         rep !== null && rep.push(["unexpected value for mandatory prop <geometries> [.'$GeometryCollection']", path])
         return false;
     }
@@ -905,9 +800,6 @@ function _jm_obj_6(val, path, rep)
                 if (! res)
                 {
                     rep !== null && rep.push(["not a -1.0 loose float [.'$GeometryCollection'.bbox.0]", (path ? arr_15_lpath : null)])
-                }
-                if (! res)
-                {
                     break;
                 }
             }
@@ -915,9 +807,6 @@ function _jm_obj_6(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["not array or unexpected array [.'$GeometryCollection'.bbox]", path])
-        }
-        if (! res)
-        {
             rep !== null && rep.push(["unexpected value for optional prop <bbox> [.'$GeometryCollection']", path])
             return false;
         }
@@ -972,9 +861,6 @@ function _jm_obj_7(val, path, rep)
     if (! res)
     {
         rep !== null && rep.push(["unexpected Feature [.'$Feature'.type]", path])
-    }
-    if (! res)
-    {
         rep !== null && rep.push(["unexpected value for mandatory prop <type> [.'$Feature']", path])
         return false;
     }
@@ -1016,9 +902,6 @@ function _jm_obj_7(val, path, rep)
     else
     {
         rep !== null && rep.push(["no model matched [.'$Feature'.geometry.'|']", path])
-    }
-    if (! res)
-    {
         rep !== null && rep.push(["unexpected value for mandatory prop <geometry> [.'$Feature']", path])
         return false;
     }
@@ -1051,9 +934,6 @@ function _jm_obj_7(val, path, rep)
     else
     {
         rep !== null && rep.push(["no model matched [.'$Feature'.properties.'|']", path])
-    }
-    if (! res)
-    {
         rep !== null && rep.push(["unexpected value for mandatory prop <properties> [.'$Feature']", path])
         return false;
     }
@@ -1083,9 +963,6 @@ function _jm_obj_7(val, path, rep)
         else
         {
             rep !== null && rep.push(["no model matched [.'$Feature'.id.'|']", path])
-        }
-        if (! res)
-        {
             rep !== null && rep.push(["unexpected value for optional prop <id> [.'$Feature']", path])
             return false;
         }
@@ -1106,9 +983,6 @@ function _jm_obj_7(val, path, rep)
                 if (! res)
                 {
                     rep !== null && rep.push(["not a -1.0 loose float [.'$Feature'.bbox.0]", (path ? arr_16_lpath : null)])
-                }
-                if (! res)
-                {
                     break;
                 }
             }
@@ -1116,9 +990,6 @@ function _jm_obj_7(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["not array or unexpected array [.'$Feature'.bbox]", path])
-        }
-        if (! res)
-        {
             rep !== null && rep.push(["unexpected value for optional prop <bbox> [.'$Feature']", path])
             return false;
         }
@@ -1161,9 +1032,6 @@ function _jm_obj_9(val, path, rep)
     if (! res)
     {
         rep !== null && rep.push(["unexpected FeatureCollection [.'$FeatureCollection'.type]", path])
-    }
-    if (! res)
-    {
         rep !== null && rep.push(["unexpected value for mandatory prop <type> [.'$FeatureCollection']", path])
         return false;
     }
@@ -1186,9 +1054,6 @@ function _jm_obj_9(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $Feature [.'$FeatureCollection'.features.0]", (path ? arr_17_lpath : null)])
-            }
-            if (! res)
-            {
                 break;
             }
         }
@@ -1196,9 +1061,6 @@ function _jm_obj_9(val, path, rep)
     if (! res)
     {
         rep !== null && rep.push(["not array or unexpected array [.'$FeatureCollection'.features]", path])
-    }
-    if (! res)
-    {
         rep !== null && rep.push(["unexpected value for mandatory prop <features> [.'$FeatureCollection']", path])
         return false;
     }
@@ -1218,9 +1080,6 @@ function _jm_obj_9(val, path, rep)
                 if (! res)
                 {
                     rep !== null && rep.push(["not a -1.0 loose float [.'$FeatureCollection'.bbox.0]", (path ? arr_18_lpath : null)])
-                }
-                if (! res)
-                {
                     break;
                 }
             }
@@ -1228,9 +1087,6 @@ function _jm_obj_9(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["not array or unexpected array [.'$FeatureCollection'.bbox]", path])
-        }
-        if (! res)
-        {
             rep !== null && rep.push(["unexpected value for optional prop <bbox> [.'$FeatureCollection']", path])
             return false;
         }
@@ -1262,48 +1118,48 @@ function json_model_1(val, path, rep)
     let xr_0;
     // .'^'.0
     xr_0 = json_model_11(val, path, rep);
-    if (! xr_0)
+    if (xr_0)
+    {
+        xc_0 += 1;
+    }
+    else
     {
         rep !== null && rep.push(["unexpected $geometry [.'^'.0]", path])
     }
-    if (xr_0)
-    {
-        xc_0 += 1;
-    }
     // .'^'.1
     xr_0 = json_model_12(val, path, rep);
-    if (! xr_0)
-    {
-        rep !== null && rep.push(["unexpected $GeometryCollection [.'^'.1]", path])
-    }
     if (xr_0)
     {
         xc_0 += 1;
+    }
+    else
+    {
+        rep !== null && rep.push(["unexpected $GeometryCollection [.'^'.1]", path])
     }
     if (xc_0 <= 1)
     {
         // .'^'.2
         xr_0 = json_model_13(val, path, rep);
-        if (! xr_0)
-        {
-            rep !== null && rep.push(["unexpected $Feature [.'^'.2]", path])
-        }
         if (xr_0)
         {
             xc_0 += 1;
+        }
+        else
+        {
+            rep !== null && rep.push(["unexpected $Feature [.'^'.2]", path])
         }
     }
     if (xc_0 <= 1)
     {
         // .'^'.3
         xr_0 = json_model_14(val, path, rep);
-        if (! xr_0)
-        {
-            rep !== null && rep.push(["unexpected $FeatureCollection [.'^'.3]", path])
-        }
         if (xr_0)
         {
             xc_0 += 1;
+        }
+        else
+        {
+            rep !== null && rep.push(["unexpected $FeatureCollection [.'^'.3]", path])
         }
     }
     res = xc_0 == 1;

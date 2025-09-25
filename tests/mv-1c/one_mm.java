@@ -44,9 +44,6 @@ public class one_mm extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not a 0 strict int [.must]", (path != null ? lpath_0 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.must]", (path != null ? lpath_0 : null));
                     return false;
                 }
@@ -59,9 +56,6 @@ public class one_mm extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not a bool [.may]", (path != null ? lpath_0 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.may]", (path != null ? lpath_0 : null));
                     return false;
                 }
@@ -85,7 +79,7 @@ public class one_mm extends ModelChecker
         }
         return true;
     }
-    
+
     // check $ (.)
     public boolean json_model_1(Object val, Path path, Report rep)
     {
@@ -98,7 +92,7 @@ public class one_mm extends ModelChecker
         }
         return res;
     }
-    
+
 
     public void init(JSON json)
     {

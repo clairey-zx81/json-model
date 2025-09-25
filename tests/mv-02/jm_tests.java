@@ -116,9 +116,6 @@ public class jm_tests extends ModelChecker
                 else
                 {
                     if (rep != null) rep.addEntry("no model matched [.0.'|']", (path != null ? arr_0_lpath : null));
-                }
-                if (! res)
-                {
                     break;
                 }
             }
@@ -129,7 +126,7 @@ public class jm_tests extends ModelChecker
         }
         return res;
     }
-    
+
 
     public void init(JSON json)
     {

@@ -31,7 +31,7 @@ public class eval_00 extends ModelChecker
         }
         return res;
     }
-    
+
     // check $true (.'$true')
     public boolean json_model_3(Object val, Path path, Report rep)
     {
@@ -44,7 +44,7 @@ public class eval_00 extends ModelChecker
         }
         return res;
     }
-    
+
     // check $ (.)
     public boolean json_model_1(Object val, Path path, Report rep)
     {
@@ -57,7 +57,7 @@ public class eval_00 extends ModelChecker
         }
         return res;
     }
-    
+
 
     public void init(JSON json)
     {

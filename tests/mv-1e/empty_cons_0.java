@@ -31,7 +31,7 @@ public class empty_cons_0 extends ModelChecker
         }
         return res;
     }
-    
+
     // check $n1 (.'$n1')
     public boolean json_model_3(Object val, Path path, Report rep)
     {
@@ -44,7 +44,7 @@ public class empty_cons_0 extends ModelChecker
         }
         return res;
     }
-    
+
     // check $n2 (.'$n2')
     public boolean json_model_4(Object val, Path path, Report rep)
     {
@@ -57,7 +57,7 @@ public class empty_cons_0 extends ModelChecker
         }
         return res;
     }
-    
+
     // check $ (.)
     public boolean json_model_1(Object val, Path path, Report rep)
     {
@@ -70,7 +70,7 @@ public class empty_cons_0 extends ModelChecker
         }
         return res;
     }
-    
+
 
     public void init(JSON json)
     {

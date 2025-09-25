@@ -12,6 +12,7 @@ const JSON_MODEL_VERSION = "2";
 let _jm_cst_0 = new Set()
 var check_model_map = new Map()
 
+
 // check $ (.)
 function json_model_1(val, path, rep)
 {

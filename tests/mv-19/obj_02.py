@@ -24,6 +24,7 @@ _jm_re_0_reco: object
 _jm_re_0: RegexFun
 check_model_map: PropMap
 
+
 # object .
 def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
     if not isinstance(val, dict):
@@ -39,7 +40,6 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
             res = isinstance(pval, bool)
             if not res:
                 rep is None or rep.append(("not a bool [.'/^[A-Z]$/']", lpath_0 if path is not None else None))
-            if not res:
                 return False
         else:
             rep is None or rep.append(("unexpected prop [.]", lpath_0 if path is not None else None))

@@ -33,9 +33,6 @@ function _jm_obj_0(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["not a 0 strict int [.'|'.1.a]", (path ? lpath_0 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid mandatory prop value [.'|'.1.a]", (path ? lpath_0 : null)])
                 return false;
             }
@@ -82,9 +79,6 @@ function _jm_obj_1(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["not a 0 strict int [.'|'.0.a]", (path ? lpath_1 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid mandatory prop value [.'|'.0.a]", (path ? lpath_1 : null)])
                 return false;
             }
@@ -98,9 +92,6 @@ function _jm_obj_1(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["not a 1 strict int [.'|'.0.b]", (path ? lpath_1 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid mandatory prop value [.'|'.0.b]", (path ? lpath_1 : null)])
                 return false;
             }

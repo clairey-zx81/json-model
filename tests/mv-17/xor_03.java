@@ -44,7 +44,7 @@ public class xor_03 extends ModelChecker
         }
         return res;
     }
-    
+
 
     public void init(JSON json)
     {

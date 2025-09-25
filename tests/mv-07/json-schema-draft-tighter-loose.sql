@@ -264,10 +264,6 @@ DECLARE
 BEGIN
   -- .'$tight#metas'.examples
   res := JSONB_TYPEOF(val) = 'array';
-  IF res THEN
-    -- accept any array
-    NULL;
-  END IF;
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
@@ -482,10 +478,6 @@ DECLARE
 BEGIN
   -- .'$tight#String'.examples
   res := JSONB_TYPEOF(val) = 'array';
-  IF res THEN
-    -- accept any array
-    NULL;
-  END IF;
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
@@ -782,10 +774,6 @@ DECLARE
 BEGIN
   -- .'$tight#Array'.examples
   res := JSONB_TYPEOF(val) = 'array';
-  IF res THEN
-    -- accept any array
-    NULL;
-  END IF;
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
@@ -1114,10 +1102,6 @@ DECLARE
 BEGIN
   -- .'$tight#Object'.examples
   res := JSONB_TYPEOF(val) = 'array';
-  IF res THEN
-    -- accept any array
-    NULL;
-  END IF;
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
@@ -1443,10 +1427,6 @@ DECLARE
 BEGIN
   -- .'$tight#Integer'.examples
   res := JSONB_TYPEOF(val) = 'array';
-  IF res THEN
-    -- accept any array
-    NULL;
-  END IF;
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
@@ -1698,10 +1678,6 @@ DECLARE
 BEGIN
   -- .'$tight#Number'.examples
   res := JSONB_TYPEOF(val) = 'array';
-  IF res THEN
-    -- accept any array
-    NULL;
-  END IF;
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
@@ -1953,10 +1929,6 @@ DECLARE
 BEGIN
   -- .'$tight#Bool'.examples
   res := JSONB_TYPEOF(val) = 'array';
-  IF res THEN
-    -- accept any array
-    NULL;
-  END IF;
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
@@ -2184,10 +2156,6 @@ DECLARE
 BEGIN
   -- .'$tight#Null'.examples
   res := JSONB_TYPEOF(val) = 'array';
-  IF res THEN
-    -- accept any array
-    NULL;
-  END IF;
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
@@ -2415,10 +2383,6 @@ DECLARE
 BEGIN
   -- .'$tight#AllOf'.examples
   res := JSONB_TYPEOF(val) = 'array';
-  IF res THEN
-    -- accept any array
-    NULL;
-  END IF;
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
@@ -2646,10 +2610,6 @@ DECLARE
 BEGIN
   -- .'$tight#AnyOf'.examples
   res := JSONB_TYPEOF(val) = 'array';
-  IF res THEN
-    -- accept any array
-    NULL;
-  END IF;
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
@@ -2877,10 +2837,6 @@ DECLARE
 BEGIN
   -- .'$tight#OneOf'.examples
   res := JSONB_TYPEOF(val) = 'array';
-  IF res THEN
-    -- accept any array
-    NULL;
-  END IF;
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
@@ -3108,10 +3064,6 @@ DECLARE
 BEGIN
   -- .'$tight#Enum'.examples
   res := JSONB_TYPEOF(val) = 'array';
-  IF res THEN
-    -- accept any array
-    NULL;
-  END IF;
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
@@ -3390,10 +3342,6 @@ DECLARE
 BEGIN
   -- .'$tight#Const'.examples
   res := JSONB_TYPEOF(val) = 'array';
-  IF res THEN
-    -- accept any array
-    NULL;
-  END IF;
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
@@ -3650,10 +3598,6 @@ DECLARE
 BEGIN
   -- .'$tight#Ref'.examples
   res := JSONB_TYPEOF(val) = 'array';
-  IF res THEN
-    -- accept any array
-    NULL;
-  END IF;
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
@@ -3898,10 +3842,6 @@ DECLARE
 BEGIN
   -- .'$tight#EnumString'.examples
   res := JSONB_TYPEOF(val) = 'array';
-  IF res THEN
-    -- accept any array
-    NULL;
-  END IF;
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
@@ -4149,10 +4089,6 @@ DECLARE
 BEGIN
   -- .'$tight#EnumNum'.examples
   res := JSONB_TYPEOF(val) = 'array';
-  IF res THEN
-    -- accept any array
-    NULL;
-  END IF;
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
@@ -4400,10 +4336,6 @@ DECLARE
 BEGIN
   -- .'$tight#EnumInt'.examples
   res := JSONB_TYPEOF(val) = 'array';
-  IF res THEN
-    -- accept any array
-    NULL;
-  END IF;
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
@@ -4651,10 +4583,6 @@ DECLARE
 BEGIN
   -- .'$tight#ConstString'.examples
   res := JSONB_TYPEOF(val) = 'array';
-  IF res THEN
-    -- accept any array
-    NULL;
-  END IF;
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
@@ -4890,10 +4818,6 @@ DECLARE
 BEGIN
   -- .'$tight#ConstNum'.examples
   res := JSONB_TYPEOF(val) = 'array';
-  IF res THEN
-    -- accept any array
-    NULL;
-  END IF;
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
@@ -5129,10 +5053,6 @@ DECLARE
 BEGIN
   -- .'$tight#ConstInt'.examples
   res := JSONB_TYPEOF(val) = 'array';
-  IF res THEN
-    -- accept any array
-    NULL;
-  END IF;
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
@@ -5368,10 +5288,6 @@ DECLARE
 BEGIN
   -- .'$tight#ConstBool'.examples
   res := JSONB_TYPEOF(val) = 'array';
-  IF res THEN
-    -- accept any array
-    NULL;
-  END IF;
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;

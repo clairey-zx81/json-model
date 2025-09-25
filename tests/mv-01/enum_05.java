@@ -20,6 +20,7 @@ public class enum_05 extends ModelChecker
     Set<Object> _jm_cst_0_set;
     public Map<String, Checker> enum_05_map_pmap;
 
+
     // check $ (.)
     public boolean json_model_1(Object val, Path path, Report rep)
     {
@@ -33,7 +34,7 @@ public class enum_05 extends ModelChecker
         }
         return res;
     }
-    
+
 
     public void init(JSON json)
     {

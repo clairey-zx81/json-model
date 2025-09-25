@@ -44,9 +44,6 @@ public class map_inline_1 extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not null [.mu1]", (path != null ? lpath_0 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.mu1]", (path != null ? lpath_0 : null));
                     return false;
                 }
@@ -60,9 +57,6 @@ public class map_inline_1 extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not a bool [.mu2]", (path != null ? lpath_0 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.mu2]", (path != null ? lpath_0 : null));
                     return false;
                 }
@@ -76,9 +70,6 @@ public class map_inline_1 extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not a 0 strict int [.mu3]", (path != null ? lpath_0 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.mu3]", (path != null ? lpath_0 : null));
                     return false;
                 }
@@ -91,9 +82,6 @@ public class map_inline_1 extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not a 0.0 strict float [.ma1]", (path != null ? lpath_0 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.ma1]", (path != null ? lpath_0 : null));
                     return false;
                 }
@@ -106,9 +94,6 @@ public class map_inline_1 extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected string [.ma2]", (path != null ? lpath_0 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.ma2]", (path != null ? lpath_0 : null));
                     return false;
                 }
@@ -121,9 +106,6 @@ public class map_inline_1 extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected $DATE [.ma3]", (path != null ? lpath_0 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.ma3]", (path != null ? lpath_0 : null));
                     return false;
                 }
@@ -155,7 +137,7 @@ public class map_inline_1 extends ModelChecker
         }
         return true;
     }
-    
+
     // check $ (.)
     public boolean json_model_1(Object val, Path path, Report rep)
     {
@@ -169,7 +151,7 @@ public class map_inline_1 extends ModelChecker
         }
         return res;
     }
-    
+
 
     public void init(JSON json)
     {

@@ -57,9 +57,6 @@ function _jm_obj_0(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected string [.'$Ex09'.'#']", (path ? lpath_0 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid optional prop value [.'$Ex09'.'#']", (path ? lpath_0 : null)])
                 return false;
             }
@@ -72,9 +69,6 @@ function _jm_obj_0(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $ex08#Val [.'$Ex09'.'$URL']", (path ? lpath_0 : null)])
-            }
-            if (! res)
-            {
                 return false;
             }
         }
@@ -186,9 +180,6 @@ function _jm_obj_1(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $Val [.'$ex08#map'.'$URL']", (path ? lpath_1 : null)])
-            }
-            if (! res)
-            {
                 return false;
             }
         }

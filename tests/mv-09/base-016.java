@@ -58,7 +58,7 @@ public class base_016 extends ModelChecker
         }
         return res;
     }
-    
+
 
     public void init(JSON json)
     {

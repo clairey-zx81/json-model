@@ -105,9 +105,6 @@ function json_model_1(val, path, rep)
             else
             {
                 rep !== null && rep.push(["no model matched [.0.'|']", (path ? arr_0_lpath : null)])
-            }
-            if (! res)
-            {
                 break;
             }
         }

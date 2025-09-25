@@ -420,11 +420,6 @@ sub _jm_obj_4($$$)
             # handle may a4 property
             # .array.a4
             $res = jm_is_array($pval);
-            if ($res)
-            {
-                # accept any array
-                ;
-            }
             if (! $res)
             {
                 return 0;
@@ -1011,11 +1006,6 @@ sub _jm_f_34($$$)
     $res = jm_is_array($val);
     if ($res)
     {
-        # accept any array
-        ;
-    }
-    if ($res)
-    {
         $res = jm_is_unique_array($val, $path, $rep);
     }
     return $res;
@@ -1102,15 +1092,15 @@ sub _jm_obj_10($$$)
             if ($res)
             {
                 # .enum.e1.'|'.0
-                $res = $pval == 200;
+                $res = jm_is_integer($pval) && $pval == 200;
                 if (! $res)
                 {
                     # .enum.e1.'|'.1
-                    $res = $pval == 201;
+                    $res = jm_is_integer($pval) && $pval == 201;
                     if (! $res)
                     {
                         # .enum.e1.'|'.2
-                        $res = $pval == 204;
+                        $res = jm_is_integer($pval) && $pval == 204;
                     }
                 }
             }
@@ -2507,11 +2497,6 @@ sub _jm_obj_33($$$)
                 {
                     # .or.o2.'|'.2
                     $res = jm_is_array($pval);
-                    if ($res)
-                    {
-                        # accept any array
-                        ;
-                    }
                     if (! $res)
                     {
                         # .or.o2.'|'.3

@@ -25,6 +25,7 @@ _jm_re_0_reco: object
 _jm_re_0: RegexFun
 check_model_map: PropMap
 
+
 # check $Xxx (.'$Xxx')
 def json_model_2(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
@@ -52,7 +53,6 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
             res = is_valid_date(pval, lpath_0 if path is not None else None, rep)
             if not res:
                 rep is None or rep.append(("unexpected $DATE [.foo]", lpath_0 if path is not None else None))
-            if not res:
                 rep is None or rep.append(("invalid mandatory prop value [.foo]", lpath_0 if path is not None else None))
                 return False
         elif prop == "bla":
@@ -61,7 +61,6 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
             res = isinstance(pval, bool)
             if not res:
                 rep is None or rep.append(("not a bool [.bla]", lpath_0 if path is not None else None))
-            if not res:
                 rep is None or rep.append(("invalid optional prop value [.bla]", lpath_0 if path is not None else None))
                 return False
         elif json_model_2(prop, lpath_0 if path is not None else None, rep):
@@ -70,7 +69,6 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
             res = isinstance(pval, float) and pval >= 0.0
             if not res:
                 rep is None or rep.append(("not a 0.0 strict float [.'$Xxx']", lpath_0 if path is not None else None))
-            if not res:
                 return False
         elif _jm_re_0(prop, path, rep):
             # handle 1 re props
@@ -78,7 +76,6 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
             res = isinstance(pval, int) and not isinstance(pval, bool) and pval >= 0
             if not res:
                 rep is None or rep.append(("not a 0 strict int [.'/^[0-9]+$/']", lpath_0 if path is not None else None))
-            if not res:
                 return False
         else:
             # handle other props
@@ -86,7 +83,6 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
             res = pval is None
             if not res:
                 rep is None or rep.append(("not null [.'']", lpath_0 if path is not None else None))
-            if not res:
                 return False
     if must_count != 1:
         if rep is not None:

@@ -60,10 +60,10 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     xr_0: bool
     # .'^'.0
     xr_0 = json_model_2(val, path, rep)
-    if not xr_0:
-        rep is None or rep.append(("unexpected $Xx [.'^'.0]", path))
     if xr_0:
         xc_0 += 1
+    else:
+        rep is None or rep.append(("unexpected $Xx [.'^'.0]", path))
     # .'^'.1
     xr_0 = isinstance(val, list)
     if xr_0:
@@ -73,12 +73,11 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
             xr_0 = json_model_2(arr_0_item, arr_0_lpath if path is not None else None, rep)
             if not xr_0:
                 rep is None or rep.append(("unexpected $Xx [.'^'.1.0]", arr_0_lpath if path is not None else None))
-            if not xr_0:
                 break
-    if not xr_0:
-        rep is None or rep.append(("not array or unexpected array [.'^'.1]", path))
     if xr_0:
         xc_0 += 1
+    else:
+        rep is None or rep.append(("not array or unexpected array [.'^'.1]", path))
     res = xc_0 == 1
     if res:
         rep is None or rep.clear()

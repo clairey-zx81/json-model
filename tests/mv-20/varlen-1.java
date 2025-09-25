@@ -57,7 +57,7 @@ public class varlen_1 extends ModelChecker
         }
         return res;
     }
-    
+
 
     public void init(JSON json)
     {

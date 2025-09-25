@@ -31,7 +31,7 @@ public class trafo_3 extends ModelChecker
         }
         return res;
     }
-    
+
     // check $ (.)
     public boolean json_model_1(Object val, Path path, Report rep)
     {
@@ -44,7 +44,7 @@ public class trafo_3 extends ModelChecker
         }
         return res;
     }
-    
+
     // check $Dd#l (.'$Dd#l')
     public boolean json_model_6(Object val, Path path, Report rep)
     {
@@ -65,9 +65,6 @@ public class trafo_3 extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected $u [.'$Dd#l'.0]", (path != null ? arr_0_lpath : null));
-                }
-                if (! res)
-                {
                     break;
                 }
             }
@@ -78,7 +75,7 @@ public class trafo_3 extends ModelChecker
         }
         return res;
     }
-    
+
     // check $Dd#u (.'$Dd#u')
     public boolean json_model_10(Object val, Path path, Report rep)
     {
@@ -91,7 +88,7 @@ public class trafo_3 extends ModelChecker
         }
         return res;
     }
-    
+
     // object .'$Dd#Uu#un'
     public boolean _jm_obj_0(Object val, Path path, Report rep)
     {
@@ -117,9 +114,6 @@ public class trafo_3 extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not a 0 strict int [.'$Dd#Uu#un'.ua]", (path != null ? lpath_0 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$Dd#Uu#un'.ua]", (path != null ? lpath_0 : null));
                     return false;
                 }
@@ -133,9 +127,6 @@ public class trafo_3 extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not a 0 strict int [.'$Dd#Uu#un'.ub]", (path != null ? lpath_0 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$Dd#Uu#un'.ub]", (path != null ? lpath_0 : null));
                     return false;
                 }
@@ -163,7 +154,7 @@ public class trafo_3 extends ModelChecker
         }
         return true;
     }
-    
+
     // check $Dd#Uu#un (.'$Dd#Uu#un')
     public boolean json_model_12(Object val, Path path, Report rep)
     {
@@ -176,7 +167,7 @@ public class trafo_3 extends ModelChecker
         }
         return res;
     }
-    
+
 
     public void init(JSON json)
     {

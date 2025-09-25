@@ -24,7 +24,7 @@ public class xdatey extends ModelChecker
     {
         return _jm_xre_0_re_pat.matcher(val).find();
     }
-    
+
     public boolean _jm_xre_0(String val, Path path, Report rep)
     {
         Matcher _jm_xre_0_re_match;
@@ -40,7 +40,7 @@ public class xdatey extends ModelChecker
         }
         return true;
     }
-    
+
     // check $ (.)
     public boolean json_model_1(Object val, Path path, Report rep)
     {
@@ -54,7 +54,7 @@ public class xdatey extends ModelChecker
         }
         return res;
     }
-    
+
 
     public void init(JSON json)
     {

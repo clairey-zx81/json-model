@@ -44,9 +44,6 @@ public class base_008 extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected string [.nom]", (path != null ? lpath_0 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.nom]", (path != null ? lpath_0 : null));
                     return false;
                 }
@@ -60,9 +57,6 @@ public class base_008 extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected string [.prenom]", (path != null ? lpath_0 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.prenom]", (path != null ? lpath_0 : null));
                     return false;
                 }
@@ -75,9 +69,6 @@ public class base_008 extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not a 0 strict int [.age]", (path != null ? lpath_0 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.age]", (path != null ? lpath_0 : null));
                     return false;
                 }
@@ -105,7 +96,7 @@ public class base_008 extends ModelChecker
         }
         return true;
     }
-    
+
     // check $ (.)
     public boolean json_model_1(Object val, Path path, Report rep)
     {
@@ -118,7 +109,7 @@ public class base_008 extends ModelChecker
         }
         return res;
     }
-    
+
 
     public void init(JSON json)
     {

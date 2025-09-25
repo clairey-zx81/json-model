@@ -31,7 +31,7 @@ public class more_comments extends ModelChecker
         }
         return res;
     }
-    
+
     // check $Qq (.'$Qq')
     public boolean json_model_3(Object val, Path path, Report rep)
     {
@@ -52,9 +52,6 @@ public class more_comments extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected $Pp [.'$Qq'.0]", (path != null ? arr_0_lpath : null));
-                }
-                if (! res)
-                {
                     break;
                 }
             }
@@ -65,7 +62,7 @@ public class more_comments extends ModelChecker
         }
         return res;
     }
-    
+
     // object .o
     public boolean _jm_obj_1(Object val, Path path, Report rep)
     {
@@ -89,9 +86,6 @@ public class more_comments extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected $Pp [.o.p]", (path != null ? lpath_1 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.o.p]", (path != null ? lpath_1 : null));
                     return false;
                 }
@@ -104,9 +98,6 @@ public class more_comments extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected $Qq [.o.q]", (path != null ? lpath_1 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.o.q]", (path != null ? lpath_1 : null));
                     return false;
                 }
@@ -139,9 +130,6 @@ public class more_comments extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not array or unexpected array [.o.t]", (path != null ? lpath_1 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.o.t]", (path != null ? lpath_1 : null));
                     return false;
                 }
@@ -154,7 +142,7 @@ public class more_comments extends ModelChecker
         }
         return true;
     }
-    
+
     // object .
     public boolean _jm_obj_0(Object val, Path path, Report rep)
     {
@@ -179,9 +167,6 @@ public class more_comments extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected element [.o]", (path != null ? lpath_0 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.o]", (path != null ? lpath_0 : null));
                     return false;
                 }
@@ -194,7 +179,7 @@ public class more_comments extends ModelChecker
         }
         return true;
     }
-    
+
     // check $ (.)
     public boolean json_model_1(Object val, Path path, Report rep)
     {
@@ -208,7 +193,7 @@ public class more_comments extends ModelChecker
         }
         return res;
     }
-    
+
 
     public void init(JSON json)
     {

@@ -54,9 +54,6 @@ function json_model_6(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $u [.'$Dd#l'.0]", (path ? arr_0_lpath : null)])
-            }
-            if (! res)
-            {
                 break;
             }
         }
@@ -103,9 +100,6 @@ function _jm_obj_0(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["not a 0 strict int [.'$Dd#Uu#un'.ua]", (path ? lpath_0 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid mandatory prop value [.'$Dd#Uu#un'.ua]", (path ? lpath_0 : null)])
                 return false;
             }
@@ -119,9 +113,6 @@ function _jm_obj_0(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["not a 0 strict int [.'$Dd#Uu#un'.ub]", (path ? lpath_0 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid mandatory prop value [.'$Dd#Uu#un'.ub]", (path ? lpath_0 : null)])
                 return false;
             }

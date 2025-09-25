@@ -45,9 +45,6 @@ public class dis_03 extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected =true [.'|'.0.discriminator]", (path != null ? lpath_0 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'|'.0.discriminator]", (path != null ? lpath_0 : null));
                     return false;
                 }
@@ -61,9 +58,6 @@ public class dis_03 extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected string [.'|'.0.x]", (path != null ? lpath_0 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'|'.0.x]", (path != null ? lpath_0 : null));
                     return false;
                 }
@@ -91,7 +85,7 @@ public class dis_03 extends ModelChecker
         }
         return true;
     }
-    
+
     // object .'|'.1
     public boolean _jm_obj_1(Object val, Path path, Report rep)
     {
@@ -117,9 +111,6 @@ public class dis_03 extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected =false [.'|'.1.discriminator]", (path != null ? lpath_1 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'|'.1.discriminator]", (path != null ? lpath_1 : null));
                     return false;
                 }
@@ -133,9 +124,6 @@ public class dis_03 extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected string [.'|'.1.y]", (path != null ? lpath_1 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'|'.1.y]", (path != null ? lpath_1 : null));
                     return false;
                 }
@@ -163,8 +151,8 @@ public class dis_03 extends ModelChecker
         }
         return true;
     }
-    
-    
+
+
     // check $ (.)
     public boolean json_model_1(Object val, Path path, Report rep)
     {
@@ -201,7 +189,7 @@ public class dis_03 extends ModelChecker
         }
         return res;
     }
-    
+
 
     public void init(JSON json)
     {

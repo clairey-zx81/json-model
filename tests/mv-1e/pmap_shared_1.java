@@ -44,9 +44,6 @@ public class pmap_shared_1 extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not a bool [.'$Oo0'.a]", (path != null ? lpath_0 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$Oo0'.a]", (path != null ? lpath_0 : null));
                     return false;
                 }
@@ -60,9 +57,6 @@ public class pmap_shared_1 extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not a 0 strict int [.'$Oo0'.b]", (path != null ? lpath_0 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$Oo0'.b]", (path != null ? lpath_0 : null));
                     return false;
                 }
@@ -76,9 +70,6 @@ public class pmap_shared_1 extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not null [.'$Oo0'.c]", (path != null ? lpath_0 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$Oo0'.c]", (path != null ? lpath_0 : null));
                     return false;
                 }
@@ -92,9 +83,6 @@ public class pmap_shared_1 extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not a 0.0 strict float [.'$Oo0'.d]", (path != null ? lpath_0 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$Oo0'.d]", (path != null ? lpath_0 : null));
                     return false;
                 }
@@ -107,9 +95,6 @@ public class pmap_shared_1 extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected $DATE [.'$Oo0'.'']", (path != null ? lpath_0 : null));
-                }
-                if (! res)
-                {
                     return false;
                 }
             }
@@ -139,7 +124,7 @@ public class pmap_shared_1 extends ModelChecker
         }
         return true;
     }
-    
+
     // check $Oo0 (.'$Oo0')
     public boolean json_model_2(Object val, Path path, Report rep)
     {
@@ -152,7 +137,7 @@ public class pmap_shared_1 extends ModelChecker
         }
         return res;
     }
-    
+
     // object .'$Oo1'
     public boolean _jm_obj_1(Object val, Path path, Report rep)
     {
@@ -178,9 +163,6 @@ public class pmap_shared_1 extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not a bool [.'$Oo1'.z]", (path != null ? lpath_1 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$Oo1'.z]", (path != null ? lpath_1 : null));
                     return false;
                 }
@@ -193,9 +175,6 @@ public class pmap_shared_1 extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not a bool [.'$Oo1'.a]", (path != null ? lpath_1 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Oo1'.a]", (path != null ? lpath_1 : null));
                     return false;
                 }
@@ -208,9 +187,6 @@ public class pmap_shared_1 extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not a 0 strict int [.'$Oo1'.b]", (path != null ? lpath_1 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Oo1'.b]", (path != null ? lpath_1 : null));
                     return false;
                 }
@@ -223,9 +199,6 @@ public class pmap_shared_1 extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not null [.'$Oo1'.c]", (path != null ? lpath_1 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Oo1'.c]", (path != null ? lpath_1 : null));
                     return false;
                 }
@@ -238,9 +211,6 @@ public class pmap_shared_1 extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not a 0.0 strict float [.'$Oo1'.d]", (path != null ? lpath_1 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Oo1'.d]", (path != null ? lpath_1 : null));
                     return false;
                 }
@@ -264,7 +234,7 @@ public class pmap_shared_1 extends ModelChecker
         }
         return true;
     }
-    
+
     // check $Oo1 (.'$Oo1')
     public boolean json_model_3(Object val, Path path, Report rep)
     {
@@ -277,7 +247,7 @@ public class pmap_shared_1 extends ModelChecker
         }
         return res;
     }
-    
+
     // object .'$Oo2'
     public boolean _jm_obj_2(Object val, Path path, Report rep)
     {
@@ -303,9 +273,6 @@ public class pmap_shared_1 extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not a bool [.'$Oo2'.a]", (path != null ? lpath_2 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$Oo2'.a]", (path != null ? lpath_2 : null));
                     return false;
                 }
@@ -319,9 +286,6 @@ public class pmap_shared_1 extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not a 0 strict int [.'$Oo2'.b]", (path != null ? lpath_2 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$Oo2'.b]", (path != null ? lpath_2 : null));
                     return false;
                 }
@@ -335,9 +299,6 @@ public class pmap_shared_1 extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not null [.'$Oo2'.c]", (path != null ? lpath_2 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$Oo2'.c]", (path != null ? lpath_2 : null));
                     return false;
                 }
@@ -351,9 +312,6 @@ public class pmap_shared_1 extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not a 0.0 strict float [.'$Oo2'.d]", (path != null ? lpath_2 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$Oo2'.d]", (path != null ? lpath_2 : null));
                     return false;
                 }
@@ -366,9 +324,6 @@ public class pmap_shared_1 extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not a bool [.'$Oo2'.y]", (path != null ? lpath_2 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Oo2'.y]", (path != null ? lpath_2 : null));
                     return false;
                 }
@@ -404,7 +359,7 @@ public class pmap_shared_1 extends ModelChecker
         }
         return true;
     }
-    
+
     // check $Oo2 (.'$Oo2')
     public boolean json_model_4(Object val, Path path, Report rep)
     {
@@ -417,7 +372,7 @@ public class pmap_shared_1 extends ModelChecker
         }
         return res;
     }
-    
+
     // check $ (.)
     public boolean json_model_1(Object val, Path path, Report rep)
     {
@@ -457,7 +412,7 @@ public class pmap_shared_1 extends ModelChecker
         }
         return res;
     }
-    
+
 
     public void init(JSON json)
     {

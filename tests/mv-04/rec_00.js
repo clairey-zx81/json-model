@@ -29,9 +29,6 @@ function _jm_obj_0(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["unexpected $rec [.'$obj'.'']", (path ? lpath_0 : null)])
-        }
-        if (! res)
-        {
             return false;
         }
     }

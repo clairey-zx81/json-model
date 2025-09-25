@@ -33,7 +33,7 @@ public class ex_04 extends ModelChecker
         }
         return res;
     }
-    
+
 
     public void init(JSON json)
     {

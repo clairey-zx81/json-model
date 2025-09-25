@@ -340,10 +340,6 @@ BEGIN
   -- .'$ObjectSchema'.enum.'@'
   res := JSONB_TYPEOF(val) = 'array';
   IF res THEN
-    -- accept any array
-    NULL;
-  END IF;
-  IF res THEN
     ival_2 := JSONB_ARRAY_LENGTH(val);
     res := jm_array_is_unique(val, path, rep) AND ival_2 >= 1;
   END IF;
@@ -359,10 +355,6 @@ DECLARE
 BEGIN
   -- .'$ObjectSchema'.examples
   res := JSONB_TYPEOF(val) = 'array';
-  IF res THEN
-    -- accept any array
-    NULL;
-  END IF;
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;

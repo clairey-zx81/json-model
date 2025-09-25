@@ -40,9 +40,6 @@ public class uniq_0 extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not a 1 strict int [.'@'.0]", (path != null ? arr_0_lpath : null));
-                }
-                if (! res)
-                {
                     break;
                 }
             }
@@ -61,7 +58,7 @@ public class uniq_0 extends ModelChecker
         }
         return res;
     }
-    
+
 
     public void init(JSON json)
     {

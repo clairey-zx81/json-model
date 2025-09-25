@@ -2214,10 +2214,6 @@ BEGIN
       IF NOT res THEN
         -- .'$Model#Transformation'.'|'.1.'/'.'|'.1
         res := JSONB_TYPEOF(pval) = 'array';
-        IF res THEN
-          -- accept any array
-          NULL;
-        END IF;
       END IF;
       IF NOT res THEN
         RETURN FALSE;

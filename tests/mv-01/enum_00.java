@@ -21,6 +21,7 @@ public class enum_00 extends ModelChecker
     Set<Object> _jm_cst_1_set;
     public Map<String, Checker> enum_00_map_pmap;
 
+
     // check $p1 (.'$p1')
     public boolean json_model_2(Object val, Path path, Report rep)
     {
@@ -33,8 +34,8 @@ public class enum_00 extends ModelChecker
         }
         return res;
     }
-    
-    
+
+
     // check $p2 (.'$p2')
     public boolean json_model_3(Object val, Path path, Report rep)
     {
@@ -47,7 +48,7 @@ public class enum_00 extends ModelChecker
         }
         return res;
     }
-    
+
     // check $ (.)
     public boolean json_model_1(Object val, Path path, Report rep)
     {
@@ -59,23 +60,23 @@ public class enum_00 extends ModelChecker
         boolean xr_0;
         // .'^'.0
         xr_0 = json_model_2(val, path, rep);
-        if (! xr_0)
+        if (xr_0)
+        {
+            xc_0 += 1;
+        }
+        else
         {
             if (rep != null) rep.addEntry("unexpected $p1 [.'^'.0]", path);
         }
-        if (xr_0)
-        {
-            xc_0 += 1;
-        }
         // .'^'.1
         xr_0 = json_model_3(val, path, rep);
-        if (! xr_0)
-        {
-            if (rep != null) rep.addEntry("unexpected $p2 [.'^'.1]", path);
-        }
         if (xr_0)
         {
             xc_0 += 1;
+        }
+        else
+        {
+            if (rep != null) rep.addEntry("unexpected $p2 [.'^'.1]", path);
         }
         res = xc_0 == 1;
         if (res)
@@ -88,7 +89,7 @@ public class enum_00 extends ModelChecker
         }
         return res;
     }
-    
+
 
     public void init(JSON json)
     {

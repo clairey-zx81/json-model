@@ -31,7 +31,7 @@ public class at_bool extends ModelChecker
         }
         return res;
     }
-    
+
 
     public void init(JSON json)
     {

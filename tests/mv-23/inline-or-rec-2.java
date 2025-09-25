@@ -46,9 +46,6 @@ public class inline_or_rec_2 extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected a [.'$ab'.'|'.0.t]", (path != null ? lpath_0 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$ab'.'|'.0.t]", (path != null ? lpath_0 : null));
                     return false;
                 }
@@ -62,9 +59,6 @@ public class inline_or_rec_2 extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not a 1 strict int [.'$ab'.'|'.0.a]", (path != null ? lpath_0 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$ab'.'|'.0.a]", (path != null ? lpath_0 : null));
                     return false;
                 }
@@ -92,7 +86,7 @@ public class inline_or_rec_2 extends ModelChecker
         }
         return true;
     }
-    
+
     // object .'$ab'.'|'.1
     public boolean _jm_obj_1(Object val, Path path, Report rep)
     {
@@ -118,9 +112,6 @@ public class inline_or_rec_2 extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected b [.'$ab'.'|'.1.t]", (path != null ? lpath_1 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$ab'.'|'.1.t]", (path != null ? lpath_1 : null));
                     return false;
                 }
@@ -134,9 +125,6 @@ public class inline_or_rec_2 extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not a 1 strict int [.'$ab'.'|'.1.b]", (path != null ? lpath_1 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$ab'.'|'.1.b]", (path != null ? lpath_1 : null));
                     return false;
                 }
@@ -164,7 +152,7 @@ public class inline_or_rec_2 extends ModelChecker
         }
         return true;
     }
-    
+
     // object .'$ab'.'|'.2
     public boolean _jm_obj_2(Object val, Path path, Report rep)
     {
@@ -190,9 +178,6 @@ public class inline_or_rec_2 extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected c [.'$ab'.'|'.2.t]", (path != null ? lpath_2 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$ab'.'|'.2.t]", (path != null ? lpath_2 : null));
                     return false;
                 }
@@ -206,9 +191,6 @@ public class inline_or_rec_2 extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not a 1 strict int [.'$ab'.'|'.2.c]", (path != null ? lpath_2 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$ab'.'|'.2.c]", (path != null ? lpath_2 : null));
                     return false;
                 }
@@ -236,7 +218,7 @@ public class inline_or_rec_2 extends ModelChecker
         }
         return true;
     }
-    
+
     // object .'$ab'.'|'.3
     public boolean _jm_obj_3(Object val, Path path, Report rep)
     {
@@ -262,9 +244,6 @@ public class inline_or_rec_2 extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected d [.'$ab'.'|'.3.t]", (path != null ? lpath_3 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$ab'.'|'.3.t]", (path != null ? lpath_3 : null));
                     return false;
                 }
@@ -278,9 +257,6 @@ public class inline_or_rec_2 extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not a 1 strict int [.'$ab'.'|'.3.d]", (path != null ? lpath_3 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$ab'.'|'.3.d]", (path != null ? lpath_3 : null));
                     return false;
                 }
@@ -308,8 +284,8 @@ public class inline_or_rec_2 extends ModelChecker
         }
         return true;
     }
-    
-    
+
+
     // check $ab (.'$ab')
     public boolean json_model_2(Object val, Path path, Report rep)
     {
@@ -345,7 +321,7 @@ public class inline_or_rec_2 extends ModelChecker
         }
         return res;
     }
-    
+
     // object .'$cd'.'|'.0
     public boolean _jm_obj_4(Object val, Path path, Report rep)
     {
@@ -371,9 +347,6 @@ public class inline_or_rec_2 extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected c [.'$cd'.'|'.0.t]", (path != null ? lpath_4 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$cd'.'|'.0.t]", (path != null ? lpath_4 : null));
                     return false;
                 }
@@ -387,9 +360,6 @@ public class inline_or_rec_2 extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not a 1 strict int [.'$cd'.'|'.0.c]", (path != null ? lpath_4 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$cd'.'|'.0.c]", (path != null ? lpath_4 : null));
                     return false;
                 }
@@ -417,7 +387,7 @@ public class inline_or_rec_2 extends ModelChecker
         }
         return true;
     }
-    
+
     // object .'$cd'.'|'.1
     public boolean _jm_obj_5(Object val, Path path, Report rep)
     {
@@ -443,9 +413,6 @@ public class inline_or_rec_2 extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected d [.'$cd'.'|'.1.t]", (path != null ? lpath_5 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$cd'.'|'.1.t]", (path != null ? lpath_5 : null));
                     return false;
                 }
@@ -459,9 +426,6 @@ public class inline_or_rec_2 extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not a 1 strict int [.'$cd'.'|'.1.d]", (path != null ? lpath_5 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$cd'.'|'.1.d]", (path != null ? lpath_5 : null));
                     return false;
                 }
@@ -489,7 +453,7 @@ public class inline_or_rec_2 extends ModelChecker
         }
         return true;
     }
-    
+
     // object .'$cd'.'|'.2
     public boolean _jm_obj_6(Object val, Path path, Report rep)
     {
@@ -515,9 +479,6 @@ public class inline_or_rec_2 extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected a [.'$cd'.'|'.2.t]", (path != null ? lpath_6 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$cd'.'|'.2.t]", (path != null ? lpath_6 : null));
                     return false;
                 }
@@ -531,9 +492,6 @@ public class inline_or_rec_2 extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not a 1 strict int [.'$cd'.'|'.2.a]", (path != null ? lpath_6 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$cd'.'|'.2.a]", (path != null ? lpath_6 : null));
                     return false;
                 }
@@ -561,7 +519,7 @@ public class inline_or_rec_2 extends ModelChecker
         }
         return true;
     }
-    
+
     // object .'$cd'.'|'.3
     public boolean _jm_obj_7(Object val, Path path, Report rep)
     {
@@ -587,9 +545,6 @@ public class inline_or_rec_2 extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected b [.'$cd'.'|'.3.t]", (path != null ? lpath_7 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$cd'.'|'.3.t]", (path != null ? lpath_7 : null));
                     return false;
                 }
@@ -603,9 +558,6 @@ public class inline_or_rec_2 extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not a 1 strict int [.'$cd'.'|'.3.b]", (path != null ? lpath_7 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$cd'.'|'.3.b]", (path != null ? lpath_7 : null));
                     return false;
                 }
@@ -633,8 +585,8 @@ public class inline_or_rec_2 extends ModelChecker
         }
         return true;
     }
-    
-    
+
+
     // check $cd (.'$cd')
     public boolean json_model_3(Object val, Path path, Report rep)
     {
@@ -670,7 +622,7 @@ public class inline_or_rec_2 extends ModelChecker
         }
         return res;
     }
-    
+
     // check $ (.)
     public boolean json_model_1(Object val, Path path, Report rep)
     {
@@ -683,7 +635,7 @@ public class inline_or_rec_2 extends ModelChecker
         }
         return res;
     }
-    
+
 
     public void init(JSON json)
     {

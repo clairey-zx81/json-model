@@ -38,7 +38,6 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
     res = isinstance(pval, str)
     if not res:
         rep is None or rep.append(("unexpected string [.name]", path))
-    if not res:
         rep is None or rep.append(("unexpected value for mandatory prop <name> [.]", path))
         return False
     if "born" in val:
@@ -47,7 +46,6 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
         res = is_valid_date(pval, path, rep)
         if not res:
             rep is None or rep.append(("unexpected $DATE [.born]", path))
-        if not res:
             rep is None or rep.append(("unexpected value for optional prop <born> [.]", path))
             return False
     return True

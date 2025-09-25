@@ -47,9 +47,6 @@ static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *re
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected string [.'^'.0.a]", (path ? &lpath_0 : NULL));
-            }
-            if (! res)
-            {
                 if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'^'.0.a]", (path ? &lpath_0 : NULL));
                 return false;
             }
@@ -63,9 +60,6 @@ static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *re
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected /.../ [.'^'.0.'']", (path ? &lpath_0 : NULL));
-            }
-            if (! res)
-            {
                 return false;
             }
         }
@@ -108,9 +102,6 @@ static INLINE bool _jm_obj_1(const json_t *val, jm_path_t *path, jm_report_t *re
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected string [.'^'.1.b]", (path ? &lpath_1 : NULL));
-            }
-            if (! res)
-            {
                 if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'^'.1.b]", (path ? &lpath_1 : NULL));
                 return false;
             }
@@ -124,9 +115,6 @@ static INLINE bool _jm_obj_1(const json_t *val, jm_path_t *path, jm_report_t *re
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected /.../ [.'^'.1.'']", (path ? &lpath_1 : NULL));
-            }
-            if (! res)
-            {
                 return false;
             }
         }
@@ -156,23 +144,23 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
     bool xr_0;
     // .'^'.0
     xr_0 = _jm_obj_0(val, path, rep);
-    if (! xr_0)
+    if (xr_0)
+    {
+        xc_0 += 1;
+    }
+    else
     {
         if (rep) jm_report_add_entry(rep, "unexpected element [.'^'.0]", path);
     }
-    if (xr_0)
-    {
-        xc_0 += 1;
-    }
     // .'^'.1
     xr_0 = _jm_obj_1(val, path, rep);
-    if (! xr_0)
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected element [.'^'.1]", path);
-    }
     if (xr_0)
     {
         xc_0 += 1;
+    }
+    else
+    {
+        if (rep) jm_report_add_entry(rep, "unexpected element [.'^'.1]", path);
     }
     res = xc_0 == 1;
     if (res)

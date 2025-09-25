@@ -70,13 +70,13 @@ function json_model_1(val, path, rep)
     let xr_0;
     // .'^'.0
     xr_0 = json_model_2(val, path, rep);
-    if (! xr_0)
-    {
-        rep !== null && rep.push(["unexpected $Xx [.'^'.0]", path])
-    }
     if (xr_0)
     {
         xc_0 += 1;
+    }
+    else
+    {
+        rep !== null && rep.push(["unexpected $Xx [.'^'.0]", path])
     }
     // .'^'.1
     xr_0 = Array.isArray(val);
@@ -91,20 +91,17 @@ function json_model_1(val, path, rep)
             if (! xr_0)
             {
                 rep !== null && rep.push(["unexpected $Xx [.'^'.1.0]", (path ? arr_0_lpath : null)])
-            }
-            if (! xr_0)
-            {
                 break;
             }
         }
     }
-    if (! xr_0)
-    {
-        rep !== null && rep.push(["not array or unexpected array [.'^'.1]", path])
-    }
     if (xr_0)
     {
         xc_0 += 1;
+    }
+    else
+    {
+        rep !== null && rep.push(["not array or unexpected array [.'^'.1]", path])
     }
     res = xc_0 == 1;
     if (res)

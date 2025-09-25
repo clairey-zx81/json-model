@@ -99,9 +99,6 @@ static bool json_model_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "not a 0 strict int [.'$foo#li0'.0]", (path ? &arr_0_lpath : NULL));
-            }
-            if (! res)
-            {
                 break;
             }
         }
@@ -131,9 +128,6 @@ static bool json_model_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected $DATE [.'$foo#ls0'.0]", (path ? &arr_1_lpath : NULL));
-            }
-            if (! res)
-            {
                 break;
             }
         }
@@ -163,9 +157,6 @@ static bool json_model_6(const json_t *val, jm_path_t *path, jm_report_t *rep)
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected $BOOL [.'$foo#lb0'.0]", (path ? &arr_2_lpath : NULL));
-            }
-            if (! res)
-            {
                 break;
             }
         }
@@ -195,9 +186,6 @@ static bool json_model_7(const json_t *val, jm_path_t *path, jm_report_t *rep)
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "not a 0.0 strict float [.'$foo#lf0'.0]", (path ? &arr_3_lpath : NULL));
-            }
-            if (! res)
-            {
                 break;
             }
         }

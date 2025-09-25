@@ -45,6 +45,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep);
 jm_propmap_t check_model_map_tab[4];
 const size_t check_model_map_size = 4;
 
+
 // check $allTypes (.'$allTypes')
 static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
@@ -77,9 +78,6 @@ static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected string [.'$distinctStringArray'.'@'.0]", (path ? &arr_0_lpath : NULL));
-            }
-            if (! res)
-            {
                 break;
             }
         }
@@ -233,10 +231,6 @@ static bool _jm_f_7(const json_t *val, jm_path_t *path, jm_report_t *rep)
     // .enum
     // .enum.'@'
     res = json_is_array(val);
-    if (res)
-    {
-        // accept any array
-    }
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "not array or unexpected array [.enum.'@']", path);
@@ -280,9 +274,6 @@ static bool _jm_f_8(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 if (! res)
                 {
                     if (rep) jm_report_add_entry(rep, "unexpected $Schema [.extends.'|'.1.0]", (path ? &arr_1_lpath : NULL));
-                }
-                if (! res)
-                {
                     break;
                 }
             }
@@ -356,9 +347,6 @@ static bool _jm_f_11(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 if (! res)
                 {
                     if (rep) jm_report_add_entry(rep, "unexpected $Schema [.items.'|'.1.0]", (path ? &arr_2_lpath : NULL));
-                }
-                if (! res)
-                {
                     break;
                 }
             }
@@ -529,9 +517,6 @@ static INLINE bool _jm_obj_1(const json_t *val, jm_path_t *path, jm_report_t *re
         if (! res)
         {
             if (rep) jm_report_add_entry(rep, "unexpected $Schema [.properties.'']", (path ? &lpath_1 : NULL));
-        }
-        if (! res)
-        {
             return false;
         }
     }
@@ -640,9 +625,6 @@ static bool _jm_f_25(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 else
                 {
                     if (rep) jm_report_add_entry(rep, "no model matched [.type.'|'.1.0.'|']", (path ? &arr_3_lpath : NULL));
-                }
-                if (! res)
-                {
                     break;
                 }
             }

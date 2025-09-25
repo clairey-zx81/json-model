@@ -24,7 +24,7 @@ public class re_3 extends ModelChecker
     {
         return _jm_re_0_pat.matcher(val).find();
     }
-    
+
     // object .
     public boolean _jm_obj_0(Object val, Path path, Report rep)
     {
@@ -49,9 +49,6 @@ public class re_3 extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected /.*/ [.all]", (path != null ? lpath_0 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.all]", (path != null ? lpath_0 : null));
                     return false;
                 }
@@ -65,9 +62,6 @@ public class re_3 extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected /./s [.nz]", (path != null ? lpath_0 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.nz]", (path != null ? lpath_0 : null));
                     return false;
                 }
@@ -81,9 +75,6 @@ public class re_3 extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected /./ [.some]", (path != null ? lpath_0 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.some]", (path != null ? lpath_0 : null));
                     return false;
                 }
@@ -96,7 +87,7 @@ public class re_3 extends ModelChecker
         }
         return true;
     }
-    
+
     // check $ (.)
     public boolean json_model_1(Object val, Path path, Report rep)
     {
@@ -109,7 +100,7 @@ public class re_3 extends ModelChecker
         }
         return res;
     }
-    
+
 
     public void init(JSON json)
     {

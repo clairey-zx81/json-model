@@ -62,9 +62,6 @@ public class rec_03 extends ModelChecker
                             if (! res)
                             {
                                 if (rep != null) rep.addEntry("unexpected $root [.foo.'|'.1.0]", ((path != null ? lpath_0 : null) != null ? arr_0_lpath : null));
-                            }
-                            if (! res)
-                            {
                                 break;
                             }
                         }
@@ -81,9 +78,6 @@ public class rec_03 extends ModelChecker
                 else
                 {
                     if (rep != null) rep.addEntry("no model matched [.foo.'|']", (path != null ? lpath_0 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.foo]", (path != null ? lpath_0 : null));
                     return false;
                 }
@@ -96,7 +90,7 @@ public class rec_03 extends ModelChecker
         }
         return true;
     }
-    
+
     // check $ (.)
     public boolean json_model_1(Object val, Path path, Report rep)
     {
@@ -110,7 +104,7 @@ public class rec_03 extends ModelChecker
         }
         return res;
     }
-    
+
 
     public void init(JSON json)
     {

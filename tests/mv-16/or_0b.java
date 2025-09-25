@@ -20,6 +20,7 @@ public class or_0b extends ModelChecker
     Set<Object> _jm_cst_0_set;
     public Map<String, Checker> or_0b_map_pmap;
 
+
     // check $ (.)
     public boolean json_model_1(Object val, Path path, Report rep)
     {
@@ -33,7 +34,7 @@ public class or_0b extends ModelChecker
         }
         return res;
     }
-    
+
 
     public void init(JSON json)
     {

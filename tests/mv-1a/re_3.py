@@ -24,6 +24,7 @@ _jm_re_0_reco: object
 _jm_re_0: RegexFun
 check_model_map: PropMap
 
+
 # object .
 def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
     if not isinstance(val, dict):
@@ -40,7 +41,6 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
             res = isinstance(pval, str) and True
             if not res:
                 rep is None or rep.append(("unexpected /.*/ [.all]", lpath_0 if path is not None else None))
-            if not res:
                 rep is None or rep.append(("invalid optional prop value [.all]", lpath_0 if path is not None else None))
                 return False
         elif prop == "nz":
@@ -50,7 +50,6 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
             res = isinstance(pval, str) and len(pval) > 0
             if not res:
                 rep is None or rep.append(("unexpected /./s [.nz]", lpath_0 if path is not None else None))
-            if not res:
                 rep is None or rep.append(("invalid optional prop value [.nz]", lpath_0 if path is not None else None))
                 return False
         elif prop == "some":
@@ -60,7 +59,6 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
             res = isinstance(pval, str) and _jm_re_0(pval, lpath_0 if path is not None else None, rep)
             if not res:
                 rep is None or rep.append(("unexpected /./ [.some]", lpath_0 if path is not None else None))
-            if not res:
                 rep is None or rep.append(("invalid optional prop value [.some]", lpath_0 if path is not None else None))
                 return False
         else:

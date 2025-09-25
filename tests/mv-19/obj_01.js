@@ -13,6 +13,7 @@ let _jm_cst_0 = new Set()
 const _jm_re_0_re = new runtime.RX("^[0-9]+$", "")
 var check_model_map = new Map()
 
+
 // check $Xxx (.'$Xxx')
 function json_model_2(val, path, rep)
 {
@@ -50,9 +51,6 @@ function _jm_obj_0(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $DATE [.foo]", (path ? lpath_0 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid mandatory prop value [.foo]", (path ? lpath_0 : null)])
                 return false;
             }
@@ -65,9 +63,6 @@ function _jm_obj_0(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["not a bool [.bla]", (path ? lpath_0 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid optional prop value [.bla]", (path ? lpath_0 : null)])
                 return false;
             }
@@ -80,9 +75,6 @@ function _jm_obj_0(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["not a 0.0 strict float [.'$Xxx']", (path ? lpath_0 : null)])
-            }
-            if (! res)
-            {
                 return false;
             }
         }
@@ -94,9 +86,6 @@ function _jm_obj_0(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["not a 0 strict int [.'/^[0-9]+$/']", (path ? lpath_0 : null)])
-            }
-            if (! res)
-            {
                 return false;
             }
         }
@@ -108,9 +97,6 @@ function _jm_obj_0(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["not null [.'']", (path ? lpath_0 : null)])
-            }
-            if (! res)
-            {
                 return false;
             }
         }

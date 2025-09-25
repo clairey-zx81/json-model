@@ -54,7 +54,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // check $ (.)
     public boolean json_model_1(Object val, Path path, Report rep)
     {
@@ -67,7 +67,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // object .'$tight#RootSchema'.'&'.0
     public boolean _jm_obj_0(Object val, Path path, Report rep)
     {
@@ -90,15 +90,12 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$tight#RootSchema'.'&'.0.'$schema']", path);
-        }
-        if (! res)
-        {
             if (rep != null) rep.addEntry("unexpected value for mandatory prop <$schema> [.'$tight#RootSchema'.'&'.0]", path);
             return false;
         }
         return true;
     }
-    
+
     // check $tight#RootSchema (.'$tight#RootSchema')
     public boolean json_model_27(Object val, Path path, Report rep)
     {
@@ -134,8 +131,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
-    
+
+
     // check $tight#ObjectSchema (.'$tight#ObjectSchema')
     public boolean json_model_25(Object val, Path path, Report rep)
     {
@@ -200,7 +197,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_1_map_$comment (.'$tight#metas'.'$comment')
     public boolean _jm_f_0(Object val, Path path, Report rep)
     {
@@ -213,7 +210,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // object .'$tight#metas'.'$defs'
     public boolean _jm_obj_2(Object val, Path path, Report rep)
     {
@@ -235,15 +232,12 @@ public class json_schema_draft_tighter_loose extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("unexpected $Schema [.'$tight#metas'.'$defs'.'']", (path != null ? lpath_1 : null));
-            }
-            if (! res)
-            {
                 return false;
             }
         }
         return true;
     }
-    
+
     // check _jm_obj_1_map_$defs (.'$tight#metas'.'$defs')
     public boolean _jm_f_1(Object val, Path path, Report rep)
     {
@@ -256,7 +250,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_1_map_$id (.'$tight#metas'.'$id')
     public boolean _jm_f_2(Object val, Path path, Report rep)
     {
@@ -269,7 +263,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_1_map_$schema (.'$tight#metas'.'$schema')
     public boolean _jm_f_3(Object val, Path path, Report rep)
     {
@@ -282,7 +276,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_1_map_default (.'$tight#metas'.default)
     public boolean _jm_f_4(Object val, Path path, Report rep)
     {
@@ -295,7 +289,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // object .'$tight#metas'.definitions
     public boolean _jm_obj_3(Object val, Path path, Report rep)
     {
@@ -317,15 +311,12 @@ public class json_schema_draft_tighter_loose extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("unexpected $Schema [.'$tight#metas'.definitions.'']", (path != null ? lpath_2 : null));
-            }
-            if (! res)
-            {
                 return false;
             }
         }
         return true;
     }
-    
+
     // check _jm_obj_1_map_definitions (.'$tight#metas'.definitions)
     public boolean _jm_f_5(Object val, Path path, Report rep)
     {
@@ -338,7 +329,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_1_map_description (.'$tight#metas'.description)
     public boolean _jm_f_6(Object val, Path path, Report rep)
     {
@@ -351,24 +342,20 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_1_map_examples (.'$tight#metas'.examples)
     public boolean _jm_f_7(Object val, Path path, Report rep)
     {
         boolean res;
         // .'$tight#metas'.examples
         res = json.isArray(val);
-        if (res)
-        {
-            // accept any array
-        }
         if (! res)
         {
             if (rep != null) rep.addEntry("not array or unexpected array [.'$tight#metas'.examples]", path);
         }
         return res;
     }
-    
+
     // check _jm_obj_1_map_id (.'$tight#metas'.id)
     public boolean _jm_f_8(Object val, Path path, Report rep)
     {
@@ -381,7 +368,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_1_map_title (.'$tight#metas'.title)
     public boolean _jm_f_9(Object val, Path path, Report rep)
     {
@@ -394,8 +381,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
-    
+
+
     // object .'$tight#metas'
     public boolean _jm_obj_1(Object val, Path path, Report rep)
     {
@@ -428,7 +415,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return true;
     }
-    
+
     // check $tight#metas (.'$tight#metas')
     public boolean json_model_11(Object val, Path path, Report rep)
     {
@@ -442,7 +429,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_4_map_$comment (.'$tight#String'.'$comment')
     public boolean _jm_f_10(Object val, Path path, Report rep)
     {
@@ -455,7 +442,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // object .'$tight#String'.'$defs'
     public boolean _jm_obj_5(Object val, Path path, Report rep)
     {
@@ -477,15 +464,12 @@ public class json_schema_draft_tighter_loose extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("unexpected $Schema [.'$tight#String'.'$defs'.'']", (path != null ? lpath_4 : null));
-            }
-            if (! res)
-            {
                 return false;
             }
         }
         return true;
     }
-    
+
     // check _jm_obj_4_map_$defs (.'$tight#String'.'$defs')
     public boolean _jm_f_11(Object val, Path path, Report rep)
     {
@@ -498,7 +482,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_4_map_$id (.'$tight#String'.'$id')
     public boolean _jm_f_12(Object val, Path path, Report rep)
     {
@@ -511,7 +495,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_4_map_$schema (.'$tight#String'.'$schema')
     public boolean _jm_f_13(Object val, Path path, Report rep)
     {
@@ -524,7 +508,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_4_map_default (.'$tight#String'.default)
     public boolean _jm_f_14(Object val, Path path, Report rep)
     {
@@ -537,7 +521,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // object .'$tight#String'.definitions
     public boolean _jm_obj_6(Object val, Path path, Report rep)
     {
@@ -559,15 +543,12 @@ public class json_schema_draft_tighter_loose extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("unexpected $Schema [.'$tight#String'.definitions.'']", (path != null ? lpath_5 : null));
-            }
-            if (! res)
-            {
                 return false;
             }
         }
         return true;
     }
-    
+
     // check _jm_obj_4_map_definitions (.'$tight#String'.definitions)
     public boolean _jm_f_15(Object val, Path path, Report rep)
     {
@@ -580,7 +561,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_4_map_description (.'$tight#String'.description)
     public boolean _jm_f_16(Object val, Path path, Report rep)
     {
@@ -593,25 +574,21 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_4_map_examples (.'$tight#String'.examples)
     public boolean _jm_f_17(Object val, Path path, Report rep)
     {
         boolean res;
         // .'$tight#String'.examples
         res = json.isArray(val);
-        if (res)
-        {
-            // accept any array
-        }
         if (! res)
         {
             if (rep != null) rep.addEntry("not array or unexpected array [.'$tight#String'.examples]", path);
         }
         return res;
     }
-    
-    
+
+
     // check _jm_obj_4_map_format (.'$tight#String'.format)
     public boolean _jm_f_18(Object val, Path path, Report rep)
     {
@@ -624,7 +601,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_4_map_id (.'$tight#String'.id)
     public boolean _jm_f_19(Object val, Path path, Report rep)
     {
@@ -637,7 +614,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_4_map_maxLength (.'$tight#String'.maxLength)
     public boolean _jm_f_20(Object val, Path path, Report rep)
     {
@@ -650,7 +627,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_4_map_minLength (.'$tight#String'.minLength)
     public boolean _jm_f_21(Object val, Path path, Report rep)
     {
@@ -663,7 +640,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_4_map_pattern (.'$tight#String'.pattern)
     public boolean _jm_f_22(Object val, Path path, Report rep)
     {
@@ -676,7 +653,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_4_map_title (.'$tight#String'.title)
     public boolean _jm_f_23(Object val, Path path, Report rep)
     {
@@ -689,8 +666,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
-    
+
+
     // object .'$tight#String'
     public boolean _jm_obj_4(Object val, Path path, Report rep)
     {
@@ -717,9 +694,6 @@ public class json_schema_draft_tighter_loose extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected string [.'$tight#String'.type]", (path != null ? lpath_3 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$tight#String'.type]", (path != null ? lpath_3 : null));
                     return false;
                 }
@@ -752,7 +726,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return true;
     }
-    
+
     // check $tight#String (.'$tight#String')
     public boolean json_model_12(Object val, Path path, Report rep)
     {
@@ -765,7 +739,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_7_map_$comment (.'$tight#Array'.'$comment')
     public boolean _jm_f_24(Object val, Path path, Report rep)
     {
@@ -778,7 +752,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // object .'$tight#Array'.'$defs'
     public boolean _jm_obj_8(Object val, Path path, Report rep)
     {
@@ -800,15 +774,12 @@ public class json_schema_draft_tighter_loose extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("unexpected $Schema [.'$tight#Array'.'$defs'.'']", (path != null ? lpath_7 : null));
-            }
-            if (! res)
-            {
                 return false;
             }
         }
         return true;
     }
-    
+
     // check _jm_obj_7_map_$defs (.'$tight#Array'.'$defs')
     public boolean _jm_f_25(Object val, Path path, Report rep)
     {
@@ -821,7 +792,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_7_map_$id (.'$tight#Array'.'$id')
     public boolean _jm_f_26(Object val, Path path, Report rep)
     {
@@ -834,7 +805,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_7_map_$schema (.'$tight#Array'.'$schema')
     public boolean _jm_f_27(Object val, Path path, Report rep)
     {
@@ -847,7 +818,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_7_map_additionalItems (.'$tight#Array'.additionalItems)
     public boolean _jm_f_28(Object val, Path path, Report rep)
     {
@@ -860,7 +831,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_7_map_default (.'$tight#Array'.default)
     public boolean _jm_f_29(Object val, Path path, Report rep)
     {
@@ -873,7 +844,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // object .'$tight#Array'.definitions
     public boolean _jm_obj_9(Object val, Path path, Report rep)
     {
@@ -895,15 +866,12 @@ public class json_schema_draft_tighter_loose extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("unexpected $Schema [.'$tight#Array'.definitions.'']", (path != null ? lpath_8 : null));
-            }
-            if (! res)
-            {
                 return false;
             }
         }
         return true;
     }
-    
+
     // check _jm_obj_7_map_definitions (.'$tight#Array'.definitions)
     public boolean _jm_f_30(Object val, Path path, Report rep)
     {
@@ -916,7 +884,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_7_map_description (.'$tight#Array'.description)
     public boolean _jm_f_31(Object val, Path path, Report rep)
     {
@@ -929,24 +897,20 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_7_map_examples (.'$tight#Array'.examples)
     public boolean _jm_f_32(Object val, Path path, Report rep)
     {
         boolean res;
         // .'$tight#Array'.examples
         res = json.isArray(val);
-        if (res)
-        {
-            // accept any array
-        }
         if (! res)
         {
             if (rep != null) rep.addEntry("not array or unexpected array [.'$tight#Array'.examples]", path);
         }
         return res;
     }
-    
+
     // check _jm_obj_7_map_id (.'$tight#Array'.id)
     public boolean _jm_f_33(Object val, Path path, Report rep)
     {
@@ -959,7 +923,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_7_map_items (.'$tight#Array'.items)
     public boolean _jm_f_34(Object val, Path path, Report rep)
     {
@@ -990,7 +954,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_7_map_maxItems (.'$tight#Array'.maxItems)
     public boolean _jm_f_35(Object val, Path path, Report rep)
     {
@@ -1003,7 +967,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_7_map_minItems (.'$tight#Array'.minItems)
     public boolean _jm_f_36(Object val, Path path, Report rep)
     {
@@ -1016,7 +980,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_7_map_prefixItems (.'$tight#Array'.prefixItems)
     public boolean _jm_f_37(Object val, Path path, Report rep)
     {
@@ -1029,7 +993,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_7_map_title (.'$tight#Array'.title)
     public boolean _jm_f_38(Object val, Path path, Report rep)
     {
@@ -1042,7 +1006,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_7_map_uniqueItems (.'$tight#Array'.uniqueItems)
     public boolean _jm_f_39(Object val, Path path, Report rep)
     {
@@ -1055,8 +1019,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
-    
+
+
     // object .'$tight#Array'
     public boolean _jm_obj_7(Object val, Path path, Report rep)
     {
@@ -1083,9 +1047,6 @@ public class json_schema_draft_tighter_loose extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected array [.'$tight#Array'.type]", (path != null ? lpath_6 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$tight#Array'.type]", (path != null ? lpath_6 : null));
                     return false;
                 }
@@ -1118,7 +1079,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return true;
     }
-    
+
     // check $tight#Array (.'$tight#Array')
     public boolean json_model_13(Object val, Path path, Report rep)
     {
@@ -1131,7 +1092,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // check $tight#schemaArray (.'$tight#schemaArray')
     public boolean json_model_6(Object val, Path path, Report rep)
     {
@@ -1152,9 +1113,6 @@ public class json_schema_draft_tighter_loose extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected $Schema [.'$tight#schemaArray'.0]", (path != null ? arr_0_lpath : null));
-                }
-                if (! res)
-                {
                     break;
                 }
             }
@@ -1165,7 +1123,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_10_map_$comment (.'$tight#Object'.'$comment')
     public boolean _jm_f_40(Object val, Path path, Report rep)
     {
@@ -1178,7 +1136,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // object .'$tight#Object'.'$defs'
     public boolean _jm_obj_11(Object val, Path path, Report rep)
     {
@@ -1200,15 +1158,12 @@ public class json_schema_draft_tighter_loose extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("unexpected $Schema [.'$tight#Object'.'$defs'.'']", (path != null ? lpath_10 : null));
-            }
-            if (! res)
-            {
                 return false;
             }
         }
         return true;
     }
-    
+
     // check _jm_obj_10_map_$defs (.'$tight#Object'.'$defs')
     public boolean _jm_f_41(Object val, Path path, Report rep)
     {
@@ -1221,7 +1176,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_10_map_$id (.'$tight#Object'.'$id')
     public boolean _jm_f_42(Object val, Path path, Report rep)
     {
@@ -1234,7 +1189,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_10_map_$schema (.'$tight#Object'.'$schema')
     public boolean _jm_f_43(Object val, Path path, Report rep)
     {
@@ -1247,7 +1202,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_10_map_additionalProperties (.'$tight#Object'.additionalProperties)
     public boolean _jm_f_44(Object val, Path path, Report rep)
     {
@@ -1260,7 +1215,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_10_map_default (.'$tight#Object'.default)
     public boolean _jm_f_45(Object val, Path path, Report rep)
     {
@@ -1273,7 +1228,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // object .'$tight#Object'.definitions
     public boolean _jm_obj_12(Object val, Path path, Report rep)
     {
@@ -1295,15 +1250,12 @@ public class json_schema_draft_tighter_loose extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("unexpected $Schema [.'$tight#Object'.definitions.'']", (path != null ? lpath_11 : null));
-            }
-            if (! res)
-            {
                 return false;
             }
         }
         return true;
     }
-    
+
     // check _jm_obj_10_map_definitions (.'$tight#Object'.definitions)
     public boolean _jm_f_46(Object val, Path path, Report rep)
     {
@@ -1316,7 +1268,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_10_map_description (.'$tight#Object'.description)
     public boolean _jm_f_47(Object val, Path path, Report rep)
     {
@@ -1329,24 +1281,20 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_10_map_examples (.'$tight#Object'.examples)
     public boolean _jm_f_48(Object val, Path path, Report rep)
     {
         boolean res;
         // .'$tight#Object'.examples
         res = json.isArray(val);
-        if (res)
-        {
-            // accept any array
-        }
         if (! res)
         {
             if (rep != null) rep.addEntry("not array or unexpected array [.'$tight#Object'.examples]", path);
         }
         return res;
     }
-    
+
     // check _jm_obj_10_map_id (.'$tight#Object'.id)
     public boolean _jm_f_49(Object val, Path path, Report rep)
     {
@@ -1359,7 +1307,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // object .'$tight#Object'.patternProperties
     public boolean _jm_obj_13(Object val, Path path, Report rep)
     {
@@ -1383,9 +1331,6 @@ public class json_schema_draft_tighter_loose extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected $Schema [.'$tight#Object'.patternProperties.'$REGEX']", (path != null ? lpath_12 : null));
-                }
-                if (! res)
-                {
                     return false;
                 }
             }
@@ -1397,7 +1342,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return true;
     }
-    
+
     // check _jm_obj_10_map_patternProperties (.'$tight#Object'.patternProperties)
     public boolean _jm_f_50(Object val, Path path, Report rep)
     {
@@ -1410,7 +1355,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // object .'$tight#Object'.properties
     public boolean _jm_obj_14(Object val, Path path, Report rep)
     {
@@ -1432,15 +1377,12 @@ public class json_schema_draft_tighter_loose extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("unexpected $Schema [.'$tight#Object'.properties.'']", (path != null ? lpath_13 : null));
-            }
-            if (! res)
-            {
                 return false;
             }
         }
         return true;
     }
-    
+
     // check _jm_obj_10_map_properties (.'$tight#Object'.properties)
     public boolean _jm_f_51(Object val, Path path, Report rep)
     {
@@ -1453,7 +1395,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_10_map_required (.'$tight#Object'.required)
     public boolean _jm_f_52(Object val, Path path, Report rep)
     {
@@ -1474,9 +1416,6 @@ public class json_schema_draft_tighter_loose extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected string [.'$tight#Object'.required.0]", (path != null ? arr_1_lpath : null));
-                }
-                if (! res)
-                {
                     break;
                 }
             }
@@ -1487,7 +1426,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_10_map_title (.'$tight#Object'.title)
     public boolean _jm_f_53(Object val, Path path, Report rep)
     {
@@ -1500,8 +1439,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
-    
+
+
     // object .'$tight#Object'
     public boolean _jm_obj_10(Object val, Path path, Report rep)
     {
@@ -1528,9 +1467,6 @@ public class json_schema_draft_tighter_loose extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected object [.'$tight#Object'.type]", (path != null ? lpath_9 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$tight#Object'.type]", (path != null ? lpath_9 : null));
                     return false;
                 }
@@ -1563,7 +1499,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return true;
     }
-    
+
     // check $tight#Object (.'$tight#Object')
     public boolean json_model_14(Object val, Path path, Report rep)
     {
@@ -1576,7 +1512,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_15_map_$comment (.'$tight#Integer'.'$comment')
     public boolean _jm_f_54(Object val, Path path, Report rep)
     {
@@ -1589,7 +1525,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // object .'$tight#Integer'.'$defs'
     public boolean _jm_obj_16(Object val, Path path, Report rep)
     {
@@ -1611,15 +1547,12 @@ public class json_schema_draft_tighter_loose extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("unexpected $Schema [.'$tight#Integer'.'$defs'.'']", (path != null ? lpath_15 : null));
-            }
-            if (! res)
-            {
                 return false;
             }
         }
         return true;
     }
-    
+
     // check _jm_obj_15_map_$defs (.'$tight#Integer'.'$defs')
     public boolean _jm_f_55(Object val, Path path, Report rep)
     {
@@ -1632,7 +1565,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_15_map_$id (.'$tight#Integer'.'$id')
     public boolean _jm_f_56(Object val, Path path, Report rep)
     {
@@ -1645,7 +1578,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_15_map_$schema (.'$tight#Integer'.'$schema')
     public boolean _jm_f_57(Object val, Path path, Report rep)
     {
@@ -1658,7 +1591,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_15_map_default (.'$tight#Integer'.default)
     public boolean _jm_f_58(Object val, Path path, Report rep)
     {
@@ -1671,7 +1604,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // object .'$tight#Integer'.definitions
     public boolean _jm_obj_17(Object val, Path path, Report rep)
     {
@@ -1693,15 +1626,12 @@ public class json_schema_draft_tighter_loose extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("unexpected $Schema [.'$tight#Integer'.definitions.'']", (path != null ? lpath_16 : null));
-            }
-            if (! res)
-            {
                 return false;
             }
         }
         return true;
     }
-    
+
     // check _jm_obj_15_map_definitions (.'$tight#Integer'.definitions)
     public boolean _jm_f_59(Object val, Path path, Report rep)
     {
@@ -1714,7 +1644,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_15_map_description (.'$tight#Integer'.description)
     public boolean _jm_f_60(Object val, Path path, Report rep)
     {
@@ -1727,24 +1657,20 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_15_map_examples (.'$tight#Integer'.examples)
     public boolean _jm_f_61(Object val, Path path, Report rep)
     {
         boolean res;
         // .'$tight#Integer'.examples
         res = json.isArray(val);
-        if (res)
-        {
-            // accept any array
-        }
         if (! res)
         {
             if (rep != null) rep.addEntry("not array or unexpected array [.'$tight#Integer'.examples]", path);
         }
         return res;
     }
-    
+
     // check _jm_obj_15_map_id (.'$tight#Integer'.id)
     public boolean _jm_f_62(Object val, Path path, Report rep)
     {
@@ -1757,7 +1683,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_15_map_maximum (.'$tight#Integer'.maximum)
     public boolean _jm_f_63(Object val, Path path, Report rep)
     {
@@ -1770,7 +1696,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_15_map_minimum (.'$tight#Integer'.minimum)
     public boolean _jm_f_64(Object val, Path path, Report rep)
     {
@@ -1783,7 +1709,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_15_map_title (.'$tight#Integer'.title)
     public boolean _jm_f_65(Object val, Path path, Report rep)
     {
@@ -1796,8 +1722,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
-    
+
+
     // object .'$tight#Integer'
     public boolean _jm_obj_15(Object val, Path path, Report rep)
     {
@@ -1824,9 +1750,6 @@ public class json_schema_draft_tighter_loose extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected integer [.'$tight#Integer'.type]", (path != null ? lpath_14 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$tight#Integer'.type]", (path != null ? lpath_14 : null));
                     return false;
                 }
@@ -1859,7 +1782,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return true;
     }
-    
+
     // check $tight#Integer (.'$tight#Integer')
     public boolean json_model_15(Object val, Path path, Report rep)
     {
@@ -1872,7 +1795,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_18_map_$comment (.'$tight#Number'.'$comment')
     public boolean _jm_f_66(Object val, Path path, Report rep)
     {
@@ -1885,7 +1808,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // object .'$tight#Number'.'$defs'
     public boolean _jm_obj_19(Object val, Path path, Report rep)
     {
@@ -1907,15 +1830,12 @@ public class json_schema_draft_tighter_loose extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("unexpected $Schema [.'$tight#Number'.'$defs'.'']", (path != null ? lpath_18 : null));
-            }
-            if (! res)
-            {
                 return false;
             }
         }
         return true;
     }
-    
+
     // check _jm_obj_18_map_$defs (.'$tight#Number'.'$defs')
     public boolean _jm_f_67(Object val, Path path, Report rep)
     {
@@ -1928,7 +1848,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_18_map_$id (.'$tight#Number'.'$id')
     public boolean _jm_f_68(Object val, Path path, Report rep)
     {
@@ -1941,7 +1861,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_18_map_$schema (.'$tight#Number'.'$schema')
     public boolean _jm_f_69(Object val, Path path, Report rep)
     {
@@ -1954,7 +1874,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_18_map_default (.'$tight#Number'.default)
     public boolean _jm_f_70(Object val, Path path, Report rep)
     {
@@ -1967,7 +1887,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // object .'$tight#Number'.definitions
     public boolean _jm_obj_20(Object val, Path path, Report rep)
     {
@@ -1989,15 +1909,12 @@ public class json_schema_draft_tighter_loose extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("unexpected $Schema [.'$tight#Number'.definitions.'']", (path != null ? lpath_19 : null));
-            }
-            if (! res)
-            {
                 return false;
             }
         }
         return true;
     }
-    
+
     // check _jm_obj_18_map_definitions (.'$tight#Number'.definitions)
     public boolean _jm_f_71(Object val, Path path, Report rep)
     {
@@ -2010,7 +1927,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_18_map_description (.'$tight#Number'.description)
     public boolean _jm_f_72(Object val, Path path, Report rep)
     {
@@ -2023,24 +1940,20 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_18_map_examples (.'$tight#Number'.examples)
     public boolean _jm_f_73(Object val, Path path, Report rep)
     {
         boolean res;
         // .'$tight#Number'.examples
         res = json.isArray(val);
-        if (res)
-        {
-            // accept any array
-        }
         if (! res)
         {
             if (rep != null) rep.addEntry("not array or unexpected array [.'$tight#Number'.examples]", path);
         }
         return res;
     }
-    
+
     // check _jm_obj_18_map_id (.'$tight#Number'.id)
     public boolean _jm_f_74(Object val, Path path, Report rep)
     {
@@ -2053,7 +1966,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_18_map_maximum (.'$tight#Number'.maximum)
     public boolean _jm_f_75(Object val, Path path, Report rep)
     {
@@ -2066,7 +1979,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_18_map_minimum (.'$tight#Number'.minimum)
     public boolean _jm_f_76(Object val, Path path, Report rep)
     {
@@ -2079,7 +1992,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_18_map_title (.'$tight#Number'.title)
     public boolean _jm_f_77(Object val, Path path, Report rep)
     {
@@ -2092,8 +2005,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
-    
+
+
     // object .'$tight#Number'
     public boolean _jm_obj_18(Object val, Path path, Report rep)
     {
@@ -2120,9 +2033,6 @@ public class json_schema_draft_tighter_loose extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected number [.'$tight#Number'.type]", (path != null ? lpath_17 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$tight#Number'.type]", (path != null ? lpath_17 : null));
                     return false;
                 }
@@ -2155,7 +2065,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return true;
     }
-    
+
     // check $tight#Number (.'$tight#Number')
     public boolean json_model_16(Object val, Path path, Report rep)
     {
@@ -2168,7 +2078,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_21_map_$comment (.'$tight#Bool'.'$comment')
     public boolean _jm_f_78(Object val, Path path, Report rep)
     {
@@ -2181,7 +2091,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // object .'$tight#Bool'.'$defs'
     public boolean _jm_obj_22(Object val, Path path, Report rep)
     {
@@ -2203,15 +2113,12 @@ public class json_schema_draft_tighter_loose extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("unexpected $Schema [.'$tight#Bool'.'$defs'.'']", (path != null ? lpath_21 : null));
-            }
-            if (! res)
-            {
                 return false;
             }
         }
         return true;
     }
-    
+
     // check _jm_obj_21_map_$defs (.'$tight#Bool'.'$defs')
     public boolean _jm_f_79(Object val, Path path, Report rep)
     {
@@ -2224,7 +2131,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_21_map_$id (.'$tight#Bool'.'$id')
     public boolean _jm_f_80(Object val, Path path, Report rep)
     {
@@ -2237,7 +2144,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_21_map_$schema (.'$tight#Bool'.'$schema')
     public boolean _jm_f_81(Object val, Path path, Report rep)
     {
@@ -2250,7 +2157,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_21_map_default (.'$tight#Bool'.default)
     public boolean _jm_f_82(Object val, Path path, Report rep)
     {
@@ -2263,7 +2170,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // object .'$tight#Bool'.definitions
     public boolean _jm_obj_23(Object val, Path path, Report rep)
     {
@@ -2285,15 +2192,12 @@ public class json_schema_draft_tighter_loose extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("unexpected $Schema [.'$tight#Bool'.definitions.'']", (path != null ? lpath_22 : null));
-            }
-            if (! res)
-            {
                 return false;
             }
         }
         return true;
     }
-    
+
     // check _jm_obj_21_map_definitions (.'$tight#Bool'.definitions)
     public boolean _jm_f_83(Object val, Path path, Report rep)
     {
@@ -2306,7 +2210,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_21_map_description (.'$tight#Bool'.description)
     public boolean _jm_f_84(Object val, Path path, Report rep)
     {
@@ -2319,24 +2223,20 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_21_map_examples (.'$tight#Bool'.examples)
     public boolean _jm_f_85(Object val, Path path, Report rep)
     {
         boolean res;
         // .'$tight#Bool'.examples
         res = json.isArray(val);
-        if (res)
-        {
-            // accept any array
-        }
         if (! res)
         {
             if (rep != null) rep.addEntry("not array or unexpected array [.'$tight#Bool'.examples]", path);
         }
         return res;
     }
-    
+
     // check _jm_obj_21_map_id (.'$tight#Bool'.id)
     public boolean _jm_f_86(Object val, Path path, Report rep)
     {
@@ -2349,7 +2249,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_21_map_title (.'$tight#Bool'.title)
     public boolean _jm_f_87(Object val, Path path, Report rep)
     {
@@ -2362,8 +2262,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
-    
+
+
     // object .'$tight#Bool'
     public boolean _jm_obj_21(Object val, Path path, Report rep)
     {
@@ -2390,9 +2290,6 @@ public class json_schema_draft_tighter_loose extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected boolean [.'$tight#Bool'.type]", (path != null ? lpath_20 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$tight#Bool'.type]", (path != null ? lpath_20 : null));
                     return false;
                 }
@@ -2425,7 +2322,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return true;
     }
-    
+
     // check $tight#Bool (.'$tight#Bool')
     public boolean json_model_17(Object val, Path path, Report rep)
     {
@@ -2438,7 +2335,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_24_map_$comment (.'$tight#Null'.'$comment')
     public boolean _jm_f_88(Object val, Path path, Report rep)
     {
@@ -2451,7 +2348,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // object .'$tight#Null'.'$defs'
     public boolean _jm_obj_25(Object val, Path path, Report rep)
     {
@@ -2473,15 +2370,12 @@ public class json_schema_draft_tighter_loose extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("unexpected $Schema [.'$tight#Null'.'$defs'.'']", (path != null ? lpath_24 : null));
-            }
-            if (! res)
-            {
                 return false;
             }
         }
         return true;
     }
-    
+
     // check _jm_obj_24_map_$defs (.'$tight#Null'.'$defs')
     public boolean _jm_f_89(Object val, Path path, Report rep)
     {
@@ -2494,7 +2388,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_24_map_$id (.'$tight#Null'.'$id')
     public boolean _jm_f_90(Object val, Path path, Report rep)
     {
@@ -2507,7 +2401,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_24_map_$schema (.'$tight#Null'.'$schema')
     public boolean _jm_f_91(Object val, Path path, Report rep)
     {
@@ -2520,7 +2414,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_24_map_default (.'$tight#Null'.default)
     public boolean _jm_f_92(Object val, Path path, Report rep)
     {
@@ -2533,7 +2427,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // object .'$tight#Null'.definitions
     public boolean _jm_obj_26(Object val, Path path, Report rep)
     {
@@ -2555,15 +2449,12 @@ public class json_schema_draft_tighter_loose extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("unexpected $Schema [.'$tight#Null'.definitions.'']", (path != null ? lpath_25 : null));
-            }
-            if (! res)
-            {
                 return false;
             }
         }
         return true;
     }
-    
+
     // check _jm_obj_24_map_definitions (.'$tight#Null'.definitions)
     public boolean _jm_f_93(Object val, Path path, Report rep)
     {
@@ -2576,7 +2467,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_24_map_description (.'$tight#Null'.description)
     public boolean _jm_f_94(Object val, Path path, Report rep)
     {
@@ -2589,24 +2480,20 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_24_map_examples (.'$tight#Null'.examples)
     public boolean _jm_f_95(Object val, Path path, Report rep)
     {
         boolean res;
         // .'$tight#Null'.examples
         res = json.isArray(val);
-        if (res)
-        {
-            // accept any array
-        }
         if (! res)
         {
             if (rep != null) rep.addEntry("not array or unexpected array [.'$tight#Null'.examples]", path);
         }
         return res;
     }
-    
+
     // check _jm_obj_24_map_id (.'$tight#Null'.id)
     public boolean _jm_f_96(Object val, Path path, Report rep)
     {
@@ -2619,7 +2506,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_24_map_title (.'$tight#Null'.title)
     public boolean _jm_f_97(Object val, Path path, Report rep)
     {
@@ -2632,8 +2519,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
-    
+
+
     // object .'$tight#Null'
     public boolean _jm_obj_24(Object val, Path path, Report rep)
     {
@@ -2660,9 +2547,6 @@ public class json_schema_draft_tighter_loose extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected null [.'$tight#Null'.type]", (path != null ? lpath_23 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$tight#Null'.type]", (path != null ? lpath_23 : null));
                     return false;
                 }
@@ -2695,7 +2579,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return true;
     }
-    
+
     // check $tight#Null (.'$tight#Null')
     public boolean json_model_18(Object val, Path path, Report rep)
     {
@@ -2708,7 +2592,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_27_map_$comment (.'$tight#AllOf'.'$comment')
     public boolean _jm_f_98(Object val, Path path, Report rep)
     {
@@ -2721,7 +2605,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // object .'$tight#AllOf'.'$defs'
     public boolean _jm_obj_28(Object val, Path path, Report rep)
     {
@@ -2743,15 +2627,12 @@ public class json_schema_draft_tighter_loose extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("unexpected $Schema [.'$tight#AllOf'.'$defs'.'']", (path != null ? lpath_27 : null));
-            }
-            if (! res)
-            {
                 return false;
             }
         }
         return true;
     }
-    
+
     // check _jm_obj_27_map_$defs (.'$tight#AllOf'.'$defs')
     public boolean _jm_f_99(Object val, Path path, Report rep)
     {
@@ -2764,7 +2645,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_27_map_$id (.'$tight#AllOf'.'$id')
     public boolean _jm_f_100(Object val, Path path, Report rep)
     {
@@ -2777,7 +2658,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_27_map_$schema (.'$tight#AllOf'.'$schema')
     public boolean _jm_f_101(Object val, Path path, Report rep)
     {
@@ -2790,7 +2671,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_27_map_default (.'$tight#AllOf'.default)
     public boolean _jm_f_102(Object val, Path path, Report rep)
     {
@@ -2803,7 +2684,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // object .'$tight#AllOf'.definitions
     public boolean _jm_obj_29(Object val, Path path, Report rep)
     {
@@ -2825,15 +2706,12 @@ public class json_schema_draft_tighter_loose extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("unexpected $Schema [.'$tight#AllOf'.definitions.'']", (path != null ? lpath_28 : null));
-            }
-            if (! res)
-            {
                 return false;
             }
         }
         return true;
     }
-    
+
     // check _jm_obj_27_map_definitions (.'$tight#AllOf'.definitions)
     public boolean _jm_f_103(Object val, Path path, Report rep)
     {
@@ -2846,7 +2724,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_27_map_description (.'$tight#AllOf'.description)
     public boolean _jm_f_104(Object val, Path path, Report rep)
     {
@@ -2859,24 +2737,20 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_27_map_examples (.'$tight#AllOf'.examples)
     public boolean _jm_f_105(Object val, Path path, Report rep)
     {
         boolean res;
         // .'$tight#AllOf'.examples
         res = json.isArray(val);
-        if (res)
-        {
-            // accept any array
-        }
         if (! res)
         {
             if (rep != null) rep.addEntry("not array or unexpected array [.'$tight#AllOf'.examples]", path);
         }
         return res;
     }
-    
+
     // check _jm_obj_27_map_id (.'$tight#AllOf'.id)
     public boolean _jm_f_106(Object val, Path path, Report rep)
     {
@@ -2889,7 +2763,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_27_map_title (.'$tight#AllOf'.title)
     public boolean _jm_f_107(Object val, Path path, Report rep)
     {
@@ -2902,8 +2776,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
-    
+
+
     // object .'$tight#AllOf'
     public boolean _jm_obj_27(Object val, Path path, Report rep)
     {
@@ -2930,9 +2804,6 @@ public class json_schema_draft_tighter_loose extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected $schemaArray [.'$tight#AllOf'.allOf]", (path != null ? lpath_26 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$tight#AllOf'.allOf]", (path != null ? lpath_26 : null));
                     return false;
                 }
@@ -2965,7 +2836,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return true;
     }
-    
+
     // check $tight#AllOf (.'$tight#AllOf')
     public boolean json_model_19(Object val, Path path, Report rep)
     {
@@ -2978,7 +2849,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_30_map_$comment (.'$tight#AnyOf'.'$comment')
     public boolean _jm_f_108(Object val, Path path, Report rep)
     {
@@ -2991,7 +2862,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // object .'$tight#AnyOf'.'$defs'
     public boolean _jm_obj_31(Object val, Path path, Report rep)
     {
@@ -3013,15 +2884,12 @@ public class json_schema_draft_tighter_loose extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("unexpected $Schema [.'$tight#AnyOf'.'$defs'.'']", (path != null ? lpath_30 : null));
-            }
-            if (! res)
-            {
                 return false;
             }
         }
         return true;
     }
-    
+
     // check _jm_obj_30_map_$defs (.'$tight#AnyOf'.'$defs')
     public boolean _jm_f_109(Object val, Path path, Report rep)
     {
@@ -3034,7 +2902,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_30_map_$id (.'$tight#AnyOf'.'$id')
     public boolean _jm_f_110(Object val, Path path, Report rep)
     {
@@ -3047,7 +2915,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_30_map_$schema (.'$tight#AnyOf'.'$schema')
     public boolean _jm_f_111(Object val, Path path, Report rep)
     {
@@ -3060,7 +2928,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_30_map_default (.'$tight#AnyOf'.default)
     public boolean _jm_f_112(Object val, Path path, Report rep)
     {
@@ -3073,7 +2941,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // object .'$tight#AnyOf'.definitions
     public boolean _jm_obj_32(Object val, Path path, Report rep)
     {
@@ -3095,15 +2963,12 @@ public class json_schema_draft_tighter_loose extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("unexpected $Schema [.'$tight#AnyOf'.definitions.'']", (path != null ? lpath_31 : null));
-            }
-            if (! res)
-            {
                 return false;
             }
         }
         return true;
     }
-    
+
     // check _jm_obj_30_map_definitions (.'$tight#AnyOf'.definitions)
     public boolean _jm_f_113(Object val, Path path, Report rep)
     {
@@ -3116,7 +2981,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_30_map_description (.'$tight#AnyOf'.description)
     public boolean _jm_f_114(Object val, Path path, Report rep)
     {
@@ -3129,24 +2994,20 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_30_map_examples (.'$tight#AnyOf'.examples)
     public boolean _jm_f_115(Object val, Path path, Report rep)
     {
         boolean res;
         // .'$tight#AnyOf'.examples
         res = json.isArray(val);
-        if (res)
-        {
-            // accept any array
-        }
         if (! res)
         {
             if (rep != null) rep.addEntry("not array or unexpected array [.'$tight#AnyOf'.examples]", path);
         }
         return res;
     }
-    
+
     // check _jm_obj_30_map_id (.'$tight#AnyOf'.id)
     public boolean _jm_f_116(Object val, Path path, Report rep)
     {
@@ -3159,7 +3020,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_30_map_title (.'$tight#AnyOf'.title)
     public boolean _jm_f_117(Object val, Path path, Report rep)
     {
@@ -3172,8 +3033,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
-    
+
+
     // object .'$tight#AnyOf'
     public boolean _jm_obj_30(Object val, Path path, Report rep)
     {
@@ -3200,9 +3061,6 @@ public class json_schema_draft_tighter_loose extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected $schemaArray [.'$tight#AnyOf'.anyOf]", (path != null ? lpath_29 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$tight#AnyOf'.anyOf]", (path != null ? lpath_29 : null));
                     return false;
                 }
@@ -3235,7 +3093,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return true;
     }
-    
+
     // check $tight#AnyOf (.'$tight#AnyOf')
     public boolean json_model_20(Object val, Path path, Report rep)
     {
@@ -3248,7 +3106,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_33_map_$comment (.'$tight#OneOf'.'$comment')
     public boolean _jm_f_118(Object val, Path path, Report rep)
     {
@@ -3261,7 +3119,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // object .'$tight#OneOf'.'$defs'
     public boolean _jm_obj_34(Object val, Path path, Report rep)
     {
@@ -3283,15 +3141,12 @@ public class json_schema_draft_tighter_loose extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("unexpected $Schema [.'$tight#OneOf'.'$defs'.'']", (path != null ? lpath_33 : null));
-            }
-            if (! res)
-            {
                 return false;
             }
         }
         return true;
     }
-    
+
     // check _jm_obj_33_map_$defs (.'$tight#OneOf'.'$defs')
     public boolean _jm_f_119(Object val, Path path, Report rep)
     {
@@ -3304,7 +3159,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_33_map_$id (.'$tight#OneOf'.'$id')
     public boolean _jm_f_120(Object val, Path path, Report rep)
     {
@@ -3317,7 +3172,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_33_map_$schema (.'$tight#OneOf'.'$schema')
     public boolean _jm_f_121(Object val, Path path, Report rep)
     {
@@ -3330,7 +3185,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_33_map_default (.'$tight#OneOf'.default)
     public boolean _jm_f_122(Object val, Path path, Report rep)
     {
@@ -3343,7 +3198,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // object .'$tight#OneOf'.definitions
     public boolean _jm_obj_35(Object val, Path path, Report rep)
     {
@@ -3365,15 +3220,12 @@ public class json_schema_draft_tighter_loose extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("unexpected $Schema [.'$tight#OneOf'.definitions.'']", (path != null ? lpath_34 : null));
-            }
-            if (! res)
-            {
                 return false;
             }
         }
         return true;
     }
-    
+
     // check _jm_obj_33_map_definitions (.'$tight#OneOf'.definitions)
     public boolean _jm_f_123(Object val, Path path, Report rep)
     {
@@ -3386,7 +3238,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_33_map_description (.'$tight#OneOf'.description)
     public boolean _jm_f_124(Object val, Path path, Report rep)
     {
@@ -3399,24 +3251,20 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_33_map_examples (.'$tight#OneOf'.examples)
     public boolean _jm_f_125(Object val, Path path, Report rep)
     {
         boolean res;
         // .'$tight#OneOf'.examples
         res = json.isArray(val);
-        if (res)
-        {
-            // accept any array
-        }
         if (! res)
         {
             if (rep != null) rep.addEntry("not array or unexpected array [.'$tight#OneOf'.examples]", path);
         }
         return res;
     }
-    
+
     // check _jm_obj_33_map_id (.'$tight#OneOf'.id)
     public boolean _jm_f_126(Object val, Path path, Report rep)
     {
@@ -3429,7 +3277,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_33_map_title (.'$tight#OneOf'.title)
     public boolean _jm_f_127(Object val, Path path, Report rep)
     {
@@ -3442,8 +3290,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
-    
+
+
     // object .'$tight#OneOf'
     public boolean _jm_obj_33(Object val, Path path, Report rep)
     {
@@ -3470,9 +3318,6 @@ public class json_schema_draft_tighter_loose extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected $schemaArray [.'$tight#OneOf'.oneOf]", (path != null ? lpath_32 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$tight#OneOf'.oneOf]", (path != null ? lpath_32 : null));
                     return false;
                 }
@@ -3505,7 +3350,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return true;
     }
-    
+
     // check $tight#OneOf (.'$tight#OneOf')
     public boolean json_model_21(Object val, Path path, Report rep)
     {
@@ -3518,7 +3363,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_36_map_$comment (.'$tight#Enum'.'$comment')
     public boolean _jm_f_128(Object val, Path path, Report rep)
     {
@@ -3531,7 +3376,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // object .'$tight#Enum'.'$defs'
     public boolean _jm_obj_37(Object val, Path path, Report rep)
     {
@@ -3553,15 +3398,12 @@ public class json_schema_draft_tighter_loose extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("unexpected $Schema [.'$tight#Enum'.'$defs'.'']", (path != null ? lpath_36 : null));
-            }
-            if (! res)
-            {
                 return false;
             }
         }
         return true;
     }
-    
+
     // check _jm_obj_36_map_$defs (.'$tight#Enum'.'$defs')
     public boolean _jm_f_129(Object val, Path path, Report rep)
     {
@@ -3574,7 +3416,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_36_map_$id (.'$tight#Enum'.'$id')
     public boolean _jm_f_130(Object val, Path path, Report rep)
     {
@@ -3587,7 +3429,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_36_map_$schema (.'$tight#Enum'.'$schema')
     public boolean _jm_f_131(Object val, Path path, Report rep)
     {
@@ -3600,7 +3442,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_36_map_default (.'$tight#Enum'.default)
     public boolean _jm_f_132(Object val, Path path, Report rep)
     {
@@ -3613,7 +3455,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // object .'$tight#Enum'.definitions
     public boolean _jm_obj_38(Object val, Path path, Report rep)
     {
@@ -3635,15 +3477,12 @@ public class json_schema_draft_tighter_loose extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("unexpected $Schema [.'$tight#Enum'.definitions.'']", (path != null ? lpath_37 : null));
-            }
-            if (! res)
-            {
                 return false;
             }
         }
         return true;
     }
-    
+
     // check _jm_obj_36_map_definitions (.'$tight#Enum'.definitions)
     public boolean _jm_f_133(Object val, Path path, Report rep)
     {
@@ -3656,7 +3495,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_36_map_description (.'$tight#Enum'.description)
     public boolean _jm_f_134(Object val, Path path, Report rep)
     {
@@ -3669,24 +3508,20 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_36_map_examples (.'$tight#Enum'.examples)
     public boolean _jm_f_135(Object val, Path path, Report rep)
     {
         boolean res;
         // .'$tight#Enum'.examples
         res = json.isArray(val);
-        if (res)
-        {
-            // accept any array
-        }
         if (! res)
         {
             if (rep != null) rep.addEntry("not array or unexpected array [.'$tight#Enum'.examples]", path);
         }
         return res;
     }
-    
+
     // check _jm_obj_36_map_id (.'$tight#Enum'.id)
     public boolean _jm_f_136(Object val, Path path, Report rep)
     {
@@ -3699,7 +3534,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_36_map_title (.'$tight#Enum'.title)
     public boolean _jm_f_137(Object val, Path path, Report rep)
     {
@@ -3712,8 +3547,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
-    
+
+
     // object .'$tight#Enum'
     public boolean _jm_obj_36(Object val, Path path, Report rep)
     {
@@ -3740,9 +3575,6 @@ public class json_schema_draft_tighter_loose extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected $enum [.'$tight#Enum'.enum]", (path != null ? lpath_35 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$tight#Enum'.enum]", (path != null ? lpath_35 : null));
                     return false;
                 }
@@ -3775,7 +3607,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return true;
     }
-    
+
     // check $tight#Enum (.'$tight#Enum')
     public boolean json_model_22(Object val, Path path, Report rep)
     {
@@ -3788,7 +3620,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // check $tight#enum (.'$tight#enum')
     public boolean json_model_5(Object val, Path path, Report rep)
     {
@@ -3814,9 +3646,6 @@ public class json_schema_draft_tighter_loose extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected string [.'$tight#enum'.'|'.0.0]", (path != null ? arr_4_lpath : null));
-                }
-                if (! res)
-                {
                     break;
                 }
             }
@@ -3839,9 +3668,6 @@ public class json_schema_draft_tighter_loose extends ModelChecker
                     if (! res)
                     {
                         if (rep != null) rep.addEntry("not a -1 strict int [.'$tight#enum'.'|'.1.0]", (path != null ? arr_3_lpath : null));
-                    }
-                    if (! res)
-                    {
                         break;
                     }
                 }
@@ -3864,9 +3690,6 @@ public class json_schema_draft_tighter_loose extends ModelChecker
                         if (! res)
                         {
                             if (rep != null) rep.addEntry("not a bool [.'$tight#enum'.'|'.2.0]", (path != null ? arr_2_lpath : null));
-                        }
-                        if (! res)
-                        {
                             break;
                         }
                     }
@@ -3887,7 +3710,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_39_map_$comment (.'$tight#Const'.'$comment')
     public boolean _jm_f_138(Object val, Path path, Report rep)
     {
@@ -3900,7 +3723,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // object .'$tight#Const'.'$defs'
     public boolean _jm_obj_40(Object val, Path path, Report rep)
     {
@@ -3922,15 +3745,12 @@ public class json_schema_draft_tighter_loose extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("unexpected $Schema [.'$tight#Const'.'$defs'.'']", (path != null ? lpath_39 : null));
-            }
-            if (! res)
-            {
                 return false;
             }
         }
         return true;
     }
-    
+
     // check _jm_obj_39_map_$defs (.'$tight#Const'.'$defs')
     public boolean _jm_f_139(Object val, Path path, Report rep)
     {
@@ -3943,7 +3763,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_39_map_$id (.'$tight#Const'.'$id')
     public boolean _jm_f_140(Object val, Path path, Report rep)
     {
@@ -3956,7 +3776,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_39_map_$schema (.'$tight#Const'.'$schema')
     public boolean _jm_f_141(Object val, Path path, Report rep)
     {
@@ -3969,7 +3789,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_39_map_default (.'$tight#Const'.default)
     public boolean _jm_f_142(Object val, Path path, Report rep)
     {
@@ -3982,7 +3802,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // object .'$tight#Const'.definitions
     public boolean _jm_obj_41(Object val, Path path, Report rep)
     {
@@ -4004,15 +3824,12 @@ public class json_schema_draft_tighter_loose extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("unexpected $Schema [.'$tight#Const'.definitions.'']", (path != null ? lpath_40 : null));
-            }
-            if (! res)
-            {
                 return false;
             }
         }
         return true;
     }
-    
+
     // check _jm_obj_39_map_definitions (.'$tight#Const'.definitions)
     public boolean _jm_f_143(Object val, Path path, Report rep)
     {
@@ -4025,7 +3842,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_39_map_description (.'$tight#Const'.description)
     public boolean _jm_f_144(Object val, Path path, Report rep)
     {
@@ -4038,24 +3855,20 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_39_map_examples (.'$tight#Const'.examples)
     public boolean _jm_f_145(Object val, Path path, Report rep)
     {
         boolean res;
         // .'$tight#Const'.examples
         res = json.isArray(val);
-        if (res)
-        {
-            // accept any array
-        }
         if (! res)
         {
             if (rep != null) rep.addEntry("not array or unexpected array [.'$tight#Const'.examples]", path);
         }
         return res;
     }
-    
+
     // check _jm_obj_39_map_id (.'$tight#Const'.id)
     public boolean _jm_f_146(Object val, Path path, Report rep)
     {
@@ -4068,7 +3881,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_39_map_title (.'$tight#Const'.title)
     public boolean _jm_f_147(Object val, Path path, Report rep)
     {
@@ -4081,8 +3894,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
-    
+
+
     // object .'$tight#Const'
     public boolean _jm_obj_39(Object val, Path path, Report rep)
     {
@@ -4109,9 +3922,6 @@ public class json_schema_draft_tighter_loose extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected $const [.'$tight#Const'.const]", (path != null ? lpath_38 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$tight#Const'.const]", (path != null ? lpath_38 : null));
                     return false;
                 }
@@ -4144,7 +3954,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return true;
     }
-    
+
     // check $tight#Const (.'$tight#Const')
     public boolean json_model_23(Object val, Path path, Report rep)
     {
@@ -4157,7 +3967,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // check $tight#const (.'$tight#const')
     public boolean json_model_4(Object val, Path path, Report rep)
     {
@@ -4215,7 +4025,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_42_map_$comment (.'$tight#Ref'.'$comment')
     public boolean _jm_f_148(Object val, Path path, Report rep)
     {
@@ -4228,7 +4038,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // object .'$tight#Ref'.'$defs'
     public boolean _jm_obj_43(Object val, Path path, Report rep)
     {
@@ -4250,15 +4060,12 @@ public class json_schema_draft_tighter_loose extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("unexpected $Schema [.'$tight#Ref'.'$defs'.'']", (path != null ? lpath_42 : null));
-            }
-            if (! res)
-            {
                 return false;
             }
         }
         return true;
     }
-    
+
     // check _jm_obj_42_map_$defs (.'$tight#Ref'.'$defs')
     public boolean _jm_f_149(Object val, Path path, Report rep)
     {
@@ -4271,7 +4078,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_42_map_$id (.'$tight#Ref'.'$id')
     public boolean _jm_f_150(Object val, Path path, Report rep)
     {
@@ -4284,7 +4091,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_42_map_$schema (.'$tight#Ref'.'$schema')
     public boolean _jm_f_151(Object val, Path path, Report rep)
     {
@@ -4297,7 +4104,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_42_map_default (.'$tight#Ref'.default)
     public boolean _jm_f_152(Object val, Path path, Report rep)
     {
@@ -4310,7 +4117,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // object .'$tight#Ref'.definitions
     public boolean _jm_obj_44(Object val, Path path, Report rep)
     {
@@ -4332,15 +4139,12 @@ public class json_schema_draft_tighter_loose extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("unexpected $Schema [.'$tight#Ref'.definitions.'']", (path != null ? lpath_43 : null));
-            }
-            if (! res)
-            {
                 return false;
             }
         }
         return true;
     }
-    
+
     // check _jm_obj_42_map_definitions (.'$tight#Ref'.definitions)
     public boolean _jm_f_153(Object val, Path path, Report rep)
     {
@@ -4353,7 +4157,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_42_map_description (.'$tight#Ref'.description)
     public boolean _jm_f_154(Object val, Path path, Report rep)
     {
@@ -4366,24 +4170,20 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_42_map_examples (.'$tight#Ref'.examples)
     public boolean _jm_f_155(Object val, Path path, Report rep)
     {
         boolean res;
         // .'$tight#Ref'.examples
         res = json.isArray(val);
-        if (res)
-        {
-            // accept any array
-        }
         if (! res)
         {
             if (rep != null) rep.addEntry("not array or unexpected array [.'$tight#Ref'.examples]", path);
         }
         return res;
     }
-    
+
     // check _jm_obj_42_map_id (.'$tight#Ref'.id)
     public boolean _jm_f_156(Object val, Path path, Report rep)
     {
@@ -4396,7 +4196,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_42_map_title (.'$tight#Ref'.title)
     public boolean _jm_f_157(Object val, Path path, Report rep)
     {
@@ -4409,8 +4209,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
-    
+
+
     // object .'$tight#Ref'
     public boolean _jm_obj_42(Object val, Path path, Report rep)
     {
@@ -4437,9 +4237,6 @@ public class json_schema_draft_tighter_loose extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected $URL [.'$tight#Ref'.'$ref']", (path != null ? lpath_41 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$tight#Ref'.'$ref']", (path != null ? lpath_41 : null));
                     return false;
                 }
@@ -4472,7 +4269,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return true;
     }
-    
+
     // check $tight#Ref (.'$tight#Ref')
     public boolean json_model_24(Object val, Path path, Report rep)
     {
@@ -4485,7 +4282,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // check $tight#Schema (.'$tight#Schema')
     public boolean json_model_26(Object val, Path path, Report rep)
     {
@@ -4516,7 +4313,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_45_map_$comment (.'$tight#EnumString'.'$comment')
     public boolean _jm_f_158(Object val, Path path, Report rep)
     {
@@ -4529,7 +4326,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // object .'$tight#EnumString'.'$defs'
     public boolean _jm_obj_46(Object val, Path path, Report rep)
     {
@@ -4551,15 +4348,12 @@ public class json_schema_draft_tighter_loose extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("unexpected $Schema [.'$tight#EnumString'.'$defs'.'']", (path != null ? lpath_45 : null));
-            }
-            if (! res)
-            {
                 return false;
             }
         }
         return true;
     }
-    
+
     // check _jm_obj_45_map_$defs (.'$tight#EnumString'.'$defs')
     public boolean _jm_f_159(Object val, Path path, Report rep)
     {
@@ -4572,7 +4366,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_45_map_$id (.'$tight#EnumString'.'$id')
     public boolean _jm_f_160(Object val, Path path, Report rep)
     {
@@ -4585,7 +4379,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_45_map_$schema (.'$tight#EnumString'.'$schema')
     public boolean _jm_f_161(Object val, Path path, Report rep)
     {
@@ -4598,7 +4392,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_45_map_default (.'$tight#EnumString'.default)
     public boolean _jm_f_162(Object val, Path path, Report rep)
     {
@@ -4611,7 +4405,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // object .'$tight#EnumString'.definitions
     public boolean _jm_obj_47(Object val, Path path, Report rep)
     {
@@ -4633,15 +4427,12 @@ public class json_schema_draft_tighter_loose extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("unexpected $Schema [.'$tight#EnumString'.definitions.'']", (path != null ? lpath_46 : null));
-            }
-            if (! res)
-            {
                 return false;
             }
         }
         return true;
     }
-    
+
     // check _jm_obj_45_map_definitions (.'$tight#EnumString'.definitions)
     public boolean _jm_f_163(Object val, Path path, Report rep)
     {
@@ -4654,7 +4445,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_45_map_description (.'$tight#EnumString'.description)
     public boolean _jm_f_164(Object val, Path path, Report rep)
     {
@@ -4667,24 +4458,20 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_45_map_examples (.'$tight#EnumString'.examples)
     public boolean _jm_f_165(Object val, Path path, Report rep)
     {
         boolean res;
         // .'$tight#EnumString'.examples
         res = json.isArray(val);
-        if (res)
-        {
-            // accept any array
-        }
         if (! res)
         {
             if (rep != null) rep.addEntry("not array or unexpected array [.'$tight#EnumString'.examples]", path);
         }
         return res;
     }
-    
+
     // check _jm_obj_45_map_id (.'$tight#EnumString'.id)
     public boolean _jm_f_166(Object val, Path path, Report rep)
     {
@@ -4697,7 +4484,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_45_map_title (.'$tight#EnumString'.title)
     public boolean _jm_f_167(Object val, Path path, Report rep)
     {
@@ -4710,8 +4497,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
-    
+
+
     // object .'$tight#EnumString'
     public boolean _jm_obj_45(Object val, Path path, Report rep)
     {
@@ -4749,9 +4536,6 @@ public class json_schema_draft_tighter_loose extends ModelChecker
                         if (! res)
                         {
                             if (rep != null) rep.addEntry("unexpected string [.'$tight#EnumString'.enum.0]", ((path != null ? lpath_44 : null) != null ? arr_5_lpath : null));
-                        }
-                        if (! res)
-                        {
                             break;
                         }
                     }
@@ -4759,9 +4543,6 @@ public class json_schema_draft_tighter_loose extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not array or unexpected array [.'$tight#EnumString'.enum]", (path != null ? lpath_44 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$tight#EnumString'.enum]", (path != null ? lpath_44 : null));
                     return false;
                 }
@@ -4775,9 +4556,6 @@ public class json_schema_draft_tighter_loose extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected string [.'$tight#EnumString'.type]", (path != null ? lpath_44 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$tight#EnumString'.type]", (path != null ? lpath_44 : null));
                     return false;
                 }
@@ -4814,7 +4592,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return true;
     }
-    
+
     // check $tight#EnumString (.'$tight#EnumString')
     public boolean json_model_28(Object val, Path path, Report rep)
     {
@@ -4827,7 +4605,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_48_map_$comment (.'$tight#EnumNum'.'$comment')
     public boolean _jm_f_168(Object val, Path path, Report rep)
     {
@@ -4840,7 +4618,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // object .'$tight#EnumNum'.'$defs'
     public boolean _jm_obj_49(Object val, Path path, Report rep)
     {
@@ -4862,15 +4640,12 @@ public class json_schema_draft_tighter_loose extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("unexpected $Schema [.'$tight#EnumNum'.'$defs'.'']", (path != null ? lpath_48 : null));
-            }
-            if (! res)
-            {
                 return false;
             }
         }
         return true;
     }
-    
+
     // check _jm_obj_48_map_$defs (.'$tight#EnumNum'.'$defs')
     public boolean _jm_f_169(Object val, Path path, Report rep)
     {
@@ -4883,7 +4658,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_48_map_$id (.'$tight#EnumNum'.'$id')
     public boolean _jm_f_170(Object val, Path path, Report rep)
     {
@@ -4896,7 +4671,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_48_map_$schema (.'$tight#EnumNum'.'$schema')
     public boolean _jm_f_171(Object val, Path path, Report rep)
     {
@@ -4909,7 +4684,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_48_map_default (.'$tight#EnumNum'.default)
     public boolean _jm_f_172(Object val, Path path, Report rep)
     {
@@ -4922,7 +4697,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // object .'$tight#EnumNum'.definitions
     public boolean _jm_obj_50(Object val, Path path, Report rep)
     {
@@ -4944,15 +4719,12 @@ public class json_schema_draft_tighter_loose extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("unexpected $Schema [.'$tight#EnumNum'.definitions.'']", (path != null ? lpath_49 : null));
-            }
-            if (! res)
-            {
                 return false;
             }
         }
         return true;
     }
-    
+
     // check _jm_obj_48_map_definitions (.'$tight#EnumNum'.definitions)
     public boolean _jm_f_173(Object val, Path path, Report rep)
     {
@@ -4965,7 +4737,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_48_map_description (.'$tight#EnumNum'.description)
     public boolean _jm_f_174(Object val, Path path, Report rep)
     {
@@ -4978,24 +4750,20 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_48_map_examples (.'$tight#EnumNum'.examples)
     public boolean _jm_f_175(Object val, Path path, Report rep)
     {
         boolean res;
         // .'$tight#EnumNum'.examples
         res = json.isArray(val);
-        if (res)
-        {
-            // accept any array
-        }
         if (! res)
         {
             if (rep != null) rep.addEntry("not array or unexpected array [.'$tight#EnumNum'.examples]", path);
         }
         return res;
     }
-    
+
     // check _jm_obj_48_map_id (.'$tight#EnumNum'.id)
     public boolean _jm_f_176(Object val, Path path, Report rep)
     {
@@ -5008,7 +4776,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_48_map_title (.'$tight#EnumNum'.title)
     public boolean _jm_f_177(Object val, Path path, Report rep)
     {
@@ -5021,8 +4789,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
-    
+
+
     // object .'$tight#EnumNum'
     public boolean _jm_obj_48(Object val, Path path, Report rep)
     {
@@ -5060,9 +4828,6 @@ public class json_schema_draft_tighter_loose extends ModelChecker
                         if (! res)
                         {
                             if (rep != null) rep.addEntry("not a -1.0 strict float [.'$tight#EnumNum'.enum.0]", ((path != null ? lpath_47 : null) != null ? arr_6_lpath : null));
-                        }
-                        if (! res)
-                        {
                             break;
                         }
                     }
@@ -5070,9 +4835,6 @@ public class json_schema_draft_tighter_loose extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not array or unexpected array [.'$tight#EnumNum'.enum]", (path != null ? lpath_47 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$tight#EnumNum'.enum]", (path != null ? lpath_47 : null));
                     return false;
                 }
@@ -5086,9 +4848,6 @@ public class json_schema_draft_tighter_loose extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected number [.'$tight#EnumNum'.type]", (path != null ? lpath_47 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$tight#EnumNum'.type]", (path != null ? lpath_47 : null));
                     return false;
                 }
@@ -5125,7 +4884,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return true;
     }
-    
+
     // check $tight#EnumNum (.'$tight#EnumNum')
     public boolean json_model_29(Object val, Path path, Report rep)
     {
@@ -5138,7 +4897,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_51_map_$comment (.'$tight#EnumInt'.'$comment')
     public boolean _jm_f_178(Object val, Path path, Report rep)
     {
@@ -5151,7 +4910,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // object .'$tight#EnumInt'.'$defs'
     public boolean _jm_obj_52(Object val, Path path, Report rep)
     {
@@ -5173,15 +4932,12 @@ public class json_schema_draft_tighter_loose extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("unexpected $Schema [.'$tight#EnumInt'.'$defs'.'']", (path != null ? lpath_51 : null));
-            }
-            if (! res)
-            {
                 return false;
             }
         }
         return true;
     }
-    
+
     // check _jm_obj_51_map_$defs (.'$tight#EnumInt'.'$defs')
     public boolean _jm_f_179(Object val, Path path, Report rep)
     {
@@ -5194,7 +4950,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_51_map_$id (.'$tight#EnumInt'.'$id')
     public boolean _jm_f_180(Object val, Path path, Report rep)
     {
@@ -5207,7 +4963,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_51_map_$schema (.'$tight#EnumInt'.'$schema')
     public boolean _jm_f_181(Object val, Path path, Report rep)
     {
@@ -5220,7 +4976,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_51_map_default (.'$tight#EnumInt'.default)
     public boolean _jm_f_182(Object val, Path path, Report rep)
     {
@@ -5233,7 +4989,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // object .'$tight#EnumInt'.definitions
     public boolean _jm_obj_53(Object val, Path path, Report rep)
     {
@@ -5255,15 +5011,12 @@ public class json_schema_draft_tighter_loose extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("unexpected $Schema [.'$tight#EnumInt'.definitions.'']", (path != null ? lpath_52 : null));
-            }
-            if (! res)
-            {
                 return false;
             }
         }
         return true;
     }
-    
+
     // check _jm_obj_51_map_definitions (.'$tight#EnumInt'.definitions)
     public boolean _jm_f_183(Object val, Path path, Report rep)
     {
@@ -5276,7 +5029,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_51_map_description (.'$tight#EnumInt'.description)
     public boolean _jm_f_184(Object val, Path path, Report rep)
     {
@@ -5289,24 +5042,20 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_51_map_examples (.'$tight#EnumInt'.examples)
     public boolean _jm_f_185(Object val, Path path, Report rep)
     {
         boolean res;
         // .'$tight#EnumInt'.examples
         res = json.isArray(val);
-        if (res)
-        {
-            // accept any array
-        }
         if (! res)
         {
             if (rep != null) rep.addEntry("not array or unexpected array [.'$tight#EnumInt'.examples]", path);
         }
         return res;
     }
-    
+
     // check _jm_obj_51_map_id (.'$tight#EnumInt'.id)
     public boolean _jm_f_186(Object val, Path path, Report rep)
     {
@@ -5319,7 +5068,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_51_map_title (.'$tight#EnumInt'.title)
     public boolean _jm_f_187(Object val, Path path, Report rep)
     {
@@ -5332,8 +5081,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
-    
+
+
     // object .'$tight#EnumInt'
     public boolean _jm_obj_51(Object val, Path path, Report rep)
     {
@@ -5371,9 +5120,6 @@ public class json_schema_draft_tighter_loose extends ModelChecker
                         if (! res)
                         {
                             if (rep != null) rep.addEntry("not a -1 strict int [.'$tight#EnumInt'.enum.0]", ((path != null ? lpath_50 : null) != null ? arr_7_lpath : null));
-                        }
-                        if (! res)
-                        {
                             break;
                         }
                     }
@@ -5381,9 +5127,6 @@ public class json_schema_draft_tighter_loose extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not array or unexpected array [.'$tight#EnumInt'.enum]", (path != null ? lpath_50 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$tight#EnumInt'.enum]", (path != null ? lpath_50 : null));
                     return false;
                 }
@@ -5397,9 +5140,6 @@ public class json_schema_draft_tighter_loose extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected integer [.'$tight#EnumInt'.type]", (path != null ? lpath_50 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$tight#EnumInt'.type]", (path != null ? lpath_50 : null));
                     return false;
                 }
@@ -5436,7 +5176,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return true;
     }
-    
+
     // check $tight#EnumInt (.'$tight#EnumInt')
     public boolean json_model_30(Object val, Path path, Report rep)
     {
@@ -5449,7 +5189,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_54_map_$comment (.'$tight#ConstString'.'$comment')
     public boolean _jm_f_188(Object val, Path path, Report rep)
     {
@@ -5462,7 +5202,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // object .'$tight#ConstString'.'$defs'
     public boolean _jm_obj_55(Object val, Path path, Report rep)
     {
@@ -5484,15 +5224,12 @@ public class json_schema_draft_tighter_loose extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("unexpected $Schema [.'$tight#ConstString'.'$defs'.'']", (path != null ? lpath_54 : null));
-            }
-            if (! res)
-            {
                 return false;
             }
         }
         return true;
     }
-    
+
     // check _jm_obj_54_map_$defs (.'$tight#ConstString'.'$defs')
     public boolean _jm_f_189(Object val, Path path, Report rep)
     {
@@ -5505,7 +5242,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_54_map_$id (.'$tight#ConstString'.'$id')
     public boolean _jm_f_190(Object val, Path path, Report rep)
     {
@@ -5518,7 +5255,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_54_map_$schema (.'$tight#ConstString'.'$schema')
     public boolean _jm_f_191(Object val, Path path, Report rep)
     {
@@ -5531,7 +5268,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_54_map_default (.'$tight#ConstString'.default)
     public boolean _jm_f_192(Object val, Path path, Report rep)
     {
@@ -5544,7 +5281,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // object .'$tight#ConstString'.definitions
     public boolean _jm_obj_56(Object val, Path path, Report rep)
     {
@@ -5566,15 +5303,12 @@ public class json_schema_draft_tighter_loose extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("unexpected $Schema [.'$tight#ConstString'.definitions.'']", (path != null ? lpath_55 : null));
-            }
-            if (! res)
-            {
                 return false;
             }
         }
         return true;
     }
-    
+
     // check _jm_obj_54_map_definitions (.'$tight#ConstString'.definitions)
     public boolean _jm_f_193(Object val, Path path, Report rep)
     {
@@ -5587,7 +5321,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_54_map_description (.'$tight#ConstString'.description)
     public boolean _jm_f_194(Object val, Path path, Report rep)
     {
@@ -5600,24 +5334,20 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_54_map_examples (.'$tight#ConstString'.examples)
     public boolean _jm_f_195(Object val, Path path, Report rep)
     {
         boolean res;
         // .'$tight#ConstString'.examples
         res = json.isArray(val);
-        if (res)
-        {
-            // accept any array
-        }
         if (! res)
         {
             if (rep != null) rep.addEntry("not array or unexpected array [.'$tight#ConstString'.examples]", path);
         }
         return res;
     }
-    
+
     // check _jm_obj_54_map_id (.'$tight#ConstString'.id)
     public boolean _jm_f_196(Object val, Path path, Report rep)
     {
@@ -5630,7 +5360,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_54_map_title (.'$tight#ConstString'.title)
     public boolean _jm_f_197(Object val, Path path, Report rep)
     {
@@ -5643,8 +5373,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
-    
+
+
     // object .'$tight#ConstString'
     public boolean _jm_obj_54(Object val, Path path, Report rep)
     {
@@ -5671,9 +5401,6 @@ public class json_schema_draft_tighter_loose extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected string [.'$tight#ConstString'.const]", (path != null ? lpath_53 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$tight#ConstString'.const]", (path != null ? lpath_53 : null));
                     return false;
                 }
@@ -5687,9 +5414,6 @@ public class json_schema_draft_tighter_loose extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected string [.'$tight#ConstString'.type]", (path != null ? lpath_53 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$tight#ConstString'.type]", (path != null ? lpath_53 : null));
                     return false;
                 }
@@ -5726,7 +5450,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return true;
     }
-    
+
     // check $tight#ConstString (.'$tight#ConstString')
     public boolean json_model_31(Object val, Path path, Report rep)
     {
@@ -5739,7 +5463,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_57_map_$comment (.'$tight#ConstNum'.'$comment')
     public boolean _jm_f_198(Object val, Path path, Report rep)
     {
@@ -5752,7 +5476,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // object .'$tight#ConstNum'.'$defs'
     public boolean _jm_obj_58(Object val, Path path, Report rep)
     {
@@ -5774,15 +5498,12 @@ public class json_schema_draft_tighter_loose extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("unexpected $Schema [.'$tight#ConstNum'.'$defs'.'']", (path != null ? lpath_57 : null));
-            }
-            if (! res)
-            {
                 return false;
             }
         }
         return true;
     }
-    
+
     // check _jm_obj_57_map_$defs (.'$tight#ConstNum'.'$defs')
     public boolean _jm_f_199(Object val, Path path, Report rep)
     {
@@ -5795,7 +5516,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_57_map_$id (.'$tight#ConstNum'.'$id')
     public boolean _jm_f_200(Object val, Path path, Report rep)
     {
@@ -5808,7 +5529,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_57_map_$schema (.'$tight#ConstNum'.'$schema')
     public boolean _jm_f_201(Object val, Path path, Report rep)
     {
@@ -5821,7 +5542,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_57_map_default (.'$tight#ConstNum'.default)
     public boolean _jm_f_202(Object val, Path path, Report rep)
     {
@@ -5834,7 +5555,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // object .'$tight#ConstNum'.definitions
     public boolean _jm_obj_59(Object val, Path path, Report rep)
     {
@@ -5856,15 +5577,12 @@ public class json_schema_draft_tighter_loose extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("unexpected $Schema [.'$tight#ConstNum'.definitions.'']", (path != null ? lpath_58 : null));
-            }
-            if (! res)
-            {
                 return false;
             }
         }
         return true;
     }
-    
+
     // check _jm_obj_57_map_definitions (.'$tight#ConstNum'.definitions)
     public boolean _jm_f_203(Object val, Path path, Report rep)
     {
@@ -5877,7 +5595,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_57_map_description (.'$tight#ConstNum'.description)
     public boolean _jm_f_204(Object val, Path path, Report rep)
     {
@@ -5890,24 +5608,20 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_57_map_examples (.'$tight#ConstNum'.examples)
     public boolean _jm_f_205(Object val, Path path, Report rep)
     {
         boolean res;
         // .'$tight#ConstNum'.examples
         res = json.isArray(val);
-        if (res)
-        {
-            // accept any array
-        }
         if (! res)
         {
             if (rep != null) rep.addEntry("not array or unexpected array [.'$tight#ConstNum'.examples]", path);
         }
         return res;
     }
-    
+
     // check _jm_obj_57_map_id (.'$tight#ConstNum'.id)
     public boolean _jm_f_206(Object val, Path path, Report rep)
     {
@@ -5920,7 +5634,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_57_map_title (.'$tight#ConstNum'.title)
     public boolean _jm_f_207(Object val, Path path, Report rep)
     {
@@ -5933,8 +5647,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
-    
+
+
     // object .'$tight#ConstNum'
     public boolean _jm_obj_57(Object val, Path path, Report rep)
     {
@@ -5961,9 +5675,6 @@ public class json_schema_draft_tighter_loose extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not a -1.0 strict float [.'$tight#ConstNum'.const]", (path != null ? lpath_56 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$tight#ConstNum'.const]", (path != null ? lpath_56 : null));
                     return false;
                 }
@@ -5977,9 +5688,6 @@ public class json_schema_draft_tighter_loose extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected number [.'$tight#ConstNum'.type]", (path != null ? lpath_56 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$tight#ConstNum'.type]", (path != null ? lpath_56 : null));
                     return false;
                 }
@@ -6016,7 +5724,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return true;
     }
-    
+
     // check $tight#ConstNum (.'$tight#ConstNum')
     public boolean json_model_32(Object val, Path path, Report rep)
     {
@@ -6029,7 +5737,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_60_map_$comment (.'$tight#ConstInt'.'$comment')
     public boolean _jm_f_208(Object val, Path path, Report rep)
     {
@@ -6042,7 +5750,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // object .'$tight#ConstInt'.'$defs'
     public boolean _jm_obj_61(Object val, Path path, Report rep)
     {
@@ -6064,15 +5772,12 @@ public class json_schema_draft_tighter_loose extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("unexpected $Schema [.'$tight#ConstInt'.'$defs'.'']", (path != null ? lpath_60 : null));
-            }
-            if (! res)
-            {
                 return false;
             }
         }
         return true;
     }
-    
+
     // check _jm_obj_60_map_$defs (.'$tight#ConstInt'.'$defs')
     public boolean _jm_f_209(Object val, Path path, Report rep)
     {
@@ -6085,7 +5790,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_60_map_$id (.'$tight#ConstInt'.'$id')
     public boolean _jm_f_210(Object val, Path path, Report rep)
     {
@@ -6098,7 +5803,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_60_map_$schema (.'$tight#ConstInt'.'$schema')
     public boolean _jm_f_211(Object val, Path path, Report rep)
     {
@@ -6111,7 +5816,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_60_map_default (.'$tight#ConstInt'.default)
     public boolean _jm_f_212(Object val, Path path, Report rep)
     {
@@ -6124,7 +5829,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // object .'$tight#ConstInt'.definitions
     public boolean _jm_obj_62(Object val, Path path, Report rep)
     {
@@ -6146,15 +5851,12 @@ public class json_schema_draft_tighter_loose extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("unexpected $Schema [.'$tight#ConstInt'.definitions.'']", (path != null ? lpath_61 : null));
-            }
-            if (! res)
-            {
                 return false;
             }
         }
         return true;
     }
-    
+
     // check _jm_obj_60_map_definitions (.'$tight#ConstInt'.definitions)
     public boolean _jm_f_213(Object val, Path path, Report rep)
     {
@@ -6167,7 +5869,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_60_map_description (.'$tight#ConstInt'.description)
     public boolean _jm_f_214(Object val, Path path, Report rep)
     {
@@ -6180,24 +5882,20 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_60_map_examples (.'$tight#ConstInt'.examples)
     public boolean _jm_f_215(Object val, Path path, Report rep)
     {
         boolean res;
         // .'$tight#ConstInt'.examples
         res = json.isArray(val);
-        if (res)
-        {
-            // accept any array
-        }
         if (! res)
         {
             if (rep != null) rep.addEntry("not array or unexpected array [.'$tight#ConstInt'.examples]", path);
         }
         return res;
     }
-    
+
     // check _jm_obj_60_map_id (.'$tight#ConstInt'.id)
     public boolean _jm_f_216(Object val, Path path, Report rep)
     {
@@ -6210,7 +5908,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_60_map_title (.'$tight#ConstInt'.title)
     public boolean _jm_f_217(Object val, Path path, Report rep)
     {
@@ -6223,8 +5921,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
-    
+
+
     // object .'$tight#ConstInt'
     public boolean _jm_obj_60(Object val, Path path, Report rep)
     {
@@ -6251,9 +5949,6 @@ public class json_schema_draft_tighter_loose extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not a -1 strict int [.'$tight#ConstInt'.const]", (path != null ? lpath_59 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$tight#ConstInt'.const]", (path != null ? lpath_59 : null));
                     return false;
                 }
@@ -6267,9 +5962,6 @@ public class json_schema_draft_tighter_loose extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected integer [.'$tight#ConstInt'.type]", (path != null ? lpath_59 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$tight#ConstInt'.type]", (path != null ? lpath_59 : null));
                     return false;
                 }
@@ -6306,7 +5998,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return true;
     }
-    
+
     // check $tight#ConstInt (.'$tight#ConstInt')
     public boolean json_model_33(Object val, Path path, Report rep)
     {
@@ -6319,7 +6011,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_63_map_$comment (.'$tight#ConstBool'.'$comment')
     public boolean _jm_f_218(Object val, Path path, Report rep)
     {
@@ -6332,7 +6024,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // object .'$tight#ConstBool'.'$defs'
     public boolean _jm_obj_64(Object val, Path path, Report rep)
     {
@@ -6354,15 +6046,12 @@ public class json_schema_draft_tighter_loose extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("unexpected $Schema [.'$tight#ConstBool'.'$defs'.'']", (path != null ? lpath_63 : null));
-            }
-            if (! res)
-            {
                 return false;
             }
         }
         return true;
     }
-    
+
     // check _jm_obj_63_map_$defs (.'$tight#ConstBool'.'$defs')
     public boolean _jm_f_219(Object val, Path path, Report rep)
     {
@@ -6375,7 +6064,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_63_map_$id (.'$tight#ConstBool'.'$id')
     public boolean _jm_f_220(Object val, Path path, Report rep)
     {
@@ -6388,7 +6077,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_63_map_$schema (.'$tight#ConstBool'.'$schema')
     public boolean _jm_f_221(Object val, Path path, Report rep)
     {
@@ -6401,7 +6090,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_63_map_default (.'$tight#ConstBool'.default)
     public boolean _jm_f_222(Object val, Path path, Report rep)
     {
@@ -6414,7 +6103,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // object .'$tight#ConstBool'.definitions
     public boolean _jm_obj_65(Object val, Path path, Report rep)
     {
@@ -6436,15 +6125,12 @@ public class json_schema_draft_tighter_loose extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("unexpected $Schema [.'$tight#ConstBool'.definitions.'']", (path != null ? lpath_64 : null));
-            }
-            if (! res)
-            {
                 return false;
             }
         }
         return true;
     }
-    
+
     // check _jm_obj_63_map_definitions (.'$tight#ConstBool'.definitions)
     public boolean _jm_f_223(Object val, Path path, Report rep)
     {
@@ -6457,7 +6143,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_63_map_description (.'$tight#ConstBool'.description)
     public boolean _jm_f_224(Object val, Path path, Report rep)
     {
@@ -6470,24 +6156,20 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_63_map_examples (.'$tight#ConstBool'.examples)
     public boolean _jm_f_225(Object val, Path path, Report rep)
     {
         boolean res;
         // .'$tight#ConstBool'.examples
         res = json.isArray(val);
-        if (res)
-        {
-            // accept any array
-        }
         if (! res)
         {
             if (rep != null) rep.addEntry("not array or unexpected array [.'$tight#ConstBool'.examples]", path);
         }
         return res;
     }
-    
+
     // check _jm_obj_63_map_id (.'$tight#ConstBool'.id)
     public boolean _jm_f_226(Object val, Path path, Report rep)
     {
@@ -6500,7 +6182,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_63_map_title (.'$tight#ConstBool'.title)
     public boolean _jm_f_227(Object val, Path path, Report rep)
     {
@@ -6513,8 +6195,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
-    
+
+
     // object .'$tight#ConstBool'
     public boolean _jm_obj_63(Object val, Path path, Report rep)
     {
@@ -6541,9 +6223,6 @@ public class json_schema_draft_tighter_loose extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not a bool [.'$tight#ConstBool'.const]", (path != null ? lpath_62 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$tight#ConstBool'.const]", (path != null ? lpath_62 : null));
                     return false;
                 }
@@ -6557,9 +6236,6 @@ public class json_schema_draft_tighter_loose extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected boolean [.'$tight#ConstBool'.type]", (path != null ? lpath_62 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$tight#ConstBool'.type]", (path != null ? lpath_62 : null));
                     return false;
                 }
@@ -6596,7 +6272,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return true;
     }
-    
+
     // check $tight#ConstBool (.'$tight#ConstBool')
     public boolean json_model_34(Object val, Path path, Report rep)
     {
@@ -6609,7 +6285,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         return res;
     }
-    
+
 
     public void init(JSON json)
     {

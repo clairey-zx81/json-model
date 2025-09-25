@@ -33,9 +33,6 @@ function _jm_obj_0(val, path, rep)
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.name]", path])
-    }
-    if (! res)
-    {
         rep !== null && rep.push(["unexpected value for mandatory prop <name> [.]", path])
         return false;
     }
@@ -47,9 +44,6 @@ function _jm_obj_0(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["unexpected $DATE [.born]", path])
-        }
-        if (! res)
-        {
             rep !== null && rep.push(["unexpected value for optional prop <born> [.]", path])
             return false;
         }

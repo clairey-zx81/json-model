@@ -42,6 +42,7 @@ my %_jm_obj_0_map;
 sub json_model_1($$$);
 my %check_model_map;
 
+
 # check $allTypes (.'$allTypes')
 sub json_model_2($$$)
 {
@@ -145,11 +146,6 @@ sub _jm_f_6($$$)
     # .enum
     # .enum.'@'
     $res = jm_is_array($val);
-    if ($res)
-    {
-        # accept any array
-        ;
-    }
     if ($res)
     {
         my $ival_0 = scalar @$val;

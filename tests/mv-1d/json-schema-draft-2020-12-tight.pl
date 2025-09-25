@@ -496,11 +496,6 @@ sub _jm_f_12($$$)
     my $res;
     # .'$meta'.examples
     $res = jm_is_array($val);
-    if ($res)
-    {
-        # accept any array
-        ;
-    }
     return $res;
 }
 
@@ -1519,11 +1514,6 @@ sub _jm_f_46($$$)
     my $res;
     # .'$Misc'.enum
     $res = jm_is_array($val);
-    if ($res)
-    {
-        # accept any array
-        ;
-    }
     return $res;
 }
 
@@ -1786,11 +1776,6 @@ sub _jm_f_63($$$)
     my $res;
     # .'$TightSchema'.'|'.0.examples
     $res = jm_is_array($val);
-    if ($res)
-    {
-        # accept any array
-        ;
-    }
     return $res;
 }
 
@@ -2050,11 +2035,6 @@ sub _jm_f_79($$$)
     my $res;
     # .'$TightSchema'.'|'.1.examples
     $res = jm_is_array($val);
-    if ($res)
-    {
-        # accept any array
-        ;
-    }
     return $res;
 }
 
@@ -2314,11 +2294,6 @@ sub _jm_f_95($$$)
     my $res;
     # .'$TightSchema'.'|'.2.examples
     $res = jm_is_array($val);
-    if ($res)
-    {
-        # accept any array
-        ;
-    }
     return $res;
 }
 
@@ -2658,11 +2633,6 @@ sub _jm_f_116($$$)
     my $res;
     # .'$TightSchema'.'|'.3.examples
     $res = jm_is_array($val);
-    if ($res)
-    {
-        # accept any array
-        ;
-    }
     return $res;
 }
 
@@ -3002,11 +2972,6 @@ sub _jm_f_140($$$)
     my $res;
     # .'$TightSchema'.'|'.4.examples
     $res = jm_is_array($val);
-    if ($res)
-    {
-        # accept any array
-        ;
-    }
     return $res;
 }
 
@@ -3316,11 +3281,6 @@ sub _jm_f_161($$$)
     my $res;
     # .'$TightSchema'.'|'.5.examples
     $res = jm_is_array($val);
-    if ($res)
-    {
-        # accept any array
-        ;
-    }
     return $res;
 }
 
@@ -3736,11 +3696,6 @@ sub _jm_f_188($$$)
     my $res;
     # .'$TightSchema'.'|'.6.examples
     $res = jm_is_array($val);
-    if ($res)
-    {
-        # accept any array
-        ;
-    }
     return $res;
 }
 
@@ -4163,11 +4118,6 @@ sub _jm_f_215($$$)
     my $res;
     # .'$TightSchema'.'|'.7.enum
     $res = jm_is_array($val);
-    if ($res)
-    {
-        # accept any array
-        ;
-    }
     return $res;
 }
 
@@ -4178,11 +4128,6 @@ sub _jm_f_216($$$)
     my $res;
     # .'$TightSchema'.'|'.7.examples
     $res = jm_is_array($val);
-    if ($res)
-    {
-        # accept any array
-        ;
-    }
     return $res;
 }
 

@@ -231,10 +231,6 @@ BEGIN
     pval := val -> 'examples';
     -- .'$schema#ObjectSchema'.examples
     res := JSONB_TYPEOF(pval) = 'array';
-    IF res THEN
-      -- accept any array
-      NULL;
-    END IF;
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -427,10 +423,6 @@ BEGIN
     -- .'$schema#ObjectSchema'.enum
     -- .'$schema#ObjectSchema'.enum.'@'
     res := JSONB_TYPEOF(pval) = 'array';
-    IF res THEN
-      -- accept any array
-      NULL;
-    END IF;
     IF res THEN
       ival_0 := JSONB_ARRAY_LENGTH(pval);
       res := jm_array_is_unique(pval, path, rep) AND ival_0 >= 1;

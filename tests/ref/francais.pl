@@ -2609,11 +2609,6 @@ sub _jm_obj_24($$$)
             {
                 # .'$Model#Transformation'.'|'.1.'/'.'|'.1
                 $res = jm_is_array($pval);
-                if ($res)
-                {
-                    # accept any array
-                    ;
-                }
             }
             if (! $res)
             {

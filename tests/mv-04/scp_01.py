@@ -55,7 +55,6 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
             res = json_model_7(pval, lpath_0 if path is not None else None, rep)
             if not res:
                 rep is None or rep.append(("unexpected $Aa [.'$Rr'.a]", lpath_0 if path is not None else None))
-            if not res:
                 rep is None or rep.append(("invalid optional prop value [.'$Rr'.a]", lpath_0 if path is not None else None))
                 return False
         else:
@@ -89,7 +88,6 @@ def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
             res = json_model_5(pval, lpath_1 if path is not None else None, rep)
             if not res:
                 rep is None or rep.append(("unexpected $Rr [.RA]", lpath_1 if path is not None else None))
-            if not res:
                 rep is None or rep.append(("invalid mandatory prop value [.RA]", lpath_1 if path is not None else None))
                 return False
         elif prop == "b":
@@ -98,7 +96,6 @@ def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
             res = json_model_3(pval, lpath_1 if path is not None else None, rep)
             if not res:
                 rep is None or rep.append(("unexpected $Bb [.b]", lpath_1 if path is not None else None))
-            if not res:
                 rep is None or rep.append(("invalid optional prop value [.b]", lpath_1 if path is not None else None))
                 return False
         elif prop == "a":
@@ -107,7 +104,6 @@ def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
             res = json_model_7(pval, lpath_1 if path is not None else None, rep)
             if not res:
                 rep is None or rep.append(("unexpected $Rr#Aa [.a]", lpath_1 if path is not None else None))
-            if not res:
                 rep is None or rep.append(("invalid optional prop value [.a]", lpath_1 if path is not None else None))
                 return False
         else:

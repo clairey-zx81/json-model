@@ -46,7 +46,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_0_map_$anchor (.'$core'.'$anchor')
     public boolean _jm_f_0(Object val, Path path, Report rep)
     {
@@ -59,7 +59,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_0_map_$comment (.'$core'.'$comment')
     public boolean _jm_f_1(Object val, Path path, Report rep)
     {
@@ -72,7 +72,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // object .'$core'.'$defs'
     public boolean _jm_obj_1(Object val, Path path, Report rep)
     {
@@ -94,15 +94,12 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("unexpected $Schema [.'$core'.'$defs'.'']", (path != null ? lpath_1 : null));
-            }
-            if (! res)
-            {
                 return false;
             }
         }
         return true;
     }
-    
+
     // check _jm_obj_0_map_$defs (.'$core'.'$defs')
     public boolean _jm_f_2(Object val, Path path, Report rep)
     {
@@ -115,7 +112,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_0_map_$dynamicAnchor (.'$core'.'$dynamicAnchor')
     public boolean _jm_f_3(Object val, Path path, Report rep)
     {
@@ -128,7 +125,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_0_map_$dynamicRef (.'$core'.'$dynamicRef')
     public boolean _jm_f_4(Object val, Path path, Report rep)
     {
@@ -141,7 +138,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_0_map_$id (.'$core'.'$id')
     public boolean _jm_f_5(Object val, Path path, Report rep)
     {
@@ -154,7 +151,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_0_map_$ref (.'$core'.'$ref')
     public boolean _jm_f_6(Object val, Path path, Report rep)
     {
@@ -167,7 +164,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_0_map_$schema (.'$core'.'$schema')
     public boolean _jm_f_7(Object val, Path path, Report rep)
     {
@@ -180,7 +177,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // object .'$core'.'$vocabulary'
     public boolean _jm_obj_2(Object val, Path path, Report rep)
     {
@@ -204,9 +201,6 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not a bool [.'$core'.'$vocabulary'.'$URI']", (path != null ? lpath_2 : null));
-                }
-                if (! res)
-                {
                     return false;
                 }
             }
@@ -218,7 +212,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return true;
     }
-    
+
     // check _jm_obj_0_map_$vocabulary (.'$core'.'$vocabulary')
     public boolean _jm_f_8(Object val, Path path, Report rep)
     {
@@ -231,8 +225,8 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
-    
+
+
     // object .'$core'
     public boolean _jm_obj_0(Object val, Path path, Report rep)
     {
@@ -265,7 +259,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return true;
     }
-    
+
     // check $core (.'$core')
     public boolean json_model_3(Object val, Path path, Report rep)
     {
@@ -278,7 +272,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_3_map_default (.'$meta'.default)
     public boolean _jm_f_9(Object val, Path path, Report rep)
     {
@@ -291,7 +285,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_3_map_deprecated (.'$meta'.deprecated)
     public boolean _jm_f_10(Object val, Path path, Report rep)
     {
@@ -304,7 +298,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_3_map_description (.'$meta'.description)
     public boolean _jm_f_11(Object val, Path path, Report rep)
     {
@@ -317,24 +311,20 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_3_map_examples (.'$meta'.examples)
     public boolean _jm_f_12(Object val, Path path, Report rep)
     {
         boolean res;
         // .'$meta'.examples
         res = json.isArray(val);
-        if (res)
-        {
-            // accept any array
-        }
         if (! res)
         {
             if (rep != null) rep.addEntry("not array or unexpected array [.'$meta'.examples]", path);
         }
         return res;
     }
-    
+
     // check _jm_obj_3_map_readOnly (.'$meta'.readOnly)
     public boolean _jm_f_13(Object val, Path path, Report rep)
     {
@@ -347,7 +337,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_3_map_title (.'$meta'.title)
     public boolean _jm_f_14(Object val, Path path, Report rep)
     {
@@ -360,7 +350,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_3_map_writeOnly (.'$meta'.writeOnly)
     public boolean _jm_f_15(Object val, Path path, Report rep)
     {
@@ -373,8 +363,8 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
-    
+
+
     // object .'$meta'
     public boolean _jm_obj_3(Object val, Path path, Report rep)
     {
@@ -407,7 +397,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return true;
     }
-    
+
     // check $meta (.'$meta')
     public boolean json_model_4(Object val, Path path, Report rep)
     {
@@ -420,7 +410,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // object .'$Null'
     public boolean _jm_obj_4(Object val, Path path, Report rep)
     {
@@ -446,9 +436,6 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected _null [.'$Null'.type]", (path != null ? lpath_4 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$Null'.type]", (path != null ? lpath_4 : null));
                     return false;
                 }
@@ -472,7 +459,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return true;
     }
-    
+
     // check $Null (.'$Null')
     public boolean json_model_5(Object val, Path path, Report rep)
     {
@@ -485,7 +472,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // object .'$Boolean'
     public boolean _jm_obj_5(Object val, Path path, Report rep)
     {
@@ -511,9 +498,6 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected _boolean [.'$Boolean'.type]", (path != null ? lpath_5 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$Boolean'.type]", (path != null ? lpath_5 : null));
                     return false;
                 }
@@ -537,7 +521,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return true;
     }
-    
+
     // check $Boolean (.'$Boolean')
     public boolean json_model_6(Object val, Path path, Report rep)
     {
@@ -550,7 +534,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // object .'$Number'
     public boolean _jm_obj_6(Object val, Path path, Report rep)
     {
@@ -576,9 +560,6 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected _number [.'$Number'.type]", (path != null ? lpath_6 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$Number'.type]", (path != null ? lpath_6 : null));
                     return false;
                 }
@@ -609,9 +590,6 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
                 else
                 {
                     if (rep != null) rep.addEntry("no model matched [.'$Number'.multipleOf.'|']", (path != null ? lpath_6 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Number'.multipleOf]", (path != null ? lpath_6 : null));
                     return false;
                 }
@@ -642,9 +620,6 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
                 else
                 {
                     if (rep != null) rep.addEntry("no model matched [.'$Number'.maximum.'|']", (path != null ? lpath_6 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Number'.maximum]", (path != null ? lpath_6 : null));
                     return false;
                 }
@@ -675,9 +650,6 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
                 else
                 {
                     if (rep != null) rep.addEntry("no model matched [.'$Number'.exclusiveMaximum.'|']", (path != null ? lpath_6 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Number'.exclusiveMaximum]", (path != null ? lpath_6 : null));
                     return false;
                 }
@@ -708,9 +680,6 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
                 else
                 {
                     if (rep != null) rep.addEntry("no model matched [.'$Number'.minimum.'|']", (path != null ? lpath_6 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Number'.minimum]", (path != null ? lpath_6 : null));
                     return false;
                 }
@@ -741,9 +710,6 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
                 else
                 {
                     if (rep != null) rep.addEntry("no model matched [.'$Number'.exclusiveMinimum.'|']", (path != null ? lpath_6 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Number'.exclusiveMinimum]", (path != null ? lpath_6 : null));
                     return false;
                 }
@@ -767,7 +733,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return true;
     }
-    
+
     // check $Number (.'$Number')
     public boolean json_model_7(Object val, Path path, Report rep)
     {
@@ -780,7 +746,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // object .'$Integer'
     public boolean _jm_obj_7(Object val, Path path, Report rep)
     {
@@ -806,9 +772,6 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected _integer [.'$Integer'.type]", (path != null ? lpath_7 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$Integer'.type]", (path != null ? lpath_7 : null));
                     return false;
                 }
@@ -821,9 +784,6 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not a 1 strict int [.'$Integer'.multipleOf]", (path != null ? lpath_7 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Integer'.multipleOf]", (path != null ? lpath_7 : null));
                     return false;
                 }
@@ -836,9 +796,6 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not a -1 strict int [.'$Integer'.maximum]", (path != null ? lpath_7 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Integer'.maximum]", (path != null ? lpath_7 : null));
                     return false;
                 }
@@ -851,9 +808,6 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not a -1 strict int [.'$Integer'.exclusiveMaximum]", (path != null ? lpath_7 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Integer'.exclusiveMaximum]", (path != null ? lpath_7 : null));
                     return false;
                 }
@@ -866,9 +820,6 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not a -1 strict int [.'$Integer'.minimum]", (path != null ? lpath_7 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Integer'.minimum]", (path != null ? lpath_7 : null));
                     return false;
                 }
@@ -881,9 +832,6 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not a -1 strict int [.'$Integer'.exclusiveMinimum]", (path != null ? lpath_7 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Integer'.exclusiveMinimum]", (path != null ? lpath_7 : null));
                     return false;
                 }
@@ -907,7 +855,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return true;
     }
-    
+
     // check $Integer (.'$Integer')
     public boolean json_model_8(Object val, Path path, Report rep)
     {
@@ -920,7 +868,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_8_map_contentEncoding (.'$String'.contentEncoding)
     public boolean _jm_f_16(Object val, Path path, Report rep)
     {
@@ -933,7 +881,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_8_map_contentMediaType (.'$String'.contentMediaType)
     public boolean _jm_f_17(Object val, Path path, Report rep)
     {
@@ -946,7 +894,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_8_map_contentSchema (.'$String'.contentSchema)
     public boolean _jm_f_18(Object val, Path path, Report rep)
     {
@@ -959,7 +907,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_8_map_format (.'$String'.format)
     public boolean _jm_f_19(Object val, Path path, Report rep)
     {
@@ -972,7 +920,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_8_map_maxLength (.'$String'.maxLength)
     public boolean _jm_f_20(Object val, Path path, Report rep)
     {
@@ -985,7 +933,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_8_map_minLength (.'$String'.minLength)
     public boolean _jm_f_21(Object val, Path path, Report rep)
     {
@@ -998,7 +946,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_8_map_pattern (.'$String'.pattern)
     public boolean _jm_f_22(Object val, Path path, Report rep)
     {
@@ -1011,8 +959,8 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
-    
+
+
     // object .'$String'
     public boolean _jm_obj_8(Object val, Path path, Report rep)
     {
@@ -1039,9 +987,6 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected _string [.'$String'.type]", (path != null ? lpath_8 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$String'.type]", (path != null ? lpath_8 : null));
                     return false;
                 }
@@ -1074,7 +1019,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return true;
     }
-    
+
     // check $String (.'$String')
     public boolean json_model_9(Object val, Path path, Report rep)
     {
@@ -1087,7 +1032,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // check $stringArray (.'$stringArray')
     public boolean json_model_10(Object val, Path path, Report rep)
     {
@@ -1109,9 +1054,6 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected string [.'$stringArray'.'@'.0]", (path != null ? arr_0_lpath : null));
-                }
-                if (! res)
-                {
                     break;
                 }
             }
@@ -1131,7 +1073,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // check $schemaArray (.'$schemaArray')
     public boolean json_model_11(Object val, Path path, Report rep)
     {
@@ -1153,9 +1095,6 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected $Schema [.'$schemaArray'.'@'.0]", (path != null ? arr_1_lpath : null));
-                }
-                if (! res)
-                {
                     break;
                 }
             }
@@ -1175,7 +1114,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_9_map_contains (.'$Array'.contains)
     public boolean _jm_f_23(Object val, Path path, Report rep)
     {
@@ -1188,7 +1127,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_9_map_items (.'$Array'.items)
     public boolean _jm_f_24(Object val, Path path, Report rep)
     {
@@ -1201,7 +1140,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_9_map_maxContains (.'$Array'.maxContains)
     public boolean _jm_f_25(Object val, Path path, Report rep)
     {
@@ -1214,7 +1153,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_9_map_maxItems (.'$Array'.maxItems)
     public boolean _jm_f_26(Object val, Path path, Report rep)
     {
@@ -1227,7 +1166,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_9_map_minContains (.'$Array'.minContains)
     public boolean _jm_f_27(Object val, Path path, Report rep)
     {
@@ -1240,7 +1179,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_9_map_minItems (.'$Array'.minItems)
     public boolean _jm_f_28(Object val, Path path, Report rep)
     {
@@ -1253,7 +1192,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_9_map_prefixItems (.'$Array'.prefixItems)
     public boolean _jm_f_29(Object val, Path path, Report rep)
     {
@@ -1266,7 +1205,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_9_map_unevaluatedItems (.'$Array'.unevaluatedItems)
     public boolean _jm_f_30(Object val, Path path, Report rep)
     {
@@ -1279,7 +1218,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_9_map_uniqueItems (.'$Array'.uniqueItems)
     public boolean _jm_f_31(Object val, Path path, Report rep)
     {
@@ -1292,8 +1231,8 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
-    
+
+
     // object .'$Array'
     public boolean _jm_obj_9(Object val, Path path, Report rep)
     {
@@ -1320,9 +1259,6 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected _array [.'$Array'.type]", (path != null ? lpath_9 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$Array'.type]", (path != null ? lpath_9 : null));
                     return false;
                 }
@@ -1355,7 +1291,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return true;
     }
-    
+
     // check $Array (.'$Array')
     public boolean json_model_12(Object val, Path path, Report rep)
     {
@@ -1368,7 +1304,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_10_map_additionalProperties (.'$Object'.additionalProperties)
     public boolean _jm_f_32(Object val, Path path, Report rep)
     {
@@ -1381,7 +1317,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // object .'$Object'.dependentRequired
     public boolean _jm_obj_11(Object val, Path path, Report rep)
     {
@@ -1403,15 +1339,12 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("unexpected $stringArray [.'$Object'.dependentRequired.'']", (path != null ? lpath_11 : null));
-            }
-            if (! res)
-            {
                 return false;
             }
         }
         return true;
     }
-    
+
     // check _jm_obj_10_map_dependentRequired (.'$Object'.dependentRequired)
     public boolean _jm_f_33(Object val, Path path, Report rep)
     {
@@ -1424,7 +1357,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // object .'$Object'.dependentSchemas
     public boolean _jm_obj_12(Object val, Path path, Report rep)
     {
@@ -1446,15 +1379,12 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("unexpected $Schema [.'$Object'.dependentSchemas.'']", (path != null ? lpath_12 : null));
-            }
-            if (! res)
-            {
                 return false;
             }
         }
         return true;
     }
-    
+
     // check _jm_obj_10_map_dependentSchemas (.'$Object'.dependentSchemas)
     public boolean _jm_f_34(Object val, Path path, Report rep)
     {
@@ -1467,7 +1397,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_10_map_maxProperties (.'$Object'.maxProperties)
     public boolean _jm_f_35(Object val, Path path, Report rep)
     {
@@ -1480,7 +1410,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_10_map_minProperties (.'$Object'.minProperties)
     public boolean _jm_f_36(Object val, Path path, Report rep)
     {
@@ -1493,7 +1423,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // object .'$Object'.patternProperties
     public boolean _jm_obj_13(Object val, Path path, Report rep)
     {
@@ -1517,9 +1447,6 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected $Schema [.'$Object'.patternProperties.'$REGEX']", (path != null ? lpath_13 : null));
-                }
-                if (! res)
-                {
                     return false;
                 }
             }
@@ -1531,7 +1458,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return true;
     }
-    
+
     // check _jm_obj_10_map_patternProperties (.'$Object'.patternProperties)
     public boolean _jm_f_37(Object val, Path path, Report rep)
     {
@@ -1544,7 +1471,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // object .'$Object'.properties
     public boolean _jm_obj_14(Object val, Path path, Report rep)
     {
@@ -1566,15 +1493,12 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("unexpected $Schema [.'$Object'.properties.'']", (path != null ? lpath_14 : null));
-            }
-            if (! res)
-            {
                 return false;
             }
         }
         return true;
     }
-    
+
     // check _jm_obj_10_map_properties (.'$Object'.properties)
     public boolean _jm_f_38(Object val, Path path, Report rep)
     {
@@ -1587,7 +1511,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_10_map_propertyNames (.'$Object'.propertyNames)
     public boolean _jm_f_39(Object val, Path path, Report rep)
     {
@@ -1600,7 +1524,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_10_map_required (.'$Object'.required)
     public boolean _jm_f_40(Object val, Path path, Report rep)
     {
@@ -1613,7 +1537,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_10_map_unevaluatedProperties (.'$Object'.unevaluatedProperties)
     public boolean _jm_f_41(Object val, Path path, Report rep)
     {
@@ -1626,8 +1550,8 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
-    
+
+
     // object .'$Object'
     public boolean _jm_obj_10(Object val, Path path, Report rep)
     {
@@ -1654,9 +1578,6 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected _object [.'$Object'.type]", (path != null ? lpath_10 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$Object'.type]", (path != null ? lpath_10 : null));
                     return false;
                 }
@@ -1689,7 +1610,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return true;
     }
-    
+
     // check $Object (.'$Object')
     public boolean json_model_13(Object val, Path path, Report rep)
     {
@@ -1702,7 +1623,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_15_map_allOf (.'$Misc'.allOf)
     public boolean _jm_f_42(Object val, Path path, Report rep)
     {
@@ -1715,7 +1636,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_15_map_anyOf (.'$Misc'.anyOf)
     public boolean _jm_f_43(Object val, Path path, Report rep)
     {
@@ -1728,7 +1649,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_15_map_const (.'$Misc'.const)
     public boolean _jm_f_44(Object val, Path path, Report rep)
     {
@@ -1741,7 +1662,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_15_map_else (.'$Misc'.else)
     public boolean _jm_f_45(Object val, Path path, Report rep)
     {
@@ -1754,24 +1675,20 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_15_map_enum (.'$Misc'.enum)
     public boolean _jm_f_46(Object val, Path path, Report rep)
     {
         boolean res;
         // .'$Misc'.enum
         res = json.isArray(val);
-        if (res)
-        {
-            // accept any array
-        }
         if (! res)
         {
             if (rep != null) rep.addEntry("not array or unexpected array [.'$Misc'.enum]", path);
         }
         return res;
     }
-    
+
     // check _jm_obj_15_map_if (.'$Misc'.if)
     public boolean _jm_f_47(Object val, Path path, Report rep)
     {
@@ -1784,7 +1701,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_15_map_not (.'$Misc'.not)
     public boolean _jm_f_48(Object val, Path path, Report rep)
     {
@@ -1797,7 +1714,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_15_map_oneOf (.'$Misc'.oneOf)
     public boolean _jm_f_49(Object val, Path path, Report rep)
     {
@@ -1810,7 +1727,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_15_map_then (.'$Misc'.then)
     public boolean _jm_f_50(Object val, Path path, Report rep)
     {
@@ -1823,8 +1740,8 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
-    
+
+
     // object .'$Misc'
     public boolean _jm_obj_15(Object val, Path path, Report rep)
     {
@@ -1857,7 +1774,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return true;
     }
-    
+
     // check $Misc (.'$Misc')
     public boolean json_model_14(Object val, Path path, Report rep)
     {
@@ -1870,7 +1787,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_16_map_$anchor (.'$TightSchema'.'|'.0.'$anchor')
     public boolean _jm_f_51(Object val, Path path, Report rep)
     {
@@ -1883,7 +1800,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_16_map_$comment (.'$TightSchema'.'|'.0.'$comment')
     public boolean _jm_f_52(Object val, Path path, Report rep)
     {
@@ -1896,7 +1813,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // object .'$TightSchema'.'|'.0.'$defs'
     public boolean _jm_obj_17(Object val, Path path, Report rep)
     {
@@ -1918,15 +1835,12 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("unexpected $Schema [.'$TightSchema'.'|'.0.'$defs'.'']", (path != null ? lpath_17 : null));
-            }
-            if (! res)
-            {
                 return false;
             }
         }
         return true;
     }
-    
+
     // check _jm_obj_16_map_$defs (.'$TightSchema'.'|'.0.'$defs')
     public boolean _jm_f_53(Object val, Path path, Report rep)
     {
@@ -1939,7 +1853,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_16_map_$dynamicAnchor (.'$TightSchema'.'|'.0.'$dynamicAnchor')
     public boolean _jm_f_54(Object val, Path path, Report rep)
     {
@@ -1952,7 +1866,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_16_map_$dynamicRef (.'$TightSchema'.'|'.0.'$dynamicRef')
     public boolean _jm_f_55(Object val, Path path, Report rep)
     {
@@ -1965,7 +1879,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_16_map_$id (.'$TightSchema'.'|'.0.'$id')
     public boolean _jm_f_56(Object val, Path path, Report rep)
     {
@@ -1978,7 +1892,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_16_map_$ref (.'$TightSchema'.'|'.0.'$ref')
     public boolean _jm_f_57(Object val, Path path, Report rep)
     {
@@ -1991,7 +1905,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_16_map_$schema (.'$TightSchema'.'|'.0.'$schema')
     public boolean _jm_f_58(Object val, Path path, Report rep)
     {
@@ -2004,7 +1918,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // object .'$TightSchema'.'|'.0.'$vocabulary'
     public boolean _jm_obj_18(Object val, Path path, Report rep)
     {
@@ -2028,9 +1942,6 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not a bool [.'$TightSchema'.'|'.0.'$vocabulary'.'$URI']", (path != null ? lpath_18 : null));
-                }
-                if (! res)
-                {
                     return false;
                 }
             }
@@ -2042,7 +1953,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return true;
     }
-    
+
     // check _jm_obj_16_map_$vocabulary (.'$TightSchema'.'|'.0.'$vocabulary')
     public boolean _jm_f_59(Object val, Path path, Report rep)
     {
@@ -2055,7 +1966,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_16_map_default (.'$TightSchema'.'|'.0.default)
     public boolean _jm_f_60(Object val, Path path, Report rep)
     {
@@ -2068,7 +1979,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_16_map_deprecated (.'$TightSchema'.'|'.0.deprecated)
     public boolean _jm_f_61(Object val, Path path, Report rep)
     {
@@ -2081,7 +1992,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_16_map_description (.'$TightSchema'.'|'.0.description)
     public boolean _jm_f_62(Object val, Path path, Report rep)
     {
@@ -2094,24 +2005,20 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_16_map_examples (.'$TightSchema'.'|'.0.examples)
     public boolean _jm_f_63(Object val, Path path, Report rep)
     {
         boolean res;
         // .'$TightSchema'.'|'.0.examples
         res = json.isArray(val);
-        if (res)
-        {
-            // accept any array
-        }
         if (! res)
         {
             if (rep != null) rep.addEntry("not array or unexpected array [.'$TightSchema'.'|'.0.examples]", path);
         }
         return res;
     }
-    
+
     // check _jm_obj_16_map_readOnly (.'$TightSchema'.'|'.0.readOnly)
     public boolean _jm_f_64(Object val, Path path, Report rep)
     {
@@ -2124,7 +2031,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_16_map_title (.'$TightSchema'.'|'.0.title)
     public boolean _jm_f_65(Object val, Path path, Report rep)
     {
@@ -2137,7 +2044,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_16_map_writeOnly (.'$TightSchema'.'|'.0.writeOnly)
     public boolean _jm_f_66(Object val, Path path, Report rep)
     {
@@ -2150,8 +2057,8 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
-    
+
+
     // object .'$TightSchema'.'|'.0
     public boolean _jm_obj_16(Object val, Path path, Report rep)
     {
@@ -2178,9 +2085,6 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected _null [.'$TightSchema'.'|'.0.type]", (path != null ? lpath_16 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$TightSchema'.'|'.0.type]", (path != null ? lpath_16 : null));
                     return false;
                 }
@@ -2213,7 +2117,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return true;
     }
-    
+
     // check _jm_obj_19_map_$anchor (.'$TightSchema'.'|'.1.'$anchor')
     public boolean _jm_f_67(Object val, Path path, Report rep)
     {
@@ -2226,7 +2130,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_19_map_$comment (.'$TightSchema'.'|'.1.'$comment')
     public boolean _jm_f_68(Object val, Path path, Report rep)
     {
@@ -2239,7 +2143,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // object .'$TightSchema'.'|'.1.'$defs'
     public boolean _jm_obj_20(Object val, Path path, Report rep)
     {
@@ -2261,15 +2165,12 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("unexpected $Schema [.'$TightSchema'.'|'.1.'$defs'.'']", (path != null ? lpath_20 : null));
-            }
-            if (! res)
-            {
                 return false;
             }
         }
         return true;
     }
-    
+
     // check _jm_obj_19_map_$defs (.'$TightSchema'.'|'.1.'$defs')
     public boolean _jm_f_69(Object val, Path path, Report rep)
     {
@@ -2282,7 +2183,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_19_map_$dynamicAnchor (.'$TightSchema'.'|'.1.'$dynamicAnchor')
     public boolean _jm_f_70(Object val, Path path, Report rep)
     {
@@ -2295,7 +2196,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_19_map_$dynamicRef (.'$TightSchema'.'|'.1.'$dynamicRef')
     public boolean _jm_f_71(Object val, Path path, Report rep)
     {
@@ -2308,7 +2209,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_19_map_$id (.'$TightSchema'.'|'.1.'$id')
     public boolean _jm_f_72(Object val, Path path, Report rep)
     {
@@ -2321,7 +2222,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_19_map_$ref (.'$TightSchema'.'|'.1.'$ref')
     public boolean _jm_f_73(Object val, Path path, Report rep)
     {
@@ -2334,7 +2235,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_19_map_$schema (.'$TightSchema'.'|'.1.'$schema')
     public boolean _jm_f_74(Object val, Path path, Report rep)
     {
@@ -2347,7 +2248,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // object .'$TightSchema'.'|'.1.'$vocabulary'
     public boolean _jm_obj_21(Object val, Path path, Report rep)
     {
@@ -2371,9 +2272,6 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not a bool [.'$TightSchema'.'|'.1.'$vocabulary'.'$URI']", (path != null ? lpath_21 : null));
-                }
-                if (! res)
-                {
                     return false;
                 }
             }
@@ -2385,7 +2283,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return true;
     }
-    
+
     // check _jm_obj_19_map_$vocabulary (.'$TightSchema'.'|'.1.'$vocabulary')
     public boolean _jm_f_75(Object val, Path path, Report rep)
     {
@@ -2398,7 +2296,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_19_map_default (.'$TightSchema'.'|'.1.default)
     public boolean _jm_f_76(Object val, Path path, Report rep)
     {
@@ -2411,7 +2309,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_19_map_deprecated (.'$TightSchema'.'|'.1.deprecated)
     public boolean _jm_f_77(Object val, Path path, Report rep)
     {
@@ -2424,7 +2322,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_19_map_description (.'$TightSchema'.'|'.1.description)
     public boolean _jm_f_78(Object val, Path path, Report rep)
     {
@@ -2437,24 +2335,20 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_19_map_examples (.'$TightSchema'.'|'.1.examples)
     public boolean _jm_f_79(Object val, Path path, Report rep)
     {
         boolean res;
         // .'$TightSchema'.'|'.1.examples
         res = json.isArray(val);
-        if (res)
-        {
-            // accept any array
-        }
         if (! res)
         {
             if (rep != null) rep.addEntry("not array or unexpected array [.'$TightSchema'.'|'.1.examples]", path);
         }
         return res;
     }
-    
+
     // check _jm_obj_19_map_readOnly (.'$TightSchema'.'|'.1.readOnly)
     public boolean _jm_f_80(Object val, Path path, Report rep)
     {
@@ -2467,7 +2361,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_19_map_title (.'$TightSchema'.'|'.1.title)
     public boolean _jm_f_81(Object val, Path path, Report rep)
     {
@@ -2480,7 +2374,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_19_map_writeOnly (.'$TightSchema'.'|'.1.writeOnly)
     public boolean _jm_f_82(Object val, Path path, Report rep)
     {
@@ -2493,8 +2387,8 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
-    
+
+
     // object .'$TightSchema'.'|'.1
     public boolean _jm_obj_19(Object val, Path path, Report rep)
     {
@@ -2521,9 +2415,6 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected _boolean [.'$TightSchema'.'|'.1.type]", (path != null ? lpath_19 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$TightSchema'.'|'.1.type]", (path != null ? lpath_19 : null));
                     return false;
                 }
@@ -2556,7 +2447,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return true;
     }
-    
+
     // check _jm_obj_22_map_$anchor (.'$TightSchema'.'|'.2.'$anchor')
     public boolean _jm_f_83(Object val, Path path, Report rep)
     {
@@ -2569,7 +2460,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_22_map_$comment (.'$TightSchema'.'|'.2.'$comment')
     public boolean _jm_f_84(Object val, Path path, Report rep)
     {
@@ -2582,7 +2473,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // object .'$TightSchema'.'|'.2.'$defs'
     public boolean _jm_obj_23(Object val, Path path, Report rep)
     {
@@ -2604,15 +2495,12 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("unexpected $Schema [.'$TightSchema'.'|'.2.'$defs'.'']", (path != null ? lpath_23 : null));
-            }
-            if (! res)
-            {
                 return false;
             }
         }
         return true;
     }
-    
+
     // check _jm_obj_22_map_$defs (.'$TightSchema'.'|'.2.'$defs')
     public boolean _jm_f_85(Object val, Path path, Report rep)
     {
@@ -2625,7 +2513,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_22_map_$dynamicAnchor (.'$TightSchema'.'|'.2.'$dynamicAnchor')
     public boolean _jm_f_86(Object val, Path path, Report rep)
     {
@@ -2638,7 +2526,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_22_map_$dynamicRef (.'$TightSchema'.'|'.2.'$dynamicRef')
     public boolean _jm_f_87(Object val, Path path, Report rep)
     {
@@ -2651,7 +2539,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_22_map_$id (.'$TightSchema'.'|'.2.'$id')
     public boolean _jm_f_88(Object val, Path path, Report rep)
     {
@@ -2664,7 +2552,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_22_map_$ref (.'$TightSchema'.'|'.2.'$ref')
     public boolean _jm_f_89(Object val, Path path, Report rep)
     {
@@ -2677,7 +2565,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_22_map_$schema (.'$TightSchema'.'|'.2.'$schema')
     public boolean _jm_f_90(Object val, Path path, Report rep)
     {
@@ -2690,7 +2578,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // object .'$TightSchema'.'|'.2.'$vocabulary'
     public boolean _jm_obj_24(Object val, Path path, Report rep)
     {
@@ -2714,9 +2602,6 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not a bool [.'$TightSchema'.'|'.2.'$vocabulary'.'$URI']", (path != null ? lpath_24 : null));
-                }
-                if (! res)
-                {
                     return false;
                 }
             }
@@ -2728,7 +2613,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return true;
     }
-    
+
     // check _jm_obj_22_map_$vocabulary (.'$TightSchema'.'|'.2.'$vocabulary')
     public boolean _jm_f_91(Object val, Path path, Report rep)
     {
@@ -2741,7 +2626,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_22_map_default (.'$TightSchema'.'|'.2.default)
     public boolean _jm_f_92(Object val, Path path, Report rep)
     {
@@ -2754,7 +2639,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_22_map_deprecated (.'$TightSchema'.'|'.2.deprecated)
     public boolean _jm_f_93(Object val, Path path, Report rep)
     {
@@ -2767,7 +2652,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_22_map_description (.'$TightSchema'.'|'.2.description)
     public boolean _jm_f_94(Object val, Path path, Report rep)
     {
@@ -2780,24 +2665,20 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_22_map_examples (.'$TightSchema'.'|'.2.examples)
     public boolean _jm_f_95(Object val, Path path, Report rep)
     {
         boolean res;
         // .'$TightSchema'.'|'.2.examples
         res = json.isArray(val);
-        if (res)
-        {
-            // accept any array
-        }
         if (! res)
         {
             if (rep != null) rep.addEntry("not array or unexpected array [.'$TightSchema'.'|'.2.examples]", path);
         }
         return res;
     }
-    
+
     // check _jm_obj_22_map_exclusiveMaximum (.'$TightSchema'.'|'.2.exclusiveMaximum)
     public boolean _jm_f_96(Object val, Path path, Report rep)
     {
@@ -2828,7 +2709,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_22_map_exclusiveMinimum (.'$TightSchema'.'|'.2.exclusiveMinimum)
     public boolean _jm_f_97(Object val, Path path, Report rep)
     {
@@ -2859,7 +2740,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_22_map_maximum (.'$TightSchema'.'|'.2.maximum)
     public boolean _jm_f_98(Object val, Path path, Report rep)
     {
@@ -2890,7 +2771,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_22_map_minimum (.'$TightSchema'.'|'.2.minimum)
     public boolean _jm_f_99(Object val, Path path, Report rep)
     {
@@ -2921,7 +2802,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_22_map_multipleOf (.'$TightSchema'.'|'.2.multipleOf)
     public boolean _jm_f_100(Object val, Path path, Report rep)
     {
@@ -2952,7 +2833,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_22_map_readOnly (.'$TightSchema'.'|'.2.readOnly)
     public boolean _jm_f_101(Object val, Path path, Report rep)
     {
@@ -2965,7 +2846,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_22_map_title (.'$TightSchema'.'|'.2.title)
     public boolean _jm_f_102(Object val, Path path, Report rep)
     {
@@ -2978,7 +2859,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_22_map_writeOnly (.'$TightSchema'.'|'.2.writeOnly)
     public boolean _jm_f_103(Object val, Path path, Report rep)
     {
@@ -2991,8 +2872,8 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
-    
+
+
     // object .'$TightSchema'.'|'.2
     public boolean _jm_obj_22(Object val, Path path, Report rep)
     {
@@ -3019,9 +2900,6 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected _number [.'$TightSchema'.'|'.2.type]", (path != null ? lpath_22 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$TightSchema'.'|'.2.type]", (path != null ? lpath_22 : null));
                     return false;
                 }
@@ -3054,7 +2932,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return true;
     }
-    
+
     // check _jm_obj_25_map_$anchor (.'$TightSchema'.'|'.3.'$anchor')
     public boolean _jm_f_104(Object val, Path path, Report rep)
     {
@@ -3067,7 +2945,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_25_map_$comment (.'$TightSchema'.'|'.3.'$comment')
     public boolean _jm_f_105(Object val, Path path, Report rep)
     {
@@ -3080,7 +2958,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // object .'$TightSchema'.'|'.3.'$defs'
     public boolean _jm_obj_26(Object val, Path path, Report rep)
     {
@@ -3102,15 +2980,12 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("unexpected $Schema [.'$TightSchema'.'|'.3.'$defs'.'']", (path != null ? lpath_26 : null));
-            }
-            if (! res)
-            {
                 return false;
             }
         }
         return true;
     }
-    
+
     // check _jm_obj_25_map_$defs (.'$TightSchema'.'|'.3.'$defs')
     public boolean _jm_f_106(Object val, Path path, Report rep)
     {
@@ -3123,7 +2998,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_25_map_$dynamicAnchor (.'$TightSchema'.'|'.3.'$dynamicAnchor')
     public boolean _jm_f_107(Object val, Path path, Report rep)
     {
@@ -3136,7 +3011,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_25_map_$dynamicRef (.'$TightSchema'.'|'.3.'$dynamicRef')
     public boolean _jm_f_108(Object val, Path path, Report rep)
     {
@@ -3149,7 +3024,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_25_map_$id (.'$TightSchema'.'|'.3.'$id')
     public boolean _jm_f_109(Object val, Path path, Report rep)
     {
@@ -3162,7 +3037,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_25_map_$ref (.'$TightSchema'.'|'.3.'$ref')
     public boolean _jm_f_110(Object val, Path path, Report rep)
     {
@@ -3175,7 +3050,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_25_map_$schema (.'$TightSchema'.'|'.3.'$schema')
     public boolean _jm_f_111(Object val, Path path, Report rep)
     {
@@ -3188,7 +3063,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // object .'$TightSchema'.'|'.3.'$vocabulary'
     public boolean _jm_obj_27(Object val, Path path, Report rep)
     {
@@ -3212,9 +3087,6 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not a bool [.'$TightSchema'.'|'.3.'$vocabulary'.'$URI']", (path != null ? lpath_27 : null));
-                }
-                if (! res)
-                {
                     return false;
                 }
             }
@@ -3226,7 +3098,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return true;
     }
-    
+
     // check _jm_obj_25_map_$vocabulary (.'$TightSchema'.'|'.3.'$vocabulary')
     public boolean _jm_f_112(Object val, Path path, Report rep)
     {
@@ -3239,7 +3111,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_25_map_default (.'$TightSchema'.'|'.3.default)
     public boolean _jm_f_113(Object val, Path path, Report rep)
     {
@@ -3252,7 +3124,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_25_map_deprecated (.'$TightSchema'.'|'.3.deprecated)
     public boolean _jm_f_114(Object val, Path path, Report rep)
     {
@@ -3265,7 +3137,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_25_map_description (.'$TightSchema'.'|'.3.description)
     public boolean _jm_f_115(Object val, Path path, Report rep)
     {
@@ -3278,24 +3150,20 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_25_map_examples (.'$TightSchema'.'|'.3.examples)
     public boolean _jm_f_116(Object val, Path path, Report rep)
     {
         boolean res;
         // .'$TightSchema'.'|'.3.examples
         res = json.isArray(val);
-        if (res)
-        {
-            // accept any array
-        }
         if (! res)
         {
             if (rep != null) rep.addEntry("not array or unexpected array [.'$TightSchema'.'|'.3.examples]", path);
         }
         return res;
     }
-    
+
     // check _jm_obj_25_map_exclusiveMaximum (.'$TightSchema'.'|'.3.exclusiveMaximum)
     public boolean _jm_f_117(Object val, Path path, Report rep)
     {
@@ -3308,7 +3176,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_25_map_exclusiveMinimum (.'$TightSchema'.'|'.3.exclusiveMinimum)
     public boolean _jm_f_118(Object val, Path path, Report rep)
     {
@@ -3321,7 +3189,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_25_map_maximum (.'$TightSchema'.'|'.3.maximum)
     public boolean _jm_f_119(Object val, Path path, Report rep)
     {
@@ -3334,7 +3202,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_25_map_minimum (.'$TightSchema'.'|'.3.minimum)
     public boolean _jm_f_120(Object val, Path path, Report rep)
     {
@@ -3347,7 +3215,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_25_map_multipleOf (.'$TightSchema'.'|'.3.multipleOf)
     public boolean _jm_f_121(Object val, Path path, Report rep)
     {
@@ -3360,7 +3228,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_25_map_readOnly (.'$TightSchema'.'|'.3.readOnly)
     public boolean _jm_f_122(Object val, Path path, Report rep)
     {
@@ -3373,7 +3241,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_25_map_title (.'$TightSchema'.'|'.3.title)
     public boolean _jm_f_123(Object val, Path path, Report rep)
     {
@@ -3386,7 +3254,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_25_map_writeOnly (.'$TightSchema'.'|'.3.writeOnly)
     public boolean _jm_f_124(Object val, Path path, Report rep)
     {
@@ -3399,8 +3267,8 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
-    
+
+
     // object .'$TightSchema'.'|'.3
     public boolean _jm_obj_25(Object val, Path path, Report rep)
     {
@@ -3427,9 +3295,6 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected _integer [.'$TightSchema'.'|'.3.type]", (path != null ? lpath_25 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$TightSchema'.'|'.3.type]", (path != null ? lpath_25 : null));
                     return false;
                 }
@@ -3462,7 +3327,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return true;
     }
-    
+
     // check _jm_obj_28_map_$anchor (.'$TightSchema'.'|'.4.'$anchor')
     public boolean _jm_f_125(Object val, Path path, Report rep)
     {
@@ -3475,7 +3340,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_28_map_$comment (.'$TightSchema'.'|'.4.'$comment')
     public boolean _jm_f_126(Object val, Path path, Report rep)
     {
@@ -3488,7 +3353,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // object .'$TightSchema'.'|'.4.'$defs'
     public boolean _jm_obj_29(Object val, Path path, Report rep)
     {
@@ -3510,15 +3375,12 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("unexpected $Schema [.'$TightSchema'.'|'.4.'$defs'.'']", (path != null ? lpath_29 : null));
-            }
-            if (! res)
-            {
                 return false;
             }
         }
         return true;
     }
-    
+
     // check _jm_obj_28_map_$defs (.'$TightSchema'.'|'.4.'$defs')
     public boolean _jm_f_127(Object val, Path path, Report rep)
     {
@@ -3531,7 +3393,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_28_map_$dynamicAnchor (.'$TightSchema'.'|'.4.'$dynamicAnchor')
     public boolean _jm_f_128(Object val, Path path, Report rep)
     {
@@ -3544,7 +3406,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_28_map_$dynamicRef (.'$TightSchema'.'|'.4.'$dynamicRef')
     public boolean _jm_f_129(Object val, Path path, Report rep)
     {
@@ -3557,7 +3419,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_28_map_$id (.'$TightSchema'.'|'.4.'$id')
     public boolean _jm_f_130(Object val, Path path, Report rep)
     {
@@ -3570,7 +3432,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_28_map_$ref (.'$TightSchema'.'|'.4.'$ref')
     public boolean _jm_f_131(Object val, Path path, Report rep)
     {
@@ -3583,7 +3445,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_28_map_$schema (.'$TightSchema'.'|'.4.'$schema')
     public boolean _jm_f_132(Object val, Path path, Report rep)
     {
@@ -3596,7 +3458,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // object .'$TightSchema'.'|'.4.'$vocabulary'
     public boolean _jm_obj_30(Object val, Path path, Report rep)
     {
@@ -3620,9 +3482,6 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not a bool [.'$TightSchema'.'|'.4.'$vocabulary'.'$URI']", (path != null ? lpath_30 : null));
-                }
-                if (! res)
-                {
                     return false;
                 }
             }
@@ -3634,7 +3493,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return true;
     }
-    
+
     // check _jm_obj_28_map_$vocabulary (.'$TightSchema'.'|'.4.'$vocabulary')
     public boolean _jm_f_133(Object val, Path path, Report rep)
     {
@@ -3647,7 +3506,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_28_map_contentEncoding (.'$TightSchema'.'|'.4.contentEncoding)
     public boolean _jm_f_134(Object val, Path path, Report rep)
     {
@@ -3660,7 +3519,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_28_map_contentMediaType (.'$TightSchema'.'|'.4.contentMediaType)
     public boolean _jm_f_135(Object val, Path path, Report rep)
     {
@@ -3673,7 +3532,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_28_map_contentSchema (.'$TightSchema'.'|'.4.contentSchema)
     public boolean _jm_f_136(Object val, Path path, Report rep)
     {
@@ -3686,7 +3545,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_28_map_default (.'$TightSchema'.'|'.4.default)
     public boolean _jm_f_137(Object val, Path path, Report rep)
     {
@@ -3699,7 +3558,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_28_map_deprecated (.'$TightSchema'.'|'.4.deprecated)
     public boolean _jm_f_138(Object val, Path path, Report rep)
     {
@@ -3712,7 +3571,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_28_map_description (.'$TightSchema'.'|'.4.description)
     public boolean _jm_f_139(Object val, Path path, Report rep)
     {
@@ -3725,24 +3584,20 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_28_map_examples (.'$TightSchema'.'|'.4.examples)
     public boolean _jm_f_140(Object val, Path path, Report rep)
     {
         boolean res;
         // .'$TightSchema'.'|'.4.examples
         res = json.isArray(val);
-        if (res)
-        {
-            // accept any array
-        }
         if (! res)
         {
             if (rep != null) rep.addEntry("not array or unexpected array [.'$TightSchema'.'|'.4.examples]", path);
         }
         return res;
     }
-    
+
     // check _jm_obj_28_map_format (.'$TightSchema'.'|'.4.format)
     public boolean _jm_f_141(Object val, Path path, Report rep)
     {
@@ -3755,7 +3610,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_28_map_maxLength (.'$TightSchema'.'|'.4.maxLength)
     public boolean _jm_f_142(Object val, Path path, Report rep)
     {
@@ -3768,7 +3623,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_28_map_minLength (.'$TightSchema'.'|'.4.minLength)
     public boolean _jm_f_143(Object val, Path path, Report rep)
     {
@@ -3781,7 +3636,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_28_map_pattern (.'$TightSchema'.'|'.4.pattern)
     public boolean _jm_f_144(Object val, Path path, Report rep)
     {
@@ -3794,7 +3649,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_28_map_readOnly (.'$TightSchema'.'|'.4.readOnly)
     public boolean _jm_f_145(Object val, Path path, Report rep)
     {
@@ -3807,7 +3662,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_28_map_title (.'$TightSchema'.'|'.4.title)
     public boolean _jm_f_146(Object val, Path path, Report rep)
     {
@@ -3820,7 +3675,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_28_map_writeOnly (.'$TightSchema'.'|'.4.writeOnly)
     public boolean _jm_f_147(Object val, Path path, Report rep)
     {
@@ -3833,8 +3688,8 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
-    
+
+
     // object .'$TightSchema'.'|'.4
     public boolean _jm_obj_28(Object val, Path path, Report rep)
     {
@@ -3861,9 +3716,6 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected _string [.'$TightSchema'.'|'.4.type]", (path != null ? lpath_28 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$TightSchema'.'|'.4.type]", (path != null ? lpath_28 : null));
                     return false;
                 }
@@ -3896,7 +3748,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return true;
     }
-    
+
     // check _jm_obj_31_map_$anchor (.'$TightSchema'.'|'.5.'$anchor')
     public boolean _jm_f_148(Object val, Path path, Report rep)
     {
@@ -3909,7 +3761,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_31_map_$comment (.'$TightSchema'.'|'.5.'$comment')
     public boolean _jm_f_149(Object val, Path path, Report rep)
     {
@@ -3922,7 +3774,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // object .'$TightSchema'.'|'.5.'$defs'
     public boolean _jm_obj_32(Object val, Path path, Report rep)
     {
@@ -3944,15 +3796,12 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("unexpected $Schema [.'$TightSchema'.'|'.5.'$defs'.'']", (path != null ? lpath_32 : null));
-            }
-            if (! res)
-            {
                 return false;
             }
         }
         return true;
     }
-    
+
     // check _jm_obj_31_map_$defs (.'$TightSchema'.'|'.5.'$defs')
     public boolean _jm_f_150(Object val, Path path, Report rep)
     {
@@ -3965,7 +3814,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_31_map_$dynamicAnchor (.'$TightSchema'.'|'.5.'$dynamicAnchor')
     public boolean _jm_f_151(Object val, Path path, Report rep)
     {
@@ -3978,7 +3827,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_31_map_$dynamicRef (.'$TightSchema'.'|'.5.'$dynamicRef')
     public boolean _jm_f_152(Object val, Path path, Report rep)
     {
@@ -3991,7 +3840,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_31_map_$id (.'$TightSchema'.'|'.5.'$id')
     public boolean _jm_f_153(Object val, Path path, Report rep)
     {
@@ -4004,7 +3853,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_31_map_$ref (.'$TightSchema'.'|'.5.'$ref')
     public boolean _jm_f_154(Object val, Path path, Report rep)
     {
@@ -4017,7 +3866,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_31_map_$schema (.'$TightSchema'.'|'.5.'$schema')
     public boolean _jm_f_155(Object val, Path path, Report rep)
     {
@@ -4030,7 +3879,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // object .'$TightSchema'.'|'.5.'$vocabulary'
     public boolean _jm_obj_33(Object val, Path path, Report rep)
     {
@@ -4054,9 +3903,6 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not a bool [.'$TightSchema'.'|'.5.'$vocabulary'.'$URI']", (path != null ? lpath_33 : null));
-                }
-                if (! res)
-                {
                     return false;
                 }
             }
@@ -4068,7 +3914,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return true;
     }
-    
+
     // check _jm_obj_31_map_$vocabulary (.'$TightSchema'.'|'.5.'$vocabulary')
     public boolean _jm_f_156(Object val, Path path, Report rep)
     {
@@ -4081,7 +3927,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_31_map_contains (.'$TightSchema'.'|'.5.contains)
     public boolean _jm_f_157(Object val, Path path, Report rep)
     {
@@ -4094,7 +3940,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_31_map_default (.'$TightSchema'.'|'.5.default)
     public boolean _jm_f_158(Object val, Path path, Report rep)
     {
@@ -4107,7 +3953,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_31_map_deprecated (.'$TightSchema'.'|'.5.deprecated)
     public boolean _jm_f_159(Object val, Path path, Report rep)
     {
@@ -4120,7 +3966,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_31_map_description (.'$TightSchema'.'|'.5.description)
     public boolean _jm_f_160(Object val, Path path, Report rep)
     {
@@ -4133,24 +3979,20 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_31_map_examples (.'$TightSchema'.'|'.5.examples)
     public boolean _jm_f_161(Object val, Path path, Report rep)
     {
         boolean res;
         // .'$TightSchema'.'|'.5.examples
         res = json.isArray(val);
-        if (res)
-        {
-            // accept any array
-        }
         if (! res)
         {
             if (rep != null) rep.addEntry("not array or unexpected array [.'$TightSchema'.'|'.5.examples]", path);
         }
         return res;
     }
-    
+
     // check _jm_obj_31_map_items (.'$TightSchema'.'|'.5.items)
     public boolean _jm_f_162(Object val, Path path, Report rep)
     {
@@ -4163,7 +4005,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_31_map_maxContains (.'$TightSchema'.'|'.5.maxContains)
     public boolean _jm_f_163(Object val, Path path, Report rep)
     {
@@ -4176,7 +4018,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_31_map_maxItems (.'$TightSchema'.'|'.5.maxItems)
     public boolean _jm_f_164(Object val, Path path, Report rep)
     {
@@ -4189,7 +4031,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_31_map_minContains (.'$TightSchema'.'|'.5.minContains)
     public boolean _jm_f_165(Object val, Path path, Report rep)
     {
@@ -4202,7 +4044,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_31_map_minItems (.'$TightSchema'.'|'.5.minItems)
     public boolean _jm_f_166(Object val, Path path, Report rep)
     {
@@ -4215,7 +4057,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_31_map_prefixItems (.'$TightSchema'.'|'.5.prefixItems)
     public boolean _jm_f_167(Object val, Path path, Report rep)
     {
@@ -4228,7 +4070,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_31_map_readOnly (.'$TightSchema'.'|'.5.readOnly)
     public boolean _jm_f_168(Object val, Path path, Report rep)
     {
@@ -4241,7 +4083,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_31_map_title (.'$TightSchema'.'|'.5.title)
     public boolean _jm_f_169(Object val, Path path, Report rep)
     {
@@ -4254,7 +4096,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_31_map_unevaluatedItems (.'$TightSchema'.'|'.5.unevaluatedItems)
     public boolean _jm_f_170(Object val, Path path, Report rep)
     {
@@ -4267,7 +4109,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_31_map_uniqueItems (.'$TightSchema'.'|'.5.uniqueItems)
     public boolean _jm_f_171(Object val, Path path, Report rep)
     {
@@ -4280,7 +4122,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_31_map_writeOnly (.'$TightSchema'.'|'.5.writeOnly)
     public boolean _jm_f_172(Object val, Path path, Report rep)
     {
@@ -4293,8 +4135,8 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
-    
+
+
     // object .'$TightSchema'.'|'.5
     public boolean _jm_obj_31(Object val, Path path, Report rep)
     {
@@ -4321,9 +4163,6 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected _array [.'$TightSchema'.'|'.5.type]", (path != null ? lpath_31 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$TightSchema'.'|'.5.type]", (path != null ? lpath_31 : null));
                     return false;
                 }
@@ -4356,7 +4195,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return true;
     }
-    
+
     // check _jm_obj_34_map_$anchor (.'$TightSchema'.'|'.6.'$anchor')
     public boolean _jm_f_173(Object val, Path path, Report rep)
     {
@@ -4369,7 +4208,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_34_map_$comment (.'$TightSchema'.'|'.6.'$comment')
     public boolean _jm_f_174(Object val, Path path, Report rep)
     {
@@ -4382,7 +4221,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // object .'$TightSchema'.'|'.6.'$defs'
     public boolean _jm_obj_35(Object val, Path path, Report rep)
     {
@@ -4404,15 +4243,12 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("unexpected $Schema [.'$TightSchema'.'|'.6.'$defs'.'']", (path != null ? lpath_35 : null));
-            }
-            if (! res)
-            {
                 return false;
             }
         }
         return true;
     }
-    
+
     // check _jm_obj_34_map_$defs (.'$TightSchema'.'|'.6.'$defs')
     public boolean _jm_f_175(Object val, Path path, Report rep)
     {
@@ -4425,7 +4261,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_34_map_$dynamicAnchor (.'$TightSchema'.'|'.6.'$dynamicAnchor')
     public boolean _jm_f_176(Object val, Path path, Report rep)
     {
@@ -4438,7 +4274,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_34_map_$dynamicRef (.'$TightSchema'.'|'.6.'$dynamicRef')
     public boolean _jm_f_177(Object val, Path path, Report rep)
     {
@@ -4451,7 +4287,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_34_map_$id (.'$TightSchema'.'|'.6.'$id')
     public boolean _jm_f_178(Object val, Path path, Report rep)
     {
@@ -4464,7 +4300,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_34_map_$ref (.'$TightSchema'.'|'.6.'$ref')
     public boolean _jm_f_179(Object val, Path path, Report rep)
     {
@@ -4477,7 +4313,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_34_map_$schema (.'$TightSchema'.'|'.6.'$schema')
     public boolean _jm_f_180(Object val, Path path, Report rep)
     {
@@ -4490,7 +4326,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // object .'$TightSchema'.'|'.6.'$vocabulary'
     public boolean _jm_obj_36(Object val, Path path, Report rep)
     {
@@ -4514,9 +4350,6 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not a bool [.'$TightSchema'.'|'.6.'$vocabulary'.'$URI']", (path != null ? lpath_36 : null));
-                }
-                if (! res)
-                {
                     return false;
                 }
             }
@@ -4528,7 +4361,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return true;
     }
-    
+
     // check _jm_obj_34_map_$vocabulary (.'$TightSchema'.'|'.6.'$vocabulary')
     public boolean _jm_f_181(Object val, Path path, Report rep)
     {
@@ -4541,7 +4374,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_34_map_additionalProperties (.'$TightSchema'.'|'.6.additionalProperties)
     public boolean _jm_f_182(Object val, Path path, Report rep)
     {
@@ -4554,7 +4387,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_34_map_default (.'$TightSchema'.'|'.6.default)
     public boolean _jm_f_183(Object val, Path path, Report rep)
     {
@@ -4567,7 +4400,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // object .'$TightSchema'.'|'.6.dependentRequired
     public boolean _jm_obj_37(Object val, Path path, Report rep)
     {
@@ -4589,15 +4422,12 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("unexpected $stringArray [.'$TightSchema'.'|'.6.dependentRequired.'']", (path != null ? lpath_37 : null));
-            }
-            if (! res)
-            {
                 return false;
             }
         }
         return true;
     }
-    
+
     // check _jm_obj_34_map_dependentRequired (.'$TightSchema'.'|'.6.dependentRequired)
     public boolean _jm_f_184(Object val, Path path, Report rep)
     {
@@ -4610,7 +4440,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // object .'$TightSchema'.'|'.6.dependentSchemas
     public boolean _jm_obj_38(Object val, Path path, Report rep)
     {
@@ -4632,15 +4462,12 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("unexpected $Schema [.'$TightSchema'.'|'.6.dependentSchemas.'']", (path != null ? lpath_38 : null));
-            }
-            if (! res)
-            {
                 return false;
             }
         }
         return true;
     }
-    
+
     // check _jm_obj_34_map_dependentSchemas (.'$TightSchema'.'|'.6.dependentSchemas)
     public boolean _jm_f_185(Object val, Path path, Report rep)
     {
@@ -4653,7 +4480,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_34_map_deprecated (.'$TightSchema'.'|'.6.deprecated)
     public boolean _jm_f_186(Object val, Path path, Report rep)
     {
@@ -4666,7 +4493,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_34_map_description (.'$TightSchema'.'|'.6.description)
     public boolean _jm_f_187(Object val, Path path, Report rep)
     {
@@ -4679,24 +4506,20 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_34_map_examples (.'$TightSchema'.'|'.6.examples)
     public boolean _jm_f_188(Object val, Path path, Report rep)
     {
         boolean res;
         // .'$TightSchema'.'|'.6.examples
         res = json.isArray(val);
-        if (res)
-        {
-            // accept any array
-        }
         if (! res)
         {
             if (rep != null) rep.addEntry("not array or unexpected array [.'$TightSchema'.'|'.6.examples]", path);
         }
         return res;
     }
-    
+
     // check _jm_obj_34_map_maxProperties (.'$TightSchema'.'|'.6.maxProperties)
     public boolean _jm_f_189(Object val, Path path, Report rep)
     {
@@ -4709,7 +4532,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_34_map_minProperties (.'$TightSchema'.'|'.6.minProperties)
     public boolean _jm_f_190(Object val, Path path, Report rep)
     {
@@ -4722,7 +4545,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // object .'$TightSchema'.'|'.6.patternProperties
     public boolean _jm_obj_39(Object val, Path path, Report rep)
     {
@@ -4746,9 +4569,6 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected $Schema [.'$TightSchema'.'|'.6.patternProperties.'$REGEX']", (path != null ? lpath_39 : null));
-                }
-                if (! res)
-                {
                     return false;
                 }
             }
@@ -4760,7 +4580,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return true;
     }
-    
+
     // check _jm_obj_34_map_patternProperties (.'$TightSchema'.'|'.6.patternProperties)
     public boolean _jm_f_191(Object val, Path path, Report rep)
     {
@@ -4773,7 +4593,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // object .'$TightSchema'.'|'.6.properties
     public boolean _jm_obj_40(Object val, Path path, Report rep)
     {
@@ -4795,15 +4615,12 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("unexpected $Schema [.'$TightSchema'.'|'.6.properties.'']", (path != null ? lpath_40 : null));
-            }
-            if (! res)
-            {
                 return false;
             }
         }
         return true;
     }
-    
+
     // check _jm_obj_34_map_properties (.'$TightSchema'.'|'.6.properties)
     public boolean _jm_f_192(Object val, Path path, Report rep)
     {
@@ -4816,7 +4633,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_34_map_propertyNames (.'$TightSchema'.'|'.6.propertyNames)
     public boolean _jm_f_193(Object val, Path path, Report rep)
     {
@@ -4829,7 +4646,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_34_map_readOnly (.'$TightSchema'.'|'.6.readOnly)
     public boolean _jm_f_194(Object val, Path path, Report rep)
     {
@@ -4842,7 +4659,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_34_map_required (.'$TightSchema'.'|'.6.required)
     public boolean _jm_f_195(Object val, Path path, Report rep)
     {
@@ -4855,7 +4672,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_34_map_title (.'$TightSchema'.'|'.6.title)
     public boolean _jm_f_196(Object val, Path path, Report rep)
     {
@@ -4868,7 +4685,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_34_map_unevaluatedProperties (.'$TightSchema'.'|'.6.unevaluatedProperties)
     public boolean _jm_f_197(Object val, Path path, Report rep)
     {
@@ -4881,7 +4698,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_34_map_writeOnly (.'$TightSchema'.'|'.6.writeOnly)
     public boolean _jm_f_198(Object val, Path path, Report rep)
     {
@@ -4894,8 +4711,8 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
-    
+
+
     // object .'$TightSchema'.'|'.6
     public boolean _jm_obj_34(Object val, Path path, Report rep)
     {
@@ -4922,9 +4739,6 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected _object [.'$TightSchema'.'|'.6.type]", (path != null ? lpath_34 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$TightSchema'.'|'.6.type]", (path != null ? lpath_34 : null));
                     return false;
                 }
@@ -4957,7 +4771,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return true;
     }
-    
+
     // check _jm_obj_41_map_$anchor (.'$TightSchema'.'|'.7.'$anchor')
     public boolean _jm_f_199(Object val, Path path, Report rep)
     {
@@ -4970,7 +4784,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_41_map_$comment (.'$TightSchema'.'|'.7.'$comment')
     public boolean _jm_f_200(Object val, Path path, Report rep)
     {
@@ -4983,7 +4797,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // object .'$TightSchema'.'|'.7.'$defs'
     public boolean _jm_obj_42(Object val, Path path, Report rep)
     {
@@ -5005,15 +4819,12 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("unexpected $Schema [.'$TightSchema'.'|'.7.'$defs'.'']", (path != null ? lpath_42 : null));
-            }
-            if (! res)
-            {
                 return false;
             }
         }
         return true;
     }
-    
+
     // check _jm_obj_41_map_$defs (.'$TightSchema'.'|'.7.'$defs')
     public boolean _jm_f_201(Object val, Path path, Report rep)
     {
@@ -5026,7 +4837,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_41_map_$dynamicAnchor (.'$TightSchema'.'|'.7.'$dynamicAnchor')
     public boolean _jm_f_202(Object val, Path path, Report rep)
     {
@@ -5039,7 +4850,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_41_map_$dynamicRef (.'$TightSchema'.'|'.7.'$dynamicRef')
     public boolean _jm_f_203(Object val, Path path, Report rep)
     {
@@ -5052,7 +4863,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_41_map_$id (.'$TightSchema'.'|'.7.'$id')
     public boolean _jm_f_204(Object val, Path path, Report rep)
     {
@@ -5065,7 +4876,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_41_map_$ref (.'$TightSchema'.'|'.7.'$ref')
     public boolean _jm_f_205(Object val, Path path, Report rep)
     {
@@ -5078,7 +4889,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_41_map_$schema (.'$TightSchema'.'|'.7.'$schema')
     public boolean _jm_f_206(Object val, Path path, Report rep)
     {
@@ -5091,7 +4902,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // object .'$TightSchema'.'|'.7.'$vocabulary'
     public boolean _jm_obj_43(Object val, Path path, Report rep)
     {
@@ -5115,9 +4926,6 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not a bool [.'$TightSchema'.'|'.7.'$vocabulary'.'$URI']", (path != null ? lpath_43 : null));
-                }
-                if (! res)
-                {
                     return false;
                 }
             }
@@ -5129,7 +4937,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return true;
     }
-    
+
     // check _jm_obj_41_map_$vocabulary (.'$TightSchema'.'|'.7.'$vocabulary')
     public boolean _jm_f_207(Object val, Path path, Report rep)
     {
@@ -5142,7 +4950,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_41_map_allOf (.'$TightSchema'.'|'.7.allOf)
     public boolean _jm_f_208(Object val, Path path, Report rep)
     {
@@ -5155,7 +4963,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_41_map_anyOf (.'$TightSchema'.'|'.7.anyOf)
     public boolean _jm_f_209(Object val, Path path, Report rep)
     {
@@ -5168,7 +4976,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_41_map_const (.'$TightSchema'.'|'.7.const)
     public boolean _jm_f_210(Object val, Path path, Report rep)
     {
@@ -5181,7 +4989,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_41_map_default (.'$TightSchema'.'|'.7.default)
     public boolean _jm_f_211(Object val, Path path, Report rep)
     {
@@ -5194,7 +5002,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_41_map_deprecated (.'$TightSchema'.'|'.7.deprecated)
     public boolean _jm_f_212(Object val, Path path, Report rep)
     {
@@ -5207,7 +5015,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_41_map_description (.'$TightSchema'.'|'.7.description)
     public boolean _jm_f_213(Object val, Path path, Report rep)
     {
@@ -5220,7 +5028,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_41_map_else (.'$TightSchema'.'|'.7.else)
     public boolean _jm_f_214(Object val, Path path, Report rep)
     {
@@ -5233,41 +5041,33 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_41_map_enum (.'$TightSchema'.'|'.7.enum)
     public boolean _jm_f_215(Object val, Path path, Report rep)
     {
         boolean res;
         // .'$TightSchema'.'|'.7.enum
         res = json.isArray(val);
-        if (res)
-        {
-            // accept any array
-        }
         if (! res)
         {
             if (rep != null) rep.addEntry("not array or unexpected array [.'$TightSchema'.'|'.7.enum]", path);
         }
         return res;
     }
-    
+
     // check _jm_obj_41_map_examples (.'$TightSchema'.'|'.7.examples)
     public boolean _jm_f_216(Object val, Path path, Report rep)
     {
         boolean res;
         // .'$TightSchema'.'|'.7.examples
         res = json.isArray(val);
-        if (res)
-        {
-            // accept any array
-        }
         if (! res)
         {
             if (rep != null) rep.addEntry("not array or unexpected array [.'$TightSchema'.'|'.7.examples]", path);
         }
         return res;
     }
-    
+
     // check _jm_obj_41_map_if (.'$TightSchema'.'|'.7.if)
     public boolean _jm_f_217(Object val, Path path, Report rep)
     {
@@ -5280,7 +5080,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_41_map_not (.'$TightSchema'.'|'.7.not)
     public boolean _jm_f_218(Object val, Path path, Report rep)
     {
@@ -5293,7 +5093,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_41_map_oneOf (.'$TightSchema'.'|'.7.oneOf)
     public boolean _jm_f_219(Object val, Path path, Report rep)
     {
@@ -5306,7 +5106,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_41_map_readOnly (.'$TightSchema'.'|'.7.readOnly)
     public boolean _jm_f_220(Object val, Path path, Report rep)
     {
@@ -5319,7 +5119,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_41_map_then (.'$TightSchema'.'|'.7.then)
     public boolean _jm_f_221(Object val, Path path, Report rep)
     {
@@ -5332,7 +5132,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_41_map_title (.'$TightSchema'.'|'.7.title)
     public boolean _jm_f_222(Object val, Path path, Report rep)
     {
@@ -5345,7 +5145,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_41_map_writeOnly (.'$TightSchema'.'|'.7.writeOnly)
     public boolean _jm_f_223(Object val, Path path, Report rep)
     {
@@ -5358,8 +5158,8 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
-    
+
+
     // object .'$TightSchema'.'|'.7
     public boolean _jm_obj_41(Object val, Path path, Report rep)
     {
@@ -5392,8 +5192,8 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return true;
     }
-    
-    
+
+
     // check $TightSchema (.'$TightSchema')
     public boolean json_model_15(Object val, Path path, Report rep)
     {
@@ -5438,7 +5238,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // check $Schema (.'$Schema')
     public boolean json_model_16(Object val, Path path, Report rep)
     {
@@ -5469,7 +5269,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
     // check $ (.)
     public boolean json_model_1(Object val, Path path, Report rep)
     {
@@ -5482,7 +5282,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         return res;
     }
-    
+
 
     public void init(JSON json)
     {

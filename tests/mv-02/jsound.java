@@ -46,9 +46,6 @@ public class jsound extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected string [.'$Schema'.metadata.name]", (path != null ? lpath_1 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Schema'.metadata.name]", (path != null ? lpath_1 : null));
                     return false;
                 }
@@ -61,9 +58,6 @@ public class jsound extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected string [.'$Schema'.metadata.previous]", (path != null ? lpath_1 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Schema'.metadata.previous]", (path != null ? lpath_1 : null));
                     return false;
                 }
@@ -76,9 +70,6 @@ public class jsound extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected string [.'$Schema'.metadata.date]", (path != null ? lpath_1 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Schema'.metadata.date]", (path != null ? lpath_1 : null));
                     return false;
                 }
@@ -102,9 +93,6 @@ public class jsound extends ModelChecker
                         if (! res)
                         {
                             if (rep != null) rep.addEntry("unexpected string [.'$Schema'.metadata.authors.0]", ((path != null ? lpath_1 : null) != null ? arr_1_lpath : null));
-                        }
-                        if (! res)
-                        {
                             break;
                         }
                     }
@@ -112,9 +100,6 @@ public class jsound extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not array or unexpected array [.'$Schema'.metadata.authors]", (path != null ? lpath_1 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Schema'.metadata.authors]", (path != null ? lpath_1 : null));
                     return false;
                 }
@@ -127,7 +112,7 @@ public class jsound extends ModelChecker
         }
         return true;
     }
-    
+
     // object .'$Schema'
     public boolean _jm_obj_0(Object val, Path path, Report rep)
     {
@@ -164,9 +149,6 @@ public class jsound extends ModelChecker
                         if (! res)
                         {
                             if (rep != null) rep.addEntry("unexpected $Type [.'$Schema'.types.0]", ((path != null ? lpath_0 : null) != null ? arr_0_lpath : null));
-                        }
-                        if (! res)
-                        {
                             break;
                         }
                     }
@@ -174,9 +156,6 @@ public class jsound extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not array or unexpected array [.'$Schema'.types]", (path != null ? lpath_0 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$Schema'.types]", (path != null ? lpath_0 : null));
                     return false;
                 }
@@ -189,9 +168,6 @@ public class jsound extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected element [.'$Schema'.metadata]", (path != null ? lpath_0 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Schema'.metadata]", (path != null ? lpath_0 : null));
                     return false;
                 }
@@ -215,7 +191,7 @@ public class jsound extends ModelChecker
         }
         return true;
     }
-    
+
     // check $Schema (.'$Schema')
     public boolean json_model_2(Object val, Path path, Report rep)
     {
@@ -228,8 +204,8 @@ public class jsound extends ModelChecker
         }
         return res;
     }
-    
-    
+
+
     // check $Type (.'$Type')
     public boolean json_model_3(Object val, Path path, Report rep)
     {
@@ -265,8 +241,8 @@ public class jsound extends ModelChecker
         }
         return res;
     }
-    
-    
+
+
     // check $atomic-types (.'$atomic-types')
     public boolean json_model_4(Object val, Path path, Report rep)
     {
@@ -279,7 +255,7 @@ public class jsound extends ModelChecker
         }
         return res;
     }
-    
+
     // check $atomic (.'$atomic')
     public boolean json_model_5(Object val, Path path, Report rep)
     {
@@ -337,7 +313,7 @@ public class jsound extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_2_map_enumeration (.'$Atomic'.enumeration)
     public boolean _jm_f_0(Object val, Path path, Report rep)
     {
@@ -358,9 +334,6 @@ public class jsound extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected $atomic [.'$Atomic'.enumeration.0]", (path != null ? arr_2_lpath : null));
-                }
-                if (! res)
-                {
                     break;
                 }
             }
@@ -371,8 +344,8 @@ public class jsound extends ModelChecker
         }
         return res;
     }
-    
-    
+
+
     // check _jm_obj_2_map_explicitTypeZone (.'$Atomic'.explicitTypeZone)
     public boolean _jm_f_1(Object val, Path path, Report rep)
     {
@@ -385,7 +358,7 @@ public class jsound extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_2_map_fractionDigits (.'$Atomic'.fractionDigits)
     public boolean _jm_f_2(Object val, Path path, Report rep)
     {
@@ -398,7 +371,7 @@ public class jsound extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_2_map_length (.'$Atomic'.length)
     public boolean _jm_f_3(Object val, Path path, Report rep)
     {
@@ -411,7 +384,7 @@ public class jsound extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_2_map_maxExclusive (.'$Atomic'.maxExclusive)
     public boolean _jm_f_4(Object val, Path path, Report rep)
     {
@@ -424,7 +397,7 @@ public class jsound extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_2_map_maxInclusive (.'$Atomic'.maxInclusive)
     public boolean _jm_f_5(Object val, Path path, Report rep)
     {
@@ -437,7 +410,7 @@ public class jsound extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_2_map_maxLength (.'$Atomic'.maxLength)
     public boolean _jm_f_6(Object val, Path path, Report rep)
     {
@@ -450,7 +423,7 @@ public class jsound extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_2_map_minExclusive (.'$Atomic'.minExclusive)
     public boolean _jm_f_7(Object val, Path path, Report rep)
     {
@@ -463,7 +436,7 @@ public class jsound extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_2_map_minInclusive (.'$Atomic'.minInclusive)
     public boolean _jm_f_8(Object val, Path path, Report rep)
     {
@@ -476,7 +449,7 @@ public class jsound extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_2_map_minLength (.'$Atomic'.minLength)
     public boolean _jm_f_9(Object val, Path path, Report rep)
     {
@@ -489,7 +462,7 @@ public class jsound extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_2_map_name (.'$Atomic'.name)
     public boolean _jm_f_10(Object val, Path path, Report rep)
     {
@@ -502,7 +475,7 @@ public class jsound extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_2_map_pattern (.'$Atomic'.pattern)
     public boolean _jm_f_11(Object val, Path path, Report rep)
     {
@@ -515,7 +488,7 @@ public class jsound extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_2_map_totalDigits (.'$Atomic'.totalDigits)
     public boolean _jm_f_12(Object val, Path path, Report rep)
     {
@@ -528,8 +501,8 @@ public class jsound extends ModelChecker
         }
         return res;
     }
-    
-    
+
+
     // object .'$Atomic'
     public boolean _jm_obj_2(Object val, Path path, Report rep)
     {
@@ -556,9 +529,6 @@ public class jsound extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected atomic [.'$Atomic'.kind]", (path != null ? lpath_2 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$Atomic'.kind]", (path != null ? lpath_2 : null));
                     return false;
                 }
@@ -572,9 +542,6 @@ public class jsound extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected $atomic-types [.'$Atomic'.baseType]", (path != null ? lpath_2 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$Atomic'.baseType]", (path != null ? lpath_2 : null));
                     return false;
                 }
@@ -611,7 +578,7 @@ public class jsound extends ModelChecker
         }
         return true;
     }
-    
+
     // check $Atomic (.'$Atomic')
     public boolean json_model_6(Object val, Path path, Report rep)
     {
@@ -625,7 +592,7 @@ public class jsound extends ModelChecker
         }
         return res;
     }
-    
+
     // object .'$Object'
     public boolean _jm_obj_3(Object val, Path path, Report rep)
     {
@@ -651,9 +618,6 @@ public class jsound extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected object [.'$Object'.kind]", (path != null ? lpath_3 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$Object'.kind]", (path != null ? lpath_3 : null));
                     return false;
                 }
@@ -666,9 +630,6 @@ public class jsound extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected string [.'$Object'.name]", (path != null ? lpath_3 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Object'.name]", (path != null ? lpath_3 : null));
                     return false;
                 }
@@ -681,9 +642,6 @@ public class jsound extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected string [.'$Object'.baseType]", (path != null ? lpath_3 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Object'.baseType]", (path != null ? lpath_3 : null));
                     return false;
                 }
@@ -707,9 +665,6 @@ public class jsound extends ModelChecker
                         if (! res)
                         {
                             if (rep != null) rep.addEntry("unexpected $Fields [.'$Object'.content.0]", ((path != null ? lpath_3 : null) != null ? arr_3_lpath : null));
-                        }
-                        if (! res)
-                        {
                             break;
                         }
                     }
@@ -717,9 +672,6 @@ public class jsound extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not array or unexpected array [.'$Object'.content]", (path != null ? lpath_3 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Object'.content]", (path != null ? lpath_3 : null));
                     return false;
                 }
@@ -732,9 +684,6 @@ public class jsound extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not a bool [.'$Object'.closed]", (path != null ? lpath_3 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Object'.closed]", (path != null ? lpath_3 : null));
                     return false;
                 }
@@ -758,7 +707,7 @@ public class jsound extends ModelChecker
         }
         return true;
     }
-    
+
     // check $Object (.'$Object')
     public boolean json_model_7(Object val, Path path, Report rep)
     {
@@ -771,7 +720,7 @@ public class jsound extends ModelChecker
         }
         return res;
     }
-    
+
     // object .'$Fields'
     public boolean _jm_obj_4(Object val, Path path, Report rep)
     {
@@ -797,9 +746,6 @@ public class jsound extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected string [.'$Fields'.name]", (path != null ? lpath_4 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$Fields'.name]", (path != null ? lpath_4 : null));
                     return false;
                 }
@@ -813,9 +759,6 @@ public class jsound extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected $type-or-ref [.'$Fields'.type]", (path != null ? lpath_4 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$Fields'.type]", (path != null ? lpath_4 : null));
                     return false;
                 }
@@ -828,9 +771,6 @@ public class jsound extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not a bool [.'$Fields'.required]", (path != null ? lpath_4 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Fields'.required]", (path != null ? lpath_4 : null));
                     return false;
                 }
@@ -843,9 +783,6 @@ public class jsound extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected $ANY [.'$Fields'.default]", (path != null ? lpath_4 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Fields'.default]", (path != null ? lpath_4 : null));
                     return false;
                 }
@@ -858,9 +795,6 @@ public class jsound extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not a bool [.'$Fields'.unique]", (path != null ? lpath_4 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Fields'.unique]", (path != null ? lpath_4 : null));
                     return false;
                 }
@@ -888,7 +822,7 @@ public class jsound extends ModelChecker
         }
         return true;
     }
-    
+
     // check $Fields (.'$Fields')
     public boolean json_model_8(Object val, Path path, Report rep)
     {
@@ -901,7 +835,7 @@ public class jsound extends ModelChecker
         }
         return res;
     }
-    
+
     // object .'$Array'
     public boolean _jm_obj_5(Object val, Path path, Report rep)
     {
@@ -927,9 +861,6 @@ public class jsound extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected array [.'$Array'.kind]", (path != null ? lpath_5 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$Array'.kind]", (path != null ? lpath_5 : null));
                     return false;
                 }
@@ -942,9 +873,6 @@ public class jsound extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected string [.'$Array'.name]", (path != null ? lpath_5 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Array'.name]", (path != null ? lpath_5 : null));
                     return false;
                 }
@@ -957,9 +885,6 @@ public class jsound extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected string [.'$Array'.baseType]", (path != null ? lpath_5 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Array'.baseType]", (path != null ? lpath_5 : null));
                     return false;
                 }
@@ -972,9 +897,6 @@ public class jsound extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected $type-or-ref [.'$Array'.content]", (path != null ? lpath_5 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Array'.content]", (path != null ? lpath_5 : null));
                     return false;
                 }
@@ -987,9 +909,6 @@ public class jsound extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not a 0 strict int [.'$Array'.minLength]", (path != null ? lpath_5 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Array'.minLength]", (path != null ? lpath_5 : null));
                     return false;
                 }
@@ -1002,9 +921,6 @@ public class jsound extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not a 0 strict int [.'$Array'.maxLength]", (path != null ? lpath_5 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Array'.maxLength]", (path != null ? lpath_5 : null));
                     return false;
                 }
@@ -1028,7 +944,7 @@ public class jsound extends ModelChecker
         }
         return true;
     }
-    
+
     // check $Array (.'$Array')
     public boolean json_model_9(Object val, Path path, Report rep)
     {
@@ -1042,7 +958,7 @@ public class jsound extends ModelChecker
         }
         return res;
     }
-    
+
     // object .'$Union'
     public boolean _jm_obj_6(Object val, Path path, Report rep)
     {
@@ -1068,9 +984,6 @@ public class jsound extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected string [.'$Union'.name]", (path != null ? lpath_6 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$Union'.name]", (path != null ? lpath_6 : null));
                     return false;
                 }
@@ -1084,9 +997,6 @@ public class jsound extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected union [.'$Union'.kind]", (path != null ? lpath_6 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$Union'.kind]", (path != null ? lpath_6 : null));
                     return false;
                 }
@@ -1111,9 +1021,6 @@ public class jsound extends ModelChecker
                         if (! res)
                         {
                             if (rep != null) rep.addEntry("unexpected $type-or-ref [.'$Union'.content.0]", ((path != null ? lpath_6 : null) != null ? arr_4_lpath : null));
-                        }
-                        if (! res)
-                        {
                             break;
                         }
                     }
@@ -1121,9 +1028,6 @@ public class jsound extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not array or unexpected array [.'$Union'.content]", (path != null ? lpath_6 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$Union'.content]", (path != null ? lpath_6 : null));
                     return false;
                 }
@@ -1136,9 +1040,6 @@ public class jsound extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected string [.'$Union'.baseType]", (path != null ? lpath_6 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Union'.baseType]", (path != null ? lpath_6 : null));
                     return false;
                 }
@@ -1170,7 +1071,7 @@ public class jsound extends ModelChecker
         }
         return true;
     }
-    
+
     // check $Union (.'$Union')
     public boolean json_model_10(Object val, Path path, Report rep)
     {
@@ -1184,7 +1085,7 @@ public class jsound extends ModelChecker
         }
         return res;
     }
-    
+
     // check $type-or-ref (.'$type-or-ref')
     public boolean json_model_11(Object val, Path path, Report rep)
     {
@@ -1215,7 +1116,7 @@ public class jsound extends ModelChecker
         }
         return res;
     }
-    
+
     // check $ (.)
     public boolean json_model_1(Object val, Path path, Report rep)
     {
@@ -1228,7 +1129,7 @@ public class jsound extends ModelChecker
         }
         return res;
     }
-    
+
 
     public void init(JSON json)
     {

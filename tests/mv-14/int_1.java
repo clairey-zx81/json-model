@@ -31,7 +31,7 @@ public class int_1 extends ModelChecker
         }
         return res;
     }
-    
+
 
     public void init(JSON json)
     {

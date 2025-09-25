@@ -31,7 +31,7 @@ public class ex_02 extends ModelChecker
         }
         return res;
     }
-    
+
     // check $x2 (.'$x2')
     public boolean json_model_6(Object val, Path path, Report rep)
     {
@@ -44,7 +44,7 @@ public class ex_02 extends ModelChecker
         }
         return res;
     }
-    
+
     // check $x3 (.'$x3')
     public boolean json_model_7(Object val, Path path, Report rep)
     {
@@ -57,7 +57,7 @@ public class ex_02 extends ModelChecker
         }
         return res;
     }
-    
+
     // check $__external_0 (.'$__external_0')
     public boolean json_model_8(Object val, Path path, Report rep)
     {
@@ -70,7 +70,7 @@ public class ex_02 extends ModelChecker
         }
         return res;
     }
-    
+
     // check $ (.)
     public boolean json_model_1(Object val, Path path, Report rep)
     {
@@ -123,7 +123,7 @@ public class ex_02 extends ModelChecker
         }
         return res;
     }
-    
+
 
     public void init(JSON json)
     {

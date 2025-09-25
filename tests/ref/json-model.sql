@@ -1323,10 +1323,6 @@ BEGIN
       IF NOT res THEN
         -- .'$Trafo'.'/'.'|'.1
         res := JSONB_TYPEOF(pval) = 'array';
-        IF res THEN
-          -- accept any array
-          NULL;
-        END IF;
       END IF;
       IF NOT res THEN
         RETURN FALSE;
@@ -1416,10 +1412,6 @@ BEGIN
       IF NOT res THEN
         -- .'$Transformation'.'|'.1.'/'.'|'.1
         res := JSONB_TYPEOF(pval) = 'array';
-        IF res THEN
-          -- accept any array
-          NULL;
-        END IF;
       END IF;
       IF NOT res THEN
         RETURN FALSE;

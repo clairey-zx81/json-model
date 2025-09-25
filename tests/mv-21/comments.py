@@ -39,7 +39,6 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
             res = isinstance(pval, str)
             if not res:
                 rep is None or rep.append(("unexpected string [.hello]", lpath_0 if path is not None else None))
-            if not res:
                 rep is None or rep.append(("invalid mandatory prop value [.hello]", lpath_0 if path is not None else None))
                 return False
         elif prop == "world":
@@ -50,7 +49,6 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
             res = isinstance(pval, str) and pval.startswith("!")
             if not res:
                 rep is None or rep.append(("unexpected /^!/ [.world]", lpath_0 if path is not None else None))
-            if not res:
                 rep is None or rep.append(("invalid mandatory prop value [.world]", lpath_0 if path is not None else None))
                 return False
         else:

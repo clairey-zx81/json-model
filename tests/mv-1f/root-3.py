@@ -57,7 +57,6 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
             res = json_model_12(pval, lpath_0 if path is not None else None, rep)
             if not res:
                 rep is None or rep.append(("unexpected $root#Root [.'$foo#Foo'.rt]", lpath_0 if path is not None else None))
-            if not res:
                 rep is None or rep.append(("invalid mandatory prop value [.'$foo#Foo'.rt]", lpath_0 if path is not None else None))
                 return False
         else:
@@ -96,7 +95,6 @@ def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
             res = isinstance(pval, int) and not isinstance(pval, bool) and pval == 1
             if not res:
                 rep is None or rep.append(("unexpected =1 [.'$foo#root#root#Root'.id]", lpath_1 if path is not None else None))
-            if not res:
                 rep is None or rep.append(("invalid mandatory prop value [.'$foo#root#root#Root'.id]", lpath_1 if path is not None else None))
                 return False
         elif prop == "name":
@@ -106,7 +104,6 @@ def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
             res = isinstance(pval, str)
             if not res:
                 rep is None or rep.append(("unexpected string [.'$foo#root#root#Root'.name]", lpath_1 if path is not None else None))
-            if not res:
                 rep is None or rep.append(("invalid mandatory prop value [.'$foo#root#root#Root'.name]", lpath_1 if path is not None else None))
                 return False
         else:

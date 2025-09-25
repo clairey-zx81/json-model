@@ -482,10 +482,6 @@ BEGIN
     pval := val -> 'enum';
     -- .'$schema#ObjectSchema'.enum
     res := JSONB_TYPEOF(pval) = 'array';
-    IF res THEN
-      -- accept any array
-      NULL;
-    END IF;
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -670,10 +666,6 @@ BEGIN
     pval := val -> 'examples';
     -- .'$schema#ObjectSchema'.examples
     res := JSONB_TYPEOF(pval) = 'array';
-    IF res THEN
-      -- accept any array
-      NULL;
-    END IF;
     IF NOT res THEN
       RETURN FALSE;
     END IF;

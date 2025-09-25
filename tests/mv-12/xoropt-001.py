@@ -79,7 +79,6 @@ def json_model_7(val: Jsonable, path: Path, rep: Report) -> bool:
             res = json_model_9(arr_0_item, arr_0_lpath if path is not None else None, rep)
             if not res:
                 rep is None or rep.append(("unexpected $Any [.'$Aa'.0]", arr_0_lpath if path is not None else None))
-            if not res:
                 break
     if not res:
         rep is None or rep.append(("not array or unexpected array [.'$Aa']", path))
@@ -99,7 +98,6 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
         res = json_model_9(pval, lpath_0 if path is not None else None, rep)
         if not res:
             rep is None or rep.append(("unexpected $Any [.'$Oo'.'']", lpath_0 if path is not None else None))
-        if not res:
             return False
     return True
 

@@ -45,9 +45,6 @@ public class tag01 extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected =true [.'$Aa'.t]", (path != null ? lpath_0 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$Aa'.t]", (path != null ? lpath_0 : null));
                     return false;
                 }
@@ -61,9 +58,6 @@ public class tag01 extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not a 0 strict int [.'$Aa'.a]", (path != null ? lpath_0 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$Aa'.a]", (path != null ? lpath_0 : null));
                     return false;
                 }
@@ -91,7 +85,7 @@ public class tag01 extends ModelChecker
         }
         return true;
     }
-    
+
     // check $Aa (.'$Aa')
     public boolean json_model_2(Object val, Path path, Report rep)
     {
@@ -104,7 +98,7 @@ public class tag01 extends ModelChecker
         }
         return res;
     }
-    
+
     // object .'$Bb'
     public boolean _jm_obj_1(Object val, Path path, Report rep)
     {
@@ -130,9 +124,6 @@ public class tag01 extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected =false [.'$Bb'.t]", (path != null ? lpath_1 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$Bb'.t]", (path != null ? lpath_1 : null));
                     return false;
                 }
@@ -146,9 +137,6 @@ public class tag01 extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not a 0 strict int [.'$Bb'.b]", (path != null ? lpath_1 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$Bb'.b]", (path != null ? lpath_1 : null));
                     return false;
                 }
@@ -176,7 +164,7 @@ public class tag01 extends ModelChecker
         }
         return true;
     }
-    
+
     // check $Bb (.'$Bb')
     public boolean json_model_3(Object val, Path path, Report rep)
     {
@@ -189,8 +177,8 @@ public class tag01 extends ModelChecker
         }
         return res;
     }
-    
-    
+
+
     // check $ (.)
     public boolean json_model_1(Object val, Path path, Report rep)
     {
@@ -226,7 +214,7 @@ public class tag01 extends ModelChecker
         }
         return res;
     }
-    
+
 
     public void init(JSON json)
     {

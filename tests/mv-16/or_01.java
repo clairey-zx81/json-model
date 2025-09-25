@@ -21,11 +21,12 @@ public class or_01 extends ModelChecker
     public Pattern _jm_re_0_pat = null;
     public Map<String, Checker> or_01_map_pmap;
 
+
     public boolean _jm_re_0(String val, Path path, Report rep)
     {
         return _jm_re_0_pat.matcher(val).find();
     }
-    
+
     // check $ (.)
     public boolean json_model_1(Object val, Path path, Report rep)
     {
@@ -48,23 +49,20 @@ public class or_01 extends ModelChecker
                 // .'|'.0
                 // "/[0-9]/"
                 res = _jm_re_0(json.asString(val), path, rep);
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("unexpected /[0-9]/ [.'|'.0]", path);
-                }
                 if (res)
                 {
                     if (rep != null) rep.clearEntries();
                 }
                 else
                 {
+                    if (rep != null) rep.addEntry("unexpected /[0-9]/ [.'|'.0]", path);
                     if (rep != null) rep.addEntry("no model matched [.'|']", path);
                 }
             }
         }
         return res;
     }
-    
+
 
     public void init(JSON json)
     {

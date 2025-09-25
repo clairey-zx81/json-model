@@ -31,7 +31,7 @@ public class root_2 extends ModelChecker
         }
         return res;
     }
-    
+
     // object .'$Foo'
     public boolean _jm_obj_0(Object val, Path path, Report rep)
     {
@@ -57,9 +57,6 @@ public class root_2 extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected $root#Root [.'$Foo'.rt]", (path != null ? lpath_0 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$Foo'.rt]", (path != null ? lpath_0 : null));
                     return false;
                 }
@@ -83,7 +80,7 @@ public class root_2 extends ModelChecker
         }
         return true;
     }
-    
+
     // check $Foo (.'$Foo')
     public boolean json_model_3(Object val, Path path, Report rep)
     {
@@ -96,7 +93,7 @@ public class root_2 extends ModelChecker
         }
         return res;
     }
-    
+
     // check $ (.)
     public boolean json_model_1(Object val, Path path, Report rep)
     {
@@ -109,7 +106,7 @@ public class root_2 extends ModelChecker
         }
         return res;
     }
-    
+
     // object .'$root#Root'
     public boolean _jm_obj_1(Object val, Path path, Report rep)
     {
@@ -135,9 +132,6 @@ public class root_2 extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected =0 [.'$root#Root'.id]", (path != null ? lpath_1 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$root#Root'.id]", (path != null ? lpath_1 : null));
                     return false;
                 }
@@ -151,9 +145,6 @@ public class root_2 extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected string [.'$root#Root'.name]", (path != null ? lpath_1 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$root#Root'.name]", (path != null ? lpath_1 : null));
                     return false;
                 }
@@ -181,7 +172,7 @@ public class root_2 extends ModelChecker
         }
         return true;
     }
-    
+
     // check $root#Root (.'$root#Root')
     public boolean json_model_5(Object val, Path path, Report rep)
     {
@@ -194,7 +185,7 @@ public class root_2 extends ModelChecker
         }
         return res;
     }
-    
+
 
     public void init(JSON json)
     {

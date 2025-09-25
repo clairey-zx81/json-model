@@ -13,6 +13,7 @@ let _jm_cst_0 = new Set()
 let _jm_cst_1 = new Set()
 var check_model_map = new Map()
 
+
 // check $p1 (.'$p1')
 function json_model_2(val, path, rep)
 {
@@ -50,23 +51,23 @@ function json_model_1(val, path, rep)
     let xr_0;
     // .'^'.0
     xr_0 = json_model_2(val, path, rep);
-    if (! xr_0)
+    if (xr_0)
+    {
+        xc_0 += 1;
+    }
+    else
     {
         rep !== null && rep.push(["unexpected $p1 [.'^'.0]", path])
     }
-    if (xr_0)
-    {
-        xc_0 += 1;
-    }
     // .'^'.1
     xr_0 = json_model_3(val, path, rep);
-    if (! xr_0)
-    {
-        rep !== null && rep.push(["unexpected $p2 [.'^'.1]", path])
-    }
     if (xr_0)
     {
         xc_0 += 1;
+    }
+    else
+    {
+        rep !== null && rep.push(["unexpected $p2 [.'^'.1]", path])
     }
     res = xc_0 == 1;
     if (res)

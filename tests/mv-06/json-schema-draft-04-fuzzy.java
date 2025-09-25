@@ -41,15 +41,12 @@ public class json_schema_draft_04_fuzzy extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("unexpected $Schema [.'$schema'.definitions.'']", (path != null ? lpath_0 : null));
-            }
-            if (! res)
-            {
                 return false;
             }
         }
         return true;
     }
-    
+
     // object .'$schema'.properties
     public boolean _jm_obj_2(Object val, Path path, Report rep)
     {
@@ -71,15 +68,12 @@ public class json_schema_draft_04_fuzzy extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("unexpected $Schema [.'$schema'.properties.'']", (path != null ? lpath_1 : null));
-            }
-            if (! res)
-            {
                 return false;
             }
         }
         return true;
     }
-    
+
     // object .'$schema'.patternProperties
     public boolean _jm_obj_3(Object val, Path path, Report rep)
     {
@@ -101,15 +95,12 @@ public class json_schema_draft_04_fuzzy extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("unexpected $Schema [.'$schema'.patternProperties.'']", (path != null ? lpath_2 : null));
-            }
-            if (! res)
-            {
                 return false;
             }
         }
         return true;
     }
-    
+
     // object .'$schema'.dependencies
     public boolean _jm_obj_4(Object val, Path path, Report rep)
     {
@@ -149,15 +140,12 @@ public class json_schema_draft_04_fuzzy extends ModelChecker
             else
             {
                 if (rep != null) rep.addEntry("no model matched [.'$schema'.dependencies.''.'|']", (path != null ? lpath_3 : null));
-            }
-            if (! res)
-            {
                 return false;
             }
         }
         return true;
     }
-    
+
     // object .'$schema'
     public boolean _jm_obj_0(Object val, Path path, Report rep)
     {
@@ -177,9 +165,6 @@ public class json_schema_draft_04_fuzzy extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("unexpected string [.'$schema'.id]", path);
-            }
-            if (! res)
-            {
                 if (rep != null) rep.addEntry("unexpected value for optional prop <id> [.'$schema']", path);
                 return false;
             }
@@ -192,9 +177,6 @@ public class json_schema_draft_04_fuzzy extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("unexpected string [.'$schema'.'$schema']", path);
-            }
-            if (! res)
-            {
                 if (rep != null) rep.addEntry("unexpected value for optional prop <$schema> [.'$schema']", path);
                 return false;
             }
@@ -207,9 +189,6 @@ public class json_schema_draft_04_fuzzy extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("unexpected string [.'$schema'.title]", path);
-            }
-            if (! res)
-            {
                 if (rep != null) rep.addEntry("unexpected value for optional prop <title> [.'$schema']", path);
                 return false;
             }
@@ -222,9 +201,6 @@ public class json_schema_draft_04_fuzzy extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("unexpected string [.'$schema'.description]", path);
-            }
-            if (! res)
-            {
                 if (rep != null) rep.addEntry("unexpected value for optional prop <description> [.'$schema']", path);
                 return false;
             }
@@ -237,9 +213,6 @@ public class json_schema_draft_04_fuzzy extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("not a 1.0 loose float [.'$schema'.multipleOf]", path);
-            }
-            if (! res)
-            {
                 if (rep != null) rep.addEntry("unexpected value for optional prop <multipleOf> [.'$schema']", path);
                 return false;
             }
@@ -252,9 +225,6 @@ public class json_schema_draft_04_fuzzy extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("not a -1.0 loose float [.'$schema'.maximum]", path);
-            }
-            if (! res)
-            {
                 if (rep != null) rep.addEntry("unexpected value for optional prop <maximum> [.'$schema']", path);
                 return false;
             }
@@ -267,9 +237,6 @@ public class json_schema_draft_04_fuzzy extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("not a bool [.'$schema'.exclusiveMaximum]", path);
-            }
-            if (! res)
-            {
                 if (rep != null) rep.addEntry("unexpected value for optional prop <exclusiveMaximum> [.'$schema']", path);
                 return false;
             }
@@ -282,9 +249,6 @@ public class json_schema_draft_04_fuzzy extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("not a -1.0 loose float [.'$schema'.minimum]", path);
-            }
-            if (! res)
-            {
                 if (rep != null) rep.addEntry("unexpected value for optional prop <minimum> [.'$schema']", path);
                 return false;
             }
@@ -297,9 +261,6 @@ public class json_schema_draft_04_fuzzy extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("not a bool [.'$schema'.exclusiveMinimum]", path);
-            }
-            if (! res)
-            {
                 if (rep != null) rep.addEntry("unexpected value for optional prop <exclusiveMinimum> [.'$schema']", path);
                 return false;
             }
@@ -312,9 +273,6 @@ public class json_schema_draft_04_fuzzy extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("not a 0 strict int [.'$schema'.maxLength]", path);
-            }
-            if (! res)
-            {
                 if (rep != null) rep.addEntry("unexpected value for optional prop <maxLength> [.'$schema']", path);
                 return false;
             }
@@ -327,9 +285,6 @@ public class json_schema_draft_04_fuzzy extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("not a 0 strict int [.'$schema'.minLength]", path);
-            }
-            if (! res)
-            {
                 if (rep != null) rep.addEntry("unexpected value for optional prop <minLength> [.'$schema']", path);
                 return false;
             }
@@ -360,9 +315,6 @@ public class json_schema_draft_04_fuzzy extends ModelChecker
             else
             {
                 if (rep != null) rep.addEntry("no model matched [.'$schema'.additionalItems.'|']", path);
-            }
-            if (! res)
-            {
                 if (rep != null) rep.addEntry("unexpected value for optional prop <additionalItems> [.'$schema']", path);
                 return false;
             }
@@ -393,9 +345,6 @@ public class json_schema_draft_04_fuzzy extends ModelChecker
             else
             {
                 if (rep != null) rep.addEntry("no model matched [.'$schema'.items.'|']", path);
-            }
-            if (! res)
-            {
                 if (rep != null) rep.addEntry("unexpected value for optional prop <items> [.'$schema']", path);
                 return false;
             }
@@ -408,9 +357,6 @@ public class json_schema_draft_04_fuzzy extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("not a 0 strict int [.'$schema'.maxItems]", path);
-            }
-            if (! res)
-            {
                 if (rep != null) rep.addEntry("unexpected value for optional prop <maxItems> [.'$schema']", path);
                 return false;
             }
@@ -423,9 +369,6 @@ public class json_schema_draft_04_fuzzy extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("not a 0 strict int [.'$schema'.minItems]", path);
-            }
-            if (! res)
-            {
                 if (rep != null) rep.addEntry("unexpected value for optional prop <minItems> [.'$schema']", path);
                 return false;
             }
@@ -438,9 +381,6 @@ public class json_schema_draft_04_fuzzy extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("not a bool [.'$schema'.uniqueItems]", path);
-            }
-            if (! res)
-            {
                 if (rep != null) rep.addEntry("unexpected value for optional prop <uniqueItems> [.'$schema']", path);
                 return false;
             }
@@ -453,9 +393,6 @@ public class json_schema_draft_04_fuzzy extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("not a 0 strict int [.'$schema'.maxProperties]", path);
-            }
-            if (! res)
-            {
                 if (rep != null) rep.addEntry("unexpected value for optional prop <maxProperties> [.'$schema']", path);
                 return false;
             }
@@ -468,9 +405,6 @@ public class json_schema_draft_04_fuzzy extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("not a 0 strict int [.'$schema'.minProperties]", path);
-            }
-            if (! res)
-            {
                 if (rep != null) rep.addEntry("unexpected value for optional prop <minProperties> [.'$schema']", path);
                 return false;
             }
@@ -483,9 +417,6 @@ public class json_schema_draft_04_fuzzy extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("unexpected $stringArray [.'$schema'.required]", path);
-            }
-            if (! res)
-            {
                 if (rep != null) rep.addEntry("unexpected value for optional prop <required> [.'$schema']", path);
                 return false;
             }
@@ -516,9 +447,6 @@ public class json_schema_draft_04_fuzzy extends ModelChecker
             else
             {
                 if (rep != null) rep.addEntry("no model matched [.'$schema'.additionalProperties.'|']", path);
-            }
-            if (! res)
-            {
                 if (rep != null) rep.addEntry("unexpected value for optional prop <additionalProperties> [.'$schema']", path);
                 return false;
             }
@@ -531,9 +459,6 @@ public class json_schema_draft_04_fuzzy extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("unexpected element [.'$schema'.definitions]", path);
-            }
-            if (! res)
-            {
                 if (rep != null) rep.addEntry("unexpected value for optional prop <definitions> [.'$schema']", path);
                 return false;
             }
@@ -546,9 +471,6 @@ public class json_schema_draft_04_fuzzy extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("unexpected element [.'$schema'.properties]", path);
-            }
-            if (! res)
-            {
                 if (rep != null) rep.addEntry("unexpected value for optional prop <properties> [.'$schema']", path);
                 return false;
             }
@@ -561,9 +483,6 @@ public class json_schema_draft_04_fuzzy extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("unexpected element [.'$schema'.patternProperties]", path);
-            }
-            if (! res)
-            {
                 if (rep != null) rep.addEntry("unexpected value for optional prop <patternProperties> [.'$schema']", path);
                 return false;
             }
@@ -576,9 +495,6 @@ public class json_schema_draft_04_fuzzy extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("unexpected element [.'$schema'.dependencies]", path);
-            }
-            if (! res)
-            {
                 if (rep != null) rep.addEntry("unexpected value for optional prop <dependencies> [.'$schema']", path);
                 return false;
             }
@@ -589,10 +505,6 @@ public class json_schema_draft_04_fuzzy extends ModelChecker
             // .'$schema'.enum
             // .'$schema'.enum.'@'
             res = json.isArray(pval);
-            if (res)
-            {
-                // accept any array
-            }
             if (! res)
             {
                 if (rep != null) rep.addEntry("not array or unexpected array [.'$schema'.enum.'@']", path);
@@ -638,9 +550,6 @@ public class json_schema_draft_04_fuzzy extends ModelChecker
             else
             {
                 if (rep != null) rep.addEntry("no model matched [.'$schema'.type.'|']", path);
-            }
-            if (! res)
-            {
                 if (rep != null) rep.addEntry("unexpected value for optional prop <type> [.'$schema']", path);
                 return false;
             }
@@ -653,9 +562,6 @@ public class json_schema_draft_04_fuzzy extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("unexpected string [.'$schema'.format]", path);
-            }
-            if (! res)
-            {
                 if (rep != null) rep.addEntry("unexpected value for optional prop <format> [.'$schema']", path);
                 return false;
             }
@@ -668,9 +574,6 @@ public class json_schema_draft_04_fuzzy extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("unexpected $schemaArray [.'$schema'.allOf]", path);
-            }
-            if (! res)
-            {
                 if (rep != null) rep.addEntry("unexpected value for optional prop <allOf> [.'$schema']", path);
                 return false;
             }
@@ -683,9 +586,6 @@ public class json_schema_draft_04_fuzzy extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("unexpected $schemaArray [.'$schema'.anyOf]", path);
-            }
-            if (! res)
-            {
                 if (rep != null) rep.addEntry("unexpected value for optional prop <anyOf> [.'$schema']", path);
                 return false;
             }
@@ -698,9 +598,6 @@ public class json_schema_draft_04_fuzzy extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("unexpected $schemaArray [.'$schema'.oneOf]", path);
-            }
-            if (! res)
-            {
                 if (rep != null) rep.addEntry("unexpected value for optional prop <oneOf> [.'$schema']", path);
                 return false;
             }
@@ -713,9 +610,6 @@ public class json_schema_draft_04_fuzzy extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("unexpected $Schema [.'$schema'.not]", path);
-            }
-            if (! res)
-            {
                 if (rep != null) rep.addEntry("unexpected value for optional prop <not> [.'$schema']", path);
                 return false;
             }
@@ -728,9 +622,6 @@ public class json_schema_draft_04_fuzzy extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("unexpected string [.'$schema'.pattern]", path);
-            }
-            if (! res)
-            {
                 if (rep != null) rep.addEntry("unexpected value for optional prop <pattern> [.'$schema']", path);
                 return false;
             }
@@ -743,16 +634,13 @@ public class json_schema_draft_04_fuzzy extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("unexpected string [.'$schema'.'$ref']", path);
-            }
-            if (! res)
-            {
                 if (rep != null) rep.addEntry("unexpected value for optional prop <$ref> [.'$schema']", path);
                 return false;
             }
         }
         return true;
     }
-    
+
     // check $schema (.'$schema')
     public boolean json_model_3(Object val, Path path, Report rep)
     {
@@ -766,7 +654,7 @@ public class json_schema_draft_04_fuzzy extends ModelChecker
         }
         return res;
     }
-    
+
     // check $ (.)
     public boolean json_model_1(Object val, Path path, Report rep)
     {
@@ -779,7 +667,7 @@ public class json_schema_draft_04_fuzzy extends ModelChecker
         }
         return res;
     }
-    
+
     // check $schema#schemaArray (.'$schema#schemaArray')
     public boolean json_model_4(Object val, Path path, Report rep)
     {
@@ -801,9 +689,6 @@ public class json_schema_draft_04_fuzzy extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected $Schema [.'$schema#schemaArray'.'@'.0]", (path != null ? arr_0_lpath : null));
-                }
-                if (! res)
-                {
                     break;
                 }
             }
@@ -823,8 +708,8 @@ public class json_schema_draft_04_fuzzy extends ModelChecker
         }
         return res;
     }
-    
-    
+
+
     // check $schema#simpleTypes (.'$schema#simpleTypes')
     public boolean json_model_5(Object val, Path path, Report rep)
     {
@@ -837,7 +722,7 @@ public class json_schema_draft_04_fuzzy extends ModelChecker
         }
         return res;
     }
-    
+
     // check $schema#stringArray (.'$schema#stringArray')
     public boolean json_model_6(Object val, Path path, Report rep)
     {
@@ -859,9 +744,6 @@ public class json_schema_draft_04_fuzzy extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected string [.'$schema#stringArray'.'@'.0]", (path != null ? arr_1_lpath : null));
-                }
-                if (! res)
-                {
                     break;
                 }
             }
@@ -881,7 +763,7 @@ public class json_schema_draft_04_fuzzy extends ModelChecker
         }
         return res;
     }
-    
+
     // check $schema#typeArray (.'$schema#typeArray')
     public boolean json_model_7(Object val, Path path, Report rep)
     {
@@ -903,9 +785,6 @@ public class json_schema_draft_04_fuzzy extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected $simpleTypes [.'$schema#typeArray'.'@'.0]", (path != null ? arr_2_lpath : null));
-                }
-                if (! res)
-                {
                     break;
                 }
             }
@@ -925,7 +804,7 @@ public class json_schema_draft_04_fuzzy extends ModelChecker
         }
         return res;
     }
-    
+
 
     public void init(JSON json)
     {

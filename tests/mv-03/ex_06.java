@@ -49,7 +49,7 @@ public class ex_06 extends ModelChecker
         }
         return res;
     }
-    
+
     // check $Ex06 (.'$Ex06')
     public boolean json_model_3(Object val, Path path, Report rep)
     {
@@ -62,7 +62,7 @@ public class ex_06 extends ModelChecker
         }
         return res;
     }
-    
+
     // check $ (.)
     public boolean json_model_1(Object val, Path path, Report rep)
     {
@@ -105,7 +105,7 @@ public class ex_06 extends ModelChecker
         }
         return res;
     }
-    
+
     // check $ex5#Ex05a (.'$ex5#Ex05a')
     public boolean json_model_5(Object val, Path path, Report rep)
     {
@@ -118,7 +118,7 @@ public class ex_06 extends ModelChecker
         }
         return res;
     }
-    
+
     // check $ex5#Ex05b (.'$ex5#Ex05b')
     public boolean json_model_6(Object val, Path path, Report rep)
     {
@@ -131,7 +131,7 @@ public class ex_06 extends ModelChecker
         }
         return res;
     }
-    
+
 
     public void init(JSON json)
     {

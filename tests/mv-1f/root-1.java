@@ -31,7 +31,7 @@ public class root_1 extends ModelChecker
         }
         return res;
     }
-    
+
     // check $Root (.'$Root')
     public boolean json_model_3(Object val, Path path, Report rep)
     {
@@ -44,7 +44,7 @@ public class root_1 extends ModelChecker
         }
         return res;
     }
-    
+
     // check $ (.)
     public boolean json_model_1(Object val, Path path, Report rep)
     {
@@ -57,7 +57,7 @@ public class root_1 extends ModelChecker
         }
         return res;
     }
-    
+
     // object .'$root#Root'
     public boolean _jm_obj_0(Object val, Path path, Report rep)
     {
@@ -83,9 +83,6 @@ public class root_1 extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected =1 [.'$root#Root'.id]", (path != null ? lpath_0 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$root#Root'.id]", (path != null ? lpath_0 : null));
                     return false;
                 }
@@ -99,9 +96,6 @@ public class root_1 extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected string [.'$root#Root'.name]", (path != null ? lpath_0 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$root#Root'.name]", (path != null ? lpath_0 : null));
                     return false;
                 }
@@ -129,7 +123,7 @@ public class root_1 extends ModelChecker
         }
         return true;
     }
-    
+
     // check $root#Root (.'$root#Root')
     public boolean json_model_5(Object val, Path path, Report rep)
     {
@@ -142,7 +136,7 @@ public class root_1 extends ModelChecker
         }
         return res;
     }
-    
+
 
     public void init(JSON json)
     {

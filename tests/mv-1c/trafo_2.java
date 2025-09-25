@@ -31,7 +31,7 @@ public class trafo_2 extends ModelChecker
         }
         return res;
     }
-    
+
     // check $z (.'$z')
     public boolean json_model_3(Object val, Path path, Report rep)
     {
@@ -44,7 +44,7 @@ public class trafo_2 extends ModelChecker
         }
         return res;
     }
-    
+
     // check $l (.'$l')
     public boolean json_model_4(Object val, Path path, Report rep)
     {
@@ -65,9 +65,6 @@ public class trafo_2 extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected $z [.'$l'.0]", (path != null ? arr_0_lpath : null));
-                }
-                if (! res)
-                {
                     break;
                 }
             }
@@ -78,7 +75,7 @@ public class trafo_2 extends ModelChecker
         }
         return res;
     }
-    
+
     // check $ (.)
     public boolean json_model_1(Object val, Path path, Report rep)
     {
@@ -91,7 +88,7 @@ public class trafo_2 extends ModelChecker
         }
         return res;
     }
-    
+
     // object .'$Zz#zero'
     public boolean _jm_obj_0(Object val, Path path, Report rep)
     {
@@ -117,9 +114,6 @@ public class trafo_2 extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not a 0 strict int [.'$Zz#zero'.za]", (path != null ? lpath_0 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$Zz#zero'.za]", (path != null ? lpath_0 : null));
                     return false;
                 }
@@ -133,9 +127,6 @@ public class trafo_2 extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not a 0 strict int [.'$Zz#zero'.zb]", (path != null ? lpath_0 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$Zz#zero'.zb]", (path != null ? lpath_0 : null));
                     return false;
                 }
@@ -163,7 +154,7 @@ public class trafo_2 extends ModelChecker
         }
         return true;
     }
-    
+
     // check $Zz#zero (.'$Zz#zero')
     public boolean json_model_6(Object val, Path path, Report rep)
     {
@@ -176,7 +167,7 @@ public class trafo_2 extends ModelChecker
         }
         return res;
     }
-    
+
 
     public void init(JSON json)
     {

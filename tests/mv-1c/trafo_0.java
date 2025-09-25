@@ -44,9 +44,6 @@ public class trafo_0 extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not a 0 strict int [.'$zero'.za]", (path != null ? lpath_0 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$zero'.za]", (path != null ? lpath_0 : null));
                     return false;
                 }
@@ -60,9 +57,6 @@ public class trafo_0 extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not a 0 strict int [.'$zero'.zb]", (path != null ? lpath_0 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$zero'.zb]", (path != null ? lpath_0 : null));
                     return false;
                 }
@@ -90,7 +84,7 @@ public class trafo_0 extends ModelChecker
         }
         return true;
     }
-    
+
     // check $zero (.'$zero')
     public boolean json_model_2(Object val, Path path, Report rep)
     {
@@ -103,7 +97,7 @@ public class trafo_0 extends ModelChecker
         }
         return res;
     }
-    
+
     // check $ (.)
     public boolean json_model_1(Object val, Path path, Report rep)
     {
@@ -116,7 +110,7 @@ public class trafo_0 extends ModelChecker
         }
         return res;
     }
-    
+
 
     public void init(JSON json)
     {

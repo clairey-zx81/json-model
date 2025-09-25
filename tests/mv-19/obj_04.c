@@ -16,6 +16,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep);
 jm_propmap_t check_model_map_tab[2];
 const size_t check_model_map_size = 2;
 
+
 // check $Xxx (.'$Xxx')
 static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
@@ -51,9 +52,6 @@ static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *re
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "not a 0.0 strict float [.'$Xxx']", (path ? &lpath_0 : NULL));
-            }
-            if (! res)
-            {
                 return false;
             }
         }

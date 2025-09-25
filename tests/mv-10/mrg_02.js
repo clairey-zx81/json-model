@@ -47,9 +47,6 @@ function _jm_obj_0(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected _cst_01 [.'$r'.a]", (path ? lpath_0 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid mandatory prop value [.'$r'.a]", (path ? lpath_0 : null)])
                 return false;
             }
@@ -63,9 +60,6 @@ function _jm_obj_0(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected _cst_01 [.'$r'.b]", (path ? lpath_0 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid mandatory prop value [.'$r'.b]", (path ? lpath_0 : null)])
                 return false;
             }
@@ -79,9 +73,6 @@ function _jm_obj_0(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected _cst_01 [.'$r'.c]", (path ? lpath_0 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid mandatory prop value [.'$r'.c]", (path ? lpath_0 : null)])
                 return false;
             }
@@ -95,9 +86,6 @@ function _jm_obj_0(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected _cst_01 [.'$r'.d]", (path ? lpath_0 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid mandatory prop value [.'$r'.d]", (path ? lpath_0 : null)])
                 return false;
             }
@@ -169,9 +157,6 @@ function _jm_obj_1(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected _cst_02 [.'$z'.e]", (path ? lpath_1 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid mandatory prop value [.'$z'.e]", (path ? lpath_1 : null)])
                 return false;
             }
@@ -185,9 +170,6 @@ function _jm_obj_1(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected _cst_02 [.'$z'.f]", (path ? lpath_1 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid mandatory prop value [.'$z'.f]", (path ? lpath_1 : null)])
                 return false;
             }

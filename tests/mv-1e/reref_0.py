@@ -26,6 +26,7 @@ _jm_xre_0_re: RegexFun
 _jm_xre_0: RegexFun
 check_model_map: PropMap
 
+
 # check $character (.'$character')
 def json_model_2(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool

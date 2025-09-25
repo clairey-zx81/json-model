@@ -72,9 +72,6 @@ function _jm_obj_0(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["not a 0 strict int [.'$ab'.a]", (path ? lpath_0 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid mandatory prop value [.'$ab'.a]", (path ? lpath_0 : null)])
                 return false;
             }
@@ -88,9 +85,6 @@ function _jm_obj_0(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["not a 0 strict int [.'$ab'.b]", (path ? lpath_0 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid mandatory prop value [.'$ab'.b]", (path ? lpath_0 : null)])
                 return false;
             }
@@ -154,9 +148,6 @@ function _jm_obj_1(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["not a 0 strict int [.'$cd'.c]", (path ? lpath_1 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid mandatory prop value [.'$cd'.c]", (path ? lpath_1 : null)])
                 return false;
             }
@@ -170,9 +161,6 @@ function _jm_obj_1(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["not a 0 strict int [.'$cd'.d]", (path ? lpath_1 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid mandatory prop value [.'$cd'.d]", (path ? lpath_1 : null)])
                 return false;
             }
@@ -257,9 +245,6 @@ function _jm_obj_3(val, path, rep)
             else
             {
                 rep !== null && rep.push(["not all model match [.and.a0.'&']", (path ? lpath_3 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid optional prop value [.and.a0]", (path ? lpath_3 : null)])
                 return false;
             }
@@ -315,9 +300,6 @@ function _jm_obj_4(val, path, rep)
                     if (! res)
                     {
                         rep !== null && rep.push(["not a 0 strict int [.array.a0.0]", ((path ? lpath_4 : null) ? arr_0_lpath : null)])
-                    }
-                    if (! res)
-                    {
                         break;
                     }
                 }
@@ -325,9 +307,6 @@ function _jm_obj_4(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["not array or unexpected array [.array.a0]", (path ? lpath_4 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid optional prop value [.array.a0]", (path ? lpath_4 : null)])
                 return false;
             }
@@ -348,9 +327,6 @@ function _jm_obj_4(val, path, rep)
                     if (! res)
                     {
                         rep !== null && rep.push(["unexpected string [.array.a1.0]", ((path ? lpath_4 : null) ? arr_1_lpath : null)])
-                    }
-                    if (! res)
-                    {
                         break;
                     }
                 }
@@ -358,9 +334,6 @@ function _jm_obj_4(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["not array or unexpected array [.array.a1]", (path ? lpath_4 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid optional prop value [.array.a1]", (path ? lpath_4 : null)])
                 return false;
             }
@@ -381,9 +354,6 @@ function _jm_obj_4(val, path, rep)
                     if (! res)
                     {
                         rep !== null && rep.push(["unexpected $DATE [.array.a2.0]", ((path ? lpath_4 : null) ? arr_2_lpath : null)])
-                    }
-                    if (! res)
-                    {
                         break;
                     }
                 }
@@ -391,9 +361,6 @@ function _jm_obj_4(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["not array or unexpected array [.array.a2]", (path ? lpath_4 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid optional prop value [.array.a2]", (path ? lpath_4 : null)])
                 return false;
             }
@@ -414,9 +381,6 @@ function _jm_obj_4(val, path, rep)
                     if (! res)
                     {
                         rep !== null && rep.push(["not a bool [.array.a3.0]", ((path ? lpath_4 : null) ? arr_3_lpath : null)])
-                    }
-                    if (! res)
-                    {
                         break;
                     }
                 }
@@ -424,9 +388,6 @@ function _jm_obj_4(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["not array or unexpected array [.array.a3]", (path ? lpath_4 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid optional prop value [.array.a3]", (path ? lpath_4 : null)])
                 return false;
             }
@@ -436,16 +397,9 @@ function _jm_obj_4(val, path, rep)
             // handle may a4 property
             // .array.a4
             res = Array.isArray(pval);
-            if (res)
-            {
-                // accept any array
-            }
             if (! res)
             {
                 rep !== null && rep.push(["not array or unexpected array [.array.a4]", (path ? lpath_4 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid optional prop value [.array.a4]", (path ? lpath_4 : null)])
                 return false;
             }
@@ -615,9 +569,6 @@ function _jm_f_10(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["not a 0 strict int [.constraints.cia0.'@'.0]", (path ? arr_4_lpath : null)])
-            }
-            if (! res)
-            {
                 break;
             }
         }
@@ -656,9 +607,6 @@ function _jm_f_11(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["not a 0 strict int [.constraints.cia1.'@'.0]", (path ? arr_5_lpath : null)])
-            }
-            if (! res)
-            {
                 break;
             }
         }
@@ -697,9 +645,6 @@ function _jm_f_12(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["not a 0 strict int [.constraints.cia2.'@'.0]", (path ? arr_6_lpath : null)])
-            }
-            if (! res)
-            {
                 break;
             }
         }
@@ -1217,10 +1162,6 @@ function _jm_f_34(val, path, rep)
     // .constraints.cua0
     // .constraints.cua0.'@'
     res = Array.isArray(val);
-    if (res)
-    {
-        // accept any array
-    }
     if (! res)
     {
         rep !== null && rep.push(["not array or unexpected array [.constraints.cua0.'@']", path])
@@ -1304,9 +1245,6 @@ function _jm_obj_10(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["value not in enum [.enum.e0.'|']", (path ? lpath_7 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid optional prop value [.enum.e0]", (path ? lpath_7 : null)])
                 return false;
             }
@@ -1319,9 +1257,6 @@ function _jm_obj_10(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["value not in enum [.enum.e1.'|']", (path ? lpath_7 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid optional prop value [.enum.e1]", (path ? lpath_7 : null)])
                 return false;
             }
@@ -1334,9 +1269,6 @@ function _jm_obj_10(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["value not in enum [.enum.e2.'|']", (path ? lpath_7 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid optional prop value [.enum.e2]", (path ? lpath_7 : null)])
                 return false;
             }
@@ -1349,9 +1281,6 @@ function _jm_obj_10(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["value not in enum [.enum.e3.'|']", (path ? lpath_7 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid optional prop value [.enum.e3]", (path ? lpath_7 : null)])
                 return false;
             }
@@ -1751,9 +1680,6 @@ function _jm_obj_14(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["not a 0 strict int [.merge.m0.a]", (path ? lpath_11 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid mandatory prop value [.merge.m0.a]", (path ? lpath_11 : null)])
                 return false;
             }
@@ -1766,9 +1692,6 @@ function _jm_obj_14(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["not a 0 strict int [.merge.m0.b]", (path ? lpath_11 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid optional prop value [.merge.m0.b]", (path ? lpath_11 : null)])
                 return false;
             }
@@ -1815,9 +1738,6 @@ function _jm_obj_15(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["not a 0 strict int [.merge.m1.'|'.1.a]", (path ? lpath_12 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid mandatory prop value [.merge.m1.'|'.1.a]", (path ? lpath_12 : null)])
                 return false;
             }
@@ -1831,9 +1751,6 @@ function _jm_obj_15(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["not a 1 strict int [.merge.m1.'|'.1.c]", (path ? lpath_12 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid mandatory prop value [.merge.m1.'|'.1.c]", (path ? lpath_12 : null)])
                 return false;
             }
@@ -1884,9 +1801,6 @@ function _jm_obj_16(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["not a 0 strict int [.merge.m1.'|'.0.a]", (path ? lpath_13 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid mandatory prop value [.merge.m1.'|'.0.a]", (path ? lpath_13 : null)])
                 return false;
             }
@@ -1900,9 +1814,6 @@ function _jm_obj_16(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["not a 1 strict int [.merge.m1.'|'.0.b]", (path ? lpath_13 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid mandatory prop value [.merge.m1.'|'.0.b]", (path ? lpath_13 : null)])
                 return false;
             }
@@ -1953,9 +1864,6 @@ function _jm_obj_17(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["not a 0 strict int [.merge.m2.'|'.1.a]", (path ? lpath_14 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid mandatory prop value [.merge.m2.'|'.1.a]", (path ? lpath_14 : null)])
                 return false;
             }
@@ -1969,9 +1877,6 @@ function _jm_obj_17(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["not a 1 strict int [.merge.m2.'|'.1.c]", (path ? lpath_14 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid mandatory prop value [.merge.m2.'|'.1.c]", (path ? lpath_14 : null)])
                 return false;
             }
@@ -2022,9 +1927,6 @@ function _jm_obj_18(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["not a 0 strict int [.merge.m2.'|'.0.a]", (path ? lpath_15 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid mandatory prop value [.merge.m2.'|'.0.a]", (path ? lpath_15 : null)])
                 return false;
             }
@@ -2038,9 +1940,6 @@ function _jm_obj_18(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["not a 1 strict int [.merge.m2.'|'.0.b]", (path ? lpath_15 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid mandatory prop value [.merge.m2.'|'.0.b]", (path ? lpath_15 : null)])
                 return false;
             }
@@ -2091,9 +1990,6 @@ function _jm_obj_19(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["not a 0 strict int [.merge.m3.'|'.3.b]", (path ? lpath_16 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid mandatory prop value [.merge.m3.'|'.3.b]", (path ? lpath_16 : null)])
                 return false;
             }
@@ -2107,9 +2003,6 @@ function _jm_obj_19(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["not a 1 strict int [.merge.m3.'|'.3.d]", (path ? lpath_16 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid mandatory prop value [.merge.m3.'|'.3.d]", (path ? lpath_16 : null)])
                 return false;
             }
@@ -2160,9 +2053,6 @@ function _jm_obj_20(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["not a 0 strict int [.merge.m3.'|'.2.b]", (path ? lpath_17 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid mandatory prop value [.merge.m3.'|'.2.b]", (path ? lpath_17 : null)])
                 return false;
             }
@@ -2176,9 +2066,6 @@ function _jm_obj_20(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["not a 1 strict int [.merge.m3.'|'.2.c]", (path ? lpath_17 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid mandatory prop value [.merge.m3.'|'.2.c]", (path ? lpath_17 : null)])
                 return false;
             }
@@ -2229,9 +2116,6 @@ function _jm_obj_21(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["not a 0 strict int [.merge.m3.'|'.1.a]", (path ? lpath_18 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid mandatory prop value [.merge.m3.'|'.1.a]", (path ? lpath_18 : null)])
                 return false;
             }
@@ -2245,9 +2129,6 @@ function _jm_obj_21(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["not a 1 strict int [.merge.m3.'|'.1.d]", (path ? lpath_18 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid mandatory prop value [.merge.m3.'|'.1.d]", (path ? lpath_18 : null)])
                 return false;
             }
@@ -2298,9 +2179,6 @@ function _jm_obj_22(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["not a 0 strict int [.merge.m3.'|'.0.a]", (path ? lpath_19 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid mandatory prop value [.merge.m3.'|'.0.a]", (path ? lpath_19 : null)])
                 return false;
             }
@@ -2314,9 +2192,6 @@ function _jm_obj_22(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["not a 1 strict int [.merge.m3.'|'.0.c]", (path ? lpath_19 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid mandatory prop value [.merge.m3.'|'.0.c]", (path ? lpath_19 : null)])
                 return false;
             }
@@ -2367,9 +2242,6 @@ function _jm_obj_23(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["not a 0 strict int [.merge.m4.a]", (path ? lpath_20 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid mandatory prop value [.merge.m4.a]", (path ? lpath_20 : null)])
                 return false;
             }
@@ -2383,9 +2255,6 @@ function _jm_obj_23(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["not a 0 strict int [.merge.m4.b]", (path ? lpath_20 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid mandatory prop value [.merge.m4.b]", (path ? lpath_20 : null)])
                 return false;
             }
@@ -2399,9 +2268,6 @@ function _jm_obj_23(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["not a 0 strict int [.merge.m4.c]", (path ? lpath_20 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid mandatory prop value [.merge.m4.c]", (path ? lpath_20 : null)])
                 return false;
             }
@@ -2415,9 +2281,6 @@ function _jm_obj_23(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["not a 0 strict int [.merge.m4.d]", (path ? lpath_20 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid mandatory prop value [.merge.m4.d]", (path ? lpath_20 : null)])
                 return false;
             }
@@ -2474,9 +2337,6 @@ function _jm_obj_13(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected element [.merge.m0]", (path ? lpath_10 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid optional prop value [.merge.m0]", (path ? lpath_10 : null)])
                 return false;
             }
@@ -2630,9 +2490,6 @@ function _jm_obj_13(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected element [.merge.m4]", (path ? lpath_10 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid optional prop value [.merge.m4]", (path ? lpath_10 : null)])
                 return false;
             }
@@ -2680,9 +2537,6 @@ function _jm_obj_24(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["not null [.null.n0]", (path ? lpath_21 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid optional prop value [.null.n0]", (path ? lpath_21 : null)])
                 return false;
             }
@@ -2695,9 +2549,6 @@ function _jm_obj_24(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $NULL [.null.n1]", (path ? lpath_21 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid optional prop value [.null.n1]", (path ? lpath_21 : null)])
                 return false;
             }
@@ -2710,9 +2561,6 @@ function _jm_obj_24(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected =null [.null.n2]", (path ? lpath_21 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid optional prop value [.null.n2]", (path ? lpath_21 : null)])
                 return false;
             }
@@ -2794,9 +2642,6 @@ function _jm_obj_27(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["not a 0 strict int [.object.o1.a]", (path ? lpath_23 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid mandatory prop value [.object.o1.a]", (path ? lpath_23 : null)])
                 return false;
             }
@@ -2810,9 +2655,6 @@ function _jm_obj_27(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["not a 0 strict int [.object.o1.b]", (path ? lpath_23 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid mandatory prop value [.object.o1.b]", (path ? lpath_23 : null)])
                 return false;
             }
@@ -2826,9 +2668,6 @@ function _jm_obj_27(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["not a 0 strict int [.object.o1.c]", (path ? lpath_23 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid mandatory prop value [.object.o1.c]", (path ? lpath_23 : null)])
                 return false;
             }
@@ -2894,9 +2733,6 @@ function _jm_obj_28(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["not a 0 strict int [.object.o2.a]", (path ? lpath_24 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid optional prop value [.object.o2.a]", (path ? lpath_24 : null)])
                 return false;
             }
@@ -2943,9 +2779,6 @@ function _jm_obj_29(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["not a 0 strict int [.object.o3.'/^a/']", (path ? lpath_25 : null)])
-            }
-            if (! res)
-            {
                 return false;
             }
         }
@@ -2991,9 +2824,6 @@ function _jm_obj_30(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected string [.object.o4.'$DATE']", (path ? lpath_26 : null)])
-            }
-            if (! res)
-            {
                 return false;
             }
         }
@@ -3037,9 +2867,6 @@ function _jm_obj_31(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["not a 0 strict int [.object.o5.'']", (path ? lpath_27 : null)])
-        }
-        if (! res)
-        {
             return false;
         }
     }
@@ -3179,9 +3006,6 @@ function _jm_obj_33(val, path, rep)
             else
             {
                 rep !== null && rep.push(["no model matched [.or.o0.'|']", (path ? lpath_28 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid optional prop value [.or.o0]", (path ? lpath_28 : null)])
                 return false;
             }
@@ -3212,9 +3036,6 @@ function _jm_obj_33(val, path, rep)
             else
             {
                 rep !== null && rep.push(["no model matched [.or.o1.'|']", (path ? lpath_28 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid optional prop value [.or.o1]", (path ? lpath_28 : null)])
                 return false;
             }
@@ -3241,10 +3062,6 @@ function _jm_obj_33(val, path, rep)
                 {
                     // .or.o2.'|'.2
                     res = Array.isArray(pval);
-                    if (res)
-                    {
-                        // accept any array
-                    }
                     if (! res)
                     {
                         rep !== null && rep.push(["not array or unexpected array [.or.o2.'|'.2]", (path ? lpath_28 : null)])
@@ -3267,9 +3084,6 @@ function _jm_obj_33(val, path, rep)
             else
             {
                 rep !== null && rep.push(["no model matched [.or.o2.'|']", (path ? lpath_28 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid optional prop value [.or.o2]", (path ? lpath_28 : null)])
                 return false;
             }
@@ -3702,9 +3516,6 @@ function _jm_obj_36(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected string [.string.s0]", (path ? lpath_30 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid optional prop value [.string.s0]", (path ? lpath_30 : null)])
                 return false;
             }
@@ -3717,9 +3528,6 @@ function _jm_obj_36(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $STRING [.string.s1]", (path ? lpath_30 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid optional prop value [.string.s1]", (path ? lpath_30 : null)])
                 return false;
             }
@@ -3732,9 +3540,6 @@ function _jm_obj_36(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected Susie [.string.s2]", (path ? lpath_30 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid optional prop value [.string.s2]", (path ? lpath_30 : null)])
                 return false;
             }
@@ -3747,9 +3552,6 @@ function _jm_obj_36(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected _Calvin [.string.s3]", (path ? lpath_30 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid optional prop value [.string.s3]", (path ? lpath_30 : null)])
                 return false;
             }
@@ -3763,9 +3565,6 @@ function _jm_obj_36(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected /^(Calvin|Susie)$/ [.string.s4]", (path ? lpath_30 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid optional prop value [.string.s4]", (path ? lpath_30 : null)])
                 return false;
             }
@@ -3813,9 +3612,6 @@ function _jm_obj_37(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["not array or unexpected array [.tuple.t0]", (path ? lpath_31 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid optional prop value [.tuple.t0]", (path ? lpath_31 : null)])
                 return false;
             }
@@ -3837,9 +3633,6 @@ function _jm_obj_37(val, path, rep)
                     if (! res)
                     {
                         rep !== null && rep.push(["not a 0 strict int [.tuple.t1.'@'.0]", ((path ? lpath_31 : null) ? arr_7_lpath : null)])
-                    }
-                    if (! res)
-                    {
                         break;
                     }
                 }
@@ -3891,9 +3684,6 @@ function _jm_obj_37(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["not array or unexpected array [.tuple.t2]", (path ? lpath_31 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid optional prop value [.tuple.t2]", (path ? lpath_31 : null)])
                 return false;
             }
@@ -3936,9 +3726,6 @@ function _jm_obj_37(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["not array or unexpected array [.tuple.t3]", (path ? lpath_31 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid optional prop value [.tuple.t3]", (path ? lpath_31 : null)])
                 return false;
             }
@@ -3973,9 +3760,6 @@ function _jm_obj_37(val, path, rep)
                         if (! res)
                         {
                             rep !== null && rep.push(["not a 0 strict int [.tuple.t4.'@'.1]", ((path ? lpath_31 : null) ? lpath_34 : null)])
-                        }
-                        if (! res)
-                        {
                             break;
                         }
                     }
@@ -4061,9 +3845,6 @@ function _jm_obj_38(val, path, rep)
             else
             {
                 rep !== null && rep.push(["no model matched [.xor.x0.'|']", (path ? lpath_35 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid optional prop value [.xor.x0]", (path ? lpath_35 : null)])
                 return false;
             }
@@ -4078,24 +3859,24 @@ function _jm_obj_38(val, path, rep)
             // .xor.x1.'^'.0
             // "/^a/"
             xr_0 = ((typeof pval === 'string' || pval instanceof String)) && pval.startsWith("a");
-            if (! xr_0)
-            {
-                rep !== null && rep.push(["unexpected /^a/ [.xor.x1.'^'.0]", (path ? lpath_35 : null)])
-            }
             if (xr_0)
             {
                 xc_0 += 1;
+            }
+            else
+            {
+                rep !== null && rep.push(["unexpected /^a/ [.xor.x1.'^'.0]", (path ? lpath_35 : null)])
             }
             // .xor.x1.'^'.1
             // "/z$/"
             xr_0 = ((typeof pval === 'string' || pval instanceof String)) && pval.endsWith("z");
-            if (! xr_0)
-            {
-                rep !== null && rep.push(["unexpected /z$/ [.xor.x1.'^'.1]", (path ? lpath_35 : null)])
-            }
             if (xr_0)
             {
                 xc_0 += 1;
+            }
+            else
+            {
+                rep !== null && rep.push(["unexpected /z$/ [.xor.x1.'^'.1]", (path ? lpath_35 : null)])
             }
             res = xc_0 == 1;
             if (res)
@@ -4105,9 +3886,6 @@ function _jm_obj_38(val, path, rep)
             else
             {
                 rep !== null && rep.push(["not one model match [.xor.x1.'^']", (path ? lpath_35 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid optional prop value [.xor.x1]", (path ? lpath_35 : null)])
                 return false;
             }
@@ -4121,23 +3899,23 @@ function _jm_obj_38(val, path, rep)
             let xr_1;
             // .xor.x2.'^'.0
             xr_1 = (typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval);
-            if (! xr_1)
+            if (xr_1)
+            {
+                xc_1 += 1;
+            }
+            else
             {
                 rep !== null && rep.push(["not a -1 strict int [.xor.x2.'^'.0]", (path ? lpath_35 : null)])
             }
-            if (xr_1)
-            {
-                xc_1 += 1;
-            }
             // .xor.x2.'^'.1
             xr_1 = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0;
-            if (! xr_1)
-            {
-                rep !== null && rep.push(["not a 0 strict int [.xor.x2.'^'.1]", (path ? lpath_35 : null)])
-            }
             if (xr_1)
             {
                 xc_1 += 1;
+            }
+            else
+            {
+                rep !== null && rep.push(["not a 0 strict int [.xor.x2.'^'.1]", (path ? lpath_35 : null)])
             }
             res = xc_1 == 1;
             if (res)
@@ -4147,9 +3925,6 @@ function _jm_obj_38(val, path, rep)
             else
             {
                 rep !== null && rep.push(["not one model match [.xor.x2.'^']", (path ? lpath_35 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid optional prop value [.xor.x2]", (path ? lpath_35 : null)])
                 return false;
             }
@@ -4174,9 +3949,6 @@ function _jm_obj_38(val, path, rep)
             else
             {
                 rep !== null && rep.push(["not one model match [.xor.x3.'^']", (path ? lpath_35 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid optional prop value [.xor.x3]", (path ? lpath_35 : null)])
                 return false;
             }

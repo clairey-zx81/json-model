@@ -48,7 +48,6 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
             res = isinstance(pval, str) and pval == "cst_01"
             if not res:
                 rep is None or rep.append(("unexpected _cst_01 [.'$x'.a]", lpath_0 if path is not None else None))
-            if not res:
                 rep is None or rep.append(("invalid mandatory prop value [.'$x'.a]", lpath_0 if path is not None else None))
                 return False
         elif prop == "b":
@@ -58,7 +57,6 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
             res = isinstance(pval, str) and pval == "cst_01"
             if not res:
                 rep is None or rep.append(("unexpected _cst_01 [.'$x'.b]", lpath_0 if path is not None else None))
-            if not res:
                 rep is None or rep.append(("invalid mandatory prop value [.'$x'.b]", lpath_0 if path is not None else None))
                 return False
         else:
@@ -99,7 +97,6 @@ def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
             res = isinstance(pval, str) and pval == "cst_01"
             if not res:
                 rep is None or rep.append(("unexpected _cst_01 [.'$y'.c]", lpath_1 if path is not None else None))
-            if not res:
                 rep is None or rep.append(("invalid mandatory prop value [.'$y'.c]", lpath_1 if path is not None else None))
                 return False
         elif prop == "d":
@@ -109,7 +106,6 @@ def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
             res = isinstance(pval, str) and pval == "cst_01"
             if not res:
                 rep is None or rep.append(("unexpected _cst_01 [.'$y'.d]", lpath_1 if path is not None else None))
-            if not res:
                 rep is None or rep.append(("invalid mandatory prop value [.'$y'.d]", lpath_1 if path is not None else None))
                 return False
         else:
@@ -150,7 +146,6 @@ def _jm_obj_2(val: Jsonable, path: Path, rep: Report) -> bool:
             res = isinstance(pval, str) and pval == "cst_01"
             if not res:
                 rep is None or rep.append(("unexpected _cst_01 [.a]", lpath_2 if path is not None else None))
-            if not res:
                 rep is None or rep.append(("invalid mandatory prop value [.a]", lpath_2 if path is not None else None))
                 return False
         elif prop == "b":
@@ -160,7 +155,6 @@ def _jm_obj_2(val: Jsonable, path: Path, rep: Report) -> bool:
             res = isinstance(pval, str) and pval == "cst_01"
             if not res:
                 rep is None or rep.append(("unexpected _cst_01 [.b]", lpath_2 if path is not None else None))
-            if not res:
                 rep is None or rep.append(("invalid mandatory prop value [.b]", lpath_2 if path is not None else None))
                 return False
         elif prop == "c":
@@ -170,7 +164,6 @@ def _jm_obj_2(val: Jsonable, path: Path, rep: Report) -> bool:
             res = isinstance(pval, str) and pval == "cst_01"
             if not res:
                 rep is None or rep.append(("unexpected _cst_01 [.c]", lpath_2 if path is not None else None))
-            if not res:
                 rep is None or rep.append(("invalid mandatory prop value [.c]", lpath_2 if path is not None else None))
                 return False
         elif prop == "d":
@@ -180,7 +173,6 @@ def _jm_obj_2(val: Jsonable, path: Path, rep: Report) -> bool:
             res = isinstance(pval, str) and pval == "cst_01"
             if not res:
                 rep is None or rep.append(("unexpected _cst_01 [.d]", lpath_2 if path is not None else None))
-            if not res:
                 rep is None or rep.append(("invalid mandatory prop value [.d]", lpath_2 if path is not None else None))
                 return False
         else:

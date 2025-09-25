@@ -104,9 +104,6 @@ function _jm_f_4(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $SecurityRequirement [.'$OpenAPI'.security.0]", (path ? arr_0_lpath : null)])
-            }
-            if (! res)
-            {
                 break;
             }
         }
@@ -135,9 +132,6 @@ function _jm_f_5(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $Server [.'$OpenAPI'.servers.0]", (path ? arr_1_lpath : null)])
-            }
-            if (! res)
-            {
                 break;
             }
         }
@@ -166,9 +160,6 @@ function _jm_f_6(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $Tag [.'$OpenAPI'.tags.0]", (path ? arr_2_lpath : null)])
-            }
-            if (! res)
-            {
                 break;
             }
         }
@@ -198,9 +189,6 @@ function _jm_obj_1(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["unexpected $PathItem [.'$OpenAPI'.webhooks.'']", (path ? lpath_1 : null)])
-        }
-        if (! res)
-        {
             return false;
         }
     }
@@ -245,9 +233,6 @@ function _jm_obj_0(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected /^3\\.1\\.\\d+(-.+)?$/ [.'$OpenAPI'.openapi]", (path ? lpath_0 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid mandatory prop value [.'$OpenAPI'.openapi]", (path ? lpath_0 : null)])
                 return false;
             }
@@ -261,9 +246,6 @@ function _jm_obj_0(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $Info [.'$OpenAPI'.info]", (path ? lpath_0 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid mandatory prop value [.'$OpenAPI'.info]", (path ? lpath_0 : null)])
                 return false;
             }
@@ -285,9 +267,6 @@ function _jm_obj_0(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $ANY [.'$OpenAPI'.'/^x-/']", (path ? lpath_0 : null)])
-            }
-            if (! res)
-            {
                 return false;
             }
         }
@@ -350,9 +329,6 @@ function _jm_obj_2(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected string [.'$Info'.title]", (path ? lpath_2 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid mandatory prop value [.'$Info'.title]", (path ? lpath_2 : null)])
                 return false;
             }
@@ -366,9 +342,6 @@ function _jm_obj_2(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected string [.'$Info'.version]", (path ? lpath_2 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid mandatory prop value [.'$Info'.version]", (path ? lpath_2 : null)])
                 return false;
             }
@@ -381,9 +354,6 @@ function _jm_obj_2(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected string [.'$Info'.summary]", (path ? lpath_2 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid optional prop value [.'$Info'.summary]", (path ? lpath_2 : null)])
                 return false;
             }
@@ -396,9 +366,6 @@ function _jm_obj_2(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected string [.'$Info'.description]", (path ? lpath_2 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid optional prop value [.'$Info'.description]", (path ? lpath_2 : null)])
                 return false;
             }
@@ -411,9 +378,6 @@ function _jm_obj_2(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected string [.'$Info'.termsOfService]", (path ? lpath_2 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid optional prop value [.'$Info'.termsOfService]", (path ? lpath_2 : null)])
                 return false;
             }
@@ -426,9 +390,6 @@ function _jm_obj_2(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $Contact [.'$Info'.contact]", (path ? lpath_2 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid optional prop value [.'$Info'.contact]", (path ? lpath_2 : null)])
                 return false;
             }
@@ -441,9 +402,6 @@ function _jm_obj_2(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $License [.'$Info'.license]", (path ? lpath_2 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid optional prop value [.'$Info'.license]", (path ? lpath_2 : null)])
                 return false;
             }
@@ -456,9 +414,6 @@ function _jm_obj_2(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $ANY [.'$Info'.'/^x-/']", (path ? lpath_2 : null)])
-            }
-            if (! res)
-            {
                 return false;
             }
         }
@@ -519,9 +474,6 @@ function _jm_obj_3(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected string [.'$Contact'.name]", (path ? lpath_3 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid optional prop value [.'$Contact'.name]", (path ? lpath_3 : null)])
                 return false;
             }
@@ -534,9 +486,6 @@ function _jm_obj_3(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $URL [.'$Contact'.url]", (path ? lpath_3 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid optional prop value [.'$Contact'.url]", (path ? lpath_3 : null)])
                 return false;
             }
@@ -549,9 +498,6 @@ function _jm_obj_3(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected string [.'$Contact'.email]", (path ? lpath_3 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid optional prop value [.'$Contact'.email]", (path ? lpath_3 : null)])
                 return false;
             }
@@ -564,9 +510,6 @@ function _jm_obj_3(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $ANY [.'$Contact'.'/^x-/']", (path ? lpath_3 : null)])
-            }
-            if (! res)
-            {
                 return false;
             }
         }
@@ -616,9 +559,6 @@ function _jm_obj_4(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected string [.'$License'.'|'.1.name]", (path ? lpath_4 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid mandatory prop value [.'$License'.'|'.1.name]", (path ? lpath_4 : null)])
                 return false;
             }
@@ -632,9 +572,6 @@ function _jm_obj_4(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $URL [.'$License'.'|'.1.url]", (path ? lpath_4 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid mandatory prop value [.'$License'.'|'.1.url]", (path ? lpath_4 : null)])
                 return false;
             }
@@ -647,9 +584,6 @@ function _jm_obj_4(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $ANY [.'$License'.'|'.1.'/^x\\\\-.*$/']", (path ? lpath_4 : null)])
-            }
-            if (! res)
-            {
                 return false;
             }
         }
@@ -699,9 +633,6 @@ function _jm_obj_5(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected string [.'$License'.'|'.0.name]", (path ? lpath_5 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid mandatory prop value [.'$License'.'|'.0.name]", (path ? lpath_5 : null)])
                 return false;
             }
@@ -715,9 +646,6 @@ function _jm_obj_5(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected string [.'$License'.'|'.0.identifier]", (path ? lpath_5 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid mandatory prop value [.'$License'.'|'.0.identifier]", (path ? lpath_5 : null)])
                 return false;
             }
@@ -730,9 +658,6 @@ function _jm_obj_5(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $ANY [.'$License'.'|'.0.'/^x\\\\-.*$/']", (path ? lpath_5 : null)])
-            }
-            if (! res)
-            {
                 return false;
             }
         }
@@ -817,9 +742,6 @@ function _jm_obj_7(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["unexpected $ServerVariable [.'$Server'.variables.'']", (path ? lpath_7 : null)])
-        }
-        if (! res)
-        {
             return false;
         }
     }
@@ -848,9 +770,6 @@ function _jm_obj_6(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $URL [.'$Server'.url]", (path ? lpath_6 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid mandatory prop value [.'$Server'.url]", (path ? lpath_6 : null)])
                 return false;
             }
@@ -863,9 +782,6 @@ function _jm_obj_6(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected string [.'$Server'.description]", (path ? lpath_6 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid optional prop value [.'$Server'.description]", (path ? lpath_6 : null)])
                 return false;
             }
@@ -878,9 +794,6 @@ function _jm_obj_6(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected element [.'$Server'.variables]", (path ? lpath_6 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid optional prop value [.'$Server'.variables]", (path ? lpath_6 : null)])
                 return false;
             }
@@ -893,9 +806,6 @@ function _jm_obj_6(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $ANY [.'$Server'.'/^x-/']", (path ? lpath_6 : null)])
-            }
-            if (! res)
-            {
                 return false;
             }
         }
@@ -954,9 +864,6 @@ function _jm_obj_8(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected string [.'$ServerVariable'.default]", (path ? lpath_8 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid mandatory prop value [.'$ServerVariable'.default]", (path ? lpath_8 : null)])
                 return false;
             }
@@ -977,9 +884,6 @@ function _jm_obj_8(val, path, rep)
                     if (! res)
                     {
                         rep !== null && rep.push(["unexpected string [.'$ServerVariable'.enum.0]", ((path ? lpath_8 : null) ? arr_3_lpath : null)])
-                    }
-                    if (! res)
-                    {
                         break;
                     }
                 }
@@ -987,9 +891,6 @@ function _jm_obj_8(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["not array or unexpected array [.'$ServerVariable'.enum]", (path ? lpath_8 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid optional prop value [.'$ServerVariable'.enum]", (path ? lpath_8 : null)])
                 return false;
             }
@@ -1002,9 +903,6 @@ function _jm_obj_8(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected string [.'$ServerVariable'.description]", (path ? lpath_8 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid optional prop value [.'$ServerVariable'.description]", (path ? lpath_8 : null)])
                 return false;
             }
@@ -1017,9 +915,6 @@ function _jm_obj_8(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $ANY [.'$ServerVariable'.'/^x-/']", (path ? lpath_8 : null)])
-            }
-            if (! res)
-            {
                 return false;
             }
         }
@@ -1092,9 +987,6 @@ function _jm_obj_10(val, path, rep)
         else
         {
             rep !== null && rep.push(["no model matched [.'$Components'.callbacks.''.'|']", (path ? lpath_10 : null)])
-        }
-        if (! res)
-        {
             return false;
         }
     }
@@ -1150,9 +1042,6 @@ function _jm_obj_11(val, path, rep)
         else
         {
             rep !== null && rep.push(["no model matched [.'$Components'.examples.''.'|']", (path ? lpath_11 : null)])
-        }
-        if (! res)
-        {
             return false;
         }
     }
@@ -1208,9 +1097,6 @@ function _jm_obj_12(val, path, rep)
         else
         {
             rep !== null && rep.push(["no model matched [.'$Components'.headers.''.'|']", (path ? lpath_12 : null)])
-        }
-        if (! res)
-        {
             return false;
         }
     }
@@ -1266,9 +1152,6 @@ function _jm_obj_13(val, path, rep)
         else
         {
             rep !== null && rep.push(["no model matched [.'$Components'.links.''.'|']", (path ? lpath_13 : null)])
-        }
-        if (! res)
-        {
             return false;
         }
     }
@@ -1324,9 +1207,6 @@ function _jm_obj_14(val, path, rep)
         else
         {
             rep !== null && rep.push(["no model matched [.'$Components'.parameters.''.'|']", (path ? lpath_14 : null)])
-        }
-        if (! res)
-        {
             return false;
         }
     }
@@ -1382,9 +1262,6 @@ function _jm_obj_15(val, path, rep)
         else
         {
             rep !== null && rep.push(["no model matched [.'$Components'.pathItems.''.'|']", (path ? lpath_15 : null)])
-        }
-        if (! res)
-        {
             return false;
         }
     }
@@ -1440,9 +1317,6 @@ function _jm_obj_16(val, path, rep)
         else
         {
             rep !== null && rep.push(["no model matched [.'$Components'.requestBodies.''.'|']", (path ? lpath_16 : null)])
-        }
-        if (! res)
-        {
             return false;
         }
     }
@@ -1498,9 +1372,6 @@ function _jm_obj_17(val, path, rep)
         else
         {
             rep !== null && rep.push(["no model matched [.'$Components'.responses.''.'|']", (path ? lpath_17 : null)])
-        }
-        if (! res)
-        {
             return false;
         }
     }
@@ -1538,9 +1409,6 @@ function _jm_obj_18(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["unexpected $Schema [.'$Components'.schemas.'']", (path ? lpath_18 : null)])
-        }
-        if (! res)
-        {
             return false;
         }
     }
@@ -1596,9 +1464,6 @@ function _jm_obj_19(val, path, rep)
         else
         {
             rep !== null && rep.push(["no model matched [.'$Components'.securitySchemes.''.'|']", (path ? lpath_19 : null)])
-        }
-        if (! res)
-        {
             return false;
         }
     }
@@ -1649,9 +1514,6 @@ function _jm_obj_9(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $ANY [.'$Components'.'/^x-/']", (path ? lpath_9 : null)])
-            }
-            if (! res)
-            {
                 return false;
             }
         }
@@ -1697,9 +1559,6 @@ function _jm_obj_20(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $PathItem [.'$Paths'.'/^//']", (path ? lpath_20 : null)])
-            }
-            if (! res)
-            {
                 return false;
             }
         }
@@ -1711,9 +1570,6 @@ function _jm_obj_20(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $ANY [.'$Paths'.'/^x-/']", (path ? lpath_20 : null)])
-            }
-            if (! res)
-            {
                 return false;
             }
         }
@@ -1852,9 +1708,6 @@ function _jm_f_24(val, path, rep)
             else
             {
                 rep !== null && rep.push(["no model matched [.'$PathItem'.parameters.0.'|']", (path ? arr_4_lpath : null)])
-            }
-            if (! res)
-            {
                 break;
             }
         }
@@ -1922,9 +1775,6 @@ function _jm_f_28(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $Operation [.'$PathItem'.servers.0]", (path ? arr_5_lpath : null)])
-            }
-            if (! res)
-            {
                 break;
             }
         }
@@ -1993,9 +1843,6 @@ function _jm_obj_21(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $ANY [.'$PathItem'.'/^x-/']", (path ? lpath_21 : null)])
-            }
-            if (! res)
-            {
                 return false;
             }
         }
@@ -2057,9 +1904,6 @@ function _jm_obj_23(val, path, rep)
         else
         {
             rep !== null && rep.push(["no model matched [.'$Operation'.callbacks.''.'|']", (path ? lpath_23 : null)])
-        }
-        if (! res)
-        {
             return false;
         }
     }
@@ -2166,9 +2010,6 @@ function _jm_f_36(val, path, rep)
             else
             {
                 rep !== null && rep.push(["no model matched [.'$Operation'.parameters.0.'|']", (path ? arr_6_lpath : null)])
-            }
-            if (! res)
-            {
                 break;
             }
         }
@@ -2241,9 +2082,6 @@ function _jm_f_39(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $SecurityRequirement [.'$Operation'.security.0]", (path ? arr_7_lpath : null)])
-            }
-            if (! res)
-            {
                 break;
             }
         }
@@ -2272,9 +2110,6 @@ function _jm_f_40(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $Server [.'$Operation'.servers.0]", (path ? arr_8_lpath : null)])
-            }
-            if (! res)
-            {
                 break;
             }
         }
@@ -2316,9 +2151,6 @@ function _jm_f_42(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected string [.'$Operation'.tags.0]", (path ? arr_9_lpath : null)])
-            }
-            if (! res)
-            {
                 break;
             }
         }
@@ -2361,9 +2193,6 @@ function _jm_obj_22(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $ANY [.'$Operation'.'/^x-/']", (path ? lpath_22 : null)])
-            }
-            if (! res)
-            {
                 return false;
             }
         }
@@ -2411,9 +2240,6 @@ function _jm_obj_24(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $URL [.'$ExternalDocumentation'.url]", (path ? lpath_24 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid mandatory prop value [.'$ExternalDocumentation'.url]", (path ? lpath_24 : null)])
                 return false;
             }
@@ -2426,9 +2252,6 @@ function _jm_obj_24(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected string [.'$ExternalDocumentation'.description]", (path ? lpath_24 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid optional prop value [.'$ExternalDocumentation'.description]", (path ? lpath_24 : null)])
                 return false;
             }
@@ -2441,9 +2264,6 @@ function _jm_obj_24(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $ANY [.'$ExternalDocumentation'.'/^x-/']", (path ? lpath_24 : null)])
-            }
-            if (! res)
-            {
                 return false;
             }
         }
@@ -2500,9 +2320,6 @@ function _jm_obj_25(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected string [.'$parameterShare'.description]", (path ? lpath_25 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid optional prop value [.'$parameterShare'.description]", (path ? lpath_25 : null)])
                 return false;
             }
@@ -2515,9 +2332,6 @@ function _jm_obj_25(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["not a bool [.'$parameterShare'.required]", (path ? lpath_25 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid optional prop value [.'$parameterShare'.required]", (path ? lpath_25 : null)])
                 return false;
             }
@@ -2530,9 +2344,6 @@ function _jm_obj_25(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["not a bool [.'$parameterShare'.deprecated]", (path ? lpath_25 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid optional prop value [.'$parameterShare'.deprecated]", (path ? lpath_25 : null)])
                 return false;
             }
@@ -2545,9 +2356,6 @@ function _jm_obj_25(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["not a bool [.'$parameterShare'.allowEmptyValue]", (path ? lpath_25 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid optional prop value [.'$parameterShare'.allowEmptyValue]", (path ? lpath_25 : null)])
                 return false;
             }
@@ -2560,9 +2368,6 @@ function _jm_obj_25(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $ANY [.'$parameterShare'.'/^x-/']", (path ? lpath_25 : null)])
-            }
-            if (! res)
-            {
                 return false;
             }
         }
@@ -2611,9 +2416,6 @@ function _jm_obj_26(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected string [.'$commonParameter'.name]", (path ? lpath_26 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid mandatory prop value [.'$commonParameter'.name]", (path ? lpath_26 : null)])
                 return false;
             }
@@ -2627,9 +2429,6 @@ function _jm_obj_26(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["value not in enum [.'$commonParameter'.in.'|']", (path ? lpath_26 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid mandatory prop value [.'$commonParameter'.in]", (path ? lpath_26 : null)])
                 return false;
             }
@@ -2642,9 +2441,6 @@ function _jm_obj_26(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected string [.'$commonParameter'.description]", (path ? lpath_26 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid optional prop value [.'$commonParameter'.description]", (path ? lpath_26 : null)])
                 return false;
             }
@@ -2657,9 +2453,6 @@ function _jm_obj_26(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["not a bool [.'$commonParameter'.required]", (path ? lpath_26 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid optional prop value [.'$commonParameter'.required]", (path ? lpath_26 : null)])
                 return false;
             }
@@ -2672,9 +2465,6 @@ function _jm_obj_26(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["not a bool [.'$commonParameter'.deprecated]", (path ? lpath_26 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid optional prop value [.'$commonParameter'.deprecated]", (path ? lpath_26 : null)])
                 return false;
             }
@@ -2687,9 +2477,6 @@ function _jm_obj_26(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["not a bool [.'$commonParameter'.allowEmptyValue]", (path ? lpath_26 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid optional prop value [.'$commonParameter'.allowEmptyValue]", (path ? lpath_26 : null)])
                 return false;
             }
@@ -2702,9 +2489,6 @@ function _jm_obj_26(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $ANY [.'$commonParameter'.'/^x-/']", (path ? lpath_26 : null)])
-            }
-            if (! res)
-            {
                 return false;
             }
         }
@@ -2822,9 +2606,6 @@ function _jm_obj_28(val, path, rep)
         else
         {
             rep !== null && rep.push(["no model matched [.'$parameterSchemaOnly'.examples.''.'|']", (path ? lpath_28 : null)])
-        }
-        if (! res)
-        {
             return false;
         }
     }
@@ -2945,9 +2726,6 @@ function _jm_obj_30(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["unexpected $MediaType [.'$parameterContentOnly'.content.'']", (path ? lpath_30 : null)])
-        }
-        if (! res)
-        {
             return false;
         }
     }
@@ -2974,9 +2752,6 @@ function _jm_obj_29(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected element [.'$parameterContentOnly'.content]", (path ? lpath_29 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid optional prop value [.'$parameterContentOnly'.content]", (path ? lpath_29 : null)])
                 return false;
             }
@@ -3105,9 +2880,6 @@ function _jm_obj_32(val, path, rep)
         else
         {
             rep !== null && rep.push(["no model matched [.'$Parameter'.'|'.0.examples.''.'|']", (path ? lpath_32 : null)])
-        }
-        if (! res)
-        {
             return false;
         }
     }
@@ -3203,9 +2975,6 @@ function _jm_obj_31(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected string [.'$Parameter'.'|'.0.name]", (path ? lpath_31 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid mandatory prop value [.'$Parameter'.'|'.0.name]", (path ? lpath_31 : null)])
                 return false;
             }
@@ -3219,9 +2988,6 @@ function _jm_obj_31(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["value not in enum [.'$Parameter'.'|'.0.in.'|']", (path ? lpath_31 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid mandatory prop value [.'$Parameter'.'|'.0.in]", (path ? lpath_31 : null)])
                 return false;
             }
@@ -3243,9 +3009,6 @@ function _jm_obj_31(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $ANY [.'$Parameter'.'|'.0.'/^x-/']", (path ? lpath_31 : null)])
-            }
-            if (! res)
-            {
                 return false;
             }
         }
@@ -3292,9 +3055,6 @@ function _jm_obj_34(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["unexpected $MediaType [.'$Parameter'.'|'.1.content.'']", (path ? lpath_34 : null)])
-        }
-        if (! res)
-        {
             return false;
         }
     }
@@ -3323,9 +3083,6 @@ function _jm_obj_33(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected string [.'$Parameter'.'|'.1.name]", (path ? lpath_33 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid mandatory prop value [.'$Parameter'.'|'.1.name]", (path ? lpath_33 : null)])
                 return false;
             }
@@ -3339,9 +3096,6 @@ function _jm_obj_33(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["value not in enum [.'$Parameter'.'|'.1.in.'|']", (path ? lpath_33 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid mandatory prop value [.'$Parameter'.'|'.1.in]", (path ? lpath_33 : null)])
                 return false;
             }
@@ -3354,9 +3108,6 @@ function _jm_obj_33(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected string [.'$Parameter'.'|'.1.description]", (path ? lpath_33 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid optional prop value [.'$Parameter'.'|'.1.description]", (path ? lpath_33 : null)])
                 return false;
             }
@@ -3369,9 +3120,6 @@ function _jm_obj_33(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["not a bool [.'$Parameter'.'|'.1.required]", (path ? lpath_33 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid optional prop value [.'$Parameter'.'|'.1.required]", (path ? lpath_33 : null)])
                 return false;
             }
@@ -3384,9 +3132,6 @@ function _jm_obj_33(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["not a bool [.'$Parameter'.'|'.1.deprecated]", (path ? lpath_33 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid optional prop value [.'$Parameter'.'|'.1.deprecated]", (path ? lpath_33 : null)])
                 return false;
             }
@@ -3399,9 +3144,6 @@ function _jm_obj_33(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["not a bool [.'$Parameter'.'|'.1.allowEmptyValue]", (path ? lpath_33 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid optional prop value [.'$Parameter'.'|'.1.allowEmptyValue]", (path ? lpath_33 : null)])
                 return false;
             }
@@ -3414,9 +3156,6 @@ function _jm_obj_33(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected element [.'$Parameter'.'|'.1.content]", (path ? lpath_33 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid optional prop value [.'$Parameter'.'|'.1.content]", (path ? lpath_33 : null)])
                 return false;
             }
@@ -3429,9 +3168,6 @@ function _jm_obj_33(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $ANY [.'$Parameter'.'|'.1.'/^x-/']", (path ? lpath_33 : null)])
-            }
-            if (! res)
-            {
                 return false;
             }
         }
@@ -3514,9 +3250,6 @@ function _jm_obj_36(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["unexpected $MediaType [.'$RequestBody'.content.'']", (path ? lpath_36 : null)])
-        }
-        if (! res)
-        {
             return false;
         }
     }
@@ -3543,9 +3276,6 @@ function _jm_obj_35(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected string [.'$RequestBody'.description]", (path ? lpath_35 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid optional prop value [.'$RequestBody'.description]", (path ? lpath_35 : null)])
                 return false;
             }
@@ -3558,9 +3288,6 @@ function _jm_obj_35(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected element [.'$RequestBody'.content]", (path ? lpath_35 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid optional prop value [.'$RequestBody'.content]", (path ? lpath_35 : null)])
                 return false;
             }
@@ -3573,9 +3300,6 @@ function _jm_obj_35(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["not a bool [.'$RequestBody'.required]", (path ? lpath_35 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid optional prop value [.'$RequestBody'.required]", (path ? lpath_35 : null)])
                 return false;
             }
@@ -3588,9 +3312,6 @@ function _jm_obj_35(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $ANY [.'$RequestBody'.'/^x-/']", (path ? lpath_35 : null)])
-            }
-            if (! res)
-            {
                 return false;
             }
         }
@@ -3652,9 +3373,6 @@ function _jm_obj_38(val, path, rep)
         else
         {
             rep !== null && rep.push(["no model matched [.'$MediaType'.examples.''.'|']", (path ? lpath_38 : null)])
-        }
-        if (! res)
-        {
             return false;
         }
     }
@@ -3679,9 +3397,6 @@ function _jm_obj_39(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["unexpected $Encoding [.'$MediaType'.encoding.'']", (path ? lpath_39 : null)])
-        }
-        if (! res)
-        {
             return false;
         }
     }
@@ -3708,9 +3423,6 @@ function _jm_obj_37(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $Schema [.'$MediaType'.schema]", (path ? lpath_37 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid optional prop value [.'$MediaType'.schema]", (path ? lpath_37 : null)])
                 return false;
             }
@@ -3723,9 +3435,6 @@ function _jm_obj_37(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $ANY [.'$MediaType'.example]", (path ? lpath_37 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid optional prop value [.'$MediaType'.example]", (path ? lpath_37 : null)])
                 return false;
             }
@@ -3738,9 +3447,6 @@ function _jm_obj_37(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected element [.'$MediaType'.examples]", (path ? lpath_37 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid optional prop value [.'$MediaType'.examples]", (path ? lpath_37 : null)])
                 return false;
             }
@@ -3753,9 +3459,6 @@ function _jm_obj_37(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected element [.'$MediaType'.encoding]", (path ? lpath_37 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid optional prop value [.'$MediaType'.encoding]", (path ? lpath_37 : null)])
                 return false;
             }
@@ -3768,9 +3471,6 @@ function _jm_obj_37(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $ANY [.'$MediaType'.'/^x-/']", (path ? lpath_37 : null)])
-            }
-            if (! res)
-            {
                 return false;
             }
         }
@@ -3832,9 +3532,6 @@ function _jm_obj_41(val, path, rep)
         else
         {
             rep !== null && rep.push(["no model matched [.'$Encoding'.headers.''.'|']", (path ? lpath_41 : null)])
-        }
-        if (! res)
-        {
             return false;
         }
     }
@@ -3861,9 +3558,6 @@ function _jm_obj_40(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected string [.'$Encoding'.contentType]", (path ? lpath_40 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid optional prop value [.'$Encoding'.contentType]", (path ? lpath_40 : null)])
                 return false;
             }
@@ -3876,9 +3570,6 @@ function _jm_obj_40(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected element [.'$Encoding'.headers]", (path ? lpath_40 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid optional prop value [.'$Encoding'.headers]", (path ? lpath_40 : null)])
                 return false;
             }
@@ -3891,9 +3582,6 @@ function _jm_obj_40(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $Style [.'$Encoding'.style]", (path ? lpath_40 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid optional prop value [.'$Encoding'.style]", (path ? lpath_40 : null)])
                 return false;
             }
@@ -3906,9 +3594,6 @@ function _jm_obj_40(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["not a bool [.'$Encoding'.explode]", (path ? lpath_40 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid optional prop value [.'$Encoding'.explode]", (path ? lpath_40 : null)])
                 return false;
             }
@@ -3921,9 +3606,6 @@ function _jm_obj_40(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["not a bool [.'$Encoding'.allowReserved]", (path ? lpath_40 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid optional prop value [.'$Encoding'.allowReserved]", (path ? lpath_40 : null)])
                 return false;
             }
@@ -3936,9 +3618,6 @@ function _jm_obj_40(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $ANY [.'$Encoding'.'/^x-/']", (path ? lpath_40 : null)])
-            }
-            if (! res)
-            {
                 return false;
             }
         }
@@ -4004,9 +3683,6 @@ function _jm_obj_42(val, path, rep)
             else
             {
                 rep !== null && rep.push(["no model matched [.'$Responses'.default.'|']", (path ? lpath_42 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid optional prop value [.'$Responses'.default]", (path ? lpath_42 : null)])
                 return false;
             }
@@ -4037,9 +3713,6 @@ function _jm_obj_42(val, path, rep)
             else
             {
                 rep !== null && rep.push(["no model matched [.'$Responses'.'/^[1-5](\\\\d\\\\d|XX)$/'.'|']", (path ? lpath_42 : null)])
-            }
-            if (! res)
-            {
                 return false;
             }
         }
@@ -4051,9 +3724,6 @@ function _jm_obj_42(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $ANY [.'$Responses'.'/^x-/']", (path ? lpath_42 : null)])
-            }
-            if (! res)
-            {
                 return false;
             }
         }
@@ -4115,9 +3785,6 @@ function _jm_obj_44(val, path, rep)
         else
         {
             rep !== null && rep.push(["no model matched [.'$Response'.headers.''.'|']", (path ? lpath_44 : null)])
-        }
-        if (! res)
-        {
             return false;
         }
     }
@@ -4142,9 +3809,6 @@ function _jm_obj_45(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["unexpected $MediaType [.'$Response'.content.'']", (path ? lpath_45 : null)])
-        }
-        if (! res)
-        {
             return false;
         }
     }
@@ -4187,9 +3851,6 @@ function _jm_obj_46(val, path, rep)
         else
         {
             rep !== null && rep.push(["no model matched [.'$Response'.links.''.'|']", (path ? lpath_46 : null)])
-        }
-        if (! res)
-        {
             return false;
         }
     }
@@ -4216,9 +3877,6 @@ function _jm_obj_43(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected string [.'$Response'.description]", (path ? lpath_43 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid optional prop value [.'$Response'.description]", (path ? lpath_43 : null)])
                 return false;
             }
@@ -4231,9 +3889,6 @@ function _jm_obj_43(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected element [.'$Response'.headers]", (path ? lpath_43 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid optional prop value [.'$Response'.headers]", (path ? lpath_43 : null)])
                 return false;
             }
@@ -4246,9 +3901,6 @@ function _jm_obj_43(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected element [.'$Response'.content]", (path ? lpath_43 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid optional prop value [.'$Response'.content]", (path ? lpath_43 : null)])
                 return false;
             }
@@ -4261,9 +3913,6 @@ function _jm_obj_43(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected element [.'$Response'.links]", (path ? lpath_43 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid optional prop value [.'$Response'.links]", (path ? lpath_43 : null)])
                 return false;
             }
@@ -4276,9 +3925,6 @@ function _jm_obj_43(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $ANY [.'$Response'.'/^x-/']", (path ? lpath_43 : null)])
-            }
-            if (! res)
-            {
                 return false;
             }
         }
@@ -4342,9 +3988,6 @@ function _jm_obj_47(val, path, rep)
             else
             {
                 rep !== null && rep.push(["no model matched [.'$Callback'.'$Expression'.'|']", (path ? lpath_47 : null)])
-            }
-            if (! res)
-            {
                 return false;
             }
         }
@@ -4356,9 +3999,6 @@ function _jm_obj_47(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $ANY [.'$Callback'.'/^x-/']", (path ? lpath_47 : null)])
-            }
-            if (! res)
-            {
                 return false;
             }
         }
@@ -4404,9 +4044,6 @@ function _jm_obj_48(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected string [.'$Example'.summary]", (path ? lpath_48 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid optional prop value [.'$Example'.summary]", (path ? lpath_48 : null)])
                 return false;
             }
@@ -4419,9 +4056,6 @@ function _jm_obj_48(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected string [.'$Example'.description]", (path ? lpath_48 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid optional prop value [.'$Example'.description]", (path ? lpath_48 : null)])
                 return false;
             }
@@ -4434,9 +4068,6 @@ function _jm_obj_48(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $ANY [.'$Example'.value]", (path ? lpath_48 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid optional prop value [.'$Example'.value]", (path ? lpath_48 : null)])
                 return false;
             }
@@ -4449,9 +4080,6 @@ function _jm_obj_48(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected string [.'$Example'.externalValue]", (path ? lpath_48 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid optional prop value [.'$Example'.externalValue]", (path ? lpath_48 : null)])
                 return false;
             }
@@ -4464,9 +4092,6 @@ function _jm_obj_48(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $ANY [.'$Example'.'/^x-/']", (path ? lpath_48 : null)])
-            }
-            if (! res)
-            {
                 return false;
             }
         }
@@ -4539,9 +4164,6 @@ function _jm_obj_49(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected string [.'$Link'.'|'.1.operationId]", (path ? lpath_49 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid mandatory prop value [.'$Link'.'|'.1.operationId]", (path ? lpath_49 : null)])
                 return false;
             }
@@ -4554,9 +4176,6 @@ function _jm_obj_49(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected element [.'$Link'.'|'.1.parameters]", (path ? lpath_49 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid optional prop value [.'$Link'.'|'.1.parameters]", (path ? lpath_49 : null)])
                 return false;
             }
@@ -4569,9 +4188,6 @@ function _jm_obj_49(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $ANY [.'$Link'.'|'.1.requestBody]", (path ? lpath_49 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid optional prop value [.'$Link'.'|'.1.requestBody]", (path ? lpath_49 : null)])
                 return false;
             }
@@ -4584,9 +4200,6 @@ function _jm_obj_49(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected string [.'$Link'.'|'.1.description]", (path ? lpath_49 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid optional prop value [.'$Link'.'|'.1.description]", (path ? lpath_49 : null)])
                 return false;
             }
@@ -4599,9 +4212,6 @@ function _jm_obj_49(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $Server [.'$Link'.'|'.1.server]", (path ? lpath_49 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid optional prop value [.'$Link'.'|'.1.server]", (path ? lpath_49 : null)])
                 return false;
             }
@@ -4614,9 +4224,6 @@ function _jm_obj_49(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $ANY [.'$Link'.'|'.1.'/^x-/']", (path ? lpath_49 : null)])
-            }
-            if (! res)
-            {
                 return false;
             }
         }
@@ -4674,9 +4281,6 @@ function _jm_obj_51(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected string [.'$Link'.'|'.0.operationRef]", (path ? lpath_50 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid mandatory prop value [.'$Link'.'|'.0.operationRef]", (path ? lpath_50 : null)])
                 return false;
             }
@@ -4689,9 +4293,6 @@ function _jm_obj_51(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected element [.'$Link'.'|'.0.parameters]", (path ? lpath_50 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid optional prop value [.'$Link'.'|'.0.parameters]", (path ? lpath_50 : null)])
                 return false;
             }
@@ -4704,9 +4305,6 @@ function _jm_obj_51(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $ANY [.'$Link'.'|'.0.requestBody]", (path ? lpath_50 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid optional prop value [.'$Link'.'|'.0.requestBody]", (path ? lpath_50 : null)])
                 return false;
             }
@@ -4719,9 +4317,6 @@ function _jm_obj_51(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected string [.'$Link'.'|'.0.description]", (path ? lpath_50 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid optional prop value [.'$Link'.'|'.0.description]", (path ? lpath_50 : null)])
                 return false;
             }
@@ -4734,9 +4329,6 @@ function _jm_obj_51(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $Server [.'$Link'.'|'.0.server]", (path ? lpath_50 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid optional prop value [.'$Link'.'|'.0.server]", (path ? lpath_50 : null)])
                 return false;
             }
@@ -4749,9 +4341,6 @@ function _jm_obj_51(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $ANY [.'$Link'.'|'.0.'/^x-/']", (path ? lpath_50 : null)])
-            }
-            if (! res)
-            {
                 return false;
             }
         }
@@ -4832,9 +4421,6 @@ function _jm_obj_54(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["unexpected $MediaType [.'$Header'.'|'.1.content.'']", (path ? lpath_52 : null)])
-        }
-        if (! res)
-        {
             return false;
         }
     }
@@ -4861,9 +4447,6 @@ function _jm_obj_53(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected string [.'$Header'.'|'.1.description]", (path ? lpath_51 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid optional prop value [.'$Header'.'|'.1.description]", (path ? lpath_51 : null)])
                 return false;
             }
@@ -4876,9 +4459,6 @@ function _jm_obj_53(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["not a bool [.'$Header'.'|'.1.required]", (path ? lpath_51 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid optional prop value [.'$Header'.'|'.1.required]", (path ? lpath_51 : null)])
                 return false;
             }
@@ -4891,9 +4471,6 @@ function _jm_obj_53(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["not a bool [.'$Header'.'|'.1.deprecated]", (path ? lpath_51 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid optional prop value [.'$Header'.'|'.1.deprecated]", (path ? lpath_51 : null)])
                 return false;
             }
@@ -4906,9 +4483,6 @@ function _jm_obj_53(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["not a bool [.'$Header'.'|'.1.allowEmptyValue]", (path ? lpath_51 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid optional prop value [.'$Header'.'|'.1.allowEmptyValue]", (path ? lpath_51 : null)])
                 return false;
             }
@@ -4921,9 +4495,6 @@ function _jm_obj_53(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected element [.'$Header'.'|'.1.content]", (path ? lpath_51 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid optional prop value [.'$Header'.'|'.1.content]", (path ? lpath_51 : null)])
                 return false;
             }
@@ -4936,9 +4507,6 @@ function _jm_obj_53(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $ANY [.'$Header'.'|'.1.'/^x-/']", (path ? lpath_51 : null)])
-            }
-            if (! res)
-            {
                 return false;
             }
         }
@@ -5052,9 +4620,6 @@ function _jm_obj_56(val, path, rep)
         else
         {
             rep !== null && rep.push(["no model matched [.'$Header'.'|'.0.examples.''.'|']", (path ? lpath_54 : null)])
-        }
-        if (! res)
-        {
             return false;
         }
     }
@@ -5157,9 +4722,6 @@ function _jm_obj_55(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $ANY [.'$Header'.'|'.0.'/^x-/']", (path ? lpath_53 : null)])
-            }
-            if (! res)
-            {
                 return false;
             }
         }
@@ -5234,9 +4796,6 @@ function _jm_obj_57(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected string [.'$Tag'.name]", (path ? lpath_55 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid mandatory prop value [.'$Tag'.name]", (path ? lpath_55 : null)])
                 return false;
             }
@@ -5249,9 +4808,6 @@ function _jm_obj_57(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected string [.'$Tag'.description]", (path ? lpath_55 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid optional prop value [.'$Tag'.description]", (path ? lpath_55 : null)])
                 return false;
             }
@@ -5264,9 +4820,6 @@ function _jm_obj_57(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $ExternalDocumentation [.'$Tag'.externalDocs]", (path ? lpath_55 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid optional prop value [.'$Tag'.externalDocs]", (path ? lpath_55 : null)])
                 return false;
             }
@@ -5279,9 +4832,6 @@ function _jm_obj_57(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $ANY [.'$Tag'.'/^x-/']", (path ? lpath_55 : null)])
-            }
-            if (! res)
-            {
                 return false;
             }
         }
@@ -5340,9 +4890,6 @@ function _jm_obj_58(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected string [.'$Reference'.'$ref']", (path ? lpath_56 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid mandatory prop value [.'$Reference'.'$ref']", (path ? lpath_56 : null)])
                 return false;
             }
@@ -5355,9 +4902,6 @@ function _jm_obj_58(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected string [.'$Reference'.summary]", (path ? lpath_56 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid optional prop value [.'$Reference'.summary]", (path ? lpath_56 : null)])
                 return false;
             }
@@ -5370,9 +4914,6 @@ function _jm_obj_58(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected string [.'$Reference'.description]", (path ? lpath_56 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid optional prop value [.'$Reference'.description]", (path ? lpath_56 : null)])
                 return false;
             }
@@ -5469,9 +5010,6 @@ function _jm_obj_60(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["unexpected $schema#Schema [.'$Schema'.'$defs'.'']", (path ? lpath_58 : null)])
-        }
-        if (! res)
-        {
             return false;
         }
     }
@@ -5576,9 +5114,6 @@ function _jm_obj_61(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["not a bool [.'$Schema'.'$vocabulary'.'$URI']", (path ? lpath_59 : null)])
-            }
-            if (! res)
-            {
                 return false;
             }
         }
@@ -5739,9 +5274,6 @@ function _jm_obj_62(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["unexpected $schema#stringArray [.'$Schema'.dependentRequired.'']", (path ? lpath_60 : null)])
-        }
-        if (! res)
-        {
             return false;
         }
     }
@@ -5779,9 +5311,6 @@ function _jm_obj_63(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["unexpected $schema#Schema [.'$Schema'.dependentSchemas.'']", (path ? lpath_61 : null)])
-        }
-        if (! res)
-        {
             return false;
         }
     }
@@ -5859,10 +5388,6 @@ function _jm_f_93(val, path, rep)
     let res;
     // .'$Schema'.enum
     res = Array.isArray(val);
-    if (res)
-    {
-        // accept any array
-    }
     if (! res)
     {
         rep !== null && rep.push(["not array or unexpected array [.'$Schema'.enum]", path])
@@ -5889,10 +5414,6 @@ function _jm_f_95(val, path, rep)
     let res;
     // .'$Schema'.examples
     res = Array.isArray(val);
-    if (res)
-    {
-        // accept any array
-    }
     if (! res)
     {
         rep !== null && rep.push(["not array or unexpected array [.'$Schema'.examples]", path])
@@ -6180,9 +5701,6 @@ function _jm_obj_64(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $schema#Schema [.'$Schema'.patternProperties.'$REGEX']", (path ? lpath_62 : null)])
-            }
-            if (! res)
-            {
                 return false;
             }
         }
@@ -6239,9 +5757,6 @@ function _jm_obj_65(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["unexpected $schema#Schema [.'$Schema'.properties.'']", (path ? lpath_63 : null)])
-        }
-        if (! res)
-        {
             return false;
         }
     }
@@ -6484,9 +5999,6 @@ function _jm_obj_67(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["unexpected string [.'$Discriminator'.mapping.'']", (path ? lpath_65 : null)])
-        }
-        if (! res)
-        {
             return false;
         }
     }
@@ -6515,9 +6027,6 @@ function _jm_obj_66(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected string [.'$Discriminator'.propertyName]", (path ? lpath_64 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid mandatory prop value [.'$Discriminator'.propertyName]", (path ? lpath_64 : null)])
                 return false;
             }
@@ -6530,9 +6039,6 @@ function _jm_obj_66(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected element [.'$Discriminator'.mapping]", (path ? lpath_64 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid optional prop value [.'$Discriminator'.mapping]", (path ? lpath_64 : null)])
                 return false;
             }
@@ -6545,9 +6051,6 @@ function _jm_obj_66(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $ANY [.'$Discriminator'.'/^x-/']", (path ? lpath_64 : null)])
-            }
-            if (! res)
-            {
                 return false;
             }
         }
@@ -6604,9 +6107,6 @@ function _jm_obj_68(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected string [.'$xml'.name]", (path ? lpath_66 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid optional prop value [.'$xml'.name]", (path ? lpath_66 : null)])
                 return false;
             }
@@ -6619,9 +6119,6 @@ function _jm_obj_68(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected string [.'$xml'.namespace]", (path ? lpath_66 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid optional prop value [.'$xml'.namespace]", (path ? lpath_66 : null)])
                 return false;
             }
@@ -6634,9 +6131,6 @@ function _jm_obj_68(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected string [.'$xml'.prefix]", (path ? lpath_66 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid optional prop value [.'$xml'.prefix]", (path ? lpath_66 : null)])
                 return false;
             }
@@ -6649,9 +6143,6 @@ function _jm_obj_68(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["not a bool [.'$xml'.attribute]", (path ? lpath_66 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid optional prop value [.'$xml'.attribute]", (path ? lpath_66 : null)])
                 return false;
             }
@@ -6664,9 +6155,6 @@ function _jm_obj_68(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["not a bool [.'$xml'.wrapped]", (path ? lpath_66 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid optional prop value [.'$xml'.wrapped]", (path ? lpath_66 : null)])
                 return false;
             }
@@ -6679,9 +6167,6 @@ function _jm_obj_68(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $ANY [.'$xml'.'/^x-/']", (path ? lpath_66 : null)])
-            }
-            if (! res)
-            {
                 return false;
             }
         }
@@ -6730,9 +6215,6 @@ function _jm_obj_69(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected _apiKey [.'$SS-apikey'.type]", (path ? lpath_67 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid mandatory prop value [.'$SS-apikey'.type]", (path ? lpath_67 : null)])
                 return false;
             }
@@ -6746,9 +6228,6 @@ function _jm_obj_69(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected string [.'$SS-apikey'.name]", (path ? lpath_67 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid mandatory prop value [.'$SS-apikey'.name]", (path ? lpath_67 : null)])
                 return false;
             }
@@ -6762,9 +6241,6 @@ function _jm_obj_69(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["value not in enum [.'$SS-apikey'.in.'|']", (path ? lpath_67 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid mandatory prop value [.'$SS-apikey'.in]", (path ? lpath_67 : null)])
                 return false;
             }
@@ -6832,9 +6308,6 @@ function _jm_obj_70(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected _http [.'$SS-http'.type]", (path ? lpath_68 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid mandatory prop value [.'$SS-http'.type]", (path ? lpath_68 : null)])
                 return false;
             }
@@ -6848,9 +6321,6 @@ function _jm_obj_70(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected string [.'$SS-http'.scheme]", (path ? lpath_68 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid mandatory prop value [.'$SS-http'.scheme]", (path ? lpath_68 : null)])
                 return false;
             }
@@ -6916,9 +6386,6 @@ function _jm_obj_71(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected _http [.'$SS-http-bearer'.type]", (path ? lpath_69 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid mandatory prop value [.'$SS-http-bearer'.type]", (path ? lpath_69 : null)])
                 return false;
             }
@@ -6933,9 +6400,6 @@ function _jm_obj_71(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected /bearer/i [.'$SS-http-bearer'.scheme]", (path ? lpath_69 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid mandatory prop value [.'$SS-http-bearer'.scheme]", (path ? lpath_69 : null)])
                 return false;
             }
@@ -6948,9 +6412,6 @@ function _jm_obj_71(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected string [.'$SS-http-bearer'.bearerFormat]", (path ? lpath_69 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid optional prop value [.'$SS-http-bearer'.bearerFormat]", (path ? lpath_69 : null)])
                 return false;
             }
@@ -7014,9 +6475,6 @@ function _jm_obj_72(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected _oauth2 [.'$SS-oauth2'.type]", (path ? lpath_70 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid mandatory prop value [.'$SS-oauth2'.type]", (path ? lpath_70 : null)])
                 return false;
             }
@@ -7030,9 +6488,6 @@ function _jm_obj_72(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $OAuthFlows [.'$SS-oauth2'.flows]", (path ? lpath_70 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid mandatory prop value [.'$SS-oauth2'.flows]", (path ? lpath_70 : null)])
                 return false;
             }
@@ -7096,9 +6551,6 @@ function _jm_obj_73(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected _openIdConnect [.'$SS-oic'.type]", (path ? lpath_71 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid mandatory prop value [.'$SS-oic'.type]", (path ? lpath_71 : null)])
                 return false;
             }
@@ -7112,9 +6564,6 @@ function _jm_obj_73(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $URL [.'$SS-oic'.openIdConnectUrl]", (path ? lpath_71 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid mandatory prop value [.'$SS-oic'.openIdConnectUrl]", (path ? lpath_71 : null)])
                 return false;
             }
@@ -7179,9 +6628,6 @@ function _jm_obj_74(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected _apiKey [.'$SecurityScheme'.'|'.0.type]", (path ? lpath_72 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid mandatory prop value [.'$SecurityScheme'.'|'.0.type]", (path ? lpath_72 : null)])
                 return false;
             }
@@ -7195,9 +6641,6 @@ function _jm_obj_74(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected string [.'$SecurityScheme'.'|'.0.name]", (path ? lpath_72 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid mandatory prop value [.'$SecurityScheme'.'|'.0.name]", (path ? lpath_72 : null)])
                 return false;
             }
@@ -7211,9 +6654,6 @@ function _jm_obj_74(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["value not in enum [.'$SecurityScheme'.'|'.0.in.'|']", (path ? lpath_72 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid mandatory prop value [.'$SecurityScheme'.'|'.0.in]", (path ? lpath_72 : null)])
                 return false;
             }
@@ -7226,9 +6666,6 @@ function _jm_obj_74(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected string [.'$SecurityScheme'.'|'.0.description]", (path ? lpath_72 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid optional prop value [.'$SecurityScheme'.'|'.0.description]", (path ? lpath_72 : null)])
                 return false;
             }
@@ -7283,9 +6720,6 @@ function _jm_obj_75(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected _http [.'$SecurityScheme'.'|'.1.type]", (path ? lpath_73 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid mandatory prop value [.'$SecurityScheme'.'|'.1.type]", (path ? lpath_73 : null)])
                 return false;
             }
@@ -7300,9 +6734,6 @@ function _jm_obj_75(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected /bearer/i [.'$SecurityScheme'.'|'.1.scheme]", (path ? lpath_73 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid mandatory prop value [.'$SecurityScheme'.'|'.1.scheme]", (path ? lpath_73 : null)])
                 return false;
             }
@@ -7315,9 +6746,6 @@ function _jm_obj_75(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected string [.'$SecurityScheme'.'|'.1.bearerFormat]", (path ? lpath_73 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid optional prop value [.'$SecurityScheme'.'|'.1.bearerFormat]", (path ? lpath_73 : null)])
                 return false;
             }
@@ -7330,9 +6758,6 @@ function _jm_obj_75(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected string [.'$SecurityScheme'.'|'.1.description]", (path ? lpath_73 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid optional prop value [.'$SecurityScheme'.'|'.1.description]", (path ? lpath_73 : null)])
                 return false;
             }
@@ -7383,9 +6808,6 @@ function _jm_obj_76(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected _http [.'$SecurityScheme'.'|'.2.type]", (path ? lpath_74 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid mandatory prop value [.'$SecurityScheme'.'|'.2.type]", (path ? lpath_74 : null)])
                 return false;
             }
@@ -7399,9 +6821,6 @@ function _jm_obj_76(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected string [.'$SecurityScheme'.'|'.2.scheme]", (path ? lpath_74 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid mandatory prop value [.'$SecurityScheme'.'|'.2.scheme]", (path ? lpath_74 : null)])
                 return false;
             }
@@ -7414,9 +6833,6 @@ function _jm_obj_76(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected string [.'$SecurityScheme'.'|'.2.description]", (path ? lpath_74 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid optional prop value [.'$SecurityScheme'.'|'.2.description]", (path ? lpath_74 : null)])
                 return false;
             }
@@ -7467,9 +6883,6 @@ function _jm_obj_77(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected _oauth2 [.'$SecurityScheme'.'|'.3.type]", (path ? lpath_75 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid mandatory prop value [.'$SecurityScheme'.'|'.3.type]", (path ? lpath_75 : null)])
                 return false;
             }
@@ -7483,9 +6896,6 @@ function _jm_obj_77(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $OAuthFlows [.'$SecurityScheme'.'|'.3.flows]", (path ? lpath_75 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid mandatory prop value [.'$SecurityScheme'.'|'.3.flows]", (path ? lpath_75 : null)])
                 return false;
             }
@@ -7498,9 +6908,6 @@ function _jm_obj_77(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected string [.'$SecurityScheme'.'|'.3.description]", (path ? lpath_75 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid optional prop value [.'$SecurityScheme'.'|'.3.description]", (path ? lpath_75 : null)])
                 return false;
             }
@@ -7551,9 +6958,6 @@ function _jm_obj_78(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected _openIdConnect [.'$SecurityScheme'.'|'.4.type]", (path ? lpath_76 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid mandatory prop value [.'$SecurityScheme'.'|'.4.type]", (path ? lpath_76 : null)])
                 return false;
             }
@@ -7567,9 +6971,6 @@ function _jm_obj_78(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $URL [.'$SecurityScheme'.'|'.4.openIdConnectUrl]", (path ? lpath_76 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid mandatory prop value [.'$SecurityScheme'.'|'.4.openIdConnectUrl]", (path ? lpath_76 : null)])
                 return false;
             }
@@ -7582,9 +6983,6 @@ function _jm_obj_78(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected string [.'$SecurityScheme'.'|'.4.description]", (path ? lpath_76 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid optional prop value [.'$SecurityScheme'.'|'.4.description]", (path ? lpath_76 : null)])
                 return false;
             }
@@ -7633,9 +7031,6 @@ function _jm_obj_79(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected string [.'$SecurityScheme'.'|'.5.description]", (path ? lpath_77 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid optional prop value [.'$SecurityScheme'.'|'.5.description]", (path ? lpath_77 : null)])
                 return false;
             }
@@ -7648,9 +7043,6 @@ function _jm_obj_79(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $ANY [.'$SecurityScheme'.'|'.5.'/^x-/']", (path ? lpath_77 : null)])
-            }
-            if (! res)
-            {
                 return false;
             }
         }
@@ -7729,9 +7121,6 @@ function _jm_obj_80(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $OAuthFlow [.'$OAuthFlows'.implicit]", (path ? lpath_78 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid optional prop value [.'$OAuthFlows'.implicit]", (path ? lpath_78 : null)])
                 return false;
             }
@@ -7744,9 +7133,6 @@ function _jm_obj_80(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $OAuthFlow [.'$OAuthFlows'.password]", (path ? lpath_78 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid optional prop value [.'$OAuthFlows'.password]", (path ? lpath_78 : null)])
                 return false;
             }
@@ -7759,9 +7145,6 @@ function _jm_obj_80(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $OAuthFlow [.'$OAuthFlows'.clientCredentials]", (path ? lpath_78 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid optional prop value [.'$OAuthFlows'.clientCredentials]", (path ? lpath_78 : null)])
                 return false;
             }
@@ -7774,9 +7157,6 @@ function _jm_obj_80(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $OAuthFlow [.'$OAuthFlows'.authorizationCode]", (path ? lpath_78 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid optional prop value [.'$OAuthFlows'.authorizationCode]", (path ? lpath_78 : null)])
                 return false;
             }
@@ -7789,9 +7169,6 @@ function _jm_obj_80(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $ANY [.'$OAuthFlows'.'/^x-/']", (path ? lpath_78 : null)])
-            }
-            if (! res)
-            {
                 return false;
             }
         }
@@ -7835,9 +7212,6 @@ function _jm_obj_82(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["unexpected string [.'$OAuthFlow'.scopes.'']", (path ? lpath_80 : null)])
-        }
-        if (! res)
-        {
             return false;
         }
     }
@@ -7866,9 +7240,6 @@ function _jm_obj_81(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $URL [.'$OAuthFlow'.authorizationUrl]", (path ? lpath_79 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid mandatory prop value [.'$OAuthFlow'.authorizationUrl]", (path ? lpath_79 : null)])
                 return false;
             }
@@ -7882,9 +7253,6 @@ function _jm_obj_81(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $URL [.'$OAuthFlow'.tokenUrl]", (path ? lpath_79 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid mandatory prop value [.'$OAuthFlow'.tokenUrl]", (path ? lpath_79 : null)])
                 return false;
             }
@@ -7898,9 +7266,6 @@ function _jm_obj_81(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected element [.'$OAuthFlow'.scopes]", (path ? lpath_79 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid mandatory prop value [.'$OAuthFlow'.scopes]", (path ? lpath_79 : null)])
                 return false;
             }
@@ -7913,9 +7278,6 @@ function _jm_obj_81(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $URL [.'$OAuthFlow'.refreshUrl]", (path ? lpath_79 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid optional prop value [.'$OAuthFlow'.refreshUrl]", (path ? lpath_79 : null)])
                 return false;
             }
@@ -7928,9 +7290,6 @@ function _jm_obj_81(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $ANY [.'$OAuthFlow'.'/^x-/']", (path ? lpath_79 : null)])
-            }
-            if (! res)
-            {
                 return false;
             }
         }
@@ -8001,9 +7360,6 @@ function _jm_obj_83(val, path, rep)
                 if (! res)
                 {
                     rep !== null && rep.push(["unexpected string [.'$SecurityRequirement'.''.0]", ((path ? lpath_81 : null) ? arr_10_lpath : null)])
-                }
-                if (! res)
-                {
                     break;
                 }
             }
@@ -8011,9 +7367,6 @@ function _jm_obj_83(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["not array or unexpected array [.'$SecurityRequirement'.'']", (path ? lpath_81 : null)])
-        }
-        if (! res)
-        {
             return false;
         }
     }
@@ -8053,9 +7406,6 @@ function _jm_obj_84(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $ANY [.'$Extension'.'/^x-/']", (path ? lpath_82 : null)])
-            }
-            if (! res)
-            {
                 return false;
             }
         }
@@ -8139,9 +7489,6 @@ function json_model_53(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $simpleTypes [.'$schema#simpleTypesArray'.'@'.0]", (path ? arr_11_lpath : null)])
-            }
-            if (! res)
-            {
                 break;
             }
         }
@@ -8180,9 +7527,6 @@ function json_model_54(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected string [.'$schema#stringArray'.'@'.0]", (path ? arr_12_lpath : null)])
-            }
-            if (! res)
-            {
                 break;
             }
         }
@@ -8233,9 +7577,6 @@ function json_model_57(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $Schema [.'$schema#schemaArray'.'@'.0]", (path ? arr_13_lpath : null)])
-            }
-            if (! res)
-            {
                 break;
             }
         }
@@ -8331,9 +7672,6 @@ function _jm_obj_86(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["unexpected $Schema [.'$schema#ObjectSchema'.'$defs'.'']", (path ? lpath_84 : null)])
-        }
-        if (! res)
-        {
             return false;
         }
     }
@@ -8438,9 +7776,6 @@ function _jm_obj_87(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["not a bool [.'$schema#ObjectSchema'.'$vocabulary'.'$URI']", (path ? lpath_85 : null)])
-            }
-            if (! res)
-            {
                 return false;
             }
         }
@@ -8601,9 +7936,6 @@ function _jm_obj_88(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["unexpected $stringArray [.'$schema#ObjectSchema'.dependentRequired.'']", (path ? lpath_86 : null)])
-        }
-        if (! res)
-        {
             return false;
         }
     }
@@ -8641,9 +7973,6 @@ function _jm_obj_89(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["unexpected $Schema [.'$schema#ObjectSchema'.dependentSchemas.'']", (path ? lpath_87 : null)])
-        }
-        if (! res)
-        {
             return false;
         }
     }
@@ -8708,10 +8037,6 @@ function _jm_f_153(val, path, rep)
     let res;
     // .'$schema#ObjectSchema'.enum
     res = Array.isArray(val);
-    if (res)
-    {
-        // accept any array
-    }
     if (! res)
     {
         rep !== null && rep.push(["not array or unexpected array [.'$schema#ObjectSchema'.enum]", path])
@@ -8725,10 +8050,6 @@ function _jm_f_154(val, path, rep)
     let res;
     // .'$schema#ObjectSchema'.examples
     res = Array.isArray(val);
-    if (res)
-    {
-        // accept any array
-    }
     if (! res)
     {
         rep !== null && rep.push(["not array or unexpected array [.'$schema#ObjectSchema'.examples]", path])
@@ -9003,9 +8324,6 @@ function _jm_obj_90(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $Schema [.'$schema#ObjectSchema'.patternProperties.'$REGEX']", (path ? lpath_88 : null)])
-            }
-            if (! res)
-            {
                 return false;
             }
         }
@@ -9062,9 +8380,6 @@ function _jm_obj_91(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["unexpected $Schema [.'$schema#ObjectSchema'.properties.'']", (path ? lpath_89 : null)])
-        }
-        if (! res)
-        {
             return false;
         }
     }

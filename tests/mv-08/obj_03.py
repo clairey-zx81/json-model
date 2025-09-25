@@ -72,7 +72,6 @@ def json_model_4(val: Jsonable, path: Path, rep: Report) -> bool:
             res = isinstance(arr_0_item, int) and not isinstance(arr_0_item, bool) and arr_0_item >= 0
             if not res:
                 rep is None or rep.append(("not a 0 strict int [.'$foo#li0'.0]", arr_0_lpath if path is not None else None))
-            if not res:
                 break
     if not res:
         rep is None or rep.append(("not array or unexpected array [.'$foo#li0']", path))
@@ -90,7 +89,6 @@ def json_model_5(val: Jsonable, path: Path, rep: Report) -> bool:
             res = is_valid_date(arr_1_item, arr_1_lpath if path is not None else None, rep)
             if not res:
                 rep is None or rep.append(("unexpected $DATE [.'$foo#ls0'.0]", arr_1_lpath if path is not None else None))
-            if not res:
                 break
     if not res:
         rep is None or rep.append(("not array or unexpected array [.'$foo#ls0']", path))
@@ -108,7 +106,6 @@ def json_model_6(val: Jsonable, path: Path, rep: Report) -> bool:
             res = isinstance(arr_2_item, bool)
             if not res:
                 rep is None or rep.append(("unexpected $BOOL [.'$foo#lb0'.0]", arr_2_lpath if path is not None else None))
-            if not res:
                 break
     if not res:
         rep is None or rep.append(("not array or unexpected array [.'$foo#lb0']", path))
@@ -126,7 +123,6 @@ def json_model_7(val: Jsonable, path: Path, rep: Report) -> bool:
             res = isinstance(arr_3_item, float) and arr_3_item >= 0.0
             if not res:
                 rep is None or rep.append(("not a 0.0 strict float [.'$foo#lf0'.0]", arr_3_lpath if path is not None else None))
-            if not res:
                 break
     if not res:
         rep is None or rep.append(("not array or unexpected array [.'$foo#lf0']", path))

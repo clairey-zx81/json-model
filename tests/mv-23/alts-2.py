@@ -57,7 +57,6 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
             rep is None or rep.clear()
         else:
             rep is None or rep.append(("no model matched [.'$a'.''.'|']", lpath_0 if path is not None else None))
-        if not res:
             return False
     return True
 

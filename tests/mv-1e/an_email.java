@@ -31,7 +31,7 @@ public class an_email extends ModelChecker
         }
         return res;
     }
-    
+
 
     public void init(JSON json)
     {

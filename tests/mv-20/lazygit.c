@@ -257,6 +257,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep);
 jm_propmap_t check_model_map_tab[10];
 const size_t check_model_map_size = 10;
 
+
 static bool _jm_re_0(const char *s, jm_path_t *path, jm_report_t *rep)
 {
     size_t slen = strlen(s);
@@ -285,16 +286,13 @@ static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
             // .'$color'.'|'.0
             // "/^#[0-9a-fA-F]{6}$/"
             res = _jm_re_0(json_string_value(val), path, rep);
-            if (! res)
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected /^#[0-9a-fA-F]{6}$/ [.'$color'.'|'.0]", path);
-            }
             if (res)
             {
                 if (rep) jm_report_free_entries(rep);
             }
             else
             {
+                if (rep) jm_report_add_entry(rep, "unexpected /^#[0-9a-fA-F]{6}$/ [.'$color'.'|'.0]", path);
                 if (rep) jm_report_add_entry(rep, "no model matched [.'$color'.'|']", path);
             }
         }
@@ -321,9 +319,6 @@ static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected $color [.'$colorArray'.'@'.0]", (path ? &arr_0_lpath : NULL));
-            }
-            if (! res)
-            {
                 break;
             }
         }
@@ -457,9 +452,6 @@ static bool json_model_9(const json_t *val, jm_path_t *path, jm_report_t *rep)
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected $neString [.'$stringArray'.'@'.0]", (path ? &arr_1_lpath : NULL));
-            }
-            if (! res)
-            {
                 break;
             }
         }
@@ -503,9 +495,6 @@ static INLINE bool _jm_obj_1(const json_t *val, jm_path_t *path, jm_report_t *re
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected string [.'$Prompts'.'|'.0.suggestions.'|'.1.command]", (path ? &lpath_1 : NULL));
-            }
-            if (! res)
-            {
                 if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$Prompts'.'|'.0.suggestions.'|'.1.command]", (path ? &lpath_1 : NULL));
                 return false;
             }
@@ -555,9 +544,6 @@ static INLINE bool _jm_obj_2(const json_t *val, jm_path_t *path, jm_report_t *re
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "value not in enum [.'$Prompts'.'|'.0.suggestions.'|'.0.preset.'|']", (path ? &lpath_2 : NULL));
-            }
-            if (! res)
-            {
                 if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$Prompts'.'|'.0.suggestions.'|'.0.preset]", (path ? &lpath_2 : NULL));
                 return false;
             }
@@ -606,9 +592,6 @@ static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *re
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected input [.'$Prompts'.'|'.0.type]", (path ? &lpath_0 : NULL));
-            }
-            if (! res)
-            {
                 if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$Prompts'.'|'.0.type]", (path ? &lpath_0 : NULL));
                 return false;
             }
@@ -622,9 +605,6 @@ static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *re
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected $custom-commands-prompts-title-property [.'$Prompts'.'|'.0.title]", (path ? &lpath_0 : NULL));
-            }
-            if (! res)
-            {
                 if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$Prompts'.'|'.0.title]", (path ? &lpath_0 : NULL));
                 return false;
             }
@@ -638,9 +618,6 @@ static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *re
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected $custom-commands-prompts-key-property [.'$Prompts'.'|'.0.key]", (path ? &lpath_0 : NULL));
-            }
-            if (! res)
-            {
                 if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$Prompts'.'|'.0.key]", (path ? &lpath_0 : NULL));
                 return false;
             }
@@ -653,9 +630,6 @@ static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *re
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected string [.'$Prompts'.'|'.0.initialValue]", (path ? &lpath_0 : NULL));
-            }
-            if (! res)
-            {
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Prompts'.'|'.0.initialValue]", (path ? &lpath_0 : NULL));
                 return false;
             }
@@ -753,9 +727,6 @@ static INLINE bool _jm_obj_3(const json_t *val, jm_path_t *path, jm_report_t *re
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected confirm [.'$Prompts'.'|'.1.type]", (path ? &lpath_3 : NULL));
-            }
-            if (! res)
-            {
                 if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$Prompts'.'|'.1.type]", (path ? &lpath_3 : NULL));
                 return false;
             }
@@ -769,9 +740,6 @@ static INLINE bool _jm_obj_3(const json_t *val, jm_path_t *path, jm_report_t *re
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected $custom-commands-prompts-title-property [.'$Prompts'.'|'.1.title]", (path ? &lpath_3 : NULL));
-            }
-            if (! res)
-            {
                 if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$Prompts'.'|'.1.title]", (path ? &lpath_3 : NULL));
                 return false;
             }
@@ -785,9 +753,6 @@ static INLINE bool _jm_obj_3(const json_t *val, jm_path_t *path, jm_report_t *re
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected $custom-commands-prompts-key-property [.'$Prompts'.'|'.1.key]", (path ? &lpath_3 : NULL));
-            }
-            if (! res)
-            {
                 if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$Prompts'.'|'.1.key]", (path ? &lpath_3 : NULL));
                 return false;
             }
@@ -800,9 +765,6 @@ static INLINE bool _jm_obj_3(const json_t *val, jm_path_t *path, jm_report_t *re
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected string [.'$Prompts'.'|'.1.body]", (path ? &lpath_3 : NULL));
-            }
-            if (! res)
-            {
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Prompts'.'|'.1.body]", (path ? &lpath_3 : NULL));
                 return false;
             }
@@ -859,9 +821,6 @@ static INLINE bool _jm_obj_5(const json_t *val, jm_path_t *path, jm_report_t *re
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected $neString [.'$Prompts'.'|'.2.options.'@'.0.value]", (path ? &lpath_5 : NULL));
-            }
-            if (! res)
-            {
                 if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$Prompts'.'|'.2.options.'@'.0.value]", (path ? &lpath_5 : NULL));
                 return false;
             }
@@ -874,9 +833,6 @@ static INLINE bool _jm_obj_5(const json_t *val, jm_path_t *path, jm_report_t *re
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected string [.'$Prompts'.'|'.2.options.'@'.0.description]", (path ? &lpath_5 : NULL));
-            }
-            if (! res)
-            {
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Prompts'.'|'.2.options.'@'.0.description]", (path ? &lpath_5 : NULL));
                 return false;
             }
@@ -889,9 +845,6 @@ static INLINE bool _jm_obj_5(const json_t *val, jm_path_t *path, jm_report_t *re
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected string [.'$Prompts'.'|'.2.options.'@'.0.name]", (path ? &lpath_5 : NULL));
-            }
-            if (! res)
-            {
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Prompts'.'|'.2.options.'@'.0.name]", (path ? &lpath_5 : NULL));
                 return false;
             }
@@ -940,9 +893,6 @@ static INLINE bool _jm_obj_4(const json_t *val, jm_path_t *path, jm_report_t *re
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected menu [.'$Prompts'.'|'.2.type]", (path ? &lpath_4 : NULL));
-            }
-            if (! res)
-            {
                 if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$Prompts'.'|'.2.type]", (path ? &lpath_4 : NULL));
                 return false;
             }
@@ -956,9 +906,6 @@ static INLINE bool _jm_obj_4(const json_t *val, jm_path_t *path, jm_report_t *re
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected $custom-commands-prompts-title-property [.'$Prompts'.'|'.2.title]", (path ? &lpath_4 : NULL));
-            }
-            if (! res)
-            {
                 if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$Prompts'.'|'.2.title]", (path ? &lpath_4 : NULL));
                 return false;
             }
@@ -972,9 +919,6 @@ static INLINE bool _jm_obj_4(const json_t *val, jm_path_t *path, jm_report_t *re
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected $custom-commands-prompts-key-property [.'$Prompts'.'|'.2.key]", (path ? &lpath_4 : NULL));
-            }
-            if (! res)
-            {
                 if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$Prompts'.'|'.2.key]", (path ? &lpath_4 : NULL));
                 return false;
             }
@@ -998,9 +942,6 @@ static INLINE bool _jm_obj_4(const json_t *val, jm_path_t *path, jm_report_t *re
                     if (! res)
                     {
                         if (rep) jm_report_add_entry(rep, "unexpected element [.'$Prompts'.'|'.2.options.'@'.0]", ((path ? &lpath_4 : NULL) ? &arr_2_lpath : NULL));
-                    }
-                    if (! res)
-                    {
                         break;
                     }
                 }
@@ -1079,9 +1020,6 @@ static INLINE bool _jm_obj_6(const json_t *val, jm_path_t *path, jm_report_t *re
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected menuFromCommand [.'$Prompts'.'|'.3.type]", (path ? &lpath_6 : NULL));
-            }
-            if (! res)
-            {
                 if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$Prompts'.'|'.3.type]", (path ? &lpath_6 : NULL));
                 return false;
             }
@@ -1095,9 +1033,6 @@ static INLINE bool _jm_obj_6(const json_t *val, jm_path_t *path, jm_report_t *re
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected $custom-commands-prompts-title-property [.'$Prompts'.'|'.3.title]", (path ? &lpath_6 : NULL));
-            }
-            if (! res)
-            {
                 if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$Prompts'.'|'.3.title]", (path ? &lpath_6 : NULL));
                 return false;
             }
@@ -1111,9 +1046,6 @@ static INLINE bool _jm_obj_6(const json_t *val, jm_path_t *path, jm_report_t *re
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected $custom-commands-prompts-key-property [.'$Prompts'.'|'.3.key]", (path ? &lpath_6 : NULL));
-            }
-            if (! res)
-            {
                 if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$Prompts'.'|'.3.key]", (path ? &lpath_6 : NULL));
                 return false;
             }
@@ -1127,9 +1059,6 @@ static INLINE bool _jm_obj_6(const json_t *val, jm_path_t *path, jm_report_t *re
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected string [.'$Prompts'.'|'.3.command]", (path ? &lpath_6 : NULL));
-            }
-            if (! res)
-            {
                 if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$Prompts'.'|'.3.command]", (path ? &lpath_6 : NULL));
                 return false;
             }
@@ -1142,9 +1071,6 @@ static INLINE bool _jm_obj_6(const json_t *val, jm_path_t *path, jm_report_t *re
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected string [.'$Prompts'.'|'.3.filter]", (path ? &lpath_6 : NULL));
-            }
-            if (! res)
-            {
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Prompts'.'|'.3.filter]", (path ? &lpath_6 : NULL));
                 return false;
             }
@@ -1157,9 +1083,6 @@ static INLINE bool _jm_obj_6(const json_t *val, jm_path_t *path, jm_report_t *re
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected string [.'$Prompts'.'|'.3.valueFormat]", (path ? &lpath_6 : NULL));
-            }
-            if (! res)
-            {
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Prompts'.'|'.3.valueFormat]", (path ? &lpath_6 : NULL));
                 return false;
             }
@@ -1172,9 +1095,6 @@ static INLINE bool _jm_obj_6(const json_t *val, jm_path_t *path, jm_report_t *re
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected string [.'$Prompts'.'|'.3.labelFormat]", (path ? &lpath_6 : NULL));
-            }
-            if (! res)
-            {
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Prompts'.'|'.3.labelFormat]", (path ? &lpath_6 : NULL));
                 return false;
             }
@@ -1290,9 +1210,6 @@ static INLINE bool _jm_obj_9(const json_t *val, jm_path_t *path, jm_report_t *re
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "not a bool [.customCommands.'@'.0.after.checkForConflicts]", (path ? &lpath_9 : NULL));
-            }
-            if (! res)
-            {
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.customCommands.'@'.0.after.checkForConflicts]", (path ? &lpath_9 : NULL));
                 return false;
             }
@@ -1363,9 +1280,6 @@ static bool _jm_f_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected $Prompts [.customCommands.'@'.0.prompts.0]", (path ? &arr_4_lpath : NULL));
-            }
-            if (! res)
-            {
                 break;
             }
         }
@@ -1446,9 +1360,6 @@ static INLINE bool _jm_obj_8(const json_t *val, jm_path_t *path, jm_report_t *re
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.customCommands.'@'.0.key]", (path ? &lpath_8 : NULL));
-            }
-            if (! res)
-            {
                 if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.customCommands.'@'.0.key]", (path ? &lpath_8 : NULL));
                 return false;
             }
@@ -1462,9 +1373,6 @@ static INLINE bool _jm_obj_8(const json_t *val, jm_path_t *path, jm_report_t *re
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected string [.customCommands.'@'.0.command]", (path ? &lpath_8 : NULL));
-            }
-            if (! res)
-            {
                 if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.customCommands.'@'.0.command]", (path ? &lpath_8 : NULL));
                 return false;
             }
@@ -1478,9 +1386,6 @@ static INLINE bool _jm_obj_8(const json_t *val, jm_path_t *path, jm_report_t *re
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "value not in enum [.customCommands.'@'.0.context.'|']", (path ? &lpath_8 : NULL));
-            }
-            if (! res)
-            {
                 if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.customCommands.'@'.0.context]", (path ? &lpath_8 : NULL));
                 return false;
             }
@@ -1541,9 +1446,6 @@ static bool _jm_f_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected element [.customCommands.'@'.0]", (path ? &arr_3_lpath : NULL));
-            }
-            if (! res)
-            {
                 break;
             }
         }
@@ -1650,9 +1552,6 @@ static INLINE bool _jm_obj_11(const json_t *val, jm_path_t *path, jm_report_t *r
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "not a bool [.git.commit.signOff]", (path ? &lpath_11 : NULL));
-            }
-            if (! res)
-            {
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.git.commit.signOff]", (path ? &lpath_11 : NULL));
                 return false;
             }
@@ -1709,9 +1608,6 @@ static INLINE bool _jm_obj_13(const json_t *val, jm_path_t *path, jm_report_t *r
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected $neString [.git.commitPrefixes.'/./'.pattern]", (path ? &lpath_13 : NULL));
-            }
-            if (! res)
-            {
                 if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.git.commitPrefixes.'/./'.pattern]", (path ? &lpath_13 : NULL));
                 return false;
             }
@@ -1725,9 +1621,6 @@ static INLINE bool _jm_obj_13(const json_t *val, jm_path_t *path, jm_report_t *r
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected $neString [.git.commitPrefixes.'/./'.replace]", (path ? &lpath_13 : NULL));
-            }
-            if (! res)
-            {
                 if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.git.commitPrefixes.'/./'.replace]", (path ? &lpath_13 : NULL));
                 return false;
             }
@@ -1778,9 +1671,6 @@ static INLINE bool _jm_obj_12(const json_t *val, jm_path_t *path, jm_report_t *r
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected element [.git.commitPrefixes.'/./']", (path ? &lpath_12 : NULL));
-            }
-            if (! res)
-            {
                 return false;
             }
         }
@@ -1869,9 +1759,6 @@ static INLINE bool _jm_obj_14(const json_t *val, jm_path_t *path, jm_report_t *r
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "value not in enum [.git.log.order.'|']", (path ? &lpath_14 : NULL));
-            }
-            if (! res)
-            {
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.git.log.order]", (path ? &lpath_14 : NULL));
                 return false;
             }
@@ -1884,9 +1771,6 @@ static INLINE bool _jm_obj_14(const json_t *val, jm_path_t *path, jm_report_t *r
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "value not in enum [.git.log.showGraph.'|']", (path ? &lpath_14 : NULL));
-            }
-            if (! res)
-            {
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.git.log.showGraph]", (path ? &lpath_14 : NULL));
                 return false;
             }
@@ -1899,9 +1783,6 @@ static INLINE bool _jm_obj_14(const json_t *val, jm_path_t *path, jm_report_t *r
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "not a bool [.git.log.showWholeGraph]", (path ? &lpath_14 : NULL));
-            }
-            if (! res)
-            {
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.git.log.showWholeGraph]", (path ? &lpath_14 : NULL));
                 return false;
             }
@@ -1963,9 +1844,6 @@ static INLINE bool _jm_obj_15(const json_t *val, jm_path_t *path, jm_report_t *r
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "not a bool [.git.merging.manualCommit]", (path ? &lpath_15 : NULL));
-            }
-            if (! res)
-            {
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.git.merging.manualCommit]", (path ? &lpath_15 : NULL));
                 return false;
             }
@@ -1978,9 +1856,6 @@ static INLINE bool _jm_obj_15(const json_t *val, jm_path_t *path, jm_report_t *r
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected string [.git.merging.args]", (path ? &lpath_15 : NULL));
-            }
-            if (! res)
-            {
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.git.merging.args]", (path ? &lpath_15 : NULL));
                 return false;
             }
@@ -2043,9 +1918,6 @@ static INLINE bool _jm_obj_16(const json_t *val, jm_path_t *path, jm_report_t *r
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "value not in enum [.git.paging.colorArg.'|']", (path ? &lpath_16 : NULL));
-            }
-            if (! res)
-            {
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.git.paging.colorArg]", (path ? &lpath_16 : NULL));
                 return false;
             }
@@ -2058,9 +1930,6 @@ static INLINE bool _jm_obj_16(const json_t *val, jm_path_t *path, jm_report_t *r
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "not a bool [.git.paging.useConfig]", (path ? &lpath_16 : NULL));
-            }
-            if (! res)
-            {
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.git.paging.useConfig]", (path ? &lpath_16 : NULL));
                 return false;
             }
@@ -2223,9 +2092,6 @@ static INLINE bool _jm_obj_18(const json_t *val, jm_path_t *path, jm_report_t *r
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected $color [.gui.authorColors.'/./']", (path ? &lpath_18 : NULL));
-            }
-            if (! res)
-            {
                 return false;
             }
         }
@@ -2287,9 +2153,6 @@ static INLINE bool _jm_obj_19(const json_t *val, jm_path_t *path, jm_report_t *r
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected $color [.gui.branchColors.'/./']", (path ? &lpath_19 : NULL));
-            }
-            if (! res)
-            {
                 return false;
             }
         }
@@ -2350,9 +2213,6 @@ static INLINE bool _jm_obj_20(const json_t *val, jm_path_t *path, jm_report_t *r
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "not a bool [.gui.commitLength.show]", (path ? &lpath_20 : NULL));
-            }
-            if (! res)
-            {
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.gui.commitLength.show]", (path ? &lpath_20 : NULL));
                 return false;
             }
@@ -2455,16 +2315,13 @@ static bool _jm_f_38(const json_t *val, jm_path_t *path, jm_report_t *rep)
         {
             // .gui.nerdFontsVersion.'|'.0
             res = true;
-            if (! res)
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected string [.gui.nerdFontsVersion.'|'.0]", path);
-            }
             if (res)
             {
                 if (rep) jm_report_free_entries(rep);
             }
             else
             {
+                if (rep) jm_report_add_entry(rep, "unexpected string [.gui.nerdFontsVersion.'|'.0]", path);
                 if (rep) jm_report_add_entry(rep, "no model matched [.gui.nerdFontsVersion.'|']", path);
             }
         }
@@ -3163,9 +3020,6 @@ static INLINE bool _jm_obj_24(const json_t *val, jm_path_t *path, jm_report_t *r
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.commitFiles.checkoutCommitFile]", (path ? &lpath_24 : NULL));
-            }
-            if (! res)
-            {
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.commitFiles.checkoutCommitFile]", (path ? &lpath_24 : NULL));
                 return false;
             }
@@ -3769,9 +3623,6 @@ static INLINE bool _jm_obj_27(const json_t *val, jm_path_t *path, jm_report_t *r
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.main.toggleDragSelect]", (path ? &lpath_27 : NULL));
-            }
-            if (! res)
-            {
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.main.toggleDragSelect]", (path ? &lpath_27 : NULL));
                 return false;
             }
@@ -3784,9 +3635,6 @@ static INLINE bool _jm_obj_27(const json_t *val, jm_path_t *path, jm_report_t *r
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.main.'toggleDragSelect-alt']", (path ? &lpath_27 : NULL));
-            }
-            if (! res)
-            {
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.main.'toggleDragSelect-alt']", (path ? &lpath_27 : NULL));
                 return false;
             }
@@ -3799,9 +3647,6 @@ static INLINE bool _jm_obj_27(const json_t *val, jm_path_t *path, jm_report_t *r
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.main.toggleSelectHunk]", (path ? &lpath_27 : NULL));
-            }
-            if (! res)
-            {
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.main.toggleSelectHunk]", (path ? &lpath_27 : NULL));
                 return false;
             }
@@ -3814,9 +3659,6 @@ static INLINE bool _jm_obj_27(const json_t *val, jm_path_t *path, jm_report_t *r
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.main.pickBothHunks]", (path ? &lpath_27 : NULL));
-            }
-            if (! res)
-            {
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.main.pickBothHunks]", (path ? &lpath_27 : NULL));
                 return false;
             }
@@ -3865,9 +3707,6 @@ static INLINE bool _jm_obj_28(const json_t *val, jm_path_t *path, jm_report_t *r
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.stash.popStash]", (path ? &lpath_28 : NULL));
-            }
-            if (! res)
-            {
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.stash.popStash]", (path ? &lpath_28 : NULL));
                 return false;
             }
@@ -3880,9 +3719,6 @@ static INLINE bool _jm_obj_28(const json_t *val, jm_path_t *path, jm_report_t *r
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.stash.renameStash]", (path ? &lpath_28 : NULL));
-            }
-            if (! res)
-            {
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.stash.renameStash]", (path ? &lpath_28 : NULL));
                 return false;
             }
@@ -3931,9 +3767,6 @@ static INLINE bool _jm_obj_29(const json_t *val, jm_path_t *path, jm_report_t *r
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.status.checkForUpdate]", (path ? &lpath_29 : NULL));
-            }
-            if (! res)
-            {
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.status.checkForUpdate]", (path ? &lpath_29 : NULL));
                 return false;
             }
@@ -3946,9 +3779,6 @@ static INLINE bool _jm_obj_29(const json_t *val, jm_path_t *path, jm_report_t *r
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.status.recentRepos]", (path ? &lpath_29 : NULL));
-            }
-            if (! res)
-            {
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.status.recentRepos]", (path ? &lpath_29 : NULL));
                 return false;
             }
@@ -3997,9 +3827,6 @@ static INLINE bool _jm_obj_30(const json_t *val, jm_path_t *path, jm_report_t *r
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.submodules.init]", (path ? &lpath_30 : NULL));
-            }
-            if (! res)
-            {
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.submodules.init]", (path ? &lpath_30 : NULL));
                 return false;
             }
@@ -4012,9 +3839,6 @@ static INLINE bool _jm_obj_30(const json_t *val, jm_path_t *path, jm_report_t *r
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.submodules.update]", (path ? &lpath_30 : NULL));
-            }
-            if (! res)
-            {
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.submodules.update]", (path ? &lpath_30 : NULL));
                 return false;
             }
@@ -4027,9 +3851,6 @@ static INLINE bool _jm_obj_30(const json_t *val, jm_path_t *path, jm_report_t *r
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.submodules.bulkMenu]", (path ? &lpath_30 : NULL));
-            }
-            if (! res)
-            {
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.submodules.bulkMenu]", (path ? &lpath_30 : NULL));
                 return false;
             }
@@ -4257,10 +4078,6 @@ static bool _jm_f_139(const json_t *val, jm_path_t *path, jm_report_t *rep)
     bool res;
     // .keybinding.universal.jumpToBlock
     res = json_is_array(val);
-    if (res)
-    {
-        // accept any array
-    }
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "not array or unexpected array [.keybinding.universal.jumpToBlock]", path);
@@ -5015,16 +4832,13 @@ static bool _jm_f_189(const json_t *val, jm_path_t *path, jm_report_t *rep)
         {
             // .os.editPreset.'|'.0
             res = true;
-            if (! res)
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected string [.os.editPreset.'|'.0]", path);
-            }
             if (res)
             {
                 if (rep) jm_report_free_entries(rep);
             }
             else
             {
+                if (rep) jm_report_add_entry(rep, "unexpected string [.os.editPreset.'|'.0]", path);
                 if (rep) jm_report_add_entry(rep, "no model matched [.os.editPreset.'|']", path);
             }
         }
@@ -5156,9 +4970,6 @@ static INLINE bool _jm_obj_33(const json_t *val, jm_path_t *path, jm_report_t *r
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "not a 0 strict int [.refresher.refreshInterval]", (path ? &lpath_33 : NULL));
-            }
-            if (! res)
-            {
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.refresher.refreshInterval]", (path ? &lpath_33 : NULL));
                 return false;
             }
@@ -5171,9 +4982,6 @@ static INLINE bool _jm_obj_33(const json_t *val, jm_path_t *path, jm_report_t *r
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "not a 0 strict int [.refresher.fetchInterval]", (path ? &lpath_33 : NULL));
-            }
-            if (! res)
-            {
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.refresher.fetchInterval]", (path ? &lpath_33 : NULL));
                 return false;
             }
@@ -5229,9 +5037,6 @@ static INLINE bool _jm_obj_34(const json_t *val, jm_path_t *path, jm_report_t *r
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected /^[^:]+:[^:]+$/ [.services.'/./']", (path ? &lpath_34 : NULL));
-            }
-            if (! res)
-            {
                 return false;
             }
         }
@@ -5280,9 +5085,6 @@ static INLINE bool _jm_obj_35(const json_t *val, jm_path_t *path, jm_report_t *r
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "value not in enum [.update.method.'|']", (path ? &lpath_35 : NULL));
-            }
-            if (! res)
-            {
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.update.method]", (path ? &lpath_35 : NULL));
                 return false;
             }
@@ -5295,9 +5097,6 @@ static INLINE bool _jm_obj_35(const json_t *val, jm_path_t *path, jm_report_t *r
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "not a 0 strict int [.update.days]", (path ? &lpath_35 : NULL));
-            }
-            if (! res)
-            {
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.update.days]", (path ? &lpath_35 : NULL));
                 return false;
             }

@@ -28,6 +28,9 @@ _jm_re_2_reco: object
 _jm_re_2: RegexFun
 check_model_map: PropMap
 
+
+
+
 # check $ (.)
 def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool

@@ -31,7 +31,7 @@ public class or_09 extends ModelChecker
         }
         return res;
     }
-    
+
 
     public void init(JSON json)
     {

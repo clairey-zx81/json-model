@@ -31,7 +31,7 @@ public class xoropt_001 extends ModelChecker
         }
         return res;
     }
-    
+
     // check $Bb (.'$Bb')
     public boolean json_model_3(Object val, Path path, Report rep)
     {
@@ -44,7 +44,7 @@ public class xoropt_001 extends ModelChecker
         }
         return res;
     }
-    
+
     // check $Ii (.'$Ii')
     public boolean json_model_4(Object val, Path path, Report rep)
     {
@@ -57,7 +57,7 @@ public class xoropt_001 extends ModelChecker
         }
         return res;
     }
-    
+
     // check $Ff (.'$Ff')
     public boolean json_model_5(Object val, Path path, Report rep)
     {
@@ -70,7 +70,7 @@ public class xoropt_001 extends ModelChecker
         }
         return res;
     }
-    
+
     // check $Ss (.'$Ss')
     public boolean json_model_6(Object val, Path path, Report rep)
     {
@@ -83,7 +83,7 @@ public class xoropt_001 extends ModelChecker
         }
         return res;
     }
-    
+
     // check $Aa (.'$Aa')
     public boolean json_model_7(Object val, Path path, Report rep)
     {
@@ -104,9 +104,6 @@ public class xoropt_001 extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected $Any [.'$Aa'.0]", (path != null ? arr_0_lpath : null));
-                }
-                if (! res)
-                {
                     break;
                 }
             }
@@ -117,7 +114,7 @@ public class xoropt_001 extends ModelChecker
         }
         return res;
     }
-    
+
     // object .'$Oo'
     public boolean _jm_obj_0(Object val, Path path, Report rep)
     {
@@ -139,15 +136,12 @@ public class xoropt_001 extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("unexpected $Any [.'$Oo'.'']", (path != null ? lpath_0 : null));
-            }
-            if (! res)
-            {
                 return false;
             }
         }
         return true;
     }
-    
+
     // check $Oo (.'$Oo')
     public boolean json_model_8(Object val, Path path, Report rep)
     {
@@ -160,7 +154,7 @@ public class xoropt_001 extends ModelChecker
         }
         return res;
     }
-    
+
     // check $Any (.'$Any')
     public boolean json_model_9(Object val, Path path, Report rep)
     {
@@ -236,7 +230,7 @@ public class xoropt_001 extends ModelChecker
         }
         return res;
     }
-    
+
     // check $ (.)
     public boolean json_model_1(Object val, Path path, Report rep)
     {
@@ -249,7 +243,7 @@ public class xoropt_001 extends ModelChecker
         }
         return res;
     }
-    
+
 
     public void init(JSON json)
     {

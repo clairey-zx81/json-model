@@ -31,7 +31,7 @@ public class oropt_001 extends ModelChecker
         }
         return res;
     }
-    
+
 
     public void init(JSON json)
     {

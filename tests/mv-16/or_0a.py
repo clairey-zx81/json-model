@@ -31,22 +31,22 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("unexpected type [.'|']", path))
     if res:
         # .'|'.0
-        res = val == 200
+        res = isinstance(val, int) and not isinstance(val, bool) and val == 200
         if not res:
             rep is None or rep.append(("unexpected =200 [.'|'.0]", path))
         if not res:
             # .'|'.1
-            res = val == 300
+            res = isinstance(val, int) and not isinstance(val, bool) and val == 300
             if not res:
                 rep is None or rep.append(("unexpected =300 [.'|'.1]", path))
             if not res:
                 # .'|'.2
-                res = val == 400
+                res = isinstance(val, int) and not isinstance(val, bool) and val == 400
                 if not res:
                     rep is None or rep.append(("unexpected =400 [.'|'.2]", path))
                 if not res:
                     # .'|'.3
-                    res = val == 500
+                    res = isinstance(val, int) and not isinstance(val, bool) and val == 500
                     if not res:
                         rep is None or rep.append(("unexpected =500 [.'|'.3]", path))
         if res:

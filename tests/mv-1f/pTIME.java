@@ -31,7 +31,7 @@ public class pTIME extends ModelChecker
         }
         return res;
     }
-    
+
 
     public void init(JSON json)
     {

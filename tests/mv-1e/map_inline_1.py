@@ -39,7 +39,6 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
             res = pval is None
             if not res:
                 rep is None or rep.append(("not null [.mu1]", lpath_0 if path is not None else None))
-            if not res:
                 rep is None or rep.append(("invalid mandatory prop value [.mu1]", lpath_0 if path is not None else None))
                 return False
         elif prop == "mu2":
@@ -49,7 +48,6 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
             res = isinstance(pval, bool)
             if not res:
                 rep is None or rep.append(("not a bool [.mu2]", lpath_0 if path is not None else None))
-            if not res:
                 rep is None or rep.append(("invalid mandatory prop value [.mu2]", lpath_0 if path is not None else None))
                 return False
         elif prop == "mu3":
@@ -59,7 +57,6 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
             res = isinstance(pval, int) and not isinstance(pval, bool) and pval >= 0
             if not res:
                 rep is None or rep.append(("not a 0 strict int [.mu3]", lpath_0 if path is not None else None))
-            if not res:
                 rep is None or rep.append(("invalid mandatory prop value [.mu3]", lpath_0 if path is not None else None))
                 return False
         elif prop == "ma1":
@@ -68,7 +65,6 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
             res = isinstance(pval, float) and pval >= 0.0
             if not res:
                 rep is None or rep.append(("not a 0.0 strict float [.ma1]", lpath_0 if path is not None else None))
-            if not res:
                 rep is None or rep.append(("invalid optional prop value [.ma1]", lpath_0 if path is not None else None))
                 return False
         elif prop == "ma2":
@@ -77,7 +73,6 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
             res = isinstance(pval, str)
             if not res:
                 rep is None or rep.append(("unexpected string [.ma2]", lpath_0 if path is not None else None))
-            if not res:
                 rep is None or rep.append(("invalid optional prop value [.ma2]", lpath_0 if path is not None else None))
                 return False
         elif prop == "ma3":
@@ -86,7 +81,6 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
             res = is_valid_date(pval, lpath_0 if path is not None else None, rep)
             if not res:
                 rep is None or rep.append(("unexpected $DATE [.ma3]", lpath_0 if path is not None else None))
-            if not res:
                 rep is None or rep.append(("invalid optional prop value [.ma3]", lpath_0 if path is not None else None))
                 return False
         else:

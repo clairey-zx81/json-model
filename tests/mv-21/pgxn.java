@@ -34,7 +34,7 @@ public class pgxn extends ModelChecker
     {
         return _jm_re_0_pat.matcher(val).find();
     }
-    
+
     // check $neStr (.'$neStr')
     public boolean json_model_2(Object val, Path path, Report rep)
     {
@@ -48,7 +48,7 @@ public class pgxn extends ModelChecker
         }
         return res;
     }
-    
+
     // check $neStrList (.'$neStrList')
     public boolean json_model_3(Object val, Path path, Report rep)
     {
@@ -70,9 +70,6 @@ public class pgxn extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected $neStr [.'$neStrList'.'@'.0]", (path != null ? arr_0_lpath : null));
-                }
-                if (! res)
-                {
                     break;
                 }
             }
@@ -92,8 +89,8 @@ public class pgxn extends ModelChecker
         }
         return res;
     }
-    
-    
+
+
     // check $License (.'$License')
     public boolean json_model_4(Object val, Path path, Report rep)
     {
@@ -106,7 +103,7 @@ public class pgxn extends ModelChecker
         }
         return res;
     }
-    
+
     // check $LicenseList (.'$LicenseList')
     public boolean json_model_5(Object val, Path path, Report rep)
     {
@@ -128,9 +125,6 @@ public class pgxn extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected $License [.'$LicenseList'.'@'.0]", (path != null ? arr_1_lpath : null));
-                }
-                if (! res)
-                {
                     break;
                 }
             }
@@ -150,12 +144,12 @@ public class pgxn extends ModelChecker
         }
         return res;
     }
-    
+
     public boolean _jm_re_1(String val, Path path, Report rep)
     {
         return _jm_re_1_pat.matcher(val).find();
     }
-    
+
     // object .'$Provide'
     public boolean _jm_obj_0(Object val, Path path, Report rep)
     {
@@ -181,9 +175,6 @@ public class pgxn extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected string [.'$Provide'.file]", (path != null ? lpath_0 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$Provide'.file]", (path != null ? lpath_0 : null));
                     return false;
                 }
@@ -197,9 +188,6 @@ public class pgxn extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected $Version [.'$Provide'.version]", (path != null ? lpath_0 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$Provide'.version]", (path != null ? lpath_0 : null));
                     return false;
                 }
@@ -212,9 +200,6 @@ public class pgxn extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected string [.'$Provide'.abstract]", (path != null ? lpath_0 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Provide'.abstract]", (path != null ? lpath_0 : null));
                     return false;
                 }
@@ -227,9 +212,6 @@ public class pgxn extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected string [.'$Provide'.docfile]", (path != null ? lpath_0 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Provide'.docfile]", (path != null ? lpath_0 : null));
                     return false;
                 }
@@ -242,9 +224,6 @@ public class pgxn extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected $ANY [.'$Provide'.'/^[Xx]_/']", (path != null ? lpath_0 : null));
-                }
-                if (! res)
-                {
                     return false;
                 }
             }
@@ -271,7 +250,7 @@ public class pgxn extends ModelChecker
         }
         return true;
     }
-    
+
     // check $Provide (.'$Provide')
     public boolean json_model_6(Object val, Path path, Report rep)
     {
@@ -284,8 +263,8 @@ public class pgxn extends ModelChecker
         }
         return res;
     }
-    
-    
+
+
     // check $Status (.'$Status')
     public boolean json_model_7(Object val, Path path, Report rep)
     {
@@ -298,7 +277,7 @@ public class pgxn extends ModelChecker
         }
         return res;
     }
-    
+
     // object .'$Resources'.bugtracker
     public boolean _jm_obj_2(Object val, Path path, Report rep)
     {
@@ -322,9 +301,6 @@ public class pgxn extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected $URL [.'$Resources'.bugtracker.web]", (path != null ? lpath_2 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Resources'.bugtracker.web]", (path != null ? lpath_2 : null));
                     return false;
                 }
@@ -337,9 +313,6 @@ public class pgxn extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected $EMAIL [.'$Resources'.bugtracker.mailto]", (path != null ? lpath_2 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Resources'.bugtracker.mailto]", (path != null ? lpath_2 : null));
                     return false;
                 }
@@ -352,9 +325,6 @@ public class pgxn extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected $ANY [.'$Resources'.bugtracker.'/^[Xx]_/']", (path != null ? lpath_2 : null));
-                }
-                if (! res)
-                {
                     return false;
                 }
             }
@@ -366,7 +336,7 @@ public class pgxn extends ModelChecker
         }
         return true;
     }
-    
+
     // object .'$Resources'.repository
     public boolean _jm_obj_3(Object val, Path path, Report rep)
     {
@@ -390,9 +360,6 @@ public class pgxn extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected $URL [.'$Resources'.repository.url]", (path != null ? lpath_3 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Resources'.repository.url]", (path != null ? lpath_3 : null));
                     return false;
                 }
@@ -405,9 +372,6 @@ public class pgxn extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected $URL [.'$Resources'.repository.web]", (path != null ? lpath_3 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Resources'.repository.web]", (path != null ? lpath_3 : null));
                     return false;
                 }
@@ -421,9 +385,6 @@ public class pgxn extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected /./ [.'$Resources'.repository.type]", (path != null ? lpath_3 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Resources'.repository.type]", (path != null ? lpath_3 : null));
                     return false;
                 }
@@ -436,7 +397,7 @@ public class pgxn extends ModelChecker
         }
         return true;
     }
-    
+
     // object .'$Resources'
     public boolean _jm_obj_1(Object val, Path path, Report rep)
     {
@@ -460,9 +421,6 @@ public class pgxn extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected $URL [.'$Resources'.homepage]", (path != null ? lpath_1 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Resources'.homepage]", (path != null ? lpath_1 : null));
                     return false;
                 }
@@ -475,9 +433,6 @@ public class pgxn extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected element [.'$Resources'.bugtracker]", (path != null ? lpath_1 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Resources'.bugtracker]", (path != null ? lpath_1 : null));
                     return false;
                 }
@@ -490,9 +445,6 @@ public class pgxn extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected element [.'$Resources'.repository]", (path != null ? lpath_1 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Resources'.repository]", (path != null ? lpath_1 : null));
                     return false;
                 }
@@ -505,7 +457,7 @@ public class pgxn extends ModelChecker
         }
         return true;
     }
-    
+
     // check $Resources (.'$Resources')
     public boolean json_model_8(Object val, Path path, Report rep)
     {
@@ -518,12 +470,12 @@ public class pgxn extends ModelChecker
         }
         return res;
     }
-    
+
     public boolean _jm_re_2(String val, Path path, Report rep)
     {
         return _jm_re_2_pat.matcher(val).find();
     }
-    
+
     // check $SemVer (.'$SemVer')
     public boolean json_model_9(Object val, Path path, Report rep)
     {
@@ -537,7 +489,7 @@ public class pgxn extends ModelChecker
         }
         return res;
     }
-    
+
     // check $Version (.'$Version')
     public boolean json_model_10(Object val, Path path, Report rep)
     {
@@ -568,12 +520,12 @@ public class pgxn extends ModelChecker
         }
         return res;
     }
-    
+
     public boolean _jm_re_3(String val, Path path, Report rep)
     {
         return _jm_re_3_pat.matcher(val).find();
     }
-    
+
     // check $Ops (.'$Ops')
     public boolean json_model_11(Object val, Path path, Report rep)
     {
@@ -587,12 +539,12 @@ public class pgxn extends ModelChecker
         }
         return res;
     }
-    
+
     public boolean _jm_re_4(String val, Path path, Report rep)
     {
         return _jm_re_4_pat.matcher(val).find();
     }
-    
+
     // check $VersionRange (.'$VersionRange')
     public boolean json_model_12(Object val, Path path, Report rep)
     {
@@ -606,8 +558,8 @@ public class pgxn extends ModelChecker
         }
         return res;
     }
-    
-    
+
+
     // check $Phase (.'$Phase')
     public boolean json_model_13(Object val, Path path, Report rep)
     {
@@ -620,8 +572,8 @@ public class pgxn extends ModelChecker
         }
         return res;
     }
-    
-    
+
+
     // check $Relation (.'$Relation')
     public boolean json_model_14(Object val, Path path, Report rep)
     {
@@ -634,7 +586,7 @@ public class pgxn extends ModelChecker
         }
         return res;
     }
-    
+
     // object .'$Prereq'
     public boolean _jm_obj_4(Object val, Path path, Report rep)
     {
@@ -674,15 +626,12 @@ public class pgxn extends ModelChecker
             else
             {
                 if (rep != null) rep.addEntry("no model matched [.'$Prereq'.''.'|']", (path != null ? lpath_4 : null));
-            }
-            if (! res)
-            {
                 return false;
             }
         }
         return true;
     }
-    
+
     // check $Prereq (.'$Prereq')
     public boolean json_model_15(Object val, Path path, Report rep)
     {
@@ -695,7 +644,7 @@ public class pgxn extends ModelChecker
         }
         return res;
     }
-    
+
     // object .'$Prereqs'.'$Phase'
     public boolean _jm_obj_6(Object val, Path path, Report rep)
     {
@@ -719,9 +668,6 @@ public class pgxn extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected $Prereq [.'$Prereqs'.'$Phase'.'$Relation']", (path != null ? lpath_6 : null));
-                }
-                if (! res)
-                {
                     return false;
                 }
             }
@@ -733,9 +679,6 @@ public class pgxn extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected $ANY [.'$Prereqs'.'$Phase'.'/^[Xx]_/']", (path != null ? lpath_6 : null));
-                }
-                if (! res)
-                {
                     return false;
                 }
             }
@@ -747,7 +690,7 @@ public class pgxn extends ModelChecker
         }
         return true;
     }
-    
+
     // object .'$Prereqs'
     public boolean _jm_obj_5(Object val, Path path, Report rep)
     {
@@ -771,9 +714,6 @@ public class pgxn extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected element [.'$Prereqs'.'$Phase']", (path != null ? lpath_5 : null));
-                }
-                if (! res)
-                {
                     return false;
                 }
             }
@@ -785,9 +725,6 @@ public class pgxn extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected $ANY [.'$Prereqs'.'/^[Xx]_/']", (path != null ? lpath_5 : null));
-                }
-                if (! res)
-                {
                     return false;
                 }
             }
@@ -799,7 +736,7 @@ public class pgxn extends ModelChecker
         }
         return true;
     }
-    
+
     // check $Prereqs (.'$Prereqs')
     public boolean json_model_16(Object val, Path path, Report rep)
     {
@@ -812,7 +749,7 @@ public class pgxn extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_7_mup_abstract (.abstract)
     public boolean _jm_f_0(Object val, Path path, Report rep)
     {
@@ -825,7 +762,7 @@ public class pgxn extends ModelChecker
         }
         return res;
     }
-    
+
     // object .license.'^'.2
     public boolean _jm_obj_8(Object val, Path path, Report rep)
     {
@@ -847,15 +784,12 @@ public class pgxn extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("unexpected $URL [.license.'^'.2.'']", (path != null ? lpath_8 : null));
-            }
-            if (! res)
-            {
                 return false;
             }
         }
         return true;
     }
-    
+
     // check _jm_obj_7_mup_license (.license)
     public boolean _jm_f_1(Object val, Path path, Report rep)
     {
@@ -866,35 +800,35 @@ public class pgxn extends ModelChecker
         boolean xr_0;
         // .license.'^'.0
         xr_0 = json_model_4(val, path, rep);
-        if (! xr_0)
+        if (xr_0)
+        {
+            xc_0 += 1;
+        }
+        else
         {
             if (rep != null) rep.addEntry("unexpected $License [.license.'^'.0]", path);
         }
-        if (xr_0)
-        {
-            xc_0 += 1;
-        }
         // .license.'^'.1
         xr_0 = json_model_5(val, path, rep);
-        if (! xr_0)
-        {
-            if (rep != null) rep.addEntry("unexpected $LicenseList [.license.'^'.1]", path);
-        }
         if (xr_0)
         {
             xc_0 += 1;
+        }
+        else
+        {
+            if (rep != null) rep.addEntry("unexpected $LicenseList [.license.'^'.1]", path);
         }
         if (xc_0 <= 1)
         {
             // .license.'^'.2
             xr_0 = _jm_obj_8(val, path, rep);
-            if (! xr_0)
-            {
-                if (rep != null) rep.addEntry("unexpected element [.license.'^'.2]", path);
-            }
             if (xr_0)
             {
                 xc_0 += 1;
+            }
+            else
+            {
+                if (rep != null) rep.addEntry("unexpected element [.license.'^'.2]", path);
             }
         }
         res = xc_0 == 1;
@@ -908,7 +842,7 @@ public class pgxn extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_7_mup_maintainer (.maintainer)
     public boolean _jm_f_2(Object val, Path path, Report rep)
     {
@@ -939,7 +873,7 @@ public class pgxn extends ModelChecker
         }
         return res;
     }
-    
+
     // object .'meta-spec'
     public boolean _jm_obj_9(Object val, Path path, Report rep)
     {
@@ -965,9 +899,6 @@ public class pgxn extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected _1.0.0 [.'meta-spec'.version]", (path != null ? lpath_9 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'meta-spec'.version]", (path != null ? lpath_9 : null));
                     return false;
                 }
@@ -980,9 +911,6 @@ public class pgxn extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected $URL [.'meta-spec'.url]", (path != null ? lpath_9 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.'meta-spec'.url]", (path != null ? lpath_9 : null));
                     return false;
                 }
@@ -995,9 +923,6 @@ public class pgxn extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected $ANY [.'meta-spec'.'/^[Xx]_/']", (path != null ? lpath_9 : null));
-                }
-                if (! res)
-                {
                     return false;
                 }
             }
@@ -1020,7 +945,7 @@ public class pgxn extends ModelChecker
         }
         return true;
     }
-    
+
     // check _jm_obj_7_mup_meta-spec (.'meta-spec')
     public boolean _jm_f_3(Object val, Path path, Report rep)
     {
@@ -1033,7 +958,7 @@ public class pgxn extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_7_mup_name (.name)
     public boolean _jm_f_4(Object val, Path path, Report rep)
     {
@@ -1046,7 +971,7 @@ public class pgxn extends ModelChecker
         }
         return res;
     }
-    
+
     // object .provides
     public boolean _jm_obj_10(Object val, Path path, Report rep)
     {
@@ -1068,15 +993,12 @@ public class pgxn extends ModelChecker
             if (! res)
             {
                 if (rep != null) rep.addEntry("unexpected $Provide [.provides.'']", (path != null ? lpath_10 : null));
-            }
-            if (! res)
-            {
                 return false;
             }
         }
         return true;
     }
-    
+
     // check _jm_obj_7_mup_provides (.provides)
     public boolean _jm_f_5(Object val, Path path, Report rep)
     {
@@ -1089,7 +1011,7 @@ public class pgxn extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_7_mup_version (.version)
     public boolean _jm_f_6(Object val, Path path, Report rep)
     {
@@ -1102,8 +1024,8 @@ public class pgxn extends ModelChecker
         }
         return res;
     }
-    
-    
+
+
     // check _jm_obj_7_map_description (.description)
     public boolean _jm_f_7(Object val, Path path, Report rep)
     {
@@ -1116,7 +1038,7 @@ public class pgxn extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_7_map_generated_by (.generated_by)
     public boolean _jm_f_8(Object val, Path path, Report rep)
     {
@@ -1129,7 +1051,7 @@ public class pgxn extends ModelChecker
         }
         return res;
     }
-    
+
     // object .no_index
     public boolean _jm_obj_11(Object val, Path path, Report rep)
     {
@@ -1153,9 +1075,6 @@ public class pgxn extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected $neStrList [.no_index.file]", (path != null ? lpath_11 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.no_index.file]", (path != null ? lpath_11 : null));
                     return false;
                 }
@@ -1168,9 +1087,6 @@ public class pgxn extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected $neStrList [.no_index.directory]", (path != null ? lpath_11 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.no_index.directory]", (path != null ? lpath_11 : null));
                     return false;
                 }
@@ -1183,7 +1099,7 @@ public class pgxn extends ModelChecker
         }
         return true;
     }
-    
+
     // check _jm_obj_7_map_no_index (.no_index)
     public boolean _jm_f_9(Object val, Path path, Report rep)
     {
@@ -1196,7 +1112,7 @@ public class pgxn extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_7_map_prereqs (.prereqs)
     public boolean _jm_f_10(Object val, Path path, Report rep)
     {
@@ -1209,7 +1125,7 @@ public class pgxn extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_7_map_release_status (.release_status)
     public boolean _jm_f_11(Object val, Path path, Report rep)
     {
@@ -1222,7 +1138,7 @@ public class pgxn extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_7_map_resources (.resources)
     public boolean _jm_f_12(Object val, Path path, Report rep)
     {
@@ -1235,7 +1151,7 @@ public class pgxn extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_7_map_tags (.tags)
     public boolean _jm_f_13(Object val, Path path, Report rep)
     {
@@ -1248,7 +1164,7 @@ public class pgxn extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_7_map_url (.url)
     public boolean _jm_f_14(Object val, Path path, Report rep)
     {
@@ -1261,8 +1177,8 @@ public class pgxn extends ModelChecker
         }
         return res;
     }
-    
-    
+
+
     // object .
     public boolean _jm_obj_7(Object val, Path path, Report rep)
     {
@@ -1310,9 +1226,6 @@ public class pgxn extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected $ANY [.'/^[Xx]_/']", (path != null ? lpath_7 : null));
-                }
-                if (! res)
-                {
                     return false;
                 }
             }
@@ -1359,7 +1272,7 @@ public class pgxn extends ModelChecker
         }
         return true;
     }
-    
+
     // check $ (.)
     public boolean json_model_1(Object val, Path path, Report rep)
     {
@@ -1372,7 +1285,7 @@ public class pgxn extends ModelChecker
         }
         return res;
     }
-    
+
 
     public void init(JSON json)
     {

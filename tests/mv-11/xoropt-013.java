@@ -24,7 +24,7 @@ public class xoropt_013 extends ModelChecker
     {
         return _jm_re_0_pat.matcher(val).find();
     }
-    
+
     // object .'^'.0
     public boolean _jm_obj_0(Object val, Path path, Report rep)
     {
@@ -50,9 +50,6 @@ public class xoropt_013 extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected string [.'^'.0.a]", (path != null ? lpath_0 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'^'.0.a]", (path != null ? lpath_0 : null));
                     return false;
                 }
@@ -66,9 +63,6 @@ public class xoropt_013 extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected /.../ [.'^'.0.'']", (path != null ? lpath_0 : null));
-                }
-                if (! res)
-                {
                     return false;
                 }
             }
@@ -86,7 +80,7 @@ public class xoropt_013 extends ModelChecker
         }
         return true;
     }
-    
+
     // object .'^'.1
     public boolean _jm_obj_1(Object val, Path path, Report rep)
     {
@@ -112,9 +106,6 @@ public class xoropt_013 extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected string [.'^'.1.b]", (path != null ? lpath_1 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'^'.1.b]", (path != null ? lpath_1 : null));
                     return false;
                 }
@@ -128,9 +119,6 @@ public class xoropt_013 extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected /.../ [.'^'.1.'']", (path != null ? lpath_1 : null));
-                }
-                if (! res)
-                {
                     return false;
                 }
             }
@@ -148,7 +136,7 @@ public class xoropt_013 extends ModelChecker
         }
         return true;
     }
-    
+
     // check $ (.)
     public boolean json_model_1(Object val, Path path, Report rep)
     {
@@ -160,23 +148,23 @@ public class xoropt_013 extends ModelChecker
         boolean xr_0;
         // .'^'.0
         xr_0 = _jm_obj_0(val, path, rep);
-        if (! xr_0)
+        if (xr_0)
+        {
+            xc_0 += 1;
+        }
+        else
         {
             if (rep != null) rep.addEntry("unexpected element [.'^'.0]", path);
         }
-        if (xr_0)
-        {
-            xc_0 += 1;
-        }
         // .'^'.1
         xr_0 = _jm_obj_1(val, path, rep);
-        if (! xr_0)
-        {
-            if (rep != null) rep.addEntry("unexpected element [.'^'.1]", path);
-        }
         if (xr_0)
         {
             xc_0 += 1;
+        }
+        else
+        {
+            if (rep != null) rep.addEntry("unexpected element [.'^'.1]", path);
         }
         res = xc_0 == 1;
         if (res)
@@ -189,7 +177,7 @@ public class xoropt_013 extends ModelChecker
         }
         return res;
     }
-    
+
 
     public void init(JSON json)
     {

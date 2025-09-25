@@ -20,6 +20,7 @@ public class obj_04 extends ModelChecker
     Set<Object> _jm_cst_0_set;
     public Map<String, Checker> obj_04_map_pmap;
 
+
     // check $Xxx (.'$Xxx')
     public boolean json_model_2(Object val, Path path, Report rep)
     {
@@ -32,7 +33,7 @@ public class obj_04 extends ModelChecker
         }
         return res;
     }
-    
+
     // object .
     public boolean _jm_obj_0(Object val, Path path, Report rep)
     {
@@ -56,9 +57,6 @@ public class obj_04 extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not a 0.0 strict float [.'$Xxx']", (path != null ? lpath_0 : null));
-                }
-                if (! res)
-                {
                     return false;
                 }
             }
@@ -70,7 +68,7 @@ public class obj_04 extends ModelChecker
         }
         return true;
     }
-    
+
     // check $ (.)
     public boolean json_model_1(Object val, Path path, Report rep)
     {
@@ -84,7 +82,7 @@ public class obj_04 extends ModelChecker
         }
         return res;
     }
-    
+
 
     public void init(JSON json)
     {

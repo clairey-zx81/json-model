@@ -25,6 +25,7 @@ _jm_xre_0_re: RegexFun
 _jm_xre_0: RegexFun
 check_model_map: PropMap
 
+
 def _jm_xre_0(val: str, path: Path, rep: Report) -> bool:
     extract: str
     match = _jm_xre_0_re_reco.search(val)

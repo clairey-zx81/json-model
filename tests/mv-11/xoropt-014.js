@@ -34,9 +34,6 @@ function _jm_obj_1(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected fr [.movie.'|'.0.t]", (path ? lpath_1 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid mandatory prop value [.movie.'|'.0.t]", (path ? lpath_1 : null)])
                 return false;
             }
@@ -50,9 +47,6 @@ function _jm_obj_1(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected string [.movie.'|'.0.titre]", (path ? lpath_1 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid mandatory prop value [.movie.'|'.0.titre]", (path ? lpath_1 : null)])
                 return false;
             }
@@ -103,9 +97,6 @@ function _jm_obj_2(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected en [.movie.'|'.1.t]", (path ? lpath_2 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid mandatory prop value [.movie.'|'.1.t]", (path ? lpath_2 : null)])
                 return false;
             }
@@ -119,9 +110,6 @@ function _jm_obj_2(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected string [.movie.'|'.1.title]", (path ? lpath_2 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid mandatory prop value [.movie.'|'.1.title]", (path ? lpath_2 : null)])
                 return false;
             }
@@ -172,9 +160,6 @@ function _jm_obj_3(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected de [.movie.'|'.2.t]", (path ? lpath_3 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid mandatory prop value [.movie.'|'.2.t]", (path ? lpath_3 : null)])
                 return false;
             }
@@ -188,9 +173,6 @@ function _jm_obj_3(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected string [.movie.'|'.2.Title]", (path ? lpath_3 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid mandatory prop value [.movie.'|'.2.Title]", (path ? lpath_3 : null)])
                 return false;
             }
@@ -241,9 +223,6 @@ function _jm_obj_4(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected ru [.movie.'|'.3.t]", (path ? lpath_4 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid mandatory prop value [.movie.'|'.3.t]", (path ? lpath_4 : null)])
                 return false;
             }
@@ -257,9 +236,6 @@ function _jm_obj_4(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected string [.movie.'|'.3.suti]", (path ? lpath_4 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid mandatory prop value [.movie.'|'.3.suti]", (path ? lpath_4 : null)])
                 return false;
             }

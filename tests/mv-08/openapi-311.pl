@@ -4527,11 +4527,6 @@ sub _jm_f_93($$$)
     my $res;
     # .'$Schema'.enum
     $res = jm_is_array($val);
-    if ($res)
-    {
-        # accept any array
-        ;
-    }
     return $res;
 }
 
@@ -4552,11 +4547,6 @@ sub _jm_f_95($$$)
     my $res;
     # .'$Schema'.examples
     $res = jm_is_array($val);
-    if ($res)
-    {
-        # accept any array
-        ;
-    }
     return $res;
 }
 
@@ -6633,11 +6623,6 @@ sub _jm_f_153($$$)
     my $res;
     # .'$schema#ObjectSchema'.enum
     $res = jm_is_array($val);
-    if ($res)
-    {
-        # accept any array
-        ;
-    }
     return $res;
 }
 
@@ -6648,11 +6633,6 @@ sub _jm_f_154($$$)
     my $res;
     # .'$schema#ObjectSchema'.examples
     $res = jm_is_array($val);
-    if ($res)
-    {
-        # accept any array
-        ;
-    }
     return $res;
 }
 

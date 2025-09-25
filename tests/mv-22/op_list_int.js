@@ -36,9 +36,6 @@ function _jm_obj_0(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected =0 [.'|'.0.t]", (path ? lpath_0 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid mandatory prop value [.'|'.0.t]", (path ? lpath_0 : null)])
                 return false;
             }
@@ -52,9 +49,6 @@ function _jm_obj_0(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["not a 1 strict int [.'|'.0.z]", (path ? lpath_0 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid mandatory prop value [.'|'.0.z]", (path ? lpath_0 : null)])
                 return false;
             }
@@ -106,9 +100,6 @@ function _jm_obj_1(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["value not in enum [.'|'.1.t.'|']", (path ? lpath_1 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid mandatory prop value [.'|'.1.t]", (path ? lpath_1 : null)])
                 return false;
             }
@@ -122,9 +113,6 @@ function _jm_obj_1(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["not a 1 strict int [.'|'.1.p]", (path ? lpath_1 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid mandatory prop value [.'|'.1.p]", (path ? lpath_1 : null)])
                 return false;
             }
@@ -176,9 +164,6 @@ function _jm_obj_2(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["value not in enum [.'|'.2.t.'|']", (path ? lpath_2 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid mandatory prop value [.'|'.2.t]", (path ? lpath_2 : null)])
                 return false;
             }
@@ -192,9 +177,6 @@ function _jm_obj_2(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["not a 1 strict int [.'|'.2.i]", (path ? lpath_2 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid mandatory prop value [.'|'.2.i]", (path ? lpath_2 : null)])
                 return false;
             }
@@ -245,9 +227,6 @@ function _jm_obj_3(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected =10 [.'|'.3.t]", (path ? lpath_3 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid mandatory prop value [.'|'.3.t]", (path ? lpath_3 : null)])
                 return false;
             }
@@ -261,9 +240,6 @@ function _jm_obj_3(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["not a 1 strict int [.'|'.3.d]", (path ? lpath_3 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid mandatory prop value [.'|'.3.d]", (path ? lpath_3 : null)])
                 return false;
             }

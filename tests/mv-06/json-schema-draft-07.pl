@@ -391,11 +391,6 @@ sub _jm_f_17($$$)
     $res = jm_is_array($val);
     if ($res)
     {
-        # accept any array
-        ;
-    }
-    if ($res)
-    {
         my $ival_2 = scalar @$val;
         $res = jm_is_unique_array($val, $path, $rep) && $ival_2 >= 1;
     }
@@ -409,11 +404,6 @@ sub _jm_f_18($$$)
     my $res;
     # .'$ObjectSchema'.examples
     $res = jm_is_array($val);
-    if ($res)
-    {
-        # accept any array
-        ;
-    }
     return $res;
 }
 

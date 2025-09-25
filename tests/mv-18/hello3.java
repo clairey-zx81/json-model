@@ -44,9 +44,6 @@ public class hello3 extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not a 0 strict int [.hello]", (path != null ? lpath_0 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.hello]", (path != null ? lpath_0 : null));
                     return false;
                 }
@@ -60,9 +57,6 @@ public class hello3 extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not a bool [.world]", (path != null ? lpath_0 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.world]", (path != null ? lpath_0 : null));
                     return false;
                 }
@@ -90,7 +84,7 @@ public class hello3 extends ModelChecker
         }
         return true;
     }
-    
+
     // check $ (.)
     public boolean json_model_2(Object val, Path path, Report rep)
     {
@@ -103,7 +97,7 @@ public class hello3 extends ModelChecker
         }
         return res;
     }
-    
+
 
     public void init(JSON json)
     {

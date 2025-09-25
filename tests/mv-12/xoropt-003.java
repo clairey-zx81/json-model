@@ -24,7 +24,7 @@ public class xoropt_003 extends ModelChecker
     {
         return _jm_re_0_pat.matcher(val).find();
     }
-    
+
     // check $Aa (.'$Aa')
     public boolean json_model_2(Object val, Path path, Report rep)
     {
@@ -74,7 +74,7 @@ public class xoropt_003 extends ModelChecker
         }
         return res;
     }
-    
+
     // check $ (.)
     public boolean json_model_1(Object val, Path path, Report rep)
     {
@@ -87,7 +87,7 @@ public class xoropt_003 extends ModelChecker
         }
         return res;
     }
-    
+
 
     public void init(JSON json)
     {

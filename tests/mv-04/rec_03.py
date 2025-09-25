@@ -48,7 +48,6 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
                         res = json_model_1(arr_0_item, arr_0_lpath if (lpath_0 if path is not None else None) is not None else None, rep)
                         if not res:
                             rep is None or rep.append(("unexpected $root [.foo.'|'.1.0]", arr_0_lpath if (lpath_0 if path is not None else None) is not None else None))
-                        if not res:
                             break
                 if not res:
                     rep is None or rep.append(("not array or unexpected array [.foo.'|'.1]", lpath_0 if path is not None else None))
@@ -56,7 +55,6 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.clear()
             else:
                 rep is None or rep.append(("no model matched [.foo.'|']", lpath_0 if path is not None else None))
-            if not res:
                 rep is None or rep.append(("invalid optional prop value [.foo]", lpath_0 if path is not None else None))
                 return False
         else:

@@ -44,9 +44,6 @@ public class mrg_00 extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not a 0 strict int [.a]", (path != null ? lpath_0 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.a]", (path != null ? lpath_0 : null));
                     return false;
                 }
@@ -60,9 +57,6 @@ public class mrg_00 extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not a 1 strict int [.b]", (path != null ? lpath_0 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.b]", (path != null ? lpath_0 : null));
                     return false;
                 }
@@ -76,9 +70,6 @@ public class mrg_00 extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not a bool [.c]", (path != null ? lpath_0 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.c]", (path != null ? lpath_0 : null));
                     return false;
                 }
@@ -92,9 +83,6 @@ public class mrg_00 extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not a -1 strict int [.d]", (path != null ? lpath_0 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.d]", (path != null ? lpath_0 : null));
                     return false;
                 }
@@ -130,7 +118,7 @@ public class mrg_00 extends ModelChecker
         }
         return true;
     }
-    
+
     // check $ (.)
     public boolean json_model_1(Object val, Path path, Report rep)
     {
@@ -143,7 +131,7 @@ public class mrg_00 extends ModelChecker
         }
         return res;
     }
-    
+
 
     public void init(JSON json)
     {

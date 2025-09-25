@@ -31,7 +31,7 @@ public class obj_04 extends ModelChecker
         }
         return res;
     }
-    
+
     // check $ (.)
     public boolean json_model_1(Object val, Path path, Report rep)
     {
@@ -44,7 +44,7 @@ public class obj_04 extends ModelChecker
         }
         return res;
     }
-    
+
 
     public void init(JSON json)
     {

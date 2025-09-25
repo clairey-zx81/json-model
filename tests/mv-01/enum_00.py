@@ -24,6 +24,7 @@ _jm_cst_0: set[str]
 _jm_cst_1: set[str]
 check_model_map: PropMap
 
+
 # check $p1 (.'$p1')
 def json_model_2(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
@@ -53,16 +54,16 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     xr_0: bool
     # .'^'.0
     xr_0 = json_model_2(val, path, rep)
-    if not xr_0:
-        rep is None or rep.append(("unexpected $p1 [.'^'.0]", path))
     if xr_0:
         xc_0 += 1
+    else:
+        rep is None or rep.append(("unexpected $p1 [.'^'.0]", path))
     # .'^'.1
     xr_0 = json_model_3(val, path, rep)
-    if not xr_0:
-        rep is None or rep.append(("unexpected $p2 [.'^'.1]", path))
     if xr_0:
         xc_0 += 1
+    else:
+        rep is None or rep.append(("unexpected $p2 [.'^'.1]", path))
     res = xc_0 == 1
     if res:
         rep is None or rep.clear()

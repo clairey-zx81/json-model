@@ -37,7 +37,7 @@ public class alts_2 extends ModelChecker
             return false;
         }
     }
-    
+
     // object .'$a'
     public boolean _jm_obj_0(Object val, Path path, Report rep)
     {
@@ -77,15 +77,12 @@ public class alts_2 extends ModelChecker
             else
             {
                 if (rep != null) rep.addEntry("no model matched [.'$a'.''.'|']", (path != null ? lpath_0 : null));
-            }
-            if (! res)
-            {
                 return false;
             }
         }
         return true;
     }
-    
+
     // check $a (.'$a')
     public boolean json_model_2(Object val, Path path, Report rep)
     {
@@ -98,7 +95,7 @@ public class alts_2 extends ModelChecker
         }
         return res;
     }
-    
+
     // object .'$r'.'|'.1
     public boolean _jm_obj_2(Object val, Path path, Report rep)
     {
@@ -117,7 +114,7 @@ public class alts_2 extends ModelChecker
             return false;
         }
     }
-    
+
     // check $r (.'$r')
     public boolean json_model_3(Object val, Path path, Report rep)
     {
@@ -148,7 +145,7 @@ public class alts_2 extends ModelChecker
         }
         return res;
     }
-    
+
     // check $ (.)
     public boolean json_model_1(Object val, Path path, Report rep)
     {
@@ -161,7 +158,7 @@ public class alts_2 extends ModelChecker
         }
         return res;
     }
-    
+
 
     public void init(JSON json)
     {

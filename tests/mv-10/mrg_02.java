@@ -32,7 +32,7 @@ public class mrg_02 extends ModelChecker
         }
         return res;
     }
-    
+
     // object .'$r'
     public boolean _jm_obj_0(Object val, Path path, Report rep)
     {
@@ -58,9 +58,6 @@ public class mrg_02 extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected _cst_01 [.'$r'.a]", (path != null ? lpath_0 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$r'.a]", (path != null ? lpath_0 : null));
                     return false;
                 }
@@ -74,9 +71,6 @@ public class mrg_02 extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected _cst_01 [.'$r'.b]", (path != null ? lpath_0 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$r'.b]", (path != null ? lpath_0 : null));
                     return false;
                 }
@@ -90,9 +84,6 @@ public class mrg_02 extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected _cst_01 [.'$r'.c]", (path != null ? lpath_0 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$r'.c]", (path != null ? lpath_0 : null));
                     return false;
                 }
@@ -106,9 +97,6 @@ public class mrg_02 extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected _cst_01 [.'$r'.d]", (path != null ? lpath_0 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$r'.d]", (path != null ? lpath_0 : null));
                     return false;
                 }
@@ -144,7 +132,7 @@ public class mrg_02 extends ModelChecker
         }
         return true;
     }
-    
+
     // check $r (.'$r')
     public boolean json_model_5(Object val, Path path, Report rep)
     {
@@ -157,7 +145,7 @@ public class mrg_02 extends ModelChecker
         }
         return res;
     }
-    
+
     // object .'$z'
     public boolean _jm_obj_1(Object val, Path path, Report rep)
     {
@@ -183,9 +171,6 @@ public class mrg_02 extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected _cst_02 [.'$z'.e]", (path != null ? lpath_1 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$z'.e]", (path != null ? lpath_1 : null));
                     return false;
                 }
@@ -199,9 +184,6 @@ public class mrg_02 extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected _cst_02 [.'$z'.f]", (path != null ? lpath_1 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$z'.f]", (path != null ? lpath_1 : null));
                     return false;
                 }
@@ -229,7 +211,7 @@ public class mrg_02 extends ModelChecker
         }
         return true;
     }
-    
+
     // check $z (.'$z')
     public boolean json_model_4(Object val, Path path, Report rep)
     {
@@ -242,7 +224,7 @@ public class mrg_02 extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_2_mup_a (.a)
     public boolean _jm_f_0(Object val, Path path, Report rep)
     {
@@ -255,7 +237,7 @@ public class mrg_02 extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_2_mup_b (.b)
     public boolean _jm_f_1(Object val, Path path, Report rep)
     {
@@ -268,7 +250,7 @@ public class mrg_02 extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_2_mup_c (.c)
     public boolean _jm_f_2(Object val, Path path, Report rep)
     {
@@ -281,7 +263,7 @@ public class mrg_02 extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_2_mup_d (.d)
     public boolean _jm_f_3(Object val, Path path, Report rep)
     {
@@ -294,7 +276,7 @@ public class mrg_02 extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_2_mup_e (.e)
     public boolean _jm_f_4(Object val, Path path, Report rep)
     {
@@ -307,7 +289,7 @@ public class mrg_02 extends ModelChecker
         }
         return res;
     }
-    
+
     // check _jm_obj_2_mup_f (.f)
     public boolean _jm_f_5(Object val, Path path, Report rep)
     {
@@ -320,8 +302,8 @@ public class mrg_02 extends ModelChecker
         }
         return res;
     }
-    
-    
+
+
     // object .
     public boolean _jm_obj_2(Object val, Path path, Report rep)
     {
@@ -390,7 +372,7 @@ public class mrg_02 extends ModelChecker
         }
         return true;
     }
-    
+
     // check $ (.)
     public boolean json_model_1(Object val, Path path, Report rep)
     {
@@ -403,7 +385,7 @@ public class mrg_02 extends ModelChecker
         }
         return res;
     }
-    
+
 
     public void init(JSON json)
     {

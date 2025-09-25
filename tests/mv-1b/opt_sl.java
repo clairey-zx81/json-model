@@ -44,9 +44,6 @@ public class opt_sl extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not a -1 strict int [.i]", (path != null ? lpath_0 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.i]", (path != null ? lpath_0 : null));
                     return false;
                 }
@@ -60,9 +57,6 @@ public class opt_sl extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("not a -1.0 loose float [.f]", (path != null ? lpath_0 : null));
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.f]", (path != null ? lpath_0 : null));
                     return false;
                 }
@@ -90,7 +84,7 @@ public class opt_sl extends ModelChecker
         }
         return true;
     }
-    
+
     // check $ (.)
     public boolean json_model_1(Object val, Path path, Report rep)
     {
@@ -104,7 +98,7 @@ public class opt_sl extends ModelChecker
         }
         return res;
     }
-    
+
 
     public void init(JSON json)
     {

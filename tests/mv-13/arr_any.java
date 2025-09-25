@@ -25,17 +25,13 @@ public class arr_any extends ModelChecker
         boolean res;
         // .
         res = json.isArray(val);
-        if (res)
-        {
-            // accept any array
-        }
         if (! res)
         {
             if (rep != null) rep.addEntry("not array or unexpected array [.]", path);
         }
         return res;
     }
-    
+
 
     public void init(JSON json)
     {

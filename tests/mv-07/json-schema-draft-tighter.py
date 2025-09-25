@@ -89,7 +89,6 @@ def json_model_3(val: Jsonable, path: Path, rep: Report) -> bool:
             res = isinstance(arr_2_item, str)
             if not res:
                 rep is None or rep.append(("unexpected string [.'$enum'.'|'.0.0]", arr_2_lpath if path is not None else None))
-            if not res:
                 break
         if not res:
             rep is None or rep.append(("not array or unexpected array [.'$enum'.'|'.0]", path))
@@ -101,7 +100,6 @@ def json_model_3(val: Jsonable, path: Path, rep: Report) -> bool:
                 res = isinstance(arr_1_item, int) and not isinstance(arr_1_item, bool)
                 if not res:
                     rep is None or rep.append(("not a -1 strict int [.'$enum'.'|'.1.0]", arr_1_lpath if path is not None else None))
-                if not res:
                     break
             if not res:
                 rep is None or rep.append(("not array or unexpected array [.'$enum'.'|'.1]", path))
@@ -113,7 +111,6 @@ def json_model_3(val: Jsonable, path: Path, rep: Report) -> bool:
                     res = isinstance(arr_0_item, bool)
                     if not res:
                         rep is None or rep.append(("not a bool [.'$enum'.'|'.2.0]", arr_0_lpath if path is not None else None))
-                    if not res:
                         break
                 if not res:
                     rep is None or rep.append(("not array or unexpected array [.'$enum'.'|'.2]", path))
@@ -135,7 +132,6 @@ def json_model_4(val: Jsonable, path: Path, rep: Report) -> bool:
             res = json_model_24(arr_3_item, arr_3_lpath if path is not None else None, rep)
             if not res:
                 rep is None or rep.append(("unexpected $Schema [.'$schemaArray'.0]", arr_3_lpath if path is not None else None))
-            if not res:
                 break
     if not res:
         rep is None or rep.append(("not array or unexpected array [.'$schemaArray']", path))
@@ -157,7 +153,6 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
             res = is_valid_regex(pval, lpath_0 if path is not None else None, rep)
             if not res:
                 rep is None or rep.append(("unexpected $REGEX [.'$stringKeywords'.pattern]", lpath_0 if path is not None else None))
-            if not res:
                 rep is None or rep.append(("invalid optional prop value [.'$stringKeywords'.pattern]", lpath_0 if path is not None else None))
                 return False
         elif prop == "minLength":
@@ -166,7 +161,6 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
             res = isinstance(pval, int) and not isinstance(pval, bool) and pval >= 0
             if not res:
                 rep is None or rep.append(("not a 0 strict int [.'$stringKeywords'.minLength]", lpath_0 if path is not None else None))
-            if not res:
                 rep is None or rep.append(("invalid optional prop value [.'$stringKeywords'.minLength]", lpath_0 if path is not None else None))
                 return False
         elif prop == "maxLength":
@@ -175,7 +169,6 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
             res = isinstance(pval, int) and not isinstance(pval, bool) and pval >= 0
             if not res:
                 rep is None or rep.append(("not a 0 strict int [.'$stringKeywords'.maxLength]", lpath_0 if path is not None else None))
-            if not res:
                 rep is None or rep.append(("invalid optional prop value [.'$stringKeywords'.maxLength]", lpath_0 if path is not None else None))
                 return False
         elif prop == "format":
@@ -184,7 +177,6 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
             res = ((pval is None or isinstance(pval, (bool, int, float, str)))) and pval in _jm_cst_0
             if not res:
                 rep is None or rep.append(("value not in enum [.'$stringKeywords'.format.'|']", lpath_0 if path is not None else None))
-            if not res:
                 rep is None or rep.append(("invalid optional prop value [.'$stringKeywords'.format]", lpath_0 if path is not None else None))
                 return False
         else:
@@ -309,7 +301,6 @@ def _jm_obj_3(val: Jsonable, path: Path, rep: Report) -> bool:
         res = json_model_24(pval, lpath_3 if path is not None else None, rep)
         if not res:
             rep is None or rep.append(("unexpected $Schema [.'$objectKeywords'.properties.'']", lpath_3 if path is not None else None))
-        if not res:
             return False
     return True
 
@@ -328,7 +319,6 @@ def _jm_obj_4(val: Jsonable, path: Path, rep: Report) -> bool:
             res = json_model_24(pval, lpath_4 if path is not None else None, rep)
             if not res:
                 rep is None or rep.append(("unexpected $Schema [.'$objectKeywords'.patternProperties.'$REGEX']", lpath_4 if path is not None else None))
-            if not res:
                 return False
         else:
             rep is None or rep.append(("unexpected prop [.'$objectKeywords'.patternProperties]", lpath_4 if path is not None else None))
@@ -350,7 +340,6 @@ def _jm_obj_2(val: Jsonable, path: Path, rep: Report) -> bool:
             res = _jm_obj_3(pval, lpath_2 if path is not None else None, rep)
             if not res:
                 rep is None or rep.append(("unexpected element [.'$objectKeywords'.properties]", lpath_2 if path is not None else None))
-            if not res:
                 rep is None or rep.append(("invalid optional prop value [.'$objectKeywords'.properties]", lpath_2 if path is not None else None))
                 return False
         elif prop == "required":
@@ -364,11 +353,9 @@ def _jm_obj_2(val: Jsonable, path: Path, rep: Report) -> bool:
                     res = isinstance(arr_4_item, str)
                     if not res:
                         rep is None or rep.append(("unexpected string [.'$objectKeywords'.required.0]", arr_4_lpath if (lpath_2 if path is not None else None) is not None else None))
-                    if not res:
                         break
             if not res:
                 rep is None or rep.append(("not array or unexpected array [.'$objectKeywords'.required]", lpath_2 if path is not None else None))
-            if not res:
                 rep is None or rep.append(("invalid optional prop value [.'$objectKeywords'.required]", lpath_2 if path is not None else None))
                 return False
         elif prop == "additionalProperties":
@@ -377,7 +364,6 @@ def _jm_obj_2(val: Jsonable, path: Path, rep: Report) -> bool:
             res = json_model_24(pval, lpath_2 if path is not None else None, rep)
             if not res:
                 rep is None or rep.append(("unexpected $Schema [.'$objectKeywords'.additionalProperties]", lpath_2 if path is not None else None))
-            if not res:
                 rep is None or rep.append(("invalid optional prop value [.'$objectKeywords'.additionalProperties]", lpath_2 if path is not None else None))
                 return False
         elif prop == "patternProperties":
@@ -386,7 +372,6 @@ def _jm_obj_2(val: Jsonable, path: Path, rep: Report) -> bool:
             res = _jm_obj_4(pval, lpath_2 if path is not None else None, rep)
             if not res:
                 rep is None or rep.append(("unexpected element [.'$objectKeywords'.patternProperties]", lpath_2 if path is not None else None))
-            if not res:
                 rep is None or rep.append(("invalid optional prop value [.'$objectKeywords'.patternProperties]", lpath_2 if path is not None else None))
                 return False
         else:
@@ -419,7 +404,6 @@ def _jm_obj_5(val: Jsonable, path: Path, rep: Report) -> bool:
             res = isinstance(pval, float)
             if not res:
                 rep is None or rep.append(("not a -1.0 strict float [.'$numberKeywords'.minimum]", lpath_5 if path is not None else None))
-            if not res:
                 rep is None or rep.append(("invalid optional prop value [.'$numberKeywords'.minimum]", lpath_5 if path is not None else None))
                 return False
         elif prop == "maximum":
@@ -428,7 +412,6 @@ def _jm_obj_5(val: Jsonable, path: Path, rep: Report) -> bool:
             res = isinstance(pval, float)
             if not res:
                 rep is None or rep.append(("not a -1.0 strict float [.'$numberKeywords'.maximum]", lpath_5 if path is not None else None))
-            if not res:
                 rep is None or rep.append(("invalid optional prop value [.'$numberKeywords'.maximum]", lpath_5 if path is not None else None))
                 return False
         else:
@@ -469,7 +452,6 @@ def _jm_obj_7(val: Jsonable, path: Path, rep: Report) -> bool:
         res = json_model_24(pval, lpath_7 if path is not None else None, rep)
         if not res:
             rep is None or rep.append(("unexpected $Schema [.'$metas'.'$defs'.'']", lpath_7 if path is not None else None))
-        if not res:
             return False
     return True
 
@@ -523,7 +505,6 @@ def _jm_obj_8(val: Jsonable, path: Path, rep: Report) -> bool:
         res = json_model_24(pval, lpath_8 if path is not None else None, rep)
         if not res:
             rep is None or rep.append(("unexpected $Schema [.'$metas'.definitions.'']", lpath_8 if path is not None else None))
-        if not res:
             return False
     return True
 
@@ -550,9 +531,6 @@ def _jm_f_13(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$metas'.examples
     res = isinstance(val, list)
-    if res:
-        # accept any array
-        pass
     if not res:
         rep is None or rep.append(("not array or unexpected array [.'$metas'.examples]", path))
     return res
@@ -628,7 +606,6 @@ def _jm_obj_10(val: Jsonable, path: Path, rep: Report) -> bool:
         res = json_model_24(pval, lpath_10 if path is not None else None, rep)
         if not res:
             rep is None or rep.append(("unexpected $Schema [.'$String'.'$defs'.'']", lpath_10 if path is not None else None))
-        if not res:
             return False
     return True
 
@@ -682,7 +659,6 @@ def _jm_obj_11(val: Jsonable, path: Path, rep: Report) -> bool:
         res = json_model_24(pval, lpath_11 if path is not None else None, rep)
         if not res:
             rep is None or rep.append(("unexpected $Schema [.'$String'.definitions.'']", lpath_11 if path is not None else None))
-        if not res:
             return False
     return True
 
@@ -709,9 +685,6 @@ def _jm_f_23(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$String'.examples
     res = isinstance(val, list)
-    if res:
-        # accept any array
-        pass
     if not res:
         rep is None or rep.append(("not array or unexpected array [.'$String'.examples]", path))
     return res
@@ -790,7 +763,6 @@ def _jm_obj_9(val: Jsonable, path: Path, rep: Report) -> bool:
             res = isinstance(pval, str) and pval == "string"
             if not res:
                 rep is None or rep.append(("unexpected string [.'$String'.type]", lpath_9 if path is not None else None))
-            if not res:
                 rep is None or rep.append(("invalid mandatory prop value [.'$String'.type]", lpath_9 if path is not None else None))
                 return False
         elif pfun := _jm_obj_9_map.get(prop):
@@ -840,7 +812,6 @@ def _jm_obj_13(val: Jsonable, path: Path, rep: Report) -> bool:
         res = json_model_24(pval, lpath_13 if path is not None else None, rep)
         if not res:
             rep is None or rep.append(("unexpected $Schema [.'$Array'.'$defs'.'']", lpath_13 if path is not None else None))
-        if not res:
             return False
     return True
 
@@ -903,7 +874,6 @@ def _jm_obj_14(val: Jsonable, path: Path, rep: Report) -> bool:
         res = json_model_24(pval, lpath_14 if path is not None else None, rep)
         if not res:
             rep is None or rep.append(("unexpected $Schema [.'$Array'.definitions.'']", lpath_14 if path is not None else None))
-        if not res:
             return False
     return True
 
@@ -930,9 +900,6 @@ def _jm_f_38(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$Array'.examples
     res = isinstance(val, list)
-    if res:
-        # accept any array
-        pass
     if not res:
         rep is None or rep.append(("not array or unexpected array [.'$Array'.examples]", path))
     return res
@@ -1029,7 +996,6 @@ def _jm_obj_12(val: Jsonable, path: Path, rep: Report) -> bool:
             res = isinstance(pval, str) and pval == "array"
             if not res:
                 rep is None or rep.append(("unexpected array [.'$Array'.type]", lpath_12 if path is not None else None))
-            if not res:
                 rep is None or rep.append(("invalid mandatory prop value [.'$Array'.type]", lpath_12 if path is not None else None))
                 return False
         elif pfun := _jm_obj_12_map.get(prop):
@@ -1079,7 +1045,6 @@ def _jm_obj_16(val: Jsonable, path: Path, rep: Report) -> bool:
         res = json_model_24(pval, lpath_16 if path is not None else None, rep)
         if not res:
             rep is None or rep.append(("unexpected $Schema [.'$Object'.'$defs'.'']", lpath_16 if path is not None else None))
-        if not res:
             return False
     return True
 
@@ -1142,7 +1107,6 @@ def _jm_obj_17(val: Jsonable, path: Path, rep: Report) -> bool:
         res = json_model_24(pval, lpath_17 if path is not None else None, rep)
         if not res:
             rep is None or rep.append(("unexpected $Schema [.'$Object'.definitions.'']", lpath_17 if path is not None else None))
-        if not res:
             return False
     return True
 
@@ -1169,9 +1133,6 @@ def _jm_f_54(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$Object'.examples
     res = isinstance(val, list)
-    if res:
-        # accept any array
-        pass
     if not res:
         rep is None or rep.append(("not array or unexpected array [.'$Object'.examples]", path))
     return res
@@ -1200,7 +1161,6 @@ def _jm_obj_18(val: Jsonable, path: Path, rep: Report) -> bool:
             res = json_model_24(pval, lpath_18 if path is not None else None, rep)
             if not res:
                 rep is None or rep.append(("unexpected $Schema [.'$Object'.patternProperties.'$REGEX']", lpath_18 if path is not None else None))
-            if not res:
                 return False
         else:
             rep is None or rep.append(("unexpected prop [.'$Object'.patternProperties]", lpath_18 if path is not None else None))
@@ -1230,7 +1190,6 @@ def _jm_obj_19(val: Jsonable, path: Path, rep: Report) -> bool:
         res = json_model_24(pval, lpath_19 if path is not None else None, rep)
         if not res:
             rep is None or rep.append(("unexpected $Schema [.'$Object'.properties.'']", lpath_19 if path is not None else None))
-        if not res:
             return False
     return True
 
@@ -1255,7 +1214,6 @@ def _jm_f_58(val: Jsonable, path: Path, rep: Report) -> bool:
             res = isinstance(arr_5_item, str)
             if not res:
                 rep is None or rep.append(("unexpected string [.'$Object'.required.0]", arr_5_lpath if path is not None else None))
-            if not res:
                 break
     if not res:
         rep is None or rep.append(("not array or unexpected array [.'$Object'.required]", path))
@@ -1289,7 +1247,6 @@ def _jm_obj_15(val: Jsonable, path: Path, rep: Report) -> bool:
             res = isinstance(pval, str) and pval == "object"
             if not res:
                 rep is None or rep.append(("unexpected object [.'$Object'.type]", lpath_15 if path is not None else None))
-            if not res:
                 rep is None or rep.append(("invalid mandatory prop value [.'$Object'.type]", lpath_15 if path is not None else None))
                 return False
         elif pfun := _jm_obj_15_map.get(prop):
@@ -1339,7 +1296,6 @@ def _jm_obj_21(val: Jsonable, path: Path, rep: Report) -> bool:
         res = json_model_24(pval, lpath_21 if path is not None else None, rep)
         if not res:
             rep is None or rep.append(("unexpected $Schema [.'$Integer'.'$defs'.'']", lpath_21 if path is not None else None))
-        if not res:
             return False
     return True
 
@@ -1393,7 +1349,6 @@ def _jm_obj_22(val: Jsonable, path: Path, rep: Report) -> bool:
         res = json_model_24(pval, lpath_22 if path is not None else None, rep)
         if not res:
             rep is None or rep.append(("unexpected $Schema [.'$Integer'.definitions.'']", lpath_22 if path is not None else None))
-        if not res:
             return False
     return True
 
@@ -1420,9 +1375,6 @@ def _jm_f_67(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$Integer'.examples
     res = isinstance(val, list)
-    if res:
-        # accept any array
-        pass
     if not res:
         rep is None or rep.append(("not array or unexpected array [.'$Integer'.examples]", path))
     return res
@@ -1482,7 +1434,6 @@ def _jm_obj_20(val: Jsonable, path: Path, rep: Report) -> bool:
             res = isinstance(pval, str) and pval == "integer"
             if not res:
                 rep is None or rep.append(("unexpected integer [.'$Integer'.type]", lpath_20 if path is not None else None))
-            if not res:
                 rep is None or rep.append(("invalid mandatory prop value [.'$Integer'.type]", lpath_20 if path is not None else None))
                 return False
         elif pfun := _jm_obj_20_map.get(prop):
@@ -1532,7 +1483,6 @@ def _jm_obj_24(val: Jsonable, path: Path, rep: Report) -> bool:
         res = json_model_24(pval, lpath_24 if path is not None else None, rep)
         if not res:
             rep is None or rep.append(("unexpected $Schema [.'$Number'.'$defs'.'']", lpath_24 if path is not None else None))
-        if not res:
             return False
     return True
 
@@ -1586,7 +1536,6 @@ def _jm_obj_25(val: Jsonable, path: Path, rep: Report) -> bool:
         res = json_model_24(pval, lpath_25 if path is not None else None, rep)
         if not res:
             rep is None or rep.append(("unexpected $Schema [.'$Number'.definitions.'']", lpath_25 if path is not None else None))
-        if not res:
             return False
     return True
 
@@ -1613,9 +1562,6 @@ def _jm_f_79(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$Number'.examples
     res = isinstance(val, list)
-    if res:
-        # accept any array
-        pass
     if not res:
         rep is None or rep.append(("not array or unexpected array [.'$Number'.examples]", path))
     return res
@@ -1675,7 +1621,6 @@ def _jm_obj_23(val: Jsonable, path: Path, rep: Report) -> bool:
             res = isinstance(pval, str) and pval == "number"
             if not res:
                 rep is None or rep.append(("unexpected number [.'$Number'.type]", lpath_23 if path is not None else None))
-            if not res:
                 rep is None or rep.append(("invalid mandatory prop value [.'$Number'.type]", lpath_23 if path is not None else None))
                 return False
         elif pfun := _jm_obj_23_map.get(prop):
@@ -1725,7 +1670,6 @@ def _jm_obj_27(val: Jsonable, path: Path, rep: Report) -> bool:
         res = json_model_24(pval, lpath_27 if path is not None else None, rep)
         if not res:
             rep is None or rep.append(("unexpected $Schema [.'$Bool'.'$defs'.'']", lpath_27 if path is not None else None))
-        if not res:
             return False
     return True
 
@@ -1779,7 +1723,6 @@ def _jm_obj_28(val: Jsonable, path: Path, rep: Report) -> bool:
         res = json_model_24(pval, lpath_28 if path is not None else None, rep)
         if not res:
             rep is None or rep.append(("unexpected $Schema [.'$Bool'.definitions.'']", lpath_28 if path is not None else None))
-        if not res:
             return False
     return True
 
@@ -1806,9 +1749,6 @@ def _jm_f_91(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$Bool'.examples
     res = isinstance(val, list)
-    if res:
-        # accept any array
-        pass
     if not res:
         rep is None or rep.append(("not array or unexpected array [.'$Bool'.examples]", path))
     return res
@@ -1850,7 +1790,6 @@ def _jm_obj_26(val: Jsonable, path: Path, rep: Report) -> bool:
             res = isinstance(pval, str) and pval == "boolean"
             if not res:
                 rep is None or rep.append(("unexpected boolean [.'$Bool'.type]", lpath_26 if path is not None else None))
-            if not res:
                 rep is None or rep.append(("invalid mandatory prop value [.'$Bool'.type]", lpath_26 if path is not None else None))
                 return False
         elif pfun := _jm_obj_26_map.get(prop):
@@ -1900,7 +1839,6 @@ def _jm_obj_30(val: Jsonable, path: Path, rep: Report) -> bool:
         res = json_model_24(pval, lpath_30 if path is not None else None, rep)
         if not res:
             rep is None or rep.append(("unexpected $Schema [.'$Null'.'$defs'.'']", lpath_30 if path is not None else None))
-        if not res:
             return False
     return True
 
@@ -1954,7 +1892,6 @@ def _jm_obj_31(val: Jsonable, path: Path, rep: Report) -> bool:
         res = json_model_24(pval, lpath_31 if path is not None else None, rep)
         if not res:
             rep is None or rep.append(("unexpected $Schema [.'$Null'.definitions.'']", lpath_31 if path is not None else None))
-        if not res:
             return False
     return True
 
@@ -1981,9 +1918,6 @@ def _jm_f_101(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$Null'.examples
     res = isinstance(val, list)
-    if res:
-        # accept any array
-        pass
     if not res:
         rep is None or rep.append(("not array or unexpected array [.'$Null'.examples]", path))
     return res
@@ -2025,7 +1959,6 @@ def _jm_obj_29(val: Jsonable, path: Path, rep: Report) -> bool:
             res = isinstance(pval, str) and pval == "null"
             if not res:
                 rep is None or rep.append(("unexpected null [.'$Null'.type]", lpath_29 if path is not None else None))
-            if not res:
                 rep is None or rep.append(("invalid mandatory prop value [.'$Null'.type]", lpath_29 if path is not None else None))
                 return False
         elif pfun := _jm_obj_29_map.get(prop):
@@ -2075,7 +2008,6 @@ def _jm_obj_33(val: Jsonable, path: Path, rep: Report) -> bool:
         res = json_model_24(pval, lpath_33 if path is not None else None, rep)
         if not res:
             rep is None or rep.append(("unexpected $Schema [.'$AllOf'.'$defs'.'']", lpath_33 if path is not None else None))
-        if not res:
             return False
     return True
 
@@ -2129,7 +2061,6 @@ def _jm_obj_34(val: Jsonable, path: Path, rep: Report) -> bool:
         res = json_model_24(pval, lpath_34 if path is not None else None, rep)
         if not res:
             rep is None or rep.append(("unexpected $Schema [.'$AllOf'.definitions.'']", lpath_34 if path is not None else None))
-        if not res:
             return False
     return True
 
@@ -2156,9 +2087,6 @@ def _jm_f_111(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$AllOf'.examples
     res = isinstance(val, list)
-    if res:
-        # accept any array
-        pass
     if not res:
         rep is None or rep.append(("not array or unexpected array [.'$AllOf'.examples]", path))
     return res
@@ -2200,7 +2128,6 @@ def _jm_obj_32(val: Jsonable, path: Path, rep: Report) -> bool:
             res = json_model_4(pval, lpath_32 if path is not None else None, rep)
             if not res:
                 rep is None or rep.append(("unexpected $schemaArray [.'$AllOf'.allOf]", lpath_32 if path is not None else None))
-            if not res:
                 rep is None or rep.append(("invalid mandatory prop value [.'$AllOf'.allOf]", lpath_32 if path is not None else None))
                 return False
         elif pfun := _jm_obj_32_map.get(prop):
@@ -2250,7 +2177,6 @@ def _jm_obj_36(val: Jsonable, path: Path, rep: Report) -> bool:
         res = json_model_24(pval, lpath_36 if path is not None else None, rep)
         if not res:
             rep is None or rep.append(("unexpected $Schema [.'$AnyOf'.'$defs'.'']", lpath_36 if path is not None else None))
-        if not res:
             return False
     return True
 
@@ -2304,7 +2230,6 @@ def _jm_obj_37(val: Jsonable, path: Path, rep: Report) -> bool:
         res = json_model_24(pval, lpath_37 if path is not None else None, rep)
         if not res:
             rep is None or rep.append(("unexpected $Schema [.'$AnyOf'.definitions.'']", lpath_37 if path is not None else None))
-        if not res:
             return False
     return True
 
@@ -2331,9 +2256,6 @@ def _jm_f_121(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$AnyOf'.examples
     res = isinstance(val, list)
-    if res:
-        # accept any array
-        pass
     if not res:
         rep is None or rep.append(("not array or unexpected array [.'$AnyOf'.examples]", path))
     return res
@@ -2375,7 +2297,6 @@ def _jm_obj_35(val: Jsonable, path: Path, rep: Report) -> bool:
             res = json_model_4(pval, lpath_35 if path is not None else None, rep)
             if not res:
                 rep is None or rep.append(("unexpected $schemaArray [.'$AnyOf'.anyOf]", lpath_35 if path is not None else None))
-            if not res:
                 rep is None or rep.append(("invalid mandatory prop value [.'$AnyOf'.anyOf]", lpath_35 if path is not None else None))
                 return False
         elif pfun := _jm_obj_35_map.get(prop):
@@ -2425,7 +2346,6 @@ def _jm_obj_39(val: Jsonable, path: Path, rep: Report) -> bool:
         res = json_model_24(pval, lpath_39 if path is not None else None, rep)
         if not res:
             rep is None or rep.append(("unexpected $Schema [.'$OneOf'.'$defs'.'']", lpath_39 if path is not None else None))
-        if not res:
             return False
     return True
 
@@ -2479,7 +2399,6 @@ def _jm_obj_40(val: Jsonable, path: Path, rep: Report) -> bool:
         res = json_model_24(pval, lpath_40 if path is not None else None, rep)
         if not res:
             rep is None or rep.append(("unexpected $Schema [.'$OneOf'.definitions.'']", lpath_40 if path is not None else None))
-        if not res:
             return False
     return True
 
@@ -2506,9 +2425,6 @@ def _jm_f_131(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$OneOf'.examples
     res = isinstance(val, list)
-    if res:
-        # accept any array
-        pass
     if not res:
         rep is None or rep.append(("not array or unexpected array [.'$OneOf'.examples]", path))
     return res
@@ -2550,7 +2466,6 @@ def _jm_obj_38(val: Jsonable, path: Path, rep: Report) -> bool:
             res = json_model_4(pval, lpath_38 if path is not None else None, rep)
             if not res:
                 rep is None or rep.append(("unexpected $schemaArray [.'$OneOf'.oneOf]", lpath_38 if path is not None else None))
-            if not res:
                 rep is None or rep.append(("invalid mandatory prop value [.'$OneOf'.oneOf]", lpath_38 if path is not None else None))
                 return False
         elif pfun := _jm_obj_38_map.get(prop):
@@ -2600,7 +2515,6 @@ def _jm_obj_42(val: Jsonable, path: Path, rep: Report) -> bool:
         res = json_model_24(pval, lpath_42 if path is not None else None, rep)
         if not res:
             rep is None or rep.append(("unexpected $Schema [.'$Enum'.'$defs'.'']", lpath_42 if path is not None else None))
-        if not res:
             return False
     return True
 
@@ -2654,7 +2568,6 @@ def _jm_obj_43(val: Jsonable, path: Path, rep: Report) -> bool:
         res = json_model_24(pval, lpath_43 if path is not None else None, rep)
         if not res:
             rep is None or rep.append(("unexpected $Schema [.'$Enum'.definitions.'']", lpath_43 if path is not None else None))
-        if not res:
             return False
     return True
 
@@ -2681,9 +2594,6 @@ def _jm_f_141(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$Enum'.examples
     res = isinstance(val, list)
-    if res:
-        # accept any array
-        pass
     if not res:
         rep is None or rep.append(("not array or unexpected array [.'$Enum'.examples]", path))
     return res
@@ -2725,7 +2635,6 @@ def _jm_obj_41(val: Jsonable, path: Path, rep: Report) -> bool:
             res = json_model_3(pval, lpath_41 if path is not None else None, rep)
             if not res:
                 rep is None or rep.append(("unexpected $enum [.'$Enum'.enum]", lpath_41 if path is not None else None))
-            if not res:
                 rep is None or rep.append(("invalid mandatory prop value [.'$Enum'.enum]", lpath_41 if path is not None else None))
                 return False
         elif pfun := _jm_obj_41_map.get(prop):
@@ -2775,7 +2684,6 @@ def _jm_obj_45(val: Jsonable, path: Path, rep: Report) -> bool:
         res = json_model_24(pval, lpath_45 if path is not None else None, rep)
         if not res:
             rep is None or rep.append(("unexpected $Schema [.'$Const'.'$defs'.'']", lpath_45 if path is not None else None))
-        if not res:
             return False
     return True
 
@@ -2829,7 +2737,6 @@ def _jm_obj_46(val: Jsonable, path: Path, rep: Report) -> bool:
         res = json_model_24(pval, lpath_46 if path is not None else None, rep)
         if not res:
             rep is None or rep.append(("unexpected $Schema [.'$Const'.definitions.'']", lpath_46 if path is not None else None))
-        if not res:
             return False
     return True
 
@@ -2856,9 +2763,6 @@ def _jm_f_151(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$Const'.examples
     res = isinstance(val, list)
-    if res:
-        # accept any array
-        pass
     if not res:
         rep is None or rep.append(("not array or unexpected array [.'$Const'.examples]", path))
     return res
@@ -2900,7 +2804,6 @@ def _jm_obj_44(val: Jsonable, path: Path, rep: Report) -> bool:
             res = json_model_2(pval, lpath_44 if path is not None else None, rep)
             if not res:
                 rep is None or rep.append(("unexpected $const [.'$Const'.const]", lpath_44 if path is not None else None))
-            if not res:
                 rep is None or rep.append(("invalid mandatory prop value [.'$Const'.const]", lpath_44 if path is not None else None))
                 return False
         elif pfun := _jm_obj_44_map.get(prop):
@@ -2950,7 +2853,6 @@ def _jm_obj_48(val: Jsonable, path: Path, rep: Report) -> bool:
         res = json_model_24(pval, lpath_48 if path is not None else None, rep)
         if not res:
             rep is None or rep.append(("unexpected $Schema [.'$Ref'.'$defs'.'']", lpath_48 if path is not None else None))
-        if not res:
             return False
     return True
 
@@ -3004,7 +2906,6 @@ def _jm_obj_49(val: Jsonable, path: Path, rep: Report) -> bool:
         res = json_model_24(pval, lpath_49 if path is not None else None, rep)
         if not res:
             rep is None or rep.append(("unexpected $Schema [.'$Ref'.definitions.'']", lpath_49 if path is not None else None))
-        if not res:
             return False
     return True
 
@@ -3031,9 +2932,6 @@ def _jm_f_161(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$Ref'.examples
     res = isinstance(val, list)
-    if res:
-        # accept any array
-        pass
     if not res:
         rep is None or rep.append(("not array or unexpected array [.'$Ref'.examples]", path))
     return res
@@ -3075,7 +2973,6 @@ def _jm_obj_47(val: Jsonable, path: Path, rep: Report) -> bool:
             res = is_valid_url(pval, lpath_47 if path is not None else None, rep)
             if not res:
                 rep is None or rep.append(("unexpected $URL [.'$Ref'.'$ref']", lpath_47 if path is not None else None))
-            if not res:
                 rep is None or rep.append(("invalid mandatory prop value [.'$Ref'.'$ref']", lpath_47 if path is not None else None))
                 return False
         elif pfun := _jm_obj_47_map.get(prop):
@@ -3175,7 +3072,6 @@ def _jm_obj_50(val: Jsonable, path: Path, rep: Report) -> bool:
     res = isinstance(pval, str)
     if not res:
         rep is None or rep.append(("unexpected string [.'$RootSchema'.'&'.0.'$schema']", path))
-    if not res:
         rep is None or rep.append(("unexpected value for mandatory prop <$schema> [.'$RootSchema'.'&'.0]", path))
         return False
     return True

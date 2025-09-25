@@ -31,7 +31,7 @@ public class eq_null extends ModelChecker
         }
         return res;
     }
-    
+
 
     public void init(JSON json)
     {

@@ -53,12 +53,12 @@ public class scope_1 extends ModelChecker
         }
         return res;
     }
-    
+
     public boolean _jm_re_0(String val, Path path, Report rep)
     {
         return _jm_re_0_pat.matcher(val).find();
     }
-    
+
     // check $s (.'$s')
     public boolean json_model_3(Object val, Path path, Report rep)
     {
@@ -72,7 +72,7 @@ public class scope_1 extends ModelChecker
         }
         return res;
     }
-    
+
     // check $ (.)
     public boolean json_model_1(Object val, Path path, Report rep)
     {
@@ -104,12 +104,12 @@ public class scope_1 extends ModelChecker
         }
         return res;
     }
-    
+
     public boolean _jm_re_1(String val, Path path, Report rep)
     {
         return _jm_re_1_pat.matcher(val).find();
     }
-    
+
     // check $r#s (.'$r#s')
     public boolean json_model_5(Object val, Path path, Report rep)
     {
@@ -123,7 +123,7 @@ public class scope_1 extends ModelChecker
         }
         return res;
     }
-    
+
 
     public void init(JSON json)
     {

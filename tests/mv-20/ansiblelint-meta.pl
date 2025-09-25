@@ -192,6 +192,7 @@ sub json_model_60($$$);
 sub json_model_1($$$);
 my %check_model_map;
 
+
 # object .'$AIXPlatformModel'
 sub _jm_obj_0($$$)
 {
@@ -6021,11 +6022,6 @@ sub _jm_f_6($$$)
     my $res;
     # .'$GalaxyInfoModelCollection'.video_links
     $res = jm_is_array($val);
-    if ($res)
-    {
-        # accept any array
-        ;
-    }
     return $res;
 }
 
@@ -6297,11 +6293,6 @@ sub _jm_f_22($$$)
     my $res;
     # .'$GalaxyInfoModelStandalone'.video_links
     $res = jm_is_array($val);
-    if ($res)
-    {
-        # accept any array
-        ;
-    }
     return $res;
 }
 
@@ -6547,11 +6538,6 @@ sub _jm_f_35($$$)
     my $res;
     # .'$GalaxyInfoModel'.'|'.1.video_links
     $res = jm_is_array($val);
-    if ($res)
-    {
-        # accept any array
-        ;
-    }
     return $res;
 }
 
@@ -6754,11 +6740,6 @@ sub _jm_f_48($$$)
     my $res;
     # .'$GalaxyInfoModel'.'|'.2.video_links
     $res = jm_is_array($val);
-    if ($res)
-    {
-        # accept any array
-        ;
-    }
     return $res;
 }
 

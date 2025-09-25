@@ -31,9 +31,6 @@ function _jm_obj_0(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected _initial foo [.'$Foo'.foo]", (path ? lpath_0 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid optional prop value [.'$Foo'.foo]", (path ? lpath_0 : null)])
                 return false;
             }
