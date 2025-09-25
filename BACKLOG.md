@@ -14,14 +14,15 @@
 - [x] xstatic: skip IR if not needed
 - [x] command: add `--ir-optimize` option
 - [x] command: activate ir optimization by default
+- [x] backend: IR handling of ConstMap
+- [ ] static: skip model function to call obj function directly on references
 - [ ] tests: add ir optimized output
-- [ ] tests: drop language outputs for IR only?
-- [ ] backend: IR handling of ConstMap and ConstSet
+- [ ] tests: add pytest ir tests
+- [ ] tests: drop language outputs for IR only?!
 - [ ] backend: improve and extend IR optimizations?
 - [ ] command: add direct ir to lang conversion
 - [ ] models: write model for json code!
 - [ ] artifact: make work with dind
-- [ ] static: skip model function to call obj function directly on references
 - [ ] static: recognize already compile objects and reuse function esp under no no-reporting?
 - [ ] tests: check how clang compares to gcc
 - [ ] tests: add non regression tests to docker build
