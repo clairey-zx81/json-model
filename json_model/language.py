@@ -278,10 +278,10 @@ class Language:
         """Get length of a string."""
         return self.any_len(var)
 
-    def str_start(self, val: str, start: str) -> BoolExpr:
+    def str_start(self, val: Var, start: str) -> BoolExpr:
         raise NotImplementedError("str_start")
 
-    def str_end(self, val: str, end: str) -> BoolExpr:
+    def str_end(self, val: Var, end: str) -> BoolExpr:
         raise NotImplementedError("str_end")
 
     def any_int_val(self, val: JsonExpr, tval: type) -> IntExpr:

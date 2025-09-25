@@ -21,6 +21,12 @@ def _u(block: Block) -> list[Jsonable]:
     """Parse a JSON code block."""
     return [ _l(l) for l in filter(lambda s: s is not None and s != "", block) ]
 
+def _cmap2json(mapping: dict[JsonScalar, str]) -> list[tuple[JsonScalar, str]]:
+    return [ ( c, s ) for c, s in mapping.items() ]
+
+def _json2cmap(mapping: list[tuple[JsonScalar, str]]) -> dict[JsonScalar, str]:
+    return { c: s for c, s in mapping }
+
 # compute RW effects on boolean variables
 type Sequence = list[Jsonable]
 # read, write, true, false
@@ -33,26 +39,27 @@ type Effects = list[Effect]
 # - early returns do not have an impact
 def _getEffect(op: Jsonable, bool_vars: set[str]) -> Effect:
 
-    # direct boolean variable
-    if isinstance(op, str) and op in bool_vars:
-        return set(op), set(), {}
-
-    # shortcut? error?
-    if not isinstance(op, dict) or "o" not in op:
-        return set(), set(), {}
-
     read: set[str] = set()
     write: set[str] = set()
     value: dict[str, bool] = {}
 
+    # direct boolean variable
+    if isinstance(op, str) and op in bool_vars:
+        read.add(op)
+        return read, write, value
+
+    # shortcut? error?
+    if not isinstance(op, dict) or "o" not in op:
+        return read, write, value
+
     # recursive computation
     # value: dict[str, bool] = {}
-    # TODO interruption (retur)
+    # TODO interruption (return)
     # exit: bool
 
     match op["o"]:
         # no boolean effect expected on these
-        case "co"|"rep"|"cst"|"pl"|"isa"|"val"|"iv"|"i+"|"hp"|"isr"|"cr"|"brk"|"apf"|"id"|"ss"|"se"|"pre"|"no"|"esc"|"pvl"|"scc"|"jv"|"gcm"|"hpf"|"gpf":
+        case "co"|"rep"|"cst"|"pl"|"isa"|"val"|"iv"|"i+"|"hp"|"isr"|"cr"|"brk"|"apf"|"id"|"ss"|"se"|"pre"|"no"|"esc"|"pvl"|"scc"|"jv"|"gcm"|"hpf"|"gpf"|"ol"|"al"|"sl"|"nl":
             pass
         # declaration/assignment
         case "bv":
@@ -85,7 +92,9 @@ def _getEffect(op: Jsonable, bool_vars: set[str]) -> Effect:
             read |= r; write |= w
             r, w, v = _optimSeq(op["false"], bool_vars)
             read |= r; write |= w
-            # TODO intersect values?
+            for var in write:
+                if var in value:
+                    del value[var]
         case "ifs":
             for tup in op["cond_true"]:
                 cond, true = tup
@@ -193,11 +202,12 @@ def _optimSeq(seq: Sequence, bool_vars: set[str]) -> Effect:
                         seq[prev_idx]["true"] += seq[cur_idx]["false"]
                         seq[prev_idx]["false"] += seq[cur_idx]["true"]
                     # update corresponding effects
+                    effects[prev_idx][2].update(effects[cur_idx][2])
                     effects[prev_idx] = (
                         effects[prev_idx][0] | effects[cur_idx][0],
                         effects[prev_idx][1] | effects[cur_idx][1],
                         # FIXME empty instead?
-                        effects[prev_idx][2].update(effects[cur_idx][2])
+                        effects[prev_idx][2]
                     )
                     # stop merge on this if variable is written
                     if prev_var in effects[prev_idx][1]:
@@ -254,7 +264,6 @@ def optimizeIR(code: list[Jsonable], *, if_optim: bool = True) -> Jsonable:
     for i, c in list(enumerate(code)):
         if c == "":
             continue
-        # log.warning(f"code[{i}] = {c}")
         ins = json.loads(c)
         if isinstance(ins, dict) and "o" in ins and ins["o"] == "sfu":
             optimized += 1
@@ -357,11 +366,11 @@ class IRep(Language):
     def get_prop_fun(self, prop: str, mapname: str) -> BoolExpr:
         return _j("gpf", prop=prop, mapname=mapname)
 
-    def str_start(self, val: str, start: str) -> BoolExpr:
-        return _j("ss", val=val, start=start)
+    def str_start(self, val: Var, start: str) -> BoolExpr:
+        return _j("ss", val=_l(val), start=start)
 
-    def str_end(self, val: str, end: str) -> BoolExpr:
-        return _j("se", val=val, end=end)
+    def str_end(self, val: Var, end: str) -> BoolExpr:
+        return _j("se", val=_l(val), end=end)
 
     def str_check_call(self, name: str, val: StrExpr, path: Var) -> BoolExpr:
         return _j("scc", name=name, val=_l(val), path=_l(path))
@@ -497,7 +506,7 @@ class IRep(Language):
         return _j("mko", var=_l(var))
 
     def def_strfun(self, name: str) -> Block:
-        return [ _j("ds", name=name) ]
+        return [ _j("dsf", name=name) ]
 
     def sub_strfun(self, name: str, body: Block) -> Block:
         return [ _j("ssf", name=name, body=_u(body)) ]
@@ -535,18 +544,17 @@ class IRep(Language):
     def sub_fun(self, name: str, body: Block, inline: bool = False) -> Block:
         return [ _j("sfu", name=name, body=_u(body), inline=inline) ]
 
-    # FIXME dict key
     def def_cmap(self, name: str, mapping: dict[JsonScalar, str]) -> Block:
-        return [ _j("dcm", name=name, mapping=mapping) ]
+        return [ _j("dcm", name=name, mapping=_cmap2json(mapping)) ]
 
     def sub_cmap(self, name: str, mapping: dict[JsonScalar, str]) -> Block:
-        return [ _j("scm", name=name, mapping=mapping) ]
+        return [ _j("scm", name=name, mapping=_cmap2json(mapping)) ]
 
     def ini_cmap(self, name: str, mapping: dict[JsonScalar, str]) -> Block:
-        return [ _j("icm", name=name, mapping=mapping) ]
+        return [ _j("icm", name=name, mapping=_cmap2json(mapping)) ]
 
     def del_cmap(self, name: str, mapping: dict[JsonScalar, str]) -> Block:
-        return [ _j("rcm", name=name, mapping=mapping) ]
+        return [ _j("rcm", name=name, mapping=_cmap2json(mapping)) ]
 
     def get_cmap(self, name: str, tag: Var, ttag: type) -> Expr:
         return _j("gcm", name=name, tag=_l(tag), ttag=ttag.__name__)
@@ -576,6 +584,7 @@ def s2t(tname: str|None) -> type:
         case "bool": return bool
         case "int": return int
         case "float": return float
+        case "Number": return Number
         case "str": return str
         case "list": return list
         case "dict": return dict
@@ -617,8 +626,8 @@ def _eval(jv: Jsonable, gen: Language) -> Block|Expr:
             case "apf": return gen.assign_prop_fun(fun=jv["fun"], prop=jv["prop"], mapname=jv["mapname"])
             case "hpf": return gen.has_prop_fun(prop=jv["prop"], mapname=jv["mapname"])
             case "gpf": return gen.get_prop_fun(prop=jv["prop"], mapname=jv["mapname"])
-            case "ss": return gen.str_start(val=jv["val"], start=jv["start"])
-            case "se": return gen.str_end(val=jv["val"], end=jv["end"])
+            case "ss": return gen.str_start(val=ev("val"), start=jv["start"])
+            case "se": return gen.str_end(val=ev("val"), end=jv["end"])
             case "scc": return gen.str_check_call(name=jv["name"], val=ev("val"), path=ev("path"))
             case "cc": return gen.check_call(name=jv["name"], val=ev("val"), path=ev("path"), is_ptr=jv["is_ptr"], is_raw=jv["is_raw"])
             case "cu": return gen.check_unique(val=ev("val"), path=ev("path"))
@@ -662,11 +671,11 @@ def _eval(jv: Jsonable, gen: Language) -> Block|Expr:
             case "sr": return gen.sub_re(name=jv["name"], regex=jv["regex"], opts=jv["opts"])
             case "ir": return gen.ini_re(name=jv["name"], regex=jv["regex"], opts=jv["opts"])
             case "rr": return gen.del_re(name=jv["name"], regex=jv["regex"], opts=jv["opts"])
-            case "mr": return gen.match_re(name=jv["name"], regex=jv["regex"], opts=jv["opts"])
+            case "mr": return gen.match_re(name=jv["name"], var=jv["var"], regex=jv["regex"], opts=jv["opts"])
             case "msv": return gen.match_str_var(rname=jv["rname"], var=jv["var"], val=jv["val"], declare=jv["declare"])
-            case "mv": return gen.match_var(var=ev(var), val=ev(val), declare=jv["declare"])
+            case "mv": return gen.match_var(var=ev("var"), val=ev("val"), declare=jv["declare"])
             case "mvl": return gen.match_val(mname=jv["mname"], rname=jv["rname"], sname=jv["sname"], dname=jv["dname"], declare=jv["declare"])
-            case "mko": return gen.match_ko(var=ev(var))
+            case "mko": return gen.match_ko(var=ev("var"))
             # str fun
             case "dsf": return gen.def_strfun(name=jv["name"])
             case "ssf": return gen.sub_strfun(name=jv["name"], body=ev("body"))
@@ -685,10 +694,10 @@ def _eval(jv: Jsonable, gen: Language) -> Block|Expr:
             case "dfu": return gen.def_fun(name=jv["name"])
             case "sfu": return gen.sub_fun(name=jv["name"], body=ev("body"), inline=jv["inline"])
             # constant map
-            case "dcm": return gen.def_cmap(name=jv["name"], mapping=jv["mapping"])
-            case "scm": return gen.sub_cmap(name=jv["name"], mapping=jv["mapping"])
-            case "icm": return gen.ini_cmap(name=jv["name"], mapping=jv["mapping"])
-            case "rcm": return gen.del_cmap(name=jv["name"], mapping=jv["mapping"])
+            case "dcm": return gen.def_cmap(name=jv["name"], mapping=_json2cmap(jv["mapping"]))
+            case "scm": return gen.sub_cmap(name=jv["name"], mapping=_json2cmap(jv["mapping"]))
+            case "icm": return gen.ini_cmap(name=jv["name"], mapping=_json2cmap(jv["mapping"]))
+            case "rcm": return gen.del_cmap(name=jv["name"], mapping=_json2cmap(jv["mapping"]))
             case "gcm": return gen.get_cmap(name=jv["name"], tag=ev("tag"), ttag=s2t(jv["ttag"]))
             # final generation
             case "gi": return gen.gen_init(init=ev("init"))
