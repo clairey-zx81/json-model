@@ -189,10 +189,10 @@ export function check_model_init()
     {
         initialized = true;
         runtime.jm_set_rx(RegExp)
-        check_model_map.set("", json_model_1)
+        check_model_map.set("", _jm_obj_1)
         check_model_map.set("b", json_model_2)
         check_model_map.set("Bb", json_model_3)
-        check_model_map.set("Rr", json_model_5)
+        check_model_map.set("Rr", _jm_obj_0)
     }
 }
 

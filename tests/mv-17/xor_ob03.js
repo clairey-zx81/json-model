@@ -301,7 +301,7 @@ export function check_model_init()
         _jm_map_0.set("fr", _jm_obj_1)
         _jm_map_0.set("en", _jm_obj_2)
         _jm_map_0.set("ru", _jm_obj_3)
-        check_model_map.set("", json_model_1)
+        check_model_map.set("", _jm_obj_0)
     }
 }
 

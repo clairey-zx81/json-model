@@ -106,7 +106,7 @@ public class base_014 extends ModelChecker
         {
             try {
             base_014_map_pmap = new HashMap<String, Checker>();
-            base_014_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_1(o, p, r);} });
+            base_014_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_0(o, p, r);} });
                 super.init(json);
             }
             catch (Exception e) {

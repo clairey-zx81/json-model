@@ -553,7 +553,7 @@ sub check_model_init()
             'uniqueItems' => \&_jm_f_26,
         );
         %check_model_map = (
-            '' => \&json_model_1,
+            '' => \&_jm_obj_0,
             'allTypes' => \&json_model_2,
             'distinctStringArray' => \&json_model_3,
             'Schema' => \&json_model_1,

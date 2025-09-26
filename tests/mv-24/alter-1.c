@@ -429,8 +429,8 @@ const char *check_model_init(void)
         check_model_map_tab[0] = (jm_propmap_t) { "", json_model_6 };
         check_model_map_tab[1] = (jm_propmap_t) { "g", json_model_2 };
         check_model_map_tab[2] = (jm_propmap_t) { "h_ou_i", json_model_3 };
-        check_model_map_tab[3] = (jm_propmap_t) { "d", json_model_4 };
-        check_model_map_tab[4] = (jm_propmap_t) { "ef", json_model_5 };
+        check_model_map_tab[3] = (jm_propmap_t) { "d", _jm_obj_0 };
+        check_model_map_tab[4] = (jm_propmap_t) { "ef", _jm_obj_1 };
         check_model_map_tab[5] = (jm_propmap_t) { "alternative", json_model_6 };
         jm_sort_propmap(check_model_map_tab, 6);
     }

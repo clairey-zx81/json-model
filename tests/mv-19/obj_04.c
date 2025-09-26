@@ -96,7 +96,7 @@ const char *check_model_init(void)
         _jm_cst_0[1] = (jm_constant_t) { cst_is_string, { .s = "XX" } };
         _jm_cst_0[2] = (jm_constant_t) { cst_is_string, { .s = "XXX" } };
         jm_sort_cst(_jm_cst_0, 3);
-        check_model_map_tab[0] = (jm_propmap_t) { "", json_model_1 };
+        check_model_map_tab[0] = (jm_propmap_t) { "", _jm_obj_0 };
         check_model_map_tab[1] = (jm_propmap_t) { "Xxx", json_model_2 };
         jm_sort_propmap(check_model_map_tab, 2);
     }

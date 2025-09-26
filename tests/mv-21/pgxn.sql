@@ -1000,7 +1000,7 @@ $$ LANGUAGE PLpgSQL;
 CREATE OR REPLACE FUNCTION check_model_map(name TEXT)
 RETURNS TEXT STRICT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
-  map JSONB := JSONB '{"":"json_model_1","neStr":"json_model_2","neStrList":"json_model_3","License":"json_model_4","LicenseList":"json_model_5","Provide":"json_model_6","Status":"json_model_7","Resources":"json_model_8","SemVer":"json_model_9","Version":"json_model_10","Ops":"json_model_11","VersionRange":"json_model_12","Phase":"json_model_13","Relation":"json_model_14","Prereq":"json_model_15","Prereqs":"json_model_16"}';
+  map JSONB := JSONB '{"":"_jm_obj_7","neStr":"json_model_2","neStrList":"json_model_3","License":"json_model_4","LicenseList":"json_model_5","Provide":"_jm_obj_0","Status":"json_model_7","Resources":"_jm_obj_1","SemVer":"json_model_9","Version":"json_model_10","Ops":"json_model_11","VersionRange":"json_model_12","Phase":"json_model_13","Relation":"json_model_14","Prereq":"_jm_obj_4","Prereqs":"_jm_obj_5"}';
 BEGIN
   RETURN map->>name;
 END;

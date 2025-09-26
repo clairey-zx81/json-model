@@ -245,10 +245,10 @@ const char *check_model_init(void)
     {
         initialized = true;
         jm_version_string = JSON_MODEL_VERSION;
-        check_model_map_tab[0] = (jm_propmap_t) { "", json_model_4 };
-        check_model_map_tab[1] = (jm_propmap_t) { "loose", json_model_5 };
-        check_model_map_tab[2] = (jm_propmap_t) { "strict", json_model_6 };
-        check_model_map_tab[3] = (jm_propmap_t) { "combined", json_model_4 };
+        check_model_map_tab[0] = (jm_propmap_t) { "", _jm_obj_2 };
+        check_model_map_tab[1] = (jm_propmap_t) { "loose", _jm_obj_0 };
+        check_model_map_tab[2] = (jm_propmap_t) { "strict", _jm_obj_1 };
+        check_model_map_tab[3] = (jm_propmap_t) { "combined", _jm_obj_2 };
         jm_sort_propmap(check_model_map_tab, 4);
     }
     return NULL;

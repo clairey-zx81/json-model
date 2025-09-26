@@ -105,7 +105,7 @@ public class dis_001 extends ModelChecker
         {
             try {
             dis_001_map_pmap = new HashMap<String, Checker>();
-            dis_001_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_1(o, p, r);} });
+            dis_001_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_0(o, p, r);} });
                 super.init(json);
             }
             catch (Exception e) {

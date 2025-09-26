@@ -73,15 +73,15 @@ BEGIN
     RETURN FALSE;
   END IF;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF prop = '#' THEN
-      -- handle may # property
-      -- .'%'.'#'
+    IF STARTS_WITH(prop, '#') THEN
+      -- handle 2 re props
+      -- .'%'.'/^#/'
       res := JSONB_TYPEOF(pval) = 'string';
       IF NOT res THEN
         RETURN FALSE;
       END IF;
     ELSEIF _jm_re_0(prop, path, rep) THEN
-      -- handle 1 re props
+      -- handle 2 re props
       -- .'%'.'/^\\..+$/'
       -- "/^([#~$%@|&+^/*=]|[<>!]=?)$/"
       res := JSONB_TYPEOF(pval) = 'string' AND _jm_re_1(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, rep);
@@ -143,9 +143,9 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF prop = '#' THEN
-      -- handle may # property
-      -- .'#'
+    ELSEIF STARTS_WITH(prop, '#') THEN
+      -- handle 1 re props
+      -- .'/^#/'
       res := JSONB_TYPEOF(pval) = 'string';
       IF NOT res THEN
         RETURN FALSE;
@@ -177,7 +177,7 @@ $$ LANGUAGE PLpgSQL;
 CREATE OR REPLACE FUNCTION check_model_map(name TEXT)
 RETURNS TEXT STRICT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
-  map JSONB := JSONB '{"":"json_model_1"}';
+  map JSONB := JSONB '{"":"_jm_obj_0"}';
 BEGIN
   RETURN map->>name;
 END;

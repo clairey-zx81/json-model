@@ -5530,7 +5530,7 @@ const char *check_model_init(void)
         _jm_obj_7_map_tab[11] = (jm_propmap_t) { "services", _jm_f_195 };
         _jm_obj_7_map_tab[12] = (jm_propmap_t) { "update", _jm_f_196 };
         jm_sort_propmap(_jm_obj_7_map_tab, 13);
-        check_model_map_tab[0] = (jm_propmap_t) { "", json_model_1 };
+        check_model_map_tab[0] = (jm_propmap_t) { "", _jm_obj_7 };
         check_model_map_tab[1] = (jm_propmap_t) { "color", json_model_2 };
         check_model_map_tab[2] = (jm_propmap_t) { "colorArray", json_model_3 };
         check_model_map_tab[3] = (jm_propmap_t) { "keybinding", json_model_4 };

@@ -161,7 +161,7 @@ sub check_model_init()
     {
         $initialized = 1;
         %check_model_map = (
-            '' => \&json_model_1,
+            '' => \&_jm_obj_0,
             'Pp' => \&json_model_2,
             'Qq' => \&json_model_3,
         );

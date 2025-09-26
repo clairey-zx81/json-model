@@ -1175,16 +1175,16 @@ public class jsound extends ModelChecker
             _jm_obj_2_map_pmap.put("pattern", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_11(o, p, r);} });
             _jm_obj_2_map_pmap.put("totalDigits", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_12(o, p, r);} });
             jsound_map_pmap = new HashMap<String, Checker>();
-            jsound_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_2(o, p, r);} });
-            jsound_map_pmap.put("Schema", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_2(o, p, r);} });
+            jsound_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_0(o, p, r);} });
+            jsound_map_pmap.put("Schema", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_0(o, p, r);} });
             jsound_map_pmap.put("Type", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_3(o, p, r);} });
             jsound_map_pmap.put("atomic-types", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
             jsound_map_pmap.put("atomic", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_5(o, p, r);} });
-            jsound_map_pmap.put("Atomic", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_6(o, p, r);} });
-            jsound_map_pmap.put("Object", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_7(o, p, r);} });
-            jsound_map_pmap.put("Fields", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_8(o, p, r);} });
-            jsound_map_pmap.put("Array", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_9(o, p, r);} });
-            jsound_map_pmap.put("Union", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_10(o, p, r);} });
+            jsound_map_pmap.put("Atomic", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_2(o, p, r);} });
+            jsound_map_pmap.put("Object", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_3(o, p, r);} });
+            jsound_map_pmap.put("Fields", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_4(o, p, r);} });
+            jsound_map_pmap.put("Array", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_5(o, p, r);} });
+            jsound_map_pmap.put("Union", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_6(o, p, r);} });
             jsound_map_pmap.put("type-or-ref", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_11(o, p, r);} });
                 super.init(json);
             }

@@ -613,7 +613,7 @@ def check_model_init():
         }
         global check_model_map
         check_model_map = {
-            "": json_model_1,
+            "": _jm_obj_0,
             "schemaArray": json_model_2,
             "simpleTypes": json_model_3,
             "stringArray": json_model_4,

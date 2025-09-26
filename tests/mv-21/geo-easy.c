@@ -1239,16 +1239,16 @@ const char *check_model_init(void)
         check_model_map_tab[1] = (jm_propmap_t) { "position", json_model_2 };
         check_model_map_tab[2] = (jm_propmap_t) { "coord_array", json_model_3 };
         check_model_map_tab[3] = (jm_propmap_t) { "linear_ring", json_model_4 };
-        check_model_map_tab[4] = (jm_propmap_t) { "Point", json_model_5 };
-        check_model_map_tab[5] = (jm_propmap_t) { "MultiPoint", json_model_6 };
-        check_model_map_tab[6] = (jm_propmap_t) { "LineString", json_model_7 };
-        check_model_map_tab[7] = (jm_propmap_t) { "MultiLineString", json_model_8 };
-        check_model_map_tab[8] = (jm_propmap_t) { "Polygon", json_model_9 };
-        check_model_map_tab[9] = (jm_propmap_t) { "MultiPolygon", json_model_10 };
+        check_model_map_tab[4] = (jm_propmap_t) { "Point", _jm_obj_0 };
+        check_model_map_tab[5] = (jm_propmap_t) { "MultiPoint", _jm_obj_1 };
+        check_model_map_tab[6] = (jm_propmap_t) { "LineString", _jm_obj_2 };
+        check_model_map_tab[7] = (jm_propmap_t) { "MultiLineString", _jm_obj_3 };
+        check_model_map_tab[8] = (jm_propmap_t) { "Polygon", _jm_obj_4 };
+        check_model_map_tab[9] = (jm_propmap_t) { "MultiPolygon", _jm_obj_5 };
         check_model_map_tab[10] = (jm_propmap_t) { "geometry", json_model_11 };
-        check_model_map_tab[11] = (jm_propmap_t) { "GeometryCollection", json_model_12 };
-        check_model_map_tab[12] = (jm_propmap_t) { "Feature", json_model_13 };
-        check_model_map_tab[13] = (jm_propmap_t) { "FeatureCollection", json_model_14 };
+        check_model_map_tab[11] = (jm_propmap_t) { "GeometryCollection", _jm_obj_6 };
+        check_model_map_tab[12] = (jm_propmap_t) { "Feature", _jm_obj_7 };
+        check_model_map_tab[13] = (jm_propmap_t) { "FeatureCollection", _jm_obj_9 };
         jm_sort_propmap(check_model_map_tab, 14);
     }
     return NULL;

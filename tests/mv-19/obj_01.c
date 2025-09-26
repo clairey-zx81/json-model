@@ -163,7 +163,7 @@ const char *check_model_init(void)
         if (cre2_error_code(_jm_re_0_re2))
             return cre2_error_string(_jm_re_0_re2);
         _jm_re_0_nn = cre2_num_capturing_groups(_jm_re_0_re2) + 1;
-        check_model_map_tab[0] = (jm_propmap_t) { "", json_model_1 };
+        check_model_map_tab[0] = (jm_propmap_t) { "", _jm_obj_0 };
         check_model_map_tab[1] = (jm_propmap_t) { "Xxx", json_model_2 };
         jm_sort_propmap(check_model_map_tab, 2);
     }

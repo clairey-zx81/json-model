@@ -196,7 +196,7 @@ sub check_model_init()
             'Ff' => \&json_model_5,
             'Ss' => \&json_model_6,
             'Aa' => \&json_model_7,
-            'Oo' => \&json_model_8,
+            'Oo' => \&_jm_obj_0,
             'Any' => \&json_model_9,
         );
     }

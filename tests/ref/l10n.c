@@ -106,21 +106,20 @@ static INLINE bool _jm_obj_2(const json_t *val, jm_path_t *path, jm_report_t *re
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_2 = (jm_path_t) { prop, 0, path, NULL };
-        if (strcmp(prop, "#") == 0)
+        if (strncmp(prop, "#", strlen("#")) == 0)
         {
-            // handle may # property
-            // .'%'.'#'
+            // handle 2 re props
+            // .'%'.'/^#/'
             res = json_is_string(pval);
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "unexpected string [.'%'.'#']", (path ? &lpath_2 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'%'.'#']", (path ? &lpath_2 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected string [.'%'.'/^#/']", (path ? &lpath_2 : NULL));
                 return false;
             }
         }
         else if (_jm_re_0(prop, path, rep))
         {
-            // handle 1 re props
+            // handle 2 re props
             // .'%'.'/^\\..+$/'
             // "/^([#~$%@|&+^/*=]|[<>!]=?)$/"
             res = json_is_string(pval) && _jm_re_1(json_string_value(pval), (path ? &lpath_2 : NULL), rep);
@@ -207,15 +206,14 @@ static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *re
                 return false;
             }
         }
-        else if (strcmp(prop, "#") == 0)
+        else if (strncmp(prop, "#", strlen("#")) == 0)
         {
-            // handle may # property
-            // .'#'
+            // handle 1 re props
+            // .'/^#/'
             res = json_is_string(pval);
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "unexpected string [.'#']", (path ? &lpath_0 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'#']", (path ? &lpath_0 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected string [.'/^#/']", (path ? &lpath_0 : NULL));
                 return false;
             }
         }
@@ -286,7 +284,7 @@ const char *check_model_init(void)
         if (cre2_error_code(_jm_re_1_re2))
             return cre2_error_string(_jm_re_1_re2);
         _jm_re_1_nn = cre2_num_capturing_groups(_jm_re_1_re2) + 1;
-        check_model_map_tab[0] = (jm_propmap_t) { "", json_model_1 };
+        check_model_map_tab[0] = (jm_propmap_t) { "", _jm_obj_0 };
         jm_sort_propmap(check_model_map_tab, 1);
     }
     return NULL;

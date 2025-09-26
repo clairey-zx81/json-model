@@ -1,10 +1,12 @@
 {
   "description": "JSON Model Subset for Localization Renames",
   "type": "object",
-  "properties": {
-    "#": {
+  "patternProperties": {
+    "^#": {
       "type": "string"
-    },
+    }
+  },
+  "properties": {
     "$": {
       "type": "object",
       "properties": {
@@ -28,14 +30,12 @@
       "description": "dot-prefixed arbitrary key, one or two char keyword values",
       "type": "object",
       "patternProperties": {
+        "^#": {
+          "type": "string"
+        },
         "^\\..+$": {
           "type": "string",
           "pattern": "^([#~$%@|&+^/*=]|[<>!]=?)$"
-        }
-      },
-      "properties": {
-        "#": {
-          "type": "string"
         }
       },
       "additionalProperties": false

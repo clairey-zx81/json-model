@@ -4288,11 +4288,11 @@ public class everything extends ModelChecker
             _jm_obj_2_map_pmap.put("tuple", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_97(o, p, r);} });
             _jm_obj_2_map_pmap.put("xor", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_98(o, p, r);} });
             everything_map_pmap = new HashMap<String, Checker>();
-            everything_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_1(o, p, r);} });
+            everything_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_2(o, p, r);} });
             everything_map_pmap.put("a", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_2(o, p, r);} });
             everything_map_pmap.put("b", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_3(o, p, r);} });
-            everything_map_pmap.put("ab", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
-            everything_map_pmap.put("cd", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_5(o, p, r);} });
+            everything_map_pmap.put("ab", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_0(o, p, r);} });
+            everything_map_pmap.put("cd", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_1(o, p, r);} });
                 super.init(json);
             }
             catch (Exception e) {

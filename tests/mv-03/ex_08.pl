@@ -122,7 +122,7 @@ sub check_model_init()
             '' => \&json_model_5,
             'Val' => \&json_model_2,
             'Key' => \&json_model_3,
-            'map' => \&json_model_4,
+            'map' => \&_jm_obj_0,
             'Ex08' => \&json_model_5,
         );
     }

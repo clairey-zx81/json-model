@@ -84,7 +84,7 @@ public class int_cons_2 extends ModelChecker
         {
             try {
             int_cons_2_map_pmap = new HashMap<String, Checker>();
-            int_cons_2_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_1(o, p, r);} });
+            int_cons_2_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_0(o, p, r);} });
             int_cons_2_map_pmap.put("forty-two", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_2(o, p, r);} });
             int_cons_2_map_pmap.put("positif", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_3(o, p, r);} });
                 super.init(json);

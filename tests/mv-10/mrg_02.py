@@ -273,10 +273,10 @@ def check_model_init():
         }
         global check_model_map
         check_model_map = {
-            "": json_model_1,
+            "": _jm_obj_2,
             "t": json_model_2,
-            "r": json_model_5,
-            "z": json_model_4,
+            "r": _jm_obj_0,
+            "z": _jm_obj_1,
         }
 
 # differed module cleanup

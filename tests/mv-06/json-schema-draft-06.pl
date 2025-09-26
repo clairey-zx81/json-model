@@ -798,7 +798,7 @@ sub check_model_init()
             'simpleTypes' => \&json_model_4,
             'typeArray' => \&json_model_5,
             'stringArray' => \&json_model_6,
-            'ObjectSchema' => \&json_model_7,
+            'ObjectSchema' => \&_jm_obj_0,
             'Schema' => \&json_model_8,
         );
     }

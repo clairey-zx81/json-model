@@ -258,7 +258,7 @@ public class xoropt_001 extends ModelChecker
             xoropt_001_map_pmap.put("Ff", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_5(o, p, r);} });
             xoropt_001_map_pmap.put("Ss", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_6(o, p, r);} });
             xoropt_001_map_pmap.put("Aa", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_7(o, p, r);} });
-            xoropt_001_map_pmap.put("Oo", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_8(o, p, r);} });
+            xoropt_001_map_pmap.put("Oo", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_0(o, p, r);} });
             xoropt_001_map_pmap.put("Any", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_9(o, p, r);} });
                 super.init(json);
             }

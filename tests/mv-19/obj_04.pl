@@ -83,7 +83,7 @@ sub check_model_init()
             'XXX' => 1,
         );
         %check_model_map = (
-            '' => \&json_model_1,
+            '' => \&_jm_obj_0,
             'Xxx' => \&json_model_2,
         );
     }

@@ -411,10 +411,10 @@ const char *check_model_init(void)
         _jm_obj_2_mup_tab[4] = (jm_propmap_t) { "e", _jm_f_4 };
         _jm_obj_2_mup_tab[5] = (jm_propmap_t) { "f", _jm_f_5 };
         jm_sort_propmap(_jm_obj_2_mup_tab, 6);
-        check_model_map_tab[0] = (jm_propmap_t) { "", json_model_1 };
+        check_model_map_tab[0] = (jm_propmap_t) { "", _jm_obj_2 };
         check_model_map_tab[1] = (jm_propmap_t) { "t", json_model_2 };
-        check_model_map_tab[2] = (jm_propmap_t) { "r", json_model_5 };
-        check_model_map_tab[3] = (jm_propmap_t) { "z", json_model_4 };
+        check_model_map_tab[2] = (jm_propmap_t) { "r", _jm_obj_0 };
+        check_model_map_tab[3] = (jm_propmap_t) { "z", _jm_obj_1 };
         jm_sort_propmap(check_model_map_tab, 4);
     }
     return NULL;

@@ -87,21 +87,20 @@ function _jm_obj_2(val, path, rep)
     for (const [prop, pval] of Object.entries(val))
     {
         let lpath_2 = path ? path.concat([prop]) : null;
-        if (prop == "#")
+        if (prop.startsWith("#"))
         {
-            // handle may # property
-            // .'%'.'#'
+            // handle 2 re props
+            // .'%'.'/^#/'
             res = (typeof pval === 'string' || pval instanceof String);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected string [.'%'.'#']", (path ? lpath_2 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.'%'.'#']", (path ? lpath_2 : null)])
+                rep !== null && rep.push(["unexpected string [.'%'.'/^#/']", (path ? lpath_2 : null)])
                 return false;
             }
         }
         else if (_jm_re_0(prop, path, rep))
         {
-            // handle 1 re props
+            // handle 2 re props
             // .'%'.'/^\\..+$/'
             // "/^([#~$%@|&+^/*=]|[<>!]=?)$/"
             res = ((typeof pval === 'string' || pval instanceof String)) && _jm_re_1(pval, (path ? lpath_2 : null), rep);
@@ -186,15 +185,14 @@ function _jm_obj_0(val, path, rep)
                 return false;
             }
         }
-        else if (prop == "#")
+        else if (prop.startsWith("#"))
         {
-            // handle may # property
-            // .'#'
+            // handle 1 re props
+            // .'/^#/'
             res = (typeof pval === 'string' || pval instanceof String);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected string [.'#']", (path ? lpath_0 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.'#']", (path ? lpath_0 : null)])
+                rep !== null && rep.push(["unexpected string [.'/^#/']", (path ? lpath_0 : null)])
                 return false;
             }
         }
@@ -254,7 +252,7 @@ export function check_model_init()
     {
         initialized = true;
         runtime.jm_set_rx(RegExp)
-        check_model_map.set("", json_model_1)
+        check_model_map.set("", _jm_obj_0)
     }
 }
 

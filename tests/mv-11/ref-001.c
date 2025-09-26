@@ -234,9 +234,9 @@ const char *check_model_init(void)
     {
         initialized = true;
         jm_version_string = JSON_MODEL_VERSION;
-        check_model_map_tab[0] = (jm_propmap_t) { "", json_model_1 };
-        check_model_map_tab[1] = (jm_propmap_t) { "a", json_model_2 };
-        check_model_map_tab[2] = (jm_propmap_t) { "b", json_model_3 };
+        check_model_map_tab[0] = (jm_propmap_t) { "", _jm_obj_2 };
+        check_model_map_tab[1] = (jm_propmap_t) { "a", _jm_obj_0 };
+        check_model_map_tab[2] = (jm_propmap_t) { "b", _jm_obj_1 };
         jm_sort_propmap(check_model_map_tab, 3);
     }
     return NULL;

@@ -159,7 +159,7 @@ export function check_model_init()
         initialized = true;
         runtime.jm_set_rx(RegExp)
         check_model_map.set("", json_model_3)
-        check_model_map.set("a", json_model_2)
+        check_model_map.set("a", _jm_obj_0)
         check_model_map.set("r", json_model_3)
     }
 }

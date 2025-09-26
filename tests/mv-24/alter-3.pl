@@ -238,7 +238,7 @@ sub check_model_init()
         );
         %check_model_map = (
             '' => \&json_model_3,
-            'd' => \&json_model_2,
+            'd' => \&_jm_obj_0,
             'alternative' => \&json_model_3,
         );
     }

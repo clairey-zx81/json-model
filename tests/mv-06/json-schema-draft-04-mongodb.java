@@ -891,8 +891,8 @@ public class json_schema_draft_04_mongodb extends ModelChecker
             _jm_cst_1_set.add(json.safeJSON("\"minKey\""));
             _jm_cst_1_set.add(json.safeJSON("\"maxKey\""));
             json_schema_draft_04_mongodb_map_pmap = new HashMap<String, Checker>();
-            json_schema_draft_04_mongodb_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_3(o, p, r);} });
-            json_schema_draft_04_mongodb_map_pmap.put("schema", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_3(o, p, r);} });
+            json_schema_draft_04_mongodb_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_0(o, p, r);} });
+            json_schema_draft_04_mongodb_map_pmap.put("schema", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_0(o, p, r);} });
                 super.init(json);
             }
             catch (Exception e) {

@@ -148,7 +148,7 @@ export function check_model_init()
         check_model_map.set("", json_model_5)
         check_model_map.set("Val", json_model_2)
         check_model_map.set("Key", json_model_3)
-        check_model_map.set("map", json_model_4)
+        check_model_map.set("map", _jm_obj_0)
         check_model_map.set("Ex08", json_model_5)
     }
 }

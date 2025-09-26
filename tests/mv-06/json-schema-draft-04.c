@@ -939,7 +939,7 @@ const char *check_model_init(void)
         _jm_obj_0_map_tab[32] = (jm_propmap_t) { "type", _jm_f_32 };
         _jm_obj_0_map_tab[33] = (jm_propmap_t) { "uniqueItems", _jm_f_33 };
         jm_sort_propmap(_jm_obj_0_map_tab, 34);
-        check_model_map_tab[0] = (jm_propmap_t) { "", json_model_1 };
+        check_model_map_tab[0] = (jm_propmap_t) { "", _jm_obj_0 };
         check_model_map_tab[1] = (jm_propmap_t) { "schemaArray", json_model_2 };
         check_model_map_tab[2] = (jm_propmap_t) { "simpleTypes", json_model_3 };
         check_model_map_tab[3] = (jm_propmap_t) { "stringArray", json_model_4 };

@@ -155,7 +155,7 @@ public class obj_01 extends ModelChecker
             _jm_cst_0_set.add(json.safeJSON("\"XXX\""));
             _jm_re_0_pat = Pattern.compile("^[0-9]+$");
             obj_01_map_pmap = new HashMap<String, Checker>();
-            obj_01_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_1(o, p, r);} });
+            obj_01_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_0(o, p, r);} });
             obj_01_map_pmap.put("Xxx", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_2(o, p, r);} });
                 super.init(json);
             }

@@ -694,8 +694,8 @@ sub check_model_init()
             'maxKey' => 1,
         );
         %check_model_map = (
-            '' => \&json_model_3,
-            'schema' => \&json_model_3,
+            '' => \&_jm_obj_0,
+            'schema' => \&_jm_obj_0,
         );
     }
 }

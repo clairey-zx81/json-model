@@ -79,7 +79,7 @@ public class muma_0 extends ModelChecker
         {
             try {
             muma_0_map_pmap = new HashMap<String, Checker>();
-            muma_0_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_1(o, p, r);} });
+            muma_0_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_0(o, p, r);} });
                 super.init(json);
             }
             catch (Exception e) {

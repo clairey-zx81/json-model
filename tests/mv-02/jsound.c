@@ -1194,16 +1194,16 @@ const char *check_model_init(void)
         _jm_obj_2_map_tab[11] = (jm_propmap_t) { "pattern", _jm_f_11 };
         _jm_obj_2_map_tab[12] = (jm_propmap_t) { "totalDigits", _jm_f_12 };
         jm_sort_propmap(_jm_obj_2_map_tab, 13);
-        check_model_map_tab[0] = (jm_propmap_t) { "", json_model_2 };
-        check_model_map_tab[1] = (jm_propmap_t) { "Schema", json_model_2 };
+        check_model_map_tab[0] = (jm_propmap_t) { "", _jm_obj_0 };
+        check_model_map_tab[1] = (jm_propmap_t) { "Schema", _jm_obj_0 };
         check_model_map_tab[2] = (jm_propmap_t) { "Type", json_model_3 };
         check_model_map_tab[3] = (jm_propmap_t) { "atomic-types", json_model_4 };
         check_model_map_tab[4] = (jm_propmap_t) { "atomic", json_model_5 };
-        check_model_map_tab[5] = (jm_propmap_t) { "Atomic", json_model_6 };
-        check_model_map_tab[6] = (jm_propmap_t) { "Object", json_model_7 };
-        check_model_map_tab[7] = (jm_propmap_t) { "Fields", json_model_8 };
-        check_model_map_tab[8] = (jm_propmap_t) { "Array", json_model_9 };
-        check_model_map_tab[9] = (jm_propmap_t) { "Union", json_model_10 };
+        check_model_map_tab[5] = (jm_propmap_t) { "Atomic", _jm_obj_2 };
+        check_model_map_tab[6] = (jm_propmap_t) { "Object", _jm_obj_3 };
+        check_model_map_tab[7] = (jm_propmap_t) { "Fields", _jm_obj_4 };
+        check_model_map_tab[8] = (jm_propmap_t) { "Array", _jm_obj_5 };
+        check_model_map_tab[9] = (jm_propmap_t) { "Union", _jm_obj_6 };
         check_model_map_tab[10] = (jm_propmap_t) { "type-or-ref", json_model_11 };
         jm_sort_propmap(check_model_map_tab, 11);
     }

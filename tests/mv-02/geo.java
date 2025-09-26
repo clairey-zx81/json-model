@@ -1923,16 +1923,16 @@ public class geo extends ModelChecker
             geo_map_pmap.put("position", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_2(o, p, r);} });
             geo_map_pmap.put("coord_array", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_3(o, p, r);} });
             geo_map_pmap.put("linear_ring", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
-            geo_map_pmap.put("Point", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_5(o, p, r);} });
-            geo_map_pmap.put("MultiPoint", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_6(o, p, r);} });
-            geo_map_pmap.put("LineString", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_7(o, p, r);} });
-            geo_map_pmap.put("MultiLineString", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_8(o, p, r);} });
-            geo_map_pmap.put("Polygon", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_9(o, p, r);} });
-            geo_map_pmap.put("MultiPolygon", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_10(o, p, r);} });
+            geo_map_pmap.put("Point", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_0(o, p, r);} });
+            geo_map_pmap.put("MultiPoint", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_1(o, p, r);} });
+            geo_map_pmap.put("LineString", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_2(o, p, r);} });
+            geo_map_pmap.put("MultiLineString", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_3(o, p, r);} });
+            geo_map_pmap.put("Polygon", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_4(o, p, r);} });
+            geo_map_pmap.put("MultiPolygon", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_5(o, p, r);} });
             geo_map_pmap.put("geometry", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_11(o, p, r);} });
-            geo_map_pmap.put("GeometryCollection", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_12(o, p, r);} });
-            geo_map_pmap.put("Feature", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_13(o, p, r);} });
-            geo_map_pmap.put("FeatureCollection", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_14(o, p, r);} });
+            geo_map_pmap.put("GeometryCollection", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_12(o, p, r);} });
+            geo_map_pmap.put("Feature", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_13(o, p, r);} });
+            geo_map_pmap.put("FeatureCollection", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_15(o, p, r);} });
                 super.init(json);
             }
             catch (Exception e) {

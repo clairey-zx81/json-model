@@ -1359,22 +1359,22 @@ public class pgxn extends ModelChecker
             _jm_obj_7_map_pmap.put("tags", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_13(o, p, r);} });
             _jm_obj_7_map_pmap.put("url", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_14(o, p, r);} });
             pgxn_map_pmap = new HashMap<String, Checker>();
-            pgxn_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_1(o, p, r);} });
+            pgxn_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_7(o, p, r);} });
             pgxn_map_pmap.put("neStr", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_2(o, p, r);} });
             pgxn_map_pmap.put("neStrList", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_3(o, p, r);} });
             pgxn_map_pmap.put("License", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
             pgxn_map_pmap.put("LicenseList", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_5(o, p, r);} });
-            pgxn_map_pmap.put("Provide", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_6(o, p, r);} });
+            pgxn_map_pmap.put("Provide", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_0(o, p, r);} });
             pgxn_map_pmap.put("Status", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_7(o, p, r);} });
-            pgxn_map_pmap.put("Resources", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_8(o, p, r);} });
+            pgxn_map_pmap.put("Resources", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_1(o, p, r);} });
             pgxn_map_pmap.put("SemVer", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_9(o, p, r);} });
             pgxn_map_pmap.put("Version", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_10(o, p, r);} });
             pgxn_map_pmap.put("Ops", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_11(o, p, r);} });
             pgxn_map_pmap.put("VersionRange", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_12(o, p, r);} });
             pgxn_map_pmap.put("Phase", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_13(o, p, r);} });
             pgxn_map_pmap.put("Relation", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_14(o, p, r);} });
-            pgxn_map_pmap.put("Prereq", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_15(o, p, r);} });
-            pgxn_map_pmap.put("Prereqs", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_16(o, p, r);} });
+            pgxn_map_pmap.put("Prereq", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_4(o, p, r);} });
+            pgxn_map_pmap.put("Prereqs", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_5(o, p, r);} });
                 super.init(json);
             }
             catch (Exception e) {

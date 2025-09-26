@@ -4144,11 +4144,11 @@ export function check_model_init()
         _jm_obj_2_map.set("string", _jm_f_96)
         _jm_obj_2_map.set("tuple", _jm_f_97)
         _jm_obj_2_map.set("xor", _jm_f_98)
-        check_model_map.set("", json_model_1)
+        check_model_map.set("", _jm_obj_2)
         check_model_map.set("a", json_model_2)
         check_model_map.set("b", json_model_3)
-        check_model_map.set("ab", json_model_4)
-        check_model_map.set("cd", json_model_5)
+        check_model_map.set("ab", _jm_obj_0)
+        check_model_map.set("cd", _jm_obj_1)
     }
 }
 

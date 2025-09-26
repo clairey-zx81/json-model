@@ -4377,7 +4377,7 @@ sub check_model_init()
             'update' => \&_jm_f_196,
         );
         %check_model_map = (
-            '' => \&json_model_1,
+            '' => \&_jm_obj_7,
             'color' => \&json_model_2,
             'colorArray' => \&json_model_3,
             'keybinding' => \&json_model_4,

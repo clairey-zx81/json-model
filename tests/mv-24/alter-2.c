@@ -339,8 +339,8 @@ const char *check_model_init(void)
         _jm_map_1_tab[2] = (jm_constmap_t) { (jm_constant_t) { cst_is_string, { .s = "d" } }, json_model_2 };
         jm_sort_constmap(_jm_map_1_tab, 3);
         check_model_map_tab[0] = (jm_propmap_t) { "", json_model_4 };
-        check_model_map_tab[1] = (jm_propmap_t) { "d", json_model_2 };
-        check_model_map_tab[2] = (jm_propmap_t) { "efg", json_model_3 };
+        check_model_map_tab[1] = (jm_propmap_t) { "d", _jm_obj_0 };
+        check_model_map_tab[2] = (jm_propmap_t) { "efg", _jm_obj_1 };
         check_model_map_tab[3] = (jm_propmap_t) { "alternative", json_model_4 };
         jm_sort_propmap(check_model_map_tab, 4);
     }

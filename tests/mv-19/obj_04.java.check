@@ -3,12 +3,12 @@ obj_04.values.json[1]: PASS
 obj_04.values.json[2]: PASS
 obj_04.values.json[3]: PASS
 obj_04.values.json[4]: PASS
-obj_04.values.json[5]: FAIL (Y: value not in enum [.'$Xxx'.'|']; Y: unexpected prop [.]; : unexpected element [.])
-obj_04.values.json[6]: FAIL (X: not a 0.0 strict float [.'$Xxx']; : unexpected element [.])
-obj_04.values.json[7]: FAIL (: not an object [.]; : unexpected element [.])
-obj_04.values.json[8]: FAIL (: not an object [.]; : unexpected element [.])
-obj_04.values.json[9]: FAIL (: not an object [.]; : unexpected element [.])
-obj_04.values.json[10]: FAIL (: not an object [.]; : unexpected element [.])
-obj_04.values.json[11]: FAIL (: not an object [.]; : unexpected element [.])
-obj_04.values.json[12]: FAIL (: not an object [.]; : unexpected element [.])
-obj_04.values.json[13]: FAIL (: not an object [.]; : unexpected element [.])
+obj_04.values.json[5]: FAIL (Y: value not in enum [.'$Xxx'.'|']; Y: unexpected prop [.])
+obj_04.values.json[6]: FAIL (X: not a 0.0 strict float [.'$Xxx'])
+obj_04.values.json[7]: FAIL (: not an object [.])
+obj_04.values.json[8]: FAIL (: not an object [.])
+obj_04.values.json[9]: FAIL (: not an object [.])
+obj_04.values.json[10]: FAIL (: not an object [.])
+obj_04.values.json[11]: FAIL (: not an object [.])
+obj_04.values.json[12]: FAIL (: not an object [.])
+obj_04.values.json[13]: FAIL (: not an object [.])

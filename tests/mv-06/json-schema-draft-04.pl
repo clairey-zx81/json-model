@@ -715,7 +715,7 @@ sub check_model_init()
             'uniqueItems' => \&_jm_f_33,
         );
         %check_model_map = (
-            '' => \&json_model_1,
+            '' => \&_jm_obj_0,
             'schemaArray' => \&json_model_2,
             'simpleTypes' => \&json_model_3,
             'stringArray' => \&json_model_4,

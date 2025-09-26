@@ -674,7 +674,7 @@ export function check_model_init()
         _jm_obj_0_map.set("requires", _jm_f_23)
         _jm_obj_0_map.set("title", _jm_f_24)
         _jm_obj_0_map.set("type", _jm_f_25)
-        check_model_map.set("", json_model_1)
+        check_model_map.set("", _jm_obj_0)
         check_model_map.set("allTypes", json_model_2)
         check_model_map.set("Schema", json_model_1)
     }

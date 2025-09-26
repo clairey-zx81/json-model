@@ -760,7 +760,7 @@ const char *check_model_init(void)
         _jm_obj_0_map_tab[25] = (jm_propmap_t) { "type", _jm_f_25 };
         _jm_obj_0_map_tab[26] = (jm_propmap_t) { "uniqueItems", _jm_f_26 };
         jm_sort_propmap(_jm_obj_0_map_tab, 27);
-        check_model_map_tab[0] = (jm_propmap_t) { "", json_model_1 };
+        check_model_map_tab[0] = (jm_propmap_t) { "", _jm_obj_0 };
         check_model_map_tab[1] = (jm_propmap_t) { "allTypes", json_model_2 };
         check_model_map_tab[2] = (jm_propmap_t) { "distinctStringArray", json_model_3 };
         check_model_map_tab[3] = (jm_propmap_t) { "Schema", json_model_1 };

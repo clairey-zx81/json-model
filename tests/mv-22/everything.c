@@ -4389,11 +4389,11 @@ const char *check_model_init(void)
         _jm_obj_2_map_tab[13] = (jm_propmap_t) { "tuple", _jm_f_97 };
         _jm_obj_2_map_tab[14] = (jm_propmap_t) { "xor", _jm_f_98 };
         jm_sort_propmap(_jm_obj_2_map_tab, 15);
-        check_model_map_tab[0] = (jm_propmap_t) { "", json_model_1 };
+        check_model_map_tab[0] = (jm_propmap_t) { "", _jm_obj_2 };
         check_model_map_tab[1] = (jm_propmap_t) { "a", json_model_2 };
         check_model_map_tab[2] = (jm_propmap_t) { "b", json_model_3 };
-        check_model_map_tab[3] = (jm_propmap_t) { "ab", json_model_4 };
-        check_model_map_tab[4] = (jm_propmap_t) { "cd", json_model_5 };
+        check_model_map_tab[3] = (jm_propmap_t) { "ab", _jm_obj_0 };
+        check_model_map_tab[4] = (jm_propmap_t) { "cd", _jm_obj_1 };
         jm_sort_propmap(check_model_map_tab, 5);
     }
     return NULL;

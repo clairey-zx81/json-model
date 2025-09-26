@@ -1,3 +1,3 @@
 jsound.values.json[0]: PASS
 jsound.values.json[1]: PASS
-jsound.values.json[2]: FAIL (: missing mandatory prop <types> [.'$Schema']; : unexpected element [.'$Schema'])
+jsound.values.json[2]: FAIL (: missing mandatory prop <types> [.'$Schema'])

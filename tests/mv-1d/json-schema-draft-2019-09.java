@@ -2594,18 +2594,18 @@ public class json_schema_draft_2019_09 extends ModelChecker
             json_schema_draft_2019_09_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_1(o, p, r);} });
             json_schema_draft_2019_09_map_pmap.put("URI-REFERENCE", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_2(o, p, r);} });
             json_schema_draft_2019_09_map_pmap.put("id", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_2(o, p, r);} });
-            json_schema_draft_2019_09_map_pmap.put("core", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
-            json_schema_draft_2019_09_map_pmap.put("meta", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_5(o, p, r);} });
-            json_schema_draft_2019_09_map_pmap.put("content", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_6(o, p, r);} });
-            json_schema_draft_2019_09_map_pmap.put("format", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_7(o, p, r);} });
+            json_schema_draft_2019_09_map_pmap.put("core", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_0(o, p, r);} });
+            json_schema_draft_2019_09_map_pmap.put("meta", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_3(o, p, r);} });
+            json_schema_draft_2019_09_map_pmap.put("content", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_4(o, p, r);} });
+            json_schema_draft_2019_09_map_pmap.put("format", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_5(o, p, r);} });
             json_schema_draft_2019_09_map_pmap.put("simpleTypes", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_8(o, p, r);} });
             json_schema_draft_2019_09_map_pmap.put("simpleTypesArray", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_9(o, p, r);} });
             json_schema_draft_2019_09_map_pmap.put("stringArray", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_10(o, p, r);} });
             json_schema_draft_2019_09_map_pmap.put("nonNegativeInteger", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_11(o, p, r);} });
-            json_schema_draft_2019_09_map_pmap.put("validation", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_12(o, p, r);} });
+            json_schema_draft_2019_09_map_pmap.put("validation", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_6(o, p, r);} });
             json_schema_draft_2019_09_map_pmap.put("schemaArray", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_13(o, p, r);} });
-            json_schema_draft_2019_09_map_pmap.put("applicator", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_14(o, p, r);} });
-            json_schema_draft_2019_09_map_pmap.put("ObjectSchema", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_15(o, p, r);} });
+            json_schema_draft_2019_09_map_pmap.put("applicator", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_8(o, p, r);} });
+            json_schema_draft_2019_09_map_pmap.put("ObjectSchema", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_12(o, p, r);} });
             json_schema_draft_2019_09_map_pmap.put("Schema", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_16(o, p, r);} });
                 super.init(json);
             }

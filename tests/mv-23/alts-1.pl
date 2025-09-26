@@ -539,11 +539,11 @@ sub check_model_init()
         );
         %check_model_map = (
             '' => \&json_model_1,
-            'oA' => \&json_model_2,
-            'oB' => \&json_model_3,
+            'oA' => \&_jm_obj_0,
+            'oB' => \&_jm_obj_1,
             'oC' => \&json_model_4,
-            'oL' => \&json_model_5,
-            'oX' => \&json_model_6,
+            'oL' => \&_jm_obj_4,
+            'oX' => \&_jm_obj_5,
         );
     }
 }

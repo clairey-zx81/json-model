@@ -2716,18 +2716,18 @@ const char *check_model_init(void)
         check_model_map_tab[0] = (jm_propmap_t) { "", json_model_1 };
         check_model_map_tab[1] = (jm_propmap_t) { "URI-REFERENCE", json_model_2 };
         check_model_map_tab[2] = (jm_propmap_t) { "id", json_model_2 };
-        check_model_map_tab[3] = (jm_propmap_t) { "core", json_model_4 };
-        check_model_map_tab[4] = (jm_propmap_t) { "meta", json_model_5 };
-        check_model_map_tab[5] = (jm_propmap_t) { "content", json_model_6 };
-        check_model_map_tab[6] = (jm_propmap_t) { "format", json_model_7 };
+        check_model_map_tab[3] = (jm_propmap_t) { "core", _jm_obj_0 };
+        check_model_map_tab[4] = (jm_propmap_t) { "meta", _jm_obj_3 };
+        check_model_map_tab[5] = (jm_propmap_t) { "content", _jm_obj_4 };
+        check_model_map_tab[6] = (jm_propmap_t) { "format", _jm_obj_5 };
         check_model_map_tab[7] = (jm_propmap_t) { "simpleTypes", json_model_8 };
         check_model_map_tab[8] = (jm_propmap_t) { "simpleTypesArray", json_model_9 };
         check_model_map_tab[9] = (jm_propmap_t) { "stringArray", json_model_10 };
         check_model_map_tab[10] = (jm_propmap_t) { "nonNegativeInteger", json_model_11 };
-        check_model_map_tab[11] = (jm_propmap_t) { "validation", json_model_12 };
+        check_model_map_tab[11] = (jm_propmap_t) { "validation", _jm_obj_6 };
         check_model_map_tab[12] = (jm_propmap_t) { "schemaArray", json_model_13 };
-        check_model_map_tab[13] = (jm_propmap_t) { "applicator", json_model_14 };
-        check_model_map_tab[14] = (jm_propmap_t) { "ObjectSchema", json_model_15 };
+        check_model_map_tab[13] = (jm_propmap_t) { "applicator", _jm_obj_8 };
+        check_model_map_tab[14] = (jm_propmap_t) { "ObjectSchema", _jm_obj_12 };
         check_model_map_tab[15] = (jm_propmap_t) { "Schema", json_model_16 };
         jm_sort_propmap(check_model_map_tab, 16);
     }

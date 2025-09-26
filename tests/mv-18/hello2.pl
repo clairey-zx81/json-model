@@ -81,7 +81,7 @@ sub check_model_init()
     {
         $initialized = 1;
         %check_model_map = (
-            '' => \&json_model_2,
+            '' => \&_jm_obj_0,
         );
     }
 }

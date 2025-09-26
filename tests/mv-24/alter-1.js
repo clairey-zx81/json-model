@@ -393,8 +393,8 @@ export function check_model_init()
         check_model_map.set("", json_model_6)
         check_model_map.set("g", json_model_2)
         check_model_map.set("h_ou_i", json_model_3)
-        check_model_map.set("d", json_model_4)
-        check_model_map.set("ef", json_model_5)
+        check_model_map.set("d", _jm_obj_0)
+        check_model_map.set("ef", _jm_obj_1)
         check_model_map.set("alternative", json_model_6)
     }
 }

@@ -226,8 +226,8 @@ public class tag00 extends ModelChecker
             _jm_map_0_cmap.put(json.safeJSON("2"), new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_3(o, p, r);} });
             tag00_map_pmap = new HashMap<String, Checker>();
             tag00_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_1(o, p, r);} });
-            tag00_map_pmap.put("Aa", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_2(o, p, r);} });
-            tag00_map_pmap.put("Bb", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_3(o, p, r);} });
+            tag00_map_pmap.put("Aa", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_0(o, p, r);} });
+            tag00_map_pmap.put("Bb", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_1(o, p, r);} });
                 super.init(json);
             }
             catch (Exception e) {

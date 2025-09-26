@@ -322,7 +322,7 @@ const char *check_model_init(void)
         _jm_map_0_tab[1] = (jm_constmap_t) { (jm_constant_t) { cst_is_string, { .s = "en" } }, _jm_obj_2 };
         _jm_map_0_tab[2] = (jm_constmap_t) { (jm_constant_t) { cst_is_string, { .s = "ru" } }, _jm_obj_3 };
         jm_sort_constmap(_jm_map_0_tab, 3);
-        check_model_map_tab[0] = (jm_propmap_t) { "", json_model_1 };
+        check_model_map_tab[0] = (jm_propmap_t) { "", _jm_obj_0 };
         jm_sort_propmap(check_model_map_tab, 1);
     }
     return NULL;

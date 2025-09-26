@@ -284,8 +284,8 @@ def check_model_init():
             "": json_model_6,
             "g": json_model_2,
             "h_ou_i": json_model_3,
-            "d": json_model_4,
-            "ef": json_model_5,
+            "d": _jm_obj_0,
+            "ef": _jm_obj_1,
             "alternative": json_model_6,
         }
 

@@ -169,10 +169,10 @@ def check_model_init():
         initialized = True
         global check_model_map
         check_model_map = {
-            "": json_model_4,
-            "loose": json_model_5,
-            "strict": json_model_6,
-            "combined": json_model_4,
+            "": _jm_obj_2,
+            "loose": _jm_obj_0,
+            "strict": _jm_obj_1,
+            "combined": _jm_obj_2,
         }
 
 # differed module cleanup

@@ -264,7 +264,7 @@ const char *check_model_init(void)
         check_model_map_tab[4] = (jm_propmap_t) { "Ff", json_model_5 };
         check_model_map_tab[5] = (jm_propmap_t) { "Ss", json_model_6 };
         check_model_map_tab[6] = (jm_propmap_t) { "Aa", json_model_7 };
-        check_model_map_tab[7] = (jm_propmap_t) { "Oo", json_model_8 };
+        check_model_map_tab[7] = (jm_propmap_t) { "Oo", _jm_obj_0 };
         check_model_map_tab[8] = (jm_propmap_t) { "Any", json_model_9 };
         jm_sort_propmap(check_model_map_tab, 9);
     }

@@ -287,7 +287,7 @@ sub check_model_init()
             'ru' => \&_jm_obj_4,
         );
         %check_model_map = (
-            '' => \&json_model_1,
+            '' => \&_jm_obj_0,
         );
     }
 }

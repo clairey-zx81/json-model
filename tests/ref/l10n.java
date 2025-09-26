@@ -107,21 +107,20 @@ public class l10n extends ModelChecker
             String prop = prop_loop.next();
             Object pval = json.objectValue(val, prop);
             Path lpath_2 = new Path(prop, path);
-            if (prop.compareTo("#") == 0)
+            if (prop.startsWith("#"))
             {
-                // handle may # property
-                // .'%'.'#'
+                // handle 2 re props
+                // .'%'.'/^#/'
                 res = json.isString(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.'%'.'#']", (path != null ? lpath_2 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'%'.'#']", (path != null ? lpath_2 : null));
+                    if (rep != null) rep.addEntry("unexpected string [.'%'.'/^#/']", (path != null ? lpath_2 : null));
                     return false;
                 }
             }
             else if (_jm_re_0(prop, path, rep))
             {
-                // handle 1 re props
+                // handle 2 re props
                 // .'%'.'/^\\..+$/'
                 // "/^([#~$%@|&+^/*=]|[<>!]=?)$/"
                 res = json.isString(pval) && _jm_re_1(json.asString(pval), (path != null ? lpath_2 : null), rep);
@@ -209,15 +208,14 @@ public class l10n extends ModelChecker
                     return false;
                 }
             }
-            else if (prop.compareTo("#") == 0)
+            else if (prop.startsWith("#"))
             {
-                // handle may # property
-                // .'#'
+                // handle 1 re props
+                // .'/^#/'
                 res = json.isString(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.'#']", (path != null ? lpath_0 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'#']", (path != null ? lpath_0 : null));
+                    if (rep != null) rep.addEntry("unexpected string [.'/^#/']", (path != null ? lpath_0 : null));
                     return false;
                 }
             }
@@ -276,7 +274,7 @@ public class l10n extends ModelChecker
             _jm_re_0_pat = Pattern.compile("^\\..+$");
             _jm_re_1_pat = Pattern.compile("^([#~$%@|&+^/*=]|[<>!]=?)$");
             l10n_map_pmap = new HashMap<String, Checker>();
-            l10n_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_1(o, p, r);} });
+            l10n_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_0(o, p, r);} });
                 super.init(json);
             }
             catch (Exception e) {

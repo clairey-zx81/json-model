@@ -276,8 +276,8 @@ export function check_model_init()
         _jm_map_0.set("e", json_model_3)
         _jm_map_0.set("f", json_model_3)
         check_model_map.set("", json_model_4)
-        check_model_map.set("d", json_model_2)
-        check_model_map.set("ef", json_model_3)
+        check_model_map.set("d", _jm_obj_0)
+        check_model_map.set("ef", _jm_obj_1)
         check_model_map.set("alternative", json_model_4)
     }
 }

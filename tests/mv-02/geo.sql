@@ -1306,7 +1306,7 @@ $$ LANGUAGE PLpgSQL;
 CREATE OR REPLACE FUNCTION check_model_map(name TEXT)
 RETURNS TEXT STRICT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
-  map JSONB := JSONB '{"":"json_model_1","position":"json_model_2","coord_array":"json_model_3","linear_ring":"json_model_4","Point":"json_model_5","MultiPoint":"json_model_6","LineString":"json_model_7","MultiLineString":"json_model_8","Polygon":"json_model_9","MultiPolygon":"json_model_10","geometry":"json_model_11","GeometryCollection":"json_model_12","Feature":"json_model_13","FeatureCollection":"json_model_14"}';
+  map JSONB := JSONB '{"":"json_model_1","position":"json_model_2","coord_array":"json_model_3","linear_ring":"json_model_4","Point":"_jm_obj_0","MultiPoint":"_jm_obj_1","LineString":"_jm_obj_2","MultiLineString":"_jm_obj_3","Polygon":"_jm_obj_4","MultiPolygon":"_jm_obj_5","geometry":"json_model_11","GeometryCollection":"_jm_obj_12","Feature":"_jm_obj_13","FeatureCollection":"_jm_obj_15"}';
 BEGIN
   RETURN map->>name;
 END;

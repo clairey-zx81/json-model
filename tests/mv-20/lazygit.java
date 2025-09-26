@@ -5285,7 +5285,7 @@ public class lazygit extends ModelChecker
             _jm_obj_7_map_pmap.put("services", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_195(o, p, r);} });
             _jm_obj_7_map_pmap.put("update", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_196(o, p, r);} });
             lazygit_map_pmap = new HashMap<String, Checker>();
-            lazygit_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_1(o, p, r);} });
+            lazygit_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_7(o, p, r);} });
             lazygit_map_pmap.put("color", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_2(o, p, r);} });
             lazygit_map_pmap.put("colorArray", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_3(o, p, r);} });
             lazygit_map_pmap.put("keybinding", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });

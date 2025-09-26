@@ -82,7 +82,7 @@ public class obj_03 extends ModelChecker
             try {
             _jm_re_0_pat = Pattern.compile("^[0-9]+$");
             obj_03_map_pmap = new HashMap<String, Checker>();
-            obj_03_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_1(o, p, r);} });
+            obj_03_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_0(o, p, r);} });
                 super.init(json);
             }
             catch (Exception e) {

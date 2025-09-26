@@ -122,7 +122,7 @@ public class opt_03 extends ModelChecker
         {
             try {
             opt_03_map_pmap = new HashMap<String, Checker>();
-            opt_03_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_1(o, p, r);} });
+            opt_03_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_0(o, p, r);} });
                 super.init(json);
             }
             catch (Exception e) {

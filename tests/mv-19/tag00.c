@@ -233,8 +233,8 @@ const char *check_model_init(void)
         _jm_map_0_tab[1] = (jm_constmap_t) { (jm_constant_t) { cst_is_integer, { .i = 2 } }, json_model_3 };
         jm_sort_constmap(_jm_map_0_tab, 2);
         check_model_map_tab[0] = (jm_propmap_t) { "", json_model_1 };
-        check_model_map_tab[1] = (jm_propmap_t) { "Aa", json_model_2 };
-        check_model_map_tab[2] = (jm_propmap_t) { "Bb", json_model_3 };
+        check_model_map_tab[1] = (jm_propmap_t) { "Aa", _jm_obj_0 };
+        check_model_map_tab[2] = (jm_propmap_t) { "Bb", _jm_obj_1 };
         jm_sort_propmap(check_model_map_tab, 3);
     }
     return NULL;

@@ -3543,7 +3543,7 @@ def check_model_init():
         }
         global check_model_map
         check_model_map = {
-            "": json_model_1,
+            "": _jm_obj_7,
             "color": json_model_2,
             "colorArray": json_model_3,
             "keybinding": json_model_4,

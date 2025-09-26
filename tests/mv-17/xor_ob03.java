@@ -319,7 +319,7 @@ public class xor_ob03 extends ModelChecker
             _jm_map_0_cmap.put(json.safeJSON("\"en\""), new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_2(o, p, r);} });
             _jm_map_0_cmap.put(json.safeJSON("\"ru\""), new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_3(o, p, r);} });
             xor_ob03_map_pmap = new HashMap<String, Checker>();
-            xor_ob03_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_1(o, p, r);} });
+            xor_ob03_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_0(o, p, r);} });
                 super.init(json);
             }
             catch (Exception e) {

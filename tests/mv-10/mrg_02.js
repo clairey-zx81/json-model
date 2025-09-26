@@ -385,10 +385,10 @@ export function check_model_init()
         _jm_obj_2_mup.set("d", _jm_f_3)
         _jm_obj_2_mup.set("e", _jm_f_4)
         _jm_obj_2_mup.set("f", _jm_f_5)
-        check_model_map.set("", json_model_1)
+        check_model_map.set("", _jm_obj_2)
         check_model_map.set("t", json_model_2)
-        check_model_map.set("r", json_model_5)
-        check_model_map.set("z", json_model_4)
+        check_model_map.set("r", _jm_obj_0)
+        check_model_map.set("z", _jm_obj_1)
     }
 }
 

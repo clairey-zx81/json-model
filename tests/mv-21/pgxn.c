@@ -1416,22 +1416,22 @@ const char *check_model_init(void)
         _jm_obj_7_map_tab[6] = (jm_propmap_t) { "tags", _jm_f_13 };
         _jm_obj_7_map_tab[7] = (jm_propmap_t) { "url", _jm_f_14 };
         jm_sort_propmap(_jm_obj_7_map_tab, 8);
-        check_model_map_tab[0] = (jm_propmap_t) { "", json_model_1 };
+        check_model_map_tab[0] = (jm_propmap_t) { "", _jm_obj_7 };
         check_model_map_tab[1] = (jm_propmap_t) { "neStr", json_model_2 };
         check_model_map_tab[2] = (jm_propmap_t) { "neStrList", json_model_3 };
         check_model_map_tab[3] = (jm_propmap_t) { "License", json_model_4 };
         check_model_map_tab[4] = (jm_propmap_t) { "LicenseList", json_model_5 };
-        check_model_map_tab[5] = (jm_propmap_t) { "Provide", json_model_6 };
+        check_model_map_tab[5] = (jm_propmap_t) { "Provide", _jm_obj_0 };
         check_model_map_tab[6] = (jm_propmap_t) { "Status", json_model_7 };
-        check_model_map_tab[7] = (jm_propmap_t) { "Resources", json_model_8 };
+        check_model_map_tab[7] = (jm_propmap_t) { "Resources", _jm_obj_1 };
         check_model_map_tab[8] = (jm_propmap_t) { "SemVer", json_model_9 };
         check_model_map_tab[9] = (jm_propmap_t) { "Version", json_model_10 };
         check_model_map_tab[10] = (jm_propmap_t) { "Ops", json_model_11 };
         check_model_map_tab[11] = (jm_propmap_t) { "VersionRange", json_model_12 };
         check_model_map_tab[12] = (jm_propmap_t) { "Phase", json_model_13 };
         check_model_map_tab[13] = (jm_propmap_t) { "Relation", json_model_14 };
-        check_model_map_tab[14] = (jm_propmap_t) { "Prereq", json_model_15 };
-        check_model_map_tab[15] = (jm_propmap_t) { "Prereqs", json_model_16 };
+        check_model_map_tab[14] = (jm_propmap_t) { "Prereq", _jm_obj_4 };
+        check_model_map_tab[15] = (jm_propmap_t) { "Prereqs", _jm_obj_5 };
         jm_sort_propmap(check_model_map_tab, 16);
     }
     return NULL;

@@ -247,7 +247,7 @@ export function check_model_init()
         check_model_map.set("Ff", json_model_5)
         check_model_map.set("Ss", json_model_6)
         check_model_map.set("Aa", json_model_7)
-        check_model_map.set("Oo", json_model_8)
+        check_model_map.set("Oo", _jm_obj_0)
         check_model_map.set("Any", json_model_9)
     }
 }

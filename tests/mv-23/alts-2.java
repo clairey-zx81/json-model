@@ -167,7 +167,7 @@ public class alts_2 extends ModelChecker
             try {
             alts_2_map_pmap = new HashMap<String, Checker>();
             alts_2_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_3(o, p, r);} });
-            alts_2_map_pmap.put("a", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_2(o, p, r);} });
+            alts_2_map_pmap.put("a", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_0(o, p, r);} });
             alts_2_map_pmap.put("r", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_3(o, p, r);} });
                 super.init(json);
             }

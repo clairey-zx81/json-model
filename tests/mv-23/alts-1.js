@@ -599,11 +599,11 @@ export function check_model_init()
         _jm_map_1.set("f", _jm_obj_8)
         _jm_map_1.set("d", _jm_obj_9)
         check_model_map.set("", json_model_1)
-        check_model_map.set("oA", json_model_2)
-        check_model_map.set("oB", json_model_3)
+        check_model_map.set("oA", _jm_obj_0)
+        check_model_map.set("oB", _jm_obj_1)
         check_model_map.set("oC", json_model_4)
-        check_model_map.set("oL", json_model_5)
-        check_model_map.set("oX", json_model_6)
+        check_model_map.set("oL", _jm_obj_4)
+        check_model_map.set("oX", _jm_obj_5)
     }
 }
 

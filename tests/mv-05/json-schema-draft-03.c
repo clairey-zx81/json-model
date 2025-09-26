@@ -920,7 +920,7 @@ const char *check_model_init(void)
         _jm_obj_0_map_tab[27] = (jm_propmap_t) { "type", _jm_f_27 };
         _jm_obj_0_map_tab[28] = (jm_propmap_t) { "uniqueItems", _jm_f_28 };
         jm_sort_propmap(_jm_obj_0_map_tab, 29);
-        check_model_map_tab[0] = (jm_propmap_t) { "", json_model_1 };
+        check_model_map_tab[0] = (jm_propmap_t) { "", _jm_obj_0 };
         check_model_map_tab[1] = (jm_propmap_t) { "allTypes", json_model_2 };
         check_model_map_tab[2] = (jm_propmap_t) { "distinctSchemaArray", json_model_3 };
         check_model_map_tab[3] = (jm_propmap_t) { "Schema", json_model_1 };

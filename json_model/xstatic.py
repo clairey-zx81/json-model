@@ -1417,9 +1417,11 @@ class CodeGenerator:
             jm, gref = self._to_compile[min(todo)]
             self.compileOneJsonModel(jm, gref, [gref], True)
 
+        log.warning(f"IN entries={entries}")
+        log.warning(f"IN paths={self._paths}")
+
         # optimize main mapping by skipping intermediate functions on direct references
-        # TODO also skip to object functions
-        # TODO optimize all mappings
+        # TODO optimize _all_ mappings?
         for name in list(entries.keys()):
             key, fun0 = name, entries[name]
             fun, seen = None, set()
@@ -1431,10 +1433,16 @@ class CodeGenerator:
                     if key in entries:
                         fun = entries[key]
                     # else we are going to exit next
-                else:
+                elif isinstance(jm._model, dict):
+                    # do we have an object function on this path?
+                    tkey = (f"${key}",) if key else tuple()
+                    if tkey in self._paths:
+                        fun = self._paths[tkey]
                     break
             if fun is not None and fun != fun0:
                 entries[name] = fun
+
+        log.warning(f"OUT entries={entries}")
 
         # generate mapping, name must be consistent with data/clang_*.c
         self._code.pmap(f"{self._code._entry}_map", entries, True)

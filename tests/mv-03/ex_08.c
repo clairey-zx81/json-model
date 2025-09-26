@@ -160,7 +160,7 @@ const char *check_model_init(void)
         check_model_map_tab[0] = (jm_propmap_t) { "", json_model_5 };
         check_model_map_tab[1] = (jm_propmap_t) { "Val", json_model_2 };
         check_model_map_tab[2] = (jm_propmap_t) { "Key", json_model_3 };
-        check_model_map_tab[3] = (jm_propmap_t) { "map", json_model_4 };
+        check_model_map_tab[3] = (jm_propmap_t) { "map", _jm_obj_0 };
         check_model_map_tab[4] = (jm_propmap_t) { "Ex08", json_model_5 };
         jm_sort_propmap(check_model_map_tab, 5);
     }

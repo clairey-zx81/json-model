@@ -178,8 +178,8 @@ sub check_model_init()
         );
         %check_model_map = (
             '' => \&json_model_1,
-            'Aa' => \&json_model_2,
-            'Bb' => \&json_model_3,
+            'Aa' => \&_jm_obj_0,
+            'Bb' => \&_jm_obj_1,
         );
     }
 }

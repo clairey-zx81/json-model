@@ -85,10 +85,10 @@ sub _jm_obj_2($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq '#')
+        if (jm_starts_with($prop, '#'))
         {
-            # handle may # property
-            # .'%'.'#'
+            # handle 2 re props
+            # .'%'.'/^#/'
             $res = jm_is_string($pval);
             if (! $res)
             {
@@ -97,7 +97,7 @@ sub _jm_obj_2($$$)
         }
         elsif (_jm_re_0($prop, $path, $rep))
         {
-            # handle 1 re props
+            # handle 2 re props
             # .'%'.'/^\\..+$/'
             # "/^([#~$%@|&+^/*=]|[<>!]=?)$/"
             $res = jm_is_string($pval) && _jm_re_1($pval, undef, $rep);
@@ -172,10 +172,10 @@ sub _jm_obj_0($$$)
                 return 0;
             }
         }
-        elsif ($prop eq '#')
+        elsif (jm_starts_with($prop, '#'))
         {
-            # handle may # property
-            # .'#'
+            # handle 1 re props
+            # .'/^#/'
             $res = jm_is_string($pval);
             if (! $res)
             {
@@ -216,7 +216,7 @@ sub check_model_init()
     {
         $initialized = 1;
         %check_model_map = (
-            '' => \&json_model_1,
+            '' => \&_jm_obj_0,
         );
     }
 }

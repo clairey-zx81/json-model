@@ -182,9 +182,9 @@ export function check_model_init()
     {
         initialized = true;
         runtime.jm_set_rx(RegExp)
-        check_model_map.set("", json_model_3)
+        check_model_map.set("", _jm_obj_0)
         check_model_map.set("root", json_model_4)
-        check_model_map.set("Foo", json_model_3)
+        check_model_map.set("Foo", _jm_obj_0)
     }
 }
 

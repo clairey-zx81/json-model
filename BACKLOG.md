@@ -15,7 +15,7 @@
 - [x] command: add `--ir-optimize` option
 - [x] command: activate ir optimization by default
 - [x] backend: IR handling of ConstMap
-- [ ] static: skip model function to call obj function directly on references
+- [x] static: skip model function to call obj function directly on references
 - [ ] tests: add ir optimized output
 - [ ] tests: add pytest ir tests
 - [ ] tests: drop language outputs for IR only?!

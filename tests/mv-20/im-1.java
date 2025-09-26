@@ -97,7 +97,7 @@ public class im_1 extends ModelChecker
         {
             try {
             im_1_map_pmap = new HashMap<String, Checker>();
-            im_1_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_1(o, p, r);} });
+            im_1_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_0(o, p, r);} });
             im_1_map_pmap.put("c", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_2(o, p, r);} });
             im_1_map_pmap.put("a", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
             im_1_map_pmap.put("b", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_5(o, p, r);} });

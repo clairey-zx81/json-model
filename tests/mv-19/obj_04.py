@@ -77,7 +77,7 @@ def check_model_init():
         _jm_cst_0 = {'X', 'XX', 'XXX'}
         global check_model_map
         check_model_map = {
-            "": json_model_1,
+            "": _jm_obj_0,
             "Xxx": json_model_2,
         }
 

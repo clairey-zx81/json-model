@@ -201,7 +201,7 @@ public class more_comments extends ModelChecker
         {
             try {
             more_comments_map_pmap = new HashMap<String, Checker>();
-            more_comments_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_1(o, p, r);} });
+            more_comments_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_0(o, p, r);} });
             more_comments_map_pmap.put("Pp", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_2(o, p, r);} });
             more_comments_map_pmap.put("Qq", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_3(o, p, r);} });
                 super.init(json);

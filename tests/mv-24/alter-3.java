@@ -236,7 +236,7 @@ public class alter_3 extends ModelChecker
             _jm_map_0_cmap.put(json.safeJSON("\"d\""), new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_2(o, p, r);} });
             alter_3_map_pmap = new HashMap<String, Checker>();
             alter_3_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_3(o, p, r);} });
-            alter_3_map_pmap.put("d", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_2(o, p, r);} });
+            alter_3_map_pmap.put("d", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_0(o, p, r);} });
             alter_3_map_pmap.put("alternative", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_3(o, p, r);} });
                 super.init(json);
             }

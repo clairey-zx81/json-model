@@ -110,8 +110,8 @@ export function check_model_init()
     {
         initialized = true;
         runtime.jm_set_rx(RegExp)
-        check_model_map.set("", json_model_2)
-        check_model_map.set("un", json_model_2)
+        check_model_map.set("", _jm_obj_0)
+        check_model_map.set("un", _jm_obj_0)
     }
 }
 

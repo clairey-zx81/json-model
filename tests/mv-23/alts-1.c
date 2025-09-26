@@ -634,11 +634,11 @@ const char *check_model_init(void)
         _jm_map_1_tab[5] = (jm_constmap_t) { (jm_constant_t) { cst_is_string, { .s = "d" } }, _jm_obj_9 };
         jm_sort_constmap(_jm_map_1_tab, 6);
         check_model_map_tab[0] = (jm_propmap_t) { "", json_model_1 };
-        check_model_map_tab[1] = (jm_propmap_t) { "oA", json_model_2 };
-        check_model_map_tab[2] = (jm_propmap_t) { "oB", json_model_3 };
+        check_model_map_tab[1] = (jm_propmap_t) { "oA", _jm_obj_0 };
+        check_model_map_tab[2] = (jm_propmap_t) { "oB", _jm_obj_1 };
         check_model_map_tab[3] = (jm_propmap_t) { "oC", json_model_4 };
-        check_model_map_tab[4] = (jm_propmap_t) { "oL", json_model_5 };
-        check_model_map_tab[5] = (jm_propmap_t) { "oX", json_model_6 };
+        check_model_map_tab[4] = (jm_propmap_t) { "oL", _jm_obj_4 };
+        check_model_map_tab[5] = (jm_propmap_t) { "oX", _jm_obj_5 };
         jm_sort_propmap(check_model_map_tab, 6);
     }
     return NULL;

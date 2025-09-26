@@ -74,16 +74,15 @@ def _jm_obj_2(val: Jsonable, path: Path, rep: Report) -> bool:
     for prop, pval in val.items():
         assert isinstance(prop, str)
         lpath_2: Path = (path + [ prop ]) if path is not None else None
-        if prop == "#":
-            # handle may # property
-            # .'%'.'#'
+        if prop.startswith("#"):
+            # handle 2 re props
+            # .'%'.'/^#/'
             res = isinstance(pval, str)
             if not res:
-                rep is None or rep.append(("unexpected string [.'%'.'#']", lpath_2 if path is not None else None))
-                rep is None or rep.append(("invalid optional prop value [.'%'.'#']", lpath_2 if path is not None else None))
+                rep is None or rep.append(("unexpected string [.'%'.'/^#/']", lpath_2 if path is not None else None))
                 return False
         elif _jm_re_0(prop, path, rep):
-            # handle 1 re props
+            # handle 2 re props
             # .'%'.'/^\\..+$/'
             # "/^([#~$%@|&+^/*=]|[<>!]=?)$/"
             res = isinstance(pval, str) and _jm_re_1(pval, lpath_2 if path is not None else None, rep)
@@ -142,13 +141,12 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected _$Model [.'@']", lpath_0 if path is not None else None))
                 rep is None or rep.append(("invalid mandatory prop value [.'@']", lpath_0 if path is not None else None))
                 return False
-        elif prop == "#":
-            # handle may # property
-            # .'#'
+        elif prop.startswith("#"):
+            # handle 1 re props
+            # .'/^#/'
             res = isinstance(pval, str)
             if not res:
-                rep is None or rep.append(("unexpected string [.'#']", lpath_0 if path is not None else None))
-                rep is None or rep.append(("invalid optional prop value [.'#']", lpath_0 if path is not None else None))
+                rep is None or rep.append(("unexpected string [.'/^#/']", lpath_0 if path is not None else None))
                 return False
         else:
             rep is None or rep.append(("unexpected prop [.]", lpath_0 if path is not None else None))
@@ -193,7 +191,7 @@ def check_model_init():
         _jm_re_1 = lambda s, p, r: _jm_re_1_reco.search(s) is not None
         global check_model_map
         check_model_map = {
-            "": json_model_1,
+            "": _jm_obj_0,
         }
 
 # differed module cleanup

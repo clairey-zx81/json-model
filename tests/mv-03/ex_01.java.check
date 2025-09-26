@@ -1,5 +1,5 @@
 ex_01.values.json[0]: PASS
-ex_01.values.json[1]: FAIL (a: unexpected _Susie [.a]; a: invalid mandatory prop value [.a]; : unexpected element [.])
-ex_01.values.json[2]: FAIL (: missing mandatory prop <b> [.]; : unexpected element [.])
-ex_01.values.json[3]: FAIL (: not an object [.]; : unexpected element [.])
-ex_01.values.json[4]: FAIL (: not an object [.]; : unexpected element [.])
+ex_01.values.json[1]: FAIL (a: unexpected _Susie [.a]; a: invalid mandatory prop value [.a])
+ex_01.values.json[2]: FAIL (: missing mandatory prop <b> [.])
+ex_01.values.json[3]: FAIL (: not an object [.])
+ex_01.values.json[4]: FAIL (: not an object [.])

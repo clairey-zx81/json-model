@@ -4191,7 +4191,7 @@ $$ LANGUAGE PLpgSQL;
 CREATE OR REPLACE FUNCTION check_model_map(name TEXT)
 RETURNS TEXT STRICT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
-  map JSONB := JSONB '{"":"json_model_1","color":"json_model_2","colorArray":"json_model_3","keybinding":"json_model_4","custom-commands-prompts-type-property":"json_model_5","custom-commands-prompts-title-property":"json_model_6","custom-commands-prompts-key-property":"json_model_7","neString":"json_model_8","stringArray":"json_model_9","Prompts":"json_model_10"}';
+  map JSONB := JSONB '{"":"_jm_obj_7","color":"json_model_2","colorArray":"json_model_3","keybinding":"json_model_4","custom-commands-prompts-type-property":"json_model_5","custom-commands-prompts-title-property":"json_model_6","custom-commands-prompts-key-property":"json_model_7","neString":"json_model_8","stringArray":"json_model_9","Prompts":"json_model_10"}';
 BEGIN
   RETURN map->>name;
 END;

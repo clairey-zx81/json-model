@@ -214,8 +214,8 @@ export function check_model_init()
         _jm_map_0.set(1, json_model_2)
         _jm_map_0.set(2, json_model_3)
         check_model_map.set("", json_model_1)
-        check_model_map.set("Aa", json_model_2)
-        check_model_map.set("Bb", json_model_3)
+        check_model_map.set("Aa", _jm_obj_0)
+        check_model_map.set("Bb", _jm_obj_1)
     }
 }
 

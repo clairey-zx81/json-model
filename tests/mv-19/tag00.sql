@@ -144,7 +144,7 @@ $$ LANGUAGE PLpgSQL;
 CREATE OR REPLACE FUNCTION check_model_map(name TEXT)
 RETURNS TEXT STRICT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
-  map JSONB := JSONB '{"":"json_model_1","Aa":"json_model_2","Bb":"json_model_3"}';
+  map JSONB := JSONB '{"":"json_model_1","Aa":"_jm_obj_0","Bb":"_jm_obj_1"}';
 BEGIN
   RETURN map->>name;
 END;

@@ -2087,7 +2087,7 @@ $$ LANGUAGE PLpgSQL;
 CREATE OR REPLACE FUNCTION check_model_map(name TEXT)
 RETURNS TEXT STRICT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
-  map JSONB := JSONB '{"":"json_model_17","URI-REFERENCE":"json_model_3","core":"json_model_4","meta":"json_model_5","content":"json_model_6","unevaluated":"json_model_7","format":"json_model_8","simpleTypes":"json_model_9","simpleTypesArray":"json_model_10","stringArray":"json_model_11","nonNegativeInteger":"json_model_12","validation":"json_model_13","schemaArray":"json_model_14","applicator":"json_model_15","ObjectSchema":"json_model_16","Schema":"json_model_17","deprecated":"json_model_18","fuzzy":"json_model_19"}';
+  map JSONB := JSONB '{"":"json_model_17","URI-REFERENCE":"json_model_3","core":"_jm_obj_0","meta":"_jm_obj_3","content":"_jm_obj_4","unevaluated":"_jm_obj_5","format":"_jm_obj_6","simpleTypes":"json_model_9","simpleTypesArray":"json_model_10","stringArray":"json_model_11","nonNegativeInteger":"json_model_12","validation":"_jm_obj_7","schemaArray":"json_model_14","applicator":"_jm_obj_9","ObjectSchema":"_jm_obj_13","Schema":"json_model_17","deprecated":"_jm_obj_22","fuzzy":"_jm_obj_25"}';
 BEGIN
   RETURN map->>name;
 END;

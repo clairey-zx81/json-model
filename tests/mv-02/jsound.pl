@@ -922,16 +922,16 @@ sub check_model_init()
             'totalDigits' => \&_jm_f_12,
         );
         %check_model_map = (
-            '' => \&json_model_2,
-            'Schema' => \&json_model_2,
+            '' => \&_jm_obj_0,
+            'Schema' => \&_jm_obj_0,
             'Type' => \&json_model_3,
             'atomic-types' => \&json_model_4,
             'atomic' => \&json_model_5,
-            'Atomic' => \&json_model_6,
-            'Object' => \&json_model_7,
-            'Fields' => \&json_model_8,
-            'Array' => \&json_model_9,
-            'Union' => \&json_model_10,
+            'Atomic' => \&_jm_obj_2,
+            'Object' => \&_jm_obj_3,
+            'Fields' => \&_jm_obj_4,
+            'Array' => \&_jm_obj_5,
+            'Union' => \&_jm_obj_6,
             'type-or-ref' => \&json_model_11,
         );
     }
