@@ -1,6 +1,5 @@
 # experimental static (ecstatic?) compiler
 
-import copy
 import re
 import json
 

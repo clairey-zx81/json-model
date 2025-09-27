@@ -8,6 +8,7 @@ from .utils import log
 from .language import Language, Block, Var, PropMap, ConstList, Code
 from .language import JsonExpr, BoolExpr, IntExpr, StrExpr, PathExpr, NumExpr, Expr
 from .mtypes import Jsonable, JsonScalar, Number
+from .runtime import Path, Report
 
 def _j(o: str, **params) -> str:
     """Generate a JSON operation."""
@@ -19,8 +20,9 @@ def _l(s: str) -> Jsonable:
 
 def _u(block: Block) -> list[Jsonable]:
     """Parse a JSON code block."""
-    return [ _l(l) for l in filter(lambda s: s is not None and s != "", block) ]
+    return [ _l(i) for i in filter(lambda s: s is not None and s != "", block) ]
 
+# constant map to json and reverse
 def _cmap2json(mapping: dict[JsonScalar, str]) -> list[tuple[JsonScalar, str]]:
     return [ ( c, s ) for c, s in mapping.items() ]
 
@@ -142,7 +144,7 @@ def _optimSeq(seq: Sequence, bool_vars: set[str]) -> Effect:
     # if [not] b:
     #     then_1  # no W on b
     #     else_1  # no W on b
-    # (maybe comments)
+    # (comments or nopes)
     # if [not] b:
     #     then_2
     #     else_2
@@ -224,7 +226,7 @@ def _optimSeq(seq: Sequence, bool_vars: set[str]) -> Effect:
             op["cond"], op["true"], op["false"] = op["cond"]["e"], op["false"], op["true"]
             op["#"] = "IRO inverted not"
 
-    # TODO empty true (nope/co only) -> not false
+    # if X: <empty>
     for op in seq:
         if _isOp(op, "if") and _noOps(op["true"]):
             if _noOps(op["false"]):
@@ -256,9 +258,8 @@ def optimizeIR(code: list[Jsonable], *, if_optim: bool = True) -> Jsonable:
 
     optimized: int = 0
 
-    # TODO control
+    # TODO control?
     # TODO call substitution instead of inline?
-    # TODO remove nopes?
 
     # process function bodies
     for i, c in list(enumerate(code)):
@@ -297,6 +298,10 @@ class IRep(Language):
     def regroup(self, name: str, pattern: str = ".*") -> str:
         return self._lang.regroup(name, pattern) if self._lang != self else super().regroup(name, pattern)
 
+    def indent(self, block: Block, sep: bool = True) -> Block:
+        raise Exception("indentation not a IR operation")
+
+    # generic code generation
     def lcom(self, text: str = "") -> Block:
         return [ _j("co", text=text) ]
 
@@ -456,9 +461,6 @@ class IRep(Language):
 
     def path_lvar(self, lvar: Var, rvar: Var) -> PathExpr:
         return _j("pl", lvar=_l(lvar), rvar=_l(rvar))
-
-    def indent(self, block: Block, sep: bool = True) -> Block:
-        raise Exception("indentation not a IR operation")
 
     def arr_loop(self, arr: Var, idx: Var, val: Var, body: Block) -> Block:
         return [ _j("aL", arr=_l(arr), idx=_l(idx), val=_l(val), body=_u(body)) ]
@@ -707,13 +709,12 @@ def _eval(jv: Jsonable, gen: Language) -> Block|Expr:
                                                  entry=jv["entry"], package=jv["package"], exe=jv["exe"])
             case _: raise Exception(f"unexpected op code: {op}")
     elif isinstance(jv, list):
-        # manage list of instructions
-        return functools.reduce(lambda l, i: l + _eval(i, gen), jv, [])
+        # list of instructions (Block) fall here
+        return functools.reduce(lambda x, i: x + _eval(i, gen), jv, [])
     elif isinstance(jv, str) and jv == "":
         return [ "" ]
     else:
         # probably a string, eg a variable name
-        # raise Exception(f"unexpected JSON value: {jv}")
         return jv
 
 def evaluate(ir: Code, lang: Language) -> Code:

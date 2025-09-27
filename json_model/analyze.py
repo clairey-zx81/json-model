@@ -8,7 +8,7 @@ from .mtypes import UnknownModel, ModelPath, ModelType, ModelFilter
 from .utils import log, CONST_RE, is_regex
 from .recurse import recModel, allFlt, noRwt
 from .model import JsonModel
-from .runtime import ConstSet, Const
+from .runtime import ConstSet
 
 # JsonModel = typing.NewType("JsonModel", None)
 type Constants = bool|int|float|str|list[int|float|str]
@@ -467,7 +467,7 @@ def disjunct_analyse(jm: JsonModel, model: ModelType, mpath: ModelPath, lists: b
             del tag_to_model[p]
             del tag_to_csts[p]
     if not tag_to_model:
-        log.debug(f"not any discriminant tag candidate for disjunction")
+        log.debug("not any discriminant tag candidate for disjunction")
         return None
     # TODO there is a nice optimization problem here, for now just skip to a basic heuristic
     extracted: list[tuple[str, set[int]]] = []

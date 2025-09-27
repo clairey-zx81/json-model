@@ -5,7 +5,7 @@ import copy
 
 from .mtypes import ModelPath, ModelType
 from .utils import log, is_cst, _structurally_distinct_models
-from .utils import constant_value, constant_values, same_model, model_in_models, is_a_simple_object
+from .utils import constant_values, same_model, model_in_models, is_a_simple_object
 from .recurse import recModel, allFlt, builtFlt, noRwt
 from .model import JsonModel
 from .analyze import ultimate_type
@@ -628,7 +628,6 @@ def simplify(jm: JsonModel):
 
 def optimize(jm: JsonModel, *, inline: bool = True, debug: bool = False):
     changed = True
-    loop: int = 0
     while changed:
         changed = False
         changed |= const_prop(jm)

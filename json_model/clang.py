@@ -439,7 +439,7 @@ class CLangJansson(Language):
     # Property Map
     #
     def def_pmap(self, name: str, pmap: PropMap, public: bool) -> Block:
-        declare = "" if public else f"static "
+        declare = "" if public else "static "
         code = [ f"{declare}jm_propmap_t {name}_tab[{len(pmap)}];" ]
         if public:
             # add size accessor to public maps
