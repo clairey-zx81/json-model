@@ -96,6 +96,15 @@ function do_wait()
     fi
 }
 
+function do_status()
+{
+    echo "# $SECONDS status:" \
+        "started=$started stopped=$stopped running=$running" \
+        "processes=$processes"
+}
+
+trap do_status SIGUSR1
+
 #
 # SANITY COMMANDS END FILES
 #
