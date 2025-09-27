@@ -8,7 +8,8 @@ SELECT * FROM ShowPerfPerCase ORDER BY 1;
 
 .print ## tool performance summary
 .width 0 -5 -5 -5 -5 -5 -5 -5
-SELECT * FROM ShowPerfSummary ORDER BY 1;
+SELECT summary, blaze, c, js, jv1, jv2, jv3, py
+FROM ShowPerfSummary ORDER BY ordre;
 
 .print ## tool compile per case
 .width -2 16 -5 -5 -5 -5 -5

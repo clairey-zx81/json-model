@@ -224,7 +224,8 @@ CREATE TABLE ShowPerfPerCase AS
 
 -- relative execution time summary
 CREATE TABLE ShowPerfSummary AS
-  SELECT 'Best' AS summary,
+  SELECT
+    1 AS ordre, 'Best' AS summary,
     COUNT(*) FILTER (WHERE blaze = 1.0) AS blaze,
     COUNT(*) FILTER (WHERE c = 1.0) AS c,
     COUNT(*) FILTER (WHERE js = 1.0) AS js,
@@ -234,7 +235,8 @@ CREATE TABLE ShowPerfSummary AS
     COUNT(*) FILTER (WHERE py = 1.0) AS py
   FROM RelativeComparison
   UNION
-  SELECT 'KO',
+  SELECT
+    2, 'KO',
     COUNT(*) FILTER (WHERE blaze IS NULL),
     COUNT(*) FILTER (WHERE c IS NULL),
     COUNT(*) FILTER (WHERE js IS NULL),
@@ -244,17 +246,8 @@ CREATE TABLE ShowPerfSummary AS
     COUNT(*) FILTER (WHERE py IS NULL)
   FROM RelativeComparison
   UNION
-  SELECT 'min',
-    ROUND(MIN(blaze), 1),
-    ROUND(MIN(c), 1),
-    ROUND(MIN(js), 1),
-    ROUND(MIN(jv1), 1),
-    ROUND(MIN(jv2), 1),
-    ROUND(MIN(jv3), 1),
-    ROUND(MIN(py), 1)
-  FROM RelativeComparison
-  UNION
-  SELECT 'max',
+  SELECT
+    3, 'max',
     ROUND(MAX(blaze), 1),
     ROUND(MAX(c), 1),
     ROUND(MAX(js), 1),
@@ -263,7 +256,29 @@ CREATE TABLE ShowPerfSummary AS
     ROUND(MAX(jv3), 1),
     ROUND(MAX(py), 1)
   FROM RelativeComparison
-  ORDER BY 1 ASC;
+  UNION
+  SELECT
+    4, 'gav',
+    ROUND(EXP(AVG(LN(blaze))), 1),
+    ROUND(EXP(AVG(LN(c))), 1),
+    ROUND(EXP(AVG(LN(js))), 1),
+    ROUND(EXP(AVG(LN(jv1))), 1),
+    ROUND(EXP(AVG(LN(jv2))), 1),
+    ROUND(EXP(AVG(LN(jv3))), 1),
+    ROUND(EXP(AVG(LN(py))), 1)
+  FROM RelativeComparison
+  UNION
+  SELECT
+    5, 'min',
+    ROUND(MIN(blaze), 1),
+    ROUND(MIN(c), 1),
+    ROUND(MIN(js), 1),
+    ROUND(MIN(jv1), 1),
+    ROUND(MIN(jv2), 1),
+    ROUND(MIN(jv3), 1),
+    ROUND(MIN(py), 1)
+  FROM RelativeComparison
+  ORDER BY 1;
  
 -- compile time per case
 CREATE TABLE ShowCompilePerCase AS
