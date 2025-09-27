@@ -1417,9 +1417,6 @@ class CodeGenerator:
             jm, gref = self._to_compile[min(todo)]
             self.compileOneJsonModel(jm, gref, [gref], True)
 
-        log.warning(f"IN entries={entries}")
-        log.warning(f"IN paths={self._paths}")
-
         # optimize main mapping by skipping intermediate functions on direct references
         # TODO optimize _all_ mappings?
         for name in list(entries.keys()):
@@ -1442,8 +1439,6 @@ class CodeGenerator:
             if fun is not None and fun != fun0:
                 entries[name] = fun
 
-        log.warning(f"OUT entries={entries}")
-
         # generate mapping, name must be consistent with data/clang_*.c
         self._code.pmap(f"{self._code._entry}_map", entries, True)
 
@@ -1465,7 +1460,7 @@ def xstatic_compile(
         short_version: bool = False,
         package: str|None = None,
         inline: bool = True,
-        ir_optimize: bool = False,
+        ir_optimize: bool = True,
     ) -> Code:
     """Generate the check source code for a model.
 

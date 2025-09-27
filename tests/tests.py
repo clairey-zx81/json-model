@@ -421,7 +421,7 @@ def test_preproc(directory):
     """Preprocessing optimizations."""
 
     resolver = Resolver(None, dirmap(directory))
-    options = EXPECT.get(f"{directory}:options", {})
+    options = EXPECT.get(f"{directory}:mod-opts", {})
 
     def generate_preproc(fmodel: str):
         jm = model_from_url(fmodel, resolver=resolver, auto=True, follow=True, **options)
@@ -434,7 +434,7 @@ def test_schema(directory):
     """Model to Schema conversion."""
 
     resolver = Resolver(None, dirmap(directory))
-    options = EXPECT.get(f"{directory}:options", {})
+    options = EXPECT.get(f"{directory}:mod-opts", {})
 
     def generate_schema(fmodel: str):
         jm = model_from_url(fmodel, resolver=resolver, auto=True, follow=True, **options)
@@ -451,7 +451,8 @@ def test_lang(directory, language):
     suffix = f".{language}"
 
     # default are different for PL/pgSQL
-    report = True if language != "sql" else False
+    if "report" not in cmp_opts:
+        cmp_opts["report"] = True if language != "sql" else False
 
     def generate_language(fmodel: str):
         jm = model_from_url(fmodel, resolver=resolver, auto=True, follow=True, **mod_opts)
@@ -665,7 +666,7 @@ def run_dyn(directory: pathlib.Path, gen_checker: GenChecker, name: str):
 def test_dyn_py(directory: pathlib.Path):
 
     resolver = Resolver(None, dirmap(directory))
-    options = EXPECT.get(f"{directory}:options", {})
+    options = EXPECT.get(f"{directory}:mod-opts", {})
 
     def gen_py_checker(fmodel: str):
         assert fmodel.endswith(".model.json")

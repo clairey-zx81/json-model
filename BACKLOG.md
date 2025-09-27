@@ -19,6 +19,7 @@
 - [ ] tests: add ir optimized output
 - [ ] tests: add pytest ir tests
 - [ ] tests: drop language outputs for IR only?!
+- [ ] command: remove inline-or option and implementation
 - [ ] backend: improve and extend IR optimizations?
 - [ ] command: add direct ir to lang conversion
 - [ ] models: write model for json code!
