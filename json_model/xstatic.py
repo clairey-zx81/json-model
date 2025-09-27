@@ -185,29 +185,17 @@ class CodeGenerator:
             return gen.str_cmp(sval, "=", gen.esc(regex[2:-2]))
         else:
             fun = self._regex(jm, regex, path)
-            # TODO inline the internal function if possible?
             return gen.str_check_call(fun, sval, path)
-        # TODO f" or _rep(f\"does not match {self._fesc(regex)} at {{{path}}}\", rep)"
 
     def _esc(self, val: Jsonable) -> str:
         """Escape value as necessary."""
-        # return '"' + string.translate({"\"": "\\\"", "\\": "\\\\"}) + '"'
         return json.dumps(val) if isinstance(val, str) else str(val)
-
-    def _fesc(self, val: str) -> str:
-        """Escape string for an f-string."""
-        # FIXME return val.translate({"{": "{{", "\\": "\\\\", "\"": "\\\""})
-        return "FESC"
 
     def _dollarExpr(self, jm: JsonModel, ref: str, val: str, vpath: str, *, is_raw: bool = False):
         """Generate a call to check for a $REF."""
-        # FIXME C val is may be a char*, not a json_t*.
         assert ref and ref[0] == "$"
         if ref in MODEL_PREDEFS:  # inline predefs
-            # TODO improve
             return self._lang.predef(val, ref, vpath, is_raw)
-            # return (self.MODEL_PREDEFS[ref](val, vpath) +
-            #         (f" or _rep(f\"invalid {ref} at {{{vpath}}}\", rep)" if self._report else ""))
         else:
             fun = self._getNameRef(jm, ref, [])
             return self._lang.check_call(fun, val, vpath, is_ptr=False, is_raw=is_raw)
