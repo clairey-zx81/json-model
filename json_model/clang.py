@@ -22,7 +22,7 @@ class CLangJansson(Language):
              with_path=with_path, with_report=with_report, with_comment=with_comment,
              not_op="!", and_op="&&", or_op="||", lcom="//",
              true="true", false="false", null="NULL", check_t="jm_check_fun_t", json_t="json_t *",
-             path_t="jm_path_t", float_t="double", str_t="char *",
+             path_t="jm_path_t", float_t="double", str_t="const char *",
              match_t="bool" if relib == "pcre2" else "int",
              eoi=";", relib=relib, debug=debug,
              set_caps=(type(None), bool, int, float, str))  # type: ignore

@@ -1229,7 +1229,7 @@ static bool _jm_f_31(const json_t *val, jm_path_t *path, jm_report_t *rep)
     }
     if (res)
     {
-        char * sval_0 = json_string_value(val);
+        const char * sval_0 = json_string_value(val);
         res = strcmp(sval_0, "Susie") == 0;
         if (! res)
         {
@@ -1252,7 +1252,7 @@ static bool _jm_f_32(const json_t *val, jm_path_t *path, jm_report_t *rep)
     }
     if (res)
     {
-        char * sval_1 = json_string_value(val);
+        const char * sval_1 = json_string_value(val);
         res = strcmp(sval_1, "Hobbes") != 0 && strcmp(sval_1, "Z") <= 0 && strcmp(sval_1, "A") >= 0;
         if (! res)
         {
@@ -1275,7 +1275,7 @@ static bool _jm_f_33(const json_t *val, jm_path_t *path, jm_report_t *rep)
     }
     if (res)
     {
-        char * sval_2 = json_string_value(val);
+        const char * sval_2 = json_string_value(val);
         res = strcmp(sval_2, "Z") < 0 && strcmp(sval_2, "A") > 0;
         if (! res)
         {
