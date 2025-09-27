@@ -119,14 +119,14 @@ CREATE TABLE Comparison AS
   ORDER BY 1;
 
 UPDATE Comparison
-  SET best = MIN(COALESCE(blaze, 1000000.0),
-       	         COALESCE(c, 1000000.0),
-       	         COALESCE(js, 1000000.0),
-       	         COALESCE(jv1, 1000000.0),
-       	         COALESCE(jv2, 1000000.0),
-       	         COALESCE(jv3, 1000000.0),
-       	         -- COALESCE(pl, 1000000.0),
-       	         COALESCE(py, 1000000.0));
+  SET best = MIN(COALESCE(blaze, 1e999),
+       	         COALESCE(c, 1e999),
+       	         COALESCE(js, 1e999),
+       	         COALESCE(jv1, 1e999),
+       	         COALESCE(jv2, 1e999),
+       	         COALESCE(jv3, 1e999),
+       	         -- COALESCE(pl, 1e999),
+       	         COALESCE(py, 1e999));
 
 -- execution time relative to the fastest, the lower the better
 CREATE TABLE RelativeComparison AS
