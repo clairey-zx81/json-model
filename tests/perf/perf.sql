@@ -191,18 +191,33 @@ CREATE TABLE ResultComparison AS
   ORDER BY 1;
 
 -- case stats
-CREATE TABLE ShowCases AS
+CREATE TABLE ShowCases AS WITH
+  CaseInstances AS (
+    SELECT
+      name,
+      COUNT(*) AS nb,
+      MIN(vsize) AS minb,
+      ROUND(AVG(vsize), 1) AS avgb,
+      MAX(vsize) AS maxb
+    FROM CaseValues
+    GROUP BY 1
+    UNION
+    SELECT NULL, COUNT(*), MIN(vsize), ROUND(AVG(vsize), 1), MAX(vsize)
+    FROM CaseValues
+  ),
+  CaseStats AS (
+    SELECT
+      name, ssize AS schema, msize AS model
+    FROM Cases
+    UNION
+    SELECT NULL, ROUND(AVG(ssize), 1), ROUND(AVG(msize), 1)
+    FROM Cases
+  )
   SELECT
-    name,
-    COUNT(*) AS nb,
-    MIN(vsize) AS "min (b)",
-    ROUND(AVG(vsize), 1) AS "avg (b)",
-    MAX(vsize) AS "max (b)"
-  FROM CaseValues
-  GROUP BY 1
-UNION
-  SELECT NULL, COUNT(*), MIN(vsize), ROUND(AVG(vsize), 1), MAX(vsize)
-  FROM CaseValues
+    cs.name, cs.schema, cs.model,
+    ci.nb, ci.minb AS "min (b)", ci.avgb AS "avg (b)", ci.maxb AS "max (b)"
+  FROM CaseInstances AS ci
+  JOIN CaseStats AS cs ON (ci.name IS NULL AND cs.name IS NULL OR ci.name = cs.name)
   ORDER BY 1;
 
 -- relative execution time comparison per cases
@@ -279,7 +294,7 @@ CREATE TABLE ShowPerfSummary AS
     ROUND(MIN(py), 1)
   FROM RelativeComparison
   ORDER BY 1;
- 
+
 -- compile time per case
 CREATE TABLE ShowCompilePerCase AS
   SELECT

@@ -1,5 +1,5 @@
 .print ## cases statistics
-.width 0 -5 -8 -8 -8
+.width 0 -6, -6, -5 -8 -8 -8
 SELECT * FROM ShowCases ORDER BY 1;
 
 .print ## tool performance per case
