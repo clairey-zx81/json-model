@@ -583,7 +583,7 @@ def check_model_init():
             "": _jm_obj_0,
             "allTypes": json_model_2,
             "distinctSchemaArray": json_model_3,
-            "Schema": json_model_1,
+            "Schema": _jm_obj_0,
         }
 
 # differed module cleanup

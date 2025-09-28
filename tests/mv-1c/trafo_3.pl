@@ -138,8 +138,8 @@ sub check_model_init()
     {
         $initialized = 1;
         %check_model_map = (
-            '' => \&json_model_3,
-            'Dd' => \&json_model_3,
+            '' => \&json_model_6,
+            'Dd' => \&json_model_6,
         );
     }
 }

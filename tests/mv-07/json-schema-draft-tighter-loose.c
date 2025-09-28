@@ -6845,8 +6845,8 @@ const char *check_model_init(void)
         _jm_obj_63_map_tab[8] = (jm_propmap_t) { "id", _jm_f_226 };
         _jm_obj_63_map_tab[9] = (jm_propmap_t) { "title", _jm_f_227 };
         jm_sort_propmap(_jm_obj_63_map_tab, 10);
-        check_model_map_tab[0] = (jm_propmap_t) { "", json_model_1 };
-        check_model_map_tab[1] = (jm_propmap_t) { "tight", json_model_3 };
+        check_model_map_tab[0] = (jm_propmap_t) { "", json_model_27 };
+        check_model_map_tab[1] = (jm_propmap_t) { "tight", json_model_27 };
         jm_sort_propmap(check_model_map_tab, 2);
     }
     return NULL;

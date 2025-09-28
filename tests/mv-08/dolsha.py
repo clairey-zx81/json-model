@@ -83,7 +83,7 @@ def check_model_init():
         check_model_map = {
             "": _jm_obj_0,
             "array": json_model_2,
-            "self": json_model_1,
+            "self": _jm_obj_0,
         }
 
 # differed module cleanup

@@ -5,7 +5,7 @@ import json
 
 from .mtypes import ModelType, ModelArray, ModelObject, ModelError, ModelPath, Symbols
 from .mtypes import Jsonable, Number, JsonScalar
-from .utils import split_object, model_in_models, all_model_type, constant_value
+from .utils import split_object, model_in_models, all_model_type, constant_value, is_a_simple_object
 from .utils import log, tname, MODEL_PREDEFS
 from .runtime.support import _path as json_path
 from .analyze import ultimate_type, disjunct_analyse
@@ -65,9 +65,11 @@ class CodeGenerator:
         self.reset()
 
     def reset(self):
-        # self._code.clear()
+        """Reset internal attributes for reuse."""
         self._names.clear()
         self._regs.clear()
+        self._paths.clear()
+        self._generated.clear()
         self._compiled.clear()
         self._to_compile.clear()
         self._generated_maps.clear()
@@ -1363,6 +1365,45 @@ class CodeGenerator:
         else:
             log.warning("should not get there?!")
 
+    def computeShortcuts(self, head: JsonModel) -> dict[str, str]:
+        """Function shortcuts to skip calls in the global namespace."""
+        assert head._is_head, "compute shortcuts on head model"
+
+        shortcuts: dict[str, str] = {}
+
+        for ref, jm0 in head._globs.items():
+            mid, fun0, fun, jm = jm0._id, f"json_model_{jm0._id}", None, jm0
+
+            if ref == "$#" or fun0 in shortcuts:
+                continue
+
+            tref = (ref,) if ref != "$" else tuple()
+            fun = self._paths[tref] if tref in self._paths else fun0
+
+            while jm._isRef(jm._model):
+                jm = jm.resolveRef(jm._model, [])
+                if jm._id == jm0._id:  # oops direct reference
+                    raise Exception("infinite reference loop")
+                fun = f"json_model_{jm._id}" if jm else fun0
+
+            if fun in shortcuts:
+                fun = shortcuts[fun]
+
+            if fun != fun0:
+                shortcuts[fun0] = fun
+
+        # transitive closure, because of above shortcuts
+        changed: False = True
+        while changed:
+            changed = False
+            for k, v in shortcuts.items():
+                if v in shortcuts:
+                    shortcuts[k] = shortcuts[v]
+                    changed = True
+
+        # log.debug(f"shortcuts: {shortcuts}")
+        return shortcuts
+
     def compileOneJsonModel(self, jm: JsonModel, name: str, path: ModelPath, local: bool = False):
         if jm._id not in self._compiled:
             self._compiled.add(jm._id)
@@ -1404,29 +1445,15 @@ class CodeGenerator:
             jm, gref = self._to_compile[min(todo)]
             self.compileOneJsonModel(jm, gref, [gref], True)
 
-        # optimize main mapping by skipping intermediate functions on direct references
-        # TODO optimize _all_ mappings?
-        for name in list(entries.keys()):
-            key, fun0 = name, entries[name]
-            fun, seen = None, set()
-            while key in entries and (key == "" or key in model._defs) and key not in seen:
-                seen.add(key)
-                jm = model._defs[key] if key != "" else model
-                if isinstance(jm._model, str) and jm._model.startswith("$"):
-                    key = jm._model[1:]
-                    if key in entries:
-                        fun = entries[key]
-                    # else we are going to exit next
-                elif isinstance(jm._model, dict):
-                    # do we have an object function on this path?
-                    tkey = (f"${key}",) if key else tuple()
-                    if tkey in self._paths:
-                        fun = self._paths[tkey]
-                    break
-            if fun is not None and fun != fun0:
-                entries[name] = fun
+        # for skip call optimization
+        self._code._shortcuts = self.computeShortcuts(model)
 
-        # generate mapping, name must be consistent with data/clang_*.c
+        # use shortcuts directly on entries
+        for name, fun in entries.items():
+            if fun in self._code._shortcuts:
+                entries[name] = self._code._shortcuts[fun]
+
+        # generate mapping, beware of name consistency
         self._code.pmap(f"{self._code._entry}_map", entries, True)
 
         return self._code

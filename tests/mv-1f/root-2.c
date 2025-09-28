@@ -196,7 +196,7 @@ const char *check_model_init(void)
         initialized = true;
         jm_version_string = JSON_MODEL_VERSION;
         check_model_map_tab[0] = (jm_propmap_t) { "", _jm_obj_0 };
-        check_model_map_tab[1] = (jm_propmap_t) { "root", json_model_4 };
+        check_model_map_tab[1] = (jm_propmap_t) { "root", _jm_obj_1 };
         check_model_map_tab[2] = (jm_propmap_t) { "Foo", _jm_obj_0 };
         jm_sort_propmap(check_model_map_tab, 3);
     }

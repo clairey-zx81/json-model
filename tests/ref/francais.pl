@@ -2711,8 +2711,8 @@ sub check_model_init()
             '$ANY' => 1,
         );
         %check_model_map = (
-            '' => \&json_model_3,
-            'Model' => \&json_model_3,
+            '' => \&json_model_42,
+            'Model' => \&json_model_42,
         );
     }
 }

@@ -210,7 +210,7 @@ const char *check_model_init(void)
     {
         initialized = true;
         jm_version_string = JSON_MODEL_VERSION;
-        check_model_map_tab[0] = (jm_propmap_t) { "", json_model_1 };
+        check_model_map_tab[0] = (jm_propmap_t) { "", json_model_5 };
         check_model_map_tab[1] = (jm_propmap_t) { "foo", json_model_3 };
         jm_sort_propmap(check_model_map_tab, 2);
     }

@@ -6554,8 +6554,8 @@ export function check_model_init()
         _jm_cst_5.add("$STRING")
         _jm_cst_5.add("$NONE")
         _jm_cst_5.add("$ANY")
-        check_model_map.set("", json_model_3)
-        check_model_map.set("openapi", json_model_3)
+        check_model_map.set("", _jm_obj_0)
+        check_model_map.set("openapi", _jm_obj_0)
     }
 }
 

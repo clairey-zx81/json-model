@@ -1,0 +1,1442 @@
+{
+  "o": "gfc",
+  "defs": [
+    {
+      "o": "dfu",
+      "name": "json_model_2"
+    },
+    {
+      "o": "dfu",
+      "name": "json_model_3"
+    },
+    {
+      "o": "dcm",
+      "name": "_jm_map_0",
+      "mapping": [
+        [
+          "table",
+          "json_model_2"
+        ],
+        [
+          "chair",
+          "json_model_3"
+        ]
+      ]
+    },
+    {
+      "o": "dfu",
+      "name": "json_model_4"
+    },
+    {
+      "o": "dfu",
+      "name": "json_model_1"
+    },
+    {
+      "o": "dpm",
+      "name": "check_model_map",
+      "pmap": {
+        "": "_jm_obj_2",
+        "table": "_jm_obj_0",
+        "chair": "_jm_obj_1",
+        "furniture": "json_model_4"
+      },
+      "public": true
+    }
+  ],
+  "inis": [
+    {
+      "o": "icm",
+      "name": "_jm_map_0",
+      "mapping": [
+        [
+          "table",
+          "json_model_2"
+        ],
+        [
+          "chair",
+          "json_model_3"
+        ]
+      ]
+    },
+    {
+      "o": "ipm",
+      "name": "check_model_map",
+      "pmap": {
+        "": "_jm_obj_2",
+        "table": "_jm_obj_0",
+        "chair": "_jm_obj_1",
+        "furniture": "json_model_4"
+      },
+      "public": true
+    }
+  ],
+  "dels": [
+    {
+      "o": "rcm",
+      "name": "_jm_map_0",
+      "mapping": [
+        [
+          "table",
+          "json_model_2"
+        ],
+        [
+          "chair",
+          "json_model_3"
+        ]
+      ]
+    },
+    {
+      "o": "rpm",
+      "name": "check_model_map",
+      "pmap": {
+        "": "_jm_obj_2",
+        "table": "_jm_obj_0",
+        "chair": "_jm_obj_1",
+        "furniture": "json_model_4"
+      },
+      "public": true
+    }
+  ],
+  "subs": [
+    {
+      "o": "co",
+      "text": "object .'$table'"
+    },
+    {
+      "o": "sfu",
+      "name": "_jm_obj_0",
+      "body": [
+        {
+          "o": "if",
+          "cond": {
+            "o": "not",
+            "e": {
+              "o": "isa",
+              "var": "val",
+              "tval": "dict",
+              "loose": null
+            }
+          },
+          "true": [
+            {
+              "o": "rep",
+              "msg": "not an object [.'$table']",
+              "path": "path"
+            },
+            {
+              "o": "ret",
+              "res": {
+                "o": "cst",
+                "cst": false
+              }
+            }
+          ],
+          "false": []
+        },
+        {
+          "o": "bv",
+          "var": "res",
+          "val": null,
+          "declare": true
+        },
+        {
+          "o": "iv",
+          "var": "must_count",
+          "val": {
+            "o": "cst",
+            "cst": 0
+          },
+          "declare": true
+        },
+        {
+          "o": "oL",
+          "obj": "val",
+          "key": "prop",
+          "val": "pval",
+          "body": [
+            {
+              "o": "pv",
+              "pvar": "lpath_0",
+              "val": {
+                "o": "pvl",
+                "pvar": "path",
+                "pseg": "prop",
+                "is_prop": true
+              },
+              "declare": true
+            },
+            {
+              "o": "ifs",
+              "cond_true": [
+                [
+                  {
+                    "o": "sc",
+                    "e1": "prop",
+                    "op": "=",
+                    "e2": {
+                      "o": "esc",
+                      "s": "t"
+                    }
+                  },
+                  [
+                    {
+                      "o": "co",
+                      "text": "handle must t property"
+                    },
+                    {
+                      "o": "i+",
+                      "var": "must_count"
+                    },
+                    {
+                      "o": "co",
+                      "text": ".'$table'.t"
+                    },
+                    {
+                      "o": "bv",
+                      "var": "res",
+                      "val": {
+                        "o": "&",
+                        "exprs": [
+                          {
+                            "o": "isa",
+                            "var": "pval",
+                            "tval": "str",
+                            "loose": null
+                          },
+                          {
+                            "o": "sc",
+                            "e1": {
+                              "o": "val",
+                              "var": "pval",
+                              "tvar": "str"
+                            },
+                            "op": "=",
+                            "e2": {
+                              "o": "cst",
+                              "cst": "table"
+                            }
+                          }
+                        ]
+                      },
+                      "declare": false
+                    },
+                    {
+                      "o": "if",
+                      "cond": {
+                        "o": "not",
+                        "e": "res"
+                      },
+                      "true": [
+                        {
+                          "o": "rep",
+                          "msg": "unexpected _table [.'$table'.t]",
+                          "path": {
+                            "o": "pl",
+                            "lvar": "lpath_0",
+                            "rvar": "path"
+                          }
+                        },
+                        {
+                          "o": "rep",
+                          "msg": "invalid mandatory prop value [.'$table'.t]",
+                          "path": {
+                            "o": "pl",
+                            "lvar": "lpath_0",
+                            "rvar": "path"
+                          }
+                        },
+                        {
+                          "o": "ret",
+                          "res": {
+                            "o": "cst",
+                            "cst": false
+                          }
+                        }
+                      ],
+                      "false": []
+                    }
+                  ]
+                ],
+                [
+                  {
+                    "o": "sc",
+                    "e1": "prop",
+                    "op": "=",
+                    "e2": {
+                      "o": "esc",
+                      "s": "legs"
+                    }
+                  },
+                  [
+                    {
+                      "o": "co",
+                      "text": "handle must legs property"
+                    },
+                    {
+                      "o": "i+",
+                      "var": "must_count"
+                    },
+                    {
+                      "o": "co",
+                      "text": ".'$table'.legs"
+                    },
+                    {
+                      "o": "bv",
+                      "var": "res",
+                      "val": {
+                        "o": "&",
+                        "exprs": [
+                          {
+                            "o": "isa",
+                            "var": "pval",
+                            "tval": "int",
+                            "loose": false
+                          },
+                          {
+                            "o": "nc",
+                            "e1": {
+                              "o": "val",
+                              "var": "pval",
+                              "tvar": "int"
+                            },
+                            "op": ">=",
+                            "e2": {
+                              "o": "cst",
+                              "cst": 1
+                            }
+                          }
+                        ]
+                      },
+                      "declare": false
+                    },
+                    {
+                      "o": "if",
+                      "cond": {
+                        "o": "not",
+                        "e": "res"
+                      },
+                      "true": [
+                        {
+                          "o": "rep",
+                          "msg": "not a 1 strict int [.'$table'.legs]",
+                          "path": {
+                            "o": "pl",
+                            "lvar": "lpath_0",
+                            "rvar": "path"
+                          }
+                        },
+                        {
+                          "o": "rep",
+                          "msg": "invalid mandatory prop value [.'$table'.legs]",
+                          "path": {
+                            "o": "pl",
+                            "lvar": "lpath_0",
+                            "rvar": "path"
+                          }
+                        },
+                        {
+                          "o": "ret",
+                          "res": {
+                            "o": "cst",
+                            "cst": false
+                          }
+                        }
+                      ],
+                      "false": []
+                    }
+                  ]
+                ]
+              ],
+              "false": [
+                {
+                  "o": "rep",
+                  "msg": "unexpected prop [.'$table']",
+                  "path": {
+                    "o": "pl",
+                    "lvar": "lpath_0",
+                    "rvar": "path"
+                  }
+                },
+                {
+                  "o": "ret",
+                  "res": {
+                    "o": "cst",
+                    "cst": false
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "o": "if",
+          "cond": {
+            "o": "nc",
+            "e1": "must_count",
+            "op": "!=",
+            "e2": {
+              "o": "cst",
+              "cst": 2
+            }
+          },
+          "true": [
+            {
+              "o": "if",
+              "cond": {
+                "o": "isr"
+              },
+              "true": [
+                {
+                  "o": "if",
+                  "cond": {
+                    "o": "not",
+                    "e": {
+                      "o": "hp",
+                      "obj": "val",
+                      "prop": "legs"
+                    }
+                  },
+                  "true": [
+                    {
+                      "o": "rep",
+                      "msg": "missing mandatory prop <legs> [.'$table']",
+                      "path": "path"
+                    }
+                  ],
+                  "false": []
+                },
+                {
+                  "o": "if",
+                  "cond": {
+                    "o": "not",
+                    "e": {
+                      "o": "hp",
+                      "obj": "val",
+                      "prop": "t"
+                    }
+                  },
+                  "true": [
+                    {
+                      "o": "rep",
+                      "msg": "missing mandatory prop <t> [.'$table']",
+                      "path": "path"
+                    }
+                  ],
+                  "false": []
+                }
+              ],
+              "false": []
+            },
+            {
+              "o": "ret",
+              "res": {
+                "o": "cst",
+                "cst": false
+              }
+            }
+          ],
+          "false": []
+        },
+        {
+          "o": "ret",
+          "res": {
+            "o": "cst",
+            "cst": true
+          }
+        }
+      ],
+      "inline": true
+    },
+    {
+      "o": "skip"
+    },
+    {
+      "o": "co",
+      "text": "check $table (.'$table')"
+    },
+    {
+      "o": "sfu",
+      "name": "json_model_2",
+      "body": [
+        {
+          "o": "bv",
+          "var": "res",
+          "val": null,
+          "declare": true
+        },
+        {
+          "o": "co",
+          "text": ".'$table'"
+        },
+        {
+          "o": "bv",
+          "var": "res",
+          "val": {
+            "o": "cc",
+            "name": "_jm_obj_0",
+            "val": "val",
+            "path": "path",
+            "is_ptr": false,
+            "is_raw": false
+          },
+          "declare": false
+        },
+        {
+          "o": "if",
+          "cond": {
+            "o": "not",
+            "e": "res"
+          },
+          "true": [
+            {
+              "o": "rep",
+              "msg": "unexpected element [.'$table']",
+              "path": "path"
+            }
+          ],
+          "false": []
+        },
+        {
+          "o": "ret",
+          "res": "res"
+        }
+      ],
+      "inline": false
+    },
+    {
+      "o": "skip"
+    },
+    {
+      "o": "co",
+      "text": "object .'$chair'"
+    },
+    {
+      "o": "sfu",
+      "name": "_jm_obj_1",
+      "body": [
+        {
+          "o": "if",
+          "cond": {
+            "o": "not",
+            "e": {
+              "o": "isa",
+              "var": "val",
+              "tval": "dict",
+              "loose": null
+            }
+          },
+          "true": [
+            {
+              "o": "rep",
+              "msg": "not an object [.'$chair']",
+              "path": "path"
+            },
+            {
+              "o": "ret",
+              "res": {
+                "o": "cst",
+                "cst": false
+              }
+            }
+          ],
+          "false": []
+        },
+        {
+          "o": "bv",
+          "var": "res",
+          "val": null,
+          "declare": true
+        },
+        {
+          "o": "iv",
+          "var": "must_count",
+          "val": {
+            "o": "cst",
+            "cst": 0
+          },
+          "declare": true
+        },
+        {
+          "o": "oL",
+          "obj": "val",
+          "key": "prop",
+          "val": "pval",
+          "body": [
+            {
+              "o": "pv",
+              "pvar": "lpath_1",
+              "val": {
+                "o": "pvl",
+                "pvar": "path",
+                "pseg": "prop",
+                "is_prop": true
+              },
+              "declare": true
+            },
+            {
+              "o": "ifs",
+              "cond_true": [
+                [
+                  {
+                    "o": "sc",
+                    "e1": "prop",
+                    "op": "=",
+                    "e2": {
+                      "o": "esc",
+                      "s": "t"
+                    }
+                  },
+                  [
+                    {
+                      "o": "co",
+                      "text": "handle must t property"
+                    },
+                    {
+                      "o": "i+",
+                      "var": "must_count"
+                    },
+                    {
+                      "o": "co",
+                      "text": ".'$chair'.t"
+                    },
+                    {
+                      "o": "bv",
+                      "var": "res",
+                      "val": {
+                        "o": "&",
+                        "exprs": [
+                          {
+                            "o": "isa",
+                            "var": "pval",
+                            "tval": "str",
+                            "loose": null
+                          },
+                          {
+                            "o": "sc",
+                            "e1": {
+                              "o": "val",
+                              "var": "pval",
+                              "tvar": "str"
+                            },
+                            "op": "=",
+                            "e2": {
+                              "o": "cst",
+                              "cst": "chair"
+                            }
+                          }
+                        ]
+                      },
+                      "declare": false
+                    },
+                    {
+                      "o": "if",
+                      "cond": {
+                        "o": "not",
+                        "e": "res"
+                      },
+                      "true": [
+                        {
+                          "o": "rep",
+                          "msg": "unexpected _chair [.'$chair'.t]",
+                          "path": {
+                            "o": "pl",
+                            "lvar": "lpath_1",
+                            "rvar": "path"
+                          }
+                        },
+                        {
+                          "o": "rep",
+                          "msg": "invalid mandatory prop value [.'$chair'.t]",
+                          "path": {
+                            "o": "pl",
+                            "lvar": "lpath_1",
+                            "rvar": "path"
+                          }
+                        },
+                        {
+                          "o": "ret",
+                          "res": {
+                            "o": "cst",
+                            "cst": false
+                          }
+                        }
+                      ],
+                      "false": []
+                    }
+                  ]
+                ],
+                [
+                  {
+                    "o": "sc",
+                    "e1": "prop",
+                    "op": "=",
+                    "e2": {
+                      "o": "esc",
+                      "s": "color"
+                    }
+                  },
+                  [
+                    {
+                      "o": "co",
+                      "text": "handle must color property"
+                    },
+                    {
+                      "o": "i+",
+                      "var": "must_count"
+                    },
+                    {
+                      "o": "co",
+                      "text": ".'$chair'.color"
+                    },
+                    {
+                      "o": "bv",
+                      "var": "res",
+                      "val": {
+                        "o": "isa",
+                        "var": "pval",
+                        "tval": "str",
+                        "loose": null
+                      },
+                      "declare": false
+                    },
+                    {
+                      "o": "if",
+                      "cond": {
+                        "o": "not",
+                        "e": "res"
+                      },
+                      "true": [
+                        {
+                          "o": "rep",
+                          "msg": "unexpected string [.'$chair'.color]",
+                          "path": {
+                            "o": "pl",
+                            "lvar": "lpath_1",
+                            "rvar": "path"
+                          }
+                        },
+                        {
+                          "o": "rep",
+                          "msg": "invalid mandatory prop value [.'$chair'.color]",
+                          "path": {
+                            "o": "pl",
+                            "lvar": "lpath_1",
+                            "rvar": "path"
+                          }
+                        },
+                        {
+                          "o": "ret",
+                          "res": {
+                            "o": "cst",
+                            "cst": false
+                          }
+                        }
+                      ],
+                      "false": []
+                    }
+                  ]
+                ]
+              ],
+              "false": [
+                {
+                  "o": "rep",
+                  "msg": "unexpected prop [.'$chair']",
+                  "path": {
+                    "o": "pl",
+                    "lvar": "lpath_1",
+                    "rvar": "path"
+                  }
+                },
+                {
+                  "o": "ret",
+                  "res": {
+                    "o": "cst",
+                    "cst": false
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "o": "if",
+          "cond": {
+            "o": "nc",
+            "e1": "must_count",
+            "op": "!=",
+            "e2": {
+              "o": "cst",
+              "cst": 2
+            }
+          },
+          "true": [
+            {
+              "o": "if",
+              "cond": {
+                "o": "isr"
+              },
+              "true": [
+                {
+                  "o": "if",
+                  "cond": {
+                    "o": "not",
+                    "e": {
+                      "o": "hp",
+                      "obj": "val",
+                      "prop": "color"
+                    }
+                  },
+                  "true": [
+                    {
+                      "o": "rep",
+                      "msg": "missing mandatory prop <color> [.'$chair']",
+                      "path": "path"
+                    }
+                  ],
+                  "false": []
+                },
+                {
+                  "o": "if",
+                  "cond": {
+                    "o": "not",
+                    "e": {
+                      "o": "hp",
+                      "obj": "val",
+                      "prop": "t"
+                    }
+                  },
+                  "true": [
+                    {
+                      "o": "rep",
+                      "msg": "missing mandatory prop <t> [.'$chair']",
+                      "path": "path"
+                    }
+                  ],
+                  "false": []
+                }
+              ],
+              "false": []
+            },
+            {
+              "o": "ret",
+              "res": {
+                "o": "cst",
+                "cst": false
+              }
+            }
+          ],
+          "false": []
+        },
+        {
+          "o": "ret",
+          "res": {
+            "o": "cst",
+            "cst": true
+          }
+        }
+      ],
+      "inline": true
+    },
+    {
+      "o": "skip"
+    },
+    {
+      "o": "co",
+      "text": "check $chair (.'$chair')"
+    },
+    {
+      "o": "sfu",
+      "name": "json_model_3",
+      "body": [
+        {
+          "o": "bv",
+          "var": "res",
+          "val": null,
+          "declare": true
+        },
+        {
+          "o": "co",
+          "text": ".'$chair'"
+        },
+        {
+          "o": "bv",
+          "var": "res",
+          "val": {
+            "o": "cc",
+            "name": "_jm_obj_1",
+            "val": "val",
+            "path": "path",
+            "is_ptr": false,
+            "is_raw": false
+          },
+          "declare": false
+        },
+        {
+          "o": "if",
+          "cond": {
+            "o": "not",
+            "e": "res"
+          },
+          "true": [
+            {
+              "o": "rep",
+              "msg": "unexpected element [.'$chair']",
+              "path": "path"
+            }
+          ],
+          "false": []
+        },
+        {
+          "o": "ret",
+          "res": "res"
+        }
+      ],
+      "inline": false
+    },
+    {
+      "o": "skip"
+    },
+    {
+      "o": "scm",
+      "name": "_jm_map_0",
+      "mapping": [
+        [
+          "table",
+          "json_model_2"
+        ],
+        [
+          "chair",
+          "json_model_3"
+        ]
+      ]
+    },
+    {
+      "o": "skip"
+    },
+    {
+      "o": "co",
+      "text": "check $furniture (.'$furniture')"
+    },
+    {
+      "o": "sfu",
+      "name": "json_model_4",
+      "body": [
+        {
+          "o": "bv",
+          "var": "res",
+          "val": null,
+          "declare": true
+        },
+        {
+          "o": "co",
+          "text": ".'$furniture'"
+        },
+        {
+          "o": "bv",
+          "var": "iso_0",
+          "val": {
+            "o": "isa",
+            "var": "val",
+            "tval": "dict",
+            "loose": null
+          },
+          "declare": true
+        },
+        {
+          "o": "bv",
+          "var": "res",
+          "val": {
+            "o": "gv",
+            "var": "iso_0",
+            "tvar": "bool"
+          },
+          "declare": false
+        },
+        {
+          "o": "if",
+          "cond": "res",
+          "true": [
+            {
+              "o": "if",
+              "cond": {
+                "o": "hp",
+                "obj": "val",
+                "prop": "t"
+              },
+              "true": [
+                {
+                  "o": "jv",
+                  "var": "tag_0",
+                  "val": {
+                    "o": "opv",
+                    "obj": "val",
+                    "prop": "t",
+                    "is_var": false
+                  },
+                  "declare": true
+                },
+                {
+                  "o": "Fv",
+                  "var": "fun_0",
+                  "val": {
+                    "o": "gcm",
+                    "name": "_jm_map_0",
+                    "tag": "tag_0",
+                    "ttag": "str"
+                  },
+                  "declare": true
+                },
+                {
+                  "o": "if",
+                  "cond": {
+                    "o": "id",
+                    "var": "fun_0"
+                  },
+                  "true": [
+                    {
+                      "o": "bv",
+                      "var": "res",
+                      "val": {
+                        "o": "cc",
+                        "name": "fun_0",
+                        "val": "val",
+                        "path": "path",
+                        "is_ptr": true,
+                        "is_raw": false
+                      },
+                      "declare": false
+                    }
+                  ],
+                  "false": [
+                    {
+                      "o": "bv",
+                      "var": "res",
+                      "val": {
+                        "o": "cst",
+                        "cst": false
+                      },
+                      "declare": false
+                    },
+                    {
+                      "o": "rep",
+                      "msg": "tag <t> value not found [.'$furniture'.'|']",
+                      "path": "path"
+                    }
+                  ]
+                }
+              ],
+              "false": [
+                {
+                  "o": "bv",
+                  "var": "res",
+                  "val": {
+                    "o": "cst",
+                    "cst": false
+                  },
+                  "declare": false
+                },
+                {
+                  "o": "rep",
+                  "msg": "tag prop <t> is missing [.'$furniture'.'|']",
+                  "path": "path"
+                }
+              ]
+            }
+          ],
+          "false": [
+            {
+              "o": "rep",
+              "msg": "value is not an object [.'$furniture'.'|']",
+              "path": "path"
+            }
+          ]
+        },
+        {
+          "o": "ret",
+          "res": "res"
+        }
+      ],
+      "inline": false
+    },
+    {
+      "o": "skip"
+    },
+    {
+      "o": "co",
+      "text": "object ."
+    },
+    {
+      "o": "sfu",
+      "name": "_jm_obj_2",
+      "body": [
+        {
+          "o": "if",
+          "cond": {
+            "o": "not",
+            "e": {
+              "o": "isa",
+              "var": "val",
+              "tval": "dict",
+              "loose": null
+            }
+          },
+          "true": [
+            {
+              "o": "rep",
+              "msg": "not an object [.]",
+              "path": "path"
+            },
+            {
+              "o": "ret",
+              "res": {
+                "o": "cst",
+                "cst": false
+              }
+            }
+          ],
+          "false": []
+        },
+        {
+          "o": "bv",
+          "var": "res",
+          "val": null,
+          "declare": true
+        },
+        {
+          "o": "iv",
+          "var": "must_count",
+          "val": {
+            "o": "cst",
+            "cst": 0
+          },
+          "declare": true
+        },
+        {
+          "o": "oL",
+          "obj": "val",
+          "key": "prop",
+          "val": "pval",
+          "body": [
+            {
+              "o": "pv",
+              "pvar": "lpath_2",
+              "val": {
+                "o": "pvl",
+                "pvar": "path",
+                "pseg": "prop",
+                "is_prop": true
+              },
+              "declare": true
+            },
+            {
+              "o": "ifs",
+              "cond_true": [
+                [
+                  {
+                    "o": "sc",
+                    "e1": "prop",
+                    "op": "=",
+                    "e2": {
+                      "o": "esc",
+                      "s": "stuff"
+                    }
+                  },
+                  [
+                    {
+                      "o": "co",
+                      "text": "handle must stuff property"
+                    },
+                    {
+                      "o": "i+",
+                      "var": "must_count"
+                    },
+                    {
+                      "o": "co",
+                      "text": ".stuff"
+                    },
+                    {
+                      "o": "bv",
+                      "var": "res",
+                      "val": {
+                        "o": "isa",
+                        "var": "pval",
+                        "tval": "list",
+                        "loose": null
+                      },
+                      "declare": false
+                    },
+                    {
+                      "o": "if",
+                      "cond": "res",
+                      "true": [
+                        {
+                          "o": "aL",
+                          "arr": "pval",
+                          "idx": "arr_0_idx",
+                          "val": "arr_0_item",
+                          "body": [
+                            {
+                              "o": "pv",
+                              "pvar": "arr_0_lpath",
+                              "val": {
+                                "o": "pvl",
+                                "pvar": {
+                                  "o": "pl",
+                                  "lvar": "lpath_2",
+                                  "rvar": "path"
+                                },
+                                "pseg": "arr_0_idx",
+                                "is_prop": false
+                              },
+                              "declare": true
+                            },
+                            {
+                              "o": "co",
+                              "text": ".stuff.0"
+                            },
+                            {
+                              "o": "bv",
+                              "var": "res",
+                              "val": {
+                                "o": "cc",
+                                "name": "json_model_4",
+                                "val": "arr_0_item",
+                                "path": {
+                                  "o": "pl",
+                                  "lvar": "arr_0_lpath",
+                                  "rvar": {
+                                    "o": "pl",
+                                    "lvar": "lpath_2",
+                                    "rvar": "path"
+                                  }
+                                },
+                                "is_ptr": false,
+                                "is_raw": false
+                              },
+                              "declare": false
+                            },
+                            {
+                              "o": "if",
+                              "cond": {
+                                "o": "not",
+                                "e": "res"
+                              },
+                              "true": [
+                                {
+                                  "o": "rep",
+                                  "msg": "unexpected $furniture [.stuff.0]",
+                                  "path": {
+                                    "o": "pl",
+                                    "lvar": "arr_0_lpath",
+                                    "rvar": {
+                                      "o": "pl",
+                                      "lvar": "lpath_2",
+                                      "rvar": "path"
+                                    }
+                                  }
+                                },
+                                {
+                                  "o": "brk"
+                                }
+                              ],
+                              "false": []
+                            }
+                          ]
+                        }
+                      ],
+                      "false": []
+                    },
+                    {
+                      "o": "if",
+                      "cond": {
+                        "o": "not",
+                        "e": "res"
+                      },
+                      "true": [
+                        {
+                          "o": "rep",
+                          "msg": "not array or unexpected array [.stuff]",
+                          "path": {
+                            "o": "pl",
+                            "lvar": "lpath_2",
+                            "rvar": "path"
+                          }
+                        },
+                        {
+                          "o": "rep",
+                          "msg": "invalid mandatory prop value [.stuff]",
+                          "path": {
+                            "o": "pl",
+                            "lvar": "lpath_2",
+                            "rvar": "path"
+                          }
+                        },
+                        {
+                          "o": "ret",
+                          "res": {
+                            "o": "cst",
+                            "cst": false
+                          }
+                        }
+                      ],
+                      "false": []
+                    }
+                  ]
+                ]
+              ],
+              "false": [
+                {
+                  "o": "rep",
+                  "msg": "unexpected prop [.]",
+                  "path": {
+                    "o": "pl",
+                    "lvar": "lpath_2",
+                    "rvar": "path"
+                  }
+                },
+                {
+                  "o": "ret",
+                  "res": {
+                    "o": "cst",
+                    "cst": false
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "o": "if",
+          "cond": {
+            "o": "nc",
+            "e1": "must_count",
+            "op": "!=",
+            "e2": {
+              "o": "cst",
+              "cst": 1
+            }
+          },
+          "true": [
+            {
+              "o": "if",
+              "cond": {
+                "o": "isr"
+              },
+              "true": [
+                {
+                  "o": "if",
+                  "cond": {
+                    "o": "not",
+                    "e": {
+                      "o": "hp",
+                      "obj": "val",
+                      "prop": "stuff"
+                    }
+                  },
+                  "true": [
+                    {
+                      "o": "rep",
+                      "msg": "missing mandatory prop <stuff> [.]",
+                      "path": "path"
+                    }
+                  ],
+                  "false": []
+                }
+              ],
+              "false": []
+            },
+            {
+              "o": "ret",
+              "res": {
+                "o": "cst",
+                "cst": false
+              }
+            }
+          ],
+          "false": []
+        },
+        {
+          "o": "ret",
+          "res": {
+            "o": "cst",
+            "cst": true
+          }
+        }
+      ],
+      "inline": true
+    },
+    {
+      "o": "skip"
+    },
+    {
+      "o": "co",
+      "text": "check $ (.)"
+    },
+    {
+      "o": "sfu",
+      "name": "json_model_1",
+      "body": [
+        {
+          "o": "bv",
+          "var": "res",
+          "val": null,
+          "declare": true
+        },
+        {
+          "o": "co",
+          "text": "."
+        },
+        {
+          "o": "bv",
+          "var": "res",
+          "val": {
+            "o": "cc",
+            "name": "_jm_obj_2",
+            "val": "val",
+            "path": "path",
+            "is_ptr": false,
+            "is_raw": false
+          },
+          "declare": false
+        },
+        {
+          "o": "if",
+          "cond": {
+            "o": "not",
+            "e": "res"
+          },
+          "true": [
+            {
+              "o": "rep",
+              "msg": "unexpected element [.]",
+              "path": "path"
+            }
+          ],
+          "false": []
+        },
+        {
+          "o": "ret",
+          "res": "res"
+        }
+      ],
+      "inline": false
+    },
+    {
+      "o": "skip"
+    },
+    {
+      "o": "spm",
+      "name": "check_model_map",
+      "pmap": {
+        "": "_jm_obj_2",
+        "table": "_jm_obj_0",
+        "chair": "_jm_obj_1",
+        "furniture": "json_model_4"
+      },
+      "public": true
+    }
+  ],
+  "entry": "check_model",
+  "package": null,
+  "exe": false
+}

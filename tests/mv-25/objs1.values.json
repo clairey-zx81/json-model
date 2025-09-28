@@ -1,0 +1,20 @@
+[
+  [ true,  {"foo": {"stuff": []}} ],
+  [ true,  {"foo": {"stuff": [{"t": "table", "legs": 4}]}} ],
+  [ true,  {"foo": {"stuff": [{"t": "chair", "color": "red"}]}} ],
+  [ true,  {"foo": {"stuff": [{"t": "chair", "color": "blue"}, {"t": "table", "legs": 6}]}} ],
+  [ false, {"foo": {"stuff": [{"t": "table"}]}} ],
+  [ false, {"foo": {}} ],
+  [ false, {"foo": {"stuff": "foo"}} ],
+  [ false, {} ],
+  [ false, {"foo": {"stuff": "bla"}} ],
+  [ false, null ],
+  [ false, true ],
+  [ false, false ],
+  [ false, "" ],
+  [ false, "unexpected" ],
+  [ false, 42 ],
+  [ false, 3.1415927 ],
+  [ false, [] ],
+  [ false, [1, "unexpected"] ]
+]

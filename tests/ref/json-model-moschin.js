@@ -3992,8 +3992,8 @@ export function check_model_init()
         _jm_obj_42_map.set(".mo", _jm_f_5)
         _jm_obj_42_map.set(".schema", _jm_f_6)
         _jm_obj_42_map.set("~", _jm_f_7)
-        check_model_map.set("", json_model_3)
-        check_model_map.set("Model", json_model_3)
+        check_model_map.set("", json_model_42)
+        check_model_map.set("Model", json_model_42)
     }
 }
 

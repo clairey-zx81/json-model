@@ -880,7 +880,7 @@ export function check_model_init()
         check_model_map.set("simpleTypes", json_model_3)
         check_model_map.set("stringArray", json_model_4)
         check_model_map.set("typeArray", json_model_5)
-        check_model_map.set("Schema", json_model_1)
+        check_model_map.set("Schema", _jm_obj_0)
     }
 }
 

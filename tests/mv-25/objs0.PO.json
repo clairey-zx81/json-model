@@ -1,0 +1,27 @@
+{
+  "stuff": [
+    "$furniture"
+  ],
+  "#": "JsonModel 1",
+  "$": {
+    "table": {
+      "t": "_table",
+      "legs": 1,
+      "#": "JsonModel 2"
+    },
+    "chair": {
+      "t": "_chair",
+      "color": "",
+      "#": "JsonModel 3"
+    },
+    "furniture": {
+      "|": [
+        "$table",
+        "$chair"
+      ],
+      "#": "JsonModel 4"
+    },
+    "#": "Symbol 1",
+    "": "./objs0"
+  }
+}

@@ -16,10 +16,12 @@
 - [x] command: activate ir optimization by default
 - [x] backend: IR handling of ConstMap
 - [x] static: skip model function to call obj function directly on references
+- [ ] backend: apply skip functions also for all pmap/cmap through IR
 - [ ] tests: add ir optimized output
 - [ ] tests: add pytest ir tests
 - [ ] tests: drop language outputs for IR only?!
 - [ ] optim: improve xor-to-or with references
+- [ ] optim: direct mandatory-only attributes objects with expected count checked ahead
 - [ ] command: remove inline-or option and implementation
 - [ ] backend: improve and extend IR optimizations?
 - [ ] command: add direct ir to lang conversion

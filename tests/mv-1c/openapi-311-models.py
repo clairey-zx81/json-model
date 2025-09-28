@@ -4387,8 +4387,8 @@ def check_model_init():
         _jm_re_10 = lambda s, p, r: _jm_re_10_reco.search(s) is not None
         global check_model_map
         check_model_map = {
-            "": json_model_3,
-            "openapi": json_model_3,
+            "": _jm_obj_0,
+            "openapi": _jm_obj_0,
         }
 
 # differed module cleanup

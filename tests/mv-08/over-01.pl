@@ -86,8 +86,8 @@ sub check_model_init()
     {
         $initialized = 1;
         %check_model_map = (
-            '' => \&json_model_1,
-            'over' => \&json_model_3,
+            '' => \&_jm_obj_0,
+            'over' => \&_jm_obj_0,
         );
     }
 }

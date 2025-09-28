@@ -144,9 +144,9 @@ public class root_1 extends ModelChecker
         {
             try {
             root_1_map_pmap = new HashMap<String, Checker>();
-            root_1_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_3(o, p, r);} });
-            root_1_map_pmap.put("root", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_3(o, p, r);} });
-            root_1_map_pmap.put("Root", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_3(o, p, r);} });
+            root_1_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_0(o, p, r);} });
+            root_1_map_pmap.put("root", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_0(o, p, r);} });
+            root_1_map_pmap.put("Root", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_0(o, p, r);} });
                 super.init(json);
             }
             catch (Exception e) {

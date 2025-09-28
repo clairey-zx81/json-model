@@ -1,13 +1,13 @@
 trafo_3.values.json[0]: PASS
 trafo_3.values.json[1]: PASS
 trafo_3.values.json[2]: PASS
-trafo_3.values.json[3]: FAIL (.: unexpected $l [.'$Dd']; .: not array or unexpected array [.'$Dd#l']; .0: unexpected $u [.'$Dd#l'.0]; .0: unexpected $Uu#un [.'$Dd#u']; .0: unexpected element [.'$Dd#Uu#un']; .0: missing mandatory prop <ub> [.'$Dd#Uu#un']; .0: missing mandatory prop <ua> [.'$Dd#Uu#un'])
-trafo_3.values.json[4]: FAIL (.: unexpected $l [.'$Dd']; .: not array or unexpected array [.'$Dd#l']; .0: unexpected $u [.'$Dd#l'.0]; .0: unexpected $Uu#un [.'$Dd#u']; .0: unexpected element [.'$Dd#Uu#un']; .0: missing mandatory prop <ub> [.'$Dd#Uu#un'])
-trafo_3.values.json[5]: FAIL (.: unexpected $l [.'$Dd']; .: not array or unexpected array [.'$Dd#l']; .0: unexpected $u [.'$Dd#l'.0]; .0: unexpected $Uu#un [.'$Dd#u']; .0: unexpected element [.'$Dd#Uu#un']; .0: missing mandatory prop <ua> [.'$Dd#Uu#un'])
-trafo_3.values.json[6]: FAIL (.: unexpected $l [.'$Dd']; .: not array or unexpected array [.'$Dd#l'])
-trafo_3.values.json[7]: FAIL (.: unexpected $l [.'$Dd']; .: not array or unexpected array [.'$Dd#l'])
-trafo_3.values.json[8]: FAIL (.: unexpected $l [.'$Dd']; .: not array or unexpected array [.'$Dd#l'])
-trafo_3.values.json[9]: FAIL (.: unexpected $l [.'$Dd']; .: not array or unexpected array [.'$Dd#l'])
-trafo_3.values.json[10]: FAIL (.: unexpected $l [.'$Dd']; .: not array or unexpected array [.'$Dd#l'])
-trafo_3.values.json[11]: FAIL (.: unexpected $l [.'$Dd']; .: not array or unexpected array [.'$Dd#l'])
-trafo_3.values.json[12]: FAIL (.: unexpected $l [.'$Dd']; .: not array or unexpected array [.'$Dd#l']; .0: unexpected $u [.'$Dd#l'.0]; .0: unexpected $Uu#un [.'$Dd#u']; .0: unexpected element [.'$Dd#Uu#un']; .0: not an object [.'$Dd#Uu#un'])
+trafo_3.values.json[3]: FAIL (.: not array or unexpected array [.'$Dd#l']; .0: unexpected $u [.'$Dd#l'.0]; .0: unexpected $Uu#un [.'$Dd#u']; .0: unexpected element [.'$Dd#Uu#un']; .0: missing mandatory prop <ub> [.'$Dd#Uu#un']; .0: missing mandatory prop <ua> [.'$Dd#Uu#un'])
+trafo_3.values.json[4]: FAIL (.: not array or unexpected array [.'$Dd#l']; .0: unexpected $u [.'$Dd#l'.0]; .0: unexpected $Uu#un [.'$Dd#u']; .0: unexpected element [.'$Dd#Uu#un']; .0: missing mandatory prop <ub> [.'$Dd#Uu#un'])
+trafo_3.values.json[5]: FAIL (.: not array or unexpected array [.'$Dd#l']; .0: unexpected $u [.'$Dd#l'.0]; .0: unexpected $Uu#un [.'$Dd#u']; .0: unexpected element [.'$Dd#Uu#un']; .0: missing mandatory prop <ua> [.'$Dd#Uu#un'])
+trafo_3.values.json[6]: FAIL (.: not array or unexpected array [.'$Dd#l'])
+trafo_3.values.json[7]: FAIL (.: not array or unexpected array [.'$Dd#l'])
+trafo_3.values.json[8]: FAIL (.: not array or unexpected array [.'$Dd#l'])
+trafo_3.values.json[9]: FAIL (.: not array or unexpected array [.'$Dd#l'])
+trafo_3.values.json[10]: FAIL (.: not array or unexpected array [.'$Dd#l'])
+trafo_3.values.json[11]: FAIL (.: not array or unexpected array [.'$Dd#l'])
+trafo_3.values.json[12]: FAIL (.: not array or unexpected array [.'$Dd#l']; .0: unexpected $u [.'$Dd#l'.0]; .0: unexpected $Uu#un [.'$Dd#u']; .0: unexpected element [.'$Dd#Uu#un']; .0: not an object [.'$Dd#Uu#un'])

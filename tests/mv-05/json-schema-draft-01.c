@@ -724,7 +724,7 @@ const char *check_model_init(void)
         jm_sort_propmap(_jm_obj_0_map_tab, 26);
         check_model_map_tab[0] = (jm_propmap_t) { "", _jm_obj_0 };
         check_model_map_tab[1] = (jm_propmap_t) { "allTypes", json_model_2 };
-        check_model_map_tab[2] = (jm_propmap_t) { "Schema", json_model_1 };
+        check_model_map_tab[2] = (jm_propmap_t) { "Schema", _jm_obj_0 };
         jm_sort_propmap(check_model_map_tab, 3);
     }
     return NULL;

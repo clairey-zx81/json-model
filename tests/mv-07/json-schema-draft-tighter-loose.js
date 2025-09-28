@@ -6331,8 +6331,8 @@ export function check_model_init()
         _jm_obj_63_map.set("examples", _jm_f_225)
         _jm_obj_63_map.set("id", _jm_f_226)
         _jm_obj_63_map.set("title", _jm_f_227)
-        check_model_map.set("", json_model_1)
-        check_model_map.set("tight", json_model_3)
+        check_model_map.set("", json_model_27)
+        check_model_map.set("tight", json_model_27)
     }
 }
 

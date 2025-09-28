@@ -3502,8 +3502,8 @@ public class francais extends ModelChecker
             _jm_re_10_pat = Pattern.compile("[^A-Z0-9]");
             _jm_re_11_pat = Pattern.compile("^\\w(\\w|-)*$");
             francais_map_pmap = new HashMap<String, Checker>();
-            francais_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_3(o, p, r);} });
-            francais_map_pmap.put("Model", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_3(o, p, r);} });
+            francais_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_42(o, p, r);} });
+            francais_map_pmap.put("Model", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_42(o, p, r);} });
                 super.init(json);
             }
             catch (Exception e) {

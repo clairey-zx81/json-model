@@ -4427,8 +4427,8 @@ def check_model_init():
         }
         global check_model_map
         check_model_map = {
-            "": json_model_1,
-            "tight": json_model_3,
+            "": json_model_27,
+            "tight": json_model_27,
         }
 
 # differed module cleanup

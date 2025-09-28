@@ -76,7 +76,7 @@ public class rec_02 extends ModelChecker
             try {
             rec_02_map_pmap = new HashMap<String, Checker>();
             rec_02_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_0(o, p, r);} });
-            rec_02_map_pmap.put("foo", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_1(o, p, r);} });
+            rec_02_map_pmap.put("foo", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_0(o, p, r);} });
                 super.init(json);
             }
             catch (Exception e) {

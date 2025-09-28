@@ -3316,8 +3316,8 @@ export function check_model_init()
         _jm_cst_1.add("$STRING")
         _jm_cst_1.add("$NONE")
         _jm_cst_1.add("$ANY")
-        check_model_map.set("", json_model_3)
-        check_model_map.set("Model", json_model_3)
+        check_model_map.set("", json_model_42)
+        check_model_map.set("Model", json_model_42)
     }
 }
 

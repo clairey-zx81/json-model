@@ -2649,8 +2649,8 @@ def check_model_init():
         _jm_re_11 = lambda s, p, r: _jm_re_11_reco.search(s) is not None
         global check_model_map
         check_model_map = {
-            "": json_model_3,
-            "Model": json_model_3,
+            "": json_model_42,
+            "Model": json_model_42,
         }
 
 # differed module cleanup

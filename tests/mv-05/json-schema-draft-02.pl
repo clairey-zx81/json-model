@@ -556,7 +556,7 @@ sub check_model_init()
             '' => \&_jm_obj_0,
             'allTypes' => \&json_model_2,
             'distinctStringArray' => \&json_model_3,
-            'Schema' => \&json_model_1,
+            'Schema' => \&_jm_obj_0,
         );
     }
 }

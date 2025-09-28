@@ -720,7 +720,7 @@ sub check_model_init()
             'simpleTypes' => \&json_model_3,
             'stringArray' => \&json_model_4,
             'typeArray' => \&json_model_5,
-            'Schema' => \&json_model_1,
+            'Schema' => \&_jm_obj_0,
         );
     }
 }

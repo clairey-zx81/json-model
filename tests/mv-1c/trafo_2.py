@@ -127,8 +127,8 @@ def check_model_init():
         global check_model_map
         check_model_map = {
             "": json_model_4,
-            "Zz": json_model_5,
-            "z": json_model_3,
+            "Zz": _jm_obj_0,
+            "z": _jm_obj_0,
             "l": json_model_4,
         }
 

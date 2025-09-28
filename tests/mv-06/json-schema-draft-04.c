@@ -944,7 +944,7 @@ const char *check_model_init(void)
         check_model_map_tab[2] = (jm_propmap_t) { "simpleTypes", json_model_3 };
         check_model_map_tab[3] = (jm_propmap_t) { "stringArray", json_model_4 };
         check_model_map_tab[4] = (jm_propmap_t) { "typeArray", json_model_5 };
-        check_model_map_tab[5] = (jm_propmap_t) { "Schema", json_model_1 };
+        check_model_map_tab[5] = (jm_propmap_t) { "Schema", _jm_obj_0 };
         jm_sort_propmap(check_model_map_tab, 6);
     }
     return NULL;

@@ -717,7 +717,7 @@ class Language:
 
 
 class Code:
-    """Hold generated source code for a .
+    """Hold generated source code for a model.
 
     - `language`: language generator
     - `entry`: name of the entry function
@@ -738,6 +738,7 @@ class Code:
         self._inis: Block = []         # initialization code
         self._dels: Block = []         # deallocation code
         self._subs: Block = []         # actual subroutines
+        self._shortcuts = {}            # function shortcuts
 
     #
     # add blocks

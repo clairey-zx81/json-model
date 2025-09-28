@@ -1,0 +1,78 @@
+[
+  {
+    "foo": "$objs0",
+    "#": "JsonModel 1",
+    "$": {
+      "objs0": {
+        "stuff": [
+          "$furniture"
+        ],
+        "#": "JsonModel 3",
+        "$": {
+          "table": {
+            "t": "_table",
+            "legs": 1
+          },
+          "chair": {
+            "t": "_chair",
+            "color": ""
+          },
+          "furniture": {
+            "|": [
+              "$table",
+              "$chair"
+            ]
+          },
+          "#": "Symbol 3",
+          "": "./objs0"
+        }
+      },
+      "#": "Symbol 1",
+      "": "./objs1.model.json"
+    }
+  },
+  {
+    "stuff": [
+      "$furniture"
+    ],
+    "#": "JsonModel 3",
+    "$": {
+      "table": {
+        "t": "_table",
+        "legs": 1,
+        "#": "JsonModel 4"
+      },
+      "chair": {
+        "t": "_chair",
+        "color": "",
+        "#": "JsonModel 5"
+      },
+      "furniture": {
+        "|": [
+          "$table",
+          "$chair"
+        ],
+        "#": "JsonModel 6"
+      },
+      "#": "Symbol 3",
+      "": "./objs0"
+    }
+  },
+  {
+    "t": "_table",
+    "legs": 1,
+    "#": "JsonModel 4"
+  },
+  {
+    "t": "_chair",
+    "color": "",
+    "#": "JsonModel 5"
+  },
+  {
+    "|": [
+      "$table",
+      "$chair"
+    ],
+    "#": "JsonModel 6"
+  }
+]

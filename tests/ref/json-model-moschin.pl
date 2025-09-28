@@ -3330,8 +3330,8 @@ sub check_model_init()
             '~' => \&_jm_f_7,
         );
         %check_model_map = (
-            '' => \&json_model_3,
-            'Model' => \&json_model_3,
+            '' => \&json_model_42,
+            'Model' => \&json_model_42,
         );
     }
 }

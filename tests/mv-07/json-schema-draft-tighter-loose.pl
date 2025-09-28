@@ -5455,8 +5455,8 @@ sub check_model_init()
             'title' => \&_jm_f_227,
         );
         %check_model_map = (
-            '' => \&json_model_1,
-            'tight' => \&json_model_3,
+            '' => \&json_model_27,
+            'tight' => \&json_model_27,
         );
     }
 }

@@ -864,7 +864,7 @@ export function check_model_init()
         check_model_map.set("", _jm_obj_0)
         check_model_map.set("allTypes", json_model_2)
         check_model_map.set("distinctSchemaArray", json_model_3)
-        check_model_map.set("Schema", json_model_1)
+        check_model_map.set("Schema", _jm_obj_0)
     }
 }
 

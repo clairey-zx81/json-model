@@ -1,0 +1,10 @@
+{
+  "$": {
+    "table": { "t": "_table", "legs": 1 },
+    "chair": { "t": "_chair", "color": "" },
+    "furniture": { "|": [ "$table", "$chair" ] }
+  },
+  "@": {
+    "stuff": [ "$furniture" ]
+  }
+}
