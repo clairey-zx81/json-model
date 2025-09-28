@@ -10,7 +10,10 @@
 #include <json-model.h>
 #define JSON_MODEL_VERSION "2"
 
+static bool _jm_obj_1(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static bool _jm_obj_2(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep);
 jm_propmap_t check_model_map_tab[3];
@@ -52,7 +55,7 @@ static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *re
         // handle other props
         // .'$a'.''
         // .'$a'.''.'|'.0
-        res = json_model_2(pval, (path ? &lpath_0 : NULL), rep);
+        res = _jm_obj_0(pval, (path ? &lpath_0 : NULL), rep);
         if (! res)
         {
             if (rep) jm_report_add_entry(rep, "unexpected $a [.'$a'.''.'|'.0]", (path ? &lpath_0 : NULL));
@@ -117,7 +120,7 @@ static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
     bool res;
     // .'$r'
     // .'$r'.'|'.0
-    res = json_model_2(val, path, rep);
+    res = _jm_obj_0(val, path, rep);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected $a [.'$r'.'|'.0]", path);

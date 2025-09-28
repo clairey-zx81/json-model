@@ -75,7 +75,7 @@ def json_model_5(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$Ex08'
     # .'$Ex08'.'|'.0
-    res = json_model_4(val, path, rep)
+    res = _jm_obj_0(val, path, rep)
     if not res:
         rep is None or rep.append(("unexpected $map [.'$Ex08'.'|'.0]", path))
     if not res:

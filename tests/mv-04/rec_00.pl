@@ -10,6 +10,7 @@ use JSON::JsonModel;
 use constant JMC_VERSION => '2';
 
 
+sub _jm_obj_0($$$);
 sub json_model_2($$$);
 sub json_model_3($$$);
 sub json_model_1($$$);
@@ -59,7 +60,7 @@ sub json_model_3($$$)
     if (! $res)
     {
         # .'$rec'.'|'.1
-        $res = json_model_2($val, $path, $rep);
+        $res = _jm_obj_0($val, $path, $rep);
     }
     return $res;
 }

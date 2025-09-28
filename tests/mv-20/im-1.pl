@@ -13,6 +13,7 @@ use constant JMC_VERSION => '2';
 sub json_model_2($$$);
 sub json_model_4($$$);
 sub json_model_5($$$);
+sub _jm_obj_0($$$);
 sub json_model_1($$$);
 my %check_model_map;
 

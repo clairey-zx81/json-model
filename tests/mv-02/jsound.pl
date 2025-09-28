@@ -10,6 +10,8 @@ use JSON::JsonModel;
 use constant JMC_VERSION => '2';
 
 
+sub _jm_obj_1($$$);
+sub _jm_obj_0($$$);
 sub json_model_2($$$);
 my %_jm_map_0;
 sub json_model_3($$$);
@@ -31,10 +33,15 @@ sub _jm_f_10($$$);
 sub _jm_f_11($$$);
 sub _jm_f_12($$$);
 my %_jm_obj_2_map;
+sub _jm_obj_2($$$);
 sub json_model_6($$$);
+sub _jm_obj_3($$$);
 sub json_model_7($$$);
+sub _jm_obj_4($$$);
 sub json_model_8($$$);
+sub _jm_obj_5($$$);
 sub json_model_9($$$);
+sub _jm_obj_6($$$);
 sub json_model_10($$$);
 sub json_model_11($$$);
 sub json_model_1($$$);
@@ -523,7 +530,7 @@ sub _jm_obj_3($$$)
                 {
                     my $arr_3_item = $$pval[$arr_3_idx];
                     # .'$Object'.content.0
-                    $res = json_model_8($arr_3_item, undef, $rep);
+                    $res = _jm_obj_4($arr_3_item, undef, $rep);
                     if (! $res)
                     {
                         last;
@@ -865,7 +872,7 @@ sub json_model_1($$$)
     my ($val, $path, $rep) = @_;
     my $res;
     # .
-    $res = json_model_2($val, $path, $rep);
+    $res = _jm_obj_0($val, $path, $rep);
     return $res;
 }
 

@@ -18,6 +18,7 @@ sub _jm_f_1($$$);
 sub _jm_f_2($$$);
 sub _jm_f_3($$$);
 sub _jm_f_4($$$);
+sub _jm_obj_1($$$);
 sub _jm_f_5($$$);
 sub _jm_f_6($$$);
 sub _jm_f_7($$$);
@@ -37,13 +38,16 @@ sub _jm_f_19($$$);
 sub _jm_f_20($$$);
 sub _jm_f_21($$$);
 sub _jm_f_22($$$);
+sub _jm_obj_2($$$);
 sub _jm_f_23($$$);
+sub _jm_obj_3($$$);
 sub _jm_f_24($$$);
 sub _jm_f_25($$$);
 sub _jm_f_26($$$);
 sub _jm_f_27($$$);
 sub _jm_f_28($$$);
 my %_jm_obj_0_map;
+sub _jm_obj_0($$$);
 sub json_model_1($$$);
 my %check_model_map;
 
@@ -77,7 +81,7 @@ sub json_model_3($$$)
             if (! $res)
             {
                 # .'$distinctSchemaArray'.'@'.0.'|'.1
-                $res = json_model_1($arr_0_item, undef, $rep);
+                $res = _jm_obj_0($arr_0_item, undef, $rep);
             }
             if (! $res)
             {
@@ -123,7 +127,7 @@ sub _jm_f_2($$$)
     if (! $res)
     {
         # .additionalItems.'|'.1
-        $res = json_model_1($val, $path, $rep);
+        $res = _jm_obj_0($val, $path, $rep);
     }
     return $res;
 }
@@ -139,7 +143,7 @@ sub _jm_f_3($$$)
     if (! $res)
     {
         # .additionalProperties.'|'.1
-        $res = json_model_1($val, $path, $rep);
+        $res = _jm_obj_0($val, $path, $rep);
     }
     return $res;
 }
@@ -190,7 +194,7 @@ sub _jm_obj_1($$$)
             if (! $res)
             {
                 # .dependencies.''.'|'.2
-                $res = json_model_1($pval, undef, $rep);
+                $res = _jm_obj_0($pval, undef, $rep);
             }
         }
         if (! $res)
@@ -290,7 +294,7 @@ sub _jm_f_12($$$)
     my $res;
     # .extends
     # .extends.'|'.0
-    $res = json_model_1($val, $path, $rep);
+    $res = _jm_obj_0($val, $path, $rep);
     if (! $res)
     {
         # .extends.'|'.1
@@ -301,7 +305,7 @@ sub _jm_f_12($$$)
             {
                 my $arr_2_item = $$val[$arr_2_idx];
                 # .extends.'|'.1.0
-                $res = json_model_1($arr_2_item, undef, $rep);
+                $res = _jm_obj_0($arr_2_item, undef, $rep);
                 if (! $res)
                 {
                     last;
@@ -340,7 +344,7 @@ sub _jm_f_15($$$)
     my $res;
     # .items
     # .items.'|'.0
-    $res = json_model_1($val, $path, $rep);
+    $res = _jm_obj_0($val, $path, $rep);
     if (! $res)
     {
         # .items.'|'.1
@@ -351,7 +355,7 @@ sub _jm_f_15($$$)
             {
                 my $arr_3_item = $$val[$arr_3_idx];
                 # .items.'|'.1.0
-                $res = json_model_1($arr_3_item, undef, $rep);
+                $res = _jm_obj_0($arr_3_item, undef, $rep);
                 if (! $res)
                 {
                     last;
@@ -446,7 +450,7 @@ sub _jm_obj_2($$$)
     {
         # handle other props
         # .patternProperties.''
-        $res = json_model_1($pval, undef, $rep);
+        $res = _jm_obj_0($pval, undef, $rep);
         if (! $res)
         {
             return 0;
@@ -479,7 +483,7 @@ sub _jm_obj_3($$$)
     {
         # handle other props
         # .properties.''
-        $res = json_model_1($pval, undef, $rep);
+        $res = _jm_obj_0($pval, undef, $rep);
         if (! $res)
         {
             return 0;
@@ -541,7 +545,7 @@ sub _jm_f_27($$$)
                 if (! $res)
                 {
                     # .type.'|'.1.0.'|'.1
-                    $res = json_model_1($arr_4_item, undef, $rep);
+                    $res = _jm_obj_0($arr_4_item, undef, $rep);
                 }
                 if (! $res)
                 {

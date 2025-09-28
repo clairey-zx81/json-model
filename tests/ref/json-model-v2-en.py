@@ -66,7 +66,7 @@ def json_model_3(val: Jsonable, path: Path, rep: Report) -> bool:
 def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .
-    res = json_model_3(val, path, rep)
+    res = json_model_42(val, path, rep)
     if not res:
         rep is None or rep.append(("unexpected $Model [.]", path))
     return res

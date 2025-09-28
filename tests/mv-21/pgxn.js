@@ -617,7 +617,7 @@ function _jm_obj_6(val, path, rep)
         {
             // handle 1 key props
             // .'$Prereqs'.'$Phase'.'$Relation'
-            res = json_model_15(pval, (path ? lpath_6 : null), rep);
+            res = _jm_obj_4(pval, (path ? lpath_6 : null), rep);
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $Prereq [.'$Prereqs'.'$Phase'.'$Relation']", (path ? lpath_6 : null)])
@@ -930,7 +930,7 @@ function _jm_obj_10(val, path, rep)
         let lpath_10 = path ? path.concat([prop]) : null;
         // handle other props
         // .provides.''
-        res = json_model_6(pval, (path ? lpath_10 : null), rep);
+        res = _jm_obj_0(pval, (path ? lpath_10 : null), rep);
         if (! res)
         {
             rep !== null && rep.push(["unexpected $Provide [.provides.'']", (path ? lpath_10 : null)])
@@ -1056,7 +1056,7 @@ function _jm_f_10(val, path, rep)
 {
     let res;
     // .prereqs
-    res = json_model_16(val, path, rep);
+    res = _jm_obj_5(val, path, rep);
     if (! res)
     {
         rep !== null && rep.push(["unexpected $Prereqs [.prereqs]", path])
@@ -1082,7 +1082,7 @@ function _jm_f_12(val, path, rep)
 {
     let res;
     // .resources
-    res = json_model_8(val, path, rep);
+    res = _jm_obj_1(val, path, rep);
     if (! res)
     {
         rep !== null && rep.push(["unexpected $Resources [.resources]", path])

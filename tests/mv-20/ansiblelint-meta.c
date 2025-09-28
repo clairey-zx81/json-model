@@ -11,117 +11,211 @@
 #define JSON_MODEL_VERSION "2"
 
 static jm_constant_t _jm_cst_0[4];
+static bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static bool _jm_obj_1(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static jm_constant_t _jm_cst_1[4];
+static bool _jm_obj_2(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_4(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static jm_constant_t _jm_cst_2[14];
+static bool _jm_obj_3(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_5(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static bool _jm_obj_4(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_6(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static jm_constant_t _jm_cst_3[5];
+static bool _jm_obj_5(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_7(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static bool _jm_obj_6(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_8(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static jm_constant_t _jm_cst_4[8];
+static bool _jm_obj_7(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_9(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static jm_constant_t _jm_cst_5[12];
+static bool _jm_obj_8(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_10(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static jm_constant_t _jm_cst_6[4];
+static bool _jm_obj_9(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_11(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static jm_constant_t _jm_cst_7[6];
+static bool _jm_obj_10(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_12(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static jm_constant_t _jm_cst_8[8];
+static bool _jm_obj_11(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_13(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static jm_constant_t _jm_cst_9[7];
+static bool _jm_obj_12(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_14(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static jm_constant_t _jm_cst_10[28];
+static bool _jm_obj_13(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_15(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static jm_constant_t _jm_cst_11[27];
+static bool _jm_obj_14(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_16(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static bool _jm_obj_15(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_17(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static bool _jm_obj_16(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_18(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static bool _jm_obj_17(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_19(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static bool _jm_obj_18(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_20(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static jm_constant_t _jm_cst_12[3];
+static bool _jm_obj_19(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_21(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static bool _jm_obj_20(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_22(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static bool _jm_obj_21(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_23(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static jm_constant_t _jm_cst_13[10];
+static bool _jm_obj_22(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_24(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static jm_constant_t _jm_cst_14[10];
+static bool _jm_obj_23(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_25(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static jm_constant_t _jm_cst_15[3];
+static bool _jm_obj_24(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_26(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static bool _jm_obj_25(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_27(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static jm_constant_t _jm_cst_16[9];
+static bool _jm_obj_26(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_28(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static jm_constant_t _jm_cst_17[19];
+static bool _jm_obj_27(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_29(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static jm_constant_t _jm_cst_18[8];
+static bool _jm_obj_28(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_30(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static jm_constant_t _jm_cst_19[27];
+static bool _jm_obj_29(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_31(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static jm_constant_t _jm_cst_20[5];
+static bool _jm_obj_30(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_32(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static jm_constant_t _jm_cst_21[13];
+static bool _jm_obj_31(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_33(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static jm_constant_t _jm_cst_22[21];
+static bool _jm_obj_32(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_34(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static bool _jm_obj_33(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_35(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static jm_constant_t _jm_cst_23[7];
+static bool _jm_obj_34(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_36(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static jm_constant_t _jm_cst_24[5];
+static bool _jm_obj_35(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_37(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static jm_constant_t _jm_cst_25[5];
+static bool _jm_obj_36(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_38(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static jm_constant_t _jm_cst_26[32];
+static bool _jm_obj_37(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_39(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static bool _jm_obj_38(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_40(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static jm_constant_t _jm_cst_27[10];
+static bool _jm_obj_39(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_41(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static bool _jm_obj_40(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_42(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static bool _jm_obj_41(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_43(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static jm_constant_t _jm_cst_28[9];
+static bool _jm_obj_42(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_44(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static jm_constant_t _jm_cst_29[15];
+static bool _jm_obj_43(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_45(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static bool _jm_obj_44(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_46(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static jm_constant_t _jm_cst_30[7];
+static bool _jm_obj_45(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_47(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static jm_constant_t _jm_cst_31[7];
+static bool _jm_obj_46(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_48(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_49(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static jm_constant_t _jm_cst_32[10];
+static bool _jm_obj_47(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static jm_constant_t _jm_cst_33[7];
+static bool _jm_obj_48(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static bool _jm_obj_49(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static jm_constant_t _jm_cst_34[7];
+static bool _jm_obj_50(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static jm_constant_t _jm_cst_35[32];
+static bool _jm_obj_51(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static jm_constant_t _jm_cst_36[5];
+static bool _jm_obj_52(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static jm_constant_t _jm_cst_37[5];
+static bool _jm_obj_53(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static jm_constant_t _jm_cst_38[7];
+static bool _jm_obj_54(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static bool _jm_obj_55(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static jm_constant_t _jm_cst_39[21];
+static bool _jm_obj_56(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static jm_constant_t _jm_cst_40[13];
+static bool _jm_obj_57(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static jm_constant_t _jm_cst_41[5];
+static bool _jm_obj_58(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static bool _jm_obj_59(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static jm_constant_t _jm_cst_42[27];
+static bool _jm_obj_60(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static jm_constant_t _jm_cst_43[8];
+static bool _jm_obj_61(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static jm_constant_t _jm_cst_44[15];
+static bool _jm_obj_62(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static jm_constant_t _jm_cst_45[19];
+static bool _jm_obj_63(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static bool _jm_obj_64(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static jm_constant_t _jm_cst_46[3];
+static bool _jm_obj_65(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static jm_constant_t _jm_cst_47[10];
+static bool _jm_obj_66(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static jm_constant_t _jm_cst_48[9];
+static bool _jm_obj_67(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static jm_constant_t _jm_cst_49[10];
+static bool _jm_obj_68(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static bool _jm_obj_69(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static bool _jm_obj_70(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static jm_constant_t _jm_cst_50[3];
+static bool _jm_obj_71(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static bool _jm_obj_72(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static bool _jm_obj_73(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static bool _jm_obj_74(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static bool _jm_obj_75(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static jm_constant_t _jm_cst_51[27];
+static bool _jm_obj_76(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static jm_constant_t _jm_cst_52[28];
+static bool _jm_obj_77(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static bool _jm_obj_78(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static jm_constant_t _jm_cst_53[7];
+static bool _jm_obj_79(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static jm_constant_t _jm_cst_54[8];
+static bool _jm_obj_80(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static jm_constant_t _jm_cst_55[6];
+static bool _jm_obj_81(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static jm_constant_t _jm_cst_56[4];
+static bool _jm_obj_82(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static jm_constant_t _jm_cst_57[12];
+static bool _jm_obj_83(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static jm_constant_t _jm_cst_58[9];
+static bool _jm_obj_84(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static jm_constant_t _jm_cst_59[8];
+static bool _jm_obj_85(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static bool _jm_obj_86(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static jm_constant_t _jm_cst_60[5];
+static bool _jm_obj_87(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static bool _jm_obj_88(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static bool _jm_obj_89(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static jm_constant_t _jm_cst_61[4];
+static bool _jm_obj_90(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static jm_constant_t _jm_cst_62[14];
+static bool _jm_obj_91(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static bool _jm_obj_92(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static jm_constant_t _jm_cst_63[4];
+static bool _jm_obj_93(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_50(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_0(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_1(const json_t *val, jm_path_t *path, jm_report_t *rep);
@@ -137,6 +231,7 @@ static bool _jm_re_1(const char *s, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_5(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_6(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static jm_propmap_t _jm_obj_94_map_tab[7];
+static bool _jm_obj_94(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_51(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_7(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_8(const json_t *val, jm_path_t *path, jm_report_t *rep);
@@ -145,6 +240,7 @@ static bool _jm_f_10(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_11(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_12(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static jm_propmap_t _jm_obj_95_map_tab[6];
+static bool _jm_obj_95(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_52(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_13(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_14(const json_t *val, jm_path_t *path, jm_report_t *rep);
@@ -157,6 +253,7 @@ static bool _jm_f_20(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_21(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_22(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static jm_propmap_t _jm_obj_96_map_tab[10];
+static bool _jm_obj_96(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_53(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_23(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_24(const json_t *val, jm_path_t *path, jm_report_t *rep);
@@ -172,6 +269,7 @@ static bool _jm_f_33(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_34(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_35(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static jm_propmap_t _jm_obj_97_map_tab[13];
+static bool _jm_obj_97(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_36(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_37(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_38(const json_t *val, jm_path_t *path, jm_report_t *rep);
@@ -186,6 +284,7 @@ static bool _jm_f_46(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_47(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_48(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static jm_propmap_t _jm_obj_98_map_tab[13];
+static bool _jm_obj_98(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static jm_constmap_t _jm_map_0_tab[2];
 static bool json_model_54(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static cre2_regexp_t *_jm_re_2_re2 = NULL;
@@ -194,8 +293,14 @@ static bool _jm_re_2(const char *s, jm_path_t *path, jm_report_t *rep);
 static bool json_model_55(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_56(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static jm_constant_t _jm_cst_64[2];
+static bool _jm_obj_100(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static bool _jm_obj_99(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_57(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static bool _jm_obj_101(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static bool _jm_obj_102(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static bool _jm_obj_103(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_58(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static bool _jm_obj_104(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_59(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_60(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep);
@@ -3813,7 +3918,7 @@ static bool json_model_49(const json_t *val, jm_path_t *path, jm_report_t *rep)
     // FIXME: name is not mandatory, not sure it makes much sense… versions should be unique?
     // .'$any_platform'
     // .'$any_platform'.'|'.0
-    res = json_model_2(val, path, rep);
+    res = _jm_obj_0(val, path, rep);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected $AIXPlatformModel [.'$any_platform'.'|'.0]", path);
@@ -3821,7 +3926,7 @@ static bool json_model_49(const json_t *val, jm_path_t *path, jm_report_t *rep)
     if (! res)
     {
         // .'$any_platform'.'|'.1
-        res = json_model_3(val, path, rep);
+        res = _jm_obj_1(val, path, rep);
         if (! res)
         {
             if (rep) jm_report_add_entry(rep, "unexpected $AlpinePlatformModel [.'$any_platform'.'|'.1]", path);
@@ -3829,7 +3934,7 @@ static bool json_model_49(const json_t *val, jm_path_t *path, jm_report_t *rep)
         if (! res)
         {
             // .'$any_platform'.'|'.2
-            res = json_model_5(val, path, rep);
+            res = _jm_obj_3(val, path, rep);
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected $AmazonPlatformModel [.'$any_platform'.'|'.2]", path);
@@ -3837,7 +3942,7 @@ static bool json_model_49(const json_t *val, jm_path_t *path, jm_report_t *rep)
             if (! res)
             {
                 // .'$any_platform'.'|'.3
-                res = json_model_4(val, path, rep);
+                res = _jm_obj_2(val, path, rep);
                 if (! res)
                 {
                     if (rep) jm_report_add_entry(rep, "unexpected $AmazonLinuxPlatformModel [.'$any_platform'.'|'.3]", path);
@@ -3845,7 +3950,7 @@ static bool json_model_49(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 if (! res)
                 {
                     // .'$any_platform'.'|'.4
-                    res = json_model_42(val, path, rep);
+                    res = _jm_obj_40(val, path, rep);
                     if (! res)
                     {
                         if (rep) jm_report_add_entry(rep, "unexpected $aosPlatformModel [.'$any_platform'.'|'.4]", path);
@@ -3853,7 +3958,7 @@ static bool json_model_49(const json_t *val, jm_path_t *path, jm_report_t *rep)
                     if (! res)
                     {
                         // .'$any_platform'.'|'.5
-                        res = json_model_6(val, path, rep);
+                        res = _jm_obj_4(val, path, rep);
                         if (! res)
                         {
                             if (rep) jm_report_add_entry(rep, "unexpected $ArchLinuxPlatformModel [.'$any_platform'.'|'.5]", path);
@@ -3861,7 +3966,7 @@ static bool json_model_49(const json_t *val, jm_path_t *path, jm_report_t *rep)
                         if (! res)
                         {
                             // .'$any_platform'.'|'.6
-                            res = json_model_7(val, path, rep);
+                            res = _jm_obj_5(val, path, rep);
                             if (! res)
                             {
                                 if (rep) jm_report_add_entry(rep, "unexpected $AstraLinuxPlatformModel [.'$any_platform'.'|'.6]", path);
@@ -3869,7 +3974,7 @@ static bool json_model_49(const json_t *val, jm_path_t *path, jm_report_t *rep)
                             if (! res)
                             {
                                 // .'$any_platform'.'|'.7
-                                res = json_model_8(val, path, rep);
+                                res = _jm_obj_6(val, path, rep);
                                 if (! res)
                                 {
                                     if (rep) jm_report_add_entry(rep, "unexpected $ClearLinuxPlatformModel [.'$any_platform'.'|'.7]", path);
@@ -3877,7 +3982,7 @@ static bool json_model_49(const json_t *val, jm_path_t *path, jm_report_t *rep)
                                 if (! res)
                                 {
                                     // .'$any_platform'.'|'.8
-                                    res = json_model_9(val, path, rep);
+                                    res = _jm_obj_7(val, path, rep);
                                     if (! res)
                                     {
                                         if (rep) jm_report_add_entry(rep, "unexpected $CumulusPlatformModel [.'$any_platform'.'|'.8]", path);
@@ -3885,7 +3990,7 @@ static bool json_model_49(const json_t *val, jm_path_t *path, jm_report_t *rep)
                                     if (! res)
                                     {
                                         // .'$any_platform'.'|'.9
-                                        res = json_model_28(val, path, rep);
+                                        res = _jm_obj_26(val, path, rep);
                                         if (! res)
                                         {
                                             if (rep) jm_report_add_entry(rep, "unexpected $NetBSDPlatformModel [.'$any_platform'.'|'.9]", path);
@@ -3893,7 +3998,7 @@ static bool json_model_49(const json_t *val, jm_path_t *path, jm_report_t *rep)
                                         if (! res)
                                         {
                                             // .'$any_platform'.'|'.10
-                                            res = json_model_10(val, path, rep);
+                                            res = _jm_obj_8(val, path, rep);
                                             if (! res)
                                             {
                                                 if (rep) jm_report_add_entry(rep, "unexpected $DebianPlatformModel [.'$any_platform'.'|'.10]", path);
@@ -3901,7 +4006,7 @@ static bool json_model_49(const json_t *val, jm_path_t *path, jm_report_t *rep)
                                             if (! res)
                                             {
                                                 // .'$any_platform'.'|'.11
-                                                res = json_model_11(val, path, rep);
+                                                res = _jm_obj_9(val, path, rep);
                                                 if (! res)
                                                 {
                                                     if (rep) jm_report_add_entry(rep, "unexpected $DellOSPlatformModel [.'$any_platform'.'|'.11]", path);
@@ -3909,7 +4014,7 @@ static bool json_model_49(const json_t *val, jm_path_t *path, jm_report_t *rep)
                                                 if (! res)
                                                 {
                                                     // .'$any_platform'.'|'.12
-                                                    res = json_model_12(val, path, rep);
+                                                    res = _jm_obj_10(val, path, rep);
                                                     if (! res)
                                                     {
                                                         if (rep) jm_report_add_entry(rep, "unexpected $DevuanPlatformModel [.'$any_platform'.'|'.12]", path);
@@ -3917,7 +4022,7 @@ static bool json_model_49(const json_t *val, jm_path_t *path, jm_report_t *rep)
                                                     if (! res)
                                                     {
                                                         // .'$any_platform'.'|'.13
-                                                        res = json_model_13(val, path, rep);
+                                                        res = _jm_obj_11(val, path, rep);
                                                         if (! res)
                                                         {
                                                             if (rep) jm_report_add_entry(rep, "unexpected $DragonFlyBSDPlatformModel [.'$any_platform'.'|'.13]", path);
@@ -3925,7 +4030,7 @@ static bool json_model_49(const json_t *val, jm_path_t *path, jm_report_t *rep)
                                                         if (! res)
                                                         {
                                                             // .'$any_platform'.'|'.14
-                                                            res = json_model_14(val, path, rep);
+                                                            res = _jm_obj_12(val, path, rep);
                                                             if (! res)
                                                             {
                                                                 if (rep) jm_report_add_entry(rep, "unexpected $ELPlatformModel [.'$any_platform'.'|'.14]", path);
@@ -3933,7 +4038,7 @@ static bool json_model_49(const json_t *val, jm_path_t *path, jm_report_t *rep)
                                                             if (! res)
                                                             {
                                                                 // .'$any_platform'.'|'.15
-                                                                res = json_model_43(val, path, rep);
+                                                                res = _jm_obj_41(val, path, rep);
                                                                 if (! res)
                                                                 {
                                                                     if (rep) jm_report_add_entry(rep, "unexpected $eosPlatformModel [.'$any_platform'.'|'.15]", path);
@@ -3941,7 +4046,7 @@ static bool json_model_49(const json_t *val, jm_path_t *path, jm_report_t *rep)
                                                                 if (! res)
                                                                 {
                                                                     // .'$any_platform'.'|'.16
-                                                                    res = json_model_15(val, path, rep);
+                                                                    res = _jm_obj_13(val, path, rep);
                                                                     if (! res)
                                                                     {
                                                                         if (rep) jm_report_add_entry(rep, "unexpected $FedoraPlatformModel [.'$any_platform'.'|'.16]", path);
@@ -3949,7 +4054,7 @@ static bool json_model_49(const json_t *val, jm_path_t *path, jm_report_t *rep)
                                                                     if (! res)
                                                                     {
                                                                         // .'$any_platform'.'|'.17
-                                                                        res = json_model_16(val, path, rep);
+                                                                        res = _jm_obj_14(val, path, rep);
                                                                         if (! res)
                                                                         {
                                                                             if (rep) jm_report_add_entry(rep, "unexpected $FreeBSDPlatformModel [.'$any_platform'.'|'.17]", path);
@@ -3957,7 +4062,7 @@ static bool json_model_49(const json_t *val, jm_path_t *path, jm_report_t *rep)
                                                                         if (! res)
                                                                         {
                                                                             // .'$any_platform'.'|'.18
-                                                                            res = json_model_17(val, path, rep);
+                                                                            res = _jm_obj_15(val, path, rep);
                                                                             if (! res)
                                                                             {
                                                                                 if (rep) jm_report_add_entry(rep, "unexpected $GenericBSDPlatformModel [.'$any_platform'.'|'.18]", path);
@@ -3965,7 +4070,7 @@ static bool json_model_49(const json_t *val, jm_path_t *path, jm_report_t *rep)
                                                                             if (! res)
                                                                             {
                                                                                 // .'$any_platform'.'|'.19
-                                                                                res = json_model_18(val, path, rep);
+                                                                                res = _jm_obj_16(val, path, rep);
                                                                                 if (! res)
                                                                                 {
                                                                                     if (rep) jm_report_add_entry(rep, "unexpected $GenericLinuxPlatformModel [.'$any_platform'.'|'.19]", path);
@@ -3973,7 +4078,7 @@ static bool json_model_49(const json_t *val, jm_path_t *path, jm_report_t *rep)
                                                                                 if (! res)
                                                                                 {
                                                                                     // .'$any_platform'.'|'.20
-                                                                                    res = json_model_19(val, path, rep);
+                                                                                    res = _jm_obj_17(val, path, rep);
                                                                                     if (! res)
                                                                                     {
                                                                                         if (rep) jm_report_add_entry(rep, "unexpected $GenericUNIXPlatformModel [.'$any_platform'.'|'.20]", path);
@@ -3981,7 +4086,7 @@ static bool json_model_49(const json_t *val, jm_path_t *path, jm_report_t *rep)
                                                                                     if (! res)
                                                                                     {
                                                                                         // .'$any_platform'.'|'.21
-                                                                                        res = json_model_20(val, path, rep);
+                                                                                        res = _jm_obj_18(val, path, rep);
                                                                                         if (! res)
                                                                                         {
                                                                                             if (rep) jm_report_add_entry(rep, "unexpected $GentooPlatformModel [.'$any_platform'.'|'.21]", path);
@@ -3989,7 +4094,7 @@ static bool json_model_49(const json_t *val, jm_path_t *path, jm_report_t *rep)
                                                                                         if (! res)
                                                                                         {
                                                                                             // .'$any_platform'.'|'.22
-                                                                                            res = json_model_21(val, path, rep);
+                                                                                            res = _jm_obj_19(val, path, rep);
                                                                                             if (! res)
                                                                                             {
                                                                                                 if (rep) jm_report_add_entry(rep, "unexpected $HardenedBSDPlatformModel [.'$any_platform'.'|'.22]", path);
@@ -3997,7 +4102,7 @@ static bool json_model_49(const json_t *val, jm_path_t *path, jm_report_t *rep)
                                                                                             if (! res)
                                                                                             {
                                                                                                 // .'$any_platform'.'|'.23
-                                                                                                res = json_model_22(val, path, rep);
+                                                                                                res = _jm_obj_20(val, path, rep);
                                                                                                 if (! res)
                                                                                                 {
                                                                                                     if (rep) jm_report_add_entry(rep, "unexpected $IOSPlatformModel [.'$any_platform'.'|'.23]", path);
@@ -4005,7 +4110,7 @@ static bool json_model_49(const json_t *val, jm_path_t *path, jm_report_t *rep)
                                                                                                 if (! res)
                                                                                                 {
                                                                                                     // .'$any_platform'.'|'.24
-                                                                                                    res = json_model_23(val, path, rep);
+                                                                                                    res = _jm_obj_21(val, path, rep);
                                                                                                     if (! res)
                                                                                                     {
                                                                                                         if (rep) jm_report_add_entry(rep, "unexpected $JunosPlatformModel [.'$any_platform'.'|'.24]", path);
@@ -4013,7 +4118,7 @@ static bool json_model_49(const json_t *val, jm_path_t *path, jm_report_t *rep)
                                                                                                     if (! res)
                                                                                                     {
                                                                                                         // .'$any_platform'.'|'.25
-                                                                                                        res = json_model_24(val, path, rep);
+                                                                                                        res = _jm_obj_22(val, path, rep);
                                                                                                         if (! res)
                                                                                                         {
                                                                                                             if (rep) jm_report_add_entry(rep, "unexpected $KaliPlatformModel [.'$any_platform'.'|'.25]", path);
@@ -4021,7 +4126,7 @@ static bool json_model_49(const json_t *val, jm_path_t *path, jm_report_t *rep)
                                                                                                         if (! res)
                                                                                                         {
                                                                                                             // .'$any_platform'.'|'.26
-                                                                                                            res = json_model_44(val, path, rep);
+                                                                                                            res = _jm_obj_42(val, path, rep);
                                                                                                             if (! res)
                                                                                                             {
                                                                                                                 if (rep) jm_report_add_entry(rep, "unexpected $macOSPlatformModel [.'$any_platform'.'|'.26]", path);
@@ -4029,7 +4134,7 @@ static bool json_model_49(const json_t *val, jm_path_t *path, jm_report_t *rep)
                                                                                                             if (! res)
                                                                                                             {
                                                                                                                 // .'$any_platform'.'|'.27
-                                                                                                                res = json_model_25(val, path, rep);
+                                                                                                                res = _jm_obj_23(val, path, rep);
                                                                                                                 if (! res)
                                                                                                                 {
                                                                                                                     if (rep) jm_report_add_entry(rep, "unexpected $MacOSXPlatformModel [.'$any_platform'.'|'.27]", path);
@@ -4037,7 +4142,7 @@ static bool json_model_49(const json_t *val, jm_path_t *path, jm_report_t *rep)
                                                                                                                 if (! res)
                                                                                                                 {
                                                                                                                     // .'$any_platform'.'|'.28
-                                                                                                                    res = json_model_26(val, path, rep);
+                                                                                                                    res = _jm_obj_24(val, path, rep);
                                                                                                                     if (! res)
                                                                                                                     {
                                                                                                                         if (rep) jm_report_add_entry(rep, "unexpected $MageiaPlatformModel [.'$any_platform'.'|'.28]", path);
@@ -4045,7 +4150,7 @@ static bool json_model_49(const json_t *val, jm_path_t *path, jm_report_t *rep)
                                                                                                                     if (! res)
                                                                                                                     {
                                                                                                                         // .'$any_platform'.'|'.29
-                                                                                                                        res = json_model_27(val, path, rep);
+                                                                                                                        res = _jm_obj_25(val, path, rep);
                                                                                                                         if (! res)
                                                                                                                         {
                                                                                                                             if (rep) jm_report_add_entry(rep, "unexpected $NXOSPlatformModel [.'$any_platform'.'|'.29]", path);
@@ -4053,7 +4158,7 @@ static bool json_model_49(const json_t *val, jm_path_t *path, jm_report_t *rep)
                                                                                                                         if (! res)
                                                                                                                         {
                                                                                                                             // .'$any_platform'.'|'.30
-                                                                                                                            res = json_model_29(val, path, rep);
+                                                                                                                            res = _jm_obj_27(val, path, rep);
                                                                                                                             if (! res)
                                                                                                                             {
                                                                                                                                 if (rep) jm_report_add_entry(rep, "unexpected $OpenBSDPlatformModel [.'$any_platform'.'|'.30]", path);
@@ -4061,7 +4166,7 @@ static bool json_model_49(const json_t *val, jm_path_t *path, jm_report_t *rep)
                                                                                                                             if (! res)
                                                                                                                             {
                                                                                                                                 // .'$any_platform'.'|'.31
-                                                                                                                                res = json_model_45(val, path, rep);
+                                                                                                                                res = _jm_obj_43(val, path, rep);
                                                                                                                                 if (! res)
                                                                                                                                 {
                                                                                                                                     if (rep) jm_report_add_entry(rep, "unexpected $opensusePlatformModel [.'$any_platform'.'|'.31]", path);
@@ -4069,7 +4174,7 @@ static bool json_model_49(const json_t *val, jm_path_t *path, jm_report_t *rep)
                                                                                                                                 if (! res)
                                                                                                                                 {
                                                                                                                                     // .'$any_platform'.'|'.32
-                                                                                                                                    res = json_model_30(val, path, rep);
+                                                                                                                                    res = _jm_obj_28(val, path, rep);
                                                                                                                                     if (! res)
                                                                                                                                     {
                                                                                                                                         if (rep) jm_report_add_entry(rep, "unexpected $OpenWrtPlatformModel [.'$any_platform'.'|'.32]", path);
@@ -4077,7 +4182,7 @@ static bool json_model_49(const json_t *val, jm_path_t *path, jm_report_t *rep)
                                                                                                                                     if (! res)
                                                                                                                                     {
                                                                                                                                         // .'$any_platform'.'|'.33
-                                                                                                                                        res = json_model_31(val, path, rep);
+                                                                                                                                        res = _jm_obj_29(val, path, rep);
                                                                                                                                         if (! res)
                                                                                                                                         {
                                                                                                                                             if (rep) jm_report_add_entry(rep, "unexpected $OracleLinuxPlatformModel [.'$any_platform'.'|'.33]", path);
@@ -4085,7 +4190,7 @@ static bool json_model_49(const json_t *val, jm_path_t *path, jm_report_t *rep)
                                                                                                                                         if (! res)
                                                                                                                                         {
                                                                                                                                             // .'$any_platform'.'|'.34
-                                                                                                                                            res = json_model_46(val, path, rep);
+                                                                                                                                            res = _jm_obj_44(val, path, rep);
                                                                                                                                             if (! res)
                                                                                                                                             {
                                                                                                                                                 if (rep) jm_report_add_entry(rep, "unexpected $os10PlatformModel [.'$any_platform'.'|'.34]", path);
@@ -4093,7 +4198,7 @@ static bool json_model_49(const json_t *val, jm_path_t *path, jm_report_t *rep)
                                                                                                                                             if (! res)
                                                                                                                                             {
                                                                                                                                                 // .'$any_platform'.'|'.35
-                                                                                                                                                res = json_model_32(val, path, rep);
+                                                                                                                                                res = _jm_obj_30(val, path, rep);
                                                                                                                                                 if (! res)
                                                                                                                                                 {
                                                                                                                                                     if (rep) jm_report_add_entry(rep, "unexpected $PAN-OSPlatformModel [.'$any_platform'.'|'.35]", path);
@@ -4101,7 +4206,7 @@ static bool json_model_49(const json_t *val, jm_path_t *path, jm_report_t *rep)
                                                                                                                                                 if (! res)
                                                                                                                                                 {
                                                                                                                                                     // .'$any_platform'.'|'.36
-                                                                                                                                                    res = json_model_33(val, path, rep);
+                                                                                                                                                    res = _jm_obj_31(val, path, rep);
                                                                                                                                                     if (! res)
                                                                                                                                                     {
                                                                                                                                                         if (rep) jm_report_add_entry(rep, "unexpected $RockyLinuxPlatformModel [.'$any_platform'.'|'.36]", path);
@@ -4109,7 +4214,7 @@ static bool json_model_49(const json_t *val, jm_path_t *path, jm_report_t *rep)
                                                                                                                                                     if (! res)
                                                                                                                                                     {
                                                                                                                                                         // .'$any_platform'.'|'.37
-                                                                                                                                                        res = json_model_34(val, path, rep);
+                                                                                                                                                        res = _jm_obj_32(val, path, rep);
                                                                                                                                                         if (! res)
                                                                                                                                                         {
                                                                                                                                                             if (rep) jm_report_add_entry(rep, "unexpected $SLESPlatformModel [.'$any_platform'.'|'.37]", path);
@@ -4117,7 +4222,7 @@ static bool json_model_49(const json_t *val, jm_path_t *path, jm_report_t *rep)
                                                                                                                                                         if (! res)
                                                                                                                                                         {
                                                                                                                                                             // .'$any_platform'.'|'.38
-                                                                                                                                                            res = json_model_35(val, path, rep);
+                                                                                                                                                            res = _jm_obj_33(val, path, rep);
                                                                                                                                                             if (! res)
                                                                                                                                                             {
                                                                                                                                                                 if (rep) jm_report_add_entry(rep, "unexpected $SmartOSPlatformModel [.'$any_platform'.'|'.38]", path);
@@ -4125,7 +4230,7 @@ static bool json_model_49(const json_t *val, jm_path_t *path, jm_report_t *rep)
                                                                                                                                                             if (! res)
                                                                                                                                                             {
                                                                                                                                                                 // .'$any_platform'.'|'.39
-                                                                                                                                                                res = json_model_36(val, path, rep);
+                                                                                                                                                                res = _jm_obj_34(val, path, rep);
                                                                                                                                                                 if (! res)
                                                                                                                                                                 {
                                                                                                                                                                     if (rep) jm_report_add_entry(rep, "unexpected $SolarisPlatformModel [.'$any_platform'.'|'.39]", path);
@@ -4133,7 +4238,7 @@ static bool json_model_49(const json_t *val, jm_path_t *path, jm_report_t *rep)
                                                                                                                                                                 if (! res)
                                                                                                                                                                 {
                                                                                                                                                                     // .'$any_platform'.'|'.40
-                                                                                                                                                                    res = json_model_37(val, path, rep);
+                                                                                                                                                                    res = _jm_obj_35(val, path, rep);
                                                                                                                                                                     if (! res)
                                                                                                                                                                     {
                                                                                                                                                                         if (rep) jm_report_add_entry(rep, "unexpected $SynologyPlatformModel [.'$any_platform'.'|'.40]", path);
@@ -4141,7 +4246,7 @@ static bool json_model_49(const json_t *val, jm_path_t *path, jm_report_t *rep)
                                                                                                                                                                     if (! res)
                                                                                                                                                                     {
                                                                                                                                                                         // .'$any_platform'.'|'.41
-                                                                                                                                                                        res = json_model_38(val, path, rep);
+                                                                                                                                                                        res = _jm_obj_36(val, path, rep);
                                                                                                                                                                         if (! res)
                                                                                                                                                                         {
                                                                                                                                                                             if (rep) jm_report_add_entry(rep, "unexpected $TMOSPlatformModel [.'$any_platform'.'|'.41]", path);
@@ -4149,7 +4254,7 @@ static bool json_model_49(const json_t *val, jm_path_t *path, jm_report_t *rep)
                                                                                                                                                                         if (! res)
                                                                                                                                                                         {
                                                                                                                                                                             // .'$any_platform'.'|'.42
-                                                                                                                                                                            res = json_model_39(val, path, rep);
+                                                                                                                                                                            res = _jm_obj_37(val, path, rep);
                                                                                                                                                                             if (! res)
                                                                                                                                                                             {
                                                                                                                                                                                 if (rep) jm_report_add_entry(rep, "unexpected $UbuntuPlatformModel [.'$any_platform'.'|'.42]", path);
@@ -4157,7 +4262,7 @@ static bool json_model_49(const json_t *val, jm_path_t *path, jm_report_t *rep)
                                                                                                                                                                             if (! res)
                                                                                                                                                                             {
                                                                                                                                                                                 // .'$any_platform'.'|'.43
-                                                                                                                                                                                res = json_model_47(val, path, rep);
+                                                                                                                                                                                res = _jm_obj_45(val, path, rep);
                                                                                                                                                                                 if (! res)
                                                                                                                                                                                 {
                                                                                                                                                                                     if (rep) jm_report_add_entry(rep, "unexpected $vCenterPlatformModel [.'$any_platform'.'|'.43]", path);
@@ -4165,7 +4270,7 @@ static bool json_model_49(const json_t *val, jm_path_t *path, jm_report_t *rep)
                                                                                                                                                                                 if (! res)
                                                                                                                                                                                 {
                                                                                                                                                                                     // .'$any_platform'.'|'.44
-                                                                                                                                                                                    res = json_model_40(val, path, rep);
+                                                                                                                                                                                    res = _jm_obj_38(val, path, rep);
                                                                                                                                                                                     if (! res)
                                                                                                                                                                                     {
                                                                                                                                                                                         if (rep) jm_report_add_entry(rep, "unexpected $Void_LinuxPlatformModel [.'$any_platform'.'|'.44]", path);
@@ -4173,7 +4278,7 @@ static bool json_model_49(const json_t *val, jm_path_t *path, jm_report_t *rep)
                                                                                                                                                                                     if (! res)
                                                                                                                                                                                     {
                                                                                                                                                                                         // .'$any_platform'.'|'.45
-                                                                                                                                                                                        res = json_model_48(val, path, rep);
+                                                                                                                                                                                        res = _jm_obj_46(val, path, rep);
                                                                                                                                                                                         if (! res)
                                                                                                                                                                                         {
                                                                                                                                                                                             if (rep) jm_report_add_entry(rep, "unexpected $vSpherePlatformModel [.'$any_platform'.'|'.45]", path);
@@ -4181,7 +4286,7 @@ static bool json_model_49(const json_t *val, jm_path_t *path, jm_report_t *rep)
                                                                                                                                                                                         if (! res)
                                                                                                                                                                                         {
                                                                                                                                                                                             // .'$any_platform'.'|'.46
-                                                                                                                                                                                            res = json_model_41(val, path, rep);
+                                                                                                                                                                                            res = _jm_obj_39(val, path, rep);
                                                                                                                                                                                             if (! res)
                                                                                                                                                                                             {
                                                                                                                                                                                                 if (rep) jm_report_add_entry(rep, "unexpected $WindowsPlatformModel [.'$any_platform'.'|'.46]", path);
@@ -8835,7 +8940,7 @@ static bool json_model_58(const json_t *val, jm_path_t *path, jm_report_t *rep)
     if (res)
     {
         // .'$DependencyModel'.'&'.0
-        res = json_model_57(val, path, rep);
+        res = _jm_obj_99(val, path, rep);
         if (! res)
         {
             if (rep) jm_report_add_entry(rep, "unexpected $DependencyModelLoose [.'$DependencyModel'.'&'.0]", path);
@@ -9029,7 +9134,7 @@ static bool json_model_60(const json_t *val, jm_path_t *path, jm_report_t *rep)
     if (! res)
     {
         // .'$AnsibleMeta'.'|'.1
-        res = json_model_59(val, path, rep);
+        res = _jm_obj_104(val, path, rep);
         if (! res)
         {
             if (rep) jm_report_add_entry(rep, "unexpected $AnsibleMetaObj [.'$AnsibleMeta'.'|'.1]", path);

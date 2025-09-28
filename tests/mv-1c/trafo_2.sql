@@ -12,7 +12,7 @@ DECLARE
   res bool;
 BEGIN
   -- .'$Zz'
-  res := json_model_6(val, path, rep);
+  res := _jm_obj_0(val, path, rep);
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
@@ -24,7 +24,7 @@ DECLARE
   res bool;
 BEGIN
   -- .'$z'
-  res := json_model_6(val, path, rep);
+  res := _jm_obj_0(val, path, rep);
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
@@ -43,7 +43,7 @@ BEGIN
     FOR arr_0_idx IN 0 .. JSONB_ARRAY_LENGTH(val) - 1 LOOP
       arr_0_item := val -> arr_0_idx;
       -- .'$l'.0
-      res := json_model_3(arr_0_item, NULL, rep);
+      res := _jm_obj_0(arr_0_item, NULL, rep);
       IF NOT res THEN
         EXIT;
       END IF;

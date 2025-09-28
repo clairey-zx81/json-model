@@ -896,7 +896,7 @@ public class json_schema_draft_06 extends ModelChecker
         if (! res)
         {
             // .'$Schema'.'|'.1
-            res = json_model_7(val, path, rep);
+            res = _jm_obj_0(val, path, rep);
             if (! res)
             {
                 if (rep != null) rep.addEntry("unexpected $ObjectSchema [.'$Schema'.'|'.1]", path);

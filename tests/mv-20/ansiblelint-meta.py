@@ -2346,237 +2346,237 @@ def json_model_49(val: Jsonable, path: Path, rep: Report) -> bool:
     # FIXME: name is not mandatory, not sure it makes much sense… versions should be unique?
     # .'$any_platform'
     # .'$any_platform'.'|'.0
-    res = json_model_2(val, path, rep)
+    res = _jm_obj_0(val, path, rep)
     if not res:
         rep is None or rep.append(("unexpected $AIXPlatformModel [.'$any_platform'.'|'.0]", path))
     if not res:
         # .'$any_platform'.'|'.1
-        res = json_model_3(val, path, rep)
+        res = _jm_obj_1(val, path, rep)
         if not res:
             rep is None or rep.append(("unexpected $AlpinePlatformModel [.'$any_platform'.'|'.1]", path))
         if not res:
             # .'$any_platform'.'|'.2
-            res = json_model_5(val, path, rep)
+            res = _jm_obj_3(val, path, rep)
             if not res:
                 rep is None or rep.append(("unexpected $AmazonPlatformModel [.'$any_platform'.'|'.2]", path))
             if not res:
                 # .'$any_platform'.'|'.3
-                res = json_model_4(val, path, rep)
+                res = _jm_obj_2(val, path, rep)
                 if not res:
                     rep is None or rep.append(("unexpected $AmazonLinuxPlatformModel [.'$any_platform'.'|'.3]", path))
                 if not res:
                     # .'$any_platform'.'|'.4
-                    res = json_model_42(val, path, rep)
+                    res = _jm_obj_40(val, path, rep)
                     if not res:
                         rep is None or rep.append(("unexpected $aosPlatformModel [.'$any_platform'.'|'.4]", path))
                     if not res:
                         # .'$any_platform'.'|'.5
-                        res = json_model_6(val, path, rep)
+                        res = _jm_obj_4(val, path, rep)
                         if not res:
                             rep is None or rep.append(("unexpected $ArchLinuxPlatformModel [.'$any_platform'.'|'.5]", path))
                         if not res:
                             # .'$any_platform'.'|'.6
-                            res = json_model_7(val, path, rep)
+                            res = _jm_obj_5(val, path, rep)
                             if not res:
                                 rep is None or rep.append(("unexpected $AstraLinuxPlatformModel [.'$any_platform'.'|'.6]", path))
                             if not res:
                                 # .'$any_platform'.'|'.7
-                                res = json_model_8(val, path, rep)
+                                res = _jm_obj_6(val, path, rep)
                                 if not res:
                                     rep is None or rep.append(("unexpected $ClearLinuxPlatformModel [.'$any_platform'.'|'.7]", path))
                                 if not res:
                                     # .'$any_platform'.'|'.8
-                                    res = json_model_9(val, path, rep)
+                                    res = _jm_obj_7(val, path, rep)
                                     if not res:
                                         rep is None or rep.append(("unexpected $CumulusPlatformModel [.'$any_platform'.'|'.8]", path))
                                     if not res:
                                         # .'$any_platform'.'|'.9
-                                        res = json_model_28(val, path, rep)
+                                        res = _jm_obj_26(val, path, rep)
                                         if not res:
                                             rep is None or rep.append(("unexpected $NetBSDPlatformModel [.'$any_platform'.'|'.9]", path))
                                         if not res:
                                             # .'$any_platform'.'|'.10
-                                            res = json_model_10(val, path, rep)
+                                            res = _jm_obj_8(val, path, rep)
                                             if not res:
                                                 rep is None or rep.append(("unexpected $DebianPlatformModel [.'$any_platform'.'|'.10]", path))
                                             if not res:
                                                 # .'$any_platform'.'|'.11
-                                                res = json_model_11(val, path, rep)
+                                                res = _jm_obj_9(val, path, rep)
                                                 if not res:
                                                     rep is None or rep.append(("unexpected $DellOSPlatformModel [.'$any_platform'.'|'.11]", path))
                                                 if not res:
                                                     # .'$any_platform'.'|'.12
-                                                    res = json_model_12(val, path, rep)
+                                                    res = _jm_obj_10(val, path, rep)
                                                     if not res:
                                                         rep is None or rep.append(("unexpected $DevuanPlatformModel [.'$any_platform'.'|'.12]", path))
                                                     if not res:
                                                         # .'$any_platform'.'|'.13
-                                                        res = json_model_13(val, path, rep)
+                                                        res = _jm_obj_11(val, path, rep)
                                                         if not res:
                                                             rep is None or rep.append(("unexpected $DragonFlyBSDPlatformModel [.'$any_platform'.'|'.13]", path))
                                                         if not res:
                                                             # .'$any_platform'.'|'.14
-                                                            res = json_model_14(val, path, rep)
+                                                            res = _jm_obj_12(val, path, rep)
                                                             if not res:
                                                                 rep is None or rep.append(("unexpected $ELPlatformModel [.'$any_platform'.'|'.14]", path))
                                                             if not res:
                                                                 # .'$any_platform'.'|'.15
-                                                                res = json_model_43(val, path, rep)
+                                                                res = _jm_obj_41(val, path, rep)
                                                                 if not res:
                                                                     rep is None or rep.append(("unexpected $eosPlatformModel [.'$any_platform'.'|'.15]", path))
                                                                 if not res:
                                                                     # .'$any_platform'.'|'.16
-                                                                    res = json_model_15(val, path, rep)
+                                                                    res = _jm_obj_13(val, path, rep)
                                                                     if not res:
                                                                         rep is None or rep.append(("unexpected $FedoraPlatformModel [.'$any_platform'.'|'.16]", path))
                                                                     if not res:
                                                                         # .'$any_platform'.'|'.17
-                                                                        res = json_model_16(val, path, rep)
+                                                                        res = _jm_obj_14(val, path, rep)
                                                                         if not res:
                                                                             rep is None or rep.append(("unexpected $FreeBSDPlatformModel [.'$any_platform'.'|'.17]", path))
                                                                         if not res:
                                                                             # .'$any_platform'.'|'.18
-                                                                            res = json_model_17(val, path, rep)
+                                                                            res = _jm_obj_15(val, path, rep)
                                                                             if not res:
                                                                                 rep is None or rep.append(("unexpected $GenericBSDPlatformModel [.'$any_platform'.'|'.18]", path))
                                                                             if not res:
                                                                                 # .'$any_platform'.'|'.19
-                                                                                res = json_model_18(val, path, rep)
+                                                                                res = _jm_obj_16(val, path, rep)
                                                                                 if not res:
                                                                                     rep is None or rep.append(("unexpected $GenericLinuxPlatformModel [.'$any_platform'.'|'.19]", path))
                                                                                 if not res:
                                                                                     # .'$any_platform'.'|'.20
-                                                                                    res = json_model_19(val, path, rep)
+                                                                                    res = _jm_obj_17(val, path, rep)
                                                                                     if not res:
                                                                                         rep is None or rep.append(("unexpected $GenericUNIXPlatformModel [.'$any_platform'.'|'.20]", path))
                                                                                     if not res:
                                                                                         # .'$any_platform'.'|'.21
-                                                                                        res = json_model_20(val, path, rep)
+                                                                                        res = _jm_obj_18(val, path, rep)
                                                                                         if not res:
                                                                                             rep is None or rep.append(("unexpected $GentooPlatformModel [.'$any_platform'.'|'.21]", path))
                                                                                         if not res:
                                                                                             # .'$any_platform'.'|'.22
-                                                                                            res = json_model_21(val, path, rep)
+                                                                                            res = _jm_obj_19(val, path, rep)
                                                                                             if not res:
                                                                                                 rep is None or rep.append(("unexpected $HardenedBSDPlatformModel [.'$any_platform'.'|'.22]", path))
                                                                                             if not res:
                                                                                                 # .'$any_platform'.'|'.23
-                                                                                                res = json_model_22(val, path, rep)
+                                                                                                res = _jm_obj_20(val, path, rep)
                                                                                                 if not res:
                                                                                                     rep is None or rep.append(("unexpected $IOSPlatformModel [.'$any_platform'.'|'.23]", path))
                                                                                                 if not res:
                                                                                                     # .'$any_platform'.'|'.24
-                                                                                                    res = json_model_23(val, path, rep)
+                                                                                                    res = _jm_obj_21(val, path, rep)
                                                                                                     if not res:
                                                                                                         rep is None or rep.append(("unexpected $JunosPlatformModel [.'$any_platform'.'|'.24]", path))
                                                                                                     if not res:
                                                                                                         # .'$any_platform'.'|'.25
-                                                                                                        res = json_model_24(val, path, rep)
+                                                                                                        res = _jm_obj_22(val, path, rep)
                                                                                                         if not res:
                                                                                                             rep is None or rep.append(("unexpected $KaliPlatformModel [.'$any_platform'.'|'.25]", path))
                                                                                                         if not res:
                                                                                                             # .'$any_platform'.'|'.26
-                                                                                                            res = json_model_44(val, path, rep)
+                                                                                                            res = _jm_obj_42(val, path, rep)
                                                                                                             if not res:
                                                                                                                 rep is None or rep.append(("unexpected $macOSPlatformModel [.'$any_platform'.'|'.26]", path))
                                                                                                             if not res:
                                                                                                                 # .'$any_platform'.'|'.27
-                                                                                                                res = json_model_25(val, path, rep)
+                                                                                                                res = _jm_obj_23(val, path, rep)
                                                                                                                 if not res:
                                                                                                                     rep is None or rep.append(("unexpected $MacOSXPlatformModel [.'$any_platform'.'|'.27]", path))
                                                                                                                 if not res:
                                                                                                                     # .'$any_platform'.'|'.28
-                                                                                                                    res = json_model_26(val, path, rep)
+                                                                                                                    res = _jm_obj_24(val, path, rep)
                                                                                                                     if not res:
                                                                                                                         rep is None or rep.append(("unexpected $MageiaPlatformModel [.'$any_platform'.'|'.28]", path))
                                                                                                                     if not res:
                                                                                                                         # .'$any_platform'.'|'.29
-                                                                                                                        res = json_model_27(val, path, rep)
+                                                                                                                        res = _jm_obj_25(val, path, rep)
                                                                                                                         if not res:
                                                                                                                             rep is None or rep.append(("unexpected $NXOSPlatformModel [.'$any_platform'.'|'.29]", path))
                                                                                                                         if not res:
                                                                                                                             # .'$any_platform'.'|'.30
-                                                                                                                            res = json_model_29(val, path, rep)
+                                                                                                                            res = _jm_obj_27(val, path, rep)
                                                                                                                             if not res:
                                                                                                                                 rep is None or rep.append(("unexpected $OpenBSDPlatformModel [.'$any_platform'.'|'.30]", path))
                                                                                                                             if not res:
                                                                                                                                 # .'$any_platform'.'|'.31
-                                                                                                                                res = json_model_45(val, path, rep)
+                                                                                                                                res = _jm_obj_43(val, path, rep)
                                                                                                                                 if not res:
                                                                                                                                     rep is None or rep.append(("unexpected $opensusePlatformModel [.'$any_platform'.'|'.31]", path))
                                                                                                                                 if not res:
                                                                                                                                     # .'$any_platform'.'|'.32
-                                                                                                                                    res = json_model_30(val, path, rep)
+                                                                                                                                    res = _jm_obj_28(val, path, rep)
                                                                                                                                     if not res:
                                                                                                                                         rep is None or rep.append(("unexpected $OpenWrtPlatformModel [.'$any_platform'.'|'.32]", path))
                                                                                                                                     if not res:
                                                                                                                                         # .'$any_platform'.'|'.33
-                                                                                                                                        res = json_model_31(val, path, rep)
+                                                                                                                                        res = _jm_obj_29(val, path, rep)
                                                                                                                                         if not res:
                                                                                                                                             rep is None or rep.append(("unexpected $OracleLinuxPlatformModel [.'$any_platform'.'|'.33]", path))
                                                                                                                                         if not res:
                                                                                                                                             # .'$any_platform'.'|'.34
-                                                                                                                                            res = json_model_46(val, path, rep)
+                                                                                                                                            res = _jm_obj_44(val, path, rep)
                                                                                                                                             if not res:
                                                                                                                                                 rep is None or rep.append(("unexpected $os10PlatformModel [.'$any_platform'.'|'.34]", path))
                                                                                                                                             if not res:
                                                                                                                                                 # .'$any_platform'.'|'.35
-                                                                                                                                                res = json_model_32(val, path, rep)
+                                                                                                                                                res = _jm_obj_30(val, path, rep)
                                                                                                                                                 if not res:
                                                                                                                                                     rep is None or rep.append(("unexpected $PAN-OSPlatformModel [.'$any_platform'.'|'.35]", path))
                                                                                                                                                 if not res:
                                                                                                                                                     # .'$any_platform'.'|'.36
-                                                                                                                                                    res = json_model_33(val, path, rep)
+                                                                                                                                                    res = _jm_obj_31(val, path, rep)
                                                                                                                                                     if not res:
                                                                                                                                                         rep is None or rep.append(("unexpected $RockyLinuxPlatformModel [.'$any_platform'.'|'.36]", path))
                                                                                                                                                     if not res:
                                                                                                                                                         # .'$any_platform'.'|'.37
-                                                                                                                                                        res = json_model_34(val, path, rep)
+                                                                                                                                                        res = _jm_obj_32(val, path, rep)
                                                                                                                                                         if not res:
                                                                                                                                                             rep is None or rep.append(("unexpected $SLESPlatformModel [.'$any_platform'.'|'.37]", path))
                                                                                                                                                         if not res:
                                                                                                                                                             # .'$any_platform'.'|'.38
-                                                                                                                                                            res = json_model_35(val, path, rep)
+                                                                                                                                                            res = _jm_obj_33(val, path, rep)
                                                                                                                                                             if not res:
                                                                                                                                                                 rep is None or rep.append(("unexpected $SmartOSPlatformModel [.'$any_platform'.'|'.38]", path))
                                                                                                                                                             if not res:
                                                                                                                                                                 # .'$any_platform'.'|'.39
-                                                                                                                                                                res = json_model_36(val, path, rep)
+                                                                                                                                                                res = _jm_obj_34(val, path, rep)
                                                                                                                                                                 if not res:
                                                                                                                                                                     rep is None or rep.append(("unexpected $SolarisPlatformModel [.'$any_platform'.'|'.39]", path))
                                                                                                                                                                 if not res:
                                                                                                                                                                     # .'$any_platform'.'|'.40
-                                                                                                                                                                    res = json_model_37(val, path, rep)
+                                                                                                                                                                    res = _jm_obj_35(val, path, rep)
                                                                                                                                                                     if not res:
                                                                                                                                                                         rep is None or rep.append(("unexpected $SynologyPlatformModel [.'$any_platform'.'|'.40]", path))
                                                                                                                                                                     if not res:
                                                                                                                                                                         # .'$any_platform'.'|'.41
-                                                                                                                                                                        res = json_model_38(val, path, rep)
+                                                                                                                                                                        res = _jm_obj_36(val, path, rep)
                                                                                                                                                                         if not res:
                                                                                                                                                                             rep is None or rep.append(("unexpected $TMOSPlatformModel [.'$any_platform'.'|'.41]", path))
                                                                                                                                                                         if not res:
                                                                                                                                                                             # .'$any_platform'.'|'.42
-                                                                                                                                                                            res = json_model_39(val, path, rep)
+                                                                                                                                                                            res = _jm_obj_37(val, path, rep)
                                                                                                                                                                             if not res:
                                                                                                                                                                                 rep is None or rep.append(("unexpected $UbuntuPlatformModel [.'$any_platform'.'|'.42]", path))
                                                                                                                                                                             if not res:
                                                                                                                                                                                 # .'$any_platform'.'|'.43
-                                                                                                                                                                                res = json_model_47(val, path, rep)
+                                                                                                                                                                                res = _jm_obj_45(val, path, rep)
                                                                                                                                                                                 if not res:
                                                                                                                                                                                     rep is None or rep.append(("unexpected $vCenterPlatformModel [.'$any_platform'.'|'.43]", path))
                                                                                                                                                                                 if not res:
                                                                                                                                                                                     # .'$any_platform'.'|'.44
-                                                                                                                                                                                    res = json_model_40(val, path, rep)
+                                                                                                                                                                                    res = _jm_obj_38(val, path, rep)
                                                                                                                                                                                     if not res:
                                                                                                                                                                                         rep is None or rep.append(("unexpected $Void_LinuxPlatformModel [.'$any_platform'.'|'.44]", path))
                                                                                                                                                                                     if not res:
                                                                                                                                                                                         # .'$any_platform'.'|'.45
-                                                                                                                                                                                        res = json_model_48(val, path, rep)
+                                                                                                                                                                                        res = _jm_obj_46(val, path, rep)
                                                                                                                                                                                         if not res:
                                                                                                                                                                                             rep is None or rep.append(("unexpected $vSpherePlatformModel [.'$any_platform'.'|'.45]", path))
                                                                                                                                                                                         if not res:
                                                                                                                                                                                             # .'$any_platform'.'|'.46
-                                                                                                                                                                                            res = json_model_41(val, path, rep)
+                                                                                                                                                                                            res = _jm_obj_39(val, path, rep)
                                                                                                                                                                                             if not res:
                                                                                                                                                                                                 rep is None or rep.append(("unexpected $WindowsPlatformModel [.'$any_platform'.'|'.46]", path))
     if res:
@@ -5471,7 +5471,7 @@ def json_model_58(val: Jsonable, path: Path, rep: Report) -> bool:
     res = True
     if res:
         # .'$DependencyModel'.'&'.0
-        res = json_model_57(val, path, rep)
+        res = _jm_obj_99(val, path, rep)
         if not res:
             rep is None or rep.append(("unexpected $DependencyModelLoose [.'$DependencyModel'.'&'.0]", path))
         if res:
@@ -5588,7 +5588,7 @@ def json_model_60(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("not null [.'$AnsibleMeta'.'|'.0]", path))
     if not res:
         # .'$AnsibleMeta'.'|'.1
-        res = json_model_59(val, path, rep)
+        res = _jm_obj_104(val, path, rep)
         if not res:
             rep is None or rep.append(("unexpected $AnsibleMetaObj [.'$AnsibleMeta'.'|'.1]", path))
     if res:

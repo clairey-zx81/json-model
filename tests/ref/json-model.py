@@ -432,7 +432,7 @@ def json_model_19(val: Jsonable, path: Path, rep: Report) -> bool:
 def json_model_20(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$Common'
-    res = json_model_6(val, path, rep)
+    res = _jm_obj_0(val, path, rep)
     if not res:
         rep is None or rep.append(("unexpected $ObjectComment [.'$Common']", path))
     return res
@@ -759,32 +759,32 @@ def json_model_28(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$Elem'
     # .'$Elem'.'|'.0
-    res = json_model_21(val, path, rep)
+    res = _jm_obj_1(val, path, rep)
     if not res:
         rep is None or rep.append(("unexpected $Constraint [.'$Elem'.'|'.0]", path))
     if not res:
         # .'$Elem'.'|'.1
-        res = json_model_22(val, path, rep)
+        res = _jm_obj_2(val, path, rep)
         if not res:
             rep is None or rep.append(("unexpected $Or [.'$Elem'.'|'.1]", path))
         if not res:
             # .'$Elem'.'|'.2
-            res = json_model_23(val, path, rep)
+            res = _jm_obj_3(val, path, rep)
             if not res:
                 rep is None or rep.append(("unexpected $And [.'$Elem'.'|'.2]", path))
             if not res:
                 # .'$Elem'.'|'.3
-                res = json_model_24(val, path, rep)
+                res = _jm_obj_4(val, path, rep)
                 if not res:
                     rep is None or rep.append(("unexpected $Xor [.'$Elem'.'|'.3]", path))
                 if not res:
                     # .'$Elem'.'|'.4
-                    res = json_model_25(val, path, rep)
+                    res = _jm_obj_5(val, path, rep)
                     if not res:
                         rep is None or rep.append(("unexpected $Add [.'$Elem'.'|'.4]", path))
                     if not res:
                         # .'$Elem'.'|'.5
-                        res = json_model_27(val, path, rep)
+                        res = _jm_obj_6(val, path, rep)
                         if not res:
                             rep is None or rep.append(("unexpected $Obj [.'$Elem'.'|'.5]", path))
     if res:

@@ -12,7 +12,7 @@ DECLARE
   res bool;
 BEGIN
   -- .'$root'
-  res := json_model_5(val, path, rep);
+  res := _jm_obj_1(val, path, rep);
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
@@ -35,7 +35,7 @@ BEGIN
       -- handle must rt property
       must_count := must_count + 1;
       -- .'$Foo'.rt
-      res := json_model_5(pval, NULL, rep);
+      res := _jm_obj_1(pval, NULL, rep);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -69,7 +69,7 @@ DECLARE
   res bool;
 BEGIN
   -- .
-  res := json_model_3(val, path, rep);
+  res := _jm_obj_0(val, path, rep);
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;

@@ -122,7 +122,7 @@ public class json_schema_draft_2019_09 extends ModelChecker
     {
         boolean res;
         // .'$core'.'$id'
-        res = json_model_3(val, path, rep);
+        res = json_model_2(val, path, rep);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected $id [.'$core'.'$id']", path);
@@ -1484,7 +1484,7 @@ public class json_schema_draft_2019_09 extends ModelChecker
     {
         boolean res;
         // .'$ObjectSchema'.'$id'
-        res = json_model_3(val, path, rep);
+        res = json_model_2(val, path, rep);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected $id [.'$ObjectSchema'.'$id']", path);
@@ -2429,7 +2429,7 @@ public class json_schema_draft_2019_09 extends ModelChecker
         if (! res)
         {
             // .'$Schema'.'|'.1
-            res = json_model_15(val, path, rep);
+            res = _jm_obj_12(val, path, rep);
             if (! res)
             {
                 if (rep != null) rep.addEntry("unexpected $ObjectSchema [.'$Schema'.'|'.1]", path);

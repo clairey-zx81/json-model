@@ -1,9 +1,9 @@
 json-schema-draft-2020-12-fuzzy.values.json[0]: PASS
 json-schema-draft-2020-12-fuzzy.values.json[1]: PASS
 json-schema-draft-2020-12-fuzzy.values.json[2]: PASS
-json-schema-draft-2020-12-fuzzy.values.json[3]: FAIL (.: no model matched [.'$Schema'.'|']; .: unexpected $ObjectSchema [.'$Schema'.'|'.1]; .: unexpected element [.'$ObjectSchema']; .: not an object [.'$ObjectSchema']; .: not a bool [.'$Schema'.'|'.0])
-json-schema-draft-2020-12-fuzzy.values.json[4]: FAIL (.: no model matched [.'$Schema'.'|']; .: unexpected $ObjectSchema [.'$Schema'.'|'.1]; .: unexpected element [.'$ObjectSchema']; .: not an object [.'$ObjectSchema']; .: not a bool [.'$Schema'.'|'.0])
-json-schema-draft-2020-12-fuzzy.values.json[5]: FAIL (.: no model matched [.'$Schema'.'|']; .: unexpected $ObjectSchema [.'$Schema'.'|'.1]; .: unexpected element [.'$ObjectSchema']; .: not an object [.'$ObjectSchema']; .: not a bool [.'$Schema'.'|'.0])
-json-schema-draft-2020-12-fuzzy.values.json[6]: FAIL (.: no model matched [.'$Schema'.'|']; .: unexpected $ObjectSchema [.'$Schema'.'|'.1]; .: unexpected element [.'$ObjectSchema']; .: not an object [.'$ObjectSchema']; .: not a bool [.'$Schema'.'|'.0])
-json-schema-draft-2020-12-fuzzy.values.json[7]: FAIL (.: no model matched [.'$Schema'.'|']; .: unexpected $ObjectSchema [.'$Schema'.'|'.1]; .: unexpected element [.'$ObjectSchema']; .: not an object [.'$ObjectSchema']; .: not a bool [.'$Schema'.'|'.0])
-json-schema-draft-2020-12-fuzzy.values.json[8]: FAIL (.: no model matched [.'$Schema'.'|']; .: unexpected $ObjectSchema [.'$Schema'.'|'.1]; .: unexpected element [.'$ObjectSchema']; .: not an object [.'$ObjectSchema']; .: not a bool [.'$Schema'.'|'.0])
+json-schema-draft-2020-12-fuzzy.values.json[3]: FAIL (.: no model matched [.'$Schema'.'|']; .: unexpected $ObjectSchema [.'$Schema'.'|'.1]; .: not an object [.'$ObjectSchema']; .: not a bool [.'$Schema'.'|'.0])
+json-schema-draft-2020-12-fuzzy.values.json[4]: FAIL (.: no model matched [.'$Schema'.'|']; .: unexpected $ObjectSchema [.'$Schema'.'|'.1]; .: not an object [.'$ObjectSchema']; .: not a bool [.'$Schema'.'|'.0])
+json-schema-draft-2020-12-fuzzy.values.json[5]: FAIL (.: no model matched [.'$Schema'.'|']; .: unexpected $ObjectSchema [.'$Schema'.'|'.1]; .: not an object [.'$ObjectSchema']; .: not a bool [.'$Schema'.'|'.0])
+json-schema-draft-2020-12-fuzzy.values.json[6]: FAIL (.: no model matched [.'$Schema'.'|']; .: unexpected $ObjectSchema [.'$Schema'.'|'.1]; .: not an object [.'$ObjectSchema']; .: not a bool [.'$Schema'.'|'.0])
+json-schema-draft-2020-12-fuzzy.values.json[7]: FAIL (.: no model matched [.'$Schema'.'|']; .: unexpected $ObjectSchema [.'$Schema'.'|'.1]; .: not an object [.'$ObjectSchema']; .: not a bool [.'$Schema'.'|'.0])
+json-schema-draft-2020-12-fuzzy.values.json[8]: FAIL (.: no model matched [.'$Schema'.'|']; .: unexpected $ObjectSchema [.'$Schema'.'|'.1]; .: not an object [.'$ObjectSchema']; .: not a bool [.'$Schema'.'|'.0])

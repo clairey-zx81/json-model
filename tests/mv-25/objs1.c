@@ -10,11 +10,15 @@
 #include <json-model.h>
 #define JSON_MODEL_VERSION "2"
 
+static bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static bool _jm_obj_1(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static jm_constmap_t _jm_map_0_tab[2];
 static bool json_model_6(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static bool _jm_obj_2(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_4(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static bool _jm_obj_3(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_5(const json_t *val, jm_path_t *path, jm_report_t *rep);
 jm_propmap_t check_model_map_tab[2];
 const size_t check_model_map_size = 2;
@@ -96,7 +100,7 @@ static INLINE bool _jm_obj_1(const json_t *val, jm_path_t *path, jm_report_t *re
             // handle must foo property
             must_count += 1;
             // .foo
-            res = json_model_3(pval, NULL, rep);
+            res = _jm_obj_0(pval, NULL, rep);
             if (! res)
             {
                 return false;

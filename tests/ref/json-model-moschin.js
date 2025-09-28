@@ -46,7 +46,7 @@ function json_model_1(val, path, rep)
 {
     let res;
     // .
-    res = json_model_3(val, path, rep);
+    res = json_model_42(val, path, rep);
     if (! res)
     {
         rep !== null && rep.push(["unexpected $Model [.]", path])

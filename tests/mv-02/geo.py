@@ -966,7 +966,7 @@ def _jm_obj_13(val: Jsonable, path: Path, rep: Report) -> bool:
             rep is None or rep.append(("unexpected $geometry [.'$Feature'.geometry.'|'.1]", path))
         if not res:
             # .'$Feature'.geometry.'|'.2
-            res = json_model_12(pval, path, rep)
+            res = _jm_obj_12(pval, path, rep)
             if not res:
                 rep is None or rep.append(("unexpected $GeometryCollection [.'$Feature'.geometry.'|'.2]", path))
     if res:
@@ -1068,7 +1068,7 @@ def _jm_obj_15(val: Jsonable, path: Path, rep: Report) -> bool:
         for arr_28_idx, arr_28_item in enumerate(pval):
             arr_28_lpath: Path = (path + [ arr_28_idx ]) if path is not None else None
             # .'$FeatureCollection'.features.0
-            res = json_model_13(arr_28_item, arr_28_lpath if path is not None else None, rep)
+            res = _jm_obj_13(arr_28_item, arr_28_lpath if path is not None else None, rep)
             if not res:
                 rep is None or rep.append(("unexpected $Feature [.'$FeatureCollection'.features.0]", arr_28_lpath if path is not None else None))
                 break
@@ -1118,21 +1118,21 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     else:
         rep is None or rep.append(("unexpected $geometry [.'^'.0]", path))
     # .'^'.1
-    xr_0 = json_model_12(val, path, rep)
+    xr_0 = _jm_obj_12(val, path, rep)
     if xr_0:
         xc_0 += 1
     else:
         rep is None or rep.append(("unexpected $GeometryCollection [.'^'.1]", path))
     if xc_0 <= 1:
         # .'^'.2
-        xr_0 = json_model_13(val, path, rep)
+        xr_0 = _jm_obj_13(val, path, rep)
         if xr_0:
             xc_0 += 1
         else:
             rep is None or rep.append(("unexpected $Feature [.'^'.2]", path))
     if xc_0 <= 1:
         # .'^'.3
-        xr_0 = json_model_14(val, path, rep)
+        xr_0 = _jm_obj_15(val, path, rep)
         if xr_0:
             xc_0 += 1
         else:

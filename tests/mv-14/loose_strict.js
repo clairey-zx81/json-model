@@ -212,7 +212,7 @@ function json_model_1(val, path, rep)
 {
     let res;
     // .
-    res = json_model_4(val, path, rep);
+    res = _jm_obj_2(val, path, rep);
     if (! res)
     {
         rep !== null && rep.push(["unexpected $combined [.]", path])

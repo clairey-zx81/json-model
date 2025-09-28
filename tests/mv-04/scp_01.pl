@@ -12,7 +12,9 @@ use constant JMC_VERSION => '2';
 
 sub json_model_2($$$);
 sub json_model_3($$$);
+sub _jm_obj_0($$$);
 sub json_model_5($$$);
+sub _jm_obj_1($$$);
 sub json_model_1($$$);
 sub json_model_7($$$);
 my %check_model_map;
@@ -95,7 +97,7 @@ sub _jm_obj_1($$$)
             # handle must RA property
             $must_count++;
             # .RA
-            $res = json_model_5($pval, undef, $rep);
+            $res = _jm_obj_0($pval, undef, $rep);
             if (! $res)
             {
                 return 0;

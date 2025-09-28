@@ -40,7 +40,7 @@ function _jm_f_0(val, path, rep)
 {
     let res;
     // .'$OpenAPI'.components
-    res = json_model_8(val, path, rep);
+    res = _jm_obj_9(val, path, rep);
     if (! res)
     {
         rep !== null && rep.push(["unexpected $Components [.'$OpenAPI'.components]", path])
@@ -53,7 +53,7 @@ function _jm_f_1(val, path, rep)
 {
     let res;
     // .'$OpenAPI'.externalDocs
-    res = json_model_12(val, path, rep);
+    res = _jm_obj_24(val, path, rep);
     if (! res)
     {
         rep !== null && rep.push(["unexpected $ExternalDocumentation [.'$OpenAPI'.externalDocs]", path])
@@ -79,7 +79,7 @@ function _jm_f_3(val, path, rep)
 {
     let res;
     // .'$OpenAPI'.paths
-    res = json_model_9(val, path, rep);
+    res = _jm_obj_20(val, path, rep);
     if (! res)
     {
         rep !== null && rep.push(["unexpected $Paths [.'$OpenAPI'.paths]", path])
@@ -100,7 +100,7 @@ function _jm_f_4(val, path, rep)
             let arr_0_item = val[arr_0_idx]
             let arr_0_lpath = path ? path.concat([arr_0_idx]) : null;
             // .'$OpenAPI'.security.0
-            res = json_model_43(arr_0_item, (path ? arr_0_lpath : null), rep);
+            res = _jm_obj_83(arr_0_item, (path ? arr_0_lpath : null), rep);
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $SecurityRequirement [.'$OpenAPI'.security.0]", (path ? arr_0_lpath : null)])
@@ -128,7 +128,7 @@ function _jm_f_5(val, path, rep)
             let arr_1_item = val[arr_1_idx]
             let arr_1_lpath = path ? path.concat([arr_1_idx]) : null;
             // .'$OpenAPI'.servers.0
-            res = json_model_6(arr_1_item, (path ? arr_1_lpath : null), rep);
+            res = _jm_obj_6(arr_1_item, (path ? arr_1_lpath : null), rep);
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $Server [.'$OpenAPI'.servers.0]", (path ? arr_1_lpath : null)])
@@ -156,7 +156,7 @@ function _jm_f_6(val, path, rep)
             let arr_2_item = val[arr_2_idx]
             let arr_2_lpath = path ? path.concat([arr_2_idx]) : null;
             // .'$OpenAPI'.tags.0
-            res = json_model_29(arr_2_item, (path ? arr_2_lpath : null), rep);
+            res = _jm_obj_57(arr_2_item, (path ? arr_2_lpath : null), rep);
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $Tag [.'$OpenAPI'.tags.0]", (path ? arr_2_lpath : null)])
@@ -185,7 +185,7 @@ function _jm_obj_1(val, path, rep)
         let lpath_1 = path ? path.concat([prop]) : null;
         // handle other props
         // .'$OpenAPI'.webhooks.''
-        res = json_model_10(pval, (path ? lpath_1 : null), rep);
+        res = _jm_obj_21(pval, (path ? lpath_1 : null), rep);
         if (! res)
         {
             rep !== null && rep.push(["unexpected $PathItem [.'$OpenAPI'.webhooks.'']", (path ? lpath_1 : null)])
@@ -242,7 +242,7 @@ function _jm_obj_0(val, path, rep)
             // handle must info property
             must_count += 1;
             // .'$OpenAPI'.info
-            res = json_model_3(pval, (path ? lpath_0 : null), rep);
+            res = _jm_obj_2(pval, (path ? lpath_0 : null), rep);
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $Info [.'$OpenAPI'.info]", (path ? lpath_0 : null)])
@@ -386,7 +386,7 @@ function _jm_obj_2(val, path, rep)
         {
             // handle may contact property
             // .'$Info'.contact
-            res = json_model_4(pval, (path ? lpath_2 : null), rep);
+            res = _jm_obj_3(pval, (path ? lpath_2 : null), rep);
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $Contact [.'$Info'.contact]", (path ? lpath_2 : null)])
@@ -738,7 +738,7 @@ function _jm_obj_7(val, path, rep)
         let lpath_7 = path ? path.concat([prop]) : null;
         // handle other props
         // .'$Server'.variables.''
-        res = json_model_7(pval, (path ? lpath_7 : null), rep);
+        res = _jm_obj_8(pval, (path ? lpath_7 : null), rep);
         if (! res)
         {
             rep !== null && rep.push(["unexpected $ServerVariable [.'$Server'.variables.'']", (path ? lpath_7 : null)])
@@ -966,7 +966,7 @@ function _jm_obj_10(val, path, rep)
         // handle other props
         // .'$Components'.callbacks.''
         // .'$Components'.callbacks.''.'|'.0
-        res = json_model_24(pval, (path ? lpath_10 : null), rep);
+        res = _jm_obj_47(pval, (path ? lpath_10 : null), rep);
         if (! res)
         {
             rep !== null && rep.push(["unexpected $Callback [.'$Components'.callbacks.''.'|'.0]", (path ? lpath_10 : null)])
@@ -974,7 +974,7 @@ function _jm_obj_10(val, path, rep)
         if (! res)
         {
             // .'$Components'.callbacks.''.'|'.1
-            res = json_model_30(pval, (path ? lpath_10 : null), rep);
+            res = _jm_obj_58(pval, (path ? lpath_10 : null), rep);
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $Reference [.'$Components'.callbacks.''.'|'.1]", (path ? lpath_10 : null)])
@@ -1021,7 +1021,7 @@ function _jm_obj_11(val, path, rep)
         // handle other props
         // .'$Components'.examples.''
         // .'$Components'.examples.''.'|'.0
-        res = json_model_25(pval, (path ? lpath_11 : null), rep);
+        res = _jm_obj_48(pval, (path ? lpath_11 : null), rep);
         if (! res)
         {
             rep !== null && rep.push(["unexpected $Example [.'$Components'.examples.''.'|'.0]", (path ? lpath_11 : null)])
@@ -1029,7 +1029,7 @@ function _jm_obj_11(val, path, rep)
         if (! res)
         {
             // .'$Components'.examples.''.'|'.1
-            res = json_model_30(pval, (path ? lpath_11 : null), rep);
+            res = _jm_obj_58(pval, (path ? lpath_11 : null), rep);
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $Reference [.'$Components'.examples.''.'|'.1]", (path ? lpath_11 : null)])
@@ -1084,7 +1084,7 @@ function _jm_obj_12(val, path, rep)
         if (! res)
         {
             // .'$Components'.headers.''.'|'.1
-            res = json_model_30(pval, (path ? lpath_12 : null), rep);
+            res = _jm_obj_58(pval, (path ? lpath_12 : null), rep);
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $Reference [.'$Components'.headers.''.'|'.1]", (path ? lpath_12 : null)])
@@ -1139,7 +1139,7 @@ function _jm_obj_13(val, path, rep)
         if (! res)
         {
             // .'$Components'.links.''.'|'.1
-            res = json_model_30(pval, (path ? lpath_13 : null), rep);
+            res = _jm_obj_58(pval, (path ? lpath_13 : null), rep);
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $Reference [.'$Components'.links.''.'|'.1]", (path ? lpath_13 : null)])
@@ -1194,7 +1194,7 @@ function _jm_obj_14(val, path, rep)
         if (! res)
         {
             // .'$Components'.parameters.''.'|'.1
-            res = json_model_30(pval, (path ? lpath_14 : null), rep);
+            res = _jm_obj_58(pval, (path ? lpath_14 : null), rep);
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $Reference [.'$Components'.parameters.''.'|'.1]", (path ? lpath_14 : null)])
@@ -1241,7 +1241,7 @@ function _jm_obj_15(val, path, rep)
         // handle other props
         // .'$Components'.pathItems.''
         // .'$Components'.pathItems.''.'|'.0
-        res = json_model_10(pval, (path ? lpath_15 : null), rep);
+        res = _jm_obj_21(pval, (path ? lpath_15 : null), rep);
         if (! res)
         {
             rep !== null && rep.push(["unexpected $PathItem [.'$Components'.pathItems.''.'|'.0]", (path ? lpath_15 : null)])
@@ -1249,7 +1249,7 @@ function _jm_obj_15(val, path, rep)
         if (! res)
         {
             // .'$Components'.pathItems.''.'|'.1
-            res = json_model_30(pval, (path ? lpath_15 : null), rep);
+            res = _jm_obj_58(pval, (path ? lpath_15 : null), rep);
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $Reference [.'$Components'.pathItems.''.'|'.1]", (path ? lpath_15 : null)])
@@ -1296,7 +1296,7 @@ function _jm_obj_16(val, path, rep)
         // handle other props
         // .'$Components'.requestBodies.''
         // .'$Components'.requestBodies.''.'|'.0
-        res = json_model_19(pval, (path ? lpath_16 : null), rep);
+        res = _jm_obj_35(pval, (path ? lpath_16 : null), rep);
         if (! res)
         {
             rep !== null && rep.push(["unexpected $RequestBody [.'$Components'.requestBodies.''.'|'.0]", (path ? lpath_16 : null)])
@@ -1304,7 +1304,7 @@ function _jm_obj_16(val, path, rep)
         if (! res)
         {
             // .'$Components'.requestBodies.''.'|'.1
-            res = json_model_30(pval, (path ? lpath_16 : null), rep);
+            res = _jm_obj_58(pval, (path ? lpath_16 : null), rep);
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $Reference [.'$Components'.requestBodies.''.'|'.1]", (path ? lpath_16 : null)])
@@ -1351,7 +1351,7 @@ function _jm_obj_17(val, path, rep)
         // handle other props
         // .'$Components'.responses.''
         // .'$Components'.responses.''.'|'.0
-        res = json_model_23(pval, (path ? lpath_17 : null), rep);
+        res = _jm_obj_43(pval, (path ? lpath_17 : null), rep);
         if (! res)
         {
             rep !== null && rep.push(["unexpected $Response [.'$Components'.responses.''.'|'.0]", (path ? lpath_17 : null)])
@@ -1359,7 +1359,7 @@ function _jm_obj_17(val, path, rep)
         if (! res)
         {
             // .'$Components'.responses.''.'|'.1
-            res = json_model_30(pval, (path ? lpath_17 : null), rep);
+            res = _jm_obj_58(pval, (path ? lpath_17 : null), rep);
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $Reference [.'$Components'.responses.''.'|'.1]", (path ? lpath_17 : null)])
@@ -1405,7 +1405,7 @@ function _jm_obj_18(val, path, rep)
         let lpath_18 = path ? path.concat([prop]) : null;
         // handle other props
         // .'$Components'.schemas.''
-        res = json_model_32(pval, (path ? lpath_18 : null), rep);
+        res = _jm_obj_59(pval, (path ? lpath_18 : null), rep);
         if (! res)
         {
             rep !== null && rep.push(["unexpected $Schema [.'$Components'.schemas.'']", (path ? lpath_18 : null)])
@@ -1451,7 +1451,7 @@ function _jm_obj_19(val, path, rep)
         if (! res)
         {
             // .'$Components'.securitySchemes.''.'|'.1
-            res = json_model_30(pval, (path ? lpath_19 : null), rep);
+            res = _jm_obj_58(pval, (path ? lpath_19 : null), rep);
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $Reference [.'$Components'.securitySchemes.''.'|'.1]", (path ? lpath_19 : null)])
@@ -1555,7 +1555,7 @@ function _jm_obj_20(val, path, rep)
         {
             // handle 2 re props
             // .'$Paths'.'/^//'
-            res = json_model_10(pval, (path ? lpath_20 : null), rep);
+            res = _jm_obj_21(pval, (path ? lpath_20 : null), rep);
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $PathItem [.'$Paths'.'/^//']", (path ? lpath_20 : null)])
@@ -1613,7 +1613,7 @@ function _jm_f_19(val, path, rep)
 {
     let res;
     // .'$PathItem'.delete
-    res = json_model_11(val, path, rep);
+    res = _jm_obj_22(val, path, rep);
     if (! res)
     {
         rep !== null && rep.push(["unexpected $Operation [.'$PathItem'.delete]", path])
@@ -1639,7 +1639,7 @@ function _jm_f_21(val, path, rep)
 {
     let res;
     // .'$PathItem'.get
-    res = json_model_11(val, path, rep);
+    res = _jm_obj_22(val, path, rep);
     if (! res)
     {
         rep !== null && rep.push(["unexpected $Operation [.'$PathItem'.get]", path])
@@ -1652,7 +1652,7 @@ function _jm_f_22(val, path, rep)
 {
     let res;
     // .'$PathItem'.head
-    res = json_model_11(val, path, rep);
+    res = _jm_obj_22(val, path, rep);
     if (! res)
     {
         rep !== null && rep.push(["unexpected $Operation [.'$PathItem'.head]", path])
@@ -1665,7 +1665,7 @@ function _jm_f_23(val, path, rep)
 {
     let res;
     // .'$PathItem'.options
-    res = json_model_11(val, path, rep);
+    res = _jm_obj_22(val, path, rep);
     if (! res)
     {
         rep !== null && rep.push(["unexpected $Operation [.'$PathItem'.options]", path])
@@ -1695,7 +1695,7 @@ function _jm_f_24(val, path, rep)
             if (! res)
             {
                 // .'$PathItem'.parameters.0.'|'.1
-                res = json_model_30(arr_4_item, (path ? arr_4_lpath : null), rep);
+                res = _jm_obj_58(arr_4_item, (path ? arr_4_lpath : null), rep);
                 if (! res)
                 {
                     rep !== null && rep.push(["unexpected $Reference [.'$PathItem'.parameters.0.'|'.1]", (path ? arr_4_lpath : null)])
@@ -1724,7 +1724,7 @@ function _jm_f_25(val, path, rep)
 {
     let res;
     // .'$PathItem'.patch
-    res = json_model_11(val, path, rep);
+    res = _jm_obj_22(val, path, rep);
     if (! res)
     {
         rep !== null && rep.push(["unexpected $Operation [.'$PathItem'.patch]", path])
@@ -1737,7 +1737,7 @@ function _jm_f_26(val, path, rep)
 {
     let res;
     // .'$PathItem'.post
-    res = json_model_11(val, path, rep);
+    res = _jm_obj_22(val, path, rep);
     if (! res)
     {
         rep !== null && rep.push(["unexpected $Operation [.'$PathItem'.post]", path])
@@ -1750,7 +1750,7 @@ function _jm_f_27(val, path, rep)
 {
     let res;
     // .'$PathItem'.put
-    res = json_model_11(val, path, rep);
+    res = _jm_obj_22(val, path, rep);
     if (! res)
     {
         rep !== null && rep.push(["unexpected $Operation [.'$PathItem'.put]", path])
@@ -1771,7 +1771,7 @@ function _jm_f_28(val, path, rep)
             let arr_5_item = val[arr_5_idx]
             let arr_5_lpath = path ? path.concat([arr_5_idx]) : null;
             // .'$PathItem'.servers.0
-            res = json_model_11(arr_5_item, (path ? arr_5_lpath : null), rep);
+            res = _jm_obj_22(arr_5_item, (path ? arr_5_lpath : null), rep);
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $Operation [.'$PathItem'.servers.0]", (path ? arr_5_lpath : null)])
@@ -1804,7 +1804,7 @@ function _jm_f_30(val, path, rep)
 {
     let res;
     // .'$PathItem'.trace
-    res = json_model_11(val, path, rep);
+    res = _jm_obj_22(val, path, rep);
     if (! res)
     {
         rep !== null && rep.push(["unexpected $Operation [.'$PathItem'.trace]", path])
@@ -1883,7 +1883,7 @@ function _jm_obj_23(val, path, rep)
         // handle other props
         // .'$Operation'.callbacks.''
         // .'$Operation'.callbacks.''.'|'.0
-        res = json_model_24(pval, (path ? lpath_23 : null), rep);
+        res = _jm_obj_47(pval, (path ? lpath_23 : null), rep);
         if (! res)
         {
             rep !== null && rep.push(["unexpected $Callback [.'$Operation'.callbacks.''.'|'.0]", (path ? lpath_23 : null)])
@@ -1891,7 +1891,7 @@ function _jm_obj_23(val, path, rep)
         if (! res)
         {
             // .'$Operation'.callbacks.''.'|'.1
-            res = json_model_30(pval, (path ? lpath_23 : null), rep);
+            res = _jm_obj_58(pval, (path ? lpath_23 : null), rep);
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $Reference [.'$Operation'.callbacks.''.'|'.1]", (path ? lpath_23 : null)])
@@ -1954,7 +1954,7 @@ function _jm_f_34(val, path, rep)
 {
     let res;
     // .'$Operation'.externalDocs
-    res = json_model_12(val, path, rep);
+    res = _jm_obj_24(val, path, rep);
     if (! res)
     {
         rep !== null && rep.push(["unexpected $ExternalDocumentation [.'$Operation'.externalDocs]", path])
@@ -1997,7 +1997,7 @@ function _jm_f_36(val, path, rep)
             if (! res)
             {
                 // .'$Operation'.parameters.0.'|'.1
-                res = json_model_30(arr_6_item, (path ? arr_6_lpath : null), rep);
+                res = _jm_obj_58(arr_6_item, (path ? arr_6_lpath : null), rep);
                 if (! res)
                 {
                     rep !== null && rep.push(["unexpected $Reference [.'$Operation'.parameters.0.'|'.1]", (path ? arr_6_lpath : null)])
@@ -2027,7 +2027,7 @@ function _jm_f_37(val, path, rep)
     let res;
     // .'$Operation'.requestBody
     // .'$Operation'.requestBody.'|'.0
-    res = json_model_19(val, path, rep);
+    res = _jm_obj_35(val, path, rep);
     if (! res)
     {
         rep !== null && rep.push(["unexpected $RequestBody [.'$Operation'.requestBody.'|'.0]", path])
@@ -2035,7 +2035,7 @@ function _jm_f_37(val, path, rep)
     if (! res)
     {
         // .'$Operation'.requestBody.'|'.1
-        res = json_model_30(val, path, rep);
+        res = _jm_obj_58(val, path, rep);
         if (! res)
         {
             rep !== null && rep.push(["unexpected $Reference [.'$Operation'.requestBody.'|'.1]", path])
@@ -2057,7 +2057,7 @@ function _jm_f_38(val, path, rep)
 {
     let res;
     // .'$Operation'.responses
-    res = json_model_22(val, path, rep);
+    res = _jm_obj_42(val, path, rep);
     if (! res)
     {
         rep !== null && rep.push(["unexpected $Responses [.'$Operation'.responses]", path])
@@ -2078,7 +2078,7 @@ function _jm_f_39(val, path, rep)
             let arr_7_item = val[arr_7_idx]
             let arr_7_lpath = path ? path.concat([arr_7_idx]) : null;
             // .'$Operation'.security.0
-            res = json_model_43(arr_7_item, (path ? arr_7_lpath : null), rep);
+            res = _jm_obj_83(arr_7_item, (path ? arr_7_lpath : null), rep);
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $SecurityRequirement [.'$Operation'.security.0]", (path ? arr_7_lpath : null)])
@@ -2106,7 +2106,7 @@ function _jm_f_40(val, path, rep)
             let arr_8_item = val[arr_8_idx]
             let arr_8_lpath = path ? path.concat([arr_8_idx]) : null;
             // .'$Operation'.servers.0
-            res = json_model_6(arr_8_item, (path ? arr_8_lpath : null), rep);
+            res = _jm_obj_6(arr_8_item, (path ? arr_8_lpath : null), rep);
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $Server [.'$Operation'.servers.0]", (path ? arr_8_lpath : null)])
@@ -2585,7 +2585,7 @@ function _jm_obj_28(val, path, rep)
         // handle other props
         // .'$parameterSchemaOnly'.examples.''
         // .'$parameterSchemaOnly'.examples.''.'|'.0
-        res = json_model_25(pval, (path ? lpath_28 : null), rep);
+        res = _jm_obj_48(pval, (path ? lpath_28 : null), rep);
         if (! res)
         {
             rep !== null && rep.push(["unexpected $Example [.'$parameterSchemaOnly'.examples.''.'|'.0]", (path ? lpath_28 : null)])
@@ -2593,7 +2593,7 @@ function _jm_obj_28(val, path, rep)
         if (! res)
         {
             // .'$parameterSchemaOnly'.examples.''.'|'.1
-            res = json_model_30(pval, (path ? lpath_28 : null), rep);
+            res = _jm_obj_58(pval, (path ? lpath_28 : null), rep);
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $Reference [.'$parameterSchemaOnly'.examples.''.'|'.1]", (path ? lpath_28 : null)])
@@ -2643,7 +2643,7 @@ function _jm_f_47(val, path, rep)
 {
     let res;
     // .'$parameterSchemaOnly'.schema
-    res = json_model_32(val, path, rep);
+    res = _jm_obj_59(val, path, rep);
     if (! res)
     {
         rep !== null && rep.push(["unexpected $Schema [.'$parameterSchemaOnly'.schema]", path])
@@ -2722,7 +2722,7 @@ function _jm_obj_30(val, path, rep)
         let lpath_30 = path ? path.concat([prop]) : null;
         // handle other props
         // .'$parameterContentOnly'.content.''
-        res = json_model_20(pval, (path ? lpath_30 : null), rep);
+        res = _jm_obj_37(pval, (path ? lpath_30 : null), rep);
         if (! res)
         {
             rep !== null && rep.push(["unexpected $MediaType [.'$parameterContentOnly'.content.'']", (path ? lpath_30 : null)])
@@ -2859,7 +2859,7 @@ function _jm_obj_32(val, path, rep)
         // handle other props
         // .'$Parameter'.'|'.0.examples.''
         // .'$Parameter'.'|'.0.examples.''.'|'.0
-        res = json_model_25(pval, (path ? lpath_32 : null), rep);
+        res = _jm_obj_48(pval, (path ? lpath_32 : null), rep);
         if (! res)
         {
             rep !== null && rep.push(["unexpected $Example [.'$Parameter'.'|'.0.examples.''.'|'.0]", (path ? lpath_32 : null)])
@@ -2867,7 +2867,7 @@ function _jm_obj_32(val, path, rep)
         if (! res)
         {
             // .'$Parameter'.'|'.0.examples.''.'|'.1
-            res = json_model_30(pval, (path ? lpath_32 : null), rep);
+            res = _jm_obj_58(pval, (path ? lpath_32 : null), rep);
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $Reference [.'$Parameter'.'|'.0.examples.''.'|'.1]", (path ? lpath_32 : null)])
@@ -2930,7 +2930,7 @@ function _jm_f_57(val, path, rep)
 {
     let res;
     // .'$Parameter'.'|'.0.schema
-    res = json_model_32(val, path, rep);
+    res = _jm_obj_59(val, path, rep);
     if (! res)
     {
         rep !== null && rep.push(["unexpected $Schema [.'$Parameter'.'|'.0.schema]", path])
@@ -3051,7 +3051,7 @@ function _jm_obj_34(val, path, rep)
         let lpath_34 = path ? path.concat([prop]) : null;
         // handle other props
         // .'$Parameter'.'|'.1.content.''
-        res = json_model_20(pval, (path ? lpath_34 : null), rep);
+        res = _jm_obj_37(pval, (path ? lpath_34 : null), rep);
         if (! res)
         {
             rep !== null && rep.push(["unexpected $MediaType [.'$Parameter'.'|'.1.content.'']", (path ? lpath_34 : null)])
@@ -3246,7 +3246,7 @@ function _jm_obj_36(val, path, rep)
         let lpath_36 = path ? path.concat([prop]) : null;
         // handle other props
         // .'$RequestBody'.content.''
-        res = json_model_20(pval, (path ? lpath_36 : null), rep);
+        res = _jm_obj_37(pval, (path ? lpath_36 : null), rep);
         if (! res)
         {
             rep !== null && rep.push(["unexpected $MediaType [.'$RequestBody'.content.'']", (path ? lpath_36 : null)])
@@ -3352,7 +3352,7 @@ function _jm_obj_38(val, path, rep)
         // handle other props
         // .'$MediaType'.examples.''
         // .'$MediaType'.examples.''.'|'.0
-        res = json_model_25(pval, (path ? lpath_38 : null), rep);
+        res = _jm_obj_48(pval, (path ? lpath_38 : null), rep);
         if (! res)
         {
             rep !== null && rep.push(["unexpected $Example [.'$MediaType'.examples.''.'|'.0]", (path ? lpath_38 : null)])
@@ -3360,7 +3360,7 @@ function _jm_obj_38(val, path, rep)
         if (! res)
         {
             // .'$MediaType'.examples.''.'|'.1
-            res = json_model_30(pval, (path ? lpath_38 : null), rep);
+            res = _jm_obj_58(pval, (path ? lpath_38 : null), rep);
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $Reference [.'$MediaType'.examples.''.'|'.1]", (path ? lpath_38 : null)])
@@ -3393,7 +3393,7 @@ function _jm_obj_39(val, path, rep)
         let lpath_39 = path ? path.concat([prop]) : null;
         // handle other props
         // .'$MediaType'.encoding.''
-        res = json_model_21(pval, (path ? lpath_39 : null), rep);
+        res = _jm_obj_40(pval, (path ? lpath_39 : null), rep);
         if (! res)
         {
             rep !== null && rep.push(["unexpected $Encoding [.'$MediaType'.encoding.'']", (path ? lpath_39 : null)])
@@ -3419,7 +3419,7 @@ function _jm_obj_37(val, path, rep)
         {
             // handle may schema property
             // .'$MediaType'.schema
-            res = json_model_32(pval, (path ? lpath_37 : null), rep);
+            res = _jm_obj_59(pval, (path ? lpath_37 : null), rep);
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $Schema [.'$MediaType'.schema]", (path ? lpath_37 : null)])
@@ -3519,7 +3519,7 @@ function _jm_obj_41(val, path, rep)
         if (! res)
         {
             // .'$Encoding'.headers.''.'|'.1
-            res = json_model_30(pval, (path ? lpath_41 : null), rep);
+            res = _jm_obj_58(pval, (path ? lpath_41 : null), rep);
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $Reference [.'$Encoding'.headers.''.'|'.1]", (path ? lpath_41 : null)])
@@ -3662,7 +3662,7 @@ function _jm_obj_42(val, path, rep)
             // handle may default property
             // .'$Responses'.default
             // .'$Responses'.default.'|'.0
-            res = json_model_23(pval, (path ? lpath_42 : null), rep);
+            res = _jm_obj_43(pval, (path ? lpath_42 : null), rep);
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $Response [.'$Responses'.default.'|'.0]", (path ? lpath_42 : null)])
@@ -3670,7 +3670,7 @@ function _jm_obj_42(val, path, rep)
             if (! res)
             {
                 // .'$Responses'.default.'|'.1
-                res = json_model_30(pval, (path ? lpath_42 : null), rep);
+                res = _jm_obj_58(pval, (path ? lpath_42 : null), rep);
                 if (! res)
                 {
                     rep !== null && rep.push(["unexpected $Reference [.'$Responses'.default.'|'.1]", (path ? lpath_42 : null)])
@@ -3692,7 +3692,7 @@ function _jm_obj_42(val, path, rep)
             // handle 2 re props
             // .'$Responses'.'/^[1-5](\\d\\d|XX)$/'
             // .'$Responses'.'/^[1-5](\\d\\d|XX)$/'.'|'.0
-            res = json_model_23(pval, (path ? lpath_42 : null), rep);
+            res = _jm_obj_43(pval, (path ? lpath_42 : null), rep);
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $Response [.'$Responses'.'/^[1-5](\\\\d\\\\d|XX)$/'.'|'.0]", (path ? lpath_42 : null)])
@@ -3700,7 +3700,7 @@ function _jm_obj_42(val, path, rep)
             if (! res)
             {
                 // .'$Responses'.'/^[1-5](\\d\\d|XX)$/'.'|'.1
-                res = json_model_30(pval, (path ? lpath_42 : null), rep);
+                res = _jm_obj_58(pval, (path ? lpath_42 : null), rep);
                 if (! res)
                 {
                     rep !== null && rep.push(["unexpected $Reference [.'$Responses'.'/^[1-5](\\\\d\\\\d|XX)$/'.'|'.1]", (path ? lpath_42 : null)])
@@ -3772,7 +3772,7 @@ function _jm_obj_44(val, path, rep)
         if (! res)
         {
             // .'$Response'.headers.''.'|'.1
-            res = json_model_30(pval, (path ? lpath_44 : null), rep);
+            res = _jm_obj_58(pval, (path ? lpath_44 : null), rep);
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $Reference [.'$Response'.headers.''.'|'.1]", (path ? lpath_44 : null)])
@@ -3805,7 +3805,7 @@ function _jm_obj_45(val, path, rep)
         let lpath_45 = path ? path.concat([prop]) : null;
         // handle other props
         // .'$Response'.content.''
-        res = json_model_20(pval, (path ? lpath_45 : null), rep);
+        res = _jm_obj_37(pval, (path ? lpath_45 : null), rep);
         if (! res)
         {
             rep !== null && rep.push(["unexpected $MediaType [.'$Response'.content.'']", (path ? lpath_45 : null)])
@@ -3838,7 +3838,7 @@ function _jm_obj_46(val, path, rep)
         if (! res)
         {
             // .'$Response'.links.''.'|'.1
-            res = json_model_30(pval, (path ? lpath_46 : null), rep);
+            res = _jm_obj_58(pval, (path ? lpath_46 : null), rep);
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $Reference [.'$Response'.links.''.'|'.1]", (path ? lpath_46 : null)])
@@ -3967,7 +3967,7 @@ function _jm_obj_47(val, path, rep)
             // handle 1 key props
             // .'$Callback'.'$Expression'
             // .'$Callback'.'$Expression'.'|'.0
-            res = json_model_10(pval, (path ? lpath_47 : null), rep);
+            res = _jm_obj_21(pval, (path ? lpath_47 : null), rep);
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $PathItem [.'$Callback'.'$Expression'.'|'.0]", (path ? lpath_47 : null)])
@@ -3975,7 +3975,7 @@ function _jm_obj_47(val, path, rep)
             if (! res)
             {
                 // .'$Callback'.'$Expression'.'|'.1
-                res = json_model_30(pval, (path ? lpath_47 : null), rep);
+                res = _jm_obj_58(pval, (path ? lpath_47 : null), rep);
                 if (! res)
                 {
                     rep !== null && rep.push(["unexpected $Reference [.'$Callback'.'$Expression'.'|'.1]", (path ? lpath_47 : null)])
@@ -4208,7 +4208,7 @@ function _jm_obj_49(val, path, rep)
         {
             // handle may server property
             // .'$Link'.'|'.1.server
-            res = json_model_6(pval, (path ? lpath_49 : null), rep);
+            res = _jm_obj_6(pval, (path ? lpath_49 : null), rep);
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $Server [.'$Link'.'|'.1.server]", (path ? lpath_49 : null)])
@@ -4325,7 +4325,7 @@ function _jm_obj_51(val, path, rep)
         {
             // handle may server property
             // .'$Link'.'|'.0.server
-            res = json_model_6(pval, (path ? lpath_50 : null), rep);
+            res = _jm_obj_6(pval, (path ? lpath_50 : null), rep);
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $Server [.'$Link'.'|'.0.server]", (path ? lpath_50 : null)])
@@ -4417,7 +4417,7 @@ function _jm_obj_54(val, path, rep)
         let lpath_52 = path ? path.concat([prop]) : null;
         // handle other props
         // .'$Header'.'|'.1.content.''
-        res = json_model_20(pval, (path ? lpath_52 : null), rep);
+        res = _jm_obj_37(pval, (path ? lpath_52 : null), rep);
         if (! res)
         {
             rep !== null && rep.push(["unexpected $MediaType [.'$Header'.'|'.1.content.'']", (path ? lpath_52 : null)])
@@ -4599,7 +4599,7 @@ function _jm_obj_56(val, path, rep)
         // handle other props
         // .'$Header'.'|'.0.examples.''
         // .'$Header'.'|'.0.examples.''.'|'.0
-        res = json_model_25(pval, (path ? lpath_54 : null), rep);
+        res = _jm_obj_48(pval, (path ? lpath_54 : null), rep);
         if (! res)
         {
             rep !== null && rep.push(["unexpected $Example [.'$Header'.'|'.0.examples.''.'|'.0]", (path ? lpath_54 : null)])
@@ -4607,7 +4607,7 @@ function _jm_obj_56(val, path, rep)
         if (! res)
         {
             // .'$Header'.'|'.0.examples.''.'|'.1
-            res = json_model_30(pval, (path ? lpath_54 : null), rep);
+            res = _jm_obj_58(pval, (path ? lpath_54 : null), rep);
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $Reference [.'$Header'.'|'.0.examples.''.'|'.1]", (path ? lpath_54 : null)])
@@ -4670,7 +4670,7 @@ function _jm_f_67(val, path, rep)
 {
     let res;
     // .'$Header'.'|'.0.schema
-    res = json_model_32(val, path, rep);
+    res = _jm_obj_59(val, path, rep);
     if (! res)
     {
         rep !== null && rep.push(["unexpected $Schema [.'$Header'.'|'.0.schema]", path])
@@ -4816,7 +4816,7 @@ function _jm_obj_57(val, path, rep)
         {
             // handle may externalDocs property
             // .'$Tag'.externalDocs
-            res = json_model_12(pval, (path ? lpath_55 : null), rep);
+            res = _jm_obj_24(pval, (path ? lpath_55 : null), rep);
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $ExternalDocumentation [.'$Tag'.externalDocs]", (path ? lpath_55 : null)])
@@ -5361,7 +5361,7 @@ function _jm_f_91(val, path, rep)
 {
     let res;
     // .'$Schema'.discriminator
-    res = json_model_33(val, path, rep);
+    res = _jm_obj_66(val, path, rep);
     if (! res)
     {
         rep !== null && rep.push(["unexpected $Discriminator [.'$Schema'.discriminator]", path])
@@ -5452,7 +5452,7 @@ function _jm_f_98(val, path, rep)
 {
     let res;
     // .'$Schema'.externalDocs
-    res = json_model_12(val, path, rep);
+    res = _jm_obj_24(val, path, rep);
     if (! res)
     {
         rep !== null && rep.push(["unexpected $ExternalDocumentation [.'$Schema'.externalDocs]", path])
@@ -5929,7 +5929,7 @@ function _jm_f_129(val, path, rep)
 {
     let res;
     // .'$Schema'.xml
-    res = json_model_34(val, path, rep);
+    res = _jm_obj_68(val, path, rep);
     if (! res)
     {
         rep !== null && rep.push(["unexpected $xml [.'$Schema'.xml]", path])
@@ -6484,7 +6484,7 @@ function _jm_obj_72(val, path, rep)
             // handle must flows property
             must_count += 1;
             // .'$SS-oauth2'.flows
-            res = json_model_41(pval, (path ? lpath_70 : null), rep);
+            res = _jm_obj_80(pval, (path ? lpath_70 : null), rep);
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $OAuthFlows [.'$SS-oauth2'.flows]", (path ? lpath_70 : null)])
@@ -6892,7 +6892,7 @@ function _jm_obj_77(val, path, rep)
             // handle must flows property
             must_count += 1;
             // .'$SecurityScheme'.'|'.3.flows
-            res = json_model_41(pval, (path ? lpath_75 : null), rep);
+            res = _jm_obj_80(pval, (path ? lpath_75 : null), rep);
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $OAuthFlows [.'$SecurityScheme'.'|'.3.flows]", (path ? lpath_75 : null)])
@@ -7117,7 +7117,7 @@ function _jm_obj_80(val, path, rep)
         {
             // handle may implicit property
             // .'$OAuthFlows'.implicit
-            res = json_model_42(pval, (path ? lpath_78 : null), rep);
+            res = _jm_obj_81(pval, (path ? lpath_78 : null), rep);
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $OAuthFlow [.'$OAuthFlows'.implicit]", (path ? lpath_78 : null)])
@@ -7129,7 +7129,7 @@ function _jm_obj_80(val, path, rep)
         {
             // handle may password property
             // .'$OAuthFlows'.password
-            res = json_model_42(pval, (path ? lpath_78 : null), rep);
+            res = _jm_obj_81(pval, (path ? lpath_78 : null), rep);
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $OAuthFlow [.'$OAuthFlows'.password]", (path ? lpath_78 : null)])
@@ -7141,7 +7141,7 @@ function _jm_obj_80(val, path, rep)
         {
             // handle may clientCredentials property
             // .'$OAuthFlows'.clientCredentials
-            res = json_model_42(pval, (path ? lpath_78 : null), rep);
+            res = _jm_obj_81(pval, (path ? lpath_78 : null), rep);
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $OAuthFlow [.'$OAuthFlows'.clientCredentials]", (path ? lpath_78 : null)])
@@ -7153,7 +7153,7 @@ function _jm_obj_80(val, path, rep)
         {
             // handle may authorizationCode property
             // .'$OAuthFlows'.authorizationCode
-            res = json_model_42(pval, (path ? lpath_78 : null), rep);
+            res = _jm_obj_81(pval, (path ? lpath_78 : null), rep);
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $OAuthFlow [.'$OAuthFlows'.authorizationCode]", (path ? lpath_78 : null)])
@@ -7436,7 +7436,7 @@ function json_model_1(val, path, rep)
 {
     let res;
     // .
-    res = json_model_2(val, path, rep);
+    res = _jm_obj_0(val, path, rep);
     if (! res)
     {
         rep !== null && rep.push(["unexpected $OpenAPI [.]", path])
@@ -7611,7 +7611,7 @@ function json_model_60(val, path, rep)
     if (! res)
     {
         // .'$schema#Schema'.'|'.1
-        res = json_model_59(val, path, rep);
+        res = _jm_obj_85(val, path, rep);
         if (! res)
         {
             rep !== null && rep.push(["unexpected $ObjectSchema [.'$schema#Schema'.'|'.1]", path])

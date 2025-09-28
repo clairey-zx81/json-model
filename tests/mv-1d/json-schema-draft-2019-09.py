@@ -94,7 +94,7 @@ def _jm_f_2(val: Jsonable, path: Path, rep: Report) -> bool:
 def _jm_f_3(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$core'.'$id'
-    res = json_model_3(val, path, rep)
+    res = json_model_2(val, path, rep)
     if not res:
         rep is None or rep.append(("unexpected $id [.'$core'.'$id']", path))
     return res
@@ -982,7 +982,7 @@ def _jm_f_55(val: Jsonable, path: Path, rep: Report) -> bool:
 def _jm_f_56(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$ObjectSchema'.'$id'
-    res = json_model_3(val, path, rep)
+    res = json_model_2(val, path, rep)
     if not res:
         rep is None or rep.append(("unexpected $id [.'$ObjectSchema'.'$id']", path))
     return res
@@ -1616,7 +1616,7 @@ def json_model_16(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("not a bool [.'$Schema'.'|'.0]", path))
     if not res:
         # .'$Schema'.'|'.1
-        res = json_model_15(val, path, rep)
+        res = _jm_obj_12(val, path, rep)
         if not res:
             rep is None or rep.append(("unexpected $ObjectSchema [.'$Schema'.'|'.1]", path))
     if res:

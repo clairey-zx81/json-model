@@ -51,7 +51,7 @@ public class base_031 extends ModelChecker
                         Object arr_0_item = arr_0_item_loop.next();
                         Path arr_0_lpath = new Path(arr_0_idx, (path != null ? lpath_0 : null));
                         // .'$bibi'.bibi.0
-                        res = json_model_2(arr_0_item, ((path != null ? lpath_0 : null) != null ? arr_0_lpath : null), rep);
+                        res = _jm_obj_0(arr_0_item, ((path != null ? lpath_0 : null) != null ? arr_0_lpath : null), rep);
                         if (! res)
                         {
                             if (rep != null) rep.addEntry("unexpected $bibi [.'$bibi'.bibi.0]", ((path != null ? lpath_0 : null) != null ? arr_0_lpath : null));
@@ -104,7 +104,7 @@ public class base_031 extends ModelChecker
     {
         boolean res;
         // .
-        res = json_model_2(val, path, rep);
+        res = _jm_obj_0(val, path, rep);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected $bibi [.]", path);

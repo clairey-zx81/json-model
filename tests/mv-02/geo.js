@@ -1503,7 +1503,7 @@ function _jm_obj_13(val, path, rep)
         if (! res)
         {
             // .'$Feature'.geometry.'|'.2
-            res = json_model_12(pval, path, rep);
+            res = _jm_obj_12(pval, path, rep);
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $GeometryCollection [.'$Feature'.geometry.'|'.2]", path])
@@ -1665,7 +1665,7 @@ function _jm_obj_15(val, path, rep)
             let arr_28_item = pval[arr_28_idx]
             let arr_28_lpath = path ? path.concat([arr_28_idx]) : null;
             // .'$FeatureCollection'.features.0
-            res = json_model_13(arr_28_item, (path ? arr_28_lpath : null), rep);
+            res = _jm_obj_13(arr_28_item, (path ? arr_28_lpath : null), rep);
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $Feature [.'$FeatureCollection'.features.0]", (path ? arr_28_lpath : null)])
@@ -1742,7 +1742,7 @@ function json_model_1(val, path, rep)
         rep !== null && rep.push(["unexpected $geometry [.'^'.0]", path])
     }
     // .'^'.1
-    xr_0 = json_model_12(val, path, rep);
+    xr_0 = _jm_obj_12(val, path, rep);
     if (xr_0)
     {
         xc_0 += 1;
@@ -1754,7 +1754,7 @@ function json_model_1(val, path, rep)
     if (xc_0 <= 1)
     {
         // .'^'.2
-        xr_0 = json_model_13(val, path, rep);
+        xr_0 = _jm_obj_13(val, path, rep);
         if (xr_0)
         {
             xc_0 += 1;
@@ -1767,7 +1767,7 @@ function json_model_1(val, path, rep)
     if (xc_0 <= 1)
     {
         // .'^'.3
-        xr_0 = json_model_14(val, path, rep);
+        xr_0 = _jm_obj_15(val, path, rep);
         if (xr_0)
         {
             xc_0 += 1;

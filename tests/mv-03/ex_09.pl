@@ -12,10 +12,12 @@ use constant JMC_VERSION => '2';
 
 sub json_model_5($$$);
 sub json_model_3($$$);
+sub _jm_obj_0($$$);
 sub json_model_4($$$);
 sub json_model_1($$$);
 sub json_model_6($$$);
 sub json_model_9($$$);
+sub _jm_obj_1($$$);
 sub json_model_8($$$);
 my %check_model_map;
 
@@ -95,7 +97,7 @@ sub json_model_1($$$)
     my ($val, $path, $rep) = @_;
     my $res;
     # .
-    $res = json_model_4($val, $path, $rep);
+    $res = _jm_obj_0($val, $path, $rep);
     return $res;
 }
 
@@ -116,7 +118,7 @@ sub json_model_9($$$)
     my $res;
     # .'$ex08#Ex08'
     # .'$ex08#Ex08'.'|'.0
-    $res = json_model_8($val, $path, $rep);
+    $res = _jm_obj_1($val, $path, $rep);
     if (! $res)
     {
         # .'$ex08#Ex08'.'|'.1

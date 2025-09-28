@@ -62,7 +62,7 @@ function json_model_3(val, path, rep)
     if (! res)
     {
         // .'$rec'.'|'.1
-        res = json_model_2(val, path, rep);
+        res = _jm_obj_0(val, path, rep);
         if (! res)
         {
             rep !== null && rep.push(["unexpected $obj [.'$rec'.'|'.1]", path])

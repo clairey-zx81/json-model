@@ -20,7 +20,7 @@ DECLARE
   res bool;
 BEGIN
   -- .'$OpenAPI'.components
-  res := json_model_8(val, path, rep);
+  res := _jm_obj_9(val, path, rep);
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
@@ -32,7 +32,7 @@ DECLARE
   res bool;
 BEGIN
   -- .'$OpenAPI'.externalDocs
-  res := json_model_12(val, path, rep);
+  res := _jm_obj_24(val, path, rep);
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
@@ -56,7 +56,7 @@ DECLARE
   res bool;
 BEGIN
   -- .'$OpenAPI'.paths
-  res := json_model_9(val, path, rep);
+  res := _jm_obj_20(val, path, rep);
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
@@ -75,7 +75,7 @@ BEGIN
     FOR arr_0_idx IN 0 .. JSONB_ARRAY_LENGTH(val) - 1 LOOP
       arr_0_item := val -> arr_0_idx;
       -- .'$OpenAPI'.security.0
-      res := json_model_43(arr_0_item, NULL, rep);
+      res := _jm_obj_83(arr_0_item, NULL, rep);
       IF NOT res THEN
         EXIT;
       END IF;
@@ -99,7 +99,7 @@ BEGIN
     FOR arr_1_idx IN 0 .. JSONB_ARRAY_LENGTH(val) - 1 LOOP
       arr_1_item := val -> arr_1_idx;
       -- .'$OpenAPI'.servers.0
-      res := json_model_6(arr_1_item, NULL, rep);
+      res := _jm_obj_6(arr_1_item, NULL, rep);
       IF NOT res THEN
         EXIT;
       END IF;
@@ -123,7 +123,7 @@ BEGIN
     FOR arr_2_idx IN 0 .. JSONB_ARRAY_LENGTH(val) - 1 LOOP
       arr_2_item := val -> arr_2_idx;
       -- .'$OpenAPI'.tags.0
-      res := json_model_29(arr_2_item, NULL, rep);
+      res := _jm_obj_57(arr_2_item, NULL, rep);
       IF NOT res THEN
         EXIT;
       END IF;
@@ -147,7 +147,7 @@ BEGIN
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     -- handle other props
     -- .'$OpenAPI'.webhooks.''
-    res := json_model_10(pval, NULL, rep);
+    res := _jm_obj_21(pval, NULL, rep);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -205,7 +205,7 @@ BEGIN
       -- handle must info property
       must_count := must_count + 1;
       -- .'$OpenAPI'.info
-      res := json_model_3(pval, NULL, rep);
+      res := _jm_obj_2(pval, NULL, rep);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -299,7 +299,7 @@ BEGIN
     ELSEIF prop = 'contact' THEN
       -- handle may contact property
       -- .'$Info'.contact
-      res := json_model_4(pval, NULL, rep);
+      res := _jm_obj_3(pval, NULL, rep);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -538,7 +538,7 @@ BEGIN
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     -- handle other props
     -- .'$Server'.variables.''
-    res := json_model_7(pval, NULL, rep);
+    res := _jm_obj_8(pval, NULL, rep);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -706,10 +706,10 @@ BEGIN
     -- handle other props
     -- .'$Components'.callbacks.''
     -- .'$Components'.callbacks.''.'|'.0
-    res := json_model_24(pval, NULL, rep);
+    res := _jm_obj_47(pval, NULL, rep);
     IF NOT res THEN
       -- .'$Components'.callbacks.''.'|'.1
-      res := json_model_30(pval, NULL, rep);
+      res := _jm_obj_58(pval, NULL, rep);
     END IF;
     IF NOT res THEN
       RETURN FALSE;
@@ -746,10 +746,10 @@ BEGIN
     -- handle other props
     -- .'$Components'.examples.''
     -- .'$Components'.examples.''.'|'.0
-    res := json_model_25(pval, NULL, rep);
+    res := _jm_obj_48(pval, NULL, rep);
     IF NOT res THEN
       -- .'$Components'.examples.''.'|'.1
-      res := json_model_30(pval, NULL, rep);
+      res := _jm_obj_58(pval, NULL, rep);
     END IF;
     IF NOT res THEN
       RETURN FALSE;
@@ -789,7 +789,7 @@ BEGIN
     res := json_model_28(pval, NULL, rep);
     IF NOT res THEN
       -- .'$Components'.headers.''.'|'.1
-      res := json_model_30(pval, NULL, rep);
+      res := _jm_obj_58(pval, NULL, rep);
     END IF;
     IF NOT res THEN
       RETURN FALSE;
@@ -829,7 +829,7 @@ BEGIN
     res := json_model_27(pval, NULL, rep);
     IF NOT res THEN
       -- .'$Components'.links.''.'|'.1
-      res := json_model_30(pval, NULL, rep);
+      res := _jm_obj_58(pval, NULL, rep);
     END IF;
     IF NOT res THEN
       RETURN FALSE;
@@ -869,7 +869,7 @@ BEGIN
     res := json_model_18(pval, NULL, rep);
     IF NOT res THEN
       -- .'$Components'.parameters.''.'|'.1
-      res := json_model_30(pval, NULL, rep);
+      res := _jm_obj_58(pval, NULL, rep);
     END IF;
     IF NOT res THEN
       RETURN FALSE;
@@ -906,10 +906,10 @@ BEGIN
     -- handle other props
     -- .'$Components'.pathItems.''
     -- .'$Components'.pathItems.''.'|'.0
-    res := json_model_10(pval, NULL, rep);
+    res := _jm_obj_21(pval, NULL, rep);
     IF NOT res THEN
       -- .'$Components'.pathItems.''.'|'.1
-      res := json_model_30(pval, NULL, rep);
+      res := _jm_obj_58(pval, NULL, rep);
     END IF;
     IF NOT res THEN
       RETURN FALSE;
@@ -946,10 +946,10 @@ BEGIN
     -- handle other props
     -- .'$Components'.requestBodies.''
     -- .'$Components'.requestBodies.''.'|'.0
-    res := json_model_19(pval, NULL, rep);
+    res := _jm_obj_35(pval, NULL, rep);
     IF NOT res THEN
       -- .'$Components'.requestBodies.''.'|'.1
-      res := json_model_30(pval, NULL, rep);
+      res := _jm_obj_58(pval, NULL, rep);
     END IF;
     IF NOT res THEN
       RETURN FALSE;
@@ -986,10 +986,10 @@ BEGIN
     -- handle other props
     -- .'$Components'.responses.''
     -- .'$Components'.responses.''.'|'.0
-    res := json_model_23(pval, NULL, rep);
+    res := _jm_obj_43(pval, NULL, rep);
     IF NOT res THEN
       -- .'$Components'.responses.''.'|'.1
-      res := json_model_30(pval, NULL, rep);
+      res := _jm_obj_58(pval, NULL, rep);
     END IF;
     IF NOT res THEN
       RETURN FALSE;
@@ -1025,7 +1025,7 @@ BEGIN
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     -- handle other props
     -- .'$Components'.schemas.''
-    res := json_model_32(pval, NULL, rep);
+    res := _jm_obj_59(pval, NULL, rep);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -1064,7 +1064,7 @@ BEGIN
     res := json_model_40(pval, NULL, rep);
     IF NOT res THEN
       -- .'$Components'.securitySchemes.''.'|'.1
-      res := json_model_30(pval, NULL, rep);
+      res := _jm_obj_58(pval, NULL, rep);
     END IF;
     IF NOT res THEN
       RETURN FALSE;
@@ -1156,7 +1156,7 @@ BEGIN
     IF STARTS_WITH(prop, '/') THEN
       -- handle 2 re props
       -- .'$Paths'.'/^//'
-      res := json_model_10(pval, NULL, rep);
+      res := _jm_obj_21(pval, NULL, rep);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -1206,7 +1206,7 @@ DECLARE
   res bool;
 BEGIN
   -- .'$PathItem'.delete
-  res := json_model_11(val, path, rep);
+  res := _jm_obj_22(val, path, rep);
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
@@ -1230,7 +1230,7 @@ DECLARE
   res bool;
 BEGIN
   -- .'$PathItem'.get
-  res := json_model_11(val, path, rep);
+  res := _jm_obj_22(val, path, rep);
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
@@ -1242,7 +1242,7 @@ DECLARE
   res bool;
 BEGIN
   -- .'$PathItem'.head
-  res := json_model_11(val, path, rep);
+  res := _jm_obj_22(val, path, rep);
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
@@ -1254,7 +1254,7 @@ DECLARE
   res bool;
 BEGIN
   -- .'$PathItem'.options
-  res := json_model_11(val, path, rep);
+  res := _jm_obj_22(val, path, rep);
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
@@ -1277,7 +1277,7 @@ BEGIN
       res := json_model_18(arr_4_item, NULL, rep);
       IF NOT res THEN
         -- .'$PathItem'.parameters.0.'|'.1
-        res := json_model_30(arr_4_item, NULL, rep);
+        res := _jm_obj_58(arr_4_item, NULL, rep);
       END IF;
       IF NOT res THEN
         EXIT;
@@ -1295,7 +1295,7 @@ DECLARE
   res bool;
 BEGIN
   -- .'$PathItem'.patch
-  res := json_model_11(val, path, rep);
+  res := _jm_obj_22(val, path, rep);
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
@@ -1307,7 +1307,7 @@ DECLARE
   res bool;
 BEGIN
   -- .'$PathItem'.post
-  res := json_model_11(val, path, rep);
+  res := _jm_obj_22(val, path, rep);
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
@@ -1319,7 +1319,7 @@ DECLARE
   res bool;
 BEGIN
   -- .'$PathItem'.put
-  res := json_model_11(val, path, rep);
+  res := _jm_obj_22(val, path, rep);
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
@@ -1338,7 +1338,7 @@ BEGIN
     FOR arr_5_idx IN 0 .. JSONB_ARRAY_LENGTH(val) - 1 LOOP
       arr_5_item := val -> arr_5_idx;
       -- .'$PathItem'.servers.0
-      res := json_model_11(arr_5_item, NULL, rep);
+      res := _jm_obj_22(arr_5_item, NULL, rep);
       IF NOT res THEN
         EXIT;
       END IF;
@@ -1367,7 +1367,7 @@ DECLARE
   res bool;
 BEGIN
   -- .'$PathItem'.trace
-  res := json_model_11(val, path, rep);
+  res := _jm_obj_22(val, path, rep);
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
@@ -1442,10 +1442,10 @@ BEGIN
     -- handle other props
     -- .'$Operation'.callbacks.''
     -- .'$Operation'.callbacks.''.'|'.0
-    res := json_model_24(pval, NULL, rep);
+    res := _jm_obj_47(pval, NULL, rep);
     IF NOT res THEN
       -- .'$Operation'.callbacks.''.'|'.1
-      res := json_model_30(pval, NULL, rep);
+      res := _jm_obj_58(pval, NULL, rep);
     END IF;
     IF NOT res THEN
       RETURN FALSE;
@@ -1498,7 +1498,7 @@ DECLARE
   res bool;
 BEGIN
   -- .'$Operation'.externalDocs
-  res := json_model_12(val, path, rep);
+  res := _jm_obj_24(val, path, rep);
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
@@ -1533,7 +1533,7 @@ BEGIN
       res := json_model_18(arr_6_item, NULL, rep);
       IF NOT res THEN
         -- .'$Operation'.parameters.0.'|'.1
-        res := json_model_30(arr_6_item, NULL, rep);
+        res := _jm_obj_58(arr_6_item, NULL, rep);
       END IF;
       IF NOT res THEN
         EXIT;
@@ -1552,10 +1552,10 @@ DECLARE
 BEGIN
   -- .'$Operation'.requestBody
   -- .'$Operation'.requestBody.'|'.0
-  res := json_model_19(val, path, rep);
+  res := _jm_obj_35(val, path, rep);
   IF NOT res THEN
     -- .'$Operation'.requestBody.'|'.1
-    res := json_model_30(val, path, rep);
+    res := _jm_obj_58(val, path, rep);
   END IF;
   RETURN res;
 END;
@@ -1568,7 +1568,7 @@ DECLARE
   res bool;
 BEGIN
   -- .'$Operation'.responses
-  res := json_model_22(val, path, rep);
+  res := _jm_obj_42(val, path, rep);
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
@@ -1587,7 +1587,7 @@ BEGIN
     FOR arr_7_idx IN 0 .. JSONB_ARRAY_LENGTH(val) - 1 LOOP
       arr_7_item := val -> arr_7_idx;
       -- .'$Operation'.security.0
-      res := json_model_43(arr_7_item, NULL, rep);
+      res := _jm_obj_83(arr_7_item, NULL, rep);
       IF NOT res THEN
         EXIT;
       END IF;
@@ -1611,7 +1611,7 @@ BEGIN
     FOR arr_8_idx IN 0 .. JSONB_ARRAY_LENGTH(val) - 1 LOOP
       arr_8_item := val -> arr_8_idx;
       -- .'$Operation'.servers.0
-      res := json_model_6(arr_8_item, NULL, rep);
+      res := _jm_obj_6(arr_8_item, NULL, rep);
       IF NOT res THEN
         EXIT;
       END IF;
@@ -1996,10 +1996,10 @@ BEGIN
     -- handle other props
     -- .'$parameterSchemaOnly'.examples.''
     -- .'$parameterSchemaOnly'.examples.''.'|'.0
-    res := json_model_25(pval, NULL, rep);
+    res := _jm_obj_48(pval, NULL, rep);
     IF NOT res THEN
       -- .'$parameterSchemaOnly'.examples.''.'|'.1
-      res := json_model_30(pval, NULL, rep);
+      res := _jm_obj_58(pval, NULL, rep);
     END IF;
     IF NOT res THEN
       RETURN FALSE;
@@ -2040,7 +2040,7 @@ DECLARE
   res bool;
 BEGIN
   -- .'$parameterSchemaOnly'.schema
-  res := json_model_32(val, path, rep);
+  res := _jm_obj_59(val, path, rep);
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
@@ -2118,7 +2118,7 @@ BEGIN
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     -- handle other props
     -- .'$parameterContentOnly'.content.''
-    res := json_model_20(pval, NULL, rep);
+    res := _jm_obj_37(pval, NULL, rep);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -2250,10 +2250,10 @@ BEGIN
     -- handle other props
     -- .'$Parameter'.'|'.0.examples.''
     -- .'$Parameter'.'|'.0.examples.''.'|'.0
-    res := json_model_25(pval, NULL, rep);
+    res := _jm_obj_48(pval, NULL, rep);
     IF NOT res THEN
       -- .'$Parameter'.'|'.0.examples.''.'|'.1
-      res := json_model_30(pval, NULL, rep);
+      res := _jm_obj_58(pval, NULL, rep);
     END IF;
     IF NOT res THEN
       RETURN FALSE;
@@ -2306,7 +2306,7 @@ DECLARE
   res bool;
 BEGIN
   -- .'$Parameter'.'|'.0.schema
-  res := json_model_32(val, path, rep);
+  res := _jm_obj_59(val, path, rep);
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
@@ -2410,7 +2410,7 @@ BEGIN
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     -- handle other props
     -- .'$Parameter'.'|'.1.content.''
-    res := json_model_20(pval, NULL, rep);
+    res := _jm_obj_37(pval, NULL, rep);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -2546,7 +2546,7 @@ BEGIN
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     -- handle other props
     -- .'$RequestBody'.content.''
-    res := json_model_20(pval, NULL, rep);
+    res := _jm_obj_37(pval, NULL, rep);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -2630,10 +2630,10 @@ BEGIN
     -- handle other props
     -- .'$MediaType'.examples.''
     -- .'$MediaType'.examples.''.'|'.0
-    res := json_model_25(pval, NULL, rep);
+    res := _jm_obj_48(pval, NULL, rep);
     IF NOT res THEN
       -- .'$MediaType'.examples.''.'|'.1
-      res := json_model_30(pval, NULL, rep);
+      res := _jm_obj_58(pval, NULL, rep);
     END IF;
     IF NOT res THEN
       RETURN FALSE;
@@ -2657,7 +2657,7 @@ BEGIN
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     -- handle other props
     -- .'$MediaType'.encoding.''
-    res := json_model_21(pval, NULL, rep);
+    res := _jm_obj_40(pval, NULL, rep);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -2681,7 +2681,7 @@ BEGIN
     IF prop = 'schema' THEN
       -- handle may schema property
       -- .'$MediaType'.schema
-      res := json_model_32(pval, NULL, rep);
+      res := _jm_obj_59(pval, NULL, rep);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -2751,7 +2751,7 @@ BEGIN
     res := json_model_28(pval, NULL, rep);
     IF NOT res THEN
       -- .'$Encoding'.headers.''.'|'.1
-      res := json_model_30(pval, NULL, rep);
+      res := _jm_obj_58(pval, NULL, rep);
     END IF;
     IF NOT res THEN
       RETURN FALSE;
@@ -2859,10 +2859,10 @@ BEGIN
       -- handle may default property
       -- .'$Responses'.default
       -- .'$Responses'.default.'|'.0
-      res := json_model_23(pval, NULL, rep);
+      res := _jm_obj_43(pval, NULL, rep);
       IF NOT res THEN
         -- .'$Responses'.default.'|'.1
-        res := json_model_30(pval, NULL, rep);
+        res := _jm_obj_58(pval, NULL, rep);
       END IF;
       IF NOT res THEN
         RETURN FALSE;
@@ -2871,10 +2871,10 @@ BEGIN
       -- handle 2 re props
       -- .'$Responses'.'/^[1-5](\\d\\d|XX)$/'
       -- .'$Responses'.'/^[1-5](\\d\\d|XX)$/'.'|'.0
-      res := json_model_23(pval, NULL, rep);
+      res := _jm_obj_43(pval, NULL, rep);
       IF NOT res THEN
         -- .'$Responses'.'/^[1-5](\\d\\d|XX)$/'.'|'.1
-        res := json_model_30(pval, NULL, rep);
+        res := _jm_obj_58(pval, NULL, rep);
       END IF;
       IF NOT res THEN
         RETURN FALSE;
@@ -2924,7 +2924,7 @@ BEGIN
     res := json_model_28(pval, NULL, rep);
     IF NOT res THEN
       -- .'$Response'.headers.''.'|'.1
-      res := json_model_30(pval, NULL, rep);
+      res := _jm_obj_58(pval, NULL, rep);
     END IF;
     IF NOT res THEN
       RETURN FALSE;
@@ -2948,7 +2948,7 @@ BEGIN
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     -- handle other props
     -- .'$Response'.content.''
-    res := json_model_20(pval, NULL, rep);
+    res := _jm_obj_37(pval, NULL, rep);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -2975,7 +2975,7 @@ BEGIN
     res := json_model_27(pval, NULL, rep);
     IF NOT res THEN
       -- .'$Response'.links.''.'|'.1
-      res := json_model_30(pval, NULL, rep);
+      res := _jm_obj_58(pval, NULL, rep);
     END IF;
     IF NOT res THEN
       RETURN FALSE;
@@ -3068,10 +3068,10 @@ BEGIN
       -- handle 1 key props
       -- .'$Callback'.'$Expression'
       -- .'$Callback'.'$Expression'.'|'.0
-      res := json_model_10(pval, NULL, rep);
+      res := _jm_obj_21(pval, NULL, rep);
       IF NOT res THEN
         -- .'$Callback'.'$Expression'.'|'.1
-        res := json_model_30(pval, NULL, rep);
+        res := _jm_obj_58(pval, NULL, rep);
       END IF;
       IF NOT res THEN
         RETURN FALSE;
@@ -3240,7 +3240,7 @@ BEGIN
     ELSEIF prop = 'server' THEN
       -- handle may server property
       -- .'$Link'.'|'.1.server
-      res := json_model_6(pval, NULL, rep);
+      res := _jm_obj_6(pval, NULL, rep);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -3320,7 +3320,7 @@ BEGIN
     ELSEIF prop = 'server' THEN
       -- handle may server property
       -- .'$Link'.'|'.0.server
-      res := json_model_6(pval, NULL, rep);
+      res := _jm_obj_6(pval, NULL, rep);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -3376,7 +3376,7 @@ BEGIN
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     -- handle other props
     -- .'$Header'.'|'.1.content.''
-    res := json_model_20(pval, NULL, rep);
+    res := _jm_obj_37(pval, NULL, rep);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -3522,10 +3522,10 @@ BEGIN
     -- handle other props
     -- .'$Header'.'|'.0.examples.''
     -- .'$Header'.'|'.0.examples.''.'|'.0
-    res := json_model_25(pval, NULL, rep);
+    res := _jm_obj_48(pval, NULL, rep);
     IF NOT res THEN
       -- .'$Header'.'|'.0.examples.''.'|'.1
-      res := json_model_30(pval, NULL, rep);
+      res := _jm_obj_58(pval, NULL, rep);
     END IF;
     IF NOT res THEN
       RETURN FALSE;
@@ -3578,7 +3578,7 @@ DECLARE
   res bool;
 BEGIN
   -- .'$Header'.'|'.0.schema
-  res := json_model_32(val, path, rep);
+  res := _jm_obj_59(val, path, rep);
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
@@ -3691,7 +3691,7 @@ BEGIN
     ELSEIF prop = 'externalDocs' THEN
       -- handle may externalDocs property
       -- .'$Tag'.externalDocs
-      res := json_model_12(pval, NULL, rep);
+      res := _jm_obj_24(pval, NULL, rep);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -4165,7 +4165,7 @@ DECLARE
   res bool;
 BEGIN
   -- .'$Schema'.discriminator
-  res := json_model_33(val, path, rep);
+  res := _jm_obj_66(val, path, rep);
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
@@ -4249,7 +4249,7 @@ DECLARE
   res bool;
 BEGIN
   -- .'$Schema'.externalDocs
-  res := json_model_12(val, path, rep);
+  res := _jm_obj_24(val, path, rep);
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
@@ -4676,7 +4676,7 @@ DECLARE
   res bool;
 BEGIN
   -- .'$Schema'.xml
-  res := json_model_34(val, path, rep);
+  res := _jm_obj_68(val, path, rep);
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
@@ -5102,7 +5102,7 @@ BEGIN
       -- handle must flows property
       must_count := must_count + 1;
       -- .'$SS-oauth2'.flows
-      res := json_model_41(pval, NULL, rep);
+      res := _jm_obj_80(pval, NULL, rep);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -5377,7 +5377,7 @@ BEGIN
       -- handle must flows property
       must_count := must_count + 1;
       -- .'$SecurityScheme'.'|'.3.flows
-      res := json_model_41(pval, NULL, rep);
+      res := _jm_obj_80(pval, NULL, rep);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -5530,28 +5530,28 @@ BEGIN
     IF prop = 'implicit' THEN
       -- handle may implicit property
       -- .'$OAuthFlows'.implicit
-      res := json_model_42(pval, NULL, rep);
+      res := _jm_obj_81(pval, NULL, rep);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
     ELSEIF prop = 'password' THEN
       -- handle may password property
       -- .'$OAuthFlows'.password
-      res := json_model_42(pval, NULL, rep);
+      res := _jm_obj_81(pval, NULL, rep);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
     ELSEIF prop = 'clientCredentials' THEN
       -- handle may clientCredentials property
       -- .'$OAuthFlows'.clientCredentials
-      res := json_model_42(pval, NULL, rep);
+      res := _jm_obj_81(pval, NULL, rep);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
     ELSEIF prop = 'authorizationCode' THEN
       -- handle may authorizationCode property
       -- .'$OAuthFlows'.authorizationCode
-      res := json_model_42(pval, NULL, rep);
+      res := _jm_obj_81(pval, NULL, rep);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -5773,7 +5773,7 @@ DECLARE
   res bool;
 BEGIN
   -- .
-  res := json_model_2(val, path, rep);
+  res := _jm_obj_0(val, path, rep);
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
@@ -5922,7 +5922,7 @@ BEGIN
   res := JSONB_TYPEOF(val) = 'boolean';
   IF NOT res THEN
     -- .'$schema#Schema'.'|'.1
-    res := json_model_59(val, path, rep);
+    res := _jm_obj_85(val, path, rep);
   END IF;
   RETURN res;
 END;

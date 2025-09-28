@@ -150,7 +150,7 @@ BEGIN
             res := json_model_7(val, path, rep);
             IF NOT res THEN
               -- .'$Any'.'|'.6
-              res := json_model_8(val, path, rep);
+              res := _jm_obj_0(val, path, rep);
             END IF;
           END IF;
         END IF;

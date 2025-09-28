@@ -45,7 +45,7 @@ BEGIN
       res := JSONB_TYPEOF(arr_0_item) = 'string';
       IF NOT res THEN
         -- .'$distinctSchemaArray'.'@'.0.'|'.1
-        res := json_model_1(arr_0_item, NULL, rep);
+        res := _jm_obj_0(arr_0_item, NULL, rep);
       END IF;
       IF NOT res THEN
         EXIT;
@@ -94,7 +94,7 @@ BEGIN
   res := JSONB_TYPEOF(val) = 'boolean';
   IF NOT res THEN
     -- .additionalItems.'|'.1
-    res := json_model_1(val, path, rep);
+    res := _jm_obj_0(val, path, rep);
   END IF;
   RETURN res;
 END;
@@ -111,7 +111,7 @@ BEGIN
   res := JSONB_TYPEOF(val) = 'boolean';
   IF NOT res THEN
     -- .additionalProperties.'|'.1
-    res := json_model_1(val, path, rep);
+    res := _jm_obj_0(val, path, rep);
   END IF;
   RETURN res;
 END;
@@ -162,7 +162,7 @@ BEGIN
       END IF;
       IF NOT res THEN
         -- .dependencies.''.'|'.2
-        res := json_model_1(pval, NULL, rep);
+        res := _jm_obj_0(pval, NULL, rep);
       END IF;
     END IF;
     IF NOT res THEN
@@ -278,7 +278,7 @@ DECLARE
 BEGIN
   -- .extends
   -- .extends.'|'.0
-  res := json_model_1(val, path, rep);
+  res := _jm_obj_0(val, path, rep);
   IF NOT res THEN
     -- .extends.'|'.1
     res := JSONB_TYPEOF(val) = 'array';
@@ -286,7 +286,7 @@ BEGIN
       FOR arr_2_idx IN 0 .. JSONB_ARRAY_LENGTH(val) - 1 LOOP
         arr_2_item := val -> arr_2_idx;
         -- .extends.'|'.1.0
-        res := json_model_1(arr_2_item, NULL, rep);
+        res := _jm_obj_0(arr_2_item, NULL, rep);
         IF NOT res THEN
           EXIT;
         END IF;
@@ -340,7 +340,7 @@ DECLARE
 BEGIN
   -- .items
   -- .items.'|'.0
-  res := json_model_1(val, path, rep);
+  res := _jm_obj_0(val, path, rep);
   IF NOT res THEN
     -- .items.'|'.1
     res := JSONB_TYPEOF(val) = 'array';
@@ -348,7 +348,7 @@ BEGIN
       FOR arr_3_idx IN 0 .. JSONB_ARRAY_LENGTH(val) - 1 LOOP
         arr_3_item := val -> arr_3_idx;
         -- .items.'|'.1.0
-        res := json_model_1(arr_3_item, NULL, rep);
+        res := _jm_obj_0(arr_3_item, NULL, rep);
         IF NOT res THEN
           EXIT;
         END IF;
@@ -457,7 +457,7 @@ BEGIN
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     -- handle other props
     -- .patternProperties.''
-    res := json_model_1(pval, NULL, rep);
+    res := _jm_obj_0(pval, NULL, rep);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -492,7 +492,7 @@ BEGIN
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     -- handle other props
     -- .properties.''
-    res := json_model_1(pval, NULL, rep);
+    res := _jm_obj_0(pval, NULL, rep);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -559,7 +559,7 @@ BEGIN
         res := JSONB_TYPEOF(arr_4_item) = 'string';
         IF NOT res THEN
           -- .type.'|'.1.0.'|'.1
-          res := json_model_1(arr_4_item, NULL, rep);
+          res := _jm_obj_0(arr_4_item, NULL, rep);
         END IF;
         IF NOT res THEN
           EXIT;

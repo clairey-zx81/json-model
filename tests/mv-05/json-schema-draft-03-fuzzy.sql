@@ -19,7 +19,7 @@ BEGIN
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     -- handle other props
     -- .'$schema'.properties.''
-    res := json_model_3(pval, NULL, rep);
+    res := _jm_obj_0(pval, NULL, rep);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -42,7 +42,7 @@ BEGIN
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     -- handle other props
     -- .'$schema'.patternProperties.''
-    res := json_model_3(pval, NULL, rep);
+    res := _jm_obj_0(pval, NULL, rep);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -84,7 +84,7 @@ BEGIN
       END IF;
       IF NOT res THEN
         -- .'$schema'.dependencies.''.'|'.2
-        res := json_model_3(pval, NULL, rep);
+        res := _jm_obj_0(pval, NULL, rep);
       END IF;
     END IF;
     IF NOT res THEN
@@ -129,7 +129,7 @@ BEGIN
           res := JSONB_TYPEOF(arr_0_item) = 'string';
           IF NOT res THEN
             -- .'$schema'.type.'|'.1.0.'|'.1
-            res := json_model_3(arr_0_item, NULL, rep);
+            res := _jm_obj_0(arr_0_item, NULL, rep);
           END IF;
           IF NOT res THEN
             EXIT;
@@ -164,7 +164,7 @@ BEGIN
     res := JSONB_TYPEOF(pval) = 'boolean';
     IF NOT res THEN
       -- .'$schema'.additionalProperties.'|'.1
-      res := json_model_3(pval, path, rep);
+      res := _jm_obj_0(pval, path, rep);
     END IF;
     IF NOT res THEN
       RETURN FALSE;
@@ -174,7 +174,7 @@ BEGIN
     pval := val -> 'items';
     -- .'$schema'.items
     -- .'$schema'.items.'|'.0
-    res := json_model_3(pval, path, rep);
+    res := _jm_obj_0(pval, path, rep);
     IF NOT res THEN
       -- .'$schema'.items.'|'.1
       res := JSONB_TYPEOF(pval) = 'array';
@@ -182,7 +182,7 @@ BEGIN
         FOR arr_1_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
           arr_1_item := pval -> arr_1_idx;
           -- .'$schema'.items.'|'.1.0
-          res := json_model_3(arr_1_item, NULL, rep);
+          res := _jm_obj_0(arr_1_item, NULL, rep);
           IF NOT res THEN
             EXIT;
           END IF;
@@ -200,7 +200,7 @@ BEGIN
     res := JSONB_TYPEOF(pval) = 'boolean';
     IF NOT res THEN
       -- .'$schema'.additionalItems.'|'.1
-      res := json_model_3(pval, path, rep);
+      res := _jm_obj_0(pval, path, rep);
     END IF;
     IF NOT res THEN
       RETURN FALSE;
@@ -348,7 +348,7 @@ BEGIN
     pval := val -> 'extends';
     -- .'$schema'.extends
     -- .'$schema'.extends.'|'.0
-    res := json_model_3(pval, path, rep);
+    res := _jm_obj_0(pval, path, rep);
     IF NOT res THEN
       -- .'$schema'.extends.'|'.1
       res := JSONB_TYPEOF(pval) = 'array';
@@ -356,7 +356,7 @@ BEGIN
         FOR arr_3_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
           arr_3_item := pval -> arr_3_idx;
           -- .'$schema'.extends.'|'.1.0
-          res := json_model_3(arr_3_item, NULL, rep);
+          res := _jm_obj_0(arr_3_item, NULL, rep);
           IF NOT res THEN
             EXIT;
           END IF;
@@ -431,7 +431,7 @@ DECLARE
   res bool;
 BEGIN
   -- .
-  res := json_model_3(val, path, rep);
+  res := _jm_obj_0(val, path, rep);
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
@@ -476,7 +476,7 @@ BEGIN
       res := JSONB_TYPEOF(arr_4_item) = 'string';
       IF NOT res THEN
         -- .'$schema#distinctSchemaArray'.'@'.0.'|'.1
-        res := json_model_3(arr_4_item, NULL, rep);
+        res := _jm_obj_0(arr_4_item, NULL, rep);
       END IF;
       IF NOT res THEN
         EXIT;

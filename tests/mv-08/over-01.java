@@ -24,7 +24,7 @@ public class over_01 extends ModelChecker
     {
         boolean res;
         // .'$over'
-        res = json_model_4(val, path, rep);
+        res = _jm_obj_0(val, path, rep);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected $Foo [.'$over']", path);
@@ -37,7 +37,7 @@ public class over_01 extends ModelChecker
     {
         boolean res;
         // .
-        res = json_model_4(val, path, rep);
+        res = _jm_obj_0(val, path, rep);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected $over#Foo [.]", path);

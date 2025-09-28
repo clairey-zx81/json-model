@@ -595,7 +595,7 @@ def json_model_8(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("not a bool [.'$Schema'.'|'.0]", path))
     if not res:
         # .'$Schema'.'|'.1
-        res = json_model_7(val, path, rep)
+        res = _jm_obj_0(val, path, rep)
         if not res:
             rep is None or rep.append(("unexpected $ObjectSchema [.'$Schema'.'|'.1]", path))
     if res:

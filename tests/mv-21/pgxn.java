@@ -664,7 +664,7 @@ public class pgxn extends ModelChecker
             {
                 // handle 1 key props
                 // .'$Prereqs'.'$Phase'.'$Relation'
-                res = json_model_15(pval, (path != null ? lpath_6 : null), rep);
+                res = _jm_obj_4(pval, (path != null ? lpath_6 : null), rep);
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected $Prereq [.'$Prereqs'.'$Phase'.'$Relation']", (path != null ? lpath_6 : null));
@@ -989,7 +989,7 @@ public class pgxn extends ModelChecker
             Path lpath_10 = new Path(prop, path);
             // handle other props
             // .provides.''
-            res = json_model_6(pval, (path != null ? lpath_10 : null), rep);
+            res = _jm_obj_0(pval, (path != null ? lpath_10 : null), rep);
             if (! res)
             {
                 if (rep != null) rep.addEntry("unexpected $Provide [.provides.'']", (path != null ? lpath_10 : null));
@@ -1118,7 +1118,7 @@ public class pgxn extends ModelChecker
     {
         boolean res;
         // .prereqs
-        res = json_model_16(val, path, rep);
+        res = _jm_obj_5(val, path, rep);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected $Prereqs [.prereqs]", path);
@@ -1144,7 +1144,7 @@ public class pgxn extends ModelChecker
     {
         boolean res;
         // .resources
-        res = json_model_8(val, path, rep);
+        res = _jm_obj_1(val, path, rep);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected $Resources [.resources]", path);

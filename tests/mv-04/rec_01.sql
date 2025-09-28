@@ -19,7 +19,7 @@ BEGIN
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     -- handle other props
     -- .''
-    res := json_model_1(pval, NULL, rep);
+    res := _jm_obj_0(pval, NULL, rep);
     IF NOT res THEN
       RETURN FALSE;
     END IF;

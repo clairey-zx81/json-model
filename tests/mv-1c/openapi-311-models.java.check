@@ -1,7 +1,7 @@
 openapi-311-models.values.json[0]: PASS
 openapi-311-models.values.json[1]: FAIL (openapi: unexpected /^3\.1\.\d+(-.+)?$/ [.'$openapi#OpenAPI'.openapi]; openapi: invalid mandatory prop value [.'$openapi#OpenAPI'.openapi])
-openapi-311-models.values.json[2]: FAIL (info, title: unexpected string [.'$openapi#Info'.title]; info, title: invalid mandatory prop value [.'$openapi#Info'.title]; info: unexpected element [.'$openapi#Info']; info: unexpected $Info [.'$openapi#OpenAPI'.info]; info: invalid mandatory prop value [.'$openapi#OpenAPI'.info])
-openapi-311-models.values.json[3]: FAIL (info, version: unexpected string [.'$openapi#Info'.version]; info, version: invalid mandatory prop value [.'$openapi#Info'.version]; info: unexpected element [.'$openapi#Info']; info: unexpected $Info [.'$openapi#OpenAPI'.info]; info: invalid mandatory prop value [.'$openapi#OpenAPI'.info])
+openapi-311-models.values.json[2]: FAIL (info, title: unexpected string [.'$openapi#Info'.title]; info, title: invalid mandatory prop value [.'$openapi#Info'.title]; info: unexpected $Info [.'$openapi#OpenAPI'.info]; info: invalid mandatory prop value [.'$openapi#OpenAPI'.info])
+openapi-311-models.values.json[3]: FAIL (info, version: unexpected string [.'$openapi#Info'.version]; info, version: invalid mandatory prop value [.'$openapi#Info'.version]; info: unexpected $Info [.'$openapi#OpenAPI'.info]; info: invalid mandatory prop value [.'$openapi#OpenAPI'.info])
 openapi-311-models.values.json[4]: FAIL (: missing mandatory prop <info> [.'$openapi#OpenAPI'])
 openapi-311-models.values.json[5]: FAIL (: missing mandatory prop <openapi> [.'$openapi#OpenAPI'])
 openapi-311-models.values.json[6]: FAIL (: missing mandatory prop <info> [.'$openapi#OpenAPI']; : missing mandatory prop <openapi> [.'$openapi#OpenAPI'])

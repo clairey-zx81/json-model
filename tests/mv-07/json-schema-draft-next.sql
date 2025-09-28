@@ -2236,7 +2236,7 @@ BEGIN
   res := JSONB_TYPEOF(val) = 'boolean';
   IF NOT res THEN
     -- .'$Schema'.'|'.1
-    res := json_model_15(val, path, rep);
+    res := _jm_obj_15(val, path, rep);
   END IF;
   RETURN res;
 END;

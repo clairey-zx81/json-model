@@ -29,7 +29,7 @@ function json_model_1(val, path, rep)
 {
     let res;
     // .
-    res = json_model_3(val, path, rep);
+    res = json_model_6(val, path, rep);
     if (! res)
     {
         rep !== null && rep.push(["unexpected $Dd [.]", path])
@@ -50,7 +50,7 @@ function json_model_6(val, path, rep)
             let arr_0_item = val[arr_0_idx]
             let arr_0_lpath = path ? path.concat([arr_0_idx]) : null;
             // .'$Dd#l'.0
-            res = json_model_10(arr_0_item, (path ? arr_0_lpath : null), rep);
+            res = _jm_obj_0(arr_0_item, (path ? arr_0_lpath : null), rep);
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $u [.'$Dd#l'.0]", (path ? arr_0_lpath : null)])
@@ -70,7 +70,7 @@ function json_model_10(val, path, rep)
 {
     let res;
     // .'$Dd#u'
-    res = json_model_12(val, path, rep);
+    res = _jm_obj_0(val, path, rep);
     if (! res)
     {
         rep !== null && rep.push(["unexpected $Uu#un [.'$Dd#u']", path])

@@ -53,7 +53,7 @@ def json_model_18(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("not a bool [.'$schema#Schema'.'|'.0]", path))
     if not res:
         # .'$schema#Schema'.'|'.1
-        res = json_model_17(val, path, rep)
+        res = _jm_obj_0(val, path, rep)
         if not res:
             rep is None or rep.append(("unexpected $ObjectSchema [.'$schema#Schema'.'|'.1]", path))
     if res:
@@ -223,7 +223,7 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
     if "$id" in val:
         pval = val.get("$id", UNDEFINED)
         # .'$schema#ObjectSchema'.'$id'
-        res = json_model_5(pval, path, rep)
+        res = json_model_4(pval, path, rep)
         if not res:
             rep is None or rep.append(("unexpected $id [.'$schema#ObjectSchema'.'$id']", path))
             rep is None or rep.append(("unexpected value for optional prop <$id> [.'$schema#ObjectSchema']", path))

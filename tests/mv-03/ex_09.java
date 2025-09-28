@@ -110,7 +110,7 @@ public class ex_09 extends ModelChecker
     {
         boolean res;
         // .
-        res = json_model_4(val, path, rep);
+        res = _jm_obj_0(val, path, rep);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected $Ex09 [.]", path);
@@ -137,7 +137,7 @@ public class ex_09 extends ModelChecker
         boolean res;
         // .'$ex08#Ex08'
         // .'$ex08#Ex08'.'|'.0
-        res = json_model_8(val, path, rep);
+        res = _jm_obj_1(val, path, rep);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected $map [.'$ex08#Ex08'.'|'.0]", path);

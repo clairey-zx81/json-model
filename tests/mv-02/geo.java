@@ -1610,7 +1610,7 @@ public class geo extends ModelChecker
             if (! res)
             {
                 // .'$Feature'.geometry.'|'.2
-                res = json_model_12(pval, path, rep);
+                res = _jm_obj_12(pval, path, rep);
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected $GeometryCollection [.'$Feature'.geometry.'|'.2]", path);
@@ -1778,7 +1778,7 @@ public class geo extends ModelChecker
                 Object arr_28_item = arr_28_item_loop.next();
                 Path arr_28_lpath = new Path(arr_28_idx, path);
                 // .'$FeatureCollection'.features.0
-                res = json_model_13(arr_28_item, (path != null ? arr_28_lpath : null), rep);
+                res = _jm_obj_13(arr_28_item, (path != null ? arr_28_lpath : null), rep);
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected $Feature [.'$FeatureCollection'.features.0]", (path != null ? arr_28_lpath : null));
@@ -1858,7 +1858,7 @@ public class geo extends ModelChecker
             if (rep != null) rep.addEntry("unexpected $geometry [.'^'.0]", path);
         }
         // .'^'.1
-        xr_0 = json_model_12(val, path, rep);
+        xr_0 = _jm_obj_12(val, path, rep);
         if (xr_0)
         {
             xc_0 += 1;
@@ -1870,7 +1870,7 @@ public class geo extends ModelChecker
         if (xc_0 <= 1)
         {
             // .'^'.2
-            xr_0 = json_model_13(val, path, rep);
+            xr_0 = _jm_obj_13(val, path, rep);
             if (xr_0)
             {
                 xc_0 += 1;
@@ -1883,7 +1883,7 @@ public class geo extends ModelChecker
         if (xc_0 <= 1)
         {
             // .'^'.3
-            xr_0 = json_model_14(val, path, rep);
+            xr_0 = _jm_obj_15(val, path, rep);
             if (xr_0)
             {
                 xc_0 += 1;

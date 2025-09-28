@@ -209,7 +209,7 @@ public class xoropt_001 extends ModelChecker
                             if (! res)
                             {
                                 // .'$Any'.'|'.6
-                                res = json_model_8(val, path, rep);
+                                res = _jm_obj_0(val, path, rep);
                                 if (! res)
                                 {
                                     if (rep != null) rep.addEntry("unexpected $Oo [.'$Any'.'|'.6]", path);

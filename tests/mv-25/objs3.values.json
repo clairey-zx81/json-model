@@ -1,0 +1,15 @@
+[
+  [ true,  [] ],
+  [ true,  [{"author": "Zola", "title": "Germinal"}] ],
+  [ true,  [{"author": "Zola", "title": "Germinal"}, {"author": "Susie and Calvin", "title": "JSON Model"}] ],
+  [ false, null ],
+  [ false, true ],
+  [ false, false ],
+  [ false, {} ],
+  [ false, {"book": []} ],
+  [ false, 42 ],
+  [ false, 3.1415927 ],
+  [ false, "author" ],
+  [ false, ["unexpected"] ],
+  [ false, [{}, {}] ]
+]

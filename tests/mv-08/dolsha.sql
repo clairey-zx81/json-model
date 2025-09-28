@@ -19,7 +19,7 @@ BEGIN
     FOR arr_0_idx IN 0 .. JSONB_ARRAY_LENGTH(val) - 1 LOOP
       arr_0_item := val -> arr_0_idx;
       -- .'$array'.0
-      res := json_model_1(arr_0_item, NULL, rep);
+      res := _jm_obj_0(arr_0_item, NULL, rep);
       IF NOT res THEN
         EXIT;
       END IF;
@@ -44,7 +44,7 @@ BEGIN
     IF prop = 'prop' THEN
       -- handle may prop property
       -- .prop
-      res := json_model_1(pval, NULL, rep);
+      res := _jm_obj_0(pval, NULL, rep);
       IF NOT res THEN
         RETURN FALSE;
       END IF;

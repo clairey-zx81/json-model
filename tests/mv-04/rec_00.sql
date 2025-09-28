@@ -51,7 +51,7 @@ BEGIN
   res := JSONB_TYPEOF(val) = 'boolean';
   IF NOT res THEN
     -- .'$rec'.'|'.1
-    res := json_model_2(val, path, rep);
+    res := _jm_obj_0(val, path, rep);
   END IF;
   RETURN res;
 END;

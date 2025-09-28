@@ -3124,19 +3124,19 @@ def json_model_23(val: Jsonable, path: Path, rep: Report) -> bool:
     else:
         rep is None or rep.append(("value is not an object [.'$ObjectSchema'.'|']", path))
     if not res:
-        res = json_model_9(val, path, rep)
+        res = _jm_obj_6(val, path, rep)
         if not res:
-            res = json_model_21(val, path, rep)
+            res = _jm_obj_44(val, path, rep)
             if not res:
-                res = json_model_20(val, path, rep)
+                res = _jm_obj_41(val, path, rep)
                 if not res:
-                    res = json_model_17(val, path, rep)
+                    res = _jm_obj_32(val, path, rep)
                     if not res:
-                        res = json_model_18(val, path, rep)
+                        res = _jm_obj_35(val, path, rep)
                         if not res:
-                            res = json_model_19(val, path, rep)
+                            res = _jm_obj_38(val, path, rep)
                             if not res:
-                                res = json_model_22(val, path, rep)
+                                res = _jm_obj_47(val, path, rep)
     return res
 
 # check $Schema (.'$Schema')

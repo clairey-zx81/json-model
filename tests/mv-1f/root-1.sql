@@ -12,7 +12,7 @@ DECLARE
   res bool;
 BEGIN
   -- .'$root'
-  res := json_model_5(val, path, rep);
+  res := _jm_obj_0(val, path, rep);
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
@@ -24,7 +24,7 @@ DECLARE
   res bool;
 BEGIN
   -- .'$Root'
-  res := json_model_5(val, path, rep);
+  res := _jm_obj_0(val, path, rep);
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
@@ -36,7 +36,7 @@ DECLARE
   res bool;
 BEGIN
   -- .
-  res := json_model_3(val, path, rep);
+  res := _jm_obj_0(val, path, rep);
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;

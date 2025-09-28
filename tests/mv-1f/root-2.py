@@ -26,7 +26,7 @@ check_model_map: PropMap
 def json_model_4(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$root'
-    res = json_model_5(val, path, rep)
+    res = _jm_obj_1(val, path, rep)
     if not res:
         rep is None or rep.append(("unexpected $Root [.'$root']", path))
     return res
@@ -45,7 +45,7 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
             # handle must rt property
             must_count += 1
             # .'$Foo'.rt
-            res = json_model_5(pval, lpath_0 if path is not None else None, rep)
+            res = _jm_obj_1(pval, lpath_0 if path is not None else None, rep)
             if not res:
                 rep is None or rep.append(("unexpected $root#Root [.'$Foo'.rt]", lpath_0 if path is not None else None))
                 rep is None or rep.append(("invalid mandatory prop value [.'$Foo'.rt]", lpath_0 if path is not None else None))
@@ -73,7 +73,7 @@ def json_model_3(val: Jsonable, path: Path, rep: Report) -> bool:
 def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .
-    res = json_model_3(val, path, rep)
+    res = _jm_obj_0(val, path, rep)
     if not res:
         rep is None or rep.append(("unexpected $Foo [.]", path))
     return res

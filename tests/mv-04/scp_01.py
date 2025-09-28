@@ -85,7 +85,7 @@ def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
             # handle must RA property
             must_count += 1
             # .RA
-            res = json_model_5(pval, lpath_1 if path is not None else None, rep)
+            res = _jm_obj_0(pval, lpath_1 if path is not None else None, rep)
             if not res:
                 rep is None or rep.append(("unexpected $Rr [.RA]", lpath_1 if path is not None else None))
                 rep is None or rep.append(("invalid mandatory prop value [.RA]", lpath_1 if path is not None else None))

@@ -76,7 +76,7 @@ DECLARE
 BEGIN
   -- .'$Ex08'
   -- .'$Ex08'.'|'.0
-  res := json_model_4(val, path, rep);
+  res := _jm_obj_0(val, path, rep);
   IF NOT res THEN
     -- .'$Ex08'.'|'.1
     res := JSONB_TYPEOF(val) = 'string' AND jm_is_valid_url(JSON_VALUE(val, '$' RETURNING TEXT), path, rep);

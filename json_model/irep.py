@@ -271,13 +271,6 @@ def recurseIR(code: Jsonable,
               rwt: Callable[[Jsonable, Path], Jsonable]):
     _recIR(code, [], flt, rwt)
 
-# operations which may contain cmp/pmap and check calls
-CODE_OPS = {
-    "gi", "gf", "gc", "gfc", "sfu",
-    "aL", "oL", "iL", "if", "ifs", "seq", "cc",
-    "dcm", "rcm", "icm", "scm", "dpm", "spm", "ipm", "rmp"
-}
-
 def callShortcuts(code: Jsonable, shortcuts: dict[str, str]) -> int:
     """Update check function calls based on shortcuts."""
 
@@ -286,10 +279,6 @@ def callShortcuts(code: Jsonable, shortcuts: dict[str, str]) -> int:
         return 0
 
     changes = 0
-
-    def repFlt(code: Jsonable, _: Path) -> bool:
-        # only recurse into relevant operations
-        return isinstance(code, dict) and "o" in code and code["o"] in CODE_OPS
 
     def rep(fun: str) -> str:
         nonlocal changes
@@ -310,7 +299,7 @@ def callShortcuts(code: Jsonable, shortcuts: dict[str, str]) -> int:
                 code["name"] = rep(code["name"])
         return code
 
-    recurseIR(code, repFlt, repRwt)
+    recurseIR(code, lambda c, p: True, repRwt)
 
     return changes
 

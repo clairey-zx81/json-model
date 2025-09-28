@@ -11,7 +11,9 @@
 #define JSON_MODEL_VERSION "2"
 
 static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_5(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static bool _jm_obj_1(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_4(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_0(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_1(const json_t *val, jm_path_t *path, jm_report_t *rep);
@@ -20,6 +22,7 @@ static bool _jm_f_3(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_4(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_5(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static jm_propmap_t _jm_obj_2_mup_tab[6];
+static bool _jm_obj_2(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep);
 jm_propmap_t check_model_map_tab[4];
 const size_t check_model_map_size = 4;

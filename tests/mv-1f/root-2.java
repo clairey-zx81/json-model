@@ -24,7 +24,7 @@ public class root_2 extends ModelChecker
     {
         boolean res;
         // .'$root'
-        res = json_model_5(val, path, rep);
+        res = _jm_obj_1(val, path, rep);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected $Root [.'$root']", path);
@@ -53,7 +53,7 @@ public class root_2 extends ModelChecker
                 // handle must rt property
                 must_count += 1;
                 // .'$Foo'.rt
-                res = json_model_5(pval, (path != null ? lpath_0 : null), rep);
+                res = _jm_obj_1(pval, (path != null ? lpath_0 : null), rep);
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected $root#Root [.'$Foo'.rt]", (path != null ? lpath_0 : null));
@@ -99,7 +99,7 @@ public class root_2 extends ModelChecker
     {
         boolean res;
         // .
-        res = json_model_3(val, path, rep);
+        res = _jm_obj_0(val, path, rep);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected $Foo [.]", path);

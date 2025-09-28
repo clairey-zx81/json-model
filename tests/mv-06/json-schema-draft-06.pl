@@ -26,7 +26,9 @@ sub _jm_f_6($$$);
 sub _jm_f_7($$$);
 sub _jm_f_8($$$);
 sub _jm_f_9($$$);
+sub _jm_obj_1($$$);
 sub _jm_f_10($$$);
+sub _jm_obj_2($$$);
 sub _jm_f_11($$$);
 sub _jm_f_12($$$);
 sub _jm_f_13($$$);
@@ -47,7 +49,9 @@ sub _jm_f_27($$$);
 sub _jm_f_28($$$);
 sub _jm_f_29($$$);
 sub _jm_f_30($$$);
+sub _jm_obj_3($$$);
 sub _jm_f_31($$$);
+sub _jm_obj_4($$$);
 sub _jm_f_32($$$);
 sub _jm_f_33($$$);
 sub _jm_f_34($$$);
@@ -55,6 +59,7 @@ sub _jm_f_35($$$);
 sub _jm_f_36($$$);
 sub _jm_f_37($$$);
 my %_jm_obj_0_map;
+sub _jm_obj_0($$$);
 sub json_model_7($$$);
 sub json_model_8($$$);
 sub json_model_1($$$);
@@ -715,7 +720,7 @@ sub json_model_8($$$)
     if (! $res)
     {
         # .'$Schema'.'|'.1
-        $res = json_model_7($val, $path, $rep);
+        $res = _jm_obj_0($val, $path, $rep);
     }
     return $res;
 }

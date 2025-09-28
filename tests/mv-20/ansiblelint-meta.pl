@@ -11,117 +11,211 @@ use constant JMC_VERSION => '2';
 
 
 my %_jm_cst_0;
+sub _jm_obj_0($$$);
 sub json_model_2($$$);
+sub _jm_obj_1($$$);
 sub json_model_3($$$);
 my %_jm_cst_1;
+sub _jm_obj_2($$$);
 sub json_model_4($$$);
 my %_jm_cst_2;
+sub _jm_obj_3($$$);
 sub json_model_5($$$);
+sub _jm_obj_4($$$);
 sub json_model_6($$$);
 my %_jm_cst_3;
+sub _jm_obj_5($$$);
 sub json_model_7($$$);
+sub _jm_obj_6($$$);
 sub json_model_8($$$);
 my %_jm_cst_4;
+sub _jm_obj_7($$$);
 sub json_model_9($$$);
 my %_jm_cst_5;
+sub _jm_obj_8($$$);
 sub json_model_10($$$);
 my %_jm_cst_6;
+sub _jm_obj_9($$$);
 sub json_model_11($$$);
 my %_jm_cst_7;
+sub _jm_obj_10($$$);
 sub json_model_12($$$);
 my %_jm_cst_8;
+sub _jm_obj_11($$$);
 sub json_model_13($$$);
 my %_jm_cst_9;
+sub _jm_obj_12($$$);
 sub json_model_14($$$);
 my %_jm_cst_10;
+sub _jm_obj_13($$$);
 sub json_model_15($$$);
 my %_jm_cst_11;
+sub _jm_obj_14($$$);
 sub json_model_16($$$);
+sub _jm_obj_15($$$);
 sub json_model_17($$$);
+sub _jm_obj_16($$$);
 sub json_model_18($$$);
+sub _jm_obj_17($$$);
 sub json_model_19($$$);
+sub _jm_obj_18($$$);
 sub json_model_20($$$);
 my %_jm_cst_12;
+sub _jm_obj_19($$$);
 sub json_model_21($$$);
+sub _jm_obj_20($$$);
 sub json_model_22($$$);
+sub _jm_obj_21($$$);
 sub json_model_23($$$);
 my %_jm_cst_13;
+sub _jm_obj_22($$$);
 sub json_model_24($$$);
 my %_jm_cst_14;
+sub _jm_obj_23($$$);
 sub json_model_25($$$);
 my %_jm_cst_15;
+sub _jm_obj_24($$$);
 sub json_model_26($$$);
+sub _jm_obj_25($$$);
 sub json_model_27($$$);
 my %_jm_cst_16;
+sub _jm_obj_26($$$);
 sub json_model_28($$$);
 my %_jm_cst_17;
+sub _jm_obj_27($$$);
 sub json_model_29($$$);
 my %_jm_cst_18;
+sub _jm_obj_28($$$);
 sub json_model_30($$$);
 my %_jm_cst_19;
+sub _jm_obj_29($$$);
 sub json_model_31($$$);
 my %_jm_cst_20;
+sub _jm_obj_30($$$);
 sub json_model_32($$$);
 my %_jm_cst_21;
+sub _jm_obj_31($$$);
 sub json_model_33($$$);
 my %_jm_cst_22;
+sub _jm_obj_32($$$);
 sub json_model_34($$$);
+sub _jm_obj_33($$$);
 sub json_model_35($$$);
 my %_jm_cst_23;
+sub _jm_obj_34($$$);
 sub json_model_36($$$);
 my %_jm_cst_24;
+sub _jm_obj_35($$$);
 sub json_model_37($$$);
 my %_jm_cst_25;
+sub _jm_obj_36($$$);
 sub json_model_38($$$);
 my %_jm_cst_26;
+sub _jm_obj_37($$$);
 sub json_model_39($$$);
+sub _jm_obj_38($$$);
 sub json_model_40($$$);
 my %_jm_cst_27;
+sub _jm_obj_39($$$);
 sub json_model_41($$$);
+sub _jm_obj_40($$$);
 sub json_model_42($$$);
+sub _jm_obj_41($$$);
 sub json_model_43($$$);
 my %_jm_cst_28;
+sub _jm_obj_42($$$);
 sub json_model_44($$$);
 my %_jm_cst_29;
+sub _jm_obj_43($$$);
 sub json_model_45($$$);
+sub _jm_obj_44($$$);
 sub json_model_46($$$);
 my %_jm_cst_30;
+sub _jm_obj_45($$$);
 sub json_model_47($$$);
 my %_jm_cst_31;
+sub _jm_obj_46($$$);
 sub json_model_48($$$);
 sub json_model_49($$$);
 my %_jm_cst_32;
+sub _jm_obj_47($$$);
 my %_jm_cst_33;
+sub _jm_obj_48($$$);
+sub _jm_obj_49($$$);
 my %_jm_cst_34;
+sub _jm_obj_50($$$);
 my %_jm_cst_35;
+sub _jm_obj_51($$$);
 my %_jm_cst_36;
+sub _jm_obj_52($$$);
 my %_jm_cst_37;
+sub _jm_obj_53($$$);
 my %_jm_cst_38;
+sub _jm_obj_54($$$);
+sub _jm_obj_55($$$);
 my %_jm_cst_39;
+sub _jm_obj_56($$$);
 my %_jm_cst_40;
+sub _jm_obj_57($$$);
 my %_jm_cst_41;
+sub _jm_obj_58($$$);
+sub _jm_obj_59($$$);
 my %_jm_cst_42;
+sub _jm_obj_60($$$);
 my %_jm_cst_43;
+sub _jm_obj_61($$$);
 my %_jm_cst_44;
+sub _jm_obj_62($$$);
 my %_jm_cst_45;
+sub _jm_obj_63($$$);
+sub _jm_obj_64($$$);
 my %_jm_cst_46;
+sub _jm_obj_65($$$);
 my %_jm_cst_47;
+sub _jm_obj_66($$$);
 my %_jm_cst_48;
+sub _jm_obj_67($$$);
 my %_jm_cst_49;
+sub _jm_obj_68($$$);
+sub _jm_obj_69($$$);
+sub _jm_obj_70($$$);
 my %_jm_cst_50;
+sub _jm_obj_71($$$);
+sub _jm_obj_72($$$);
+sub _jm_obj_73($$$);
+sub _jm_obj_74($$$);
+sub _jm_obj_75($$$);
 my %_jm_cst_51;
+sub _jm_obj_76($$$);
 my %_jm_cst_52;
+sub _jm_obj_77($$$);
+sub _jm_obj_78($$$);
 my %_jm_cst_53;
+sub _jm_obj_79($$$);
 my %_jm_cst_54;
+sub _jm_obj_80($$$);
 my %_jm_cst_55;
+sub _jm_obj_81($$$);
 my %_jm_cst_56;
+sub _jm_obj_82($$$);
 my %_jm_cst_57;
+sub _jm_obj_83($$$);
 my %_jm_cst_58;
+sub _jm_obj_84($$$);
 my %_jm_cst_59;
+sub _jm_obj_85($$$);
+sub _jm_obj_86($$$);
 my %_jm_cst_60;
+sub _jm_obj_87($$$);
+sub _jm_obj_88($$$);
+sub _jm_obj_89($$$);
 my %_jm_cst_61;
+sub _jm_obj_90($$$);
 my %_jm_cst_62;
+sub _jm_obj_91($$$);
+sub _jm_obj_92($$$);
 my %_jm_cst_63;
+sub _jm_obj_93($$$);
 sub json_model_50($$$);
 sub _jm_f_0($$$);
 sub _jm_f_1($$$);
@@ -131,6 +225,7 @@ sub _jm_f_4($$$);
 sub _jm_f_5($$$);
 sub _jm_f_6($$$);
 my %_jm_obj_94_map;
+sub _jm_obj_94($$$);
 sub json_model_51($$$);
 sub _jm_f_7($$$);
 sub _jm_f_8($$$);
@@ -139,6 +234,7 @@ sub _jm_f_10($$$);
 sub _jm_f_11($$$);
 sub _jm_f_12($$$);
 my %_jm_obj_95_map;
+sub _jm_obj_95($$$);
 sub json_model_52($$$);
 sub _jm_f_13($$$);
 sub _jm_f_14($$$);
@@ -151,6 +247,7 @@ sub _jm_f_20($$$);
 sub _jm_f_21($$$);
 sub _jm_f_22($$$);
 my %_jm_obj_96_map;
+sub _jm_obj_96($$$);
 sub json_model_53($$$);
 sub _jm_f_23($$$);
 sub _jm_f_24($$$);
@@ -166,6 +263,7 @@ sub _jm_f_33($$$);
 sub _jm_f_34($$$);
 sub _jm_f_35($$$);
 my %_jm_obj_97_map;
+sub _jm_obj_97($$$);
 sub _jm_f_36($$$);
 sub _jm_f_37($$$);
 sub _jm_f_38($$$);
@@ -180,13 +278,20 @@ sub _jm_f_46($$$);
 sub _jm_f_47($$$);
 sub _jm_f_48($$$);
 my %_jm_obj_98_map;
+sub _jm_obj_98($$$);
 my %_jm_map_0;
 sub json_model_54($$$);
 sub json_model_55($$$);
 sub json_model_56($$$);
 my %_jm_cst_64;
+sub _jm_obj_100($$$);
+sub _jm_obj_99($$$);
 sub json_model_57($$$);
+sub _jm_obj_101($$$);
+sub _jm_obj_102($$$);
+sub _jm_obj_103($$$);
 sub json_model_58($$$);
+sub _jm_obj_104($$$);
 sub json_model_59($$$);
 sub json_model_60($$$);
 sub json_model_1($$$);
@@ -3193,191 +3298,191 @@ sub json_model_49($$$)
     # FIXME: name is not mandatory, not sure it makes much sense… versions should be unique?
     # .'$any_platform'
     # .'$any_platform'.'|'.0
-    $res = json_model_2($val, $path, $rep);
+    $res = _jm_obj_0($val, $path, $rep);
     if (! $res)
     {
         # .'$any_platform'.'|'.1
-        $res = json_model_3($val, $path, $rep);
+        $res = _jm_obj_1($val, $path, $rep);
         if (! $res)
         {
             # .'$any_platform'.'|'.2
-            $res = json_model_5($val, $path, $rep);
+            $res = _jm_obj_3($val, $path, $rep);
             if (! $res)
             {
                 # .'$any_platform'.'|'.3
-                $res = json_model_4($val, $path, $rep);
+                $res = _jm_obj_2($val, $path, $rep);
                 if (! $res)
                 {
                     # .'$any_platform'.'|'.4
-                    $res = json_model_42($val, $path, $rep);
+                    $res = _jm_obj_40($val, $path, $rep);
                     if (! $res)
                     {
                         # .'$any_platform'.'|'.5
-                        $res = json_model_6($val, $path, $rep);
+                        $res = _jm_obj_4($val, $path, $rep);
                         if (! $res)
                         {
                             # .'$any_platform'.'|'.6
-                            $res = json_model_7($val, $path, $rep);
+                            $res = _jm_obj_5($val, $path, $rep);
                             if (! $res)
                             {
                                 # .'$any_platform'.'|'.7
-                                $res = json_model_8($val, $path, $rep);
+                                $res = _jm_obj_6($val, $path, $rep);
                                 if (! $res)
                                 {
                                     # .'$any_platform'.'|'.8
-                                    $res = json_model_9($val, $path, $rep);
+                                    $res = _jm_obj_7($val, $path, $rep);
                                     if (! $res)
                                     {
                                         # .'$any_platform'.'|'.9
-                                        $res = json_model_28($val, $path, $rep);
+                                        $res = _jm_obj_26($val, $path, $rep);
                                         if (! $res)
                                         {
                                             # .'$any_platform'.'|'.10
-                                            $res = json_model_10($val, $path, $rep);
+                                            $res = _jm_obj_8($val, $path, $rep);
                                             if (! $res)
                                             {
                                                 # .'$any_platform'.'|'.11
-                                                $res = json_model_11($val, $path, $rep);
+                                                $res = _jm_obj_9($val, $path, $rep);
                                                 if (! $res)
                                                 {
                                                     # .'$any_platform'.'|'.12
-                                                    $res = json_model_12($val, $path, $rep);
+                                                    $res = _jm_obj_10($val, $path, $rep);
                                                     if (! $res)
                                                     {
                                                         # .'$any_platform'.'|'.13
-                                                        $res = json_model_13($val, $path, $rep);
+                                                        $res = _jm_obj_11($val, $path, $rep);
                                                         if (! $res)
                                                         {
                                                             # .'$any_platform'.'|'.14
-                                                            $res = json_model_14($val, $path, $rep);
+                                                            $res = _jm_obj_12($val, $path, $rep);
                                                             if (! $res)
                                                             {
                                                                 # .'$any_platform'.'|'.15
-                                                                $res = json_model_43($val, $path, $rep);
+                                                                $res = _jm_obj_41($val, $path, $rep);
                                                                 if (! $res)
                                                                 {
                                                                     # .'$any_platform'.'|'.16
-                                                                    $res = json_model_15($val, $path, $rep);
+                                                                    $res = _jm_obj_13($val, $path, $rep);
                                                                     if (! $res)
                                                                     {
                                                                         # .'$any_platform'.'|'.17
-                                                                        $res = json_model_16($val, $path, $rep);
+                                                                        $res = _jm_obj_14($val, $path, $rep);
                                                                         if (! $res)
                                                                         {
                                                                             # .'$any_platform'.'|'.18
-                                                                            $res = json_model_17($val, $path, $rep);
+                                                                            $res = _jm_obj_15($val, $path, $rep);
                                                                             if (! $res)
                                                                             {
                                                                                 # .'$any_platform'.'|'.19
-                                                                                $res = json_model_18($val, $path, $rep);
+                                                                                $res = _jm_obj_16($val, $path, $rep);
                                                                                 if (! $res)
                                                                                 {
                                                                                     # .'$any_platform'.'|'.20
-                                                                                    $res = json_model_19($val, $path, $rep);
+                                                                                    $res = _jm_obj_17($val, $path, $rep);
                                                                                     if (! $res)
                                                                                     {
                                                                                         # .'$any_platform'.'|'.21
-                                                                                        $res = json_model_20($val, $path, $rep);
+                                                                                        $res = _jm_obj_18($val, $path, $rep);
                                                                                         if (! $res)
                                                                                         {
                                                                                             # .'$any_platform'.'|'.22
-                                                                                            $res = json_model_21($val, $path, $rep);
+                                                                                            $res = _jm_obj_19($val, $path, $rep);
                                                                                             if (! $res)
                                                                                             {
                                                                                                 # .'$any_platform'.'|'.23
-                                                                                                $res = json_model_22($val, $path, $rep);
+                                                                                                $res = _jm_obj_20($val, $path, $rep);
                                                                                                 if (! $res)
                                                                                                 {
                                                                                                     # .'$any_platform'.'|'.24
-                                                                                                    $res = json_model_23($val, $path, $rep);
+                                                                                                    $res = _jm_obj_21($val, $path, $rep);
                                                                                                     if (! $res)
                                                                                                     {
                                                                                                         # .'$any_platform'.'|'.25
-                                                                                                        $res = json_model_24($val, $path, $rep);
+                                                                                                        $res = _jm_obj_22($val, $path, $rep);
                                                                                                         if (! $res)
                                                                                                         {
                                                                                                             # .'$any_platform'.'|'.26
-                                                                                                            $res = json_model_44($val, $path, $rep);
+                                                                                                            $res = _jm_obj_42($val, $path, $rep);
                                                                                                             if (! $res)
                                                                                                             {
                                                                                                                 # .'$any_platform'.'|'.27
-                                                                                                                $res = json_model_25($val, $path, $rep);
+                                                                                                                $res = _jm_obj_23($val, $path, $rep);
                                                                                                                 if (! $res)
                                                                                                                 {
                                                                                                                     # .'$any_platform'.'|'.28
-                                                                                                                    $res = json_model_26($val, $path, $rep);
+                                                                                                                    $res = _jm_obj_24($val, $path, $rep);
                                                                                                                     if (! $res)
                                                                                                                     {
                                                                                                                         # .'$any_platform'.'|'.29
-                                                                                                                        $res = json_model_27($val, $path, $rep);
+                                                                                                                        $res = _jm_obj_25($val, $path, $rep);
                                                                                                                         if (! $res)
                                                                                                                         {
                                                                                                                             # .'$any_platform'.'|'.30
-                                                                                                                            $res = json_model_29($val, $path, $rep);
+                                                                                                                            $res = _jm_obj_27($val, $path, $rep);
                                                                                                                             if (! $res)
                                                                                                                             {
                                                                                                                                 # .'$any_platform'.'|'.31
-                                                                                                                                $res = json_model_45($val, $path, $rep);
+                                                                                                                                $res = _jm_obj_43($val, $path, $rep);
                                                                                                                                 if (! $res)
                                                                                                                                 {
                                                                                                                                     # .'$any_platform'.'|'.32
-                                                                                                                                    $res = json_model_30($val, $path, $rep);
+                                                                                                                                    $res = _jm_obj_28($val, $path, $rep);
                                                                                                                                     if (! $res)
                                                                                                                                     {
                                                                                                                                         # .'$any_platform'.'|'.33
-                                                                                                                                        $res = json_model_31($val, $path, $rep);
+                                                                                                                                        $res = _jm_obj_29($val, $path, $rep);
                                                                                                                                         if (! $res)
                                                                                                                                         {
                                                                                                                                             # .'$any_platform'.'|'.34
-                                                                                                                                            $res = json_model_46($val, $path, $rep);
+                                                                                                                                            $res = _jm_obj_44($val, $path, $rep);
                                                                                                                                             if (! $res)
                                                                                                                                             {
                                                                                                                                                 # .'$any_platform'.'|'.35
-                                                                                                                                                $res = json_model_32($val, $path, $rep);
+                                                                                                                                                $res = _jm_obj_30($val, $path, $rep);
                                                                                                                                                 if (! $res)
                                                                                                                                                 {
                                                                                                                                                     # .'$any_platform'.'|'.36
-                                                                                                                                                    $res = json_model_33($val, $path, $rep);
+                                                                                                                                                    $res = _jm_obj_31($val, $path, $rep);
                                                                                                                                                     if (! $res)
                                                                                                                                                     {
                                                                                                                                                         # .'$any_platform'.'|'.37
-                                                                                                                                                        $res = json_model_34($val, $path, $rep);
+                                                                                                                                                        $res = _jm_obj_32($val, $path, $rep);
                                                                                                                                                         if (! $res)
                                                                                                                                                         {
                                                                                                                                                             # .'$any_platform'.'|'.38
-                                                                                                                                                            $res = json_model_35($val, $path, $rep);
+                                                                                                                                                            $res = _jm_obj_33($val, $path, $rep);
                                                                                                                                                             if (! $res)
                                                                                                                                                             {
                                                                                                                                                                 # .'$any_platform'.'|'.39
-                                                                                                                                                                $res = json_model_36($val, $path, $rep);
+                                                                                                                                                                $res = _jm_obj_34($val, $path, $rep);
                                                                                                                                                                 if (! $res)
                                                                                                                                                                 {
                                                                                                                                                                     # .'$any_platform'.'|'.40
-                                                                                                                                                                    $res = json_model_37($val, $path, $rep);
+                                                                                                                                                                    $res = _jm_obj_35($val, $path, $rep);
                                                                                                                                                                     if (! $res)
                                                                                                                                                                     {
                                                                                                                                                                         # .'$any_platform'.'|'.41
-                                                                                                                                                                        $res = json_model_38($val, $path, $rep);
+                                                                                                                                                                        $res = _jm_obj_36($val, $path, $rep);
                                                                                                                                                                         if (! $res)
                                                                                                                                                                         {
                                                                                                                                                                             # .'$any_platform'.'|'.42
-                                                                                                                                                                            $res = json_model_39($val, $path, $rep);
+                                                                                                                                                                            $res = _jm_obj_37($val, $path, $rep);
                                                                                                                                                                             if (! $res)
                                                                                                                                                                             {
                                                                                                                                                                                 # .'$any_platform'.'|'.43
-                                                                                                                                                                                $res = json_model_47($val, $path, $rep);
+                                                                                                                                                                                $res = _jm_obj_45($val, $path, $rep);
                                                                                                                                                                                 if (! $res)
                                                                                                                                                                                 {
                                                                                                                                                                                     # .'$any_platform'.'|'.44
-                                                                                                                                                                                    $res = json_model_40($val, $path, $rep);
+                                                                                                                                                                                    $res = _jm_obj_38($val, $path, $rep);
                                                                                                                                                                                     if (! $res)
                                                                                                                                                                                     {
                                                                                                                                                                                         # .'$any_platform'.'|'.45
-                                                                                                                                                                                        $res = json_model_48($val, $path, $rep);
+                                                                                                                                                                                        $res = _jm_obj_46($val, $path, $rep);
                                                                                                                                                                                         if (! $res)
                                                                                                                                                                                         {
                                                                                                                                                                                             # .'$any_platform'.'|'.46
-                                                                                                                                                                                            $res = json_model_41($val, $path, $rep);
+                                                                                                                                                                                            $res = _jm_obj_39($val, $path, $rep);
                                                                                                                                                                                         }
                                                                                                                                                                                     }
                                                                                                                                                                                 }
@@ -7127,7 +7232,7 @@ sub json_model_58($$$)
     if ($res)
     {
         # .'$DependencyModel'.'&'.0
-        $res = json_model_57($val, $path, $rep);
+        $res = _jm_obj_99($val, $path, $rep);
         if ($res)
         {
             # .'$DependencyModel'.'&'.1
@@ -7253,7 +7358,7 @@ sub json_model_60($$$)
     if (! $res)
     {
         # .'$AnsibleMeta'.'|'.1
-        $res = json_model_59($val, $path, $rep);
+        $res = _jm_obj_104($val, $path, $rep);
     }
     return $res;
 }

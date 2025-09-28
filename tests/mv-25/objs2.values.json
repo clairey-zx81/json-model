@@ -1,0 +1,14 @@
+[
+  [ true,  {"x": 42.0, "y": -3.1415927} ],
+  [ false, {"x": 42.0} ],
+  [ false, {"y": 42.0} ],
+  [ false, {"x": 42.0, "y": -3.1415927, "z": 18.1} ],
+  [ false, {} ],
+  [ false, null ],
+  [ false, true ],
+  [ false, false ],
+  [ false, "" ],
+  [ false, "unexpected" ],
+  [ false, [] ],
+  [ false, [1, "expected"] ]
+]

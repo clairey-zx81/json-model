@@ -12,7 +12,9 @@ use constant JMC_VERSION => '2';
 
 sub json_model_3($$$);
 sub json_model_1($$$);
+sub _jm_obj_0($$$);
 sub json_model_5($$$);
+sub _jm_obj_1($$$);
 sub json_model_12($$$);
 my %check_model_map;
 
@@ -22,7 +24,7 @@ sub json_model_3($$$)
     my ($val, $path, $rep) = @_;
     my $res;
     # .'$foo'
-    $res = json_model_5($val, $path, $rep);
+    $res = _jm_obj_0($val, $path, $rep);
     return $res;
 }
 
@@ -32,7 +34,7 @@ sub json_model_1($$$)
     my ($val, $path, $rep) = @_;
     my $res;
     # .
-    $res = json_model_5($val, $path, $rep);
+    $res = _jm_obj_0($val, $path, $rep);
     return $res;
 }
 
@@ -54,7 +56,7 @@ sub _jm_obj_0($$$)
             # handle must rt property
             $must_count++;
             # .'$foo#Foo'.rt
-            $res = json_model_12($pval, undef, $rep);
+            $res = _jm_obj_1($pval, undef, $rep);
             if (! $res)
             {
                 return 0;

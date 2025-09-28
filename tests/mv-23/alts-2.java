@@ -56,7 +56,7 @@ public class alts_2 extends ModelChecker
             // handle other props
             // .'$a'.''
             // .'$a'.''.'|'.0
-            res = json_model_2(pval, (path != null ? lpath_0 : null), rep);
+            res = _jm_obj_0(pval, (path != null ? lpath_0 : null), rep);
             if (! res)
             {
                 if (rep != null) rep.addEntry("unexpected $a [.'$a'.''.'|'.0]", (path != null ? lpath_0 : null));
@@ -121,7 +121,7 @@ public class alts_2 extends ModelChecker
         boolean res;
         // .'$r'
         // .'$r'.'|'.0
-        res = json_model_2(val, path, rep);
+        res = _jm_obj_0(val, path, rep);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected $a [.'$r'.'|'.0]", path);

@@ -10,7 +10,9 @@ use JSON::JsonModel;
 use constant JMC_VERSION => '2';
 
 
+sub _jm_obj_0($$$);
 sub json_model_2($$$);
+sub _jm_obj_1($$$);
 sub json_model_3($$$);
 my %_jm_map_0;
 sub json_model_1($$$);

@@ -82,7 +82,7 @@ DECLARE
   res bool;
 BEGIN
   -- .
-  res := json_model_4(val, path, rep);
+  res := _jm_obj_0(val, path, rep);
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
@@ -107,7 +107,7 @@ DECLARE
 BEGIN
   -- .'$ex08#Ex08'
   -- .'$ex08#Ex08'.'|'.0
-  res := json_model_8(val, path, rep);
+  res := _jm_obj_1(val, path, rep);
   IF NOT res THEN
     -- .'$ex08#Ex08'.'|'.1
     res := JSONB_TYPEOF(val) = 'string' AND jm_is_valid_url(JSON_VALUE(val, '$' RETURNING TEXT), path, rep);

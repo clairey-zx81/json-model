@@ -13,16 +13,26 @@ use constant JMC_VERSION => '2';
 sub json_model_2($$$);
 sub json_model_3($$$);
 sub json_model_4($$$);
+sub _jm_obj_0($$$);
 sub json_model_5($$$);
+sub _jm_obj_1($$$);
 sub json_model_6($$$);
+sub _jm_obj_2($$$);
 sub json_model_7($$$);
+sub _jm_obj_3($$$);
 sub json_model_8($$$);
+sub _jm_obj_4($$$);
 sub json_model_9($$$);
+sub _jm_obj_5($$$);
 sub json_model_10($$$);
 my %_jm_map_0;
 sub json_model_11($$$);
+sub _jm_obj_6($$$);
 sub json_model_12($$$);
+sub _jm_obj_8($$$);
+sub _jm_obj_7($$$);
 sub json_model_13($$$);
+sub _jm_obj_9($$$);
 sub json_model_14($$$);
 sub json_model_1($$$);
 my %check_model_map;
@@ -756,7 +766,7 @@ sub _jm_obj_7($$$)
         if (! $res)
         {
             # .'$Feature'.geometry.'|'.2
-            $res = json_model_12($pval, $path, $rep);
+            $res = _jm_obj_6($pval, $path, $rep);
         }
     }
     if (! $res)
@@ -867,7 +877,7 @@ sub _jm_obj_9($$$)
         {
             my $arr_17_item = $$pval[$arr_17_idx];
             # .'$FeatureCollection'.features.0
-            $res = json_model_13($arr_17_item, undef, $rep);
+            $res = _jm_obj_7($arr_17_item, undef, $rep);
             if (! $res)
             {
                 last;
@@ -931,7 +941,7 @@ sub json_model_1($$$)
         $xc_0++;
     }
     # .'^'.1
-    $xr_0 = json_model_12($val, $path, $rep);
+    $xr_0 = _jm_obj_6($val, $path, $rep);
     if ($xr_0)
     {
         $xc_0++;
@@ -939,7 +949,7 @@ sub json_model_1($$$)
     if ($xc_0 <= 1)
     {
         # .'^'.2
-        $xr_0 = json_model_13($val, $path, $rep);
+        $xr_0 = _jm_obj_7($val, $path, $rep);
         if ($xr_0)
         {
             $xc_0++;
@@ -948,7 +958,7 @@ sub json_model_1($$$)
     if ($xc_0 <= 1)
     {
         # .'^'.3
-        $xr_0 = json_model_14($val, $path, $rep);
+        $xr_0 = _jm_obj_9($val, $path, $rep);
         if ($xr_0)
         {
             $xc_0++;

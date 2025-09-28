@@ -661,7 +661,7 @@ public class jsound extends ModelChecker
                         Object arr_3_item = arr_3_item_loop.next();
                         Path arr_3_lpath = new Path(arr_3_idx, (path != null ? lpath_3 : null));
                         // .'$Object'.content.0
-                        res = json_model_8(arr_3_item, ((path != null ? lpath_3 : null) != null ? arr_3_lpath : null), rep);
+                        res = _jm_obj_4(arr_3_item, ((path != null ? lpath_3 : null) != null ? arr_3_lpath : null), rep);
                         if (! res)
                         {
                             if (rep != null) rep.addEntry("unexpected $Fields [.'$Object'.content.0]", ((path != null ? lpath_3 : null) != null ? arr_3_lpath : null));
@@ -1122,7 +1122,7 @@ public class jsound extends ModelChecker
     {
         boolean res;
         // .
-        res = json_model_2(val, path, rep);
+        res = _jm_obj_0(val, path, rep);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected $Schema [.]", path);

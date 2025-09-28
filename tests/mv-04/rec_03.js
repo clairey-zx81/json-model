@@ -28,7 +28,7 @@ function _jm_obj_0(val, path, rep)
             // handle may foo property
             // .foo
             // .foo.'|'.0
-            res = json_model_1(pval, (path ? lpath_0 : null), rep);
+            res = _jm_obj_0(pval, (path ? lpath_0 : null), rep);
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $root [.foo.'|'.0]", (path ? lpath_0 : null)])
@@ -44,7 +44,7 @@ function _jm_obj_0(val, path, rep)
                         let arr_0_item = pval[arr_0_idx]
                         let arr_0_lpath = (path ? lpath_0 : null) ? (path ? lpath_0 : null).concat([arr_0_idx]) : null;
                         // .foo.'|'.1.0
-                        res = json_model_1(arr_0_item, ((path ? lpath_0 : null) ? arr_0_lpath : null), rep);
+                        res = _jm_obj_0(arr_0_item, ((path ? lpath_0 : null) ? arr_0_lpath : null), rep);
                         if (! res)
                         {
                             rep !== null && rep.push(["unexpected $root [.foo.'|'.1.0]", ((path ? lpath_0 : null) ? arr_0_lpath : null)])

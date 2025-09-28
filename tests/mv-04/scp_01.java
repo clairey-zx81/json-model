@@ -115,7 +115,7 @@ public class scp_01 extends ModelChecker
                 // handle must RA property
                 must_count += 1;
                 // .RA
-                res = json_model_5(pval, (path != null ? lpath_1 : null), rep);
+                res = _jm_obj_0(pval, (path != null ? lpath_1 : null), rep);
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected $Rr [.RA]", (path != null ? lpath_1 : null));

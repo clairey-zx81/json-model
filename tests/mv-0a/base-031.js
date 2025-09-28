@@ -37,7 +37,7 @@ function _jm_obj_0(val, path, rep)
                     let arr_0_item = pval[arr_0_idx]
                     let arr_0_lpath = (path ? lpath_0 : null) ? (path ? lpath_0 : null).concat([arr_0_idx]) : null;
                     // .'$bibi'.bibi.0
-                    res = json_model_2(arr_0_item, ((path ? lpath_0 : null) ? arr_0_lpath : null), rep);
+                    res = _jm_obj_0(arr_0_item, ((path ? lpath_0 : null) ? arr_0_lpath : null), rep);
                     if (! res)
                     {
                         rep !== null && rep.push(["unexpected $bibi [.'$bibi'.bibi.0]", ((path ? lpath_0 : null) ? arr_0_lpath : null)])
@@ -90,7 +90,7 @@ function json_model_1(val, path, rep)
 {
     let res;
     // .
-    res = json_model_2(val, path, rep);
+    res = _jm_obj_0(val, path, rep);
     if (! res)
     {
         rep !== null && rep.push(["unexpected $bibi [.]", path])

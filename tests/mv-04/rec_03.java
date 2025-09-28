@@ -39,7 +39,7 @@ public class rec_03 extends ModelChecker
                 // handle may foo property
                 // .foo
                 // .foo.'|'.0
-                res = json_model_1(pval, (path != null ? lpath_0 : null), rep);
+                res = _jm_obj_0(pval, (path != null ? lpath_0 : null), rep);
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected $root [.foo.'|'.0]", (path != null ? lpath_0 : null));
@@ -58,7 +58,7 @@ public class rec_03 extends ModelChecker
                             Object arr_0_item = arr_0_item_loop.next();
                             Path arr_0_lpath = new Path(arr_0_idx, (path != null ? lpath_0 : null));
                             // .foo.'|'.1.0
-                            res = json_model_1(arr_0_item, ((path != null ? lpath_0 : null) != null ? arr_0_lpath : null), rep);
+                            res = _jm_obj_0(arr_0_item, ((path != null ? lpath_0 : null) != null ? arr_0_lpath : null), rep);
                             if (! res)
                             {
                                 if (rep != null) rep.addEntry("unexpected $root [.foo.'|'.1.0]", ((path != null ? lpath_0 : null) != null ? arr_0_lpath : null));

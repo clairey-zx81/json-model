@@ -12,7 +12,9 @@
 
 static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_5(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static bool _jm_obj_1(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_12(const json_t *val, jm_path_t *path, jm_report_t *rep);
 jm_propmap_t check_model_map_tab[2];
 const size_t check_model_map_size = 2;
@@ -22,7 +24,7 @@ static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
     // .'$foo'
-    res = json_model_5(val, path, rep);
+    res = _jm_obj_0(val, path, rep);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected $Foo [.'$foo']", path);
@@ -35,7 +37,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
     // .
-    res = json_model_5(val, path, rep);
+    res = _jm_obj_0(val, path, rep);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected $foo#Foo [.]", path);
@@ -63,7 +65,7 @@ static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *re
             // handle must rt property
             must_count += 1;
             // .'$foo#Foo'.rt
-            res = json_model_12(pval, (path ? &lpath_0 : NULL), rep);
+            res = _jm_obj_1(pval, (path ? &lpath_0 : NULL), rep);
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected $root#Root [.'$foo#Foo'.rt]", (path ? &lpath_0 : NULL));

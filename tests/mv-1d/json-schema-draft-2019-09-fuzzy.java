@@ -62,7 +62,7 @@ public class json_schema_draft_2019_09_fuzzy extends ModelChecker
         if (! res)
         {
             // .'$schema#Schema'.'|'.1
-            res = json_model_17(val, path, rep);
+            res = _jm_obj_0(val, path, rep);
             if (! res)
             {
                 if (rep != null) rep.addEntry("unexpected $ObjectSchema [.'$schema#Schema'.'|'.1]", path);
@@ -336,7 +336,7 @@ public class json_schema_draft_2019_09_fuzzy extends ModelChecker
         {
             pval = json.objectValue(val, "$id");
             // .'$schema#ObjectSchema'.'$id'
-            res = json_model_5(pval, path, rep);
+            res = json_model_4(pval, path, rep);
             if (! res)
             {
                 if (rep != null) rep.addEntry("unexpected $id [.'$schema#ObjectSchema'.'$id']", path);

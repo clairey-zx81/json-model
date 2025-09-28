@@ -99,7 +99,7 @@ function json_model_1(val, path, rep)
 {
     let res;
     // .
-    res = json_model_4(val, path, rep);
+    res = _jm_obj_0(val, path, rep);
     if (! res)
     {
         rep !== null && rep.push(["unexpected $Ex09 [.]", path])
@@ -126,7 +126,7 @@ function json_model_9(val, path, rep)
     let res;
     // .'$ex08#Ex08'
     // .'$ex08#Ex08'.'|'.0
-    res = json_model_8(val, path, rep);
+    res = _jm_obj_1(val, path, rep);
     if (! res)
     {
         rep !== null && rep.push(["unexpected $map [.'$ex08#Ex08'.'|'.0]", path])

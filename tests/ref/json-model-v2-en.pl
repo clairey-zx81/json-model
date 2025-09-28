@@ -28,14 +28,40 @@ sub _jm_xre_0($$$);
 sub _jm_xre_1($$$);
 sub json_model_12($$$);
 sub json_model_35($$$);
+sub _jm_obj_0($$$);
+sub _jm_obj_1($$$);
+sub _jm_obj_2($$$);
+sub _jm_obj_3($$$);
+sub _jm_obj_4($$$);
+sub _jm_obj_5($$$);
 sub json_model_31($$$);
 sub json_model_14($$$);
 sub json_model_15($$$);
 sub json_model_28($$$);
 sub json_model_13($$$);
+sub _jm_obj_7($$$);
+sub _jm_obj_8($$$);
+sub _jm_obj_6($$$);
+sub _jm_obj_10($$$);
+sub _jm_obj_11($$$);
+sub _jm_obj_9($$$);
+sub _jm_obj_13($$$);
+sub _jm_obj_14($$$);
+sub _jm_obj_12($$$);
+sub _jm_obj_16($$$);
+sub _jm_obj_17($$$);
+sub _jm_obj_15($$$);
+sub _jm_obj_19($$$);
+sub _jm_obj_20($$$);
+sub _jm_obj_18($$$);
+sub _jm_obj_22($$$);
+sub _jm_obj_23($$$);
+sub _jm_obj_21($$$);
 sub json_model_41($$$);
 sub json_model_4($$$);
 sub json_model_6($$$);
+sub _jm_obj_25($$$);
+sub _jm_obj_24($$$);
 sub json_model_33($$$);
 my %check_model_map;
 
@@ -55,7 +81,7 @@ sub json_model_1($$$)
     my ($val, $path, $rep) = @_;
     my $res;
     # .
-    $res = json_model_3($val, $path, $rep);
+    $res = json_model_42($val, $path, $rep);
     return $res;
 }
 

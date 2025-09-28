@@ -103,7 +103,7 @@ public class root_0 extends ModelChecker
     {
         boolean res;
         // .
-        res = json_model_2(val, path, rep);
+        res = _jm_obj_0(val, path, rep);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected $Root [.]", path);

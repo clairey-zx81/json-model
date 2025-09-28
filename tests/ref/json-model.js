@@ -561,7 +561,7 @@ function json_model_20(val, path, rep)
 {
     let res;
     // .'$Common'
-    res = json_model_6(val, path, rep);
+    res = _jm_obj_0(val, path, rep);
     if (! res)
     {
         rep !== null && rep.push(["unexpected $ObjectComment [.'$Common']", path])
@@ -1083,7 +1083,7 @@ function json_model_28(val, path, rep)
     let res;
     // .'$Elem'
     // .'$Elem'.'|'.0
-    res = json_model_21(val, path, rep);
+    res = _jm_obj_1(val, path, rep);
     if (! res)
     {
         rep !== null && rep.push(["unexpected $Constraint [.'$Elem'.'|'.0]", path])
@@ -1091,7 +1091,7 @@ function json_model_28(val, path, rep)
     if (! res)
     {
         // .'$Elem'.'|'.1
-        res = json_model_22(val, path, rep);
+        res = _jm_obj_2(val, path, rep);
         if (! res)
         {
             rep !== null && rep.push(["unexpected $Or [.'$Elem'.'|'.1]", path])
@@ -1099,7 +1099,7 @@ function json_model_28(val, path, rep)
         if (! res)
         {
             // .'$Elem'.'|'.2
-            res = json_model_23(val, path, rep);
+            res = _jm_obj_3(val, path, rep);
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $And [.'$Elem'.'|'.2]", path])
@@ -1107,7 +1107,7 @@ function json_model_28(val, path, rep)
             if (! res)
             {
                 // .'$Elem'.'|'.3
-                res = json_model_24(val, path, rep);
+                res = _jm_obj_4(val, path, rep);
                 if (! res)
                 {
                     rep !== null && rep.push(["unexpected $Xor [.'$Elem'.'|'.3]", path])
@@ -1115,7 +1115,7 @@ function json_model_28(val, path, rep)
                 if (! res)
                 {
                     // .'$Elem'.'|'.4
-                    res = json_model_25(val, path, rep);
+                    res = _jm_obj_5(val, path, rep);
                     if (! res)
                     {
                         rep !== null && rep.push(["unexpected $Add [.'$Elem'.'|'.4]", path])
@@ -1123,7 +1123,7 @@ function json_model_28(val, path, rep)
                     if (! res)
                     {
                         // .'$Elem'.'|'.5
-                        res = json_model_27(val, path, rep);
+                        res = _jm_obj_6(val, path, rep);
                         if (! res)
                         {
                             rep !== null && rep.push(["unexpected $Obj [.'$Elem'.'|'.5]", path])

@@ -26,7 +26,9 @@ static bool _jm_f_6(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_7(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_8(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_9(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static bool _jm_obj_1(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_10(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static bool _jm_obj_2(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_11(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_12(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_13(const json_t *val, jm_path_t *path, jm_report_t *rep);
@@ -47,7 +49,9 @@ static bool _jm_f_27(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_28(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_29(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_30(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static bool _jm_obj_3(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_31(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static bool _jm_obj_4(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_32(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_33(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_34(const json_t *val, jm_path_t *path, jm_report_t *rep);
@@ -55,6 +59,7 @@ static bool _jm_f_35(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_36(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_37(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static jm_propmap_t _jm_obj_0_map_tab[38];
+static bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_7(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_8(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep);
@@ -929,7 +934,7 @@ static bool json_model_8(const json_t *val, jm_path_t *path, jm_report_t *rep)
     if (! res)
     {
         // .'$Schema'.'|'.1
-        res = json_model_7(val, path, rep);
+        res = _jm_obj_0(val, path, rep);
         if (! res)
         {
             if (rep) jm_report_add_entry(rep, "unexpected $ObjectSchema [.'$Schema'.'|'.1]", path);

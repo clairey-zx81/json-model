@@ -16,7 +16,7 @@ function json_model_3(val, path, rep)
 {
     let res;
     // .'$foo'
-    res = json_model_5(val, path, rep);
+    res = _jm_obj_0(val, path, rep);
     if (! res)
     {
         rep !== null && rep.push(["unexpected $Foo [.'$foo']", path])
@@ -29,7 +29,7 @@ function json_model_1(val, path, rep)
 {
     let res;
     // .
-    res = json_model_5(val, path, rep);
+    res = _jm_obj_0(val, path, rep);
     if (! res)
     {
         rep !== null && rep.push(["unexpected $foo#Foo [.]", path])
@@ -55,7 +55,7 @@ function _jm_obj_0(val, path, rep)
             // handle must rt property
             must_count += 1;
             // .'$foo#Foo'.rt
-            res = json_model_12(pval, (path ? lpath_0 : null), rep);
+            res = _jm_obj_1(pval, (path ? lpath_0 : null), rep);
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $root#Root [.'$foo#Foo'.rt]", (path ? lpath_0 : null)])

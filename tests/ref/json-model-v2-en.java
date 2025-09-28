@@ -53,7 +53,7 @@ public class json_model_v2_en extends ModelChecker
     {
         boolean res;
         // .
-        res = json_model_3(val, path, rep);
+        res = json_model_42(val, path, rep);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected $Model [.]", path);

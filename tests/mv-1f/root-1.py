@@ -26,7 +26,7 @@ check_model_map: PropMap
 def json_model_4(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$root'
-    res = json_model_5(val, path, rep)
+    res = _jm_obj_0(val, path, rep)
     if not res:
         rep is None or rep.append(("unexpected $Root [.'$root']", path))
     return res
@@ -35,7 +35,7 @@ def json_model_4(val: Jsonable, path: Path, rep: Report) -> bool:
 def json_model_3(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$Root'
-    res = json_model_5(val, path, rep)
+    res = _jm_obj_0(val, path, rep)
     if not res:
         rep is None or rep.append(("unexpected $root#Root [.'$Root']", path))
     return res
@@ -44,7 +44,7 @@ def json_model_3(val: Jsonable, path: Path, rep: Report) -> bool:
 def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .
-    res = json_model_3(val, path, rep)
+    res = _jm_obj_0(val, path, rep)
     if not res:
         rep is None or rep.append(("unexpected $Root [.]", path))
     return res

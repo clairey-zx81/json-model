@@ -30,7 +30,7 @@ BEGIN
         FOR arr_0_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
           arr_0_item := pval -> arr_0_idx;
           -- .'$bibi'.bibi.0
-          res := json_model_2(arr_0_item, NULL, rep);
+          res := _jm_obj_0(arr_0_item, NULL, rep);
           IF NOT res THEN
             EXIT;
           END IF;
@@ -69,7 +69,7 @@ DECLARE
   res bool;
 BEGIN
   -- .
-  res := json_model_2(val, path, rep);
+  res := _jm_obj_0(val, path, rep);
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;

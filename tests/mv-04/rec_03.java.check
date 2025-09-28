@@ -3,7 +3,7 @@ rec_03.values.json[1]: PASS
 rec_03.values.json[2]: PASS
 rec_03.values.json[3]: PASS
 rec_03.values.json[4]: PASS
-rec_03.values.json[5]: FAIL (foo: not an object [.]; foo: unexpected element [.]; foo: unexpected $root [.foo.'|'.0]; foo, 0: not an object [.]; foo, 0: unexpected element [.]; foo, 0: unexpected $root [.foo.'|'.1.0]; foo: not array or unexpected array [.foo.'|'.1]; foo: no model matched [.foo.'|']; foo: invalid optional prop value [.foo])
+rec_03.values.json[5]: FAIL (foo: not an object [.]; foo: unexpected $root [.foo.'|'.0]; foo, 0: not an object [.]; foo, 0: unexpected $root [.foo.'|'.1.0]; foo: not array or unexpected array [.foo.'|'.1]; foo: no model matched [.foo.'|']; foo: invalid optional prop value [.foo])
 rec_03.values.json[6]: FAIL (bla: unexpected prop [.])
 rec_03.values.json[7]: FAIL (: not an object [.])
 rec_03.values.json[8]: FAIL (: not an object [.])

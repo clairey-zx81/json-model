@@ -54,7 +54,7 @@ function json_model_18(val, path, rep)
     if (! res)
     {
         // .'$schema#Schema'.'|'.1
-        res = json_model_17(val, path, rep);
+        res = _jm_obj_0(val, path, rep);
         if (! res)
         {
             rep !== null && rep.push(["unexpected $ObjectSchema [.'$schema#Schema'.'|'.1]", path])
@@ -304,7 +304,7 @@ function _jm_obj_0(val, path, rep)
     {
         pval = val["$id"];
         // .'$schema#ObjectSchema'.'$id'
-        res = json_model_5(pval, path, rep);
+        res = json_model_4(pval, path, rep);
         if (! res)
         {
             rep !== null && rep.push(["unexpected $id [.'$schema#ObjectSchema'.'$id']", path])

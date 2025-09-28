@@ -25,7 +25,7 @@ function _jm_obj_0(val, path, rep)
         let lpath_0 = path ? path.concat([prop]) : null;
         // handle other props
         // .''
-        res = json_model_1(pval, (path ? lpath_0 : null), rep);
+        res = _jm_obj_0(pval, (path ? lpath_0 : null), rep);
         if (! res)
         {
             rep !== null && rep.push(["unexpected $# [.'']", (path ? lpath_0 : null)])

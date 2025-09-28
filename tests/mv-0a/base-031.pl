@@ -10,6 +10,7 @@ use JSON::JsonModel;
 use constant JMC_VERSION => '2';
 
 
+sub _jm_obj_0($$$);
 sub json_model_2($$$);
 sub json_model_1($$$);
 my %check_model_map;
@@ -39,7 +40,7 @@ sub _jm_obj_0($$$)
                 {
                     my $arr_0_item = $$pval[$arr_0_idx];
                     # .'$bibi'.bibi.0
-                    $res = json_model_2($arr_0_item, undef, $rep);
+                    $res = _jm_obj_0($arr_0_item, undef, $rep);
                     if (! $res)
                     {
                         last;
@@ -79,7 +80,7 @@ sub json_model_1($$$)
     my ($val, $path, $rep) = @_;
     my $res;
     # .
-    $res = json_model_2($val, $path, $rep);
+    $res = _jm_obj_0($val, $path, $rep);
     return $res;
 }
 

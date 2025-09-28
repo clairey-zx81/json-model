@@ -27,7 +27,7 @@ function _jm_obj_0(val, path, rep)
         {
             // handle may foo property
             // .foo
-            res = json_model_1(pval, (path ? lpath_0 : null), rep);
+            res = _jm_obj_0(pval, (path ? lpath_0 : null), rep);
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $foo [.foo]", (path ? lpath_0 : null)])

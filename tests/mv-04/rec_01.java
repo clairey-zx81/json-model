@@ -36,7 +36,7 @@ public class rec_01 extends ModelChecker
             Path lpath_0 = new Path(prop, path);
             // handle other props
             // .''
-            res = json_model_1(pval, (path != null ? lpath_0 : null), rep);
+            res = _jm_obj_0(pval, (path != null ? lpath_0 : null), rep);
             if (! res)
             {
                 if (rep != null) rep.addEntry("unexpected $# [.'']", (path != null ? lpath_0 : null));

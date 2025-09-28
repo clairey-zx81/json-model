@@ -864,7 +864,7 @@ function json_model_8(val, path, rep)
     if (! res)
     {
         // .'$Schema'.'|'.1
-        res = json_model_7(val, path, rep);
+        res = _jm_obj_0(val, path, rep);
         if (! res)
         {
             rep !== null && rep.push(["unexpected $ObjectSchema [.'$Schema'.'|'.1]", path])

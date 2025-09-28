@@ -32,12 +32,14 @@ sub _jm_f_18($$$);
 sub _jm_f_19($$$);
 sub _jm_f_20($$$);
 sub _jm_f_21($$$);
+sub _jm_obj_1($$$);
 sub _jm_f_22($$$);
 sub _jm_f_23($$$);
 sub _jm_f_24($$$);
 sub _jm_f_25($$$);
 sub _jm_f_26($$$);
 my %_jm_obj_0_map;
+sub _jm_obj_0($$$);
 sub json_model_3($$$);
 sub json_model_1($$$);
 my %_jm_cst_0;
@@ -66,7 +68,7 @@ sub _jm_f_1($$$)
     if (! $res)
     {
         # .'$schema'.additionalProperties.'|'.1
-        $res = json_model_3($val, $path, $rep);
+        $res = _jm_obj_0($val, $path, $rep);
     }
     return $res;
 }
@@ -150,7 +152,7 @@ sub _jm_f_8($$$)
     my $res;
     # .'$schema'.extends
     # .'$schema'.extends.'|'.0
-    $res = json_model_3($val, $path, $rep);
+    $res = _jm_obj_0($val, $path, $rep);
     if (! $res)
     {
         # .'$schema'.extends.'|'.1
@@ -161,7 +163,7 @@ sub _jm_f_8($$$)
             {
                 my $arr_0_item = $$val[$arr_0_idx];
                 # .'$schema'.extends.'|'.1.0
-                $res = json_model_3($arr_0_item, undef, $rep);
+                $res = _jm_obj_0($arr_0_item, undef, $rep);
                 if (! $res)
                 {
                     last;
@@ -199,7 +201,7 @@ sub _jm_f_11($$$)
     my $res;
     # .'$schema'.items
     # .'$schema'.items.'|'.0
-    $res = json_model_3($val, $path, $rep);
+    $res = _jm_obj_0($val, $path, $rep);
     if (! $res)
     {
         # .'$schema'.items.'|'.1
@@ -210,7 +212,7 @@ sub _jm_f_11($$$)
             {
                 my $arr_1_item = $$val[$arr_1_idx];
                 # .'$schema'.items.'|'.1.0
-                $res = json_model_3($arr_1_item, undef, $rep);
+                $res = _jm_obj_0($arr_1_item, undef, $rep);
                 if (! $res)
                 {
                     last;
@@ -335,7 +337,7 @@ sub _jm_obj_1($$$)
     {
         # handle other props
         # .'$schema'.properties.''
-        $res = json_model_3($pval, undef, $rep);
+        $res = _jm_obj_0($pval, undef, $rep);
         if (! $res)
         {
             return 0;
@@ -365,7 +367,7 @@ sub _jm_f_23($$$)
     if (! $res)
     {
         # .'$schema'.requires.'|'.1
-        $res = json_model_3($val, $path, $rep);
+        $res = _jm_obj_0($val, $path, $rep);
     }
     return $res;
 }
@@ -403,7 +405,7 @@ sub _jm_f_25($$$)
                 if (! $res)
                 {
                     # .'$schema'.type.'|'.1.0.'|'.1
-                    $res = json_model_3($arr_2_item, undef, $rep);
+                    $res = _jm_obj_0($arr_2_item, undef, $rep);
                 }
                 if (! $res)
                 {
@@ -451,7 +453,7 @@ sub _jm_obj_0($$$)
         {
             # handle other props
             # .'$schema'.''
-            $res = json_model_3($pval, undef, $rep);
+            $res = _jm_obj_0($pval, undef, $rep);
             if (! $res)
             {
                 return 0;
@@ -478,7 +480,7 @@ sub json_model_1($$$)
     my ($val, $path, $rep) = @_;
     my $res;
     # .
-    $res = json_model_3($val, $path, $rep);
+    $res = _jm_obj_0($val, $path, $rep);
     return $res;
 }
 

@@ -10,6 +10,7 @@ use JSON::JsonModel;
 use constant JMC_VERSION => '2';
 
 
+sub _jm_obj_0($$$);
 sub json_model_1($$$);
 my %check_model_map;
 
@@ -30,7 +31,7 @@ sub _jm_obj_0($$$)
             # handle may foo property
             # .foo
             # .foo.'|'.0
-            $res = json_model_1($pval, undef, $rep);
+            $res = _jm_obj_0($pval, undef, $rep);
             if (! $res)
             {
                 # .foo.'|'.1
@@ -41,7 +42,7 @@ sub _jm_obj_0($$$)
                     {
                         my $arr_0_item = $$pval[$arr_0_idx];
                         # .foo.'|'.1.0
-                        $res = json_model_1($arr_0_item, undef, $rep);
+                        $res = _jm_obj_0($arr_0_item, undef, $rep);
                         if (! $res)
                         {
                             last;

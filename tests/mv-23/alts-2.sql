@@ -35,7 +35,7 @@ BEGIN
     -- handle other props
     -- .'$a'.''
     -- .'$a'.''.'|'.0
-    res := json_model_2(pval, NULL, rep);
+    res := _jm_obj_0(pval, NULL, rep);
     IF NOT res THEN
       -- .'$a'.''.'|'.1
       res := _jm_obj_1(pval, NULL, rep);
@@ -83,7 +83,7 @@ DECLARE
 BEGIN
   -- .'$r'
   -- .'$r'.'|'.0
-  res := json_model_2(val, path, rep);
+  res := _jm_obj_0(val, path, rep);
   IF NOT res THEN
     -- .'$r'.'|'.1
     res := _jm_obj_2(val, path, rep);

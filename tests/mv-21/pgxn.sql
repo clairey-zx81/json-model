@@ -523,7 +523,7 @@ BEGIN
     IF json_model_14(TO_JSONB(prop), NULL, rep) THEN
       -- handle 1 key props
       -- .'$Prereqs'.'$Phase'.'$Relation'
-      res := json_model_15(pval, NULL, rep);
+      res := _jm_obj_4(pval, NULL, rep);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -758,7 +758,7 @@ BEGIN
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     -- handle other props
     -- .provides.''
-    res := json_model_6(pval, NULL, rep);
+    res := _jm_obj_0(pval, NULL, rep);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -877,7 +877,7 @@ DECLARE
   res bool;
 BEGIN
   -- .prereqs
-  res := json_model_16(val, path, rep);
+  res := _jm_obj_5(val, path, rep);
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
@@ -901,7 +901,7 @@ DECLARE
   res bool;
 BEGIN
   -- .resources
-  res := json_model_8(val, path, rep);
+  res := _jm_obj_1(val, path, rep);
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;

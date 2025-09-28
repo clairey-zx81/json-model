@@ -13,6 +13,15 @@ use constant JMC_VERSION => '2';
 sub json_model_3($$$);
 sub json_model_1($$$);
 sub json_model_18($$$);
+sub _jm_obj_1($$$);
+sub _jm_obj_2($$$);
+sub _jm_obj_3($$$);
+sub _jm_obj_4($$$);
+sub _jm_obj_5($$$);
+sub _jm_obj_6($$$);
+sub _jm_obj_7($$$);
+sub _jm_obj_8($$$);
+sub _jm_obj_0($$$);
 sub json_model_17($$$);
 sub json_model_4($$$);
 sub json_model_5($$$);
@@ -57,7 +66,7 @@ sub json_model_18($$$)
     if (! $res)
     {
         # .'$schema#Schema'.'|'.1
-        $res = json_model_17($val, $path, $rep);
+        $res = _jm_obj_0($val, $path, $rep);
     }
     return $res;
 }
@@ -274,7 +283,7 @@ sub _jm_obj_0($$$)
     {
         $pval = $$val{'$id'};
         # .'$schema#ObjectSchema'.'$id'
-        $res = json_model_5($pval, $path, $rep);
+        $res = json_model_4($pval, $path, $rep);
         if (! $res)
         {
             return 0;

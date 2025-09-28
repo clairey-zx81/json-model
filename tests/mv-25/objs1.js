@@ -84,7 +84,7 @@ function _jm_obj_1(val, path, rep)
             // handle must foo property
             must_count += 1;
             // .foo
-            res = json_model_3(pval, null, rep);
+            res = _jm_obj_0(pval, null, rep);
             if (! res)
             {
                 return false;

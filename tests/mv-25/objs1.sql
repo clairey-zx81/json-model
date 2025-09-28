@@ -80,7 +80,7 @@ BEGIN
       -- handle must foo property
       must_count := must_count + 1;
       -- .foo
-      res := json_model_3(pval, NULL, rep);
+      res := _jm_obj_0(pval, NULL, rep);
       IF NOT res THEN
         RETURN FALSE;
       END IF;

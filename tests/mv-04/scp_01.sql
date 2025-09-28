@@ -86,7 +86,7 @@ BEGIN
       -- handle must RA property
       must_count := must_count + 1;
       -- .RA
-      res := json_model_5(pval, NULL, rep);
+      res := _jm_obj_0(pval, NULL, rep);
       IF NOT res THEN
         RETURN FALSE;
       END IF;

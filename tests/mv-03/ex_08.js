@@ -88,7 +88,7 @@ function json_model_5(val, path, rep)
     let res;
     // .'$Ex08'
     // .'$Ex08'.'|'.0
-    res = json_model_4(val, path, rep);
+    res = _jm_obj_0(val, path, rep);
     if (! res)
     {
         rep !== null && rep.push(["unexpected $map [.'$Ex08'.'|'.0]", path])

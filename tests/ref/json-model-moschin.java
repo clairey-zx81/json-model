@@ -54,7 +54,7 @@ public class json_model_moschin extends ModelChecker
     {
         boolean res;
         // .
-        res = json_model_3(val, path, rep);
+        res = json_model_42(val, path, rep);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected $Model [.]", path);

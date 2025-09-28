@@ -12,10 +12,12 @@
 
 static bool json_model_5(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_4(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_6(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_9(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static bool _jm_obj_1(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_8(const json_t *val, jm_path_t *path, jm_report_t *rep);
 jm_propmap_t check_model_map_tab[4];
 const size_t check_model_map_size = 4;
@@ -110,7 +112,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
     // .
-    res = json_model_4(val, path, rep);
+    res = _jm_obj_0(val, path, rep);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected $Ex09 [.]", path);
@@ -137,7 +139,7 @@ static bool json_model_9(const json_t *val, jm_path_t *path, jm_report_t *rep)
     bool res;
     // .'$ex08#Ex08'
     // .'$ex08#Ex08'.'|'.0
-    res = json_model_8(val, path, rep);
+    res = _jm_obj_1(val, path, rep);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected $map [.'$ex08#Ex08'.'|'.0]", path);

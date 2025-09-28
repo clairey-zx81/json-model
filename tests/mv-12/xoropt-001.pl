@@ -16,6 +16,7 @@ sub json_model_4($$$);
 sub json_model_5($$$);
 sub json_model_6($$$);
 sub json_model_7($$$);
+sub _jm_obj_0($$$);
 sub json_model_8($$$);
 sub json_model_9($$$);
 sub json_model_1($$$);
@@ -158,7 +159,7 @@ sub json_model_9($$$)
                         if (! $res)
                         {
                             # .'$Any'.'|'.6
-                            $res = json_model_8($val, $path, $rep);
+                            $res = _jm_obj_0($val, $path, $rep);
                         }
                     }
                 }

@@ -1,0 +1,15 @@
+{
+  "#": "JsonModel 1 with defs",
+  "$": {
+    "bla": {
+      "x": -1.0,
+      "y": -1.0,
+      "#": "JsonModel 2"
+    },
+    "foo": "$bla",
+    "ob": "$foo",
+    "#": "Symbol 1",
+    "": "./objs2"
+  },
+  "@": "$ob"
+}

@@ -470,7 +470,7 @@ DECLARE
   res bool;
 BEGIN
   -- .'$Common'
-  res := json_model_6(val, path, rep);
+  res := _jm_obj_0(val, path, rep);
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
@@ -874,22 +874,22 @@ DECLARE
 BEGIN
   -- .'$Elem'
   -- .'$Elem'.'|'.0
-  res := json_model_21(val, path, rep);
+  res := _jm_obj_1(val, path, rep);
   IF NOT res THEN
     -- .'$Elem'.'|'.1
-    res := json_model_22(val, path, rep);
+    res := _jm_obj_2(val, path, rep);
     IF NOT res THEN
       -- .'$Elem'.'|'.2
-      res := json_model_23(val, path, rep);
+      res := _jm_obj_3(val, path, rep);
       IF NOT res THEN
         -- .'$Elem'.'|'.3
-        res := json_model_24(val, path, rep);
+        res := _jm_obj_4(val, path, rep);
         IF NOT res THEN
           -- .'$Elem'.'|'.4
-          res := json_model_25(val, path, rep);
+          res := _jm_obj_5(val, path, rep);
           IF NOT res THEN
             -- .'$Elem'.'|'.5
-            res := json_model_27(val, path, rep);
+            res := _jm_obj_6(val, path, rep);
           END IF;
         END IF;
       END IF;

@@ -3028,145 +3028,145 @@ BEGIN
   -- FIXME: name is not mandatory, not sure it makes much sense… versions should be unique?
   -- .'$any_platform'
   -- .'$any_platform'.'|'.0
-  res := json_model_2(val, path, rep);
+  res := _jm_obj_0(val, path, rep);
   IF NOT res THEN
     -- .'$any_platform'.'|'.1
-    res := json_model_3(val, path, rep);
+    res := _jm_obj_1(val, path, rep);
     IF NOT res THEN
       -- .'$any_platform'.'|'.2
-      res := json_model_5(val, path, rep);
+      res := _jm_obj_3(val, path, rep);
       IF NOT res THEN
         -- .'$any_platform'.'|'.3
-        res := json_model_4(val, path, rep);
+        res := _jm_obj_2(val, path, rep);
         IF NOT res THEN
           -- .'$any_platform'.'|'.4
-          res := json_model_42(val, path, rep);
+          res := _jm_obj_40(val, path, rep);
           IF NOT res THEN
             -- .'$any_platform'.'|'.5
-            res := json_model_6(val, path, rep);
+            res := _jm_obj_4(val, path, rep);
             IF NOT res THEN
               -- .'$any_platform'.'|'.6
-              res := json_model_7(val, path, rep);
+              res := _jm_obj_5(val, path, rep);
               IF NOT res THEN
                 -- .'$any_platform'.'|'.7
-                res := json_model_8(val, path, rep);
+                res := _jm_obj_6(val, path, rep);
                 IF NOT res THEN
                   -- .'$any_platform'.'|'.8
-                  res := json_model_9(val, path, rep);
+                  res := _jm_obj_7(val, path, rep);
                   IF NOT res THEN
                     -- .'$any_platform'.'|'.9
-                    res := json_model_28(val, path, rep);
+                    res := _jm_obj_26(val, path, rep);
                     IF NOT res THEN
                       -- .'$any_platform'.'|'.10
-                      res := json_model_10(val, path, rep);
+                      res := _jm_obj_8(val, path, rep);
                       IF NOT res THEN
                         -- .'$any_platform'.'|'.11
-                        res := json_model_11(val, path, rep);
+                        res := _jm_obj_9(val, path, rep);
                         IF NOT res THEN
                           -- .'$any_platform'.'|'.12
-                          res := json_model_12(val, path, rep);
+                          res := _jm_obj_10(val, path, rep);
                           IF NOT res THEN
                             -- .'$any_platform'.'|'.13
-                            res := json_model_13(val, path, rep);
+                            res := _jm_obj_11(val, path, rep);
                             IF NOT res THEN
                               -- .'$any_platform'.'|'.14
-                              res := json_model_14(val, path, rep);
+                              res := _jm_obj_12(val, path, rep);
                               IF NOT res THEN
                                 -- .'$any_platform'.'|'.15
-                                res := json_model_43(val, path, rep);
+                                res := _jm_obj_41(val, path, rep);
                                 IF NOT res THEN
                                   -- .'$any_platform'.'|'.16
-                                  res := json_model_15(val, path, rep);
+                                  res := _jm_obj_13(val, path, rep);
                                   IF NOT res THEN
                                     -- .'$any_platform'.'|'.17
-                                    res := json_model_16(val, path, rep);
+                                    res := _jm_obj_14(val, path, rep);
                                     IF NOT res THEN
                                       -- .'$any_platform'.'|'.18
-                                      res := json_model_17(val, path, rep);
+                                      res := _jm_obj_15(val, path, rep);
                                       IF NOT res THEN
                                         -- .'$any_platform'.'|'.19
-                                        res := json_model_18(val, path, rep);
+                                        res := _jm_obj_16(val, path, rep);
                                         IF NOT res THEN
                                           -- .'$any_platform'.'|'.20
-                                          res := json_model_19(val, path, rep);
+                                          res := _jm_obj_17(val, path, rep);
                                           IF NOT res THEN
                                             -- .'$any_platform'.'|'.21
-                                            res := json_model_20(val, path, rep);
+                                            res := _jm_obj_18(val, path, rep);
                                             IF NOT res THEN
                                               -- .'$any_platform'.'|'.22
-                                              res := json_model_21(val, path, rep);
+                                              res := _jm_obj_19(val, path, rep);
                                               IF NOT res THEN
                                                 -- .'$any_platform'.'|'.23
-                                                res := json_model_22(val, path, rep);
+                                                res := _jm_obj_20(val, path, rep);
                                                 IF NOT res THEN
                                                   -- .'$any_platform'.'|'.24
-                                                  res := json_model_23(val, path, rep);
+                                                  res := _jm_obj_21(val, path, rep);
                                                   IF NOT res THEN
                                                     -- .'$any_platform'.'|'.25
-                                                    res := json_model_24(val, path, rep);
+                                                    res := _jm_obj_22(val, path, rep);
                                                     IF NOT res THEN
                                                       -- .'$any_platform'.'|'.26
-                                                      res := json_model_44(val, path, rep);
+                                                      res := _jm_obj_42(val, path, rep);
                                                       IF NOT res THEN
                                                         -- .'$any_platform'.'|'.27
-                                                        res := json_model_25(val, path, rep);
+                                                        res := _jm_obj_23(val, path, rep);
                                                         IF NOT res THEN
                                                           -- .'$any_platform'.'|'.28
-                                                          res := json_model_26(val, path, rep);
+                                                          res := _jm_obj_24(val, path, rep);
                                                           IF NOT res THEN
                                                             -- .'$any_platform'.'|'.29
-                                                            res := json_model_27(val, path, rep);
+                                                            res := _jm_obj_25(val, path, rep);
                                                             IF NOT res THEN
                                                               -- .'$any_platform'.'|'.30
-                                                              res := json_model_29(val, path, rep);
+                                                              res := _jm_obj_27(val, path, rep);
                                                               IF NOT res THEN
                                                                 -- .'$any_platform'.'|'.31
-                                                                res := json_model_45(val, path, rep);
+                                                                res := _jm_obj_43(val, path, rep);
                                                                 IF NOT res THEN
                                                                   -- .'$any_platform'.'|'.32
-                                                                  res := json_model_30(val, path, rep);
+                                                                  res := _jm_obj_28(val, path, rep);
                                                                   IF NOT res THEN
                                                                     -- .'$any_platform'.'|'.33
-                                                                    res := json_model_31(val, path, rep);
+                                                                    res := _jm_obj_29(val, path, rep);
                                                                     IF NOT res THEN
                                                                       -- .'$any_platform'.'|'.34
-                                                                      res := json_model_46(val, path, rep);
+                                                                      res := _jm_obj_44(val, path, rep);
                                                                       IF NOT res THEN
                                                                         -- .'$any_platform'.'|'.35
-                                                                        res := json_model_32(val, path, rep);
+                                                                        res := _jm_obj_30(val, path, rep);
                                                                         IF NOT res THEN
                                                                           -- .'$any_platform'.'|'.36
-                                                                          res := json_model_33(val, path, rep);
+                                                                          res := _jm_obj_31(val, path, rep);
                                                                           IF NOT res THEN
                                                                             -- .'$any_platform'.'|'.37
-                                                                            res := json_model_34(val, path, rep);
+                                                                            res := _jm_obj_32(val, path, rep);
                                                                             IF NOT res THEN
                                                                               -- .'$any_platform'.'|'.38
-                                                                              res := json_model_35(val, path, rep);
+                                                                              res := _jm_obj_33(val, path, rep);
                                                                               IF NOT res THEN
                                                                                 -- .'$any_platform'.'|'.39
-                                                                                res := json_model_36(val, path, rep);
+                                                                                res := _jm_obj_34(val, path, rep);
                                                                                 IF NOT res THEN
                                                                                   -- .'$any_platform'.'|'.40
-                                                                                  res := json_model_37(val, path, rep);
+                                                                                  res := _jm_obj_35(val, path, rep);
                                                                                   IF NOT res THEN
                                                                                     -- .'$any_platform'.'|'.41
-                                                                                    res := json_model_38(val, path, rep);
+                                                                                    res := _jm_obj_36(val, path, rep);
                                                                                     IF NOT res THEN
                                                                                       -- .'$any_platform'.'|'.42
-                                                                                      res := json_model_39(val, path, rep);
+                                                                                      res := _jm_obj_37(val, path, rep);
                                                                                       IF NOT res THEN
                                                                                         -- .'$any_platform'.'|'.43
-                                                                                        res := json_model_47(val, path, rep);
+                                                                                        res := _jm_obj_45(val, path, rep);
                                                                                         IF NOT res THEN
                                                                                           -- .'$any_platform'.'|'.44
-                                                                                          res := json_model_40(val, path, rep);
+                                                                                          res := _jm_obj_38(val, path, rep);
                                                                                           IF NOT res THEN
                                                                                             -- .'$any_platform'.'|'.45
-                                                                                            res := json_model_48(val, path, rep);
+                                                                                            res := _jm_obj_46(val, path, rep);
                                                                                             IF NOT res THEN
                                                                                               -- .'$any_platform'.'|'.46
-                                                                                              res := json_model_41(val, path, rep);
+                                                                                              res := _jm_obj_39(val, path, rep);
                                                                                             END IF;
                                                                                           END IF;
                                                                                         END IF;
@@ -7030,7 +7030,7 @@ BEGIN
   res := TRUE;
   IF res THEN
     -- .'$DependencyModel'.'&'.0
-    res := json_model_57(val, path, rep);
+    res := _jm_obj_99(val, path, rep);
     IF res THEN
       -- .'$DependencyModel'.'&'.1
       res := JSONB_TYPEOF(val) = 'object';
@@ -7141,7 +7141,7 @@ BEGIN
   res := JSONB_TYPEOF(val) = 'null';
   IF NOT res THEN
     -- .'$AnsibleMeta'.'|'.1
-    res := json_model_59(val, path, rep);
+    res := _jm_obj_104(val, path, rep);
   END IF;
   RETURN res;
 END;

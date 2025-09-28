@@ -15,9 +15,13 @@ sub json_model_3($$$);
 my %_jm_cst_0;
 sub json_model_4($$$);
 sub json_model_5($$$);
+sub _jm_obj_0($$$);
 sub json_model_6($$$);
 my %_jm_cst_1;
 sub json_model_7($$$);
+sub _jm_obj_2($$$);
+sub _jm_obj_3($$$);
+sub _jm_obj_1($$$);
 sub json_model_8($$$);
 sub json_model_9($$$);
 sub json_model_10($$$);
@@ -27,18 +31,25 @@ my %_jm_cst_2;
 sub json_model_13($$$);
 my %_jm_cst_3;
 sub json_model_14($$$);
+sub _jm_obj_4($$$);
 sub json_model_15($$$);
+sub _jm_obj_6($$$);
+sub _jm_obj_5($$$);
 sub json_model_16($$$);
 sub _jm_f_0($$$);
+sub _jm_obj_8($$$);
 sub _jm_f_1($$$);
 sub _jm_f_2($$$);
+sub _jm_obj_9($$$);
 sub _jm_f_3($$$);
 sub _jm_f_4($$$);
+sub _jm_obj_10($$$);
 sub _jm_f_5($$$);
 sub _jm_f_6($$$);
 my %_jm_obj_7_mup;
 sub _jm_f_7($$$);
 sub _jm_f_8($$$);
+sub _jm_obj_11($$$);
 sub _jm_f_9($$$);
 sub _jm_f_10($$$);
 sub _jm_f_11($$$);
@@ -46,6 +57,7 @@ sub _jm_f_12($$$);
 sub _jm_f_13($$$);
 sub _jm_f_14($$$);
 my %_jm_obj_7_map;
+sub _jm_obj_7($$$);
 sub json_model_1($$$);
 my %check_model_map;
 
@@ -549,7 +561,7 @@ sub _jm_obj_6($$$)
         {
             # handle 1 key props
             # .'$Prereqs'.'$Phase'.'$Relation'
-            $res = json_model_15($pval, undef, $rep);
+            $res = _jm_obj_4($pval, undef, $rep);
             if (! $res)
             {
                 return 0;
@@ -796,7 +808,7 @@ sub _jm_obj_10($$$)
     {
         # handle other props
         # .provides.''
-        $res = json_model_6($pval, undef, $rep);
+        $res = _jm_obj_0($pval, undef, $rep);
         if (! $res)
         {
             return 0;
@@ -902,7 +914,7 @@ sub _jm_f_10($$$)
     my ($val, $path, $rep) = @_;
     my $res;
     # .prereqs
-    $res = json_model_16($val, $path, $rep);
+    $res = _jm_obj_5($val, $path, $rep);
     return $res;
 }
 
@@ -922,7 +934,7 @@ sub _jm_f_12($$$)
     my ($val, $path, $rep) = @_;
     my $res;
     # .resources
-    $res = json_model_8($val, $path, $rep);
+    $res = _jm_obj_1($val, $path, $rep);
     return $res;
 }
 

@@ -12,6 +12,7 @@ use constant JMC_VERSION => '2';
 
 sub json_model_2($$$);
 sub json_model_3($$$);
+sub _jm_obj_0($$$);
 sub json_model_4($$$);
 sub json_model_5($$$);
 sub json_model_1($$$);
@@ -84,7 +85,7 @@ sub json_model_5($$$)
     my $res;
     # .'$Ex08'
     # .'$Ex08'.'|'.0
-    $res = json_model_4($val, $path, $rep);
+    $res = _jm_obj_0($val, $path, $rep);
     if (! $res)
     {
         # .'$Ex08'.'|'.1

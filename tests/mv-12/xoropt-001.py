@@ -145,7 +145,7 @@ def json_model_9(val: Jsonable, path: Path, rep: Report) -> bool:
                             rep is None or rep.append(("unexpected $Aa [.'$Any'.'|'.5]", path))
                         if not res:
                             # .'$Any'.'|'.6
-                            res = json_model_8(val, path, rep)
+                            res = _jm_obj_0(val, path, rep)
                             if not res:
                                 rep is None or rep.append(("unexpected $Oo [.'$Any'.'|'.6]", path))
     if res:

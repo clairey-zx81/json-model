@@ -16,7 +16,7 @@ function json_model_3(val, path, rep)
 {
     let res;
     // .'$over'
-    res = json_model_4(val, path, rep);
+    res = _jm_obj_0(val, path, rep);
     if (! res)
     {
         rep !== null && rep.push(["unexpected $Foo [.'$over']", path])
@@ -29,7 +29,7 @@ function json_model_1(val, path, rep)
 {
     let res;
     // .
-    res = json_model_4(val, path, rep);
+    res = _jm_obj_0(val, path, rep);
     if (! res)
     {
         rep !== null && rep.push(["unexpected $over#Foo [.]", path])

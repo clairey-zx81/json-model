@@ -629,7 +629,7 @@ function _jm_obj_3(val, path, rep)
                     let arr_3_item = pval[arr_3_idx]
                     let arr_3_lpath = (path ? lpath_3 : null) ? (path ? lpath_3 : null).concat([arr_3_idx]) : null;
                     // .'$Object'.content.0
-                    res = json_model_8(arr_3_item, ((path ? lpath_3 : null) ? arr_3_lpath : null), rep);
+                    res = _jm_obj_4(arr_3_item, ((path ? lpath_3 : null) ? arr_3_lpath : null), rep);
                     if (! res)
                     {
                         rep !== null && rep.push(["unexpected $Fields [.'$Object'.content.0]", ((path ? lpath_3 : null) ? arr_3_lpath : null)])
@@ -1078,7 +1078,7 @@ function json_model_1(val, path, rep)
 {
     let res;
     // .
-    res = json_model_2(val, path, rep);
+    res = _jm_obj_0(val, path, rep);
     if (! res)
     {
         rep !== null && rep.push(["unexpected $Schema [.]", path])

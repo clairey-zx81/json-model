@@ -431,7 +431,7 @@ def _jm_obj_6(val: Jsonable, path: Path, rep: Report) -> bool:
         if json_model_14(prop, lpath_6 if path is not None else None, rep):
             # handle 1 key props
             # .'$Prereqs'.'$Phase'.'$Relation'
-            res = json_model_15(pval, lpath_6 if path is not None else None, rep)
+            res = _jm_obj_4(pval, lpath_6 if path is not None else None, rep)
             if not res:
                 rep is None or rep.append(("unexpected $Prereq [.'$Prereqs'.'$Phase'.'$Relation']", lpath_6 if path is not None else None))
                 return False
@@ -635,7 +635,7 @@ def _jm_obj_10(val: Jsonable, path: Path, rep: Report) -> bool:
         lpath_10: Path = (path + [ prop ]) if path is not None else None
         # handle other props
         # .provides.''
-        res = json_model_6(pval, lpath_10 if path is not None else None, rep)
+        res = _jm_obj_0(pval, lpath_10 if path is not None else None, rep)
         if not res:
             rep is None or rep.append(("unexpected $Provide [.provides.'']", lpath_10 if path is not None else None))
             return False
@@ -721,7 +721,7 @@ def _jm_f_9(val: Jsonable, path: Path, rep: Report) -> bool:
 def _jm_f_10(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .prereqs
-    res = json_model_16(val, path, rep)
+    res = _jm_obj_5(val, path, rep)
     if not res:
         rep is None or rep.append(("unexpected $Prereqs [.prereqs]", path))
     return res
@@ -739,7 +739,7 @@ def _jm_f_11(val: Jsonable, path: Path, rep: Report) -> bool:
 def _jm_f_12(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .resources
-    res = json_model_8(val, path, rep)
+    res = _jm_obj_1(val, path, rep)
     if not res:
         rep is None or rep.append(("unexpected $Resources [.resources]", path))
     return res

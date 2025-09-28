@@ -51,7 +51,7 @@ DECLARE
   res bool;
 BEGIN
   -- .
-  res := json_model_2(val, path, rep);
+  res := _jm_obj_0(val, path, rep);
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;

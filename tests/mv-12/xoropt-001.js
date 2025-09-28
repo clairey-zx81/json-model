@@ -195,7 +195,7 @@ function json_model_9(val, path, rep)
                         if (! res)
                         {
                             // .'$Any'.'|'.6
-                            res = json_model_8(val, path, rep);
+                            res = _jm_obj_0(val, path, rep);
                             if (! res)
                             {
                                 rep !== null && rep.push(["unexpected $Oo [.'$Any'.'|'.6]", path])

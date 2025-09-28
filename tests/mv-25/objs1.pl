@@ -10,11 +10,15 @@ use JSON::JsonModel;
 use constant JMC_VERSION => '2';
 
 
+sub _jm_obj_0($$$);
 sub json_model_3($$$);
+sub _jm_obj_1($$$);
 sub json_model_1($$$);
 my %_jm_map_0;
 sub json_model_6($$$);
+sub _jm_obj_2($$$);
 sub json_model_4($$$);
+sub _jm_obj_3($$$);
 sub json_model_5($$$);
 my %check_model_map;
 
@@ -95,7 +99,7 @@ sub _jm_obj_1($$$)
             # handle must foo property
             $must_count++;
             # .foo
-            $res = json_model_3($pval, undef, $rep);
+            $res = _jm_obj_0($pval, undef, $rep);
             if (! $res)
             {
                 return 0;

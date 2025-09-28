@@ -2,7 +2,7 @@ rec_02.values.json[0]: PASS
 rec_02.values.json[1]: PASS
 rec_02.values.json[2]: PASS
 rec_02.values.json[3]: FAIL (.bla: unexpected prop [.])
-rec_02.values.json[4]: FAIL (.foo: invalid optional prop value [.foo]; .foo: unexpected $foo [.foo]; .foo: unexpected element [.]; .foo: not an object [.])
+rec_02.values.json[4]: FAIL (.foo: invalid optional prop value [.foo]; .foo: unexpected $foo [.foo]; .foo: not an object [.])
 rec_02.values.json[5]: FAIL (.: not an object [.])
 rec_02.values.json[6]: FAIL (.: not an object [.])
 rec_02.values.json[7]: FAIL (.: not an object [.])

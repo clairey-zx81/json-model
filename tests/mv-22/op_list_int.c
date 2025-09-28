@@ -10,8 +10,12 @@
 #include <json-model.h>
 #define JSON_MODEL_VERSION "2"
 
+static bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static jm_constant_t _jm_cst_0[4];
+static bool _jm_obj_1(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static jm_constant_t _jm_cst_1[5];
+static bool _jm_obj_2(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static bool _jm_obj_3(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static jm_constmap_t _jm_map_0_tab[11];
 static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep);
 jm_propmap_t check_model_map_tab[1];

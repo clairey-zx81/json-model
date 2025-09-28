@@ -236,13 +236,13 @@ DECLARE
 BEGIN
   -- .
   -- .'|'.0
-  res := json_model_2(val, path, rep);
+  res := _jm_obj_0(val, path, rep);
   IF NOT res THEN
     -- .'|'.1
-    res := json_model_3(val, path, rep);
+    res := _jm_obj_1(val, path, rep);
     IF NOT res THEN
       -- .'|'.2
-      res := json_model_4(val, path, rep);
+      res := _jm_obj_2(val, path, rep);
     END IF;
   END IF;
   RETURN res;

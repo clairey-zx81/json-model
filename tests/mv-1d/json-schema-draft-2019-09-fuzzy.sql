@@ -42,7 +42,7 @@ BEGIN
   res := JSONB_TYPEOF(val) = 'boolean';
   IF NOT res THEN
     -- .'$schema#Schema'.'|'.1
-    res := json_model_17(val, path, rep);
+    res := _jm_obj_0(val, path, rep);
   END IF;
   RETURN res;
 END;
@@ -255,7 +255,7 @@ BEGIN
   IF val ? '$id' THEN
     pval := val -> '$id';
     -- .'$schema#ObjectSchema'.'$id'
-    res := json_model_5(pval, path, rep);
+    res := json_model_4(pval, path, rep);
     IF NOT res THEN
       RETURN FALSE;
     END IF;

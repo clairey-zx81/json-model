@@ -698,7 +698,7 @@ BEGIN
     res := json_model_11(pval, path, rep);
     IF NOT res THEN
       -- .'$Feature'.geometry.'|'.2
-      res := json_model_12(pval, path, rep);
+      res := _jm_obj_6(pval, path, rep);
     END IF;
   END IF;
   IF NOT res THEN
@@ -799,7 +799,7 @@ BEGIN
     FOR arr_17_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
       arr_17_item := pval -> arr_17_idx;
       -- .'$FeatureCollection'.features.0
-      res := json_model_13(arr_17_item, NULL, rep);
+      res := _jm_obj_7(arr_17_item, NULL, rep);
       IF NOT res THEN
         EXIT;
       END IF;
@@ -860,20 +860,20 @@ BEGIN
     xc_0 := xc_0 + 1;
   END IF;
   -- .'^'.1
-  xr_0 := json_model_12(val, path, rep);
+  xr_0 := _jm_obj_6(val, path, rep);
   IF xr_0 THEN
     xc_0 := xc_0 + 1;
   END IF;
   IF xc_0 <= 1 THEN
     -- .'^'.2
-    xr_0 := json_model_13(val, path, rep);
+    xr_0 := _jm_obj_7(val, path, rep);
     IF xr_0 THEN
       xc_0 := xc_0 + 1;
     END IF;
   END IF;
   IF xc_0 <= 1 THEN
     -- .'^'.3
-    xr_0 := json_model_14(val, path, rep);
+    xr_0 := _jm_obj_9(val, path, rep);
     IF xr_0 THEN
       xc_0 := xc_0 + 1;
     END IF;

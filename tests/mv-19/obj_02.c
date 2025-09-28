@@ -13,6 +13,7 @@
 static cre2_regexp_t *_jm_re_0_re2 = NULL;
 static int _jm_re_0_nn = 0;
 static bool _jm_re_0(const char *s, jm_path_t *path, jm_report_t *rep);
+static bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep);
 jm_propmap_t check_model_map_tab[1];
 const size_t check_model_map_size = 1;

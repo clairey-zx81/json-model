@@ -69,7 +69,7 @@ def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
             # handle must foo property
             must_count += 1
             # .foo
-            res = json_model_3(pval, None, rep)
+            res = _jm_obj_0(pval, None, rep)
             if not res:
                 return False
         else:

@@ -38,7 +38,7 @@ public class rec_02 extends ModelChecker
             {
                 // handle may foo property
                 // .foo
-                res = json_model_1(pval, (path != null ? lpath_0 : null), rep);
+                res = _jm_obj_0(pval, (path != null ? lpath_0 : null), rep);
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected $foo [.foo]", (path != null ? lpath_0 : null));

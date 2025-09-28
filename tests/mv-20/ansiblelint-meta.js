@@ -3555,7 +3555,7 @@ function json_model_49(val, path, rep)
     // FIXME: name is not mandatory, not sure it makes much sense… versions should be unique?
     // .'$any_platform'
     // .'$any_platform'.'|'.0
-    res = json_model_2(val, path, rep);
+    res = _jm_obj_0(val, path, rep);
     if (! res)
     {
         rep !== null && rep.push(["unexpected $AIXPlatformModel [.'$any_platform'.'|'.0]", path])
@@ -3563,7 +3563,7 @@ function json_model_49(val, path, rep)
     if (! res)
     {
         // .'$any_platform'.'|'.1
-        res = json_model_3(val, path, rep);
+        res = _jm_obj_1(val, path, rep);
         if (! res)
         {
             rep !== null && rep.push(["unexpected $AlpinePlatformModel [.'$any_platform'.'|'.1]", path])
@@ -3571,7 +3571,7 @@ function json_model_49(val, path, rep)
         if (! res)
         {
             // .'$any_platform'.'|'.2
-            res = json_model_5(val, path, rep);
+            res = _jm_obj_3(val, path, rep);
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $AmazonPlatformModel [.'$any_platform'.'|'.2]", path])
@@ -3579,7 +3579,7 @@ function json_model_49(val, path, rep)
             if (! res)
             {
                 // .'$any_platform'.'|'.3
-                res = json_model_4(val, path, rep);
+                res = _jm_obj_2(val, path, rep);
                 if (! res)
                 {
                     rep !== null && rep.push(["unexpected $AmazonLinuxPlatformModel [.'$any_platform'.'|'.3]", path])
@@ -3587,7 +3587,7 @@ function json_model_49(val, path, rep)
                 if (! res)
                 {
                     // .'$any_platform'.'|'.4
-                    res = json_model_42(val, path, rep);
+                    res = _jm_obj_40(val, path, rep);
                     if (! res)
                     {
                         rep !== null && rep.push(["unexpected $aosPlatformModel [.'$any_platform'.'|'.4]", path])
@@ -3595,7 +3595,7 @@ function json_model_49(val, path, rep)
                     if (! res)
                     {
                         // .'$any_platform'.'|'.5
-                        res = json_model_6(val, path, rep);
+                        res = _jm_obj_4(val, path, rep);
                         if (! res)
                         {
                             rep !== null && rep.push(["unexpected $ArchLinuxPlatformModel [.'$any_platform'.'|'.5]", path])
@@ -3603,7 +3603,7 @@ function json_model_49(val, path, rep)
                         if (! res)
                         {
                             // .'$any_platform'.'|'.6
-                            res = json_model_7(val, path, rep);
+                            res = _jm_obj_5(val, path, rep);
                             if (! res)
                             {
                                 rep !== null && rep.push(["unexpected $AstraLinuxPlatformModel [.'$any_platform'.'|'.6]", path])
@@ -3611,7 +3611,7 @@ function json_model_49(val, path, rep)
                             if (! res)
                             {
                                 // .'$any_platform'.'|'.7
-                                res = json_model_8(val, path, rep);
+                                res = _jm_obj_6(val, path, rep);
                                 if (! res)
                                 {
                                     rep !== null && rep.push(["unexpected $ClearLinuxPlatformModel [.'$any_platform'.'|'.7]", path])
@@ -3619,7 +3619,7 @@ function json_model_49(val, path, rep)
                                 if (! res)
                                 {
                                     // .'$any_platform'.'|'.8
-                                    res = json_model_9(val, path, rep);
+                                    res = _jm_obj_7(val, path, rep);
                                     if (! res)
                                     {
                                         rep !== null && rep.push(["unexpected $CumulusPlatformModel [.'$any_platform'.'|'.8]", path])
@@ -3627,7 +3627,7 @@ function json_model_49(val, path, rep)
                                     if (! res)
                                     {
                                         // .'$any_platform'.'|'.9
-                                        res = json_model_28(val, path, rep);
+                                        res = _jm_obj_26(val, path, rep);
                                         if (! res)
                                         {
                                             rep !== null && rep.push(["unexpected $NetBSDPlatformModel [.'$any_platform'.'|'.9]", path])
@@ -3635,7 +3635,7 @@ function json_model_49(val, path, rep)
                                         if (! res)
                                         {
                                             // .'$any_platform'.'|'.10
-                                            res = json_model_10(val, path, rep);
+                                            res = _jm_obj_8(val, path, rep);
                                             if (! res)
                                             {
                                                 rep !== null && rep.push(["unexpected $DebianPlatformModel [.'$any_platform'.'|'.10]", path])
@@ -3643,7 +3643,7 @@ function json_model_49(val, path, rep)
                                             if (! res)
                                             {
                                                 // .'$any_platform'.'|'.11
-                                                res = json_model_11(val, path, rep);
+                                                res = _jm_obj_9(val, path, rep);
                                                 if (! res)
                                                 {
                                                     rep !== null && rep.push(["unexpected $DellOSPlatformModel [.'$any_platform'.'|'.11]", path])
@@ -3651,7 +3651,7 @@ function json_model_49(val, path, rep)
                                                 if (! res)
                                                 {
                                                     // .'$any_platform'.'|'.12
-                                                    res = json_model_12(val, path, rep);
+                                                    res = _jm_obj_10(val, path, rep);
                                                     if (! res)
                                                     {
                                                         rep !== null && rep.push(["unexpected $DevuanPlatformModel [.'$any_platform'.'|'.12]", path])
@@ -3659,7 +3659,7 @@ function json_model_49(val, path, rep)
                                                     if (! res)
                                                     {
                                                         // .'$any_platform'.'|'.13
-                                                        res = json_model_13(val, path, rep);
+                                                        res = _jm_obj_11(val, path, rep);
                                                         if (! res)
                                                         {
                                                             rep !== null && rep.push(["unexpected $DragonFlyBSDPlatformModel [.'$any_platform'.'|'.13]", path])
@@ -3667,7 +3667,7 @@ function json_model_49(val, path, rep)
                                                         if (! res)
                                                         {
                                                             // .'$any_platform'.'|'.14
-                                                            res = json_model_14(val, path, rep);
+                                                            res = _jm_obj_12(val, path, rep);
                                                             if (! res)
                                                             {
                                                                 rep !== null && rep.push(["unexpected $ELPlatformModel [.'$any_platform'.'|'.14]", path])
@@ -3675,7 +3675,7 @@ function json_model_49(val, path, rep)
                                                             if (! res)
                                                             {
                                                                 // .'$any_platform'.'|'.15
-                                                                res = json_model_43(val, path, rep);
+                                                                res = _jm_obj_41(val, path, rep);
                                                                 if (! res)
                                                                 {
                                                                     rep !== null && rep.push(["unexpected $eosPlatformModel [.'$any_platform'.'|'.15]", path])
@@ -3683,7 +3683,7 @@ function json_model_49(val, path, rep)
                                                                 if (! res)
                                                                 {
                                                                     // .'$any_platform'.'|'.16
-                                                                    res = json_model_15(val, path, rep);
+                                                                    res = _jm_obj_13(val, path, rep);
                                                                     if (! res)
                                                                     {
                                                                         rep !== null && rep.push(["unexpected $FedoraPlatformModel [.'$any_platform'.'|'.16]", path])
@@ -3691,7 +3691,7 @@ function json_model_49(val, path, rep)
                                                                     if (! res)
                                                                     {
                                                                         // .'$any_platform'.'|'.17
-                                                                        res = json_model_16(val, path, rep);
+                                                                        res = _jm_obj_14(val, path, rep);
                                                                         if (! res)
                                                                         {
                                                                             rep !== null && rep.push(["unexpected $FreeBSDPlatformModel [.'$any_platform'.'|'.17]", path])
@@ -3699,7 +3699,7 @@ function json_model_49(val, path, rep)
                                                                         if (! res)
                                                                         {
                                                                             // .'$any_platform'.'|'.18
-                                                                            res = json_model_17(val, path, rep);
+                                                                            res = _jm_obj_15(val, path, rep);
                                                                             if (! res)
                                                                             {
                                                                                 rep !== null && rep.push(["unexpected $GenericBSDPlatformModel [.'$any_platform'.'|'.18]", path])
@@ -3707,7 +3707,7 @@ function json_model_49(val, path, rep)
                                                                             if (! res)
                                                                             {
                                                                                 // .'$any_platform'.'|'.19
-                                                                                res = json_model_18(val, path, rep);
+                                                                                res = _jm_obj_16(val, path, rep);
                                                                                 if (! res)
                                                                                 {
                                                                                     rep !== null && rep.push(["unexpected $GenericLinuxPlatformModel [.'$any_platform'.'|'.19]", path])
@@ -3715,7 +3715,7 @@ function json_model_49(val, path, rep)
                                                                                 if (! res)
                                                                                 {
                                                                                     // .'$any_platform'.'|'.20
-                                                                                    res = json_model_19(val, path, rep);
+                                                                                    res = _jm_obj_17(val, path, rep);
                                                                                     if (! res)
                                                                                     {
                                                                                         rep !== null && rep.push(["unexpected $GenericUNIXPlatformModel [.'$any_platform'.'|'.20]", path])
@@ -3723,7 +3723,7 @@ function json_model_49(val, path, rep)
                                                                                     if (! res)
                                                                                     {
                                                                                         // .'$any_platform'.'|'.21
-                                                                                        res = json_model_20(val, path, rep);
+                                                                                        res = _jm_obj_18(val, path, rep);
                                                                                         if (! res)
                                                                                         {
                                                                                             rep !== null && rep.push(["unexpected $GentooPlatformModel [.'$any_platform'.'|'.21]", path])
@@ -3731,7 +3731,7 @@ function json_model_49(val, path, rep)
                                                                                         if (! res)
                                                                                         {
                                                                                             // .'$any_platform'.'|'.22
-                                                                                            res = json_model_21(val, path, rep);
+                                                                                            res = _jm_obj_19(val, path, rep);
                                                                                             if (! res)
                                                                                             {
                                                                                                 rep !== null && rep.push(["unexpected $HardenedBSDPlatformModel [.'$any_platform'.'|'.22]", path])
@@ -3739,7 +3739,7 @@ function json_model_49(val, path, rep)
                                                                                             if (! res)
                                                                                             {
                                                                                                 // .'$any_platform'.'|'.23
-                                                                                                res = json_model_22(val, path, rep);
+                                                                                                res = _jm_obj_20(val, path, rep);
                                                                                                 if (! res)
                                                                                                 {
                                                                                                     rep !== null && rep.push(["unexpected $IOSPlatformModel [.'$any_platform'.'|'.23]", path])
@@ -3747,7 +3747,7 @@ function json_model_49(val, path, rep)
                                                                                                 if (! res)
                                                                                                 {
                                                                                                     // .'$any_platform'.'|'.24
-                                                                                                    res = json_model_23(val, path, rep);
+                                                                                                    res = _jm_obj_21(val, path, rep);
                                                                                                     if (! res)
                                                                                                     {
                                                                                                         rep !== null && rep.push(["unexpected $JunosPlatformModel [.'$any_platform'.'|'.24]", path])
@@ -3755,7 +3755,7 @@ function json_model_49(val, path, rep)
                                                                                                     if (! res)
                                                                                                     {
                                                                                                         // .'$any_platform'.'|'.25
-                                                                                                        res = json_model_24(val, path, rep);
+                                                                                                        res = _jm_obj_22(val, path, rep);
                                                                                                         if (! res)
                                                                                                         {
                                                                                                             rep !== null && rep.push(["unexpected $KaliPlatformModel [.'$any_platform'.'|'.25]", path])
@@ -3763,7 +3763,7 @@ function json_model_49(val, path, rep)
                                                                                                         if (! res)
                                                                                                         {
                                                                                                             // .'$any_platform'.'|'.26
-                                                                                                            res = json_model_44(val, path, rep);
+                                                                                                            res = _jm_obj_42(val, path, rep);
                                                                                                             if (! res)
                                                                                                             {
                                                                                                                 rep !== null && rep.push(["unexpected $macOSPlatformModel [.'$any_platform'.'|'.26]", path])
@@ -3771,7 +3771,7 @@ function json_model_49(val, path, rep)
                                                                                                             if (! res)
                                                                                                             {
                                                                                                                 // .'$any_platform'.'|'.27
-                                                                                                                res = json_model_25(val, path, rep);
+                                                                                                                res = _jm_obj_23(val, path, rep);
                                                                                                                 if (! res)
                                                                                                                 {
                                                                                                                     rep !== null && rep.push(["unexpected $MacOSXPlatformModel [.'$any_platform'.'|'.27]", path])
@@ -3779,7 +3779,7 @@ function json_model_49(val, path, rep)
                                                                                                                 if (! res)
                                                                                                                 {
                                                                                                                     // .'$any_platform'.'|'.28
-                                                                                                                    res = json_model_26(val, path, rep);
+                                                                                                                    res = _jm_obj_24(val, path, rep);
                                                                                                                     if (! res)
                                                                                                                     {
                                                                                                                         rep !== null && rep.push(["unexpected $MageiaPlatformModel [.'$any_platform'.'|'.28]", path])
@@ -3787,7 +3787,7 @@ function json_model_49(val, path, rep)
                                                                                                                     if (! res)
                                                                                                                     {
                                                                                                                         // .'$any_platform'.'|'.29
-                                                                                                                        res = json_model_27(val, path, rep);
+                                                                                                                        res = _jm_obj_25(val, path, rep);
                                                                                                                         if (! res)
                                                                                                                         {
                                                                                                                             rep !== null && rep.push(["unexpected $NXOSPlatformModel [.'$any_platform'.'|'.29]", path])
@@ -3795,7 +3795,7 @@ function json_model_49(val, path, rep)
                                                                                                                         if (! res)
                                                                                                                         {
                                                                                                                             // .'$any_platform'.'|'.30
-                                                                                                                            res = json_model_29(val, path, rep);
+                                                                                                                            res = _jm_obj_27(val, path, rep);
                                                                                                                             if (! res)
                                                                                                                             {
                                                                                                                                 rep !== null && rep.push(["unexpected $OpenBSDPlatformModel [.'$any_platform'.'|'.30]", path])
@@ -3803,7 +3803,7 @@ function json_model_49(val, path, rep)
                                                                                                                             if (! res)
                                                                                                                             {
                                                                                                                                 // .'$any_platform'.'|'.31
-                                                                                                                                res = json_model_45(val, path, rep);
+                                                                                                                                res = _jm_obj_43(val, path, rep);
                                                                                                                                 if (! res)
                                                                                                                                 {
                                                                                                                                     rep !== null && rep.push(["unexpected $opensusePlatformModel [.'$any_platform'.'|'.31]", path])
@@ -3811,7 +3811,7 @@ function json_model_49(val, path, rep)
                                                                                                                                 if (! res)
                                                                                                                                 {
                                                                                                                                     // .'$any_platform'.'|'.32
-                                                                                                                                    res = json_model_30(val, path, rep);
+                                                                                                                                    res = _jm_obj_28(val, path, rep);
                                                                                                                                     if (! res)
                                                                                                                                     {
                                                                                                                                         rep !== null && rep.push(["unexpected $OpenWrtPlatformModel [.'$any_platform'.'|'.32]", path])
@@ -3819,7 +3819,7 @@ function json_model_49(val, path, rep)
                                                                                                                                     if (! res)
                                                                                                                                     {
                                                                                                                                         // .'$any_platform'.'|'.33
-                                                                                                                                        res = json_model_31(val, path, rep);
+                                                                                                                                        res = _jm_obj_29(val, path, rep);
                                                                                                                                         if (! res)
                                                                                                                                         {
                                                                                                                                             rep !== null && rep.push(["unexpected $OracleLinuxPlatformModel [.'$any_platform'.'|'.33]", path])
@@ -3827,7 +3827,7 @@ function json_model_49(val, path, rep)
                                                                                                                                         if (! res)
                                                                                                                                         {
                                                                                                                                             // .'$any_platform'.'|'.34
-                                                                                                                                            res = json_model_46(val, path, rep);
+                                                                                                                                            res = _jm_obj_44(val, path, rep);
                                                                                                                                             if (! res)
                                                                                                                                             {
                                                                                                                                                 rep !== null && rep.push(["unexpected $os10PlatformModel [.'$any_platform'.'|'.34]", path])
@@ -3835,7 +3835,7 @@ function json_model_49(val, path, rep)
                                                                                                                                             if (! res)
                                                                                                                                             {
                                                                                                                                                 // .'$any_platform'.'|'.35
-                                                                                                                                                res = json_model_32(val, path, rep);
+                                                                                                                                                res = _jm_obj_30(val, path, rep);
                                                                                                                                                 if (! res)
                                                                                                                                                 {
                                                                                                                                                     rep !== null && rep.push(["unexpected $PAN-OSPlatformModel [.'$any_platform'.'|'.35]", path])
@@ -3843,7 +3843,7 @@ function json_model_49(val, path, rep)
                                                                                                                                                 if (! res)
                                                                                                                                                 {
                                                                                                                                                     // .'$any_platform'.'|'.36
-                                                                                                                                                    res = json_model_33(val, path, rep);
+                                                                                                                                                    res = _jm_obj_31(val, path, rep);
                                                                                                                                                     if (! res)
                                                                                                                                                     {
                                                                                                                                                         rep !== null && rep.push(["unexpected $RockyLinuxPlatformModel [.'$any_platform'.'|'.36]", path])
@@ -3851,7 +3851,7 @@ function json_model_49(val, path, rep)
                                                                                                                                                     if (! res)
                                                                                                                                                     {
                                                                                                                                                         // .'$any_platform'.'|'.37
-                                                                                                                                                        res = json_model_34(val, path, rep);
+                                                                                                                                                        res = _jm_obj_32(val, path, rep);
                                                                                                                                                         if (! res)
                                                                                                                                                         {
                                                                                                                                                             rep !== null && rep.push(["unexpected $SLESPlatformModel [.'$any_platform'.'|'.37]", path])
@@ -3859,7 +3859,7 @@ function json_model_49(val, path, rep)
                                                                                                                                                         if (! res)
                                                                                                                                                         {
                                                                                                                                                             // .'$any_platform'.'|'.38
-                                                                                                                                                            res = json_model_35(val, path, rep);
+                                                                                                                                                            res = _jm_obj_33(val, path, rep);
                                                                                                                                                             if (! res)
                                                                                                                                                             {
                                                                                                                                                                 rep !== null && rep.push(["unexpected $SmartOSPlatformModel [.'$any_platform'.'|'.38]", path])
@@ -3867,7 +3867,7 @@ function json_model_49(val, path, rep)
                                                                                                                                                             if (! res)
                                                                                                                                                             {
                                                                                                                                                                 // .'$any_platform'.'|'.39
-                                                                                                                                                                res = json_model_36(val, path, rep);
+                                                                                                                                                                res = _jm_obj_34(val, path, rep);
                                                                                                                                                                 if (! res)
                                                                                                                                                                 {
                                                                                                                                                                     rep !== null && rep.push(["unexpected $SolarisPlatformModel [.'$any_platform'.'|'.39]", path])
@@ -3875,7 +3875,7 @@ function json_model_49(val, path, rep)
                                                                                                                                                                 if (! res)
                                                                                                                                                                 {
                                                                                                                                                                     // .'$any_platform'.'|'.40
-                                                                                                                                                                    res = json_model_37(val, path, rep);
+                                                                                                                                                                    res = _jm_obj_35(val, path, rep);
                                                                                                                                                                     if (! res)
                                                                                                                                                                     {
                                                                                                                                                                         rep !== null && rep.push(["unexpected $SynologyPlatformModel [.'$any_platform'.'|'.40]", path])
@@ -3883,7 +3883,7 @@ function json_model_49(val, path, rep)
                                                                                                                                                                     if (! res)
                                                                                                                                                                     {
                                                                                                                                                                         // .'$any_platform'.'|'.41
-                                                                                                                                                                        res = json_model_38(val, path, rep);
+                                                                                                                                                                        res = _jm_obj_36(val, path, rep);
                                                                                                                                                                         if (! res)
                                                                                                                                                                         {
                                                                                                                                                                             rep !== null && rep.push(["unexpected $TMOSPlatformModel [.'$any_platform'.'|'.41]", path])
@@ -3891,7 +3891,7 @@ function json_model_49(val, path, rep)
                                                                                                                                                                         if (! res)
                                                                                                                                                                         {
                                                                                                                                                                             // .'$any_platform'.'|'.42
-                                                                                                                                                                            res = json_model_39(val, path, rep);
+                                                                                                                                                                            res = _jm_obj_37(val, path, rep);
                                                                                                                                                                             if (! res)
                                                                                                                                                                             {
                                                                                                                                                                                 rep !== null && rep.push(["unexpected $UbuntuPlatformModel [.'$any_platform'.'|'.42]", path])
@@ -3899,7 +3899,7 @@ function json_model_49(val, path, rep)
                                                                                                                                                                             if (! res)
                                                                                                                                                                             {
                                                                                                                                                                                 // .'$any_platform'.'|'.43
-                                                                                                                                                                                res = json_model_47(val, path, rep);
+                                                                                                                                                                                res = _jm_obj_45(val, path, rep);
                                                                                                                                                                                 if (! res)
                                                                                                                                                                                 {
                                                                                                                                                                                     rep !== null && rep.push(["unexpected $vCenterPlatformModel [.'$any_platform'.'|'.43]", path])
@@ -3907,7 +3907,7 @@ function json_model_49(val, path, rep)
                                                                                                                                                                                 if (! res)
                                                                                                                                                                                 {
                                                                                                                                                                                     // .'$any_platform'.'|'.44
-                                                                                                                                                                                    res = json_model_40(val, path, rep);
+                                                                                                                                                                                    res = _jm_obj_38(val, path, rep);
                                                                                                                                                                                     if (! res)
                                                                                                                                                                                     {
                                                                                                                                                                                         rep !== null && rep.push(["unexpected $Void_LinuxPlatformModel [.'$any_platform'.'|'.44]", path])
@@ -3915,7 +3915,7 @@ function json_model_49(val, path, rep)
                                                                                                                                                                                     if (! res)
                                                                                                                                                                                     {
                                                                                                                                                                                         // .'$any_platform'.'|'.45
-                                                                                                                                                                                        res = json_model_48(val, path, rep);
+                                                                                                                                                                                        res = _jm_obj_46(val, path, rep);
                                                                                                                                                                                         if (! res)
                                                                                                                                                                                         {
                                                                                                                                                                                             rep !== null && rep.push(["unexpected $vSpherePlatformModel [.'$any_platform'.'|'.45]", path])
@@ -3923,7 +3923,7 @@ function json_model_49(val, path, rep)
                                                                                                                                                                                         if (! res)
                                                                                                                                                                                         {
                                                                                                                                                                                             // .'$any_platform'.'|'.46
-                                                                                                                                                                                            res = json_model_41(val, path, rep);
+                                                                                                                                                                                            res = _jm_obj_39(val, path, rep);
                                                                                                                                                                                             if (! res)
                                                                                                                                                                                             {
                                                                                                                                                                                                 rep !== null && rep.push(["unexpected $WindowsPlatformModel [.'$any_platform'.'|'.46]", path])
@@ -8474,7 +8474,7 @@ function json_model_58(val, path, rep)
     if (res)
     {
         // .'$DependencyModel'.'&'.0
-        res = json_model_57(val, path, rep);
+        res = _jm_obj_99(val, path, rep);
         if (! res)
         {
             rep !== null && rep.push(["unexpected $DependencyModelLoose [.'$DependencyModel'.'&'.0]", path])
@@ -8665,7 +8665,7 @@ function json_model_60(val, path, rep)
     if (! res)
     {
         // .'$AnsibleMeta'.'|'.1
-        res = json_model_59(val, path, rep);
+        res = _jm_obj_104(val, path, rep);
         if (! res)
         {
             rep !== null && rep.push(["unexpected $AnsibleMetaObj [.'$AnsibleMeta'.'|'.1]", path])

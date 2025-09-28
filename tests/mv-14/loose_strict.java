@@ -229,7 +229,7 @@ public class loose_strict extends ModelChecker
     {
         boolean res;
         // .
-        res = json_model_4(val, path, rep);
+        res = _jm_obj_2(val, path, rep);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected $combined [.]", path);

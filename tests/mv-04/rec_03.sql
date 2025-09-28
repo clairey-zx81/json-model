@@ -23,7 +23,7 @@ BEGIN
       -- handle may foo property
       -- .foo
       -- .foo.'|'.0
-      res := json_model_1(pval, NULL, rep);
+      res := _jm_obj_0(pval, NULL, rep);
       IF NOT res THEN
         -- .foo.'|'.1
         res := JSONB_TYPEOF(pval) = 'array';
@@ -31,7 +31,7 @@ BEGIN
           FOR arr_0_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
             arr_0_item := pval -> arr_0_idx;
             -- .foo.'|'.1.0
-            res := json_model_1(arr_0_item, NULL, rep);
+            res := _jm_obj_0(arr_0_item, NULL, rep);
             IF NOT res THEN
               EXIT;
             END IF;

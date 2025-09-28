@@ -28,7 +28,7 @@ function _jm_f_0(val, path, rep)
     if (! res)
     {
         // .'$schema'.additionalItems.'|'.1
-        res = json_model_3(val, path, rep);
+        res = _jm_obj_0(val, path, rep);
         if (! res)
         {
             rep !== null && rep.push(["unexpected $Schema [.'$schema'.additionalItems.'|'.1]", path])
@@ -59,7 +59,7 @@ function _jm_f_1(val, path, rep)
     if (! res)
     {
         // .'$schema'.additionalProperties.'|'.1
-        res = json_model_3(val, path, rep);
+        res = _jm_obj_0(val, path, rep);
         if (! res)
         {
             rep !== null && rep.push(["unexpected $Schema [.'$schema'.additionalProperties.'|'.1]", path])
@@ -163,7 +163,7 @@ function _jm_obj_1(val, path, rep)
         // handle other props
         // .'$schema'.dependencies.''
         // .'$schema'.dependencies.''.'|'.0
-        res = json_model_3(pval, (path ? lpath_1 : null), rep);
+        res = _jm_obj_0(pval, (path ? lpath_1 : null), rep);
         if (! res)
         {
             rep !== null && rep.push(["unexpected $Schema [.'$schema'.dependencies.''.'|'.0]", (path ? lpath_1 : null)])
@@ -271,7 +271,7 @@ function _jm_f_10(val, path, rep)
     let res;
     // .'$schema'.items
     // .'$schema'.items.'|'.0
-    res = json_model_3(val, path, rep);
+    res = _jm_obj_0(val, path, rep);
     if (! res)
     {
         rep !== null && rep.push(["unexpected $Schema [.'$schema'.items.'|'.0]", path])
@@ -418,7 +418,7 @@ function _jm_f_20(val, path, rep)
 {
     let res;
     // .'$schema'.not
-    res = json_model_3(val, path, rep);
+    res = _jm_obj_0(val, path, rep);
     if (! res)
     {
         rep !== null && rep.push(["unexpected $Schema [.'$schema'.not]", path])
@@ -466,7 +466,7 @@ function _jm_obj_2(val, path, rep)
         let lpath_2 = path ? path.concat([prop]) : null;
         // handle other props
         // .'$schema'.patternProperties.''
-        res = json_model_3(pval, (path ? lpath_2 : null), rep);
+        res = _jm_obj_0(pval, (path ? lpath_2 : null), rep);
         if (! res)
         {
             rep !== null && rep.push(["unexpected $Schema [.'$schema'.patternProperties.'']", (path ? lpath_2 : null)])
@@ -503,7 +503,7 @@ function _jm_obj_3(val, path, rep)
         let lpath_3 = path ? path.concat([prop]) : null;
         // handle other props
         // .'$schema'.properties.''
-        res = json_model_3(pval, (path ? lpath_3 : null), rep);
+        res = _jm_obj_0(pval, (path ? lpath_3 : null), rep);
         if (! res)
         {
             rep !== null && rep.push(["unexpected $Schema [.'$schema'.properties.'']", (path ? lpath_3 : null)])
@@ -646,7 +646,7 @@ function json_model_1(val, path, rep)
 {
     let res;
     // .
-    res = json_model_3(val, path, rep);
+    res = _jm_obj_0(val, path, rep);
     if (! res)
     {
         rep !== null && rep.push(["unexpected $schema [.]", path])
@@ -668,7 +668,7 @@ function json_model_4(val, path, rep)
             let arr_1_item = val[arr_1_idx]
             let arr_1_lpath = path ? path.concat([arr_1_idx]) : null;
             // .'$schema#schemaArray'.'@'.0
-            res = json_model_3(arr_1_item, (path ? arr_1_lpath : null), rep);
+            res = _jm_obj_0(arr_1_item, (path ? arr_1_lpath : null), rep);
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $Schema [.'$schema#schemaArray'.'@'.0]", (path ? arr_1_lpath : null)])

@@ -73,7 +73,7 @@ public class rec_00 extends ModelChecker
         if (! res)
         {
             // .'$rec'.'|'.1
-            res = json_model_2(val, path, rep);
+            res = _jm_obj_0(val, path, rep);
             if (! res)
             {
                 if (rep != null) rep.addEntry("unexpected $obj [.'$rec'.'|'.1]", path);

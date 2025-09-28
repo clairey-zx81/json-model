@@ -82,7 +82,7 @@ def json_model_4(val: Jsonable, path: Path, rep: Report) -> bool:
 def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .
-    res = json_model_4(val, path, rep)
+    res = _jm_obj_0(val, path, rep)
     if not res:
         rep is None or rep.append(("unexpected $Ex09 [.]", path))
     return res
@@ -101,7 +101,7 @@ def json_model_9(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$ex08#Ex08'
     # .'$ex08#Ex08'.'|'.0
-    res = json_model_8(val, path, rep)
+    res = _jm_obj_1(val, path, rep)
     if not res:
         rep is None or rep.append(("unexpected $map [.'$ex08#Ex08'.'|'.0]", path))
     if not res:

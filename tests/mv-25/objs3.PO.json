@@ -1,0 +1,15 @@
+{
+  "#": "JsonModel 1 with defs",
+  "$": {
+    "book": {
+      "title": "",
+      "author": "",
+      "#": "JsonModel 2"
+    },
+    "#": "Symbol 1",
+    "": "./objs3"
+  },
+  "@": [
+    "$book"
+  ]
+}

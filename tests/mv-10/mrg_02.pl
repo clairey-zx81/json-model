@@ -11,7 +11,9 @@ use constant JMC_VERSION => '2';
 
 
 sub json_model_2($$$);
+sub _jm_obj_0($$$);
 sub json_model_5($$$);
+sub _jm_obj_1($$$);
 sub json_model_4($$$);
 sub _jm_f_0($$$);
 sub _jm_f_1($$$);
@@ -20,6 +22,7 @@ sub _jm_f_3($$$);
 sub _jm_f_4($$$);
 sub _jm_f_5($$$);
 my %_jm_obj_2_mup;
+sub _jm_obj_2($$$);
 sub json_model_1($$$);
 my %check_model_map;
 

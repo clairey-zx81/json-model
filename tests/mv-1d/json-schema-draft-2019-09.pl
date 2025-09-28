@@ -14,14 +14,17 @@ sub json_model_2($$$);
 sub json_model_3($$$);
 sub _jm_f_0($$$);
 sub _jm_f_1($$$);
+sub _jm_obj_1($$$);
 sub _jm_f_2($$$);
 sub _jm_f_3($$$);
 sub _jm_f_4($$$);
 sub _jm_f_5($$$);
 sub _jm_f_6($$$);
 sub _jm_f_7($$$);
+sub _jm_obj_2($$$);
 sub _jm_f_8($$$);
 my %_jm_obj_0_map;
+sub _jm_obj_0($$$);
 sub json_model_4($$$);
 sub _jm_f_9($$$);
 sub _jm_f_10($$$);
@@ -31,8 +34,11 @@ sub _jm_f_13($$$);
 sub _jm_f_14($$$);
 sub _jm_f_15($$$);
 my %_jm_obj_3_map;
+sub _jm_obj_3($$$);
 sub json_model_5($$$);
+sub _jm_obj_4($$$);
 sub json_model_6($$$);
+sub _jm_obj_5($$$);
 sub json_model_7($$$);
 my %_jm_cst_0;
 sub json_model_8($$$);
@@ -40,6 +46,7 @@ sub json_model_9($$$);
 sub json_model_10($$$);
 sub json_model_11($$$);
 sub _jm_f_16($$$);
+sub _jm_obj_7($$$);
 sub _jm_f_17($$$);
 sub _jm_f_18($$$);
 sub _jm_f_19($$$);
@@ -60,6 +67,7 @@ sub _jm_f_33($$$);
 sub _jm_f_34($$$);
 sub _jm_f_35($$$);
 my %_jm_obj_6_map;
+sub _jm_obj_6($$$);
 sub json_model_12($$$);
 sub json_model_13($$$);
 sub _jm_f_36($$$);
@@ -67,28 +75,34 @@ sub _jm_f_37($$$);
 sub _jm_f_38($$$);
 sub _jm_f_39($$$);
 sub _jm_f_40($$$);
+sub _jm_obj_9($$$);
 sub _jm_f_41($$$);
 sub _jm_f_42($$$);
 sub _jm_f_43($$$);
 sub _jm_f_44($$$);
 sub _jm_f_45($$$);
 sub _jm_f_46($$$);
+sub _jm_obj_10($$$);
 sub _jm_f_47($$$);
+sub _jm_obj_11($$$);
 sub _jm_f_48($$$);
 sub _jm_f_49($$$);
 sub _jm_f_50($$$);
 sub _jm_f_51($$$);
 sub _jm_f_52($$$);
 my %_jm_obj_8_map;
+sub _jm_obj_8($$$);
 sub json_model_14($$$);
 sub _jm_f_53($$$);
 sub _jm_f_54($$$);
+sub _jm_obj_13($$$);
 sub _jm_f_55($$$);
 sub _jm_f_56($$$);
 sub _jm_f_57($$$);
 sub _jm_f_58($$$);
 sub _jm_f_59($$$);
 sub _jm_f_60($$$);
+sub _jm_obj_14($$$);
 sub _jm_f_61($$$);
 sub _jm_f_62($$$);
 sub _jm_f_63($$$);
@@ -100,7 +114,9 @@ sub _jm_f_68($$$);
 sub _jm_f_69($$$);
 sub _jm_f_70($$$);
 sub _jm_f_71($$$);
+sub _jm_obj_15($$$);
 sub _jm_f_72($$$);
+sub _jm_obj_16($$$);
 sub _jm_f_73($$$);
 sub _jm_f_74($$$);
 sub _jm_f_75($$$);
@@ -126,7 +142,9 @@ sub _jm_f_94($$$);
 sub _jm_f_95($$$);
 sub _jm_f_96($$$);
 sub _jm_f_97($$$);
+sub _jm_obj_17($$$);
 sub _jm_f_98($$$);
+sub _jm_obj_18($$$);
 sub _jm_f_99($$$);
 sub _jm_f_100($$$);
 sub _jm_f_101($$$);
@@ -139,6 +157,7 @@ sub _jm_f_107($$$);
 sub _jm_f_108($$$);
 sub _jm_f_109($$$);
 my %_jm_obj_12_map;
+sub _jm_obj_12($$$);
 sub json_model_15($$$);
 sub json_model_16($$$);
 sub json_model_1($$$);
@@ -223,7 +242,7 @@ sub _jm_f_3($$$)
     my ($val, $path, $rep) = @_;
     my $res;
     # .'$core'.'$id'
-    $res = json_model_3($val, $path, $rep);
+    $res = json_model_2($val, $path, $rep);
     return $res;
 }
 
@@ -1280,7 +1299,7 @@ sub _jm_f_56($$$)
     my ($val, $path, $rep) = @_;
     my $res;
     # .'$ObjectSchema'.'$id'
-    $res = json_model_3($val, $path, $rep);
+    $res = json_model_2($val, $path, $rep);
     return $res;
 }
 
@@ -2005,7 +2024,7 @@ sub json_model_16($$$)
     if (! $res)
     {
         # .'$Schema'.'|'.1
-        $res = json_model_15($val, $path, $rep);
+        $res = _jm_obj_12($val, $path, $rep);
     }
     return $res;
 }

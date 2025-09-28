@@ -19,26 +19,47 @@ sub _jm_f_3($$$);
 sub _jm_f_4($$$);
 sub _jm_f_5($$$);
 sub _jm_f_6($$$);
+sub _jm_obj_1($$$);
 sub _jm_f_7($$$);
 my %_jm_obj_0_map;
+sub _jm_obj_0($$$);
 sub json_model_4($$$);
+sub _jm_obj_2($$$);
 sub json_model_5($$$);
+sub _jm_obj_3($$$);
 sub json_model_6($$$);
+sub _jm_obj_4($$$);
+sub _jm_obj_5($$$);
 sub json_model_7($$$);
+sub _jm_obj_7($$$);
+sub _jm_obj_6($$$);
 sub json_model_8($$$);
+sub _jm_obj_8($$$);
 sub json_model_9($$$);
+sub _jm_obj_10($$$);
 sub _jm_f_8($$$);
+sub _jm_obj_11($$$);
 sub _jm_f_9($$$);
+sub _jm_obj_12($$$);
 sub _jm_f_10($$$);
+sub _jm_obj_13($$$);
 sub _jm_f_11($$$);
+sub _jm_obj_14($$$);
 sub _jm_f_12($$$);
+sub _jm_obj_15($$$);
 sub _jm_f_13($$$);
+sub _jm_obj_16($$$);
 sub _jm_f_14($$$);
+sub _jm_obj_17($$$);
 sub _jm_f_15($$$);
+sub _jm_obj_18($$$);
 sub _jm_f_16($$$);
+sub _jm_obj_19($$$);
 sub _jm_f_17($$$);
 my %_jm_obj_9_map;
+sub _jm_obj_9($$$);
 sub json_model_10($$$);
+sub _jm_obj_20($$$);
 sub json_model_11($$$);
 sub _jm_f_18($$$);
 sub _jm_f_19($$$);
@@ -54,7 +75,9 @@ sub _jm_f_28($$$);
 sub _jm_f_29($$$);
 sub _jm_f_30($$$);
 my %_jm_obj_21_map;
+sub _jm_obj_21($$$);
 sub json_model_12($$$);
+sub _jm_obj_23($$$);
 sub _jm_f_31($$$);
 sub _jm_f_32($$$);
 sub _jm_f_33($$$);
@@ -68,7 +91,9 @@ sub _jm_f_40($$$);
 sub _jm_f_41($$$);
 sub _jm_f_42($$$);
 my %_jm_obj_22_map;
+sub _jm_obj_22($$$);
 sub json_model_13($$$);
+sub _jm_obj_24($$$);
 sub json_model_14($$$);
 my %_jm_cst_0;
 sub _jm_f_43($$$);
@@ -76,51 +101,95 @@ sub _jm_f_44($$$);
 sub _jm_f_45($$$);
 sub _jm_f_46($$$);
 sub _jm_f_47($$$);
+sub _jm_obj_26($$$);
 sub _jm_f_48($$$);
 sub _jm_f_49($$$);
 sub _jm_f_50($$$);
 sub _jm_f_51($$$);
 sub _jm_f_52($$$);
 my %_jm_obj_25_map;
+sub _jm_obj_25($$$);
 my %_jm_cst_1;
+sub _jm_obj_28($$$);
+sub _jm_obj_27($$$);
 my %_jm_map_0;
 sub json_model_20($$$);
 my %_jm_cst_2;
 sub json_model_17($$$);
+sub _jm_obj_30($$$);
+sub _jm_obj_29($$$);
 sub json_model_21($$$);
+sub _jm_obj_32($$$);
+sub _jm_obj_33($$$);
+sub _jm_obj_31($$$);
 sub json_model_22($$$);
+sub _jm_obj_35($$$);
+sub _jm_obj_34($$$);
 sub json_model_23($$$);
+sub _jm_obj_36($$$);
 sub json_model_24($$$);
+sub _jm_obj_38($$$);
+sub _jm_obj_39($$$);
+sub _jm_obj_40($$$);
+sub _jm_obj_37($$$);
 sub json_model_25($$$);
+sub _jm_obj_41($$$);
 sub json_model_26($$$);
+sub _jm_obj_42($$$);
 sub json_model_27($$$);
 sub json_model_28($$$);
+sub _jm_obj_44($$$);
+sub _jm_obj_43($$$);
+sub _jm_obj_46($$$);
+sub _jm_obj_45($$$);
 sub json_model_29($$$);
+sub _jm_obj_48($$$);
+sub _jm_obj_47($$$);
 sub _jm_f_53($$$);
 sub _jm_f_54($$$);
 sub _jm_f_55($$$);
 sub _jm_f_56($$$);
 sub _jm_f_57($$$);
+sub _jm_obj_50($$$);
 sub _jm_f_58($$$);
 sub _jm_f_59($$$);
 sub _jm_f_60($$$);
 sub _jm_f_61($$$);
 sub _jm_f_62($$$);
 my %_jm_obj_49_map;
+sub _jm_obj_49($$$);
 sub json_model_30($$$);
+sub _jm_obj_51($$$);
 sub json_model_31($$$);
+sub _jm_obj_52($$$);
 sub json_model_32($$$);
 my %_jm_cst_3;
+sub _jm_obj_53($$$);
+sub _jm_obj_54($$$);
+sub _jm_obj_55($$$);
+sub _jm_obj_56($$$);
+sub _jm_obj_57($$$);
+sub _jm_obj_58($$$);
 my %_jm_map_1;
 sub json_model_42($$$);
+sub _jm_obj_59($$$);
 sub json_model_43($$$);
+sub _jm_obj_61($$$);
+sub _jm_obj_60($$$);
 sub json_model_44($$$);
+sub _jm_obj_62($$$);
 sub json_model_45($$$);
 sub json_model_64($$$);
 sub json_model_97($$$);
 sub json_model_83($$$);
 sub json_model_82($$$);
 sub json_model_69($$$);
+sub _jm_obj_63($$$);
+sub _jm_obj_64($$$);
+sub _jm_obj_65($$$);
+sub _jm_obj_66($$$);
+sub _jm_obj_67($$$);
+sub _jm_obj_68($$$);
 sub json_model_93($$$);
 sub json_model_76($$$);
 sub json_model_77($$$);
@@ -145,7 +214,7 @@ sub json_model_3($$$)
     my ($val, $path, $rep) = @_;
     my $res;
     # .'$openapi'
-    $res = json_model_4($val, $path, $rep);
+    $res = _jm_obj_0($val, $path, $rep);
     return $res;
 }
 
@@ -155,7 +224,7 @@ sub json_model_1($$$)
     my ($val, $path, $rep) = @_;
     my $res;
     # .
-    $res = json_model_3($val, $path, $rep);
+    $res = _jm_obj_0($val, $path, $rep);
     return $res;
 }
 
@@ -172,7 +241,7 @@ sub _jm_f_0($$$)
     my ($val, $path, $rep) = @_;
     my $res;
     # .'$openapi#OpenAPI'.components
-    $res = json_model_10($val, $path, $rep);
+    $res = _jm_obj_9($val, $path, $rep);
     return $res;
 }
 
@@ -182,7 +251,7 @@ sub _jm_f_1($$$)
     my ($val, $path, $rep) = @_;
     my $res;
     # .'$openapi#OpenAPI'.externalDocs
-    $res = json_model_14($val, $path, $rep);
+    $res = _jm_obj_24($val, $path, $rep);
     return $res;
 }
 
@@ -202,7 +271,7 @@ sub _jm_f_3($$$)
     my ($val, $path, $rep) = @_;
     my $res;
     # .'$openapi#OpenAPI'.paths
-    $res = json_model_11($val, $path, $rep);
+    $res = _jm_obj_20($val, $path, $rep);
     return $res;
 }
 
@@ -219,7 +288,7 @@ sub _jm_f_4($$$)
         {
             my $arr_0_item = $$val[$arr_0_idx];
             # .'$openapi#OpenAPI'.security.0
-            $res = json_model_45($arr_0_item, undef, $rep);
+            $res = _jm_obj_62($arr_0_item, undef, $rep);
             if (! $res)
             {
                 last;
@@ -242,7 +311,7 @@ sub _jm_f_5($$$)
         {
             my $arr_1_item = $$val[$arr_1_idx];
             # .'$openapi#OpenAPI'.servers.0
-            $res = json_model_8($arr_1_item, undef, $rep);
+            $res = _jm_obj_6($arr_1_item, undef, $rep);
             if (! $res)
             {
                 last;
@@ -265,7 +334,7 @@ sub _jm_f_6($$$)
         {
             my $arr_2_item = $$val[$arr_2_idx];
             # .'$openapi#OpenAPI'.tags.0
-            $res = json_model_31($arr_2_item, undef, $rep);
+            $res = _jm_obj_51($arr_2_item, undef, $rep);
             if (! $res)
             {
                 last;
@@ -289,7 +358,7 @@ sub _jm_obj_1($$$)
     {
         # handle other props
         # .'$openapi#OpenAPI'.webhooks.''
-        $res = json_model_12($pval, undef, $rep);
+        $res = _jm_obj_21($pval, undef, $rep);
         if (! $res)
         {
             return 0;
@@ -340,7 +409,7 @@ sub _jm_obj_0($$$)
             # handle must info property
             $must_count++;
             # .'$openapi#OpenAPI'.info
-            $res = json_model_5($pval, undef, $rep);
+            $res = _jm_obj_2($pval, undef, $rep);
             if (! $res)
             {
                 return 0;
@@ -455,7 +524,7 @@ sub _jm_obj_2($$$)
         {
             # handle may contact property
             # .'$openapi#Info'.contact
-            $res = json_model_6($pval, undef, $rep);
+            $res = _jm_obj_3($pval, undef, $rep);
             if (! $res)
             {
                 return 0;
@@ -728,7 +797,7 @@ sub _jm_obj_7($$$)
     {
         # handle other props
         # .'$openapi#Server'.variables.''
-        $res = json_model_9($pval, undef, $rep);
+        $res = _jm_obj_8($pval, undef, $rep);
         if (! $res)
         {
             return 0;
@@ -917,11 +986,11 @@ sub _jm_obj_10($$$)
         # handle other props
         # .'$openapi#Components'.callbacks.''
         # .'$openapi#Components'.callbacks.''.'|'.0
-        $res = json_model_26($pval, undef, $rep);
+        $res = _jm_obj_41($pval, undef, $rep);
         if (! $res)
         {
             # .'$openapi#Components'.callbacks.''.'|'.1
-            $res = json_model_32($pval, undef, $rep);
+            $res = _jm_obj_52($pval, undef, $rep);
         }
         if (! $res)
         {
@@ -956,11 +1025,11 @@ sub _jm_obj_11($$$)
         # handle other props
         # .'$openapi#Components'.examples.''
         # .'$openapi#Components'.examples.''.'|'.0
-        $res = json_model_27($pval, undef, $rep);
+        $res = _jm_obj_42($pval, undef, $rep);
         if (! $res)
         {
             # .'$openapi#Components'.examples.''.'|'.1
-            $res = json_model_32($pval, undef, $rep);
+            $res = _jm_obj_52($pval, undef, $rep);
         }
         if (! $res)
         {
@@ -999,7 +1068,7 @@ sub _jm_obj_12($$$)
         if (! $res)
         {
             # .'$openapi#Components'.headers.''.'|'.1
-            $res = json_model_32($pval, undef, $rep);
+            $res = _jm_obj_52($pval, undef, $rep);
         }
         if (! $res)
         {
@@ -1038,7 +1107,7 @@ sub _jm_obj_13($$$)
         if (! $res)
         {
             # .'$openapi#Components'.links.''.'|'.1
-            $res = json_model_32($pval, undef, $rep);
+            $res = _jm_obj_52($pval, undef, $rep);
         }
         if (! $res)
         {
@@ -1072,7 +1141,7 @@ sub _jm_obj_14($$$)
     {
         # handle other props
         # .'$openapi#Components'.models.''
-        $res = json_model_64($pval, undef, $rep);
+        $res = json_model_97($pval, undef, $rep);
         if (! $res)
         {
             return 0;
@@ -1110,7 +1179,7 @@ sub _jm_obj_15($$$)
         if (! $res)
         {
             # .'$openapi#Components'.parameters.''.'|'.1
-            $res = json_model_32($pval, undef, $rep);
+            $res = _jm_obj_52($pval, undef, $rep);
         }
         if (! $res)
         {
@@ -1145,11 +1214,11 @@ sub _jm_obj_16($$$)
         # handle other props
         # .'$openapi#Components'.pathItems.''
         # .'$openapi#Components'.pathItems.''.'|'.0
-        $res = json_model_12($pval, undef, $rep);
+        $res = _jm_obj_21($pval, undef, $rep);
         if (! $res)
         {
             # .'$openapi#Components'.pathItems.''.'|'.1
-            $res = json_model_32($pval, undef, $rep);
+            $res = _jm_obj_52($pval, undef, $rep);
         }
         if (! $res)
         {
@@ -1184,11 +1253,11 @@ sub _jm_obj_17($$$)
         # handle other props
         # .'$openapi#Components'.requestBodies.''
         # .'$openapi#Components'.requestBodies.''.'|'.0
-        $res = json_model_21($pval, undef, $rep);
+        $res = _jm_obj_29($pval, undef, $rep);
         if (! $res)
         {
             # .'$openapi#Components'.requestBodies.''.'|'.1
-            $res = json_model_32($pval, undef, $rep);
+            $res = _jm_obj_52($pval, undef, $rep);
         }
         if (! $res)
         {
@@ -1223,11 +1292,11 @@ sub _jm_obj_18($$$)
         # handle other props
         # .'$openapi#Components'.responses.''
         # .'$openapi#Components'.responses.''.'|'.0
-        $res = json_model_25($pval, undef, $rep);
+        $res = _jm_obj_37($pval, undef, $rep);
         if (! $res)
         {
             # .'$openapi#Components'.responses.''.'|'.1
-            $res = json_model_32($pval, undef, $rep);
+            $res = _jm_obj_52($pval, undef, $rep);
         }
         if (! $res)
         {
@@ -1266,7 +1335,7 @@ sub _jm_obj_19($$$)
         if (! $res)
         {
             # .'$openapi#Components'.securitySchemes.''.'|'.1
-            $res = json_model_32($pval, undef, $rep);
+            $res = _jm_obj_52($pval, undef, $rep);
         }
         if (! $res)
         {
@@ -1352,7 +1421,7 @@ sub _jm_obj_20($$$)
         {
             # handle 2 re props
             # .'$openapi#Paths'.'/^//'
-            $res = json_model_12($pval, undef, $rep);
+            $res = _jm_obj_21($pval, undef, $rep);
             if (! $res)
             {
                 return 0;
@@ -1402,7 +1471,7 @@ sub _jm_f_19($$$)
     my ($val, $path, $rep) = @_;
     my $res;
     # .'$openapi#PathItem'.delete
-    $res = json_model_13($val, $path, $rep);
+    $res = _jm_obj_22($val, $path, $rep);
     return $res;
 }
 
@@ -1422,7 +1491,7 @@ sub _jm_f_21($$$)
     my ($val, $path, $rep) = @_;
     my $res;
     # .'$openapi#PathItem'.get
-    $res = json_model_13($val, $path, $rep);
+    $res = _jm_obj_22($val, $path, $rep);
     return $res;
 }
 
@@ -1432,7 +1501,7 @@ sub _jm_f_22($$$)
     my ($val, $path, $rep) = @_;
     my $res;
     # .'$openapi#PathItem'.head
-    $res = json_model_13($val, $path, $rep);
+    $res = _jm_obj_22($val, $path, $rep);
     return $res;
 }
 
@@ -1442,7 +1511,7 @@ sub _jm_f_23($$$)
     my ($val, $path, $rep) = @_;
     my $res;
     # .'$openapi#PathItem'.options
-    $res = json_model_13($val, $path, $rep);
+    $res = _jm_obj_22($val, $path, $rep);
     return $res;
 }
 
@@ -1464,7 +1533,7 @@ sub _jm_f_24($$$)
             if (! $res)
             {
                 # .'$openapi#PathItem'.parameters.0.'|'.1
-                $res = json_model_32($arr_4_item, undef, $rep);
+                $res = _jm_obj_52($arr_4_item, undef, $rep);
             }
             if (! $res)
             {
@@ -1481,7 +1550,7 @@ sub _jm_f_25($$$)
     my ($val, $path, $rep) = @_;
     my $res;
     # .'$openapi#PathItem'.patch
-    $res = json_model_13($val, $path, $rep);
+    $res = _jm_obj_22($val, $path, $rep);
     return $res;
 }
 
@@ -1491,7 +1560,7 @@ sub _jm_f_26($$$)
     my ($val, $path, $rep) = @_;
     my $res;
     # .'$openapi#PathItem'.post
-    $res = json_model_13($val, $path, $rep);
+    $res = _jm_obj_22($val, $path, $rep);
     return $res;
 }
 
@@ -1501,7 +1570,7 @@ sub _jm_f_27($$$)
     my ($val, $path, $rep) = @_;
     my $res;
     # .'$openapi#PathItem'.put
-    $res = json_model_13($val, $path, $rep);
+    $res = _jm_obj_22($val, $path, $rep);
     return $res;
 }
 
@@ -1518,7 +1587,7 @@ sub _jm_f_28($$$)
         {
             my $arr_5_item = $$val[$arr_5_idx];
             # .'$openapi#PathItem'.servers.0
-            $res = json_model_13($arr_5_item, undef, $rep);
+            $res = _jm_obj_22($arr_5_item, undef, $rep);
             if (! $res)
             {
                 last;
@@ -1544,7 +1613,7 @@ sub _jm_f_30($$$)
     my ($val, $path, $rep) = @_;
     my $res;
     # .'$openapi#PathItem'.trace
-    $res = json_model_13($val, $path, $rep);
+    $res = _jm_obj_22($val, $path, $rep);
     return $res;
 }
 
@@ -1613,11 +1682,11 @@ sub _jm_obj_23($$$)
         # handle other props
         # .'$openapi#Operation'.callbacks.''
         # .'$openapi#Operation'.callbacks.''.'|'.0
-        $res = json_model_26($pval, undef, $rep);
+        $res = _jm_obj_41($pval, undef, $rep);
         if (! $res)
         {
             # .'$openapi#Operation'.callbacks.''.'|'.1
-            $res = json_model_32($pval, undef, $rep);
+            $res = _jm_obj_52($pval, undef, $rep);
         }
         if (! $res)
         {
@@ -1663,7 +1732,7 @@ sub _jm_f_34($$$)
     my ($val, $path, $rep) = @_;
     my $res;
     # .'$openapi#Operation'.externalDocs
-    $res = json_model_14($val, $path, $rep);
+    $res = _jm_obj_24($val, $path, $rep);
     return $res;
 }
 
@@ -1695,7 +1764,7 @@ sub _jm_f_36($$$)
             if (! $res)
             {
                 # .'$openapi#Operation'.parameters.0.'|'.1
-                $res = json_model_32($arr_6_item, undef, $rep);
+                $res = _jm_obj_52($arr_6_item, undef, $rep);
             }
             if (! $res)
             {
@@ -1713,11 +1782,11 @@ sub _jm_f_37($$$)
     my $res;
     # .'$openapi#Operation'.requestBody
     # .'$openapi#Operation'.requestBody.'|'.0
-    $res = json_model_21($val, $path, $rep);
+    $res = _jm_obj_29($val, $path, $rep);
     if (! $res)
     {
         # .'$openapi#Operation'.requestBody.'|'.1
-        $res = json_model_32($val, $path, $rep);
+        $res = _jm_obj_52($val, $path, $rep);
     }
     return $res;
 }
@@ -1728,7 +1797,7 @@ sub _jm_f_38($$$)
     my ($val, $path, $rep) = @_;
     my $res;
     # .'$openapi#Operation'.responses
-    $res = json_model_24($val, $path, $rep);
+    $res = _jm_obj_36($val, $path, $rep);
     return $res;
 }
 
@@ -1745,7 +1814,7 @@ sub _jm_f_39($$$)
         {
             my $arr_7_item = $$val[$arr_7_idx];
             # .'$openapi#Operation'.security.0
-            $res = json_model_45($arr_7_item, undef, $rep);
+            $res = _jm_obj_62($arr_7_item, undef, $rep);
             if (! $res)
             {
                 last;
@@ -1768,7 +1837,7 @@ sub _jm_f_40($$$)
         {
             my $arr_8_item = $$val[$arr_8_idx];
             # .'$openapi#Operation'.servers.0
-            $res = json_model_8($arr_8_item, undef, $rep);
+            $res = _jm_obj_6($arr_8_item, undef, $rep);
             if (! $res)
             {
                 last;
@@ -1993,11 +2062,11 @@ sub _jm_obj_26($$$)
         # handle other props
         # .'$openapi#Parameter'.'|'.0.examples.''
         # .'$openapi#Parameter'.'|'.0.examples.''.'|'.0
-        $res = json_model_27($pval, undef, $rep);
+        $res = _jm_obj_42($pval, undef, $rep);
         if (! $res)
         {
             # .'$openapi#Parameter'.'|'.0.examples.''.'|'.1
-            $res = json_model_32($pval, undef, $rep);
+            $res = _jm_obj_52($pval, undef, $rep);
         }
         if (! $res)
         {
@@ -2033,7 +2102,7 @@ sub _jm_f_50($$$)
     my ($val, $path, $rep) = @_;
     my $res;
     # .'$openapi#Parameter'.'|'.0.model
-    $res = json_model_64($val, $path, $rep);
+    $res = json_model_97($val, $path, $rep);
     return $res;
 }
 
@@ -2139,7 +2208,7 @@ sub _jm_obj_28($$$)
     {
         # handle other props
         # .'$openapi#Parameter'.'|'.1.content.''
-        $res = json_model_22($pval, undef, $rep);
+        $res = _jm_obj_31($pval, undef, $rep);
         if (! $res)
         {
             return 0;
@@ -2313,7 +2382,7 @@ sub _jm_obj_30($$$)
     {
         # handle other props
         # .'$openapi#RequestBody'.content.''
-        $res = json_model_22($pval, undef, $rep);
+        $res = _jm_obj_31($pval, undef, $rep);
         if (! $res)
         {
             return 0;
@@ -2407,11 +2476,11 @@ sub _jm_obj_32($$$)
         # handle other props
         # .'$openapi#MediaType'.examples.''
         # .'$openapi#MediaType'.examples.''.'|'.0
-        $res = json_model_27($pval, undef, $rep);
+        $res = _jm_obj_42($pval, undef, $rep);
         if (! $res)
         {
             # .'$openapi#MediaType'.examples.''.'|'.1
-            $res = json_model_32($pval, undef, $rep);
+            $res = _jm_obj_52($pval, undef, $rep);
         }
         if (! $res)
         {
@@ -2435,7 +2504,7 @@ sub _jm_obj_33($$$)
     {
         # handle other props
         # .'$openapi#MediaType'.encoding.''
-        $res = json_model_23($pval, undef, $rep);
+        $res = _jm_obj_34($pval, undef, $rep);
         if (! $res)
         {
             return 0;
@@ -2490,7 +2559,7 @@ sub _jm_obj_31($$$)
         {
             # handle may model property
             # .'$openapi#MediaType'.model
-            $res = json_model_64($pval, undef, $rep);
+            $res = json_model_97($pval, undef, $rep);
             if (! $res)
             {
                 return 0;
@@ -2543,7 +2612,7 @@ sub _jm_obj_35($$$)
         if (! $res)
         {
             # .'$openapi#Encoding'.headers.''.'|'.1
-            $res = json_model_32($pval, undef, $rep);
+            $res = _jm_obj_52($pval, undef, $rep);
         }
         if (! $res)
         {
@@ -2667,11 +2736,11 @@ sub _jm_obj_36($$$)
             # handle may default property
             # .'$openapi#Responses'.default
             # .'$openapi#Responses'.default.'|'.0
-            $res = json_model_25($pval, undef, $rep);
+            $res = _jm_obj_37($pval, undef, $rep);
             if (! $res)
             {
                 # .'$openapi#Responses'.default.'|'.1
-                $res = json_model_32($pval, undef, $rep);
+                $res = _jm_obj_52($pval, undef, $rep);
             }
             if (! $res)
             {
@@ -2683,11 +2752,11 @@ sub _jm_obj_36($$$)
             # handle 2 re props
             # .'$openapi#Responses'.'/^[1-5](\\d\\d|XX)$/'
             # .'$openapi#Responses'.'/^[1-5](\\d\\d|XX)$/'.'|'.0
-            $res = json_model_25($pval, undef, $rep);
+            $res = _jm_obj_37($pval, undef, $rep);
             if (! $res)
             {
                 # .'$openapi#Responses'.'/^[1-5](\\d\\d|XX)$/'.'|'.1
-                $res = json_model_32($pval, undef, $rep);
+                $res = _jm_obj_52($pval, undef, $rep);
             }
             if (! $res)
             {
@@ -2741,7 +2810,7 @@ sub _jm_obj_38($$$)
         if (! $res)
         {
             # .'$openapi#Response'.headers.''.'|'.1
-            $res = json_model_32($pval, undef, $rep);
+            $res = _jm_obj_52($pval, undef, $rep);
         }
         if (! $res)
         {
@@ -2765,7 +2834,7 @@ sub _jm_obj_39($$$)
     {
         # handle other props
         # .'$openapi#Response'.content.''
-        $res = json_model_22($pval, undef, $rep);
+        $res = _jm_obj_31($pval, undef, $rep);
         if (! $res)
         {
             return 0;
@@ -2793,7 +2862,7 @@ sub _jm_obj_40($$$)
         if (! $res)
         {
             # .'$openapi#Response'.links.''.'|'.1
-            $res = json_model_32($pval, undef, $rep);
+            $res = _jm_obj_52($pval, undef, $rep);
         }
         if (! $res)
         {
@@ -2900,11 +2969,11 @@ sub _jm_obj_41($$$)
             # handle 1 key props
             # .'$openapi#Callback'.'$Expression'
             # .'$openapi#Callback'.'$Expression'.'|'.0
-            $res = json_model_12($pval, undef, $rep);
+            $res = _jm_obj_21($pval, undef, $rep);
             if (! $res)
             {
                 # .'$openapi#Callback'.'$Expression'.'|'.1
-                $res = json_model_32($pval, undef, $rep);
+                $res = _jm_obj_52($pval, undef, $rep);
             }
             if (! $res)
             {
@@ -3099,7 +3168,7 @@ sub _jm_obj_43($$$)
         {
             # handle may server property
             # .'$openapi#Link'.'|'.1.server
-            $res = json_model_8($pval, undef, $rep);
+            $res = _jm_obj_6($pval, undef, $rep);
             if (! $res)
             {
                 return 0;
@@ -3197,7 +3266,7 @@ sub _jm_obj_45($$$)
         {
             # handle may server property
             # .'$openapi#Link'.'|'.0.server
-            $res = json_model_8($pval, undef, $rep);
+            $res = _jm_obj_6($pval, undef, $rep);
             if (! $res)
             {
                 return 0;
@@ -3259,7 +3328,7 @@ sub _jm_obj_48($$$)
     {
         # handle other props
         # .'$openapi#Header'.'|'.1.content.''
-        $res = json_model_22($pval, undef, $rep);
+        $res = _jm_obj_31($pval, undef, $rep);
         if (! $res)
         {
             return 0;
@@ -3413,11 +3482,11 @@ sub _jm_obj_50($$$)
         # handle other props
         # .'$openapi#Header'.'|'.0.examples.''
         # .'$openapi#Header'.'|'.0.examples.''.'|'.0
-        $res = json_model_27($pval, undef, $rep);
+        $res = _jm_obj_42($pval, undef, $rep);
         if (! $res)
         {
             # .'$openapi#Header'.'|'.0.examples.''.'|'.1
-            $res = json_model_32($pval, undef, $rep);
+            $res = _jm_obj_52($pval, undef, $rep);
         }
         if (! $res)
         {
@@ -3453,7 +3522,7 @@ sub _jm_f_60($$$)
     my ($val, $path, $rep) = @_;
     my $res;
     # .'$openapi#Header'.'|'.0.model
-    $res = json_model_64($val, $path, $rep);
+    $res = json_model_97($val, $path, $rep);
     return $res;
 }
 
@@ -3576,7 +3645,7 @@ sub _jm_obj_51($$$)
         {
             # handle may externalDocs property
             # .'$openapi#Tag'.externalDocs
-            $res = json_model_14($pval, undef, $rep);
+            $res = _jm_obj_24($pval, undef, $rep);
             if (! $res)
             {
                 return 0;
@@ -3910,7 +3979,7 @@ sub _jm_obj_56($$$)
             # handle must flows property
             $must_count++;
             # .'$openapi#SecurityScheme'.'|'.3.flows
-            $res = json_model_43($pval, undef, $rep);
+            $res = _jm_obj_59($pval, undef, $rep);
             if (! $res)
             {
                 return 0;
@@ -4088,7 +4157,7 @@ sub _jm_obj_59($$$)
         {
             # handle may implicit property
             # .'$openapi#OAuthFlows'.implicit
-            $res = json_model_44($pval, undef, $rep);
+            $res = _jm_obj_60($pval, undef, $rep);
             if (! $res)
             {
                 return 0;
@@ -4098,7 +4167,7 @@ sub _jm_obj_59($$$)
         {
             # handle may password property
             # .'$openapi#OAuthFlows'.password
-            $res = json_model_44($pval, undef, $rep);
+            $res = _jm_obj_60($pval, undef, $rep);
             if (! $res)
             {
                 return 0;
@@ -4108,7 +4177,7 @@ sub _jm_obj_59($$$)
         {
             # handle may clientCredentials property
             # .'$openapi#OAuthFlows'.clientCredentials
-            $res = json_model_44($pval, undef, $rep);
+            $res = _jm_obj_60($pval, undef, $rep);
             if (! $res)
             {
                 return 0;
@@ -4118,7 +4187,7 @@ sub _jm_obj_59($$$)
         {
             # handle may authorizationCode property
             # .'$openapi#OAuthFlows'.authorizationCode
-            $res = json_model_44($pval, undef, $rep);
+            $res = _jm_obj_60($pval, undef, $rep);
             if (! $res)
             {
                 return 0;

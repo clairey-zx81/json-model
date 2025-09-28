@@ -45,12 +45,17 @@ static bool _jm_xre_1_re(const char *s, jm_path_t *path, jm_report_t *rep);
 static INLINE bool _jm_xre_1(const char *, jm_path_t *, jm_report_t *);
 static bool json_model_12(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_35(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static bool _jm_obj_1(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static bool _jm_obj_2(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static bool _jm_obj_3(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static cre2_regexp_t *_jm_re_3_re2 = NULL;
 static int _jm_re_3_nn = 0;
 static bool _jm_re_3(const char *s, jm_path_t *path, jm_report_t *rep);
 static cre2_regexp_t *_jm_re_4_re2 = NULL;
 static int _jm_re_4_nn = 0;
 static bool _jm_re_4(const char *s, jm_path_t *path, jm_report_t *rep);
+static bool _jm_obj_4(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_31(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_14(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_15(const json_t *val, jm_path_t *path, jm_report_t *rep);
@@ -62,9 +67,24 @@ static cre2_regexp_t *_jm_re_6_re2 = NULL;
 static int _jm_re_6_nn = 0;
 static bool _jm_re_6(const char *s, jm_path_t *path, jm_report_t *rep);
 static bool json_model_13(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static bool _jm_obj_6(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static cre2_regexp_t *_jm_re_7_re2 = NULL;
 static int _jm_re_7_nn = 0;
 static bool _jm_re_7(const char *s, jm_path_t *path, jm_report_t *rep);
+static bool _jm_obj_7(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static bool _jm_obj_5(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static bool _jm_obj_9(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static bool _jm_obj_10(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static bool _jm_obj_8(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static bool _jm_obj_12(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static bool _jm_obj_13(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static bool _jm_obj_11(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static bool _jm_obj_15(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static bool _jm_obj_16(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static bool _jm_obj_14(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static bool _jm_obj_18(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static bool _jm_obj_19(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static bool _jm_obj_17(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_41(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static cre2_regexp_t *_jm_re_8_re2 = NULL;
 static int _jm_re_8_nn = 0;
@@ -98,7 +118,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
     // .
-    res = json_model_3(val, path, rep);
+    res = json_model_42(val, path, rep);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected $Model [.]", path);

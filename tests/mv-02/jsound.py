@@ -427,7 +427,7 @@ def _jm_obj_3(val: Jsonable, path: Path, rep: Report) -> bool:
                 for arr_3_idx, arr_3_item in enumerate(pval):
                     arr_3_lpath: Path = ((lpath_3 if path is not None else None) + [ arr_3_idx ]) if (lpath_3 if path is not None else None) is not None else None
                     # .'$Object'.content.0
-                    res = json_model_8(arr_3_item, arr_3_lpath if (lpath_3 if path is not None else None) is not None else None, rep)
+                    res = _jm_obj_4(arr_3_item, arr_3_lpath if (lpath_3 if path is not None else None) is not None else None, rep)
                     if not res:
                         rep is None or rep.append(("unexpected $Fields [.'$Object'.content.0]", arr_3_lpath if (lpath_3 if path is not None else None) is not None else None))
                         break
@@ -714,7 +714,7 @@ def json_model_11(val: Jsonable, path: Path, rep: Report) -> bool:
 def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .
-    res = json_model_2(val, path, rep)
+    res = _jm_obj_0(val, path, rep)
     if not res:
         rep is None or rep.append(("unexpected $Schema [.]", path))
     return res

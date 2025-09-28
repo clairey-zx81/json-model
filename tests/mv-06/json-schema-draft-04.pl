@@ -22,7 +22,9 @@ sub _jm_f_3($$$);
 sub _jm_f_4($$$);
 sub _jm_f_5($$$);
 sub _jm_f_6($$$);
+sub _jm_obj_1($$$);
 sub _jm_f_7($$$);
+sub _jm_obj_2($$$);
 sub _jm_f_8($$$);
 sub _jm_f_9($$$);
 sub _jm_f_10($$$);
@@ -43,13 +45,16 @@ sub _jm_f_24($$$);
 sub _jm_f_25($$$);
 sub _jm_f_26($$$);
 sub _jm_f_27($$$);
+sub _jm_obj_3($$$);
 sub _jm_f_28($$$);
+sub _jm_obj_4($$$);
 sub _jm_f_29($$$);
 sub _jm_f_30($$$);
 sub _jm_f_31($$$);
 sub _jm_f_32($$$);
 sub _jm_f_33($$$);
 my %_jm_obj_0_map;
+sub _jm_obj_0($$$);
 sub json_model_1($$$);
 my %check_model_map;
 
@@ -67,7 +72,7 @@ sub json_model_2($$$)
         {
             my $arr_0_item = $$val[$arr_0_idx];
             # .'$schemaArray'.'@'.0
-            $res = json_model_1($arr_0_item, undef, $rep);
+            $res = _jm_obj_0($arr_0_item, undef, $rep);
             if (! $res)
             {
                 last;
@@ -182,7 +187,7 @@ sub _jm_f_2($$$)
     if (! $res)
     {
         # .additionalItems.'|'.1
-        $res = json_model_1($val, $path, $rep);
+        $res = _jm_obj_0($val, $path, $rep);
     }
     return $res;
 }
@@ -198,7 +203,7 @@ sub _jm_f_3($$$)
     if (! $res)
     {
         # .additionalProperties.'|'.1
-        $res = json_model_1($val, $path, $rep);
+        $res = _jm_obj_0($val, $path, $rep);
     }
     return $res;
 }
@@ -247,7 +252,7 @@ sub _jm_obj_1($$$)
     {
         # handle other props
         # .definitions.''
-        $res = json_model_1($pval, undef, $rep);
+        $res = _jm_obj_0($pval, undef, $rep);
         if (! $res)
         {
             return 0;
@@ -281,7 +286,7 @@ sub _jm_obj_2($$$)
         # handle other props
         # .dependencies.''
         # .dependencies.''.'|'.0
-        $res = json_model_1($pval, undef, $rep);
+        $res = _jm_obj_0($pval, undef, $rep);
         if (! $res)
         {
             # .dependencies.''.'|'.1
@@ -378,7 +383,7 @@ sub _jm_f_15($$$)
     my $res;
     # .items
     # .items.'|'.0
-    $res = json_model_1($val, $path, $rep);
+    $res = _jm_obj_0($val, $path, $rep);
     if (! $res)
     {
         # .items.'|'.1
@@ -483,7 +488,7 @@ sub _jm_f_25($$$)
     my ($val, $path, $rep) = @_;
     my $res;
     # .not
-    $res = json_model_1($val, $path, $rep);
+    $res = _jm_obj_0($val, $path, $rep);
     return $res;
 }
 
@@ -521,7 +526,7 @@ sub _jm_obj_3($$$)
     {
         # handle other props
         # .patternProperties.''
-        $res = json_model_1($pval, undef, $rep);
+        $res = _jm_obj_0($pval, undef, $rep);
         if (! $res)
         {
             return 0;
@@ -554,7 +559,7 @@ sub _jm_obj_4($$$)
     {
         # handle other props
         # .properties.''
-        $res = json_model_1($pval, undef, $rep);
+        $res = _jm_obj_0($pval, undef, $rep);
         if (! $res)
         {
             return 0;

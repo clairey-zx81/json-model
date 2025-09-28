@@ -95,7 +95,7 @@ DECLARE
   res bool;
 BEGIN
   -- .'$core'.'$id'
-  res := json_model_3(val, path, rep);
+  res := json_model_2(val, path, rep);
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
@@ -1288,7 +1288,7 @@ DECLARE
   res bool;
 BEGIN
   -- .'$ObjectSchema'.'$id'
-  res := json_model_3(val, path, rep);
+  res := json_model_2(val, path, rep);
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
@@ -2120,7 +2120,7 @@ BEGIN
   res := JSONB_TYPEOF(val) = 'boolean';
   IF NOT res THEN
     -- .'$Schema'.'|'.1
-    res := json_model_15(val, path, rep);
+    res := _jm_obj_12(val, path, rep);
   END IF;
   RETURN res;
 END;

@@ -14,6 +14,7 @@ sub json_model_5($$$);
 sub json_model_3($$$);
 sub json_model_4($$$);
 sub json_model_1($$$);
+sub _jm_obj_0($$$);
 sub json_model_6($$$);
 my %check_model_map;
 
@@ -23,7 +24,7 @@ sub json_model_5($$$)
     my ($val, $path, $rep) = @_;
     my $res;
     # .'$Zz'
-    $res = json_model_6($val, $path, $rep);
+    $res = _jm_obj_0($val, $path, $rep);
     return $res;
 }
 
@@ -33,7 +34,7 @@ sub json_model_3($$$)
     my ($val, $path, $rep) = @_;
     my $res;
     # .'$z'
-    $res = json_model_6($val, $path, $rep);
+    $res = _jm_obj_0($val, $path, $rep);
     return $res;
 }
 
@@ -50,7 +51,7 @@ sub json_model_4($$$)
         {
             my $arr_0_item = $$val[$arr_0_idx];
             # .'$l'.0
-            $res = json_model_3($arr_0_item, undef, $rep);
+            $res = _jm_obj_0($arr_0_item, undef, $rep);
             if (! $res)
             {
                 last;

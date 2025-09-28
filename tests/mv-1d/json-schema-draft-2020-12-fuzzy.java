@@ -2417,7 +2417,7 @@ public class json_schema_draft_2020_12_fuzzy extends ModelChecker
         if (! res)
         {
             // .'$Schema'.'|'.1
-            res = json_model_16(val, path, rep);
+            res = _jm_obj_13(val, path, rep);
             if (! res)
             {
                 if (rep != null) rep.addEntry("unexpected $ObjectSchema [.'$Schema'.'|'.1]", path);

@@ -40,7 +40,7 @@ BEGIN
   res := JSONB_TYPEOF(val) = 'boolean';
   IF NOT res THEN
     -- .'$schema'.additionalItems.'|'.1
-    res := json_model_3(val, path, rep);
+    res := _jm_obj_0(val, path, rep);
   END IF;
   RETURN res;
 END;
@@ -57,7 +57,7 @@ BEGIN
   res := JSONB_TYPEOF(val) = 'boolean';
   IF NOT res THEN
     -- .'$schema'.additionalProperties.'|'.1
-    res := json_model_3(val, path, rep);
+    res := _jm_obj_0(val, path, rep);
   END IF;
   RETURN res;
 END;
@@ -113,7 +113,7 @@ BEGIN
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     -- handle other props
     -- .'$schema'.definitions.''
-    res := json_model_3(pval, NULL, rep);
+    res := _jm_obj_0(pval, NULL, rep);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -149,7 +149,7 @@ BEGIN
     -- handle other props
     -- .'$schema'.dependencies.''
     -- .'$schema'.dependencies.''.'|'.0
-    res := json_model_3(pval, NULL, rep);
+    res := _jm_obj_0(pval, NULL, rep);
     IF NOT res THEN
       -- .'$schema'.dependencies.''.'|'.1
       res := json_model_6(pval, NULL, rep);
@@ -260,7 +260,7 @@ DECLARE
 BEGIN
   -- .'$schema'.items
   -- .'$schema'.items.'|'.0
-  res := json_model_3(val, path, rep);
+  res := _jm_obj_0(val, path, rep);
   IF NOT res THEN
     -- .'$schema'.items.'|'.1
     res := json_model_4(val, path, rep);
@@ -384,7 +384,7 @@ DECLARE
   res bool;
 BEGIN
   -- .'$schema'.not
-  res := json_model_3(val, path, rep);
+  res := _jm_obj_0(val, path, rep);
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
@@ -427,7 +427,7 @@ BEGIN
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     -- handle other props
     -- .'$schema'.patternProperties.''
-    res := json_model_3(pval, NULL, rep);
+    res := _jm_obj_0(pval, NULL, rep);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -462,7 +462,7 @@ BEGIN
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     -- handle other props
     -- .'$schema'.properties.''
-    res := json_model_3(pval, NULL, rep);
+    res := _jm_obj_0(pval, NULL, rep);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -567,7 +567,7 @@ BEGIN
     ELSE
       -- handle other props
       -- .'$schema'.''
-      res := json_model_3(pval, NULL, rep);
+      res := _jm_obj_0(pval, NULL, rep);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -597,7 +597,7 @@ DECLARE
   res bool;
 BEGIN
   -- .
-  res := json_model_3(val, path, rep);
+  res := _jm_obj_0(val, path, rep);
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
@@ -618,7 +618,7 @@ BEGIN
     FOR arr_0_idx IN 0 .. JSONB_ARRAY_LENGTH(val) - 1 LOOP
       arr_0_item := val -> arr_0_idx;
       -- .'$schema#schemaArray'.'@'.0
-      res := json_model_3(arr_0_item, NULL, rep);
+      res := _jm_obj_0(arr_0_item, NULL, rep);
       IF NOT res THEN
         EXIT;
       END IF;

@@ -1269,13 +1269,12 @@ class CodeGenerator:
                 else:
                     # new function to check the object
                     objid = gen.ident(self._prefix + "obj")
-                    ocode: Block = (
-                        gen.lcom(f"object {json_path(mpath)}") +
-                        gen.sub_fun(objid,
-                            self._compileObject(jm, model, mpath, objid, "res", "val", "path"),
-                            inline=True)
+                    self._code.sub(
+                        objid,
+                        self._compileObject(jm, model, mpath, objid, "res", "val", "path"),
+                        comment=f"object {json_path(mpath)}",
+                        inline=True
                     )
-                    self._code.subs(ocode)
 
                     # call object check and possibly report
                     code += gen.bool_var(res, gen.check_call(objid, val, vpath))

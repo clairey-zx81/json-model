@@ -37,7 +37,7 @@ public class trafo_3 extends ModelChecker
     {
         boolean res;
         // .
-        res = json_model_3(val, path, rep);
+        res = json_model_6(val, path, rep);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected $Dd [.]", path);
@@ -61,7 +61,7 @@ public class trafo_3 extends ModelChecker
                 Object arr_0_item = arr_0_item_loop.next();
                 Path arr_0_lpath = new Path(arr_0_idx, path);
                 // .'$Dd#l'.0
-                res = json_model_10(arr_0_item, (path != null ? arr_0_lpath : null), rep);
+                res = _jm_obj_0(arr_0_item, (path != null ? arr_0_lpath : null), rep);
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected $u [.'$Dd#l'.0]", (path != null ? arr_0_lpath : null));
@@ -81,7 +81,7 @@ public class trafo_3 extends ModelChecker
     {
         boolean res;
         // .'$Dd#u'
-        res = json_model_12(val, path, rep);
+        res = _jm_obj_0(val, path, rep);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected $Uu#un [.'$Dd#u']", path);

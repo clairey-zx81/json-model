@@ -16,7 +16,7 @@ function json_model_4(val, path, rep)
 {
     let res;
     // .'$root'
-    res = json_model_5(val, path, rep);
+    res = _jm_obj_0(val, path, rep);
     if (! res)
     {
         rep !== null && rep.push(["unexpected $Root [.'$root']", path])
@@ -29,7 +29,7 @@ function json_model_3(val, path, rep)
 {
     let res;
     // .'$Root'
-    res = json_model_5(val, path, rep);
+    res = _jm_obj_0(val, path, rep);
     if (! res)
     {
         rep !== null && rep.push(["unexpected $root#Root [.'$Root']", path])
@@ -42,7 +42,7 @@ function json_model_1(val, path, rep)
 {
     let res;
     // .
-    res = json_model_3(val, path, rep);
+    res = _jm_obj_0(val, path, rep);
     if (! res)
     {
         rep !== null && rep.push(["unexpected $Root [.]", path])

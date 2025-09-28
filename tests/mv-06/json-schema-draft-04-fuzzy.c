@@ -10,6 +10,11 @@
 #include <json-model.h>
 #define JSON_MODEL_VERSION "2"
 
+static bool _jm_obj_1(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static bool _jm_obj_2(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static bool _jm_obj_3(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static bool _jm_obj_4(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_4(const json_t *val, jm_path_t *path, jm_report_t *rep);
@@ -36,7 +41,7 @@ static INLINE bool _jm_obj_1(const json_t *val, jm_path_t *path, jm_report_t *re
         jm_path_t lpath_0 = (jm_path_t) { prop, 0, path, NULL };
         // handle other props
         // .'$schema'.definitions.''
-        res = json_model_3(pval, (path ? &lpath_0 : NULL), rep);
+        res = _jm_obj_0(pval, (path ? &lpath_0 : NULL), rep);
         if (! res)
         {
             if (rep) jm_report_add_entry(rep, "unexpected $Schema [.'$schema'.definitions.'']", (path ? &lpath_0 : NULL));
@@ -62,7 +67,7 @@ static INLINE bool _jm_obj_2(const json_t *val, jm_path_t *path, jm_report_t *re
         jm_path_t lpath_1 = (jm_path_t) { prop, 0, path, NULL };
         // handle other props
         // .'$schema'.properties.''
-        res = json_model_3(pval, (path ? &lpath_1 : NULL), rep);
+        res = _jm_obj_0(pval, (path ? &lpath_1 : NULL), rep);
         if (! res)
         {
             if (rep) jm_report_add_entry(rep, "unexpected $Schema [.'$schema'.properties.'']", (path ? &lpath_1 : NULL));
@@ -88,7 +93,7 @@ static INLINE bool _jm_obj_3(const json_t *val, jm_path_t *path, jm_report_t *re
         jm_path_t lpath_2 = (jm_path_t) { prop, 0, path, NULL };
         // handle other props
         // .'$schema'.patternProperties.''
-        res = json_model_3(pval, (path ? &lpath_2 : NULL), rep);
+        res = _jm_obj_0(pval, (path ? &lpath_2 : NULL), rep);
         if (! res)
         {
             if (rep) jm_report_add_entry(rep, "unexpected $Schema [.'$schema'.patternProperties.'']", (path ? &lpath_2 : NULL));
@@ -115,7 +120,7 @@ static INLINE bool _jm_obj_4(const json_t *val, jm_path_t *path, jm_report_t *re
         // handle other props
         // .'$schema'.dependencies.''
         // .'$schema'.dependencies.''.'|'.0
-        res = json_model_3(pval, (path ? &lpath_3 : NULL), rep);
+        res = _jm_obj_0(pval, (path ? &lpath_3 : NULL), rep);
         if (! res)
         {
             if (rep) jm_report_add_entry(rep, "unexpected $Schema [.'$schema'.dependencies.''.'|'.0]", (path ? &lpath_3 : NULL));
@@ -298,7 +303,7 @@ static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *re
         if (! res)
         {
             // .'$schema'.additionalItems.'|'.1
-            res = json_model_3(pval, path, rep);
+            res = _jm_obj_0(pval, path, rep);
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected $Schema [.'$schema'.additionalItems.'|'.1]", path);
@@ -320,7 +325,7 @@ static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *re
         pval = json_object_get(val, "items");
         // .'$schema'.items
         // .'$schema'.items.'|'.0
-        res = json_model_3(pval, path, rep);
+        res = _jm_obj_0(pval, path, rep);
         if (! res)
         {
             if (rep) jm_report_add_entry(rep, "unexpected $Schema [.'$schema'.items.'|'.0]", path);
@@ -430,7 +435,7 @@ static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *re
         if (! res)
         {
             // .'$schema'.additionalProperties.'|'.1
-            res = json_model_3(pval, path, rep);
+            res = _jm_obj_0(pval, path, rep);
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected $Schema [.'$schema'.additionalProperties.'|'.1]", path);
@@ -602,7 +607,7 @@ static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *re
     {
         pval = json_object_get(val, "not");
         // .'$schema'.not
-        res = json_model_3(pval, path, rep);
+        res = _jm_obj_0(pval, path, rep);
         if (! res)
         {
             if (rep) jm_report_add_entry(rep, "unexpected $Schema [.'$schema'.not]", path);
@@ -656,7 +661,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
     // .
-    res = json_model_3(val, path, rep);
+    res = _jm_obj_0(val, path, rep);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected $schema [.]", path);
@@ -679,7 +684,7 @@ static bool json_model_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
         {
             jm_path_t arr_0_lpath = (jm_path_t) { NULL, arr_0_idx, path, NULL };
             // .'$schema#schemaArray'.'@'.0
-            res = json_model_3(arr_0_item, (path ? &arr_0_lpath : NULL), rep);
+            res = _jm_obj_0(arr_0_item, (path ? &arr_0_lpath : NULL), rep);
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected $Schema [.'$schema#schemaArray'.'@'.0]", (path ? &arr_0_lpath : NULL));

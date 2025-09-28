@@ -62,7 +62,7 @@ public class json_schema_draft_03 extends ModelChecker
                 if (! res)
                 {
                     // .'$distinctSchemaArray'.'@'.0.'|'.1
-                    res = json_model_1(arr_0_item, (path != null ? arr_0_lpath : null), rep);
+                    res = _jm_obj_0(arr_0_item, (path != null ? arr_0_lpath : null), rep);
                     if (! res)
                     {
                         if (rep != null) rep.addEntry("unexpected $Schema [.'$distinctSchemaArray'.'@'.0.'|'.1]", (path != null ? arr_0_lpath : null));
@@ -134,7 +134,7 @@ public class json_schema_draft_03 extends ModelChecker
         if (! res)
         {
             // .additionalItems.'|'.1
-            res = json_model_1(val, path, rep);
+            res = _jm_obj_0(val, path, rep);
             if (! res)
             {
                 if (rep != null) rep.addEntry("unexpected $Schema [.additionalItems.'|'.1]", path);
@@ -165,7 +165,7 @@ public class json_schema_draft_03 extends ModelChecker
         if (! res)
         {
             // .additionalProperties.'|'.1
-            res = json_model_1(val, path, rep);
+            res = _jm_obj_0(val, path, rep);
             if (! res)
             {
                 if (rep != null) rep.addEntry("unexpected $Schema [.additionalProperties.'|'.1]", path);
@@ -247,7 +247,7 @@ public class json_schema_draft_03 extends ModelChecker
                 if (! res)
                 {
                     // .dependencies.''.'|'.2
-                    res = json_model_1(pval, (path != null ? lpath_1 : null), rep);
+                    res = _jm_obj_0(pval, (path != null ? lpath_1 : null), rep);
                     if (! res)
                     {
                         if (rep != null) rep.addEntry("unexpected $Schema [.dependencies.''.'|'.2]", (path != null ? lpath_1 : null));
@@ -392,7 +392,7 @@ public class json_schema_draft_03 extends ModelChecker
         boolean res;
         // .extends
         // .extends.'|'.0
-        res = json_model_1(val, path, rep);
+        res = _jm_obj_0(val, path, rep);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected $Schema [.extends.'|'.0]", path);
@@ -411,7 +411,7 @@ public class json_schema_draft_03 extends ModelChecker
                     Object arr_2_item = arr_2_item_loop.next();
                     Path arr_2_lpath = new Path(arr_2_idx, path);
                     // .extends.'|'.1.0
-                    res = json_model_1(arr_2_item, (path != null ? arr_2_lpath : null), rep);
+                    res = _jm_obj_0(arr_2_item, (path != null ? arr_2_lpath : null), rep);
                     if (! res)
                     {
                         if (rep != null) rep.addEntry("unexpected $Schema [.extends.'|'.1.0]", (path != null ? arr_2_lpath : null));
@@ -468,7 +468,7 @@ public class json_schema_draft_03 extends ModelChecker
         boolean res;
         // .items
         // .items.'|'.0
-        res = json_model_1(val, path, rep);
+        res = _jm_obj_0(val, path, rep);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected $Schema [.items.'|'.0]", path);
@@ -487,7 +487,7 @@ public class json_schema_draft_03 extends ModelChecker
                     Object arr_3_item = arr_3_item_loop.next();
                     Path arr_3_lpath = new Path(arr_3_idx, path);
                     // .items.'|'.1.0
-                    res = json_model_1(arr_3_item, (path != null ? arr_3_lpath : null), rep);
+                    res = _jm_obj_0(arr_3_item, (path != null ? arr_3_lpath : null), rep);
                     if (! res)
                     {
                         if (rep != null) rep.addEntry("unexpected $Schema [.items.'|'.1.0]", (path != null ? arr_3_lpath : null));
@@ -619,7 +619,7 @@ public class json_schema_draft_03 extends ModelChecker
             Path lpath_2 = new Path(prop, path);
             // handle other props
             // .patternProperties.''
-            res = json_model_1(pval, (path != null ? lpath_2 : null), rep);
+            res = _jm_obj_0(pval, (path != null ? lpath_2 : null), rep);
             if (! res)
             {
                 if (rep != null) rep.addEntry("unexpected $Schema [.patternProperties.'']", (path != null ? lpath_2 : null));
@@ -659,7 +659,7 @@ public class json_schema_draft_03 extends ModelChecker
             Path lpath_3 = new Path(prop, path);
             // handle other props
             // .properties.''
-            res = json_model_1(pval, (path != null ? lpath_3 : null), rep);
+            res = _jm_obj_0(pval, (path != null ? lpath_3 : null), rep);
             if (! res)
             {
                 if (rep != null) rep.addEntry("unexpected $Schema [.properties.'']", (path != null ? lpath_3 : null));
@@ -742,7 +742,7 @@ public class json_schema_draft_03 extends ModelChecker
                     if (! res)
                     {
                         // .type.'|'.1.0.'|'.1
-                        res = json_model_1(arr_4_item, (path != null ? arr_4_lpath : null), rep);
+                        res = _jm_obj_0(arr_4_item, (path != null ? arr_4_lpath : null), rep);
                         if (! res)
                         {
                             if (rep != null) rep.addEntry("unexpected $Schema [.type.'|'.1.0.'|'.1]", (path != null ? arr_4_lpath : null));

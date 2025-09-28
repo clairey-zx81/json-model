@@ -10,7 +10,10 @@ use JSON::JsonModel;
 use constant JMC_VERSION => '2';
 
 
+sub _jm_obj_1($$$);
+sub _jm_obj_0($$$);
 sub json_model_2($$$);
+sub _jm_obj_2($$$);
 sub json_model_3($$$);
 sub json_model_1($$$);
 my %check_model_map;
@@ -48,7 +51,7 @@ sub _jm_obj_0($$$)
         # handle other props
         # .'$a'.''
         # .'$a'.''.'|'.0
-        $res = json_model_2($pval, undef, $rep);
+        $res = _jm_obj_0($pval, undef, $rep);
         if (! $res)
         {
             # .'$a'.''.'|'.1
@@ -97,7 +100,7 @@ sub json_model_3($$$)
     my $res;
     # .'$r'
     # .'$r'.'|'.0
-    $res = json_model_2($val, $path, $rep);
+    $res = _jm_obj_0($val, $path, $rep);
     if (! $res)
     {
         # .'$r'.'|'.1

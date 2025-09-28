@@ -101,7 +101,7 @@ function _jm_obj_1(val, path, rep)
             // handle must RA property
             must_count += 1;
             // .RA
-            res = json_model_5(pval, (path ? lpath_1 : null), rep);
+            res = _jm_obj_0(pval, (path ? lpath_1 : null), rep);
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $Rr [.RA]", (path ? lpath_1 : null)])

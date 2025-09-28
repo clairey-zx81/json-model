@@ -15,6 +15,7 @@ sub _jm_f_1($$$);
 sub _jm_f_2($$$);
 sub _jm_f_3($$$);
 sub _jm_f_4($$$);
+sub _jm_obj_1($$$);
 sub _jm_f_5($$$);
 sub _jm_f_6($$$);
 sub _jm_f_7($$$);
@@ -33,13 +34,16 @@ sub _jm_f_19($$$);
 sub _jm_f_20($$$);
 sub _jm_f_21($$$);
 sub _jm_f_22($$$);
+sub _jm_obj_2($$$);
 sub _jm_f_23($$$);
+sub _jm_obj_3($$$);
 sub _jm_f_24($$$);
 sub _jm_f_25($$$);
 sub _jm_f_26($$$);
 sub _jm_f_27($$$);
 sub _jm_f_28($$$);
 my %_jm_obj_0_map;
+sub _jm_obj_0($$$);
 sub json_model_3($$$);
 sub json_model_1($$$);
 sub json_model_4($$$);
@@ -62,7 +66,7 @@ sub _jm_f_0($$$)
     if (! $res)
     {
         # .'$schema'.additionalItems.'|'.1
-        $res = json_model_3($val, $path, $rep);
+        $res = _jm_obj_0($val, $path, $rep);
     }
     return $res;
 }
@@ -78,7 +82,7 @@ sub _jm_f_1($$$)
     if (! $res)
     {
         # .'$schema'.additionalProperties.'|'.1
-        $res = json_model_3($val, $path, $rep);
+        $res = _jm_obj_0($val, $path, $rep);
     }
     return $res;
 }
@@ -147,7 +151,7 @@ sub _jm_obj_1($$$)
         # handle other props
         # .'$schema'.dependencies.''
         # .'$schema'.dependencies.''.'|'.0
-        $res = json_model_3($pval, undef, $rep);
+        $res = _jm_obj_0($pval, undef, $rep);
         if (! $res)
         {
             # .'$schema'.dependencies.''.'|'.1
@@ -224,7 +228,7 @@ sub _jm_f_10($$$)
     my $res;
     # .'$schema'.items
     # .'$schema'.items.'|'.0
-    $res = json_model_3($val, $path, $rep);
+    $res = _jm_obj_0($val, $path, $rep);
     if (! $res)
     {
         # .'$schema'.items.'|'.1
@@ -329,7 +333,7 @@ sub _jm_f_20($$$)
     my ($val, $path, $rep) = @_;
     my $res;
     # .'$schema'.not
-    $res = json_model_3($val, $path, $rep);
+    $res = _jm_obj_0($val, $path, $rep);
     return $res;
 }
 
@@ -367,7 +371,7 @@ sub _jm_obj_2($$$)
     {
         # handle other props
         # .'$schema'.patternProperties.''
-        $res = json_model_3($pval, undef, $rep);
+        $res = _jm_obj_0($pval, undef, $rep);
         if (! $res)
         {
             return 0;
@@ -400,7 +404,7 @@ sub _jm_obj_3($$$)
     {
         # handle other props
         # .'$schema'.properties.''
-        $res = json_model_3($pval, undef, $rep);
+        $res = _jm_obj_0($pval, undef, $rep);
         if (! $res)
         {
             return 0;
@@ -511,7 +515,7 @@ sub json_model_1($$$)
     my ($val, $path, $rep) = @_;
     my $res;
     # .
-    $res = json_model_3($val, $path, $rep);
+    $res = _jm_obj_0($val, $path, $rep);
     return $res;
 }
 
@@ -529,7 +533,7 @@ sub json_model_4($$$)
         {
             my $arr_1_item = $$val[$arr_1_idx];
             # .'$schema#schemaArray'.'@'.0
-            $res = json_model_3($arr_1_item, undef, $rep);
+            $res = _jm_obj_0($arr_1_item, undef, $rep);
             if (! $res)
             {
                 last;
