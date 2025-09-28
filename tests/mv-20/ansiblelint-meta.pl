@@ -8170,7 +8170,7 @@ sub check_model_init()
             'video_links' => \&_jm_f_48,
         );
         %_jm_map_0 = (
-            1 => \&json_model_53,
+            1 => \&_jm_obj_96,
             0 => \&_jm_obj_97,
         );
         %_jm_cst_64 = (

@@ -1,6 +1,7 @@
 #
 # JSON backend intermediate representation
 #
+from typing import Callable
 import functools
 import json
 
@@ -253,25 +254,93 @@ def _optimSeq(seq: Sequence, bool_vars: set[str]) -> Effect:
 
     return cum_read, cum_write, cum_value
 
-def optimizeIR(code: list[Jsonable], *, if_optim: bool = True) -> Jsonable:
+def _recIR(code: Jsonable, path: Path,
+           flt: Callable[[Jsonable, Path], bool],
+           rwt: Callable[[Jsonable, Path], Jsonable]) -> Jsonable:
+    if flt(code, path):
+        if isinstance(code, dict) and "o" in code:
+            for k in list(code.keys()):
+                code[k] = _recIR(code[k], path + [k], flt, rwt)
+        elif isinstance(code, list):
+            code = [ _recIR(c, path + [i], flt, rwt) for i, c in enumerate(code) ]
+        code = rwt(code, path)
+    return code
+
+def recurseIR(code: Jsonable,
+              flt: Callable[[Jsonable, Path], bool],
+              rwt: Callable[[Jsonable, Path], Jsonable]):
+    _recIR(code, [], flt, rwt)
+
+# operations which may contain cmp/pmap and check calls
+CODE_OPS = {
+    "gi", "gf", "gc", "gfc", "sfu",
+    "aL", "oL", "iL", "if", "ifs", "seq", "cc",
+    "dcm", "rcm", "icm", "scm", "dpm", "spm", "ipm", "rmp"
+}
+
+def callShortcuts(code: Jsonable, shortcuts: dict[str, str]) -> int:
+    """Update check function calls based on shortcuts."""
+
+    # shortcut shortcut replacements
+    if not shortcuts:
+        return 0
+
+    changes = 0
+
+    def repFlt(code: Jsonable, _: Path) -> bool:
+        # only recurse into relevant operations
+        return isinstance(code, dict) and "o" in code and code["o"] in CODE_OPS
+
+    def rep(fun: str) -> str:
+        nonlocal changes
+        if fun in shortcuts:
+            changes += 1
+            return shortcuts[fun]
+        else:
+            return fun
+
+    def repRwt(code: Jsonable, _: Path) -> Jsonable:
+        if isinstance(code, dict) and "o" in code:
+            op = code["o"]
+            if op in ("dcm", "scm", "icm", "rcm"):
+                code["mapping"] = [ (c, rep(f)) for c, f in code["mapping"] ]
+            elif op in ("dpm", "spm", "ipm", "rpm"):
+                code["pmap"] = { p: rep(f) for p, f in code["pmap"].items() }
+            elif op == "cc":
+                code["name"] = rep(code["name"])
+        return code
+
+    recurseIR(code, repFlt, repRwt)
+
+    return changes
+
+def optimizeIR(code: list[Jsonable], *, if_optim: bool = True, shortcuts: dict[str, str]) -> Jsonable:
     """Optimize IR code."""
 
-    optimized: int = 0
+    if not if_optim and not shortcuts:
+        return code
 
-    # TODO control?
-    # TODO call substitution instead of inline?
+    optimized, calls = 0, 0
 
-    # process function bodies
     for i, c in list(enumerate(code)):
         if c == "":
             continue
+        changed: bool = False
         ins = json.loads(c)
-        if isinstance(ins, dict) and "o" in ins and ins["o"] == "sfu":
+        if if_optim and isinstance(ins, dict) and "o" in ins and ins["o"] == "sfu":
+            # if statement simplification
             optimized += 1
             _optimSeq(ins["body"], set())
+            changed = True  # maybe
+        if shortcuts:
+            # call shortcuts
+            changes = callShortcuts(ins, shortcuts)
+            calls += changes
+            changed |= changes > 0
+        if changed:
             code[i] = json.dumps(ins)
 
-    log.info(f"optimize ir: {optimized} functions processed")
+    log.info(f"optimize ir: {optimized} functions processed, {calls} call shortcuts")
 
     return code
 

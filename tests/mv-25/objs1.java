@@ -280,8 +280,8 @@ public class objs1 extends ModelChecker
         {
             try {
             _jm_map_0_cmap = new HashMap<Object, Checker>();
-            _jm_map_0_cmap.put(json.safeJSON("\"table\""), new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
-            _jm_map_0_cmap.put(json.safeJSON("\"chair\""), new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_5(o, p, r);} });
+            _jm_map_0_cmap.put(json.safeJSON("\"table\""), new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_2(o, p, r);} });
+            _jm_map_0_cmap.put(json.safeJSON("\"chair\""), new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_3(o, p, r);} });
             objs1_map_pmap = new HashMap<String, Checker>();
             objs1_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_1(o, p, r);} });
             objs1_map_pmap.put("objs0", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_0(o, p, r);} });

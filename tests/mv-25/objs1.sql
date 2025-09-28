@@ -257,8 +257,8 @@ $$ LANGUAGE plpgsql;
 --
 TRUNCATE jm_constant_maps;
 INSERT INTO jm_constant_maps(mapname, tagval, value) VALUES
-  ('_jm_map_0', JSONB '"table"', 'json_model_4'),
-  ('_jm_map_0', JSONB '"chair"', 'json_model_5')
+  ('_jm_map_0', JSONB '"table"', '_jm_obj_2'),
+  ('_jm_map_0', JSONB '"chair"', '_jm_obj_3')
 ;
 
 --

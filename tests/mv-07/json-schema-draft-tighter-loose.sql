@@ -5399,13 +5399,13 @@ $$ LANGUAGE plpgsql;
 --
 TRUNCATE jm_constant_maps;
 INSERT INTO jm_constant_maps(mapname, tagval, value) VALUES
-  ('_jm_map_0', JSONB '"null"', 'json_model_18'),
-  ('_jm_map_0', JSONB '"boolean"', 'json_model_34'),
-  ('_jm_map_0', JSONB '"integer"', 'json_model_33'),
-  ('_jm_map_0', JSONB '"number"', 'json_model_32'),
-  ('_jm_map_0', JSONB '"string"', 'json_model_31'),
-  ('_jm_map_0', JSONB '"array"', 'json_model_13'),
-  ('_jm_map_0', JSONB '"object"', 'json_model_14')
+  ('_jm_map_0', JSONB '"null"', '_jm_obj_24'),
+  ('_jm_map_0', JSONB '"boolean"', '_jm_obj_63'),
+  ('_jm_map_0', JSONB '"integer"', '_jm_obj_60'),
+  ('_jm_map_0', JSONB '"number"', '_jm_obj_57'),
+  ('_jm_map_0', JSONB '"string"', '_jm_obj_54'),
+  ('_jm_map_0', JSONB '"array"', '_jm_obj_7'),
+  ('_jm_map_0', JSONB '"object"', '_jm_obj_10')
 ;
 
 --

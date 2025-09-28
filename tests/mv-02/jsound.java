@@ -1137,10 +1137,10 @@ public class jsound extends ModelChecker
         {
             try {
             _jm_map_0_cmap = new HashMap<Object, Checker>();
-            _jm_map_0_cmap.put(json.safeJSON("\"atomic\""), new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_6(o, p, r);} });
-            _jm_map_0_cmap.put(json.safeJSON("\"object\""), new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_7(o, p, r);} });
-            _jm_map_0_cmap.put(json.safeJSON("\"array\""), new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_9(o, p, r);} });
-            _jm_map_0_cmap.put(json.safeJSON("\"union\""), new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_10(o, p, r);} });
+            _jm_map_0_cmap.put(json.safeJSON("\"atomic\""), new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_2(o, p, r);} });
+            _jm_map_0_cmap.put(json.safeJSON("\"object\""), new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_3(o, p, r);} });
+            _jm_map_0_cmap.put(json.safeJSON("\"array\""), new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_5(o, p, r);} });
+            _jm_map_0_cmap.put(json.safeJSON("\"union\""), new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_6(o, p, r);} });
             _jm_cst_0_set = new HashSet<Object>();
             _jm_cst_0_set.add(json.safeJSON("\"string\""));
             _jm_cst_0_set.add(json.safeJSON("\"decimal\""));

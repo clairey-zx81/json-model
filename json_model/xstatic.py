@@ -1545,7 +1545,10 @@ def xstatic_compile(
 
     # optimize IR
     if ir_optimize:
-        optimizeIR(code._subs)
+        optimizeIR(code._subs, if_optim=True, shortcuts=code._shortcuts)
+        optimizeIR(code._defs, if_optim=False, shortcuts=code._shortcuts)
+        optimizeIR(code._inis, if_optim=False, shortcuts=code._shortcuts)
+        optimizeIR(code._dels, if_optim=False, shortcuts=code._shortcuts)
         if language:
             code = evaluate(code, language)
 

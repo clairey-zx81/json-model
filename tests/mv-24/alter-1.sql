@@ -389,9 +389,9 @@ INSERT INTO jm_constant_maps(mapname, tagval, value) VALUES
   ('_jm_map_0', JSONB '"g"', '_jm_obj_4'),
   ('_jm_map_0', JSONB '"h"', '_jm_obj_5'),
   ('_jm_map_0', JSONB '"i"', '_jm_obj_5'),
-  ('_jm_map_0', JSONB '"d"', 'json_model_4'),
-  ('_jm_map_0', JSONB '"e"', 'json_model_5'),
-  ('_jm_map_0', JSONB '"f"', 'json_model_5')
+  ('_jm_map_0', JSONB '"d"', '_jm_obj_0'),
+  ('_jm_map_0', JSONB '"e"', '_jm_obj_1'),
+  ('_jm_map_0', JSONB '"f"', '_jm_obj_1')
 ;
 
 --

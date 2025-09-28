@@ -229,8 +229,8 @@ const char *check_model_init(void)
     {
         initialized = true;
         jm_version_string = JSON_MODEL_VERSION;
-        _jm_map_0_tab[0] = (jm_constmap_t) { (jm_constant_t) { cst_is_bool, { .b = true } }, json_model_2 };
-        _jm_map_0_tab[1] = (jm_constmap_t) { (jm_constant_t) { cst_is_bool, { .b = false } }, json_model_3 };
+        _jm_map_0_tab[0] = (jm_constmap_t) { (jm_constant_t) { cst_is_bool, { .b = true } }, _jm_obj_0 };
+        _jm_map_0_tab[1] = (jm_constmap_t) { (jm_constant_t) { cst_is_bool, { .b = false } }, _jm_obj_1 };
         jm_sort_constmap(_jm_map_0_tab, 2);
         check_model_map_tab[0] = (jm_propmap_t) { "", json_model_1 };
         check_model_map_tab[1] = (jm_propmap_t) { "Aa", _jm_obj_0 };

@@ -6293,13 +6293,13 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         {
             try {
             _jm_map_0_cmap = new HashMap<Object, Checker>();
-            _jm_map_0_cmap.put(json.safeJSON("\"null\""), new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_18(o, p, r);} });
-            _jm_map_0_cmap.put(json.safeJSON("\"boolean\""), new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_34(o, p, r);} });
-            _jm_map_0_cmap.put(json.safeJSON("\"integer\""), new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_33(o, p, r);} });
-            _jm_map_0_cmap.put(json.safeJSON("\"number\""), new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_32(o, p, r);} });
-            _jm_map_0_cmap.put(json.safeJSON("\"string\""), new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_31(o, p, r);} });
-            _jm_map_0_cmap.put(json.safeJSON("\"array\""), new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_13(o, p, r);} });
-            _jm_map_0_cmap.put(json.safeJSON("\"object\""), new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_14(o, p, r);} });
+            _jm_map_0_cmap.put(json.safeJSON("\"null\""), new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_24(o, p, r);} });
+            _jm_map_0_cmap.put(json.safeJSON("\"boolean\""), new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_63(o, p, r);} });
+            _jm_map_0_cmap.put(json.safeJSON("\"integer\""), new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_60(o, p, r);} });
+            _jm_map_0_cmap.put(json.safeJSON("\"number\""), new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_57(o, p, r);} });
+            _jm_map_0_cmap.put(json.safeJSON("\"string\""), new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_54(o, p, r);} });
+            _jm_map_0_cmap.put(json.safeJSON("\"array\""), new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_7(o, p, r);} });
+            _jm_map_0_cmap.put(json.safeJSON("\"object\""), new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_10(o, p, r);} });
             _jm_obj_1_map_pmap = new HashMap<String, Checker>();
             _jm_obj_1_map_pmap.put("$comment", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_0(o, p, r);} });
             _jm_obj_1_map_pmap.put("$defs", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_1(o, p, r);} });

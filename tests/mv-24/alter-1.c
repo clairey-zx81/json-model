@@ -422,9 +422,9 @@ const char *check_model_init(void)
         _jm_map_0_tab[3] = (jm_constmap_t) { (jm_constant_t) { cst_is_string, { .s = "g" } }, _jm_obj_4 };
         _jm_map_0_tab[4] = (jm_constmap_t) { (jm_constant_t) { cst_is_string, { .s = "h" } }, _jm_obj_5 };
         _jm_map_0_tab[5] = (jm_constmap_t) { (jm_constant_t) { cst_is_string, { .s = "i" } }, _jm_obj_5 };
-        _jm_map_0_tab[6] = (jm_constmap_t) { (jm_constant_t) { cst_is_string, { .s = "d" } }, json_model_4 };
-        _jm_map_0_tab[7] = (jm_constmap_t) { (jm_constant_t) { cst_is_string, { .s = "e" } }, json_model_5 };
-        _jm_map_0_tab[8] = (jm_constmap_t) { (jm_constant_t) { cst_is_string, { .s = "f" } }, json_model_5 };
+        _jm_map_0_tab[6] = (jm_constmap_t) { (jm_constant_t) { cst_is_string, { .s = "d" } }, _jm_obj_0 };
+        _jm_map_0_tab[7] = (jm_constmap_t) { (jm_constant_t) { cst_is_string, { .s = "e" } }, _jm_obj_1 };
+        _jm_map_0_tab[8] = (jm_constmap_t) { (jm_constant_t) { cst_is_string, { .s = "f" } }, _jm_obj_1 };
         jm_sort_constmap(_jm_map_0_tab, 9);
         check_model_map_tab[0] = (jm_propmap_t) { "", json_model_6 };
         check_model_map_tab[1] = (jm_propmap_t) { "g", json_model_2 };

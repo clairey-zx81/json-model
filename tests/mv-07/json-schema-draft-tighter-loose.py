@@ -4124,13 +4124,13 @@ def check_model_init():
         initialized = True
         global _jm_map_0
         _jm_map_0 = {
-            "null": json_model_18,
-            "boolean": json_model_34,
-            "integer": json_model_33,
-            "number": json_model_32,
-            "string": json_model_31,
-            "array": json_model_13,
-            "object": json_model_14,
+            "null": _jm_obj_24,
+            "boolean": _jm_obj_63,
+            "integer": _jm_obj_60,
+            "number": _jm_obj_57,
+            "string": _jm_obj_54,
+            "array": _jm_obj_7,
+            "object": _jm_obj_10,
         }
         global _jm_obj_1_map
         _jm_obj_1_map = {

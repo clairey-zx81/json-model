@@ -280,8 +280,8 @@ sub check_model_init()
     {
         $initialized = 1;
         %_jm_map_0 = (
-            'table' => \&json_model_4,
-            'chair' => \&json_model_5,
+            'table' => \&_jm_obj_2,
+            'chair' => \&_jm_obj_3,
         );
         %check_model_map = (
             '' => \&_jm_obj_1,

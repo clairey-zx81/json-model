@@ -161,7 +161,7 @@ def check_model_init():
         _jm_map_0 = {
             "b": _jm_obj_2,
             "c": _jm_obj_2,
-            "d": json_model_2,
+            "d": _jm_obj_0,
         }
         global check_model_map
         check_model_map = {

@@ -9966,7 +9966,7 @@ const char *check_model_init(void)
         _jm_obj_98_map_tab[11] = (jm_propmap_t) { "role_name", _jm_f_47 };
         _jm_obj_98_map_tab[12] = (jm_propmap_t) { "video_links", _jm_f_48 };
         jm_sort_propmap(_jm_obj_98_map_tab, 13);
-        _jm_map_0_tab[0] = (jm_constmap_t) { (jm_constant_t) { cst_is_bool, { .b = true } }, json_model_53 };
+        _jm_map_0_tab[0] = (jm_constmap_t) { (jm_constant_t) { cst_is_bool, { .b = true } }, _jm_obj_96 };
         _jm_map_0_tab[1] = (jm_constmap_t) { (jm_constant_t) { cst_is_bool, { .b = false } }, _jm_obj_97 };
         jm_sort_constmap(_jm_map_0_tab, 2);
         _jm_re_2_re2 = cre2_new("^[a-z_]+\\.[a-z_]+$", strlen("^[a-z_]+\\.[a-z_]+$"), NULL);

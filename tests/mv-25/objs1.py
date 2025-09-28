@@ -185,8 +185,8 @@ def check_model_init():
         initialized = True
         global _jm_map_0
         _jm_map_0 = {
-            "table": json_model_4,
-            "chair": json_model_5,
+            "table": _jm_obj_2,
+            "chair": _jm_obj_3,
         }
         global check_model_map
         check_model_map = {

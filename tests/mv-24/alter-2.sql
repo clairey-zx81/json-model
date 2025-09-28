@@ -288,14 +288,14 @@ $$ LANGUAGE plpgsql;
 TRUNCATE jm_constant_maps;
 INSERT INTO jm_constant_maps(mapname, tagval, value) VALUES
   ('_jm_map_0', JSONB '"a"', '_jm_obj_2'),
-  ('_jm_map_0', JSONB '"e"', 'json_model_3'),
-  ('_jm_map_0', JSONB '"f"', 'json_model_3'),
-  ('_jm_map_0', JSONB '"g"', 'json_model_3')
+  ('_jm_map_0', JSONB '"e"', '_jm_obj_1'),
+  ('_jm_map_0', JSONB '"f"', '_jm_obj_1'),
+  ('_jm_map_0', JSONB '"g"', '_jm_obj_1')
 ;
 INSERT INTO jm_constant_maps(mapname, tagval, value) VALUES
   ('_jm_map_1', JSONB '"b"', '_jm_obj_3'),
   ('_jm_map_1', JSONB '"c"', '_jm_obj_3'),
-  ('_jm_map_1', JSONB '"d"', 'json_model_2')
+  ('_jm_map_1', JSONB '"d"', '_jm_obj_0')
 ;
 
 --

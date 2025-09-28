@@ -1154,10 +1154,10 @@ const char *check_model_init(void)
     {
         initialized = true;
         jm_version_string = JSON_MODEL_VERSION;
-        _jm_map_0_tab[0] = (jm_constmap_t) { (jm_constant_t) { cst_is_string, { .s = "atomic" } }, json_model_6 };
-        _jm_map_0_tab[1] = (jm_constmap_t) { (jm_constant_t) { cst_is_string, { .s = "object" } }, json_model_7 };
-        _jm_map_0_tab[2] = (jm_constmap_t) { (jm_constant_t) { cst_is_string, { .s = "array" } }, json_model_9 };
-        _jm_map_0_tab[3] = (jm_constmap_t) { (jm_constant_t) { cst_is_string, { .s = "union" } }, json_model_10 };
+        _jm_map_0_tab[0] = (jm_constmap_t) { (jm_constant_t) { cst_is_string, { .s = "atomic" } }, _jm_obj_2 };
+        _jm_map_0_tab[1] = (jm_constmap_t) { (jm_constant_t) { cst_is_string, { .s = "object" } }, _jm_obj_3 };
+        _jm_map_0_tab[2] = (jm_constmap_t) { (jm_constant_t) { cst_is_string, { .s = "array" } }, _jm_obj_5 };
+        _jm_map_0_tab[3] = (jm_constmap_t) { (jm_constant_t) { cst_is_string, { .s = "union" } }, _jm_obj_6 };
         jm_sort_constmap(_jm_map_0_tab, 4);
         // initialize sorted set _jm_cst_0
         _jm_cst_0[0] = (jm_constant_t) { cst_is_string, { .s = "string" } };

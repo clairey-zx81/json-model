@@ -154,8 +154,8 @@ def check_model_init():
     if not initialized:
         initialized = True
         global _jm_map_0
-        _jm_map_0[1] = json_model_2
-        _jm_map_0[2] = json_model_3
+        _jm_map_0[1] = _jm_obj_0
+        _jm_map_0[2] = _jm_obj_1
         global check_model_map
         check_model_map = {
             "": json_model_1,

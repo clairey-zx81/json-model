@@ -6051,13 +6051,13 @@ sub check_model_init()
             'writeOnly' => \&_jm_f_277,
         );
         %_jm_map_0 = (
-            'null' => \&json_model_16,
-            'boolean' => \&json_model_15,
-            'integer' => \&json_model_13,
-            'number' => \&json_model_14,
-            'string' => \&json_model_10,
-            'array' => \&json_model_11,
-            'object' => \&json_model_12,
+            'null' => \&_jm_obj_36,
+            'boolean' => \&_jm_obj_32,
+            'integer' => \&_jm_obj_24,
+            'number' => \&_jm_obj_28,
+            'string' => \&_jm_obj_10,
+            'array' => \&_jm_obj_14,
+            'object' => \&_jm_obj_18,
         );
         %check_model_map = (
             '' => \&json_model_26,

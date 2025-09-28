@@ -212,7 +212,7 @@ TRUNCATE jm_constant_maps;
 INSERT INTO jm_constant_maps(mapname, tagval, value) VALUES
   ('_jm_map_0', JSONB '"b"', '_jm_obj_2'),
   ('_jm_map_0', JSONB '"c"', '_jm_obj_2'),
-  ('_jm_map_0', JSONB '"d"', 'json_model_2')
+  ('_jm_map_0', JSONB '"d"', '_jm_obj_0')
 ;
 
 --

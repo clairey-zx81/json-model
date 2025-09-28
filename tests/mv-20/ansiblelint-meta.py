@@ -5814,7 +5814,7 @@ def check_model_init():
             "video_links": _jm_f_48,
         }
         global _jm_map_0
-        _jm_map_0[True] = json_model_53
+        _jm_map_0[True] = _jm_obj_96
         _jm_map_0[False] = _jm_obj_97
         global _jm_re_2_reco, _jm_re_2
         _jm_re_2_reco = re.compile("^[a-z_]+\\.[a-z_]+$")

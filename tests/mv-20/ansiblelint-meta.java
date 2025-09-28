@@ -10011,7 +10011,7 @@ public class ansiblelint_meta extends ModelChecker
             _jm_obj_98_map_pmap.put("role_name", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_47(o, p, r);} });
             _jm_obj_98_map_pmap.put("video_links", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_48(o, p, r);} });
             _jm_map_0_cmap = new HashMap<Object, Checker>();
-            _jm_map_0_cmap.put(json.safeJSON("true"), new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_53(o, p, r);} });
+            _jm_map_0_cmap.put(json.safeJSON("true"), new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_96(o, p, r);} });
             _jm_map_0_cmap.put(json.safeJSON("false"), new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_97(o, p, r);} });
             _jm_re_2_pat = Pattern.compile("^[a-z_]+\\.[a-z_]+$");
             _jm_cst_64_set = new HashSet<Object>();

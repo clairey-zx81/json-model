@@ -4151,13 +4151,13 @@ sub check_model_init()
             'title' => \&_jm_f_163,
         );
         %_jm_map_0 = (
-            'null' => \&json_model_16,
-            'boolean' => \&json_model_15,
-            'integer' => \&json_model_13,
-            'number' => \&json_model_14,
-            'string' => \&json_model_10,
-            'array' => \&json_model_11,
-            'object' => \&json_model_12,
+            'null' => \&_jm_obj_29,
+            'boolean' => \&_jm_obj_26,
+            'integer' => \&_jm_obj_20,
+            'number' => \&_jm_obj_23,
+            'string' => \&_jm_obj_9,
+            'array' => \&_jm_obj_12,
+            'object' => \&_jm_obj_15,
         );
         %check_model_map = (
             '' => \&json_model_25,

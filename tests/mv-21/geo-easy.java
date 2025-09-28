@@ -1246,12 +1246,12 @@ public class geo_easy extends ModelChecker
         {
             try {
             _jm_map_0_cmap = new HashMap<Object, Checker>();
-            _jm_map_0_cmap.put(json.safeJSON("\"Point\""), new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_5(o, p, r);} });
-            _jm_map_0_cmap.put(json.safeJSON("\"MultiPoint\""), new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_6(o, p, r);} });
-            _jm_map_0_cmap.put(json.safeJSON("\"LineString\""), new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_7(o, p, r);} });
-            _jm_map_0_cmap.put(json.safeJSON("\"MultiLineString\""), new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_8(o, p, r);} });
-            _jm_map_0_cmap.put(json.safeJSON("\"Polygon\""), new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_9(o, p, r);} });
-            _jm_map_0_cmap.put(json.safeJSON("\"MultiPolygon\""), new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_10(o, p, r);} });
+            _jm_map_0_cmap.put(json.safeJSON("\"Point\""), new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_0(o, p, r);} });
+            _jm_map_0_cmap.put(json.safeJSON("\"MultiPoint\""), new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_1(o, p, r);} });
+            _jm_map_0_cmap.put(json.safeJSON("\"LineString\""), new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_2(o, p, r);} });
+            _jm_map_0_cmap.put(json.safeJSON("\"MultiLineString\""), new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_3(o, p, r);} });
+            _jm_map_0_cmap.put(json.safeJSON("\"Polygon\""), new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_4(o, p, r);} });
+            _jm_map_0_cmap.put(json.safeJSON("\"MultiPolygon\""), new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_5(o, p, r);} });
             geo_easy_map_pmap = new HashMap<String, Checker>();
             geo_easy_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_1(o, p, r);} });
             geo_easy_map_pmap.put("position", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_2(o, p, r);} });

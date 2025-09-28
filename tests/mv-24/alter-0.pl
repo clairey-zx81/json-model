@@ -294,9 +294,9 @@ sub check_model_init()
             'a' => \&_jm_obj_2,
             'b' => \&_jm_obj_3,
             'c' => \&_jm_obj_3,
-            'd' => \&json_model_2,
-            'e' => \&json_model_3,
-            'f' => \&json_model_3,
+            'd' => \&_jm_obj_0,
+            'e' => \&_jm_obj_1,
+            'f' => \&_jm_obj_1,
         );
         %check_model_map = (
             '' => \&json_model_4,

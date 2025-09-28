@@ -240,7 +240,7 @@ const char *check_model_init(void)
         jm_sort_cst(_jm_cst_0, 2);
         _jm_map_0_tab[0] = (jm_constmap_t) { (jm_constant_t) { cst_is_string, { .s = "b" } }, _jm_obj_2 };
         _jm_map_0_tab[1] = (jm_constmap_t) { (jm_constant_t) { cst_is_string, { .s = "c" } }, _jm_obj_2 };
-        _jm_map_0_tab[2] = (jm_constmap_t) { (jm_constant_t) { cst_is_string, { .s = "d" } }, json_model_2 };
+        _jm_map_0_tab[2] = (jm_constmap_t) { (jm_constant_t) { cst_is_string, { .s = "d" } }, _jm_obj_0 };
         jm_sort_constmap(_jm_map_0_tab, 3);
         check_model_map_tab[0] = (jm_propmap_t) { "", json_model_3 };
         check_model_map_tab[1] = (jm_propmap_t) { "d", _jm_obj_0 };

@@ -316,13 +316,13 @@ public class alter_2 extends ModelChecker
             _jm_cst_1_set.add(json.safeJSON("\"c\""));
             _jm_map_0_cmap = new HashMap<Object, Checker>();
             _jm_map_0_cmap.put(json.safeJSON("\"a\""), new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_2(o, p, r);} });
-            _jm_map_0_cmap.put(json.safeJSON("\"e\""), new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_3(o, p, r);} });
-            _jm_map_0_cmap.put(json.safeJSON("\"f\""), new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_3(o, p, r);} });
-            _jm_map_0_cmap.put(json.safeJSON("\"g\""), new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_3(o, p, r);} });
+            _jm_map_0_cmap.put(json.safeJSON("\"e\""), new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_1(o, p, r);} });
+            _jm_map_0_cmap.put(json.safeJSON("\"f\""), new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_1(o, p, r);} });
+            _jm_map_0_cmap.put(json.safeJSON("\"g\""), new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_1(o, p, r);} });
             _jm_map_1_cmap = new HashMap<Object, Checker>();
             _jm_map_1_cmap.put(json.safeJSON("\"b\""), new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_3(o, p, r);} });
             _jm_map_1_cmap.put(json.safeJSON("\"c\""), new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_3(o, p, r);} });
-            _jm_map_1_cmap.put(json.safeJSON("\"d\""), new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_2(o, p, r);} });
+            _jm_map_1_cmap.put(json.safeJSON("\"d\""), new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_0(o, p, r);} });
             alter_2_map_pmap = new HashMap<String, Checker>();
             alter_2_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
             alter_2_map_pmap.put("d", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_0(o, p, r);} });

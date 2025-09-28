@@ -779,12 +779,12 @@ def check_model_init():
         initialized = True
         global _jm_map_0
         _jm_map_0 = {
-            "Point": json_model_5,
-            "MultiPoint": json_model_6,
-            "LineString": json_model_7,
-            "MultiLineString": json_model_8,
-            "Polygon": json_model_9,
-            "MultiPolygon": json_model_10,
+            "Point": _jm_obj_0,
+            "MultiPoint": _jm_obj_1,
+            "LineString": _jm_obj_2,
+            "MultiLineString": _jm_obj_3,
+            "Polygon": _jm_obj_4,
+            "MultiPolygon": _jm_obj_5,
         }
         global check_model_map
         check_model_map = {

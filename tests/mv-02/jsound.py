@@ -730,10 +730,10 @@ def check_model_init():
         initialized = True
         global _jm_map_0
         _jm_map_0 = {
-            "atomic": json_model_6,
-            "object": json_model_7,
-            "array": json_model_9,
-            "union": json_model_10,
+            "atomic": _jm_obj_2,
+            "object": _jm_obj_3,
+            "array": _jm_obj_5,
+            "union": _jm_obj_6,
         }
         global _jm_cst_0
         _jm_cst_0 = {'anyURI', 'base64Binary', 'boolean', 'date', 'dateTime', 'dateTimeStamp', 'decimal', 'double', 'duration', 'hexBinary', 'integer', 'null', 'string', 'time'}
