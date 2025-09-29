@@ -610,6 +610,11 @@ class CodeGenerator:
         code += gen.if_stmt(gen.not_op(gen.is_a(val, dict)),
                             self._gen_fail(f"not an object [{smpath}]", vpath))
 
+        # NOTE there may be different tradeoffs depending on the target languages,
+        # libraries and the complexity of underlying operations.
+        # This suggests that a cost/choice model could be used to decide based
+        # on benchmarks.
+
         # shorcut for empty/any object
         if not must and not may and not defs and not regs:
             if not oth:  # empty object
