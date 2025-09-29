@@ -42,7 +42,7 @@ DECLARE
   arr_2_idx INT8;
   arr_2_item JSONB;
 BEGIN
-  -- check must only props
+  -- check open must/may only props
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;

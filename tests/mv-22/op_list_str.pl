@@ -21,43 +21,36 @@ my %check_model_map;
 sub _jm_obj_0($$$)
 {
     my ($val, $path, $rep) = @_;
+    # check close must only props
     if (! jm_is_object($val))
     {
         return 0;
     }
-    my $res;
-    my $must_count = 0;
-    scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    if (jm_obj_size($val) != 2)
     {
-        if ($prop eq 't')
-        {
-            # handle must t property
-            $must_count++;
-            # .'|'.0.t
-            $res = jm_is_string($pval) && $pval eq 'a';
-            if (! $res)
-            {
-                return 0;
-            }
-        }
-        elsif ($prop eq 'foo')
-        {
-            # handle must foo property
-            $must_count++;
-            # .'|'.0.foo
-            $res = jm_is_integer($pval) && $pval >= 1;
-            if (! $res)
-            {
-                return 0;
-            }
-        }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
-    if ($must_count != 2)
+    my $pval;
+    my $res;
+    if (! exists $$val{'t'})
+    {
+        return 0;
+    }
+    $pval = $$val{'t'};
+    # .'|'.0.t
+    $res = jm_is_string($pval) && $pval eq 'a';
+    if (! $res)
+    {
+        return 0;
+    }
+    if (! exists $$val{'foo'})
+    {
+        return 0;
+    }
+    $pval = $$val{'foo'};
+    # .'|'.0.foo
+    $res = jm_is_integer($pval) && $pval >= 1;
+    if (! $res)
     {
         return 0;
     }
@@ -69,43 +62,36 @@ sub _jm_obj_0($$$)
 sub _jm_obj_1($$$)
 {
     my ($val, $path, $rep) = @_;
+    # check close must only props
     if (! jm_is_object($val))
     {
         return 0;
     }
-    my $res;
-    my $must_count = 0;
-    scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    if (jm_obj_size($val) != 2)
     {
-        if ($prop eq 't')
-        {
-            # handle must t property
-            $must_count++;
-            # .'|'.1.t
-            $res = jm_is_scalar($pval) && jm_is_string($pval) && exists $_jm_cst_0{$pval};
-            if (! $res)
-            {
-                return 0;
-            }
-        }
-        elsif ($prop eq 'bla')
-        {
-            # handle must bla property
-            $must_count++;
-            # .'|'.1.bla
-            $res = jm_is_integer($pval) && $pval >= 1;
-            if (! $res)
-            {
-                return 0;
-            }
-        }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
-    if ($must_count != 2)
+    my $pval;
+    my $res;
+    if (! exists $$val{'t'})
+    {
+        return 0;
+    }
+    $pval = $$val{'t'};
+    # .'|'.1.t
+    $res = jm_is_scalar($pval) && jm_is_string($pval) && exists $_jm_cst_0{$pval};
+    if (! $res)
+    {
+        return 0;
+    }
+    if (! exists $$val{'bla'})
+    {
+        return 0;
+    }
+    $pval = $$val{'bla'};
+    # .'|'.1.bla
+    $res = jm_is_integer($pval) && $pval >= 1;
+    if (! $res)
     {
         return 0;
     }

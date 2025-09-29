@@ -14,7 +14,7 @@ var check_model_map = new Map()
 // object .
 function _jm_obj_0(val, path, rep)
 {
-    // check must only props
+    // check open must/may only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.]", path])

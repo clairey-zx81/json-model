@@ -158,7 +158,7 @@ static bool json_model_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // object .'$Point'
 static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    // check must only props
+    // check open must/may only props
     if (! json_is_object(val))
     {
         if (rep) jm_report_add_entry(rep, "not an object [.'$Point']", path);
@@ -241,7 +241,7 @@ static bool json_model_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // object .'$MultiPoint'
 static INLINE bool _jm_obj_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    // check must only props
+    // check open must/may only props
     if (! json_is_object(val))
     {
         if (rep) jm_report_add_entry(rep, "not an object [.'$MultiPoint']", path);
@@ -340,7 +340,7 @@ static bool json_model_6(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // object .'$LineString'
 static INLINE bool _jm_obj_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    // check must only props
+    // check open must/may only props
     if (! json_is_object(val))
     {
         if (rep) jm_report_add_entry(rep, "not an object [.'$LineString']", path);
@@ -423,7 +423,7 @@ static bool json_model_7(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // object .'$MultiLineString'
 static INLINE bool _jm_obj_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    // check must only props
+    // check open must/may only props
     if (! json_is_object(val))
     {
         if (rep) jm_report_add_entry(rep, "not an object [.'$MultiLineString']", path);
@@ -522,7 +522,7 @@ static bool json_model_8(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // object .'$Polygon'
 static INLINE bool _jm_obj_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    // check must only props
+    // check open must/may only props
     if (! json_is_object(val))
     {
         if (rep) jm_report_add_entry(rep, "not an object [.'$Polygon']", path);
@@ -621,7 +621,7 @@ static bool json_model_9(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // object .'$MultiPolygon'
 static INLINE bool _jm_obj_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    // check must only props
+    // check open must/may only props
     if (! json_is_object(val))
     {
         if (rep) jm_report_add_entry(rep, "not an object [.'$MultiPolygon']", path);
@@ -779,7 +779,7 @@ static bool json_model_11(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // object .'$GeometryCollection'
 static INLINE bool _jm_obj_6(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    // check must only props
+    // check open must/may only props
     if (! json_is_object(val))
     {
         if (rep) jm_report_add_entry(rep, "not an object [.'$GeometryCollection']", path);
@@ -890,7 +890,7 @@ static INLINE bool _jm_obj_8(const json_t *val, jm_path_t *path, jm_report_t *re
 // object .'$Feature'
 static INLINE bool _jm_obj_7(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    // check must only props
+    // check open must/may only props
     if (! json_is_object(val))
     {
         if (rep) jm_report_add_entry(rep, "not an object [.'$Feature']", path);
@@ -1062,7 +1062,7 @@ static bool json_model_13(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // object .'$FeatureCollection'
 static INLINE bool _jm_obj_9(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    // check must only props
+    // check open must/may only props
     if (! json_is_object(val))
     {
         if (rep) jm_report_add_entry(rep, "not an object [.'$FeatureCollection']", path);

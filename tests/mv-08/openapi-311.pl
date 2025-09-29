@@ -5264,54 +5264,47 @@ sub json_model_34($$$)
 sub _jm_obj_69($$$)
 {
     my ($val, $path, $rep) = @_;
+    # check close must only props
     if (! jm_is_object($val))
     {
         return 0;
     }
-    my $res;
-    my $must_count = 0;
-    scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    if (jm_obj_size($val) != 3)
     {
-        if ($prop eq 'type')
-        {
-            # handle must type property
-            $must_count++;
-            # .'$SS-apikey'.type
-            $res = jm_is_string($pval) && $pval eq 'apiKey';
-            if (! $res)
-            {
-                return 0;
-            }
-        }
-        elsif ($prop eq 'name')
-        {
-            # handle must name property
-            $must_count++;
-            # .'$SS-apikey'.name
-            $res = jm_is_string($pval);
-            if (! $res)
-            {
-                return 0;
-            }
-        }
-        elsif ($prop eq 'in')
-        {
-            # handle must in property
-            $must_count++;
-            # .'$SS-apikey'.in
-            $res = jm_is_scalar($pval) && jm_is_string($pval) && exists $_jm_cst_4{$pval};
-            if (! $res)
-            {
-                return 0;
-            }
-        }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
-    if ($must_count != 3)
+    my $pval;
+    my $res;
+    if (! exists $$val{'type'})
+    {
+        return 0;
+    }
+    $pval = $$val{'type'};
+    # .'$SS-apikey'.type
+    $res = jm_is_string($pval) && $pval eq 'apiKey';
+    if (! $res)
+    {
+        return 0;
+    }
+    if (! exists $$val{'name'})
+    {
+        return 0;
+    }
+    $pval = $$val{'name'};
+    # .'$SS-apikey'.name
+    $res = jm_is_string($pval);
+    if (! $res)
+    {
+        return 0;
+    }
+    if (! exists $$val{'in'})
+    {
+        return 0;
+    }
+    $pval = $$val{'in'};
+    # .'$SS-apikey'.in
+    $res = jm_is_scalar($pval) && jm_is_string($pval) && exists $_jm_cst_4{$pval};
+    if (! $res)
     {
         return 0;
     }
@@ -5332,43 +5325,36 @@ sub json_model_35($$$)
 sub _jm_obj_70($$$)
 {
     my ($val, $path, $rep) = @_;
+    # check close must only props
     if (! jm_is_object($val))
     {
         return 0;
     }
-    my $res;
-    my $must_count = 0;
-    scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    if (jm_obj_size($val) != 2)
     {
-        if ($prop eq 'type')
-        {
-            # handle must type property
-            $must_count++;
-            # .'$SS-http'.type
-            $res = jm_is_string($pval) && $pval eq 'http';
-            if (! $res)
-            {
-                return 0;
-            }
-        }
-        elsif ($prop eq 'scheme')
-        {
-            # handle must scheme property
-            $must_count++;
-            # .'$SS-http'.scheme
-            $res = jm_is_string($pval);
-            if (! $res)
-            {
-                return 0;
-            }
-        }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
-    if ($must_count != 2)
+    my $pval;
+    my $res;
+    if (! exists $$val{'type'})
+    {
+        return 0;
+    }
+    $pval = $$val{'type'};
+    # .'$SS-http'.type
+    $res = jm_is_string($pval) && $pval eq 'http';
+    if (! $res)
+    {
+        return 0;
+    }
+    if (! exists $$val{'scheme'})
+    {
+        return 0;
+    }
+    $pval = $$val{'scheme'};
+    # .'$SS-http'.scheme
+    $res = jm_is_string($pval);
+    if (! $res)
     {
         return 0;
     }
@@ -5464,43 +5450,36 @@ sub json_model_37($$$)
 sub _jm_obj_72($$$)
 {
     my ($val, $path, $rep) = @_;
+    # check close must only props
     if (! jm_is_object($val))
     {
         return 0;
     }
-    my $res;
-    my $must_count = 0;
-    scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    if (jm_obj_size($val) != 2)
     {
-        if ($prop eq 'type')
-        {
-            # handle must type property
-            $must_count++;
-            # .'$SS-oauth2'.type
-            $res = jm_is_string($pval) && $pval eq 'oauth2';
-            if (! $res)
-            {
-                return 0;
-            }
-        }
-        elsif ($prop eq 'flows')
-        {
-            # handle must flows property
-            $must_count++;
-            # .'$SS-oauth2'.flows
-            $res = _jm_obj_80($pval, undef, $rep);
-            if (! $res)
-            {
-                return 0;
-            }
-        }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
-    if ($must_count != 2)
+    my $pval;
+    my $res;
+    if (! exists $$val{'type'})
+    {
+        return 0;
+    }
+    $pval = $$val{'type'};
+    # .'$SS-oauth2'.type
+    $res = jm_is_string($pval) && $pval eq 'oauth2';
+    if (! $res)
+    {
+        return 0;
+    }
+    if (! exists $$val{'flows'})
+    {
+        return 0;
+    }
+    $pval = $$val{'flows'};
+    # .'$SS-oauth2'.flows
+    $res = _jm_obj_80($pval, $path, $rep);
+    if (! $res)
     {
         return 0;
     }
@@ -5521,43 +5500,36 @@ sub json_model_38($$$)
 sub _jm_obj_73($$$)
 {
     my ($val, $path, $rep) = @_;
+    # check close must only props
     if (! jm_is_object($val))
     {
         return 0;
     }
-    my $res;
-    my $must_count = 0;
-    scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    if (jm_obj_size($val) != 2)
     {
-        if ($prop eq 'type')
-        {
-            # handle must type property
-            $must_count++;
-            # .'$SS-oic'.type
-            $res = jm_is_string($pval) && $pval eq 'openIdConnect';
-            if (! $res)
-            {
-                return 0;
-            }
-        }
-        elsif ($prop eq 'openIdConnectUrl')
-        {
-            # handle must openIdConnectUrl property
-            $must_count++;
-            # .'$SS-oic'.openIdConnectUrl
-            $res = jm_is_string($pval) && jm_is_valid_url($pval, undef, $rep);
-            if (! $res)
-            {
-                return 0;
-            }
-        }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
-    if ($must_count != 2)
+    my $pval;
+    my $res;
+    if (! exists $$val{'type'})
+    {
+        return 0;
+    }
+    $pval = $$val{'type'};
+    # .'$SS-oic'.type
+    $res = jm_is_string($pval) && $pval eq 'openIdConnect';
+    if (! $res)
+    {
+        return 0;
+    }
+    if (! exists $$val{'openIdConnectUrl'})
+    {
+        return 0;
+    }
+    $pval = $$val{'openIdConnectUrl'};
+    # .'$SS-oic'.openIdConnectUrl
+    $res = jm_is_string($pval) && jm_is_valid_url($pval, $path, $rep);
+    if (! $res)
     {
         return 0;
     }

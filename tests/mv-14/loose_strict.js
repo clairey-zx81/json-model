@@ -14,44 +14,31 @@ var check_model_map = new Map()
 // object .'$loose'
 function _jm_obj_0(val, path, rep)
 {
+    // check close must only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.'$loose']", path])
         return false;
     }
-    let res;
-    let must_count = 0;
-    for (const [prop, pval] of Object.entries(val))
+    if (Object.keys(val).length != 1)
     {
-        let lpath_0 = path ? path.concat([prop]) : null;
-        if (prop == "li")
-        {
-            // handle must li property
-            must_count += 1;
-            // .'$loose'.li
-            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0;
-            if (! res)
-            {
-                rep !== null && rep.push(["not a 0 loose int [.'$loose'.li]", (path ? lpath_0 : null)])
-                rep !== null && rep.push(["invalid mandatory prop value [.'$loose'.li]", (path ? lpath_0 : null)])
-                return false;
-            }
-        }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.'$loose']", (path ? lpath_0 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["bad property count [.'$loose']", path])
+        return false;
     }
-    if (must_count != 1)
+    let pval;
+    let res;
+    if (! val.hasOwnProperty("li"))
     {
-        if (rep !== null)
-        {
-            if (! val.hasOwnProperty("li"))
-            {
-                rep !== null && rep.push(["missing mandatory prop <li> [.'$loose']", path])
-            }
-        }
+        rep !== null && rep.push(["missing mandatory prop <li> [.'$loose']", path])
+        return false;
+    }
+    pval = val["li"];
+    // .'$loose'.li
+    res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0;
+    if (! res)
+    {
+        rep !== null && rep.push(["not a 0 loose int [.'$loose'.li]", path])
+        rep !== null && rep.push(["unexpected value for mandatory prop <li> [.'$loose']", path])
         return false;
     }
     return true;
@@ -74,44 +61,31 @@ function json_model_5(val, path, rep)
 // object .'$strict'
 function _jm_obj_1(val, path, rep)
 {
+    // check close must only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.'$strict']", path])
         return false;
     }
-    let res;
-    let must_count = 0;
-    for (const [prop, pval] of Object.entries(val))
+    if (Object.keys(val).length != 1)
     {
-        let lpath_1 = path ? path.concat([prop]) : null;
-        if (prop == "si")
-        {
-            // handle must si property
-            must_count += 1;
-            // .'$strict'.si
-            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0;
-            if (! res)
-            {
-                rep !== null && rep.push(["not a 0 strict int [.'$strict'.si]", (path ? lpath_1 : null)])
-                rep !== null && rep.push(["invalid mandatory prop value [.'$strict'.si]", (path ? lpath_1 : null)])
-                return false;
-            }
-        }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.'$strict']", (path ? lpath_1 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["bad property count [.'$strict']", path])
+        return false;
     }
-    if (must_count != 1)
+    let pval;
+    let res;
+    if (! val.hasOwnProperty("si"))
     {
-        if (rep !== null)
-        {
-            if (! val.hasOwnProperty("si"))
-            {
-                rep !== null && rep.push(["missing mandatory prop <si> [.'$strict']", path])
-            }
-        }
+        rep !== null && rep.push(["missing mandatory prop <si> [.'$strict']", path])
+        return false;
+    }
+    pval = val["si"];
+    // .'$strict'.si
+    res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0;
+    if (! res)
+    {
+        rep !== null && rep.push(["not a 0 strict int [.'$strict'.si]", path])
+        rep !== null && rep.push(["unexpected value for mandatory prop <si> [.'$strict']", path])
         return false;
     }
     return true;
@@ -134,61 +108,45 @@ function json_model_6(val, path, rep)
 // object .'$combined'
 function _jm_obj_2(val, path, rep)
 {
+    // check close must only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.'$combined']", path])
         return false;
     }
-    let res;
-    let must_count = 0;
-    for (const [prop, pval] of Object.entries(val))
+    if (Object.keys(val).length != 2)
     {
-        let lpath_2 = path ? path.concat([prop]) : null;
-        if (prop == "li")
-        {
-            // handle must li property
-            must_count += 1;
-            // .'$combined'.li
-            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0;
-            if (! res)
-            {
-                rep !== null && rep.push(["not a 0 strict int [.'$combined'.li]", (path ? lpath_2 : null)])
-                rep !== null && rep.push(["invalid mandatory prop value [.'$combined'.li]", (path ? lpath_2 : null)])
-                return false;
-            }
-        }
-        else if (prop == "si")
-        {
-            // handle must si property
-            must_count += 1;
-            // .'$combined'.si
-            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0;
-            if (! res)
-            {
-                rep !== null && rep.push(["not a 0 strict int [.'$combined'.si]", (path ? lpath_2 : null)])
-                rep !== null && rep.push(["invalid mandatory prop value [.'$combined'.si]", (path ? lpath_2 : null)])
-                return false;
-            }
-        }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.'$combined']", (path ? lpath_2 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["bad property count [.'$combined']", path])
+        return false;
     }
-    if (must_count != 2)
+    let pval;
+    let res;
+    if (! val.hasOwnProperty("li"))
     {
-        if (rep !== null)
-        {
-            if (! val.hasOwnProperty("li"))
-            {
-                rep !== null && rep.push(["missing mandatory prop <li> [.'$combined']", path])
-            }
-            if (! val.hasOwnProperty("si"))
-            {
-                rep !== null && rep.push(["missing mandatory prop <si> [.'$combined']", path])
-            }
-        }
+        rep !== null && rep.push(["missing mandatory prop <li> [.'$combined']", path])
+        return false;
+    }
+    pval = val["li"];
+    // .'$combined'.li
+    res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0;
+    if (! res)
+    {
+        rep !== null && rep.push(["not a 0 strict int [.'$combined'.li]", path])
+        rep !== null && rep.push(["unexpected value for mandatory prop <li> [.'$combined']", path])
+        return false;
+    }
+    if (! val.hasOwnProperty("si"))
+    {
+        rep !== null && rep.push(["missing mandatory prop <si> [.'$combined']", path])
+        return false;
+    }
+    pval = val["si"];
+    // .'$combined'.si
+    res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0;
+    if (! res)
+    {
+        rep !== null && rep.push(["not a 0 strict int [.'$combined'.si]", path])
+        rep !== null && rep.push(["unexpected value for mandatory prop <si> [.'$combined']", path])
         return false;
     }
     return true;

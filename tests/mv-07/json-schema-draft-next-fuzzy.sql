@@ -294,7 +294,7 @@ DECLARE
   pval JSONB;
   res bool;
 BEGIN
-  -- check must only props
+  -- check open must/may only props
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;

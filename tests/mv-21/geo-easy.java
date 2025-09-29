@@ -146,7 +146,7 @@ public class geo_easy extends ModelChecker
     // object .'$Point'
     public boolean _jm_obj_0(Object val, Path path, Report rep)
     {
-        // check must only props
+        // check open must/may only props
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.'$Point']", path);
@@ -231,7 +231,7 @@ public class geo_easy extends ModelChecker
     // object .'$MultiPoint'
     public boolean _jm_obj_1(Object val, Path path, Report rep)
     {
-        // check must only props
+        // check open must/may only props
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.'$MultiPoint']", path);
@@ -334,7 +334,7 @@ public class geo_easy extends ModelChecker
     // object .'$LineString'
     public boolean _jm_obj_2(Object val, Path path, Report rep)
     {
-        // check must only props
+        // check open must/may only props
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.'$LineString']", path);
@@ -419,7 +419,7 @@ public class geo_easy extends ModelChecker
     // object .'$MultiLineString'
     public boolean _jm_obj_3(Object val, Path path, Report rep)
     {
-        // check must only props
+        // check open must/may only props
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.'$MultiLineString']", path);
@@ -522,7 +522,7 @@ public class geo_easy extends ModelChecker
     // object .'$Polygon'
     public boolean _jm_obj_4(Object val, Path path, Report rep)
     {
-        // check must only props
+        // check open must/may only props
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.'$Polygon']", path);
@@ -625,7 +625,7 @@ public class geo_easy extends ModelChecker
     // object .'$MultiPolygon'
     public boolean _jm_obj_5(Object val, Path path, Report rep)
     {
-        // check must only props
+        // check open must/may only props
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.'$MultiPolygon']", path);
@@ -783,7 +783,7 @@ public class geo_easy extends ModelChecker
     // object .'$GeometryCollection'
     public boolean _jm_obj_6(Object val, Path path, Report rep)
     {
-        // check must only props
+        // check open must/may only props
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.'$GeometryCollection']", path);
@@ -898,7 +898,7 @@ public class geo_easy extends ModelChecker
     // object .'$Feature'
     public boolean _jm_obj_7(Object val, Path path, Report rep)
     {
-        // check must only props
+        // check open must/may only props
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.'$Feature']", path);
@@ -1072,7 +1072,7 @@ public class geo_easy extends ModelChecker
     // object .'$FeatureCollection'
     public boolean _jm_obj_9(Object val, Path path, Report rep)
     {
-        // check must only props
+        // check open must/may only props
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.'$FeatureCollection']", path);

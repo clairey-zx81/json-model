@@ -25,205 +25,171 @@ check_model_map: PropMap
 
 # object .movie.'|'.0
 def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
+    # check close must only props
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.movie.'|'.0]", path))
         return False
+    if len(val) != 2:
+        rep is None or rep.append(("bad property count [.movie.'|'.0]", path))
+        return False
+    pval: Jsonable
     res: bool
-    must_count: int = 0
-    for prop, pval in val.items():
-        assert isinstance(prop, str)
-        lpath_1: Path = (path + [ prop ]) if path is not None else None
-        if prop == "t":
-            # handle must t property
-            must_count += 1
-            # .movie.'|'.0.t
-            res = isinstance(pval, str) and pval == "fr"
-            if not res:
-                rep is None or rep.append(("unexpected fr [.movie.'|'.0.t]", lpath_1 if path is not None else None))
-                rep is None or rep.append(("invalid mandatory prop value [.movie.'|'.0.t]", lpath_1 if path is not None else None))
-                return False
-        elif prop == "titre":
-            # handle must titre property
-            must_count += 1
-            # .movie.'|'.0.titre
-            res = isinstance(pval, str)
-            if not res:
-                rep is None or rep.append(("unexpected string [.movie.'|'.0.titre]", lpath_1 if path is not None else None))
-                rep is None or rep.append(("invalid mandatory prop value [.movie.'|'.0.titre]", lpath_1 if path is not None else None))
-                return False
-        else:
-            rep is None or rep.append(("unexpected prop [.movie.'|'.0]", lpath_1 if path is not None else None))
-            return False
-    if must_count != 2:
-        if rep is not None:
-            if not "t" in val:
-                rep is None or rep.append(("missing mandatory prop <t> [.movie.'|'.0]", path))
-            if not "titre" in val:
-                rep is None or rep.append(("missing mandatory prop <titre> [.movie.'|'.0]", path))
+    if not "t" in val:
+        rep is None or rep.append(("missing mandatory prop <t> [.movie.'|'.0]", path))
+        return False
+    pval = val.get("t", UNDEFINED)
+    # .movie.'|'.0.t
+    res = isinstance(pval, str) and pval == "fr"
+    if not res:
+        rep is None or rep.append(("unexpected fr [.movie.'|'.0.t]", path))
+        rep is None or rep.append(("unexpected value for mandatory prop <t> [.movie.'|'.0]", path))
+        return False
+    if not "titre" in val:
+        rep is None or rep.append(("missing mandatory prop <titre> [.movie.'|'.0]", path))
+        return False
+    pval = val.get("titre", UNDEFINED)
+    # .movie.'|'.0.titre
+    res = isinstance(pval, str)
+    if not res:
+        rep is None or rep.append(("unexpected string [.movie.'|'.0.titre]", path))
+        rep is None or rep.append(("unexpected value for mandatory prop <titre> [.movie.'|'.0]", path))
         return False
     return True
 
 # object .movie.'|'.1
 def _jm_obj_2(val: Jsonable, path: Path, rep: Report) -> bool:
+    # check close must only props
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.movie.'|'.1]", path))
         return False
+    if len(val) != 2:
+        rep is None or rep.append(("bad property count [.movie.'|'.1]", path))
+        return False
+    pval: Jsonable
     res: bool
-    must_count: int = 0
-    for prop, pval in val.items():
-        assert isinstance(prop, str)
-        lpath_2: Path = (path + [ prop ]) if path is not None else None
-        if prop == "t":
-            # handle must t property
-            must_count += 1
-            # .movie.'|'.1.t
-            res = isinstance(pval, str) and pval == "en"
-            if not res:
-                rep is None or rep.append(("unexpected en [.movie.'|'.1.t]", lpath_2 if path is not None else None))
-                rep is None or rep.append(("invalid mandatory prop value [.movie.'|'.1.t]", lpath_2 if path is not None else None))
-                return False
-        elif prop == "title":
-            # handle must title property
-            must_count += 1
-            # .movie.'|'.1.title
-            res = isinstance(pval, str)
-            if not res:
-                rep is None or rep.append(("unexpected string [.movie.'|'.1.title]", lpath_2 if path is not None else None))
-                rep is None or rep.append(("invalid mandatory prop value [.movie.'|'.1.title]", lpath_2 if path is not None else None))
-                return False
-        else:
-            rep is None or rep.append(("unexpected prop [.movie.'|'.1]", lpath_2 if path is not None else None))
-            return False
-    if must_count != 2:
-        if rep is not None:
-            if not "t" in val:
-                rep is None or rep.append(("missing mandatory prop <t> [.movie.'|'.1]", path))
-            if not "title" in val:
-                rep is None or rep.append(("missing mandatory prop <title> [.movie.'|'.1]", path))
+    if not "t" in val:
+        rep is None or rep.append(("missing mandatory prop <t> [.movie.'|'.1]", path))
+        return False
+    pval = val.get("t", UNDEFINED)
+    # .movie.'|'.1.t
+    res = isinstance(pval, str) and pval == "en"
+    if not res:
+        rep is None or rep.append(("unexpected en [.movie.'|'.1.t]", path))
+        rep is None or rep.append(("unexpected value for mandatory prop <t> [.movie.'|'.1]", path))
+        return False
+    if not "title" in val:
+        rep is None or rep.append(("missing mandatory prop <title> [.movie.'|'.1]", path))
+        return False
+    pval = val.get("title", UNDEFINED)
+    # .movie.'|'.1.title
+    res = isinstance(pval, str)
+    if not res:
+        rep is None or rep.append(("unexpected string [.movie.'|'.1.title]", path))
+        rep is None or rep.append(("unexpected value for mandatory prop <title> [.movie.'|'.1]", path))
         return False
     return True
 
 # object .movie.'|'.2
 def _jm_obj_3(val: Jsonable, path: Path, rep: Report) -> bool:
+    # check close must only props
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.movie.'|'.2]", path))
         return False
+    if len(val) != 2:
+        rep is None or rep.append(("bad property count [.movie.'|'.2]", path))
+        return False
+    pval: Jsonable
     res: bool
-    must_count: int = 0
-    for prop, pval in val.items():
-        assert isinstance(prop, str)
-        lpath_3: Path = (path + [ prop ]) if path is not None else None
-        if prop == "t":
-            # handle must t property
-            must_count += 1
-            # .movie.'|'.2.t
-            res = isinstance(pval, str) and pval == "de"
-            if not res:
-                rep is None or rep.append(("unexpected de [.movie.'|'.2.t]", lpath_3 if path is not None else None))
-                rep is None or rep.append(("invalid mandatory prop value [.movie.'|'.2.t]", lpath_3 if path is not None else None))
-                return False
-        elif prop == "Title":
-            # handle must Title property
-            must_count += 1
-            # .movie.'|'.2.Title
-            res = isinstance(pval, str)
-            if not res:
-                rep is None or rep.append(("unexpected string [.movie.'|'.2.Title]", lpath_3 if path is not None else None))
-                rep is None or rep.append(("invalid mandatory prop value [.movie.'|'.2.Title]", lpath_3 if path is not None else None))
-                return False
-        else:
-            rep is None or rep.append(("unexpected prop [.movie.'|'.2]", lpath_3 if path is not None else None))
-            return False
-    if must_count != 2:
-        if rep is not None:
-            if not "Title" in val:
-                rep is None or rep.append(("missing mandatory prop <Title> [.movie.'|'.2]", path))
-            if not "t" in val:
-                rep is None or rep.append(("missing mandatory prop <t> [.movie.'|'.2]", path))
+    if not "t" in val:
+        rep is None or rep.append(("missing mandatory prop <t> [.movie.'|'.2]", path))
+        return False
+    pval = val.get("t", UNDEFINED)
+    # .movie.'|'.2.t
+    res = isinstance(pval, str) and pval == "de"
+    if not res:
+        rep is None or rep.append(("unexpected de [.movie.'|'.2.t]", path))
+        rep is None or rep.append(("unexpected value for mandatory prop <t> [.movie.'|'.2]", path))
+        return False
+    if not "Title" in val:
+        rep is None or rep.append(("missing mandatory prop <Title> [.movie.'|'.2]", path))
+        return False
+    pval = val.get("Title", UNDEFINED)
+    # .movie.'|'.2.Title
+    res = isinstance(pval, str)
+    if not res:
+        rep is None or rep.append(("unexpected string [.movie.'|'.2.Title]", path))
+        rep is None or rep.append(("unexpected value for mandatory prop <Title> [.movie.'|'.2]", path))
         return False
     return True
 
 # object .movie.'|'.3
 def _jm_obj_4(val: Jsonable, path: Path, rep: Report) -> bool:
+    # check close must only props
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.movie.'|'.3]", path))
         return False
+    if len(val) != 2:
+        rep is None or rep.append(("bad property count [.movie.'|'.3]", path))
+        return False
+    pval: Jsonable
     res: bool
-    must_count: int = 0
-    for prop, pval in val.items():
-        assert isinstance(prop, str)
-        lpath_4: Path = (path + [ prop ]) if path is not None else None
-        if prop == "t":
-            # handle must t property
-            must_count += 1
-            # .movie.'|'.3.t
-            res = isinstance(pval, str) and pval == "ru"
-            if not res:
-                rep is None or rep.append(("unexpected ru [.movie.'|'.3.t]", lpath_4 if path is not None else None))
-                rep is None or rep.append(("invalid mandatory prop value [.movie.'|'.3.t]", lpath_4 if path is not None else None))
-                return False
-        elif prop == "suti":
-            # handle must suti property
-            must_count += 1
-            # .movie.'|'.3.suti
-            res = isinstance(pval, str)
-            if not res:
-                rep is None or rep.append(("unexpected string [.movie.'|'.3.suti]", lpath_4 if path is not None else None))
-                rep is None or rep.append(("invalid mandatory prop value [.movie.'|'.3.suti]", lpath_4 if path is not None else None))
-                return False
-        else:
-            rep is None or rep.append(("unexpected prop [.movie.'|'.3]", lpath_4 if path is not None else None))
-            return False
-    if must_count != 2:
-        if rep is not None:
-            if not "suti" in val:
-                rep is None or rep.append(("missing mandatory prop <suti> [.movie.'|'.3]", path))
-            if not "t" in val:
-                rep is None or rep.append(("missing mandatory prop <t> [.movie.'|'.3]", path))
+    if not "t" in val:
+        rep is None or rep.append(("missing mandatory prop <t> [.movie.'|'.3]", path))
+        return False
+    pval = val.get("t", UNDEFINED)
+    # .movie.'|'.3.t
+    res = isinstance(pval, str) and pval == "ru"
+    if not res:
+        rep is None or rep.append(("unexpected ru [.movie.'|'.3.t]", path))
+        rep is None or rep.append(("unexpected value for mandatory prop <t> [.movie.'|'.3]", path))
+        return False
+    if not "suti" in val:
+        rep is None or rep.append(("missing mandatory prop <suti> [.movie.'|'.3]", path))
+        return False
+    pval = val.get("suti", UNDEFINED)
+    # .movie.'|'.3.suti
+    res = isinstance(pval, str)
+    if not res:
+        rep is None or rep.append(("unexpected string [.movie.'|'.3.suti]", path))
+        rep is None or rep.append(("unexpected value for mandatory prop <suti> [.movie.'|'.3]", path))
         return False
     return True
 
 
 # object .
 def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
+    # check close must only props
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.]", path))
         return False
+    if len(val) != 1:
+        rep is None or rep.append(("bad property count [.]", path))
+        return False
+    pval: Jsonable
     res: bool
-    must_count: int = 0
-    for prop, pval in val.items():
-        assert isinstance(prop, str)
-        lpath_0: Path = (path + [ prop ]) if path is not None else None
-        if prop == "movie":
-            # handle must movie property
-            must_count += 1
-            # .movie
-            iso_0: bool = isinstance(pval, dict)
-            res = iso_0
-            if res:
-                if "t" in pval:
-                    tag_0: Jsonable = pval.get("t", UNDEFINED)
-                    fun_0: CheckFun = _jm_map_0.get(tag_0, UNDEFINED)
-                    if fun_0 != UNDEFINED:
-                        res = fun_0(pval, lpath_0 if path is not None else None, rep)
-                    else:
-                        res = False
-                        rep is None or rep.append(("tag <t> value not found [.movie.'|']", lpath_0 if path is not None else None))
-                else:
-                    res = False
-                    rep is None or rep.append(("tag prop <t> is missing [.movie.'|']", lpath_0 if path is not None else None))
+    if not "movie" in val:
+        rep is None or rep.append(("missing mandatory prop <movie> [.]", path))
+        return False
+    pval = val.get("movie", UNDEFINED)
+    # .movie
+    iso_0: bool = isinstance(pval, dict)
+    res = iso_0
+    if res:
+        if "t" in pval:
+            tag_0: Jsonable = pval.get("t", UNDEFINED)
+            fun_0: CheckFun = _jm_map_0.get(tag_0, UNDEFINED)
+            if fun_0 != UNDEFINED:
+                res = fun_0(pval, path, rep)
             else:
-                rep is None or rep.append(("value is not an object [.movie.'|']", lpath_0 if path is not None else None))
-            if not res:
-                rep is None or rep.append(("invalid mandatory prop value [.movie]", lpath_0 if path is not None else None))
-                return False
+                res = False
+                rep is None or rep.append(("tag <t> value not found [.movie.'|']", path))
         else:
-            rep is None or rep.append(("unexpected prop [.]", lpath_0 if path is not None else None))
-            return False
-    if must_count != 1:
-        if rep is not None:
-            if not "movie" in val:
-                rep is None or rep.append(("missing mandatory prop <movie> [.]", path))
+            res = False
+            rep is None or rep.append(("tag prop <t> is missing [.movie.'|']", path))
+    else:
+        rep is None or rep.append(("value is not an object [.movie.'|']", path))
+    if not res:
+        rep is None or rep.append(("unexpected value for mandatory prop <movie> [.]", path))
         return False
     return True
 

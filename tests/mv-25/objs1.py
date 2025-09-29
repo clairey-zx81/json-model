@@ -25,28 +25,25 @@ check_model_map: PropMap
 
 # object .'$objs0'
 def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
+    # check close must only props
     if not isinstance(val, dict):
         return False
+    if len(val) != 1:
+        return False
+    pval: Jsonable
     res: bool
-    must_count: int = 0
-    for prop, pval in val.items():
-        assert isinstance(prop, str)
-        if prop == "stuff":
-            # handle must stuff property
-            must_count += 1
-            # .'$objs0'.stuff
-            res = isinstance(pval, list)
-            if res:
-                for arr_0_idx, arr_0_item in enumerate(pval):
-                    # .'$objs0'.stuff.0
-                    res = json_model_6(arr_0_item, None, rep)
-                    if not res:
-                        break
+    if not "stuff" in val:
+        return False
+    pval = val.get("stuff", UNDEFINED)
+    # .'$objs0'.stuff
+    res = isinstance(pval, list)
+    if res:
+        for arr_0_idx, arr_0_item in enumerate(pval):
+            # .'$objs0'.stuff.0
+            res = json_model_6(arr_0_item, None, rep)
             if not res:
-                return False
-        else:
-            return False
-    if must_count != 1:
+                break
+    if not res:
         return False
     return True
 
@@ -59,22 +56,19 @@ def json_model_3(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # object .
 def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
+    # check close must only props
     if not isinstance(val, dict):
         return False
+    if len(val) != 1:
+        return False
+    pval: Jsonable
     res: bool
-    must_count: int = 0
-    for prop, pval in val.items():
-        assert isinstance(prop, str)
-        if prop == "foo":
-            # handle must foo property
-            must_count += 1
-            # .foo
-            res = _jm_obj_0(pval, None, rep)
-            if not res:
-                return False
-        else:
-            return False
-    if must_count != 1:
+    if not "foo" in val:
+        return False
+    pval = val.get("foo", UNDEFINED)
+    # .foo
+    res = _jm_obj_0(pval, path, rep)
+    if not res:
         return False
     return True
 
@@ -106,29 +100,26 @@ def json_model_6(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # object .'$objs0#table'
 def _jm_obj_2(val: Jsonable, path: Path, rep: Report) -> bool:
+    # check close must only props
     if not isinstance(val, dict):
         return False
+    if len(val) != 2:
+        return False
+    pval: Jsonable
     res: bool
-    must_count: int = 0
-    for prop, pval in val.items():
-        assert isinstance(prop, str)
-        if prop == "t":
-            # handle must t property
-            must_count += 1
-            # .'$objs0#table'.t
-            res = isinstance(pval, str) and pval == "table"
-            if not res:
-                return False
-        elif prop == "legs":
-            # handle must legs property
-            must_count += 1
-            # .'$objs0#table'.legs
-            res = isinstance(pval, int) and not isinstance(pval, bool) and pval >= 1
-            if not res:
-                return False
-        else:
-            return False
-    if must_count != 2:
+    if not "t" in val:
+        return False
+    pval = val.get("t", UNDEFINED)
+    # .'$objs0#table'.t
+    res = isinstance(pval, str) and pval == "table"
+    if not res:
+        return False
+    if not "legs" in val:
+        return False
+    pval = val.get("legs", UNDEFINED)
+    # .'$objs0#table'.legs
+    res = isinstance(pval, int) and not isinstance(pval, bool) and pval >= 1
+    if not res:
         return False
     return True
 
@@ -141,29 +132,26 @@ def json_model_4(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # object .'$objs0#chair'
 def _jm_obj_3(val: Jsonable, path: Path, rep: Report) -> bool:
+    # check close must only props
     if not isinstance(val, dict):
         return False
+    if len(val) != 2:
+        return False
+    pval: Jsonable
     res: bool
-    must_count: int = 0
-    for prop, pval in val.items():
-        assert isinstance(prop, str)
-        if prop == "t":
-            # handle must t property
-            must_count += 1
-            # .'$objs0#chair'.t
-            res = isinstance(pval, str) and pval == "chair"
-            if not res:
-                return False
-        elif prop == "color":
-            # handle must color property
-            must_count += 1
-            # .'$objs0#chair'.color
-            res = isinstance(pval, str)
-            if not res:
-                return False
-        else:
-            return False
-    if must_count != 2:
+    if not "t" in val:
+        return False
+    pval = val.get("t", UNDEFINED)
+    # .'$objs0#chair'.t
+    res = isinstance(pval, str) and pval == "chair"
+    if not res:
+        return False
+    if not ("color" in val):
+        return False
+    pval = val.get("color", UNDEFINED)
+    # .'$objs0#chair'.color
+    res = isinstance(pval, str)
+    if not res:
         return False
     return True
 

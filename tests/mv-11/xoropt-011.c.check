@@ -2,7 +2,7 @@ xoropt-011.values.json[0]: PASS
 xoropt-011.values.json[1]: PASS
 xoropt-011.values.json[2]: PASS
 xoropt-011.values.json[3]: FAIL (.: tag <a> value not found [.'|'])
-xoropt-011.values.json[4]: FAIL (.b: unexpected prop [.'|'.2])
+xoropt-011.values.json[4]: FAIL (.: bad property count [.'|'.2])
 xoropt-011.values.json[5]: FAIL (.: tag prop <a> is missing [.'|'])
 xoropt-011.values.json[6]: FAIL (.: value is not an object [.'|'])
 xoropt-011.values.json[7]: FAIL (.: value is not an object [.'|'])

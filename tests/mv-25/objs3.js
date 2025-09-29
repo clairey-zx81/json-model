@@ -14,42 +14,36 @@ var check_model_map = new Map()
 // object .'$book'
 function _jm_obj_0(val, path, rep)
 {
+    // check close must only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         return false;
     }
-    let res;
-    let must_count = 0;
-    for (const [prop, pval] of Object.entries(val))
+    if (Object.keys(val).length != 2)
     {
-        if (prop == "title")
-        {
-            // handle must title property
-            must_count += 1;
-            // .'$book'.title
-            res = (typeof pval === 'string' || pval instanceof String);
-            if (! res)
-            {
-                return false;
-            }
-        }
-        else if (prop == "author")
-        {
-            // handle must author property
-            must_count += 1;
-            // .'$book'.author
-            res = (typeof pval === 'string' || pval instanceof String);
-            if (! res)
-            {
-                return false;
-            }
-        }
-        else
-        {
-            return false;
-        }
+        return false;
     }
-    if (must_count != 2)
+    let pval;
+    let res;
+    if (! val.hasOwnProperty("title"))
+    {
+        return false;
+    }
+    pval = val["title"];
+    // .'$book'.title
+    res = (typeof pval === 'string' || pval instanceof String);
+    if (! res)
+    {
+        return false;
+    }
+    if (! val.hasOwnProperty("author"))
+    {
+        return false;
+    }
+    pval = val["author"];
+    // .'$book'.author
+    res = (typeof pval === 'string' || pval instanceof String);
+    if (! res)
     {
         return false;
     }

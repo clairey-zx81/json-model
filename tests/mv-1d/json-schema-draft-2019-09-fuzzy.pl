@@ -272,7 +272,7 @@ sub _jm_obj_8($$$)
 sub _jm_obj_0($$$)
 {
     my ($val, $path, $rep) = @_;
-    # check must only props
+    # check open must/may only props
     if (! jm_is_object($val))
     {
         return 0;

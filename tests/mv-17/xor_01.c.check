@@ -6,5 +6,5 @@ xor_01.values.json[4]: FAIL (.: not one model match [.'^']; .: unexpected elemen
 xor_01.values.json[5]: FAIL (.: not one model match [.'^']; .: unexpected element [.'^'.1]; .: not an object [.'^'.1])
 xor_01.values.json[6]: FAIL (.: not one model match [.'^']; .: unexpected element [.'^'.1]; .: not an object [.'^'.1])
 xor_01.values.json[7]: FAIL (.: not one model match [.'^']; .: unexpected element [.'^'.1]; .: not an object [.'^'.1])
-xor_01.values.json[8]: FAIL (.: not one model match [.'^']; .: unexpected element [.'^'.1]; .: missing mandatory prop <a> [.'^'.1])
-xor_01.values.json[9]: FAIL (.: not one model match [.'^']; .: unexpected element [.'^'.1]; .no: unexpected prop [.'^'.1])
+xor_01.values.json[8]: FAIL (.: not one model match [.'^']; .: unexpected element [.'^'.1]; .: bad property count [.'^'.1])
+xor_01.values.json[9]: FAIL (.: not one model match [.'^']; .: unexpected element [.'^'.1]; .: missing mandatory prop <a> [.'^'.1])

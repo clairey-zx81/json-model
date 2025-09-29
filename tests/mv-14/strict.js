@@ -14,44 +14,31 @@ var check_model_map = new Map()
 // object .
 function _jm_obj_0(val, path, rep)
 {
+    // check close must only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.]", path])
         return false;
     }
-    let res;
-    let must_count = 0;
-    for (const [prop, pval] of Object.entries(val))
+    if (Object.keys(val).length != 1)
     {
-        let lpath_0 = path ? path.concat([prop]) : null;
-        if (prop == "si")
-        {
-            // handle must si property
-            must_count += 1;
-            // .si
-            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0;
-            if (! res)
-            {
-                rep !== null && rep.push(["not a 0 strict int [.si]", (path ? lpath_0 : null)])
-                rep !== null && rep.push(["invalid mandatory prop value [.si]", (path ? lpath_0 : null)])
-                return false;
-            }
-        }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.]", (path ? lpath_0 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["bad property count [.]", path])
+        return false;
     }
-    if (must_count != 1)
+    let pval;
+    let res;
+    if (! val.hasOwnProperty("si"))
     {
-        if (rep !== null)
-        {
-            if (! val.hasOwnProperty("si"))
-            {
-                rep !== null && rep.push(["missing mandatory prop <si> [.]", path])
-            }
-        }
+        rep !== null && rep.push(["missing mandatory prop <si> [.]", path])
+        return false;
+    }
+    pval = val["si"];
+    // .si
+    res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0;
+    if (! res)
+    {
+        rep !== null && rep.push(["not a 0 strict int [.si]", path])
+        rep !== null && rep.push(["unexpected value for mandatory prop <si> [.]", path])
         return false;
     }
     return true;

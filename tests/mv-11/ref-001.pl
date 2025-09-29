@@ -22,43 +22,36 @@ my %check_model_map;
 sub _jm_obj_0($$$)
 {
     my ($val, $path, $rep) = @_;
+    # check close must only props
     if (! jm_is_object($val))
     {
         return 0;
     }
-    my $res;
-    my $must_count = 0;
-    scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    if (jm_obj_size($val) != 2)
     {
-        if ($prop eq 'a')
-        {
-            # handle must a property
-            $must_count++;
-            # .'$a'.a
-            $res = jm_is_integer($pval) && $pval >= 0;
-            if (! $res)
-            {
-                return 0;
-            }
-        }
-        elsif ($prop eq 'b')
-        {
-            # handle must b property
-            $must_count++;
-            # .'$a'.b
-            $res = jm_is_integer($pval) && $pval >= 0;
-            if (! $res)
-            {
-                return 0;
-            }
-        }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
-    if ($must_count != 2)
+    my $pval;
+    my $res;
+    if (! exists $$val{'a'})
+    {
+        return 0;
+    }
+    $pval = $$val{'a'};
+    # .'$a'.a
+    $res = jm_is_integer($pval) && $pval >= 0;
+    if (! $res)
+    {
+        return 0;
+    }
+    if (! exists $$val{'b'})
+    {
+        return 0;
+    }
+    $pval = $$val{'b'};
+    # .'$a'.b
+    $res = jm_is_integer($pval) && $pval >= 0;
+    if (! $res)
     {
         return 0;
     }
@@ -79,54 +72,47 @@ sub json_model_2($$$)
 sub _jm_obj_1($$$)
 {
     my ($val, $path, $rep) = @_;
+    # check close must only props
     if (! jm_is_object($val))
     {
         return 0;
     }
-    my $res;
-    my $must_count = 0;
-    scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    if (jm_obj_size($val) != 3)
     {
-        if ($prop eq 'a')
-        {
-            # handle must a property
-            $must_count++;
-            # .'$b'.a
-            $res = jm_is_integer($pval) && $pval >= 0;
-            if (! $res)
-            {
-                return 0;
-            }
-        }
-        elsif ($prop eq 'b')
-        {
-            # handle must b property
-            $must_count++;
-            # .'$b'.b
-            $res = jm_is_integer($pval) && $pval >= 0;
-            if (! $res)
-            {
-                return 0;
-            }
-        }
-        elsif ($prop eq 'c')
-        {
-            # handle must c property
-            $must_count++;
-            # .'$b'.c
-            $res = jm_is_integer($pval) && $pval >= 0;
-            if (! $res)
-            {
-                return 0;
-            }
-        }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
-    if ($must_count != 3)
+    my $pval;
+    my $res;
+    if (! exists $$val{'a'})
+    {
+        return 0;
+    }
+    $pval = $$val{'a'};
+    # .'$b'.a
+    $res = jm_is_integer($pval) && $pval >= 0;
+    if (! $res)
+    {
+        return 0;
+    }
+    if (! exists $$val{'b'})
+    {
+        return 0;
+    }
+    $pval = $$val{'b'};
+    # .'$b'.b
+    $res = jm_is_integer($pval) && $pval >= 0;
+    if (! $res)
+    {
+        return 0;
+    }
+    if (! exists $$val{'c'})
+    {
+        return 0;
+    }
+    $pval = $$val{'c'};
+    # .'$b'.c
+    $res = jm_is_integer($pval) && $pval >= 0;
+    if (! $res)
     {
         return 0;
     }

@@ -167,7 +167,7 @@ DECLARE
   arr_0_item JSONB;
   ival_0 int;
 BEGIN
-  -- check must only props
+  -- check open must/may only props
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;

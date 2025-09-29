@@ -188,43 +188,36 @@ sub json_model_3($$$)
 sub _jm_obj_0($$$)
 {
     my ($val, $path, $rep) = @_;
+    # check close must only props
     if (! jm_is_object($val))
     {
         return 0;
     }
-    my $res;
-    my $must_count = 0;
-    scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    if (jm_obj_size($val) != 2)
     {
-        if ($prop eq 'a')
-        {
-            # handle must a property
-            $must_count++;
-            # .'$ab'.a
-            $res = jm_is_integer($pval) && $pval >= 0;
-            if (! $res)
-            {
-                return 0;
-            }
-        }
-        elsif ($prop eq 'b')
-        {
-            # handle must b property
-            $must_count++;
-            # .'$ab'.b
-            $res = jm_is_integer($pval) && $pval >= 0;
-            if (! $res)
-            {
-                return 0;
-            }
-        }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
-    if ($must_count != 2)
+    my $pval;
+    my $res;
+    if (! exists $$val{'a'})
+    {
+        return 0;
+    }
+    $pval = $$val{'a'};
+    # .'$ab'.a
+    $res = jm_is_integer($pval) && $pval >= 0;
+    if (! $res)
+    {
+        return 0;
+    }
+    if (! exists $$val{'b'})
+    {
+        return 0;
+    }
+    $pval = $$val{'b'};
+    # .'$ab'.b
+    $res = jm_is_integer($pval) && $pval >= 0;
+    if (! $res)
     {
         return 0;
     }
@@ -245,43 +238,36 @@ sub json_model_4($$$)
 sub _jm_obj_1($$$)
 {
     my ($val, $path, $rep) = @_;
+    # check close must only props
     if (! jm_is_object($val))
     {
         return 0;
     }
-    my $res;
-    my $must_count = 0;
-    scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    if (jm_obj_size($val) != 2)
     {
-        if ($prop eq 'c')
-        {
-            # handle must c property
-            $must_count++;
-            # .'$cd'.c
-            $res = jm_is_integer($pval) && $pval >= 0;
-            if (! $res)
-            {
-                return 0;
-            }
-        }
-        elsif ($prop eq 'd')
-        {
-            # handle must d property
-            $must_count++;
-            # .'$cd'.d
-            $res = jm_is_integer($pval) && $pval >= 0;
-            if (! $res)
-            {
-                return 0;
-            }
-        }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
-    if ($must_count != 2)
+    my $pval;
+    my $res;
+    if (! exists $$val{'c'})
+    {
+        return 0;
+    }
+    $pval = $$val{'c'};
+    # .'$cd'.c
+    $res = jm_is_integer($pval) && $pval >= 0;
+    if (! $res)
+    {
+        return 0;
+    }
+    if (! exists $$val{'d'})
+    {
+        return 0;
+    }
+    $pval = $$val{'d'};
+    # .'$cd'.d
+    $res = jm_is_integer($pval) && $pval >= 0;
+    if (! $res)
     {
         return 0;
     }
@@ -1532,43 +1518,36 @@ sub _jm_obj_14($$$)
 sub _jm_obj_15($$$)
 {
     my ($val, $path, $rep) = @_;
+    # check close must only props
     if (! jm_is_object($val))
     {
         return 0;
     }
-    my $res;
-    my $must_count = 0;
-    scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    if (jm_obj_size($val) != 2)
     {
-        if ($prop eq 'a')
-        {
-            # handle must a property
-            $must_count++;
-            # .merge.m1.'|'.1.a
-            $res = jm_is_integer($pval) && $pval >= 0;
-            if (! $res)
-            {
-                return 0;
-            }
-        }
-        elsif ($prop eq 'c')
-        {
-            # handle must c property
-            $must_count++;
-            # .merge.m1.'|'.1.c
-            $res = jm_is_integer($pval) && $pval >= 1;
-            if (! $res)
-            {
-                return 0;
-            }
-        }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
-    if ($must_count != 2)
+    my $pval;
+    my $res;
+    if (! exists $$val{'a'})
+    {
+        return 0;
+    }
+    $pval = $$val{'a'};
+    # .merge.m1.'|'.1.a
+    $res = jm_is_integer($pval) && $pval >= 0;
+    if (! $res)
+    {
+        return 0;
+    }
+    if (! exists $$val{'c'})
+    {
+        return 0;
+    }
+    $pval = $$val{'c'};
+    # .merge.m1.'|'.1.c
+    $res = jm_is_integer($pval) && $pval >= 1;
+    if (! $res)
     {
         return 0;
     }
@@ -1579,43 +1558,36 @@ sub _jm_obj_15($$$)
 sub _jm_obj_16($$$)
 {
     my ($val, $path, $rep) = @_;
+    # check close must only props
     if (! jm_is_object($val))
     {
         return 0;
     }
-    my $res;
-    my $must_count = 0;
-    scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    if (jm_obj_size($val) != 2)
     {
-        if ($prop eq 'a')
-        {
-            # handle must a property
-            $must_count++;
-            # .merge.m1.'|'.0.a
-            $res = jm_is_integer($pval) && $pval >= 0;
-            if (! $res)
-            {
-                return 0;
-            }
-        }
-        elsif ($prop eq 'b')
-        {
-            # handle must b property
-            $must_count++;
-            # .merge.m1.'|'.0.b
-            $res = jm_is_integer($pval) && $pval >= 1;
-            if (! $res)
-            {
-                return 0;
-            }
-        }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
-    if ($must_count != 2)
+    my $pval;
+    my $res;
+    if (! exists $$val{'a'})
+    {
+        return 0;
+    }
+    $pval = $$val{'a'};
+    # .merge.m1.'|'.0.a
+    $res = jm_is_integer($pval) && $pval >= 0;
+    if (! $res)
+    {
+        return 0;
+    }
+    if (! exists $$val{'b'})
+    {
+        return 0;
+    }
+    $pval = $$val{'b'};
+    # .merge.m1.'|'.0.b
+    $res = jm_is_integer($pval) && $pval >= 1;
+    if (! $res)
     {
         return 0;
     }
@@ -1626,43 +1598,36 @@ sub _jm_obj_16($$$)
 sub _jm_obj_17($$$)
 {
     my ($val, $path, $rep) = @_;
+    # check close must only props
     if (! jm_is_object($val))
     {
         return 0;
     }
-    my $res;
-    my $must_count = 0;
-    scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    if (jm_obj_size($val) != 2)
     {
-        if ($prop eq 'a')
-        {
-            # handle must a property
-            $must_count++;
-            # .merge.m2.'|'.1.a
-            $res = jm_is_integer($pval) && $pval >= 0;
-            if (! $res)
-            {
-                return 0;
-            }
-        }
-        elsif ($prop eq 'c')
-        {
-            # handle must c property
-            $must_count++;
-            # .merge.m2.'|'.1.c
-            $res = jm_is_integer($pval) && $pval >= 1;
-            if (! $res)
-            {
-                return 0;
-            }
-        }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
-    if ($must_count != 2)
+    my $pval;
+    my $res;
+    if (! exists $$val{'a'})
+    {
+        return 0;
+    }
+    $pval = $$val{'a'};
+    # .merge.m2.'|'.1.a
+    $res = jm_is_integer($pval) && $pval >= 0;
+    if (! $res)
+    {
+        return 0;
+    }
+    if (! exists $$val{'c'})
+    {
+        return 0;
+    }
+    $pval = $$val{'c'};
+    # .merge.m2.'|'.1.c
+    $res = jm_is_integer($pval) && $pval >= 1;
+    if (! $res)
     {
         return 0;
     }
@@ -1673,43 +1638,36 @@ sub _jm_obj_17($$$)
 sub _jm_obj_18($$$)
 {
     my ($val, $path, $rep) = @_;
+    # check close must only props
     if (! jm_is_object($val))
     {
         return 0;
     }
-    my $res;
-    my $must_count = 0;
-    scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    if (jm_obj_size($val) != 2)
     {
-        if ($prop eq 'a')
-        {
-            # handle must a property
-            $must_count++;
-            # .merge.m2.'|'.0.a
-            $res = jm_is_integer($pval) && $pval >= 0;
-            if (! $res)
-            {
-                return 0;
-            }
-        }
-        elsif ($prop eq 'b')
-        {
-            # handle must b property
-            $must_count++;
-            # .merge.m2.'|'.0.b
-            $res = jm_is_integer($pval) && $pval >= 1;
-            if (! $res)
-            {
-                return 0;
-            }
-        }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
-    if ($must_count != 2)
+    my $pval;
+    my $res;
+    if (! exists $$val{'a'})
+    {
+        return 0;
+    }
+    $pval = $$val{'a'};
+    # .merge.m2.'|'.0.a
+    $res = jm_is_integer($pval) && $pval >= 0;
+    if (! $res)
+    {
+        return 0;
+    }
+    if (! exists $$val{'b'})
+    {
+        return 0;
+    }
+    $pval = $$val{'b'};
+    # .merge.m2.'|'.0.b
+    $res = jm_is_integer($pval) && $pval >= 1;
+    if (! $res)
     {
         return 0;
     }
@@ -1720,43 +1678,36 @@ sub _jm_obj_18($$$)
 sub _jm_obj_19($$$)
 {
     my ($val, $path, $rep) = @_;
+    # check close must only props
     if (! jm_is_object($val))
     {
         return 0;
     }
-    my $res;
-    my $must_count = 0;
-    scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    if (jm_obj_size($val) != 2)
     {
-        if ($prop eq 'b')
-        {
-            # handle must b property
-            $must_count++;
-            # .merge.m3.'|'.3.b
-            $res = jm_is_integer($pval) && $pval >= 0;
-            if (! $res)
-            {
-                return 0;
-            }
-        }
-        elsif ($prop eq 'd')
-        {
-            # handle must d property
-            $must_count++;
-            # .merge.m3.'|'.3.d
-            $res = jm_is_integer($pval) && $pval >= 1;
-            if (! $res)
-            {
-                return 0;
-            }
-        }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
-    if ($must_count != 2)
+    my $pval;
+    my $res;
+    if (! exists $$val{'b'})
+    {
+        return 0;
+    }
+    $pval = $$val{'b'};
+    # .merge.m3.'|'.3.b
+    $res = jm_is_integer($pval) && $pval >= 0;
+    if (! $res)
+    {
+        return 0;
+    }
+    if (! exists $$val{'d'})
+    {
+        return 0;
+    }
+    $pval = $$val{'d'};
+    # .merge.m3.'|'.3.d
+    $res = jm_is_integer($pval) && $pval >= 1;
+    if (! $res)
     {
         return 0;
     }
@@ -1767,43 +1718,36 @@ sub _jm_obj_19($$$)
 sub _jm_obj_20($$$)
 {
     my ($val, $path, $rep) = @_;
+    # check close must only props
     if (! jm_is_object($val))
     {
         return 0;
     }
-    my $res;
-    my $must_count = 0;
-    scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    if (jm_obj_size($val) != 2)
     {
-        if ($prop eq 'b')
-        {
-            # handle must b property
-            $must_count++;
-            # .merge.m3.'|'.2.b
-            $res = jm_is_integer($pval) && $pval >= 0;
-            if (! $res)
-            {
-                return 0;
-            }
-        }
-        elsif ($prop eq 'c')
-        {
-            # handle must c property
-            $must_count++;
-            # .merge.m3.'|'.2.c
-            $res = jm_is_integer($pval) && $pval >= 1;
-            if (! $res)
-            {
-                return 0;
-            }
-        }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
-    if ($must_count != 2)
+    my $pval;
+    my $res;
+    if (! exists $$val{'b'})
+    {
+        return 0;
+    }
+    $pval = $$val{'b'};
+    # .merge.m3.'|'.2.b
+    $res = jm_is_integer($pval) && $pval >= 0;
+    if (! $res)
+    {
+        return 0;
+    }
+    if (! exists $$val{'c'})
+    {
+        return 0;
+    }
+    $pval = $$val{'c'};
+    # .merge.m3.'|'.2.c
+    $res = jm_is_integer($pval) && $pval >= 1;
+    if (! $res)
     {
         return 0;
     }
@@ -1814,43 +1758,36 @@ sub _jm_obj_20($$$)
 sub _jm_obj_21($$$)
 {
     my ($val, $path, $rep) = @_;
+    # check close must only props
     if (! jm_is_object($val))
     {
         return 0;
     }
-    my $res;
-    my $must_count = 0;
-    scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    if (jm_obj_size($val) != 2)
     {
-        if ($prop eq 'a')
-        {
-            # handle must a property
-            $must_count++;
-            # .merge.m3.'|'.1.a
-            $res = jm_is_integer($pval) && $pval >= 0;
-            if (! $res)
-            {
-                return 0;
-            }
-        }
-        elsif ($prop eq 'd')
-        {
-            # handle must d property
-            $must_count++;
-            # .merge.m3.'|'.1.d
-            $res = jm_is_integer($pval) && $pval >= 1;
-            if (! $res)
-            {
-                return 0;
-            }
-        }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
-    if ($must_count != 2)
+    my $pval;
+    my $res;
+    if (! exists $$val{'a'})
+    {
+        return 0;
+    }
+    $pval = $$val{'a'};
+    # .merge.m3.'|'.1.a
+    $res = jm_is_integer($pval) && $pval >= 0;
+    if (! $res)
+    {
+        return 0;
+    }
+    if (! exists $$val{'d'})
+    {
+        return 0;
+    }
+    $pval = $$val{'d'};
+    # .merge.m3.'|'.1.d
+    $res = jm_is_integer($pval) && $pval >= 1;
+    if (! $res)
     {
         return 0;
     }
@@ -1861,43 +1798,36 @@ sub _jm_obj_21($$$)
 sub _jm_obj_22($$$)
 {
     my ($val, $path, $rep) = @_;
+    # check close must only props
     if (! jm_is_object($val))
     {
         return 0;
     }
-    my $res;
-    my $must_count = 0;
-    scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    if (jm_obj_size($val) != 2)
     {
-        if ($prop eq 'a')
-        {
-            # handle must a property
-            $must_count++;
-            # .merge.m3.'|'.0.a
-            $res = jm_is_integer($pval) && $pval >= 0;
-            if (! $res)
-            {
-                return 0;
-            }
-        }
-        elsif ($prop eq 'c')
-        {
-            # handle must c property
-            $must_count++;
-            # .merge.m3.'|'.0.c
-            $res = jm_is_integer($pval) && $pval >= 1;
-            if (! $res)
-            {
-                return 0;
-            }
-        }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
-    if ($must_count != 2)
+    my $pval;
+    my $res;
+    if (! exists $$val{'a'})
+    {
+        return 0;
+    }
+    $pval = $$val{'a'};
+    # .merge.m3.'|'.0.a
+    $res = jm_is_integer($pval) && $pval >= 0;
+    if (! $res)
+    {
+        return 0;
+    }
+    if (! exists $$val{'c'})
+    {
+        return 0;
+    }
+    $pval = $$val{'c'};
+    # .merge.m3.'|'.0.c
+    $res = jm_is_integer($pval) && $pval >= 1;
+    if (! $res)
     {
         return 0;
     }
@@ -1908,65 +1838,58 @@ sub _jm_obj_22($$$)
 sub _jm_obj_23($$$)
 {
     my ($val, $path, $rep) = @_;
+    # check close must only props
     if (! jm_is_object($val))
     {
         return 0;
     }
-    my $res;
-    my $must_count = 0;
-    scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    if (jm_obj_size($val) != 4)
     {
-        if ($prop eq 'a')
-        {
-            # handle must a property
-            $must_count++;
-            # .merge.m4.a
-            $res = jm_is_integer($pval) && $pval >= 0;
-            if (! $res)
-            {
-                return 0;
-            }
-        }
-        elsif ($prop eq 'b')
-        {
-            # handle must b property
-            $must_count++;
-            # .merge.m4.b
-            $res = jm_is_integer($pval) && $pval >= 0;
-            if (! $res)
-            {
-                return 0;
-            }
-        }
-        elsif ($prop eq 'c')
-        {
-            # handle must c property
-            $must_count++;
-            # .merge.m4.c
-            $res = jm_is_integer($pval) && $pval >= 0;
-            if (! $res)
-            {
-                return 0;
-            }
-        }
-        elsif ($prop eq 'd')
-        {
-            # handle must d property
-            $must_count++;
-            # .merge.m4.d
-            $res = jm_is_integer($pval) && $pval >= 0;
-            if (! $res)
-            {
-                return 0;
-            }
-        }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
-    if ($must_count != 4)
+    my $pval;
+    my $res;
+    if (! exists $$val{'a'})
+    {
+        return 0;
+    }
+    $pval = $$val{'a'};
+    # .merge.m4.a
+    $res = jm_is_integer($pval) && $pval >= 0;
+    if (! $res)
+    {
+        return 0;
+    }
+    if (! exists $$val{'b'})
+    {
+        return 0;
+    }
+    $pval = $$val{'b'};
+    # .merge.m4.b
+    $res = jm_is_integer($pval) && $pval >= 0;
+    if (! $res)
+    {
+        return 0;
+    }
+    if (! exists $$val{'c'})
+    {
+        return 0;
+    }
+    $pval = $$val{'c'};
+    # .merge.m4.c
+    $res = jm_is_integer($pval) && $pval >= 0;
+    if (! $res)
+    {
+        return 0;
+    }
+    if (! exists $$val{'d'})
+    {
+        return 0;
+    }
+    $pval = $$val{'d'};
+    # .merge.m4.d
+    $res = jm_is_integer($pval) && $pval >= 0;
+    if (! $res)
     {
         return 0;
     }
@@ -2187,54 +2110,47 @@ sub _jm_f_61($$$)
 sub _jm_obj_27($$$)
 {
     my ($val, $path, $rep) = @_;
+    # check close must only props
     if (! jm_is_object($val))
     {
         return 0;
     }
-    my $res;
-    my $must_count = 0;
-    scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    if (jm_obj_size($val) != 3)
     {
-        if ($prop eq 'a')
-        {
-            # handle must a property
-            $must_count++;
-            # .object.o1.a
-            $res = jm_is_integer($pval) && $pval >= 0;
-            if (! $res)
-            {
-                return 0;
-            }
-        }
-        elsif ($prop eq 'b')
-        {
-            # handle must b property
-            $must_count++;
-            # .object.o1.b
-            $res = jm_is_integer($pval) && $pval >= 0;
-            if (! $res)
-            {
-                return 0;
-            }
-        }
-        elsif ($prop eq 'c')
-        {
-            # handle must c property
-            $must_count++;
-            # .object.o1.c
-            $res = jm_is_integer($pval) && $pval >= 0;
-            if (! $res)
-            {
-                return 0;
-            }
-        }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
-    if ($must_count != 3)
+    my $pval;
+    my $res;
+    if (! exists $$val{'a'})
+    {
+        return 0;
+    }
+    $pval = $$val{'a'};
+    # .object.o1.a
+    $res = jm_is_integer($pval) && $pval >= 0;
+    if (! $res)
+    {
+        return 0;
+    }
+    if (! exists $$val{'b'})
+    {
+        return 0;
+    }
+    $pval = $$val{'b'};
+    # .object.o1.b
+    $res = jm_is_integer($pval) && $pval >= 0;
+    if (! $res)
+    {
+        return 0;
+    }
+    if (! exists $$val{'c'})
+    {
+        return 0;
+    }
+    $pval = $$val{'c'};
+    # .object.o1.c
+    $res = jm_is_integer($pval) && $pval >= 0;
+    if (! $res)
     {
         return 0;
     }

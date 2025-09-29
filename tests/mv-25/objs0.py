@@ -25,29 +25,26 @@ check_model_map: PropMap
 
 # object .'$table'
 def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
+    # check close must only props
     if not isinstance(val, dict):
         return False
+    if len(val) != 2:
+        return False
+    pval: Jsonable
     res: bool
-    must_count: int = 0
-    for prop, pval in val.items():
-        assert isinstance(prop, str)
-        if prop == "t":
-            # handle must t property
-            must_count += 1
-            # .'$table'.t
-            res = isinstance(pval, str) and pval == "table"
-            if not res:
-                return False
-        elif prop == "legs":
-            # handle must legs property
-            must_count += 1
-            # .'$table'.legs
-            res = isinstance(pval, int) and not isinstance(pval, bool) and pval >= 1
-            if not res:
-                return False
-        else:
-            return False
-    if must_count != 2:
+    if not "t" in val:
+        return False
+    pval = val.get("t", UNDEFINED)
+    # .'$table'.t
+    res = isinstance(pval, str) and pval == "table"
+    if not res:
+        return False
+    if not "legs" in val:
+        return False
+    pval = val.get("legs", UNDEFINED)
+    # .'$table'.legs
+    res = isinstance(pval, int) and not isinstance(pval, bool) and pval >= 1
+    if not res:
         return False
     return True
 
@@ -60,29 +57,26 @@ def json_model_2(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # object .'$chair'
 def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
+    # check close must only props
     if not isinstance(val, dict):
         return False
+    if len(val) != 2:
+        return False
+    pval: Jsonable
     res: bool
-    must_count: int = 0
-    for prop, pval in val.items():
-        assert isinstance(prop, str)
-        if prop == "t":
-            # handle must t property
-            must_count += 1
-            # .'$chair'.t
-            res = isinstance(pval, str) and pval == "chair"
-            if not res:
-                return False
-        elif prop == "color":
-            # handle must color property
-            must_count += 1
-            # .'$chair'.color
-            res = isinstance(pval, str)
-            if not res:
-                return False
-        else:
-            return False
-    if must_count != 2:
+    if not "t" in val:
+        return False
+    pval = val.get("t", UNDEFINED)
+    # .'$chair'.t
+    res = isinstance(pval, str) and pval == "chair"
+    if not res:
+        return False
+    if not ("color" in val):
+        return False
+    pval = val.get("color", UNDEFINED)
+    # .'$chair'.color
+    res = isinstance(pval, str)
+    if not res:
         return False
     return True
 
@@ -114,28 +108,25 @@ def json_model_4(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # object .
 def _jm_obj_2(val: Jsonable, path: Path, rep: Report) -> bool:
+    # check close must only props
     if not isinstance(val, dict):
         return False
+    if len(val) != 1:
+        return False
+    pval: Jsonable
     res: bool
-    must_count: int = 0
-    for prop, pval in val.items():
-        assert isinstance(prop, str)
-        if prop == "stuff":
-            # handle must stuff property
-            must_count += 1
-            # .stuff
-            res = isinstance(pval, list)
-            if res:
-                for arr_0_idx, arr_0_item in enumerate(pval):
-                    # .stuff.0
-                    res = json_model_4(arr_0_item, None, rep)
-                    if not res:
-                        break
+    if not "stuff" in val:
+        return False
+    pval = val.get("stuff", UNDEFINED)
+    # .stuff
+    res = isinstance(pval, list)
+    if res:
+        for arr_0_idx, arr_0_item in enumerate(pval):
+            # .stuff.0
+            res = json_model_4(arr_0_item, None, rep)
             if not res:
-                return False
-        else:
-            return False
-    if must_count != 1:
+                break
+    if not res:
         return False
     return True
 

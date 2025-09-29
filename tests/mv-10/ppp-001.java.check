@@ -1,7 +1,7 @@
 ppp-001.values.json[0]: PASS
-ppp-001.values.json[1]: FAIL (a: not a 0 strict int [.a]; a: invalid mandatory prop value [.a])
-ppp-001.values.json[2]: FAIL (c: unexpected prop [.])
-ppp-001.values.json[3]: FAIL (: missing mandatory prop <a> [.])
+ppp-001.values.json[1]: FAIL (: not a 0 strict int [.a]; : unexpected value for mandatory prop <a> [.])
+ppp-001.values.json[2]: FAIL (: missing mandatory prop <a> [.])
+ppp-001.values.json[3]: FAIL (: bad property count [.])
 ppp-001.values.json[4]: FAIL (: not an object [.])
 ppp-001.values.json[5]: FAIL (: not an object [.])
 ppp-001.values.json[6]: FAIL (: not an object [.])

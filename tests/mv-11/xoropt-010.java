@@ -102,64 +102,45 @@ public class xoropt_010 extends ModelChecker
     // object .'|'.0
     public boolean _jm_obj_2(Object val, Path path, Report rep)
     {
+        // check close must only props
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.'|'.0]", path);
             return false;
         }
-        boolean res;
-        long must_count = 0;
-        Iterator<String> prop_loop = json.objectIterator(val);
-        while (prop_loop.hasNext())
+        if (json.objectSize(val) != 2)
         {
-            String prop = prop_loop.next();
-            Object pval = json.objectValue(val, prop);
-            Path lpath_1 = new Path(prop, path);
-            if (prop.compareTo("b") == 0)
-            {
-                // handle must b property
-                must_count += 1;
-                // .'|'.0.b
-                res = json.isInteger(pval) && json.asLong(pval) >= 0;
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("not a 0 strict int [.'|'.0.b]", (path != null ? lpath_1 : null));
-                    if (rep != null) rep.addEntry("invalid mandatory prop value [.'|'.0.b]", (path != null ? lpath_1 : null));
-                    return false;
-                }
-            }
-            else if (prop.compareTo("a") == 0)
-            {
-                // handle must a property
-                must_count += 1;
-                // .'|'.0.a
-                res = json.isString(pval);
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("unexpected string [.'|'.0.a]", (path != null ? lpath_1 : null));
-                    if (rep != null) rep.addEntry("invalid mandatory prop value [.'|'.0.a]", (path != null ? lpath_1 : null));
-                    return false;
-                }
-            }
-            else
-            {
-                if (rep != null) rep.addEntry("unexpected prop [.'|'.0]", (path != null ? lpath_1 : null));
-                return false;
-            }
+            if (rep != null) rep.addEntry("bad property count [.'|'.0]", path);
+            return false;
         }
-        if (must_count != 2)
+        Object pval;
+        boolean res;
+        if (! json.objectHasProp(val, "b"))
         {
-            if (rep != null)
-            {
-                if (! json.objectHasProp(val, "a"))
-                {
-                    if (rep != null) rep.addEntry("missing mandatory prop <a> [.'|'.0]", path);
-                }
-                if (! json.objectHasProp(val, "b"))
-                {
-                    if (rep != null) rep.addEntry("missing mandatory prop <b> [.'|'.0]", path);
-                }
-            }
+            if (rep != null) rep.addEntry("missing mandatory prop <b> [.'|'.0]", path);
+            return false;
+        }
+        pval = json.objectValue(val, "b");
+        // .'|'.0.b
+        res = json.isInteger(pval) && json.asLong(pval) >= 0;
+        if (! res)
+        {
+            if (rep != null) rep.addEntry("not a 0 strict int [.'|'.0.b]", path);
+            if (rep != null) rep.addEntry("unexpected value for mandatory prop <b> [.'|'.0]", path);
+            return false;
+        }
+        if (! json.objectHasProp(val, "a"))
+        {
+            if (rep != null) rep.addEntry("missing mandatory prop <a> [.'|'.0]", path);
+            return false;
+        }
+        pval = json.objectValue(val, "a");
+        // .'|'.0.a
+        res = json.isString(pval);
+        if (! res)
+        {
+            if (rep != null) rep.addEntry("unexpected string [.'|'.0.a]", path);
+            if (rep != null) rep.addEntry("unexpected value for mandatory prop <a> [.'|'.0]", path);
             return false;
         }
         return true;

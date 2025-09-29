@@ -22,43 +22,36 @@ my %check_model_map;
 sub _jm_obj_0($$$)
 {
     my ($val, $path, $rep) = @_;
+    # check close must only props
     if (! jm_is_object($val))
     {
         return 0;
     }
-    my $res;
-    my $must_count = 0;
-    scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    if (jm_obj_size($val) != 2)
     {
-        if ($prop eq 't')
-        {
-            # handle must t property
-            $must_count++;
-            # .'|'.0.t
-            $res = jm_is_integer($pval) && $pval == 0;
-            if (! $res)
-            {
-                return 0;
-            }
-        }
-        elsif ($prop eq 'z')
-        {
-            # handle must z property
-            $must_count++;
-            # .'|'.0.z
-            $res = jm_is_integer($pval) && $pval >= 1;
-            if (! $res)
-            {
-                return 0;
-            }
-        }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
-    if ($must_count != 2)
+    my $pval;
+    my $res;
+    if (! exists $$val{'t'})
+    {
+        return 0;
+    }
+    $pval = $$val{'t'};
+    # .'|'.0.t
+    $res = jm_is_integer($pval) && $pval == 0;
+    if (! $res)
+    {
+        return 0;
+    }
+    if (! exists $$val{'z'})
+    {
+        return 0;
+    }
+    $pval = $$val{'z'};
+    # .'|'.0.z
+    $res = jm_is_integer($pval) && $pval >= 1;
+    if (! $res)
     {
         return 0;
     }
@@ -69,63 +62,56 @@ sub _jm_obj_0($$$)
 sub _jm_obj_1($$$)
 {
     my ($val, $path, $rep) = @_;
+    # check close must only props
     if (! jm_is_object($val))
     {
         return 0;
     }
-    my $res;
-    my $must_count = 0;
-    scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    if (jm_obj_size($val) != 2)
     {
-        if ($prop eq 't')
+        return 0;
+    }
+    my $pval;
+    my $res;
+    if (! exists $$val{'t'})
+    {
+        return 0;
+    }
+    $pval = $$val{'t'};
+    # .'|'.1.t
+    $res = jm_is_integer($pval);
+    if ($res)
+    {
+        # .'|'.1.t.'|'.0
+        $res = jm_is_integer($pval) && $pval == 2;
+        if (! $res)
         {
-            # handle must t property
-            $must_count++;
-            # .'|'.1.t
-            $res = jm_is_integer($pval);
-            if ($res)
+            # .'|'.1.t.'|'.1
+            $res = jm_is_integer($pval) && $pval == 4;
+            if (! $res)
             {
-                # .'|'.1.t.'|'.0
-                $res = jm_is_integer($pval) && $pval == 2;
+                # .'|'.1.t.'|'.2
+                $res = jm_is_integer($pval) && $pval == 6;
                 if (! $res)
                 {
-                    # .'|'.1.t.'|'.1
-                    $res = jm_is_integer($pval) && $pval == 4;
-                    if (! $res)
-                    {
-                        # .'|'.1.t.'|'.2
-                        $res = jm_is_integer($pval) && $pval == 6;
-                        if (! $res)
-                        {
-                            # .'|'.1.t.'|'.3
-                            $res = jm_is_integer($pval) && $pval == 8;
-                        }
-                    }
+                    # .'|'.1.t.'|'.3
+                    $res = jm_is_integer($pval) && $pval == 8;
                 }
             }
-            if (! $res)
-            {
-                return 0;
-            }
-        }
-        elsif ($prop eq 'p')
-        {
-            # handle must p property
-            $must_count++;
-            # .'|'.1.p
-            $res = jm_is_integer($pval) && $pval >= 1;
-            if (! $res)
-            {
-                return 0;
-            }
-        }
-        else
-        {
-            return 0;
         }
     }
-    if ($must_count != 2)
+    if (! $res)
+    {
+        return 0;
+    }
+    if (! exists $$val{'p'})
+    {
+        return 0;
+    }
+    $pval = $$val{'p'};
+    # .'|'.1.p
+    $res = jm_is_integer($pval) && $pval >= 1;
+    if (! $res)
     {
         return 0;
     }
@@ -136,68 +122,61 @@ sub _jm_obj_1($$$)
 sub _jm_obj_2($$$)
 {
     my ($val, $path, $rep) = @_;
+    # check close must only props
     if (! jm_is_object($val))
     {
         return 0;
     }
-    my $res;
-    my $must_count = 0;
-    scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    if (jm_obj_size($val) != 2)
     {
-        if ($prop eq 't')
+        return 0;
+    }
+    my $pval;
+    my $res;
+    if (! exists $$val{'t'})
+    {
+        return 0;
+    }
+    $pval = $$val{'t'};
+    # .'|'.2.t
+    $res = jm_is_integer($pval);
+    if ($res)
+    {
+        # .'|'.2.t.'|'.0
+        $res = jm_is_integer($pval) && $pval == 1;
+        if (! $res)
         {
-            # handle must t property
-            $must_count++;
-            # .'|'.2.t
-            $res = jm_is_integer($pval);
-            if ($res)
+            # .'|'.2.t.'|'.1
+            $res = jm_is_integer($pval) && $pval == 3;
+            if (! $res)
             {
-                # .'|'.2.t.'|'.0
-                $res = jm_is_integer($pval) && $pval == 1;
+                # .'|'.2.t.'|'.2
+                $res = jm_is_integer($pval) && $pval == 5;
                 if (! $res)
                 {
-                    # .'|'.2.t.'|'.1
-                    $res = jm_is_integer($pval) && $pval == 3;
+                    # .'|'.2.t.'|'.3
+                    $res = jm_is_integer($pval) && $pval == 7;
                     if (! $res)
                     {
-                        # .'|'.2.t.'|'.2
-                        $res = jm_is_integer($pval) && $pval == 5;
-                        if (! $res)
-                        {
-                            # .'|'.2.t.'|'.3
-                            $res = jm_is_integer($pval) && $pval == 7;
-                            if (! $res)
-                            {
-                                # .'|'.2.t.'|'.4
-                                $res = jm_is_integer($pval) && $pval == 9;
-                            }
-                        }
+                        # .'|'.2.t.'|'.4
+                        $res = jm_is_integer($pval) && $pval == 9;
                     }
                 }
             }
-            if (! $res)
-            {
-                return 0;
-            }
-        }
-        elsif ($prop eq 'i')
-        {
-            # handle must i property
-            $must_count++;
-            # .'|'.2.i
-            $res = jm_is_integer($pval) && $pval >= 1;
-            if (! $res)
-            {
-                return 0;
-            }
-        }
-        else
-        {
-            return 0;
         }
     }
-    if ($must_count != 2)
+    if (! $res)
+    {
+        return 0;
+    }
+    if (! exists $$val{'i'})
+    {
+        return 0;
+    }
+    $pval = $$val{'i'};
+    # .'|'.2.i
+    $res = jm_is_integer($pval) && $pval >= 1;
+    if (! $res)
     {
         return 0;
     }
@@ -208,43 +187,36 @@ sub _jm_obj_2($$$)
 sub _jm_obj_3($$$)
 {
     my ($val, $path, $rep) = @_;
+    # check close must only props
     if (! jm_is_object($val))
     {
         return 0;
     }
-    my $res;
-    my $must_count = 0;
-    scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    if (jm_obj_size($val) != 2)
     {
-        if ($prop eq 't')
-        {
-            # handle must t property
-            $must_count++;
-            # .'|'.3.t
-            $res = jm_is_integer($pval) && $pval == 10;
-            if (! $res)
-            {
-                return 0;
-            }
-        }
-        elsif ($prop eq 'd')
-        {
-            # handle must d property
-            $must_count++;
-            # .'|'.3.d
-            $res = jm_is_integer($pval) && $pval >= 1;
-            if (! $res)
-            {
-                return 0;
-            }
-        }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
-    if ($must_count != 2)
+    my $pval;
+    my $res;
+    if (! exists $$val{'t'})
+    {
+        return 0;
+    }
+    $pval = $$val{'t'};
+    # .'|'.3.t
+    $res = jm_is_integer($pval) && $pval == 10;
+    if (! $res)
+    {
+        return 0;
+    }
+    if (! exists $$val{'d'})
+    {
+        return 0;
+    }
+    $pval = $$val{'d'};
+    # .'|'.3.d
+    $res = jm_is_integer($pval) && $pval >= 1;
+    if (! $res)
     {
         return 0;
     }

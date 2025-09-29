@@ -15,13 +15,6 @@ static bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_5(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_obj_1(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_4(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static bool _jm_f_0(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static bool _jm_f_1(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static bool _jm_f_2(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static bool _jm_f_3(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static bool _jm_f_4(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static bool _jm_f_5(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static jm_propmap_t _jm_obj_2_mup_tab[6];
 static bool _jm_obj_2(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep);
 jm_propmap_t check_model_map_tab[4];
@@ -43,97 +36,73 @@ static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // object .'$r'
 static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
+    // check close must only props
     if (! json_is_object(val))
     {
         if (rep) jm_report_add_entry(rep, "not an object [.'$r']", path);
         return false;
     }
-    bool res;
-    int64_t must_count = 0;
-    const char *prop;
-    json_t *pval;
-    json_object_foreach((json_t *) val, prop, pval)
+    if (json_object_size(val) != 4)
     {
-        jm_path_t lpath_0 = (jm_path_t) { prop, 0, path, NULL };
-        if (strcmp(prop, "a") == 0)
-        {
-            // handle must a property
-            must_count += 1;
-            // .'$r'.a
-            res = json_is_string(pval) && strcmp(json_string_value(pval), "cst_01") == 0;
-            if (! res)
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected _cst_01 [.'$r'.a]", (path ? &lpath_0 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$r'.a]", (path ? &lpath_0 : NULL));
-                return false;
-            }
-        }
-        else if (strcmp(prop, "b") == 0)
-        {
-            // handle must b property
-            must_count += 1;
-            // .'$r'.b
-            res = json_is_string(pval) && strcmp(json_string_value(pval), "cst_01") == 0;
-            if (! res)
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected _cst_01 [.'$r'.b]", (path ? &lpath_0 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$r'.b]", (path ? &lpath_0 : NULL));
-                return false;
-            }
-        }
-        else if (strcmp(prop, "c") == 0)
-        {
-            // handle must c property
-            must_count += 1;
-            // .'$r'.c
-            res = json_is_string(pval) && strcmp(json_string_value(pval), "cst_01") == 0;
-            if (! res)
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected _cst_01 [.'$r'.c]", (path ? &lpath_0 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$r'.c]", (path ? &lpath_0 : NULL));
-                return false;
-            }
-        }
-        else if (strcmp(prop, "d") == 0)
-        {
-            // handle must d property
-            must_count += 1;
-            // .'$r'.d
-            res = json_is_string(pval) && strcmp(json_string_value(pval), "cst_01") == 0;
-            if (! res)
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected _cst_01 [.'$r'.d]", (path ? &lpath_0 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$r'.d]", (path ? &lpath_0 : NULL));
-                return false;
-            }
-        }
-        else
-        {
-            if (rep) jm_report_add_entry(rep, "unexpected prop [.'$r']", (path ? &lpath_0 : NULL));
-            return false;
-        }
+        if (rep) jm_report_add_entry(rep, "bad property count [.'$r']", path);
+        return false;
     }
-    if (must_count != 4)
+    json_t * pval;
+    bool res;
+    if (! (json_object_get(val, "a") != NULL))
     {
-        if (rep != NULL)
-        {
-            if (! (json_object_get(val, "a") != NULL))
-            {
-                if (rep) jm_report_add_entry(rep, "missing mandatory prop <a> [.'$r']", path);
-            }
-            if (! (json_object_get(val, "b") != NULL))
-            {
-                if (rep) jm_report_add_entry(rep, "missing mandatory prop <b> [.'$r']", path);
-            }
-            if (! (json_object_get(val, "c") != NULL))
-            {
-                if (rep) jm_report_add_entry(rep, "missing mandatory prop <c> [.'$r']", path);
-            }
-            if (! (json_object_get(val, "d") != NULL))
-            {
-                if (rep) jm_report_add_entry(rep, "missing mandatory prop <d> [.'$r']", path);
-            }
-        }
+        if (rep) jm_report_add_entry(rep, "missing mandatory prop <a> [.'$r']", path);
+        return false;
+    }
+    pval = json_object_get(val, "a");
+    // .'$r'.a
+    res = json_is_string(pval) && strcmp(json_string_value(pval), "cst_01") == 0;
+    if (! res)
+    {
+        if (rep) jm_report_add_entry(rep, "unexpected _cst_01 [.'$r'.a]", path);
+        if (rep) jm_report_add_entry(rep, "unexpected value for mandatory prop <a> [.'$r']", path);
+        return false;
+    }
+    if (! (json_object_get(val, "b") != NULL))
+    {
+        if (rep) jm_report_add_entry(rep, "missing mandatory prop <b> [.'$r']", path);
+        return false;
+    }
+    pval = json_object_get(val, "b");
+    // .'$r'.b
+    res = json_is_string(pval) && strcmp(json_string_value(pval), "cst_01") == 0;
+    if (! res)
+    {
+        if (rep) jm_report_add_entry(rep, "unexpected _cst_01 [.'$r'.b]", path);
+        if (rep) jm_report_add_entry(rep, "unexpected value for mandatory prop <b> [.'$r']", path);
+        return false;
+    }
+    if (! (json_object_get(val, "c") != NULL))
+    {
+        if (rep) jm_report_add_entry(rep, "missing mandatory prop <c> [.'$r']", path);
+        return false;
+    }
+    pval = json_object_get(val, "c");
+    // .'$r'.c
+    res = json_is_string(pval) && strcmp(json_string_value(pval), "cst_01") == 0;
+    if (! res)
+    {
+        if (rep) jm_report_add_entry(rep, "unexpected _cst_01 [.'$r'.c]", path);
+        if (rep) jm_report_add_entry(rep, "unexpected value for mandatory prop <c> [.'$r']", path);
+        return false;
+    }
+    if (! (json_object_get(val, "d") != NULL))
+    {
+        if (rep) jm_report_add_entry(rep, "missing mandatory prop <d> [.'$r']", path);
+        return false;
+    }
+    pval = json_object_get(val, "d");
+    // .'$r'.d
+    res = json_is_string(pval) && strcmp(json_string_value(pval), "cst_01") == 0;
+    if (! res)
+    {
+        if (rep) jm_report_add_entry(rep, "unexpected _cst_01 [.'$r'.d]", path);
+        if (rep) jm_report_add_entry(rep, "unexpected value for mandatory prop <d> [.'$r']", path);
         return false;
     }
     return true;
@@ -155,63 +124,45 @@ static bool json_model_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // object .'$z'
 static INLINE bool _jm_obj_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
+    // check close must only props
     if (! json_is_object(val))
     {
         if (rep) jm_report_add_entry(rep, "not an object [.'$z']", path);
         return false;
     }
-    bool res;
-    int64_t must_count = 0;
-    const char *prop;
-    json_t *pval;
-    json_object_foreach((json_t *) val, prop, pval)
+    if (json_object_size(val) != 2)
     {
-        jm_path_t lpath_1 = (jm_path_t) { prop, 0, path, NULL };
-        if (strcmp(prop, "e") == 0)
-        {
-            // handle must e property
-            must_count += 1;
-            // .'$z'.e
-            res = json_is_string(pval) && strcmp(json_string_value(pval), "cst_02") == 0;
-            if (! res)
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected _cst_02 [.'$z'.e]", (path ? &lpath_1 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$z'.e]", (path ? &lpath_1 : NULL));
-                return false;
-            }
-        }
-        else if (strcmp(prop, "f") == 0)
-        {
-            // handle must f property
-            must_count += 1;
-            // .'$z'.f
-            res = json_is_string(pval) && strcmp(json_string_value(pval), "cst_02") == 0;
-            if (! res)
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected _cst_02 [.'$z'.f]", (path ? &lpath_1 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$z'.f]", (path ? &lpath_1 : NULL));
-                return false;
-            }
-        }
-        else
-        {
-            if (rep) jm_report_add_entry(rep, "unexpected prop [.'$z']", (path ? &lpath_1 : NULL));
-            return false;
-        }
+        if (rep) jm_report_add_entry(rep, "bad property count [.'$z']", path);
+        return false;
     }
-    if (must_count != 2)
+    json_t * pval;
+    bool res;
+    if (! (json_object_get(val, "e") != NULL))
     {
-        if (rep != NULL)
-        {
-            if (! (json_object_get(val, "e") != NULL))
-            {
-                if (rep) jm_report_add_entry(rep, "missing mandatory prop <e> [.'$z']", path);
-            }
-            if (! (json_object_get(val, "f") != NULL))
-            {
-                if (rep) jm_report_add_entry(rep, "missing mandatory prop <f> [.'$z']", path);
-            }
-        }
+        if (rep) jm_report_add_entry(rep, "missing mandatory prop <e> [.'$z']", path);
+        return false;
+    }
+    pval = json_object_get(val, "e");
+    // .'$z'.e
+    res = json_is_string(pval) && strcmp(json_string_value(pval), "cst_02") == 0;
+    if (! res)
+    {
+        if (rep) jm_report_add_entry(rep, "unexpected _cst_02 [.'$z'.e]", path);
+        if (rep) jm_report_add_entry(rep, "unexpected value for mandatory prop <e> [.'$z']", path);
+        return false;
+    }
+    if (! (json_object_get(val, "f") != NULL))
+    {
+        if (rep) jm_report_add_entry(rep, "missing mandatory prop <f> [.'$z']", path);
+        return false;
+    }
+    pval = json_object_get(val, "f");
+    // .'$z'.f
+    res = json_is_string(pval) && strcmp(json_string_value(pval), "cst_02") == 0;
+    if (! res)
+    {
+        if (rep) jm_report_add_entry(rep, "unexpected _cst_02 [.'$z'.f]", path);
+        if (rep) jm_report_add_entry(rep, "unexpected value for mandatory prop <f> [.'$z']", path);
         return false;
     }
     return true;
@@ -230,152 +181,104 @@ static bool json_model_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_2_mup_a (.a)
-static bool _jm_f_0(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
-    bool res;
-    // .a
-    res = json_is_string(val) && strcmp(json_string_value(val), "cst_01") == 0;
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected _cst_01 [.a]", path);
-    }
-    return res;
-}
-
-// check _jm_obj_2_mup_b (.b)
-static bool _jm_f_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
-    bool res;
-    // .b
-    res = json_is_string(val) && strcmp(json_string_value(val), "cst_01") == 0;
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected _cst_01 [.b]", path);
-    }
-    return res;
-}
-
-// check _jm_obj_2_mup_c (.c)
-static bool _jm_f_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
-    bool res;
-    // .c
-    res = json_is_string(val) && strcmp(json_string_value(val), "cst_01") == 0;
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected _cst_01 [.c]", path);
-    }
-    return res;
-}
-
-// check _jm_obj_2_mup_d (.d)
-static bool _jm_f_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
-    bool res;
-    // .d
-    res = json_is_string(val) && strcmp(json_string_value(val), "cst_01") == 0;
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected _cst_01 [.d]", path);
-    }
-    return res;
-}
-
-// check _jm_obj_2_mup_e (.e)
-static bool _jm_f_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
-    bool res;
-    // .e
-    res = json_is_string(val) && strcmp(json_string_value(val), "cst_02") == 0;
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected _cst_02 [.e]", path);
-    }
-    return res;
-}
-
-// check _jm_obj_2_mup_f (.f)
-static bool _jm_f_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
-    bool res;
-    // .f
-    res = json_is_string(val) && strcmp(json_string_value(val), "cst_02") == 0;
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected _cst_02 [.f]", path);
-    }
-    return res;
-}
-
-static INLINE jm_check_fun_t _jm_obj_2_mup(const char *pname)
-{
-    return jm_search_propmap(pname, _jm_obj_2_mup_tab, 6);
-}
-
 // object .
 static INLINE bool _jm_obj_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
+    // check close must only props
     if (! json_is_object(val))
     {
         if (rep) jm_report_add_entry(rep, "not an object [.]", path);
         return false;
     }
-    jm_check_fun_t pfun;
-    int64_t must_count = 0;
-    const char *prop;
-    json_t *pval;
-    json_object_foreach((json_t *) val, prop, pval)
+    if (json_object_size(val) != 6)
     {
-        jm_path_t lpath_2 = (jm_path_t) { prop, 0, path, NULL };
-        if ((pfun = _jm_obj_2_mup(prop)))
-        {
-            // handle 6 mandatory props
-            if (pfun != NULL)
-            {
-                must_count += 1;
-                if (! pfun(pval, (path ? &lpath_2 : NULL), rep))
-                {
-                    if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.]", (path ? &lpath_2 : NULL));
-                    return false;
-                }
-            }
-        }
-        else
-        {
-            if (rep) jm_report_add_entry(rep, "unexpected prop [.]", (path ? &lpath_2 : NULL));
-            return false;
-        }
+        if (rep) jm_report_add_entry(rep, "bad property count [.]", path);
+        return false;
     }
-    if (must_count != 6)
+    json_t * pval;
+    bool res;
+    if (! (json_object_get(val, "a") != NULL))
     {
-        if (rep != NULL)
-        {
-            if (! (json_object_get(val, "a") != NULL))
-            {
-                if (rep) jm_report_add_entry(rep, "missing mandatory prop <a> [.]", path);
-            }
-            if (! (json_object_get(val, "b") != NULL))
-            {
-                if (rep) jm_report_add_entry(rep, "missing mandatory prop <b> [.]", path);
-            }
-            if (! (json_object_get(val, "c") != NULL))
-            {
-                if (rep) jm_report_add_entry(rep, "missing mandatory prop <c> [.]", path);
-            }
-            if (! (json_object_get(val, "d") != NULL))
-            {
-                if (rep) jm_report_add_entry(rep, "missing mandatory prop <d> [.]", path);
-            }
-            if (! (json_object_get(val, "e") != NULL))
-            {
-                if (rep) jm_report_add_entry(rep, "missing mandatory prop <e> [.]", path);
-            }
-            if (! (json_object_get(val, "f") != NULL))
-            {
-                if (rep) jm_report_add_entry(rep, "missing mandatory prop <f> [.]", path);
-            }
-        }
+        if (rep) jm_report_add_entry(rep, "missing mandatory prop <a> [.]", path);
+        return false;
+    }
+    pval = json_object_get(val, "a");
+    // .a
+    res = json_is_string(pval) && strcmp(json_string_value(pval), "cst_01") == 0;
+    if (! res)
+    {
+        if (rep) jm_report_add_entry(rep, "unexpected _cst_01 [.a]", path);
+        if (rep) jm_report_add_entry(rep, "unexpected value for mandatory prop <a> [.]", path);
+        return false;
+    }
+    if (! (json_object_get(val, "b") != NULL))
+    {
+        if (rep) jm_report_add_entry(rep, "missing mandatory prop <b> [.]", path);
+        return false;
+    }
+    pval = json_object_get(val, "b");
+    // .b
+    res = json_is_string(pval) && strcmp(json_string_value(pval), "cst_01") == 0;
+    if (! res)
+    {
+        if (rep) jm_report_add_entry(rep, "unexpected _cst_01 [.b]", path);
+        if (rep) jm_report_add_entry(rep, "unexpected value for mandatory prop <b> [.]", path);
+        return false;
+    }
+    if (! (json_object_get(val, "e") != NULL))
+    {
+        if (rep) jm_report_add_entry(rep, "missing mandatory prop <e> [.]", path);
+        return false;
+    }
+    pval = json_object_get(val, "e");
+    // .e
+    res = json_is_string(pval) && strcmp(json_string_value(pval), "cst_02") == 0;
+    if (! res)
+    {
+        if (rep) jm_report_add_entry(rep, "unexpected _cst_02 [.e]", path);
+        if (rep) jm_report_add_entry(rep, "unexpected value for mandatory prop <e> [.]", path);
+        return false;
+    }
+    if (! (json_object_get(val, "f") != NULL))
+    {
+        if (rep) jm_report_add_entry(rep, "missing mandatory prop <f> [.]", path);
+        return false;
+    }
+    pval = json_object_get(val, "f");
+    // .f
+    res = json_is_string(pval) && strcmp(json_string_value(pval), "cst_02") == 0;
+    if (! res)
+    {
+        if (rep) jm_report_add_entry(rep, "unexpected _cst_02 [.f]", path);
+        if (rep) jm_report_add_entry(rep, "unexpected value for mandatory prop <f> [.]", path);
+        return false;
+    }
+    if (! (json_object_get(val, "c") != NULL))
+    {
+        if (rep) jm_report_add_entry(rep, "missing mandatory prop <c> [.]", path);
+        return false;
+    }
+    pval = json_object_get(val, "c");
+    // .c
+    res = json_is_string(pval) && strcmp(json_string_value(pval), "cst_01") == 0;
+    if (! res)
+    {
+        if (rep) jm_report_add_entry(rep, "unexpected _cst_01 [.c]", path);
+        if (rep) jm_report_add_entry(rep, "unexpected value for mandatory prop <c> [.]", path);
+        return false;
+    }
+    if (! (json_object_get(val, "d") != NULL))
+    {
+        if (rep) jm_report_add_entry(rep, "missing mandatory prop <d> [.]", path);
+        return false;
+    }
+    pval = json_object_get(val, "d");
+    // .d
+    res = json_is_string(pval) && strcmp(json_string_value(pval), "cst_01") == 0;
+    if (! res)
+    {
+        if (rep) jm_report_add_entry(rep, "unexpected _cst_01 [.d]", path);
+        if (rep) jm_report_add_entry(rep, "unexpected value for mandatory prop <d> [.]", path);
         return false;
     }
     return true;
@@ -407,13 +310,6 @@ const char *check_model_init(void)
     {
         initialized = true;
         jm_version_string = JSON_MODEL_VERSION;
-        _jm_obj_2_mup_tab[0] = (jm_propmap_t) { "a", _jm_f_0 };
-        _jm_obj_2_mup_tab[1] = (jm_propmap_t) { "b", _jm_f_1 };
-        _jm_obj_2_mup_tab[2] = (jm_propmap_t) { "c", _jm_f_2 };
-        _jm_obj_2_mup_tab[3] = (jm_propmap_t) { "d", _jm_f_3 };
-        _jm_obj_2_mup_tab[4] = (jm_propmap_t) { "e", _jm_f_4 };
-        _jm_obj_2_mup_tab[5] = (jm_propmap_t) { "f", _jm_f_5 };
-        jm_sort_propmap(_jm_obj_2_mup_tab, 6);
         check_model_map_tab[0] = (jm_propmap_t) { "", _jm_obj_2 };
         check_model_map_tab[1] = (jm_propmap_t) { "t", json_model_2 };
         check_model_map_tab[2] = (jm_propmap_t) { "r", _jm_obj_0 };

@@ -9,29 +9,23 @@ CREATE EXTENSION IF NOT EXISTS json_model;
 CREATE OR REPLACE FUNCTION _jm_obj_0(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
-  res bool;
-  must_count int;
-  prop TEXT;
   pval JSONB;
+  res bool;
 BEGIN
+  -- check close must only props
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
-  must_count := 0;
-  FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF prop = 'name' THEN
-      -- handle must name property
-      must_count := must_count + 1;
-      -- .'|'.1.name
-      res := JSONB_TYPEOF(pval) = 'string';
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-    ELSE
-      RETURN FALSE;
-    END IF;
-  END LOOP;
-  IF must_count <> 1 THEN
+  IF jm_object_size(val) <> 1 THEN
+    RETURN FALSE;
+  END IF;
+  IF NOT val ? 'name' THEN
+    RETURN FALSE;
+  END IF;
+  pval := val -> 'name';
+  -- .'|'.1.name
+  res := JSONB_TYPEOF(pval) = 'string';
+  IF NOT res THEN
     RETURN FALSE;
   END IF;
   RETURN TRUE;

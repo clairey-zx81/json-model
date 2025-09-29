@@ -1,8 +1,8 @@
 orob_00.values.json[0]: PASS
 orob_00.values.json[1]: PASS
-orob_00.values.json[2]: FAIL (b: unexpected prop [.'|'.0]; : unexpected element [.'|'.0]; a: unexpected prop [.'|'.1]; : unexpected element [.'|'.1]; : no model matched [.'|'])
-orob_00.values.json[3]: FAIL (: missing mandatory prop <a> [.'|'.0]; : unexpected element [.'|'.0]; : missing mandatory prop <b> [.'|'.1]; : unexpected element [.'|'.1]; : no model matched [.'|'])
-orob_00.values.json[4]: FAIL (c: unexpected prop [.'|'.0]; : unexpected element [.'|'.0]; a: unexpected prop [.'|'.1]; : unexpected element [.'|'.1]; : no model matched [.'|'])
+orob_00.values.json[2]: FAIL (: bad property count [.'|'.0]; : unexpected element [.'|'.0]; : bad property count [.'|'.1]; : unexpected element [.'|'.1]; : no model matched [.'|'])
+orob_00.values.json[3]: FAIL (: bad property count [.'|'.0]; : unexpected element [.'|'.0]; : bad property count [.'|'.1]; : unexpected element [.'|'.1]; : no model matched [.'|'])
+orob_00.values.json[4]: FAIL (: bad property count [.'|'.0]; : unexpected element [.'|'.0]; : bad property count [.'|'.1]; : unexpected element [.'|'.1]; : no model matched [.'|'])
 orob_00.values.json[5]: FAIL (: unexpected type [.'|'])
 orob_00.values.json[6]: FAIL (: unexpected type [.'|'])
 orob_00.values.json[7]: FAIL (: unexpected type [.'|'])

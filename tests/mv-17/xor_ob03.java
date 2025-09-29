@@ -23,64 +23,45 @@ public class xor_ob03 extends ModelChecker
     // object .movie.'|'.0
     public boolean _jm_obj_1(Object val, Path path, Report rep)
     {
+        // check close must only props
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.movie.'|'.0]", path);
             return false;
         }
-        boolean res;
-        long must_count = 0;
-        Iterator<String> prop_loop = json.objectIterator(val);
-        while (prop_loop.hasNext())
+        if (json.objectSize(val) != 2)
         {
-            String prop = prop_loop.next();
-            Object pval = json.objectValue(val, prop);
-            Path lpath_1 = new Path(prop, path);
-            if (prop.compareTo("t") == 0)
-            {
-                // handle must t property
-                must_count += 1;
-                // .movie.'|'.0.t
-                res = json.isString(pval) && json.asString(pval).compareTo("fr") == 0;
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("unexpected fr [.movie.'|'.0.t]", (path != null ? lpath_1 : null));
-                    if (rep != null) rep.addEntry("invalid mandatory prop value [.movie.'|'.0.t]", (path != null ? lpath_1 : null));
-                    return false;
-                }
-            }
-            else if (prop.compareTo("titre") == 0)
-            {
-                // handle must titre property
-                must_count += 1;
-                // .movie.'|'.0.titre
-                res = json.isString(pval);
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("unexpected string [.movie.'|'.0.titre]", (path != null ? lpath_1 : null));
-                    if (rep != null) rep.addEntry("invalid mandatory prop value [.movie.'|'.0.titre]", (path != null ? lpath_1 : null));
-                    return false;
-                }
-            }
-            else
-            {
-                if (rep != null) rep.addEntry("unexpected prop [.movie.'|'.0]", (path != null ? lpath_1 : null));
-                return false;
-            }
+            if (rep != null) rep.addEntry("bad property count [.movie.'|'.0]", path);
+            return false;
         }
-        if (must_count != 2)
+        Object pval;
+        boolean res;
+        if (! json.objectHasProp(val, "t"))
         {
-            if (rep != null)
-            {
-                if (! json.objectHasProp(val, "t"))
-                {
-                    if (rep != null) rep.addEntry("missing mandatory prop <t> [.movie.'|'.0]", path);
-                }
-                if (! json.objectHasProp(val, "titre"))
-                {
-                    if (rep != null) rep.addEntry("missing mandatory prop <titre> [.movie.'|'.0]", path);
-                }
-            }
+            if (rep != null) rep.addEntry("missing mandatory prop <t> [.movie.'|'.0]", path);
+            return false;
+        }
+        pval = json.objectValue(val, "t");
+        // .movie.'|'.0.t
+        res = json.isString(pval) && json.asString(pval).compareTo("fr") == 0;
+        if (! res)
+        {
+            if (rep != null) rep.addEntry("unexpected fr [.movie.'|'.0.t]", path);
+            if (rep != null) rep.addEntry("unexpected value for mandatory prop <t> [.movie.'|'.0]", path);
+            return false;
+        }
+        if (! json.objectHasProp(val, "titre"))
+        {
+            if (rep != null) rep.addEntry("missing mandatory prop <titre> [.movie.'|'.0]", path);
+            return false;
+        }
+        pval = json.objectValue(val, "titre");
+        // .movie.'|'.0.titre
+        res = json.isString(pval);
+        if (! res)
+        {
+            if (rep != null) rep.addEntry("unexpected string [.movie.'|'.0.titre]", path);
+            if (rep != null) rep.addEntry("unexpected value for mandatory prop <titre> [.movie.'|'.0]", path);
             return false;
         }
         return true;
@@ -89,64 +70,45 @@ public class xor_ob03 extends ModelChecker
     // object .movie.'|'.1
     public boolean _jm_obj_2(Object val, Path path, Report rep)
     {
+        // check close must only props
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.movie.'|'.1]", path);
             return false;
         }
-        boolean res;
-        long must_count = 0;
-        Iterator<String> prop_loop = json.objectIterator(val);
-        while (prop_loop.hasNext())
+        if (json.objectSize(val) != 2)
         {
-            String prop = prop_loop.next();
-            Object pval = json.objectValue(val, prop);
-            Path lpath_2 = new Path(prop, path);
-            if (prop.compareTo("t") == 0)
-            {
-                // handle must t property
-                must_count += 1;
-                // .movie.'|'.1.t
-                res = json.isString(pval) && json.asString(pval).compareTo("en") == 0;
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("unexpected en [.movie.'|'.1.t]", (path != null ? lpath_2 : null));
-                    if (rep != null) rep.addEntry("invalid mandatory prop value [.movie.'|'.1.t]", (path != null ? lpath_2 : null));
-                    return false;
-                }
-            }
-            else if (prop.compareTo("title") == 0)
-            {
-                // handle must title property
-                must_count += 1;
-                // .movie.'|'.1.title
-                res = json.isString(pval);
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("unexpected string [.movie.'|'.1.title]", (path != null ? lpath_2 : null));
-                    if (rep != null) rep.addEntry("invalid mandatory prop value [.movie.'|'.1.title]", (path != null ? lpath_2 : null));
-                    return false;
-                }
-            }
-            else
-            {
-                if (rep != null) rep.addEntry("unexpected prop [.movie.'|'.1]", (path != null ? lpath_2 : null));
-                return false;
-            }
+            if (rep != null) rep.addEntry("bad property count [.movie.'|'.1]", path);
+            return false;
         }
-        if (must_count != 2)
+        Object pval;
+        boolean res;
+        if (! json.objectHasProp(val, "t"))
         {
-            if (rep != null)
-            {
-                if (! json.objectHasProp(val, "t"))
-                {
-                    if (rep != null) rep.addEntry("missing mandatory prop <t> [.movie.'|'.1]", path);
-                }
-                if (! json.objectHasProp(val, "title"))
-                {
-                    if (rep != null) rep.addEntry("missing mandatory prop <title> [.movie.'|'.1]", path);
-                }
-            }
+            if (rep != null) rep.addEntry("missing mandatory prop <t> [.movie.'|'.1]", path);
+            return false;
+        }
+        pval = json.objectValue(val, "t");
+        // .movie.'|'.1.t
+        res = json.isString(pval) && json.asString(pval).compareTo("en") == 0;
+        if (! res)
+        {
+            if (rep != null) rep.addEntry("unexpected en [.movie.'|'.1.t]", path);
+            if (rep != null) rep.addEntry("unexpected value for mandatory prop <t> [.movie.'|'.1]", path);
+            return false;
+        }
+        if (! json.objectHasProp(val, "title"))
+        {
+            if (rep != null) rep.addEntry("missing mandatory prop <title> [.movie.'|'.1]", path);
+            return false;
+        }
+        pval = json.objectValue(val, "title");
+        // .movie.'|'.1.title
+        res = json.isString(pval);
+        if (! res)
+        {
+            if (rep != null) rep.addEntry("unexpected string [.movie.'|'.1.title]", path);
+            if (rep != null) rep.addEntry("unexpected value for mandatory prop <title> [.movie.'|'.1]", path);
             return false;
         }
         return true;
@@ -155,64 +117,45 @@ public class xor_ob03 extends ModelChecker
     // object .movie.'|'.2
     public boolean _jm_obj_3(Object val, Path path, Report rep)
     {
+        // check close must only props
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.movie.'|'.2]", path);
             return false;
         }
-        boolean res;
-        long must_count = 0;
-        Iterator<String> prop_loop = json.objectIterator(val);
-        while (prop_loop.hasNext())
+        if (json.objectSize(val) != 2)
         {
-            String prop = prop_loop.next();
-            Object pval = json.objectValue(val, prop);
-            Path lpath_3 = new Path(prop, path);
-            if (prop.compareTo("t") == 0)
-            {
-                // handle must t property
-                must_count += 1;
-                // .movie.'|'.2.t
-                res = json.isString(pval) && json.asString(pval).compareTo("ru") == 0;
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("unexpected ru [.movie.'|'.2.t]", (path != null ? lpath_3 : null));
-                    if (rep != null) rep.addEntry("invalid mandatory prop value [.movie.'|'.2.t]", (path != null ? lpath_3 : null));
-                    return false;
-                }
-            }
-            else if (prop.compareTo("suti") == 0)
-            {
-                // handle must suti property
-                must_count += 1;
-                // .movie.'|'.2.suti
-                res = json.isString(pval);
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("unexpected string [.movie.'|'.2.suti]", (path != null ? lpath_3 : null));
-                    if (rep != null) rep.addEntry("invalid mandatory prop value [.movie.'|'.2.suti]", (path != null ? lpath_3 : null));
-                    return false;
-                }
-            }
-            else
-            {
-                if (rep != null) rep.addEntry("unexpected prop [.movie.'|'.2]", (path != null ? lpath_3 : null));
-                return false;
-            }
+            if (rep != null) rep.addEntry("bad property count [.movie.'|'.2]", path);
+            return false;
         }
-        if (must_count != 2)
+        Object pval;
+        boolean res;
+        if (! json.objectHasProp(val, "t"))
         {
-            if (rep != null)
-            {
-                if (! json.objectHasProp(val, "suti"))
-                {
-                    if (rep != null) rep.addEntry("missing mandatory prop <suti> [.movie.'|'.2]", path);
-                }
-                if (! json.objectHasProp(val, "t"))
-                {
-                    if (rep != null) rep.addEntry("missing mandatory prop <t> [.movie.'|'.2]", path);
-                }
-            }
+            if (rep != null) rep.addEntry("missing mandatory prop <t> [.movie.'|'.2]", path);
+            return false;
+        }
+        pval = json.objectValue(val, "t");
+        // .movie.'|'.2.t
+        res = json.isString(pval) && json.asString(pval).compareTo("ru") == 0;
+        if (! res)
+        {
+            if (rep != null) rep.addEntry("unexpected ru [.movie.'|'.2.t]", path);
+            if (rep != null) rep.addEntry("unexpected value for mandatory prop <t> [.movie.'|'.2]", path);
+            return false;
+        }
+        if (! json.objectHasProp(val, "suti"))
+        {
+            if (rep != null) rep.addEntry("missing mandatory prop <suti> [.movie.'|'.2]", path);
+            return false;
+        }
+        pval = json.objectValue(val, "suti");
+        // .movie.'|'.2.suti
+        res = json.isString(pval);
+        if (! res)
+        {
+            if (rep != null) rep.addEntry("unexpected string [.movie.'|'.2.suti]", path);
+            if (rep != null) rep.addEntry("unexpected value for mandatory prop <suti> [.movie.'|'.2]", path);
             return false;
         }
         return true;
@@ -222,73 +165,57 @@ public class xor_ob03 extends ModelChecker
     // object .
     public boolean _jm_obj_0(Object val, Path path, Report rep)
     {
+        // check close must only props
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.]", path);
             return false;
         }
-        boolean res;
-        long must_count = 0;
-        Iterator<String> prop_loop = json.objectIterator(val);
-        while (prop_loop.hasNext())
+        if (json.objectSize(val) != 1)
         {
-            String prop = prop_loop.next();
-            Object pval = json.objectValue(val, prop);
-            Path lpath_0 = new Path(prop, path);
-            if (prop.compareTo("movie") == 0)
+            if (rep != null) rep.addEntry("bad property count [.]", path);
+            return false;
+        }
+        Object pval;
+        boolean res;
+        if (! json.objectHasProp(val, "movie"))
+        {
+            if (rep != null) rep.addEntry("missing mandatory prop <movie> [.]", path);
+            return false;
+        }
+        pval = json.objectValue(val, "movie");
+        // .movie
+        boolean iso_0 = json.isObject(pval);
+        res = iso_0;
+        if (res)
+        {
+            if (json.objectHasProp(pval, "t"))
             {
-                // handle must movie property
-                must_count += 1;
-                // .movie
-                boolean iso_0 = json.isObject(pval);
-                res = iso_0;
-                if (res)
+                Object tag_0 = json.objectValue(pval, "t");
+                Checker fun_0 = _jm_map_0_cmap.get(tag_0);
+                if (fun_0 != null)
                 {
-                    if (json.objectHasProp(pval, "t"))
-                    {
-                        Object tag_0 = json.objectValue(pval, "t");
-                        Checker fun_0 = _jm_map_0_cmap.get(tag_0);
-                        if (fun_0 != null)
-                        {
-                            res = fun_0.call(pval, (path != null ? lpath_0 : null), rep);
-                        }
-                        else
-                        {
-                            res = false;
-                            if (rep != null) rep.addEntry("tag <t> value not found [.movie.'|']", (path != null ? lpath_0 : null));
-                        }
-                    }
-                    else
-                    {
-                        res = false;
-                        if (rep != null) rep.addEntry("tag prop <t> is missing [.movie.'|']", (path != null ? lpath_0 : null));
-                    }
+                    res = fun_0.call(pval, path, rep);
                 }
                 else
                 {
-                    if (rep != null) rep.addEntry("value is not an object [.movie.'|']", (path != null ? lpath_0 : null));
-                }
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("invalid mandatory prop value [.movie]", (path != null ? lpath_0 : null));
-                    return false;
+                    res = false;
+                    if (rep != null) rep.addEntry("tag <t> value not found [.movie.'|']", path);
                 }
             }
             else
             {
-                if (rep != null) rep.addEntry("unexpected prop [.]", (path != null ? lpath_0 : null));
-                return false;
+                res = false;
+                if (rep != null) rep.addEntry("tag prop <t> is missing [.movie.'|']", path);
             }
         }
-        if (must_count != 1)
+        else
         {
-            if (rep != null)
-            {
-                if (! json.objectHasProp(val, "movie"))
-                {
-                    if (rep != null) rep.addEntry("missing mandatory prop <movie> [.]", path);
-                }
-            }
+            if (rep != null) rep.addEntry("value is not an object [.movie.'|']", path);
+        }
+        if (! res)
+        {
+            if (rep != null) rep.addEntry("unexpected value for mandatory prop <movie> [.]", path);
             return false;
         }
         return true;

@@ -2588,7 +2588,7 @@ def json_model_49(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # object .'$platforms'.0.'|'.46
 def _jm_obj_47(val: Jsonable, path: Path, rep: Report) -> bool:
-    # check must only props
+    # check open must/may only props
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$platforms'.0.'|'.46]", path))
         return False
@@ -2623,7 +2623,7 @@ def _jm_obj_47(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # object .'$platforms'.0.'|'.45
 def _jm_obj_48(val: Jsonable, path: Path, rep: Report) -> bool:
-    # check must only props
+    # check open must/may only props
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$platforms'.0.'|'.45]", path))
         return False
@@ -2657,7 +2657,7 @@ def _jm_obj_48(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # object .'$platforms'.0.'|'.44
 def _jm_obj_49(val: Jsonable, path: Path, rep: Report) -> bool:
-    # check must only props
+    # check open must/may only props
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$platforms'.0.'|'.44]", path))
         return False
@@ -2692,7 +2692,7 @@ def _jm_obj_49(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # object .'$platforms'.0.'|'.43
 def _jm_obj_50(val: Jsonable, path: Path, rep: Report) -> bool:
-    # check must only props
+    # check open must/may only props
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$platforms'.0.'|'.43]", path))
         return False
@@ -2727,7 +2727,7 @@ def _jm_obj_50(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # object .'$platforms'.0.'|'.42
 def _jm_obj_51(val: Jsonable, path: Path, rep: Report) -> bool:
-    # check must only props
+    # check open must/may only props
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$platforms'.0.'|'.42]", path))
         return False
@@ -2762,7 +2762,7 @@ def _jm_obj_51(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # object .'$platforms'.0.'|'.41
 def _jm_obj_52(val: Jsonable, path: Path, rep: Report) -> bool:
-    # check must only props
+    # check open must/may only props
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$platforms'.0.'|'.41]", path))
         return False
@@ -2797,7 +2797,7 @@ def _jm_obj_52(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # object .'$platforms'.0.'|'.40
 def _jm_obj_53(val: Jsonable, path: Path, rep: Report) -> bool:
-    # check must only props
+    # check open must/may only props
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$platforms'.0.'|'.40]", path))
         return False
@@ -2832,7 +2832,7 @@ def _jm_obj_53(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # object .'$platforms'.0.'|'.39
 def _jm_obj_54(val: Jsonable, path: Path, rep: Report) -> bool:
-    # check must only props
+    # check open must/may only props
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$platforms'.0.'|'.39]", path))
         return False
@@ -2866,7 +2866,7 @@ def _jm_obj_54(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # object .'$platforms'.0.'|'.38
 def _jm_obj_55(val: Jsonable, path: Path, rep: Report) -> bool:
-    # check must only props
+    # check open must/may only props
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$platforms'.0.'|'.38]", path))
         return False
@@ -2901,7 +2901,7 @@ def _jm_obj_55(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # object .'$platforms'.0.'|'.37
 def _jm_obj_56(val: Jsonable, path: Path, rep: Report) -> bool:
-    # check must only props
+    # check open must/may only props
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$platforms'.0.'|'.37]", path))
         return False
@@ -2936,7 +2936,7 @@ def _jm_obj_56(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # object .'$platforms'.0.'|'.36
 def _jm_obj_57(val: Jsonable, path: Path, rep: Report) -> bool:
-    # check must only props
+    # check open must/may only props
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$platforms'.0.'|'.36]", path))
         return False
@@ -2971,7 +2971,7 @@ def _jm_obj_57(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # object .'$platforms'.0.'|'.35
 def _jm_obj_58(val: Jsonable, path: Path, rep: Report) -> bool:
-    # check must only props
+    # check open must/may only props
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$platforms'.0.'|'.35]", path))
         return False
@@ -3005,7 +3005,7 @@ def _jm_obj_58(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # object .'$platforms'.0.'|'.34
 def _jm_obj_59(val: Jsonable, path: Path, rep: Report) -> bool:
-    # check must only props
+    # check open must/may only props
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$platforms'.0.'|'.34]", path))
         return False
@@ -3040,7 +3040,7 @@ def _jm_obj_59(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # object .'$platforms'.0.'|'.33
 def _jm_obj_60(val: Jsonable, path: Path, rep: Report) -> bool:
-    # check must only props
+    # check open must/may only props
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$platforms'.0.'|'.33]", path))
         return False
@@ -3075,7 +3075,7 @@ def _jm_obj_60(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # object .'$platforms'.0.'|'.32
 def _jm_obj_61(val: Jsonable, path: Path, rep: Report) -> bool:
-    # check must only props
+    # check open must/may only props
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$platforms'.0.'|'.32]", path))
         return False
@@ -3110,7 +3110,7 @@ def _jm_obj_61(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # object .'$platforms'.0.'|'.31
 def _jm_obj_62(val: Jsonable, path: Path, rep: Report) -> bool:
-    # check must only props
+    # check open must/may only props
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$platforms'.0.'|'.31]", path))
         return False
@@ -3145,7 +3145,7 @@ def _jm_obj_62(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # object .'$platforms'.0.'|'.30
 def _jm_obj_63(val: Jsonable, path: Path, rep: Report) -> bool:
-    # check must only props
+    # check open must/may only props
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$platforms'.0.'|'.30]", path))
         return False
@@ -3179,7 +3179,7 @@ def _jm_obj_63(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # object .'$platforms'.0.'|'.29
 def _jm_obj_64(val: Jsonable, path: Path, rep: Report) -> bool:
-    # check must only props
+    # check open must/may only props
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$platforms'.0.'|'.29]", path))
         return False
@@ -3214,7 +3214,7 @@ def _jm_obj_64(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # object .'$platforms'.0.'|'.28
 def _jm_obj_65(val: Jsonable, path: Path, rep: Report) -> bool:
-    # check must only props
+    # check open must/may only props
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$platforms'.0.'|'.28]", path))
         return False
@@ -3249,7 +3249,7 @@ def _jm_obj_65(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # object .'$platforms'.0.'|'.27
 def _jm_obj_66(val: Jsonable, path: Path, rep: Report) -> bool:
-    # check must only props
+    # check open must/may only props
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$platforms'.0.'|'.27]", path))
         return False
@@ -3284,7 +3284,7 @@ def _jm_obj_66(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # object .'$platforms'.0.'|'.26
 def _jm_obj_67(val: Jsonable, path: Path, rep: Report) -> bool:
-    # check must only props
+    # check open must/may only props
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$platforms'.0.'|'.26]", path))
         return False
@@ -3319,7 +3319,7 @@ def _jm_obj_67(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # object .'$platforms'.0.'|'.25
 def _jm_obj_68(val: Jsonable, path: Path, rep: Report) -> bool:
-    # check must only props
+    # check open must/may only props
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$platforms'.0.'|'.25]", path))
         return False
@@ -3353,7 +3353,7 @@ def _jm_obj_68(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # object .'$platforms'.0.'|'.24
 def _jm_obj_69(val: Jsonable, path: Path, rep: Report) -> bool:
-    # check must only props
+    # check open must/may only props
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$platforms'.0.'|'.24]", path))
         return False
@@ -3387,7 +3387,7 @@ def _jm_obj_69(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # object .'$platforms'.0.'|'.23
 def _jm_obj_70(val: Jsonable, path: Path, rep: Report) -> bool:
-    # check must only props
+    # check open must/may only props
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$platforms'.0.'|'.23]", path))
         return False
@@ -3422,7 +3422,7 @@ def _jm_obj_70(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # object .'$platforms'.0.'|'.22
 def _jm_obj_71(val: Jsonable, path: Path, rep: Report) -> bool:
-    # check must only props
+    # check open must/may only props
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$platforms'.0.'|'.22]", path))
         return False
@@ -3456,7 +3456,7 @@ def _jm_obj_71(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # object .'$platforms'.0.'|'.21
 def _jm_obj_72(val: Jsonable, path: Path, rep: Report) -> bool:
-    # check must only props
+    # check open must/may only props
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$platforms'.0.'|'.21]", path))
         return False
@@ -3490,7 +3490,7 @@ def _jm_obj_72(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # object .'$platforms'.0.'|'.20
 def _jm_obj_73(val: Jsonable, path: Path, rep: Report) -> bool:
-    # check must only props
+    # check open must/may only props
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$platforms'.0.'|'.20]", path))
         return False
@@ -3524,7 +3524,7 @@ def _jm_obj_73(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # object .'$platforms'.0.'|'.19
 def _jm_obj_74(val: Jsonable, path: Path, rep: Report) -> bool:
-    # check must only props
+    # check open must/may only props
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$platforms'.0.'|'.19]", path))
         return False
@@ -3558,7 +3558,7 @@ def _jm_obj_74(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # object .'$platforms'.0.'|'.18
 def _jm_obj_75(val: Jsonable, path: Path, rep: Report) -> bool:
-    # check must only props
+    # check open must/may only props
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$platforms'.0.'|'.18]", path))
         return False
@@ -3593,7 +3593,7 @@ def _jm_obj_75(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # object .'$platforms'.0.'|'.17
 def _jm_obj_76(val: Jsonable, path: Path, rep: Report) -> bool:
-    # check must only props
+    # check open must/may only props
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$platforms'.0.'|'.17]", path))
         return False
@@ -3628,7 +3628,7 @@ def _jm_obj_76(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # object .'$platforms'.0.'|'.16
 def _jm_obj_77(val: Jsonable, path: Path, rep: Report) -> bool:
-    # check must only props
+    # check open must/may only props
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$platforms'.0.'|'.16]", path))
         return False
@@ -3662,7 +3662,7 @@ def _jm_obj_77(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # object .'$platforms'.0.'|'.15
 def _jm_obj_78(val: Jsonable, path: Path, rep: Report) -> bool:
-    # check must only props
+    # check open must/may only props
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$platforms'.0.'|'.15]", path))
         return False
@@ -3697,7 +3697,7 @@ def _jm_obj_78(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # object .'$platforms'.0.'|'.14
 def _jm_obj_79(val: Jsonable, path: Path, rep: Report) -> bool:
-    # check must only props
+    # check open must/may only props
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$platforms'.0.'|'.14]", path))
         return False
@@ -3732,7 +3732,7 @@ def _jm_obj_79(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # object .'$platforms'.0.'|'.13
 def _jm_obj_80(val: Jsonable, path: Path, rep: Report) -> bool:
-    # check must only props
+    # check open must/may only props
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$platforms'.0.'|'.13]", path))
         return False
@@ -3767,7 +3767,7 @@ def _jm_obj_80(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # object .'$platforms'.0.'|'.12
 def _jm_obj_81(val: Jsonable, path: Path, rep: Report) -> bool:
-    # check must only props
+    # check open must/may only props
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$platforms'.0.'|'.12]", path))
         return False
@@ -3802,7 +3802,7 @@ def _jm_obj_81(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # object .'$platforms'.0.'|'.11
 def _jm_obj_82(val: Jsonable, path: Path, rep: Report) -> bool:
-    # check must only props
+    # check open must/may only props
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$platforms'.0.'|'.11]", path))
         return False
@@ -3837,7 +3837,7 @@ def _jm_obj_82(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # object .'$platforms'.0.'|'.10
 def _jm_obj_83(val: Jsonable, path: Path, rep: Report) -> bool:
-    # check must only props
+    # check open must/may only props
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$platforms'.0.'|'.10]", path))
         return False
@@ -3872,7 +3872,7 @@ def _jm_obj_83(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # object .'$platforms'.0.'|'.9
 def _jm_obj_84(val: Jsonable, path: Path, rep: Report) -> bool:
-    # check must only props
+    # check open must/may only props
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$platforms'.0.'|'.9]", path))
         return False
@@ -3907,7 +3907,7 @@ def _jm_obj_84(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # object .'$platforms'.0.'|'.8
 def _jm_obj_85(val: Jsonable, path: Path, rep: Report) -> bool:
-    # check must only props
+    # check open must/may only props
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$platforms'.0.'|'.8]", path))
         return False
@@ -3941,7 +3941,7 @@ def _jm_obj_85(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # object .'$platforms'.0.'|'.7
 def _jm_obj_86(val: Jsonable, path: Path, rep: Report) -> bool:
-    # check must only props
+    # check open must/may only props
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$platforms'.0.'|'.7]", path))
         return False
@@ -3976,7 +3976,7 @@ def _jm_obj_86(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # object .'$platforms'.0.'|'.6
 def _jm_obj_87(val: Jsonable, path: Path, rep: Report) -> bool:
-    # check must only props
+    # check open must/may only props
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$platforms'.0.'|'.6]", path))
         return False
@@ -4010,7 +4010,7 @@ def _jm_obj_87(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # object .'$platforms'.0.'|'.5
 def _jm_obj_88(val: Jsonable, path: Path, rep: Report) -> bool:
-    # check must only props
+    # check open must/may only props
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$platforms'.0.'|'.5]", path))
         return False
@@ -4044,7 +4044,7 @@ def _jm_obj_88(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # object .'$platforms'.0.'|'.4
 def _jm_obj_89(val: Jsonable, path: Path, rep: Report) -> bool:
-    # check must only props
+    # check open must/may only props
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$platforms'.0.'|'.4]", path))
         return False
@@ -4079,7 +4079,7 @@ def _jm_obj_89(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # object .'$platforms'.0.'|'.3
 def _jm_obj_90(val: Jsonable, path: Path, rep: Report) -> bool:
-    # check must only props
+    # check open must/may only props
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$platforms'.0.'|'.3]", path))
         return False
@@ -4114,7 +4114,7 @@ def _jm_obj_90(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # object .'$platforms'.0.'|'.2
 def _jm_obj_91(val: Jsonable, path: Path, rep: Report) -> bool:
-    # check must only props
+    # check open must/may only props
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$platforms'.0.'|'.2]", path))
         return False
@@ -4148,7 +4148,7 @@ def _jm_obj_91(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # object .'$platforms'.0.'|'.1
 def _jm_obj_92(val: Jsonable, path: Path, rep: Report) -> bool:
-    # check must only props
+    # check open must/may only props
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$platforms'.0.'|'.1]", path))
         return False
@@ -4183,7 +4183,7 @@ def _jm_obj_92(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # object .'$platforms'.0.'|'.0
 def _jm_obj_93(val: Jsonable, path: Path, rep: Report) -> bool:
-    # check must only props
+    # check open must/may only props
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$platforms'.0.'|'.0]", path))
         return False
@@ -5293,7 +5293,7 @@ def _jm_obj_100(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # object .'$DependencyModelLoose'
 def _jm_obj_99(val: Jsonable, path: Path, rep: Report) -> bool:
-    # check must only props
+    # check open must/may only props
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$DependencyModelLoose']", path))
         return False
@@ -5405,7 +5405,7 @@ def json_model_57(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # object .'$DependencyModel'.'&'.1.'|'.2
 def _jm_obj_101(val: Jsonable, path: Path, rep: Report) -> bool:
-    # check must only props
+    # check open must/may only props
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$DependencyModel'.'&'.1.'|'.2]", path))
         return False
@@ -5425,7 +5425,7 @@ def _jm_obj_101(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # object .'$DependencyModel'.'&'.1.'|'.1
 def _jm_obj_102(val: Jsonable, path: Path, rep: Report) -> bool:
-    # check must only props
+    # check open must/may only props
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$DependencyModel'.'&'.1.'|'.1]", path))
         return False
@@ -5445,7 +5445,7 @@ def _jm_obj_102(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # object .'$DependencyModel'.'&'.1.'|'.0
 def _jm_obj_103(val: Jsonable, path: Path, rep: Report) -> bool:
-    # check must only props
+    # check open must/may only props
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$DependencyModel'.'&'.1.'|'.0]", path))
         return False

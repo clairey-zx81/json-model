@@ -39,7 +39,7 @@ my %check_model_map;
 sub _jm_obj_0($$$)
 {
     my ($val, $path, $rep) = @_;
-    # check must only props
+    # check open must/may only props
     if (! jm_is_object($val))
     {
         return 0;
@@ -86,7 +86,7 @@ sub json_model_2($$$)
 sub _jm_obj_1($$$)
 {
     my ($val, $path, $rep) = @_;
-    # check must only props
+    # check open must/may only props
     if (! jm_is_object($val))
     {
         return 0;
@@ -133,7 +133,7 @@ sub json_model_3($$$)
 sub _jm_obj_2($$$)
 {
     my ($val, $path, $rep) = @_;
-    # check must only props
+    # check open must/may only props
     if (! jm_is_object($val))
     {
         return 0;
@@ -169,7 +169,7 @@ sub _jm_obj_2($$$)
 sub _jm_obj_3($$$)
 {
     my ($val, $path, $rep) = @_;
-    # check must only props
+    # check open must/may only props
     if (! jm_is_object($val))
     {
         return 0;
@@ -237,7 +237,7 @@ sub json_model_4($$$)
 sub _jm_obj_4($$$)
 {
     my ($val, $path, $rep) = @_;
-    # check must only props
+    # check open must/may only props
     if (! jm_is_object($val))
     {
         return 0;
@@ -284,7 +284,7 @@ sub json_model_5($$$)
 sub _jm_obj_5($$$)
 {
     my ($val, $path, $rep) = @_;
-    # check must only props
+    # check open must/may only props
     if (! jm_is_object($val))
     {
         return 0;
@@ -330,7 +330,7 @@ sub json_model_6($$$)
 sub _jm_obj_6($$$)
 {
     my ($val, $path, $rep) = @_;
-    # check must only props
+    # check open must/may only props
     if (! jm_is_object($val))
     {
         return 0;
@@ -367,7 +367,7 @@ sub _jm_obj_6($$$)
 sub _jm_obj_7($$$)
 {
     my ($val, $path, $rep) = @_;
-    # check must only props
+    # check open must/may only props
     if (! jm_is_object($val))
     {
         return 0;
@@ -404,7 +404,7 @@ sub _jm_obj_7($$$)
 sub _jm_obj_8($$$)
 {
     my ($val, $path, $rep) = @_;
-    # check must only props
+    # check open must/may only props
     if (! jm_is_object($val))
     {
         return 0;
@@ -440,7 +440,7 @@ sub _jm_obj_8($$$)
 sub _jm_obj_9($$$)
 {
     my ($val, $path, $rep) = @_;
-    # check must only props
+    # check open must/may only props
     if (! jm_is_object($val))
     {
         return 0;

@@ -63,7 +63,7 @@ function json_model_1(val, path, rep)
 // object .'$tight#RootSchema'.'&'.0
 function _jm_obj_0(val, path, rep)
 {
-    // check must only props
+    // check open must/may only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.'$tight#RootSchema'.'&'.0]", path])

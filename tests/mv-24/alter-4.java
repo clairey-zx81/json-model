@@ -24,45 +24,36 @@ public class alter_4 extends ModelChecker
     // object .'$alternative'.'|'.0
     public boolean _jm_obj_0(Object val, Path path, Report rep)
     {
+        // check close must only props
         if (! json.isObject(val))
         {
             return false;
         }
-        boolean res;
-        long must_count = 0;
-        Iterator<String> prop_loop = json.objectIterator(val);
-        while (prop_loop.hasNext())
+        if (json.objectSize(val) != 2)
         {
-            String prop = prop_loop.next();
-            Object pval = json.objectValue(val, prop);
-            if (prop.compareTo("t") == 0)
-            {
-                // handle must t property
-                must_count += 1;
-                // .'$alternative'.'|'.0.t
-                res = json.isString(pval) && json.asString(pval).compareTo("a") == 0;
-                if (! res)
-                {
-                    return false;
-                }
-            }
-            else if (prop.compareTo("a") == 0)
-            {
-                // handle must a property
-                must_count += 1;
-                // .'$alternative'.'|'.0.a
-                res = json.isString(pval);
-                if (! res)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                return false;
-            }
+            return false;
         }
-        if (must_count != 2)
+        Object pval;
+        boolean res;
+        if (! json.objectHasProp(val, "t"))
+        {
+            return false;
+        }
+        pval = json.objectValue(val, "t");
+        // .'$alternative'.'|'.0.t
+        res = json.isString(pval) && json.asString(pval).compareTo("a") == 0;
+        if (! res)
+        {
+            return false;
+        }
+        if (! json.objectHasProp(val, "a"))
+        {
+            return false;
+        }
+        pval = json.objectValue(val, "a");
+        // .'$alternative'.'|'.0.a
+        res = json.isString(pval);
+        if (! res)
         {
             return false;
         }
@@ -73,45 +64,36 @@ public class alter_4 extends ModelChecker
     // object .'$alternative'.'|'.1
     public boolean _jm_obj_1(Object val, Path path, Report rep)
     {
+        // check close must only props
         if (! json.isObject(val))
         {
             return false;
         }
-        boolean res;
-        long must_count = 0;
-        Iterator<String> prop_loop = json.objectIterator(val);
-        while (prop_loop.hasNext())
+        if (json.objectSize(val) != 2)
         {
-            String prop = prop_loop.next();
-            Object pval = json.objectValue(val, prop);
-            if (prop.compareTo("t") == 0)
-            {
-                // handle must t property
-                must_count += 1;
-                // .'$alternative'.'|'.1.t
-                res = json.isScalar(pval) && _jm_cst_0_set.contains(pval);
-                if (! res)
-                {
-                    return false;
-                }
-            }
-            else if (prop.compareTo("bc") == 0)
-            {
-                // handle must bc property
-                must_count += 1;
-                // .'$alternative'.'|'.1.bc
-                res = json.isString(pval);
-                if (! res)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                return false;
-            }
+            return false;
         }
-        if (must_count != 2)
+        Object pval;
+        boolean res;
+        if (! json.objectHasProp(val, "t"))
+        {
+            return false;
+        }
+        pval = json.objectValue(val, "t");
+        // .'$alternative'.'|'.1.t
+        res = json.isScalar(pval) && _jm_cst_0_set.contains(pval);
+        if (! res)
+        {
+            return false;
+        }
+        if (! json.objectHasProp(val, "bc"))
+        {
+            return false;
+        }
+        pval = json.objectValue(val, "bc");
+        // .'$alternative'.'|'.1.bc
+        res = json.isString(pval);
+        if (! res)
         {
             return false;
         }

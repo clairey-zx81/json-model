@@ -18,32 +18,25 @@ my %check_model_map;
 sub _jm_obj_0($$$)
 {
     my ($val, $path, $rep) = @_;
+    # check close must only props
     if (! jm_is_object($val))
     {
         return 0;
     }
-    my $res;
-    my $must_count = 0;
-    scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    if (jm_obj_size($val) != 1)
     {
-        if ($prop eq 'li')
-        {
-            # handle must li property
-            $must_count++;
-            # .li
-            $res = jm_is_integer($pval) && $pval >= 0;
-            if (! $res)
-            {
-                return 0;
-            }
-        }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
-    if ($must_count != 1)
+    my $pval;
+    my $res;
+    if (! exists $$val{'li'})
+    {
+        return 0;
+    }
+    $pval = $$val{'li'};
+    # .li
+    $res = jm_is_integer($pval) && $pval >= 0;
+    if (! $res)
     {
         return 0;
     }

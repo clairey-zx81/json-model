@@ -29,7 +29,7 @@ public class alts_1 extends ModelChecker
     // object .'$oA'
     public boolean _jm_obj_0(Object val, Path path, Report rep)
     {
-        // check must only props
+        // check open must/may only props
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.'$oA']", path);
@@ -85,7 +85,7 @@ public class alts_1 extends ModelChecker
     // object .'$oB'
     public boolean _jm_obj_1(Object val, Path path, Report rep)
     {
-        // check must only props
+        // check open must/may only props
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.'$oB']", path);
@@ -141,7 +141,7 @@ public class alts_1 extends ModelChecker
     // object .'$oC'.'|'.0
     public boolean _jm_obj_2(Object val, Path path, Report rep)
     {
-        // check must only props
+        // check open must/may only props
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.'$oC'.'|'.0]", path);
@@ -183,7 +183,7 @@ public class alts_1 extends ModelChecker
     // object .'$oC'.'|'.1
     public boolean _jm_obj_3(Object val, Path path, Report rep)
     {
-        // check must only props
+        // check open must/may only props
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.'$oC'.'|'.1]", path);
@@ -262,7 +262,7 @@ public class alts_1 extends ModelChecker
     // object .'$oL'
     public boolean _jm_obj_4(Object val, Path path, Report rep)
     {
-        // check must only props
+        // check open must/may only props
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.'$oL']", path);
@@ -318,7 +318,7 @@ public class alts_1 extends ModelChecker
     // object .'$oX'
     public boolean _jm_obj_5(Object val, Path path, Report rep)
     {
-        // check must only props
+        // check open must/may only props
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.'$oX']", path);
@@ -373,7 +373,7 @@ public class alts_1 extends ModelChecker
     // object .'|'.0
     public boolean _jm_obj_6(Object val, Path path, Report rep)
     {
-        // check must only props
+        // check open must/may only props
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.'|'.0]", path);
@@ -416,7 +416,7 @@ public class alts_1 extends ModelChecker
     // object .'|'.1
     public boolean _jm_obj_7(Object val, Path path, Report rep)
     {
-        // check must only props
+        // check open must/may only props
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.'|'.1]", path);
@@ -459,7 +459,7 @@ public class alts_1 extends ModelChecker
     // object .'|'.2
     public boolean _jm_obj_8(Object val, Path path, Report rep)
     {
-        // check must only props
+        // check open must/may only props
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.'|'.2]", path);
@@ -501,7 +501,7 @@ public class alts_1 extends ModelChecker
     // object .'|'.3
     public boolean _jm_obj_9(Object val, Path path, Report rep)
     {
-        // check must only props
+        // check open must/may only props
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.'|'.3]", path);

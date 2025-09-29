@@ -7143,7 +7143,7 @@ static bool json_model_25(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // object .'$RootSchema'.'&'.0
 static INLINE bool _jm_obj_68(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    // check must only props
+    // check open must/may only props
     if (! json_is_object(val))
     {
         if (rep) jm_report_add_entry(rep, "not an object [.'$RootSchema'.'&'.0]", path);

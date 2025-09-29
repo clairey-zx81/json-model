@@ -26,47 +26,39 @@ const size_t check_model_map_size = 2;
 // object .'$objs0'
 static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
+    // check close must only props
     if (! json_is_object(val))
     {
         return false;
     }
-    bool res;
-    int64_t must_count = 0;
-    const char *prop;
-    json_t *pval;
-    json_object_foreach((json_t *) val, prop, pval)
+    if (json_object_size(val) != 1)
     {
-        if (strcmp(prop, "stuff") == 0)
+        return false;
+    }
+    json_t * pval;
+    bool res;
+    if (! (json_object_get(val, "stuff") != NULL))
+    {
+        return false;
+    }
+    pval = json_object_get(val, "stuff");
+    // .'$objs0'.stuff
+    res = json_is_array(pval);
+    if (res)
+    {
+        size_t arr_0_idx;
+        json_t *arr_0_item;
+        json_array_foreach(pval, arr_0_idx, arr_0_item)
         {
-            // handle must stuff property
-            must_count += 1;
-            // .'$objs0'.stuff
-            res = json_is_array(pval);
-            if (res)
-            {
-                size_t arr_0_idx;
-                json_t *arr_0_item;
-                json_array_foreach(pval, arr_0_idx, arr_0_item)
-                {
-                    // .'$objs0'.stuff.0
-                    res = json_model_6(arr_0_item, NULL, rep);
-                    if (! res)
-                    {
-                        break;
-                    }
-                }
-            }
+            // .'$objs0'.stuff.0
+            res = json_model_6(arr_0_item, NULL, rep);
             if (! res)
             {
-                return false;
+                break;
             }
         }
-        else
-        {
-            return false;
-        }
     }
-    if (must_count != 1)
+    if (! res)
     {
         return false;
     }
@@ -85,33 +77,25 @@ static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // object .
 static INLINE bool _jm_obj_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
+    // check close must only props
     if (! json_is_object(val))
     {
         return false;
     }
-    bool res;
-    int64_t must_count = 0;
-    const char *prop;
-    json_t *pval;
-    json_object_foreach((json_t *) val, prop, pval)
+    if (json_object_size(val) != 1)
     {
-        if (strcmp(prop, "foo") == 0)
-        {
-            // handle must foo property
-            must_count += 1;
-            // .foo
-            res = _jm_obj_0(pval, NULL, rep);
-            if (! res)
-            {
-                return false;
-            }
-        }
-        else
-        {
-            return false;
-        }
+        return false;
     }
-    if (must_count != 1)
+    json_t * pval;
+    bool res;
+    if (! (json_object_get(val, "foo") != NULL))
+    {
+        return false;
+    }
+    pval = json_object_get(val, "foo");
+    // .foo
+    res = _jm_obj_0(pval, path, rep);
+    if (! res)
     {
         return false;
     }
@@ -167,44 +151,36 @@ static bool json_model_6(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // object .'$objs0#table'
 static INLINE bool _jm_obj_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
+    // check close must only props
     if (! json_is_object(val))
     {
         return false;
     }
-    bool res;
-    int64_t must_count = 0;
-    const char *prop;
-    json_t *pval;
-    json_object_foreach((json_t *) val, prop, pval)
+    if (json_object_size(val) != 2)
     {
-        if (strcmp(prop, "t") == 0)
-        {
-            // handle must t property
-            must_count += 1;
-            // .'$objs0#table'.t
-            res = json_is_string(pval) && strcmp(json_string_value(pval), "table") == 0;
-            if (! res)
-            {
-                return false;
-            }
-        }
-        else if (strcmp(prop, "legs") == 0)
-        {
-            // handle must legs property
-            must_count += 1;
-            // .'$objs0#table'.legs
-            res = json_is_integer(pval) && json_integer_value(pval) >= 1;
-            if (! res)
-            {
-                return false;
-            }
-        }
-        else
-        {
-            return false;
-        }
+        return false;
     }
-    if (must_count != 2)
+    json_t * pval;
+    bool res;
+    if (! (json_object_get(val, "t") != NULL))
+    {
+        return false;
+    }
+    pval = json_object_get(val, "t");
+    // .'$objs0#table'.t
+    res = json_is_string(pval) && strcmp(json_string_value(pval), "table") == 0;
+    if (! res)
+    {
+        return false;
+    }
+    if (! (json_object_get(val, "legs") != NULL))
+    {
+        return false;
+    }
+    pval = json_object_get(val, "legs");
+    // .'$objs0#table'.legs
+    res = json_is_integer(pval) && json_integer_value(pval) >= 1;
+    if (! res)
     {
         return false;
     }
@@ -223,44 +199,36 @@ static bool json_model_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // object .'$objs0#chair'
 static INLINE bool _jm_obj_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
+    // check close must only props
     if (! json_is_object(val))
     {
         return false;
     }
-    bool res;
-    int64_t must_count = 0;
-    const char *prop;
-    json_t *pval;
-    json_object_foreach((json_t *) val, prop, pval)
+    if (json_object_size(val) != 2)
     {
-        if (strcmp(prop, "t") == 0)
-        {
-            // handle must t property
-            must_count += 1;
-            // .'$objs0#chair'.t
-            res = json_is_string(pval) && strcmp(json_string_value(pval), "chair") == 0;
-            if (! res)
-            {
-                return false;
-            }
-        }
-        else if (strcmp(prop, "color") == 0)
-        {
-            // handle must color property
-            must_count += 1;
-            // .'$objs0#chair'.color
-            res = json_is_string(pval);
-            if (! res)
-            {
-                return false;
-            }
-        }
-        else
-        {
-            return false;
-        }
+        return false;
     }
-    if (must_count != 2)
+    json_t * pval;
+    bool res;
+    if (! (json_object_get(val, "t") != NULL))
+    {
+        return false;
+    }
+    pval = json_object_get(val, "t");
+    // .'$objs0#chair'.t
+    res = json_is_string(pval) && strcmp(json_string_value(pval), "chair") == 0;
+    if (! res)
+    {
+        return false;
+    }
+    if (! (json_object_get(val, "color") != NULL))
+    {
+        return false;
+    }
+    pval = json_object_get(val, "color");
+    // .'$objs0#chair'.color
+    res = json_is_string(pval);
+    if (! res)
     {
         return false;
     }

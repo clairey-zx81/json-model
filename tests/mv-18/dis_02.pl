@@ -21,43 +21,36 @@ my %check_model_map;
 sub _jm_obj_0($$$)
 {
     my ($val, $path, $rep) = @_;
+    # check close must only props
     if (! jm_is_object($val))
     {
         return 0;
     }
-    my $res;
-    my $must_count = 0;
-    scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    if (jm_obj_size($val) != 2)
     {
-        if ($prop eq 't')
-        {
-            # handle must t property
-            $must_count++;
-            # .'|'.0.t
-            $res = jm_is_numeric($pval) && $pval == 3.1415927;
-            if (! $res)
-            {
-                return 0;
-            }
-        }
-        elsif ($prop eq 'pi')
-        {
-            # handle must pi property
-            $must_count++;
-            # .'|'.0.pi
-            $res = jm_is_string($pval);
-            if (! $res)
-            {
-                return 0;
-            }
-        }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
-    if ($must_count != 2)
+    my $pval;
+    my $res;
+    if (! exists $$val{'t'})
+    {
+        return 0;
+    }
+    $pval = $$val{'t'};
+    # .'|'.0.t
+    $res = jm_is_numeric($pval) && $pval == 3.1415927;
+    if (! $res)
+    {
+        return 0;
+    }
+    if (! exists $$val{'pi'})
+    {
+        return 0;
+    }
+    $pval = $$val{'pi'};
+    # .'|'.0.pi
+    $res = jm_is_string($pval);
+    if (! $res)
     {
         return 0;
     }
@@ -68,43 +61,36 @@ sub _jm_obj_0($$$)
 sub _jm_obj_1($$$)
 {
     my ($val, $path, $rep) = @_;
+    # check close must only props
     if (! jm_is_object($val))
     {
         return 0;
     }
-    my $res;
-    my $must_count = 0;
-    scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    if (jm_obj_size($val) != 2)
     {
-        if ($prop eq 't')
-        {
-            # handle must t property
-            $must_count++;
-            # .'|'.1.t
-            $res = jm_is_numeric($pval) && $pval == 1.0;
-            if (! $res)
-            {
-                return 0;
-            }
-        }
-        elsif ($prop eq 'one')
-        {
-            # handle must one property
-            $must_count++;
-            # .'|'.1.one
-            $res = jm_is_string($pval);
-            if (! $res)
-            {
-                return 0;
-            }
-        }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
-    if ($must_count != 2)
+    my $pval;
+    my $res;
+    if (! exists $$val{'t'})
+    {
+        return 0;
+    }
+    $pval = $$val{'t'};
+    # .'|'.1.t
+    $res = jm_is_numeric($pval) && $pval == 1.0;
+    if (! $res)
+    {
+        return 0;
+    }
+    if (! exists $$val{'one'})
+    {
+        return 0;
+    }
+    $pval = $$val{'one'};
+    # .'|'.1.one
+    $res = jm_is_string($pval);
+    if (! $res)
     {
         return 0;
     }
@@ -115,43 +101,36 @@ sub _jm_obj_1($$$)
 sub _jm_obj_2($$$)
 {
     my ($val, $path, $rep) = @_;
+    # check close must only props
     if (! jm_is_object($val))
     {
         return 0;
     }
-    my $res;
-    my $must_count = 0;
-    scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    if (jm_obj_size($val) != 2)
     {
-        if ($prop eq 't')
-        {
-            # handle must t property
-            $must_count++;
-            # .'|'.2.t
-            $res = jm_is_numeric($pval) && $pval == 0.5;
-            if (! $res)
-            {
-                return 0;
-            }
-        }
-        elsif ($prop eq 'half')
-        {
-            # handle must half property
-            $must_count++;
-            # .'|'.2.half
-            $res = jm_is_string($pval);
-            if (! $res)
-            {
-                return 0;
-            }
-        }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
-    if ($must_count != 2)
+    my $pval;
+    my $res;
+    if (! exists $$val{'t'})
+    {
+        return 0;
+    }
+    $pval = $$val{'t'};
+    # .'|'.2.t
+    $res = jm_is_numeric($pval) && $pval == 0.5;
+    if (! $res)
+    {
+        return 0;
+    }
+    if (! exists $$val{'half'})
+    {
+        return 0;
+    }
+    $pval = $$val{'half'};
+    # .'|'.2.half
+    $res = jm_is_string($pval);
+    if (! $res)
     {
         return 0;
     }

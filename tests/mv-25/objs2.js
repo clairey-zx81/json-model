@@ -14,42 +14,36 @@ var check_model_map = new Map()
 // object .'$bla'
 function _jm_obj_0(val, path, rep)
 {
+    // check close must only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         return false;
     }
-    let res;
-    let must_count = 0;
-    for (const [prop, pval] of Object.entries(val))
+    if (Object.keys(val).length != 2)
     {
-        if (prop == "x")
-        {
-            // handle must x property
-            must_count += 1;
-            // .'$bla'.x
-            res = (typeof pval === 'number' || pval instanceof Number);
-            if (! res)
-            {
-                return false;
-            }
-        }
-        else if (prop == "y")
-        {
-            // handle must y property
-            must_count += 1;
-            // .'$bla'.y
-            res = (typeof pval === 'number' || pval instanceof Number);
-            if (! res)
-            {
-                return false;
-            }
-        }
-        else
-        {
-            return false;
-        }
+        return false;
     }
-    if (must_count != 2)
+    let pval;
+    let res;
+    if (! val.hasOwnProperty("x"))
+    {
+        return false;
+    }
+    pval = val["x"];
+    // .'$bla'.x
+    res = (typeof pval === 'number' || pval instanceof Number);
+    if (! res)
+    {
+        return false;
+    }
+    if (! val.hasOwnProperty("y"))
+    {
+        return false;
+    }
+    pval = val["y"];
+    // .'$bla'.y
+    res = (typeof pval === 'number' || pval instanceof Number);
+    if (! res)
     {
         return false;
     }

@@ -26,58 +26,52 @@ check_model_map: PropMap
 
 # object .'$alternative'.'|'.0
 def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
+    # check close must only props
     if not isinstance(val, dict):
         return False
+    if len(val) != 2:
+        return False
+    pval: Jsonable
     res: bool
-    must_count: int = 0
-    for prop, pval in val.items():
-        assert isinstance(prop, str)
-        if prop == "t":
-            # handle must t property
-            must_count += 1
-            # .'$alternative'.'|'.0.t
-            res = isinstance(pval, str) and pval == "a"
-            if not res:
-                return False
-        elif prop == "a":
-            # handle must a property
-            must_count += 1
-            # .'$alternative'.'|'.0.a
-            res = isinstance(pval, str)
-            if not res:
-                return False
-        else:
-            return False
-    if must_count != 2:
+    if not "t" in val:
+        return False
+    pval = val.get("t", UNDEFINED)
+    # .'$alternative'.'|'.0.t
+    res = isinstance(pval, str) and pval == "a"
+    if not res:
+        return False
+    if not "a" in val:
+        return False
+    pval = val.get("a", UNDEFINED)
+    # .'$alternative'.'|'.0.a
+    res = isinstance(pval, str)
+    if not res:
         return False
     return True
 
 
 # object .'$alternative'.'|'.1
 def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
+    # check close must only props
     if not isinstance(val, dict):
         return False
+    if len(val) != 2:
+        return False
+    pval: Jsonable
     res: bool
-    must_count: int = 0
-    for prop, pval in val.items():
-        assert isinstance(prop, str)
-        if prop == "t":
-            # handle must t property
-            must_count += 1
-            # .'$alternative'.'|'.1.t
-            res = ((pval is None or isinstance(pval, (bool, int, float, str)))) and pval in _jm_cst_0
-            if not res:
-                return False
-        elif prop == "bc":
-            # handle must bc property
-            must_count += 1
-            # .'$alternative'.'|'.1.bc
-            res = isinstance(pval, str)
-            if not res:
-                return False
-        else:
-            return False
-    if must_count != 2:
+    if not "t" in val:
+        return False
+    pval = val.get("t", UNDEFINED)
+    # .'$alternative'.'|'.1.t
+    res = ((pval is None or isinstance(pval, (bool, int, float, str)))) and pval in _jm_cst_0
+    if not res:
+        return False
+    if not "bc" in val:
+        return False
+    pval = val.get("bc", UNDEFINED)
+    # .'$alternative'.'|'.1.bc
+    res = isinstance(pval, str)
+    if not res:
         return False
     return True
 

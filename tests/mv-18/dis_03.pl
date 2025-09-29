@@ -20,43 +20,36 @@ my %check_model_map;
 sub _jm_obj_0($$$)
 {
     my ($val, $path, $rep) = @_;
+    # check close must only props
     if (! jm_is_object($val))
     {
         return 0;
     }
-    my $res;
-    my $must_count = 0;
-    scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    if (jm_obj_size($val) != 2)
     {
-        if ($prop eq 'discriminator')
-        {
-            # handle must discriminator property
-            $must_count++;
-            # .'|'.0.discriminator
-            $res = jm_is_boolean($pval) && $pval == 1;
-            if (! $res)
-            {
-                return 0;
-            }
-        }
-        elsif ($prop eq 'x')
-        {
-            # handle must x property
-            $must_count++;
-            # .'|'.0.x
-            $res = jm_is_string($pval);
-            if (! $res)
-            {
-                return 0;
-            }
-        }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
-    if ($must_count != 2)
+    my $pval;
+    my $res;
+    if (! exists $$val{'discriminator'})
+    {
+        return 0;
+    }
+    $pval = $$val{'discriminator'};
+    # .'|'.0.discriminator
+    $res = jm_is_boolean($pval) && $pval == 1;
+    if (! $res)
+    {
+        return 0;
+    }
+    if (! exists $$val{'x'})
+    {
+        return 0;
+    }
+    $pval = $$val{'x'};
+    # .'|'.0.x
+    $res = jm_is_string($pval);
+    if (! $res)
     {
         return 0;
     }
@@ -67,43 +60,36 @@ sub _jm_obj_0($$$)
 sub _jm_obj_1($$$)
 {
     my ($val, $path, $rep) = @_;
+    # check close must only props
     if (! jm_is_object($val))
     {
         return 0;
     }
-    my $res;
-    my $must_count = 0;
-    scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    if (jm_obj_size($val) != 2)
     {
-        if ($prop eq 'discriminator')
-        {
-            # handle must discriminator property
-            $must_count++;
-            # .'|'.1.discriminator
-            $res = jm_is_boolean($pval) && $pval == 0;
-            if (! $res)
-            {
-                return 0;
-            }
-        }
-        elsif ($prop eq 'y')
-        {
-            # handle must y property
-            $must_count++;
-            # .'|'.1.y
-            $res = jm_is_string($pval);
-            if (! $res)
-            {
-                return 0;
-            }
-        }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
-    if ($must_count != 2)
+    my $pval;
+    my $res;
+    if (! exists $$val{'discriminator'})
+    {
+        return 0;
+    }
+    $pval = $$val{'discriminator'};
+    # .'|'.1.discriminator
+    $res = jm_is_boolean($pval) && $pval == 0;
+    if (! $res)
+    {
+        return 0;
+    }
+    if (! exists $$val{'y'})
+    {
+        return 0;
+    }
+    $pval = $$val{'y'};
+    # .'|'.1.y
+    $res = jm_is_string($pval);
+    if (! $res)
     {
         return 0;
     }

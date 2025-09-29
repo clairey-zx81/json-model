@@ -22,65 +22,49 @@ public class base_031 extends ModelChecker
     // object .'$bibi'
     public boolean _jm_obj_0(Object val, Path path, Report rep)
     {
+        // check close must only props
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.'$bibi']", path);
             return false;
         }
-        boolean res;
-        long must_count = 0;
-        Iterator<String> prop_loop = json.objectIterator(val);
-        while (prop_loop.hasNext())
+        if (json.objectSize(val) != 1)
         {
-            String prop = prop_loop.next();
-            Object pval = json.objectValue(val, prop);
-            Path lpath_0 = new Path(prop, path);
-            if (prop.compareTo("bibi") == 0)
+            if (rep != null) rep.addEntry("bad property count [.'$bibi']", path);
+            return false;
+        }
+        Object pval;
+        boolean res;
+        if (! json.objectHasProp(val, "bibi"))
+        {
+            if (rep != null) rep.addEntry("missing mandatory prop <bibi> [.'$bibi']", path);
+            return false;
+        }
+        pval = json.objectValue(val, "bibi");
+        // .'$bibi'.bibi
+        res = json.isArray(pval);
+        if (res)
+        {
+            int arr_0_idx = -1;
+            Iterator<Object> arr_0_item_loop = json.arrayIterator(pval);
+            while (arr_0_item_loop.hasNext())
             {
-                // handle must bibi property
-                must_count += 1;
-                // .'$bibi'.bibi
-                res = json.isArray(pval);
-                if (res)
-                {
-                    int arr_0_idx = -1;
-                    Iterator<Object> arr_0_item_loop = json.arrayIterator(pval);
-                    while (arr_0_item_loop.hasNext())
-                    {
-                        arr_0_idx++;
-                        Object arr_0_item = arr_0_item_loop.next();
-                        Path arr_0_lpath = new Path(arr_0_idx, (path != null ? lpath_0 : null));
-                        // .'$bibi'.bibi.0
-                        res = _jm_obj_0(arr_0_item, ((path != null ? lpath_0 : null) != null ? arr_0_lpath : null), rep);
-                        if (! res)
-                        {
-                            if (rep != null) rep.addEntry("unexpected $bibi [.'$bibi'.bibi.0]", ((path != null ? lpath_0 : null) != null ? arr_0_lpath : null));
-                            break;
-                        }
-                    }
-                }
+                arr_0_idx++;
+                Object arr_0_item = arr_0_item_loop.next();
+                Path arr_0_lpath = new Path(arr_0_idx, path);
+                // .'$bibi'.bibi.0
+                res = _jm_obj_0(arr_0_item, (path != null ? arr_0_lpath : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("not array or unexpected array [.'$bibi'.bibi]", (path != null ? lpath_0 : null));
-                    if (rep != null) rep.addEntry("invalid mandatory prop value [.'$bibi'.bibi]", (path != null ? lpath_0 : null));
-                    return false;
+                    if (rep != null) rep.addEntry("unexpected $bibi [.'$bibi'.bibi.0]", (path != null ? arr_0_lpath : null));
+                    break;
                 }
-            }
-            else
-            {
-                if (rep != null) rep.addEntry("unexpected prop [.'$bibi']", (path != null ? lpath_0 : null));
-                return false;
             }
         }
-        if (must_count != 1)
+        if (! res)
         {
-            if (rep != null)
-            {
-                if (! json.objectHasProp(val, "bibi"))
-                {
-                    if (rep != null) rep.addEntry("missing mandatory prop <bibi> [.'$bibi']", path);
-                }
-            }
+            if (rep != null) rep.addEntry("not array or unexpected array [.'$bibi'.bibi]", path);
+            if (rep != null) rep.addEntry("unexpected value for mandatory prop <bibi> [.'$bibi']", path);
             return false;
         }
         return true;

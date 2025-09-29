@@ -18,76 +18,69 @@ my %check_model_map;
 sub _jm_obj_0($$$)
 {
     my ($val, $path, $rep) = @_;
+    # check close must only props
     if (! jm_is_object($val))
     {
         return 0;
     }
-    my $res;
-    my $must_count = 0;
-    scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    if (jm_obj_size($val) != 5)
     {
-        if ($prop eq 'a')
-        {
-            # handle must a property
-            $must_count++;
-            # .a
-            $res = jm_is_integer($pval) && $pval >= 0;
-            if (! $res)
-            {
-                return 0;
-            }
-        }
-        elsif ($prop eq 'b')
-        {
-            # handle must b property
-            $must_count++;
-            # .b
-            $res = jm_is_integer($pval) && $pval >= 0;
-            if (! $res)
-            {
-                return 0;
-            }
-        }
-        elsif ($prop eq 'c')
-        {
-            # handle must c property
-            $must_count++;
-            # .c
-            $res = jm_is_integer($pval) && $pval >= 0;
-            if (! $res)
-            {
-                return 0;
-            }
-        }
-        elsif ($prop eq 'd')
-        {
-            # handle must d property
-            $must_count++;
-            # .d
-            $res = jm_is_integer($pval) && $pval >= 0;
-            if (! $res)
-            {
-                return 0;
-            }
-        }
-        elsif ($prop eq 'e')
-        {
-            # handle must e property
-            $must_count++;
-            # .e
-            $res = jm_is_integer($pval) && $pval >= 0;
-            if (! $res)
-            {
-                return 0;
-            }
-        }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
-    if ($must_count != 5)
+    my $pval;
+    my $res;
+    if (! exists $$val{'a'})
+    {
+        return 0;
+    }
+    $pval = $$val{'a'};
+    # .a
+    $res = jm_is_integer($pval) && $pval >= 0;
+    if (! $res)
+    {
+        return 0;
+    }
+    if (! exists $$val{'b'})
+    {
+        return 0;
+    }
+    $pval = $$val{'b'};
+    # .b
+    $res = jm_is_integer($pval) && $pval >= 0;
+    if (! $res)
+    {
+        return 0;
+    }
+    if (! exists $$val{'c'})
+    {
+        return 0;
+    }
+    $pval = $$val{'c'};
+    # .c
+    $res = jm_is_integer($pval) && $pval >= 0;
+    if (! $res)
+    {
+        return 0;
+    }
+    if (! exists $$val{'d'})
+    {
+        return 0;
+    }
+    $pval = $$val{'d'};
+    # .d
+    $res = jm_is_integer($pval) && $pval >= 0;
+    if (! $res)
+    {
+        return 0;
+    }
+    if (! exists $$val{'e'})
+    {
+        return 0;
+    }
+    $pval = $$val{'e'};
+    # .e
+    $res = jm_is_integer($pval) && $pval >= 0;
+    if (! $res)
     {
         return 0;
     }

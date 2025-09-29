@@ -22,45 +22,36 @@ public class objs2 extends ModelChecker
     // object .'$bla'
     public boolean _jm_obj_0(Object val, Path path, Report rep)
     {
+        // check close must only props
         if (! json.isObject(val))
         {
             return false;
         }
-        boolean res;
-        long must_count = 0;
-        Iterator<String> prop_loop = json.objectIterator(val);
-        while (prop_loop.hasNext())
+        if (json.objectSize(val) != 2)
         {
-            String prop = prop_loop.next();
-            Object pval = json.objectValue(val, prop);
-            if (prop.compareTo("x") == 0)
-            {
-                // handle must x property
-                must_count += 1;
-                // .'$bla'.x
-                res = json.isDouble(pval);
-                if (! res)
-                {
-                    return false;
-                }
-            }
-            else if (prop.compareTo("y") == 0)
-            {
-                // handle must y property
-                must_count += 1;
-                // .'$bla'.y
-                res = json.isDouble(pval);
-                if (! res)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                return false;
-            }
+            return false;
         }
-        if (must_count != 2)
+        Object pval;
+        boolean res;
+        if (! json.objectHasProp(val, "x"))
+        {
+            return false;
+        }
+        pval = json.objectValue(val, "x");
+        // .'$bla'.x
+        res = json.isDouble(pval);
+        if (! res)
+        {
+            return false;
+        }
+        if (! json.objectHasProp(val, "y"))
+        {
+            return false;
+        }
+        pval = json.objectValue(val, "y");
+        // .'$bla'.y
+        res = json.isDouble(pval);
+        if (! res)
         {
             return false;
         }

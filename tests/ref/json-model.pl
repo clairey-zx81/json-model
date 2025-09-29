@@ -652,45 +652,38 @@ sub json_model_21($$$)
 sub _jm_obj_2($$$)
 {
     my ($val, $path, $rep) = @_;
+    # check close must only props
     if (! jm_is_object($val))
     {
         return 0;
     }
-    my $res;
-    my $must_count = 0;
-    scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    if (jm_obj_size($val) != 1)
     {
-        if ($prop eq '|')
+        return 0;
+    }
+    my $pval;
+    my $res;
+    if (! exists $$val{'|'})
+    {
+        return 0;
+    }
+    $pval = $$val{'|'};
+    # .'$Or'.'|'
+    $res = jm_is_array($pval);
+    if ($res)
+    {
+        for my $arr_1_idx (0 .. $#$pval)
         {
-            # handle must | property
-            $must_count++;
-            # .'$Or'.'|'
-            $res = jm_is_array($pval);
-            if ($res)
-            {
-                for my $arr_1_idx (0 .. $#$pval)
-                {
-                    my $arr_1_item = $$pval[$arr_1_idx];
-                    # .'$Or'.'|'.0
-                    $res = json_model_18($arr_1_item, undef, $rep);
-                    if (! $res)
-                    {
-                        last;
-                    }
-                }
-            }
+            my $arr_1_item = $$pval[$arr_1_idx];
+            # .'$Or'.'|'.0
+            $res = json_model_18($arr_1_item, undef, $rep);
             if (! $res)
             {
-                return 0;
+                last;
             }
         }
-        else
-        {
-            return 0;
-        }
     }
-    if ($must_count != 1)
+    if (! $res)
     {
         return 0;
     }
@@ -711,45 +704,38 @@ sub json_model_22($$$)
 sub _jm_obj_3($$$)
 {
     my ($val, $path, $rep) = @_;
+    # check close must only props
     if (! jm_is_object($val))
     {
         return 0;
     }
-    my $res;
-    my $must_count = 0;
-    scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    if (jm_obj_size($val) != 1)
     {
-        if ($prop eq '&')
+        return 0;
+    }
+    my $pval;
+    my $res;
+    if (! exists $$val{'&'})
+    {
+        return 0;
+    }
+    $pval = $$val{'&'};
+    # .'$And'.'&'
+    $res = jm_is_array($pval);
+    if ($res)
+    {
+        for my $arr_2_idx (0 .. $#$pval)
         {
-            # handle must & property
-            $must_count++;
-            # .'$And'.'&'
-            $res = jm_is_array($pval);
-            if ($res)
-            {
-                for my $arr_2_idx (0 .. $#$pval)
-                {
-                    my $arr_2_item = $$pval[$arr_2_idx];
-                    # .'$And'.'&'.0
-                    $res = json_model_18($arr_2_item, undef, $rep);
-                    if (! $res)
-                    {
-                        last;
-                    }
-                }
-            }
+            my $arr_2_item = $$pval[$arr_2_idx];
+            # .'$And'.'&'.0
+            $res = json_model_18($arr_2_item, undef, $rep);
             if (! $res)
             {
-                return 0;
+                last;
             }
         }
-        else
-        {
-            return 0;
-        }
     }
-    if ($must_count != 1)
+    if (! $res)
     {
         return 0;
     }
@@ -770,45 +756,38 @@ sub json_model_23($$$)
 sub _jm_obj_4($$$)
 {
     my ($val, $path, $rep) = @_;
+    # check close must only props
     if (! jm_is_object($val))
     {
         return 0;
     }
-    my $res;
-    my $must_count = 0;
-    scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    if (jm_obj_size($val) != 1)
     {
-        if ($prop eq '^')
+        return 0;
+    }
+    my $pval;
+    my $res;
+    if (! exists $$val{'^'})
+    {
+        return 0;
+    }
+    $pval = $$val{'^'};
+    # .'$Xor'.'^'
+    $res = jm_is_array($pval);
+    if ($res)
+    {
+        for my $arr_3_idx (0 .. $#$pval)
         {
-            # handle must ^ property
-            $must_count++;
-            # .'$Xor'.'^'
-            $res = jm_is_array($pval);
-            if ($res)
-            {
-                for my $arr_3_idx (0 .. $#$pval)
-                {
-                    my $arr_3_item = $$pval[$arr_3_idx];
-                    # .'$Xor'.'^'.0
-                    $res = json_model_18($arr_3_item, undef, $rep);
-                    if (! $res)
-                    {
-                        last;
-                    }
-                }
-            }
+            my $arr_3_item = $$pval[$arr_3_idx];
+            # .'$Xor'.'^'.0
+            $res = json_model_18($arr_3_item, undef, $rep);
             if (! $res)
             {
-                return 0;
+                last;
             }
         }
-        else
-        {
-            return 0;
-        }
     }
-    if ($must_count != 1)
+    if (! $res)
     {
         return 0;
     }
@@ -829,45 +808,38 @@ sub json_model_24($$$)
 sub _jm_obj_5($$$)
 {
     my ($val, $path, $rep) = @_;
+    # check close must only props
     if (! jm_is_object($val))
     {
         return 0;
     }
-    my $res;
-    my $must_count = 0;
-    scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    if (jm_obj_size($val) != 1)
     {
-        if ($prop eq '+')
+        return 0;
+    }
+    my $pval;
+    my $res;
+    if (! exists $$val{'+'})
+    {
+        return 0;
+    }
+    $pval = $$val{'+'};
+    # .'$Add'.'+'
+    $res = jm_is_array($pval);
+    if ($res)
+    {
+        for my $arr_4_idx (0 .. $#$pval)
         {
-            # handle must + property
-            $must_count++;
-            # .'$Add'.'+'
-            $res = jm_is_array($pval);
-            if ($res)
-            {
-                for my $arr_4_idx (0 .. $#$pval)
-                {
-                    my $arr_4_item = $$pval[$arr_4_idx];
-                    # .'$Add'.'+'.0
-                    $res = json_model_18($arr_4_item, undef, $rep);
-                    if (! $res)
-                    {
-                        last;
-                    }
-                }
-            }
+            my $arr_4_item = $$pval[$arr_4_idx];
+            # .'$Add'.'+'.0
+            $res = json_model_18($arr_4_item, undef, $rep);
             if (! $res)
             {
-                return 0;
+                last;
             }
         }
-        else
-        {
-            return 0;
-        }
     }
-    if ($must_count != 1)
+    if (! $res)
     {
         return 0;
     }

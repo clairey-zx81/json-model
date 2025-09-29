@@ -9,37 +9,32 @@ CREATE EXTENSION IF NOT EXISTS json_model;
 CREATE OR REPLACE FUNCTION _jm_obj_1(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
-  res bool;
-  must_count int;
-  prop TEXT;
   pval JSONB;
+  res bool;
 BEGIN
+  -- check close must only props
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
-  must_count := 0;
-  FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF prop = 't' THEN
-      -- handle must t property
-      must_count := must_count + 1;
-      -- .movie.'|'.0.t
-      res := JSONB_TYPEOF(pval) = 'string' AND JSON_VALUE(pval, '$' RETURNING TEXT) = 'fr';
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-    ELSEIF prop = 'titre' THEN
-      -- handle must titre property
-      must_count := must_count + 1;
-      -- .movie.'|'.0.titre
-      res := JSONB_TYPEOF(pval) = 'string';
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-    ELSE
-      RETURN FALSE;
-    END IF;
-  END LOOP;
-  IF must_count <> 2 THEN
+  IF jm_object_size(val) <> 2 THEN
+    RETURN FALSE;
+  END IF;
+  IF NOT val ? 't' THEN
+    RETURN FALSE;
+  END IF;
+  pval := val -> 't';
+  -- .movie.'|'.0.t
+  res := JSONB_TYPEOF(pval) = 'string' AND JSON_VALUE(pval, '$' RETURNING TEXT) = 'fr';
+  IF NOT res THEN
+    RETURN FALSE;
+  END IF;
+  IF NOT val ? 'titre' THEN
+    RETURN FALSE;
+  END IF;
+  pval := val -> 'titre';
+  -- .movie.'|'.0.titre
+  res := JSONB_TYPEOF(pval) = 'string';
+  IF NOT res THEN
     RETURN FALSE;
   END IF;
   RETURN TRUE;
@@ -50,37 +45,32 @@ $$ LANGUAGE PLpgSQL;
 CREATE OR REPLACE FUNCTION _jm_obj_2(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
-  res bool;
-  must_count int;
-  prop TEXT;
   pval JSONB;
+  res bool;
 BEGIN
+  -- check close must only props
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
-  must_count := 0;
-  FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF prop = 't' THEN
-      -- handle must t property
-      must_count := must_count + 1;
-      -- .movie.'|'.1.t
-      res := JSONB_TYPEOF(pval) = 'string' AND JSON_VALUE(pval, '$' RETURNING TEXT) = 'en';
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-    ELSEIF prop = 'title' THEN
-      -- handle must title property
-      must_count := must_count + 1;
-      -- .movie.'|'.1.title
-      res := JSONB_TYPEOF(pval) = 'string';
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-    ELSE
-      RETURN FALSE;
-    END IF;
-  END LOOP;
-  IF must_count <> 2 THEN
+  IF jm_object_size(val) <> 2 THEN
+    RETURN FALSE;
+  END IF;
+  IF NOT val ? 't' THEN
+    RETURN FALSE;
+  END IF;
+  pval := val -> 't';
+  -- .movie.'|'.1.t
+  res := JSONB_TYPEOF(pval) = 'string' AND JSON_VALUE(pval, '$' RETURNING TEXT) = 'en';
+  IF NOT res THEN
+    RETURN FALSE;
+  END IF;
+  IF NOT val ? 'title' THEN
+    RETURN FALSE;
+  END IF;
+  pval := val -> 'title';
+  -- .movie.'|'.1.title
+  res := JSONB_TYPEOF(pval) = 'string';
+  IF NOT res THEN
     RETURN FALSE;
   END IF;
   RETURN TRUE;
@@ -91,37 +81,32 @@ $$ LANGUAGE PLpgSQL;
 CREATE OR REPLACE FUNCTION _jm_obj_3(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
-  res bool;
-  must_count int;
-  prop TEXT;
   pval JSONB;
+  res bool;
 BEGIN
+  -- check close must only props
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
-  must_count := 0;
-  FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF prop = 't' THEN
-      -- handle must t property
-      must_count := must_count + 1;
-      -- .movie.'|'.2.t
-      res := JSONB_TYPEOF(pval) = 'string' AND JSON_VALUE(pval, '$' RETURNING TEXT) = 'de';
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-    ELSEIF prop = 'Title' THEN
-      -- handle must Title property
-      must_count := must_count + 1;
-      -- .movie.'|'.2.Title
-      res := JSONB_TYPEOF(pval) = 'string';
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-    ELSE
-      RETURN FALSE;
-    END IF;
-  END LOOP;
-  IF must_count <> 2 THEN
+  IF jm_object_size(val) <> 2 THEN
+    RETURN FALSE;
+  END IF;
+  IF NOT val ? 't' THEN
+    RETURN FALSE;
+  END IF;
+  pval := val -> 't';
+  -- .movie.'|'.2.t
+  res := JSONB_TYPEOF(pval) = 'string' AND JSON_VALUE(pval, '$' RETURNING TEXT) = 'de';
+  IF NOT res THEN
+    RETURN FALSE;
+  END IF;
+  IF NOT val ? 'Title' THEN
+    RETURN FALSE;
+  END IF;
+  pval := val -> 'Title';
+  -- .movie.'|'.2.Title
+  res := JSONB_TYPEOF(pval) = 'string';
+  IF NOT res THEN
     RETURN FALSE;
   END IF;
   RETURN TRUE;
@@ -132,37 +117,32 @@ $$ LANGUAGE PLpgSQL;
 CREATE OR REPLACE FUNCTION _jm_obj_4(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
-  res bool;
-  must_count int;
-  prop TEXT;
   pval JSONB;
+  res bool;
 BEGIN
+  -- check close must only props
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
-  must_count := 0;
-  FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF prop = 't' THEN
-      -- handle must t property
-      must_count := must_count + 1;
-      -- .movie.'|'.3.t
-      res := JSONB_TYPEOF(pval) = 'string' AND JSON_VALUE(pval, '$' RETURNING TEXT) = 'ru';
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-    ELSEIF prop = 'suti' THEN
-      -- handle must suti property
-      must_count := must_count + 1;
-      -- .movie.'|'.3.suti
-      res := JSONB_TYPEOF(pval) = 'string';
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-    ELSE
-      RETURN FALSE;
-    END IF;
-  END LOOP;
-  IF must_count <> 2 THEN
+  IF jm_object_size(val) <> 2 THEN
+    RETURN FALSE;
+  END IF;
+  IF NOT val ? 't' THEN
+    RETURN FALSE;
+  END IF;
+  pval := val -> 't';
+  -- .movie.'|'.3.t
+  res := JSONB_TYPEOF(pval) = 'string' AND JSON_VALUE(pval, '$' RETURNING TEXT) = 'ru';
+  IF NOT res THEN
+    RETURN FALSE;
+  END IF;
+  IF NOT val ? 'suti' THEN
+    RETURN FALSE;
+  END IF;
+  pval := val -> 'suti';
+  -- .movie.'|'.3.suti
+  res := JSONB_TYPEOF(pval) = 'string';
+  IF NOT res THEN
     RETURN FALSE;
   END IF;
   RETURN TRUE;
@@ -174,46 +154,40 @@ $$ LANGUAGE PLpgSQL;
 CREATE OR REPLACE FUNCTION _jm_obj_0(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
-  res bool;
-  must_count int;
-  prop TEXT;
   pval JSONB;
+  res bool;
   iso_0 bool;
   tag_0 JSONB;
   fun_0 TEXT;
 BEGIN
+  -- check close must only props
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
-  must_count := 0;
-  FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF prop = 'movie' THEN
-      -- handle must movie property
-      must_count := must_count + 1;
-      -- .movie
-      iso_0 := JSONB_TYPEOF(pval) = 'object';
-      res := iso_0;
-      IF res THEN
-        IF pval ? 't' THEN
-          tag_0 := pval -> 't';
-          fun_0 := jm_cmap_get('_jm_map_0', tag_0);
-          IF fun_0 IS NOT NULL THEN
-            res := jm_call(fun_0, pval, NULL, rep);
-          ELSE
-            res := FALSE;
-          END IF;
-        ELSE
-          res := FALSE;
-        END IF;
-      END IF;
-      IF NOT res THEN
-        RETURN FALSE;
+  IF jm_object_size(val) <> 1 THEN
+    RETURN FALSE;
+  END IF;
+  IF NOT val ? 'movie' THEN
+    RETURN FALSE;
+  END IF;
+  pval := val -> 'movie';
+  -- .movie
+  iso_0 := JSONB_TYPEOF(pval) = 'object';
+  res := iso_0;
+  IF res THEN
+    IF pval ? 't' THEN
+      tag_0 := pval -> 't';
+      fun_0 := jm_cmap_get('_jm_map_0', tag_0);
+      IF fun_0 IS NOT NULL THEN
+        res := jm_call(fun_0, pval, path, rep);
+      ELSE
+        res := FALSE;
       END IF;
     ELSE
-      RETURN FALSE;
+      res := FALSE;
     END IF;
-  END LOOP;
-  IF must_count <> 1 THEN
+  END IF;
+  IF NOT res THEN
     RETURN FALSE;
   END IF;
   RETURN TRUE;

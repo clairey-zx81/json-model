@@ -357,29 +357,23 @@ $$ LANGUAGE PLpgSQL;
 CREATE OR REPLACE FUNCTION _jm_obj_4(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
-  res bool;
-  must_count int;
-  prop TEXT;
   pval JSONB;
+  res bool;
 BEGIN
+  -- check close must only props
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
-  must_count := 0;
-  FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF prop = 'type' THEN
-      -- handle must type property
-      must_count := must_count + 1;
-      -- .'$Null'.type
-      res := JSONB_TYPEOF(pval) = 'string' AND JSON_VALUE(pval, '$' RETURNING TEXT) = 'null';
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-    ELSE
-      RETURN FALSE;
-    END IF;
-  END LOOP;
-  IF must_count <> 1 THEN
+  IF jm_object_size(val) <> 1 THEN
+    RETURN FALSE;
+  END IF;
+  IF NOT val ? 'type' THEN
+    RETURN FALSE;
+  END IF;
+  pval := val -> 'type';
+  -- .'$Null'.type
+  res := JSONB_TYPEOF(pval) = 'string' AND JSON_VALUE(pval, '$' RETURNING TEXT) = 'null';
+  IF NOT res THEN
     RETURN FALSE;
   END IF;
   RETURN TRUE;
@@ -402,29 +396,23 @@ $$ LANGUAGE PLpgSQL;
 CREATE OR REPLACE FUNCTION _jm_obj_5(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
-  res bool;
-  must_count int;
-  prop TEXT;
   pval JSONB;
+  res bool;
 BEGIN
+  -- check close must only props
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
-  must_count := 0;
-  FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF prop = 'type' THEN
-      -- handle must type property
-      must_count := must_count + 1;
-      -- .'$Boolean'.type
-      res := JSONB_TYPEOF(pval) = 'string' AND JSON_VALUE(pval, '$' RETURNING TEXT) = 'boolean';
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-    ELSE
-      RETURN FALSE;
-    END IF;
-  END LOOP;
-  IF must_count <> 1 THEN
+  IF jm_object_size(val) <> 1 THEN
+    RETURN FALSE;
+  END IF;
+  IF NOT val ? 'type' THEN
+    RETURN FALSE;
+  END IF;
+  pval := val -> 'type';
+  -- .'$Boolean'.type
+  res := JSONB_TYPEOF(pval) = 'string' AND JSON_VALUE(pval, '$' RETURNING TEXT) = 'boolean';
+  IF NOT res THEN
     RETURN FALSE;
   END IF;
   RETURN TRUE;

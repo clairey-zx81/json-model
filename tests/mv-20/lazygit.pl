@@ -435,32 +435,25 @@ sub json_model_9($$$)
 sub _jm_obj_1($$$)
 {
     my ($val, $path, $rep) = @_;
+    # check close must only props
     if (! jm_is_object($val))
     {
         return 0;
     }
-    my $res;
-    my $must_count = 0;
-    scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    if (jm_obj_size($val) != 1)
     {
-        if ($prop eq 'command')
-        {
-            # handle must command property
-            $must_count++;
-            # .'$Prompts'.'|'.0.suggestions.'|'.1.command
-            $res = jm_is_string($pval);
-            if (! $res)
-            {
-                return 0;
-            }
-        }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
-    if ($must_count != 1)
+    my $pval;
+    my $res;
+    if (! exists $$val{'command'})
+    {
+        return 0;
+    }
+    $pval = $$val{'command'};
+    # .'$Prompts'.'|'.0.suggestions.'|'.1.command
+    $res = jm_is_string($pval);
+    if (! $res)
     {
         return 0;
     }
@@ -472,32 +465,25 @@ sub _jm_obj_1($$$)
 sub _jm_obj_2($$$)
 {
     my ($val, $path, $rep) = @_;
+    # check close must only props
     if (! jm_is_object($val))
     {
         return 0;
     }
-    my $res;
-    my $must_count = 0;
-    scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    if (jm_obj_size($val) != 1)
     {
-        if ($prop eq 'preset')
-        {
-            # handle must preset property
-            $must_count++;
-            # .'$Prompts'.'|'.0.suggestions.'|'.0.preset
-            $res = jm_is_scalar($pval) && jm_is_string($pval) && exists $_jm_cst_2{$pval};
-            if (! $res)
-            {
-                return 0;
-            }
-        }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
-    if ($must_count != 1)
+    my $pval;
+    my $res;
+    if (! exists $$val{'preset'})
+    {
+        return 0;
+    }
+    $pval = $$val{'preset'};
+    # .'$Prompts'.'|'.0.suggestions.'|'.0.preset
+    $res = jm_is_scalar($pval) && jm_is_string($pval) && exists $_jm_cst_2{$pval};
+    if (! $res)
     {
         return 0;
     }
@@ -720,83 +706,76 @@ sub _jm_obj_5($$$)
 sub _jm_obj_4($$$)
 {
     my ($val, $path, $rep) = @_;
+    # check close must only props
     if (! jm_is_object($val))
     {
         return 0;
     }
-    my $res;
-    my $must_count = 0;
-    scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    if (jm_obj_size($val) != 4)
     {
-        if ($prop eq 'type')
+        return 0;
+    }
+    my $pval;
+    my $res;
+    if (! exists $$val{'type'})
+    {
+        return 0;
+    }
+    $pval = $$val{'type'};
+    # .'$Prompts'.'|'.2.type
+    $res = jm_is_string($pval) && $pval eq 'menu';
+    if (! $res)
+    {
+        return 0;
+    }
+    if (! exists $$val{'title'})
+    {
+        return 0;
+    }
+    $pval = $$val{'title'};
+    # .'$Prompts'.'|'.2.title
+    $res = json_model_6($pval, $path, $rep);
+    if (! $res)
+    {
+        return 0;
+    }
+    if (! exists $$val{'key'})
+    {
+        return 0;
+    }
+    $pval = $$val{'key'};
+    # .'$Prompts'.'|'.2.key
+    $res = json_model_7($pval, $path, $rep);
+    if (! $res)
+    {
+        return 0;
+    }
+    if (! exists $$val{'options'})
+    {
+        return 0;
+    }
+    $pval = $$val{'options'};
+    # .'$Prompts'.'|'.2.options
+    # .'$Prompts'.'|'.2.options.'@'
+    $res = jm_is_array($pval);
+    if ($res)
+    {
+        for my $arr_2_idx (0 .. $#$pval)
         {
-            # handle must type property
-            $must_count++;
-            # .'$Prompts'.'|'.2.type
-            $res = jm_is_string($pval) && $pval eq 'menu';
+            my $arr_2_item = $$pval[$arr_2_idx];
+            # .'$Prompts'.'|'.2.options.'@'.0
+            $res = _jm_obj_5($arr_2_item, undef, $rep);
             if (! $res)
             {
-                return 0;
+                last;
             }
-        }
-        elsif ($prop eq 'title')
-        {
-            # handle must title property
-            $must_count++;
-            # .'$Prompts'.'|'.2.title
-            $res = json_model_6($pval, undef, $rep);
-            if (! $res)
-            {
-                return 0;
-            }
-        }
-        elsif ($prop eq 'key')
-        {
-            # handle must key property
-            $must_count++;
-            # .'$Prompts'.'|'.2.key
-            $res = json_model_7($pval, undef, $rep);
-            if (! $res)
-            {
-                return 0;
-            }
-        }
-        elsif ($prop eq 'options')
-        {
-            # handle must options property
-            $must_count++;
-            # .'$Prompts'.'|'.2.options
-            # .'$Prompts'.'|'.2.options.'@'
-            $res = jm_is_array($pval);
-            if ($res)
-            {
-                for my $arr_2_idx (0 .. $#$pval)
-                {
-                    my $arr_2_item = $$pval[$arr_2_idx];
-                    # .'$Prompts'.'|'.2.options.'@'.0
-                    $res = _jm_obj_5($arr_2_item, undef, $rep);
-                    if (! $res)
-                    {
-                        last;
-                    }
-                }
-            }
-            if ($res)
-            {
-                $res = jm_is_unique_array($pval, undef, $rep);
-            }
-            if (! $res)
-            {
-                return 0;
-            }
-        }
-        else
-        {
-            return 0;
         }
     }
-    if ($must_count != 4)
+    if ($res)
+    {
+        $res = jm_is_unique_array($pval, $path, $rep);
+    }
+    if (! $res)
     {
         return 0;
     }
@@ -1255,43 +1234,36 @@ sub _jm_re_1($$$)
 sub _jm_obj_13($$$)
 {
     my ($val, $path, $rep) = @_;
+    # check close must only props
     if (! jm_is_object($val))
     {
         return 0;
     }
-    my $res;
-    my $must_count = 0;
-    scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    if (jm_obj_size($val) != 2)
     {
-        if ($prop eq 'pattern')
-        {
-            # handle must pattern property
-            $must_count++;
-            # .git.commitPrefixes.'/./'.pattern
-            $res = json_model_8($pval, undef, $rep);
-            if (! $res)
-            {
-                return 0;
-            }
-        }
-        elsif ($prop eq 'replace')
-        {
-            # handle must replace property
-            $must_count++;
-            # .git.commitPrefixes.'/./'.replace
-            $res = json_model_8($pval, undef, $rep);
-            if (! $res)
-            {
-                return 0;
-            }
-        }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
-    if ($must_count != 2)
+    my $pval;
+    my $res;
+    if (! exists $$val{'pattern'})
+    {
+        return 0;
+    }
+    $pval = $$val{'pattern'};
+    # .git.commitPrefixes.'/./'.pattern
+    $res = json_model_8($pval, $path, $rep);
+    if (! $res)
+    {
+        return 0;
+    }
+    if (! exists $$val{'replace'})
+    {
+        return 0;
+    }
+    $pval = $$val{'replace'};
+    # .git.commitPrefixes.'/./'.replace
+    $res = json_model_8($pval, $path, $rep);
+    if (! $res)
     {
         return 0;
     }

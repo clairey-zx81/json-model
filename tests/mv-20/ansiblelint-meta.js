@@ -3989,7 +3989,7 @@ function json_model_49(val, path, rep)
 // object .'$platforms'.0.'|'.46
 function _jm_obj_47(val, path, rep)
 {
-    // check must only props
+    // check open must/may only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.'$platforms'.0.'|'.46]", path])
@@ -4043,7 +4043,7 @@ function _jm_obj_47(val, path, rep)
 // object .'$platforms'.0.'|'.45
 function _jm_obj_48(val, path, rep)
 {
-    // check must only props
+    // check open must/may only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.'$platforms'.0.'|'.45]", path])
@@ -4096,7 +4096,7 @@ function _jm_obj_48(val, path, rep)
 // object .'$platforms'.0.'|'.44
 function _jm_obj_49(val, path, rep)
 {
-    // check must only props
+    // check open must/may only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.'$platforms'.0.'|'.44]", path])
@@ -4150,7 +4150,7 @@ function _jm_obj_49(val, path, rep)
 // object .'$platforms'.0.'|'.43
 function _jm_obj_50(val, path, rep)
 {
-    // check must only props
+    // check open must/may only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.'$platforms'.0.'|'.43]", path])
@@ -4204,7 +4204,7 @@ function _jm_obj_50(val, path, rep)
 // object .'$platforms'.0.'|'.42
 function _jm_obj_51(val, path, rep)
 {
-    // check must only props
+    // check open must/may only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.'$platforms'.0.'|'.42]", path])
@@ -4258,7 +4258,7 @@ function _jm_obj_51(val, path, rep)
 // object .'$platforms'.0.'|'.41
 function _jm_obj_52(val, path, rep)
 {
-    // check must only props
+    // check open must/may only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.'$platforms'.0.'|'.41]", path])
@@ -4312,7 +4312,7 @@ function _jm_obj_52(val, path, rep)
 // object .'$platforms'.0.'|'.40
 function _jm_obj_53(val, path, rep)
 {
-    // check must only props
+    // check open must/may only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.'$platforms'.0.'|'.40]", path])
@@ -4366,7 +4366,7 @@ function _jm_obj_53(val, path, rep)
 // object .'$platforms'.0.'|'.39
 function _jm_obj_54(val, path, rep)
 {
-    // check must only props
+    // check open must/may only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.'$platforms'.0.'|'.39]", path])
@@ -4419,7 +4419,7 @@ function _jm_obj_54(val, path, rep)
 // object .'$platforms'.0.'|'.38
 function _jm_obj_55(val, path, rep)
 {
-    // check must only props
+    // check open must/may only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.'$platforms'.0.'|'.38]", path])
@@ -4473,7 +4473,7 @@ function _jm_obj_55(val, path, rep)
 // object .'$platforms'.0.'|'.37
 function _jm_obj_56(val, path, rep)
 {
-    // check must only props
+    // check open must/may only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.'$platforms'.0.'|'.37]", path])
@@ -4527,7 +4527,7 @@ function _jm_obj_56(val, path, rep)
 // object .'$platforms'.0.'|'.36
 function _jm_obj_57(val, path, rep)
 {
-    // check must only props
+    // check open must/may only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.'$platforms'.0.'|'.36]", path])
@@ -4581,7 +4581,7 @@ function _jm_obj_57(val, path, rep)
 // object .'$platforms'.0.'|'.35
 function _jm_obj_58(val, path, rep)
 {
-    // check must only props
+    // check open must/may only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.'$platforms'.0.'|'.35]", path])
@@ -4634,7 +4634,7 @@ function _jm_obj_58(val, path, rep)
 // object .'$platforms'.0.'|'.34
 function _jm_obj_59(val, path, rep)
 {
-    // check must only props
+    // check open must/may only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.'$platforms'.0.'|'.34]", path])
@@ -4688,7 +4688,7 @@ function _jm_obj_59(val, path, rep)
 // object .'$platforms'.0.'|'.33
 function _jm_obj_60(val, path, rep)
 {
-    // check must only props
+    // check open must/may only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.'$platforms'.0.'|'.33]", path])
@@ -4742,7 +4742,7 @@ function _jm_obj_60(val, path, rep)
 // object .'$platforms'.0.'|'.32
 function _jm_obj_61(val, path, rep)
 {
-    // check must only props
+    // check open must/may only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.'$platforms'.0.'|'.32]", path])
@@ -4796,7 +4796,7 @@ function _jm_obj_61(val, path, rep)
 // object .'$platforms'.0.'|'.31
 function _jm_obj_62(val, path, rep)
 {
-    // check must only props
+    // check open must/may only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.'$platforms'.0.'|'.31]", path])
@@ -4850,7 +4850,7 @@ function _jm_obj_62(val, path, rep)
 // object .'$platforms'.0.'|'.30
 function _jm_obj_63(val, path, rep)
 {
-    // check must only props
+    // check open must/may only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.'$platforms'.0.'|'.30]", path])
@@ -4903,7 +4903,7 @@ function _jm_obj_63(val, path, rep)
 // object .'$platforms'.0.'|'.29
 function _jm_obj_64(val, path, rep)
 {
-    // check must only props
+    // check open must/may only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.'$platforms'.0.'|'.29]", path])
@@ -4957,7 +4957,7 @@ function _jm_obj_64(val, path, rep)
 // object .'$platforms'.0.'|'.28
 function _jm_obj_65(val, path, rep)
 {
-    // check must only props
+    // check open must/may only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.'$platforms'.0.'|'.28]", path])
@@ -5011,7 +5011,7 @@ function _jm_obj_65(val, path, rep)
 // object .'$platforms'.0.'|'.27
 function _jm_obj_66(val, path, rep)
 {
-    // check must only props
+    // check open must/may only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.'$platforms'.0.'|'.27]", path])
@@ -5065,7 +5065,7 @@ function _jm_obj_66(val, path, rep)
 // object .'$platforms'.0.'|'.26
 function _jm_obj_67(val, path, rep)
 {
-    // check must only props
+    // check open must/may only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.'$platforms'.0.'|'.26]", path])
@@ -5119,7 +5119,7 @@ function _jm_obj_67(val, path, rep)
 // object .'$platforms'.0.'|'.25
 function _jm_obj_68(val, path, rep)
 {
-    // check must only props
+    // check open must/may only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.'$platforms'.0.'|'.25]", path])
@@ -5172,7 +5172,7 @@ function _jm_obj_68(val, path, rep)
 // object .'$platforms'.0.'|'.24
 function _jm_obj_69(val, path, rep)
 {
-    // check must only props
+    // check open must/may only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.'$platforms'.0.'|'.24]", path])
@@ -5225,7 +5225,7 @@ function _jm_obj_69(val, path, rep)
 // object .'$platforms'.0.'|'.23
 function _jm_obj_70(val, path, rep)
 {
-    // check must only props
+    // check open must/may only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.'$platforms'.0.'|'.23]", path])
@@ -5279,7 +5279,7 @@ function _jm_obj_70(val, path, rep)
 // object .'$platforms'.0.'|'.22
 function _jm_obj_71(val, path, rep)
 {
-    // check must only props
+    // check open must/may only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.'$platforms'.0.'|'.22]", path])
@@ -5332,7 +5332,7 @@ function _jm_obj_71(val, path, rep)
 // object .'$platforms'.0.'|'.21
 function _jm_obj_72(val, path, rep)
 {
-    // check must only props
+    // check open must/may only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.'$platforms'.0.'|'.21]", path])
@@ -5385,7 +5385,7 @@ function _jm_obj_72(val, path, rep)
 // object .'$platforms'.0.'|'.20
 function _jm_obj_73(val, path, rep)
 {
-    // check must only props
+    // check open must/may only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.'$platforms'.0.'|'.20]", path])
@@ -5438,7 +5438,7 @@ function _jm_obj_73(val, path, rep)
 // object .'$platforms'.0.'|'.19
 function _jm_obj_74(val, path, rep)
 {
-    // check must only props
+    // check open must/may only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.'$platforms'.0.'|'.19]", path])
@@ -5491,7 +5491,7 @@ function _jm_obj_74(val, path, rep)
 // object .'$platforms'.0.'|'.18
 function _jm_obj_75(val, path, rep)
 {
-    // check must only props
+    // check open must/may only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.'$platforms'.0.'|'.18]", path])
@@ -5545,7 +5545,7 @@ function _jm_obj_75(val, path, rep)
 // object .'$platforms'.0.'|'.17
 function _jm_obj_76(val, path, rep)
 {
-    // check must only props
+    // check open must/may only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.'$platforms'.0.'|'.17]", path])
@@ -5599,7 +5599,7 @@ function _jm_obj_76(val, path, rep)
 // object .'$platforms'.0.'|'.16
 function _jm_obj_77(val, path, rep)
 {
-    // check must only props
+    // check open must/may only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.'$platforms'.0.'|'.16]", path])
@@ -5652,7 +5652,7 @@ function _jm_obj_77(val, path, rep)
 // object .'$platforms'.0.'|'.15
 function _jm_obj_78(val, path, rep)
 {
-    // check must only props
+    // check open must/may only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.'$platforms'.0.'|'.15]", path])
@@ -5706,7 +5706,7 @@ function _jm_obj_78(val, path, rep)
 // object .'$platforms'.0.'|'.14
 function _jm_obj_79(val, path, rep)
 {
-    // check must only props
+    // check open must/may only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.'$platforms'.0.'|'.14]", path])
@@ -5760,7 +5760,7 @@ function _jm_obj_79(val, path, rep)
 // object .'$platforms'.0.'|'.13
 function _jm_obj_80(val, path, rep)
 {
-    // check must only props
+    // check open must/may only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.'$platforms'.0.'|'.13]", path])
@@ -5814,7 +5814,7 @@ function _jm_obj_80(val, path, rep)
 // object .'$platforms'.0.'|'.12
 function _jm_obj_81(val, path, rep)
 {
-    // check must only props
+    // check open must/may only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.'$platforms'.0.'|'.12]", path])
@@ -5868,7 +5868,7 @@ function _jm_obj_81(val, path, rep)
 // object .'$platforms'.0.'|'.11
 function _jm_obj_82(val, path, rep)
 {
-    // check must only props
+    // check open must/may only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.'$platforms'.0.'|'.11]", path])
@@ -5922,7 +5922,7 @@ function _jm_obj_82(val, path, rep)
 // object .'$platforms'.0.'|'.10
 function _jm_obj_83(val, path, rep)
 {
-    // check must only props
+    // check open must/may only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.'$platforms'.0.'|'.10]", path])
@@ -5976,7 +5976,7 @@ function _jm_obj_83(val, path, rep)
 // object .'$platforms'.0.'|'.9
 function _jm_obj_84(val, path, rep)
 {
-    // check must only props
+    // check open must/may only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.'$platforms'.0.'|'.9]", path])
@@ -6030,7 +6030,7 @@ function _jm_obj_84(val, path, rep)
 // object .'$platforms'.0.'|'.8
 function _jm_obj_85(val, path, rep)
 {
-    // check must only props
+    // check open must/may only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.'$platforms'.0.'|'.8]", path])
@@ -6083,7 +6083,7 @@ function _jm_obj_85(val, path, rep)
 // object .'$platforms'.0.'|'.7
 function _jm_obj_86(val, path, rep)
 {
-    // check must only props
+    // check open must/may only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.'$platforms'.0.'|'.7]", path])
@@ -6137,7 +6137,7 @@ function _jm_obj_86(val, path, rep)
 // object .'$platforms'.0.'|'.6
 function _jm_obj_87(val, path, rep)
 {
-    // check must only props
+    // check open must/may only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.'$platforms'.0.'|'.6]", path])
@@ -6190,7 +6190,7 @@ function _jm_obj_87(val, path, rep)
 // object .'$platforms'.0.'|'.5
 function _jm_obj_88(val, path, rep)
 {
-    // check must only props
+    // check open must/may only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.'$platforms'.0.'|'.5]", path])
@@ -6243,7 +6243,7 @@ function _jm_obj_88(val, path, rep)
 // object .'$platforms'.0.'|'.4
 function _jm_obj_89(val, path, rep)
 {
-    // check must only props
+    // check open must/may only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.'$platforms'.0.'|'.4]", path])
@@ -6297,7 +6297,7 @@ function _jm_obj_89(val, path, rep)
 // object .'$platforms'.0.'|'.3
 function _jm_obj_90(val, path, rep)
 {
-    // check must only props
+    // check open must/may only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.'$platforms'.0.'|'.3]", path])
@@ -6351,7 +6351,7 @@ function _jm_obj_90(val, path, rep)
 // object .'$platforms'.0.'|'.2
 function _jm_obj_91(val, path, rep)
 {
-    // check must only props
+    // check open must/may only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.'$platforms'.0.'|'.2]", path])
@@ -6404,7 +6404,7 @@ function _jm_obj_91(val, path, rep)
 // object .'$platforms'.0.'|'.1
 function _jm_obj_92(val, path, rep)
 {
-    // check must only props
+    // check open must/may only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.'$platforms'.0.'|'.1]", path])
@@ -6458,7 +6458,7 @@ function _jm_obj_92(val, path, rep)
 // object .'$platforms'.0.'|'.0
 function _jm_obj_93(val, path, rep)
 {
-    // check must only props
+    // check open must/may only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.'$platforms'.0.'|'.0]", path])
@@ -8212,7 +8212,7 @@ function _jm_obj_100(val, path, rep)
 // object .'$DependencyModelLoose'
 function _jm_obj_99(val, path, rep)
 {
-    // check must only props
+    // check open must/may only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.'$DependencyModelLoose']", path])
@@ -8383,7 +8383,7 @@ function json_model_57(val, path, rep)
 // object .'$DependencyModel'.'&'.1.'|'.2
 function _jm_obj_101(val, path, rep)
 {
-    // check must only props
+    // check open must/may only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.'$DependencyModel'.'&'.1.'|'.2]", path])
@@ -8411,7 +8411,7 @@ function _jm_obj_101(val, path, rep)
 // object .'$DependencyModel'.'&'.1.'|'.1
 function _jm_obj_102(val, path, rep)
 {
-    // check must only props
+    // check open must/may only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.'$DependencyModel'.'&'.1.'|'.1]", path])
@@ -8439,7 +8439,7 @@ function _jm_obj_102(val, path, rep)
 // object .'$DependencyModel'.'&'.1.'|'.0
 function _jm_obj_103(val, path, rep)
 {
-    // check must only props
+    // check open must/may only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.'$DependencyModel'.'&'.1.'|'.0]", path])

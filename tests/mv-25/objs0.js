@@ -15,42 +15,36 @@ var check_model_map = new Map()
 // object .'$table'
 function _jm_obj_0(val, path, rep)
 {
+    // check close must only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         return false;
     }
-    let res;
-    let must_count = 0;
-    for (const [prop, pval] of Object.entries(val))
+    if (Object.keys(val).length != 2)
     {
-        if (prop == "t")
-        {
-            // handle must t property
-            must_count += 1;
-            // .'$table'.t
-            res = ((typeof pval === 'string' || pval instanceof String)) && pval == "table";
-            if (! res)
-            {
-                return false;
-            }
-        }
-        else if (prop == "legs")
-        {
-            // handle must legs property
-            must_count += 1;
-            // .'$table'.legs
-            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 1;
-            if (! res)
-            {
-                return false;
-            }
-        }
-        else
-        {
-            return false;
-        }
+        return false;
     }
-    if (must_count != 2)
+    let pval;
+    let res;
+    if (! val.hasOwnProperty("t"))
+    {
+        return false;
+    }
+    pval = val["t"];
+    // .'$table'.t
+    res = ((typeof pval === 'string' || pval instanceof String)) && pval == "table";
+    if (! res)
+    {
+        return false;
+    }
+    if (! val.hasOwnProperty("legs"))
+    {
+        return false;
+    }
+    pval = val["legs"];
+    // .'$table'.legs
+    res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 1;
+    if (! res)
     {
         return false;
     }
@@ -69,42 +63,36 @@ function json_model_2(val, path, rep)
 // object .'$chair'
 function _jm_obj_1(val, path, rep)
 {
+    // check close must only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         return false;
     }
-    let res;
-    let must_count = 0;
-    for (const [prop, pval] of Object.entries(val))
+    if (Object.keys(val).length != 2)
     {
-        if (prop == "t")
-        {
-            // handle must t property
-            must_count += 1;
-            // .'$chair'.t
-            res = ((typeof pval === 'string' || pval instanceof String)) && pval == "chair";
-            if (! res)
-            {
-                return false;
-            }
-        }
-        else if (prop == "color")
-        {
-            // handle must color property
-            must_count += 1;
-            // .'$chair'.color
-            res = (typeof pval === 'string' || pval instanceof String);
-            if (! res)
-            {
-                return false;
-            }
-        }
-        else
-        {
-            return false;
-        }
+        return false;
     }
-    if (must_count != 2)
+    let pval;
+    let res;
+    if (! val.hasOwnProperty("t"))
+    {
+        return false;
+    }
+    pval = val["t"];
+    // .'$chair'.t
+    res = ((typeof pval === 'string' || pval instanceof String)) && pval == "chair";
+    if (! res)
+    {
+        return false;
+    }
+    if (! val.hasOwnProperty("color"))
+    {
+        return false;
+    }
+    pval = val["color"];
+    // .'$chair'.color
+    res = (typeof pval === 'string' || pval instanceof String);
+    if (! res)
     {
         return false;
     }
@@ -154,44 +142,38 @@ function json_model_4(val, path, rep)
 // object .
 function _jm_obj_2(val, path, rep)
 {
+    // check close must only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         return false;
     }
-    let res;
-    let must_count = 0;
-    for (const [prop, pval] of Object.entries(val))
+    if (Object.keys(val).length != 1)
     {
-        if (prop == "stuff")
+        return false;
+    }
+    let pval;
+    let res;
+    if (! val.hasOwnProperty("stuff"))
+    {
+        return false;
+    }
+    pval = val["stuff"];
+    // .stuff
+    res = Array.isArray(pval);
+    if (res)
+    {
+        for (let arr_0_idx = 0; arr_0_idx < pval.length; arr_0_idx++)
         {
-            // handle must stuff property
-            must_count += 1;
-            // .stuff
-            res = Array.isArray(pval);
-            if (res)
-            {
-                for (let arr_0_idx = 0; arr_0_idx < pval.length; arr_0_idx++)
-                {
-                    let arr_0_item = pval[arr_0_idx]
-                    // .stuff.0
-                    res = json_model_4(arr_0_item, null, rep);
-                    if (! res)
-                    {
-                        break;
-                    }
-                }
-            }
+            let arr_0_item = pval[arr_0_idx]
+            // .stuff.0
+            res = json_model_4(arr_0_item, null, rep);
             if (! res)
             {
-                return false;
+                break;
             }
         }
-        else
-        {
-            return false;
-        }
     }
-    if (must_count != 1)
+    if (! res)
     {
         return false;
     }

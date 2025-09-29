@@ -1,9 +1,9 @@
 ppp-000.values.json[0]: PASS
 ppp-000.values.json[1]: PASS
-ppp-000.values.json[2]: FAIL (: missing mandatory prop <b> [.])
-ppp-000.values.json[3]: FAIL (: missing mandatory prop <a> [.])
-ppp-000.values.json[4]: FAIL (c: unexpected prop [.])
-ppp-000.values.json[5]: FAIL (: missing mandatory prop <a> [.]; : missing mandatory prop <b> [.])
+ppp-000.values.json[2]: FAIL (: bad property count [.])
+ppp-000.values.json[3]: FAIL (: bad property count [.])
+ppp-000.values.json[4]: FAIL (: bad property count [.])
+ppp-000.values.json[5]: FAIL (: bad property count [.])
 ppp-000.values.json[6]: FAIL (: not an object [.])
 ppp-000.values.json[7]: FAIL (: not an object [.])
 ppp-000.values.json[8]: FAIL (: not an object [.])

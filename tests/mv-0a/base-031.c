@@ -19,62 +19,47 @@ const size_t check_model_map_size = 2;
 // object .'$bibi'
 static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
+    // check close must only props
     if (! json_is_object(val))
     {
         if (rep) jm_report_add_entry(rep, "not an object [.'$bibi']", path);
         return false;
     }
-    bool res;
-    int64_t must_count = 0;
-    const char *prop;
-    json_t *pval;
-    json_object_foreach((json_t *) val, prop, pval)
+    if (json_object_size(val) != 1)
     {
-        jm_path_t lpath_0 = (jm_path_t) { prop, 0, path, NULL };
-        if (strcmp(prop, "bibi") == 0)
+        if (rep) jm_report_add_entry(rep, "bad property count [.'$bibi']", path);
+        return false;
+    }
+    json_t * pval;
+    bool res;
+    if (! (json_object_get(val, "bibi") != NULL))
+    {
+        if (rep) jm_report_add_entry(rep, "missing mandatory prop <bibi> [.'$bibi']", path);
+        return false;
+    }
+    pval = json_object_get(val, "bibi");
+    // .'$bibi'.bibi
+    res = json_is_array(pval);
+    if (res)
+    {
+        size_t arr_0_idx;
+        json_t *arr_0_item;
+        json_array_foreach(pval, arr_0_idx, arr_0_item)
         {
-            // handle must bibi property
-            must_count += 1;
-            // .'$bibi'.bibi
-            res = json_is_array(pval);
-            if (res)
-            {
-                size_t arr_0_idx;
-                json_t *arr_0_item;
-                json_array_foreach(pval, arr_0_idx, arr_0_item)
-                {
-                    jm_path_t arr_0_lpath = (jm_path_t) { NULL, arr_0_idx, (path ? &lpath_0 : NULL), NULL };
-                    // .'$bibi'.bibi.0
-                    res = _jm_obj_0(arr_0_item, ((path ? &lpath_0 : NULL) ? &arr_0_lpath : NULL), rep);
-                    if (! res)
-                    {
-                        if (rep) jm_report_add_entry(rep, "unexpected $bibi [.'$bibi'.bibi.0]", ((path ? &lpath_0 : NULL) ? &arr_0_lpath : NULL));
-                        break;
-                    }
-                }
-            }
+            jm_path_t arr_0_lpath = (jm_path_t) { NULL, arr_0_idx, path, NULL };
+            // .'$bibi'.bibi.0
+            res = _jm_obj_0(arr_0_item, (path ? &arr_0_lpath : NULL), rep);
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "not array or unexpected array [.'$bibi'.bibi]", (path ? &lpath_0 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$bibi'.bibi]", (path ? &lpath_0 : NULL));
-                return false;
+                if (rep) jm_report_add_entry(rep, "unexpected $bibi [.'$bibi'.bibi.0]", (path ? &arr_0_lpath : NULL));
+                break;
             }
-        }
-        else
-        {
-            if (rep) jm_report_add_entry(rep, "unexpected prop [.'$bibi']", (path ? &lpath_0 : NULL));
-            return false;
         }
     }
-    if (must_count != 1)
+    if (! res)
     {
-        if (rep != NULL)
-        {
-            if (! (json_object_get(val, "bibi") != NULL))
-            {
-                if (rep) jm_report_add_entry(rep, "missing mandatory prop <bibi> [.'$bibi']", path);
-            }
-        }
+        if (rep) jm_report_add_entry(rep, "not array or unexpected array [.'$bibi'.bibi]", path);
+        if (rep) jm_report_add_entry(rep, "unexpected value for mandatory prop <bibi> [.'$bibi']", path);
         return false;
     }
     return true;

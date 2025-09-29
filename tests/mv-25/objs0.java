@@ -23,45 +23,36 @@ public class objs0 extends ModelChecker
     // object .'$table'
     public boolean _jm_obj_0(Object val, Path path, Report rep)
     {
+        // check close must only props
         if (! json.isObject(val))
         {
             return false;
         }
-        boolean res;
-        long must_count = 0;
-        Iterator<String> prop_loop = json.objectIterator(val);
-        while (prop_loop.hasNext())
+        if (json.objectSize(val) != 2)
         {
-            String prop = prop_loop.next();
-            Object pval = json.objectValue(val, prop);
-            if (prop.compareTo("t") == 0)
-            {
-                // handle must t property
-                must_count += 1;
-                // .'$table'.t
-                res = json.isString(pval) && json.asString(pval).compareTo("table") == 0;
-                if (! res)
-                {
-                    return false;
-                }
-            }
-            else if (prop.compareTo("legs") == 0)
-            {
-                // handle must legs property
-                must_count += 1;
-                // .'$table'.legs
-                res = json.isInteger(pval) && json.asLong(pval) >= 1;
-                if (! res)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                return false;
-            }
+            return false;
         }
-        if (must_count != 2)
+        Object pval;
+        boolean res;
+        if (! json.objectHasProp(val, "t"))
+        {
+            return false;
+        }
+        pval = json.objectValue(val, "t");
+        // .'$table'.t
+        res = json.isString(pval) && json.asString(pval).compareTo("table") == 0;
+        if (! res)
+        {
+            return false;
+        }
+        if (! json.objectHasProp(val, "legs"))
+        {
+            return false;
+        }
+        pval = json.objectValue(val, "legs");
+        // .'$table'.legs
+        res = json.isInteger(pval) && json.asLong(pval) >= 1;
+        if (! res)
         {
             return false;
         }
@@ -80,45 +71,36 @@ public class objs0 extends ModelChecker
     // object .'$chair'
     public boolean _jm_obj_1(Object val, Path path, Report rep)
     {
+        // check close must only props
         if (! json.isObject(val))
         {
             return false;
         }
-        boolean res;
-        long must_count = 0;
-        Iterator<String> prop_loop = json.objectIterator(val);
-        while (prop_loop.hasNext())
+        if (json.objectSize(val) != 2)
         {
-            String prop = prop_loop.next();
-            Object pval = json.objectValue(val, prop);
-            if (prop.compareTo("t") == 0)
-            {
-                // handle must t property
-                must_count += 1;
-                // .'$chair'.t
-                res = json.isString(pval) && json.asString(pval).compareTo("chair") == 0;
-                if (! res)
-                {
-                    return false;
-                }
-            }
-            else if (prop.compareTo("color") == 0)
-            {
-                // handle must color property
-                must_count += 1;
-                // .'$chair'.color
-                res = json.isString(pval);
-                if (! res)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                return false;
-            }
+            return false;
         }
-        if (must_count != 2)
+        Object pval;
+        boolean res;
+        if (! json.objectHasProp(val, "t"))
+        {
+            return false;
+        }
+        pval = json.objectValue(val, "t");
+        // .'$chair'.t
+        res = json.isString(pval) && json.asString(pval).compareTo("chair") == 0;
+        if (! res)
+        {
+            return false;
+        }
+        if (! json.objectHasProp(val, "color"))
+        {
+            return false;
+        }
+        pval = json.objectValue(val, "color");
+        // .'$chair'.color
+        res = json.isString(pval);
+        if (! res)
         {
             return false;
         }
@@ -168,50 +150,41 @@ public class objs0 extends ModelChecker
     // object .
     public boolean _jm_obj_2(Object val, Path path, Report rep)
     {
+        // check close must only props
         if (! json.isObject(val))
         {
             return false;
         }
-        boolean res;
-        long must_count = 0;
-        Iterator<String> prop_loop = json.objectIterator(val);
-        while (prop_loop.hasNext())
+        if (json.objectSize(val) != 1)
         {
-            String prop = prop_loop.next();
-            Object pval = json.objectValue(val, prop);
-            if (prop.compareTo("stuff") == 0)
+            return false;
+        }
+        Object pval;
+        boolean res;
+        if (! json.objectHasProp(val, "stuff"))
+        {
+            return false;
+        }
+        pval = json.objectValue(val, "stuff");
+        // .stuff
+        res = json.isArray(pval);
+        if (res)
+        {
+            int arr_0_idx = -1;
+            Iterator<Object> arr_0_item_loop = json.arrayIterator(pval);
+            while (arr_0_item_loop.hasNext())
             {
-                // handle must stuff property
-                must_count += 1;
-                // .stuff
-                res = json.isArray(pval);
-                if (res)
-                {
-                    int arr_0_idx = -1;
-                    Iterator<Object> arr_0_item_loop = json.arrayIterator(pval);
-                    while (arr_0_item_loop.hasNext())
-                    {
-                        arr_0_idx++;
-                        Object arr_0_item = arr_0_item_loop.next();
-                        // .stuff.0
-                        res = json_model_4(arr_0_item, null, rep);
-                        if (! res)
-                        {
-                            break;
-                        }
-                    }
-                }
+                arr_0_idx++;
+                Object arr_0_item = arr_0_item_loop.next();
+                // .stuff.0
+                res = json_model_4(arr_0_item, null, rep);
                 if (! res)
                 {
-                    return false;
+                    break;
                 }
             }
-            else
-            {
-                return false;
-            }
         }
-        if (must_count != 1)
+        if (! res)
         {
             return false;
         }

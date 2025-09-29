@@ -4897,45 +4897,41 @@ $$ LANGUAGE plpgsql;
 CREATE OR REPLACE FUNCTION _jm_obj_69(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
-  res bool;
-  must_count int;
-  prop TEXT;
   pval JSONB;
+  res bool;
 BEGIN
+  -- check close must only props
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
-  must_count := 0;
-  FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF prop = 'type' THEN
-      -- handle must type property
-      must_count := must_count + 1;
-      -- .'$SS-apikey'.type
-      res := JSONB_TYPEOF(pval) = 'string' AND JSON_VALUE(pval, '$' RETURNING TEXT) = 'apiKey';
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-    ELSEIF prop = 'name' THEN
-      -- handle must name property
-      must_count := must_count + 1;
-      -- .'$SS-apikey'.name
-      res := JSONB_TYPEOF(pval) = 'string';
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-    ELSEIF prop = 'in' THEN
-      -- handle must in property
-      must_count := must_count + 1;
-      -- .'$SS-apikey'.in
-      res := JSONB_TYPEOF(pval) IN ('null', 'boolean', 'number', 'string') AND _jm_cst_4(pval);
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-    ELSE
-      RETURN FALSE;
-    END IF;
-  END LOOP;
-  IF must_count <> 3 THEN
+  IF jm_object_size(val) <> 3 THEN
+    RETURN FALSE;
+  END IF;
+  IF NOT val ? 'type' THEN
+    RETURN FALSE;
+  END IF;
+  pval := val -> 'type';
+  -- .'$SS-apikey'.type
+  res := JSONB_TYPEOF(pval) = 'string' AND JSON_VALUE(pval, '$' RETURNING TEXT) = 'apiKey';
+  IF NOT res THEN
+    RETURN FALSE;
+  END IF;
+  IF NOT val ? 'name' THEN
+    RETURN FALSE;
+  END IF;
+  pval := val -> 'name';
+  -- .'$SS-apikey'.name
+  res := JSONB_TYPEOF(pval) = 'string';
+  IF NOT res THEN
+    RETURN FALSE;
+  END IF;
+  IF NOT val ? 'in' THEN
+    RETURN FALSE;
+  END IF;
+  pval := val -> 'in';
+  -- .'$SS-apikey'.in
+  res := JSONB_TYPEOF(pval) IN ('null', 'boolean', 'number', 'string') AND _jm_cst_4(pval);
+  IF NOT res THEN
     RETURN FALSE;
   END IF;
   RETURN TRUE;
@@ -4958,37 +4954,32 @@ $$ LANGUAGE PLpgSQL;
 CREATE OR REPLACE FUNCTION _jm_obj_70(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
-  res bool;
-  must_count int;
-  prop TEXT;
   pval JSONB;
+  res bool;
 BEGIN
+  -- check close must only props
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
-  must_count := 0;
-  FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF prop = 'type' THEN
-      -- handle must type property
-      must_count := must_count + 1;
-      -- .'$SS-http'.type
-      res := JSONB_TYPEOF(pval) = 'string' AND JSON_VALUE(pval, '$' RETURNING TEXT) = 'http';
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-    ELSEIF prop = 'scheme' THEN
-      -- handle must scheme property
-      must_count := must_count + 1;
-      -- .'$SS-http'.scheme
-      res := JSONB_TYPEOF(pval) = 'string';
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-    ELSE
-      RETURN FALSE;
-    END IF;
-  END LOOP;
-  IF must_count <> 2 THEN
+  IF jm_object_size(val) <> 2 THEN
+    RETURN FALSE;
+  END IF;
+  IF NOT val ? 'type' THEN
+    RETURN FALSE;
+  END IF;
+  pval := val -> 'type';
+  -- .'$SS-http'.type
+  res := JSONB_TYPEOF(pval) = 'string' AND JSON_VALUE(pval, '$' RETURNING TEXT) = 'http';
+  IF NOT res THEN
+    RETURN FALSE;
+  END IF;
+  IF NOT val ? 'scheme' THEN
+    RETURN FALSE;
+  END IF;
+  pval := val -> 'scheme';
+  -- .'$SS-http'.scheme
+  res := JSONB_TYPEOF(pval) = 'string';
+  IF NOT res THEN
     RETURN FALSE;
   END IF;
   RETURN TRUE;
@@ -5080,37 +5071,32 @@ $$ LANGUAGE PLpgSQL;
 CREATE OR REPLACE FUNCTION _jm_obj_72(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
-  res bool;
-  must_count int;
-  prop TEXT;
   pval JSONB;
+  res bool;
 BEGIN
+  -- check close must only props
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
-  must_count := 0;
-  FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF prop = 'type' THEN
-      -- handle must type property
-      must_count := must_count + 1;
-      -- .'$SS-oauth2'.type
-      res := JSONB_TYPEOF(pval) = 'string' AND JSON_VALUE(pval, '$' RETURNING TEXT) = 'oauth2';
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-    ELSEIF prop = 'flows' THEN
-      -- handle must flows property
-      must_count := must_count + 1;
-      -- .'$SS-oauth2'.flows
-      res := _jm_obj_80(pval, NULL, rep);
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-    ELSE
-      RETURN FALSE;
-    END IF;
-  END LOOP;
-  IF must_count <> 2 THEN
+  IF jm_object_size(val) <> 2 THEN
+    RETURN FALSE;
+  END IF;
+  IF NOT val ? 'type' THEN
+    RETURN FALSE;
+  END IF;
+  pval := val -> 'type';
+  -- .'$SS-oauth2'.type
+  res := JSONB_TYPEOF(pval) = 'string' AND JSON_VALUE(pval, '$' RETURNING TEXT) = 'oauth2';
+  IF NOT res THEN
+    RETURN FALSE;
+  END IF;
+  IF NOT val ? 'flows' THEN
+    RETURN FALSE;
+  END IF;
+  pval := val -> 'flows';
+  -- .'$SS-oauth2'.flows
+  res := _jm_obj_80(pval, path, rep);
+  IF NOT res THEN
     RETURN FALSE;
   END IF;
   RETURN TRUE;
@@ -5133,37 +5119,32 @@ $$ LANGUAGE PLpgSQL;
 CREATE OR REPLACE FUNCTION _jm_obj_73(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
-  res bool;
-  must_count int;
-  prop TEXT;
   pval JSONB;
+  res bool;
 BEGIN
+  -- check close must only props
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
-  must_count := 0;
-  FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF prop = 'type' THEN
-      -- handle must type property
-      must_count := must_count + 1;
-      -- .'$SS-oic'.type
-      res := JSONB_TYPEOF(pval) = 'string' AND JSON_VALUE(pval, '$' RETURNING TEXT) = 'openIdConnect';
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-    ELSEIF prop = 'openIdConnectUrl' THEN
-      -- handle must openIdConnectUrl property
-      must_count := must_count + 1;
-      -- .'$SS-oic'.openIdConnectUrl
-      res := JSONB_TYPEOF(pval) = 'string' AND jm_is_valid_url(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, rep);
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-    ELSE
-      RETURN FALSE;
-    END IF;
-  END LOOP;
-  IF must_count <> 2 THEN
+  IF jm_object_size(val) <> 2 THEN
+    RETURN FALSE;
+  END IF;
+  IF NOT val ? 'type' THEN
+    RETURN FALSE;
+  END IF;
+  pval := val -> 'type';
+  -- .'$SS-oic'.type
+  res := JSONB_TYPEOF(pval) = 'string' AND JSON_VALUE(pval, '$' RETURNING TEXT) = 'openIdConnect';
+  IF NOT res THEN
+    RETURN FALSE;
+  END IF;
+  IF NOT val ? 'openIdConnectUrl' THEN
+    RETURN FALSE;
+  END IF;
+  pval := val -> 'openIdConnectUrl';
+  -- .'$SS-oic'.openIdConnectUrl
+  res := JSONB_TYPEOF(pval) = 'string' AND jm_is_valid_url(JSON_VALUE(pval, '$' RETURNING TEXT), path, rep);
+  IF NOT res THEN
     RETURN FALSE;
   END IF;
   RETURN TRUE;

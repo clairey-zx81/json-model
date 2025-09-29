@@ -495,6 +495,51 @@ class CodeGenerator:
             prop_map[p] = self._getName(jm, pid)
         self._code.pmap(name, prop_map)
 
+    # TODO known?
+    def _closeMuObject(self, jm: JsonModel, must: dict[str, ModelType],
+                        mpath: ModelPath, oname: str,
+                        res: Var, val: JsonExpr, vpath: PathExpr) -> Block:
+        """Optimize `{"x": ..., "": "y": ...}`."""
+
+        assert isinstance(must, dict)
+        gen = self._lang
+        smpath = json_path(mpath)
+
+        code = (
+            gen.lcom("check close must only props") +
+            # filter non object
+            gen.if_stmt(gen.not_op(gen.is_a(val, dict)),
+                        self._gen_fail(f"not an object [{smpath}]", vpath)) +
+            # filter ahead on the number of properties
+            gen.if_stmt(gen.num_cmp(gen.obj_len(val), "!=", gen.const(len(must))),
+                        self._gen_fail(f"bad property count [{smpath}]", vpath))
+        )
+
+        # value checks needs two variables
+        if any(m != "$ANY" for m in must.values()):
+            code += (
+                gen.json_var("pval", declare=True) +
+                gen.bool_var(res, declare=True)
+            )
+
+        # must properties
+        for prop, pmodel in must.items():
+            code += gen.if_stmt(
+                        gen.not_op(gen.has_prop(val, prop)),
+                        self._gen_fail(f"missing mandatory prop <{prop}> [{smpath}]", vpath))
+            if pmodel != "$ANY":
+                code += (
+                    gen.json_var("pval", gen.obj_prop_val(val, prop, False)) +
+                    self._compileModel(jm, pmodel, mpath + [prop], res, "pval", vpath) +
+                    gen.if_stmt(
+                        gen.not_op(res),
+                        self._gen_fail(f"unexpected value for mandatory prop <{prop}> [{smpath}]",
+                                       vpath))
+                )
+
+        return code + gen.ret(gen.true())
+
+    # TODO known?
     def _openMuMaObject(self, jm: JsonModel, must: dict[str, ModelType], may: dict[str, ModelType],
                         mpath: ModelPath, oname: str,
                         res: Var, val: JsonExpr, vpath: PathExpr) -> Block:
@@ -505,7 +550,7 @@ class CodeGenerator:
         smpath = json_path(mpath)
 
         code = (
-            gen.lcom("check must only props") +
+            gen.lcom("check open must/may only props") +
             gen.if_stmt(gen.not_op(gen.is_a(val, dict)),
                         self._gen_fail(f"not an object [{smpath}]", vpath))
         )
@@ -581,6 +626,10 @@ class CodeGenerator:
         # shortcut for open object with simple props only
         if not defs and not regs and (must or may) and oth == {"": "$ANY"}:
             return self._openMuMaObject(jm, must, may, mpath, oname, res, val, vpath)
+
+        # shortcut for must-only object
+        if must and not may and not defs and not regs and not oth:
+            return self._closeMuObject(jm, must, mpath, oname, res, val, vpath)
 
         # path + [ prop ]
         lpath = gen.ident("lpath")

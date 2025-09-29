@@ -14,44 +14,31 @@ var check_model_map = new Map()
 // object .'^'.1
 function _jm_obj_0(val, path, rep)
 {
+    // check close must only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.'^'.1]", path])
         return false;
     }
-    let res;
-    let must_count = 0;
-    for (const [prop, pval] of Object.entries(val))
+    if (Object.keys(val).length != 1)
     {
-        let lpath_0 = path ? path.concat([prop]) : null;
-        if (prop == "a")
-        {
-            // handle must a property
-            must_count += 1;
-            // .'^'.1.a
-            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0;
-            if (! res)
-            {
-                rep !== null && rep.push(["not a 0 strict int [.'^'.1.a]", (path ? lpath_0 : null)])
-                rep !== null && rep.push(["invalid mandatory prop value [.'^'.1.a]", (path ? lpath_0 : null)])
-                return false;
-            }
-        }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.'^'.1]", (path ? lpath_0 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["bad property count [.'^'.1]", path])
+        return false;
     }
-    if (must_count != 1)
+    let pval;
+    let res;
+    if (! val.hasOwnProperty("a"))
     {
-        if (rep !== null)
-        {
-            if (! val.hasOwnProperty("a"))
-            {
-                rep !== null && rep.push(["missing mandatory prop <a> [.'^'.1]", path])
-            }
-        }
+        rep !== null && rep.push(["missing mandatory prop <a> [.'^'.1]", path])
+        return false;
+    }
+    pval = val["a"];
+    // .'^'.1.a
+    res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0;
+    if (! res)
+    {
+        rep !== null && rep.push(["not a 0 strict int [.'^'.1.a]", path])
+        rep !== null && rep.push(["unexpected value for mandatory prop <a> [.'^'.1]", path])
         return false;
     }
     return true;

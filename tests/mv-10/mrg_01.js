@@ -27,61 +27,45 @@ function json_model_2(val, path, rep)
 // object .'$x'
 function _jm_obj_0(val, path, rep)
 {
+    // check close must only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.'$x']", path])
         return false;
     }
-    let res;
-    let must_count = 0;
-    for (const [prop, pval] of Object.entries(val))
+    if (Object.keys(val).length != 2)
     {
-        let lpath_0 = path ? path.concat([prop]) : null;
-        if (prop == "a")
-        {
-            // handle must a property
-            must_count += 1;
-            // .'$x'.a
-            res = ((typeof pval === 'string' || pval instanceof String)) && pval == "cst_01";
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected _cst_01 [.'$x'.a]", (path ? lpath_0 : null)])
-                rep !== null && rep.push(["invalid mandatory prop value [.'$x'.a]", (path ? lpath_0 : null)])
-                return false;
-            }
-        }
-        else if (prop == "b")
-        {
-            // handle must b property
-            must_count += 1;
-            // .'$x'.b
-            res = ((typeof pval === 'string' || pval instanceof String)) && pval == "cst_01";
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected _cst_01 [.'$x'.b]", (path ? lpath_0 : null)])
-                rep !== null && rep.push(["invalid mandatory prop value [.'$x'.b]", (path ? lpath_0 : null)])
-                return false;
-            }
-        }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.'$x']", (path ? lpath_0 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["bad property count [.'$x']", path])
+        return false;
     }
-    if (must_count != 2)
+    let pval;
+    let res;
+    if (! val.hasOwnProperty("a"))
     {
-        if (rep !== null)
-        {
-            if (! val.hasOwnProperty("a"))
-            {
-                rep !== null && rep.push(["missing mandatory prop <a> [.'$x']", path])
-            }
-            if (! val.hasOwnProperty("b"))
-            {
-                rep !== null && rep.push(["missing mandatory prop <b> [.'$x']", path])
-            }
-        }
+        rep !== null && rep.push(["missing mandatory prop <a> [.'$x']", path])
+        return false;
+    }
+    pval = val["a"];
+    // .'$x'.a
+    res = ((typeof pval === 'string' || pval instanceof String)) && pval == "cst_01";
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected _cst_01 [.'$x'.a]", path])
+        rep !== null && rep.push(["unexpected value for mandatory prop <a> [.'$x']", path])
+        return false;
+    }
+    if (! val.hasOwnProperty("b"))
+    {
+        rep !== null && rep.push(["missing mandatory prop <b> [.'$x']", path])
+        return false;
+    }
+    pval = val["b"];
+    // .'$x'.b
+    res = ((typeof pval === 'string' || pval instanceof String)) && pval == "cst_01";
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected _cst_01 [.'$x'.b]", path])
+        rep !== null && rep.push(["unexpected value for mandatory prop <b> [.'$x']", path])
         return false;
     }
     return true;
@@ -103,61 +87,45 @@ function json_model_3(val, path, rep)
 // object .'$y'
 function _jm_obj_1(val, path, rep)
 {
+    // check close must only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.'$y']", path])
         return false;
     }
-    let res;
-    let must_count = 0;
-    for (const [prop, pval] of Object.entries(val))
+    if (Object.keys(val).length != 2)
     {
-        let lpath_1 = path ? path.concat([prop]) : null;
-        if (prop == "c")
-        {
-            // handle must c property
-            must_count += 1;
-            // .'$y'.c
-            res = ((typeof pval === 'string' || pval instanceof String)) && pval == "cst_01";
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected _cst_01 [.'$y'.c]", (path ? lpath_1 : null)])
-                rep !== null && rep.push(["invalid mandatory prop value [.'$y'.c]", (path ? lpath_1 : null)])
-                return false;
-            }
-        }
-        else if (prop == "d")
-        {
-            // handle must d property
-            must_count += 1;
-            // .'$y'.d
-            res = ((typeof pval === 'string' || pval instanceof String)) && pval == "cst_01";
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected _cst_01 [.'$y'.d]", (path ? lpath_1 : null)])
-                rep !== null && rep.push(["invalid mandatory prop value [.'$y'.d]", (path ? lpath_1 : null)])
-                return false;
-            }
-        }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.'$y']", (path ? lpath_1 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["bad property count [.'$y']", path])
+        return false;
     }
-    if (must_count != 2)
+    let pval;
+    let res;
+    if (! val.hasOwnProperty("c"))
     {
-        if (rep !== null)
-        {
-            if (! val.hasOwnProperty("c"))
-            {
-                rep !== null && rep.push(["missing mandatory prop <c> [.'$y']", path])
-            }
-            if (! val.hasOwnProperty("d"))
-            {
-                rep !== null && rep.push(["missing mandatory prop <d> [.'$y']", path])
-            }
-        }
+        rep !== null && rep.push(["missing mandatory prop <c> [.'$y']", path])
+        return false;
+    }
+    pval = val["c"];
+    // .'$y'.c
+    res = ((typeof pval === 'string' || pval instanceof String)) && pval == "cst_01";
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected _cst_01 [.'$y'.c]", path])
+        rep !== null && rep.push(["unexpected value for mandatory prop <c> [.'$y']", path])
+        return false;
+    }
+    if (! val.hasOwnProperty("d"))
+    {
+        rep !== null && rep.push(["missing mandatory prop <d> [.'$y']", path])
+        return false;
+    }
+    pval = val["d"];
+    // .'$y'.d
+    res = ((typeof pval === 'string' || pval instanceof String)) && pval == "cst_01";
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected _cst_01 [.'$y'.d]", path])
+        rep !== null && rep.push(["unexpected value for mandatory prop <d> [.'$y']", path])
         return false;
     }
     return true;
@@ -179,95 +147,73 @@ function json_model_4(val, path, rep)
 // object .
 function _jm_obj_2(val, path, rep)
 {
+    // check close must only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.]", path])
         return false;
     }
-    let res;
-    let must_count = 0;
-    for (const [prop, pval] of Object.entries(val))
+    if (Object.keys(val).length != 4)
     {
-        let lpath_2 = path ? path.concat([prop]) : null;
-        if (prop == "a")
-        {
-            // handle must a property
-            must_count += 1;
-            // .a
-            res = ((typeof pval === 'string' || pval instanceof String)) && pval == "cst_01";
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected _cst_01 [.a]", (path ? lpath_2 : null)])
-                rep !== null && rep.push(["invalid mandatory prop value [.a]", (path ? lpath_2 : null)])
-                return false;
-            }
-        }
-        else if (prop == "b")
-        {
-            // handle must b property
-            must_count += 1;
-            // .b
-            res = ((typeof pval === 'string' || pval instanceof String)) && pval == "cst_01";
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected _cst_01 [.b]", (path ? lpath_2 : null)])
-                rep !== null && rep.push(["invalid mandatory prop value [.b]", (path ? lpath_2 : null)])
-                return false;
-            }
-        }
-        else if (prop == "c")
-        {
-            // handle must c property
-            must_count += 1;
-            // .c
-            res = ((typeof pval === 'string' || pval instanceof String)) && pval == "cst_01";
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected _cst_01 [.c]", (path ? lpath_2 : null)])
-                rep !== null && rep.push(["invalid mandatory prop value [.c]", (path ? lpath_2 : null)])
-                return false;
-            }
-        }
-        else if (prop == "d")
-        {
-            // handle must d property
-            must_count += 1;
-            // .d
-            res = ((typeof pval === 'string' || pval instanceof String)) && pval == "cst_01";
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected _cst_01 [.d]", (path ? lpath_2 : null)])
-                rep !== null && rep.push(["invalid mandatory prop value [.d]", (path ? lpath_2 : null)])
-                return false;
-            }
-        }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.]", (path ? lpath_2 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["bad property count [.]", path])
+        return false;
     }
-    if (must_count != 4)
+    let pval;
+    let res;
+    if (! val.hasOwnProperty("a"))
     {
-        if (rep !== null)
-        {
-            if (! val.hasOwnProperty("a"))
-            {
-                rep !== null && rep.push(["missing mandatory prop <a> [.]", path])
-            }
-            if (! val.hasOwnProperty("b"))
-            {
-                rep !== null && rep.push(["missing mandatory prop <b> [.]", path])
-            }
-            if (! val.hasOwnProperty("c"))
-            {
-                rep !== null && rep.push(["missing mandatory prop <c> [.]", path])
-            }
-            if (! val.hasOwnProperty("d"))
-            {
-                rep !== null && rep.push(["missing mandatory prop <d> [.]", path])
-            }
-        }
+        rep !== null && rep.push(["missing mandatory prop <a> [.]", path])
+        return false;
+    }
+    pval = val["a"];
+    // .a
+    res = ((typeof pval === 'string' || pval instanceof String)) && pval == "cst_01";
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected _cst_01 [.a]", path])
+        rep !== null && rep.push(["unexpected value for mandatory prop <a> [.]", path])
+        return false;
+    }
+    if (! val.hasOwnProperty("b"))
+    {
+        rep !== null && rep.push(["missing mandatory prop <b> [.]", path])
+        return false;
+    }
+    pval = val["b"];
+    // .b
+    res = ((typeof pval === 'string' || pval instanceof String)) && pval == "cst_01";
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected _cst_01 [.b]", path])
+        rep !== null && rep.push(["unexpected value for mandatory prop <b> [.]", path])
+        return false;
+    }
+    if (! val.hasOwnProperty("c"))
+    {
+        rep !== null && rep.push(["missing mandatory prop <c> [.]", path])
+        return false;
+    }
+    pval = val["c"];
+    // .c
+    res = ((typeof pval === 'string' || pval instanceof String)) && pval == "cst_01";
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected _cst_01 [.c]", path])
+        rep !== null && rep.push(["unexpected value for mandatory prop <c> [.]", path])
+        return false;
+    }
+    if (! val.hasOwnProperty("d"))
+    {
+        rep !== null && rep.push(["missing mandatory prop <d> [.]", path])
+        return false;
+    }
+    pval = val["d"];
+    // .d
+    res = ((typeof pval === 'string' || pval instanceof String)) && pval == "cst_01";
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected _cst_01 [.d]", path])
+        rep !== null && rep.push(["unexpected value for mandatory prop <d> [.]", path])
         return false;
     }
     return true;

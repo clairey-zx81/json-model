@@ -19,45 +19,38 @@ my %check_model_map;
 sub _jm_obj_0($$$)
 {
     my ($val, $path, $rep) = @_;
+    # check close must only props
     if (! jm_is_object($val))
     {
         return 0;
     }
-    my $res;
-    my $must_count = 0;
-    scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    if (jm_obj_size($val) != 1)
     {
-        if ($prop eq 'bibi')
+        return 0;
+    }
+    my $pval;
+    my $res;
+    if (! exists $$val{'bibi'})
+    {
+        return 0;
+    }
+    $pval = $$val{'bibi'};
+    # .'$bibi'.bibi
+    $res = jm_is_array($pval);
+    if ($res)
+    {
+        for my $arr_0_idx (0 .. $#$pval)
         {
-            # handle must bibi property
-            $must_count++;
-            # .'$bibi'.bibi
-            $res = jm_is_array($pval);
-            if ($res)
-            {
-                for my $arr_0_idx (0 .. $#$pval)
-                {
-                    my $arr_0_item = $$pval[$arr_0_idx];
-                    # .'$bibi'.bibi.0
-                    $res = _jm_obj_0($arr_0_item, undef, $rep);
-                    if (! $res)
-                    {
-                        last;
-                    }
-                }
-            }
+            my $arr_0_item = $$pval[$arr_0_idx];
+            # .'$bibi'.bibi.0
+            $res = _jm_obj_0($arr_0_item, undef, $rep);
             if (! $res)
             {
-                return 0;
+                last;
             }
         }
-        else
-        {
-            return 0;
-        }
     }
-    if ($must_count != 1)
+    if (! $res)
     {
         return 0;
     }

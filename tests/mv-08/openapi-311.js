@@ -6196,78 +6196,59 @@ function json_model_34(val, path, rep)
 // object .'$SS-apikey'
 function _jm_obj_69(val, path, rep)
 {
+    // check close must only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.'$SS-apikey']", path])
         return false;
     }
-    let res;
-    let must_count = 0;
-    for (const [prop, pval] of Object.entries(val))
+    if (Object.keys(val).length != 3)
     {
-        let lpath_67 = path ? path.concat([prop]) : null;
-        if (prop == "type")
-        {
-            // handle must type property
-            must_count += 1;
-            // .'$SS-apikey'.type
-            res = ((typeof pval === 'string' || pval instanceof String)) && pval == "apiKey";
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected _apiKey [.'$SS-apikey'.type]", (path ? lpath_67 : null)])
-                rep !== null && rep.push(["invalid mandatory prop value [.'$SS-apikey'.type]", (path ? lpath_67 : null)])
-                return false;
-            }
-        }
-        else if (prop == "name")
-        {
-            // handle must name property
-            must_count += 1;
-            // .'$SS-apikey'.name
-            res = (typeof pval === 'string' || pval instanceof String);
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected string [.'$SS-apikey'.name]", (path ? lpath_67 : null)])
-                rep !== null && rep.push(["invalid mandatory prop value [.'$SS-apikey'.name]", (path ? lpath_67 : null)])
-                return false;
-            }
-        }
-        else if (prop == "in")
-        {
-            // handle must in property
-            must_count += 1;
-            // .'$SS-apikey'.in
-            res = ((pval === null || (typeof pval === 'number' || pval instanceof Number) || (typeof pval === 'boolean' || pval instanceof Boolean) || (typeof pval === 'string' || pval instanceof String))) && _jm_cst_4.has(pval);
-            if (! res)
-            {
-                rep !== null && rep.push(["value not in enum [.'$SS-apikey'.in.'|']", (path ? lpath_67 : null)])
-                rep !== null && rep.push(["invalid mandatory prop value [.'$SS-apikey'.in]", (path ? lpath_67 : null)])
-                return false;
-            }
-        }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.'$SS-apikey']", (path ? lpath_67 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["bad property count [.'$SS-apikey']", path])
+        return false;
     }
-    if (must_count != 3)
+    let pval;
+    let res;
+    if (! val.hasOwnProperty("type"))
     {
-        if (rep !== null)
-        {
-            if (! val.hasOwnProperty("in"))
-            {
-                rep !== null && rep.push(["missing mandatory prop <in> [.'$SS-apikey']", path])
-            }
-            if (! val.hasOwnProperty("name"))
-            {
-                rep !== null && rep.push(["missing mandatory prop <name> [.'$SS-apikey']", path])
-            }
-            if (! val.hasOwnProperty("type"))
-            {
-                rep !== null && rep.push(["missing mandatory prop <type> [.'$SS-apikey']", path])
-            }
-        }
+        rep !== null && rep.push(["missing mandatory prop <type> [.'$SS-apikey']", path])
+        return false;
+    }
+    pval = val["type"];
+    // .'$SS-apikey'.type
+    res = ((typeof pval === 'string' || pval instanceof String)) && pval == "apiKey";
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected _apiKey [.'$SS-apikey'.type]", path])
+        rep !== null && rep.push(["unexpected value for mandatory prop <type> [.'$SS-apikey']", path])
+        return false;
+    }
+    if (! val.hasOwnProperty("name"))
+    {
+        rep !== null && rep.push(["missing mandatory prop <name> [.'$SS-apikey']", path])
+        return false;
+    }
+    pval = val["name"];
+    // .'$SS-apikey'.name
+    res = (typeof pval === 'string' || pval instanceof String);
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected string [.'$SS-apikey'.name]", path])
+        rep !== null && rep.push(["unexpected value for mandatory prop <name> [.'$SS-apikey']", path])
+        return false;
+    }
+    if (! val.hasOwnProperty("in"))
+    {
+        rep !== null && rep.push(["missing mandatory prop <in> [.'$SS-apikey']", path])
+        return false;
+    }
+    pval = val["in"];
+    // .'$SS-apikey'.in
+    res = ((pval === null || (typeof pval === 'number' || pval instanceof Number) || (typeof pval === 'boolean' || pval instanceof Boolean) || (typeof pval === 'string' || pval instanceof String))) && _jm_cst_4.has(pval);
+    if (! res)
+    {
+        rep !== null && rep.push(["value not in enum [.'$SS-apikey'.in.'|']", path])
+        rep !== null && rep.push(["unexpected value for mandatory prop <in> [.'$SS-apikey']", path])
         return false;
     }
     return true;
@@ -6289,61 +6270,45 @@ function json_model_35(val, path, rep)
 // object .'$SS-http'
 function _jm_obj_70(val, path, rep)
 {
+    // check close must only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.'$SS-http']", path])
         return false;
     }
-    let res;
-    let must_count = 0;
-    for (const [prop, pval] of Object.entries(val))
+    if (Object.keys(val).length != 2)
     {
-        let lpath_68 = path ? path.concat([prop]) : null;
-        if (prop == "type")
-        {
-            // handle must type property
-            must_count += 1;
-            // .'$SS-http'.type
-            res = ((typeof pval === 'string' || pval instanceof String)) && pval == "http";
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected _http [.'$SS-http'.type]", (path ? lpath_68 : null)])
-                rep !== null && rep.push(["invalid mandatory prop value [.'$SS-http'.type]", (path ? lpath_68 : null)])
-                return false;
-            }
-        }
-        else if (prop == "scheme")
-        {
-            // handle must scheme property
-            must_count += 1;
-            // .'$SS-http'.scheme
-            res = (typeof pval === 'string' || pval instanceof String);
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected string [.'$SS-http'.scheme]", (path ? lpath_68 : null)])
-                rep !== null && rep.push(["invalid mandatory prop value [.'$SS-http'.scheme]", (path ? lpath_68 : null)])
-                return false;
-            }
-        }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.'$SS-http']", (path ? lpath_68 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["bad property count [.'$SS-http']", path])
+        return false;
     }
-    if (must_count != 2)
+    let pval;
+    let res;
+    if (! val.hasOwnProperty("type"))
     {
-        if (rep !== null)
-        {
-            if (! val.hasOwnProperty("scheme"))
-            {
-                rep !== null && rep.push(["missing mandatory prop <scheme> [.'$SS-http']", path])
-            }
-            if (! val.hasOwnProperty("type"))
-            {
-                rep !== null && rep.push(["missing mandatory prop <type> [.'$SS-http']", path])
-            }
-        }
+        rep !== null && rep.push(["missing mandatory prop <type> [.'$SS-http']", path])
+        return false;
+    }
+    pval = val["type"];
+    // .'$SS-http'.type
+    res = ((typeof pval === 'string' || pval instanceof String)) && pval == "http";
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected _http [.'$SS-http'.type]", path])
+        rep !== null && rep.push(["unexpected value for mandatory prop <type> [.'$SS-http']", path])
+        return false;
+    }
+    if (! val.hasOwnProperty("scheme"))
+    {
+        rep !== null && rep.push(["missing mandatory prop <scheme> [.'$SS-http']", path])
+        return false;
+    }
+    pval = val["scheme"];
+    // .'$SS-http'.scheme
+    res = (typeof pval === 'string' || pval instanceof String);
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected string [.'$SS-http'.scheme]", path])
+        rep !== null && rep.push(["unexpected value for mandatory prop <scheme> [.'$SS-http']", path])
         return false;
     }
     return true;
@@ -6376,7 +6341,7 @@ function _jm_obj_71(val, path, rep)
     let must_count = 0;
     for (const [prop, pval] of Object.entries(val))
     {
-        let lpath_69 = path ? path.concat([prop]) : null;
+        let lpath_67 = path ? path.concat([prop]) : null;
         if (prop == "type")
         {
             // handle must type property
@@ -6385,8 +6350,8 @@ function _jm_obj_71(val, path, rep)
             res = ((typeof pval === 'string' || pval instanceof String)) && pval == "http";
             if (! res)
             {
-                rep !== null && rep.push(["unexpected _http [.'$SS-http-bearer'.type]", (path ? lpath_69 : null)])
-                rep !== null && rep.push(["invalid mandatory prop value [.'$SS-http-bearer'.type]", (path ? lpath_69 : null)])
+                rep !== null && rep.push(["unexpected _http [.'$SS-http-bearer'.type]", (path ? lpath_67 : null)])
+                rep !== null && rep.push(["invalid mandatory prop value [.'$SS-http-bearer'.type]", (path ? lpath_67 : null)])
                 return false;
             }
         }
@@ -6396,11 +6361,11 @@ function _jm_obj_71(val, path, rep)
             must_count += 1;
             // .'$SS-http-bearer'.scheme
             // "/bearer/i"
-            res = ((typeof pval === 'string' || pval instanceof String)) && _jm_re_3(pval, (path ? lpath_69 : null), rep);
+            res = ((typeof pval === 'string' || pval instanceof String)) && _jm_re_3(pval, (path ? lpath_67 : null), rep);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected /bearer/i [.'$SS-http-bearer'.scheme]", (path ? lpath_69 : null)])
-                rep !== null && rep.push(["invalid mandatory prop value [.'$SS-http-bearer'.scheme]", (path ? lpath_69 : null)])
+                rep !== null && rep.push(["unexpected /bearer/i [.'$SS-http-bearer'.scheme]", (path ? lpath_67 : null)])
+                rep !== null && rep.push(["invalid mandatory prop value [.'$SS-http-bearer'.scheme]", (path ? lpath_67 : null)])
                 return false;
             }
         }
@@ -6411,14 +6376,14 @@ function _jm_obj_71(val, path, rep)
             res = (typeof pval === 'string' || pval instanceof String);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected string [.'$SS-http-bearer'.bearerFormat]", (path ? lpath_69 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.'$SS-http-bearer'.bearerFormat]", (path ? lpath_69 : null)])
+                rep !== null && rep.push(["unexpected string [.'$SS-http-bearer'.bearerFormat]", (path ? lpath_67 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$SS-http-bearer'.bearerFormat]", (path ? lpath_67 : null)])
                 return false;
             }
         }
         else
         {
-            rep !== null && rep.push(["unexpected prop [.'$SS-http-bearer']", (path ? lpath_69 : null)])
+            rep !== null && rep.push(["unexpected prop [.'$SS-http-bearer']", (path ? lpath_67 : null)])
             return false;
         }
     }
@@ -6456,61 +6421,45 @@ function json_model_37(val, path, rep)
 // object .'$SS-oauth2'
 function _jm_obj_72(val, path, rep)
 {
+    // check close must only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.'$SS-oauth2']", path])
         return false;
     }
-    let res;
-    let must_count = 0;
-    for (const [prop, pval] of Object.entries(val))
+    if (Object.keys(val).length != 2)
     {
-        let lpath_70 = path ? path.concat([prop]) : null;
-        if (prop == "type")
-        {
-            // handle must type property
-            must_count += 1;
-            // .'$SS-oauth2'.type
-            res = ((typeof pval === 'string' || pval instanceof String)) && pval == "oauth2";
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected _oauth2 [.'$SS-oauth2'.type]", (path ? lpath_70 : null)])
-                rep !== null && rep.push(["invalid mandatory prop value [.'$SS-oauth2'.type]", (path ? lpath_70 : null)])
-                return false;
-            }
-        }
-        else if (prop == "flows")
-        {
-            // handle must flows property
-            must_count += 1;
-            // .'$SS-oauth2'.flows
-            res = _jm_obj_80(pval, (path ? lpath_70 : null), rep);
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected $OAuthFlows [.'$SS-oauth2'.flows]", (path ? lpath_70 : null)])
-                rep !== null && rep.push(["invalid mandatory prop value [.'$SS-oauth2'.flows]", (path ? lpath_70 : null)])
-                return false;
-            }
-        }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.'$SS-oauth2']", (path ? lpath_70 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["bad property count [.'$SS-oauth2']", path])
+        return false;
     }
-    if (must_count != 2)
+    let pval;
+    let res;
+    if (! val.hasOwnProperty("type"))
     {
-        if (rep !== null)
-        {
-            if (! val.hasOwnProperty("flows"))
-            {
-                rep !== null && rep.push(["missing mandatory prop <flows> [.'$SS-oauth2']", path])
-            }
-            if (! val.hasOwnProperty("type"))
-            {
-                rep !== null && rep.push(["missing mandatory prop <type> [.'$SS-oauth2']", path])
-            }
-        }
+        rep !== null && rep.push(["missing mandatory prop <type> [.'$SS-oauth2']", path])
+        return false;
+    }
+    pval = val["type"];
+    // .'$SS-oauth2'.type
+    res = ((typeof pval === 'string' || pval instanceof String)) && pval == "oauth2";
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected _oauth2 [.'$SS-oauth2'.type]", path])
+        rep !== null && rep.push(["unexpected value for mandatory prop <type> [.'$SS-oauth2']", path])
+        return false;
+    }
+    if (! val.hasOwnProperty("flows"))
+    {
+        rep !== null && rep.push(["missing mandatory prop <flows> [.'$SS-oauth2']", path])
+        return false;
+    }
+    pval = val["flows"];
+    // .'$SS-oauth2'.flows
+    res = _jm_obj_80(pval, path, rep);
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected $OAuthFlows [.'$SS-oauth2'.flows]", path])
+        rep !== null && rep.push(["unexpected value for mandatory prop <flows> [.'$SS-oauth2']", path])
         return false;
     }
     return true;
@@ -6532,61 +6481,45 @@ function json_model_38(val, path, rep)
 // object .'$SS-oic'
 function _jm_obj_73(val, path, rep)
 {
+    // check close must only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.'$SS-oic']", path])
         return false;
     }
-    let res;
-    let must_count = 0;
-    for (const [prop, pval] of Object.entries(val))
+    if (Object.keys(val).length != 2)
     {
-        let lpath_71 = path ? path.concat([prop]) : null;
-        if (prop == "type")
-        {
-            // handle must type property
-            must_count += 1;
-            // .'$SS-oic'.type
-            res = ((typeof pval === 'string' || pval instanceof String)) && pval == "openIdConnect";
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected _openIdConnect [.'$SS-oic'.type]", (path ? lpath_71 : null)])
-                rep !== null && rep.push(["invalid mandatory prop value [.'$SS-oic'.type]", (path ? lpath_71 : null)])
-                return false;
-            }
-        }
-        else if (prop == "openIdConnectUrl")
-        {
-            // handle must openIdConnectUrl property
-            must_count += 1;
-            // .'$SS-oic'.openIdConnectUrl
-            res = runtime.jm_is_valid_url(pval);
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected $URL [.'$SS-oic'.openIdConnectUrl]", (path ? lpath_71 : null)])
-                rep !== null && rep.push(["invalid mandatory prop value [.'$SS-oic'.openIdConnectUrl]", (path ? lpath_71 : null)])
-                return false;
-            }
-        }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.'$SS-oic']", (path ? lpath_71 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["bad property count [.'$SS-oic']", path])
+        return false;
     }
-    if (must_count != 2)
+    let pval;
+    let res;
+    if (! val.hasOwnProperty("type"))
     {
-        if (rep !== null)
-        {
-            if (! val.hasOwnProperty("openIdConnectUrl"))
-            {
-                rep !== null && rep.push(["missing mandatory prop <openIdConnectUrl> [.'$SS-oic']", path])
-            }
-            if (! val.hasOwnProperty("type"))
-            {
-                rep !== null && rep.push(["missing mandatory prop <type> [.'$SS-oic']", path])
-            }
-        }
+        rep !== null && rep.push(["missing mandatory prop <type> [.'$SS-oic']", path])
+        return false;
+    }
+    pval = val["type"];
+    // .'$SS-oic'.type
+    res = ((typeof pval === 'string' || pval instanceof String)) && pval == "openIdConnect";
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected _openIdConnect [.'$SS-oic'.type]", path])
+        rep !== null && rep.push(["unexpected value for mandatory prop <type> [.'$SS-oic']", path])
+        return false;
+    }
+    if (! val.hasOwnProperty("openIdConnectUrl"))
+    {
+        rep !== null && rep.push(["missing mandatory prop <openIdConnectUrl> [.'$SS-oic']", path])
+        return false;
+    }
+    pval = val["openIdConnectUrl"];
+    // .'$SS-oic'.openIdConnectUrl
+    res = runtime.jm_is_valid_url(pval);
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected $URL [.'$SS-oic'.openIdConnectUrl]", path])
+        rep !== null && rep.push(["unexpected value for mandatory prop <openIdConnectUrl> [.'$SS-oic']", path])
         return false;
     }
     return true;
@@ -6618,7 +6551,7 @@ function _jm_obj_74(val, path, rep)
     let must_count = 0;
     for (const [prop, pval] of Object.entries(val))
     {
-        let lpath_72 = path ? path.concat([prop]) : null;
+        let lpath_68 = path ? path.concat([prop]) : null;
         if (prop == "type")
         {
             // handle must type property
@@ -6627,8 +6560,8 @@ function _jm_obj_74(val, path, rep)
             res = ((typeof pval === 'string' || pval instanceof String)) && pval == "apiKey";
             if (! res)
             {
-                rep !== null && rep.push(["unexpected _apiKey [.'$SecurityScheme'.'|'.0.type]", (path ? lpath_72 : null)])
-                rep !== null && rep.push(["invalid mandatory prop value [.'$SecurityScheme'.'|'.0.type]", (path ? lpath_72 : null)])
+                rep !== null && rep.push(["unexpected _apiKey [.'$SecurityScheme'.'|'.0.type]", (path ? lpath_68 : null)])
+                rep !== null && rep.push(["invalid mandatory prop value [.'$SecurityScheme'.'|'.0.type]", (path ? lpath_68 : null)])
                 return false;
             }
         }
@@ -6640,8 +6573,8 @@ function _jm_obj_74(val, path, rep)
             res = (typeof pval === 'string' || pval instanceof String);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected string [.'$SecurityScheme'.'|'.0.name]", (path ? lpath_72 : null)])
-                rep !== null && rep.push(["invalid mandatory prop value [.'$SecurityScheme'.'|'.0.name]", (path ? lpath_72 : null)])
+                rep !== null && rep.push(["unexpected string [.'$SecurityScheme'.'|'.0.name]", (path ? lpath_68 : null)])
+                rep !== null && rep.push(["invalid mandatory prop value [.'$SecurityScheme'.'|'.0.name]", (path ? lpath_68 : null)])
                 return false;
             }
         }
@@ -6653,8 +6586,8 @@ function _jm_obj_74(val, path, rep)
             res = ((pval === null || (typeof pval === 'number' || pval instanceof Number) || (typeof pval === 'boolean' || pval instanceof Boolean) || (typeof pval === 'string' || pval instanceof String))) && _jm_cst_5.has(pval);
             if (! res)
             {
-                rep !== null && rep.push(["value not in enum [.'$SecurityScheme'.'|'.0.in.'|']", (path ? lpath_72 : null)])
-                rep !== null && rep.push(["invalid mandatory prop value [.'$SecurityScheme'.'|'.0.in]", (path ? lpath_72 : null)])
+                rep !== null && rep.push(["value not in enum [.'$SecurityScheme'.'|'.0.in.'|']", (path ? lpath_68 : null)])
+                rep !== null && rep.push(["invalid mandatory prop value [.'$SecurityScheme'.'|'.0.in]", (path ? lpath_68 : null)])
                 return false;
             }
         }
@@ -6665,14 +6598,14 @@ function _jm_obj_74(val, path, rep)
             res = (typeof pval === 'string' || pval instanceof String);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected string [.'$SecurityScheme'.'|'.0.description]", (path ? lpath_72 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.'$SecurityScheme'.'|'.0.description]", (path ? lpath_72 : null)])
+                rep !== null && rep.push(["unexpected string [.'$SecurityScheme'.'|'.0.description]", (path ? lpath_68 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$SecurityScheme'.'|'.0.description]", (path ? lpath_68 : null)])
                 return false;
             }
         }
         else
         {
-            rep !== null && rep.push(["unexpected prop [.'$SecurityScheme'.'|'.0]", (path ? lpath_72 : null)])
+            rep !== null && rep.push(["unexpected prop [.'$SecurityScheme'.'|'.0]", (path ? lpath_68 : null)])
             return false;
         }
     }
@@ -6710,7 +6643,7 @@ function _jm_obj_75(val, path, rep)
     let must_count = 0;
     for (const [prop, pval] of Object.entries(val))
     {
-        let lpath_73 = path ? path.concat([prop]) : null;
+        let lpath_69 = path ? path.concat([prop]) : null;
         if (prop == "type")
         {
             // handle must type property
@@ -6719,8 +6652,8 @@ function _jm_obj_75(val, path, rep)
             res = ((typeof pval === 'string' || pval instanceof String)) && pval == "http";
             if (! res)
             {
-                rep !== null && rep.push(["unexpected _http [.'$SecurityScheme'.'|'.1.type]", (path ? lpath_73 : null)])
-                rep !== null && rep.push(["invalid mandatory prop value [.'$SecurityScheme'.'|'.1.type]", (path ? lpath_73 : null)])
+                rep !== null && rep.push(["unexpected _http [.'$SecurityScheme'.'|'.1.type]", (path ? lpath_69 : null)])
+                rep !== null && rep.push(["invalid mandatory prop value [.'$SecurityScheme'.'|'.1.type]", (path ? lpath_69 : null)])
                 return false;
             }
         }
@@ -6730,11 +6663,11 @@ function _jm_obj_75(val, path, rep)
             must_count += 1;
             // .'$SecurityScheme'.'|'.1.scheme
             // "/bearer/i"
-            res = ((typeof pval === 'string' || pval instanceof String)) && _jm_re_3(pval, (path ? lpath_73 : null), rep);
+            res = ((typeof pval === 'string' || pval instanceof String)) && _jm_re_3(pval, (path ? lpath_69 : null), rep);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected /bearer/i [.'$SecurityScheme'.'|'.1.scheme]", (path ? lpath_73 : null)])
-                rep !== null && rep.push(["invalid mandatory prop value [.'$SecurityScheme'.'|'.1.scheme]", (path ? lpath_73 : null)])
+                rep !== null && rep.push(["unexpected /bearer/i [.'$SecurityScheme'.'|'.1.scheme]", (path ? lpath_69 : null)])
+                rep !== null && rep.push(["invalid mandatory prop value [.'$SecurityScheme'.'|'.1.scheme]", (path ? lpath_69 : null)])
                 return false;
             }
         }
@@ -6745,8 +6678,8 @@ function _jm_obj_75(val, path, rep)
             res = (typeof pval === 'string' || pval instanceof String);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected string [.'$SecurityScheme'.'|'.1.bearerFormat]", (path ? lpath_73 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.'$SecurityScheme'.'|'.1.bearerFormat]", (path ? lpath_73 : null)])
+                rep !== null && rep.push(["unexpected string [.'$SecurityScheme'.'|'.1.bearerFormat]", (path ? lpath_69 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$SecurityScheme'.'|'.1.bearerFormat]", (path ? lpath_69 : null)])
                 return false;
             }
         }
@@ -6757,14 +6690,14 @@ function _jm_obj_75(val, path, rep)
             res = (typeof pval === 'string' || pval instanceof String);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected string [.'$SecurityScheme'.'|'.1.description]", (path ? lpath_73 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.'$SecurityScheme'.'|'.1.description]", (path ? lpath_73 : null)])
+                rep !== null && rep.push(["unexpected string [.'$SecurityScheme'.'|'.1.description]", (path ? lpath_69 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$SecurityScheme'.'|'.1.description]", (path ? lpath_69 : null)])
                 return false;
             }
         }
         else
         {
-            rep !== null && rep.push(["unexpected prop [.'$SecurityScheme'.'|'.1]", (path ? lpath_73 : null)])
+            rep !== null && rep.push(["unexpected prop [.'$SecurityScheme'.'|'.1]", (path ? lpath_69 : null)])
             return false;
         }
     }
@@ -6798,7 +6731,7 @@ function _jm_obj_76(val, path, rep)
     let must_count = 0;
     for (const [prop, pval] of Object.entries(val))
     {
-        let lpath_74 = path ? path.concat([prop]) : null;
+        let lpath_70 = path ? path.concat([prop]) : null;
         if (prop == "type")
         {
             // handle must type property
@@ -6807,8 +6740,8 @@ function _jm_obj_76(val, path, rep)
             res = ((typeof pval === 'string' || pval instanceof String)) && pval == "http";
             if (! res)
             {
-                rep !== null && rep.push(["unexpected _http [.'$SecurityScheme'.'|'.2.type]", (path ? lpath_74 : null)])
-                rep !== null && rep.push(["invalid mandatory prop value [.'$SecurityScheme'.'|'.2.type]", (path ? lpath_74 : null)])
+                rep !== null && rep.push(["unexpected _http [.'$SecurityScheme'.'|'.2.type]", (path ? lpath_70 : null)])
+                rep !== null && rep.push(["invalid mandatory prop value [.'$SecurityScheme'.'|'.2.type]", (path ? lpath_70 : null)])
                 return false;
             }
         }
@@ -6820,8 +6753,8 @@ function _jm_obj_76(val, path, rep)
             res = (typeof pval === 'string' || pval instanceof String);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected string [.'$SecurityScheme'.'|'.2.scheme]", (path ? lpath_74 : null)])
-                rep !== null && rep.push(["invalid mandatory prop value [.'$SecurityScheme'.'|'.2.scheme]", (path ? lpath_74 : null)])
+                rep !== null && rep.push(["unexpected string [.'$SecurityScheme'.'|'.2.scheme]", (path ? lpath_70 : null)])
+                rep !== null && rep.push(["invalid mandatory prop value [.'$SecurityScheme'.'|'.2.scheme]", (path ? lpath_70 : null)])
                 return false;
             }
         }
@@ -6832,14 +6765,14 @@ function _jm_obj_76(val, path, rep)
             res = (typeof pval === 'string' || pval instanceof String);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected string [.'$SecurityScheme'.'|'.2.description]", (path ? lpath_74 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.'$SecurityScheme'.'|'.2.description]", (path ? lpath_74 : null)])
+                rep !== null && rep.push(["unexpected string [.'$SecurityScheme'.'|'.2.description]", (path ? lpath_70 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$SecurityScheme'.'|'.2.description]", (path ? lpath_70 : null)])
                 return false;
             }
         }
         else
         {
-            rep !== null && rep.push(["unexpected prop [.'$SecurityScheme'.'|'.2]", (path ? lpath_74 : null)])
+            rep !== null && rep.push(["unexpected prop [.'$SecurityScheme'.'|'.2]", (path ? lpath_70 : null)])
             return false;
         }
     }
@@ -6873,7 +6806,7 @@ function _jm_obj_77(val, path, rep)
     let must_count = 0;
     for (const [prop, pval] of Object.entries(val))
     {
-        let lpath_75 = path ? path.concat([prop]) : null;
+        let lpath_71 = path ? path.concat([prop]) : null;
         if (prop == "type")
         {
             // handle must type property
@@ -6882,8 +6815,8 @@ function _jm_obj_77(val, path, rep)
             res = ((typeof pval === 'string' || pval instanceof String)) && pval == "oauth2";
             if (! res)
             {
-                rep !== null && rep.push(["unexpected _oauth2 [.'$SecurityScheme'.'|'.3.type]", (path ? lpath_75 : null)])
-                rep !== null && rep.push(["invalid mandatory prop value [.'$SecurityScheme'.'|'.3.type]", (path ? lpath_75 : null)])
+                rep !== null && rep.push(["unexpected _oauth2 [.'$SecurityScheme'.'|'.3.type]", (path ? lpath_71 : null)])
+                rep !== null && rep.push(["invalid mandatory prop value [.'$SecurityScheme'.'|'.3.type]", (path ? lpath_71 : null)])
                 return false;
             }
         }
@@ -6892,11 +6825,11 @@ function _jm_obj_77(val, path, rep)
             // handle must flows property
             must_count += 1;
             // .'$SecurityScheme'.'|'.3.flows
-            res = _jm_obj_80(pval, (path ? lpath_75 : null), rep);
+            res = _jm_obj_80(pval, (path ? lpath_71 : null), rep);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected $OAuthFlows [.'$SecurityScheme'.'|'.3.flows]", (path ? lpath_75 : null)])
-                rep !== null && rep.push(["invalid mandatory prop value [.'$SecurityScheme'.'|'.3.flows]", (path ? lpath_75 : null)])
+                rep !== null && rep.push(["unexpected $OAuthFlows [.'$SecurityScheme'.'|'.3.flows]", (path ? lpath_71 : null)])
+                rep !== null && rep.push(["invalid mandatory prop value [.'$SecurityScheme'.'|'.3.flows]", (path ? lpath_71 : null)])
                 return false;
             }
         }
@@ -6907,14 +6840,14 @@ function _jm_obj_77(val, path, rep)
             res = (typeof pval === 'string' || pval instanceof String);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected string [.'$SecurityScheme'.'|'.3.description]", (path ? lpath_75 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.'$SecurityScheme'.'|'.3.description]", (path ? lpath_75 : null)])
+                rep !== null && rep.push(["unexpected string [.'$SecurityScheme'.'|'.3.description]", (path ? lpath_71 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$SecurityScheme'.'|'.3.description]", (path ? lpath_71 : null)])
                 return false;
             }
         }
         else
         {
-            rep !== null && rep.push(["unexpected prop [.'$SecurityScheme'.'|'.3]", (path ? lpath_75 : null)])
+            rep !== null && rep.push(["unexpected prop [.'$SecurityScheme'.'|'.3]", (path ? lpath_71 : null)])
             return false;
         }
     }
@@ -6948,7 +6881,7 @@ function _jm_obj_78(val, path, rep)
     let must_count = 0;
     for (const [prop, pval] of Object.entries(val))
     {
-        let lpath_76 = path ? path.concat([prop]) : null;
+        let lpath_72 = path ? path.concat([prop]) : null;
         if (prop == "type")
         {
             // handle must type property
@@ -6957,8 +6890,8 @@ function _jm_obj_78(val, path, rep)
             res = ((typeof pval === 'string' || pval instanceof String)) && pval == "openIdConnect";
             if (! res)
             {
-                rep !== null && rep.push(["unexpected _openIdConnect [.'$SecurityScheme'.'|'.4.type]", (path ? lpath_76 : null)])
-                rep !== null && rep.push(["invalid mandatory prop value [.'$SecurityScheme'.'|'.4.type]", (path ? lpath_76 : null)])
+                rep !== null && rep.push(["unexpected _openIdConnect [.'$SecurityScheme'.'|'.4.type]", (path ? lpath_72 : null)])
+                rep !== null && rep.push(["invalid mandatory prop value [.'$SecurityScheme'.'|'.4.type]", (path ? lpath_72 : null)])
                 return false;
             }
         }
@@ -6970,8 +6903,8 @@ function _jm_obj_78(val, path, rep)
             res = runtime.jm_is_valid_url(pval);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected $URL [.'$SecurityScheme'.'|'.4.openIdConnectUrl]", (path ? lpath_76 : null)])
-                rep !== null && rep.push(["invalid mandatory prop value [.'$SecurityScheme'.'|'.4.openIdConnectUrl]", (path ? lpath_76 : null)])
+                rep !== null && rep.push(["unexpected $URL [.'$SecurityScheme'.'|'.4.openIdConnectUrl]", (path ? lpath_72 : null)])
+                rep !== null && rep.push(["invalid mandatory prop value [.'$SecurityScheme'.'|'.4.openIdConnectUrl]", (path ? lpath_72 : null)])
                 return false;
             }
         }
@@ -6982,14 +6915,14 @@ function _jm_obj_78(val, path, rep)
             res = (typeof pval === 'string' || pval instanceof String);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected string [.'$SecurityScheme'.'|'.4.description]", (path ? lpath_76 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.'$SecurityScheme'.'|'.4.description]", (path ? lpath_76 : null)])
+                rep !== null && rep.push(["unexpected string [.'$SecurityScheme'.'|'.4.description]", (path ? lpath_72 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$SecurityScheme'.'|'.4.description]", (path ? lpath_72 : null)])
                 return false;
             }
         }
         else
         {
-            rep !== null && rep.push(["unexpected prop [.'$SecurityScheme'.'|'.4]", (path ? lpath_76 : null)])
+            rep !== null && rep.push(["unexpected prop [.'$SecurityScheme'.'|'.4]", (path ? lpath_72 : null)])
             return false;
         }
     }
@@ -7022,7 +6955,7 @@ function _jm_obj_79(val, path, rep)
     let res;
     for (const [prop, pval] of Object.entries(val))
     {
-        let lpath_77 = path ? path.concat([prop]) : null;
+        let lpath_73 = path ? path.concat([prop]) : null;
         if (prop == "description")
         {
             // handle may description property
@@ -7030,8 +6963,8 @@ function _jm_obj_79(val, path, rep)
             res = (typeof pval === 'string' || pval instanceof String);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected string [.'$SecurityScheme'.'|'.5.description]", (path ? lpath_77 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.'$SecurityScheme'.'|'.5.description]", (path ? lpath_77 : null)])
+                rep !== null && rep.push(["unexpected string [.'$SecurityScheme'.'|'.5.description]", (path ? lpath_73 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$SecurityScheme'.'|'.5.description]", (path ? lpath_73 : null)])
                 return false;
             }
         }
@@ -7042,13 +6975,13 @@ function _jm_obj_79(val, path, rep)
             res = true;
             if (! res)
             {
-                rep !== null && rep.push(["unexpected $ANY [.'$SecurityScheme'.'|'.5.'/^x-/']", (path ? lpath_77 : null)])
+                rep !== null && rep.push(["unexpected $ANY [.'$SecurityScheme'.'|'.5.'/^x-/']", (path ? lpath_73 : null)])
                 return false;
             }
         }
         else
         {
-            rep !== null && rep.push(["unexpected prop [.'$SecurityScheme'.'|'.5]", (path ? lpath_77 : null)])
+            rep !== null && rep.push(["unexpected prop [.'$SecurityScheme'.'|'.5]", (path ? lpath_73 : null)])
             return false;
         }
     }
@@ -7112,16 +7045,16 @@ function _jm_obj_80(val, path, rep)
     let res;
     for (const [prop, pval] of Object.entries(val))
     {
-        let lpath_78 = path ? path.concat([prop]) : null;
+        let lpath_74 = path ? path.concat([prop]) : null;
         if (prop == "implicit")
         {
             // handle may implicit property
             // .'$OAuthFlows'.implicit
-            res = _jm_obj_81(pval, (path ? lpath_78 : null), rep);
+            res = _jm_obj_81(pval, (path ? lpath_74 : null), rep);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected $OAuthFlow [.'$OAuthFlows'.implicit]", (path ? lpath_78 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.'$OAuthFlows'.implicit]", (path ? lpath_78 : null)])
+                rep !== null && rep.push(["unexpected $OAuthFlow [.'$OAuthFlows'.implicit]", (path ? lpath_74 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$OAuthFlows'.implicit]", (path ? lpath_74 : null)])
                 return false;
             }
         }
@@ -7129,11 +7062,11 @@ function _jm_obj_80(val, path, rep)
         {
             // handle may password property
             // .'$OAuthFlows'.password
-            res = _jm_obj_81(pval, (path ? lpath_78 : null), rep);
+            res = _jm_obj_81(pval, (path ? lpath_74 : null), rep);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected $OAuthFlow [.'$OAuthFlows'.password]", (path ? lpath_78 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.'$OAuthFlows'.password]", (path ? lpath_78 : null)])
+                rep !== null && rep.push(["unexpected $OAuthFlow [.'$OAuthFlows'.password]", (path ? lpath_74 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$OAuthFlows'.password]", (path ? lpath_74 : null)])
                 return false;
             }
         }
@@ -7141,11 +7074,11 @@ function _jm_obj_80(val, path, rep)
         {
             // handle may clientCredentials property
             // .'$OAuthFlows'.clientCredentials
-            res = _jm_obj_81(pval, (path ? lpath_78 : null), rep);
+            res = _jm_obj_81(pval, (path ? lpath_74 : null), rep);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected $OAuthFlow [.'$OAuthFlows'.clientCredentials]", (path ? lpath_78 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.'$OAuthFlows'.clientCredentials]", (path ? lpath_78 : null)])
+                rep !== null && rep.push(["unexpected $OAuthFlow [.'$OAuthFlows'.clientCredentials]", (path ? lpath_74 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$OAuthFlows'.clientCredentials]", (path ? lpath_74 : null)])
                 return false;
             }
         }
@@ -7153,11 +7086,11 @@ function _jm_obj_80(val, path, rep)
         {
             // handle may authorizationCode property
             // .'$OAuthFlows'.authorizationCode
-            res = _jm_obj_81(pval, (path ? lpath_78 : null), rep);
+            res = _jm_obj_81(pval, (path ? lpath_74 : null), rep);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected $OAuthFlow [.'$OAuthFlows'.authorizationCode]", (path ? lpath_78 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.'$OAuthFlows'.authorizationCode]", (path ? lpath_78 : null)])
+                rep !== null && rep.push(["unexpected $OAuthFlow [.'$OAuthFlows'.authorizationCode]", (path ? lpath_74 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$OAuthFlows'.authorizationCode]", (path ? lpath_74 : null)])
                 return false;
             }
         }
@@ -7168,13 +7101,13 @@ function _jm_obj_80(val, path, rep)
             res = true;
             if (! res)
             {
-                rep !== null && rep.push(["unexpected $ANY [.'$OAuthFlows'.'/^x-/']", (path ? lpath_78 : null)])
+                rep !== null && rep.push(["unexpected $ANY [.'$OAuthFlows'.'/^x-/']", (path ? lpath_74 : null)])
                 return false;
             }
         }
         else
         {
-            rep !== null && rep.push(["unexpected prop [.'$OAuthFlows']", (path ? lpath_78 : null)])
+            rep !== null && rep.push(["unexpected prop [.'$OAuthFlows']", (path ? lpath_74 : null)])
             return false;
         }
     }
@@ -7205,13 +7138,13 @@ function _jm_obj_82(val, path, rep)
     let res;
     for (const [prop, pval] of Object.entries(val))
     {
-        let lpath_80 = path ? path.concat([prop]) : null;
+        let lpath_76 = path ? path.concat([prop]) : null;
         // handle other props
         // .'$OAuthFlow'.scopes.''
         res = (typeof pval === 'string' || pval instanceof String);
         if (! res)
         {
-            rep !== null && rep.push(["unexpected string [.'$OAuthFlow'.scopes.'']", (path ? lpath_80 : null)])
+            rep !== null && rep.push(["unexpected string [.'$OAuthFlow'.scopes.'']", (path ? lpath_76 : null)])
             return false;
         }
     }
@@ -7230,7 +7163,7 @@ function _jm_obj_81(val, path, rep)
     let must_count = 0;
     for (const [prop, pval] of Object.entries(val))
     {
-        let lpath_79 = path ? path.concat([prop]) : null;
+        let lpath_75 = path ? path.concat([prop]) : null;
         if (prop == "authorizationUrl")
         {
             // handle must authorizationUrl property
@@ -7239,8 +7172,8 @@ function _jm_obj_81(val, path, rep)
             res = runtime.jm_is_valid_url(pval);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected $URL [.'$OAuthFlow'.authorizationUrl]", (path ? lpath_79 : null)])
-                rep !== null && rep.push(["invalid mandatory prop value [.'$OAuthFlow'.authorizationUrl]", (path ? lpath_79 : null)])
+                rep !== null && rep.push(["unexpected $URL [.'$OAuthFlow'.authorizationUrl]", (path ? lpath_75 : null)])
+                rep !== null && rep.push(["invalid mandatory prop value [.'$OAuthFlow'.authorizationUrl]", (path ? lpath_75 : null)])
                 return false;
             }
         }
@@ -7252,8 +7185,8 @@ function _jm_obj_81(val, path, rep)
             res = runtime.jm_is_valid_url(pval);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected $URL [.'$OAuthFlow'.tokenUrl]", (path ? lpath_79 : null)])
-                rep !== null && rep.push(["invalid mandatory prop value [.'$OAuthFlow'.tokenUrl]", (path ? lpath_79 : null)])
+                rep !== null && rep.push(["unexpected $URL [.'$OAuthFlow'.tokenUrl]", (path ? lpath_75 : null)])
+                rep !== null && rep.push(["invalid mandatory prop value [.'$OAuthFlow'.tokenUrl]", (path ? lpath_75 : null)])
                 return false;
             }
         }
@@ -7262,11 +7195,11 @@ function _jm_obj_81(val, path, rep)
             // handle must scopes property
             must_count += 1;
             // .'$OAuthFlow'.scopes
-            res = _jm_obj_82(pval, (path ? lpath_79 : null), rep);
+            res = _jm_obj_82(pval, (path ? lpath_75 : null), rep);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected element [.'$OAuthFlow'.scopes]", (path ? lpath_79 : null)])
-                rep !== null && rep.push(["invalid mandatory prop value [.'$OAuthFlow'.scopes]", (path ? lpath_79 : null)])
+                rep !== null && rep.push(["unexpected element [.'$OAuthFlow'.scopes]", (path ? lpath_75 : null)])
+                rep !== null && rep.push(["invalid mandatory prop value [.'$OAuthFlow'.scopes]", (path ? lpath_75 : null)])
                 return false;
             }
         }
@@ -7277,8 +7210,8 @@ function _jm_obj_81(val, path, rep)
             res = runtime.jm_is_valid_url(pval);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected $URL [.'$OAuthFlow'.refreshUrl]", (path ? lpath_79 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.'$OAuthFlow'.refreshUrl]", (path ? lpath_79 : null)])
+                rep !== null && rep.push(["unexpected $URL [.'$OAuthFlow'.refreshUrl]", (path ? lpath_75 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$OAuthFlow'.refreshUrl]", (path ? lpath_75 : null)])
                 return false;
             }
         }
@@ -7289,13 +7222,13 @@ function _jm_obj_81(val, path, rep)
             res = true;
             if (! res)
             {
-                rep !== null && rep.push(["unexpected $ANY [.'$OAuthFlow'.'/^x-/']", (path ? lpath_79 : null)])
+                rep !== null && rep.push(["unexpected $ANY [.'$OAuthFlow'.'/^x-/']", (path ? lpath_75 : null)])
                 return false;
             }
         }
         else
         {
-            rep !== null && rep.push(["unexpected prop [.'$OAuthFlow']", (path ? lpath_79 : null)])
+            rep !== null && rep.push(["unexpected prop [.'$OAuthFlow']", (path ? lpath_75 : null)])
             return false;
         }
     }
@@ -7345,7 +7278,7 @@ function _jm_obj_83(val, path, rep)
     let res;
     for (const [prop, pval] of Object.entries(val))
     {
-        let lpath_81 = path ? path.concat([prop]) : null;
+        let lpath_77 = path ? path.concat([prop]) : null;
         // handle other props
         // .'$SecurityRequirement'.''
         res = Array.isArray(pval);
@@ -7354,19 +7287,19 @@ function _jm_obj_83(val, path, rep)
             for (let arr_10_idx = 0; arr_10_idx < pval.length; arr_10_idx++)
             {
                 let arr_10_item = pval[arr_10_idx]
-                let arr_10_lpath = (path ? lpath_81 : null) ? (path ? lpath_81 : null).concat([arr_10_idx]) : null;
+                let arr_10_lpath = (path ? lpath_77 : null) ? (path ? lpath_77 : null).concat([arr_10_idx]) : null;
                 // .'$SecurityRequirement'.''.0
                 res = (typeof arr_10_item === 'string' || arr_10_item instanceof String);
                 if (! res)
                 {
-                    rep !== null && rep.push(["unexpected string [.'$SecurityRequirement'.''.0]", ((path ? lpath_81 : null) ? arr_10_lpath : null)])
+                    rep !== null && rep.push(["unexpected string [.'$SecurityRequirement'.''.0]", ((path ? lpath_77 : null) ? arr_10_lpath : null)])
                     break;
                 }
             }
         }
         if (! res)
         {
-            rep !== null && rep.push(["not array or unexpected array [.'$SecurityRequirement'.'']", (path ? lpath_81 : null)])
+            rep !== null && rep.push(["not array or unexpected array [.'$SecurityRequirement'.'']", (path ? lpath_77 : null)])
             return false;
         }
     }
@@ -7397,7 +7330,7 @@ function _jm_obj_84(val, path, rep)
     let res;
     for (const [prop, pval] of Object.entries(val))
     {
-        let lpath_82 = path ? path.concat([prop]) : null;
+        let lpath_78 = path ? path.concat([prop]) : null;
         if (prop.startsWith("x-"))
         {
             // handle 1 re props
@@ -7405,13 +7338,13 @@ function _jm_obj_84(val, path, rep)
             res = true;
             if (! res)
             {
-                rep !== null && rep.push(["unexpected $ANY [.'$Extension'.'/^x-/']", (path ? lpath_82 : null)])
+                rep !== null && rep.push(["unexpected $ANY [.'$Extension'.'/^x-/']", (path ? lpath_78 : null)])
                 return false;
             }
         }
         else
         {
-            rep !== null && rep.push(["unexpected prop [.'$Extension']", (path ? lpath_82 : null)])
+            rep !== null && rep.push(["unexpected prop [.'$Extension']", (path ? lpath_78 : null)])
             return false;
         }
     }
@@ -7665,13 +7598,13 @@ function _jm_obj_86(val, path, rep)
     let res;
     for (const [prop, pval] of Object.entries(val))
     {
-        let lpath_84 = path ? path.concat([prop]) : null;
+        let lpath_80 = path ? path.concat([prop]) : null;
         // handle other props
         // .'$schema#ObjectSchema'.'$defs'.''
-        res = json_model_60(pval, (path ? lpath_84 : null), rep);
+        res = json_model_60(pval, (path ? lpath_80 : null), rep);
         if (! res)
         {
-            rep !== null && rep.push(["unexpected $Schema [.'$schema#ObjectSchema'.'$defs'.'']", (path ? lpath_84 : null)])
+            rep !== null && rep.push(["unexpected $Schema [.'$schema#ObjectSchema'.'$defs'.'']", (path ? lpath_80 : null)])
             return false;
         }
     }
@@ -7767,7 +7700,7 @@ function _jm_obj_87(val, path, rep)
     let res;
     for (const [prop, pval] of Object.entries(val))
     {
-        let lpath_85 = path ? path.concat([prop]) : null;
+        let lpath_81 = path ? path.concat([prop]) : null;
         if (runtime.jm_is_valid_url(prop))
         {
             // handle 1 key props
@@ -7775,13 +7708,13 @@ function _jm_obj_87(val, path, rep)
             res = (typeof pval === 'boolean' || pval instanceof Boolean);
             if (! res)
             {
-                rep !== null && rep.push(["not a bool [.'$schema#ObjectSchema'.'$vocabulary'.'$URI']", (path ? lpath_85 : null)])
+                rep !== null && rep.push(["not a bool [.'$schema#ObjectSchema'.'$vocabulary'.'$URI']", (path ? lpath_81 : null)])
                 return false;
             }
         }
         else
         {
-            rep !== null && rep.push(["unexpected prop [.'$schema#ObjectSchema'.'$vocabulary']", (path ? lpath_85 : null)])
+            rep !== null && rep.push(["unexpected prop [.'$schema#ObjectSchema'.'$vocabulary']", (path ? lpath_81 : null)])
             return false;
         }
     }
@@ -7929,13 +7862,13 @@ function _jm_obj_88(val, path, rep)
     let res;
     for (const [prop, pval] of Object.entries(val))
     {
-        let lpath_86 = path ? path.concat([prop]) : null;
+        let lpath_82 = path ? path.concat([prop]) : null;
         // handle other props
         // .'$schema#ObjectSchema'.dependentRequired.''
-        res = json_model_54(pval, (path ? lpath_86 : null), rep);
+        res = json_model_54(pval, (path ? lpath_82 : null), rep);
         if (! res)
         {
-            rep !== null && rep.push(["unexpected $stringArray [.'$schema#ObjectSchema'.dependentRequired.'']", (path ? lpath_86 : null)])
+            rep !== null && rep.push(["unexpected $stringArray [.'$schema#ObjectSchema'.dependentRequired.'']", (path ? lpath_82 : null)])
             return false;
         }
     }
@@ -7966,13 +7899,13 @@ function _jm_obj_89(val, path, rep)
     let res;
     for (const [prop, pval] of Object.entries(val))
     {
-        let lpath_87 = path ? path.concat([prop]) : null;
+        let lpath_83 = path ? path.concat([prop]) : null;
         // handle other props
         // .'$schema#ObjectSchema'.dependentSchemas.''
-        res = json_model_60(pval, (path ? lpath_87 : null), rep);
+        res = json_model_60(pval, (path ? lpath_83 : null), rep);
         if (! res)
         {
-            rep !== null && rep.push(["unexpected $Schema [.'$schema#ObjectSchema'.dependentSchemas.'']", (path ? lpath_87 : null)])
+            rep !== null && rep.push(["unexpected $Schema [.'$schema#ObjectSchema'.dependentSchemas.'']", (path ? lpath_83 : null)])
             return false;
         }
     }
@@ -8315,21 +8248,21 @@ function _jm_obj_90(val, path, rep)
     let res;
     for (const [prop, pval] of Object.entries(val))
     {
-        let lpath_88 = path ? path.concat([prop]) : null;
+        let lpath_84 = path ? path.concat([prop]) : null;
         if (runtime.jm_is_valid_regex(prop, false))
         {
             // handle 1 key props
             // .'$schema#ObjectSchema'.patternProperties.'$REGEX'
-            res = json_model_60(pval, (path ? lpath_88 : null), rep);
+            res = json_model_60(pval, (path ? lpath_84 : null), rep);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected $Schema [.'$schema#ObjectSchema'.patternProperties.'$REGEX']", (path ? lpath_88 : null)])
+                rep !== null && rep.push(["unexpected $Schema [.'$schema#ObjectSchema'.patternProperties.'$REGEX']", (path ? lpath_84 : null)])
                 return false;
             }
         }
         else
         {
-            rep !== null && rep.push(["unexpected prop [.'$schema#ObjectSchema'.patternProperties]", (path ? lpath_88 : null)])
+            rep !== null && rep.push(["unexpected prop [.'$schema#ObjectSchema'.patternProperties]", (path ? lpath_84 : null)])
             return false;
         }
     }
@@ -8373,13 +8306,13 @@ function _jm_obj_91(val, path, rep)
     let res;
     for (const [prop, pval] of Object.entries(val))
     {
-        let lpath_89 = path ? path.concat([prop]) : null;
+        let lpath_85 = path ? path.concat([prop]) : null;
         // handle other props
         // .'$schema#ObjectSchema'.properties.''
-        res = json_model_60(pval, (path ? lpath_89 : null), rep);
+        res = json_model_60(pval, (path ? lpath_85 : null), rep);
         if (! res)
         {
-            rep !== null && rep.push(["unexpected $Schema [.'$schema#ObjectSchema'.properties.'']", (path ? lpath_89 : null)])
+            rep !== null && rep.push(["unexpected $Schema [.'$schema#ObjectSchema'.properties.'']", (path ? lpath_85 : null)])
             return false;
         }
     }
@@ -8559,19 +8492,19 @@ function _jm_obj_85(val, path, rep)
     let pfun;
     for (const [prop, pval] of Object.entries(val))
     {
-        let lpath_83 = path ? path.concat([prop]) : null;
+        let lpath_79 = path ? path.concat([prop]) : null;
         if ((pfun = _jm_obj_85_map.get(prop)))
         {
             // handle 57 may props
-            if (pfun !== undefined && ! pfun(pval, (path ? lpath_83 : null), rep))
+            if (pfun !== undefined && ! pfun(pval, (path ? lpath_79 : null), rep))
             {
-                rep !== null && rep.push(["invalid optional prop value [.'$schema#ObjectSchema']", (path ? lpath_83 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$schema#ObjectSchema']", (path ? lpath_79 : null)])
                 return false;
             }
         }
         else
         {
-            rep !== null && rep.push(["unexpected prop [.'$schema#ObjectSchema']", (path ? lpath_83 : null)])
+            rep !== null && rep.push(["unexpected prop [.'$schema#ObjectSchema']", (path ? lpath_79 : null)])
             return false;
         }
     }

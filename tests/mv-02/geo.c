@@ -880,7 +880,7 @@ static bool json_model_10(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // object .'$geometry'.'|'.0
 static INLINE bool _jm_obj_6(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    // check must only props
+    // check open must/may only props
     if (! json_is_object(val))
     {
         if (rep) jm_report_add_entry(rep, "not an object [.'$geometry'.'|'.0]", path);
@@ -950,7 +950,7 @@ static INLINE bool _jm_obj_6(const json_t *val, jm_path_t *path, jm_report_t *re
 // object .'$geometry'.'|'.1
 static INLINE bool _jm_obj_7(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    // check must only props
+    // check open must/may only props
     if (! json_is_object(val))
     {
         if (rep) jm_report_add_entry(rep, "not an object [.'$geometry'.'|'.1]", path);
@@ -1036,7 +1036,7 @@ static INLINE bool _jm_obj_7(const json_t *val, jm_path_t *path, jm_report_t *re
 // object .'$geometry'.'|'.2
 static INLINE bool _jm_obj_8(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    // check must only props
+    // check open must/may only props
     if (! json_is_object(val))
     {
         if (rep) jm_report_add_entry(rep, "not an object [.'$geometry'.'|'.2]", path);
@@ -1106,7 +1106,7 @@ static INLINE bool _jm_obj_8(const json_t *val, jm_path_t *path, jm_report_t *re
 // object .'$geometry'.'|'.3
 static INLINE bool _jm_obj_9(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    // check must only props
+    // check open must/may only props
     if (! json_is_object(val))
     {
         if (rep) jm_report_add_entry(rep, "not an object [.'$geometry'.'|'.3]", path);
@@ -1192,7 +1192,7 @@ static INLINE bool _jm_obj_9(const json_t *val, jm_path_t *path, jm_report_t *re
 // object .'$geometry'.'|'.4
 static INLINE bool _jm_obj_10(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    // check must only props
+    // check open must/may only props
     if (! json_is_object(val))
     {
         if (rep) jm_report_add_entry(rep, "not an object [.'$geometry'.'|'.4]", path);
@@ -1278,7 +1278,7 @@ static INLINE bool _jm_obj_10(const json_t *val, jm_path_t *path, jm_report_t *r
 // object .'$geometry'.'|'.5
 static INLINE bool _jm_obj_11(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    // check must only props
+    // check open must/may only props
     if (! json_is_object(val))
     {
         if (rep) jm_report_add_entry(rep, "not an object [.'$geometry'.'|'.5]", path);
@@ -1423,7 +1423,7 @@ static bool json_model_11(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // object .'$GeometryCollection'
 static INLINE bool _jm_obj_12(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    // check must only props
+    // check open must/may only props
     if (! json_is_object(val))
     {
         if (rep) jm_report_add_entry(rep, "not an object [.'$GeometryCollection']", path);
@@ -1534,7 +1534,7 @@ static INLINE bool _jm_obj_14(const json_t *val, jm_path_t *path, jm_report_t *r
 // object .'$Feature'
 static INLINE bool _jm_obj_13(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    // check must only props
+    // check open must/may only props
     if (! json_is_object(val))
     {
         if (rep) jm_report_add_entry(rep, "not an object [.'$Feature']", path);
@@ -1706,7 +1706,7 @@ static bool json_model_13(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // object .'$FeatureCollection'
 static INLINE bool _jm_obj_15(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    // check must only props
+    // check open must/may only props
     if (! json_is_object(val))
     {
         if (rep) jm_report_add_entry(rep, "not an object [.'$FeatureCollection']", path);

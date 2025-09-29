@@ -14,59 +14,46 @@ var check_model_map = new Map()
 // object .'$bibi'
 function _jm_obj_0(val, path, rep)
 {
+    // check close must only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.'$bibi']", path])
         return false;
     }
-    let res;
-    let must_count = 0;
-    for (const [prop, pval] of Object.entries(val))
+    if (Object.keys(val).length != 1)
     {
-        let lpath_0 = path ? path.concat([prop]) : null;
-        if (prop == "bibi")
+        rep !== null && rep.push(["bad property count [.'$bibi']", path])
+        return false;
+    }
+    let pval;
+    let res;
+    if (! val.hasOwnProperty("bibi"))
+    {
+        rep !== null && rep.push(["missing mandatory prop <bibi> [.'$bibi']", path])
+        return false;
+    }
+    pval = val["bibi"];
+    // .'$bibi'.bibi
+    res = Array.isArray(pval);
+    if (res)
+    {
+        for (let arr_0_idx = 0; arr_0_idx < pval.length; arr_0_idx++)
         {
-            // handle must bibi property
-            must_count += 1;
-            // .'$bibi'.bibi
-            res = Array.isArray(pval);
-            if (res)
-            {
-                for (let arr_0_idx = 0; arr_0_idx < pval.length; arr_0_idx++)
-                {
-                    let arr_0_item = pval[arr_0_idx]
-                    let arr_0_lpath = (path ? lpath_0 : null) ? (path ? lpath_0 : null).concat([arr_0_idx]) : null;
-                    // .'$bibi'.bibi.0
-                    res = _jm_obj_0(arr_0_item, ((path ? lpath_0 : null) ? arr_0_lpath : null), rep);
-                    if (! res)
-                    {
-                        rep !== null && rep.push(["unexpected $bibi [.'$bibi'.bibi.0]", ((path ? lpath_0 : null) ? arr_0_lpath : null)])
-                        break;
-                    }
-                }
-            }
+            let arr_0_item = pval[arr_0_idx]
+            let arr_0_lpath = path ? path.concat([arr_0_idx]) : null;
+            // .'$bibi'.bibi.0
+            res = _jm_obj_0(arr_0_item, (path ? arr_0_lpath : null), rep);
             if (! res)
             {
-                rep !== null && rep.push(["not array or unexpected array [.'$bibi'.bibi]", (path ? lpath_0 : null)])
-                rep !== null && rep.push(["invalid mandatory prop value [.'$bibi'.bibi]", (path ? lpath_0 : null)])
-                return false;
+                rep !== null && rep.push(["unexpected $bibi [.'$bibi'.bibi.0]", (path ? arr_0_lpath : null)])
+                break;
             }
-        }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.'$bibi']", (path ? lpath_0 : null)])
-            return false;
         }
     }
-    if (must_count != 1)
+    if (! res)
     {
-        if (rep !== null)
-        {
-            if (! val.hasOwnProperty("bibi"))
-            {
-                rep !== null && rep.push(["missing mandatory prop <bibi> [.'$bibi']", path])
-            }
-        }
+        rep !== null && rep.push(["not array or unexpected array [.'$bibi'.bibi]", path])
+        rep !== null && rep.push(["unexpected value for mandatory prop <bibi> [.'$bibi']", path])
         return false;
     }
     return true;

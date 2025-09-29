@@ -75,43 +75,36 @@ sub json_model_10($$$)
 sub _jm_obj_0($$$)
 {
     my ($val, $path, $rep) = @_;
+    # check close must only props
     if (! jm_is_object($val))
     {
         return 0;
     }
-    my $res;
-    my $must_count = 0;
-    scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    if (jm_obj_size($val) != 2)
     {
-        if ($prop eq 'ua')
-        {
-            # handle must ua property
-            $must_count++;
-            # .'$Dd#Uu#un'.ua
-            $res = jm_is_integer($pval) && $pval >= 0;
-            if (! $res)
-            {
-                return 0;
-            }
-        }
-        elsif ($prop eq 'ub')
-        {
-            # handle must ub property
-            $must_count++;
-            # .'$Dd#Uu#un'.ub
-            $res = jm_is_integer($pval) && $pval >= 0;
-            if (! $res)
-            {
-                return 0;
-            }
-        }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
-    if ($must_count != 2)
+    my $pval;
+    my $res;
+    if (! exists $$val{'ua'})
+    {
+        return 0;
+    }
+    $pval = $$val{'ua'};
+    # .'$Dd#Uu#un'.ua
+    $res = jm_is_integer($pval) && $pval >= 0;
+    if (! $res)
+    {
+        return 0;
+    }
+    if (! exists $$val{'ub'})
+    {
+        return 0;
+    }
+    $pval = $$val{'ub'};
+    # .'$Dd#Uu#un'.ub
+    $res = jm_is_integer($pval) && $pval >= 0;
+    if (! $res)
     {
         return 0;
     }

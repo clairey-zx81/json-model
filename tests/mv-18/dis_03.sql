@@ -9,37 +9,32 @@ CREATE EXTENSION IF NOT EXISTS json_model;
 CREATE OR REPLACE FUNCTION _jm_obj_0(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
-  res bool;
-  must_count int;
-  prop TEXT;
   pval JSONB;
+  res bool;
 BEGIN
+  -- check close must only props
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
-  must_count := 0;
-  FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF prop = 'discriminator' THEN
-      -- handle must discriminator property
-      must_count := must_count + 1;
-      -- .'|'.0.discriminator
-      res := JSONB_TYPEOF(pval) = 'boolean' AND (pval)::BOOL = TRUE;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-    ELSEIF prop = 'x' THEN
-      -- handle must x property
-      must_count := must_count + 1;
-      -- .'|'.0.x
-      res := JSONB_TYPEOF(pval) = 'string';
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-    ELSE
-      RETURN FALSE;
-    END IF;
-  END LOOP;
-  IF must_count <> 2 THEN
+  IF jm_object_size(val) <> 2 THEN
+    RETURN FALSE;
+  END IF;
+  IF NOT val ? 'discriminator' THEN
+    RETURN FALSE;
+  END IF;
+  pval := val -> 'discriminator';
+  -- .'|'.0.discriminator
+  res := JSONB_TYPEOF(pval) = 'boolean' AND (pval)::BOOL = TRUE;
+  IF NOT res THEN
+    RETURN FALSE;
+  END IF;
+  IF NOT val ? 'x' THEN
+    RETURN FALSE;
+  END IF;
+  pval := val -> 'x';
+  -- .'|'.0.x
+  res := JSONB_TYPEOF(pval) = 'string';
+  IF NOT res THEN
     RETURN FALSE;
   END IF;
   RETURN TRUE;
@@ -50,37 +45,32 @@ $$ LANGUAGE PLpgSQL;
 CREATE OR REPLACE FUNCTION _jm_obj_1(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
-  res bool;
-  must_count int;
-  prop TEXT;
   pval JSONB;
+  res bool;
 BEGIN
+  -- check close must only props
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
-  must_count := 0;
-  FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF prop = 'discriminator' THEN
-      -- handle must discriminator property
-      must_count := must_count + 1;
-      -- .'|'.1.discriminator
-      res := JSONB_TYPEOF(pval) = 'boolean' AND (pval)::BOOL = FALSE;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-    ELSEIF prop = 'y' THEN
-      -- handle must y property
-      must_count := must_count + 1;
-      -- .'|'.1.y
-      res := JSONB_TYPEOF(pval) = 'string';
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-    ELSE
-      RETURN FALSE;
-    END IF;
-  END LOOP;
-  IF must_count <> 2 THEN
+  IF jm_object_size(val) <> 2 THEN
+    RETURN FALSE;
+  END IF;
+  IF NOT val ? 'discriminator' THEN
+    RETURN FALSE;
+  END IF;
+  pval := val -> 'discriminator';
+  -- .'|'.1.discriminator
+  res := JSONB_TYPEOF(pval) = 'boolean' AND (pval)::BOOL = FALSE;
+  IF NOT res THEN
+    RETURN FALSE;
+  END IF;
+  IF NOT val ? 'y' THEN
+    RETURN FALSE;
+  END IF;
+  pval := val -> 'y';
+  -- .'|'.1.y
+  res := JSONB_TYPEOF(pval) = 'string';
+  IF NOT res THEN
     RETURN FALSE;
   END IF;
   RETURN TRUE;

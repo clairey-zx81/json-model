@@ -14,59 +14,46 @@ var check_model_map = new Map()
 // object .'|'.2
 function _jm_obj_0(val, path, rep)
 {
+    // check close must only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.'|'.2]", path])
         return false;
     }
-    let res;
-    let must_count = 0;
-    for (const [prop, pval] of Object.entries(val))
+    if (Object.keys(val).length != 1)
     {
-        let lpath_0 = path ? path.concat([prop]) : null;
-        if (prop == "a")
+        rep !== null && rep.push(["bad property count [.'|'.2]", path])
+        return false;
+    }
+    let pval;
+    let res;
+    if (! val.hasOwnProperty("a"))
+    {
+        rep !== null && rep.push(["missing mandatory prop <a> [.'|'.2]", path])
+        return false;
+    }
+    pval = val["a"];
+    // .'|'.2.a
+    res = Array.isArray(pval);
+    if (res)
+    {
+        for (let arr_0_idx = 0; arr_0_idx < pval.length; arr_0_idx++)
         {
-            // handle must a property
-            must_count += 1;
-            // .'|'.2.a
-            res = Array.isArray(pval);
-            if (res)
-            {
-                for (let arr_0_idx = 0; arr_0_idx < pval.length; arr_0_idx++)
-                {
-                    let arr_0_item = pval[arr_0_idx]
-                    let arr_0_lpath = (path ? lpath_0 : null) ? (path ? lpath_0 : null).concat([arr_0_idx]) : null;
-                    // .'|'.2.a.0
-                    res = ((typeof arr_0_item === 'number' || arr_0_item instanceof Number) && Number.isInteger(arr_0_item)) && arr_0_item >= 0;
-                    if (! res)
-                    {
-                        rep !== null && rep.push(["not a 0 strict int [.'|'.2.a.0]", ((path ? lpath_0 : null) ? arr_0_lpath : null)])
-                        break;
-                    }
-                }
-            }
+            let arr_0_item = pval[arr_0_idx]
+            let arr_0_lpath = path ? path.concat([arr_0_idx]) : null;
+            // .'|'.2.a.0
+            res = ((typeof arr_0_item === 'number' || arr_0_item instanceof Number) && Number.isInteger(arr_0_item)) && arr_0_item >= 0;
             if (! res)
             {
-                rep !== null && rep.push(["not array or unexpected array [.'|'.2.a]", (path ? lpath_0 : null)])
-                rep !== null && rep.push(["invalid mandatory prop value [.'|'.2.a]", (path ? lpath_0 : null)])
-                return false;
+                rep !== null && rep.push(["not a 0 strict int [.'|'.2.a.0]", (path ? arr_0_lpath : null)])
+                break;
             }
-        }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.'|'.2]", (path ? lpath_0 : null)])
-            return false;
         }
     }
-    if (must_count != 1)
+    if (! res)
     {
-        if (rep !== null)
-        {
-            if (! val.hasOwnProperty("a"))
-            {
-                rep !== null && rep.push(["missing mandatory prop <a> [.'|'.2]", path])
-            }
-        }
+        rep !== null && rep.push(["not array or unexpected array [.'|'.2.a]", path])
+        rep !== null && rep.push(["unexpected value for mandatory prop <a> [.'|'.2]", path])
         return false;
     }
     return true;
@@ -75,44 +62,31 @@ function _jm_obj_0(val, path, rep)
 // object .'|'.1
 function _jm_obj_1(val, path, rep)
 {
+    // check close must only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.'|'.1]", path])
         return false;
     }
-    let res;
-    let must_count = 0;
-    for (const [prop, pval] of Object.entries(val))
+    if (Object.keys(val).length != 1)
     {
-        let lpath_1 = path ? path.concat([prop]) : null;
-        if (prop == "a")
-        {
-            // handle must a property
-            must_count += 1;
-            // .'|'.1.a
-            res = (typeof pval === 'string' || pval instanceof String);
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected string [.'|'.1.a]", (path ? lpath_1 : null)])
-                rep !== null && rep.push(["invalid mandatory prop value [.'|'.1.a]", (path ? lpath_1 : null)])
-                return false;
-            }
-        }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.'|'.1]", (path ? lpath_1 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["bad property count [.'|'.1]", path])
+        return false;
     }
-    if (must_count != 1)
+    let pval;
+    let res;
+    if (! val.hasOwnProperty("a"))
     {
-        if (rep !== null)
-        {
-            if (! val.hasOwnProperty("a"))
-            {
-                rep !== null && rep.push(["missing mandatory prop <a> [.'|'.1]", path])
-            }
-        }
+        rep !== null && rep.push(["missing mandatory prop <a> [.'|'.1]", path])
+        return false;
+    }
+    pval = val["a"];
+    // .'|'.1.a
+    res = (typeof pval === 'string' || pval instanceof String);
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected string [.'|'.1.a]", path])
+        rep !== null && rep.push(["unexpected value for mandatory prop <a> [.'|'.1]", path])
         return false;
     }
     return true;
@@ -121,44 +95,31 @@ function _jm_obj_1(val, path, rep)
 // object .'|'.0
 function _jm_obj_2(val, path, rep)
 {
+    // check close must only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.'|'.0]", path])
         return false;
     }
-    let res;
-    let must_count = 0;
-    for (const [prop, pval] of Object.entries(val))
+    if (Object.keys(val).length != 1)
     {
-        let lpath_2 = path ? path.concat([prop]) : null;
-        if (prop == "a")
-        {
-            // handle must a property
-            must_count += 1;
-            // .'|'.0.a
-            res = (typeof pval === 'boolean' || pval instanceof Boolean);
-            if (! res)
-            {
-                rep !== null && rep.push(["not a bool [.'|'.0.a]", (path ? lpath_2 : null)])
-                rep !== null && rep.push(["invalid mandatory prop value [.'|'.0.a]", (path ? lpath_2 : null)])
-                return false;
-            }
-        }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.'|'.0]", (path ? lpath_2 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["bad property count [.'|'.0]", path])
+        return false;
     }
-    if (must_count != 1)
+    let pval;
+    let res;
+    if (! val.hasOwnProperty("a"))
     {
-        if (rep !== null)
-        {
-            if (! val.hasOwnProperty("a"))
-            {
-                rep !== null && rep.push(["missing mandatory prop <a> [.'|'.0]", path])
-            }
-        }
+        rep !== null && rep.push(["missing mandatory prop <a> [.'|'.0]", path])
+        return false;
+    }
+    pval = val["a"];
+    // .'|'.0.a
+    res = (typeof pval === 'boolean' || pval instanceof Boolean);
+    if (! res)
+    {
+        rep !== null && rep.push(["not a bool [.'|'.0.a]", path])
+        rep !== null && rep.push(["unexpected value for mandatory prop <a> [.'|'.0]", path])
         return false;
     }
     return true;

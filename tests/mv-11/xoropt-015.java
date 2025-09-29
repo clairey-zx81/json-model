@@ -53,47 +53,31 @@ public class xoropt_015 extends ModelChecker
     // object .'$Xx'
     public boolean _jm_obj_0(Object val, Path path, Report rep)
     {
+        // check close must only props
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.'$Xx']", path);
             return false;
         }
-        boolean res;
-        long must_count = 0;
-        Iterator<String> prop_loop = json.objectIterator(val);
-        while (prop_loop.hasNext())
+        if (json.objectSize(val) != 1)
         {
-            String prop = prop_loop.next();
-            Object pval = json.objectValue(val, prop);
-            Path lpath_0 = new Path(prop, path);
-            if (prop.compareTo("X") == 0)
-            {
-                // handle must X property
-                must_count += 1;
-                // .'$Xx'.X
-                res = json.isString(pval);
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("unexpected string [.'$Xx'.X]", (path != null ? lpath_0 : null));
-                    if (rep != null) rep.addEntry("invalid mandatory prop value [.'$Xx'.X]", (path != null ? lpath_0 : null));
-                    return false;
-                }
-            }
-            else
-            {
-                if (rep != null) rep.addEntry("unexpected prop [.'$Xx']", (path != null ? lpath_0 : null));
-                return false;
-            }
+            if (rep != null) rep.addEntry("bad property count [.'$Xx']", path);
+            return false;
         }
-        if (must_count != 1)
+        Object pval;
+        boolean res;
+        if (! json.objectHasProp(val, "X"))
         {
-            if (rep != null)
-            {
-                if (! json.objectHasProp(val, "X"))
-                {
-                    if (rep != null) rep.addEntry("missing mandatory prop <X> [.'$Xx']", path);
-                }
-            }
+            if (rep != null) rep.addEntry("missing mandatory prop <X> [.'$Xx']", path);
+            return false;
+        }
+        pval = json.objectValue(val, "X");
+        // .'$Xx'.X
+        res = json.isString(pval);
+        if (! res)
+        {
+            if (rep != null) rep.addEntry("unexpected string [.'$Xx'.X]", path);
+            if (rep != null) rep.addEntry("unexpected value for mandatory prop <X> [.'$Xx']", path);
             return false;
         }
         return true;
@@ -115,47 +99,31 @@ public class xoropt_015 extends ModelChecker
     // object .'$Yy'
     public boolean _jm_obj_1(Object val, Path path, Report rep)
     {
+        // check close must only props
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.'$Yy']", path);
             return false;
         }
-        boolean res;
-        long must_count = 0;
-        Iterator<String> prop_loop = json.objectIterator(val);
-        while (prop_loop.hasNext())
+        if (json.objectSize(val) != 1)
         {
-            String prop = prop_loop.next();
-            Object pval = json.objectValue(val, prop);
-            Path lpath_1 = new Path(prop, path);
-            if (prop.compareTo("Y") == 0)
-            {
-                // handle must Y property
-                must_count += 1;
-                // .'$Yy'.Y
-                res = json.isString(pval);
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("unexpected string [.'$Yy'.Y]", (path != null ? lpath_1 : null));
-                    if (rep != null) rep.addEntry("invalid mandatory prop value [.'$Yy'.Y]", (path != null ? lpath_1 : null));
-                    return false;
-                }
-            }
-            else
-            {
-                if (rep != null) rep.addEntry("unexpected prop [.'$Yy']", (path != null ? lpath_1 : null));
-                return false;
-            }
+            if (rep != null) rep.addEntry("bad property count [.'$Yy']", path);
+            return false;
         }
-        if (must_count != 1)
+        Object pval;
+        boolean res;
+        if (! json.objectHasProp(val, "Y"))
         {
-            if (rep != null)
-            {
-                if (! json.objectHasProp(val, "Y"))
-                {
-                    if (rep != null) rep.addEntry("missing mandatory prop <Y> [.'$Yy']", path);
-                }
-            }
+            if (rep != null) rep.addEntry("missing mandatory prop <Y> [.'$Yy']", path);
+            return false;
+        }
+        pval = json.objectValue(val, "Y");
+        // .'$Yy'.Y
+        res = json.isString(pval);
+        if (! res)
+        {
+            if (rep != null) rep.addEntry("unexpected string [.'$Yy'.Y]", path);
+            if (rep != null) rep.addEntry("unexpected value for mandatory prop <Y> [.'$Yy']", path);
             return false;
         }
         return true;
@@ -189,7 +157,7 @@ public class xoropt_015 extends ModelChecker
         {
             String prop = prop_loop.next();
             Object pval = json.objectValue(val, prop);
-            Path lpath_2 = new Path(prop, path);
+            Path lpath_0 = new Path(prop, path);
             if (prop.compareTo("Y") == 0)
             {
                 // handle must Y property
@@ -198,8 +166,8 @@ public class xoropt_015 extends ModelChecker
                 res = json.isString(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.'$Ee'.'|'.1.Y]", (path != null ? lpath_2 : null));
-                    if (rep != null) rep.addEntry("invalid mandatory prop value [.'$Ee'.'|'.1.Y]", (path != null ? lpath_2 : null));
+                    if (rep != null) rep.addEntry("unexpected string [.'$Ee'.'|'.1.Y]", (path != null ? lpath_0 : null));
+                    if (rep != null) rep.addEntry("invalid mandatory prop value [.'$Ee'.'|'.1.Y]", (path != null ? lpath_0 : null));
                     return false;
                 }
             }
@@ -210,14 +178,14 @@ public class xoropt_015 extends ModelChecker
                 res = json.isString(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.'$Ee'.'|'.1.Z]", (path != null ? lpath_2 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$Ee'.'|'.1.Z]", (path != null ? lpath_2 : null));
+                    if (rep != null) rep.addEntry("unexpected string [.'$Ee'.'|'.1.Z]", (path != null ? lpath_0 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$Ee'.'|'.1.Z]", (path != null ? lpath_0 : null));
                     return false;
                 }
             }
             else
             {
-                if (rep != null) rep.addEntry("unexpected prop [.'$Ee'.'|'.1]", (path != null ? lpath_2 : null));
+                if (rep != null) rep.addEntry("unexpected prop [.'$Ee'.'|'.1]", (path != null ? lpath_0 : null));
                 return false;
             }
         }
@@ -250,7 +218,7 @@ public class xoropt_015 extends ModelChecker
         {
             String prop = prop_loop.next();
             Object pval = json.objectValue(val, prop);
-            Path lpath_3 = new Path(prop, path);
+            Path lpath_1 = new Path(prop, path);
             if (prop.compareTo("X") == 0)
             {
                 // handle must X property
@@ -259,8 +227,8 @@ public class xoropt_015 extends ModelChecker
                 res = json.isString(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.'$Ee'.'|'.0.X]", (path != null ? lpath_3 : null));
-                    if (rep != null) rep.addEntry("invalid mandatory prop value [.'$Ee'.'|'.0.X]", (path != null ? lpath_3 : null));
+                    if (rep != null) rep.addEntry("unexpected string [.'$Ee'.'|'.0.X]", (path != null ? lpath_1 : null));
+                    if (rep != null) rep.addEntry("invalid mandatory prop value [.'$Ee'.'|'.0.X]", (path != null ? lpath_1 : null));
                     return false;
                 }
             }
@@ -271,14 +239,14 @@ public class xoropt_015 extends ModelChecker
                 res = json.isString(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.'$Ee'.'|'.0.Z]", (path != null ? lpath_3 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$Ee'.'|'.0.Z]", (path != null ? lpath_3 : null));
+                    if (rep != null) rep.addEntry("unexpected string [.'$Ee'.'|'.0.Z]", (path != null ? lpath_1 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$Ee'.'|'.0.Z]", (path != null ? lpath_1 : null));
                     return false;
                 }
             }
             else
             {
-                if (rep != null) rep.addEntry("unexpected prop [.'$Ee'.'|'.0]", (path != null ? lpath_3 : null));
+                if (rep != null) rep.addEntry("unexpected prop [.'$Ee'.'|'.0]", (path != null ? lpath_1 : null));
                 return false;
             }
         }

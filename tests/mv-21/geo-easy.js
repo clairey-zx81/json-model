@@ -129,7 +129,7 @@ function json_model_4(val, path, rep)
 // object .'$Point'
 function _jm_obj_0(val, path, rep)
 {
-    // check must only props
+    // check open must/may only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.'$Point']", path])
@@ -211,7 +211,7 @@ function json_model_5(val, path, rep)
 // object .'$MultiPoint'
 function _jm_obj_1(val, path, rep)
 {
-    // check must only props
+    // check open must/may only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.'$MultiPoint']", path])
@@ -308,7 +308,7 @@ function json_model_6(val, path, rep)
 // object .'$LineString'
 function _jm_obj_2(val, path, rep)
 {
-    // check must only props
+    // check open must/may only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.'$LineString']", path])
@@ -390,7 +390,7 @@ function json_model_7(val, path, rep)
 // object .'$MultiLineString'
 function _jm_obj_3(val, path, rep)
 {
-    // check must only props
+    // check open must/may only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.'$MultiLineString']", path])
@@ -487,7 +487,7 @@ function json_model_8(val, path, rep)
 // object .'$Polygon'
 function _jm_obj_4(val, path, rep)
 {
-    // check must only props
+    // check open must/may only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.'$Polygon']", path])
@@ -584,7 +584,7 @@ function json_model_9(val, path, rep)
 // object .'$MultiPolygon'
 function _jm_obj_5(val, path, rep)
 {
-    // check must only props
+    // check open must/may only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.'$MultiPolygon']", path])
@@ -733,7 +733,7 @@ function json_model_11(val, path, rep)
 // object .'$GeometryCollection'
 function _jm_obj_6(val, path, rep)
 {
-    // check must only props
+    // check open must/may only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.'$GeometryCollection']", path])
@@ -842,7 +842,7 @@ function _jm_obj_8(val, path, rep)
 // object .'$Feature'
 function _jm_obj_7(val, path, rep)
 {
-    // check must only props
+    // check open must/may only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.'$Feature']", path])
@@ -1013,7 +1013,7 @@ function json_model_13(val, path, rep)
 // object .'$FeatureCollection'
 function _jm_obj_9(val, path, rep)
 {
-    // check must only props
+    // check open must/may only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.'$FeatureCollection']", path])

@@ -24,43 +24,36 @@ my %check_model_map;
 sub _jm_obj_0($$$)
 {
     my ($val, $path, $rep) = @_;
+    # check close must only props
     if (! jm_is_object($val))
     {
         return 0;
     }
-    my $res;
-    my $must_count = 0;
-    scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    if (jm_obj_size($val) != 2)
     {
-        if ($prop eq 't')
-        {
-            # handle must t property
-            $must_count++;
-            # .'$table'.t
-            $res = jm_is_string($pval) && $pval eq 'table';
-            if (! $res)
-            {
-                return 0;
-            }
-        }
-        elsif ($prop eq 'legs')
-        {
-            # handle must legs property
-            $must_count++;
-            # .'$table'.legs
-            $res = jm_is_integer($pval) && $pval >= 1;
-            if (! $res)
-            {
-                return 0;
-            }
-        }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
-    if ($must_count != 2)
+    my $pval;
+    my $res;
+    if (! exists $$val{'t'})
+    {
+        return 0;
+    }
+    $pval = $$val{'t'};
+    # .'$table'.t
+    $res = jm_is_string($pval) && $pval eq 'table';
+    if (! $res)
+    {
+        return 0;
+    }
+    if (! exists $$val{'legs'})
+    {
+        return 0;
+    }
+    $pval = $$val{'legs'};
+    # .'$table'.legs
+    $res = jm_is_integer($pval) && $pval >= 1;
+    if (! $res)
     {
         return 0;
     }
@@ -81,43 +74,36 @@ sub json_model_2($$$)
 sub _jm_obj_1($$$)
 {
     my ($val, $path, $rep) = @_;
+    # check close must only props
     if (! jm_is_object($val))
     {
         return 0;
     }
-    my $res;
-    my $must_count = 0;
-    scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    if (jm_obj_size($val) != 2)
     {
-        if ($prop eq 't')
-        {
-            # handle must t property
-            $must_count++;
-            # .'$chair'.t
-            $res = jm_is_string($pval) && $pval eq 'chair';
-            if (! $res)
-            {
-                return 0;
-            }
-        }
-        elsif ($prop eq 'color')
-        {
-            # handle must color property
-            $must_count++;
-            # .'$chair'.color
-            $res = jm_is_string($pval);
-            if (! $res)
-            {
-                return 0;
-            }
-        }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
-    if ($must_count != 2)
+    my $pval;
+    my $res;
+    if (! exists $$val{'t'})
+    {
+        return 0;
+    }
+    $pval = $$val{'t'};
+    # .'$chair'.t
+    $res = jm_is_string($pval) && $pval eq 'chair';
+    if (! $res)
+    {
+        return 0;
+    }
+    if (! exists $$val{'color'})
+    {
+        return 0;
+    }
+    $pval = $$val{'color'};
+    # .'$chair'.color
+    $res = jm_is_string($pval);
+    if (! $res)
     {
         return 0;
     }
@@ -170,45 +156,38 @@ sub json_model_4($$$)
 sub _jm_obj_2($$$)
 {
     my ($val, $path, $rep) = @_;
+    # check close must only props
     if (! jm_is_object($val))
     {
         return 0;
     }
-    my $res;
-    my $must_count = 0;
-    scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    if (jm_obj_size($val) != 1)
     {
-        if ($prop eq 'stuff')
+        return 0;
+    }
+    my $pval;
+    my $res;
+    if (! exists $$val{'stuff'})
+    {
+        return 0;
+    }
+    $pval = $$val{'stuff'};
+    # .stuff
+    $res = jm_is_array($pval);
+    if ($res)
+    {
+        for my $arr_0_idx (0 .. $#$pval)
         {
-            # handle must stuff property
-            $must_count++;
-            # .stuff
-            $res = jm_is_array($pval);
-            if ($res)
-            {
-                for my $arr_0_idx (0 .. $#$pval)
-                {
-                    my $arr_0_item = $$pval[$arr_0_idx];
-                    # .stuff.0
-                    $res = json_model_4($arr_0_item, undef, $rep);
-                    if (! $res)
-                    {
-                        last;
-                    }
-                }
-            }
+            my $arr_0_item = $$pval[$arr_0_idx];
+            # .stuff.0
+            $res = json_model_4($arr_0_item, undef, $rep);
             if (! $res)
             {
-                return 0;
+                last;
             }
         }
-        else
-        {
-            return 0;
-        }
     }
-    if ($must_count != 1)
+    if (! $res)
     {
         return 0;
     }

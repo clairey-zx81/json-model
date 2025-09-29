@@ -48,47 +48,31 @@ public class root_3 extends ModelChecker
     // object .'$foo#Foo'
     public boolean _jm_obj_0(Object val, Path path, Report rep)
     {
+        // check close must only props
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.'$foo#Foo']", path);
             return false;
         }
-        boolean res;
-        long must_count = 0;
-        Iterator<String> prop_loop = json.objectIterator(val);
-        while (prop_loop.hasNext())
+        if (json.objectSize(val) != 1)
         {
-            String prop = prop_loop.next();
-            Object pval = json.objectValue(val, prop);
-            Path lpath_0 = new Path(prop, path);
-            if (prop.compareTo("rt") == 0)
-            {
-                // handle must rt property
-                must_count += 1;
-                // .'$foo#Foo'.rt
-                res = _jm_obj_1(pval, (path != null ? lpath_0 : null), rep);
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("unexpected $root#Root [.'$foo#Foo'.rt]", (path != null ? lpath_0 : null));
-                    if (rep != null) rep.addEntry("invalid mandatory prop value [.'$foo#Foo'.rt]", (path != null ? lpath_0 : null));
-                    return false;
-                }
-            }
-            else
-            {
-                if (rep != null) rep.addEntry("unexpected prop [.'$foo#Foo']", (path != null ? lpath_0 : null));
-                return false;
-            }
+            if (rep != null) rep.addEntry("bad property count [.'$foo#Foo']", path);
+            return false;
         }
-        if (must_count != 1)
+        Object pval;
+        boolean res;
+        if (! json.objectHasProp(val, "rt"))
         {
-            if (rep != null)
-            {
-                if (! json.objectHasProp(val, "rt"))
-                {
-                    if (rep != null) rep.addEntry("missing mandatory prop <rt> [.'$foo#Foo']", path);
-                }
-            }
+            if (rep != null) rep.addEntry("missing mandatory prop <rt> [.'$foo#Foo']", path);
+            return false;
+        }
+        pval = json.objectValue(val, "rt");
+        // .'$foo#Foo'.rt
+        res = _jm_obj_1(pval, path, rep);
+        if (! res)
+        {
+            if (rep != null) rep.addEntry("unexpected $root#Root [.'$foo#Foo'.rt]", path);
+            if (rep != null) rep.addEntry("unexpected value for mandatory prop <rt> [.'$foo#Foo']", path);
             return false;
         }
         return true;
@@ -110,64 +94,45 @@ public class root_3 extends ModelChecker
     // object .'$foo#root#root#Root'
     public boolean _jm_obj_1(Object val, Path path, Report rep)
     {
+        // check close must only props
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.'$foo#root#root#Root']", path);
             return false;
         }
-        boolean res;
-        long must_count = 0;
-        Iterator<String> prop_loop = json.objectIterator(val);
-        while (prop_loop.hasNext())
+        if (json.objectSize(val) != 2)
         {
-            String prop = prop_loop.next();
-            Object pval = json.objectValue(val, prop);
-            Path lpath_1 = new Path(prop, path);
-            if (prop.compareTo("id") == 0)
-            {
-                // handle must id property
-                must_count += 1;
-                // .'$foo#root#root#Root'.id
-                res = json.isInteger(pval) && json.asLong(pval) == 1;
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("unexpected =1 [.'$foo#root#root#Root'.id]", (path != null ? lpath_1 : null));
-                    if (rep != null) rep.addEntry("invalid mandatory prop value [.'$foo#root#root#Root'.id]", (path != null ? lpath_1 : null));
-                    return false;
-                }
-            }
-            else if (prop.compareTo("name") == 0)
-            {
-                // handle must name property
-                must_count += 1;
-                // .'$foo#root#root#Root'.name
-                res = json.isString(pval);
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("unexpected string [.'$foo#root#root#Root'.name]", (path != null ? lpath_1 : null));
-                    if (rep != null) rep.addEntry("invalid mandatory prop value [.'$foo#root#root#Root'.name]", (path != null ? lpath_1 : null));
-                    return false;
-                }
-            }
-            else
-            {
-                if (rep != null) rep.addEntry("unexpected prop [.'$foo#root#root#Root']", (path != null ? lpath_1 : null));
-                return false;
-            }
+            if (rep != null) rep.addEntry("bad property count [.'$foo#root#root#Root']", path);
+            return false;
         }
-        if (must_count != 2)
+        Object pval;
+        boolean res;
+        if (! json.objectHasProp(val, "id"))
         {
-            if (rep != null)
-            {
-                if (! json.objectHasProp(val, "id"))
-                {
-                    if (rep != null) rep.addEntry("missing mandatory prop <id> [.'$foo#root#root#Root']", path);
-                }
-                if (! json.objectHasProp(val, "name"))
-                {
-                    if (rep != null) rep.addEntry("missing mandatory prop <name> [.'$foo#root#root#Root']", path);
-                }
-            }
+            if (rep != null) rep.addEntry("missing mandatory prop <id> [.'$foo#root#root#Root']", path);
+            return false;
+        }
+        pval = json.objectValue(val, "id");
+        // .'$foo#root#root#Root'.id
+        res = json.isInteger(pval) && json.asLong(pval) == 1;
+        if (! res)
+        {
+            if (rep != null) rep.addEntry("unexpected =1 [.'$foo#root#root#Root'.id]", path);
+            if (rep != null) rep.addEntry("unexpected value for mandatory prop <id> [.'$foo#root#root#Root']", path);
+            return false;
+        }
+        if (! json.objectHasProp(val, "name"))
+        {
+            if (rep != null) rep.addEntry("missing mandatory prop <name> [.'$foo#root#root#Root']", path);
+            return false;
+        }
+        pval = json.objectValue(val, "name");
+        // .'$foo#root#root#Root'.name
+        res = json.isString(pval);
+        if (! res)
+        {
+            if (rep != null) rep.addEntry("unexpected string [.'$foo#root#root#Root'.name]", path);
+            if (rep != null) rep.addEntry("unexpected value for mandatory prop <name> [.'$foo#root#root#Root']", path);
             return false;
         }
         return true;

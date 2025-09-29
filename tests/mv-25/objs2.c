@@ -21,44 +21,36 @@ const size_t check_model_map_size = 4;
 // object .'$bla'
 static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
+    // check close must only props
     if (! json_is_object(val))
     {
         return false;
     }
-    bool res;
-    int64_t must_count = 0;
-    const char *prop;
-    json_t *pval;
-    json_object_foreach((json_t *) val, prop, pval)
+    if (json_object_size(val) != 2)
     {
-        if (strcmp(prop, "x") == 0)
-        {
-            // handle must x property
-            must_count += 1;
-            // .'$bla'.x
-            res = json_is_real(pval);
-            if (! res)
-            {
-                return false;
-            }
-        }
-        else if (strcmp(prop, "y") == 0)
-        {
-            // handle must y property
-            must_count += 1;
-            // .'$bla'.y
-            res = json_is_real(pval);
-            if (! res)
-            {
-                return false;
-            }
-        }
-        else
-        {
-            return false;
-        }
+        return false;
     }
-    if (must_count != 2)
+    json_t * pval;
+    bool res;
+    if (! (json_object_get(val, "x") != NULL))
+    {
+        return false;
+    }
+    pval = json_object_get(val, "x");
+    // .'$bla'.x
+    res = json_is_real(pval);
+    if (! res)
+    {
+        return false;
+    }
+    if (! (json_object_get(val, "y") != NULL))
+    {
+        return false;
+    }
+    pval = json_object_get(val, "y");
+    // .'$bla'.y
+    res = json_is_real(pval);
+    if (! res)
     {
         return false;
     }

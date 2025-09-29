@@ -24,29 +24,26 @@ check_model_map: PropMap
 
 # object .'$book'
 def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
+    # check close must only props
     if not isinstance(val, dict):
         return False
+    if len(val) != 2:
+        return False
+    pval: Jsonable
     res: bool
-    must_count: int = 0
-    for prop, pval in val.items():
-        assert isinstance(prop, str)
-        if prop == "title":
-            # handle must title property
-            must_count += 1
-            # .'$book'.title
-            res = isinstance(pval, str)
-            if not res:
-                return False
-        elif prop == "author":
-            # handle must author property
-            must_count += 1
-            # .'$book'.author
-            res = isinstance(pval, str)
-            if not res:
-                return False
-        else:
-            return False
-    if must_count != 2:
+    if not "title" in val:
+        return False
+    pval = val.get("title", UNDEFINED)
+    # .'$book'.title
+    res = isinstance(pval, str)
+    if not res:
+        return False
+    if not ("author" in val):
+        return False
+    pval = val.get("author", UNDEFINED)
+    # .'$book'.author
+    res = isinstance(pval, str)
+    if not res:
         return False
     return True
 

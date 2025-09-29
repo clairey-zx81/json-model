@@ -23,32 +23,25 @@ my %check_model_map;
 sub _jm_obj_0($$$)
 {
     my ($val, $path, $rep) = @_;
+    # check close must only props
     if (! jm_is_object($val))
     {
         return 0;
     }
-    my $res;
-    my $must_count = 0;
-    scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    if (jm_obj_size($val) != 1)
     {
-        if ($prop eq 'li')
-        {
-            # handle must li property
-            $must_count++;
-            # .'$loose'.li
-            $res = jm_is_integer($pval) && $pval >= 0;
-            if (! $res)
-            {
-                return 0;
-            }
-        }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
-    if ($must_count != 1)
+    my $pval;
+    my $res;
+    if (! exists $$val{'li'})
+    {
+        return 0;
+    }
+    $pval = $$val{'li'};
+    # .'$loose'.li
+    $res = jm_is_integer($pval) && $pval >= 0;
+    if (! $res)
     {
         return 0;
     }
@@ -70,32 +63,25 @@ sub json_model_5($$$)
 sub _jm_obj_1($$$)
 {
     my ($val, $path, $rep) = @_;
+    # check close must only props
     if (! jm_is_object($val))
     {
         return 0;
     }
-    my $res;
-    my $must_count = 0;
-    scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    if (jm_obj_size($val) != 1)
     {
-        if ($prop eq 'si')
-        {
-            # handle must si property
-            $must_count++;
-            # .'$strict'.si
-            $res = jm_is_integer($pval) && $pval >= 0;
-            if (! $res)
-            {
-                return 0;
-            }
-        }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
-    if ($must_count != 1)
+    my $pval;
+    my $res;
+    if (! exists $$val{'si'})
+    {
+        return 0;
+    }
+    $pval = $$val{'si'};
+    # .'$strict'.si
+    $res = jm_is_integer($pval) && $pval >= 0;
+    if (! $res)
     {
         return 0;
     }
@@ -117,43 +103,36 @@ sub json_model_6($$$)
 sub _jm_obj_2($$$)
 {
     my ($val, $path, $rep) = @_;
+    # check close must only props
     if (! jm_is_object($val))
     {
         return 0;
     }
-    my $res;
-    my $must_count = 0;
-    scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    if (jm_obj_size($val) != 2)
     {
-        if ($prop eq 'li')
-        {
-            # handle must li property
-            $must_count++;
-            # .'$combined'.li
-            $res = jm_is_integer($pval) && $pval >= 0;
-            if (! $res)
-            {
-                return 0;
-            }
-        }
-        elsif ($prop eq 'si')
-        {
-            # handle must si property
-            $must_count++;
-            # .'$combined'.si
-            $res = jm_is_integer($pval) && $pval >= 0;
-            if (! $res)
-            {
-                return 0;
-            }
-        }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
-    if ($must_count != 2)
+    my $pval;
+    my $res;
+    if (! exists $$val{'li'})
+    {
+        return 0;
+    }
+    $pval = $$val{'li'};
+    # .'$combined'.li
+    $res = jm_is_integer($pval) && $pval >= 0;
+    if (! $res)
+    {
+        return 0;
+    }
+    if (! exists $$val{'si'})
+    {
+        return 0;
+    }
+    $pval = $$val{'si'};
+    # .'$combined'.si
+    $res = jm_is_integer($pval) && $pval >= 0;
+    if (! $res)
     {
         return 0;
     }

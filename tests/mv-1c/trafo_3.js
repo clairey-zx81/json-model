@@ -81,61 +81,45 @@ function json_model_10(val, path, rep)
 // object .'$Dd#Uu#un'
 function _jm_obj_0(val, path, rep)
 {
+    // check close must only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.'$Dd#Uu#un']", path])
         return false;
     }
-    let res;
-    let must_count = 0;
-    for (const [prop, pval] of Object.entries(val))
+    if (Object.keys(val).length != 2)
     {
-        let lpath_0 = path ? path.concat([prop]) : null;
-        if (prop == "ua")
-        {
-            // handle must ua property
-            must_count += 1;
-            // .'$Dd#Uu#un'.ua
-            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0;
-            if (! res)
-            {
-                rep !== null && rep.push(["not a 0 strict int [.'$Dd#Uu#un'.ua]", (path ? lpath_0 : null)])
-                rep !== null && rep.push(["invalid mandatory prop value [.'$Dd#Uu#un'.ua]", (path ? lpath_0 : null)])
-                return false;
-            }
-        }
-        else if (prop == "ub")
-        {
-            // handle must ub property
-            must_count += 1;
-            // .'$Dd#Uu#un'.ub
-            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0;
-            if (! res)
-            {
-                rep !== null && rep.push(["not a 0 strict int [.'$Dd#Uu#un'.ub]", (path ? lpath_0 : null)])
-                rep !== null && rep.push(["invalid mandatory prop value [.'$Dd#Uu#un'.ub]", (path ? lpath_0 : null)])
-                return false;
-            }
-        }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.'$Dd#Uu#un']", (path ? lpath_0 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["bad property count [.'$Dd#Uu#un']", path])
+        return false;
     }
-    if (must_count != 2)
+    let pval;
+    let res;
+    if (! val.hasOwnProperty("ua"))
     {
-        if (rep !== null)
-        {
-            if (! val.hasOwnProperty("ua"))
-            {
-                rep !== null && rep.push(["missing mandatory prop <ua> [.'$Dd#Uu#un']", path])
-            }
-            if (! val.hasOwnProperty("ub"))
-            {
-                rep !== null && rep.push(["missing mandatory prop <ub> [.'$Dd#Uu#un']", path])
-            }
-        }
+        rep !== null && rep.push(["missing mandatory prop <ua> [.'$Dd#Uu#un']", path])
+        return false;
+    }
+    pval = val["ua"];
+    // .'$Dd#Uu#un'.ua
+    res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0;
+    if (! res)
+    {
+        rep !== null && rep.push(["not a 0 strict int [.'$Dd#Uu#un'.ua]", path])
+        rep !== null && rep.push(["unexpected value for mandatory prop <ua> [.'$Dd#Uu#un']", path])
+        return false;
+    }
+    if (! val.hasOwnProperty("ub"))
+    {
+        rep !== null && rep.push(["missing mandatory prop <ub> [.'$Dd#Uu#un']", path])
+        return false;
+    }
+    pval = val["ub"];
+    // .'$Dd#Uu#un'.ub
+    res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0;
+    if (! res)
+    {
+        rep !== null && rep.push(["not a 0 strict int [.'$Dd#Uu#un'.ub]", path])
+        rep !== null && rep.push(["unexpected value for mandatory prop <ub> [.'$Dd#Uu#un']", path])
         return false;
     }
     return true;

@@ -14,62 +14,46 @@ var check_model_map = new Map()
 // object .
 function _jm_obj_0(val, path, rep)
 {
+    // check close must only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.]", path])
         return false;
     }
-    let res;
-    let must_count = 0;
-    for (const [prop, pval] of Object.entries(val))
+    if (Object.keys(val).length != 2)
     {
-        let lpath_0 = path ? path.concat([prop]) : null;
-        if (prop == "hello")
-        {
-            // handle must hello property
-            must_count += 1;
-            // .hello
-            res = (typeof pval === 'string' || pval instanceof String);
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected string [.hello]", (path ? lpath_0 : null)])
-                rep !== null && rep.push(["invalid mandatory prop value [.hello]", (path ? lpath_0 : null)])
-                return false;
-            }
-        }
-        else if (prop == "world")
-        {
-            // handle must world property
-            must_count += 1;
-            // .world
-            // "/^!/"
-            res = ((typeof pval === 'string' || pval instanceof String)) && pval.startsWith("!");
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected /^!/ [.world]", (path ? lpath_0 : null)])
-                rep !== null && rep.push(["invalid mandatory prop value [.world]", (path ? lpath_0 : null)])
-                return false;
-            }
-        }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.]", (path ? lpath_0 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["bad property count [.]", path])
+        return false;
     }
-    if (must_count != 2)
+    let pval;
+    let res;
+    if (! val.hasOwnProperty("hello"))
     {
-        if (rep !== null)
-        {
-            if (! val.hasOwnProperty("hello"))
-            {
-                rep !== null && rep.push(["missing mandatory prop <hello> [.]", path])
-            }
-            if (! val.hasOwnProperty("world"))
-            {
-                rep !== null && rep.push(["missing mandatory prop <world> [.]", path])
-            }
-        }
+        rep !== null && rep.push(["missing mandatory prop <hello> [.]", path])
+        return false;
+    }
+    pval = val["hello"];
+    // .hello
+    res = (typeof pval === 'string' || pval instanceof String);
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected string [.hello]", path])
+        rep !== null && rep.push(["unexpected value for mandatory prop <hello> [.]", path])
+        return false;
+    }
+    if (! val.hasOwnProperty("world"))
+    {
+        rep !== null && rep.push(["missing mandatory prop <world> [.]", path])
+        return false;
+    }
+    pval = val["world"];
+    // .world
+    // "/^!/"
+    res = ((typeof pval === 'string' || pval instanceof String)) && pval.startsWith("!");
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected /^!/ [.world]", path])
+        rep !== null && rep.push(["unexpected value for mandatory prop <world> [.]", path])
         return false;
     }
     return true;

@@ -23,44 +23,37 @@ my %check_model_map;
 sub _jm_obj_0($$$)
 {
     my ($val, $path, $rep) = @_;
+    # check close must only props
     if (! jm_is_object($val))
     {
         return 0;
     }
-    my $res;
-    my $must_count = 0;
-    scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    if (jm_obj_size($val) != 2)
     {
-        if ($prop eq 't')
-        {
-            # handle must t property
-            $must_count++;
-            # .'|'.5.t
-            $res = jm_is_string($pval) && $pval eq 't';
-            if (! $res)
-            {
-                return 0;
-            }
-        }
-        elsif ($prop eq 'v')
-        {
-            # handle must v property
-            $must_count++;
-            # .'|'.5.v
-            # "/./s"
-            $res = jm_is_string($pval) && length $pval > 0;
-            if (! $res)
-            {
-                return 0;
-            }
-        }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
-    if ($must_count != 2)
+    my $pval;
+    my $res;
+    if (! exists $$val{'t'})
+    {
+        return 0;
+    }
+    $pval = $$val{'t'};
+    # .'|'.5.t
+    $res = jm_is_string($pval) && $pval eq 't';
+    if (! $res)
+    {
+        return 0;
+    }
+    if (! exists $$val{'v'})
+    {
+        return 0;
+    }
+    $pval = $$val{'v'};
+    # .'|'.5.v
+    # "/./s"
+    $res = jm_is_string($pval) && length $pval > 0;
+    if (! $res)
     {
         return 0;
     }
@@ -71,43 +64,36 @@ sub _jm_obj_0($$$)
 sub _jm_obj_1($$$)
 {
     my ($val, $path, $rep) = @_;
+    # check close must only props
     if (! jm_is_object($val))
     {
         return 0;
     }
-    my $res;
-    my $must_count = 0;
-    scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    if (jm_obj_size($val) != 2)
     {
-        if ($prop eq 't')
-        {
-            # handle must t property
-            $must_count++;
-            # .'|'.4.t
-            $res = jm_is_string($pval) && $pval eq 's';
-            if (! $res)
-            {
-                return 0;
-            }
-        }
-        elsif ($prop eq 'v')
-        {
-            # handle must v property
-            $must_count++;
-            # .'|'.4.v
-            $res = jm_is_string($pval);
-            if (! $res)
-            {
-                return 0;
-            }
-        }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
-    if ($must_count != 2)
+    my $pval;
+    my $res;
+    if (! exists $$val{'t'})
+    {
+        return 0;
+    }
+    $pval = $$val{'t'};
+    # .'|'.4.t
+    $res = jm_is_string($pval) && $pval eq 's';
+    if (! $res)
+    {
+        return 0;
+    }
+    if (! exists $$val{'v'})
+    {
+        return 0;
+    }
+    $pval = $$val{'v'};
+    # .'|'.4.v
+    $res = jm_is_string($pval);
+    if (! $res)
     {
         return 0;
     }
@@ -118,43 +104,36 @@ sub _jm_obj_1($$$)
 sub _jm_obj_2($$$)
 {
     my ($val, $path, $rep) = @_;
+    # check close must only props
     if (! jm_is_object($val))
     {
         return 0;
     }
-    my $res;
-    my $must_count = 0;
-    scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    if (jm_obj_size($val) != 2)
     {
-        if ($prop eq 't')
-        {
-            # handle must t property
-            $must_count++;
-            # .'|'.3.t
-            $res = jm_is_numeric($pval) && $pval == 0.0;
-            if (! $res)
-            {
-                return 0;
-            }
-        }
-        elsif ($prop eq 'v')
-        {
-            # handle must v property
-            $must_count++;
-            # .'|'.3.v
-            $res = jm_is_numeric($pval) && $pval >= 0.0;
-            if (! $res)
-            {
-                return 0;
-            }
-        }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
-    if ($must_count != 2)
+    my $pval;
+    my $res;
+    if (! exists $$val{'t'})
+    {
+        return 0;
+    }
+    $pval = $$val{'t'};
+    # .'|'.3.t
+    $res = jm_is_numeric($pval) && $pval == 0.0;
+    if (! $res)
+    {
+        return 0;
+    }
+    if (! exists $$val{'v'})
+    {
+        return 0;
+    }
+    $pval = $$val{'v'};
+    # .'|'.3.v
+    $res = jm_is_numeric($pval) && $pval >= 0.0;
+    if (! $res)
     {
         return 0;
     }
@@ -165,43 +144,36 @@ sub _jm_obj_2($$$)
 sub _jm_obj_3($$$)
 {
     my ($val, $path, $rep) = @_;
+    # check close must only props
     if (! jm_is_object($val))
     {
         return 0;
     }
-    my $res;
-    my $must_count = 0;
-    scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    if (jm_obj_size($val) != 2)
     {
-        if ($prop eq 't')
-        {
-            # handle must t property
-            $must_count++;
-            # .'|'.2.t
-            $res = jm_is_integer($pval) && $pval == 0;
-            if (! $res)
-            {
-                return 0;
-            }
-        }
-        elsif ($prop eq 'v')
-        {
-            # handle must v property
-            $must_count++;
-            # .'|'.2.v
-            $res = jm_is_integer($pval) && $pval >= 0;
-            if (! $res)
-            {
-                return 0;
-            }
-        }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
-    if ($must_count != 2)
+    my $pval;
+    my $res;
+    if (! exists $$val{'t'})
+    {
+        return 0;
+    }
+    $pval = $$val{'t'};
+    # .'|'.2.t
+    $res = jm_is_integer($pval) && $pval == 0;
+    if (! $res)
+    {
+        return 0;
+    }
+    if (! exists $$val{'v'})
+    {
+        return 0;
+    }
+    $pval = $$val{'v'};
+    # .'|'.2.v
+    $res = jm_is_integer($pval) && $pval >= 0;
+    if (! $res)
     {
         return 0;
     }
@@ -212,43 +184,36 @@ sub _jm_obj_3($$$)
 sub _jm_obj_4($$$)
 {
     my ($val, $path, $rep) = @_;
+    # check close must only props
     if (! jm_is_object($val))
     {
         return 0;
     }
-    my $res;
-    my $must_count = 0;
-    scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    if (jm_obj_size($val) != 2)
     {
-        if ($prop eq 't')
-        {
-            # handle must t property
-            $must_count++;
-            # .'|'.1.t
-            $res = jm_is_boolean($pval) && $pval == 1;
-            if (! $res)
-            {
-                return 0;
-            }
-        }
-        elsif ($prop eq 'v')
-        {
-            # handle must v property
-            $must_count++;
-            # .'|'.1.v
-            $res = jm_is_boolean($pval);
-            if (! $res)
-            {
-                return 0;
-            }
-        }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
-    if ($must_count != 2)
+    my $pval;
+    my $res;
+    if (! exists $$val{'t'})
+    {
+        return 0;
+    }
+    $pval = $$val{'t'};
+    # .'|'.1.t
+    $res = jm_is_boolean($pval) && $pval == 1;
+    if (! $res)
+    {
+        return 0;
+    }
+    if (! exists $$val{'v'})
+    {
+        return 0;
+    }
+    $pval = $$val{'v'};
+    # .'|'.1.v
+    $res = jm_is_boolean($pval);
+    if (! $res)
     {
         return 0;
     }
@@ -259,43 +224,36 @@ sub _jm_obj_4($$$)
 sub _jm_obj_5($$$)
 {
     my ($val, $path, $rep) = @_;
+    # check close must only props
     if (! jm_is_object($val))
     {
         return 0;
     }
-    my $res;
-    my $must_count = 0;
-    scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    if (jm_obj_size($val) != 2)
     {
-        if ($prop eq 't')
-        {
-            # handle must t property
-            $must_count++;
-            # .'|'.0.t
-            $res = !defined($pval);
-            if (! $res)
-            {
-                return 0;
-            }
-        }
-        elsif ($prop eq 'v')
-        {
-            # handle must v property
-            $must_count++;
-            # .'|'.0.v
-            $res = !defined($pval);
-            if (! $res)
-            {
-                return 0;
-            }
-        }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
-    if ($must_count != 2)
+    my $pval;
+    my $res;
+    if (! exists $$val{'t'})
+    {
+        return 0;
+    }
+    $pval = $$val{'t'};
+    # .'|'.0.t
+    $res = !defined($pval);
+    if (! $res)
+    {
+        return 0;
+    }
+    if (! exists $$val{'v'})
+    {
+        return 0;
+    }
+    $pval = $$val{'v'};
+    # .'|'.0.v
+    $res = !defined($pval);
+    if (! $res)
     {
         return 0;
     }

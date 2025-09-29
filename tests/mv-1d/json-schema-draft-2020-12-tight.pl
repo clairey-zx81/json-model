@@ -616,32 +616,25 @@ sub json_model_4($$$)
 sub _jm_obj_4($$$)
 {
     my ($val, $path, $rep) = @_;
+    # check close must only props
     if (! jm_is_object($val))
     {
         return 0;
     }
-    my $res;
-    my $must_count = 0;
-    scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    if (jm_obj_size($val) != 1)
     {
-        if ($prop eq 'type')
-        {
-            # handle must type property
-            $must_count++;
-            # .'$Null'.type
-            $res = jm_is_string($pval) && $pval eq 'null';
-            if (! $res)
-            {
-                return 0;
-            }
-        }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
-    if ($must_count != 1)
+    my $pval;
+    my $res;
+    if (! exists $$val{'type'})
+    {
+        return 0;
+    }
+    $pval = $$val{'type'};
+    # .'$Null'.type
+    $res = jm_is_string($pval) && $pval eq 'null';
+    if (! $res)
     {
         return 0;
     }
@@ -662,32 +655,25 @@ sub json_model_5($$$)
 sub _jm_obj_5($$$)
 {
     my ($val, $path, $rep) = @_;
+    # check close must only props
     if (! jm_is_object($val))
     {
         return 0;
     }
-    my $res;
-    my $must_count = 0;
-    scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    if (jm_obj_size($val) != 1)
     {
-        if ($prop eq 'type')
-        {
-            # handle must type property
-            $must_count++;
-            # .'$Boolean'.type
-            $res = jm_is_string($pval) && $pval eq 'boolean';
-            if (! $res)
-            {
-                return 0;
-            }
-        }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
-    if ($must_count != 1)
+    my $pval;
+    my $res;
+    if (! exists $$val{'type'})
+    {
+        return 0;
+    }
+    $pval = $$val{'type'};
+    # .'$Boolean'.type
+    $res = jm_is_string($pval) && $pval eq 'boolean';
+    if (! $res)
     {
         return 0;
     }

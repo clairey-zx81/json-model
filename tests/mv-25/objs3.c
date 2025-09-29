@@ -19,44 +19,36 @@ const size_t check_model_map_size = 2;
 // object .'$book'
 static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
+    // check close must only props
     if (! json_is_object(val))
     {
         return false;
     }
-    bool res;
-    int64_t must_count = 0;
-    const char *prop;
-    json_t *pval;
-    json_object_foreach((json_t *) val, prop, pval)
+    if (json_object_size(val) != 2)
     {
-        if (strcmp(prop, "title") == 0)
-        {
-            // handle must title property
-            must_count += 1;
-            // .'$book'.title
-            res = json_is_string(pval);
-            if (! res)
-            {
-                return false;
-            }
-        }
-        else if (strcmp(prop, "author") == 0)
-        {
-            // handle must author property
-            must_count += 1;
-            // .'$book'.author
-            res = json_is_string(pval);
-            if (! res)
-            {
-                return false;
-            }
-        }
-        else
-        {
-            return false;
-        }
+        return false;
     }
-    if (must_count != 2)
+    json_t * pval;
+    bool res;
+    if (! (json_object_get(val, "title") != NULL))
+    {
+        return false;
+    }
+    pval = json_object_get(val, "title");
+    // .'$book'.title
+    res = json_is_string(pval);
+    if (! res)
+    {
+        return false;
+    }
+    if (! (json_object_get(val, "author") != NULL))
+    {
+        return false;
+    }
+    pval = json_object_get(val, "author");
+    // .'$book'.author
+    res = json_is_string(pval);
+    if (! res)
     {
         return false;
     }

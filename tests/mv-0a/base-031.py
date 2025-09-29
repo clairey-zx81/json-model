@@ -24,38 +24,32 @@ check_model_map: PropMap
 
 # object .'$bibi'
 def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
+    # check close must only props
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$bibi']", path))
         return False
+    if len(val) != 1:
+        rep is None or rep.append(("bad property count [.'$bibi']", path))
+        return False
+    pval: Jsonable
     res: bool
-    must_count: int = 0
-    for prop, pval in val.items():
-        assert isinstance(prop, str)
-        lpath_0: Path = (path + [ prop ]) if path is not None else None
-        if prop == "bibi":
-            # handle must bibi property
-            must_count += 1
-            # .'$bibi'.bibi
-            res = isinstance(pval, list)
-            if res:
-                for arr_0_idx, arr_0_item in enumerate(pval):
-                    arr_0_lpath: Path = ((lpath_0 if path is not None else None) + [ arr_0_idx ]) if (lpath_0 if path is not None else None) is not None else None
-                    # .'$bibi'.bibi.0
-                    res = _jm_obj_0(arr_0_item, arr_0_lpath if (lpath_0 if path is not None else None) is not None else None, rep)
-                    if not res:
-                        rep is None or rep.append(("unexpected $bibi [.'$bibi'.bibi.0]", arr_0_lpath if (lpath_0 if path is not None else None) is not None else None))
-                        break
+    if not "bibi" in val:
+        rep is None or rep.append(("missing mandatory prop <bibi> [.'$bibi']", path))
+        return False
+    pval = val.get("bibi", UNDEFINED)
+    # .'$bibi'.bibi
+    res = isinstance(pval, list)
+    if res:
+        for arr_0_idx, arr_0_item in enumerate(pval):
+            arr_0_lpath: Path = (path + [ arr_0_idx ]) if path is not None else None
+            # .'$bibi'.bibi.0
+            res = _jm_obj_0(arr_0_item, arr_0_lpath if path is not None else None, rep)
             if not res:
-                rep is None or rep.append(("not array or unexpected array [.'$bibi'.bibi]", lpath_0 if path is not None else None))
-                rep is None or rep.append(("invalid mandatory prop value [.'$bibi'.bibi]", lpath_0 if path is not None else None))
-                return False
-        else:
-            rep is None or rep.append(("unexpected prop [.'$bibi']", lpath_0 if path is not None else None))
-            return False
-    if must_count != 1:
-        if rep is not None:
-            if not "bibi" in val:
-                rep is None or rep.append(("missing mandatory prop <bibi> [.'$bibi']", path))
+                rep is None or rep.append(("unexpected $bibi [.'$bibi'.bibi.0]", arr_0_lpath if path is not None else None))
+                break
+    if not res:
+        rep is None or rep.append(("not array or unexpected array [.'$bibi'.bibi]", path))
+        rep is None or rep.append(("unexpected value for mandatory prop <bibi> [.'$bibi']", path))
         return False
     return True
 

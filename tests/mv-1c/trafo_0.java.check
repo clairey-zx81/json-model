@@ -1,8 +1,8 @@
 trafo_0.values.json[0]: PASS
-trafo_0.values.json[1]: FAIL (: missing mandatory prop <za> [.'$zero']; : missing mandatory prop <zb> [.'$zero'])
-trafo_0.values.json[2]: FAIL (: missing mandatory prop <zb> [.'$zero'])
-trafo_0.values.json[3]: FAIL (: missing mandatory prop <za> [.'$zero'])
-trafo_0.values.json[4]: FAIL (un: unexpected prop [.'$zero'])
+trafo_0.values.json[1]: FAIL (: bad property count [.'$zero'])
+trafo_0.values.json[2]: FAIL (: bad property count [.'$zero'])
+trafo_0.values.json[3]: FAIL (: bad property count [.'$zero'])
+trafo_0.values.json[4]: FAIL (: bad property count [.'$zero'])
 trafo_0.values.json[5]: FAIL (: not an object [.'$zero'])
 trafo_0.values.json[6]: FAIL (: not an object [.'$zero'])
 trafo_0.values.json[7]: FAIL (: not an object [.'$zero'])

@@ -33,30 +33,24 @@ def json_model_4(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # object .'$Foo'
 def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
+    # check close must only props
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$Foo']", path))
         return False
+    if len(val) != 1:
+        rep is None or rep.append(("bad property count [.'$Foo']", path))
+        return False
+    pval: Jsonable
     res: bool
-    must_count: int = 0
-    for prop, pval in val.items():
-        assert isinstance(prop, str)
-        lpath_0: Path = (path + [ prop ]) if path is not None else None
-        if prop == "rt":
-            # handle must rt property
-            must_count += 1
-            # .'$Foo'.rt
-            res = _jm_obj_1(pval, lpath_0 if path is not None else None, rep)
-            if not res:
-                rep is None or rep.append(("unexpected $root#Root [.'$Foo'.rt]", lpath_0 if path is not None else None))
-                rep is None or rep.append(("invalid mandatory prop value [.'$Foo'.rt]", lpath_0 if path is not None else None))
-                return False
-        else:
-            rep is None or rep.append(("unexpected prop [.'$Foo']", lpath_0 if path is not None else None))
-            return False
-    if must_count != 1:
-        if rep is not None:
-            if not "rt" in val:
-                rep is None or rep.append(("missing mandatory prop <rt> [.'$Foo']", path))
+    if not "rt" in val:
+        rep is None or rep.append(("missing mandatory prop <rt> [.'$Foo']", path))
+        return False
+    pval = val.get("rt", UNDEFINED)
+    # .'$Foo'.rt
+    res = _jm_obj_1(pval, path, rep)
+    if not res:
+        rep is None or rep.append(("unexpected $root#Root [.'$Foo'.rt]", path))
+        rep is None or rep.append(("unexpected value for mandatory prop <rt> [.'$Foo']", path))
         return False
     return True
 
@@ -80,41 +74,34 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # object .'$root#Root'
 def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
+    # check close must only props
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$root#Root']", path))
         return False
+    if len(val) != 2:
+        rep is None or rep.append(("bad property count [.'$root#Root']", path))
+        return False
+    pval: Jsonable
     res: bool
-    must_count: int = 0
-    for prop, pval in val.items():
-        assert isinstance(prop, str)
-        lpath_1: Path = (path + [ prop ]) if path is not None else None
-        if prop == "id":
-            # handle must id property
-            must_count += 1
-            # .'$root#Root'.id
-            res = isinstance(pval, int) and not isinstance(pval, bool) and pval == 0
-            if not res:
-                rep is None or rep.append(("unexpected =0 [.'$root#Root'.id]", lpath_1 if path is not None else None))
-                rep is None or rep.append(("invalid mandatory prop value [.'$root#Root'.id]", lpath_1 if path is not None else None))
-                return False
-        elif prop == "name":
-            # handle must name property
-            must_count += 1
-            # .'$root#Root'.name
-            res = isinstance(pval, str)
-            if not res:
-                rep is None or rep.append(("unexpected string [.'$root#Root'.name]", lpath_1 if path is not None else None))
-                rep is None or rep.append(("invalid mandatory prop value [.'$root#Root'.name]", lpath_1 if path is not None else None))
-                return False
-        else:
-            rep is None or rep.append(("unexpected prop [.'$root#Root']", lpath_1 if path is not None else None))
-            return False
-    if must_count != 2:
-        if rep is not None:
-            if not "id" in val:
-                rep is None or rep.append(("missing mandatory prop <id> [.'$root#Root']", path))
-            if not "name" in val:
-                rep is None or rep.append(("missing mandatory prop <name> [.'$root#Root']", path))
+    if not "id" in val:
+        rep is None or rep.append(("missing mandatory prop <id> [.'$root#Root']", path))
+        return False
+    pval = val.get("id", UNDEFINED)
+    # .'$root#Root'.id
+    res = isinstance(pval, int) and not isinstance(pval, bool) and pval == 0
+    if not res:
+        rep is None or rep.append(("unexpected =0 [.'$root#Root'.id]", path))
+        rep is None or rep.append(("unexpected value for mandatory prop <id> [.'$root#Root']", path))
+        return False
+    if not "name" in val:
+        rep is None or rep.append(("missing mandatory prop <name> [.'$root#Root']", path))
+        return False
+    pval = val.get("name", UNDEFINED)
+    # .'$root#Root'.name
+    res = isinstance(pval, str)
+    if not res:
+        rep is None or rep.append(("unexpected string [.'$root#Root'.name]", path))
+        rep is None or rep.append(("unexpected value for mandatory prop <name> [.'$root#Root']", path))
         return False
     return True
 

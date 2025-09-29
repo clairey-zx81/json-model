@@ -679,7 +679,7 @@ sub json_model_10($$$)
 sub _jm_obj_6($$$)
 {
     my ($val, $path, $rep) = @_;
-    # check must only props
+    # check open must/may only props
     if (! jm_is_object($val))
     {
         return 0;
@@ -738,7 +738,7 @@ sub _jm_obj_6($$$)
 sub _jm_obj_7($$$)
 {
     my ($val, $path, $rep) = @_;
-    # check must only props
+    # check open must/may only props
     if (! jm_is_object($val))
     {
         return 0;
@@ -810,7 +810,7 @@ sub _jm_obj_7($$$)
 sub _jm_obj_8($$$)
 {
     my ($val, $path, $rep) = @_;
-    # check must only props
+    # check open must/may only props
     if (! jm_is_object($val))
     {
         return 0;
@@ -869,7 +869,7 @@ sub _jm_obj_8($$$)
 sub _jm_obj_9($$$)
 {
     my ($val, $path, $rep) = @_;
-    # check must only props
+    # check open must/may only props
     if (! jm_is_object($val))
     {
         return 0;
@@ -941,7 +941,7 @@ sub _jm_obj_9($$$)
 sub _jm_obj_10($$$)
 {
     my ($val, $path, $rep) = @_;
-    # check must only props
+    # check open must/may only props
     if (! jm_is_object($val))
     {
         return 0;
@@ -1013,7 +1013,7 @@ sub _jm_obj_10($$$)
 sub _jm_obj_11($$$)
 {
     my ($val, $path, $rep) = @_;
-    # check must only props
+    # check open must/may only props
     if (! jm_is_object($val))
     {
         return 0;
@@ -1130,7 +1130,7 @@ sub json_model_11($$$)
 sub _jm_obj_12($$$)
 {
     my ($val, $path, $rep) = @_;
-    # check must only props
+    # check open must/may only props
     if (! jm_is_object($val))
     {
         return 0;
@@ -1224,7 +1224,7 @@ sub _jm_obj_14($$$)
 sub _jm_obj_13($$$)
 {
     my ($val, $path, $rep) = @_;
-    # check must only props
+    # check open must/may only props
     if (! jm_is_object($val))
     {
         return 0;
@@ -1337,7 +1337,7 @@ sub json_model_13($$$)
 sub _jm_obj_15($$$)
 {
     my ($val, $path, $rep) = @_;
-    # check must only props
+    # check open must/may only props
     if (! jm_is_object($val))
     {
         return 0;

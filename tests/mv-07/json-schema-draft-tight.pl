@@ -5687,7 +5687,7 @@ sub json_model_25($$$)
 sub _jm_obj_68($$$)
 {
     my ($val, $path, $rep) = @_;
-    # check must only props
+    # check open must/may only props
     if (! jm_is_object($val))
     {
         return 0;

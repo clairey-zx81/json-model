@@ -2,11 +2,11 @@ opt_nl.values.json[0]: PASS
 opt_nl.values.json[1]: PASS
 opt_nl.values.json[2]: PASS
 opt_nl.values.json[3]: PASS
-opt_nl.values.json[4]: FAIL (.i: invalid mandatory prop value [.i]; .i: not a -1 loose int [.i])
+opt_nl.values.json[4]: FAIL (.: unexpected value for mandatory prop <i> [.]; .: not a -1 loose int [.i])
 opt_nl.values.json[5]: FAIL (.: not an object [.])
 opt_nl.values.json[6]: FAIL (.: not an object [.])
 opt_nl.values.json[7]: FAIL (.: not an object [.])
 opt_nl.values.json[8]: FAIL (.: not an object [.])
 opt_nl.values.json[9]: FAIL (.: not an object [.])
-opt_nl.values.json[10]: FAIL (.: missing mandatory prop <i> [.]; .: missing mandatory prop <f> [.])
-opt_nl.values.json[11]: FAIL (.not: unexpected prop [.])
+opt_nl.values.json[10]: FAIL (.: bad property count [.])
+opt_nl.values.json[11]: FAIL (.: bad property count [.])

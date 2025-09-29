@@ -21,29 +21,23 @@ $$ LANGUAGE PLpgSQL;
 CREATE OR REPLACE FUNCTION _jm_obj_0(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
-  res bool;
-  must_count int;
-  prop TEXT;
   pval JSONB;
+  res bool;
 BEGIN
+  -- check close must only props
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
-  must_count := 0;
-  FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF prop = 'rt' THEN
-      -- handle must rt property
-      must_count := must_count + 1;
-      -- .'$Foo'.rt
-      res := _jm_obj_1(pval, NULL, rep);
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-    ELSE
-      RETURN FALSE;
-    END IF;
-  END LOOP;
-  IF must_count <> 1 THEN
+  IF jm_object_size(val) <> 1 THEN
+    RETURN FALSE;
+  END IF;
+  IF NOT val ? 'rt' THEN
+    RETURN FALSE;
+  END IF;
+  pval := val -> 'rt';
+  -- .'$Foo'.rt
+  res := _jm_obj_1(pval, path, rep);
+  IF NOT res THEN
     RETURN FALSE;
   END IF;
   RETURN TRUE;
@@ -78,37 +72,32 @@ $$ LANGUAGE PLpgSQL;
 CREATE OR REPLACE FUNCTION _jm_obj_1(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
-  res bool;
-  must_count int;
-  prop TEXT;
   pval JSONB;
+  res bool;
 BEGIN
+  -- check close must only props
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
-  must_count := 0;
-  FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF prop = 'id' THEN
-      -- handle must id property
-      must_count := must_count + 1;
-      -- .'$root#Root'.id
-      res := JSONB_TYPEOF(pval) = 'number' AND (pval)::INT8 = (pval)::FLOAT8 AND (pval)::INT8 = 0;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-    ELSEIF prop = 'name' THEN
-      -- handle must name property
-      must_count := must_count + 1;
-      -- .'$root#Root'.name
-      res := JSONB_TYPEOF(pval) = 'string';
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-    ELSE
-      RETURN FALSE;
-    END IF;
-  END LOOP;
-  IF must_count <> 2 THEN
+  IF jm_object_size(val) <> 2 THEN
+    RETURN FALSE;
+  END IF;
+  IF NOT val ? 'id' THEN
+    RETURN FALSE;
+  END IF;
+  pval := val -> 'id';
+  -- .'$root#Root'.id
+  res := JSONB_TYPEOF(pval) = 'number' AND (pval)::INT8 = (pval)::FLOAT8 AND (pval)::INT8 = 0;
+  IF NOT res THEN
+    RETURN FALSE;
+  END IF;
+  IF NOT val ? 'name' THEN
+    RETURN FALSE;
+  END IF;
+  pval := val -> 'name';
+  -- .'$root#Root'.name
+  res := JSONB_TYPEOF(pval) = 'string';
+  IF NOT res THEN
     RETURN FALSE;
   END IF;
   RETURN TRUE;

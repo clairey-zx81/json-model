@@ -3235,7 +3235,7 @@ DECLARE
   arr_48_idx INT8;
   arr_48_item JSONB;
 BEGIN
-  -- check must only props
+  -- check open must/may only props
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
@@ -3287,7 +3287,7 @@ DECLARE
   arr_49_idx INT8;
   arr_49_item JSONB;
 BEGIN
-  -- check must only props
+  -- check open must/may only props
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
@@ -3330,7 +3330,7 @@ DECLARE
   arr_50_idx INT8;
   arr_50_item JSONB;
 BEGIN
-  -- check must only props
+  -- check open must/may only props
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
@@ -3382,7 +3382,7 @@ DECLARE
   arr_51_idx INT8;
   arr_51_item JSONB;
 BEGIN
-  -- check must only props
+  -- check open must/may only props
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
@@ -3434,7 +3434,7 @@ DECLARE
   arr_52_idx INT8;
   arr_52_item JSONB;
 BEGIN
-  -- check must only props
+  -- check open must/may only props
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
@@ -3486,7 +3486,7 @@ DECLARE
   arr_53_idx INT8;
   arr_53_item JSONB;
 BEGIN
-  -- check must only props
+  -- check open must/may only props
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
@@ -3538,7 +3538,7 @@ DECLARE
   arr_54_idx INT8;
   arr_54_item JSONB;
 BEGIN
-  -- check must only props
+  -- check open must/may only props
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
@@ -3590,7 +3590,7 @@ DECLARE
   arr_55_idx INT8;
   arr_55_item JSONB;
 BEGIN
-  -- check must only props
+  -- check open must/may only props
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
@@ -3633,7 +3633,7 @@ DECLARE
   arr_56_idx INT8;
   arr_56_item JSONB;
 BEGIN
-  -- check must only props
+  -- check open must/may only props
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
@@ -3685,7 +3685,7 @@ DECLARE
   arr_57_idx INT8;
   arr_57_item JSONB;
 BEGIN
-  -- check must only props
+  -- check open must/may only props
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
@@ -3737,7 +3737,7 @@ DECLARE
   arr_58_idx INT8;
   arr_58_item JSONB;
 BEGIN
-  -- check must only props
+  -- check open must/may only props
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
@@ -3789,7 +3789,7 @@ DECLARE
   arr_59_idx INT8;
   arr_59_item JSONB;
 BEGIN
-  -- check must only props
+  -- check open must/may only props
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
@@ -3832,7 +3832,7 @@ DECLARE
   arr_60_idx INT8;
   arr_60_item JSONB;
 BEGIN
-  -- check must only props
+  -- check open must/may only props
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
@@ -3884,7 +3884,7 @@ DECLARE
   arr_61_idx INT8;
   arr_61_item JSONB;
 BEGIN
-  -- check must only props
+  -- check open must/may only props
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
@@ -3936,7 +3936,7 @@ DECLARE
   arr_62_idx INT8;
   arr_62_item JSONB;
 BEGIN
-  -- check must only props
+  -- check open must/may only props
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
@@ -3988,7 +3988,7 @@ DECLARE
   arr_63_idx INT8;
   arr_63_item JSONB;
 BEGIN
-  -- check must only props
+  -- check open must/may only props
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
@@ -4040,7 +4040,7 @@ DECLARE
   arr_64_idx INT8;
   arr_64_item JSONB;
 BEGIN
-  -- check must only props
+  -- check open must/may only props
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
@@ -4083,7 +4083,7 @@ DECLARE
   arr_65_idx INT8;
   arr_65_item JSONB;
 BEGIN
-  -- check must only props
+  -- check open must/may only props
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
@@ -4135,7 +4135,7 @@ DECLARE
   arr_66_idx INT8;
   arr_66_item JSONB;
 BEGIN
-  -- check must only props
+  -- check open must/may only props
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
@@ -4187,7 +4187,7 @@ DECLARE
   arr_67_idx INT8;
   arr_67_item JSONB;
 BEGIN
-  -- check must only props
+  -- check open must/may only props
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
@@ -4239,7 +4239,7 @@ DECLARE
   arr_68_idx INT8;
   arr_68_item JSONB;
 BEGIN
-  -- check must only props
+  -- check open must/may only props
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
@@ -4291,7 +4291,7 @@ DECLARE
   arr_69_idx INT8;
   arr_69_item JSONB;
 BEGIN
-  -- check must only props
+  -- check open must/may only props
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
@@ -4334,7 +4334,7 @@ DECLARE
   arr_70_idx INT8;
   arr_70_item JSONB;
 BEGIN
-  -- check must only props
+  -- check open must/may only props
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
@@ -4377,7 +4377,7 @@ DECLARE
   arr_71_idx INT8;
   arr_71_item JSONB;
 BEGIN
-  -- check must only props
+  -- check open must/may only props
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
@@ -4429,7 +4429,7 @@ DECLARE
   arr_72_idx INT8;
   arr_72_item JSONB;
 BEGIN
-  -- check must only props
+  -- check open must/may only props
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
@@ -4472,7 +4472,7 @@ DECLARE
   arr_73_idx INT8;
   arr_73_item JSONB;
 BEGIN
-  -- check must only props
+  -- check open must/may only props
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
@@ -4515,7 +4515,7 @@ DECLARE
   arr_74_idx INT8;
   arr_74_item JSONB;
 BEGIN
-  -- check must only props
+  -- check open must/may only props
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
@@ -4558,7 +4558,7 @@ DECLARE
   arr_75_idx INT8;
   arr_75_item JSONB;
 BEGIN
-  -- check must only props
+  -- check open must/may only props
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
@@ -4601,7 +4601,7 @@ DECLARE
   arr_76_idx INT8;
   arr_76_item JSONB;
 BEGIN
-  -- check must only props
+  -- check open must/may only props
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
@@ -4653,7 +4653,7 @@ DECLARE
   arr_77_idx INT8;
   arr_77_item JSONB;
 BEGIN
-  -- check must only props
+  -- check open must/may only props
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
@@ -4705,7 +4705,7 @@ DECLARE
   arr_78_idx INT8;
   arr_78_item JSONB;
 BEGIN
-  -- check must only props
+  -- check open must/may only props
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
@@ -4748,7 +4748,7 @@ DECLARE
   arr_79_idx INT8;
   arr_79_item JSONB;
 BEGIN
-  -- check must only props
+  -- check open must/may only props
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
@@ -4800,7 +4800,7 @@ DECLARE
   arr_80_idx INT8;
   arr_80_item JSONB;
 BEGIN
-  -- check must only props
+  -- check open must/may only props
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
@@ -4852,7 +4852,7 @@ DECLARE
   arr_81_idx INT8;
   arr_81_item JSONB;
 BEGIN
-  -- check must only props
+  -- check open must/may only props
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
@@ -4904,7 +4904,7 @@ DECLARE
   arr_82_idx INT8;
   arr_82_item JSONB;
 BEGIN
-  -- check must only props
+  -- check open must/may only props
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
@@ -4956,7 +4956,7 @@ DECLARE
   arr_83_idx INT8;
   arr_83_item JSONB;
 BEGIN
-  -- check must only props
+  -- check open must/may only props
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
@@ -5008,7 +5008,7 @@ DECLARE
   arr_84_idx INT8;
   arr_84_item JSONB;
 BEGIN
-  -- check must only props
+  -- check open must/may only props
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
@@ -5060,7 +5060,7 @@ DECLARE
   arr_85_idx INT8;
   arr_85_item JSONB;
 BEGIN
-  -- check must only props
+  -- check open must/may only props
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
@@ -5112,7 +5112,7 @@ DECLARE
   arr_86_idx INT8;
   arr_86_item JSONB;
 BEGIN
-  -- check must only props
+  -- check open must/may only props
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
@@ -5155,7 +5155,7 @@ DECLARE
   arr_87_idx INT8;
   arr_87_item JSONB;
 BEGIN
-  -- check must only props
+  -- check open must/may only props
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
@@ -5207,7 +5207,7 @@ DECLARE
   arr_88_idx INT8;
   arr_88_item JSONB;
 BEGIN
-  -- check must only props
+  -- check open must/may only props
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
@@ -5250,7 +5250,7 @@ DECLARE
   arr_89_idx INT8;
   arr_89_item JSONB;
 BEGIN
-  -- check must only props
+  -- check open must/may only props
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
@@ -5293,7 +5293,7 @@ DECLARE
   arr_90_idx INT8;
   arr_90_item JSONB;
 BEGIN
-  -- check must only props
+  -- check open must/may only props
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
@@ -5345,7 +5345,7 @@ DECLARE
   arr_91_idx INT8;
   arr_91_item JSONB;
 BEGIN
-  -- check must only props
+  -- check open must/may only props
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
@@ -5397,7 +5397,7 @@ DECLARE
   arr_92_idx INT8;
   arr_92_item JSONB;
 BEGIN
-  -- check must only props
+  -- check open must/may only props
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
@@ -5440,7 +5440,7 @@ DECLARE
   arr_93_idx INT8;
   arr_93_item JSONB;
 BEGIN
-  -- check must only props
+  -- check open must/may only props
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
@@ -5492,7 +5492,7 @@ DECLARE
   arr_94_idx INT8;
   arr_94_item JSONB;
 BEGIN
-  -- check must only props
+  -- check open must/may only props
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
@@ -6837,7 +6837,7 @@ DECLARE
   arr_101_idx INT8;
   arr_101_item JSONB;
 BEGIN
-  -- check must only props
+  -- check open must/may only props
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
@@ -6954,7 +6954,7 @@ DECLARE
   pval JSONB;
   res bool;
 BEGIN
-  -- check must only props
+  -- check open must/may only props
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
@@ -6978,7 +6978,7 @@ DECLARE
   pval JSONB;
   res bool;
 BEGIN
-  -- check must only props
+  -- check open must/may only props
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
@@ -7002,7 +7002,7 @@ DECLARE
   pval JSONB;
   res bool;
 BEGIN
-  -- check must only props
+  -- check open must/may only props
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;

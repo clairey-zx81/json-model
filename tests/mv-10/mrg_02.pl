@@ -15,13 +15,6 @@ sub _jm_obj_0($$$);
 sub json_model_5($$$);
 sub _jm_obj_1($$$);
 sub json_model_4($$$);
-sub _jm_f_0($$$);
-sub _jm_f_1($$$);
-sub _jm_f_2($$$);
-sub _jm_f_3($$$);
-sub _jm_f_4($$$);
-sub _jm_f_5($$$);
-my %_jm_obj_2_mup;
 sub _jm_obj_2($$$);
 sub json_model_1($$$);
 my %check_model_map;
@@ -40,65 +33,58 @@ sub json_model_2($$$)
 sub _jm_obj_0($$$)
 {
     my ($val, $path, $rep) = @_;
+    # check close must only props
     if (! jm_is_object($val))
     {
         return 0;
     }
-    my $res;
-    my $must_count = 0;
-    scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    if (jm_obj_size($val) != 4)
     {
-        if ($prop eq 'a')
-        {
-            # handle must a property
-            $must_count++;
-            # .'$r'.a
-            $res = jm_is_string($pval) && $pval eq 'cst_01';
-            if (! $res)
-            {
-                return 0;
-            }
-        }
-        elsif ($prop eq 'b')
-        {
-            # handle must b property
-            $must_count++;
-            # .'$r'.b
-            $res = jm_is_string($pval) && $pval eq 'cst_01';
-            if (! $res)
-            {
-                return 0;
-            }
-        }
-        elsif ($prop eq 'c')
-        {
-            # handle must c property
-            $must_count++;
-            # .'$r'.c
-            $res = jm_is_string($pval) && $pval eq 'cst_01';
-            if (! $res)
-            {
-                return 0;
-            }
-        }
-        elsif ($prop eq 'd')
-        {
-            # handle must d property
-            $must_count++;
-            # .'$r'.d
-            $res = jm_is_string($pval) && $pval eq 'cst_01';
-            if (! $res)
-            {
-                return 0;
-            }
-        }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
-    if ($must_count != 4)
+    my $pval;
+    my $res;
+    if (! exists $$val{'a'})
+    {
+        return 0;
+    }
+    $pval = $$val{'a'};
+    # .'$r'.a
+    $res = jm_is_string($pval) && $pval eq 'cst_01';
+    if (! $res)
+    {
+        return 0;
+    }
+    if (! exists $$val{'b'})
+    {
+        return 0;
+    }
+    $pval = $$val{'b'};
+    # .'$r'.b
+    $res = jm_is_string($pval) && $pval eq 'cst_01';
+    if (! $res)
+    {
+        return 0;
+    }
+    if (! exists $$val{'c'})
+    {
+        return 0;
+    }
+    $pval = $$val{'c'};
+    # .'$r'.c
+    $res = jm_is_string($pval) && $pval eq 'cst_01';
+    if (! $res)
+    {
+        return 0;
+    }
+    if (! exists $$val{'d'})
+    {
+        return 0;
+    }
+    $pval = $$val{'d'};
+    # .'$r'.d
+    $res = jm_is_string($pval) && $pval eq 'cst_01';
+    if (! $res)
     {
         return 0;
     }
@@ -119,43 +105,36 @@ sub json_model_5($$$)
 sub _jm_obj_1($$$)
 {
     my ($val, $path, $rep) = @_;
+    # check close must only props
     if (! jm_is_object($val))
     {
         return 0;
     }
-    my $res;
-    my $must_count = 0;
-    scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    if (jm_obj_size($val) != 2)
     {
-        if ($prop eq 'e')
-        {
-            # handle must e property
-            $must_count++;
-            # .'$z'.e
-            $res = jm_is_string($pval) && $pval eq 'cst_02';
-            if (! $res)
-            {
-                return 0;
-            }
-        }
-        elsif ($prop eq 'f')
-        {
-            # handle must f property
-            $must_count++;
-            # .'$z'.f
-            $res = jm_is_string($pval) && $pval eq 'cst_02';
-            if (! $res)
-            {
-                return 0;
-            }
-        }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
-    if ($must_count != 2)
+    my $pval;
+    my $res;
+    if (! exists $$val{'e'})
+    {
+        return 0;
+    }
+    $pval = $$val{'e'};
+    # .'$z'.e
+    $res = jm_is_string($pval) && $pval eq 'cst_02';
+    if (! $res)
+    {
+        return 0;
+    }
+    if (! exists $$val{'f'})
+    {
+        return 0;
+    }
+    $pval = $$val{'f'};
+    # .'$z'.f
+    $res = jm_is_string($pval) && $pval eq 'cst_02';
+    if (! $res)
     {
         return 0;
     }
@@ -172,98 +151,84 @@ sub json_model_4($$$)
     return $res;
 }
 
-# check _jm_obj_2_mup_a (.a)
-sub _jm_f_0($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .a
-    $res = jm_is_string($val) && $val eq 'cst_01';
-    return $res;
-}
-
-# check _jm_obj_2_mup_b (.b)
-sub _jm_f_1($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .b
-    $res = jm_is_string($val) && $val eq 'cst_01';
-    return $res;
-}
-
-# check _jm_obj_2_mup_c (.c)
-sub _jm_f_2($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .c
-    $res = jm_is_string($val) && $val eq 'cst_01';
-    return $res;
-}
-
-# check _jm_obj_2_mup_d (.d)
-sub _jm_f_3($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .d
-    $res = jm_is_string($val) && $val eq 'cst_01';
-    return $res;
-}
-
-# check _jm_obj_2_mup_e (.e)
-sub _jm_f_4($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .e
-    $res = jm_is_string($val) && $val eq 'cst_02';
-    return $res;
-}
-
-# check _jm_obj_2_mup_f (.f)
-sub _jm_f_5($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .f
-    $res = jm_is_string($val) && $val eq 'cst_02';
-    return $res;
-}
-
-
 # object .
 sub _jm_obj_2($$$)
 {
     my ($val, $path, $rep) = @_;
+    # check close must only props
     if (! jm_is_object($val))
     {
         return 0;
     }
-    my $pfun;
-    my $must_count = 0;
-    scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    if (jm_obj_size($val) != 6)
     {
-        if (($pfun = $_jm_obj_2_mup{$prop}))
-        {
-            # handle 6 mandatory props
-            if (defined($pfun))
-            {
-                $must_count++;
-                if (! &$pfun($pval, undef, $rep))
-                {
-                    return 0;
-                }
-            }
-        }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
-    if ($must_count != 6)
+    my $pval;
+    my $res;
+    if (! exists $$val{'a'})
+    {
+        return 0;
+    }
+    $pval = $$val{'a'};
+    # .a
+    $res = jm_is_string($pval) && $pval eq 'cst_01';
+    if (! $res)
+    {
+        return 0;
+    }
+    if (! exists $$val{'b'})
+    {
+        return 0;
+    }
+    $pval = $$val{'b'};
+    # .b
+    $res = jm_is_string($pval) && $pval eq 'cst_01';
+    if (! $res)
+    {
+        return 0;
+    }
+    if (! exists $$val{'e'})
+    {
+        return 0;
+    }
+    $pval = $$val{'e'};
+    # .e
+    $res = jm_is_string($pval) && $pval eq 'cst_02';
+    if (! $res)
+    {
+        return 0;
+    }
+    if (! exists $$val{'f'})
+    {
+        return 0;
+    }
+    $pval = $$val{'f'};
+    # .f
+    $res = jm_is_string($pval) && $pval eq 'cst_02';
+    if (! $res)
+    {
+        return 0;
+    }
+    if (! exists $$val{'c'})
+    {
+        return 0;
+    }
+    $pval = $$val{'c'};
+    # .c
+    $res = jm_is_string($pval) && $pval eq 'cst_01';
+    if (! $res)
+    {
+        return 0;
+    }
+    if (! exists $$val{'d'})
+    {
+        return 0;
+    }
+    $pval = $$val{'d'};
+    # .d
+    $res = jm_is_string($pval) && $pval eq 'cst_01';
+    if (! $res)
     {
         return 0;
     }
@@ -290,14 +255,6 @@ sub check_model_init()
     if (!$initialized)
     {
         $initialized = 1;
-        %_jm_obj_2_mup = (
-            'a' => \&_jm_f_0,
-            'b' => \&_jm_f_1,
-            'c' => \&_jm_f_2,
-            'd' => \&_jm_f_3,
-            'e' => \&_jm_f_4,
-            'f' => \&_jm_f_5,
-        );
         %check_model_map = (
             '' => \&_jm_obj_2,
             't' => \&json_model_2,
@@ -312,7 +269,6 @@ sub check_model_free()
     if ($initialized)
     {
         $initialized = 0;
-        %_jm_obj_2_mup = ();
         %check_model_map = ();
     }
 }

@@ -19,63 +19,45 @@ const size_t check_model_map_size = 2;
 // object .'$un'
 static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
+    // check close must only props
     if (! json_is_object(val))
     {
         if (rep) jm_report_add_entry(rep, "not an object [.'$un']", path);
         return false;
     }
-    bool res;
-    int64_t must_count = 0;
-    const char *prop;
-    json_t *pval;
-    json_object_foreach((json_t *) val, prop, pval)
+    if (json_object_size(val) != 2)
     {
-        jm_path_t lpath_0 = (jm_path_t) { prop, 0, path, NULL };
-        if (strcmp(prop, "ua") == 0)
-        {
-            // handle must ua property
-            must_count += 1;
-            // .'$un'.ua
-            res = json_is_integer(pval) && json_integer_value(pval) >= 0;
-            if (! res)
-            {
-                if (rep) jm_report_add_entry(rep, "not a 0 strict int [.'$un'.ua]", (path ? &lpath_0 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$un'.ua]", (path ? &lpath_0 : NULL));
-                return false;
-            }
-        }
-        else if (strcmp(prop, "ub") == 0)
-        {
-            // handle must ub property
-            must_count += 1;
-            // .'$un'.ub
-            res = json_is_integer(pval) && json_integer_value(pval) >= 0;
-            if (! res)
-            {
-                if (rep) jm_report_add_entry(rep, "not a 0 strict int [.'$un'.ub]", (path ? &lpath_0 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$un'.ub]", (path ? &lpath_0 : NULL));
-                return false;
-            }
-        }
-        else
-        {
-            if (rep) jm_report_add_entry(rep, "unexpected prop [.'$un']", (path ? &lpath_0 : NULL));
-            return false;
-        }
+        if (rep) jm_report_add_entry(rep, "bad property count [.'$un']", path);
+        return false;
     }
-    if (must_count != 2)
+    json_t * pval;
+    bool res;
+    if (! (json_object_get(val, "ua") != NULL))
     {
-        if (rep != NULL)
-        {
-            if (! (json_object_get(val, "ua") != NULL))
-            {
-                if (rep) jm_report_add_entry(rep, "missing mandatory prop <ua> [.'$un']", path);
-            }
-            if (! (json_object_get(val, "ub") != NULL))
-            {
-                if (rep) jm_report_add_entry(rep, "missing mandatory prop <ub> [.'$un']", path);
-            }
-        }
+        if (rep) jm_report_add_entry(rep, "missing mandatory prop <ua> [.'$un']", path);
+        return false;
+    }
+    pval = json_object_get(val, "ua");
+    // .'$un'.ua
+    res = json_is_integer(pval) && json_integer_value(pval) >= 0;
+    if (! res)
+    {
+        if (rep) jm_report_add_entry(rep, "not a 0 strict int [.'$un'.ua]", path);
+        if (rep) jm_report_add_entry(rep, "unexpected value for mandatory prop <ua> [.'$un']", path);
+        return false;
+    }
+    if (! (json_object_get(val, "ub") != NULL))
+    {
+        if (rep) jm_report_add_entry(rep, "missing mandatory prop <ub> [.'$un']", path);
+        return false;
+    }
+    pval = json_object_get(val, "ub");
+    // .'$un'.ub
+    res = json_is_integer(pval) && json_integer_value(pval) >= 0;
+    if (! res)
+    {
+        if (rep) jm_report_add_entry(rep, "not a 0 strict int [.'$un'.ub]", path);
+        if (rep) jm_report_add_entry(rep, "unexpected value for mandatory prop <ub> [.'$un']", path);
         return false;
     }
     return true;

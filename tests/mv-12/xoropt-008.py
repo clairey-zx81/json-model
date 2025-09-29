@@ -24,96 +24,78 @@ check_model_map: PropMap
 
 # object .'|'.2
 def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
+    # check close must only props
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'|'.2]", path))
         return False
+    if len(val) != 1:
+        rep is None or rep.append(("bad property count [.'|'.2]", path))
+        return False
+    pval: Jsonable
     res: bool
-    must_count: int = 0
-    for prop, pval in val.items():
-        assert isinstance(prop, str)
-        lpath_0: Path = (path + [ prop ]) if path is not None else None
-        if prop == "a":
-            # handle must a property
-            must_count += 1
-            # .'|'.2.a
-            res = isinstance(pval, list)
-            if res:
-                for arr_0_idx, arr_0_item in enumerate(pval):
-                    arr_0_lpath: Path = ((lpath_0 if path is not None else None) + [ arr_0_idx ]) if (lpath_0 if path is not None else None) is not None else None
-                    # .'|'.2.a.0
-                    res = isinstance(arr_0_item, int) and not isinstance(arr_0_item, bool) and arr_0_item >= 0
-                    if not res:
-                        rep is None or rep.append(("not a 0 strict int [.'|'.2.a.0]", arr_0_lpath if (lpath_0 if path is not None else None) is not None else None))
-                        break
+    if not "a" in val:
+        rep is None or rep.append(("missing mandatory prop <a> [.'|'.2]", path))
+        return False
+    pval = val.get("a", UNDEFINED)
+    # .'|'.2.a
+    res = isinstance(pval, list)
+    if res:
+        for arr_0_idx, arr_0_item in enumerate(pval):
+            arr_0_lpath: Path = (path + [ arr_0_idx ]) if path is not None else None
+            # .'|'.2.a.0
+            res = isinstance(arr_0_item, int) and not isinstance(arr_0_item, bool) and arr_0_item >= 0
             if not res:
-                rep is None or rep.append(("not array or unexpected array [.'|'.2.a]", lpath_0 if path is not None else None))
-                rep is None or rep.append(("invalid mandatory prop value [.'|'.2.a]", lpath_0 if path is not None else None))
-                return False
-        else:
-            rep is None or rep.append(("unexpected prop [.'|'.2]", lpath_0 if path is not None else None))
-            return False
-    if must_count != 1:
-        if rep is not None:
-            if not "a" in val:
-                rep is None or rep.append(("missing mandatory prop <a> [.'|'.2]", path))
+                rep is None or rep.append(("not a 0 strict int [.'|'.2.a.0]", arr_0_lpath if path is not None else None))
+                break
+    if not res:
+        rep is None or rep.append(("not array or unexpected array [.'|'.2.a]", path))
+        rep is None or rep.append(("unexpected value for mandatory prop <a> [.'|'.2]", path))
         return False
     return True
 
 # object .'|'.1
 def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
+    # check close must only props
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'|'.1]", path))
         return False
+    if len(val) != 1:
+        rep is None or rep.append(("bad property count [.'|'.1]", path))
+        return False
+    pval: Jsonable
     res: bool
-    must_count: int = 0
-    for prop, pval in val.items():
-        assert isinstance(prop, str)
-        lpath_1: Path = (path + [ prop ]) if path is not None else None
-        if prop == "a":
-            # handle must a property
-            must_count += 1
-            # .'|'.1.a
-            res = isinstance(pval, str)
-            if not res:
-                rep is None or rep.append(("unexpected string [.'|'.1.a]", lpath_1 if path is not None else None))
-                rep is None or rep.append(("invalid mandatory prop value [.'|'.1.a]", lpath_1 if path is not None else None))
-                return False
-        else:
-            rep is None or rep.append(("unexpected prop [.'|'.1]", lpath_1 if path is not None else None))
-            return False
-    if must_count != 1:
-        if rep is not None:
-            if not "a" in val:
-                rep is None or rep.append(("missing mandatory prop <a> [.'|'.1]", path))
+    if not "a" in val:
+        rep is None or rep.append(("missing mandatory prop <a> [.'|'.1]", path))
+        return False
+    pval = val.get("a", UNDEFINED)
+    # .'|'.1.a
+    res = isinstance(pval, str)
+    if not res:
+        rep is None or rep.append(("unexpected string [.'|'.1.a]", path))
+        rep is None or rep.append(("unexpected value for mandatory prop <a> [.'|'.1]", path))
         return False
     return True
 
 # object .'|'.0
 def _jm_obj_2(val: Jsonable, path: Path, rep: Report) -> bool:
+    # check close must only props
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'|'.0]", path))
         return False
+    if len(val) != 1:
+        rep is None or rep.append(("bad property count [.'|'.0]", path))
+        return False
+    pval: Jsonable
     res: bool
-    must_count: int = 0
-    for prop, pval in val.items():
-        assert isinstance(prop, str)
-        lpath_2: Path = (path + [ prop ]) if path is not None else None
-        if prop == "a":
-            # handle must a property
-            must_count += 1
-            # .'|'.0.a
-            res = isinstance(pval, bool)
-            if not res:
-                rep is None or rep.append(("not a bool [.'|'.0.a]", lpath_2 if path is not None else None))
-                rep is None or rep.append(("invalid mandatory prop value [.'|'.0.a]", lpath_2 if path is not None else None))
-                return False
-        else:
-            rep is None or rep.append(("unexpected prop [.'|'.0]", lpath_2 if path is not None else None))
-            return False
-    if must_count != 1:
-        if rep is not None:
-            if not "a" in val:
-                rep is None or rep.append(("missing mandatory prop <a> [.'|'.0]", path))
+    if not "a" in val:
+        rep is None or rep.append(("missing mandatory prop <a> [.'|'.0]", path))
+        return False
+    pval = val.get("a", UNDEFINED)
+    # .'|'.0.a
+    res = isinstance(pval, bool)
+    if not res:
+        rep is None or rep.append(("not a bool [.'|'.0.a]", path))
+        rep is None or rep.append(("unexpected value for mandatory prop <a> [.'|'.0]", path))
         return False
     return True
 

@@ -18,64 +18,46 @@ const size_t check_model_map_size = 1;
 // object .
 static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
+    // check close must only props
     if (! json_is_object(val))
     {
         if (rep) jm_report_add_entry(rep, "not an object [.]", path);
         return false;
     }
-    bool res;
-    int64_t must_count = 0;
-    const char *prop;
-    json_t *pval;
-    json_object_foreach((json_t *) val, prop, pval)
+    if (json_object_size(val) != 2)
     {
-        jm_path_t lpath_0 = (jm_path_t) { prop, 0, path, NULL };
-        if (strcmp(prop, "hello") == 0)
-        {
-            // handle must hello property
-            must_count += 1;
-            // .hello
-            res = json_is_string(pval);
-            if (! res)
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected string [.hello]", (path ? &lpath_0 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.hello]", (path ? &lpath_0 : NULL));
-                return false;
-            }
-        }
-        else if (strcmp(prop, "world") == 0)
-        {
-            // handle must world property
-            must_count += 1;
-            // .world
-            // "/^!/"
-            res = json_is_string(pval) && strncmp(json_string_value(pval), "!", strlen("!")) == 0;
-            if (! res)
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected /^!/ [.world]", (path ? &lpath_0 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.world]", (path ? &lpath_0 : NULL));
-                return false;
-            }
-        }
-        else
-        {
-            if (rep) jm_report_add_entry(rep, "unexpected prop [.]", (path ? &lpath_0 : NULL));
-            return false;
-        }
+        if (rep) jm_report_add_entry(rep, "bad property count [.]", path);
+        return false;
     }
-    if (must_count != 2)
+    json_t * pval;
+    bool res;
+    if (! (json_object_get(val, "hello") != NULL))
     {
-        if (rep != NULL)
-        {
-            if (! (json_object_get(val, "hello") != NULL))
-            {
-                if (rep) jm_report_add_entry(rep, "missing mandatory prop <hello> [.]", path);
-            }
-            if (! (json_object_get(val, "world") != NULL))
-            {
-                if (rep) jm_report_add_entry(rep, "missing mandatory prop <world> [.]", path);
-            }
-        }
+        if (rep) jm_report_add_entry(rep, "missing mandatory prop <hello> [.]", path);
+        return false;
+    }
+    pval = json_object_get(val, "hello");
+    // .hello
+    res = json_is_string(pval);
+    if (! res)
+    {
+        if (rep) jm_report_add_entry(rep, "unexpected string [.hello]", path);
+        if (rep) jm_report_add_entry(rep, "unexpected value for mandatory prop <hello> [.]", path);
+        return false;
+    }
+    if (! (json_object_get(val, "world") != NULL))
+    {
+        if (rep) jm_report_add_entry(rep, "missing mandatory prop <world> [.]", path);
+        return false;
+    }
+    pval = json_object_get(val, "world");
+    // .world
+    // "/^!/"
+    res = json_is_string(pval) && strncmp(json_string_value(pval), "!", strlen("!")) == 0;
+    if (! res)
+    {
+        if (rep) jm_report_add_entry(rep, "unexpected /^!/ [.world]", path);
+        if (rep) jm_report_add_entry(rep, "unexpected value for mandatory prop <world> [.]", path);
         return false;
     }
     return true;

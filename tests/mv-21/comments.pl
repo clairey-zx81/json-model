@@ -18,44 +18,37 @@ my %check_model_map;
 sub _jm_obj_0($$$)
 {
     my ($val, $path, $rep) = @_;
+    # check close must only props
     if (! jm_is_object($val))
     {
         return 0;
     }
-    my $res;
-    my $must_count = 0;
-    scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    if (jm_obj_size($val) != 2)
     {
-        if ($prop eq 'hello')
-        {
-            # handle must hello property
-            $must_count++;
-            # .hello
-            $res = jm_is_string($pval);
-            if (! $res)
-            {
-                return 0;
-            }
-        }
-        elsif ($prop eq 'world')
-        {
-            # handle must world property
-            $must_count++;
-            # .world
-            # "/^!/"
-            $res = jm_is_string($pval) && jm_starts_with($pval, '!');
-            if (! $res)
-            {
-                return 0;
-            }
-        }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
-    if ($must_count != 2)
+    my $pval;
+    my $res;
+    if (! exists $$val{'hello'})
+    {
+        return 0;
+    }
+    $pval = $$val{'hello'};
+    # .hello
+    $res = jm_is_string($pval);
+    if (! $res)
+    {
+        return 0;
+    }
+    if (! exists $$val{'world'})
+    {
+        return 0;
+    }
+    $pval = $$val{'world'};
+    # .world
+    # "/^!/"
+    $res = jm_is_string($pval) && jm_starts_with($pval, '!');
+    if (! $res)
     {
         return 0;
     }

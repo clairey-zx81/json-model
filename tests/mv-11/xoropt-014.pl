@@ -23,43 +23,36 @@ my %check_model_map;
 sub _jm_obj_1($$$)
 {
     my ($val, $path, $rep) = @_;
+    # check close must only props
     if (! jm_is_object($val))
     {
         return 0;
     }
-    my $res;
-    my $must_count = 0;
-    scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    if (jm_obj_size($val) != 2)
     {
-        if ($prop eq 't')
-        {
-            # handle must t property
-            $must_count++;
-            # .movie.'|'.0.t
-            $res = jm_is_string($pval) && $pval eq 'fr';
-            if (! $res)
-            {
-                return 0;
-            }
-        }
-        elsif ($prop eq 'titre')
-        {
-            # handle must titre property
-            $must_count++;
-            # .movie.'|'.0.titre
-            $res = jm_is_string($pval);
-            if (! $res)
-            {
-                return 0;
-            }
-        }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
-    if ($must_count != 2)
+    my $pval;
+    my $res;
+    if (! exists $$val{'t'})
+    {
+        return 0;
+    }
+    $pval = $$val{'t'};
+    # .movie.'|'.0.t
+    $res = jm_is_string($pval) && $pval eq 'fr';
+    if (! $res)
+    {
+        return 0;
+    }
+    if (! exists $$val{'titre'})
+    {
+        return 0;
+    }
+    $pval = $$val{'titre'};
+    # .movie.'|'.0.titre
+    $res = jm_is_string($pval);
+    if (! $res)
     {
         return 0;
     }
@@ -70,43 +63,36 @@ sub _jm_obj_1($$$)
 sub _jm_obj_2($$$)
 {
     my ($val, $path, $rep) = @_;
+    # check close must only props
     if (! jm_is_object($val))
     {
         return 0;
     }
-    my $res;
-    my $must_count = 0;
-    scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    if (jm_obj_size($val) != 2)
     {
-        if ($prop eq 't')
-        {
-            # handle must t property
-            $must_count++;
-            # .movie.'|'.1.t
-            $res = jm_is_string($pval) && $pval eq 'en';
-            if (! $res)
-            {
-                return 0;
-            }
-        }
-        elsif ($prop eq 'title')
-        {
-            # handle must title property
-            $must_count++;
-            # .movie.'|'.1.title
-            $res = jm_is_string($pval);
-            if (! $res)
-            {
-                return 0;
-            }
-        }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
-    if ($must_count != 2)
+    my $pval;
+    my $res;
+    if (! exists $$val{'t'})
+    {
+        return 0;
+    }
+    $pval = $$val{'t'};
+    # .movie.'|'.1.t
+    $res = jm_is_string($pval) && $pval eq 'en';
+    if (! $res)
+    {
+        return 0;
+    }
+    if (! exists $$val{'title'})
+    {
+        return 0;
+    }
+    $pval = $$val{'title'};
+    # .movie.'|'.1.title
+    $res = jm_is_string($pval);
+    if (! $res)
     {
         return 0;
     }
@@ -117,43 +103,36 @@ sub _jm_obj_2($$$)
 sub _jm_obj_3($$$)
 {
     my ($val, $path, $rep) = @_;
+    # check close must only props
     if (! jm_is_object($val))
     {
         return 0;
     }
-    my $res;
-    my $must_count = 0;
-    scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    if (jm_obj_size($val) != 2)
     {
-        if ($prop eq 't')
-        {
-            # handle must t property
-            $must_count++;
-            # .movie.'|'.2.t
-            $res = jm_is_string($pval) && $pval eq 'de';
-            if (! $res)
-            {
-                return 0;
-            }
-        }
-        elsif ($prop eq 'Title')
-        {
-            # handle must Title property
-            $must_count++;
-            # .movie.'|'.2.Title
-            $res = jm_is_string($pval);
-            if (! $res)
-            {
-                return 0;
-            }
-        }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
-    if ($must_count != 2)
+    my $pval;
+    my $res;
+    if (! exists $$val{'t'})
+    {
+        return 0;
+    }
+    $pval = $$val{'t'};
+    # .movie.'|'.2.t
+    $res = jm_is_string($pval) && $pval eq 'de';
+    if (! $res)
+    {
+        return 0;
+    }
+    if (! exists $$val{'Title'})
+    {
+        return 0;
+    }
+    $pval = $$val{'Title'};
+    # .movie.'|'.2.Title
+    $res = jm_is_string($pval);
+    if (! $res)
     {
         return 0;
     }
@@ -164,43 +143,36 @@ sub _jm_obj_3($$$)
 sub _jm_obj_4($$$)
 {
     my ($val, $path, $rep) = @_;
+    # check close must only props
     if (! jm_is_object($val))
     {
         return 0;
     }
-    my $res;
-    my $must_count = 0;
-    scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    if (jm_obj_size($val) != 2)
     {
-        if ($prop eq 't')
-        {
-            # handle must t property
-            $must_count++;
-            # .movie.'|'.3.t
-            $res = jm_is_string($pval) && $pval eq 'ru';
-            if (! $res)
-            {
-                return 0;
-            }
-        }
-        elsif ($prop eq 'suti')
-        {
-            # handle must suti property
-            $must_count++;
-            # .movie.'|'.3.suti
-            $res = jm_is_string($pval);
-            if (! $res)
-            {
-                return 0;
-            }
-        }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
-    if ($must_count != 2)
+    my $pval;
+    my $res;
+    if (! exists $$val{'t'})
+    {
+        return 0;
+    }
+    $pval = $$val{'t'};
+    # .movie.'|'.3.t
+    $res = jm_is_string($pval) && $pval eq 'ru';
+    if (! $res)
+    {
+        return 0;
+    }
+    if (! exists $$val{'suti'})
+    {
+        return 0;
+    }
+    $pval = $$val{'suti'};
+    # .movie.'|'.3.suti
+    $res = jm_is_string($pval);
+    if (! $res)
     {
         return 0;
     }
@@ -212,53 +184,46 @@ sub _jm_obj_4($$$)
 sub _jm_obj_0($$$)
 {
     my ($val, $path, $rep) = @_;
+    # check close must only props
     if (! jm_is_object($val))
     {
         return 0;
     }
-    my $res;
-    my $must_count = 0;
-    scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    if (jm_obj_size($val) != 1)
     {
-        if ($prop eq 'movie')
+        return 0;
+    }
+    my $pval;
+    my $res;
+    if (! exists $$val{'movie'})
+    {
+        return 0;
+    }
+    $pval = $$val{'movie'};
+    # .movie
+    my $iso_0 = jm_is_object($pval);
+    $res = $iso_0;
+    if ($res)
+    {
+        if (exists $$pval{'t'})
         {
-            # handle must movie property
-            $must_count++;
-            # .movie
-            my $iso_0 = jm_is_object($pval);
-            $res = $iso_0;
-            if ($res)
+            my $tag_0 = $$pval{'t'};
+            my $fun_0 = $_jm_map_0{$tag_0};
+            if (defined($fun_0))
             {
-                if (exists $$pval{'t'})
-                {
-                    my $tag_0 = $$pval{'t'};
-                    my $fun_0 = $_jm_map_0{$tag_0};
-                    if (defined($fun_0))
-                    {
-                        $res = &$fun_0($pval, undef, $rep);
-                    }
-                    else
-                    {
-                        $res = 0;
-                    }
-                }
-                else
-                {
-                    $res = 0;
-                }
+                $res = &$fun_0($pval, $path, $rep);
             }
-            if (! $res)
+            else
             {
-                return 0;
+                $res = 0;
             }
         }
         else
         {
-            return 0;
+            $res = 0;
         }
     }
-    if ($must_count != 1)
+    if (! $res)
     {
         return 0;
     }

@@ -21,43 +21,36 @@ my %check_model_map;
 sub _jm_obj_0($$$)
 {
     my ($val, $path, $rep) = @_;
+    # check close must only props
     if (! jm_is_object($val))
     {
         return 0;
     }
-    my $res;
-    my $must_count = 0;
-    scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    if (jm_obj_size($val) != 2)
     {
-        if ($prop eq 'tag')
-        {
-            # handle must tag property
-            $must_count++;
-            # .'|'.0.tag
-            $res = jm_is_string($pval) && $pval eq 'a';
-            if (! $res)
-            {
-                return 0;
-            }
-        }
-        elsif ($prop eq 'a')
-        {
-            # handle must a property
-            $must_count++;
-            # .'|'.0.a
-            $res = jm_is_string($pval);
-            if (! $res)
-            {
-                return 0;
-            }
-        }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
-    if ($must_count != 2)
+    my $pval;
+    my $res;
+    if (! exists $$val{'tag'})
+    {
+        return 0;
+    }
+    $pval = $$val{'tag'};
+    # .'|'.0.tag
+    $res = jm_is_string($pval) && $pval eq 'a';
+    if (! $res)
+    {
+        return 0;
+    }
+    if (! exists $$val{'a'})
+    {
+        return 0;
+    }
+    $pval = $$val{'a'};
+    # .'|'.0.a
+    $res = jm_is_string($pval);
+    if (! $res)
     {
         return 0;
     }
@@ -68,43 +61,36 @@ sub _jm_obj_0($$$)
 sub _jm_obj_1($$$)
 {
     my ($val, $path, $rep) = @_;
+    # check close must only props
     if (! jm_is_object($val))
     {
         return 0;
     }
-    my $res;
-    my $must_count = 0;
-    scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    if (jm_obj_size($val) != 2)
     {
-        if ($prop eq 'tag')
-        {
-            # handle must tag property
-            $must_count++;
-            # .'|'.1.tag
-            $res = jm_is_string($pval) && $pval eq 'b';
-            if (! $res)
-            {
-                return 0;
-            }
-        }
-        elsif ($prop eq 'b')
-        {
-            # handle must b property
-            $must_count++;
-            # .'|'.1.b
-            $res = jm_is_string($pval);
-            if (! $res)
-            {
-                return 0;
-            }
-        }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
-    if ($must_count != 2)
+    my $pval;
+    my $res;
+    if (! exists $$val{'tag'})
+    {
+        return 0;
+    }
+    $pval = $$val{'tag'};
+    # .'|'.1.tag
+    $res = jm_is_string($pval) && $pval eq 'b';
+    if (! $res)
+    {
+        return 0;
+    }
+    if (! exists $$val{'b'})
+    {
+        return 0;
+    }
+    $pval = $$val{'b'};
+    # .'|'.1.b
+    $res = jm_is_string($pval);
+    if (! $res)
     {
         return 0;
     }
@@ -115,43 +101,36 @@ sub _jm_obj_1($$$)
 sub _jm_obj_2($$$)
 {
     my ($val, $path, $rep) = @_;
+    # check close must only props
     if (! jm_is_object($val))
     {
         return 0;
     }
-    my $res;
-    my $must_count = 0;
-    scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    if (jm_obj_size($val) != 2)
     {
-        if ($prop eq 'tag')
-        {
-            # handle must tag property
-            $must_count++;
-            # .'|'.2.tag
-            $res = jm_is_string($pval) && $pval eq 'c';
-            if (! $res)
-            {
-                return 0;
-            }
-        }
-        elsif ($prop eq 'c')
-        {
-            # handle must c property
-            $must_count++;
-            # .'|'.2.c
-            $res = jm_is_string($pval);
-            if (! $res)
-            {
-                return 0;
-            }
-        }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
-    if ($must_count != 2)
+    my $pval;
+    my $res;
+    if (! exists $$val{'tag'})
+    {
+        return 0;
+    }
+    $pval = $$val{'tag'};
+    # .'|'.2.tag
+    $res = jm_is_string($pval) && $pval eq 'c';
+    if (! $res)
+    {
+        return 0;
+    }
+    if (! exists $$val{'c'})
+    {
+        return 0;
+    }
+    $pval = $$val{'c'};
+    # .'|'.2.c
+    $res = jm_is_string($pval);
+    if (! $res)
     {
         return 0;
     }

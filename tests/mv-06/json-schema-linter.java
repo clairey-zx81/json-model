@@ -4841,7 +4841,7 @@ public class json_schema_linter extends ModelChecker
     // object .'$RootSchema'.'&'.0
     public boolean _jm_obj_50(Object val, Path path, Report rep)
     {
-        // check must only props
+        // check open must/may only props
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.'$RootSchema'.'&'.0]", path);

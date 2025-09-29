@@ -50,7 +50,7 @@ public class json_schema_draft_01_fuzzy extends ModelChecker
     // object .'$schema'
     public boolean _jm_obj_0(Object val, Path path, Report rep)
     {
-        // check must only props
+        // check open must/may only props
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.'$schema']", path);

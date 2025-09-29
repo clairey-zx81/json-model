@@ -20,45 +20,38 @@ my %check_model_map;
 sub _jm_obj_0($$$)
 {
     my ($val, $path, $rep) = @_;
+    # check close must only props
     if (! jm_is_object($val))
     {
         return 0;
     }
-    my $res;
-    my $must_count = 0;
-    scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    if (jm_obj_size($val) != 1)
     {
-        if ($prop eq 'a')
+        return 0;
+    }
+    my $pval;
+    my $res;
+    if (! exists $$val{'a'})
+    {
+        return 0;
+    }
+    $pval = $$val{'a'};
+    # .'|'.2.a
+    $res = jm_is_array($pval);
+    if ($res)
+    {
+        for my $arr_0_idx (0 .. $#$pval)
         {
-            # handle must a property
-            $must_count++;
-            # .'|'.2.a
-            $res = jm_is_array($pval);
-            if ($res)
-            {
-                for my $arr_0_idx (0 .. $#$pval)
-                {
-                    my $arr_0_item = $$pval[$arr_0_idx];
-                    # .'|'.2.a.0
-                    $res = jm_is_integer($arr_0_item) && $arr_0_item >= 0;
-                    if (! $res)
-                    {
-                        last;
-                    }
-                }
-            }
+            my $arr_0_item = $$pval[$arr_0_idx];
+            # .'|'.2.a.0
+            $res = jm_is_integer($arr_0_item) && $arr_0_item >= 0;
             if (! $res)
             {
-                return 0;
+                last;
             }
         }
-        else
-        {
-            return 0;
-        }
     }
-    if ($must_count != 1)
+    if (! $res)
     {
         return 0;
     }
@@ -69,32 +62,25 @@ sub _jm_obj_0($$$)
 sub _jm_obj_1($$$)
 {
     my ($val, $path, $rep) = @_;
+    # check close must only props
     if (! jm_is_object($val))
     {
         return 0;
     }
-    my $res;
-    my $must_count = 0;
-    scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    if (jm_obj_size($val) != 1)
     {
-        if ($prop eq 'a')
-        {
-            # handle must a property
-            $must_count++;
-            # .'|'.1.a
-            $res = jm_is_string($pval);
-            if (! $res)
-            {
-                return 0;
-            }
-        }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
-    if ($must_count != 1)
+    my $pval;
+    my $res;
+    if (! exists $$val{'a'})
+    {
+        return 0;
+    }
+    $pval = $$val{'a'};
+    # .'|'.1.a
+    $res = jm_is_string($pval);
+    if (! $res)
     {
         return 0;
     }
@@ -105,32 +91,25 @@ sub _jm_obj_1($$$)
 sub _jm_obj_2($$$)
 {
     my ($val, $path, $rep) = @_;
+    # check close must only props
     if (! jm_is_object($val))
     {
         return 0;
     }
-    my $res;
-    my $must_count = 0;
-    scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    if (jm_obj_size($val) != 1)
     {
-        if ($prop eq 'a')
-        {
-            # handle must a property
-            $must_count++;
-            # .'|'.0.a
-            $res = jm_is_boolean($pval);
-            if (! $res)
-            {
-                return 0;
-            }
-        }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
-    if ($must_count != 1)
+    my $pval;
+    my $res;
+    if (! exists $$val{'a'})
+    {
+        return 0;
+    }
+    $pval = $$val{'a'};
+    # .'|'.0.a
+    $res = jm_is_boolean($pval);
+    if (! $res)
     {
         return 0;
     }

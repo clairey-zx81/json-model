@@ -4352,7 +4352,7 @@ static bool json_model_49(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // object .'$platforms'.0.'|'.46
 static INLINE bool _jm_obj_47(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    // check must only props
+    // check open must/may only props
     if (! json_is_object(val))
     {
         if (rep) jm_report_add_entry(rep, "not an object [.'$platforms'.0.'|'.46]", path);
@@ -4407,7 +4407,7 @@ static INLINE bool _jm_obj_47(const json_t *val, jm_path_t *path, jm_report_t *r
 // object .'$platforms'.0.'|'.45
 static INLINE bool _jm_obj_48(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    // check must only props
+    // check open must/may only props
     if (! json_is_object(val))
     {
         if (rep) jm_report_add_entry(rep, "not an object [.'$platforms'.0.'|'.45]", path);
@@ -4461,7 +4461,7 @@ static INLINE bool _jm_obj_48(const json_t *val, jm_path_t *path, jm_report_t *r
 // object .'$platforms'.0.'|'.44
 static INLINE bool _jm_obj_49(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    // check must only props
+    // check open must/may only props
     if (! json_is_object(val))
     {
         if (rep) jm_report_add_entry(rep, "not an object [.'$platforms'.0.'|'.44]", path);
@@ -4516,7 +4516,7 @@ static INLINE bool _jm_obj_49(const json_t *val, jm_path_t *path, jm_report_t *r
 // object .'$platforms'.0.'|'.43
 static INLINE bool _jm_obj_50(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    // check must only props
+    // check open must/may only props
     if (! json_is_object(val))
     {
         if (rep) jm_report_add_entry(rep, "not an object [.'$platforms'.0.'|'.43]", path);
@@ -4571,7 +4571,7 @@ static INLINE bool _jm_obj_50(const json_t *val, jm_path_t *path, jm_report_t *r
 // object .'$platforms'.0.'|'.42
 static INLINE bool _jm_obj_51(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    // check must only props
+    // check open must/may only props
     if (! json_is_object(val))
     {
         if (rep) jm_report_add_entry(rep, "not an object [.'$platforms'.0.'|'.42]", path);
@@ -4626,7 +4626,7 @@ static INLINE bool _jm_obj_51(const json_t *val, jm_path_t *path, jm_report_t *r
 // object .'$platforms'.0.'|'.41
 static INLINE bool _jm_obj_52(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    // check must only props
+    // check open must/may only props
     if (! json_is_object(val))
     {
         if (rep) jm_report_add_entry(rep, "not an object [.'$platforms'.0.'|'.41]", path);
@@ -4681,7 +4681,7 @@ static INLINE bool _jm_obj_52(const json_t *val, jm_path_t *path, jm_report_t *r
 // object .'$platforms'.0.'|'.40
 static INLINE bool _jm_obj_53(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    // check must only props
+    // check open must/may only props
     if (! json_is_object(val))
     {
         if (rep) jm_report_add_entry(rep, "not an object [.'$platforms'.0.'|'.40]", path);
@@ -4736,7 +4736,7 @@ static INLINE bool _jm_obj_53(const json_t *val, jm_path_t *path, jm_report_t *r
 // object .'$platforms'.0.'|'.39
 static INLINE bool _jm_obj_54(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    // check must only props
+    // check open must/may only props
     if (! json_is_object(val))
     {
         if (rep) jm_report_add_entry(rep, "not an object [.'$platforms'.0.'|'.39]", path);
@@ -4790,7 +4790,7 @@ static INLINE bool _jm_obj_54(const json_t *val, jm_path_t *path, jm_report_t *r
 // object .'$platforms'.0.'|'.38
 static INLINE bool _jm_obj_55(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    // check must only props
+    // check open must/may only props
     if (! json_is_object(val))
     {
         if (rep) jm_report_add_entry(rep, "not an object [.'$platforms'.0.'|'.38]", path);
@@ -4845,7 +4845,7 @@ static INLINE bool _jm_obj_55(const json_t *val, jm_path_t *path, jm_report_t *r
 // object .'$platforms'.0.'|'.37
 static INLINE bool _jm_obj_56(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    // check must only props
+    // check open must/may only props
     if (! json_is_object(val))
     {
         if (rep) jm_report_add_entry(rep, "not an object [.'$platforms'.0.'|'.37]", path);
@@ -4900,7 +4900,7 @@ static INLINE bool _jm_obj_56(const json_t *val, jm_path_t *path, jm_report_t *r
 // object .'$platforms'.0.'|'.36
 static INLINE bool _jm_obj_57(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    // check must only props
+    // check open must/may only props
     if (! json_is_object(val))
     {
         if (rep) jm_report_add_entry(rep, "not an object [.'$platforms'.0.'|'.36]", path);
@@ -4955,7 +4955,7 @@ static INLINE bool _jm_obj_57(const json_t *val, jm_path_t *path, jm_report_t *r
 // object .'$platforms'.0.'|'.35
 static INLINE bool _jm_obj_58(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    // check must only props
+    // check open must/may only props
     if (! json_is_object(val))
     {
         if (rep) jm_report_add_entry(rep, "not an object [.'$platforms'.0.'|'.35]", path);
@@ -5009,7 +5009,7 @@ static INLINE bool _jm_obj_58(const json_t *val, jm_path_t *path, jm_report_t *r
 // object .'$platforms'.0.'|'.34
 static INLINE bool _jm_obj_59(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    // check must only props
+    // check open must/may only props
     if (! json_is_object(val))
     {
         if (rep) jm_report_add_entry(rep, "not an object [.'$platforms'.0.'|'.34]", path);
@@ -5064,7 +5064,7 @@ static INLINE bool _jm_obj_59(const json_t *val, jm_path_t *path, jm_report_t *r
 // object .'$platforms'.0.'|'.33
 static INLINE bool _jm_obj_60(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    // check must only props
+    // check open must/may only props
     if (! json_is_object(val))
     {
         if (rep) jm_report_add_entry(rep, "not an object [.'$platforms'.0.'|'.33]", path);
@@ -5119,7 +5119,7 @@ static INLINE bool _jm_obj_60(const json_t *val, jm_path_t *path, jm_report_t *r
 // object .'$platforms'.0.'|'.32
 static INLINE bool _jm_obj_61(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    // check must only props
+    // check open must/may only props
     if (! json_is_object(val))
     {
         if (rep) jm_report_add_entry(rep, "not an object [.'$platforms'.0.'|'.32]", path);
@@ -5174,7 +5174,7 @@ static INLINE bool _jm_obj_61(const json_t *val, jm_path_t *path, jm_report_t *r
 // object .'$platforms'.0.'|'.31
 static INLINE bool _jm_obj_62(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    // check must only props
+    // check open must/may only props
     if (! json_is_object(val))
     {
         if (rep) jm_report_add_entry(rep, "not an object [.'$platforms'.0.'|'.31]", path);
@@ -5229,7 +5229,7 @@ static INLINE bool _jm_obj_62(const json_t *val, jm_path_t *path, jm_report_t *r
 // object .'$platforms'.0.'|'.30
 static INLINE bool _jm_obj_63(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    // check must only props
+    // check open must/may only props
     if (! json_is_object(val))
     {
         if (rep) jm_report_add_entry(rep, "not an object [.'$platforms'.0.'|'.30]", path);
@@ -5283,7 +5283,7 @@ static INLINE bool _jm_obj_63(const json_t *val, jm_path_t *path, jm_report_t *r
 // object .'$platforms'.0.'|'.29
 static INLINE bool _jm_obj_64(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    // check must only props
+    // check open must/may only props
     if (! json_is_object(val))
     {
         if (rep) jm_report_add_entry(rep, "not an object [.'$platforms'.0.'|'.29]", path);
@@ -5338,7 +5338,7 @@ static INLINE bool _jm_obj_64(const json_t *val, jm_path_t *path, jm_report_t *r
 // object .'$platforms'.0.'|'.28
 static INLINE bool _jm_obj_65(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    // check must only props
+    // check open must/may only props
     if (! json_is_object(val))
     {
         if (rep) jm_report_add_entry(rep, "not an object [.'$platforms'.0.'|'.28]", path);
@@ -5393,7 +5393,7 @@ static INLINE bool _jm_obj_65(const json_t *val, jm_path_t *path, jm_report_t *r
 // object .'$platforms'.0.'|'.27
 static INLINE bool _jm_obj_66(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    // check must only props
+    // check open must/may only props
     if (! json_is_object(val))
     {
         if (rep) jm_report_add_entry(rep, "not an object [.'$platforms'.0.'|'.27]", path);
@@ -5448,7 +5448,7 @@ static INLINE bool _jm_obj_66(const json_t *val, jm_path_t *path, jm_report_t *r
 // object .'$platforms'.0.'|'.26
 static INLINE bool _jm_obj_67(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    // check must only props
+    // check open must/may only props
     if (! json_is_object(val))
     {
         if (rep) jm_report_add_entry(rep, "not an object [.'$platforms'.0.'|'.26]", path);
@@ -5503,7 +5503,7 @@ static INLINE bool _jm_obj_67(const json_t *val, jm_path_t *path, jm_report_t *r
 // object .'$platforms'.0.'|'.25
 static INLINE bool _jm_obj_68(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    // check must only props
+    // check open must/may only props
     if (! json_is_object(val))
     {
         if (rep) jm_report_add_entry(rep, "not an object [.'$platforms'.0.'|'.25]", path);
@@ -5557,7 +5557,7 @@ static INLINE bool _jm_obj_68(const json_t *val, jm_path_t *path, jm_report_t *r
 // object .'$platforms'.0.'|'.24
 static INLINE bool _jm_obj_69(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    // check must only props
+    // check open must/may only props
     if (! json_is_object(val))
     {
         if (rep) jm_report_add_entry(rep, "not an object [.'$platforms'.0.'|'.24]", path);
@@ -5611,7 +5611,7 @@ static INLINE bool _jm_obj_69(const json_t *val, jm_path_t *path, jm_report_t *r
 // object .'$platforms'.0.'|'.23
 static INLINE bool _jm_obj_70(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    // check must only props
+    // check open must/may only props
     if (! json_is_object(val))
     {
         if (rep) jm_report_add_entry(rep, "not an object [.'$platforms'.0.'|'.23]", path);
@@ -5666,7 +5666,7 @@ static INLINE bool _jm_obj_70(const json_t *val, jm_path_t *path, jm_report_t *r
 // object .'$platforms'.0.'|'.22
 static INLINE bool _jm_obj_71(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    // check must only props
+    // check open must/may only props
     if (! json_is_object(val))
     {
         if (rep) jm_report_add_entry(rep, "not an object [.'$platforms'.0.'|'.22]", path);
@@ -5720,7 +5720,7 @@ static INLINE bool _jm_obj_71(const json_t *val, jm_path_t *path, jm_report_t *r
 // object .'$platforms'.0.'|'.21
 static INLINE bool _jm_obj_72(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    // check must only props
+    // check open must/may only props
     if (! json_is_object(val))
     {
         if (rep) jm_report_add_entry(rep, "not an object [.'$platforms'.0.'|'.21]", path);
@@ -5774,7 +5774,7 @@ static INLINE bool _jm_obj_72(const json_t *val, jm_path_t *path, jm_report_t *r
 // object .'$platforms'.0.'|'.20
 static INLINE bool _jm_obj_73(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    // check must only props
+    // check open must/may only props
     if (! json_is_object(val))
     {
         if (rep) jm_report_add_entry(rep, "not an object [.'$platforms'.0.'|'.20]", path);
@@ -5828,7 +5828,7 @@ static INLINE bool _jm_obj_73(const json_t *val, jm_path_t *path, jm_report_t *r
 // object .'$platforms'.0.'|'.19
 static INLINE bool _jm_obj_74(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    // check must only props
+    // check open must/may only props
     if (! json_is_object(val))
     {
         if (rep) jm_report_add_entry(rep, "not an object [.'$platforms'.0.'|'.19]", path);
@@ -5882,7 +5882,7 @@ static INLINE bool _jm_obj_74(const json_t *val, jm_path_t *path, jm_report_t *r
 // object .'$platforms'.0.'|'.18
 static INLINE bool _jm_obj_75(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    // check must only props
+    // check open must/may only props
     if (! json_is_object(val))
     {
         if (rep) jm_report_add_entry(rep, "not an object [.'$platforms'.0.'|'.18]", path);
@@ -5937,7 +5937,7 @@ static INLINE bool _jm_obj_75(const json_t *val, jm_path_t *path, jm_report_t *r
 // object .'$platforms'.0.'|'.17
 static INLINE bool _jm_obj_76(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    // check must only props
+    // check open must/may only props
     if (! json_is_object(val))
     {
         if (rep) jm_report_add_entry(rep, "not an object [.'$platforms'.0.'|'.17]", path);
@@ -5992,7 +5992,7 @@ static INLINE bool _jm_obj_76(const json_t *val, jm_path_t *path, jm_report_t *r
 // object .'$platforms'.0.'|'.16
 static INLINE bool _jm_obj_77(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    // check must only props
+    // check open must/may only props
     if (! json_is_object(val))
     {
         if (rep) jm_report_add_entry(rep, "not an object [.'$platforms'.0.'|'.16]", path);
@@ -6046,7 +6046,7 @@ static INLINE bool _jm_obj_77(const json_t *val, jm_path_t *path, jm_report_t *r
 // object .'$platforms'.0.'|'.15
 static INLINE bool _jm_obj_78(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    // check must only props
+    // check open must/may only props
     if (! json_is_object(val))
     {
         if (rep) jm_report_add_entry(rep, "not an object [.'$platforms'.0.'|'.15]", path);
@@ -6101,7 +6101,7 @@ static INLINE bool _jm_obj_78(const json_t *val, jm_path_t *path, jm_report_t *r
 // object .'$platforms'.0.'|'.14
 static INLINE bool _jm_obj_79(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    // check must only props
+    // check open must/may only props
     if (! json_is_object(val))
     {
         if (rep) jm_report_add_entry(rep, "not an object [.'$platforms'.0.'|'.14]", path);
@@ -6156,7 +6156,7 @@ static INLINE bool _jm_obj_79(const json_t *val, jm_path_t *path, jm_report_t *r
 // object .'$platforms'.0.'|'.13
 static INLINE bool _jm_obj_80(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    // check must only props
+    // check open must/may only props
     if (! json_is_object(val))
     {
         if (rep) jm_report_add_entry(rep, "not an object [.'$platforms'.0.'|'.13]", path);
@@ -6211,7 +6211,7 @@ static INLINE bool _jm_obj_80(const json_t *val, jm_path_t *path, jm_report_t *r
 // object .'$platforms'.0.'|'.12
 static INLINE bool _jm_obj_81(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    // check must only props
+    // check open must/may only props
     if (! json_is_object(val))
     {
         if (rep) jm_report_add_entry(rep, "not an object [.'$platforms'.0.'|'.12]", path);
@@ -6266,7 +6266,7 @@ static INLINE bool _jm_obj_81(const json_t *val, jm_path_t *path, jm_report_t *r
 // object .'$platforms'.0.'|'.11
 static INLINE bool _jm_obj_82(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    // check must only props
+    // check open must/may only props
     if (! json_is_object(val))
     {
         if (rep) jm_report_add_entry(rep, "not an object [.'$platforms'.0.'|'.11]", path);
@@ -6321,7 +6321,7 @@ static INLINE bool _jm_obj_82(const json_t *val, jm_path_t *path, jm_report_t *r
 // object .'$platforms'.0.'|'.10
 static INLINE bool _jm_obj_83(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    // check must only props
+    // check open must/may only props
     if (! json_is_object(val))
     {
         if (rep) jm_report_add_entry(rep, "not an object [.'$platforms'.0.'|'.10]", path);
@@ -6376,7 +6376,7 @@ static INLINE bool _jm_obj_83(const json_t *val, jm_path_t *path, jm_report_t *r
 // object .'$platforms'.0.'|'.9
 static INLINE bool _jm_obj_84(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    // check must only props
+    // check open must/may only props
     if (! json_is_object(val))
     {
         if (rep) jm_report_add_entry(rep, "not an object [.'$platforms'.0.'|'.9]", path);
@@ -6431,7 +6431,7 @@ static INLINE bool _jm_obj_84(const json_t *val, jm_path_t *path, jm_report_t *r
 // object .'$platforms'.0.'|'.8
 static INLINE bool _jm_obj_85(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    // check must only props
+    // check open must/may only props
     if (! json_is_object(val))
     {
         if (rep) jm_report_add_entry(rep, "not an object [.'$platforms'.0.'|'.8]", path);
@@ -6485,7 +6485,7 @@ static INLINE bool _jm_obj_85(const json_t *val, jm_path_t *path, jm_report_t *r
 // object .'$platforms'.0.'|'.7
 static INLINE bool _jm_obj_86(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    // check must only props
+    // check open must/may only props
     if (! json_is_object(val))
     {
         if (rep) jm_report_add_entry(rep, "not an object [.'$platforms'.0.'|'.7]", path);
@@ -6540,7 +6540,7 @@ static INLINE bool _jm_obj_86(const json_t *val, jm_path_t *path, jm_report_t *r
 // object .'$platforms'.0.'|'.6
 static INLINE bool _jm_obj_87(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    // check must only props
+    // check open must/may only props
     if (! json_is_object(val))
     {
         if (rep) jm_report_add_entry(rep, "not an object [.'$platforms'.0.'|'.6]", path);
@@ -6594,7 +6594,7 @@ static INLINE bool _jm_obj_87(const json_t *val, jm_path_t *path, jm_report_t *r
 // object .'$platforms'.0.'|'.5
 static INLINE bool _jm_obj_88(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    // check must only props
+    // check open must/may only props
     if (! json_is_object(val))
     {
         if (rep) jm_report_add_entry(rep, "not an object [.'$platforms'.0.'|'.5]", path);
@@ -6648,7 +6648,7 @@ static INLINE bool _jm_obj_88(const json_t *val, jm_path_t *path, jm_report_t *r
 // object .'$platforms'.0.'|'.4
 static INLINE bool _jm_obj_89(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    // check must only props
+    // check open must/may only props
     if (! json_is_object(val))
     {
         if (rep) jm_report_add_entry(rep, "not an object [.'$platforms'.0.'|'.4]", path);
@@ -6703,7 +6703,7 @@ static INLINE bool _jm_obj_89(const json_t *val, jm_path_t *path, jm_report_t *r
 // object .'$platforms'.0.'|'.3
 static INLINE bool _jm_obj_90(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    // check must only props
+    // check open must/may only props
     if (! json_is_object(val))
     {
         if (rep) jm_report_add_entry(rep, "not an object [.'$platforms'.0.'|'.3]", path);
@@ -6758,7 +6758,7 @@ static INLINE bool _jm_obj_90(const json_t *val, jm_path_t *path, jm_report_t *r
 // object .'$platforms'.0.'|'.2
 static INLINE bool _jm_obj_91(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    // check must only props
+    // check open must/may only props
     if (! json_is_object(val))
     {
         if (rep) jm_report_add_entry(rep, "not an object [.'$platforms'.0.'|'.2]", path);
@@ -6812,7 +6812,7 @@ static INLINE bool _jm_obj_91(const json_t *val, jm_path_t *path, jm_report_t *r
 // object .'$platforms'.0.'|'.1
 static INLINE bool _jm_obj_92(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    // check must only props
+    // check open must/may only props
     if (! json_is_object(val))
     {
         if (rep) jm_report_add_entry(rep, "not an object [.'$platforms'.0.'|'.1]", path);
@@ -6867,7 +6867,7 @@ static INLINE bool _jm_obj_92(const json_t *val, jm_path_t *path, jm_report_t *r
 // object .'$platforms'.0.'|'.0
 static INLINE bool _jm_obj_93(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    // check must only props
+    // check open must/may only props
     if (! json_is_object(val))
     {
         if (rep) jm_report_add_entry(rep, "not an object [.'$platforms'.0.'|'.0]", path);
@@ -8677,7 +8677,7 @@ static INLINE bool _jm_obj_100(const json_t *val, jm_path_t *path, jm_report_t *
 // object .'$DependencyModelLoose'
 static INLINE bool _jm_obj_99(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    // check must only props
+    // check open must/may only props
     if (! json_is_object(val))
     {
         if (rep) jm_report_add_entry(rep, "not an object [.'$DependencyModelLoose']", path);
@@ -8849,7 +8849,7 @@ static bool json_model_57(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // object .'$DependencyModel'.'&'.1.'|'.2
 static INLINE bool _jm_obj_101(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    // check must only props
+    // check open must/may only props
     if (! json_is_object(val))
     {
         if (rep) jm_report_add_entry(rep, "not an object [.'$DependencyModel'.'&'.1.'|'.2]", path);
@@ -8877,7 +8877,7 @@ static INLINE bool _jm_obj_101(const json_t *val, jm_path_t *path, jm_report_t *
 // object .'$DependencyModel'.'&'.1.'|'.1
 static INLINE bool _jm_obj_102(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    // check must only props
+    // check open must/may only props
     if (! json_is_object(val))
     {
         if (rep) jm_report_add_entry(rep, "not an object [.'$DependencyModel'.'&'.1.'|'.1]", path);
@@ -8905,7 +8905,7 @@ static INLINE bool _jm_obj_102(const json_t *val, jm_path_t *path, jm_report_t *
 // object .'$DependencyModel'.'&'.1.'|'.0
 static INLINE bool _jm_obj_103(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    // check must only props
+    // check open must/may only props
     if (! json_is_object(val))
     {
         if (rep) jm_report_add_entry(rep, "not an object [.'$DependencyModel'.'&'.1.'|'.0]", path);

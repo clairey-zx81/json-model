@@ -16,42 +16,36 @@ var check_model_map = new Map()
 // object .'$alternative'.'|'.0
 function _jm_obj_0(val, path, rep)
 {
+    // check close must only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         return false;
     }
-    let res;
-    let must_count = 0;
-    for (const [prop, pval] of Object.entries(val))
+    if (Object.keys(val).length != 2)
     {
-        if (prop == "t")
-        {
-            // handle must t property
-            must_count += 1;
-            // .'$alternative'.'|'.0.t
-            res = ((typeof pval === 'string' || pval instanceof String)) && pval == "a";
-            if (! res)
-            {
-                return false;
-            }
-        }
-        else if (prop == "a")
-        {
-            // handle must a property
-            must_count += 1;
-            // .'$alternative'.'|'.0.a
-            res = (typeof pval === 'string' || pval instanceof String);
-            if (! res)
-            {
-                return false;
-            }
-        }
-        else
-        {
-            return false;
-        }
+        return false;
     }
-    if (must_count != 2)
+    let pval;
+    let res;
+    if (! val.hasOwnProperty("t"))
+    {
+        return false;
+    }
+    pval = val["t"];
+    // .'$alternative'.'|'.0.t
+    res = ((typeof pval === 'string' || pval instanceof String)) && pval == "a";
+    if (! res)
+    {
+        return false;
+    }
+    if (! val.hasOwnProperty("a"))
+    {
+        return false;
+    }
+    pval = val["a"];
+    // .'$alternative'.'|'.0.a
+    res = (typeof pval === 'string' || pval instanceof String);
+    if (! res)
     {
         return false;
     }
@@ -62,42 +56,36 @@ function _jm_obj_0(val, path, rep)
 // object .'$alternative'.'|'.1
 function _jm_obj_1(val, path, rep)
 {
+    // check close must only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         return false;
     }
-    let res;
-    let must_count = 0;
-    for (const [prop, pval] of Object.entries(val))
+    if (Object.keys(val).length != 2)
     {
-        if (prop == "t")
-        {
-            // handle must t property
-            must_count += 1;
-            // .'$alternative'.'|'.1.t
-            res = ((pval === null || (typeof pval === 'number' || pval instanceof Number) || (typeof pval === 'boolean' || pval instanceof Boolean) || (typeof pval === 'string' || pval instanceof String))) && _jm_cst_0.has(pval);
-            if (! res)
-            {
-                return false;
-            }
-        }
-        else if (prop == "bc")
-        {
-            // handle must bc property
-            must_count += 1;
-            // .'$alternative'.'|'.1.bc
-            res = (typeof pval === 'string' || pval instanceof String);
-            if (! res)
-            {
-                return false;
-            }
-        }
-        else
-        {
-            return false;
-        }
+        return false;
     }
-    if (must_count != 2)
+    let pval;
+    let res;
+    if (! val.hasOwnProperty("t"))
+    {
+        return false;
+    }
+    pval = val["t"];
+    // .'$alternative'.'|'.1.t
+    res = ((pval === null || (typeof pval === 'number' || pval instanceof Number) || (typeof pval === 'boolean' || pval instanceof Boolean) || (typeof pval === 'string' || pval instanceof String))) && _jm_cst_0.has(pval);
+    if (! res)
+    {
+        return false;
+    }
+    if (! val.hasOwnProperty("bc"))
+    {
+        return false;
+    }
+    pval = val["bc"];
+    // .'$alternative'.'|'.1.bc
+    res = (typeof pval === 'string' || pval instanceof String);
+    if (! res)
     {
         return false;
     }

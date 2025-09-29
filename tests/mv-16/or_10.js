@@ -14,44 +14,31 @@ var check_model_map = new Map()
 // object .'|'.1
 function _jm_obj_0(val, path, rep)
 {
+    // check close must only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.'|'.1]", path])
         return false;
     }
-    let res;
-    let must_count = 0;
-    for (const [prop, pval] of Object.entries(val))
+    if (Object.keys(val).length != 1)
     {
-        let lpath_0 = path ? path.concat([prop]) : null;
-        if (prop == "name")
-        {
-            // handle must name property
-            must_count += 1;
-            // .'|'.1.name
-            res = (typeof pval === 'string' || pval instanceof String);
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected string [.'|'.1.name]", (path ? lpath_0 : null)])
-                rep !== null && rep.push(["invalid mandatory prop value [.'|'.1.name]", (path ? lpath_0 : null)])
-                return false;
-            }
-        }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.'|'.1]", (path ? lpath_0 : null)])
-            return false;
-        }
+        rep !== null && rep.push(["bad property count [.'|'.1]", path])
+        return false;
     }
-    if (must_count != 1)
+    let pval;
+    let res;
+    if (! val.hasOwnProperty("name"))
     {
-        if (rep !== null)
-        {
-            if (! val.hasOwnProperty("name"))
-            {
-                rep !== null && rep.push(["missing mandatory prop <name> [.'|'.1]", path])
-            }
-        }
+        rep !== null && rep.push(["missing mandatory prop <name> [.'|'.1]", path])
+        return false;
+    }
+    pval = val["name"];
+    // .'|'.1.name
+    res = (typeof pval === 'string' || pval instanceof String);
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected string [.'|'.1.name]", path])
+        rep !== null && rep.push(["unexpected value for mandatory prop <name> [.'|'.1]", path])
         return false;
     }
     return true;

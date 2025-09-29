@@ -1083,7 +1083,7 @@ def _jm_obj_21(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # object .'$ObjectSchema'
 def _jm_obj_13(val: Jsonable, path: Path, rep: Report) -> bool:
-    # check must only props
+    # check open must/may only props
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$ObjectSchema']", path))
         return False

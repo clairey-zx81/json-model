@@ -43,29 +43,26 @@ def json_model_3(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # object .'$d'
 def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
+    # check close must only props
     if not isinstance(val, dict):
         return False
+    if len(val) != 2:
+        return False
+    pval: Jsonable
     res: bool
-    must_count: int = 0
-    for prop, pval in val.items():
-        assert isinstance(prop, str)
-        if prop == "t":
-            # handle must t property
-            must_count += 1
-            # .'$d'.t
-            res = isinstance(pval, str) and pval == "d"
-            if not res:
-                return False
-        elif prop == "d":
-            # handle must d property
-            must_count += 1
-            # .'$d'.d
-            res = isinstance(pval, str)
-            if not res:
-                return False
-        else:
-            return False
-    if must_count != 2:
+    if not "t" in val:
+        return False
+    pval = val.get("t", UNDEFINED)
+    # .'$d'.t
+    res = isinstance(pval, str) and pval == "d"
+    if not res:
+        return False
+    if not "d" in val:
+        return False
+    pval = val.get("d", UNDEFINED)
+    # .'$d'.d
+    res = isinstance(pval, str)
+    if not res:
         return False
     return True
 
@@ -79,29 +76,26 @@ def json_model_4(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # object .'$ef'
 def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
+    # check close must only props
     if not isinstance(val, dict):
         return False
+    if len(val) != 2:
+        return False
+    pval: Jsonable
     res: bool
-    must_count: int = 0
-    for prop, pval in val.items():
-        assert isinstance(prop, str)
-        if prop == "t":
-            # handle must t property
-            must_count += 1
-            # .'$ef'.t
-            res = ((pval is None or isinstance(pval, (bool, int, float, str)))) and pval in _jm_cst_1
-            if not res:
-                return False
-        elif prop == "ef":
-            # handle must ef property
-            must_count += 1
-            # .'$ef'.ef
-            res = isinstance(pval, str)
-            if not res:
-                return False
-        else:
-            return False
-    if must_count != 2:
+    if not "t" in val:
+        return False
+    pval = val.get("t", UNDEFINED)
+    # .'$ef'.t
+    res = ((pval is None or isinstance(pval, (bool, int, float, str)))) and pval in _jm_cst_1
+    if not res:
+        return False
+    if not "ef" in val:
+        return False
+    pval = val.get("ef", UNDEFINED)
+    # .'$ef'.ef
+    res = isinstance(pval, str)
+    if not res:
         return False
     return True
 
@@ -114,114 +108,102 @@ def json_model_5(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # object .'$alternative'.'|'.0
 def _jm_obj_2(val: Jsonable, path: Path, rep: Report) -> bool:
+    # check close must only props
     if not isinstance(val, dict):
         return False
+    if len(val) != 2:
+        return False
+    pval: Jsonable
     res: bool
-    must_count: int = 0
-    for prop, pval in val.items():
-        assert isinstance(prop, str)
-        if prop == "t":
-            # handle must t property
-            must_count += 1
-            # .'$alternative'.'|'.0.t
-            res = isinstance(pval, str) and pval == "a"
-            if not res:
-                return False
-        elif prop == "a":
-            # handle must a property
-            must_count += 1
-            # .'$alternative'.'|'.0.a
-            res = isinstance(pval, str)
-            if not res:
-                return False
-        else:
-            return False
-    if must_count != 2:
+    if not "t" in val:
+        return False
+    pval = val.get("t", UNDEFINED)
+    # .'$alternative'.'|'.0.t
+    res = isinstance(pval, str) and pval == "a"
+    if not res:
+        return False
+    if not "a" in val:
+        return False
+    pval = val.get("a", UNDEFINED)
+    # .'$alternative'.'|'.0.a
+    res = isinstance(pval, str)
+    if not res:
         return False
     return True
 
 
 # object .'$alternative'.'|'.1
 def _jm_obj_3(val: Jsonable, path: Path, rep: Report) -> bool:
+    # check close must only props
     if not isinstance(val, dict):
         return False
+    if len(val) != 2:
+        return False
+    pval: Jsonable
     res: bool
-    must_count: int = 0
-    for prop, pval in val.items():
-        assert isinstance(prop, str)
-        if prop == "t":
-            # handle must t property
-            must_count += 1
-            # .'$alternative'.'|'.1.t
-            res = ((pval is None or isinstance(pval, (bool, int, float, str)))) and pval in _jm_cst_2
-            if not res:
-                return False
-        elif prop == "bc":
-            # handle must bc property
-            must_count += 1
-            # .'$alternative'.'|'.1.bc
-            res = isinstance(pval, str)
-            if not res:
-                return False
-        else:
-            return False
-    if must_count != 2:
+    if not "t" in val:
+        return False
+    pval = val.get("t", UNDEFINED)
+    # .'$alternative'.'|'.1.t
+    res = ((pval is None or isinstance(pval, (bool, int, float, str)))) and pval in _jm_cst_2
+    if not res:
+        return False
+    if not "bc" in val:
+        return False
+    pval = val.get("bc", UNDEFINED)
+    # .'$alternative'.'|'.1.bc
+    res = isinstance(pval, str)
+    if not res:
         return False
     return True
 
 # object .'$alternative'.'|'.2
 def _jm_obj_4(val: Jsonable, path: Path, rep: Report) -> bool:
+    # check close must only props
     if not isinstance(val, dict):
         return False
+    if len(val) != 2:
+        return False
+    pval: Jsonable
     res: bool
-    must_count: int = 0
-    for prop, pval in val.items():
-        assert isinstance(prop, str)
-        if prop == "t":
-            # handle must t property
-            must_count += 1
-            # .'$alternative'.'|'.2.t
-            res = isinstance(pval, str) and pval == "g"
-            if not res:
-                return False
-        elif prop == "g":
-            # handle must g property
-            must_count += 1
-            # .'$alternative'.'|'.2.g
-            res = isinstance(pval, str)
-            if not res:
-                return False
-        else:
-            return False
-    if must_count != 2:
+    if not "t" in val:
+        return False
+    pval = val.get("t", UNDEFINED)
+    # .'$alternative'.'|'.2.t
+    res = isinstance(pval, str) and pval == "g"
+    if not res:
+        return False
+    if not "g" in val:
+        return False
+    pval = val.get("g", UNDEFINED)
+    # .'$alternative'.'|'.2.g
+    res = isinstance(pval, str)
+    if not res:
         return False
     return True
 
 # object .'$alternative'.'|'.3
 def _jm_obj_5(val: Jsonable, path: Path, rep: Report) -> bool:
+    # check close must only props
     if not isinstance(val, dict):
         return False
+    if len(val) != 2:
+        return False
+    pval: Jsonable
     res: bool
-    must_count: int = 0
-    for prop, pval in val.items():
-        assert isinstance(prop, str)
-        if prop == "t":
-            # handle must t property
-            must_count += 1
-            # .'$alternative'.'|'.3.t
-            res = json_model_3(pval, None, rep)
-            if not res:
-                return False
-        elif prop == "hi":
-            # handle must hi property
-            must_count += 1
-            # .'$alternative'.'|'.3.hi
-            res = isinstance(pval, str)
-            if not res:
-                return False
-        else:
-            return False
-    if must_count != 2:
+    if not "t" in val:
+        return False
+    pval = val.get("t", UNDEFINED)
+    # .'$alternative'.'|'.3.t
+    res = json_model_3(pval, path, rep)
+    if not res:
+        return False
+    if not "hi" in val:
+        return False
+    pval = val.get("hi", UNDEFINED)
+    # .'$alternative'.'|'.3.hi
+    res = isinstance(pval, str)
+    if not res:
         return False
     return True
 

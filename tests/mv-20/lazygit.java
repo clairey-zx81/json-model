@@ -270,47 +270,31 @@ public class lazygit extends ModelChecker
     // object .'$Prompts'.'|'.0.suggestions.'|'.1
     public boolean _jm_obj_1(Object val, Path path, Report rep)
     {
+        // check close must only props
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.'$Prompts'.'|'.0.suggestions.'|'.1]", path);
             return false;
         }
-        boolean res;
-        long must_count = 0;
-        Iterator<String> prop_loop = json.objectIterator(val);
-        while (prop_loop.hasNext())
+        if (json.objectSize(val) != 1)
         {
-            String prop = prop_loop.next();
-            Object pval = json.objectValue(val, prop);
-            Path lpath_1 = new Path(prop, path);
-            if (prop.compareTo("command") == 0)
-            {
-                // handle must command property
-                must_count += 1;
-                // .'$Prompts'.'|'.0.suggestions.'|'.1.command
-                res = json.isString(pval);
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("unexpected string [.'$Prompts'.'|'.0.suggestions.'|'.1.command]", (path != null ? lpath_1 : null));
-                    if (rep != null) rep.addEntry("invalid mandatory prop value [.'$Prompts'.'|'.0.suggestions.'|'.1.command]", (path != null ? lpath_1 : null));
-                    return false;
-                }
-            }
-            else
-            {
-                if (rep != null) rep.addEntry("unexpected prop [.'$Prompts'.'|'.0.suggestions.'|'.1]", (path != null ? lpath_1 : null));
-                return false;
-            }
+            if (rep != null) rep.addEntry("bad property count [.'$Prompts'.'|'.0.suggestions.'|'.1]", path);
+            return false;
         }
-        if (must_count != 1)
+        Object pval;
+        boolean res;
+        if (! json.objectHasProp(val, "command"))
         {
-            if (rep != null)
-            {
-                if (! json.objectHasProp(val, "command"))
-                {
-                    if (rep != null) rep.addEntry("missing mandatory prop <command> [.'$Prompts'.'|'.0.suggestions.'|'.1]", path);
-                }
-            }
+            if (rep != null) rep.addEntry("missing mandatory prop <command> [.'$Prompts'.'|'.0.suggestions.'|'.1]", path);
+            return false;
+        }
+        pval = json.objectValue(val, "command");
+        // .'$Prompts'.'|'.0.suggestions.'|'.1.command
+        res = json.isString(pval);
+        if (! res)
+        {
+            if (rep != null) rep.addEntry("unexpected string [.'$Prompts'.'|'.0.suggestions.'|'.1.command]", path);
+            if (rep != null) rep.addEntry("unexpected value for mandatory prop <command> [.'$Prompts'.'|'.0.suggestions.'|'.1]", path);
             return false;
         }
         return true;
@@ -320,47 +304,31 @@ public class lazygit extends ModelChecker
     // object .'$Prompts'.'|'.0.suggestions.'|'.0
     public boolean _jm_obj_2(Object val, Path path, Report rep)
     {
+        // check close must only props
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.'$Prompts'.'|'.0.suggestions.'|'.0]", path);
             return false;
         }
-        boolean res;
-        long must_count = 0;
-        Iterator<String> prop_loop = json.objectIterator(val);
-        while (prop_loop.hasNext())
+        if (json.objectSize(val) != 1)
         {
-            String prop = prop_loop.next();
-            Object pval = json.objectValue(val, prop);
-            Path lpath_2 = new Path(prop, path);
-            if (prop.compareTo("preset") == 0)
-            {
-                // handle must preset property
-                must_count += 1;
-                // .'$Prompts'.'|'.0.suggestions.'|'.0.preset
-                res = json.isScalar(pval) && _jm_cst_2_set.contains(pval);
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("value not in enum [.'$Prompts'.'|'.0.suggestions.'|'.0.preset.'|']", (path != null ? lpath_2 : null));
-                    if (rep != null) rep.addEntry("invalid mandatory prop value [.'$Prompts'.'|'.0.suggestions.'|'.0.preset]", (path != null ? lpath_2 : null));
-                    return false;
-                }
-            }
-            else
-            {
-                if (rep != null) rep.addEntry("unexpected prop [.'$Prompts'.'|'.0.suggestions.'|'.0]", (path != null ? lpath_2 : null));
-                return false;
-            }
+            if (rep != null) rep.addEntry("bad property count [.'$Prompts'.'|'.0.suggestions.'|'.0]", path);
+            return false;
         }
-        if (must_count != 1)
+        Object pval;
+        boolean res;
+        if (! json.objectHasProp(val, "preset"))
         {
-            if (rep != null)
-            {
-                if (! json.objectHasProp(val, "preset"))
-                {
-                    if (rep != null) rep.addEntry("missing mandatory prop <preset> [.'$Prompts'.'|'.0.suggestions.'|'.0]", path);
-                }
-            }
+            if (rep != null) rep.addEntry("missing mandatory prop <preset> [.'$Prompts'.'|'.0.suggestions.'|'.0]", path);
+            return false;
+        }
+        pval = json.objectValue(val, "preset");
+        // .'$Prompts'.'|'.0.suggestions.'|'.0.preset
+        res = json.isScalar(pval) && _jm_cst_2_set.contains(pval);
+        if (! res)
+        {
+            if (rep != null) rep.addEntry("value not in enum [.'$Prompts'.'|'.0.suggestions.'|'.0.preset.'|']", path);
+            if (rep != null) rep.addEntry("unexpected value for mandatory prop <preset> [.'$Prompts'.'|'.0.suggestions.'|'.0]", path);
             return false;
         }
         return true;
@@ -517,7 +485,7 @@ public class lazygit extends ModelChecker
         {
             String prop = prop_loop.next();
             Object pval = json.objectValue(val, prop);
-            Path lpath_3 = new Path(prop, path);
+            Path lpath_1 = new Path(prop, path);
             if (prop.compareTo("type") == 0)
             {
                 // handle must type property
@@ -526,8 +494,8 @@ public class lazygit extends ModelChecker
                 res = json.isString(pval) && json.asString(pval).compareTo("confirm") == 0;
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected confirm [.'$Prompts'.'|'.1.type]", (path != null ? lpath_3 : null));
-                    if (rep != null) rep.addEntry("invalid mandatory prop value [.'$Prompts'.'|'.1.type]", (path != null ? lpath_3 : null));
+                    if (rep != null) rep.addEntry("unexpected confirm [.'$Prompts'.'|'.1.type]", (path != null ? lpath_1 : null));
+                    if (rep != null) rep.addEntry("invalid mandatory prop value [.'$Prompts'.'|'.1.type]", (path != null ? lpath_1 : null));
                     return false;
                 }
             }
@@ -536,11 +504,11 @@ public class lazygit extends ModelChecker
                 // handle must title property
                 must_count += 1;
                 // .'$Prompts'.'|'.1.title
-                res = json_model_6(pval, (path != null ? lpath_3 : null), rep);
+                res = json_model_6(pval, (path != null ? lpath_1 : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $custom-commands-prompts-title-property [.'$Prompts'.'|'.1.title]", (path != null ? lpath_3 : null));
-                    if (rep != null) rep.addEntry("invalid mandatory prop value [.'$Prompts'.'|'.1.title]", (path != null ? lpath_3 : null));
+                    if (rep != null) rep.addEntry("unexpected $custom-commands-prompts-title-property [.'$Prompts'.'|'.1.title]", (path != null ? lpath_1 : null));
+                    if (rep != null) rep.addEntry("invalid mandatory prop value [.'$Prompts'.'|'.1.title]", (path != null ? lpath_1 : null));
                     return false;
                 }
             }
@@ -549,11 +517,11 @@ public class lazygit extends ModelChecker
                 // handle must key property
                 must_count += 1;
                 // .'$Prompts'.'|'.1.key
-                res = json_model_7(pval, (path != null ? lpath_3 : null), rep);
+                res = json_model_7(pval, (path != null ? lpath_1 : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $custom-commands-prompts-key-property [.'$Prompts'.'|'.1.key]", (path != null ? lpath_3 : null));
-                    if (rep != null) rep.addEntry("invalid mandatory prop value [.'$Prompts'.'|'.1.key]", (path != null ? lpath_3 : null));
+                    if (rep != null) rep.addEntry("unexpected $custom-commands-prompts-key-property [.'$Prompts'.'|'.1.key]", (path != null ? lpath_1 : null));
+                    if (rep != null) rep.addEntry("invalid mandatory prop value [.'$Prompts'.'|'.1.key]", (path != null ? lpath_1 : null));
                     return false;
                 }
             }
@@ -564,14 +532,14 @@ public class lazygit extends ModelChecker
                 res = json.isString(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.'$Prompts'.'|'.1.body]", (path != null ? lpath_3 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$Prompts'.'|'.1.body]", (path != null ? lpath_3 : null));
+                    if (rep != null) rep.addEntry("unexpected string [.'$Prompts'.'|'.1.body]", (path != null ? lpath_1 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$Prompts'.'|'.1.body]", (path != null ? lpath_1 : null));
                     return false;
                 }
             }
             else
             {
-                if (rep != null) rep.addEntry("unexpected prop [.'$Prompts'.'|'.1]", (path != null ? lpath_3 : null));
+                if (rep != null) rep.addEntry("unexpected prop [.'$Prompts'.'|'.1]", (path != null ? lpath_1 : null));
                 return false;
             }
         }
@@ -612,17 +580,17 @@ public class lazygit extends ModelChecker
         {
             String prop = prop_loop.next();
             Object pval = json.objectValue(val, prop);
-            Path lpath_5 = new Path(prop, path);
+            Path lpath_2 = new Path(prop, path);
             if (prop.compareTo("value") == 0)
             {
                 // handle must value property
                 must_count += 1;
                 // .'$Prompts'.'|'.2.options.'@'.0.value
-                res = json_model_8(pval, (path != null ? lpath_5 : null), rep);
+                res = json_model_8(pval, (path != null ? lpath_2 : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $neString [.'$Prompts'.'|'.2.options.'@'.0.value]", (path != null ? lpath_5 : null));
-                    if (rep != null) rep.addEntry("invalid mandatory prop value [.'$Prompts'.'|'.2.options.'@'.0.value]", (path != null ? lpath_5 : null));
+                    if (rep != null) rep.addEntry("unexpected $neString [.'$Prompts'.'|'.2.options.'@'.0.value]", (path != null ? lpath_2 : null));
+                    if (rep != null) rep.addEntry("invalid mandatory prop value [.'$Prompts'.'|'.2.options.'@'.0.value]", (path != null ? lpath_2 : null));
                     return false;
                 }
             }
@@ -633,8 +601,8 @@ public class lazygit extends ModelChecker
                 res = json.isString(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.'$Prompts'.'|'.2.options.'@'.0.description]", (path != null ? lpath_5 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$Prompts'.'|'.2.options.'@'.0.description]", (path != null ? lpath_5 : null));
+                    if (rep != null) rep.addEntry("unexpected string [.'$Prompts'.'|'.2.options.'@'.0.description]", (path != null ? lpath_2 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$Prompts'.'|'.2.options.'@'.0.description]", (path != null ? lpath_2 : null));
                     return false;
                 }
             }
@@ -645,14 +613,14 @@ public class lazygit extends ModelChecker
                 res = json.isString(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.'$Prompts'.'|'.2.options.'@'.0.name]", (path != null ? lpath_5 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$Prompts'.'|'.2.options.'@'.0.name]", (path != null ? lpath_5 : null));
+                    if (rep != null) rep.addEntry("unexpected string [.'$Prompts'.'|'.2.options.'@'.0.name]", (path != null ? lpath_2 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$Prompts'.'|'.2.options.'@'.0.name]", (path != null ? lpath_2 : null));
                     return false;
                 }
             }
             else
             {
-                if (rep != null) rep.addEntry("unexpected prop [.'$Prompts'.'|'.2.options.'@'.0]", (path != null ? lpath_5 : null));
+                if (rep != null) rep.addEntry("unexpected prop [.'$Prompts'.'|'.2.options.'@'.0]", (path != null ? lpath_2 : null));
                 return false;
             }
         }
@@ -673,128 +641,103 @@ public class lazygit extends ModelChecker
     // object .'$Prompts'.'|'.2
     public boolean _jm_obj_4(Object val, Path path, Report rep)
     {
+        // check close must only props
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.'$Prompts'.'|'.2]", path);
             return false;
         }
-        boolean res;
-        long must_count = 0;
-        Iterator<String> prop_loop = json.objectIterator(val);
-        while (prop_loop.hasNext())
+        if (json.objectSize(val) != 4)
         {
-            String prop = prop_loop.next();
-            Object pval = json.objectValue(val, prop);
-            Path lpath_4 = new Path(prop, path);
-            if (prop.compareTo("type") == 0)
+            if (rep != null) rep.addEntry("bad property count [.'$Prompts'.'|'.2]", path);
+            return false;
+        }
+        Object pval;
+        boolean res;
+        if (! json.objectHasProp(val, "type"))
+        {
+            if (rep != null) rep.addEntry("missing mandatory prop <type> [.'$Prompts'.'|'.2]", path);
+            return false;
+        }
+        pval = json.objectValue(val, "type");
+        // .'$Prompts'.'|'.2.type
+        res = json.isString(pval) && json.asString(pval).compareTo("menu") == 0;
+        if (! res)
+        {
+            if (rep != null) rep.addEntry("unexpected menu [.'$Prompts'.'|'.2.type]", path);
+            if (rep != null) rep.addEntry("unexpected value for mandatory prop <type> [.'$Prompts'.'|'.2]", path);
+            return false;
+        }
+        if (! json.objectHasProp(val, "title"))
+        {
+            if (rep != null) rep.addEntry("missing mandatory prop <title> [.'$Prompts'.'|'.2]", path);
+            return false;
+        }
+        pval = json.objectValue(val, "title");
+        // .'$Prompts'.'|'.2.title
+        res = json_model_6(pval, path, rep);
+        if (! res)
+        {
+            if (rep != null) rep.addEntry("unexpected $custom-commands-prompts-title-property [.'$Prompts'.'|'.2.title]", path);
+            if (rep != null) rep.addEntry("unexpected value for mandatory prop <title> [.'$Prompts'.'|'.2]", path);
+            return false;
+        }
+        if (! json.objectHasProp(val, "key"))
+        {
+            if (rep != null) rep.addEntry("missing mandatory prop <key> [.'$Prompts'.'|'.2]", path);
+            return false;
+        }
+        pval = json.objectValue(val, "key");
+        // .'$Prompts'.'|'.2.key
+        res = json_model_7(pval, path, rep);
+        if (! res)
+        {
+            if (rep != null) rep.addEntry("unexpected $custom-commands-prompts-key-property [.'$Prompts'.'|'.2.key]", path);
+            if (rep != null) rep.addEntry("unexpected value for mandatory prop <key> [.'$Prompts'.'|'.2]", path);
+            return false;
+        }
+        if (! json.objectHasProp(val, "options"))
+        {
+            if (rep != null) rep.addEntry("missing mandatory prop <options> [.'$Prompts'.'|'.2]", path);
+            return false;
+        }
+        pval = json.objectValue(val, "options");
+        // .'$Prompts'.'|'.2.options
+        // .'$Prompts'.'|'.2.options.'@'
+        res = json.isArray(pval);
+        if (res)
+        {
+            int arr_2_idx = -1;
+            Iterator<Object> arr_2_item_loop = json.arrayIterator(pval);
+            while (arr_2_item_loop.hasNext())
             {
-                // handle must type property
-                must_count += 1;
-                // .'$Prompts'.'|'.2.type
-                res = json.isString(pval) && json.asString(pval).compareTo("menu") == 0;
+                arr_2_idx++;
+                Object arr_2_item = arr_2_item_loop.next();
+                Path arr_2_lpath = new Path(arr_2_idx, path);
+                // .'$Prompts'.'|'.2.options.'@'.0
+                res = _jm_obj_5(arr_2_item, (path != null ? arr_2_lpath : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected menu [.'$Prompts'.'|'.2.type]", (path != null ? lpath_4 : null));
-                    if (rep != null) rep.addEntry("invalid mandatory prop value [.'$Prompts'.'|'.2.type]", (path != null ? lpath_4 : null));
-                    return false;
+                    if (rep != null) rep.addEntry("unexpected element [.'$Prompts'.'|'.2.options.'@'.0]", (path != null ? arr_2_lpath : null));
+                    break;
                 }
-            }
-            else if (prop.compareTo("title") == 0)
-            {
-                // handle must title property
-                must_count += 1;
-                // .'$Prompts'.'|'.2.title
-                res = json_model_6(pval, (path != null ? lpath_4 : null), rep);
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("unexpected $custom-commands-prompts-title-property [.'$Prompts'.'|'.2.title]", (path != null ? lpath_4 : null));
-                    if (rep != null) rep.addEntry("invalid mandatory prop value [.'$Prompts'.'|'.2.title]", (path != null ? lpath_4 : null));
-                    return false;
-                }
-            }
-            else if (prop.compareTo("key") == 0)
-            {
-                // handle must key property
-                must_count += 1;
-                // .'$Prompts'.'|'.2.key
-                res = json_model_7(pval, (path != null ? lpath_4 : null), rep);
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("unexpected $custom-commands-prompts-key-property [.'$Prompts'.'|'.2.key]", (path != null ? lpath_4 : null));
-                    if (rep != null) rep.addEntry("invalid mandatory prop value [.'$Prompts'.'|'.2.key]", (path != null ? lpath_4 : null));
-                    return false;
-                }
-            }
-            else if (prop.compareTo("options") == 0)
-            {
-                // handle must options property
-                must_count += 1;
-                // .'$Prompts'.'|'.2.options
-                // .'$Prompts'.'|'.2.options.'@'
-                res = json.isArray(pval);
-                if (res)
-                {
-                    int arr_2_idx = -1;
-                    Iterator<Object> arr_2_item_loop = json.arrayIterator(pval);
-                    while (arr_2_item_loop.hasNext())
-                    {
-                        arr_2_idx++;
-                        Object arr_2_item = arr_2_item_loop.next();
-                        Path arr_2_lpath = new Path(arr_2_idx, (path != null ? lpath_4 : null));
-                        // .'$Prompts'.'|'.2.options.'@'.0
-                        res = _jm_obj_5(arr_2_item, ((path != null ? lpath_4 : null) != null ? arr_2_lpath : null), rep);
-                        if (! res)
-                        {
-                            if (rep != null) rep.addEntry("unexpected element [.'$Prompts'.'|'.2.options.'@'.0]", ((path != null ? lpath_4 : null) != null ? arr_2_lpath : null));
-                            break;
-                        }
-                    }
-                }
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("not array or unexpected array [.'$Prompts'.'|'.2.options.'@']", (path != null ? lpath_4 : null));
-                }
-                if (res)
-                {
-                    res = rt.array_is_unique(pval, (path != null ? lpath_4 : null), rep);
-                    if (! res)
-                    {
-                        if (rep != null) rep.addEntry("constraints failed [.'$Prompts'.'|'.2.options]", (path != null ? lpath_4 : null));
-                    }
-                }
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("invalid mandatory prop value [.'$Prompts'.'|'.2.options]", (path != null ? lpath_4 : null));
-                    return false;
-                }
-            }
-            else
-            {
-                if (rep != null) rep.addEntry("unexpected prop [.'$Prompts'.'|'.2]", (path != null ? lpath_4 : null));
-                return false;
             }
         }
-        if (must_count != 4)
+        if (! res)
         {
-            if (rep != null)
+            if (rep != null) rep.addEntry("not array or unexpected array [.'$Prompts'.'|'.2.options.'@']", path);
+        }
+        if (res)
+        {
+            res = rt.array_is_unique(pval, path, rep);
+            if (! res)
             {
-                if (! json.objectHasProp(val, "key"))
-                {
-                    if (rep != null) rep.addEntry("missing mandatory prop <key> [.'$Prompts'.'|'.2]", path);
-                }
-                if (! json.objectHasProp(val, "options"))
-                {
-                    if (rep != null) rep.addEntry("missing mandatory prop <options> [.'$Prompts'.'|'.2]", path);
-                }
-                if (! json.objectHasProp(val, "title"))
-                {
-                    if (rep != null) rep.addEntry("missing mandatory prop <title> [.'$Prompts'.'|'.2]", path);
-                }
-                if (! json.objectHasProp(val, "type"))
-                {
-                    if (rep != null) rep.addEntry("missing mandatory prop <type> [.'$Prompts'.'|'.2]", path);
-                }
+                if (rep != null) rep.addEntry("constraints failed [.'$Prompts'.'|'.2.options]", path);
             }
+        }
+        if (! res)
+        {
+            if (rep != null) rep.addEntry("unexpected value for mandatory prop <options> [.'$Prompts'.'|'.2]", path);
             return false;
         }
         return true;
@@ -815,7 +758,7 @@ public class lazygit extends ModelChecker
         {
             String prop = prop_loop.next();
             Object pval = json.objectValue(val, prop);
-            Path lpath_6 = new Path(prop, path);
+            Path lpath_3 = new Path(prop, path);
             if (prop.compareTo("type") == 0)
             {
                 // handle must type property
@@ -824,8 +767,8 @@ public class lazygit extends ModelChecker
                 res = json.isString(pval) && json.asString(pval).compareTo("menuFromCommand") == 0;
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected menuFromCommand [.'$Prompts'.'|'.3.type]", (path != null ? lpath_6 : null));
-                    if (rep != null) rep.addEntry("invalid mandatory prop value [.'$Prompts'.'|'.3.type]", (path != null ? lpath_6 : null));
+                    if (rep != null) rep.addEntry("unexpected menuFromCommand [.'$Prompts'.'|'.3.type]", (path != null ? lpath_3 : null));
+                    if (rep != null) rep.addEntry("invalid mandatory prop value [.'$Prompts'.'|'.3.type]", (path != null ? lpath_3 : null));
                     return false;
                 }
             }
@@ -834,11 +777,11 @@ public class lazygit extends ModelChecker
                 // handle must title property
                 must_count += 1;
                 // .'$Prompts'.'|'.3.title
-                res = json_model_6(pval, (path != null ? lpath_6 : null), rep);
+                res = json_model_6(pval, (path != null ? lpath_3 : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $custom-commands-prompts-title-property [.'$Prompts'.'|'.3.title]", (path != null ? lpath_6 : null));
-                    if (rep != null) rep.addEntry("invalid mandatory prop value [.'$Prompts'.'|'.3.title]", (path != null ? lpath_6 : null));
+                    if (rep != null) rep.addEntry("unexpected $custom-commands-prompts-title-property [.'$Prompts'.'|'.3.title]", (path != null ? lpath_3 : null));
+                    if (rep != null) rep.addEntry("invalid mandatory prop value [.'$Prompts'.'|'.3.title]", (path != null ? lpath_3 : null));
                     return false;
                 }
             }
@@ -847,11 +790,11 @@ public class lazygit extends ModelChecker
                 // handle must key property
                 must_count += 1;
                 // .'$Prompts'.'|'.3.key
-                res = json_model_7(pval, (path != null ? lpath_6 : null), rep);
+                res = json_model_7(pval, (path != null ? lpath_3 : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $custom-commands-prompts-key-property [.'$Prompts'.'|'.3.key]", (path != null ? lpath_6 : null));
-                    if (rep != null) rep.addEntry("invalid mandatory prop value [.'$Prompts'.'|'.3.key]", (path != null ? lpath_6 : null));
+                    if (rep != null) rep.addEntry("unexpected $custom-commands-prompts-key-property [.'$Prompts'.'|'.3.key]", (path != null ? lpath_3 : null));
+                    if (rep != null) rep.addEntry("invalid mandatory prop value [.'$Prompts'.'|'.3.key]", (path != null ? lpath_3 : null));
                     return false;
                 }
             }
@@ -863,8 +806,8 @@ public class lazygit extends ModelChecker
                 res = json.isString(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.'$Prompts'.'|'.3.command]", (path != null ? lpath_6 : null));
-                    if (rep != null) rep.addEntry("invalid mandatory prop value [.'$Prompts'.'|'.3.command]", (path != null ? lpath_6 : null));
+                    if (rep != null) rep.addEntry("unexpected string [.'$Prompts'.'|'.3.command]", (path != null ? lpath_3 : null));
+                    if (rep != null) rep.addEntry("invalid mandatory prop value [.'$Prompts'.'|'.3.command]", (path != null ? lpath_3 : null));
                     return false;
                 }
             }
@@ -875,8 +818,8 @@ public class lazygit extends ModelChecker
                 res = json.isString(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.'$Prompts'.'|'.3.filter]", (path != null ? lpath_6 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$Prompts'.'|'.3.filter]", (path != null ? lpath_6 : null));
+                    if (rep != null) rep.addEntry("unexpected string [.'$Prompts'.'|'.3.filter]", (path != null ? lpath_3 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$Prompts'.'|'.3.filter]", (path != null ? lpath_3 : null));
                     return false;
                 }
             }
@@ -887,8 +830,8 @@ public class lazygit extends ModelChecker
                 res = json.isString(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.'$Prompts'.'|'.3.valueFormat]", (path != null ? lpath_6 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$Prompts'.'|'.3.valueFormat]", (path != null ? lpath_6 : null));
+                    if (rep != null) rep.addEntry("unexpected string [.'$Prompts'.'|'.3.valueFormat]", (path != null ? lpath_3 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$Prompts'.'|'.3.valueFormat]", (path != null ? lpath_3 : null));
                     return false;
                 }
             }
@@ -899,14 +842,14 @@ public class lazygit extends ModelChecker
                 res = json.isString(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.'$Prompts'.'|'.3.labelFormat]", (path != null ? lpath_6 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$Prompts'.'|'.3.labelFormat]", (path != null ? lpath_6 : null));
+                    if (rep != null) rep.addEntry("unexpected string [.'$Prompts'.'|'.3.labelFormat]", (path != null ? lpath_3 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$Prompts'.'|'.3.labelFormat]", (path != null ? lpath_3 : null));
                     return false;
                 }
             }
             else
             {
-                if (rep != null) rep.addEntry("unexpected prop [.'$Prompts'.'|'.3]", (path != null ? lpath_6 : null));
+                if (rep != null) rep.addEntry("unexpected prop [.'$Prompts'.'|'.3]", (path != null ? lpath_3 : null));
                 return false;
             }
         }
@@ -1001,7 +944,7 @@ public class lazygit extends ModelChecker
         {
             String prop = prop_loop.next();
             Object pval = json.objectValue(val, prop);
-            Path lpath_9 = new Path(prop, path);
+            Path lpath_6 = new Path(prop, path);
             if (prop.compareTo("checkForConflicts") == 0)
             {
                 // handle may checkForConflicts property
@@ -1009,14 +952,14 @@ public class lazygit extends ModelChecker
                 res = json.isBoolean(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("not a bool [.customCommands.'@'.0.after.checkForConflicts]", (path != null ? lpath_9 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.customCommands.'@'.0.after.checkForConflicts]", (path != null ? lpath_9 : null));
+                    if (rep != null) rep.addEntry("not a bool [.customCommands.'@'.0.after.checkForConflicts]", (path != null ? lpath_6 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.customCommands.'@'.0.after.checkForConflicts]", (path != null ? lpath_6 : null));
                     return false;
                 }
             }
             else
             {
-                if (rep != null) rep.addEntry("unexpected prop [.customCommands.'@'.0.after]", (path != null ? lpath_9 : null));
+                if (rep != null) rep.addEntry("unexpected prop [.customCommands.'@'.0.after]", (path != null ? lpath_6 : null));
                 return false;
             }
         }
@@ -1149,17 +1092,17 @@ public class lazygit extends ModelChecker
         {
             String prop = prop_loop.next();
             Object pval = json.objectValue(val, prop);
-            Path lpath_8 = new Path(prop, path);
+            Path lpath_5 = new Path(prop, path);
             if (prop.compareTo("key") == 0)
             {
                 // handle must key property
                 must_count += 1;
                 // .customCommands.'@'.0.key
-                res = json_model_4(pval, (path != null ? lpath_8 : null), rep);
+                res = json_model_4(pval, (path != null ? lpath_5 : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $keybinding [.customCommands.'@'.0.key]", (path != null ? lpath_8 : null));
-                    if (rep != null) rep.addEntry("invalid mandatory prop value [.customCommands.'@'.0.key]", (path != null ? lpath_8 : null));
+                    if (rep != null) rep.addEntry("unexpected $keybinding [.customCommands.'@'.0.key]", (path != null ? lpath_5 : null));
+                    if (rep != null) rep.addEntry("invalid mandatory prop value [.customCommands.'@'.0.key]", (path != null ? lpath_5 : null));
                     return false;
                 }
             }
@@ -1171,8 +1114,8 @@ public class lazygit extends ModelChecker
                 res = json.isString(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.customCommands.'@'.0.command]", (path != null ? lpath_8 : null));
-                    if (rep != null) rep.addEntry("invalid mandatory prop value [.customCommands.'@'.0.command]", (path != null ? lpath_8 : null));
+                    if (rep != null) rep.addEntry("unexpected string [.customCommands.'@'.0.command]", (path != null ? lpath_5 : null));
+                    if (rep != null) rep.addEntry("invalid mandatory prop value [.customCommands.'@'.0.command]", (path != null ? lpath_5 : null));
                     return false;
                 }
             }
@@ -1184,23 +1127,23 @@ public class lazygit extends ModelChecker
                 res = json.isScalar(pval) && _jm_cst_3_set.contains(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("value not in enum [.customCommands.'@'.0.context.'|']", (path != null ? lpath_8 : null));
-                    if (rep != null) rep.addEntry("invalid mandatory prop value [.customCommands.'@'.0.context]", (path != null ? lpath_8 : null));
+                    if (rep != null) rep.addEntry("value not in enum [.customCommands.'@'.0.context.'|']", (path != null ? lpath_5 : null));
+                    if (rep != null) rep.addEntry("invalid mandatory prop value [.customCommands.'@'.0.context]", (path != null ? lpath_5 : null));
                     return false;
                 }
             }
             else if ((pfun = _jm_obj_8_map_pmap.get(prop)) != null)
             {
                 // handle 7 may props
-                if (pfun != null && ! (pfun.call(pval, (path != null ? lpath_8 : null), rep)))
+                if (pfun != null && ! (pfun.call(pval, (path != null ? lpath_5 : null), rep)))
                 {
-                    if (rep != null) rep.addEntry("invalid optional prop value [.customCommands.'@'.0]", (path != null ? lpath_8 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.customCommands.'@'.0]", (path != null ? lpath_5 : null));
                     return false;
                 }
             }
             else
             {
-                if (rep != null) rep.addEntry("unexpected prop [.customCommands.'@'.0]", (path != null ? lpath_8 : null));
+                if (rep != null) rep.addEntry("unexpected prop [.customCommands.'@'.0]", (path != null ? lpath_5 : null));
                 return false;
             }
         }
@@ -1345,7 +1288,7 @@ public class lazygit extends ModelChecker
         {
             String prop = prop_loop.next();
             Object pval = json.objectValue(val, prop);
-            Path lpath_11 = new Path(prop, path);
+            Path lpath_8 = new Path(prop, path);
             if (prop.compareTo("signOff") == 0)
             {
                 // handle may signOff property
@@ -1353,14 +1296,14 @@ public class lazygit extends ModelChecker
                 res = json.isBoolean(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("not a bool [.git.commit.signOff]", (path != null ? lpath_11 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.git.commit.signOff]", (path != null ? lpath_11 : null));
+                    if (rep != null) rep.addEntry("not a bool [.git.commit.signOff]", (path != null ? lpath_8 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.git.commit.signOff]", (path != null ? lpath_8 : null));
                     return false;
                 }
             }
             else
             {
-                if (rep != null) rep.addEntry("unexpected prop [.git.commit]", (path != null ? lpath_11 : null));
+                if (rep != null) rep.addEntry("unexpected prop [.git.commit]", (path != null ? lpath_8 : null));
                 return false;
             }
         }
@@ -1388,64 +1331,45 @@ public class lazygit extends ModelChecker
     // object .git.commitPrefixes.'/./'
     public boolean _jm_obj_13(Object val, Path path, Report rep)
     {
+        // check close must only props
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.git.commitPrefixes.'/./']", path);
             return false;
         }
-        boolean res;
-        long must_count = 0;
-        Iterator<String> prop_loop = json.objectIterator(val);
-        while (prop_loop.hasNext())
+        if (json.objectSize(val) != 2)
         {
-            String prop = prop_loop.next();
-            Object pval = json.objectValue(val, prop);
-            Path lpath_13 = new Path(prop, path);
-            if (prop.compareTo("pattern") == 0)
-            {
-                // handle must pattern property
-                must_count += 1;
-                // .git.commitPrefixes.'/./'.pattern
-                res = json_model_8(pval, (path != null ? lpath_13 : null), rep);
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("unexpected $neString [.git.commitPrefixes.'/./'.pattern]", (path != null ? lpath_13 : null));
-                    if (rep != null) rep.addEntry("invalid mandatory prop value [.git.commitPrefixes.'/./'.pattern]", (path != null ? lpath_13 : null));
-                    return false;
-                }
-            }
-            else if (prop.compareTo("replace") == 0)
-            {
-                // handle must replace property
-                must_count += 1;
-                // .git.commitPrefixes.'/./'.replace
-                res = json_model_8(pval, (path != null ? lpath_13 : null), rep);
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("unexpected $neString [.git.commitPrefixes.'/./'.replace]", (path != null ? lpath_13 : null));
-                    if (rep != null) rep.addEntry("invalid mandatory prop value [.git.commitPrefixes.'/./'.replace]", (path != null ? lpath_13 : null));
-                    return false;
-                }
-            }
-            else
-            {
-                if (rep != null) rep.addEntry("unexpected prop [.git.commitPrefixes.'/./']", (path != null ? lpath_13 : null));
-                return false;
-            }
+            if (rep != null) rep.addEntry("bad property count [.git.commitPrefixes.'/./']", path);
+            return false;
         }
-        if (must_count != 2)
+        Object pval;
+        boolean res;
+        if (! json.objectHasProp(val, "pattern"))
         {
-            if (rep != null)
-            {
-                if (! json.objectHasProp(val, "pattern"))
-                {
-                    if (rep != null) rep.addEntry("missing mandatory prop <pattern> [.git.commitPrefixes.'/./']", path);
-                }
-                if (! json.objectHasProp(val, "replace"))
-                {
-                    if (rep != null) rep.addEntry("missing mandatory prop <replace> [.git.commitPrefixes.'/./']", path);
-                }
-            }
+            if (rep != null) rep.addEntry("missing mandatory prop <pattern> [.git.commitPrefixes.'/./']", path);
+            return false;
+        }
+        pval = json.objectValue(val, "pattern");
+        // .git.commitPrefixes.'/./'.pattern
+        res = json_model_8(pval, path, rep);
+        if (! res)
+        {
+            if (rep != null) rep.addEntry("unexpected $neString [.git.commitPrefixes.'/./'.pattern]", path);
+            if (rep != null) rep.addEntry("unexpected value for mandatory prop <pattern> [.git.commitPrefixes.'/./']", path);
+            return false;
+        }
+        if (! json.objectHasProp(val, "replace"))
+        {
+            if (rep != null) rep.addEntry("missing mandatory prop <replace> [.git.commitPrefixes.'/./']", path);
+            return false;
+        }
+        pval = json.objectValue(val, "replace");
+        // .git.commitPrefixes.'/./'.replace
+        res = json_model_8(pval, path, rep);
+        if (! res)
+        {
+            if (rep != null) rep.addEntry("unexpected $neString [.git.commitPrefixes.'/./'.replace]", path);
+            if (rep != null) rep.addEntry("unexpected value for mandatory prop <replace> [.git.commitPrefixes.'/./']", path);
             return false;
         }
         return true;
@@ -1465,21 +1389,21 @@ public class lazygit extends ModelChecker
         {
             String prop = prop_loop.next();
             Object pval = json.objectValue(val, prop);
-            Path lpath_12 = new Path(prop, path);
+            Path lpath_9 = new Path(prop, path);
             if (_jm_re_1(prop, path, rep))
             {
                 // handle 1 re props
                 // .git.commitPrefixes.'/./'
-                res = _jm_obj_13(pval, (path != null ? lpath_12 : null), rep);
+                res = _jm_obj_13(pval, (path != null ? lpath_9 : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected element [.git.commitPrefixes.'/./']", (path != null ? lpath_12 : null));
+                    if (rep != null) rep.addEntry("unexpected element [.git.commitPrefixes.'/./']", (path != null ? lpath_9 : null));
                     return false;
                 }
             }
             else
             {
-                if (rep != null) rep.addEntry("unexpected prop [.git.commitPrefixes]", (path != null ? lpath_12 : null));
+                if (rep != null) rep.addEntry("unexpected prop [.git.commitPrefixes]", (path != null ? lpath_9 : null));
                 return false;
             }
         }
@@ -1554,7 +1478,7 @@ public class lazygit extends ModelChecker
         {
             String prop = prop_loop.next();
             Object pval = json.objectValue(val, prop);
-            Path lpath_14 = new Path(prop, path);
+            Path lpath_10 = new Path(prop, path);
             if (prop.compareTo("order") == 0)
             {
                 // handle may order property
@@ -1562,8 +1486,8 @@ public class lazygit extends ModelChecker
                 res = json.isScalar(pval) && _jm_cst_4_set.contains(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("value not in enum [.git.log.order.'|']", (path != null ? lpath_14 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.git.log.order]", (path != null ? lpath_14 : null));
+                    if (rep != null) rep.addEntry("value not in enum [.git.log.order.'|']", (path != null ? lpath_10 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.git.log.order]", (path != null ? lpath_10 : null));
                     return false;
                 }
             }
@@ -1574,8 +1498,8 @@ public class lazygit extends ModelChecker
                 res = json.isScalar(pval) && _jm_cst_5_set.contains(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("value not in enum [.git.log.showGraph.'|']", (path != null ? lpath_14 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.git.log.showGraph]", (path != null ? lpath_14 : null));
+                    if (rep != null) rep.addEntry("value not in enum [.git.log.showGraph.'|']", (path != null ? lpath_10 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.git.log.showGraph]", (path != null ? lpath_10 : null));
                     return false;
                 }
             }
@@ -1586,14 +1510,14 @@ public class lazygit extends ModelChecker
                 res = json.isBoolean(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("not a bool [.git.log.showWholeGraph]", (path != null ? lpath_14 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.git.log.showWholeGraph]", (path != null ? lpath_14 : null));
+                    if (rep != null) rep.addEntry("not a bool [.git.log.showWholeGraph]", (path != null ? lpath_10 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.git.log.showWholeGraph]", (path != null ? lpath_10 : null));
                     return false;
                 }
             }
             else
             {
-                if (rep != null) rep.addEntry("unexpected prop [.git.log]", (path != null ? lpath_14 : null));
+                if (rep != null) rep.addEntry("unexpected prop [.git.log]", (path != null ? lpath_10 : null));
                 return false;
             }
         }
@@ -1640,7 +1564,7 @@ public class lazygit extends ModelChecker
         {
             String prop = prop_loop.next();
             Object pval = json.objectValue(val, prop);
-            Path lpath_15 = new Path(prop, path);
+            Path lpath_11 = new Path(prop, path);
             if (prop.compareTo("manualCommit") == 0)
             {
                 // handle may manualCommit property
@@ -1648,8 +1572,8 @@ public class lazygit extends ModelChecker
                 res = json.isBoolean(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("not a bool [.git.merging.manualCommit]", (path != null ? lpath_15 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.git.merging.manualCommit]", (path != null ? lpath_15 : null));
+                    if (rep != null) rep.addEntry("not a bool [.git.merging.manualCommit]", (path != null ? lpath_11 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.git.merging.manualCommit]", (path != null ? lpath_11 : null));
                     return false;
                 }
             }
@@ -1660,14 +1584,14 @@ public class lazygit extends ModelChecker
                 res = json.isString(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.git.merging.args]", (path != null ? lpath_15 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.git.merging.args]", (path != null ? lpath_15 : null));
+                    if (rep != null) rep.addEntry("unexpected string [.git.merging.args]", (path != null ? lpath_11 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.git.merging.args]", (path != null ? lpath_11 : null));
                     return false;
                 }
             }
             else
             {
-                if (rep != null) rep.addEntry("unexpected prop [.git.merging]", (path != null ? lpath_15 : null));
+                if (rep != null) rep.addEntry("unexpected prop [.git.merging]", (path != null ? lpath_11 : null));
                 return false;
             }
         }
@@ -1715,7 +1639,7 @@ public class lazygit extends ModelChecker
         {
             String prop = prop_loop.next();
             Object pval = json.objectValue(val, prop);
-            Path lpath_16 = new Path(prop, path);
+            Path lpath_12 = new Path(prop, path);
             if (prop.compareTo("colorArg") == 0)
             {
                 // handle may colorArg property
@@ -1723,8 +1647,8 @@ public class lazygit extends ModelChecker
                 res = json.isScalar(pval) && _jm_cst_6_set.contains(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("value not in enum [.git.paging.colorArg.'|']", (path != null ? lpath_16 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.git.paging.colorArg]", (path != null ? lpath_16 : null));
+                    if (rep != null) rep.addEntry("value not in enum [.git.paging.colorArg.'|']", (path != null ? lpath_12 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.git.paging.colorArg]", (path != null ? lpath_12 : null));
                     return false;
                 }
             }
@@ -1735,8 +1659,8 @@ public class lazygit extends ModelChecker
                 res = json.isBoolean(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("not a bool [.git.paging.useConfig]", (path != null ? lpath_16 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.git.paging.useConfig]", (path != null ? lpath_16 : null));
+                    if (rep != null) rep.addEntry("not a bool [.git.paging.useConfig]", (path != null ? lpath_12 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.git.paging.useConfig]", (path != null ? lpath_12 : null));
                     return false;
                 }
             }
@@ -1748,7 +1672,7 @@ public class lazygit extends ModelChecker
                 res = json.isString(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.git.paging.pager.'@']", (path != null ? lpath_16 : null));
+                    if (rep != null) rep.addEntry("unexpected string [.git.paging.pager.'@']", (path != null ? lpath_12 : null));
                 }
                 if (res)
                 {
@@ -1756,18 +1680,18 @@ public class lazygit extends ModelChecker
                     res = ival_2 >= 1;
                     if (! res)
                     {
-                        if (rep != null) rep.addEntry("constraints failed [.git.paging.pager]", (path != null ? lpath_16 : null));
+                        if (rep != null) rep.addEntry("constraints failed [.git.paging.pager]", (path != null ? lpath_12 : null));
                     }
                 }
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("invalid optional prop value [.git.paging.pager]", (path != null ? lpath_16 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.git.paging.pager]", (path != null ? lpath_12 : null));
                     return false;
                 }
             }
             else
             {
-                if (rep != null) rep.addEntry("unexpected prop [.git.paging]", (path != null ? lpath_16 : null));
+                if (rep != null) rep.addEntry("unexpected prop [.git.paging]", (path != null ? lpath_12 : null));
                 return false;
             }
         }
@@ -1828,19 +1752,19 @@ public class lazygit extends ModelChecker
         {
             String prop = prop_loop.next();
             Object pval = json.objectValue(val, prop);
-            Path lpath_10 = new Path(prop, path);
+            Path lpath_7 = new Path(prop, path);
             if ((pfun = _jm_obj_10_map_pmap.get(prop)) != null)
             {
                 // handle 16 may props
-                if (pfun != null && ! (pfun.call(pval, (path != null ? lpath_10 : null), rep)))
+                if (pfun != null && ! (pfun.call(pval, (path != null ? lpath_7 : null), rep)))
                 {
-                    if (rep != null) rep.addEntry("invalid optional prop value [.git]", (path != null ? lpath_10 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.git]", (path != null ? lpath_7 : null));
                     return false;
                 }
             }
             else
             {
-                if (rep != null) rep.addEntry("unexpected prop [.git]", (path != null ? lpath_10 : null));
+                if (rep != null) rep.addEntry("unexpected prop [.git]", (path != null ? lpath_7 : null));
                 return false;
             }
         }
@@ -1887,21 +1811,21 @@ public class lazygit extends ModelChecker
         {
             String prop = prop_loop.next();
             Object pval = json.objectValue(val, prop);
-            Path lpath_18 = new Path(prop, path);
+            Path lpath_14 = new Path(prop, path);
             if (_jm_re_1(prop, path, rep))
             {
                 // handle 1 re props
                 // .gui.authorColors.'/./'
-                res = json_model_2(pval, (path != null ? lpath_18 : null), rep);
+                res = json_model_2(pval, (path != null ? lpath_14 : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $color [.gui.authorColors.'/./']", (path != null ? lpath_18 : null));
+                    if (rep != null) rep.addEntry("unexpected $color [.gui.authorColors.'/./']", (path != null ? lpath_14 : null));
                     return false;
                 }
             }
             else
             {
-                if (rep != null) rep.addEntry("unexpected prop [.gui.authorColors]", (path != null ? lpath_18 : null));
+                if (rep != null) rep.addEntry("unexpected prop [.gui.authorColors]", (path != null ? lpath_14 : null));
                 return false;
             }
         }
@@ -1949,21 +1873,21 @@ public class lazygit extends ModelChecker
         {
             String prop = prop_loop.next();
             Object pval = json.objectValue(val, prop);
-            Path lpath_19 = new Path(prop, path);
+            Path lpath_15 = new Path(prop, path);
             if (_jm_re_1(prop, path, rep))
             {
                 // handle 1 re props
                 // .gui.branchColors.'/./'
-                res = json_model_2(pval, (path != null ? lpath_19 : null), rep);
+                res = json_model_2(pval, (path != null ? lpath_15 : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $color [.gui.branchColors.'/./']", (path != null ? lpath_19 : null));
+                    if (rep != null) rep.addEntry("unexpected $color [.gui.branchColors.'/./']", (path != null ? lpath_15 : null));
                     return false;
                 }
             }
             else
             {
-                if (rep != null) rep.addEntry("unexpected prop [.gui.branchColors]", (path != null ? lpath_19 : null));
+                if (rep != null) rep.addEntry("unexpected prop [.gui.branchColors]", (path != null ? lpath_15 : null));
                 return false;
             }
         }
@@ -2010,7 +1934,7 @@ public class lazygit extends ModelChecker
         {
             String prop = prop_loop.next();
             Object pval = json.objectValue(val, prop);
-            Path lpath_20 = new Path(prop, path);
+            Path lpath_16 = new Path(prop, path);
             if (prop.compareTo("show") == 0)
             {
                 // handle may show property
@@ -2018,14 +1942,14 @@ public class lazygit extends ModelChecker
                 res = json.isBoolean(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("not a bool [.gui.commitLength.show]", (path != null ? lpath_20 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.gui.commitLength.show]", (path != null ? lpath_20 : null));
+                    if (rep != null) rep.addEntry("not a bool [.gui.commitLength.show]", (path != null ? lpath_16 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.gui.commitLength.show]", (path != null ? lpath_16 : null));
                     return false;
                 }
             }
             else
             {
-                if (rep != null) rep.addEntry("unexpected prop [.gui.commitLength]", (path != null ? lpath_20 : null));
+                if (rep != null) rep.addEntry("unexpected prop [.gui.commitLength]", (path != null ? lpath_16 : null));
                 return false;
             }
         }
@@ -2473,19 +2397,19 @@ public class lazygit extends ModelChecker
         {
             String prop = prop_loop.next();
             Object pval = json.objectValue(val, prop);
-            Path lpath_21 = new Path(prop, path);
+            Path lpath_17 = new Path(prop, path);
             if ((pfun = _jm_obj_21_map_pmap.get(prop)) != null)
             {
                 // handle 10 may props
-                if (pfun != null && ! (pfun.call(pval, (path != null ? lpath_21 : null), rep)))
+                if (pfun != null && ! (pfun.call(pval, (path != null ? lpath_17 : null), rep)))
                 {
-                    if (rep != null) rep.addEntry("invalid optional prop value [.gui.theme]", (path != null ? lpath_21 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.gui.theme]", (path != null ? lpath_17 : null));
                     return false;
                 }
             }
             else
             {
-                if (rep != null) rep.addEntry("unexpected prop [.gui.theme]", (path != null ? lpath_21 : null));
+                if (rep != null) rep.addEntry("unexpected prop [.gui.theme]", (path != null ? lpath_17 : null));
                 return false;
             }
         }
@@ -2547,19 +2471,19 @@ public class lazygit extends ModelChecker
         {
             String prop = prop_loop.next();
             Object pval = json.objectValue(val, prop);
-            Path lpath_17 = new Path(prop, path);
+            Path lpath_13 = new Path(prop, path);
             if ((pfun = _jm_obj_17_map_pmap.get(prop)) != null)
             {
                 // handle 28 may props
-                if (pfun != null && ! (pfun.call(pval, (path != null ? lpath_17 : null), rep)))
+                if (pfun != null && ! (pfun.call(pval, (path != null ? lpath_13 : null), rep)))
                 {
-                    if (rep != null) rep.addEntry("invalid optional prop value [.gui]", (path != null ? lpath_17 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.gui]", (path != null ? lpath_13 : null));
                     return false;
                 }
             }
             else
             {
-                if (rep != null) rep.addEntry("unexpected prop [.gui]", (path != null ? lpath_17 : null));
+                if (rep != null) rep.addEntry("unexpected prop [.gui]", (path != null ? lpath_13 : null));
                 return false;
             }
         }
@@ -2763,19 +2687,19 @@ public class lazygit extends ModelChecker
         {
             String prop = prop_loop.next();
             Object pval = json.objectValue(val, prop);
-            Path lpath_23 = new Path(prop, path);
+            Path lpath_19 = new Path(prop, path);
             if ((pfun = _jm_obj_23_map_pmap.get(prop)) != null)
             {
                 // handle 13 may props
-                if (pfun != null && ! (pfun.call(pval, (path != null ? lpath_23 : null), rep)))
+                if (pfun != null && ! (pfun.call(pval, (path != null ? lpath_19 : null), rep)))
                 {
-                    if (rep != null) rep.addEntry("invalid optional prop value [.keybinding.branches]", (path != null ? lpath_23 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.keybinding.branches]", (path != null ? lpath_19 : null));
                     return false;
                 }
             }
             else
             {
-                if (rep != null) rep.addEntry("unexpected prop [.keybinding.branches]", (path != null ? lpath_23 : null));
+                if (rep != null) rep.addEntry("unexpected prop [.keybinding.branches]", (path != null ? lpath_19 : null));
                 return false;
             }
         }
@@ -2809,22 +2733,22 @@ public class lazygit extends ModelChecker
         {
             String prop = prop_loop.next();
             Object pval = json.objectValue(val, prop);
-            Path lpath_24 = new Path(prop, path);
+            Path lpath_20 = new Path(prop, path);
             if (prop.compareTo("checkoutCommitFile") == 0)
             {
                 // handle may checkoutCommitFile property
                 // .keybinding.commitFiles.checkoutCommitFile
-                res = json_model_4(pval, (path != null ? lpath_24 : null), rep);
+                res = json_model_4(pval, (path != null ? lpath_20 : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $keybinding [.keybinding.commitFiles.checkoutCommitFile]", (path != null ? lpath_24 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.keybinding.commitFiles.checkoutCommitFile]", (path != null ? lpath_24 : null));
+                    if (rep != null) rep.addEntry("unexpected $keybinding [.keybinding.commitFiles.checkoutCommitFile]", (path != null ? lpath_20 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.keybinding.commitFiles.checkoutCommitFile]", (path != null ? lpath_20 : null));
                     return false;
                 }
             }
             else
             {
-                if (rep != null) rep.addEntry("unexpected prop [.keybinding.commitFiles]", (path != null ? lpath_24 : null));
+                if (rep != null) rep.addEntry("unexpected prop [.keybinding.commitFiles]", (path != null ? lpath_20 : null));
                 return false;
             }
         }
@@ -3132,19 +3056,19 @@ public class lazygit extends ModelChecker
         {
             String prop = prop_loop.next();
             Object pval = json.objectValue(val, prop);
-            Path lpath_25 = new Path(prop, path);
+            Path lpath_21 = new Path(prop, path);
             if ((pfun = _jm_obj_25_map_pmap.get(prop)) != null)
             {
                 // handle 21 may props
-                if (pfun != null && ! (pfun.call(pval, (path != null ? lpath_25 : null), rep)))
+                if (pfun != null && ! (pfun.call(pval, (path != null ? lpath_21 : null), rep)))
                 {
-                    if (rep != null) rep.addEntry("invalid optional prop value [.keybinding.commits]", (path != null ? lpath_25 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.keybinding.commits]", (path != null ? lpath_21 : null));
                     return false;
                 }
             }
             else
             {
-                if (rep != null) rep.addEntry("unexpected prop [.keybinding.commits]", (path != null ? lpath_25 : null));
+                if (rep != null) rep.addEntry("unexpected prop [.keybinding.commits]", (path != null ? lpath_21 : null));
                 return false;
             }
         }
@@ -3361,19 +3285,19 @@ public class lazygit extends ModelChecker
         {
             String prop = prop_loop.next();
             Object pval = json.objectValue(val, prop);
-            Path lpath_26 = new Path(prop, path);
+            Path lpath_22 = new Path(prop, path);
             if ((pfun = _jm_obj_26_map_pmap.get(prop)) != null)
             {
                 // handle 14 may props
-                if (pfun != null && ! (pfun.call(pval, (path != null ? lpath_26 : null), rep)))
+                if (pfun != null && ! (pfun.call(pval, (path != null ? lpath_22 : null), rep)))
                 {
-                    if (rep != null) rep.addEntry("invalid optional prop value [.keybinding.files]", (path != null ? lpath_26 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.keybinding.files]", (path != null ? lpath_22 : null));
                     return false;
                 }
             }
             else
             {
-                if (rep != null) rep.addEntry("unexpected prop [.keybinding.files]", (path != null ? lpath_26 : null));
+                if (rep != null) rep.addEntry("unexpected prop [.keybinding.files]", (path != null ? lpath_22 : null));
                 return false;
             }
         }
@@ -3407,16 +3331,16 @@ public class lazygit extends ModelChecker
         {
             String prop = prop_loop.next();
             Object pval = json.objectValue(val, prop);
-            Path lpath_27 = new Path(prop, path);
+            Path lpath_23 = new Path(prop, path);
             if (prop.compareTo("toggleDragSelect") == 0)
             {
                 // handle may toggleDragSelect property
                 // .keybinding.main.toggleDragSelect
-                res = json_model_4(pval, (path != null ? lpath_27 : null), rep);
+                res = json_model_4(pval, (path != null ? lpath_23 : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $keybinding [.keybinding.main.toggleDragSelect]", (path != null ? lpath_27 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.keybinding.main.toggleDragSelect]", (path != null ? lpath_27 : null));
+                    if (rep != null) rep.addEntry("unexpected $keybinding [.keybinding.main.toggleDragSelect]", (path != null ? lpath_23 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.keybinding.main.toggleDragSelect]", (path != null ? lpath_23 : null));
                     return false;
                 }
             }
@@ -3424,11 +3348,11 @@ public class lazygit extends ModelChecker
             {
                 // handle may toggleDragSelect-alt property
                 // .keybinding.main.'toggleDragSelect-alt'
-                res = json_model_4(pval, (path != null ? lpath_27 : null), rep);
+                res = json_model_4(pval, (path != null ? lpath_23 : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $keybinding [.keybinding.main.'toggleDragSelect-alt']", (path != null ? lpath_27 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.keybinding.main.'toggleDragSelect-alt']", (path != null ? lpath_27 : null));
+                    if (rep != null) rep.addEntry("unexpected $keybinding [.keybinding.main.'toggleDragSelect-alt']", (path != null ? lpath_23 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.keybinding.main.'toggleDragSelect-alt']", (path != null ? lpath_23 : null));
                     return false;
                 }
             }
@@ -3436,11 +3360,11 @@ public class lazygit extends ModelChecker
             {
                 // handle may toggleSelectHunk property
                 // .keybinding.main.toggleSelectHunk
-                res = json_model_4(pval, (path != null ? lpath_27 : null), rep);
+                res = json_model_4(pval, (path != null ? lpath_23 : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $keybinding [.keybinding.main.toggleSelectHunk]", (path != null ? lpath_27 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.keybinding.main.toggleSelectHunk]", (path != null ? lpath_27 : null));
+                    if (rep != null) rep.addEntry("unexpected $keybinding [.keybinding.main.toggleSelectHunk]", (path != null ? lpath_23 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.keybinding.main.toggleSelectHunk]", (path != null ? lpath_23 : null));
                     return false;
                 }
             }
@@ -3448,17 +3372,17 @@ public class lazygit extends ModelChecker
             {
                 // handle may pickBothHunks property
                 // .keybinding.main.pickBothHunks
-                res = json_model_4(pval, (path != null ? lpath_27 : null), rep);
+                res = json_model_4(pval, (path != null ? lpath_23 : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $keybinding [.keybinding.main.pickBothHunks]", (path != null ? lpath_27 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.keybinding.main.pickBothHunks]", (path != null ? lpath_27 : null));
+                    if (rep != null) rep.addEntry("unexpected $keybinding [.keybinding.main.pickBothHunks]", (path != null ? lpath_23 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.keybinding.main.pickBothHunks]", (path != null ? lpath_23 : null));
                     return false;
                 }
             }
             else
             {
-                if (rep != null) rep.addEntry("unexpected prop [.keybinding.main]", (path != null ? lpath_27 : null));
+                if (rep != null) rep.addEntry("unexpected prop [.keybinding.main]", (path != null ? lpath_23 : null));
                 return false;
             }
         }
@@ -3492,16 +3416,16 @@ public class lazygit extends ModelChecker
         {
             String prop = prop_loop.next();
             Object pval = json.objectValue(val, prop);
-            Path lpath_28 = new Path(prop, path);
+            Path lpath_24 = new Path(prop, path);
             if (prop.compareTo("popStash") == 0)
             {
                 // handle may popStash property
                 // .keybinding.stash.popStash
-                res = json_model_4(pval, (path != null ? lpath_28 : null), rep);
+                res = json_model_4(pval, (path != null ? lpath_24 : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $keybinding [.keybinding.stash.popStash]", (path != null ? lpath_28 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.keybinding.stash.popStash]", (path != null ? lpath_28 : null));
+                    if (rep != null) rep.addEntry("unexpected $keybinding [.keybinding.stash.popStash]", (path != null ? lpath_24 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.keybinding.stash.popStash]", (path != null ? lpath_24 : null));
                     return false;
                 }
             }
@@ -3509,17 +3433,17 @@ public class lazygit extends ModelChecker
             {
                 // handle may renameStash property
                 // .keybinding.stash.renameStash
-                res = json_model_4(pval, (path != null ? lpath_28 : null), rep);
+                res = json_model_4(pval, (path != null ? lpath_24 : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $keybinding [.keybinding.stash.renameStash]", (path != null ? lpath_28 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.keybinding.stash.renameStash]", (path != null ? lpath_28 : null));
+                    if (rep != null) rep.addEntry("unexpected $keybinding [.keybinding.stash.renameStash]", (path != null ? lpath_24 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.keybinding.stash.renameStash]", (path != null ? lpath_24 : null));
                     return false;
                 }
             }
             else
             {
-                if (rep != null) rep.addEntry("unexpected prop [.keybinding.stash]", (path != null ? lpath_28 : null));
+                if (rep != null) rep.addEntry("unexpected prop [.keybinding.stash]", (path != null ? lpath_24 : null));
                 return false;
             }
         }
@@ -3553,16 +3477,16 @@ public class lazygit extends ModelChecker
         {
             String prop = prop_loop.next();
             Object pval = json.objectValue(val, prop);
-            Path lpath_29 = new Path(prop, path);
+            Path lpath_25 = new Path(prop, path);
             if (prop.compareTo("checkForUpdate") == 0)
             {
                 // handle may checkForUpdate property
                 // .keybinding.status.checkForUpdate
-                res = json_model_4(pval, (path != null ? lpath_29 : null), rep);
+                res = json_model_4(pval, (path != null ? lpath_25 : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $keybinding [.keybinding.status.checkForUpdate]", (path != null ? lpath_29 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.keybinding.status.checkForUpdate]", (path != null ? lpath_29 : null));
+                    if (rep != null) rep.addEntry("unexpected $keybinding [.keybinding.status.checkForUpdate]", (path != null ? lpath_25 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.keybinding.status.checkForUpdate]", (path != null ? lpath_25 : null));
                     return false;
                 }
             }
@@ -3570,17 +3494,17 @@ public class lazygit extends ModelChecker
             {
                 // handle may recentRepos property
                 // .keybinding.status.recentRepos
-                res = json_model_4(pval, (path != null ? lpath_29 : null), rep);
+                res = json_model_4(pval, (path != null ? lpath_25 : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $keybinding [.keybinding.status.recentRepos]", (path != null ? lpath_29 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.keybinding.status.recentRepos]", (path != null ? lpath_29 : null));
+                    if (rep != null) rep.addEntry("unexpected $keybinding [.keybinding.status.recentRepos]", (path != null ? lpath_25 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.keybinding.status.recentRepos]", (path != null ? lpath_25 : null));
                     return false;
                 }
             }
             else
             {
-                if (rep != null) rep.addEntry("unexpected prop [.keybinding.status]", (path != null ? lpath_29 : null));
+                if (rep != null) rep.addEntry("unexpected prop [.keybinding.status]", (path != null ? lpath_25 : null));
                 return false;
             }
         }
@@ -3614,16 +3538,16 @@ public class lazygit extends ModelChecker
         {
             String prop = prop_loop.next();
             Object pval = json.objectValue(val, prop);
-            Path lpath_30 = new Path(prop, path);
+            Path lpath_26 = new Path(prop, path);
             if (prop.compareTo("init") == 0)
             {
                 // handle may init property
                 // .keybinding.submodules.init
-                res = json_model_4(pval, (path != null ? lpath_30 : null), rep);
+                res = json_model_4(pval, (path != null ? lpath_26 : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $keybinding [.keybinding.submodules.init]", (path != null ? lpath_30 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.keybinding.submodules.init]", (path != null ? lpath_30 : null));
+                    if (rep != null) rep.addEntry("unexpected $keybinding [.keybinding.submodules.init]", (path != null ? lpath_26 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.keybinding.submodules.init]", (path != null ? lpath_26 : null));
                     return false;
                 }
             }
@@ -3631,11 +3555,11 @@ public class lazygit extends ModelChecker
             {
                 // handle may update property
                 // .keybinding.submodules.update
-                res = json_model_4(pval, (path != null ? lpath_30 : null), rep);
+                res = json_model_4(pval, (path != null ? lpath_26 : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $keybinding [.keybinding.submodules.update]", (path != null ? lpath_30 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.keybinding.submodules.update]", (path != null ? lpath_30 : null));
+                    if (rep != null) rep.addEntry("unexpected $keybinding [.keybinding.submodules.update]", (path != null ? lpath_26 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.keybinding.submodules.update]", (path != null ? lpath_26 : null));
                     return false;
                 }
             }
@@ -3643,17 +3567,17 @@ public class lazygit extends ModelChecker
             {
                 // handle may bulkMenu property
                 // .keybinding.submodules.bulkMenu
-                res = json_model_4(pval, (path != null ? lpath_30 : null), rep);
+                res = json_model_4(pval, (path != null ? lpath_26 : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $keybinding [.keybinding.submodules.bulkMenu]", (path != null ? lpath_30 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.keybinding.submodules.bulkMenu]", (path != null ? lpath_30 : null));
+                    if (rep != null) rep.addEntry("unexpected $keybinding [.keybinding.submodules.bulkMenu]", (path != null ? lpath_26 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.keybinding.submodules.bulkMenu]", (path != null ? lpath_26 : null));
                     return false;
                 }
             }
             else
             {
-                if (rep != null) rep.addEntry("unexpected prop [.keybinding.submodules]", (path != null ? lpath_30 : null));
+                if (rep != null) rep.addEntry("unexpected prop [.keybinding.submodules]", (path != null ? lpath_26 : null));
                 return false;
             }
         }
@@ -4455,19 +4379,19 @@ public class lazygit extends ModelChecker
         {
             String prop = prop_loop.next();
             Object pval = json.objectValue(val, prop);
-            Path lpath_31 = new Path(prop, path);
+            Path lpath_27 = new Path(prop, path);
             if ((pfun = _jm_obj_31_map_pmap.get(prop)) != null)
             {
                 // handle 59 may props
-                if (pfun != null && ! (pfun.call(pval, (path != null ? lpath_31 : null), rep)))
+                if (pfun != null && ! (pfun.call(pval, (path != null ? lpath_27 : null), rep)))
                 {
-                    if (rep != null) rep.addEntry("invalid optional prop value [.keybinding.universal]", (path != null ? lpath_31 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.keybinding.universal]", (path != null ? lpath_27 : null));
                     return false;
                 }
             }
             else
             {
-                if (rep != null) rep.addEntry("unexpected prop [.keybinding.universal]", (path != null ? lpath_31 : null));
+                if (rep != null) rep.addEntry("unexpected prop [.keybinding.universal]", (path != null ? lpath_27 : null));
                 return false;
             }
         }
@@ -4502,19 +4426,19 @@ public class lazygit extends ModelChecker
         {
             String prop = prop_loop.next();
             Object pval = json.objectValue(val, prop);
-            Path lpath_22 = new Path(prop, path);
+            Path lpath_18 = new Path(prop, path);
             if ((pfun = _jm_obj_22_map_pmap.get(prop)) != null)
             {
                 // handle 9 may props
-                if (pfun != null && ! (pfun.call(pval, (path != null ? lpath_22 : null), rep)))
+                if (pfun != null && ! (pfun.call(pval, (path != null ? lpath_18 : null), rep)))
                 {
-                    if (rep != null) rep.addEntry("invalid optional prop value [.keybinding]", (path != null ? lpath_22 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.keybinding]", (path != null ? lpath_18 : null));
                     return false;
                 }
             }
             else
             {
-                if (rep != null) rep.addEntry("unexpected prop [.keybinding]", (path != null ? lpath_22 : null));
+                if (rep != null) rep.addEntry("unexpected prop [.keybinding]", (path != null ? lpath_18 : null));
                 return false;
             }
         }
@@ -4677,19 +4601,19 @@ public class lazygit extends ModelChecker
         {
             String prop = prop_loop.next();
             Object pval = json.objectValue(val, prop);
-            Path lpath_32 = new Path(prop, path);
+            Path lpath_28 = new Path(prop, path);
             if ((pfun = _jm_obj_32_map_pmap.get(prop)) != null)
             {
                 // handle 7 may props
-                if (pfun != null && ! (pfun.call(pval, (path != null ? lpath_32 : null), rep)))
+                if (pfun != null && ! (pfun.call(pval, (path != null ? lpath_28 : null), rep)))
                 {
-                    if (rep != null) rep.addEntry("invalid optional prop value [.os]", (path != null ? lpath_32 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.os]", (path != null ? lpath_28 : null));
                     return false;
                 }
             }
             else
             {
-                if (rep != null) rep.addEntry("unexpected prop [.os]", (path != null ? lpath_32 : null));
+                if (rep != null) rep.addEntry("unexpected prop [.os]", (path != null ? lpath_28 : null));
                 return false;
             }
         }
@@ -4749,7 +4673,7 @@ public class lazygit extends ModelChecker
         {
             String prop = prop_loop.next();
             Object pval = json.objectValue(val, prop);
-            Path lpath_33 = new Path(prop, path);
+            Path lpath_29 = new Path(prop, path);
             if (prop.compareTo("refreshInterval") == 0)
             {
                 // handle may refreshInterval property
@@ -4757,8 +4681,8 @@ public class lazygit extends ModelChecker
                 res = json.isInteger(pval) && json.asLong(pval) >= 0;
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("not a 0 strict int [.refresher.refreshInterval]", (path != null ? lpath_33 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.refresher.refreshInterval]", (path != null ? lpath_33 : null));
+                    if (rep != null) rep.addEntry("not a 0 strict int [.refresher.refreshInterval]", (path != null ? lpath_29 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.refresher.refreshInterval]", (path != null ? lpath_29 : null));
                     return false;
                 }
             }
@@ -4769,14 +4693,14 @@ public class lazygit extends ModelChecker
                 res = json.isInteger(pval) && json.asLong(pval) >= 0;
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("not a 0 strict int [.refresher.fetchInterval]", (path != null ? lpath_33 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.refresher.fetchInterval]", (path != null ? lpath_33 : null));
+                    if (rep != null) rep.addEntry("not a 0 strict int [.refresher.fetchInterval]", (path != null ? lpath_29 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.refresher.fetchInterval]", (path != null ? lpath_29 : null));
                     return false;
                 }
             }
             else
             {
-                if (rep != null) rep.addEntry("unexpected prop [.refresher]", (path != null ? lpath_33 : null));
+                if (rep != null) rep.addEntry("unexpected prop [.refresher]", (path != null ? lpath_29 : null));
                 return false;
             }
         }
@@ -4815,22 +4739,22 @@ public class lazygit extends ModelChecker
         {
             String prop = prop_loop.next();
             Object pval = json.objectValue(val, prop);
-            Path lpath_34 = new Path(prop, path);
+            Path lpath_30 = new Path(prop, path);
             if (_jm_re_1(prop, path, rep))
             {
                 // handle 1 re props
                 // .services.'/./'
                 // "/^[^:]+:[^:]+$/"
-                res = json.isString(pval) && _jm_re_2(json.asString(pval), (path != null ? lpath_34 : null), rep);
+                res = json.isString(pval) && _jm_re_2(json.asString(pval), (path != null ? lpath_30 : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected /^[^:]+:[^:]+$/ [.services.'/./']", (path != null ? lpath_34 : null));
+                    if (rep != null) rep.addEntry("unexpected /^[^:]+:[^:]+$/ [.services.'/./']", (path != null ? lpath_30 : null));
                     return false;
                 }
             }
             else
             {
-                if (rep != null) rep.addEntry("unexpected prop [.services]", (path != null ? lpath_34 : null));
+                if (rep != null) rep.addEntry("unexpected prop [.services]", (path != null ? lpath_30 : null));
                 return false;
             }
         }
@@ -4865,7 +4789,7 @@ public class lazygit extends ModelChecker
         {
             String prop = prop_loop.next();
             Object pval = json.objectValue(val, prop);
-            Path lpath_35 = new Path(prop, path);
+            Path lpath_31 = new Path(prop, path);
             if (prop.compareTo("method") == 0)
             {
                 // handle may method property
@@ -4873,8 +4797,8 @@ public class lazygit extends ModelChecker
                 res = json.isScalar(pval) && _jm_cst_15_set.contains(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("value not in enum [.update.method.'|']", (path != null ? lpath_35 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.update.method]", (path != null ? lpath_35 : null));
+                    if (rep != null) rep.addEntry("value not in enum [.update.method.'|']", (path != null ? lpath_31 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.update.method]", (path != null ? lpath_31 : null));
                     return false;
                 }
             }
@@ -4885,14 +4809,14 @@ public class lazygit extends ModelChecker
                 res = json.isInteger(pval) && json.asLong(pval) >= 0;
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("not a 0 strict int [.update.days]", (path != null ? lpath_35 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.update.days]", (path != null ? lpath_35 : null));
+                    if (rep != null) rep.addEntry("not a 0 strict int [.update.days]", (path != null ? lpath_31 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.update.days]", (path != null ? lpath_31 : null));
                     return false;
                 }
             }
             else
             {
-                if (rep != null) rep.addEntry("unexpected prop [.update]", (path != null ? lpath_35 : null));
+                if (rep != null) rep.addEntry("unexpected prop [.update]", (path != null ? lpath_31 : null));
                 return false;
             }
         }
@@ -4927,19 +4851,19 @@ public class lazygit extends ModelChecker
         {
             String prop = prop_loop.next();
             Object pval = json.objectValue(val, prop);
-            Path lpath_7 = new Path(prop, path);
+            Path lpath_4 = new Path(prop, path);
             if ((pfun = _jm_obj_7_map_pmap.get(prop)) != null)
             {
                 // handle 13 may props
-                if (pfun != null && ! (pfun.call(pval, (path != null ? lpath_7 : null), rep)))
+                if (pfun != null && ! (pfun.call(pval, (path != null ? lpath_4 : null), rep)))
                 {
-                    if (rep != null) rep.addEntry("invalid optional prop value [.]", (path != null ? lpath_7 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.]", (path != null ? lpath_4 : null));
                     return false;
                 }
             }
             else
             {
-                if (rep != null) rep.addEntry("unexpected prop [.]", (path != null ? lpath_7 : null));
+                if (rep != null) rep.addEntry("unexpected prop [.]", (path != null ? lpath_4 : null));
                 return false;
             }
         }

@@ -184,29 +184,23 @@ $$ LANGUAGE PLpgSQL;
 CREATE OR REPLACE FUNCTION _jm_obj_1(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
-  res bool;
-  must_count int;
-  prop TEXT;
   pval JSONB;
+  res bool;
 BEGIN
+  -- check close must only props
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
-  must_count := 0;
-  FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF prop = 'command' THEN
-      -- handle must command property
-      must_count := must_count + 1;
-      -- .'$Prompts'.'|'.0.suggestions.'|'.1.command
-      res := JSONB_TYPEOF(pval) = 'string';
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-    ELSE
-      RETURN FALSE;
-    END IF;
-  END LOOP;
-  IF must_count <> 1 THEN
+  IF jm_object_size(val) <> 1 THEN
+    RETURN FALSE;
+  END IF;
+  IF NOT val ? 'command' THEN
+    RETURN FALSE;
+  END IF;
+  pval := val -> 'command';
+  -- .'$Prompts'.'|'.0.suggestions.'|'.1.command
+  res := JSONB_TYPEOF(pval) = 'string';
+  IF NOT res THEN
     RETURN FALSE;
   END IF;
   RETURN TRUE;
@@ -226,29 +220,23 @@ $$ LANGUAGE plpgsql;
 CREATE OR REPLACE FUNCTION _jm_obj_2(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
-  res bool;
-  must_count int;
-  prop TEXT;
   pval JSONB;
+  res bool;
 BEGIN
+  -- check close must only props
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
-  must_count := 0;
-  FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF prop = 'preset' THEN
-      -- handle must preset property
-      must_count := must_count + 1;
-      -- .'$Prompts'.'|'.0.suggestions.'|'.0.preset
-      res := JSONB_TYPEOF(pval) IN ('null', 'boolean', 'number', 'string') AND _jm_cst_2(pval);
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-    ELSE
-      RETURN FALSE;
-    END IF;
-  END LOOP;
-  IF must_count <> 1 THEN
+  IF jm_object_size(val) <> 1 THEN
+    RETURN FALSE;
+  END IF;
+  IF NOT val ? 'preset' THEN
+    RETURN FALSE;
+  END IF;
+  pval := val -> 'preset';
+  -- .'$Prompts'.'|'.0.suggestions.'|'.0.preset
+  res := JSONB_TYPEOF(pval) IN ('null', 'boolean', 'number', 'string') AND _jm_cst_2(pval);
+  IF NOT res THEN
     RETURN FALSE;
   END IF;
   RETURN TRUE;
@@ -433,69 +421,66 @@ $$ LANGUAGE PLpgSQL;
 CREATE OR REPLACE FUNCTION _jm_obj_4(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
-  res bool;
-  must_count int;
-  prop TEXT;
   pval JSONB;
+  res bool;
   arr_2_idx INT8;
   arr_2_item JSONB;
 BEGIN
+  -- check close must only props
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
-  must_count := 0;
-  FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF prop = 'type' THEN
-      -- handle must type property
-      must_count := must_count + 1;
-      -- .'$Prompts'.'|'.2.type
-      res := JSONB_TYPEOF(pval) = 'string' AND JSON_VALUE(pval, '$' RETURNING TEXT) = 'menu';
+  IF jm_object_size(val) <> 4 THEN
+    RETURN FALSE;
+  END IF;
+  IF NOT val ? 'type' THEN
+    RETURN FALSE;
+  END IF;
+  pval := val -> 'type';
+  -- .'$Prompts'.'|'.2.type
+  res := JSONB_TYPEOF(pval) = 'string' AND JSON_VALUE(pval, '$' RETURNING TEXT) = 'menu';
+  IF NOT res THEN
+    RETURN FALSE;
+  END IF;
+  IF NOT val ? 'title' THEN
+    RETURN FALSE;
+  END IF;
+  pval := val -> 'title';
+  -- .'$Prompts'.'|'.2.title
+  res := json_model_6(pval, path, rep);
+  IF NOT res THEN
+    RETURN FALSE;
+  END IF;
+  IF NOT val ? 'key' THEN
+    RETURN FALSE;
+  END IF;
+  pval := val -> 'key';
+  -- .'$Prompts'.'|'.2.key
+  res := json_model_7(pval, path, rep);
+  IF NOT res THEN
+    RETURN FALSE;
+  END IF;
+  IF NOT val ? 'options' THEN
+    RETURN FALSE;
+  END IF;
+  pval := val -> 'options';
+  -- .'$Prompts'.'|'.2.options
+  -- .'$Prompts'.'|'.2.options.'@'
+  res := JSONB_TYPEOF(pval) = 'array';
+  IF res THEN
+    FOR arr_2_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
+      arr_2_item := pval -> arr_2_idx;
+      -- .'$Prompts'.'|'.2.options.'@'.0
+      res := _jm_obj_5(arr_2_item, NULL, rep);
       IF NOT res THEN
-        RETURN FALSE;
+        EXIT;
       END IF;
-    ELSEIF prop = 'title' THEN
-      -- handle must title property
-      must_count := must_count + 1;
-      -- .'$Prompts'.'|'.2.title
-      res := json_model_6(pval, NULL, rep);
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-    ELSEIF prop = 'key' THEN
-      -- handle must key property
-      must_count := must_count + 1;
-      -- .'$Prompts'.'|'.2.key
-      res := json_model_7(pval, NULL, rep);
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-    ELSEIF prop = 'options' THEN
-      -- handle must options property
-      must_count := must_count + 1;
-      -- .'$Prompts'.'|'.2.options
-      -- .'$Prompts'.'|'.2.options.'@'
-      res := JSONB_TYPEOF(pval) = 'array';
-      IF res THEN
-        FOR arr_2_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
-          arr_2_item := pval -> arr_2_idx;
-          -- .'$Prompts'.'|'.2.options.'@'.0
-          res := _jm_obj_5(arr_2_item, NULL, rep);
-          IF NOT res THEN
-            EXIT;
-          END IF;
-        END LOOP;
-      END IF;
-      IF res THEN
-        res := jm_array_is_unique(pval, NULL, rep);
-      END IF;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-    ELSE
-      RETURN FALSE;
-    END IF;
-  END LOOP;
-  IF must_count <> 4 THEN
+    END LOOP;
+  END IF;
+  IF res THEN
+    res := jm_array_is_unique(pval, path, rep);
+  END IF;
+  IF NOT res THEN
     RETURN FALSE;
   END IF;
   RETURN TRUE;
@@ -958,37 +943,32 @@ $$ LANGUAGE plpgsql;
 CREATE OR REPLACE FUNCTION _jm_obj_13(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
-  res bool;
-  must_count int;
-  prop TEXT;
   pval JSONB;
+  res bool;
 BEGIN
+  -- check close must only props
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
-  must_count := 0;
-  FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF prop = 'pattern' THEN
-      -- handle must pattern property
-      must_count := must_count + 1;
-      -- .git.commitPrefixes.'/./'.pattern
-      res := json_model_8(pval, NULL, rep);
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-    ELSEIF prop = 'replace' THEN
-      -- handle must replace property
-      must_count := must_count + 1;
-      -- .git.commitPrefixes.'/./'.replace
-      res := json_model_8(pval, NULL, rep);
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-    ELSE
-      RETURN FALSE;
-    END IF;
-  END LOOP;
-  IF must_count <> 2 THEN
+  IF jm_object_size(val) <> 2 THEN
+    RETURN FALSE;
+  END IF;
+  IF NOT val ? 'pattern' THEN
+    RETURN FALSE;
+  END IF;
+  pval := val -> 'pattern';
+  -- .git.commitPrefixes.'/./'.pattern
+  res := json_model_8(pval, path, rep);
+  IF NOT res THEN
+    RETURN FALSE;
+  END IF;
+  IF NOT val ? 'replace' THEN
+    RETURN FALSE;
+  END IF;
+  pval := val -> 'replace';
+  -- .git.commitPrefixes.'/./'.replace
+  res := json_model_8(pval, path, rep);
+  IF NOT res THEN
     RETURN FALSE;
   END IF;
   RETURN TRUE;

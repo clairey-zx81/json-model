@@ -22,45 +22,36 @@ public class objs3 extends ModelChecker
     // object .'$book'
     public boolean _jm_obj_0(Object val, Path path, Report rep)
     {
+        // check close must only props
         if (! json.isObject(val))
         {
             return false;
         }
-        boolean res;
-        long must_count = 0;
-        Iterator<String> prop_loop = json.objectIterator(val);
-        while (prop_loop.hasNext())
+        if (json.objectSize(val) != 2)
         {
-            String prop = prop_loop.next();
-            Object pval = json.objectValue(val, prop);
-            if (prop.compareTo("title") == 0)
-            {
-                // handle must title property
-                must_count += 1;
-                // .'$book'.title
-                res = json.isString(pval);
-                if (! res)
-                {
-                    return false;
-                }
-            }
-            else if (prop.compareTo("author") == 0)
-            {
-                // handle must author property
-                must_count += 1;
-                // .'$book'.author
-                res = json.isString(pval);
-                if (! res)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                return false;
-            }
+            return false;
         }
-        if (must_count != 2)
+        Object pval;
+        boolean res;
+        if (! json.objectHasProp(val, "title"))
+        {
+            return false;
+        }
+        pval = json.objectValue(val, "title");
+        // .'$book'.title
+        res = json.isString(pval);
+        if (! res)
+        {
+            return false;
+        }
+        if (! json.objectHasProp(val, "author"))
+        {
+            return false;
+        }
+        pval = json.objectValue(val, "author");
+        // .'$book'.author
+        res = json.isString(pval);
+        if (! res)
         {
             return false;
         }

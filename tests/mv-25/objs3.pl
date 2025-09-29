@@ -19,43 +19,36 @@ my %check_model_map;
 sub _jm_obj_0($$$)
 {
     my ($val, $path, $rep) = @_;
+    # check close must only props
     if (! jm_is_object($val))
     {
         return 0;
     }
-    my $res;
-    my $must_count = 0;
-    scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    if (jm_obj_size($val) != 2)
     {
-        if ($prop eq 'title')
-        {
-            # handle must title property
-            $must_count++;
-            # .'$book'.title
-            $res = jm_is_string($pval);
-            if (! $res)
-            {
-                return 0;
-            }
-        }
-        elsif ($prop eq 'author')
-        {
-            # handle must author property
-            $must_count++;
-            # .'$book'.author
-            $res = jm_is_string($pval);
-            if (! $res)
-            {
-                return 0;
-            }
-        }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
-    if ($must_count != 2)
+    my $pval;
+    my $res;
+    if (! exists $$val{'title'})
+    {
+        return 0;
+    }
+    $pval = $$val{'title'};
+    # .'$book'.title
+    $res = jm_is_string($pval);
+    if (! $res)
+    {
+        return 0;
+    }
+    if (! exists $$val{'author'})
+    {
+        return 0;
+    }
+    $pval = $$val{'author'};
+    # .'$book'.author
+    $res = jm_is_string($pval);
+    if (! $res)
     {
         return 0;
     }

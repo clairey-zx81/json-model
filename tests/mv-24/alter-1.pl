@@ -53,43 +53,36 @@ sub json_model_3($$$)
 sub _jm_obj_0($$$)
 {
     my ($val, $path, $rep) = @_;
+    # check close must only props
     if (! jm_is_object($val))
     {
         return 0;
     }
-    my $res;
-    my $must_count = 0;
-    scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    if (jm_obj_size($val) != 2)
     {
-        if ($prop eq 't')
-        {
-            # handle must t property
-            $must_count++;
-            # .'$d'.t
-            $res = jm_is_string($pval) && $pval eq 'd';
-            if (! $res)
-            {
-                return 0;
-            }
-        }
-        elsif ($prop eq 'd')
-        {
-            # handle must d property
-            $must_count++;
-            # .'$d'.d
-            $res = jm_is_string($pval);
-            if (! $res)
-            {
-                return 0;
-            }
-        }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
-    if ($must_count != 2)
+    my $pval;
+    my $res;
+    if (! exists $$val{'t'})
+    {
+        return 0;
+    }
+    $pval = $$val{'t'};
+    # .'$d'.t
+    $res = jm_is_string($pval) && $pval eq 'd';
+    if (! $res)
+    {
+        return 0;
+    }
+    if (! exists $$val{'d'})
+    {
+        return 0;
+    }
+    $pval = $$val{'d'};
+    # .'$d'.d
+    $res = jm_is_string($pval);
+    if (! $res)
     {
         return 0;
     }
@@ -111,43 +104,36 @@ sub json_model_4($$$)
 sub _jm_obj_1($$$)
 {
     my ($val, $path, $rep) = @_;
+    # check close must only props
     if (! jm_is_object($val))
     {
         return 0;
     }
-    my $res;
-    my $must_count = 0;
-    scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    if (jm_obj_size($val) != 2)
     {
-        if ($prop eq 't')
-        {
-            # handle must t property
-            $must_count++;
-            # .'$ef'.t
-            $res = jm_is_scalar($pval) && jm_is_string($pval) && exists $_jm_cst_1{$pval};
-            if (! $res)
-            {
-                return 0;
-            }
-        }
-        elsif ($prop eq 'ef')
-        {
-            # handle must ef property
-            $must_count++;
-            # .'$ef'.ef
-            $res = jm_is_string($pval);
-            if (! $res)
-            {
-                return 0;
-            }
-        }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
-    if ($must_count != 2)
+    my $pval;
+    my $res;
+    if (! exists $$val{'t'})
+    {
+        return 0;
+    }
+    $pval = $$val{'t'};
+    # .'$ef'.t
+    $res = jm_is_scalar($pval) && jm_is_string($pval) && exists $_jm_cst_1{$pval};
+    if (! $res)
+    {
+        return 0;
+    }
+    if (! exists $$val{'ef'})
+    {
+        return 0;
+    }
+    $pval = $$val{'ef'};
+    # .'$ef'.ef
+    $res = jm_is_string($pval);
+    if (! $res)
     {
         return 0;
     }
@@ -168,43 +154,36 @@ sub json_model_5($$$)
 sub _jm_obj_2($$$)
 {
     my ($val, $path, $rep) = @_;
+    # check close must only props
     if (! jm_is_object($val))
     {
         return 0;
     }
-    my $res;
-    my $must_count = 0;
-    scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    if (jm_obj_size($val) != 2)
     {
-        if ($prop eq 't')
-        {
-            # handle must t property
-            $must_count++;
-            # .'$alternative'.'|'.0.t
-            $res = jm_is_string($pval) && $pval eq 'a';
-            if (! $res)
-            {
-                return 0;
-            }
-        }
-        elsif ($prop eq 'a')
-        {
-            # handle must a property
-            $must_count++;
-            # .'$alternative'.'|'.0.a
-            $res = jm_is_string($pval);
-            if (! $res)
-            {
-                return 0;
-            }
-        }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
-    if ($must_count != 2)
+    my $pval;
+    my $res;
+    if (! exists $$val{'t'})
+    {
+        return 0;
+    }
+    $pval = $$val{'t'};
+    # .'$alternative'.'|'.0.t
+    $res = jm_is_string($pval) && $pval eq 'a';
+    if (! $res)
+    {
+        return 0;
+    }
+    if (! exists $$val{'a'})
+    {
+        return 0;
+    }
+    $pval = $$val{'a'};
+    # .'$alternative'.'|'.0.a
+    $res = jm_is_string($pval);
+    if (! $res)
     {
         return 0;
     }
@@ -216,43 +195,36 @@ sub _jm_obj_2($$$)
 sub _jm_obj_3($$$)
 {
     my ($val, $path, $rep) = @_;
+    # check close must only props
     if (! jm_is_object($val))
     {
         return 0;
     }
-    my $res;
-    my $must_count = 0;
-    scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    if (jm_obj_size($val) != 2)
     {
-        if ($prop eq 't')
-        {
-            # handle must t property
-            $must_count++;
-            # .'$alternative'.'|'.1.t
-            $res = jm_is_scalar($pval) && jm_is_string($pval) && exists $_jm_cst_2{$pval};
-            if (! $res)
-            {
-                return 0;
-            }
-        }
-        elsif ($prop eq 'bc')
-        {
-            # handle must bc property
-            $must_count++;
-            # .'$alternative'.'|'.1.bc
-            $res = jm_is_string($pval);
-            if (! $res)
-            {
-                return 0;
-            }
-        }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
-    if ($must_count != 2)
+    my $pval;
+    my $res;
+    if (! exists $$val{'t'})
+    {
+        return 0;
+    }
+    $pval = $$val{'t'};
+    # .'$alternative'.'|'.1.t
+    $res = jm_is_scalar($pval) && jm_is_string($pval) && exists $_jm_cst_2{$pval};
+    if (! $res)
+    {
+        return 0;
+    }
+    if (! exists $$val{'bc'})
+    {
+        return 0;
+    }
+    $pval = $$val{'bc'};
+    # .'$alternative'.'|'.1.bc
+    $res = jm_is_string($pval);
+    if (! $res)
     {
         return 0;
     }
@@ -263,43 +235,36 @@ sub _jm_obj_3($$$)
 sub _jm_obj_4($$$)
 {
     my ($val, $path, $rep) = @_;
+    # check close must only props
     if (! jm_is_object($val))
     {
         return 0;
     }
-    my $res;
-    my $must_count = 0;
-    scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    if (jm_obj_size($val) != 2)
     {
-        if ($prop eq 't')
-        {
-            # handle must t property
-            $must_count++;
-            # .'$alternative'.'|'.2.t
-            $res = jm_is_string($pval) && $pval eq 'g';
-            if (! $res)
-            {
-                return 0;
-            }
-        }
-        elsif ($prop eq 'g')
-        {
-            # handle must g property
-            $must_count++;
-            # .'$alternative'.'|'.2.g
-            $res = jm_is_string($pval);
-            if (! $res)
-            {
-                return 0;
-            }
-        }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
-    if ($must_count != 2)
+    my $pval;
+    my $res;
+    if (! exists $$val{'t'})
+    {
+        return 0;
+    }
+    $pval = $$val{'t'};
+    # .'$alternative'.'|'.2.t
+    $res = jm_is_string($pval) && $pval eq 'g';
+    if (! $res)
+    {
+        return 0;
+    }
+    if (! exists $$val{'g'})
+    {
+        return 0;
+    }
+    $pval = $$val{'g'};
+    # .'$alternative'.'|'.2.g
+    $res = jm_is_string($pval);
+    if (! $res)
     {
         return 0;
     }
@@ -310,43 +275,36 @@ sub _jm_obj_4($$$)
 sub _jm_obj_5($$$)
 {
     my ($val, $path, $rep) = @_;
+    # check close must only props
     if (! jm_is_object($val))
     {
         return 0;
     }
-    my $res;
-    my $must_count = 0;
-    scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    if (jm_obj_size($val) != 2)
     {
-        if ($prop eq 't')
-        {
-            # handle must t property
-            $must_count++;
-            # .'$alternative'.'|'.3.t
-            $res = json_model_3($pval, undef, $rep);
-            if (! $res)
-            {
-                return 0;
-            }
-        }
-        elsif ($prop eq 'hi')
-        {
-            # handle must hi property
-            $must_count++;
-            # .'$alternative'.'|'.3.hi
-            $res = jm_is_string($pval);
-            if (! $res)
-            {
-                return 0;
-            }
-        }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
-    if ($must_count != 2)
+    my $pval;
+    my $res;
+    if (! exists $$val{'t'})
+    {
+        return 0;
+    }
+    $pval = $$val{'t'};
+    # .'$alternative'.'|'.3.t
+    $res = json_model_3($pval, $path, $rep);
+    if (! $res)
+    {
+        return 0;
+    }
+    if (! exists $$val{'hi'})
+    {
+        return 0;
+    }
+    $pval = $$val{'hi'};
+    # .'$alternative'.'|'.3.hi
+    $res = jm_is_string($pval);
+    if (! $res)
     {
         return 0;
     }

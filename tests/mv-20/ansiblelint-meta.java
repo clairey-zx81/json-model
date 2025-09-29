@@ -4279,7 +4279,7 @@ public class ansiblelint_meta extends ModelChecker
     // object .'$platforms'.0.'|'.46
     public boolean _jm_obj_47(Object val, Path path, Report rep)
     {
-        // check must only props
+        // check open must/may only props
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.'$platforms'.0.'|'.46]", path);
@@ -4336,7 +4336,7 @@ public class ansiblelint_meta extends ModelChecker
     // object .'$platforms'.0.'|'.45
     public boolean _jm_obj_48(Object val, Path path, Report rep)
     {
-        // check must only props
+        // check open must/may only props
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.'$platforms'.0.'|'.45]", path);
@@ -4392,7 +4392,7 @@ public class ansiblelint_meta extends ModelChecker
     // object .'$platforms'.0.'|'.44
     public boolean _jm_obj_49(Object val, Path path, Report rep)
     {
-        // check must only props
+        // check open must/may only props
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.'$platforms'.0.'|'.44]", path);
@@ -4449,7 +4449,7 @@ public class ansiblelint_meta extends ModelChecker
     // object .'$platforms'.0.'|'.43
     public boolean _jm_obj_50(Object val, Path path, Report rep)
     {
-        // check must only props
+        // check open must/may only props
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.'$platforms'.0.'|'.43]", path);
@@ -4506,7 +4506,7 @@ public class ansiblelint_meta extends ModelChecker
     // object .'$platforms'.0.'|'.42
     public boolean _jm_obj_51(Object val, Path path, Report rep)
     {
-        // check must only props
+        // check open must/may only props
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.'$platforms'.0.'|'.42]", path);
@@ -4563,7 +4563,7 @@ public class ansiblelint_meta extends ModelChecker
     // object .'$platforms'.0.'|'.41
     public boolean _jm_obj_52(Object val, Path path, Report rep)
     {
-        // check must only props
+        // check open must/may only props
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.'$platforms'.0.'|'.41]", path);
@@ -4620,7 +4620,7 @@ public class ansiblelint_meta extends ModelChecker
     // object .'$platforms'.0.'|'.40
     public boolean _jm_obj_53(Object val, Path path, Report rep)
     {
-        // check must only props
+        // check open must/may only props
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.'$platforms'.0.'|'.40]", path);
@@ -4677,7 +4677,7 @@ public class ansiblelint_meta extends ModelChecker
     // object .'$platforms'.0.'|'.39
     public boolean _jm_obj_54(Object val, Path path, Report rep)
     {
-        // check must only props
+        // check open must/may only props
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.'$platforms'.0.'|'.39]", path);
@@ -4733,7 +4733,7 @@ public class ansiblelint_meta extends ModelChecker
     // object .'$platforms'.0.'|'.38
     public boolean _jm_obj_55(Object val, Path path, Report rep)
     {
-        // check must only props
+        // check open must/may only props
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.'$platforms'.0.'|'.38]", path);
@@ -4790,7 +4790,7 @@ public class ansiblelint_meta extends ModelChecker
     // object .'$platforms'.0.'|'.37
     public boolean _jm_obj_56(Object val, Path path, Report rep)
     {
-        // check must only props
+        // check open must/may only props
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.'$platforms'.0.'|'.37]", path);
@@ -4847,7 +4847,7 @@ public class ansiblelint_meta extends ModelChecker
     // object .'$platforms'.0.'|'.36
     public boolean _jm_obj_57(Object val, Path path, Report rep)
     {
-        // check must only props
+        // check open must/may only props
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.'$platforms'.0.'|'.36]", path);
@@ -4904,7 +4904,7 @@ public class ansiblelint_meta extends ModelChecker
     // object .'$platforms'.0.'|'.35
     public boolean _jm_obj_58(Object val, Path path, Report rep)
     {
-        // check must only props
+        // check open must/may only props
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.'$platforms'.0.'|'.35]", path);
@@ -4960,7 +4960,7 @@ public class ansiblelint_meta extends ModelChecker
     // object .'$platforms'.0.'|'.34
     public boolean _jm_obj_59(Object val, Path path, Report rep)
     {
-        // check must only props
+        // check open must/may only props
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.'$platforms'.0.'|'.34]", path);
@@ -5017,7 +5017,7 @@ public class ansiblelint_meta extends ModelChecker
     // object .'$platforms'.0.'|'.33
     public boolean _jm_obj_60(Object val, Path path, Report rep)
     {
-        // check must only props
+        // check open must/may only props
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.'$platforms'.0.'|'.33]", path);
@@ -5074,7 +5074,7 @@ public class ansiblelint_meta extends ModelChecker
     // object .'$platforms'.0.'|'.32
     public boolean _jm_obj_61(Object val, Path path, Report rep)
     {
-        // check must only props
+        // check open must/may only props
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.'$platforms'.0.'|'.32]", path);
@@ -5131,7 +5131,7 @@ public class ansiblelint_meta extends ModelChecker
     // object .'$platforms'.0.'|'.31
     public boolean _jm_obj_62(Object val, Path path, Report rep)
     {
-        // check must only props
+        // check open must/may only props
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.'$platforms'.0.'|'.31]", path);
@@ -5188,7 +5188,7 @@ public class ansiblelint_meta extends ModelChecker
     // object .'$platforms'.0.'|'.30
     public boolean _jm_obj_63(Object val, Path path, Report rep)
     {
-        // check must only props
+        // check open must/may only props
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.'$platforms'.0.'|'.30]", path);
@@ -5244,7 +5244,7 @@ public class ansiblelint_meta extends ModelChecker
     // object .'$platforms'.0.'|'.29
     public boolean _jm_obj_64(Object val, Path path, Report rep)
     {
-        // check must only props
+        // check open must/may only props
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.'$platforms'.0.'|'.29]", path);
@@ -5301,7 +5301,7 @@ public class ansiblelint_meta extends ModelChecker
     // object .'$platforms'.0.'|'.28
     public boolean _jm_obj_65(Object val, Path path, Report rep)
     {
-        // check must only props
+        // check open must/may only props
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.'$platforms'.0.'|'.28]", path);
@@ -5358,7 +5358,7 @@ public class ansiblelint_meta extends ModelChecker
     // object .'$platforms'.0.'|'.27
     public boolean _jm_obj_66(Object val, Path path, Report rep)
     {
-        // check must only props
+        // check open must/may only props
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.'$platforms'.0.'|'.27]", path);
@@ -5415,7 +5415,7 @@ public class ansiblelint_meta extends ModelChecker
     // object .'$platforms'.0.'|'.26
     public boolean _jm_obj_67(Object val, Path path, Report rep)
     {
-        // check must only props
+        // check open must/may only props
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.'$platforms'.0.'|'.26]", path);
@@ -5472,7 +5472,7 @@ public class ansiblelint_meta extends ModelChecker
     // object .'$platforms'.0.'|'.25
     public boolean _jm_obj_68(Object val, Path path, Report rep)
     {
-        // check must only props
+        // check open must/may only props
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.'$platforms'.0.'|'.25]", path);
@@ -5528,7 +5528,7 @@ public class ansiblelint_meta extends ModelChecker
     // object .'$platforms'.0.'|'.24
     public boolean _jm_obj_69(Object val, Path path, Report rep)
     {
-        // check must only props
+        // check open must/may only props
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.'$platforms'.0.'|'.24]", path);
@@ -5584,7 +5584,7 @@ public class ansiblelint_meta extends ModelChecker
     // object .'$platforms'.0.'|'.23
     public boolean _jm_obj_70(Object val, Path path, Report rep)
     {
-        // check must only props
+        // check open must/may only props
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.'$platforms'.0.'|'.23]", path);
@@ -5641,7 +5641,7 @@ public class ansiblelint_meta extends ModelChecker
     // object .'$platforms'.0.'|'.22
     public boolean _jm_obj_71(Object val, Path path, Report rep)
     {
-        // check must only props
+        // check open must/may only props
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.'$platforms'.0.'|'.22]", path);
@@ -5697,7 +5697,7 @@ public class ansiblelint_meta extends ModelChecker
     // object .'$platforms'.0.'|'.21
     public boolean _jm_obj_72(Object val, Path path, Report rep)
     {
-        // check must only props
+        // check open must/may only props
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.'$platforms'.0.'|'.21]", path);
@@ -5753,7 +5753,7 @@ public class ansiblelint_meta extends ModelChecker
     // object .'$platforms'.0.'|'.20
     public boolean _jm_obj_73(Object val, Path path, Report rep)
     {
-        // check must only props
+        // check open must/may only props
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.'$platforms'.0.'|'.20]", path);
@@ -5809,7 +5809,7 @@ public class ansiblelint_meta extends ModelChecker
     // object .'$platforms'.0.'|'.19
     public boolean _jm_obj_74(Object val, Path path, Report rep)
     {
-        // check must only props
+        // check open must/may only props
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.'$platforms'.0.'|'.19]", path);
@@ -5865,7 +5865,7 @@ public class ansiblelint_meta extends ModelChecker
     // object .'$platforms'.0.'|'.18
     public boolean _jm_obj_75(Object val, Path path, Report rep)
     {
-        // check must only props
+        // check open must/may only props
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.'$platforms'.0.'|'.18]", path);
@@ -5922,7 +5922,7 @@ public class ansiblelint_meta extends ModelChecker
     // object .'$platforms'.0.'|'.17
     public boolean _jm_obj_76(Object val, Path path, Report rep)
     {
-        // check must only props
+        // check open must/may only props
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.'$platforms'.0.'|'.17]", path);
@@ -5979,7 +5979,7 @@ public class ansiblelint_meta extends ModelChecker
     // object .'$platforms'.0.'|'.16
     public boolean _jm_obj_77(Object val, Path path, Report rep)
     {
-        // check must only props
+        // check open must/may only props
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.'$platforms'.0.'|'.16]", path);
@@ -6035,7 +6035,7 @@ public class ansiblelint_meta extends ModelChecker
     // object .'$platforms'.0.'|'.15
     public boolean _jm_obj_78(Object val, Path path, Report rep)
     {
-        // check must only props
+        // check open must/may only props
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.'$platforms'.0.'|'.15]", path);
@@ -6092,7 +6092,7 @@ public class ansiblelint_meta extends ModelChecker
     // object .'$platforms'.0.'|'.14
     public boolean _jm_obj_79(Object val, Path path, Report rep)
     {
-        // check must only props
+        // check open must/may only props
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.'$platforms'.0.'|'.14]", path);
@@ -6149,7 +6149,7 @@ public class ansiblelint_meta extends ModelChecker
     // object .'$platforms'.0.'|'.13
     public boolean _jm_obj_80(Object val, Path path, Report rep)
     {
-        // check must only props
+        // check open must/may only props
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.'$platforms'.0.'|'.13]", path);
@@ -6206,7 +6206,7 @@ public class ansiblelint_meta extends ModelChecker
     // object .'$platforms'.0.'|'.12
     public boolean _jm_obj_81(Object val, Path path, Report rep)
     {
-        // check must only props
+        // check open must/may only props
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.'$platforms'.0.'|'.12]", path);
@@ -6263,7 +6263,7 @@ public class ansiblelint_meta extends ModelChecker
     // object .'$platforms'.0.'|'.11
     public boolean _jm_obj_82(Object val, Path path, Report rep)
     {
-        // check must only props
+        // check open must/may only props
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.'$platforms'.0.'|'.11]", path);
@@ -6320,7 +6320,7 @@ public class ansiblelint_meta extends ModelChecker
     // object .'$platforms'.0.'|'.10
     public boolean _jm_obj_83(Object val, Path path, Report rep)
     {
-        // check must only props
+        // check open must/may only props
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.'$platforms'.0.'|'.10]", path);
@@ -6377,7 +6377,7 @@ public class ansiblelint_meta extends ModelChecker
     // object .'$platforms'.0.'|'.9
     public boolean _jm_obj_84(Object val, Path path, Report rep)
     {
-        // check must only props
+        // check open must/may only props
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.'$platforms'.0.'|'.9]", path);
@@ -6434,7 +6434,7 @@ public class ansiblelint_meta extends ModelChecker
     // object .'$platforms'.0.'|'.8
     public boolean _jm_obj_85(Object val, Path path, Report rep)
     {
-        // check must only props
+        // check open must/may only props
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.'$platforms'.0.'|'.8]", path);
@@ -6490,7 +6490,7 @@ public class ansiblelint_meta extends ModelChecker
     // object .'$platforms'.0.'|'.7
     public boolean _jm_obj_86(Object val, Path path, Report rep)
     {
-        // check must only props
+        // check open must/may only props
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.'$platforms'.0.'|'.7]", path);
@@ -6547,7 +6547,7 @@ public class ansiblelint_meta extends ModelChecker
     // object .'$platforms'.0.'|'.6
     public boolean _jm_obj_87(Object val, Path path, Report rep)
     {
-        // check must only props
+        // check open must/may only props
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.'$platforms'.0.'|'.6]", path);
@@ -6603,7 +6603,7 @@ public class ansiblelint_meta extends ModelChecker
     // object .'$platforms'.0.'|'.5
     public boolean _jm_obj_88(Object val, Path path, Report rep)
     {
-        // check must only props
+        // check open must/may only props
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.'$platforms'.0.'|'.5]", path);
@@ -6659,7 +6659,7 @@ public class ansiblelint_meta extends ModelChecker
     // object .'$platforms'.0.'|'.4
     public boolean _jm_obj_89(Object val, Path path, Report rep)
     {
-        // check must only props
+        // check open must/may only props
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.'$platforms'.0.'|'.4]", path);
@@ -6716,7 +6716,7 @@ public class ansiblelint_meta extends ModelChecker
     // object .'$platforms'.0.'|'.3
     public boolean _jm_obj_90(Object val, Path path, Report rep)
     {
-        // check must only props
+        // check open must/may only props
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.'$platforms'.0.'|'.3]", path);
@@ -6773,7 +6773,7 @@ public class ansiblelint_meta extends ModelChecker
     // object .'$platforms'.0.'|'.2
     public boolean _jm_obj_91(Object val, Path path, Report rep)
     {
-        // check must only props
+        // check open must/may only props
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.'$platforms'.0.'|'.2]", path);
@@ -6829,7 +6829,7 @@ public class ansiblelint_meta extends ModelChecker
     // object .'$platforms'.0.'|'.1
     public boolean _jm_obj_92(Object val, Path path, Report rep)
     {
-        // check must only props
+        // check open must/may only props
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.'$platforms'.0.'|'.1]", path);
@@ -6886,7 +6886,7 @@ public class ansiblelint_meta extends ModelChecker
     // object .'$platforms'.0.'|'.0
     public boolean _jm_obj_93(Object val, Path path, Report rep)
     {
-        // check must only props
+        // check open must/may only props
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.'$platforms'.0.'|'.0]", path);
@@ -8688,7 +8688,7 @@ public class ansiblelint_meta extends ModelChecker
     // object .'$DependencyModelLoose'
     public boolean _jm_obj_99(Object val, Path path, Report rep)
     {
-        // check must only props
+        // check open must/may only props
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.'$DependencyModelLoose']", path);
@@ -8862,7 +8862,7 @@ public class ansiblelint_meta extends ModelChecker
     // object .'$DependencyModel'.'&'.1.'|'.2
     public boolean _jm_obj_101(Object val, Path path, Report rep)
     {
-        // check must only props
+        // check open must/may only props
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.'$DependencyModel'.'&'.1.'|'.2]", path);
@@ -8890,7 +8890,7 @@ public class ansiblelint_meta extends ModelChecker
     // object .'$DependencyModel'.'&'.1.'|'.1
     public boolean _jm_obj_102(Object val, Path path, Report rep)
     {
-        // check must only props
+        // check open must/may only props
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.'$DependencyModel'.'&'.1.'|'.1]", path);
@@ -8918,7 +8918,7 @@ public class ansiblelint_meta extends ModelChecker
     // object .'$DependencyModel'.'&'.1.'|'.0
     public boolean _jm_obj_103(Object val, Path path, Report rep)
     {
-        // check must only props
+        // check open must/may only props
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.'$DependencyModel'.'&'.1.'|'.0]", path);

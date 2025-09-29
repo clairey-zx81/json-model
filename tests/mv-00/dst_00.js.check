@@ -1,11 +1,11 @@
 dst_00.values.json[0]: PASS
 dst_00.values.json[1]: PASS
-dst_00.values.json[2]: FAIL (.: no model matched [.'|']; .: unexpected element [.'|'.1]; .: missing mandatory prop <c> [.'|'.1]; .: unexpected element [.'|'.0]; .: missing mandatory prop <b> [.'|'.0])
-dst_00.values.json[3]: FAIL (.: no model matched [.'|']; .: unexpected element [.'|'.1]; .b: unexpected prop [.'|'.1]; .: unexpected element [.'|'.0]; .: missing mandatory prop <a> [.'|'.0])
+dst_00.values.json[2]: FAIL (.: no model matched [.'|']; .: unexpected element [.'|'.1]; .: bad property count [.'|'.1]; .: unexpected element [.'|'.0]; .: bad property count [.'|'.0])
+dst_00.values.json[3]: FAIL (.: no model matched [.'|']; .: unexpected element [.'|'.1]; .: bad property count [.'|'.1]; .: unexpected element [.'|'.0]; .: bad property count [.'|'.0])
 dst_00.values.json[4]: FAIL (.: unexpected type [.'|'])
 dst_00.values.json[5]: FAIL (.: unexpected type [.'|'])
 dst_00.values.json[6]: FAIL (.: unexpected type [.'|'])
 dst_00.values.json[7]: FAIL (.: unexpected type [.'|'])
 dst_00.values.json[8]: FAIL (.: unexpected type [.'|'])
-dst_00.values.json[9]: FAIL (.: no model matched [.'|']; .: unexpected element [.'|'.1]; .: missing mandatory prop <c> [.'|'.1]; .: missing mandatory prop <a> [.'|'.1]; .: unexpected element [.'|'.0]; .: missing mandatory prop <b> [.'|'.0]; .: missing mandatory prop <a> [.'|'.0])
-dst_00.values.json[10]: FAIL (.: no model matched [.'|']; .: unexpected element [.'|'.1]; .unexpected: unexpected prop [.'|'.1]; .: unexpected element [.'|'.0]; .unexpected: unexpected prop [.'|'.0])
+dst_00.values.json[9]: FAIL (.: no model matched [.'|']; .: unexpected element [.'|'.1]; .: bad property count [.'|'.1]; .: unexpected element [.'|'.0]; .: bad property count [.'|'.0])
+dst_00.values.json[10]: FAIL (.: no model matched [.'|']; .: unexpected element [.'|'.1]; .: bad property count [.'|'.1]; .: unexpected element [.'|'.0]; .: bad property count [.'|'.0])

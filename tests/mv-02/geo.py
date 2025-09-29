@@ -524,7 +524,7 @@ def json_model_10(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # object .'$geometry'.'|'.0
 def _jm_obj_6(val: Jsonable, path: Path, rep: Report) -> bool:
-    # check must only props
+    # check open must/may only props
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$geometry'.'|'.0]", path))
         return False
@@ -570,7 +570,7 @@ def _jm_obj_6(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # object .'$geometry'.'|'.1
 def _jm_obj_7(val: Jsonable, path: Path, rep: Report) -> bool:
-    # check must only props
+    # check open must/may only props
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$geometry'.'|'.1]", path))
         return False
@@ -624,7 +624,7 @@ def _jm_obj_7(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # object .'$geometry'.'|'.2
 def _jm_obj_8(val: Jsonable, path: Path, rep: Report) -> bool:
-    # check must only props
+    # check open must/may only props
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$geometry'.'|'.2]", path))
         return False
@@ -670,7 +670,7 @@ def _jm_obj_8(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # object .'$geometry'.'|'.3
 def _jm_obj_9(val: Jsonable, path: Path, rep: Report) -> bool:
-    # check must only props
+    # check open must/may only props
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$geometry'.'|'.3]", path))
         return False
@@ -724,7 +724,7 @@ def _jm_obj_9(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # object .'$geometry'.'|'.4
 def _jm_obj_10(val: Jsonable, path: Path, rep: Report) -> bool:
-    # check must only props
+    # check open must/may only props
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$geometry'.'|'.4]", path))
         return False
@@ -778,7 +778,7 @@ def _jm_obj_10(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # object .'$geometry'.'|'.5
 def _jm_obj_11(val: Jsonable, path: Path, rep: Report) -> bool:
-    # check must only props
+    # check open must/may only props
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$geometry'.'|'.5]", path))
         return False
@@ -863,7 +863,7 @@ def json_model_11(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # object .'$GeometryCollection'
 def _jm_obj_12(val: Jsonable, path: Path, rep: Report) -> bool:
-    # check must only props
+    # check open must/may only props
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$GeometryCollection']", path))
         return False
@@ -934,7 +934,7 @@ def _jm_obj_14(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # object .'$Feature'
 def _jm_obj_13(val: Jsonable, path: Path, rep: Report) -> bool:
-    # check must only props
+    # check open must/may only props
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$Feature']", path))
         return False
@@ -1042,7 +1042,7 @@ def json_model_13(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # object .'$FeatureCollection'
 def _jm_obj_15(val: Jsonable, path: Path, rep: Report) -> bool:
-    # check must only props
+    # check open must/may only props
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$FeatureCollection']", path))
         return False

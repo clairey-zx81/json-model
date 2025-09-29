@@ -822,7 +822,7 @@ function json_model_10(val, path, rep)
 // object .'$geometry'.'|'.0
 function _jm_obj_6(val, path, rep)
 {
-    // check must only props
+    // check open must/may only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.'$geometry'.'|'.0]", path])
@@ -891,7 +891,7 @@ function _jm_obj_6(val, path, rep)
 // object .'$geometry'.'|'.1
 function _jm_obj_7(val, path, rep)
 {
-    // check must only props
+    // check open must/may only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.'$geometry'.'|'.1]", path])
@@ -975,7 +975,7 @@ function _jm_obj_7(val, path, rep)
 // object .'$geometry'.'|'.2
 function _jm_obj_8(val, path, rep)
 {
-    // check must only props
+    // check open must/may only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.'$geometry'.'|'.2]", path])
@@ -1044,7 +1044,7 @@ function _jm_obj_8(val, path, rep)
 // object .'$geometry'.'|'.3
 function _jm_obj_9(val, path, rep)
 {
-    // check must only props
+    // check open must/may only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.'$geometry'.'|'.3]", path])
@@ -1128,7 +1128,7 @@ function _jm_obj_9(val, path, rep)
 // object .'$geometry'.'|'.4
 function _jm_obj_10(val, path, rep)
 {
-    // check must only props
+    // check open must/may only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.'$geometry'.'|'.4]", path])
@@ -1212,7 +1212,7 @@ function _jm_obj_10(val, path, rep)
 // object .'$geometry'.'|'.5
 function _jm_obj_11(val, path, rep)
 {
-    // check must only props
+    // check open must/may only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.'$geometry'.'|'.5]", path])
@@ -1348,7 +1348,7 @@ function json_model_11(val, path, rep)
 // object .'$GeometryCollection'
 function _jm_obj_12(val, path, rep)
 {
-    // check must only props
+    // check open must/may only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.'$GeometryCollection']", path])
@@ -1457,7 +1457,7 @@ function _jm_obj_14(val, path, rep)
 // object .'$Feature'
 function _jm_obj_13(val, path, rep)
 {
-    // check must only props
+    // check open must/may only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.'$Feature']", path])
@@ -1628,7 +1628,7 @@ function json_model_13(val, path, rep)
 // object .'$FeatureCollection'
 function _jm_obj_15(val, path, rep)
 {
-    // check must only props
+    // check open must/may only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.'$FeatureCollection']", path])
