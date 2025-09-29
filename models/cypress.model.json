@@ -42,24 +42,24 @@
       "?videoFolder": "",
       "?trashAssetsBeforeRuns": true,
       "?videoCompression": {"|": [0, "=false"]},
-      "?video": true, 
-      "?videoUploadOnPasses": true, 
-      "?chromeWebSecurity": true, 
+      "?video": true,
+      "?videoUploadOnPasses": true,
+      "?chromeWebSecurity": true,
       "?userAgent": "",
       "?blockHosts": { "|": [ "", [""] ] },
-      "?modifyObstructiveCode": true, 
+      "?modifyObstructiveCode": true,
       "?viewportHeight": 1,
       "?viewportWidth": 1,
       "?animationDistanceThreshold": 1,
-      "?waitForAnimations": true, 
+      "?waitForAnimations": true,
       "?scrollBehavior": { "|": [ "=false", "center", "top", "bottom", "nearest" ] },
       "?projectId": "",
       "?nodeVersion": { "|": [ "system", "bundled" ] },
-      "?experimentalInteractiveRunEvents": true, 
-      "?experimentalSourceRewriting": true, 
-      "?experimentalSessionRewriting": true, 
-      "?experimentalFetchPolyfill": true, 
-      "?experimentalStudio": true, 
+      "?experimentalInteractiveRunEvents": true,
+      "?experimentalSourceRewriting": true,
+      "?experimentalSessionRewriting": true,
+      "?experimentalFetchPolyfill": true,
+      "?experimentalStudio": true,
       "?retries": {
         "|": [
           null,
@@ -81,7 +81,7 @@
         }
       ],
       "": "$ANY"
-    } 
+    }
   },
   "+": [
     "$cypressConfig",

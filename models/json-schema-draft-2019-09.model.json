@@ -15,7 +15,7 @@
       "?$vocabulary": { "$URI": true },
       "?$comment": "",
       "?$defs": { "": "$Schema" }
-    }, 
+    },
     "meta": {
       "?title": "",
       "?description": "",
@@ -31,7 +31,7 @@
       "?contentSchema": "$Schema"
     },
     "format": { "?format": "" },
-    "simpleTypes": { 
+    "simpleTypes": {
       "|": ["array", "boolean", "integer", "null", "number", "object", "string"]
     },
     "simpleTypesArray": {
@@ -82,7 +82,7 @@
       "?oneOf": "$schemaArray"
     },
     "ObjectSchema": {
-      "+": [ 
+      "+": [
         "$core",
         "$applicator",
         "$validation",

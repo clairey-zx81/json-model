@@ -15,7 +15,7 @@
     "$schema#bsonType": {
       "#": "add a definition for BSON types",
       "|": [
-        "null", "bool", "string", "object", "array", "double", "int", "long", "decimal", 
+        "null", "bool", "string", "object", "array", "double", "int", "long", "decimal",
         "binData", "objectId", "date", "regex", "javascript", "timestamp", "minKey", "maxKey"
       ]
     },

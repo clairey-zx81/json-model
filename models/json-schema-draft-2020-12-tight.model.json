@@ -14,7 +14,7 @@
       "?$vocabulary": { "$URI": true },
       "?$comment": "",
       "?$defs": { "": "$Schema" }
-    }, 
+    },
     "meta": {
       "?title": "",
       "?description": "",

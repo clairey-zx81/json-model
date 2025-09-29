@@ -68,7 +68,7 @@
       "/^//": "$PathItem",
       "/^x-/": "$ANY"
     },
-    "PathItem": { 
+    "PathItem": {
       "?$ref": "$URI",
       "?summary": "",
       "?description": "",
@@ -84,7 +84,7 @@
       "?parameters": [ { "|": [ "$Parameter", "$Reference" ] } ],
       "/^x-/": "$ANY"
     },
-    "Operation": { 
+    "Operation": {
       "?tags": [ "" ],
       "?summary": "",
       "?description": "",
@@ -191,7 +191,7 @@
         { "|": [ { "operationRef": "" }, { "operationId": "" } ] },
         {
           "?parameters": { "": { "|": ["$Expression", "$ANY"] } },
-          "?requestBody": { "|": ["$Expression", "$ANY"] }, 
+          "?requestBody": { "|": ["$Expression", "$ANY"] },
           "?description": "",
           "?server": "$Server",
           "/^x-/": "$ANY"
