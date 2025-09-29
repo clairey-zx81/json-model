@@ -1,0 +1,90 @@
+{
+  "#": "JSON model for https://cypress.io Test Runner's configuration file",
+  "~": "https://json-model.org/models/json-model",
+  "$": {
+    "cypressConfig": {
+      "?baseUrl": "$URL",
+      "#.env": "should the value be restricted to strings?",
+      "?env": { "": "$ANY" },
+      "?ignoreTestFiles": { "|": [ "", [""] ] },
+      "?numTestsKeptInMemory": 0,
+      "?port": 1,
+      "?reporter": {
+        "|": [
+          "spec", "dot", "nyan", "tap", "landing", "list", "progress", "json",
+          "json-stream", "min", "doc", "markdown", "xunit", "teamcity", "html", "junit",
+          "# multi reporters:",
+          "cypress-multi-reporters", "mocha-multi-reporters",
+          "# combine reporter:",
+          "mochawesome", "cypress-mochawesome-reporter",
+          "# custom reporter:", "/\\.js$/"
+        ]
+      },
+      "?reporterOptions": { "": "$ANY" },
+      "?slowTestThreshold": 1,
+      "?testFiles": { "|": [ "", [""] ] },
+      "?watchForFileChanges": true,
+      "?defaultCommandTimeout": 1,
+      "?execTimeout": 1,
+      "?taskTimeout": 1,
+      "?pageLoadTimeout": 1,
+      "?requestTimeout": 1,
+      "?responseTimeout": 1,
+      "?fileServerFolder": "",
+      "?fixtureFolder": {"|": ["", "=false"]},
+      "?integrationFolder": "",
+      "?downloadsFolder": "",
+      "?componentFolder": {"|": ["", "=false"]},
+      "?pluginsFile": {"|": ["", "=false"]},
+      "?screenshotOnRunFailure": true,
+      "?screenshotsFolder": "",
+      "?supportFile": {"|": ["", "=false"]},
+      "?videoFolder": "",
+      "?trashAssetsBeforeRuns": true,
+      "?videoCompression": {"|": [0, "=false"]},
+      "?video": true, 
+      "?videoUploadOnPasses": true, 
+      "?chromeWebSecurity": true, 
+      "?userAgent": "",
+      "?blockHosts": { "|": [ "", [""] ] },
+      "?modifyObstructiveCode": true, 
+      "?viewportHeight": 1,
+      "?viewportWidth": 1,
+      "?animationDistanceThreshold": 1,
+      "?waitForAnimations": true, 
+      "?scrollBehavior": { "|": [ "=false", "center", "top", "bottom", "nearest" ] },
+      "?projectId": "",
+      "?nodeVersion": { "|": [ "system", "bundled" ] },
+      "?experimentalInteractiveRunEvents": true, 
+      "?experimentalSourceRewriting": true, 
+      "?experimentalSessionRewriting": true, 
+      "?experimentalFetchPolyfill": true, 
+      "?experimentalStudio": true, 
+      "?retries": {
+        "|": [
+          null,
+          0,
+          { "": "$ANY" }
+        ]
+      },
+      "?includeShadowDom": true,
+      "?clientCertificates": [
+        {
+          "url": "$URL",
+          "?ca": [ "" ],
+          "certs": {
+            "|": [
+              { "cert": "", "key": "", "?passphrase": "", "": "$ANY" },
+              { "pfx": "", "?passphrase": "", "": "$ANY" }
+            ]
+          }
+        }
+      ],
+      "": "$ANY"
+    } 
+  },
+  "+": [
+    "$cypressConfig",
+    { "?component": "$cypressConfig", "?e2e": "$cypressConfig" }
+  ]
+}
