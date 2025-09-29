@@ -2,31 +2,16 @@
 
 ## Current Tasks
 
-- [x] artifact: add test case stats
-- [x] static: detect discriminators from references
-- [x] static: detect partial discriminators
-- [x] static: detect partial discriminators with other stuff
-- [x] docker: generate image for current branch
-- [x] artifact: improve docker image tagging
-- [x] backend: intermediate represention json code generation
-- [x] backend: optimize some output patterns on IR
-- [x] backend: generate output source code from symbolic json code
-- [x] xstatic: skip IR if not needed
-- [x] command: add `--ir-optimize` option
-- [x] command: activate ir optimization by default
-- [x] backend: IR handling of ConstMap
-- [x] static: skip model function to call obj function directly on references
-- [x] backend: apply skip functions also for all pmap/cmap/cc through IR
-- [x] optim: direct mandatory-only attributes objects with expected count checked ahead
-- [ ] backend: refactor ir optimizations
 - [ ] tests: add ir optimized output
 - [ ] tests: add pytest ir tests
 - [ ] tests: drop language outputs for IR only?!
+- [ ] models: write model for json IR
+- [ ] tests: check generated IR with IR model
 - [ ] optim: improve xor-to-or with references
 - [ ] command: remove inline-or option and implementation
-- [ ] backend: improve and extend IR optimizations?
+- [ ] backend: refactor ir optimizations
 - [ ] command: add direct ir to lang conversion
-- [ ] models: write model for json code!
+- [ ] backend: improve and extend IR optimizations?
 - [ ] artifact: make work with dind
 - [ ] static: recognize already compile objects and reuse function esp under no no-reporting?
 - [ ] tests: check how clang compares to gcc
@@ -620,3 +605,19 @@
 - [x] tests: allow options for specific tests from pytest
 - [x] tests: cleanup current status, back to 100\%
 - [x] pr: update tuto scripts to match current status
+- [x] artifact: add test case stats
+- [x] static: detect discriminators from references
+- [x] static: detect partial discriminators
+- [x] static: detect partial discriminators with other stuff
+- [x] docker: generate image for current branch
+- [x] artifact: improve docker image tagging
+- [x] backend: intermediate represention json code generation
+- [x] backend: optimize some output patterns on IR
+- [x] backend: generate output source code from symbolic json code
+- [x] xstatic: skip IR if not needed
+- [x] command: add `--ir-optimize` option
+- [x] command: activate ir optimization by default
+- [x] backend: IR handling of ConstMap
+- [x] static: skip model function to call obj function directly on references
+- [x] backend: apply skip functions also for all pmap/cmap/cc through IR
+- [x] optim: direct mandatory-only attributes objects with expected count checked ahead
