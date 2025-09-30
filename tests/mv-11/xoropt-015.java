@@ -64,6 +64,7 @@ public class xoropt_015 extends ModelChecker
             if (rep != null) rep.addEntry("bad property count [.'$Xx']", path);
             return false;
         }
+        Path lpath;
         Object pval;
         boolean res;
         if (! json.objectHasProp(val, "X"))
@@ -71,13 +72,14 @@ public class xoropt_015 extends ModelChecker
             if (rep != null) rep.addEntry("missing mandatory prop <X> [.'$Xx']", path);
             return false;
         }
+        lpath = new Path("X", path);
         pval = json.objectValue(val, "X");
         // .'$Xx'.X
         res = json.isString(pval);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected string [.'$Xx'.X]", path);
-            if (rep != null) rep.addEntry("unexpected value for mandatory prop <X> [.'$Xx']", path);
+            if (rep != null) rep.addEntry("unexpected string [.'$Xx'.X]", (path != null ? lpath : null));
+            if (rep != null) rep.addEntry("unexpected value for mandatory prop <X> [.'$Xx']", (path != null ? lpath : null));
             return false;
         }
         return true;
@@ -110,6 +112,7 @@ public class xoropt_015 extends ModelChecker
             if (rep != null) rep.addEntry("bad property count [.'$Yy']", path);
             return false;
         }
+        Path lpath;
         Object pval;
         boolean res;
         if (! json.objectHasProp(val, "Y"))
@@ -117,13 +120,14 @@ public class xoropt_015 extends ModelChecker
             if (rep != null) rep.addEntry("missing mandatory prop <Y> [.'$Yy']", path);
             return false;
         }
+        lpath = new Path("Y", path);
         pval = json.objectValue(val, "Y");
         // .'$Yy'.Y
         res = json.isString(pval);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected string [.'$Yy'.Y]", path);
-            if (rep != null) rep.addEntry("unexpected value for mandatory prop <Y> [.'$Yy']", path);
+            if (rep != null) rep.addEntry("unexpected string [.'$Yy'.Y]", (path != null ? lpath : null));
+            if (rep != null) rep.addEntry("unexpected value for mandatory prop <Y> [.'$Yy']", (path != null ? lpath : null));
             return false;
         }
         return true;

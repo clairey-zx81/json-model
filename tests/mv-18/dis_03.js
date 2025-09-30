@@ -26,6 +26,7 @@ function _jm_obj_0(val, path, rep)
         rep !== null && rep.push(["bad property count [.'|'.0]", path])
         return false;
     }
+    let lpath;
     let pval;
     let res;
     if (! val.hasOwnProperty("discriminator"))
@@ -33,13 +34,14 @@ function _jm_obj_0(val, path, rep)
         rep !== null && rep.push(["missing mandatory prop <discriminator> [.'|'.0]", path])
         return false;
     }
+    lpath = path ? path.concat(["discriminator"]) : null;
     pval = val["discriminator"];
     // .'|'.0.discriminator
     res = ((typeof pval === 'boolean' || pval instanceof Boolean)) && pval == true;
     if (! res)
     {
-        rep !== null && rep.push(["unexpected =true [.'|'.0.discriminator]", path])
-        rep !== null && rep.push(["unexpected value for mandatory prop <discriminator> [.'|'.0]", path])
+        rep !== null && rep.push(["unexpected =true [.'|'.0.discriminator]", (path ? lpath : null)])
+        rep !== null && rep.push(["unexpected value for mandatory prop <discriminator> [.'|'.0]", (path ? lpath : null)])
         return false;
     }
     if (! val.hasOwnProperty("x"))
@@ -47,13 +49,14 @@ function _jm_obj_0(val, path, rep)
         rep !== null && rep.push(["missing mandatory prop <x> [.'|'.0]", path])
         return false;
     }
+    lpath = path ? path.concat(["x"]) : null;
     pval = val["x"];
     // .'|'.0.x
     res = (typeof pval === 'string' || pval instanceof String);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected string [.'|'.0.x]", path])
-        rep !== null && rep.push(["unexpected value for mandatory prop <x> [.'|'.0]", path])
+        rep !== null && rep.push(["unexpected string [.'|'.0.x]", (path ? lpath : null)])
+        rep !== null && rep.push(["unexpected value for mandatory prop <x> [.'|'.0]", (path ? lpath : null)])
         return false;
     }
     return true;
@@ -73,6 +76,7 @@ function _jm_obj_1(val, path, rep)
         rep !== null && rep.push(["bad property count [.'|'.1]", path])
         return false;
     }
+    let lpath;
     let pval;
     let res;
     if (! val.hasOwnProperty("discriminator"))
@@ -80,13 +84,14 @@ function _jm_obj_1(val, path, rep)
         rep !== null && rep.push(["missing mandatory prop <discriminator> [.'|'.1]", path])
         return false;
     }
+    lpath = path ? path.concat(["discriminator"]) : null;
     pval = val["discriminator"];
     // .'|'.1.discriminator
     res = ((typeof pval === 'boolean' || pval instanceof Boolean)) && pval == false;
     if (! res)
     {
-        rep !== null && rep.push(["unexpected =false [.'|'.1.discriminator]", path])
-        rep !== null && rep.push(["unexpected value for mandatory prop <discriminator> [.'|'.1]", path])
+        rep !== null && rep.push(["unexpected =false [.'|'.1.discriminator]", (path ? lpath : null)])
+        rep !== null && rep.push(["unexpected value for mandatory prop <discriminator> [.'|'.1]", (path ? lpath : null)])
         return false;
     }
     if (! val.hasOwnProperty("y"))
@@ -94,13 +99,14 @@ function _jm_obj_1(val, path, rep)
         rep !== null && rep.push(["missing mandatory prop <y> [.'|'.1]", path])
         return false;
     }
+    lpath = path ? path.concat(["y"]) : null;
     pval = val["y"];
     // .'|'.1.y
     res = (typeof pval === 'string' || pval instanceof String);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected string [.'|'.1.y]", path])
-        rep !== null && rep.push(["unexpected value for mandatory prop <y> [.'|'.1]", path])
+        rep !== null && rep.push(["unexpected string [.'|'.1.y]", (path ? lpath : null)])
+        rep !== null && rep.push(["unexpected value for mandatory prop <y> [.'|'.1]", (path ? lpath : null)])
         return false;
     }
     return true;

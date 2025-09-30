@@ -5478,7 +5478,7 @@ sub _jm_obj_72($$$)
     }
     $pval = $$val{'flows'};
     # .'$SS-oauth2'.flows
-    $res = _jm_obj_80($pval, $path, $rep);
+    $res = _jm_obj_80($pval, undef, $rep);
     if (! $res)
     {
         return 0;
@@ -5528,7 +5528,7 @@ sub _jm_obj_73($$$)
     }
     $pval = $$val{'openIdConnectUrl'};
     # .'$SS-oic'.openIdConnectUrl
-    $res = jm_is_string($pval) && jm_is_valid_url($pval, $path, $rep);
+    $res = jm_is_string($pval) && jm_is_valid_url($pval, undef, $rep);
     if (! $res)
     {
         return 0;

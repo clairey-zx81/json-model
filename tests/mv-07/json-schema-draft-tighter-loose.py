@@ -69,17 +69,19 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$tight#RootSchema'.'&'.0]", path))
         return False
+    lpath: Path
     pval: Jsonable
     res: bool
     if not "$schema" in val:
         rep is None or rep.append(("missing mandatory prop <$schema> [.'$tight#RootSchema'.'&'.0]", path))
         return False
+    lpath = (path + [ "$schema" ]) if path is not None else None
     pval = val.get("$schema", UNDEFINED)
     # .'$tight#RootSchema'.'&'.0.'$schema'
     res = isinstance(pval, str)
     if not res:
-        rep is None or rep.append(("unexpected string [.'$tight#RootSchema'.'&'.0.'$schema']", path))
-        rep is None or rep.append(("unexpected value for mandatory prop <$schema> [.'$tight#RootSchema'.'&'.0]", path))
+        rep is None or rep.append(("unexpected string [.'$tight#RootSchema'.'&'.0.'$schema']", lpath if path is not None else None))
+        rep is None or rep.append(("unexpected value for mandatory prop <$schema> [.'$tight#RootSchema'.'&'.0]", lpath if path is not None else None))
         return False
     return True
 

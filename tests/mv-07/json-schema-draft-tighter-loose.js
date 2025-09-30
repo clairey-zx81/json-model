@@ -69,6 +69,7 @@ function _jm_obj_0(val, path, rep)
         rep !== null && rep.push(["not an object [.'$tight#RootSchema'.'&'.0]", path])
         return false;
     }
+    let lpath;
     let pval;
     let res;
     if (! val.hasOwnProperty("$schema"))
@@ -76,13 +77,14 @@ function _jm_obj_0(val, path, rep)
         rep !== null && rep.push(["missing mandatory prop <$schema> [.'$tight#RootSchema'.'&'.0]", path])
         return false;
     }
+    lpath = path ? path.concat(["$schema"]) : null;
     pval = val["$schema"];
     // .'$tight#RootSchema'.'&'.0.'$schema'
     res = (typeof pval === 'string' || pval instanceof String);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected string [.'$tight#RootSchema'.'&'.0.'$schema']", path])
-        rep !== null && rep.push(["unexpected value for mandatory prop <$schema> [.'$tight#RootSchema'.'&'.0]", path])
+        rep !== null && rep.push(["unexpected string [.'$tight#RootSchema'.'&'.0.'$schema']", (path ? lpath : null)])
+        rep !== null && rep.push(["unexpected value for mandatory prop <$schema> [.'$tight#RootSchema'.'&'.0]", (path ? lpath : null)])
         return false;
     }
     return true;

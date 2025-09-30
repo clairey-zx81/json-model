@@ -107,318 +107,352 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$schema']", path))
         return False
+    lpath: Path
     pval: Jsonable
     res: bool
     if "id" in val:
+        lpath = (path + [ "id" ]) if path is not None else None
         pval = val.get("id", UNDEFINED)
         # .'$schema'.id
         res = isinstance(pval, str)
         if not res:
-            rep is None or rep.append(("unexpected string [.'$schema'.id]", path))
-            rep is None or rep.append(("unexpected value for optional prop <id> [.'$schema']", path))
+            rep is None or rep.append(("unexpected string [.'$schema'.id]", lpath if path is not None else None))
+            rep is None or rep.append(("unexpected value for optional prop <id> [.'$schema']", lpath if path is not None else None))
             return False
     if "$schema" in val:
+        lpath = (path + [ "$schema" ]) if path is not None else None
         pval = val.get("$schema", UNDEFINED)
         # .'$schema'.'$schema'
         res = isinstance(pval, str)
         if not res:
-            rep is None or rep.append(("unexpected string [.'$schema'.'$schema']", path))
-            rep is None or rep.append(("unexpected value for optional prop <$schema> [.'$schema']", path))
+            rep is None or rep.append(("unexpected string [.'$schema'.'$schema']", lpath if path is not None else None))
+            rep is None or rep.append(("unexpected value for optional prop <$schema> [.'$schema']", lpath if path is not None else None))
             return False
     if "title" in val:
+        lpath = (path + [ "title" ]) if path is not None else None
         pval = val.get("title", UNDEFINED)
         # .'$schema'.title
         res = isinstance(pval, str)
         if not res:
-            rep is None or rep.append(("unexpected string [.'$schema'.title]", path))
-            rep is None or rep.append(("unexpected value for optional prop <title> [.'$schema']", path))
+            rep is None or rep.append(("unexpected string [.'$schema'.title]", lpath if path is not None else None))
+            rep is None or rep.append(("unexpected value for optional prop <title> [.'$schema']", lpath if path is not None else None))
             return False
     if "description" in val:
+        lpath = (path + [ "description" ]) if path is not None else None
         pval = val.get("description", UNDEFINED)
         # .'$schema'.description
         res = isinstance(pval, str)
         if not res:
-            rep is None or rep.append(("unexpected string [.'$schema'.description]", path))
-            rep is None or rep.append(("unexpected value for optional prop <description> [.'$schema']", path))
+            rep is None or rep.append(("unexpected string [.'$schema'.description]", lpath if path is not None else None))
+            rep is None or rep.append(("unexpected value for optional prop <description> [.'$schema']", lpath if path is not None else None))
             return False
     if "multipleOf" in val:
+        lpath = (path + [ "multipleOf" ]) if path is not None else None
         pval = val.get("multipleOf", UNDEFINED)
         # .'$schema'.multipleOf
         res = isinstance(pval, (int, float)) and not isinstance(pval, bool) and pval > 0.0
         if not res:
-            rep is None or rep.append(("not a 1.0 loose float [.'$schema'.multipleOf]", path))
-            rep is None or rep.append(("unexpected value for optional prop <multipleOf> [.'$schema']", path))
+            rep is None or rep.append(("not a 1.0 loose float [.'$schema'.multipleOf]", lpath if path is not None else None))
+            rep is None or rep.append(("unexpected value for optional prop <multipleOf> [.'$schema']", lpath if path is not None else None))
             return False
     if "maximum" in val:
+        lpath = (path + [ "maximum" ]) if path is not None else None
         pval = val.get("maximum", UNDEFINED)
         # .'$schema'.maximum
         res = isinstance(pval, (int, float)) and not isinstance(pval, bool)
         if not res:
-            rep is None or rep.append(("not a -1.0 loose float [.'$schema'.maximum]", path))
-            rep is None or rep.append(("unexpected value for optional prop <maximum> [.'$schema']", path))
+            rep is None or rep.append(("not a -1.0 loose float [.'$schema'.maximum]", lpath if path is not None else None))
+            rep is None or rep.append(("unexpected value for optional prop <maximum> [.'$schema']", lpath if path is not None else None))
             return False
     if "exclusiveMaximum" in val:
+        lpath = (path + [ "exclusiveMaximum" ]) if path is not None else None
         pval = val.get("exclusiveMaximum", UNDEFINED)
         # .'$schema'.exclusiveMaximum
         res = isinstance(pval, bool)
         if not res:
-            rep is None or rep.append(("not a bool [.'$schema'.exclusiveMaximum]", path))
-            rep is None or rep.append(("unexpected value for optional prop <exclusiveMaximum> [.'$schema']", path))
+            rep is None or rep.append(("not a bool [.'$schema'.exclusiveMaximum]", lpath if path is not None else None))
+            rep is None or rep.append(("unexpected value for optional prop <exclusiveMaximum> [.'$schema']", lpath if path is not None else None))
             return False
     if "minimum" in val:
+        lpath = (path + [ "minimum" ]) if path is not None else None
         pval = val.get("minimum", UNDEFINED)
         # .'$schema'.minimum
         res = isinstance(pval, (int, float)) and not isinstance(pval, bool)
         if not res:
-            rep is None or rep.append(("not a -1.0 loose float [.'$schema'.minimum]", path))
-            rep is None or rep.append(("unexpected value for optional prop <minimum> [.'$schema']", path))
+            rep is None or rep.append(("not a -1.0 loose float [.'$schema'.minimum]", lpath if path is not None else None))
+            rep is None or rep.append(("unexpected value for optional prop <minimum> [.'$schema']", lpath if path is not None else None))
             return False
     if "exclusiveMinimum" in val:
+        lpath = (path + [ "exclusiveMinimum" ]) if path is not None else None
         pval = val.get("exclusiveMinimum", UNDEFINED)
         # .'$schema'.exclusiveMinimum
         res = isinstance(pval, bool)
         if not res:
-            rep is None or rep.append(("not a bool [.'$schema'.exclusiveMinimum]", path))
-            rep is None or rep.append(("unexpected value for optional prop <exclusiveMinimum> [.'$schema']", path))
+            rep is None or rep.append(("not a bool [.'$schema'.exclusiveMinimum]", lpath if path is not None else None))
+            rep is None or rep.append(("unexpected value for optional prop <exclusiveMinimum> [.'$schema']", lpath if path is not None else None))
             return False
     if "maxLength" in val:
+        lpath = (path + [ "maxLength" ]) if path is not None else None
         pval = val.get("maxLength", UNDEFINED)
         # .'$schema'.maxLength
         res = isinstance(pval, int) and not isinstance(pval, bool) and pval >= 0
         if not res:
-            rep is None or rep.append(("not a 0 strict int [.'$schema'.maxLength]", path))
-            rep is None or rep.append(("unexpected value for optional prop <maxLength> [.'$schema']", path))
+            rep is None or rep.append(("not a 0 strict int [.'$schema'.maxLength]", lpath if path is not None else None))
+            rep is None or rep.append(("unexpected value for optional prop <maxLength> [.'$schema']", lpath if path is not None else None))
             return False
     if "minLength" in val:
+        lpath = (path + [ "minLength" ]) if path is not None else None
         pval = val.get("minLength", UNDEFINED)
         # .'$schema'.minLength
         res = isinstance(pval, int) and not isinstance(pval, bool) and pval >= 0
         if not res:
-            rep is None or rep.append(("not a 0 strict int [.'$schema'.minLength]", path))
-            rep is None or rep.append(("unexpected value for optional prop <minLength> [.'$schema']", path))
+            rep is None or rep.append(("not a 0 strict int [.'$schema'.minLength]", lpath if path is not None else None))
+            rep is None or rep.append(("unexpected value for optional prop <minLength> [.'$schema']", lpath if path is not None else None))
             return False
     if "additionalItems" in val:
+        lpath = (path + [ "additionalItems" ]) if path is not None else None
         pval = val.get("additionalItems", UNDEFINED)
         # .'$schema'.additionalItems
         # .'$schema'.additionalItems.'|'.0
         res = isinstance(pval, bool)
         if not res:
-            rep is None or rep.append(("not a bool [.'$schema'.additionalItems.'|'.0]", path))
+            rep is None or rep.append(("not a bool [.'$schema'.additionalItems.'|'.0]", lpath if path is not None else None))
         if not res:
             # .'$schema'.additionalItems.'|'.1
-            res = _jm_obj_0(pval, path, rep)
+            res = _jm_obj_0(pval, lpath if path is not None else None, rep)
             if not res:
-                rep is None or rep.append(("unexpected $Schema [.'$schema'.additionalItems.'|'.1]", path))
+                rep is None or rep.append(("unexpected $Schema [.'$schema'.additionalItems.'|'.1]", lpath if path is not None else None))
         if res:
             rep is None or rep.clear()
         else:
-            rep is None or rep.append(("no model matched [.'$schema'.additionalItems.'|']", path))
-            rep is None or rep.append(("unexpected value for optional prop <additionalItems> [.'$schema']", path))
+            rep is None or rep.append(("no model matched [.'$schema'.additionalItems.'|']", lpath if path is not None else None))
+            rep is None or rep.append(("unexpected value for optional prop <additionalItems> [.'$schema']", lpath if path is not None else None))
             return False
     if "items" in val:
+        lpath = (path + [ "items" ]) if path is not None else None
         pval = val.get("items", UNDEFINED)
         # .'$schema'.items
         # .'$schema'.items.'|'.0
-        res = _jm_obj_0(pval, path, rep)
+        res = _jm_obj_0(pval, lpath if path is not None else None, rep)
         if not res:
-            rep is None or rep.append(("unexpected $Schema [.'$schema'.items.'|'.0]", path))
+            rep is None or rep.append(("unexpected $Schema [.'$schema'.items.'|'.0]", lpath if path is not None else None))
         if not res:
             # .'$schema'.items.'|'.1
-            res = json_model_4(pval, path, rep)
+            res = json_model_4(pval, lpath if path is not None else None, rep)
             if not res:
-                rep is None or rep.append(("unexpected $schemaArray [.'$schema'.items.'|'.1]", path))
+                rep is None or rep.append(("unexpected $schemaArray [.'$schema'.items.'|'.1]", lpath if path is not None else None))
         if res:
             rep is None or rep.clear()
         else:
-            rep is None or rep.append(("no model matched [.'$schema'.items.'|']", path))
-            rep is None or rep.append(("unexpected value for optional prop <items> [.'$schema']", path))
+            rep is None or rep.append(("no model matched [.'$schema'.items.'|']", lpath if path is not None else None))
+            rep is None or rep.append(("unexpected value for optional prop <items> [.'$schema']", lpath if path is not None else None))
             return False
     if "maxItems" in val:
+        lpath = (path + [ "maxItems" ]) if path is not None else None
         pval = val.get("maxItems", UNDEFINED)
         # .'$schema'.maxItems
         res = isinstance(pval, int) and not isinstance(pval, bool) and pval >= 0
         if not res:
-            rep is None or rep.append(("not a 0 strict int [.'$schema'.maxItems]", path))
-            rep is None or rep.append(("unexpected value for optional prop <maxItems> [.'$schema']", path))
+            rep is None or rep.append(("not a 0 strict int [.'$schema'.maxItems]", lpath if path is not None else None))
+            rep is None or rep.append(("unexpected value for optional prop <maxItems> [.'$schema']", lpath if path is not None else None))
             return False
     if "minItems" in val:
+        lpath = (path + [ "minItems" ]) if path is not None else None
         pval = val.get("minItems", UNDEFINED)
         # .'$schema'.minItems
         res = isinstance(pval, int) and not isinstance(pval, bool) and pval >= 0
         if not res:
-            rep is None or rep.append(("not a 0 strict int [.'$schema'.minItems]", path))
-            rep is None or rep.append(("unexpected value for optional prop <minItems> [.'$schema']", path))
+            rep is None or rep.append(("not a 0 strict int [.'$schema'.minItems]", lpath if path is not None else None))
+            rep is None or rep.append(("unexpected value for optional prop <minItems> [.'$schema']", lpath if path is not None else None))
             return False
     if "uniqueItems" in val:
+        lpath = (path + [ "uniqueItems" ]) if path is not None else None
         pval = val.get("uniqueItems", UNDEFINED)
         # .'$schema'.uniqueItems
         res = isinstance(pval, bool)
         if not res:
-            rep is None or rep.append(("not a bool [.'$schema'.uniqueItems]", path))
-            rep is None or rep.append(("unexpected value for optional prop <uniqueItems> [.'$schema']", path))
+            rep is None or rep.append(("not a bool [.'$schema'.uniqueItems]", lpath if path is not None else None))
+            rep is None or rep.append(("unexpected value for optional prop <uniqueItems> [.'$schema']", lpath if path is not None else None))
             return False
     if "maxProperties" in val:
+        lpath = (path + [ "maxProperties" ]) if path is not None else None
         pval = val.get("maxProperties", UNDEFINED)
         # .'$schema'.maxProperties
         res = isinstance(pval, int) and not isinstance(pval, bool) and pval >= 0
         if not res:
-            rep is None or rep.append(("not a 0 strict int [.'$schema'.maxProperties]", path))
-            rep is None or rep.append(("unexpected value for optional prop <maxProperties> [.'$schema']", path))
+            rep is None or rep.append(("not a 0 strict int [.'$schema'.maxProperties]", lpath if path is not None else None))
+            rep is None or rep.append(("unexpected value for optional prop <maxProperties> [.'$schema']", lpath if path is not None else None))
             return False
     if "minProperties" in val:
+        lpath = (path + [ "minProperties" ]) if path is not None else None
         pval = val.get("minProperties", UNDEFINED)
         # .'$schema'.minProperties
         res = isinstance(pval, int) and not isinstance(pval, bool) and pval >= 0
         if not res:
-            rep is None or rep.append(("not a 0 strict int [.'$schema'.minProperties]", path))
-            rep is None or rep.append(("unexpected value for optional prop <minProperties> [.'$schema']", path))
+            rep is None or rep.append(("not a 0 strict int [.'$schema'.minProperties]", lpath if path is not None else None))
+            rep is None or rep.append(("unexpected value for optional prop <minProperties> [.'$schema']", lpath if path is not None else None))
             return False
     if "required" in val:
+        lpath = (path + [ "required" ]) if path is not None else None
         pval = val.get("required", UNDEFINED)
         # .'$schema'.required
-        res = json_model_6(pval, path, rep)
+        res = json_model_6(pval, lpath if path is not None else None, rep)
         if not res:
-            rep is None or rep.append(("unexpected $stringArray [.'$schema'.required]", path))
-            rep is None or rep.append(("unexpected value for optional prop <required> [.'$schema']", path))
+            rep is None or rep.append(("unexpected $stringArray [.'$schema'.required]", lpath if path is not None else None))
+            rep is None or rep.append(("unexpected value for optional prop <required> [.'$schema']", lpath if path is not None else None))
             return False
     if "additionalProperties" in val:
+        lpath = (path + [ "additionalProperties" ]) if path is not None else None
         pval = val.get("additionalProperties", UNDEFINED)
         # .'$schema'.additionalProperties
         # .'$schema'.additionalProperties.'|'.0
         res = isinstance(pval, bool)
         if not res:
-            rep is None or rep.append(("not a bool [.'$schema'.additionalProperties.'|'.0]", path))
+            rep is None or rep.append(("not a bool [.'$schema'.additionalProperties.'|'.0]", lpath if path is not None else None))
         if not res:
             # .'$schema'.additionalProperties.'|'.1
-            res = _jm_obj_0(pval, path, rep)
+            res = _jm_obj_0(pval, lpath if path is not None else None, rep)
             if not res:
-                rep is None or rep.append(("unexpected $Schema [.'$schema'.additionalProperties.'|'.1]", path))
+                rep is None or rep.append(("unexpected $Schema [.'$schema'.additionalProperties.'|'.1]", lpath if path is not None else None))
         if res:
             rep is None or rep.clear()
         else:
-            rep is None or rep.append(("no model matched [.'$schema'.additionalProperties.'|']", path))
-            rep is None or rep.append(("unexpected value for optional prop <additionalProperties> [.'$schema']", path))
+            rep is None or rep.append(("no model matched [.'$schema'.additionalProperties.'|']", lpath if path is not None else None))
+            rep is None or rep.append(("unexpected value for optional prop <additionalProperties> [.'$schema']", lpath if path is not None else None))
             return False
     if "definitions" in val:
+        lpath = (path + [ "definitions" ]) if path is not None else None
         pval = val.get("definitions", UNDEFINED)
         # .'$schema'.definitions
-        res = _jm_obj_1(pval, path, rep)
+        res = _jm_obj_1(pval, lpath if path is not None else None, rep)
         if not res:
-            rep is None or rep.append(("unexpected element [.'$schema'.definitions]", path))
-            rep is None or rep.append(("unexpected value for optional prop <definitions> [.'$schema']", path))
+            rep is None or rep.append(("unexpected element [.'$schema'.definitions]", lpath if path is not None else None))
+            rep is None or rep.append(("unexpected value for optional prop <definitions> [.'$schema']", lpath if path is not None else None))
             return False
     if "properties" in val:
+        lpath = (path + [ "properties" ]) if path is not None else None
         pval = val.get("properties", UNDEFINED)
         # .'$schema'.properties
-        res = _jm_obj_2(pval, path, rep)
+        res = _jm_obj_2(pval, lpath if path is not None else None, rep)
         if not res:
-            rep is None or rep.append(("unexpected element [.'$schema'.properties]", path))
-            rep is None or rep.append(("unexpected value for optional prop <properties> [.'$schema']", path))
+            rep is None or rep.append(("unexpected element [.'$schema'.properties]", lpath if path is not None else None))
+            rep is None or rep.append(("unexpected value for optional prop <properties> [.'$schema']", lpath if path is not None else None))
             return False
     if "patternProperties" in val:
+        lpath = (path + [ "patternProperties" ]) if path is not None else None
         pval = val.get("patternProperties", UNDEFINED)
         # .'$schema'.patternProperties
-        res = _jm_obj_3(pval, path, rep)
+        res = _jm_obj_3(pval, lpath if path is not None else None, rep)
         if not res:
-            rep is None or rep.append(("unexpected element [.'$schema'.patternProperties]", path))
-            rep is None or rep.append(("unexpected value for optional prop <patternProperties> [.'$schema']", path))
+            rep is None or rep.append(("unexpected element [.'$schema'.patternProperties]", lpath if path is not None else None))
+            rep is None or rep.append(("unexpected value for optional prop <patternProperties> [.'$schema']", lpath if path is not None else None))
             return False
     if "dependencies" in val:
+        lpath = (path + [ "dependencies" ]) if path is not None else None
         pval = val.get("dependencies", UNDEFINED)
         # .'$schema'.dependencies
-        res = _jm_obj_4(pval, path, rep)
+        res = _jm_obj_4(pval, lpath if path is not None else None, rep)
         if not res:
-            rep is None or rep.append(("unexpected element [.'$schema'.dependencies]", path))
-            rep is None or rep.append(("unexpected value for optional prop <dependencies> [.'$schema']", path))
+            rep is None or rep.append(("unexpected element [.'$schema'.dependencies]", lpath if path is not None else None))
+            rep is None or rep.append(("unexpected value for optional prop <dependencies> [.'$schema']", lpath if path is not None else None))
             return False
     if "enum" in val:
+        lpath = (path + [ "enum" ]) if path is not None else None
         pval = val.get("enum", UNDEFINED)
         # .'$schema'.enum
         # .'$schema'.enum.'@'
         res = isinstance(pval, list)
         if not res:
-            rep is None or rep.append(("not array or unexpected array [.'$schema'.enum.'@']", path))
+            rep is None or rep.append(("not array or unexpected array [.'$schema'.enum.'@']", lpath if path is not None else None))
         if res:
             ival_0: int = len(pval)
-            res = is_unique_array(pval, path, rep) and ival_0 >= 1
+            res = is_unique_array(pval, lpath if path is not None else None, rep) and ival_0 >= 1
             if not res:
-                rep is None or rep.append(("constraints failed [.'$schema'.enum]", path))
+                rep is None or rep.append(("constraints failed [.'$schema'.enum]", lpath if path is not None else None))
         if not res:
-            rep is None or rep.append(("unexpected value for optional prop <enum> [.'$schema']", path))
+            rep is None or rep.append(("unexpected value for optional prop <enum> [.'$schema']", lpath if path is not None else None))
             return False
     if "type" in val:
+        lpath = (path + [ "type" ]) if path is not None else None
         pval = val.get("type", UNDEFINED)
         # .'$schema'.type
         # .'$schema'.type.'|'.0
-        res = json_model_5(pval, path, rep)
+        res = json_model_5(pval, lpath if path is not None else None, rep)
         if not res:
-            rep is None or rep.append(("unexpected $simpleTypes [.'$schema'.type.'|'.0]", path))
+            rep is None or rep.append(("unexpected $simpleTypes [.'$schema'.type.'|'.0]", lpath if path is not None else None))
         if not res:
             # .'$schema'.type.'|'.1
-            res = json_model_7(pval, path, rep)
+            res = json_model_7(pval, lpath if path is not None else None, rep)
             if not res:
-                rep is None or rep.append(("unexpected $typeArray [.'$schema'.type.'|'.1]", path))
+                rep is None or rep.append(("unexpected $typeArray [.'$schema'.type.'|'.1]", lpath if path is not None else None))
         if res:
             rep is None or rep.clear()
         else:
-            rep is None or rep.append(("no model matched [.'$schema'.type.'|']", path))
-            rep is None or rep.append(("unexpected value for optional prop <type> [.'$schema']", path))
+            rep is None or rep.append(("no model matched [.'$schema'.type.'|']", lpath if path is not None else None))
+            rep is None or rep.append(("unexpected value for optional prop <type> [.'$schema']", lpath if path is not None else None))
             return False
     if "format" in val:
+        lpath = (path + [ "format" ]) if path is not None else None
         pval = val.get("format", UNDEFINED)
         # .'$schema'.format
         res = isinstance(pval, str)
         if not res:
-            rep is None or rep.append(("unexpected string [.'$schema'.format]", path))
-            rep is None or rep.append(("unexpected value for optional prop <format> [.'$schema']", path))
+            rep is None or rep.append(("unexpected string [.'$schema'.format]", lpath if path is not None else None))
+            rep is None or rep.append(("unexpected value for optional prop <format> [.'$schema']", lpath if path is not None else None))
             return False
     if "allOf" in val:
+        lpath = (path + [ "allOf" ]) if path is not None else None
         pval = val.get("allOf", UNDEFINED)
         # .'$schema'.allOf
-        res = json_model_4(pval, path, rep)
+        res = json_model_4(pval, lpath if path is not None else None, rep)
         if not res:
-            rep is None or rep.append(("unexpected $schemaArray [.'$schema'.allOf]", path))
-            rep is None or rep.append(("unexpected value for optional prop <allOf> [.'$schema']", path))
+            rep is None or rep.append(("unexpected $schemaArray [.'$schema'.allOf]", lpath if path is not None else None))
+            rep is None or rep.append(("unexpected value for optional prop <allOf> [.'$schema']", lpath if path is not None else None))
             return False
     if "anyOf" in val:
+        lpath = (path + [ "anyOf" ]) if path is not None else None
         pval = val.get("anyOf", UNDEFINED)
         # .'$schema'.anyOf
-        res = json_model_4(pval, path, rep)
+        res = json_model_4(pval, lpath if path is not None else None, rep)
         if not res:
-            rep is None or rep.append(("unexpected $schemaArray [.'$schema'.anyOf]", path))
-            rep is None or rep.append(("unexpected value for optional prop <anyOf> [.'$schema']", path))
+            rep is None or rep.append(("unexpected $schemaArray [.'$schema'.anyOf]", lpath if path is not None else None))
+            rep is None or rep.append(("unexpected value for optional prop <anyOf> [.'$schema']", lpath if path is not None else None))
             return False
     if "oneOf" in val:
+        lpath = (path + [ "oneOf" ]) if path is not None else None
         pval = val.get("oneOf", UNDEFINED)
         # .'$schema'.oneOf
-        res = json_model_4(pval, path, rep)
+        res = json_model_4(pval, lpath if path is not None else None, rep)
         if not res:
-            rep is None or rep.append(("unexpected $schemaArray [.'$schema'.oneOf]", path))
-            rep is None or rep.append(("unexpected value for optional prop <oneOf> [.'$schema']", path))
+            rep is None or rep.append(("unexpected $schemaArray [.'$schema'.oneOf]", lpath if path is not None else None))
+            rep is None or rep.append(("unexpected value for optional prop <oneOf> [.'$schema']", lpath if path is not None else None))
             return False
     if "not" in val:
+        lpath = (path + [ "not" ]) if path is not None else None
         pval = val.get("not", UNDEFINED)
         # .'$schema'.not
-        res = _jm_obj_0(pval, path, rep)
+        res = _jm_obj_0(pval, lpath if path is not None else None, rep)
         if not res:
-            rep is None or rep.append(("unexpected $Schema [.'$schema'.not]", path))
-            rep is None or rep.append(("unexpected value for optional prop <not> [.'$schema']", path))
+            rep is None or rep.append(("unexpected $Schema [.'$schema'.not]", lpath if path is not None else None))
+            rep is None or rep.append(("unexpected value for optional prop <not> [.'$schema']", lpath if path is not None else None))
             return False
     if "pattern" in val:
+        lpath = (path + [ "pattern" ]) if path is not None else None
         pval = val.get("pattern", UNDEFINED)
         # .'$schema'.pattern
         res = isinstance(pval, str)
         if not res:
-            rep is None or rep.append(("unexpected string [.'$schema'.pattern]", path))
-            rep is None or rep.append(("unexpected value for optional prop <pattern> [.'$schema']", path))
+            rep is None or rep.append(("unexpected string [.'$schema'.pattern]", lpath if path is not None else None))
+            rep is None or rep.append(("unexpected value for optional prop <pattern> [.'$schema']", lpath if path is not None else None))
             return False
     if "$ref" in val:
+        lpath = (path + [ "$ref" ]) if path is not None else None
         pval = val.get("$ref", UNDEFINED)
         # .'$schema'.'$ref'
         res = isinstance(pval, str)
         if not res:
-            rep is None or rep.append(("unexpected string [.'$schema'.'$ref']", path))
-            rep is None or rep.append(("unexpected value for optional prop <$ref> [.'$schema']", path))
+            rep is None or rep.append(("unexpected string [.'$schema'.'$ref']", lpath if path is not None else None))
+            rep is None or rep.append(("unexpected value for optional prop <$ref> [.'$schema']", lpath if path is not None else None))
             return False
     return True
 

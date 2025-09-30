@@ -94,7 +94,7 @@ static INLINE bool _jm_obj_1(const json_t *val, jm_path_t *path, jm_report_t *re
     }
     pval = json_object_get(val, "foo");
     // .foo
-    res = _jm_obj_0(pval, path, rep);
+    res = _jm_obj_0(pval, NULL, rep);
     if (! res)
     {
         return false;

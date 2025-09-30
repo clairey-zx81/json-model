@@ -1,8 +1,8 @@
 opt_03.values.json[0]: PASS
 opt_03.values.json[1]: FAIL (: bad property count [.])
-opt_03.values.json[2]: FAIL (: not a 0 strict int [.a]; : unexpected value for mandatory prop <a> [.])
-opt_03.values.json[3]: FAIL (: not a -1 strict int [.b]; : unexpected value for mandatory prop <b> [.])
-opt_03.values.json[4]: FAIL (: not a 1 strict int [.c]; : unexpected value for mandatory prop <c> [.])
+opt_03.values.json[2]: FAIL (a: not a 0 strict int [.a]; a: unexpected value for mandatory prop <a> [.])
+opt_03.values.json[3]: FAIL (b: not a -1 strict int [.b]; b: unexpected value for mandatory prop <b> [.])
+opt_03.values.json[4]: FAIL (c: not a 1 strict int [.c]; c: unexpected value for mandatory prop <c> [.])
 opt_03.values.json[5]: FAIL (: bad property count [.])
 opt_03.values.json[6]: FAIL (: bad property count [.])
 opt_03.values.json[7]: FAIL (: bad property count [.])

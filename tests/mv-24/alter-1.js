@@ -269,7 +269,7 @@ function _jm_obj_5(val, path, rep)
     }
     pval = val["t"];
     // .'$alternative'.'|'.3.t
-    res = json_model_3(pval, path, rep);
+    res = json_model_3(pval, null, rep);
     if (! res)
     {
         return false;

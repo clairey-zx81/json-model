@@ -283,7 +283,7 @@ static INLINE bool _jm_obj_5(const json_t *val, jm_path_t *path, jm_report_t *re
     }
     pval = json_object_get(val, "t");
     // .'$alternative'.'|'.3.t
-    res = json_model_3(pval, path, rep);
+    res = json_model_3(pval, NULL, rep);
     if (! res)
     {
         return false;

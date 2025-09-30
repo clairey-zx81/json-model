@@ -33,27 +33,30 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
     if len(val) != 2:
         rep is None or rep.append(("bad property count [.'|'.0]", path))
         return False
+    lpath: Path
     pval: Jsonable
     res: bool
     if not "t" in val:
         rep is None or rep.append(("missing mandatory prop <t> [.'|'.0]", path))
         return False
+    lpath = (path + [ "t" ]) if path is not None else None
     pval = val.get("t", UNDEFINED)
     # .'|'.0.t
     res = isinstance(pval, str) and pval == "a"
     if not res:
-        rep is None or rep.append(("unexpected _a [.'|'.0.t]", path))
-        rep is None or rep.append(("unexpected value for mandatory prop <t> [.'|'.0]", path))
+        rep is None or rep.append(("unexpected _a [.'|'.0.t]", lpath if path is not None else None))
+        rep is None or rep.append(("unexpected value for mandatory prop <t> [.'|'.0]", lpath if path is not None else None))
         return False
     if not "foo" in val:
         rep is None or rep.append(("missing mandatory prop <foo> [.'|'.0]", path))
         return False
+    lpath = (path + [ "foo" ]) if path is not None else None
     pval = val.get("foo", UNDEFINED)
     # .'|'.0.foo
     res = isinstance(pval, int) and not isinstance(pval, bool) and pval >= 1
     if not res:
-        rep is None or rep.append(("not a 1 strict int [.'|'.0.foo]", path))
-        rep is None or rep.append(("unexpected value for mandatory prop <foo> [.'|'.0]", path))
+        rep is None or rep.append(("not a 1 strict int [.'|'.0.foo]", lpath if path is not None else None))
+        rep is None or rep.append(("unexpected value for mandatory prop <foo> [.'|'.0]", lpath if path is not None else None))
         return False
     return True
 
@@ -67,27 +70,30 @@ def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
     if len(val) != 2:
         rep is None or rep.append(("bad property count [.'|'.1]", path))
         return False
+    lpath: Path
     pval: Jsonable
     res: bool
     if not "t" in val:
         rep is None or rep.append(("missing mandatory prop <t> [.'|'.1]", path))
         return False
+    lpath = (path + [ "t" ]) if path is not None else None
     pval = val.get("t", UNDEFINED)
     # .'|'.1.t
     res = ((pval is None or isinstance(pval, (bool, int, float, str)))) and pval in _jm_cst_0
     if not res:
-        rep is None or rep.append(("value not in enum [.'|'.1.t.'|']", path))
-        rep is None or rep.append(("unexpected value for mandatory prop <t> [.'|'.1]", path))
+        rep is None or rep.append(("value not in enum [.'|'.1.t.'|']", lpath if path is not None else None))
+        rep is None or rep.append(("unexpected value for mandatory prop <t> [.'|'.1]", lpath if path is not None else None))
         return False
     if not "bla" in val:
         rep is None or rep.append(("missing mandatory prop <bla> [.'|'.1]", path))
         return False
+    lpath = (path + [ "bla" ]) if path is not None else None
     pval = val.get("bla", UNDEFINED)
     # .'|'.1.bla
     res = isinstance(pval, int) and not isinstance(pval, bool) and pval >= 1
     if not res:
-        rep is None or rep.append(("not a 1 strict int [.'|'.1.bla]", path))
-        rep is None or rep.append(("unexpected value for mandatory prop <bla> [.'|'.1]", path))
+        rep is None or rep.append(("not a 1 strict int [.'|'.1.bla]", lpath if path is not None else None))
+        rep is None or rep.append(("unexpected value for mandatory prop <bla> [.'|'.1]", lpath if path is not None else None))
         return False
     return True
 

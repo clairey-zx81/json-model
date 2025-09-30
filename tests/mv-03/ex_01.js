@@ -51,6 +51,7 @@ function _jm_obj_0(val, path, rep)
         rep !== null && rep.push(["bad property count [.]", path])
         return false;
     }
+    let lpath;
     let pval;
     let res;
     if (! val.hasOwnProperty("a"))
@@ -58,13 +59,14 @@ function _jm_obj_0(val, path, rep)
         rep !== null && rep.push(["missing mandatory prop <a> [.]", path])
         return false;
     }
+    lpath = path ? path.concat(["a"]) : null;
     pval = val["a"];
     // .a
     res = ((typeof pval === 'string' || pval instanceof String)) && pval == "Susie";
     if (! res)
     {
-        rep !== null && rep.push(["unexpected _Susie [.a]", path])
-        rep !== null && rep.push(["unexpected value for mandatory prop <a> [.]", path])
+        rep !== null && rep.push(["unexpected _Susie [.a]", (path ? lpath : null)])
+        rep !== null && rep.push(["unexpected value for mandatory prop <a> [.]", (path ? lpath : null)])
         return false;
     }
     if (! val.hasOwnProperty("b"))
@@ -72,13 +74,14 @@ function _jm_obj_0(val, path, rep)
         rep !== null && rep.push(["missing mandatory prop <b> [.]", path])
         return false;
     }
+    lpath = path ? path.concat(["b"]) : null;
     pval = val["b"];
     // .b
     res = ((typeof pval === 'string' || pval instanceof String)) && pval == "Susie";
     if (! res)
     {
-        rep !== null && rep.push(["unexpected _Susie [.b]", path])
-        rep !== null && rep.push(["unexpected value for mandatory prop <b> [.]", path])
+        rep !== null && rep.push(["unexpected _Susie [.b]", (path ? lpath : null)])
+        rep !== null && rep.push(["unexpected value for mandatory prop <b> [.]", (path ? lpath : null)])
         return false;
     }
     return true;

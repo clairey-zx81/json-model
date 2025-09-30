@@ -295,17 +295,19 @@ def _jm_obj_4(val: Jsonable, path: Path, rep: Report) -> bool:
     if len(val) != 1:
         rep is None or rep.append(("bad property count [.'$Null']", path))
         return False
+    lpath: Path
     pval: Jsonable
     res: bool
     if not "type" in val:
         rep is None or rep.append(("missing mandatory prop <type> [.'$Null']", path))
         return False
+    lpath = (path + [ "type" ]) if path is not None else None
     pval = val.get("type", UNDEFINED)
     # .'$Null'.type
     res = isinstance(pval, str) and pval == "null"
     if not res:
-        rep is None or rep.append(("unexpected _null [.'$Null'.type]", path))
-        rep is None or rep.append(("unexpected value for mandatory prop <type> [.'$Null']", path))
+        rep is None or rep.append(("unexpected _null [.'$Null'.type]", lpath if path is not None else None))
+        rep is None or rep.append(("unexpected value for mandatory prop <type> [.'$Null']", lpath if path is not None else None))
         return False
     return True
 
@@ -327,17 +329,19 @@ def _jm_obj_5(val: Jsonable, path: Path, rep: Report) -> bool:
     if len(val) != 1:
         rep is None or rep.append(("bad property count [.'$Boolean']", path))
         return False
+    lpath: Path
     pval: Jsonable
     res: bool
     if not "type" in val:
         rep is None or rep.append(("missing mandatory prop <type> [.'$Boolean']", path))
         return False
+    lpath = (path + [ "type" ]) if path is not None else None
     pval = val.get("type", UNDEFINED)
     # .'$Boolean'.type
     res = isinstance(pval, str) and pval == "boolean"
     if not res:
-        rep is None or rep.append(("unexpected _boolean [.'$Boolean'.type]", path))
-        rep is None or rep.append(("unexpected value for mandatory prop <type> [.'$Boolean']", path))
+        rep is None or rep.append(("unexpected _boolean [.'$Boolean'.type]", lpath if path is not None else None))
+        rep is None or rep.append(("unexpected value for mandatory prop <type> [.'$Boolean']", lpath if path is not None else None))
         return False
     return True
 

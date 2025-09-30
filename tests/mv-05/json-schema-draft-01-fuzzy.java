@@ -56,17 +56,19 @@ public class json_schema_draft_01_fuzzy extends ModelChecker
             if (rep != null) rep.addEntry("not an object [.'$schema']", path);
             return false;
         }
+        Path lpath;
         Object pval;
         boolean res;
         if (json.objectHasProp(val, "type"))
         {
+            lpath = new Path("type", path);
             pval = json.objectValue(val, "type");
             // .'$schema'.type
             // .'$schema'.type.'|'.0
-            res = json_model_4(pval, path, rep);
+            res = json_model_4(pval, (path != null ? lpath : null), rep);
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected $allTypes [.'$schema'.type.'|'.0]", path);
+                if (rep != null) rep.addEntry("unexpected $allTypes [.'$schema'.type.'|'.0]", (path != null ? lpath : null));
             }
             if (! res)
             {
@@ -80,21 +82,21 @@ public class json_schema_draft_01_fuzzy extends ModelChecker
                     {
                         arr_0_idx++;
                         Object arr_0_item = arr_0_item_loop.next();
-                        Path arr_0_lpath = new Path(arr_0_idx, path);
+                        Path arr_0_lpath = new Path(arr_0_idx, (path != null ? lpath : null));
                         // .'$schema'.type.'|'.1.0
                         // .'$schema'.type.'|'.1.0.'|'.0
                         res = json.isString(arr_0_item);
                         if (! res)
                         {
-                            if (rep != null) rep.addEntry("unexpected string [.'$schema'.type.'|'.1.0.'|'.0]", (path != null ? arr_0_lpath : null));
+                            if (rep != null) rep.addEntry("unexpected string [.'$schema'.type.'|'.1.0.'|'.0]", ((path != null ? lpath : null) != null ? arr_0_lpath : null));
                         }
                         if (! res)
                         {
                             // .'$schema'.type.'|'.1.0.'|'.1
-                            res = _jm_obj_0(arr_0_item, (path != null ? arr_0_lpath : null), rep);
+                            res = _jm_obj_0(arr_0_item, ((path != null ? lpath : null) != null ? arr_0_lpath : null), rep);
                             if (! res)
                             {
-                                if (rep != null) rep.addEntry("unexpected $Schema [.'$schema'.type.'|'.1.0.'|'.1]", (path != null ? arr_0_lpath : null));
+                                if (rep != null) rep.addEntry("unexpected $Schema [.'$schema'.type.'|'.1.0.'|'.1]", ((path != null ? lpath : null) != null ? arr_0_lpath : null));
                             }
                         }
                         if (res)
@@ -103,14 +105,14 @@ public class json_schema_draft_01_fuzzy extends ModelChecker
                         }
                         else
                         {
-                            if (rep != null) rep.addEntry("no model matched [.'$schema'.type.'|'.1.0.'|']", (path != null ? arr_0_lpath : null));
+                            if (rep != null) rep.addEntry("no model matched [.'$schema'.type.'|'.1.0.'|']", ((path != null ? lpath : null) != null ? arr_0_lpath : null));
                             break;
                         }
                     }
                 }
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("not array or unexpected array [.'$schema'.type.'|'.1]", path);
+                    if (rep != null) rep.addEntry("not array or unexpected array [.'$schema'.type.'|'.1]", (path != null ? lpath : null));
                 }
             }
             if (res)
@@ -119,32 +121,34 @@ public class json_schema_draft_01_fuzzy extends ModelChecker
             }
             else
             {
-                if (rep != null) rep.addEntry("no model matched [.'$schema'.type.'|']", path);
-                if (rep != null) rep.addEntry("unexpected value for optional prop <type> [.'$schema']", path);
+                if (rep != null) rep.addEntry("no model matched [.'$schema'.type.'|']", (path != null ? lpath : null));
+                if (rep != null) rep.addEntry("unexpected value for optional prop <type> [.'$schema']", (path != null ? lpath : null));
                 return false;
             }
         }
         if (json.objectHasProp(val, "properties"))
         {
+            lpath = new Path("properties", path);
             pval = json.objectValue(val, "properties");
             // .'$schema'.properties
-            res = _jm_obj_1(pval, path, rep);
+            res = _jm_obj_1(pval, (path != null ? lpath : null), rep);
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected element [.'$schema'.properties]", path);
-                if (rep != null) rep.addEntry("unexpected value for optional prop <properties> [.'$schema']", path);
+                if (rep != null) rep.addEntry("unexpected element [.'$schema'.properties]", (path != null ? lpath : null));
+                if (rep != null) rep.addEntry("unexpected value for optional prop <properties> [.'$schema']", (path != null ? lpath : null));
                 return false;
             }
         }
         if (json.objectHasProp(val, "items"))
         {
+            lpath = new Path("items", path);
             pval = json.objectValue(val, "items");
             // .'$schema'.items
             // .'$schema'.items.'|'.0
-            res = _jm_obj_0(pval, path, rep);
+            res = _jm_obj_0(pval, (path != null ? lpath : null), rep);
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected $Schema [.'$schema'.items.'|'.0]", path);
+                if (rep != null) rep.addEntry("unexpected $Schema [.'$schema'.items.'|'.0]", (path != null ? lpath : null));
             }
             if (! res)
             {
@@ -158,19 +162,19 @@ public class json_schema_draft_01_fuzzy extends ModelChecker
                     {
                         arr_1_idx++;
                         Object arr_1_item = arr_1_item_loop.next();
-                        Path arr_1_lpath = new Path(arr_1_idx, path);
+                        Path arr_1_lpath = new Path(arr_1_idx, (path != null ? lpath : null));
                         // .'$schema'.items.'|'.1.0
-                        res = _jm_obj_0(arr_1_item, (path != null ? arr_1_lpath : null), rep);
+                        res = _jm_obj_0(arr_1_item, ((path != null ? lpath : null) != null ? arr_1_lpath : null), rep);
                         if (! res)
                         {
-                            if (rep != null) rep.addEntry("unexpected $Schema [.'$schema'.items.'|'.1.0]", (path != null ? arr_1_lpath : null));
+                            if (rep != null) rep.addEntry("unexpected $Schema [.'$schema'.items.'|'.1.0]", ((path != null ? lpath : null) != null ? arr_1_lpath : null));
                             break;
                         }
                     }
                 }
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("not array or unexpected array [.'$schema'.items.'|'.1]", path);
+                    if (rep != null) rep.addEntry("not array or unexpected array [.'$schema'.items.'|'.1]", (path != null ? lpath : null));
                 }
             }
             if (res)
@@ -179,40 +183,42 @@ public class json_schema_draft_01_fuzzy extends ModelChecker
             }
             else
             {
-                if (rep != null) rep.addEntry("no model matched [.'$schema'.items.'|']", path);
-                if (rep != null) rep.addEntry("unexpected value for optional prop <items> [.'$schema']", path);
+                if (rep != null) rep.addEntry("no model matched [.'$schema'.items.'|']", (path != null ? lpath : null));
+                if (rep != null) rep.addEntry("unexpected value for optional prop <items> [.'$schema']", (path != null ? lpath : null));
                 return false;
             }
         }
         if (json.objectHasProp(val, "optional"))
         {
+            lpath = new Path("optional", path);
             pval = json.objectValue(val, "optional");
             // .'$schema'.optional
             res = json.isBoolean(pval);
             if (! res)
             {
-                if (rep != null) rep.addEntry("not a bool [.'$schema'.optional]", path);
-                if (rep != null) rep.addEntry("unexpected value for optional prop <optional> [.'$schema']", path);
+                if (rep != null) rep.addEntry("not a bool [.'$schema'.optional]", (path != null ? lpath : null));
+                if (rep != null) rep.addEntry("unexpected value for optional prop <optional> [.'$schema']", (path != null ? lpath : null));
                 return false;
             }
         }
         if (json.objectHasProp(val, "additionalProperties"))
         {
+            lpath = new Path("additionalProperties", path);
             pval = json.objectValue(val, "additionalProperties");
             // .'$schema'.additionalProperties
             // .'$schema'.additionalProperties.'|'.0
             res = json.isBoolean(pval);
             if (! res)
             {
-                if (rep != null) rep.addEntry("not a bool [.'$schema'.additionalProperties.'|'.0]", path);
+                if (rep != null) rep.addEntry("not a bool [.'$schema'.additionalProperties.'|'.0]", (path != null ? lpath : null));
             }
             if (! res)
             {
                 // .'$schema'.additionalProperties.'|'.1
-                res = _jm_obj_0(pval, path, rep);
+                res = _jm_obj_0(pval, (path != null ? lpath : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $Schema [.'$schema'.additionalProperties.'|'.1]", path);
+                    if (rep != null) rep.addEntry("unexpected $Schema [.'$schema'.additionalProperties.'|'.1]", (path != null ? lpath : null));
                 }
             }
             if (res)
@@ -221,28 +227,29 @@ public class json_schema_draft_01_fuzzy extends ModelChecker
             }
             else
             {
-                if (rep != null) rep.addEntry("no model matched [.'$schema'.additionalProperties.'|']", path);
-                if (rep != null) rep.addEntry("unexpected value for optional prop <additionalProperties> [.'$schema']", path);
+                if (rep != null) rep.addEntry("no model matched [.'$schema'.additionalProperties.'|']", (path != null ? lpath : null));
+                if (rep != null) rep.addEntry("unexpected value for optional prop <additionalProperties> [.'$schema']", (path != null ? lpath : null));
                 return false;
             }
         }
         if (json.objectHasProp(val, "requires"))
         {
+            lpath = new Path("requires", path);
             pval = json.objectValue(val, "requires");
             // .'$schema'.requires
             // .'$schema'.requires.'|'.0
             res = json.isString(pval);
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected string [.'$schema'.requires.'|'.0]", path);
+                if (rep != null) rep.addEntry("unexpected string [.'$schema'.requires.'|'.0]", (path != null ? lpath : null));
             }
             if (! res)
             {
                 // .'$schema'.requires.'|'.1
-                res = _jm_obj_0(pval, path, rep);
+                res = _jm_obj_0(pval, (path != null ? lpath : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $Schema [.'$schema'.requires.'|'.1]", path);
+                    if (rep != null) rep.addEntry("unexpected $Schema [.'$schema'.requires.'|'.1]", (path != null ? lpath : null));
                 }
             }
             if (res)
@@ -251,128 +258,138 @@ public class json_schema_draft_01_fuzzy extends ModelChecker
             }
             else
             {
-                if (rep != null) rep.addEntry("no model matched [.'$schema'.requires.'|']", path);
-                if (rep != null) rep.addEntry("unexpected value for optional prop <requires> [.'$schema']", path);
+                if (rep != null) rep.addEntry("no model matched [.'$schema'.requires.'|']", (path != null ? lpath : null));
+                if (rep != null) rep.addEntry("unexpected value for optional prop <requires> [.'$schema']", (path != null ? lpath : null));
                 return false;
             }
         }
         if (json.objectHasProp(val, "minimum"))
         {
+            lpath = new Path("minimum", path);
             pval = json.objectValue(val, "minimum");
             // .'$schema'.minimum
             res = json.isNumber(pval);
             if (! res)
             {
-                if (rep != null) rep.addEntry("not a -1.0 loose float [.'$schema'.minimum]", path);
-                if (rep != null) rep.addEntry("unexpected value for optional prop <minimum> [.'$schema']", path);
+                if (rep != null) rep.addEntry("not a -1.0 loose float [.'$schema'.minimum]", (path != null ? lpath : null));
+                if (rep != null) rep.addEntry("unexpected value for optional prop <minimum> [.'$schema']", (path != null ? lpath : null));
                 return false;
             }
         }
         if (json.objectHasProp(val, "maximum"))
         {
+            lpath = new Path("maximum", path);
             pval = json.objectValue(val, "maximum");
             // .'$schema'.maximum
             res = json.isNumber(pval);
             if (! res)
             {
-                if (rep != null) rep.addEntry("not a -1.0 loose float [.'$schema'.maximum]", path);
-                if (rep != null) rep.addEntry("unexpected value for optional prop <maximum> [.'$schema']", path);
+                if (rep != null) rep.addEntry("not a -1.0 loose float [.'$schema'.maximum]", (path != null ? lpath : null));
+                if (rep != null) rep.addEntry("unexpected value for optional prop <maximum> [.'$schema']", (path != null ? lpath : null));
                 return false;
             }
         }
         if (json.objectHasProp(val, "minimumCanEqual"))
         {
+            lpath = new Path("minimumCanEqual", path);
             pval = json.objectValue(val, "minimumCanEqual");
             // .'$schema'.minimumCanEqual
             res = json.isBoolean(pval);
             if (! res)
             {
-                if (rep != null) rep.addEntry("not a bool [.'$schema'.minimumCanEqual]", path);
-                if (rep != null) rep.addEntry("unexpected value for optional prop <minimumCanEqual> [.'$schema']", path);
+                if (rep != null) rep.addEntry("not a bool [.'$schema'.minimumCanEqual]", (path != null ? lpath : null));
+                if (rep != null) rep.addEntry("unexpected value for optional prop <minimumCanEqual> [.'$schema']", (path != null ? lpath : null));
                 return false;
             }
         }
         if (json.objectHasProp(val, "maximumCanEqual"))
         {
+            lpath = new Path("maximumCanEqual", path);
             pval = json.objectValue(val, "maximumCanEqual");
             // .'$schema'.maximumCanEqual
             res = json.isBoolean(pval);
             if (! res)
             {
-                if (rep != null) rep.addEntry("not a bool [.'$schema'.maximumCanEqual]", path);
-                if (rep != null) rep.addEntry("unexpected value for optional prop <maximumCanEqual> [.'$schema']", path);
+                if (rep != null) rep.addEntry("not a bool [.'$schema'.maximumCanEqual]", (path != null ? lpath : null));
+                if (rep != null) rep.addEntry("unexpected value for optional prop <maximumCanEqual> [.'$schema']", (path != null ? lpath : null));
                 return false;
             }
         }
         if (json.objectHasProp(val, "minItems"))
         {
+            lpath = new Path("minItems", path);
             pval = json.objectValue(val, "minItems");
             // .'$schema'.minItems
             res = json.isInteger(pval) && json.asLong(pval) >= 0;
             if (! res)
             {
-                if (rep != null) rep.addEntry("not a 0 strict int [.'$schema'.minItems]", path);
-                if (rep != null) rep.addEntry("unexpected value for optional prop <minItems> [.'$schema']", path);
+                if (rep != null) rep.addEntry("not a 0 strict int [.'$schema'.minItems]", (path != null ? lpath : null));
+                if (rep != null) rep.addEntry("unexpected value for optional prop <minItems> [.'$schema']", (path != null ? lpath : null));
                 return false;
             }
         }
         if (json.objectHasProp(val, "maxItems"))
         {
+            lpath = new Path("maxItems", path);
             pval = json.objectValue(val, "maxItems");
             // .'$schema'.maxItems
             res = json.isInteger(pval) && json.asLong(pval) >= 0;
             if (! res)
             {
-                if (rep != null) rep.addEntry("not a 0 strict int [.'$schema'.maxItems]", path);
-                if (rep != null) rep.addEntry("unexpected value for optional prop <maxItems> [.'$schema']", path);
+                if (rep != null) rep.addEntry("not a 0 strict int [.'$schema'.maxItems]", (path != null ? lpath : null));
+                if (rep != null) rep.addEntry("unexpected value for optional prop <maxItems> [.'$schema']", (path != null ? lpath : null));
                 return false;
             }
         }
         if (json.objectHasProp(val, "pattern"))
         {
+            lpath = new Path("pattern", path);
             pval = json.objectValue(val, "pattern");
             // .'$schema'.pattern
             res = json.isString(pval) && rt.is_valid_regex(json.asString(pval));
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected $REGEX [.'$schema'.pattern]", path);
-                if (rep != null) rep.addEntry("unexpected value for optional prop <pattern> [.'$schema']", path);
+                if (rep != null) rep.addEntry("unexpected $REGEX [.'$schema'.pattern]", (path != null ? lpath : null));
+                if (rep != null) rep.addEntry("unexpected value for optional prop <pattern> [.'$schema']", (path != null ? lpath : null));
                 return false;
             }
         }
         if (json.objectHasProp(val, "minLength"))
         {
+            lpath = new Path("minLength", path);
             pval = json.objectValue(val, "minLength");
             // .'$schema'.minLength
             res = json.isInteger(pval) && json.asLong(pval) >= 0;
             if (! res)
             {
-                if (rep != null) rep.addEntry("not a 0 strict int [.'$schema'.minLength]", path);
-                if (rep != null) rep.addEntry("unexpected value for optional prop <minLength> [.'$schema']", path);
+                if (rep != null) rep.addEntry("not a 0 strict int [.'$schema'.minLength]", (path != null ? lpath : null));
+                if (rep != null) rep.addEntry("unexpected value for optional prop <minLength> [.'$schema']", (path != null ? lpath : null));
                 return false;
             }
         }
         if (json.objectHasProp(val, "maxLength"))
         {
+            lpath = new Path("maxLength", path);
             pval = json.objectValue(val, "maxLength");
             // .'$schema'.maxLength
             res = json.isInteger(pval) && json.asLong(pval) >= 0;
             if (! res)
             {
-                if (rep != null) rep.addEntry("not a 0 strict int [.'$schema'.maxLength]", path);
-                if (rep != null) rep.addEntry("unexpected value for optional prop <maxLength> [.'$schema']", path);
+                if (rep != null) rep.addEntry("not a 0 strict int [.'$schema'.maxLength]", (path != null ? lpath : null));
+                if (rep != null) rep.addEntry("unexpected value for optional prop <maxLength> [.'$schema']", (path != null ? lpath : null));
                 return false;
             }
         }
         if (json.objectHasProp(val, "enum"))
         {
+            lpath = new Path("enum", path);
             pval = json.objectValue(val, "enum");
             // .'$schema'.enum
             // .'$schema'.enum.'@'
             res = json.isArray(pval);
             if (! res)
             {
-                if (rep != null) rep.addEntry("not array or unexpected array [.'$schema'.enum.'@']", path);
+                if (rep != null) rep.addEntry("not array or unexpected array [.'$schema'.enum.'@']", (path != null ? lpath : null));
             }
             if (res)
             {
@@ -380,84 +397,90 @@ public class json_schema_draft_01_fuzzy extends ModelChecker
                 res = ival_0 >= 1;
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("constraints failed [.'$schema'.enum]", path);
+                    if (rep != null) rep.addEntry("constraints failed [.'$schema'.enum]", (path != null ? lpath : null));
                 }
             }
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected value for optional prop <enum> [.'$schema']", path);
+                if (rep != null) rep.addEntry("unexpected value for optional prop <enum> [.'$schema']", (path != null ? lpath : null));
                 return false;
             }
         }
         if (json.objectHasProp(val, "title"))
         {
+            lpath = new Path("title", path);
             pval = json.objectValue(val, "title");
             // .'$schema'.title
             res = json.isString(pval);
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected string [.'$schema'.title]", path);
-                if (rep != null) rep.addEntry("unexpected value for optional prop <title> [.'$schema']", path);
+                if (rep != null) rep.addEntry("unexpected string [.'$schema'.title]", (path != null ? lpath : null));
+                if (rep != null) rep.addEntry("unexpected value for optional prop <title> [.'$schema']", (path != null ? lpath : null));
                 return false;
             }
         }
         if (json.objectHasProp(val, "description"))
         {
+            lpath = new Path("description", path);
             pval = json.objectValue(val, "description");
             // .'$schema'.description
             res = json.isString(pval);
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected string [.'$schema'.description]", path);
-                if (rep != null) rep.addEntry("unexpected value for optional prop <description> [.'$schema']", path);
+                if (rep != null) rep.addEntry("unexpected string [.'$schema'.description]", (path != null ? lpath : null));
+                if (rep != null) rep.addEntry("unexpected value for optional prop <description> [.'$schema']", (path != null ? lpath : null));
                 return false;
             }
         }
         if (json.objectHasProp(val, "format"))
         {
+            lpath = new Path("format", path);
             pval = json.objectValue(val, "format");
             // .'$schema'.format
             res = json.isString(pval);
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected string [.'$schema'.format]", path);
-                if (rep != null) rep.addEntry("unexpected value for optional prop <format> [.'$schema']", path);
+                if (rep != null) rep.addEntry("unexpected string [.'$schema'.format]", (path != null ? lpath : null));
+                if (rep != null) rep.addEntry("unexpected value for optional prop <format> [.'$schema']", (path != null ? lpath : null));
                 return false;
             }
         }
         if (json.objectHasProp(val, "contentEncoding"))
         {
+            lpath = new Path("contentEncoding", path);
             pval = json.objectValue(val, "contentEncoding");
             // .'$schema'.contentEncoding
             res = json.isString(pval);
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected string [.'$schema'.contentEncoding]", path);
-                if (rep != null) rep.addEntry("unexpected value for optional prop <contentEncoding> [.'$schema']", path);
+                if (rep != null) rep.addEntry("unexpected string [.'$schema'.contentEncoding]", (path != null ? lpath : null));
+                if (rep != null) rep.addEntry("unexpected value for optional prop <contentEncoding> [.'$schema']", (path != null ? lpath : null));
                 return false;
             }
         }
         if (json.objectHasProp(val, "maxDecimal"))
         {
+            lpath = new Path("maxDecimal", path);
             pval = json.objectValue(val, "maxDecimal");
             // .'$schema'.maxDecimal
             res = json.isInteger(pval) && json.asLong(pval) >= 0;
             if (! res)
             {
-                if (rep != null) rep.addEntry("not a 0 strict int [.'$schema'.maxDecimal]", path);
-                if (rep != null) rep.addEntry("unexpected value for optional prop <maxDecimal> [.'$schema']", path);
+                if (rep != null) rep.addEntry("not a 0 strict int [.'$schema'.maxDecimal]", (path != null ? lpath : null));
+                if (rep != null) rep.addEntry("unexpected value for optional prop <maxDecimal> [.'$schema']", (path != null ? lpath : null));
                 return false;
             }
         }
         if (json.objectHasProp(val, "disallow"))
         {
+            lpath = new Path("disallow", path);
             pval = json.objectValue(val, "disallow");
             // .'$schema'.disallow
             // .'$schema'.disallow.'|'.0
             res = json.isString(pval);
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected string [.'$schema'.disallow.'|'.0]", path);
+                if (rep != null) rep.addEntry("unexpected string [.'$schema'.disallow.'|'.0]", (path != null ? lpath : null));
             }
             if (! res)
             {
@@ -471,19 +494,19 @@ public class json_schema_draft_01_fuzzy extends ModelChecker
                     {
                         arr_2_idx++;
                         Object arr_2_item = arr_2_item_loop.next();
-                        Path arr_2_lpath = new Path(arr_2_idx, path);
+                        Path arr_2_lpath = new Path(arr_2_idx, (path != null ? lpath : null));
                         // .'$schema'.disallow.'|'.1.0
                         res = json.isString(arr_2_item);
                         if (! res)
                         {
-                            if (rep != null) rep.addEntry("unexpected string [.'$schema'.disallow.'|'.1.0]", (path != null ? arr_2_lpath : null));
+                            if (rep != null) rep.addEntry("unexpected string [.'$schema'.disallow.'|'.1.0]", ((path != null ? lpath : null) != null ? arr_2_lpath : null));
                             break;
                         }
                     }
                 }
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("not array or unexpected array [.'$schema'.disallow.'|'.1]", path);
+                    if (rep != null) rep.addEntry("not array or unexpected array [.'$schema'.disallow.'|'.1]", (path != null ? lpath : null));
                 }
             }
             if (res)
@@ -492,20 +515,21 @@ public class json_schema_draft_01_fuzzy extends ModelChecker
             }
             else
             {
-                if (rep != null) rep.addEntry("no model matched [.'$schema'.disallow.'|']", path);
-                if (rep != null) rep.addEntry("unexpected value for optional prop <disallow> [.'$schema']", path);
+                if (rep != null) rep.addEntry("no model matched [.'$schema'.disallow.'|']", (path != null ? lpath : null));
+                if (rep != null) rep.addEntry("unexpected value for optional prop <disallow> [.'$schema']", (path != null ? lpath : null));
                 return false;
             }
         }
         if (json.objectHasProp(val, "extends"))
         {
+            lpath = new Path("extends", path);
             pval = json.objectValue(val, "extends");
             // .'$schema'.extends
             // .'$schema'.extends.'|'.0
-            res = _jm_obj_0(pval, path, rep);
+            res = _jm_obj_0(pval, (path != null ? lpath : null), rep);
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected $Schema [.'$schema'.extends.'|'.0]", path);
+                if (rep != null) rep.addEntry("unexpected $Schema [.'$schema'.extends.'|'.0]", (path != null ? lpath : null));
             }
             if (! res)
             {
@@ -519,19 +543,19 @@ public class json_schema_draft_01_fuzzy extends ModelChecker
                     {
                         arr_3_idx++;
                         Object arr_3_item = arr_3_item_loop.next();
-                        Path arr_3_lpath = new Path(arr_3_idx, path);
+                        Path arr_3_lpath = new Path(arr_3_idx, (path != null ? lpath : null));
                         // .'$schema'.extends.'|'.1.0
-                        res = _jm_obj_0(arr_3_item, (path != null ? arr_3_lpath : null), rep);
+                        res = _jm_obj_0(arr_3_item, ((path != null ? lpath : null) != null ? arr_3_lpath : null), rep);
                         if (! res)
                         {
-                            if (rep != null) rep.addEntry("unexpected $Schema [.'$schema'.extends.'|'.1.0]", (path != null ? arr_3_lpath : null));
+                            if (rep != null) rep.addEntry("unexpected $Schema [.'$schema'.extends.'|'.1.0]", ((path != null ? lpath : null) != null ? arr_3_lpath : null));
                             break;
                         }
                     }
                 }
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("not array or unexpected array [.'$schema'.extends.'|'.1]", path);
+                    if (rep != null) rep.addEntry("not array or unexpected array [.'$schema'.extends.'|'.1]", (path != null ? lpath : null));
                 }
             }
             if (res)
@@ -540,32 +564,34 @@ public class json_schema_draft_01_fuzzy extends ModelChecker
             }
             else
             {
-                if (rep != null) rep.addEntry("no model matched [.'$schema'.extends.'|']", path);
-                if (rep != null) rep.addEntry("unexpected value for optional prop <extends> [.'$schema']", path);
+                if (rep != null) rep.addEntry("no model matched [.'$schema'.extends.'|']", (path != null ? lpath : null));
+                if (rep != null) rep.addEntry("unexpected value for optional prop <extends> [.'$schema']", (path != null ? lpath : null));
                 return false;
             }
         }
         if (json.objectHasProp(val, "id"))
         {
+            lpath = new Path("id", path);
             pval = json.objectValue(val, "id");
             // .'$schema'.id
             res = json.isString(pval);
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected string [.'$schema'.id]", path);
-                if (rep != null) rep.addEntry("unexpected value for optional prop <id> [.'$schema']", path);
+                if (rep != null) rep.addEntry("unexpected string [.'$schema'.id]", (path != null ? lpath : null));
+                if (rep != null) rep.addEntry("unexpected value for optional prop <id> [.'$schema']", (path != null ? lpath : null));
                 return false;
             }
         }
         if (json.objectHasProp(val, "$schema"))
         {
+            lpath = new Path("$schema", path);
             pval = json.objectValue(val, "$schema");
             // .'$schema'.'$schema'
             res = json.isString(pval);
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected string [.'$schema'.'$schema']", path);
-                if (rep != null) rep.addEntry("unexpected value for optional prop <$schema> [.'$schema']", path);
+                if (rep != null) rep.addEntry("unexpected string [.'$schema'.'$schema']", (path != null ? lpath : null));
+                if (rep != null) rep.addEntry("unexpected value for optional prop <$schema> [.'$schema']", (path != null ? lpath : null));
                 return false;
             }
         }

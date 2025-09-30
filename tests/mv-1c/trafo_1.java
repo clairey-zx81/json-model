@@ -33,6 +33,7 @@ public class trafo_1 extends ModelChecker
             if (rep != null) rep.addEntry("bad property count [.'$un']", path);
             return false;
         }
+        Path lpath;
         Object pval;
         boolean res;
         if (! json.objectHasProp(val, "ua"))
@@ -40,13 +41,14 @@ public class trafo_1 extends ModelChecker
             if (rep != null) rep.addEntry("missing mandatory prop <ua> [.'$un']", path);
             return false;
         }
+        lpath = new Path("ua", path);
         pval = json.objectValue(val, "ua");
         // .'$un'.ua
         res = json.isInteger(pval) && json.asLong(pval) >= 0;
         if (! res)
         {
-            if (rep != null) rep.addEntry("not a 0 strict int [.'$un'.ua]", path);
-            if (rep != null) rep.addEntry("unexpected value for mandatory prop <ua> [.'$un']", path);
+            if (rep != null) rep.addEntry("not a 0 strict int [.'$un'.ua]", (path != null ? lpath : null));
+            if (rep != null) rep.addEntry("unexpected value for mandatory prop <ua> [.'$un']", (path != null ? lpath : null));
             return false;
         }
         if (! json.objectHasProp(val, "ub"))
@@ -54,13 +56,14 @@ public class trafo_1 extends ModelChecker
             if (rep != null) rep.addEntry("missing mandatory prop <ub> [.'$un']", path);
             return false;
         }
+        lpath = new Path("ub", path);
         pval = json.objectValue(val, "ub");
         // .'$un'.ub
         res = json.isInteger(pval) && json.asLong(pval) >= 0;
         if (! res)
         {
-            if (rep != null) rep.addEntry("not a 0 strict int [.'$un'.ub]", path);
-            if (rep != null) rep.addEntry("unexpected value for mandatory prop <ub> [.'$un']", path);
+            if (rep != null) rep.addEntry("not a 0 strict int [.'$un'.ub]", (path != null ? lpath : null));
+            if (rep != null) rep.addEntry("unexpected value for mandatory prop <ub> [.'$un']", (path != null ? lpath : null));
             return false;
         }
         return true;

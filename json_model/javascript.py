@@ -179,9 +179,9 @@ class JavaScript(Language):
     #
     # path management
     #
-    def path_val(self, pvar: Var, pseg: str|int, is_prop: bool) -> PathExpr:
-        # note: segment is a variable name for a prop or an integer
-        return f"{pvar} ? {pvar}.concat([{pseg}]) : null" if self._with_path else "null"
+    def path_val(self, pvar: Var, pseg: str|int, is_prop: bool, is_var: bool) -> PathExpr:
+        sseg = pseg if is_var else self.esc(pseg) if is_prop else pseg
+        return f"{pvar} ? {pvar}.concat([{sseg}]) : null" if self._with_path else "null"
 
     def path_lvar(self, lvar: Var, rvar: Var) -> PathExpr:
         return f"({rvar} ? {lvar} : null)" if self._with_path else "null"

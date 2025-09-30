@@ -6907,7 +6907,7 @@ BEGIN
   IF val ? 'vars' THEN
     pval := val -> 'vars';
     -- .'$DependencyModelLoose'.vars
-    res := _jm_obj_100(pval, path, rep);
+    res := _jm_obj_100(pval, NULL, rep);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -6923,7 +6923,7 @@ BEGIN
   IF val ? 'when' THEN
     pval := val -> 'when';
     -- .'$DependencyModelLoose'.when
-    res := json_model_56(pval, path, rep);
+    res := json_model_56(pval, NULL, rep);
     IF NOT res THEN
       RETURN FALSE;
     END IF;

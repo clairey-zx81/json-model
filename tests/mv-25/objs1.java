@@ -93,7 +93,7 @@ public class objs1 extends ModelChecker
         }
         pval = json.objectValue(val, "foo");
         // .foo
-        res = _jm_obj_0(pval, path, rep);
+        res = _jm_obj_0(pval, null, rep);
         if (! res)
         {
             return false;

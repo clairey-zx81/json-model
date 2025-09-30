@@ -860,6 +860,7 @@ static INLINE bool _jm_obj_2(const json_t *val, jm_path_t *path, jm_report_t *re
         if (rep) jm_report_add_entry(rep, "bad property count [.'$Or']", path);
         return false;
     }
+    jm_path_t lpath;
     json_t * pval;
     bool res;
     if (! (json_object_get(val, "|") != NULL))
@@ -867,6 +868,7 @@ static INLINE bool _jm_obj_2(const json_t *val, jm_path_t *path, jm_report_t *re
         if (rep) jm_report_add_entry(rep, "missing mandatory prop <|> [.'$Or']", path);
         return false;
     }
+    lpath = (jm_path_t) { "|", 0, path, NULL };
     pval = json_object_get(val, "|");
     // .'$Or'.'|'
     res = json_is_array(pval);
@@ -876,20 +878,20 @@ static INLINE bool _jm_obj_2(const json_t *val, jm_path_t *path, jm_report_t *re
         json_t *arr_1_item;
         json_array_foreach(pval, arr_1_idx, arr_1_item)
         {
-            jm_path_t arr_1_lpath = (jm_path_t) { NULL, arr_1_idx, path, NULL };
+            jm_path_t arr_1_lpath = (jm_path_t) { NULL, arr_1_idx, (path ? &lpath : NULL), NULL };
             // .'$Or'.'|'.0
-            res = json_model_18(arr_1_item, (path ? &arr_1_lpath : NULL), rep);
+            res = json_model_18(arr_1_item, ((path ? &lpath : NULL) ? &arr_1_lpath : NULL), rep);
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "unexpected $CModel [.'$Or'.'|'.0]", (path ? &arr_1_lpath : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected $CModel [.'$Or'.'|'.0]", ((path ? &lpath : NULL) ? &arr_1_lpath : NULL));
                 break;
             }
         }
     }
     if (! res)
     {
-        if (rep) jm_report_add_entry(rep, "not array or unexpected array [.'$Or'.'|']", path);
-        if (rep) jm_report_add_entry(rep, "unexpected value for mandatory prop <|> [.'$Or']", path);
+        if (rep) jm_report_add_entry(rep, "not array or unexpected array [.'$Or'.'|']", (path ? &lpath : NULL));
+        if (rep) jm_report_add_entry(rep, "unexpected value for mandatory prop <|> [.'$Or']", (path ? &lpath : NULL));
         return false;
     }
     return true;
@@ -922,6 +924,7 @@ static INLINE bool _jm_obj_3(const json_t *val, jm_path_t *path, jm_report_t *re
         if (rep) jm_report_add_entry(rep, "bad property count [.'$And']", path);
         return false;
     }
+    jm_path_t lpath;
     json_t * pval;
     bool res;
     if (! (json_object_get(val, "&") != NULL))
@@ -929,6 +932,7 @@ static INLINE bool _jm_obj_3(const json_t *val, jm_path_t *path, jm_report_t *re
         if (rep) jm_report_add_entry(rep, "missing mandatory prop <&> [.'$And']", path);
         return false;
     }
+    lpath = (jm_path_t) { "&", 0, path, NULL };
     pval = json_object_get(val, "&");
     // .'$And'.'&'
     res = json_is_array(pval);
@@ -938,20 +942,20 @@ static INLINE bool _jm_obj_3(const json_t *val, jm_path_t *path, jm_report_t *re
         json_t *arr_2_item;
         json_array_foreach(pval, arr_2_idx, arr_2_item)
         {
-            jm_path_t arr_2_lpath = (jm_path_t) { NULL, arr_2_idx, path, NULL };
+            jm_path_t arr_2_lpath = (jm_path_t) { NULL, arr_2_idx, (path ? &lpath : NULL), NULL };
             // .'$And'.'&'.0
-            res = json_model_18(arr_2_item, (path ? &arr_2_lpath : NULL), rep);
+            res = json_model_18(arr_2_item, ((path ? &lpath : NULL) ? &arr_2_lpath : NULL), rep);
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "unexpected $CModel [.'$And'.'&'.0]", (path ? &arr_2_lpath : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected $CModel [.'$And'.'&'.0]", ((path ? &lpath : NULL) ? &arr_2_lpath : NULL));
                 break;
             }
         }
     }
     if (! res)
     {
-        if (rep) jm_report_add_entry(rep, "not array or unexpected array [.'$And'.'&']", path);
-        if (rep) jm_report_add_entry(rep, "unexpected value for mandatory prop <&> [.'$And']", path);
+        if (rep) jm_report_add_entry(rep, "not array or unexpected array [.'$And'.'&']", (path ? &lpath : NULL));
+        if (rep) jm_report_add_entry(rep, "unexpected value for mandatory prop <&> [.'$And']", (path ? &lpath : NULL));
         return false;
     }
     return true;
@@ -984,6 +988,7 @@ static INLINE bool _jm_obj_4(const json_t *val, jm_path_t *path, jm_report_t *re
         if (rep) jm_report_add_entry(rep, "bad property count [.'$Xor']", path);
         return false;
     }
+    jm_path_t lpath;
     json_t * pval;
     bool res;
     if (! (json_object_get(val, "^") != NULL))
@@ -991,6 +996,7 @@ static INLINE bool _jm_obj_4(const json_t *val, jm_path_t *path, jm_report_t *re
         if (rep) jm_report_add_entry(rep, "missing mandatory prop <^> [.'$Xor']", path);
         return false;
     }
+    lpath = (jm_path_t) { "^", 0, path, NULL };
     pval = json_object_get(val, "^");
     // .'$Xor'.'^'
     res = json_is_array(pval);
@@ -1000,20 +1006,20 @@ static INLINE bool _jm_obj_4(const json_t *val, jm_path_t *path, jm_report_t *re
         json_t *arr_3_item;
         json_array_foreach(pval, arr_3_idx, arr_3_item)
         {
-            jm_path_t arr_3_lpath = (jm_path_t) { NULL, arr_3_idx, path, NULL };
+            jm_path_t arr_3_lpath = (jm_path_t) { NULL, arr_3_idx, (path ? &lpath : NULL), NULL };
             // .'$Xor'.'^'.0
-            res = json_model_18(arr_3_item, (path ? &arr_3_lpath : NULL), rep);
+            res = json_model_18(arr_3_item, ((path ? &lpath : NULL) ? &arr_3_lpath : NULL), rep);
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "unexpected $CModel [.'$Xor'.'^'.0]", (path ? &arr_3_lpath : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected $CModel [.'$Xor'.'^'.0]", ((path ? &lpath : NULL) ? &arr_3_lpath : NULL));
                 break;
             }
         }
     }
     if (! res)
     {
-        if (rep) jm_report_add_entry(rep, "not array or unexpected array [.'$Xor'.'^']", path);
-        if (rep) jm_report_add_entry(rep, "unexpected value for mandatory prop <^> [.'$Xor']", path);
+        if (rep) jm_report_add_entry(rep, "not array or unexpected array [.'$Xor'.'^']", (path ? &lpath : NULL));
+        if (rep) jm_report_add_entry(rep, "unexpected value for mandatory prop <^> [.'$Xor']", (path ? &lpath : NULL));
         return false;
     }
     return true;
@@ -1046,6 +1052,7 @@ static INLINE bool _jm_obj_5(const json_t *val, jm_path_t *path, jm_report_t *re
         if (rep) jm_report_add_entry(rep, "bad property count [.'$Add']", path);
         return false;
     }
+    jm_path_t lpath;
     json_t * pval;
     bool res;
     if (! (json_object_get(val, "+") != NULL))
@@ -1053,6 +1060,7 @@ static INLINE bool _jm_obj_5(const json_t *val, jm_path_t *path, jm_report_t *re
         if (rep) jm_report_add_entry(rep, "missing mandatory prop <+> [.'$Add']", path);
         return false;
     }
+    lpath = (jm_path_t) { "+", 0, path, NULL };
     pval = json_object_get(val, "+");
     // .'$Add'.'+'
     res = json_is_array(pval);
@@ -1062,20 +1070,20 @@ static INLINE bool _jm_obj_5(const json_t *val, jm_path_t *path, jm_report_t *re
         json_t *arr_4_item;
         json_array_foreach(pval, arr_4_idx, arr_4_item)
         {
-            jm_path_t arr_4_lpath = (jm_path_t) { NULL, arr_4_idx, path, NULL };
+            jm_path_t arr_4_lpath = (jm_path_t) { NULL, arr_4_idx, (path ? &lpath : NULL), NULL };
             // .'$Add'.'+'.0
-            res = json_model_18(arr_4_item, (path ? &arr_4_lpath : NULL), rep);
+            res = json_model_18(arr_4_item, ((path ? &lpath : NULL) ? &arr_4_lpath : NULL), rep);
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "unexpected $CModel [.'$Add'.'+'.0]", (path ? &arr_4_lpath : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected $CModel [.'$Add'.'+'.0]", ((path ? &lpath : NULL) ? &arr_4_lpath : NULL));
                 break;
             }
         }
     }
     if (! res)
     {
-        if (rep) jm_report_add_entry(rep, "not array or unexpected array [.'$Add'.'+']", path);
-        if (rep) jm_report_add_entry(rep, "unexpected value for mandatory prop <+> [.'$Add']", path);
+        if (rep) jm_report_add_entry(rep, "not array or unexpected array [.'$Add'.'+']", (path ? &lpath : NULL));
+        if (rep) jm_report_add_entry(rep, "unexpected value for mandatory prop <+> [.'$Add']", (path ? &lpath : NULL));
         return false;
     }
     return true;

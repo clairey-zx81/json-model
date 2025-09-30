@@ -33,6 +33,7 @@ public class base_031 extends ModelChecker
             if (rep != null) rep.addEntry("bad property count [.'$bibi']", path);
             return false;
         }
+        Path lpath;
         Object pval;
         boolean res;
         if (! json.objectHasProp(val, "bibi"))
@@ -40,6 +41,7 @@ public class base_031 extends ModelChecker
             if (rep != null) rep.addEntry("missing mandatory prop <bibi> [.'$bibi']", path);
             return false;
         }
+        lpath = new Path("bibi", path);
         pval = json.objectValue(val, "bibi");
         // .'$bibi'.bibi
         res = json.isArray(pval);
@@ -51,20 +53,20 @@ public class base_031 extends ModelChecker
             {
                 arr_0_idx++;
                 Object arr_0_item = arr_0_item_loop.next();
-                Path arr_0_lpath = new Path(arr_0_idx, path);
+                Path arr_0_lpath = new Path(arr_0_idx, (path != null ? lpath : null));
                 // .'$bibi'.bibi.0
-                res = _jm_obj_0(arr_0_item, (path != null ? arr_0_lpath : null), rep);
+                res = _jm_obj_0(arr_0_item, ((path != null ? lpath : null) != null ? arr_0_lpath : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $bibi [.'$bibi'.bibi.0]", (path != null ? arr_0_lpath : null));
+                    if (rep != null) rep.addEntry("unexpected $bibi [.'$bibi'.bibi.0]", ((path != null ? lpath : null) != null ? arr_0_lpath : null));
                     break;
                 }
             }
         }
         if (! res)
         {
-            if (rep != null) rep.addEntry("not array or unexpected array [.'$bibi'.bibi]", path);
-            if (rep != null) rep.addEntry("unexpected value for mandatory prop <bibi> [.'$bibi']", path);
+            if (rep != null) rep.addEntry("not array or unexpected array [.'$bibi'.bibi]", (path != null ? lpath : null));
+            if (rep != null) rep.addEntry("unexpected value for mandatory prop <bibi> [.'$bibi']", (path != null ? lpath : null));
             return false;
         }
         return true;

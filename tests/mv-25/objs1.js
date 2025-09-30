@@ -82,7 +82,7 @@ function _jm_obj_1(val, path, rep)
     }
     pval = val["foo"];
     // .foo
-    res = _jm_obj_0(pval, path, rep);
+    res = _jm_obj_0(pval, null, rep);
     if (! res)
     {
         return false;

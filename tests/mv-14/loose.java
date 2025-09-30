@@ -33,6 +33,7 @@ public class loose extends ModelChecker
             if (rep != null) rep.addEntry("bad property count [.]", path);
             return false;
         }
+        Path lpath;
         Object pval;
         boolean res;
         if (! json.objectHasProp(val, "li"))
@@ -40,13 +41,14 @@ public class loose extends ModelChecker
             if (rep != null) rep.addEntry("missing mandatory prop <li> [.]", path);
             return false;
         }
+        lpath = new Path("li", path);
         pval = json.objectValue(val, "li");
         // .li
         res = ((json.isInteger(pval) || (json.isDouble(pval) && json.asDouble(pval) == ((long) json.asDouble(pval))))) && json.asNumber(pval) >= 0;
         if (! res)
         {
-            if (rep != null) rep.addEntry("not a 0 loose int [.li]", path);
-            if (rep != null) rep.addEntry("unexpected value for mandatory prop <li> [.]", path);
+            if (rep != null) rep.addEntry("not a 0 loose int [.li]", (path != null ? lpath : null));
+            if (rep != null) rep.addEntry("unexpected value for mandatory prop <li> [.]", (path != null ? lpath : null));
             return false;
         }
         return true;

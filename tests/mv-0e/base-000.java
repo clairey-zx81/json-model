@@ -33,6 +33,7 @@ public class base_000 extends ModelChecker
             if (rep != null) rep.addEntry("bad property count [.]", path);
             return false;
         }
+        Path lpath;
         Object pval;
         boolean res;
         if (! json.objectHasProp(val, "a"))
@@ -40,13 +41,14 @@ public class base_000 extends ModelChecker
             if (rep != null) rep.addEntry("missing mandatory prop <a> [.]", path);
             return false;
         }
+        lpath = new Path("a", path);
         pval = json.objectValue(val, "a");
         // .a
         res = json.isInteger(pval) && json.asLong(pval) >= 0;
         if (! res)
         {
-            if (rep != null) rep.addEntry("not a 0 strict int [.a]", path);
-            if (rep != null) rep.addEntry("unexpected value for mandatory prop <a> [.]", path);
+            if (rep != null) rep.addEntry("not a 0 strict int [.a]", (path != null ? lpath : null));
+            if (rep != null) rep.addEntry("unexpected value for mandatory prop <a> [.]", (path != null ? lpath : null));
             return false;
         }
         return true;

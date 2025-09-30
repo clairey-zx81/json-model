@@ -1430,7 +1430,7 @@ BEGIN
   IF val ? '$id' THEN
     pval := val -> '$id';
     -- .'$ObjectSchema'.'$id'
-    res := json_model_3(pval, path, rep);
+    res := json_model_3(pval, NULL, rep);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -1438,7 +1438,7 @@ BEGIN
   IF val ? '$schema' THEN
     pval := val -> '$schema';
     -- .'$ObjectSchema'.'$schema'
-    res := JSONB_TYPEOF(pval) = 'string' AND jm_is_valid_url(JSON_VALUE(pval, '$' RETURNING TEXT), path, rep);
+    res := JSONB_TYPEOF(pval) = 'string' AND jm_is_valid_url(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, rep);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -1446,7 +1446,7 @@ BEGIN
   IF val ? '$ref' THEN
     pval := val -> '$ref';
     -- .'$ObjectSchema'.'$ref'
-    res := json_model_3(pval, path, rep);
+    res := json_model_3(pval, NULL, rep);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -1454,7 +1454,7 @@ BEGIN
   IF val ? '$anchor' THEN
     pval := val -> '$anchor';
     -- .'$ObjectSchema'.'$anchor'
-    res := json_model_3(pval, path, rep);
+    res := json_model_3(pval, NULL, rep);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -1462,7 +1462,7 @@ BEGIN
   IF val ? '$dynamicRef' THEN
     pval := val -> '$dynamicRef';
     -- .'$ObjectSchema'.'$dynamicRef'
-    res := json_model_3(pval, path, rep);
+    res := json_model_3(pval, NULL, rep);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -1470,7 +1470,7 @@ BEGIN
   IF val ? '$dynamicAnchor' THEN
     pval := val -> '$dynamicAnchor';
     -- .'$ObjectSchema'.'$dynamicAnchor'
-    res := json_model_3(pval, path, rep);
+    res := json_model_3(pval, NULL, rep);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -1478,7 +1478,7 @@ BEGIN
   IF val ? '$vocabulary' THEN
     pval := val -> '$vocabulary';
     -- .'$ObjectSchema'.'$vocabulary'
-    res := _jm_obj_14(pval, path, rep);
+    res := _jm_obj_14(pval, NULL, rep);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -1494,7 +1494,7 @@ BEGIN
   IF val ? '$defs' THEN
     pval := val -> '$defs';
     -- .'$ObjectSchema'.'$defs'
-    res := _jm_obj_15(pval, path, rep);
+    res := _jm_obj_15(pval, NULL, rep);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -1502,7 +1502,7 @@ BEGIN
   IF val ? 'prefixItems' THEN
     pval := val -> 'prefixItems';
     -- .'$ObjectSchema'.prefixItems
-    res := json_model_14(pval, path, rep);
+    res := json_model_14(pval, NULL, rep);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -1510,7 +1510,7 @@ BEGIN
   IF val ? 'items' THEN
     pval := val -> 'items';
     -- .'$ObjectSchema'.items
-    res := json_model_17(pval, path, rep);
+    res := json_model_17(pval, NULL, rep);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -1518,7 +1518,7 @@ BEGIN
   IF val ? 'contains' THEN
     pval := val -> 'contains';
     -- .'$ObjectSchema'.contains
-    res := json_model_17(pval, path, rep);
+    res := json_model_17(pval, NULL, rep);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -1526,7 +1526,7 @@ BEGIN
   IF val ? 'additionalProperties' THEN
     pval := val -> 'additionalProperties';
     -- .'$ObjectSchema'.additionalProperties
-    res := json_model_17(pval, path, rep);
+    res := json_model_17(pval, NULL, rep);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -1534,7 +1534,7 @@ BEGIN
   IF val ? 'properties' THEN
     pval := val -> 'properties';
     -- .'$ObjectSchema'.properties
-    res := _jm_obj_16(pval, path, rep);
+    res := _jm_obj_16(pval, NULL, rep);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -1542,7 +1542,7 @@ BEGIN
   IF val ? 'patternProperties' THEN
     pval := val -> 'patternProperties';
     -- .'$ObjectSchema'.patternProperties
-    res := _jm_obj_17(pval, path, rep);
+    res := _jm_obj_17(pval, NULL, rep);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -1550,7 +1550,7 @@ BEGIN
   IF val ? 'dependentSchemas' THEN
     pval := val -> 'dependentSchemas';
     -- .'$ObjectSchema'.dependentSchemas
-    res := _jm_obj_18(pval, path, rep);
+    res := _jm_obj_18(pval, NULL, rep);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -1558,7 +1558,7 @@ BEGIN
   IF val ? 'propertyNames' THEN
     pval := val -> 'propertyNames';
     -- .'$ObjectSchema'.propertyNames
-    res := json_model_17(pval, path, rep);
+    res := json_model_17(pval, NULL, rep);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -1566,7 +1566,7 @@ BEGIN
   IF val ? 'if' THEN
     pval := val -> 'if';
     -- .'$ObjectSchema'.if
-    res := json_model_17(pval, path, rep);
+    res := json_model_17(pval, NULL, rep);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -1574,7 +1574,7 @@ BEGIN
   IF val ? 'then' THEN
     pval := val -> 'then';
     -- .'$ObjectSchema'.then
-    res := json_model_17(pval, path, rep);
+    res := json_model_17(pval, NULL, rep);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -1582,7 +1582,7 @@ BEGIN
   IF val ? 'else' THEN
     pval := val -> 'else';
     -- .'$ObjectSchema'.else
-    res := json_model_17(pval, path, rep);
+    res := json_model_17(pval, NULL, rep);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -1590,7 +1590,7 @@ BEGIN
   IF val ? 'not' THEN
     pval := val -> 'not';
     -- .'$ObjectSchema'.not
-    res := json_model_17(pval, path, rep);
+    res := json_model_17(pval, NULL, rep);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -1598,7 +1598,7 @@ BEGIN
   IF val ? 'allOf' THEN
     pval := val -> 'allOf';
     -- .'$ObjectSchema'.allOf
-    res := json_model_14(pval, path, rep);
+    res := json_model_14(pval, NULL, rep);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -1606,7 +1606,7 @@ BEGIN
   IF val ? 'anyOf' THEN
     pval := val -> 'anyOf';
     -- .'$ObjectSchema'.anyOf
-    res := json_model_14(pval, path, rep);
+    res := json_model_14(pval, NULL, rep);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -1614,7 +1614,7 @@ BEGIN
   IF val ? 'oneOf' THEN
     pval := val -> 'oneOf';
     -- .'$ObjectSchema'.oneOf
-    res := json_model_14(pval, path, rep);
+    res := json_model_14(pval, NULL, rep);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -1622,7 +1622,7 @@ BEGIN
   IF val ? 'unevaluatedItems' THEN
     pval := val -> 'unevaluatedItems';
     -- .'$ObjectSchema'.unevaluatedItems
-    res := json_model_17(pval, path, rep);
+    res := json_model_17(pval, NULL, rep);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -1630,7 +1630,7 @@ BEGIN
   IF val ? 'unevaluatedProperties' THEN
     pval := val -> 'unevaluatedProperties';
     -- .'$ObjectSchema'.unevaluatedProperties
-    res := json_model_17(pval, path, rep);
+    res := json_model_17(pval, NULL, rep);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -1639,10 +1639,10 @@ BEGIN
     pval := val -> 'type';
     -- .'$ObjectSchema'.type
     -- .'$ObjectSchema'.type.'|'.0
-    res := json_model_9(pval, path, rep);
+    res := json_model_9(pval, NULL, rep);
     IF NOT res THEN
       -- .'$ObjectSchema'.type.'|'.1
-      res := json_model_10(pval, path, rep);
+      res := json_model_10(pval, NULL, rep);
     END IF;
     IF NOT res THEN
       RETURN FALSE;
@@ -1699,7 +1699,7 @@ BEGIN
   IF val ? 'maxLength' THEN
     pval := val -> 'maxLength';
     -- .'$ObjectSchema'.maxLength
-    res := json_model_12(pval, path, rep);
+    res := json_model_12(pval, NULL, rep);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -1707,7 +1707,7 @@ BEGIN
   IF val ? 'minLength' THEN
     pval := val -> 'minLength';
     -- .'$ObjectSchema'.minLength
-    res := json_model_12(pval, path, rep);
+    res := json_model_12(pval, NULL, rep);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -1723,7 +1723,7 @@ BEGIN
   IF val ? 'maxItems' THEN
     pval := val -> 'maxItems';
     -- .'$ObjectSchema'.maxItems
-    res := json_model_12(pval, path, rep);
+    res := json_model_12(pval, NULL, rep);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -1731,7 +1731,7 @@ BEGIN
   IF val ? 'minItems' THEN
     pval := val -> 'minItems';
     -- .'$ObjectSchema'.minItems
-    res := json_model_12(pval, path, rep);
+    res := json_model_12(pval, NULL, rep);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -1747,7 +1747,7 @@ BEGIN
   IF val ? 'maxContains' THEN
     pval := val -> 'maxContains';
     -- .'$ObjectSchema'.maxContains
-    res := json_model_12(pval, path, rep);
+    res := json_model_12(pval, NULL, rep);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -1755,7 +1755,7 @@ BEGIN
   IF val ? 'minContains' THEN
     pval := val -> 'minContains';
     -- .'$ObjectSchema'.minContains
-    res := json_model_12(pval, path, rep);
+    res := json_model_12(pval, NULL, rep);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -1763,7 +1763,7 @@ BEGIN
   IF val ? 'maxProperties' THEN
     pval := val -> 'maxProperties';
     -- .'$ObjectSchema'.maxProperties
-    res := json_model_12(pval, path, rep);
+    res := json_model_12(pval, NULL, rep);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -1771,7 +1771,7 @@ BEGIN
   IF val ? 'minProperties' THEN
     pval := val -> 'minProperties';
     -- .'$ObjectSchema'.minProperties
-    res := json_model_12(pval, path, rep);
+    res := json_model_12(pval, NULL, rep);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -1779,7 +1779,7 @@ BEGIN
   IF val ? 'required' THEN
     pval := val -> 'required';
     -- .'$ObjectSchema'.required
-    res := json_model_11(pval, path, rep);
+    res := json_model_11(pval, NULL, rep);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -1787,7 +1787,7 @@ BEGIN
   IF val ? 'dependentRequired' THEN
     pval := val -> 'dependentRequired';
     -- .'$ObjectSchema'.dependentRequired
-    res := _jm_obj_19(pval, path, rep);
+    res := _jm_obj_19(pval, NULL, rep);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -1867,7 +1867,7 @@ BEGIN
   IF val ? 'contentSchema' THEN
     pval := val -> 'contentSchema';
     -- .'$ObjectSchema'.contentSchema
-    res := json_model_17(pval, path, rep);
+    res := json_model_17(pval, NULL, rep);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -1875,7 +1875,7 @@ BEGIN
   IF val ? 'definitions' THEN
     pval := val -> 'definitions';
     -- .'$ObjectSchema'.definitions
-    res := _jm_obj_20(pval, path, rep);
+    res := _jm_obj_20(pval, NULL, rep);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -1883,7 +1883,7 @@ BEGIN
   IF val ? 'dependencies' THEN
     pval := val -> 'dependencies';
     -- .'$ObjectSchema'.dependencies
-    res := _jm_obj_21(pval, path, rep);
+    res := _jm_obj_21(pval, NULL, rep);
     IF NOT res THEN
       RETURN FALSE;
     END IF;

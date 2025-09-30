@@ -34,6 +34,7 @@ public class xor_ob03 extends ModelChecker
             if (rep != null) rep.addEntry("bad property count [.movie.'|'.0]", path);
             return false;
         }
+        Path lpath;
         Object pval;
         boolean res;
         if (! json.objectHasProp(val, "t"))
@@ -41,13 +42,14 @@ public class xor_ob03 extends ModelChecker
             if (rep != null) rep.addEntry("missing mandatory prop <t> [.movie.'|'.0]", path);
             return false;
         }
+        lpath = new Path("t", path);
         pval = json.objectValue(val, "t");
         // .movie.'|'.0.t
         res = json.isString(pval) && json.asString(pval).compareTo("fr") == 0;
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected fr [.movie.'|'.0.t]", path);
-            if (rep != null) rep.addEntry("unexpected value for mandatory prop <t> [.movie.'|'.0]", path);
+            if (rep != null) rep.addEntry("unexpected fr [.movie.'|'.0.t]", (path != null ? lpath : null));
+            if (rep != null) rep.addEntry("unexpected value for mandatory prop <t> [.movie.'|'.0]", (path != null ? lpath : null));
             return false;
         }
         if (! json.objectHasProp(val, "titre"))
@@ -55,13 +57,14 @@ public class xor_ob03 extends ModelChecker
             if (rep != null) rep.addEntry("missing mandatory prop <titre> [.movie.'|'.0]", path);
             return false;
         }
+        lpath = new Path("titre", path);
         pval = json.objectValue(val, "titre");
         // .movie.'|'.0.titre
         res = json.isString(pval);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected string [.movie.'|'.0.titre]", path);
-            if (rep != null) rep.addEntry("unexpected value for mandatory prop <titre> [.movie.'|'.0]", path);
+            if (rep != null) rep.addEntry("unexpected string [.movie.'|'.0.titre]", (path != null ? lpath : null));
+            if (rep != null) rep.addEntry("unexpected value for mandatory prop <titre> [.movie.'|'.0]", (path != null ? lpath : null));
             return false;
         }
         return true;
@@ -81,6 +84,7 @@ public class xor_ob03 extends ModelChecker
             if (rep != null) rep.addEntry("bad property count [.movie.'|'.1]", path);
             return false;
         }
+        Path lpath;
         Object pval;
         boolean res;
         if (! json.objectHasProp(val, "t"))
@@ -88,13 +92,14 @@ public class xor_ob03 extends ModelChecker
             if (rep != null) rep.addEntry("missing mandatory prop <t> [.movie.'|'.1]", path);
             return false;
         }
+        lpath = new Path("t", path);
         pval = json.objectValue(val, "t");
         // .movie.'|'.1.t
         res = json.isString(pval) && json.asString(pval).compareTo("en") == 0;
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected en [.movie.'|'.1.t]", path);
-            if (rep != null) rep.addEntry("unexpected value for mandatory prop <t> [.movie.'|'.1]", path);
+            if (rep != null) rep.addEntry("unexpected en [.movie.'|'.1.t]", (path != null ? lpath : null));
+            if (rep != null) rep.addEntry("unexpected value for mandatory prop <t> [.movie.'|'.1]", (path != null ? lpath : null));
             return false;
         }
         if (! json.objectHasProp(val, "title"))
@@ -102,13 +107,14 @@ public class xor_ob03 extends ModelChecker
             if (rep != null) rep.addEntry("missing mandatory prop <title> [.movie.'|'.1]", path);
             return false;
         }
+        lpath = new Path("title", path);
         pval = json.objectValue(val, "title");
         // .movie.'|'.1.title
         res = json.isString(pval);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected string [.movie.'|'.1.title]", path);
-            if (rep != null) rep.addEntry("unexpected value for mandatory prop <title> [.movie.'|'.1]", path);
+            if (rep != null) rep.addEntry("unexpected string [.movie.'|'.1.title]", (path != null ? lpath : null));
+            if (rep != null) rep.addEntry("unexpected value for mandatory prop <title> [.movie.'|'.1]", (path != null ? lpath : null));
             return false;
         }
         return true;
@@ -128,6 +134,7 @@ public class xor_ob03 extends ModelChecker
             if (rep != null) rep.addEntry("bad property count [.movie.'|'.2]", path);
             return false;
         }
+        Path lpath;
         Object pval;
         boolean res;
         if (! json.objectHasProp(val, "t"))
@@ -135,13 +142,14 @@ public class xor_ob03 extends ModelChecker
             if (rep != null) rep.addEntry("missing mandatory prop <t> [.movie.'|'.2]", path);
             return false;
         }
+        lpath = new Path("t", path);
         pval = json.objectValue(val, "t");
         // .movie.'|'.2.t
         res = json.isString(pval) && json.asString(pval).compareTo("ru") == 0;
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected ru [.movie.'|'.2.t]", path);
-            if (rep != null) rep.addEntry("unexpected value for mandatory prop <t> [.movie.'|'.2]", path);
+            if (rep != null) rep.addEntry("unexpected ru [.movie.'|'.2.t]", (path != null ? lpath : null));
+            if (rep != null) rep.addEntry("unexpected value for mandatory prop <t> [.movie.'|'.2]", (path != null ? lpath : null));
             return false;
         }
         if (! json.objectHasProp(val, "suti"))
@@ -149,13 +157,14 @@ public class xor_ob03 extends ModelChecker
             if (rep != null) rep.addEntry("missing mandatory prop <suti> [.movie.'|'.2]", path);
             return false;
         }
+        lpath = new Path("suti", path);
         pval = json.objectValue(val, "suti");
         // .movie.'|'.2.suti
         res = json.isString(pval);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected string [.movie.'|'.2.suti]", path);
-            if (rep != null) rep.addEntry("unexpected value for mandatory prop <suti> [.movie.'|'.2]", path);
+            if (rep != null) rep.addEntry("unexpected string [.movie.'|'.2.suti]", (path != null ? lpath : null));
+            if (rep != null) rep.addEntry("unexpected value for mandatory prop <suti> [.movie.'|'.2]", (path != null ? lpath : null));
             return false;
         }
         return true;
@@ -176,6 +185,7 @@ public class xor_ob03 extends ModelChecker
             if (rep != null) rep.addEntry("bad property count [.]", path);
             return false;
         }
+        Path lpath;
         Object pval;
         boolean res;
         if (! json.objectHasProp(val, "movie"))
@@ -183,6 +193,7 @@ public class xor_ob03 extends ModelChecker
             if (rep != null) rep.addEntry("missing mandatory prop <movie> [.]", path);
             return false;
         }
+        lpath = new Path("movie", path);
         pval = json.objectValue(val, "movie");
         // .movie
         boolean iso_0 = json.isObject(pval);
@@ -195,27 +206,27 @@ public class xor_ob03 extends ModelChecker
                 Checker fun_0 = _jm_map_0_cmap.get(tag_0);
                 if (fun_0 != null)
                 {
-                    res = fun_0.call(pval, path, rep);
+                    res = fun_0.call(pval, (path != null ? lpath : null), rep);
                 }
                 else
                 {
                     res = false;
-                    if (rep != null) rep.addEntry("tag <t> value not found [.movie.'|']", path);
+                    if (rep != null) rep.addEntry("tag <t> value not found [.movie.'|']", (path != null ? lpath : null));
                 }
             }
             else
             {
                 res = false;
-                if (rep != null) rep.addEntry("tag prop <t> is missing [.movie.'|']", path);
+                if (rep != null) rep.addEntry("tag prop <t> is missing [.movie.'|']", (path != null ? lpath : null));
             }
         }
         else
         {
-            if (rep != null) rep.addEntry("value is not an object [.movie.'|']", path);
+            if (rep != null) rep.addEntry("value is not an object [.movie.'|']", (path != null ? lpath : null));
         }
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected value for mandatory prop <movie> [.]", path);
+            if (rep != null) rep.addEntry("unexpected value for mandatory prop <movie> [.]", (path != null ? lpath : null));
             return false;
         }
         return true;

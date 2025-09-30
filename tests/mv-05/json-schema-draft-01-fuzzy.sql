@@ -52,7 +52,7 @@ BEGIN
     pval := val -> 'type';
     -- .'$schema'.type
     -- .'$schema'.type.'|'.0
-    res := json_model_4(pval, path, rep);
+    res := json_model_4(pval, NULL, rep);
     IF NOT res THEN
       -- .'$schema'.type.'|'.1
       res := JSONB_TYPEOF(pval) = 'array';
@@ -79,7 +79,7 @@ BEGIN
   IF val ? 'properties' THEN
     pval := val -> 'properties';
     -- .'$schema'.properties
-    res := _jm_obj_1(pval, path, rep);
+    res := _jm_obj_1(pval, NULL, rep);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -88,7 +88,7 @@ BEGIN
     pval := val -> 'items';
     -- .'$schema'.items
     -- .'$schema'.items.'|'.0
-    res := _jm_obj_0(pval, path, rep);
+    res := _jm_obj_0(pval, NULL, rep);
     IF NOT res THEN
       -- .'$schema'.items.'|'.1
       res := JSONB_TYPEOF(pval) = 'array';
@@ -122,7 +122,7 @@ BEGIN
     res := JSONB_TYPEOF(pval) = 'boolean';
     IF NOT res THEN
       -- .'$schema'.additionalProperties.'|'.1
-      res := _jm_obj_0(pval, path, rep);
+      res := _jm_obj_0(pval, NULL, rep);
     END IF;
     IF NOT res THEN
       RETURN FALSE;
@@ -135,7 +135,7 @@ BEGIN
     res := JSONB_TYPEOF(pval) = 'string';
     IF NOT res THEN
       -- .'$schema'.requires.'|'.1
-      res := _jm_obj_0(pval, path, rep);
+      res := _jm_obj_0(pval, NULL, rep);
     END IF;
     IF NOT res THEN
       RETURN FALSE;
@@ -192,7 +192,7 @@ BEGIN
   IF val ? 'pattern' THEN
     pval := val -> 'pattern';
     -- .'$schema'.pattern
-    res := JSONB_TYPEOF(pval) = 'string' AND jm_is_valid_regex(JSON_VALUE(pval, '$' RETURNING TEXT), path, rep);
+    res := JSONB_TYPEOF(pval) = 'string' AND jm_is_valid_regex(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, rep);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -293,7 +293,7 @@ BEGIN
     pval := val -> 'extends';
     -- .'$schema'.extends
     -- .'$schema'.extends.'|'.0
-    res := _jm_obj_0(pval, path, rep);
+    res := _jm_obj_0(pval, NULL, rep);
     IF NOT res THEN
       -- .'$schema'.extends.'|'.1
       res := JSONB_TYPEOF(pval) = 'array';

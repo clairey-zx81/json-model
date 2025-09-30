@@ -40,27 +40,30 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
     if len(val) != 2:
         rep is None or rep.append(("bad property count [.'$x']", path))
         return False
+    lpath: Path
     pval: Jsonable
     res: bool
     if not "a" in val:
         rep is None or rep.append(("missing mandatory prop <a> [.'$x']", path))
         return False
+    lpath = (path + [ "a" ]) if path is not None else None
     pval = val.get("a", UNDEFINED)
     # .'$x'.a
     res = isinstance(pval, str) and pval == "cst_01"
     if not res:
-        rep is None or rep.append(("unexpected _cst_01 [.'$x'.a]", path))
-        rep is None or rep.append(("unexpected value for mandatory prop <a> [.'$x']", path))
+        rep is None or rep.append(("unexpected _cst_01 [.'$x'.a]", lpath if path is not None else None))
+        rep is None or rep.append(("unexpected value for mandatory prop <a> [.'$x']", lpath if path is not None else None))
         return False
     if not "b" in val:
         rep is None or rep.append(("missing mandatory prop <b> [.'$x']", path))
         return False
+    lpath = (path + [ "b" ]) if path is not None else None
     pval = val.get("b", UNDEFINED)
     # .'$x'.b
     res = isinstance(pval, str) and pval == "cst_01"
     if not res:
-        rep is None or rep.append(("unexpected _cst_01 [.'$x'.b]", path))
-        rep is None or rep.append(("unexpected value for mandatory prop <b> [.'$x']", path))
+        rep is None or rep.append(("unexpected _cst_01 [.'$x'.b]", lpath if path is not None else None))
+        rep is None or rep.append(("unexpected value for mandatory prop <b> [.'$x']", lpath if path is not None else None))
         return False
     return True
 
@@ -82,27 +85,30 @@ def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
     if len(val) != 2:
         rep is None or rep.append(("bad property count [.'$y']", path))
         return False
+    lpath: Path
     pval: Jsonable
     res: bool
     if not "c" in val:
         rep is None or rep.append(("missing mandatory prop <c> [.'$y']", path))
         return False
+    lpath = (path + [ "c" ]) if path is not None else None
     pval = val.get("c", UNDEFINED)
     # .'$y'.c
     res = isinstance(pval, str) and pval == "cst_01"
     if not res:
-        rep is None or rep.append(("unexpected _cst_01 [.'$y'.c]", path))
-        rep is None or rep.append(("unexpected value for mandatory prop <c> [.'$y']", path))
+        rep is None or rep.append(("unexpected _cst_01 [.'$y'.c]", lpath if path is not None else None))
+        rep is None or rep.append(("unexpected value for mandatory prop <c> [.'$y']", lpath if path is not None else None))
         return False
     if not "d" in val:
         rep is None or rep.append(("missing mandatory prop <d> [.'$y']", path))
         return False
+    lpath = (path + [ "d" ]) if path is not None else None
     pval = val.get("d", UNDEFINED)
     # .'$y'.d
     res = isinstance(pval, str) and pval == "cst_01"
     if not res:
-        rep is None or rep.append(("unexpected _cst_01 [.'$y'.d]", path))
-        rep is None or rep.append(("unexpected value for mandatory prop <d> [.'$y']", path))
+        rep is None or rep.append(("unexpected _cst_01 [.'$y'.d]", lpath if path is not None else None))
+        rep is None or rep.append(("unexpected value for mandatory prop <d> [.'$y']", lpath if path is not None else None))
         return False
     return True
 
@@ -124,47 +130,52 @@ def _jm_obj_2(val: Jsonable, path: Path, rep: Report) -> bool:
     if len(val) != 4:
         rep is None or rep.append(("bad property count [.]", path))
         return False
+    lpath: Path
     pval: Jsonable
     res: bool
     if not "a" in val:
         rep is None or rep.append(("missing mandatory prop <a> [.]", path))
         return False
+    lpath = (path + [ "a" ]) if path is not None else None
     pval = val.get("a", UNDEFINED)
     # .a
     res = isinstance(pval, str) and pval == "cst_01"
     if not res:
-        rep is None or rep.append(("unexpected _cst_01 [.a]", path))
-        rep is None or rep.append(("unexpected value for mandatory prop <a> [.]", path))
+        rep is None or rep.append(("unexpected _cst_01 [.a]", lpath if path is not None else None))
+        rep is None or rep.append(("unexpected value for mandatory prop <a> [.]", lpath if path is not None else None))
         return False
     if not "b" in val:
         rep is None or rep.append(("missing mandatory prop <b> [.]", path))
         return False
+    lpath = (path + [ "b" ]) if path is not None else None
     pval = val.get("b", UNDEFINED)
     # .b
     res = isinstance(pval, str) and pval == "cst_01"
     if not res:
-        rep is None or rep.append(("unexpected _cst_01 [.b]", path))
-        rep is None or rep.append(("unexpected value for mandatory prop <b> [.]", path))
+        rep is None or rep.append(("unexpected _cst_01 [.b]", lpath if path is not None else None))
+        rep is None or rep.append(("unexpected value for mandatory prop <b> [.]", lpath if path is not None else None))
         return False
     if not "c" in val:
         rep is None or rep.append(("missing mandatory prop <c> [.]", path))
         return False
+    lpath = (path + [ "c" ]) if path is not None else None
     pval = val.get("c", UNDEFINED)
     # .c
     res = isinstance(pval, str) and pval == "cst_01"
     if not res:
-        rep is None or rep.append(("unexpected _cst_01 [.c]", path))
-        rep is None or rep.append(("unexpected value for mandatory prop <c> [.]", path))
+        rep is None or rep.append(("unexpected _cst_01 [.c]", lpath if path is not None else None))
+        rep is None or rep.append(("unexpected value for mandatory prop <c> [.]", lpath if path is not None else None))
         return False
     if not "d" in val:
         rep is None or rep.append(("missing mandatory prop <d> [.]", path))
         return False
+    lpath = (path + [ "d" ]) if path is not None else None
     pval = val.get("d", UNDEFINED)
     # .d
     res = isinstance(pval, str) and pval == "cst_01"
     if not res:
-        rep is None or rep.append(("unexpected _cst_01 [.d]", path))
-        rep is None or rep.append(("unexpected value for mandatory prop <d> [.]", path))
+        rep is None or rep.append(("unexpected _cst_01 [.d]", lpath if path is not None else None))
+        rep is None or rep.append(("unexpected value for mandatory prop <d> [.]", lpath if path is not None else None))
         return False
     return True
 

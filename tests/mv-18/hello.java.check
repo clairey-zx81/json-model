@@ -1,5 +1,5 @@
 hello.values.json[0]: PASS
 hello.values.json[1]: PASS
-hello.values.json[2]: FAIL (: not a bool [.world]; : unexpected value for mandatory prop <world> [.])
-hello.values.json[3]: FAIL (: not a 0 strict int [.hello]; : unexpected value for mandatory prop <hello> [.])
+hello.values.json[2]: FAIL (world: not a bool [.world]; world: unexpected value for mandatory prop <world> [.])
+hello.values.json[3]: FAIL (hello: not a 0 strict int [.hello]; hello: unexpected value for mandatory prop <hello> [.])
 hello.values.json[4]: FAIL (: not an object [.])

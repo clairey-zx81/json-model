@@ -25,6 +25,7 @@ function _jm_obj_0(val, path, rep)
         rep !== null && rep.push(["bad property count [.'$loose']", path])
         return false;
     }
+    let lpath;
     let pval;
     let res;
     if (! val.hasOwnProperty("li"))
@@ -32,13 +33,14 @@ function _jm_obj_0(val, path, rep)
         rep !== null && rep.push(["missing mandatory prop <li> [.'$loose']", path])
         return false;
     }
+    lpath = path ? path.concat(["li"]) : null;
     pval = val["li"];
     // .'$loose'.li
     res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0;
     if (! res)
     {
-        rep !== null && rep.push(["not a 0 loose int [.'$loose'.li]", path])
-        rep !== null && rep.push(["unexpected value for mandatory prop <li> [.'$loose']", path])
+        rep !== null && rep.push(["not a 0 loose int [.'$loose'.li]", (path ? lpath : null)])
+        rep !== null && rep.push(["unexpected value for mandatory prop <li> [.'$loose']", (path ? lpath : null)])
         return false;
     }
     return true;
@@ -72,6 +74,7 @@ function _jm_obj_1(val, path, rep)
         rep !== null && rep.push(["bad property count [.'$strict']", path])
         return false;
     }
+    let lpath;
     let pval;
     let res;
     if (! val.hasOwnProperty("si"))
@@ -79,13 +82,14 @@ function _jm_obj_1(val, path, rep)
         rep !== null && rep.push(["missing mandatory prop <si> [.'$strict']", path])
         return false;
     }
+    lpath = path ? path.concat(["si"]) : null;
     pval = val["si"];
     // .'$strict'.si
     res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0;
     if (! res)
     {
-        rep !== null && rep.push(["not a 0 strict int [.'$strict'.si]", path])
-        rep !== null && rep.push(["unexpected value for mandatory prop <si> [.'$strict']", path])
+        rep !== null && rep.push(["not a 0 strict int [.'$strict'.si]", (path ? lpath : null)])
+        rep !== null && rep.push(["unexpected value for mandatory prop <si> [.'$strict']", (path ? lpath : null)])
         return false;
     }
     return true;
@@ -119,6 +123,7 @@ function _jm_obj_2(val, path, rep)
         rep !== null && rep.push(["bad property count [.'$combined']", path])
         return false;
     }
+    let lpath;
     let pval;
     let res;
     if (! val.hasOwnProperty("li"))
@@ -126,13 +131,14 @@ function _jm_obj_2(val, path, rep)
         rep !== null && rep.push(["missing mandatory prop <li> [.'$combined']", path])
         return false;
     }
+    lpath = path ? path.concat(["li"]) : null;
     pval = val["li"];
     // .'$combined'.li
     res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0;
     if (! res)
     {
-        rep !== null && rep.push(["not a 0 strict int [.'$combined'.li]", path])
-        rep !== null && rep.push(["unexpected value for mandatory prop <li> [.'$combined']", path])
+        rep !== null && rep.push(["not a 0 strict int [.'$combined'.li]", (path ? lpath : null)])
+        rep !== null && rep.push(["unexpected value for mandatory prop <li> [.'$combined']", (path ? lpath : null)])
         return false;
     }
     if (! val.hasOwnProperty("si"))
@@ -140,13 +146,14 @@ function _jm_obj_2(val, path, rep)
         rep !== null && rep.push(["missing mandatory prop <si> [.'$combined']", path])
         return false;
     }
+    lpath = path ? path.concat(["si"]) : null;
     pval = val["si"];
     // .'$combined'.si
     res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0;
     if (! res)
     {
-        rep !== null && rep.push(["not a 0 strict int [.'$combined'.si]", path])
-        rep !== null && rep.push(["unexpected value for mandatory prop <si> [.'$combined']", path])
+        rep !== null && rep.push(["not a 0 strict int [.'$combined'.si]", (path ? lpath : null)])
+        rep !== null && rep.push(["unexpected value for mandatory prop <si> [.'$combined']", (path ? lpath : null)])
         return false;
     }
     return true;

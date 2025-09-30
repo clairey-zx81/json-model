@@ -95,7 +95,7 @@ sub _jm_obj_1($$$)
     }
     $pval = $$val{'foo'};
     # .foo
-    $res = _jm_obj_0($pval, $path, $rep);
+    $res = _jm_obj_0($pval, undef, $rep);
     if (! $res)
     {
         return 0;

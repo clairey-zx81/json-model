@@ -67,7 +67,7 @@ def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
         return False
     pval = val.get("foo", UNDEFINED)
     # .foo
-    res = _jm_obj_0(pval, path, rep)
+    res = _jm_obj_0(pval, None, rep)
     if not res:
         return False
     return True

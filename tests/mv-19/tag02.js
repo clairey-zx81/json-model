@@ -26,6 +26,7 @@ function _jm_obj_0(val, path, rep)
         rep !== null && rep.push(["bad property count [.'|'.0]", path])
         return false;
     }
+    let lpath;
     let pval;
     let res;
     if (! val.hasOwnProperty("t"))
@@ -33,13 +34,14 @@ function _jm_obj_0(val, path, rep)
         rep !== null && rep.push(["missing mandatory prop <t> [.'|'.0]", path])
         return false;
     }
+    lpath = path ? path.concat(["t"]) : null;
     pval = val["t"];
     // .'|'.0.t
     res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval == 1;
     if (! res)
     {
-        rep !== null && rep.push(["unexpected =1 [.'|'.0.t]", path])
-        rep !== null && rep.push(["unexpected value for mandatory prop <t> [.'|'.0]", path])
+        rep !== null && rep.push(["unexpected =1 [.'|'.0.t]", (path ? lpath : null)])
+        rep !== null && rep.push(["unexpected value for mandatory prop <t> [.'|'.0]", (path ? lpath : null)])
         return false;
     }
     if (! val.hasOwnProperty("a"))
@@ -47,13 +49,14 @@ function _jm_obj_0(val, path, rep)
         rep !== null && rep.push(["missing mandatory prop <a> [.'|'.0]", path])
         return false;
     }
+    lpath = path ? path.concat(["a"]) : null;
     pval = val["a"];
     // .'|'.0.a
     res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0;
     if (! res)
     {
-        rep !== null && rep.push(["not a 0 strict int [.'|'.0.a]", path])
-        rep !== null && rep.push(["unexpected value for mandatory prop <a> [.'|'.0]", path])
+        rep !== null && rep.push(["not a 0 strict int [.'|'.0.a]", (path ? lpath : null)])
+        rep !== null && rep.push(["unexpected value for mandatory prop <a> [.'|'.0]", (path ? lpath : null)])
         return false;
     }
     return true;
@@ -73,6 +76,7 @@ function _jm_obj_1(val, path, rep)
         rep !== null && rep.push(["bad property count [.'|'.1]", path])
         return false;
     }
+    let lpath;
     let pval;
     let res;
     if (! val.hasOwnProperty("t"))
@@ -80,13 +84,14 @@ function _jm_obj_1(val, path, rep)
         rep !== null && rep.push(["missing mandatory prop <t> [.'|'.1]", path])
         return false;
     }
+    lpath = path ? path.concat(["t"]) : null;
     pval = val["t"];
     // .'|'.1.t
     res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval == 2;
     if (! res)
     {
-        rep !== null && rep.push(["unexpected =2 [.'|'.1.t]", path])
-        rep !== null && rep.push(["unexpected value for mandatory prop <t> [.'|'.1]", path])
+        rep !== null && rep.push(["unexpected =2 [.'|'.1.t]", (path ? lpath : null)])
+        rep !== null && rep.push(["unexpected value for mandatory prop <t> [.'|'.1]", (path ? lpath : null)])
         return false;
     }
     if (! val.hasOwnProperty("b"))
@@ -94,13 +99,14 @@ function _jm_obj_1(val, path, rep)
         rep !== null && rep.push(["missing mandatory prop <b> [.'|'.1]", path])
         return false;
     }
+    lpath = path ? path.concat(["b"]) : null;
     pval = val["b"];
     // .'|'.1.b
     res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0;
     if (! res)
     {
-        rep !== null && rep.push(["not a 0 strict int [.'|'.1.b]", path])
-        rep !== null && rep.push(["unexpected value for mandatory prop <b> [.'|'.1]", path])
+        rep !== null && rep.push(["not a 0 strict int [.'|'.1.b]", (path ? lpath : null)])
+        rep !== null && rep.push(["unexpected value for mandatory prop <b> [.'|'.1]", (path ? lpath : null)])
         return false;
     }
     return true;

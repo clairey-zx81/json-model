@@ -518,9 +518,13 @@ class CodeGenerator:
         # value checks needs two variables
         if any(m != "$ANY" for m in must.values()):
             code += (
+                gen.path_var("lpath", declare=True) +
                 gen.json_var("pval", declare=True) +
                 gen.bool_var(res, declare=True)
             )
+
+        # may or may not be used
+        lpath_ref: PathExpr = gen.path_lvar("lpath", vpath)
 
         # must properties
         for prop, pmodel in must.items():
@@ -529,17 +533,19 @@ class CodeGenerator:
                         self._gen_fail(f"missing mandatory prop <{prop}> [{smpath}]", vpath))
             if pmodel != "$ANY":
                 code += (
+                    gen.path_var("lpath", gen.path_val(vpath, prop, True, False)) +
                     gen.json_var("pval", gen.obj_prop_val(val, prop, False)) +
-                    self._compileModel(jm, pmodel, mpath + [prop], res, "pval", vpath) +
+                    self._compileModel(jm, pmodel, mpath + [prop], res, "pval", lpath_ref) +
                     gen.if_stmt(
                         gen.not_op(res),
                         self._gen_fail(f"unexpected value for mandatory prop <{prop}> [{smpath}]",
-                                       vpath))
+                                       lpath_ref))
                 )
 
         return code + gen.ret(gen.true())
 
     # TODO known?
+    # TODO fix vpath
     def _openMuMaObject(self, jm: JsonModel, must: dict[str, ModelType], may: dict[str, ModelType],
                         mpath: ModelPath, oname: str,
                         res: Var, val: JsonExpr, vpath: PathExpr) -> Block:
@@ -558,9 +564,13 @@ class CodeGenerator:
         # value checks?
         if any(m != "$ANY" for m in must.values()) or any(m != "$ANY" for m in may.values()):
             code += (
+                gen.path_var("lpath", declare=True) +
                 gen.json_var("pval", declare=True) +
                 gen.bool_var(res, declare=True)
             )
+
+        # may or may not be used
+        lpath_ref: PathExpr = gen.path_lvar("lpath", vpath)
 
         for prop, pmodel in must.items():
             code += gen.if_stmt(
@@ -568,23 +578,25 @@ class CodeGenerator:
                         self._gen_fail(f"missing mandatory prop <{prop}> [{smpath}]", vpath))
             if pmodel != "$ANY":
                 code += (
+                    gen.path_var("lpath", gen.path_val(vpath, prop, True, False)) +
                     gen.json_var("pval", gen.obj_prop_val(val, prop, False)) +
-                    self._compileModel(jm, pmodel, mpath + [prop], res, "pval", vpath) +
+                    self._compileModel(jm, pmodel, mpath + [prop], res, "pval", lpath_ref) +
                     gen.if_stmt(
                         gen.not_op(res),
                         self._gen_fail(f"unexpected value for mandatory prop <{prop}> [{smpath}]",
-                                       vpath))
+                                       lpath_ref))
                 )
 
         for prop, pmodel in may.items():
             if pmodel != "$ANY":
                 code += gen.if_stmt(gen.has_prop(val, prop),
+                    gen.path_var("lpath", gen.path_val(vpath, prop, True, False)) +
                     gen.json_var("pval", gen.obj_prop_val(val, prop, False)) +
-                    self._compileModel(jm, pmodel, mpath + [prop], res, "pval", vpath) +
+                    self._compileModel(jm, pmodel, mpath + [prop], res, "pval", lpath_ref) +
                     gen.if_stmt(
                         gen.not_op(res),
                         self._gen_fail(f"unexpected value for optional prop <{prop}> [{smpath}]",
-                                       vpath))
+                                       lpath_ref))
                 )
             # else covered by catchall
 
@@ -785,7 +797,7 @@ class CodeGenerator:
             ot_code = self._gen_fail(f"unexpected prop [{smpath}]", lpath_ref)
 
         code += gen.obj_loop(val, prop, pval,
-            gen.path_var(lpath, gen.path_val(vpath, prop, True), True) +
+            gen.path_var(lpath, gen.path_val(vpath, prop, True, True), True) +
             gen.mif_stmt(multi_if, ot_code))
 
         # check that all must were seen, with some effort to report the missing ones
@@ -1229,7 +1241,7 @@ class CodeGenerator:
                         idx, item, lpath = f"{arrayid}_idx", f"{arrayid}_item", f"{arrayid}_lpath"
 
                         loop = gen.arr_loop(val, idx, item,
-                                gen.path_var(lpath, gen.path_val(vpath, idx, False), True) +
+                                gen.path_var(lpath, gen.path_val(vpath, idx, False, True), True) +
                                 self._compileModel(jm, model[0], mpath + [0],
                                                    res, item,
                                                    gen.path_lvar(lpath, vpath)) +  # type: ignore
@@ -1254,7 +1266,7 @@ class CodeGenerator:
                         for i, m in reversed(list(enumerate(model))):
                             body = gen.if_stmt(
                                 res,
-                                gen.path_var(lpath, gen.path_val(vpath, i, False), declare=i==0) +
+                                gen.path_var(lpath, gen.path_val(vpath, i, False, False), declare=i==0) +
                                 # FIXME generated variable reference…
                                 self._compileModel(
                                     jm, model[i], mpath + [i],
@@ -1273,7 +1285,7 @@ class CodeGenerator:
                         if lmodel != "$ANY":
                             idx = gen.ident("idx")
                             body += gen.int_loop(idx, start, arlen,
-                                gen.path_var(lpath, gen.path_val(vpath, idx, False)) +
+                                gen.path_var(lpath, gen.path_val(vpath, idx, False, True)) +
                                 self._compileModel(jm, lmodel, mpath + [start], res,
                                                    gen.arr_item_val(val, idx), lpath_ref) +
                                 gen.if_stmt(gen.not_op(res), gen.brk())
@@ -1282,7 +1294,7 @@ class CodeGenerator:
                         for i, m in reversed(list(enumerate(model[:-1]))):
                             ith_check = \
                                 gen.if_stmt(gen.num_cmp(arlen, ">", i),
-                                    gen.path_var(lpath, gen.path_val(vpath, i, False)) +
+                                    gen.path_var(lpath, gen.path_val(vpath, i, False, False)) +
                                     self._compileModel(jm, m, mpath + [i], res,
                                                        gen.arr_item_val(val, i), lpath_ref))
                             if body:

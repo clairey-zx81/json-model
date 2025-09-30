@@ -31,28 +31,31 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
     if len(val) != 2:
         rep is None or rep.append(("bad property count [.]", path))
         return False
+    lpath: Path
     pval: Jsonable
     res: bool
     if not "hello" in val:
         rep is None or rep.append(("missing mandatory prop <hello> [.]", path))
         return False
+    lpath = (path + [ "hello" ]) if path is not None else None
     pval = val.get("hello", UNDEFINED)
     # .hello
     res = isinstance(pval, str)
     if not res:
-        rep is None or rep.append(("unexpected string [.hello]", path))
-        rep is None or rep.append(("unexpected value for mandatory prop <hello> [.]", path))
+        rep is None or rep.append(("unexpected string [.hello]", lpath if path is not None else None))
+        rep is None or rep.append(("unexpected value for mandatory prop <hello> [.]", lpath if path is not None else None))
         return False
     if not ("world" in val):
         rep is None or rep.append(("missing mandatory prop <world> [.]", path))
         return False
+    lpath = (path + [ "world" ]) if path is not None else None
     pval = val.get("world", UNDEFINED)
     # .world
     # "/^!/"
     res = isinstance(pval, str) and pval.startswith("!")
     if not res:
-        rep is None or rep.append(("unexpected /^!/ [.world]", path))
-        rep is None or rep.append(("unexpected value for mandatory prop <world> [.]", path))
+        rep is None or rep.append(("unexpected /^!/ [.world]", lpath if path is not None else None))
+        rep is None or rep.append(("unexpected value for mandatory prop <world> [.]", lpath if path is not None else None))
         return False
     return True
 

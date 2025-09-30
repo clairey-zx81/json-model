@@ -447,7 +447,7 @@ BEGIN
   END IF;
   pval := val -> 'title';
   -- .'$Prompts'.'|'.2.title
-  res := json_model_6(pval, path, rep);
+  res := json_model_6(pval, NULL, rep);
   IF NOT res THEN
     RETURN FALSE;
   END IF;
@@ -456,7 +456,7 @@ BEGIN
   END IF;
   pval := val -> 'key';
   -- .'$Prompts'.'|'.2.key
-  res := json_model_7(pval, path, rep);
+  res := json_model_7(pval, NULL, rep);
   IF NOT res THEN
     RETURN FALSE;
   END IF;
@@ -478,7 +478,7 @@ BEGIN
     END LOOP;
   END IF;
   IF res THEN
-    res := jm_array_is_unique(pval, path, rep);
+    res := jm_array_is_unique(pval, NULL, rep);
   END IF;
   IF NOT res THEN
     RETURN FALSE;
@@ -958,7 +958,7 @@ BEGIN
   END IF;
   pval := val -> 'pattern';
   -- .git.commitPrefixes.'/./'.pattern
-  res := json_model_8(pval, path, rep);
+  res := json_model_8(pval, NULL, rep);
   IF NOT res THEN
     RETURN FALSE;
   END IF;
@@ -967,7 +967,7 @@ BEGIN
   END IF;
   pval := val -> 'replace';
   -- .git.commitPrefixes.'/./'.replace
-  res := json_model_8(pval, path, rep);
+  res := json_model_8(pval, NULL, rep);
   IF NOT res THEN
     RETURN FALSE;
   END IF;

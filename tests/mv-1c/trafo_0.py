@@ -31,27 +31,30 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
     if len(val) != 2:
         rep is None or rep.append(("bad property count [.'$zero']", path))
         return False
+    lpath: Path
     pval: Jsonable
     res: bool
     if not "za" in val:
         rep is None or rep.append(("missing mandatory prop <za> [.'$zero']", path))
         return False
+    lpath = (path + [ "za" ]) if path is not None else None
     pval = val.get("za", UNDEFINED)
     # .'$zero'.za
     res = isinstance(pval, int) and not isinstance(pval, bool) and pval >= 0
     if not res:
-        rep is None or rep.append(("not a 0 strict int [.'$zero'.za]", path))
-        rep is None or rep.append(("unexpected value for mandatory prop <za> [.'$zero']", path))
+        rep is None or rep.append(("not a 0 strict int [.'$zero'.za]", lpath if path is not None else None))
+        rep is None or rep.append(("unexpected value for mandatory prop <za> [.'$zero']", lpath if path is not None else None))
         return False
     if not "zb" in val:
         rep is None or rep.append(("missing mandatory prop <zb> [.'$zero']", path))
         return False
+    lpath = (path + [ "zb" ]) if path is not None else None
     pval = val.get("zb", UNDEFINED)
     # .'$zero'.zb
     res = isinstance(pval, int) and not isinstance(pval, bool) and pval >= 0
     if not res:
-        rep is None or rep.append(("not a 0 strict int [.'$zero'.zb]", path))
-        rep is None or rep.append(("unexpected value for mandatory prop <zb> [.'$zero']", path))
+        rep is None or rep.append(("not a 0 strict int [.'$zero'.zb]", lpath if path is not None else None))
+        rep is None or rep.append(("unexpected value for mandatory prop <zb> [.'$zero']", lpath if path is not None else None))
         return False
     return True
 

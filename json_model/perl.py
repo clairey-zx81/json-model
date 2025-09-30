@@ -203,8 +203,8 @@ class Perl(Language):
         return [ f"{decl}${var}{assign};" ]
 
     # FIXME broken
-    def path_val(self, pvar: Var, pseg: str|int, is_prop: bool) -> PathExpr:
-        seg = str(pseg) if isinstance(pseg, int) else f"${pseg}" if is_prop else self.esc(pseg)
+    def path_val(self, pvar: Var, pseg: str|int, is_prop: bool, is_var: bool) -> PathExpr:
+        seg = "${pseg}" if is_var else self.esc(pseg) if is_prop else str(pseg)
         pvar = f"${pvar}" if self.is_a_var(pvar) else pvar
         pvar = f"({pvar})" if " " in pvar else pvar
         return f"defined {pvar} ? [@{{{pvar}}}, {seg}] : undef" if self._with_path else "undef"

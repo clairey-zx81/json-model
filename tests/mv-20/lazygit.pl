@@ -734,7 +734,7 @@ sub _jm_obj_4($$$)
     }
     $pval = $$val{'title'};
     # .'$Prompts'.'|'.2.title
-    $res = json_model_6($pval, $path, $rep);
+    $res = json_model_6($pval, undef, $rep);
     if (! $res)
     {
         return 0;
@@ -745,7 +745,7 @@ sub _jm_obj_4($$$)
     }
     $pval = $$val{'key'};
     # .'$Prompts'.'|'.2.key
-    $res = json_model_7($pval, $path, $rep);
+    $res = json_model_7($pval, undef, $rep);
     if (! $res)
     {
         return 0;
@@ -773,7 +773,7 @@ sub _jm_obj_4($$$)
     }
     if ($res)
     {
-        $res = jm_is_unique_array($pval, $path, $rep);
+        $res = jm_is_unique_array($pval, undef, $rep);
     }
     if (! $res)
     {
@@ -1251,7 +1251,7 @@ sub _jm_obj_13($$$)
     }
     $pval = $$val{'pattern'};
     # .git.commitPrefixes.'/./'.pattern
-    $res = json_model_8($pval, $path, $rep);
+    $res = json_model_8($pval, undef, $rep);
     if (! $res)
     {
         return 0;
@@ -1262,7 +1262,7 @@ sub _jm_obj_13($$$)
     }
     $pval = $$val{'replace'};
     # .git.commitPrefixes.'/./'.replace
-    $res = json_model_8($pval, $path, $rep);
+    $res = json_model_8($pval, undef, $rep);
     if (! $res)
     {
         return 0;

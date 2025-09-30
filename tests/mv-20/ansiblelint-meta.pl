@@ -7104,7 +7104,7 @@ sub _jm_obj_99($$$)
     {
         $pval = $$val{'vars'};
         # .'$DependencyModelLoose'.vars
-        $res = _jm_obj_100($pval, $path, $rep);
+        $res = _jm_obj_100($pval, undef, $rep);
         if (! $res)
         {
             return 0;
@@ -7124,7 +7124,7 @@ sub _jm_obj_99($$$)
     {
         $pval = $$val{'when'};
         # .'$DependencyModelLoose'.when
-        $res = json_model_56($pval, $path, $rep);
+        $res = json_model_56($pval, undef, $rep);
         if (! $res)
         {
             return 0;

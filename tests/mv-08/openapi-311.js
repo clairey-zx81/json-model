@@ -6207,6 +6207,7 @@ function _jm_obj_69(val, path, rep)
         rep !== null && rep.push(["bad property count [.'$SS-apikey']", path])
         return false;
     }
+    let lpath;
     let pval;
     let res;
     if (! val.hasOwnProperty("type"))
@@ -6214,13 +6215,14 @@ function _jm_obj_69(val, path, rep)
         rep !== null && rep.push(["missing mandatory prop <type> [.'$SS-apikey']", path])
         return false;
     }
+    lpath = path ? path.concat(["type"]) : null;
     pval = val["type"];
     // .'$SS-apikey'.type
     res = ((typeof pval === 'string' || pval instanceof String)) && pval == "apiKey";
     if (! res)
     {
-        rep !== null && rep.push(["unexpected _apiKey [.'$SS-apikey'.type]", path])
-        rep !== null && rep.push(["unexpected value for mandatory prop <type> [.'$SS-apikey']", path])
+        rep !== null && rep.push(["unexpected _apiKey [.'$SS-apikey'.type]", (path ? lpath : null)])
+        rep !== null && rep.push(["unexpected value for mandatory prop <type> [.'$SS-apikey']", (path ? lpath : null)])
         return false;
     }
     if (! val.hasOwnProperty("name"))
@@ -6228,13 +6230,14 @@ function _jm_obj_69(val, path, rep)
         rep !== null && rep.push(["missing mandatory prop <name> [.'$SS-apikey']", path])
         return false;
     }
+    lpath = path ? path.concat(["name"]) : null;
     pval = val["name"];
     // .'$SS-apikey'.name
     res = (typeof pval === 'string' || pval instanceof String);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected string [.'$SS-apikey'.name]", path])
-        rep !== null && rep.push(["unexpected value for mandatory prop <name> [.'$SS-apikey']", path])
+        rep !== null && rep.push(["unexpected string [.'$SS-apikey'.name]", (path ? lpath : null)])
+        rep !== null && rep.push(["unexpected value for mandatory prop <name> [.'$SS-apikey']", (path ? lpath : null)])
         return false;
     }
     if (! val.hasOwnProperty("in"))
@@ -6242,13 +6245,14 @@ function _jm_obj_69(val, path, rep)
         rep !== null && rep.push(["missing mandatory prop <in> [.'$SS-apikey']", path])
         return false;
     }
+    lpath = path ? path.concat(["in"]) : null;
     pval = val["in"];
     // .'$SS-apikey'.in
     res = ((pval === null || (typeof pval === 'number' || pval instanceof Number) || (typeof pval === 'boolean' || pval instanceof Boolean) || (typeof pval === 'string' || pval instanceof String))) && _jm_cst_4.has(pval);
     if (! res)
     {
-        rep !== null && rep.push(["value not in enum [.'$SS-apikey'.in.'|']", path])
-        rep !== null && rep.push(["unexpected value for mandatory prop <in> [.'$SS-apikey']", path])
+        rep !== null && rep.push(["value not in enum [.'$SS-apikey'.in.'|']", (path ? lpath : null)])
+        rep !== null && rep.push(["unexpected value for mandatory prop <in> [.'$SS-apikey']", (path ? lpath : null)])
         return false;
     }
     return true;
@@ -6281,6 +6285,7 @@ function _jm_obj_70(val, path, rep)
         rep !== null && rep.push(["bad property count [.'$SS-http']", path])
         return false;
     }
+    let lpath;
     let pval;
     let res;
     if (! val.hasOwnProperty("type"))
@@ -6288,13 +6293,14 @@ function _jm_obj_70(val, path, rep)
         rep !== null && rep.push(["missing mandatory prop <type> [.'$SS-http']", path])
         return false;
     }
+    lpath = path ? path.concat(["type"]) : null;
     pval = val["type"];
     // .'$SS-http'.type
     res = ((typeof pval === 'string' || pval instanceof String)) && pval == "http";
     if (! res)
     {
-        rep !== null && rep.push(["unexpected _http [.'$SS-http'.type]", path])
-        rep !== null && rep.push(["unexpected value for mandatory prop <type> [.'$SS-http']", path])
+        rep !== null && rep.push(["unexpected _http [.'$SS-http'.type]", (path ? lpath : null)])
+        rep !== null && rep.push(["unexpected value for mandatory prop <type> [.'$SS-http']", (path ? lpath : null)])
         return false;
     }
     if (! val.hasOwnProperty("scheme"))
@@ -6302,13 +6308,14 @@ function _jm_obj_70(val, path, rep)
         rep !== null && rep.push(["missing mandatory prop <scheme> [.'$SS-http']", path])
         return false;
     }
+    lpath = path ? path.concat(["scheme"]) : null;
     pval = val["scheme"];
     // .'$SS-http'.scheme
     res = (typeof pval === 'string' || pval instanceof String);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected string [.'$SS-http'.scheme]", path])
-        rep !== null && rep.push(["unexpected value for mandatory prop <scheme> [.'$SS-http']", path])
+        rep !== null && rep.push(["unexpected string [.'$SS-http'.scheme]", (path ? lpath : null)])
+        rep !== null && rep.push(["unexpected value for mandatory prop <scheme> [.'$SS-http']", (path ? lpath : null)])
         return false;
     }
     return true;
@@ -6432,6 +6439,7 @@ function _jm_obj_72(val, path, rep)
         rep !== null && rep.push(["bad property count [.'$SS-oauth2']", path])
         return false;
     }
+    let lpath;
     let pval;
     let res;
     if (! val.hasOwnProperty("type"))
@@ -6439,13 +6447,14 @@ function _jm_obj_72(val, path, rep)
         rep !== null && rep.push(["missing mandatory prop <type> [.'$SS-oauth2']", path])
         return false;
     }
+    lpath = path ? path.concat(["type"]) : null;
     pval = val["type"];
     // .'$SS-oauth2'.type
     res = ((typeof pval === 'string' || pval instanceof String)) && pval == "oauth2";
     if (! res)
     {
-        rep !== null && rep.push(["unexpected _oauth2 [.'$SS-oauth2'.type]", path])
-        rep !== null && rep.push(["unexpected value for mandatory prop <type> [.'$SS-oauth2']", path])
+        rep !== null && rep.push(["unexpected _oauth2 [.'$SS-oauth2'.type]", (path ? lpath : null)])
+        rep !== null && rep.push(["unexpected value for mandatory prop <type> [.'$SS-oauth2']", (path ? lpath : null)])
         return false;
     }
     if (! val.hasOwnProperty("flows"))
@@ -6453,13 +6462,14 @@ function _jm_obj_72(val, path, rep)
         rep !== null && rep.push(["missing mandatory prop <flows> [.'$SS-oauth2']", path])
         return false;
     }
+    lpath = path ? path.concat(["flows"]) : null;
     pval = val["flows"];
     // .'$SS-oauth2'.flows
-    res = _jm_obj_80(pval, path, rep);
+    res = _jm_obj_80(pval, (path ? lpath : null), rep);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected $OAuthFlows [.'$SS-oauth2'.flows]", path])
-        rep !== null && rep.push(["unexpected value for mandatory prop <flows> [.'$SS-oauth2']", path])
+        rep !== null && rep.push(["unexpected $OAuthFlows [.'$SS-oauth2'.flows]", (path ? lpath : null)])
+        rep !== null && rep.push(["unexpected value for mandatory prop <flows> [.'$SS-oauth2']", (path ? lpath : null)])
         return false;
     }
     return true;
@@ -6492,6 +6502,7 @@ function _jm_obj_73(val, path, rep)
         rep !== null && rep.push(["bad property count [.'$SS-oic']", path])
         return false;
     }
+    let lpath;
     let pval;
     let res;
     if (! val.hasOwnProperty("type"))
@@ -6499,13 +6510,14 @@ function _jm_obj_73(val, path, rep)
         rep !== null && rep.push(["missing mandatory prop <type> [.'$SS-oic']", path])
         return false;
     }
+    lpath = path ? path.concat(["type"]) : null;
     pval = val["type"];
     // .'$SS-oic'.type
     res = ((typeof pval === 'string' || pval instanceof String)) && pval == "openIdConnect";
     if (! res)
     {
-        rep !== null && rep.push(["unexpected _openIdConnect [.'$SS-oic'.type]", path])
-        rep !== null && rep.push(["unexpected value for mandatory prop <type> [.'$SS-oic']", path])
+        rep !== null && rep.push(["unexpected _openIdConnect [.'$SS-oic'.type]", (path ? lpath : null)])
+        rep !== null && rep.push(["unexpected value for mandatory prop <type> [.'$SS-oic']", (path ? lpath : null)])
         return false;
     }
     if (! val.hasOwnProperty("openIdConnectUrl"))
@@ -6513,13 +6525,14 @@ function _jm_obj_73(val, path, rep)
         rep !== null && rep.push(["missing mandatory prop <openIdConnectUrl> [.'$SS-oic']", path])
         return false;
     }
+    lpath = path ? path.concat(["openIdConnectUrl"]) : null;
     pval = val["openIdConnectUrl"];
     // .'$SS-oic'.openIdConnectUrl
     res = runtime.jm_is_valid_url(pval);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected $URL [.'$SS-oic'.openIdConnectUrl]", path])
-        rep !== null && rep.push(["unexpected value for mandatory prop <openIdConnectUrl> [.'$SS-oic']", path])
+        rep !== null && rep.push(["unexpected $URL [.'$SS-oic'.openIdConnectUrl]", (path ? lpath : null)])
+        rep !== null && rep.push(["unexpected value for mandatory prop <openIdConnectUrl> [.'$SS-oic']", (path ? lpath : null)])
         return false;
     }
     return true;

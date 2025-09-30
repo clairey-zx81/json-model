@@ -3995,22 +3995,25 @@ function _jm_obj_47(val, path, rep)
         rep !== null && rep.push(["not an object [.'$platforms'.0.'|'.46]", path])
         return false;
     }
+    let lpath;
     let pval;
     let res;
     if (val.hasOwnProperty("name"))
     {
+        lpath = path ? path.concat(["name"]) : null;
         pval = val["name"];
         // .'$platforms'.0.'|'.46.name
         res = ((typeof pval === 'string' || pval instanceof String)) && pval == "Windows";
         if (! res)
         {
-            rep !== null && rep.push(["unexpected _Windows [.'$platforms'.0.'|'.46.name]", path])
-            rep !== null && rep.push(["unexpected value for optional prop <name> [.'$platforms'.0.'|'.46]", path])
+            rep !== null && rep.push(["unexpected _Windows [.'$platforms'.0.'|'.46.name]", (path ? lpath : null)])
+            rep !== null && rep.push(["unexpected value for optional prop <name> [.'$platforms'.0.'|'.46]", (path ? lpath : null)])
             return false;
         }
     }
     if (val.hasOwnProperty("versions"))
     {
+        lpath = path ? path.concat(["versions"]) : null;
         pval = val["versions"];
         // .'$platforms'.0.'|'.46.versions
         res = Array.isArray(pval);
@@ -4019,20 +4022,20 @@ function _jm_obj_47(val, path, rep)
             for (let arr_48_idx = 0; arr_48_idx < pval.length; arr_48_idx++)
             {
                 let arr_48_item = pval[arr_48_idx]
-                let arr_48_lpath = path ? path.concat([arr_48_idx]) : null;
+                let arr_48_lpath = (path ? lpath : null) ? (path ? lpath : null).concat([arr_48_idx]) : null;
                 // .'$platforms'.0.'|'.46.versions.0
                 res = ((arr_48_item === null || (typeof arr_48_item === 'number' || arr_48_item instanceof Number) || (typeof arr_48_item === 'boolean' || arr_48_item instanceof Boolean) || (typeof arr_48_item === 'string' || arr_48_item instanceof String))) && _jm_cst_32.has(arr_48_item);
                 if (! res)
                 {
-                    rep !== null && rep.push(["value not in enum [.'$platforms'.0.'|'.46.versions.0.'|']", (path ? arr_48_lpath : null)])
+                    rep !== null && rep.push(["value not in enum [.'$platforms'.0.'|'.46.versions.0.'|']", ((path ? lpath : null) ? arr_48_lpath : null)])
                     break;
                 }
             }
         }
         if (! res)
         {
-            rep !== null && rep.push(["not array or unexpected array [.'$platforms'.0.'|'.46.versions]", path])
-            rep !== null && rep.push(["unexpected value for optional prop <versions> [.'$platforms'.0.'|'.46]", path])
+            rep !== null && rep.push(["not array or unexpected array [.'$platforms'.0.'|'.46.versions]", (path ? lpath : null)])
+            rep !== null && rep.push(["unexpected value for optional prop <versions> [.'$platforms'.0.'|'.46]", (path ? lpath : null)])
             return false;
         }
     }
@@ -4049,22 +4052,25 @@ function _jm_obj_48(val, path, rep)
         rep !== null && rep.push(["not an object [.'$platforms'.0.'|'.45]", path])
         return false;
     }
+    let lpath;
     let pval;
     let res;
     if (val.hasOwnProperty("name"))
     {
+        lpath = path ? path.concat(["name"]) : null;
         pval = val["name"];
         // .'$platforms'.0.'|'.45.name
         res = ((typeof pval === 'string' || pval instanceof String)) && pval == "vSphere";
         if (! res)
         {
-            rep !== null && rep.push(["unexpected _vSphere [.'$platforms'.0.'|'.45.name]", path])
-            rep !== null && rep.push(["unexpected value for optional prop <name> [.'$platforms'.0.'|'.45]", path])
+            rep !== null && rep.push(["unexpected _vSphere [.'$platforms'.0.'|'.45.name]", (path ? lpath : null)])
+            rep !== null && rep.push(["unexpected value for optional prop <name> [.'$platforms'.0.'|'.45]", (path ? lpath : null)])
             return false;
         }
     }
     if (val.hasOwnProperty("versions"))
     {
+        lpath = path ? path.concat(["versions"]) : null;
         pval = val["versions"];
         // .'$platforms'.0.'|'.45.versions
         res = Array.isArray(pval);
@@ -4073,20 +4079,20 @@ function _jm_obj_48(val, path, rep)
             for (let arr_49_idx = 0; arr_49_idx < pval.length; arr_49_idx++)
             {
                 let arr_49_item = pval[arr_49_idx]
-                let arr_49_lpath = path ? path.concat([arr_49_idx]) : null;
+                let arr_49_lpath = (path ? lpath : null) ? (path ? lpath : null).concat([arr_49_idx]) : null;
                 // .'$platforms'.0.'|'.45.versions.0
                 res = ((arr_49_item === null || (typeof arr_49_item === 'number' || arr_49_item instanceof Number) || (typeof arr_49_item === 'boolean' || arr_49_item instanceof Boolean) || (typeof arr_49_item === 'string' || arr_49_item instanceof String))) && _jm_cst_33.has(arr_49_item);
                 if (! res)
                 {
-                    rep !== null && rep.push(["value not in enum [.'$platforms'.0.'|'.45.versions.0.'|']", (path ? arr_49_lpath : null)])
+                    rep !== null && rep.push(["value not in enum [.'$platforms'.0.'|'.45.versions.0.'|']", ((path ? lpath : null) ? arr_49_lpath : null)])
                     break;
                 }
             }
         }
         if (! res)
         {
-            rep !== null && rep.push(["not array or unexpected array [.'$platforms'.0.'|'.45.versions]", path])
-            rep !== null && rep.push(["unexpected value for optional prop <versions> [.'$platforms'.0.'|'.45]", path])
+            rep !== null && rep.push(["not array or unexpected array [.'$platforms'.0.'|'.45.versions]", (path ? lpath : null)])
+            rep !== null && rep.push(["unexpected value for optional prop <versions> [.'$platforms'.0.'|'.45]", (path ? lpath : null)])
             return false;
         }
     }
@@ -4102,22 +4108,25 @@ function _jm_obj_49(val, path, rep)
         rep !== null && rep.push(["not an object [.'$platforms'.0.'|'.44]", path])
         return false;
     }
+    let lpath;
     let pval;
     let res;
     if (val.hasOwnProperty("name"))
     {
+        lpath = path ? path.concat(["name"]) : null;
         pval = val["name"];
         // .'$platforms'.0.'|'.44.name
         res = ((typeof pval === 'string' || pval instanceof String)) && pval == "Void Linux";
         if (! res)
         {
-            rep !== null && rep.push(["unexpected _Void Linux [.'$platforms'.0.'|'.44.name]", path])
-            rep !== null && rep.push(["unexpected value for optional prop <name> [.'$platforms'.0.'|'.44]", path])
+            rep !== null && rep.push(["unexpected _Void Linux [.'$platforms'.0.'|'.44.name]", (path ? lpath : null)])
+            rep !== null && rep.push(["unexpected value for optional prop <name> [.'$platforms'.0.'|'.44]", (path ? lpath : null)])
             return false;
         }
     }
     if (val.hasOwnProperty("versions"))
     {
+        lpath = path ? path.concat(["versions"]) : null;
         pval = val["versions"];
         // .'$platforms'.0.'|'.44.versions
         res = Array.isArray(pval);
@@ -4126,20 +4135,20 @@ function _jm_obj_49(val, path, rep)
             for (let arr_50_idx = 0; arr_50_idx < pval.length; arr_50_idx++)
             {
                 let arr_50_item = pval[arr_50_idx]
-                let arr_50_lpath = path ? path.concat([arr_50_idx]) : null;
+                let arr_50_lpath = (path ? lpath : null) ? (path ? lpath : null).concat([arr_50_idx]) : null;
                 // .'$platforms'.0.'|'.44.versions.0
                 res = ((typeof arr_50_item === 'string' || arr_50_item instanceof String)) && arr_50_item == "all";
                 if (! res)
                 {
-                    rep !== null && rep.push(["unexpected all [.'$platforms'.0.'|'.44.versions.0]", (path ? arr_50_lpath : null)])
+                    rep !== null && rep.push(["unexpected all [.'$platforms'.0.'|'.44.versions.0]", ((path ? lpath : null) ? arr_50_lpath : null)])
                     break;
                 }
             }
         }
         if (! res)
         {
-            rep !== null && rep.push(["not array or unexpected array [.'$platforms'.0.'|'.44.versions]", path])
-            rep !== null && rep.push(["unexpected value for optional prop <versions> [.'$platforms'.0.'|'.44]", path])
+            rep !== null && rep.push(["not array or unexpected array [.'$platforms'.0.'|'.44.versions]", (path ? lpath : null)])
+            rep !== null && rep.push(["unexpected value for optional prop <versions> [.'$platforms'.0.'|'.44]", (path ? lpath : null)])
             return false;
         }
     }
@@ -4156,22 +4165,25 @@ function _jm_obj_50(val, path, rep)
         rep !== null && rep.push(["not an object [.'$platforms'.0.'|'.43]", path])
         return false;
     }
+    let lpath;
     let pval;
     let res;
     if (val.hasOwnProperty("name"))
     {
+        lpath = path ? path.concat(["name"]) : null;
         pval = val["name"];
         // .'$platforms'.0.'|'.43.name
         res = ((typeof pval === 'string' || pval instanceof String)) && pval == "vCenter";
         if (! res)
         {
-            rep !== null && rep.push(["unexpected _vCenter [.'$platforms'.0.'|'.43.name]", path])
-            rep !== null && rep.push(["unexpected value for optional prop <name> [.'$platforms'.0.'|'.43]", path])
+            rep !== null && rep.push(["unexpected _vCenter [.'$platforms'.0.'|'.43.name]", (path ? lpath : null)])
+            rep !== null && rep.push(["unexpected value for optional prop <name> [.'$platforms'.0.'|'.43]", (path ? lpath : null)])
             return false;
         }
     }
     if (val.hasOwnProperty("versions"))
     {
+        lpath = path ? path.concat(["versions"]) : null;
         pval = val["versions"];
         // .'$platforms'.0.'|'.43.versions
         res = Array.isArray(pval);
@@ -4180,20 +4192,20 @@ function _jm_obj_50(val, path, rep)
             for (let arr_51_idx = 0; arr_51_idx < pval.length; arr_51_idx++)
             {
                 let arr_51_item = pval[arr_51_idx]
-                let arr_51_lpath = path ? path.concat([arr_51_idx]) : null;
+                let arr_51_lpath = (path ? lpath : null) ? (path ? lpath : null).concat([arr_51_idx]) : null;
                 // .'$platforms'.0.'|'.43.versions.0
                 res = ((arr_51_item === null || (typeof arr_51_item === 'number' || arr_51_item instanceof Number) || (typeof arr_51_item === 'boolean' || arr_51_item instanceof Boolean) || (typeof arr_51_item === 'string' || arr_51_item instanceof String))) && _jm_cst_34.has(arr_51_item);
                 if (! res)
                 {
-                    rep !== null && rep.push(["value not in enum [.'$platforms'.0.'|'.43.versions.0.'|']", (path ? arr_51_lpath : null)])
+                    rep !== null && rep.push(["value not in enum [.'$platforms'.0.'|'.43.versions.0.'|']", ((path ? lpath : null) ? arr_51_lpath : null)])
                     break;
                 }
             }
         }
         if (! res)
         {
-            rep !== null && rep.push(["not array or unexpected array [.'$platforms'.0.'|'.43.versions]", path])
-            rep !== null && rep.push(["unexpected value for optional prop <versions> [.'$platforms'.0.'|'.43]", path])
+            rep !== null && rep.push(["not array or unexpected array [.'$platforms'.0.'|'.43.versions]", (path ? lpath : null)])
+            rep !== null && rep.push(["unexpected value for optional prop <versions> [.'$platforms'.0.'|'.43]", (path ? lpath : null)])
             return false;
         }
     }
@@ -4210,22 +4222,25 @@ function _jm_obj_51(val, path, rep)
         rep !== null && rep.push(["not an object [.'$platforms'.0.'|'.42]", path])
         return false;
     }
+    let lpath;
     let pval;
     let res;
     if (val.hasOwnProperty("name"))
     {
+        lpath = path ? path.concat(["name"]) : null;
         pval = val["name"];
         // .'$platforms'.0.'|'.42.name
         res = ((typeof pval === 'string' || pval instanceof String)) && pval == "Ubuntu";
         if (! res)
         {
-            rep !== null && rep.push(["unexpected _Ubuntu [.'$platforms'.0.'|'.42.name]", path])
-            rep !== null && rep.push(["unexpected value for optional prop <name> [.'$platforms'.0.'|'.42]", path])
+            rep !== null && rep.push(["unexpected _Ubuntu [.'$platforms'.0.'|'.42.name]", (path ? lpath : null)])
+            rep !== null && rep.push(["unexpected value for optional prop <name> [.'$platforms'.0.'|'.42]", (path ? lpath : null)])
             return false;
         }
     }
     if (val.hasOwnProperty("versions"))
     {
+        lpath = path ? path.concat(["versions"]) : null;
         pval = val["versions"];
         // .'$platforms'.0.'|'.42.versions
         res = Array.isArray(pval);
@@ -4234,20 +4249,20 @@ function _jm_obj_51(val, path, rep)
             for (let arr_52_idx = 0; arr_52_idx < pval.length; arr_52_idx++)
             {
                 let arr_52_item = pval[arr_52_idx]
-                let arr_52_lpath = path ? path.concat([arr_52_idx]) : null;
+                let arr_52_lpath = (path ? lpath : null) ? (path ? lpath : null).concat([arr_52_idx]) : null;
                 // .'$platforms'.0.'|'.42.versions.0
                 res = ((arr_52_item === null || (typeof arr_52_item === 'number' || arr_52_item instanceof Number) || (typeof arr_52_item === 'boolean' || arr_52_item instanceof Boolean) || (typeof arr_52_item === 'string' || arr_52_item instanceof String))) && _jm_cst_35.has(arr_52_item);
                 if (! res)
                 {
-                    rep !== null && rep.push(["value not in enum [.'$platforms'.0.'|'.42.versions.0.'|']", (path ? arr_52_lpath : null)])
+                    rep !== null && rep.push(["value not in enum [.'$platforms'.0.'|'.42.versions.0.'|']", ((path ? lpath : null) ? arr_52_lpath : null)])
                     break;
                 }
             }
         }
         if (! res)
         {
-            rep !== null && rep.push(["not array or unexpected array [.'$platforms'.0.'|'.42.versions]", path])
-            rep !== null && rep.push(["unexpected value for optional prop <versions> [.'$platforms'.0.'|'.42]", path])
+            rep !== null && rep.push(["not array or unexpected array [.'$platforms'.0.'|'.42.versions]", (path ? lpath : null)])
+            rep !== null && rep.push(["unexpected value for optional prop <versions> [.'$platforms'.0.'|'.42]", (path ? lpath : null)])
             return false;
         }
     }
@@ -4264,22 +4279,25 @@ function _jm_obj_52(val, path, rep)
         rep !== null && rep.push(["not an object [.'$platforms'.0.'|'.41]", path])
         return false;
     }
+    let lpath;
     let pval;
     let res;
     if (val.hasOwnProperty("name"))
     {
+        lpath = path ? path.concat(["name"]) : null;
         pval = val["name"];
         // .'$platforms'.0.'|'.41.name
         res = ((typeof pval === 'string' || pval instanceof String)) && pval == "TMOS";
         if (! res)
         {
-            rep !== null && rep.push(["unexpected _TMOS [.'$platforms'.0.'|'.41.name]", path])
-            rep !== null && rep.push(["unexpected value for optional prop <name> [.'$platforms'.0.'|'.41]", path])
+            rep !== null && rep.push(["unexpected _TMOS [.'$platforms'.0.'|'.41.name]", (path ? lpath : null)])
+            rep !== null && rep.push(["unexpected value for optional prop <name> [.'$platforms'.0.'|'.41]", (path ? lpath : null)])
             return false;
         }
     }
     if (val.hasOwnProperty("versions"))
     {
+        lpath = path ? path.concat(["versions"]) : null;
         pval = val["versions"];
         // .'$platforms'.0.'|'.41.versions
         res = Array.isArray(pval);
@@ -4288,20 +4306,20 @@ function _jm_obj_52(val, path, rep)
             for (let arr_53_idx = 0; arr_53_idx < pval.length; arr_53_idx++)
             {
                 let arr_53_item = pval[arr_53_idx]
-                let arr_53_lpath = path ? path.concat([arr_53_idx]) : null;
+                let arr_53_lpath = (path ? lpath : null) ? (path ? lpath : null).concat([arr_53_idx]) : null;
                 // .'$platforms'.0.'|'.41.versions.0
                 res = ((arr_53_item === null || (typeof arr_53_item === 'number' || arr_53_item instanceof Number) || (typeof arr_53_item === 'boolean' || arr_53_item instanceof Boolean) || (typeof arr_53_item === 'string' || arr_53_item instanceof String))) && _jm_cst_36.has(arr_53_item);
                 if (! res)
                 {
-                    rep !== null && rep.push(["value not in enum [.'$platforms'.0.'|'.41.versions.0.'|']", (path ? arr_53_lpath : null)])
+                    rep !== null && rep.push(["value not in enum [.'$platforms'.0.'|'.41.versions.0.'|']", ((path ? lpath : null) ? arr_53_lpath : null)])
                     break;
                 }
             }
         }
         if (! res)
         {
-            rep !== null && rep.push(["not array or unexpected array [.'$platforms'.0.'|'.41.versions]", path])
-            rep !== null && rep.push(["unexpected value for optional prop <versions> [.'$platforms'.0.'|'.41]", path])
+            rep !== null && rep.push(["not array or unexpected array [.'$platforms'.0.'|'.41.versions]", (path ? lpath : null)])
+            rep !== null && rep.push(["unexpected value for optional prop <versions> [.'$platforms'.0.'|'.41]", (path ? lpath : null)])
             return false;
         }
     }
@@ -4318,22 +4336,25 @@ function _jm_obj_53(val, path, rep)
         rep !== null && rep.push(["not an object [.'$platforms'.0.'|'.40]", path])
         return false;
     }
+    let lpath;
     let pval;
     let res;
     if (val.hasOwnProperty("name"))
     {
+        lpath = path ? path.concat(["name"]) : null;
         pval = val["name"];
         // .'$platforms'.0.'|'.40.name
         res = ((typeof pval === 'string' || pval instanceof String)) && pval == "Synology";
         if (! res)
         {
-            rep !== null && rep.push(["unexpected _Synology [.'$platforms'.0.'|'.40.name]", path])
-            rep !== null && rep.push(["unexpected value for optional prop <name> [.'$platforms'.0.'|'.40]", path])
+            rep !== null && rep.push(["unexpected _Synology [.'$platforms'.0.'|'.40.name]", (path ? lpath : null)])
+            rep !== null && rep.push(["unexpected value for optional prop <name> [.'$platforms'.0.'|'.40]", (path ? lpath : null)])
             return false;
         }
     }
     if (val.hasOwnProperty("versions"))
     {
+        lpath = path ? path.concat(["versions"]) : null;
         pval = val["versions"];
         // .'$platforms'.0.'|'.40.versions
         res = Array.isArray(pval);
@@ -4342,20 +4363,20 @@ function _jm_obj_53(val, path, rep)
             for (let arr_54_idx = 0; arr_54_idx < pval.length; arr_54_idx++)
             {
                 let arr_54_item = pval[arr_54_idx]
-                let arr_54_lpath = path ? path.concat([arr_54_idx]) : null;
+                let arr_54_lpath = (path ? lpath : null) ? (path ? lpath : null).concat([arr_54_idx]) : null;
                 // .'$platforms'.0.'|'.40.versions.0
                 res = ((arr_54_item === null || (typeof arr_54_item === 'number' || arr_54_item instanceof Number) || (typeof arr_54_item === 'boolean' || arr_54_item instanceof Boolean) || (typeof arr_54_item === 'string' || arr_54_item instanceof String))) && _jm_cst_37.has(arr_54_item);
                 if (! res)
                 {
-                    rep !== null && rep.push(["value not in enum [.'$platforms'.0.'|'.40.versions.0.'|']", (path ? arr_54_lpath : null)])
+                    rep !== null && rep.push(["value not in enum [.'$platforms'.0.'|'.40.versions.0.'|']", ((path ? lpath : null) ? arr_54_lpath : null)])
                     break;
                 }
             }
         }
         if (! res)
         {
-            rep !== null && rep.push(["not array or unexpected array [.'$platforms'.0.'|'.40.versions]", path])
-            rep !== null && rep.push(["unexpected value for optional prop <versions> [.'$platforms'.0.'|'.40]", path])
+            rep !== null && rep.push(["not array or unexpected array [.'$platforms'.0.'|'.40.versions]", (path ? lpath : null)])
+            rep !== null && rep.push(["unexpected value for optional prop <versions> [.'$platforms'.0.'|'.40]", (path ? lpath : null)])
             return false;
         }
     }
@@ -4372,22 +4393,25 @@ function _jm_obj_54(val, path, rep)
         rep !== null && rep.push(["not an object [.'$platforms'.0.'|'.39]", path])
         return false;
     }
+    let lpath;
     let pval;
     let res;
     if (val.hasOwnProperty("name"))
     {
+        lpath = path ? path.concat(["name"]) : null;
         pval = val["name"];
         // .'$platforms'.0.'|'.39.name
         res = ((typeof pval === 'string' || pval instanceof String)) && pval == "Solaris";
         if (! res)
         {
-            rep !== null && rep.push(["unexpected _Solaris [.'$platforms'.0.'|'.39.name]", path])
-            rep !== null && rep.push(["unexpected value for optional prop <name> [.'$platforms'.0.'|'.39]", path])
+            rep !== null && rep.push(["unexpected _Solaris [.'$platforms'.0.'|'.39.name]", (path ? lpath : null)])
+            rep !== null && rep.push(["unexpected value for optional prop <name> [.'$platforms'.0.'|'.39]", (path ? lpath : null)])
             return false;
         }
     }
     if (val.hasOwnProperty("versions"))
     {
+        lpath = path ? path.concat(["versions"]) : null;
         pval = val["versions"];
         // .'$platforms'.0.'|'.39.versions
         res = Array.isArray(pval);
@@ -4396,20 +4420,20 @@ function _jm_obj_54(val, path, rep)
             for (let arr_55_idx = 0; arr_55_idx < pval.length; arr_55_idx++)
             {
                 let arr_55_item = pval[arr_55_idx]
-                let arr_55_lpath = path ? path.concat([arr_55_idx]) : null;
+                let arr_55_lpath = (path ? lpath : null) ? (path ? lpath : null).concat([arr_55_idx]) : null;
                 // .'$platforms'.0.'|'.39.versions.0
                 res = ((arr_55_item === null || (typeof arr_55_item === 'number' || arr_55_item instanceof Number) || (typeof arr_55_item === 'boolean' || arr_55_item instanceof Boolean) || (typeof arr_55_item === 'string' || arr_55_item instanceof String))) && _jm_cst_38.has(arr_55_item);
                 if (! res)
                 {
-                    rep !== null && rep.push(["value not in enum [.'$platforms'.0.'|'.39.versions.0.'|']", (path ? arr_55_lpath : null)])
+                    rep !== null && rep.push(["value not in enum [.'$platforms'.0.'|'.39.versions.0.'|']", ((path ? lpath : null) ? arr_55_lpath : null)])
                     break;
                 }
             }
         }
         if (! res)
         {
-            rep !== null && rep.push(["not array or unexpected array [.'$platforms'.0.'|'.39.versions]", path])
-            rep !== null && rep.push(["unexpected value for optional prop <versions> [.'$platforms'.0.'|'.39]", path])
+            rep !== null && rep.push(["not array or unexpected array [.'$platforms'.0.'|'.39.versions]", (path ? lpath : null)])
+            rep !== null && rep.push(["unexpected value for optional prop <versions> [.'$platforms'.0.'|'.39]", (path ? lpath : null)])
             return false;
         }
     }
@@ -4425,22 +4449,25 @@ function _jm_obj_55(val, path, rep)
         rep !== null && rep.push(["not an object [.'$platforms'.0.'|'.38]", path])
         return false;
     }
+    let lpath;
     let pval;
     let res;
     if (val.hasOwnProperty("name"))
     {
+        lpath = path ? path.concat(["name"]) : null;
         pval = val["name"];
         // .'$platforms'.0.'|'.38.name
         res = ((typeof pval === 'string' || pval instanceof String)) && pval == "SmartOS";
         if (! res)
         {
-            rep !== null && rep.push(["unexpected _SmartOS [.'$platforms'.0.'|'.38.name]", path])
-            rep !== null && rep.push(["unexpected value for optional prop <name> [.'$platforms'.0.'|'.38]", path])
+            rep !== null && rep.push(["unexpected _SmartOS [.'$platforms'.0.'|'.38.name]", (path ? lpath : null)])
+            rep !== null && rep.push(["unexpected value for optional prop <name> [.'$platforms'.0.'|'.38]", (path ? lpath : null)])
             return false;
         }
     }
     if (val.hasOwnProperty("versions"))
     {
+        lpath = path ? path.concat(["versions"]) : null;
         pval = val["versions"];
         // .'$platforms'.0.'|'.38.versions
         res = Array.isArray(pval);
@@ -4449,20 +4476,20 @@ function _jm_obj_55(val, path, rep)
             for (let arr_56_idx = 0; arr_56_idx < pval.length; arr_56_idx++)
             {
                 let arr_56_item = pval[arr_56_idx]
-                let arr_56_lpath = path ? path.concat([arr_56_idx]) : null;
+                let arr_56_lpath = (path ? lpath : null) ? (path ? lpath : null).concat([arr_56_idx]) : null;
                 // .'$platforms'.0.'|'.38.versions.0
                 res = ((typeof arr_56_item === 'string' || arr_56_item instanceof String)) && arr_56_item == "all";
                 if (! res)
                 {
-                    rep !== null && rep.push(["unexpected all [.'$platforms'.0.'|'.38.versions.0]", (path ? arr_56_lpath : null)])
+                    rep !== null && rep.push(["unexpected all [.'$platforms'.0.'|'.38.versions.0]", ((path ? lpath : null) ? arr_56_lpath : null)])
                     break;
                 }
             }
         }
         if (! res)
         {
-            rep !== null && rep.push(["not array or unexpected array [.'$platforms'.0.'|'.38.versions]", path])
-            rep !== null && rep.push(["unexpected value for optional prop <versions> [.'$platforms'.0.'|'.38]", path])
+            rep !== null && rep.push(["not array or unexpected array [.'$platforms'.0.'|'.38.versions]", (path ? lpath : null)])
+            rep !== null && rep.push(["unexpected value for optional prop <versions> [.'$platforms'.0.'|'.38]", (path ? lpath : null)])
             return false;
         }
     }
@@ -4479,22 +4506,25 @@ function _jm_obj_56(val, path, rep)
         rep !== null && rep.push(["not an object [.'$platforms'.0.'|'.37]", path])
         return false;
     }
+    let lpath;
     let pval;
     let res;
     if (val.hasOwnProperty("name"))
     {
+        lpath = path ? path.concat(["name"]) : null;
         pval = val["name"];
         // .'$platforms'.0.'|'.37.name
         res = ((typeof pval === 'string' || pval instanceof String)) && pval == "SLES";
         if (! res)
         {
-            rep !== null && rep.push(["unexpected _SLES [.'$platforms'.0.'|'.37.name]", path])
-            rep !== null && rep.push(["unexpected value for optional prop <name> [.'$platforms'.0.'|'.37]", path])
+            rep !== null && rep.push(["unexpected _SLES [.'$platforms'.0.'|'.37.name]", (path ? lpath : null)])
+            rep !== null && rep.push(["unexpected value for optional prop <name> [.'$platforms'.0.'|'.37]", (path ? lpath : null)])
             return false;
         }
     }
     if (val.hasOwnProperty("versions"))
     {
+        lpath = path ? path.concat(["versions"]) : null;
         pval = val["versions"];
         // .'$platforms'.0.'|'.37.versions
         res = Array.isArray(pval);
@@ -4503,20 +4533,20 @@ function _jm_obj_56(val, path, rep)
             for (let arr_57_idx = 0; arr_57_idx < pval.length; arr_57_idx++)
             {
                 let arr_57_item = pval[arr_57_idx]
-                let arr_57_lpath = path ? path.concat([arr_57_idx]) : null;
+                let arr_57_lpath = (path ? lpath : null) ? (path ? lpath : null).concat([arr_57_idx]) : null;
                 // .'$platforms'.0.'|'.37.versions.0
                 res = ((arr_57_item === null || (typeof arr_57_item === 'number' || arr_57_item instanceof Number) || (typeof arr_57_item === 'boolean' || arr_57_item instanceof Boolean) || (typeof arr_57_item === 'string' || arr_57_item instanceof String))) && _jm_cst_39.has(arr_57_item);
                 if (! res)
                 {
-                    rep !== null && rep.push(["value not in enum [.'$platforms'.0.'|'.37.versions.0.'|']", (path ? arr_57_lpath : null)])
+                    rep !== null && rep.push(["value not in enum [.'$platforms'.0.'|'.37.versions.0.'|']", ((path ? lpath : null) ? arr_57_lpath : null)])
                     break;
                 }
             }
         }
         if (! res)
         {
-            rep !== null && rep.push(["not array or unexpected array [.'$platforms'.0.'|'.37.versions]", path])
-            rep !== null && rep.push(["unexpected value for optional prop <versions> [.'$platforms'.0.'|'.37]", path])
+            rep !== null && rep.push(["not array or unexpected array [.'$platforms'.0.'|'.37.versions]", (path ? lpath : null)])
+            rep !== null && rep.push(["unexpected value for optional prop <versions> [.'$platforms'.0.'|'.37]", (path ? lpath : null)])
             return false;
         }
     }
@@ -4533,22 +4563,25 @@ function _jm_obj_57(val, path, rep)
         rep !== null && rep.push(["not an object [.'$platforms'.0.'|'.36]", path])
         return false;
     }
+    let lpath;
     let pval;
     let res;
     if (val.hasOwnProperty("name"))
     {
+        lpath = path ? path.concat(["name"]) : null;
         pval = val["name"];
         // .'$platforms'.0.'|'.36.name
         res = ((typeof pval === 'string' || pval instanceof String)) && pval == "Rocky";
         if (! res)
         {
-            rep !== null && rep.push(["unexpected _Rocky [.'$platforms'.0.'|'.36.name]", path])
-            rep !== null && rep.push(["unexpected value for optional prop <name> [.'$platforms'.0.'|'.36]", path])
+            rep !== null && rep.push(["unexpected _Rocky [.'$platforms'.0.'|'.36.name]", (path ? lpath : null)])
+            rep !== null && rep.push(["unexpected value for optional prop <name> [.'$platforms'.0.'|'.36]", (path ? lpath : null)])
             return false;
         }
     }
     if (val.hasOwnProperty("versions"))
     {
+        lpath = path ? path.concat(["versions"]) : null;
         pval = val["versions"];
         // .'$platforms'.0.'|'.36.versions
         res = Array.isArray(pval);
@@ -4557,20 +4590,20 @@ function _jm_obj_57(val, path, rep)
             for (let arr_58_idx = 0; arr_58_idx < pval.length; arr_58_idx++)
             {
                 let arr_58_item = pval[arr_58_idx]
-                let arr_58_lpath = path ? path.concat([arr_58_idx]) : null;
+                let arr_58_lpath = (path ? lpath : null) ? (path ? lpath : null).concat([arr_58_idx]) : null;
                 // .'$platforms'.0.'|'.36.versions.0
                 res = ((arr_58_item === null || (typeof arr_58_item === 'number' || arr_58_item instanceof Number) || (typeof arr_58_item === 'boolean' || arr_58_item instanceof Boolean) || (typeof arr_58_item === 'string' || arr_58_item instanceof String))) && _jm_cst_40.has(arr_58_item);
                 if (! res)
                 {
-                    rep !== null && rep.push(["value not in enum [.'$platforms'.0.'|'.36.versions.0.'|']", (path ? arr_58_lpath : null)])
+                    rep !== null && rep.push(["value not in enum [.'$platforms'.0.'|'.36.versions.0.'|']", ((path ? lpath : null) ? arr_58_lpath : null)])
                     break;
                 }
             }
         }
         if (! res)
         {
-            rep !== null && rep.push(["not array or unexpected array [.'$platforms'.0.'|'.36.versions]", path])
-            rep !== null && rep.push(["unexpected value for optional prop <versions> [.'$platforms'.0.'|'.36]", path])
+            rep !== null && rep.push(["not array or unexpected array [.'$platforms'.0.'|'.36.versions]", (path ? lpath : null)])
+            rep !== null && rep.push(["unexpected value for optional prop <versions> [.'$platforms'.0.'|'.36]", (path ? lpath : null)])
             return false;
         }
     }
@@ -4587,22 +4620,25 @@ function _jm_obj_58(val, path, rep)
         rep !== null && rep.push(["not an object [.'$platforms'.0.'|'.35]", path])
         return false;
     }
+    let lpath;
     let pval;
     let res;
     if (val.hasOwnProperty("name"))
     {
+        lpath = path ? path.concat(["name"]) : null;
         pval = val["name"];
         // .'$platforms'.0.'|'.35.name
         res = ((typeof pval === 'string' || pval instanceof String)) && pval == "PAN-OS";
         if (! res)
         {
-            rep !== null && rep.push(["unexpected _PAN-OS [.'$platforms'.0.'|'.35.name]", path])
-            rep !== null && rep.push(["unexpected value for optional prop <name> [.'$platforms'.0.'|'.35]", path])
+            rep !== null && rep.push(["unexpected _PAN-OS [.'$platforms'.0.'|'.35.name]", (path ? lpath : null)])
+            rep !== null && rep.push(["unexpected value for optional prop <name> [.'$platforms'.0.'|'.35]", (path ? lpath : null)])
             return false;
         }
     }
     if (val.hasOwnProperty("versions"))
     {
+        lpath = path ? path.concat(["versions"]) : null;
         pval = val["versions"];
         // .'$platforms'.0.'|'.35.versions
         res = Array.isArray(pval);
@@ -4611,20 +4647,20 @@ function _jm_obj_58(val, path, rep)
             for (let arr_59_idx = 0; arr_59_idx < pval.length; arr_59_idx++)
             {
                 let arr_59_item = pval[arr_59_idx]
-                let arr_59_lpath = path ? path.concat([arr_59_idx]) : null;
+                let arr_59_lpath = (path ? lpath : null) ? (path ? lpath : null).concat([arr_59_idx]) : null;
                 // .'$platforms'.0.'|'.35.versions.0
                 res = ((arr_59_item === null || (typeof arr_59_item === 'number' || arr_59_item instanceof Number) || (typeof arr_59_item === 'boolean' || arr_59_item instanceof Boolean) || (typeof arr_59_item === 'string' || arr_59_item instanceof String))) && _jm_cst_41.has(arr_59_item);
                 if (! res)
                 {
-                    rep !== null && rep.push(["value not in enum [.'$platforms'.0.'|'.35.versions.0.'|']", (path ? arr_59_lpath : null)])
+                    rep !== null && rep.push(["value not in enum [.'$platforms'.0.'|'.35.versions.0.'|']", ((path ? lpath : null) ? arr_59_lpath : null)])
                     break;
                 }
             }
         }
         if (! res)
         {
-            rep !== null && rep.push(["not array or unexpected array [.'$platforms'.0.'|'.35.versions]", path])
-            rep !== null && rep.push(["unexpected value for optional prop <versions> [.'$platforms'.0.'|'.35]", path])
+            rep !== null && rep.push(["not array or unexpected array [.'$platforms'.0.'|'.35.versions]", (path ? lpath : null)])
+            rep !== null && rep.push(["unexpected value for optional prop <versions> [.'$platforms'.0.'|'.35]", (path ? lpath : null)])
             return false;
         }
     }
@@ -4640,22 +4676,25 @@ function _jm_obj_59(val, path, rep)
         rep !== null && rep.push(["not an object [.'$platforms'.0.'|'.34]", path])
         return false;
     }
+    let lpath;
     let pval;
     let res;
     if (val.hasOwnProperty("name"))
     {
+        lpath = path ? path.concat(["name"]) : null;
         pval = val["name"];
         // .'$platforms'.0.'|'.34.name
         res = ((typeof pval === 'string' || pval instanceof String)) && pval == "os10";
         if (! res)
         {
-            rep !== null && rep.push(["unexpected _os10 [.'$platforms'.0.'|'.34.name]", path])
-            rep !== null && rep.push(["unexpected value for optional prop <name> [.'$platforms'.0.'|'.34]", path])
+            rep !== null && rep.push(["unexpected _os10 [.'$platforms'.0.'|'.34.name]", (path ? lpath : null)])
+            rep !== null && rep.push(["unexpected value for optional prop <name> [.'$platforms'.0.'|'.34]", (path ? lpath : null)])
             return false;
         }
     }
     if (val.hasOwnProperty("versions"))
     {
+        lpath = path ? path.concat(["versions"]) : null;
         pval = val["versions"];
         // .'$platforms'.0.'|'.34.versions
         res = Array.isArray(pval);
@@ -4664,20 +4703,20 @@ function _jm_obj_59(val, path, rep)
             for (let arr_60_idx = 0; arr_60_idx < pval.length; arr_60_idx++)
             {
                 let arr_60_item = pval[arr_60_idx]
-                let arr_60_lpath = path ? path.concat([arr_60_idx]) : null;
+                let arr_60_lpath = (path ? lpath : null) ? (path ? lpath : null).concat([arr_60_idx]) : null;
                 // .'$platforms'.0.'|'.34.versions.0
                 res = ((typeof arr_60_item === 'string' || arr_60_item instanceof String)) && arr_60_item == "all";
                 if (! res)
                 {
-                    rep !== null && rep.push(["unexpected all [.'$platforms'.0.'|'.34.versions.0]", (path ? arr_60_lpath : null)])
+                    rep !== null && rep.push(["unexpected all [.'$platforms'.0.'|'.34.versions.0]", ((path ? lpath : null) ? arr_60_lpath : null)])
                     break;
                 }
             }
         }
         if (! res)
         {
-            rep !== null && rep.push(["not array or unexpected array [.'$platforms'.0.'|'.34.versions]", path])
-            rep !== null && rep.push(["unexpected value for optional prop <versions> [.'$platforms'.0.'|'.34]", path])
+            rep !== null && rep.push(["not array or unexpected array [.'$platforms'.0.'|'.34.versions]", (path ? lpath : null)])
+            rep !== null && rep.push(["unexpected value for optional prop <versions> [.'$platforms'.0.'|'.34]", (path ? lpath : null)])
             return false;
         }
     }
@@ -4694,22 +4733,25 @@ function _jm_obj_60(val, path, rep)
         rep !== null && rep.push(["not an object [.'$platforms'.0.'|'.33]", path])
         return false;
     }
+    let lpath;
     let pval;
     let res;
     if (val.hasOwnProperty("name"))
     {
+        lpath = path ? path.concat(["name"]) : null;
         pval = val["name"];
         // .'$platforms'.0.'|'.33.name
         res = ((typeof pval === 'string' || pval instanceof String)) && pval == "OracleLinux";
         if (! res)
         {
-            rep !== null && rep.push(["unexpected _OracleLinux [.'$platforms'.0.'|'.33.name]", path])
-            rep !== null && rep.push(["unexpected value for optional prop <name> [.'$platforms'.0.'|'.33]", path])
+            rep !== null && rep.push(["unexpected _OracleLinux [.'$platforms'.0.'|'.33.name]", (path ? lpath : null)])
+            rep !== null && rep.push(["unexpected value for optional prop <name> [.'$platforms'.0.'|'.33]", (path ? lpath : null)])
             return false;
         }
     }
     if (val.hasOwnProperty("versions"))
     {
+        lpath = path ? path.concat(["versions"]) : null;
         pval = val["versions"];
         // .'$platforms'.0.'|'.33.versions
         res = Array.isArray(pval);
@@ -4718,20 +4760,20 @@ function _jm_obj_60(val, path, rep)
             for (let arr_61_idx = 0; arr_61_idx < pval.length; arr_61_idx++)
             {
                 let arr_61_item = pval[arr_61_idx]
-                let arr_61_lpath = path ? path.concat([arr_61_idx]) : null;
+                let arr_61_lpath = (path ? lpath : null) ? (path ? lpath : null).concat([arr_61_idx]) : null;
                 // .'$platforms'.0.'|'.33.versions.0
                 res = ((arr_61_item === null || (typeof arr_61_item === 'number' || arr_61_item instanceof Number) || (typeof arr_61_item === 'boolean' || arr_61_item instanceof Boolean) || (typeof arr_61_item === 'string' || arr_61_item instanceof String))) && _jm_cst_42.has(arr_61_item);
                 if (! res)
                 {
-                    rep !== null && rep.push(["value not in enum [.'$platforms'.0.'|'.33.versions.0.'|']", (path ? arr_61_lpath : null)])
+                    rep !== null && rep.push(["value not in enum [.'$platforms'.0.'|'.33.versions.0.'|']", ((path ? lpath : null) ? arr_61_lpath : null)])
                     break;
                 }
             }
         }
         if (! res)
         {
-            rep !== null && rep.push(["not array or unexpected array [.'$platforms'.0.'|'.33.versions]", path])
-            rep !== null && rep.push(["unexpected value for optional prop <versions> [.'$platforms'.0.'|'.33]", path])
+            rep !== null && rep.push(["not array or unexpected array [.'$platforms'.0.'|'.33.versions]", (path ? lpath : null)])
+            rep !== null && rep.push(["unexpected value for optional prop <versions> [.'$platforms'.0.'|'.33]", (path ? lpath : null)])
             return false;
         }
     }
@@ -4748,22 +4790,25 @@ function _jm_obj_61(val, path, rep)
         rep !== null && rep.push(["not an object [.'$platforms'.0.'|'.32]", path])
         return false;
     }
+    let lpath;
     let pval;
     let res;
     if (val.hasOwnProperty("name"))
     {
+        lpath = path ? path.concat(["name"]) : null;
         pval = val["name"];
         // .'$platforms'.0.'|'.32.name
         res = ((typeof pval === 'string' || pval instanceof String)) && pval == "OpenWrt";
         if (! res)
         {
-            rep !== null && rep.push(["unexpected _OpenWrt [.'$platforms'.0.'|'.32.name]", path])
-            rep !== null && rep.push(["unexpected value for optional prop <name> [.'$platforms'.0.'|'.32]", path])
+            rep !== null && rep.push(["unexpected _OpenWrt [.'$platforms'.0.'|'.32.name]", (path ? lpath : null)])
+            rep !== null && rep.push(["unexpected value for optional prop <name> [.'$platforms'.0.'|'.32]", (path ? lpath : null)])
             return false;
         }
     }
     if (val.hasOwnProperty("versions"))
     {
+        lpath = path ? path.concat(["versions"]) : null;
         pval = val["versions"];
         // .'$platforms'.0.'|'.32.versions
         res = Array.isArray(pval);
@@ -4772,20 +4817,20 @@ function _jm_obj_61(val, path, rep)
             for (let arr_62_idx = 0; arr_62_idx < pval.length; arr_62_idx++)
             {
                 let arr_62_item = pval[arr_62_idx]
-                let arr_62_lpath = path ? path.concat([arr_62_idx]) : null;
+                let arr_62_lpath = (path ? lpath : null) ? (path ? lpath : null).concat([arr_62_idx]) : null;
                 // .'$platforms'.0.'|'.32.versions.0
                 res = ((arr_62_item === null || (typeof arr_62_item === 'number' || arr_62_item instanceof Number) || (typeof arr_62_item === 'boolean' || arr_62_item instanceof Boolean) || (typeof arr_62_item === 'string' || arr_62_item instanceof String))) && _jm_cst_43.has(arr_62_item);
                 if (! res)
                 {
-                    rep !== null && rep.push(["value not in enum [.'$platforms'.0.'|'.32.versions.0.'|']", (path ? arr_62_lpath : null)])
+                    rep !== null && rep.push(["value not in enum [.'$platforms'.0.'|'.32.versions.0.'|']", ((path ? lpath : null) ? arr_62_lpath : null)])
                     break;
                 }
             }
         }
         if (! res)
         {
-            rep !== null && rep.push(["not array or unexpected array [.'$platforms'.0.'|'.32.versions]", path])
-            rep !== null && rep.push(["unexpected value for optional prop <versions> [.'$platforms'.0.'|'.32]", path])
+            rep !== null && rep.push(["not array or unexpected array [.'$platforms'.0.'|'.32.versions]", (path ? lpath : null)])
+            rep !== null && rep.push(["unexpected value for optional prop <versions> [.'$platforms'.0.'|'.32]", (path ? lpath : null)])
             return false;
         }
     }
@@ -4802,22 +4847,25 @@ function _jm_obj_62(val, path, rep)
         rep !== null && rep.push(["not an object [.'$platforms'.0.'|'.31]", path])
         return false;
     }
+    let lpath;
     let pval;
     let res;
     if (val.hasOwnProperty("name"))
     {
+        lpath = path ? path.concat(["name"]) : null;
         pval = val["name"];
         // .'$platforms'.0.'|'.31.name
         res = ((typeof pval === 'string' || pval instanceof String)) && pval == "opensuse";
         if (! res)
         {
-            rep !== null && rep.push(["unexpected _opensuse [.'$platforms'.0.'|'.31.name]", path])
-            rep !== null && rep.push(["unexpected value for optional prop <name> [.'$platforms'.0.'|'.31]", path])
+            rep !== null && rep.push(["unexpected _opensuse [.'$platforms'.0.'|'.31.name]", (path ? lpath : null)])
+            rep !== null && rep.push(["unexpected value for optional prop <name> [.'$platforms'.0.'|'.31]", (path ? lpath : null)])
             return false;
         }
     }
     if (val.hasOwnProperty("versions"))
     {
+        lpath = path ? path.concat(["versions"]) : null;
         pval = val["versions"];
         // .'$platforms'.0.'|'.31.versions
         res = Array.isArray(pval);
@@ -4826,20 +4874,20 @@ function _jm_obj_62(val, path, rep)
             for (let arr_63_idx = 0; arr_63_idx < pval.length; arr_63_idx++)
             {
                 let arr_63_item = pval[arr_63_idx]
-                let arr_63_lpath = path ? path.concat([arr_63_idx]) : null;
+                let arr_63_lpath = (path ? lpath : null) ? (path ? lpath : null).concat([arr_63_idx]) : null;
                 // .'$platforms'.0.'|'.31.versions.0
                 res = ((arr_63_item === null || (typeof arr_63_item === 'number' || arr_63_item instanceof Number) || (typeof arr_63_item === 'boolean' || arr_63_item instanceof Boolean) || (typeof arr_63_item === 'string' || arr_63_item instanceof String))) && _jm_cst_44.has(arr_63_item);
                 if (! res)
                 {
-                    rep !== null && rep.push(["value not in enum [.'$platforms'.0.'|'.31.versions.0.'|']", (path ? arr_63_lpath : null)])
+                    rep !== null && rep.push(["value not in enum [.'$platforms'.0.'|'.31.versions.0.'|']", ((path ? lpath : null) ? arr_63_lpath : null)])
                     break;
                 }
             }
         }
         if (! res)
         {
-            rep !== null && rep.push(["not array or unexpected array [.'$platforms'.0.'|'.31.versions]", path])
-            rep !== null && rep.push(["unexpected value for optional prop <versions> [.'$platforms'.0.'|'.31]", path])
+            rep !== null && rep.push(["not array or unexpected array [.'$platforms'.0.'|'.31.versions]", (path ? lpath : null)])
+            rep !== null && rep.push(["unexpected value for optional prop <versions> [.'$platforms'.0.'|'.31]", (path ? lpath : null)])
             return false;
         }
     }
@@ -4856,22 +4904,25 @@ function _jm_obj_63(val, path, rep)
         rep !== null && rep.push(["not an object [.'$platforms'.0.'|'.30]", path])
         return false;
     }
+    let lpath;
     let pval;
     let res;
     if (val.hasOwnProperty("name"))
     {
+        lpath = path ? path.concat(["name"]) : null;
         pval = val["name"];
         // .'$platforms'.0.'|'.30.name
         res = ((typeof pval === 'string' || pval instanceof String)) && pval == "OpenBSD";
         if (! res)
         {
-            rep !== null && rep.push(["unexpected _OpenBSD [.'$platforms'.0.'|'.30.name]", path])
-            rep !== null && rep.push(["unexpected value for optional prop <name> [.'$platforms'.0.'|'.30]", path])
+            rep !== null && rep.push(["unexpected _OpenBSD [.'$platforms'.0.'|'.30.name]", (path ? lpath : null)])
+            rep !== null && rep.push(["unexpected value for optional prop <name> [.'$platforms'.0.'|'.30]", (path ? lpath : null)])
             return false;
         }
     }
     if (val.hasOwnProperty("versions"))
     {
+        lpath = path ? path.concat(["versions"]) : null;
         pval = val["versions"];
         // .'$platforms'.0.'|'.30.versions
         res = Array.isArray(pval);
@@ -4880,20 +4931,20 @@ function _jm_obj_63(val, path, rep)
             for (let arr_64_idx = 0; arr_64_idx < pval.length; arr_64_idx++)
             {
                 let arr_64_item = pval[arr_64_idx]
-                let arr_64_lpath = path ? path.concat([arr_64_idx]) : null;
+                let arr_64_lpath = (path ? lpath : null) ? (path ? lpath : null).concat([arr_64_idx]) : null;
                 // .'$platforms'.0.'|'.30.versions.0
                 res = ((arr_64_item === null || (typeof arr_64_item === 'number' || arr_64_item instanceof Number) || (typeof arr_64_item === 'boolean' || arr_64_item instanceof Boolean) || (typeof arr_64_item === 'string' || arr_64_item instanceof String))) && _jm_cst_45.has(arr_64_item);
                 if (! res)
                 {
-                    rep !== null && rep.push(["value not in enum [.'$platforms'.0.'|'.30.versions.0.'|']", (path ? arr_64_lpath : null)])
+                    rep !== null && rep.push(["value not in enum [.'$platforms'.0.'|'.30.versions.0.'|']", ((path ? lpath : null) ? arr_64_lpath : null)])
                     break;
                 }
             }
         }
         if (! res)
         {
-            rep !== null && rep.push(["not array or unexpected array [.'$platforms'.0.'|'.30.versions]", path])
-            rep !== null && rep.push(["unexpected value for optional prop <versions> [.'$platforms'.0.'|'.30]", path])
+            rep !== null && rep.push(["not array or unexpected array [.'$platforms'.0.'|'.30.versions]", (path ? lpath : null)])
+            rep !== null && rep.push(["unexpected value for optional prop <versions> [.'$platforms'.0.'|'.30]", (path ? lpath : null)])
             return false;
         }
     }
@@ -4909,22 +4960,25 @@ function _jm_obj_64(val, path, rep)
         rep !== null && rep.push(["not an object [.'$platforms'.0.'|'.29]", path])
         return false;
     }
+    let lpath;
     let pval;
     let res;
     if (val.hasOwnProperty("name"))
     {
+        lpath = path ? path.concat(["name"]) : null;
         pval = val["name"];
         // .'$platforms'.0.'|'.29.name
         res = ((typeof pval === 'string' || pval instanceof String)) && pval == "NXOS";
         if (! res)
         {
-            rep !== null && rep.push(["unexpected _NXOS [.'$platforms'.0.'|'.29.name]", path])
-            rep !== null && rep.push(["unexpected value for optional prop <name> [.'$platforms'.0.'|'.29]", path])
+            rep !== null && rep.push(["unexpected _NXOS [.'$platforms'.0.'|'.29.name]", (path ? lpath : null)])
+            rep !== null && rep.push(["unexpected value for optional prop <name> [.'$platforms'.0.'|'.29]", (path ? lpath : null)])
             return false;
         }
     }
     if (val.hasOwnProperty("versions"))
     {
+        lpath = path ? path.concat(["versions"]) : null;
         pval = val["versions"];
         // .'$platforms'.0.'|'.29.versions
         res = Array.isArray(pval);
@@ -4933,20 +4987,20 @@ function _jm_obj_64(val, path, rep)
             for (let arr_65_idx = 0; arr_65_idx < pval.length; arr_65_idx++)
             {
                 let arr_65_item = pval[arr_65_idx]
-                let arr_65_lpath = path ? path.concat([arr_65_idx]) : null;
+                let arr_65_lpath = (path ? lpath : null) ? (path ? lpath : null).concat([arr_65_idx]) : null;
                 // .'$platforms'.0.'|'.29.versions.0
                 res = ((typeof arr_65_item === 'string' || arr_65_item instanceof String)) && arr_65_item == "all";
                 if (! res)
                 {
-                    rep !== null && rep.push(["unexpected all [.'$platforms'.0.'|'.29.versions.0]", (path ? arr_65_lpath : null)])
+                    rep !== null && rep.push(["unexpected all [.'$platforms'.0.'|'.29.versions.0]", ((path ? lpath : null) ? arr_65_lpath : null)])
                     break;
                 }
             }
         }
         if (! res)
         {
-            rep !== null && rep.push(["not array or unexpected array [.'$platforms'.0.'|'.29.versions]", path])
-            rep !== null && rep.push(["unexpected value for optional prop <versions> [.'$platforms'.0.'|'.29]", path])
+            rep !== null && rep.push(["not array or unexpected array [.'$platforms'.0.'|'.29.versions]", (path ? lpath : null)])
+            rep !== null && rep.push(["unexpected value for optional prop <versions> [.'$platforms'.0.'|'.29]", (path ? lpath : null)])
             return false;
         }
     }
@@ -4963,22 +5017,25 @@ function _jm_obj_65(val, path, rep)
         rep !== null && rep.push(["not an object [.'$platforms'.0.'|'.28]", path])
         return false;
     }
+    let lpath;
     let pval;
     let res;
     if (val.hasOwnProperty("name"))
     {
+        lpath = path ? path.concat(["name"]) : null;
         pval = val["name"];
         // .'$platforms'.0.'|'.28.name
         res = ((typeof pval === 'string' || pval instanceof String)) && pval == "Megeia";
         if (! res)
         {
-            rep !== null && rep.push(["unexpected _Megeia [.'$platforms'.0.'|'.28.name]", path])
-            rep !== null && rep.push(["unexpected value for optional prop <name> [.'$platforms'.0.'|'.28]", path])
+            rep !== null && rep.push(["unexpected _Megeia [.'$platforms'.0.'|'.28.name]", (path ? lpath : null)])
+            rep !== null && rep.push(["unexpected value for optional prop <name> [.'$platforms'.0.'|'.28]", (path ? lpath : null)])
             return false;
         }
     }
     if (val.hasOwnProperty("versions"))
     {
+        lpath = path ? path.concat(["versions"]) : null;
         pval = val["versions"];
         // .'$platforms'.0.'|'.28.versions
         res = Array.isArray(pval);
@@ -4987,20 +5044,20 @@ function _jm_obj_65(val, path, rep)
             for (let arr_66_idx = 0; arr_66_idx < pval.length; arr_66_idx++)
             {
                 let arr_66_item = pval[arr_66_idx]
-                let arr_66_lpath = path ? path.concat([arr_66_idx]) : null;
+                let arr_66_lpath = (path ? lpath : null) ? (path ? lpath : null).concat([arr_66_idx]) : null;
                 // .'$platforms'.0.'|'.28.versions.0
                 res = ((arr_66_item === null || (typeof arr_66_item === 'number' || arr_66_item instanceof Number) || (typeof arr_66_item === 'boolean' || arr_66_item instanceof Boolean) || (typeof arr_66_item === 'string' || arr_66_item instanceof String))) && _jm_cst_46.has(arr_66_item);
                 if (! res)
                 {
-                    rep !== null && rep.push(["value not in enum [.'$platforms'.0.'|'.28.versions.0.'|']", (path ? arr_66_lpath : null)])
+                    rep !== null && rep.push(["value not in enum [.'$platforms'.0.'|'.28.versions.0.'|']", ((path ? lpath : null) ? arr_66_lpath : null)])
                     break;
                 }
             }
         }
         if (! res)
         {
-            rep !== null && rep.push(["not array or unexpected array [.'$platforms'.0.'|'.28.versions]", path])
-            rep !== null && rep.push(["unexpected value for optional prop <versions> [.'$platforms'.0.'|'.28]", path])
+            rep !== null && rep.push(["not array or unexpected array [.'$platforms'.0.'|'.28.versions]", (path ? lpath : null)])
+            rep !== null && rep.push(["unexpected value for optional prop <versions> [.'$platforms'.0.'|'.28]", (path ? lpath : null)])
             return false;
         }
     }
@@ -5017,22 +5074,25 @@ function _jm_obj_66(val, path, rep)
         rep !== null && rep.push(["not an object [.'$platforms'.0.'|'.27]", path])
         return false;
     }
+    let lpath;
     let pval;
     let res;
     if (val.hasOwnProperty("name"))
     {
+        lpath = path ? path.concat(["name"]) : null;
         pval = val["name"];
         // .'$platforms'.0.'|'.27.name
         res = ((typeof pval === 'string' || pval instanceof String)) && pval == "Kali";
         if (! res)
         {
-            rep !== null && rep.push(["unexpected _Kali [.'$platforms'.0.'|'.27.name]", path])
-            rep !== null && rep.push(["unexpected value for optional prop <name> [.'$platforms'.0.'|'.27]", path])
+            rep !== null && rep.push(["unexpected _Kali [.'$platforms'.0.'|'.27.name]", (path ? lpath : null)])
+            rep !== null && rep.push(["unexpected value for optional prop <name> [.'$platforms'.0.'|'.27]", (path ? lpath : null)])
             return false;
         }
     }
     if (val.hasOwnProperty("versions"))
     {
+        lpath = path ? path.concat(["versions"]) : null;
         pval = val["versions"];
         // .'$platforms'.0.'|'.27.versions
         res = Array.isArray(pval);
@@ -5041,20 +5101,20 @@ function _jm_obj_66(val, path, rep)
             for (let arr_67_idx = 0; arr_67_idx < pval.length; arr_67_idx++)
             {
                 let arr_67_item = pval[arr_67_idx]
-                let arr_67_lpath = path ? path.concat([arr_67_idx]) : null;
+                let arr_67_lpath = (path ? lpath : null) ? (path ? lpath : null).concat([arr_67_idx]) : null;
                 // .'$platforms'.0.'|'.27.versions.0
                 res = ((arr_67_item === null || (typeof arr_67_item === 'number' || arr_67_item instanceof Number) || (typeof arr_67_item === 'boolean' || arr_67_item instanceof Boolean) || (typeof arr_67_item === 'string' || arr_67_item instanceof String))) && _jm_cst_47.has(arr_67_item);
                 if (! res)
                 {
-                    rep !== null && rep.push(["value not in enum [.'$platforms'.0.'|'.27.versions.0.'|']", (path ? arr_67_lpath : null)])
+                    rep !== null && rep.push(["value not in enum [.'$platforms'.0.'|'.27.versions.0.'|']", ((path ? lpath : null) ? arr_67_lpath : null)])
                     break;
                 }
             }
         }
         if (! res)
         {
-            rep !== null && rep.push(["not array or unexpected array [.'$platforms'.0.'|'.27.versions]", path])
-            rep !== null && rep.push(["unexpected value for optional prop <versions> [.'$platforms'.0.'|'.27]", path])
+            rep !== null && rep.push(["not array or unexpected array [.'$platforms'.0.'|'.27.versions]", (path ? lpath : null)])
+            rep !== null && rep.push(["unexpected value for optional prop <versions> [.'$platforms'.0.'|'.27]", (path ? lpath : null)])
             return false;
         }
     }
@@ -5071,22 +5131,25 @@ function _jm_obj_67(val, path, rep)
         rep !== null && rep.push(["not an object [.'$platforms'.0.'|'.26]", path])
         return false;
     }
+    let lpath;
     let pval;
     let res;
     if (val.hasOwnProperty("name"))
     {
+        lpath = path ? path.concat(["name"]) : null;
         pval = val["name"];
         // .'$platforms'.0.'|'.26.name
         res = ((typeof pval === 'string' || pval instanceof String)) && pval == "macOS";
         if (! res)
         {
-            rep !== null && rep.push(["unexpected _macOS [.'$platforms'.0.'|'.26.name]", path])
-            rep !== null && rep.push(["unexpected value for optional prop <name> [.'$platforms'.0.'|'.26]", path])
+            rep !== null && rep.push(["unexpected _macOS [.'$platforms'.0.'|'.26.name]", (path ? lpath : null)])
+            rep !== null && rep.push(["unexpected value for optional prop <name> [.'$platforms'.0.'|'.26]", (path ? lpath : null)])
             return false;
         }
     }
     if (val.hasOwnProperty("versions"))
     {
+        lpath = path ? path.concat(["versions"]) : null;
         pval = val["versions"];
         // .'$platforms'.0.'|'.26.versions
         res = Array.isArray(pval);
@@ -5095,20 +5158,20 @@ function _jm_obj_67(val, path, rep)
             for (let arr_68_idx = 0; arr_68_idx < pval.length; arr_68_idx++)
             {
                 let arr_68_item = pval[arr_68_idx]
-                let arr_68_lpath = path ? path.concat([arr_68_idx]) : null;
+                let arr_68_lpath = (path ? lpath : null) ? (path ? lpath : null).concat([arr_68_idx]) : null;
                 // .'$platforms'.0.'|'.26.versions.0
                 res = ((arr_68_item === null || (typeof arr_68_item === 'number' || arr_68_item instanceof Number) || (typeof arr_68_item === 'boolean' || arr_68_item instanceof Boolean) || (typeof arr_68_item === 'string' || arr_68_item instanceof String))) && _jm_cst_48.has(arr_68_item);
                 if (! res)
                 {
-                    rep !== null && rep.push(["value not in enum [.'$platforms'.0.'|'.26.versions.0.'|']", (path ? arr_68_lpath : null)])
+                    rep !== null && rep.push(["value not in enum [.'$platforms'.0.'|'.26.versions.0.'|']", ((path ? lpath : null) ? arr_68_lpath : null)])
                     break;
                 }
             }
         }
         if (! res)
         {
-            rep !== null && rep.push(["not array or unexpected array [.'$platforms'.0.'|'.26.versions]", path])
-            rep !== null && rep.push(["unexpected value for optional prop <versions> [.'$platforms'.0.'|'.26]", path])
+            rep !== null && rep.push(["not array or unexpected array [.'$platforms'.0.'|'.26.versions]", (path ? lpath : null)])
+            rep !== null && rep.push(["unexpected value for optional prop <versions> [.'$platforms'.0.'|'.26]", (path ? lpath : null)])
             return false;
         }
     }
@@ -5125,22 +5188,25 @@ function _jm_obj_68(val, path, rep)
         rep !== null && rep.push(["not an object [.'$platforms'.0.'|'.25]", path])
         return false;
     }
+    let lpath;
     let pval;
     let res;
     if (val.hasOwnProperty("name"))
     {
+        lpath = path ? path.concat(["name"]) : null;
         pval = val["name"];
         // .'$platforms'.0.'|'.25.name
         res = ((typeof pval === 'string' || pval instanceof String)) && pval == "Kali";
         if (! res)
         {
-            rep !== null && rep.push(["unexpected _Kali [.'$platforms'.0.'|'.25.name]", path])
-            rep !== null && rep.push(["unexpected value for optional prop <name> [.'$platforms'.0.'|'.25]", path])
+            rep !== null && rep.push(["unexpected _Kali [.'$platforms'.0.'|'.25.name]", (path ? lpath : null)])
+            rep !== null && rep.push(["unexpected value for optional prop <name> [.'$platforms'.0.'|'.25]", (path ? lpath : null)])
             return false;
         }
     }
     if (val.hasOwnProperty("versions"))
     {
+        lpath = path ? path.concat(["versions"]) : null;
         pval = val["versions"];
         // .'$platforms'.0.'|'.25.versions
         res = Array.isArray(pval);
@@ -5149,20 +5215,20 @@ function _jm_obj_68(val, path, rep)
             for (let arr_69_idx = 0; arr_69_idx < pval.length; arr_69_idx++)
             {
                 let arr_69_item = pval[arr_69_idx]
-                let arr_69_lpath = path ? path.concat([arr_69_idx]) : null;
+                let arr_69_lpath = (path ? lpath : null) ? (path ? lpath : null).concat([arr_69_idx]) : null;
                 // .'$platforms'.0.'|'.25.versions.0
                 res = ((arr_69_item === null || (typeof arr_69_item === 'number' || arr_69_item instanceof Number) || (typeof arr_69_item === 'boolean' || arr_69_item instanceof Boolean) || (typeof arr_69_item === 'string' || arr_69_item instanceof String))) && _jm_cst_49.has(arr_69_item);
                 if (! res)
                 {
-                    rep !== null && rep.push(["value not in enum [.'$platforms'.0.'|'.25.versions.0.'|']", (path ? arr_69_lpath : null)])
+                    rep !== null && rep.push(["value not in enum [.'$platforms'.0.'|'.25.versions.0.'|']", ((path ? lpath : null) ? arr_69_lpath : null)])
                     break;
                 }
             }
         }
         if (! res)
         {
-            rep !== null && rep.push(["not array or unexpected array [.'$platforms'.0.'|'.25.versions]", path])
-            rep !== null && rep.push(["unexpected value for optional prop <versions> [.'$platforms'.0.'|'.25]", path])
+            rep !== null && rep.push(["not array or unexpected array [.'$platforms'.0.'|'.25.versions]", (path ? lpath : null)])
+            rep !== null && rep.push(["unexpected value for optional prop <versions> [.'$platforms'.0.'|'.25]", (path ? lpath : null)])
             return false;
         }
     }
@@ -5178,22 +5244,25 @@ function _jm_obj_69(val, path, rep)
         rep !== null && rep.push(["not an object [.'$platforms'.0.'|'.24]", path])
         return false;
     }
+    let lpath;
     let pval;
     let res;
     if (val.hasOwnProperty("name"))
     {
+        lpath = path ? path.concat(["name"]) : null;
         pval = val["name"];
         // .'$platforms'.0.'|'.24.name
         res = ((typeof pval === 'string' || pval instanceof String)) && pval == "Junos";
         if (! res)
         {
-            rep !== null && rep.push(["unexpected _Junos [.'$platforms'.0.'|'.24.name]", path])
-            rep !== null && rep.push(["unexpected value for optional prop <name> [.'$platforms'.0.'|'.24]", path])
+            rep !== null && rep.push(["unexpected _Junos [.'$platforms'.0.'|'.24.name]", (path ? lpath : null)])
+            rep !== null && rep.push(["unexpected value for optional prop <name> [.'$platforms'.0.'|'.24]", (path ? lpath : null)])
             return false;
         }
     }
     if (val.hasOwnProperty("versions"))
     {
+        lpath = path ? path.concat(["versions"]) : null;
         pval = val["versions"];
         // .'$platforms'.0.'|'.24.versions
         res = Array.isArray(pval);
@@ -5202,20 +5271,20 @@ function _jm_obj_69(val, path, rep)
             for (let arr_70_idx = 0; arr_70_idx < pval.length; arr_70_idx++)
             {
                 let arr_70_item = pval[arr_70_idx]
-                let arr_70_lpath = path ? path.concat([arr_70_idx]) : null;
+                let arr_70_lpath = (path ? lpath : null) ? (path ? lpath : null).concat([arr_70_idx]) : null;
                 // .'$platforms'.0.'|'.24.versions.0
                 res = ((typeof arr_70_item === 'string' || arr_70_item instanceof String)) && arr_70_item == "all";
                 if (! res)
                 {
-                    rep !== null && rep.push(["unexpected all [.'$platforms'.0.'|'.24.versions.0]", (path ? arr_70_lpath : null)])
+                    rep !== null && rep.push(["unexpected all [.'$platforms'.0.'|'.24.versions.0]", ((path ? lpath : null) ? arr_70_lpath : null)])
                     break;
                 }
             }
         }
         if (! res)
         {
-            rep !== null && rep.push(["not array or unexpected array [.'$platforms'.0.'|'.24.versions]", path])
-            rep !== null && rep.push(["unexpected value for optional prop <versions> [.'$platforms'.0.'|'.24]", path])
+            rep !== null && rep.push(["not array or unexpected array [.'$platforms'.0.'|'.24.versions]", (path ? lpath : null)])
+            rep !== null && rep.push(["unexpected value for optional prop <versions> [.'$platforms'.0.'|'.24]", (path ? lpath : null)])
             return false;
         }
     }
@@ -5231,22 +5300,25 @@ function _jm_obj_70(val, path, rep)
         rep !== null && rep.push(["not an object [.'$platforms'.0.'|'.23]", path])
         return false;
     }
+    let lpath;
     let pval;
     let res;
     if (val.hasOwnProperty("name"))
     {
+        lpath = path ? path.concat(["name"]) : null;
         pval = val["name"];
         // .'$platforms'.0.'|'.23.name
         res = ((typeof pval === 'string' || pval instanceof String)) && pval == "IOS";
         if (! res)
         {
-            rep !== null && rep.push(["unexpected _IOS [.'$platforms'.0.'|'.23.name]", path])
-            rep !== null && rep.push(["unexpected value for optional prop <name> [.'$platforms'.0.'|'.23]", path])
+            rep !== null && rep.push(["unexpected _IOS [.'$platforms'.0.'|'.23.name]", (path ? lpath : null)])
+            rep !== null && rep.push(["unexpected value for optional prop <name> [.'$platforms'.0.'|'.23]", (path ? lpath : null)])
             return false;
         }
     }
     if (val.hasOwnProperty("versions"))
     {
+        lpath = path ? path.concat(["versions"]) : null;
         pval = val["versions"];
         // .'$platforms'.0.'|'.23.versions
         res = Array.isArray(pval);
@@ -5255,20 +5327,20 @@ function _jm_obj_70(val, path, rep)
             for (let arr_71_idx = 0; arr_71_idx < pval.length; arr_71_idx++)
             {
                 let arr_71_item = pval[arr_71_idx]
-                let arr_71_lpath = path ? path.concat([arr_71_idx]) : null;
+                let arr_71_lpath = (path ? lpath : null) ? (path ? lpath : null).concat([arr_71_idx]) : null;
                 // .'$platforms'.0.'|'.23.versions.0
                 res = ((typeof arr_71_item === 'string' || arr_71_item instanceof String)) && arr_71_item == "all";
                 if (! res)
                 {
-                    rep !== null && rep.push(["unexpected all [.'$platforms'.0.'|'.23.versions.0]", (path ? arr_71_lpath : null)])
+                    rep !== null && rep.push(["unexpected all [.'$platforms'.0.'|'.23.versions.0]", ((path ? lpath : null) ? arr_71_lpath : null)])
                     break;
                 }
             }
         }
         if (! res)
         {
-            rep !== null && rep.push(["not array or unexpected array [.'$platforms'.0.'|'.23.versions]", path])
-            rep !== null && rep.push(["unexpected value for optional prop <versions> [.'$platforms'.0.'|'.23]", path])
+            rep !== null && rep.push(["not array or unexpected array [.'$platforms'.0.'|'.23.versions]", (path ? lpath : null)])
+            rep !== null && rep.push(["unexpected value for optional prop <versions> [.'$platforms'.0.'|'.23]", (path ? lpath : null)])
             return false;
         }
     }
@@ -5285,22 +5357,25 @@ function _jm_obj_71(val, path, rep)
         rep !== null && rep.push(["not an object [.'$platforms'.0.'|'.22]", path])
         return false;
     }
+    let lpath;
     let pval;
     let res;
     if (val.hasOwnProperty("name"))
     {
+        lpath = path ? path.concat(["name"]) : null;
         pval = val["name"];
         // .'$platforms'.0.'|'.22.name
         res = ((typeof pval === 'string' || pval instanceof String)) && pval == "HardenedBSD";
         if (! res)
         {
-            rep !== null && rep.push(["unexpected _HardenedBSD [.'$platforms'.0.'|'.22.name]", path])
-            rep !== null && rep.push(["unexpected value for optional prop <name> [.'$platforms'.0.'|'.22]", path])
+            rep !== null && rep.push(["unexpected _HardenedBSD [.'$platforms'.0.'|'.22.name]", (path ? lpath : null)])
+            rep !== null && rep.push(["unexpected value for optional prop <name> [.'$platforms'.0.'|'.22]", (path ? lpath : null)])
             return false;
         }
     }
     if (val.hasOwnProperty("versions"))
     {
+        lpath = path ? path.concat(["versions"]) : null;
         pval = val["versions"];
         // .'$platforms'.0.'|'.22.versions
         res = Array.isArray(pval);
@@ -5309,20 +5384,20 @@ function _jm_obj_71(val, path, rep)
             for (let arr_72_idx = 0; arr_72_idx < pval.length; arr_72_idx++)
             {
                 let arr_72_item = pval[arr_72_idx]
-                let arr_72_lpath = path ? path.concat([arr_72_idx]) : null;
+                let arr_72_lpath = (path ? lpath : null) ? (path ? lpath : null).concat([arr_72_idx]) : null;
                 // .'$platforms'.0.'|'.22.versions.0
                 res = ((arr_72_item === null || (typeof arr_72_item === 'number' || arr_72_item instanceof Number) || (typeof arr_72_item === 'boolean' || arr_72_item instanceof Boolean) || (typeof arr_72_item === 'string' || arr_72_item instanceof String))) && _jm_cst_50.has(arr_72_item);
                 if (! res)
                 {
-                    rep !== null && rep.push(["value not in enum [.'$platforms'.0.'|'.22.versions.0.'|']", (path ? arr_72_lpath : null)])
+                    rep !== null && rep.push(["value not in enum [.'$platforms'.0.'|'.22.versions.0.'|']", ((path ? lpath : null) ? arr_72_lpath : null)])
                     break;
                 }
             }
         }
         if (! res)
         {
-            rep !== null && rep.push(["not array or unexpected array [.'$platforms'.0.'|'.22.versions]", path])
-            rep !== null && rep.push(["unexpected value for optional prop <versions> [.'$platforms'.0.'|'.22]", path])
+            rep !== null && rep.push(["not array or unexpected array [.'$platforms'.0.'|'.22.versions]", (path ? lpath : null)])
+            rep !== null && rep.push(["unexpected value for optional prop <versions> [.'$platforms'.0.'|'.22]", (path ? lpath : null)])
             return false;
         }
     }
@@ -5338,22 +5413,25 @@ function _jm_obj_72(val, path, rep)
         rep !== null && rep.push(["not an object [.'$platforms'.0.'|'.21]", path])
         return false;
     }
+    let lpath;
     let pval;
     let res;
     if (val.hasOwnProperty("name"))
     {
+        lpath = path ? path.concat(["name"]) : null;
         pval = val["name"];
         // .'$platforms'.0.'|'.21.name
         res = ((typeof pval === 'string' || pval instanceof String)) && pval == "Gentoo";
         if (! res)
         {
-            rep !== null && rep.push(["unexpected _Gentoo [.'$platforms'.0.'|'.21.name]", path])
-            rep !== null && rep.push(["unexpected value for optional prop <name> [.'$platforms'.0.'|'.21]", path])
+            rep !== null && rep.push(["unexpected _Gentoo [.'$platforms'.0.'|'.21.name]", (path ? lpath : null)])
+            rep !== null && rep.push(["unexpected value for optional prop <name> [.'$platforms'.0.'|'.21]", (path ? lpath : null)])
             return false;
         }
     }
     if (val.hasOwnProperty("versions"))
     {
+        lpath = path ? path.concat(["versions"]) : null;
         pval = val["versions"];
         // .'$platforms'.0.'|'.21.versions
         res = Array.isArray(pval);
@@ -5362,20 +5440,20 @@ function _jm_obj_72(val, path, rep)
             for (let arr_73_idx = 0; arr_73_idx < pval.length; arr_73_idx++)
             {
                 let arr_73_item = pval[arr_73_idx]
-                let arr_73_lpath = path ? path.concat([arr_73_idx]) : null;
+                let arr_73_lpath = (path ? lpath : null) ? (path ? lpath : null).concat([arr_73_idx]) : null;
                 // .'$platforms'.0.'|'.21.versions.0
                 res = ((typeof arr_73_item === 'string' || arr_73_item instanceof String)) && arr_73_item == "all";
                 if (! res)
                 {
-                    rep !== null && rep.push(["unexpected all [.'$platforms'.0.'|'.21.versions.0]", (path ? arr_73_lpath : null)])
+                    rep !== null && rep.push(["unexpected all [.'$platforms'.0.'|'.21.versions.0]", ((path ? lpath : null) ? arr_73_lpath : null)])
                     break;
                 }
             }
         }
         if (! res)
         {
-            rep !== null && rep.push(["not array or unexpected array [.'$platforms'.0.'|'.21.versions]", path])
-            rep !== null && rep.push(["unexpected value for optional prop <versions> [.'$platforms'.0.'|'.21]", path])
+            rep !== null && rep.push(["not array or unexpected array [.'$platforms'.0.'|'.21.versions]", (path ? lpath : null)])
+            rep !== null && rep.push(["unexpected value for optional prop <versions> [.'$platforms'.0.'|'.21]", (path ? lpath : null)])
             return false;
         }
     }
@@ -5391,22 +5469,25 @@ function _jm_obj_73(val, path, rep)
         rep !== null && rep.push(["not an object [.'$platforms'.0.'|'.20]", path])
         return false;
     }
+    let lpath;
     let pval;
     let res;
     if (val.hasOwnProperty("name"))
     {
+        lpath = path ? path.concat(["name"]) : null;
         pval = val["name"];
         // .'$platforms'.0.'|'.20.name
         res = ((typeof pval === 'string' || pval instanceof String)) && pval == "GenericUNIX";
         if (! res)
         {
-            rep !== null && rep.push(["unexpected _GenericUNIX [.'$platforms'.0.'|'.20.name]", path])
-            rep !== null && rep.push(["unexpected value for optional prop <name> [.'$platforms'.0.'|'.20]", path])
+            rep !== null && rep.push(["unexpected _GenericUNIX [.'$platforms'.0.'|'.20.name]", (path ? lpath : null)])
+            rep !== null && rep.push(["unexpected value for optional prop <name> [.'$platforms'.0.'|'.20]", (path ? lpath : null)])
             return false;
         }
     }
     if (val.hasOwnProperty("versions"))
     {
+        lpath = path ? path.concat(["versions"]) : null;
         pval = val["versions"];
         // .'$platforms'.0.'|'.20.versions
         res = Array.isArray(pval);
@@ -5415,20 +5496,20 @@ function _jm_obj_73(val, path, rep)
             for (let arr_74_idx = 0; arr_74_idx < pval.length; arr_74_idx++)
             {
                 let arr_74_item = pval[arr_74_idx]
-                let arr_74_lpath = path ? path.concat([arr_74_idx]) : null;
+                let arr_74_lpath = (path ? lpath : null) ? (path ? lpath : null).concat([arr_74_idx]) : null;
                 // .'$platforms'.0.'|'.20.versions.0
                 res = ((typeof arr_74_item === 'string' || arr_74_item instanceof String)) && arr_74_item == "all";
                 if (! res)
                 {
-                    rep !== null && rep.push(["unexpected all [.'$platforms'.0.'|'.20.versions.0]", (path ? arr_74_lpath : null)])
+                    rep !== null && rep.push(["unexpected all [.'$platforms'.0.'|'.20.versions.0]", ((path ? lpath : null) ? arr_74_lpath : null)])
                     break;
                 }
             }
         }
         if (! res)
         {
-            rep !== null && rep.push(["not array or unexpected array [.'$platforms'.0.'|'.20.versions]", path])
-            rep !== null && rep.push(["unexpected value for optional prop <versions> [.'$platforms'.0.'|'.20]", path])
+            rep !== null && rep.push(["not array or unexpected array [.'$platforms'.0.'|'.20.versions]", (path ? lpath : null)])
+            rep !== null && rep.push(["unexpected value for optional prop <versions> [.'$platforms'.0.'|'.20]", (path ? lpath : null)])
             return false;
         }
     }
@@ -5444,22 +5525,25 @@ function _jm_obj_74(val, path, rep)
         rep !== null && rep.push(["not an object [.'$platforms'.0.'|'.19]", path])
         return false;
     }
+    let lpath;
     let pval;
     let res;
     if (val.hasOwnProperty("name"))
     {
+        lpath = path ? path.concat(["name"]) : null;
         pval = val["name"];
         // .'$platforms'.0.'|'.19.name
         res = ((typeof pval === 'string' || pval instanceof String)) && pval == "GenericLinux";
         if (! res)
         {
-            rep !== null && rep.push(["unexpected _GenericLinux [.'$platforms'.0.'|'.19.name]", path])
-            rep !== null && rep.push(["unexpected value for optional prop <name> [.'$platforms'.0.'|'.19]", path])
+            rep !== null && rep.push(["unexpected _GenericLinux [.'$platforms'.0.'|'.19.name]", (path ? lpath : null)])
+            rep !== null && rep.push(["unexpected value for optional prop <name> [.'$platforms'.0.'|'.19]", (path ? lpath : null)])
             return false;
         }
     }
     if (val.hasOwnProperty("versions"))
     {
+        lpath = path ? path.concat(["versions"]) : null;
         pval = val["versions"];
         // .'$platforms'.0.'|'.19.versions
         res = Array.isArray(pval);
@@ -5468,20 +5552,20 @@ function _jm_obj_74(val, path, rep)
             for (let arr_75_idx = 0; arr_75_idx < pval.length; arr_75_idx++)
             {
                 let arr_75_item = pval[arr_75_idx]
-                let arr_75_lpath = path ? path.concat([arr_75_idx]) : null;
+                let arr_75_lpath = (path ? lpath : null) ? (path ? lpath : null).concat([arr_75_idx]) : null;
                 // .'$platforms'.0.'|'.19.versions.0
                 res = ((typeof arr_75_item === 'string' || arr_75_item instanceof String)) && arr_75_item == "all";
                 if (! res)
                 {
-                    rep !== null && rep.push(["unexpected all [.'$platforms'.0.'|'.19.versions.0]", (path ? arr_75_lpath : null)])
+                    rep !== null && rep.push(["unexpected all [.'$platforms'.0.'|'.19.versions.0]", ((path ? lpath : null) ? arr_75_lpath : null)])
                     break;
                 }
             }
         }
         if (! res)
         {
-            rep !== null && rep.push(["not array or unexpected array [.'$platforms'.0.'|'.19.versions]", path])
-            rep !== null && rep.push(["unexpected value for optional prop <versions> [.'$platforms'.0.'|'.19]", path])
+            rep !== null && rep.push(["not array or unexpected array [.'$platforms'.0.'|'.19.versions]", (path ? lpath : null)])
+            rep !== null && rep.push(["unexpected value for optional prop <versions> [.'$platforms'.0.'|'.19]", (path ? lpath : null)])
             return false;
         }
     }
@@ -5497,22 +5581,25 @@ function _jm_obj_75(val, path, rep)
         rep !== null && rep.push(["not an object [.'$platforms'.0.'|'.18]", path])
         return false;
     }
+    let lpath;
     let pval;
     let res;
     if (val.hasOwnProperty("name"))
     {
+        lpath = path ? path.concat(["name"]) : null;
         pval = val["name"];
         // .'$platforms'.0.'|'.18.name
         res = ((typeof pval === 'string' || pval instanceof String)) && pval == "GenericBSD";
         if (! res)
         {
-            rep !== null && rep.push(["unexpected _GenericBSD [.'$platforms'.0.'|'.18.name]", path])
-            rep !== null && rep.push(["unexpected value for optional prop <name> [.'$platforms'.0.'|'.18]", path])
+            rep !== null && rep.push(["unexpected _GenericBSD [.'$platforms'.0.'|'.18.name]", (path ? lpath : null)])
+            rep !== null && rep.push(["unexpected value for optional prop <name> [.'$platforms'.0.'|'.18]", (path ? lpath : null)])
             return false;
         }
     }
     if (val.hasOwnProperty("versions"))
     {
+        lpath = path ? path.concat(["versions"]) : null;
         pval = val["versions"];
         // .'$platforms'.0.'|'.18.versions
         res = Array.isArray(pval);
@@ -5521,20 +5608,20 @@ function _jm_obj_75(val, path, rep)
             for (let arr_76_idx = 0; arr_76_idx < pval.length; arr_76_idx++)
             {
                 let arr_76_item = pval[arr_76_idx]
-                let arr_76_lpath = path ? path.concat([arr_76_idx]) : null;
+                let arr_76_lpath = (path ? lpath : null) ? (path ? lpath : null).concat([arr_76_idx]) : null;
                 // .'$platforms'.0.'|'.18.versions.0
                 res = ((typeof arr_76_item === 'string' || arr_76_item instanceof String)) && arr_76_item == "all";
                 if (! res)
                 {
-                    rep !== null && rep.push(["unexpected all [.'$platforms'.0.'|'.18.versions.0]", (path ? arr_76_lpath : null)])
+                    rep !== null && rep.push(["unexpected all [.'$platforms'.0.'|'.18.versions.0]", ((path ? lpath : null) ? arr_76_lpath : null)])
                     break;
                 }
             }
         }
         if (! res)
         {
-            rep !== null && rep.push(["not array or unexpected array [.'$platforms'.0.'|'.18.versions]", path])
-            rep !== null && rep.push(["unexpected value for optional prop <versions> [.'$platforms'.0.'|'.18]", path])
+            rep !== null && rep.push(["not array or unexpected array [.'$platforms'.0.'|'.18.versions]", (path ? lpath : null)])
+            rep !== null && rep.push(["unexpected value for optional prop <versions> [.'$platforms'.0.'|'.18]", (path ? lpath : null)])
             return false;
         }
     }
@@ -5551,22 +5638,25 @@ function _jm_obj_76(val, path, rep)
         rep !== null && rep.push(["not an object [.'$platforms'.0.'|'.17]", path])
         return false;
     }
+    let lpath;
     let pval;
     let res;
     if (val.hasOwnProperty("name"))
     {
+        lpath = path ? path.concat(["name"]) : null;
         pval = val["name"];
         // .'$platforms'.0.'|'.17.name
         res = ((typeof pval === 'string' || pval instanceof String)) && pval == "FreeBSD";
         if (! res)
         {
-            rep !== null && rep.push(["unexpected _FreeBSD [.'$platforms'.0.'|'.17.name]", path])
-            rep !== null && rep.push(["unexpected value for optional prop <name> [.'$platforms'.0.'|'.17]", path])
+            rep !== null && rep.push(["unexpected _FreeBSD [.'$platforms'.0.'|'.17.name]", (path ? lpath : null)])
+            rep !== null && rep.push(["unexpected value for optional prop <name> [.'$platforms'.0.'|'.17]", (path ? lpath : null)])
             return false;
         }
     }
     if (val.hasOwnProperty("versions"))
     {
+        lpath = path ? path.concat(["versions"]) : null;
         pval = val["versions"];
         // .'$platforms'.0.'|'.17.versions
         res = Array.isArray(pval);
@@ -5575,20 +5665,20 @@ function _jm_obj_76(val, path, rep)
             for (let arr_77_idx = 0; arr_77_idx < pval.length; arr_77_idx++)
             {
                 let arr_77_item = pval[arr_77_idx]
-                let arr_77_lpath = path ? path.concat([arr_77_idx]) : null;
+                let arr_77_lpath = (path ? lpath : null) ? (path ? lpath : null).concat([arr_77_idx]) : null;
                 // .'$platforms'.0.'|'.17.versions.0
                 res = ((arr_77_item === null || (typeof arr_77_item === 'number' || arr_77_item instanceof Number) || (typeof arr_77_item === 'boolean' || arr_77_item instanceof Boolean) || (typeof arr_77_item === 'string' || arr_77_item instanceof String))) && _jm_cst_51.has(arr_77_item);
                 if (! res)
                 {
-                    rep !== null && rep.push(["value not in enum [.'$platforms'.0.'|'.17.versions.0.'|']", (path ? arr_77_lpath : null)])
+                    rep !== null && rep.push(["value not in enum [.'$platforms'.0.'|'.17.versions.0.'|']", ((path ? lpath : null) ? arr_77_lpath : null)])
                     break;
                 }
             }
         }
         if (! res)
         {
-            rep !== null && rep.push(["not array or unexpected array [.'$platforms'.0.'|'.17.versions]", path])
-            rep !== null && rep.push(["unexpected value for optional prop <versions> [.'$platforms'.0.'|'.17]", path])
+            rep !== null && rep.push(["not array or unexpected array [.'$platforms'.0.'|'.17.versions]", (path ? lpath : null)])
+            rep !== null && rep.push(["unexpected value for optional prop <versions> [.'$platforms'.0.'|'.17]", (path ? lpath : null)])
             return false;
         }
     }
@@ -5605,22 +5695,25 @@ function _jm_obj_77(val, path, rep)
         rep !== null && rep.push(["not an object [.'$platforms'.0.'|'.16]", path])
         return false;
     }
+    let lpath;
     let pval;
     let res;
     if (val.hasOwnProperty("name"))
     {
+        lpath = path ? path.concat(["name"]) : null;
         pval = val["name"];
         // .'$platforms'.0.'|'.16.name
         res = ((typeof pval === 'string' || pval instanceof String)) && pval == "Fedora";
         if (! res)
         {
-            rep !== null && rep.push(["unexpected _Fedora [.'$platforms'.0.'|'.16.name]", path])
-            rep !== null && rep.push(["unexpected value for optional prop <name> [.'$platforms'.0.'|'.16]", path])
+            rep !== null && rep.push(["unexpected _Fedora [.'$platforms'.0.'|'.16.name]", (path ? lpath : null)])
+            rep !== null && rep.push(["unexpected value for optional prop <name> [.'$platforms'.0.'|'.16]", (path ? lpath : null)])
             return false;
         }
     }
     if (val.hasOwnProperty("versions"))
     {
+        lpath = path ? path.concat(["versions"]) : null;
         pval = val["versions"];
         // .'$platforms'.0.'|'.16.versions
         res = Array.isArray(pval);
@@ -5629,20 +5722,20 @@ function _jm_obj_77(val, path, rep)
             for (let arr_78_idx = 0; arr_78_idx < pval.length; arr_78_idx++)
             {
                 let arr_78_item = pval[arr_78_idx]
-                let arr_78_lpath = path ? path.concat([arr_78_idx]) : null;
+                let arr_78_lpath = (path ? lpath : null) ? (path ? lpath : null).concat([arr_78_idx]) : null;
                 // .'$platforms'.0.'|'.16.versions.0
                 res = ((arr_78_item === null || (typeof arr_78_item === 'number' || arr_78_item instanceof Number) || (typeof arr_78_item === 'boolean' || arr_78_item instanceof Boolean) || (typeof arr_78_item === 'string' || arr_78_item instanceof String))) && _jm_cst_52.has(arr_78_item);
                 if (! res)
                 {
-                    rep !== null && rep.push(["value not in enum [.'$platforms'.0.'|'.16.versions.0.'|']", (path ? arr_78_lpath : null)])
+                    rep !== null && rep.push(["value not in enum [.'$platforms'.0.'|'.16.versions.0.'|']", ((path ? lpath : null) ? arr_78_lpath : null)])
                     break;
                 }
             }
         }
         if (! res)
         {
-            rep !== null && rep.push(["not array or unexpected array [.'$platforms'.0.'|'.16.versions]", path])
-            rep !== null && rep.push(["unexpected value for optional prop <versions> [.'$platforms'.0.'|'.16]", path])
+            rep !== null && rep.push(["not array or unexpected array [.'$platforms'.0.'|'.16.versions]", (path ? lpath : null)])
+            rep !== null && rep.push(["unexpected value for optional prop <versions> [.'$platforms'.0.'|'.16]", (path ? lpath : null)])
             return false;
         }
     }
@@ -5658,22 +5751,25 @@ function _jm_obj_78(val, path, rep)
         rep !== null && rep.push(["not an object [.'$platforms'.0.'|'.15]", path])
         return false;
     }
+    let lpath;
     let pval;
     let res;
     if (val.hasOwnProperty("name"))
     {
+        lpath = path ? path.concat(["name"]) : null;
         pval = val["name"];
         // .'$platforms'.0.'|'.15.name
         res = ((typeof pval === 'string' || pval instanceof String)) && pval == "eos";
         if (! res)
         {
-            rep !== null && rep.push(["unexpected _eos [.'$platforms'.0.'|'.15.name]", path])
-            rep !== null && rep.push(["unexpected value for optional prop <name> [.'$platforms'.0.'|'.15]", path])
+            rep !== null && rep.push(["unexpected _eos [.'$platforms'.0.'|'.15.name]", (path ? lpath : null)])
+            rep !== null && rep.push(["unexpected value for optional prop <name> [.'$platforms'.0.'|'.15]", (path ? lpath : null)])
             return false;
         }
     }
     if (val.hasOwnProperty("versions"))
     {
+        lpath = path ? path.concat(["versions"]) : null;
         pval = val["versions"];
         // .'$platforms'.0.'|'.15.versions
         res = Array.isArray(pval);
@@ -5682,20 +5778,20 @@ function _jm_obj_78(val, path, rep)
             for (let arr_79_idx = 0; arr_79_idx < pval.length; arr_79_idx++)
             {
                 let arr_79_item = pval[arr_79_idx]
-                let arr_79_lpath = path ? path.concat([arr_79_idx]) : null;
+                let arr_79_lpath = (path ? lpath : null) ? (path ? lpath : null).concat([arr_79_idx]) : null;
                 // .'$platforms'.0.'|'.15.versions.0
                 res = ((typeof arr_79_item === 'string' || arr_79_item instanceof String)) && arr_79_item == "all";
                 if (! res)
                 {
-                    rep !== null && rep.push(["unexpected all [.'$platforms'.0.'|'.15.versions.0]", (path ? arr_79_lpath : null)])
+                    rep !== null && rep.push(["unexpected all [.'$platforms'.0.'|'.15.versions.0]", ((path ? lpath : null) ? arr_79_lpath : null)])
                     break;
                 }
             }
         }
         if (! res)
         {
-            rep !== null && rep.push(["not array or unexpected array [.'$platforms'.0.'|'.15.versions]", path])
-            rep !== null && rep.push(["unexpected value for optional prop <versions> [.'$platforms'.0.'|'.15]", path])
+            rep !== null && rep.push(["not array or unexpected array [.'$platforms'.0.'|'.15.versions]", (path ? lpath : null)])
+            rep !== null && rep.push(["unexpected value for optional prop <versions> [.'$platforms'.0.'|'.15]", (path ? lpath : null)])
             return false;
         }
     }
@@ -5712,22 +5808,25 @@ function _jm_obj_79(val, path, rep)
         rep !== null && rep.push(["not an object [.'$platforms'.0.'|'.14]", path])
         return false;
     }
+    let lpath;
     let pval;
     let res;
     if (val.hasOwnProperty("name"))
     {
+        lpath = path ? path.concat(["name"]) : null;
         pval = val["name"];
         // .'$platforms'.0.'|'.14.name
         res = ((typeof pval === 'string' || pval instanceof String)) && pval == "EL";
         if (! res)
         {
-            rep !== null && rep.push(["unexpected _EL [.'$platforms'.0.'|'.14.name]", path])
-            rep !== null && rep.push(["unexpected value for optional prop <name> [.'$platforms'.0.'|'.14]", path])
+            rep !== null && rep.push(["unexpected _EL [.'$platforms'.0.'|'.14.name]", (path ? lpath : null)])
+            rep !== null && rep.push(["unexpected value for optional prop <name> [.'$platforms'.0.'|'.14]", (path ? lpath : null)])
             return false;
         }
     }
     if (val.hasOwnProperty("versions"))
     {
+        lpath = path ? path.concat(["versions"]) : null;
         pval = val["versions"];
         // .'$platforms'.0.'|'.14.versions
         res = Array.isArray(pval);
@@ -5736,20 +5835,20 @@ function _jm_obj_79(val, path, rep)
             for (let arr_80_idx = 0; arr_80_idx < pval.length; arr_80_idx++)
             {
                 let arr_80_item = pval[arr_80_idx]
-                let arr_80_lpath = path ? path.concat([arr_80_idx]) : null;
+                let arr_80_lpath = (path ? lpath : null) ? (path ? lpath : null).concat([arr_80_idx]) : null;
                 // .'$platforms'.0.'|'.14.versions.0
                 res = ((arr_80_item === null || (typeof arr_80_item === 'number' || arr_80_item instanceof Number) || (typeof arr_80_item === 'boolean' || arr_80_item instanceof Boolean) || (typeof arr_80_item === 'string' || arr_80_item instanceof String))) && _jm_cst_53.has(arr_80_item);
                 if (! res)
                 {
-                    rep !== null && rep.push(["value not in enum [.'$platforms'.0.'|'.14.versions.0.'|']", (path ? arr_80_lpath : null)])
+                    rep !== null && rep.push(["value not in enum [.'$platforms'.0.'|'.14.versions.0.'|']", ((path ? lpath : null) ? arr_80_lpath : null)])
                     break;
                 }
             }
         }
         if (! res)
         {
-            rep !== null && rep.push(["not array or unexpected array [.'$platforms'.0.'|'.14.versions]", path])
-            rep !== null && rep.push(["unexpected value for optional prop <versions> [.'$platforms'.0.'|'.14]", path])
+            rep !== null && rep.push(["not array or unexpected array [.'$platforms'.0.'|'.14.versions]", (path ? lpath : null)])
+            rep !== null && rep.push(["unexpected value for optional prop <versions> [.'$platforms'.0.'|'.14]", (path ? lpath : null)])
             return false;
         }
     }
@@ -5766,22 +5865,25 @@ function _jm_obj_80(val, path, rep)
         rep !== null && rep.push(["not an object [.'$platforms'.0.'|'.13]", path])
         return false;
     }
+    let lpath;
     let pval;
     let res;
     if (val.hasOwnProperty("name"))
     {
+        lpath = path ? path.concat(["name"]) : null;
         pval = val["name"];
         // .'$platforms'.0.'|'.13.name
         res = ((typeof pval === 'string' || pval instanceof String)) && pval == "DragonFlyBSD";
         if (! res)
         {
-            rep !== null && rep.push(["unexpected _DragonFlyBSD [.'$platforms'.0.'|'.13.name]", path])
-            rep !== null && rep.push(["unexpected value for optional prop <name> [.'$platforms'.0.'|'.13]", path])
+            rep !== null && rep.push(["unexpected _DragonFlyBSD [.'$platforms'.0.'|'.13.name]", (path ? lpath : null)])
+            rep !== null && rep.push(["unexpected value for optional prop <name> [.'$platforms'.0.'|'.13]", (path ? lpath : null)])
             return false;
         }
     }
     if (val.hasOwnProperty("versions"))
     {
+        lpath = path ? path.concat(["versions"]) : null;
         pval = val["versions"];
         // .'$platforms'.0.'|'.13.versions
         res = Array.isArray(pval);
@@ -5790,20 +5892,20 @@ function _jm_obj_80(val, path, rep)
             for (let arr_81_idx = 0; arr_81_idx < pval.length; arr_81_idx++)
             {
                 let arr_81_item = pval[arr_81_idx]
-                let arr_81_lpath = path ? path.concat([arr_81_idx]) : null;
+                let arr_81_lpath = (path ? lpath : null) ? (path ? lpath : null).concat([arr_81_idx]) : null;
                 // .'$platforms'.0.'|'.13.versions.0
                 res = ((arr_81_item === null || (typeof arr_81_item === 'number' || arr_81_item instanceof Number) || (typeof arr_81_item === 'boolean' || arr_81_item instanceof Boolean) || (typeof arr_81_item === 'string' || arr_81_item instanceof String))) && _jm_cst_54.has(arr_81_item);
                 if (! res)
                 {
-                    rep !== null && rep.push(["value not in enum [.'$platforms'.0.'|'.13.versions.0.'|']", (path ? arr_81_lpath : null)])
+                    rep !== null && rep.push(["value not in enum [.'$platforms'.0.'|'.13.versions.0.'|']", ((path ? lpath : null) ? arr_81_lpath : null)])
                     break;
                 }
             }
         }
         if (! res)
         {
-            rep !== null && rep.push(["not array or unexpected array [.'$platforms'.0.'|'.13.versions]", path])
-            rep !== null && rep.push(["unexpected value for optional prop <versions> [.'$platforms'.0.'|'.13]", path])
+            rep !== null && rep.push(["not array or unexpected array [.'$platforms'.0.'|'.13.versions]", (path ? lpath : null)])
+            rep !== null && rep.push(["unexpected value for optional prop <versions> [.'$platforms'.0.'|'.13]", (path ? lpath : null)])
             return false;
         }
     }
@@ -5820,22 +5922,25 @@ function _jm_obj_81(val, path, rep)
         rep !== null && rep.push(["not an object [.'$platforms'.0.'|'.12]", path])
         return false;
     }
+    let lpath;
     let pval;
     let res;
     if (val.hasOwnProperty("name"))
     {
+        lpath = path ? path.concat(["name"]) : null;
         pval = val["name"];
         // .'$platforms'.0.'|'.12.name
         res = ((typeof pval === 'string' || pval instanceof String)) && pval == "Devuan";
         if (! res)
         {
-            rep !== null && rep.push(["unexpected _Devuan [.'$platforms'.0.'|'.12.name]", path])
-            rep !== null && rep.push(["unexpected value for optional prop <name> [.'$platforms'.0.'|'.12]", path])
+            rep !== null && rep.push(["unexpected _Devuan [.'$platforms'.0.'|'.12.name]", (path ? lpath : null)])
+            rep !== null && rep.push(["unexpected value for optional prop <name> [.'$platforms'.0.'|'.12]", (path ? lpath : null)])
             return false;
         }
     }
     if (val.hasOwnProperty("versions"))
     {
+        lpath = path ? path.concat(["versions"]) : null;
         pval = val["versions"];
         // .'$platforms'.0.'|'.12.versions
         res = Array.isArray(pval);
@@ -5844,20 +5949,20 @@ function _jm_obj_81(val, path, rep)
             for (let arr_82_idx = 0; arr_82_idx < pval.length; arr_82_idx++)
             {
                 let arr_82_item = pval[arr_82_idx]
-                let arr_82_lpath = path ? path.concat([arr_82_idx]) : null;
+                let arr_82_lpath = (path ? lpath : null) ? (path ? lpath : null).concat([arr_82_idx]) : null;
                 // .'$platforms'.0.'|'.12.versions.0
                 res = ((arr_82_item === null || (typeof arr_82_item === 'number' || arr_82_item instanceof Number) || (typeof arr_82_item === 'boolean' || arr_82_item instanceof Boolean) || (typeof arr_82_item === 'string' || arr_82_item instanceof String))) && _jm_cst_55.has(arr_82_item);
                 if (! res)
                 {
-                    rep !== null && rep.push(["value not in enum [.'$platforms'.0.'|'.12.versions.0.'|']", (path ? arr_82_lpath : null)])
+                    rep !== null && rep.push(["value not in enum [.'$platforms'.0.'|'.12.versions.0.'|']", ((path ? lpath : null) ? arr_82_lpath : null)])
                     break;
                 }
             }
         }
         if (! res)
         {
-            rep !== null && rep.push(["not array or unexpected array [.'$platforms'.0.'|'.12.versions]", path])
-            rep !== null && rep.push(["unexpected value for optional prop <versions> [.'$platforms'.0.'|'.12]", path])
+            rep !== null && rep.push(["not array or unexpected array [.'$platforms'.0.'|'.12.versions]", (path ? lpath : null)])
+            rep !== null && rep.push(["unexpected value for optional prop <versions> [.'$platforms'.0.'|'.12]", (path ? lpath : null)])
             return false;
         }
     }
@@ -5874,22 +5979,25 @@ function _jm_obj_82(val, path, rep)
         rep !== null && rep.push(["not an object [.'$platforms'.0.'|'.11]", path])
         return false;
     }
+    let lpath;
     let pval;
     let res;
     if (val.hasOwnProperty("name"))
     {
+        lpath = path ? path.concat(["name"]) : null;
         pval = val["name"];
         // .'$platforms'.0.'|'.11.name
         res = ((typeof pval === 'string' || pval instanceof String)) && pval == "DellOS";
         if (! res)
         {
-            rep !== null && rep.push(["unexpected _DellOS [.'$platforms'.0.'|'.11.name]", path])
-            rep !== null && rep.push(["unexpected value for optional prop <name> [.'$platforms'.0.'|'.11]", path])
+            rep !== null && rep.push(["unexpected _DellOS [.'$platforms'.0.'|'.11.name]", (path ? lpath : null)])
+            rep !== null && rep.push(["unexpected value for optional prop <name> [.'$platforms'.0.'|'.11]", (path ? lpath : null)])
             return false;
         }
     }
     if (val.hasOwnProperty("versions"))
     {
+        lpath = path ? path.concat(["versions"]) : null;
         pval = val["versions"];
         // .'$platforms'.0.'|'.11.versions
         res = Array.isArray(pval);
@@ -5898,20 +6006,20 @@ function _jm_obj_82(val, path, rep)
             for (let arr_83_idx = 0; arr_83_idx < pval.length; arr_83_idx++)
             {
                 let arr_83_item = pval[arr_83_idx]
-                let arr_83_lpath = path ? path.concat([arr_83_idx]) : null;
+                let arr_83_lpath = (path ? lpath : null) ? (path ? lpath : null).concat([arr_83_idx]) : null;
                 // .'$platforms'.0.'|'.11.versions.0
                 res = ((arr_83_item === null || (typeof arr_83_item === 'number' || arr_83_item instanceof Number) || (typeof arr_83_item === 'boolean' || arr_83_item instanceof Boolean) || (typeof arr_83_item === 'string' || arr_83_item instanceof String))) && _jm_cst_56.has(arr_83_item);
                 if (! res)
                 {
-                    rep !== null && rep.push(["value not in enum [.'$platforms'.0.'|'.11.versions.0.'|']", (path ? arr_83_lpath : null)])
+                    rep !== null && rep.push(["value not in enum [.'$platforms'.0.'|'.11.versions.0.'|']", ((path ? lpath : null) ? arr_83_lpath : null)])
                     break;
                 }
             }
         }
         if (! res)
         {
-            rep !== null && rep.push(["not array or unexpected array [.'$platforms'.0.'|'.11.versions]", path])
-            rep !== null && rep.push(["unexpected value for optional prop <versions> [.'$platforms'.0.'|'.11]", path])
+            rep !== null && rep.push(["not array or unexpected array [.'$platforms'.0.'|'.11.versions]", (path ? lpath : null)])
+            rep !== null && rep.push(["unexpected value for optional prop <versions> [.'$platforms'.0.'|'.11]", (path ? lpath : null)])
             return false;
         }
     }
@@ -5928,22 +6036,25 @@ function _jm_obj_83(val, path, rep)
         rep !== null && rep.push(["not an object [.'$platforms'.0.'|'.10]", path])
         return false;
     }
+    let lpath;
     let pval;
     let res;
     if (val.hasOwnProperty("name"))
     {
+        lpath = path ? path.concat(["name"]) : null;
         pval = val["name"];
         // .'$platforms'.0.'|'.10.name
         res = ((typeof pval === 'string' || pval instanceof String)) && pval == "Debian";
         if (! res)
         {
-            rep !== null && rep.push(["unexpected _Debian [.'$platforms'.0.'|'.10.name]", path])
-            rep !== null && rep.push(["unexpected value for optional prop <name> [.'$platforms'.0.'|'.10]", path])
+            rep !== null && rep.push(["unexpected _Debian [.'$platforms'.0.'|'.10.name]", (path ? lpath : null)])
+            rep !== null && rep.push(["unexpected value for optional prop <name> [.'$platforms'.0.'|'.10]", (path ? lpath : null)])
             return false;
         }
     }
     if (val.hasOwnProperty("versions"))
     {
+        lpath = path ? path.concat(["versions"]) : null;
         pval = val["versions"];
         // .'$platforms'.0.'|'.10.versions
         res = Array.isArray(pval);
@@ -5952,20 +6063,20 @@ function _jm_obj_83(val, path, rep)
             for (let arr_84_idx = 0; arr_84_idx < pval.length; arr_84_idx++)
             {
                 let arr_84_item = pval[arr_84_idx]
-                let arr_84_lpath = path ? path.concat([arr_84_idx]) : null;
+                let arr_84_lpath = (path ? lpath : null) ? (path ? lpath : null).concat([arr_84_idx]) : null;
                 // .'$platforms'.0.'|'.10.versions.0
                 res = ((arr_84_item === null || (typeof arr_84_item === 'number' || arr_84_item instanceof Number) || (typeof arr_84_item === 'boolean' || arr_84_item instanceof Boolean) || (typeof arr_84_item === 'string' || arr_84_item instanceof String))) && _jm_cst_57.has(arr_84_item);
                 if (! res)
                 {
-                    rep !== null && rep.push(["value not in enum [.'$platforms'.0.'|'.10.versions.0.'|']", (path ? arr_84_lpath : null)])
+                    rep !== null && rep.push(["value not in enum [.'$platforms'.0.'|'.10.versions.0.'|']", ((path ? lpath : null) ? arr_84_lpath : null)])
                     break;
                 }
             }
         }
         if (! res)
         {
-            rep !== null && rep.push(["not array or unexpected array [.'$platforms'.0.'|'.10.versions]", path])
-            rep !== null && rep.push(["unexpected value for optional prop <versions> [.'$platforms'.0.'|'.10]", path])
+            rep !== null && rep.push(["not array or unexpected array [.'$platforms'.0.'|'.10.versions]", (path ? lpath : null)])
+            rep !== null && rep.push(["unexpected value for optional prop <versions> [.'$platforms'.0.'|'.10]", (path ? lpath : null)])
             return false;
         }
     }
@@ -5982,22 +6093,25 @@ function _jm_obj_84(val, path, rep)
         rep !== null && rep.push(["not an object [.'$platforms'.0.'|'.9]", path])
         return false;
     }
+    let lpath;
     let pval;
     let res;
     if (val.hasOwnProperty("name"))
     {
+        lpath = path ? path.concat(["name"]) : null;
         pval = val["name"];
         // .'$platforms'.0.'|'.9.name
         res = ((typeof pval === 'string' || pval instanceof String)) && pval == "NetBSD";
         if (! res)
         {
-            rep !== null && rep.push(["unexpected _NetBSD [.'$platforms'.0.'|'.9.name]", path])
-            rep !== null && rep.push(["unexpected value for optional prop <name> [.'$platforms'.0.'|'.9]", path])
+            rep !== null && rep.push(["unexpected _NetBSD [.'$platforms'.0.'|'.9.name]", (path ? lpath : null)])
+            rep !== null && rep.push(["unexpected value for optional prop <name> [.'$platforms'.0.'|'.9]", (path ? lpath : null)])
             return false;
         }
     }
     if (val.hasOwnProperty("versions"))
     {
+        lpath = path ? path.concat(["versions"]) : null;
         pval = val["versions"];
         // .'$platforms'.0.'|'.9.versions
         res = Array.isArray(pval);
@@ -6006,20 +6120,20 @@ function _jm_obj_84(val, path, rep)
             for (let arr_85_idx = 0; arr_85_idx < pval.length; arr_85_idx++)
             {
                 let arr_85_item = pval[arr_85_idx]
-                let arr_85_lpath = path ? path.concat([arr_85_idx]) : null;
+                let arr_85_lpath = (path ? lpath : null) ? (path ? lpath : null).concat([arr_85_idx]) : null;
                 // .'$platforms'.0.'|'.9.versions.0
                 res = ((arr_85_item === null || (typeof arr_85_item === 'number' || arr_85_item instanceof Number) || (typeof arr_85_item === 'boolean' || arr_85_item instanceof Boolean) || (typeof arr_85_item === 'string' || arr_85_item instanceof String))) && _jm_cst_58.has(arr_85_item);
                 if (! res)
                 {
-                    rep !== null && rep.push(["value not in enum [.'$platforms'.0.'|'.9.versions.0.'|']", (path ? arr_85_lpath : null)])
+                    rep !== null && rep.push(["value not in enum [.'$platforms'.0.'|'.9.versions.0.'|']", ((path ? lpath : null) ? arr_85_lpath : null)])
                     break;
                 }
             }
         }
         if (! res)
         {
-            rep !== null && rep.push(["not array or unexpected array [.'$platforms'.0.'|'.9.versions]", path])
-            rep !== null && rep.push(["unexpected value for optional prop <versions> [.'$platforms'.0.'|'.9]", path])
+            rep !== null && rep.push(["not array or unexpected array [.'$platforms'.0.'|'.9.versions]", (path ? lpath : null)])
+            rep !== null && rep.push(["unexpected value for optional prop <versions> [.'$platforms'.0.'|'.9]", (path ? lpath : null)])
             return false;
         }
     }
@@ -6036,22 +6150,25 @@ function _jm_obj_85(val, path, rep)
         rep !== null && rep.push(["not an object [.'$platforms'.0.'|'.8]", path])
         return false;
     }
+    let lpath;
     let pval;
     let res;
     if (val.hasOwnProperty("name"))
     {
+        lpath = path ? path.concat(["name"]) : null;
         pval = val["name"];
         // .'$platforms'.0.'|'.8.name
         res = ((typeof pval === 'string' || pval instanceof String)) && pval == "Cumulus";
         if (! res)
         {
-            rep !== null && rep.push(["unexpected _Cumulus [.'$platforms'.0.'|'.8.name]", path])
-            rep !== null && rep.push(["unexpected value for optional prop <name> [.'$platforms'.0.'|'.8]", path])
+            rep !== null && rep.push(["unexpected _Cumulus [.'$platforms'.0.'|'.8.name]", (path ? lpath : null)])
+            rep !== null && rep.push(["unexpected value for optional prop <name> [.'$platforms'.0.'|'.8]", (path ? lpath : null)])
             return false;
         }
     }
     if (val.hasOwnProperty("versions"))
     {
+        lpath = path ? path.concat(["versions"]) : null;
         pval = val["versions"];
         // .'$platforms'.0.'|'.8.versions
         res = Array.isArray(pval);
@@ -6060,20 +6177,20 @@ function _jm_obj_85(val, path, rep)
             for (let arr_86_idx = 0; arr_86_idx < pval.length; arr_86_idx++)
             {
                 let arr_86_item = pval[arr_86_idx]
-                let arr_86_lpath = path ? path.concat([arr_86_idx]) : null;
+                let arr_86_lpath = (path ? lpath : null) ? (path ? lpath : null).concat([arr_86_idx]) : null;
                 // .'$platforms'.0.'|'.8.versions.0
                 res = ((arr_86_item === null || (typeof arr_86_item === 'number' || arr_86_item instanceof Number) || (typeof arr_86_item === 'boolean' || arr_86_item instanceof Boolean) || (typeof arr_86_item === 'string' || arr_86_item instanceof String))) && _jm_cst_59.has(arr_86_item);
                 if (! res)
                 {
-                    rep !== null && rep.push(["value not in enum [.'$platforms'.0.'|'.8.versions.0.'|']", (path ? arr_86_lpath : null)])
+                    rep !== null && rep.push(["value not in enum [.'$platforms'.0.'|'.8.versions.0.'|']", ((path ? lpath : null) ? arr_86_lpath : null)])
                     break;
                 }
             }
         }
         if (! res)
         {
-            rep !== null && rep.push(["not array or unexpected array [.'$platforms'.0.'|'.8.versions]", path])
-            rep !== null && rep.push(["unexpected value for optional prop <versions> [.'$platforms'.0.'|'.8]", path])
+            rep !== null && rep.push(["not array or unexpected array [.'$platforms'.0.'|'.8.versions]", (path ? lpath : null)])
+            rep !== null && rep.push(["unexpected value for optional prop <versions> [.'$platforms'.0.'|'.8]", (path ? lpath : null)])
             return false;
         }
     }
@@ -6089,22 +6206,25 @@ function _jm_obj_86(val, path, rep)
         rep !== null && rep.push(["not an object [.'$platforms'.0.'|'.7]", path])
         return false;
     }
+    let lpath;
     let pval;
     let res;
     if (val.hasOwnProperty("name"))
     {
+        lpath = path ? path.concat(["name"]) : null;
         pval = val["name"];
         // .'$platforms'.0.'|'.7.name
         res = ((typeof pval === 'string' || pval instanceof String)) && pval == "ClearLinux";
         if (! res)
         {
-            rep !== null && rep.push(["unexpected _ClearLinux [.'$platforms'.0.'|'.7.name]", path])
-            rep !== null && rep.push(["unexpected value for optional prop <name> [.'$platforms'.0.'|'.7]", path])
+            rep !== null && rep.push(["unexpected _ClearLinux [.'$platforms'.0.'|'.7.name]", (path ? lpath : null)])
+            rep !== null && rep.push(["unexpected value for optional prop <name> [.'$platforms'.0.'|'.7]", (path ? lpath : null)])
             return false;
         }
     }
     if (val.hasOwnProperty("versions"))
     {
+        lpath = path ? path.concat(["versions"]) : null;
         pval = val["versions"];
         // .'$platforms'.0.'|'.7.versions
         res = Array.isArray(pval);
@@ -6113,20 +6233,20 @@ function _jm_obj_86(val, path, rep)
             for (let arr_87_idx = 0; arr_87_idx < pval.length; arr_87_idx++)
             {
                 let arr_87_item = pval[arr_87_idx]
-                let arr_87_lpath = path ? path.concat([arr_87_idx]) : null;
+                let arr_87_lpath = (path ? lpath : null) ? (path ? lpath : null).concat([arr_87_idx]) : null;
                 // .'$platforms'.0.'|'.7.versions.0
                 res = ((typeof arr_87_item === 'string' || arr_87_item instanceof String)) && arr_87_item == "all";
                 if (! res)
                 {
-                    rep !== null && rep.push(["unexpected all [.'$platforms'.0.'|'.7.versions.0]", (path ? arr_87_lpath : null)])
+                    rep !== null && rep.push(["unexpected all [.'$platforms'.0.'|'.7.versions.0]", ((path ? lpath : null) ? arr_87_lpath : null)])
                     break;
                 }
             }
         }
         if (! res)
         {
-            rep !== null && rep.push(["not array or unexpected array [.'$platforms'.0.'|'.7.versions]", path])
-            rep !== null && rep.push(["unexpected value for optional prop <versions> [.'$platforms'.0.'|'.7]", path])
+            rep !== null && rep.push(["not array or unexpected array [.'$platforms'.0.'|'.7.versions]", (path ? lpath : null)])
+            rep !== null && rep.push(["unexpected value for optional prop <versions> [.'$platforms'.0.'|'.7]", (path ? lpath : null)])
             return false;
         }
     }
@@ -6143,22 +6263,25 @@ function _jm_obj_87(val, path, rep)
         rep !== null && rep.push(["not an object [.'$platforms'.0.'|'.6]", path])
         return false;
     }
+    let lpath;
     let pval;
     let res;
     if (val.hasOwnProperty("name"))
     {
+        lpath = path ? path.concat(["name"]) : null;
         pval = val["name"];
         // .'$platforms'.0.'|'.6.name
         res = ((typeof pval === 'string' || pval instanceof String)) && pval == "Astra Linux";
         if (! res)
         {
-            rep !== null && rep.push(["unexpected _Astra Linux [.'$platforms'.0.'|'.6.name]", path])
-            rep !== null && rep.push(["unexpected value for optional prop <name> [.'$platforms'.0.'|'.6]", path])
+            rep !== null && rep.push(["unexpected _Astra Linux [.'$platforms'.0.'|'.6.name]", (path ? lpath : null)])
+            rep !== null && rep.push(["unexpected value for optional prop <name> [.'$platforms'.0.'|'.6]", (path ? lpath : null)])
             return false;
         }
     }
     if (val.hasOwnProperty("versions"))
     {
+        lpath = path ? path.concat(["versions"]) : null;
         pval = val["versions"];
         // .'$platforms'.0.'|'.6.versions
         res = Array.isArray(pval);
@@ -6167,20 +6290,20 @@ function _jm_obj_87(val, path, rep)
             for (let arr_88_idx = 0; arr_88_idx < pval.length; arr_88_idx++)
             {
                 let arr_88_item = pval[arr_88_idx]
-                let arr_88_lpath = path ? path.concat([arr_88_idx]) : null;
+                let arr_88_lpath = (path ? lpath : null) ? (path ? lpath : null).concat([arr_88_idx]) : null;
                 // .'$platforms'.0.'|'.6.versions.0
                 res = ((arr_88_item === null || (typeof arr_88_item === 'number' || arr_88_item instanceof Number) || (typeof arr_88_item === 'boolean' || arr_88_item instanceof Boolean) || (typeof arr_88_item === 'string' || arr_88_item instanceof String))) && _jm_cst_60.has(arr_88_item);
                 if (! res)
                 {
-                    rep !== null && rep.push(["value not in enum [.'$platforms'.0.'|'.6.versions.0.'|']", (path ? arr_88_lpath : null)])
+                    rep !== null && rep.push(["value not in enum [.'$platforms'.0.'|'.6.versions.0.'|']", ((path ? lpath : null) ? arr_88_lpath : null)])
                     break;
                 }
             }
         }
         if (! res)
         {
-            rep !== null && rep.push(["not array or unexpected array [.'$platforms'.0.'|'.6.versions]", path])
-            rep !== null && rep.push(["unexpected value for optional prop <versions> [.'$platforms'.0.'|'.6]", path])
+            rep !== null && rep.push(["not array or unexpected array [.'$platforms'.0.'|'.6.versions]", (path ? lpath : null)])
+            rep !== null && rep.push(["unexpected value for optional prop <versions> [.'$platforms'.0.'|'.6]", (path ? lpath : null)])
             return false;
         }
     }
@@ -6196,22 +6319,25 @@ function _jm_obj_88(val, path, rep)
         rep !== null && rep.push(["not an object [.'$platforms'.0.'|'.5]", path])
         return false;
     }
+    let lpath;
     let pval;
     let res;
     if (val.hasOwnProperty("name"))
     {
+        lpath = path ? path.concat(["name"]) : null;
         pval = val["name"];
         // .'$platforms'.0.'|'.5.name
         res = ((typeof pval === 'string' || pval instanceof String)) && pval == "ArchLinux";
         if (! res)
         {
-            rep !== null && rep.push(["unexpected _ArchLinux [.'$platforms'.0.'|'.5.name]", path])
-            rep !== null && rep.push(["unexpected value for optional prop <name> [.'$platforms'.0.'|'.5]", path])
+            rep !== null && rep.push(["unexpected _ArchLinux [.'$platforms'.0.'|'.5.name]", (path ? lpath : null)])
+            rep !== null && rep.push(["unexpected value for optional prop <name> [.'$platforms'.0.'|'.5]", (path ? lpath : null)])
             return false;
         }
     }
     if (val.hasOwnProperty("versions"))
     {
+        lpath = path ? path.concat(["versions"]) : null;
         pval = val["versions"];
         // .'$platforms'.0.'|'.5.versions
         res = Array.isArray(pval);
@@ -6220,20 +6346,20 @@ function _jm_obj_88(val, path, rep)
             for (let arr_89_idx = 0; arr_89_idx < pval.length; arr_89_idx++)
             {
                 let arr_89_item = pval[arr_89_idx]
-                let arr_89_lpath = path ? path.concat([arr_89_idx]) : null;
+                let arr_89_lpath = (path ? lpath : null) ? (path ? lpath : null).concat([arr_89_idx]) : null;
                 // .'$platforms'.0.'|'.5.versions.0
                 res = ((typeof arr_89_item === 'string' || arr_89_item instanceof String)) && arr_89_item == "all";
                 if (! res)
                 {
-                    rep !== null && rep.push(["unexpected all [.'$platforms'.0.'|'.5.versions.0]", (path ? arr_89_lpath : null)])
+                    rep !== null && rep.push(["unexpected all [.'$platforms'.0.'|'.5.versions.0]", ((path ? lpath : null) ? arr_89_lpath : null)])
                     break;
                 }
             }
         }
         if (! res)
         {
-            rep !== null && rep.push(["not array or unexpected array [.'$platforms'.0.'|'.5.versions]", path])
-            rep !== null && rep.push(["unexpected value for optional prop <versions> [.'$platforms'.0.'|'.5]", path])
+            rep !== null && rep.push(["not array or unexpected array [.'$platforms'.0.'|'.5.versions]", (path ? lpath : null)])
+            rep !== null && rep.push(["unexpected value for optional prop <versions> [.'$platforms'.0.'|'.5]", (path ? lpath : null)])
             return false;
         }
     }
@@ -6249,22 +6375,25 @@ function _jm_obj_89(val, path, rep)
         rep !== null && rep.push(["not an object [.'$platforms'.0.'|'.4]", path])
         return false;
     }
+    let lpath;
     let pval;
     let res;
     if (val.hasOwnProperty("name"))
     {
+        lpath = path ? path.concat(["name"]) : null;
         pval = val["name"];
         // .'$platforms'.0.'|'.4.name
         res = ((typeof pval === 'string' || pval instanceof String)) && pval == "aos";
         if (! res)
         {
-            rep !== null && rep.push(["unexpected _aos [.'$platforms'.0.'|'.4.name]", path])
-            rep !== null && rep.push(["unexpected value for optional prop <name> [.'$platforms'.0.'|'.4]", path])
+            rep !== null && rep.push(["unexpected _aos [.'$platforms'.0.'|'.4.name]", (path ? lpath : null)])
+            rep !== null && rep.push(["unexpected value for optional prop <name> [.'$platforms'.0.'|'.4]", (path ? lpath : null)])
             return false;
         }
     }
     if (val.hasOwnProperty("versions"))
     {
+        lpath = path ? path.concat(["versions"]) : null;
         pval = val["versions"];
         // .'$platforms'.0.'|'.4.versions
         res = Array.isArray(pval);
@@ -6273,20 +6402,20 @@ function _jm_obj_89(val, path, rep)
             for (let arr_90_idx = 0; arr_90_idx < pval.length; arr_90_idx++)
             {
                 let arr_90_item = pval[arr_90_idx]
-                let arr_90_lpath = path ? path.concat([arr_90_idx]) : null;
+                let arr_90_lpath = (path ? lpath : null) ? (path ? lpath : null).concat([arr_90_idx]) : null;
                 // .'$platforms'.0.'|'.4.versions.0
                 res = ((typeof arr_90_item === 'string' || arr_90_item instanceof String)) && arr_90_item == "all";
                 if (! res)
                 {
-                    rep !== null && rep.push(["unexpected all [.'$platforms'.0.'|'.4.versions.0]", (path ? arr_90_lpath : null)])
+                    rep !== null && rep.push(["unexpected all [.'$platforms'.0.'|'.4.versions.0]", ((path ? lpath : null) ? arr_90_lpath : null)])
                     break;
                 }
             }
         }
         if (! res)
         {
-            rep !== null && rep.push(["not array or unexpected array [.'$platforms'.0.'|'.4.versions]", path])
-            rep !== null && rep.push(["unexpected value for optional prop <versions> [.'$platforms'.0.'|'.4]", path])
+            rep !== null && rep.push(["not array or unexpected array [.'$platforms'.0.'|'.4.versions]", (path ? lpath : null)])
+            rep !== null && rep.push(["unexpected value for optional prop <versions> [.'$platforms'.0.'|'.4]", (path ? lpath : null)])
             return false;
         }
     }
@@ -6303,22 +6432,25 @@ function _jm_obj_90(val, path, rep)
         rep !== null && rep.push(["not an object [.'$platforms'.0.'|'.3]", path])
         return false;
     }
+    let lpath;
     let pval;
     let res;
     if (val.hasOwnProperty("name"))
     {
+        lpath = path ? path.concat(["name"]) : null;
         pval = val["name"];
         // .'$platforms'.0.'|'.3.name
         res = ((typeof pval === 'string' || pval instanceof String)) && pval == "Amazon Linux";
         if (! res)
         {
-            rep !== null && rep.push(["unexpected _Amazon Linux [.'$platforms'.0.'|'.3.name]", path])
-            rep !== null && rep.push(["unexpected value for optional prop <name> [.'$platforms'.0.'|'.3]", path])
+            rep !== null && rep.push(["unexpected _Amazon Linux [.'$platforms'.0.'|'.3.name]", (path ? lpath : null)])
+            rep !== null && rep.push(["unexpected value for optional prop <name> [.'$platforms'.0.'|'.3]", (path ? lpath : null)])
             return false;
         }
     }
     if (val.hasOwnProperty("versions"))
     {
+        lpath = path ? path.concat(["versions"]) : null;
         pval = val["versions"];
         // .'$platforms'.0.'|'.3.versions
         res = Array.isArray(pval);
@@ -6327,20 +6459,20 @@ function _jm_obj_90(val, path, rep)
             for (let arr_91_idx = 0; arr_91_idx < pval.length; arr_91_idx++)
             {
                 let arr_91_item = pval[arr_91_idx]
-                let arr_91_lpath = path ? path.concat([arr_91_idx]) : null;
+                let arr_91_lpath = (path ? lpath : null) ? (path ? lpath : null).concat([arr_91_idx]) : null;
                 // .'$platforms'.0.'|'.3.versions.0
                 res = ((arr_91_item === null || (typeof arr_91_item === 'number' || arr_91_item instanceof Number) || (typeof arr_91_item === 'boolean' || arr_91_item instanceof Boolean) || (typeof arr_91_item === 'string' || arr_91_item instanceof String))) && _jm_cst_61.has(arr_91_item);
                 if (! res)
                 {
-                    rep !== null && rep.push(["value not in enum [.'$platforms'.0.'|'.3.versions.0.'|']", (path ? arr_91_lpath : null)])
+                    rep !== null && rep.push(["value not in enum [.'$platforms'.0.'|'.3.versions.0.'|']", ((path ? lpath : null) ? arr_91_lpath : null)])
                     break;
                 }
             }
         }
         if (! res)
         {
-            rep !== null && rep.push(["not array or unexpected array [.'$platforms'.0.'|'.3.versions]", path])
-            rep !== null && rep.push(["unexpected value for optional prop <versions> [.'$platforms'.0.'|'.3]", path])
+            rep !== null && rep.push(["not array or unexpected array [.'$platforms'.0.'|'.3.versions]", (path ? lpath : null)])
+            rep !== null && rep.push(["unexpected value for optional prop <versions> [.'$platforms'.0.'|'.3]", (path ? lpath : null)])
             return false;
         }
     }
@@ -6357,22 +6489,25 @@ function _jm_obj_91(val, path, rep)
         rep !== null && rep.push(["not an object [.'$platforms'.0.'|'.2]", path])
         return false;
     }
+    let lpath;
     let pval;
     let res;
     if (val.hasOwnProperty("name"))
     {
+        lpath = path ? path.concat(["name"]) : null;
         pval = val["name"];
         // .'$platforms'.0.'|'.2.name
         res = ((typeof pval === 'string' || pval instanceof String)) && pval == "Amazon";
         if (! res)
         {
-            rep !== null && rep.push(["unexpected _Amazon [.'$platforms'.0.'|'.2.name]", path])
-            rep !== null && rep.push(["unexpected value for optional prop <name> [.'$platforms'.0.'|'.2]", path])
+            rep !== null && rep.push(["unexpected _Amazon [.'$platforms'.0.'|'.2.name]", (path ? lpath : null)])
+            rep !== null && rep.push(["unexpected value for optional prop <name> [.'$platforms'.0.'|'.2]", (path ? lpath : null)])
             return false;
         }
     }
     if (val.hasOwnProperty("versions"))
     {
+        lpath = path ? path.concat(["versions"]) : null;
         pval = val["versions"];
         // .'$platforms'.0.'|'.2.versions
         res = Array.isArray(pval);
@@ -6381,20 +6516,20 @@ function _jm_obj_91(val, path, rep)
             for (let arr_92_idx = 0; arr_92_idx < pval.length; arr_92_idx++)
             {
                 let arr_92_item = pval[arr_92_idx]
-                let arr_92_lpath = path ? path.concat([arr_92_idx]) : null;
+                let arr_92_lpath = (path ? lpath : null) ? (path ? lpath : null).concat([arr_92_idx]) : null;
                 // .'$platforms'.0.'|'.2.versions.0
                 res = ((arr_92_item === null || (typeof arr_92_item === 'number' || arr_92_item instanceof Number) || (typeof arr_92_item === 'boolean' || arr_92_item instanceof Boolean) || (typeof arr_92_item === 'string' || arr_92_item instanceof String))) && _jm_cst_62.has(arr_92_item);
                 if (! res)
                 {
-                    rep !== null && rep.push(["value not in enum [.'$platforms'.0.'|'.2.versions.0.'|']", (path ? arr_92_lpath : null)])
+                    rep !== null && rep.push(["value not in enum [.'$platforms'.0.'|'.2.versions.0.'|']", ((path ? lpath : null) ? arr_92_lpath : null)])
                     break;
                 }
             }
         }
         if (! res)
         {
-            rep !== null && rep.push(["not array or unexpected array [.'$platforms'.0.'|'.2.versions]", path])
-            rep !== null && rep.push(["unexpected value for optional prop <versions> [.'$platforms'.0.'|'.2]", path])
+            rep !== null && rep.push(["not array or unexpected array [.'$platforms'.0.'|'.2.versions]", (path ? lpath : null)])
+            rep !== null && rep.push(["unexpected value for optional prop <versions> [.'$platforms'.0.'|'.2]", (path ? lpath : null)])
             return false;
         }
     }
@@ -6410,22 +6545,25 @@ function _jm_obj_92(val, path, rep)
         rep !== null && rep.push(["not an object [.'$platforms'.0.'|'.1]", path])
         return false;
     }
+    let lpath;
     let pval;
     let res;
     if (val.hasOwnProperty("name"))
     {
+        lpath = path ? path.concat(["name"]) : null;
         pval = val["name"];
         // .'$platforms'.0.'|'.1.name
         res = ((typeof pval === 'string' || pval instanceof String)) && pval == "Alpine";
         if (! res)
         {
-            rep !== null && rep.push(["unexpected _Alpine [.'$platforms'.0.'|'.1.name]", path])
-            rep !== null && rep.push(["unexpected value for optional prop <name> [.'$platforms'.0.'|'.1]", path])
+            rep !== null && rep.push(["unexpected _Alpine [.'$platforms'.0.'|'.1.name]", (path ? lpath : null)])
+            rep !== null && rep.push(["unexpected value for optional prop <name> [.'$platforms'.0.'|'.1]", (path ? lpath : null)])
             return false;
         }
     }
     if (val.hasOwnProperty("versions"))
     {
+        lpath = path ? path.concat(["versions"]) : null;
         pval = val["versions"];
         // .'$platforms'.0.'|'.1.versions
         res = Array.isArray(pval);
@@ -6434,20 +6572,20 @@ function _jm_obj_92(val, path, rep)
             for (let arr_93_idx = 0; arr_93_idx < pval.length; arr_93_idx++)
             {
                 let arr_93_item = pval[arr_93_idx]
-                let arr_93_lpath = path ? path.concat([arr_93_idx]) : null;
+                let arr_93_lpath = (path ? lpath : null) ? (path ? lpath : null).concat([arr_93_idx]) : null;
                 // .'$platforms'.0.'|'.1.versions.0
                 res = ((typeof arr_93_item === 'string' || arr_93_item instanceof String)) && arr_93_item == "all";
                 if (! res)
                 {
-                    rep !== null && rep.push(["unexpected all [.'$platforms'.0.'|'.1.versions.0]", (path ? arr_93_lpath : null)])
+                    rep !== null && rep.push(["unexpected all [.'$platforms'.0.'|'.1.versions.0]", ((path ? lpath : null) ? arr_93_lpath : null)])
                     break;
                 }
             }
         }
         if (! res)
         {
-            rep !== null && rep.push(["not array or unexpected array [.'$platforms'.0.'|'.1.versions]", path])
-            rep !== null && rep.push(["unexpected value for optional prop <versions> [.'$platforms'.0.'|'.1]", path])
+            rep !== null && rep.push(["not array or unexpected array [.'$platforms'.0.'|'.1.versions]", (path ? lpath : null)])
+            rep !== null && rep.push(["unexpected value for optional prop <versions> [.'$platforms'.0.'|'.1]", (path ? lpath : null)])
             return false;
         }
     }
@@ -6464,22 +6602,25 @@ function _jm_obj_93(val, path, rep)
         rep !== null && rep.push(["not an object [.'$platforms'.0.'|'.0]", path])
         return false;
     }
+    let lpath;
     let pval;
     let res;
     if (val.hasOwnProperty("name"))
     {
+        lpath = path ? path.concat(["name"]) : null;
         pval = val["name"];
         // .'$platforms'.0.'|'.0.name
         res = ((typeof pval === 'string' || pval instanceof String)) && pval == "AIX";
         if (! res)
         {
-            rep !== null && rep.push(["unexpected _AIX [.'$platforms'.0.'|'.0.name]", path])
-            rep !== null && rep.push(["unexpected value for optional prop <name> [.'$platforms'.0.'|'.0]", path])
+            rep !== null && rep.push(["unexpected _AIX [.'$platforms'.0.'|'.0.name]", (path ? lpath : null)])
+            rep !== null && rep.push(["unexpected value for optional prop <name> [.'$platforms'.0.'|'.0]", (path ? lpath : null)])
             return false;
         }
     }
     if (val.hasOwnProperty("versions"))
     {
+        lpath = path ? path.concat(["versions"]) : null;
         pval = val["versions"];
         // .'$platforms'.0.'|'.0.versions
         res = Array.isArray(pval);
@@ -6488,20 +6629,20 @@ function _jm_obj_93(val, path, rep)
             for (let arr_94_idx = 0; arr_94_idx < pval.length; arr_94_idx++)
             {
                 let arr_94_item = pval[arr_94_idx]
-                let arr_94_lpath = path ? path.concat([arr_94_idx]) : null;
+                let arr_94_lpath = (path ? lpath : null) ? (path ? lpath : null).concat([arr_94_idx]) : null;
                 // .'$platforms'.0.'|'.0.versions.0
                 res = ((arr_94_item === null || (typeof arr_94_item === 'number' || arr_94_item instanceof Number) || (typeof arr_94_item === 'boolean' || arr_94_item instanceof Boolean) || (typeof arr_94_item === 'string' || arr_94_item instanceof String))) && _jm_cst_63.has(arr_94_item);
                 if (! res)
                 {
-                    rep !== null && rep.push(["value not in enum [.'$platforms'.0.'|'.0.versions.0.'|']", (path ? arr_94_lpath : null)])
+                    rep !== null && rep.push(["value not in enum [.'$platforms'.0.'|'.0.versions.0.'|']", ((path ? lpath : null) ? arr_94_lpath : null)])
                     break;
                 }
             }
         }
         if (! res)
         {
-            rep !== null && rep.push(["not array or unexpected array [.'$platforms'.0.'|'.0.versions]", path])
-            rep !== null && rep.push(["unexpected value for optional prop <versions> [.'$platforms'.0.'|'.0]", path])
+            rep !== null && rep.push(["not array or unexpected array [.'$platforms'.0.'|'.0.versions]", (path ? lpath : null)])
+            rep !== null && rep.push(["unexpected value for optional prop <versions> [.'$platforms'.0.'|'.0]", (path ? lpath : null)])
             return false;
         }
     }
@@ -8218,77 +8359,84 @@ function _jm_obj_99(val, path, rep)
         rep !== null && rep.push(["not an object [.'$DependencyModelLoose']", path])
         return false;
     }
+    let lpath;
     let pval;
     let res;
     if (val.hasOwnProperty("become"))
     {
+        lpath = path ? path.concat(["become"]) : null;
         pval = val["become"];
         // .'$DependencyModelLoose'.become
         res = (typeof pval === 'boolean' || pval instanceof Boolean);
         if (! res)
         {
-            rep !== null && rep.push(["not a bool [.'$DependencyModelLoose'.become]", path])
-            rep !== null && rep.push(["unexpected value for optional prop <become> [.'$DependencyModelLoose']", path])
+            rep !== null && rep.push(["not a bool [.'$DependencyModelLoose'.become]", (path ? lpath : null)])
+            rep !== null && rep.push(["unexpected value for optional prop <become> [.'$DependencyModelLoose']", (path ? lpath : null)])
             return false;
         }
     }
     if (val.hasOwnProperty("name"))
     {
+        lpath = path ? path.concat(["name"]) : null;
         pval = val["name"];
         // .'$DependencyModelLoose'.name
         res = (typeof pval === 'string' || pval instanceof String);
         if (! res)
         {
-            rep !== null && rep.push(["unexpected string [.'$DependencyModelLoose'.name]", path])
-            rep !== null && rep.push(["unexpected value for optional prop <name> [.'$DependencyModelLoose']", path])
+            rep !== null && rep.push(["unexpected string [.'$DependencyModelLoose'.name]", (path ? lpath : null)])
+            rep !== null && rep.push(["unexpected value for optional prop <name> [.'$DependencyModelLoose']", (path ? lpath : null)])
             return false;
         }
     }
     if (val.hasOwnProperty("role"))
     {
+        lpath = path ? path.concat(["role"]) : null;
         pval = val["role"];
         // .'$DependencyModelLoose'.role
         res = (typeof pval === 'string' || pval instanceof String);
         if (! res)
         {
-            rep !== null && rep.push(["unexpected string [.'$DependencyModelLoose'.role]", path])
-            rep !== null && rep.push(["unexpected value for optional prop <role> [.'$DependencyModelLoose']", path])
+            rep !== null && rep.push(["unexpected string [.'$DependencyModelLoose'.role]", (path ? lpath : null)])
+            rep !== null && rep.push(["unexpected value for optional prop <role> [.'$DependencyModelLoose']", (path ? lpath : null)])
             return false;
         }
     }
     if (val.hasOwnProperty("src"))
     {
+        lpath = path ? path.concat(["src"]) : null;
         pval = val["src"];
         // .'$DependencyModelLoose'.src
         res = (typeof pval === 'string' || pval instanceof String);
         if (! res)
         {
-            rep !== null && rep.push(["unexpected string [.'$DependencyModelLoose'.src]", path])
-            rep !== null && rep.push(["unexpected value for optional prop <src> [.'$DependencyModelLoose']", path])
+            rep !== null && rep.push(["unexpected string [.'$DependencyModelLoose'.src]", (path ? lpath : null)])
+            rep !== null && rep.push(["unexpected value for optional prop <src> [.'$DependencyModelLoose']", (path ? lpath : null)])
             return false;
         }
     }
     if (val.hasOwnProperty("scm"))
     {
+        lpath = path ? path.concat(["scm"]) : null;
         pval = val["scm"];
         // .'$DependencyModelLoose'.scm
         res = ((pval === null || (typeof pval === 'number' || pval instanceof Number) || (typeof pval === 'boolean' || pval instanceof Boolean) || (typeof pval === 'string' || pval instanceof String))) && _jm_cst_64.has(pval);
         if (! res)
         {
-            rep !== null && rep.push(["value not in enum [.'$DependencyModelLoose'.scm.'|']", path])
-            rep !== null && rep.push(["unexpected value for optional prop <scm> [.'$DependencyModelLoose']", path])
+            rep !== null && rep.push(["value not in enum [.'$DependencyModelLoose'.scm.'|']", (path ? lpath : null)])
+            rep !== null && rep.push(["unexpected value for optional prop <scm> [.'$DependencyModelLoose']", (path ? lpath : null)])
             return false;
         }
     }
     if (val.hasOwnProperty("tags"))
     {
+        lpath = path ? path.concat(["tags"]) : null;
         pval = val["tags"];
         // .'$DependencyModelLoose'.tags
         // .'$DependencyModelLoose'.tags.'|'.0
         res = (typeof pval === 'string' || pval instanceof String);
         if (! res)
         {
-            rep !== null && rep.push(["unexpected string [.'$DependencyModelLoose'.tags.'|'.0]", path])
+            rep !== null && rep.push(["unexpected string [.'$DependencyModelLoose'.tags.'|'.0]", (path ? lpath : null)])
         }
         if (! res)
         {
@@ -8299,19 +8447,19 @@ function _jm_obj_99(val, path, rep)
                 for (let arr_101_idx = 0; arr_101_idx < pval.length; arr_101_idx++)
                 {
                     let arr_101_item = pval[arr_101_idx]
-                    let arr_101_lpath = path ? path.concat([arr_101_idx]) : null;
+                    let arr_101_lpath = (path ? lpath : null) ? (path ? lpath : null).concat([arr_101_idx]) : null;
                     // .'$DependencyModelLoose'.tags.'|'.1.0
                     res = (typeof arr_101_item === 'string' || arr_101_item instanceof String);
                     if (! res)
                     {
-                        rep !== null && rep.push(["unexpected string [.'$DependencyModelLoose'.tags.'|'.1.0]", (path ? arr_101_lpath : null)])
+                        rep !== null && rep.push(["unexpected string [.'$DependencyModelLoose'.tags.'|'.1.0]", ((path ? lpath : null) ? arr_101_lpath : null)])
                         break;
                     }
                 }
             }
             if (! res)
             {
-                rep !== null && rep.push(["not array or unexpected array [.'$DependencyModelLoose'.tags.'|'.1]", path])
+                rep !== null && rep.push(["not array or unexpected array [.'$DependencyModelLoose'.tags.'|'.1]", (path ? lpath : null)])
             }
         }
         if (res)
@@ -8320,44 +8468,47 @@ function _jm_obj_99(val, path, rep)
         }
         else
         {
-            rep !== null && rep.push(["no model matched [.'$DependencyModelLoose'.tags.'|']", path])
-            rep !== null && rep.push(["unexpected value for optional prop <tags> [.'$DependencyModelLoose']", path])
+            rep !== null && rep.push(["no model matched [.'$DependencyModelLoose'.tags.'|']", (path ? lpath : null)])
+            rep !== null && rep.push(["unexpected value for optional prop <tags> [.'$DependencyModelLoose']", (path ? lpath : null)])
             return false;
         }
     }
     if (val.hasOwnProperty("vars"))
     {
+        lpath = path ? path.concat(["vars"]) : null;
         pval = val["vars"];
         // .'$DependencyModelLoose'.vars
-        res = _jm_obj_100(pval, path, rep);
+        res = _jm_obj_100(pval, (path ? lpath : null), rep);
         if (! res)
         {
-            rep !== null && rep.push(["unexpected element [.'$DependencyModelLoose'.vars]", path])
-            rep !== null && rep.push(["unexpected value for optional prop <vars> [.'$DependencyModelLoose']", path])
+            rep !== null && rep.push(["unexpected element [.'$DependencyModelLoose'.vars]", (path ? lpath : null)])
+            rep !== null && rep.push(["unexpected value for optional prop <vars> [.'$DependencyModelLoose']", (path ? lpath : null)])
             return false;
         }
     }
     if (val.hasOwnProperty("version"))
     {
+        lpath = path ? path.concat(["version"]) : null;
         pval = val["version"];
         // .'$DependencyModelLoose'.version
         res = (typeof pval === 'string' || pval instanceof String);
         if (! res)
         {
-            rep !== null && rep.push(["unexpected string [.'$DependencyModelLoose'.version]", path])
-            rep !== null && rep.push(["unexpected value for optional prop <version> [.'$DependencyModelLoose']", path])
+            rep !== null && rep.push(["unexpected string [.'$DependencyModelLoose'.version]", (path ? lpath : null)])
+            rep !== null && rep.push(["unexpected value for optional prop <version> [.'$DependencyModelLoose']", (path ? lpath : null)])
             return false;
         }
     }
     if (val.hasOwnProperty("when"))
     {
+        lpath = path ? path.concat(["when"]) : null;
         pval = val["when"];
         // .'$DependencyModelLoose'.when
-        res = json_model_56(pval, path, rep);
+        res = json_model_56(pval, (path ? lpath : null), rep);
         if (! res)
         {
-            rep !== null && rep.push(["unexpected $complex_conditional [.'$DependencyModelLoose'.when]", path])
-            rep !== null && rep.push(["unexpected value for optional prop <when> [.'$DependencyModelLoose']", path])
+            rep !== null && rep.push(["unexpected $complex_conditional [.'$DependencyModelLoose'.when]", (path ? lpath : null)])
+            rep !== null && rep.push(["unexpected value for optional prop <when> [.'$DependencyModelLoose']", (path ? lpath : null)])
             return false;
         }
     }
@@ -8389,6 +8540,7 @@ function _jm_obj_101(val, path, rep)
         rep !== null && rep.push(["not an object [.'$DependencyModel'.'&'.1.'|'.2]", path])
         return false;
     }
+    let lpath;
     let pval;
     let res;
     if (! val.hasOwnProperty("name"))
@@ -8396,13 +8548,14 @@ function _jm_obj_101(val, path, rep)
         rep !== null && rep.push(["missing mandatory prop <name> [.'$DependencyModel'.'&'.1.'|'.2]", path])
         return false;
     }
+    lpath = path ? path.concat(["name"]) : null;
     pval = val["name"];
     // .'$DependencyModel'.'&'.1.'|'.2.name
     res = (typeof pval === 'string' || pval instanceof String);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected string [.'$DependencyModel'.'&'.1.'|'.2.name]", path])
-        rep !== null && rep.push(["unexpected value for mandatory prop <name> [.'$DependencyModel'.'&'.1.'|'.2]", path])
+        rep !== null && rep.push(["unexpected string [.'$DependencyModel'.'&'.1.'|'.2.name]", (path ? lpath : null)])
+        rep !== null && rep.push(["unexpected value for mandatory prop <name> [.'$DependencyModel'.'&'.1.'|'.2]", (path ? lpath : null)])
         return false;
     }
     return true;
@@ -8417,6 +8570,7 @@ function _jm_obj_102(val, path, rep)
         rep !== null && rep.push(["not an object [.'$DependencyModel'.'&'.1.'|'.1]", path])
         return false;
     }
+    let lpath;
     let pval;
     let res;
     if (! val.hasOwnProperty("src"))
@@ -8424,13 +8578,14 @@ function _jm_obj_102(val, path, rep)
         rep !== null && rep.push(["missing mandatory prop <src> [.'$DependencyModel'.'&'.1.'|'.1]", path])
         return false;
     }
+    lpath = path ? path.concat(["src"]) : null;
     pval = val["src"];
     // .'$DependencyModel'.'&'.1.'|'.1.src
     res = (typeof pval === 'string' || pval instanceof String);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected string [.'$DependencyModel'.'&'.1.'|'.1.src]", path])
-        rep !== null && rep.push(["unexpected value for mandatory prop <src> [.'$DependencyModel'.'&'.1.'|'.1]", path])
+        rep !== null && rep.push(["unexpected string [.'$DependencyModel'.'&'.1.'|'.1.src]", (path ? lpath : null)])
+        rep !== null && rep.push(["unexpected value for mandatory prop <src> [.'$DependencyModel'.'&'.1.'|'.1]", (path ? lpath : null)])
         return false;
     }
     return true;
@@ -8445,6 +8600,7 @@ function _jm_obj_103(val, path, rep)
         rep !== null && rep.push(["not an object [.'$DependencyModel'.'&'.1.'|'.0]", path])
         return false;
     }
+    let lpath;
     let pval;
     let res;
     if (! val.hasOwnProperty("role"))
@@ -8452,13 +8608,14 @@ function _jm_obj_103(val, path, rep)
         rep !== null && rep.push(["missing mandatory prop <role> [.'$DependencyModel'.'&'.1.'|'.0]", path])
         return false;
     }
+    lpath = path ? path.concat(["role"]) : null;
     pval = val["role"];
     // .'$DependencyModel'.'&'.1.'|'.0.role
     res = (typeof pval === 'string' || pval instanceof String);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected string [.'$DependencyModel'.'&'.1.'|'.0.role]", path])
-        rep !== null && rep.push(["unexpected value for mandatory prop <role> [.'$DependencyModel'.'&'.1.'|'.0]", path])
+        rep !== null && rep.push(["unexpected string [.'$DependencyModel'.'&'.1.'|'.0.role]", (path ? lpath : null)])
+        rep !== null && rep.push(["unexpected value for mandatory prop <role> [.'$DependencyModel'.'&'.1.'|'.0]", (path ? lpath : null)])
         return false;
     }
     return true;

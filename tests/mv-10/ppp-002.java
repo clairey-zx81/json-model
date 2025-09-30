@@ -33,6 +33,7 @@ public class ppp_002 extends ModelChecker
             if (rep != null) rep.addEntry("bad property count [.]", path);
             return false;
         }
+        Path lpath;
         Object pval;
         boolean res;
         if (! json.objectHasProp(val, "a"))
@@ -40,13 +41,14 @@ public class ppp_002 extends ModelChecker
             if (rep != null) rep.addEntry("missing mandatory prop <a> [.]", path);
             return false;
         }
+        lpath = new Path("a", path);
         pval = json.objectValue(val, "a");
         // .a
         res = json.isInteger(pval) && json.asLong(pval) >= 0;
         if (! res)
         {
-            if (rep != null) rep.addEntry("not a 0 strict int [.a]", path);
-            if (rep != null) rep.addEntry("unexpected value for mandatory prop <a> [.]", path);
+            if (rep != null) rep.addEntry("not a 0 strict int [.a]", (path != null ? lpath : null));
+            if (rep != null) rep.addEntry("unexpected value for mandatory prop <a> [.]", (path != null ? lpath : null));
             return false;
         }
         if (! json.objectHasProp(val, "b"))
@@ -54,13 +56,14 @@ public class ppp_002 extends ModelChecker
             if (rep != null) rep.addEntry("missing mandatory prop <b> [.]", path);
             return false;
         }
+        lpath = new Path("b", path);
         pval = json.objectValue(val, "b");
         // .b
         res = json.isInteger(pval) && json.asLong(pval) >= 1;
         if (! res)
         {
-            if (rep != null) rep.addEntry("not a 1 strict int [.b]", path);
-            if (rep != null) rep.addEntry("unexpected value for mandatory prop <b> [.]", path);
+            if (rep != null) rep.addEntry("not a 1 strict int [.b]", (path != null ? lpath : null));
+            if (rep != null) rep.addEntry("unexpected value for mandatory prop <b> [.]", (path != null ? lpath : null));
             return false;
         }
         if (! json.objectHasProp(val, "c"))
@@ -68,13 +71,14 @@ public class ppp_002 extends ModelChecker
             if (rep != null) rep.addEntry("missing mandatory prop <c> [.]", path);
             return false;
         }
+        lpath = new Path("c", path);
         pval = json.objectValue(val, "c");
         // .c
         res = json.isInteger(pval);
         if (! res)
         {
-            if (rep != null) rep.addEntry("not a -1 strict int [.c]", path);
-            if (rep != null) rep.addEntry("unexpected value for mandatory prop <c> [.]", path);
+            if (rep != null) rep.addEntry("not a -1 strict int [.c]", (path != null ? lpath : null));
+            if (rep != null) rep.addEntry("unexpected value for mandatory prop <c> [.]", (path != null ? lpath : null));
             return false;
         }
         return true;

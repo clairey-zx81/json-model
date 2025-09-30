@@ -425,6 +425,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
             if (rep != null) rep.addEntry("bad property count [.'$Null']", path);
             return false;
         }
+        Path lpath;
         Object pval;
         boolean res;
         if (! json.objectHasProp(val, "type"))
@@ -432,13 +433,14 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
             if (rep != null) rep.addEntry("missing mandatory prop <type> [.'$Null']", path);
             return false;
         }
+        lpath = new Path("type", path);
         pval = json.objectValue(val, "type");
         // .'$Null'.type
         res = json.isString(pval) && json.asString(pval).compareTo("null") == 0;
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected _null [.'$Null'.type]", path);
-            if (rep != null) rep.addEntry("unexpected value for mandatory prop <type> [.'$Null']", path);
+            if (rep != null) rep.addEntry("unexpected _null [.'$Null'.type]", (path != null ? lpath : null));
+            if (rep != null) rep.addEntry("unexpected value for mandatory prop <type> [.'$Null']", (path != null ? lpath : null));
             return false;
         }
         return true;
@@ -471,6 +473,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
             if (rep != null) rep.addEntry("bad property count [.'$Boolean']", path);
             return false;
         }
+        Path lpath;
         Object pval;
         boolean res;
         if (! json.objectHasProp(val, "type"))
@@ -478,13 +481,14 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
             if (rep != null) rep.addEntry("missing mandatory prop <type> [.'$Boolean']", path);
             return false;
         }
+        lpath = new Path("type", path);
         pval = json.objectValue(val, "type");
         // .'$Boolean'.type
         res = json.isString(pval) && json.asString(pval).compareTo("boolean") == 0;
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected _boolean [.'$Boolean'.type]", path);
-            if (rep != null) rep.addEntry("unexpected value for mandatory prop <type> [.'$Boolean']", path);
+            if (rep != null) rep.addEntry("unexpected _boolean [.'$Boolean'.type]", (path != null ? lpath : null));
+            if (rep != null) rep.addEntry("unexpected value for mandatory prop <type> [.'$Boolean']", (path != null ? lpath : null));
             return false;
         }
         return true;

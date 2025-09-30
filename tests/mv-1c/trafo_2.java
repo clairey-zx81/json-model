@@ -103,6 +103,7 @@ public class trafo_2 extends ModelChecker
             if (rep != null) rep.addEntry("bad property count [.'$Zz#zero']", path);
             return false;
         }
+        Path lpath;
         Object pval;
         boolean res;
         if (! json.objectHasProp(val, "za"))
@@ -110,13 +111,14 @@ public class trafo_2 extends ModelChecker
             if (rep != null) rep.addEntry("missing mandatory prop <za> [.'$Zz#zero']", path);
             return false;
         }
+        lpath = new Path("za", path);
         pval = json.objectValue(val, "za");
         // .'$Zz#zero'.za
         res = json.isInteger(pval) && json.asLong(pval) >= 0;
         if (! res)
         {
-            if (rep != null) rep.addEntry("not a 0 strict int [.'$Zz#zero'.za]", path);
-            if (rep != null) rep.addEntry("unexpected value for mandatory prop <za> [.'$Zz#zero']", path);
+            if (rep != null) rep.addEntry("not a 0 strict int [.'$Zz#zero'.za]", (path != null ? lpath : null));
+            if (rep != null) rep.addEntry("unexpected value for mandatory prop <za> [.'$Zz#zero']", (path != null ? lpath : null));
             return false;
         }
         if (! json.objectHasProp(val, "zb"))
@@ -124,13 +126,14 @@ public class trafo_2 extends ModelChecker
             if (rep != null) rep.addEntry("missing mandatory prop <zb> [.'$Zz#zero']", path);
             return false;
         }
+        lpath = new Path("zb", path);
         pval = json.objectValue(val, "zb");
         // .'$Zz#zero'.zb
         res = json.isInteger(pval) && json.asLong(pval) >= 0;
         if (! res)
         {
-            if (rep != null) rep.addEntry("not a 0 strict int [.'$Zz#zero'.zb]", path);
-            if (rep != null) rep.addEntry("unexpected value for mandatory prop <zb> [.'$Zz#zero']", path);
+            if (rep != null) rep.addEntry("not a 0 strict int [.'$Zz#zero'.zb]", (path != null ? lpath : null));
+            if (rep != null) rep.addEntry("unexpected value for mandatory prop <zb> [.'$Zz#zero']", (path != null ? lpath : null));
             return false;
         }
         return true;

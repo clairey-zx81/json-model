@@ -707,6 +707,7 @@ static INLINE bool _jm_obj_4(const json_t *val, jm_path_t *path, jm_report_t *re
         if (rep) jm_report_add_entry(rep, "bad property count [.'$Null']", path);
         return false;
     }
+    jm_path_t lpath;
     json_t * pval;
     bool res;
     if (! (json_object_get(val, "type") != NULL))
@@ -714,13 +715,14 @@ static INLINE bool _jm_obj_4(const json_t *val, jm_path_t *path, jm_report_t *re
         if (rep) jm_report_add_entry(rep, "missing mandatory prop <type> [.'$Null']", path);
         return false;
     }
+    lpath = (jm_path_t) { "type", 0, path, NULL };
     pval = json_object_get(val, "type");
     // .'$Null'.type
     res = json_is_string(pval) && strcmp(json_string_value(pval), "null") == 0;
     if (! res)
     {
-        if (rep) jm_report_add_entry(rep, "unexpected _null [.'$Null'.type]", path);
-        if (rep) jm_report_add_entry(rep, "unexpected value for mandatory prop <type> [.'$Null']", path);
+        if (rep) jm_report_add_entry(rep, "unexpected _null [.'$Null'.type]", (path ? &lpath : NULL));
+        if (rep) jm_report_add_entry(rep, "unexpected value for mandatory prop <type> [.'$Null']", (path ? &lpath : NULL));
         return false;
     }
     return true;
@@ -753,6 +755,7 @@ static INLINE bool _jm_obj_5(const json_t *val, jm_path_t *path, jm_report_t *re
         if (rep) jm_report_add_entry(rep, "bad property count [.'$Boolean']", path);
         return false;
     }
+    jm_path_t lpath;
     json_t * pval;
     bool res;
     if (! (json_object_get(val, "type") != NULL))
@@ -760,13 +763,14 @@ static INLINE bool _jm_obj_5(const json_t *val, jm_path_t *path, jm_report_t *re
         if (rep) jm_report_add_entry(rep, "missing mandatory prop <type> [.'$Boolean']", path);
         return false;
     }
+    lpath = (jm_path_t) { "type", 0, path, NULL };
     pval = json_object_get(val, "type");
     // .'$Boolean'.type
     res = json_is_string(pval) && strcmp(json_string_value(pval), "boolean") == 0;
     if (! res)
     {
-        if (rep) jm_report_add_entry(rep, "unexpected _boolean [.'$Boolean'.type]", path);
-        if (rep) jm_report_add_entry(rep, "unexpected value for mandatory prop <type> [.'$Boolean']", path);
+        if (rep) jm_report_add_entry(rep, "unexpected _boolean [.'$Boolean'.type]", (path ? &lpath : NULL));
+        if (rep) jm_report_add_entry(rep, "unexpected value for mandatory prop <type> [.'$Boolean']", (path ? &lpath : NULL));
         return false;
     }
     return true;

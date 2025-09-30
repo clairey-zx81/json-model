@@ -28,27 +28,30 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.]", path))
         return False
+    lpath: Path
     pval: Jsonable
     res: bool
     if not "name" in val:
         rep is None or rep.append(("missing mandatory prop <name> [.]", path))
         return False
+    lpath = (path + [ "name" ]) if path is not None else None
     pval = val.get("name", UNDEFINED)
     # .name
     res = isinstance(pval, str)
     if not res:
-        rep is None or rep.append(("unexpected string [.name]", path))
-        rep is None or rep.append(("unexpected value for mandatory prop <name> [.]", path))
+        rep is None or rep.append(("unexpected string [.name]", lpath if path is not None else None))
+        rep is None or rep.append(("unexpected value for mandatory prop <name> [.]", lpath if path is not None else None))
         return False
     if not ("born" in val):
         rep is None or rep.append(("missing mandatory prop <born> [.]", path))
         return False
+    lpath = (path + [ "born" ]) if path is not None else None
     pval = val.get("born", UNDEFINED)
     # .born
-    res = is_valid_date(pval, path, rep)
+    res = is_valid_date(pval, lpath if path is not None else None, rep)
     if not res:
-        rep is None or rep.append(("unexpected $DATE [.born]", path))
-        rep is None or rep.append(("unexpected value for mandatory prop <born> [.]", path))
+        rep is None or rep.append(("unexpected $DATE [.born]", lpath if path is not None else None))
+        rep is None or rep.append(("unexpected value for mandatory prop <born> [.]", lpath if path is not None else None))
         return False
     return True
 

@@ -195,7 +195,7 @@ def _jm_obj_5(val: Jsonable, path: Path, rep: Report) -> bool:
         return False
     pval = val.get("t", UNDEFINED)
     # .'$alternative'.'|'.3.t
-    res = json_model_3(pval, path, rep)
+    res = json_model_3(pval, None, rep)
     if not res:
         return False
     if not "hi" in val:

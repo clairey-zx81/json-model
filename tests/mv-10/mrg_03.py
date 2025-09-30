@@ -31,37 +31,41 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
     if len(val) != 3:
         rep is None or rep.append(("bad property count [.]", path))
         return False
+    lpath: Path
     pval: Jsonable
     res: bool
     if not "a" in val:
         rep is None or rep.append(("missing mandatory prop <a> [.]", path))
         return False
+    lpath = (path + [ "a" ]) if path is not None else None
     pval = val.get("a", UNDEFINED)
     # .a
     res = isinstance(pval, int) and not isinstance(pval, bool) and pval >= 1
     if not res:
-        rep is None or rep.append(("not a 1 strict int [.a]", path))
-        rep is None or rep.append(("unexpected value for mandatory prop <a> [.]", path))
+        rep is None or rep.append(("not a 1 strict int [.a]", lpath if path is not None else None))
+        rep is None or rep.append(("unexpected value for mandatory prop <a> [.]", lpath if path is not None else None))
         return False
     if not "b" in val:
         rep is None or rep.append(("missing mandatory prop <b> [.]", path))
         return False
+    lpath = (path + [ "b" ]) if path is not None else None
     pval = val.get("b", UNDEFINED)
     # .b
     res = isinstance(pval, str)
     if not res:
-        rep is None or rep.append(("unexpected string [.b]", path))
-        rep is None or rep.append(("unexpected value for mandatory prop <b> [.]", path))
+        rep is None or rep.append(("unexpected string [.b]", lpath if path is not None else None))
+        rep is None or rep.append(("unexpected value for mandatory prop <b> [.]", lpath if path is not None else None))
         return False
     if not "c" in val:
         rep is None or rep.append(("missing mandatory prop <c> [.]", path))
         return False
+    lpath = (path + [ "c" ]) if path is not None else None
     pval = val.get("c", UNDEFINED)
     # .c
     res = isinstance(pval, float) and pval > 0.0
     if not res:
-        rep is None or rep.append(("not a 1.0 strict float [.c]", path))
-        rep is None or rep.append(("unexpected value for mandatory prop <c> [.]", path))
+        rep is None or rep.append(("not a 1.0 strict float [.c]", lpath if path is not None else None))
+        rep is None or rep.append(("unexpected value for mandatory prop <c> [.]", lpath if path is not None else None))
         return False
     return True
 

@@ -508,25 +508,27 @@ def _jm_obj_2(val: Jsonable, path: Path, rep: Report) -> bool:
     if len(val) != 1:
         rep is None or rep.append(("bad property count [.'$Or']", path))
         return False
+    lpath: Path
     pval: Jsonable
     res: bool
     if not "|" in val:
         rep is None or rep.append(("missing mandatory prop <|> [.'$Or']", path))
         return False
+    lpath = (path + [ "|" ]) if path is not None else None
     pval = val.get("|", UNDEFINED)
     # .'$Or'.'|'
     res = isinstance(pval, list)
     if res:
         for arr_1_idx, arr_1_item in enumerate(pval):
-            arr_1_lpath: Path = (path + [ arr_1_idx ]) if path is not None else None
+            arr_1_lpath: Path = ((lpath if path is not None else None) + [ arr_1_idx ]) if (lpath if path is not None else None) is not None else None
             # .'$Or'.'|'.0
-            res = json_model_18(arr_1_item, arr_1_lpath if path is not None else None, rep)
+            res = json_model_18(arr_1_item, arr_1_lpath if (lpath if path is not None else None) is not None else None, rep)
             if not res:
-                rep is None or rep.append(("unexpected $CModel [.'$Or'.'|'.0]", arr_1_lpath if path is not None else None))
+                rep is None or rep.append(("unexpected $CModel [.'$Or'.'|'.0]", arr_1_lpath if (lpath if path is not None else None) is not None else None))
                 break
     if not res:
-        rep is None or rep.append(("not array or unexpected array [.'$Or'.'|']", path))
-        rep is None or rep.append(("unexpected value for mandatory prop <|> [.'$Or']", path))
+        rep is None or rep.append(("not array or unexpected array [.'$Or'.'|']", lpath if path is not None else None))
+        rep is None or rep.append(("unexpected value for mandatory prop <|> [.'$Or']", lpath if path is not None else None))
         return False
     return True
 
@@ -548,25 +550,27 @@ def _jm_obj_3(val: Jsonable, path: Path, rep: Report) -> bool:
     if len(val) != 1:
         rep is None or rep.append(("bad property count [.'$And']", path))
         return False
+    lpath: Path
     pval: Jsonable
     res: bool
     if not "&" in val:
         rep is None or rep.append(("missing mandatory prop <&> [.'$And']", path))
         return False
+    lpath = (path + [ "&" ]) if path is not None else None
     pval = val.get("&", UNDEFINED)
     # .'$And'.'&'
     res = isinstance(pval, list)
     if res:
         for arr_2_idx, arr_2_item in enumerate(pval):
-            arr_2_lpath: Path = (path + [ arr_2_idx ]) if path is not None else None
+            arr_2_lpath: Path = ((lpath if path is not None else None) + [ arr_2_idx ]) if (lpath if path is not None else None) is not None else None
             # .'$And'.'&'.0
-            res = json_model_18(arr_2_item, arr_2_lpath if path is not None else None, rep)
+            res = json_model_18(arr_2_item, arr_2_lpath if (lpath if path is not None else None) is not None else None, rep)
             if not res:
-                rep is None or rep.append(("unexpected $CModel [.'$And'.'&'.0]", arr_2_lpath if path is not None else None))
+                rep is None or rep.append(("unexpected $CModel [.'$And'.'&'.0]", arr_2_lpath if (lpath if path is not None else None) is not None else None))
                 break
     if not res:
-        rep is None or rep.append(("not array or unexpected array [.'$And'.'&']", path))
-        rep is None or rep.append(("unexpected value for mandatory prop <&> [.'$And']", path))
+        rep is None or rep.append(("not array or unexpected array [.'$And'.'&']", lpath if path is not None else None))
+        rep is None or rep.append(("unexpected value for mandatory prop <&> [.'$And']", lpath if path is not None else None))
         return False
     return True
 
@@ -588,25 +592,27 @@ def _jm_obj_4(val: Jsonable, path: Path, rep: Report) -> bool:
     if len(val) != 1:
         rep is None or rep.append(("bad property count [.'$Xor']", path))
         return False
+    lpath: Path
     pval: Jsonable
     res: bool
     if not "^" in val:
         rep is None or rep.append(("missing mandatory prop <^> [.'$Xor']", path))
         return False
+    lpath = (path + [ "^" ]) if path is not None else None
     pval = val.get("^", UNDEFINED)
     # .'$Xor'.'^'
     res = isinstance(pval, list)
     if res:
         for arr_3_idx, arr_3_item in enumerate(pval):
-            arr_3_lpath: Path = (path + [ arr_3_idx ]) if path is not None else None
+            arr_3_lpath: Path = ((lpath if path is not None else None) + [ arr_3_idx ]) if (lpath if path is not None else None) is not None else None
             # .'$Xor'.'^'.0
-            res = json_model_18(arr_3_item, arr_3_lpath if path is not None else None, rep)
+            res = json_model_18(arr_3_item, arr_3_lpath if (lpath if path is not None else None) is not None else None, rep)
             if not res:
-                rep is None or rep.append(("unexpected $CModel [.'$Xor'.'^'.0]", arr_3_lpath if path is not None else None))
+                rep is None or rep.append(("unexpected $CModel [.'$Xor'.'^'.0]", arr_3_lpath if (lpath if path is not None else None) is not None else None))
                 break
     if not res:
-        rep is None or rep.append(("not array or unexpected array [.'$Xor'.'^']", path))
-        rep is None or rep.append(("unexpected value for mandatory prop <^> [.'$Xor']", path))
+        rep is None or rep.append(("not array or unexpected array [.'$Xor'.'^']", lpath if path is not None else None))
+        rep is None or rep.append(("unexpected value for mandatory prop <^> [.'$Xor']", lpath if path is not None else None))
         return False
     return True
 
@@ -628,25 +634,27 @@ def _jm_obj_5(val: Jsonable, path: Path, rep: Report) -> bool:
     if len(val) != 1:
         rep is None or rep.append(("bad property count [.'$Add']", path))
         return False
+    lpath: Path
     pval: Jsonable
     res: bool
     if not "+" in val:
         rep is None or rep.append(("missing mandatory prop <+> [.'$Add']", path))
         return False
+    lpath = (path + [ "+" ]) if path is not None else None
     pval = val.get("+", UNDEFINED)
     # .'$Add'.'+'
     res = isinstance(pval, list)
     if res:
         for arr_4_idx, arr_4_item in enumerate(pval):
-            arr_4_lpath: Path = (path + [ arr_4_idx ]) if path is not None else None
+            arr_4_lpath: Path = ((lpath if path is not None else None) + [ arr_4_idx ]) if (lpath if path is not None else None) is not None else None
             # .'$Add'.'+'.0
-            res = json_model_18(arr_4_item, arr_4_lpath if path is not None else None, rep)
+            res = json_model_18(arr_4_item, arr_4_lpath if (lpath if path is not None else None) is not None else None, rep)
             if not res:
-                rep is None or rep.append(("unexpected $CModel [.'$Add'.'+'.0]", arr_4_lpath if path is not None else None))
+                rep is None or rep.append(("unexpected $CModel [.'$Add'.'+'.0]", arr_4_lpath if (lpath if path is not None else None) is not None else None))
                 break
     if not res:
-        rep is None or rep.append(("not array or unexpected array [.'$Add'.'+']", path))
-        rep is None or rep.append(("unexpected value for mandatory prop <+> [.'$Add']", path))
+        rep is None or rep.append(("not array or unexpected array [.'$Add'.'+']", lpath if path is not None else None))
+        rep is None or rep.append(("unexpected value for mandatory prop <+> [.'$Add']", lpath if path is not None else None))
         return False
     return True
 

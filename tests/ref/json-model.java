@@ -730,6 +730,7 @@ public class json_model extends ModelChecker
             if (rep != null) rep.addEntry("bad property count [.'$Or']", path);
             return false;
         }
+        Path lpath;
         Object pval;
         boolean res;
         if (! json.objectHasProp(val, "|"))
@@ -737,6 +738,7 @@ public class json_model extends ModelChecker
             if (rep != null) rep.addEntry("missing mandatory prop <|> [.'$Or']", path);
             return false;
         }
+        lpath = new Path("|", path);
         pval = json.objectValue(val, "|");
         // .'$Or'.'|'
         res = json.isArray(pval);
@@ -748,20 +750,20 @@ public class json_model extends ModelChecker
             {
                 arr_1_idx++;
                 Object arr_1_item = arr_1_item_loop.next();
-                Path arr_1_lpath = new Path(arr_1_idx, path);
+                Path arr_1_lpath = new Path(arr_1_idx, (path != null ? lpath : null));
                 // .'$Or'.'|'.0
-                res = json_model_18(arr_1_item, (path != null ? arr_1_lpath : null), rep);
+                res = json_model_18(arr_1_item, ((path != null ? lpath : null) != null ? arr_1_lpath : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $CModel [.'$Or'.'|'.0]", (path != null ? arr_1_lpath : null));
+                    if (rep != null) rep.addEntry("unexpected $CModel [.'$Or'.'|'.0]", ((path != null ? lpath : null) != null ? arr_1_lpath : null));
                     break;
                 }
             }
         }
         if (! res)
         {
-            if (rep != null) rep.addEntry("not array or unexpected array [.'$Or'.'|']", path);
-            if (rep != null) rep.addEntry("unexpected value for mandatory prop <|> [.'$Or']", path);
+            if (rep != null) rep.addEntry("not array or unexpected array [.'$Or'.'|']", (path != null ? lpath : null));
+            if (rep != null) rep.addEntry("unexpected value for mandatory prop <|> [.'$Or']", (path != null ? lpath : null));
             return false;
         }
         return true;
@@ -794,6 +796,7 @@ public class json_model extends ModelChecker
             if (rep != null) rep.addEntry("bad property count [.'$And']", path);
             return false;
         }
+        Path lpath;
         Object pval;
         boolean res;
         if (! json.objectHasProp(val, "&"))
@@ -801,6 +804,7 @@ public class json_model extends ModelChecker
             if (rep != null) rep.addEntry("missing mandatory prop <&> [.'$And']", path);
             return false;
         }
+        lpath = new Path("&", path);
         pval = json.objectValue(val, "&");
         // .'$And'.'&'
         res = json.isArray(pval);
@@ -812,20 +816,20 @@ public class json_model extends ModelChecker
             {
                 arr_2_idx++;
                 Object arr_2_item = arr_2_item_loop.next();
-                Path arr_2_lpath = new Path(arr_2_idx, path);
+                Path arr_2_lpath = new Path(arr_2_idx, (path != null ? lpath : null));
                 // .'$And'.'&'.0
-                res = json_model_18(arr_2_item, (path != null ? arr_2_lpath : null), rep);
+                res = json_model_18(arr_2_item, ((path != null ? lpath : null) != null ? arr_2_lpath : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $CModel [.'$And'.'&'.0]", (path != null ? arr_2_lpath : null));
+                    if (rep != null) rep.addEntry("unexpected $CModel [.'$And'.'&'.0]", ((path != null ? lpath : null) != null ? arr_2_lpath : null));
                     break;
                 }
             }
         }
         if (! res)
         {
-            if (rep != null) rep.addEntry("not array or unexpected array [.'$And'.'&']", path);
-            if (rep != null) rep.addEntry("unexpected value for mandatory prop <&> [.'$And']", path);
+            if (rep != null) rep.addEntry("not array or unexpected array [.'$And'.'&']", (path != null ? lpath : null));
+            if (rep != null) rep.addEntry("unexpected value for mandatory prop <&> [.'$And']", (path != null ? lpath : null));
             return false;
         }
         return true;
@@ -858,6 +862,7 @@ public class json_model extends ModelChecker
             if (rep != null) rep.addEntry("bad property count [.'$Xor']", path);
             return false;
         }
+        Path lpath;
         Object pval;
         boolean res;
         if (! json.objectHasProp(val, "^"))
@@ -865,6 +870,7 @@ public class json_model extends ModelChecker
             if (rep != null) rep.addEntry("missing mandatory prop <^> [.'$Xor']", path);
             return false;
         }
+        lpath = new Path("^", path);
         pval = json.objectValue(val, "^");
         // .'$Xor'.'^'
         res = json.isArray(pval);
@@ -876,20 +882,20 @@ public class json_model extends ModelChecker
             {
                 arr_3_idx++;
                 Object arr_3_item = arr_3_item_loop.next();
-                Path arr_3_lpath = new Path(arr_3_idx, path);
+                Path arr_3_lpath = new Path(arr_3_idx, (path != null ? lpath : null));
                 // .'$Xor'.'^'.0
-                res = json_model_18(arr_3_item, (path != null ? arr_3_lpath : null), rep);
+                res = json_model_18(arr_3_item, ((path != null ? lpath : null) != null ? arr_3_lpath : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $CModel [.'$Xor'.'^'.0]", (path != null ? arr_3_lpath : null));
+                    if (rep != null) rep.addEntry("unexpected $CModel [.'$Xor'.'^'.0]", ((path != null ? lpath : null) != null ? arr_3_lpath : null));
                     break;
                 }
             }
         }
         if (! res)
         {
-            if (rep != null) rep.addEntry("not array or unexpected array [.'$Xor'.'^']", path);
-            if (rep != null) rep.addEntry("unexpected value for mandatory prop <^> [.'$Xor']", path);
+            if (rep != null) rep.addEntry("not array or unexpected array [.'$Xor'.'^']", (path != null ? lpath : null));
+            if (rep != null) rep.addEntry("unexpected value for mandatory prop <^> [.'$Xor']", (path != null ? lpath : null));
             return false;
         }
         return true;
@@ -922,6 +928,7 @@ public class json_model extends ModelChecker
             if (rep != null) rep.addEntry("bad property count [.'$Add']", path);
             return false;
         }
+        Path lpath;
         Object pval;
         boolean res;
         if (! json.objectHasProp(val, "+"))
@@ -929,6 +936,7 @@ public class json_model extends ModelChecker
             if (rep != null) rep.addEntry("missing mandatory prop <+> [.'$Add']", path);
             return false;
         }
+        lpath = new Path("+", path);
         pval = json.objectValue(val, "+");
         // .'$Add'.'+'
         res = json.isArray(pval);
@@ -940,20 +948,20 @@ public class json_model extends ModelChecker
             {
                 arr_4_idx++;
                 Object arr_4_item = arr_4_item_loop.next();
-                Path arr_4_lpath = new Path(arr_4_idx, path);
+                Path arr_4_lpath = new Path(arr_4_idx, (path != null ? lpath : null));
                 // .'$Add'.'+'.0
-                res = json_model_18(arr_4_item, (path != null ? arr_4_lpath : null), rep);
+                res = json_model_18(arr_4_item, ((path != null ? lpath : null) != null ? arr_4_lpath : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $CModel [.'$Add'.'+'.0]", (path != null ? arr_4_lpath : null));
+                    if (rep != null) rep.addEntry("unexpected $CModel [.'$Add'.'+'.0]", ((path != null ? lpath : null) != null ? arr_4_lpath : null));
                     break;
                 }
             }
         }
         if (! res)
         {
-            if (rep != null) rep.addEntry("not array or unexpected array [.'$Add'.'+']", path);
-            if (rep != null) rep.addEntry("unexpected value for mandatory prop <+> [.'$Add']", path);
+            if (rep != null) rep.addEntry("not array or unexpected array [.'$Add'.'+']", (path != null ? lpath : null));
+            if (rep != null) rep.addEntry("unexpected value for mandatory prop <+> [.'$Add']", (path != null ? lpath : null));
             return false;
         }
         return true;

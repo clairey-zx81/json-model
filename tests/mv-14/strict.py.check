@@ -1,7 +1,7 @@
 strict.values.json[0]: PASS
-strict.values.json[1]: FAIL (.: unexpected value for mandatory prop <si> [.]; .: not a 0 strict int [.si])
-strict.values.json[2]: FAIL (.: unexpected value for mandatory prop <si> [.]; .: not a 0 strict int [.si])
-strict.values.json[3]: FAIL (.: unexpected value for mandatory prop <si> [.]; .: not a 0 strict int [.si])
+strict.values.json[1]: FAIL (.si: unexpected value for mandatory prop <si> [.]; .si: not a 0 strict int [.si])
+strict.values.json[2]: FAIL (.si: unexpected value for mandatory prop <si> [.]; .si: not a 0 strict int [.si])
+strict.values.json[3]: FAIL (.si: unexpected value for mandatory prop <si> [.]; .si: not a 0 strict int [.si])
 strict.values.json[4]: FAIL (.: not an object [.])
 strict.values.json[5]: FAIL (.: not an object [.])
 strict.values.json[6]: FAIL (.: not an object [.])

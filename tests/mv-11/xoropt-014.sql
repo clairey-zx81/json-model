@@ -179,7 +179,7 @@ BEGIN
       tag_0 := pval -> 't';
       fun_0 := jm_cmap_get('_jm_map_0', tag_0);
       IF fun_0 IS NOT NULL THEN
-        res := jm_call(fun_0, pval, path, rep);
+        res := jm_call(fun_0, pval, NULL, rep);
       ELSE
         res := FALSE;
       END IF;

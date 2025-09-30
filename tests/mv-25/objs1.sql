@@ -75,7 +75,7 @@ BEGIN
   END IF;
   pval := val -> 'foo';
   -- .foo
-  res := _jm_obj_0(pval, path, rep);
+  res := _jm_obj_0(pval, NULL, rep);
   IF NOT res THEN
     RETURN FALSE;
   END IF;

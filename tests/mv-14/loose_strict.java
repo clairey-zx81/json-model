@@ -33,6 +33,7 @@ public class loose_strict extends ModelChecker
             if (rep != null) rep.addEntry("bad property count [.'$loose']", path);
             return false;
         }
+        Path lpath;
         Object pval;
         boolean res;
         if (! json.objectHasProp(val, "li"))
@@ -40,13 +41,14 @@ public class loose_strict extends ModelChecker
             if (rep != null) rep.addEntry("missing mandatory prop <li> [.'$loose']", path);
             return false;
         }
+        lpath = new Path("li", path);
         pval = json.objectValue(val, "li");
         // .'$loose'.li
         res = ((json.isInteger(pval) || (json.isDouble(pval) && json.asDouble(pval) == ((long) json.asDouble(pval))))) && json.asNumber(pval) >= 0;
         if (! res)
         {
-            if (rep != null) rep.addEntry("not a 0 loose int [.'$loose'.li]", path);
-            if (rep != null) rep.addEntry("unexpected value for mandatory prop <li> [.'$loose']", path);
+            if (rep != null) rep.addEntry("not a 0 loose int [.'$loose'.li]", (path != null ? lpath : null));
+            if (rep != null) rep.addEntry("unexpected value for mandatory prop <li> [.'$loose']", (path != null ? lpath : null));
             return false;
         }
         return true;
@@ -80,6 +82,7 @@ public class loose_strict extends ModelChecker
             if (rep != null) rep.addEntry("bad property count [.'$strict']", path);
             return false;
         }
+        Path lpath;
         Object pval;
         boolean res;
         if (! json.objectHasProp(val, "si"))
@@ -87,13 +90,14 @@ public class loose_strict extends ModelChecker
             if (rep != null) rep.addEntry("missing mandatory prop <si> [.'$strict']", path);
             return false;
         }
+        lpath = new Path("si", path);
         pval = json.objectValue(val, "si");
         // .'$strict'.si
         res = json.isInteger(pval) && json.asLong(pval) >= 0;
         if (! res)
         {
-            if (rep != null) rep.addEntry("not a 0 strict int [.'$strict'.si]", path);
-            if (rep != null) rep.addEntry("unexpected value for mandatory prop <si> [.'$strict']", path);
+            if (rep != null) rep.addEntry("not a 0 strict int [.'$strict'.si]", (path != null ? lpath : null));
+            if (rep != null) rep.addEntry("unexpected value for mandatory prop <si> [.'$strict']", (path != null ? lpath : null));
             return false;
         }
         return true;
@@ -127,6 +131,7 @@ public class loose_strict extends ModelChecker
             if (rep != null) rep.addEntry("bad property count [.'$combined']", path);
             return false;
         }
+        Path lpath;
         Object pval;
         boolean res;
         if (! json.objectHasProp(val, "li"))
@@ -134,13 +139,14 @@ public class loose_strict extends ModelChecker
             if (rep != null) rep.addEntry("missing mandatory prop <li> [.'$combined']", path);
             return false;
         }
+        lpath = new Path("li", path);
         pval = json.objectValue(val, "li");
         // .'$combined'.li
         res = json.isInteger(pval) && json.asLong(pval) >= 0;
         if (! res)
         {
-            if (rep != null) rep.addEntry("not a 0 strict int [.'$combined'.li]", path);
-            if (rep != null) rep.addEntry("unexpected value for mandatory prop <li> [.'$combined']", path);
+            if (rep != null) rep.addEntry("not a 0 strict int [.'$combined'.li]", (path != null ? lpath : null));
+            if (rep != null) rep.addEntry("unexpected value for mandatory prop <li> [.'$combined']", (path != null ? lpath : null));
             return false;
         }
         if (! json.objectHasProp(val, "si"))
@@ -148,13 +154,14 @@ public class loose_strict extends ModelChecker
             if (rep != null) rep.addEntry("missing mandatory prop <si> [.'$combined']", path);
             return false;
         }
+        lpath = new Path("si", path);
         pval = json.objectValue(val, "si");
         // .'$combined'.si
         res = json.isInteger(pval) && json.asLong(pval) >= 0;
         if (! res)
         {
-            if (rep != null) rep.addEntry("not a 0 strict int [.'$combined'.si]", path);
-            if (rep != null) rep.addEntry("unexpected value for mandatory prop <si> [.'$combined']", path);
+            if (rep != null) rep.addEntry("not a 0 strict int [.'$combined'.si]", (path != null ? lpath : null));
+            if (rep != null) rep.addEntry("unexpected value for mandatory prop <si> [.'$combined']", (path != null ? lpath : null));
             return false;
         }
         return true;

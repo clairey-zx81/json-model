@@ -20,6 +20,7 @@ function _jm_obj_0(val, path, rep)
         rep !== null && rep.push(["not an object [.]", path])
         return false;
     }
+    let lpath;
     let pval;
     let res;
     if (! val.hasOwnProperty("name"))
@@ -27,13 +28,14 @@ function _jm_obj_0(val, path, rep)
         rep !== null && rep.push(["missing mandatory prop <name> [.]", path])
         return false;
     }
+    lpath = path ? path.concat(["name"]) : null;
     pval = val["name"];
     // .name
     res = (typeof pval === 'string' || pval instanceof String);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected string [.name]", path])
-        rep !== null && rep.push(["unexpected value for mandatory prop <name> [.]", path])
+        rep !== null && rep.push(["unexpected string [.name]", (path ? lpath : null)])
+        rep !== null && rep.push(["unexpected value for mandatory prop <name> [.]", (path ? lpath : null)])
         return false;
     }
     if (! val.hasOwnProperty("born"))
@@ -41,13 +43,14 @@ function _jm_obj_0(val, path, rep)
         rep !== null && rep.push(["missing mandatory prop <born> [.]", path])
         return false;
     }
+    lpath = path ? path.concat(["born"]) : null;
     pval = val["born"];
     // .born
-    res = runtime.jm_is_valid_date(pval, path, rep);
+    res = runtime.jm_is_valid_date(pval, (path ? lpath : null), rep);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected $DATE [.born]", path])
-        rep !== null && rep.push(["unexpected value for mandatory prop <born> [.]", path])
+        rep !== null && rep.push(["unexpected $DATE [.born]", (path ? lpath : null)])
+        rep !== null && rep.push(["unexpected value for mandatory prop <born> [.]", (path ? lpath : null)])
         return false;
     }
     return true;

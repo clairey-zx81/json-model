@@ -30,7 +30,7 @@ BEGIN
   END IF;
   pval := val -> 'born';
   -- .born
-  res := JSONB_TYPEOF(pval) = 'string' AND jm_is_valid_date(JSON_VALUE(pval, '$' RETURNING TEXT), path, rep);
+  res := JSONB_TYPEOF(pval) = 'string' AND jm_is_valid_date(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, rep);
   IF NOT res THEN
     RETURN FALSE;
   END IF;

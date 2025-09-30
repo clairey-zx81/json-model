@@ -126,10 +126,11 @@ class Python(Language):
         decl = f": {tname}" if tname else ""
         return [ f"{var}{decl}{assign}{self._eoi}" ]
 
-    def path_val(self, pvar: Var, pseg: str|int, is_prop: bool) -> PathExpr:
+    def path_val(self, pvar: Var, pseg: str|int, is_prop: bool, is_var: bool) -> PathExpr:
         # avoid nested if expressions
         pvar = f"({pvar})" if " if " in pvar else pvar
-        return f"({pvar} + [ {pseg} ]) if {pvar} is not None else None" if self._with_path else "None"
+        sseg = pseg if is_var else self.esc(pseg) if is_prop else pseg
+        return f"({pvar} + [ {sseg} ]) if {pvar} is not None else None" if self._with_path else "None"
 
     def path_lvar(self, lvar: Var, rvar: Var) -> PathExpr:
         # avoid nested if expressions

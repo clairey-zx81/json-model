@@ -240,9 +240,10 @@ class PLpgSQL(Language):
     #
     # path management
     #
-    def path_val(self, pvar: Var, pseg: str|int, is_prop: bool) -> PathExpr:
-        # note: segment is a variable name for a prop or an integer
-        return f"array_append({pvar}, {pseg})" if self._with_path else "NULL"
+    def path_val(self, pvar: Var, pseg: str|int, is_prop: bool, is_var: bool) -> PathExpr:
+        # note: segment is a variable name for a prop or an integer or a direct segment
+        sseg = pseg if is_var else self.esc(pseg) if is_prop else pseg
+        return f"array_append({pvar}, {sseg})" if self._with_path else "NULL"
 
     def path_lvar(self, lvar: Var, rvar: Var) -> PathExpr:
         return f"(CASE WHEN {rvar} IS NOT NULL THEN {lvar} ELSE NULL END)" if self._with_path else "NULL"

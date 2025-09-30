@@ -292,7 +292,7 @@ sub _jm_obj_5($$$)
     }
     $pval = $$val{'t'};
     # .'$alternative'.'|'.3.t
-    $res = json_model_3($pval, $path, $rep);
+    $res = json_model_3($pval, undef, $rep);
     if (! $res)
     {
         return 0;

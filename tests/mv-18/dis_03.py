@@ -32,27 +32,30 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
     if len(val) != 2:
         rep is None or rep.append(("bad property count [.'|'.0]", path))
         return False
+    lpath: Path
     pval: Jsonable
     res: bool
     if not ("discriminator" in val):
         rep is None or rep.append(("missing mandatory prop <discriminator> [.'|'.0]", path))
         return False
+    lpath = (path + [ "discriminator" ]) if path is not None else None
     pval = val.get("discriminator", UNDEFINED)
     # .'|'.0.discriminator
     res = isinstance(pval, bool) and pval == True
     if not res:
-        rep is None or rep.append(("unexpected =true [.'|'.0.discriminator]", path))
-        rep is None or rep.append(("unexpected value for mandatory prop <discriminator> [.'|'.0]", path))
+        rep is None or rep.append(("unexpected =true [.'|'.0.discriminator]", lpath if path is not None else None))
+        rep is None or rep.append(("unexpected value for mandatory prop <discriminator> [.'|'.0]", lpath if path is not None else None))
         return False
     if not "x" in val:
         rep is None or rep.append(("missing mandatory prop <x> [.'|'.0]", path))
         return False
+    lpath = (path + [ "x" ]) if path is not None else None
     pval = val.get("x", UNDEFINED)
     # .'|'.0.x
     res = isinstance(pval, str)
     if not res:
-        rep is None or rep.append(("unexpected string [.'|'.0.x]", path))
-        rep is None or rep.append(("unexpected value for mandatory prop <x> [.'|'.0]", path))
+        rep is None or rep.append(("unexpected string [.'|'.0.x]", lpath if path is not None else None))
+        rep is None or rep.append(("unexpected value for mandatory prop <x> [.'|'.0]", lpath if path is not None else None))
         return False
     return True
 
@@ -65,27 +68,30 @@ def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
     if len(val) != 2:
         rep is None or rep.append(("bad property count [.'|'.1]", path))
         return False
+    lpath: Path
     pval: Jsonable
     res: bool
     if not ("discriminator" in val):
         rep is None or rep.append(("missing mandatory prop <discriminator> [.'|'.1]", path))
         return False
+    lpath = (path + [ "discriminator" ]) if path is not None else None
     pval = val.get("discriminator", UNDEFINED)
     # .'|'.1.discriminator
     res = isinstance(pval, bool) and pval == False
     if not res:
-        rep is None or rep.append(("unexpected =false [.'|'.1.discriminator]", path))
-        rep is None or rep.append(("unexpected value for mandatory prop <discriminator> [.'|'.1]", path))
+        rep is None or rep.append(("unexpected =false [.'|'.1.discriminator]", lpath if path is not None else None))
+        rep is None or rep.append(("unexpected value for mandatory prop <discriminator> [.'|'.1]", lpath if path is not None else None))
         return False
     if not "y" in val:
         rep is None or rep.append(("missing mandatory prop <y> [.'|'.1]", path))
         return False
+    lpath = (path + [ "y" ]) if path is not None else None
     pval = val.get("y", UNDEFINED)
     # .'|'.1.y
     res = isinstance(pval, str)
     if not res:
-        rep is None or rep.append(("unexpected string [.'|'.1.y]", path))
-        rep is None or rep.append(("unexpected value for mandatory prop <y> [.'|'.1]", path))
+        rep is None or rep.append(("unexpected string [.'|'.1.y]", lpath if path is not None else None))
+        rep is None or rep.append(("unexpected value for mandatory prop <y> [.'|'.1]", lpath if path is not None else None))
         return False
     return True
 

@@ -4285,22 +4285,25 @@ public class ansiblelint_meta extends ModelChecker
             if (rep != null) rep.addEntry("not an object [.'$platforms'.0.'|'.46]", path);
             return false;
         }
+        Path lpath;
         Object pval;
         boolean res;
         if (json.objectHasProp(val, "name"))
         {
+            lpath = new Path("name", path);
             pval = json.objectValue(val, "name");
             // .'$platforms'.0.'|'.46.name
             res = json.isString(pval) && json.asString(pval).compareTo("Windows") == 0;
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected _Windows [.'$platforms'.0.'|'.46.name]", path);
-                if (rep != null) rep.addEntry("unexpected value for optional prop <name> [.'$platforms'.0.'|'.46]", path);
+                if (rep != null) rep.addEntry("unexpected _Windows [.'$platforms'.0.'|'.46.name]", (path != null ? lpath : null));
+                if (rep != null) rep.addEntry("unexpected value for optional prop <name> [.'$platforms'.0.'|'.46]", (path != null ? lpath : null));
                 return false;
             }
         }
         if (json.objectHasProp(val, "versions"))
         {
+            lpath = new Path("versions", path);
             pval = json.objectValue(val, "versions");
             // .'$platforms'.0.'|'.46.versions
             res = json.isArray(pval);
@@ -4312,20 +4315,20 @@ public class ansiblelint_meta extends ModelChecker
                 {
                     arr_48_idx++;
                     Object arr_48_item = arr_48_item_loop.next();
-                    Path arr_48_lpath = new Path(arr_48_idx, path);
+                    Path arr_48_lpath = new Path(arr_48_idx, (path != null ? lpath : null));
                     // .'$platforms'.0.'|'.46.versions.0
                     res = json.isScalar(arr_48_item) && _jm_cst_32_set.contains(arr_48_item);
                     if (! res)
                     {
-                        if (rep != null) rep.addEntry("value not in enum [.'$platforms'.0.'|'.46.versions.0.'|']", (path != null ? arr_48_lpath : null));
+                        if (rep != null) rep.addEntry("value not in enum [.'$platforms'.0.'|'.46.versions.0.'|']", ((path != null ? lpath : null) != null ? arr_48_lpath : null));
                         break;
                     }
                 }
             }
             if (! res)
             {
-                if (rep != null) rep.addEntry("not array or unexpected array [.'$platforms'.0.'|'.46.versions]", path);
-                if (rep != null) rep.addEntry("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.46]", path);
+                if (rep != null) rep.addEntry("not array or unexpected array [.'$platforms'.0.'|'.46.versions]", (path != null ? lpath : null));
+                if (rep != null) rep.addEntry("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.46]", (path != null ? lpath : null));
                 return false;
             }
         }
@@ -4342,22 +4345,25 @@ public class ansiblelint_meta extends ModelChecker
             if (rep != null) rep.addEntry("not an object [.'$platforms'.0.'|'.45]", path);
             return false;
         }
+        Path lpath;
         Object pval;
         boolean res;
         if (json.objectHasProp(val, "name"))
         {
+            lpath = new Path("name", path);
             pval = json.objectValue(val, "name");
             // .'$platforms'.0.'|'.45.name
             res = json.isString(pval) && json.asString(pval).compareTo("vSphere") == 0;
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected _vSphere [.'$platforms'.0.'|'.45.name]", path);
-                if (rep != null) rep.addEntry("unexpected value for optional prop <name> [.'$platforms'.0.'|'.45]", path);
+                if (rep != null) rep.addEntry("unexpected _vSphere [.'$platforms'.0.'|'.45.name]", (path != null ? lpath : null));
+                if (rep != null) rep.addEntry("unexpected value for optional prop <name> [.'$platforms'.0.'|'.45]", (path != null ? lpath : null));
                 return false;
             }
         }
         if (json.objectHasProp(val, "versions"))
         {
+            lpath = new Path("versions", path);
             pval = json.objectValue(val, "versions");
             // .'$platforms'.0.'|'.45.versions
             res = json.isArray(pval);
@@ -4369,20 +4375,20 @@ public class ansiblelint_meta extends ModelChecker
                 {
                     arr_49_idx++;
                     Object arr_49_item = arr_49_item_loop.next();
-                    Path arr_49_lpath = new Path(arr_49_idx, path);
+                    Path arr_49_lpath = new Path(arr_49_idx, (path != null ? lpath : null));
                     // .'$platforms'.0.'|'.45.versions.0
                     res = json.isScalar(arr_49_item) && _jm_cst_33_set.contains(arr_49_item);
                     if (! res)
                     {
-                        if (rep != null) rep.addEntry("value not in enum [.'$platforms'.0.'|'.45.versions.0.'|']", (path != null ? arr_49_lpath : null));
+                        if (rep != null) rep.addEntry("value not in enum [.'$platforms'.0.'|'.45.versions.0.'|']", ((path != null ? lpath : null) != null ? arr_49_lpath : null));
                         break;
                     }
                 }
             }
             if (! res)
             {
-                if (rep != null) rep.addEntry("not array or unexpected array [.'$platforms'.0.'|'.45.versions]", path);
-                if (rep != null) rep.addEntry("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.45]", path);
+                if (rep != null) rep.addEntry("not array or unexpected array [.'$platforms'.0.'|'.45.versions]", (path != null ? lpath : null));
+                if (rep != null) rep.addEntry("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.45]", (path != null ? lpath : null));
                 return false;
             }
         }
@@ -4398,22 +4404,25 @@ public class ansiblelint_meta extends ModelChecker
             if (rep != null) rep.addEntry("not an object [.'$platforms'.0.'|'.44]", path);
             return false;
         }
+        Path lpath;
         Object pval;
         boolean res;
         if (json.objectHasProp(val, "name"))
         {
+            lpath = new Path("name", path);
             pval = json.objectValue(val, "name");
             // .'$platforms'.0.'|'.44.name
             res = json.isString(pval) && json.asString(pval).compareTo("Void Linux") == 0;
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected _Void Linux [.'$platforms'.0.'|'.44.name]", path);
-                if (rep != null) rep.addEntry("unexpected value for optional prop <name> [.'$platforms'.0.'|'.44]", path);
+                if (rep != null) rep.addEntry("unexpected _Void Linux [.'$platforms'.0.'|'.44.name]", (path != null ? lpath : null));
+                if (rep != null) rep.addEntry("unexpected value for optional prop <name> [.'$platforms'.0.'|'.44]", (path != null ? lpath : null));
                 return false;
             }
         }
         if (json.objectHasProp(val, "versions"))
         {
+            lpath = new Path("versions", path);
             pval = json.objectValue(val, "versions");
             // .'$platforms'.0.'|'.44.versions
             res = json.isArray(pval);
@@ -4425,20 +4434,20 @@ public class ansiblelint_meta extends ModelChecker
                 {
                     arr_50_idx++;
                     Object arr_50_item = arr_50_item_loop.next();
-                    Path arr_50_lpath = new Path(arr_50_idx, path);
+                    Path arr_50_lpath = new Path(arr_50_idx, (path != null ? lpath : null));
                     // .'$platforms'.0.'|'.44.versions.0
                     res = json.isString(arr_50_item) && json.asString(arr_50_item).compareTo("all") == 0;
                     if (! res)
                     {
-                        if (rep != null) rep.addEntry("unexpected all [.'$platforms'.0.'|'.44.versions.0]", (path != null ? arr_50_lpath : null));
+                        if (rep != null) rep.addEntry("unexpected all [.'$platforms'.0.'|'.44.versions.0]", ((path != null ? lpath : null) != null ? arr_50_lpath : null));
                         break;
                     }
                 }
             }
             if (! res)
             {
-                if (rep != null) rep.addEntry("not array or unexpected array [.'$platforms'.0.'|'.44.versions]", path);
-                if (rep != null) rep.addEntry("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.44]", path);
+                if (rep != null) rep.addEntry("not array or unexpected array [.'$platforms'.0.'|'.44.versions]", (path != null ? lpath : null));
+                if (rep != null) rep.addEntry("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.44]", (path != null ? lpath : null));
                 return false;
             }
         }
@@ -4455,22 +4464,25 @@ public class ansiblelint_meta extends ModelChecker
             if (rep != null) rep.addEntry("not an object [.'$platforms'.0.'|'.43]", path);
             return false;
         }
+        Path lpath;
         Object pval;
         boolean res;
         if (json.objectHasProp(val, "name"))
         {
+            lpath = new Path("name", path);
             pval = json.objectValue(val, "name");
             // .'$platforms'.0.'|'.43.name
             res = json.isString(pval) && json.asString(pval).compareTo("vCenter") == 0;
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected _vCenter [.'$platforms'.0.'|'.43.name]", path);
-                if (rep != null) rep.addEntry("unexpected value for optional prop <name> [.'$platforms'.0.'|'.43]", path);
+                if (rep != null) rep.addEntry("unexpected _vCenter [.'$platforms'.0.'|'.43.name]", (path != null ? lpath : null));
+                if (rep != null) rep.addEntry("unexpected value for optional prop <name> [.'$platforms'.0.'|'.43]", (path != null ? lpath : null));
                 return false;
             }
         }
         if (json.objectHasProp(val, "versions"))
         {
+            lpath = new Path("versions", path);
             pval = json.objectValue(val, "versions");
             // .'$platforms'.0.'|'.43.versions
             res = json.isArray(pval);
@@ -4482,20 +4494,20 @@ public class ansiblelint_meta extends ModelChecker
                 {
                     arr_51_idx++;
                     Object arr_51_item = arr_51_item_loop.next();
-                    Path arr_51_lpath = new Path(arr_51_idx, path);
+                    Path arr_51_lpath = new Path(arr_51_idx, (path != null ? lpath : null));
                     // .'$platforms'.0.'|'.43.versions.0
                     res = json.isScalar(arr_51_item) && _jm_cst_34_set.contains(arr_51_item);
                     if (! res)
                     {
-                        if (rep != null) rep.addEntry("value not in enum [.'$platforms'.0.'|'.43.versions.0.'|']", (path != null ? arr_51_lpath : null));
+                        if (rep != null) rep.addEntry("value not in enum [.'$platforms'.0.'|'.43.versions.0.'|']", ((path != null ? lpath : null) != null ? arr_51_lpath : null));
                         break;
                     }
                 }
             }
             if (! res)
             {
-                if (rep != null) rep.addEntry("not array or unexpected array [.'$platforms'.0.'|'.43.versions]", path);
-                if (rep != null) rep.addEntry("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.43]", path);
+                if (rep != null) rep.addEntry("not array or unexpected array [.'$platforms'.0.'|'.43.versions]", (path != null ? lpath : null));
+                if (rep != null) rep.addEntry("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.43]", (path != null ? lpath : null));
                 return false;
             }
         }
@@ -4512,22 +4524,25 @@ public class ansiblelint_meta extends ModelChecker
             if (rep != null) rep.addEntry("not an object [.'$platforms'.0.'|'.42]", path);
             return false;
         }
+        Path lpath;
         Object pval;
         boolean res;
         if (json.objectHasProp(val, "name"))
         {
+            lpath = new Path("name", path);
             pval = json.objectValue(val, "name");
             // .'$platforms'.0.'|'.42.name
             res = json.isString(pval) && json.asString(pval).compareTo("Ubuntu") == 0;
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected _Ubuntu [.'$platforms'.0.'|'.42.name]", path);
-                if (rep != null) rep.addEntry("unexpected value for optional prop <name> [.'$platforms'.0.'|'.42]", path);
+                if (rep != null) rep.addEntry("unexpected _Ubuntu [.'$platforms'.0.'|'.42.name]", (path != null ? lpath : null));
+                if (rep != null) rep.addEntry("unexpected value for optional prop <name> [.'$platforms'.0.'|'.42]", (path != null ? lpath : null));
                 return false;
             }
         }
         if (json.objectHasProp(val, "versions"))
         {
+            lpath = new Path("versions", path);
             pval = json.objectValue(val, "versions");
             // .'$platforms'.0.'|'.42.versions
             res = json.isArray(pval);
@@ -4539,20 +4554,20 @@ public class ansiblelint_meta extends ModelChecker
                 {
                     arr_52_idx++;
                     Object arr_52_item = arr_52_item_loop.next();
-                    Path arr_52_lpath = new Path(arr_52_idx, path);
+                    Path arr_52_lpath = new Path(arr_52_idx, (path != null ? lpath : null));
                     // .'$platforms'.0.'|'.42.versions.0
                     res = json.isScalar(arr_52_item) && _jm_cst_35_set.contains(arr_52_item);
                     if (! res)
                     {
-                        if (rep != null) rep.addEntry("value not in enum [.'$platforms'.0.'|'.42.versions.0.'|']", (path != null ? arr_52_lpath : null));
+                        if (rep != null) rep.addEntry("value not in enum [.'$platforms'.0.'|'.42.versions.0.'|']", ((path != null ? lpath : null) != null ? arr_52_lpath : null));
                         break;
                     }
                 }
             }
             if (! res)
             {
-                if (rep != null) rep.addEntry("not array or unexpected array [.'$platforms'.0.'|'.42.versions]", path);
-                if (rep != null) rep.addEntry("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.42]", path);
+                if (rep != null) rep.addEntry("not array or unexpected array [.'$platforms'.0.'|'.42.versions]", (path != null ? lpath : null));
+                if (rep != null) rep.addEntry("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.42]", (path != null ? lpath : null));
                 return false;
             }
         }
@@ -4569,22 +4584,25 @@ public class ansiblelint_meta extends ModelChecker
             if (rep != null) rep.addEntry("not an object [.'$platforms'.0.'|'.41]", path);
             return false;
         }
+        Path lpath;
         Object pval;
         boolean res;
         if (json.objectHasProp(val, "name"))
         {
+            lpath = new Path("name", path);
             pval = json.objectValue(val, "name");
             // .'$platforms'.0.'|'.41.name
             res = json.isString(pval) && json.asString(pval).compareTo("TMOS") == 0;
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected _TMOS [.'$platforms'.0.'|'.41.name]", path);
-                if (rep != null) rep.addEntry("unexpected value for optional prop <name> [.'$platforms'.0.'|'.41]", path);
+                if (rep != null) rep.addEntry("unexpected _TMOS [.'$platforms'.0.'|'.41.name]", (path != null ? lpath : null));
+                if (rep != null) rep.addEntry("unexpected value for optional prop <name> [.'$platforms'.0.'|'.41]", (path != null ? lpath : null));
                 return false;
             }
         }
         if (json.objectHasProp(val, "versions"))
         {
+            lpath = new Path("versions", path);
             pval = json.objectValue(val, "versions");
             // .'$platforms'.0.'|'.41.versions
             res = json.isArray(pval);
@@ -4596,20 +4614,20 @@ public class ansiblelint_meta extends ModelChecker
                 {
                     arr_53_idx++;
                     Object arr_53_item = arr_53_item_loop.next();
-                    Path arr_53_lpath = new Path(arr_53_idx, path);
+                    Path arr_53_lpath = new Path(arr_53_idx, (path != null ? lpath : null));
                     // .'$platforms'.0.'|'.41.versions.0
                     res = json.isScalar(arr_53_item) && _jm_cst_36_set.contains(arr_53_item);
                     if (! res)
                     {
-                        if (rep != null) rep.addEntry("value not in enum [.'$platforms'.0.'|'.41.versions.0.'|']", (path != null ? arr_53_lpath : null));
+                        if (rep != null) rep.addEntry("value not in enum [.'$platforms'.0.'|'.41.versions.0.'|']", ((path != null ? lpath : null) != null ? arr_53_lpath : null));
                         break;
                     }
                 }
             }
             if (! res)
             {
-                if (rep != null) rep.addEntry("not array or unexpected array [.'$platforms'.0.'|'.41.versions]", path);
-                if (rep != null) rep.addEntry("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.41]", path);
+                if (rep != null) rep.addEntry("not array or unexpected array [.'$platforms'.0.'|'.41.versions]", (path != null ? lpath : null));
+                if (rep != null) rep.addEntry("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.41]", (path != null ? lpath : null));
                 return false;
             }
         }
@@ -4626,22 +4644,25 @@ public class ansiblelint_meta extends ModelChecker
             if (rep != null) rep.addEntry("not an object [.'$platforms'.0.'|'.40]", path);
             return false;
         }
+        Path lpath;
         Object pval;
         boolean res;
         if (json.objectHasProp(val, "name"))
         {
+            lpath = new Path("name", path);
             pval = json.objectValue(val, "name");
             // .'$platforms'.0.'|'.40.name
             res = json.isString(pval) && json.asString(pval).compareTo("Synology") == 0;
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected _Synology [.'$platforms'.0.'|'.40.name]", path);
-                if (rep != null) rep.addEntry("unexpected value for optional prop <name> [.'$platforms'.0.'|'.40]", path);
+                if (rep != null) rep.addEntry("unexpected _Synology [.'$platforms'.0.'|'.40.name]", (path != null ? lpath : null));
+                if (rep != null) rep.addEntry("unexpected value for optional prop <name> [.'$platforms'.0.'|'.40]", (path != null ? lpath : null));
                 return false;
             }
         }
         if (json.objectHasProp(val, "versions"))
         {
+            lpath = new Path("versions", path);
             pval = json.objectValue(val, "versions");
             // .'$platforms'.0.'|'.40.versions
             res = json.isArray(pval);
@@ -4653,20 +4674,20 @@ public class ansiblelint_meta extends ModelChecker
                 {
                     arr_54_idx++;
                     Object arr_54_item = arr_54_item_loop.next();
-                    Path arr_54_lpath = new Path(arr_54_idx, path);
+                    Path arr_54_lpath = new Path(arr_54_idx, (path != null ? lpath : null));
                     // .'$platforms'.0.'|'.40.versions.0
                     res = json.isScalar(arr_54_item) && _jm_cst_37_set.contains(arr_54_item);
                     if (! res)
                     {
-                        if (rep != null) rep.addEntry("value not in enum [.'$platforms'.0.'|'.40.versions.0.'|']", (path != null ? arr_54_lpath : null));
+                        if (rep != null) rep.addEntry("value not in enum [.'$platforms'.0.'|'.40.versions.0.'|']", ((path != null ? lpath : null) != null ? arr_54_lpath : null));
                         break;
                     }
                 }
             }
             if (! res)
             {
-                if (rep != null) rep.addEntry("not array or unexpected array [.'$platforms'.0.'|'.40.versions]", path);
-                if (rep != null) rep.addEntry("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.40]", path);
+                if (rep != null) rep.addEntry("not array or unexpected array [.'$platforms'.0.'|'.40.versions]", (path != null ? lpath : null));
+                if (rep != null) rep.addEntry("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.40]", (path != null ? lpath : null));
                 return false;
             }
         }
@@ -4683,22 +4704,25 @@ public class ansiblelint_meta extends ModelChecker
             if (rep != null) rep.addEntry("not an object [.'$platforms'.0.'|'.39]", path);
             return false;
         }
+        Path lpath;
         Object pval;
         boolean res;
         if (json.objectHasProp(val, "name"))
         {
+            lpath = new Path("name", path);
             pval = json.objectValue(val, "name");
             // .'$platforms'.0.'|'.39.name
             res = json.isString(pval) && json.asString(pval).compareTo("Solaris") == 0;
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected _Solaris [.'$platforms'.0.'|'.39.name]", path);
-                if (rep != null) rep.addEntry("unexpected value for optional prop <name> [.'$platforms'.0.'|'.39]", path);
+                if (rep != null) rep.addEntry("unexpected _Solaris [.'$platforms'.0.'|'.39.name]", (path != null ? lpath : null));
+                if (rep != null) rep.addEntry("unexpected value for optional prop <name> [.'$platforms'.0.'|'.39]", (path != null ? lpath : null));
                 return false;
             }
         }
         if (json.objectHasProp(val, "versions"))
         {
+            lpath = new Path("versions", path);
             pval = json.objectValue(val, "versions");
             // .'$platforms'.0.'|'.39.versions
             res = json.isArray(pval);
@@ -4710,20 +4734,20 @@ public class ansiblelint_meta extends ModelChecker
                 {
                     arr_55_idx++;
                     Object arr_55_item = arr_55_item_loop.next();
-                    Path arr_55_lpath = new Path(arr_55_idx, path);
+                    Path arr_55_lpath = new Path(arr_55_idx, (path != null ? lpath : null));
                     // .'$platforms'.0.'|'.39.versions.0
                     res = json.isScalar(arr_55_item) && _jm_cst_38_set.contains(arr_55_item);
                     if (! res)
                     {
-                        if (rep != null) rep.addEntry("value not in enum [.'$platforms'.0.'|'.39.versions.0.'|']", (path != null ? arr_55_lpath : null));
+                        if (rep != null) rep.addEntry("value not in enum [.'$platforms'.0.'|'.39.versions.0.'|']", ((path != null ? lpath : null) != null ? arr_55_lpath : null));
                         break;
                     }
                 }
             }
             if (! res)
             {
-                if (rep != null) rep.addEntry("not array or unexpected array [.'$platforms'.0.'|'.39.versions]", path);
-                if (rep != null) rep.addEntry("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.39]", path);
+                if (rep != null) rep.addEntry("not array or unexpected array [.'$platforms'.0.'|'.39.versions]", (path != null ? lpath : null));
+                if (rep != null) rep.addEntry("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.39]", (path != null ? lpath : null));
                 return false;
             }
         }
@@ -4739,22 +4763,25 @@ public class ansiblelint_meta extends ModelChecker
             if (rep != null) rep.addEntry("not an object [.'$platforms'.0.'|'.38]", path);
             return false;
         }
+        Path lpath;
         Object pval;
         boolean res;
         if (json.objectHasProp(val, "name"))
         {
+            lpath = new Path("name", path);
             pval = json.objectValue(val, "name");
             // .'$platforms'.0.'|'.38.name
             res = json.isString(pval) && json.asString(pval).compareTo("SmartOS") == 0;
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected _SmartOS [.'$platforms'.0.'|'.38.name]", path);
-                if (rep != null) rep.addEntry("unexpected value for optional prop <name> [.'$platforms'.0.'|'.38]", path);
+                if (rep != null) rep.addEntry("unexpected _SmartOS [.'$platforms'.0.'|'.38.name]", (path != null ? lpath : null));
+                if (rep != null) rep.addEntry("unexpected value for optional prop <name> [.'$platforms'.0.'|'.38]", (path != null ? lpath : null));
                 return false;
             }
         }
         if (json.objectHasProp(val, "versions"))
         {
+            lpath = new Path("versions", path);
             pval = json.objectValue(val, "versions");
             // .'$platforms'.0.'|'.38.versions
             res = json.isArray(pval);
@@ -4766,20 +4793,20 @@ public class ansiblelint_meta extends ModelChecker
                 {
                     arr_56_idx++;
                     Object arr_56_item = arr_56_item_loop.next();
-                    Path arr_56_lpath = new Path(arr_56_idx, path);
+                    Path arr_56_lpath = new Path(arr_56_idx, (path != null ? lpath : null));
                     // .'$platforms'.0.'|'.38.versions.0
                     res = json.isString(arr_56_item) && json.asString(arr_56_item).compareTo("all") == 0;
                     if (! res)
                     {
-                        if (rep != null) rep.addEntry("unexpected all [.'$platforms'.0.'|'.38.versions.0]", (path != null ? arr_56_lpath : null));
+                        if (rep != null) rep.addEntry("unexpected all [.'$platforms'.0.'|'.38.versions.0]", ((path != null ? lpath : null) != null ? arr_56_lpath : null));
                         break;
                     }
                 }
             }
             if (! res)
             {
-                if (rep != null) rep.addEntry("not array or unexpected array [.'$platforms'.0.'|'.38.versions]", path);
-                if (rep != null) rep.addEntry("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.38]", path);
+                if (rep != null) rep.addEntry("not array or unexpected array [.'$platforms'.0.'|'.38.versions]", (path != null ? lpath : null));
+                if (rep != null) rep.addEntry("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.38]", (path != null ? lpath : null));
                 return false;
             }
         }
@@ -4796,22 +4823,25 @@ public class ansiblelint_meta extends ModelChecker
             if (rep != null) rep.addEntry("not an object [.'$platforms'.0.'|'.37]", path);
             return false;
         }
+        Path lpath;
         Object pval;
         boolean res;
         if (json.objectHasProp(val, "name"))
         {
+            lpath = new Path("name", path);
             pval = json.objectValue(val, "name");
             // .'$platforms'.0.'|'.37.name
             res = json.isString(pval) && json.asString(pval).compareTo("SLES") == 0;
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected _SLES [.'$platforms'.0.'|'.37.name]", path);
-                if (rep != null) rep.addEntry("unexpected value for optional prop <name> [.'$platforms'.0.'|'.37]", path);
+                if (rep != null) rep.addEntry("unexpected _SLES [.'$platforms'.0.'|'.37.name]", (path != null ? lpath : null));
+                if (rep != null) rep.addEntry("unexpected value for optional prop <name> [.'$platforms'.0.'|'.37]", (path != null ? lpath : null));
                 return false;
             }
         }
         if (json.objectHasProp(val, "versions"))
         {
+            lpath = new Path("versions", path);
             pval = json.objectValue(val, "versions");
             // .'$platforms'.0.'|'.37.versions
             res = json.isArray(pval);
@@ -4823,20 +4853,20 @@ public class ansiblelint_meta extends ModelChecker
                 {
                     arr_57_idx++;
                     Object arr_57_item = arr_57_item_loop.next();
-                    Path arr_57_lpath = new Path(arr_57_idx, path);
+                    Path arr_57_lpath = new Path(arr_57_idx, (path != null ? lpath : null));
                     // .'$platforms'.0.'|'.37.versions.0
                     res = json.isScalar(arr_57_item) && _jm_cst_39_set.contains(arr_57_item);
                     if (! res)
                     {
-                        if (rep != null) rep.addEntry("value not in enum [.'$platforms'.0.'|'.37.versions.0.'|']", (path != null ? arr_57_lpath : null));
+                        if (rep != null) rep.addEntry("value not in enum [.'$platforms'.0.'|'.37.versions.0.'|']", ((path != null ? lpath : null) != null ? arr_57_lpath : null));
                         break;
                     }
                 }
             }
             if (! res)
             {
-                if (rep != null) rep.addEntry("not array or unexpected array [.'$platforms'.0.'|'.37.versions]", path);
-                if (rep != null) rep.addEntry("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.37]", path);
+                if (rep != null) rep.addEntry("not array or unexpected array [.'$platforms'.0.'|'.37.versions]", (path != null ? lpath : null));
+                if (rep != null) rep.addEntry("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.37]", (path != null ? lpath : null));
                 return false;
             }
         }
@@ -4853,22 +4883,25 @@ public class ansiblelint_meta extends ModelChecker
             if (rep != null) rep.addEntry("not an object [.'$platforms'.0.'|'.36]", path);
             return false;
         }
+        Path lpath;
         Object pval;
         boolean res;
         if (json.objectHasProp(val, "name"))
         {
+            lpath = new Path("name", path);
             pval = json.objectValue(val, "name");
             // .'$platforms'.0.'|'.36.name
             res = json.isString(pval) && json.asString(pval).compareTo("Rocky") == 0;
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected _Rocky [.'$platforms'.0.'|'.36.name]", path);
-                if (rep != null) rep.addEntry("unexpected value for optional prop <name> [.'$platforms'.0.'|'.36]", path);
+                if (rep != null) rep.addEntry("unexpected _Rocky [.'$platforms'.0.'|'.36.name]", (path != null ? lpath : null));
+                if (rep != null) rep.addEntry("unexpected value for optional prop <name> [.'$platforms'.0.'|'.36]", (path != null ? lpath : null));
                 return false;
             }
         }
         if (json.objectHasProp(val, "versions"))
         {
+            lpath = new Path("versions", path);
             pval = json.objectValue(val, "versions");
             // .'$platforms'.0.'|'.36.versions
             res = json.isArray(pval);
@@ -4880,20 +4913,20 @@ public class ansiblelint_meta extends ModelChecker
                 {
                     arr_58_idx++;
                     Object arr_58_item = arr_58_item_loop.next();
-                    Path arr_58_lpath = new Path(arr_58_idx, path);
+                    Path arr_58_lpath = new Path(arr_58_idx, (path != null ? lpath : null));
                     // .'$platforms'.0.'|'.36.versions.0
                     res = json.isScalar(arr_58_item) && _jm_cst_40_set.contains(arr_58_item);
                     if (! res)
                     {
-                        if (rep != null) rep.addEntry("value not in enum [.'$platforms'.0.'|'.36.versions.0.'|']", (path != null ? arr_58_lpath : null));
+                        if (rep != null) rep.addEntry("value not in enum [.'$platforms'.0.'|'.36.versions.0.'|']", ((path != null ? lpath : null) != null ? arr_58_lpath : null));
                         break;
                     }
                 }
             }
             if (! res)
             {
-                if (rep != null) rep.addEntry("not array or unexpected array [.'$platforms'.0.'|'.36.versions]", path);
-                if (rep != null) rep.addEntry("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.36]", path);
+                if (rep != null) rep.addEntry("not array or unexpected array [.'$platforms'.0.'|'.36.versions]", (path != null ? lpath : null));
+                if (rep != null) rep.addEntry("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.36]", (path != null ? lpath : null));
                 return false;
             }
         }
@@ -4910,22 +4943,25 @@ public class ansiblelint_meta extends ModelChecker
             if (rep != null) rep.addEntry("not an object [.'$platforms'.0.'|'.35]", path);
             return false;
         }
+        Path lpath;
         Object pval;
         boolean res;
         if (json.objectHasProp(val, "name"))
         {
+            lpath = new Path("name", path);
             pval = json.objectValue(val, "name");
             // .'$platforms'.0.'|'.35.name
             res = json.isString(pval) && json.asString(pval).compareTo("PAN-OS") == 0;
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected _PAN-OS [.'$platforms'.0.'|'.35.name]", path);
-                if (rep != null) rep.addEntry("unexpected value for optional prop <name> [.'$platforms'.0.'|'.35]", path);
+                if (rep != null) rep.addEntry("unexpected _PAN-OS [.'$platforms'.0.'|'.35.name]", (path != null ? lpath : null));
+                if (rep != null) rep.addEntry("unexpected value for optional prop <name> [.'$platforms'.0.'|'.35]", (path != null ? lpath : null));
                 return false;
             }
         }
         if (json.objectHasProp(val, "versions"))
         {
+            lpath = new Path("versions", path);
             pval = json.objectValue(val, "versions");
             // .'$platforms'.0.'|'.35.versions
             res = json.isArray(pval);
@@ -4937,20 +4973,20 @@ public class ansiblelint_meta extends ModelChecker
                 {
                     arr_59_idx++;
                     Object arr_59_item = arr_59_item_loop.next();
-                    Path arr_59_lpath = new Path(arr_59_idx, path);
+                    Path arr_59_lpath = new Path(arr_59_idx, (path != null ? lpath : null));
                     // .'$platforms'.0.'|'.35.versions.0
                     res = json.isScalar(arr_59_item) && _jm_cst_41_set.contains(arr_59_item);
                     if (! res)
                     {
-                        if (rep != null) rep.addEntry("value not in enum [.'$platforms'.0.'|'.35.versions.0.'|']", (path != null ? arr_59_lpath : null));
+                        if (rep != null) rep.addEntry("value not in enum [.'$platforms'.0.'|'.35.versions.0.'|']", ((path != null ? lpath : null) != null ? arr_59_lpath : null));
                         break;
                     }
                 }
             }
             if (! res)
             {
-                if (rep != null) rep.addEntry("not array or unexpected array [.'$platforms'.0.'|'.35.versions]", path);
-                if (rep != null) rep.addEntry("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.35]", path);
+                if (rep != null) rep.addEntry("not array or unexpected array [.'$platforms'.0.'|'.35.versions]", (path != null ? lpath : null));
+                if (rep != null) rep.addEntry("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.35]", (path != null ? lpath : null));
                 return false;
             }
         }
@@ -4966,22 +5002,25 @@ public class ansiblelint_meta extends ModelChecker
             if (rep != null) rep.addEntry("not an object [.'$platforms'.0.'|'.34]", path);
             return false;
         }
+        Path lpath;
         Object pval;
         boolean res;
         if (json.objectHasProp(val, "name"))
         {
+            lpath = new Path("name", path);
             pval = json.objectValue(val, "name");
             // .'$platforms'.0.'|'.34.name
             res = json.isString(pval) && json.asString(pval).compareTo("os10") == 0;
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected _os10 [.'$platforms'.0.'|'.34.name]", path);
-                if (rep != null) rep.addEntry("unexpected value for optional prop <name> [.'$platforms'.0.'|'.34]", path);
+                if (rep != null) rep.addEntry("unexpected _os10 [.'$platforms'.0.'|'.34.name]", (path != null ? lpath : null));
+                if (rep != null) rep.addEntry("unexpected value for optional prop <name> [.'$platforms'.0.'|'.34]", (path != null ? lpath : null));
                 return false;
             }
         }
         if (json.objectHasProp(val, "versions"))
         {
+            lpath = new Path("versions", path);
             pval = json.objectValue(val, "versions");
             // .'$platforms'.0.'|'.34.versions
             res = json.isArray(pval);
@@ -4993,20 +5032,20 @@ public class ansiblelint_meta extends ModelChecker
                 {
                     arr_60_idx++;
                     Object arr_60_item = arr_60_item_loop.next();
-                    Path arr_60_lpath = new Path(arr_60_idx, path);
+                    Path arr_60_lpath = new Path(arr_60_idx, (path != null ? lpath : null));
                     // .'$platforms'.0.'|'.34.versions.0
                     res = json.isString(arr_60_item) && json.asString(arr_60_item).compareTo("all") == 0;
                     if (! res)
                     {
-                        if (rep != null) rep.addEntry("unexpected all [.'$platforms'.0.'|'.34.versions.0]", (path != null ? arr_60_lpath : null));
+                        if (rep != null) rep.addEntry("unexpected all [.'$platforms'.0.'|'.34.versions.0]", ((path != null ? lpath : null) != null ? arr_60_lpath : null));
                         break;
                     }
                 }
             }
             if (! res)
             {
-                if (rep != null) rep.addEntry("not array or unexpected array [.'$platforms'.0.'|'.34.versions]", path);
-                if (rep != null) rep.addEntry("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.34]", path);
+                if (rep != null) rep.addEntry("not array or unexpected array [.'$platforms'.0.'|'.34.versions]", (path != null ? lpath : null));
+                if (rep != null) rep.addEntry("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.34]", (path != null ? lpath : null));
                 return false;
             }
         }
@@ -5023,22 +5062,25 @@ public class ansiblelint_meta extends ModelChecker
             if (rep != null) rep.addEntry("not an object [.'$platforms'.0.'|'.33]", path);
             return false;
         }
+        Path lpath;
         Object pval;
         boolean res;
         if (json.objectHasProp(val, "name"))
         {
+            lpath = new Path("name", path);
             pval = json.objectValue(val, "name");
             // .'$platforms'.0.'|'.33.name
             res = json.isString(pval) && json.asString(pval).compareTo("OracleLinux") == 0;
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected _OracleLinux [.'$platforms'.0.'|'.33.name]", path);
-                if (rep != null) rep.addEntry("unexpected value for optional prop <name> [.'$platforms'.0.'|'.33]", path);
+                if (rep != null) rep.addEntry("unexpected _OracleLinux [.'$platforms'.0.'|'.33.name]", (path != null ? lpath : null));
+                if (rep != null) rep.addEntry("unexpected value for optional prop <name> [.'$platforms'.0.'|'.33]", (path != null ? lpath : null));
                 return false;
             }
         }
         if (json.objectHasProp(val, "versions"))
         {
+            lpath = new Path("versions", path);
             pval = json.objectValue(val, "versions");
             // .'$platforms'.0.'|'.33.versions
             res = json.isArray(pval);
@@ -5050,20 +5092,20 @@ public class ansiblelint_meta extends ModelChecker
                 {
                     arr_61_idx++;
                     Object arr_61_item = arr_61_item_loop.next();
-                    Path arr_61_lpath = new Path(arr_61_idx, path);
+                    Path arr_61_lpath = new Path(arr_61_idx, (path != null ? lpath : null));
                     // .'$platforms'.0.'|'.33.versions.0
                     res = json.isScalar(arr_61_item) && _jm_cst_42_set.contains(arr_61_item);
                     if (! res)
                     {
-                        if (rep != null) rep.addEntry("value not in enum [.'$platforms'.0.'|'.33.versions.0.'|']", (path != null ? arr_61_lpath : null));
+                        if (rep != null) rep.addEntry("value not in enum [.'$platforms'.0.'|'.33.versions.0.'|']", ((path != null ? lpath : null) != null ? arr_61_lpath : null));
                         break;
                     }
                 }
             }
             if (! res)
             {
-                if (rep != null) rep.addEntry("not array or unexpected array [.'$platforms'.0.'|'.33.versions]", path);
-                if (rep != null) rep.addEntry("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.33]", path);
+                if (rep != null) rep.addEntry("not array or unexpected array [.'$platforms'.0.'|'.33.versions]", (path != null ? lpath : null));
+                if (rep != null) rep.addEntry("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.33]", (path != null ? lpath : null));
                 return false;
             }
         }
@@ -5080,22 +5122,25 @@ public class ansiblelint_meta extends ModelChecker
             if (rep != null) rep.addEntry("not an object [.'$platforms'.0.'|'.32]", path);
             return false;
         }
+        Path lpath;
         Object pval;
         boolean res;
         if (json.objectHasProp(val, "name"))
         {
+            lpath = new Path("name", path);
             pval = json.objectValue(val, "name");
             // .'$platforms'.0.'|'.32.name
             res = json.isString(pval) && json.asString(pval).compareTo("OpenWrt") == 0;
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected _OpenWrt [.'$platforms'.0.'|'.32.name]", path);
-                if (rep != null) rep.addEntry("unexpected value for optional prop <name> [.'$platforms'.0.'|'.32]", path);
+                if (rep != null) rep.addEntry("unexpected _OpenWrt [.'$platforms'.0.'|'.32.name]", (path != null ? lpath : null));
+                if (rep != null) rep.addEntry("unexpected value for optional prop <name> [.'$platforms'.0.'|'.32]", (path != null ? lpath : null));
                 return false;
             }
         }
         if (json.objectHasProp(val, "versions"))
         {
+            lpath = new Path("versions", path);
             pval = json.objectValue(val, "versions");
             // .'$platforms'.0.'|'.32.versions
             res = json.isArray(pval);
@@ -5107,20 +5152,20 @@ public class ansiblelint_meta extends ModelChecker
                 {
                     arr_62_idx++;
                     Object arr_62_item = arr_62_item_loop.next();
-                    Path arr_62_lpath = new Path(arr_62_idx, path);
+                    Path arr_62_lpath = new Path(arr_62_idx, (path != null ? lpath : null));
                     // .'$platforms'.0.'|'.32.versions.0
                     res = json.isScalar(arr_62_item) && _jm_cst_43_set.contains(arr_62_item);
                     if (! res)
                     {
-                        if (rep != null) rep.addEntry("value not in enum [.'$platforms'.0.'|'.32.versions.0.'|']", (path != null ? arr_62_lpath : null));
+                        if (rep != null) rep.addEntry("value not in enum [.'$platforms'.0.'|'.32.versions.0.'|']", ((path != null ? lpath : null) != null ? arr_62_lpath : null));
                         break;
                     }
                 }
             }
             if (! res)
             {
-                if (rep != null) rep.addEntry("not array or unexpected array [.'$platforms'.0.'|'.32.versions]", path);
-                if (rep != null) rep.addEntry("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.32]", path);
+                if (rep != null) rep.addEntry("not array or unexpected array [.'$platforms'.0.'|'.32.versions]", (path != null ? lpath : null));
+                if (rep != null) rep.addEntry("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.32]", (path != null ? lpath : null));
                 return false;
             }
         }
@@ -5137,22 +5182,25 @@ public class ansiblelint_meta extends ModelChecker
             if (rep != null) rep.addEntry("not an object [.'$platforms'.0.'|'.31]", path);
             return false;
         }
+        Path lpath;
         Object pval;
         boolean res;
         if (json.objectHasProp(val, "name"))
         {
+            lpath = new Path("name", path);
             pval = json.objectValue(val, "name");
             // .'$platforms'.0.'|'.31.name
             res = json.isString(pval) && json.asString(pval).compareTo("opensuse") == 0;
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected _opensuse [.'$platforms'.0.'|'.31.name]", path);
-                if (rep != null) rep.addEntry("unexpected value for optional prop <name> [.'$platforms'.0.'|'.31]", path);
+                if (rep != null) rep.addEntry("unexpected _opensuse [.'$platforms'.0.'|'.31.name]", (path != null ? lpath : null));
+                if (rep != null) rep.addEntry("unexpected value for optional prop <name> [.'$platforms'.0.'|'.31]", (path != null ? lpath : null));
                 return false;
             }
         }
         if (json.objectHasProp(val, "versions"))
         {
+            lpath = new Path("versions", path);
             pval = json.objectValue(val, "versions");
             // .'$platforms'.0.'|'.31.versions
             res = json.isArray(pval);
@@ -5164,20 +5212,20 @@ public class ansiblelint_meta extends ModelChecker
                 {
                     arr_63_idx++;
                     Object arr_63_item = arr_63_item_loop.next();
-                    Path arr_63_lpath = new Path(arr_63_idx, path);
+                    Path arr_63_lpath = new Path(arr_63_idx, (path != null ? lpath : null));
                     // .'$platforms'.0.'|'.31.versions.0
                     res = json.isScalar(arr_63_item) && _jm_cst_44_set.contains(arr_63_item);
                     if (! res)
                     {
-                        if (rep != null) rep.addEntry("value not in enum [.'$platforms'.0.'|'.31.versions.0.'|']", (path != null ? arr_63_lpath : null));
+                        if (rep != null) rep.addEntry("value not in enum [.'$platforms'.0.'|'.31.versions.0.'|']", ((path != null ? lpath : null) != null ? arr_63_lpath : null));
                         break;
                     }
                 }
             }
             if (! res)
             {
-                if (rep != null) rep.addEntry("not array or unexpected array [.'$platforms'.0.'|'.31.versions]", path);
-                if (rep != null) rep.addEntry("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.31]", path);
+                if (rep != null) rep.addEntry("not array or unexpected array [.'$platforms'.0.'|'.31.versions]", (path != null ? lpath : null));
+                if (rep != null) rep.addEntry("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.31]", (path != null ? lpath : null));
                 return false;
             }
         }
@@ -5194,22 +5242,25 @@ public class ansiblelint_meta extends ModelChecker
             if (rep != null) rep.addEntry("not an object [.'$platforms'.0.'|'.30]", path);
             return false;
         }
+        Path lpath;
         Object pval;
         boolean res;
         if (json.objectHasProp(val, "name"))
         {
+            lpath = new Path("name", path);
             pval = json.objectValue(val, "name");
             // .'$platforms'.0.'|'.30.name
             res = json.isString(pval) && json.asString(pval).compareTo("OpenBSD") == 0;
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected _OpenBSD [.'$platforms'.0.'|'.30.name]", path);
-                if (rep != null) rep.addEntry("unexpected value for optional prop <name> [.'$platforms'.0.'|'.30]", path);
+                if (rep != null) rep.addEntry("unexpected _OpenBSD [.'$platforms'.0.'|'.30.name]", (path != null ? lpath : null));
+                if (rep != null) rep.addEntry("unexpected value for optional prop <name> [.'$platforms'.0.'|'.30]", (path != null ? lpath : null));
                 return false;
             }
         }
         if (json.objectHasProp(val, "versions"))
         {
+            lpath = new Path("versions", path);
             pval = json.objectValue(val, "versions");
             // .'$platforms'.0.'|'.30.versions
             res = json.isArray(pval);
@@ -5221,20 +5272,20 @@ public class ansiblelint_meta extends ModelChecker
                 {
                     arr_64_idx++;
                     Object arr_64_item = arr_64_item_loop.next();
-                    Path arr_64_lpath = new Path(arr_64_idx, path);
+                    Path arr_64_lpath = new Path(arr_64_idx, (path != null ? lpath : null));
                     // .'$platforms'.0.'|'.30.versions.0
                     res = json.isScalar(arr_64_item) && _jm_cst_45_set.contains(arr_64_item);
                     if (! res)
                     {
-                        if (rep != null) rep.addEntry("value not in enum [.'$platforms'.0.'|'.30.versions.0.'|']", (path != null ? arr_64_lpath : null));
+                        if (rep != null) rep.addEntry("value not in enum [.'$platforms'.0.'|'.30.versions.0.'|']", ((path != null ? lpath : null) != null ? arr_64_lpath : null));
                         break;
                     }
                 }
             }
             if (! res)
             {
-                if (rep != null) rep.addEntry("not array or unexpected array [.'$platforms'.0.'|'.30.versions]", path);
-                if (rep != null) rep.addEntry("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.30]", path);
+                if (rep != null) rep.addEntry("not array or unexpected array [.'$platforms'.0.'|'.30.versions]", (path != null ? lpath : null));
+                if (rep != null) rep.addEntry("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.30]", (path != null ? lpath : null));
                 return false;
             }
         }
@@ -5250,22 +5301,25 @@ public class ansiblelint_meta extends ModelChecker
             if (rep != null) rep.addEntry("not an object [.'$platforms'.0.'|'.29]", path);
             return false;
         }
+        Path lpath;
         Object pval;
         boolean res;
         if (json.objectHasProp(val, "name"))
         {
+            lpath = new Path("name", path);
             pval = json.objectValue(val, "name");
             // .'$platforms'.0.'|'.29.name
             res = json.isString(pval) && json.asString(pval).compareTo("NXOS") == 0;
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected _NXOS [.'$platforms'.0.'|'.29.name]", path);
-                if (rep != null) rep.addEntry("unexpected value for optional prop <name> [.'$platforms'.0.'|'.29]", path);
+                if (rep != null) rep.addEntry("unexpected _NXOS [.'$platforms'.0.'|'.29.name]", (path != null ? lpath : null));
+                if (rep != null) rep.addEntry("unexpected value for optional prop <name> [.'$platforms'.0.'|'.29]", (path != null ? lpath : null));
                 return false;
             }
         }
         if (json.objectHasProp(val, "versions"))
         {
+            lpath = new Path("versions", path);
             pval = json.objectValue(val, "versions");
             // .'$platforms'.0.'|'.29.versions
             res = json.isArray(pval);
@@ -5277,20 +5331,20 @@ public class ansiblelint_meta extends ModelChecker
                 {
                     arr_65_idx++;
                     Object arr_65_item = arr_65_item_loop.next();
-                    Path arr_65_lpath = new Path(arr_65_idx, path);
+                    Path arr_65_lpath = new Path(arr_65_idx, (path != null ? lpath : null));
                     // .'$platforms'.0.'|'.29.versions.0
                     res = json.isString(arr_65_item) && json.asString(arr_65_item).compareTo("all") == 0;
                     if (! res)
                     {
-                        if (rep != null) rep.addEntry("unexpected all [.'$platforms'.0.'|'.29.versions.0]", (path != null ? arr_65_lpath : null));
+                        if (rep != null) rep.addEntry("unexpected all [.'$platforms'.0.'|'.29.versions.0]", ((path != null ? lpath : null) != null ? arr_65_lpath : null));
                         break;
                     }
                 }
             }
             if (! res)
             {
-                if (rep != null) rep.addEntry("not array or unexpected array [.'$platforms'.0.'|'.29.versions]", path);
-                if (rep != null) rep.addEntry("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.29]", path);
+                if (rep != null) rep.addEntry("not array or unexpected array [.'$platforms'.0.'|'.29.versions]", (path != null ? lpath : null));
+                if (rep != null) rep.addEntry("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.29]", (path != null ? lpath : null));
                 return false;
             }
         }
@@ -5307,22 +5361,25 @@ public class ansiblelint_meta extends ModelChecker
             if (rep != null) rep.addEntry("not an object [.'$platforms'.0.'|'.28]", path);
             return false;
         }
+        Path lpath;
         Object pval;
         boolean res;
         if (json.objectHasProp(val, "name"))
         {
+            lpath = new Path("name", path);
             pval = json.objectValue(val, "name");
             // .'$platforms'.0.'|'.28.name
             res = json.isString(pval) && json.asString(pval).compareTo("Megeia") == 0;
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected _Megeia [.'$platforms'.0.'|'.28.name]", path);
-                if (rep != null) rep.addEntry("unexpected value for optional prop <name> [.'$platforms'.0.'|'.28]", path);
+                if (rep != null) rep.addEntry("unexpected _Megeia [.'$platforms'.0.'|'.28.name]", (path != null ? lpath : null));
+                if (rep != null) rep.addEntry("unexpected value for optional prop <name> [.'$platforms'.0.'|'.28]", (path != null ? lpath : null));
                 return false;
             }
         }
         if (json.objectHasProp(val, "versions"))
         {
+            lpath = new Path("versions", path);
             pval = json.objectValue(val, "versions");
             // .'$platforms'.0.'|'.28.versions
             res = json.isArray(pval);
@@ -5334,20 +5391,20 @@ public class ansiblelint_meta extends ModelChecker
                 {
                     arr_66_idx++;
                     Object arr_66_item = arr_66_item_loop.next();
-                    Path arr_66_lpath = new Path(arr_66_idx, path);
+                    Path arr_66_lpath = new Path(arr_66_idx, (path != null ? lpath : null));
                     // .'$platforms'.0.'|'.28.versions.0
                     res = json.isScalar(arr_66_item) && _jm_cst_46_set.contains(arr_66_item);
                     if (! res)
                     {
-                        if (rep != null) rep.addEntry("value not in enum [.'$platforms'.0.'|'.28.versions.0.'|']", (path != null ? arr_66_lpath : null));
+                        if (rep != null) rep.addEntry("value not in enum [.'$platforms'.0.'|'.28.versions.0.'|']", ((path != null ? lpath : null) != null ? arr_66_lpath : null));
                         break;
                     }
                 }
             }
             if (! res)
             {
-                if (rep != null) rep.addEntry("not array or unexpected array [.'$platforms'.0.'|'.28.versions]", path);
-                if (rep != null) rep.addEntry("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.28]", path);
+                if (rep != null) rep.addEntry("not array or unexpected array [.'$platforms'.0.'|'.28.versions]", (path != null ? lpath : null));
+                if (rep != null) rep.addEntry("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.28]", (path != null ? lpath : null));
                 return false;
             }
         }
@@ -5364,22 +5421,25 @@ public class ansiblelint_meta extends ModelChecker
             if (rep != null) rep.addEntry("not an object [.'$platforms'.0.'|'.27]", path);
             return false;
         }
+        Path lpath;
         Object pval;
         boolean res;
         if (json.objectHasProp(val, "name"))
         {
+            lpath = new Path("name", path);
             pval = json.objectValue(val, "name");
             // .'$platforms'.0.'|'.27.name
             res = json.isString(pval) && json.asString(pval).compareTo("Kali") == 0;
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected _Kali [.'$platforms'.0.'|'.27.name]", path);
-                if (rep != null) rep.addEntry("unexpected value for optional prop <name> [.'$platforms'.0.'|'.27]", path);
+                if (rep != null) rep.addEntry("unexpected _Kali [.'$platforms'.0.'|'.27.name]", (path != null ? lpath : null));
+                if (rep != null) rep.addEntry("unexpected value for optional prop <name> [.'$platforms'.0.'|'.27]", (path != null ? lpath : null));
                 return false;
             }
         }
         if (json.objectHasProp(val, "versions"))
         {
+            lpath = new Path("versions", path);
             pval = json.objectValue(val, "versions");
             // .'$platforms'.0.'|'.27.versions
             res = json.isArray(pval);
@@ -5391,20 +5451,20 @@ public class ansiblelint_meta extends ModelChecker
                 {
                     arr_67_idx++;
                     Object arr_67_item = arr_67_item_loop.next();
-                    Path arr_67_lpath = new Path(arr_67_idx, path);
+                    Path arr_67_lpath = new Path(arr_67_idx, (path != null ? lpath : null));
                     // .'$platforms'.0.'|'.27.versions.0
                     res = json.isScalar(arr_67_item) && _jm_cst_47_set.contains(arr_67_item);
                     if (! res)
                     {
-                        if (rep != null) rep.addEntry("value not in enum [.'$platforms'.0.'|'.27.versions.0.'|']", (path != null ? arr_67_lpath : null));
+                        if (rep != null) rep.addEntry("value not in enum [.'$platforms'.0.'|'.27.versions.0.'|']", ((path != null ? lpath : null) != null ? arr_67_lpath : null));
                         break;
                     }
                 }
             }
             if (! res)
             {
-                if (rep != null) rep.addEntry("not array or unexpected array [.'$platforms'.0.'|'.27.versions]", path);
-                if (rep != null) rep.addEntry("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.27]", path);
+                if (rep != null) rep.addEntry("not array or unexpected array [.'$platforms'.0.'|'.27.versions]", (path != null ? lpath : null));
+                if (rep != null) rep.addEntry("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.27]", (path != null ? lpath : null));
                 return false;
             }
         }
@@ -5421,22 +5481,25 @@ public class ansiblelint_meta extends ModelChecker
             if (rep != null) rep.addEntry("not an object [.'$platforms'.0.'|'.26]", path);
             return false;
         }
+        Path lpath;
         Object pval;
         boolean res;
         if (json.objectHasProp(val, "name"))
         {
+            lpath = new Path("name", path);
             pval = json.objectValue(val, "name");
             // .'$platforms'.0.'|'.26.name
             res = json.isString(pval) && json.asString(pval).compareTo("macOS") == 0;
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected _macOS [.'$platforms'.0.'|'.26.name]", path);
-                if (rep != null) rep.addEntry("unexpected value for optional prop <name> [.'$platforms'.0.'|'.26]", path);
+                if (rep != null) rep.addEntry("unexpected _macOS [.'$platforms'.0.'|'.26.name]", (path != null ? lpath : null));
+                if (rep != null) rep.addEntry("unexpected value for optional prop <name> [.'$platforms'.0.'|'.26]", (path != null ? lpath : null));
                 return false;
             }
         }
         if (json.objectHasProp(val, "versions"))
         {
+            lpath = new Path("versions", path);
             pval = json.objectValue(val, "versions");
             // .'$platforms'.0.'|'.26.versions
             res = json.isArray(pval);
@@ -5448,20 +5511,20 @@ public class ansiblelint_meta extends ModelChecker
                 {
                     arr_68_idx++;
                     Object arr_68_item = arr_68_item_loop.next();
-                    Path arr_68_lpath = new Path(arr_68_idx, path);
+                    Path arr_68_lpath = new Path(arr_68_idx, (path != null ? lpath : null));
                     // .'$platforms'.0.'|'.26.versions.0
                     res = json.isScalar(arr_68_item) && _jm_cst_48_set.contains(arr_68_item);
                     if (! res)
                     {
-                        if (rep != null) rep.addEntry("value not in enum [.'$platforms'.0.'|'.26.versions.0.'|']", (path != null ? arr_68_lpath : null));
+                        if (rep != null) rep.addEntry("value not in enum [.'$platforms'.0.'|'.26.versions.0.'|']", ((path != null ? lpath : null) != null ? arr_68_lpath : null));
                         break;
                     }
                 }
             }
             if (! res)
             {
-                if (rep != null) rep.addEntry("not array or unexpected array [.'$platforms'.0.'|'.26.versions]", path);
-                if (rep != null) rep.addEntry("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.26]", path);
+                if (rep != null) rep.addEntry("not array or unexpected array [.'$platforms'.0.'|'.26.versions]", (path != null ? lpath : null));
+                if (rep != null) rep.addEntry("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.26]", (path != null ? lpath : null));
                 return false;
             }
         }
@@ -5478,22 +5541,25 @@ public class ansiblelint_meta extends ModelChecker
             if (rep != null) rep.addEntry("not an object [.'$platforms'.0.'|'.25]", path);
             return false;
         }
+        Path lpath;
         Object pval;
         boolean res;
         if (json.objectHasProp(val, "name"))
         {
+            lpath = new Path("name", path);
             pval = json.objectValue(val, "name");
             // .'$platforms'.0.'|'.25.name
             res = json.isString(pval) && json.asString(pval).compareTo("Kali") == 0;
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected _Kali [.'$platforms'.0.'|'.25.name]", path);
-                if (rep != null) rep.addEntry("unexpected value for optional prop <name> [.'$platforms'.0.'|'.25]", path);
+                if (rep != null) rep.addEntry("unexpected _Kali [.'$platforms'.0.'|'.25.name]", (path != null ? lpath : null));
+                if (rep != null) rep.addEntry("unexpected value for optional prop <name> [.'$platforms'.0.'|'.25]", (path != null ? lpath : null));
                 return false;
             }
         }
         if (json.objectHasProp(val, "versions"))
         {
+            lpath = new Path("versions", path);
             pval = json.objectValue(val, "versions");
             // .'$platforms'.0.'|'.25.versions
             res = json.isArray(pval);
@@ -5505,20 +5571,20 @@ public class ansiblelint_meta extends ModelChecker
                 {
                     arr_69_idx++;
                     Object arr_69_item = arr_69_item_loop.next();
-                    Path arr_69_lpath = new Path(arr_69_idx, path);
+                    Path arr_69_lpath = new Path(arr_69_idx, (path != null ? lpath : null));
                     // .'$platforms'.0.'|'.25.versions.0
                     res = json.isScalar(arr_69_item) && _jm_cst_49_set.contains(arr_69_item);
                     if (! res)
                     {
-                        if (rep != null) rep.addEntry("value not in enum [.'$platforms'.0.'|'.25.versions.0.'|']", (path != null ? arr_69_lpath : null));
+                        if (rep != null) rep.addEntry("value not in enum [.'$platforms'.0.'|'.25.versions.0.'|']", ((path != null ? lpath : null) != null ? arr_69_lpath : null));
                         break;
                     }
                 }
             }
             if (! res)
             {
-                if (rep != null) rep.addEntry("not array or unexpected array [.'$platforms'.0.'|'.25.versions]", path);
-                if (rep != null) rep.addEntry("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.25]", path);
+                if (rep != null) rep.addEntry("not array or unexpected array [.'$platforms'.0.'|'.25.versions]", (path != null ? lpath : null));
+                if (rep != null) rep.addEntry("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.25]", (path != null ? lpath : null));
                 return false;
             }
         }
@@ -5534,22 +5600,25 @@ public class ansiblelint_meta extends ModelChecker
             if (rep != null) rep.addEntry("not an object [.'$platforms'.0.'|'.24]", path);
             return false;
         }
+        Path lpath;
         Object pval;
         boolean res;
         if (json.objectHasProp(val, "name"))
         {
+            lpath = new Path("name", path);
             pval = json.objectValue(val, "name");
             // .'$platforms'.0.'|'.24.name
             res = json.isString(pval) && json.asString(pval).compareTo("Junos") == 0;
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected _Junos [.'$platforms'.0.'|'.24.name]", path);
-                if (rep != null) rep.addEntry("unexpected value for optional prop <name> [.'$platforms'.0.'|'.24]", path);
+                if (rep != null) rep.addEntry("unexpected _Junos [.'$platforms'.0.'|'.24.name]", (path != null ? lpath : null));
+                if (rep != null) rep.addEntry("unexpected value for optional prop <name> [.'$platforms'.0.'|'.24]", (path != null ? lpath : null));
                 return false;
             }
         }
         if (json.objectHasProp(val, "versions"))
         {
+            lpath = new Path("versions", path);
             pval = json.objectValue(val, "versions");
             // .'$platforms'.0.'|'.24.versions
             res = json.isArray(pval);
@@ -5561,20 +5630,20 @@ public class ansiblelint_meta extends ModelChecker
                 {
                     arr_70_idx++;
                     Object arr_70_item = arr_70_item_loop.next();
-                    Path arr_70_lpath = new Path(arr_70_idx, path);
+                    Path arr_70_lpath = new Path(arr_70_idx, (path != null ? lpath : null));
                     // .'$platforms'.0.'|'.24.versions.0
                     res = json.isString(arr_70_item) && json.asString(arr_70_item).compareTo("all") == 0;
                     if (! res)
                     {
-                        if (rep != null) rep.addEntry("unexpected all [.'$platforms'.0.'|'.24.versions.0]", (path != null ? arr_70_lpath : null));
+                        if (rep != null) rep.addEntry("unexpected all [.'$platforms'.0.'|'.24.versions.0]", ((path != null ? lpath : null) != null ? arr_70_lpath : null));
                         break;
                     }
                 }
             }
             if (! res)
             {
-                if (rep != null) rep.addEntry("not array or unexpected array [.'$platforms'.0.'|'.24.versions]", path);
-                if (rep != null) rep.addEntry("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.24]", path);
+                if (rep != null) rep.addEntry("not array or unexpected array [.'$platforms'.0.'|'.24.versions]", (path != null ? lpath : null));
+                if (rep != null) rep.addEntry("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.24]", (path != null ? lpath : null));
                 return false;
             }
         }
@@ -5590,22 +5659,25 @@ public class ansiblelint_meta extends ModelChecker
             if (rep != null) rep.addEntry("not an object [.'$platforms'.0.'|'.23]", path);
             return false;
         }
+        Path lpath;
         Object pval;
         boolean res;
         if (json.objectHasProp(val, "name"))
         {
+            lpath = new Path("name", path);
             pval = json.objectValue(val, "name");
             // .'$platforms'.0.'|'.23.name
             res = json.isString(pval) && json.asString(pval).compareTo("IOS") == 0;
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected _IOS [.'$platforms'.0.'|'.23.name]", path);
-                if (rep != null) rep.addEntry("unexpected value for optional prop <name> [.'$platforms'.0.'|'.23]", path);
+                if (rep != null) rep.addEntry("unexpected _IOS [.'$platforms'.0.'|'.23.name]", (path != null ? lpath : null));
+                if (rep != null) rep.addEntry("unexpected value for optional prop <name> [.'$platforms'.0.'|'.23]", (path != null ? lpath : null));
                 return false;
             }
         }
         if (json.objectHasProp(val, "versions"))
         {
+            lpath = new Path("versions", path);
             pval = json.objectValue(val, "versions");
             // .'$platforms'.0.'|'.23.versions
             res = json.isArray(pval);
@@ -5617,20 +5689,20 @@ public class ansiblelint_meta extends ModelChecker
                 {
                     arr_71_idx++;
                     Object arr_71_item = arr_71_item_loop.next();
-                    Path arr_71_lpath = new Path(arr_71_idx, path);
+                    Path arr_71_lpath = new Path(arr_71_idx, (path != null ? lpath : null));
                     // .'$platforms'.0.'|'.23.versions.0
                     res = json.isString(arr_71_item) && json.asString(arr_71_item).compareTo("all") == 0;
                     if (! res)
                     {
-                        if (rep != null) rep.addEntry("unexpected all [.'$platforms'.0.'|'.23.versions.0]", (path != null ? arr_71_lpath : null));
+                        if (rep != null) rep.addEntry("unexpected all [.'$platforms'.0.'|'.23.versions.0]", ((path != null ? lpath : null) != null ? arr_71_lpath : null));
                         break;
                     }
                 }
             }
             if (! res)
             {
-                if (rep != null) rep.addEntry("not array or unexpected array [.'$platforms'.0.'|'.23.versions]", path);
-                if (rep != null) rep.addEntry("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.23]", path);
+                if (rep != null) rep.addEntry("not array or unexpected array [.'$platforms'.0.'|'.23.versions]", (path != null ? lpath : null));
+                if (rep != null) rep.addEntry("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.23]", (path != null ? lpath : null));
                 return false;
             }
         }
@@ -5647,22 +5719,25 @@ public class ansiblelint_meta extends ModelChecker
             if (rep != null) rep.addEntry("not an object [.'$platforms'.0.'|'.22]", path);
             return false;
         }
+        Path lpath;
         Object pval;
         boolean res;
         if (json.objectHasProp(val, "name"))
         {
+            lpath = new Path("name", path);
             pval = json.objectValue(val, "name");
             // .'$platforms'.0.'|'.22.name
             res = json.isString(pval) && json.asString(pval).compareTo("HardenedBSD") == 0;
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected _HardenedBSD [.'$platforms'.0.'|'.22.name]", path);
-                if (rep != null) rep.addEntry("unexpected value for optional prop <name> [.'$platforms'.0.'|'.22]", path);
+                if (rep != null) rep.addEntry("unexpected _HardenedBSD [.'$platforms'.0.'|'.22.name]", (path != null ? lpath : null));
+                if (rep != null) rep.addEntry("unexpected value for optional prop <name> [.'$platforms'.0.'|'.22]", (path != null ? lpath : null));
                 return false;
             }
         }
         if (json.objectHasProp(val, "versions"))
         {
+            lpath = new Path("versions", path);
             pval = json.objectValue(val, "versions");
             // .'$platforms'.0.'|'.22.versions
             res = json.isArray(pval);
@@ -5674,20 +5749,20 @@ public class ansiblelint_meta extends ModelChecker
                 {
                     arr_72_idx++;
                     Object arr_72_item = arr_72_item_loop.next();
-                    Path arr_72_lpath = new Path(arr_72_idx, path);
+                    Path arr_72_lpath = new Path(arr_72_idx, (path != null ? lpath : null));
                     // .'$platforms'.0.'|'.22.versions.0
                     res = json.isScalar(arr_72_item) && _jm_cst_50_set.contains(arr_72_item);
                     if (! res)
                     {
-                        if (rep != null) rep.addEntry("value not in enum [.'$platforms'.0.'|'.22.versions.0.'|']", (path != null ? arr_72_lpath : null));
+                        if (rep != null) rep.addEntry("value not in enum [.'$platforms'.0.'|'.22.versions.0.'|']", ((path != null ? lpath : null) != null ? arr_72_lpath : null));
                         break;
                     }
                 }
             }
             if (! res)
             {
-                if (rep != null) rep.addEntry("not array or unexpected array [.'$platforms'.0.'|'.22.versions]", path);
-                if (rep != null) rep.addEntry("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.22]", path);
+                if (rep != null) rep.addEntry("not array or unexpected array [.'$platforms'.0.'|'.22.versions]", (path != null ? lpath : null));
+                if (rep != null) rep.addEntry("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.22]", (path != null ? lpath : null));
                 return false;
             }
         }
@@ -5703,22 +5778,25 @@ public class ansiblelint_meta extends ModelChecker
             if (rep != null) rep.addEntry("not an object [.'$platforms'.0.'|'.21]", path);
             return false;
         }
+        Path lpath;
         Object pval;
         boolean res;
         if (json.objectHasProp(val, "name"))
         {
+            lpath = new Path("name", path);
             pval = json.objectValue(val, "name");
             // .'$platforms'.0.'|'.21.name
             res = json.isString(pval) && json.asString(pval).compareTo("Gentoo") == 0;
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected _Gentoo [.'$platforms'.0.'|'.21.name]", path);
-                if (rep != null) rep.addEntry("unexpected value for optional prop <name> [.'$platforms'.0.'|'.21]", path);
+                if (rep != null) rep.addEntry("unexpected _Gentoo [.'$platforms'.0.'|'.21.name]", (path != null ? lpath : null));
+                if (rep != null) rep.addEntry("unexpected value for optional prop <name> [.'$platforms'.0.'|'.21]", (path != null ? lpath : null));
                 return false;
             }
         }
         if (json.objectHasProp(val, "versions"))
         {
+            lpath = new Path("versions", path);
             pval = json.objectValue(val, "versions");
             // .'$platforms'.0.'|'.21.versions
             res = json.isArray(pval);
@@ -5730,20 +5808,20 @@ public class ansiblelint_meta extends ModelChecker
                 {
                     arr_73_idx++;
                     Object arr_73_item = arr_73_item_loop.next();
-                    Path arr_73_lpath = new Path(arr_73_idx, path);
+                    Path arr_73_lpath = new Path(arr_73_idx, (path != null ? lpath : null));
                     // .'$platforms'.0.'|'.21.versions.0
                     res = json.isString(arr_73_item) && json.asString(arr_73_item).compareTo("all") == 0;
                     if (! res)
                     {
-                        if (rep != null) rep.addEntry("unexpected all [.'$platforms'.0.'|'.21.versions.0]", (path != null ? arr_73_lpath : null));
+                        if (rep != null) rep.addEntry("unexpected all [.'$platforms'.0.'|'.21.versions.0]", ((path != null ? lpath : null) != null ? arr_73_lpath : null));
                         break;
                     }
                 }
             }
             if (! res)
             {
-                if (rep != null) rep.addEntry("not array or unexpected array [.'$platforms'.0.'|'.21.versions]", path);
-                if (rep != null) rep.addEntry("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.21]", path);
+                if (rep != null) rep.addEntry("not array or unexpected array [.'$platforms'.0.'|'.21.versions]", (path != null ? lpath : null));
+                if (rep != null) rep.addEntry("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.21]", (path != null ? lpath : null));
                 return false;
             }
         }
@@ -5759,22 +5837,25 @@ public class ansiblelint_meta extends ModelChecker
             if (rep != null) rep.addEntry("not an object [.'$platforms'.0.'|'.20]", path);
             return false;
         }
+        Path lpath;
         Object pval;
         boolean res;
         if (json.objectHasProp(val, "name"))
         {
+            lpath = new Path("name", path);
             pval = json.objectValue(val, "name");
             // .'$platforms'.0.'|'.20.name
             res = json.isString(pval) && json.asString(pval).compareTo("GenericUNIX") == 0;
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected _GenericUNIX [.'$platforms'.0.'|'.20.name]", path);
-                if (rep != null) rep.addEntry("unexpected value for optional prop <name> [.'$platforms'.0.'|'.20]", path);
+                if (rep != null) rep.addEntry("unexpected _GenericUNIX [.'$platforms'.0.'|'.20.name]", (path != null ? lpath : null));
+                if (rep != null) rep.addEntry("unexpected value for optional prop <name> [.'$platforms'.0.'|'.20]", (path != null ? lpath : null));
                 return false;
             }
         }
         if (json.objectHasProp(val, "versions"))
         {
+            lpath = new Path("versions", path);
             pval = json.objectValue(val, "versions");
             // .'$platforms'.0.'|'.20.versions
             res = json.isArray(pval);
@@ -5786,20 +5867,20 @@ public class ansiblelint_meta extends ModelChecker
                 {
                     arr_74_idx++;
                     Object arr_74_item = arr_74_item_loop.next();
-                    Path arr_74_lpath = new Path(arr_74_idx, path);
+                    Path arr_74_lpath = new Path(arr_74_idx, (path != null ? lpath : null));
                     // .'$platforms'.0.'|'.20.versions.0
                     res = json.isString(arr_74_item) && json.asString(arr_74_item).compareTo("all") == 0;
                     if (! res)
                     {
-                        if (rep != null) rep.addEntry("unexpected all [.'$platforms'.0.'|'.20.versions.0]", (path != null ? arr_74_lpath : null));
+                        if (rep != null) rep.addEntry("unexpected all [.'$platforms'.0.'|'.20.versions.0]", ((path != null ? lpath : null) != null ? arr_74_lpath : null));
                         break;
                     }
                 }
             }
             if (! res)
             {
-                if (rep != null) rep.addEntry("not array or unexpected array [.'$platforms'.0.'|'.20.versions]", path);
-                if (rep != null) rep.addEntry("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.20]", path);
+                if (rep != null) rep.addEntry("not array or unexpected array [.'$platforms'.0.'|'.20.versions]", (path != null ? lpath : null));
+                if (rep != null) rep.addEntry("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.20]", (path != null ? lpath : null));
                 return false;
             }
         }
@@ -5815,22 +5896,25 @@ public class ansiblelint_meta extends ModelChecker
             if (rep != null) rep.addEntry("not an object [.'$platforms'.0.'|'.19]", path);
             return false;
         }
+        Path lpath;
         Object pval;
         boolean res;
         if (json.objectHasProp(val, "name"))
         {
+            lpath = new Path("name", path);
             pval = json.objectValue(val, "name");
             // .'$platforms'.0.'|'.19.name
             res = json.isString(pval) && json.asString(pval).compareTo("GenericLinux") == 0;
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected _GenericLinux [.'$platforms'.0.'|'.19.name]", path);
-                if (rep != null) rep.addEntry("unexpected value for optional prop <name> [.'$platforms'.0.'|'.19]", path);
+                if (rep != null) rep.addEntry("unexpected _GenericLinux [.'$platforms'.0.'|'.19.name]", (path != null ? lpath : null));
+                if (rep != null) rep.addEntry("unexpected value for optional prop <name> [.'$platforms'.0.'|'.19]", (path != null ? lpath : null));
                 return false;
             }
         }
         if (json.objectHasProp(val, "versions"))
         {
+            lpath = new Path("versions", path);
             pval = json.objectValue(val, "versions");
             // .'$platforms'.0.'|'.19.versions
             res = json.isArray(pval);
@@ -5842,20 +5926,20 @@ public class ansiblelint_meta extends ModelChecker
                 {
                     arr_75_idx++;
                     Object arr_75_item = arr_75_item_loop.next();
-                    Path arr_75_lpath = new Path(arr_75_idx, path);
+                    Path arr_75_lpath = new Path(arr_75_idx, (path != null ? lpath : null));
                     // .'$platforms'.0.'|'.19.versions.0
                     res = json.isString(arr_75_item) && json.asString(arr_75_item).compareTo("all") == 0;
                     if (! res)
                     {
-                        if (rep != null) rep.addEntry("unexpected all [.'$platforms'.0.'|'.19.versions.0]", (path != null ? arr_75_lpath : null));
+                        if (rep != null) rep.addEntry("unexpected all [.'$platforms'.0.'|'.19.versions.0]", ((path != null ? lpath : null) != null ? arr_75_lpath : null));
                         break;
                     }
                 }
             }
             if (! res)
             {
-                if (rep != null) rep.addEntry("not array or unexpected array [.'$platforms'.0.'|'.19.versions]", path);
-                if (rep != null) rep.addEntry("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.19]", path);
+                if (rep != null) rep.addEntry("not array or unexpected array [.'$platforms'.0.'|'.19.versions]", (path != null ? lpath : null));
+                if (rep != null) rep.addEntry("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.19]", (path != null ? lpath : null));
                 return false;
             }
         }
@@ -5871,22 +5955,25 @@ public class ansiblelint_meta extends ModelChecker
             if (rep != null) rep.addEntry("not an object [.'$platforms'.0.'|'.18]", path);
             return false;
         }
+        Path lpath;
         Object pval;
         boolean res;
         if (json.objectHasProp(val, "name"))
         {
+            lpath = new Path("name", path);
             pval = json.objectValue(val, "name");
             // .'$platforms'.0.'|'.18.name
             res = json.isString(pval) && json.asString(pval).compareTo("GenericBSD") == 0;
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected _GenericBSD [.'$platforms'.0.'|'.18.name]", path);
-                if (rep != null) rep.addEntry("unexpected value for optional prop <name> [.'$platforms'.0.'|'.18]", path);
+                if (rep != null) rep.addEntry("unexpected _GenericBSD [.'$platforms'.0.'|'.18.name]", (path != null ? lpath : null));
+                if (rep != null) rep.addEntry("unexpected value for optional prop <name> [.'$platforms'.0.'|'.18]", (path != null ? lpath : null));
                 return false;
             }
         }
         if (json.objectHasProp(val, "versions"))
         {
+            lpath = new Path("versions", path);
             pval = json.objectValue(val, "versions");
             // .'$platforms'.0.'|'.18.versions
             res = json.isArray(pval);
@@ -5898,20 +5985,20 @@ public class ansiblelint_meta extends ModelChecker
                 {
                     arr_76_idx++;
                     Object arr_76_item = arr_76_item_loop.next();
-                    Path arr_76_lpath = new Path(arr_76_idx, path);
+                    Path arr_76_lpath = new Path(arr_76_idx, (path != null ? lpath : null));
                     // .'$platforms'.0.'|'.18.versions.0
                     res = json.isString(arr_76_item) && json.asString(arr_76_item).compareTo("all") == 0;
                     if (! res)
                     {
-                        if (rep != null) rep.addEntry("unexpected all [.'$platforms'.0.'|'.18.versions.0]", (path != null ? arr_76_lpath : null));
+                        if (rep != null) rep.addEntry("unexpected all [.'$platforms'.0.'|'.18.versions.0]", ((path != null ? lpath : null) != null ? arr_76_lpath : null));
                         break;
                     }
                 }
             }
             if (! res)
             {
-                if (rep != null) rep.addEntry("not array or unexpected array [.'$platforms'.0.'|'.18.versions]", path);
-                if (rep != null) rep.addEntry("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.18]", path);
+                if (rep != null) rep.addEntry("not array or unexpected array [.'$platforms'.0.'|'.18.versions]", (path != null ? lpath : null));
+                if (rep != null) rep.addEntry("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.18]", (path != null ? lpath : null));
                 return false;
             }
         }
@@ -5928,22 +6015,25 @@ public class ansiblelint_meta extends ModelChecker
             if (rep != null) rep.addEntry("not an object [.'$platforms'.0.'|'.17]", path);
             return false;
         }
+        Path lpath;
         Object pval;
         boolean res;
         if (json.objectHasProp(val, "name"))
         {
+            lpath = new Path("name", path);
             pval = json.objectValue(val, "name");
             // .'$platforms'.0.'|'.17.name
             res = json.isString(pval) && json.asString(pval).compareTo("FreeBSD") == 0;
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected _FreeBSD [.'$platforms'.0.'|'.17.name]", path);
-                if (rep != null) rep.addEntry("unexpected value for optional prop <name> [.'$platforms'.0.'|'.17]", path);
+                if (rep != null) rep.addEntry("unexpected _FreeBSD [.'$platforms'.0.'|'.17.name]", (path != null ? lpath : null));
+                if (rep != null) rep.addEntry("unexpected value for optional prop <name> [.'$platforms'.0.'|'.17]", (path != null ? lpath : null));
                 return false;
             }
         }
         if (json.objectHasProp(val, "versions"))
         {
+            lpath = new Path("versions", path);
             pval = json.objectValue(val, "versions");
             // .'$platforms'.0.'|'.17.versions
             res = json.isArray(pval);
@@ -5955,20 +6045,20 @@ public class ansiblelint_meta extends ModelChecker
                 {
                     arr_77_idx++;
                     Object arr_77_item = arr_77_item_loop.next();
-                    Path arr_77_lpath = new Path(arr_77_idx, path);
+                    Path arr_77_lpath = new Path(arr_77_idx, (path != null ? lpath : null));
                     // .'$platforms'.0.'|'.17.versions.0
                     res = json.isScalar(arr_77_item) && _jm_cst_51_set.contains(arr_77_item);
                     if (! res)
                     {
-                        if (rep != null) rep.addEntry("value not in enum [.'$platforms'.0.'|'.17.versions.0.'|']", (path != null ? arr_77_lpath : null));
+                        if (rep != null) rep.addEntry("value not in enum [.'$platforms'.0.'|'.17.versions.0.'|']", ((path != null ? lpath : null) != null ? arr_77_lpath : null));
                         break;
                     }
                 }
             }
             if (! res)
             {
-                if (rep != null) rep.addEntry("not array or unexpected array [.'$platforms'.0.'|'.17.versions]", path);
-                if (rep != null) rep.addEntry("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.17]", path);
+                if (rep != null) rep.addEntry("not array or unexpected array [.'$platforms'.0.'|'.17.versions]", (path != null ? lpath : null));
+                if (rep != null) rep.addEntry("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.17]", (path != null ? lpath : null));
                 return false;
             }
         }
@@ -5985,22 +6075,25 @@ public class ansiblelint_meta extends ModelChecker
             if (rep != null) rep.addEntry("not an object [.'$platforms'.0.'|'.16]", path);
             return false;
         }
+        Path lpath;
         Object pval;
         boolean res;
         if (json.objectHasProp(val, "name"))
         {
+            lpath = new Path("name", path);
             pval = json.objectValue(val, "name");
             // .'$platforms'.0.'|'.16.name
             res = json.isString(pval) && json.asString(pval).compareTo("Fedora") == 0;
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected _Fedora [.'$platforms'.0.'|'.16.name]", path);
-                if (rep != null) rep.addEntry("unexpected value for optional prop <name> [.'$platforms'.0.'|'.16]", path);
+                if (rep != null) rep.addEntry("unexpected _Fedora [.'$platforms'.0.'|'.16.name]", (path != null ? lpath : null));
+                if (rep != null) rep.addEntry("unexpected value for optional prop <name> [.'$platforms'.0.'|'.16]", (path != null ? lpath : null));
                 return false;
             }
         }
         if (json.objectHasProp(val, "versions"))
         {
+            lpath = new Path("versions", path);
             pval = json.objectValue(val, "versions");
             // .'$platforms'.0.'|'.16.versions
             res = json.isArray(pval);
@@ -6012,20 +6105,20 @@ public class ansiblelint_meta extends ModelChecker
                 {
                     arr_78_idx++;
                     Object arr_78_item = arr_78_item_loop.next();
-                    Path arr_78_lpath = new Path(arr_78_idx, path);
+                    Path arr_78_lpath = new Path(arr_78_idx, (path != null ? lpath : null));
                     // .'$platforms'.0.'|'.16.versions.0
                     res = json.isScalar(arr_78_item) && _jm_cst_52_set.contains(arr_78_item);
                     if (! res)
                     {
-                        if (rep != null) rep.addEntry("value not in enum [.'$platforms'.0.'|'.16.versions.0.'|']", (path != null ? arr_78_lpath : null));
+                        if (rep != null) rep.addEntry("value not in enum [.'$platforms'.0.'|'.16.versions.0.'|']", ((path != null ? lpath : null) != null ? arr_78_lpath : null));
                         break;
                     }
                 }
             }
             if (! res)
             {
-                if (rep != null) rep.addEntry("not array or unexpected array [.'$platforms'.0.'|'.16.versions]", path);
-                if (rep != null) rep.addEntry("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.16]", path);
+                if (rep != null) rep.addEntry("not array or unexpected array [.'$platforms'.0.'|'.16.versions]", (path != null ? lpath : null));
+                if (rep != null) rep.addEntry("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.16]", (path != null ? lpath : null));
                 return false;
             }
         }
@@ -6041,22 +6134,25 @@ public class ansiblelint_meta extends ModelChecker
             if (rep != null) rep.addEntry("not an object [.'$platforms'.0.'|'.15]", path);
             return false;
         }
+        Path lpath;
         Object pval;
         boolean res;
         if (json.objectHasProp(val, "name"))
         {
+            lpath = new Path("name", path);
             pval = json.objectValue(val, "name");
             // .'$platforms'.0.'|'.15.name
             res = json.isString(pval) && json.asString(pval).compareTo("eos") == 0;
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected _eos [.'$platforms'.0.'|'.15.name]", path);
-                if (rep != null) rep.addEntry("unexpected value for optional prop <name> [.'$platforms'.0.'|'.15]", path);
+                if (rep != null) rep.addEntry("unexpected _eos [.'$platforms'.0.'|'.15.name]", (path != null ? lpath : null));
+                if (rep != null) rep.addEntry("unexpected value for optional prop <name> [.'$platforms'.0.'|'.15]", (path != null ? lpath : null));
                 return false;
             }
         }
         if (json.objectHasProp(val, "versions"))
         {
+            lpath = new Path("versions", path);
             pval = json.objectValue(val, "versions");
             // .'$platforms'.0.'|'.15.versions
             res = json.isArray(pval);
@@ -6068,20 +6164,20 @@ public class ansiblelint_meta extends ModelChecker
                 {
                     arr_79_idx++;
                     Object arr_79_item = arr_79_item_loop.next();
-                    Path arr_79_lpath = new Path(arr_79_idx, path);
+                    Path arr_79_lpath = new Path(arr_79_idx, (path != null ? lpath : null));
                     // .'$platforms'.0.'|'.15.versions.0
                     res = json.isString(arr_79_item) && json.asString(arr_79_item).compareTo("all") == 0;
                     if (! res)
                     {
-                        if (rep != null) rep.addEntry("unexpected all [.'$platforms'.0.'|'.15.versions.0]", (path != null ? arr_79_lpath : null));
+                        if (rep != null) rep.addEntry("unexpected all [.'$platforms'.0.'|'.15.versions.0]", ((path != null ? lpath : null) != null ? arr_79_lpath : null));
                         break;
                     }
                 }
             }
             if (! res)
             {
-                if (rep != null) rep.addEntry("not array or unexpected array [.'$platforms'.0.'|'.15.versions]", path);
-                if (rep != null) rep.addEntry("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.15]", path);
+                if (rep != null) rep.addEntry("not array or unexpected array [.'$platforms'.0.'|'.15.versions]", (path != null ? lpath : null));
+                if (rep != null) rep.addEntry("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.15]", (path != null ? lpath : null));
                 return false;
             }
         }
@@ -6098,22 +6194,25 @@ public class ansiblelint_meta extends ModelChecker
             if (rep != null) rep.addEntry("not an object [.'$platforms'.0.'|'.14]", path);
             return false;
         }
+        Path lpath;
         Object pval;
         boolean res;
         if (json.objectHasProp(val, "name"))
         {
+            lpath = new Path("name", path);
             pval = json.objectValue(val, "name");
             // .'$platforms'.0.'|'.14.name
             res = json.isString(pval) && json.asString(pval).compareTo("EL") == 0;
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected _EL [.'$platforms'.0.'|'.14.name]", path);
-                if (rep != null) rep.addEntry("unexpected value for optional prop <name> [.'$platforms'.0.'|'.14]", path);
+                if (rep != null) rep.addEntry("unexpected _EL [.'$platforms'.0.'|'.14.name]", (path != null ? lpath : null));
+                if (rep != null) rep.addEntry("unexpected value for optional prop <name> [.'$platforms'.0.'|'.14]", (path != null ? lpath : null));
                 return false;
             }
         }
         if (json.objectHasProp(val, "versions"))
         {
+            lpath = new Path("versions", path);
             pval = json.objectValue(val, "versions");
             // .'$platforms'.0.'|'.14.versions
             res = json.isArray(pval);
@@ -6125,20 +6224,20 @@ public class ansiblelint_meta extends ModelChecker
                 {
                     arr_80_idx++;
                     Object arr_80_item = arr_80_item_loop.next();
-                    Path arr_80_lpath = new Path(arr_80_idx, path);
+                    Path arr_80_lpath = new Path(arr_80_idx, (path != null ? lpath : null));
                     // .'$platforms'.0.'|'.14.versions.0
                     res = json.isScalar(arr_80_item) && _jm_cst_53_set.contains(arr_80_item);
                     if (! res)
                     {
-                        if (rep != null) rep.addEntry("value not in enum [.'$platforms'.0.'|'.14.versions.0.'|']", (path != null ? arr_80_lpath : null));
+                        if (rep != null) rep.addEntry("value not in enum [.'$platforms'.0.'|'.14.versions.0.'|']", ((path != null ? lpath : null) != null ? arr_80_lpath : null));
                         break;
                     }
                 }
             }
             if (! res)
             {
-                if (rep != null) rep.addEntry("not array or unexpected array [.'$platforms'.0.'|'.14.versions]", path);
-                if (rep != null) rep.addEntry("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.14]", path);
+                if (rep != null) rep.addEntry("not array or unexpected array [.'$platforms'.0.'|'.14.versions]", (path != null ? lpath : null));
+                if (rep != null) rep.addEntry("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.14]", (path != null ? lpath : null));
                 return false;
             }
         }
@@ -6155,22 +6254,25 @@ public class ansiblelint_meta extends ModelChecker
             if (rep != null) rep.addEntry("not an object [.'$platforms'.0.'|'.13]", path);
             return false;
         }
+        Path lpath;
         Object pval;
         boolean res;
         if (json.objectHasProp(val, "name"))
         {
+            lpath = new Path("name", path);
             pval = json.objectValue(val, "name");
             // .'$platforms'.0.'|'.13.name
             res = json.isString(pval) && json.asString(pval).compareTo("DragonFlyBSD") == 0;
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected _DragonFlyBSD [.'$platforms'.0.'|'.13.name]", path);
-                if (rep != null) rep.addEntry("unexpected value for optional prop <name> [.'$platforms'.0.'|'.13]", path);
+                if (rep != null) rep.addEntry("unexpected _DragonFlyBSD [.'$platforms'.0.'|'.13.name]", (path != null ? lpath : null));
+                if (rep != null) rep.addEntry("unexpected value for optional prop <name> [.'$platforms'.0.'|'.13]", (path != null ? lpath : null));
                 return false;
             }
         }
         if (json.objectHasProp(val, "versions"))
         {
+            lpath = new Path("versions", path);
             pval = json.objectValue(val, "versions");
             // .'$platforms'.0.'|'.13.versions
             res = json.isArray(pval);
@@ -6182,20 +6284,20 @@ public class ansiblelint_meta extends ModelChecker
                 {
                     arr_81_idx++;
                     Object arr_81_item = arr_81_item_loop.next();
-                    Path arr_81_lpath = new Path(arr_81_idx, path);
+                    Path arr_81_lpath = new Path(arr_81_idx, (path != null ? lpath : null));
                     // .'$platforms'.0.'|'.13.versions.0
                     res = json.isScalar(arr_81_item) && _jm_cst_54_set.contains(arr_81_item);
                     if (! res)
                     {
-                        if (rep != null) rep.addEntry("value not in enum [.'$platforms'.0.'|'.13.versions.0.'|']", (path != null ? arr_81_lpath : null));
+                        if (rep != null) rep.addEntry("value not in enum [.'$platforms'.0.'|'.13.versions.0.'|']", ((path != null ? lpath : null) != null ? arr_81_lpath : null));
                         break;
                     }
                 }
             }
             if (! res)
             {
-                if (rep != null) rep.addEntry("not array or unexpected array [.'$platforms'.0.'|'.13.versions]", path);
-                if (rep != null) rep.addEntry("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.13]", path);
+                if (rep != null) rep.addEntry("not array or unexpected array [.'$platforms'.0.'|'.13.versions]", (path != null ? lpath : null));
+                if (rep != null) rep.addEntry("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.13]", (path != null ? lpath : null));
                 return false;
             }
         }
@@ -6212,22 +6314,25 @@ public class ansiblelint_meta extends ModelChecker
             if (rep != null) rep.addEntry("not an object [.'$platforms'.0.'|'.12]", path);
             return false;
         }
+        Path lpath;
         Object pval;
         boolean res;
         if (json.objectHasProp(val, "name"))
         {
+            lpath = new Path("name", path);
             pval = json.objectValue(val, "name");
             // .'$platforms'.0.'|'.12.name
             res = json.isString(pval) && json.asString(pval).compareTo("Devuan") == 0;
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected _Devuan [.'$platforms'.0.'|'.12.name]", path);
-                if (rep != null) rep.addEntry("unexpected value for optional prop <name> [.'$platforms'.0.'|'.12]", path);
+                if (rep != null) rep.addEntry("unexpected _Devuan [.'$platforms'.0.'|'.12.name]", (path != null ? lpath : null));
+                if (rep != null) rep.addEntry("unexpected value for optional prop <name> [.'$platforms'.0.'|'.12]", (path != null ? lpath : null));
                 return false;
             }
         }
         if (json.objectHasProp(val, "versions"))
         {
+            lpath = new Path("versions", path);
             pval = json.objectValue(val, "versions");
             // .'$platforms'.0.'|'.12.versions
             res = json.isArray(pval);
@@ -6239,20 +6344,20 @@ public class ansiblelint_meta extends ModelChecker
                 {
                     arr_82_idx++;
                     Object arr_82_item = arr_82_item_loop.next();
-                    Path arr_82_lpath = new Path(arr_82_idx, path);
+                    Path arr_82_lpath = new Path(arr_82_idx, (path != null ? lpath : null));
                     // .'$platforms'.0.'|'.12.versions.0
                     res = json.isScalar(arr_82_item) && _jm_cst_55_set.contains(arr_82_item);
                     if (! res)
                     {
-                        if (rep != null) rep.addEntry("value not in enum [.'$platforms'.0.'|'.12.versions.0.'|']", (path != null ? arr_82_lpath : null));
+                        if (rep != null) rep.addEntry("value not in enum [.'$platforms'.0.'|'.12.versions.0.'|']", ((path != null ? lpath : null) != null ? arr_82_lpath : null));
                         break;
                     }
                 }
             }
             if (! res)
             {
-                if (rep != null) rep.addEntry("not array or unexpected array [.'$platforms'.0.'|'.12.versions]", path);
-                if (rep != null) rep.addEntry("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.12]", path);
+                if (rep != null) rep.addEntry("not array or unexpected array [.'$platforms'.0.'|'.12.versions]", (path != null ? lpath : null));
+                if (rep != null) rep.addEntry("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.12]", (path != null ? lpath : null));
                 return false;
             }
         }
@@ -6269,22 +6374,25 @@ public class ansiblelint_meta extends ModelChecker
             if (rep != null) rep.addEntry("not an object [.'$platforms'.0.'|'.11]", path);
             return false;
         }
+        Path lpath;
         Object pval;
         boolean res;
         if (json.objectHasProp(val, "name"))
         {
+            lpath = new Path("name", path);
             pval = json.objectValue(val, "name");
             // .'$platforms'.0.'|'.11.name
             res = json.isString(pval) && json.asString(pval).compareTo("DellOS") == 0;
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected _DellOS [.'$platforms'.0.'|'.11.name]", path);
-                if (rep != null) rep.addEntry("unexpected value for optional prop <name> [.'$platforms'.0.'|'.11]", path);
+                if (rep != null) rep.addEntry("unexpected _DellOS [.'$platforms'.0.'|'.11.name]", (path != null ? lpath : null));
+                if (rep != null) rep.addEntry("unexpected value for optional prop <name> [.'$platforms'.0.'|'.11]", (path != null ? lpath : null));
                 return false;
             }
         }
         if (json.objectHasProp(val, "versions"))
         {
+            lpath = new Path("versions", path);
             pval = json.objectValue(val, "versions");
             // .'$platforms'.0.'|'.11.versions
             res = json.isArray(pval);
@@ -6296,20 +6404,20 @@ public class ansiblelint_meta extends ModelChecker
                 {
                     arr_83_idx++;
                     Object arr_83_item = arr_83_item_loop.next();
-                    Path arr_83_lpath = new Path(arr_83_idx, path);
+                    Path arr_83_lpath = new Path(arr_83_idx, (path != null ? lpath : null));
                     // .'$platforms'.0.'|'.11.versions.0
                     res = json.isScalar(arr_83_item) && _jm_cst_56_set.contains(arr_83_item);
                     if (! res)
                     {
-                        if (rep != null) rep.addEntry("value not in enum [.'$platforms'.0.'|'.11.versions.0.'|']", (path != null ? arr_83_lpath : null));
+                        if (rep != null) rep.addEntry("value not in enum [.'$platforms'.0.'|'.11.versions.0.'|']", ((path != null ? lpath : null) != null ? arr_83_lpath : null));
                         break;
                     }
                 }
             }
             if (! res)
             {
-                if (rep != null) rep.addEntry("not array or unexpected array [.'$platforms'.0.'|'.11.versions]", path);
-                if (rep != null) rep.addEntry("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.11]", path);
+                if (rep != null) rep.addEntry("not array or unexpected array [.'$platforms'.0.'|'.11.versions]", (path != null ? lpath : null));
+                if (rep != null) rep.addEntry("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.11]", (path != null ? lpath : null));
                 return false;
             }
         }
@@ -6326,22 +6434,25 @@ public class ansiblelint_meta extends ModelChecker
             if (rep != null) rep.addEntry("not an object [.'$platforms'.0.'|'.10]", path);
             return false;
         }
+        Path lpath;
         Object pval;
         boolean res;
         if (json.objectHasProp(val, "name"))
         {
+            lpath = new Path("name", path);
             pval = json.objectValue(val, "name");
             // .'$platforms'.0.'|'.10.name
             res = json.isString(pval) && json.asString(pval).compareTo("Debian") == 0;
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected _Debian [.'$platforms'.0.'|'.10.name]", path);
-                if (rep != null) rep.addEntry("unexpected value for optional prop <name> [.'$platforms'.0.'|'.10]", path);
+                if (rep != null) rep.addEntry("unexpected _Debian [.'$platforms'.0.'|'.10.name]", (path != null ? lpath : null));
+                if (rep != null) rep.addEntry("unexpected value for optional prop <name> [.'$platforms'.0.'|'.10]", (path != null ? lpath : null));
                 return false;
             }
         }
         if (json.objectHasProp(val, "versions"))
         {
+            lpath = new Path("versions", path);
             pval = json.objectValue(val, "versions");
             // .'$platforms'.0.'|'.10.versions
             res = json.isArray(pval);
@@ -6353,20 +6464,20 @@ public class ansiblelint_meta extends ModelChecker
                 {
                     arr_84_idx++;
                     Object arr_84_item = arr_84_item_loop.next();
-                    Path arr_84_lpath = new Path(arr_84_idx, path);
+                    Path arr_84_lpath = new Path(arr_84_idx, (path != null ? lpath : null));
                     // .'$platforms'.0.'|'.10.versions.0
                     res = json.isScalar(arr_84_item) && _jm_cst_57_set.contains(arr_84_item);
                     if (! res)
                     {
-                        if (rep != null) rep.addEntry("value not in enum [.'$platforms'.0.'|'.10.versions.0.'|']", (path != null ? arr_84_lpath : null));
+                        if (rep != null) rep.addEntry("value not in enum [.'$platforms'.0.'|'.10.versions.0.'|']", ((path != null ? lpath : null) != null ? arr_84_lpath : null));
                         break;
                     }
                 }
             }
             if (! res)
             {
-                if (rep != null) rep.addEntry("not array or unexpected array [.'$platforms'.0.'|'.10.versions]", path);
-                if (rep != null) rep.addEntry("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.10]", path);
+                if (rep != null) rep.addEntry("not array or unexpected array [.'$platforms'.0.'|'.10.versions]", (path != null ? lpath : null));
+                if (rep != null) rep.addEntry("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.10]", (path != null ? lpath : null));
                 return false;
             }
         }
@@ -6383,22 +6494,25 @@ public class ansiblelint_meta extends ModelChecker
             if (rep != null) rep.addEntry("not an object [.'$platforms'.0.'|'.9]", path);
             return false;
         }
+        Path lpath;
         Object pval;
         boolean res;
         if (json.objectHasProp(val, "name"))
         {
+            lpath = new Path("name", path);
             pval = json.objectValue(val, "name");
             // .'$platforms'.0.'|'.9.name
             res = json.isString(pval) && json.asString(pval).compareTo("NetBSD") == 0;
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected _NetBSD [.'$platforms'.0.'|'.9.name]", path);
-                if (rep != null) rep.addEntry("unexpected value for optional prop <name> [.'$platforms'.0.'|'.9]", path);
+                if (rep != null) rep.addEntry("unexpected _NetBSD [.'$platforms'.0.'|'.9.name]", (path != null ? lpath : null));
+                if (rep != null) rep.addEntry("unexpected value for optional prop <name> [.'$platforms'.0.'|'.9]", (path != null ? lpath : null));
                 return false;
             }
         }
         if (json.objectHasProp(val, "versions"))
         {
+            lpath = new Path("versions", path);
             pval = json.objectValue(val, "versions");
             // .'$platforms'.0.'|'.9.versions
             res = json.isArray(pval);
@@ -6410,20 +6524,20 @@ public class ansiblelint_meta extends ModelChecker
                 {
                     arr_85_idx++;
                     Object arr_85_item = arr_85_item_loop.next();
-                    Path arr_85_lpath = new Path(arr_85_idx, path);
+                    Path arr_85_lpath = new Path(arr_85_idx, (path != null ? lpath : null));
                     // .'$platforms'.0.'|'.9.versions.0
                     res = json.isScalar(arr_85_item) && _jm_cst_58_set.contains(arr_85_item);
                     if (! res)
                     {
-                        if (rep != null) rep.addEntry("value not in enum [.'$platforms'.0.'|'.9.versions.0.'|']", (path != null ? arr_85_lpath : null));
+                        if (rep != null) rep.addEntry("value not in enum [.'$platforms'.0.'|'.9.versions.0.'|']", ((path != null ? lpath : null) != null ? arr_85_lpath : null));
                         break;
                     }
                 }
             }
             if (! res)
             {
-                if (rep != null) rep.addEntry("not array or unexpected array [.'$platforms'.0.'|'.9.versions]", path);
-                if (rep != null) rep.addEntry("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.9]", path);
+                if (rep != null) rep.addEntry("not array or unexpected array [.'$platforms'.0.'|'.9.versions]", (path != null ? lpath : null));
+                if (rep != null) rep.addEntry("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.9]", (path != null ? lpath : null));
                 return false;
             }
         }
@@ -6440,22 +6554,25 @@ public class ansiblelint_meta extends ModelChecker
             if (rep != null) rep.addEntry("not an object [.'$platforms'.0.'|'.8]", path);
             return false;
         }
+        Path lpath;
         Object pval;
         boolean res;
         if (json.objectHasProp(val, "name"))
         {
+            lpath = new Path("name", path);
             pval = json.objectValue(val, "name");
             // .'$platforms'.0.'|'.8.name
             res = json.isString(pval) && json.asString(pval).compareTo("Cumulus") == 0;
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected _Cumulus [.'$platforms'.0.'|'.8.name]", path);
-                if (rep != null) rep.addEntry("unexpected value for optional prop <name> [.'$platforms'.0.'|'.8]", path);
+                if (rep != null) rep.addEntry("unexpected _Cumulus [.'$platforms'.0.'|'.8.name]", (path != null ? lpath : null));
+                if (rep != null) rep.addEntry("unexpected value for optional prop <name> [.'$platforms'.0.'|'.8]", (path != null ? lpath : null));
                 return false;
             }
         }
         if (json.objectHasProp(val, "versions"))
         {
+            lpath = new Path("versions", path);
             pval = json.objectValue(val, "versions");
             // .'$platforms'.0.'|'.8.versions
             res = json.isArray(pval);
@@ -6467,20 +6584,20 @@ public class ansiblelint_meta extends ModelChecker
                 {
                     arr_86_idx++;
                     Object arr_86_item = arr_86_item_loop.next();
-                    Path arr_86_lpath = new Path(arr_86_idx, path);
+                    Path arr_86_lpath = new Path(arr_86_idx, (path != null ? lpath : null));
                     // .'$platforms'.0.'|'.8.versions.0
                     res = json.isScalar(arr_86_item) && _jm_cst_59_set.contains(arr_86_item);
                     if (! res)
                     {
-                        if (rep != null) rep.addEntry("value not in enum [.'$platforms'.0.'|'.8.versions.0.'|']", (path != null ? arr_86_lpath : null));
+                        if (rep != null) rep.addEntry("value not in enum [.'$platforms'.0.'|'.8.versions.0.'|']", ((path != null ? lpath : null) != null ? arr_86_lpath : null));
                         break;
                     }
                 }
             }
             if (! res)
             {
-                if (rep != null) rep.addEntry("not array or unexpected array [.'$platforms'.0.'|'.8.versions]", path);
-                if (rep != null) rep.addEntry("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.8]", path);
+                if (rep != null) rep.addEntry("not array or unexpected array [.'$platforms'.0.'|'.8.versions]", (path != null ? lpath : null));
+                if (rep != null) rep.addEntry("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.8]", (path != null ? lpath : null));
                 return false;
             }
         }
@@ -6496,22 +6613,25 @@ public class ansiblelint_meta extends ModelChecker
             if (rep != null) rep.addEntry("not an object [.'$platforms'.0.'|'.7]", path);
             return false;
         }
+        Path lpath;
         Object pval;
         boolean res;
         if (json.objectHasProp(val, "name"))
         {
+            lpath = new Path("name", path);
             pval = json.objectValue(val, "name");
             // .'$platforms'.0.'|'.7.name
             res = json.isString(pval) && json.asString(pval).compareTo("ClearLinux") == 0;
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected _ClearLinux [.'$platforms'.0.'|'.7.name]", path);
-                if (rep != null) rep.addEntry("unexpected value for optional prop <name> [.'$platforms'.0.'|'.7]", path);
+                if (rep != null) rep.addEntry("unexpected _ClearLinux [.'$platforms'.0.'|'.7.name]", (path != null ? lpath : null));
+                if (rep != null) rep.addEntry("unexpected value for optional prop <name> [.'$platforms'.0.'|'.7]", (path != null ? lpath : null));
                 return false;
             }
         }
         if (json.objectHasProp(val, "versions"))
         {
+            lpath = new Path("versions", path);
             pval = json.objectValue(val, "versions");
             // .'$platforms'.0.'|'.7.versions
             res = json.isArray(pval);
@@ -6523,20 +6643,20 @@ public class ansiblelint_meta extends ModelChecker
                 {
                     arr_87_idx++;
                     Object arr_87_item = arr_87_item_loop.next();
-                    Path arr_87_lpath = new Path(arr_87_idx, path);
+                    Path arr_87_lpath = new Path(arr_87_idx, (path != null ? lpath : null));
                     // .'$platforms'.0.'|'.7.versions.0
                     res = json.isString(arr_87_item) && json.asString(arr_87_item).compareTo("all") == 0;
                     if (! res)
                     {
-                        if (rep != null) rep.addEntry("unexpected all [.'$platforms'.0.'|'.7.versions.0]", (path != null ? arr_87_lpath : null));
+                        if (rep != null) rep.addEntry("unexpected all [.'$platforms'.0.'|'.7.versions.0]", ((path != null ? lpath : null) != null ? arr_87_lpath : null));
                         break;
                     }
                 }
             }
             if (! res)
             {
-                if (rep != null) rep.addEntry("not array or unexpected array [.'$platforms'.0.'|'.7.versions]", path);
-                if (rep != null) rep.addEntry("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.7]", path);
+                if (rep != null) rep.addEntry("not array or unexpected array [.'$platforms'.0.'|'.7.versions]", (path != null ? lpath : null));
+                if (rep != null) rep.addEntry("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.7]", (path != null ? lpath : null));
                 return false;
             }
         }
@@ -6553,22 +6673,25 @@ public class ansiblelint_meta extends ModelChecker
             if (rep != null) rep.addEntry("not an object [.'$platforms'.0.'|'.6]", path);
             return false;
         }
+        Path lpath;
         Object pval;
         boolean res;
         if (json.objectHasProp(val, "name"))
         {
+            lpath = new Path("name", path);
             pval = json.objectValue(val, "name");
             // .'$platforms'.0.'|'.6.name
             res = json.isString(pval) && json.asString(pval).compareTo("Astra Linux") == 0;
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected _Astra Linux [.'$platforms'.0.'|'.6.name]", path);
-                if (rep != null) rep.addEntry("unexpected value for optional prop <name> [.'$platforms'.0.'|'.6]", path);
+                if (rep != null) rep.addEntry("unexpected _Astra Linux [.'$platforms'.0.'|'.6.name]", (path != null ? lpath : null));
+                if (rep != null) rep.addEntry("unexpected value for optional prop <name> [.'$platforms'.0.'|'.6]", (path != null ? lpath : null));
                 return false;
             }
         }
         if (json.objectHasProp(val, "versions"))
         {
+            lpath = new Path("versions", path);
             pval = json.objectValue(val, "versions");
             // .'$platforms'.0.'|'.6.versions
             res = json.isArray(pval);
@@ -6580,20 +6703,20 @@ public class ansiblelint_meta extends ModelChecker
                 {
                     arr_88_idx++;
                     Object arr_88_item = arr_88_item_loop.next();
-                    Path arr_88_lpath = new Path(arr_88_idx, path);
+                    Path arr_88_lpath = new Path(arr_88_idx, (path != null ? lpath : null));
                     // .'$platforms'.0.'|'.6.versions.0
                     res = json.isScalar(arr_88_item) && _jm_cst_60_set.contains(arr_88_item);
                     if (! res)
                     {
-                        if (rep != null) rep.addEntry("value not in enum [.'$platforms'.0.'|'.6.versions.0.'|']", (path != null ? arr_88_lpath : null));
+                        if (rep != null) rep.addEntry("value not in enum [.'$platforms'.0.'|'.6.versions.0.'|']", ((path != null ? lpath : null) != null ? arr_88_lpath : null));
                         break;
                     }
                 }
             }
             if (! res)
             {
-                if (rep != null) rep.addEntry("not array or unexpected array [.'$platforms'.0.'|'.6.versions]", path);
-                if (rep != null) rep.addEntry("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.6]", path);
+                if (rep != null) rep.addEntry("not array or unexpected array [.'$platforms'.0.'|'.6.versions]", (path != null ? lpath : null));
+                if (rep != null) rep.addEntry("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.6]", (path != null ? lpath : null));
                 return false;
             }
         }
@@ -6609,22 +6732,25 @@ public class ansiblelint_meta extends ModelChecker
             if (rep != null) rep.addEntry("not an object [.'$platforms'.0.'|'.5]", path);
             return false;
         }
+        Path lpath;
         Object pval;
         boolean res;
         if (json.objectHasProp(val, "name"))
         {
+            lpath = new Path("name", path);
             pval = json.objectValue(val, "name");
             // .'$platforms'.0.'|'.5.name
             res = json.isString(pval) && json.asString(pval).compareTo("ArchLinux") == 0;
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected _ArchLinux [.'$platforms'.0.'|'.5.name]", path);
-                if (rep != null) rep.addEntry("unexpected value for optional prop <name> [.'$platforms'.0.'|'.5]", path);
+                if (rep != null) rep.addEntry("unexpected _ArchLinux [.'$platforms'.0.'|'.5.name]", (path != null ? lpath : null));
+                if (rep != null) rep.addEntry("unexpected value for optional prop <name> [.'$platforms'.0.'|'.5]", (path != null ? lpath : null));
                 return false;
             }
         }
         if (json.objectHasProp(val, "versions"))
         {
+            lpath = new Path("versions", path);
             pval = json.objectValue(val, "versions");
             // .'$platforms'.0.'|'.5.versions
             res = json.isArray(pval);
@@ -6636,20 +6762,20 @@ public class ansiblelint_meta extends ModelChecker
                 {
                     arr_89_idx++;
                     Object arr_89_item = arr_89_item_loop.next();
-                    Path arr_89_lpath = new Path(arr_89_idx, path);
+                    Path arr_89_lpath = new Path(arr_89_idx, (path != null ? lpath : null));
                     // .'$platforms'.0.'|'.5.versions.0
                     res = json.isString(arr_89_item) && json.asString(arr_89_item).compareTo("all") == 0;
                     if (! res)
                     {
-                        if (rep != null) rep.addEntry("unexpected all [.'$platforms'.0.'|'.5.versions.0]", (path != null ? arr_89_lpath : null));
+                        if (rep != null) rep.addEntry("unexpected all [.'$platforms'.0.'|'.5.versions.0]", ((path != null ? lpath : null) != null ? arr_89_lpath : null));
                         break;
                     }
                 }
             }
             if (! res)
             {
-                if (rep != null) rep.addEntry("not array or unexpected array [.'$platforms'.0.'|'.5.versions]", path);
-                if (rep != null) rep.addEntry("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.5]", path);
+                if (rep != null) rep.addEntry("not array or unexpected array [.'$platforms'.0.'|'.5.versions]", (path != null ? lpath : null));
+                if (rep != null) rep.addEntry("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.5]", (path != null ? lpath : null));
                 return false;
             }
         }
@@ -6665,22 +6791,25 @@ public class ansiblelint_meta extends ModelChecker
             if (rep != null) rep.addEntry("not an object [.'$platforms'.0.'|'.4]", path);
             return false;
         }
+        Path lpath;
         Object pval;
         boolean res;
         if (json.objectHasProp(val, "name"))
         {
+            lpath = new Path("name", path);
             pval = json.objectValue(val, "name");
             // .'$platforms'.0.'|'.4.name
             res = json.isString(pval) && json.asString(pval).compareTo("aos") == 0;
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected _aos [.'$platforms'.0.'|'.4.name]", path);
-                if (rep != null) rep.addEntry("unexpected value for optional prop <name> [.'$platforms'.0.'|'.4]", path);
+                if (rep != null) rep.addEntry("unexpected _aos [.'$platforms'.0.'|'.4.name]", (path != null ? lpath : null));
+                if (rep != null) rep.addEntry("unexpected value for optional prop <name> [.'$platforms'.0.'|'.4]", (path != null ? lpath : null));
                 return false;
             }
         }
         if (json.objectHasProp(val, "versions"))
         {
+            lpath = new Path("versions", path);
             pval = json.objectValue(val, "versions");
             // .'$platforms'.0.'|'.4.versions
             res = json.isArray(pval);
@@ -6692,20 +6821,20 @@ public class ansiblelint_meta extends ModelChecker
                 {
                     arr_90_idx++;
                     Object arr_90_item = arr_90_item_loop.next();
-                    Path arr_90_lpath = new Path(arr_90_idx, path);
+                    Path arr_90_lpath = new Path(arr_90_idx, (path != null ? lpath : null));
                     // .'$platforms'.0.'|'.4.versions.0
                     res = json.isString(arr_90_item) && json.asString(arr_90_item).compareTo("all") == 0;
                     if (! res)
                     {
-                        if (rep != null) rep.addEntry("unexpected all [.'$platforms'.0.'|'.4.versions.0]", (path != null ? arr_90_lpath : null));
+                        if (rep != null) rep.addEntry("unexpected all [.'$platforms'.0.'|'.4.versions.0]", ((path != null ? lpath : null) != null ? arr_90_lpath : null));
                         break;
                     }
                 }
             }
             if (! res)
             {
-                if (rep != null) rep.addEntry("not array or unexpected array [.'$platforms'.0.'|'.4.versions]", path);
-                if (rep != null) rep.addEntry("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.4]", path);
+                if (rep != null) rep.addEntry("not array or unexpected array [.'$platforms'.0.'|'.4.versions]", (path != null ? lpath : null));
+                if (rep != null) rep.addEntry("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.4]", (path != null ? lpath : null));
                 return false;
             }
         }
@@ -6722,22 +6851,25 @@ public class ansiblelint_meta extends ModelChecker
             if (rep != null) rep.addEntry("not an object [.'$platforms'.0.'|'.3]", path);
             return false;
         }
+        Path lpath;
         Object pval;
         boolean res;
         if (json.objectHasProp(val, "name"))
         {
+            lpath = new Path("name", path);
             pval = json.objectValue(val, "name");
             // .'$platforms'.0.'|'.3.name
             res = json.isString(pval) && json.asString(pval).compareTo("Amazon Linux") == 0;
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected _Amazon Linux [.'$platforms'.0.'|'.3.name]", path);
-                if (rep != null) rep.addEntry("unexpected value for optional prop <name> [.'$platforms'.0.'|'.3]", path);
+                if (rep != null) rep.addEntry("unexpected _Amazon Linux [.'$platforms'.0.'|'.3.name]", (path != null ? lpath : null));
+                if (rep != null) rep.addEntry("unexpected value for optional prop <name> [.'$platforms'.0.'|'.3]", (path != null ? lpath : null));
                 return false;
             }
         }
         if (json.objectHasProp(val, "versions"))
         {
+            lpath = new Path("versions", path);
             pval = json.objectValue(val, "versions");
             // .'$platforms'.0.'|'.3.versions
             res = json.isArray(pval);
@@ -6749,20 +6881,20 @@ public class ansiblelint_meta extends ModelChecker
                 {
                     arr_91_idx++;
                     Object arr_91_item = arr_91_item_loop.next();
-                    Path arr_91_lpath = new Path(arr_91_idx, path);
+                    Path arr_91_lpath = new Path(arr_91_idx, (path != null ? lpath : null));
                     // .'$platforms'.0.'|'.3.versions.0
                     res = json.isScalar(arr_91_item) && _jm_cst_61_set.contains(arr_91_item);
                     if (! res)
                     {
-                        if (rep != null) rep.addEntry("value not in enum [.'$platforms'.0.'|'.3.versions.0.'|']", (path != null ? arr_91_lpath : null));
+                        if (rep != null) rep.addEntry("value not in enum [.'$platforms'.0.'|'.3.versions.0.'|']", ((path != null ? lpath : null) != null ? arr_91_lpath : null));
                         break;
                     }
                 }
             }
             if (! res)
             {
-                if (rep != null) rep.addEntry("not array or unexpected array [.'$platforms'.0.'|'.3.versions]", path);
-                if (rep != null) rep.addEntry("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.3]", path);
+                if (rep != null) rep.addEntry("not array or unexpected array [.'$platforms'.0.'|'.3.versions]", (path != null ? lpath : null));
+                if (rep != null) rep.addEntry("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.3]", (path != null ? lpath : null));
                 return false;
             }
         }
@@ -6779,22 +6911,25 @@ public class ansiblelint_meta extends ModelChecker
             if (rep != null) rep.addEntry("not an object [.'$platforms'.0.'|'.2]", path);
             return false;
         }
+        Path lpath;
         Object pval;
         boolean res;
         if (json.objectHasProp(val, "name"))
         {
+            lpath = new Path("name", path);
             pval = json.objectValue(val, "name");
             // .'$platforms'.0.'|'.2.name
             res = json.isString(pval) && json.asString(pval).compareTo("Amazon") == 0;
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected _Amazon [.'$platforms'.0.'|'.2.name]", path);
-                if (rep != null) rep.addEntry("unexpected value for optional prop <name> [.'$platforms'.0.'|'.2]", path);
+                if (rep != null) rep.addEntry("unexpected _Amazon [.'$platforms'.0.'|'.2.name]", (path != null ? lpath : null));
+                if (rep != null) rep.addEntry("unexpected value for optional prop <name> [.'$platforms'.0.'|'.2]", (path != null ? lpath : null));
                 return false;
             }
         }
         if (json.objectHasProp(val, "versions"))
         {
+            lpath = new Path("versions", path);
             pval = json.objectValue(val, "versions");
             // .'$platforms'.0.'|'.2.versions
             res = json.isArray(pval);
@@ -6806,20 +6941,20 @@ public class ansiblelint_meta extends ModelChecker
                 {
                     arr_92_idx++;
                     Object arr_92_item = arr_92_item_loop.next();
-                    Path arr_92_lpath = new Path(arr_92_idx, path);
+                    Path arr_92_lpath = new Path(arr_92_idx, (path != null ? lpath : null));
                     // .'$platforms'.0.'|'.2.versions.0
                     res = json.isScalar(arr_92_item) && _jm_cst_62_set.contains(arr_92_item);
                     if (! res)
                     {
-                        if (rep != null) rep.addEntry("value not in enum [.'$platforms'.0.'|'.2.versions.0.'|']", (path != null ? arr_92_lpath : null));
+                        if (rep != null) rep.addEntry("value not in enum [.'$platforms'.0.'|'.2.versions.0.'|']", ((path != null ? lpath : null) != null ? arr_92_lpath : null));
                         break;
                     }
                 }
             }
             if (! res)
             {
-                if (rep != null) rep.addEntry("not array or unexpected array [.'$platforms'.0.'|'.2.versions]", path);
-                if (rep != null) rep.addEntry("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.2]", path);
+                if (rep != null) rep.addEntry("not array or unexpected array [.'$platforms'.0.'|'.2.versions]", (path != null ? lpath : null));
+                if (rep != null) rep.addEntry("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.2]", (path != null ? lpath : null));
                 return false;
             }
         }
@@ -6835,22 +6970,25 @@ public class ansiblelint_meta extends ModelChecker
             if (rep != null) rep.addEntry("not an object [.'$platforms'.0.'|'.1]", path);
             return false;
         }
+        Path lpath;
         Object pval;
         boolean res;
         if (json.objectHasProp(val, "name"))
         {
+            lpath = new Path("name", path);
             pval = json.objectValue(val, "name");
             // .'$platforms'.0.'|'.1.name
             res = json.isString(pval) && json.asString(pval).compareTo("Alpine") == 0;
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected _Alpine [.'$platforms'.0.'|'.1.name]", path);
-                if (rep != null) rep.addEntry("unexpected value for optional prop <name> [.'$platforms'.0.'|'.1]", path);
+                if (rep != null) rep.addEntry("unexpected _Alpine [.'$platforms'.0.'|'.1.name]", (path != null ? lpath : null));
+                if (rep != null) rep.addEntry("unexpected value for optional prop <name> [.'$platforms'.0.'|'.1]", (path != null ? lpath : null));
                 return false;
             }
         }
         if (json.objectHasProp(val, "versions"))
         {
+            lpath = new Path("versions", path);
             pval = json.objectValue(val, "versions");
             // .'$platforms'.0.'|'.1.versions
             res = json.isArray(pval);
@@ -6862,20 +7000,20 @@ public class ansiblelint_meta extends ModelChecker
                 {
                     arr_93_idx++;
                     Object arr_93_item = arr_93_item_loop.next();
-                    Path arr_93_lpath = new Path(arr_93_idx, path);
+                    Path arr_93_lpath = new Path(arr_93_idx, (path != null ? lpath : null));
                     // .'$platforms'.0.'|'.1.versions.0
                     res = json.isString(arr_93_item) && json.asString(arr_93_item).compareTo("all") == 0;
                     if (! res)
                     {
-                        if (rep != null) rep.addEntry("unexpected all [.'$platforms'.0.'|'.1.versions.0]", (path != null ? arr_93_lpath : null));
+                        if (rep != null) rep.addEntry("unexpected all [.'$platforms'.0.'|'.1.versions.0]", ((path != null ? lpath : null) != null ? arr_93_lpath : null));
                         break;
                     }
                 }
             }
             if (! res)
             {
-                if (rep != null) rep.addEntry("not array or unexpected array [.'$platforms'.0.'|'.1.versions]", path);
-                if (rep != null) rep.addEntry("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.1]", path);
+                if (rep != null) rep.addEntry("not array or unexpected array [.'$platforms'.0.'|'.1.versions]", (path != null ? lpath : null));
+                if (rep != null) rep.addEntry("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.1]", (path != null ? lpath : null));
                 return false;
             }
         }
@@ -6892,22 +7030,25 @@ public class ansiblelint_meta extends ModelChecker
             if (rep != null) rep.addEntry("not an object [.'$platforms'.0.'|'.0]", path);
             return false;
         }
+        Path lpath;
         Object pval;
         boolean res;
         if (json.objectHasProp(val, "name"))
         {
+            lpath = new Path("name", path);
             pval = json.objectValue(val, "name");
             // .'$platforms'.0.'|'.0.name
             res = json.isString(pval) && json.asString(pval).compareTo("AIX") == 0;
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected _AIX [.'$platforms'.0.'|'.0.name]", path);
-                if (rep != null) rep.addEntry("unexpected value for optional prop <name> [.'$platforms'.0.'|'.0]", path);
+                if (rep != null) rep.addEntry("unexpected _AIX [.'$platforms'.0.'|'.0.name]", (path != null ? lpath : null));
+                if (rep != null) rep.addEntry("unexpected value for optional prop <name> [.'$platforms'.0.'|'.0]", (path != null ? lpath : null));
                 return false;
             }
         }
         if (json.objectHasProp(val, "versions"))
         {
+            lpath = new Path("versions", path);
             pval = json.objectValue(val, "versions");
             // .'$platforms'.0.'|'.0.versions
             res = json.isArray(pval);
@@ -6919,20 +7060,20 @@ public class ansiblelint_meta extends ModelChecker
                 {
                     arr_94_idx++;
                     Object arr_94_item = arr_94_item_loop.next();
-                    Path arr_94_lpath = new Path(arr_94_idx, path);
+                    Path arr_94_lpath = new Path(arr_94_idx, (path != null ? lpath : null));
                     // .'$platforms'.0.'|'.0.versions.0
                     res = json.isScalar(arr_94_item) && _jm_cst_63_set.contains(arr_94_item);
                     if (! res)
                     {
-                        if (rep != null) rep.addEntry("value not in enum [.'$platforms'.0.'|'.0.versions.0.'|']", (path != null ? arr_94_lpath : null));
+                        if (rep != null) rep.addEntry("value not in enum [.'$platforms'.0.'|'.0.versions.0.'|']", ((path != null ? lpath : null) != null ? arr_94_lpath : null));
                         break;
                     }
                 }
             }
             if (! res)
             {
-                if (rep != null) rep.addEntry("not array or unexpected array [.'$platforms'.0.'|'.0.versions]", path);
-                if (rep != null) rep.addEntry("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.0]", path);
+                if (rep != null) rep.addEntry("not array or unexpected array [.'$platforms'.0.'|'.0.versions]", (path != null ? lpath : null));
+                if (rep != null) rep.addEntry("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.0]", (path != null ? lpath : null));
                 return false;
             }
         }
@@ -8694,77 +8835,84 @@ public class ansiblelint_meta extends ModelChecker
             if (rep != null) rep.addEntry("not an object [.'$DependencyModelLoose']", path);
             return false;
         }
+        Path lpath;
         Object pval;
         boolean res;
         if (json.objectHasProp(val, "become"))
         {
+            lpath = new Path("become", path);
             pval = json.objectValue(val, "become");
             // .'$DependencyModelLoose'.become
             res = json.isBoolean(pval);
             if (! res)
             {
-                if (rep != null) rep.addEntry("not a bool [.'$DependencyModelLoose'.become]", path);
-                if (rep != null) rep.addEntry("unexpected value for optional prop <become> [.'$DependencyModelLoose']", path);
+                if (rep != null) rep.addEntry("not a bool [.'$DependencyModelLoose'.become]", (path != null ? lpath : null));
+                if (rep != null) rep.addEntry("unexpected value for optional prop <become> [.'$DependencyModelLoose']", (path != null ? lpath : null));
                 return false;
             }
         }
         if (json.objectHasProp(val, "name"))
         {
+            lpath = new Path("name", path);
             pval = json.objectValue(val, "name");
             // .'$DependencyModelLoose'.name
             res = json.isString(pval);
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected string [.'$DependencyModelLoose'.name]", path);
-                if (rep != null) rep.addEntry("unexpected value for optional prop <name> [.'$DependencyModelLoose']", path);
+                if (rep != null) rep.addEntry("unexpected string [.'$DependencyModelLoose'.name]", (path != null ? lpath : null));
+                if (rep != null) rep.addEntry("unexpected value for optional prop <name> [.'$DependencyModelLoose']", (path != null ? lpath : null));
                 return false;
             }
         }
         if (json.objectHasProp(val, "role"))
         {
+            lpath = new Path("role", path);
             pval = json.objectValue(val, "role");
             // .'$DependencyModelLoose'.role
             res = json.isString(pval);
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected string [.'$DependencyModelLoose'.role]", path);
-                if (rep != null) rep.addEntry("unexpected value for optional prop <role> [.'$DependencyModelLoose']", path);
+                if (rep != null) rep.addEntry("unexpected string [.'$DependencyModelLoose'.role]", (path != null ? lpath : null));
+                if (rep != null) rep.addEntry("unexpected value for optional prop <role> [.'$DependencyModelLoose']", (path != null ? lpath : null));
                 return false;
             }
         }
         if (json.objectHasProp(val, "src"))
         {
+            lpath = new Path("src", path);
             pval = json.objectValue(val, "src");
             // .'$DependencyModelLoose'.src
             res = json.isString(pval);
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected string [.'$DependencyModelLoose'.src]", path);
-                if (rep != null) rep.addEntry("unexpected value for optional prop <src> [.'$DependencyModelLoose']", path);
+                if (rep != null) rep.addEntry("unexpected string [.'$DependencyModelLoose'.src]", (path != null ? lpath : null));
+                if (rep != null) rep.addEntry("unexpected value for optional prop <src> [.'$DependencyModelLoose']", (path != null ? lpath : null));
                 return false;
             }
         }
         if (json.objectHasProp(val, "scm"))
         {
+            lpath = new Path("scm", path);
             pval = json.objectValue(val, "scm");
             // .'$DependencyModelLoose'.scm
             res = json.isScalar(pval) && _jm_cst_64_set.contains(pval);
             if (! res)
             {
-                if (rep != null) rep.addEntry("value not in enum [.'$DependencyModelLoose'.scm.'|']", path);
-                if (rep != null) rep.addEntry("unexpected value for optional prop <scm> [.'$DependencyModelLoose']", path);
+                if (rep != null) rep.addEntry("value not in enum [.'$DependencyModelLoose'.scm.'|']", (path != null ? lpath : null));
+                if (rep != null) rep.addEntry("unexpected value for optional prop <scm> [.'$DependencyModelLoose']", (path != null ? lpath : null));
                 return false;
             }
         }
         if (json.objectHasProp(val, "tags"))
         {
+            lpath = new Path("tags", path);
             pval = json.objectValue(val, "tags");
             // .'$DependencyModelLoose'.tags
             // .'$DependencyModelLoose'.tags.'|'.0
             res = json.isString(pval);
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected string [.'$DependencyModelLoose'.tags.'|'.0]", path);
+                if (rep != null) rep.addEntry("unexpected string [.'$DependencyModelLoose'.tags.'|'.0]", (path != null ? lpath : null));
             }
             if (! res)
             {
@@ -8778,19 +8926,19 @@ public class ansiblelint_meta extends ModelChecker
                     {
                         arr_101_idx++;
                         Object arr_101_item = arr_101_item_loop.next();
-                        Path arr_101_lpath = new Path(arr_101_idx, path);
+                        Path arr_101_lpath = new Path(arr_101_idx, (path != null ? lpath : null));
                         // .'$DependencyModelLoose'.tags.'|'.1.0
                         res = json.isString(arr_101_item);
                         if (! res)
                         {
-                            if (rep != null) rep.addEntry("unexpected string [.'$DependencyModelLoose'.tags.'|'.1.0]", (path != null ? arr_101_lpath : null));
+                            if (rep != null) rep.addEntry("unexpected string [.'$DependencyModelLoose'.tags.'|'.1.0]", ((path != null ? lpath : null) != null ? arr_101_lpath : null));
                             break;
                         }
                     }
                 }
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("not array or unexpected array [.'$DependencyModelLoose'.tags.'|'.1]", path);
+                    if (rep != null) rep.addEntry("not array or unexpected array [.'$DependencyModelLoose'.tags.'|'.1]", (path != null ? lpath : null));
                 }
             }
             if (res)
@@ -8799,44 +8947,47 @@ public class ansiblelint_meta extends ModelChecker
             }
             else
             {
-                if (rep != null) rep.addEntry("no model matched [.'$DependencyModelLoose'.tags.'|']", path);
-                if (rep != null) rep.addEntry("unexpected value for optional prop <tags> [.'$DependencyModelLoose']", path);
+                if (rep != null) rep.addEntry("no model matched [.'$DependencyModelLoose'.tags.'|']", (path != null ? lpath : null));
+                if (rep != null) rep.addEntry("unexpected value for optional prop <tags> [.'$DependencyModelLoose']", (path != null ? lpath : null));
                 return false;
             }
         }
         if (json.objectHasProp(val, "vars"))
         {
+            lpath = new Path("vars", path);
             pval = json.objectValue(val, "vars");
             // .'$DependencyModelLoose'.vars
-            res = _jm_obj_100(pval, path, rep);
+            res = _jm_obj_100(pval, (path != null ? lpath : null), rep);
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected element [.'$DependencyModelLoose'.vars]", path);
-                if (rep != null) rep.addEntry("unexpected value for optional prop <vars> [.'$DependencyModelLoose']", path);
+                if (rep != null) rep.addEntry("unexpected element [.'$DependencyModelLoose'.vars]", (path != null ? lpath : null));
+                if (rep != null) rep.addEntry("unexpected value for optional prop <vars> [.'$DependencyModelLoose']", (path != null ? lpath : null));
                 return false;
             }
         }
         if (json.objectHasProp(val, "version"))
         {
+            lpath = new Path("version", path);
             pval = json.objectValue(val, "version");
             // .'$DependencyModelLoose'.version
             res = json.isString(pval);
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected string [.'$DependencyModelLoose'.version]", path);
-                if (rep != null) rep.addEntry("unexpected value for optional prop <version> [.'$DependencyModelLoose']", path);
+                if (rep != null) rep.addEntry("unexpected string [.'$DependencyModelLoose'.version]", (path != null ? lpath : null));
+                if (rep != null) rep.addEntry("unexpected value for optional prop <version> [.'$DependencyModelLoose']", (path != null ? lpath : null));
                 return false;
             }
         }
         if (json.objectHasProp(val, "when"))
         {
+            lpath = new Path("when", path);
             pval = json.objectValue(val, "when");
             // .'$DependencyModelLoose'.when
-            res = json_model_56(pval, path, rep);
+            res = json_model_56(pval, (path != null ? lpath : null), rep);
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected $complex_conditional [.'$DependencyModelLoose'.when]", path);
-                if (rep != null) rep.addEntry("unexpected value for optional prop <when> [.'$DependencyModelLoose']", path);
+                if (rep != null) rep.addEntry("unexpected $complex_conditional [.'$DependencyModelLoose'.when]", (path != null ? lpath : null));
+                if (rep != null) rep.addEntry("unexpected value for optional prop <when> [.'$DependencyModelLoose']", (path != null ? lpath : null));
                 return false;
             }
         }
@@ -8868,6 +9019,7 @@ public class ansiblelint_meta extends ModelChecker
             if (rep != null) rep.addEntry("not an object [.'$DependencyModel'.'&'.1.'|'.2]", path);
             return false;
         }
+        Path lpath;
         Object pval;
         boolean res;
         if (! json.objectHasProp(val, "name"))
@@ -8875,13 +9027,14 @@ public class ansiblelint_meta extends ModelChecker
             if (rep != null) rep.addEntry("missing mandatory prop <name> [.'$DependencyModel'.'&'.1.'|'.2]", path);
             return false;
         }
+        lpath = new Path("name", path);
         pval = json.objectValue(val, "name");
         // .'$DependencyModel'.'&'.1.'|'.2.name
         res = json.isString(pval);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected string [.'$DependencyModel'.'&'.1.'|'.2.name]", path);
-            if (rep != null) rep.addEntry("unexpected value for mandatory prop <name> [.'$DependencyModel'.'&'.1.'|'.2]", path);
+            if (rep != null) rep.addEntry("unexpected string [.'$DependencyModel'.'&'.1.'|'.2.name]", (path != null ? lpath : null));
+            if (rep != null) rep.addEntry("unexpected value for mandatory prop <name> [.'$DependencyModel'.'&'.1.'|'.2]", (path != null ? lpath : null));
             return false;
         }
         return true;
@@ -8896,6 +9049,7 @@ public class ansiblelint_meta extends ModelChecker
             if (rep != null) rep.addEntry("not an object [.'$DependencyModel'.'&'.1.'|'.1]", path);
             return false;
         }
+        Path lpath;
         Object pval;
         boolean res;
         if (! json.objectHasProp(val, "src"))
@@ -8903,13 +9057,14 @@ public class ansiblelint_meta extends ModelChecker
             if (rep != null) rep.addEntry("missing mandatory prop <src> [.'$DependencyModel'.'&'.1.'|'.1]", path);
             return false;
         }
+        lpath = new Path("src", path);
         pval = json.objectValue(val, "src");
         // .'$DependencyModel'.'&'.1.'|'.1.src
         res = json.isString(pval);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected string [.'$DependencyModel'.'&'.1.'|'.1.src]", path);
-            if (rep != null) rep.addEntry("unexpected value for mandatory prop <src> [.'$DependencyModel'.'&'.1.'|'.1]", path);
+            if (rep != null) rep.addEntry("unexpected string [.'$DependencyModel'.'&'.1.'|'.1.src]", (path != null ? lpath : null));
+            if (rep != null) rep.addEntry("unexpected value for mandatory prop <src> [.'$DependencyModel'.'&'.1.'|'.1]", (path != null ? lpath : null));
             return false;
         }
         return true;
@@ -8924,6 +9079,7 @@ public class ansiblelint_meta extends ModelChecker
             if (rep != null) rep.addEntry("not an object [.'$DependencyModel'.'&'.1.'|'.0]", path);
             return false;
         }
+        Path lpath;
         Object pval;
         boolean res;
         if (! json.objectHasProp(val, "role"))
@@ -8931,13 +9087,14 @@ public class ansiblelint_meta extends ModelChecker
             if (rep != null) rep.addEntry("missing mandatory prop <role> [.'$DependencyModel'.'&'.1.'|'.0]", path);
             return false;
         }
+        lpath = new Path("role", path);
         pval = json.objectValue(val, "role");
         // .'$DependencyModel'.'&'.1.'|'.0.role
         res = json.isString(pval);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected string [.'$DependencyModel'.'&'.1.'|'.0.role]", path);
-            if (rep != null) rep.addEntry("unexpected value for mandatory prop <role> [.'$DependencyModel'.'&'.1.'|'.0]", path);
+            if (rep != null) rep.addEntry("unexpected string [.'$DependencyModel'.'&'.1.'|'.0.role]", (path != null ? lpath : null));
+            if (rep != null) rep.addEntry("unexpected value for mandatory prop <role> [.'$DependencyModel'.'&'.1.'|'.0]", (path != null ? lpath : null));
             return false;
         }
         return true;

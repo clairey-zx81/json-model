@@ -50,17 +50,19 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
     if len(val) != 1:
         rep is None or rep.append(("bad property count [.'$Xx']", path))
         return False
+    lpath: Path
     pval: Jsonable
     res: bool
     if not "X" in val:
         rep is None or rep.append(("missing mandatory prop <X> [.'$Xx']", path))
         return False
+    lpath = (path + [ "X" ]) if path is not None else None
     pval = val.get("X", UNDEFINED)
     # .'$Xx'.X
     res = isinstance(pval, str)
     if not res:
-        rep is None or rep.append(("unexpected string [.'$Xx'.X]", path))
-        rep is None or rep.append(("unexpected value for mandatory prop <X> [.'$Xx']", path))
+        rep is None or rep.append(("unexpected string [.'$Xx'.X]", lpath if path is not None else None))
+        rep is None or rep.append(("unexpected value for mandatory prop <X> [.'$Xx']", lpath if path is not None else None))
         return False
     return True
 
@@ -82,17 +84,19 @@ def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
     if len(val) != 1:
         rep is None or rep.append(("bad property count [.'$Yy']", path))
         return False
+    lpath: Path
     pval: Jsonable
     res: bool
     if not "Y" in val:
         rep is None or rep.append(("missing mandatory prop <Y> [.'$Yy']", path))
         return False
+    lpath = (path + [ "Y" ]) if path is not None else None
     pval = val.get("Y", UNDEFINED)
     # .'$Yy'.Y
     res = isinstance(pval, str)
     if not res:
-        rep is None or rep.append(("unexpected string [.'$Yy'.Y]", path))
-        rep is None or rep.append(("unexpected value for mandatory prop <Y> [.'$Yy']", path))
+        rep is None or rep.append(("unexpected string [.'$Yy'.Y]", lpath if path is not None else None))
+        rep is None or rep.append(("unexpected value for mandatory prop <Y> [.'$Yy']", lpath if path is not None else None))
         return False
     return True
 

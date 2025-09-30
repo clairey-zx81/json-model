@@ -26,6 +26,7 @@ function _jm_obj_1(val, path, rep)
         rep !== null && rep.push(["bad property count [.movie.'|'.0]", path])
         return false;
     }
+    let lpath;
     let pval;
     let res;
     if (! val.hasOwnProperty("t"))
@@ -33,13 +34,14 @@ function _jm_obj_1(val, path, rep)
         rep !== null && rep.push(["missing mandatory prop <t> [.movie.'|'.0]", path])
         return false;
     }
+    lpath = path ? path.concat(["t"]) : null;
     pval = val["t"];
     // .movie.'|'.0.t
     res = ((typeof pval === 'string' || pval instanceof String)) && pval == "fr";
     if (! res)
     {
-        rep !== null && rep.push(["unexpected fr [.movie.'|'.0.t]", path])
-        rep !== null && rep.push(["unexpected value for mandatory prop <t> [.movie.'|'.0]", path])
+        rep !== null && rep.push(["unexpected fr [.movie.'|'.0.t]", (path ? lpath : null)])
+        rep !== null && rep.push(["unexpected value for mandatory prop <t> [.movie.'|'.0]", (path ? lpath : null)])
         return false;
     }
     if (! val.hasOwnProperty("titre"))
@@ -47,13 +49,14 @@ function _jm_obj_1(val, path, rep)
         rep !== null && rep.push(["missing mandatory prop <titre> [.movie.'|'.0]", path])
         return false;
     }
+    lpath = path ? path.concat(["titre"]) : null;
     pval = val["titre"];
     // .movie.'|'.0.titre
     res = (typeof pval === 'string' || pval instanceof String);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected string [.movie.'|'.0.titre]", path])
-        rep !== null && rep.push(["unexpected value for mandatory prop <titre> [.movie.'|'.0]", path])
+        rep !== null && rep.push(["unexpected string [.movie.'|'.0.titre]", (path ? lpath : null)])
+        rep !== null && rep.push(["unexpected value for mandatory prop <titre> [.movie.'|'.0]", (path ? lpath : null)])
         return false;
     }
     return true;
@@ -73,6 +76,7 @@ function _jm_obj_2(val, path, rep)
         rep !== null && rep.push(["bad property count [.movie.'|'.1]", path])
         return false;
     }
+    let lpath;
     let pval;
     let res;
     if (! val.hasOwnProperty("t"))
@@ -80,13 +84,14 @@ function _jm_obj_2(val, path, rep)
         rep !== null && rep.push(["missing mandatory prop <t> [.movie.'|'.1]", path])
         return false;
     }
+    lpath = path ? path.concat(["t"]) : null;
     pval = val["t"];
     // .movie.'|'.1.t
     res = ((typeof pval === 'string' || pval instanceof String)) && pval == "en";
     if (! res)
     {
-        rep !== null && rep.push(["unexpected en [.movie.'|'.1.t]", path])
-        rep !== null && rep.push(["unexpected value for mandatory prop <t> [.movie.'|'.1]", path])
+        rep !== null && rep.push(["unexpected en [.movie.'|'.1.t]", (path ? lpath : null)])
+        rep !== null && rep.push(["unexpected value for mandatory prop <t> [.movie.'|'.1]", (path ? lpath : null)])
         return false;
     }
     if (! val.hasOwnProperty("title"))
@@ -94,13 +99,14 @@ function _jm_obj_2(val, path, rep)
         rep !== null && rep.push(["missing mandatory prop <title> [.movie.'|'.1]", path])
         return false;
     }
+    lpath = path ? path.concat(["title"]) : null;
     pval = val["title"];
     // .movie.'|'.1.title
     res = (typeof pval === 'string' || pval instanceof String);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected string [.movie.'|'.1.title]", path])
-        rep !== null && rep.push(["unexpected value for mandatory prop <title> [.movie.'|'.1]", path])
+        rep !== null && rep.push(["unexpected string [.movie.'|'.1.title]", (path ? lpath : null)])
+        rep !== null && rep.push(["unexpected value for mandatory prop <title> [.movie.'|'.1]", (path ? lpath : null)])
         return false;
     }
     return true;
@@ -120,6 +126,7 @@ function _jm_obj_3(val, path, rep)
         rep !== null && rep.push(["bad property count [.movie.'|'.2]", path])
         return false;
     }
+    let lpath;
     let pval;
     let res;
     if (! val.hasOwnProperty("t"))
@@ -127,13 +134,14 @@ function _jm_obj_3(val, path, rep)
         rep !== null && rep.push(["missing mandatory prop <t> [.movie.'|'.2]", path])
         return false;
     }
+    lpath = path ? path.concat(["t"]) : null;
     pval = val["t"];
     // .movie.'|'.2.t
     res = ((typeof pval === 'string' || pval instanceof String)) && pval == "de";
     if (! res)
     {
-        rep !== null && rep.push(["unexpected de [.movie.'|'.2.t]", path])
-        rep !== null && rep.push(["unexpected value for mandatory prop <t> [.movie.'|'.2]", path])
+        rep !== null && rep.push(["unexpected de [.movie.'|'.2.t]", (path ? lpath : null)])
+        rep !== null && rep.push(["unexpected value for mandatory prop <t> [.movie.'|'.2]", (path ? lpath : null)])
         return false;
     }
     if (! val.hasOwnProperty("Title"))
@@ -141,13 +149,14 @@ function _jm_obj_3(val, path, rep)
         rep !== null && rep.push(["missing mandatory prop <Title> [.movie.'|'.2]", path])
         return false;
     }
+    lpath = path ? path.concat(["Title"]) : null;
     pval = val["Title"];
     // .movie.'|'.2.Title
     res = (typeof pval === 'string' || pval instanceof String);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected string [.movie.'|'.2.Title]", path])
-        rep !== null && rep.push(["unexpected value for mandatory prop <Title> [.movie.'|'.2]", path])
+        rep !== null && rep.push(["unexpected string [.movie.'|'.2.Title]", (path ? lpath : null)])
+        rep !== null && rep.push(["unexpected value for mandatory prop <Title> [.movie.'|'.2]", (path ? lpath : null)])
         return false;
     }
     return true;
@@ -167,6 +176,7 @@ function _jm_obj_4(val, path, rep)
         rep !== null && rep.push(["bad property count [.movie.'|'.3]", path])
         return false;
     }
+    let lpath;
     let pval;
     let res;
     if (! val.hasOwnProperty("t"))
@@ -174,13 +184,14 @@ function _jm_obj_4(val, path, rep)
         rep !== null && rep.push(["missing mandatory prop <t> [.movie.'|'.3]", path])
         return false;
     }
+    lpath = path ? path.concat(["t"]) : null;
     pval = val["t"];
     // .movie.'|'.3.t
     res = ((typeof pval === 'string' || pval instanceof String)) && pval == "ru";
     if (! res)
     {
-        rep !== null && rep.push(["unexpected ru [.movie.'|'.3.t]", path])
-        rep !== null && rep.push(["unexpected value for mandatory prop <t> [.movie.'|'.3]", path])
+        rep !== null && rep.push(["unexpected ru [.movie.'|'.3.t]", (path ? lpath : null)])
+        rep !== null && rep.push(["unexpected value for mandatory prop <t> [.movie.'|'.3]", (path ? lpath : null)])
         return false;
     }
     if (! val.hasOwnProperty("suti"))
@@ -188,13 +199,14 @@ function _jm_obj_4(val, path, rep)
         rep !== null && rep.push(["missing mandatory prop <suti> [.movie.'|'.3]", path])
         return false;
     }
+    lpath = path ? path.concat(["suti"]) : null;
     pval = val["suti"];
     // .movie.'|'.3.suti
     res = (typeof pval === 'string' || pval instanceof String);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected string [.movie.'|'.3.suti]", path])
-        rep !== null && rep.push(["unexpected value for mandatory prop <suti> [.movie.'|'.3]", path])
+        rep !== null && rep.push(["unexpected string [.movie.'|'.3.suti]", (path ? lpath : null)])
+        rep !== null && rep.push(["unexpected value for mandatory prop <suti> [.movie.'|'.3]", (path ? lpath : null)])
         return false;
     }
     return true;
@@ -215,6 +227,7 @@ function _jm_obj_0(val, path, rep)
         rep !== null && rep.push(["bad property count [.]", path])
         return false;
     }
+    let lpath;
     let pval;
     let res;
     if (! val.hasOwnProperty("movie"))
@@ -222,6 +235,7 @@ function _jm_obj_0(val, path, rep)
         rep !== null && rep.push(["missing mandatory prop <movie> [.]", path])
         return false;
     }
+    lpath = path ? path.concat(["movie"]) : null;
     pval = val["movie"];
     // .movie
     let iso_0 = Object.prototype.toString.call(pval) === '[object Object]';
@@ -234,27 +248,27 @@ function _jm_obj_0(val, path, rep)
             let fun_0 = _jm_map_0.get(tag_0);
             if (fun_0 !== undefined)
             {
-                res = fun_0(pval, path, rep);
+                res = fun_0(pval, (path ? lpath : null), rep);
             }
             else
             {
                 res = false;
-                rep !== null && rep.push(["tag <t> value not found [.movie.'|']", path])
+                rep !== null && rep.push(["tag <t> value not found [.movie.'|']", (path ? lpath : null)])
             }
         }
         else
         {
             res = false;
-            rep !== null && rep.push(["tag prop <t> is missing [.movie.'|']", path])
+            rep !== null && rep.push(["tag prop <t> is missing [.movie.'|']", (path ? lpath : null)])
         }
     }
     else
     {
-        rep !== null && rep.push(["value is not an object [.movie.'|']", path])
+        rep !== null && rep.push(["value is not an object [.movie.'|']", (path ? lpath : null)])
     }
     if (! res)
     {
-        rep !== null && rep.push(["unexpected value for mandatory prop <movie> [.]", path])
+        rep !== null && rep.push(["unexpected value for mandatory prop <movie> [.]", (path ? lpath : null)])
         return false;
     }
     return true;

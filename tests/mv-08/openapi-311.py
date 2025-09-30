@@ -4129,37 +4129,41 @@ def _jm_obj_69(val: Jsonable, path: Path, rep: Report) -> bool:
     if len(val) != 3:
         rep is None or rep.append(("bad property count [.'$SS-apikey']", path))
         return False
+    lpath: Path
     pval: Jsonable
     res: bool
     if not "type" in val:
         rep is None or rep.append(("missing mandatory prop <type> [.'$SS-apikey']", path))
         return False
+    lpath = (path + [ "type" ]) if path is not None else None
     pval = val.get("type", UNDEFINED)
     # .'$SS-apikey'.type
     res = isinstance(pval, str) and pval == "apiKey"
     if not res:
-        rep is None or rep.append(("unexpected _apiKey [.'$SS-apikey'.type]", path))
-        rep is None or rep.append(("unexpected value for mandatory prop <type> [.'$SS-apikey']", path))
+        rep is None or rep.append(("unexpected _apiKey [.'$SS-apikey'.type]", lpath if path is not None else None))
+        rep is None or rep.append(("unexpected value for mandatory prop <type> [.'$SS-apikey']", lpath if path is not None else None))
         return False
     if not "name" in val:
         rep is None or rep.append(("missing mandatory prop <name> [.'$SS-apikey']", path))
         return False
+    lpath = (path + [ "name" ]) if path is not None else None
     pval = val.get("name", UNDEFINED)
     # .'$SS-apikey'.name
     res = isinstance(pval, str)
     if not res:
-        rep is None or rep.append(("unexpected string [.'$SS-apikey'.name]", path))
-        rep is None or rep.append(("unexpected value for mandatory prop <name> [.'$SS-apikey']", path))
+        rep is None or rep.append(("unexpected string [.'$SS-apikey'.name]", lpath if path is not None else None))
+        rep is None or rep.append(("unexpected value for mandatory prop <name> [.'$SS-apikey']", lpath if path is not None else None))
         return False
     if not "in" in val:
         rep is None or rep.append(("missing mandatory prop <in> [.'$SS-apikey']", path))
         return False
+    lpath = (path + [ "in" ]) if path is not None else None
     pval = val.get("in", UNDEFINED)
     # .'$SS-apikey'.in
     res = ((pval is None or isinstance(pval, (bool, int, float, str)))) and pval in _jm_cst_4
     if not res:
-        rep is None or rep.append(("value not in enum [.'$SS-apikey'.in.'|']", path))
-        rep is None or rep.append(("unexpected value for mandatory prop <in> [.'$SS-apikey']", path))
+        rep is None or rep.append(("value not in enum [.'$SS-apikey'.in.'|']", lpath if path is not None else None))
+        rep is None or rep.append(("unexpected value for mandatory prop <in> [.'$SS-apikey']", lpath if path is not None else None))
         return False
     return True
 
@@ -4181,27 +4185,30 @@ def _jm_obj_70(val: Jsonable, path: Path, rep: Report) -> bool:
     if len(val) != 2:
         rep is None or rep.append(("bad property count [.'$SS-http']", path))
         return False
+    lpath: Path
     pval: Jsonable
     res: bool
     if not "type" in val:
         rep is None or rep.append(("missing mandatory prop <type> [.'$SS-http']", path))
         return False
+    lpath = (path + [ "type" ]) if path is not None else None
     pval = val.get("type", UNDEFINED)
     # .'$SS-http'.type
     res = isinstance(pval, str) and pval == "http"
     if not res:
-        rep is None or rep.append(("unexpected _http [.'$SS-http'.type]", path))
-        rep is None or rep.append(("unexpected value for mandatory prop <type> [.'$SS-http']", path))
+        rep is None or rep.append(("unexpected _http [.'$SS-http'.type]", lpath if path is not None else None))
+        rep is None or rep.append(("unexpected value for mandatory prop <type> [.'$SS-http']", lpath if path is not None else None))
         return False
     if not "scheme" in val:
         rep is None or rep.append(("missing mandatory prop <scheme> [.'$SS-http']", path))
         return False
+    lpath = (path + [ "scheme" ]) if path is not None else None
     pval = val.get("scheme", UNDEFINED)
     # .'$SS-http'.scheme
     res = isinstance(pval, str)
     if not res:
-        rep is None or rep.append(("unexpected string [.'$SS-http'.scheme]", path))
-        rep is None or rep.append(("unexpected value for mandatory prop <scheme> [.'$SS-http']", path))
+        rep is None or rep.append(("unexpected string [.'$SS-http'.scheme]", lpath if path is not None else None))
+        rep is None or rep.append(("unexpected value for mandatory prop <scheme> [.'$SS-http']", lpath if path is not None else None))
         return False
     return True
 
@@ -4282,27 +4289,30 @@ def _jm_obj_72(val: Jsonable, path: Path, rep: Report) -> bool:
     if len(val) != 2:
         rep is None or rep.append(("bad property count [.'$SS-oauth2']", path))
         return False
+    lpath: Path
     pval: Jsonable
     res: bool
     if not "type" in val:
         rep is None or rep.append(("missing mandatory prop <type> [.'$SS-oauth2']", path))
         return False
+    lpath = (path + [ "type" ]) if path is not None else None
     pval = val.get("type", UNDEFINED)
     # .'$SS-oauth2'.type
     res = isinstance(pval, str) and pval == "oauth2"
     if not res:
-        rep is None or rep.append(("unexpected _oauth2 [.'$SS-oauth2'.type]", path))
-        rep is None or rep.append(("unexpected value for mandatory prop <type> [.'$SS-oauth2']", path))
+        rep is None or rep.append(("unexpected _oauth2 [.'$SS-oauth2'.type]", lpath if path is not None else None))
+        rep is None or rep.append(("unexpected value for mandatory prop <type> [.'$SS-oauth2']", lpath if path is not None else None))
         return False
     if not "flows" in val:
         rep is None or rep.append(("missing mandatory prop <flows> [.'$SS-oauth2']", path))
         return False
+    lpath = (path + [ "flows" ]) if path is not None else None
     pval = val.get("flows", UNDEFINED)
     # .'$SS-oauth2'.flows
-    res = _jm_obj_80(pval, path, rep)
+    res = _jm_obj_80(pval, lpath if path is not None else None, rep)
     if not res:
-        rep is None or rep.append(("unexpected $OAuthFlows [.'$SS-oauth2'.flows]", path))
-        rep is None or rep.append(("unexpected value for mandatory prop <flows> [.'$SS-oauth2']", path))
+        rep is None or rep.append(("unexpected $OAuthFlows [.'$SS-oauth2'.flows]", lpath if path is not None else None))
+        rep is None or rep.append(("unexpected value for mandatory prop <flows> [.'$SS-oauth2']", lpath if path is not None else None))
         return False
     return True
 
@@ -4324,27 +4334,30 @@ def _jm_obj_73(val: Jsonable, path: Path, rep: Report) -> bool:
     if len(val) != 2:
         rep is None or rep.append(("bad property count [.'$SS-oic']", path))
         return False
+    lpath: Path
     pval: Jsonable
     res: bool
     if not "type" in val:
         rep is None or rep.append(("missing mandatory prop <type> [.'$SS-oic']", path))
         return False
+    lpath = (path + [ "type" ]) if path is not None else None
     pval = val.get("type", UNDEFINED)
     # .'$SS-oic'.type
     res = isinstance(pval, str) and pval == "openIdConnect"
     if not res:
-        rep is None or rep.append(("unexpected _openIdConnect [.'$SS-oic'.type]", path))
-        rep is None or rep.append(("unexpected value for mandatory prop <type> [.'$SS-oic']", path))
+        rep is None or rep.append(("unexpected _openIdConnect [.'$SS-oic'.type]", lpath if path is not None else None))
+        rep is None or rep.append(("unexpected value for mandatory prop <type> [.'$SS-oic']", lpath if path is not None else None))
         return False
     if not "openIdConnectUrl" in val:
         rep is None or rep.append(("missing mandatory prop <openIdConnectUrl> [.'$SS-oic']", path))
         return False
+    lpath = (path + [ "openIdConnectUrl" ]) if path is not None else None
     pval = val.get("openIdConnectUrl", UNDEFINED)
     # .'$SS-oic'.openIdConnectUrl
-    res = is_valid_url(pval, path, rep)
+    res = is_valid_url(pval, lpath if path is not None else None, rep)
     if not res:
-        rep is None or rep.append(("unexpected $URL [.'$SS-oic'.openIdConnectUrl]", path))
-        rep is None or rep.append(("unexpected value for mandatory prop <openIdConnectUrl> [.'$SS-oic']", path))
+        rep is None or rep.append(("unexpected $URL [.'$SS-oic'.openIdConnectUrl]", lpath if path is not None else None))
+        rep is None or rep.append(("unexpected value for mandatory prop <openIdConnectUrl> [.'$SS-oic']", lpath if path is not None else None))
         return False
     return True
 

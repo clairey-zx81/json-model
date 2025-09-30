@@ -34,6 +34,7 @@ public class inline_or_rec extends ModelChecker
             if (rep != null) rep.addEntry("bad property count [.'$ab'.'|'.0]", path);
             return false;
         }
+        Path lpath;
         Object pval;
         boolean res;
         if (! json.objectHasProp(val, "t"))
@@ -41,13 +42,14 @@ public class inline_or_rec extends ModelChecker
             if (rep != null) rep.addEntry("missing mandatory prop <t> [.'$ab'.'|'.0]", path);
             return false;
         }
+        lpath = new Path("t", path);
         pval = json.objectValue(val, "t");
         // .'$ab'.'|'.0.t
         res = json.isString(pval) && json.asString(pval).compareTo("a") == 0;
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected a [.'$ab'.'|'.0.t]", path);
-            if (rep != null) rep.addEntry("unexpected value for mandatory prop <t> [.'$ab'.'|'.0]", path);
+            if (rep != null) rep.addEntry("unexpected a [.'$ab'.'|'.0.t]", (path != null ? lpath : null));
+            if (rep != null) rep.addEntry("unexpected value for mandatory prop <t> [.'$ab'.'|'.0]", (path != null ? lpath : null));
             return false;
         }
         if (! json.objectHasProp(val, "a"))
@@ -55,13 +57,14 @@ public class inline_or_rec extends ModelChecker
             if (rep != null) rep.addEntry("missing mandatory prop <a> [.'$ab'.'|'.0]", path);
             return false;
         }
+        lpath = new Path("a", path);
         pval = json.objectValue(val, "a");
         // .'$ab'.'|'.0.a
         res = json.isInteger(pval) && json.asLong(pval) >= 1;
         if (! res)
         {
-            if (rep != null) rep.addEntry("not a 1 strict int [.'$ab'.'|'.0.a]", path);
-            if (rep != null) rep.addEntry("unexpected value for mandatory prop <a> [.'$ab'.'|'.0]", path);
+            if (rep != null) rep.addEntry("not a 1 strict int [.'$ab'.'|'.0.a]", (path != null ? lpath : null));
+            if (rep != null) rep.addEntry("unexpected value for mandatory prop <a> [.'$ab'.'|'.0]", (path != null ? lpath : null));
             return false;
         }
         return true;
@@ -81,6 +84,7 @@ public class inline_or_rec extends ModelChecker
             if (rep != null) rep.addEntry("bad property count [.'$ab'.'|'.1]", path);
             return false;
         }
+        Path lpath;
         Object pval;
         boolean res;
         if (! json.objectHasProp(val, "t"))
@@ -88,13 +92,14 @@ public class inline_or_rec extends ModelChecker
             if (rep != null) rep.addEntry("missing mandatory prop <t> [.'$ab'.'|'.1]", path);
             return false;
         }
+        lpath = new Path("t", path);
         pval = json.objectValue(val, "t");
         // .'$ab'.'|'.1.t
         res = json.isString(pval) && json.asString(pval).compareTo("b") == 0;
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected b [.'$ab'.'|'.1.t]", path);
-            if (rep != null) rep.addEntry("unexpected value for mandatory prop <t> [.'$ab'.'|'.1]", path);
+            if (rep != null) rep.addEntry("unexpected b [.'$ab'.'|'.1.t]", (path != null ? lpath : null));
+            if (rep != null) rep.addEntry("unexpected value for mandatory prop <t> [.'$ab'.'|'.1]", (path != null ? lpath : null));
             return false;
         }
         if (! json.objectHasProp(val, "b"))
@@ -102,13 +107,14 @@ public class inline_or_rec extends ModelChecker
             if (rep != null) rep.addEntry("missing mandatory prop <b> [.'$ab'.'|'.1]", path);
             return false;
         }
+        lpath = new Path("b", path);
         pval = json.objectValue(val, "b");
         // .'$ab'.'|'.1.b
         res = json.isInteger(pval) && json.asLong(pval) >= 1;
         if (! res)
         {
-            if (rep != null) rep.addEntry("not a 1 strict int [.'$ab'.'|'.1.b]", path);
-            if (rep != null) rep.addEntry("unexpected value for mandatory prop <b> [.'$ab'.'|'.1]", path);
+            if (rep != null) rep.addEntry("not a 1 strict int [.'$ab'.'|'.1.b]", (path != null ? lpath : null));
+            if (rep != null) rep.addEntry("unexpected value for mandatory prop <b> [.'$ab'.'|'.1]", (path != null ? lpath : null));
             return false;
         }
         return true;

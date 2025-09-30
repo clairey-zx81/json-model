@@ -36,7 +36,7 @@ BEGIN
   END IF;
   pval := val -> 'rt';
   -- .'$Foo'.rt
-  res := _jm_obj_1(pval, path, rep);
+  res := _jm_obj_1(pval, NULL, rep);
   IF NOT res THEN
     RETURN FALSE;
   END IF;

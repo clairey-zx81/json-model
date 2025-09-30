@@ -17,7 +17,8 @@ def _j(o: str, **params) -> str:
 
 def _l(s: str) -> Jsonable:
     """Parse a JSON operation or something else."""
-    return json.loads(s) if isinstance(s, str) and s and (s[0] in '{["0123456789-' or s in ("true", "false", "null")) else s
+    # FIXME true/false/null handling is adhoc and can be wrong
+    return json.loads(s) if isinstance(s, str) and s and (s[0] in '{["0123456789-' or s in ("null", "true", "false")) else s
 
 def _u(block: Block) -> list[Jsonable]:
     """Parse a JSON code block."""
@@ -388,7 +389,7 @@ class IRep(Language):
         return _j("jc", json=j)
 
     def const(self, c: Jsonable) -> Expr:
-        return _j("cst", cst=c)
+        return _j("cst", c=c)
 
     def has_prop(self, obj: Var, prop: str) -> BoolExpr:
         return _j("hp", obj=_l(obj), prop=prop)
@@ -514,8 +515,8 @@ class IRep(Language):
     def clean_report(self) -> Block:
         return [ _j("cr") ]
 
-    def path_val(self, pvar: Var, pseg: str|int, is_prop: bool) -> PathExpr:
-        return _j("pvl", pvar=_l(pvar), pseg=pseg, is_prop=is_prop)
+    def path_val(self, pvar: Var, pseg: str|int, is_prop: bool, is_var: bool) -> PathExpr:
+        return _j("pvl", pvar=_l(pvar), pseg=pseg, is_prop=is_prop, is_var=is_var)
 
     def path_lvar(self, lvar: Var, rvar: Var) -> PathExpr:
         return _j("pl", lvar=_l(lvar), rvar=_l(rvar))
@@ -657,6 +658,7 @@ def _eval(jv: Jsonable, gen: Language) -> Block|Expr:
 
     # convenient recursion shortcut
     def ev(tag: str):
+        # log.warning(f"{tag} -> {jv[tag]}")
         return _eval(jv[tag], gen)
 
     if isinstance(jv, dict) and "o" in jv:
@@ -672,7 +674,7 @@ def _eval(jv: Jsonable, gen: Language) -> Block|Expr:
             case "isa": return gen.is_a(var=ev("var"), tval=s2t(jv["tval"]), loose=jv["loose"])
             case "esc": return gen.esc(s=jv["s"])
             case "jc": return gen.json_cst(j=jv["j"])
-            case "cst": return gen.const(c=jv["cst"])
+            case "cst": return gen.const(c=jv["c"])
             case "hp": return gen.has_prop(obj=ev("obj"), prop=jv["prop"])
             case "pre": return gen.predef(var=ev("var"), name=jv["name"], path=ev("path"), is_str=jv["is_str"])
             case "val": return gen.value(var=ev("var"), tvar=s2t(jv["tvar"]))
@@ -694,29 +696,30 @@ def _eval(jv: Jsonable, gen: Language) -> Block|Expr:
             case "ct": return gen.check_constraint(op=jv["op"], vop=jv["vop"], val=ev("val"), path=ev("path"))
             case "sc": return gen.str_cmp(e1=ev("e1"), op=jv["op"], e2=ev("e2"))
             case "nc": return gen.num_cmp(e1=ev("e1"), op=jv["op"], e2=ev("e2"))
-            case "no": return gen.nope()
-            case "v": return gen.var(var=ev("var"), val=ev("val"), tname=jv["tname"])
-            case "iv": return gen.int_var(var=ev("var"), val=ev("val"), declare=jv["declare"])
-            case "brk": return gen.brk()
-            case "skip": return gen.skip()
-            case "i+": return gen.inc_var(var=ev("var"))
-            case "ret": return gen.ret(res=ev("res"))
+            case "()": return gen.paren(e=ev("e"))
             case "not": return gen.not_op(e=ev("e"))
             case "&": return gen.and_op(*[ _eval(e, gen) for e in jv["exprs"] ])
             case "|": return gen.or_op(*[ _eval(e, gen) for e in jv["exprs"] ])
-            case "i&": return gen.iand_op(res=ev("res"), e=ev("e"))
-            case "()": return gen.paren(e=ev("e"))
             case "isr": return gen.is_reporting()
-            case "rep": return gen.report(msg=jv["msg"], path=ev("path"))
-            case "cr": return gen.clean_report()
-            case "pv": return gen.path_var(pvar=ev("pvar"), val=ev("val"), declare=jv["declare"])
-            case "pvl": return gen.path_val(pvar=ev("pvar"), pseg=jv["pseg"], is_prop=jv["is_prop"])
+            case "pvl": return gen.path_val(pvar=ev("pvar"), pseg=jv["pseg"], is_prop=jv["is_prop"], is_var=jv["is_var"])
             case "pl": return gen.path_lvar(lvar=ev("lvar"), rvar=ev("rvar"))
+            # variable declarations
+            case "iv": return gen.int_var(var=ev("var"), val=ev("val"), declare=jv["declare"])
             case "bv": return gen.bool_var(var=ev("var"), val=ev("val"), declare=jv["declare"])
             case "sv": return gen.str_var(var=ev("var"), val=ev("val"), declare=jv["declare"])
             case "jv": return gen.json_var(var=ev("var"), val=ev("val"), declare=jv["declare"])
             case "fv": return gen.flt_var(var=ev("var"), val=ev("val"), declare=jv["declare"])
             case "Fv": return gen.fun_var(var=ev("var"), val=ev("val"), declare=jv["declare"])
+            case "pv": return gen.path_var(pvar=ev("pvar"), val=ev("val"), declare=jv["declare"])
+            # simple instructions
+            case "no": return gen.nope()
+            case "brk": return gen.brk()
+            case "skip": return gen.skip()
+            case "cr": return gen.clean_report()
+            case "i+": return gen.inc_var(var=ev("var"))
+            case "i&": return gen.iand_op(res=ev("res"), e=ev("e"))
+            case "ret": return gen.ret(res=ev("res"))
+            case "rep": return gen.report(msg=jv["msg"], path=ev("path"))
             # control
             case "aL": return gen.arr_loop(arr=ev("arr"), idx=ev("idx"), val=ev("val"), body=ev("body"))
             case "oL": return gen.obj_loop(obj=ev("obj"), key=ev("key"), val=ev("val"), body=ev("body"))

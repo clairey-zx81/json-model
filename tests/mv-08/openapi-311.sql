@@ -5095,7 +5095,7 @@ BEGIN
   END IF;
   pval := val -> 'flows';
   -- .'$SS-oauth2'.flows
-  res := _jm_obj_80(pval, path, rep);
+  res := _jm_obj_80(pval, NULL, rep);
   IF NOT res THEN
     RETURN FALSE;
   END IF;
@@ -5143,7 +5143,7 @@ BEGIN
   END IF;
   pval := val -> 'openIdConnectUrl';
   -- .'$SS-oic'.openIdConnectUrl
-  res := JSONB_TYPEOF(pval) = 'string' AND jm_is_valid_url(JSON_VALUE(pval, '$' RETURNING TEXT), path, rep);
+  res := JSONB_TYPEOF(pval) = 'string' AND jm_is_valid_url(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, rep);
   IF NOT res THEN
     RETURN FALSE;
   END IF;

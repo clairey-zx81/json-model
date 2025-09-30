@@ -33,6 +33,7 @@ public class hello3 extends ModelChecker
             if (rep != null) rep.addEntry("bad property count [.]", path);
             return false;
         }
+        Path lpath;
         Object pval;
         boolean res;
         if (! json.objectHasProp(val, "hello"))
@@ -40,13 +41,14 @@ public class hello3 extends ModelChecker
             if (rep != null) rep.addEntry("missing mandatory prop <hello> [.]", path);
             return false;
         }
+        lpath = new Path("hello", path);
         pval = json.objectValue(val, "hello");
         // .hello
         res = json.isInteger(pval) && json.asLong(pval) >= 0;
         if (! res)
         {
-            if (rep != null) rep.addEntry("not a 0 strict int [.hello]", path);
-            if (rep != null) rep.addEntry("unexpected value for mandatory prop <hello> [.]", path);
+            if (rep != null) rep.addEntry("not a 0 strict int [.hello]", (path != null ? lpath : null));
+            if (rep != null) rep.addEntry("unexpected value for mandatory prop <hello> [.]", (path != null ? lpath : null));
             return false;
         }
         if (! json.objectHasProp(val, "world"))
@@ -54,13 +56,14 @@ public class hello3 extends ModelChecker
             if (rep != null) rep.addEntry("missing mandatory prop <world> [.]", path);
             return false;
         }
+        lpath = new Path("world", path);
         pval = json.objectValue(val, "world");
         // .world
         res = json.isBoolean(pval);
         if (! res)
         {
-            if (rep != null) rep.addEntry("not a bool [.world]", path);
-            if (rep != null) rep.addEntry("unexpected value for mandatory prop <world> [.]", path);
+            if (rep != null) rep.addEntry("not a bool [.world]", (path != null ? lpath : null));
+            if (rep != null) rep.addEntry("unexpected value for mandatory prop <world> [.]", (path != null ? lpath : null));
             return false;
         }
         return true;

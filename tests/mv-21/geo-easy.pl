@@ -152,7 +152,7 @@ sub _jm_obj_0($$$)
     }
     $pval = $$val{'coordinates'};
     # .'$Point'.coordinates
-    $res = json_model_2($pval, $path, $rep);
+    $res = json_model_2($pval, undef, $rep);
     if (! $res)
     {
         return 0;
@@ -303,7 +303,7 @@ sub _jm_obj_2($$$)
     }
     $pval = $$val{'coordinates'};
     # .'$LineString'.coordinates
-    $res = json_model_3($pval, $path, $rep);
+    $res = json_model_3($pval, undef, $rep);
     if (! $res)
     {
         return 0;
@@ -762,11 +762,11 @@ sub _jm_obj_7($$$)
     if (! $res)
     {
         # .'$Feature'.geometry.'|'.1
-        $res = json_model_11($pval, $path, $rep);
+        $res = json_model_11($pval, undef, $rep);
         if (! $res)
         {
             # .'$Feature'.geometry.'|'.2
-            $res = _jm_obj_6($pval, $path, $rep);
+            $res = _jm_obj_6($pval, undef, $rep);
         }
     }
     if (! $res)
@@ -784,7 +784,7 @@ sub _jm_obj_7($$$)
     if (! $res)
     {
         # .'$Feature'.properties.'|'.1
-        $res = _jm_obj_8($pval, $path, $rep);
+        $res = _jm_obj_8($pval, undef, $rep);
     }
     if (! $res)
     {

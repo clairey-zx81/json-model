@@ -25,6 +25,7 @@ function _jm_obj_0(val, path, rep)
         rep !== null && rep.push(["bad property count [.]", path])
         return false;
     }
+    let lpath;
     let pval;
     let res;
     if (! val.hasOwnProperty("hello"))
@@ -32,13 +33,14 @@ function _jm_obj_0(val, path, rep)
         rep !== null && rep.push(["missing mandatory prop <hello> [.]", path])
         return false;
     }
+    lpath = path ? path.concat(["hello"]) : null;
     pval = val["hello"];
     // .hello
     res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0;
     if (! res)
     {
-        rep !== null && rep.push(["not a 0 strict int [.hello]", path])
-        rep !== null && rep.push(["unexpected value for mandatory prop <hello> [.]", path])
+        rep !== null && rep.push(["not a 0 strict int [.hello]", (path ? lpath : null)])
+        rep !== null && rep.push(["unexpected value for mandatory prop <hello> [.]", (path ? lpath : null)])
         return false;
     }
     if (! val.hasOwnProperty("world"))
@@ -46,13 +48,14 @@ function _jm_obj_0(val, path, rep)
         rep !== null && rep.push(["missing mandatory prop <world> [.]", path])
         return false;
     }
+    lpath = path ? path.concat(["world"]) : null;
     pval = val["world"];
     // .world
     res = (typeof pval === 'boolean' || pval instanceof Boolean);
     if (! res)
     {
-        rep !== null && rep.push(["not a bool [.world]", path])
-        rep !== null && rep.push(["unexpected value for mandatory prop <world> [.]", path])
+        rep !== null && rep.push(["not a bool [.world]", (path ? lpath : null)])
+        rep !== null && rep.push(["unexpected value for mandatory prop <world> [.]", (path ? lpath : null)])
         return false;
     }
     return true;

@@ -56,6 +56,7 @@ function _jm_obj_0(val, path, rep)
         rep !== null && rep.push(["bad property count [.'$Xx']", path])
         return false;
     }
+    let lpath;
     let pval;
     let res;
     if (! val.hasOwnProperty("X"))
@@ -63,13 +64,14 @@ function _jm_obj_0(val, path, rep)
         rep !== null && rep.push(["missing mandatory prop <X> [.'$Xx']", path])
         return false;
     }
+    lpath = path ? path.concat(["X"]) : null;
     pval = val["X"];
     // .'$Xx'.X
     res = (typeof pval === 'string' || pval instanceof String);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected string [.'$Xx'.X]", path])
-        rep !== null && rep.push(["unexpected value for mandatory prop <X> [.'$Xx']", path])
+        rep !== null && rep.push(["unexpected string [.'$Xx'.X]", (path ? lpath : null)])
+        rep !== null && rep.push(["unexpected value for mandatory prop <X> [.'$Xx']", (path ? lpath : null)])
         return false;
     }
     return true;
@@ -102,6 +104,7 @@ function _jm_obj_1(val, path, rep)
         rep !== null && rep.push(["bad property count [.'$Yy']", path])
         return false;
     }
+    let lpath;
     let pval;
     let res;
     if (! val.hasOwnProperty("Y"))
@@ -109,13 +112,14 @@ function _jm_obj_1(val, path, rep)
         rep !== null && rep.push(["missing mandatory prop <Y> [.'$Yy']", path])
         return false;
     }
+    lpath = path ? path.concat(["Y"]) : null;
     pval = val["Y"];
     // .'$Yy'.Y
     res = (typeof pval === 'string' || pval instanceof String);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected string [.'$Yy'.Y]", path])
-        rep !== null && rep.push(["unexpected value for mandatory prop <Y> [.'$Yy']", path])
+        rep !== null && rep.push(["unexpected string [.'$Yy'.Y]", (path ? lpath : null)])
+        rep !== null && rep.push(["unexpected value for mandatory prop <Y> [.'$Yy']", (path ? lpath : null)])
         return false;
     }
     return true;

@@ -31,27 +31,30 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
     if len(val) != 2:
         rep is None or rep.append(("bad property count [.]", path))
         return False
+    lpath: Path
     pval: Jsonable
     res: bool
     if not "i" in val:
         rep is None or rep.append(("missing mandatory prop <i> [.]", path))
         return False
+    lpath = (path + [ "i" ]) if path is not None else None
     pval = val.get("i", UNDEFINED)
     # .i
     res = (isinstance(pval, int) and not isinstance(pval, bool) or isinstance(pval, float) and pval == int(pval))
     if not res:
-        rep is None or rep.append(("not a -1 loose int [.i]", path))
-        rep is None or rep.append(("unexpected value for mandatory prop <i> [.]", path))
+        rep is None or rep.append(("not a -1 loose int [.i]", lpath if path is not None else None))
+        rep is None or rep.append(("unexpected value for mandatory prop <i> [.]", lpath if path is not None else None))
         return False
     if not "f" in val:
         rep is None or rep.append(("missing mandatory prop <f> [.]", path))
         return False
+    lpath = (path + [ "f" ]) if path is not None else None
     pval = val.get("f", UNDEFINED)
     # .f
     res = isinstance(pval, float)
     if not res:
-        rep is None or rep.append(("not a -1.0 strict float [.f]", path))
-        rep is None or rep.append(("unexpected value for mandatory prop <f> [.]", path))
+        rep is None or rep.append(("not a -1.0 strict float [.f]", lpath if path is not None else None))
+        rep is None or rep.append(("unexpected value for mandatory prop <f> [.]", lpath if path is not None else None))
         return False
     return True
 

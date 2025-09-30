@@ -30,6 +30,7 @@ static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *re
         if (rep) jm_report_add_entry(rep, "bad property count [.'$bibi']", path);
         return false;
     }
+    jm_path_t lpath;
     json_t * pval;
     bool res;
     if (! (json_object_get(val, "bibi") != NULL))
@@ -37,6 +38,7 @@ static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *re
         if (rep) jm_report_add_entry(rep, "missing mandatory prop <bibi> [.'$bibi']", path);
         return false;
     }
+    lpath = (jm_path_t) { "bibi", 0, path, NULL };
     pval = json_object_get(val, "bibi");
     // .'$bibi'.bibi
     res = json_is_array(pval);
@@ -46,20 +48,20 @@ static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *re
         json_t *arr_0_item;
         json_array_foreach(pval, arr_0_idx, arr_0_item)
         {
-            jm_path_t arr_0_lpath = (jm_path_t) { NULL, arr_0_idx, path, NULL };
+            jm_path_t arr_0_lpath = (jm_path_t) { NULL, arr_0_idx, (path ? &lpath : NULL), NULL };
             // .'$bibi'.bibi.0
-            res = _jm_obj_0(arr_0_item, (path ? &arr_0_lpath : NULL), rep);
+            res = _jm_obj_0(arr_0_item, ((path ? &lpath : NULL) ? &arr_0_lpath : NULL), rep);
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "unexpected $bibi [.'$bibi'.bibi.0]", (path ? &arr_0_lpath : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected $bibi [.'$bibi'.bibi.0]", ((path ? &lpath : NULL) ? &arr_0_lpath : NULL));
                 break;
             }
         }
     }
     if (! res)
     {
-        if (rep) jm_report_add_entry(rep, "not array or unexpected array [.'$bibi'.bibi]", path);
-        if (rep) jm_report_add_entry(rep, "unexpected value for mandatory prop <bibi> [.'$bibi']", path);
+        if (rep) jm_report_add_entry(rep, "not array or unexpected array [.'$bibi'.bibi]", (path ? &lpath : NULL));
+        if (rep) jm_report_add_entry(rep, "unexpected value for mandatory prop <bibi> [.'$bibi']", (path ? &lpath : NULL));
         return false;
     }
     return true;

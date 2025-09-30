@@ -2592,31 +2592,34 @@ def _jm_obj_47(val: Jsonable, path: Path, rep: Report) -> bool:
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$platforms'.0.'|'.46]", path))
         return False
+    lpath: Path
     pval: Jsonable
     res: bool
     if "name" in val:
+        lpath = (path + [ "name" ]) if path is not None else None
         pval = val.get("name", UNDEFINED)
         # .'$platforms'.0.'|'.46.name
         res = isinstance(pval, str) and pval == "Windows"
         if not res:
-            rep is None or rep.append(("unexpected _Windows [.'$platforms'.0.'|'.46.name]", path))
-            rep is None or rep.append(("unexpected value for optional prop <name> [.'$platforms'.0.'|'.46]", path))
+            rep is None or rep.append(("unexpected _Windows [.'$platforms'.0.'|'.46.name]", lpath if path is not None else None))
+            rep is None or rep.append(("unexpected value for optional prop <name> [.'$platforms'.0.'|'.46]", lpath if path is not None else None))
             return False
     if "versions" in val:
+        lpath = (path + [ "versions" ]) if path is not None else None
         pval = val.get("versions", UNDEFINED)
         # .'$platforms'.0.'|'.46.versions
         res = isinstance(pval, list)
         if res:
             for arr_48_idx, arr_48_item in enumerate(pval):
-                arr_48_lpath: Path = (path + [ arr_48_idx ]) if path is not None else None
+                arr_48_lpath: Path = ((lpath if path is not None else None) + [ arr_48_idx ]) if (lpath if path is not None else None) is not None else None
                 # .'$platforms'.0.'|'.46.versions.0
                 res = ((arr_48_item is None or isinstance(arr_48_item, (bool, int, float, str)))) and arr_48_item in _jm_cst_32
                 if not res:
-                    rep is None or rep.append(("value not in enum [.'$platforms'.0.'|'.46.versions.0.'|']", arr_48_lpath if path is not None else None))
+                    rep is None or rep.append(("value not in enum [.'$platforms'.0.'|'.46.versions.0.'|']", arr_48_lpath if (lpath if path is not None else None) is not None else None))
                     break
         if not res:
-            rep is None or rep.append(("not array or unexpected array [.'$platforms'.0.'|'.46.versions]", path))
-            rep is None or rep.append(("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.46]", path))
+            rep is None or rep.append(("not array or unexpected array [.'$platforms'.0.'|'.46.versions]", lpath if path is not None else None))
+            rep is None or rep.append(("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.46]", lpath if path is not None else None))
             return False
     return True
 
@@ -2627,31 +2630,34 @@ def _jm_obj_48(val: Jsonable, path: Path, rep: Report) -> bool:
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$platforms'.0.'|'.45]", path))
         return False
+    lpath: Path
     pval: Jsonable
     res: bool
     if "name" in val:
+        lpath = (path + [ "name" ]) if path is not None else None
         pval = val.get("name", UNDEFINED)
         # .'$platforms'.0.'|'.45.name
         res = isinstance(pval, str) and pval == "vSphere"
         if not res:
-            rep is None or rep.append(("unexpected _vSphere [.'$platforms'.0.'|'.45.name]", path))
-            rep is None or rep.append(("unexpected value for optional prop <name> [.'$platforms'.0.'|'.45]", path))
+            rep is None or rep.append(("unexpected _vSphere [.'$platforms'.0.'|'.45.name]", lpath if path is not None else None))
+            rep is None or rep.append(("unexpected value for optional prop <name> [.'$platforms'.0.'|'.45]", lpath if path is not None else None))
             return False
     if "versions" in val:
+        lpath = (path + [ "versions" ]) if path is not None else None
         pval = val.get("versions", UNDEFINED)
         # .'$platforms'.0.'|'.45.versions
         res = isinstance(pval, list)
         if res:
             for arr_49_idx, arr_49_item in enumerate(pval):
-                arr_49_lpath: Path = (path + [ arr_49_idx ]) if path is not None else None
+                arr_49_lpath: Path = ((lpath if path is not None else None) + [ arr_49_idx ]) if (lpath if path is not None else None) is not None else None
                 # .'$platforms'.0.'|'.45.versions.0
                 res = ((arr_49_item is None or isinstance(arr_49_item, (bool, int, float, str)))) and arr_49_item in _jm_cst_33
                 if not res:
-                    rep is None or rep.append(("value not in enum [.'$platforms'.0.'|'.45.versions.0.'|']", arr_49_lpath if path is not None else None))
+                    rep is None or rep.append(("value not in enum [.'$platforms'.0.'|'.45.versions.0.'|']", arr_49_lpath if (lpath if path is not None else None) is not None else None))
                     break
         if not res:
-            rep is None or rep.append(("not array or unexpected array [.'$platforms'.0.'|'.45.versions]", path))
-            rep is None or rep.append(("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.45]", path))
+            rep is None or rep.append(("not array or unexpected array [.'$platforms'.0.'|'.45.versions]", lpath if path is not None else None))
+            rep is None or rep.append(("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.45]", lpath if path is not None else None))
             return False
     return True
 
@@ -2661,31 +2667,34 @@ def _jm_obj_49(val: Jsonable, path: Path, rep: Report) -> bool:
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$platforms'.0.'|'.44]", path))
         return False
+    lpath: Path
     pval: Jsonable
     res: bool
     if "name" in val:
+        lpath = (path + [ "name" ]) if path is not None else None
         pval = val.get("name", UNDEFINED)
         # .'$platforms'.0.'|'.44.name
         res = isinstance(pval, str) and pval == "Void Linux"
         if not res:
-            rep is None or rep.append(("unexpected _Void Linux [.'$platforms'.0.'|'.44.name]", path))
-            rep is None or rep.append(("unexpected value for optional prop <name> [.'$platforms'.0.'|'.44]", path))
+            rep is None or rep.append(("unexpected _Void Linux [.'$platforms'.0.'|'.44.name]", lpath if path is not None else None))
+            rep is None or rep.append(("unexpected value for optional prop <name> [.'$platforms'.0.'|'.44]", lpath if path is not None else None))
             return False
     if "versions" in val:
+        lpath = (path + [ "versions" ]) if path is not None else None
         pval = val.get("versions", UNDEFINED)
         # .'$platforms'.0.'|'.44.versions
         res = isinstance(pval, list)
         if res:
             for arr_50_idx, arr_50_item in enumerate(pval):
-                arr_50_lpath: Path = (path + [ arr_50_idx ]) if path is not None else None
+                arr_50_lpath: Path = ((lpath if path is not None else None) + [ arr_50_idx ]) if (lpath if path is not None else None) is not None else None
                 # .'$platforms'.0.'|'.44.versions.0
                 res = isinstance(arr_50_item, str) and arr_50_item == "all"
                 if not res:
-                    rep is None or rep.append(("unexpected all [.'$platforms'.0.'|'.44.versions.0]", arr_50_lpath if path is not None else None))
+                    rep is None or rep.append(("unexpected all [.'$platforms'.0.'|'.44.versions.0]", arr_50_lpath if (lpath if path is not None else None) is not None else None))
                     break
         if not res:
-            rep is None or rep.append(("not array or unexpected array [.'$platforms'.0.'|'.44.versions]", path))
-            rep is None or rep.append(("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.44]", path))
+            rep is None or rep.append(("not array or unexpected array [.'$platforms'.0.'|'.44.versions]", lpath if path is not None else None))
+            rep is None or rep.append(("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.44]", lpath if path is not None else None))
             return False
     return True
 
@@ -2696,31 +2705,34 @@ def _jm_obj_50(val: Jsonable, path: Path, rep: Report) -> bool:
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$platforms'.0.'|'.43]", path))
         return False
+    lpath: Path
     pval: Jsonable
     res: bool
     if "name" in val:
+        lpath = (path + [ "name" ]) if path is not None else None
         pval = val.get("name", UNDEFINED)
         # .'$platforms'.0.'|'.43.name
         res = isinstance(pval, str) and pval == "vCenter"
         if not res:
-            rep is None or rep.append(("unexpected _vCenter [.'$platforms'.0.'|'.43.name]", path))
-            rep is None or rep.append(("unexpected value for optional prop <name> [.'$platforms'.0.'|'.43]", path))
+            rep is None or rep.append(("unexpected _vCenter [.'$platforms'.0.'|'.43.name]", lpath if path is not None else None))
+            rep is None or rep.append(("unexpected value for optional prop <name> [.'$platforms'.0.'|'.43]", lpath if path is not None else None))
             return False
     if "versions" in val:
+        lpath = (path + [ "versions" ]) if path is not None else None
         pval = val.get("versions", UNDEFINED)
         # .'$platforms'.0.'|'.43.versions
         res = isinstance(pval, list)
         if res:
             for arr_51_idx, arr_51_item in enumerate(pval):
-                arr_51_lpath: Path = (path + [ arr_51_idx ]) if path is not None else None
+                arr_51_lpath: Path = ((lpath if path is not None else None) + [ arr_51_idx ]) if (lpath if path is not None else None) is not None else None
                 # .'$platforms'.0.'|'.43.versions.0
                 res = ((arr_51_item is None or isinstance(arr_51_item, (bool, int, float, str)))) and arr_51_item in _jm_cst_34
                 if not res:
-                    rep is None or rep.append(("value not in enum [.'$platforms'.0.'|'.43.versions.0.'|']", arr_51_lpath if path is not None else None))
+                    rep is None or rep.append(("value not in enum [.'$platforms'.0.'|'.43.versions.0.'|']", arr_51_lpath if (lpath if path is not None else None) is not None else None))
                     break
         if not res:
-            rep is None or rep.append(("not array or unexpected array [.'$platforms'.0.'|'.43.versions]", path))
-            rep is None or rep.append(("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.43]", path))
+            rep is None or rep.append(("not array or unexpected array [.'$platforms'.0.'|'.43.versions]", lpath if path is not None else None))
+            rep is None or rep.append(("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.43]", lpath if path is not None else None))
             return False
     return True
 
@@ -2731,31 +2743,34 @@ def _jm_obj_51(val: Jsonable, path: Path, rep: Report) -> bool:
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$platforms'.0.'|'.42]", path))
         return False
+    lpath: Path
     pval: Jsonable
     res: bool
     if "name" in val:
+        lpath = (path + [ "name" ]) if path is not None else None
         pval = val.get("name", UNDEFINED)
         # .'$platforms'.0.'|'.42.name
         res = isinstance(pval, str) and pval == "Ubuntu"
         if not res:
-            rep is None or rep.append(("unexpected _Ubuntu [.'$platforms'.0.'|'.42.name]", path))
-            rep is None or rep.append(("unexpected value for optional prop <name> [.'$platforms'.0.'|'.42]", path))
+            rep is None or rep.append(("unexpected _Ubuntu [.'$platforms'.0.'|'.42.name]", lpath if path is not None else None))
+            rep is None or rep.append(("unexpected value for optional prop <name> [.'$platforms'.0.'|'.42]", lpath if path is not None else None))
             return False
     if "versions" in val:
+        lpath = (path + [ "versions" ]) if path is not None else None
         pval = val.get("versions", UNDEFINED)
         # .'$platforms'.0.'|'.42.versions
         res = isinstance(pval, list)
         if res:
             for arr_52_idx, arr_52_item in enumerate(pval):
-                arr_52_lpath: Path = (path + [ arr_52_idx ]) if path is not None else None
+                arr_52_lpath: Path = ((lpath if path is not None else None) + [ arr_52_idx ]) if (lpath if path is not None else None) is not None else None
                 # .'$platforms'.0.'|'.42.versions.0
                 res = ((arr_52_item is None or isinstance(arr_52_item, (bool, int, float, str)))) and arr_52_item in _jm_cst_35
                 if not res:
-                    rep is None or rep.append(("value not in enum [.'$platforms'.0.'|'.42.versions.0.'|']", arr_52_lpath if path is not None else None))
+                    rep is None or rep.append(("value not in enum [.'$platforms'.0.'|'.42.versions.0.'|']", arr_52_lpath if (lpath if path is not None else None) is not None else None))
                     break
         if not res:
-            rep is None or rep.append(("not array or unexpected array [.'$platforms'.0.'|'.42.versions]", path))
-            rep is None or rep.append(("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.42]", path))
+            rep is None or rep.append(("not array or unexpected array [.'$platforms'.0.'|'.42.versions]", lpath if path is not None else None))
+            rep is None or rep.append(("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.42]", lpath if path is not None else None))
             return False
     return True
 
@@ -2766,31 +2781,34 @@ def _jm_obj_52(val: Jsonable, path: Path, rep: Report) -> bool:
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$platforms'.0.'|'.41]", path))
         return False
+    lpath: Path
     pval: Jsonable
     res: bool
     if "name" in val:
+        lpath = (path + [ "name" ]) if path is not None else None
         pval = val.get("name", UNDEFINED)
         # .'$platforms'.0.'|'.41.name
         res = isinstance(pval, str) and pval == "TMOS"
         if not res:
-            rep is None or rep.append(("unexpected _TMOS [.'$platforms'.0.'|'.41.name]", path))
-            rep is None or rep.append(("unexpected value for optional prop <name> [.'$platforms'.0.'|'.41]", path))
+            rep is None or rep.append(("unexpected _TMOS [.'$platforms'.0.'|'.41.name]", lpath if path is not None else None))
+            rep is None or rep.append(("unexpected value for optional prop <name> [.'$platforms'.0.'|'.41]", lpath if path is not None else None))
             return False
     if "versions" in val:
+        lpath = (path + [ "versions" ]) if path is not None else None
         pval = val.get("versions", UNDEFINED)
         # .'$platforms'.0.'|'.41.versions
         res = isinstance(pval, list)
         if res:
             for arr_53_idx, arr_53_item in enumerate(pval):
-                arr_53_lpath: Path = (path + [ arr_53_idx ]) if path is not None else None
+                arr_53_lpath: Path = ((lpath if path is not None else None) + [ arr_53_idx ]) if (lpath if path is not None else None) is not None else None
                 # .'$platforms'.0.'|'.41.versions.0
                 res = ((arr_53_item is None or isinstance(arr_53_item, (bool, int, float, str)))) and arr_53_item in _jm_cst_36
                 if not res:
-                    rep is None or rep.append(("value not in enum [.'$platforms'.0.'|'.41.versions.0.'|']", arr_53_lpath if path is not None else None))
+                    rep is None or rep.append(("value not in enum [.'$platforms'.0.'|'.41.versions.0.'|']", arr_53_lpath if (lpath if path is not None else None) is not None else None))
                     break
         if not res:
-            rep is None or rep.append(("not array or unexpected array [.'$platforms'.0.'|'.41.versions]", path))
-            rep is None or rep.append(("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.41]", path))
+            rep is None or rep.append(("not array or unexpected array [.'$platforms'.0.'|'.41.versions]", lpath if path is not None else None))
+            rep is None or rep.append(("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.41]", lpath if path is not None else None))
             return False
     return True
 
@@ -2801,31 +2819,34 @@ def _jm_obj_53(val: Jsonable, path: Path, rep: Report) -> bool:
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$platforms'.0.'|'.40]", path))
         return False
+    lpath: Path
     pval: Jsonable
     res: bool
     if "name" in val:
+        lpath = (path + [ "name" ]) if path is not None else None
         pval = val.get("name", UNDEFINED)
         # .'$platforms'.0.'|'.40.name
         res = isinstance(pval, str) and pval == "Synology"
         if not res:
-            rep is None or rep.append(("unexpected _Synology [.'$platforms'.0.'|'.40.name]", path))
-            rep is None or rep.append(("unexpected value for optional prop <name> [.'$platforms'.0.'|'.40]", path))
+            rep is None or rep.append(("unexpected _Synology [.'$platforms'.0.'|'.40.name]", lpath if path is not None else None))
+            rep is None or rep.append(("unexpected value for optional prop <name> [.'$platforms'.0.'|'.40]", lpath if path is not None else None))
             return False
     if "versions" in val:
+        lpath = (path + [ "versions" ]) if path is not None else None
         pval = val.get("versions", UNDEFINED)
         # .'$platforms'.0.'|'.40.versions
         res = isinstance(pval, list)
         if res:
             for arr_54_idx, arr_54_item in enumerate(pval):
-                arr_54_lpath: Path = (path + [ arr_54_idx ]) if path is not None else None
+                arr_54_lpath: Path = ((lpath if path is not None else None) + [ arr_54_idx ]) if (lpath if path is not None else None) is not None else None
                 # .'$platforms'.0.'|'.40.versions.0
                 res = ((arr_54_item is None or isinstance(arr_54_item, (bool, int, float, str)))) and arr_54_item in _jm_cst_37
                 if not res:
-                    rep is None or rep.append(("value not in enum [.'$platforms'.0.'|'.40.versions.0.'|']", arr_54_lpath if path is not None else None))
+                    rep is None or rep.append(("value not in enum [.'$platforms'.0.'|'.40.versions.0.'|']", arr_54_lpath if (lpath if path is not None else None) is not None else None))
                     break
         if not res:
-            rep is None or rep.append(("not array or unexpected array [.'$platforms'.0.'|'.40.versions]", path))
-            rep is None or rep.append(("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.40]", path))
+            rep is None or rep.append(("not array or unexpected array [.'$platforms'.0.'|'.40.versions]", lpath if path is not None else None))
+            rep is None or rep.append(("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.40]", lpath if path is not None else None))
             return False
     return True
 
@@ -2836,31 +2857,34 @@ def _jm_obj_54(val: Jsonable, path: Path, rep: Report) -> bool:
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$platforms'.0.'|'.39]", path))
         return False
+    lpath: Path
     pval: Jsonable
     res: bool
     if "name" in val:
+        lpath = (path + [ "name" ]) if path is not None else None
         pval = val.get("name", UNDEFINED)
         # .'$platforms'.0.'|'.39.name
         res = isinstance(pval, str) and pval == "Solaris"
         if not res:
-            rep is None or rep.append(("unexpected _Solaris [.'$platforms'.0.'|'.39.name]", path))
-            rep is None or rep.append(("unexpected value for optional prop <name> [.'$platforms'.0.'|'.39]", path))
+            rep is None or rep.append(("unexpected _Solaris [.'$platforms'.0.'|'.39.name]", lpath if path is not None else None))
+            rep is None or rep.append(("unexpected value for optional prop <name> [.'$platforms'.0.'|'.39]", lpath if path is not None else None))
             return False
     if "versions" in val:
+        lpath = (path + [ "versions" ]) if path is not None else None
         pval = val.get("versions", UNDEFINED)
         # .'$platforms'.0.'|'.39.versions
         res = isinstance(pval, list)
         if res:
             for arr_55_idx, arr_55_item in enumerate(pval):
-                arr_55_lpath: Path = (path + [ arr_55_idx ]) if path is not None else None
+                arr_55_lpath: Path = ((lpath if path is not None else None) + [ arr_55_idx ]) if (lpath if path is not None else None) is not None else None
                 # .'$platforms'.0.'|'.39.versions.0
                 res = ((arr_55_item is None or isinstance(arr_55_item, (bool, int, float, str)))) and arr_55_item in _jm_cst_38
                 if not res:
-                    rep is None or rep.append(("value not in enum [.'$platforms'.0.'|'.39.versions.0.'|']", arr_55_lpath if path is not None else None))
+                    rep is None or rep.append(("value not in enum [.'$platforms'.0.'|'.39.versions.0.'|']", arr_55_lpath if (lpath if path is not None else None) is not None else None))
                     break
         if not res:
-            rep is None or rep.append(("not array or unexpected array [.'$platforms'.0.'|'.39.versions]", path))
-            rep is None or rep.append(("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.39]", path))
+            rep is None or rep.append(("not array or unexpected array [.'$platforms'.0.'|'.39.versions]", lpath if path is not None else None))
+            rep is None or rep.append(("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.39]", lpath if path is not None else None))
             return False
     return True
 
@@ -2870,31 +2894,34 @@ def _jm_obj_55(val: Jsonable, path: Path, rep: Report) -> bool:
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$platforms'.0.'|'.38]", path))
         return False
+    lpath: Path
     pval: Jsonable
     res: bool
     if "name" in val:
+        lpath = (path + [ "name" ]) if path is not None else None
         pval = val.get("name", UNDEFINED)
         # .'$platforms'.0.'|'.38.name
         res = isinstance(pval, str) and pval == "SmartOS"
         if not res:
-            rep is None or rep.append(("unexpected _SmartOS [.'$platforms'.0.'|'.38.name]", path))
-            rep is None or rep.append(("unexpected value for optional prop <name> [.'$platforms'.0.'|'.38]", path))
+            rep is None or rep.append(("unexpected _SmartOS [.'$platforms'.0.'|'.38.name]", lpath if path is not None else None))
+            rep is None or rep.append(("unexpected value for optional prop <name> [.'$platforms'.0.'|'.38]", lpath if path is not None else None))
             return False
     if "versions" in val:
+        lpath = (path + [ "versions" ]) if path is not None else None
         pval = val.get("versions", UNDEFINED)
         # .'$platforms'.0.'|'.38.versions
         res = isinstance(pval, list)
         if res:
             for arr_56_idx, arr_56_item in enumerate(pval):
-                arr_56_lpath: Path = (path + [ arr_56_idx ]) if path is not None else None
+                arr_56_lpath: Path = ((lpath if path is not None else None) + [ arr_56_idx ]) if (lpath if path is not None else None) is not None else None
                 # .'$platforms'.0.'|'.38.versions.0
                 res = isinstance(arr_56_item, str) and arr_56_item == "all"
                 if not res:
-                    rep is None or rep.append(("unexpected all [.'$platforms'.0.'|'.38.versions.0]", arr_56_lpath if path is not None else None))
+                    rep is None or rep.append(("unexpected all [.'$platforms'.0.'|'.38.versions.0]", arr_56_lpath if (lpath if path is not None else None) is not None else None))
                     break
         if not res:
-            rep is None or rep.append(("not array or unexpected array [.'$platforms'.0.'|'.38.versions]", path))
-            rep is None or rep.append(("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.38]", path))
+            rep is None or rep.append(("not array or unexpected array [.'$platforms'.0.'|'.38.versions]", lpath if path is not None else None))
+            rep is None or rep.append(("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.38]", lpath if path is not None else None))
             return False
     return True
 
@@ -2905,31 +2932,34 @@ def _jm_obj_56(val: Jsonable, path: Path, rep: Report) -> bool:
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$platforms'.0.'|'.37]", path))
         return False
+    lpath: Path
     pval: Jsonable
     res: bool
     if "name" in val:
+        lpath = (path + [ "name" ]) if path is not None else None
         pval = val.get("name", UNDEFINED)
         # .'$platforms'.0.'|'.37.name
         res = isinstance(pval, str) and pval == "SLES"
         if not res:
-            rep is None or rep.append(("unexpected _SLES [.'$platforms'.0.'|'.37.name]", path))
-            rep is None or rep.append(("unexpected value for optional prop <name> [.'$platforms'.0.'|'.37]", path))
+            rep is None or rep.append(("unexpected _SLES [.'$platforms'.0.'|'.37.name]", lpath if path is not None else None))
+            rep is None or rep.append(("unexpected value for optional prop <name> [.'$platforms'.0.'|'.37]", lpath if path is not None else None))
             return False
     if "versions" in val:
+        lpath = (path + [ "versions" ]) if path is not None else None
         pval = val.get("versions", UNDEFINED)
         # .'$platforms'.0.'|'.37.versions
         res = isinstance(pval, list)
         if res:
             for arr_57_idx, arr_57_item in enumerate(pval):
-                arr_57_lpath: Path = (path + [ arr_57_idx ]) if path is not None else None
+                arr_57_lpath: Path = ((lpath if path is not None else None) + [ arr_57_idx ]) if (lpath if path is not None else None) is not None else None
                 # .'$platforms'.0.'|'.37.versions.0
                 res = ((arr_57_item is None or isinstance(arr_57_item, (bool, int, float, str)))) and arr_57_item in _jm_cst_39
                 if not res:
-                    rep is None or rep.append(("value not in enum [.'$platforms'.0.'|'.37.versions.0.'|']", arr_57_lpath if path is not None else None))
+                    rep is None or rep.append(("value not in enum [.'$platforms'.0.'|'.37.versions.0.'|']", arr_57_lpath if (lpath if path is not None else None) is not None else None))
                     break
         if not res:
-            rep is None or rep.append(("not array or unexpected array [.'$platforms'.0.'|'.37.versions]", path))
-            rep is None or rep.append(("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.37]", path))
+            rep is None or rep.append(("not array or unexpected array [.'$platforms'.0.'|'.37.versions]", lpath if path is not None else None))
+            rep is None or rep.append(("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.37]", lpath if path is not None else None))
             return False
     return True
 
@@ -2940,31 +2970,34 @@ def _jm_obj_57(val: Jsonable, path: Path, rep: Report) -> bool:
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$platforms'.0.'|'.36]", path))
         return False
+    lpath: Path
     pval: Jsonable
     res: bool
     if "name" in val:
+        lpath = (path + [ "name" ]) if path is not None else None
         pval = val.get("name", UNDEFINED)
         # .'$platforms'.0.'|'.36.name
         res = isinstance(pval, str) and pval == "Rocky"
         if not res:
-            rep is None or rep.append(("unexpected _Rocky [.'$platforms'.0.'|'.36.name]", path))
-            rep is None or rep.append(("unexpected value for optional prop <name> [.'$platforms'.0.'|'.36]", path))
+            rep is None or rep.append(("unexpected _Rocky [.'$platforms'.0.'|'.36.name]", lpath if path is not None else None))
+            rep is None or rep.append(("unexpected value for optional prop <name> [.'$platforms'.0.'|'.36]", lpath if path is not None else None))
             return False
     if "versions" in val:
+        lpath = (path + [ "versions" ]) if path is not None else None
         pval = val.get("versions", UNDEFINED)
         # .'$platforms'.0.'|'.36.versions
         res = isinstance(pval, list)
         if res:
             for arr_58_idx, arr_58_item in enumerate(pval):
-                arr_58_lpath: Path = (path + [ arr_58_idx ]) if path is not None else None
+                arr_58_lpath: Path = ((lpath if path is not None else None) + [ arr_58_idx ]) if (lpath if path is not None else None) is not None else None
                 # .'$platforms'.0.'|'.36.versions.0
                 res = ((arr_58_item is None or isinstance(arr_58_item, (bool, int, float, str)))) and arr_58_item in _jm_cst_40
                 if not res:
-                    rep is None or rep.append(("value not in enum [.'$platforms'.0.'|'.36.versions.0.'|']", arr_58_lpath if path is not None else None))
+                    rep is None or rep.append(("value not in enum [.'$platforms'.0.'|'.36.versions.0.'|']", arr_58_lpath if (lpath if path is not None else None) is not None else None))
                     break
         if not res:
-            rep is None or rep.append(("not array or unexpected array [.'$platforms'.0.'|'.36.versions]", path))
-            rep is None or rep.append(("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.36]", path))
+            rep is None or rep.append(("not array or unexpected array [.'$platforms'.0.'|'.36.versions]", lpath if path is not None else None))
+            rep is None or rep.append(("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.36]", lpath if path is not None else None))
             return False
     return True
 
@@ -2975,31 +3008,34 @@ def _jm_obj_58(val: Jsonable, path: Path, rep: Report) -> bool:
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$platforms'.0.'|'.35]", path))
         return False
+    lpath: Path
     pval: Jsonable
     res: bool
     if "name" in val:
+        lpath = (path + [ "name" ]) if path is not None else None
         pval = val.get("name", UNDEFINED)
         # .'$platforms'.0.'|'.35.name
         res = isinstance(pval, str) and pval == "PAN-OS"
         if not res:
-            rep is None or rep.append(("unexpected _PAN-OS [.'$platforms'.0.'|'.35.name]", path))
-            rep is None or rep.append(("unexpected value for optional prop <name> [.'$platforms'.0.'|'.35]", path))
+            rep is None or rep.append(("unexpected _PAN-OS [.'$platforms'.0.'|'.35.name]", lpath if path is not None else None))
+            rep is None or rep.append(("unexpected value for optional prop <name> [.'$platforms'.0.'|'.35]", lpath if path is not None else None))
             return False
     if "versions" in val:
+        lpath = (path + [ "versions" ]) if path is not None else None
         pval = val.get("versions", UNDEFINED)
         # .'$platforms'.0.'|'.35.versions
         res = isinstance(pval, list)
         if res:
             for arr_59_idx, arr_59_item in enumerate(pval):
-                arr_59_lpath: Path = (path + [ arr_59_idx ]) if path is not None else None
+                arr_59_lpath: Path = ((lpath if path is not None else None) + [ arr_59_idx ]) if (lpath if path is not None else None) is not None else None
                 # .'$platforms'.0.'|'.35.versions.0
                 res = ((arr_59_item is None or isinstance(arr_59_item, (bool, int, float, str)))) and arr_59_item in _jm_cst_41
                 if not res:
-                    rep is None or rep.append(("value not in enum [.'$platforms'.0.'|'.35.versions.0.'|']", arr_59_lpath if path is not None else None))
+                    rep is None or rep.append(("value not in enum [.'$platforms'.0.'|'.35.versions.0.'|']", arr_59_lpath if (lpath if path is not None else None) is not None else None))
                     break
         if not res:
-            rep is None or rep.append(("not array or unexpected array [.'$platforms'.0.'|'.35.versions]", path))
-            rep is None or rep.append(("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.35]", path))
+            rep is None or rep.append(("not array or unexpected array [.'$platforms'.0.'|'.35.versions]", lpath if path is not None else None))
+            rep is None or rep.append(("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.35]", lpath if path is not None else None))
             return False
     return True
 
@@ -3009,31 +3045,34 @@ def _jm_obj_59(val: Jsonable, path: Path, rep: Report) -> bool:
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$platforms'.0.'|'.34]", path))
         return False
+    lpath: Path
     pval: Jsonable
     res: bool
     if "name" in val:
+        lpath = (path + [ "name" ]) if path is not None else None
         pval = val.get("name", UNDEFINED)
         # .'$platforms'.0.'|'.34.name
         res = isinstance(pval, str) and pval == "os10"
         if not res:
-            rep is None or rep.append(("unexpected _os10 [.'$platforms'.0.'|'.34.name]", path))
-            rep is None or rep.append(("unexpected value for optional prop <name> [.'$platforms'.0.'|'.34]", path))
+            rep is None or rep.append(("unexpected _os10 [.'$platforms'.0.'|'.34.name]", lpath if path is not None else None))
+            rep is None or rep.append(("unexpected value for optional prop <name> [.'$platforms'.0.'|'.34]", lpath if path is not None else None))
             return False
     if "versions" in val:
+        lpath = (path + [ "versions" ]) if path is not None else None
         pval = val.get("versions", UNDEFINED)
         # .'$platforms'.0.'|'.34.versions
         res = isinstance(pval, list)
         if res:
             for arr_60_idx, arr_60_item in enumerate(pval):
-                arr_60_lpath: Path = (path + [ arr_60_idx ]) if path is not None else None
+                arr_60_lpath: Path = ((lpath if path is not None else None) + [ arr_60_idx ]) if (lpath if path is not None else None) is not None else None
                 # .'$platforms'.0.'|'.34.versions.0
                 res = isinstance(arr_60_item, str) and arr_60_item == "all"
                 if not res:
-                    rep is None or rep.append(("unexpected all [.'$platforms'.0.'|'.34.versions.0]", arr_60_lpath if path is not None else None))
+                    rep is None or rep.append(("unexpected all [.'$platforms'.0.'|'.34.versions.0]", arr_60_lpath if (lpath if path is not None else None) is not None else None))
                     break
         if not res:
-            rep is None or rep.append(("not array or unexpected array [.'$platforms'.0.'|'.34.versions]", path))
-            rep is None or rep.append(("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.34]", path))
+            rep is None or rep.append(("not array or unexpected array [.'$platforms'.0.'|'.34.versions]", lpath if path is not None else None))
+            rep is None or rep.append(("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.34]", lpath if path is not None else None))
             return False
     return True
 
@@ -3044,31 +3083,34 @@ def _jm_obj_60(val: Jsonable, path: Path, rep: Report) -> bool:
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$platforms'.0.'|'.33]", path))
         return False
+    lpath: Path
     pval: Jsonable
     res: bool
     if "name" in val:
+        lpath = (path + [ "name" ]) if path is not None else None
         pval = val.get("name", UNDEFINED)
         # .'$platforms'.0.'|'.33.name
         res = isinstance(pval, str) and pval == "OracleLinux"
         if not res:
-            rep is None or rep.append(("unexpected _OracleLinux [.'$platforms'.0.'|'.33.name]", path))
-            rep is None or rep.append(("unexpected value for optional prop <name> [.'$platforms'.0.'|'.33]", path))
+            rep is None or rep.append(("unexpected _OracleLinux [.'$platforms'.0.'|'.33.name]", lpath if path is not None else None))
+            rep is None or rep.append(("unexpected value for optional prop <name> [.'$platforms'.0.'|'.33]", lpath if path is not None else None))
             return False
     if "versions" in val:
+        lpath = (path + [ "versions" ]) if path is not None else None
         pval = val.get("versions", UNDEFINED)
         # .'$platforms'.0.'|'.33.versions
         res = isinstance(pval, list)
         if res:
             for arr_61_idx, arr_61_item in enumerate(pval):
-                arr_61_lpath: Path = (path + [ arr_61_idx ]) if path is not None else None
+                arr_61_lpath: Path = ((lpath if path is not None else None) + [ arr_61_idx ]) if (lpath if path is not None else None) is not None else None
                 # .'$platforms'.0.'|'.33.versions.0
                 res = ((arr_61_item is None or isinstance(arr_61_item, (bool, int, float, str)))) and arr_61_item in _jm_cst_42
                 if not res:
-                    rep is None or rep.append(("value not in enum [.'$platforms'.0.'|'.33.versions.0.'|']", arr_61_lpath if path is not None else None))
+                    rep is None or rep.append(("value not in enum [.'$platforms'.0.'|'.33.versions.0.'|']", arr_61_lpath if (lpath if path is not None else None) is not None else None))
                     break
         if not res:
-            rep is None or rep.append(("not array or unexpected array [.'$platforms'.0.'|'.33.versions]", path))
-            rep is None or rep.append(("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.33]", path))
+            rep is None or rep.append(("not array or unexpected array [.'$platforms'.0.'|'.33.versions]", lpath if path is not None else None))
+            rep is None or rep.append(("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.33]", lpath if path is not None else None))
             return False
     return True
 
@@ -3079,31 +3121,34 @@ def _jm_obj_61(val: Jsonable, path: Path, rep: Report) -> bool:
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$platforms'.0.'|'.32]", path))
         return False
+    lpath: Path
     pval: Jsonable
     res: bool
     if "name" in val:
+        lpath = (path + [ "name" ]) if path is not None else None
         pval = val.get("name", UNDEFINED)
         # .'$platforms'.0.'|'.32.name
         res = isinstance(pval, str) and pval == "OpenWrt"
         if not res:
-            rep is None or rep.append(("unexpected _OpenWrt [.'$platforms'.0.'|'.32.name]", path))
-            rep is None or rep.append(("unexpected value for optional prop <name> [.'$platforms'.0.'|'.32]", path))
+            rep is None or rep.append(("unexpected _OpenWrt [.'$platforms'.0.'|'.32.name]", lpath if path is not None else None))
+            rep is None or rep.append(("unexpected value for optional prop <name> [.'$platforms'.0.'|'.32]", lpath if path is not None else None))
             return False
     if "versions" in val:
+        lpath = (path + [ "versions" ]) if path is not None else None
         pval = val.get("versions", UNDEFINED)
         # .'$platforms'.0.'|'.32.versions
         res = isinstance(pval, list)
         if res:
             for arr_62_idx, arr_62_item in enumerate(pval):
-                arr_62_lpath: Path = (path + [ arr_62_idx ]) if path is not None else None
+                arr_62_lpath: Path = ((lpath if path is not None else None) + [ arr_62_idx ]) if (lpath if path is not None else None) is not None else None
                 # .'$platforms'.0.'|'.32.versions.0
                 res = ((arr_62_item is None or isinstance(arr_62_item, (bool, int, float, str)))) and arr_62_item in _jm_cst_43
                 if not res:
-                    rep is None or rep.append(("value not in enum [.'$platforms'.0.'|'.32.versions.0.'|']", arr_62_lpath if path is not None else None))
+                    rep is None or rep.append(("value not in enum [.'$platforms'.0.'|'.32.versions.0.'|']", arr_62_lpath if (lpath if path is not None else None) is not None else None))
                     break
         if not res:
-            rep is None or rep.append(("not array or unexpected array [.'$platforms'.0.'|'.32.versions]", path))
-            rep is None or rep.append(("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.32]", path))
+            rep is None or rep.append(("not array or unexpected array [.'$platforms'.0.'|'.32.versions]", lpath if path is not None else None))
+            rep is None or rep.append(("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.32]", lpath if path is not None else None))
             return False
     return True
 
@@ -3114,31 +3159,34 @@ def _jm_obj_62(val: Jsonable, path: Path, rep: Report) -> bool:
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$platforms'.0.'|'.31]", path))
         return False
+    lpath: Path
     pval: Jsonable
     res: bool
     if "name" in val:
+        lpath = (path + [ "name" ]) if path is not None else None
         pval = val.get("name", UNDEFINED)
         # .'$platforms'.0.'|'.31.name
         res = isinstance(pval, str) and pval == "opensuse"
         if not res:
-            rep is None or rep.append(("unexpected _opensuse [.'$platforms'.0.'|'.31.name]", path))
-            rep is None or rep.append(("unexpected value for optional prop <name> [.'$platforms'.0.'|'.31]", path))
+            rep is None or rep.append(("unexpected _opensuse [.'$platforms'.0.'|'.31.name]", lpath if path is not None else None))
+            rep is None or rep.append(("unexpected value for optional prop <name> [.'$platforms'.0.'|'.31]", lpath if path is not None else None))
             return False
     if "versions" in val:
+        lpath = (path + [ "versions" ]) if path is not None else None
         pval = val.get("versions", UNDEFINED)
         # .'$platforms'.0.'|'.31.versions
         res = isinstance(pval, list)
         if res:
             for arr_63_idx, arr_63_item in enumerate(pval):
-                arr_63_lpath: Path = (path + [ arr_63_idx ]) if path is not None else None
+                arr_63_lpath: Path = ((lpath if path is not None else None) + [ arr_63_idx ]) if (lpath if path is not None else None) is not None else None
                 # .'$platforms'.0.'|'.31.versions.0
                 res = ((arr_63_item is None or isinstance(arr_63_item, (bool, int, float, str)))) and arr_63_item in _jm_cst_44
                 if not res:
-                    rep is None or rep.append(("value not in enum [.'$platforms'.0.'|'.31.versions.0.'|']", arr_63_lpath if path is not None else None))
+                    rep is None or rep.append(("value not in enum [.'$platforms'.0.'|'.31.versions.0.'|']", arr_63_lpath if (lpath if path is not None else None) is not None else None))
                     break
         if not res:
-            rep is None or rep.append(("not array or unexpected array [.'$platforms'.0.'|'.31.versions]", path))
-            rep is None or rep.append(("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.31]", path))
+            rep is None or rep.append(("not array or unexpected array [.'$platforms'.0.'|'.31.versions]", lpath if path is not None else None))
+            rep is None or rep.append(("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.31]", lpath if path is not None else None))
             return False
     return True
 
@@ -3149,31 +3197,34 @@ def _jm_obj_63(val: Jsonable, path: Path, rep: Report) -> bool:
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$platforms'.0.'|'.30]", path))
         return False
+    lpath: Path
     pval: Jsonable
     res: bool
     if "name" in val:
+        lpath = (path + [ "name" ]) if path is not None else None
         pval = val.get("name", UNDEFINED)
         # .'$platforms'.0.'|'.30.name
         res = isinstance(pval, str) and pval == "OpenBSD"
         if not res:
-            rep is None or rep.append(("unexpected _OpenBSD [.'$platforms'.0.'|'.30.name]", path))
-            rep is None or rep.append(("unexpected value for optional prop <name> [.'$platforms'.0.'|'.30]", path))
+            rep is None or rep.append(("unexpected _OpenBSD [.'$platforms'.0.'|'.30.name]", lpath if path is not None else None))
+            rep is None or rep.append(("unexpected value for optional prop <name> [.'$platforms'.0.'|'.30]", lpath if path is not None else None))
             return False
     if "versions" in val:
+        lpath = (path + [ "versions" ]) if path is not None else None
         pval = val.get("versions", UNDEFINED)
         # .'$platforms'.0.'|'.30.versions
         res = isinstance(pval, list)
         if res:
             for arr_64_idx, arr_64_item in enumerate(pval):
-                arr_64_lpath: Path = (path + [ arr_64_idx ]) if path is not None else None
+                arr_64_lpath: Path = ((lpath if path is not None else None) + [ arr_64_idx ]) if (lpath if path is not None else None) is not None else None
                 # .'$platforms'.0.'|'.30.versions.0
                 res = ((arr_64_item is None or isinstance(arr_64_item, (bool, int, float, str)))) and arr_64_item in _jm_cst_45
                 if not res:
-                    rep is None or rep.append(("value not in enum [.'$platforms'.0.'|'.30.versions.0.'|']", arr_64_lpath if path is not None else None))
+                    rep is None or rep.append(("value not in enum [.'$platforms'.0.'|'.30.versions.0.'|']", arr_64_lpath if (lpath if path is not None else None) is not None else None))
                     break
         if not res:
-            rep is None or rep.append(("not array or unexpected array [.'$platforms'.0.'|'.30.versions]", path))
-            rep is None or rep.append(("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.30]", path))
+            rep is None or rep.append(("not array or unexpected array [.'$platforms'.0.'|'.30.versions]", lpath if path is not None else None))
+            rep is None or rep.append(("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.30]", lpath if path is not None else None))
             return False
     return True
 
@@ -3183,31 +3234,34 @@ def _jm_obj_64(val: Jsonable, path: Path, rep: Report) -> bool:
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$platforms'.0.'|'.29]", path))
         return False
+    lpath: Path
     pval: Jsonable
     res: bool
     if "name" in val:
+        lpath = (path + [ "name" ]) if path is not None else None
         pval = val.get("name", UNDEFINED)
         # .'$platforms'.0.'|'.29.name
         res = isinstance(pval, str) and pval == "NXOS"
         if not res:
-            rep is None or rep.append(("unexpected _NXOS [.'$platforms'.0.'|'.29.name]", path))
-            rep is None or rep.append(("unexpected value for optional prop <name> [.'$platforms'.0.'|'.29]", path))
+            rep is None or rep.append(("unexpected _NXOS [.'$platforms'.0.'|'.29.name]", lpath if path is not None else None))
+            rep is None or rep.append(("unexpected value for optional prop <name> [.'$platforms'.0.'|'.29]", lpath if path is not None else None))
             return False
     if "versions" in val:
+        lpath = (path + [ "versions" ]) if path is not None else None
         pval = val.get("versions", UNDEFINED)
         # .'$platforms'.0.'|'.29.versions
         res = isinstance(pval, list)
         if res:
             for arr_65_idx, arr_65_item in enumerate(pval):
-                arr_65_lpath: Path = (path + [ arr_65_idx ]) if path is not None else None
+                arr_65_lpath: Path = ((lpath if path is not None else None) + [ arr_65_idx ]) if (lpath if path is not None else None) is not None else None
                 # .'$platforms'.0.'|'.29.versions.0
                 res = isinstance(arr_65_item, str) and arr_65_item == "all"
                 if not res:
-                    rep is None or rep.append(("unexpected all [.'$platforms'.0.'|'.29.versions.0]", arr_65_lpath if path is not None else None))
+                    rep is None or rep.append(("unexpected all [.'$platforms'.0.'|'.29.versions.0]", arr_65_lpath if (lpath if path is not None else None) is not None else None))
                     break
         if not res:
-            rep is None or rep.append(("not array or unexpected array [.'$platforms'.0.'|'.29.versions]", path))
-            rep is None or rep.append(("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.29]", path))
+            rep is None or rep.append(("not array or unexpected array [.'$platforms'.0.'|'.29.versions]", lpath if path is not None else None))
+            rep is None or rep.append(("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.29]", lpath if path is not None else None))
             return False
     return True
 
@@ -3218,31 +3272,34 @@ def _jm_obj_65(val: Jsonable, path: Path, rep: Report) -> bool:
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$platforms'.0.'|'.28]", path))
         return False
+    lpath: Path
     pval: Jsonable
     res: bool
     if "name" in val:
+        lpath = (path + [ "name" ]) if path is not None else None
         pval = val.get("name", UNDEFINED)
         # .'$platforms'.0.'|'.28.name
         res = isinstance(pval, str) and pval == "Megeia"
         if not res:
-            rep is None or rep.append(("unexpected _Megeia [.'$platforms'.0.'|'.28.name]", path))
-            rep is None or rep.append(("unexpected value for optional prop <name> [.'$platforms'.0.'|'.28]", path))
+            rep is None or rep.append(("unexpected _Megeia [.'$platforms'.0.'|'.28.name]", lpath if path is not None else None))
+            rep is None or rep.append(("unexpected value for optional prop <name> [.'$platforms'.0.'|'.28]", lpath if path is not None else None))
             return False
     if "versions" in val:
+        lpath = (path + [ "versions" ]) if path is not None else None
         pval = val.get("versions", UNDEFINED)
         # .'$platforms'.0.'|'.28.versions
         res = isinstance(pval, list)
         if res:
             for arr_66_idx, arr_66_item in enumerate(pval):
-                arr_66_lpath: Path = (path + [ arr_66_idx ]) if path is not None else None
+                arr_66_lpath: Path = ((lpath if path is not None else None) + [ arr_66_idx ]) if (lpath if path is not None else None) is not None else None
                 # .'$platforms'.0.'|'.28.versions.0
                 res = ((arr_66_item is None or isinstance(arr_66_item, (bool, int, float, str)))) and arr_66_item in _jm_cst_46
                 if not res:
-                    rep is None or rep.append(("value not in enum [.'$platforms'.0.'|'.28.versions.0.'|']", arr_66_lpath if path is not None else None))
+                    rep is None or rep.append(("value not in enum [.'$platforms'.0.'|'.28.versions.0.'|']", arr_66_lpath if (lpath if path is not None else None) is not None else None))
                     break
         if not res:
-            rep is None or rep.append(("not array or unexpected array [.'$platforms'.0.'|'.28.versions]", path))
-            rep is None or rep.append(("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.28]", path))
+            rep is None or rep.append(("not array or unexpected array [.'$platforms'.0.'|'.28.versions]", lpath if path is not None else None))
+            rep is None or rep.append(("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.28]", lpath if path is not None else None))
             return False
     return True
 
@@ -3253,31 +3310,34 @@ def _jm_obj_66(val: Jsonable, path: Path, rep: Report) -> bool:
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$platforms'.0.'|'.27]", path))
         return False
+    lpath: Path
     pval: Jsonable
     res: bool
     if "name" in val:
+        lpath = (path + [ "name" ]) if path is not None else None
         pval = val.get("name", UNDEFINED)
         # .'$platforms'.0.'|'.27.name
         res = isinstance(pval, str) and pval == "Kali"
         if not res:
-            rep is None or rep.append(("unexpected _Kali [.'$platforms'.0.'|'.27.name]", path))
-            rep is None or rep.append(("unexpected value for optional prop <name> [.'$platforms'.0.'|'.27]", path))
+            rep is None or rep.append(("unexpected _Kali [.'$platforms'.0.'|'.27.name]", lpath if path is not None else None))
+            rep is None or rep.append(("unexpected value for optional prop <name> [.'$platforms'.0.'|'.27]", lpath if path is not None else None))
             return False
     if "versions" in val:
+        lpath = (path + [ "versions" ]) if path is not None else None
         pval = val.get("versions", UNDEFINED)
         # .'$platforms'.0.'|'.27.versions
         res = isinstance(pval, list)
         if res:
             for arr_67_idx, arr_67_item in enumerate(pval):
-                arr_67_lpath: Path = (path + [ arr_67_idx ]) if path is not None else None
+                arr_67_lpath: Path = ((lpath if path is not None else None) + [ arr_67_idx ]) if (lpath if path is not None else None) is not None else None
                 # .'$platforms'.0.'|'.27.versions.0
                 res = ((arr_67_item is None or isinstance(arr_67_item, (bool, int, float, str)))) and arr_67_item in _jm_cst_47
                 if not res:
-                    rep is None or rep.append(("value not in enum [.'$platforms'.0.'|'.27.versions.0.'|']", arr_67_lpath if path is not None else None))
+                    rep is None or rep.append(("value not in enum [.'$platforms'.0.'|'.27.versions.0.'|']", arr_67_lpath if (lpath if path is not None else None) is not None else None))
                     break
         if not res:
-            rep is None or rep.append(("not array or unexpected array [.'$platforms'.0.'|'.27.versions]", path))
-            rep is None or rep.append(("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.27]", path))
+            rep is None or rep.append(("not array or unexpected array [.'$platforms'.0.'|'.27.versions]", lpath if path is not None else None))
+            rep is None or rep.append(("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.27]", lpath if path is not None else None))
             return False
     return True
 
@@ -3288,31 +3348,34 @@ def _jm_obj_67(val: Jsonable, path: Path, rep: Report) -> bool:
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$platforms'.0.'|'.26]", path))
         return False
+    lpath: Path
     pval: Jsonable
     res: bool
     if "name" in val:
+        lpath = (path + [ "name" ]) if path is not None else None
         pval = val.get("name", UNDEFINED)
         # .'$platforms'.0.'|'.26.name
         res = isinstance(pval, str) and pval == "macOS"
         if not res:
-            rep is None or rep.append(("unexpected _macOS [.'$platforms'.0.'|'.26.name]", path))
-            rep is None or rep.append(("unexpected value for optional prop <name> [.'$platforms'.0.'|'.26]", path))
+            rep is None or rep.append(("unexpected _macOS [.'$platforms'.0.'|'.26.name]", lpath if path is not None else None))
+            rep is None or rep.append(("unexpected value for optional prop <name> [.'$platforms'.0.'|'.26]", lpath if path is not None else None))
             return False
     if "versions" in val:
+        lpath = (path + [ "versions" ]) if path is not None else None
         pval = val.get("versions", UNDEFINED)
         # .'$platforms'.0.'|'.26.versions
         res = isinstance(pval, list)
         if res:
             for arr_68_idx, arr_68_item in enumerate(pval):
-                arr_68_lpath: Path = (path + [ arr_68_idx ]) if path is not None else None
+                arr_68_lpath: Path = ((lpath if path is not None else None) + [ arr_68_idx ]) if (lpath if path is not None else None) is not None else None
                 # .'$platforms'.0.'|'.26.versions.0
                 res = ((arr_68_item is None or isinstance(arr_68_item, (bool, int, float, str)))) and arr_68_item in _jm_cst_48
                 if not res:
-                    rep is None or rep.append(("value not in enum [.'$platforms'.0.'|'.26.versions.0.'|']", arr_68_lpath if path is not None else None))
+                    rep is None or rep.append(("value not in enum [.'$platforms'.0.'|'.26.versions.0.'|']", arr_68_lpath if (lpath if path is not None else None) is not None else None))
                     break
         if not res:
-            rep is None or rep.append(("not array or unexpected array [.'$platforms'.0.'|'.26.versions]", path))
-            rep is None or rep.append(("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.26]", path))
+            rep is None or rep.append(("not array or unexpected array [.'$platforms'.0.'|'.26.versions]", lpath if path is not None else None))
+            rep is None or rep.append(("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.26]", lpath if path is not None else None))
             return False
     return True
 
@@ -3323,31 +3386,34 @@ def _jm_obj_68(val: Jsonable, path: Path, rep: Report) -> bool:
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$platforms'.0.'|'.25]", path))
         return False
+    lpath: Path
     pval: Jsonable
     res: bool
     if "name" in val:
+        lpath = (path + [ "name" ]) if path is not None else None
         pval = val.get("name", UNDEFINED)
         # .'$platforms'.0.'|'.25.name
         res = isinstance(pval, str) and pval == "Kali"
         if not res:
-            rep is None or rep.append(("unexpected _Kali [.'$platforms'.0.'|'.25.name]", path))
-            rep is None or rep.append(("unexpected value for optional prop <name> [.'$platforms'.0.'|'.25]", path))
+            rep is None or rep.append(("unexpected _Kali [.'$platforms'.0.'|'.25.name]", lpath if path is not None else None))
+            rep is None or rep.append(("unexpected value for optional prop <name> [.'$platforms'.0.'|'.25]", lpath if path is not None else None))
             return False
     if "versions" in val:
+        lpath = (path + [ "versions" ]) if path is not None else None
         pval = val.get("versions", UNDEFINED)
         # .'$platforms'.0.'|'.25.versions
         res = isinstance(pval, list)
         if res:
             for arr_69_idx, arr_69_item in enumerate(pval):
-                arr_69_lpath: Path = (path + [ arr_69_idx ]) if path is not None else None
+                arr_69_lpath: Path = ((lpath if path is not None else None) + [ arr_69_idx ]) if (lpath if path is not None else None) is not None else None
                 # .'$platforms'.0.'|'.25.versions.0
                 res = ((arr_69_item is None or isinstance(arr_69_item, (bool, int, float, str)))) and arr_69_item in _jm_cst_49
                 if not res:
-                    rep is None or rep.append(("value not in enum [.'$platforms'.0.'|'.25.versions.0.'|']", arr_69_lpath if path is not None else None))
+                    rep is None or rep.append(("value not in enum [.'$platforms'.0.'|'.25.versions.0.'|']", arr_69_lpath if (lpath if path is not None else None) is not None else None))
                     break
         if not res:
-            rep is None or rep.append(("not array or unexpected array [.'$platforms'.0.'|'.25.versions]", path))
-            rep is None or rep.append(("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.25]", path))
+            rep is None or rep.append(("not array or unexpected array [.'$platforms'.0.'|'.25.versions]", lpath if path is not None else None))
+            rep is None or rep.append(("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.25]", lpath if path is not None else None))
             return False
     return True
 
@@ -3357,31 +3423,34 @@ def _jm_obj_69(val: Jsonable, path: Path, rep: Report) -> bool:
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$platforms'.0.'|'.24]", path))
         return False
+    lpath: Path
     pval: Jsonable
     res: bool
     if "name" in val:
+        lpath = (path + [ "name" ]) if path is not None else None
         pval = val.get("name", UNDEFINED)
         # .'$platforms'.0.'|'.24.name
         res = isinstance(pval, str) and pval == "Junos"
         if not res:
-            rep is None or rep.append(("unexpected _Junos [.'$platforms'.0.'|'.24.name]", path))
-            rep is None or rep.append(("unexpected value for optional prop <name> [.'$platforms'.0.'|'.24]", path))
+            rep is None or rep.append(("unexpected _Junos [.'$platforms'.0.'|'.24.name]", lpath if path is not None else None))
+            rep is None or rep.append(("unexpected value for optional prop <name> [.'$platforms'.0.'|'.24]", lpath if path is not None else None))
             return False
     if "versions" in val:
+        lpath = (path + [ "versions" ]) if path is not None else None
         pval = val.get("versions", UNDEFINED)
         # .'$platforms'.0.'|'.24.versions
         res = isinstance(pval, list)
         if res:
             for arr_70_idx, arr_70_item in enumerate(pval):
-                arr_70_lpath: Path = (path + [ arr_70_idx ]) if path is not None else None
+                arr_70_lpath: Path = ((lpath if path is not None else None) + [ arr_70_idx ]) if (lpath if path is not None else None) is not None else None
                 # .'$platforms'.0.'|'.24.versions.0
                 res = isinstance(arr_70_item, str) and arr_70_item == "all"
                 if not res:
-                    rep is None or rep.append(("unexpected all [.'$platforms'.0.'|'.24.versions.0]", arr_70_lpath if path is not None else None))
+                    rep is None or rep.append(("unexpected all [.'$platforms'.0.'|'.24.versions.0]", arr_70_lpath if (lpath if path is not None else None) is not None else None))
                     break
         if not res:
-            rep is None or rep.append(("not array or unexpected array [.'$platforms'.0.'|'.24.versions]", path))
-            rep is None or rep.append(("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.24]", path))
+            rep is None or rep.append(("not array or unexpected array [.'$platforms'.0.'|'.24.versions]", lpath if path is not None else None))
+            rep is None or rep.append(("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.24]", lpath if path is not None else None))
             return False
     return True
 
@@ -3391,31 +3460,34 @@ def _jm_obj_70(val: Jsonable, path: Path, rep: Report) -> bool:
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$platforms'.0.'|'.23]", path))
         return False
+    lpath: Path
     pval: Jsonable
     res: bool
     if "name" in val:
+        lpath = (path + [ "name" ]) if path is not None else None
         pval = val.get("name", UNDEFINED)
         # .'$platforms'.0.'|'.23.name
         res = isinstance(pval, str) and pval == "IOS"
         if not res:
-            rep is None or rep.append(("unexpected _IOS [.'$platforms'.0.'|'.23.name]", path))
-            rep is None or rep.append(("unexpected value for optional prop <name> [.'$platforms'.0.'|'.23]", path))
+            rep is None or rep.append(("unexpected _IOS [.'$platforms'.0.'|'.23.name]", lpath if path is not None else None))
+            rep is None or rep.append(("unexpected value for optional prop <name> [.'$platforms'.0.'|'.23]", lpath if path is not None else None))
             return False
     if "versions" in val:
+        lpath = (path + [ "versions" ]) if path is not None else None
         pval = val.get("versions", UNDEFINED)
         # .'$platforms'.0.'|'.23.versions
         res = isinstance(pval, list)
         if res:
             for arr_71_idx, arr_71_item in enumerate(pval):
-                arr_71_lpath: Path = (path + [ arr_71_idx ]) if path is not None else None
+                arr_71_lpath: Path = ((lpath if path is not None else None) + [ arr_71_idx ]) if (lpath if path is not None else None) is not None else None
                 # .'$platforms'.0.'|'.23.versions.0
                 res = isinstance(arr_71_item, str) and arr_71_item == "all"
                 if not res:
-                    rep is None or rep.append(("unexpected all [.'$platforms'.0.'|'.23.versions.0]", arr_71_lpath if path is not None else None))
+                    rep is None or rep.append(("unexpected all [.'$platforms'.0.'|'.23.versions.0]", arr_71_lpath if (lpath if path is not None else None) is not None else None))
                     break
         if not res:
-            rep is None or rep.append(("not array or unexpected array [.'$platforms'.0.'|'.23.versions]", path))
-            rep is None or rep.append(("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.23]", path))
+            rep is None or rep.append(("not array or unexpected array [.'$platforms'.0.'|'.23.versions]", lpath if path is not None else None))
+            rep is None or rep.append(("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.23]", lpath if path is not None else None))
             return False
     return True
 
@@ -3426,31 +3498,34 @@ def _jm_obj_71(val: Jsonable, path: Path, rep: Report) -> bool:
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$platforms'.0.'|'.22]", path))
         return False
+    lpath: Path
     pval: Jsonable
     res: bool
     if "name" in val:
+        lpath = (path + [ "name" ]) if path is not None else None
         pval = val.get("name", UNDEFINED)
         # .'$platforms'.0.'|'.22.name
         res = isinstance(pval, str) and pval == "HardenedBSD"
         if not res:
-            rep is None or rep.append(("unexpected _HardenedBSD [.'$platforms'.0.'|'.22.name]", path))
-            rep is None or rep.append(("unexpected value for optional prop <name> [.'$platforms'.0.'|'.22]", path))
+            rep is None or rep.append(("unexpected _HardenedBSD [.'$platforms'.0.'|'.22.name]", lpath if path is not None else None))
+            rep is None or rep.append(("unexpected value for optional prop <name> [.'$platforms'.0.'|'.22]", lpath if path is not None else None))
             return False
     if "versions" in val:
+        lpath = (path + [ "versions" ]) if path is not None else None
         pval = val.get("versions", UNDEFINED)
         # .'$platforms'.0.'|'.22.versions
         res = isinstance(pval, list)
         if res:
             for arr_72_idx, arr_72_item in enumerate(pval):
-                arr_72_lpath: Path = (path + [ arr_72_idx ]) if path is not None else None
+                arr_72_lpath: Path = ((lpath if path is not None else None) + [ arr_72_idx ]) if (lpath if path is not None else None) is not None else None
                 # .'$platforms'.0.'|'.22.versions.0
                 res = ((arr_72_item is None or isinstance(arr_72_item, (bool, int, float, str)))) and arr_72_item in _jm_cst_50
                 if not res:
-                    rep is None or rep.append(("value not in enum [.'$platforms'.0.'|'.22.versions.0.'|']", arr_72_lpath if path is not None else None))
+                    rep is None or rep.append(("value not in enum [.'$platforms'.0.'|'.22.versions.0.'|']", arr_72_lpath if (lpath if path is not None else None) is not None else None))
                     break
         if not res:
-            rep is None or rep.append(("not array or unexpected array [.'$platforms'.0.'|'.22.versions]", path))
-            rep is None or rep.append(("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.22]", path))
+            rep is None or rep.append(("not array or unexpected array [.'$platforms'.0.'|'.22.versions]", lpath if path is not None else None))
+            rep is None or rep.append(("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.22]", lpath if path is not None else None))
             return False
     return True
 
@@ -3460,31 +3535,34 @@ def _jm_obj_72(val: Jsonable, path: Path, rep: Report) -> bool:
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$platforms'.0.'|'.21]", path))
         return False
+    lpath: Path
     pval: Jsonable
     res: bool
     if "name" in val:
+        lpath = (path + [ "name" ]) if path is not None else None
         pval = val.get("name", UNDEFINED)
         # .'$platforms'.0.'|'.21.name
         res = isinstance(pval, str) and pval == "Gentoo"
         if not res:
-            rep is None or rep.append(("unexpected _Gentoo [.'$platforms'.0.'|'.21.name]", path))
-            rep is None or rep.append(("unexpected value for optional prop <name> [.'$platforms'.0.'|'.21]", path))
+            rep is None or rep.append(("unexpected _Gentoo [.'$platforms'.0.'|'.21.name]", lpath if path is not None else None))
+            rep is None or rep.append(("unexpected value for optional prop <name> [.'$platforms'.0.'|'.21]", lpath if path is not None else None))
             return False
     if "versions" in val:
+        lpath = (path + [ "versions" ]) if path is not None else None
         pval = val.get("versions", UNDEFINED)
         # .'$platforms'.0.'|'.21.versions
         res = isinstance(pval, list)
         if res:
             for arr_73_idx, arr_73_item in enumerate(pval):
-                arr_73_lpath: Path = (path + [ arr_73_idx ]) if path is not None else None
+                arr_73_lpath: Path = ((lpath if path is not None else None) + [ arr_73_idx ]) if (lpath if path is not None else None) is not None else None
                 # .'$platforms'.0.'|'.21.versions.0
                 res = isinstance(arr_73_item, str) and arr_73_item == "all"
                 if not res:
-                    rep is None or rep.append(("unexpected all [.'$platforms'.0.'|'.21.versions.0]", arr_73_lpath if path is not None else None))
+                    rep is None or rep.append(("unexpected all [.'$platforms'.0.'|'.21.versions.0]", arr_73_lpath if (lpath if path is not None else None) is not None else None))
                     break
         if not res:
-            rep is None or rep.append(("not array or unexpected array [.'$platforms'.0.'|'.21.versions]", path))
-            rep is None or rep.append(("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.21]", path))
+            rep is None or rep.append(("not array or unexpected array [.'$platforms'.0.'|'.21.versions]", lpath if path is not None else None))
+            rep is None or rep.append(("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.21]", lpath if path is not None else None))
             return False
     return True
 
@@ -3494,31 +3572,34 @@ def _jm_obj_73(val: Jsonable, path: Path, rep: Report) -> bool:
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$platforms'.0.'|'.20]", path))
         return False
+    lpath: Path
     pval: Jsonable
     res: bool
     if "name" in val:
+        lpath = (path + [ "name" ]) if path is not None else None
         pval = val.get("name", UNDEFINED)
         # .'$platforms'.0.'|'.20.name
         res = isinstance(pval, str) and pval == "GenericUNIX"
         if not res:
-            rep is None or rep.append(("unexpected _GenericUNIX [.'$platforms'.0.'|'.20.name]", path))
-            rep is None or rep.append(("unexpected value for optional prop <name> [.'$platforms'.0.'|'.20]", path))
+            rep is None or rep.append(("unexpected _GenericUNIX [.'$platforms'.0.'|'.20.name]", lpath if path is not None else None))
+            rep is None or rep.append(("unexpected value for optional prop <name> [.'$platforms'.0.'|'.20]", lpath if path is not None else None))
             return False
     if "versions" in val:
+        lpath = (path + [ "versions" ]) if path is not None else None
         pval = val.get("versions", UNDEFINED)
         # .'$platforms'.0.'|'.20.versions
         res = isinstance(pval, list)
         if res:
             for arr_74_idx, arr_74_item in enumerate(pval):
-                arr_74_lpath: Path = (path + [ arr_74_idx ]) if path is not None else None
+                arr_74_lpath: Path = ((lpath if path is not None else None) + [ arr_74_idx ]) if (lpath if path is not None else None) is not None else None
                 # .'$platforms'.0.'|'.20.versions.0
                 res = isinstance(arr_74_item, str) and arr_74_item == "all"
                 if not res:
-                    rep is None or rep.append(("unexpected all [.'$platforms'.0.'|'.20.versions.0]", arr_74_lpath if path is not None else None))
+                    rep is None or rep.append(("unexpected all [.'$platforms'.0.'|'.20.versions.0]", arr_74_lpath if (lpath if path is not None else None) is not None else None))
                     break
         if not res:
-            rep is None or rep.append(("not array or unexpected array [.'$platforms'.0.'|'.20.versions]", path))
-            rep is None or rep.append(("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.20]", path))
+            rep is None or rep.append(("not array or unexpected array [.'$platforms'.0.'|'.20.versions]", lpath if path is not None else None))
+            rep is None or rep.append(("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.20]", lpath if path is not None else None))
             return False
     return True
 
@@ -3528,31 +3609,34 @@ def _jm_obj_74(val: Jsonable, path: Path, rep: Report) -> bool:
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$platforms'.0.'|'.19]", path))
         return False
+    lpath: Path
     pval: Jsonable
     res: bool
     if "name" in val:
+        lpath = (path + [ "name" ]) if path is not None else None
         pval = val.get("name", UNDEFINED)
         # .'$platforms'.0.'|'.19.name
         res = isinstance(pval, str) and pval == "GenericLinux"
         if not res:
-            rep is None or rep.append(("unexpected _GenericLinux [.'$platforms'.0.'|'.19.name]", path))
-            rep is None or rep.append(("unexpected value for optional prop <name> [.'$platforms'.0.'|'.19]", path))
+            rep is None or rep.append(("unexpected _GenericLinux [.'$platforms'.0.'|'.19.name]", lpath if path is not None else None))
+            rep is None or rep.append(("unexpected value for optional prop <name> [.'$platforms'.0.'|'.19]", lpath if path is not None else None))
             return False
     if "versions" in val:
+        lpath = (path + [ "versions" ]) if path is not None else None
         pval = val.get("versions", UNDEFINED)
         # .'$platforms'.0.'|'.19.versions
         res = isinstance(pval, list)
         if res:
             for arr_75_idx, arr_75_item in enumerate(pval):
-                arr_75_lpath: Path = (path + [ arr_75_idx ]) if path is not None else None
+                arr_75_lpath: Path = ((lpath if path is not None else None) + [ arr_75_idx ]) if (lpath if path is not None else None) is not None else None
                 # .'$platforms'.0.'|'.19.versions.0
                 res = isinstance(arr_75_item, str) and arr_75_item == "all"
                 if not res:
-                    rep is None or rep.append(("unexpected all [.'$platforms'.0.'|'.19.versions.0]", arr_75_lpath if path is not None else None))
+                    rep is None or rep.append(("unexpected all [.'$platforms'.0.'|'.19.versions.0]", arr_75_lpath if (lpath if path is not None else None) is not None else None))
                     break
         if not res:
-            rep is None or rep.append(("not array or unexpected array [.'$platforms'.0.'|'.19.versions]", path))
-            rep is None or rep.append(("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.19]", path))
+            rep is None or rep.append(("not array or unexpected array [.'$platforms'.0.'|'.19.versions]", lpath if path is not None else None))
+            rep is None or rep.append(("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.19]", lpath if path is not None else None))
             return False
     return True
 
@@ -3562,31 +3646,34 @@ def _jm_obj_75(val: Jsonable, path: Path, rep: Report) -> bool:
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$platforms'.0.'|'.18]", path))
         return False
+    lpath: Path
     pval: Jsonable
     res: bool
     if "name" in val:
+        lpath = (path + [ "name" ]) if path is not None else None
         pval = val.get("name", UNDEFINED)
         # .'$platforms'.0.'|'.18.name
         res = isinstance(pval, str) and pval == "GenericBSD"
         if not res:
-            rep is None or rep.append(("unexpected _GenericBSD [.'$platforms'.0.'|'.18.name]", path))
-            rep is None or rep.append(("unexpected value for optional prop <name> [.'$platforms'.0.'|'.18]", path))
+            rep is None or rep.append(("unexpected _GenericBSD [.'$platforms'.0.'|'.18.name]", lpath if path is not None else None))
+            rep is None or rep.append(("unexpected value for optional prop <name> [.'$platforms'.0.'|'.18]", lpath if path is not None else None))
             return False
     if "versions" in val:
+        lpath = (path + [ "versions" ]) if path is not None else None
         pval = val.get("versions", UNDEFINED)
         # .'$platforms'.0.'|'.18.versions
         res = isinstance(pval, list)
         if res:
             for arr_76_idx, arr_76_item in enumerate(pval):
-                arr_76_lpath: Path = (path + [ arr_76_idx ]) if path is not None else None
+                arr_76_lpath: Path = ((lpath if path is not None else None) + [ arr_76_idx ]) if (lpath if path is not None else None) is not None else None
                 # .'$platforms'.0.'|'.18.versions.0
                 res = isinstance(arr_76_item, str) and arr_76_item == "all"
                 if not res:
-                    rep is None or rep.append(("unexpected all [.'$platforms'.0.'|'.18.versions.0]", arr_76_lpath if path is not None else None))
+                    rep is None or rep.append(("unexpected all [.'$platforms'.0.'|'.18.versions.0]", arr_76_lpath if (lpath if path is not None else None) is not None else None))
                     break
         if not res:
-            rep is None or rep.append(("not array or unexpected array [.'$platforms'.0.'|'.18.versions]", path))
-            rep is None or rep.append(("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.18]", path))
+            rep is None or rep.append(("not array or unexpected array [.'$platforms'.0.'|'.18.versions]", lpath if path is not None else None))
+            rep is None or rep.append(("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.18]", lpath if path is not None else None))
             return False
     return True
 
@@ -3597,31 +3684,34 @@ def _jm_obj_76(val: Jsonable, path: Path, rep: Report) -> bool:
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$platforms'.0.'|'.17]", path))
         return False
+    lpath: Path
     pval: Jsonable
     res: bool
     if "name" in val:
+        lpath = (path + [ "name" ]) if path is not None else None
         pval = val.get("name", UNDEFINED)
         # .'$platforms'.0.'|'.17.name
         res = isinstance(pval, str) and pval == "FreeBSD"
         if not res:
-            rep is None or rep.append(("unexpected _FreeBSD [.'$platforms'.0.'|'.17.name]", path))
-            rep is None or rep.append(("unexpected value for optional prop <name> [.'$platforms'.0.'|'.17]", path))
+            rep is None or rep.append(("unexpected _FreeBSD [.'$platforms'.0.'|'.17.name]", lpath if path is not None else None))
+            rep is None or rep.append(("unexpected value for optional prop <name> [.'$platforms'.0.'|'.17]", lpath if path is not None else None))
             return False
     if "versions" in val:
+        lpath = (path + [ "versions" ]) if path is not None else None
         pval = val.get("versions", UNDEFINED)
         # .'$platforms'.0.'|'.17.versions
         res = isinstance(pval, list)
         if res:
             for arr_77_idx, arr_77_item in enumerate(pval):
-                arr_77_lpath: Path = (path + [ arr_77_idx ]) if path is not None else None
+                arr_77_lpath: Path = ((lpath if path is not None else None) + [ arr_77_idx ]) if (lpath if path is not None else None) is not None else None
                 # .'$platforms'.0.'|'.17.versions.0
                 res = ((arr_77_item is None or isinstance(arr_77_item, (bool, int, float, str)))) and arr_77_item in _jm_cst_51
                 if not res:
-                    rep is None or rep.append(("value not in enum [.'$platforms'.0.'|'.17.versions.0.'|']", arr_77_lpath if path is not None else None))
+                    rep is None or rep.append(("value not in enum [.'$platforms'.0.'|'.17.versions.0.'|']", arr_77_lpath if (lpath if path is not None else None) is not None else None))
                     break
         if not res:
-            rep is None or rep.append(("not array or unexpected array [.'$platforms'.0.'|'.17.versions]", path))
-            rep is None or rep.append(("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.17]", path))
+            rep is None or rep.append(("not array or unexpected array [.'$platforms'.0.'|'.17.versions]", lpath if path is not None else None))
+            rep is None or rep.append(("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.17]", lpath if path is not None else None))
             return False
     return True
 
@@ -3632,31 +3722,34 @@ def _jm_obj_77(val: Jsonable, path: Path, rep: Report) -> bool:
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$platforms'.0.'|'.16]", path))
         return False
+    lpath: Path
     pval: Jsonable
     res: bool
     if "name" in val:
+        lpath = (path + [ "name" ]) if path is not None else None
         pval = val.get("name", UNDEFINED)
         # .'$platforms'.0.'|'.16.name
         res = isinstance(pval, str) and (pval == "Fedora")
         if not res:
-            rep is None or rep.append(("unexpected _Fedora [.'$platforms'.0.'|'.16.name]", path))
-            rep is None or rep.append(("unexpected value for optional prop <name> [.'$platforms'.0.'|'.16]", path))
+            rep is None or rep.append(("unexpected _Fedora [.'$platforms'.0.'|'.16.name]", lpath if path is not None else None))
+            rep is None or rep.append(("unexpected value for optional prop <name> [.'$platforms'.0.'|'.16]", lpath if path is not None else None))
             return False
     if "versions" in val:
+        lpath = (path + [ "versions" ]) if path is not None else None
         pval = val.get("versions", UNDEFINED)
         # .'$platforms'.0.'|'.16.versions
         res = isinstance(pval, list)
         if res:
             for arr_78_idx, arr_78_item in enumerate(pval):
-                arr_78_lpath: Path = (path + [ arr_78_idx ]) if path is not None else None
+                arr_78_lpath: Path = ((lpath if path is not None else None) + [ arr_78_idx ]) if (lpath if path is not None else None) is not None else None
                 # .'$platforms'.0.'|'.16.versions.0
                 res = ((arr_78_item is None or isinstance(arr_78_item, (bool, int, float, str)))) and arr_78_item in _jm_cst_52
                 if not res:
-                    rep is None or rep.append(("value not in enum [.'$platforms'.0.'|'.16.versions.0.'|']", arr_78_lpath if path is not None else None))
+                    rep is None or rep.append(("value not in enum [.'$platforms'.0.'|'.16.versions.0.'|']", arr_78_lpath if (lpath if path is not None else None) is not None else None))
                     break
         if not res:
-            rep is None or rep.append(("not array or unexpected array [.'$platforms'.0.'|'.16.versions]", path))
-            rep is None or rep.append(("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.16]", path))
+            rep is None or rep.append(("not array or unexpected array [.'$platforms'.0.'|'.16.versions]", lpath if path is not None else None))
+            rep is None or rep.append(("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.16]", lpath if path is not None else None))
             return False
     return True
 
@@ -3666,31 +3759,34 @@ def _jm_obj_78(val: Jsonable, path: Path, rep: Report) -> bool:
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$platforms'.0.'|'.15]", path))
         return False
+    lpath: Path
     pval: Jsonable
     res: bool
     if "name" in val:
+        lpath = (path + [ "name" ]) if path is not None else None
         pval = val.get("name", UNDEFINED)
         # .'$platforms'.0.'|'.15.name
         res = isinstance(pval, str) and pval == "eos"
         if not res:
-            rep is None or rep.append(("unexpected _eos [.'$platforms'.0.'|'.15.name]", path))
-            rep is None or rep.append(("unexpected value for optional prop <name> [.'$platforms'.0.'|'.15]", path))
+            rep is None or rep.append(("unexpected _eos [.'$platforms'.0.'|'.15.name]", lpath if path is not None else None))
+            rep is None or rep.append(("unexpected value for optional prop <name> [.'$platforms'.0.'|'.15]", lpath if path is not None else None))
             return False
     if "versions" in val:
+        lpath = (path + [ "versions" ]) if path is not None else None
         pval = val.get("versions", UNDEFINED)
         # .'$platforms'.0.'|'.15.versions
         res = isinstance(pval, list)
         if res:
             for arr_79_idx, arr_79_item in enumerate(pval):
-                arr_79_lpath: Path = (path + [ arr_79_idx ]) if path is not None else None
+                arr_79_lpath: Path = ((lpath if path is not None else None) + [ arr_79_idx ]) if (lpath if path is not None else None) is not None else None
                 # .'$platforms'.0.'|'.15.versions.0
                 res = isinstance(arr_79_item, str) and arr_79_item == "all"
                 if not res:
-                    rep is None or rep.append(("unexpected all [.'$platforms'.0.'|'.15.versions.0]", arr_79_lpath if path is not None else None))
+                    rep is None or rep.append(("unexpected all [.'$platforms'.0.'|'.15.versions.0]", arr_79_lpath if (lpath if path is not None else None) is not None else None))
                     break
         if not res:
-            rep is None or rep.append(("not array or unexpected array [.'$platforms'.0.'|'.15.versions]", path))
-            rep is None or rep.append(("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.15]", path))
+            rep is None or rep.append(("not array or unexpected array [.'$platforms'.0.'|'.15.versions]", lpath if path is not None else None))
+            rep is None or rep.append(("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.15]", lpath if path is not None else None))
             return False
     return True
 
@@ -3701,31 +3797,34 @@ def _jm_obj_79(val: Jsonable, path: Path, rep: Report) -> bool:
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$platforms'.0.'|'.14]", path))
         return False
+    lpath: Path
     pval: Jsonable
     res: bool
     if "name" in val:
+        lpath = (path + [ "name" ]) if path is not None else None
         pval = val.get("name", UNDEFINED)
         # .'$platforms'.0.'|'.14.name
         res = isinstance(pval, str) and pval == "EL"
         if not res:
-            rep is None or rep.append(("unexpected _EL [.'$platforms'.0.'|'.14.name]", path))
-            rep is None or rep.append(("unexpected value for optional prop <name> [.'$platforms'.0.'|'.14]", path))
+            rep is None or rep.append(("unexpected _EL [.'$platforms'.0.'|'.14.name]", lpath if path is not None else None))
+            rep is None or rep.append(("unexpected value for optional prop <name> [.'$platforms'.0.'|'.14]", lpath if path is not None else None))
             return False
     if "versions" in val:
+        lpath = (path + [ "versions" ]) if path is not None else None
         pval = val.get("versions", UNDEFINED)
         # .'$platforms'.0.'|'.14.versions
         res = isinstance(pval, list)
         if res:
             for arr_80_idx, arr_80_item in enumerate(pval):
-                arr_80_lpath: Path = (path + [ arr_80_idx ]) if path is not None else None
+                arr_80_lpath: Path = ((lpath if path is not None else None) + [ arr_80_idx ]) if (lpath if path is not None else None) is not None else None
                 # .'$platforms'.0.'|'.14.versions.0
                 res = ((arr_80_item is None or isinstance(arr_80_item, (bool, int, float, str)))) and arr_80_item in _jm_cst_53
                 if not res:
-                    rep is None or rep.append(("value not in enum [.'$platforms'.0.'|'.14.versions.0.'|']", arr_80_lpath if path is not None else None))
+                    rep is None or rep.append(("value not in enum [.'$platforms'.0.'|'.14.versions.0.'|']", arr_80_lpath if (lpath if path is not None else None) is not None else None))
                     break
         if not res:
-            rep is None or rep.append(("not array or unexpected array [.'$platforms'.0.'|'.14.versions]", path))
-            rep is None or rep.append(("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.14]", path))
+            rep is None or rep.append(("not array or unexpected array [.'$platforms'.0.'|'.14.versions]", lpath if path is not None else None))
+            rep is None or rep.append(("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.14]", lpath if path is not None else None))
             return False
     return True
 
@@ -3736,31 +3835,34 @@ def _jm_obj_80(val: Jsonable, path: Path, rep: Report) -> bool:
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$platforms'.0.'|'.13]", path))
         return False
+    lpath: Path
     pval: Jsonable
     res: bool
     if "name" in val:
+        lpath = (path + [ "name" ]) if path is not None else None
         pval = val.get("name", UNDEFINED)
         # .'$platforms'.0.'|'.13.name
         res = isinstance(pval, str) and pval == "DragonFlyBSD"
         if not res:
-            rep is None or rep.append(("unexpected _DragonFlyBSD [.'$platforms'.0.'|'.13.name]", path))
-            rep is None or rep.append(("unexpected value for optional prop <name> [.'$platforms'.0.'|'.13]", path))
+            rep is None or rep.append(("unexpected _DragonFlyBSD [.'$platforms'.0.'|'.13.name]", lpath if path is not None else None))
+            rep is None or rep.append(("unexpected value for optional prop <name> [.'$platforms'.0.'|'.13]", lpath if path is not None else None))
             return False
     if "versions" in val:
+        lpath = (path + [ "versions" ]) if path is not None else None
         pval = val.get("versions", UNDEFINED)
         # .'$platforms'.0.'|'.13.versions
         res = isinstance(pval, list)
         if res:
             for arr_81_idx, arr_81_item in enumerate(pval):
-                arr_81_lpath: Path = (path + [ arr_81_idx ]) if path is not None else None
+                arr_81_lpath: Path = ((lpath if path is not None else None) + [ arr_81_idx ]) if (lpath if path is not None else None) is not None else None
                 # .'$platforms'.0.'|'.13.versions.0
                 res = ((arr_81_item is None or isinstance(arr_81_item, (bool, int, float, str)))) and arr_81_item in _jm_cst_54
                 if not res:
-                    rep is None or rep.append(("value not in enum [.'$platforms'.0.'|'.13.versions.0.'|']", arr_81_lpath if path is not None else None))
+                    rep is None or rep.append(("value not in enum [.'$platforms'.0.'|'.13.versions.0.'|']", arr_81_lpath if (lpath if path is not None else None) is not None else None))
                     break
         if not res:
-            rep is None or rep.append(("not array or unexpected array [.'$platforms'.0.'|'.13.versions]", path))
-            rep is None or rep.append(("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.13]", path))
+            rep is None or rep.append(("not array or unexpected array [.'$platforms'.0.'|'.13.versions]", lpath if path is not None else None))
+            rep is None or rep.append(("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.13]", lpath if path is not None else None))
             return False
     return True
 
@@ -3771,31 +3873,34 @@ def _jm_obj_81(val: Jsonable, path: Path, rep: Report) -> bool:
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$platforms'.0.'|'.12]", path))
         return False
+    lpath: Path
     pval: Jsonable
     res: bool
     if "name" in val:
+        lpath = (path + [ "name" ]) if path is not None else None
         pval = val.get("name", UNDEFINED)
         # .'$platforms'.0.'|'.12.name
         res = isinstance(pval, str) and pval == "Devuan"
         if not res:
-            rep is None or rep.append(("unexpected _Devuan [.'$platforms'.0.'|'.12.name]", path))
-            rep is None or rep.append(("unexpected value for optional prop <name> [.'$platforms'.0.'|'.12]", path))
+            rep is None or rep.append(("unexpected _Devuan [.'$platforms'.0.'|'.12.name]", lpath if path is not None else None))
+            rep is None or rep.append(("unexpected value for optional prop <name> [.'$platforms'.0.'|'.12]", lpath if path is not None else None))
             return False
     if "versions" in val:
+        lpath = (path + [ "versions" ]) if path is not None else None
         pval = val.get("versions", UNDEFINED)
         # .'$platforms'.0.'|'.12.versions
         res = isinstance(pval, list)
         if res:
             for arr_82_idx, arr_82_item in enumerate(pval):
-                arr_82_lpath: Path = (path + [ arr_82_idx ]) if path is not None else None
+                arr_82_lpath: Path = ((lpath if path is not None else None) + [ arr_82_idx ]) if (lpath if path is not None else None) is not None else None
                 # .'$platforms'.0.'|'.12.versions.0
                 res = ((arr_82_item is None or isinstance(arr_82_item, (bool, int, float, str)))) and arr_82_item in _jm_cst_55
                 if not res:
-                    rep is None or rep.append(("value not in enum [.'$platforms'.0.'|'.12.versions.0.'|']", arr_82_lpath if path is not None else None))
+                    rep is None or rep.append(("value not in enum [.'$platforms'.0.'|'.12.versions.0.'|']", arr_82_lpath if (lpath if path is not None else None) is not None else None))
                     break
         if not res:
-            rep is None or rep.append(("not array or unexpected array [.'$platforms'.0.'|'.12.versions]", path))
-            rep is None or rep.append(("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.12]", path))
+            rep is None or rep.append(("not array or unexpected array [.'$platforms'.0.'|'.12.versions]", lpath if path is not None else None))
+            rep is None or rep.append(("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.12]", lpath if path is not None else None))
             return False
     return True
 
@@ -3806,31 +3911,34 @@ def _jm_obj_82(val: Jsonable, path: Path, rep: Report) -> bool:
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$platforms'.0.'|'.11]", path))
         return False
+    lpath: Path
     pval: Jsonable
     res: bool
     if "name" in val:
+        lpath = (path + [ "name" ]) if path is not None else None
         pval = val.get("name", UNDEFINED)
         # .'$platforms'.0.'|'.11.name
         res = isinstance(pval, str) and pval == "DellOS"
         if not res:
-            rep is None or rep.append(("unexpected _DellOS [.'$platforms'.0.'|'.11.name]", path))
-            rep is None or rep.append(("unexpected value for optional prop <name> [.'$platforms'.0.'|'.11]", path))
+            rep is None or rep.append(("unexpected _DellOS [.'$platforms'.0.'|'.11.name]", lpath if path is not None else None))
+            rep is None or rep.append(("unexpected value for optional prop <name> [.'$platforms'.0.'|'.11]", lpath if path is not None else None))
             return False
     if "versions" in val:
+        lpath = (path + [ "versions" ]) if path is not None else None
         pval = val.get("versions", UNDEFINED)
         # .'$platforms'.0.'|'.11.versions
         res = isinstance(pval, list)
         if res:
             for arr_83_idx, arr_83_item in enumerate(pval):
-                arr_83_lpath: Path = (path + [ arr_83_idx ]) if path is not None else None
+                arr_83_lpath: Path = ((lpath if path is not None else None) + [ arr_83_idx ]) if (lpath if path is not None else None) is not None else None
                 # .'$platforms'.0.'|'.11.versions.0
                 res = ((arr_83_item is None or isinstance(arr_83_item, (bool, int, float, str)))) and arr_83_item in _jm_cst_56
                 if not res:
-                    rep is None or rep.append(("value not in enum [.'$platforms'.0.'|'.11.versions.0.'|']", arr_83_lpath if path is not None else None))
+                    rep is None or rep.append(("value not in enum [.'$platforms'.0.'|'.11.versions.0.'|']", arr_83_lpath if (lpath if path is not None else None) is not None else None))
                     break
         if not res:
-            rep is None or rep.append(("not array or unexpected array [.'$platforms'.0.'|'.11.versions]", path))
-            rep is None or rep.append(("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.11]", path))
+            rep is None or rep.append(("not array or unexpected array [.'$platforms'.0.'|'.11.versions]", lpath if path is not None else None))
+            rep is None or rep.append(("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.11]", lpath if path is not None else None))
             return False
     return True
 
@@ -3841,31 +3949,34 @@ def _jm_obj_83(val: Jsonable, path: Path, rep: Report) -> bool:
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$platforms'.0.'|'.10]", path))
         return False
+    lpath: Path
     pval: Jsonable
     res: bool
     if "name" in val:
+        lpath = (path + [ "name" ]) if path is not None else None
         pval = val.get("name", UNDEFINED)
         # .'$platforms'.0.'|'.10.name
         res = isinstance(pval, str) and pval == "Debian"
         if not res:
-            rep is None or rep.append(("unexpected _Debian [.'$platforms'.0.'|'.10.name]", path))
-            rep is None or rep.append(("unexpected value for optional prop <name> [.'$platforms'.0.'|'.10]", path))
+            rep is None or rep.append(("unexpected _Debian [.'$platforms'.0.'|'.10.name]", lpath if path is not None else None))
+            rep is None or rep.append(("unexpected value for optional prop <name> [.'$platforms'.0.'|'.10]", lpath if path is not None else None))
             return False
     if "versions" in val:
+        lpath = (path + [ "versions" ]) if path is not None else None
         pval = val.get("versions", UNDEFINED)
         # .'$platforms'.0.'|'.10.versions
         res = isinstance(pval, list)
         if res:
             for arr_84_idx, arr_84_item in enumerate(pval):
-                arr_84_lpath: Path = (path + [ arr_84_idx ]) if path is not None else None
+                arr_84_lpath: Path = ((lpath if path is not None else None) + [ arr_84_idx ]) if (lpath if path is not None else None) is not None else None
                 # .'$platforms'.0.'|'.10.versions.0
                 res = ((arr_84_item is None or isinstance(arr_84_item, (bool, int, float, str)))) and arr_84_item in _jm_cst_57
                 if not res:
-                    rep is None or rep.append(("value not in enum [.'$platforms'.0.'|'.10.versions.0.'|']", arr_84_lpath if path is not None else None))
+                    rep is None or rep.append(("value not in enum [.'$platforms'.0.'|'.10.versions.0.'|']", arr_84_lpath if (lpath if path is not None else None) is not None else None))
                     break
         if not res:
-            rep is None or rep.append(("not array or unexpected array [.'$platforms'.0.'|'.10.versions]", path))
-            rep is None or rep.append(("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.10]", path))
+            rep is None or rep.append(("not array or unexpected array [.'$platforms'.0.'|'.10.versions]", lpath if path is not None else None))
+            rep is None or rep.append(("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.10]", lpath if path is not None else None))
             return False
     return True
 
@@ -3876,31 +3987,34 @@ def _jm_obj_84(val: Jsonable, path: Path, rep: Report) -> bool:
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$platforms'.0.'|'.9]", path))
         return False
+    lpath: Path
     pval: Jsonable
     res: bool
     if "name" in val:
+        lpath = (path + [ "name" ]) if path is not None else None
         pval = val.get("name", UNDEFINED)
         # .'$platforms'.0.'|'.9.name
         res = isinstance(pval, str) and pval == "NetBSD"
         if not res:
-            rep is None or rep.append(("unexpected _NetBSD [.'$platforms'.0.'|'.9.name]", path))
-            rep is None or rep.append(("unexpected value for optional prop <name> [.'$platforms'.0.'|'.9]", path))
+            rep is None or rep.append(("unexpected _NetBSD [.'$platforms'.0.'|'.9.name]", lpath if path is not None else None))
+            rep is None or rep.append(("unexpected value for optional prop <name> [.'$platforms'.0.'|'.9]", lpath if path is not None else None))
             return False
     if "versions" in val:
+        lpath = (path + [ "versions" ]) if path is not None else None
         pval = val.get("versions", UNDEFINED)
         # .'$platforms'.0.'|'.9.versions
         res = isinstance(pval, list)
         if res:
             for arr_85_idx, arr_85_item in enumerate(pval):
-                arr_85_lpath: Path = (path + [ arr_85_idx ]) if path is not None else None
+                arr_85_lpath: Path = ((lpath if path is not None else None) + [ arr_85_idx ]) if (lpath if path is not None else None) is not None else None
                 # .'$platforms'.0.'|'.9.versions.0
                 res = ((arr_85_item is None or isinstance(arr_85_item, (bool, int, float, str)))) and arr_85_item in _jm_cst_58
                 if not res:
-                    rep is None or rep.append(("value not in enum [.'$platforms'.0.'|'.9.versions.0.'|']", arr_85_lpath if path is not None else None))
+                    rep is None or rep.append(("value not in enum [.'$platforms'.0.'|'.9.versions.0.'|']", arr_85_lpath if (lpath if path is not None else None) is not None else None))
                     break
         if not res:
-            rep is None or rep.append(("not array or unexpected array [.'$platforms'.0.'|'.9.versions]", path))
-            rep is None or rep.append(("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.9]", path))
+            rep is None or rep.append(("not array or unexpected array [.'$platforms'.0.'|'.9.versions]", lpath if path is not None else None))
+            rep is None or rep.append(("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.9]", lpath if path is not None else None))
             return False
     return True
 
@@ -3911,31 +4025,34 @@ def _jm_obj_85(val: Jsonable, path: Path, rep: Report) -> bool:
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$platforms'.0.'|'.8]", path))
         return False
+    lpath: Path
     pval: Jsonable
     res: bool
     if "name" in val:
+        lpath = (path + [ "name" ]) if path is not None else None
         pval = val.get("name", UNDEFINED)
         # .'$platforms'.0.'|'.8.name
         res = isinstance(pval, str) and pval == "Cumulus"
         if not res:
-            rep is None or rep.append(("unexpected _Cumulus [.'$platforms'.0.'|'.8.name]", path))
-            rep is None or rep.append(("unexpected value for optional prop <name> [.'$platforms'.0.'|'.8]", path))
+            rep is None or rep.append(("unexpected _Cumulus [.'$platforms'.0.'|'.8.name]", lpath if path is not None else None))
+            rep is None or rep.append(("unexpected value for optional prop <name> [.'$platforms'.0.'|'.8]", lpath if path is not None else None))
             return False
     if "versions" in val:
+        lpath = (path + [ "versions" ]) if path is not None else None
         pval = val.get("versions", UNDEFINED)
         # .'$platforms'.0.'|'.8.versions
         res = isinstance(pval, list)
         if res:
             for arr_86_idx, arr_86_item in enumerate(pval):
-                arr_86_lpath: Path = (path + [ arr_86_idx ]) if path is not None else None
+                arr_86_lpath: Path = ((lpath if path is not None else None) + [ arr_86_idx ]) if (lpath if path is not None else None) is not None else None
                 # .'$platforms'.0.'|'.8.versions.0
                 res = ((arr_86_item is None or isinstance(arr_86_item, (bool, int, float, str)))) and arr_86_item in _jm_cst_59
                 if not res:
-                    rep is None or rep.append(("value not in enum [.'$platforms'.0.'|'.8.versions.0.'|']", arr_86_lpath if path is not None else None))
+                    rep is None or rep.append(("value not in enum [.'$platforms'.0.'|'.8.versions.0.'|']", arr_86_lpath if (lpath if path is not None else None) is not None else None))
                     break
         if not res:
-            rep is None or rep.append(("not array or unexpected array [.'$platforms'.0.'|'.8.versions]", path))
-            rep is None or rep.append(("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.8]", path))
+            rep is None or rep.append(("not array or unexpected array [.'$platforms'.0.'|'.8.versions]", lpath if path is not None else None))
+            rep is None or rep.append(("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.8]", lpath if path is not None else None))
             return False
     return True
 
@@ -3945,31 +4062,34 @@ def _jm_obj_86(val: Jsonable, path: Path, rep: Report) -> bool:
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$platforms'.0.'|'.7]", path))
         return False
+    lpath: Path
     pval: Jsonable
     res: bool
     if "name" in val:
+        lpath = (path + [ "name" ]) if path is not None else None
         pval = val.get("name", UNDEFINED)
         # .'$platforms'.0.'|'.7.name
         res = isinstance(pval, str) and pval == "ClearLinux"
         if not res:
-            rep is None or rep.append(("unexpected _ClearLinux [.'$platforms'.0.'|'.7.name]", path))
-            rep is None or rep.append(("unexpected value for optional prop <name> [.'$platforms'.0.'|'.7]", path))
+            rep is None or rep.append(("unexpected _ClearLinux [.'$platforms'.0.'|'.7.name]", lpath if path is not None else None))
+            rep is None or rep.append(("unexpected value for optional prop <name> [.'$platforms'.0.'|'.7]", lpath if path is not None else None))
             return False
     if "versions" in val:
+        lpath = (path + [ "versions" ]) if path is not None else None
         pval = val.get("versions", UNDEFINED)
         # .'$platforms'.0.'|'.7.versions
         res = isinstance(pval, list)
         if res:
             for arr_87_idx, arr_87_item in enumerate(pval):
-                arr_87_lpath: Path = (path + [ arr_87_idx ]) if path is not None else None
+                arr_87_lpath: Path = ((lpath if path is not None else None) + [ arr_87_idx ]) if (lpath if path is not None else None) is not None else None
                 # .'$platforms'.0.'|'.7.versions.0
                 res = isinstance(arr_87_item, str) and arr_87_item == "all"
                 if not res:
-                    rep is None or rep.append(("unexpected all [.'$platforms'.0.'|'.7.versions.0]", arr_87_lpath if path is not None else None))
+                    rep is None or rep.append(("unexpected all [.'$platforms'.0.'|'.7.versions.0]", arr_87_lpath if (lpath if path is not None else None) is not None else None))
                     break
         if not res:
-            rep is None or rep.append(("not array or unexpected array [.'$platforms'.0.'|'.7.versions]", path))
-            rep is None or rep.append(("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.7]", path))
+            rep is None or rep.append(("not array or unexpected array [.'$platforms'.0.'|'.7.versions]", lpath if path is not None else None))
+            rep is None or rep.append(("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.7]", lpath if path is not None else None))
             return False
     return True
 
@@ -3980,31 +4100,34 @@ def _jm_obj_87(val: Jsonable, path: Path, rep: Report) -> bool:
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$platforms'.0.'|'.6]", path))
         return False
+    lpath: Path
     pval: Jsonable
     res: bool
     if "name" in val:
+        lpath = (path + [ "name" ]) if path is not None else None
         pval = val.get("name", UNDEFINED)
         # .'$platforms'.0.'|'.6.name
         res = isinstance(pval, str) and pval == "Astra Linux"
         if not res:
-            rep is None or rep.append(("unexpected _Astra Linux [.'$platforms'.0.'|'.6.name]", path))
-            rep is None or rep.append(("unexpected value for optional prop <name> [.'$platforms'.0.'|'.6]", path))
+            rep is None or rep.append(("unexpected _Astra Linux [.'$platforms'.0.'|'.6.name]", lpath if path is not None else None))
+            rep is None or rep.append(("unexpected value for optional prop <name> [.'$platforms'.0.'|'.6]", lpath if path is not None else None))
             return False
     if "versions" in val:
+        lpath = (path + [ "versions" ]) if path is not None else None
         pval = val.get("versions", UNDEFINED)
         # .'$platforms'.0.'|'.6.versions
         res = isinstance(pval, list)
         if res:
             for arr_88_idx, arr_88_item in enumerate(pval):
-                arr_88_lpath: Path = (path + [ arr_88_idx ]) if path is not None else None
+                arr_88_lpath: Path = ((lpath if path is not None else None) + [ arr_88_idx ]) if (lpath if path is not None else None) is not None else None
                 # .'$platforms'.0.'|'.6.versions.0
                 res = ((arr_88_item is None or isinstance(arr_88_item, (bool, int, float, str)))) and arr_88_item in _jm_cst_60
                 if not res:
-                    rep is None or rep.append(("value not in enum [.'$platforms'.0.'|'.6.versions.0.'|']", arr_88_lpath if path is not None else None))
+                    rep is None or rep.append(("value not in enum [.'$platforms'.0.'|'.6.versions.0.'|']", arr_88_lpath if (lpath if path is not None else None) is not None else None))
                     break
         if not res:
-            rep is None or rep.append(("not array or unexpected array [.'$platforms'.0.'|'.6.versions]", path))
-            rep is None or rep.append(("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.6]", path))
+            rep is None or rep.append(("not array or unexpected array [.'$platforms'.0.'|'.6.versions]", lpath if path is not None else None))
+            rep is None or rep.append(("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.6]", lpath if path is not None else None))
             return False
     return True
 
@@ -4014,31 +4137,34 @@ def _jm_obj_88(val: Jsonable, path: Path, rep: Report) -> bool:
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$platforms'.0.'|'.5]", path))
         return False
+    lpath: Path
     pval: Jsonable
     res: bool
     if "name" in val:
+        lpath = (path + [ "name" ]) if path is not None else None
         pval = val.get("name", UNDEFINED)
         # .'$platforms'.0.'|'.5.name
         res = isinstance(pval, str) and pval == "ArchLinux"
         if not res:
-            rep is None or rep.append(("unexpected _ArchLinux [.'$platforms'.0.'|'.5.name]", path))
-            rep is None or rep.append(("unexpected value for optional prop <name> [.'$platforms'.0.'|'.5]", path))
+            rep is None or rep.append(("unexpected _ArchLinux [.'$platforms'.0.'|'.5.name]", lpath if path is not None else None))
+            rep is None or rep.append(("unexpected value for optional prop <name> [.'$platforms'.0.'|'.5]", lpath if path is not None else None))
             return False
     if "versions" in val:
+        lpath = (path + [ "versions" ]) if path is not None else None
         pval = val.get("versions", UNDEFINED)
         # .'$platforms'.0.'|'.5.versions
         res = isinstance(pval, list)
         if res:
             for arr_89_idx, arr_89_item in enumerate(pval):
-                arr_89_lpath: Path = (path + [ arr_89_idx ]) if path is not None else None
+                arr_89_lpath: Path = ((lpath if path is not None else None) + [ arr_89_idx ]) if (lpath if path is not None else None) is not None else None
                 # .'$platforms'.0.'|'.5.versions.0
                 res = isinstance(arr_89_item, str) and arr_89_item == "all"
                 if not res:
-                    rep is None or rep.append(("unexpected all [.'$platforms'.0.'|'.5.versions.0]", arr_89_lpath if path is not None else None))
+                    rep is None or rep.append(("unexpected all [.'$platforms'.0.'|'.5.versions.0]", arr_89_lpath if (lpath if path is not None else None) is not None else None))
                     break
         if not res:
-            rep is None or rep.append(("not array or unexpected array [.'$platforms'.0.'|'.5.versions]", path))
-            rep is None or rep.append(("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.5]", path))
+            rep is None or rep.append(("not array or unexpected array [.'$platforms'.0.'|'.5.versions]", lpath if path is not None else None))
+            rep is None or rep.append(("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.5]", lpath if path is not None else None))
             return False
     return True
 
@@ -4048,31 +4174,34 @@ def _jm_obj_89(val: Jsonable, path: Path, rep: Report) -> bool:
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$platforms'.0.'|'.4]", path))
         return False
+    lpath: Path
     pval: Jsonable
     res: bool
     if "name" in val:
+        lpath = (path + [ "name" ]) if path is not None else None
         pval = val.get("name", UNDEFINED)
         # .'$platforms'.0.'|'.4.name
         res = isinstance(pval, str) and pval == "aos"
         if not res:
-            rep is None or rep.append(("unexpected _aos [.'$platforms'.0.'|'.4.name]", path))
-            rep is None or rep.append(("unexpected value for optional prop <name> [.'$platforms'.0.'|'.4]", path))
+            rep is None or rep.append(("unexpected _aos [.'$platforms'.0.'|'.4.name]", lpath if path is not None else None))
+            rep is None or rep.append(("unexpected value for optional prop <name> [.'$platforms'.0.'|'.4]", lpath if path is not None else None))
             return False
     if "versions" in val:
+        lpath = (path + [ "versions" ]) if path is not None else None
         pval = val.get("versions", UNDEFINED)
         # .'$platforms'.0.'|'.4.versions
         res = isinstance(pval, list)
         if res:
             for arr_90_idx, arr_90_item in enumerate(pval):
-                arr_90_lpath: Path = (path + [ arr_90_idx ]) if path is not None else None
+                arr_90_lpath: Path = ((lpath if path is not None else None) + [ arr_90_idx ]) if (lpath if path is not None else None) is not None else None
                 # .'$platforms'.0.'|'.4.versions.0
                 res = isinstance(arr_90_item, str) and arr_90_item == "all"
                 if not res:
-                    rep is None or rep.append(("unexpected all [.'$platforms'.0.'|'.4.versions.0]", arr_90_lpath if path is not None else None))
+                    rep is None or rep.append(("unexpected all [.'$platforms'.0.'|'.4.versions.0]", arr_90_lpath if (lpath if path is not None else None) is not None else None))
                     break
         if not res:
-            rep is None or rep.append(("not array or unexpected array [.'$platforms'.0.'|'.4.versions]", path))
-            rep is None or rep.append(("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.4]", path))
+            rep is None or rep.append(("not array or unexpected array [.'$platforms'.0.'|'.4.versions]", lpath if path is not None else None))
+            rep is None or rep.append(("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.4]", lpath if path is not None else None))
             return False
     return True
 
@@ -4083,31 +4212,34 @@ def _jm_obj_90(val: Jsonable, path: Path, rep: Report) -> bool:
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$platforms'.0.'|'.3]", path))
         return False
+    lpath: Path
     pval: Jsonable
     res: bool
     if "name" in val:
+        lpath = (path + [ "name" ]) if path is not None else None
         pval = val.get("name", UNDEFINED)
         # .'$platforms'.0.'|'.3.name
         res = isinstance(pval, str) and pval == "Amazon Linux"
         if not res:
-            rep is None or rep.append(("unexpected _Amazon Linux [.'$platforms'.0.'|'.3.name]", path))
-            rep is None or rep.append(("unexpected value for optional prop <name> [.'$platforms'.0.'|'.3]", path))
+            rep is None or rep.append(("unexpected _Amazon Linux [.'$platforms'.0.'|'.3.name]", lpath if path is not None else None))
+            rep is None or rep.append(("unexpected value for optional prop <name> [.'$platforms'.0.'|'.3]", lpath if path is not None else None))
             return False
     if "versions" in val:
+        lpath = (path + [ "versions" ]) if path is not None else None
         pval = val.get("versions", UNDEFINED)
         # .'$platforms'.0.'|'.3.versions
         res = isinstance(pval, list)
         if res:
             for arr_91_idx, arr_91_item in enumerate(pval):
-                arr_91_lpath: Path = (path + [ arr_91_idx ]) if path is not None else None
+                arr_91_lpath: Path = ((lpath if path is not None else None) + [ arr_91_idx ]) if (lpath if path is not None else None) is not None else None
                 # .'$platforms'.0.'|'.3.versions.0
                 res = ((arr_91_item is None or isinstance(arr_91_item, (bool, int, float, str)))) and arr_91_item in _jm_cst_61
                 if not res:
-                    rep is None or rep.append(("value not in enum [.'$platforms'.0.'|'.3.versions.0.'|']", arr_91_lpath if path is not None else None))
+                    rep is None or rep.append(("value not in enum [.'$platforms'.0.'|'.3.versions.0.'|']", arr_91_lpath if (lpath if path is not None else None) is not None else None))
                     break
         if not res:
-            rep is None or rep.append(("not array or unexpected array [.'$platforms'.0.'|'.3.versions]", path))
-            rep is None or rep.append(("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.3]", path))
+            rep is None or rep.append(("not array or unexpected array [.'$platforms'.0.'|'.3.versions]", lpath if path is not None else None))
+            rep is None or rep.append(("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.3]", lpath if path is not None else None))
             return False
     return True
 
@@ -4118,31 +4250,34 @@ def _jm_obj_91(val: Jsonable, path: Path, rep: Report) -> bool:
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$platforms'.0.'|'.2]", path))
         return False
+    lpath: Path
     pval: Jsonable
     res: bool
     if "name" in val:
+        lpath = (path + [ "name" ]) if path is not None else None
         pval = val.get("name", UNDEFINED)
         # .'$platforms'.0.'|'.2.name
         res = isinstance(pval, str) and pval == "Amazon"
         if not res:
-            rep is None or rep.append(("unexpected _Amazon [.'$platforms'.0.'|'.2.name]", path))
-            rep is None or rep.append(("unexpected value for optional prop <name> [.'$platforms'.0.'|'.2]", path))
+            rep is None or rep.append(("unexpected _Amazon [.'$platforms'.0.'|'.2.name]", lpath if path is not None else None))
+            rep is None or rep.append(("unexpected value for optional prop <name> [.'$platforms'.0.'|'.2]", lpath if path is not None else None))
             return False
     if "versions" in val:
+        lpath = (path + [ "versions" ]) if path is not None else None
         pval = val.get("versions", UNDEFINED)
         # .'$platforms'.0.'|'.2.versions
         res = isinstance(pval, list)
         if res:
             for arr_92_idx, arr_92_item in enumerate(pval):
-                arr_92_lpath: Path = (path + [ arr_92_idx ]) if path is not None else None
+                arr_92_lpath: Path = ((lpath if path is not None else None) + [ arr_92_idx ]) if (lpath if path is not None else None) is not None else None
                 # .'$platforms'.0.'|'.2.versions.0
                 res = ((arr_92_item is None or isinstance(arr_92_item, (bool, int, float, str)))) and arr_92_item in _jm_cst_62
                 if not res:
-                    rep is None or rep.append(("value not in enum [.'$platforms'.0.'|'.2.versions.0.'|']", arr_92_lpath if path is not None else None))
+                    rep is None or rep.append(("value not in enum [.'$platforms'.0.'|'.2.versions.0.'|']", arr_92_lpath if (lpath if path is not None else None) is not None else None))
                     break
         if not res:
-            rep is None or rep.append(("not array or unexpected array [.'$platforms'.0.'|'.2.versions]", path))
-            rep is None or rep.append(("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.2]", path))
+            rep is None or rep.append(("not array or unexpected array [.'$platforms'.0.'|'.2.versions]", lpath if path is not None else None))
+            rep is None or rep.append(("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.2]", lpath if path is not None else None))
             return False
     return True
 
@@ -4152,31 +4287,34 @@ def _jm_obj_92(val: Jsonable, path: Path, rep: Report) -> bool:
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$platforms'.0.'|'.1]", path))
         return False
+    lpath: Path
     pval: Jsonable
     res: bool
     if "name" in val:
+        lpath = (path + [ "name" ]) if path is not None else None
         pval = val.get("name", UNDEFINED)
         # .'$platforms'.0.'|'.1.name
         res = isinstance(pval, str) and pval == "Alpine"
         if not res:
-            rep is None or rep.append(("unexpected _Alpine [.'$platforms'.0.'|'.1.name]", path))
-            rep is None or rep.append(("unexpected value for optional prop <name> [.'$platforms'.0.'|'.1]", path))
+            rep is None or rep.append(("unexpected _Alpine [.'$platforms'.0.'|'.1.name]", lpath if path is not None else None))
+            rep is None or rep.append(("unexpected value for optional prop <name> [.'$platforms'.0.'|'.1]", lpath if path is not None else None))
             return False
     if "versions" in val:
+        lpath = (path + [ "versions" ]) if path is not None else None
         pval = val.get("versions", UNDEFINED)
         # .'$platforms'.0.'|'.1.versions
         res = isinstance(pval, list)
         if res:
             for arr_93_idx, arr_93_item in enumerate(pval):
-                arr_93_lpath: Path = (path + [ arr_93_idx ]) if path is not None else None
+                arr_93_lpath: Path = ((lpath if path is not None else None) + [ arr_93_idx ]) if (lpath if path is not None else None) is not None else None
                 # .'$platforms'.0.'|'.1.versions.0
                 res = isinstance(arr_93_item, str) and arr_93_item == "all"
                 if not res:
-                    rep is None or rep.append(("unexpected all [.'$platforms'.0.'|'.1.versions.0]", arr_93_lpath if path is not None else None))
+                    rep is None or rep.append(("unexpected all [.'$platforms'.0.'|'.1.versions.0]", arr_93_lpath if (lpath if path is not None else None) is not None else None))
                     break
         if not res:
-            rep is None or rep.append(("not array or unexpected array [.'$platforms'.0.'|'.1.versions]", path))
-            rep is None or rep.append(("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.1]", path))
+            rep is None or rep.append(("not array or unexpected array [.'$platforms'.0.'|'.1.versions]", lpath if path is not None else None))
+            rep is None or rep.append(("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.1]", lpath if path is not None else None))
             return False
     return True
 
@@ -4187,31 +4325,34 @@ def _jm_obj_93(val: Jsonable, path: Path, rep: Report) -> bool:
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$platforms'.0.'|'.0]", path))
         return False
+    lpath: Path
     pval: Jsonable
     res: bool
     if "name" in val:
+        lpath = (path + [ "name" ]) if path is not None else None
         pval = val.get("name", UNDEFINED)
         # .'$platforms'.0.'|'.0.name
         res = isinstance(pval, str) and pval == "AIX"
         if not res:
-            rep is None or rep.append(("unexpected _AIX [.'$platforms'.0.'|'.0.name]", path))
-            rep is None or rep.append(("unexpected value for optional prop <name> [.'$platforms'.0.'|'.0]", path))
+            rep is None or rep.append(("unexpected _AIX [.'$platforms'.0.'|'.0.name]", lpath if path is not None else None))
+            rep is None or rep.append(("unexpected value for optional prop <name> [.'$platforms'.0.'|'.0]", lpath if path is not None else None))
             return False
     if "versions" in val:
+        lpath = (path + [ "versions" ]) if path is not None else None
         pval = val.get("versions", UNDEFINED)
         # .'$platforms'.0.'|'.0.versions
         res = isinstance(pval, list)
         if res:
             for arr_94_idx, arr_94_item in enumerate(pval):
-                arr_94_lpath: Path = (path + [ arr_94_idx ]) if path is not None else None
+                arr_94_lpath: Path = ((lpath if path is not None else None) + [ arr_94_idx ]) if (lpath if path is not None else None) is not None else None
                 # .'$platforms'.0.'|'.0.versions.0
                 res = ((arr_94_item is None or isinstance(arr_94_item, (bool, int, float, str)))) and arr_94_item in _jm_cst_63
                 if not res:
-                    rep is None or rep.append(("value not in enum [.'$platforms'.0.'|'.0.versions.0.'|']", arr_94_lpath if path is not None else None))
+                    rep is None or rep.append(("value not in enum [.'$platforms'.0.'|'.0.versions.0.'|']", arr_94_lpath if (lpath if path is not None else None) is not None else None))
                     break
         if not res:
-            rep is None or rep.append(("not array or unexpected array [.'$platforms'.0.'|'.0.versions]", path))
-            rep is None or rep.append(("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.0]", path))
+            rep is None or rep.append(("not array or unexpected array [.'$platforms'.0.'|'.0.versions]", lpath if path is not None else None))
+            rep is None or rep.append(("unexpected value for optional prop <versions> [.'$platforms'.0.'|'.0]", lpath if path is not None else None))
             return False
     return True
 
@@ -5297,97 +5438,107 @@ def _jm_obj_99(val: Jsonable, path: Path, rep: Report) -> bool:
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$DependencyModelLoose']", path))
         return False
+    lpath: Path
     pval: Jsonable
     res: bool
     if "become" in val:
+        lpath = (path + [ "become" ]) if path is not None else None
         pval = val.get("become", UNDEFINED)
         # .'$DependencyModelLoose'.become
         res = isinstance(pval, bool)
         if not res:
-            rep is None or rep.append(("not a bool [.'$DependencyModelLoose'.become]", path))
-            rep is None or rep.append(("unexpected value for optional prop <become> [.'$DependencyModelLoose']", path))
+            rep is None or rep.append(("not a bool [.'$DependencyModelLoose'.become]", lpath if path is not None else None))
+            rep is None or rep.append(("unexpected value for optional prop <become> [.'$DependencyModelLoose']", lpath if path is not None else None))
             return False
     if "name" in val:
+        lpath = (path + [ "name" ]) if path is not None else None
         pval = val.get("name", UNDEFINED)
         # .'$DependencyModelLoose'.name
         res = isinstance(pval, str)
         if not res:
-            rep is None or rep.append(("unexpected string [.'$DependencyModelLoose'.name]", path))
-            rep is None or rep.append(("unexpected value for optional prop <name> [.'$DependencyModelLoose']", path))
+            rep is None or rep.append(("unexpected string [.'$DependencyModelLoose'.name]", lpath if path is not None else None))
+            rep is None or rep.append(("unexpected value for optional prop <name> [.'$DependencyModelLoose']", lpath if path is not None else None))
             return False
     if "role" in val:
+        lpath = (path + [ "role" ]) if path is not None else None
         pval = val.get("role", UNDEFINED)
         # .'$DependencyModelLoose'.role
         res = isinstance(pval, str)
         if not res:
-            rep is None or rep.append(("unexpected string [.'$DependencyModelLoose'.role]", path))
-            rep is None or rep.append(("unexpected value for optional prop <role> [.'$DependencyModelLoose']", path))
+            rep is None or rep.append(("unexpected string [.'$DependencyModelLoose'.role]", lpath if path is not None else None))
+            rep is None or rep.append(("unexpected value for optional prop <role> [.'$DependencyModelLoose']", lpath if path is not None else None))
             return False
     if "src" in val:
+        lpath = (path + [ "src" ]) if path is not None else None
         pval = val.get("src", UNDEFINED)
         # .'$DependencyModelLoose'.src
         res = isinstance(pval, str)
         if not res:
-            rep is None or rep.append(("unexpected string [.'$DependencyModelLoose'.src]", path))
-            rep is None or rep.append(("unexpected value for optional prop <src> [.'$DependencyModelLoose']", path))
+            rep is None or rep.append(("unexpected string [.'$DependencyModelLoose'.src]", lpath if path is not None else None))
+            rep is None or rep.append(("unexpected value for optional prop <src> [.'$DependencyModelLoose']", lpath if path is not None else None))
             return False
     if "scm" in val:
+        lpath = (path + [ "scm" ]) if path is not None else None
         pval = val.get("scm", UNDEFINED)
         # .'$DependencyModelLoose'.scm
         res = ((pval is None or isinstance(pval, (bool, int, float, str)))) and pval in _jm_cst_64
         if not res:
-            rep is None or rep.append(("value not in enum [.'$DependencyModelLoose'.scm.'|']", path))
-            rep is None or rep.append(("unexpected value for optional prop <scm> [.'$DependencyModelLoose']", path))
+            rep is None or rep.append(("value not in enum [.'$DependencyModelLoose'.scm.'|']", lpath if path is not None else None))
+            rep is None or rep.append(("unexpected value for optional prop <scm> [.'$DependencyModelLoose']", lpath if path is not None else None))
             return False
     if "tags" in val:
+        lpath = (path + [ "tags" ]) if path is not None else None
         pval = val.get("tags", UNDEFINED)
         # .'$DependencyModelLoose'.tags
         # .'$DependencyModelLoose'.tags.'|'.0
         res = isinstance(pval, str)
         if not res:
-            rep is None or rep.append(("unexpected string [.'$DependencyModelLoose'.tags.'|'.0]", path))
+            rep is None or rep.append(("unexpected string [.'$DependencyModelLoose'.tags.'|'.0]", lpath if path is not None else None))
         if not res:
             # .'$DependencyModelLoose'.tags.'|'.1
             res = isinstance(pval, list)
             if res:
                 for arr_101_idx, arr_101_item in enumerate(pval):
-                    arr_101_lpath: Path = (path + [ arr_101_idx ]) if path is not None else None
+                    arr_101_lpath: Path = ((lpath if path is not None else None) + [ arr_101_idx ]) if (lpath if path is not None else None) is not None else None
                     # .'$DependencyModelLoose'.tags.'|'.1.0
                     res = isinstance(arr_101_item, str)
                     if not res:
-                        rep is None or rep.append(("unexpected string [.'$DependencyModelLoose'.tags.'|'.1.0]", arr_101_lpath if path is not None else None))
+                        rep is None or rep.append(("unexpected string [.'$DependencyModelLoose'.tags.'|'.1.0]", arr_101_lpath if (lpath if path is not None else None) is not None else None))
                         break
             if not res:
-                rep is None or rep.append(("not array or unexpected array [.'$DependencyModelLoose'.tags.'|'.1]", path))
+                rep is None or rep.append(("not array or unexpected array [.'$DependencyModelLoose'.tags.'|'.1]", lpath if path is not None else None))
         if res:
             rep is None or rep.clear()
         else:
-            rep is None or rep.append(("no model matched [.'$DependencyModelLoose'.tags.'|']", path))
-            rep is None or rep.append(("unexpected value for optional prop <tags> [.'$DependencyModelLoose']", path))
+            rep is None or rep.append(("no model matched [.'$DependencyModelLoose'.tags.'|']", lpath if path is not None else None))
+            rep is None or rep.append(("unexpected value for optional prop <tags> [.'$DependencyModelLoose']", lpath if path is not None else None))
             return False
     if "vars" in val:
+        lpath = (path + [ "vars" ]) if path is not None else None
         pval = val.get("vars", UNDEFINED)
         # .'$DependencyModelLoose'.vars
-        res = _jm_obj_100(pval, path, rep)
+        res = _jm_obj_100(pval, lpath if path is not None else None, rep)
         if not res:
-            rep is None or rep.append(("unexpected element [.'$DependencyModelLoose'.vars]", path))
-            rep is None or rep.append(("unexpected value for optional prop <vars> [.'$DependencyModelLoose']", path))
+            rep is None or rep.append(("unexpected element [.'$DependencyModelLoose'.vars]", lpath if path is not None else None))
+            rep is None or rep.append(("unexpected value for optional prop <vars> [.'$DependencyModelLoose']", lpath if path is not None else None))
             return False
     if "version" in val:
+        lpath = (path + [ "version" ]) if path is not None else None
         pval = val.get("version", UNDEFINED)
         # .'$DependencyModelLoose'.version
         res = isinstance(pval, str)
         if not res:
-            rep is None or rep.append(("unexpected string [.'$DependencyModelLoose'.version]", path))
-            rep is None or rep.append(("unexpected value for optional prop <version> [.'$DependencyModelLoose']", path))
+            rep is None or rep.append(("unexpected string [.'$DependencyModelLoose'.version]", lpath if path is not None else None))
+            rep is None or rep.append(("unexpected value for optional prop <version> [.'$DependencyModelLoose']", lpath if path is not None else None))
             return False
     if "when" in val:
+        lpath = (path + [ "when" ]) if path is not None else None
         pval = val.get("when", UNDEFINED)
         # .'$DependencyModelLoose'.when
-        res = json_model_56(pval, path, rep)
+        res = json_model_56(pval, lpath if path is not None else None, rep)
         if not res:
-            rep is None or rep.append(("unexpected $complex_conditional [.'$DependencyModelLoose'.when]", path))
-            rep is None or rep.append(("unexpected value for optional prop <when> [.'$DependencyModelLoose']", path))
+            rep is None or rep.append(("unexpected $complex_conditional [.'$DependencyModelLoose'.when]", lpath if path is not None else None))
+            rep is None or rep.append(("unexpected value for optional prop <when> [.'$DependencyModelLoose']", lpath if path is not None else None))
             return False
     return True
 
@@ -5409,17 +5560,19 @@ def _jm_obj_101(val: Jsonable, path: Path, rep: Report) -> bool:
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$DependencyModel'.'&'.1.'|'.2]", path))
         return False
+    lpath: Path
     pval: Jsonable
     res: bool
     if not "name" in val:
         rep is None or rep.append(("missing mandatory prop <name> [.'$DependencyModel'.'&'.1.'|'.2]", path))
         return False
+    lpath = (path + [ "name" ]) if path is not None else None
     pval = val.get("name", UNDEFINED)
     # .'$DependencyModel'.'&'.1.'|'.2.name
     res = isinstance(pval, str)
     if not res:
-        rep is None or rep.append(("unexpected string [.'$DependencyModel'.'&'.1.'|'.2.name]", path))
-        rep is None or rep.append(("unexpected value for mandatory prop <name> [.'$DependencyModel'.'&'.1.'|'.2]", path))
+        rep is None or rep.append(("unexpected string [.'$DependencyModel'.'&'.1.'|'.2.name]", lpath if path is not None else None))
+        rep is None or rep.append(("unexpected value for mandatory prop <name> [.'$DependencyModel'.'&'.1.'|'.2]", lpath if path is not None else None))
         return False
     return True
 
@@ -5429,17 +5582,19 @@ def _jm_obj_102(val: Jsonable, path: Path, rep: Report) -> bool:
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$DependencyModel'.'&'.1.'|'.1]", path))
         return False
+    lpath: Path
     pval: Jsonable
     res: bool
     if not "src" in val:
         rep is None or rep.append(("missing mandatory prop <src> [.'$DependencyModel'.'&'.1.'|'.1]", path))
         return False
+    lpath = (path + [ "src" ]) if path is not None else None
     pval = val.get("src", UNDEFINED)
     # .'$DependencyModel'.'&'.1.'|'.1.src
     res = isinstance(pval, str)
     if not res:
-        rep is None or rep.append(("unexpected string [.'$DependencyModel'.'&'.1.'|'.1.src]", path))
-        rep is None or rep.append(("unexpected value for mandatory prop <src> [.'$DependencyModel'.'&'.1.'|'.1]", path))
+        rep is None or rep.append(("unexpected string [.'$DependencyModel'.'&'.1.'|'.1.src]", lpath if path is not None else None))
+        rep is None or rep.append(("unexpected value for mandatory prop <src> [.'$DependencyModel'.'&'.1.'|'.1]", lpath if path is not None else None))
         return False
     return True
 
@@ -5449,17 +5604,19 @@ def _jm_obj_103(val: Jsonable, path: Path, rep: Report) -> bool:
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$DependencyModel'.'&'.1.'|'.0]", path))
         return False
+    lpath: Path
     pval: Jsonable
     res: bool
     if not "role" in val:
         rep is None or rep.append(("missing mandatory prop <role> [.'$DependencyModel'.'&'.1.'|'.0]", path))
         return False
+    lpath = (path + [ "role" ]) if path is not None else None
     pval = val.get("role", UNDEFINED)
     # .'$DependencyModel'.'&'.1.'|'.0.role
     res = isinstance(pval, str)
     if not res:
-        rep is None or rep.append(("unexpected string [.'$DependencyModel'.'&'.1.'|'.0.role]", path))
-        rep is None or rep.append(("unexpected value for mandatory prop <role> [.'$DependencyModel'.'&'.1.'|'.0]", path))
+        rep is None or rep.append(("unexpected string [.'$DependencyModel'.'&'.1.'|'.0.role]", lpath if path is not None else None))
+        rep is None or rep.append(("unexpected value for mandatory prop <role> [.'$DependencyModel'.'&'.1.'|'.0]", lpath if path is not None else None))
         return False
     return True
 

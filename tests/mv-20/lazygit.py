@@ -196,17 +196,19 @@ def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
     if len(val) != 1:
         rep is None or rep.append(("bad property count [.'$Prompts'.'|'.0.suggestions.'|'.1]", path))
         return False
+    lpath: Path
     pval: Jsonable
     res: bool
     if not ("command" in val):
         rep is None or rep.append(("missing mandatory prop <command> [.'$Prompts'.'|'.0.suggestions.'|'.1]", path))
         return False
+    lpath = (path + [ "command" ]) if path is not None else None
     pval = val.get("command", UNDEFINED)
     # .'$Prompts'.'|'.0.suggestions.'|'.1.command
     res = isinstance(pval, str)
     if not res:
-        rep is None or rep.append(("unexpected string [.'$Prompts'.'|'.0.suggestions.'|'.1.command]", path))
-        rep is None or rep.append(("unexpected value for mandatory prop <command> [.'$Prompts'.'|'.0.suggestions.'|'.1]", path))
+        rep is None or rep.append(("unexpected string [.'$Prompts'.'|'.0.suggestions.'|'.1.command]", lpath if path is not None else None))
+        rep is None or rep.append(("unexpected value for mandatory prop <command> [.'$Prompts'.'|'.0.suggestions.'|'.1]", lpath if path is not None else None))
         return False
     return True
 
@@ -220,17 +222,19 @@ def _jm_obj_2(val: Jsonable, path: Path, rep: Report) -> bool:
     if len(val) != 1:
         rep is None or rep.append(("bad property count [.'$Prompts'.'|'.0.suggestions.'|'.0]", path))
         return False
+    lpath: Path
     pval: Jsonable
     res: bool
     if not "preset" in val:
         rep is None or rep.append(("missing mandatory prop <preset> [.'$Prompts'.'|'.0.suggestions.'|'.0]", path))
         return False
+    lpath = (path + [ "preset" ]) if path is not None else None
     pval = val.get("preset", UNDEFINED)
     # .'$Prompts'.'|'.0.suggestions.'|'.0.preset
     res = ((pval is None or isinstance(pval, (bool, int, float, str)))) and pval in _jm_cst_2
     if not res:
-        rep is None or rep.append(("value not in enum [.'$Prompts'.'|'.0.suggestions.'|'.0.preset.'|']", path))
-        rep is None or rep.append(("unexpected value for mandatory prop <preset> [.'$Prompts'.'|'.0.suggestions.'|'.0]", path))
+        rep is None or rep.append(("value not in enum [.'$Prompts'.'|'.0.suggestions.'|'.0.preset.'|']", lpath if path is not None else None))
+        rep is None or rep.append(("unexpected value for mandatory prop <preset> [.'$Prompts'.'|'.0.suggestions.'|'.0]", lpath if path is not None else None))
         return False
     return True
 
@@ -429,61 +433,66 @@ def _jm_obj_4(val: Jsonable, path: Path, rep: Report) -> bool:
     if len(val) != 4:
         rep is None or rep.append(("bad property count [.'$Prompts'.'|'.2]", path))
         return False
+    lpath: Path
     pval: Jsonable
     res: bool
     if not "type" in val:
         rep is None or rep.append(("missing mandatory prop <type> [.'$Prompts'.'|'.2]", path))
         return False
+    lpath = (path + [ "type" ]) if path is not None else None
     pval = val.get("type", UNDEFINED)
     # .'$Prompts'.'|'.2.type
     res = isinstance(pval, str) and pval == "menu"
     if not res:
-        rep is None or rep.append(("unexpected menu [.'$Prompts'.'|'.2.type]", path))
-        rep is None or rep.append(("unexpected value for mandatory prop <type> [.'$Prompts'.'|'.2]", path))
+        rep is None or rep.append(("unexpected menu [.'$Prompts'.'|'.2.type]", lpath if path is not None else None))
+        rep is None or rep.append(("unexpected value for mandatory prop <type> [.'$Prompts'.'|'.2]", lpath if path is not None else None))
         return False
     if not "title" in val:
         rep is None or rep.append(("missing mandatory prop <title> [.'$Prompts'.'|'.2]", path))
         return False
+    lpath = (path + [ "title" ]) if path is not None else None
     pval = val.get("title", UNDEFINED)
     # .'$Prompts'.'|'.2.title
-    res = json_model_6(pval, path, rep)
+    res = json_model_6(pval, lpath if path is not None else None, rep)
     if not res:
-        rep is None or rep.append(("unexpected $custom-commands-prompts-title-property [.'$Prompts'.'|'.2.title]", path))
-        rep is None or rep.append(("unexpected value for mandatory prop <title> [.'$Prompts'.'|'.2]", path))
+        rep is None or rep.append(("unexpected $custom-commands-prompts-title-property [.'$Prompts'.'|'.2.title]", lpath if path is not None else None))
+        rep is None or rep.append(("unexpected value for mandatory prop <title> [.'$Prompts'.'|'.2]", lpath if path is not None else None))
         return False
     if not "key" in val:
         rep is None or rep.append(("missing mandatory prop <key> [.'$Prompts'.'|'.2]", path))
         return False
+    lpath = (path + [ "key" ]) if path is not None else None
     pval = val.get("key", UNDEFINED)
     # .'$Prompts'.'|'.2.key
-    res = json_model_7(pval, path, rep)
+    res = json_model_7(pval, lpath if path is not None else None, rep)
     if not res:
-        rep is None or rep.append(("unexpected $custom-commands-prompts-key-property [.'$Prompts'.'|'.2.key]", path))
-        rep is None or rep.append(("unexpected value for mandatory prop <key> [.'$Prompts'.'|'.2]", path))
+        rep is None or rep.append(("unexpected $custom-commands-prompts-key-property [.'$Prompts'.'|'.2.key]", lpath if path is not None else None))
+        rep is None or rep.append(("unexpected value for mandatory prop <key> [.'$Prompts'.'|'.2]", lpath if path is not None else None))
         return False
     if not "options" in val:
         rep is None or rep.append(("missing mandatory prop <options> [.'$Prompts'.'|'.2]", path))
         return False
+    lpath = (path + [ "options" ]) if path is not None else None
     pval = val.get("options", UNDEFINED)
     # .'$Prompts'.'|'.2.options
     # .'$Prompts'.'|'.2.options.'@'
     res = isinstance(pval, list)
     if res:
         for arr_2_idx, arr_2_item in enumerate(pval):
-            arr_2_lpath: Path = (path + [ arr_2_idx ]) if path is not None else None
+            arr_2_lpath: Path = ((lpath if path is not None else None) + [ arr_2_idx ]) if (lpath if path is not None else None) is not None else None
             # .'$Prompts'.'|'.2.options.'@'.0
-            res = _jm_obj_5(arr_2_item, arr_2_lpath if path is not None else None, rep)
+            res = _jm_obj_5(arr_2_item, arr_2_lpath if (lpath if path is not None else None) is not None else None, rep)
             if not res:
-                rep is None or rep.append(("unexpected element [.'$Prompts'.'|'.2.options.'@'.0]", arr_2_lpath if path is not None else None))
+                rep is None or rep.append(("unexpected element [.'$Prompts'.'|'.2.options.'@'.0]", arr_2_lpath if (lpath if path is not None else None) is not None else None))
                 break
     if not res:
-        rep is None or rep.append(("not array or unexpected array [.'$Prompts'.'|'.2.options.'@']", path))
+        rep is None or rep.append(("not array or unexpected array [.'$Prompts'.'|'.2.options.'@']", lpath if path is not None else None))
     if res:
-        res = is_unique_array(pval, path, rep)
+        res = is_unique_array(pval, lpath if path is not None else None, rep)
         if not res:
-            rep is None or rep.append(("constraints failed [.'$Prompts'.'|'.2.options]", path))
+            rep is None or rep.append(("constraints failed [.'$Prompts'.'|'.2.options]", lpath if path is not None else None))
     if not res:
-        rep is None or rep.append(("unexpected value for mandatory prop <options> [.'$Prompts'.'|'.2]", path))
+        rep is None or rep.append(("unexpected value for mandatory prop <options> [.'$Prompts'.'|'.2]", lpath if path is not None else None))
         return False
     return True
 
@@ -865,27 +874,30 @@ def _jm_obj_13(val: Jsonable, path: Path, rep: Report) -> bool:
     if len(val) != 2:
         rep is None or rep.append(("bad property count [.git.commitPrefixes.'/./']", path))
         return False
+    lpath: Path
     pval: Jsonable
     res: bool
     if not "pattern" in val:
         rep is None or rep.append(("missing mandatory prop <pattern> [.git.commitPrefixes.'/./']", path))
         return False
+    lpath = (path + [ "pattern" ]) if path is not None else None
     pval = val.get("pattern", UNDEFINED)
     # .git.commitPrefixes.'/./'.pattern
-    res = json_model_8(pval, path, rep)
+    res = json_model_8(pval, lpath if path is not None else None, rep)
     if not res:
-        rep is None or rep.append(("unexpected $neString [.git.commitPrefixes.'/./'.pattern]", path))
-        rep is None or rep.append(("unexpected value for mandatory prop <pattern> [.git.commitPrefixes.'/./']", path))
+        rep is None or rep.append(("unexpected $neString [.git.commitPrefixes.'/./'.pattern]", lpath if path is not None else None))
+        rep is None or rep.append(("unexpected value for mandatory prop <pattern> [.git.commitPrefixes.'/./']", lpath if path is not None else None))
         return False
     if not "replace" in val:
         rep is None or rep.append(("missing mandatory prop <replace> [.git.commitPrefixes.'/./']", path))
         return False
+    lpath = (path + [ "replace" ]) if path is not None else None
     pval = val.get("replace", UNDEFINED)
     # .git.commitPrefixes.'/./'.replace
-    res = json_model_8(pval, path, rep)
+    res = json_model_8(pval, lpath if path is not None else None, rep)
     if not res:
-        rep is None or rep.append(("unexpected $neString [.git.commitPrefixes.'/./'.replace]", path))
-        rep is None or rep.append(("unexpected value for mandatory prop <replace> [.git.commitPrefixes.'/./']", path))
+        rep is None or rep.append(("unexpected $neString [.git.commitPrefixes.'/./'.replace]", lpath if path is not None else None))
+        rep is None or rep.append(("unexpected value for mandatory prop <replace> [.git.commitPrefixes.'/./']", lpath if path is not None else None))
         return False
     return True
 

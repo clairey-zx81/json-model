@@ -122,7 +122,7 @@ BEGIN
   END IF;
   pval := val -> 'coordinates';
   -- .'$Point'.coordinates
-  res := json_model_2(pval, path, rep);
+  res := json_model_2(pval, NULL, rep);
   IF NOT res THEN
     RETURN FALSE;
   END IF;
@@ -264,7 +264,7 @@ BEGIN
   END IF;
   pval := val -> 'coordinates';
   -- .'$LineString'.coordinates
-  res := json_model_3(pval, path, rep);
+  res := json_model_3(pval, NULL, rep);
   IF NOT res THEN
     RETURN FALSE;
   END IF;
@@ -695,10 +695,10 @@ BEGIN
   res := JSONB_TYPEOF(pval) = 'null';
   IF NOT res THEN
     -- .'$Feature'.geometry.'|'.1
-    res := json_model_11(pval, path, rep);
+    res := json_model_11(pval, NULL, rep);
     IF NOT res THEN
       -- .'$Feature'.geometry.'|'.2
-      res := _jm_obj_6(pval, path, rep);
+      res := _jm_obj_6(pval, NULL, rep);
     END IF;
   END IF;
   IF NOT res THEN
@@ -713,7 +713,7 @@ BEGIN
   res := JSONB_TYPEOF(pval) = 'null';
   IF NOT res THEN
     -- .'$Feature'.properties.'|'.1
-    res := _jm_obj_8(pval, path, rep);
+    res := _jm_obj_8(pval, NULL, rep);
   END IF;
   IF NOT res THEN
     RETURN FALSE;

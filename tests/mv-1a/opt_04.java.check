@@ -1,5 +1,5 @@
 opt_04.values.json[0]: PASS
-opt_04.values.json[1]: FAIL (: not a 1 strict int [.a]; : unexpected value for mandatory prop <a> [.])
+opt_04.values.json[1]: FAIL (a: not a 1 strict int [.a]; a: unexpected value for mandatory prop <a> [.])
 opt_04.values.json[2]: FAIL (: bad property count [.])
 opt_04.values.json[3]: FAIL (: bad property count [.])
 opt_04.values.json[4]: FAIL (: bad property count [.])

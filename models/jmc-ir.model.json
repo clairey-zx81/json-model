@@ -40,7 +40,7 @@
         {"o": {"|": ["_()", "not"]}, "e": "$Expr"},
         {"o": "isr"},
         {"o": {"|": ["_|", "_&"]}, "exprs": ["$Expr"]},
-        {"o": "pvl", "pvar": "$Expr", "pseg": "", "is_prop": true},
+        {"o": "pvl", "pvar": "$Expr", "pseg": "", "is_prop": true, "is_var": true},
         {"o": "pl", "lvar": "$Expr", "rvar": "$Expr"},
         {"o": "mr", "name": "$Ident", "var": "$Ident", "regex": "$REGEX", "opts": "$reopts"},
         {"o": "incs", "name": "$Ident", "constants": ["$Cst"], "var": "$Expr"},

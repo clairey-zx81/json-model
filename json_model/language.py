@@ -481,6 +481,9 @@ class Language:
 
     def esc(self, s: str) -> StrExpr:
         """Escape string, with double quotes."""
+        # FIXME too late!
+        if isinstance(s, bool):
+            s = "true" if s else "false"
         return '"' + s.replace("\\", "\\\\").replace('"', r'\"') + '"'
 
     def skip(self) -> Block:
@@ -500,7 +503,7 @@ class Language:
     #
     # TODO consider merging path_var and path_val?
     #
-    def path_val(self, pvar: Var, pseg: str|int, is_prop: bool) -> PathExpr:
+    def path_val(self, pvar: Var, pseg: str|int, is_prop: bool, is_var: bool) -> PathExpr:
         """Append a segment variable/value to path."""
         raise NotImplementedError("see derived classes")
 

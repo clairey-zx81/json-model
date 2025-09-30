@@ -42,7 +42,7 @@ sub _jm_obj_0($$$)
     }
     $pval = $$val{'born'};
     # .born
-    $res = jm_is_string($pval) && jm_is_valid_date($pval, $path, $rep);
+    $res = jm_is_string($pval) && jm_is_valid_date($pval, undef, $rep);
     if (! $res)
     {
         return 0;

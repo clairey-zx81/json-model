@@ -117,7 +117,7 @@ BEGIN
     pval := val -> 'type';
     -- .'$schema'.type
     -- .'$schema'.type.'|'.0
-    res := json_model_4(pval, path, rep);
+    res := json_model_4(pval, NULL, rep);
     IF NOT res THEN
       -- .'$schema'.type.'|'.1
       res := JSONB_TYPEOF(pval) = 'array';
@@ -144,7 +144,7 @@ BEGIN
   IF val ? 'properties' THEN
     pval := val -> 'properties';
     -- .'$schema'.properties
-    res := _jm_obj_1(pval, path, rep);
+    res := _jm_obj_1(pval, NULL, rep);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -152,7 +152,7 @@ BEGIN
   IF val ? 'patternProperties' THEN
     pval := val -> 'patternProperties';
     -- .'$schema'.patternProperties
-    res := _jm_obj_2(pval, path, rep);
+    res := _jm_obj_2(pval, NULL, rep);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -164,7 +164,7 @@ BEGIN
     res := JSONB_TYPEOF(pval) = 'boolean';
     IF NOT res THEN
       -- .'$schema'.additionalProperties.'|'.1
-      res := _jm_obj_0(pval, path, rep);
+      res := _jm_obj_0(pval, NULL, rep);
     END IF;
     IF NOT res THEN
       RETURN FALSE;
@@ -174,7 +174,7 @@ BEGIN
     pval := val -> 'items';
     -- .'$schema'.items
     -- .'$schema'.items.'|'.0
-    res := _jm_obj_0(pval, path, rep);
+    res := _jm_obj_0(pval, NULL, rep);
     IF NOT res THEN
       -- .'$schema'.items.'|'.1
       res := JSONB_TYPEOF(pval) = 'array';
@@ -200,7 +200,7 @@ BEGIN
     res := JSONB_TYPEOF(pval) = 'boolean';
     IF NOT res THEN
       -- .'$schema'.additionalItems.'|'.1
-      res := _jm_obj_0(pval, path, rep);
+      res := _jm_obj_0(pval, NULL, rep);
     END IF;
     IF NOT res THEN
       RETURN FALSE;
@@ -209,7 +209,7 @@ BEGIN
   IF val ? 'dependencies' THEN
     pval := val -> 'dependencies';
     -- .'$schema'.dependencies
-    res := _jm_obj_3(pval, path, rep);
+    res := _jm_obj_3(pval, NULL, rep);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -293,7 +293,7 @@ BEGIN
     res := JSONB_TYPEOF(pval) = 'array';
     IF res THEN
       ival_0 := JSONB_ARRAY_LENGTH(pval);
-      res := jm_array_is_unique(pval, path, rep) AND ival_0 >= 1;
+      res := jm_array_is_unique(pval, NULL, rep) AND ival_0 >= 1;
     END IF;
     IF NOT res THEN
       RETURN FALSE;
@@ -338,7 +338,7 @@ BEGIN
     res := JSONB_TYPEOF(pval) = 'string';
     IF NOT res THEN
       -- .'$schema'.disallow.'|'.1
-      res := json_model_5(pval, path, rep);
+      res := json_model_5(pval, NULL, rep);
     END IF;
     IF NOT res THEN
       RETURN FALSE;
@@ -348,7 +348,7 @@ BEGIN
     pval := val -> 'extends';
     -- .'$schema'.extends
     -- .'$schema'.extends.'|'.0
-    res := _jm_obj_0(pval, path, rep);
+    res := _jm_obj_0(pval, NULL, rep);
     IF NOT res THEN
       -- .'$schema'.extends.'|'.1
       res := JSONB_TYPEOF(pval) = 'array';

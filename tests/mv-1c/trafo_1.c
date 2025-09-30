@@ -30,6 +30,7 @@ static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *re
         if (rep) jm_report_add_entry(rep, "bad property count [.'$un']", path);
         return false;
     }
+    jm_path_t lpath;
     json_t * pval;
     bool res;
     if (! (json_object_get(val, "ua") != NULL))
@@ -37,13 +38,14 @@ static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *re
         if (rep) jm_report_add_entry(rep, "missing mandatory prop <ua> [.'$un']", path);
         return false;
     }
+    lpath = (jm_path_t) { "ua", 0, path, NULL };
     pval = json_object_get(val, "ua");
     // .'$un'.ua
     res = json_is_integer(pval) && json_integer_value(pval) >= 0;
     if (! res)
     {
-        if (rep) jm_report_add_entry(rep, "not a 0 strict int [.'$un'.ua]", path);
-        if (rep) jm_report_add_entry(rep, "unexpected value for mandatory prop <ua> [.'$un']", path);
+        if (rep) jm_report_add_entry(rep, "not a 0 strict int [.'$un'.ua]", (path ? &lpath : NULL));
+        if (rep) jm_report_add_entry(rep, "unexpected value for mandatory prop <ua> [.'$un']", (path ? &lpath : NULL));
         return false;
     }
     if (! (json_object_get(val, "ub") != NULL))
@@ -51,13 +53,14 @@ static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *re
         if (rep) jm_report_add_entry(rep, "missing mandatory prop <ub> [.'$un']", path);
         return false;
     }
+    lpath = (jm_path_t) { "ub", 0, path, NULL };
     pval = json_object_get(val, "ub");
     // .'$un'.ub
     res = json_is_integer(pval) && json_integer_value(pval) >= 0;
     if (! res)
     {
-        if (rep) jm_report_add_entry(rep, "not a 0 strict int [.'$un'.ub]", path);
-        if (rep) jm_report_add_entry(rep, "unexpected value for mandatory prop <ub> [.'$un']", path);
+        if (rep) jm_report_add_entry(rep, "not a 0 strict int [.'$un'.ub]", (path ? &lpath : NULL));
+        if (rep) jm_report_add_entry(rep, "unexpected value for mandatory prop <ub> [.'$un']", (path ? &lpath : NULL));
         return false;
     }
     return true;

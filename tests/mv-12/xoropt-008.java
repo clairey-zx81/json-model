@@ -33,6 +33,7 @@ public class xoropt_008 extends ModelChecker
             if (rep != null) rep.addEntry("bad property count [.'|'.2]", path);
             return false;
         }
+        Path lpath;
         Object pval;
         boolean res;
         if (! json.objectHasProp(val, "a"))
@@ -40,6 +41,7 @@ public class xoropt_008 extends ModelChecker
             if (rep != null) rep.addEntry("missing mandatory prop <a> [.'|'.2]", path);
             return false;
         }
+        lpath = new Path("a", path);
         pval = json.objectValue(val, "a");
         // .'|'.2.a
         res = json.isArray(pval);
@@ -51,20 +53,20 @@ public class xoropt_008 extends ModelChecker
             {
                 arr_0_idx++;
                 Object arr_0_item = arr_0_item_loop.next();
-                Path arr_0_lpath = new Path(arr_0_idx, path);
+                Path arr_0_lpath = new Path(arr_0_idx, (path != null ? lpath : null));
                 // .'|'.2.a.0
                 res = json.isInteger(arr_0_item) && json.asLong(arr_0_item) >= 0;
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("not a 0 strict int [.'|'.2.a.0]", (path != null ? arr_0_lpath : null));
+                    if (rep != null) rep.addEntry("not a 0 strict int [.'|'.2.a.0]", ((path != null ? lpath : null) != null ? arr_0_lpath : null));
                     break;
                 }
             }
         }
         if (! res)
         {
-            if (rep != null) rep.addEntry("not array or unexpected array [.'|'.2.a]", path);
-            if (rep != null) rep.addEntry("unexpected value for mandatory prop <a> [.'|'.2]", path);
+            if (rep != null) rep.addEntry("not array or unexpected array [.'|'.2.a]", (path != null ? lpath : null));
+            if (rep != null) rep.addEntry("unexpected value for mandatory prop <a> [.'|'.2]", (path != null ? lpath : null));
             return false;
         }
         return true;
@@ -84,6 +86,7 @@ public class xoropt_008 extends ModelChecker
             if (rep != null) rep.addEntry("bad property count [.'|'.1]", path);
             return false;
         }
+        Path lpath;
         Object pval;
         boolean res;
         if (! json.objectHasProp(val, "a"))
@@ -91,13 +94,14 @@ public class xoropt_008 extends ModelChecker
             if (rep != null) rep.addEntry("missing mandatory prop <a> [.'|'.1]", path);
             return false;
         }
+        lpath = new Path("a", path);
         pval = json.objectValue(val, "a");
         // .'|'.1.a
         res = json.isString(pval);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected string [.'|'.1.a]", path);
-            if (rep != null) rep.addEntry("unexpected value for mandatory prop <a> [.'|'.1]", path);
+            if (rep != null) rep.addEntry("unexpected string [.'|'.1.a]", (path != null ? lpath : null));
+            if (rep != null) rep.addEntry("unexpected value for mandatory prop <a> [.'|'.1]", (path != null ? lpath : null));
             return false;
         }
         return true;
@@ -117,6 +121,7 @@ public class xoropt_008 extends ModelChecker
             if (rep != null) rep.addEntry("bad property count [.'|'.0]", path);
             return false;
         }
+        Path lpath;
         Object pval;
         boolean res;
         if (! json.objectHasProp(val, "a"))
@@ -124,13 +129,14 @@ public class xoropt_008 extends ModelChecker
             if (rep != null) rep.addEntry("missing mandatory prop <a> [.'|'.0]", path);
             return false;
         }
+        lpath = new Path("a", path);
         pval = json.objectValue(val, "a");
         // .'|'.0.a
         res = json.isBoolean(pval);
         if (! res)
         {
-            if (rep != null) rep.addEntry("not a bool [.'|'.0.a]", path);
-            if (rep != null) rep.addEntry("unexpected value for mandatory prop <a> [.'|'.0]", path);
+            if (rep != null) rep.addEntry("not a bool [.'|'.0.a]", (path != null ? lpath : null));
+            if (rep != null) rep.addEntry("unexpected value for mandatory prop <a> [.'|'.0]", (path != null ? lpath : null));
             return false;
         }
         return true;

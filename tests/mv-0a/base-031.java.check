@@ -1,7 +1,7 @@
 base-031.values.json[0]: PASS
 base-031.values.json[1]: PASS
 base-031.values.json[2]: PASS
-base-031.values.json[3]: FAIL (: not array or unexpected array [.'$bibi'.bibi]; : unexpected value for mandatory prop <bibi> [.'$bibi'])
+base-031.values.json[3]: FAIL (bibi: not array or unexpected array [.'$bibi'.bibi]; bibi: unexpected value for mandatory prop <bibi> [.'$bibi'])
 base-031.values.json[4]: FAIL (: bad property count [.'$bibi'])
 base-031.values.json[5]: FAIL (: not an object [.'$bibi'])
 base-031.values.json[6]: FAIL (: not an object [.'$bibi'])

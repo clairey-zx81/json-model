@@ -33,6 +33,7 @@ static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *re
         if (rep) jm_report_add_entry(rep, "bad property count [.'$Aa']", path);
         return false;
     }
+    jm_path_t lpath;
     json_t * pval;
     bool res;
     if (! (json_object_get(val, "t") != NULL))
@@ -40,13 +41,14 @@ static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *re
         if (rep) jm_report_add_entry(rep, "missing mandatory prop <t> [.'$Aa']", path);
         return false;
     }
+    lpath = (jm_path_t) { "t", 0, path, NULL };
     pval = json_object_get(val, "t");
     // .'$Aa'.t
     res = json_is_boolean(pval) && json_boolean_value(pval) == true;
     if (! res)
     {
-        if (rep) jm_report_add_entry(rep, "unexpected =true [.'$Aa'.t]", path);
-        if (rep) jm_report_add_entry(rep, "unexpected value for mandatory prop <t> [.'$Aa']", path);
+        if (rep) jm_report_add_entry(rep, "unexpected =true [.'$Aa'.t]", (path ? &lpath : NULL));
+        if (rep) jm_report_add_entry(rep, "unexpected value for mandatory prop <t> [.'$Aa']", (path ? &lpath : NULL));
         return false;
     }
     if (! (json_object_get(val, "a") != NULL))
@@ -54,13 +56,14 @@ static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *re
         if (rep) jm_report_add_entry(rep, "missing mandatory prop <a> [.'$Aa']", path);
         return false;
     }
+    lpath = (jm_path_t) { "a", 0, path, NULL };
     pval = json_object_get(val, "a");
     // .'$Aa'.a
     res = json_is_integer(pval) && json_integer_value(pval) >= 0;
     if (! res)
     {
-        if (rep) jm_report_add_entry(rep, "not a 0 strict int [.'$Aa'.a]", path);
-        if (rep) jm_report_add_entry(rep, "unexpected value for mandatory prop <a> [.'$Aa']", path);
+        if (rep) jm_report_add_entry(rep, "not a 0 strict int [.'$Aa'.a]", (path ? &lpath : NULL));
+        if (rep) jm_report_add_entry(rep, "unexpected value for mandatory prop <a> [.'$Aa']", (path ? &lpath : NULL));
         return false;
     }
     return true;
@@ -93,6 +96,7 @@ static INLINE bool _jm_obj_1(const json_t *val, jm_path_t *path, jm_report_t *re
         if (rep) jm_report_add_entry(rep, "bad property count [.'$Bb']", path);
         return false;
     }
+    jm_path_t lpath;
     json_t * pval;
     bool res;
     if (! (json_object_get(val, "t") != NULL))
@@ -100,13 +104,14 @@ static INLINE bool _jm_obj_1(const json_t *val, jm_path_t *path, jm_report_t *re
         if (rep) jm_report_add_entry(rep, "missing mandatory prop <t> [.'$Bb']", path);
         return false;
     }
+    lpath = (jm_path_t) { "t", 0, path, NULL };
     pval = json_object_get(val, "t");
     // .'$Bb'.t
     res = json_is_boolean(pval) && json_boolean_value(pval) == false;
     if (! res)
     {
-        if (rep) jm_report_add_entry(rep, "unexpected =false [.'$Bb'.t]", path);
-        if (rep) jm_report_add_entry(rep, "unexpected value for mandatory prop <t> [.'$Bb']", path);
+        if (rep) jm_report_add_entry(rep, "unexpected =false [.'$Bb'.t]", (path ? &lpath : NULL));
+        if (rep) jm_report_add_entry(rep, "unexpected value for mandatory prop <t> [.'$Bb']", (path ? &lpath : NULL));
         return false;
     }
     if (! (json_object_get(val, "b") != NULL))
@@ -114,13 +119,14 @@ static INLINE bool _jm_obj_1(const json_t *val, jm_path_t *path, jm_report_t *re
         if (rep) jm_report_add_entry(rep, "missing mandatory prop <b> [.'$Bb']", path);
         return false;
     }
+    lpath = (jm_path_t) { "b", 0, path, NULL };
     pval = json_object_get(val, "b");
     // .'$Bb'.b
     res = json_is_integer(pval) && json_integer_value(pval) >= 0;
     if (! res)
     {
-        if (rep) jm_report_add_entry(rep, "not a 0 strict int [.'$Bb'.b]", path);
-        if (rep) jm_report_add_entry(rep, "unexpected value for mandatory prop <b> [.'$Bb']", path);
+        if (rep) jm_report_add_entry(rep, "not a 0 strict int [.'$Bb'.b]", (path ? &lpath : NULL));
+        if (rep) jm_report_add_entry(rep, "unexpected value for mandatory prop <b> [.'$Bb']", (path ? &lpath : NULL));
         return false;
     }
     return true;

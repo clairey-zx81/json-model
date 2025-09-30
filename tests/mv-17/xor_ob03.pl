@@ -170,7 +170,7 @@ sub _jm_obj_0($$$)
             my $fun_0 = $_jm_map_0{$tag_0};
             if (defined($fun_0))
             {
-                $res = &$fun_0($pval, $path, $rep);
+                $res = &$fun_0($pval, undef, $rep);
             }
             else
             {

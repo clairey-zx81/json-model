@@ -59,6 +59,7 @@ static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *re
         if (rep) jm_report_add_entry(rep, "bad property count [.'$foo#Foo']", path);
         return false;
     }
+    jm_path_t lpath;
     json_t * pval;
     bool res;
     if (! (json_object_get(val, "rt") != NULL))
@@ -66,13 +67,14 @@ static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *re
         if (rep) jm_report_add_entry(rep, "missing mandatory prop <rt> [.'$foo#Foo']", path);
         return false;
     }
+    lpath = (jm_path_t) { "rt", 0, path, NULL };
     pval = json_object_get(val, "rt");
     // .'$foo#Foo'.rt
-    res = _jm_obj_1(pval, path, rep);
+    res = _jm_obj_1(pval, (path ? &lpath : NULL), rep);
     if (! res)
     {
-        if (rep) jm_report_add_entry(rep, "unexpected $root#Root [.'$foo#Foo'.rt]", path);
-        if (rep) jm_report_add_entry(rep, "unexpected value for mandatory prop <rt> [.'$foo#Foo']", path);
+        if (rep) jm_report_add_entry(rep, "unexpected $root#Root [.'$foo#Foo'.rt]", (path ? &lpath : NULL));
+        if (rep) jm_report_add_entry(rep, "unexpected value for mandatory prop <rt> [.'$foo#Foo']", (path ? &lpath : NULL));
         return false;
     }
     return true;
@@ -105,6 +107,7 @@ static INLINE bool _jm_obj_1(const json_t *val, jm_path_t *path, jm_report_t *re
         if (rep) jm_report_add_entry(rep, "bad property count [.'$foo#root#root#Root']", path);
         return false;
     }
+    jm_path_t lpath;
     json_t * pval;
     bool res;
     if (! (json_object_get(val, "id") != NULL))
@@ -112,13 +115,14 @@ static INLINE bool _jm_obj_1(const json_t *val, jm_path_t *path, jm_report_t *re
         if (rep) jm_report_add_entry(rep, "missing mandatory prop <id> [.'$foo#root#root#Root']", path);
         return false;
     }
+    lpath = (jm_path_t) { "id", 0, path, NULL };
     pval = json_object_get(val, "id");
     // .'$foo#root#root#Root'.id
     res = json_is_integer(pval) && json_integer_value(pval) == 1;
     if (! res)
     {
-        if (rep) jm_report_add_entry(rep, "unexpected =1 [.'$foo#root#root#Root'.id]", path);
-        if (rep) jm_report_add_entry(rep, "unexpected value for mandatory prop <id> [.'$foo#root#root#Root']", path);
+        if (rep) jm_report_add_entry(rep, "unexpected =1 [.'$foo#root#root#Root'.id]", (path ? &lpath : NULL));
+        if (rep) jm_report_add_entry(rep, "unexpected value for mandatory prop <id> [.'$foo#root#root#Root']", (path ? &lpath : NULL));
         return false;
     }
     if (! (json_object_get(val, "name") != NULL))
@@ -126,13 +130,14 @@ static INLINE bool _jm_obj_1(const json_t *val, jm_path_t *path, jm_report_t *re
         if (rep) jm_report_add_entry(rep, "missing mandatory prop <name> [.'$foo#root#root#Root']", path);
         return false;
     }
+    lpath = (jm_path_t) { "name", 0, path, NULL };
     pval = json_object_get(val, "name");
     // .'$foo#root#root#Root'.name
     res = json_is_string(pval);
     if (! res)
     {
-        if (rep) jm_report_add_entry(rep, "unexpected string [.'$foo#root#root#Root'.name]", path);
-        if (rep) jm_report_add_entry(rep, "unexpected value for mandatory prop <name> [.'$foo#root#root#Root']", path);
+        if (rep) jm_report_add_entry(rep, "unexpected string [.'$foo#root#root#Root'.name]", (path ? &lpath : NULL));
+        if (rep) jm_report_add_entry(rep, "unexpected value for mandatory prop <name> [.'$foo#root#root#Root']", (path ? &lpath : NULL));
         return false;
     }
     return true;

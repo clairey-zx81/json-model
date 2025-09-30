@@ -59,7 +59,7 @@ sub _jm_obj_0($$$)
     }
     $pval = $$val{'rt'};
     # .'$foo#Foo'.rt
-    $res = _jm_obj_1($pval, $path, $rep);
+    $res = _jm_obj_1($pval, undef, $rep);
     if (! $res)
     {
         return 0;

@@ -190,7 +190,7 @@ sub _jm_obj_0($$$)
     {
         $pval = $$val{'$id'};
         # .'$schema#ObjectSchema'.'$id'
-        $res = json_model_4($pval, $path, $rep);
+        $res = json_model_4($pval, undef, $rep);
         if (! $res)
         {
             return 0;
@@ -200,7 +200,7 @@ sub _jm_obj_0($$$)
     {
         $pval = $$val{'$schema'};
         # .'$schema#ObjectSchema'.'$schema'
-        $res = jm_is_string($pval) && jm_is_valid_url($pval, $path, $rep);
+        $res = jm_is_string($pval) && jm_is_valid_url($pval, undef, $rep);
         if (! $res)
         {
             return 0;
@@ -340,7 +340,7 @@ sub _jm_obj_0($$$)
     {
         $pval = $$val{'additionalItems'};
         # .'$schema#ObjectSchema'.additionalItems
-        $res = json_model_9($pval, $path, $rep);
+        $res = json_model_9($pval, undef, $rep);
         if (! $res)
         {
             return 0;
@@ -351,11 +351,11 @@ sub _jm_obj_0($$$)
         $pval = $$val{'items'};
         # .'$schema#ObjectSchema'.items
         # .'$schema#ObjectSchema'.items.'|'.0
-        $res = json_model_9($pval, $path, $rep);
+        $res = json_model_9($pval, undef, $rep);
         if (! $res)
         {
             # .'$schema#ObjectSchema'.items.'|'.1
-            $res = json_model_5($pval, $path, $rep);
+            $res = json_model_5($pval, undef, $rep);
         }
         if (! $res)
         {
@@ -396,7 +396,7 @@ sub _jm_obj_0($$$)
     {
         $pval = $$val{'contains'};
         # .'$schema#ObjectSchema'.contains
-        $res = json_model_9($pval, $path, $rep);
+        $res = json_model_9($pval, undef, $rep);
         if (! $res)
         {
             return 0;
@@ -449,7 +449,7 @@ sub _jm_obj_0($$$)
     {
         $pval = $$val{'additionalProperties'};
         # .'$schema#ObjectSchema'.additionalProperties
-        $res = json_model_9($pval, $path, $rep);
+        $res = json_model_9($pval, undef, $rep);
         if (! $res)
         {
             return 0;
@@ -459,7 +459,7 @@ sub _jm_obj_0($$$)
     {
         $pval = $$val{'definitions'};
         # .'$schema#ObjectSchema'.definitions
-        $res = _jm_obj_1($pval, $path, $rep);
+        $res = _jm_obj_1($pval, undef, $rep);
         if (! $res)
         {
             return 0;
@@ -469,7 +469,7 @@ sub _jm_obj_0($$$)
     {
         $pval = $$val{'properties'};
         # .'$schema#ObjectSchema'.properties
-        $res = _jm_obj_2($pval, $path, $rep);
+        $res = _jm_obj_2($pval, undef, $rep);
         if (! $res)
         {
             return 0;
@@ -479,7 +479,7 @@ sub _jm_obj_0($$$)
     {
         $pval = $$val{'propertyNames'};
         # .'$schema#ObjectSchema'.propertyNames
-        $res = json_model_9($pval, $path, $rep);
+        $res = json_model_9($pval, undef, $rep);
         if (! $res)
         {
             return 0;
@@ -489,7 +489,7 @@ sub _jm_obj_0($$$)
     {
         $pval = $$val{'dependencies'};
         # .'$schema#ObjectSchema'.dependencies
-        $res = _jm_obj_3($pval, $path, $rep);
+        $res = _jm_obj_3($pval, undef, $rep);
         if (! $res)
         {
             return 0;
@@ -504,7 +504,7 @@ sub _jm_obj_0($$$)
         if ($res)
         {
             my $ival_0 = scalar @$pval;
-            $res = jm_is_unique_array($pval, $path, $rep) && $ival_0 >= 1;
+            $res = jm_is_unique_array($pval, undef, $rep) && $ival_0 >= 1;
         }
         if (! $res)
         {
@@ -516,11 +516,11 @@ sub _jm_obj_0($$$)
         $pval = $$val{'type'};
         # .'$schema#ObjectSchema'.type
         # .'$schema#ObjectSchema'.type.'|'.0
-        $res = json_model_6($pval, $path, $rep);
+        $res = json_model_6($pval, undef, $rep);
         if (! $res)
         {
             # .'$schema#ObjectSchema'.type.'|'.1
-            $res = json_model_7($pval, $path, $rep);
+            $res = json_model_7($pval, undef, $rep);
         }
         if (! $res)
         {
@@ -561,7 +561,7 @@ sub _jm_obj_0($$$)
     {
         $pval = $$val{'if'};
         # .'$schema#ObjectSchema'.if
-        $res = json_model_9($pval, $path, $rep);
+        $res = json_model_9($pval, undef, $rep);
         if (! $res)
         {
             return 0;
@@ -571,7 +571,7 @@ sub _jm_obj_0($$$)
     {
         $pval = $$val{'then'};
         # .'$schema#ObjectSchema'.then
-        $res = json_model_9($pval, $path, $rep);
+        $res = json_model_9($pval, undef, $rep);
         if (! $res)
         {
             return 0;
@@ -581,7 +581,7 @@ sub _jm_obj_0($$$)
     {
         $pval = $$val{'else'};
         # .'$schema#ObjectSchema'.else
-        $res = json_model_9($pval, $path, $rep);
+        $res = json_model_9($pval, undef, $rep);
         if (! $res)
         {
             return 0;
@@ -591,7 +591,7 @@ sub _jm_obj_0($$$)
     {
         $pval = $$val{'allOf'};
         # .'$schema#ObjectSchema'.allOf
-        $res = json_model_5($pval, $path, $rep);
+        $res = json_model_5($pval, undef, $rep);
         if (! $res)
         {
             return 0;
@@ -601,7 +601,7 @@ sub _jm_obj_0($$$)
     {
         $pval = $$val{'anyOf'};
         # .'$schema#ObjectSchema'.anyOf
-        $res = json_model_5($pval, $path, $rep);
+        $res = json_model_5($pval, undef, $rep);
         if (! $res)
         {
             return 0;
@@ -611,7 +611,7 @@ sub _jm_obj_0($$$)
     {
         $pval = $$val{'oneOf'};
         # .'$schema#ObjectSchema'.oneOf
-        $res = json_model_5($pval, $path, $rep);
+        $res = json_model_5($pval, undef, $rep);
         if (! $res)
         {
             return 0;
@@ -621,7 +621,7 @@ sub _jm_obj_0($$$)
     {
         $pval = $$val{'not'};
         # .'$schema#ObjectSchema'.not
-        $res = json_model_9($pval, $path, $rep);
+        $res = json_model_9($pval, undef, $rep);
         if (! $res)
         {
             return 0;
@@ -631,7 +631,7 @@ sub _jm_obj_0($$$)
     {
         $pval = $$val{'$ref'};
         # .'$schema#ObjectSchema'.'$ref'
-        $res = json_model_4($pval, $path, $rep);
+        $res = json_model_4($pval, undef, $rep);
         if (! $res)
         {
             return 0;
@@ -651,7 +651,7 @@ sub _jm_obj_0($$$)
     {
         $pval = $$val{'patternProperties'};
         # .'$schema#ObjectSchema'.patternProperties
-        $res = _jm_obj_4($pval, $path, $rep);
+        $res = _jm_obj_4($pval, undef, $rep);
         if (! $res)
         {
             return 0;

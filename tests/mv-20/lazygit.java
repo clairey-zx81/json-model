@@ -281,6 +281,7 @@ public class lazygit extends ModelChecker
             if (rep != null) rep.addEntry("bad property count [.'$Prompts'.'|'.0.suggestions.'|'.1]", path);
             return false;
         }
+        Path lpath;
         Object pval;
         boolean res;
         if (! json.objectHasProp(val, "command"))
@@ -288,13 +289,14 @@ public class lazygit extends ModelChecker
             if (rep != null) rep.addEntry("missing mandatory prop <command> [.'$Prompts'.'|'.0.suggestions.'|'.1]", path);
             return false;
         }
+        lpath = new Path("command", path);
         pval = json.objectValue(val, "command");
         // .'$Prompts'.'|'.0.suggestions.'|'.1.command
         res = json.isString(pval);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected string [.'$Prompts'.'|'.0.suggestions.'|'.1.command]", path);
-            if (rep != null) rep.addEntry("unexpected value for mandatory prop <command> [.'$Prompts'.'|'.0.suggestions.'|'.1]", path);
+            if (rep != null) rep.addEntry("unexpected string [.'$Prompts'.'|'.0.suggestions.'|'.1.command]", (path != null ? lpath : null));
+            if (rep != null) rep.addEntry("unexpected value for mandatory prop <command> [.'$Prompts'.'|'.0.suggestions.'|'.1]", (path != null ? lpath : null));
             return false;
         }
         return true;
@@ -315,6 +317,7 @@ public class lazygit extends ModelChecker
             if (rep != null) rep.addEntry("bad property count [.'$Prompts'.'|'.0.suggestions.'|'.0]", path);
             return false;
         }
+        Path lpath;
         Object pval;
         boolean res;
         if (! json.objectHasProp(val, "preset"))
@@ -322,13 +325,14 @@ public class lazygit extends ModelChecker
             if (rep != null) rep.addEntry("missing mandatory prop <preset> [.'$Prompts'.'|'.0.suggestions.'|'.0]", path);
             return false;
         }
+        lpath = new Path("preset", path);
         pval = json.objectValue(val, "preset");
         // .'$Prompts'.'|'.0.suggestions.'|'.0.preset
         res = json.isScalar(pval) && _jm_cst_2_set.contains(pval);
         if (! res)
         {
-            if (rep != null) rep.addEntry("value not in enum [.'$Prompts'.'|'.0.suggestions.'|'.0.preset.'|']", path);
-            if (rep != null) rep.addEntry("unexpected value for mandatory prop <preset> [.'$Prompts'.'|'.0.suggestions.'|'.0]", path);
+            if (rep != null) rep.addEntry("value not in enum [.'$Prompts'.'|'.0.suggestions.'|'.0.preset.'|']", (path != null ? lpath : null));
+            if (rep != null) rep.addEntry("unexpected value for mandatory prop <preset> [.'$Prompts'.'|'.0.suggestions.'|'.0]", (path != null ? lpath : null));
             return false;
         }
         return true;
@@ -652,6 +656,7 @@ public class lazygit extends ModelChecker
             if (rep != null) rep.addEntry("bad property count [.'$Prompts'.'|'.2]", path);
             return false;
         }
+        Path lpath;
         Object pval;
         boolean res;
         if (! json.objectHasProp(val, "type"))
@@ -659,13 +664,14 @@ public class lazygit extends ModelChecker
             if (rep != null) rep.addEntry("missing mandatory prop <type> [.'$Prompts'.'|'.2]", path);
             return false;
         }
+        lpath = new Path("type", path);
         pval = json.objectValue(val, "type");
         // .'$Prompts'.'|'.2.type
         res = json.isString(pval) && json.asString(pval).compareTo("menu") == 0;
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected menu [.'$Prompts'.'|'.2.type]", path);
-            if (rep != null) rep.addEntry("unexpected value for mandatory prop <type> [.'$Prompts'.'|'.2]", path);
+            if (rep != null) rep.addEntry("unexpected menu [.'$Prompts'.'|'.2.type]", (path != null ? lpath : null));
+            if (rep != null) rep.addEntry("unexpected value for mandatory prop <type> [.'$Prompts'.'|'.2]", (path != null ? lpath : null));
             return false;
         }
         if (! json.objectHasProp(val, "title"))
@@ -673,13 +679,14 @@ public class lazygit extends ModelChecker
             if (rep != null) rep.addEntry("missing mandatory prop <title> [.'$Prompts'.'|'.2]", path);
             return false;
         }
+        lpath = new Path("title", path);
         pval = json.objectValue(val, "title");
         // .'$Prompts'.'|'.2.title
-        res = json_model_6(pval, path, rep);
+        res = json_model_6(pval, (path != null ? lpath : null), rep);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected $custom-commands-prompts-title-property [.'$Prompts'.'|'.2.title]", path);
-            if (rep != null) rep.addEntry("unexpected value for mandatory prop <title> [.'$Prompts'.'|'.2]", path);
+            if (rep != null) rep.addEntry("unexpected $custom-commands-prompts-title-property [.'$Prompts'.'|'.2.title]", (path != null ? lpath : null));
+            if (rep != null) rep.addEntry("unexpected value for mandatory prop <title> [.'$Prompts'.'|'.2]", (path != null ? lpath : null));
             return false;
         }
         if (! json.objectHasProp(val, "key"))
@@ -687,13 +694,14 @@ public class lazygit extends ModelChecker
             if (rep != null) rep.addEntry("missing mandatory prop <key> [.'$Prompts'.'|'.2]", path);
             return false;
         }
+        lpath = new Path("key", path);
         pval = json.objectValue(val, "key");
         // .'$Prompts'.'|'.2.key
-        res = json_model_7(pval, path, rep);
+        res = json_model_7(pval, (path != null ? lpath : null), rep);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected $custom-commands-prompts-key-property [.'$Prompts'.'|'.2.key]", path);
-            if (rep != null) rep.addEntry("unexpected value for mandatory prop <key> [.'$Prompts'.'|'.2]", path);
+            if (rep != null) rep.addEntry("unexpected $custom-commands-prompts-key-property [.'$Prompts'.'|'.2.key]", (path != null ? lpath : null));
+            if (rep != null) rep.addEntry("unexpected value for mandatory prop <key> [.'$Prompts'.'|'.2]", (path != null ? lpath : null));
             return false;
         }
         if (! json.objectHasProp(val, "options"))
@@ -701,6 +709,7 @@ public class lazygit extends ModelChecker
             if (rep != null) rep.addEntry("missing mandatory prop <options> [.'$Prompts'.'|'.2]", path);
             return false;
         }
+        lpath = new Path("options", path);
         pval = json.objectValue(val, "options");
         // .'$Prompts'.'|'.2.options
         // .'$Prompts'.'|'.2.options.'@'
@@ -713,31 +722,31 @@ public class lazygit extends ModelChecker
             {
                 arr_2_idx++;
                 Object arr_2_item = arr_2_item_loop.next();
-                Path arr_2_lpath = new Path(arr_2_idx, path);
+                Path arr_2_lpath = new Path(arr_2_idx, (path != null ? lpath : null));
                 // .'$Prompts'.'|'.2.options.'@'.0
-                res = _jm_obj_5(arr_2_item, (path != null ? arr_2_lpath : null), rep);
+                res = _jm_obj_5(arr_2_item, ((path != null ? lpath : null) != null ? arr_2_lpath : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected element [.'$Prompts'.'|'.2.options.'@'.0]", (path != null ? arr_2_lpath : null));
+                    if (rep != null) rep.addEntry("unexpected element [.'$Prompts'.'|'.2.options.'@'.0]", ((path != null ? lpath : null) != null ? arr_2_lpath : null));
                     break;
                 }
             }
         }
         if (! res)
         {
-            if (rep != null) rep.addEntry("not array or unexpected array [.'$Prompts'.'|'.2.options.'@']", path);
+            if (rep != null) rep.addEntry("not array or unexpected array [.'$Prompts'.'|'.2.options.'@']", (path != null ? lpath : null));
         }
         if (res)
         {
-            res = rt.array_is_unique(pval, path, rep);
+            res = rt.array_is_unique(pval, (path != null ? lpath : null), rep);
             if (! res)
             {
-                if (rep != null) rep.addEntry("constraints failed [.'$Prompts'.'|'.2.options]", path);
+                if (rep != null) rep.addEntry("constraints failed [.'$Prompts'.'|'.2.options]", (path != null ? lpath : null));
             }
         }
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected value for mandatory prop <options> [.'$Prompts'.'|'.2]", path);
+            if (rep != null) rep.addEntry("unexpected value for mandatory prop <options> [.'$Prompts'.'|'.2]", (path != null ? lpath : null));
             return false;
         }
         return true;
@@ -1342,6 +1351,7 @@ public class lazygit extends ModelChecker
             if (rep != null) rep.addEntry("bad property count [.git.commitPrefixes.'/./']", path);
             return false;
         }
+        Path lpath;
         Object pval;
         boolean res;
         if (! json.objectHasProp(val, "pattern"))
@@ -1349,13 +1359,14 @@ public class lazygit extends ModelChecker
             if (rep != null) rep.addEntry("missing mandatory prop <pattern> [.git.commitPrefixes.'/./']", path);
             return false;
         }
+        lpath = new Path("pattern", path);
         pval = json.objectValue(val, "pattern");
         // .git.commitPrefixes.'/./'.pattern
-        res = json_model_8(pval, path, rep);
+        res = json_model_8(pval, (path != null ? lpath : null), rep);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected $neString [.git.commitPrefixes.'/./'.pattern]", path);
-            if (rep != null) rep.addEntry("unexpected value for mandatory prop <pattern> [.git.commitPrefixes.'/./']", path);
+            if (rep != null) rep.addEntry("unexpected $neString [.git.commitPrefixes.'/./'.pattern]", (path != null ? lpath : null));
+            if (rep != null) rep.addEntry("unexpected value for mandatory prop <pattern> [.git.commitPrefixes.'/./']", (path != null ? lpath : null));
             return false;
         }
         if (! json.objectHasProp(val, "replace"))
@@ -1363,13 +1374,14 @@ public class lazygit extends ModelChecker
             if (rep != null) rep.addEntry("missing mandatory prop <replace> [.git.commitPrefixes.'/./']", path);
             return false;
         }
+        lpath = new Path("replace", path);
         pval = json.objectValue(val, "replace");
         // .git.commitPrefixes.'/./'.replace
-        res = json_model_8(pval, path, rep);
+        res = json_model_8(pval, (path != null ? lpath : null), rep);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected $neString [.git.commitPrefixes.'/./'.replace]", path);
-            if (rep != null) rep.addEntry("unexpected value for mandatory prop <replace> [.git.commitPrefixes.'/./']", path);
+            if (rep != null) rep.addEntry("unexpected $neString [.git.commitPrefixes.'/./'.replace]", (path != null ? lpath : null));
+            if (rep != null) rep.addEntry("unexpected value for mandatory prop <replace> [.git.commitPrefixes.'/./']", (path != null ? lpath : null));
             return false;
         }
         return true;

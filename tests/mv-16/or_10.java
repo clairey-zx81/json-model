@@ -33,6 +33,7 @@ public class or_10 extends ModelChecker
             if (rep != null) rep.addEntry("bad property count [.'|'.1]", path);
             return false;
         }
+        Path lpath;
         Object pval;
         boolean res;
         if (! json.objectHasProp(val, "name"))
@@ -40,13 +41,14 @@ public class or_10 extends ModelChecker
             if (rep != null) rep.addEntry("missing mandatory prop <name> [.'|'.1]", path);
             return false;
         }
+        lpath = new Path("name", path);
         pval = json.objectValue(val, "name");
         // .'|'.1.name
         res = json.isString(pval);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected string [.'|'.1.name]", path);
-            if (rep != null) rep.addEntry("unexpected value for mandatory prop <name> [.'|'.1]", path);
+            if (rep != null) rep.addEntry("unexpected string [.'|'.1.name]", (path != null ? lpath : null));
+            if (rep != null) rep.addEntry("unexpected value for mandatory prop <name> [.'|'.1]", (path != null ? lpath : null));
             return false;
         }
         return true;

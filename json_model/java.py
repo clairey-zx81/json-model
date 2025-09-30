@@ -276,10 +276,11 @@ class Java(Language):
     #
     # path management
     #
-    def path_val(self, pvar: Var, pseg: str|int, is_prop: bool) -> PathExpr:
+    def path_val(self, pvar: Var, pseg: str|int, is_prop: bool, is_var: bool) -> PathExpr:
         # note: segment is a variable name for a prop or an integer
         if self._with_path:
-            return f"new Path({pseg}, {pvar})"
+            sseg = pseg if is_var else self.esc(pseg) if is_prop else pseg
+            return f"new Path({sseg}, {pvar})"
         else:
             return "null"
 

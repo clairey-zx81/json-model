@@ -405,6 +405,7 @@ function _jm_obj_4(val, path, rep)
         rep !== null && rep.push(["bad property count [.'$Null']", path])
         return false;
     }
+    let lpath;
     let pval;
     let res;
     if (! val.hasOwnProperty("type"))
@@ -412,13 +413,14 @@ function _jm_obj_4(val, path, rep)
         rep !== null && rep.push(["missing mandatory prop <type> [.'$Null']", path])
         return false;
     }
+    lpath = path ? path.concat(["type"]) : null;
     pval = val["type"];
     // .'$Null'.type
     res = ((typeof pval === 'string' || pval instanceof String)) && pval == "null";
     if (! res)
     {
-        rep !== null && rep.push(["unexpected _null [.'$Null'.type]", path])
-        rep !== null && rep.push(["unexpected value for mandatory prop <type> [.'$Null']", path])
+        rep !== null && rep.push(["unexpected _null [.'$Null'.type]", (path ? lpath : null)])
+        rep !== null && rep.push(["unexpected value for mandatory prop <type> [.'$Null']", (path ? lpath : null)])
         return false;
     }
     return true;
@@ -451,6 +453,7 @@ function _jm_obj_5(val, path, rep)
         rep !== null && rep.push(["bad property count [.'$Boolean']", path])
         return false;
     }
+    let lpath;
     let pval;
     let res;
     if (! val.hasOwnProperty("type"))
@@ -458,13 +461,14 @@ function _jm_obj_5(val, path, rep)
         rep !== null && rep.push(["missing mandatory prop <type> [.'$Boolean']", path])
         return false;
     }
+    lpath = path ? path.concat(["type"]) : null;
     pval = val["type"];
     // .'$Boolean'.type
     res = ((typeof pval === 'string' || pval instanceof String)) && pval == "boolean";
     if (! res)
     {
-        rep !== null && rep.push(["unexpected _boolean [.'$Boolean'.type]", path])
-        rep !== null && rep.push(["unexpected value for mandatory prop <type> [.'$Boolean']", path])
+        rep !== null && rep.push(["unexpected _boolean [.'$Boolean'.type]", (path ? lpath : null)])
+        rep !== null && rep.push(["unexpected value for mandatory prop <type> [.'$Boolean']", (path ? lpath : null)])
         return false;
     }
     return true;

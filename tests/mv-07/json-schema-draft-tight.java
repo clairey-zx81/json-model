@@ -6788,6 +6788,7 @@ public class json_schema_draft_tight extends ModelChecker
             if (rep != null) rep.addEntry("not an object [.'$RootSchema'.'&'.0]", path);
             return false;
         }
+        Path lpath;
         Object pval;
         boolean res;
         if (! json.objectHasProp(val, "$schema"))
@@ -6795,13 +6796,14 @@ public class json_schema_draft_tight extends ModelChecker
             if (rep != null) rep.addEntry("missing mandatory prop <$schema> [.'$RootSchema'.'&'.0]", path);
             return false;
         }
+        lpath = new Path("$schema", path);
         pval = json.objectValue(val, "$schema");
         // .'$RootSchema'.'&'.0.'$schema'
         res = json.isString(pval);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected string [.'$RootSchema'.'&'.0.'$schema']", path);
-            if (rep != null) rep.addEntry("unexpected value for mandatory prop <$schema> [.'$RootSchema'.'&'.0]", path);
+            if (rep != null) rep.addEntry("unexpected string [.'$RootSchema'.'&'.0.'$schema']", (path != null ? lpath : null));
+            if (rep != null) rep.addEntry("unexpected value for mandatory prop <$schema> [.'$RootSchema'.'&'.0]", (path != null ? lpath : null));
             return false;
         }
         return true;

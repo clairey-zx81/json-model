@@ -25,6 +25,7 @@ function _jm_obj_0(val, path, rep)
         rep !== null && rep.push(["bad property count [.'$bibi']", path])
         return false;
     }
+    let lpath;
     let pval;
     let res;
     if (! val.hasOwnProperty("bibi"))
@@ -32,6 +33,7 @@ function _jm_obj_0(val, path, rep)
         rep !== null && rep.push(["missing mandatory prop <bibi> [.'$bibi']", path])
         return false;
     }
+    lpath = path ? path.concat(["bibi"]) : null;
     pval = val["bibi"];
     // .'$bibi'.bibi
     res = Array.isArray(pval);
@@ -40,20 +42,20 @@ function _jm_obj_0(val, path, rep)
         for (let arr_0_idx = 0; arr_0_idx < pval.length; arr_0_idx++)
         {
             let arr_0_item = pval[arr_0_idx]
-            let arr_0_lpath = path ? path.concat([arr_0_idx]) : null;
+            let arr_0_lpath = (path ? lpath : null) ? (path ? lpath : null).concat([arr_0_idx]) : null;
             // .'$bibi'.bibi.0
-            res = _jm_obj_0(arr_0_item, (path ? arr_0_lpath : null), rep);
+            res = _jm_obj_0(arr_0_item, ((path ? lpath : null) ? arr_0_lpath : null), rep);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected $bibi [.'$bibi'.bibi.0]", (path ? arr_0_lpath : null)])
+                rep !== null && rep.push(["unexpected $bibi [.'$bibi'.bibi.0]", ((path ? lpath : null) ? arr_0_lpath : null)])
                 break;
             }
         }
     }
     if (! res)
     {
-        rep !== null && rep.push(["not array or unexpected array [.'$bibi'.bibi]", path])
-        rep !== null && rep.push(["unexpected value for mandatory prop <bibi> [.'$bibi']", path])
+        rep !== null && rep.push(["not array or unexpected array [.'$bibi'.bibi]", (path ? lpath : null)])
+        rep !== null && rep.push(["unexpected value for mandatory prop <bibi> [.'$bibi']", (path ? lpath : null)])
         return false;
     }
     return true;

@@ -1,7 +1,7 @@
 mrg_02.values.json[0]: PASS
 mrg_02.values.json[1]: FAIL (.: bad property count [.])
-mrg_02.values.json[2]: FAIL (.: unexpected value for mandatory prop <a> [.]; .: unexpected _cst_01 [.a])
-mrg_02.values.json[3]: FAIL (.: unexpected value for mandatory prop <e> [.]; .: unexpected _cst_02 [.e])
+mrg_02.values.json[2]: FAIL (.a: unexpected value for mandatory prop <a> [.]; .a: unexpected _cst_01 [.a])
+mrg_02.values.json[3]: FAIL (.e: unexpected value for mandatory prop <e> [.]; .e: unexpected _cst_02 [.e])
 mrg_02.values.json[4]: FAIL (.: bad property count [.])
 mrg_02.values.json[5]: FAIL (.: not an object [.])
 mrg_02.values.json[6]: FAIL (.: not an object [.])

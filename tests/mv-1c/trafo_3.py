@@ -75,27 +75,30 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
     if len(val) != 2:
         rep is None or rep.append(("bad property count [.'$Dd#Uu#un']", path))
         return False
+    lpath: Path
     pval: Jsonable
     res: bool
     if not "ua" in val:
         rep is None or rep.append(("missing mandatory prop <ua> [.'$Dd#Uu#un']", path))
         return False
+    lpath = (path + [ "ua" ]) if path is not None else None
     pval = val.get("ua", UNDEFINED)
     # .'$Dd#Uu#un'.ua
     res = isinstance(pval, int) and not isinstance(pval, bool) and pval >= 0
     if not res:
-        rep is None or rep.append(("not a 0 strict int [.'$Dd#Uu#un'.ua]", path))
-        rep is None or rep.append(("unexpected value for mandatory prop <ua> [.'$Dd#Uu#un']", path))
+        rep is None or rep.append(("not a 0 strict int [.'$Dd#Uu#un'.ua]", lpath if path is not None else None))
+        rep is None or rep.append(("unexpected value for mandatory prop <ua> [.'$Dd#Uu#un']", lpath if path is not None else None))
         return False
     if not "ub" in val:
         rep is None or rep.append(("missing mandatory prop <ub> [.'$Dd#Uu#un']", path))
         return False
+    lpath = (path + [ "ub" ]) if path is not None else None
     pval = val.get("ub", UNDEFINED)
     # .'$Dd#Uu#un'.ub
     res = isinstance(pval, int) and not isinstance(pval, bool) and pval >= 0
     if not res:
-        rep is None or rep.append(("not a 0 strict int [.'$Dd#Uu#un'.ub]", path))
-        rep is None or rep.append(("unexpected value for mandatory prop <ub> [.'$Dd#Uu#un']", path))
+        rep is None or rep.append(("not a 0 strict int [.'$Dd#Uu#un'.ub]", lpath if path is not None else None))
+        rep is None or rep.append(("unexpected value for mandatory prop <ub> [.'$Dd#Uu#un']", lpath if path is not None else None))
         return False
     return True
 

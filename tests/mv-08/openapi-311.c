@@ -6742,6 +6742,7 @@ static INLINE bool _jm_obj_69(const json_t *val, jm_path_t *path, jm_report_t *r
         if (rep) jm_report_add_entry(rep, "bad property count [.'$SS-apikey']", path);
         return false;
     }
+    jm_path_t lpath;
     json_t * pval;
     bool res;
     if (! (json_object_get(val, "type") != NULL))
@@ -6749,13 +6750,14 @@ static INLINE bool _jm_obj_69(const json_t *val, jm_path_t *path, jm_report_t *r
         if (rep) jm_report_add_entry(rep, "missing mandatory prop <type> [.'$SS-apikey']", path);
         return false;
     }
+    lpath = (jm_path_t) { "type", 0, path, NULL };
     pval = json_object_get(val, "type");
     // .'$SS-apikey'.type
     res = json_is_string(pval) && strcmp(json_string_value(pval), "apiKey") == 0;
     if (! res)
     {
-        if (rep) jm_report_add_entry(rep, "unexpected _apiKey [.'$SS-apikey'.type]", path);
-        if (rep) jm_report_add_entry(rep, "unexpected value for mandatory prop <type> [.'$SS-apikey']", path);
+        if (rep) jm_report_add_entry(rep, "unexpected _apiKey [.'$SS-apikey'.type]", (path ? &lpath : NULL));
+        if (rep) jm_report_add_entry(rep, "unexpected value for mandatory prop <type> [.'$SS-apikey']", (path ? &lpath : NULL));
         return false;
     }
     if (! (json_object_get(val, "name") != NULL))
@@ -6763,13 +6765,14 @@ static INLINE bool _jm_obj_69(const json_t *val, jm_path_t *path, jm_report_t *r
         if (rep) jm_report_add_entry(rep, "missing mandatory prop <name> [.'$SS-apikey']", path);
         return false;
     }
+    lpath = (jm_path_t) { "name", 0, path, NULL };
     pval = json_object_get(val, "name");
     // .'$SS-apikey'.name
     res = json_is_string(pval);
     if (! res)
     {
-        if (rep) jm_report_add_entry(rep, "unexpected string [.'$SS-apikey'.name]", path);
-        if (rep) jm_report_add_entry(rep, "unexpected value for mandatory prop <name> [.'$SS-apikey']", path);
+        if (rep) jm_report_add_entry(rep, "unexpected string [.'$SS-apikey'.name]", (path ? &lpath : NULL));
+        if (rep) jm_report_add_entry(rep, "unexpected value for mandatory prop <name> [.'$SS-apikey']", (path ? &lpath : NULL));
         return false;
     }
     if (! (json_object_get(val, "in") != NULL))
@@ -6777,13 +6780,14 @@ static INLINE bool _jm_obj_69(const json_t *val, jm_path_t *path, jm_report_t *r
         if (rep) jm_report_add_entry(rep, "missing mandatory prop <in> [.'$SS-apikey']", path);
         return false;
     }
+    lpath = (jm_path_t) { "in", 0, path, NULL };
     pval = json_object_get(val, "in");
     // .'$SS-apikey'.in
     res = jm_json_is_scalar(pval) && json_is_string(pval) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(pval) } }, _jm_cst_4, 3);;
     if (! res)
     {
-        if (rep) jm_report_add_entry(rep, "value not in enum [.'$SS-apikey'.in.'|']", path);
-        if (rep) jm_report_add_entry(rep, "unexpected value for mandatory prop <in> [.'$SS-apikey']", path);
+        if (rep) jm_report_add_entry(rep, "value not in enum [.'$SS-apikey'.in.'|']", (path ? &lpath : NULL));
+        if (rep) jm_report_add_entry(rep, "unexpected value for mandatory prop <in> [.'$SS-apikey']", (path ? &lpath : NULL));
         return false;
     }
     return true;
@@ -6816,6 +6820,7 @@ static INLINE bool _jm_obj_70(const json_t *val, jm_path_t *path, jm_report_t *r
         if (rep) jm_report_add_entry(rep, "bad property count [.'$SS-http']", path);
         return false;
     }
+    jm_path_t lpath;
     json_t * pval;
     bool res;
     if (! (json_object_get(val, "type") != NULL))
@@ -6823,13 +6828,14 @@ static INLINE bool _jm_obj_70(const json_t *val, jm_path_t *path, jm_report_t *r
         if (rep) jm_report_add_entry(rep, "missing mandatory prop <type> [.'$SS-http']", path);
         return false;
     }
+    lpath = (jm_path_t) { "type", 0, path, NULL };
     pval = json_object_get(val, "type");
     // .'$SS-http'.type
     res = json_is_string(pval) && strcmp(json_string_value(pval), "http") == 0;
     if (! res)
     {
-        if (rep) jm_report_add_entry(rep, "unexpected _http [.'$SS-http'.type]", path);
-        if (rep) jm_report_add_entry(rep, "unexpected value for mandatory prop <type> [.'$SS-http']", path);
+        if (rep) jm_report_add_entry(rep, "unexpected _http [.'$SS-http'.type]", (path ? &lpath : NULL));
+        if (rep) jm_report_add_entry(rep, "unexpected value for mandatory prop <type> [.'$SS-http']", (path ? &lpath : NULL));
         return false;
     }
     if (! (json_object_get(val, "scheme") != NULL))
@@ -6837,13 +6843,14 @@ static INLINE bool _jm_obj_70(const json_t *val, jm_path_t *path, jm_report_t *r
         if (rep) jm_report_add_entry(rep, "missing mandatory prop <scheme> [.'$SS-http']", path);
         return false;
     }
+    lpath = (jm_path_t) { "scheme", 0, path, NULL };
     pval = json_object_get(val, "scheme");
     // .'$SS-http'.scheme
     res = json_is_string(pval);
     if (! res)
     {
-        if (rep) jm_report_add_entry(rep, "unexpected string [.'$SS-http'.scheme]", path);
-        if (rep) jm_report_add_entry(rep, "unexpected value for mandatory prop <scheme> [.'$SS-http']", path);
+        if (rep) jm_report_add_entry(rep, "unexpected string [.'$SS-http'.scheme]", (path ? &lpath : NULL));
+        if (rep) jm_report_add_entry(rep, "unexpected value for mandatory prop <scheme> [.'$SS-http']", (path ? &lpath : NULL));
         return false;
     }
     return true;
@@ -6973,6 +6980,7 @@ static INLINE bool _jm_obj_72(const json_t *val, jm_path_t *path, jm_report_t *r
         if (rep) jm_report_add_entry(rep, "bad property count [.'$SS-oauth2']", path);
         return false;
     }
+    jm_path_t lpath;
     json_t * pval;
     bool res;
     if (! (json_object_get(val, "type") != NULL))
@@ -6980,13 +6988,14 @@ static INLINE bool _jm_obj_72(const json_t *val, jm_path_t *path, jm_report_t *r
         if (rep) jm_report_add_entry(rep, "missing mandatory prop <type> [.'$SS-oauth2']", path);
         return false;
     }
+    lpath = (jm_path_t) { "type", 0, path, NULL };
     pval = json_object_get(val, "type");
     // .'$SS-oauth2'.type
     res = json_is_string(pval) && strcmp(json_string_value(pval), "oauth2") == 0;
     if (! res)
     {
-        if (rep) jm_report_add_entry(rep, "unexpected _oauth2 [.'$SS-oauth2'.type]", path);
-        if (rep) jm_report_add_entry(rep, "unexpected value for mandatory prop <type> [.'$SS-oauth2']", path);
+        if (rep) jm_report_add_entry(rep, "unexpected _oauth2 [.'$SS-oauth2'.type]", (path ? &lpath : NULL));
+        if (rep) jm_report_add_entry(rep, "unexpected value for mandatory prop <type> [.'$SS-oauth2']", (path ? &lpath : NULL));
         return false;
     }
     if (! (json_object_get(val, "flows") != NULL))
@@ -6994,13 +7003,14 @@ static INLINE bool _jm_obj_72(const json_t *val, jm_path_t *path, jm_report_t *r
         if (rep) jm_report_add_entry(rep, "missing mandatory prop <flows> [.'$SS-oauth2']", path);
         return false;
     }
+    lpath = (jm_path_t) { "flows", 0, path, NULL };
     pval = json_object_get(val, "flows");
     // .'$SS-oauth2'.flows
-    res = _jm_obj_80(pval, path, rep);
+    res = _jm_obj_80(pval, (path ? &lpath : NULL), rep);
     if (! res)
     {
-        if (rep) jm_report_add_entry(rep, "unexpected $OAuthFlows [.'$SS-oauth2'.flows]", path);
-        if (rep) jm_report_add_entry(rep, "unexpected value for mandatory prop <flows> [.'$SS-oauth2']", path);
+        if (rep) jm_report_add_entry(rep, "unexpected $OAuthFlows [.'$SS-oauth2'.flows]", (path ? &lpath : NULL));
+        if (rep) jm_report_add_entry(rep, "unexpected value for mandatory prop <flows> [.'$SS-oauth2']", (path ? &lpath : NULL));
         return false;
     }
     return true;
@@ -7033,6 +7043,7 @@ static INLINE bool _jm_obj_73(const json_t *val, jm_path_t *path, jm_report_t *r
         if (rep) jm_report_add_entry(rep, "bad property count [.'$SS-oic']", path);
         return false;
     }
+    jm_path_t lpath;
     json_t * pval;
     bool res;
     if (! (json_object_get(val, "type") != NULL))
@@ -7040,13 +7051,14 @@ static INLINE bool _jm_obj_73(const json_t *val, jm_path_t *path, jm_report_t *r
         if (rep) jm_report_add_entry(rep, "missing mandatory prop <type> [.'$SS-oic']", path);
         return false;
     }
+    lpath = (jm_path_t) { "type", 0, path, NULL };
     pval = json_object_get(val, "type");
     // .'$SS-oic'.type
     res = json_is_string(pval) && strcmp(json_string_value(pval), "openIdConnect") == 0;
     if (! res)
     {
-        if (rep) jm_report_add_entry(rep, "unexpected _openIdConnect [.'$SS-oic'.type]", path);
-        if (rep) jm_report_add_entry(rep, "unexpected value for mandatory prop <type> [.'$SS-oic']", path);
+        if (rep) jm_report_add_entry(rep, "unexpected _openIdConnect [.'$SS-oic'.type]", (path ? &lpath : NULL));
+        if (rep) jm_report_add_entry(rep, "unexpected value for mandatory prop <type> [.'$SS-oic']", (path ? &lpath : NULL));
         return false;
     }
     if (! (json_object_get(val, "openIdConnectUrl") != NULL))
@@ -7054,13 +7066,14 @@ static INLINE bool _jm_obj_73(const json_t *val, jm_path_t *path, jm_report_t *r
         if (rep) jm_report_add_entry(rep, "missing mandatory prop <openIdConnectUrl> [.'$SS-oic']", path);
         return false;
     }
+    lpath = (jm_path_t) { "openIdConnectUrl", 0, path, NULL };
     pval = json_object_get(val, "openIdConnectUrl");
     // .'$SS-oic'.openIdConnectUrl
-    res = jm_is_valid_url(json_string_value(pval), path, rep);
+    res = jm_is_valid_url(json_string_value(pval), (path ? &lpath : NULL), rep);
     if (! res)
     {
-        if (rep) jm_report_add_entry(rep, "unexpected $URL [.'$SS-oic'.openIdConnectUrl]", path);
-        if (rep) jm_report_add_entry(rep, "unexpected value for mandatory prop <openIdConnectUrl> [.'$SS-oic']", path);
+        if (rep) jm_report_add_entry(rep, "unexpected $URL [.'$SS-oic'.openIdConnectUrl]", (path ? &lpath : NULL));
+        if (rep) jm_report_add_entry(rep, "unexpected value for mandatory prop <openIdConnectUrl> [.'$SS-oic']", (path ? &lpath : NULL));
         return false;
     }
     return true;

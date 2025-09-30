@@ -261,11 +261,12 @@ class CLangJansson(Language):
     #
     # path management
     #
-    def path_val(self, pvar: Var, pseg: str|int, is_prop: bool) -> PathExpr:
+    def path_val(self, pvar: Var, pseg: str|int, is_prop: bool, is_var: bool) -> PathExpr:
         # note: segment is a variable name for a prop or an integer
         if self._with_path:
-            return (f"(jm_path_t) {{ {pseg}, 0, {pvar}, NULL }}" if is_prop else
-                    f"(jm_path_t) {{ NULL, {pseg}, {pvar}, NULL }}")
+            sseg = pseg if is_var else self.esc(pseg) if is_prop else pseg
+            return (f"(jm_path_t) {{ {sseg}, 0, {pvar}, NULL }}" if is_prop else
+                    f"(jm_path_t) {{ NULL, {sseg}, {pvar}, NULL }}")
         else:
             return "NULL"
 

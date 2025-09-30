@@ -25,6 +25,7 @@ function _jm_obj_0(val, path, rep)
         rep !== null && rep.push(["bad property count [.]", path])
         return false;
     }
+    let lpath;
     let pval;
     let res;
     if (! val.hasOwnProperty("si"))
@@ -32,13 +33,14 @@ function _jm_obj_0(val, path, rep)
         rep !== null && rep.push(["missing mandatory prop <si> [.]", path])
         return false;
     }
+    lpath = path ? path.concat(["si"]) : null;
     pval = val["si"];
     // .si
     res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0;
     if (! res)
     {
-        rep !== null && rep.push(["not a 0 strict int [.si]", path])
-        rep !== null && rep.push(["unexpected value for mandatory prop <si> [.]", path])
+        rep !== null && rep.push(["not a 0 strict int [.si]", (path ? lpath : null)])
+        rep !== null && rep.push(["unexpected value for mandatory prop <si> [.]", (path ? lpath : null)])
         return false;
     }
     return true;
