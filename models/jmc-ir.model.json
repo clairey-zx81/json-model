@@ -1,0 +1,134 @@
+{
+  "#": "JSON Model Compiler Intermediate Representation",
+  "~": "https://json-model.org/models/json-model",
+  "$": {
+    "Type": {"|": [null, "null", "bool", "int", "float", "Number", "str", "list", "dict", "Path", "Report"]},
+    "Op": {"|": ["_=", "_<", "_>", "_<=", "_!=", "_>="]},
+    "SIFCst": {"|": ["", -1, -1.0]},
+    "Ident": "/^\\w+$/",
+    "optIdent": {"|": ["$Ident", null]},
+    "Cst": {"|": [null, true, -1, -1.0, ""] },
+    "optBool": {"|": [ null, true ]},
+    "PMap": { "": "$Ident" },
+    "CMap": [ ["$Cst", "$Ident"] ],
+    "optExpr": {"|": [null, "$Expr"]},
+    "Expr": {
+      "#": "IR expressions",
+      "|": [
+        "$Ident",
+        {"o": "cst", "c": "$Cst"},
+        {"o": "jc", "j": "$ANY"},
+        {"o": {"|": ["in", "is", "id", "ol", "al", "sn", "nl", "mko"]}, "var": "$Expr"},
+        {"o": "isa", "var": "$Expr", "tval": "$Type", "loose": "$optBool"},
+        {"o": "esc", "s": ""},
+        {"o": "hp", "obj": "$Expr", "prop": ""},
+        {"o": "pre", "var": "$Expr", "name": "", "path": "$Expr", "is_str": true},
+        {"o": "val", "var": "$Expr", "tvar": "$Type"},
+        {"o": "gv", "var": "", "tvar": "$Type"},
+        {"o": "aiv", "arr": "$Expr", "idx": "$Expr"},
+        {"o": "opv", "obj": "$Expr", "prop": "$Expr", "is_var": true},
+        {"o": "apf", "fun": "$Ident", "prop": "", "mapname": "$Ident"},
+        {"o": "hpf", "prop": "", "mapname": "$Ident"},
+        {"o": "gpf", "prop": "", "mapname": "$Ident"},
+        {"o": "ss", "val": "$Expr", "start": ""},
+        {"o": "se", "val": "$Expr", "end": ""},
+        {"o": "scc", "name": "", "val": "$Expr", "path": "$Expr"},
+        {"o": "cc", "name": "", "val": "$Expr", "path": "$Expr", "is_ptr": true, "is_raw": true},
+        {"o": "cu", "val": "$Expr", "path": "$Expr"},
+        {"o": "ct", "val": "$Expr", "path": "$Expr", "op": "$Op", "vop": "$SIFCst"},
+        {"o": {"|": ["sc", "nc"]}, "e1": "$Expr", "op": "$Op", "e2": "$Expr"},
+        {"o": {"|": ["_()", "not"]}, "e": "$Expr"},
+        {"o": "isr"},
+        {"o": {"|": ["_|", "_&"]}, "exprs": ["$Expr"]},
+        {"o": "pvl", "pvar": "$Expr", "pseg": "", "is_prop": true},
+        {"o": "pl", "lvar": "$Expr", "rvar": "$Expr"},
+        {"o": "mr", "name": "$Ident", "var": "$Ident", "regex": "$REGEX", "opts": "$reopts"},
+        {"o": "incs", "name": "$Ident", "constants": ["$Cst"], "var": "$Expr"},
+        {"o": "gcm", "name": "$Ident", "tag": "$Expr", "ttag": "$Type"}
+      ]
+    },
+    "Block": [ { "+": ["$Inst", {"/^#/": ""} ] } ],
+    "CoSk": {
+      "#": "Comment or skip",
+      "|": [
+        {"o": "co", "text": ""},
+        {"o": "skip"}
+      ]
+    },
+    "Inst": {
+      "#": "IR instructions",
+      "|": [
+        "$CoSk",
+        {"o": {"|": ["no", "brk", "cr"]}},
+        {"o": {"|": ["fh", "ff"]}, "exe": true},
+        {"o": {"|": ["iv", "bv", "sv", "jv", "fv", "Fv", "mv"]}, "var": "$Expr", "val": "$optExpr", "declare": true},
+        {"o": "msv", "rname": "$Ident", "var": "$Ident", "val": "$Ident", "declare": true},
+        {"o": "pv", "pvar": "$Expr", "val": "$Expr", "declare": true},
+        {"o": "i+", "var": "$Expr"},
+        {"o": "i&", "var": "$Expr", "e": "$Expr"},
+        {"o": "ret", "res": "$Expr"},
+        {"o": "rep", "msg": "", "path": "$Expr"},
+        {"o": "aL", "arr": "$Expr", "idx": "$Expr", "val": "$Expr", "body": "$Block"},
+        {"o": "oL", "obj": "$Expr", "key": "$Expr", "val": "$Expr", "body": "$Block" },
+        {"o": "iL", "idx": "$Expr", "start": "$Expr", "end": "$Expr", "body": "$Block"},
+        {"o": "if", "cond": "$Expr", "true": "$Block", "false": "$Block"},
+        {"o": "ifs", "cond_true": [ [ "$Expr", "$Block" ] ], "false": "$Block" },
+        {"o": "seq", "seq": "$Block"},
+        {"o": "mvl", "mname": "$Ident", "sname": "$Ident", "rname": "$Ident", "dname": "$Ident", "declare": true}
+      ]
+    },
+    "reopts": "/^[a-z]*$/",
+    "Inis": {
+      "#": "IR initializations",
+      "|": [
+        "$CoSk",
+        {"o": "ir", "name": "$Ident", "regex": "$REGEX", "opts": "$reopts"},
+        {"o": "ipm", "name": "$Ident", "pmap": "$PMap", "public": true},
+        {"o": "ics", "name": "$Ident", "constants": [ "$Cst" ]}
+      ]
+    },
+    "Dels": {
+      "#": "IR cleanup",
+      "|": [
+        "$CoSk",
+        {"o": "rr", "name": "$Ident", "regex": "$REGEX", "opts": "$reopts"},
+        {"o": "rpm", "name": "$Ident", "pmap": "$PMap", "public": true},
+        {"o": "rcs", "name": "$Ident", "constants": [ "$Cst" ]}
+      ]
+    },
+    "Decl": {
+      "#": "IR global declarations",
+      "|": [
+        "$CoSk",
+        {"o": "dr", "name": "$Ident", "regex": "$REGEX", "opts": "$reopts"},
+        {"o": "dsf", "name": "$Ident"},
+        {"o": "dfu", "name": "$Ident"},
+        {"o": "dpm", "name": "$Ident", "pmap": "$PMap", "public": true},
+        {"o": "dcs", "name": "$Ident", "constants": [ "$Cst" ]},
+        {"o": "dcm", "name": "$Ident", "mapping": "$CMap"}
+      ]
+    },
+    "Subs": {
+      "#": "IR functions",
+      "|": [
+        "$CoSk",
+        {"o": "sr", "name": "$Ident", "regex": "$REGEX", "opts": "$reopts"},
+        {"o": "ssf", "name": "$Ident", "body": "$Block"},
+        {"o": "sfu", "name": "$Ident", "body": "$Block", "inline": true},
+        {"o": "spm", "name": "$Ident", "pmap": "$PMap", "public": true},
+        {"o": "scs", "name": "$Ident", "constants": [ "$Cst" ]},
+        {"o": "scm", "name": "$Ident", "mapping": "$CMap"}
+      ]
+    },
+    "#.ifc": "gi, gf and gc are called from gfc, so cannot really occur",
+    "Init": {"o": "gi", "init": [ "$Inis" ]},
+    "Free": {"o": "gf", "free": [ "$Dels" ]},
+    "Code": {"o": "gc", "code": "$Block", "entry": "$Ident", "package": "$optIdent", "indent": 0},
+    "Root": {
+      "o": "gfc",
+      "defs": [ "$Decl" ], "inis": [ "$Inis" ], "dels": [ "$Dels" ], "subs": [ "$Subs" ],
+      "entry": "$Ident", "package": "$optIdent", "exe": true
+    }
+  },
+  "@": "$Root"
+}
