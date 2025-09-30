@@ -3,11 +3,12 @@
 ## Current Tasks
 
 - [x] models: write model for json IR
-- [ ] static: fix value path in some object variants
+- [x] static: fix value path in some object variants
 - [ ] static: add a max threshold for property unrolling
 - [ ] static: add a dynamic test for different strategies in object checking
 - [ ] tests: add ir optimized output
 - [ ] tests: add pytest ir tests
+- [ ] tests: add generated ir model check
 - [ ] tests: drop language outputs for IR only?!
 - [ ] tests: check generated IR with IR model
 - [ ] command: `jmc -C -o foo.json` generates python instand of json
