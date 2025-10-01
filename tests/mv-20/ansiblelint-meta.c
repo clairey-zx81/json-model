@@ -292,8 +292,18 @@ static int _jm_re_2_nn = 0;
 static bool _jm_re_2(const char *s, jm_path_t *path, jm_report_t *rep);
 static bool json_model_55(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_56(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static bool _jm_f_49(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static bool _jm_f_50(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static bool _jm_f_51(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static jm_constant_t _jm_cst_64[2];
+static bool _jm_f_52(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static bool _jm_f_53(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static bool _jm_f_54(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_obj_100(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static bool _jm_f_55(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static bool _jm_f_56(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static bool _jm_f_57(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static jm_propmap_t _jm_obj_99_map_tab[9];
 static bool _jm_obj_99(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_57(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_obj_101(const json_t *val, jm_path_t *path, jm_report_t *rep);
@@ -8802,6 +8812,118 @@ static bool json_model_56(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
+// check _jm_obj_99_map_become (.'$DependencyModelLoose'.become)
+static bool _jm_f_49(const json_t *val, jm_path_t *path, jm_report_t *rep)
+{
+    bool res;
+    // .'$DependencyModelLoose'.become
+    res = json_is_boolean(val);
+    if (! res)
+    {
+        if (rep) jm_report_add_entry(rep, "not a bool [.'$DependencyModelLoose'.become]", path);
+    }
+    return res;
+}
+
+// check _jm_obj_99_map_name (.'$DependencyModelLoose'.name)
+static bool _jm_f_50(const json_t *val, jm_path_t *path, jm_report_t *rep)
+{
+    bool res;
+    // .'$DependencyModelLoose'.name
+    res = json_is_string(val);
+    if (! res)
+    {
+        if (rep) jm_report_add_entry(rep, "unexpected string [.'$DependencyModelLoose'.name]", path);
+    }
+    return res;
+}
+
+// check _jm_obj_99_map_role (.'$DependencyModelLoose'.role)
+static bool _jm_f_51(const json_t *val, jm_path_t *path, jm_report_t *rep)
+{
+    bool res;
+    // .'$DependencyModelLoose'.role
+    res = json_is_string(val);
+    if (! res)
+    {
+        if (rep) jm_report_add_entry(rep, "unexpected string [.'$DependencyModelLoose'.role]", path);
+    }
+    return res;
+}
+
+
+// check _jm_obj_99_map_scm (.'$DependencyModelLoose'.scm)
+static bool _jm_f_52(const json_t *val, jm_path_t *path, jm_report_t *rep)
+{
+    bool res;
+    // .'$DependencyModelLoose'.scm
+    res = jm_json_is_scalar(val) && json_is_string(val) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(val) } }, _jm_cst_64, 2);;
+    if (! res)
+    {
+        if (rep) jm_report_add_entry(rep, "value not in enum [.'$DependencyModelLoose'.scm.'|']", path);
+    }
+    return res;
+}
+
+// check _jm_obj_99_map_src (.'$DependencyModelLoose'.src)
+static bool _jm_f_53(const json_t *val, jm_path_t *path, jm_report_t *rep)
+{
+    bool res;
+    // .'$DependencyModelLoose'.src
+    res = json_is_string(val);
+    if (! res)
+    {
+        if (rep) jm_report_add_entry(rep, "unexpected string [.'$DependencyModelLoose'.src]", path);
+    }
+    return res;
+}
+
+// check _jm_obj_99_map_tags (.'$DependencyModelLoose'.tags)
+static bool _jm_f_54(const json_t *val, jm_path_t *path, jm_report_t *rep)
+{
+    bool res;
+    // .'$DependencyModelLoose'.tags
+    // .'$DependencyModelLoose'.tags.'|'.0
+    res = json_is_string(val);
+    if (! res)
+    {
+        if (rep) jm_report_add_entry(rep, "unexpected string [.'$DependencyModelLoose'.tags.'|'.0]", path);
+    }
+    if (! res)
+    {
+        // .'$DependencyModelLoose'.tags.'|'.1
+        res = json_is_array(val);
+        if (res)
+        {
+            size_t arr_101_idx;
+            json_t *arr_101_item;
+            json_array_foreach(val, arr_101_idx, arr_101_item)
+            {
+                jm_path_t arr_101_lpath = (jm_path_t) { NULL, arr_101_idx, path, NULL };
+                // .'$DependencyModelLoose'.tags.'|'.1.0
+                res = json_is_string(arr_101_item);
+                if (! res)
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected string [.'$DependencyModelLoose'.tags.'|'.1.0]", (path ? &arr_101_lpath : NULL));
+                    break;
+                }
+            }
+        }
+        if (! res)
+        {
+            if (rep) jm_report_add_entry(rep, "not array or unexpected array [.'$DependencyModelLoose'.tags.'|'.1]", path);
+        }
+    }
+    if (res)
+    {
+        if (rep) jm_report_free_entries(rep);
+    }
+    else
+    {
+        if (rep) jm_report_add_entry(rep, "no model matched [.'$DependencyModelLoose'.tags.'|']", path);
+    }
+    return res;
+}
 
 // object .'$DependencyModelLoose'.vars
 static INLINE bool _jm_obj_100(const json_t *val, jm_path_t *path, jm_report_t *rep)
@@ -8815,167 +8937,76 @@ static INLINE bool _jm_obj_100(const json_t *val, jm_path_t *path, jm_report_t *
     return true;
 }
 
+// check _jm_obj_99_map_vars (.'$DependencyModelLoose'.vars)
+static bool _jm_f_55(const json_t *val, jm_path_t *path, jm_report_t *rep)
+{
+    bool res;
+    // .'$DependencyModelLoose'.vars
+    res = _jm_obj_100(val, path, rep);
+    if (! res)
+    {
+        if (rep) jm_report_add_entry(rep, "unexpected element [.'$DependencyModelLoose'.vars]", path);
+    }
+    return res;
+}
+
+// check _jm_obj_99_map_version (.'$DependencyModelLoose'.version)
+static bool _jm_f_56(const json_t *val, jm_path_t *path, jm_report_t *rep)
+{
+    bool res;
+    // .'$DependencyModelLoose'.version
+    res = json_is_string(val);
+    if (! res)
+    {
+        if (rep) jm_report_add_entry(rep, "unexpected string [.'$DependencyModelLoose'.version]", path);
+    }
+    return res;
+}
+
+// check _jm_obj_99_map_when (.'$DependencyModelLoose'.when)
+static bool _jm_f_57(const json_t *val, jm_path_t *path, jm_report_t *rep)
+{
+    bool res;
+    // .'$DependencyModelLoose'.when
+    res = json_model_56(val, path, rep);
+    if (! res)
+    {
+        if (rep) jm_report_add_entry(rep, "unexpected $complex_conditional [.'$DependencyModelLoose'.when]", path);
+    }
+    return res;
+}
+
+static INLINE jm_check_fun_t _jm_obj_99_map(const char *pname)
+{
+    return jm_search_propmap(pname, _jm_obj_99_map_tab, 9);
+}
+
 // object .'$DependencyModelLoose'
 static INLINE bool _jm_obj_99(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    // check open must/may only props
     if (! json_is_object(val))
     {
         if (rep) jm_report_add_entry(rep, "not an object [.'$DependencyModelLoose']", path);
         return false;
     }
-    jm_path_t lpath;
-    json_t * pval;
-    bool res;
-    if (json_object_get(val, "become") != NULL)
+    jm_check_fun_t pfun;
+    const char *prop;
+    json_t *pval;
+    json_object_foreach((json_t *) val, prop, pval)
     {
-        lpath = (jm_path_t) { "become", 0, path, NULL };
-        pval = json_object_get(val, "become");
-        // .'$DependencyModelLoose'.become
-        res = json_is_boolean(pval);
-        if (! res)
+        jm_path_t lpath_52 = (jm_path_t) { prop, 0, path, NULL };
+        if ((pfun = _jm_obj_99_map(prop)))
         {
-            if (rep) jm_report_add_entry(rep, "not a bool [.'$DependencyModelLoose'.become]", (path ? &lpath : NULL));
-            if (rep) jm_report_add_entry(rep, "unexpected value for optional prop <become> [.'$DependencyModelLoose']", (path ? &lpath : NULL));
-            return false;
-        }
-    }
-    if (json_object_get(val, "name") != NULL)
-    {
-        lpath = (jm_path_t) { "name", 0, path, NULL };
-        pval = json_object_get(val, "name");
-        // .'$DependencyModelLoose'.name
-        res = json_is_string(pval);
-        if (! res)
-        {
-            if (rep) jm_report_add_entry(rep, "unexpected string [.'$DependencyModelLoose'.name]", (path ? &lpath : NULL));
-            if (rep) jm_report_add_entry(rep, "unexpected value for optional prop <name> [.'$DependencyModelLoose']", (path ? &lpath : NULL));
-            return false;
-        }
-    }
-    if (json_object_get(val, "role") != NULL)
-    {
-        lpath = (jm_path_t) { "role", 0, path, NULL };
-        pval = json_object_get(val, "role");
-        // .'$DependencyModelLoose'.role
-        res = json_is_string(pval);
-        if (! res)
-        {
-            if (rep) jm_report_add_entry(rep, "unexpected string [.'$DependencyModelLoose'.role]", (path ? &lpath : NULL));
-            if (rep) jm_report_add_entry(rep, "unexpected value for optional prop <role> [.'$DependencyModelLoose']", (path ? &lpath : NULL));
-            return false;
-        }
-    }
-    if (json_object_get(val, "src") != NULL)
-    {
-        lpath = (jm_path_t) { "src", 0, path, NULL };
-        pval = json_object_get(val, "src");
-        // .'$DependencyModelLoose'.src
-        res = json_is_string(pval);
-        if (! res)
-        {
-            if (rep) jm_report_add_entry(rep, "unexpected string [.'$DependencyModelLoose'.src]", (path ? &lpath : NULL));
-            if (rep) jm_report_add_entry(rep, "unexpected value for optional prop <src> [.'$DependencyModelLoose']", (path ? &lpath : NULL));
-            return false;
-        }
-    }
-    if (json_object_get(val, "scm") != NULL)
-    {
-        lpath = (jm_path_t) { "scm", 0, path, NULL };
-        pval = json_object_get(val, "scm");
-        // .'$DependencyModelLoose'.scm
-        res = jm_json_is_scalar(pval) && json_is_string(pval) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(pval) } }, _jm_cst_64, 2);;
-        if (! res)
-        {
-            if (rep) jm_report_add_entry(rep, "value not in enum [.'$DependencyModelLoose'.scm.'|']", (path ? &lpath : NULL));
-            if (rep) jm_report_add_entry(rep, "unexpected value for optional prop <scm> [.'$DependencyModelLoose']", (path ? &lpath : NULL));
-            return false;
-        }
-    }
-    if (json_object_get(val, "tags") != NULL)
-    {
-        lpath = (jm_path_t) { "tags", 0, path, NULL };
-        pval = json_object_get(val, "tags");
-        // .'$DependencyModelLoose'.tags
-        // .'$DependencyModelLoose'.tags.'|'.0
-        res = json_is_string(pval);
-        if (! res)
-        {
-            if (rep) jm_report_add_entry(rep, "unexpected string [.'$DependencyModelLoose'.tags.'|'.0]", (path ? &lpath : NULL));
-        }
-        if (! res)
-        {
-            // .'$DependencyModelLoose'.tags.'|'.1
-            res = json_is_array(pval);
-            if (res)
+            // handle 9 may props
+            if (pfun != NULL && ! pfun(pval, (path ? &lpath_52 : NULL), rep))
             {
-                size_t arr_101_idx;
-                json_t *arr_101_item;
-                json_array_foreach(pval, arr_101_idx, arr_101_item)
-                {
-                    jm_path_t arr_101_lpath = (jm_path_t) { NULL, arr_101_idx, (path ? &lpath : NULL), NULL };
-                    // .'$DependencyModelLoose'.tags.'|'.1.0
-                    res = json_is_string(arr_101_item);
-                    if (! res)
-                    {
-                        if (rep) jm_report_add_entry(rep, "unexpected string [.'$DependencyModelLoose'.tags.'|'.1.0]", ((path ? &lpath : NULL) ? &arr_101_lpath : NULL));
-                        break;
-                    }
-                }
+                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$DependencyModelLoose']", (path ? &lpath_52 : NULL));
+                return false;
             }
-            if (! res)
-            {
-                if (rep) jm_report_add_entry(rep, "not array or unexpected array [.'$DependencyModelLoose'.tags.'|'.1]", (path ? &lpath : NULL));
-            }
-        }
-        if (res)
-        {
-            if (rep) jm_report_free_entries(rep);
         }
         else
         {
-            if (rep) jm_report_add_entry(rep, "no model matched [.'$DependencyModelLoose'.tags.'|']", (path ? &lpath : NULL));
-            if (rep) jm_report_add_entry(rep, "unexpected value for optional prop <tags> [.'$DependencyModelLoose']", (path ? &lpath : NULL));
-            return false;
-        }
-    }
-    if (json_object_get(val, "vars") != NULL)
-    {
-        lpath = (jm_path_t) { "vars", 0, path, NULL };
-        pval = json_object_get(val, "vars");
-        // .'$DependencyModelLoose'.vars
-        res = _jm_obj_100(pval, (path ? &lpath : NULL), rep);
-        if (! res)
-        {
-            if (rep) jm_report_add_entry(rep, "unexpected element [.'$DependencyModelLoose'.vars]", (path ? &lpath : NULL));
-            if (rep) jm_report_add_entry(rep, "unexpected value for optional prop <vars> [.'$DependencyModelLoose']", (path ? &lpath : NULL));
-            return false;
-        }
-    }
-    if (json_object_get(val, "version") != NULL)
-    {
-        lpath = (jm_path_t) { "version", 0, path, NULL };
-        pval = json_object_get(val, "version");
-        // .'$DependencyModelLoose'.version
-        res = json_is_string(pval);
-        if (! res)
-        {
-            if (rep) jm_report_add_entry(rep, "unexpected string [.'$DependencyModelLoose'.version]", (path ? &lpath : NULL));
-            if (rep) jm_report_add_entry(rep, "unexpected value for optional prop <version> [.'$DependencyModelLoose']", (path ? &lpath : NULL));
-            return false;
-        }
-    }
-    if (json_object_get(val, "when") != NULL)
-    {
-        lpath = (jm_path_t) { "when", 0, path, NULL };
-        pval = json_object_get(val, "when");
-        // .'$DependencyModelLoose'.when
-        res = json_model_56(pval, (path ? &lpath : NULL), rep);
-        if (! res)
-        {
-            if (rep) jm_report_add_entry(rep, "unexpected $complex_conditional [.'$DependencyModelLoose'.when]", (path ? &lpath : NULL));
-            if (rep) jm_report_add_entry(rep, "unexpected value for optional prop <when> [.'$DependencyModelLoose']", (path ? &lpath : NULL));
-            return false;
+            // accept any other props
         }
     }
     return true;
@@ -9171,7 +9202,7 @@ static INLINE bool _jm_obj_104(const json_t *val, jm_path_t *path, jm_report_t *
     json_t *pval;
     json_object_foreach((json_t *) val, prop, pval)
     {
-        jm_path_t lpath_52 = (jm_path_t) { prop, 0, path, NULL };
+        jm_path_t lpath_53 = (jm_path_t) { prop, 0, path, NULL };
         if (strcmp(prop, "allow_duplicates") == 0)
         {
             // handle may allow_duplicates property
@@ -9179,8 +9210,8 @@ static INLINE bool _jm_obj_104(const json_t *val, jm_path_t *path, jm_report_t *
             res = json_is_boolean(pval);
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "not a bool [.'$AnsibleMetaObj'.allow_duplicates]", (path ? &lpath_52 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$AnsibleMetaObj'.allow_duplicates]", (path ? &lpath_52 : NULL));
+                if (rep) jm_report_add_entry(rep, "not a bool [.'$AnsibleMetaObj'.allow_duplicates]", (path ? &lpath_53 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$AnsibleMetaObj'.allow_duplicates]", (path ? &lpath_53 : NULL));
                 return false;
             }
         }
@@ -9188,11 +9219,11 @@ static INLINE bool _jm_obj_104(const json_t *val, jm_path_t *path, jm_report_t *
         {
             // handle may collections property
             // .'$AnsibleMetaObj'.collections
-            res = json_model_55(pval, (path ? &lpath_52 : NULL), rep);
+            res = json_model_55(pval, (path ? &lpath_53 : NULL), rep);
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "unexpected $collections [.'$AnsibleMetaObj'.collections]", (path ? &lpath_52 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$AnsibleMetaObj'.collections]", (path ? &lpath_52 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected $collections [.'$AnsibleMetaObj'.collections]", (path ? &lpath_53 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$AnsibleMetaObj'.collections]", (path ? &lpath_53 : NULL));
                 return false;
             }
         }
@@ -9207,21 +9238,21 @@ static INLINE bool _jm_obj_104(const json_t *val, jm_path_t *path, jm_report_t *
                 json_t *arr_102_item;
                 json_array_foreach(pval, arr_102_idx, arr_102_item)
                 {
-                    jm_path_t arr_102_lpath = (jm_path_t) { NULL, arr_102_idx, (path ? &lpath_52 : NULL), NULL };
+                    jm_path_t arr_102_lpath = (jm_path_t) { NULL, arr_102_idx, (path ? &lpath_53 : NULL), NULL };
                     // .'$AnsibleMetaObj'.dependencies.0
                     // .'$AnsibleMetaObj'.dependencies.0.'|'.0
                     res = json_is_string(arr_102_item);
                     if (! res)
                     {
-                        if (rep) jm_report_add_entry(rep, "unexpected string [.'$AnsibleMetaObj'.dependencies.0.'|'.0]", ((path ? &lpath_52 : NULL) ? &arr_102_lpath : NULL));
+                        if (rep) jm_report_add_entry(rep, "unexpected string [.'$AnsibleMetaObj'.dependencies.0.'|'.0]", ((path ? &lpath_53 : NULL) ? &arr_102_lpath : NULL));
                     }
                     if (! res)
                     {
                         // .'$AnsibleMetaObj'.dependencies.0.'|'.1
-                        res = json_model_58(arr_102_item, ((path ? &lpath_52 : NULL) ? &arr_102_lpath : NULL), rep);
+                        res = json_model_58(arr_102_item, ((path ? &lpath_53 : NULL) ? &arr_102_lpath : NULL), rep);
                         if (! res)
                         {
-                            if (rep) jm_report_add_entry(rep, "unexpected $DependencyModel [.'$AnsibleMetaObj'.dependencies.0.'|'.1]", ((path ? &lpath_52 : NULL) ? &arr_102_lpath : NULL));
+                            if (rep) jm_report_add_entry(rep, "unexpected $DependencyModel [.'$AnsibleMetaObj'.dependencies.0.'|'.1]", ((path ? &lpath_53 : NULL) ? &arr_102_lpath : NULL));
                         }
                     }
                     if (res)
@@ -9230,15 +9261,15 @@ static INLINE bool _jm_obj_104(const json_t *val, jm_path_t *path, jm_report_t *
                     }
                     else
                     {
-                        if (rep) jm_report_add_entry(rep, "no model matched [.'$AnsibleMetaObj'.dependencies.0.'|']", ((path ? &lpath_52 : NULL) ? &arr_102_lpath : NULL));
+                        if (rep) jm_report_add_entry(rep, "no model matched [.'$AnsibleMetaObj'.dependencies.0.'|']", ((path ? &lpath_53 : NULL) ? &arr_102_lpath : NULL));
                         break;
                     }
                 }
             }
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "not array or unexpected array [.'$AnsibleMetaObj'.dependencies]", (path ? &lpath_52 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$AnsibleMetaObj'.dependencies]", (path ? &lpath_52 : NULL));
+                if (rep) jm_report_add_entry(rep, "not array or unexpected array [.'$AnsibleMetaObj'.dependencies]", (path ? &lpath_53 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$AnsibleMetaObj'.dependencies]", (path ? &lpath_53 : NULL));
                 return false;
             }
         }
@@ -9246,17 +9277,17 @@ static INLINE bool _jm_obj_104(const json_t *val, jm_path_t *path, jm_report_t *
         {
             // handle may galaxy_info property
             // .'$AnsibleMetaObj'.galaxy_info
-            res = json_model_54(pval, (path ? &lpath_52 : NULL), rep);
+            res = json_model_54(pval, (path ? &lpath_53 : NULL), rep);
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "unexpected $GalaxyInfoModel [.'$AnsibleMetaObj'.galaxy_info]", (path ? &lpath_52 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$AnsibleMetaObj'.galaxy_info]", (path ? &lpath_52 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected $GalaxyInfoModel [.'$AnsibleMetaObj'.galaxy_info]", (path ? &lpath_53 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$AnsibleMetaObj'.galaxy_info]", (path ? &lpath_53 : NULL));
                 return false;
             }
         }
         else
         {
-            if (rep) jm_report_add_entry(rep, "unexpected prop [.'$AnsibleMetaObj']", (path ? &lpath_52 : NULL));
+            if (rep) jm_report_add_entry(rep, "unexpected prop [.'$AnsibleMetaObj']", (path ? &lpath_53 : NULL));
             return false;
         }
     }
@@ -10239,6 +10270,16 @@ const char *check_model_init(void)
         _jm_cst_64[0] = (jm_constant_t) { cst_is_string, { .s = "hg" } };
         _jm_cst_64[1] = (jm_constant_t) { cst_is_string, { .s = "git" } };
         jm_sort_cst(_jm_cst_64, 2);
+        _jm_obj_99_map_tab[0] = (jm_propmap_t) { "become", _jm_f_49 };
+        _jm_obj_99_map_tab[1] = (jm_propmap_t) { "name", _jm_f_50 };
+        _jm_obj_99_map_tab[2] = (jm_propmap_t) { "role", _jm_f_51 };
+        _jm_obj_99_map_tab[3] = (jm_propmap_t) { "scm", _jm_f_52 };
+        _jm_obj_99_map_tab[4] = (jm_propmap_t) { "src", _jm_f_53 };
+        _jm_obj_99_map_tab[5] = (jm_propmap_t) { "tags", _jm_f_54 };
+        _jm_obj_99_map_tab[6] = (jm_propmap_t) { "vars", _jm_f_55 };
+        _jm_obj_99_map_tab[7] = (jm_propmap_t) { "version", _jm_f_56 };
+        _jm_obj_99_map_tab[8] = (jm_propmap_t) { "when", _jm_f_57 };
+        jm_sort_propmap(_jm_obj_99_map_tab, 9);
         check_model_map_tab[0] = (jm_propmap_t) { "", json_model_60 };
         check_model_map_tab[1] = (jm_propmap_t) { "AIXPlatformModel", _jm_obj_0 };
         check_model_map_tab[2] = (jm_propmap_t) { "AlpinePlatformModel", _jm_obj_1 };

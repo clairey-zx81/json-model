@@ -283,8 +283,18 @@ my %_jm_map_0;
 sub json_model_54($$$);
 sub json_model_55($$$);
 sub json_model_56($$$);
+sub _jm_f_49($$$);
+sub _jm_f_50($$$);
+sub _jm_f_51($$$);
 my %_jm_cst_64;
+sub _jm_f_52($$$);
+sub _jm_f_53($$$);
+sub _jm_f_54($$$);
 sub _jm_obj_100($$$);
+sub _jm_f_55($$$);
+sub _jm_f_56($$$);
+sub _jm_f_57($$$);
+my %_jm_obj_99_map;
 sub _jm_obj_99($$$);
 sub json_model_57($$$);
 sub _jm_obj_101($$$);
@@ -6997,6 +7007,85 @@ sub json_model_56($$$)
     return $res;
 }
 
+# check _jm_obj_99_map_become (.'$DependencyModelLoose'.become)
+sub _jm_f_49($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$DependencyModelLoose'.become
+    $res = jm_is_boolean($val);
+    return $res;
+}
+
+# check _jm_obj_99_map_name (.'$DependencyModelLoose'.name)
+sub _jm_f_50($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$DependencyModelLoose'.name
+    $res = jm_is_string($val);
+    return $res;
+}
+
+# check _jm_obj_99_map_role (.'$DependencyModelLoose'.role)
+sub _jm_f_51($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$DependencyModelLoose'.role
+    $res = jm_is_string($val);
+    return $res;
+}
+
+
+# check _jm_obj_99_map_scm (.'$DependencyModelLoose'.scm)
+sub _jm_f_52($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$DependencyModelLoose'.scm
+    $res = jm_is_scalar($val) && jm_is_string($val) && exists $_jm_cst_64{$val};
+    return $res;
+}
+
+# check _jm_obj_99_map_src (.'$DependencyModelLoose'.src)
+sub _jm_f_53($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$DependencyModelLoose'.src
+    $res = jm_is_string($val);
+    return $res;
+}
+
+# check _jm_obj_99_map_tags (.'$DependencyModelLoose'.tags)
+sub _jm_f_54($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$DependencyModelLoose'.tags
+    # .'$DependencyModelLoose'.tags.'|'.0
+    $res = jm_is_string($val);
+    if (! $res)
+    {
+        # .'$DependencyModelLoose'.tags.'|'.1
+        $res = jm_is_array($val);
+        if ($res)
+        {
+            for my $arr_101_idx (0 .. $#$val)
+            {
+                my $arr_101_item = $$val[$arr_101_idx];
+                # .'$DependencyModelLoose'.tags.'|'.1.0
+                $res = jm_is_string($arr_101_item);
+                if (! $res)
+                {
+                    last;
+                }
+            }
+        }
+    }
+    return $res;
+}
 
 # object .'$DependencyModelLoose'.vars
 sub _jm_obj_100($$$)
@@ -7010,124 +7099,61 @@ sub _jm_obj_100($$$)
     return 1;
 }
 
+# check _jm_obj_99_map_vars (.'$DependencyModelLoose'.vars)
+sub _jm_f_55($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$DependencyModelLoose'.vars
+    $res = _jm_obj_100($val, $path, $rep);
+    return $res;
+}
+
+# check _jm_obj_99_map_version (.'$DependencyModelLoose'.version)
+sub _jm_f_56($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$DependencyModelLoose'.version
+    $res = jm_is_string($val);
+    return $res;
+}
+
+# check _jm_obj_99_map_when (.'$DependencyModelLoose'.when)
+sub _jm_f_57($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$DependencyModelLoose'.when
+    $res = json_model_56($val, $path, $rep);
+    return $res;
+}
+
+
 # object .'$DependencyModelLoose'
 sub _jm_obj_99($$$)
 {
     my ($val, $path, $rep) = @_;
-    # check open must/may only props
     if (! jm_is_object($val))
     {
         return 0;
     }
-    my $pval;
-    my $res;
-    if (exists $$val{'become'})
+    my $pfun;
+    scalar keys %$val;
+    while (my ($prop, $pval) = each %$val)
     {
-        $pval = $$val{'become'};
-        # .'$DependencyModelLoose'.become
-        $res = jm_is_boolean($pval);
-        if (! $res)
+        if (($pfun = $_jm_obj_99_map{$prop}))
         {
-            return 0;
-        }
-    }
-    if (exists $$val{'name'})
-    {
-        $pval = $$val{'name'};
-        # .'$DependencyModelLoose'.name
-        $res = jm_is_string($pval);
-        if (! $res)
-        {
-            return 0;
-        }
-    }
-    if (exists $$val{'role'})
-    {
-        $pval = $$val{'role'};
-        # .'$DependencyModelLoose'.role
-        $res = jm_is_string($pval);
-        if (! $res)
-        {
-            return 0;
-        }
-    }
-    if (exists $$val{'src'})
-    {
-        $pval = $$val{'src'};
-        # .'$DependencyModelLoose'.src
-        $res = jm_is_string($pval);
-        if (! $res)
-        {
-            return 0;
-        }
-    }
-    if (exists $$val{'scm'})
-    {
-        $pval = $$val{'scm'};
-        # .'$DependencyModelLoose'.scm
-        $res = jm_is_scalar($pval) && jm_is_string($pval) && exists $_jm_cst_64{$pval};
-        if (! $res)
-        {
-            return 0;
-        }
-    }
-    if (exists $$val{'tags'})
-    {
-        $pval = $$val{'tags'};
-        # .'$DependencyModelLoose'.tags
-        # .'$DependencyModelLoose'.tags.'|'.0
-        $res = jm_is_string($pval);
-        if (! $res)
-        {
-            # .'$DependencyModelLoose'.tags.'|'.1
-            $res = jm_is_array($pval);
-            if ($res)
+            # handle 9 may props
+            if (defined($pfun) && ! &$pfun($pval, undef, $rep))
             {
-                for my $arr_101_idx (0 .. $#$pval)
-                {
-                    my $arr_101_item = $$pval[$arr_101_idx];
-                    # .'$DependencyModelLoose'.tags.'|'.1.0
-                    $res = jm_is_string($arr_101_item);
-                    if (! $res)
-                    {
-                        last;
-                    }
-                }
+                return 0;
             }
         }
-        if (! $res)
+        else
         {
-            return 0;
-        }
-    }
-    if (exists $$val{'vars'})
-    {
-        $pval = $$val{'vars'};
-        # .'$DependencyModelLoose'.vars
-        $res = _jm_obj_100($pval, undef, $rep);
-        if (! $res)
-        {
-            return 0;
-        }
-    }
-    if (exists $$val{'version'})
-    {
-        $pval = $$val{'version'};
-        # .'$DependencyModelLoose'.version
-        $res = jm_is_string($pval);
-        if (! $res)
-        {
-            return 0;
-        }
-    }
-    if (exists $$val{'when'})
-    {
-        $pval = $$val{'when'};
-        # .'$DependencyModelLoose'.when
-        $res = json_model_56($pval, undef, $rep);
-        if (! $res)
-        {
-            return 0;
+            # accept any other props
+            ;
         }
     }
     return 1;
@@ -8282,6 +8308,17 @@ sub check_model_init()
             'hg' => 1,
             'git' => 1,
         );
+        %_jm_obj_99_map = (
+            'become' => \&_jm_f_49,
+            'name' => \&_jm_f_50,
+            'role' => \&_jm_f_51,
+            'scm' => \&_jm_f_52,
+            'src' => \&_jm_f_53,
+            'tags' => \&_jm_f_54,
+            'vars' => \&_jm_f_55,
+            'version' => \&_jm_f_56,
+            'when' => \&_jm_f_57,
+        );
         %check_model_map = (
             '' => \&json_model_60,
             'AIXPlatformModel' => \&_jm_obj_0,
@@ -8423,6 +8460,7 @@ sub check_model_free()
         %_jm_obj_98_map = ();
         %_jm_map_0 = ();
         %_jm_cst_64 = ();
+        %_jm_obj_99_map = ();
         %check_model_map = ();
     }
 }

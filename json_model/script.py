@@ -374,6 +374,10 @@ def jmc_script():
         help="do not inline or references")
     arg("--map-threshold", "-mt", default=5, type=int, help="property map threshold, default 5")
     arg("--map-share", "-ms", default=False, action="store_true", help="property map sharing")
+    arg("--unroll-may-ratio", "-umr", default=0.5, type=float,
+        help="unroll if optional props under this ratio, default 0.5")
+    arg("--unroll-may-threshold", "-umt", default=5, type=int,
+        help="unroll if number of optional props less than threshold, default 5")
 
     # IR
     arg("--ir-optimize", "-Oir", dest="ir_optimize", action="store_true", default=True,

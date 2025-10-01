@@ -97,6 +97,7 @@ _jm_map_0: ConstMap = ConstMap()
 _jm_re_2_reco: object
 _jm_re_2: RegexFun
 _jm_cst_64: set[str]
+_jm_obj_99_map: PropMap
 check_model_map: PropMap
 
 
@@ -5423,6 +5424,78 @@ def json_model_56(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("no model matched [.'$complex_conditional'.'|']", path))
     return res
 
+# check _jm_obj_99_map_become (.'$DependencyModelLoose'.become)
+def _jm_f_49(val: Jsonable, path: Path, rep: Report) -> bool:
+    res: bool
+    # .'$DependencyModelLoose'.become
+    res = isinstance(val, bool)
+    if not res:
+        rep is None or rep.append(("not a bool [.'$DependencyModelLoose'.become]", path))
+    return res
+
+# check _jm_obj_99_map_name (.'$DependencyModelLoose'.name)
+def _jm_f_50(val: Jsonable, path: Path, rep: Report) -> bool:
+    res: bool
+    # .'$DependencyModelLoose'.name
+    res = isinstance(val, str)
+    if not res:
+        rep is None or rep.append(("unexpected string [.'$DependencyModelLoose'.name]", path))
+    return res
+
+# check _jm_obj_99_map_role (.'$DependencyModelLoose'.role)
+def _jm_f_51(val: Jsonable, path: Path, rep: Report) -> bool:
+    res: bool
+    # .'$DependencyModelLoose'.role
+    res = isinstance(val, str)
+    if not res:
+        rep is None or rep.append(("unexpected string [.'$DependencyModelLoose'.role]", path))
+    return res
+
+
+# check _jm_obj_99_map_scm (.'$DependencyModelLoose'.scm)
+def _jm_f_52(val: Jsonable, path: Path, rep: Report) -> bool:
+    res: bool
+    # .'$DependencyModelLoose'.scm
+    res = ((val is None or isinstance(val, (bool, int, float, str)))) and val in _jm_cst_64
+    if not res:
+        rep is None or rep.append(("value not in enum [.'$DependencyModelLoose'.scm.'|']", path))
+    return res
+
+# check _jm_obj_99_map_src (.'$DependencyModelLoose'.src)
+def _jm_f_53(val: Jsonable, path: Path, rep: Report) -> bool:
+    res: bool
+    # .'$DependencyModelLoose'.src
+    res = isinstance(val, str)
+    if not res:
+        rep is None or rep.append(("unexpected string [.'$DependencyModelLoose'.src]", path))
+    return res
+
+# check _jm_obj_99_map_tags (.'$DependencyModelLoose'.tags)
+def _jm_f_54(val: Jsonable, path: Path, rep: Report) -> bool:
+    res: bool
+    # .'$DependencyModelLoose'.tags
+    # .'$DependencyModelLoose'.tags.'|'.0
+    res = isinstance(val, str)
+    if not res:
+        rep is None or rep.append(("unexpected string [.'$DependencyModelLoose'.tags.'|'.0]", path))
+    if not res:
+        # .'$DependencyModelLoose'.tags.'|'.1
+        res = isinstance(val, list)
+        if res:
+            for arr_101_idx, arr_101_item in enumerate(val):
+                arr_101_lpath: Path = (path + [ arr_101_idx ]) if path is not None else None
+                # .'$DependencyModelLoose'.tags.'|'.1.0
+                res = isinstance(arr_101_item, str)
+                if not res:
+                    rep is None or rep.append(("unexpected string [.'$DependencyModelLoose'.tags.'|'.1.0]", arr_101_lpath if path is not None else None))
+                    break
+        if not res:
+            rep is None or rep.append(("not array or unexpected array [.'$DependencyModelLoose'.tags.'|'.1]", path))
+    if res:
+        rep is None or rep.clear()
+    else:
+        rep is None or rep.append(("no model matched [.'$DependencyModelLoose'.tags.'|']", path))
+    return res
 
 # object .'$DependencyModelLoose'.vars
 def _jm_obj_100(val: Jsonable, path: Path, rep: Report) -> bool:
@@ -5432,114 +5505,51 @@ def _jm_obj_100(val: Jsonable, path: Path, rep: Report) -> bool:
     # accept any object
     return True
 
+# check _jm_obj_99_map_vars (.'$DependencyModelLoose'.vars)
+def _jm_f_55(val: Jsonable, path: Path, rep: Report) -> bool:
+    res: bool
+    # .'$DependencyModelLoose'.vars
+    res = _jm_obj_100(val, path, rep)
+    if not res:
+        rep is None or rep.append(("unexpected element [.'$DependencyModelLoose'.vars]", path))
+    return res
+
+# check _jm_obj_99_map_version (.'$DependencyModelLoose'.version)
+def _jm_f_56(val: Jsonable, path: Path, rep: Report) -> bool:
+    res: bool
+    # .'$DependencyModelLoose'.version
+    res = isinstance(val, str)
+    if not res:
+        rep is None or rep.append(("unexpected string [.'$DependencyModelLoose'.version]", path))
+    return res
+
+# check _jm_obj_99_map_when (.'$DependencyModelLoose'.when)
+def _jm_f_57(val: Jsonable, path: Path, rep: Report) -> bool:
+    res: bool
+    # .'$DependencyModelLoose'.when
+    res = json_model_56(val, path, rep)
+    if not res:
+        rep is None or rep.append(("unexpected $complex_conditional [.'$DependencyModelLoose'.when]", path))
+    return res
+
+
 # object .'$DependencyModelLoose'
 def _jm_obj_99(val: Jsonable, path: Path, rep: Report) -> bool:
-    # check open must/may only props
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$DependencyModelLoose']", path))
         return False
-    lpath: Path
-    pval: Jsonable
-    res: bool
-    if "become" in val:
-        lpath = (path + [ "become" ]) if path is not None else None
-        pval = val.get("become", UNDEFINED)
-        # .'$DependencyModelLoose'.become
-        res = isinstance(pval, bool)
-        if not res:
-            rep is None or rep.append(("not a bool [.'$DependencyModelLoose'.become]", lpath if path is not None else None))
-            rep is None or rep.append(("unexpected value for optional prop <become> [.'$DependencyModelLoose']", lpath if path is not None else None))
-            return False
-    if "name" in val:
-        lpath = (path + [ "name" ]) if path is not None else None
-        pval = val.get("name", UNDEFINED)
-        # .'$DependencyModelLoose'.name
-        res = isinstance(pval, str)
-        if not res:
-            rep is None or rep.append(("unexpected string [.'$DependencyModelLoose'.name]", lpath if path is not None else None))
-            rep is None or rep.append(("unexpected value for optional prop <name> [.'$DependencyModelLoose']", lpath if path is not None else None))
-            return False
-    if "role" in val:
-        lpath = (path + [ "role" ]) if path is not None else None
-        pval = val.get("role", UNDEFINED)
-        # .'$DependencyModelLoose'.role
-        res = isinstance(pval, str)
-        if not res:
-            rep is None or rep.append(("unexpected string [.'$DependencyModelLoose'.role]", lpath if path is not None else None))
-            rep is None or rep.append(("unexpected value for optional prop <role> [.'$DependencyModelLoose']", lpath if path is not None else None))
-            return False
-    if "src" in val:
-        lpath = (path + [ "src" ]) if path is not None else None
-        pval = val.get("src", UNDEFINED)
-        # .'$DependencyModelLoose'.src
-        res = isinstance(pval, str)
-        if not res:
-            rep is None or rep.append(("unexpected string [.'$DependencyModelLoose'.src]", lpath if path is not None else None))
-            rep is None or rep.append(("unexpected value for optional prop <src> [.'$DependencyModelLoose']", lpath if path is not None else None))
-            return False
-    if "scm" in val:
-        lpath = (path + [ "scm" ]) if path is not None else None
-        pval = val.get("scm", UNDEFINED)
-        # .'$DependencyModelLoose'.scm
-        res = ((pval is None or isinstance(pval, (bool, int, float, str)))) and pval in _jm_cst_64
-        if not res:
-            rep is None or rep.append(("value not in enum [.'$DependencyModelLoose'.scm.'|']", lpath if path is not None else None))
-            rep is None or rep.append(("unexpected value for optional prop <scm> [.'$DependencyModelLoose']", lpath if path is not None else None))
-            return False
-    if "tags" in val:
-        lpath = (path + [ "tags" ]) if path is not None else None
-        pval = val.get("tags", UNDEFINED)
-        # .'$DependencyModelLoose'.tags
-        # .'$DependencyModelLoose'.tags.'|'.0
-        res = isinstance(pval, str)
-        if not res:
-            rep is None or rep.append(("unexpected string [.'$DependencyModelLoose'.tags.'|'.0]", lpath if path is not None else None))
-        if not res:
-            # .'$DependencyModelLoose'.tags.'|'.1
-            res = isinstance(pval, list)
-            if res:
-                for arr_101_idx, arr_101_item in enumerate(pval):
-                    arr_101_lpath: Path = ((lpath if path is not None else None) + [ arr_101_idx ]) if (lpath if path is not None else None) is not None else None
-                    # .'$DependencyModelLoose'.tags.'|'.1.0
-                    res = isinstance(arr_101_item, str)
-                    if not res:
-                        rep is None or rep.append(("unexpected string [.'$DependencyModelLoose'.tags.'|'.1.0]", arr_101_lpath if (lpath if path is not None else None) is not None else None))
-                        break
-            if not res:
-                rep is None or rep.append(("not array or unexpected array [.'$DependencyModelLoose'.tags.'|'.1]", lpath if path is not None else None))
-        if res:
-            rep is None or rep.clear()
+    pfun: CheckFun
+    for prop, pval in val.items():
+        assert isinstance(prop, str)
+        lpath_52: Path = (path + [ prop ]) if path is not None else None
+        if pfun := _jm_obj_99_map.get(prop):
+            # handle 9 may props
+            if pfun != UNDEFINED and not pfun(pval, lpath_52 if path is not None else None, rep):
+                rep is None or rep.append(("invalid optional prop value [.'$DependencyModelLoose']", lpath_52 if path is not None else None))
+                return False
         else:
-            rep is None or rep.append(("no model matched [.'$DependencyModelLoose'.tags.'|']", lpath if path is not None else None))
-            rep is None or rep.append(("unexpected value for optional prop <tags> [.'$DependencyModelLoose']", lpath if path is not None else None))
-            return False
-    if "vars" in val:
-        lpath = (path + [ "vars" ]) if path is not None else None
-        pval = val.get("vars", UNDEFINED)
-        # .'$DependencyModelLoose'.vars
-        res = _jm_obj_100(pval, lpath if path is not None else None, rep)
-        if not res:
-            rep is None or rep.append(("unexpected element [.'$DependencyModelLoose'.vars]", lpath if path is not None else None))
-            rep is None or rep.append(("unexpected value for optional prop <vars> [.'$DependencyModelLoose']", lpath if path is not None else None))
-            return False
-    if "version" in val:
-        lpath = (path + [ "version" ]) if path is not None else None
-        pval = val.get("version", UNDEFINED)
-        # .'$DependencyModelLoose'.version
-        res = isinstance(pval, str)
-        if not res:
-            rep is None or rep.append(("unexpected string [.'$DependencyModelLoose'.version]", lpath if path is not None else None))
-            rep is None or rep.append(("unexpected value for optional prop <version> [.'$DependencyModelLoose']", lpath if path is not None else None))
-            return False
-    if "when" in val:
-        lpath = (path + [ "when" ]) if path is not None else None
-        pval = val.get("when", UNDEFINED)
-        # .'$DependencyModelLoose'.when
-        res = json_model_56(pval, lpath if path is not None else None, rep)
-        if not res:
-            rep is None or rep.append(("unexpected $complex_conditional [.'$DependencyModelLoose'.when]", lpath if path is not None else None))
-            rep is None or rep.append(("unexpected value for optional prop <when> [.'$DependencyModelLoose']", lpath if path is not None else None))
-            return False
+            # accept any other props
+            pass
     return True
 
 # check $DependencyModelLoose (.'$DependencyModelLoose')
@@ -5669,22 +5679,22 @@ def _jm_obj_104(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     for prop, pval in val.items():
         assert isinstance(prop, str)
-        lpath_52: Path = (path + [ prop ]) if path is not None else None
+        lpath_53: Path = (path + [ prop ]) if path is not None else None
         if prop == "allow_duplicates":
             # handle may allow_duplicates property
             # .'$AnsibleMetaObj'.allow_duplicates
             res = isinstance(pval, bool)
             if not res:
-                rep is None or rep.append(("not a bool [.'$AnsibleMetaObj'.allow_duplicates]", lpath_52 if path is not None else None))
-                rep is None or rep.append(("invalid optional prop value [.'$AnsibleMetaObj'.allow_duplicates]", lpath_52 if path is not None else None))
+                rep is None or rep.append(("not a bool [.'$AnsibleMetaObj'.allow_duplicates]", lpath_53 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$AnsibleMetaObj'.allow_duplicates]", lpath_53 if path is not None else None))
                 return False
         elif prop == "collections":
             # handle may collections property
             # .'$AnsibleMetaObj'.collections
-            res = json_model_55(pval, lpath_52 if path is not None else None, rep)
+            res = json_model_55(pval, lpath_53 if path is not None else None, rep)
             if not res:
-                rep is None or rep.append(("unexpected $collections [.'$AnsibleMetaObj'.collections]", lpath_52 if path is not None else None))
-                rep is None or rep.append(("invalid optional prop value [.'$AnsibleMetaObj'.collections]", lpath_52 if path is not None else None))
+                rep is None or rep.append(("unexpected $collections [.'$AnsibleMetaObj'.collections]", lpath_53 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$AnsibleMetaObj'.collections]", lpath_53 if path is not None else None))
                 return False
         elif prop == "dependencies":
             # handle may dependencies property
@@ -5692,36 +5702,36 @@ def _jm_obj_104(val: Jsonable, path: Path, rep: Report) -> bool:
             res = isinstance(pval, list)
             if res:
                 for arr_102_idx, arr_102_item in enumerate(pval):
-                    arr_102_lpath: Path = ((lpath_52 if path is not None else None) + [ arr_102_idx ]) if (lpath_52 if path is not None else None) is not None else None
+                    arr_102_lpath: Path = ((lpath_53 if path is not None else None) + [ arr_102_idx ]) if (lpath_53 if path is not None else None) is not None else None
                     # .'$AnsibleMetaObj'.dependencies.0
                     # .'$AnsibleMetaObj'.dependencies.0.'|'.0
                     res = isinstance(arr_102_item, str)
                     if not res:
-                        rep is None or rep.append(("unexpected string [.'$AnsibleMetaObj'.dependencies.0.'|'.0]", arr_102_lpath if (lpath_52 if path is not None else None) is not None else None))
+                        rep is None or rep.append(("unexpected string [.'$AnsibleMetaObj'.dependencies.0.'|'.0]", arr_102_lpath if (lpath_53 if path is not None else None) is not None else None))
                     if not res:
                         # .'$AnsibleMetaObj'.dependencies.0.'|'.1
-                        res = json_model_58(arr_102_item, arr_102_lpath if (lpath_52 if path is not None else None) is not None else None, rep)
+                        res = json_model_58(arr_102_item, arr_102_lpath if (lpath_53 if path is not None else None) is not None else None, rep)
                         if not res:
-                            rep is None or rep.append(("unexpected $DependencyModel [.'$AnsibleMetaObj'.dependencies.0.'|'.1]", arr_102_lpath if (lpath_52 if path is not None else None) is not None else None))
+                            rep is None or rep.append(("unexpected $DependencyModel [.'$AnsibleMetaObj'.dependencies.0.'|'.1]", arr_102_lpath if (lpath_53 if path is not None else None) is not None else None))
                     if res:
                         rep is None or rep.clear()
                     else:
-                        rep is None or rep.append(("no model matched [.'$AnsibleMetaObj'.dependencies.0.'|']", arr_102_lpath if (lpath_52 if path is not None else None) is not None else None))
+                        rep is None or rep.append(("no model matched [.'$AnsibleMetaObj'.dependencies.0.'|']", arr_102_lpath if (lpath_53 if path is not None else None) is not None else None))
                         break
             if not res:
-                rep is None or rep.append(("not array or unexpected array [.'$AnsibleMetaObj'.dependencies]", lpath_52 if path is not None else None))
-                rep is None or rep.append(("invalid optional prop value [.'$AnsibleMetaObj'.dependencies]", lpath_52 if path is not None else None))
+                rep is None or rep.append(("not array or unexpected array [.'$AnsibleMetaObj'.dependencies]", lpath_53 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$AnsibleMetaObj'.dependencies]", lpath_53 if path is not None else None))
                 return False
         elif prop == "galaxy_info":
             # handle may galaxy_info property
             # .'$AnsibleMetaObj'.galaxy_info
-            res = json_model_54(pval, lpath_52 if path is not None else None, rep)
+            res = json_model_54(pval, lpath_53 if path is not None else None, rep)
             if not res:
-                rep is None or rep.append(("unexpected $GalaxyInfoModel [.'$AnsibleMetaObj'.galaxy_info]", lpath_52 if path is not None else None))
-                rep is None or rep.append(("invalid optional prop value [.'$AnsibleMetaObj'.galaxy_info]", lpath_52 if path is not None else None))
+                rep is None or rep.append(("unexpected $GalaxyInfoModel [.'$AnsibleMetaObj'.galaxy_info]", lpath_53 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$AnsibleMetaObj'.galaxy_info]", lpath_53 if path is not None else None))
                 return False
         else:
-            rep is None or rep.append(("unexpected prop [.'$AnsibleMetaObj']", lpath_52 if path is not None else None))
+            rep is None or rep.append(("unexpected prop [.'$AnsibleMetaObj']", lpath_53 if path is not None else None))
             return False
     return True
 
@@ -5978,6 +5988,18 @@ def check_model_init():
         _jm_re_2 = lambda s, p, r: _jm_re_2_reco.search(s) is not None
         global _jm_cst_64
         _jm_cst_64 = {'git', 'hg'}
+        global _jm_obj_99_map
+        _jm_obj_99_map = {
+            "become": _jm_f_49,
+            "name": _jm_f_50,
+            "role": _jm_f_51,
+            "scm": _jm_f_52,
+            "src": _jm_f_53,
+            "tags": _jm_f_54,
+            "vars": _jm_f_55,
+            "version": _jm_f_56,
+            "when": _jm_f_57,
+        }
         global check_model_map
         check_model_map = {
             "": json_model_60,

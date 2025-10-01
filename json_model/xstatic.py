@@ -23,6 +23,9 @@ class CodeGenerator:
     - fname: entry function name.
     - prefix: use this prefix for file-level identifiers.
     - map_threshold: whether to inline property name checks (up to threshold) or use a map.
+    - map_share: whether to share property maps
+    - unroll_may_ratio: max ratio of optional props to unroll, default 0.5
+    - unroll_may_threshold: max number of optional props to unroll, default 5
     - report: whether to report rejection reasons.
     - path: whether to keep track of value path while checking.
     - debug: verbose debug mode.
@@ -30,6 +33,7 @@ class CodeGenerator:
 
     def __init__(self, globs: Symbols, language: Language, fname: str = "check_model", *,
                  prefix: str = "", map_threshold: int = 3, map_share: bool = False,
+                 unroll_may_ratio: float = 0.5, unroll_may_threshold: int = 5,
                  execute: bool = True, report: bool = True, path: bool = True,
                  package: str|None = None, debug: bool = False):
 
@@ -39,6 +43,8 @@ class CodeGenerator:
         self._lang = language
         self._prefix = prefix
         self._map_threshold = map_threshold
+        self._unroll_may_ratio = unroll_may_ratio
+        self._unroll_may_threshold = unroll_may_threshold
         self._map_share = map_share
         self._report = report
         self._path = path
@@ -640,11 +646,16 @@ class CodeGenerator:
                 return code
             # only check values, fine code will be generated below
 
+        # TODO devise a dynamic choice
         # shortcut for open object with simple props only
         if not defs and not regs and (must or may) and oth == {"": "$ANY"}:
-            return self._openMuMaObject(jm, must, may, mpath, oname, res, val, vpath)
+            # if there are many may values, this may be too costly…
+            if (1.0 * len(may) / (len(must) + len(may)) < self._unroll_may_ratio or
+                len(may) <= self._unroll_may_threshold):
+                return self._openMuMaObject(jm, must, may, mpath, oname, res, val, vpath)
 
         # shortcut for must-only object
+        # NOTE we assume that this strategy is always beneficial
         if must and not may and not defs and not regs and not oth:
             return self._closeMuObject(jm, must, mpath, oname, res, val, vpath)
 
@@ -1532,8 +1543,10 @@ def xstatic_compile(
         prefix: str = "_jm_",
         relib: str|None = None,
         map_threshold: int = 3,
-        execute: bool = True,
         map_share: bool = False,
+        unroll_may_ratio: float = 0.5,
+        unroll_may_threshold: int = 5,
+        execute: bool = True,
         debug: bool = False,
         report: bool = True,
         short_version: bool = False,
@@ -1549,6 +1562,8 @@ def xstatic_compile(
     - prefix: prefix for generated functions.
     - map_threshold: inline property checks under this threshold.
     - map_share: share generated property maps.
+    - unroll_may_ratio: unroll if less that ratio opt props/all props
+    - unroll_may_threshold: unroll if less than threshold opt props
     - report: whether to generate code to report rejection reasons.
     - debug: debugging mode generates more traces.
     - short_version: in generated code.
@@ -1600,10 +1615,13 @@ def xstatic_compile(
     # cold override
     target._short_version = short_version
 
-    # cource code generator
-    gen = CodeGenerator(model._globs, target, fname, prefix=prefix,  # type: ignore
-                        execute=execute, map_threshold=map_threshold, map_share=map_share,
-                        debug=debug, report=report, package=package)
+    # source code generator
+    gen = CodeGenerator(
+        model._globs, target, fname, prefix=prefix,  # type: ignore
+        execute=execute, map_threshold=map_threshold, map_share=map_share,
+        unroll_may_ratio=unroll_may_ratio, unroll_may_threshold=unroll_may_threshold,
+        debug=debug, report=report, package=package
+    )
 
     # generate IR or final code
     code: Code = gen.compileJsonModelHead(model)

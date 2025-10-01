@@ -4,7 +4,7 @@
 
 - [x] models: write model for json IR
 - [x] static: fix value path in some object variants
-- [ ] static: add a max threshold for property unrolling
+- [x] static: add a max threshold/ratio for may property unrolling
 - [ ] static: add a dynamic test for different strategies in object checking
 - [ ] tests: add ir optimized output
 - [ ] tests: add pytest ir tests

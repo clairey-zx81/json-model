@@ -6807,6 +6807,42 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
+-- check _jm_obj_99_map_become (.'$DependencyModelLoose'.become)
+CREATE OR REPLACE FUNCTION _jm_f_49(val JSONB, path TEXT[], rep jm_report_entry[])
+RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
+DECLARE
+  res bool;
+BEGIN
+  -- .'$DependencyModelLoose'.become
+  res := JSONB_TYPEOF(val) = 'boolean';
+  RETURN res;
+END;
+$$ LANGUAGE PLpgSQL;
+
+-- check _jm_obj_99_map_name (.'$DependencyModelLoose'.name)
+CREATE OR REPLACE FUNCTION _jm_f_50(val JSONB, path TEXT[], rep jm_report_entry[])
+RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
+DECLARE
+  res bool;
+BEGIN
+  -- .'$DependencyModelLoose'.name
+  res := JSONB_TYPEOF(val) = 'string';
+  RETURN res;
+END;
+$$ LANGUAGE PLpgSQL;
+
+-- check _jm_obj_99_map_role (.'$DependencyModelLoose'.role)
+CREATE OR REPLACE FUNCTION _jm_f_51(val JSONB, path TEXT[], rep jm_report_entry[])
+RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
+DECLARE
+  res bool;
+BEGIN
+  -- .'$DependencyModelLoose'.role
+  res := JSONB_TYPEOF(val) = 'string';
+  RETURN res;
+END;
+$$ LANGUAGE PLpgSQL;
+
 CREATE OR REPLACE FUNCTION _jm_cst_64(value JSONB)
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
@@ -6815,6 +6851,59 @@ BEGIN
   RETURN constants @> value;
 END;
 $$ LANGUAGE plpgsql;
+
+-- check _jm_obj_99_map_scm (.'$DependencyModelLoose'.scm)
+CREATE OR REPLACE FUNCTION _jm_f_52(val JSONB, path TEXT[], rep jm_report_entry[])
+RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
+DECLARE
+  res bool;
+BEGIN
+  -- .'$DependencyModelLoose'.scm
+  res := JSONB_TYPEOF(val) IN ('null', 'boolean', 'number', 'string') AND _jm_cst_64(val);
+  RETURN res;
+END;
+$$ LANGUAGE PLpgSQL;
+
+-- check _jm_obj_99_map_src (.'$DependencyModelLoose'.src)
+CREATE OR REPLACE FUNCTION _jm_f_53(val JSONB, path TEXT[], rep jm_report_entry[])
+RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
+DECLARE
+  res bool;
+BEGIN
+  -- .'$DependencyModelLoose'.src
+  res := JSONB_TYPEOF(val) = 'string';
+  RETURN res;
+END;
+$$ LANGUAGE PLpgSQL;
+
+-- check _jm_obj_99_map_tags (.'$DependencyModelLoose'.tags)
+CREATE OR REPLACE FUNCTION _jm_f_54(val JSONB, path TEXT[], rep jm_report_entry[])
+RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
+DECLARE
+  res bool;
+  arr_101_idx INT8;
+  arr_101_item JSONB;
+BEGIN
+  -- .'$DependencyModelLoose'.tags
+  -- .'$DependencyModelLoose'.tags.'|'.0
+  res := JSONB_TYPEOF(val) = 'string';
+  IF NOT res THEN
+    -- .'$DependencyModelLoose'.tags.'|'.1
+    res := JSONB_TYPEOF(val) = 'array';
+    IF res THEN
+      FOR arr_101_idx IN 0 .. JSONB_ARRAY_LENGTH(val) - 1 LOOP
+        arr_101_item := val -> arr_101_idx;
+        -- .'$DependencyModelLoose'.tags.'|'.1.0
+        res := JSONB_TYPEOF(arr_101_item) = 'string';
+        IF NOT res THEN
+          EXIT;
+        END IF;
+      END LOOP;
+    END IF;
+  END IF;
+  RETURN res;
+END;
+$$ LANGUAGE PLpgSQL;
 
 -- object .'$DependencyModelLoose'.vars
 CREATE OR REPLACE FUNCTION _jm_obj_100(val JSONB, path TEXT[], rep jm_report_entry[])
@@ -6828,106 +6917,74 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
+-- check _jm_obj_99_map_vars (.'$DependencyModelLoose'.vars)
+CREATE OR REPLACE FUNCTION _jm_f_55(val JSONB, path TEXT[], rep jm_report_entry[])
+RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
+DECLARE
+  res bool;
+BEGIN
+  -- .'$DependencyModelLoose'.vars
+  res := _jm_obj_100(val, path, rep);
+  RETURN res;
+END;
+$$ LANGUAGE PLpgSQL;
+
+-- check _jm_obj_99_map_version (.'$DependencyModelLoose'.version)
+CREATE OR REPLACE FUNCTION _jm_f_56(val JSONB, path TEXT[], rep jm_report_entry[])
+RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
+DECLARE
+  res bool;
+BEGIN
+  -- .'$DependencyModelLoose'.version
+  res := JSONB_TYPEOF(val) = 'string';
+  RETURN res;
+END;
+$$ LANGUAGE PLpgSQL;
+
+-- check _jm_obj_99_map_when (.'$DependencyModelLoose'.when)
+CREATE OR REPLACE FUNCTION _jm_f_57(val JSONB, path TEXT[], rep jm_report_entry[])
+RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
+DECLARE
+  res bool;
+BEGIN
+  -- .'$DependencyModelLoose'.when
+  res := json_model_56(val, path, rep);
+  RETURN res;
+END;
+$$ LANGUAGE PLpgSQL;
+
+CREATE OR REPLACE FUNCTION _jm_obj_99_map(name TEXT)
+RETURNS TEXT STRICT IMMUTABLE PARALLEL SAFE AS $$
+DECLARE
+  map JSONB := JSONB '{"become":"_jm_f_49","name":"_jm_f_50","role":"_jm_f_51","scm":"_jm_f_52","src":"_jm_f_53","tags":"_jm_f_54","vars":"_jm_f_55","version":"_jm_f_56","when":"_jm_f_57"}';
+BEGIN
+  RETURN map->>name;
+END;
+$$ LANGUAGE plpgsql;
+
 -- object .'$DependencyModelLoose'
 CREATE OR REPLACE FUNCTION _jm_obj_99(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
+  pfun TEXT;
+  prop TEXT;
   pval JSONB;
-  res bool;
-  arr_101_idx INT8;
-  arr_101_item JSONB;
 BEGIN
-  -- check open must/may only props
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
-  IF val ? 'become' THEN
-    pval := val -> 'become';
-    -- .'$DependencyModelLoose'.become
-    res := JSONB_TYPEOF(pval) = 'boolean';
-    IF NOT res THEN
-      RETURN FALSE;
-    END IF;
-  END IF;
-  IF val ? 'name' THEN
-    pval := val -> 'name';
-    -- .'$DependencyModelLoose'.name
-    res := JSONB_TYPEOF(pval) = 'string';
-    IF NOT res THEN
-      RETURN FALSE;
-    END IF;
-  END IF;
-  IF val ? 'role' THEN
-    pval := val -> 'role';
-    -- .'$DependencyModelLoose'.role
-    res := JSONB_TYPEOF(pval) = 'string';
-    IF NOT res THEN
-      RETURN FALSE;
-    END IF;
-  END IF;
-  IF val ? 'src' THEN
-    pval := val -> 'src';
-    -- .'$DependencyModelLoose'.src
-    res := JSONB_TYPEOF(pval) = 'string';
-    IF NOT res THEN
-      RETURN FALSE;
-    END IF;
-  END IF;
-  IF val ? 'scm' THEN
-    pval := val -> 'scm';
-    -- .'$DependencyModelLoose'.scm
-    res := JSONB_TYPEOF(pval) IN ('null', 'boolean', 'number', 'string') AND _jm_cst_64(pval);
-    IF NOT res THEN
-      RETURN FALSE;
-    END IF;
-  END IF;
-  IF val ? 'tags' THEN
-    pval := val -> 'tags';
-    -- .'$DependencyModelLoose'.tags
-    -- .'$DependencyModelLoose'.tags.'|'.0
-    res := JSONB_TYPEOF(pval) = 'string';
-    IF NOT res THEN
-      -- .'$DependencyModelLoose'.tags.'|'.1
-      res := JSONB_TYPEOF(pval) = 'array';
-      IF res THEN
-        FOR arr_101_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
-          arr_101_item := pval -> arr_101_idx;
-          -- .'$DependencyModelLoose'.tags.'|'.1.0
-          res := JSONB_TYPEOF(arr_101_item) = 'string';
-          IF NOT res THEN
-            EXIT;
-          END IF;
-        END LOOP;
+  FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
+    IF _jm_obj_99_map(prop) IS NOT NULL THEN
+      -- handle 9 may props
+      pfun := _jm_obj_99_map(prop);
+      IF NOT jm_call(pfun, pval, NULL, rep) THEN
+        RETURN FALSE;
       END IF;
+    ELSE
+      -- accept any other props
+      NULL;
     END IF;
-    IF NOT res THEN
-      RETURN FALSE;
-    END IF;
-  END IF;
-  IF val ? 'vars' THEN
-    pval := val -> 'vars';
-    -- .'$DependencyModelLoose'.vars
-    res := _jm_obj_100(pval, NULL, rep);
-    IF NOT res THEN
-      RETURN FALSE;
-    END IF;
-  END IF;
-  IF val ? 'version' THEN
-    pval := val -> 'version';
-    -- .'$DependencyModelLoose'.version
-    res := JSONB_TYPEOF(pval) = 'string';
-    IF NOT res THEN
-      RETURN FALSE;
-    END IF;
-  END IF;
-  IF val ? 'when' THEN
-    pval := val -> 'when';
-    -- .'$DependencyModelLoose'.when
-    res := json_model_56(pval, NULL, rep);
-    IF NOT res THEN
-      RETURN FALSE;
-    END IF;
-  END IF;
+  END LOOP;
   RETURN TRUE;
 END;
 $$ LANGUAGE PLpgSQL;

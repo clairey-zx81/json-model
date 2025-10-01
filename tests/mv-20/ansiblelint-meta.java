@@ -91,6 +91,7 @@ public class ansiblelint_meta extends ModelChecker
     Map<Object, Checker> _jm_map_0_cmap;
     public Pattern _jm_re_2_pat = null;
     Set<Object> _jm_cst_64_set;
+    Map<String, Checker> _jm_obj_99_map_pmap;
     public Map<String, Checker> ansiblelint_meta_map_pmap;
 
 
@@ -8813,6 +8814,120 @@ public class ansiblelint_meta extends ModelChecker
         return res;
     }
 
+    // check _jm_obj_99_map_become (.'$DependencyModelLoose'.become)
+    public boolean _jm_f_49(Object val, Path path, Report rep)
+    {
+        boolean res;
+        // .'$DependencyModelLoose'.become
+        res = json.isBoolean(val);
+        if (! res)
+        {
+            if (rep != null) rep.addEntry("not a bool [.'$DependencyModelLoose'.become]", path);
+        }
+        return res;
+    }
+
+    // check _jm_obj_99_map_name (.'$DependencyModelLoose'.name)
+    public boolean _jm_f_50(Object val, Path path, Report rep)
+    {
+        boolean res;
+        // .'$DependencyModelLoose'.name
+        res = json.isString(val);
+        if (! res)
+        {
+            if (rep != null) rep.addEntry("unexpected string [.'$DependencyModelLoose'.name]", path);
+        }
+        return res;
+    }
+
+    // check _jm_obj_99_map_role (.'$DependencyModelLoose'.role)
+    public boolean _jm_f_51(Object val, Path path, Report rep)
+    {
+        boolean res;
+        // .'$DependencyModelLoose'.role
+        res = json.isString(val);
+        if (! res)
+        {
+            if (rep != null) rep.addEntry("unexpected string [.'$DependencyModelLoose'.role]", path);
+        }
+        return res;
+    }
+
+
+    // check _jm_obj_99_map_scm (.'$DependencyModelLoose'.scm)
+    public boolean _jm_f_52(Object val, Path path, Report rep)
+    {
+        boolean res;
+        // .'$DependencyModelLoose'.scm
+        res = json.isScalar(val) && _jm_cst_64_set.contains(val);
+        if (! res)
+        {
+            if (rep != null) rep.addEntry("value not in enum [.'$DependencyModelLoose'.scm.'|']", path);
+        }
+        return res;
+    }
+
+    // check _jm_obj_99_map_src (.'$DependencyModelLoose'.src)
+    public boolean _jm_f_53(Object val, Path path, Report rep)
+    {
+        boolean res;
+        // .'$DependencyModelLoose'.src
+        res = json.isString(val);
+        if (! res)
+        {
+            if (rep != null) rep.addEntry("unexpected string [.'$DependencyModelLoose'.src]", path);
+        }
+        return res;
+    }
+
+    // check _jm_obj_99_map_tags (.'$DependencyModelLoose'.tags)
+    public boolean _jm_f_54(Object val, Path path, Report rep)
+    {
+        boolean res;
+        // .'$DependencyModelLoose'.tags
+        // .'$DependencyModelLoose'.tags.'|'.0
+        res = json.isString(val);
+        if (! res)
+        {
+            if (rep != null) rep.addEntry("unexpected string [.'$DependencyModelLoose'.tags.'|'.0]", path);
+        }
+        if (! res)
+        {
+            // .'$DependencyModelLoose'.tags.'|'.1
+            res = json.isArray(val);
+            if (res)
+            {
+                int arr_101_idx = -1;
+                Iterator<Object> arr_101_item_loop = json.arrayIterator(val);
+                while (arr_101_item_loop.hasNext())
+                {
+                    arr_101_idx++;
+                    Object arr_101_item = arr_101_item_loop.next();
+                    Path arr_101_lpath = new Path(arr_101_idx, path);
+                    // .'$DependencyModelLoose'.tags.'|'.1.0
+                    res = json.isString(arr_101_item);
+                    if (! res)
+                    {
+                        if (rep != null) rep.addEntry("unexpected string [.'$DependencyModelLoose'.tags.'|'.1.0]", (path != null ? arr_101_lpath : null));
+                        break;
+                    }
+                }
+            }
+            if (! res)
+            {
+                if (rep != null) rep.addEntry("not array or unexpected array [.'$DependencyModelLoose'.tags.'|'.1]", path);
+            }
+        }
+        if (res)
+        {
+            if (rep != null) rep.clearEntries();
+        }
+        else
+        {
+            if (rep != null) rep.addEntry("no model matched [.'$DependencyModelLoose'.tags.'|']", path);
+        }
+        return res;
+    }
 
     // object .'$DependencyModelLoose'.vars
     public boolean _jm_obj_100(Object val, Path path, Report rep)
@@ -8826,169 +8941,73 @@ public class ansiblelint_meta extends ModelChecker
         return true;
     }
 
+    // check _jm_obj_99_map_vars (.'$DependencyModelLoose'.vars)
+    public boolean _jm_f_55(Object val, Path path, Report rep)
+    {
+        boolean res;
+        // .'$DependencyModelLoose'.vars
+        res = _jm_obj_100(val, path, rep);
+        if (! res)
+        {
+            if (rep != null) rep.addEntry("unexpected element [.'$DependencyModelLoose'.vars]", path);
+        }
+        return res;
+    }
+
+    // check _jm_obj_99_map_version (.'$DependencyModelLoose'.version)
+    public boolean _jm_f_56(Object val, Path path, Report rep)
+    {
+        boolean res;
+        // .'$DependencyModelLoose'.version
+        res = json.isString(val);
+        if (! res)
+        {
+            if (rep != null) rep.addEntry("unexpected string [.'$DependencyModelLoose'.version]", path);
+        }
+        return res;
+    }
+
+    // check _jm_obj_99_map_when (.'$DependencyModelLoose'.when)
+    public boolean _jm_f_57(Object val, Path path, Report rep)
+    {
+        boolean res;
+        // .'$DependencyModelLoose'.when
+        res = json_model_56(val, path, rep);
+        if (! res)
+        {
+            if (rep != null) rep.addEntry("unexpected $complex_conditional [.'$DependencyModelLoose'.when]", path);
+        }
+        return res;
+    }
+
+
     // object .'$DependencyModelLoose'
     public boolean _jm_obj_99(Object val, Path path, Report rep)
     {
-        // check open must/may only props
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.'$DependencyModelLoose']", path);
             return false;
         }
-        Path lpath;
-        Object pval;
-        boolean res;
-        if (json.objectHasProp(val, "become"))
+        Checker pfun;
+        Iterator<String> prop_loop = json.objectIterator(val);
+        while (prop_loop.hasNext())
         {
-            lpath = new Path("become", path);
-            pval = json.objectValue(val, "become");
-            // .'$DependencyModelLoose'.become
-            res = json.isBoolean(pval);
-            if (! res)
+            String prop = prop_loop.next();
+            Object pval = json.objectValue(val, prop);
+            Path lpath_52 = new Path(prop, path);
+            if ((pfun = _jm_obj_99_map_pmap.get(prop)) != null)
             {
-                if (rep != null) rep.addEntry("not a bool [.'$DependencyModelLoose'.become]", (path != null ? lpath : null));
-                if (rep != null) rep.addEntry("unexpected value for optional prop <become> [.'$DependencyModelLoose']", (path != null ? lpath : null));
-                return false;
-            }
-        }
-        if (json.objectHasProp(val, "name"))
-        {
-            lpath = new Path("name", path);
-            pval = json.objectValue(val, "name");
-            // .'$DependencyModelLoose'.name
-            res = json.isString(pval);
-            if (! res)
-            {
-                if (rep != null) rep.addEntry("unexpected string [.'$DependencyModelLoose'.name]", (path != null ? lpath : null));
-                if (rep != null) rep.addEntry("unexpected value for optional prop <name> [.'$DependencyModelLoose']", (path != null ? lpath : null));
-                return false;
-            }
-        }
-        if (json.objectHasProp(val, "role"))
-        {
-            lpath = new Path("role", path);
-            pval = json.objectValue(val, "role");
-            // .'$DependencyModelLoose'.role
-            res = json.isString(pval);
-            if (! res)
-            {
-                if (rep != null) rep.addEntry("unexpected string [.'$DependencyModelLoose'.role]", (path != null ? lpath : null));
-                if (rep != null) rep.addEntry("unexpected value for optional prop <role> [.'$DependencyModelLoose']", (path != null ? lpath : null));
-                return false;
-            }
-        }
-        if (json.objectHasProp(val, "src"))
-        {
-            lpath = new Path("src", path);
-            pval = json.objectValue(val, "src");
-            // .'$DependencyModelLoose'.src
-            res = json.isString(pval);
-            if (! res)
-            {
-                if (rep != null) rep.addEntry("unexpected string [.'$DependencyModelLoose'.src]", (path != null ? lpath : null));
-                if (rep != null) rep.addEntry("unexpected value for optional prop <src> [.'$DependencyModelLoose']", (path != null ? lpath : null));
-                return false;
-            }
-        }
-        if (json.objectHasProp(val, "scm"))
-        {
-            lpath = new Path("scm", path);
-            pval = json.objectValue(val, "scm");
-            // .'$DependencyModelLoose'.scm
-            res = json.isScalar(pval) && _jm_cst_64_set.contains(pval);
-            if (! res)
-            {
-                if (rep != null) rep.addEntry("value not in enum [.'$DependencyModelLoose'.scm.'|']", (path != null ? lpath : null));
-                if (rep != null) rep.addEntry("unexpected value for optional prop <scm> [.'$DependencyModelLoose']", (path != null ? lpath : null));
-                return false;
-            }
-        }
-        if (json.objectHasProp(val, "tags"))
-        {
-            lpath = new Path("tags", path);
-            pval = json.objectValue(val, "tags");
-            // .'$DependencyModelLoose'.tags
-            // .'$DependencyModelLoose'.tags.'|'.0
-            res = json.isString(pval);
-            if (! res)
-            {
-                if (rep != null) rep.addEntry("unexpected string [.'$DependencyModelLoose'.tags.'|'.0]", (path != null ? lpath : null));
-            }
-            if (! res)
-            {
-                // .'$DependencyModelLoose'.tags.'|'.1
-                res = json.isArray(pval);
-                if (res)
+                // handle 9 may props
+                if (pfun != null && ! (pfun.call(pval, (path != null ? lpath_52 : null), rep)))
                 {
-                    int arr_101_idx = -1;
-                    Iterator<Object> arr_101_item_loop = json.arrayIterator(pval);
-                    while (arr_101_item_loop.hasNext())
-                    {
-                        arr_101_idx++;
-                        Object arr_101_item = arr_101_item_loop.next();
-                        Path arr_101_lpath = new Path(arr_101_idx, (path != null ? lpath : null));
-                        // .'$DependencyModelLoose'.tags.'|'.1.0
-                        res = json.isString(arr_101_item);
-                        if (! res)
-                        {
-                            if (rep != null) rep.addEntry("unexpected string [.'$DependencyModelLoose'.tags.'|'.1.0]", ((path != null ? lpath : null) != null ? arr_101_lpath : null));
-                            break;
-                        }
-                    }
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$DependencyModelLoose']", (path != null ? lpath_52 : null));
+                    return false;
                 }
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("not array or unexpected array [.'$DependencyModelLoose'.tags.'|'.1]", (path != null ? lpath : null));
-                }
-            }
-            if (res)
-            {
-                if (rep != null) rep.clearEntries();
             }
             else
             {
-                if (rep != null) rep.addEntry("no model matched [.'$DependencyModelLoose'.tags.'|']", (path != null ? lpath : null));
-                if (rep != null) rep.addEntry("unexpected value for optional prop <tags> [.'$DependencyModelLoose']", (path != null ? lpath : null));
-                return false;
-            }
-        }
-        if (json.objectHasProp(val, "vars"))
-        {
-            lpath = new Path("vars", path);
-            pval = json.objectValue(val, "vars");
-            // .'$DependencyModelLoose'.vars
-            res = _jm_obj_100(pval, (path != null ? lpath : null), rep);
-            if (! res)
-            {
-                if (rep != null) rep.addEntry("unexpected element [.'$DependencyModelLoose'.vars]", (path != null ? lpath : null));
-                if (rep != null) rep.addEntry("unexpected value for optional prop <vars> [.'$DependencyModelLoose']", (path != null ? lpath : null));
-                return false;
-            }
-        }
-        if (json.objectHasProp(val, "version"))
-        {
-            lpath = new Path("version", path);
-            pval = json.objectValue(val, "version");
-            // .'$DependencyModelLoose'.version
-            res = json.isString(pval);
-            if (! res)
-            {
-                if (rep != null) rep.addEntry("unexpected string [.'$DependencyModelLoose'.version]", (path != null ? lpath : null));
-                if (rep != null) rep.addEntry("unexpected value for optional prop <version> [.'$DependencyModelLoose']", (path != null ? lpath : null));
-                return false;
-            }
-        }
-        if (json.objectHasProp(val, "when"))
-        {
-            lpath = new Path("when", path);
-            pval = json.objectValue(val, "when");
-            // .'$DependencyModelLoose'.when
-            res = json_model_56(pval, (path != null ? lpath : null), rep);
-            if (! res)
-            {
-                if (rep != null) rep.addEntry("unexpected $complex_conditional [.'$DependencyModelLoose'.when]", (path != null ? lpath : null));
-                if (rep != null) rep.addEntry("unexpected value for optional prop <when> [.'$DependencyModelLoose']", (path != null ? lpath : null));
-                return false;
+                // accept any other props
             }
         }
         return true;
@@ -9185,7 +9204,7 @@ public class ansiblelint_meta extends ModelChecker
         {
             String prop = prop_loop.next();
             Object pval = json.objectValue(val, prop);
-            Path lpath_52 = new Path(prop, path);
+            Path lpath_53 = new Path(prop, path);
             if (prop.compareTo("allow_duplicates") == 0)
             {
                 // handle may allow_duplicates property
@@ -9193,8 +9212,8 @@ public class ansiblelint_meta extends ModelChecker
                 res = json.isBoolean(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("not a bool [.'$AnsibleMetaObj'.allow_duplicates]", (path != null ? lpath_52 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$AnsibleMetaObj'.allow_duplicates]", (path != null ? lpath_52 : null));
+                    if (rep != null) rep.addEntry("not a bool [.'$AnsibleMetaObj'.allow_duplicates]", (path != null ? lpath_53 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$AnsibleMetaObj'.allow_duplicates]", (path != null ? lpath_53 : null));
                     return false;
                 }
             }
@@ -9202,11 +9221,11 @@ public class ansiblelint_meta extends ModelChecker
             {
                 // handle may collections property
                 // .'$AnsibleMetaObj'.collections
-                res = json_model_55(pval, (path != null ? lpath_52 : null), rep);
+                res = json_model_55(pval, (path != null ? lpath_53 : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $collections [.'$AnsibleMetaObj'.collections]", (path != null ? lpath_52 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$AnsibleMetaObj'.collections]", (path != null ? lpath_52 : null));
+                    if (rep != null) rep.addEntry("unexpected $collections [.'$AnsibleMetaObj'.collections]", (path != null ? lpath_53 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$AnsibleMetaObj'.collections]", (path != null ? lpath_53 : null));
                     return false;
                 }
             }
@@ -9223,21 +9242,21 @@ public class ansiblelint_meta extends ModelChecker
                     {
                         arr_102_idx++;
                         Object arr_102_item = arr_102_item_loop.next();
-                        Path arr_102_lpath = new Path(arr_102_idx, (path != null ? lpath_52 : null));
+                        Path arr_102_lpath = new Path(arr_102_idx, (path != null ? lpath_53 : null));
                         // .'$AnsibleMetaObj'.dependencies.0
                         // .'$AnsibleMetaObj'.dependencies.0.'|'.0
                         res = json.isString(arr_102_item);
                         if (! res)
                         {
-                            if (rep != null) rep.addEntry("unexpected string [.'$AnsibleMetaObj'.dependencies.0.'|'.0]", ((path != null ? lpath_52 : null) != null ? arr_102_lpath : null));
+                            if (rep != null) rep.addEntry("unexpected string [.'$AnsibleMetaObj'.dependencies.0.'|'.0]", ((path != null ? lpath_53 : null) != null ? arr_102_lpath : null));
                         }
                         if (! res)
                         {
                             // .'$AnsibleMetaObj'.dependencies.0.'|'.1
-                            res = json_model_58(arr_102_item, ((path != null ? lpath_52 : null) != null ? arr_102_lpath : null), rep);
+                            res = json_model_58(arr_102_item, ((path != null ? lpath_53 : null) != null ? arr_102_lpath : null), rep);
                             if (! res)
                             {
-                                if (rep != null) rep.addEntry("unexpected $DependencyModel [.'$AnsibleMetaObj'.dependencies.0.'|'.1]", ((path != null ? lpath_52 : null) != null ? arr_102_lpath : null));
+                                if (rep != null) rep.addEntry("unexpected $DependencyModel [.'$AnsibleMetaObj'.dependencies.0.'|'.1]", ((path != null ? lpath_53 : null) != null ? arr_102_lpath : null));
                             }
                         }
                         if (res)
@@ -9246,15 +9265,15 @@ public class ansiblelint_meta extends ModelChecker
                         }
                         else
                         {
-                            if (rep != null) rep.addEntry("no model matched [.'$AnsibleMetaObj'.dependencies.0.'|']", ((path != null ? lpath_52 : null) != null ? arr_102_lpath : null));
+                            if (rep != null) rep.addEntry("no model matched [.'$AnsibleMetaObj'.dependencies.0.'|']", ((path != null ? lpath_53 : null) != null ? arr_102_lpath : null));
                             break;
                         }
                     }
                 }
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("not array or unexpected array [.'$AnsibleMetaObj'.dependencies]", (path != null ? lpath_52 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$AnsibleMetaObj'.dependencies]", (path != null ? lpath_52 : null));
+                    if (rep != null) rep.addEntry("not array or unexpected array [.'$AnsibleMetaObj'.dependencies]", (path != null ? lpath_53 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$AnsibleMetaObj'.dependencies]", (path != null ? lpath_53 : null));
                     return false;
                 }
             }
@@ -9262,17 +9281,17 @@ public class ansiblelint_meta extends ModelChecker
             {
                 // handle may galaxy_info property
                 // .'$AnsibleMetaObj'.galaxy_info
-                res = json_model_54(pval, (path != null ? lpath_52 : null), rep);
+                res = json_model_54(pval, (path != null ? lpath_53 : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $GalaxyInfoModel [.'$AnsibleMetaObj'.galaxy_info]", (path != null ? lpath_52 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$AnsibleMetaObj'.galaxy_info]", (path != null ? lpath_52 : null));
+                    if (rep != null) rep.addEntry("unexpected $GalaxyInfoModel [.'$AnsibleMetaObj'.galaxy_info]", (path != null ? lpath_53 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$AnsibleMetaObj'.galaxy_info]", (path != null ? lpath_53 : null));
                     return false;
                 }
             }
             else
             {
-                if (rep != null) rep.addEntry("unexpected prop [.'$AnsibleMetaObj']", (path != null ? lpath_52 : null));
+                if (rep != null) rep.addEntry("unexpected prop [.'$AnsibleMetaObj']", (path != null ? lpath_53 : null));
                 return false;
             }
         }
@@ -10174,6 +10193,16 @@ public class ansiblelint_meta extends ModelChecker
             _jm_cst_64_set = new HashSet<Object>();
             _jm_cst_64_set.add(json.safeJSON("\"hg\""));
             _jm_cst_64_set.add(json.safeJSON("\"git\""));
+            _jm_obj_99_map_pmap = new HashMap<String, Checker>();
+            _jm_obj_99_map_pmap.put("become", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_49(o, p, r);} });
+            _jm_obj_99_map_pmap.put("name", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_50(o, p, r);} });
+            _jm_obj_99_map_pmap.put("role", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_51(o, p, r);} });
+            _jm_obj_99_map_pmap.put("scm", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_52(o, p, r);} });
+            _jm_obj_99_map_pmap.put("src", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_53(o, p, r);} });
+            _jm_obj_99_map_pmap.put("tags", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_54(o, p, r);} });
+            _jm_obj_99_map_pmap.put("vars", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_55(o, p, r);} });
+            _jm_obj_99_map_pmap.put("version", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_56(o, p, r);} });
+            _jm_obj_99_map_pmap.put("when", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_57(o, p, r);} });
             ansiblelint_meta_map_pmap = new HashMap<String, Checker>();
             ansiblelint_meta_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_60(o, p, r);} });
             ansiblelint_meta_map_pmap.put("AIXPlatformModel", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_0(o, p, r);} });
@@ -10322,6 +10351,7 @@ public class ansiblelint_meta extends ModelChecker
             _jm_map_0_cmap = null;
             _jm_re_2_pat = null;
             _jm_cst_64_set = null;
+            _jm_obj_99_map_pmap = null;
             ansiblelint_meta_map_pmap = null;
         }
     }
