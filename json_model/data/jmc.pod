@@ -19,7 +19,8 @@ B<jmc> - JSON Model Compiler
      [--include [INCLUDE ...]] [--library [LIBRARY ...]] [--define [DEFINE ...]]
      [--javac JAVAC] [--jflags JFLAGS] [-[-no]-schema-version]
      [--name NAME] [-[-no]-report] [--none] [--true] [--false] [--test-vector]
-     [--map-threshold MAP_THRESHOLD] [--map-share]
+     [--map-threshold THRESHOLD] [--map-share]
+     [--unroll-may-ratioi RATIO] [--unroll-may-threshold THRESHOLD]
      [--op {P,U,J,N,E,C} | --preproc | --dump | --jdump | --nope | --export | --compile]
      [--output OUTPUT] model [values ...]
 
@@ -170,6 +171,16 @@ maximum number of props to inline property checks in objects.
 =item B<--map-share>
 
 whether to share common maps, may result in smaller generated code.
+
+=item B<--unroll-may-ratio RATIO>
+
+consider object property unrolling if the ratio of optional properties
+is below the provided ratio.
+
+=item B<--unroll-may-threshold THRESHOLD>
+
+consider object property unrolling if the number of optional properties
+is below the provided threshold.
 
 =back
 
