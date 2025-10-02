@@ -6,6 +6,7 @@
 - [x] static: fix value path in some object variants
 - [x] static: add a max threshold/ratio for may property unrolling
 - [x] perf: add jsb version to final summary
+- [x] command: add `--no-predef` option for testing
 - [ ] command: `jmc -C -o foo.json` generates python instand of json
 - [ ] perf: experiment object matching with various mandatory/optional properties
 - [ ] static: close may/must? merge with open?

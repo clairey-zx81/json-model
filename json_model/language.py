@@ -49,7 +49,7 @@ class Language:
             float_t: str = "float", int_t: str = "int", bool_t: str = "bool", str_t: str = "str",
             # options
             with_path: bool = True, with_report: bool = True, with_package: bool = False,
-            with_comment: bool = True, set_caps: tuple[type] = (str,),
+            with_predef: bool = True, with_comment: bool = True, set_caps: tuple[type] = (str,),
         ):
 
         # parameter consistency
@@ -65,6 +65,7 @@ class Language:
         self._with_report = with_report
         self._with_comment = with_comment
         self._with_package = with_package
+        self._with_predef = with_predef
 
         # comparison operators
         self._eq = eq
@@ -172,6 +173,11 @@ class Language:
         """Is JSON variable of this type?"""
         raise NotImplementedError("is_a")
 
+    def str_content_predef(self, name: str) -> bool:
+        """Predef (probably costly) about string contents."""
+        return name in ("$DATE", "$TIME", "$DATETIME",
+            "$URL", "$REGEX", "$EXREG", "$UUID", "$URI", "$EMAIL", "$JSON")
+
     #
     # predefs
     #
@@ -207,8 +213,7 @@ class Language:
             return self.is_a(var, Number)  # type: ignore
         elif name == "$STRING":
             return self.is_a(var, str)
-        elif name in ("$DATE", "$TIME", "$DATETIME", "$URL",
-                      "$REGEX", "$EXREG", "$UUID", "$URI", "$EMAIL", "$JSON"):
+        elif str_content_predef(name):
             raise NotImplementedError(f"predef: {name}")
         else:
             raise NotImplementedError(f"unexpected predef {name}")

@@ -8,12 +8,13 @@ from .mtypes import Number, Jsonable
 class Perl(Language):
     """Perl language Code Generator."""
 
-    def __init__(self, *, relib: str = "re2", with_package: bool = False,
+    def __init__(self, *, relib: str = "re2", with_package: bool = False, with_predef: bool = True,
                  debug: bool = False, with_report: bool = True, with_path: bool = True):
 
         super().__init__("Perl",
             debug=debug, relib=relib, with_report=with_report, with_path=with_path,
-            with_package=with_package, not_op="!", and_op="&&", or_op="||", lcom="#",
+            with_package=with_package, with_predef=with_predef,
+            not_op="!", and_op="&&", or_op="||", lcom="#",
             true="1", false="0", null="undef", check_t="", json_t="",
             path_t="", float_t="", str_t="", match_t="", eoi=";", set_caps=(str,)
         )
@@ -90,6 +91,8 @@ class Perl(Language):
             raise Exception(f"unexpected string comparison operator: {op}")
 
     def predef(self, var: Var, name: str, path: Var, is_str: bool = False) -> BoolExpr:
+        if not self._with_predef and self.str_content_predef(name):
+            return self.const(True) if is_str else self.is_a(var, str)
         is_str_and  = self.is_a(var, str) + " && "  # type: ignore
         var, path = self._val(var), self._val(path)  # type: ignore
         if name in ("$URL", "$URI"):  # approximate

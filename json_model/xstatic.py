@@ -1552,6 +1552,7 @@ def xstatic_compile(
         short_version: bool = False,
         package: str|None = None,
         inline: bool = True,
+        predef: bool = True,
         ir_optimize: bool = True,
     ) -> Code:
     """Generate the check source code for a model.
@@ -1568,36 +1569,37 @@ def xstatic_compile(
     - debug: debugging mode generates more traces.
     - short_version: in generated code.
     - package: namespace to use (Perl module, Pg schema name, Java package).
-    - inline: enable function inlining (for C)
-    - ir_optimize: enable IR optimizations
+    - inline: enable function inlining (for C).
+    - predef: enable string content predef checks.
+    - ir_optimize: enable IR optimizations.
     """
     # target language
     if lang == "py":
         from .python import Python
         language = Python(debug=debug, with_report=report, with_path=report,
-                          relib=relib or "re2")
+                          with_predef=predef, relib=relib or "re2")
     elif lang == "c":
         from .clang import CLangJansson
         language = CLangJansson(debug=debug, with_report=report, with_path=report,
-                                relib=relib or "re2", inline=inline)
+                                with_predef=predef, relib=relib or "re2", inline=inline)
     elif lang == "js":
         from .javascript import JavaScript
         language = JavaScript(debug=debug, with_report=report, with_path=report,
-                              relib=relib or "re")
+                              with_predef=predef, relib=relib or "re")
     elif lang in ("plpgsql", "sql"):
         from .plpgsql import PLpgSQL
-        language = PLpgSQL(debug=debug, with_report=report, with_path=report,
+        language = PLpgSQL(debug=debug, with_report=report, with_path=report, with_predef=predef,
                            relib=relib or "re", with_package=package is not None)
         package = package or "public"
     elif lang == "pl":
         from .perl import Perl
-        language = Perl(debug=debug, with_report=report, with_path=report, relib=relib or "re2",
-                        with_package=package is not None)
+        language = Perl(debug=debug, with_report=report, with_path=report, with_predef=predef,
+                        relib=relib or "re2", with_package=package is not None)
         package = package or "Model"
     elif lang == "java":
         from .java import Java
-        language = Java(debug=debug, with_report=report, with_path=report, relib=relib or "re",
-                        with_package=package is not None)
+        language = Java(debug=debug, with_report=report, with_path=report, with_predef=predef,
+                        relib=relib or "re", with_package=package is not None)
     elif lang == "json":
         language = None
     else:

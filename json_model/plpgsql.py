@@ -13,12 +13,14 @@ class PLpgSQL(Language):
     def __init__(self, *,
                  debug: bool = False,
                  with_path: bool = True, with_report: bool = True, with_comment: bool = True,
-                 with_package: bool = False, relib: str = "re", int_t: str = "INT8"):
+                 with_package: bool = False, with_predef: bool = True,
+                 relib: str = "re", int_t: str = "INT8"):
 
         super().__init__(
             "PLpgSQL",
              with_path=with_path, with_report=with_report, with_comment=with_comment,
-             with_package=with_package, eq="=", ne="<>", indent="  ",
+             with_package=with_package, with_predef=with_predef,
+             eq="=", ne="<>", indent="  ",
              not_op="NOT", and_op="AND", or_op="OR", lcom="--",
              true="TRUE", false="FALSE", null="NULL",
              check_t="TEXT", json_t="JSONB",
@@ -102,6 +104,8 @@ class PLpgSQL(Language):
         return f"{obj} ? {self.esc(prop)}"
 
     def predef(self, var: Var, name: str, path: Var, is_str: bool = False) -> BoolExpr:
+        if not self._with_predef and self.str_content_predef(name):
+            return self.const(True) if is_str else self.is_a(var, str)
         val = var if is_str else f"JSON_VALUE({var}, '$' RETURNING TEXT)"
         cktype = "" if is_str else (self.is_a(var, str) + " AND ")  # pyright: ignore
         if name == "$UUID":

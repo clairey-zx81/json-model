@@ -299,7 +299,7 @@ def jmc_script():
     arg("--strict-number", "--strict", "-sn", dest="loose_number", action="store_false",
         help="use strict integer and float numbers (default)")
 
-    # output options
+    # (code) output options
     arg("--output", "-o", default="-", help="output file")
     arg("--package", "-p", default=None, help="generated module name, if appropriate")
     arg("--entry", "-e", help="name prefix of generated functions")
@@ -314,6 +314,10 @@ def jmc_script():
         help="remove reporting capabilities")
     arg("--short-version", action="store_true", default=False,
         help="generate a short version in output code")
+    arg("--predef", action="store_true", default=True,
+        help="enable predef content checks, the default")
+    arg("--no-predef", dest="predef", action="store_false",
+        help="disable predef content checks")
 
     generate = ap.add_mutually_exclusive_group()
     gen = generate.add_argument
@@ -379,7 +383,7 @@ def jmc_script():
     arg("--unroll-may-threshold", "-umt", default=5, type=int,
         help="unroll if number of optional props less than threshold, default 5")
 
-    # IR
+    # IR optimizations (if simplification, call skipping?)
     arg("--ir-optimize", "-Oir", dest="ir_optimize", action="store_true", default=True,
         help="enable IR optimizations")
     arg("--no-ir-optimize", "-nOir", dest="ir_optimize", action="store_false",
@@ -640,7 +644,7 @@ def jmc_script():
                                map_threshold=args.map_threshold, map_share=args.map_share,
                                debug=args.debug, report=args.reporting, relib=args.regex_engine,
                                short_version=args.short_version, package=args.package,
-                               inline=args.inline, ir_optimize=args.ir_optimize)
+                               predef=args.predef, inline=args.inline, ir_optimize=args.ir_optimize)
         source = str(code)
 
         # source to executable for C and java

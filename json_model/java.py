@@ -10,14 +10,15 @@ class Java(Language):
     """
 
     def __init__(self, *,
-                 debug: bool = False, with_package: bool = False,
+                 debug: bool = False, with_package: bool = False, with_predef: bool = True,
                  with_path: bool = True, with_report: bool = True, with_comment: bool = True,
                  relib: str = "re", int_t: str = "long"):
 
         super().__init__(
             "Java",
              with_path=with_path, with_report=with_report, with_comment=with_comment,
-             with_package=with_package, not_op="!", and_op="&&", or_op="||", lcom="//",
+             with_package=with_package, with_predef=with_predef,
+             not_op="!", and_op="&&", or_op="||", lcom="//",
              true="true", false="false", null="null", check_t="Checker", json_t="Object",
              path_t="Path", float_t="double", str_t="String", bool_t="boolean", int_t="long",
              match_t="boolean", eoi=";", relib=relib, debug=debug,
@@ -133,6 +134,8 @@ class Java(Language):
 
     # FIXME path? reporting?
     def predef(self, var: Var, name: str, path: Var, is_str: bool = False) -> BoolExpr:
+        if not self._with_predef and self.str_content_predef(name):
+            return self.const(True) if is_str else self.is_a(var, str)
         isstr, val = "", var
         if not is_str:
             isstr = self.is_a(var, str) + " && "  # type: ignore

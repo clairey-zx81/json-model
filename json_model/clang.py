@@ -15,6 +15,7 @@ class CLangJansson(Language):
     def __init__(self, *,
                  debug: bool = False,
                  with_path: bool = True, with_report: bool = True, with_comment: bool = True,
+                 with_predef: bool = True,
                  inline: bool = True, relib: str = "pcre2", int_t: str = "int64_t"):
 
         super().__init__(
@@ -24,7 +25,7 @@ class CLangJansson(Language):
              true="true", false="false", null="NULL", check_t="jm_check_fun_t", json_t="json_t *",
              path_t="jm_path_t", float_t="double", str_t="const char *",
              match_t="bool" if relib == "pcre2" else "int",
-             eoi=";", relib=relib, debug=debug,
+             eoi=";", relib=relib, debug=debug, with_predef=with_predef,
              set_caps=(type(None), bool, int, float, str))  # type: ignore
 
         assert relib in ("pcre2", "re2"), f"regex engine {relib} is not supported, try: pcre2/re2"
@@ -117,6 +118,9 @@ class CLangJansson(Language):
     # FIXME path? reporting?
     def predef(self, var: Var, name: str, path: Var, is_str: bool = False) -> BoolExpr:
         val = var if is_str else f"json_string_value({var})"
+        # no content checks
+        if not self._with_predef and self.str_content_predef(name):
+            return self.const(True) if is_str else self.is_a(var, str)
         if name == "$UUID":
             return f"jm_is_valid_uuid({val}, {path}, rep)"
         elif name == "$DATE":

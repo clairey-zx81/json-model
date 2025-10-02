@@ -7,10 +7,11 @@ class Python(Language):
     """Python language Code Generator."""
 
     def __init__(self, *, relib: str = "re2",
-                 debug: bool = False, with_report: bool = True, with_path: bool = True):
+                 debug: bool = False, with_report: bool = True, with_path: bool = True,
+                 with_predef: bool = True):
 
-        super().__init__("Python", relib=relib,
-                         with_report=with_report, with_path=with_path, debug=debug)
+        super().__init__("Python", relib=relib, debug=debug,
+                         with_report=with_report, with_path=with_path, with_predef=with_predef)
 
         assert relib in ("re", "re2"), f"support for re and re2, not {relib}"
 
@@ -44,6 +45,8 @@ class Python(Language):
             return f"isinstance({var}, {tval.__name__})"
 
     def predef(self, var: Var, name: str, path: Var, is_str: bool = False) -> BoolExpr:
+        if not self._with_predef and self.str_content_predef(name):
+            return self.const(True) if is_str else self.is_a(var, str)
         if name in ("$URL", "$URI"):  # approximate
             return f"is_valid_url({var}, {path}, rep)"
         elif name == "$DATE":

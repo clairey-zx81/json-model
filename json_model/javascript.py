@@ -9,13 +9,13 @@ class JavaScript(Language):
     """JavaScript Code Generator."""
 
     def __init__(self, *,
-                 debug: bool = False, relib: str = "re",
+                 debug: bool = False, relib: str = "re", with_predef: bool = True,
                  with_path: bool = True, with_report: bool = True, with_comment: bool = True):
 
         super().__init__(
             "JS",
              with_path=with_path, with_report=with_report, with_comment=with_comment,
-             not_op="!", and_op="&&", or_op="||", lcom="//",
+             with_predef=with_predef, not_op="!", and_op="&&", or_op="||", lcom="//",
              true="true", false="false", null="null", relib=relib,
              check_t="object", json_t="object", int_t="Number", float_t="Number",
              path_t="?", str_t="String", match_t="bool",
@@ -101,6 +101,8 @@ class JavaScript(Language):
 
     # FIXME path? reporting?
     def predef(self, var: Var, name: str, path: Var, is_str: bool = False) -> BoolExpr:
+        if not self._with_predef and self.str_content_predef(name):
+            return self.const(True) if is_str else self.is_a(var, str)
         val = var
         if name == "$UUID":
             return f"runtime.jm_is_valid_uuid({val})"

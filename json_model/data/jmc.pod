@@ -21,6 +21,7 @@ B<jmc> - JSON Model Compiler
      [--name NAME] [-[-no]-report] [--none] [--true] [--false] [--test-vector]
      [--map-threshold THRESHOLD] [--map-share]
      [--unroll-may-ratioi RATIO] [--unroll-may-threshold THRESHOLD]
+     [-[-no]-predef] [--short-version]
      [--op {P,U,J,N,E,C} | --preproc | --dump | --jdump | --nope | --export | --compile]
      [--output OUTPUT] model [values ...]
 
@@ -181,6 +182,10 @@ is below the provided ratio.
 
 consider object property unrolling if the number of optional properties
 is below the provided threshold.
+
+=item B<--predef> vs B<--no-predef>
+
+whether to check value contents wrt predef declarations.
 
 =back
 
