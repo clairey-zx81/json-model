@@ -45,9 +45,9 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
         # handle other props
         # .'$a'.''
         # .'$a'.''.'|'.0
-        res = _jm_obj_0(pval, lpath_0 if path is not None else None, rep)
+        res = json_model_3(pval, lpath_0 if path is not None else None, rep)
         if not res:
-            rep is None or rep.append(("unexpected $a [.'$a'.''.'|'.0]", lpath_0 if path is not None else None))
+            rep is None or rep.append(("unexpected $r [.'$a'.''.'|'.0]", lpath_0 if path is not None else None))
         if not res:
             # .'$a'.''.'|'.1
             res = _jm_obj_1(pval, lpath_0 if path is not None else None, rep)

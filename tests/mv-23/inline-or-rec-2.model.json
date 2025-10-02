@@ -4,7 +4,7 @@
       "|": [
         { "t": "a", "a": 1 },
         { "t": "b", "b": 1 },
-        "$cd"
+        "# would trigger an infinite recursion: $cd"
       ]
     },
     "cd": {

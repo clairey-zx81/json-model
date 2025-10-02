@@ -18,12 +18,8 @@ public class alts_1 extends ModelChecker
     static public final String VERSION = "2";
 
     Set<Object> _jm_cst_0_set;
-    Set<Object> _jm_cst_1_set;
     Map<Object, Checker> _jm_map_0_cmap;
-    Set<Object> _jm_cst_2_set;
-    Set<Object> _jm_cst_3_set;
-    Set<Object> _jm_cst_4_set;
-    Map<Object, Checker> _jm_map_1_cmap;
+    Set<Object> _jm_cst_1_set;
     public Map<String, Checker> alts_1_map_pmap;
 
     // object .'$oA'
@@ -144,97 +140,6 @@ public class alts_1 extends ModelChecker
     }
 
 
-    // object .'$oC'.'|'.0
-    public boolean _jm_obj_2(Object val, Path path, Report rep)
-    {
-        // check open must/may only props
-        if (! json.isObject(val))
-        {
-            if (rep != null) rep.addEntry("not an object [.'$oC'.'|'.0]", path);
-            return false;
-        }
-        Path lpath;
-        Object pval;
-        boolean res;
-        if (! json.objectHasProp(val, "v"))
-        {
-            if (rep != null) rep.addEntry("missing mandatory prop <v> [.'$oC'.'|'.0]", path);
-            return false;
-        }
-        lpath = new Path("v", path);
-        pval = json.objectValue(val, "v");
-        // .'$oC'.'|'.0.v
-        res = json.isInteger(pval) && json.asLong(pval) >= 1;
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("not a 1 strict int [.'$oC'.'|'.0.v]", (path != null ? lpath : null));
-            if (rep != null) rep.addEntry("unexpected value for mandatory prop <v> [.'$oC'.'|'.0]", (path != null ? lpath : null));
-            return false;
-        }
-        if (! json.objectHasProp(val, "t"))
-        {
-            if (rep != null) rep.addEntry("missing mandatory prop <t> [.'$oC'.'|'.0]", path);
-            return false;
-        }
-        lpath = new Path("t", path);
-        pval = json.objectValue(val, "t");
-        // .'$oC'.'|'.0.t
-        res = json.isScalar(pval) && _jm_cst_1_set.contains(pval);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("value not in enum [.'$oC'.'|'.0.t.'|']", (path != null ? lpath : null));
-            if (rep != null) rep.addEntry("unexpected value for mandatory prop <t> [.'$oC'.'|'.0]", (path != null ? lpath : null));
-            return false;
-        }
-        return true;
-    }
-
-    // object .'$oC'.'|'.1
-    public boolean _jm_obj_3(Object val, Path path, Report rep)
-    {
-        // check open must/may only props
-        if (! json.isObject(val))
-        {
-            if (rep != null) rep.addEntry("not an object [.'$oC'.'|'.1]", path);
-            return false;
-        }
-        Path lpath;
-        Object pval;
-        boolean res;
-        if (! json.objectHasProp(val, "v"))
-        {
-            if (rep != null) rep.addEntry("missing mandatory prop <v> [.'$oC'.'|'.1]", path);
-            return false;
-        }
-        lpath = new Path("v", path);
-        pval = json.objectValue(val, "v");
-        // .'$oC'.'|'.1.v
-        res = json.isInteger(pval) && json.asLong(pval) >= 1;
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("not a 1 strict int [.'$oC'.'|'.1.v]", (path != null ? lpath : null));
-            if (rep != null) rep.addEntry("unexpected value for mandatory prop <v> [.'$oC'.'|'.1]", (path != null ? lpath : null));
-            return false;
-        }
-        if (! json.objectHasProp(val, "t"))
-        {
-            if (rep != null) rep.addEntry("missing mandatory prop <t> [.'$oC'.'|'.1]", path);
-            return false;
-        }
-        lpath = new Path("t", path);
-        pval = json.objectValue(val, "t");
-        // .'$oC'.'|'.1.t
-        res = json.isString(pval) && json.asString(pval).compareTo("d") == 0;
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected _d [.'$oC'.'|'.1.t]", (path != null ? lpath : null));
-            if (rep != null) rep.addEntry("unexpected value for mandatory prop <t> [.'$oC'.'|'.1]", (path != null ? lpath : null));
-            return false;
-        }
-        return true;
-    }
-
-
     // check $oC (.'$oC')
     public boolean json_model_4(Object val, Path path, Report rep)
     {
@@ -272,7 +177,7 @@ public class alts_1 extends ModelChecker
     }
 
     // object .'$oL'
-    public boolean _jm_obj_4(Object val, Path path, Report rep)
+    public boolean _jm_obj_2(Object val, Path path, Report rep)
     {
         // check open must/may only props
         if (! json.isObject(val))
@@ -321,7 +226,7 @@ public class alts_1 extends ModelChecker
     {
         boolean res;
         // .'$oL'
-        res = _jm_obj_4(val, path, rep);
+        res = _jm_obj_2(val, path, rep);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected element [.'$oL']", path);
@@ -331,7 +236,7 @@ public class alts_1 extends ModelChecker
 
 
     // object .'$oX'
-    public boolean _jm_obj_5(Object val, Path path, Report rep)
+    public boolean _jm_obj_3(Object val, Path path, Report rep)
     {
         // check open must/may only props
         if (! json.isObject(val))
@@ -365,7 +270,7 @@ public class alts_1 extends ModelChecker
         lpath = new Path("t", path);
         pval = json.objectValue(val, "t");
         // .'$oX'.t
-        res = json.isScalar(pval) && _jm_cst_2_set.contains(pval);
+        res = json.isScalar(pval) && _jm_cst_1_set.contains(pval);
         if (! res)
         {
             if (rep != null) rep.addEntry("value not in enum [.'$oX'.t.'|']", (path != null ? lpath : null));
@@ -380,7 +285,7 @@ public class alts_1 extends ModelChecker
     {
         boolean res;
         // .'$oX'
-        res = _jm_obj_5(val, path, rep);
+        res = _jm_obj_3(val, path, rep);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected element [.'$oX']", path);
@@ -388,221 +293,55 @@ public class alts_1 extends ModelChecker
         return res;
     }
 
-    // object .'|'.0
-    public boolean _jm_obj_6(Object val, Path path, Report rep)
-    {
-        // check open must/may only props
-        if (! json.isObject(val))
-        {
-            if (rep != null) rep.addEntry("not an object [.'|'.0]", path);
-            return false;
-        }
-        Path lpath;
-        Object pval;
-        boolean res;
-        if (! json.objectHasProp(val, "v"))
-        {
-            if (rep != null) rep.addEntry("missing mandatory prop <v> [.'|'.0]", path);
-            return false;
-        }
-        lpath = new Path("v", path);
-        pval = json.objectValue(val, "v");
-        // .'|'.0.v
-        res = json.isInteger(pval) && json.asLong(pval) >= 1;
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("not a 1 strict int [.'|'.0.v]", (path != null ? lpath : null));
-            if (rep != null) rep.addEntry("unexpected value for mandatory prop <v> [.'|'.0]", (path != null ? lpath : null));
-            return false;
-        }
-        if (! json.objectHasProp(val, "t"))
-        {
-            if (rep != null) rep.addEntry("missing mandatory prop <t> [.'|'.0]", path);
-            return false;
-        }
-        lpath = new Path("t", path);
-        pval = json.objectValue(val, "t");
-        // .'|'.0.t
-        res = json.isString(pval) && json.asString(pval).compareTo("a") == 0;
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected _a [.'|'.0.t]", (path != null ? lpath : null));
-            if (rep != null) rep.addEntry("unexpected value for mandatory prop <t> [.'|'.0]", (path != null ? lpath : null));
-            return false;
-        }
-        return true;
-    }
-
-
-    // object .'|'.1
-    public boolean _jm_obj_7(Object val, Path path, Report rep)
-    {
-        // check open must/may only props
-        if (! json.isObject(val))
-        {
-            if (rep != null) rep.addEntry("not an object [.'|'.1]", path);
-            return false;
-        }
-        Path lpath;
-        Object pval;
-        boolean res;
-        if (! json.objectHasProp(val, "v"))
-        {
-            if (rep != null) rep.addEntry("missing mandatory prop <v> [.'|'.1]", path);
-            return false;
-        }
-        lpath = new Path("v", path);
-        pval = json.objectValue(val, "v");
-        // .'|'.1.v
-        res = json.isInteger(pval) && json.asLong(pval) >= 1;
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("not a 1 strict int [.'|'.1.v]", (path != null ? lpath : null));
-            if (rep != null) rep.addEntry("unexpected value for mandatory prop <v> [.'|'.1]", (path != null ? lpath : null));
-            return false;
-        }
-        if (! json.objectHasProp(val, "t"))
-        {
-            if (rep != null) rep.addEntry("missing mandatory prop <t> [.'|'.1]", path);
-            return false;
-        }
-        lpath = new Path("t", path);
-        pval = json.objectValue(val, "t");
-        // .'|'.1.t
-        res = json.isScalar(pval) && _jm_cst_3_set.contains(pval);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("value not in enum [.'|'.1.t.'|']", (path != null ? lpath : null));
-            if (rep != null) rep.addEntry("unexpected value for mandatory prop <t> [.'|'.1]", (path != null ? lpath : null));
-            return false;
-        }
-        return true;
-    }
-
-
-    // object .'|'.2
-    public boolean _jm_obj_8(Object val, Path path, Report rep)
-    {
-        // check open must/may only props
-        if (! json.isObject(val))
-        {
-            if (rep != null) rep.addEntry("not an object [.'|'.2]", path);
-            return false;
-        }
-        Path lpath;
-        Object pval;
-        boolean res;
-        if (! json.objectHasProp(val, "v"))
-        {
-            if (rep != null) rep.addEntry("missing mandatory prop <v> [.'|'.2]", path);
-            return false;
-        }
-        lpath = new Path("v", path);
-        pval = json.objectValue(val, "v");
-        // .'|'.2.v
-        res = json.isInteger(pval) && json.asLong(pval) >= 1;
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("not a 1 strict int [.'|'.2.v]", (path != null ? lpath : null));
-            if (rep != null) rep.addEntry("unexpected value for mandatory prop <v> [.'|'.2]", (path != null ? lpath : null));
-            return false;
-        }
-        if (! json.objectHasProp(val, "t"))
-        {
-            if (rep != null) rep.addEntry("missing mandatory prop <t> [.'|'.2]", path);
-            return false;
-        }
-        lpath = new Path("t", path);
-        pval = json.objectValue(val, "t");
-        // .'|'.2.t
-        res = json.isScalar(pval) && _jm_cst_4_set.contains(pval);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("value not in enum [.'|'.2.t.'|']", (path != null ? lpath : null));
-            if (rep != null) rep.addEntry("unexpected value for mandatory prop <t> [.'|'.2]", (path != null ? lpath : null));
-            return false;
-        }
-        return true;
-    }
-
-    // object .'|'.3
-    public boolean _jm_obj_9(Object val, Path path, Report rep)
-    {
-        // check open must/may only props
-        if (! json.isObject(val))
-        {
-            if (rep != null) rep.addEntry("not an object [.'|'.3]", path);
-            return false;
-        }
-        Path lpath;
-        Object pval;
-        boolean res;
-        if (! json.objectHasProp(val, "v"))
-        {
-            if (rep != null) rep.addEntry("missing mandatory prop <v> [.'|'.3]", path);
-            return false;
-        }
-        lpath = new Path("v", path);
-        pval = json.objectValue(val, "v");
-        // .'|'.3.v
-        res = json.isInteger(pval) && json.asLong(pval) >= 1;
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("not a 1 strict int [.'|'.3.v]", (path != null ? lpath : null));
-            if (rep != null) rep.addEntry("unexpected value for mandatory prop <v> [.'|'.3]", (path != null ? lpath : null));
-            return false;
-        }
-        if (! json.objectHasProp(val, "t"))
-        {
-            if (rep != null) rep.addEntry("missing mandatory prop <t> [.'|'.3]", path);
-            return false;
-        }
-        lpath = new Path("t", path);
-        pval = json.objectValue(val, "t");
-        // .'|'.3.t
-        res = json.isString(pval) && json.asString(pval).compareTo("d") == 0;
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected _d [.'|'.3.t]", (path != null ? lpath : null));
-            if (rep != null) rep.addEntry("unexpected value for mandatory prop <t> [.'|'.3]", (path != null ? lpath : null));
-            return false;
-        }
-        return true;
-    }
-
-
     // check $ (.)
     public boolean json_model_1(Object val, Path path, Report rep)
     {
         boolean res;
         // .
-        boolean iso_1 = json.isObject(val);
-        res = iso_1;
-        if (res)
+        // generic xor list
+        long xc_0 = 0;
+        boolean xr_0;
+        // .'^'.0
+        xr_0 = _jm_obj_0(val, path, rep);
+        if (xr_0)
         {
-            if (json.objectHasProp(val, "t"))
-            {
-                Object tag_1 = json.objectValue(val, "t");
-                Checker fun_1 = _jm_map_1_cmap.get(tag_1);
-                if (fun_1 != null)
-                {
-                    res = fun_1.call(val, path, rep);
-                }
-                else
-                {
-                    res = false;
-                    if (rep != null) rep.addEntry("tag <t> value not found [.'|']", path);
-                }
-            }
-            else
-            {
-                res = false;
-                if (rep != null) rep.addEntry("tag prop <t> is missing [.'|']", path);
-            }
+            xc_0 += 1;
         }
         else
         {
-            if (rep != null) rep.addEntry("value is not an object [.'|']", path);
+            if (rep != null) rep.addEntry("unexpected $oA [.'^'.0]", path);
+        }
+        // .'^'.1
+        xr_0 = _jm_obj_1(val, path, rep);
+        if (xr_0)
+        {
+            xc_0 += 1;
+        }
+        else
+        {
+            if (rep != null) rep.addEntry("unexpected $oB [.'^'.1]", path);
+        }
+        if (xc_0 <= 1)
+        {
+            // .'^'.2
+            xr_0 = json_model_4(val, path, rep);
+            if (xr_0)
+            {
+                xc_0 += 1;
+            }
+            else
+            {
+                if (rep != null) rep.addEntry("unexpected $oC [.'^'.2]", path);
+            }
+        }
+        res = xc_0 == 1;
+        if (res)
+        {
+            if (rep != null) rep.clearEntries();
+        }
+        else
+        {
+            if (rep != null) rep.addEntry("not one model match [.'^']", path);
         }
         return res;
     }
@@ -616,36 +355,20 @@ public class alts_1 extends ModelChecker
             _jm_cst_0_set = new HashSet<Object>();
             _jm_cst_0_set.add(json.safeJSON("\"b\""));
             _jm_cst_0_set.add(json.safeJSON("\"c\""));
+            _jm_map_0_cmap = new HashMap<Object, Checker>();
+            _jm_map_0_cmap.put(json.safeJSON("\"e\""), new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_3(o, p, r);} });
+            _jm_map_0_cmap.put(json.safeJSON("\"f\""), new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_3(o, p, r);} });
+            _jm_map_0_cmap.put(json.safeJSON("\"d\""), new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_2(o, p, r);} });
             _jm_cst_1_set = new HashSet<Object>();
             _jm_cst_1_set.add(json.safeJSON("\"e\""));
             _jm_cst_1_set.add(json.safeJSON("\"f\""));
-            _jm_map_0_cmap = new HashMap<Object, Checker>();
-            _jm_map_0_cmap.put(json.safeJSON("\"e\""), new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_2(o, p, r);} });
-            _jm_map_0_cmap.put(json.safeJSON("\"f\""), new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_2(o, p, r);} });
-            _jm_map_0_cmap.put(json.safeJSON("\"d\""), new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_3(o, p, r);} });
-            _jm_cst_2_set = new HashSet<Object>();
-            _jm_cst_2_set.add(json.safeJSON("\"e\""));
-            _jm_cst_2_set.add(json.safeJSON("\"f\""));
-            _jm_cst_3_set = new HashSet<Object>();
-            _jm_cst_3_set.add(json.safeJSON("\"b\""));
-            _jm_cst_3_set.add(json.safeJSON("\"c\""));
-            _jm_cst_4_set = new HashSet<Object>();
-            _jm_cst_4_set.add(json.safeJSON("\"e\""));
-            _jm_cst_4_set.add(json.safeJSON("\"f\""));
-            _jm_map_1_cmap = new HashMap<Object, Checker>();
-            _jm_map_1_cmap.put(json.safeJSON("\"a\""), new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_6(o, p, r);} });
-            _jm_map_1_cmap.put(json.safeJSON("\"b\""), new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_7(o, p, r);} });
-            _jm_map_1_cmap.put(json.safeJSON("\"c\""), new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_7(o, p, r);} });
-            _jm_map_1_cmap.put(json.safeJSON("\"e\""), new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_8(o, p, r);} });
-            _jm_map_1_cmap.put(json.safeJSON("\"f\""), new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_8(o, p, r);} });
-            _jm_map_1_cmap.put(json.safeJSON("\"d\""), new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_9(o, p, r);} });
             alts_1_map_pmap = new HashMap<String, Checker>();
             alts_1_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_1(o, p, r);} });
             alts_1_map_pmap.put("oA", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_0(o, p, r);} });
             alts_1_map_pmap.put("oB", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_1(o, p, r);} });
             alts_1_map_pmap.put("oC", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
-            alts_1_map_pmap.put("oL", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_4(o, p, r);} });
-            alts_1_map_pmap.put("oX", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_5(o, p, r);} });
+            alts_1_map_pmap.put("oL", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_2(o, p, r);} });
+            alts_1_map_pmap.put("oX", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_3(o, p, r);} });
                 super.init(json);
             }
             catch (Exception e) {
@@ -660,12 +383,8 @@ public class alts_1 extends ModelChecker
         {
             super.free();
             _jm_cst_0_set = null;
-            _jm_cst_1_set = null;
             _jm_map_0_cmap = null;
-            _jm_cst_2_set = null;
-            _jm_cst_3_set = null;
-            _jm_cst_4_set = null;
-            _jm_map_1_cmap = null;
+            _jm_cst_1_set = null;
             alts_1_map_pmap = null;
         }
     }

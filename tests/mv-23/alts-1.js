@@ -10,12 +10,8 @@ import * as runtime from "json_model_runtime"
 const JSON_MODEL_VERSION = "2";
 
 let _jm_cst_0 = new Set()
-let _jm_cst_1 = new Set()
 let _jm_map_0 = new Map()
-let _jm_cst_2 = new Set()
-let _jm_cst_3 = new Set()
-let _jm_cst_4 = new Set()
-let _jm_map_1 = new Map()
+let _jm_cst_1 = new Set()
 var check_model_map = new Map()
 
 // object .'$oA'
@@ -136,97 +132,6 @@ function json_model_3(val, path, rep)
 }
 
 
-// object .'$oC'.'|'.0
-function _jm_obj_2(val, path, rep)
-{
-    // check open must/may only props
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
-    {
-        rep !== null && rep.push(["not an object [.'$oC'.'|'.0]", path])
-        return false;
-    }
-    let lpath;
-    let pval;
-    let res;
-    if (! val.hasOwnProperty("v"))
-    {
-        rep !== null && rep.push(["missing mandatory prop <v> [.'$oC'.'|'.0]", path])
-        return false;
-    }
-    lpath = path ? path.concat(["v"]) : null;
-    pval = val["v"];
-    // .'$oC'.'|'.0.v
-    res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 1;
-    if (! res)
-    {
-        rep !== null && rep.push(["not a 1 strict int [.'$oC'.'|'.0.v]", (path ? lpath : null)])
-        rep !== null && rep.push(["unexpected value for mandatory prop <v> [.'$oC'.'|'.0]", (path ? lpath : null)])
-        return false;
-    }
-    if (! val.hasOwnProperty("t"))
-    {
-        rep !== null && rep.push(["missing mandatory prop <t> [.'$oC'.'|'.0]", path])
-        return false;
-    }
-    lpath = path ? path.concat(["t"]) : null;
-    pval = val["t"];
-    // .'$oC'.'|'.0.t
-    res = ((pval === null || (typeof pval === 'number' || pval instanceof Number) || (typeof pval === 'boolean' || pval instanceof Boolean) || (typeof pval === 'string' || pval instanceof String))) && _jm_cst_1.has(pval);
-    if (! res)
-    {
-        rep !== null && rep.push(["value not in enum [.'$oC'.'|'.0.t.'|']", (path ? lpath : null)])
-        rep !== null && rep.push(["unexpected value for mandatory prop <t> [.'$oC'.'|'.0]", (path ? lpath : null)])
-        return false;
-    }
-    return true;
-}
-
-// object .'$oC'.'|'.1
-function _jm_obj_3(val, path, rep)
-{
-    // check open must/may only props
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
-    {
-        rep !== null && rep.push(["not an object [.'$oC'.'|'.1]", path])
-        return false;
-    }
-    let lpath;
-    let pval;
-    let res;
-    if (! val.hasOwnProperty("v"))
-    {
-        rep !== null && rep.push(["missing mandatory prop <v> [.'$oC'.'|'.1]", path])
-        return false;
-    }
-    lpath = path ? path.concat(["v"]) : null;
-    pval = val["v"];
-    // .'$oC'.'|'.1.v
-    res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 1;
-    if (! res)
-    {
-        rep !== null && rep.push(["not a 1 strict int [.'$oC'.'|'.1.v]", (path ? lpath : null)])
-        rep !== null && rep.push(["unexpected value for mandatory prop <v> [.'$oC'.'|'.1]", (path ? lpath : null)])
-        return false;
-    }
-    if (! val.hasOwnProperty("t"))
-    {
-        rep !== null && rep.push(["missing mandatory prop <t> [.'$oC'.'|'.1]", path])
-        return false;
-    }
-    lpath = path ? path.concat(["t"]) : null;
-    pval = val["t"];
-    // .'$oC'.'|'.1.t
-    res = ((typeof pval === 'string' || pval instanceof String)) && pval == "d";
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected _d [.'$oC'.'|'.1.t]", (path ? lpath : null)])
-        rep !== null && rep.push(["unexpected value for mandatory prop <t> [.'$oC'.'|'.1]", (path ? lpath : null)])
-        return false;
-    }
-    return true;
-}
-
-
 // check $oC (.'$oC')
 function json_model_4(val, path, rep)
 {
@@ -264,7 +169,7 @@ function json_model_4(val, path, rep)
 }
 
 // object .'$oL'
-function _jm_obj_4(val, path, rep)
+function _jm_obj_2(val, path, rep)
 {
     // check open must/may only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
@@ -313,7 +218,7 @@ function json_model_5(val, path, rep)
 {
     let res;
     // .'$oL'
-    res = _jm_obj_4(val, path, rep);
+    res = _jm_obj_2(val, path, rep);
     if (! res)
     {
         rep !== null && rep.push(["unexpected element [.'$oL']", path])
@@ -323,7 +228,7 @@ function json_model_5(val, path, rep)
 
 
 // object .'$oX'
-function _jm_obj_5(val, path, rep)
+function _jm_obj_3(val, path, rep)
 {
     // check open must/may only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
@@ -357,7 +262,7 @@ function _jm_obj_5(val, path, rep)
     lpath = path ? path.concat(["t"]) : null;
     pval = val["t"];
     // .'$oX'.t
-    res = ((pval === null || (typeof pval === 'number' || pval instanceof Number) || (typeof pval === 'boolean' || pval instanceof Boolean) || (typeof pval === 'string' || pval instanceof String))) && _jm_cst_2.has(pval);
+    res = ((pval === null || (typeof pval === 'number' || pval instanceof Number) || (typeof pval === 'boolean' || pval instanceof Boolean) || (typeof pval === 'string' || pval instanceof String))) && _jm_cst_1.has(pval);
     if (! res)
     {
         rep !== null && rep.push(["value not in enum [.'$oX'.t.'|']", (path ? lpath : null)])
@@ -372,7 +277,7 @@ function json_model_6(val, path, rep)
 {
     let res;
     // .'$oX'
-    res = _jm_obj_5(val, path, rep);
+    res = _jm_obj_3(val, path, rep);
     if (! res)
     {
         rep !== null && rep.push(["unexpected element [.'$oX']", path])
@@ -380,221 +285,55 @@ function json_model_6(val, path, rep)
     return res;
 }
 
-// object .'|'.0
-function _jm_obj_6(val, path, rep)
-{
-    // check open must/may only props
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
-    {
-        rep !== null && rep.push(["not an object [.'|'.0]", path])
-        return false;
-    }
-    let lpath;
-    let pval;
-    let res;
-    if (! val.hasOwnProperty("v"))
-    {
-        rep !== null && rep.push(["missing mandatory prop <v> [.'|'.0]", path])
-        return false;
-    }
-    lpath = path ? path.concat(["v"]) : null;
-    pval = val["v"];
-    // .'|'.0.v
-    res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 1;
-    if (! res)
-    {
-        rep !== null && rep.push(["not a 1 strict int [.'|'.0.v]", (path ? lpath : null)])
-        rep !== null && rep.push(["unexpected value for mandatory prop <v> [.'|'.0]", (path ? lpath : null)])
-        return false;
-    }
-    if (! val.hasOwnProperty("t"))
-    {
-        rep !== null && rep.push(["missing mandatory prop <t> [.'|'.0]", path])
-        return false;
-    }
-    lpath = path ? path.concat(["t"]) : null;
-    pval = val["t"];
-    // .'|'.0.t
-    res = ((typeof pval === 'string' || pval instanceof String)) && pval == "a";
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected _a [.'|'.0.t]", (path ? lpath : null)])
-        rep !== null && rep.push(["unexpected value for mandatory prop <t> [.'|'.0]", (path ? lpath : null)])
-        return false;
-    }
-    return true;
-}
-
-
-// object .'|'.1
-function _jm_obj_7(val, path, rep)
-{
-    // check open must/may only props
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
-    {
-        rep !== null && rep.push(["not an object [.'|'.1]", path])
-        return false;
-    }
-    let lpath;
-    let pval;
-    let res;
-    if (! val.hasOwnProperty("v"))
-    {
-        rep !== null && rep.push(["missing mandatory prop <v> [.'|'.1]", path])
-        return false;
-    }
-    lpath = path ? path.concat(["v"]) : null;
-    pval = val["v"];
-    // .'|'.1.v
-    res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 1;
-    if (! res)
-    {
-        rep !== null && rep.push(["not a 1 strict int [.'|'.1.v]", (path ? lpath : null)])
-        rep !== null && rep.push(["unexpected value for mandatory prop <v> [.'|'.1]", (path ? lpath : null)])
-        return false;
-    }
-    if (! val.hasOwnProperty("t"))
-    {
-        rep !== null && rep.push(["missing mandatory prop <t> [.'|'.1]", path])
-        return false;
-    }
-    lpath = path ? path.concat(["t"]) : null;
-    pval = val["t"];
-    // .'|'.1.t
-    res = ((pval === null || (typeof pval === 'number' || pval instanceof Number) || (typeof pval === 'boolean' || pval instanceof Boolean) || (typeof pval === 'string' || pval instanceof String))) && _jm_cst_3.has(pval);
-    if (! res)
-    {
-        rep !== null && rep.push(["value not in enum [.'|'.1.t.'|']", (path ? lpath : null)])
-        rep !== null && rep.push(["unexpected value for mandatory prop <t> [.'|'.1]", (path ? lpath : null)])
-        return false;
-    }
-    return true;
-}
-
-
-// object .'|'.2
-function _jm_obj_8(val, path, rep)
-{
-    // check open must/may only props
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
-    {
-        rep !== null && rep.push(["not an object [.'|'.2]", path])
-        return false;
-    }
-    let lpath;
-    let pval;
-    let res;
-    if (! val.hasOwnProperty("v"))
-    {
-        rep !== null && rep.push(["missing mandatory prop <v> [.'|'.2]", path])
-        return false;
-    }
-    lpath = path ? path.concat(["v"]) : null;
-    pval = val["v"];
-    // .'|'.2.v
-    res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 1;
-    if (! res)
-    {
-        rep !== null && rep.push(["not a 1 strict int [.'|'.2.v]", (path ? lpath : null)])
-        rep !== null && rep.push(["unexpected value for mandatory prop <v> [.'|'.2]", (path ? lpath : null)])
-        return false;
-    }
-    if (! val.hasOwnProperty("t"))
-    {
-        rep !== null && rep.push(["missing mandatory prop <t> [.'|'.2]", path])
-        return false;
-    }
-    lpath = path ? path.concat(["t"]) : null;
-    pval = val["t"];
-    // .'|'.2.t
-    res = ((pval === null || (typeof pval === 'number' || pval instanceof Number) || (typeof pval === 'boolean' || pval instanceof Boolean) || (typeof pval === 'string' || pval instanceof String))) && _jm_cst_4.has(pval);
-    if (! res)
-    {
-        rep !== null && rep.push(["value not in enum [.'|'.2.t.'|']", (path ? lpath : null)])
-        rep !== null && rep.push(["unexpected value for mandatory prop <t> [.'|'.2]", (path ? lpath : null)])
-        return false;
-    }
-    return true;
-}
-
-// object .'|'.3
-function _jm_obj_9(val, path, rep)
-{
-    // check open must/may only props
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
-    {
-        rep !== null && rep.push(["not an object [.'|'.3]", path])
-        return false;
-    }
-    let lpath;
-    let pval;
-    let res;
-    if (! val.hasOwnProperty("v"))
-    {
-        rep !== null && rep.push(["missing mandatory prop <v> [.'|'.3]", path])
-        return false;
-    }
-    lpath = path ? path.concat(["v"]) : null;
-    pval = val["v"];
-    // .'|'.3.v
-    res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 1;
-    if (! res)
-    {
-        rep !== null && rep.push(["not a 1 strict int [.'|'.3.v]", (path ? lpath : null)])
-        rep !== null && rep.push(["unexpected value for mandatory prop <v> [.'|'.3]", (path ? lpath : null)])
-        return false;
-    }
-    if (! val.hasOwnProperty("t"))
-    {
-        rep !== null && rep.push(["missing mandatory prop <t> [.'|'.3]", path])
-        return false;
-    }
-    lpath = path ? path.concat(["t"]) : null;
-    pval = val["t"];
-    // .'|'.3.t
-    res = ((typeof pval === 'string' || pval instanceof String)) && pval == "d";
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected _d [.'|'.3.t]", (path ? lpath : null)])
-        rep !== null && rep.push(["unexpected value for mandatory prop <t> [.'|'.3]", (path ? lpath : null)])
-        return false;
-    }
-    return true;
-}
-
-
 // check $ (.)
 function json_model_1(val, path, rep)
 {
     let res;
     // .
-    let iso_1 = Object.prototype.toString.call(val) === '[object Object]';
-    res = iso_1;
-    if (res)
+    // generic xor list
+    let xc_0 = 0;
+    let xr_0;
+    // .'^'.0
+    xr_0 = _jm_obj_0(val, path, rep);
+    if (xr_0)
     {
-        if (val.hasOwnProperty("t"))
-        {
-            let tag_1 = val["t"];
-            let fun_1 = _jm_map_1.get(tag_1);
-            if (fun_1 !== undefined)
-            {
-                res = fun_1(val, path, rep);
-            }
-            else
-            {
-                res = false;
-                rep !== null && rep.push(["tag <t> value not found [.'|']", path])
-            }
-        }
-        else
-        {
-            res = false;
-            rep !== null && rep.push(["tag prop <t> is missing [.'|']", path])
-        }
+        xc_0 += 1;
     }
     else
     {
-        rep !== null && rep.push(["value is not an object [.'|']", path])
+        rep !== null && rep.push(["unexpected $oA [.'^'.0]", path])
+    }
+    // .'^'.1
+    xr_0 = _jm_obj_1(val, path, rep);
+    if (xr_0)
+    {
+        xc_0 += 1;
+    }
+    else
+    {
+        rep !== null && rep.push(["unexpected $oB [.'^'.1]", path])
+    }
+    if (xc_0 <= 1)
+    {
+        // .'^'.2
+        xr_0 = json_model_4(val, path, rep);
+        if (xr_0)
+        {
+            xc_0 += 1;
+        }
+        else
+        {
+            rep !== null && rep.push(["unexpected $oC [.'^'.2]", path])
+        }
+    }
+    res = xc_0 == 1;
+    if (res)
+    {
+        if (rep !== null) rep.length = 0
+    }
+    else
+    {
+        rep !== null && rep.push(["not one model match [.'^']", path])
     }
     return res;
 }
@@ -611,29 +350,17 @@ export function check_model_init()
         runtime.jm_set_rx(RegExp)
         _jm_cst_0.add("b")
         _jm_cst_0.add("c")
+        _jm_map_0.set("e", _jm_obj_3)
+        _jm_map_0.set("f", _jm_obj_3)
+        _jm_map_0.set("d", _jm_obj_2)
         _jm_cst_1.add("e")
         _jm_cst_1.add("f")
-        _jm_map_0.set("e", _jm_obj_2)
-        _jm_map_0.set("f", _jm_obj_2)
-        _jm_map_0.set("d", _jm_obj_3)
-        _jm_cst_2.add("e")
-        _jm_cst_2.add("f")
-        _jm_cst_3.add("b")
-        _jm_cst_3.add("c")
-        _jm_cst_4.add("e")
-        _jm_cst_4.add("f")
-        _jm_map_1.set("a", _jm_obj_6)
-        _jm_map_1.set("b", _jm_obj_7)
-        _jm_map_1.set("c", _jm_obj_7)
-        _jm_map_1.set("e", _jm_obj_8)
-        _jm_map_1.set("f", _jm_obj_8)
-        _jm_map_1.set("d", _jm_obj_9)
         check_model_map.set("", json_model_1)
         check_model_map.set("oA", _jm_obj_0)
         check_model_map.set("oB", _jm_obj_1)
         check_model_map.set("oC", json_model_4)
-        check_model_map.set("oL", _jm_obj_4)
-        check_model_map.set("oX", _jm_obj_5)
+        check_model_map.set("oL", _jm_obj_2)
+        check_model_map.set("oX", _jm_obj_3)
     }
 }
 

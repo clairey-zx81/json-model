@@ -51,7 +51,7 @@ sub _jm_obj_0($$$)
         # handle other props
         # .'$a'.''
         # .'$a'.''.'|'.0
-        $res = _jm_obj_0($pval, undef, $rep);
+        $res = json_model_3($pval, undef, $rep);
         if (! $res)
         {
             # .'$a'.''.'|'.1

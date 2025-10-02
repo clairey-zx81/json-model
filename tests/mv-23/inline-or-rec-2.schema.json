@@ -37,40 +37,6 @@
             "b"
           ],
           "additionalProperties": false
-        },
-        {
-          "type": "object",
-          "properties": {
-            "t": {
-              "const": "c"
-            },
-            "c": {
-              "type": "integer",
-              "minimum": 1
-            }
-          },
-          "required": [
-            "t",
-            "c"
-          ],
-          "additionalProperties": false
-        },
-        {
-          "type": "object",
-          "properties": {
-            "t": {
-              "const": "d"
-            },
-            "d": {
-              "type": "integer",
-              "minimum": 1
-            }
-          },
-          "required": [
-            "t",
-            "d"
-          ],
-          "additionalProperties": false
         }
       ]
     },
@@ -111,38 +77,7 @@
           "additionalProperties": false
         },
         {
-          "type": "object",
-          "properties": {
-            "t": {
-              "const": "a"
-            },
-            "a": {
-              "type": "integer",
-              "minimum": 1
-            }
-          },
-          "required": [
-            "t",
-            "a"
-          ],
-          "additionalProperties": false
-        },
-        {
-          "type": "object",
-          "properties": {
-            "t": {
-              "const": "b"
-            },
-            "b": {
-              "type": "integer",
-              "minimum": 1
-            }
-          },
-          "required": [
-            "t",
-            "b"
-          ],
-          "additionalProperties": false
+          "$ref": "#/$defs/ab"
         }
       ]
     }

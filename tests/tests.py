@@ -202,12 +202,10 @@ EXPECT: dict[str, int] = {
     "mv-21:values": 192,
     "mv-21:verrors:schema": 88,
     # mv-22
-    "mv-22:mod-opts": {"inline": True},
     "mv-22:models": 6,
     "mv-22:values": 709,
     "mv-22:verrors:schema": 36,
     # mv-23
-    "mv-23:mod-opts": {"inline": True},
     "mv-23:models": 4,
     "mv-23:values": 83,
     # mv-24

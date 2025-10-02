@@ -45,10 +45,10 @@ function _jm_obj_0(val, path, rep)
         // handle other props
         // .'$a'.''
         // .'$a'.''.'|'.0
-        res = _jm_obj_0(pval, (path ? lpath_0 : null), rep);
+        res = json_model_3(pval, (path ? lpath_0 : null), rep);
         if (! res)
         {
-            rep !== null && rep.push(["unexpected $a [.'$a'.''.'|'.0]", (path ? lpath_0 : null)])
+            rep !== null && rep.push(["unexpected $r [.'$a'.''.'|'.0]", (path ? lpath_0 : null)])
         }
         if (! res)
         {

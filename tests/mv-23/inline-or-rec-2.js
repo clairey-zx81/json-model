@@ -113,106 +113,6 @@ function _jm_obj_1(val, path, rep)
     return true;
 }
 
-// object .'$ab'.'|'.2
-function _jm_obj_2(val, path, rep)
-{
-    // check close must only props
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
-    {
-        rep !== null && rep.push(["not an object [.'$ab'.'|'.2]", path])
-        return false;
-    }
-    if (Object.keys(val).length != 2)
-    {
-        rep !== null && rep.push(["bad property count [.'$ab'.'|'.2]", path])
-        return false;
-    }
-    let lpath;
-    let pval;
-    let res;
-    if (! val.hasOwnProperty("t"))
-    {
-        rep !== null && rep.push(["missing mandatory prop <t> [.'$ab'.'|'.2]", path])
-        return false;
-    }
-    lpath = path ? path.concat(["t"]) : null;
-    pval = val["t"];
-    // .'$ab'.'|'.2.t
-    res = ((typeof pval === 'string' || pval instanceof String)) && pval == "c";
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected c [.'$ab'.'|'.2.t]", (path ? lpath : null)])
-        rep !== null && rep.push(["unexpected value for mandatory prop <t> [.'$ab'.'|'.2]", (path ? lpath : null)])
-        return false;
-    }
-    if (! val.hasOwnProperty("c"))
-    {
-        rep !== null && rep.push(["missing mandatory prop <c> [.'$ab'.'|'.2]", path])
-        return false;
-    }
-    lpath = path ? path.concat(["c"]) : null;
-    pval = val["c"];
-    // .'$ab'.'|'.2.c
-    res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 1;
-    if (! res)
-    {
-        rep !== null && rep.push(["not a 1 strict int [.'$ab'.'|'.2.c]", (path ? lpath : null)])
-        rep !== null && rep.push(["unexpected value for mandatory prop <c> [.'$ab'.'|'.2]", (path ? lpath : null)])
-        return false;
-    }
-    return true;
-}
-
-// object .'$ab'.'|'.3
-function _jm_obj_3(val, path, rep)
-{
-    // check close must only props
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
-    {
-        rep !== null && rep.push(["not an object [.'$ab'.'|'.3]", path])
-        return false;
-    }
-    if (Object.keys(val).length != 2)
-    {
-        rep !== null && rep.push(["bad property count [.'$ab'.'|'.3]", path])
-        return false;
-    }
-    let lpath;
-    let pval;
-    let res;
-    if (! val.hasOwnProperty("t"))
-    {
-        rep !== null && rep.push(["missing mandatory prop <t> [.'$ab'.'|'.3]", path])
-        return false;
-    }
-    lpath = path ? path.concat(["t"]) : null;
-    pval = val["t"];
-    // .'$ab'.'|'.3.t
-    res = ((typeof pval === 'string' || pval instanceof String)) && pval == "d";
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected d [.'$ab'.'|'.3.t]", (path ? lpath : null)])
-        rep !== null && rep.push(["unexpected value for mandatory prop <t> [.'$ab'.'|'.3]", (path ? lpath : null)])
-        return false;
-    }
-    if (! val.hasOwnProperty("d"))
-    {
-        rep !== null && rep.push(["missing mandatory prop <d> [.'$ab'.'|'.3]", path])
-        return false;
-    }
-    lpath = path ? path.concat(["d"]) : null;
-    pval = val["d"];
-    // .'$ab'.'|'.3.d
-    res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 1;
-    if (! res)
-    {
-        rep !== null && rep.push(["not a 1 strict int [.'$ab'.'|'.3.d]", (path ? lpath : null)])
-        rep !== null && rep.push(["unexpected value for mandatory prop <d> [.'$ab'.'|'.3]", (path ? lpath : null)])
-        return false;
-    }
-    return true;
-}
-
 
 // check $ab (.'$ab')
 function json_model_2(val, path, rep)
@@ -251,7 +151,7 @@ function json_model_2(val, path, rep)
 }
 
 // object .'$cd'.'|'.0
-function _jm_obj_4(val, path, rep)
+function _jm_obj_2(val, path, rep)
 {
     // check close must only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
@@ -301,7 +201,7 @@ function _jm_obj_4(val, path, rep)
 }
 
 // object .'$cd'.'|'.1
-function _jm_obj_5(val, path, rep)
+function _jm_obj_3(val, path, rep)
 {
     // check close must only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
@@ -350,106 +250,6 @@ function _jm_obj_5(val, path, rep)
     return true;
 }
 
-// object .'$cd'.'|'.2
-function _jm_obj_6(val, path, rep)
-{
-    // check close must only props
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
-    {
-        rep !== null && rep.push(["not an object [.'$cd'.'|'.2]", path])
-        return false;
-    }
-    if (Object.keys(val).length != 2)
-    {
-        rep !== null && rep.push(["bad property count [.'$cd'.'|'.2]", path])
-        return false;
-    }
-    let lpath;
-    let pval;
-    let res;
-    if (! val.hasOwnProperty("t"))
-    {
-        rep !== null && rep.push(["missing mandatory prop <t> [.'$cd'.'|'.2]", path])
-        return false;
-    }
-    lpath = path ? path.concat(["t"]) : null;
-    pval = val["t"];
-    // .'$cd'.'|'.2.t
-    res = ((typeof pval === 'string' || pval instanceof String)) && pval == "a";
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected a [.'$cd'.'|'.2.t]", (path ? lpath : null)])
-        rep !== null && rep.push(["unexpected value for mandatory prop <t> [.'$cd'.'|'.2]", (path ? lpath : null)])
-        return false;
-    }
-    if (! val.hasOwnProperty("a"))
-    {
-        rep !== null && rep.push(["missing mandatory prop <a> [.'$cd'.'|'.2]", path])
-        return false;
-    }
-    lpath = path ? path.concat(["a"]) : null;
-    pval = val["a"];
-    // .'$cd'.'|'.2.a
-    res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 1;
-    if (! res)
-    {
-        rep !== null && rep.push(["not a 1 strict int [.'$cd'.'|'.2.a]", (path ? lpath : null)])
-        rep !== null && rep.push(["unexpected value for mandatory prop <a> [.'$cd'.'|'.2]", (path ? lpath : null)])
-        return false;
-    }
-    return true;
-}
-
-// object .'$cd'.'|'.3
-function _jm_obj_7(val, path, rep)
-{
-    // check close must only props
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
-    {
-        rep !== null && rep.push(["not an object [.'$cd'.'|'.3]", path])
-        return false;
-    }
-    if (Object.keys(val).length != 2)
-    {
-        rep !== null && rep.push(["bad property count [.'$cd'.'|'.3]", path])
-        return false;
-    }
-    let lpath;
-    let pval;
-    let res;
-    if (! val.hasOwnProperty("t"))
-    {
-        rep !== null && rep.push(["missing mandatory prop <t> [.'$cd'.'|'.3]", path])
-        return false;
-    }
-    lpath = path ? path.concat(["t"]) : null;
-    pval = val["t"];
-    // .'$cd'.'|'.3.t
-    res = ((typeof pval === 'string' || pval instanceof String)) && pval == "b";
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected b [.'$cd'.'|'.3.t]", (path ? lpath : null)])
-        rep !== null && rep.push(["unexpected value for mandatory prop <t> [.'$cd'.'|'.3]", (path ? lpath : null)])
-        return false;
-    }
-    if (! val.hasOwnProperty("b"))
-    {
-        rep !== null && rep.push(["missing mandatory prop <b> [.'$cd'.'|'.3]", path])
-        return false;
-    }
-    lpath = path ? path.concat(["b"]) : null;
-    pval = val["b"];
-    // .'$cd'.'|'.3.b
-    res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 1;
-    if (! res)
-    {
-        rep !== null && rep.push(["not a 1 strict int [.'$cd'.'|'.3.b]", (path ? lpath : null)])
-        rep !== null && rep.push(["unexpected value for mandatory prop <b> [.'$cd'.'|'.3]", (path ? lpath : null)])
-        return false;
-    }
-    return true;
-}
-
 
 // check $cd (.'$cd')
 function json_model_3(val, path, rep)
@@ -484,6 +284,10 @@ function json_model_3(val, path, rep)
     {
         rep !== null && rep.push(["value is not an object [.'$cd'.'|']", path])
     }
+    if (! res)
+    {
+        res = json_model_2(val, path, rep);
+    }
     return res;
 }
 
@@ -512,12 +316,8 @@ export function check_model_init()
         runtime.jm_set_rx(RegExp)
         _jm_map_0.set("a", _jm_obj_0)
         _jm_map_0.set("b", _jm_obj_1)
-        _jm_map_0.set("c", _jm_obj_2)
-        _jm_map_0.set("d", _jm_obj_3)
-        _jm_map_1.set("c", _jm_obj_4)
-        _jm_map_1.set("d", _jm_obj_5)
-        _jm_map_1.set("a", _jm_obj_6)
-        _jm_map_1.set("b", _jm_obj_7)
+        _jm_map_1.set("c", _jm_obj_2)
+        _jm_map_1.set("d", _jm_obj_3)
         check_model_map.set("", json_model_3)
         check_model_map.set("ab", json_model_2)
         check_model_map.set("cd", json_model_3)

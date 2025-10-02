@@ -389,82 +389,6 @@ def _contains_ref(model: ModelType, ref: str) -> bool:
 
     return seen
 
-
-# TODO consider or in xor or xor in or in some cases
-# NOTE infinite recursion prevention is unproven
-# NOTE correction under ^ is unclear
-# FIXME more infinite substitutions to be prevented
-def inline_or(jm: JsonModel) -> bool:
-    """Inline local definitions in or/xor model lists to help flattening."""
-
-    changes: int = 0
-    dones: set[ModelPath] = set()
-
-    def inFlt(model: ModelType, path: ModelPath) -> bool:
-
-        # log.debug(f"io: in {jm._dname} with {model} at {path}")
-
-        nonlocal changes
-        changed = False
-        direct = len(path) == 0
-        if isinstance(model, dict) and ("|" in model or "^" in model):
-            op = "|" if "|" in model else "^"
-            path = path + [op]
-            models = []
-            for m in model[op]:
-                if isinstance(m, str):
-                    # try to prevent adding the same stuff twice for |
-                    if op == "|":
-                        pm = tuple(path + [m])
-                        if pm in dones:
-                            break
-                        else:
-                            dones.add(pm)
-                    # stupid direct self recursion can lead to infinite execution
-                    if direct and jm._dname is not None and m == "$" + jm._dname:
-                        log.info(f"inline-or: skipping self recursion on {m} at {path}")
-                        changed = True
-                        changes += 1
-                        continue
-                    md = _follow_local_def(jm, m, jm._dname)
-
-                    # reject self reference in substition (safe? best choice?)
-                    if isinstance(md, dict) and _contains_ref(md, m):
-                        log.info(f"inline-or: skipping self reference in {m} at {path}")
-                        models.append(m)
-                    elif isinstance(md, dict) and op in md:
-                        for n in md[op]:
-                            if direct and jm._dname is not None and n == "$" + jm._dname:
-                                log.info(f"inline-or: skipping self recursion on {m} at {path}")
-                                changed = True
-                                changes += 1
-                            elif op == "|" and not model_in_models(n, models):
-                                if not same_model(n, m):
-                                    models.append(copy.deepcopy(n))
-                                    changed = True
-                                    changes += 1
-                                else:  # ???
-                                    models.append(copy.deepcopy(m))
-                            elif op == "^":
-                                models.append(copy.deepcopy(n))
-                                changed = True
-                                changes += 1
-                    elif is_a_simple_object(md):
-                        models.append(copy.deepcopy(md))
-                        changed = True
-                        changes += 1
-                    else:
-                        models.append(m)
-                else:
-                    models.append(m)
-            if changed:
-                model[op] = models
-        return True
-
-    jm._model = recModel(jm._model, inFlt, noRwt)
-
-    return changes > 0
-
 # FIXME probably some corner case issues
 def simplify(jm: JsonModel):
     """Simplify properties and constraints in some cases."""
@@ -626,14 +550,12 @@ def simplify(jm: JsonModel):
 
     return changes > 0
 
-def optimize(jm: JsonModel, *, inline: bool = True, debug: bool = False):
+def optimize(jm: JsonModel, *, debug: bool = False):
     changed = True
     while changed:
         changed = False
         changed |= const_prop(jm)
         changed |= simplify(jm)
         changed |= partial_eval(jm)
-        if inline:
-            changed |= inline_or(jm)
         changed |= flatten(jm)
         changed |= xor_to_or(jm)

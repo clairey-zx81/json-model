@@ -32,7 +32,7 @@ LANG = {
 
 def process_model(model: JsonModel, *,
                   check: bool = True, merge: bool = True, optimize: bool = True,
-                  inline: bool = False, debug: int = 0):
+                  debug: int = 0):
     """Apply necessary preprocessing to JsonModel."""
 
     # initial sanity check
@@ -48,7 +48,7 @@ def process_model(model: JsonModel, *,
     # simplify before merging
     if optimize:
         for m in all_models:
-            optim.optimize(m, inline=inline)
+            optim.optimize(m)
 
     # check after initial optimize
     if debug or check:
@@ -65,7 +65,7 @@ def process_model(model: JsonModel, *,
     # optimize again?
     if optimize:
         for m in all_models:
-            optim.optimize(m, inline=inline)
+            optim.optimize(m)
 
     # check after merge & optimize
     if debug or check:
@@ -77,7 +77,7 @@ def process_model(model: JsonModel, *,
 def model_from_json(
         mjson: Jsonable, *, auto: bool = False,
         debug: int = 0, murl: str = "",
-        check: bool = True, merge: bool = True, optimize: bool = True, inline: bool = False,
+        check: bool = True, merge: bool = True, optimize: bool = True,
         loose_int: bool|None = None, loose_float: bool|None = None,
         resolver: Resolver|None = None) -> JsonModel:
     """JsonModel instanciation from JSON data."""
@@ -105,14 +105,14 @@ def model_from_json(
                    loose_int=loose_int, loose_float=loose_float)
 
     if check or merge or optimize:
-        process_model(jm, check=check, merge=merge, optimize=optimize, inline=inline, debug=debug)
+        process_model(jm, check=check, merge=merge, optimize=optimize, debug=debug)
 
     return jm
 
 
 def model_from_url(murl: str, *, auto: bool = False, debug: int = 0,
                    check: bool = True, merge: bool = True, optimize: bool = True,
-                   inline: bool = False, loose_int: bool|None = None, loose_float: bool|None = None,
+                   loose_int: bool|None = None, loose_float: bool|None = None,
                    resolver: Resolver|None = None, follow: bool = True) -> JsonModel:
     """JsonModel instanciation from a URL."""
 
@@ -122,18 +122,18 @@ def model_from_url(murl: str, *, auto: bool = False, debug: int = 0,
     mjson = resolver(murl, follow=follow)
 
     return model_from_json(mjson, murl=murl, auto=auto, debug=debug, resolver=resolver,
-                           inline=inline, loose_int=loose_int, loose_float=loose_float,
+                           loose_int=loose_int, loose_float=loose_float,
                            check=check, merge=merge, optimize=optimize)
 
 
 def model_from_str(mstring: str, *, auto: bool = False,
                    check: bool = True, merge: bool = True, optimize: bool = True,
-                   inline: bool = False, loose_int: bool|None = None, loose_float: bool|None = None,
+                   loose_int: bool|None = None, loose_float: bool|None = None,
                    debug: int = 0, murl: str = "", allow_duplicates: bool = False) -> JsonModel:
     """JsonModel instanciation from a string."""
 
     return model_from_json(json_loads(mstring, allow_duplicates=allow_duplicates),
-                           auto=auto, debug=debug, murl=murl, inline=inline,
+                           auto=auto, debug=debug, murl=murl,
                            loose_int=loose_int, loose_float=loose_float,
                            check=check, merge=merge, optimize=optimize)
 
@@ -155,33 +155,33 @@ def model_checker(jm: JsonModel, *, debug: bool = False) -> EntryCheckFun:
 
 def model_checker_from_json(
             mjson: Jsonable, *, auto: bool = False, debug: int = 0,
-            resolver: Resolver|None = None, inline: bool = False,
+            resolver: Resolver|None = None,
             loose_int: bool|None = None, loose_float: bool|None = None,
         ) -> EntryCheckFun:
     """Return an executable model checker from a URL."""
     jm = model_from_json(mjson, auto=auto, debug=debug, resolver=resolver,
-                         loose_int=loose_int, loose_float=loose_float, inline=inline)
+                         loose_int=loose_int, loose_float=loose_float)
     return model_checker(jm, debug=debug > 0)
 
 
 def model_checker_from_url(
             murl: str, *, auto: bool = False, debug: int = 0,
-            resolver: Resolver|None = None, follow: bool = True, inline: bool = False,
+            resolver: Resolver|None = None, follow: bool = True,
             loose_int: bool|None = None, loose_float: bool|None = None
         ) -> EntryCheckFun:
     """Return an executable model checker from a URL."""
     jm = model_from_url(murl, auto=auto, debug=debug, resolver=resolver, follow=follow,
-                        loose_int=loose_int, loose_float=loose_float, inline=inline)
+                        loose_int=loose_int, loose_float=loose_float)
     return model_checker(jm, debug=debug > 0)
 
 
 def create_model(murl: str, resolver: Resolver, *,
                  auto: bool = False, follow: bool = True, debug: int = 0,
-                 check: bool = True, merge: bool = True, optimize: bool = True, inline: bool = False,
+                 check: bool = True, merge: bool = True, optimize: bool = True,
                  loose_int: bool|None = None, loose_float: bool|None = None) -> JsonModel:
     """JsonModel instanciation without preprocessing."""
     return model_from_url(murl, auto=auto, follow=follow, debug=debug, resolver=resolver,
-                          loose_int=loose_int, loose_float=loose_float, inline=inline,
+                          loose_int=loose_int, loose_float=loose_float,
                           check=check, merge=merge, optimize=optimize)
 
 DEFAULT_CC = "cc"
@@ -371,11 +371,6 @@ def jmc_script():
     arg("--optimize", "-O", action="store_true", default=True, help="optimize model")
     arg("--no-optimize", "-nO", dest="optimize", action="store_false", help="do not optimize model")
     # NOTE mostly a bad idea: it can trigger an large code size expansion
-    # TODO remove? keep as experimental?
-    arg("--inline-or", dest="inline_or", action="store_true", default=False,
-        help="inline or references in some cases")
-    arg("--no-inline-or", dest="inline_or", action="store_false",
-        help="do not inline or references")
     arg("--map-threshold", "-mt", default=5, type=int, help="property map threshold, default 5")
     arg("--map-share", "-ms", default=False, action="store_true", help="property map sharing")
     arg("--unroll-may-ratio", "-umr", default=0.5, type=float,
@@ -584,7 +579,7 @@ def jmc_script():
         model = create_model(args.model, resolver, auto=args.auto, debug=args.debug,
                              loose_int=args.loose_int, loose_float=args.loose_float,
                              check=args.check, merge=args.op != "N",
-                             optimize=args.optimize, inline=args.inline_or, follow=False)
+                             optimize=args.optimize, follow=False)
     except BaseException as e:
         log.error(e)
         if args.debug:

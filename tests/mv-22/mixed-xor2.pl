@@ -16,9 +16,6 @@ my %_jm_map_0;
 sub json_model_2($$$);
 sub _jm_obj_2($$$);
 sub _jm_obj_3($$$);
-sub _jm_obj_4($$$);
-sub _jm_obj_5($$$);
-my %_jm_map_1;
 sub json_model_1($$$);
 my %check_model_map;
 
@@ -134,7 +131,7 @@ sub json_model_2($$$)
     return $res;
 }
 
-# object .'|'.0
+# object .'^'.0
 sub _jm_obj_2($$$)
 {
     my ($val, $path, $rep) = @_;
@@ -154,7 +151,7 @@ sub _jm_obj_2($$$)
         return 0;
     }
     $pval = $$val{'t'};
-    # .'|'.0.t
+    # .'^'.0.t
     $res = jm_is_string($pval) && $pval eq 'm';
     if (! $res)
     {
@@ -165,7 +162,7 @@ sub _jm_obj_2($$$)
         return 0;
     }
     $pval = $$val{'moe'};
-    # .'|'.0.moe
+    # .'^'.0.moe
     $res = jm_is_integer($pval) && $pval >= 1;
     if (! $res)
     {
@@ -174,7 +171,7 @@ sub _jm_obj_2($$$)
     return 1;
 }
 
-# object .'|'.1
+# object .'^'.1
 sub _jm_obj_3($$$)
 {
     my ($val, $path, $rep) = @_;
@@ -194,7 +191,7 @@ sub _jm_obj_3($$$)
         return 0;
     }
     $pval = $$val{'t'};
-    # .'|'.1.t
+    # .'^'.1.t
     $res = jm_is_string($pval) && $pval eq 'h';
     if (! $res)
     {
@@ -205,7 +202,7 @@ sub _jm_obj_3($$$)
         return 0;
     }
     $pval = $$val{'hob'};
-    # .'|'.1.hob
+    # .'^'.1.hob
     $res = jm_is_integer($pval) && $pval >= 1;
     if (! $res)
     {
@@ -213,87 +210,6 @@ sub _jm_obj_3($$$)
     }
     return 1;
 }
-
-# object .'|'.2
-sub _jm_obj_4($$$)
-{
-    my ($val, $path, $rep) = @_;
-    # check close must only props
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
-    if (jm_obj_size($val) != 2)
-    {
-        return 0;
-    }
-    my $pval;
-    my $res;
-    if (! exists $$val{'t'})
-    {
-        return 0;
-    }
-    $pval = $$val{'t'};
-    # .'|'.2.t
-    $res = jm_is_string($pval) && $pval eq 'c';
-    if (! $res)
-    {
-        return 0;
-    }
-    if (! exists $$val{'cal'})
-    {
-        return 0;
-    }
-    $pval = $$val{'cal'};
-    # .'|'.2.cal
-    $res = jm_is_integer($pval) && $pval >= 1;
-    if (! $res)
-    {
-        return 0;
-    }
-    return 1;
-}
-
-# object .'|'.3
-sub _jm_obj_5($$$)
-{
-    my ($val, $path, $rep) = @_;
-    # check close must only props
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
-    if (jm_obj_size($val) != 2)
-    {
-        return 0;
-    }
-    my $pval;
-    my $res;
-    if (! exists $$val{'t'})
-    {
-        return 0;
-    }
-    $pval = $$val{'t'};
-    # .'|'.3.t
-    $res = jm_is_string($pval) && $pval eq 's';
-    if (! $res)
-    {
-        return 0;
-    }
-    if (! exists $$val{'sus'})
-    {
-        return 0;
-    }
-    $pval = $$val{'sus'};
-    # .'|'.3.sus
-    $res = jm_is_integer($pval) && $pval >= 1;
-    if (! $res)
-    {
-        return 0;
-    }
-    return 1;
-}
-
 
 # check $ (.)
 sub json_model_1($$$)
@@ -301,28 +217,31 @@ sub json_model_1($$$)
     my ($val, $path, $rep) = @_;
     my $res;
     # .
-    my $iso_1 = jm_is_object($val);
-    $res = $iso_1;
-    if ($res)
+    # generic xor list
+    my $xc_0 = 0;
+    my $xr_0;
+    # .'^'.0
+    $xr_0 = _jm_obj_2($val, $path, $rep);
+    if ($xr_0)
     {
-        if (exists $$val{'t'})
+        $xc_0++;
+    }
+    # .'^'.1
+    $xr_0 = _jm_obj_3($val, $path, $rep);
+    if ($xr_0)
+    {
+        $xc_0++;
+    }
+    if ($xc_0 <= 1)
+    {
+        # .'^'.2
+        $xr_0 = json_model_2($val, $path, $rep);
+        if ($xr_0)
         {
-            my $tag_1 = $$val{'t'};
-            my $fun_1 = $_jm_map_1{$tag_1};
-            if (defined($fun_1))
-            {
-                $res = &$fun_1($val, $path, $rep);
-            }
-            else
-            {
-                $res = 0;
-            }
-        }
-        else
-        {
-            $res = 0;
+            $xc_0++;
         }
     }
+    $res = $xc_0 == 1;
     return $res;
 }
 
@@ -340,12 +259,6 @@ sub check_model_init()
             'c' => \&_jm_obj_0,
             's' => \&_jm_obj_1,
         );
-        %_jm_map_1 = (
-            'm' => \&_jm_obj_2,
-            'h' => \&_jm_obj_3,
-            'c' => \&_jm_obj_4,
-            's' => \&_jm_obj_5,
-        );
         %check_model_map = (
             '' => \&json_model_1,
             'cs' => \&json_model_2,
@@ -359,7 +272,6 @@ sub check_model_free()
     {
         $initialized = 0;
         %_jm_map_0 = ();
-        %_jm_map_1 = ();
         %check_model_map = ();
     }
 }

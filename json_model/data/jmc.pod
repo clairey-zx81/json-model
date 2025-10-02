@@ -12,7 +12,7 @@ B<jmc> - JSON Model Compiler
      [--maps MAPS] [--auto] [--entry ENTRY] [--regex-engine {re,re2,pcre2}]
      [--allow-duplicates] [--loose-int] [--strict-int] [--loose-float]
      [--strict-float] [--loose-number] [--strict-number] [--loose] [--check]
-     [-[-no]-optimize] [-[-no]-inline-or] [-[-no]-reporting] [-[-no]-inline]
+     [-[-no]-optimize] [-[-no]-reporting] [-[-no]-inline]
      [--format {json,yaml,py,c,js,plpgsql,pl,java}] [-[-no]-sort] [--indent INDENT]
      [--gen {exec,module,code,none} | --executable | --module | --code | --no-gen]
      [--cc CC] [--cflags CFLAGS] [--cppflags CPPFLAGS] [--ldflags LDFLAGS]
@@ -132,11 +132,6 @@ else the internal library.
 
 whether to optimize the model (partial eval, constraint simplifications, flattening,
 or-inlining, dead code elimination, xor to or conversion…).
-
-=item B<--inline-or>
-
-whether to inline objects and disjunctions in disjunctions,
-which may increase code size and add more optimization opportunities.
 
 =back
 

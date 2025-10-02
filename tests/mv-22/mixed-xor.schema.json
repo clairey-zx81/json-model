@@ -41,7 +41,7 @@
       ]
     }
   },
-  "anyOf": [
+  "oneOf": [
     {
       "type": "object",
       "properties": {
@@ -77,38 +77,7 @@
       "additionalProperties": false
     },
     {
-      "type": "object",
-      "properties": {
-        "t": {
-          "const": "c"
-        },
-        "cal": {
-          "type": "integer",
-          "minimum": 1
-        }
-      },
-      "required": [
-        "t",
-        "cal"
-      ],
-      "additionalProperties": false
-    },
-    {
-      "type": "object",
-      "properties": {
-        "t": {
-          "const": "s"
-        },
-        "sus": {
-          "type": "integer",
-          "minimum": 1
-        }
-      },
-      "required": [
-        "t",
-        "sus"
-      ],
-      "additionalProperties": false
+      "$ref": "#/$defs/cs"
     },
     {
       "type": "boolean"

@@ -7,7 +7,9 @@
 - [x] static: add a max threshold/ratio for may property unrolling
 - [x] perf: add jsb version to final summary
 - [x] command: add `--no-predef` option for testing
+- [x] command: remove inline-or option and implementation
 - [ ] command: `jmc -C -o foo.json` generates python instand of json
+- [ ] optim: improve xor-to-or with references
 - [ ] perf: experiment object matching with various mandatory/optional properties
 - [ ] static: close may/must? merge with open?
 - [ ] optim: and to merge optimization for open object models
@@ -17,8 +19,6 @@
 - [ ] tests: add generated ir model check
 - [ ] tests: drop language outputs for IR only?!
 - [ ] tests: check generated IR with IR model
-- [ ] optim: improve xor-to-or with references
-- [ ] command: remove inline-or option and implementation
 - [ ] backend: refactor ir optimizations
 - [ ] command: add direct ir to lang conversion
 - [ ] backend: improve and extend IR optimizations?

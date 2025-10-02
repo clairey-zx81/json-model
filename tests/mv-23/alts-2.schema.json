@@ -7,7 +7,7 @@
       "additionalProperties": {
         "anyOf": [
           {
-            "$ref": "#/$defs/a"
+            "$ref": "#/$defs/r"
           },
           {
             "type": "object",

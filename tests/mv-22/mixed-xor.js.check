@@ -1,16 +1,16 @@
-mixed-xor.values.json[0]: PASS (.: value is not an object [.'|'])
-mixed-xor.values.json[1]: PASS (.: value is not an object [.'|'])
+mixed-xor.values.json[0]: PASS
+mixed-xor.values.json[1]: PASS
 mixed-xor.values.json[2]: PASS
 mixed-xor.values.json[3]: PASS
 mixed-xor.values.json[4]: PASS
 mixed-xor.values.json[5]: PASS
-mixed-xor.values.json[6]: FAIL (.: not a bool [.'|'.4]; .: value is not an object [.'|'])
-mixed-xor.values.json[7]: FAIL (.: not a bool [.'|'.4]; .: value is not an object [.'|'])
-mixed-xor.values.json[8]: FAIL (.: not a bool [.'|'.4]; .: value is not an object [.'|'])
-mixed-xor.values.json[9]: FAIL (.: not a bool [.'|'.4]; .: value is not an object [.'|'])
-mixed-xor.values.json[10]: FAIL (.: not a bool [.'|'.4]; .: value is not an object [.'|'])
-mixed-xor.values.json[11]: FAIL (.: not a bool [.'|'.4]; .: value is not an object [.'|'])
-mixed-xor.values.json[12]: FAIL (.: not a bool [.'|'.4]; .: value is not an object [.'|'])
-mixed-xor.values.json[13]: FAIL (.: not a bool [.'|'.4]; .: tag prop <t> is missing [.'|'])
-mixed-xor.values.json[14]: FAIL (.: not a bool [.'|'.4]; .: tag <t> value not found [.'|'])
-mixed-xor.values.json[15]: FAIL (.: not a bool [.'|'.4]; .: tag prop <t> is missing [.'|'])
+mixed-xor.values.json[6]: FAIL (.: not one model match [.'^']; .: not a bool [.'^'.3]; .: unexpected $cs [.'^'.2]; .: value is not an object [.'$cs'.'|']; .: unexpected element [.'^'.1]; .: not an object [.'^'.1]; .: unexpected element [.'^'.0]; .: not an object [.'^'.0])
+mixed-xor.values.json[7]: FAIL (.: not one model match [.'^']; .: not a bool [.'^'.3]; .: unexpected $cs [.'^'.2]; .: value is not an object [.'$cs'.'|']; .: unexpected element [.'^'.1]; .: not an object [.'^'.1]; .: unexpected element [.'^'.0]; .: not an object [.'^'.0])
+mixed-xor.values.json[8]: FAIL (.: not one model match [.'^']; .: not a bool [.'^'.3]; .: unexpected $cs [.'^'.2]; .: value is not an object [.'$cs'.'|']; .: unexpected element [.'^'.1]; .: not an object [.'^'.1]; .: unexpected element [.'^'.0]; .: not an object [.'^'.0])
+mixed-xor.values.json[9]: FAIL (.: not one model match [.'^']; .: not a bool [.'^'.3]; .: unexpected $cs [.'^'.2]; .: value is not an object [.'$cs'.'|']; .: unexpected element [.'^'.1]; .: not an object [.'^'.1]; .: unexpected element [.'^'.0]; .: not an object [.'^'.0])
+mixed-xor.values.json[10]: FAIL (.: not one model match [.'^']; .: not a bool [.'^'.3]; .: unexpected $cs [.'^'.2]; .: value is not an object [.'$cs'.'|']; .: unexpected element [.'^'.1]; .: not an object [.'^'.1]; .: unexpected element [.'^'.0]; .: not an object [.'^'.0])
+mixed-xor.values.json[11]: FAIL (.: not one model match [.'^']; .: not a bool [.'^'.3]; .: unexpected $cs [.'^'.2]; .: value is not an object [.'$cs'.'|']; .: unexpected element [.'^'.1]; .: not an object [.'^'.1]; .: unexpected element [.'^'.0]; .: not an object [.'^'.0])
+mixed-xor.values.json[12]: FAIL (.: not one model match [.'^']; .: not a bool [.'^'.3]; .: unexpected $cs [.'^'.2]; .: value is not an object [.'$cs'.'|']; .: unexpected element [.'^'.1]; .: not an object [.'^'.1]; .: unexpected element [.'^'.0]; .: not an object [.'^'.0])
+mixed-xor.values.json[13]: FAIL (.: not one model match [.'^']; .: not a bool [.'^'.3]; .: unexpected $cs [.'^'.2]; .: tag prop <t> is missing [.'$cs'.'|']; .: unexpected element [.'^'.1]; .: bad property count [.'^'.1]; .: unexpected element [.'^'.0]; .: bad property count [.'^'.0])
+mixed-xor.values.json[14]: FAIL (.: not one model match [.'^']; .: not a bool [.'^'.3]; .: unexpected $cs [.'^'.2]; .: tag <t> value not found [.'$cs'.'|']; .: unexpected element [.'^'.1]; .t: unexpected value for mandatory prop <t> [.'^'.1]; .t: unexpected h [.'^'.1.t]; .: unexpected element [.'^'.0]; .t: unexpected value for mandatory prop <t> [.'^'.0]; .t: unexpected m [.'^'.0.t])
+mixed-xor.values.json[15]: FAIL (.: not one model match [.'^']; .: not a bool [.'^'.3]; .: unexpected $cs [.'^'.2]; .: tag prop <t> is missing [.'$cs'.'|']; .: unexpected element [.'^'.1]; .: bad property count [.'^'.1]; .: unexpected element [.'^'.0]; .: bad property count [.'^'.0])

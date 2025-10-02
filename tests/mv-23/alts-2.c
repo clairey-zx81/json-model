@@ -55,10 +55,10 @@ static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *re
         // handle other props
         // .'$a'.''
         // .'$a'.''.'|'.0
-        res = _jm_obj_0(pval, (path ? &lpath_0 : NULL), rep);
+        res = json_model_3(pval, (path ? &lpath_0 : NULL), rep);
         if (! res)
         {
-            if (rep) jm_report_add_entry(rep, "unexpected $a [.'$a'.''.'|'.0]", (path ? &lpath_0 : NULL));
+            if (rep) jm_report_add_entry(rep, "unexpected $r [.'$a'.''.'|'.0]", (path ? &lpath_0 : NULL));
         }
         if (! res)
         {
