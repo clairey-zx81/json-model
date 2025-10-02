@@ -262,6 +262,8 @@ generate a report about why a value failed. Default is just to say PASS or FAIL.
 
 =back
 
+Note that environment variable C<JMC_OPTS> is also processed for preliminary options.
+
 =head1 OPERATIONS
 
 This section describes the main operations implemented by the compiler:

@@ -260,6 +260,11 @@ def jmc_script():
 
     logging.basicConfig()
 
+    if "JMC_OPTS" in os.environ:
+        # FIXME spaces/quotes are not managed correctly
+        sys.argv = [ sys.argv[0] ] + os.environ["JMC_OPTS"].split(" ") + sys.argv[1:]
+        log.warning(f"inserting options from JMC_OPTS environment variable: {sys.argv}")
+
     ap = argparse.ArgumentParser(
         prog="jmc",
         description="""JSON Model is a compact and intuitive JSON syntax to describe JSON data

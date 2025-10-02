@@ -8,6 +8,8 @@
 - [x] perf: add jsb version to final summary
 - [x] command: add `--no-predef` option for testing
 - [x] command: remove inline-or option and implementation
+- [x] command: allow to pass options with environment variable `JMC_OPTS`
+- [ ] docker: environment control
 - [ ] command: `jmc -C -o foo.json` generates python instand of json
 - [ ] optim: improve xor-to-or with references
 - [ ] perf: experiment object matching with various mandatory/optional properties
@@ -49,7 +51,6 @@
 - [ ] frontends: reject json with duplicated props
 - [ ] c-backend: header file for generated code?
 - [ ] tests: perl _uninitialized value $tag_0 in hash element at `./mv-18/dis_01.pl:171._
-- [ ] command: allow to pass some options from environment variables?
 - [ ] command: allow to pass some options from rc file?
 
 ## Re Do
