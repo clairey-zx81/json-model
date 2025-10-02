@@ -2,6 +2,15 @@
 #
 # execute bench bite
 #
+# arguments:
+# - loop: number of performance loop
+# - prefix: for results
+# - task: cmp ou all = cmp + run
+# - target: implementation/phase to run (all, jmc, jmc-*, blaze)
+# - dirs: schema directories to process
+#
+# env:
+# - JMC_BENCH_DEBUG: enable debug (FIXME unused)
 
 export PATH=$PATH:.
 export TMPDIR=.
@@ -14,6 +23,7 @@ jsu_simpler="$jmc exec jsu-simpler"
 etime="/usr/bin/time -f %e"
 
 now=$(date +%Y%m%d%H%M%S.$$)
+debug=$JMC_BENCH_DEBUG
 
 function err()
 {
@@ -66,6 +76,7 @@ for dir ; do
     compile_csv="${prefix}_compile.csv"
     time="$etime -a -o $compile_csv"
 
+    # compiler options
     jmc_c_opt="--loose --no-reporting"
     jmc_x_opt=$jmc_c_opt
     if [ $name = "cspell" -o $name = "ui5-manifest" ] ; then

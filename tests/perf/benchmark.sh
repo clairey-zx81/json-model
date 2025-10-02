@@ -2,7 +2,7 @@
 #
 # run jmc benchmark
 #
-# usage: $0 --par 8 --comp 5 --loop 1000 --jmc latest --jsc latest
+# usage: $0 --par 8 --comp 5 --loop 1000 --jmc latest --jsc latest --env JMC_OPTS
 #
 
 # error handling
@@ -18,8 +18,8 @@ function err()
 script_dir=$(dirname $0)
 
 # defaults
-PARA=8 LOOP=1000 COMP=5 cap_py=
-export JMC=latest JSC=latest
+PARA=8 LOOP=1000 COMP=5 cap_py= debug=
+export JMC=latest JSC=latest JMC_ENV=$JMC_ENV
 
 # get options
 while [[ "$1" == -* ]] ; do
@@ -30,6 +30,7 @@ while [[ "$1" == -* ]] ; do
             echo "$0 [-h] [-v] [-p 8] [-c 5] [-l 1000] [--jmc=latest] [--jsc=latest] [--cap-py]"
             echo "Options and defaults:"
             echo " --help|-h: this help"
+            echo " --debug|-d: set debugging messages"
             echo " --version|-v: show jmc version"
             echo " --parallel|-p N: benchmark parallelism, eg half available cores ($PARA)"
             echo " --compile|-c C: number of compilation iterations for performance ($COMP)"
@@ -37,6 +38,7 @@ while [[ "$1" == -* ]] ; do
             echo " --jmc=TAG: docker tag for JSON Model Compiler docker image ($JMC)"
             echo " --jsc=TAG: docker tag for JSON Schema CLI (Blaze) docker image ($JSC)"
             echo " --cap-py: reduce loop iterations for python"
+            echo " --env|-e VARS: environment variables to export to jmc docker"
             exit 0
             ;;
         -v|--version)
@@ -54,7 +56,10 @@ while [[ "$1" == -* ]] ; do
         --jmc=*) JMC=${opt#*=} ;;
         --jsc) JSC=$1 ; shift ;;
         --jsc=*) JSC=${opt#*=} ;;
+        --env=*) JMC_ENV=${opt#*=} ;;
+        -e|--env) JMC_ENV=$1 ; shift ;;
         --cap-py) cap_py=1 ;;
+        -d|--debug) debug=1 ;;
         --) break ;;
         *) err 1 "unexpected option: $opt" ;;
     esac
@@ -67,7 +72,7 @@ done
 [ $LOOP -ge 0 ] || err 1 "unexpected loop value, must be >= 0: $LOOP"
 [ $COMP -ge 1 ] || err 1 "unexpected comp value, must be >= 1: $COMP"
 
-echo "# $$ benchmarking parallel=$PARA loop=$LOOP comp=$COMP jmc=$JMC jsc=$JSC"
+echo "# $$ benchmarking parallel=$PARA loop=$LOOP comp=$COMP jmc=$JMC jsc=$JSC env=$JMC_ENV"
 
 #
 # PARA RUNS
@@ -132,6 +137,7 @@ echo "# misc setup"
 # NOTE check that jmc CLASSPATH is consistent
 mkdir tmp || err 4 "mkdir tmp failed"
 
+export JMC_BENCH_DEBUG=$debug
 export PATH=$script_dir:$PATH
 
 # check for scripts
@@ -209,12 +215,14 @@ cpu_count=$(lscpu --extended=CPU | sed 1d | wc -l)
 #
 {
   echo "# JSON Model Compiler Benchmark Run"
+
   echo "## Summary"
   echo "- now: $(date)"
   echo "- host: $(hostname)"
   echo "- model: $cpu_model"
   echo "- cores: $cpu_count"
   echo "- duration: $SECONDS"
+
   echo "## Benchmark Parameters"
   echo "- para: $PARA"
   echo "- comp: $COMP"
@@ -222,12 +230,22 @@ cpu_count=$(lscpu --extended=CPU | sed 1d | wc -l)
   echo "- jmc: $JMC"
   echo "- jsc: $JSC"
   echo "- cap_py: $cap_py"
+  echo "- debug: $debug"
+
+  echo "## Environment"
+  echo "- JMC_ENV: $JMC_ENV"
+  for var in $JMC_ENV ; do
+    echo "  - $var: ${!var}"
+  done
+
   echo "## Versions"
   echo "- jmc: $(jmc --version)"
   echo "- js-cli: $(js-cli --version)"
   echo "- jsb: $(GIT_DIR=./jsb/.git git rev-parse --short=8 HEAD)"
+
   echo "## Statistics"
   echo "- jsb uniq tests: $(cat jsb/schemas/*/instances.jsonl | sort -u | wc -l)"
+
   # TODO markdown
   sqlite3 -box perf.db < $script_dir/show.sql
 } > benchmark.output
