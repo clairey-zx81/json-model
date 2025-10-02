@@ -5,6 +5,7 @@
 - [x] models: write model for json IR
 - [x] static: fix value path in some object variants
 - [x] static: add a max threshold/ratio for may property unrolling
+- [x] perf: add jsb version to final summary
 - [ ] perf: experiment object matching with various mandatory/optional properties
 - [ ] static: close may/must? merge with open?
 - [ ] optim: and to merge optimization for open object models

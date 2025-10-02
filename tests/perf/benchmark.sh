@@ -225,6 +225,7 @@ cpu_count=$(lscpu --extended=CPU | sed 1d | wc -l)
   echo "## Versions"
   echo "- jmc: $(jmc --version)"
   echo "- js-cli: $(js-cli --version)"
+  echo "- jsb: $(GIT_DIR=./jsb/.git git rev-parse --short=8 HEAD)"
   echo "## Statistics"
   echo "- jsb uniq tests: $(cat jsb/schemas/*/instances.jsonl | sort -u | wc -l)"
   # TODO markdown
