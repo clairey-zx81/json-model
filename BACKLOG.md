@@ -6,6 +6,7 @@
 - [x] static: fix value path in some object variants
 - [x] static: add a max threshold/ratio for may property unrolling
 - [x] perf: add jsb version to final summary
+- [ ] command: `jmc -C -o foo.json` generates python instand of json
 - [ ] perf: experiment object matching with various mandatory/optional properties
 - [ ] static: close may/must? merge with open?
 - [ ] optim: and to merge optimization for open object models
@@ -15,7 +16,6 @@
 - [ ] tests: add generated ir model check
 - [ ] tests: drop language outputs for IR only?!
 - [ ] tests: check generated IR with IR model
-- [ ] command: `jmc -C -o foo.json` generates python instand of json
 - [ ] optim: improve xor-to-or with references
 - [ ] command: remove inline-or option and implementation
 - [ ] backend: refactor ir optimizations
