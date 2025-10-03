@@ -9,8 +9,8 @@
 - [x] command: add `--no-predef` option for testing
 - [x] command: remove inline-or option and implementation
 - [x] command: allow to pass options with environment variable `JMC_OPTS`
-- [ ] docker: environment control
-- [ ] command: `jmc -C -o foo.json` generates python instand of json
+- [x] docker: environment control
+- [ ] command: `jmc -C -o foo.json` generates python instead of json
 - [ ] optim: improve xor-to-or with references
 - [ ] perf: experiment object matching with various mandatory/optional properties
 - [ ] static: close may/must? merge with open?

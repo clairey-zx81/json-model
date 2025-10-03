@@ -504,6 +504,9 @@ def jmc_script():
         elif args.output.endswith(".ir.json"):
             args.format = args.format or "json"
             args.op = args.op or "C"
+        elif args.output.endswith(".json"):
+            args.format = args.format or "json"
+            args.op = args.op or "U"
 
     args.entry = args.entry or "check_model"
 
