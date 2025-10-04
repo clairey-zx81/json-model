@@ -85,8 +85,8 @@ UPDATE ResultRate
 CREATE TABLE CumulatedPerf AS
   SELECT name, tool,
     SUM(runavg) AS run,
-    ROUND(AVG(runstd/runavg), 3) AS spread,
-    ROUND(AVG(empty), 3) AS empty,
+    AVG(runstd/runavg) AS spread,
+    AVG(empty) AS empty,
     COUNT(*) AS nb
   FROM Run
   GROUP BY 1, 2
@@ -197,7 +197,7 @@ CREATE TABLE ShowCases AS WITH
       name,
       COUNT(*) AS nb,
       MIN(vsize) AS minb,
-      ROUND(AVG(vsize), 1) AS avgb,
+      FORMAT('%.0f', AVG(vsize)) AS avgb,
       MAX(vsize) AS maxb
     FROM CaseValues
     GROUP BY 1
@@ -207,7 +207,9 @@ CREATE TABLE ShowCases AS WITH
   ),
   CaseStats AS (
     SELECT
-      name, ssize AS schema, msize AS model
+      name,
+      ssize AS schema,
+      msize AS model
     FROM Cases
     UNION
     SELECT NULL, ROUND(AVG(ssize), 1), ROUND(AVG(msize), 1)
@@ -227,13 +229,13 @@ CREATE TABLE ShowPerfPerCase AS
     name,
     cases AS "cases",
     ROUND(best, 1) AS "best µs",
-    ROUND(blaze, 2) AS blaze,
-    ROUND(c, 2) AS c,
-    ROUND(js, 2) AS js,
-    ROUND(jv1, 2) AS jv1,
-    ROUND(jv2, 2) AS jv2,
-    ROUND(jv3, 2) AS jv3,
-    ROUND(py, 2) AS py
+    FORMAT('%.02f', blaze) AS blaze,
+    FORMAT('%.02f', c) AS c,
+    FORMAT('%.02f', js) AS js,
+    FORMAT('%.02f', jv1) AS jv1,
+    FORMAT('%.02f', jv2) AS jv2,
+    FORMAT('%.02f', jv3) AS jv3,
+    FORMAT('%.02f', py) AS py
   FROM RelativeComparison
   ORDER BY 1 ASC;
 
@@ -263,35 +265,35 @@ CREATE TABLE ShowPerfSummary AS
   UNION
   SELECT
     3, 'max',
-    ROUND(MAX(blaze), 2),
-    ROUND(MAX(c), 2),
-    ROUND(MAX(js), 2),
-    ROUND(MAX(jv1), 2),
-    ROUND(MAX(jv2), 2),
-    ROUND(MAX(jv3), 2),
-    ROUND(MAX(py), 2)
+    FORMAT('%.02f', MAX(blaze)),
+    FORMAT('%.02f', MAX(c)),
+    FORMAT('%.02f', MAX(js)),
+    FORMAT('%.02f', MAX(jv1)),
+    FORMAT('%.02f', MAX(jv2)),
+    FORMAT('%.02f', MAX(jv3)),
+    FORMAT('%.02f', MAX(py))
   FROM RelativeComparison
   UNION
   SELECT
     4, 'gav',
-    ROUND(EXP(AVG(LN(blaze))), 2),
-    ROUND(EXP(AVG(LN(c))), 2),
-    ROUND(EXP(AVG(LN(js))), 2),
-    ROUND(EXP(AVG(LN(jv1))), 2),
-    ROUND(EXP(AVG(LN(jv2))), 2),
-    ROUND(EXP(AVG(LN(jv3))), 2),
-    ROUND(EXP(AVG(LN(py))), 2)
+    FORMAT('%.02f', EXP(AVG(LN(blaze)))),
+    FORMAT('%.02f', EXP(AVG(LN(c)))),
+    FORMAT('%.02f', EXP(AVG(LN(js)))),
+    FORMAT('%.02f', EXP(AVG(LN(jv1)))),
+    FORMAT('%.02f', EXP(AVG(LN(jv2)))),
+    FORMAT('%.02f', EXP(AVG(LN(jv3)))),
+    FORMAT('%.02f', EXP(AVG(LN(py))))
   FROM RelativeComparison
   UNION
   SELECT
     5, 'min',
-    ROUND(MIN(blaze), 2),
-    ROUND(MIN(c), 2),
-    ROUND(MIN(js), 2),
-    ROUND(MIN(jv1), 2),
-    ROUND(MIN(jv2), 2),
-    ROUND(MIN(jv3), 2),
-    ROUND(MIN(py), 2)
+    FORMAT('%.02f', MIN(blaze)),
+    FORMAT('%.02f', MIN(c)),
+    FORMAT('%.02f', MIN(js)),
+    FORMAT('%.02f', MIN(jv1)),
+    FORMAT('%.02f', MIN(jv2)),
+    FORMAT('%.02f', MIN(jv3)),
+    FORMAT('%.02f', MIN(py))
   FROM RelativeComparison
   ORDER BY 1;
 

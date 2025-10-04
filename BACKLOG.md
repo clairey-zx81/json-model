@@ -2,6 +2,7 @@
 
 ## Current Tasks
 
+- [x] perf: ensure properly aligned data in box report
 - [ ] optim: improve xor-to-or with references
 - [ ] perf: compute performance overhead globally instead of per run
 - [ ] perf: experiment object matching with various mandatory/optional properties
