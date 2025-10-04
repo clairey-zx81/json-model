@@ -2,6 +2,7 @@
   "#": "JSON Model Compiler Intermediate Representation",
   "~": "https://json-model.org/models/json-model",
   "$": {
+    "": "https://json-model.org/models/jmc-ir",
     "Type": {"|": [null, "null", "bool", "int", "float", "Number", "str", "list", "dict", "Path", "Report"]},
     "Op": {"|": ["_=", "_<", "_>", "_<=", "_!=", "_>="]},
     "SIFCst": {"|": ["", -1, -1.0]},
