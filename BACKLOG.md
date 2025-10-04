@@ -2,15 +2,6 @@
 
 ## Current Tasks
 
-- [x] models: write model for json IR
-- [x] static: fix value path in some object variants
-- [x] static: add a max threshold/ratio for may property unrolling
-- [x] perf: add jsb version to final summary
-- [x] command: add `--no-predef` option for testing
-- [x] command: remove inline-or option and implementation
-- [x] command: allow to pass options with environment variable `JMC_OPTS`
-- [x] docker: environment control for perf tests
-- [x] command: `jmc -C -o foo.json` generates python instead of json
 - [ ] optim: improve xor-to-or with references
 - [ ] perf: compute performance overhead globally instead of per run
 - [ ] perf: experiment object matching with various mandatory/optional properties
@@ -26,7 +17,7 @@
 - [ ] command: add direct ir to lang conversion
 - [ ] backend: improve and extend IR optimizations?
 - [ ] artifact: make work with dind
-- [ ] static: recognize already compile objects and reuse function esp under no no-reporting?
+- [ ] static: recognize already compile objects and reuse function esp under no-reporting?
 - [ ] tests: check how clang compares to gcc
 - [ ] tests: add non regression tests to docker build
 - [ ] tests: fix sql test errors from `Makefile`
@@ -633,3 +624,12 @@
 - [x] static: skip model function to call obj function directly on references
 - [x] backend: apply skip functions also for all pmap/cmap/cc through IR
 - [x] optim: direct mandatory-only attributes objects with expected count checked ahead
+- [x] models: write model for json IR
+- [x] static: fix value path in some object variants
+- [x] static: add a max threshold/ratio for may property unrolling
+- [x] perf: add jsb version to final summary
+- [x] command: add `--no-predef` option for testing
+- [x] command: remove inline-or option and implementation
+- [x] command: allow to pass options with environment variable `JMC_OPTS`
+- [x] docker: environment control for perf tests
+- [x] command: `jmc -C -o foo.json` generates python instead of json
