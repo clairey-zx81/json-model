@@ -2,6 +2,7 @@ SHELL   = /bin/bash
 .ONESHELL:
 
 BRANCH  = $(shell git branch --show-current)
+VERSION = $(shell grep '^version' ../../pyproject.toml | tr -cd '[0-9.ab]')
 
 ifeq ($(BRANCH), main)
 TAG = latest
@@ -23,7 +24,7 @@ docker.push: docker.tag
 .PHONY: docker.tag
 docker.tag: .docker-build.$(BRANCH)
 	docker tag jmc-bench zx80/jmc-bench:$(TAG)
-	docker tag jmc-bench zx80/jmc-bench:$$(JMC=$(TAG) ./jmc --version)
+	docker tag jmc-bench zx80/jmc-bench:$(VERSION)
 	docker tag jmc-bench zx80/jmc-bench:$$(git rev-parse --short HEAD)
 
 .PHONY: docker.build
