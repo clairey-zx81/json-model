@@ -3,6 +3,7 @@
 ## Current Tasks
 
 - [x] perf: ensure properly aligned data in box report
+- [x] perf: allow to collect data over several runs
 - [ ] optim: improve xor-to-or with references
 - [ ] perf: compute performance overhead globally instead of per run
 - [ ] perf: experiment object matching with various mandatory/optional properties
@@ -15,7 +16,6 @@
 - [ ] tests: drop language outputs for IR only?!
 - [ ] tests: check generated IR with IR model
 - [ ] backend: refactor ir optimizations
-- [ ] perf: allow to collect data over several runs
 - [ ] command: add direct ir to lang conversion
 - [ ] backend: improve and extend IR optimizations?
 - [ ] artifact: make work with dind (docker compose?)

@@ -2,17 +2,18 @@
 -- Performance summary queries
 --
 
-CREATE TABLE Run(
+CREATE TABLE RawRun(
   name TEXT NOT NULL,            -- test name
   tool TEXT NOT NULL,            -- tool name
-  line INTEGER NOT NULL,         -- test value line
+  iter INT NOT NULL,             -- iteration
+  line INT NOT NULL,             -- test value line
   runavg DOUBLE NOT NULL,        -- average run time
   runstd DOUBLE NOT NULL,        -- standard deviation time
   empty DOUBLE NOT NULL,         -- estimated measure overhead
-  PRIMARY KEY(name, tool, line)
+  PRIMARY KEY(name, tool, iter, line)
 );
 
-CREATE TABLE Compile(
+CREATE TABLE RawCompile(
   name TEXT NOT NULL,            -- test name
   tool TEXT NOT NULL,            -- tool name
   ran TIMESTAMP NOT NULL,        -- compilation timestamp
@@ -20,12 +21,13 @@ CREATE TABLE Compile(
   PRIMARY KEY(name, tool, ran)
 );
 
-CREATE TABLE Result(
+CREATE TABLE RawResult(
   name TEXT NOT NULL,            -- test name
   tool TEXT NOT NULL,            -- tool name
+  iter INT NOT NULL,             -- iteration
   pass INT NOT NULL,             -- number of passes
   fail INT NOT NULL,             -- number of fails
-  PRIMARY KEY(name, tool)
+  PRIMARY KEY(name, tool, iter)
 );
 
 CREATE TABLE Cases(
@@ -44,26 +46,52 @@ CREATE TABLE CaseValues(
 
 -- load raw data
 .mode csv
-.import perf.csv Run
-.import compile.csv Compile
-.import result.csv Result
+.import perf.csv RawRun
+.import compile.csv RawCompile
+.import result.csv RawResult
 .import cases.csv Cases
 .import casevalues.csv CaseValues
 
 -- shorten some names
-UPDATE Run SET name = 'gitpod' WHERE name = 'gitpod-configuration';
-UPDATE Compile SET name = 'gitpod' WHERE name = 'gitpod-configuration';
-UPDATE Result SET name = 'gitpod' WHERE name = 'gitpod-configuration';
+UPDATE RawRun SET name = 'gitpod' WHERE name = 'gitpod-configuration';
+UPDATE RawRun SET name = 'unreal-engine' WHERE name = 'unreal-engine-uproject';
+UPDATE RawCompile SET name = 'gitpod' WHERE name = 'gitpod-configuration';
+UPDATE RawCompile SET name = 'unreal-engine' WHERE name = 'unreal-engine-uproject';
+UPDATE RawResult SET name = 'gitpod' WHERE name = 'gitpod-configuration';
+UPDATE RawResult SET name = 'unreal-engine' WHERE name = 'unreal-engine-uproject';
 UPDATE Cases SET name = 'gitpod' WHERE name = 'gitpod-configuration';
-UPDATE Run SET name = 'unreal-engine' WHERE name = 'unreal-engine-uproject';
-UPDATE Compile SET name = 'unreal-engine' WHERE name = 'unreal-engine-uproject';
-UPDATE Result SET name = 'unreal-engine' WHERE name = 'unreal-engine-uproject';
 UPDATE Cases SET name = 'unreal-engine' WHERE name = 'unreal-engine-uproject';
+
+-- keep median values
+CREATE TABLE Run AS
+  WITH OrderedRawRun AS (
+    SELECT
+      percent_rank() OVER (PARTITION BY name, tool, line ORDER BY runavg) AS ordering,
+      name, tool, line, runavg, runstd, empty
+    FROM RawRun
+  )
+  SELECT name, tool, line, runavg, runstd, empty
+  FROM OrderedRawRun
+  WHERE ordering = 0.5
+;
 
 -- tools
 CREATE TABLE Tools(tool TEXT PRIMARY KEY);
+
 INSERT INTO Tools(tool)
   SELECT DISTINCT tool FROM Run ORDER BY 1;
+
+-- results selection
+CREATE TABLE Result AS
+  WITH OrderedRawResult AS (
+    SELECT
+      RANK() OVER (PARTITION BY name, tool ORDER BY pass) AS ordering,
+      name, tool, pass, fail
+    FROM RawResult
+  )
+  SELECT name, tool, pass, fail
+  FROM OrderedRawResult
+  WHERE ordering = 1;
 
 -- all results
 CREATE TABLE ResultRate AS
@@ -113,11 +141,11 @@ CREATE TABLE Comparison AS
     (SELECT cp.run FROM CumulatedPerf AS cp WHERE cp.tool = 'jmc-java-jackson' and cp.name = c.name) AS jv2,
     (SELECT cp.run FROM CumulatedPerf AS cp WHERE cp.tool = 'jmc-java-jsonp' and cp.name = c.name) AS jv3,
     (SELECT cp.run FROM CumulatedPerf AS cp WHERE cp.tool = 'jmc-py' and cp.name = c.name) AS py,
-    -- (SELECT cp.run FROM CumulatedPerf AS cp WHERE cp.tool = 'jmc-pl' and cp.name = c.name) AS pl,
     NULL AS best
   FROM Cases AS c
   ORDER BY 1;
 
+-- set best execution time reference, 1E999 is Infinity
 UPDATE Comparison
   SET best = MIN(COALESCE(blaze, 1e999),
        	         COALESCE(c, 1e999),
@@ -125,7 +153,6 @@ UPDATE Comparison
        	         COALESCE(jv1, 1e999),
        	         COALESCE(jv2, 1e999),
        	         COALESCE(jv3, 1e999),
-       	         -- COALESCE(pl, 1e999),
        	         COALESCE(py, 1e999));
 
 -- execution time relative to the fastest, the lower the better
@@ -143,10 +170,10 @@ CREATE TABLE RelativeComparison AS
     py / best AS py
   FROM Comparison;
 
--- compilation aggregation
+-- compilation min aggregation
 CREATE TABLE CompilePerf AS
-  SELECT name, tool, AVG(run) AS run, COUNT(*) AS nb
-  FROM Compile
+  SELECT name, tool, MIN(run) AS run, COUNT(*) AS nb
+  FROM RawCompile
   GROUP BY 1, 2;
 
 -- compilation time per cases
@@ -202,7 +229,7 @@ CREATE TABLE ShowCases AS WITH
     FROM CaseValues
     GROUP BY 1
     UNION
-    SELECT NULL, COUNT(*), MIN(vsize), ROUND(AVG(vsize), 1), MAX(vsize)
+    SELECT NULL, COUNT(*), MIN(vsize), FORMAT('%.0f', AVG(vsize)), MAX(vsize)
     FROM CaseValues
   ),
   CaseStats AS (
@@ -212,7 +239,7 @@ CREATE TABLE ShowCases AS WITH
       msize AS model
     FROM Cases
     UNION
-    SELECT NULL, ROUND(AVG(ssize), 1), ROUND(AVG(msize), 1)
+    SELECT NULL, FORMAT('%.0f', AVG(ssize)), FORMAT('%.0f', AVG(msize))
     FROM Cases
   )
   SELECT
