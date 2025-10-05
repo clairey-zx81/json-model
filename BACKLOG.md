@@ -15,9 +15,10 @@
 - [ ] tests: drop language outputs for IR only?!
 - [ ] tests: check generated IR with IR model
 - [ ] backend: refactor ir optimizations
+- [ ] perf: allow to collect data over several runs
 - [ ] command: add direct ir to lang conversion
 - [ ] backend: improve and extend IR optimizations?
-- [ ] artifact: make work with dind
+- [ ] artifact: make work with dind (docker compose?)
 - [ ] static: recognize already compile objects and reuse function esp under no-reporting?
 - [ ] tests: check how clang compares to gcc
 - [ ] tests: add non regression tests to docker build
