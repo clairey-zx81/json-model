@@ -125,7 +125,7 @@ class Perl(Language):
     def file_header(self, exe: bool = True) -> Block:
         code: Block = self.file_load("perl_exe.pl") if exe else []
         code += super().file_header(exe)
-        code += [ "use strict;", "use warnings;" ]
+        code += [ "use strict;", "use warnings;", 'no warnings "uninitialized";' ]
         if self._relib == "re2":
             code.append("use re::engine::RE2;")
         if not exe:

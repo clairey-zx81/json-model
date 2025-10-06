@@ -5,6 +5,7 @@
 #
 use strict;
 use warnings;
+no warnings "uninitialized";
 use re::engine::RE2;
 use JSON::JsonModel;
 use constant JMC_VERSION => '2';
