@@ -8,7 +8,7 @@
 - [x] perf: allow to collect user time instead of elapsed time
 - [x] backend: improve and extend IR optimizations (wip)
 - [x] tests: perl _uninitialized value $tag_0 in hash element at `./mv-18/dis_01.pl:171._
-- [ ] tests: fix sql test errors from `Makefile`
+- [x] ~tests: fix sql test errors from `Makefile`~
 - [ ] optim: improve xor-to-or with references
 - [ ] perf: compute performance overhead globally instead of per run
 - [ ] tests: add ir optimized output (too large?)
