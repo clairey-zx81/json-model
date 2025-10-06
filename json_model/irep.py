@@ -134,6 +134,16 @@ def _noOps(seq: list[Jsonable]) -> bool:
     """Sequence without effect, only comments or nopes."""
     return all(map(lambda s: isinstance(s, dict) and "o" in s and s["o"] in ("co", "no"), seq))
 
+# comparison inversion
+CMP_INV = {
+    "=": "!=",
+    "!=": "=",
+    ">": "<=",
+    ">=": "<",
+    "<": ">=",
+    "<=": ">",
+}
+
 def _optimSeq(seq: Sequence, bool_vars: set[str]) -> Effect:
     """Optimize instruction sequence if/then patterns on boolean variables in place."""
 
@@ -224,9 +234,16 @@ def _optimSeq(seq: Sequence, bool_vars: set[str]) -> Effect:
 
     # remove "not" when "false" branch is not empty by exchanging true/false
     for op in seq:
-        if _isOp(op, "if") and _isOp(op["cond"], "not") and not _noOps(op["false"]):
-            op["cond"], op["true"], op["false"] = op["cond"]["e"], op["false"], op["true"]
-            op["#"] = "IRO inverted not"
+        if _isOp(op, "if"):
+            if _isOp(op["cond"], "not") and not _noOps(op["false"]):
+                op["cond"], op["true"], op["false"] = op["cond"]["e"], op["false"], op["true"]
+                op["#"] = "IRO inverted not"
+            elif (_isOp(op["cond"], "nc") or _isOp(op["cond"], "sc")) and \
+                    _noOps(op["true"]) and not _noOps(op["false"]):
+                assert "op" in op["cond"]
+                op["#"] = "IRO inverted cmp"
+                op["true"], op["false"] = op["false"], op["true"]
+                op["cond"]["op"] = CMP_INV[op["cond"]["op"]]
 
     # if X: <empty>
     for op in seq:

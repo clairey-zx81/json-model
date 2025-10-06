@@ -6,19 +6,19 @@
 - [x] perf: allow to collect data over several runs
 - [x] optim: and-to-merge optimization for open object models
 - [x] perf: allow to collect user time instead of elapsed time
-- [ ] optim: improve xor-to-or with references
-- [ ] perf: compute performance overhead globally instead of per run
-- [ ] perf: experiment object matching with various mandatory/optional properties
-- [ ] static: close may/must? merge with open?
-- [ ] static: add a dynamic test for different strategies in object checking
+- [x] backend: improve and extend IR optimizations (wip)
 - [ ] tests: add ir optimized output
 - [ ] tests: add pytest ir tests
 - [ ] tests: add generated ir model check
 - [ ] tests: drop language outputs for IR only?!
 - [ ] tests: check generated IR with IR model
+- [ ] optim: improve xor-to-or with references
+- [ ] perf: compute performance overhead globally instead of per run
+- [ ] perf: experiment object matching with various mandatory/optional properties
+- [ ] static: close may/must? merge with open?
+- [ ] static: add a dynamic test for different strategies in object checking
 - [ ] backend: refactor ir optimizations
 - [ ] command: add direct ir to lang conversion
-- [ ] backend: improve and extend IR optimizations?
 - [ ] artifact: make work with dind (docker compose?)
 - [ ] static: recognize already compile objects and reuse function esp under no-reporting?
 - [ ] tests: check how clang compares to gcc
