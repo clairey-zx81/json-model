@@ -1,0 +1,7 @@
+{
+  "#": "and to merge optimization",
+  "&": [
+    {"a": 0, "": "$ANY"},
+    {"b": 0, "": "$ANY"}
+  ]
+}

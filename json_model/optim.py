@@ -53,7 +53,67 @@ def normalizeModels(models: list[ModelType]) -> int:
 
     return changes
 
-def xor_to_or(jm: JsonModel):
+def _simple_open_object(model: ModelType, jm: JsonModel, path: ModelPath) -> list[str]|None:
+    """Detect simple may/must open objects, return property names."""
+    if jm._isRef(model):
+        model = jm.resolveRef(model, path)._model
+    if isinstance(model, dict):
+        props, is_open = [], False
+        for prop in model.keys():
+            assert isinstance(prop, str)
+            if prop == "":
+                is_open = model[""] == "$ANY"
+                if not is_open:
+                    return None
+            elif prop in ("$", "%", "~") or prop[0] == "#":
+                pass
+            elif prop[0] in ("$", "/"):
+                return None
+            elif prop[0] in ("?", "_", "!"):
+                name = prop[1:]
+                if name in props:  # not safe?
+                    return None
+                props.append(name)
+            else:
+                if prop in props:  # not safe?
+                    return None
+                props.append(prop)
+        return props if is_open else None
+    else:
+        return None
+
+def and_to_merge(jm: JsonModel) -> bool:
+    """Change and to less costly merge if possible."""
+
+    changes = 0
+
+    def a2mRwt(model: ModelType, path: ModelPath) -> ModelType:
+        nonlocal changes
+        if isinstance(model, dict) and "&" in model:
+            land = model["&"]
+            assert isinstance(land, list)
+            lobj: list[list[str]|None] = list(map(lambda i: _simple_open_object(i, jm, path), land))
+            if all(map(lambda i: i is not None, lobj)):
+                # property intersection
+                sprops, nprops = set(), 0
+                for lp in lobj:
+                    nprops += len(lp)
+                    sprops.update(lp)
+                if nprops == len(sprops):
+                    # no property intersection, change is safe
+                    # TODO it is also ok if values are compatible
+                    changes += 1
+                    model["+"] = land
+                    del model["&"]
+                # else property collision, probably not safe
+        return model
+
+    jm._model = recModel(jm._model, builtFlt, a2mRwt)
+
+    log.debug(f"{jm._id}: a2m {changes}")
+    return changes > 0
+
+def xor_to_or(jm: JsonModel) -> bool:
     """Change xor to less coslty or if possible."""
 
     changes = 0
@@ -551,6 +611,7 @@ def simplify(jm: JsonModel):
     return changes > 0
 
 def optimize(jm: JsonModel, *, debug: bool = False):
+    """Optimize model, probably not very efficient."""
     changed = True
     while changed:
         changed = False
@@ -558,4 +619,5 @@ def optimize(jm: JsonModel, *, debug: bool = False):
         changed |= simplify(jm)
         changed |= partial_eval(jm)
         changed |= flatten(jm)
+        changed |= and_to_merge(jm)
         changed |= xor_to_or(jm)

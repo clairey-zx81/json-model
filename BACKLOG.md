@@ -4,11 +4,11 @@
 
 - [x] perf: ensure properly aligned data in box report
 - [x] perf: allow to collect data over several runs
+- [x] optim: and-to-merge optimization for open object models
 - [ ] optim: improve xor-to-or with references
 - [ ] perf: compute performance overhead globally instead of per run
 - [ ] perf: experiment object matching with various mandatory/optional properties
 - [ ] static: close may/must? merge with open?
-- [ ] optim: and to merge optimization for open object models
 - [ ] static: add a dynamic test for different strategies in object checking
 - [ ] tests: add ir optimized output
 - [ ] tests: add pytest ir tests

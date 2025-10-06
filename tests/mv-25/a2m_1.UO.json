@@ -1,0 +1,63 @@
+[
+  {
+    "|": [
+      "$merge",
+      "$nomerge"
+    ],
+    "#": "JsonModel 1",
+    "$": {
+      "Oa": {
+        "?a": 0,
+        "": "$ANY",
+        "#": "JsonModel 2"
+      },
+      "Ob": {
+        "?b": 0,
+        "": "$ANY",
+        "#": "JsonModel 3"
+      },
+      "merge": {
+        "?a": 0,
+        "?b": 0,
+        "": "$ANY",
+        "#": "JsonModel 4"
+      },
+      "nomerge": {
+        "&": [
+          "$Oa",
+          {
+            "c": 1
+          }
+        ],
+        "#": "JsonModel 5"
+      },
+      "#": "Symbol 1",
+      "": "./a2m_1.model.json"
+    }
+  },
+  {
+    "?a": 0,
+    "": "$ANY",
+    "#": "JsonModel 2"
+  },
+  {
+    "?b": 0,
+    "": "$ANY",
+    "#": "JsonModel 3"
+  },
+  {
+    "?a": 0,
+    "?b": 0,
+    "": "$ANY",
+    "#": "JsonModel 4"
+  },
+  {
+    "&": [
+      "$Oa",
+      {
+        "c": 1
+      }
+    ],
+    "#": "JsonModel 5"
+  }
+]
