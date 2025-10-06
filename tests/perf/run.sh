@@ -11,6 +11,7 @@
 #
 # env:
 # - JMC_BENCH_DEBUG: enable debug (FIXME unused)
+# - JMC_BENCH_TIME_FMT: time format performance to report (default e)
 
 export PATH=$PATH:.
 export TMPDIR=.
@@ -20,7 +21,7 @@ jmc=jmc
 js_cli=js-cli
 jsu_model="$jmc exec jsu-model"
 jsu_simpler="$jmc exec jsu-simpler"
-etime="/usr/bin/time -f %e"
+time_fmt=${JMC_BENCH_TIME_FMT:-%e}
 
 now=$(date +%Y%m%d%H%M%S.$$)
 debug=$JMC_BENCH_DEBUG
@@ -64,13 +65,14 @@ echo "# $0[$$]: cmp=$do_cmp run=$do_run targets=$targets dirs=$@"
 # proceed
 #
 
+# cputime
 function ctime()
 {
   local case=$1 prefix=$2 tool=$3
   shift 3
   local compile_csv="${prefix}_${tool}_compile.csv"
   echo -n "$case" >> "$compile_csv"
-  $etime -a -o "$compile_csv" "$@"
+  /usr/bin/time -f "$time_fmt" -a -o "$compile_csv" "$@"
 }
 
 for dir ; do

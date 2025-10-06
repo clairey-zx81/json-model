@@ -10,7 +10,7 @@ docker push zx80/jmc-bench
 # in an empty directory
 # possibly -e JMC_OPTS=$JMC_OPTS ## --env=JMC_OPTS
 docker run --rm --name imperial_jmcbench -v /var/run/docker.sock:/var/run/docker.sock \
-    -e WORKDIR=$PWD -v .:/workspace zx80/jmc-bench:latest -p 12 -l 10000 --cap-py
+    -e WORKDIR=$PWD -v .:/workspace zx80/jmc-bench:latest -p 20 -l 10000 -r 5 -t '%U' --cap-py
 ```
 
 ## DinD

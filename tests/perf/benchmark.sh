@@ -19,7 +19,7 @@ script_dir=$(dirname $0)
 
 # defaults
 PARA=8 LOOP=1000 RUNS=3 cap_py= debug=
-export JMC=latest JSC=latest JMC_ENV=$JMC_ENV
+export JMC=latest JSC=latest JMC_ENV=$JMC_ENV JMC_BENCH_TIME_FMT='%e'
 
 # get options
 while [[ "$1" == -* ]] ; do
@@ -39,6 +39,8 @@ while [[ "$1" == -* ]] ; do
       echo " --jsc=TAG: docker tag for JSON Schema CLI (Blaze) docker image ($JSC)"
       echo " --cap-py: reduce loop iterations for python"
       echo " --env|-e VARS: environment variables to export to jmc docker"
+      # NOTE setting %U does not work through docker and with subprocesses
+      echo " --time|-t FMT: time format for performance collection, default is '%e'"
       exit 0
       ;;
     -v|--version)
@@ -58,6 +60,8 @@ while [[ "$1" == -* ]] ; do
     --jsc=*) JSC=${opt#*=} ;;
     --env=*) JMC_ENV=${opt#*=} ;;
     -e|--env) JMC_ENV=$1 ; shift ;;
+    --time=*) JMC_BENCH_TIME_FMT=${opt#*=} ;;
+    --time|-t) JMC_BENCH_TIME_FMT=$1 ; shift ;;
     --cap-py) cap_py=1 ;;
     -d|--debug) debug=1 ;;
     --) break ;;
@@ -235,6 +239,7 @@ cpu_count=$(lscpu --extended=CPU | sed 1d | wc -l)
   echo "- jsc: $JSC"
   echo "- cap_py: $cap_py"
   echo "- debug: $debug"
+  echo "- format: $JMC_BENCH_TIME_FMT"
 
   echo "## Environment"
   echo "- JMC_ENV: $JMC_ENV"

@@ -5,6 +5,7 @@
 - [x] perf: ensure properly aligned data in box report
 - [x] perf: allow to collect data over several runs
 - [x] optim: and-to-merge optimization for open object models
+- [x] perf: allow to collect user time instead of elapsed time
 - [ ] optim: improve xor-to-or with references
 - [ ] perf: compute performance overhead globally instead of per run
 - [ ] perf: experiment object matching with various mandatory/optional properties
