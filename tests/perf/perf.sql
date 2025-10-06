@@ -52,7 +52,7 @@ CREATE TABLE CaseValues(
 .import cases.csv Cases
 .import casevalues.csv CaseValues
 
--- shorten some names
+-- shorten some names to improve display
 UPDATE RawRun SET name = 'gitpod' WHERE name = 'gitpod-configuration';
 UPDATE RawRun SET name = 'unreal-engine' WHERE name = 'unreal-engine-uproject';
 UPDATE RawCompile SET name = 'gitpod' WHERE name = 'gitpod-configuration';
@@ -62,7 +62,7 @@ UPDATE RawResult SET name = 'unreal-engine' WHERE name = 'unreal-engine-uproject
 UPDATE Cases SET name = 'gitpod' WHERE name = 'gitpod-configuration';
 UPDATE Cases SET name = 'unreal-engine' WHERE name = 'unreal-engine-uproject';
 
--- keep median values
+-- keep MEDIAN values for each case (line)
 CREATE TABLE Run AS
   WITH OrderedRawRun AS (
     SELECT
@@ -75,13 +75,13 @@ CREATE TABLE Run AS
   WHERE ordering = 0.5
 ;
 
--- tools
+-- all tested tools
 CREATE TABLE Tools(tool TEXT PRIMARY KEY);
 
 INSERT INTO Tools(tool)
   SELECT DISTINCT tool FROM Run ORDER BY 1;
 
--- results selection
+-- results selection, keep MIN pass
 CREATE TABLE Result AS
   WITH OrderedRawResult AS (
     SELECT
@@ -145,7 +145,7 @@ CREATE TABLE Comparison AS
   FROM Cases AS c
   ORDER BY 1;
 
--- set best execution time reference, 1E999 is Infinity
+-- set best execution time is used as a reference, 1E999 is Infinity
 UPDATE Comparison
   SET best = MIN(COALESCE(blaze, 1e999),
        	         COALESCE(c, 1e999),
@@ -170,7 +170,7 @@ CREATE TABLE RelativeComparison AS
     py / best AS py
   FROM Comparison;
 
--- compilation min aggregation
+-- compilation MIN time aggregation
 CREATE TABLE CompilePerf AS
   SELECT name, tool, MIN(run) AS run, COUNT(*) AS nb
   FROM RawCompile
@@ -191,7 +191,7 @@ CREATE TABLE CompilePerfCase AS
     (SELECT run FROM CompilePerf AS cp WHERE cp.name = c.name AND cp.tool = 'jmc-java-class') AS jmc_class
   FROM Cases AS c;
 
--- compilation time useful comparison
+-- compilation time useful comparison, includes schema to model conversion for jmc
 CREATE TABLE CompilePerfCompare AS
   SELECT
     name,
@@ -217,7 +217,7 @@ CREATE TABLE ResultComparison AS
   FROM Cases AS c
   ORDER BY 1;
 
--- case stats
+-- case stats display
 CREATE TABLE ShowCases AS WITH
   CaseInstances AS (
     SELECT
