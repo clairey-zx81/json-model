@@ -2,15 +2,6 @@
 
 ## Current Tasks
 
-- [x] perf: ensure properly aligned data in box report
-- [x] perf: allow to collect data over several runs
-- [x] optim: and-to-merge optimization for open object models
-- [x] perf: allow to collect user time instead of elapsed time
-- [x] backend: improve and extend IR optimizations (wip)
-- [x] tests: perl _uninitialized value $tag_0 in hash element at `./mv-18/dis_01.pl:171._
-- [x] ~tests: fix sql test errors from `Makefile`~
-- [x] ~pr: submit jsonschema-benchmark PL/pgSQL PR~
-- [x] optim: get rid of double object with C, Python and Java
 - [ ] optim: improve xor-to-or with references
 - [ ] perf: compute performance overhead globally instead of per run
 - [ ] tests: add ir optimized output (too large?)
@@ -48,6 +39,7 @@
 - [ ] frontends: reject json with duplicated props
 - [ ] c-backend: header file for generated code?
 - [ ] command: allow to pass some options from rc file?
+- [ ] tests: parallelize per-case instead of per-dir?
 
 ## Re Do
 
@@ -89,7 +81,6 @@
 - [ ] use: py type dataclass/pydantic export?
 - [ ] use: test with corrector? ref? kiva?
 - [ ] static: sort list of models? option?
-- [ ] optim: merge `&` of objects in some cases?
 - [ ] static: fix double reports, eg constraint type and constraints or object props and object
 - [ ] py-backend: fix failure verbosity `ref/json-model.py.check` vs others
 - [ ] static: keep deeper names?
@@ -122,7 +113,6 @@
 - [ ] py-backend: package independent runtime?
 - [ ] command: improve cache to keep track of urls?
 - [ ] project: establish priority
-- [ ] frontend: accept raw sequence of values? list of values?
 - [ ] project: improve backlog management with thematic sections
 - [ ] design: $-refs may only appear in defs for simpler compiler AND better readability?
 - [ ] project: move all code's TODO here
@@ -135,12 +125,10 @@
 - [ ] design: should it allow unexpected ints as constants?
 - [ ] dynamic: JSON IR to lambda?!
 - [ ] backend: add JSON output?
-- [ ] backend: direct code for blaze?
 - [ ] dynamic: rely on static and eval
 - [ ] frontend: add multi-level naming option
 - [ ] optim: ultimate type on loose should yield `float`
 - [ ] static: abstract imperative language code generation (wip)
-- [ ] backend: do not generate intermediate empty functions for direct objects?
 - [ ] backend: do not generate intermediate empty functions for property values when possible
 - [ ] backend: reduce/minimize language abstraction? `T_var_val`?
 - [ ] backend: rethink function boundaries?
@@ -220,6 +208,7 @@
 - [ ] rust-backend: see [json crate](https://docs.rs/json/latest/json/).
 - [ ] cpp-backend: see [json](https://github.com/nlohmann/json) and `re2`. json lib popularity?
 - [ ] cpp-backend: also see [simdjson](https://github.com/simdjson/simdjson)?
+- [ ] backend: direct code for blaze? vs c++?
 - [ ] kotlin-backend: see [serialization](https://kotlinlang.org/docs/serialization.html).
 - [ ] mongodb-backend: generate bson stuff, as an option to schema generation?
 - [ ] ts-backend: js sharing ?
@@ -637,3 +626,13 @@
 - [x] command: allow to pass options with environment variable `JMC_OPTS`
 - [x] docker: environment control for perf tests
 - [x] command: `jmc -C -o foo.json` generates python instead of json
+- [x] perf: ensure properly aligned data in box report
+- [x] perf: allow to collect data over several runs
+- [x] optim: and-to-merge optimization for open object models
+- [x] perf: allow to collect user time instead of elapsed time
+- [x] backend: improve and extend IR optimizations (wip)
+- [x] tests: perl _uninitialized value `$tag_0` in hash element at `./mv-18/dis_01.pl:171`._
+- [x] ~tests: fix sql test errors from `Makefile`~
+- [x] ~pr: submit jsonschema-benchmark PL/pgSQL PR~
+- [x] optim: get rid of double object with C, Python and Java
+- [x] backend: ~do not generate intermediate empty functions for direct objects? (skip)~
