@@ -2,7 +2,8 @@
 #
 # run jmc benchmark
 #
-# usage: $0 --par 8 --comp 5 --loop 1000 --jmc latest --jsc latest --env JMC_OPTS
+# usage: $0 --help
+# eg: $0 --par 12 --runs 5 --loop 1000 --jmc latest --jsc latest --env JMC_OPTS
 #
 
 # error handling
@@ -40,6 +41,7 @@ while [[ "$1" == -* ]] ; do
       echo " --cap-py: reduce loop iterations for python"
       echo " --env|-e VARS: environment variables to export to jmc docker"
       # NOTE setting %U does not work through docker and with subprocesses
+      # there is no simple way to collect cumulated user and system cpu usage through docker
       echo " --time|-t FMT: time format for performance collection, default is '%e'"
       exit 0
       ;;

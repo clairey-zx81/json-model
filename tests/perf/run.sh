@@ -1,17 +1,17 @@
 #! /bin/bash
 #
-# execute bench bite
+# execute jmc bench bite
 #
 # arguments:
-# - loop: number of performance loop
-# - prefix: for results
+# - loop: number of performance loop iterations, eg 1000 or 10000
+# - prefix: directory where to write results
 # - task: cmp ou all = cmp + run
 # - target: implementation/phase to run (all, jmc, jmc-*, blaze)
-# - dirs: schema directories to process
+# - dirs: jsb schema directories to process
 #
 # env:
 # - JMC_BENCH_DEBUG: enable debug (FIXME unused)
-# - JMC_BENCH_TIME_FMT: time format performance to report (default e)
+# - JMC_BENCH_TIME_FMT: time format performance to report (default %e)
 
 export PATH=$PATH:.
 export TMPDIR=.
