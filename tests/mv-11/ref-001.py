@@ -34,22 +34,20 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
     lpath: Path
     pval: Jsonable
     res: bool
-    if not "a" in val:
+    if not ((pval := val.get("a", UNDEFINED)) != UNDEFINED):
         rep is None or rep.append(("missing mandatory prop <a> [.'$a']", path))
         return False
     lpath = (path + [ "a" ]) if path is not None else None
-    pval = val.get("a", UNDEFINED)
     # .'$a'.a
     res = isinstance(pval, int) and not isinstance(pval, bool) and pval >= 0
     if not res:
         rep is None or rep.append(("not a 0 strict int [.'$a'.a]", lpath if path is not None else None))
         rep is None or rep.append(("unexpected value for mandatory prop <a> [.'$a']", lpath if path is not None else None))
         return False
-    if not "b" in val:
+    if not ((pval := val.get("b", UNDEFINED)) != UNDEFINED):
         rep is None or rep.append(("missing mandatory prop <b> [.'$a']", path))
         return False
     lpath = (path + [ "b" ]) if path is not None else None
-    pval = val.get("b", UNDEFINED)
     # .'$a'.b
     res = isinstance(pval, int) and not isinstance(pval, bool) and pval >= 0
     if not res:
@@ -79,33 +77,30 @@ def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
     lpath: Path
     pval: Jsonable
     res: bool
-    if not "a" in val:
+    if not ((pval := val.get("a", UNDEFINED)) != UNDEFINED):
         rep is None or rep.append(("missing mandatory prop <a> [.'$b']", path))
         return False
     lpath = (path + [ "a" ]) if path is not None else None
-    pval = val.get("a", UNDEFINED)
     # .'$b'.a
     res = isinstance(pval, int) and not isinstance(pval, bool) and pval >= 0
     if not res:
         rep is None or rep.append(("not a 0 strict int [.'$b'.a]", lpath if path is not None else None))
         rep is None or rep.append(("unexpected value for mandatory prop <a> [.'$b']", lpath if path is not None else None))
         return False
-    if not "b" in val:
+    if not ((pval := val.get("b", UNDEFINED)) != UNDEFINED):
         rep is None or rep.append(("missing mandatory prop <b> [.'$b']", path))
         return False
     lpath = (path + [ "b" ]) if path is not None else None
-    pval = val.get("b", UNDEFINED)
     # .'$b'.b
     res = isinstance(pval, int) and not isinstance(pval, bool) and pval >= 0
     if not res:
         rep is None or rep.append(("not a 0 strict int [.'$b'.b]", lpath if path is not None else None))
         rep is None or rep.append(("unexpected value for mandatory prop <b> [.'$b']", lpath if path is not None else None))
         return False
-    if not "c" in val:
+    if not ((pval := val.get("c", UNDEFINED)) != UNDEFINED):
         rep is None or rep.append(("missing mandatory prop <c> [.'$b']", path))
         return False
     lpath = (path + [ "c" ]) if path is not None else None
-    pval = val.get("c", UNDEFINED)
     # .'$b'.c
     res = isinstance(pval, int) and not isinstance(pval, bool) and pval >= 0
     if not res:

@@ -62,22 +62,20 @@ static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *re
     }
     json_t * pval;
     bool res;
-    if (! (json_object_get(val, "t") != NULL))
+    if (! ((pval = json_object_get(val, "t")) != NULL))
     {
         return false;
     }
-    pval = json_object_get(val, "t");
     // .'$d'.t
     res = json_is_string(pval) && strcmp(json_string_value(pval), "d") == 0;
     if (! res)
     {
         return false;
     }
-    if (! (json_object_get(val, "d") != NULL))
+    if (! ((pval = json_object_get(val, "d")) != NULL))
     {
         return false;
     }
-    pval = json_object_get(val, "d");
     // .'$d'.d
     res = json_is_string(pval);
     if (! res)
@@ -111,22 +109,20 @@ static INLINE bool _jm_obj_1(const json_t *val, jm_path_t *path, jm_report_t *re
     }
     json_t * pval;
     bool res;
-    if (! (json_object_get(val, "t") != NULL))
+    if (! ((pval = json_object_get(val, "t")) != NULL))
     {
         return false;
     }
-    pval = json_object_get(val, "t");
     // .'$ef'.t
     res = jm_json_is_scalar(pval) && json_is_string(pval) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(pval) } }, _jm_cst_1, 2);;
     if (! res)
     {
         return false;
     }
-    if (! (json_object_get(val, "ef") != NULL))
+    if (! ((pval = json_object_get(val, "ef")) != NULL))
     {
         return false;
     }
-    pval = json_object_get(val, "ef");
     // .'$ef'.ef
     res = json_is_string(pval);
     if (! res)
@@ -159,22 +155,20 @@ static INLINE bool _jm_obj_2(const json_t *val, jm_path_t *path, jm_report_t *re
     }
     json_t * pval;
     bool res;
-    if (! (json_object_get(val, "t") != NULL))
+    if (! ((pval = json_object_get(val, "t")) != NULL))
     {
         return false;
     }
-    pval = json_object_get(val, "t");
     // .'$alternative'.'|'.0.t
     res = json_is_string(pval) && strcmp(json_string_value(pval), "a") == 0;
     if (! res)
     {
         return false;
     }
-    if (! (json_object_get(val, "a") != NULL))
+    if (! ((pval = json_object_get(val, "a")) != NULL))
     {
         return false;
     }
-    pval = json_object_get(val, "a");
     // .'$alternative'.'|'.0.a
     res = json_is_string(pval);
     if (! res)
@@ -199,22 +193,20 @@ static INLINE bool _jm_obj_3(const json_t *val, jm_path_t *path, jm_report_t *re
     }
     json_t * pval;
     bool res;
-    if (! (json_object_get(val, "t") != NULL))
+    if (! ((pval = json_object_get(val, "t")) != NULL))
     {
         return false;
     }
-    pval = json_object_get(val, "t");
     // .'$alternative'.'|'.1.t
     res = jm_json_is_scalar(pval) && json_is_string(pval) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(pval) } }, _jm_cst_2, 2);;
     if (! res)
     {
         return false;
     }
-    if (! (json_object_get(val, "bc") != NULL))
+    if (! ((pval = json_object_get(val, "bc")) != NULL))
     {
         return false;
     }
-    pval = json_object_get(val, "bc");
     // .'$alternative'.'|'.1.bc
     res = json_is_string(pval);
     if (! res)
@@ -238,22 +230,20 @@ static INLINE bool _jm_obj_4(const json_t *val, jm_path_t *path, jm_report_t *re
     }
     json_t * pval;
     bool res;
-    if (! (json_object_get(val, "t") != NULL))
+    if (! ((pval = json_object_get(val, "t")) != NULL))
     {
         return false;
     }
-    pval = json_object_get(val, "t");
     // .'$alternative'.'|'.2.t
     res = json_is_string(pval) && strcmp(json_string_value(pval), "g") == 0;
     if (! res)
     {
         return false;
     }
-    if (! (json_object_get(val, "g") != NULL))
+    if (! ((pval = json_object_get(val, "g")) != NULL))
     {
         return false;
     }
-    pval = json_object_get(val, "g");
     // .'$alternative'.'|'.2.g
     res = json_is_string(pval);
     if (! res)
@@ -277,22 +267,20 @@ static INLINE bool _jm_obj_5(const json_t *val, jm_path_t *path, jm_report_t *re
     }
     json_t * pval;
     bool res;
-    if (! (json_object_get(val, "t") != NULL))
+    if (! ((pval = json_object_get(val, "t")) != NULL))
     {
         return false;
     }
-    pval = json_object_get(val, "t");
     // .'$alternative'.'|'.3.t
     res = json_model_3(pval, NULL, rep);
     if (! res)
     {
         return false;
     }
-    if (! (json_object_get(val, "hi") != NULL))
+    if (! ((pval = json_object_get(val, "hi")) != NULL))
     {
         return false;
     }
-    pval = json_object_get(val, "hi");
     // .'$alternative'.'|'.3.hi
     res = json_is_string(pval);
     if (! res)

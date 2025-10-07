@@ -284,13 +284,12 @@ public class lazygit extends ModelChecker
         Path lpath;
         Object pval;
         boolean res;
-        if (! json.objectHasProp(val, "command"))
+        if (! ((pval = json.objectValue(val, "command")) != null))
         {
             if (rep != null) rep.addEntry("missing mandatory prop <command> [.'$Prompts'.'|'.0.suggestions.'|'.1]", path);
             return false;
         }
         lpath = new Path("command", path);
-        pval = json.objectValue(val, "command");
         // .'$Prompts'.'|'.0.suggestions.'|'.1.command
         res = json.isString(pval);
         if (! res)
@@ -320,13 +319,12 @@ public class lazygit extends ModelChecker
         Path lpath;
         Object pval;
         boolean res;
-        if (! json.objectHasProp(val, "preset"))
+        if (! ((pval = json.objectValue(val, "preset")) != null))
         {
             if (rep != null) rep.addEntry("missing mandatory prop <preset> [.'$Prompts'.'|'.0.suggestions.'|'.0]", path);
             return false;
         }
         lpath = new Path("preset", path);
-        pval = json.objectValue(val, "preset");
         // .'$Prompts'.'|'.0.suggestions.'|'.0.preset
         res = json.isScalar(pval) && _jm_cst_2_set.contains(pval);
         if (! res)
@@ -659,13 +657,12 @@ public class lazygit extends ModelChecker
         Path lpath;
         Object pval;
         boolean res;
-        if (! json.objectHasProp(val, "type"))
+        if (! ((pval = json.objectValue(val, "type")) != null))
         {
             if (rep != null) rep.addEntry("missing mandatory prop <type> [.'$Prompts'.'|'.2]", path);
             return false;
         }
         lpath = new Path("type", path);
-        pval = json.objectValue(val, "type");
         // .'$Prompts'.'|'.2.type
         res = json.isString(pval) && json.asString(pval).compareTo("menu") == 0;
         if (! res)
@@ -674,13 +671,12 @@ public class lazygit extends ModelChecker
             if (rep != null) rep.addEntry("unexpected value for mandatory prop <type> [.'$Prompts'.'|'.2]", (path != null ? lpath : null));
             return false;
         }
-        if (! json.objectHasProp(val, "title"))
+        if (! ((pval = json.objectValue(val, "title")) != null))
         {
             if (rep != null) rep.addEntry("missing mandatory prop <title> [.'$Prompts'.'|'.2]", path);
             return false;
         }
         lpath = new Path("title", path);
-        pval = json.objectValue(val, "title");
         // .'$Prompts'.'|'.2.title
         res = json_model_6(pval, (path != null ? lpath : null), rep);
         if (! res)
@@ -689,13 +685,12 @@ public class lazygit extends ModelChecker
             if (rep != null) rep.addEntry("unexpected value for mandatory prop <title> [.'$Prompts'.'|'.2]", (path != null ? lpath : null));
             return false;
         }
-        if (! json.objectHasProp(val, "key"))
+        if (! ((pval = json.objectValue(val, "key")) != null))
         {
             if (rep != null) rep.addEntry("missing mandatory prop <key> [.'$Prompts'.'|'.2]", path);
             return false;
         }
         lpath = new Path("key", path);
-        pval = json.objectValue(val, "key");
         // .'$Prompts'.'|'.2.key
         res = json_model_7(pval, (path != null ? lpath : null), rep);
         if (! res)
@@ -704,13 +699,12 @@ public class lazygit extends ModelChecker
             if (rep != null) rep.addEntry("unexpected value for mandatory prop <key> [.'$Prompts'.'|'.2]", (path != null ? lpath : null));
             return false;
         }
-        if (! json.objectHasProp(val, "options"))
+        if (! ((pval = json.objectValue(val, "options")) != null))
         {
             if (rep != null) rep.addEntry("missing mandatory prop <options> [.'$Prompts'.'|'.2]", path);
             return false;
         }
         lpath = new Path("options", path);
-        pval = json.objectValue(val, "options");
         // .'$Prompts'.'|'.2.options
         // .'$Prompts'.'|'.2.options.'@'
         res = json.isArray(pval);
@@ -1354,13 +1348,12 @@ public class lazygit extends ModelChecker
         Path lpath;
         Object pval;
         boolean res;
-        if (! json.objectHasProp(val, "pattern"))
+        if (! ((pval = json.objectValue(val, "pattern")) != null))
         {
             if (rep != null) rep.addEntry("missing mandatory prop <pattern> [.git.commitPrefixes.'/./']", path);
             return false;
         }
         lpath = new Path("pattern", path);
-        pval = json.objectValue(val, "pattern");
         // .git.commitPrefixes.'/./'.pattern
         res = json_model_8(pval, (path != null ? lpath : null), rep);
         if (! res)
@@ -1369,13 +1362,12 @@ public class lazygit extends ModelChecker
             if (rep != null) rep.addEntry("unexpected value for mandatory prop <pattern> [.git.commitPrefixes.'/./']", (path != null ? lpath : null));
             return false;
         }
-        if (! json.objectHasProp(val, "replace"))
+        if (! ((pval = json.objectValue(val, "replace")) != null))
         {
             if (rep != null) rep.addEntry("missing mandatory prop <replace> [.git.commitPrefixes.'/./']", path);
             return false;
         }
         lpath = new Path("replace", path);
-        pval = json.objectValue(val, "replace");
         // .git.commitPrefixes.'/./'.replace
         res = json_model_8(pval, (path != null ? lpath : null), rep);
         if (! res)

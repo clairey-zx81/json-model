@@ -511,11 +511,10 @@ def _jm_obj_2(val: Jsonable, path: Path, rep: Report) -> bool:
     lpath: Path
     pval: Jsonable
     res: bool
-    if not "|" in val:
+    if not ((pval := val.get("|", UNDEFINED)) != UNDEFINED):
         rep is None or rep.append(("missing mandatory prop <|> [.'$Or']", path))
         return False
     lpath = (path + [ "|" ]) if path is not None else None
-    pval = val.get("|", UNDEFINED)
     # .'$Or'.'|'
     res = isinstance(pval, list)
     if res:
@@ -553,11 +552,10 @@ def _jm_obj_3(val: Jsonable, path: Path, rep: Report) -> bool:
     lpath: Path
     pval: Jsonable
     res: bool
-    if not "&" in val:
+    if not ((pval := val.get("&", UNDEFINED)) != UNDEFINED):
         rep is None or rep.append(("missing mandatory prop <&> [.'$And']", path))
         return False
     lpath = (path + [ "&" ]) if path is not None else None
-    pval = val.get("&", UNDEFINED)
     # .'$And'.'&'
     res = isinstance(pval, list)
     if res:
@@ -595,11 +593,10 @@ def _jm_obj_4(val: Jsonable, path: Path, rep: Report) -> bool:
     lpath: Path
     pval: Jsonable
     res: bool
-    if not "^" in val:
+    if not ((pval := val.get("^", UNDEFINED)) != UNDEFINED):
         rep is None or rep.append(("missing mandatory prop <^> [.'$Xor']", path))
         return False
     lpath = (path + [ "^" ]) if path is not None else None
-    pval = val.get("^", UNDEFINED)
     # .'$Xor'.'^'
     res = isinstance(pval, list)
     if res:
@@ -637,11 +634,10 @@ def _jm_obj_5(val: Jsonable, path: Path, rep: Report) -> bool:
     lpath: Path
     pval: Jsonable
     res: bool
-    if not "+" in val:
+    if not ((pval := val.get("+", UNDEFINED)) != UNDEFINED):
         rep is None or rep.append(("missing mandatory prop <+> [.'$Add']", path))
         return False
     lpath = (path + [ "+" ]) if path is not None else None
-    pval = val.get("+", UNDEFINED)
     # .'$Add'.'+'
     res = isinstance(pval, list)
     if res:

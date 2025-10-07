@@ -35,22 +35,20 @@ def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
     lpath: Path
     pval: Jsonable
     res: bool
-    if not "t" in val:
+    if not ((pval := val.get("t", UNDEFINED)) != UNDEFINED):
         rep is None or rep.append(("missing mandatory prop <t> [.movie.'|'.0]", path))
         return False
     lpath = (path + [ "t" ]) if path is not None else None
-    pval = val.get("t", UNDEFINED)
     # .movie.'|'.0.t
     res = isinstance(pval, str) and pval == "fr"
     if not res:
         rep is None or rep.append(("unexpected fr [.movie.'|'.0.t]", lpath if path is not None else None))
         rep is None or rep.append(("unexpected value for mandatory prop <t> [.movie.'|'.0]", lpath if path is not None else None))
         return False
-    if not "titre" in val:
+    if not ((pval := val.get("titre", UNDEFINED)) != UNDEFINED):
         rep is None or rep.append(("missing mandatory prop <titre> [.movie.'|'.0]", path))
         return False
     lpath = (path + [ "titre" ]) if path is not None else None
-    pval = val.get("titre", UNDEFINED)
     # .movie.'|'.0.titre
     res = isinstance(pval, str)
     if not res:
@@ -71,22 +69,20 @@ def _jm_obj_2(val: Jsonable, path: Path, rep: Report) -> bool:
     lpath: Path
     pval: Jsonable
     res: bool
-    if not "t" in val:
+    if not ((pval := val.get("t", UNDEFINED)) != UNDEFINED):
         rep is None or rep.append(("missing mandatory prop <t> [.movie.'|'.1]", path))
         return False
     lpath = (path + [ "t" ]) if path is not None else None
-    pval = val.get("t", UNDEFINED)
     # .movie.'|'.1.t
     res = isinstance(pval, str) and pval == "en"
     if not res:
         rep is None or rep.append(("unexpected en [.movie.'|'.1.t]", lpath if path is not None else None))
         rep is None or rep.append(("unexpected value for mandatory prop <t> [.movie.'|'.1]", lpath if path is not None else None))
         return False
-    if not "title" in val:
+    if not ((pval := val.get("title", UNDEFINED)) != UNDEFINED):
         rep is None or rep.append(("missing mandatory prop <title> [.movie.'|'.1]", path))
         return False
     lpath = (path + [ "title" ]) if path is not None else None
-    pval = val.get("title", UNDEFINED)
     # .movie.'|'.1.title
     res = isinstance(pval, str)
     if not res:
@@ -107,22 +103,20 @@ def _jm_obj_3(val: Jsonable, path: Path, rep: Report) -> bool:
     lpath: Path
     pval: Jsonable
     res: bool
-    if not "t" in val:
+    if not ((pval := val.get("t", UNDEFINED)) != UNDEFINED):
         rep is None or rep.append(("missing mandatory prop <t> [.movie.'|'.2]", path))
         return False
     lpath = (path + [ "t" ]) if path is not None else None
-    pval = val.get("t", UNDEFINED)
     # .movie.'|'.2.t
     res = isinstance(pval, str) and pval == "de"
     if not res:
         rep is None or rep.append(("unexpected de [.movie.'|'.2.t]", lpath if path is not None else None))
         rep is None or rep.append(("unexpected value for mandatory prop <t> [.movie.'|'.2]", lpath if path is not None else None))
         return False
-    if not "Title" in val:
+    if not ((pval := val.get("Title", UNDEFINED)) != UNDEFINED):
         rep is None or rep.append(("missing mandatory prop <Title> [.movie.'|'.2]", path))
         return False
     lpath = (path + [ "Title" ]) if path is not None else None
-    pval = val.get("Title", UNDEFINED)
     # .movie.'|'.2.Title
     res = isinstance(pval, str)
     if not res:
@@ -143,22 +137,20 @@ def _jm_obj_4(val: Jsonable, path: Path, rep: Report) -> bool:
     lpath: Path
     pval: Jsonable
     res: bool
-    if not "t" in val:
+    if not ((pval := val.get("t", UNDEFINED)) != UNDEFINED):
         rep is None or rep.append(("missing mandatory prop <t> [.movie.'|'.3]", path))
         return False
     lpath = (path + [ "t" ]) if path is not None else None
-    pval = val.get("t", UNDEFINED)
     # .movie.'|'.3.t
     res = isinstance(pval, str) and pval == "ru"
     if not res:
         rep is None or rep.append(("unexpected ru [.movie.'|'.3.t]", lpath if path is not None else None))
         rep is None or rep.append(("unexpected value for mandatory prop <t> [.movie.'|'.3]", lpath if path is not None else None))
         return False
-    if not "suti" in val:
+    if not ((pval := val.get("suti", UNDEFINED)) != UNDEFINED):
         rep is None or rep.append(("missing mandatory prop <suti> [.movie.'|'.3]", path))
         return False
     lpath = (path + [ "suti" ]) if path is not None else None
-    pval = val.get("suti", UNDEFINED)
     # .movie.'|'.3.suti
     res = isinstance(pval, str)
     if not res:
@@ -180,11 +172,10 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
     lpath: Path
     pval: Jsonable
     res: bool
-    if not "movie" in val:
+    if not ((pval := val.get("movie", UNDEFINED)) != UNDEFINED):
         rep is None or rep.append(("missing mandatory prop <movie> [.]", path))
         return False
     lpath = (path + [ "movie" ]) if path is not None else None
-    pval = val.get("movie", UNDEFINED)
     # .movie
     iso_0: bool = isinstance(pval, dict)
     res = iso_0

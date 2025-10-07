@@ -298,11 +298,10 @@ def _jm_obj_4(val: Jsonable, path: Path, rep: Report) -> bool:
     lpath: Path
     pval: Jsonable
     res: bool
-    if not "type" in val:
+    if not ((pval := val.get("type", UNDEFINED)) != UNDEFINED):
         rep is None or rep.append(("missing mandatory prop <type> [.'$Null']", path))
         return False
     lpath = (path + [ "type" ]) if path is not None else None
-    pval = val.get("type", UNDEFINED)
     # .'$Null'.type
     res = isinstance(pval, str) and pval == "null"
     if not res:
@@ -332,11 +331,10 @@ def _jm_obj_5(val: Jsonable, path: Path, rep: Report) -> bool:
     lpath: Path
     pval: Jsonable
     res: bool
-    if not "type" in val:
+    if not ((pval := val.get("type", UNDEFINED)) != UNDEFINED):
         rep is None or rep.append(("missing mandatory prop <type> [.'$Boolean']", path))
         return False
     lpath = (path + [ "type" ]) if path is not None else None
-    pval = val.get("type", UNDEFINED)
     # .'$Boolean'.type
     res = isinstance(pval, str) and pval == "boolean"
     if not res:

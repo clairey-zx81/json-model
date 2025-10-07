@@ -37,13 +37,12 @@ public class dis_03 extends ModelChecker
         Path lpath;
         Object pval;
         boolean res;
-        if (! json.objectHasProp(val, "discriminator"))
+        if (! ((pval = json.objectValue(val, "discriminator")) != null))
         {
             if (rep != null) rep.addEntry("missing mandatory prop <discriminator> [.'|'.0]", path);
             return false;
         }
         lpath = new Path("discriminator", path);
-        pval = json.objectValue(val, "discriminator");
         // .'|'.0.discriminator
         res = json.isBoolean(pval) && json.asBoolean(pval) == true;
         if (! res)
@@ -52,13 +51,12 @@ public class dis_03 extends ModelChecker
             if (rep != null) rep.addEntry("unexpected value for mandatory prop <discriminator> [.'|'.0]", (path != null ? lpath : null));
             return false;
         }
-        if (! json.objectHasProp(val, "x"))
+        if (! ((pval = json.objectValue(val, "x")) != null))
         {
             if (rep != null) rep.addEntry("missing mandatory prop <x> [.'|'.0]", path);
             return false;
         }
         lpath = new Path("x", path);
-        pval = json.objectValue(val, "x");
         // .'|'.0.x
         res = json.isString(pval);
         if (! res)
@@ -87,13 +85,12 @@ public class dis_03 extends ModelChecker
         Path lpath;
         Object pval;
         boolean res;
-        if (! json.objectHasProp(val, "discriminator"))
+        if (! ((pval = json.objectValue(val, "discriminator")) != null))
         {
             if (rep != null) rep.addEntry("missing mandatory prop <discriminator> [.'|'.1]", path);
             return false;
         }
         lpath = new Path("discriminator", path);
-        pval = json.objectValue(val, "discriminator");
         // .'|'.1.discriminator
         res = json.isBoolean(pval) && json.asBoolean(pval) == false;
         if (! res)
@@ -102,13 +99,12 @@ public class dis_03 extends ModelChecker
             if (rep != null) rep.addEntry("unexpected value for mandatory prop <discriminator> [.'|'.1]", (path != null ? lpath : null));
             return false;
         }
-        if (! json.objectHasProp(val, "y"))
+        if (! ((pval = json.objectValue(val, "y")) != null))
         {
             if (rep != null) rep.addEntry("missing mandatory prop <y> [.'|'.1]", path);
             return false;
         }
         lpath = new Path("y", path);
-        pval = json.objectValue(val, "y");
         // .'|'.1.y
         res = json.isString(pval);
         if (! res)

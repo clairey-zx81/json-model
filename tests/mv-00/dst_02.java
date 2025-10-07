@@ -36,13 +36,12 @@ public class dst_02 extends ModelChecker
         Path lpath;
         Object pval;
         boolean res;
-        if (! json.objectHasProp(val, "c"))
+        if (! ((pval = json.objectValue(val, "c")) != null))
         {
             if (rep != null) rep.addEntry("missing mandatory prop <c> [.'|'.5]", path);
             return false;
         }
         lpath = new Path("c", path);
-        pval = json.objectValue(val, "c");
         // .'|'.5.c
         res = json.isInteger(pval) && json.asLong(pval) >= 0;
         if (! res)
@@ -51,13 +50,12 @@ public class dst_02 extends ModelChecker
             if (rep != null) rep.addEntry("unexpected value for mandatory prop <c> [.'|'.5]", (path != null ? lpath : null));
             return false;
         }
-        if (! json.objectHasProp(val, "a"))
+        if (! ((pval = json.objectValue(val, "a")) != null))
         {
             if (rep != null) rep.addEntry("missing mandatory prop <a> [.'|'.5]", path);
             return false;
         }
         lpath = new Path("a", path);
-        pval = json.objectValue(val, "a");
         // .'|'.5.a
         res = json.isInteger(pval) && json.asLong(pval) >= 1;
         if (! res)
@@ -66,13 +64,12 @@ public class dst_02 extends ModelChecker
             if (rep != null) rep.addEntry("unexpected value for mandatory prop <a> [.'|'.5]", (path != null ? lpath : null));
             return false;
         }
-        if (! json.objectHasProp(val, "f"))
+        if (! ((pval = json.objectValue(val, "f")) != null))
         {
             if (rep != null) rep.addEntry("missing mandatory prop <f> [.'|'.5]", path);
             return false;
         }
         lpath = new Path("f", path);
-        pval = json.objectValue(val, "f");
         // .'|'.5.f
         res = json.isBoolean(pval);
         if (! res)
@@ -101,13 +98,12 @@ public class dst_02 extends ModelChecker
         Path lpath;
         Object pval;
         boolean res;
-        if (! json.objectHasProp(val, "c"))
+        if (! ((pval = json.objectValue(val, "c")) != null))
         {
             if (rep != null) rep.addEntry("missing mandatory prop <c> [.'|'.4]", path);
             return false;
         }
         lpath = new Path("c", path);
-        pval = json.objectValue(val, "c");
         // .'|'.4.c
         res = json.isInteger(pval) && json.asLong(pval) >= 0;
         if (! res)
@@ -116,13 +112,12 @@ public class dst_02 extends ModelChecker
             if (rep != null) rep.addEntry("unexpected value for mandatory prop <c> [.'|'.4]", (path != null ? lpath : null));
             return false;
         }
-        if (! json.objectHasProp(val, "a"))
+        if (! ((pval = json.objectValue(val, "a")) != null))
         {
             if (rep != null) rep.addEntry("missing mandatory prop <a> [.'|'.4]", path);
             return false;
         }
         lpath = new Path("a", path);
-        pval = json.objectValue(val, "a");
         // .'|'.4.a
         res = json.isInteger(pval) && json.asLong(pval) >= 1;
         if (! res)
@@ -131,13 +126,12 @@ public class dst_02 extends ModelChecker
             if (rep != null) rep.addEntry("unexpected value for mandatory prop <a> [.'|'.4]", (path != null ? lpath : null));
             return false;
         }
-        if (! json.objectHasProp(val, "e"))
+        if (! ((pval = json.objectValue(val, "e")) != null))
         {
             if (rep != null) rep.addEntry("missing mandatory prop <e> [.'|'.4]", path);
             return false;
         }
         lpath = new Path("e", path);
-        pval = json.objectValue(val, "e");
         // .'|'.4.e
         res = json.isBoolean(pval);
         if (! res)
@@ -166,13 +160,12 @@ public class dst_02 extends ModelChecker
         Path lpath;
         Object pval;
         boolean res;
-        if (! json.objectHasProp(val, "c"))
+        if (! ((pval = json.objectValue(val, "c")) != null))
         {
             if (rep != null) rep.addEntry("missing mandatory prop <c> [.'|'.3]", path);
             return false;
         }
         lpath = new Path("c", path);
-        pval = json.objectValue(val, "c");
         // .'|'.3.c
         res = json.isInteger(pval) && json.asLong(pval) >= 0;
         if (! res)
@@ -181,13 +174,12 @@ public class dst_02 extends ModelChecker
             if (rep != null) rep.addEntry("unexpected value for mandatory prop <c> [.'|'.3]", (path != null ? lpath : null));
             return false;
         }
-        if (! json.objectHasProp(val, "a"))
+        if (! ((pval = json.objectValue(val, "a")) != null))
         {
             if (rep != null) rep.addEntry("missing mandatory prop <a> [.'|'.3]", path);
             return false;
         }
         lpath = new Path("a", path);
-        pval = json.objectValue(val, "a");
         // .'|'.3.a
         res = json.isInteger(pval) && json.asLong(pval) >= 1;
         if (! res)
@@ -196,13 +188,12 @@ public class dst_02 extends ModelChecker
             if (rep != null) rep.addEntry("unexpected value for mandatory prop <a> [.'|'.3]", (path != null ? lpath : null));
             return false;
         }
-        if (! json.objectHasProp(val, "d"))
+        if (! ((pval = json.objectValue(val, "d")) != null))
         {
             if (rep != null) rep.addEntry("missing mandatory prop <d> [.'|'.3]", path);
             return false;
         }
         lpath = new Path("d", path);
-        pval = json.objectValue(val, "d");
         // .'|'.3.d
         res = json.isBoolean(pval);
         if (! res)
@@ -231,13 +222,12 @@ public class dst_02 extends ModelChecker
         Path lpath;
         Object pval;
         boolean res;
-        if (! json.objectHasProp(val, "b"))
+        if (! ((pval = json.objectValue(val, "b")) != null))
         {
             if (rep != null) rep.addEntry("missing mandatory prop <b> [.'|'.2]", path);
             return false;
         }
         lpath = new Path("b", path);
-        pval = json.objectValue(val, "b");
         // .'|'.2.b
         res = json.isInteger(pval) && json.asLong(pval) >= 0;
         if (! res)
@@ -246,13 +236,12 @@ public class dst_02 extends ModelChecker
             if (rep != null) rep.addEntry("unexpected value for mandatory prop <b> [.'|'.2]", (path != null ? lpath : null));
             return false;
         }
-        if (! json.objectHasProp(val, "a"))
+        if (! ((pval = json.objectValue(val, "a")) != null))
         {
             if (rep != null) rep.addEntry("missing mandatory prop <a> [.'|'.2]", path);
             return false;
         }
         lpath = new Path("a", path);
-        pval = json.objectValue(val, "a");
         // .'|'.2.a
         res = json.isInteger(pval) && json.asLong(pval) >= 1;
         if (! res)
@@ -261,13 +250,12 @@ public class dst_02 extends ModelChecker
             if (rep != null) rep.addEntry("unexpected value for mandatory prop <a> [.'|'.2]", (path != null ? lpath : null));
             return false;
         }
-        if (! json.objectHasProp(val, "f"))
+        if (! ((pval = json.objectValue(val, "f")) != null))
         {
             if (rep != null) rep.addEntry("missing mandatory prop <f> [.'|'.2]", path);
             return false;
         }
         lpath = new Path("f", path);
-        pval = json.objectValue(val, "f");
         // .'|'.2.f
         res = json.isBoolean(pval);
         if (! res)
@@ -296,13 +284,12 @@ public class dst_02 extends ModelChecker
         Path lpath;
         Object pval;
         boolean res;
-        if (! json.objectHasProp(val, "b"))
+        if (! ((pval = json.objectValue(val, "b")) != null))
         {
             if (rep != null) rep.addEntry("missing mandatory prop <b> [.'|'.1]", path);
             return false;
         }
         lpath = new Path("b", path);
-        pval = json.objectValue(val, "b");
         // .'|'.1.b
         res = json.isInteger(pval) && json.asLong(pval) >= 0;
         if (! res)
@@ -311,13 +298,12 @@ public class dst_02 extends ModelChecker
             if (rep != null) rep.addEntry("unexpected value for mandatory prop <b> [.'|'.1]", (path != null ? lpath : null));
             return false;
         }
-        if (! json.objectHasProp(val, "a"))
+        if (! ((pval = json.objectValue(val, "a")) != null))
         {
             if (rep != null) rep.addEntry("missing mandatory prop <a> [.'|'.1]", path);
             return false;
         }
         lpath = new Path("a", path);
-        pval = json.objectValue(val, "a");
         // .'|'.1.a
         res = json.isInteger(pval) && json.asLong(pval) >= 1;
         if (! res)
@@ -326,13 +312,12 @@ public class dst_02 extends ModelChecker
             if (rep != null) rep.addEntry("unexpected value for mandatory prop <a> [.'|'.1]", (path != null ? lpath : null));
             return false;
         }
-        if (! json.objectHasProp(val, "e"))
+        if (! ((pval = json.objectValue(val, "e")) != null))
         {
             if (rep != null) rep.addEntry("missing mandatory prop <e> [.'|'.1]", path);
             return false;
         }
         lpath = new Path("e", path);
-        pval = json.objectValue(val, "e");
         // .'|'.1.e
         res = json.isBoolean(pval);
         if (! res)
@@ -361,13 +346,12 @@ public class dst_02 extends ModelChecker
         Path lpath;
         Object pval;
         boolean res;
-        if (! json.objectHasProp(val, "b"))
+        if (! ((pval = json.objectValue(val, "b")) != null))
         {
             if (rep != null) rep.addEntry("missing mandatory prop <b> [.'|'.0]", path);
             return false;
         }
         lpath = new Path("b", path);
-        pval = json.objectValue(val, "b");
         // .'|'.0.b
         res = json.isInteger(pval) && json.asLong(pval) >= 0;
         if (! res)
@@ -376,13 +360,12 @@ public class dst_02 extends ModelChecker
             if (rep != null) rep.addEntry("unexpected value for mandatory prop <b> [.'|'.0]", (path != null ? lpath : null));
             return false;
         }
-        if (! json.objectHasProp(val, "a"))
+        if (! ((pval = json.objectValue(val, "a")) != null))
         {
             if (rep != null) rep.addEntry("missing mandatory prop <a> [.'|'.0]", path);
             return false;
         }
         lpath = new Path("a", path);
-        pval = json.objectValue(val, "a");
         // .'|'.0.a
         res = json.isInteger(pval) && json.asLong(pval) >= 1;
         if (! res)
@@ -391,13 +374,12 @@ public class dst_02 extends ModelChecker
             if (rep != null) rep.addEntry("unexpected value for mandatory prop <a> [.'|'.0]", (path != null ? lpath : null));
             return false;
         }
-        if (! json.objectHasProp(val, "d"))
+        if (! ((pval = json.objectValue(val, "d")) != null))
         {
             if (rep != null) rep.addEntry("missing mandatory prop <d> [.'|'.0]", path);
             return false;
         }
         lpath = new Path("d", path);
-        pval = json.objectValue(val, "d");
         // .'|'.0.d
         res = json.isBoolean(pval);
         if (! res)

@@ -29,22 +29,20 @@ public class a2m_0 extends ModelChecker
         }
         Object pval;
         boolean res;
-        if (! json.objectHasProp(val, "a"))
+        if (! ((pval = json.objectValue(val, "a")) != null))
         {
             return false;
         }
-        pval = json.objectValue(val, "a");
         // .a
         res = json.isInteger(pval) && json.asLong(pval) >= 0;
         if (! res)
         {
             return false;
         }
-        if (! json.objectHasProp(val, "b"))
+        if (! ((pval = json.objectValue(val, "b")) != null))
         {
             return false;
         }
-        pval = json.objectValue(val, "b");
         // .b
         res = json.isInteger(pval) && json.asLong(pval) >= 0;
         if (! res)

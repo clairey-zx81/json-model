@@ -36,13 +36,12 @@ public class loose_strict extends ModelChecker
         Path lpath;
         Object pval;
         boolean res;
-        if (! json.objectHasProp(val, "li"))
+        if (! ((pval = json.objectValue(val, "li")) != null))
         {
             if (rep != null) rep.addEntry("missing mandatory prop <li> [.'$loose']", path);
             return false;
         }
         lpath = new Path("li", path);
-        pval = json.objectValue(val, "li");
         // .'$loose'.li
         res = ((json.isInteger(pval) || (json.isDouble(pval) && json.asDouble(pval) == ((long) json.asDouble(pval))))) && json.asNumber(pval) >= 0;
         if (! res)
@@ -85,13 +84,12 @@ public class loose_strict extends ModelChecker
         Path lpath;
         Object pval;
         boolean res;
-        if (! json.objectHasProp(val, "si"))
+        if (! ((pval = json.objectValue(val, "si")) != null))
         {
             if (rep != null) rep.addEntry("missing mandatory prop <si> [.'$strict']", path);
             return false;
         }
         lpath = new Path("si", path);
-        pval = json.objectValue(val, "si");
         // .'$strict'.si
         res = json.isInteger(pval) && json.asLong(pval) >= 0;
         if (! res)
@@ -134,13 +132,12 @@ public class loose_strict extends ModelChecker
         Path lpath;
         Object pval;
         boolean res;
-        if (! json.objectHasProp(val, "li"))
+        if (! ((pval = json.objectValue(val, "li")) != null))
         {
             if (rep != null) rep.addEntry("missing mandatory prop <li> [.'$combined']", path);
             return false;
         }
         lpath = new Path("li", path);
-        pval = json.objectValue(val, "li");
         // .'$combined'.li
         res = json.isInteger(pval) && json.asLong(pval) >= 0;
         if (! res)
@@ -149,13 +146,12 @@ public class loose_strict extends ModelChecker
             if (rep != null) rep.addEntry("unexpected value for mandatory prop <li> [.'$combined']", (path != null ? lpath : null));
             return false;
         }
-        if (! json.objectHasProp(val, "si"))
+        if (! ((pval = json.objectValue(val, "si")) != null))
         {
             if (rep != null) rep.addEntry("missing mandatory prop <si> [.'$combined']", path);
             return false;
         }
         lpath = new Path("si", path);
-        pval = json.objectValue(val, "si");
         // .'$combined'.si
         res = json.isInteger(pval) && json.asLong(pval) >= 0;
         if (! res)

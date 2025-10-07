@@ -34,22 +34,20 @@ public class objs0 extends ModelChecker
         }
         Object pval;
         boolean res;
-        if (! json.objectHasProp(val, "t"))
+        if (! ((pval = json.objectValue(val, "t")) != null))
         {
             return false;
         }
-        pval = json.objectValue(val, "t");
         // .'$table'.t
         res = json.isString(pval) && json.asString(pval).compareTo("table") == 0;
         if (! res)
         {
             return false;
         }
-        if (! json.objectHasProp(val, "legs"))
+        if (! ((pval = json.objectValue(val, "legs")) != null))
         {
             return false;
         }
-        pval = json.objectValue(val, "legs");
         // .'$table'.legs
         res = json.isInteger(pval) && json.asLong(pval) >= 1;
         if (! res)
@@ -82,22 +80,20 @@ public class objs0 extends ModelChecker
         }
         Object pval;
         boolean res;
-        if (! json.objectHasProp(val, "t"))
+        if (! ((pval = json.objectValue(val, "t")) != null))
         {
             return false;
         }
-        pval = json.objectValue(val, "t");
         // .'$chair'.t
         res = json.isString(pval) && json.asString(pval).compareTo("chair") == 0;
         if (! res)
         {
             return false;
         }
-        if (! json.objectHasProp(val, "color"))
+        if (! ((pval = json.objectValue(val, "color")) != null))
         {
             return false;
         }
-        pval = json.objectValue(val, "color");
         // .'$chair'.color
         res = json.isString(pval);
         if (! res)
@@ -161,11 +157,10 @@ public class objs0 extends ModelChecker
         }
         Object pval;
         boolean res;
-        if (! json.objectHasProp(val, "stuff"))
+        if (! ((pval = json.objectValue(val, "stuff")) != null))
         {
             return false;
         }
-        pval = json.objectValue(val, "stuff");
         // .stuff
         res = json.isArray(pval);
         if (res)

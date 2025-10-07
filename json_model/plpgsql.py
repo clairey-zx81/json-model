@@ -172,6 +172,9 @@ class PLpgSQL(Language):
     def assign_expr(self) -> bool:
         return False
 
+    def assign_obj_prop(self) -> bool:
+        return False
+
     def has_prop_fun(self, prop: str, mapname: str) -> BoolExpr:
         return f"{mapname}({prop}) IS NOT NULL"
 

@@ -50,16 +50,14 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
         return False
     pval: Jsonable
     res: bool
-    if not "t" in val:
+    if not ((pval := val.get("t", UNDEFINED)) != UNDEFINED):
         return False
-    pval = val.get("t", UNDEFINED)
     # .'$d'.t
     res = isinstance(pval, str) and pval == "d"
     if not res:
         return False
-    if not "d" in val:
+    if not ((pval := val.get("d", UNDEFINED)) != UNDEFINED):
         return False
-    pval = val.get("d", UNDEFINED)
     # .'$d'.d
     res = isinstance(pval, str)
     if not res:
@@ -83,16 +81,14 @@ def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
         return False
     pval: Jsonable
     res: bool
-    if not "t" in val:
+    if not ((pval := val.get("t", UNDEFINED)) != UNDEFINED):
         return False
-    pval = val.get("t", UNDEFINED)
     # .'$ef'.t
     res = ((pval is None or isinstance(pval, (bool, int, float, str)))) and pval in _jm_cst_1
     if not res:
         return False
-    if not "ef" in val:
+    if not ((pval := val.get("ef", UNDEFINED)) != UNDEFINED):
         return False
-    pval = val.get("ef", UNDEFINED)
     # .'$ef'.ef
     res = isinstance(pval, str)
     if not res:
@@ -115,16 +111,14 @@ def _jm_obj_2(val: Jsonable, path: Path, rep: Report) -> bool:
         return False
     pval: Jsonable
     res: bool
-    if not "t" in val:
+    if not ((pval := val.get("t", UNDEFINED)) != UNDEFINED):
         return False
-    pval = val.get("t", UNDEFINED)
     # .'$alternative'.'|'.0.t
     res = isinstance(pval, str) and pval == "a"
     if not res:
         return False
-    if not "a" in val:
+    if not ((pval := val.get("a", UNDEFINED)) != UNDEFINED):
         return False
-    pval = val.get("a", UNDEFINED)
     # .'$alternative'.'|'.0.a
     res = isinstance(pval, str)
     if not res:
@@ -141,16 +135,14 @@ def _jm_obj_3(val: Jsonable, path: Path, rep: Report) -> bool:
         return False
     pval: Jsonable
     res: bool
-    if not "t" in val:
+    if not ((pval := val.get("t", UNDEFINED)) != UNDEFINED):
         return False
-    pval = val.get("t", UNDEFINED)
     # .'$alternative'.'|'.1.t
     res = ((pval is None or isinstance(pval, (bool, int, float, str)))) and pval in _jm_cst_2
     if not res:
         return False
-    if not "bc" in val:
+    if not ((pval := val.get("bc", UNDEFINED)) != UNDEFINED):
         return False
-    pval = val.get("bc", UNDEFINED)
     # .'$alternative'.'|'.1.bc
     res = isinstance(pval, str)
     if not res:
@@ -166,16 +158,14 @@ def _jm_obj_4(val: Jsonable, path: Path, rep: Report) -> bool:
         return False
     pval: Jsonable
     res: bool
-    if not "t" in val:
+    if not ((pval := val.get("t", UNDEFINED)) != UNDEFINED):
         return False
-    pval = val.get("t", UNDEFINED)
     # .'$alternative'.'|'.2.t
     res = isinstance(pval, str) and pval == "g"
     if not res:
         return False
-    if not "g" in val:
+    if not ((pval := val.get("g", UNDEFINED)) != UNDEFINED):
         return False
-    pval = val.get("g", UNDEFINED)
     # .'$alternative'.'|'.2.g
     res = isinstance(pval, str)
     if not res:
@@ -191,16 +181,14 @@ def _jm_obj_5(val: Jsonable, path: Path, rep: Report) -> bool:
         return False
     pval: Jsonable
     res: bool
-    if not "t" in val:
+    if not ((pval := val.get("t", UNDEFINED)) != UNDEFINED):
         return False
-    pval = val.get("t", UNDEFINED)
     # .'$alternative'.'|'.3.t
     res = json_model_3(pval, None, rep)
     if not res:
         return False
-    if not "hi" in val:
+    if not ((pval := val.get("hi", UNDEFINED)) != UNDEFINED):
         return False
-    pval = val.get("hi", UNDEFINED)
     # .'$alternative'.'|'.3.hi
     res = isinstance(pval, str)
     if not res:

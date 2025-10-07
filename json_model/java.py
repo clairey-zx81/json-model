@@ -181,9 +181,12 @@ class Java(Language):
     def arr_item_val(self, arr: Var, idx: IntExpr) -> JsonExpr:
         return f"json.arrayItem({arr}, {idx})"
 
-    def obj_prop_val(self, obj: Var, prop: Expr, is_var: bool = False) -> JsonExpr:
+    def obj_prop_val(self, obj: Var, prop: str|StrExpr, is_var: bool = False) -> JsonExpr:
         return f"json.objectValue({obj}, {prop})" if is_var else \
                f"json.objectValue({obj}, {self.esc(prop)})"  # type: ignore
+
+    def obj_has_prop_val(self, dst: Var, obj: Var, prop: str|StrExpr, is_var: bool = False) -> BoolExpr:
+        return f"({dst} = {self.obj_prop_val(obj, prop, is_var)}) != null"
 
     def check_call(self, name: Var, val: JsonExpr, path: Var, *,
                    is_ptr: bool = False, is_raw: bool = False) -> BoolExpr:

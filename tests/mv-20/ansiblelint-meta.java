@@ -4289,10 +4289,9 @@ public class ansiblelint_meta extends ModelChecker
         Path lpath;
         Object pval;
         boolean res;
-        if (json.objectHasProp(val, "name"))
+        if ((pval = json.objectValue(val, "name")) != null)
         {
             lpath = new Path("name", path);
-            pval = json.objectValue(val, "name");
             // .'$platforms'.0.'|'.46.name
             res = json.isString(pval) && json.asString(pval).compareTo("Windows") == 0;
             if (! res)
@@ -4302,10 +4301,9 @@ public class ansiblelint_meta extends ModelChecker
                 return false;
             }
         }
-        if (json.objectHasProp(val, "versions"))
+        if ((pval = json.objectValue(val, "versions")) != null)
         {
             lpath = new Path("versions", path);
-            pval = json.objectValue(val, "versions");
             // .'$platforms'.0.'|'.46.versions
             res = json.isArray(pval);
             if (res)
@@ -4349,10 +4347,9 @@ public class ansiblelint_meta extends ModelChecker
         Path lpath;
         Object pval;
         boolean res;
-        if (json.objectHasProp(val, "name"))
+        if ((pval = json.objectValue(val, "name")) != null)
         {
             lpath = new Path("name", path);
-            pval = json.objectValue(val, "name");
             // .'$platforms'.0.'|'.45.name
             res = json.isString(pval) && json.asString(pval).compareTo("vSphere") == 0;
             if (! res)
@@ -4362,10 +4359,9 @@ public class ansiblelint_meta extends ModelChecker
                 return false;
             }
         }
-        if (json.objectHasProp(val, "versions"))
+        if ((pval = json.objectValue(val, "versions")) != null)
         {
             lpath = new Path("versions", path);
-            pval = json.objectValue(val, "versions");
             // .'$platforms'.0.'|'.45.versions
             res = json.isArray(pval);
             if (res)
@@ -4408,10 +4404,9 @@ public class ansiblelint_meta extends ModelChecker
         Path lpath;
         Object pval;
         boolean res;
-        if (json.objectHasProp(val, "name"))
+        if ((pval = json.objectValue(val, "name")) != null)
         {
             lpath = new Path("name", path);
-            pval = json.objectValue(val, "name");
             // .'$platforms'.0.'|'.44.name
             res = json.isString(pval) && json.asString(pval).compareTo("Void Linux") == 0;
             if (! res)
@@ -4421,10 +4416,9 @@ public class ansiblelint_meta extends ModelChecker
                 return false;
             }
         }
-        if (json.objectHasProp(val, "versions"))
+        if ((pval = json.objectValue(val, "versions")) != null)
         {
             lpath = new Path("versions", path);
-            pval = json.objectValue(val, "versions");
             // .'$platforms'.0.'|'.44.versions
             res = json.isArray(pval);
             if (res)
@@ -4468,10 +4462,9 @@ public class ansiblelint_meta extends ModelChecker
         Path lpath;
         Object pval;
         boolean res;
-        if (json.objectHasProp(val, "name"))
+        if ((pval = json.objectValue(val, "name")) != null)
         {
             lpath = new Path("name", path);
-            pval = json.objectValue(val, "name");
             // .'$platforms'.0.'|'.43.name
             res = json.isString(pval) && json.asString(pval).compareTo("vCenter") == 0;
             if (! res)
@@ -4481,10 +4474,9 @@ public class ansiblelint_meta extends ModelChecker
                 return false;
             }
         }
-        if (json.objectHasProp(val, "versions"))
+        if ((pval = json.objectValue(val, "versions")) != null)
         {
             lpath = new Path("versions", path);
-            pval = json.objectValue(val, "versions");
             // .'$platforms'.0.'|'.43.versions
             res = json.isArray(pval);
             if (res)
@@ -4528,10 +4520,9 @@ public class ansiblelint_meta extends ModelChecker
         Path lpath;
         Object pval;
         boolean res;
-        if (json.objectHasProp(val, "name"))
+        if ((pval = json.objectValue(val, "name")) != null)
         {
             lpath = new Path("name", path);
-            pval = json.objectValue(val, "name");
             // .'$platforms'.0.'|'.42.name
             res = json.isString(pval) && json.asString(pval).compareTo("Ubuntu") == 0;
             if (! res)
@@ -4541,10 +4532,9 @@ public class ansiblelint_meta extends ModelChecker
                 return false;
             }
         }
-        if (json.objectHasProp(val, "versions"))
+        if ((pval = json.objectValue(val, "versions")) != null)
         {
             lpath = new Path("versions", path);
-            pval = json.objectValue(val, "versions");
             // .'$platforms'.0.'|'.42.versions
             res = json.isArray(pval);
             if (res)
@@ -4588,10 +4578,9 @@ public class ansiblelint_meta extends ModelChecker
         Path lpath;
         Object pval;
         boolean res;
-        if (json.objectHasProp(val, "name"))
+        if ((pval = json.objectValue(val, "name")) != null)
         {
             lpath = new Path("name", path);
-            pval = json.objectValue(val, "name");
             // .'$platforms'.0.'|'.41.name
             res = json.isString(pval) && json.asString(pval).compareTo("TMOS") == 0;
             if (! res)
@@ -4601,10 +4590,9 @@ public class ansiblelint_meta extends ModelChecker
                 return false;
             }
         }
-        if (json.objectHasProp(val, "versions"))
+        if ((pval = json.objectValue(val, "versions")) != null)
         {
             lpath = new Path("versions", path);
-            pval = json.objectValue(val, "versions");
             // .'$platforms'.0.'|'.41.versions
             res = json.isArray(pval);
             if (res)
@@ -4648,10 +4636,9 @@ public class ansiblelint_meta extends ModelChecker
         Path lpath;
         Object pval;
         boolean res;
-        if (json.objectHasProp(val, "name"))
+        if ((pval = json.objectValue(val, "name")) != null)
         {
             lpath = new Path("name", path);
-            pval = json.objectValue(val, "name");
             // .'$platforms'.0.'|'.40.name
             res = json.isString(pval) && json.asString(pval).compareTo("Synology") == 0;
             if (! res)
@@ -4661,10 +4648,9 @@ public class ansiblelint_meta extends ModelChecker
                 return false;
             }
         }
-        if (json.objectHasProp(val, "versions"))
+        if ((pval = json.objectValue(val, "versions")) != null)
         {
             lpath = new Path("versions", path);
-            pval = json.objectValue(val, "versions");
             // .'$platforms'.0.'|'.40.versions
             res = json.isArray(pval);
             if (res)
@@ -4708,10 +4694,9 @@ public class ansiblelint_meta extends ModelChecker
         Path lpath;
         Object pval;
         boolean res;
-        if (json.objectHasProp(val, "name"))
+        if ((pval = json.objectValue(val, "name")) != null)
         {
             lpath = new Path("name", path);
-            pval = json.objectValue(val, "name");
             // .'$platforms'.0.'|'.39.name
             res = json.isString(pval) && json.asString(pval).compareTo("Solaris") == 0;
             if (! res)
@@ -4721,10 +4706,9 @@ public class ansiblelint_meta extends ModelChecker
                 return false;
             }
         }
-        if (json.objectHasProp(val, "versions"))
+        if ((pval = json.objectValue(val, "versions")) != null)
         {
             lpath = new Path("versions", path);
-            pval = json.objectValue(val, "versions");
             // .'$platforms'.0.'|'.39.versions
             res = json.isArray(pval);
             if (res)
@@ -4767,10 +4751,9 @@ public class ansiblelint_meta extends ModelChecker
         Path lpath;
         Object pval;
         boolean res;
-        if (json.objectHasProp(val, "name"))
+        if ((pval = json.objectValue(val, "name")) != null)
         {
             lpath = new Path("name", path);
-            pval = json.objectValue(val, "name");
             // .'$platforms'.0.'|'.38.name
             res = json.isString(pval) && json.asString(pval).compareTo("SmartOS") == 0;
             if (! res)
@@ -4780,10 +4763,9 @@ public class ansiblelint_meta extends ModelChecker
                 return false;
             }
         }
-        if (json.objectHasProp(val, "versions"))
+        if ((pval = json.objectValue(val, "versions")) != null)
         {
             lpath = new Path("versions", path);
-            pval = json.objectValue(val, "versions");
             // .'$platforms'.0.'|'.38.versions
             res = json.isArray(pval);
             if (res)
@@ -4827,10 +4809,9 @@ public class ansiblelint_meta extends ModelChecker
         Path lpath;
         Object pval;
         boolean res;
-        if (json.objectHasProp(val, "name"))
+        if ((pval = json.objectValue(val, "name")) != null)
         {
             lpath = new Path("name", path);
-            pval = json.objectValue(val, "name");
             // .'$platforms'.0.'|'.37.name
             res = json.isString(pval) && json.asString(pval).compareTo("SLES") == 0;
             if (! res)
@@ -4840,10 +4821,9 @@ public class ansiblelint_meta extends ModelChecker
                 return false;
             }
         }
-        if (json.objectHasProp(val, "versions"))
+        if ((pval = json.objectValue(val, "versions")) != null)
         {
             lpath = new Path("versions", path);
-            pval = json.objectValue(val, "versions");
             // .'$platforms'.0.'|'.37.versions
             res = json.isArray(pval);
             if (res)
@@ -4887,10 +4867,9 @@ public class ansiblelint_meta extends ModelChecker
         Path lpath;
         Object pval;
         boolean res;
-        if (json.objectHasProp(val, "name"))
+        if ((pval = json.objectValue(val, "name")) != null)
         {
             lpath = new Path("name", path);
-            pval = json.objectValue(val, "name");
             // .'$platforms'.0.'|'.36.name
             res = json.isString(pval) && json.asString(pval).compareTo("Rocky") == 0;
             if (! res)
@@ -4900,10 +4879,9 @@ public class ansiblelint_meta extends ModelChecker
                 return false;
             }
         }
-        if (json.objectHasProp(val, "versions"))
+        if ((pval = json.objectValue(val, "versions")) != null)
         {
             lpath = new Path("versions", path);
-            pval = json.objectValue(val, "versions");
             // .'$platforms'.0.'|'.36.versions
             res = json.isArray(pval);
             if (res)
@@ -4947,10 +4925,9 @@ public class ansiblelint_meta extends ModelChecker
         Path lpath;
         Object pval;
         boolean res;
-        if (json.objectHasProp(val, "name"))
+        if ((pval = json.objectValue(val, "name")) != null)
         {
             lpath = new Path("name", path);
-            pval = json.objectValue(val, "name");
             // .'$platforms'.0.'|'.35.name
             res = json.isString(pval) && json.asString(pval).compareTo("PAN-OS") == 0;
             if (! res)
@@ -4960,10 +4937,9 @@ public class ansiblelint_meta extends ModelChecker
                 return false;
             }
         }
-        if (json.objectHasProp(val, "versions"))
+        if ((pval = json.objectValue(val, "versions")) != null)
         {
             lpath = new Path("versions", path);
-            pval = json.objectValue(val, "versions");
             // .'$platforms'.0.'|'.35.versions
             res = json.isArray(pval);
             if (res)
@@ -5006,10 +4982,9 @@ public class ansiblelint_meta extends ModelChecker
         Path lpath;
         Object pval;
         boolean res;
-        if (json.objectHasProp(val, "name"))
+        if ((pval = json.objectValue(val, "name")) != null)
         {
             lpath = new Path("name", path);
-            pval = json.objectValue(val, "name");
             // .'$platforms'.0.'|'.34.name
             res = json.isString(pval) && json.asString(pval).compareTo("os10") == 0;
             if (! res)
@@ -5019,10 +4994,9 @@ public class ansiblelint_meta extends ModelChecker
                 return false;
             }
         }
-        if (json.objectHasProp(val, "versions"))
+        if ((pval = json.objectValue(val, "versions")) != null)
         {
             lpath = new Path("versions", path);
-            pval = json.objectValue(val, "versions");
             // .'$platforms'.0.'|'.34.versions
             res = json.isArray(pval);
             if (res)
@@ -5066,10 +5040,9 @@ public class ansiblelint_meta extends ModelChecker
         Path lpath;
         Object pval;
         boolean res;
-        if (json.objectHasProp(val, "name"))
+        if ((pval = json.objectValue(val, "name")) != null)
         {
             lpath = new Path("name", path);
-            pval = json.objectValue(val, "name");
             // .'$platforms'.0.'|'.33.name
             res = json.isString(pval) && json.asString(pval).compareTo("OracleLinux") == 0;
             if (! res)
@@ -5079,10 +5052,9 @@ public class ansiblelint_meta extends ModelChecker
                 return false;
             }
         }
-        if (json.objectHasProp(val, "versions"))
+        if ((pval = json.objectValue(val, "versions")) != null)
         {
             lpath = new Path("versions", path);
-            pval = json.objectValue(val, "versions");
             // .'$platforms'.0.'|'.33.versions
             res = json.isArray(pval);
             if (res)
@@ -5126,10 +5098,9 @@ public class ansiblelint_meta extends ModelChecker
         Path lpath;
         Object pval;
         boolean res;
-        if (json.objectHasProp(val, "name"))
+        if ((pval = json.objectValue(val, "name")) != null)
         {
             lpath = new Path("name", path);
-            pval = json.objectValue(val, "name");
             // .'$platforms'.0.'|'.32.name
             res = json.isString(pval) && json.asString(pval).compareTo("OpenWrt") == 0;
             if (! res)
@@ -5139,10 +5110,9 @@ public class ansiblelint_meta extends ModelChecker
                 return false;
             }
         }
-        if (json.objectHasProp(val, "versions"))
+        if ((pval = json.objectValue(val, "versions")) != null)
         {
             lpath = new Path("versions", path);
-            pval = json.objectValue(val, "versions");
             // .'$platforms'.0.'|'.32.versions
             res = json.isArray(pval);
             if (res)
@@ -5186,10 +5156,9 @@ public class ansiblelint_meta extends ModelChecker
         Path lpath;
         Object pval;
         boolean res;
-        if (json.objectHasProp(val, "name"))
+        if ((pval = json.objectValue(val, "name")) != null)
         {
             lpath = new Path("name", path);
-            pval = json.objectValue(val, "name");
             // .'$platforms'.0.'|'.31.name
             res = json.isString(pval) && json.asString(pval).compareTo("opensuse") == 0;
             if (! res)
@@ -5199,10 +5168,9 @@ public class ansiblelint_meta extends ModelChecker
                 return false;
             }
         }
-        if (json.objectHasProp(val, "versions"))
+        if ((pval = json.objectValue(val, "versions")) != null)
         {
             lpath = new Path("versions", path);
-            pval = json.objectValue(val, "versions");
             // .'$platforms'.0.'|'.31.versions
             res = json.isArray(pval);
             if (res)
@@ -5246,10 +5214,9 @@ public class ansiblelint_meta extends ModelChecker
         Path lpath;
         Object pval;
         boolean res;
-        if (json.objectHasProp(val, "name"))
+        if ((pval = json.objectValue(val, "name")) != null)
         {
             lpath = new Path("name", path);
-            pval = json.objectValue(val, "name");
             // .'$platforms'.0.'|'.30.name
             res = json.isString(pval) && json.asString(pval).compareTo("OpenBSD") == 0;
             if (! res)
@@ -5259,10 +5226,9 @@ public class ansiblelint_meta extends ModelChecker
                 return false;
             }
         }
-        if (json.objectHasProp(val, "versions"))
+        if ((pval = json.objectValue(val, "versions")) != null)
         {
             lpath = new Path("versions", path);
-            pval = json.objectValue(val, "versions");
             // .'$platforms'.0.'|'.30.versions
             res = json.isArray(pval);
             if (res)
@@ -5305,10 +5271,9 @@ public class ansiblelint_meta extends ModelChecker
         Path lpath;
         Object pval;
         boolean res;
-        if (json.objectHasProp(val, "name"))
+        if ((pval = json.objectValue(val, "name")) != null)
         {
             lpath = new Path("name", path);
-            pval = json.objectValue(val, "name");
             // .'$platforms'.0.'|'.29.name
             res = json.isString(pval) && json.asString(pval).compareTo("NXOS") == 0;
             if (! res)
@@ -5318,10 +5283,9 @@ public class ansiblelint_meta extends ModelChecker
                 return false;
             }
         }
-        if (json.objectHasProp(val, "versions"))
+        if ((pval = json.objectValue(val, "versions")) != null)
         {
             lpath = new Path("versions", path);
-            pval = json.objectValue(val, "versions");
             // .'$platforms'.0.'|'.29.versions
             res = json.isArray(pval);
             if (res)
@@ -5365,10 +5329,9 @@ public class ansiblelint_meta extends ModelChecker
         Path lpath;
         Object pval;
         boolean res;
-        if (json.objectHasProp(val, "name"))
+        if ((pval = json.objectValue(val, "name")) != null)
         {
             lpath = new Path("name", path);
-            pval = json.objectValue(val, "name");
             // .'$platforms'.0.'|'.28.name
             res = json.isString(pval) && json.asString(pval).compareTo("Megeia") == 0;
             if (! res)
@@ -5378,10 +5341,9 @@ public class ansiblelint_meta extends ModelChecker
                 return false;
             }
         }
-        if (json.objectHasProp(val, "versions"))
+        if ((pval = json.objectValue(val, "versions")) != null)
         {
             lpath = new Path("versions", path);
-            pval = json.objectValue(val, "versions");
             // .'$platforms'.0.'|'.28.versions
             res = json.isArray(pval);
             if (res)
@@ -5425,10 +5387,9 @@ public class ansiblelint_meta extends ModelChecker
         Path lpath;
         Object pval;
         boolean res;
-        if (json.objectHasProp(val, "name"))
+        if ((pval = json.objectValue(val, "name")) != null)
         {
             lpath = new Path("name", path);
-            pval = json.objectValue(val, "name");
             // .'$platforms'.0.'|'.27.name
             res = json.isString(pval) && json.asString(pval).compareTo("Kali") == 0;
             if (! res)
@@ -5438,10 +5399,9 @@ public class ansiblelint_meta extends ModelChecker
                 return false;
             }
         }
-        if (json.objectHasProp(val, "versions"))
+        if ((pval = json.objectValue(val, "versions")) != null)
         {
             lpath = new Path("versions", path);
-            pval = json.objectValue(val, "versions");
             // .'$platforms'.0.'|'.27.versions
             res = json.isArray(pval);
             if (res)
@@ -5485,10 +5445,9 @@ public class ansiblelint_meta extends ModelChecker
         Path lpath;
         Object pval;
         boolean res;
-        if (json.objectHasProp(val, "name"))
+        if ((pval = json.objectValue(val, "name")) != null)
         {
             lpath = new Path("name", path);
-            pval = json.objectValue(val, "name");
             // .'$platforms'.0.'|'.26.name
             res = json.isString(pval) && json.asString(pval).compareTo("macOS") == 0;
             if (! res)
@@ -5498,10 +5457,9 @@ public class ansiblelint_meta extends ModelChecker
                 return false;
             }
         }
-        if (json.objectHasProp(val, "versions"))
+        if ((pval = json.objectValue(val, "versions")) != null)
         {
             lpath = new Path("versions", path);
-            pval = json.objectValue(val, "versions");
             // .'$platforms'.0.'|'.26.versions
             res = json.isArray(pval);
             if (res)
@@ -5545,10 +5503,9 @@ public class ansiblelint_meta extends ModelChecker
         Path lpath;
         Object pval;
         boolean res;
-        if (json.objectHasProp(val, "name"))
+        if ((pval = json.objectValue(val, "name")) != null)
         {
             lpath = new Path("name", path);
-            pval = json.objectValue(val, "name");
             // .'$platforms'.0.'|'.25.name
             res = json.isString(pval) && json.asString(pval).compareTo("Kali") == 0;
             if (! res)
@@ -5558,10 +5515,9 @@ public class ansiblelint_meta extends ModelChecker
                 return false;
             }
         }
-        if (json.objectHasProp(val, "versions"))
+        if ((pval = json.objectValue(val, "versions")) != null)
         {
             lpath = new Path("versions", path);
-            pval = json.objectValue(val, "versions");
             // .'$platforms'.0.'|'.25.versions
             res = json.isArray(pval);
             if (res)
@@ -5604,10 +5560,9 @@ public class ansiblelint_meta extends ModelChecker
         Path lpath;
         Object pval;
         boolean res;
-        if (json.objectHasProp(val, "name"))
+        if ((pval = json.objectValue(val, "name")) != null)
         {
             lpath = new Path("name", path);
-            pval = json.objectValue(val, "name");
             // .'$platforms'.0.'|'.24.name
             res = json.isString(pval) && json.asString(pval).compareTo("Junos") == 0;
             if (! res)
@@ -5617,10 +5572,9 @@ public class ansiblelint_meta extends ModelChecker
                 return false;
             }
         }
-        if (json.objectHasProp(val, "versions"))
+        if ((pval = json.objectValue(val, "versions")) != null)
         {
             lpath = new Path("versions", path);
-            pval = json.objectValue(val, "versions");
             // .'$platforms'.0.'|'.24.versions
             res = json.isArray(pval);
             if (res)
@@ -5663,10 +5617,9 @@ public class ansiblelint_meta extends ModelChecker
         Path lpath;
         Object pval;
         boolean res;
-        if (json.objectHasProp(val, "name"))
+        if ((pval = json.objectValue(val, "name")) != null)
         {
             lpath = new Path("name", path);
-            pval = json.objectValue(val, "name");
             // .'$platforms'.0.'|'.23.name
             res = json.isString(pval) && json.asString(pval).compareTo("IOS") == 0;
             if (! res)
@@ -5676,10 +5629,9 @@ public class ansiblelint_meta extends ModelChecker
                 return false;
             }
         }
-        if (json.objectHasProp(val, "versions"))
+        if ((pval = json.objectValue(val, "versions")) != null)
         {
             lpath = new Path("versions", path);
-            pval = json.objectValue(val, "versions");
             // .'$platforms'.0.'|'.23.versions
             res = json.isArray(pval);
             if (res)
@@ -5723,10 +5675,9 @@ public class ansiblelint_meta extends ModelChecker
         Path lpath;
         Object pval;
         boolean res;
-        if (json.objectHasProp(val, "name"))
+        if ((pval = json.objectValue(val, "name")) != null)
         {
             lpath = new Path("name", path);
-            pval = json.objectValue(val, "name");
             // .'$platforms'.0.'|'.22.name
             res = json.isString(pval) && json.asString(pval).compareTo("HardenedBSD") == 0;
             if (! res)
@@ -5736,10 +5687,9 @@ public class ansiblelint_meta extends ModelChecker
                 return false;
             }
         }
-        if (json.objectHasProp(val, "versions"))
+        if ((pval = json.objectValue(val, "versions")) != null)
         {
             lpath = new Path("versions", path);
-            pval = json.objectValue(val, "versions");
             // .'$platforms'.0.'|'.22.versions
             res = json.isArray(pval);
             if (res)
@@ -5782,10 +5732,9 @@ public class ansiblelint_meta extends ModelChecker
         Path lpath;
         Object pval;
         boolean res;
-        if (json.objectHasProp(val, "name"))
+        if ((pval = json.objectValue(val, "name")) != null)
         {
             lpath = new Path("name", path);
-            pval = json.objectValue(val, "name");
             // .'$platforms'.0.'|'.21.name
             res = json.isString(pval) && json.asString(pval).compareTo("Gentoo") == 0;
             if (! res)
@@ -5795,10 +5744,9 @@ public class ansiblelint_meta extends ModelChecker
                 return false;
             }
         }
-        if (json.objectHasProp(val, "versions"))
+        if ((pval = json.objectValue(val, "versions")) != null)
         {
             lpath = new Path("versions", path);
-            pval = json.objectValue(val, "versions");
             // .'$platforms'.0.'|'.21.versions
             res = json.isArray(pval);
             if (res)
@@ -5841,10 +5789,9 @@ public class ansiblelint_meta extends ModelChecker
         Path lpath;
         Object pval;
         boolean res;
-        if (json.objectHasProp(val, "name"))
+        if ((pval = json.objectValue(val, "name")) != null)
         {
             lpath = new Path("name", path);
-            pval = json.objectValue(val, "name");
             // .'$platforms'.0.'|'.20.name
             res = json.isString(pval) && json.asString(pval).compareTo("GenericUNIX") == 0;
             if (! res)
@@ -5854,10 +5801,9 @@ public class ansiblelint_meta extends ModelChecker
                 return false;
             }
         }
-        if (json.objectHasProp(val, "versions"))
+        if ((pval = json.objectValue(val, "versions")) != null)
         {
             lpath = new Path("versions", path);
-            pval = json.objectValue(val, "versions");
             // .'$platforms'.0.'|'.20.versions
             res = json.isArray(pval);
             if (res)
@@ -5900,10 +5846,9 @@ public class ansiblelint_meta extends ModelChecker
         Path lpath;
         Object pval;
         boolean res;
-        if (json.objectHasProp(val, "name"))
+        if ((pval = json.objectValue(val, "name")) != null)
         {
             lpath = new Path("name", path);
-            pval = json.objectValue(val, "name");
             // .'$platforms'.0.'|'.19.name
             res = json.isString(pval) && json.asString(pval).compareTo("GenericLinux") == 0;
             if (! res)
@@ -5913,10 +5858,9 @@ public class ansiblelint_meta extends ModelChecker
                 return false;
             }
         }
-        if (json.objectHasProp(val, "versions"))
+        if ((pval = json.objectValue(val, "versions")) != null)
         {
             lpath = new Path("versions", path);
-            pval = json.objectValue(val, "versions");
             // .'$platforms'.0.'|'.19.versions
             res = json.isArray(pval);
             if (res)
@@ -5959,10 +5903,9 @@ public class ansiblelint_meta extends ModelChecker
         Path lpath;
         Object pval;
         boolean res;
-        if (json.objectHasProp(val, "name"))
+        if ((pval = json.objectValue(val, "name")) != null)
         {
             lpath = new Path("name", path);
-            pval = json.objectValue(val, "name");
             // .'$platforms'.0.'|'.18.name
             res = json.isString(pval) && json.asString(pval).compareTo("GenericBSD") == 0;
             if (! res)
@@ -5972,10 +5915,9 @@ public class ansiblelint_meta extends ModelChecker
                 return false;
             }
         }
-        if (json.objectHasProp(val, "versions"))
+        if ((pval = json.objectValue(val, "versions")) != null)
         {
             lpath = new Path("versions", path);
-            pval = json.objectValue(val, "versions");
             // .'$platforms'.0.'|'.18.versions
             res = json.isArray(pval);
             if (res)
@@ -6019,10 +5961,9 @@ public class ansiblelint_meta extends ModelChecker
         Path lpath;
         Object pval;
         boolean res;
-        if (json.objectHasProp(val, "name"))
+        if ((pval = json.objectValue(val, "name")) != null)
         {
             lpath = new Path("name", path);
-            pval = json.objectValue(val, "name");
             // .'$platforms'.0.'|'.17.name
             res = json.isString(pval) && json.asString(pval).compareTo("FreeBSD") == 0;
             if (! res)
@@ -6032,10 +5973,9 @@ public class ansiblelint_meta extends ModelChecker
                 return false;
             }
         }
-        if (json.objectHasProp(val, "versions"))
+        if ((pval = json.objectValue(val, "versions")) != null)
         {
             lpath = new Path("versions", path);
-            pval = json.objectValue(val, "versions");
             // .'$platforms'.0.'|'.17.versions
             res = json.isArray(pval);
             if (res)
@@ -6079,10 +6019,9 @@ public class ansiblelint_meta extends ModelChecker
         Path lpath;
         Object pval;
         boolean res;
-        if (json.objectHasProp(val, "name"))
+        if ((pval = json.objectValue(val, "name")) != null)
         {
             lpath = new Path("name", path);
-            pval = json.objectValue(val, "name");
             // .'$platforms'.0.'|'.16.name
             res = json.isString(pval) && json.asString(pval).compareTo("Fedora") == 0;
             if (! res)
@@ -6092,10 +6031,9 @@ public class ansiblelint_meta extends ModelChecker
                 return false;
             }
         }
-        if (json.objectHasProp(val, "versions"))
+        if ((pval = json.objectValue(val, "versions")) != null)
         {
             lpath = new Path("versions", path);
-            pval = json.objectValue(val, "versions");
             // .'$platforms'.0.'|'.16.versions
             res = json.isArray(pval);
             if (res)
@@ -6138,10 +6076,9 @@ public class ansiblelint_meta extends ModelChecker
         Path lpath;
         Object pval;
         boolean res;
-        if (json.objectHasProp(val, "name"))
+        if ((pval = json.objectValue(val, "name")) != null)
         {
             lpath = new Path("name", path);
-            pval = json.objectValue(val, "name");
             // .'$platforms'.0.'|'.15.name
             res = json.isString(pval) && json.asString(pval).compareTo("eos") == 0;
             if (! res)
@@ -6151,10 +6088,9 @@ public class ansiblelint_meta extends ModelChecker
                 return false;
             }
         }
-        if (json.objectHasProp(val, "versions"))
+        if ((pval = json.objectValue(val, "versions")) != null)
         {
             lpath = new Path("versions", path);
-            pval = json.objectValue(val, "versions");
             // .'$platforms'.0.'|'.15.versions
             res = json.isArray(pval);
             if (res)
@@ -6198,10 +6134,9 @@ public class ansiblelint_meta extends ModelChecker
         Path lpath;
         Object pval;
         boolean res;
-        if (json.objectHasProp(val, "name"))
+        if ((pval = json.objectValue(val, "name")) != null)
         {
             lpath = new Path("name", path);
-            pval = json.objectValue(val, "name");
             // .'$platforms'.0.'|'.14.name
             res = json.isString(pval) && json.asString(pval).compareTo("EL") == 0;
             if (! res)
@@ -6211,10 +6146,9 @@ public class ansiblelint_meta extends ModelChecker
                 return false;
             }
         }
-        if (json.objectHasProp(val, "versions"))
+        if ((pval = json.objectValue(val, "versions")) != null)
         {
             lpath = new Path("versions", path);
-            pval = json.objectValue(val, "versions");
             // .'$platforms'.0.'|'.14.versions
             res = json.isArray(pval);
             if (res)
@@ -6258,10 +6192,9 @@ public class ansiblelint_meta extends ModelChecker
         Path lpath;
         Object pval;
         boolean res;
-        if (json.objectHasProp(val, "name"))
+        if ((pval = json.objectValue(val, "name")) != null)
         {
             lpath = new Path("name", path);
-            pval = json.objectValue(val, "name");
             // .'$platforms'.0.'|'.13.name
             res = json.isString(pval) && json.asString(pval).compareTo("DragonFlyBSD") == 0;
             if (! res)
@@ -6271,10 +6204,9 @@ public class ansiblelint_meta extends ModelChecker
                 return false;
             }
         }
-        if (json.objectHasProp(val, "versions"))
+        if ((pval = json.objectValue(val, "versions")) != null)
         {
             lpath = new Path("versions", path);
-            pval = json.objectValue(val, "versions");
             // .'$platforms'.0.'|'.13.versions
             res = json.isArray(pval);
             if (res)
@@ -6318,10 +6250,9 @@ public class ansiblelint_meta extends ModelChecker
         Path lpath;
         Object pval;
         boolean res;
-        if (json.objectHasProp(val, "name"))
+        if ((pval = json.objectValue(val, "name")) != null)
         {
             lpath = new Path("name", path);
-            pval = json.objectValue(val, "name");
             // .'$platforms'.0.'|'.12.name
             res = json.isString(pval) && json.asString(pval).compareTo("Devuan") == 0;
             if (! res)
@@ -6331,10 +6262,9 @@ public class ansiblelint_meta extends ModelChecker
                 return false;
             }
         }
-        if (json.objectHasProp(val, "versions"))
+        if ((pval = json.objectValue(val, "versions")) != null)
         {
             lpath = new Path("versions", path);
-            pval = json.objectValue(val, "versions");
             // .'$platforms'.0.'|'.12.versions
             res = json.isArray(pval);
             if (res)
@@ -6378,10 +6308,9 @@ public class ansiblelint_meta extends ModelChecker
         Path lpath;
         Object pval;
         boolean res;
-        if (json.objectHasProp(val, "name"))
+        if ((pval = json.objectValue(val, "name")) != null)
         {
             lpath = new Path("name", path);
-            pval = json.objectValue(val, "name");
             // .'$platforms'.0.'|'.11.name
             res = json.isString(pval) && json.asString(pval).compareTo("DellOS") == 0;
             if (! res)
@@ -6391,10 +6320,9 @@ public class ansiblelint_meta extends ModelChecker
                 return false;
             }
         }
-        if (json.objectHasProp(val, "versions"))
+        if ((pval = json.objectValue(val, "versions")) != null)
         {
             lpath = new Path("versions", path);
-            pval = json.objectValue(val, "versions");
             // .'$platforms'.0.'|'.11.versions
             res = json.isArray(pval);
             if (res)
@@ -6438,10 +6366,9 @@ public class ansiblelint_meta extends ModelChecker
         Path lpath;
         Object pval;
         boolean res;
-        if (json.objectHasProp(val, "name"))
+        if ((pval = json.objectValue(val, "name")) != null)
         {
             lpath = new Path("name", path);
-            pval = json.objectValue(val, "name");
             // .'$platforms'.0.'|'.10.name
             res = json.isString(pval) && json.asString(pval).compareTo("Debian") == 0;
             if (! res)
@@ -6451,10 +6378,9 @@ public class ansiblelint_meta extends ModelChecker
                 return false;
             }
         }
-        if (json.objectHasProp(val, "versions"))
+        if ((pval = json.objectValue(val, "versions")) != null)
         {
             lpath = new Path("versions", path);
-            pval = json.objectValue(val, "versions");
             // .'$platforms'.0.'|'.10.versions
             res = json.isArray(pval);
             if (res)
@@ -6498,10 +6424,9 @@ public class ansiblelint_meta extends ModelChecker
         Path lpath;
         Object pval;
         boolean res;
-        if (json.objectHasProp(val, "name"))
+        if ((pval = json.objectValue(val, "name")) != null)
         {
             lpath = new Path("name", path);
-            pval = json.objectValue(val, "name");
             // .'$platforms'.0.'|'.9.name
             res = json.isString(pval) && json.asString(pval).compareTo("NetBSD") == 0;
             if (! res)
@@ -6511,10 +6436,9 @@ public class ansiblelint_meta extends ModelChecker
                 return false;
             }
         }
-        if (json.objectHasProp(val, "versions"))
+        if ((pval = json.objectValue(val, "versions")) != null)
         {
             lpath = new Path("versions", path);
-            pval = json.objectValue(val, "versions");
             // .'$platforms'.0.'|'.9.versions
             res = json.isArray(pval);
             if (res)
@@ -6558,10 +6482,9 @@ public class ansiblelint_meta extends ModelChecker
         Path lpath;
         Object pval;
         boolean res;
-        if (json.objectHasProp(val, "name"))
+        if ((pval = json.objectValue(val, "name")) != null)
         {
             lpath = new Path("name", path);
-            pval = json.objectValue(val, "name");
             // .'$platforms'.0.'|'.8.name
             res = json.isString(pval) && json.asString(pval).compareTo("Cumulus") == 0;
             if (! res)
@@ -6571,10 +6494,9 @@ public class ansiblelint_meta extends ModelChecker
                 return false;
             }
         }
-        if (json.objectHasProp(val, "versions"))
+        if ((pval = json.objectValue(val, "versions")) != null)
         {
             lpath = new Path("versions", path);
-            pval = json.objectValue(val, "versions");
             // .'$platforms'.0.'|'.8.versions
             res = json.isArray(pval);
             if (res)
@@ -6617,10 +6539,9 @@ public class ansiblelint_meta extends ModelChecker
         Path lpath;
         Object pval;
         boolean res;
-        if (json.objectHasProp(val, "name"))
+        if ((pval = json.objectValue(val, "name")) != null)
         {
             lpath = new Path("name", path);
-            pval = json.objectValue(val, "name");
             // .'$platforms'.0.'|'.7.name
             res = json.isString(pval) && json.asString(pval).compareTo("ClearLinux") == 0;
             if (! res)
@@ -6630,10 +6551,9 @@ public class ansiblelint_meta extends ModelChecker
                 return false;
             }
         }
-        if (json.objectHasProp(val, "versions"))
+        if ((pval = json.objectValue(val, "versions")) != null)
         {
             lpath = new Path("versions", path);
-            pval = json.objectValue(val, "versions");
             // .'$platforms'.0.'|'.7.versions
             res = json.isArray(pval);
             if (res)
@@ -6677,10 +6597,9 @@ public class ansiblelint_meta extends ModelChecker
         Path lpath;
         Object pval;
         boolean res;
-        if (json.objectHasProp(val, "name"))
+        if ((pval = json.objectValue(val, "name")) != null)
         {
             lpath = new Path("name", path);
-            pval = json.objectValue(val, "name");
             // .'$platforms'.0.'|'.6.name
             res = json.isString(pval) && json.asString(pval).compareTo("Astra Linux") == 0;
             if (! res)
@@ -6690,10 +6609,9 @@ public class ansiblelint_meta extends ModelChecker
                 return false;
             }
         }
-        if (json.objectHasProp(val, "versions"))
+        if ((pval = json.objectValue(val, "versions")) != null)
         {
             lpath = new Path("versions", path);
-            pval = json.objectValue(val, "versions");
             // .'$platforms'.0.'|'.6.versions
             res = json.isArray(pval);
             if (res)
@@ -6736,10 +6654,9 @@ public class ansiblelint_meta extends ModelChecker
         Path lpath;
         Object pval;
         boolean res;
-        if (json.objectHasProp(val, "name"))
+        if ((pval = json.objectValue(val, "name")) != null)
         {
             lpath = new Path("name", path);
-            pval = json.objectValue(val, "name");
             // .'$platforms'.0.'|'.5.name
             res = json.isString(pval) && json.asString(pval).compareTo("ArchLinux") == 0;
             if (! res)
@@ -6749,10 +6666,9 @@ public class ansiblelint_meta extends ModelChecker
                 return false;
             }
         }
-        if (json.objectHasProp(val, "versions"))
+        if ((pval = json.objectValue(val, "versions")) != null)
         {
             lpath = new Path("versions", path);
-            pval = json.objectValue(val, "versions");
             // .'$platforms'.0.'|'.5.versions
             res = json.isArray(pval);
             if (res)
@@ -6795,10 +6711,9 @@ public class ansiblelint_meta extends ModelChecker
         Path lpath;
         Object pval;
         boolean res;
-        if (json.objectHasProp(val, "name"))
+        if ((pval = json.objectValue(val, "name")) != null)
         {
             lpath = new Path("name", path);
-            pval = json.objectValue(val, "name");
             // .'$platforms'.0.'|'.4.name
             res = json.isString(pval) && json.asString(pval).compareTo("aos") == 0;
             if (! res)
@@ -6808,10 +6723,9 @@ public class ansiblelint_meta extends ModelChecker
                 return false;
             }
         }
-        if (json.objectHasProp(val, "versions"))
+        if ((pval = json.objectValue(val, "versions")) != null)
         {
             lpath = new Path("versions", path);
-            pval = json.objectValue(val, "versions");
             // .'$platforms'.0.'|'.4.versions
             res = json.isArray(pval);
             if (res)
@@ -6855,10 +6769,9 @@ public class ansiblelint_meta extends ModelChecker
         Path lpath;
         Object pval;
         boolean res;
-        if (json.objectHasProp(val, "name"))
+        if ((pval = json.objectValue(val, "name")) != null)
         {
             lpath = new Path("name", path);
-            pval = json.objectValue(val, "name");
             // .'$platforms'.0.'|'.3.name
             res = json.isString(pval) && json.asString(pval).compareTo("Amazon Linux") == 0;
             if (! res)
@@ -6868,10 +6781,9 @@ public class ansiblelint_meta extends ModelChecker
                 return false;
             }
         }
-        if (json.objectHasProp(val, "versions"))
+        if ((pval = json.objectValue(val, "versions")) != null)
         {
             lpath = new Path("versions", path);
-            pval = json.objectValue(val, "versions");
             // .'$platforms'.0.'|'.3.versions
             res = json.isArray(pval);
             if (res)
@@ -6915,10 +6827,9 @@ public class ansiblelint_meta extends ModelChecker
         Path lpath;
         Object pval;
         boolean res;
-        if (json.objectHasProp(val, "name"))
+        if ((pval = json.objectValue(val, "name")) != null)
         {
             lpath = new Path("name", path);
-            pval = json.objectValue(val, "name");
             // .'$platforms'.0.'|'.2.name
             res = json.isString(pval) && json.asString(pval).compareTo("Amazon") == 0;
             if (! res)
@@ -6928,10 +6839,9 @@ public class ansiblelint_meta extends ModelChecker
                 return false;
             }
         }
-        if (json.objectHasProp(val, "versions"))
+        if ((pval = json.objectValue(val, "versions")) != null)
         {
             lpath = new Path("versions", path);
-            pval = json.objectValue(val, "versions");
             // .'$platforms'.0.'|'.2.versions
             res = json.isArray(pval);
             if (res)
@@ -6974,10 +6884,9 @@ public class ansiblelint_meta extends ModelChecker
         Path lpath;
         Object pval;
         boolean res;
-        if (json.objectHasProp(val, "name"))
+        if ((pval = json.objectValue(val, "name")) != null)
         {
             lpath = new Path("name", path);
-            pval = json.objectValue(val, "name");
             // .'$platforms'.0.'|'.1.name
             res = json.isString(pval) && json.asString(pval).compareTo("Alpine") == 0;
             if (! res)
@@ -6987,10 +6896,9 @@ public class ansiblelint_meta extends ModelChecker
                 return false;
             }
         }
-        if (json.objectHasProp(val, "versions"))
+        if ((pval = json.objectValue(val, "versions")) != null)
         {
             lpath = new Path("versions", path);
-            pval = json.objectValue(val, "versions");
             // .'$platforms'.0.'|'.1.versions
             res = json.isArray(pval);
             if (res)
@@ -7034,10 +6942,9 @@ public class ansiblelint_meta extends ModelChecker
         Path lpath;
         Object pval;
         boolean res;
-        if (json.objectHasProp(val, "name"))
+        if ((pval = json.objectValue(val, "name")) != null)
         {
             lpath = new Path("name", path);
-            pval = json.objectValue(val, "name");
             // .'$platforms'.0.'|'.0.name
             res = json.isString(pval) && json.asString(pval).compareTo("AIX") == 0;
             if (! res)
@@ -7047,10 +6954,9 @@ public class ansiblelint_meta extends ModelChecker
                 return false;
             }
         }
-        if (json.objectHasProp(val, "versions"))
+        if ((pval = json.objectValue(val, "versions")) != null)
         {
             lpath = new Path("versions", path);
-            pval = json.objectValue(val, "versions");
             // .'$platforms'.0.'|'.0.versions
             res = json.isArray(pval);
             if (res)
@@ -9041,13 +8947,12 @@ public class ansiblelint_meta extends ModelChecker
         Path lpath;
         Object pval;
         boolean res;
-        if (! json.objectHasProp(val, "name"))
+        if (! ((pval = json.objectValue(val, "name")) != null))
         {
             if (rep != null) rep.addEntry("missing mandatory prop <name> [.'$DependencyModel'.'&'.1.'|'.2]", path);
             return false;
         }
         lpath = new Path("name", path);
-        pval = json.objectValue(val, "name");
         // .'$DependencyModel'.'&'.1.'|'.2.name
         res = json.isString(pval);
         if (! res)
@@ -9071,13 +8976,12 @@ public class ansiblelint_meta extends ModelChecker
         Path lpath;
         Object pval;
         boolean res;
-        if (! json.objectHasProp(val, "src"))
+        if (! ((pval = json.objectValue(val, "src")) != null))
         {
             if (rep != null) rep.addEntry("missing mandatory prop <src> [.'$DependencyModel'.'&'.1.'|'.1]", path);
             return false;
         }
         lpath = new Path("src", path);
-        pval = json.objectValue(val, "src");
         // .'$DependencyModel'.'&'.1.'|'.1.src
         res = json.isString(pval);
         if (! res)
@@ -9101,13 +9005,12 @@ public class ansiblelint_meta extends ModelChecker
         Path lpath;
         Object pval;
         boolean res;
-        if (! json.objectHasProp(val, "role"))
+        if (! ((pval = json.objectValue(val, "role")) != null))
         {
             if (rep != null) rep.addEntry("missing mandatory prop <role> [.'$DependencyModel'.'&'.1.'|'.0]", path);
             return false;
         }
         lpath = new Path("role", path);
-        pval = json.objectValue(val, "role");
         // .'$DependencyModel'.'&'.1.'|'.0.role
         res = json.isString(pval);
         if (! res)

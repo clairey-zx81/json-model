@@ -62,13 +62,12 @@ public class root_3 extends ModelChecker
         Path lpath;
         Object pval;
         boolean res;
-        if (! json.objectHasProp(val, "rt"))
+        if (! ((pval = json.objectValue(val, "rt")) != null))
         {
             if (rep != null) rep.addEntry("missing mandatory prop <rt> [.'$foo#Foo']", path);
             return false;
         }
         lpath = new Path("rt", path);
-        pval = json.objectValue(val, "rt");
         // .'$foo#Foo'.rt
         res = _jm_obj_1(pval, (path != null ? lpath : null), rep);
         if (! res)
@@ -110,13 +109,12 @@ public class root_3 extends ModelChecker
         Path lpath;
         Object pval;
         boolean res;
-        if (! json.objectHasProp(val, "id"))
+        if (! ((pval = json.objectValue(val, "id")) != null))
         {
             if (rep != null) rep.addEntry("missing mandatory prop <id> [.'$foo#root#root#Root']", path);
             return false;
         }
         lpath = new Path("id", path);
-        pval = json.objectValue(val, "id");
         // .'$foo#root#root#Root'.id
         res = json.isInteger(pval) && json.asLong(pval) == 1;
         if (! res)
@@ -125,13 +123,12 @@ public class root_3 extends ModelChecker
             if (rep != null) rep.addEntry("unexpected value for mandatory prop <id> [.'$foo#root#root#Root']", (path != null ? lpath : null));
             return false;
         }
-        if (! json.objectHasProp(val, "name"))
+        if (! ((pval = json.objectValue(val, "name")) != null))
         {
             if (rep != null) rep.addEntry("missing mandatory prop <name> [.'$foo#root#root#Root']", path);
             return false;
         }
         lpath = new Path("name", path);
-        pval = json.objectValue(val, "name");
         // .'$foo#root#root#Root'.name
         res = json.isString(pval);
         if (! res)

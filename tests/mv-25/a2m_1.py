@@ -29,8 +29,7 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
         return False
     pval: Jsonable
     res: bool
-    if "a" in val:
-        pval = val.get("a", UNDEFINED)
+    if (pval := val.get("a", UNDEFINED)) != UNDEFINED:
         # .'$Oa'.a
         res = isinstance(pval, int) and not isinstance(pval, bool) and pval >= 0
         if not res:
@@ -51,8 +50,7 @@ def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
         return False
     pval: Jsonable
     res: bool
-    if "b" in val:
-        pval = val.get("b", UNDEFINED)
+    if (pval := val.get("b", UNDEFINED)) != UNDEFINED:
         # .'$Ob'.b
         res = isinstance(pval, int) and not isinstance(pval, bool) and pval >= 0
         if not res:
@@ -73,14 +71,12 @@ def _jm_obj_2(val: Jsonable, path: Path, rep: Report) -> bool:
         return False
     pval: Jsonable
     res: bool
-    if "a" in val:
-        pval = val.get("a", UNDEFINED)
+    if (pval := val.get("a", UNDEFINED)) != UNDEFINED:
         # .'$merge'.a
         res = isinstance(pval, int) and not isinstance(pval, bool) and pval >= 0
         if not res:
             return False
-    if "b" in val:
-        pval = val.get("b", UNDEFINED)
+    if (pval := val.get("b", UNDEFINED)) != UNDEFINED:
         # .'$merge'.b
         res = isinstance(pval, int) and not isinstance(pval, bool) and pval >= 0
         if not res:
@@ -103,9 +99,8 @@ def _jm_obj_3(val: Jsonable, path: Path, rep: Report) -> bool:
         return False
     pval: Jsonable
     res: bool
-    if not "c" in val:
+    if not ((pval := val.get("c", UNDEFINED)) != UNDEFINED):
         return False
-    pval = val.get("c", UNDEFINED)
     # .'$nomerge'.'&'.1.c
     res = isinstance(pval, int) and not isinstance(pval, bool) and pval >= 1
     if not res:

@@ -80,13 +80,12 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         Path lpath;
         Object pval;
         boolean res;
-        if (! json.objectHasProp(val, "$schema"))
+        if (! ((pval = json.objectValue(val, "$schema")) != null))
         {
             if (rep != null) rep.addEntry("missing mandatory prop <$schema> [.'$tight#RootSchema'.'&'.0]", path);
             return false;
         }
         lpath = new Path("$schema", path);
-        pval = json.objectValue(val, "$schema");
         // .'$tight#RootSchema'.'&'.0.'$schema'
         res = json.isString(pval);
         if (! res)

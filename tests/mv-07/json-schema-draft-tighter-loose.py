@@ -72,11 +72,10 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
     lpath: Path
     pval: Jsonable
     res: bool
-    if not "$schema" in val:
+    if not ((pval := val.get("$schema", UNDEFINED)) != UNDEFINED):
         rep is None or rep.append(("missing mandatory prop <$schema> [.'$tight#RootSchema'.'&'.0]", path))
         return False
     lpath = (path + [ "$schema" ]) if path is not None else None
-    pval = val.get("$schema", UNDEFINED)
     # .'$tight#RootSchema'.'&'.0.'$schema'
     res = isinstance(pval, str)
     if not res:

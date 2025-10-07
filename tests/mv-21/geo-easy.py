@@ -101,31 +101,28 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
     lpath: Path
     pval: Jsonable
     res: bool
-    if not "type" in val:
+    if not ((pval := val.get("type", UNDEFINED)) != UNDEFINED):
         rep is None or rep.append(("missing mandatory prop <type> [.'$Point']", path))
         return False
     lpath = (path + [ "type" ]) if path is not None else None
-    pval = val.get("type", UNDEFINED)
     # .'$Point'.type
     res = isinstance(pval, str) and pval == "Point"
     if not res:
         rep is None or rep.append(("unexpected Point [.'$Point'.type]", lpath if path is not None else None))
         rep is None or rep.append(("unexpected value for mandatory prop <type> [.'$Point']", lpath if path is not None else None))
         return False
-    if not ("coordinates" in val):
+    if not ((pval := val.get("coordinates", UNDEFINED)) != UNDEFINED):
         rep is None or rep.append(("missing mandatory prop <coordinates> [.'$Point']", path))
         return False
     lpath = (path + [ "coordinates" ]) if path is not None else None
-    pval = val.get("coordinates", UNDEFINED)
     # .'$Point'.coordinates
     res = json_model_2(pval, lpath if path is not None else None, rep)
     if not res:
         rep is None or rep.append(("unexpected $position [.'$Point'.coordinates]", lpath if path is not None else None))
         rep is None or rep.append(("unexpected value for mandatory prop <coordinates> [.'$Point']", lpath if path is not None else None))
         return False
-    if "bbox" in val:
+    if (pval := val.get("bbox", UNDEFINED)) != UNDEFINED:
         lpath = (path + [ "bbox" ]) if path is not None else None
-        pval = val.get("bbox", UNDEFINED)
         # .'$Point'.bbox
         res = isinstance(pval, list)
         if res:
@@ -160,22 +157,20 @@ def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
     lpath: Path
     pval: Jsonable
     res: bool
-    if not "type" in val:
+    if not ((pval := val.get("type", UNDEFINED)) != UNDEFINED):
         rep is None or rep.append(("missing mandatory prop <type> [.'$MultiPoint']", path))
         return False
     lpath = (path + [ "type" ]) if path is not None else None
-    pval = val.get("type", UNDEFINED)
     # .'$MultiPoint'.type
     res = isinstance(pval, str) and pval == "MultiPoint"
     if not res:
         rep is None or rep.append(("unexpected MultiPoint [.'$MultiPoint'.type]", lpath if path is not None else None))
         rep is None or rep.append(("unexpected value for mandatory prop <type> [.'$MultiPoint']", lpath if path is not None else None))
         return False
-    if not ("coordinates" in val):
+    if not ((pval := val.get("coordinates", UNDEFINED)) != UNDEFINED):
         rep is None or rep.append(("missing mandatory prop <coordinates> [.'$MultiPoint']", path))
         return False
     lpath = (path + [ "coordinates" ]) if path is not None else None
-    pval = val.get("coordinates", UNDEFINED)
     # .'$MultiPoint'.coordinates
     res = isinstance(pval, list)
     if res:
@@ -190,9 +185,8 @@ def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("not array or unexpected array [.'$MultiPoint'.coordinates]", lpath if path is not None else None))
         rep is None or rep.append(("unexpected value for mandatory prop <coordinates> [.'$MultiPoint']", lpath if path is not None else None))
         return False
-    if "bbox" in val:
+    if (pval := val.get("bbox", UNDEFINED)) != UNDEFINED:
         lpath = (path + [ "bbox" ]) if path is not None else None
-        pval = val.get("bbox", UNDEFINED)
         # .'$MultiPoint'.bbox
         res = isinstance(pval, list)
         if res:
@@ -227,31 +221,28 @@ def _jm_obj_2(val: Jsonable, path: Path, rep: Report) -> bool:
     lpath: Path
     pval: Jsonable
     res: bool
-    if not "type" in val:
+    if not ((pval := val.get("type", UNDEFINED)) != UNDEFINED):
         rep is None or rep.append(("missing mandatory prop <type> [.'$LineString']", path))
         return False
     lpath = (path + [ "type" ]) if path is not None else None
-    pval = val.get("type", UNDEFINED)
     # .'$LineString'.type
     res = isinstance(pval, str) and pval == "LineString"
     if not res:
         rep is None or rep.append(("unexpected LineString [.'$LineString'.type]", lpath if path is not None else None))
         rep is None or rep.append(("unexpected value for mandatory prop <type> [.'$LineString']", lpath if path is not None else None))
         return False
-    if not ("coordinates" in val):
+    if not ((pval := val.get("coordinates", UNDEFINED)) != UNDEFINED):
         rep is None or rep.append(("missing mandatory prop <coordinates> [.'$LineString']", path))
         return False
     lpath = (path + [ "coordinates" ]) if path is not None else None
-    pval = val.get("coordinates", UNDEFINED)
     # .'$LineString'.coordinates
     res = json_model_3(pval, lpath if path is not None else None, rep)
     if not res:
         rep is None or rep.append(("unexpected $coord_array [.'$LineString'.coordinates]", lpath if path is not None else None))
         rep is None or rep.append(("unexpected value for mandatory prop <coordinates> [.'$LineString']", lpath if path is not None else None))
         return False
-    if "bbox" in val:
+    if (pval := val.get("bbox", UNDEFINED)) != UNDEFINED:
         lpath = (path + [ "bbox" ]) if path is not None else None
-        pval = val.get("bbox", UNDEFINED)
         # .'$LineString'.bbox
         res = isinstance(pval, list)
         if res:
@@ -286,22 +277,20 @@ def _jm_obj_3(val: Jsonable, path: Path, rep: Report) -> bool:
     lpath: Path
     pval: Jsonable
     res: bool
-    if not "type" in val:
+    if not ((pval := val.get("type", UNDEFINED)) != UNDEFINED):
         rep is None or rep.append(("missing mandatory prop <type> [.'$MultiLineString']", path))
         return False
     lpath = (path + [ "type" ]) if path is not None else None
-    pval = val.get("type", UNDEFINED)
     # .'$MultiLineString'.type
     res = isinstance(pval, str) and pval == "MultiLineString"
     if not res:
         rep is None or rep.append(("unexpected MultiLineString [.'$MultiLineString'.type]", lpath if path is not None else None))
         rep is None or rep.append(("unexpected value for mandatory prop <type> [.'$MultiLineString']", lpath if path is not None else None))
         return False
-    if not ("coordinates" in val):
+    if not ((pval := val.get("coordinates", UNDEFINED)) != UNDEFINED):
         rep is None or rep.append(("missing mandatory prop <coordinates> [.'$MultiLineString']", path))
         return False
     lpath = (path + [ "coordinates" ]) if path is not None else None
-    pval = val.get("coordinates", UNDEFINED)
     # .'$MultiLineString'.coordinates
     res = isinstance(pval, list)
     if res:
@@ -316,9 +305,8 @@ def _jm_obj_3(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("not array or unexpected array [.'$MultiLineString'.coordinates]", lpath if path is not None else None))
         rep is None or rep.append(("unexpected value for mandatory prop <coordinates> [.'$MultiLineString']", lpath if path is not None else None))
         return False
-    if "bbox" in val:
+    if (pval := val.get("bbox", UNDEFINED)) != UNDEFINED:
         lpath = (path + [ "bbox" ]) if path is not None else None
-        pval = val.get("bbox", UNDEFINED)
         # .'$MultiLineString'.bbox
         res = isinstance(pval, list)
         if res:
@@ -353,22 +341,20 @@ def _jm_obj_4(val: Jsonable, path: Path, rep: Report) -> bool:
     lpath: Path
     pval: Jsonable
     res: bool
-    if not "type" in val:
+    if not ((pval := val.get("type", UNDEFINED)) != UNDEFINED):
         rep is None or rep.append(("missing mandatory prop <type> [.'$Polygon']", path))
         return False
     lpath = (path + [ "type" ]) if path is not None else None
-    pval = val.get("type", UNDEFINED)
     # .'$Polygon'.type
     res = isinstance(pval, str) and pval == "Polygon"
     if not res:
         rep is None or rep.append(("unexpected Polygon [.'$Polygon'.type]", lpath if path is not None else None))
         rep is None or rep.append(("unexpected value for mandatory prop <type> [.'$Polygon']", lpath if path is not None else None))
         return False
-    if not ("coordinates" in val):
+    if not ((pval := val.get("coordinates", UNDEFINED)) != UNDEFINED):
         rep is None or rep.append(("missing mandatory prop <coordinates> [.'$Polygon']", path))
         return False
     lpath = (path + [ "coordinates" ]) if path is not None else None
-    pval = val.get("coordinates", UNDEFINED)
     # .'$Polygon'.coordinates
     res = isinstance(pval, list)
     if res:
@@ -383,9 +369,8 @@ def _jm_obj_4(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("not array or unexpected array [.'$Polygon'.coordinates]", lpath if path is not None else None))
         rep is None or rep.append(("unexpected value for mandatory prop <coordinates> [.'$Polygon']", lpath if path is not None else None))
         return False
-    if "bbox" in val:
+    if (pval := val.get("bbox", UNDEFINED)) != UNDEFINED:
         lpath = (path + [ "bbox" ]) if path is not None else None
-        pval = val.get("bbox", UNDEFINED)
         # .'$Polygon'.bbox
         res = isinstance(pval, list)
         if res:
@@ -420,22 +405,20 @@ def _jm_obj_5(val: Jsonable, path: Path, rep: Report) -> bool:
     lpath: Path
     pval: Jsonable
     res: bool
-    if not "type" in val:
+    if not ((pval := val.get("type", UNDEFINED)) != UNDEFINED):
         rep is None or rep.append(("missing mandatory prop <type> [.'$MultiPolygon']", path))
         return False
     lpath = (path + [ "type" ]) if path is not None else None
-    pval = val.get("type", UNDEFINED)
     # .'$MultiPolygon'.type
     res = isinstance(pval, str) and pval == "MultiPolygon"
     if not res:
         rep is None or rep.append(("unexpected MultiPolygon [.'$MultiPolygon'.type]", lpath if path is not None else None))
         rep is None or rep.append(("unexpected value for mandatory prop <type> [.'$MultiPolygon']", lpath if path is not None else None))
         return False
-    if not ("coordinates" in val):
+    if not ((pval := val.get("coordinates", UNDEFINED)) != UNDEFINED):
         rep is None or rep.append(("missing mandatory prop <coordinates> [.'$MultiPolygon']", path))
         return False
     lpath = (path + [ "coordinates" ]) if path is not None else None
-    pval = val.get("coordinates", UNDEFINED)
     # .'$MultiPolygon'.coordinates
     res = isinstance(pval, list)
     if res:
@@ -458,9 +441,8 @@ def _jm_obj_5(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("not array or unexpected array [.'$MultiPolygon'.coordinates]", lpath if path is not None else None))
         rep is None or rep.append(("unexpected value for mandatory prop <coordinates> [.'$MultiPolygon']", lpath if path is not None else None))
         return False
-    if "bbox" in val:
+    if (pval := val.get("bbox", UNDEFINED)) != UNDEFINED:
         lpath = (path + [ "bbox" ]) if path is not None else None
-        pval = val.get("bbox", UNDEFINED)
         # .'$MultiPolygon'.bbox
         res = isinstance(pval, list)
         if res:
@@ -518,22 +500,20 @@ def _jm_obj_6(val: Jsonable, path: Path, rep: Report) -> bool:
     lpath: Path
     pval: Jsonable
     res: bool
-    if not "type" in val:
+    if not ((pval := val.get("type", UNDEFINED)) != UNDEFINED):
         rep is None or rep.append(("missing mandatory prop <type> [.'$GeometryCollection']", path))
         return False
     lpath = (path + [ "type" ]) if path is not None else None
-    pval = val.get("type", UNDEFINED)
     # .'$GeometryCollection'.type
     res = isinstance(pval, str) and pval == "GeometryCollection"
     if not res:
         rep is None or rep.append(("unexpected GeometryCollection [.'$GeometryCollection'.type]", lpath if path is not None else None))
         rep is None or rep.append(("unexpected value for mandatory prop <type> [.'$GeometryCollection']", lpath if path is not None else None))
         return False
-    if not "geometries" in val:
+    if not ((pval := val.get("geometries", UNDEFINED)) != UNDEFINED):
         rep is None or rep.append(("missing mandatory prop <geometries> [.'$GeometryCollection']", path))
         return False
     lpath = (path + [ "geometries" ]) if path is not None else None
-    pval = val.get("geometries", UNDEFINED)
     # .'$GeometryCollection'.geometries
     res = isinstance(pval, list)
     if res:
@@ -548,9 +528,8 @@ def _jm_obj_6(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("not array or unexpected array [.'$GeometryCollection'.geometries]", lpath if path is not None else None))
         rep is None or rep.append(("unexpected value for mandatory prop <geometries> [.'$GeometryCollection']", lpath if path is not None else None))
         return False
-    if "bbox" in val:
+    if (pval := val.get("bbox", UNDEFINED)) != UNDEFINED:
         lpath = (path + [ "bbox" ]) if path is not None else None
-        pval = val.get("bbox", UNDEFINED)
         # .'$GeometryCollection'.bbox
         res = isinstance(pval, list)
         if res:
@@ -593,22 +572,20 @@ def _jm_obj_7(val: Jsonable, path: Path, rep: Report) -> bool:
     lpath: Path
     pval: Jsonable
     res: bool
-    if not "type" in val:
+    if not ((pval := val.get("type", UNDEFINED)) != UNDEFINED):
         rep is None or rep.append(("missing mandatory prop <type> [.'$Feature']", path))
         return False
     lpath = (path + [ "type" ]) if path is not None else None
-    pval = val.get("type", UNDEFINED)
     # .'$Feature'.type
     res = isinstance(pval, str) and pval == "Feature"
     if not res:
         rep is None or rep.append(("unexpected Feature [.'$Feature'.type]", lpath if path is not None else None))
         rep is None or rep.append(("unexpected value for mandatory prop <type> [.'$Feature']", lpath if path is not None else None))
         return False
-    if not "geometry" in val:
+    if not ((pval := val.get("geometry", UNDEFINED)) != UNDEFINED):
         rep is None or rep.append(("missing mandatory prop <geometry> [.'$Feature']", path))
         return False
     lpath = (path + [ "geometry" ]) if path is not None else None
-    pval = val.get("geometry", UNDEFINED)
     # .'$Feature'.geometry
     # .'$Feature'.geometry.'|'.0
     res = pval is None
@@ -630,11 +607,10 @@ def _jm_obj_7(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("no model matched [.'$Feature'.geometry.'|']", lpath if path is not None else None))
         rep is None or rep.append(("unexpected value for mandatory prop <geometry> [.'$Feature']", lpath if path is not None else None))
         return False
-    if not "properties" in val:
+    if not ((pval := val.get("properties", UNDEFINED)) != UNDEFINED):
         rep is None or rep.append(("missing mandatory prop <properties> [.'$Feature']", path))
         return False
     lpath = (path + [ "properties" ]) if path is not None else None
-    pval = val.get("properties", UNDEFINED)
     # .'$Feature'.properties
     # .'$Feature'.properties.'|'.0
     res = pval is None
@@ -651,9 +627,8 @@ def _jm_obj_7(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("no model matched [.'$Feature'.properties.'|']", lpath if path is not None else None))
         rep is None or rep.append(("unexpected value for mandatory prop <properties> [.'$Feature']", lpath if path is not None else None))
         return False
-    if "id" in val:
+    if (pval := val.get("id", UNDEFINED)) != UNDEFINED:
         lpath = (path + [ "id" ]) if path is not None else None
-        pval = val.get("id", UNDEFINED)
         # .'$Feature'.id
         # .'$Feature'.id.'|'.0
         res = isinstance(pval, str)
@@ -670,9 +645,8 @@ def _jm_obj_7(val: Jsonable, path: Path, rep: Report) -> bool:
             rep is None or rep.append(("no model matched [.'$Feature'.id.'|']", lpath if path is not None else None))
             rep is None or rep.append(("unexpected value for optional prop <id> [.'$Feature']", lpath if path is not None else None))
             return False
-    if "bbox" in val:
+    if (pval := val.get("bbox", UNDEFINED)) != UNDEFINED:
         lpath = (path + [ "bbox" ]) if path is not None else None
-        pval = val.get("bbox", UNDEFINED)
         # .'$Feature'.bbox
         res = isinstance(pval, list)
         if res:
@@ -707,22 +681,20 @@ def _jm_obj_9(val: Jsonable, path: Path, rep: Report) -> bool:
     lpath: Path
     pval: Jsonable
     res: bool
-    if not "type" in val:
+    if not ((pval := val.get("type", UNDEFINED)) != UNDEFINED):
         rep is None or rep.append(("missing mandatory prop <type> [.'$FeatureCollection']", path))
         return False
     lpath = (path + [ "type" ]) if path is not None else None
-    pval = val.get("type", UNDEFINED)
     # .'$FeatureCollection'.type
     res = isinstance(pval, str) and pval == "FeatureCollection"
     if not res:
         rep is None or rep.append(("unexpected FeatureCollection [.'$FeatureCollection'.type]", lpath if path is not None else None))
         rep is None or rep.append(("unexpected value for mandatory prop <type> [.'$FeatureCollection']", lpath if path is not None else None))
         return False
-    if not "features" in val:
+    if not ((pval := val.get("features", UNDEFINED)) != UNDEFINED):
         rep is None or rep.append(("missing mandatory prop <features> [.'$FeatureCollection']", path))
         return False
     lpath = (path + [ "features" ]) if path is not None else None
-    pval = val.get("features", UNDEFINED)
     # .'$FeatureCollection'.features
     res = isinstance(pval, list)
     if res:
@@ -737,9 +709,8 @@ def _jm_obj_9(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("not array or unexpected array [.'$FeatureCollection'.features]", lpath if path is not None else None))
         rep is None or rep.append(("unexpected value for mandatory prop <features> [.'$FeatureCollection']", lpath if path is not None else None))
         return False
-    if "bbox" in val:
+    if (pval := val.get("bbox", UNDEFINED)) != UNDEFINED:
         lpath = (path + [ "bbox" ]) if path is not None else None
-        pval = val.get("bbox", UNDEFINED)
         # .'$FeatureCollection'.bbox
         res = isinstance(pval, list)
         if res:

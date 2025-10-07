@@ -30,22 +30,20 @@ static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *re
     }
     json_t * pval;
     bool res;
-    if (! (json_object_get(val, "title") != NULL))
+    if (! ((pval = json_object_get(val, "title")) != NULL))
     {
         return false;
     }
-    pval = json_object_get(val, "title");
     // .'$book'.title
     res = json_is_string(pval);
     if (! res)
     {
         return false;
     }
-    if (! (json_object_get(val, "author") != NULL))
+    if (! ((pval = json_object_get(val, "author")) != NULL))
     {
         return false;
     }
-    pval = json_object_get(val, "author");
     // .'$book'.author
     res = json_is_string(pval);
     if (! res)

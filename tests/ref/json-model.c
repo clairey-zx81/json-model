@@ -863,13 +863,12 @@ static INLINE bool _jm_obj_2(const json_t *val, jm_path_t *path, jm_report_t *re
     jm_path_t lpath;
     json_t * pval;
     bool res;
-    if (! (json_object_get(val, "|") != NULL))
+    if (! ((pval = json_object_get(val, "|")) != NULL))
     {
         if (rep) jm_report_add_entry(rep, "missing mandatory prop <|> [.'$Or']", path);
         return false;
     }
     lpath = (jm_path_t) { "|", 0, path, NULL };
-    pval = json_object_get(val, "|");
     // .'$Or'.'|'
     res = json_is_array(pval);
     if (res)
@@ -927,13 +926,12 @@ static INLINE bool _jm_obj_3(const json_t *val, jm_path_t *path, jm_report_t *re
     jm_path_t lpath;
     json_t * pval;
     bool res;
-    if (! (json_object_get(val, "&") != NULL))
+    if (! ((pval = json_object_get(val, "&")) != NULL))
     {
         if (rep) jm_report_add_entry(rep, "missing mandatory prop <&> [.'$And']", path);
         return false;
     }
     lpath = (jm_path_t) { "&", 0, path, NULL };
-    pval = json_object_get(val, "&");
     // .'$And'.'&'
     res = json_is_array(pval);
     if (res)
@@ -991,13 +989,12 @@ static INLINE bool _jm_obj_4(const json_t *val, jm_path_t *path, jm_report_t *re
     jm_path_t lpath;
     json_t * pval;
     bool res;
-    if (! (json_object_get(val, "^") != NULL))
+    if (! ((pval = json_object_get(val, "^")) != NULL))
     {
         if (rep) jm_report_add_entry(rep, "missing mandatory prop <^> [.'$Xor']", path);
         return false;
     }
     lpath = (jm_path_t) { "^", 0, path, NULL };
-    pval = json_object_get(val, "^");
     // .'$Xor'.'^'
     res = json_is_array(pval);
     if (res)
@@ -1055,13 +1052,12 @@ static INLINE bool _jm_obj_5(const json_t *val, jm_path_t *path, jm_report_t *re
     jm_path_t lpath;
     json_t * pval;
     bool res;
-    if (! (json_object_get(val, "+") != NULL))
+    if (! ((pval = json_object_get(val, "+")) != NULL))
     {
         if (rep) jm_report_add_entry(rep, "missing mandatory prop <+> [.'$Add']", path);
         return false;
     }
     lpath = (jm_path_t) { "+", 0, path, NULL };
-    pval = json_object_get(val, "+");
     // .'$Add'.'+'
     res = json_is_array(pval);
     if (res)

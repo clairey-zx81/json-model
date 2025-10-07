@@ -4371,10 +4371,9 @@ static INLINE bool _jm_obj_47(const json_t *val, jm_path_t *path, jm_report_t *r
     jm_path_t lpath;
     json_t * pval;
     bool res;
-    if (json_object_get(val, "name") != NULL)
+    if ((pval = json_object_get(val, "name")) != NULL)
     {
         lpath = (jm_path_t) { "name", 0, path, NULL };
-        pval = json_object_get(val, "name");
         // .'$platforms'.0.'|'.46.name
         res = json_is_string(pval) && strcmp(json_string_value(pval), "Windows") == 0;
         if (! res)
@@ -4384,10 +4383,9 @@ static INLINE bool _jm_obj_47(const json_t *val, jm_path_t *path, jm_report_t *r
             return false;
         }
     }
-    if (json_object_get(val, "versions") != NULL)
+    if ((pval = json_object_get(val, "versions")) != NULL)
     {
         lpath = (jm_path_t) { "versions", 0, path, NULL };
-        pval = json_object_get(val, "versions");
         // .'$platforms'.0.'|'.46.versions
         res = json_is_array(pval);
         if (res)
@@ -4429,10 +4427,9 @@ static INLINE bool _jm_obj_48(const json_t *val, jm_path_t *path, jm_report_t *r
     jm_path_t lpath;
     json_t * pval;
     bool res;
-    if (json_object_get(val, "name") != NULL)
+    if ((pval = json_object_get(val, "name")) != NULL)
     {
         lpath = (jm_path_t) { "name", 0, path, NULL };
-        pval = json_object_get(val, "name");
         // .'$platforms'.0.'|'.45.name
         res = json_is_string(pval) && strcmp(json_string_value(pval), "vSphere") == 0;
         if (! res)
@@ -4442,10 +4439,9 @@ static INLINE bool _jm_obj_48(const json_t *val, jm_path_t *path, jm_report_t *r
             return false;
         }
     }
-    if (json_object_get(val, "versions") != NULL)
+    if ((pval = json_object_get(val, "versions")) != NULL)
     {
         lpath = (jm_path_t) { "versions", 0, path, NULL };
-        pval = json_object_get(val, "versions");
         // .'$platforms'.0.'|'.45.versions
         res = json_is_array(pval);
         if (res)
@@ -4486,10 +4482,9 @@ static INLINE bool _jm_obj_49(const json_t *val, jm_path_t *path, jm_report_t *r
     jm_path_t lpath;
     json_t * pval;
     bool res;
-    if (json_object_get(val, "name") != NULL)
+    if ((pval = json_object_get(val, "name")) != NULL)
     {
         lpath = (jm_path_t) { "name", 0, path, NULL };
-        pval = json_object_get(val, "name");
         // .'$platforms'.0.'|'.44.name
         res = json_is_string(pval) && strcmp(json_string_value(pval), "Void Linux") == 0;
         if (! res)
@@ -4499,10 +4494,9 @@ static INLINE bool _jm_obj_49(const json_t *val, jm_path_t *path, jm_report_t *r
             return false;
         }
     }
-    if (json_object_get(val, "versions") != NULL)
+    if ((pval = json_object_get(val, "versions")) != NULL)
     {
         lpath = (jm_path_t) { "versions", 0, path, NULL };
-        pval = json_object_get(val, "versions");
         // .'$platforms'.0.'|'.44.versions
         res = json_is_array(pval);
         if (res)
@@ -4544,10 +4538,9 @@ static INLINE bool _jm_obj_50(const json_t *val, jm_path_t *path, jm_report_t *r
     jm_path_t lpath;
     json_t * pval;
     bool res;
-    if (json_object_get(val, "name") != NULL)
+    if ((pval = json_object_get(val, "name")) != NULL)
     {
         lpath = (jm_path_t) { "name", 0, path, NULL };
-        pval = json_object_get(val, "name");
         // .'$platforms'.0.'|'.43.name
         res = json_is_string(pval) && strcmp(json_string_value(pval), "vCenter") == 0;
         if (! res)
@@ -4557,10 +4550,9 @@ static INLINE bool _jm_obj_50(const json_t *val, jm_path_t *path, jm_report_t *r
             return false;
         }
     }
-    if (json_object_get(val, "versions") != NULL)
+    if ((pval = json_object_get(val, "versions")) != NULL)
     {
         lpath = (jm_path_t) { "versions", 0, path, NULL };
-        pval = json_object_get(val, "versions");
         // .'$platforms'.0.'|'.43.versions
         res = json_is_array(pval);
         if (res)
@@ -4602,10 +4594,9 @@ static INLINE bool _jm_obj_51(const json_t *val, jm_path_t *path, jm_report_t *r
     jm_path_t lpath;
     json_t * pval;
     bool res;
-    if (json_object_get(val, "name") != NULL)
+    if ((pval = json_object_get(val, "name")) != NULL)
     {
         lpath = (jm_path_t) { "name", 0, path, NULL };
-        pval = json_object_get(val, "name");
         // .'$platforms'.0.'|'.42.name
         res = json_is_string(pval) && strcmp(json_string_value(pval), "Ubuntu") == 0;
         if (! res)
@@ -4615,10 +4606,9 @@ static INLINE bool _jm_obj_51(const json_t *val, jm_path_t *path, jm_report_t *r
             return false;
         }
     }
-    if (json_object_get(val, "versions") != NULL)
+    if ((pval = json_object_get(val, "versions")) != NULL)
     {
         lpath = (jm_path_t) { "versions", 0, path, NULL };
-        pval = json_object_get(val, "versions");
         // .'$platforms'.0.'|'.42.versions
         res = json_is_array(pval);
         if (res)
@@ -4660,10 +4650,9 @@ static INLINE bool _jm_obj_52(const json_t *val, jm_path_t *path, jm_report_t *r
     jm_path_t lpath;
     json_t * pval;
     bool res;
-    if (json_object_get(val, "name") != NULL)
+    if ((pval = json_object_get(val, "name")) != NULL)
     {
         lpath = (jm_path_t) { "name", 0, path, NULL };
-        pval = json_object_get(val, "name");
         // .'$platforms'.0.'|'.41.name
         res = json_is_string(pval) && strcmp(json_string_value(pval), "TMOS") == 0;
         if (! res)
@@ -4673,10 +4662,9 @@ static INLINE bool _jm_obj_52(const json_t *val, jm_path_t *path, jm_report_t *r
             return false;
         }
     }
-    if (json_object_get(val, "versions") != NULL)
+    if ((pval = json_object_get(val, "versions")) != NULL)
     {
         lpath = (jm_path_t) { "versions", 0, path, NULL };
-        pval = json_object_get(val, "versions");
         // .'$platforms'.0.'|'.41.versions
         res = json_is_array(pval);
         if (res)
@@ -4718,10 +4706,9 @@ static INLINE bool _jm_obj_53(const json_t *val, jm_path_t *path, jm_report_t *r
     jm_path_t lpath;
     json_t * pval;
     bool res;
-    if (json_object_get(val, "name") != NULL)
+    if ((pval = json_object_get(val, "name")) != NULL)
     {
         lpath = (jm_path_t) { "name", 0, path, NULL };
-        pval = json_object_get(val, "name");
         // .'$platforms'.0.'|'.40.name
         res = json_is_string(pval) && strcmp(json_string_value(pval), "Synology") == 0;
         if (! res)
@@ -4731,10 +4718,9 @@ static INLINE bool _jm_obj_53(const json_t *val, jm_path_t *path, jm_report_t *r
             return false;
         }
     }
-    if (json_object_get(val, "versions") != NULL)
+    if ((pval = json_object_get(val, "versions")) != NULL)
     {
         lpath = (jm_path_t) { "versions", 0, path, NULL };
-        pval = json_object_get(val, "versions");
         // .'$platforms'.0.'|'.40.versions
         res = json_is_array(pval);
         if (res)
@@ -4776,10 +4762,9 @@ static INLINE bool _jm_obj_54(const json_t *val, jm_path_t *path, jm_report_t *r
     jm_path_t lpath;
     json_t * pval;
     bool res;
-    if (json_object_get(val, "name") != NULL)
+    if ((pval = json_object_get(val, "name")) != NULL)
     {
         lpath = (jm_path_t) { "name", 0, path, NULL };
-        pval = json_object_get(val, "name");
         // .'$platforms'.0.'|'.39.name
         res = json_is_string(pval) && strcmp(json_string_value(pval), "Solaris") == 0;
         if (! res)
@@ -4789,10 +4774,9 @@ static INLINE bool _jm_obj_54(const json_t *val, jm_path_t *path, jm_report_t *r
             return false;
         }
     }
-    if (json_object_get(val, "versions") != NULL)
+    if ((pval = json_object_get(val, "versions")) != NULL)
     {
         lpath = (jm_path_t) { "versions", 0, path, NULL };
-        pval = json_object_get(val, "versions");
         // .'$platforms'.0.'|'.39.versions
         res = json_is_array(pval);
         if (res)
@@ -4833,10 +4817,9 @@ static INLINE bool _jm_obj_55(const json_t *val, jm_path_t *path, jm_report_t *r
     jm_path_t lpath;
     json_t * pval;
     bool res;
-    if (json_object_get(val, "name") != NULL)
+    if ((pval = json_object_get(val, "name")) != NULL)
     {
         lpath = (jm_path_t) { "name", 0, path, NULL };
-        pval = json_object_get(val, "name");
         // .'$platforms'.0.'|'.38.name
         res = json_is_string(pval) && strcmp(json_string_value(pval), "SmartOS") == 0;
         if (! res)
@@ -4846,10 +4829,9 @@ static INLINE bool _jm_obj_55(const json_t *val, jm_path_t *path, jm_report_t *r
             return false;
         }
     }
-    if (json_object_get(val, "versions") != NULL)
+    if ((pval = json_object_get(val, "versions")) != NULL)
     {
         lpath = (jm_path_t) { "versions", 0, path, NULL };
-        pval = json_object_get(val, "versions");
         // .'$platforms'.0.'|'.38.versions
         res = json_is_array(pval);
         if (res)
@@ -4891,10 +4873,9 @@ static INLINE bool _jm_obj_56(const json_t *val, jm_path_t *path, jm_report_t *r
     jm_path_t lpath;
     json_t * pval;
     bool res;
-    if (json_object_get(val, "name") != NULL)
+    if ((pval = json_object_get(val, "name")) != NULL)
     {
         lpath = (jm_path_t) { "name", 0, path, NULL };
-        pval = json_object_get(val, "name");
         // .'$platforms'.0.'|'.37.name
         res = json_is_string(pval) && strcmp(json_string_value(pval), "SLES") == 0;
         if (! res)
@@ -4904,10 +4885,9 @@ static INLINE bool _jm_obj_56(const json_t *val, jm_path_t *path, jm_report_t *r
             return false;
         }
     }
-    if (json_object_get(val, "versions") != NULL)
+    if ((pval = json_object_get(val, "versions")) != NULL)
     {
         lpath = (jm_path_t) { "versions", 0, path, NULL };
-        pval = json_object_get(val, "versions");
         // .'$platforms'.0.'|'.37.versions
         res = json_is_array(pval);
         if (res)
@@ -4949,10 +4929,9 @@ static INLINE bool _jm_obj_57(const json_t *val, jm_path_t *path, jm_report_t *r
     jm_path_t lpath;
     json_t * pval;
     bool res;
-    if (json_object_get(val, "name") != NULL)
+    if ((pval = json_object_get(val, "name")) != NULL)
     {
         lpath = (jm_path_t) { "name", 0, path, NULL };
-        pval = json_object_get(val, "name");
         // .'$platforms'.0.'|'.36.name
         res = json_is_string(pval) && strcmp(json_string_value(pval), "Rocky") == 0;
         if (! res)
@@ -4962,10 +4941,9 @@ static INLINE bool _jm_obj_57(const json_t *val, jm_path_t *path, jm_report_t *r
             return false;
         }
     }
-    if (json_object_get(val, "versions") != NULL)
+    if ((pval = json_object_get(val, "versions")) != NULL)
     {
         lpath = (jm_path_t) { "versions", 0, path, NULL };
-        pval = json_object_get(val, "versions");
         // .'$platforms'.0.'|'.36.versions
         res = json_is_array(pval);
         if (res)
@@ -5007,10 +4985,9 @@ static INLINE bool _jm_obj_58(const json_t *val, jm_path_t *path, jm_report_t *r
     jm_path_t lpath;
     json_t * pval;
     bool res;
-    if (json_object_get(val, "name") != NULL)
+    if ((pval = json_object_get(val, "name")) != NULL)
     {
         lpath = (jm_path_t) { "name", 0, path, NULL };
-        pval = json_object_get(val, "name");
         // .'$platforms'.0.'|'.35.name
         res = json_is_string(pval) && strcmp(json_string_value(pval), "PAN-OS") == 0;
         if (! res)
@@ -5020,10 +4997,9 @@ static INLINE bool _jm_obj_58(const json_t *val, jm_path_t *path, jm_report_t *r
             return false;
         }
     }
-    if (json_object_get(val, "versions") != NULL)
+    if ((pval = json_object_get(val, "versions")) != NULL)
     {
         lpath = (jm_path_t) { "versions", 0, path, NULL };
-        pval = json_object_get(val, "versions");
         // .'$platforms'.0.'|'.35.versions
         res = json_is_array(pval);
         if (res)
@@ -5064,10 +5040,9 @@ static INLINE bool _jm_obj_59(const json_t *val, jm_path_t *path, jm_report_t *r
     jm_path_t lpath;
     json_t * pval;
     bool res;
-    if (json_object_get(val, "name") != NULL)
+    if ((pval = json_object_get(val, "name")) != NULL)
     {
         lpath = (jm_path_t) { "name", 0, path, NULL };
-        pval = json_object_get(val, "name");
         // .'$platforms'.0.'|'.34.name
         res = json_is_string(pval) && strcmp(json_string_value(pval), "os10") == 0;
         if (! res)
@@ -5077,10 +5052,9 @@ static INLINE bool _jm_obj_59(const json_t *val, jm_path_t *path, jm_report_t *r
             return false;
         }
     }
-    if (json_object_get(val, "versions") != NULL)
+    if ((pval = json_object_get(val, "versions")) != NULL)
     {
         lpath = (jm_path_t) { "versions", 0, path, NULL };
-        pval = json_object_get(val, "versions");
         // .'$platforms'.0.'|'.34.versions
         res = json_is_array(pval);
         if (res)
@@ -5122,10 +5096,9 @@ static INLINE bool _jm_obj_60(const json_t *val, jm_path_t *path, jm_report_t *r
     jm_path_t lpath;
     json_t * pval;
     bool res;
-    if (json_object_get(val, "name") != NULL)
+    if ((pval = json_object_get(val, "name")) != NULL)
     {
         lpath = (jm_path_t) { "name", 0, path, NULL };
-        pval = json_object_get(val, "name");
         // .'$platforms'.0.'|'.33.name
         res = json_is_string(pval) && strcmp(json_string_value(pval), "OracleLinux") == 0;
         if (! res)
@@ -5135,10 +5108,9 @@ static INLINE bool _jm_obj_60(const json_t *val, jm_path_t *path, jm_report_t *r
             return false;
         }
     }
-    if (json_object_get(val, "versions") != NULL)
+    if ((pval = json_object_get(val, "versions")) != NULL)
     {
         lpath = (jm_path_t) { "versions", 0, path, NULL };
-        pval = json_object_get(val, "versions");
         // .'$platforms'.0.'|'.33.versions
         res = json_is_array(pval);
         if (res)
@@ -5180,10 +5152,9 @@ static INLINE bool _jm_obj_61(const json_t *val, jm_path_t *path, jm_report_t *r
     jm_path_t lpath;
     json_t * pval;
     bool res;
-    if (json_object_get(val, "name") != NULL)
+    if ((pval = json_object_get(val, "name")) != NULL)
     {
         lpath = (jm_path_t) { "name", 0, path, NULL };
-        pval = json_object_get(val, "name");
         // .'$platforms'.0.'|'.32.name
         res = json_is_string(pval) && strcmp(json_string_value(pval), "OpenWrt") == 0;
         if (! res)
@@ -5193,10 +5164,9 @@ static INLINE bool _jm_obj_61(const json_t *val, jm_path_t *path, jm_report_t *r
             return false;
         }
     }
-    if (json_object_get(val, "versions") != NULL)
+    if ((pval = json_object_get(val, "versions")) != NULL)
     {
         lpath = (jm_path_t) { "versions", 0, path, NULL };
-        pval = json_object_get(val, "versions");
         // .'$platforms'.0.'|'.32.versions
         res = json_is_array(pval);
         if (res)
@@ -5238,10 +5208,9 @@ static INLINE bool _jm_obj_62(const json_t *val, jm_path_t *path, jm_report_t *r
     jm_path_t lpath;
     json_t * pval;
     bool res;
-    if (json_object_get(val, "name") != NULL)
+    if ((pval = json_object_get(val, "name")) != NULL)
     {
         lpath = (jm_path_t) { "name", 0, path, NULL };
-        pval = json_object_get(val, "name");
         // .'$platforms'.0.'|'.31.name
         res = json_is_string(pval) && strcmp(json_string_value(pval), "opensuse") == 0;
         if (! res)
@@ -5251,10 +5220,9 @@ static INLINE bool _jm_obj_62(const json_t *val, jm_path_t *path, jm_report_t *r
             return false;
         }
     }
-    if (json_object_get(val, "versions") != NULL)
+    if ((pval = json_object_get(val, "versions")) != NULL)
     {
         lpath = (jm_path_t) { "versions", 0, path, NULL };
-        pval = json_object_get(val, "versions");
         // .'$platforms'.0.'|'.31.versions
         res = json_is_array(pval);
         if (res)
@@ -5296,10 +5264,9 @@ static INLINE bool _jm_obj_63(const json_t *val, jm_path_t *path, jm_report_t *r
     jm_path_t lpath;
     json_t * pval;
     bool res;
-    if (json_object_get(val, "name") != NULL)
+    if ((pval = json_object_get(val, "name")) != NULL)
     {
         lpath = (jm_path_t) { "name", 0, path, NULL };
-        pval = json_object_get(val, "name");
         // .'$platforms'.0.'|'.30.name
         res = json_is_string(pval) && strcmp(json_string_value(pval), "OpenBSD") == 0;
         if (! res)
@@ -5309,10 +5276,9 @@ static INLINE bool _jm_obj_63(const json_t *val, jm_path_t *path, jm_report_t *r
             return false;
         }
     }
-    if (json_object_get(val, "versions") != NULL)
+    if ((pval = json_object_get(val, "versions")) != NULL)
     {
         lpath = (jm_path_t) { "versions", 0, path, NULL };
-        pval = json_object_get(val, "versions");
         // .'$platforms'.0.'|'.30.versions
         res = json_is_array(pval);
         if (res)
@@ -5353,10 +5319,9 @@ static INLINE bool _jm_obj_64(const json_t *val, jm_path_t *path, jm_report_t *r
     jm_path_t lpath;
     json_t * pval;
     bool res;
-    if (json_object_get(val, "name") != NULL)
+    if ((pval = json_object_get(val, "name")) != NULL)
     {
         lpath = (jm_path_t) { "name", 0, path, NULL };
-        pval = json_object_get(val, "name");
         // .'$platforms'.0.'|'.29.name
         res = json_is_string(pval) && strcmp(json_string_value(pval), "NXOS") == 0;
         if (! res)
@@ -5366,10 +5331,9 @@ static INLINE bool _jm_obj_64(const json_t *val, jm_path_t *path, jm_report_t *r
             return false;
         }
     }
-    if (json_object_get(val, "versions") != NULL)
+    if ((pval = json_object_get(val, "versions")) != NULL)
     {
         lpath = (jm_path_t) { "versions", 0, path, NULL };
-        pval = json_object_get(val, "versions");
         // .'$platforms'.0.'|'.29.versions
         res = json_is_array(pval);
         if (res)
@@ -5411,10 +5375,9 @@ static INLINE bool _jm_obj_65(const json_t *val, jm_path_t *path, jm_report_t *r
     jm_path_t lpath;
     json_t * pval;
     bool res;
-    if (json_object_get(val, "name") != NULL)
+    if ((pval = json_object_get(val, "name")) != NULL)
     {
         lpath = (jm_path_t) { "name", 0, path, NULL };
-        pval = json_object_get(val, "name");
         // .'$platforms'.0.'|'.28.name
         res = json_is_string(pval) && strcmp(json_string_value(pval), "Megeia") == 0;
         if (! res)
@@ -5424,10 +5387,9 @@ static INLINE bool _jm_obj_65(const json_t *val, jm_path_t *path, jm_report_t *r
             return false;
         }
     }
-    if (json_object_get(val, "versions") != NULL)
+    if ((pval = json_object_get(val, "versions")) != NULL)
     {
         lpath = (jm_path_t) { "versions", 0, path, NULL };
-        pval = json_object_get(val, "versions");
         // .'$platforms'.0.'|'.28.versions
         res = json_is_array(pval);
         if (res)
@@ -5469,10 +5431,9 @@ static INLINE bool _jm_obj_66(const json_t *val, jm_path_t *path, jm_report_t *r
     jm_path_t lpath;
     json_t * pval;
     bool res;
-    if (json_object_get(val, "name") != NULL)
+    if ((pval = json_object_get(val, "name")) != NULL)
     {
         lpath = (jm_path_t) { "name", 0, path, NULL };
-        pval = json_object_get(val, "name");
         // .'$platforms'.0.'|'.27.name
         res = json_is_string(pval) && strcmp(json_string_value(pval), "Kali") == 0;
         if (! res)
@@ -5482,10 +5443,9 @@ static INLINE bool _jm_obj_66(const json_t *val, jm_path_t *path, jm_report_t *r
             return false;
         }
     }
-    if (json_object_get(val, "versions") != NULL)
+    if ((pval = json_object_get(val, "versions")) != NULL)
     {
         lpath = (jm_path_t) { "versions", 0, path, NULL };
-        pval = json_object_get(val, "versions");
         // .'$platforms'.0.'|'.27.versions
         res = json_is_array(pval);
         if (res)
@@ -5527,10 +5487,9 @@ static INLINE bool _jm_obj_67(const json_t *val, jm_path_t *path, jm_report_t *r
     jm_path_t lpath;
     json_t * pval;
     bool res;
-    if (json_object_get(val, "name") != NULL)
+    if ((pval = json_object_get(val, "name")) != NULL)
     {
         lpath = (jm_path_t) { "name", 0, path, NULL };
-        pval = json_object_get(val, "name");
         // .'$platforms'.0.'|'.26.name
         res = json_is_string(pval) && strcmp(json_string_value(pval), "macOS") == 0;
         if (! res)
@@ -5540,10 +5499,9 @@ static INLINE bool _jm_obj_67(const json_t *val, jm_path_t *path, jm_report_t *r
             return false;
         }
     }
-    if (json_object_get(val, "versions") != NULL)
+    if ((pval = json_object_get(val, "versions")) != NULL)
     {
         lpath = (jm_path_t) { "versions", 0, path, NULL };
-        pval = json_object_get(val, "versions");
         // .'$platforms'.0.'|'.26.versions
         res = json_is_array(pval);
         if (res)
@@ -5585,10 +5543,9 @@ static INLINE bool _jm_obj_68(const json_t *val, jm_path_t *path, jm_report_t *r
     jm_path_t lpath;
     json_t * pval;
     bool res;
-    if (json_object_get(val, "name") != NULL)
+    if ((pval = json_object_get(val, "name")) != NULL)
     {
         lpath = (jm_path_t) { "name", 0, path, NULL };
-        pval = json_object_get(val, "name");
         // .'$platforms'.0.'|'.25.name
         res = json_is_string(pval) && strcmp(json_string_value(pval), "Kali") == 0;
         if (! res)
@@ -5598,10 +5555,9 @@ static INLINE bool _jm_obj_68(const json_t *val, jm_path_t *path, jm_report_t *r
             return false;
         }
     }
-    if (json_object_get(val, "versions") != NULL)
+    if ((pval = json_object_get(val, "versions")) != NULL)
     {
         lpath = (jm_path_t) { "versions", 0, path, NULL };
-        pval = json_object_get(val, "versions");
         // .'$platforms'.0.'|'.25.versions
         res = json_is_array(pval);
         if (res)
@@ -5642,10 +5598,9 @@ static INLINE bool _jm_obj_69(const json_t *val, jm_path_t *path, jm_report_t *r
     jm_path_t lpath;
     json_t * pval;
     bool res;
-    if (json_object_get(val, "name") != NULL)
+    if ((pval = json_object_get(val, "name")) != NULL)
     {
         lpath = (jm_path_t) { "name", 0, path, NULL };
-        pval = json_object_get(val, "name");
         // .'$platforms'.0.'|'.24.name
         res = json_is_string(pval) && strcmp(json_string_value(pval), "Junos") == 0;
         if (! res)
@@ -5655,10 +5610,9 @@ static INLINE bool _jm_obj_69(const json_t *val, jm_path_t *path, jm_report_t *r
             return false;
         }
     }
-    if (json_object_get(val, "versions") != NULL)
+    if ((pval = json_object_get(val, "versions")) != NULL)
     {
         lpath = (jm_path_t) { "versions", 0, path, NULL };
-        pval = json_object_get(val, "versions");
         // .'$platforms'.0.'|'.24.versions
         res = json_is_array(pval);
         if (res)
@@ -5699,10 +5653,9 @@ static INLINE bool _jm_obj_70(const json_t *val, jm_path_t *path, jm_report_t *r
     jm_path_t lpath;
     json_t * pval;
     bool res;
-    if (json_object_get(val, "name") != NULL)
+    if ((pval = json_object_get(val, "name")) != NULL)
     {
         lpath = (jm_path_t) { "name", 0, path, NULL };
-        pval = json_object_get(val, "name");
         // .'$platforms'.0.'|'.23.name
         res = json_is_string(pval) && strcmp(json_string_value(pval), "IOS") == 0;
         if (! res)
@@ -5712,10 +5665,9 @@ static INLINE bool _jm_obj_70(const json_t *val, jm_path_t *path, jm_report_t *r
             return false;
         }
     }
-    if (json_object_get(val, "versions") != NULL)
+    if ((pval = json_object_get(val, "versions")) != NULL)
     {
         lpath = (jm_path_t) { "versions", 0, path, NULL };
-        pval = json_object_get(val, "versions");
         // .'$platforms'.0.'|'.23.versions
         res = json_is_array(pval);
         if (res)
@@ -5757,10 +5709,9 @@ static INLINE bool _jm_obj_71(const json_t *val, jm_path_t *path, jm_report_t *r
     jm_path_t lpath;
     json_t * pval;
     bool res;
-    if (json_object_get(val, "name") != NULL)
+    if ((pval = json_object_get(val, "name")) != NULL)
     {
         lpath = (jm_path_t) { "name", 0, path, NULL };
-        pval = json_object_get(val, "name");
         // .'$platforms'.0.'|'.22.name
         res = json_is_string(pval) && strcmp(json_string_value(pval), "HardenedBSD") == 0;
         if (! res)
@@ -5770,10 +5721,9 @@ static INLINE bool _jm_obj_71(const json_t *val, jm_path_t *path, jm_report_t *r
             return false;
         }
     }
-    if (json_object_get(val, "versions") != NULL)
+    if ((pval = json_object_get(val, "versions")) != NULL)
     {
         lpath = (jm_path_t) { "versions", 0, path, NULL };
-        pval = json_object_get(val, "versions");
         // .'$platforms'.0.'|'.22.versions
         res = json_is_array(pval);
         if (res)
@@ -5814,10 +5764,9 @@ static INLINE bool _jm_obj_72(const json_t *val, jm_path_t *path, jm_report_t *r
     jm_path_t lpath;
     json_t * pval;
     bool res;
-    if (json_object_get(val, "name") != NULL)
+    if ((pval = json_object_get(val, "name")) != NULL)
     {
         lpath = (jm_path_t) { "name", 0, path, NULL };
-        pval = json_object_get(val, "name");
         // .'$platforms'.0.'|'.21.name
         res = json_is_string(pval) && strcmp(json_string_value(pval), "Gentoo") == 0;
         if (! res)
@@ -5827,10 +5776,9 @@ static INLINE bool _jm_obj_72(const json_t *val, jm_path_t *path, jm_report_t *r
             return false;
         }
     }
-    if (json_object_get(val, "versions") != NULL)
+    if ((pval = json_object_get(val, "versions")) != NULL)
     {
         lpath = (jm_path_t) { "versions", 0, path, NULL };
-        pval = json_object_get(val, "versions");
         // .'$platforms'.0.'|'.21.versions
         res = json_is_array(pval);
         if (res)
@@ -5871,10 +5819,9 @@ static INLINE bool _jm_obj_73(const json_t *val, jm_path_t *path, jm_report_t *r
     jm_path_t lpath;
     json_t * pval;
     bool res;
-    if (json_object_get(val, "name") != NULL)
+    if ((pval = json_object_get(val, "name")) != NULL)
     {
         lpath = (jm_path_t) { "name", 0, path, NULL };
-        pval = json_object_get(val, "name");
         // .'$platforms'.0.'|'.20.name
         res = json_is_string(pval) && strcmp(json_string_value(pval), "GenericUNIX") == 0;
         if (! res)
@@ -5884,10 +5831,9 @@ static INLINE bool _jm_obj_73(const json_t *val, jm_path_t *path, jm_report_t *r
             return false;
         }
     }
-    if (json_object_get(val, "versions") != NULL)
+    if ((pval = json_object_get(val, "versions")) != NULL)
     {
         lpath = (jm_path_t) { "versions", 0, path, NULL };
-        pval = json_object_get(val, "versions");
         // .'$platforms'.0.'|'.20.versions
         res = json_is_array(pval);
         if (res)
@@ -5928,10 +5874,9 @@ static INLINE bool _jm_obj_74(const json_t *val, jm_path_t *path, jm_report_t *r
     jm_path_t lpath;
     json_t * pval;
     bool res;
-    if (json_object_get(val, "name") != NULL)
+    if ((pval = json_object_get(val, "name")) != NULL)
     {
         lpath = (jm_path_t) { "name", 0, path, NULL };
-        pval = json_object_get(val, "name");
         // .'$platforms'.0.'|'.19.name
         res = json_is_string(pval) && strcmp(json_string_value(pval), "GenericLinux") == 0;
         if (! res)
@@ -5941,10 +5886,9 @@ static INLINE bool _jm_obj_74(const json_t *val, jm_path_t *path, jm_report_t *r
             return false;
         }
     }
-    if (json_object_get(val, "versions") != NULL)
+    if ((pval = json_object_get(val, "versions")) != NULL)
     {
         lpath = (jm_path_t) { "versions", 0, path, NULL };
-        pval = json_object_get(val, "versions");
         // .'$platforms'.0.'|'.19.versions
         res = json_is_array(pval);
         if (res)
@@ -5985,10 +5929,9 @@ static INLINE bool _jm_obj_75(const json_t *val, jm_path_t *path, jm_report_t *r
     jm_path_t lpath;
     json_t * pval;
     bool res;
-    if (json_object_get(val, "name") != NULL)
+    if ((pval = json_object_get(val, "name")) != NULL)
     {
         lpath = (jm_path_t) { "name", 0, path, NULL };
-        pval = json_object_get(val, "name");
         // .'$platforms'.0.'|'.18.name
         res = json_is_string(pval) && strcmp(json_string_value(pval), "GenericBSD") == 0;
         if (! res)
@@ -5998,10 +5941,9 @@ static INLINE bool _jm_obj_75(const json_t *val, jm_path_t *path, jm_report_t *r
             return false;
         }
     }
-    if (json_object_get(val, "versions") != NULL)
+    if ((pval = json_object_get(val, "versions")) != NULL)
     {
         lpath = (jm_path_t) { "versions", 0, path, NULL };
-        pval = json_object_get(val, "versions");
         // .'$platforms'.0.'|'.18.versions
         res = json_is_array(pval);
         if (res)
@@ -6043,10 +5985,9 @@ static INLINE bool _jm_obj_76(const json_t *val, jm_path_t *path, jm_report_t *r
     jm_path_t lpath;
     json_t * pval;
     bool res;
-    if (json_object_get(val, "name") != NULL)
+    if ((pval = json_object_get(val, "name")) != NULL)
     {
         lpath = (jm_path_t) { "name", 0, path, NULL };
-        pval = json_object_get(val, "name");
         // .'$platforms'.0.'|'.17.name
         res = json_is_string(pval) && strcmp(json_string_value(pval), "FreeBSD") == 0;
         if (! res)
@@ -6056,10 +5997,9 @@ static INLINE bool _jm_obj_76(const json_t *val, jm_path_t *path, jm_report_t *r
             return false;
         }
     }
-    if (json_object_get(val, "versions") != NULL)
+    if ((pval = json_object_get(val, "versions")) != NULL)
     {
         lpath = (jm_path_t) { "versions", 0, path, NULL };
-        pval = json_object_get(val, "versions");
         // .'$platforms'.0.'|'.17.versions
         res = json_is_array(pval);
         if (res)
@@ -6101,10 +6041,9 @@ static INLINE bool _jm_obj_77(const json_t *val, jm_path_t *path, jm_report_t *r
     jm_path_t lpath;
     json_t * pval;
     bool res;
-    if (json_object_get(val, "name") != NULL)
+    if ((pval = json_object_get(val, "name")) != NULL)
     {
         lpath = (jm_path_t) { "name", 0, path, NULL };
-        pval = json_object_get(val, "name");
         // .'$platforms'.0.'|'.16.name
         res = json_is_string(pval) && strcmp(json_string_value(pval), "Fedora") == 0;
         if (! res)
@@ -6114,10 +6053,9 @@ static INLINE bool _jm_obj_77(const json_t *val, jm_path_t *path, jm_report_t *r
             return false;
         }
     }
-    if (json_object_get(val, "versions") != NULL)
+    if ((pval = json_object_get(val, "versions")) != NULL)
     {
         lpath = (jm_path_t) { "versions", 0, path, NULL };
-        pval = json_object_get(val, "versions");
         // .'$platforms'.0.'|'.16.versions
         res = json_is_array(pval);
         if (res)
@@ -6158,10 +6096,9 @@ static INLINE bool _jm_obj_78(const json_t *val, jm_path_t *path, jm_report_t *r
     jm_path_t lpath;
     json_t * pval;
     bool res;
-    if (json_object_get(val, "name") != NULL)
+    if ((pval = json_object_get(val, "name")) != NULL)
     {
         lpath = (jm_path_t) { "name", 0, path, NULL };
-        pval = json_object_get(val, "name");
         // .'$platforms'.0.'|'.15.name
         res = json_is_string(pval) && strcmp(json_string_value(pval), "eos") == 0;
         if (! res)
@@ -6171,10 +6108,9 @@ static INLINE bool _jm_obj_78(const json_t *val, jm_path_t *path, jm_report_t *r
             return false;
         }
     }
-    if (json_object_get(val, "versions") != NULL)
+    if ((pval = json_object_get(val, "versions")) != NULL)
     {
         lpath = (jm_path_t) { "versions", 0, path, NULL };
-        pval = json_object_get(val, "versions");
         // .'$platforms'.0.'|'.15.versions
         res = json_is_array(pval);
         if (res)
@@ -6216,10 +6152,9 @@ static INLINE bool _jm_obj_79(const json_t *val, jm_path_t *path, jm_report_t *r
     jm_path_t lpath;
     json_t * pval;
     bool res;
-    if (json_object_get(val, "name") != NULL)
+    if ((pval = json_object_get(val, "name")) != NULL)
     {
         lpath = (jm_path_t) { "name", 0, path, NULL };
-        pval = json_object_get(val, "name");
         // .'$platforms'.0.'|'.14.name
         res = json_is_string(pval) && strcmp(json_string_value(pval), "EL") == 0;
         if (! res)
@@ -6229,10 +6164,9 @@ static INLINE bool _jm_obj_79(const json_t *val, jm_path_t *path, jm_report_t *r
             return false;
         }
     }
-    if (json_object_get(val, "versions") != NULL)
+    if ((pval = json_object_get(val, "versions")) != NULL)
     {
         lpath = (jm_path_t) { "versions", 0, path, NULL };
-        pval = json_object_get(val, "versions");
         // .'$platforms'.0.'|'.14.versions
         res = json_is_array(pval);
         if (res)
@@ -6274,10 +6208,9 @@ static INLINE bool _jm_obj_80(const json_t *val, jm_path_t *path, jm_report_t *r
     jm_path_t lpath;
     json_t * pval;
     bool res;
-    if (json_object_get(val, "name") != NULL)
+    if ((pval = json_object_get(val, "name")) != NULL)
     {
         lpath = (jm_path_t) { "name", 0, path, NULL };
-        pval = json_object_get(val, "name");
         // .'$platforms'.0.'|'.13.name
         res = json_is_string(pval) && strcmp(json_string_value(pval), "DragonFlyBSD") == 0;
         if (! res)
@@ -6287,10 +6220,9 @@ static INLINE bool _jm_obj_80(const json_t *val, jm_path_t *path, jm_report_t *r
             return false;
         }
     }
-    if (json_object_get(val, "versions") != NULL)
+    if ((pval = json_object_get(val, "versions")) != NULL)
     {
         lpath = (jm_path_t) { "versions", 0, path, NULL };
-        pval = json_object_get(val, "versions");
         // .'$platforms'.0.'|'.13.versions
         res = json_is_array(pval);
         if (res)
@@ -6332,10 +6264,9 @@ static INLINE bool _jm_obj_81(const json_t *val, jm_path_t *path, jm_report_t *r
     jm_path_t lpath;
     json_t * pval;
     bool res;
-    if (json_object_get(val, "name") != NULL)
+    if ((pval = json_object_get(val, "name")) != NULL)
     {
         lpath = (jm_path_t) { "name", 0, path, NULL };
-        pval = json_object_get(val, "name");
         // .'$platforms'.0.'|'.12.name
         res = json_is_string(pval) && strcmp(json_string_value(pval), "Devuan") == 0;
         if (! res)
@@ -6345,10 +6276,9 @@ static INLINE bool _jm_obj_81(const json_t *val, jm_path_t *path, jm_report_t *r
             return false;
         }
     }
-    if (json_object_get(val, "versions") != NULL)
+    if ((pval = json_object_get(val, "versions")) != NULL)
     {
         lpath = (jm_path_t) { "versions", 0, path, NULL };
-        pval = json_object_get(val, "versions");
         // .'$platforms'.0.'|'.12.versions
         res = json_is_array(pval);
         if (res)
@@ -6390,10 +6320,9 @@ static INLINE bool _jm_obj_82(const json_t *val, jm_path_t *path, jm_report_t *r
     jm_path_t lpath;
     json_t * pval;
     bool res;
-    if (json_object_get(val, "name") != NULL)
+    if ((pval = json_object_get(val, "name")) != NULL)
     {
         lpath = (jm_path_t) { "name", 0, path, NULL };
-        pval = json_object_get(val, "name");
         // .'$platforms'.0.'|'.11.name
         res = json_is_string(pval) && strcmp(json_string_value(pval), "DellOS") == 0;
         if (! res)
@@ -6403,10 +6332,9 @@ static INLINE bool _jm_obj_82(const json_t *val, jm_path_t *path, jm_report_t *r
             return false;
         }
     }
-    if (json_object_get(val, "versions") != NULL)
+    if ((pval = json_object_get(val, "versions")) != NULL)
     {
         lpath = (jm_path_t) { "versions", 0, path, NULL };
-        pval = json_object_get(val, "versions");
         // .'$platforms'.0.'|'.11.versions
         res = json_is_array(pval);
         if (res)
@@ -6448,10 +6376,9 @@ static INLINE bool _jm_obj_83(const json_t *val, jm_path_t *path, jm_report_t *r
     jm_path_t lpath;
     json_t * pval;
     bool res;
-    if (json_object_get(val, "name") != NULL)
+    if ((pval = json_object_get(val, "name")) != NULL)
     {
         lpath = (jm_path_t) { "name", 0, path, NULL };
-        pval = json_object_get(val, "name");
         // .'$platforms'.0.'|'.10.name
         res = json_is_string(pval) && strcmp(json_string_value(pval), "Debian") == 0;
         if (! res)
@@ -6461,10 +6388,9 @@ static INLINE bool _jm_obj_83(const json_t *val, jm_path_t *path, jm_report_t *r
             return false;
         }
     }
-    if (json_object_get(val, "versions") != NULL)
+    if ((pval = json_object_get(val, "versions")) != NULL)
     {
         lpath = (jm_path_t) { "versions", 0, path, NULL };
-        pval = json_object_get(val, "versions");
         // .'$platforms'.0.'|'.10.versions
         res = json_is_array(pval);
         if (res)
@@ -6506,10 +6432,9 @@ static INLINE bool _jm_obj_84(const json_t *val, jm_path_t *path, jm_report_t *r
     jm_path_t lpath;
     json_t * pval;
     bool res;
-    if (json_object_get(val, "name") != NULL)
+    if ((pval = json_object_get(val, "name")) != NULL)
     {
         lpath = (jm_path_t) { "name", 0, path, NULL };
-        pval = json_object_get(val, "name");
         // .'$platforms'.0.'|'.9.name
         res = json_is_string(pval) && strcmp(json_string_value(pval), "NetBSD") == 0;
         if (! res)
@@ -6519,10 +6444,9 @@ static INLINE bool _jm_obj_84(const json_t *val, jm_path_t *path, jm_report_t *r
             return false;
         }
     }
-    if (json_object_get(val, "versions") != NULL)
+    if ((pval = json_object_get(val, "versions")) != NULL)
     {
         lpath = (jm_path_t) { "versions", 0, path, NULL };
-        pval = json_object_get(val, "versions");
         // .'$platforms'.0.'|'.9.versions
         res = json_is_array(pval);
         if (res)
@@ -6564,10 +6488,9 @@ static INLINE bool _jm_obj_85(const json_t *val, jm_path_t *path, jm_report_t *r
     jm_path_t lpath;
     json_t * pval;
     bool res;
-    if (json_object_get(val, "name") != NULL)
+    if ((pval = json_object_get(val, "name")) != NULL)
     {
         lpath = (jm_path_t) { "name", 0, path, NULL };
-        pval = json_object_get(val, "name");
         // .'$platforms'.0.'|'.8.name
         res = json_is_string(pval) && strcmp(json_string_value(pval), "Cumulus") == 0;
         if (! res)
@@ -6577,10 +6500,9 @@ static INLINE bool _jm_obj_85(const json_t *val, jm_path_t *path, jm_report_t *r
             return false;
         }
     }
-    if (json_object_get(val, "versions") != NULL)
+    if ((pval = json_object_get(val, "versions")) != NULL)
     {
         lpath = (jm_path_t) { "versions", 0, path, NULL };
-        pval = json_object_get(val, "versions");
         // .'$platforms'.0.'|'.8.versions
         res = json_is_array(pval);
         if (res)
@@ -6621,10 +6543,9 @@ static INLINE bool _jm_obj_86(const json_t *val, jm_path_t *path, jm_report_t *r
     jm_path_t lpath;
     json_t * pval;
     bool res;
-    if (json_object_get(val, "name") != NULL)
+    if ((pval = json_object_get(val, "name")) != NULL)
     {
         lpath = (jm_path_t) { "name", 0, path, NULL };
-        pval = json_object_get(val, "name");
         // .'$platforms'.0.'|'.7.name
         res = json_is_string(pval) && strcmp(json_string_value(pval), "ClearLinux") == 0;
         if (! res)
@@ -6634,10 +6555,9 @@ static INLINE bool _jm_obj_86(const json_t *val, jm_path_t *path, jm_report_t *r
             return false;
         }
     }
-    if (json_object_get(val, "versions") != NULL)
+    if ((pval = json_object_get(val, "versions")) != NULL)
     {
         lpath = (jm_path_t) { "versions", 0, path, NULL };
-        pval = json_object_get(val, "versions");
         // .'$platforms'.0.'|'.7.versions
         res = json_is_array(pval);
         if (res)
@@ -6679,10 +6599,9 @@ static INLINE bool _jm_obj_87(const json_t *val, jm_path_t *path, jm_report_t *r
     jm_path_t lpath;
     json_t * pval;
     bool res;
-    if (json_object_get(val, "name") != NULL)
+    if ((pval = json_object_get(val, "name")) != NULL)
     {
         lpath = (jm_path_t) { "name", 0, path, NULL };
-        pval = json_object_get(val, "name");
         // .'$platforms'.0.'|'.6.name
         res = json_is_string(pval) && strcmp(json_string_value(pval), "Astra Linux") == 0;
         if (! res)
@@ -6692,10 +6611,9 @@ static INLINE bool _jm_obj_87(const json_t *val, jm_path_t *path, jm_report_t *r
             return false;
         }
     }
-    if (json_object_get(val, "versions") != NULL)
+    if ((pval = json_object_get(val, "versions")) != NULL)
     {
         lpath = (jm_path_t) { "versions", 0, path, NULL };
-        pval = json_object_get(val, "versions");
         // .'$platforms'.0.'|'.6.versions
         res = json_is_array(pval);
         if (res)
@@ -6736,10 +6654,9 @@ static INLINE bool _jm_obj_88(const json_t *val, jm_path_t *path, jm_report_t *r
     jm_path_t lpath;
     json_t * pval;
     bool res;
-    if (json_object_get(val, "name") != NULL)
+    if ((pval = json_object_get(val, "name")) != NULL)
     {
         lpath = (jm_path_t) { "name", 0, path, NULL };
-        pval = json_object_get(val, "name");
         // .'$platforms'.0.'|'.5.name
         res = json_is_string(pval) && strcmp(json_string_value(pval), "ArchLinux") == 0;
         if (! res)
@@ -6749,10 +6666,9 @@ static INLINE bool _jm_obj_88(const json_t *val, jm_path_t *path, jm_report_t *r
             return false;
         }
     }
-    if (json_object_get(val, "versions") != NULL)
+    if ((pval = json_object_get(val, "versions")) != NULL)
     {
         lpath = (jm_path_t) { "versions", 0, path, NULL };
-        pval = json_object_get(val, "versions");
         // .'$platforms'.0.'|'.5.versions
         res = json_is_array(pval);
         if (res)
@@ -6793,10 +6709,9 @@ static INLINE bool _jm_obj_89(const json_t *val, jm_path_t *path, jm_report_t *r
     jm_path_t lpath;
     json_t * pval;
     bool res;
-    if (json_object_get(val, "name") != NULL)
+    if ((pval = json_object_get(val, "name")) != NULL)
     {
         lpath = (jm_path_t) { "name", 0, path, NULL };
-        pval = json_object_get(val, "name");
         // .'$platforms'.0.'|'.4.name
         res = json_is_string(pval) && strcmp(json_string_value(pval), "aos") == 0;
         if (! res)
@@ -6806,10 +6721,9 @@ static INLINE bool _jm_obj_89(const json_t *val, jm_path_t *path, jm_report_t *r
             return false;
         }
     }
-    if (json_object_get(val, "versions") != NULL)
+    if ((pval = json_object_get(val, "versions")) != NULL)
     {
         lpath = (jm_path_t) { "versions", 0, path, NULL };
-        pval = json_object_get(val, "versions");
         // .'$platforms'.0.'|'.4.versions
         res = json_is_array(pval);
         if (res)
@@ -6851,10 +6765,9 @@ static INLINE bool _jm_obj_90(const json_t *val, jm_path_t *path, jm_report_t *r
     jm_path_t lpath;
     json_t * pval;
     bool res;
-    if (json_object_get(val, "name") != NULL)
+    if ((pval = json_object_get(val, "name")) != NULL)
     {
         lpath = (jm_path_t) { "name", 0, path, NULL };
-        pval = json_object_get(val, "name");
         // .'$platforms'.0.'|'.3.name
         res = json_is_string(pval) && strcmp(json_string_value(pval), "Amazon Linux") == 0;
         if (! res)
@@ -6864,10 +6777,9 @@ static INLINE bool _jm_obj_90(const json_t *val, jm_path_t *path, jm_report_t *r
             return false;
         }
     }
-    if (json_object_get(val, "versions") != NULL)
+    if ((pval = json_object_get(val, "versions")) != NULL)
     {
         lpath = (jm_path_t) { "versions", 0, path, NULL };
-        pval = json_object_get(val, "versions");
         // .'$platforms'.0.'|'.3.versions
         res = json_is_array(pval);
         if (res)
@@ -6909,10 +6821,9 @@ static INLINE bool _jm_obj_91(const json_t *val, jm_path_t *path, jm_report_t *r
     jm_path_t lpath;
     json_t * pval;
     bool res;
-    if (json_object_get(val, "name") != NULL)
+    if ((pval = json_object_get(val, "name")) != NULL)
     {
         lpath = (jm_path_t) { "name", 0, path, NULL };
-        pval = json_object_get(val, "name");
         // .'$platforms'.0.'|'.2.name
         res = json_is_string(pval) && strcmp(json_string_value(pval), "Amazon") == 0;
         if (! res)
@@ -6922,10 +6833,9 @@ static INLINE bool _jm_obj_91(const json_t *val, jm_path_t *path, jm_report_t *r
             return false;
         }
     }
-    if (json_object_get(val, "versions") != NULL)
+    if ((pval = json_object_get(val, "versions")) != NULL)
     {
         lpath = (jm_path_t) { "versions", 0, path, NULL };
-        pval = json_object_get(val, "versions");
         // .'$platforms'.0.'|'.2.versions
         res = json_is_array(pval);
         if (res)
@@ -6966,10 +6876,9 @@ static INLINE bool _jm_obj_92(const json_t *val, jm_path_t *path, jm_report_t *r
     jm_path_t lpath;
     json_t * pval;
     bool res;
-    if (json_object_get(val, "name") != NULL)
+    if ((pval = json_object_get(val, "name")) != NULL)
     {
         lpath = (jm_path_t) { "name", 0, path, NULL };
-        pval = json_object_get(val, "name");
         // .'$platforms'.0.'|'.1.name
         res = json_is_string(pval) && strcmp(json_string_value(pval), "Alpine") == 0;
         if (! res)
@@ -6979,10 +6888,9 @@ static INLINE bool _jm_obj_92(const json_t *val, jm_path_t *path, jm_report_t *r
             return false;
         }
     }
-    if (json_object_get(val, "versions") != NULL)
+    if ((pval = json_object_get(val, "versions")) != NULL)
     {
         lpath = (jm_path_t) { "versions", 0, path, NULL };
-        pval = json_object_get(val, "versions");
         // .'$platforms'.0.'|'.1.versions
         res = json_is_array(pval);
         if (res)
@@ -7024,10 +6932,9 @@ static INLINE bool _jm_obj_93(const json_t *val, jm_path_t *path, jm_report_t *r
     jm_path_t lpath;
     json_t * pval;
     bool res;
-    if (json_object_get(val, "name") != NULL)
+    if ((pval = json_object_get(val, "name")) != NULL)
     {
         lpath = (jm_path_t) { "name", 0, path, NULL };
-        pval = json_object_get(val, "name");
         // .'$platforms'.0.'|'.0.name
         res = json_is_string(pval) && strcmp(json_string_value(pval), "AIX") == 0;
         if (! res)
@@ -7037,10 +6944,9 @@ static INLINE bool _jm_obj_93(const json_t *val, jm_path_t *path, jm_report_t *r
             return false;
         }
     }
-    if (json_object_get(val, "versions") != NULL)
+    if ((pval = json_object_get(val, "versions")) != NULL)
     {
         lpath = (jm_path_t) { "versions", 0, path, NULL };
-        pval = json_object_get(val, "versions");
         // .'$platforms'.0.'|'.0.versions
         res = json_is_array(pval);
         if (res)
@@ -9040,13 +8946,12 @@ static INLINE bool _jm_obj_101(const json_t *val, jm_path_t *path, jm_report_t *
     jm_path_t lpath;
     json_t * pval;
     bool res;
-    if (! (json_object_get(val, "name") != NULL))
+    if (! ((pval = json_object_get(val, "name")) != NULL))
     {
         if (rep) jm_report_add_entry(rep, "missing mandatory prop <name> [.'$DependencyModel'.'&'.1.'|'.2]", path);
         return false;
     }
     lpath = (jm_path_t) { "name", 0, path, NULL };
-    pval = json_object_get(val, "name");
     // .'$DependencyModel'.'&'.1.'|'.2.name
     res = json_is_string(pval);
     if (! res)
@@ -9070,13 +8975,12 @@ static INLINE bool _jm_obj_102(const json_t *val, jm_path_t *path, jm_report_t *
     jm_path_t lpath;
     json_t * pval;
     bool res;
-    if (! (json_object_get(val, "src") != NULL))
+    if (! ((pval = json_object_get(val, "src")) != NULL))
     {
         if (rep) jm_report_add_entry(rep, "missing mandatory prop <src> [.'$DependencyModel'.'&'.1.'|'.1]", path);
         return false;
     }
     lpath = (jm_path_t) { "src", 0, path, NULL };
-    pval = json_object_get(val, "src");
     // .'$DependencyModel'.'&'.1.'|'.1.src
     res = json_is_string(pval);
     if (! res)
@@ -9100,13 +9004,12 @@ static INLINE bool _jm_obj_103(const json_t *val, jm_path_t *path, jm_report_t *
     jm_path_t lpath;
     json_t * pval;
     bool res;
-    if (! (json_object_get(val, "role") != NULL))
+    if (! ((pval = json_object_get(val, "role")) != NULL))
     {
         if (rep) jm_report_add_entry(rep, "missing mandatory prop <role> [.'$DependencyModel'.'&'.1.'|'.0]", path);
         return false;
     }
     lpath = (jm_path_t) { "role", 0, path, NULL };
-    pval = json_object_get(val, "role");
     // .'$DependencyModel'.'&'.1.'|'.0.role
     res = json_is_string(pval);
     if (! res)

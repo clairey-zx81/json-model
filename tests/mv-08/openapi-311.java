@@ -6458,13 +6458,12 @@ public class openapi_311 extends ModelChecker
         Path lpath;
         Object pval;
         boolean res;
-        if (! json.objectHasProp(val, "type"))
+        if (! ((pval = json.objectValue(val, "type")) != null))
         {
             if (rep != null) rep.addEntry("missing mandatory prop <type> [.'$SS-apikey']", path);
             return false;
         }
         lpath = new Path("type", path);
-        pval = json.objectValue(val, "type");
         // .'$SS-apikey'.type
         res = json.isString(pval) && json.asString(pval).compareTo("apiKey") == 0;
         if (! res)
@@ -6473,13 +6472,12 @@ public class openapi_311 extends ModelChecker
             if (rep != null) rep.addEntry("unexpected value for mandatory prop <type> [.'$SS-apikey']", (path != null ? lpath : null));
             return false;
         }
-        if (! json.objectHasProp(val, "name"))
+        if (! ((pval = json.objectValue(val, "name")) != null))
         {
             if (rep != null) rep.addEntry("missing mandatory prop <name> [.'$SS-apikey']", path);
             return false;
         }
         lpath = new Path("name", path);
-        pval = json.objectValue(val, "name");
         // .'$SS-apikey'.name
         res = json.isString(pval);
         if (! res)
@@ -6488,13 +6486,12 @@ public class openapi_311 extends ModelChecker
             if (rep != null) rep.addEntry("unexpected value for mandatory prop <name> [.'$SS-apikey']", (path != null ? lpath : null));
             return false;
         }
-        if (! json.objectHasProp(val, "in"))
+        if (! ((pval = json.objectValue(val, "in")) != null))
         {
             if (rep != null) rep.addEntry("missing mandatory prop <in> [.'$SS-apikey']", path);
             return false;
         }
         lpath = new Path("in", path);
-        pval = json.objectValue(val, "in");
         // .'$SS-apikey'.in
         res = json.isScalar(pval) && _jm_cst_4_set.contains(pval);
         if (! res)
@@ -6536,13 +6533,12 @@ public class openapi_311 extends ModelChecker
         Path lpath;
         Object pval;
         boolean res;
-        if (! json.objectHasProp(val, "type"))
+        if (! ((pval = json.objectValue(val, "type")) != null))
         {
             if (rep != null) rep.addEntry("missing mandatory prop <type> [.'$SS-http']", path);
             return false;
         }
         lpath = new Path("type", path);
-        pval = json.objectValue(val, "type");
         // .'$SS-http'.type
         res = json.isString(pval) && json.asString(pval).compareTo("http") == 0;
         if (! res)
@@ -6551,13 +6547,12 @@ public class openapi_311 extends ModelChecker
             if (rep != null) rep.addEntry("unexpected value for mandatory prop <type> [.'$SS-http']", (path != null ? lpath : null));
             return false;
         }
-        if (! json.objectHasProp(val, "scheme"))
+        if (! ((pval = json.objectValue(val, "scheme")) != null))
         {
             if (rep != null) rep.addEntry("missing mandatory prop <scheme> [.'$SS-http']", path);
             return false;
         }
         lpath = new Path("scheme", path);
-        pval = json.objectValue(val, "scheme");
         // .'$SS-http'.scheme
         res = json.isString(pval);
         if (! res)
@@ -6696,13 +6691,12 @@ public class openapi_311 extends ModelChecker
         Path lpath;
         Object pval;
         boolean res;
-        if (! json.objectHasProp(val, "type"))
+        if (! ((pval = json.objectValue(val, "type")) != null))
         {
             if (rep != null) rep.addEntry("missing mandatory prop <type> [.'$SS-oauth2']", path);
             return false;
         }
         lpath = new Path("type", path);
-        pval = json.objectValue(val, "type");
         // .'$SS-oauth2'.type
         res = json.isString(pval) && json.asString(pval).compareTo("oauth2") == 0;
         if (! res)
@@ -6711,13 +6705,12 @@ public class openapi_311 extends ModelChecker
             if (rep != null) rep.addEntry("unexpected value for mandatory prop <type> [.'$SS-oauth2']", (path != null ? lpath : null));
             return false;
         }
-        if (! json.objectHasProp(val, "flows"))
+        if (! ((pval = json.objectValue(val, "flows")) != null))
         {
             if (rep != null) rep.addEntry("missing mandatory prop <flows> [.'$SS-oauth2']", path);
             return false;
         }
         lpath = new Path("flows", path);
-        pval = json.objectValue(val, "flows");
         // .'$SS-oauth2'.flows
         res = _jm_obj_80(pval, (path != null ? lpath : null), rep);
         if (! res)
@@ -6759,13 +6752,12 @@ public class openapi_311 extends ModelChecker
         Path lpath;
         Object pval;
         boolean res;
-        if (! json.objectHasProp(val, "type"))
+        if (! ((pval = json.objectValue(val, "type")) != null))
         {
             if (rep != null) rep.addEntry("missing mandatory prop <type> [.'$SS-oic']", path);
             return false;
         }
         lpath = new Path("type", path);
-        pval = json.objectValue(val, "type");
         // .'$SS-oic'.type
         res = json.isString(pval) && json.asString(pval).compareTo("openIdConnect") == 0;
         if (! res)
@@ -6774,13 +6766,12 @@ public class openapi_311 extends ModelChecker
             if (rep != null) rep.addEntry("unexpected value for mandatory prop <type> [.'$SS-oic']", (path != null ? lpath : null));
             return false;
         }
-        if (! json.objectHasProp(val, "openIdConnectUrl"))
+        if (! ((pval = json.objectValue(val, "openIdConnectUrl")) != null))
         {
             if (rep != null) rep.addEntry("missing mandatory prop <openIdConnectUrl> [.'$SS-oic']", path);
             return false;
         }
         lpath = new Path("openIdConnectUrl", path);
-        pval = json.objectValue(val, "openIdConnectUrl");
         // .'$SS-oic'.openIdConnectUrl
         res = json.isString(pval) && rt.is_valid_url(json.asString(pval));
         if (! res)

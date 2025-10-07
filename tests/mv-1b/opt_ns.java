@@ -36,13 +36,12 @@ public class opt_ns extends ModelChecker
         Path lpath;
         Object pval;
         boolean res;
-        if (! json.objectHasProp(val, "i"))
+        if (! ((pval = json.objectValue(val, "i")) != null))
         {
             if (rep != null) rep.addEntry("missing mandatory prop <i> [.]", path);
             return false;
         }
         lpath = new Path("i", path);
-        pval = json.objectValue(val, "i");
         // .i
         res = json.isInteger(pval);
         if (! res)
@@ -51,13 +50,12 @@ public class opt_ns extends ModelChecker
             if (rep != null) rep.addEntry("unexpected value for mandatory prop <i> [.]", (path != null ? lpath : null));
             return false;
         }
-        if (! json.objectHasProp(val, "f"))
+        if (! ((pval = json.objectValue(val, "f")) != null))
         {
             if (rep != null) rep.addEntry("missing mandatory prop <f> [.]", path);
             return false;
         }
         lpath = new Path("f", path);
-        pval = json.objectValue(val, "f");
         // .f
         res = json.isDouble(pval);
         if (! res)

@@ -6745,13 +6745,12 @@ static INLINE bool _jm_obj_69(const json_t *val, jm_path_t *path, jm_report_t *r
     jm_path_t lpath;
     json_t * pval;
     bool res;
-    if (! (json_object_get(val, "type") != NULL))
+    if (! ((pval = json_object_get(val, "type")) != NULL))
     {
         if (rep) jm_report_add_entry(rep, "missing mandatory prop <type> [.'$SS-apikey']", path);
         return false;
     }
     lpath = (jm_path_t) { "type", 0, path, NULL };
-    pval = json_object_get(val, "type");
     // .'$SS-apikey'.type
     res = json_is_string(pval) && strcmp(json_string_value(pval), "apiKey") == 0;
     if (! res)
@@ -6760,13 +6759,12 @@ static INLINE bool _jm_obj_69(const json_t *val, jm_path_t *path, jm_report_t *r
         if (rep) jm_report_add_entry(rep, "unexpected value for mandatory prop <type> [.'$SS-apikey']", (path ? &lpath : NULL));
         return false;
     }
-    if (! (json_object_get(val, "name") != NULL))
+    if (! ((pval = json_object_get(val, "name")) != NULL))
     {
         if (rep) jm_report_add_entry(rep, "missing mandatory prop <name> [.'$SS-apikey']", path);
         return false;
     }
     lpath = (jm_path_t) { "name", 0, path, NULL };
-    pval = json_object_get(val, "name");
     // .'$SS-apikey'.name
     res = json_is_string(pval);
     if (! res)
@@ -6775,13 +6773,12 @@ static INLINE bool _jm_obj_69(const json_t *val, jm_path_t *path, jm_report_t *r
         if (rep) jm_report_add_entry(rep, "unexpected value for mandatory prop <name> [.'$SS-apikey']", (path ? &lpath : NULL));
         return false;
     }
-    if (! (json_object_get(val, "in") != NULL))
+    if (! ((pval = json_object_get(val, "in")) != NULL))
     {
         if (rep) jm_report_add_entry(rep, "missing mandatory prop <in> [.'$SS-apikey']", path);
         return false;
     }
     lpath = (jm_path_t) { "in", 0, path, NULL };
-    pval = json_object_get(val, "in");
     // .'$SS-apikey'.in
     res = jm_json_is_scalar(pval) && json_is_string(pval) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(pval) } }, _jm_cst_4, 3);;
     if (! res)
@@ -6823,13 +6820,12 @@ static INLINE bool _jm_obj_70(const json_t *val, jm_path_t *path, jm_report_t *r
     jm_path_t lpath;
     json_t * pval;
     bool res;
-    if (! (json_object_get(val, "type") != NULL))
+    if (! ((pval = json_object_get(val, "type")) != NULL))
     {
         if (rep) jm_report_add_entry(rep, "missing mandatory prop <type> [.'$SS-http']", path);
         return false;
     }
     lpath = (jm_path_t) { "type", 0, path, NULL };
-    pval = json_object_get(val, "type");
     // .'$SS-http'.type
     res = json_is_string(pval) && strcmp(json_string_value(pval), "http") == 0;
     if (! res)
@@ -6838,13 +6834,12 @@ static INLINE bool _jm_obj_70(const json_t *val, jm_path_t *path, jm_report_t *r
         if (rep) jm_report_add_entry(rep, "unexpected value for mandatory prop <type> [.'$SS-http']", (path ? &lpath : NULL));
         return false;
     }
-    if (! (json_object_get(val, "scheme") != NULL))
+    if (! ((pval = json_object_get(val, "scheme")) != NULL))
     {
         if (rep) jm_report_add_entry(rep, "missing mandatory prop <scheme> [.'$SS-http']", path);
         return false;
     }
     lpath = (jm_path_t) { "scheme", 0, path, NULL };
-    pval = json_object_get(val, "scheme");
     // .'$SS-http'.scheme
     res = json_is_string(pval);
     if (! res)
@@ -6983,13 +6978,12 @@ static INLINE bool _jm_obj_72(const json_t *val, jm_path_t *path, jm_report_t *r
     jm_path_t lpath;
     json_t * pval;
     bool res;
-    if (! (json_object_get(val, "type") != NULL))
+    if (! ((pval = json_object_get(val, "type")) != NULL))
     {
         if (rep) jm_report_add_entry(rep, "missing mandatory prop <type> [.'$SS-oauth2']", path);
         return false;
     }
     lpath = (jm_path_t) { "type", 0, path, NULL };
-    pval = json_object_get(val, "type");
     // .'$SS-oauth2'.type
     res = json_is_string(pval) && strcmp(json_string_value(pval), "oauth2") == 0;
     if (! res)
@@ -6998,13 +6992,12 @@ static INLINE bool _jm_obj_72(const json_t *val, jm_path_t *path, jm_report_t *r
         if (rep) jm_report_add_entry(rep, "unexpected value for mandatory prop <type> [.'$SS-oauth2']", (path ? &lpath : NULL));
         return false;
     }
-    if (! (json_object_get(val, "flows") != NULL))
+    if (! ((pval = json_object_get(val, "flows")) != NULL))
     {
         if (rep) jm_report_add_entry(rep, "missing mandatory prop <flows> [.'$SS-oauth2']", path);
         return false;
     }
     lpath = (jm_path_t) { "flows", 0, path, NULL };
-    pval = json_object_get(val, "flows");
     // .'$SS-oauth2'.flows
     res = _jm_obj_80(pval, (path ? &lpath : NULL), rep);
     if (! res)
@@ -7046,13 +7039,12 @@ static INLINE bool _jm_obj_73(const json_t *val, jm_path_t *path, jm_report_t *r
     jm_path_t lpath;
     json_t * pval;
     bool res;
-    if (! (json_object_get(val, "type") != NULL))
+    if (! ((pval = json_object_get(val, "type")) != NULL))
     {
         if (rep) jm_report_add_entry(rep, "missing mandatory prop <type> [.'$SS-oic']", path);
         return false;
     }
     lpath = (jm_path_t) { "type", 0, path, NULL };
-    pval = json_object_get(val, "type");
     // .'$SS-oic'.type
     res = json_is_string(pval) && strcmp(json_string_value(pval), "openIdConnect") == 0;
     if (! res)
@@ -7061,13 +7053,12 @@ static INLINE bool _jm_obj_73(const json_t *val, jm_path_t *path, jm_report_t *r
         if (rep) jm_report_add_entry(rep, "unexpected value for mandatory prop <type> [.'$SS-oic']", (path ? &lpath : NULL));
         return false;
     }
-    if (! (json_object_get(val, "openIdConnectUrl") != NULL))
+    if (! ((pval = json_object_get(val, "openIdConnectUrl")) != NULL))
     {
         if (rep) jm_report_add_entry(rep, "missing mandatory prop <openIdConnectUrl> [.'$SS-oic']", path);
         return false;
     }
     lpath = (jm_path_t) { "openIdConnectUrl", 0, path, NULL };
-    pval = json_object_get(val, "openIdConnectUrl");
     // .'$SS-oic'.openIdConnectUrl
     res = jm_is_valid_url(json_string_value(pval), (path ? &lpath : NULL), rep);
     if (! res)

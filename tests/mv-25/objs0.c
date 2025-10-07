@@ -35,22 +35,20 @@ static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *re
     }
     json_t * pval;
     bool res;
-    if (! (json_object_get(val, "t") != NULL))
+    if (! ((pval = json_object_get(val, "t")) != NULL))
     {
         return false;
     }
-    pval = json_object_get(val, "t");
     // .'$table'.t
     res = json_is_string(pval) && strcmp(json_string_value(pval), "table") == 0;
     if (! res)
     {
         return false;
     }
-    if (! (json_object_get(val, "legs") != NULL))
+    if (! ((pval = json_object_get(val, "legs")) != NULL))
     {
         return false;
     }
-    pval = json_object_get(val, "legs");
     // .'$table'.legs
     res = json_is_integer(pval) && json_integer_value(pval) >= 1;
     if (! res)
@@ -83,22 +81,20 @@ static INLINE bool _jm_obj_1(const json_t *val, jm_path_t *path, jm_report_t *re
     }
     json_t * pval;
     bool res;
-    if (! (json_object_get(val, "t") != NULL))
+    if (! ((pval = json_object_get(val, "t")) != NULL))
     {
         return false;
     }
-    pval = json_object_get(val, "t");
     // .'$chair'.t
     res = json_is_string(pval) && strcmp(json_string_value(pval), "chair") == 0;
     if (! res)
     {
         return false;
     }
-    if (! (json_object_get(val, "color") != NULL))
+    if (! ((pval = json_object_get(val, "color")) != NULL))
     {
         return false;
     }
-    pval = json_object_get(val, "color");
     // .'$chair'.color
     res = json_is_string(pval);
     if (! res)
@@ -168,11 +164,10 @@ static INLINE bool _jm_obj_2(const json_t *val, jm_path_t *path, jm_report_t *re
     }
     json_t * pval;
     bool res;
-    if (! (json_object_get(val, "stuff") != NULL))
+    if (! ((pval = json_object_get(val, "stuff")) != NULL))
     {
         return false;
     }
-    pval = json_object_get(val, "stuff");
     // .stuff
     res = json_is_array(pval);
     if (res)

@@ -532,15 +532,22 @@ class CodeGenerator:
         # may or may not be used
         lpath_ref: PathExpr = gen.path_lvar("lpath", vpath)
 
+        # whether to combine property test and value extraction
+        combined = gen.assign_obj_prop()
+
         # must properties
         for prop, pmodel in must.items():
-            code += gen.if_stmt(
-                        gen.not_op(gen.has_prop(val, prop)),
-                        self._gen_fail(f"missing mandatory prop <{prop}> [{smpath}]", vpath))
+            prop_fail: Block = self._gen_fail(f"missing mandatory prop <{prop}> [{smpath}]", vpath)
+            if combined and pmodel != "$ANY":
+                code += gen.if_stmt(
+                    gen.not_op(gen.obj_has_prop_val("pval", val, prop, False)), prop_fail)
+            else:
+                code += gen.if_stmt(gen.not_op(gen.has_prop(val, prop)), prop_fail)
             if pmodel != "$ANY":
+                code += gen.path_var("lpath", gen.path_val(vpath, prop, True, False))
+                if not combined:
+                    code += gen.json_var("pval", gen.obj_prop_val(val, prop, False))
                 code += (
-                    gen.path_var("lpath", gen.path_val(vpath, prop, True, False)) +
-                    gen.json_var("pval", gen.obj_prop_val(val, prop, False)) +
                     self._compileModel(jm, pmodel, mpath + [prop], res, "pval", lpath_ref) +
                     gen.if_stmt(
                         gen.not_op(res),
@@ -578,14 +585,21 @@ class CodeGenerator:
         # may or may not be used
         lpath_ref: PathExpr = gen.path_lvar("lpath", vpath)
 
+        # whether to combine test and assignment
+        combined = gen.assign_obj_prop()
+
         for prop, pmodel in must.items():
-            code += gen.if_stmt(
-                        gen.not_op(gen.has_prop(val, prop)),
-                        self._gen_fail(f"missing mandatory prop <{prop}> [{smpath}]", vpath))
+            prop_fail: Block = self._gen_fail(f"missing mandatory prop <{prop}> [{smpath}]", vpath)
+            if combined and pmodel != "$ANY":
+                code += gen.if_stmt(
+                    gen.not_op(gen.obj_has_prop_val("pval", val, prop, False)), prop_fail)
+            else:
+                code += gen.if_stmt(gen.not_op(gen.has_prop(val, prop)), prop_fail)
             if pmodel != "$ANY":
+                code += gen.path_var("lpath", gen.path_val(vpath, prop, True, False))
+                if not combined:
+                    code += gen.json_var("pval", gen.obj_prop_val(val, prop, False))
                 code += (
-                    gen.path_var("lpath", gen.path_val(vpath, prop, True, False)) +
-                    gen.json_var("pval", gen.obj_prop_val(val, prop, False)) +
                     self._compileModel(jm, pmodel, mpath + [prop], res, "pval", lpath_ref) +
                     gen.if_stmt(
                         gen.not_op(res),
@@ -595,15 +609,21 @@ class CodeGenerator:
 
         for prop, pmodel in may.items():
             if pmodel != "$ANY":
-                code += gen.if_stmt(gen.has_prop(val, prop),
-                    gen.path_var("lpath", gen.path_val(vpath, prop, True, False)) +
-                    gen.json_var("pval", gen.obj_prop_val(val, prop, False)) +
+                check_value: Block = gen.path_var("lpath", gen.path_val(vpath, prop, True, False))
+                has_prop: str
+                if combined:
+                    has_prop = gen.obj_has_prop_val("pval", val, prop)
+                else:
+                    has_prop = gen.has_prop(val, prop)
+                    check_value += gen.json_var("pval", gen.obj_prop_val(val, prop, False))
+                check_value += (
                     self._compileModel(jm, pmodel, mpath + [prop], res, "pval", lpath_ref) +
                     gen.if_stmt(
                         gen.not_op(res),
                         self._gen_fail(f"unexpected value for optional prop <{prop}> [{smpath}]",
                                        lpath_ref))
                 )
+                code += gen.if_stmt(has_prop, check_value)
             # else covered by catchall
 
         return code + gen.ret(gen.true())

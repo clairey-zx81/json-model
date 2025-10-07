@@ -33,22 +33,20 @@ public class objs2 extends ModelChecker
         }
         Object pval;
         boolean res;
-        if (! json.objectHasProp(val, "x"))
+        if (! ((pval = json.objectValue(val, "x")) != null))
         {
             return false;
         }
-        pval = json.objectValue(val, "x");
         // .'$bla'.x
         res = json.isDouble(pval);
         if (! res)
         {
             return false;
         }
-        if (! json.objectHasProp(val, "y"))
+        if (! ((pval = json.objectValue(val, "y")) != null))
         {
             return false;
         }
-        pval = json.objectValue(val, "y");
         // .'$bla'.y
         res = json.isDouble(pval);
         if (! res)

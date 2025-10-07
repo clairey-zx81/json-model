@@ -33,22 +33,20 @@ static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *re
     }
     json_t * pval;
     bool res;
-    if (! (json_object_get(val, "t") != NULL))
+    if (! ((pval = json_object_get(val, "t")) != NULL))
     {
         return false;
     }
-    pval = json_object_get(val, "t");
     // .'$alternative'.'|'.0.t
     res = json_is_string(pval) && strcmp(json_string_value(pval), "a") == 0;
     if (! res)
     {
         return false;
     }
-    if (! (json_object_get(val, "a") != NULL))
+    if (! ((pval = json_object_get(val, "a")) != NULL))
     {
         return false;
     }
-    pval = json_object_get(val, "a");
     // .'$alternative'.'|'.0.a
     res = json_is_string(pval);
     if (! res)
@@ -73,22 +71,20 @@ static INLINE bool _jm_obj_1(const json_t *val, jm_path_t *path, jm_report_t *re
     }
     json_t * pval;
     bool res;
-    if (! (json_object_get(val, "t") != NULL))
+    if (! ((pval = json_object_get(val, "t")) != NULL))
     {
         return false;
     }
-    pval = json_object_get(val, "t");
     // .'$alternative'.'|'.1.t
     res = jm_json_is_scalar(pval) && json_is_string(pval) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(pval) } }, _jm_cst_0, 2);;
     if (! res)
     {
         return false;
     }
-    if (! (json_object_get(val, "bc") != NULL))
+    if (! ((pval = json_object_get(val, "bc")) != NULL))
     {
         return false;
     }
-    pval = json_object_get(val, "bc");
     // .'$alternative'.'|'.1.bc
     res = json_is_string(pval);
     if (! res)

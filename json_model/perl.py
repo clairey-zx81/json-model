@@ -158,6 +158,13 @@ class Perl(Language):
         return f"$${obj}{{${prop}}}" if is_var else \
                f"$${obj}{{{self.esc(prop)}}}"
 
+    # TODO FIXME mv-18/dis_04.pl.check
+    def assign_obj_prop(self) -> bool:
+        return False
+
+    def obj_has_prop_val(self, dst: Var, obj: Var, prop: str|StrExpr, is_var: bool = False) -> BoolExpr:
+        return f"defined(${dst} = {self.obj_prop_val(obj, prop, is_var)})"
+
     def arr_item_val(self, arr: Var, idx: IntExpr) -> JsonExpr:
         idx = f"${idx}" if isinstance(idx, str) and self.is_a_var(idx) else str(idx)
         return f"${self._val(arr)}[{idx}]"

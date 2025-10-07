@@ -29,16 +29,14 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
         return False
     pval: Jsonable
     res: bool
-    if not "a" in val:
+    if not ((pval := val.get("a", UNDEFINED)) != UNDEFINED):
         return False
-    pval = val.get("a", UNDEFINED)
     # .a
     res = isinstance(pval, int) and not isinstance(pval, bool) and pval >= 0
     if not res:
         return False
-    if not "b" in val:
+    if not ((pval := val.get("b", UNDEFINED)) != UNDEFINED):
         return False
-    pval = val.get("b", UNDEFINED)
     # .b
     res = isinstance(pval, int) and not isinstance(pval, bool) and pval >= 0
     if not res:

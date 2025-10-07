@@ -32,9 +32,8 @@ static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *re
     }
     json_t * pval;
     bool res;
-    if (json_object_get(val, "a") != NULL)
+    if ((pval = json_object_get(val, "a")) != NULL)
     {
-        pval = json_object_get(val, "a");
         // .'$Oa'.a
         res = json_is_integer(pval) && json_integer_value(pval) >= 0;
         if (! res)
@@ -64,9 +63,8 @@ static INLINE bool _jm_obj_1(const json_t *val, jm_path_t *path, jm_report_t *re
     }
     json_t * pval;
     bool res;
-    if (json_object_get(val, "b") != NULL)
+    if ((pval = json_object_get(val, "b")) != NULL)
     {
-        pval = json_object_get(val, "b");
         // .'$Ob'.b
         res = json_is_integer(pval) && json_integer_value(pval) >= 0;
         if (! res)
@@ -96,9 +94,8 @@ static INLINE bool _jm_obj_2(const json_t *val, jm_path_t *path, jm_report_t *re
     }
     json_t * pval;
     bool res;
-    if (json_object_get(val, "a") != NULL)
+    if ((pval = json_object_get(val, "a")) != NULL)
     {
-        pval = json_object_get(val, "a");
         // .'$merge'.a
         res = json_is_integer(pval) && json_integer_value(pval) >= 0;
         if (! res)
@@ -106,9 +103,8 @@ static INLINE bool _jm_obj_2(const json_t *val, jm_path_t *path, jm_report_t *re
             return false;
         }
     }
-    if (json_object_get(val, "b") != NULL)
+    if ((pval = json_object_get(val, "b")) != NULL)
     {
-        pval = json_object_get(val, "b");
         // .'$merge'.b
         res = json_is_integer(pval) && json_integer_value(pval) >= 0;
         if (! res)
@@ -142,11 +138,10 @@ static INLINE bool _jm_obj_3(const json_t *val, jm_path_t *path, jm_report_t *re
     }
     json_t * pval;
     bool res;
-    if (! (json_object_get(val, "c") != NULL))
+    if (! ((pval = json_object_get(val, "c")) != NULL))
     {
         return false;
     }
-    pval = json_object_get(val, "c");
     // .'$nomerge'.'&'.1.c
     res = json_is_integer(pval) && json_integer_value(pval) >= 1;
     if (! res)

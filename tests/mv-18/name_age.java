@@ -36,13 +36,12 @@ public class name_age extends ModelChecker
         Path lpath;
         Object pval;
         boolean res;
-        if (! json.objectHasProp(val, "name"))
+        if (! ((pval = json.objectValue(val, "name")) != null))
         {
             if (rep != null) rep.addEntry("missing mandatory prop <name> [.]", path);
             return false;
         }
         lpath = new Path("name", path);
-        pval = json.objectValue(val, "name");
         // .name
         res = json.isString(pval);
         if (! res)
@@ -51,13 +50,12 @@ public class name_age extends ModelChecker
             if (rep != null) rep.addEntry("unexpected value for mandatory prop <name> [.]", (path != null ? lpath : null));
             return false;
         }
-        if (! json.objectHasProp(val, "age"))
+        if (! ((pval = json.objectValue(val, "age")) != null))
         {
             if (rep != null) rep.addEntry("missing mandatory prop <age> [.]", path);
             return false;
         }
         lpath = new Path("age", path);
-        pval = json.objectValue(val, "age");
         // .age
         res = json.isInteger(pval) && json.asLong(pval) >= 0;
         if (! res)

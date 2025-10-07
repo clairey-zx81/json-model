@@ -9,6 +9,8 @@
 - [x] backend: improve and extend IR optimizations (wip)
 - [x] tests: perl _uninitialized value $tag_0 in hash element at `./mv-18/dis_01.pl:171._
 - [x] ~tests: fix sql test errors from `Makefile`~
+- [x] ~pr: submit jsonschema-benchmark PL/pgSQL PR~
+- [x] optim: get rid of double object with C, Python and Java
 - [ ] optim: improve xor-to-or with references
 - [ ] perf: compute performance overhead globally instead of per run
 - [ ] tests: add ir optimized output (too large?)
@@ -43,7 +45,6 @@
 - [ ] export: improve pydantic, do not generate bad fields (dash and other chars)
 - [ ] test: some pydantic exports? imports?
 - [ ] pr: submit jsonschema-benchmark java PR
-- [ ] pr: submit jsonschema-benchmark PL/pgSQL PR
 - [ ] frontends: reject json with duplicated props
 - [ ] c-backend: header file for generated code?
 - [ ] command: allow to pass some options from rc file?

@@ -524,13 +524,12 @@ static INLINE bool _jm_obj_1(const json_t *val, jm_path_t *path, jm_report_t *re
     jm_path_t lpath;
     json_t * pval;
     bool res;
-    if (! (json_object_get(val, "command") != NULL))
+    if (! ((pval = json_object_get(val, "command")) != NULL))
     {
         if (rep) jm_report_add_entry(rep, "missing mandatory prop <command> [.'$Prompts'.'|'.0.suggestions.'|'.1]", path);
         return false;
     }
     lpath = (jm_path_t) { "command", 0, path, NULL };
-    pval = json_object_get(val, "command");
     // .'$Prompts'.'|'.0.suggestions.'|'.1.command
     res = json_is_string(pval);
     if (! res)
@@ -560,13 +559,12 @@ static INLINE bool _jm_obj_2(const json_t *val, jm_path_t *path, jm_report_t *re
     jm_path_t lpath;
     json_t * pval;
     bool res;
-    if (! (json_object_get(val, "preset") != NULL))
+    if (! ((pval = json_object_get(val, "preset")) != NULL))
     {
         if (rep) jm_report_add_entry(rep, "missing mandatory prop <preset> [.'$Prompts'.'|'.0.suggestions.'|'.0]", path);
         return false;
     }
     lpath = (jm_path_t) { "preset", 0, path, NULL };
-    pval = json_object_get(val, "preset");
     // .'$Prompts'.'|'.0.suggestions.'|'.0.preset
     res = jm_json_is_scalar(pval) && json_is_string(pval) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(pval) } }, _jm_cst_2, 7);;
     if (! res)
@@ -896,13 +894,12 @@ static INLINE bool _jm_obj_4(const json_t *val, jm_path_t *path, jm_report_t *re
     jm_path_t lpath;
     json_t * pval;
     bool res;
-    if (! (json_object_get(val, "type") != NULL))
+    if (! ((pval = json_object_get(val, "type")) != NULL))
     {
         if (rep) jm_report_add_entry(rep, "missing mandatory prop <type> [.'$Prompts'.'|'.2]", path);
         return false;
     }
     lpath = (jm_path_t) { "type", 0, path, NULL };
-    pval = json_object_get(val, "type");
     // .'$Prompts'.'|'.2.type
     res = json_is_string(pval) && strcmp(json_string_value(pval), "menu") == 0;
     if (! res)
@@ -911,13 +908,12 @@ static INLINE bool _jm_obj_4(const json_t *val, jm_path_t *path, jm_report_t *re
         if (rep) jm_report_add_entry(rep, "unexpected value for mandatory prop <type> [.'$Prompts'.'|'.2]", (path ? &lpath : NULL));
         return false;
     }
-    if (! (json_object_get(val, "title") != NULL))
+    if (! ((pval = json_object_get(val, "title")) != NULL))
     {
         if (rep) jm_report_add_entry(rep, "missing mandatory prop <title> [.'$Prompts'.'|'.2]", path);
         return false;
     }
     lpath = (jm_path_t) { "title", 0, path, NULL };
-    pval = json_object_get(val, "title");
     // .'$Prompts'.'|'.2.title
     res = json_model_6(pval, (path ? &lpath : NULL), rep);
     if (! res)
@@ -926,13 +922,12 @@ static INLINE bool _jm_obj_4(const json_t *val, jm_path_t *path, jm_report_t *re
         if (rep) jm_report_add_entry(rep, "unexpected value for mandatory prop <title> [.'$Prompts'.'|'.2]", (path ? &lpath : NULL));
         return false;
     }
-    if (! (json_object_get(val, "key") != NULL))
+    if (! ((pval = json_object_get(val, "key")) != NULL))
     {
         if (rep) jm_report_add_entry(rep, "missing mandatory prop <key> [.'$Prompts'.'|'.2]", path);
         return false;
     }
     lpath = (jm_path_t) { "key", 0, path, NULL };
-    pval = json_object_get(val, "key");
     // .'$Prompts'.'|'.2.key
     res = json_model_7(pval, (path ? &lpath : NULL), rep);
     if (! res)
@@ -941,13 +936,12 @@ static INLINE bool _jm_obj_4(const json_t *val, jm_path_t *path, jm_report_t *re
         if (rep) jm_report_add_entry(rep, "unexpected value for mandatory prop <key> [.'$Prompts'.'|'.2]", (path ? &lpath : NULL));
         return false;
     }
-    if (! (json_object_get(val, "options") != NULL))
+    if (! ((pval = json_object_get(val, "options")) != NULL))
     {
         if (rep) jm_report_add_entry(rep, "missing mandatory prop <options> [.'$Prompts'.'|'.2]", path);
         return false;
     }
     lpath = (jm_path_t) { "options", 0, path, NULL };
-    pval = json_object_get(val, "options");
     // .'$Prompts'.'|'.2.options
     // .'$Prompts'.'|'.2.options.'@'
     res = json_is_array(pval);
@@ -1592,13 +1586,12 @@ static INLINE bool _jm_obj_13(const json_t *val, jm_path_t *path, jm_report_t *r
     jm_path_t lpath;
     json_t * pval;
     bool res;
-    if (! (json_object_get(val, "pattern") != NULL))
+    if (! ((pval = json_object_get(val, "pattern")) != NULL))
     {
         if (rep) jm_report_add_entry(rep, "missing mandatory prop <pattern> [.git.commitPrefixes.'/./']", path);
         return false;
     }
     lpath = (jm_path_t) { "pattern", 0, path, NULL };
-    pval = json_object_get(val, "pattern");
     // .git.commitPrefixes.'/./'.pattern
     res = json_model_8(pval, (path ? &lpath : NULL), rep);
     if (! res)
@@ -1607,13 +1600,12 @@ static INLINE bool _jm_obj_13(const json_t *val, jm_path_t *path, jm_report_t *r
         if (rep) jm_report_add_entry(rep, "unexpected value for mandatory prop <pattern> [.git.commitPrefixes.'/./']", (path ? &lpath : NULL));
         return false;
     }
-    if (! (json_object_get(val, "replace") != NULL))
+    if (! ((pval = json_object_get(val, "replace")) != NULL))
     {
         if (rep) jm_report_add_entry(rep, "missing mandatory prop <replace> [.git.commitPrefixes.'/./']", path);
         return false;
     }
     lpath = (jm_path_t) { "replace", 0, path, NULL };
-    pval = json_object_get(val, "replace");
     // .git.commitPrefixes.'/./'.replace
     res = json_model_8(pval, (path ? &lpath : NULL), rep);
     if (! res)

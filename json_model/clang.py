@@ -166,6 +166,9 @@ class CLangJansson(Language):
         return f"json_object_get({obj}, {prop})" if is_var else \
                f"json_object_get({obj}, {self.esc(prop)})"  # type: ignore
 
+    def obj_has_prop_val(self, dst: Var, obj: Var, prop: str|StrExpr, is_var: bool = False) -> BoolExpr:
+        return f"({dst} = {self.obj_prop_val(obj, prop, is_var)}) != NULL"
+
     #
     # inlined length computation
     #

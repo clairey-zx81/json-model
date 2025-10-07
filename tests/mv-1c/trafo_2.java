@@ -106,13 +106,12 @@ public class trafo_2 extends ModelChecker
         Path lpath;
         Object pval;
         boolean res;
-        if (! json.objectHasProp(val, "za"))
+        if (! ((pval = json.objectValue(val, "za")) != null))
         {
             if (rep != null) rep.addEntry("missing mandatory prop <za> [.'$Zz#zero']", path);
             return false;
         }
         lpath = new Path("za", path);
-        pval = json.objectValue(val, "za");
         // .'$Zz#zero'.za
         res = json.isInteger(pval) && json.asLong(pval) >= 0;
         if (! res)
@@ -121,13 +120,12 @@ public class trafo_2 extends ModelChecker
             if (rep != null) rep.addEntry("unexpected value for mandatory prop <za> [.'$Zz#zero']", (path != null ? lpath : null));
             return false;
         }
-        if (! json.objectHasProp(val, "zb"))
+        if (! ((pval = json.objectValue(val, "zb")) != null))
         {
             if (rep != null) rep.addEntry("missing mandatory prop <zb> [.'$Zz#zero']", path);
             return false;
         }
         lpath = new Path("zb", path);
-        pval = json.objectValue(val, "zb");
         // .'$Zz#zero'.zb
         res = json.isInteger(pval) && json.asLong(pval) >= 0;
         if (! res)

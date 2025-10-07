@@ -34,11 +34,10 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
     lpath: Path
     pval: Jsonable
     res: bool
-    if not "b" in val:
+    if not ((pval := val.get("b", UNDEFINED)) != UNDEFINED):
         rep is None or rep.append(("missing mandatory prop <b> [.'$Aa'.'|'.1]", path))
         return False
     lpath = (path + [ "b" ]) if path is not None else None
-    pval = val.get("b", UNDEFINED)
     # .'$Aa'.'|'.1.b
     res = isinstance(pval, int) and not isinstance(pval, bool) and pval >= 1
     if not res:
@@ -59,11 +58,10 @@ def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
     lpath: Path
     pval: Jsonable
     res: bool
-    if not "a" in val:
+    if not ((pval := val.get("a", UNDEFINED)) != UNDEFINED):
         rep is None or rep.append(("missing mandatory prop <a> [.'$Aa'.'|'.0]", path))
         return False
     lpath = (path + [ "a" ]) if path is not None else None
-    pval = val.get("a", UNDEFINED)
     # .'$Aa'.'|'.0.a
     res = isinstance(pval, int) and not isinstance(pval, bool) and pval >= 0
     if not res:
@@ -107,11 +105,10 @@ def _jm_obj_2(val: Jsonable, path: Path, rep: Report) -> bool:
     lpath: Path
     pval: Jsonable
     res: bool
-    if not "c" in val:
+    if not ((pval := val.get("c", UNDEFINED)) != UNDEFINED):
         rep is None or rep.append(("missing mandatory prop <c> [.'$Bb'.'|'.0]", path))
         return False
     lpath = (path + [ "c" ]) if path is not None else None
-    pval = val.get("c", UNDEFINED)
     # .'$Bb'.'|'.0.c
     res = isinstance(pval, int) and not isinstance(pval, bool) and pval >= 0
     if not res:

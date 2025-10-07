@@ -36,13 +36,12 @@ public class base_001 extends ModelChecker
         Path lpath;
         Object pval;
         boolean res;
-        if (! json.objectHasProp(val, "a"))
+        if (! ((pval = json.objectValue(val, "a")) != null))
         {
             if (rep != null) rep.addEntry("missing mandatory prop <a> [.]", path);
             return false;
         }
         lpath = new Path("a", path);
-        pval = json.objectValue(val, "a");
         // .a
         res = json.isString(pval);
         if (! res)

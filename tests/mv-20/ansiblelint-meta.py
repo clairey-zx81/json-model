@@ -2596,18 +2596,16 @@ def _jm_obj_47(val: Jsonable, path: Path, rep: Report) -> bool:
     lpath: Path
     pval: Jsonable
     res: bool
-    if "name" in val:
+    if (pval := val.get("name", UNDEFINED)) != UNDEFINED:
         lpath = (path + [ "name" ]) if path is not None else None
-        pval = val.get("name", UNDEFINED)
         # .'$platforms'.0.'|'.46.name
         res = isinstance(pval, str) and pval == "Windows"
         if not res:
             rep is None or rep.append(("unexpected _Windows [.'$platforms'.0.'|'.46.name]", lpath if path is not None else None))
             rep is None or rep.append(("unexpected value for optional prop <name> [.'$platforms'.0.'|'.46]", lpath if path is not None else None))
             return False
-    if "versions" in val:
+    if (pval := val.get("versions", UNDEFINED)) != UNDEFINED:
         lpath = (path + [ "versions" ]) if path is not None else None
-        pval = val.get("versions", UNDEFINED)
         # .'$platforms'.0.'|'.46.versions
         res = isinstance(pval, list)
         if res:
@@ -2634,18 +2632,16 @@ def _jm_obj_48(val: Jsonable, path: Path, rep: Report) -> bool:
     lpath: Path
     pval: Jsonable
     res: bool
-    if "name" in val:
+    if (pval := val.get("name", UNDEFINED)) != UNDEFINED:
         lpath = (path + [ "name" ]) if path is not None else None
-        pval = val.get("name", UNDEFINED)
         # .'$platforms'.0.'|'.45.name
         res = isinstance(pval, str) and pval == "vSphere"
         if not res:
             rep is None or rep.append(("unexpected _vSphere [.'$platforms'.0.'|'.45.name]", lpath if path is not None else None))
             rep is None or rep.append(("unexpected value for optional prop <name> [.'$platforms'.0.'|'.45]", lpath if path is not None else None))
             return False
-    if "versions" in val:
+    if (pval := val.get("versions", UNDEFINED)) != UNDEFINED:
         lpath = (path + [ "versions" ]) if path is not None else None
-        pval = val.get("versions", UNDEFINED)
         # .'$platforms'.0.'|'.45.versions
         res = isinstance(pval, list)
         if res:
@@ -2671,18 +2667,16 @@ def _jm_obj_49(val: Jsonable, path: Path, rep: Report) -> bool:
     lpath: Path
     pval: Jsonable
     res: bool
-    if "name" in val:
+    if (pval := val.get("name", UNDEFINED)) != UNDEFINED:
         lpath = (path + [ "name" ]) if path is not None else None
-        pval = val.get("name", UNDEFINED)
         # .'$platforms'.0.'|'.44.name
         res = isinstance(pval, str) and pval == "Void Linux"
         if not res:
             rep is None or rep.append(("unexpected _Void Linux [.'$platforms'.0.'|'.44.name]", lpath if path is not None else None))
             rep is None or rep.append(("unexpected value for optional prop <name> [.'$platforms'.0.'|'.44]", lpath if path is not None else None))
             return False
-    if "versions" in val:
+    if (pval := val.get("versions", UNDEFINED)) != UNDEFINED:
         lpath = (path + [ "versions" ]) if path is not None else None
-        pval = val.get("versions", UNDEFINED)
         # .'$platforms'.0.'|'.44.versions
         res = isinstance(pval, list)
         if res:
@@ -2709,18 +2703,16 @@ def _jm_obj_50(val: Jsonable, path: Path, rep: Report) -> bool:
     lpath: Path
     pval: Jsonable
     res: bool
-    if "name" in val:
+    if (pval := val.get("name", UNDEFINED)) != UNDEFINED:
         lpath = (path + [ "name" ]) if path is not None else None
-        pval = val.get("name", UNDEFINED)
         # .'$platforms'.0.'|'.43.name
         res = isinstance(pval, str) and pval == "vCenter"
         if not res:
             rep is None or rep.append(("unexpected _vCenter [.'$platforms'.0.'|'.43.name]", lpath if path is not None else None))
             rep is None or rep.append(("unexpected value for optional prop <name> [.'$platforms'.0.'|'.43]", lpath if path is not None else None))
             return False
-    if "versions" in val:
+    if (pval := val.get("versions", UNDEFINED)) != UNDEFINED:
         lpath = (path + [ "versions" ]) if path is not None else None
-        pval = val.get("versions", UNDEFINED)
         # .'$platforms'.0.'|'.43.versions
         res = isinstance(pval, list)
         if res:
@@ -2747,18 +2739,16 @@ def _jm_obj_51(val: Jsonable, path: Path, rep: Report) -> bool:
     lpath: Path
     pval: Jsonable
     res: bool
-    if "name" in val:
+    if (pval := val.get("name", UNDEFINED)) != UNDEFINED:
         lpath = (path + [ "name" ]) if path is not None else None
-        pval = val.get("name", UNDEFINED)
         # .'$platforms'.0.'|'.42.name
         res = isinstance(pval, str) and pval == "Ubuntu"
         if not res:
             rep is None or rep.append(("unexpected _Ubuntu [.'$platforms'.0.'|'.42.name]", lpath if path is not None else None))
             rep is None or rep.append(("unexpected value for optional prop <name> [.'$platforms'.0.'|'.42]", lpath if path is not None else None))
             return False
-    if "versions" in val:
+    if (pval := val.get("versions", UNDEFINED)) != UNDEFINED:
         lpath = (path + [ "versions" ]) if path is not None else None
-        pval = val.get("versions", UNDEFINED)
         # .'$platforms'.0.'|'.42.versions
         res = isinstance(pval, list)
         if res:
@@ -2785,18 +2775,16 @@ def _jm_obj_52(val: Jsonable, path: Path, rep: Report) -> bool:
     lpath: Path
     pval: Jsonable
     res: bool
-    if "name" in val:
+    if (pval := val.get("name", UNDEFINED)) != UNDEFINED:
         lpath = (path + [ "name" ]) if path is not None else None
-        pval = val.get("name", UNDEFINED)
         # .'$platforms'.0.'|'.41.name
         res = isinstance(pval, str) and pval == "TMOS"
         if not res:
             rep is None or rep.append(("unexpected _TMOS [.'$platforms'.0.'|'.41.name]", lpath if path is not None else None))
             rep is None or rep.append(("unexpected value for optional prop <name> [.'$platforms'.0.'|'.41]", lpath if path is not None else None))
             return False
-    if "versions" in val:
+    if (pval := val.get("versions", UNDEFINED)) != UNDEFINED:
         lpath = (path + [ "versions" ]) if path is not None else None
-        pval = val.get("versions", UNDEFINED)
         # .'$platforms'.0.'|'.41.versions
         res = isinstance(pval, list)
         if res:
@@ -2823,18 +2811,16 @@ def _jm_obj_53(val: Jsonable, path: Path, rep: Report) -> bool:
     lpath: Path
     pval: Jsonable
     res: bool
-    if "name" in val:
+    if (pval := val.get("name", UNDEFINED)) != UNDEFINED:
         lpath = (path + [ "name" ]) if path is not None else None
-        pval = val.get("name", UNDEFINED)
         # .'$platforms'.0.'|'.40.name
         res = isinstance(pval, str) and pval == "Synology"
         if not res:
             rep is None or rep.append(("unexpected _Synology [.'$platforms'.0.'|'.40.name]", lpath if path is not None else None))
             rep is None or rep.append(("unexpected value for optional prop <name> [.'$platforms'.0.'|'.40]", lpath if path is not None else None))
             return False
-    if "versions" in val:
+    if (pval := val.get("versions", UNDEFINED)) != UNDEFINED:
         lpath = (path + [ "versions" ]) if path is not None else None
-        pval = val.get("versions", UNDEFINED)
         # .'$platforms'.0.'|'.40.versions
         res = isinstance(pval, list)
         if res:
@@ -2861,18 +2847,16 @@ def _jm_obj_54(val: Jsonable, path: Path, rep: Report) -> bool:
     lpath: Path
     pval: Jsonable
     res: bool
-    if "name" in val:
+    if (pval := val.get("name", UNDEFINED)) != UNDEFINED:
         lpath = (path + [ "name" ]) if path is not None else None
-        pval = val.get("name", UNDEFINED)
         # .'$platforms'.0.'|'.39.name
         res = isinstance(pval, str) and pval == "Solaris"
         if not res:
             rep is None or rep.append(("unexpected _Solaris [.'$platforms'.0.'|'.39.name]", lpath if path is not None else None))
             rep is None or rep.append(("unexpected value for optional prop <name> [.'$platforms'.0.'|'.39]", lpath if path is not None else None))
             return False
-    if "versions" in val:
+    if (pval := val.get("versions", UNDEFINED)) != UNDEFINED:
         lpath = (path + [ "versions" ]) if path is not None else None
-        pval = val.get("versions", UNDEFINED)
         # .'$platforms'.0.'|'.39.versions
         res = isinstance(pval, list)
         if res:
@@ -2898,18 +2882,16 @@ def _jm_obj_55(val: Jsonable, path: Path, rep: Report) -> bool:
     lpath: Path
     pval: Jsonable
     res: bool
-    if "name" in val:
+    if (pval := val.get("name", UNDEFINED)) != UNDEFINED:
         lpath = (path + [ "name" ]) if path is not None else None
-        pval = val.get("name", UNDEFINED)
         # .'$platforms'.0.'|'.38.name
         res = isinstance(pval, str) and pval == "SmartOS"
         if not res:
             rep is None or rep.append(("unexpected _SmartOS [.'$platforms'.0.'|'.38.name]", lpath if path is not None else None))
             rep is None or rep.append(("unexpected value for optional prop <name> [.'$platforms'.0.'|'.38]", lpath if path is not None else None))
             return False
-    if "versions" in val:
+    if (pval := val.get("versions", UNDEFINED)) != UNDEFINED:
         lpath = (path + [ "versions" ]) if path is not None else None
-        pval = val.get("versions", UNDEFINED)
         # .'$platforms'.0.'|'.38.versions
         res = isinstance(pval, list)
         if res:
@@ -2936,18 +2918,16 @@ def _jm_obj_56(val: Jsonable, path: Path, rep: Report) -> bool:
     lpath: Path
     pval: Jsonable
     res: bool
-    if "name" in val:
+    if (pval := val.get("name", UNDEFINED)) != UNDEFINED:
         lpath = (path + [ "name" ]) if path is not None else None
-        pval = val.get("name", UNDEFINED)
         # .'$platforms'.0.'|'.37.name
         res = isinstance(pval, str) and pval == "SLES"
         if not res:
             rep is None or rep.append(("unexpected _SLES [.'$platforms'.0.'|'.37.name]", lpath if path is not None else None))
             rep is None or rep.append(("unexpected value for optional prop <name> [.'$platforms'.0.'|'.37]", lpath if path is not None else None))
             return False
-    if "versions" in val:
+    if (pval := val.get("versions", UNDEFINED)) != UNDEFINED:
         lpath = (path + [ "versions" ]) if path is not None else None
-        pval = val.get("versions", UNDEFINED)
         # .'$platforms'.0.'|'.37.versions
         res = isinstance(pval, list)
         if res:
@@ -2974,18 +2954,16 @@ def _jm_obj_57(val: Jsonable, path: Path, rep: Report) -> bool:
     lpath: Path
     pval: Jsonable
     res: bool
-    if "name" in val:
+    if (pval := val.get("name", UNDEFINED)) != UNDEFINED:
         lpath = (path + [ "name" ]) if path is not None else None
-        pval = val.get("name", UNDEFINED)
         # .'$platforms'.0.'|'.36.name
         res = isinstance(pval, str) and pval == "Rocky"
         if not res:
             rep is None or rep.append(("unexpected _Rocky [.'$platforms'.0.'|'.36.name]", lpath if path is not None else None))
             rep is None or rep.append(("unexpected value for optional prop <name> [.'$platforms'.0.'|'.36]", lpath if path is not None else None))
             return False
-    if "versions" in val:
+    if (pval := val.get("versions", UNDEFINED)) != UNDEFINED:
         lpath = (path + [ "versions" ]) if path is not None else None
-        pval = val.get("versions", UNDEFINED)
         # .'$platforms'.0.'|'.36.versions
         res = isinstance(pval, list)
         if res:
@@ -3012,18 +2990,16 @@ def _jm_obj_58(val: Jsonable, path: Path, rep: Report) -> bool:
     lpath: Path
     pval: Jsonable
     res: bool
-    if "name" in val:
+    if (pval := val.get("name", UNDEFINED)) != UNDEFINED:
         lpath = (path + [ "name" ]) if path is not None else None
-        pval = val.get("name", UNDEFINED)
         # .'$platforms'.0.'|'.35.name
         res = isinstance(pval, str) and pval == "PAN-OS"
         if not res:
             rep is None or rep.append(("unexpected _PAN-OS [.'$platforms'.0.'|'.35.name]", lpath if path is not None else None))
             rep is None or rep.append(("unexpected value for optional prop <name> [.'$platforms'.0.'|'.35]", lpath if path is not None else None))
             return False
-    if "versions" in val:
+    if (pval := val.get("versions", UNDEFINED)) != UNDEFINED:
         lpath = (path + [ "versions" ]) if path is not None else None
-        pval = val.get("versions", UNDEFINED)
         # .'$platforms'.0.'|'.35.versions
         res = isinstance(pval, list)
         if res:
@@ -3049,18 +3025,16 @@ def _jm_obj_59(val: Jsonable, path: Path, rep: Report) -> bool:
     lpath: Path
     pval: Jsonable
     res: bool
-    if "name" in val:
+    if (pval := val.get("name", UNDEFINED)) != UNDEFINED:
         lpath = (path + [ "name" ]) if path is not None else None
-        pval = val.get("name", UNDEFINED)
         # .'$platforms'.0.'|'.34.name
         res = isinstance(pval, str) and pval == "os10"
         if not res:
             rep is None or rep.append(("unexpected _os10 [.'$platforms'.0.'|'.34.name]", lpath if path is not None else None))
             rep is None or rep.append(("unexpected value for optional prop <name> [.'$platforms'.0.'|'.34]", lpath if path is not None else None))
             return False
-    if "versions" in val:
+    if (pval := val.get("versions", UNDEFINED)) != UNDEFINED:
         lpath = (path + [ "versions" ]) if path is not None else None
-        pval = val.get("versions", UNDEFINED)
         # .'$platforms'.0.'|'.34.versions
         res = isinstance(pval, list)
         if res:
@@ -3087,18 +3061,16 @@ def _jm_obj_60(val: Jsonable, path: Path, rep: Report) -> bool:
     lpath: Path
     pval: Jsonable
     res: bool
-    if "name" in val:
+    if (pval := val.get("name", UNDEFINED)) != UNDEFINED:
         lpath = (path + [ "name" ]) if path is not None else None
-        pval = val.get("name", UNDEFINED)
         # .'$platforms'.0.'|'.33.name
         res = isinstance(pval, str) and pval == "OracleLinux"
         if not res:
             rep is None or rep.append(("unexpected _OracleLinux [.'$platforms'.0.'|'.33.name]", lpath if path is not None else None))
             rep is None or rep.append(("unexpected value for optional prop <name> [.'$platforms'.0.'|'.33]", lpath if path is not None else None))
             return False
-    if "versions" in val:
+    if (pval := val.get("versions", UNDEFINED)) != UNDEFINED:
         lpath = (path + [ "versions" ]) if path is not None else None
-        pval = val.get("versions", UNDEFINED)
         # .'$platforms'.0.'|'.33.versions
         res = isinstance(pval, list)
         if res:
@@ -3125,18 +3097,16 @@ def _jm_obj_61(val: Jsonable, path: Path, rep: Report) -> bool:
     lpath: Path
     pval: Jsonable
     res: bool
-    if "name" in val:
+    if (pval := val.get("name", UNDEFINED)) != UNDEFINED:
         lpath = (path + [ "name" ]) if path is not None else None
-        pval = val.get("name", UNDEFINED)
         # .'$platforms'.0.'|'.32.name
         res = isinstance(pval, str) and pval == "OpenWrt"
         if not res:
             rep is None or rep.append(("unexpected _OpenWrt [.'$platforms'.0.'|'.32.name]", lpath if path is not None else None))
             rep is None or rep.append(("unexpected value for optional prop <name> [.'$platforms'.0.'|'.32]", lpath if path is not None else None))
             return False
-    if "versions" in val:
+    if (pval := val.get("versions", UNDEFINED)) != UNDEFINED:
         lpath = (path + [ "versions" ]) if path is not None else None
-        pval = val.get("versions", UNDEFINED)
         # .'$platforms'.0.'|'.32.versions
         res = isinstance(pval, list)
         if res:
@@ -3163,18 +3133,16 @@ def _jm_obj_62(val: Jsonable, path: Path, rep: Report) -> bool:
     lpath: Path
     pval: Jsonable
     res: bool
-    if "name" in val:
+    if (pval := val.get("name", UNDEFINED)) != UNDEFINED:
         lpath = (path + [ "name" ]) if path is not None else None
-        pval = val.get("name", UNDEFINED)
         # .'$platforms'.0.'|'.31.name
         res = isinstance(pval, str) and pval == "opensuse"
         if not res:
             rep is None or rep.append(("unexpected _opensuse [.'$platforms'.0.'|'.31.name]", lpath if path is not None else None))
             rep is None or rep.append(("unexpected value for optional prop <name> [.'$platforms'.0.'|'.31]", lpath if path is not None else None))
             return False
-    if "versions" in val:
+    if (pval := val.get("versions", UNDEFINED)) != UNDEFINED:
         lpath = (path + [ "versions" ]) if path is not None else None
-        pval = val.get("versions", UNDEFINED)
         # .'$platforms'.0.'|'.31.versions
         res = isinstance(pval, list)
         if res:
@@ -3201,18 +3169,16 @@ def _jm_obj_63(val: Jsonable, path: Path, rep: Report) -> bool:
     lpath: Path
     pval: Jsonable
     res: bool
-    if "name" in val:
+    if (pval := val.get("name", UNDEFINED)) != UNDEFINED:
         lpath = (path + [ "name" ]) if path is not None else None
-        pval = val.get("name", UNDEFINED)
         # .'$platforms'.0.'|'.30.name
         res = isinstance(pval, str) and pval == "OpenBSD"
         if not res:
             rep is None or rep.append(("unexpected _OpenBSD [.'$platforms'.0.'|'.30.name]", lpath if path is not None else None))
             rep is None or rep.append(("unexpected value for optional prop <name> [.'$platforms'.0.'|'.30]", lpath if path is not None else None))
             return False
-    if "versions" in val:
+    if (pval := val.get("versions", UNDEFINED)) != UNDEFINED:
         lpath = (path + [ "versions" ]) if path is not None else None
-        pval = val.get("versions", UNDEFINED)
         # .'$platforms'.0.'|'.30.versions
         res = isinstance(pval, list)
         if res:
@@ -3238,18 +3204,16 @@ def _jm_obj_64(val: Jsonable, path: Path, rep: Report) -> bool:
     lpath: Path
     pval: Jsonable
     res: bool
-    if "name" in val:
+    if (pval := val.get("name", UNDEFINED)) != UNDEFINED:
         lpath = (path + [ "name" ]) if path is not None else None
-        pval = val.get("name", UNDEFINED)
         # .'$platforms'.0.'|'.29.name
         res = isinstance(pval, str) and pval == "NXOS"
         if not res:
             rep is None or rep.append(("unexpected _NXOS [.'$platforms'.0.'|'.29.name]", lpath if path is not None else None))
             rep is None or rep.append(("unexpected value for optional prop <name> [.'$platforms'.0.'|'.29]", lpath if path is not None else None))
             return False
-    if "versions" in val:
+    if (pval := val.get("versions", UNDEFINED)) != UNDEFINED:
         lpath = (path + [ "versions" ]) if path is not None else None
-        pval = val.get("versions", UNDEFINED)
         # .'$platforms'.0.'|'.29.versions
         res = isinstance(pval, list)
         if res:
@@ -3276,18 +3240,16 @@ def _jm_obj_65(val: Jsonable, path: Path, rep: Report) -> bool:
     lpath: Path
     pval: Jsonable
     res: bool
-    if "name" in val:
+    if (pval := val.get("name", UNDEFINED)) != UNDEFINED:
         lpath = (path + [ "name" ]) if path is not None else None
-        pval = val.get("name", UNDEFINED)
         # .'$platforms'.0.'|'.28.name
         res = isinstance(pval, str) and pval == "Megeia"
         if not res:
             rep is None or rep.append(("unexpected _Megeia [.'$platforms'.0.'|'.28.name]", lpath if path is not None else None))
             rep is None or rep.append(("unexpected value for optional prop <name> [.'$platforms'.0.'|'.28]", lpath if path is not None else None))
             return False
-    if "versions" in val:
+    if (pval := val.get("versions", UNDEFINED)) != UNDEFINED:
         lpath = (path + [ "versions" ]) if path is not None else None
-        pval = val.get("versions", UNDEFINED)
         # .'$platforms'.0.'|'.28.versions
         res = isinstance(pval, list)
         if res:
@@ -3314,18 +3276,16 @@ def _jm_obj_66(val: Jsonable, path: Path, rep: Report) -> bool:
     lpath: Path
     pval: Jsonable
     res: bool
-    if "name" in val:
+    if (pval := val.get("name", UNDEFINED)) != UNDEFINED:
         lpath = (path + [ "name" ]) if path is not None else None
-        pval = val.get("name", UNDEFINED)
         # .'$platforms'.0.'|'.27.name
         res = isinstance(pval, str) and pval == "Kali"
         if not res:
             rep is None or rep.append(("unexpected _Kali [.'$platforms'.0.'|'.27.name]", lpath if path is not None else None))
             rep is None or rep.append(("unexpected value for optional prop <name> [.'$platforms'.0.'|'.27]", lpath if path is not None else None))
             return False
-    if "versions" in val:
+    if (pval := val.get("versions", UNDEFINED)) != UNDEFINED:
         lpath = (path + [ "versions" ]) if path is not None else None
-        pval = val.get("versions", UNDEFINED)
         # .'$platforms'.0.'|'.27.versions
         res = isinstance(pval, list)
         if res:
@@ -3352,18 +3312,16 @@ def _jm_obj_67(val: Jsonable, path: Path, rep: Report) -> bool:
     lpath: Path
     pval: Jsonable
     res: bool
-    if "name" in val:
+    if (pval := val.get("name", UNDEFINED)) != UNDEFINED:
         lpath = (path + [ "name" ]) if path is not None else None
-        pval = val.get("name", UNDEFINED)
         # .'$platforms'.0.'|'.26.name
         res = isinstance(pval, str) and pval == "macOS"
         if not res:
             rep is None or rep.append(("unexpected _macOS [.'$platforms'.0.'|'.26.name]", lpath if path is not None else None))
             rep is None or rep.append(("unexpected value for optional prop <name> [.'$platforms'.0.'|'.26]", lpath if path is not None else None))
             return False
-    if "versions" in val:
+    if (pval := val.get("versions", UNDEFINED)) != UNDEFINED:
         lpath = (path + [ "versions" ]) if path is not None else None
-        pval = val.get("versions", UNDEFINED)
         # .'$platforms'.0.'|'.26.versions
         res = isinstance(pval, list)
         if res:
@@ -3390,18 +3348,16 @@ def _jm_obj_68(val: Jsonable, path: Path, rep: Report) -> bool:
     lpath: Path
     pval: Jsonable
     res: bool
-    if "name" in val:
+    if (pval := val.get("name", UNDEFINED)) != UNDEFINED:
         lpath = (path + [ "name" ]) if path is not None else None
-        pval = val.get("name", UNDEFINED)
         # .'$platforms'.0.'|'.25.name
         res = isinstance(pval, str) and pval == "Kali"
         if not res:
             rep is None or rep.append(("unexpected _Kali [.'$platforms'.0.'|'.25.name]", lpath if path is not None else None))
             rep is None or rep.append(("unexpected value for optional prop <name> [.'$platforms'.0.'|'.25]", lpath if path is not None else None))
             return False
-    if "versions" in val:
+    if (pval := val.get("versions", UNDEFINED)) != UNDEFINED:
         lpath = (path + [ "versions" ]) if path is not None else None
-        pval = val.get("versions", UNDEFINED)
         # .'$platforms'.0.'|'.25.versions
         res = isinstance(pval, list)
         if res:
@@ -3427,18 +3383,16 @@ def _jm_obj_69(val: Jsonable, path: Path, rep: Report) -> bool:
     lpath: Path
     pval: Jsonable
     res: bool
-    if "name" in val:
+    if (pval := val.get("name", UNDEFINED)) != UNDEFINED:
         lpath = (path + [ "name" ]) if path is not None else None
-        pval = val.get("name", UNDEFINED)
         # .'$platforms'.0.'|'.24.name
         res = isinstance(pval, str) and pval == "Junos"
         if not res:
             rep is None or rep.append(("unexpected _Junos [.'$platforms'.0.'|'.24.name]", lpath if path is not None else None))
             rep is None or rep.append(("unexpected value for optional prop <name> [.'$platforms'.0.'|'.24]", lpath if path is not None else None))
             return False
-    if "versions" in val:
+    if (pval := val.get("versions", UNDEFINED)) != UNDEFINED:
         lpath = (path + [ "versions" ]) if path is not None else None
-        pval = val.get("versions", UNDEFINED)
         # .'$platforms'.0.'|'.24.versions
         res = isinstance(pval, list)
         if res:
@@ -3464,18 +3418,16 @@ def _jm_obj_70(val: Jsonable, path: Path, rep: Report) -> bool:
     lpath: Path
     pval: Jsonable
     res: bool
-    if "name" in val:
+    if (pval := val.get("name", UNDEFINED)) != UNDEFINED:
         lpath = (path + [ "name" ]) if path is not None else None
-        pval = val.get("name", UNDEFINED)
         # .'$platforms'.0.'|'.23.name
         res = isinstance(pval, str) and pval == "IOS"
         if not res:
             rep is None or rep.append(("unexpected _IOS [.'$platforms'.0.'|'.23.name]", lpath if path is not None else None))
             rep is None or rep.append(("unexpected value for optional prop <name> [.'$platforms'.0.'|'.23]", lpath if path is not None else None))
             return False
-    if "versions" in val:
+    if (pval := val.get("versions", UNDEFINED)) != UNDEFINED:
         lpath = (path + [ "versions" ]) if path is not None else None
-        pval = val.get("versions", UNDEFINED)
         # .'$platforms'.0.'|'.23.versions
         res = isinstance(pval, list)
         if res:
@@ -3502,18 +3454,16 @@ def _jm_obj_71(val: Jsonable, path: Path, rep: Report) -> bool:
     lpath: Path
     pval: Jsonable
     res: bool
-    if "name" in val:
+    if (pval := val.get("name", UNDEFINED)) != UNDEFINED:
         lpath = (path + [ "name" ]) if path is not None else None
-        pval = val.get("name", UNDEFINED)
         # .'$platforms'.0.'|'.22.name
         res = isinstance(pval, str) and pval == "HardenedBSD"
         if not res:
             rep is None or rep.append(("unexpected _HardenedBSD [.'$platforms'.0.'|'.22.name]", lpath if path is not None else None))
             rep is None or rep.append(("unexpected value for optional prop <name> [.'$platforms'.0.'|'.22]", lpath if path is not None else None))
             return False
-    if "versions" in val:
+    if (pval := val.get("versions", UNDEFINED)) != UNDEFINED:
         lpath = (path + [ "versions" ]) if path is not None else None
-        pval = val.get("versions", UNDEFINED)
         # .'$platforms'.0.'|'.22.versions
         res = isinstance(pval, list)
         if res:
@@ -3539,18 +3489,16 @@ def _jm_obj_72(val: Jsonable, path: Path, rep: Report) -> bool:
     lpath: Path
     pval: Jsonable
     res: bool
-    if "name" in val:
+    if (pval := val.get("name", UNDEFINED)) != UNDEFINED:
         lpath = (path + [ "name" ]) if path is not None else None
-        pval = val.get("name", UNDEFINED)
         # .'$platforms'.0.'|'.21.name
         res = isinstance(pval, str) and pval == "Gentoo"
         if not res:
             rep is None or rep.append(("unexpected _Gentoo [.'$platforms'.0.'|'.21.name]", lpath if path is not None else None))
             rep is None or rep.append(("unexpected value for optional prop <name> [.'$platforms'.0.'|'.21]", lpath if path is not None else None))
             return False
-    if "versions" in val:
+    if (pval := val.get("versions", UNDEFINED)) != UNDEFINED:
         lpath = (path + [ "versions" ]) if path is not None else None
-        pval = val.get("versions", UNDEFINED)
         # .'$platforms'.0.'|'.21.versions
         res = isinstance(pval, list)
         if res:
@@ -3576,18 +3524,16 @@ def _jm_obj_73(val: Jsonable, path: Path, rep: Report) -> bool:
     lpath: Path
     pval: Jsonable
     res: bool
-    if "name" in val:
+    if (pval := val.get("name", UNDEFINED)) != UNDEFINED:
         lpath = (path + [ "name" ]) if path is not None else None
-        pval = val.get("name", UNDEFINED)
         # .'$platforms'.0.'|'.20.name
         res = isinstance(pval, str) and pval == "GenericUNIX"
         if not res:
             rep is None or rep.append(("unexpected _GenericUNIX [.'$platforms'.0.'|'.20.name]", lpath if path is not None else None))
             rep is None or rep.append(("unexpected value for optional prop <name> [.'$platforms'.0.'|'.20]", lpath if path is not None else None))
             return False
-    if "versions" in val:
+    if (pval := val.get("versions", UNDEFINED)) != UNDEFINED:
         lpath = (path + [ "versions" ]) if path is not None else None
-        pval = val.get("versions", UNDEFINED)
         # .'$platforms'.0.'|'.20.versions
         res = isinstance(pval, list)
         if res:
@@ -3613,18 +3559,16 @@ def _jm_obj_74(val: Jsonable, path: Path, rep: Report) -> bool:
     lpath: Path
     pval: Jsonable
     res: bool
-    if "name" in val:
+    if (pval := val.get("name", UNDEFINED)) != UNDEFINED:
         lpath = (path + [ "name" ]) if path is not None else None
-        pval = val.get("name", UNDEFINED)
         # .'$platforms'.0.'|'.19.name
         res = isinstance(pval, str) and pval == "GenericLinux"
         if not res:
             rep is None or rep.append(("unexpected _GenericLinux [.'$platforms'.0.'|'.19.name]", lpath if path is not None else None))
             rep is None or rep.append(("unexpected value for optional prop <name> [.'$platforms'.0.'|'.19]", lpath if path is not None else None))
             return False
-    if "versions" in val:
+    if (pval := val.get("versions", UNDEFINED)) != UNDEFINED:
         lpath = (path + [ "versions" ]) if path is not None else None
-        pval = val.get("versions", UNDEFINED)
         # .'$platforms'.0.'|'.19.versions
         res = isinstance(pval, list)
         if res:
@@ -3650,18 +3594,16 @@ def _jm_obj_75(val: Jsonable, path: Path, rep: Report) -> bool:
     lpath: Path
     pval: Jsonable
     res: bool
-    if "name" in val:
+    if (pval := val.get("name", UNDEFINED)) != UNDEFINED:
         lpath = (path + [ "name" ]) if path is not None else None
-        pval = val.get("name", UNDEFINED)
         # .'$platforms'.0.'|'.18.name
         res = isinstance(pval, str) and pval == "GenericBSD"
         if not res:
             rep is None or rep.append(("unexpected _GenericBSD [.'$platforms'.0.'|'.18.name]", lpath if path is not None else None))
             rep is None or rep.append(("unexpected value for optional prop <name> [.'$platforms'.0.'|'.18]", lpath if path is not None else None))
             return False
-    if "versions" in val:
+    if (pval := val.get("versions", UNDEFINED)) != UNDEFINED:
         lpath = (path + [ "versions" ]) if path is not None else None
-        pval = val.get("versions", UNDEFINED)
         # .'$platforms'.0.'|'.18.versions
         res = isinstance(pval, list)
         if res:
@@ -3688,18 +3630,16 @@ def _jm_obj_76(val: Jsonable, path: Path, rep: Report) -> bool:
     lpath: Path
     pval: Jsonable
     res: bool
-    if "name" in val:
+    if (pval := val.get("name", UNDEFINED)) != UNDEFINED:
         lpath = (path + [ "name" ]) if path is not None else None
-        pval = val.get("name", UNDEFINED)
         # .'$platforms'.0.'|'.17.name
         res = isinstance(pval, str) and pval == "FreeBSD"
         if not res:
             rep is None or rep.append(("unexpected _FreeBSD [.'$platforms'.0.'|'.17.name]", lpath if path is not None else None))
             rep is None or rep.append(("unexpected value for optional prop <name> [.'$platforms'.0.'|'.17]", lpath if path is not None else None))
             return False
-    if "versions" in val:
+    if (pval := val.get("versions", UNDEFINED)) != UNDEFINED:
         lpath = (path + [ "versions" ]) if path is not None else None
-        pval = val.get("versions", UNDEFINED)
         # .'$platforms'.0.'|'.17.versions
         res = isinstance(pval, list)
         if res:
@@ -3726,18 +3666,16 @@ def _jm_obj_77(val: Jsonable, path: Path, rep: Report) -> bool:
     lpath: Path
     pval: Jsonable
     res: bool
-    if "name" in val:
+    if (pval := val.get("name", UNDEFINED)) != UNDEFINED:
         lpath = (path + [ "name" ]) if path is not None else None
-        pval = val.get("name", UNDEFINED)
         # .'$platforms'.0.'|'.16.name
         res = isinstance(pval, str) and (pval == "Fedora")
         if not res:
             rep is None or rep.append(("unexpected _Fedora [.'$platforms'.0.'|'.16.name]", lpath if path is not None else None))
             rep is None or rep.append(("unexpected value for optional prop <name> [.'$platforms'.0.'|'.16]", lpath if path is not None else None))
             return False
-    if "versions" in val:
+    if (pval := val.get("versions", UNDEFINED)) != UNDEFINED:
         lpath = (path + [ "versions" ]) if path is not None else None
-        pval = val.get("versions", UNDEFINED)
         # .'$platforms'.0.'|'.16.versions
         res = isinstance(pval, list)
         if res:
@@ -3763,18 +3701,16 @@ def _jm_obj_78(val: Jsonable, path: Path, rep: Report) -> bool:
     lpath: Path
     pval: Jsonable
     res: bool
-    if "name" in val:
+    if (pval := val.get("name", UNDEFINED)) != UNDEFINED:
         lpath = (path + [ "name" ]) if path is not None else None
-        pval = val.get("name", UNDEFINED)
         # .'$platforms'.0.'|'.15.name
         res = isinstance(pval, str) and pval == "eos"
         if not res:
             rep is None or rep.append(("unexpected _eos [.'$platforms'.0.'|'.15.name]", lpath if path is not None else None))
             rep is None or rep.append(("unexpected value for optional prop <name> [.'$platforms'.0.'|'.15]", lpath if path is not None else None))
             return False
-    if "versions" in val:
+    if (pval := val.get("versions", UNDEFINED)) != UNDEFINED:
         lpath = (path + [ "versions" ]) if path is not None else None
-        pval = val.get("versions", UNDEFINED)
         # .'$platforms'.0.'|'.15.versions
         res = isinstance(pval, list)
         if res:
@@ -3801,18 +3737,16 @@ def _jm_obj_79(val: Jsonable, path: Path, rep: Report) -> bool:
     lpath: Path
     pval: Jsonable
     res: bool
-    if "name" in val:
+    if (pval := val.get("name", UNDEFINED)) != UNDEFINED:
         lpath = (path + [ "name" ]) if path is not None else None
-        pval = val.get("name", UNDEFINED)
         # .'$platforms'.0.'|'.14.name
         res = isinstance(pval, str) and pval == "EL"
         if not res:
             rep is None or rep.append(("unexpected _EL [.'$platforms'.0.'|'.14.name]", lpath if path is not None else None))
             rep is None or rep.append(("unexpected value for optional prop <name> [.'$platforms'.0.'|'.14]", lpath if path is not None else None))
             return False
-    if "versions" in val:
+    if (pval := val.get("versions", UNDEFINED)) != UNDEFINED:
         lpath = (path + [ "versions" ]) if path is not None else None
-        pval = val.get("versions", UNDEFINED)
         # .'$platforms'.0.'|'.14.versions
         res = isinstance(pval, list)
         if res:
@@ -3839,18 +3773,16 @@ def _jm_obj_80(val: Jsonable, path: Path, rep: Report) -> bool:
     lpath: Path
     pval: Jsonable
     res: bool
-    if "name" in val:
+    if (pval := val.get("name", UNDEFINED)) != UNDEFINED:
         lpath = (path + [ "name" ]) if path is not None else None
-        pval = val.get("name", UNDEFINED)
         # .'$platforms'.0.'|'.13.name
         res = isinstance(pval, str) and pval == "DragonFlyBSD"
         if not res:
             rep is None or rep.append(("unexpected _DragonFlyBSD [.'$platforms'.0.'|'.13.name]", lpath if path is not None else None))
             rep is None or rep.append(("unexpected value for optional prop <name> [.'$platforms'.0.'|'.13]", lpath if path is not None else None))
             return False
-    if "versions" in val:
+    if (pval := val.get("versions", UNDEFINED)) != UNDEFINED:
         lpath = (path + [ "versions" ]) if path is not None else None
-        pval = val.get("versions", UNDEFINED)
         # .'$platforms'.0.'|'.13.versions
         res = isinstance(pval, list)
         if res:
@@ -3877,18 +3809,16 @@ def _jm_obj_81(val: Jsonable, path: Path, rep: Report) -> bool:
     lpath: Path
     pval: Jsonable
     res: bool
-    if "name" in val:
+    if (pval := val.get("name", UNDEFINED)) != UNDEFINED:
         lpath = (path + [ "name" ]) if path is not None else None
-        pval = val.get("name", UNDEFINED)
         # .'$platforms'.0.'|'.12.name
         res = isinstance(pval, str) and pval == "Devuan"
         if not res:
             rep is None or rep.append(("unexpected _Devuan [.'$platforms'.0.'|'.12.name]", lpath if path is not None else None))
             rep is None or rep.append(("unexpected value for optional prop <name> [.'$platforms'.0.'|'.12]", lpath if path is not None else None))
             return False
-    if "versions" in val:
+    if (pval := val.get("versions", UNDEFINED)) != UNDEFINED:
         lpath = (path + [ "versions" ]) if path is not None else None
-        pval = val.get("versions", UNDEFINED)
         # .'$platforms'.0.'|'.12.versions
         res = isinstance(pval, list)
         if res:
@@ -3915,18 +3845,16 @@ def _jm_obj_82(val: Jsonable, path: Path, rep: Report) -> bool:
     lpath: Path
     pval: Jsonable
     res: bool
-    if "name" in val:
+    if (pval := val.get("name", UNDEFINED)) != UNDEFINED:
         lpath = (path + [ "name" ]) if path is not None else None
-        pval = val.get("name", UNDEFINED)
         # .'$platforms'.0.'|'.11.name
         res = isinstance(pval, str) and pval == "DellOS"
         if not res:
             rep is None or rep.append(("unexpected _DellOS [.'$platforms'.0.'|'.11.name]", lpath if path is not None else None))
             rep is None or rep.append(("unexpected value for optional prop <name> [.'$platforms'.0.'|'.11]", lpath if path is not None else None))
             return False
-    if "versions" in val:
+    if (pval := val.get("versions", UNDEFINED)) != UNDEFINED:
         lpath = (path + [ "versions" ]) if path is not None else None
-        pval = val.get("versions", UNDEFINED)
         # .'$platforms'.0.'|'.11.versions
         res = isinstance(pval, list)
         if res:
@@ -3953,18 +3881,16 @@ def _jm_obj_83(val: Jsonable, path: Path, rep: Report) -> bool:
     lpath: Path
     pval: Jsonable
     res: bool
-    if "name" in val:
+    if (pval := val.get("name", UNDEFINED)) != UNDEFINED:
         lpath = (path + [ "name" ]) if path is not None else None
-        pval = val.get("name", UNDEFINED)
         # .'$platforms'.0.'|'.10.name
         res = isinstance(pval, str) and pval == "Debian"
         if not res:
             rep is None or rep.append(("unexpected _Debian [.'$platforms'.0.'|'.10.name]", lpath if path is not None else None))
             rep is None or rep.append(("unexpected value for optional prop <name> [.'$platforms'.0.'|'.10]", lpath if path is not None else None))
             return False
-    if "versions" in val:
+    if (pval := val.get("versions", UNDEFINED)) != UNDEFINED:
         lpath = (path + [ "versions" ]) if path is not None else None
-        pval = val.get("versions", UNDEFINED)
         # .'$platforms'.0.'|'.10.versions
         res = isinstance(pval, list)
         if res:
@@ -3991,18 +3917,16 @@ def _jm_obj_84(val: Jsonable, path: Path, rep: Report) -> bool:
     lpath: Path
     pval: Jsonable
     res: bool
-    if "name" in val:
+    if (pval := val.get("name", UNDEFINED)) != UNDEFINED:
         lpath = (path + [ "name" ]) if path is not None else None
-        pval = val.get("name", UNDEFINED)
         # .'$platforms'.0.'|'.9.name
         res = isinstance(pval, str) and pval == "NetBSD"
         if not res:
             rep is None or rep.append(("unexpected _NetBSD [.'$platforms'.0.'|'.9.name]", lpath if path is not None else None))
             rep is None or rep.append(("unexpected value for optional prop <name> [.'$platforms'.0.'|'.9]", lpath if path is not None else None))
             return False
-    if "versions" in val:
+    if (pval := val.get("versions", UNDEFINED)) != UNDEFINED:
         lpath = (path + [ "versions" ]) if path is not None else None
-        pval = val.get("versions", UNDEFINED)
         # .'$platforms'.0.'|'.9.versions
         res = isinstance(pval, list)
         if res:
@@ -4029,18 +3953,16 @@ def _jm_obj_85(val: Jsonable, path: Path, rep: Report) -> bool:
     lpath: Path
     pval: Jsonable
     res: bool
-    if "name" in val:
+    if (pval := val.get("name", UNDEFINED)) != UNDEFINED:
         lpath = (path + [ "name" ]) if path is not None else None
-        pval = val.get("name", UNDEFINED)
         # .'$platforms'.0.'|'.8.name
         res = isinstance(pval, str) and pval == "Cumulus"
         if not res:
             rep is None or rep.append(("unexpected _Cumulus [.'$platforms'.0.'|'.8.name]", lpath if path is not None else None))
             rep is None or rep.append(("unexpected value for optional prop <name> [.'$platforms'.0.'|'.8]", lpath if path is not None else None))
             return False
-    if "versions" in val:
+    if (pval := val.get("versions", UNDEFINED)) != UNDEFINED:
         lpath = (path + [ "versions" ]) if path is not None else None
-        pval = val.get("versions", UNDEFINED)
         # .'$platforms'.0.'|'.8.versions
         res = isinstance(pval, list)
         if res:
@@ -4066,18 +3988,16 @@ def _jm_obj_86(val: Jsonable, path: Path, rep: Report) -> bool:
     lpath: Path
     pval: Jsonable
     res: bool
-    if "name" in val:
+    if (pval := val.get("name", UNDEFINED)) != UNDEFINED:
         lpath = (path + [ "name" ]) if path is not None else None
-        pval = val.get("name", UNDEFINED)
         # .'$platforms'.0.'|'.7.name
         res = isinstance(pval, str) and pval == "ClearLinux"
         if not res:
             rep is None or rep.append(("unexpected _ClearLinux [.'$platforms'.0.'|'.7.name]", lpath if path is not None else None))
             rep is None or rep.append(("unexpected value for optional prop <name> [.'$platforms'.0.'|'.7]", lpath if path is not None else None))
             return False
-    if "versions" in val:
+    if (pval := val.get("versions", UNDEFINED)) != UNDEFINED:
         lpath = (path + [ "versions" ]) if path is not None else None
-        pval = val.get("versions", UNDEFINED)
         # .'$platforms'.0.'|'.7.versions
         res = isinstance(pval, list)
         if res:
@@ -4104,18 +4024,16 @@ def _jm_obj_87(val: Jsonable, path: Path, rep: Report) -> bool:
     lpath: Path
     pval: Jsonable
     res: bool
-    if "name" in val:
+    if (pval := val.get("name", UNDEFINED)) != UNDEFINED:
         lpath = (path + [ "name" ]) if path is not None else None
-        pval = val.get("name", UNDEFINED)
         # .'$platforms'.0.'|'.6.name
         res = isinstance(pval, str) and pval == "Astra Linux"
         if not res:
             rep is None or rep.append(("unexpected _Astra Linux [.'$platforms'.0.'|'.6.name]", lpath if path is not None else None))
             rep is None or rep.append(("unexpected value for optional prop <name> [.'$platforms'.0.'|'.6]", lpath if path is not None else None))
             return False
-    if "versions" in val:
+    if (pval := val.get("versions", UNDEFINED)) != UNDEFINED:
         lpath = (path + [ "versions" ]) if path is not None else None
-        pval = val.get("versions", UNDEFINED)
         # .'$platforms'.0.'|'.6.versions
         res = isinstance(pval, list)
         if res:
@@ -4141,18 +4059,16 @@ def _jm_obj_88(val: Jsonable, path: Path, rep: Report) -> bool:
     lpath: Path
     pval: Jsonable
     res: bool
-    if "name" in val:
+    if (pval := val.get("name", UNDEFINED)) != UNDEFINED:
         lpath = (path + [ "name" ]) if path is not None else None
-        pval = val.get("name", UNDEFINED)
         # .'$platforms'.0.'|'.5.name
         res = isinstance(pval, str) and pval == "ArchLinux"
         if not res:
             rep is None or rep.append(("unexpected _ArchLinux [.'$platforms'.0.'|'.5.name]", lpath if path is not None else None))
             rep is None or rep.append(("unexpected value for optional prop <name> [.'$platforms'.0.'|'.5]", lpath if path is not None else None))
             return False
-    if "versions" in val:
+    if (pval := val.get("versions", UNDEFINED)) != UNDEFINED:
         lpath = (path + [ "versions" ]) if path is not None else None
-        pval = val.get("versions", UNDEFINED)
         # .'$platforms'.0.'|'.5.versions
         res = isinstance(pval, list)
         if res:
@@ -4178,18 +4094,16 @@ def _jm_obj_89(val: Jsonable, path: Path, rep: Report) -> bool:
     lpath: Path
     pval: Jsonable
     res: bool
-    if "name" in val:
+    if (pval := val.get("name", UNDEFINED)) != UNDEFINED:
         lpath = (path + [ "name" ]) if path is not None else None
-        pval = val.get("name", UNDEFINED)
         # .'$platforms'.0.'|'.4.name
         res = isinstance(pval, str) and pval == "aos"
         if not res:
             rep is None or rep.append(("unexpected _aos [.'$platforms'.0.'|'.4.name]", lpath if path is not None else None))
             rep is None or rep.append(("unexpected value for optional prop <name> [.'$platforms'.0.'|'.4]", lpath if path is not None else None))
             return False
-    if "versions" in val:
+    if (pval := val.get("versions", UNDEFINED)) != UNDEFINED:
         lpath = (path + [ "versions" ]) if path is not None else None
-        pval = val.get("versions", UNDEFINED)
         # .'$platforms'.0.'|'.4.versions
         res = isinstance(pval, list)
         if res:
@@ -4216,18 +4130,16 @@ def _jm_obj_90(val: Jsonable, path: Path, rep: Report) -> bool:
     lpath: Path
     pval: Jsonable
     res: bool
-    if "name" in val:
+    if (pval := val.get("name", UNDEFINED)) != UNDEFINED:
         lpath = (path + [ "name" ]) if path is not None else None
-        pval = val.get("name", UNDEFINED)
         # .'$platforms'.0.'|'.3.name
         res = isinstance(pval, str) and pval == "Amazon Linux"
         if not res:
             rep is None or rep.append(("unexpected _Amazon Linux [.'$platforms'.0.'|'.3.name]", lpath if path is not None else None))
             rep is None or rep.append(("unexpected value for optional prop <name> [.'$platforms'.0.'|'.3]", lpath if path is not None else None))
             return False
-    if "versions" in val:
+    if (pval := val.get("versions", UNDEFINED)) != UNDEFINED:
         lpath = (path + [ "versions" ]) if path is not None else None
-        pval = val.get("versions", UNDEFINED)
         # .'$platforms'.0.'|'.3.versions
         res = isinstance(pval, list)
         if res:
@@ -4254,18 +4166,16 @@ def _jm_obj_91(val: Jsonable, path: Path, rep: Report) -> bool:
     lpath: Path
     pval: Jsonable
     res: bool
-    if "name" in val:
+    if (pval := val.get("name", UNDEFINED)) != UNDEFINED:
         lpath = (path + [ "name" ]) if path is not None else None
-        pval = val.get("name", UNDEFINED)
         # .'$platforms'.0.'|'.2.name
         res = isinstance(pval, str) and pval == "Amazon"
         if not res:
             rep is None or rep.append(("unexpected _Amazon [.'$platforms'.0.'|'.2.name]", lpath if path is not None else None))
             rep is None or rep.append(("unexpected value for optional prop <name> [.'$platforms'.0.'|'.2]", lpath if path is not None else None))
             return False
-    if "versions" in val:
+    if (pval := val.get("versions", UNDEFINED)) != UNDEFINED:
         lpath = (path + [ "versions" ]) if path is not None else None
-        pval = val.get("versions", UNDEFINED)
         # .'$platforms'.0.'|'.2.versions
         res = isinstance(pval, list)
         if res:
@@ -4291,18 +4201,16 @@ def _jm_obj_92(val: Jsonable, path: Path, rep: Report) -> bool:
     lpath: Path
     pval: Jsonable
     res: bool
-    if "name" in val:
+    if (pval := val.get("name", UNDEFINED)) != UNDEFINED:
         lpath = (path + [ "name" ]) if path is not None else None
-        pval = val.get("name", UNDEFINED)
         # .'$platforms'.0.'|'.1.name
         res = isinstance(pval, str) and pval == "Alpine"
         if not res:
             rep is None or rep.append(("unexpected _Alpine [.'$platforms'.0.'|'.1.name]", lpath if path is not None else None))
             rep is None or rep.append(("unexpected value for optional prop <name> [.'$platforms'.0.'|'.1]", lpath if path is not None else None))
             return False
-    if "versions" in val:
+    if (pval := val.get("versions", UNDEFINED)) != UNDEFINED:
         lpath = (path + [ "versions" ]) if path is not None else None
-        pval = val.get("versions", UNDEFINED)
         # .'$platforms'.0.'|'.1.versions
         res = isinstance(pval, list)
         if res:
@@ -4329,18 +4237,16 @@ def _jm_obj_93(val: Jsonable, path: Path, rep: Report) -> bool:
     lpath: Path
     pval: Jsonable
     res: bool
-    if "name" in val:
+    if (pval := val.get("name", UNDEFINED)) != UNDEFINED:
         lpath = (path + [ "name" ]) if path is not None else None
-        pval = val.get("name", UNDEFINED)
         # .'$platforms'.0.'|'.0.name
         res = isinstance(pval, str) and pval == "AIX"
         if not res:
             rep is None or rep.append(("unexpected _AIX [.'$platforms'.0.'|'.0.name]", lpath if path is not None else None))
             rep is None or rep.append(("unexpected value for optional prop <name> [.'$platforms'.0.'|'.0]", lpath if path is not None else None))
             return False
-    if "versions" in val:
+    if (pval := val.get("versions", UNDEFINED)) != UNDEFINED:
         lpath = (path + [ "versions" ]) if path is not None else None
-        pval = val.get("versions", UNDEFINED)
         # .'$platforms'.0.'|'.0.versions
         res = isinstance(pval, list)
         if res:
@@ -5573,11 +5479,10 @@ def _jm_obj_101(val: Jsonable, path: Path, rep: Report) -> bool:
     lpath: Path
     pval: Jsonable
     res: bool
-    if not "name" in val:
+    if not ((pval := val.get("name", UNDEFINED)) != UNDEFINED):
         rep is None or rep.append(("missing mandatory prop <name> [.'$DependencyModel'.'&'.1.'|'.2]", path))
         return False
     lpath = (path + [ "name" ]) if path is not None else None
-    pval = val.get("name", UNDEFINED)
     # .'$DependencyModel'.'&'.1.'|'.2.name
     res = isinstance(pval, str)
     if not res:
@@ -5595,11 +5500,10 @@ def _jm_obj_102(val: Jsonable, path: Path, rep: Report) -> bool:
     lpath: Path
     pval: Jsonable
     res: bool
-    if not "src" in val:
+    if not ((pval := val.get("src", UNDEFINED)) != UNDEFINED):
         rep is None or rep.append(("missing mandatory prop <src> [.'$DependencyModel'.'&'.1.'|'.1]", path))
         return False
     lpath = (path + [ "src" ]) if path is not None else None
-    pval = val.get("src", UNDEFINED)
     # .'$DependencyModel'.'&'.1.'|'.1.src
     res = isinstance(pval, str)
     if not res:
@@ -5617,11 +5521,10 @@ def _jm_obj_103(val: Jsonable, path: Path, rep: Report) -> bool:
     lpath: Path
     pval: Jsonable
     res: bool
-    if not "role" in val:
+    if not ((pval := val.get("role", UNDEFINED)) != UNDEFINED):
         rep is None or rep.append(("missing mandatory prop <role> [.'$DependencyModel'.'&'.1.'|'.0]", path))
         return False
     lpath = (path + [ "role" ]) if path is not None else None
-    pval = val.get("role", UNDEFINED)
     # .'$DependencyModel'.'&'.1.'|'.0.role
     res = isinstance(pval, str)
     if not res:

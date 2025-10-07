@@ -31,13 +31,12 @@ public class muma_0 extends ModelChecker
         Path lpath;
         Object pval;
         boolean res;
-        if (! json.objectHasProp(val, "name"))
+        if (! ((pval = json.objectValue(val, "name")) != null))
         {
             if (rep != null) rep.addEntry("missing mandatory prop <name> [.]", path);
             return false;
         }
         lpath = new Path("name", path);
-        pval = json.objectValue(val, "name");
         // .name
         res = json.isString(pval);
         if (! res)
@@ -46,10 +45,9 @@ public class muma_0 extends ModelChecker
             if (rep != null) rep.addEntry("unexpected value for mandatory prop <name> [.]", (path != null ? lpath : null));
             return false;
         }
-        if (json.objectHasProp(val, "born"))
+        if ((pval = json.objectValue(val, "born")) != null)
         {
             lpath = new Path("born", path);
-            pval = json.objectValue(val, "born");
             // .born
             res = json.isString(pval) && rt.is_valid_date(json.asString(pval));
             if (! res)

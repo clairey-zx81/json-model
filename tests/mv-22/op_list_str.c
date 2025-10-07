@@ -35,13 +35,12 @@ static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *re
     jm_path_t lpath;
     json_t * pval;
     bool res;
-    if (! (json_object_get(val, "t") != NULL))
+    if (! ((pval = json_object_get(val, "t")) != NULL))
     {
         if (rep) jm_report_add_entry(rep, "missing mandatory prop <t> [.'|'.0]", path);
         return false;
     }
     lpath = (jm_path_t) { "t", 0, path, NULL };
-    pval = json_object_get(val, "t");
     // .'|'.0.t
     res = json_is_string(pval) && strcmp(json_string_value(pval), "a") == 0;
     if (! res)
@@ -50,13 +49,12 @@ static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *re
         if (rep) jm_report_add_entry(rep, "unexpected value for mandatory prop <t> [.'|'.0]", (path ? &lpath : NULL));
         return false;
     }
-    if (! (json_object_get(val, "foo") != NULL))
+    if (! ((pval = json_object_get(val, "foo")) != NULL))
     {
         if (rep) jm_report_add_entry(rep, "missing mandatory prop <foo> [.'|'.0]", path);
         return false;
     }
     lpath = (jm_path_t) { "foo", 0, path, NULL };
-    pval = json_object_get(val, "foo");
     // .'|'.0.foo
     res = json_is_integer(pval) && json_integer_value(pval) >= 1;
     if (! res)
@@ -86,13 +84,12 @@ static INLINE bool _jm_obj_1(const json_t *val, jm_path_t *path, jm_report_t *re
     jm_path_t lpath;
     json_t * pval;
     bool res;
-    if (! (json_object_get(val, "t") != NULL))
+    if (! ((pval = json_object_get(val, "t")) != NULL))
     {
         if (rep) jm_report_add_entry(rep, "missing mandatory prop <t> [.'|'.1]", path);
         return false;
     }
     lpath = (jm_path_t) { "t", 0, path, NULL };
-    pval = json_object_get(val, "t");
     // .'|'.1.t
     res = jm_json_is_scalar(pval) && json_is_string(pval) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(pval) } }, _jm_cst_0, 2);;
     if (! res)
@@ -101,13 +98,12 @@ static INLINE bool _jm_obj_1(const json_t *val, jm_path_t *path, jm_report_t *re
         if (rep) jm_report_add_entry(rep, "unexpected value for mandatory prop <t> [.'|'.1]", (path ? &lpath : NULL));
         return false;
     }
-    if (! (json_object_get(val, "bla") != NULL))
+    if (! ((pval = json_object_get(val, "bla")) != NULL))
     {
         if (rep) jm_report_add_entry(rep, "missing mandatory prop <bla> [.'|'.1]", path);
         return false;
     }
     lpath = (jm_path_t) { "bla", 0, path, NULL };
-    pval = json_object_get(val, "bla");
     // .'|'.1.bla
     res = json_is_integer(pval) && json_integer_value(pval) >= 1;
     if (! res)

@@ -67,13 +67,12 @@ public class xoropt_015 extends ModelChecker
         Path lpath;
         Object pval;
         boolean res;
-        if (! json.objectHasProp(val, "X"))
+        if (! ((pval = json.objectValue(val, "X")) != null))
         {
             if (rep != null) rep.addEntry("missing mandatory prop <X> [.'$Xx']", path);
             return false;
         }
         lpath = new Path("X", path);
-        pval = json.objectValue(val, "X");
         // .'$Xx'.X
         res = json.isString(pval);
         if (! res)
@@ -115,13 +114,12 @@ public class xoropt_015 extends ModelChecker
         Path lpath;
         Object pval;
         boolean res;
-        if (! json.objectHasProp(val, "Y"))
+        if (! ((pval = json.objectValue(val, "Y")) != null))
         {
             if (rep != null) rep.addEntry("missing mandatory prop <Y> [.'$Yy']", path);
             return false;
         }
         lpath = new Path("Y", path);
-        pval = json.objectValue(val, "Y");
         // .'$Yy'.Y
         res = json.isString(pval);
         if (! res)

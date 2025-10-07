@@ -428,13 +428,12 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         Path lpath;
         Object pval;
         boolean res;
-        if (! json.objectHasProp(val, "type"))
+        if (! ((pval = json.objectValue(val, "type")) != null))
         {
             if (rep != null) rep.addEntry("missing mandatory prop <type> [.'$Null']", path);
             return false;
         }
         lpath = new Path("type", path);
-        pval = json.objectValue(val, "type");
         // .'$Null'.type
         res = json.isString(pval) && json.asString(pval).compareTo("null") == 0;
         if (! res)
@@ -476,13 +475,12 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         Path lpath;
         Object pval;
         boolean res;
-        if (! json.objectHasProp(val, "type"))
+        if (! ((pval = json.objectValue(val, "type")) != null))
         {
             if (rep != null) rep.addEntry("missing mandatory prop <type> [.'$Boolean']", path);
             return false;
         }
         lpath = new Path("type", path);
-        pval = json.objectValue(val, "type");
         // .'$Boolean'.type
         res = json.isString(pval) && json.asString(pval).compareTo("boolean") == 0;
         if (! res)

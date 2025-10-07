@@ -52,11 +52,10 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
     lpath: Path
     pval: Jsonable
     res: bool
-    if not "rt" in val:
+    if not ((pval := val.get("rt", UNDEFINED)) != UNDEFINED):
         rep is None or rep.append(("missing mandatory prop <rt> [.'$foo#Foo']", path))
         return False
     lpath = (path + [ "rt" ]) if path is not None else None
-    pval = val.get("rt", UNDEFINED)
     # .'$foo#Foo'.rt
     res = _jm_obj_1(pval, lpath if path is not None else None, rep)
     if not res:
@@ -86,22 +85,20 @@ def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
     lpath: Path
     pval: Jsonable
     res: bool
-    if not "id" in val:
+    if not ((pval := val.get("id", UNDEFINED)) != UNDEFINED):
         rep is None or rep.append(("missing mandatory prop <id> [.'$foo#root#root#Root']", path))
         return False
     lpath = (path + [ "id" ]) if path is not None else None
-    pval = val.get("id", UNDEFINED)
     # .'$foo#root#root#Root'.id
     res = isinstance(pval, int) and not isinstance(pval, bool) and pval == 1
     if not res:
         rep is None or rep.append(("unexpected =1 [.'$foo#root#root#Root'.id]", lpath if path is not None else None))
         rep is None or rep.append(("unexpected value for mandatory prop <id> [.'$foo#root#root#Root']", lpath if path is not None else None))
         return False
-    if not "name" in val:
+    if not ((pval := val.get("name", UNDEFINED)) != UNDEFINED):
         rep is None or rep.append(("missing mandatory prop <name> [.'$foo#root#root#Root']", path))
         return False
     lpath = (path + [ "name" ]) if path is not None else None
-    pval = val.get("name", UNDEFINED)
     # .'$foo#root#root#Root'.name
     res = isinstance(pval, str)
     if not res:

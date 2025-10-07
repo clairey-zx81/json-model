@@ -29,9 +29,8 @@ public class a2m_1 extends ModelChecker
         }
         Object pval;
         boolean res;
-        if (json.objectHasProp(val, "a"))
+        if ((pval = json.objectValue(val, "a")) != null)
         {
-            pval = json.objectValue(val, "a");
             // .'$Oa'.a
             res = json.isInteger(pval) && json.asLong(pval) >= 0;
             if (! res)
@@ -61,9 +60,8 @@ public class a2m_1 extends ModelChecker
         }
         Object pval;
         boolean res;
-        if (json.objectHasProp(val, "b"))
+        if ((pval = json.objectValue(val, "b")) != null)
         {
-            pval = json.objectValue(val, "b");
             // .'$Ob'.b
             res = json.isInteger(pval) && json.asLong(pval) >= 0;
             if (! res)
@@ -93,9 +91,8 @@ public class a2m_1 extends ModelChecker
         }
         Object pval;
         boolean res;
-        if (json.objectHasProp(val, "a"))
+        if ((pval = json.objectValue(val, "a")) != null)
         {
-            pval = json.objectValue(val, "a");
             // .'$merge'.a
             res = json.isInteger(pval) && json.asLong(pval) >= 0;
             if (! res)
@@ -103,9 +100,8 @@ public class a2m_1 extends ModelChecker
                 return false;
             }
         }
-        if (json.objectHasProp(val, "b"))
+        if ((pval = json.objectValue(val, "b")) != null)
         {
-            pval = json.objectValue(val, "b");
             // .'$merge'.b
             res = json.isInteger(pval) && json.asLong(pval) >= 0;
             if (! res)
@@ -139,11 +135,10 @@ public class a2m_1 extends ModelChecker
         }
         Object pval;
         boolean res;
-        if (! json.objectHasProp(val, "c"))
+        if (! ((pval = json.objectValue(val, "c")) != null))
         {
             return false;
         }
-        pval = json.objectValue(val, "c");
         // .'$nomerge'.'&'.1.c
         res = json.isInteger(pval) && json.asLong(pval) >= 1;
         if (! res)

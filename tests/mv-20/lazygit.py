@@ -199,11 +199,10 @@ def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
     lpath: Path
     pval: Jsonable
     res: bool
-    if not ("command" in val):
+    if not ((pval := val.get("command", UNDEFINED)) != UNDEFINED):
         rep is None or rep.append(("missing mandatory prop <command> [.'$Prompts'.'|'.0.suggestions.'|'.1]", path))
         return False
     lpath = (path + [ "command" ]) if path is not None else None
-    pval = val.get("command", UNDEFINED)
     # .'$Prompts'.'|'.0.suggestions.'|'.1.command
     res = isinstance(pval, str)
     if not res:
@@ -225,11 +224,10 @@ def _jm_obj_2(val: Jsonable, path: Path, rep: Report) -> bool:
     lpath: Path
     pval: Jsonable
     res: bool
-    if not "preset" in val:
+    if not ((pval := val.get("preset", UNDEFINED)) != UNDEFINED):
         rep is None or rep.append(("missing mandatory prop <preset> [.'$Prompts'.'|'.0.suggestions.'|'.0]", path))
         return False
     lpath = (path + [ "preset" ]) if path is not None else None
-    pval = val.get("preset", UNDEFINED)
     # .'$Prompts'.'|'.0.suggestions.'|'.0.preset
     res = ((pval is None or isinstance(pval, (bool, int, float, str)))) and pval in _jm_cst_2
     if not res:
@@ -436,44 +434,40 @@ def _jm_obj_4(val: Jsonable, path: Path, rep: Report) -> bool:
     lpath: Path
     pval: Jsonable
     res: bool
-    if not "type" in val:
+    if not ((pval := val.get("type", UNDEFINED)) != UNDEFINED):
         rep is None or rep.append(("missing mandatory prop <type> [.'$Prompts'.'|'.2]", path))
         return False
     lpath = (path + [ "type" ]) if path is not None else None
-    pval = val.get("type", UNDEFINED)
     # .'$Prompts'.'|'.2.type
     res = isinstance(pval, str) and pval == "menu"
     if not res:
         rep is None or rep.append(("unexpected menu [.'$Prompts'.'|'.2.type]", lpath if path is not None else None))
         rep is None or rep.append(("unexpected value for mandatory prop <type> [.'$Prompts'.'|'.2]", lpath if path is not None else None))
         return False
-    if not "title" in val:
+    if not ((pval := val.get("title", UNDEFINED)) != UNDEFINED):
         rep is None or rep.append(("missing mandatory prop <title> [.'$Prompts'.'|'.2]", path))
         return False
     lpath = (path + [ "title" ]) if path is not None else None
-    pval = val.get("title", UNDEFINED)
     # .'$Prompts'.'|'.2.title
     res = json_model_6(pval, lpath if path is not None else None, rep)
     if not res:
         rep is None or rep.append(("unexpected $custom-commands-prompts-title-property [.'$Prompts'.'|'.2.title]", lpath if path is not None else None))
         rep is None or rep.append(("unexpected value for mandatory prop <title> [.'$Prompts'.'|'.2]", lpath if path is not None else None))
         return False
-    if not "key" in val:
+    if not ((pval := val.get("key", UNDEFINED)) != UNDEFINED):
         rep is None or rep.append(("missing mandatory prop <key> [.'$Prompts'.'|'.2]", path))
         return False
     lpath = (path + [ "key" ]) if path is not None else None
-    pval = val.get("key", UNDEFINED)
     # .'$Prompts'.'|'.2.key
     res = json_model_7(pval, lpath if path is not None else None, rep)
     if not res:
         rep is None or rep.append(("unexpected $custom-commands-prompts-key-property [.'$Prompts'.'|'.2.key]", lpath if path is not None else None))
         rep is None or rep.append(("unexpected value for mandatory prop <key> [.'$Prompts'.'|'.2]", lpath if path is not None else None))
         return False
-    if not "options" in val:
+    if not ((pval := val.get("options", UNDEFINED)) != UNDEFINED):
         rep is None or rep.append(("missing mandatory prop <options> [.'$Prompts'.'|'.2]", path))
         return False
     lpath = (path + [ "options" ]) if path is not None else None
-    pval = val.get("options", UNDEFINED)
     # .'$Prompts'.'|'.2.options
     # .'$Prompts'.'|'.2.options.'@'
     res = isinstance(pval, list)
@@ -877,22 +871,20 @@ def _jm_obj_13(val: Jsonable, path: Path, rep: Report) -> bool:
     lpath: Path
     pval: Jsonable
     res: bool
-    if not "pattern" in val:
+    if not ((pval := val.get("pattern", UNDEFINED)) != UNDEFINED):
         rep is None or rep.append(("missing mandatory prop <pattern> [.git.commitPrefixes.'/./']", path))
         return False
     lpath = (path + [ "pattern" ]) if path is not None else None
-    pval = val.get("pattern", UNDEFINED)
     # .git.commitPrefixes.'/./'.pattern
     res = json_model_8(pval, lpath if path is not None else None, rep)
     if not res:
         rep is None or rep.append(("unexpected $neString [.git.commitPrefixes.'/./'.pattern]", lpath if path is not None else None))
         rep is None or rep.append(("unexpected value for mandatory prop <pattern> [.git.commitPrefixes.'/./']", lpath if path is not None else None))
         return False
-    if not "replace" in val:
+    if not ((pval := val.get("replace", UNDEFINED)) != UNDEFINED):
         rep is None or rep.append(("missing mandatory prop <replace> [.git.commitPrefixes.'/./']", path))
         return False
     lpath = (path + [ "replace" ]) if path is not None else None
-    pval = val.get("replace", UNDEFINED)
     # .git.commitPrefixes.'/./'.replace
     res = json_model_8(pval, lpath if path is not None else None, rep)
     if not res:

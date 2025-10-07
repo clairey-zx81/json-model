@@ -215,13 +215,12 @@ static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *re
     jm_path_t lpath;
     json_t * pval;
     bool res;
-    if (! (json_object_get(val, "a") != NULL))
+    if (! ((pval = json_object_get(val, "a")) != NULL))
     {
         if (rep) jm_report_add_entry(rep, "missing mandatory prop <a> [.'$ab']", path);
         return false;
     }
     lpath = (jm_path_t) { "a", 0, path, NULL };
-    pval = json_object_get(val, "a");
     // .'$ab'.a
     res = json_is_integer(pval) && json_integer_value(pval) >= 0;
     if (! res)
@@ -230,13 +229,12 @@ static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *re
         if (rep) jm_report_add_entry(rep, "unexpected value for mandatory prop <a> [.'$ab']", (path ? &lpath : NULL));
         return false;
     }
-    if (! (json_object_get(val, "b") != NULL))
+    if (! ((pval = json_object_get(val, "b")) != NULL))
     {
         if (rep) jm_report_add_entry(rep, "missing mandatory prop <b> [.'$ab']", path);
         return false;
     }
     lpath = (jm_path_t) { "b", 0, path, NULL };
-    pval = json_object_get(val, "b");
     // .'$ab'.b
     res = json_is_integer(pval) && json_integer_value(pval) >= 0;
     if (! res)
@@ -278,13 +276,12 @@ static INLINE bool _jm_obj_1(const json_t *val, jm_path_t *path, jm_report_t *re
     jm_path_t lpath;
     json_t * pval;
     bool res;
-    if (! (json_object_get(val, "c") != NULL))
+    if (! ((pval = json_object_get(val, "c")) != NULL))
     {
         if (rep) jm_report_add_entry(rep, "missing mandatory prop <c> [.'$cd']", path);
         return false;
     }
     lpath = (jm_path_t) { "c", 0, path, NULL };
-    pval = json_object_get(val, "c");
     // .'$cd'.c
     res = json_is_integer(pval) && json_integer_value(pval) >= 0;
     if (! res)
@@ -293,13 +290,12 @@ static INLINE bool _jm_obj_1(const json_t *val, jm_path_t *path, jm_report_t *re
         if (rep) jm_report_add_entry(rep, "unexpected value for mandatory prop <c> [.'$cd']", (path ? &lpath : NULL));
         return false;
     }
-    if (! (json_object_get(val, "d") != NULL))
+    if (! ((pval = json_object_get(val, "d")) != NULL))
     {
         if (rep) jm_report_add_entry(rep, "missing mandatory prop <d> [.'$cd']", path);
         return false;
     }
     lpath = (jm_path_t) { "d", 0, path, NULL };
-    pval = json_object_get(val, "d");
     // .'$cd'.d
     res = json_is_integer(pval) && json_integer_value(pval) >= 0;
     if (! res)
@@ -1900,13 +1896,12 @@ static INLINE bool _jm_obj_15(const json_t *val, jm_path_t *path, jm_report_t *r
     jm_path_t lpath;
     json_t * pval;
     bool res;
-    if (! (json_object_get(val, "a") != NULL))
+    if (! ((pval = json_object_get(val, "a")) != NULL))
     {
         if (rep) jm_report_add_entry(rep, "missing mandatory prop <a> [.merge.m1.'|'.1]", path);
         return false;
     }
     lpath = (jm_path_t) { "a", 0, path, NULL };
-    pval = json_object_get(val, "a");
     // .merge.m1.'|'.1.a
     res = json_is_integer(pval) && json_integer_value(pval) >= 0;
     if (! res)
@@ -1915,13 +1910,12 @@ static INLINE bool _jm_obj_15(const json_t *val, jm_path_t *path, jm_report_t *r
         if (rep) jm_report_add_entry(rep, "unexpected value for mandatory prop <a> [.merge.m1.'|'.1]", (path ? &lpath : NULL));
         return false;
     }
-    if (! (json_object_get(val, "c") != NULL))
+    if (! ((pval = json_object_get(val, "c")) != NULL))
     {
         if (rep) jm_report_add_entry(rep, "missing mandatory prop <c> [.merge.m1.'|'.1]", path);
         return false;
     }
     lpath = (jm_path_t) { "c", 0, path, NULL };
-    pval = json_object_get(val, "c");
     // .merge.m1.'|'.1.c
     res = json_is_integer(pval) && json_integer_value(pval) >= 1;
     if (! res)
@@ -1950,13 +1944,12 @@ static INLINE bool _jm_obj_16(const json_t *val, jm_path_t *path, jm_report_t *r
     jm_path_t lpath;
     json_t * pval;
     bool res;
-    if (! (json_object_get(val, "a") != NULL))
+    if (! ((pval = json_object_get(val, "a")) != NULL))
     {
         if (rep) jm_report_add_entry(rep, "missing mandatory prop <a> [.merge.m1.'|'.0]", path);
         return false;
     }
     lpath = (jm_path_t) { "a", 0, path, NULL };
-    pval = json_object_get(val, "a");
     // .merge.m1.'|'.0.a
     res = json_is_integer(pval) && json_integer_value(pval) >= 0;
     if (! res)
@@ -1965,13 +1958,12 @@ static INLINE bool _jm_obj_16(const json_t *val, jm_path_t *path, jm_report_t *r
         if (rep) jm_report_add_entry(rep, "unexpected value for mandatory prop <a> [.merge.m1.'|'.0]", (path ? &lpath : NULL));
         return false;
     }
-    if (! (json_object_get(val, "b") != NULL))
+    if (! ((pval = json_object_get(val, "b")) != NULL))
     {
         if (rep) jm_report_add_entry(rep, "missing mandatory prop <b> [.merge.m1.'|'.0]", path);
         return false;
     }
     lpath = (jm_path_t) { "b", 0, path, NULL };
-    pval = json_object_get(val, "b");
     // .merge.m1.'|'.0.b
     res = json_is_integer(pval) && json_integer_value(pval) >= 1;
     if (! res)
@@ -2000,13 +1992,12 @@ static INLINE bool _jm_obj_17(const json_t *val, jm_path_t *path, jm_report_t *r
     jm_path_t lpath;
     json_t * pval;
     bool res;
-    if (! (json_object_get(val, "a") != NULL))
+    if (! ((pval = json_object_get(val, "a")) != NULL))
     {
         if (rep) jm_report_add_entry(rep, "missing mandatory prop <a> [.merge.m2.'|'.1]", path);
         return false;
     }
     lpath = (jm_path_t) { "a", 0, path, NULL };
-    pval = json_object_get(val, "a");
     // .merge.m2.'|'.1.a
     res = json_is_integer(pval) && json_integer_value(pval) >= 0;
     if (! res)
@@ -2015,13 +2006,12 @@ static INLINE bool _jm_obj_17(const json_t *val, jm_path_t *path, jm_report_t *r
         if (rep) jm_report_add_entry(rep, "unexpected value for mandatory prop <a> [.merge.m2.'|'.1]", (path ? &lpath : NULL));
         return false;
     }
-    if (! (json_object_get(val, "c") != NULL))
+    if (! ((pval = json_object_get(val, "c")) != NULL))
     {
         if (rep) jm_report_add_entry(rep, "missing mandatory prop <c> [.merge.m2.'|'.1]", path);
         return false;
     }
     lpath = (jm_path_t) { "c", 0, path, NULL };
-    pval = json_object_get(val, "c");
     // .merge.m2.'|'.1.c
     res = json_is_integer(pval) && json_integer_value(pval) >= 1;
     if (! res)
@@ -2050,13 +2040,12 @@ static INLINE bool _jm_obj_18(const json_t *val, jm_path_t *path, jm_report_t *r
     jm_path_t lpath;
     json_t * pval;
     bool res;
-    if (! (json_object_get(val, "a") != NULL))
+    if (! ((pval = json_object_get(val, "a")) != NULL))
     {
         if (rep) jm_report_add_entry(rep, "missing mandatory prop <a> [.merge.m2.'|'.0]", path);
         return false;
     }
     lpath = (jm_path_t) { "a", 0, path, NULL };
-    pval = json_object_get(val, "a");
     // .merge.m2.'|'.0.a
     res = json_is_integer(pval) && json_integer_value(pval) >= 0;
     if (! res)
@@ -2065,13 +2054,12 @@ static INLINE bool _jm_obj_18(const json_t *val, jm_path_t *path, jm_report_t *r
         if (rep) jm_report_add_entry(rep, "unexpected value for mandatory prop <a> [.merge.m2.'|'.0]", (path ? &lpath : NULL));
         return false;
     }
-    if (! (json_object_get(val, "b") != NULL))
+    if (! ((pval = json_object_get(val, "b")) != NULL))
     {
         if (rep) jm_report_add_entry(rep, "missing mandatory prop <b> [.merge.m2.'|'.0]", path);
         return false;
     }
     lpath = (jm_path_t) { "b", 0, path, NULL };
-    pval = json_object_get(val, "b");
     // .merge.m2.'|'.0.b
     res = json_is_integer(pval) && json_integer_value(pval) >= 1;
     if (! res)
@@ -2100,13 +2088,12 @@ static INLINE bool _jm_obj_19(const json_t *val, jm_path_t *path, jm_report_t *r
     jm_path_t lpath;
     json_t * pval;
     bool res;
-    if (! (json_object_get(val, "b") != NULL))
+    if (! ((pval = json_object_get(val, "b")) != NULL))
     {
         if (rep) jm_report_add_entry(rep, "missing mandatory prop <b> [.merge.m3.'|'.3]", path);
         return false;
     }
     lpath = (jm_path_t) { "b", 0, path, NULL };
-    pval = json_object_get(val, "b");
     // .merge.m3.'|'.3.b
     res = json_is_integer(pval) && json_integer_value(pval) >= 0;
     if (! res)
@@ -2115,13 +2102,12 @@ static INLINE bool _jm_obj_19(const json_t *val, jm_path_t *path, jm_report_t *r
         if (rep) jm_report_add_entry(rep, "unexpected value for mandatory prop <b> [.merge.m3.'|'.3]", (path ? &lpath : NULL));
         return false;
     }
-    if (! (json_object_get(val, "d") != NULL))
+    if (! ((pval = json_object_get(val, "d")) != NULL))
     {
         if (rep) jm_report_add_entry(rep, "missing mandatory prop <d> [.merge.m3.'|'.3]", path);
         return false;
     }
     lpath = (jm_path_t) { "d", 0, path, NULL };
-    pval = json_object_get(val, "d");
     // .merge.m3.'|'.3.d
     res = json_is_integer(pval) && json_integer_value(pval) >= 1;
     if (! res)
@@ -2150,13 +2136,12 @@ static INLINE bool _jm_obj_20(const json_t *val, jm_path_t *path, jm_report_t *r
     jm_path_t lpath;
     json_t * pval;
     bool res;
-    if (! (json_object_get(val, "b") != NULL))
+    if (! ((pval = json_object_get(val, "b")) != NULL))
     {
         if (rep) jm_report_add_entry(rep, "missing mandatory prop <b> [.merge.m3.'|'.2]", path);
         return false;
     }
     lpath = (jm_path_t) { "b", 0, path, NULL };
-    pval = json_object_get(val, "b");
     // .merge.m3.'|'.2.b
     res = json_is_integer(pval) && json_integer_value(pval) >= 0;
     if (! res)
@@ -2165,13 +2150,12 @@ static INLINE bool _jm_obj_20(const json_t *val, jm_path_t *path, jm_report_t *r
         if (rep) jm_report_add_entry(rep, "unexpected value for mandatory prop <b> [.merge.m3.'|'.2]", (path ? &lpath : NULL));
         return false;
     }
-    if (! (json_object_get(val, "c") != NULL))
+    if (! ((pval = json_object_get(val, "c")) != NULL))
     {
         if (rep) jm_report_add_entry(rep, "missing mandatory prop <c> [.merge.m3.'|'.2]", path);
         return false;
     }
     lpath = (jm_path_t) { "c", 0, path, NULL };
-    pval = json_object_get(val, "c");
     // .merge.m3.'|'.2.c
     res = json_is_integer(pval) && json_integer_value(pval) >= 1;
     if (! res)
@@ -2200,13 +2184,12 @@ static INLINE bool _jm_obj_21(const json_t *val, jm_path_t *path, jm_report_t *r
     jm_path_t lpath;
     json_t * pval;
     bool res;
-    if (! (json_object_get(val, "a") != NULL))
+    if (! ((pval = json_object_get(val, "a")) != NULL))
     {
         if (rep) jm_report_add_entry(rep, "missing mandatory prop <a> [.merge.m3.'|'.1]", path);
         return false;
     }
     lpath = (jm_path_t) { "a", 0, path, NULL };
-    pval = json_object_get(val, "a");
     // .merge.m3.'|'.1.a
     res = json_is_integer(pval) && json_integer_value(pval) >= 0;
     if (! res)
@@ -2215,13 +2198,12 @@ static INLINE bool _jm_obj_21(const json_t *val, jm_path_t *path, jm_report_t *r
         if (rep) jm_report_add_entry(rep, "unexpected value for mandatory prop <a> [.merge.m3.'|'.1]", (path ? &lpath : NULL));
         return false;
     }
-    if (! (json_object_get(val, "d") != NULL))
+    if (! ((pval = json_object_get(val, "d")) != NULL))
     {
         if (rep) jm_report_add_entry(rep, "missing mandatory prop <d> [.merge.m3.'|'.1]", path);
         return false;
     }
     lpath = (jm_path_t) { "d", 0, path, NULL };
-    pval = json_object_get(val, "d");
     // .merge.m3.'|'.1.d
     res = json_is_integer(pval) && json_integer_value(pval) >= 1;
     if (! res)
@@ -2250,13 +2232,12 @@ static INLINE bool _jm_obj_22(const json_t *val, jm_path_t *path, jm_report_t *r
     jm_path_t lpath;
     json_t * pval;
     bool res;
-    if (! (json_object_get(val, "a") != NULL))
+    if (! ((pval = json_object_get(val, "a")) != NULL))
     {
         if (rep) jm_report_add_entry(rep, "missing mandatory prop <a> [.merge.m3.'|'.0]", path);
         return false;
     }
     lpath = (jm_path_t) { "a", 0, path, NULL };
-    pval = json_object_get(val, "a");
     // .merge.m3.'|'.0.a
     res = json_is_integer(pval) && json_integer_value(pval) >= 0;
     if (! res)
@@ -2265,13 +2246,12 @@ static INLINE bool _jm_obj_22(const json_t *val, jm_path_t *path, jm_report_t *r
         if (rep) jm_report_add_entry(rep, "unexpected value for mandatory prop <a> [.merge.m3.'|'.0]", (path ? &lpath : NULL));
         return false;
     }
-    if (! (json_object_get(val, "c") != NULL))
+    if (! ((pval = json_object_get(val, "c")) != NULL))
     {
         if (rep) jm_report_add_entry(rep, "missing mandatory prop <c> [.merge.m3.'|'.0]", path);
         return false;
     }
     lpath = (jm_path_t) { "c", 0, path, NULL };
-    pval = json_object_get(val, "c");
     // .merge.m3.'|'.0.c
     res = json_is_integer(pval) && json_integer_value(pval) >= 1;
     if (! res)
@@ -2300,13 +2280,12 @@ static INLINE bool _jm_obj_23(const json_t *val, jm_path_t *path, jm_report_t *r
     jm_path_t lpath;
     json_t * pval;
     bool res;
-    if (! (json_object_get(val, "a") != NULL))
+    if (! ((pval = json_object_get(val, "a")) != NULL))
     {
         if (rep) jm_report_add_entry(rep, "missing mandatory prop <a> [.merge.m4]", path);
         return false;
     }
     lpath = (jm_path_t) { "a", 0, path, NULL };
-    pval = json_object_get(val, "a");
     // .merge.m4.a
     res = json_is_integer(pval) && json_integer_value(pval) >= 0;
     if (! res)
@@ -2315,13 +2294,12 @@ static INLINE bool _jm_obj_23(const json_t *val, jm_path_t *path, jm_report_t *r
         if (rep) jm_report_add_entry(rep, "unexpected value for mandatory prop <a> [.merge.m4]", (path ? &lpath : NULL));
         return false;
     }
-    if (! (json_object_get(val, "b") != NULL))
+    if (! ((pval = json_object_get(val, "b")) != NULL))
     {
         if (rep) jm_report_add_entry(rep, "missing mandatory prop <b> [.merge.m4]", path);
         return false;
     }
     lpath = (jm_path_t) { "b", 0, path, NULL };
-    pval = json_object_get(val, "b");
     // .merge.m4.b
     res = json_is_integer(pval) && json_integer_value(pval) >= 0;
     if (! res)
@@ -2330,13 +2308,12 @@ static INLINE bool _jm_obj_23(const json_t *val, jm_path_t *path, jm_report_t *r
         if (rep) jm_report_add_entry(rep, "unexpected value for mandatory prop <b> [.merge.m4]", (path ? &lpath : NULL));
         return false;
     }
-    if (! (json_object_get(val, "c") != NULL))
+    if (! ((pval = json_object_get(val, "c")) != NULL))
     {
         if (rep) jm_report_add_entry(rep, "missing mandatory prop <c> [.merge.m4]", path);
         return false;
     }
     lpath = (jm_path_t) { "c", 0, path, NULL };
-    pval = json_object_get(val, "c");
     // .merge.m4.c
     res = json_is_integer(pval) && json_integer_value(pval) >= 0;
     if (! res)
@@ -2345,13 +2322,12 @@ static INLINE bool _jm_obj_23(const json_t *val, jm_path_t *path, jm_report_t *r
         if (rep) jm_report_add_entry(rep, "unexpected value for mandatory prop <c> [.merge.m4]", (path ? &lpath : NULL));
         return false;
     }
-    if (! (json_object_get(val, "d") != NULL))
+    if (! ((pval = json_object_get(val, "d")) != NULL))
     {
         if (rep) jm_report_add_entry(rep, "missing mandatory prop <d> [.merge.m4]", path);
         return false;
     }
     lpath = (jm_path_t) { "d", 0, path, NULL };
-    pval = json_object_get(val, "d");
     // .merge.m4.d
     res = json_is_integer(pval) && json_integer_value(pval) >= 0;
     if (! res)
@@ -2687,13 +2663,12 @@ static INLINE bool _jm_obj_27(const json_t *val, jm_path_t *path, jm_report_t *r
     jm_path_t lpath;
     json_t * pval;
     bool res;
-    if (! (json_object_get(val, "a") != NULL))
+    if (! ((pval = json_object_get(val, "a")) != NULL))
     {
         if (rep) jm_report_add_entry(rep, "missing mandatory prop <a> [.object.o1]", path);
         return false;
     }
     lpath = (jm_path_t) { "a", 0, path, NULL };
-    pval = json_object_get(val, "a");
     // .object.o1.a
     res = json_is_integer(pval) && json_integer_value(pval) >= 0;
     if (! res)
@@ -2702,13 +2677,12 @@ static INLINE bool _jm_obj_27(const json_t *val, jm_path_t *path, jm_report_t *r
         if (rep) jm_report_add_entry(rep, "unexpected value for mandatory prop <a> [.object.o1]", (path ? &lpath : NULL));
         return false;
     }
-    if (! (json_object_get(val, "b") != NULL))
+    if (! ((pval = json_object_get(val, "b")) != NULL))
     {
         if (rep) jm_report_add_entry(rep, "missing mandatory prop <b> [.object.o1]", path);
         return false;
     }
     lpath = (jm_path_t) { "b", 0, path, NULL };
-    pval = json_object_get(val, "b");
     // .object.o1.b
     res = json_is_integer(pval) && json_integer_value(pval) >= 0;
     if (! res)
@@ -2717,13 +2691,12 @@ static INLINE bool _jm_obj_27(const json_t *val, jm_path_t *path, jm_report_t *r
         if (rep) jm_report_add_entry(rep, "unexpected value for mandatory prop <b> [.object.o1]", (path ? &lpath : NULL));
         return false;
     }
-    if (! (json_object_get(val, "c") != NULL))
+    if (! ((pval = json_object_get(val, "c")) != NULL))
     {
         if (rep) jm_report_add_entry(rep, "missing mandatory prop <c> [.object.o1]", path);
         return false;
     }
     lpath = (jm_path_t) { "c", 0, path, NULL };
-    pval = json_object_get(val, "c");
     // .object.o1.c
     res = json_is_integer(pval) && json_integer_value(pval) >= 0;
     if (! res)

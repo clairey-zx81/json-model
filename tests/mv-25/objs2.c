@@ -32,22 +32,20 @@ static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *re
     }
     json_t * pval;
     bool res;
-    if (! (json_object_get(val, "x") != NULL))
+    if (! ((pval = json_object_get(val, "x")) != NULL))
     {
         return false;
     }
-    pval = json_object_get(val, "x");
     // .'$bla'.x
     res = json_is_real(pval);
     if (! res)
     {
         return false;
     }
-    if (! (json_object_get(val, "y") != NULL))
+    if (! ((pval = json_object_get(val, "y")) != NULL))
     {
         return false;
     }
-    pval = json_object_get(val, "y");
     // .'$bla'.y
     res = json_is_real(pval);
     if (! res)

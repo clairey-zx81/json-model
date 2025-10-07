@@ -167,13 +167,12 @@ static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *re
     jm_path_t lpath;
     json_t * pval;
     bool res;
-    if (! (json_object_get(val, "type") != NULL))
+    if (! ((pval = json_object_get(val, "type")) != NULL))
     {
         if (rep) jm_report_add_entry(rep, "missing mandatory prop <type> [.'$Point']", path);
         return false;
     }
     lpath = (jm_path_t) { "type", 0, path, NULL };
-    pval = json_object_get(val, "type");
     // .'$Point'.type
     res = json_is_string(pval) && strcmp(json_string_value(pval), "Point") == 0;
     if (! res)
@@ -182,13 +181,12 @@ static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *re
         if (rep) jm_report_add_entry(rep, "unexpected value for mandatory prop <type> [.'$Point']", (path ? &lpath : NULL));
         return false;
     }
-    if (! (json_object_get(val, "coordinates") != NULL))
+    if (! ((pval = json_object_get(val, "coordinates")) != NULL))
     {
         if (rep) jm_report_add_entry(rep, "missing mandatory prop <coordinates> [.'$Point']", path);
         return false;
     }
     lpath = (jm_path_t) { "coordinates", 0, path, NULL };
-    pval = json_object_get(val, "coordinates");
     // .'$Point'.coordinates
     res = json_model_2(pval, (path ? &lpath : NULL), rep);
     if (! res)
@@ -197,10 +195,9 @@ static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *re
         if (rep) jm_report_add_entry(rep, "unexpected value for mandatory prop <coordinates> [.'$Point']", (path ? &lpath : NULL));
         return false;
     }
-    if (json_object_get(val, "bbox") != NULL)
+    if ((pval = json_object_get(val, "bbox")) != NULL)
     {
         lpath = (jm_path_t) { "bbox", 0, path, NULL };
-        pval = json_object_get(val, "bbox");
         // .'$Point'.bbox
         res = json_is_array(pval);
         if (res)
@@ -254,13 +251,12 @@ static INLINE bool _jm_obj_1(const json_t *val, jm_path_t *path, jm_report_t *re
     jm_path_t lpath;
     json_t * pval;
     bool res;
-    if (! (json_object_get(val, "type") != NULL))
+    if (! ((pval = json_object_get(val, "type")) != NULL))
     {
         if (rep) jm_report_add_entry(rep, "missing mandatory prop <type> [.'$MultiPoint']", path);
         return false;
     }
     lpath = (jm_path_t) { "type", 0, path, NULL };
-    pval = json_object_get(val, "type");
     // .'$MultiPoint'.type
     res = json_is_string(pval) && strcmp(json_string_value(pval), "MultiPoint") == 0;
     if (! res)
@@ -269,13 +265,12 @@ static INLINE bool _jm_obj_1(const json_t *val, jm_path_t *path, jm_report_t *re
         if (rep) jm_report_add_entry(rep, "unexpected value for mandatory prop <type> [.'$MultiPoint']", (path ? &lpath : NULL));
         return false;
     }
-    if (! (json_object_get(val, "coordinates") != NULL))
+    if (! ((pval = json_object_get(val, "coordinates")) != NULL))
     {
         if (rep) jm_report_add_entry(rep, "missing mandatory prop <coordinates> [.'$MultiPoint']", path);
         return false;
     }
     lpath = (jm_path_t) { "coordinates", 0, path, NULL };
-    pval = json_object_get(val, "coordinates");
     // .'$MultiPoint'.coordinates
     res = json_is_array(pval);
     if (res)
@@ -300,10 +295,9 @@ static INLINE bool _jm_obj_1(const json_t *val, jm_path_t *path, jm_report_t *re
         if (rep) jm_report_add_entry(rep, "unexpected value for mandatory prop <coordinates> [.'$MultiPoint']", (path ? &lpath : NULL));
         return false;
     }
-    if (json_object_get(val, "bbox") != NULL)
+    if ((pval = json_object_get(val, "bbox")) != NULL)
     {
         lpath = (jm_path_t) { "bbox", 0, path, NULL };
-        pval = json_object_get(val, "bbox");
         // .'$MultiPoint'.bbox
         res = json_is_array(pval);
         if (res)
@@ -357,13 +351,12 @@ static INLINE bool _jm_obj_2(const json_t *val, jm_path_t *path, jm_report_t *re
     jm_path_t lpath;
     json_t * pval;
     bool res;
-    if (! (json_object_get(val, "type") != NULL))
+    if (! ((pval = json_object_get(val, "type")) != NULL))
     {
         if (rep) jm_report_add_entry(rep, "missing mandatory prop <type> [.'$LineString']", path);
         return false;
     }
     lpath = (jm_path_t) { "type", 0, path, NULL };
-    pval = json_object_get(val, "type");
     // .'$LineString'.type
     res = json_is_string(pval) && strcmp(json_string_value(pval), "LineString") == 0;
     if (! res)
@@ -372,13 +365,12 @@ static INLINE bool _jm_obj_2(const json_t *val, jm_path_t *path, jm_report_t *re
         if (rep) jm_report_add_entry(rep, "unexpected value for mandatory prop <type> [.'$LineString']", (path ? &lpath : NULL));
         return false;
     }
-    if (! (json_object_get(val, "coordinates") != NULL))
+    if (! ((pval = json_object_get(val, "coordinates")) != NULL))
     {
         if (rep) jm_report_add_entry(rep, "missing mandatory prop <coordinates> [.'$LineString']", path);
         return false;
     }
     lpath = (jm_path_t) { "coordinates", 0, path, NULL };
-    pval = json_object_get(val, "coordinates");
     // .'$LineString'.coordinates
     res = json_model_3(pval, (path ? &lpath : NULL), rep);
     if (! res)
@@ -387,10 +379,9 @@ static INLINE bool _jm_obj_2(const json_t *val, jm_path_t *path, jm_report_t *re
         if (rep) jm_report_add_entry(rep, "unexpected value for mandatory prop <coordinates> [.'$LineString']", (path ? &lpath : NULL));
         return false;
     }
-    if (json_object_get(val, "bbox") != NULL)
+    if ((pval = json_object_get(val, "bbox")) != NULL)
     {
         lpath = (jm_path_t) { "bbox", 0, path, NULL };
-        pval = json_object_get(val, "bbox");
         // .'$LineString'.bbox
         res = json_is_array(pval);
         if (res)
@@ -444,13 +435,12 @@ static INLINE bool _jm_obj_3(const json_t *val, jm_path_t *path, jm_report_t *re
     jm_path_t lpath;
     json_t * pval;
     bool res;
-    if (! (json_object_get(val, "type") != NULL))
+    if (! ((pval = json_object_get(val, "type")) != NULL))
     {
         if (rep) jm_report_add_entry(rep, "missing mandatory prop <type> [.'$MultiLineString']", path);
         return false;
     }
     lpath = (jm_path_t) { "type", 0, path, NULL };
-    pval = json_object_get(val, "type");
     // .'$MultiLineString'.type
     res = json_is_string(pval) && strcmp(json_string_value(pval), "MultiLineString") == 0;
     if (! res)
@@ -459,13 +449,12 @@ static INLINE bool _jm_obj_3(const json_t *val, jm_path_t *path, jm_report_t *re
         if (rep) jm_report_add_entry(rep, "unexpected value for mandatory prop <type> [.'$MultiLineString']", (path ? &lpath : NULL));
         return false;
     }
-    if (! (json_object_get(val, "coordinates") != NULL))
+    if (! ((pval = json_object_get(val, "coordinates")) != NULL))
     {
         if (rep) jm_report_add_entry(rep, "missing mandatory prop <coordinates> [.'$MultiLineString']", path);
         return false;
     }
     lpath = (jm_path_t) { "coordinates", 0, path, NULL };
-    pval = json_object_get(val, "coordinates");
     // .'$MultiLineString'.coordinates
     res = json_is_array(pval);
     if (res)
@@ -490,10 +479,9 @@ static INLINE bool _jm_obj_3(const json_t *val, jm_path_t *path, jm_report_t *re
         if (rep) jm_report_add_entry(rep, "unexpected value for mandatory prop <coordinates> [.'$MultiLineString']", (path ? &lpath : NULL));
         return false;
     }
-    if (json_object_get(val, "bbox") != NULL)
+    if ((pval = json_object_get(val, "bbox")) != NULL)
     {
         lpath = (jm_path_t) { "bbox", 0, path, NULL };
-        pval = json_object_get(val, "bbox");
         // .'$MultiLineString'.bbox
         res = json_is_array(pval);
         if (res)
@@ -547,13 +535,12 @@ static INLINE bool _jm_obj_4(const json_t *val, jm_path_t *path, jm_report_t *re
     jm_path_t lpath;
     json_t * pval;
     bool res;
-    if (! (json_object_get(val, "type") != NULL))
+    if (! ((pval = json_object_get(val, "type")) != NULL))
     {
         if (rep) jm_report_add_entry(rep, "missing mandatory prop <type> [.'$Polygon']", path);
         return false;
     }
     lpath = (jm_path_t) { "type", 0, path, NULL };
-    pval = json_object_get(val, "type");
     // .'$Polygon'.type
     res = json_is_string(pval) && strcmp(json_string_value(pval), "Polygon") == 0;
     if (! res)
@@ -562,13 +549,12 @@ static INLINE bool _jm_obj_4(const json_t *val, jm_path_t *path, jm_report_t *re
         if (rep) jm_report_add_entry(rep, "unexpected value for mandatory prop <type> [.'$Polygon']", (path ? &lpath : NULL));
         return false;
     }
-    if (! (json_object_get(val, "coordinates") != NULL))
+    if (! ((pval = json_object_get(val, "coordinates")) != NULL))
     {
         if (rep) jm_report_add_entry(rep, "missing mandatory prop <coordinates> [.'$Polygon']", path);
         return false;
     }
     lpath = (jm_path_t) { "coordinates", 0, path, NULL };
-    pval = json_object_get(val, "coordinates");
     // .'$Polygon'.coordinates
     res = json_is_array(pval);
     if (res)
@@ -593,10 +579,9 @@ static INLINE bool _jm_obj_4(const json_t *val, jm_path_t *path, jm_report_t *re
         if (rep) jm_report_add_entry(rep, "unexpected value for mandatory prop <coordinates> [.'$Polygon']", (path ? &lpath : NULL));
         return false;
     }
-    if (json_object_get(val, "bbox") != NULL)
+    if ((pval = json_object_get(val, "bbox")) != NULL)
     {
         lpath = (jm_path_t) { "bbox", 0, path, NULL };
-        pval = json_object_get(val, "bbox");
         // .'$Polygon'.bbox
         res = json_is_array(pval);
         if (res)
@@ -650,13 +635,12 @@ static INLINE bool _jm_obj_5(const json_t *val, jm_path_t *path, jm_report_t *re
     jm_path_t lpath;
     json_t * pval;
     bool res;
-    if (! (json_object_get(val, "type") != NULL))
+    if (! ((pval = json_object_get(val, "type")) != NULL))
     {
         if (rep) jm_report_add_entry(rep, "missing mandatory prop <type> [.'$MultiPolygon']", path);
         return false;
     }
     lpath = (jm_path_t) { "type", 0, path, NULL };
-    pval = json_object_get(val, "type");
     // .'$MultiPolygon'.type
     res = json_is_string(pval) && strcmp(json_string_value(pval), "MultiPolygon") == 0;
     if (! res)
@@ -665,13 +649,12 @@ static INLINE bool _jm_obj_5(const json_t *val, jm_path_t *path, jm_report_t *re
         if (rep) jm_report_add_entry(rep, "unexpected value for mandatory prop <type> [.'$MultiPolygon']", (path ? &lpath : NULL));
         return false;
     }
-    if (! (json_object_get(val, "coordinates") != NULL))
+    if (! ((pval = json_object_get(val, "coordinates")) != NULL))
     {
         if (rep) jm_report_add_entry(rep, "missing mandatory prop <coordinates> [.'$MultiPolygon']", path);
         return false;
     }
     lpath = (jm_path_t) { "coordinates", 0, path, NULL };
-    pval = json_object_get(val, "coordinates");
     // .'$MultiPolygon'.coordinates
     res = json_is_array(pval);
     if (res)
@@ -712,10 +695,9 @@ static INLINE bool _jm_obj_5(const json_t *val, jm_path_t *path, jm_report_t *re
         if (rep) jm_report_add_entry(rep, "unexpected value for mandatory prop <coordinates> [.'$MultiPolygon']", (path ? &lpath : NULL));
         return false;
     }
-    if (json_object_get(val, "bbox") != NULL)
+    if ((pval = json_object_get(val, "bbox")) != NULL)
     {
         lpath = (jm_path_t) { "bbox", 0, path, NULL };
-        pval = json_object_get(val, "bbox");
         // .'$MultiPolygon'.bbox
         res = json_is_array(pval);
         if (res)
@@ -812,13 +794,12 @@ static INLINE bool _jm_obj_6(const json_t *val, jm_path_t *path, jm_report_t *re
     jm_path_t lpath;
     json_t * pval;
     bool res;
-    if (! (json_object_get(val, "type") != NULL))
+    if (! ((pval = json_object_get(val, "type")) != NULL))
     {
         if (rep) jm_report_add_entry(rep, "missing mandatory prop <type> [.'$GeometryCollection']", path);
         return false;
     }
     lpath = (jm_path_t) { "type", 0, path, NULL };
-    pval = json_object_get(val, "type");
     // .'$GeometryCollection'.type
     res = json_is_string(pval) && strcmp(json_string_value(pval), "GeometryCollection") == 0;
     if (! res)
@@ -827,13 +808,12 @@ static INLINE bool _jm_obj_6(const json_t *val, jm_path_t *path, jm_report_t *re
         if (rep) jm_report_add_entry(rep, "unexpected value for mandatory prop <type> [.'$GeometryCollection']", (path ? &lpath : NULL));
         return false;
     }
-    if (! (json_object_get(val, "geometries") != NULL))
+    if (! ((pval = json_object_get(val, "geometries")) != NULL))
     {
         if (rep) jm_report_add_entry(rep, "missing mandatory prop <geometries> [.'$GeometryCollection']", path);
         return false;
     }
     lpath = (jm_path_t) { "geometries", 0, path, NULL };
-    pval = json_object_get(val, "geometries");
     // .'$GeometryCollection'.geometries
     res = json_is_array(pval);
     if (res)
@@ -858,10 +838,9 @@ static INLINE bool _jm_obj_6(const json_t *val, jm_path_t *path, jm_report_t *re
         if (rep) jm_report_add_entry(rep, "unexpected value for mandatory prop <geometries> [.'$GeometryCollection']", (path ? &lpath : NULL));
         return false;
     }
-    if (json_object_get(val, "bbox") != NULL)
+    if ((pval = json_object_get(val, "bbox")) != NULL)
     {
         lpath = (jm_path_t) { "bbox", 0, path, NULL };
-        pval = json_object_get(val, "bbox");
         // .'$GeometryCollection'.bbox
         res = json_is_array(pval);
         if (res)
@@ -927,13 +906,12 @@ static INLINE bool _jm_obj_7(const json_t *val, jm_path_t *path, jm_report_t *re
     jm_path_t lpath;
     json_t * pval;
     bool res;
-    if (! (json_object_get(val, "type") != NULL))
+    if (! ((pval = json_object_get(val, "type")) != NULL))
     {
         if (rep) jm_report_add_entry(rep, "missing mandatory prop <type> [.'$Feature']", path);
         return false;
     }
     lpath = (jm_path_t) { "type", 0, path, NULL };
-    pval = json_object_get(val, "type");
     // .'$Feature'.type
     res = json_is_string(pval) && strcmp(json_string_value(pval), "Feature") == 0;
     if (! res)
@@ -942,13 +920,12 @@ static INLINE bool _jm_obj_7(const json_t *val, jm_path_t *path, jm_report_t *re
         if (rep) jm_report_add_entry(rep, "unexpected value for mandatory prop <type> [.'$Feature']", (path ? &lpath : NULL));
         return false;
     }
-    if (! (json_object_get(val, "geometry") != NULL))
+    if (! ((pval = json_object_get(val, "geometry")) != NULL))
     {
         if (rep) jm_report_add_entry(rep, "missing mandatory prop <geometry> [.'$Feature']", path);
         return false;
     }
     lpath = (jm_path_t) { "geometry", 0, path, NULL };
-    pval = json_object_get(val, "geometry");
     // .'$Feature'.geometry
     // .'$Feature'.geometry.'|'.0
     res = json_is_null(pval);
@@ -984,13 +961,12 @@ static INLINE bool _jm_obj_7(const json_t *val, jm_path_t *path, jm_report_t *re
         if (rep) jm_report_add_entry(rep, "unexpected value for mandatory prop <geometry> [.'$Feature']", (path ? &lpath : NULL));
         return false;
     }
-    if (! (json_object_get(val, "properties") != NULL))
+    if (! ((pval = json_object_get(val, "properties")) != NULL))
     {
         if (rep) jm_report_add_entry(rep, "missing mandatory prop <properties> [.'$Feature']", path);
         return false;
     }
     lpath = (jm_path_t) { "properties", 0, path, NULL };
-    pval = json_object_get(val, "properties");
     // .'$Feature'.properties
     // .'$Feature'.properties.'|'.0
     res = json_is_null(pval);
@@ -1017,10 +993,9 @@ static INLINE bool _jm_obj_7(const json_t *val, jm_path_t *path, jm_report_t *re
         if (rep) jm_report_add_entry(rep, "unexpected value for mandatory prop <properties> [.'$Feature']", (path ? &lpath : NULL));
         return false;
     }
-    if (json_object_get(val, "id") != NULL)
+    if ((pval = json_object_get(val, "id")) != NULL)
     {
         lpath = (jm_path_t) { "id", 0, path, NULL };
-        pval = json_object_get(val, "id");
         // .'$Feature'.id
         // .'$Feature'.id.'|'.0
         res = json_is_string(pval);
@@ -1048,10 +1023,9 @@ static INLINE bool _jm_obj_7(const json_t *val, jm_path_t *path, jm_report_t *re
             return false;
         }
     }
-    if (json_object_get(val, "bbox") != NULL)
+    if ((pval = json_object_get(val, "bbox")) != NULL)
     {
         lpath = (jm_path_t) { "bbox", 0, path, NULL };
-        pval = json_object_get(val, "bbox");
         // .'$Feature'.bbox
         res = json_is_array(pval);
         if (res)
@@ -1105,13 +1079,12 @@ static INLINE bool _jm_obj_9(const json_t *val, jm_path_t *path, jm_report_t *re
     jm_path_t lpath;
     json_t * pval;
     bool res;
-    if (! (json_object_get(val, "type") != NULL))
+    if (! ((pval = json_object_get(val, "type")) != NULL))
     {
         if (rep) jm_report_add_entry(rep, "missing mandatory prop <type> [.'$FeatureCollection']", path);
         return false;
     }
     lpath = (jm_path_t) { "type", 0, path, NULL };
-    pval = json_object_get(val, "type");
     // .'$FeatureCollection'.type
     res = json_is_string(pval) && strcmp(json_string_value(pval), "FeatureCollection") == 0;
     if (! res)
@@ -1120,13 +1093,12 @@ static INLINE bool _jm_obj_9(const json_t *val, jm_path_t *path, jm_report_t *re
         if (rep) jm_report_add_entry(rep, "unexpected value for mandatory prop <type> [.'$FeatureCollection']", (path ? &lpath : NULL));
         return false;
     }
-    if (! (json_object_get(val, "features") != NULL))
+    if (! ((pval = json_object_get(val, "features")) != NULL))
     {
         if (rep) jm_report_add_entry(rep, "missing mandatory prop <features> [.'$FeatureCollection']", path);
         return false;
     }
     lpath = (jm_path_t) { "features", 0, path, NULL };
-    pval = json_object_get(val, "features");
     // .'$FeatureCollection'.features
     res = json_is_array(pval);
     if (res)
@@ -1151,10 +1123,9 @@ static INLINE bool _jm_obj_9(const json_t *val, jm_path_t *path, jm_report_t *re
         if (rep) jm_report_add_entry(rep, "unexpected value for mandatory prop <features> [.'$FeatureCollection']", (path ? &lpath : NULL));
         return false;
     }
-    if (json_object_get(val, "bbox") != NULL)
+    if ((pval = json_object_get(val, "bbox")) != NULL)
     {
         lpath = (jm_path_t) { "bbox", 0, path, NULL };
-        pval = json_object_get(val, "bbox");
         // .'$FeatureCollection'.bbox
         res = json_is_array(pval);
         if (res)

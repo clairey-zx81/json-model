@@ -710,13 +710,12 @@ static INLINE bool _jm_obj_4(const json_t *val, jm_path_t *path, jm_report_t *re
     jm_path_t lpath;
     json_t * pval;
     bool res;
-    if (! (json_object_get(val, "type") != NULL))
+    if (! ((pval = json_object_get(val, "type")) != NULL))
     {
         if (rep) jm_report_add_entry(rep, "missing mandatory prop <type> [.'$Null']", path);
         return false;
     }
     lpath = (jm_path_t) { "type", 0, path, NULL };
-    pval = json_object_get(val, "type");
     // .'$Null'.type
     res = json_is_string(pval) && strcmp(json_string_value(pval), "null") == 0;
     if (! res)
@@ -758,13 +757,12 @@ static INLINE bool _jm_obj_5(const json_t *val, jm_path_t *path, jm_report_t *re
     jm_path_t lpath;
     json_t * pval;
     bool res;
-    if (! (json_object_get(val, "type") != NULL))
+    if (! ((pval = json_object_get(val, "type")) != NULL))
     {
         if (rep) jm_report_add_entry(rep, "missing mandatory prop <type> [.'$Boolean']", path);
         return false;
     }
     lpath = (jm_path_t) { "type", 0, path, NULL };
-    pval = json_object_get(val, "type");
     // .'$Boolean'.type
     res = json_is_string(pval) && strcmp(json_string_value(pval), "boolean") == 0;
     if (! res)

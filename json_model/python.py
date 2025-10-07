@@ -112,6 +112,9 @@ class Python(Language):
     def has_prop(self, obj: Var, prop: str) -> BoolExpr:
         return f"{self.esc(prop)} in {obj}"
 
+    def obj_has_prop_val(self, dst: Var, obj: Var, prop: str|StrExpr, is_var: bool = False) -> BoolExpr:
+        return f"({dst} := {self.obj_prop_val(obj, prop, is_var)}) != UNDEFINED"
+
     def str_start(self, val: str, start: str) -> BoolExpr:
         return f"{val}.startswith({self.esc(start)})"
 

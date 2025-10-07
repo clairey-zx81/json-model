@@ -37,13 +37,12 @@ public class mixed_xor2 extends ModelChecker
         Path lpath;
         Object pval;
         boolean res;
-        if (! json.objectHasProp(val, "t"))
+        if (! ((pval = json.objectValue(val, "t")) != null))
         {
             if (rep != null) rep.addEntry("missing mandatory prop <t> [.'$cs'.'|'.0]", path);
             return false;
         }
         lpath = new Path("t", path);
-        pval = json.objectValue(val, "t");
         // .'$cs'.'|'.0.t
         res = json.isString(pval) && json.asString(pval).compareTo("c") == 0;
         if (! res)
@@ -52,13 +51,12 @@ public class mixed_xor2 extends ModelChecker
             if (rep != null) rep.addEntry("unexpected value for mandatory prop <t> [.'$cs'.'|'.0]", (path != null ? lpath : null));
             return false;
         }
-        if (! json.objectHasProp(val, "cal"))
+        if (! ((pval = json.objectValue(val, "cal")) != null))
         {
             if (rep != null) rep.addEntry("missing mandatory prop <cal> [.'$cs'.'|'.0]", path);
             return false;
         }
         lpath = new Path("cal", path);
-        pval = json.objectValue(val, "cal");
         // .'$cs'.'|'.0.cal
         res = json.isInteger(pval) && json.asLong(pval) >= 1;
         if (! res)
@@ -87,13 +85,12 @@ public class mixed_xor2 extends ModelChecker
         Path lpath;
         Object pval;
         boolean res;
-        if (! json.objectHasProp(val, "t"))
+        if (! ((pval = json.objectValue(val, "t")) != null))
         {
             if (rep != null) rep.addEntry("missing mandatory prop <t> [.'$cs'.'|'.1]", path);
             return false;
         }
         lpath = new Path("t", path);
-        pval = json.objectValue(val, "t");
         // .'$cs'.'|'.1.t
         res = json.isString(pval) && json.asString(pval).compareTo("s") == 0;
         if (! res)
@@ -102,13 +99,12 @@ public class mixed_xor2 extends ModelChecker
             if (rep != null) rep.addEntry("unexpected value for mandatory prop <t> [.'$cs'.'|'.1]", (path != null ? lpath : null));
             return false;
         }
-        if (! json.objectHasProp(val, "sus"))
+        if (! ((pval = json.objectValue(val, "sus")) != null))
         {
             if (rep != null) rep.addEntry("missing mandatory prop <sus> [.'$cs'.'|'.1]", path);
             return false;
         }
         lpath = new Path("sus", path);
-        pval = json.objectValue(val, "sus");
         // .'$cs'.'|'.1.sus
         res = json.isInteger(pval) && json.asLong(pval) >= 1;
         if (! res)
@@ -174,13 +170,12 @@ public class mixed_xor2 extends ModelChecker
         Path lpath;
         Object pval;
         boolean res;
-        if (! json.objectHasProp(val, "t"))
+        if (! ((pval = json.objectValue(val, "t")) != null))
         {
             if (rep != null) rep.addEntry("missing mandatory prop <t> [.'^'.0]", path);
             return false;
         }
         lpath = new Path("t", path);
-        pval = json.objectValue(val, "t");
         // .'^'.0.t
         res = json.isString(pval) && json.asString(pval).compareTo("m") == 0;
         if (! res)
@@ -189,13 +184,12 @@ public class mixed_xor2 extends ModelChecker
             if (rep != null) rep.addEntry("unexpected value for mandatory prop <t> [.'^'.0]", (path != null ? lpath : null));
             return false;
         }
-        if (! json.objectHasProp(val, "moe"))
+        if (! ((pval = json.objectValue(val, "moe")) != null))
         {
             if (rep != null) rep.addEntry("missing mandatory prop <moe> [.'^'.0]", path);
             return false;
         }
         lpath = new Path("moe", path);
-        pval = json.objectValue(val, "moe");
         // .'^'.0.moe
         res = json.isInteger(pval) && json.asLong(pval) >= 1;
         if (! res)
@@ -224,13 +218,12 @@ public class mixed_xor2 extends ModelChecker
         Path lpath;
         Object pval;
         boolean res;
-        if (! json.objectHasProp(val, "t"))
+        if (! ((pval = json.objectValue(val, "t")) != null))
         {
             if (rep != null) rep.addEntry("missing mandatory prop <t> [.'^'.1]", path);
             return false;
         }
         lpath = new Path("t", path);
-        pval = json.objectValue(val, "t");
         // .'^'.1.t
         res = json.isString(pval) && json.asString(pval).compareTo("h") == 0;
         if (! res)
@@ -239,13 +232,12 @@ public class mixed_xor2 extends ModelChecker
             if (rep != null) rep.addEntry("unexpected value for mandatory prop <t> [.'^'.1]", (path != null ? lpath : null));
             return false;
         }
-        if (! json.objectHasProp(val, "hob"))
+        if (! ((pval = json.objectValue(val, "hob")) != null))
         {
             if (rep != null) rep.addEntry("missing mandatory prop <hob> [.'^'.1]", path);
             return false;
         }
         lpath = new Path("hob", path);
-        pval = json.objectValue(val, "hob");
         // .'^'.1.hob
         res = json.isInteger(pval) && json.asLong(pval) >= 1;
         if (! res)

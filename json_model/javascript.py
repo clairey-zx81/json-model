@@ -99,6 +99,9 @@ class JavaScript(Language):
     def has_prop(self, obj: Var, prop: str) -> BoolExpr:
         return f"{obj}.hasOwnProperty({self.esc(prop)})"
 
+    def assign_obj_prop(self) -> bool:
+        return False
+
     # FIXME path? reporting?
     def predef(self, var: Var, name: str, path: Var, is_str: bool = False) -> BoolExpr:
         if not self._with_predef and self.str_content_predef(name):

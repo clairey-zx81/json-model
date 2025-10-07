@@ -37,22 +37,20 @@ public class alter_2 extends ModelChecker
         }
         Object pval;
         boolean res;
-        if (! json.objectHasProp(val, "u"))
+        if (! ((pval = json.objectValue(val, "u")) != null))
         {
             return false;
         }
-        pval = json.objectValue(val, "u");
         // .'$d'.u
         res = json.isString(pval) && json.asString(pval).compareTo("d") == 0;
         if (! res)
         {
             return false;
         }
-        if (! json.objectHasProp(val, "d"))
+        if (! ((pval = json.objectValue(val, "d")) != null))
         {
             return false;
         }
-        pval = json.objectValue(val, "d");
         // .'$d'.d
         res = json.isString(pval);
         if (! res)
@@ -86,22 +84,20 @@ public class alter_2 extends ModelChecker
         }
         Object pval;
         boolean res;
-        if (! json.objectHasProp(val, "t"))
+        if (! ((pval = json.objectValue(val, "t")) != null))
         {
             return false;
         }
-        pval = json.objectValue(val, "t");
         // .'$efg'.t
         res = json.isScalar(pval) && _jm_cst_0_set.contains(pval);
         if (! res)
         {
             return false;
         }
-        if (! json.objectHasProp(val, "efg"))
+        if (! ((pval = json.objectValue(val, "efg")) != null))
         {
             return false;
         }
-        pval = json.objectValue(val, "efg");
         // .'$efg'.efg
         res = json.isString(pval);
         if (! res)
@@ -134,22 +130,20 @@ public class alter_2 extends ModelChecker
         }
         Object pval;
         boolean res;
-        if (! json.objectHasProp(val, "t"))
+        if (! ((pval = json.objectValue(val, "t")) != null))
         {
             return false;
         }
-        pval = json.objectValue(val, "t");
         // .'$alternative'.'|'.0.t
         res = json.isString(pval) && json.asString(pval).compareTo("a") == 0;
         if (! res)
         {
             return false;
         }
-        if (! json.objectHasProp(val, "a"))
+        if (! ((pval = json.objectValue(val, "a")) != null))
         {
             return false;
         }
-        pval = json.objectValue(val, "a");
         // .'$alternative'.'|'.0.a
         res = json.isString(pval);
         if (! res)
@@ -174,22 +168,20 @@ public class alter_2 extends ModelChecker
         }
         Object pval;
         boolean res;
-        if (! json.objectHasProp(val, "u"))
+        if (! ((pval = json.objectValue(val, "u")) != null))
         {
             return false;
         }
-        pval = json.objectValue(val, "u");
         // .'$alternative'.'|'.1.u
         res = json.isScalar(pval) && _jm_cst_1_set.contains(pval);
         if (! res)
         {
             return false;
         }
-        if (! json.objectHasProp(val, "bc"))
+        if (! ((pval = json.objectValue(val, "bc")) != null))
         {
             return false;
         }
-        pval = json.objectValue(val, "bc");
         // .'$alternative'.'|'.1.bc
         res = json.isString(pval);
         if (! res)

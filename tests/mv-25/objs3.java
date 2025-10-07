@@ -33,22 +33,20 @@ public class objs3 extends ModelChecker
         }
         Object pval;
         boolean res;
-        if (! json.objectHasProp(val, "title"))
+        if (! ((pval = json.objectValue(val, "title")) != null))
         {
             return false;
         }
-        pval = json.objectValue(val, "title");
         // .'$book'.title
         res = json.isString(pval);
         if (! res)
         {
             return false;
         }
-        if (! json.objectHasProp(val, "author"))
+        if (! ((pval = json.objectValue(val, "author")) != null))
         {
             return false;
         }
-        pval = json.objectValue(val, "author");
         // .'$book'.author
         res = json.isString(pval);
         if (! res)

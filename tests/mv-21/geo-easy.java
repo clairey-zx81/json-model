@@ -155,13 +155,12 @@ public class geo_easy extends ModelChecker
         Path lpath;
         Object pval;
         boolean res;
-        if (! json.objectHasProp(val, "type"))
+        if (! ((pval = json.objectValue(val, "type")) != null))
         {
             if (rep != null) rep.addEntry("missing mandatory prop <type> [.'$Point']", path);
             return false;
         }
         lpath = new Path("type", path);
-        pval = json.objectValue(val, "type");
         // .'$Point'.type
         res = json.isString(pval) && json.asString(pval).compareTo("Point") == 0;
         if (! res)
@@ -170,13 +169,12 @@ public class geo_easy extends ModelChecker
             if (rep != null) rep.addEntry("unexpected value for mandatory prop <type> [.'$Point']", (path != null ? lpath : null));
             return false;
         }
-        if (! json.objectHasProp(val, "coordinates"))
+        if (! ((pval = json.objectValue(val, "coordinates")) != null))
         {
             if (rep != null) rep.addEntry("missing mandatory prop <coordinates> [.'$Point']", path);
             return false;
         }
         lpath = new Path("coordinates", path);
-        pval = json.objectValue(val, "coordinates");
         // .'$Point'.coordinates
         res = json_model_2(pval, (path != null ? lpath : null), rep);
         if (! res)
@@ -185,10 +183,9 @@ public class geo_easy extends ModelChecker
             if (rep != null) rep.addEntry("unexpected value for mandatory prop <coordinates> [.'$Point']", (path != null ? lpath : null));
             return false;
         }
-        if (json.objectHasProp(val, "bbox"))
+        if ((pval = json.objectValue(val, "bbox")) != null)
         {
             lpath = new Path("bbox", path);
-            pval = json.objectValue(val, "bbox");
             // .'$Point'.bbox
             res = json.isArray(pval);
             if (res)
@@ -244,13 +241,12 @@ public class geo_easy extends ModelChecker
         Path lpath;
         Object pval;
         boolean res;
-        if (! json.objectHasProp(val, "type"))
+        if (! ((pval = json.objectValue(val, "type")) != null))
         {
             if (rep != null) rep.addEntry("missing mandatory prop <type> [.'$MultiPoint']", path);
             return false;
         }
         lpath = new Path("type", path);
-        pval = json.objectValue(val, "type");
         // .'$MultiPoint'.type
         res = json.isString(pval) && json.asString(pval).compareTo("MultiPoint") == 0;
         if (! res)
@@ -259,13 +255,12 @@ public class geo_easy extends ModelChecker
             if (rep != null) rep.addEntry("unexpected value for mandatory prop <type> [.'$MultiPoint']", (path != null ? lpath : null));
             return false;
         }
-        if (! json.objectHasProp(val, "coordinates"))
+        if (! ((pval = json.objectValue(val, "coordinates")) != null))
         {
             if (rep != null) rep.addEntry("missing mandatory prop <coordinates> [.'$MultiPoint']", path);
             return false;
         }
         lpath = new Path("coordinates", path);
-        pval = json.objectValue(val, "coordinates");
         // .'$MultiPoint'.coordinates
         res = json.isArray(pval);
         if (res)
@@ -292,10 +287,9 @@ public class geo_easy extends ModelChecker
             if (rep != null) rep.addEntry("unexpected value for mandatory prop <coordinates> [.'$MultiPoint']", (path != null ? lpath : null));
             return false;
         }
-        if (json.objectHasProp(val, "bbox"))
+        if ((pval = json.objectValue(val, "bbox")) != null)
         {
             lpath = new Path("bbox", path);
-            pval = json.objectValue(val, "bbox");
             // .'$MultiPoint'.bbox
             res = json.isArray(pval);
             if (res)
@@ -351,13 +345,12 @@ public class geo_easy extends ModelChecker
         Path lpath;
         Object pval;
         boolean res;
-        if (! json.objectHasProp(val, "type"))
+        if (! ((pval = json.objectValue(val, "type")) != null))
         {
             if (rep != null) rep.addEntry("missing mandatory prop <type> [.'$LineString']", path);
             return false;
         }
         lpath = new Path("type", path);
-        pval = json.objectValue(val, "type");
         // .'$LineString'.type
         res = json.isString(pval) && json.asString(pval).compareTo("LineString") == 0;
         if (! res)
@@ -366,13 +359,12 @@ public class geo_easy extends ModelChecker
             if (rep != null) rep.addEntry("unexpected value for mandatory prop <type> [.'$LineString']", (path != null ? lpath : null));
             return false;
         }
-        if (! json.objectHasProp(val, "coordinates"))
+        if (! ((pval = json.objectValue(val, "coordinates")) != null))
         {
             if (rep != null) rep.addEntry("missing mandatory prop <coordinates> [.'$LineString']", path);
             return false;
         }
         lpath = new Path("coordinates", path);
-        pval = json.objectValue(val, "coordinates");
         // .'$LineString'.coordinates
         res = json_model_3(pval, (path != null ? lpath : null), rep);
         if (! res)
@@ -381,10 +373,9 @@ public class geo_easy extends ModelChecker
             if (rep != null) rep.addEntry("unexpected value for mandatory prop <coordinates> [.'$LineString']", (path != null ? lpath : null));
             return false;
         }
-        if (json.objectHasProp(val, "bbox"))
+        if ((pval = json.objectValue(val, "bbox")) != null)
         {
             lpath = new Path("bbox", path);
-            pval = json.objectValue(val, "bbox");
             // .'$LineString'.bbox
             res = json.isArray(pval);
             if (res)
@@ -440,13 +431,12 @@ public class geo_easy extends ModelChecker
         Path lpath;
         Object pval;
         boolean res;
-        if (! json.objectHasProp(val, "type"))
+        if (! ((pval = json.objectValue(val, "type")) != null))
         {
             if (rep != null) rep.addEntry("missing mandatory prop <type> [.'$MultiLineString']", path);
             return false;
         }
         lpath = new Path("type", path);
-        pval = json.objectValue(val, "type");
         // .'$MultiLineString'.type
         res = json.isString(pval) && json.asString(pval).compareTo("MultiLineString") == 0;
         if (! res)
@@ -455,13 +445,12 @@ public class geo_easy extends ModelChecker
             if (rep != null) rep.addEntry("unexpected value for mandatory prop <type> [.'$MultiLineString']", (path != null ? lpath : null));
             return false;
         }
-        if (! json.objectHasProp(val, "coordinates"))
+        if (! ((pval = json.objectValue(val, "coordinates")) != null))
         {
             if (rep != null) rep.addEntry("missing mandatory prop <coordinates> [.'$MultiLineString']", path);
             return false;
         }
         lpath = new Path("coordinates", path);
-        pval = json.objectValue(val, "coordinates");
         // .'$MultiLineString'.coordinates
         res = json.isArray(pval);
         if (res)
@@ -488,10 +477,9 @@ public class geo_easy extends ModelChecker
             if (rep != null) rep.addEntry("unexpected value for mandatory prop <coordinates> [.'$MultiLineString']", (path != null ? lpath : null));
             return false;
         }
-        if (json.objectHasProp(val, "bbox"))
+        if ((pval = json.objectValue(val, "bbox")) != null)
         {
             lpath = new Path("bbox", path);
-            pval = json.objectValue(val, "bbox");
             // .'$MultiLineString'.bbox
             res = json.isArray(pval);
             if (res)
@@ -547,13 +535,12 @@ public class geo_easy extends ModelChecker
         Path lpath;
         Object pval;
         boolean res;
-        if (! json.objectHasProp(val, "type"))
+        if (! ((pval = json.objectValue(val, "type")) != null))
         {
             if (rep != null) rep.addEntry("missing mandatory prop <type> [.'$Polygon']", path);
             return false;
         }
         lpath = new Path("type", path);
-        pval = json.objectValue(val, "type");
         // .'$Polygon'.type
         res = json.isString(pval) && json.asString(pval).compareTo("Polygon") == 0;
         if (! res)
@@ -562,13 +549,12 @@ public class geo_easy extends ModelChecker
             if (rep != null) rep.addEntry("unexpected value for mandatory prop <type> [.'$Polygon']", (path != null ? lpath : null));
             return false;
         }
-        if (! json.objectHasProp(val, "coordinates"))
+        if (! ((pval = json.objectValue(val, "coordinates")) != null))
         {
             if (rep != null) rep.addEntry("missing mandatory prop <coordinates> [.'$Polygon']", path);
             return false;
         }
         lpath = new Path("coordinates", path);
-        pval = json.objectValue(val, "coordinates");
         // .'$Polygon'.coordinates
         res = json.isArray(pval);
         if (res)
@@ -595,10 +581,9 @@ public class geo_easy extends ModelChecker
             if (rep != null) rep.addEntry("unexpected value for mandatory prop <coordinates> [.'$Polygon']", (path != null ? lpath : null));
             return false;
         }
-        if (json.objectHasProp(val, "bbox"))
+        if ((pval = json.objectValue(val, "bbox")) != null)
         {
             lpath = new Path("bbox", path);
-            pval = json.objectValue(val, "bbox");
             // .'$Polygon'.bbox
             res = json.isArray(pval);
             if (res)
@@ -654,13 +639,12 @@ public class geo_easy extends ModelChecker
         Path lpath;
         Object pval;
         boolean res;
-        if (! json.objectHasProp(val, "type"))
+        if (! ((pval = json.objectValue(val, "type")) != null))
         {
             if (rep != null) rep.addEntry("missing mandatory prop <type> [.'$MultiPolygon']", path);
             return false;
         }
         lpath = new Path("type", path);
-        pval = json.objectValue(val, "type");
         // .'$MultiPolygon'.type
         res = json.isString(pval) && json.asString(pval).compareTo("MultiPolygon") == 0;
         if (! res)
@@ -669,13 +653,12 @@ public class geo_easy extends ModelChecker
             if (rep != null) rep.addEntry("unexpected value for mandatory prop <type> [.'$MultiPolygon']", (path != null ? lpath : null));
             return false;
         }
-        if (! json.objectHasProp(val, "coordinates"))
+        if (! ((pval = json.objectValue(val, "coordinates")) != null))
         {
             if (rep != null) rep.addEntry("missing mandatory prop <coordinates> [.'$MultiPolygon']", path);
             return false;
         }
         lpath = new Path("coordinates", path);
-        pval = json.objectValue(val, "coordinates");
         // .'$MultiPolygon'.coordinates
         res = json.isArray(pval);
         if (res)
@@ -720,10 +703,9 @@ public class geo_easy extends ModelChecker
             if (rep != null) rep.addEntry("unexpected value for mandatory prop <coordinates> [.'$MultiPolygon']", (path != null ? lpath : null));
             return false;
         }
-        if (json.objectHasProp(val, "bbox"))
+        if ((pval = json.objectValue(val, "bbox")) != null)
         {
             lpath = new Path("bbox", path);
-            pval = json.objectValue(val, "bbox");
             // .'$MultiPolygon'.bbox
             res = json.isArray(pval);
             if (res)
@@ -816,13 +798,12 @@ public class geo_easy extends ModelChecker
         Path lpath;
         Object pval;
         boolean res;
-        if (! json.objectHasProp(val, "type"))
+        if (! ((pval = json.objectValue(val, "type")) != null))
         {
             if (rep != null) rep.addEntry("missing mandatory prop <type> [.'$GeometryCollection']", path);
             return false;
         }
         lpath = new Path("type", path);
-        pval = json.objectValue(val, "type");
         // .'$GeometryCollection'.type
         res = json.isString(pval) && json.asString(pval).compareTo("GeometryCollection") == 0;
         if (! res)
@@ -831,13 +812,12 @@ public class geo_easy extends ModelChecker
             if (rep != null) rep.addEntry("unexpected value for mandatory prop <type> [.'$GeometryCollection']", (path != null ? lpath : null));
             return false;
         }
-        if (! json.objectHasProp(val, "geometries"))
+        if (! ((pval = json.objectValue(val, "geometries")) != null))
         {
             if (rep != null) rep.addEntry("missing mandatory prop <geometries> [.'$GeometryCollection']", path);
             return false;
         }
         lpath = new Path("geometries", path);
-        pval = json.objectValue(val, "geometries");
         // .'$GeometryCollection'.geometries
         res = json.isArray(pval);
         if (res)
@@ -864,10 +844,9 @@ public class geo_easy extends ModelChecker
             if (rep != null) rep.addEntry("unexpected value for mandatory prop <geometries> [.'$GeometryCollection']", (path != null ? lpath : null));
             return false;
         }
-        if (json.objectHasProp(val, "bbox"))
+        if ((pval = json.objectValue(val, "bbox")) != null)
         {
             lpath = new Path("bbox", path);
-            pval = json.objectValue(val, "bbox");
             // .'$GeometryCollection'.bbox
             res = json.isArray(pval);
             if (res)
@@ -935,13 +914,12 @@ public class geo_easy extends ModelChecker
         Path lpath;
         Object pval;
         boolean res;
-        if (! json.objectHasProp(val, "type"))
+        if (! ((pval = json.objectValue(val, "type")) != null))
         {
             if (rep != null) rep.addEntry("missing mandatory prop <type> [.'$Feature']", path);
             return false;
         }
         lpath = new Path("type", path);
-        pval = json.objectValue(val, "type");
         // .'$Feature'.type
         res = json.isString(pval) && json.asString(pval).compareTo("Feature") == 0;
         if (! res)
@@ -950,13 +928,12 @@ public class geo_easy extends ModelChecker
             if (rep != null) rep.addEntry("unexpected value for mandatory prop <type> [.'$Feature']", (path != null ? lpath : null));
             return false;
         }
-        if (! json.objectHasProp(val, "geometry"))
+        if (! ((pval = json.objectValue(val, "geometry")) != null))
         {
             if (rep != null) rep.addEntry("missing mandatory prop <geometry> [.'$Feature']", path);
             return false;
         }
         lpath = new Path("geometry", path);
-        pval = json.objectValue(val, "geometry");
         // .'$Feature'.geometry
         // .'$Feature'.geometry.'|'.0
         res = json.isNull(pval);
@@ -992,13 +969,12 @@ public class geo_easy extends ModelChecker
             if (rep != null) rep.addEntry("unexpected value for mandatory prop <geometry> [.'$Feature']", (path != null ? lpath : null));
             return false;
         }
-        if (! json.objectHasProp(val, "properties"))
+        if (! ((pval = json.objectValue(val, "properties")) != null))
         {
             if (rep != null) rep.addEntry("missing mandatory prop <properties> [.'$Feature']", path);
             return false;
         }
         lpath = new Path("properties", path);
-        pval = json.objectValue(val, "properties");
         // .'$Feature'.properties
         // .'$Feature'.properties.'|'.0
         res = json.isNull(pval);
@@ -1025,10 +1001,9 @@ public class geo_easy extends ModelChecker
             if (rep != null) rep.addEntry("unexpected value for mandatory prop <properties> [.'$Feature']", (path != null ? lpath : null));
             return false;
         }
-        if (json.objectHasProp(val, "id"))
+        if ((pval = json.objectValue(val, "id")) != null)
         {
             lpath = new Path("id", path);
-            pval = json.objectValue(val, "id");
             // .'$Feature'.id
             // .'$Feature'.id.'|'.0
             res = json.isString(pval);
@@ -1056,10 +1031,9 @@ public class geo_easy extends ModelChecker
                 return false;
             }
         }
-        if (json.objectHasProp(val, "bbox"))
+        if ((pval = json.objectValue(val, "bbox")) != null)
         {
             lpath = new Path("bbox", path);
-            pval = json.objectValue(val, "bbox");
             // .'$Feature'.bbox
             res = json.isArray(pval);
             if (res)
@@ -1115,13 +1089,12 @@ public class geo_easy extends ModelChecker
         Path lpath;
         Object pval;
         boolean res;
-        if (! json.objectHasProp(val, "type"))
+        if (! ((pval = json.objectValue(val, "type")) != null))
         {
             if (rep != null) rep.addEntry("missing mandatory prop <type> [.'$FeatureCollection']", path);
             return false;
         }
         lpath = new Path("type", path);
-        pval = json.objectValue(val, "type");
         // .'$FeatureCollection'.type
         res = json.isString(pval) && json.asString(pval).compareTo("FeatureCollection") == 0;
         if (! res)
@@ -1130,13 +1103,12 @@ public class geo_easy extends ModelChecker
             if (rep != null) rep.addEntry("unexpected value for mandatory prop <type> [.'$FeatureCollection']", (path != null ? lpath : null));
             return false;
         }
-        if (! json.objectHasProp(val, "features"))
+        if (! ((pval = json.objectValue(val, "features")) != null))
         {
             if (rep != null) rep.addEntry("missing mandatory prop <features> [.'$FeatureCollection']", path);
             return false;
         }
         lpath = new Path("features", path);
-        pval = json.objectValue(val, "features");
         // .'$FeatureCollection'.features
         res = json.isArray(pval);
         if (res)
@@ -1163,10 +1135,9 @@ public class geo_easy extends ModelChecker
             if (rep != null) rep.addEntry("unexpected value for mandatory prop <features> [.'$FeatureCollection']", (path != null ? lpath : null));
             return false;
         }
-        if (json.objectHasProp(val, "bbox"))
+        if ((pval = json.objectValue(val, "bbox")) != null)
         {
             lpath = new Path("bbox", path);
-            pval = json.objectValue(val, "bbox");
             // .'$FeatureCollection'.bbox
             res = json.isArray(pval);
             if (res)

@@ -34,22 +34,20 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
     lpath: Path
     pval: Jsonable
     res: bool
-    if not "hello" in val:
+    if not ((pval := val.get("hello", UNDEFINED)) != UNDEFINED):
         rep is None or rep.append(("missing mandatory prop <hello> [.]", path))
         return False
     lpath = (path + [ "hello" ]) if path is not None else None
-    pval = val.get("hello", UNDEFINED)
     # .hello
     res = isinstance(pval, str)
     if not res:
         rep is None or rep.append(("unexpected string [.hello]", lpath if path is not None else None))
         rep is None or rep.append(("unexpected value for mandatory prop <hello> [.]", lpath if path is not None else None))
         return False
-    if not ("world" in val):
+    if not ((pval := val.get("world", UNDEFINED)) != UNDEFINED):
         rep is None or rep.append(("missing mandatory prop <world> [.]", path))
         return False
     lpath = (path + [ "world" ]) if path is not None else None
-    pval = val.get("world", UNDEFINED)
     # .world
     # "/^!/"
     res = isinstance(pval, str) and pval.startswith("!")

@@ -34,11 +34,10 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
     lpath: Path
     pval: Jsonable
     res: bool
-    if not "name" in val:
+    if not ((pval := val.get("name", UNDEFINED)) != UNDEFINED):
         rep is None or rep.append(("missing mandatory prop <name> [.'|'.1]", path))
         return False
     lpath = (path + [ "name" ]) if path is not None else None
-    pval = val.get("name", UNDEFINED)
     # .'|'.1.name
     res = isinstance(pval, str)
     if not res:

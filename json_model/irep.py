@@ -63,7 +63,7 @@ def _getEffect(op: Jsonable, bool_vars: set[str]) -> Effect:
 
     match op["o"]:
         # no boolean effect expected on these
-        case "co"|"rep"|"cst"|"pl"|"isa"|"val"|"iv"|"i+"|"hp"|"isr"|"cr"|"brk"|"apf"|"id"|"ss"|"se"|"pre"|"no"|"esc"|"pvl"|"scc"|"jv"|"gcm"|"hpf"|"gpf"|"ol"|"al"|"sl"|"nl":
+        case "co"|"rep"|"cst"|"pl"|"isa"|"val"|"iv"|"i+"|"hp"|"isr"|"cr"|"brk"|"apf"|"id"|"ss"|"se"|"pre"|"no"|"esc"|"pvl"|"scc"|"jv"|"gcm"|"hpf"|"gpf"|"ol"|"al"|"sl"|"nl"|"cpv":
             pass
         # declaration/assignment
         case "bv":
@@ -371,6 +371,9 @@ class IRep(Language):
     def assign_expr(self) -> bool:
         return self._lang.assign_expr() if self._lang != self else True
 
+    def assign_obj_prop(self) -> bool:
+        return self._lang.assign_obj_prop() if self._lang != self else True
+
     def regroup(self, name: str, pattern: str = ".*") -> str:
         return self._lang.regroup(name, pattern) if self._lang != self else super().regroup(name, pattern)
 
@@ -423,8 +426,11 @@ class IRep(Language):
     def arr_item_val(self, arr: Var, idx: IntExpr) -> JsonExpr:
         return _j("aiv", arr=_l(arr), idx=_l(idx))
 
-    def obj_prop_val(self, obj: Var, prop: Expr, is_var: bool = False) -> JsonExpr:
+    def obj_prop_val(self, obj: Var, prop: str|StrExpr, is_var: bool = False) -> JsonExpr:
         return _j("opv", obj=_l(obj), prop=_l(prop), is_var=is_var)
+
+    def obj_has_prop_val(self, dst: Var, obj: Var, prop: str|StrExpr, is_var: bool = False) -> BoolExpr:
+        return _j("cpv", dst=_l(dst), obj=_l(obj), prop=_l(prop), is_var=is_var)
 
     def obj_len(self, var: Var) -> IntExpr:
         return _j("ol", var=_l(var))
@@ -698,6 +704,7 @@ def _eval(jv: Jsonable, gen: Language) -> Block|Expr:
             case "gv": return gen.get_value(var=jv["var"], tvar=s2t(jv["tvar"]))
             case "aiv": return gen.arr_item_val(arr=ev("arr"), idx=ev("idx"))
             case "opv": return gen.obj_prop_val(obj=ev("obj"), prop=ev("prop"), is_var=jv["is_var"])
+            case "cpv": return gen.obj_has_prop_val(dst=ev("dst"), obj=ev("obj"), prop=ev("prop"), is_var=jv["is_var"])
             case "ol": return gen.obj_len(var=ev("var"))
             case "al": return gen.arr_len(var=ev("var"))
             case "sl": return gen.str_len(var=ev("var"))

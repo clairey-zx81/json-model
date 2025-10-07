@@ -34,11 +34,10 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
     lpath: Path
     pval: Jsonable
     res: bool
-    if not "li" in val:
+    if not ((pval := val.get("li", UNDEFINED)) != UNDEFINED):
         rep is None or rep.append(("missing mandatory prop <li> [.]", path))
         return False
     lpath = (path + [ "li" ]) if path is not None else None
-    pval = val.get("li", UNDEFINED)
     # .li
     res = ((isinstance(pval, int) and not isinstance(pval, bool) or isinstance(pval, float) and pval == int(pval))) and pval >= 0
     if not res:

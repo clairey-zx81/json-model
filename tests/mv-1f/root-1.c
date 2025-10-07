@@ -74,13 +74,12 @@ static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *re
     jm_path_t lpath;
     json_t * pval;
     bool res;
-    if (! (json_object_get(val, "id") != NULL))
+    if (! ((pval = json_object_get(val, "id")) != NULL))
     {
         if (rep) jm_report_add_entry(rep, "missing mandatory prop <id> [.'$root#Root']", path);
         return false;
     }
     lpath = (jm_path_t) { "id", 0, path, NULL };
-    pval = json_object_get(val, "id");
     // .'$root#Root'.id
     res = json_is_integer(pval) && json_integer_value(pval) == 1;
     if (! res)
@@ -89,13 +88,12 @@ static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *re
         if (rep) jm_report_add_entry(rep, "unexpected value for mandatory prop <id> [.'$root#Root']", (path ? &lpath : NULL));
         return false;
     }
-    if (! (json_object_get(val, "name") != NULL))
+    if (! ((pval = json_object_get(val, "name")) != NULL))
     {
         if (rep) jm_report_add_entry(rep, "missing mandatory prop <name> [.'$root#Root']", path);
         return false;
     }
     lpath = (jm_path_t) { "name", 0, path, NULL };
-    pval = json_object_get(val, "name");
     // .'$root#Root'.name
     res = json_is_string(pval);
     if (! res)

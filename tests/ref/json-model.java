@@ -733,13 +733,12 @@ public class json_model extends ModelChecker
         Path lpath;
         Object pval;
         boolean res;
-        if (! json.objectHasProp(val, "|"))
+        if (! ((pval = json.objectValue(val, "|")) != null))
         {
             if (rep != null) rep.addEntry("missing mandatory prop <|> [.'$Or']", path);
             return false;
         }
         lpath = new Path("|", path);
-        pval = json.objectValue(val, "|");
         // .'$Or'.'|'
         res = json.isArray(pval);
         if (res)
@@ -799,13 +798,12 @@ public class json_model extends ModelChecker
         Path lpath;
         Object pval;
         boolean res;
-        if (! json.objectHasProp(val, "&"))
+        if (! ((pval = json.objectValue(val, "&")) != null))
         {
             if (rep != null) rep.addEntry("missing mandatory prop <&> [.'$And']", path);
             return false;
         }
         lpath = new Path("&", path);
-        pval = json.objectValue(val, "&");
         // .'$And'.'&'
         res = json.isArray(pval);
         if (res)
@@ -865,13 +863,12 @@ public class json_model extends ModelChecker
         Path lpath;
         Object pval;
         boolean res;
-        if (! json.objectHasProp(val, "^"))
+        if (! ((pval = json.objectValue(val, "^")) != null))
         {
             if (rep != null) rep.addEntry("missing mandatory prop <^> [.'$Xor']", path);
             return false;
         }
         lpath = new Path("^", path);
-        pval = json.objectValue(val, "^");
         // .'$Xor'.'^'
         res = json.isArray(pval);
         if (res)
@@ -931,13 +928,12 @@ public class json_model extends ModelChecker
         Path lpath;
         Object pval;
         boolean res;
-        if (! json.objectHasProp(val, "+"))
+        if (! ((pval = json.objectValue(val, "+")) != null))
         {
             if (rep != null) rep.addEntry("missing mandatory prop <+> [.'$Add']", path);
             return false;
         }
         lpath = new Path("+", path);
-        pval = json.objectValue(val, "+");
         // .'$Add'.'+'
         res = json.isArray(pval);
         if (res)

@@ -32,9 +32,8 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
         return False
     pval: Jsonable
     res: bool
-    if not "stuff" in val:
+    if not ((pval := val.get("stuff", UNDEFINED)) != UNDEFINED):
         return False
-    pval = val.get("stuff", UNDEFINED)
     # .'$objs0'.stuff
     res = isinstance(pval, list)
     if res:
@@ -63,9 +62,8 @@ def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
         return False
     pval: Jsonable
     res: bool
-    if not "foo" in val:
+    if not ((pval := val.get("foo", UNDEFINED)) != UNDEFINED):
         return False
-    pval = val.get("foo", UNDEFINED)
     # .foo
     res = _jm_obj_0(pval, None, rep)
     if not res:
@@ -107,16 +105,14 @@ def _jm_obj_2(val: Jsonable, path: Path, rep: Report) -> bool:
         return False
     pval: Jsonable
     res: bool
-    if not "t" in val:
+    if not ((pval := val.get("t", UNDEFINED)) != UNDEFINED):
         return False
-    pval = val.get("t", UNDEFINED)
     # .'$objs0#table'.t
     res = isinstance(pval, str) and pval == "table"
     if not res:
         return False
-    if not "legs" in val:
+    if not ((pval := val.get("legs", UNDEFINED)) != UNDEFINED):
         return False
-    pval = val.get("legs", UNDEFINED)
     # .'$objs0#table'.legs
     res = isinstance(pval, int) and not isinstance(pval, bool) and pval >= 1
     if not res:
@@ -139,16 +135,14 @@ def _jm_obj_3(val: Jsonable, path: Path, rep: Report) -> bool:
         return False
     pval: Jsonable
     res: bool
-    if not "t" in val:
+    if not ((pval := val.get("t", UNDEFINED)) != UNDEFINED):
         return False
-    pval = val.get("t", UNDEFINED)
     # .'$objs0#chair'.t
     res = isinstance(pval, str) and pval == "chair"
     if not res:
         return False
-    if not ("color" in val):
+    if not ((pval := val.get("color", UNDEFINED)) != UNDEFINED):
         return False
-    pval = val.get("color", UNDEFINED)
     # .'$objs0#chair'.color
     res = isinstance(pval, str)
     if not res:

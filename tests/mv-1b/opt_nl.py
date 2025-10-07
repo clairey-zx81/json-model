@@ -34,22 +34,20 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
     lpath: Path
     pval: Jsonable
     res: bool
-    if not "i" in val:
+    if not ((pval := val.get("i", UNDEFINED)) != UNDEFINED):
         rep is None or rep.append(("missing mandatory prop <i> [.]", path))
         return False
     lpath = (path + [ "i" ]) if path is not None else None
-    pval = val.get("i", UNDEFINED)
     # .i
     res = (isinstance(pval, int) and not isinstance(pval, bool) or isinstance(pval, float) and pval == int(pval))
     if not res:
         rep is None or rep.append(("not a -1 loose int [.i]", lpath if path is not None else None))
         rep is None or rep.append(("unexpected value for mandatory prop <i> [.]", lpath if path is not None else None))
         return False
-    if not "f" in val:
+    if not ((pval := val.get("f", UNDEFINED)) != UNDEFINED):
         rep is None or rep.append(("missing mandatory prop <f> [.]", path))
         return False
     lpath = (path + [ "f" ]) if path is not None else None
-    pval = val.get("f", UNDEFINED)
     # .f
     res = isinstance(pval, (int, float)) and not isinstance(pval, bool)
     if not res:

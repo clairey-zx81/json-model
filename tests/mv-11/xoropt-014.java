@@ -37,13 +37,12 @@ public class xoropt_014 extends ModelChecker
         Path lpath;
         Object pval;
         boolean res;
-        if (! json.objectHasProp(val, "t"))
+        if (! ((pval = json.objectValue(val, "t")) != null))
         {
             if (rep != null) rep.addEntry("missing mandatory prop <t> [.movie.'|'.0]", path);
             return false;
         }
         lpath = new Path("t", path);
-        pval = json.objectValue(val, "t");
         // .movie.'|'.0.t
         res = json.isString(pval) && json.asString(pval).compareTo("fr") == 0;
         if (! res)
@@ -52,13 +51,12 @@ public class xoropt_014 extends ModelChecker
             if (rep != null) rep.addEntry("unexpected value for mandatory prop <t> [.movie.'|'.0]", (path != null ? lpath : null));
             return false;
         }
-        if (! json.objectHasProp(val, "titre"))
+        if (! ((pval = json.objectValue(val, "titre")) != null))
         {
             if (rep != null) rep.addEntry("missing mandatory prop <titre> [.movie.'|'.0]", path);
             return false;
         }
         lpath = new Path("titre", path);
-        pval = json.objectValue(val, "titre");
         // .movie.'|'.0.titre
         res = json.isString(pval);
         if (! res)
@@ -87,13 +85,12 @@ public class xoropt_014 extends ModelChecker
         Path lpath;
         Object pval;
         boolean res;
-        if (! json.objectHasProp(val, "t"))
+        if (! ((pval = json.objectValue(val, "t")) != null))
         {
             if (rep != null) rep.addEntry("missing mandatory prop <t> [.movie.'|'.1]", path);
             return false;
         }
         lpath = new Path("t", path);
-        pval = json.objectValue(val, "t");
         // .movie.'|'.1.t
         res = json.isString(pval) && json.asString(pval).compareTo("en") == 0;
         if (! res)
@@ -102,13 +99,12 @@ public class xoropt_014 extends ModelChecker
             if (rep != null) rep.addEntry("unexpected value for mandatory prop <t> [.movie.'|'.1]", (path != null ? lpath : null));
             return false;
         }
-        if (! json.objectHasProp(val, "title"))
+        if (! ((pval = json.objectValue(val, "title")) != null))
         {
             if (rep != null) rep.addEntry("missing mandatory prop <title> [.movie.'|'.1]", path);
             return false;
         }
         lpath = new Path("title", path);
-        pval = json.objectValue(val, "title");
         // .movie.'|'.1.title
         res = json.isString(pval);
         if (! res)
@@ -137,13 +133,12 @@ public class xoropt_014 extends ModelChecker
         Path lpath;
         Object pval;
         boolean res;
-        if (! json.objectHasProp(val, "t"))
+        if (! ((pval = json.objectValue(val, "t")) != null))
         {
             if (rep != null) rep.addEntry("missing mandatory prop <t> [.movie.'|'.2]", path);
             return false;
         }
         lpath = new Path("t", path);
-        pval = json.objectValue(val, "t");
         // .movie.'|'.2.t
         res = json.isString(pval) && json.asString(pval).compareTo("de") == 0;
         if (! res)
@@ -152,13 +147,12 @@ public class xoropt_014 extends ModelChecker
             if (rep != null) rep.addEntry("unexpected value for mandatory prop <t> [.movie.'|'.2]", (path != null ? lpath : null));
             return false;
         }
-        if (! json.objectHasProp(val, "Title"))
+        if (! ((pval = json.objectValue(val, "Title")) != null))
         {
             if (rep != null) rep.addEntry("missing mandatory prop <Title> [.movie.'|'.2]", path);
             return false;
         }
         lpath = new Path("Title", path);
-        pval = json.objectValue(val, "Title");
         // .movie.'|'.2.Title
         res = json.isString(pval);
         if (! res)
@@ -187,13 +181,12 @@ public class xoropt_014 extends ModelChecker
         Path lpath;
         Object pval;
         boolean res;
-        if (! json.objectHasProp(val, "t"))
+        if (! ((pval = json.objectValue(val, "t")) != null))
         {
             if (rep != null) rep.addEntry("missing mandatory prop <t> [.movie.'|'.3]", path);
             return false;
         }
         lpath = new Path("t", path);
-        pval = json.objectValue(val, "t");
         // .movie.'|'.3.t
         res = json.isString(pval) && json.asString(pval).compareTo("ru") == 0;
         if (! res)
@@ -202,13 +195,12 @@ public class xoropt_014 extends ModelChecker
             if (rep != null) rep.addEntry("unexpected value for mandatory prop <t> [.movie.'|'.3]", (path != null ? lpath : null));
             return false;
         }
-        if (! json.objectHasProp(val, "suti"))
+        if (! ((pval = json.objectValue(val, "suti")) != null))
         {
             if (rep != null) rep.addEntry("missing mandatory prop <suti> [.movie.'|'.3]", path);
             return false;
         }
         lpath = new Path("suti", path);
-        pval = json.objectValue(val, "suti");
         // .movie.'|'.3.suti
         res = json.isString(pval);
         if (! res)
@@ -238,13 +230,12 @@ public class xoropt_014 extends ModelChecker
         Path lpath;
         Object pval;
         boolean res;
-        if (! json.objectHasProp(val, "movie"))
+        if (! ((pval = json.objectValue(val, "movie")) != null))
         {
             if (rep != null) rep.addEntry("missing mandatory prop <movie> [.]", path);
             return false;
         }
         lpath = new Path("movie", path);
-        pval = json.objectValue(val, "movie");
         // .movie
         boolean iso_0 = json.isObject(pval);
         res = iso_0;

@@ -264,6 +264,14 @@ class Language:
         """Tell whether an object as a property."""
         raise NotImplementedError("has_prop")
 
+    def assign_obj_prop(self) -> bool:
+        """Whether testing for a property can be combined with an assignment."""
+        return True
+
+    def obj_has_prop_val(self, dst: Var, obj: Var, prop: str|StrExpr, is_var: bool = False) -> BoolExpr:
+        """Combined property test and value extraction, if assign_obj_prop."""
+        raise NotImplementedError("obj_has_prop_val")
+
     #
     # inlined length computation
     #
