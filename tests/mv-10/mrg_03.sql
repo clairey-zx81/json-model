@@ -44,10 +44,7 @@ BEGIN
   pval := val -> 'c';
   -- .c
   res := JSONB_TYPEOF(pval) = 'number' AND (pval)::FLOAT8 > 0.0;
-  IF NOT res THEN
-    RETURN FALSE;
-  END IF;
-  RETURN TRUE;
+  RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
 

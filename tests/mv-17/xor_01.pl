@@ -37,11 +37,7 @@ sub _jm_obj_0($$$)
     $pval = $$val{'a'};
     # .'^'.1.a
     $res = jm_is_integer($pval) && $pval >= 0;
-    if (! $res)
-    {
-        return 0;
-    }
-    return 1;
+    return $res;
 }
 
 # check $ (.)

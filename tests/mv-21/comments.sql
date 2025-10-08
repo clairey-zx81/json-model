@@ -39,10 +39,7 @@ BEGIN
   -- .world
   -- "/^!/"
   res := JSONB_TYPEOF(pval) = 'string' AND STARTS_WITH(JSON_VALUE(pval, '$' RETURNING TEXT), '!');
-  IF NOT res THEN
-    RETURN FALSE;
-  END IF;
-  RETURN TRUE;
+  RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
 

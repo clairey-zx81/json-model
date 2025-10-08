@@ -43,9 +43,7 @@ def json_model_2(val: Jsonable, path: Path, rep: Report) -> bool:
         return False
     # .'$table'.legs
     res = isinstance(pval, int) and not isinstance(pval, bool) and pval >= 1
-    if not res:
-        return False
-    return True
+    return res
 
 # check $chair (.'$chair')
 def json_model_3(val: Jsonable, path: Path, rep: Report) -> bool:
@@ -67,9 +65,7 @@ def json_model_3(val: Jsonable, path: Path, rep: Report) -> bool:
         return False
     # .'$chair'.color
     res = isinstance(pval, str)
-    if not res:
-        return False
-    return True
+    return res
 
 
 # check $furniture (.'$furniture')
@@ -110,9 +106,7 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
             res = json_model_4(arr_0_item, None, rep)
             if not res:
                 break
-    if not res:
-        return False
-    return True
+    return res
 
 
 # initialization guard

@@ -26,10 +26,7 @@ BEGIN
   pval := val -> 'a';
   -- .a
   res := JSONB_TYPEOF(pval) = 'string';
-  IF NOT res THEN
-    RETURN FALSE;
-  END IF;
-  RETURN TRUE;
+  RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
 

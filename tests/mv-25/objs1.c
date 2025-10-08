@@ -54,11 +54,7 @@ static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
             }
         }
     }
-    if (! res)
-    {
-        return false;
-    }
-    return true;
+    return res;
 }
 
 // check $ (.)
@@ -82,11 +78,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
     }
     // .foo
     res = json_model_3(pval, NULL, rep);
-    if (! res)
-    {
-        return false;
-    }
-    return true;
+    return res;
 }
 
 static INLINE jm_check_fun_t _jm_map_0(json_t *val)
@@ -157,11 +149,7 @@ static bool json_model_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
     }
     // .'$objs0#table'.legs
     res = json_is_integer(pval) && json_integer_value(pval) >= 1;
-    if (! res)
-    {
-        return false;
-    }
-    return true;
+    return res;
 }
 
 // check $objs0#chair (.'$objs0#chair')
@@ -195,11 +183,7 @@ static bool json_model_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
     }
     // .'$objs0#chair'.color
     res = json_is_string(pval);
-    if (! res)
-    {
-        return false;
-    }
-    return true;
+    return res;
 }
 
 jm_check_fun_t check_model_map(const char *pname)

@@ -204,10 +204,7 @@ BEGIN
       RETURN FALSE;
     END IF;
   END LOOP;
-  IF must_count <> 2 THEN
-    RETURN FALSE;
-  END IF;
-  RETURN TRUE;
+  RETURN must_count = 2;
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -288,10 +285,7 @@ BEGIN
       RETURN FALSE;
     END IF;
   END LOOP;
-  IF must_count <> 2 THEN
-    RETURN FALSE;
-  END IF;
-  RETURN TRUE;
+  RETURN must_count = 2;
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -393,10 +387,7 @@ BEGIN
       RETURN FALSE;
     END IF;
   END LOOP;
-  IF must_count <> 2 THEN
-    RETURN FALSE;
-  END IF;
-  RETURN TRUE;
+  RETURN must_count = 2;
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -441,10 +432,7 @@ BEGIN
       RETURN FALSE;
     END IF;
   END LOOP;
-  IF must_count <> 2 THEN
-    RETURN FALSE;
-  END IF;
-  RETURN TRUE;
+  RETURN must_count = 2;
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -539,10 +527,7 @@ BEGIN
       RETURN FALSE;
     END IF;
   END LOOP;
-  IF must_count <> 1 THEN
-    RETURN FALSE;
-  END IF;
-  RETURN TRUE;
+  RETURN must_count = 1;
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -606,10 +591,7 @@ BEGIN
       RETURN FALSE;
     END IF;
   END LOOP;
-  IF must_count <> 1 THEN
-    RETURN FALSE;
-  END IF;
-  RETURN TRUE;
+  RETURN must_count = 1;
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -1390,10 +1372,7 @@ BEGIN
       RETURN FALSE;
     END IF;
   END LOOP;
-  IF must_count <> 1 THEN
-    RETURN FALSE;
-  END IF;
-  RETURN TRUE;
+  RETURN must_count = 1;
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -1576,10 +1555,7 @@ BEGIN
       RETURN FALSE;
     END IF;
   END LOOP;
-  IF must_count <> 2 THEN
-    RETURN FALSE;
-  END IF;
-  RETURN TRUE;
+  RETURN must_count = 2;
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -1691,10 +1667,7 @@ BEGIN
       RETURN FALSE;
     END IF;
   END LOOP;
-  IF must_count <> 2 THEN
-    RETURN FALSE;
-  END IF;
-  RETURN TRUE;
+  RETURN must_count = 2;
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -2327,11 +2300,8 @@ $$ LANGUAGE PLpgSQL;
 CREATE OR REPLACE FUNCTION _jm_obj_14(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
-  IF NOT (JSONB_TYPEOF(val) = 'object') THEN
-    RETURN FALSE;
-  END IF;
+  RETURN JSONB_TYPEOF(val) = 'object';
   -- accept any object
-  RETURN TRUE;
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -2396,10 +2366,7 @@ BEGIN
       RETURN FALSE;
     END IF;
   END LOOP;
-  IF must_count <> 1 THEN
-    RETURN FALSE;
-  END IF;
-  RETURN TRUE;
+  RETURN must_count = 1;
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -2407,11 +2374,8 @@ $$ LANGUAGE PLpgSQL;
 CREATE OR REPLACE FUNCTION _jm_obj_16(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
-  IF NOT (JSONB_TYPEOF(val) = 'object') THEN
-    RETURN FALSE;
-  END IF;
+  RETURN JSONB_TYPEOF(val) = 'object';
   -- accept any object
-  RETURN TRUE;
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -2476,10 +2440,7 @@ BEGIN
       RETURN FALSE;
     END IF;
   END LOOP;
-  IF must_count <> 1 THEN
-    RETURN FALSE;
-  END IF;
-  RETURN TRUE;
+  RETURN must_count = 1;
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -2813,10 +2774,7 @@ BEGIN
       RETURN FALSE;
     END IF;
   END LOOP;
-  IF must_count <> 1 THEN
-    RETURN FALSE;
-  END IF;
-  RETURN TRUE;
+  RETURN must_count = 1;
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -2861,10 +2819,7 @@ BEGIN
       RETURN FALSE;
     END IF;
   END LOOP;
-  IF must_count <> 1 THEN
-    RETURN FALSE;
-  END IF;
-  RETURN TRUE;
+  RETURN must_count = 1;
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -2926,10 +2881,7 @@ BEGIN
       RETURN FALSE;
     END IF;
   END LOOP;
-  IF must_count <> 3 THEN
-    RETURN FALSE;
-  END IF;
-  RETURN TRUE;
+  RETURN must_count = 3;
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -2990,10 +2942,7 @@ BEGIN
       RETURN FALSE;
     END IF;
   END LOOP;
-  IF must_count <> 2 THEN
-    RETURN FALSE;
-  END IF;
-  RETURN TRUE;
+  RETURN must_count = 2;
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -3038,10 +2987,7 @@ BEGIN
       RETURN FALSE;
     END IF;
   END LOOP;
-  IF must_count <> 2 THEN
-    RETURN FALSE;
-  END IF;
-  RETURN TRUE;
+  RETURN must_count = 2;
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -3086,10 +3032,7 @@ BEGIN
       RETURN FALSE;
     END IF;
   END LOOP;
-  IF must_count <> 2 THEN
-    RETURN FALSE;
-  END IF;
-  RETURN TRUE;
+  RETURN must_count = 2;
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -3134,10 +3077,7 @@ BEGIN
       RETURN FALSE;
     END IF;
   END LOOP;
-  IF must_count <> 2 THEN
-    RETURN FALSE;
-  END IF;
-  RETURN TRUE;
+  RETURN must_count = 2;
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -3345,10 +3285,7 @@ BEGIN
       RETURN FALSE;
     END IF;
   END LOOP;
-  IF must_count <> 3 THEN
-    RETURN FALSE;
-  END IF;
-  RETURN TRUE;
+  RETURN must_count = 3;
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -3568,10 +3505,7 @@ BEGIN
       RETURN FALSE;
     END IF;
   END LOOP;
-  IF must_count <> 1 THEN
-    RETURN FALSE;
-  END IF;
-  RETURN TRUE;
+  RETURN must_count = 1;
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -3627,10 +3561,7 @@ BEGIN
       RETURN FALSE;
     END IF;
   END LOOP;
-  IF must_count <> 1 THEN
-    RETURN FALSE;
-  END IF;
-  RETURN TRUE;
+  RETURN must_count = 1;
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -3686,10 +3617,7 @@ BEGIN
       RETURN FALSE;
     END IF;
   END LOOP;
-  IF must_count <> 1 THEN
-    RETURN FALSE;
-  END IF;
-  RETURN TRUE;
+  RETURN must_count = 1;
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -3745,10 +3673,7 @@ BEGIN
       RETURN FALSE;
     END IF;
   END LOOP;
-  IF must_count <> 1 THEN
-    RETURN FALSE;
-  END IF;
-  RETURN TRUE;
+  RETURN must_count = 1;
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -3829,10 +3754,7 @@ BEGIN
       RETURN FALSE;
     END IF;
   END LOOP;
-  IF must_count <> 1 THEN
-    RETURN FALSE;
-  END IF;
-  RETURN TRUE;
+  RETURN must_count = 1;
 END;
 $$ LANGUAGE PLpgSQL;
 

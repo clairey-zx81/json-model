@@ -164,11 +164,7 @@ sub json_model_2($$$)
             return 0;
         }
     }
-    if ($must_count != 1)
-    {
-        return 0;
-    }
-    return 1;
+    return $must_count == 1;
 }
 
 
@@ -401,11 +397,7 @@ sub json_model_6($$$)
             return 0;
         }
     }
-    if ($must_count != 2)
-    {
-        return 0;
-    }
-    return 1;
+    return $must_count == 2;
 }
 
 # check $Object (.'$Object')
@@ -491,11 +483,7 @@ sub json_model_7($$$)
             return 0;
         }
     }
-    if ($must_count != 1)
-    {
-        return 0;
-    }
-    return 1;
+    return $must_count == 1;
 }
 
 # check $Fields (.'$Fields')
@@ -569,11 +557,7 @@ sub json_model_8($$$)
             return 0;
         }
     }
-    if ($must_count != 2)
-    {
-        return 0;
-    }
-    return 1;
+    return $must_count == 2;
 }
 
 # check $Array (.'$Array')
@@ -657,11 +641,7 @@ sub json_model_9($$$)
             return 0;
         }
     }
-    if ($must_count != 1)
-    {
-        return 0;
-    }
-    return 1;
+    return $must_count == 1;
 }
 
 # check $Union (.'$Union')
@@ -740,11 +720,7 @@ sub json_model_10($$$)
             return 0;
         }
     }
-    if ($must_count != 3)
-    {
-        return 0;
-    }
-    return 1;
+    return $must_count == 3;
 }
 
 # check $type-or-ref (.'$type-or-ref')

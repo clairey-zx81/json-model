@@ -71,10 +71,7 @@ BEGIN
   pval := val -> 'name';
   -- .'$root#Root'.name
   res := JSONB_TYPEOF(pval) = 'string';
-  IF NOT res THEN
-    RETURN FALSE;
-  END IF;
-  RETURN TRUE;
+  RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
 

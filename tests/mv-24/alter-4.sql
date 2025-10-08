@@ -34,10 +34,7 @@ BEGIN
   pval := val -> 'a';
   -- .'$alternative'.'|'.0.a
   res := JSONB_TYPEOF(pval) = 'string';
-  IF NOT res THEN
-    RETURN FALSE;
-  END IF;
-  RETURN TRUE;
+  RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -79,10 +76,7 @@ BEGIN
   pval := val -> 'bc';
   -- .'$alternative'.'|'.1.bc
   res := JSONB_TYPEOF(pval) = 'string';
-  IF NOT res THEN
-    RETURN FALSE;
-  END IF;
-  RETURN TRUE;
+  RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
 

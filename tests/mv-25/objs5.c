@@ -20,18 +20,7 @@ const size_t check_model_map_size = 2;
 static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .'$empty'
-    if (! json_is_object(val))
-    {
-        return false;
-    }
-    if (json_object_size(val) == 0)
-    {
-        return true;
-    }
-    else
-    {
-        return false;
-    }
+    return json_is_object(val) && json_object_size(val) == 0;
 }
 
 static INLINE jm_check_fun_t json_model_1_map(const char *pname)

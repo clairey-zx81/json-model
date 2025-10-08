@@ -42,9 +42,7 @@ def json_model_2(val: Jsonable, path: Path, rep: Report) -> bool:
         return False
     # .'$bla'.y
     res = isinstance(pval, float)
-    if not res:
-        return False
-    return True
+    return res
 
 # check $foo (.'$foo')
 def json_model_3(val: Jsonable, path: Path, rep: Report) -> bool:

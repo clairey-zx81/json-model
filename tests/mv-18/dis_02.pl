@@ -51,11 +51,7 @@ sub _jm_obj_0($$$)
     $pval = $$val{'pi'};
     # .'|'.0.pi
     $res = jm_is_string($pval);
-    if (! $res)
-    {
-        return 0;
-    }
-    return 1;
+    return $res;
 }
 
 # object .'|'.1
@@ -91,11 +87,7 @@ sub _jm_obj_1($$$)
     $pval = $$val{'one'};
     # .'|'.1.one
     $res = jm_is_string($pval);
-    if (! $res)
-    {
-        return 0;
-    }
-    return 1;
+    return $res;
 }
 
 # object .'|'.2
@@ -131,11 +123,7 @@ sub _jm_obj_2($$$)
     $pval = $$val{'half'};
     # .'|'.2.half
     $res = jm_is_string($pval);
-    if (! $res)
-    {
-        return 0;
-    }
-    return 1;
+    return $res;
 }
 
 

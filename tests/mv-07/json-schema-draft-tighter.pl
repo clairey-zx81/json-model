@@ -1001,11 +1001,7 @@ sub json_model_10($$$)
             return 0;
         }
     }
-    if ($must_count != 1)
-    {
-        return 0;
-    }
-    return 1;
+    return $must_count == 1;
 }
 
 # check json_model_11_map_$comment (.'$Array'.'$comment')
@@ -1222,11 +1218,7 @@ sub json_model_11($$$)
             return 0;
         }
     }
-    if ($must_count != 1)
-    {
-        return 0;
-    }
-    return 1;
+    return $must_count == 1;
 }
 
 # check json_model_12_map_$comment (.'$Object'.'$comment')
@@ -1475,11 +1467,7 @@ sub json_model_12($$$)
             return 0;
         }
     }
-    if ($must_count != 1)
-    {
-        return 0;
-    }
-    return 1;
+    return $must_count == 1;
 }
 
 # check json_model_13_map_$comment (.'$Integer'.'$comment')
@@ -1670,11 +1658,7 @@ sub json_model_13($$$)
             return 0;
         }
     }
-    if ($must_count != 1)
-    {
-        return 0;
-    }
-    return 1;
+    return $must_count == 1;
 }
 
 # check json_model_14_map_$comment (.'$Number'.'$comment')
@@ -1865,11 +1849,7 @@ sub json_model_14($$$)
             return 0;
         }
     }
-    if ($must_count != 1)
-    {
-        return 0;
-    }
-    return 1;
+    return $must_count == 1;
 }
 
 # check json_model_15_map_$comment (.'$Bool'.'$comment')
@@ -2040,11 +2020,7 @@ sub json_model_15($$$)
             return 0;
         }
     }
-    if ($must_count != 1)
-    {
-        return 0;
-    }
-    return 1;
+    return $must_count == 1;
 }
 
 # check json_model_16_map_$comment (.'$Null'.'$comment')
@@ -2215,11 +2191,7 @@ sub json_model_16($$$)
             return 0;
         }
     }
-    if ($must_count != 1)
-    {
-        return 0;
-    }
-    return 1;
+    return $must_count == 1;
 }
 
 # check json_model_17_map_$comment (.'$AllOf'.'$comment')
@@ -2390,11 +2362,7 @@ sub json_model_17($$$)
             return 0;
         }
     }
-    if ($must_count != 1)
-    {
-        return 0;
-    }
-    return 1;
+    return $must_count == 1;
 }
 
 # check json_model_18_map_$comment (.'$AnyOf'.'$comment')
@@ -2565,11 +2533,7 @@ sub json_model_18($$$)
             return 0;
         }
     }
-    if ($must_count != 1)
-    {
-        return 0;
-    }
-    return 1;
+    return $must_count == 1;
 }
 
 # check json_model_19_map_$comment (.'$OneOf'.'$comment')
@@ -2740,11 +2704,7 @@ sub json_model_19($$$)
             return 0;
         }
     }
-    if ($must_count != 1)
-    {
-        return 0;
-    }
-    return 1;
+    return $must_count == 1;
 }
 
 # check json_model_20_map_$comment (.'$Enum'.'$comment')
@@ -2915,11 +2875,7 @@ sub json_model_20($$$)
             return 0;
         }
     }
-    if ($must_count != 1)
-    {
-        return 0;
-    }
-    return 1;
+    return $must_count == 1;
 }
 
 # check json_model_21_map_$comment (.'$Const'.'$comment')
@@ -3090,11 +3046,7 @@ sub json_model_21($$$)
             return 0;
         }
     }
-    if ($must_count != 1)
-    {
-        return 0;
-    }
-    return 1;
+    return $must_count == 1;
 }
 
 # check json_model_22_map_$comment (.'$Ref'.'$comment')
@@ -3265,11 +3217,7 @@ sub json_model_22($$$)
             return 0;
         }
     }
-    if ($must_count != 1)
-    {
-        return 0;
-    }
-    return 1;
+    return $must_count == 1;
 }
 
 
@@ -3367,11 +3315,7 @@ sub _jm_obj_2($$$)
     $pval = $$val{'$schema'};
     # .'$RootSchema'.'&'.0.'$schema'
     $res = jm_is_string($pval);
-    if (! $res)
-    {
-        return 0;
-    }
-    return 1;
+    return $res;
 }
 
 # check $RootSchema (.'$RootSchema')

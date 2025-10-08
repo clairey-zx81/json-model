@@ -40,11 +40,7 @@ sub _jm_obj_0($$$)
     $pval = $$val{'a'};
     # .'|'.0.a
     $res = jm_is_integer($pval) && $pval == 10;
-    if (! $res)
-    {
-        return 0;
-    }
-    return 1;
+    return $res;
 }
 
 # object .'|'.1
@@ -69,11 +65,7 @@ sub _jm_obj_1($$$)
     $pval = $$val{'a'};
     # .'|'.1.a
     $res = jm_is_integer($pval) && $pval == 1;
-    if (! $res)
-    {
-        return 0;
-    }
-    return 1;
+    return $res;
 }
 
 # object .'|'.2
@@ -98,11 +90,7 @@ sub _jm_obj_2($$$)
     $pval = $$val{'a'};
     # .'|'.2.a
     $res = jm_is_integer($pval) && $pval == 0;
-    if (! $res)
-    {
-        return 0;
-    }
-    return 1;
+    return $res;
 }
 
 

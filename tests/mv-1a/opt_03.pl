@@ -59,11 +59,7 @@ sub json_model_1($$$)
     $pval = $$val{'c'};
     # .c
     $res = jm_is_integer($pval) && $pval >= 1;
-    if (! $res)
-    {
-        return 0;
-    }
-    return 1;
+    return $res;
 }
 
 

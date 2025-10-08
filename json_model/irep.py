@@ -41,7 +41,7 @@ type Effects = list[Effect]
 # NOTE there are quite a few implicit assumptions:
 # - variables names are used once, without aliases or shadowing
 # - early returns do not have an impact
-def _getEffect(op: Jsonable, bool_vars: set[str]) -> Effect:
+def _getEffect(op: Jsonable, bool_vars: set[str], reporting: bool) -> Effect:
 
     read: set[str] = set()
     write: set[str] = set()
@@ -76,25 +76,25 @@ def _getEffect(op: Jsonable, bool_vars: set[str]) -> Effect:
                 del value[var]
         # expressions
         case "ret":
-            read, write, value = _getEffect(op["res"], bool_vars)
+            read, write, value = _getEffect(op["res"], bool_vars, reporting)
         case "not":
-            read, write, value = _getEffect(op["e"], bool_vars)
+            read, write, value = _getEffect(op["e"], bool_vars, reporting)
         case "iv"|"cc"|"pv"|"fv"|"Fv"|"sv":
-            read, write, value = _getEffect(op["val"], bool_vars)
+            read, write, value = _getEffect(op["val"], bool_vars, reporting)
         case "sc"|"nc":
-            read, write, value = _getEffect(op["e1"], bool_vars)
-            r, w, v = _getEffect(op["e2"], bool_vars)
+            read, write, value = _getEffect(op["e1"], bool_vars, reporting)
+            r, w, v = _getEffect(op["e2"], bool_vars, reporting)
             read |= r; write |= w; value.update(v)
         case "&"|"|":
             for e in op["exprs"]:
-                r, w, v = _getEffect(e, bool_vars)
+                r, w, v = _getEffect(e, bool_vars, reporting)
                 read |= r; write |= w; value.update(v)
         # statements
         case "if":
-            read, write, value = _getEffect(op["cond"], bool_vars)
-            r, w, v = _optimSeq(op["true"], bool_vars)
+            read, write, value = _getEffect(op["cond"], bool_vars, reporting)
+            r, w, v = _optimSeq(op["true"], bool_vars, reporting)
             read |= r; write |= w
-            r, w, v = _optimSeq(op["false"], bool_vars)
+            r, w, v = _optimSeq(op["false"], bool_vars, reporting)
             read |= r; write |= w
             for var in write:
                 if var in value:
@@ -102,14 +102,14 @@ def _getEffect(op: Jsonable, bool_vars: set[str]) -> Effect:
         case "ifs":
             for tup in op["cond_true"]:
                 cond, true = tup
-                r, w, v = _getEffect(cond, bool_vars)
+                r, w, v = _getEffect(cond, bool_vars, reporting)
                 read |= r; write |= w
-                r, w, v = _optimSeq(true, bool_vars)
+                r, w, v = _optimSeq(true, bool_vars, reporting)
                 read |= r; write |= w
-            r, w, v = _optimSeq(op["false"], bool_vars)
+            r, w, v = _optimSeq(op["false"], bool_vars, reporting)
             read |= r; write |= w
         case "oL"|"aL"|"iL":
-            read, write, value = _optimSeq(op["body"], bool_vars)
+            read, write, value = _optimSeq(op["body"], bool_vars, reporting)
         case _:
             raise Exception(f"missing effect computation on operation {op['o']}")
 
@@ -117,6 +117,9 @@ def _getEffect(op: Jsonable, bool_vars: set[str]) -> Effect:
 
 def _isOp(op: Jsonable, o: str) -> bool:
     return isinstance(op, dict) and "o" in op and op["o"] == o
+
+def _isOps(op: Jsonable, ops: set[str]) -> bool:
+    return isinstance(op, dict) and "o" in op and op["o"] in ops
 
 def _boolIf(op: Jsonable, bool_vars: set[str]) -> tuple[str, bool]|None:
     if not _isOp(op, "if"):
@@ -134,6 +137,55 @@ def _noOps(seq: list[Jsonable]) -> bool:
     """Sequence without effect, only comments or nopes."""
     return all(map(lambda s: isinstance(s, dict) and "o" in s and s["o"] in ("co", "no"), seq))
 
+def _returnCst(seq: list[Jsonable], reporting: bool = True) -> bool|None:
+    ignore = {"no", "co"} if reporting else {"no", "co", "rep"}
+    result: bool|None = None
+    for op in seq:
+        if _isOps(op, ignore):
+            pass
+        elif _isOp(op, "ret") and _isOp(op["res"], "cst"):
+            assert isinstance(op["res"]["c"], bool)
+            result = op["res"]["c"]
+        else:
+            # anything else is ignored
+            return None
+    return result
+
+def _isRet(seq: list[Jsonable], reporting: bool) -> Jsonable:
+    ignore = {"no", "co"} if reporting else {"no", "co", "rep"}
+    result = None
+    for op in seq:
+        if _isOps(op, ignore):
+            pass
+        elif _isOp(op, "ret"):
+            result = op["res"]
+        else:
+            return None
+    return result
+
+def _simpleRet(op: Jsonable, reporting: bool) -> bool:
+    """Simplify if/return/return."""
+    if _isOp(op, "if"):
+        rest: bool|None
+        resf: bool|None
+        if ((rest := _returnCst(op["true"], reporting)) is not None) and \
+           ((resf := _returnCst(op["false"], reporting)) is not None):
+            del op["true"]
+            del op["false"]
+            if rest == resf:
+                # quite unlikely…
+                op["op"] = ["ret"]
+                op["res"] = {"o": "cst", "c": rest}
+            else:
+                cond = op["cond"]
+                while _isOp(cond, "not"):
+                    cond = cond["e"]
+                    rest, resf = resf, rest
+                op["o"] = "ret"
+                op["res"] = cond if rest else {"o": "not", "e": cond}
+            return True
+    return False
+
 # comparison inversion
 CMP_INV = {
     "=": "!=",
@@ -144,15 +196,31 @@ CMP_INV = {
     "<=": ">",
 }
 
-def _optimSeq(seq: Sequence, bool_vars: set[str]) -> Effect:
+def invertBool(op: Jsonable) -> Jsonable:
+    """Invert boolean expression."""
+    if isinstance(op, dict) and "o" in op:
+        if op["o"] in ("sc", "nc"):
+            op["op"] = CMP_INV[op["op"]]
+        elif op["o"] == "cst":
+            op["c"] = not op["c"]
+        elif op["o"] == "not":
+            op = op["e"]
+        else:
+            op = {"o": "not", "e": op}
+        return op
+    else:
+        return {"o": "not", "e": op}
+
+def _optimSeq(seq: Sequence, bool_vars: set[str], reporting: bool) -> Effect:
     """Optimize instruction sequence if/then patterns on boolean variables in place."""
 
-    effects: Effects = [ _getEffect(op, bool_vars) for op in seq ]
+    effects: Effects = [ _getEffect(op, bool_vars, reporting) for op in seq ]
     assert len(effects) == len(seq)
 
     cum_read, cum_write, cum_value = set(), set(), {}
 
-    # cleanup seq using effects with pattern:
+    # merge if in sequence using effects with pattern:
+    #
     # if [not] b:
     #     then_1  # no W on b
     #     else_1  # no W on b
@@ -232,8 +300,19 @@ def _optimSeq(seq: Sequence, bool_vars: set[str]) -> Effect:
         else:  # whatever else is bad news for merging
             prev_var = None
 
-    # remove "not" when "false" branch is not empty by exchanging true/false
     for op in seq:
+
+        # if constant
+        if _isOp(op, "if") and _isOp(op["cond"], "cst"):
+            op["o"] = "seq"
+            op["seq"] = op["true"] if op["cond"]["c"] else op["false"]
+            del op["cond"]
+            del op["true"]
+            del op["false"]
+
+        # TODO flatten seq in seq?
+
+        # remove "not" when "false" branch is not empty by exchanging true/false
         if _isOp(op, "if"):
             if _isOp(op["cond"], "not") and not _noOps(op["false"]):
                 op["cond"], op["true"], op["false"] = op["cond"]["e"], op["false"], op["true"]
@@ -245,8 +324,11 @@ def _optimSeq(seq: Sequence, bool_vars: set[str]) -> Effect:
                 op["true"], op["false"] = op["false"], op["true"]
                 op["cond"]["op"] = CMP_INV[op["cond"]["op"]]
 
-    # if X: <empty>
-    for op in seq:
+        # simplify if/return/return
+        if _isOp(op, "if"):
+            _simpleRet(op, reporting)
+
+        # simplify if/<empty>
         if _isOp(op, "if") and _noOps(op["true"]):
             if _noOps(op["false"]):
                 op.clear()
@@ -255,6 +337,47 @@ def _optimSeq(seq: Sequence, bool_vars: set[str]) -> Effect:
             else:
                 op["cond"] = {"o": "not", "e": op["cond"], "#": "IRO empty true branch removed"}
                 op["true"], op["false"] = op["false"], []
+
+    # if (C) ret X ; ret Y
+    prev_if_ret: int|None = None
+    for (idx, op) in enumerate(seq):
+        if _isOp(op, "co") or _isOp(op, "no") or (not reporting and _isOp(op, "rep")):
+            pass
+        if _isOp(op, "if") and not op["false"] and _isRet(op["true"], reporting):
+            prev_if_ret = idx
+        elif _isOp(op, "ret") and prev_if_ret is not None:
+            ifop = seq[prev_if_ret]
+            true_result = _isRet(ifop["true"], reporting)
+            assert true_result is not None  # sanity
+            if _isOp(true_result, "cst"):
+                if true_result["c"]:
+                    if _isOp(op["res"], "cst"):
+                        if op["res"]["c"]:
+                            newop = {"o": "ret", "res": {"o": "cst", "c": True}}
+                        else:
+                            newop = {"o": "ret", "res": ifop["cond"]}
+                    else:
+                        newop = {"o": "ret", "res": {"o": "|", "exprs": [ifop["cond"], op["res"]]} }
+                else:
+                    if _isOp(op["res"], "cst"):
+                        if op["res"]["c"]:
+                            newop = {"o": "ret", "res": invertBool(ifop["cond"])}
+                        else:
+                            newop = {"o": "ret", "res": {"o": "cst", "c": False}}
+                    else:
+                        newop = {"o": "ret", "res": {"o": "&", "exprs": [invertBool(ifop["cond"]), op["res"]]} }
+                ifop.clear()
+                ifop.update(newop)
+                op.clear()
+                op["o"] = "no"
+            else:
+                log.info("TODO more if simplification")
+        else:
+            prev_if_ret = None
+
+    # TODO look for more optimizable patterns in the generated code
+    # TODO and(..., T, ...) -> and(..., ...)
+    # TODO or(..., F, ...) -> or(..., ...)
 
     # remove nopes (unless alone)
     rm, nco = [], 0
@@ -321,7 +444,8 @@ def callShortcuts(code: Jsonable, shortcuts: dict[str, str]) -> int:
 
     return changes
 
-def optimizeIR(code: list[Jsonable], *, if_optim: bool = True, shortcuts: dict[str, str]) -> Jsonable:
+def optimizeIR(code: list[Jsonable], *, shortcuts: dict[str, str],
+               if_optim: bool = True, reporting: bool = True) -> Jsonable:
     """Optimize IR code."""
 
     if not if_optim and not shortcuts:
@@ -337,7 +461,7 @@ def optimizeIR(code: list[Jsonable], *, if_optim: bool = True, shortcuts: dict[s
         if if_optim and isinstance(ins, dict) and "o" in ins and ins["o"] == "sfu":
             # if statement simplification
             optimized += 1
-            _optimSeq(ins["body"], set())
+            _optimSeq(ins["body"], set(), reporting=reporting)
             changed = True  # maybe
         if shortcuts:
             # call shortcuts

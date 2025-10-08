@@ -82,11 +82,7 @@ sub json_model_4($$$)
     $pval = $$val{'d'};
     # .'$d'.d
     $res = jm_is_string($pval);
-    if (! $res)
-    {
-        return 0;
-    }
-    return 1;
+    return $res;
 }
 
 
@@ -124,11 +120,7 @@ sub json_model_5($$$)
     $pval = $$val{'ef'};
     # .'$ef'.ef
     $res = jm_is_string($pval);
-    if (! $res)
-    {
-        return 0;
-    }
-    return 1;
+    return $res;
 }
 
 # object .'$alternative'.'|'.0
@@ -164,11 +156,7 @@ sub _jm_obj_0($$$)
     $pval = $$val{'a'};
     # .'$alternative'.'|'.0.a
     $res = jm_is_string($pval);
-    if (! $res)
-    {
-        return 0;
-    }
-    return 1;
+    return $res;
 }
 
 
@@ -205,11 +193,7 @@ sub _jm_obj_1($$$)
     $pval = $$val{'bc'};
     # .'$alternative'.'|'.1.bc
     $res = jm_is_string($pval);
-    if (! $res)
-    {
-        return 0;
-    }
-    return 1;
+    return $res;
 }
 
 # object .'$alternative'.'|'.2
@@ -245,11 +229,7 @@ sub _jm_obj_2($$$)
     $pval = $$val{'g'};
     # .'$alternative'.'|'.2.g
     $res = jm_is_string($pval);
-    if (! $res)
-    {
-        return 0;
-    }
-    return 1;
+    return $res;
 }
 
 # object .'$alternative'.'|'.3
@@ -285,11 +265,7 @@ sub _jm_obj_3($$$)
     $pval = $$val{'hi'};
     # .'$alternative'.'|'.3.hi
     $res = jm_is_string($pval);
-    if (! $res)
-    {
-        return 0;
-    }
-    return 1;
+    return $res;
 }
 
 

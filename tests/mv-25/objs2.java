@@ -50,11 +50,7 @@ public class objs2 extends ModelChecker
         }
         // .'$bla'.y
         res = json.isDouble(pval);
-        if (! res)
-        {
-            return false;
-        }
-        return true;
+        return res;
     }
 
     // check $foo (.'$foo')

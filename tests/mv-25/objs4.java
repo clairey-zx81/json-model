@@ -24,180 +24,70 @@ public class objs4 extends ModelChecker
     public boolean _jm_f_0(Object val, Path path, Report rep)
     {
         // .f0
-        if (! json.isObject(val))
-        {
-            return false;
-        }
-        if (json.objectSize(val) == 0)
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
+        return json.isObject(val) && json.objectSize(val) == 0;
     }
 
     // check json_model_1_map_f1 (.f1)
     public boolean _jm_f_1(Object val, Path path, Report rep)
     {
         // .f1
-        if (! json.isObject(val))
-        {
-            return false;
-        }
-        if (json.objectSize(val) == 0)
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
+        return json.isObject(val) && json.objectSize(val) == 0;
     }
 
     // check json_model_1_map_f2 (.f2)
     public boolean _jm_f_2(Object val, Path path, Report rep)
     {
         // .f2
-        if (! json.isObject(val))
-        {
-            return false;
-        }
-        if (json.objectSize(val) == 0)
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
+        return json.isObject(val) && json.objectSize(val) == 0;
     }
 
     // check json_model_1_map_f3 (.f3)
     public boolean _jm_f_3(Object val, Path path, Report rep)
     {
         // .f3
-        if (! json.isObject(val))
-        {
-            return false;
-        }
-        if (json.objectSize(val) == 0)
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
+        return json.isObject(val) && json.objectSize(val) == 0;
     }
 
     // check json_model_1_map_f4 (.f4)
     public boolean _jm_f_4(Object val, Path path, Report rep)
     {
         // .f4
-        if (! json.isObject(val))
-        {
-            return false;
-        }
-        if (json.objectSize(val) == 0)
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
+        return json.isObject(val) && json.objectSize(val) == 0;
     }
 
     // check json_model_1_map_f5 (.f5)
     public boolean _jm_f_5(Object val, Path path, Report rep)
     {
         // .f5
-        if (! json.isObject(val))
-        {
-            return false;
-        }
-        if (json.objectSize(val) == 0)
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
+        return json.isObject(val) && json.objectSize(val) == 0;
     }
 
     // check json_model_1_map_f6 (.f6)
     public boolean _jm_f_6(Object val, Path path, Report rep)
     {
         // .f6
-        if (! json.isObject(val))
-        {
-            return false;
-        }
-        if (json.objectSize(val) == 0)
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
+        return json.isObject(val) && json.objectSize(val) == 0;
     }
 
     // check json_model_1_map_f7 (.f7)
     public boolean _jm_f_7(Object val, Path path, Report rep)
     {
         // .f7
-        if (! json.isObject(val))
-        {
-            return false;
-        }
-        if (json.objectSize(val) == 0)
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
+        return json.isObject(val) && json.objectSize(val) == 0;
     }
 
     // check json_model_1_map_f8 (.f8)
     public boolean _jm_f_8(Object val, Path path, Report rep)
     {
         // .f8
-        if (! json.isObject(val))
-        {
-            return false;
-        }
-        if (json.objectSize(val) == 0)
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
+        return json.isObject(val) && json.objectSize(val) == 0;
     }
 
     // check json_model_1_map_f9 (.f9)
     public boolean _jm_f_9(Object val, Path path, Report rep)
     {
         // .f9
-        if (! json.isObject(val))
-        {
-            return false;
-        }
-        if (json.objectSize(val) == 0)
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
+        return json.isObject(val) && json.objectSize(val) == 0;
     }
 
 

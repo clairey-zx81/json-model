@@ -44,11 +44,7 @@ function json_model_2(val, path, rep)
     pval = val["author"];
     // .'$book'.author
     res = (typeof pval === 'string' || pval instanceof String);
-    if (! res)
-    {
-        return false;
-    }
-    return true;
+    return res;
 }
 
 // check $ (.)

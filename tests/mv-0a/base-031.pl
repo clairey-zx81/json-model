@@ -51,11 +51,7 @@ sub json_model_2($$$)
             }
         }
     }
-    if (! $res)
-    {
-        return 0;
-    }
-    return 1;
+    return $res;
 }
 
 # check $ (.)

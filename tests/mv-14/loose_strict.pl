@@ -41,11 +41,7 @@ sub json_model_5($$$)
     $pval = $$val{'li'};
     # .'$loose'.li
     $res = jm_is_integer($pval) && $pval >= 0;
-    if (! $res)
-    {
-        return 0;
-    }
-    return 1;
+    return $res;
 }
 
 # check $strict (.'$strict')
@@ -72,11 +68,7 @@ sub json_model_6($$$)
     $pval = $$val{'si'};
     # .'$strict'.si
     $res = jm_is_integer($pval) && $pval >= 0;
-    if (! $res)
-    {
-        return 0;
-    }
-    return 1;
+    return $res;
 }
 
 # check $combined (.'$combined')
@@ -113,11 +105,7 @@ sub json_model_4($$$)
     $pval = $$val{'si'};
     # .'$combined'.si
     $res = jm_is_integer($pval) && $pval >= 0;
-    if (! $res)
-    {
-        return 0;
-    }
-    return 1;
+    return $res;
 }
 
 # check $ (.)

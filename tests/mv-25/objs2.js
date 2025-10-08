@@ -44,11 +44,7 @@ function json_model_2(val, path, rep)
     pval = val["y"];
     // .'$bla'.y
     res = (typeof pval === 'number' || pval instanceof Number);
-    if (! res)
-    {
-        return false;
-    }
-    return true;
+    return res;
 }
 
 // check $foo (.'$foo')

@@ -358,11 +358,8 @@ $$ LANGUAGE PLpgSQL;
 CREATE OR REPLACE FUNCTION _jm_obj_1(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
-  IF NOT (JSONB_TYPEOF(val) = 'object') THEN
-    RETURN FALSE;
-  END IF;
+  RETURN JSONB_TYPEOF(val) = 'object';
   -- accept any object
-  RETURN TRUE;
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -418,11 +415,8 @@ $$ LANGUAGE PLpgSQL;
 CREATE OR REPLACE FUNCTION _jm_obj_3(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
-  IF NOT (JSONB_TYPEOF(val) = 'object') THEN
-    RETURN FALSE;
-  END IF;
+  RETURN JSONB_TYPEOF(val) = 'object';
   -- accept any object
-  RETURN TRUE;
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -485,10 +479,7 @@ BEGIN
       RETURN FALSE;
     END IF;
   END LOOP;
-  IF must_count <> 1 THEN
-    RETURN FALSE;
-  END IF;
-  RETURN TRUE;
+  RETURN must_count = 1;
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -496,11 +487,8 @@ $$ LANGUAGE PLpgSQL;
 CREATE OR REPLACE FUNCTION _jm_obj_5(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
-  IF NOT (JSONB_TYPEOF(val) = 'object') THEN
-    RETURN FALSE;
-  END IF;
+  RETURN JSONB_TYPEOF(val) = 'object';
   -- accept any object
-  RETURN TRUE;
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -563,10 +551,7 @@ BEGIN
       RETURN FALSE;
     END IF;
   END LOOP;
-  IF must_count <> 1 THEN
-    RETURN FALSE;
-  END IF;
-  RETURN TRUE;
+  RETURN must_count = 1;
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -574,11 +559,8 @@ $$ LANGUAGE PLpgSQL;
 CREATE OR REPLACE FUNCTION _jm_obj_7(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
-  IF NOT (JSONB_TYPEOF(val) = 'object') THEN
-    RETURN FALSE;
-  END IF;
+  RETURN JSONB_TYPEOF(val) = 'object';
   -- accept any object
-  RETURN TRUE;
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -641,10 +623,7 @@ BEGIN
       RETURN FALSE;
     END IF;
   END LOOP;
-  IF must_count <> 1 THEN
-    RETURN FALSE;
-  END IF;
-  RETURN TRUE;
+  RETURN must_count = 1;
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -652,11 +631,8 @@ $$ LANGUAGE PLpgSQL;
 CREATE OR REPLACE FUNCTION _jm_obj_9(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
-  IF NOT (JSONB_TYPEOF(val) = 'object') THEN
-    RETURN FALSE;
-  END IF;
+  RETURN JSONB_TYPEOF(val) = 'object';
   -- accept any object
-  RETURN TRUE;
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -719,10 +695,7 @@ BEGIN
       RETURN FALSE;
     END IF;
   END LOOP;
-  IF must_count <> 1 THEN
-    RETURN FALSE;
-  END IF;
-  RETURN TRUE;
+  RETURN must_count = 1;
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -730,11 +703,8 @@ $$ LANGUAGE PLpgSQL;
 CREATE OR REPLACE FUNCTION _jm_obj_11(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
-  IF NOT (JSONB_TYPEOF(val) = 'object') THEN
-    RETURN FALSE;
-  END IF;
+  RETURN JSONB_TYPEOF(val) = 'object';
   -- accept any object
-  RETURN TRUE;
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -836,10 +806,7 @@ BEGIN
       RETURN FALSE;
     END IF;
   END LOOP;
-  IF must_count <> 1 THEN
-    RETURN FALSE;
-  END IF;
-  RETURN TRUE;
+  RETURN must_count = 1;
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -988,11 +955,8 @@ $$ LANGUAGE PLpgSQL;
 CREATE OR REPLACE FUNCTION _jm_obj_14(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
-  IF NOT (JSONB_TYPEOF(val) = 'object') THEN
-    RETURN FALSE;
-  END IF;
+  RETURN JSONB_TYPEOF(val) = 'object';
   -- accept any object
-  RETURN TRUE;
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -1055,11 +1019,8 @@ $$ LANGUAGE PLpgSQL;
 CREATE OR REPLACE FUNCTION _jm_obj_16(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
-  IF NOT (JSONB_TYPEOF(val) = 'object') THEN
-    RETURN FALSE;
-  END IF;
+  RETURN JSONB_TYPEOF(val) = 'object';
   -- accept any object
-  RETURN TRUE;
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -1163,11 +1124,8 @@ $$ LANGUAGE PLpgSQL;
 CREATE OR REPLACE FUNCTION _jm_obj_17(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
-  IF NOT (JSONB_TYPEOF(val) = 'object') THEN
-    RETURN FALSE;
-  END IF;
+  RETURN JSONB_TYPEOF(val) = 'object';
   -- accept any object
-  RETURN TRUE;
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -1244,11 +1202,8 @@ $$ LANGUAGE PLpgSQL;
 CREATE OR REPLACE FUNCTION _jm_obj_20(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
-  IF NOT (JSONB_TYPEOF(val) = 'object') THEN
-    RETURN FALSE;
-  END IF;
+  RETURN JSONB_TYPEOF(val) = 'object';
   -- accept any object
-  RETURN TRUE;
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -1311,11 +1266,8 @@ $$ LANGUAGE PLpgSQL;
 CREATE OR REPLACE FUNCTION _jm_obj_22(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
-  IF NOT (JSONB_TYPEOF(val) = 'object') THEN
-    RETURN FALSE;
-  END IF;
+  RETURN JSONB_TYPEOF(val) = 'object';
   -- accept any object
-  RETURN TRUE;
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -1403,11 +1355,8 @@ $$ LANGUAGE PLpgSQL;
 CREATE OR REPLACE FUNCTION _jm_obj_23(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
-  IF NOT (JSONB_TYPEOF(val) = 'object') THEN
-    RETURN FALSE;
-  END IF;
+  RETURN JSONB_TYPEOF(val) = 'object';
   -- accept any object
-  RETURN TRUE;
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -1491,10 +1440,7 @@ BEGIN
       RETURN FALSE;
     END IF;
   END LOOP;
-  IF must_count <> 1 THEN
-    RETURN FALSE;
-  END IF;
-  RETURN TRUE;
+  RETURN must_count = 1;
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -1502,11 +1448,8 @@ $$ LANGUAGE PLpgSQL;
 CREATE OR REPLACE FUNCTION _jm_obj_26(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
-  IF NOT (JSONB_TYPEOF(val) = 'object') THEN
-    RETURN FALSE;
-  END IF;
+  RETURN JSONB_TYPEOF(val) = 'object';
   -- accept any object
-  RETURN TRUE;
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -1569,11 +1512,8 @@ $$ LANGUAGE PLpgSQL;
 CREATE OR REPLACE FUNCTION _jm_obj_28(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
-  IF NOT (JSONB_TYPEOF(val) = 'object') THEN
-    RETURN FALSE;
-  END IF;
+  RETURN JSONB_TYPEOF(val) = 'object';
   -- accept any object
-  RETURN TRUE;
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -1661,11 +1601,8 @@ $$ LANGUAGE PLpgSQL;
 CREATE OR REPLACE FUNCTION _jm_obj_29(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
-  IF NOT (JSONB_TYPEOF(val) = 'object') THEN
-    RETURN FALSE;
-  END IF;
+  RETURN JSONB_TYPEOF(val) = 'object';
   -- accept any object
-  RETURN TRUE;
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -1749,10 +1686,7 @@ BEGIN
       RETURN FALSE;
     END IF;
   END LOOP;
-  IF must_count <> 1 THEN
-    RETURN FALSE;
-  END IF;
-  RETURN TRUE;
+  RETURN must_count = 1;
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -1760,11 +1694,8 @@ $$ LANGUAGE PLpgSQL;
 CREATE OR REPLACE FUNCTION _jm_obj_32(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
-  IF NOT (JSONB_TYPEOF(val) = 'object') THEN
-    RETURN FALSE;
-  END IF;
+  RETURN JSONB_TYPEOF(val) = 'object';
   -- accept any object
-  RETURN TRUE;
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -1827,11 +1758,8 @@ $$ LANGUAGE PLpgSQL;
 CREATE OR REPLACE FUNCTION _jm_obj_34(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
-  IF NOT (JSONB_TYPEOF(val) = 'object') THEN
-    RETURN FALSE;
-  END IF;
+  RETURN JSONB_TYPEOF(val) = 'object';
   -- accept any object
-  RETURN TRUE;
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -1919,11 +1847,8 @@ $$ LANGUAGE PLpgSQL;
 CREATE OR REPLACE FUNCTION _jm_obj_35(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
-  IF NOT (JSONB_TYPEOF(val) = 'object') THEN
-    RETURN FALSE;
-  END IF;
+  RETURN JSONB_TYPEOF(val) = 'object';
   -- accept any object
-  RETURN TRUE;
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -2007,10 +1932,7 @@ BEGIN
       RETURN FALSE;
     END IF;
   END LOOP;
-  IF must_count <> 1 THEN
-    RETURN FALSE;
-  END IF;
-  RETURN TRUE;
+  RETURN must_count = 1;
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -2018,11 +1940,8 @@ $$ LANGUAGE PLpgSQL;
 CREATE OR REPLACE FUNCTION _jm_obj_38(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
-  IF NOT (JSONB_TYPEOF(val) = 'object') THEN
-    RETURN FALSE;
-  END IF;
+  RETURN JSONB_TYPEOF(val) = 'object';
   -- accept any object
-  RETURN TRUE;
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -2085,11 +2004,8 @@ $$ LANGUAGE PLpgSQL;
 CREATE OR REPLACE FUNCTION _jm_obj_40(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
-  IF NOT (JSONB_TYPEOF(val) = 'object') THEN
-    RETURN FALSE;
-  END IF;
+  RETURN JSONB_TYPEOF(val) = 'object';
   -- accept any object
-  RETURN TRUE;
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -2177,11 +2093,8 @@ $$ LANGUAGE PLpgSQL;
 CREATE OR REPLACE FUNCTION _jm_obj_41(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
-  IF NOT (JSONB_TYPEOF(val) = 'object') THEN
-    RETURN FALSE;
-  END IF;
+  RETURN JSONB_TYPEOF(val) = 'object';
   -- accept any object
-  RETURN TRUE;
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -2265,10 +2178,7 @@ BEGIN
       RETURN FALSE;
     END IF;
   END LOOP;
-  IF must_count <> 1 THEN
-    RETURN FALSE;
-  END IF;
-  RETURN TRUE;
+  RETURN must_count = 1;
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -2300,11 +2210,8 @@ $$ LANGUAGE PLpgSQL;
 CREATE OR REPLACE FUNCTION _jm_obj_43(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
-  IF NOT (JSONB_TYPEOF(val) = 'object') THEN
-    RETURN FALSE;
-  END IF;
+  RETURN JSONB_TYPEOF(val) = 'object';
   -- accept any object
-  RETURN TRUE;
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -2368,11 +2275,8 @@ $$ LANGUAGE PLpgSQL;
 CREATE OR REPLACE FUNCTION _jm_obj_44(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
-  IF NOT (JSONB_TYPEOF(val) = 'object') THEN
-    RETURN FALSE;
-  END IF;
+  RETURN JSONB_TYPEOF(val) = 'object';
   -- accept any object
-  RETURN TRUE;
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -2474,11 +2378,8 @@ CREATE OR REPLACE FUNCTION _jm_f_5(val JSONB, path TEXT[], rep jm_report_entry[]
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
   -- .'$Model#Root'.'|'.0.'.schema'
-  IF NOT (JSONB_TYPEOF(val) = 'object') THEN
-    RETURN FALSE;
-  END IF;
+  RETURN JSONB_TYPEOF(val) = 'object';
   -- accept any object
-  RETURN TRUE;
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -2545,10 +2446,7 @@ BEGIN
       RETURN FALSE;
     END IF;
   END LOOP;
-  IF must_count <> 1 THEN
-    RETURN FALSE;
-  END IF;
-  RETURN TRUE;
+  RETURN must_count = 1;
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -2651,11 +2549,8 @@ $$ LANGUAGE PLpgSQL;
 CREATE OR REPLACE FUNCTION _jm_obj_46(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
-  IF NOT (JSONB_TYPEOF(val) = 'object') THEN
-    RETURN FALSE;
-  END IF;
+  RETURN JSONB_TYPEOF(val) = 'object';
   -- accept any object
-  RETURN TRUE;
 END;
 $$ LANGUAGE PLpgSQL;
 

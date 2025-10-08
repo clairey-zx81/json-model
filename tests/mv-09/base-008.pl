@@ -65,11 +65,7 @@ sub json_model_1($$$)
             return 0;
         }
     }
-    if ($must_count != 2)
-    {
-        return 0;
-    }
-    return 1;
+    return $must_count == 2;
 }
 
 

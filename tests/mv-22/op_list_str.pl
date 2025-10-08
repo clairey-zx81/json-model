@@ -51,11 +51,7 @@ sub _jm_obj_0($$$)
     $pval = $$val{'foo'};
     # .'|'.0.foo
     $res = jm_is_integer($pval) && $pval >= 1;
-    if (! $res)
-    {
-        return 0;
-    }
-    return 1;
+    return $res;
 }
 
 
@@ -92,11 +88,7 @@ sub _jm_obj_1($$$)
     $pval = $$val{'bla'};
     # .'|'.1.bla
     $res = jm_is_integer($pval) && $pval >= 1;
-    if (! $res)
-    {
-        return 0;
-    }
-    return 1;
+    return $res;
 }
 
 

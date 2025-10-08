@@ -61,11 +61,7 @@ sub json_model_3($$$)
     $pval = $$val{'b'};
     # .'$x'.b
     $res = jm_is_string($pval) && $pval eq 'cst_01';
-    if (! $res)
-    {
-        return 0;
-    }
-    return 1;
+    return $res;
 }
 
 # check $y (.'$y')
@@ -102,11 +98,7 @@ sub json_model_4($$$)
     $pval = $$val{'d'};
     # .'$y'.d
     $res = jm_is_string($pval) && $pval eq 'cst_01';
-    if (! $res)
-    {
-        return 0;
-    }
-    return 1;
+    return $res;
 }
 
 # check $ (.)
@@ -165,11 +157,7 @@ sub json_model_1($$$)
     $pval = $$val{'d'};
     # .d
     $res = jm_is_string($pval) && $pval eq 'cst_01';
-    if (! $res)
-    {
-        return 0;
-    }
-    return 1;
+    return $res;
 }
 
 

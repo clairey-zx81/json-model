@@ -36,10 +36,7 @@ BEGIN
   pval := val -> 'f';
   -- .f
   res := JSONB_TYPEOF(pval) = 'number';
-  IF NOT res THEN
-    RETURN FALSE;
-  END IF;
-  RETURN TRUE;
+  RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
 

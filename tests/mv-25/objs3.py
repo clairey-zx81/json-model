@@ -42,9 +42,7 @@ def json_model_2(val: Jsonable, path: Path, rep: Report) -> bool:
         return False
     # .'$book'.author
     res = isinstance(pval, str)
-    if not res:
-        return False
-    return True
+    return res
 
 # check $ (.)
 def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:

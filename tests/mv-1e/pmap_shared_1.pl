@@ -86,11 +86,7 @@ sub json_model_2($$$)
             }
         }
     }
-    if ($must_count != 4)
-    {
-        return 0;
-    }
-    return 1;
+    return $must_count == 4;
 }
 
 # check $Oo1 (.'$Oo1')
@@ -163,11 +159,7 @@ sub json_model_3($$$)
             return 0;
         }
     }
-    if ($must_count != 1)
-    {
-        return 0;
-    }
-    return 1;
+    return $must_count == 1;
 }
 
 # check $Oo2 (.'$Oo2')
@@ -243,11 +235,7 @@ sub json_model_4($$$)
             return 0;
         }
     }
-    if ($must_count != 4)
-    {
-        return 0;
-    }
-    return 1;
+    return $must_count == 4;
 }
 
 # check $ (.)

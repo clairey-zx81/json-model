@@ -54,11 +54,7 @@ sub _jm_obj_0($$$)
     # .'|'.5.v
     # "/./s"
     $res = jm_is_string($pval) && length $pval > 0;
-    if (! $res)
-    {
-        return 0;
-    }
-    return 1;
+    return $res;
 }
 
 # object .'|'.4
@@ -94,11 +90,7 @@ sub _jm_obj_1($$$)
     $pval = $$val{'v'};
     # .'|'.4.v
     $res = jm_is_string($pval);
-    if (! $res)
-    {
-        return 0;
-    }
-    return 1;
+    return $res;
 }
 
 # object .'|'.3
@@ -134,11 +126,7 @@ sub _jm_obj_2($$$)
     $pval = $$val{'v'};
     # .'|'.3.v
     $res = jm_is_numeric($pval) && $pval >= 0.0;
-    if (! $res)
-    {
-        return 0;
-    }
-    return 1;
+    return $res;
 }
 
 # object .'|'.2
@@ -174,11 +162,7 @@ sub _jm_obj_3($$$)
     $pval = $$val{'v'};
     # .'|'.2.v
     $res = jm_is_integer($pval) && $pval >= 0;
-    if (! $res)
-    {
-        return 0;
-    }
-    return 1;
+    return $res;
 }
 
 # object .'|'.1
@@ -214,11 +198,7 @@ sub _jm_obj_4($$$)
     $pval = $$val{'v'};
     # .'|'.1.v
     $res = jm_is_boolean($pval);
-    if (! $res)
-    {
-        return 0;
-    }
-    return 1;
+    return $res;
 }
 
 # object .'|'.0
@@ -254,11 +234,7 @@ sub _jm_obj_5($$$)
     $pval = $$val{'v'};
     # .'|'.0.v
     $res = !defined($pval);
-    if (! $res)
-    {
-        return 0;
-    }
-    return 1;
+    return $res;
 }
 
 # check $ (.)

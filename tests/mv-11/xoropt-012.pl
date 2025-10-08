@@ -74,11 +74,7 @@ sub _jm_obj_0($$$)
     $pval = $$val{'a'};
     # .'|'.4.a
     $res = jm_is_boolean($pval) && $pval == 0;
-    if (! $res)
-    {
-        return 0;
-    }
-    return 1;
+    return $res;
 }
 
 # object .'|'.3
@@ -103,11 +99,7 @@ sub _jm_obj_1($$$)
     $pval = $$val{'a'};
     # .'|'.3.a
     $res = jm_is_boolean($pval) && $pval == 1;
-    if (! $res)
-    {
-        return 0;
-    }
-    return 1;
+    return $res;
 }
 
 # object .'|'.2
@@ -132,11 +124,7 @@ sub _jm_obj_2($$$)
     $pval = $$val{'a'};
     # .'|'.2.a
     $res = jm_is_numeric($pval) && $pval == 1.0;
-    if (! $res)
-    {
-        return 0;
-    }
-    return 1;
+    return $res;
 }
 
 # object .'|'.1
@@ -161,11 +149,7 @@ sub _jm_obj_3($$$)
     $pval = $$val{'a'};
     # .'|'.1.a
     $res = jm_is_numeric($pval) && $pval == 10.0;
-    if (! $res)
-    {
-        return 0;
-    }
-    return 1;
+    return $res;
 }
 
 # object .'|'.0
@@ -190,11 +174,7 @@ sub _jm_obj_4($$$)
     $pval = $$val{'a'};
     # .'|'.0.a
     $res = !defined($pval);
-    if (! $res)
-    {
-        return 0;
-    }
-    return 1;
+    return $res;
 }
 
 # check $ (.)

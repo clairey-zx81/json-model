@@ -51,11 +51,7 @@ sub _jm_obj_0($$$)
     $pval = $$val{'a'};
     # .'|'.0.a
     $res = jm_is_string($pval);
-    if (! $res)
-    {
-        return 0;
-    }
-    return 1;
+    return $res;
 }
 
 # object .'|'.1
@@ -91,11 +87,7 @@ sub _jm_obj_1($$$)
     $pval = $$val{'b'};
     # .'|'.1.b
     $res = jm_is_string($pval);
-    if (! $res)
-    {
-        return 0;
-    }
-    return 1;
+    return $res;
 }
 
 # object .'|'.2
@@ -131,11 +123,7 @@ sub _jm_obj_2($$$)
     $pval = $$val{'c'};
     # .'|'.2.c
     $res = jm_is_string($pval);
-    if (! $res)
-    {
-        return 0;
-    }
-    return 1;
+    return $res;
 }
 
 

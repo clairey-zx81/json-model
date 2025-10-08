@@ -34,10 +34,7 @@ BEGIN
   pval := val -> 'titre';
   -- .movie.'|'.0.titre
   res := JSONB_TYPEOF(pval) = 'string';
-  IF NOT res THEN
-    RETURN FALSE;
-  END IF;
-  RETURN TRUE;
+  RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -70,10 +67,7 @@ BEGIN
   pval := val -> 'title';
   -- .movie.'|'.1.title
   res := JSONB_TYPEOF(pval) = 'string';
-  IF NOT res THEN
-    RETURN FALSE;
-  END IF;
-  RETURN TRUE;
+  RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -106,10 +100,7 @@ BEGIN
   pval := val -> 'Title';
   -- .movie.'|'.2.Title
   res := JSONB_TYPEOF(pval) = 'string';
-  IF NOT res THEN
-    RETURN FALSE;
-  END IF;
-  RETURN TRUE;
+  RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -142,10 +133,7 @@ BEGIN
   pval := val -> 'suti';
   -- .movie.'|'.3.suti
   res := JSONB_TYPEOF(pval) = 'string';
-  IF NOT res THEN
-    RETURN FALSE;
-  END IF;
-  RETURN TRUE;
+  RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -188,10 +176,7 @@ BEGIN
       res := FALSE;
     END IF;
   END IF;
-  IF NOT res THEN
-    RETURN FALSE;
-  END IF;
-  RETURN TRUE;
+  RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
 

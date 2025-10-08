@@ -16,18 +16,7 @@ var check_model_map = new Map()
 function json_model_2(val, path, rep)
 {
     // .'$empty'
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
-    {
-        return false;
-    }
-    if (Object.keys(val).length == 0)
-    {
-        return true;
-    }
-    else
-    {
-        return false;
-    }
+    return Object.prototype.toString.call(val) === '[object Object]' && Object.keys(val).length == 0;
 }
 
 

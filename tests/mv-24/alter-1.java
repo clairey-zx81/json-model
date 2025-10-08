@@ -73,11 +73,7 @@ public class alter_1 extends ModelChecker
         }
         // .'$d'.d
         res = json.isString(pval);
-        if (! res)
-        {
-            return false;
-        }
-        return true;
+        return res;
     }
 
 
@@ -112,11 +108,7 @@ public class alter_1 extends ModelChecker
         }
         // .'$ef'.ef
         res = json.isString(pval);
-        if (! res)
-        {
-            return false;
-        }
-        return true;
+        return res;
     }
 
     // object .'$alternative'.'|'.0
@@ -149,11 +141,7 @@ public class alter_1 extends ModelChecker
         }
         // .'$alternative'.'|'.0.a
         res = json.isString(pval);
-        if (! res)
-        {
-            return false;
-        }
-        return true;
+        return res;
     }
 
 
@@ -187,11 +175,7 @@ public class alter_1 extends ModelChecker
         }
         // .'$alternative'.'|'.1.bc
         res = json.isString(pval);
-        if (! res)
-        {
-            return false;
-        }
-        return true;
+        return res;
     }
 
     // object .'$alternative'.'|'.2
@@ -224,11 +208,7 @@ public class alter_1 extends ModelChecker
         }
         // .'$alternative'.'|'.2.g
         res = json.isString(pval);
-        if (! res)
-        {
-            return false;
-        }
-        return true;
+        return res;
     }
 
     // object .'$alternative'.'|'.3
@@ -261,11 +241,7 @@ public class alter_1 extends ModelChecker
         }
         // .'$alternative'.'|'.3.hi
         res = json.isString(pval);
-        if (! res)
-        {
-            return false;
-        }
-        return true;
+        return res;
     }
 
 

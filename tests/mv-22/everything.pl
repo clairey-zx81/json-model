@@ -194,11 +194,7 @@ sub json_model_4($$$)
     $pval = $$val{'b'};
     # .'$ab'.b
     $res = jm_is_integer($pval) && $pval >= 0;
-    if (! $res)
-    {
-        return 0;
-    }
-    return 1;
+    return $res;
 }
 
 # check $cd (.'$cd')
@@ -235,11 +231,7 @@ sub json_model_5($$$)
     $pval = $$val{'d'};
     # .'$cd'.d
     $res = jm_is_integer($pval) && $pval >= 0;
-    if (! $res)
-    {
-        return 0;
-    }
-    return 1;
+    return $res;
 }
 
 # check json_model_1_map_and (.and)
@@ -691,12 +683,8 @@ sub _jm_f_18($$$)
 sub _jm_obj_0($$$)
 {
     my ($val, $path, $rep) = @_;
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return jm_is_object($val);
     # accept any object
-    return 1;
 }
 
 # check _jm_f_9_map_cio0 (.constraints.cio0)
@@ -719,12 +707,8 @@ sub _jm_f_19($$$)
 sub _jm_obj_1($$$)
 {
     my ($val, $path, $rep) = @_;
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return jm_is_object($val);
     # accept any object
-    return 1;
 }
 
 # check _jm_f_9_map_cio1 (.constraints.cio1)
@@ -747,12 +731,8 @@ sub _jm_f_20($$$)
 sub _jm_obj_2($$$)
 {
     my ($val, $path, $rep) = @_;
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return jm_is_object($val);
     # accept any object
-    return 1;
 }
 
 # check _jm_f_9_map_cio2 (.constraints.cio2)
@@ -1402,11 +1382,7 @@ sub _jm_obj_3($$$)
             return 0;
         }
     }
-    if ($must_count != 1)
-    {
-        return 0;
-    }
-    return 1;
+    return $must_count == 1;
 }
 
 # object .merge.m1.'|'.1
@@ -1442,11 +1418,7 @@ sub _jm_obj_4($$$)
     $pval = $$val{'c'};
     # .merge.m1.'|'.1.c
     $res = jm_is_integer($pval) && $pval >= 1;
-    if (! $res)
-    {
-        return 0;
-    }
-    return 1;
+    return $res;
 }
 
 # object .merge.m1.'|'.0
@@ -1482,11 +1454,7 @@ sub _jm_obj_5($$$)
     $pval = $$val{'b'};
     # .merge.m1.'|'.0.b
     $res = jm_is_integer($pval) && $pval >= 1;
-    if (! $res)
-    {
-        return 0;
-    }
-    return 1;
+    return $res;
 }
 
 # object .merge.m2.'|'.1
@@ -1522,11 +1490,7 @@ sub _jm_obj_6($$$)
     $pval = $$val{'c'};
     # .merge.m2.'|'.1.c
     $res = jm_is_integer($pval) && $pval >= 1;
-    if (! $res)
-    {
-        return 0;
-    }
-    return 1;
+    return $res;
 }
 
 # object .merge.m2.'|'.0
@@ -1562,11 +1526,7 @@ sub _jm_obj_7($$$)
     $pval = $$val{'b'};
     # .merge.m2.'|'.0.b
     $res = jm_is_integer($pval) && $pval >= 1;
-    if (! $res)
-    {
-        return 0;
-    }
-    return 1;
+    return $res;
 }
 
 # object .merge.m3.'|'.3
@@ -1602,11 +1562,7 @@ sub _jm_obj_8($$$)
     $pval = $$val{'d'};
     # .merge.m3.'|'.3.d
     $res = jm_is_integer($pval) && $pval >= 1;
-    if (! $res)
-    {
-        return 0;
-    }
-    return 1;
+    return $res;
 }
 
 # object .merge.m3.'|'.2
@@ -1642,11 +1598,7 @@ sub _jm_obj_9($$$)
     $pval = $$val{'c'};
     # .merge.m3.'|'.2.c
     $res = jm_is_integer($pval) && $pval >= 1;
-    if (! $res)
-    {
-        return 0;
-    }
-    return 1;
+    return $res;
 }
 
 # object .merge.m3.'|'.1
@@ -1682,11 +1634,7 @@ sub _jm_obj_10($$$)
     $pval = $$val{'d'};
     # .merge.m3.'|'.1.d
     $res = jm_is_integer($pval) && $pval >= 1;
-    if (! $res)
-    {
-        return 0;
-    }
-    return 1;
+    return $res;
 }
 
 # object .merge.m3.'|'.0
@@ -1722,11 +1670,7 @@ sub _jm_obj_11($$$)
     $pval = $$val{'c'};
     # .merge.m3.'|'.0.c
     $res = jm_is_integer($pval) && $pval >= 1;
-    if (! $res)
-    {
-        return 0;
-    }
-    return 1;
+    return $res;
 }
 
 # object .merge.m4
@@ -1784,11 +1728,7 @@ sub _jm_obj_12($$$)
     $pval = $$val{'d'};
     # .merge.m4.d
     $res = jm_is_integer($pval) && $pval >= 0;
-    if (! $res)
-    {
-        return 0;
-    }
-    return 1;
+    return $res;
 }
 
 # check json_model_1_map_merge (.merge)
@@ -1960,18 +1900,7 @@ sub _jm_f_61($$$)
 {
     my ($val, $path, $rep) = @_;
     # .object.o0
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
-    if (jm_obj_size($val) == 0)
-    {
-        return 1;
-    }
-    else
-    {
-        return 0;
-    }
+    return jm_is_object($val) && jm_obj_size($val) == 0;
 }
 
 # check _jm_f_60_map_o1 (.object.o1)
@@ -2019,11 +1948,7 @@ sub _jm_f_62($$$)
     $pval = $$val{'c'};
     # .object.o1.c
     $res = jm_is_integer($pval) && $pval >= 0;
-    if (! $res)
-    {
-        return 0;
-    }
-    return 1;
+    return $res;
 }
 
 # check _jm_f_60_map_o2 (.object.o2)
@@ -2148,12 +2073,8 @@ sub _jm_f_67($$$)
 {
     my ($val, $path, $rep) = @_;
     # .object.o6
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return jm_is_object($val);
     # accept any object
-    return 1;
 }
 
 
@@ -2191,12 +2112,8 @@ sub _jm_f_60($$$)
 sub _jm_obj_13($$$)
 {
     my ($val, $path, $rep) = @_;
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return jm_is_object($val);
     # accept any object
-    return 1;
 }
 
 # check json_model_1_map_or (.or)

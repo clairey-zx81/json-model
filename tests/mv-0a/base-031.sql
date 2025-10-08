@@ -38,10 +38,7 @@ BEGIN
       END IF;
     END LOOP;
   END IF;
-  IF NOT res THEN
-    RETURN FALSE;
-  END IF;
-  RETURN TRUE;
+  RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
 

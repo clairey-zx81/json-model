@@ -311,11 +311,7 @@ sub _jm_obj_1($$$)
     $pval = $$val{'command'};
     # .'$Prompts'.'|'.0.suggestions.'|'.1.command
     $res = jm_is_string($pval);
-    if (! $res)
-    {
-        return 0;
-    }
-    return 1;
+    return $res;
 }
 
 
@@ -341,11 +337,7 @@ sub _jm_obj_2($$$)
     $pval = $$val{'preset'};
     # .'$Prompts'.'|'.0.suggestions.'|'.0.preset
     $res = jm_is_scalar($pval) && jm_is_string($pval) && exists $_jm_cst_2{$pval};
-    if (! $res)
-    {
-        return 0;
-    }
-    return 1;
+    return $res;
 }
 
 # object .'$Prompts'.'|'.0
@@ -429,11 +421,7 @@ sub _jm_obj_0($$$)
             return 0;
         }
     }
-    if ($must_count != 3)
-    {
-        return 0;
-    }
-    return 1;
+    return $must_count == 3;
 }
 
 # object .'$Prompts'.'|'.1
@@ -497,11 +485,7 @@ sub _jm_obj_3($$$)
             return 0;
         }
     }
-    if ($must_count != 3)
-    {
-        return 0;
-    }
-    return 1;
+    return $must_count == 3;
 }
 
 # object .'$Prompts'.'|'.2.options.'@'.0
@@ -553,11 +537,7 @@ sub _jm_obj_5($$$)
             return 0;
         }
     }
-    if ($must_count != 1)
-    {
-        return 0;
-    }
-    return 1;
+    return $must_count == 1;
 }
 
 # object .'$Prompts'.'|'.2
@@ -633,11 +613,7 @@ sub _jm_obj_4($$$)
     {
         $res = jm_is_unique_array($pval, undef, $rep);
     }
-    if (! $res)
-    {
-        return 0;
-    }
-    return 1;
+    return $res;
 }
 
 # object .'$Prompts'.'|'.3
@@ -732,11 +708,7 @@ sub _jm_obj_6($$$)
             return 0;
         }
     }
-    if ($must_count != 4)
-    {
-        return 0;
-    }
-    return 1;
+    return $must_count == 4;
 }
 
 
@@ -947,11 +919,7 @@ sub _jm_obj_7($$$)
             return 0;
         }
     }
-    if ($must_count != 3)
-    {
-        return 0;
-    }
-    return 1;
+    return $must_count == 3;
 }
 
 # check json_model_1_map_customCommands (.customCommands)
@@ -1103,11 +1071,7 @@ sub _jm_obj_8($$$)
     $pval = $$val{'replace'};
     # .git.commitPrefixes.'/./'.replace
     $res = json_model_8($pval, undef, $rep);
-    if (! $res)
-    {
-        return 0;
-    }
-    return 1;
+    return $res;
 }
 
 # check _jm_f_10_map_commitPrefixes (.git.commitPrefixes)

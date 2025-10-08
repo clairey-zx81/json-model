@@ -30,18 +30,7 @@ sub _jm_f_0($$$)
 {
     my ($val, $path, $rep) = @_;
     # .f0
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
-    if (jm_obj_size($val) == 0)
-    {
-        return 1;
-    }
-    else
-    {
-        return 0;
-    }
+    return jm_is_object($val) && jm_obj_size($val) == 0;
 }
 
 # check json_model_1_map_f1 (.f1)
@@ -49,18 +38,7 @@ sub _jm_f_1($$$)
 {
     my ($val, $path, $rep) = @_;
     # .f1
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
-    if (jm_obj_size($val) == 0)
-    {
-        return 1;
-    }
-    else
-    {
-        return 0;
-    }
+    return jm_is_object($val) && jm_obj_size($val) == 0;
 }
 
 # check json_model_1_map_f2 (.f2)
@@ -68,18 +46,7 @@ sub _jm_f_2($$$)
 {
     my ($val, $path, $rep) = @_;
     # .f2
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
-    if (jm_obj_size($val) == 0)
-    {
-        return 1;
-    }
-    else
-    {
-        return 0;
-    }
+    return jm_is_object($val) && jm_obj_size($val) == 0;
 }
 
 # check json_model_1_map_f3 (.f3)
@@ -87,18 +54,7 @@ sub _jm_f_3($$$)
 {
     my ($val, $path, $rep) = @_;
     # .f3
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
-    if (jm_obj_size($val) == 0)
-    {
-        return 1;
-    }
-    else
-    {
-        return 0;
-    }
+    return jm_is_object($val) && jm_obj_size($val) == 0;
 }
 
 # check json_model_1_map_f4 (.f4)
@@ -106,18 +62,7 @@ sub _jm_f_4($$$)
 {
     my ($val, $path, $rep) = @_;
     # .f4
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
-    if (jm_obj_size($val) == 0)
-    {
-        return 1;
-    }
-    else
-    {
-        return 0;
-    }
+    return jm_is_object($val) && jm_obj_size($val) == 0;
 }
 
 # check json_model_1_map_f5 (.f5)
@@ -125,18 +70,7 @@ sub _jm_f_5($$$)
 {
     my ($val, $path, $rep) = @_;
     # .f5
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
-    if (jm_obj_size($val) == 0)
-    {
-        return 1;
-    }
-    else
-    {
-        return 0;
-    }
+    return jm_is_object($val) && jm_obj_size($val) == 0;
 }
 
 # check json_model_1_map_f6 (.f6)
@@ -144,18 +78,7 @@ sub _jm_f_6($$$)
 {
     my ($val, $path, $rep) = @_;
     # .f6
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
-    if (jm_obj_size($val) == 0)
-    {
-        return 1;
-    }
-    else
-    {
-        return 0;
-    }
+    return jm_is_object($val) && jm_obj_size($val) == 0;
 }
 
 # check json_model_1_map_f7 (.f7)
@@ -163,18 +86,7 @@ sub _jm_f_7($$$)
 {
     my ($val, $path, $rep) = @_;
     # .f7
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
-    if (jm_obj_size($val) == 0)
-    {
-        return 1;
-    }
-    else
-    {
-        return 0;
-    }
+    return jm_is_object($val) && jm_obj_size($val) == 0;
 }
 
 # check json_model_1_map_f8 (.f8)
@@ -182,18 +94,7 @@ sub _jm_f_8($$$)
 {
     my ($val, $path, $rep) = @_;
     # .f8
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
-    if (jm_obj_size($val) == 0)
-    {
-        return 1;
-    }
-    else
-    {
-        return 0;
-    }
+    return jm_is_object($val) && jm_obj_size($val) == 0;
 }
 
 # check json_model_1_map_f9 (.f9)
@@ -201,18 +102,7 @@ sub _jm_f_9($$$)
 {
     my ($val, $path, $rep) = @_;
     # .f9
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
-    if (jm_obj_size($val) == 0)
-    {
-        return 1;
-    }
-    else
-    {
-        return 0;
-    }
+    return jm_is_object($val) && jm_obj_size($val) == 0;
 }
 
 

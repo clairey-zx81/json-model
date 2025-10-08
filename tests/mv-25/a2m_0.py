@@ -40,9 +40,7 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
         return False
     # .b
     res = isinstance(pval, int) and not isinstance(pval, bool) and pval >= 0
-    if not res:
-        return False
-    return True
+    return res
 
 
 # initialization guard

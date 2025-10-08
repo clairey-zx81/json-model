@@ -214,11 +214,7 @@ sub json_model_6($$$)
             return 0;
         }
     }
-    if ($must_count != 2)
-    {
-        return 0;
-    }
-    return 1;
+    return $must_count == 2;
 }
 
 
@@ -720,11 +716,7 @@ sub _jm_f_3($$$)
             return 0;
         }
     }
-    if ($must_count != 1)
-    {
-        return 0;
-    }
-    return 1;
+    return $must_count == 1;
 }
 
 # check json_model_1_mup_provides (.provides)
@@ -884,11 +876,7 @@ sub json_model_1($$$)
             return 0;
         }
     }
-    if ($must_count != 7)
-    {
-        return 0;
-    }
-    return 1;
+    return $must_count == 7;
 }
 
 

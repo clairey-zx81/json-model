@@ -117,11 +117,7 @@ public class a2m_1 extends ModelChecker
         }
         // .'$nomerge'.'&'.1.c
         res = json.isInteger(pval) && json.asLong(pval) >= 1;
-        if (! res)
-        {
-            return false;
-        }
-        return true;
+        return res;
     }
 
     // check $nomerge (.'$nomerge')

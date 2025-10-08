@@ -16,180 +16,70 @@ var check_model_map = new Map()
 function _jm_f_0(val, path, rep)
 {
     // .f0
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
-    {
-        return false;
-    }
-    if (Object.keys(val).length == 0)
-    {
-        return true;
-    }
-    else
-    {
-        return false;
-    }
+    return Object.prototype.toString.call(val) === '[object Object]' && Object.keys(val).length == 0;
 }
 
 // check json_model_1_map_f1 (.f1)
 function _jm_f_1(val, path, rep)
 {
     // .f1
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
-    {
-        return false;
-    }
-    if (Object.keys(val).length == 0)
-    {
-        return true;
-    }
-    else
-    {
-        return false;
-    }
+    return Object.prototype.toString.call(val) === '[object Object]' && Object.keys(val).length == 0;
 }
 
 // check json_model_1_map_f2 (.f2)
 function _jm_f_2(val, path, rep)
 {
     // .f2
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
-    {
-        return false;
-    }
-    if (Object.keys(val).length == 0)
-    {
-        return true;
-    }
-    else
-    {
-        return false;
-    }
+    return Object.prototype.toString.call(val) === '[object Object]' && Object.keys(val).length == 0;
 }
 
 // check json_model_1_map_f3 (.f3)
 function _jm_f_3(val, path, rep)
 {
     // .f3
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
-    {
-        return false;
-    }
-    if (Object.keys(val).length == 0)
-    {
-        return true;
-    }
-    else
-    {
-        return false;
-    }
+    return Object.prototype.toString.call(val) === '[object Object]' && Object.keys(val).length == 0;
 }
 
 // check json_model_1_map_f4 (.f4)
 function _jm_f_4(val, path, rep)
 {
     // .f4
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
-    {
-        return false;
-    }
-    if (Object.keys(val).length == 0)
-    {
-        return true;
-    }
-    else
-    {
-        return false;
-    }
+    return Object.prototype.toString.call(val) === '[object Object]' && Object.keys(val).length == 0;
 }
 
 // check json_model_1_map_f5 (.f5)
 function _jm_f_5(val, path, rep)
 {
     // .f5
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
-    {
-        return false;
-    }
-    if (Object.keys(val).length == 0)
-    {
-        return true;
-    }
-    else
-    {
-        return false;
-    }
+    return Object.prototype.toString.call(val) === '[object Object]' && Object.keys(val).length == 0;
 }
 
 // check json_model_1_map_f6 (.f6)
 function _jm_f_6(val, path, rep)
 {
     // .f6
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
-    {
-        return false;
-    }
-    if (Object.keys(val).length == 0)
-    {
-        return true;
-    }
-    else
-    {
-        return false;
-    }
+    return Object.prototype.toString.call(val) === '[object Object]' && Object.keys(val).length == 0;
 }
 
 // check json_model_1_map_f7 (.f7)
 function _jm_f_7(val, path, rep)
 {
     // .f7
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
-    {
-        return false;
-    }
-    if (Object.keys(val).length == 0)
-    {
-        return true;
-    }
-    else
-    {
-        return false;
-    }
+    return Object.prototype.toString.call(val) === '[object Object]' && Object.keys(val).length == 0;
 }
 
 // check json_model_1_map_f8 (.f8)
 function _jm_f_8(val, path, rep)
 {
     // .f8
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
-    {
-        return false;
-    }
-    if (Object.keys(val).length == 0)
-    {
-        return true;
-    }
-    else
-    {
-        return false;
-    }
+    return Object.prototype.toString.call(val) === '[object Object]' && Object.keys(val).length == 0;
 }
 
 // check json_model_1_map_f9 (.f9)
 function _jm_f_9(val, path, rep)
 {
     // .f9
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
-    {
-        return false;
-    }
-    if (Object.keys(val).length == 0)
-    {
-        return true;
-    }
-    else
-    {
-        return false;
-    }
+    return Object.prototype.toString.call(val) === '[object Object]' && Object.keys(val).length == 0;
 }
 
 

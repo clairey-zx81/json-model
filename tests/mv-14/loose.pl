@@ -38,11 +38,7 @@ sub json_model_1($$$)
     $pval = $$val{'li'};
     # .li
     $res = jm_is_integer($pval) && $pval >= 0;
-    if (! $res)
-    {
-        return 0;
-    }
-    return 1;
+    return $res;
 }
 
 

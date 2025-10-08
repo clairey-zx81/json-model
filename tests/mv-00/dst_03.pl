@@ -49,11 +49,7 @@ sub _jm_obj_0($$$)
     $pval = $$val{'c'};
     # .'|'.1.c
     $res = jm_is_string($pval);
-    if (! $res)
-    {
-        return 0;
-    }
-    return 1;
+    return $res;
 }
 
 # object .'|'.0
@@ -78,11 +74,7 @@ sub _jm_obj_1($$$)
     $pval = $$val{'a'};
     # .'|'.0.a
     $res = jm_is_integer($pval) && $pval >= 0;
-    if (! $res)
-    {
-        return 0;
-    }
-    return 1;
+    return $res;
 }
 
 # check $ (.)

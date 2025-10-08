@@ -51,11 +51,7 @@ sub _jm_obj_0($$$)
     $pval = $$val{'titre'};
     # .movie.'|'.0.titre
     $res = jm_is_string($pval);
-    if (! $res)
-    {
-        return 0;
-    }
-    return 1;
+    return $res;
 }
 
 # object .movie.'|'.1
@@ -91,11 +87,7 @@ sub _jm_obj_1($$$)
     $pval = $$val{'title'};
     # .movie.'|'.1.title
     $res = jm_is_string($pval);
-    if (! $res)
-    {
-        return 0;
-    }
-    return 1;
+    return $res;
 }
 
 # object .movie.'|'.2
@@ -131,11 +123,7 @@ sub _jm_obj_2($$$)
     $pval = $$val{'suti'};
     # .movie.'|'.2.suti
     $res = jm_is_string($pval);
-    if (! $res)
-    {
-        return 0;
-    }
-    return 1;
+    return $res;
 }
 
 
@@ -184,11 +172,7 @@ sub json_model_1($$$)
             $res = 0;
         }
     }
-    if (! $res)
-    {
-        return 0;
-    }
-    return 1;
+    return $res;
 }
 
 

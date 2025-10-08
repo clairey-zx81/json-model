@@ -2,8 +2,9 @@
 
 ## Current Tasks
 
-- [x] optim: skip map target functions for objects
-- [x] optim: skip map target functions for references
+- [x] static: skip map target functions for objects
+- [x] static: skip map target functions for references
+- [x] optim: add more if simplifications in IR
 - [ ] optim: improve xor-to-or with references
 - [ ] perf: compute performance overhead globally instead of per run
 - [ ] tests: add ir optimized output (too large?)

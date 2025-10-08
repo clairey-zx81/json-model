@@ -26,102 +26,52 @@ check_model_map: PropMap
 # check json_model_1_map_f0 (.f0)
 def _jm_f_0(val: Jsonable, path: Path, rep: Report) -> bool:
     # .f0
-    if not isinstance(val, dict):
-        return False
-    if len(val) == 0:
-        return True
-    else:
-        return False
+    return isinstance(val, dict) and len(val) == 0
 
 # check json_model_1_map_f1 (.f1)
 def _jm_f_1(val: Jsonable, path: Path, rep: Report) -> bool:
     # .f1
-    if not isinstance(val, dict):
-        return False
-    if len(val) == 0:
-        return True
-    else:
-        return False
+    return isinstance(val, dict) and len(val) == 0
 
 # check json_model_1_map_f2 (.f2)
 def _jm_f_2(val: Jsonable, path: Path, rep: Report) -> bool:
     # .f2
-    if not isinstance(val, dict):
-        return False
-    if len(val) == 0:
-        return True
-    else:
-        return False
+    return isinstance(val, dict) and len(val) == 0
 
 # check json_model_1_map_f3 (.f3)
 def _jm_f_3(val: Jsonable, path: Path, rep: Report) -> bool:
     # .f3
-    if not isinstance(val, dict):
-        return False
-    if len(val) == 0:
-        return True
-    else:
-        return False
+    return isinstance(val, dict) and len(val) == 0
 
 # check json_model_1_map_f4 (.f4)
 def _jm_f_4(val: Jsonable, path: Path, rep: Report) -> bool:
     # .f4
-    if not isinstance(val, dict):
-        return False
-    if len(val) == 0:
-        return True
-    else:
-        return False
+    return isinstance(val, dict) and len(val) == 0
 
 # check json_model_1_map_f5 (.f5)
 def _jm_f_5(val: Jsonable, path: Path, rep: Report) -> bool:
     # .f5
-    if not isinstance(val, dict):
-        return False
-    if len(val) == 0:
-        return True
-    else:
-        return False
+    return isinstance(val, dict) and len(val) == 0
 
 # check json_model_1_map_f6 (.f6)
 def _jm_f_6(val: Jsonable, path: Path, rep: Report) -> bool:
     # .f6
-    if not isinstance(val, dict):
-        return False
-    if len(val) == 0:
-        return True
-    else:
-        return False
+    return isinstance(val, dict) and len(val) == 0
 
 # check json_model_1_map_f7 (.f7)
 def _jm_f_7(val: Jsonable, path: Path, rep: Report) -> bool:
     # .f7
-    if not isinstance(val, dict):
-        return False
-    if len(val) == 0:
-        return True
-    else:
-        return False
+    return isinstance(val, dict) and len(val) == 0
 
 # check json_model_1_map_f8 (.f8)
 def _jm_f_8(val: Jsonable, path: Path, rep: Report) -> bool:
     # .f8
-    if not isinstance(val, dict):
-        return False
-    if len(val) == 0:
-        return True
-    else:
-        return False
+    return isinstance(val, dict) and len(val) == 0
 
 # check json_model_1_map_f9 (.f9)
 def _jm_f_9(val: Jsonable, path: Path, rep: Report) -> bool:
     # .f9
-    if not isinstance(val, dict):
-        return False
-    if len(val) == 0:
-        return True
-    else:
-        return False
+    return isinstance(val, dict) and len(val) == 0
 
 
 # check $ (.)

@@ -348,11 +348,7 @@ sub json_model_4($$$)
             return 0;
         }
     }
-    if ($must_count != 2)
-    {
-        return 0;
-    }
-    return 1;
+    return $must_count == 2;
 }
 
 # check $openapi#Info (.'$openapi#Info')
@@ -456,11 +452,7 @@ sub json_model_5($$$)
             return 0;
         }
     }
-    if ($must_count != 2)
-    {
-        return 0;
-    }
-    return 1;
+    return $must_count == 2;
 }
 
 # check $openapi#Contact (.'$openapi#Contact')
@@ -581,11 +573,7 @@ sub _jm_obj_0($$$)
             return 0;
         }
     }
-    if ($must_count != 2)
-    {
-        return 0;
-    }
-    return 1;
+    return $must_count == 2;
 }
 
 # object .'$openapi#License'.'|'.0
@@ -638,11 +626,7 @@ sub _jm_obj_1($$$)
             return 0;
         }
     }
-    if ($must_count != 2)
-    {
-        return 0;
-    }
-    return 1;
+    return $must_count == 2;
 }
 
 # check $openapi#License (.'$openapi#License')
@@ -748,11 +732,7 @@ sub json_model_8($$$)
             return 0;
         }
     }
-    if ($must_count != 1)
-    {
-        return 0;
-    }
-    return 1;
+    return $must_count == 1;
 }
 
 # check $openapi#ServerVariable (.'$openapi#ServerVariable')
@@ -828,11 +808,7 @@ sub json_model_9($$$)
             return 0;
         }
     }
-    if ($must_count != 1)
-    {
-        return 0;
-    }
-    return 1;
+    return $must_count == 1;
 }
 
 # check json_model_10_map_callbacks (.'$openapi#Components'.callbacks)
@@ -1609,11 +1585,7 @@ sub json_model_14($$$)
             return 0;
         }
     }
-    if ($must_count != 1)
-    {
-        return 0;
-    }
-    return 1;
+    return $must_count == 1;
 }
 
 
@@ -1777,11 +1749,7 @@ sub _jm_obj_3($$$)
             return 0;
         }
     }
-    if ($must_count != 2)
-    {
-        return 0;
-    }
-    return 1;
+    return $must_count == 2;
 }
 
 
@@ -1908,11 +1876,7 @@ sub _jm_obj_4($$$)
             return 0;
         }
     }
-    if ($must_count != 2)
-    {
-        return 0;
-    }
-    return 1;
+    return $must_count == 2;
 }
 
 
@@ -2630,12 +2594,8 @@ sub json_model_28($$$)
 sub _jm_obj_14($$$)
 {
     my ($val, $path, $rep) = @_;
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return jm_is_object($val);
     # accept any object
-    return 1;
 }
 
 # object .'$openapi#Link'.'|'.1
@@ -2717,23 +2677,15 @@ sub _jm_obj_13($$$)
             return 0;
         }
     }
-    if ($must_count != 1)
-    {
-        return 0;
-    }
-    return 1;
+    return $must_count == 1;
 }
 
 # object .'$openapi#Link'.'|'.0.parameters
 sub _jm_obj_16($$$)
 {
     my ($val, $path, $rep) = @_;
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return jm_is_object($val);
     # accept any object
-    return 1;
 }
 
 # object .'$openapi#Link'.'|'.0
@@ -2815,11 +2767,7 @@ sub _jm_obj_15($$$)
             return 0;
         }
     }
-    if ($must_count != 1)
-    {
-        return 0;
-    }
-    return 1;
+    return $must_count == 1;
 }
 
 # check $openapi#Link (.'$openapi#Link')
@@ -3166,11 +3114,7 @@ sub json_model_31($$$)
             return 0;
         }
     }
-    if ($must_count != 1)
-    {
-        return 0;
-    }
-    return 1;
+    return $must_count == 1;
 }
 
 # check $openapi#Reference (.'$openapi#Reference')
@@ -3223,11 +3167,7 @@ sub json_model_32($$$)
             return 0;
         }
     }
-    if ($must_count != 1)
-    {
-        return 0;
-    }
-    return 1;
+    return $must_count == 1;
 }
 
 
@@ -3292,11 +3232,7 @@ sub _jm_obj_20($$$)
             return 0;
         }
     }
-    if ($must_count != 3)
-    {
-        return 0;
-    }
-    return 1;
+    return $must_count == 3;
 }
 
 sub _jm_re_3($$$)
@@ -3367,11 +3303,7 @@ sub _jm_obj_21($$$)
             return 0;
         }
     }
-    if ($must_count != 2)
-    {
-        return 0;
-    }
-    return 1;
+    return $must_count == 2;
 }
 
 # object .'$openapi#SecurityScheme'.'|'.2
@@ -3424,11 +3356,7 @@ sub _jm_obj_22($$$)
             return 0;
         }
     }
-    if ($must_count != 2)
-    {
-        return 0;
-    }
-    return 1;
+    return $must_count == 2;
 }
 
 # object .'$openapi#SecurityScheme'.'|'.3
@@ -3481,11 +3409,7 @@ sub _jm_obj_23($$$)
             return 0;
         }
     }
-    if ($must_count != 2)
-    {
-        return 0;
-    }
-    return 1;
+    return $must_count == 2;
 }
 
 # object .'$openapi#SecurityScheme'.'|'.4
@@ -3538,11 +3462,7 @@ sub _jm_obj_24($$$)
             return 0;
         }
     }
-    if ($must_count != 2)
-    {
-        return 0;
-    }
-    return 1;
+    return $must_count == 2;
 }
 
 # object .'$openapi#SecurityScheme'.'|'.5
@@ -3788,11 +3708,7 @@ sub json_model_44($$$)
             return 0;
         }
     }
-    if ($must_count != 3)
-    {
-        return 0;
-    }
-    return 1;
+    return $must_count == 3;
 }
 
 # check $openapi#SecurityRequirement (.'$openapi#SecurityRequirement')
@@ -4025,11 +3941,7 @@ sub _jm_obj_28($$$)
             return 0;
         }
     }
-    if ($must_count != 1)
-    {
-        return 0;
-    }
-    return 1;
+    return $must_count == 1;
 }
 
 # object .'$openapi#model#Element'.'|'.3
@@ -4094,11 +4006,7 @@ sub _jm_obj_29($$$)
             return 0;
         }
     }
-    if ($must_count != 1)
-    {
-        return 0;
-    }
-    return 1;
+    return $must_count == 1;
 }
 
 # object .'$openapi#model#Element'.'|'.2
@@ -4163,11 +4071,7 @@ sub _jm_obj_30($$$)
             return 0;
         }
     }
-    if ($must_count != 1)
-    {
-        return 0;
-    }
-    return 1;
+    return $must_count == 1;
 }
 
 # object .'$openapi#model#Element'.'|'.1
@@ -4232,11 +4136,7 @@ sub _jm_obj_31($$$)
             return 0;
         }
     }
-    if ($must_count != 1)
-    {
-        return 0;
-    }
-    return 1;
+    return $must_count == 1;
 }
 
 sub _jm_re_4($$$)
@@ -4332,11 +4232,7 @@ sub _jm_obj_32($$$)
             return 0;
         }
     }
-    if ($must_count != 1)
-    {
-        return 0;
-    }
-    return 1;
+    return $must_count == 1;
 }
 
 # check $openapi#model#Element (.'$openapi#model#Element')

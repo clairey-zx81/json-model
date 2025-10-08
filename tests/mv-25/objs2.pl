@@ -51,11 +51,7 @@ sub json_model_2($$$)
     $pval = $$val{'y'};
     # .'$bla'.y
     $res = jm_is_numeric($pval);
-    if (! $res)
-    {
-        return 0;
-    }
-    return 1;
+    return $res;
 }
 
 # check $foo (.'$foo')

@@ -126,11 +126,7 @@ sub _jm_obj_0($$$)
     $pval = $$val{'c'};
     # .'$nomerge'.'&'.1.c
     $res = jm_is_integer($pval) && $pval >= 1;
-    if (! $res)
-    {
-        return 0;
-    }
-    return 1;
+    return $res;
 }
 
 # check $nomerge (.'$nomerge')

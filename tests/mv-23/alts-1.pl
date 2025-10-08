@@ -52,11 +52,7 @@ sub json_model_2($$$)
     $pval = $$val{'t'};
     # .'$oA'.t
     $res = jm_is_string($pval) && $pval eq 'a';
-    if (! $res)
-    {
-        return 0;
-    }
-    return 1;
+    return $res;
 }
 
 
@@ -90,11 +86,7 @@ sub json_model_3($$$)
     $pval = $$val{'t'};
     # .'$oB'.t
     $res = jm_is_scalar($pval) && jm_is_string($pval) && exists $_jm_cst_0{$pval};
-    if (! $res)
-    {
-        return 0;
-    }
-    return 1;
+    return $res;
 }
 
 
@@ -159,11 +151,7 @@ sub json_model_5($$$)
     $pval = $$val{'t'};
     # .'$oL'.t
     $res = jm_is_string($pval) && $pval eq 'd';
-    if (! $res)
-    {
-        return 0;
-    }
-    return 1;
+    return $res;
 }
 
 
@@ -197,11 +185,7 @@ sub json_model_6($$$)
     $pval = $$val{'t'};
     # .'$oX'.t
     $res = jm_is_scalar($pval) && jm_is_string($pval) && exists $_jm_cst_1{$pval};
-    if (! $res)
-    {
-        return 0;
-    }
-    return 1;
+    return $res;
 }
 
 # check $ (.)

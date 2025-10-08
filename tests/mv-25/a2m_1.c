@@ -117,11 +117,7 @@ static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *re
     }
     // .'$nomerge'.'&'.1.c
     res = json_is_integer(pval) && json_integer_value(pval) >= 1;
-    if (! res)
-    {
-        return false;
-    }
-    return true;
+    return res;
 }
 
 // check $nomerge (.'$nomerge')

@@ -50,10 +50,7 @@ BEGIN
   pval := val -> 'rt';
   -- .'$foo#Foo'.rt
   res := json_model_12(pval, NULL, rep);
-  IF NOT res THEN
-    RETURN FALSE;
-  END IF;
-  RETURN TRUE;
+  RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -87,10 +84,7 @@ BEGIN
   pval := val -> 'name';
   -- .'$foo#root#root#Root'.name
   res := JSONB_TYPEOF(pval) = 'string';
-  IF NOT res THEN
-    RETURN FALSE;
-  END IF;
-  RETURN TRUE;
+  RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
 

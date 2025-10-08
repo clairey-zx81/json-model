@@ -26,12 +26,7 @@ check_model_map: PropMap
 # check $empty (.'$empty')
 def json_model_2(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$empty'
-    if not isinstance(val, dict):
-        return False
-    if len(val) == 0:
-        return True
-    else:
-        return False
+    return isinstance(val, dict) and len(val) == 0
 
 
 # check $ (.)

@@ -523,11 +523,7 @@ sub _jm_obj_1($$$)
             return 0;
         }
     }
-    if ($must_count != 1)
-    {
-        return 0;
-    }
-    return 1;
+    return $must_count == 1;
 }
 
 # object .'$Model#Element'.'|'.3
@@ -592,11 +588,7 @@ sub _jm_obj_2($$$)
             return 0;
         }
     }
-    if ($must_count != 1)
-    {
-        return 0;
-    }
-    return 1;
+    return $must_count == 1;
 }
 
 # object .'$Model#Element'.'|'.2
@@ -661,11 +653,7 @@ sub _jm_obj_3($$$)
             return 0;
         }
     }
-    if ($must_count != 1)
-    {
-        return 0;
-    }
-    return 1;
+    return $must_count == 1;
 }
 
 # object .'$Model#Element'.'|'.1
@@ -730,11 +718,7 @@ sub _jm_obj_4($$$)
             return 0;
         }
     }
-    if ($must_count != 1)
-    {
-        return 0;
-    }
-    return 1;
+    return $must_count == 1;
 }
 
 sub _jm_re_3($$$)
@@ -830,11 +814,7 @@ sub _jm_obj_5($$$)
             return 0;
         }
     }
-    if ($must_count != 1)
-    {
-        return 0;
-    }
-    return 1;
+    return $must_count == 1;
 }
 
 # check $Model#Element (.'$Model#Element')
@@ -1467,11 +1447,7 @@ sub _jm_obj_9($$$)
             return 0;
         }
     }
-    if ($must_count != 1)
-    {
-        return 0;
-    }
-    return 1;
+    return $must_count == 1;
 }
 
 # object .'$Model#Root'.'|'.3.'$'
@@ -1716,11 +1692,7 @@ sub _jm_obj_12($$$)
             return 0;
         }
     }
-    if ($must_count != 1)
-    {
-        return 0;
-    }
-    return 1;
+    return $must_count == 1;
 }
 
 # object .'$Model#Root'.'|'.2.'$'
@@ -1965,11 +1937,7 @@ sub _jm_obj_15($$$)
             return 0;
         }
     }
-    if ($must_count != 1)
-    {
-        return 0;
-    }
-    return 1;
+    return $must_count == 1;
 }
 
 # object .'$Model#Root'.'|'.1.'$'
@@ -2214,11 +2182,7 @@ sub _jm_obj_18($$$)
             return 0;
         }
     }
-    if ($must_count != 1)
-    {
-        return 0;
-    }
-    return 1;
+    return $must_count == 1;
 }
 
 # object .'$Model#Root'.'|'.0.'$'
@@ -2480,11 +2444,7 @@ sub _jm_obj_21($$$)
             return 0;
         }
     }
-    if ($must_count != 1)
-    {
-        return 0;
-    }
-    return 1;
+    return $must_count == 1;
 }
 
 # check $Model#Root (.'$Model#Root')

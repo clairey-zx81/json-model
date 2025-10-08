@@ -46,11 +46,7 @@ sub _jm_obj_0($$$)
     $pval = $$val{'b'};
     # .'$Aa'.'|'.1.b
     $res = jm_is_integer($pval) && $pval >= 0;
-    if (! $res)
-    {
-        return 0;
-    }
-    return 1;
+    return $res;
 }
 
 # object .'$Aa'.'|'.0
@@ -75,11 +71,7 @@ sub _jm_obj_1($$$)
     $pval = $$val{'a'};
     # .'$Aa'.'|'.0.a
     $res = jm_is_integer($pval) && $pval >= 0;
-    if (! $res)
-    {
-        return 0;
-    }
-    return 1;
+    return $res;
 }
 
 # check $Aa (.'$Aa')
@@ -124,11 +116,7 @@ sub _jm_obj_2($$$)
     $pval = $$val{'d'};
     # .'$Bb'.'|'.1.d
     $res = jm_is_integer($pval) && $pval >= 0;
-    if (! $res)
-    {
-        return 0;
-    }
-    return 1;
+    return $res;
 }
 
 # object .'$Bb'.'|'.0
@@ -153,11 +141,7 @@ sub _jm_obj_3($$$)
     $pval = $$val{'c'};
     # .'$Bb'.'|'.0.c
     $res = jm_is_integer($pval) && $pval >= 0;
-    if (! $res)
-    {
-        return 0;
-    }
-    return 1;
+    return $res;
 }
 
 # check $Bb (.'$Bb')
@@ -213,11 +197,7 @@ sub _jm_obj_4($$$)
     $pval = $$val{'d'};
     # .'|'.3.d
     $res = jm_is_integer($pval) && $pval >= 0;
-    if (! $res)
-    {
-        return 0;
-    }
-    return 1;
+    return $res;
 }
 
 # object .'|'.2
@@ -253,11 +233,7 @@ sub _jm_obj_5($$$)
     $pval = $$val{'c'};
     # .'|'.2.c
     $res = jm_is_integer($pval) && $pval >= 0;
-    if (! $res)
-    {
-        return 0;
-    }
-    return 1;
+    return $res;
 }
 
 # object .'|'.1
@@ -293,11 +269,7 @@ sub _jm_obj_6($$$)
     $pval = $$val{'d'};
     # .'|'.1.d
     $res = jm_is_integer($pval) && $pval >= 0;
-    if (! $res)
-    {
-        return 0;
-    }
-    return 1;
+    return $res;
 }
 
 # object .'|'.0
@@ -333,11 +305,7 @@ sub _jm_obj_7($$$)
     $pval = $$val{'c'};
     # .'|'.0.c
     $res = jm_is_integer($pval) && $pval >= 0;
-    if (! $res)
-    {
-        return 0;
-    }
-    return 1;
+    return $res;
 }
 
 # check $ (.)

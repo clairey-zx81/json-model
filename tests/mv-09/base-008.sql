@@ -47,10 +47,7 @@ BEGIN
       RETURN FALSE;
     END IF;
   END LOOP;
-  IF must_count <> 2 THEN
-    RETURN FALSE;
-  END IF;
-  RETURN TRUE;
+  RETURN must_count = 2;
 END;
 $$ LANGUAGE PLpgSQL;
 

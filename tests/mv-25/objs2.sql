@@ -35,10 +35,7 @@ BEGIN
   pval := val -> 'y';
   -- .'$bla'.y
   res := JSONB_TYPEOF(pval) = 'number';
-  IF NOT res THEN
-    RETURN FALSE;
-  END IF;
-  RETURN TRUE;
+  RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
 

@@ -19,12 +19,8 @@ my %check_model_map;
 sub _jm_obj_0($$$)
 {
     my ($val, $path, $rep) = @_;
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return jm_is_object($val);
     # accept any object
-    return 1;
 }
 
 # check $ (.)

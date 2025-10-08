@@ -47,11 +47,7 @@ function json_model_3(val, path, rep)
             }
         }
     }
-    if (! res)
-    {
-        return false;
-    }
-    return true;
+    return res;
 }
 
 // check $ (.)
@@ -76,11 +72,7 @@ function json_model_1(val, path, rep)
     pval = val["foo"];
     // .foo
     res = json_model_3(pval, null, rep);
-    if (! res)
-    {
-        return false;
-    }
-    return true;
+    return res;
 }
 
 
@@ -147,11 +139,7 @@ function json_model_4(val, path, rep)
     pval = val["legs"];
     // .'$objs0#table'.legs
     res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 1;
-    if (! res)
-    {
-        return false;
-    }
-    return true;
+    return res;
 }
 
 // check $objs0#chair (.'$objs0#chair')
@@ -187,11 +175,7 @@ function json_model_5(val, path, rep)
     pval = val["color"];
     // .'$objs0#chair'.color
     res = (typeof pval === 'string' || pval instanceof String);
-    if (! res)
-    {
-        return false;
-    }
-    return true;
+    return res;
 }
 
 

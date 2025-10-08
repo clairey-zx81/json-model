@@ -49,11 +49,7 @@ sub json_model_1($$$)
     $pval = $$val{'f'};
     # .f
     $res = jm_is_numeric($pval);
-    if (! $res)
-    {
-        return 0;
-    }
-    return 1;
+    return $res;
 }
 
 

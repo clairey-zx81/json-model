@@ -22,18 +22,7 @@ my %check_model_map;
 sub _jm_obj_0($$$)
 {
     my ($val, $path, $rep) = @_;
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
-    if (jm_obj_size($val) == 0)
-    {
-        return 1;
-    }
-    else
-    {
-        return 0;
-    }
+    return jm_is_object($val) && jm_obj_size($val) == 0;
 }
 
 # check $a (.'$a')
@@ -70,18 +59,7 @@ sub json_model_2($$$)
 sub _jm_obj_1($$$)
 {
     my ($val, $path, $rep) = @_;
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
-    if (jm_obj_size($val) == 0)
-    {
-        return 1;
-    }
-    else
-    {
-        return 0;
-    }
+    return jm_is_object($val) && jm_obj_size($val) == 0;
 }
 
 # check $r (.'$r')

@@ -54,11 +54,7 @@ public class alter_2 extends ModelChecker
         }
         // .'$d'.d
         res = json.isString(pval);
-        if (! res)
-        {
-            return false;
-        }
-        return true;
+        return res;
     }
 
 
@@ -93,11 +89,7 @@ public class alter_2 extends ModelChecker
         }
         // .'$efg'.efg
         res = json.isString(pval);
-        if (! res)
-        {
-            return false;
-        }
-        return true;
+        return res;
     }
 
     // object .'$alternative'.'|'.0
@@ -130,11 +122,7 @@ public class alter_2 extends ModelChecker
         }
         // .'$alternative'.'|'.0.a
         res = json.isString(pval);
-        if (! res)
-        {
-            return false;
-        }
-        return true;
+        return res;
     }
 
 
@@ -168,11 +156,7 @@ public class alter_2 extends ModelChecker
         }
         // .'$alternative'.'|'.1.bc
         res = json.isString(pval);
-        if (! res)
-        {
-            return false;
-        }
-        return true;
+        return res;
     }
 
 

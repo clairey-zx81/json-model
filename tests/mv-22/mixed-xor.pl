@@ -53,11 +53,7 @@ sub _jm_obj_0($$$)
     $pval = $$val{'cal'};
     # .'$cs'.'|'.0.cal
     $res = jm_is_integer($pval) && $pval >= 1;
-    if (! $res)
-    {
-        return 0;
-    }
-    return 1;
+    return $res;
 }
 
 # object .'$cs'.'|'.1
@@ -93,11 +89,7 @@ sub _jm_obj_1($$$)
     $pval = $$val{'sus'};
     # .'$cs'.'|'.1.sus
     $res = jm_is_integer($pval) && $pval >= 1;
-    if (! $res)
-    {
-        return 0;
-    }
-    return 1;
+    return $res;
 }
 
 
@@ -165,11 +157,7 @@ sub _jm_obj_2($$$)
     $pval = $$val{'moe'};
     # .'^'.0.moe
     $res = jm_is_integer($pval) && $pval >= 1;
-    if (! $res)
-    {
-        return 0;
-    }
-    return 1;
+    return $res;
 }
 
 # object .'^'.1
@@ -205,11 +193,7 @@ sub _jm_obj_3($$$)
     $pval = $$val{'hob'};
     # .'^'.1.hob
     $res = jm_is_integer($pval) && $pval >= 1;
-    if (! $res)
-    {
-        return 0;
-    }
-    return 1;
+    return $res;
 }
 
 # check $ (.)

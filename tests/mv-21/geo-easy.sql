@@ -579,11 +579,8 @@ $$ LANGUAGE PLpgSQL;
 CREATE OR REPLACE FUNCTION _jm_obj_0(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
-  IF NOT (JSONB_TYPEOF(val) = 'object') THEN
-    RETURN FALSE;
-  END IF;
+  RETURN JSONB_TYPEOF(val) = 'object';
   -- accept any object
-  RETURN TRUE;
 END;
 $$ LANGUAGE PLpgSQL;
 

@@ -46,11 +46,7 @@ static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
     }
     // .'$book'.author
     res = json_is_string(pval);
-    if (! res)
-    {
-        return false;
-    }
-    return true;
+    return res;
 }
 
 // check $ (.)

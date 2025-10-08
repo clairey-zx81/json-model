@@ -57,11 +57,7 @@ public class objs1 extends ModelChecker
                 }
             }
         }
-        if (! res)
-        {
-            return false;
-        }
-        return true;
+        return res;
     }
 
     // check $ (.)
@@ -85,11 +81,7 @@ public class objs1 extends ModelChecker
         }
         // .foo
         res = json_model_3(pval, null, rep);
-        if (! res)
-        {
-            return false;
-        }
-        return true;
+        return res;
     }
 
 
@@ -154,11 +146,7 @@ public class objs1 extends ModelChecker
         }
         // .'$objs0#table'.legs
         res = json.isInteger(pval) && json.asLong(pval) >= 1;
-        if (! res)
-        {
-            return false;
-        }
-        return true;
+        return res;
     }
 
     // check $objs0#chair (.'$objs0#chair')
@@ -192,11 +180,7 @@ public class objs1 extends ModelChecker
         }
         // .'$objs0#chair'.color
         res = json.isString(pval);
-        if (! res)
-        {
-            return false;
-        }
-        return true;
+        return res;
     }
 
 

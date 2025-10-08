@@ -391,11 +391,7 @@ sub json_model_2($$$)
             return 0;
         }
     }
-    if ($must_count != 2)
-    {
-        return 0;
-    }
-    return 1;
+    return $must_count == 2;
 }
 
 # check $Info (.'$Info')
@@ -499,11 +495,7 @@ sub json_model_3($$$)
             return 0;
         }
     }
-    if ($must_count != 2)
-    {
-        return 0;
-    }
-    return 1;
+    return $must_count == 2;
 }
 
 # check $Contact (.'$Contact')
@@ -624,11 +616,7 @@ sub _jm_obj_0($$$)
             return 0;
         }
     }
-    if ($must_count != 2)
-    {
-        return 0;
-    }
-    return 1;
+    return $must_count == 2;
 }
 
 # object .'$License'.'|'.0
@@ -681,11 +669,7 @@ sub _jm_obj_1($$$)
             return 0;
         }
     }
-    if ($must_count != 2)
-    {
-        return 0;
-    }
-    return 1;
+    return $must_count == 2;
 }
 
 # check $License (.'$License')
@@ -791,11 +775,7 @@ sub json_model_6($$$)
             return 0;
         }
     }
-    if ($must_count != 1)
-    {
-        return 0;
-    }
-    return 1;
+    return $must_count == 1;
 }
 
 # check $ServerVariable (.'$ServerVariable')
@@ -871,11 +851,7 @@ sub json_model_7($$$)
             return 0;
         }
     }
-    if ($must_count != 1)
-    {
-        return 0;
-    }
-    return 1;
+    return $must_count == 1;
 }
 
 # check json_model_8_map_callbacks (.'$Components'.callbacks)
@@ -1652,11 +1628,7 @@ sub json_model_12($$$)
             return 0;
         }
     }
-    if ($must_count != 1)
-    {
-        return 0;
-    }
-    return 1;
+    return $must_count == 1;
 }
 
 # check $parameterShare (.'$parameterShare')
@@ -1822,11 +1794,7 @@ sub json_model_14($$$)
             return 0;
         }
     }
-    if ($must_count != 2)
-    {
-        return 0;
-    }
-    return 1;
+    return $must_count == 2;
 }
 
 
@@ -2146,11 +2114,7 @@ sub _jm_obj_4($$$)
             return 0;
         }
     }
-    if ($must_count != 2)
-    {
-        return 0;
-    }
-    return 1;
+    return $must_count == 2;
 }
 
 
@@ -2277,11 +2241,7 @@ sub _jm_obj_5($$$)
             return 0;
         }
     }
-    if ($must_count != 2)
-    {
-        return 0;
-    }
-    return 1;
+    return $must_count == 2;
 }
 
 
@@ -2987,12 +2947,8 @@ sub json_model_26($$$)
 sub _jm_obj_15($$$)
 {
     my ($val, $path, $rep) = @_;
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return jm_is_object($val);
     # accept any object
-    return 1;
 }
 
 # object .'$Link'.'|'.1
@@ -3074,23 +3030,15 @@ sub _jm_obj_14($$$)
             return 0;
         }
     }
-    if ($must_count != 1)
-    {
-        return 0;
-    }
-    return 1;
+    return $must_count == 1;
 }
 
 # object .'$Link'.'|'.0.parameters
 sub _jm_obj_17($$$)
 {
     my ($val, $path, $rep) = @_;
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return jm_is_object($val);
     # accept any object
-    return 1;
 }
 
 # object .'$Link'.'|'.0
@@ -3172,11 +3120,7 @@ sub _jm_obj_16($$$)
             return 0;
         }
     }
-    if ($must_count != 1)
-    {
-        return 0;
-    }
-    return 1;
+    return $must_count == 1;
 }
 
 # check $Link (.'$Link')
@@ -3523,11 +3467,7 @@ sub json_model_29($$$)
             return 0;
         }
     }
-    if ($must_count != 1)
-    {
-        return 0;
-    }
-    return 1;
+    return $must_count == 1;
 }
 
 # check $Reference (.'$Reference')
@@ -3580,11 +3520,7 @@ sub json_model_30($$$)
             return 0;
         }
     }
-    if ($must_count != 1)
-    {
-        return 0;
-    }
-    return 1;
+    return $must_count == 1;
 }
 
 # check $schema (.'$schema')
@@ -4096,11 +4032,7 @@ sub json_model_33($$$)
             return 0;
         }
     }
-    if ($must_count != 1)
-    {
-        return 0;
-    }
-    return 1;
+    return $must_count == 1;
 }
 
 # check $xml (.'$xml')
@@ -4230,11 +4162,7 @@ sub json_model_35($$$)
     $pval = $$val{'in'};
     # .'$SS-apikey'.in
     $res = jm_is_scalar($pval) && jm_is_string($pval) && exists $_jm_cst_4{$pval};
-    if (! $res)
-    {
-        return 0;
-    }
-    return 1;
+    return $res;
 }
 
 # check $SS-http (.'$SS-http')
@@ -4271,11 +4199,7 @@ sub json_model_36($$$)
     $pval = $$val{'scheme'};
     # .'$SS-http'.scheme
     $res = jm_is_string($pval);
-    if (! $res)
-    {
-        return 0;
-    }
-    return 1;
+    return $res;
 }
 
 sub _jm_re_3($$$)
@@ -4337,11 +4261,7 @@ sub json_model_37($$$)
             return 0;
         }
     }
-    if ($must_count != 2)
-    {
-        return 0;
-    }
-    return 1;
+    return $must_count == 2;
 }
 
 # check $SS-oauth2 (.'$SS-oauth2')
@@ -4378,11 +4298,7 @@ sub json_model_38($$$)
     $pval = $$val{'flows'};
     # .'$SS-oauth2'.flows
     $res = json_model_41($pval, undef, $rep);
-    if (! $res)
-    {
-        return 0;
-    }
-    return 1;
+    return $res;
 }
 
 # check $SS-oic (.'$SS-oic')
@@ -4419,11 +4335,7 @@ sub json_model_39($$$)
     $pval = $$val{'openIdConnectUrl'};
     # .'$SS-oic'.openIdConnectUrl
     $res = jm_is_string($pval) && jm_is_valid_url($pval, undef, $rep);
-    if (! $res)
-    {
-        return 0;
-    }
-    return 1;
+    return $res;
 }
 
 
@@ -4488,11 +4400,7 @@ sub _jm_obj_22($$$)
             return 0;
         }
     }
-    if ($must_count != 3)
-    {
-        return 0;
-    }
-    return 1;
+    return $must_count == 3;
 }
 
 # object .'$SecurityScheme'.'|'.1
@@ -4556,11 +4464,7 @@ sub _jm_obj_23($$$)
             return 0;
         }
     }
-    if ($must_count != 2)
-    {
-        return 0;
-    }
-    return 1;
+    return $must_count == 2;
 }
 
 # object .'$SecurityScheme'.'|'.2
@@ -4613,11 +4517,7 @@ sub _jm_obj_24($$$)
             return 0;
         }
     }
-    if ($must_count != 2)
-    {
-        return 0;
-    }
-    return 1;
+    return $must_count == 2;
 }
 
 # object .'$SecurityScheme'.'|'.3
@@ -4670,11 +4570,7 @@ sub _jm_obj_25($$$)
             return 0;
         }
     }
-    if ($must_count != 2)
-    {
-        return 0;
-    }
-    return 1;
+    return $must_count == 2;
 }
 
 # object .'$SecurityScheme'.'|'.4
@@ -4727,11 +4623,7 @@ sub _jm_obj_26($$$)
             return 0;
         }
     }
-    if ($must_count != 2)
-    {
-        return 0;
-    }
-    return 1;
+    return $must_count == 2;
 }
 
 # object .'$SecurityScheme'.'|'.5
@@ -4977,11 +4869,7 @@ sub json_model_42($$$)
             return 0;
         }
     }
-    if ($must_count != 3)
-    {
-        return 0;
-    }
-    return 1;
+    return $must_count == 3;
 }
 
 # check $SecurityRequirement (.'$SecurityRequirement')

@@ -186,11 +186,7 @@ sub json_model_5($$$)
             return 0;
         }
     }
-    if ($must_count != 2)
-    {
-        return 0;
-    }
-    return 1;
+    return $must_count == 2;
 }
 
 # check $MultiPoint (.'$MultiPoint')
@@ -270,11 +266,7 @@ sub json_model_6($$$)
             return 0;
         }
     }
-    if ($must_count != 2)
-    {
-        return 0;
-    }
-    return 1;
+    return $must_count == 2;
 }
 
 # check $LineString (.'$LineString')
@@ -341,11 +333,7 @@ sub json_model_7($$$)
             return 0;
         }
     }
-    if ($must_count != 2)
-    {
-        return 0;
-    }
-    return 1;
+    return $must_count == 2;
 }
 
 # check $MultiLineString (.'$MultiLineString')
@@ -425,11 +413,7 @@ sub json_model_8($$$)
             return 0;
         }
     }
-    if ($must_count != 2)
-    {
-        return 0;
-    }
-    return 1;
+    return $must_count == 2;
 }
 
 # check $Polygon (.'$Polygon')
@@ -509,11 +493,7 @@ sub json_model_9($$$)
             return 0;
         }
     }
-    if ($must_count != 2)
-    {
-        return 0;
-    }
-    return 1;
+    return $must_count == 2;
 }
 
 # check $MultiPolygon (.'$MultiPolygon')
@@ -606,11 +586,7 @@ sub json_model_10($$$)
             return 0;
         }
     }
-    if ($must_count != 2)
-    {
-        return 0;
-    }
-    return 1;
+    return $must_count == 2;
 }
 
 # object .'$geometry'.'|'.0
@@ -1141,12 +1117,8 @@ sub json_model_12($$$)
 sub _jm_obj_6($$$)
 {
     my ($val, $path, $rep) = @_;
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return jm_is_object($val);
     # accept any object
-    return 1;
 }
 
 # check $Feature (.'$Feature')

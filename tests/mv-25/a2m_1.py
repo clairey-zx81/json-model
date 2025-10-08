@@ -85,9 +85,7 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
         return False
     # .'$nomerge'.'&'.1.c
     res = isinstance(pval, int) and not isinstance(pval, bool) and pval >= 1
-    if not res:
-        return False
-    return True
+    return res
 
 # check $nomerge (.'$nomerge')
 def json_model_5(val: Jsonable, path: Path, rep: Report) -> bool:

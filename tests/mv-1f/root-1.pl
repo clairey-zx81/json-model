@@ -81,11 +81,7 @@ sub json_model_5($$$)
     $pval = $$val{'name'};
     # .'$root#Root'.name
     $res = jm_is_string($pval);
-    if (! $res)
-    {
-        return 0;
-    }
-    return 1;
+    return $res;
 }
 
 

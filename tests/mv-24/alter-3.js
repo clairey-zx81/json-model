@@ -46,11 +46,7 @@ function json_model_2(val, path, rep)
     pval = val["d"];
     // .'$d'.d
     res = (typeof pval === 'string' || pval instanceof String);
-    if (! res)
-    {
-        return false;
-    }
-    return true;
+    return res;
 }
 
 // object .'$alternative'.'|'.0
@@ -85,11 +81,7 @@ function _jm_obj_0(val, path, rep)
     pval = val["a"];
     // .'$alternative'.'|'.0.a
     res = (typeof pval === 'string' || pval instanceof String);
-    if (! res)
-    {
-        return false;
-    }
-    return true;
+    return res;
 }
 
 
@@ -125,11 +117,7 @@ function _jm_obj_1(val, path, rep)
     pval = val["bc"];
     // .'$alternative'.'|'.1.bc
     res = (typeof pval === 'string' || pval instanceof String);
-    if (! res)
-    {
-        return false;
-    }
-    return true;
+    return res;
 }
 
 

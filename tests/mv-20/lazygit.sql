@@ -200,10 +200,7 @@ BEGIN
   pval := val -> 'command';
   -- .'$Prompts'.'|'.0.suggestions.'|'.1.command
   res := JSONB_TYPEOF(pval) = 'string';
-  IF NOT res THEN
-    RETURN FALSE;
-  END IF;
-  RETURN TRUE;
+  RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -236,10 +233,7 @@ BEGIN
   pval := val -> 'preset';
   -- .'$Prompts'.'|'.0.suggestions.'|'.0.preset
   res := JSONB_TYPEOF(pval) IN ('null', 'boolean', 'number', 'string') AND _jm_cst_2(pval);
-  IF NOT res THEN
-    RETURN FALSE;
-  END IF;
-  RETURN TRUE;
+  RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -307,10 +301,7 @@ BEGIN
       RETURN FALSE;
     END IF;
   END LOOP;
-  IF must_count <> 3 THEN
-    RETURN FALSE;
-  END IF;
-  RETURN TRUE;
+  RETURN must_count = 3;
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -363,10 +354,7 @@ BEGIN
       RETURN FALSE;
     END IF;
   END LOOP;
-  IF must_count <> 3 THEN
-    RETURN FALSE;
-  END IF;
-  RETURN TRUE;
+  RETURN must_count = 3;
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -410,10 +398,7 @@ BEGIN
       RETURN FALSE;
     END IF;
   END LOOP;
-  IF must_count <> 1 THEN
-    RETURN FALSE;
-  END IF;
-  RETURN TRUE;
+  RETURN must_count = 1;
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -480,10 +465,7 @@ BEGIN
   IF res THEN
     res := jm_array_is_unique(pval, NULL, rep);
   END IF;
-  IF NOT res THEN
-    RETURN FALSE;
-  END IF;
-  RETURN TRUE;
+  RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -558,10 +540,7 @@ BEGIN
       RETURN FALSE;
     END IF;
   END LOOP;
-  IF must_count <> 4 THEN
-    RETURN FALSE;
-  END IF;
-  RETURN TRUE;
+  RETURN must_count = 4;
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -786,10 +765,7 @@ BEGIN
       RETURN FALSE;
     END IF;
   END LOOP;
-  IF must_count <> 3 THEN
-    RETURN FALSE;
-  END IF;
-  RETURN TRUE;
+  RETURN must_count = 3;
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -946,10 +922,7 @@ BEGIN
   pval := val -> 'replace';
   -- .git.commitPrefixes.'/./'.replace
   res := json_model_8(pval, NULL, rep);
-  IF NOT res THEN
-    RETURN FALSE;
-  END IF;
-  RETURN TRUE;
+  RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
 

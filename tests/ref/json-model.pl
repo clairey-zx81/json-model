@@ -611,11 +611,7 @@ sub json_model_21($$$)
             return 0;
         }
     }
-    if ($must_count != 1)
-    {
-        return 0;
-    }
-    return 1;
+    return $must_count == 1;
 }
 
 # check $Or (.'$Or')
@@ -654,11 +650,7 @@ sub json_model_22($$$)
             }
         }
     }
-    if (! $res)
-    {
-        return 0;
-    }
-    return 1;
+    return $res;
 }
 
 # check $And (.'$And')
@@ -697,11 +689,7 @@ sub json_model_23($$$)
             }
         }
     }
-    if (! $res)
-    {
-        return 0;
-    }
-    return 1;
+    return $res;
 }
 
 # check $Xor (.'$Xor')
@@ -740,11 +728,7 @@ sub json_model_24($$$)
             }
         }
     }
-    if (! $res)
-    {
-        return 0;
-    }
-    return 1;
+    return $res;
 }
 
 # check $Add (.'$Add')
@@ -783,11 +767,7 @@ sub json_model_25($$$)
             }
         }
     }
-    if (! $res)
-    {
-        return 0;
-    }
-    return 1;
+    return $res;
 }
 
 sub _jm_re_9($$$)
@@ -1013,11 +993,7 @@ sub _jm_obj_1($$$)
             return 0;
         }
     }
-    if ($must_count != 1)
-    {
-        return 0;
-    }
-    return 1;
+    return $must_count == 1;
 }
 
 # object .'$Element'.'|'.3
@@ -1082,11 +1058,7 @@ sub _jm_obj_2($$$)
             return 0;
         }
     }
-    if ($must_count != 1)
-    {
-        return 0;
-    }
-    return 1;
+    return $must_count == 1;
 }
 
 # object .'$Element'.'|'.2
@@ -1151,11 +1123,7 @@ sub _jm_obj_3($$$)
             return 0;
         }
     }
-    if ($must_count != 1)
-    {
-        return 0;
-    }
-    return 1;
+    return $must_count == 1;
 }
 
 # object .'$Element'.'|'.1
@@ -1220,11 +1188,7 @@ sub _jm_obj_4($$$)
             return 0;
         }
     }
-    if ($must_count != 1)
-    {
-        return 0;
-    }
-    return 1;
+    return $must_count == 1;
 }
 
 # object .'$Element'.'|'.0
@@ -1306,11 +1270,7 @@ sub _jm_obj_5($$$)
             return 0;
         }
     }
-    if ($must_count != 1)
-    {
-        return 0;
-    }
-    return 1;
+    return $must_count == 1;
 }
 
 # check $Element (.'$Element')
@@ -2428,11 +2388,7 @@ sub _jm_obj_14($$$)
             return 0;
         }
     }
-    if ($must_count != 1)
-    {
-        return 0;
-    }
-    return 1;
+    return $must_count == 1;
 }
 
 # object .'$Root'.'|'.3.'$'
@@ -2677,11 +2633,7 @@ sub _jm_obj_17($$$)
             return 0;
         }
     }
-    if ($must_count != 1)
-    {
-        return 0;
-    }
-    return 1;
+    return $must_count == 1;
 }
 
 # object .'$Root'.'|'.2.'$'
@@ -2926,11 +2878,7 @@ sub _jm_obj_20($$$)
             return 0;
         }
     }
-    if ($must_count != 1)
-    {
-        return 0;
-    }
-    return 1;
+    return $must_count == 1;
 }
 
 # object .'$Root'.'|'.1.'$'
@@ -3175,11 +3123,7 @@ sub _jm_obj_23($$$)
             return 0;
         }
     }
-    if ($must_count != 1)
-    {
-        return 0;
-    }
-    return 1;
+    return $must_count == 1;
 }
 
 # object .'$Root'.'|'.0.'$'
@@ -3441,11 +3385,7 @@ sub _jm_obj_26($$$)
             return 0;
         }
     }
-    if ($must_count != 1)
-    {
-        return 0;
-    }
-    return 1;
+    return $must_count == 1;
 }
 
 # check $Root (.'$Root')

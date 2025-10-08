@@ -29,180 +29,70 @@ const size_t check_model_map_size = 1;
 static bool _jm_f_0(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .f0
-    if (! json_is_object(val))
-    {
-        return false;
-    }
-    if (json_object_size(val) == 0)
-    {
-        return true;
-    }
-    else
-    {
-        return false;
-    }
+    return json_is_object(val) && json_object_size(val) == 0;
 }
 
 // check json_model_1_map_f1 (.f1)
 static bool _jm_f_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .f1
-    if (! json_is_object(val))
-    {
-        return false;
-    }
-    if (json_object_size(val) == 0)
-    {
-        return true;
-    }
-    else
-    {
-        return false;
-    }
+    return json_is_object(val) && json_object_size(val) == 0;
 }
 
 // check json_model_1_map_f2 (.f2)
 static bool _jm_f_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .f2
-    if (! json_is_object(val))
-    {
-        return false;
-    }
-    if (json_object_size(val) == 0)
-    {
-        return true;
-    }
-    else
-    {
-        return false;
-    }
+    return json_is_object(val) && json_object_size(val) == 0;
 }
 
 // check json_model_1_map_f3 (.f3)
 static bool _jm_f_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .f3
-    if (! json_is_object(val))
-    {
-        return false;
-    }
-    if (json_object_size(val) == 0)
-    {
-        return true;
-    }
-    else
-    {
-        return false;
-    }
+    return json_is_object(val) && json_object_size(val) == 0;
 }
 
 // check json_model_1_map_f4 (.f4)
 static bool _jm_f_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .f4
-    if (! json_is_object(val))
-    {
-        return false;
-    }
-    if (json_object_size(val) == 0)
-    {
-        return true;
-    }
-    else
-    {
-        return false;
-    }
+    return json_is_object(val) && json_object_size(val) == 0;
 }
 
 // check json_model_1_map_f5 (.f5)
 static bool _jm_f_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .f5
-    if (! json_is_object(val))
-    {
-        return false;
-    }
-    if (json_object_size(val) == 0)
-    {
-        return true;
-    }
-    else
-    {
-        return false;
-    }
+    return json_is_object(val) && json_object_size(val) == 0;
 }
 
 // check json_model_1_map_f6 (.f6)
 static bool _jm_f_6(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .f6
-    if (! json_is_object(val))
-    {
-        return false;
-    }
-    if (json_object_size(val) == 0)
-    {
-        return true;
-    }
-    else
-    {
-        return false;
-    }
+    return json_is_object(val) && json_object_size(val) == 0;
 }
 
 // check json_model_1_map_f7 (.f7)
 static bool _jm_f_7(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .f7
-    if (! json_is_object(val))
-    {
-        return false;
-    }
-    if (json_object_size(val) == 0)
-    {
-        return true;
-    }
-    else
-    {
-        return false;
-    }
+    return json_is_object(val) && json_object_size(val) == 0;
 }
 
 // check json_model_1_map_f8 (.f8)
 static bool _jm_f_8(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .f8
-    if (! json_is_object(val))
-    {
-        return false;
-    }
-    if (json_object_size(val) == 0)
-    {
-        return true;
-    }
-    else
-    {
-        return false;
-    }
+    return json_is_object(val) && json_object_size(val) == 0;
 }
 
 // check json_model_1_map_f9 (.f9)
 static bool _jm_f_9(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .f9
-    if (! json_is_object(val))
-    {
-        return false;
-    }
-    if (json_object_size(val) == 0)
-    {
-        return true;
-    }
-    else
-    {
-        return false;
-    }
+    return json_is_object(val) && json_object_size(val) == 0;
 }
 
 static INLINE jm_check_fun_t json_model_1_map(const char *pname)

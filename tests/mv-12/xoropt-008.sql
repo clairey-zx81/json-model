@@ -37,10 +37,7 @@ BEGIN
       END IF;
     END LOOP;
   END IF;
-  IF NOT res THEN
-    RETURN FALSE;
-  END IF;
-  RETURN TRUE;
+  RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -64,10 +61,7 @@ BEGIN
   pval := val -> 'a';
   -- .'|'.1.a
   res := JSONB_TYPEOF(pval) = 'string';
-  IF NOT res THEN
-    RETURN FALSE;
-  END IF;
-  RETURN TRUE;
+  RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -91,10 +85,7 @@ BEGIN
   pval := val -> 'a';
   -- .'|'.0.a
   res := JSONB_TYPEOF(pval) = 'boolean';
-  IF NOT res THEN
-    RETURN FALSE;
-  END IF;
-  RETURN TRUE;
+  RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
 

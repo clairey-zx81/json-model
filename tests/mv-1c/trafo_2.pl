@@ -105,11 +105,7 @@ sub json_model_6($$$)
     $pval = $$val{'zb'};
     # .'$Zz#zero'.zb
     $res = jm_is_integer($pval) && $pval >= 0;
-    if (! $res)
-    {
-        return 0;
-    }
-    return 1;
+    return $res;
 }
 
 

@@ -24,18 +24,7 @@ public class objs5 extends ModelChecker
     public boolean json_model_2(Object val, Path path, Report rep)
     {
         // .'$empty'
-        if (! json.isObject(val))
-        {
-            return false;
-        }
-        if (json.objectSize(val) == 0)
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
+        return json.isObject(val) && json.objectSize(val) == 0;
     }
 
 

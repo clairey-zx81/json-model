@@ -55,11 +55,7 @@ sub _jm_obj_0($$$)
             return 0;
         }
     }
-    if ($must_count != 1)
-    {
-        return 0;
-    }
-    return 1;
+    return $must_count == 1;
 }
 
 # object .'^'.1
@@ -101,11 +97,7 @@ sub _jm_obj_1($$$)
             return 0;
         }
     }
-    if ($must_count != 1)
-    {
-        return 0;
-    }
-    return 1;
+    return $must_count == 1;
 }
 
 # check $ (.)

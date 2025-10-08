@@ -50,11 +50,7 @@ sub json_model_3($$$)
     $pval = $$val{'rt'};
     # .'$Foo'.rt
     $res = json_model_5($pval, undef, $rep);
-    if (! $res)
-    {
-        return 0;
-    }
-    return 1;
+    return $res;
 }
 
 # check $ (.)
@@ -101,11 +97,7 @@ sub json_model_5($$$)
     $pval = $$val{'name'};
     # .'$root#Root'.name
     $res = jm_is_string($pval);
-    if (! $res)
-    {
-        return 0;
-    }
-    return 1;
+    return $res;
 }
 
 

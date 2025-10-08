@@ -105,11 +105,7 @@ sub json_model_12($$$)
     $pval = $$val{'ub'};
     # .'$Dd#Uu#un'.ub
     $res = jm_is_integer($pval) && $pval >= 0;
-    if (! $res)
-    {
-        return 0;
-    }
-    return 1;
+    return $res;
 }
 
 

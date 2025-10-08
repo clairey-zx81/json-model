@@ -1272,11 +1272,7 @@ sub json_model_10($$$)
             return 0;
         }
     }
-    if ($must_count != 1)
-    {
-        return 0;
-    }
-    return 1;
+    return $must_count == 1;
 }
 
 # check json_model_11_map_$anchor (.'$Array'.'$anchor')
@@ -1574,11 +1570,7 @@ sub json_model_11($$$)
             return 0;
         }
     }
-    if ($must_count != 1)
-    {
-        return 0;
-    }
-    return 1;
+    return $must_count == 1;
 }
 
 # check json_model_12_map_$anchor (.'$Object'.'$anchor')
@@ -1928,11 +1920,7 @@ sub json_model_12($$$)
             return 0;
         }
     }
-    if ($must_count != 1)
-    {
-        return 0;
-    }
-    return 1;
+    return $must_count == 1;
 }
 
 # check json_model_13_map_$anchor (.'$Integer'.'$anchor')
@@ -2204,11 +2192,7 @@ sub json_model_13($$$)
             return 0;
         }
     }
-    if ($must_count != 1)
-    {
-        return 0;
-    }
-    return 1;
+    return $must_count == 1;
 }
 
 # check json_model_14_map_$anchor (.'$Number'.'$anchor')
@@ -2480,11 +2464,7 @@ sub json_model_14($$$)
             return 0;
         }
     }
-    if ($must_count != 1)
-    {
-        return 0;
-    }
-    return 1;
+    return $must_count == 1;
 }
 
 # check json_model_15_map_$anchor (.'$Bool'.'$anchor')
@@ -2736,11 +2716,7 @@ sub json_model_15($$$)
             return 0;
         }
     }
-    if ($must_count != 1)
-    {
-        return 0;
-    }
-    return 1;
+    return $must_count == 1;
 }
 
 # check json_model_16_map_$anchor (.'$Null'.'$anchor')
@@ -2992,11 +2968,7 @@ sub json_model_16($$$)
             return 0;
         }
     }
-    if ($must_count != 1)
-    {
-        return 0;
-    }
-    return 1;
+    return $must_count == 1;
 }
 
 # check json_model_17_map_$anchor (.'$AllOf'.'$anchor')
@@ -3248,11 +3220,7 @@ sub json_model_17($$$)
             return 0;
         }
     }
-    if ($must_count != 1)
-    {
-        return 0;
-    }
-    return 1;
+    return $must_count == 1;
 }
 
 # check json_model_18_map_$anchor (.'$AnyOf'.'$anchor')
@@ -3504,11 +3472,7 @@ sub json_model_18($$$)
             return 0;
         }
     }
-    if ($must_count != 1)
-    {
-        return 0;
-    }
-    return 1;
+    return $must_count == 1;
 }
 
 # check json_model_19_map_$anchor (.'$OneOf'.'$anchor')
@@ -3760,11 +3724,7 @@ sub json_model_19($$$)
             return 0;
         }
     }
-    if ($must_count != 1)
-    {
-        return 0;
-    }
-    return 1;
+    return $must_count == 1;
 }
 
 # check json_model_20_map_$anchor (.'$Enum'.'$anchor')
@@ -4016,11 +3976,7 @@ sub json_model_20($$$)
             return 0;
         }
     }
-    if ($must_count != 1)
-    {
-        return 0;
-    }
-    return 1;
+    return $must_count == 1;
 }
 
 # check json_model_21_map_$anchor (.'$Const'.'$anchor')
@@ -4272,11 +4228,7 @@ sub json_model_21($$$)
             return 0;
         }
     }
-    if ($must_count != 1)
-    {
-        return 0;
-    }
-    return 1;
+    return $must_count == 1;
 }
 
 # check json_model_22_map_$anchor (.'$Ref'.'$anchor')
@@ -4528,11 +4480,7 @@ sub json_model_22($$$)
             return 0;
         }
     }
-    if ($must_count != 1)
-    {
-        return 0;
-    }
-    return 1;
+    return $must_count == 1;
 }
 
 # check json_model_23_map_$anchor (.'$DynRef'.'$anchor')
@@ -4784,11 +4732,7 @@ sub json_model_23($$$)
             return 0;
         }
     }
-    if ($must_count != 1)
-    {
-        return 0;
-    }
-    return 1;
+    return $must_count == 1;
 }
 
 
@@ -4890,11 +4834,7 @@ sub _jm_obj_0($$$)
     $pval = $$val{'$schema'};
     # .'$RootSchema'.'&'.0.'$schema'
     $res = jm_is_string($pval);
-    if (! $res)
-    {
-        return 0;
-    }
-    return 1;
+    return $res;
 }
 
 # check $RootSchema (.'$RootSchema')

@@ -50,11 +50,7 @@ public class objs3 extends ModelChecker
         }
         // .'$book'.author
         res = json.isString(pval);
-        if (! res)
-        {
-            return false;
-        }
-        return true;
+        return res;
     }
 
     // check $ (.)

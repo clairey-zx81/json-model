@@ -61,10 +61,7 @@ BEGIN
   pval := val -> 'a';
   -- .'|'.4.a
   res := JSONB_TYPEOF(pval) = 'boolean' AND (pval)::BOOL = FALSE;
-  IF NOT res THEN
-    RETURN FALSE;
-  END IF;
-  RETURN TRUE;
+  RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -88,10 +85,7 @@ BEGIN
   pval := val -> 'a';
   -- .'|'.3.a
   res := JSONB_TYPEOF(pval) = 'boolean' AND (pval)::BOOL = TRUE;
-  IF NOT res THEN
-    RETURN FALSE;
-  END IF;
-  RETURN TRUE;
+  RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -115,10 +109,7 @@ BEGIN
   pval := val -> 'a';
   -- .'|'.2.a
   res := JSONB_TYPEOF(pval) = 'number' AND (pval)::FLOAT8 = 1.0;
-  IF NOT res THEN
-    RETURN FALSE;
-  END IF;
-  RETURN TRUE;
+  RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -142,10 +133,7 @@ BEGIN
   pval := val -> 'a';
   -- .'|'.1.a
   res := JSONB_TYPEOF(pval) = 'number' AND (pval)::FLOAT8 = 10.0;
-  IF NOT res THEN
-    RETURN FALSE;
-  END IF;
-  RETURN TRUE;
+  RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -169,10 +157,7 @@ BEGIN
   pval := val -> 'a';
   -- .'|'.0.a
   res := JSONB_TYPEOF(pval) = 'null';
-  IF NOT res THEN
-    RETURN FALSE;
-  END IF;
-  RETURN TRUE;
+  RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
 

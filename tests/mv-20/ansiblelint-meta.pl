@@ -5781,11 +5781,7 @@ sub json_model_52($$$)
             return 0;
         }
     }
-    if ($must_count != 1)
-    {
-        return 0;
-    }
-    return 1;
+    return $must_count == 1;
 }
 
 # check json_model_53_map_cloud_platforms (.'$GalaxyInfoModelStandalone'.cloud_platforms)
@@ -5977,11 +5973,7 @@ sub json_model_53($$$)
             return 0;
         }
     }
-    if ($must_count != 5)
-    {
-        return 0;
-    }
-    return 1;
+    return $must_count == 5;
 }
 
 # check _jm_obj_47_map_author (.'$GalaxyInfoModel'.'|'.1.author)
@@ -6169,11 +6161,7 @@ sub _jm_obj_47($$$)
             return 0;
         }
     }
-    if ($must_count != 2)
-    {
-        return 0;
-    }
-    return 1;
+    return $must_count == 2;
 }
 
 # check _jm_obj_48_map_author (.'$GalaxyInfoModel'.'|'.2.author)
@@ -6350,11 +6338,7 @@ sub _jm_obj_48($$$)
             return 0;
         }
     }
-    if ($must_count != 1)
-    {
-        return 0;
-    }
-    return 1;
+    return $must_count == 1;
 }
 
 
@@ -6545,12 +6529,8 @@ sub _jm_f_51($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$DependencyModelLoose'.vars
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return jm_is_object($val);
     # accept any object
-    return 1;
 }
 
 # check json_model_57_map_version (.'$DependencyModelLoose'.version)
@@ -6615,11 +6595,7 @@ sub _jm_obj_49($$$)
     $pval = $$val{'name'};
     # .'$DependencyModel'.'&'.1.'|'.2.name
     $res = jm_is_string($pval);
-    if (! $res)
-    {
-        return 0;
-    }
-    return 1;
+    return $res;
 }
 
 # object .'$DependencyModel'.'&'.1.'|'.1
@@ -6640,11 +6616,7 @@ sub _jm_obj_50($$$)
     $pval = $$val{'src'};
     # .'$DependencyModel'.'&'.1.'|'.1.src
     $res = jm_is_string($pval);
-    if (! $res)
-    {
-        return 0;
-    }
-    return 1;
+    return $res;
 }
 
 # object .'$DependencyModel'.'&'.1.'|'.0
@@ -6665,11 +6637,7 @@ sub _jm_obj_51($$$)
     $pval = $$val{'role'};
     # .'$DependencyModel'.'&'.1.'|'.0.role
     $res = jm_is_string($pval);
-    if (! $res)
-    {
-        return 0;
-    }
-    return 1;
+    return $res;
 }
 
 # check $DependencyModel (.'$DependencyModel')

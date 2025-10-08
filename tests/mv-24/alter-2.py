@@ -46,9 +46,7 @@ def json_model_2(val: Jsonable, path: Path, rep: Report) -> bool:
         return False
     # .'$d'.d
     res = isinstance(pval, str)
-    if not res:
-        return False
-    return True
+    return res
 
 
 # check $efg (.'$efg')
@@ -71,9 +69,7 @@ def json_model_3(val: Jsonable, path: Path, rep: Report) -> bool:
         return False
     # .'$efg'.efg
     res = isinstance(pval, str)
-    if not res:
-        return False
-    return True
+    return res
 
 # object .'$alternative'.'|'.0
 def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
@@ -94,9 +90,7 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
         return False
     # .'$alternative'.'|'.0.a
     res = isinstance(pval, str)
-    if not res:
-        return False
-    return True
+    return res
 
 
 # object .'$alternative'.'|'.1
@@ -118,9 +112,7 @@ def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
         return False
     # .'$alternative'.'|'.1.bc
     res = isinstance(pval, str)
-    if not res:
-        return False
-    return True
+    return res
 
 
 

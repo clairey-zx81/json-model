@@ -70,11 +70,7 @@ sub json_model_1($$$)
     $pval = $$val{'b'};
     # .b
     $res = jm_is_string($pval) && $pval eq 'Susie';
-    if (! $res)
-    {
-        return 0;
-    }
-    return 1;
+    return $res;
 }
 
 

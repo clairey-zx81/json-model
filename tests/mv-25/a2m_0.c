@@ -41,11 +41,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
     }
     // .b
     res = json_is_integer(pval) && json_integer_value(pval) >= 0;
-    if (! res)
-    {
-        return false;
-    }
-    return true;
+    return res;
 }
 
 jm_check_fun_t check_model_map(const char *pname)

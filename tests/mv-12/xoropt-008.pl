@@ -52,11 +52,7 @@ sub _jm_obj_0($$$)
             }
         }
     }
-    if (! $res)
-    {
-        return 0;
-    }
-    return 1;
+    return $res;
 }
 
 # object .'|'.1
@@ -81,11 +77,7 @@ sub _jm_obj_1($$$)
     $pval = $$val{'a'};
     # .'|'.1.a
     $res = jm_is_string($pval);
-    if (! $res)
-    {
-        return 0;
-    }
-    return 1;
+    return $res;
 }
 
 # object .'|'.0
@@ -110,11 +102,7 @@ sub _jm_obj_2($$$)
     $pval = $$val{'a'};
     # .'|'.0.a
     $res = jm_is_boolean($pval);
-    if (! $res)
-    {
-        return 0;
-    }
-    return 1;
+    return $res;
 }
 
 # check $ (.)

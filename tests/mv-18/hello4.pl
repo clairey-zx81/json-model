@@ -48,11 +48,7 @@ sub json_model_1($$$)
     $pval = $$val{'world'};
     # .world
     $res = jm_is_boolean($pval);
-    if (! $res)
-    {
-        return 0;
-    }
-    return 1;
+    return $res;
 }
 
 

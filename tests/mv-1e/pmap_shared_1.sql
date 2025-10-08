@@ -61,10 +61,7 @@ BEGIN
       END IF;
     END IF;
   END LOOP;
-  IF must_count <> 4 THEN
-    RETURN FALSE;
-  END IF;
-  RETURN TRUE;
+  RETURN must_count = 4;
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -123,10 +120,7 @@ BEGIN
       RETURN FALSE;
     END IF;
   END LOOP;
-  IF must_count <> 1 THEN
-    RETURN FALSE;
-  END IF;
-  RETURN TRUE;
+  RETURN must_count = 1;
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -188,10 +182,7 @@ BEGIN
       RETURN FALSE;
     END IF;
   END LOOP;
-  IF must_count <> 4 THEN
-    RETURN FALSE;
-  END IF;
-  RETURN TRUE;
+  RETURN must_count = 4;
 END;
 $$ LANGUAGE PLpgSQL;
 

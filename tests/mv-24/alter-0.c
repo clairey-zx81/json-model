@@ -53,11 +53,7 @@ static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
     }
     // .'$d'.d
     res = json_is_string(pval);
-    if (! res)
-    {
-        return false;
-    }
-    return true;
+    return res;
 }
 
 
@@ -92,11 +88,7 @@ static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
     }
     // .'$ef'.ef
     res = json_is_string(pval);
-    if (! res)
-    {
-        return false;
-    }
-    return true;
+    return res;
 }
 
 // object .'$alternative'.'|'.0
@@ -129,11 +121,7 @@ static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *re
     }
     // .'$alternative'.'|'.0.a
     res = json_is_string(pval);
-    if (! res)
-    {
-        return false;
-    }
-    return true;
+    return res;
 }
 
 
@@ -167,11 +155,7 @@ static INLINE bool _jm_obj_1(const json_t *val, jm_path_t *path, jm_report_t *re
     }
     // .'$alternative'.'|'.1.bc
     res = json_is_string(pval);
-    if (! res)
-    {
-        return false;
-    }
-    return true;
+    return res;
 }
 
 static INLINE jm_check_fun_t _jm_map_0(json_t *val)

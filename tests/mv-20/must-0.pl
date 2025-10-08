@@ -45,11 +45,7 @@ sub json_model_1($$$)
     $pval = $$val{'born'};
     # .born
     $res = jm_is_string($pval) && jm_is_valid_date($pval, undef, $rep);
-    if (! $res)
-    {
-        return 0;
-    }
-    return 1;
+    return $res;
 }
 
 

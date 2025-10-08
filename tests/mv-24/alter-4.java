@@ -51,11 +51,7 @@ public class alter_4 extends ModelChecker
         }
         // .'$alternative'.'|'.0.a
         res = json.isString(pval);
-        if (! res)
-        {
-            return false;
-        }
-        return true;
+        return res;
     }
 
 
@@ -89,11 +85,7 @@ public class alter_4 extends ModelChecker
         }
         // .'$alternative'.'|'.1.bc
         res = json.isString(pval);
-        if (! res)
-        {
-            return false;
-        }
-        return true;
+        return res;
     }
 
 

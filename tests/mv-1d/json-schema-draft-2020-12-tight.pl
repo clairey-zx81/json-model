@@ -437,11 +437,7 @@ sub json_model_5($$$)
     $pval = $$val{'type'};
     # .'$Null'.type
     $res = jm_is_string($pval) && $pval eq 'null';
-    if (! $res)
-    {
-        return 0;
-    }
-    return 1;
+    return $res;
 }
 
 # check $Boolean (.'$Boolean')
@@ -467,11 +463,7 @@ sub json_model_6($$$)
     $pval = $$val{'type'};
     # .'$Boolean'.type
     $res = jm_is_string($pval) && $pval eq 'boolean';
-    if (! $res)
-    {
-        return 0;
-    }
-    return 1;
+    return $res;
 }
 
 # check $Number (.'$Number')
@@ -584,11 +576,7 @@ sub json_model_7($$$)
             return 0;
         }
     }
-    if ($must_count != 1)
-    {
-        return 0;
-    }
-    return 1;
+    return $must_count == 1;
 }
 
 # check $Integer (.'$Integer')
@@ -671,11 +659,7 @@ sub json_model_8($$$)
             return 0;
         }
     }
-    if ($must_count != 1)
-    {
-        return 0;
-    }
-    return 1;
+    return $must_count == 1;
 }
 
 # check json_model_9_map_contentEncoding (.'$String'.contentEncoding)
@@ -778,11 +762,7 @@ sub json_model_9($$$)
             return 0;
         }
     }
-    if ($must_count != 1)
-    {
-        return 0;
-    }
-    return 1;
+    return $must_count == 1;
 }
 
 # check $stringArray (.'$stringArray')
@@ -933,11 +913,7 @@ sub json_model_12($$$)
             return 0;
         }
     }
-    if ($must_count != 1)
-    {
-        return 0;
-    }
-    return 1;
+    return $must_count == 1;
 }
 
 # check json_model_13_map_dependentRequired (.'$Object'.dependentRequired)
@@ -1103,11 +1079,7 @@ sub json_model_13($$$)
             return 0;
         }
     }
-    if ($must_count != 1)
-    {
-        return 0;
-    }
-    return 1;
+    return $must_count == 1;
 }
 
 # check json_model_14_map_const (.'$Misc'.const)
@@ -1344,11 +1316,7 @@ sub _jm_obj_0($$$)
             return 0;
         }
     }
-    if ($must_count != 1)
-    {
-        return 0;
-    }
-    return 1;
+    return $must_count == 1;
 }
 
 # check _jm_obj_1_map_$comment (.'$TightSchema'.'|'.1.'$comment')
@@ -1535,11 +1503,7 @@ sub _jm_obj_1($$$)
             return 0;
         }
     }
-    if ($must_count != 1)
-    {
-        return 0;
-    }
-    return 1;
+    return $must_count == 1;
 }
 
 # check _jm_obj_2_map_$comment (.'$TightSchema'.'|'.2.'$comment')
@@ -1806,11 +1770,7 @@ sub _jm_obj_2($$$)
             return 0;
         }
     }
-    if ($must_count != 1)
-    {
-        return 0;
-    }
-    return 1;
+    return $must_count == 1;
 }
 
 # check _jm_obj_3_map_$comment (.'$TightSchema'.'|'.3.'$comment')
@@ -2047,11 +2007,7 @@ sub _jm_obj_3($$$)
             return 0;
         }
     }
-    if ($must_count != 1)
-    {
-        return 0;
-    }
-    return 1;
+    return $must_count == 1;
 }
 
 # check _jm_obj_4_map_$comment (.'$TightSchema'.'|'.4.'$comment')
@@ -2298,11 +2254,7 @@ sub _jm_obj_4($$$)
             return 0;
         }
     }
-    if ($must_count != 1)
-    {
-        return 0;
-    }
-    return 1;
+    return $must_count == 1;
 }
 
 # check _jm_obj_5_map_$comment (.'$TightSchema'.'|'.5.'$comment')
@@ -2539,11 +2491,7 @@ sub _jm_obj_5($$$)
             return 0;
         }
     }
-    if ($must_count != 1)
-    {
-        return 0;
-    }
-    return 1;
+    return $must_count == 1;
 }
 
 # check _jm_obj_6_map_$comment (.'$TightSchema'.'|'.6.'$comment')
@@ -2853,11 +2801,7 @@ sub _jm_obj_6($$$)
             return 0;
         }
     }
-    if ($must_count != 1)
-    {
-        return 0;
-    }
-    return 1;
+    return $must_count == 1;
 }
 
 # check _jm_obj_7_map_$comment (.'$TightSchema'.'|'.7.'$comment')
