@@ -2272,17 +2272,8 @@ def _jm_f_3(val: Jsonable, path: Path, rep: Report) -> bool:
             return False
     return True
 
-# check _jm_obj_42_map_.in (.'$Model#Root'.'|'.0.'.in')
-def _jm_f_4(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .'$Model#Root'.'|'.0.'.in'
-    res = json_model_35(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected $Model [.'$Model#Root'.'|'.0.'.in']", path))
-    return res
-
 # check _jm_obj_42_map_.mo (.'$Model#Root'.'|'.0.'.mo')
-def _jm_f_5(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_4(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$Model#Root'.'|'.0.'.mo'
     res = isinstance(val, int) and not isinstance(val, bool) and val >= 1
@@ -2291,22 +2282,13 @@ def _jm_f_5(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_42_map_.schema (.'$Model#Root'.'|'.0.'.schema')
-def _jm_f_6(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_5(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$Model#Root'.'|'.0.'.schema'
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$Model#Root'.'|'.0.'.schema']", path))
         return False
     # accept any object
     return True
-
-# check _jm_obj_42_map_~ (.'$Model#Root'.'|'.0.'~')
-def _jm_f_7(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .'$Model#Root'.'|'.0.'~'
-    res = json_model_4(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected $Url [.'$Model#Root'.'|'.0.'~']", path))
-    return res
 
 
 # object .'$Model#Root'.'|'.0
@@ -2609,10 +2591,10 @@ def check_model_init():
             "#": _jm_f_1,
             "$": _jm_f_2,
             "%": _jm_f_3,
-            ".in": _jm_f_4,
-            ".mo": _jm_f_5,
-            ".schema": _jm_f_6,
-            "~": _jm_f_7,
+            ".in": json_model_35,
+            ".mo": _jm_f_4,
+            ".schema": _jm_f_5,
+            "~": json_model_4,
         }
         global _jm_re_9_reco, _jm_re_9
         _jm_re_9_reco = re.compile("^((file|https?)://.+|\\./.*|\\.\\./.*)$")

@@ -843,21 +843,8 @@ function _jm_f_3(val, path, rep)
     return true;
 }
 
-// check json_model_1_mup_name (.name)
-function _jm_f_4(val, path, rep)
-{
-    let res;
-    // .name
-    res = json_model_2(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $neStr [.name]", path])
-    }
-    return res;
-}
-
 // check json_model_1_mup_provides (.provides)
-function _jm_f_5(val, path, rep)
+function _jm_f_4(val, path, rep)
 {
     // .provides
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
@@ -882,7 +869,7 @@ function _jm_f_5(val, path, rep)
 }
 
 // check json_model_1_mup_version (.version)
-function _jm_f_6(val, path, rep)
+function _jm_f_5(val, path, rep)
 {
     let res;
     // .version
@@ -896,7 +883,7 @@ function _jm_f_6(val, path, rep)
 
 
 // check json_model_1_map_description (.description)
-function _jm_f_7(val, path, rep)
+function _jm_f_6(val, path, rep)
 {
     let res;
     // .description
@@ -909,7 +896,7 @@ function _jm_f_7(val, path, rep)
 }
 
 // check json_model_1_map_generated_by (.generated_by)
-function _jm_f_8(val, path, rep)
+function _jm_f_7(val, path, rep)
 {
     let res;
     // .generated_by
@@ -922,7 +909,7 @@ function _jm_f_8(val, path, rep)
 }
 
 // check json_model_1_map_no_index (.no_index)
-function _jm_f_9(val, path, rep)
+function _jm_f_8(val, path, rep)
 {
     // .no_index
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
@@ -967,60 +954,8 @@ function _jm_f_9(val, path, rep)
     return true;
 }
 
-// check json_model_1_map_prereqs (.prereqs)
-function _jm_f_10(val, path, rep)
-{
-    let res;
-    // .prereqs
-    res = json_model_16(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $Prereqs [.prereqs]", path])
-    }
-    return res;
-}
-
-// check json_model_1_map_release_status (.release_status)
-function _jm_f_11(val, path, rep)
-{
-    let res;
-    // .release_status
-    res = json_model_7(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $Status [.release_status]", path])
-    }
-    return res;
-}
-
-// check json_model_1_map_resources (.resources)
-function _jm_f_12(val, path, rep)
-{
-    let res;
-    // .resources
-    res = json_model_8(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $Resources [.resources]", path])
-    }
-    return res;
-}
-
-// check json_model_1_map_tags (.tags)
-function _jm_f_13(val, path, rep)
-{
-    let res;
-    // .tags
-    res = json_model_3(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $neStrList [.tags]", path])
-    }
-    return res;
-}
-
 // check json_model_1_map_url (.url)
-function _jm_f_14(val, path, rep)
+function _jm_f_9(val, path, rep)
 {
     let res;
     // .url
@@ -1179,17 +1114,17 @@ export function check_model_init()
         json_model_1_mup.set("license", _jm_f_1)
         json_model_1_mup.set("maintainer", _jm_f_2)
         json_model_1_mup.set("meta-spec", _jm_f_3)
-        json_model_1_mup.set("name", _jm_f_4)
-        json_model_1_mup.set("provides", _jm_f_5)
-        json_model_1_mup.set("version", _jm_f_6)
-        json_model_1_map.set("description", _jm_f_7)
-        json_model_1_map.set("generated_by", _jm_f_8)
-        json_model_1_map.set("no_index", _jm_f_9)
-        json_model_1_map.set("prereqs", _jm_f_10)
-        json_model_1_map.set("release_status", _jm_f_11)
-        json_model_1_map.set("resources", _jm_f_12)
-        json_model_1_map.set("tags", _jm_f_13)
-        json_model_1_map.set("url", _jm_f_14)
+        json_model_1_mup.set("name", json_model_2)
+        json_model_1_mup.set("provides", _jm_f_4)
+        json_model_1_mup.set("version", _jm_f_5)
+        json_model_1_map.set("description", _jm_f_6)
+        json_model_1_map.set("generated_by", _jm_f_7)
+        json_model_1_map.set("no_index", _jm_f_8)
+        json_model_1_map.set("prereqs", json_model_16)
+        json_model_1_map.set("release_status", json_model_7)
+        json_model_1_map.set("resources", json_model_8)
+        json_model_1_map.set("tags", json_model_3)
+        json_model_1_map.set("url", _jm_f_9)
         check_model_map.set("", json_model_1)
         check_model_map.set("neStr", json_model_2)
         check_model_map.set("neStrList", json_model_3)

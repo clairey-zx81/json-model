@@ -618,20 +618,8 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check json_model_13_map_additionalItems (.'$tight#Array'.additionalItems)
-CREATE OR REPLACE FUNCTION _jm_f_28(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .'$tight#Array'.additionalItems
-  res := json_model_26(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
 -- check json_model_13_map_default (.'$tight#Array'.default)
-CREATE OR REPLACE FUNCTION _jm_f_29(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_28(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -643,7 +631,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_13_map_definitions (.'$tight#Array'.definitions)
-CREATE OR REPLACE FUNCTION _jm_f_30(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_29(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -667,7 +655,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_13_map_description (.'$tight#Array'.description)
-CREATE OR REPLACE FUNCTION _jm_f_31(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_30(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -679,7 +667,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_13_map_examples (.'$tight#Array'.examples)
-CREATE OR REPLACE FUNCTION _jm_f_32(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_31(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -691,7 +679,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_13_map_id (.'$tight#Array'.id)
-CREATE OR REPLACE FUNCTION _jm_f_33(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_32(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -703,7 +691,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_13_map_items (.'$tight#Array'.items)
-CREATE OR REPLACE FUNCTION _jm_f_34(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_33(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -720,7 +708,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_13_map_maxItems (.'$tight#Array'.maxItems)
-CREATE OR REPLACE FUNCTION _jm_f_35(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_34(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -732,7 +720,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_13_map_minItems (.'$tight#Array'.minItems)
-CREATE OR REPLACE FUNCTION _jm_f_36(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_35(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -743,20 +731,8 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check json_model_13_map_prefixItems (.'$tight#Array'.prefixItems)
-CREATE OR REPLACE FUNCTION _jm_f_37(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .'$tight#Array'.prefixItems
-  res := json_model_6(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
 -- check json_model_13_map_title (.'$tight#Array'.title)
-CREATE OR REPLACE FUNCTION _jm_f_38(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_36(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -768,7 +744,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_13_map_uniqueItems (.'$tight#Array'.uniqueItems)
-CREATE OR REPLACE FUNCTION _jm_f_39(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_37(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -782,7 +758,7 @@ $$ LANGUAGE PLpgSQL;
 CREATE OR REPLACE FUNCTION json_model_13_map(name TEXT)
 RETURNS TEXT STRICT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
-  map JSONB := JSONB '{"$comment":"_jm_f_24","$defs":"_jm_f_25","$id":"_jm_f_26","$schema":"_jm_f_27","additionalItems":"_jm_f_28","default":"_jm_f_29","definitions":"_jm_f_30","description":"_jm_f_31","examples":"_jm_f_32","id":"_jm_f_33","items":"_jm_f_34","maxItems":"_jm_f_35","minItems":"_jm_f_36","prefixItems":"_jm_f_37","title":"_jm_f_38","uniqueItems":"_jm_f_39"}';
+  map JSONB := JSONB '{"$comment":"_jm_f_24","$defs":"_jm_f_25","$id":"_jm_f_26","$schema":"_jm_f_27","additionalItems":"json_model_26","default":"_jm_f_28","definitions":"_jm_f_29","description":"_jm_f_30","examples":"_jm_f_31","id":"_jm_f_32","items":"_jm_f_33","maxItems":"_jm_f_34","minItems":"_jm_f_35","prefixItems":"json_model_6","title":"_jm_f_36","uniqueItems":"_jm_f_37"}';
 BEGIN
   RETURN map->>name;
 END;
@@ -854,7 +830,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_14_map_$comment (.'$tight#Object'.'$comment')
-CREATE OR REPLACE FUNCTION _jm_f_40(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_38(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -866,7 +842,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_14_map_$defs (.'$tight#Object'.'$defs')
-CREATE OR REPLACE FUNCTION _jm_f_41(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_39(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -890,7 +866,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_14_map_$id (.'$tight#Object'.'$id')
-CREATE OR REPLACE FUNCTION _jm_f_42(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_40(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -902,7 +878,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_14_map_$schema (.'$tight#Object'.'$schema')
-CREATE OR REPLACE FUNCTION _jm_f_43(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_41(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -913,20 +889,8 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check json_model_14_map_additionalProperties (.'$tight#Object'.additionalProperties)
-CREATE OR REPLACE FUNCTION _jm_f_44(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .'$tight#Object'.additionalProperties
-  res := json_model_26(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
 -- check json_model_14_map_default (.'$tight#Object'.default)
-CREATE OR REPLACE FUNCTION _jm_f_45(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_42(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -938,7 +902,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_14_map_definitions (.'$tight#Object'.definitions)
-CREATE OR REPLACE FUNCTION _jm_f_46(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_43(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -962,7 +926,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_14_map_description (.'$tight#Object'.description)
-CREATE OR REPLACE FUNCTION _jm_f_47(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_44(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -974,7 +938,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_14_map_examples (.'$tight#Object'.examples)
-CREATE OR REPLACE FUNCTION _jm_f_48(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_45(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -986,7 +950,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_14_map_id (.'$tight#Object'.id)
-CREATE OR REPLACE FUNCTION _jm_f_49(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_46(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -998,7 +962,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_14_map_patternProperties (.'$tight#Object'.patternProperties)
-CREATE OR REPLACE FUNCTION _jm_f_50(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_47(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -1026,7 +990,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_14_map_properties (.'$tight#Object'.properties)
-CREATE OR REPLACE FUNCTION _jm_f_51(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_48(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -1050,7 +1014,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_14_map_required (.'$tight#Object'.required)
-CREATE OR REPLACE FUNCTION _jm_f_52(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_49(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -1074,7 +1038,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_14_map_title (.'$tight#Object'.title)
-CREATE OR REPLACE FUNCTION _jm_f_53(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_50(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -1088,7 +1052,7 @@ $$ LANGUAGE PLpgSQL;
 CREATE OR REPLACE FUNCTION json_model_14_map(name TEXT)
 RETURNS TEXT STRICT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
-  map JSONB := JSONB '{"$comment":"_jm_f_40","$defs":"_jm_f_41","$id":"_jm_f_42","$schema":"_jm_f_43","additionalProperties":"_jm_f_44","default":"_jm_f_45","definitions":"_jm_f_46","description":"_jm_f_47","examples":"_jm_f_48","id":"_jm_f_49","patternProperties":"_jm_f_50","properties":"_jm_f_51","required":"_jm_f_52","title":"_jm_f_53"}';
+  map JSONB := JSONB '{"$comment":"_jm_f_38","$defs":"_jm_f_39","$id":"_jm_f_40","$schema":"_jm_f_41","additionalProperties":"json_model_26","default":"_jm_f_42","definitions":"_jm_f_43","description":"_jm_f_44","examples":"_jm_f_45","id":"_jm_f_46","patternProperties":"_jm_f_47","properties":"_jm_f_48","required":"_jm_f_49","title":"_jm_f_50"}';
 BEGIN
   RETURN map->>name;
 END;
@@ -1136,7 +1100,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_15_map_$comment (.'$tight#Integer'.'$comment')
-CREATE OR REPLACE FUNCTION _jm_f_54(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_51(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -1148,7 +1112,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_15_map_$defs (.'$tight#Integer'.'$defs')
-CREATE OR REPLACE FUNCTION _jm_f_55(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_52(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -1172,7 +1136,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_15_map_$id (.'$tight#Integer'.'$id')
-CREATE OR REPLACE FUNCTION _jm_f_56(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_53(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -1184,7 +1148,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_15_map_$schema (.'$tight#Integer'.'$schema')
-CREATE OR REPLACE FUNCTION _jm_f_57(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_54(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -1196,7 +1160,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_15_map_default (.'$tight#Integer'.default)
-CREATE OR REPLACE FUNCTION _jm_f_58(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_55(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -1208,7 +1172,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_15_map_definitions (.'$tight#Integer'.definitions)
-CREATE OR REPLACE FUNCTION _jm_f_59(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_56(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -1232,7 +1196,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_15_map_description (.'$tight#Integer'.description)
-CREATE OR REPLACE FUNCTION _jm_f_60(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_57(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -1244,7 +1208,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_15_map_examples (.'$tight#Integer'.examples)
-CREATE OR REPLACE FUNCTION _jm_f_61(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_58(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -1256,7 +1220,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_15_map_id (.'$tight#Integer'.id)
-CREATE OR REPLACE FUNCTION _jm_f_62(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_59(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -1268,7 +1232,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_15_map_maximum (.'$tight#Integer'.maximum)
-CREATE OR REPLACE FUNCTION _jm_f_63(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_60(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -1280,7 +1244,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_15_map_minimum (.'$tight#Integer'.minimum)
-CREATE OR REPLACE FUNCTION _jm_f_64(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_61(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -1292,7 +1256,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_15_map_title (.'$tight#Integer'.title)
-CREATE OR REPLACE FUNCTION _jm_f_65(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_62(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -1306,7 +1270,7 @@ $$ LANGUAGE PLpgSQL;
 CREATE OR REPLACE FUNCTION json_model_15_map(name TEXT)
 RETURNS TEXT STRICT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
-  map JSONB := JSONB '{"$comment":"_jm_f_54","$defs":"_jm_f_55","$id":"_jm_f_56","$schema":"_jm_f_57","default":"_jm_f_58","definitions":"_jm_f_59","description":"_jm_f_60","examples":"_jm_f_61","id":"_jm_f_62","maximum":"_jm_f_63","minimum":"_jm_f_64","title":"_jm_f_65"}';
+  map JSONB := JSONB '{"$comment":"_jm_f_51","$defs":"_jm_f_52","$id":"_jm_f_53","$schema":"_jm_f_54","default":"_jm_f_55","definitions":"_jm_f_56","description":"_jm_f_57","examples":"_jm_f_58","id":"_jm_f_59","maximum":"_jm_f_60","minimum":"_jm_f_61","title":"_jm_f_62"}';
 BEGIN
   RETURN map->>name;
 END;
@@ -1354,7 +1318,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_16_map_$comment (.'$tight#Number'.'$comment')
-CREATE OR REPLACE FUNCTION _jm_f_66(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_63(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -1366,7 +1330,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_16_map_$defs (.'$tight#Number'.'$defs')
-CREATE OR REPLACE FUNCTION _jm_f_67(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_64(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -1390,7 +1354,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_16_map_$id (.'$tight#Number'.'$id')
-CREATE OR REPLACE FUNCTION _jm_f_68(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_65(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -1402,7 +1366,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_16_map_$schema (.'$tight#Number'.'$schema')
-CREATE OR REPLACE FUNCTION _jm_f_69(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_66(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -1414,7 +1378,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_16_map_default (.'$tight#Number'.default)
-CREATE OR REPLACE FUNCTION _jm_f_70(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_67(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -1426,7 +1390,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_16_map_definitions (.'$tight#Number'.definitions)
-CREATE OR REPLACE FUNCTION _jm_f_71(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_68(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -1450,7 +1414,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_16_map_description (.'$tight#Number'.description)
-CREATE OR REPLACE FUNCTION _jm_f_72(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_69(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -1462,7 +1426,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_16_map_examples (.'$tight#Number'.examples)
-CREATE OR REPLACE FUNCTION _jm_f_73(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_70(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -1474,7 +1438,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_16_map_id (.'$tight#Number'.id)
-CREATE OR REPLACE FUNCTION _jm_f_74(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_71(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -1486,7 +1450,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_16_map_maximum (.'$tight#Number'.maximum)
-CREATE OR REPLACE FUNCTION _jm_f_75(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_72(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -1498,7 +1462,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_16_map_minimum (.'$tight#Number'.minimum)
-CREATE OR REPLACE FUNCTION _jm_f_76(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_73(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -1510,7 +1474,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_16_map_title (.'$tight#Number'.title)
-CREATE OR REPLACE FUNCTION _jm_f_77(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_74(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -1524,7 +1488,7 @@ $$ LANGUAGE PLpgSQL;
 CREATE OR REPLACE FUNCTION json_model_16_map(name TEXT)
 RETURNS TEXT STRICT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
-  map JSONB := JSONB '{"$comment":"_jm_f_66","$defs":"_jm_f_67","$id":"_jm_f_68","$schema":"_jm_f_69","default":"_jm_f_70","definitions":"_jm_f_71","description":"_jm_f_72","examples":"_jm_f_73","id":"_jm_f_74","maximum":"_jm_f_75","minimum":"_jm_f_76","title":"_jm_f_77"}';
+  map JSONB := JSONB '{"$comment":"_jm_f_63","$defs":"_jm_f_64","$id":"_jm_f_65","$schema":"_jm_f_66","default":"_jm_f_67","definitions":"_jm_f_68","description":"_jm_f_69","examples":"_jm_f_70","id":"_jm_f_71","maximum":"_jm_f_72","minimum":"_jm_f_73","title":"_jm_f_74"}';
 BEGIN
   RETURN map->>name;
 END;
@@ -1572,7 +1536,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_17_map_$comment (.'$tight#Bool'.'$comment')
-CREATE OR REPLACE FUNCTION _jm_f_78(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_75(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -1584,7 +1548,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_17_map_$defs (.'$tight#Bool'.'$defs')
-CREATE OR REPLACE FUNCTION _jm_f_79(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_76(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -1608,7 +1572,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_17_map_$id (.'$tight#Bool'.'$id')
-CREATE OR REPLACE FUNCTION _jm_f_80(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_77(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -1620,7 +1584,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_17_map_$schema (.'$tight#Bool'.'$schema')
-CREATE OR REPLACE FUNCTION _jm_f_81(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_78(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -1632,7 +1596,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_17_map_default (.'$tight#Bool'.default)
-CREATE OR REPLACE FUNCTION _jm_f_82(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_79(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -1644,7 +1608,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_17_map_definitions (.'$tight#Bool'.definitions)
-CREATE OR REPLACE FUNCTION _jm_f_83(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_80(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -1668,7 +1632,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_17_map_description (.'$tight#Bool'.description)
-CREATE OR REPLACE FUNCTION _jm_f_84(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_81(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -1680,7 +1644,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_17_map_examples (.'$tight#Bool'.examples)
-CREATE OR REPLACE FUNCTION _jm_f_85(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_82(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -1692,7 +1656,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_17_map_id (.'$tight#Bool'.id)
-CREATE OR REPLACE FUNCTION _jm_f_86(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_83(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -1704,7 +1668,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_17_map_title (.'$tight#Bool'.title)
-CREATE OR REPLACE FUNCTION _jm_f_87(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_84(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -1718,7 +1682,7 @@ $$ LANGUAGE PLpgSQL;
 CREATE OR REPLACE FUNCTION json_model_17_map(name TEXT)
 RETURNS TEXT STRICT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
-  map JSONB := JSONB '{"$comment":"_jm_f_78","$defs":"_jm_f_79","$id":"_jm_f_80","$schema":"_jm_f_81","default":"_jm_f_82","definitions":"_jm_f_83","description":"_jm_f_84","examples":"_jm_f_85","id":"_jm_f_86","title":"_jm_f_87"}';
+  map JSONB := JSONB '{"$comment":"_jm_f_75","$defs":"_jm_f_76","$id":"_jm_f_77","$schema":"_jm_f_78","default":"_jm_f_79","definitions":"_jm_f_80","description":"_jm_f_81","examples":"_jm_f_82","id":"_jm_f_83","title":"_jm_f_84"}';
 BEGIN
   RETURN map->>name;
 END;
@@ -1766,7 +1730,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_18_map_$comment (.'$tight#Null'.'$comment')
-CREATE OR REPLACE FUNCTION _jm_f_88(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_85(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -1778,7 +1742,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_18_map_$defs (.'$tight#Null'.'$defs')
-CREATE OR REPLACE FUNCTION _jm_f_89(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_86(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -1802,7 +1766,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_18_map_$id (.'$tight#Null'.'$id')
-CREATE OR REPLACE FUNCTION _jm_f_90(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_87(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -1814,7 +1778,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_18_map_$schema (.'$tight#Null'.'$schema')
-CREATE OR REPLACE FUNCTION _jm_f_91(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_88(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -1826,7 +1790,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_18_map_default (.'$tight#Null'.default)
-CREATE OR REPLACE FUNCTION _jm_f_92(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_89(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -1838,7 +1802,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_18_map_definitions (.'$tight#Null'.definitions)
-CREATE OR REPLACE FUNCTION _jm_f_93(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_90(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -1862,7 +1826,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_18_map_description (.'$tight#Null'.description)
-CREATE OR REPLACE FUNCTION _jm_f_94(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_91(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -1874,7 +1838,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_18_map_examples (.'$tight#Null'.examples)
-CREATE OR REPLACE FUNCTION _jm_f_95(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_92(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -1886,7 +1850,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_18_map_id (.'$tight#Null'.id)
-CREATE OR REPLACE FUNCTION _jm_f_96(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_93(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -1898,7 +1862,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_18_map_title (.'$tight#Null'.title)
-CREATE OR REPLACE FUNCTION _jm_f_97(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_94(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -1912,7 +1876,7 @@ $$ LANGUAGE PLpgSQL;
 CREATE OR REPLACE FUNCTION json_model_18_map(name TEXT)
 RETURNS TEXT STRICT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
-  map JSONB := JSONB '{"$comment":"_jm_f_88","$defs":"_jm_f_89","$id":"_jm_f_90","$schema":"_jm_f_91","default":"_jm_f_92","definitions":"_jm_f_93","description":"_jm_f_94","examples":"_jm_f_95","id":"_jm_f_96","title":"_jm_f_97"}';
+  map JSONB := JSONB '{"$comment":"_jm_f_85","$defs":"_jm_f_86","$id":"_jm_f_87","$schema":"_jm_f_88","default":"_jm_f_89","definitions":"_jm_f_90","description":"_jm_f_91","examples":"_jm_f_92","id":"_jm_f_93","title":"_jm_f_94"}';
 BEGIN
   RETURN map->>name;
 END;
@@ -1960,7 +1924,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_19_map_$comment (.'$tight#AllOf'.'$comment')
-CREATE OR REPLACE FUNCTION _jm_f_98(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_95(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -1972,7 +1936,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_19_map_$defs (.'$tight#AllOf'.'$defs')
-CREATE OR REPLACE FUNCTION _jm_f_99(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_96(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -1996,7 +1960,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_19_map_$id (.'$tight#AllOf'.'$id')
-CREATE OR REPLACE FUNCTION _jm_f_100(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_97(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -2008,7 +1972,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_19_map_$schema (.'$tight#AllOf'.'$schema')
-CREATE OR REPLACE FUNCTION _jm_f_101(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_98(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -2020,7 +1984,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_19_map_default (.'$tight#AllOf'.default)
-CREATE OR REPLACE FUNCTION _jm_f_102(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_99(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -2032,7 +1996,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_19_map_definitions (.'$tight#AllOf'.definitions)
-CREATE OR REPLACE FUNCTION _jm_f_103(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_100(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -2056,7 +2020,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_19_map_description (.'$tight#AllOf'.description)
-CREATE OR REPLACE FUNCTION _jm_f_104(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_101(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -2068,7 +2032,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_19_map_examples (.'$tight#AllOf'.examples)
-CREATE OR REPLACE FUNCTION _jm_f_105(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_102(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -2080,7 +2044,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_19_map_id (.'$tight#AllOf'.id)
-CREATE OR REPLACE FUNCTION _jm_f_106(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_103(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -2092,7 +2056,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_19_map_title (.'$tight#AllOf'.title)
-CREATE OR REPLACE FUNCTION _jm_f_107(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_104(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -2106,7 +2070,7 @@ $$ LANGUAGE PLpgSQL;
 CREATE OR REPLACE FUNCTION json_model_19_map(name TEXT)
 RETURNS TEXT STRICT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
-  map JSONB := JSONB '{"$comment":"_jm_f_98","$defs":"_jm_f_99","$id":"_jm_f_100","$schema":"_jm_f_101","default":"_jm_f_102","definitions":"_jm_f_103","description":"_jm_f_104","examples":"_jm_f_105","id":"_jm_f_106","title":"_jm_f_107"}';
+  map JSONB := JSONB '{"$comment":"_jm_f_95","$defs":"_jm_f_96","$id":"_jm_f_97","$schema":"_jm_f_98","default":"_jm_f_99","definitions":"_jm_f_100","description":"_jm_f_101","examples":"_jm_f_102","id":"_jm_f_103","title":"_jm_f_104"}';
 BEGIN
   RETURN map->>name;
 END;
@@ -2154,7 +2118,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_20_map_$comment (.'$tight#AnyOf'.'$comment')
-CREATE OR REPLACE FUNCTION _jm_f_108(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_105(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -2166,7 +2130,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_20_map_$defs (.'$tight#AnyOf'.'$defs')
-CREATE OR REPLACE FUNCTION _jm_f_109(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_106(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -2190,7 +2154,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_20_map_$id (.'$tight#AnyOf'.'$id')
-CREATE OR REPLACE FUNCTION _jm_f_110(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_107(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -2202,7 +2166,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_20_map_$schema (.'$tight#AnyOf'.'$schema')
-CREATE OR REPLACE FUNCTION _jm_f_111(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_108(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -2214,7 +2178,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_20_map_default (.'$tight#AnyOf'.default)
-CREATE OR REPLACE FUNCTION _jm_f_112(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_109(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -2226,7 +2190,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_20_map_definitions (.'$tight#AnyOf'.definitions)
-CREATE OR REPLACE FUNCTION _jm_f_113(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_110(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -2250,7 +2214,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_20_map_description (.'$tight#AnyOf'.description)
-CREATE OR REPLACE FUNCTION _jm_f_114(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_111(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -2262,7 +2226,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_20_map_examples (.'$tight#AnyOf'.examples)
-CREATE OR REPLACE FUNCTION _jm_f_115(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_112(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -2274,7 +2238,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_20_map_id (.'$tight#AnyOf'.id)
-CREATE OR REPLACE FUNCTION _jm_f_116(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_113(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -2286,7 +2250,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_20_map_title (.'$tight#AnyOf'.title)
-CREATE OR REPLACE FUNCTION _jm_f_117(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_114(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -2300,7 +2264,7 @@ $$ LANGUAGE PLpgSQL;
 CREATE OR REPLACE FUNCTION json_model_20_map(name TEXT)
 RETURNS TEXT STRICT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
-  map JSONB := JSONB '{"$comment":"_jm_f_108","$defs":"_jm_f_109","$id":"_jm_f_110","$schema":"_jm_f_111","default":"_jm_f_112","definitions":"_jm_f_113","description":"_jm_f_114","examples":"_jm_f_115","id":"_jm_f_116","title":"_jm_f_117"}';
+  map JSONB := JSONB '{"$comment":"_jm_f_105","$defs":"_jm_f_106","$id":"_jm_f_107","$schema":"_jm_f_108","default":"_jm_f_109","definitions":"_jm_f_110","description":"_jm_f_111","examples":"_jm_f_112","id":"_jm_f_113","title":"_jm_f_114"}';
 BEGIN
   RETURN map->>name;
 END;
@@ -2348,7 +2312,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_21_map_$comment (.'$tight#OneOf'.'$comment')
-CREATE OR REPLACE FUNCTION _jm_f_118(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_115(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -2360,7 +2324,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_21_map_$defs (.'$tight#OneOf'.'$defs')
-CREATE OR REPLACE FUNCTION _jm_f_119(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_116(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -2384,7 +2348,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_21_map_$id (.'$tight#OneOf'.'$id')
-CREATE OR REPLACE FUNCTION _jm_f_120(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_117(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -2396,7 +2360,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_21_map_$schema (.'$tight#OneOf'.'$schema')
-CREATE OR REPLACE FUNCTION _jm_f_121(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_118(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -2408,7 +2372,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_21_map_default (.'$tight#OneOf'.default)
-CREATE OR REPLACE FUNCTION _jm_f_122(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_119(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -2420,7 +2384,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_21_map_definitions (.'$tight#OneOf'.definitions)
-CREATE OR REPLACE FUNCTION _jm_f_123(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_120(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -2444,7 +2408,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_21_map_description (.'$tight#OneOf'.description)
-CREATE OR REPLACE FUNCTION _jm_f_124(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_121(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -2456,7 +2420,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_21_map_examples (.'$tight#OneOf'.examples)
-CREATE OR REPLACE FUNCTION _jm_f_125(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_122(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -2468,7 +2432,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_21_map_id (.'$tight#OneOf'.id)
-CREATE OR REPLACE FUNCTION _jm_f_126(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_123(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -2480,7 +2444,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_21_map_title (.'$tight#OneOf'.title)
-CREATE OR REPLACE FUNCTION _jm_f_127(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_124(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -2494,7 +2458,7 @@ $$ LANGUAGE PLpgSQL;
 CREATE OR REPLACE FUNCTION json_model_21_map(name TEXT)
 RETURNS TEXT STRICT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
-  map JSONB := JSONB '{"$comment":"_jm_f_118","$defs":"_jm_f_119","$id":"_jm_f_120","$schema":"_jm_f_121","default":"_jm_f_122","definitions":"_jm_f_123","description":"_jm_f_124","examples":"_jm_f_125","id":"_jm_f_126","title":"_jm_f_127"}';
+  map JSONB := JSONB '{"$comment":"_jm_f_115","$defs":"_jm_f_116","$id":"_jm_f_117","$schema":"_jm_f_118","default":"_jm_f_119","definitions":"_jm_f_120","description":"_jm_f_121","examples":"_jm_f_122","id":"_jm_f_123","title":"_jm_f_124"}';
 BEGIN
   RETURN map->>name;
 END;
@@ -2542,7 +2506,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_22_map_$comment (.'$tight#Enum'.'$comment')
-CREATE OR REPLACE FUNCTION _jm_f_128(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_125(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -2554,7 +2518,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_22_map_$defs (.'$tight#Enum'.'$defs')
-CREATE OR REPLACE FUNCTION _jm_f_129(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_126(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -2578,7 +2542,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_22_map_$id (.'$tight#Enum'.'$id')
-CREATE OR REPLACE FUNCTION _jm_f_130(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_127(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -2590,7 +2554,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_22_map_$schema (.'$tight#Enum'.'$schema')
-CREATE OR REPLACE FUNCTION _jm_f_131(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_128(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -2602,7 +2566,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_22_map_default (.'$tight#Enum'.default)
-CREATE OR REPLACE FUNCTION _jm_f_132(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_129(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -2614,7 +2578,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_22_map_definitions (.'$tight#Enum'.definitions)
-CREATE OR REPLACE FUNCTION _jm_f_133(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_130(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -2638,7 +2602,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_22_map_description (.'$tight#Enum'.description)
-CREATE OR REPLACE FUNCTION _jm_f_134(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_131(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -2650,7 +2614,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_22_map_examples (.'$tight#Enum'.examples)
-CREATE OR REPLACE FUNCTION _jm_f_135(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_132(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -2662,7 +2626,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_22_map_id (.'$tight#Enum'.id)
-CREATE OR REPLACE FUNCTION _jm_f_136(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_133(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -2674,7 +2638,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_22_map_title (.'$tight#Enum'.title)
-CREATE OR REPLACE FUNCTION _jm_f_137(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_134(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -2688,7 +2652,7 @@ $$ LANGUAGE PLpgSQL;
 CREATE OR REPLACE FUNCTION json_model_22_map(name TEXT)
 RETURNS TEXT STRICT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
-  map JSONB := JSONB '{"$comment":"_jm_f_128","$defs":"_jm_f_129","$id":"_jm_f_130","$schema":"_jm_f_131","default":"_jm_f_132","definitions":"_jm_f_133","description":"_jm_f_134","examples":"_jm_f_135","id":"_jm_f_136","title":"_jm_f_137"}';
+  map JSONB := JSONB '{"$comment":"_jm_f_125","$defs":"_jm_f_126","$id":"_jm_f_127","$schema":"_jm_f_128","default":"_jm_f_129","definitions":"_jm_f_130","description":"_jm_f_131","examples":"_jm_f_132","id":"_jm_f_133","title":"_jm_f_134"}';
 BEGIN
   RETURN map->>name;
 END;
@@ -2787,7 +2751,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_23_map_$comment (.'$tight#Const'.'$comment')
-CREATE OR REPLACE FUNCTION _jm_f_138(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_135(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -2799,7 +2763,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_23_map_$defs (.'$tight#Const'.'$defs')
-CREATE OR REPLACE FUNCTION _jm_f_139(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_136(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -2823,7 +2787,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_23_map_$id (.'$tight#Const'.'$id')
-CREATE OR REPLACE FUNCTION _jm_f_140(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_137(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -2835,7 +2799,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_23_map_$schema (.'$tight#Const'.'$schema')
-CREATE OR REPLACE FUNCTION _jm_f_141(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_138(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -2847,7 +2811,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_23_map_default (.'$tight#Const'.default)
-CREATE OR REPLACE FUNCTION _jm_f_142(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_139(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -2859,7 +2823,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_23_map_definitions (.'$tight#Const'.definitions)
-CREATE OR REPLACE FUNCTION _jm_f_143(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_140(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -2883,7 +2847,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_23_map_description (.'$tight#Const'.description)
-CREATE OR REPLACE FUNCTION _jm_f_144(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_141(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -2895,7 +2859,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_23_map_examples (.'$tight#Const'.examples)
-CREATE OR REPLACE FUNCTION _jm_f_145(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_142(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -2907,7 +2871,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_23_map_id (.'$tight#Const'.id)
-CREATE OR REPLACE FUNCTION _jm_f_146(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_143(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -2919,7 +2883,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_23_map_title (.'$tight#Const'.title)
-CREATE OR REPLACE FUNCTION _jm_f_147(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_144(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -2933,7 +2897,7 @@ $$ LANGUAGE PLpgSQL;
 CREATE OR REPLACE FUNCTION json_model_23_map(name TEXT)
 RETURNS TEXT STRICT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
-  map JSONB := JSONB '{"$comment":"_jm_f_138","$defs":"_jm_f_139","$id":"_jm_f_140","$schema":"_jm_f_141","default":"_jm_f_142","definitions":"_jm_f_143","description":"_jm_f_144","examples":"_jm_f_145","id":"_jm_f_146","title":"_jm_f_147"}';
+  map JSONB := JSONB '{"$comment":"_jm_f_135","$defs":"_jm_f_136","$id":"_jm_f_137","$schema":"_jm_f_138","default":"_jm_f_139","definitions":"_jm_f_140","description":"_jm_f_141","examples":"_jm_f_142","id":"_jm_f_143","title":"_jm_f_144"}';
 BEGIN
   RETURN map->>name;
 END;
@@ -3010,7 +2974,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_24_map_$comment (.'$tight#Ref'.'$comment')
-CREATE OR REPLACE FUNCTION _jm_f_148(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_145(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -3022,7 +2986,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_24_map_$defs (.'$tight#Ref'.'$defs')
-CREATE OR REPLACE FUNCTION _jm_f_149(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_146(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -3046,7 +3010,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_24_map_$id (.'$tight#Ref'.'$id')
-CREATE OR REPLACE FUNCTION _jm_f_150(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_147(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -3058,7 +3022,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_24_map_$schema (.'$tight#Ref'.'$schema')
-CREATE OR REPLACE FUNCTION _jm_f_151(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_148(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -3070,7 +3034,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_24_map_default (.'$tight#Ref'.default)
-CREATE OR REPLACE FUNCTION _jm_f_152(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_149(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -3082,7 +3046,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_24_map_definitions (.'$tight#Ref'.definitions)
-CREATE OR REPLACE FUNCTION _jm_f_153(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_150(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -3106,7 +3070,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_24_map_description (.'$tight#Ref'.description)
-CREATE OR REPLACE FUNCTION _jm_f_154(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_151(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -3118,7 +3082,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_24_map_examples (.'$tight#Ref'.examples)
-CREATE OR REPLACE FUNCTION _jm_f_155(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_152(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -3130,7 +3094,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_24_map_id (.'$tight#Ref'.id)
-CREATE OR REPLACE FUNCTION _jm_f_156(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_153(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -3142,7 +3106,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_24_map_title (.'$tight#Ref'.title)
-CREATE OR REPLACE FUNCTION _jm_f_157(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_154(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -3156,7 +3120,7 @@ $$ LANGUAGE PLpgSQL;
 CREATE OR REPLACE FUNCTION json_model_24_map(name TEXT)
 RETURNS TEXT STRICT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
-  map JSONB := JSONB '{"$comment":"_jm_f_148","$defs":"_jm_f_149","$id":"_jm_f_150","$schema":"_jm_f_151","default":"_jm_f_152","definitions":"_jm_f_153","description":"_jm_f_154","examples":"_jm_f_155","id":"_jm_f_156","title":"_jm_f_157"}';
+  map JSONB := JSONB '{"$comment":"_jm_f_145","$defs":"_jm_f_146","$id":"_jm_f_147","$schema":"_jm_f_148","default":"_jm_f_149","definitions":"_jm_f_150","description":"_jm_f_151","examples":"_jm_f_152","id":"_jm_f_153","title":"_jm_f_154"}';
 BEGIN
   RETURN map->>name;
 END;
@@ -3221,7 +3185,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_28_map_$comment (.'$tight#EnumString'.'$comment')
-CREATE OR REPLACE FUNCTION _jm_f_158(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_155(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -3233,7 +3197,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_28_map_$defs (.'$tight#EnumString'.'$defs')
-CREATE OR REPLACE FUNCTION _jm_f_159(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_156(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -3257,7 +3221,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_28_map_$id (.'$tight#EnumString'.'$id')
-CREATE OR REPLACE FUNCTION _jm_f_160(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_157(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -3269,7 +3233,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_28_map_$schema (.'$tight#EnumString'.'$schema')
-CREATE OR REPLACE FUNCTION _jm_f_161(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_158(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -3281,7 +3245,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_28_map_default (.'$tight#EnumString'.default)
-CREATE OR REPLACE FUNCTION _jm_f_162(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_159(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -3293,7 +3257,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_28_map_definitions (.'$tight#EnumString'.definitions)
-CREATE OR REPLACE FUNCTION _jm_f_163(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_160(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -3317,7 +3281,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_28_map_description (.'$tight#EnumString'.description)
-CREATE OR REPLACE FUNCTION _jm_f_164(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_161(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -3329,7 +3293,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_28_map_examples (.'$tight#EnumString'.examples)
-CREATE OR REPLACE FUNCTION _jm_f_165(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_162(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -3341,7 +3305,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_28_map_id (.'$tight#EnumString'.id)
-CREATE OR REPLACE FUNCTION _jm_f_166(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_163(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -3353,7 +3317,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_28_map_title (.'$tight#EnumString'.title)
-CREATE OR REPLACE FUNCTION _jm_f_167(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_164(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -3367,7 +3331,7 @@ $$ LANGUAGE PLpgSQL;
 CREATE OR REPLACE FUNCTION json_model_28_map(name TEXT)
 RETURNS TEXT STRICT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
-  map JSONB := JSONB '{"$comment":"_jm_f_158","$defs":"_jm_f_159","$id":"_jm_f_160","$schema":"_jm_f_161","default":"_jm_f_162","definitions":"_jm_f_163","description":"_jm_f_164","examples":"_jm_f_165","id":"_jm_f_166","title":"_jm_f_167"}';
+  map JSONB := JSONB '{"$comment":"_jm_f_155","$defs":"_jm_f_156","$id":"_jm_f_157","$schema":"_jm_f_158","default":"_jm_f_159","definitions":"_jm_f_160","description":"_jm_f_161","examples":"_jm_f_162","id":"_jm_f_163","title":"_jm_f_164"}';
 BEGIN
   RETURN map->>name;
 END;
@@ -3435,7 +3399,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_29_map_$comment (.'$tight#EnumNum'.'$comment')
-CREATE OR REPLACE FUNCTION _jm_f_168(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_165(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -3447,7 +3411,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_29_map_$defs (.'$tight#EnumNum'.'$defs')
-CREATE OR REPLACE FUNCTION _jm_f_169(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_166(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -3471,7 +3435,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_29_map_$id (.'$tight#EnumNum'.'$id')
-CREATE OR REPLACE FUNCTION _jm_f_170(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_167(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -3483,7 +3447,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_29_map_$schema (.'$tight#EnumNum'.'$schema')
-CREATE OR REPLACE FUNCTION _jm_f_171(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_168(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -3495,7 +3459,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_29_map_default (.'$tight#EnumNum'.default)
-CREATE OR REPLACE FUNCTION _jm_f_172(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_169(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -3507,7 +3471,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_29_map_definitions (.'$tight#EnumNum'.definitions)
-CREATE OR REPLACE FUNCTION _jm_f_173(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_170(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -3531,7 +3495,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_29_map_description (.'$tight#EnumNum'.description)
-CREATE OR REPLACE FUNCTION _jm_f_174(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_171(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -3543,7 +3507,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_29_map_examples (.'$tight#EnumNum'.examples)
-CREATE OR REPLACE FUNCTION _jm_f_175(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_172(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -3555,7 +3519,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_29_map_id (.'$tight#EnumNum'.id)
-CREATE OR REPLACE FUNCTION _jm_f_176(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_173(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -3567,7 +3531,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_29_map_title (.'$tight#EnumNum'.title)
-CREATE OR REPLACE FUNCTION _jm_f_177(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_174(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -3581,7 +3545,7 @@ $$ LANGUAGE PLpgSQL;
 CREATE OR REPLACE FUNCTION json_model_29_map(name TEXT)
 RETURNS TEXT STRICT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
-  map JSONB := JSONB '{"$comment":"_jm_f_168","$defs":"_jm_f_169","$id":"_jm_f_170","$schema":"_jm_f_171","default":"_jm_f_172","definitions":"_jm_f_173","description":"_jm_f_174","examples":"_jm_f_175","id":"_jm_f_176","title":"_jm_f_177"}';
+  map JSONB := JSONB '{"$comment":"_jm_f_165","$defs":"_jm_f_166","$id":"_jm_f_167","$schema":"_jm_f_168","default":"_jm_f_169","definitions":"_jm_f_170","description":"_jm_f_171","examples":"_jm_f_172","id":"_jm_f_173","title":"_jm_f_174"}';
 BEGIN
   RETURN map->>name;
 END;
@@ -3649,7 +3613,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_30_map_$comment (.'$tight#EnumInt'.'$comment')
-CREATE OR REPLACE FUNCTION _jm_f_178(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_175(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -3661,7 +3625,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_30_map_$defs (.'$tight#EnumInt'.'$defs')
-CREATE OR REPLACE FUNCTION _jm_f_179(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_176(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -3685,7 +3649,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_30_map_$id (.'$tight#EnumInt'.'$id')
-CREATE OR REPLACE FUNCTION _jm_f_180(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_177(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -3697,7 +3661,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_30_map_$schema (.'$tight#EnumInt'.'$schema')
-CREATE OR REPLACE FUNCTION _jm_f_181(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_178(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -3709,7 +3673,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_30_map_default (.'$tight#EnumInt'.default)
-CREATE OR REPLACE FUNCTION _jm_f_182(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_179(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -3721,7 +3685,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_30_map_definitions (.'$tight#EnumInt'.definitions)
-CREATE OR REPLACE FUNCTION _jm_f_183(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_180(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -3745,7 +3709,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_30_map_description (.'$tight#EnumInt'.description)
-CREATE OR REPLACE FUNCTION _jm_f_184(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_181(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -3757,7 +3721,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_30_map_examples (.'$tight#EnumInt'.examples)
-CREATE OR REPLACE FUNCTION _jm_f_185(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_182(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -3769,7 +3733,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_30_map_id (.'$tight#EnumInt'.id)
-CREATE OR REPLACE FUNCTION _jm_f_186(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_183(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -3781,7 +3745,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_30_map_title (.'$tight#EnumInt'.title)
-CREATE OR REPLACE FUNCTION _jm_f_187(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_184(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -3795,7 +3759,7 @@ $$ LANGUAGE PLpgSQL;
 CREATE OR REPLACE FUNCTION json_model_30_map(name TEXT)
 RETURNS TEXT STRICT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
-  map JSONB := JSONB '{"$comment":"_jm_f_178","$defs":"_jm_f_179","$id":"_jm_f_180","$schema":"_jm_f_181","default":"_jm_f_182","definitions":"_jm_f_183","description":"_jm_f_184","examples":"_jm_f_185","id":"_jm_f_186","title":"_jm_f_187"}';
+  map JSONB := JSONB '{"$comment":"_jm_f_175","$defs":"_jm_f_176","$id":"_jm_f_177","$schema":"_jm_f_178","default":"_jm_f_179","definitions":"_jm_f_180","description":"_jm_f_181","examples":"_jm_f_182","id":"_jm_f_183","title":"_jm_f_184"}';
 BEGIN
   RETURN map->>name;
 END;
@@ -3863,7 +3827,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_31_map_$comment (.'$tight#ConstString'.'$comment')
-CREATE OR REPLACE FUNCTION _jm_f_188(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_185(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -3875,7 +3839,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_31_map_$defs (.'$tight#ConstString'.'$defs')
-CREATE OR REPLACE FUNCTION _jm_f_189(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_186(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -3899,7 +3863,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_31_map_$id (.'$tight#ConstString'.'$id')
-CREATE OR REPLACE FUNCTION _jm_f_190(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_187(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -3911,7 +3875,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_31_map_$schema (.'$tight#ConstString'.'$schema')
-CREATE OR REPLACE FUNCTION _jm_f_191(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_188(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -3923,7 +3887,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_31_map_default (.'$tight#ConstString'.default)
-CREATE OR REPLACE FUNCTION _jm_f_192(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_189(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -3935,7 +3899,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_31_map_definitions (.'$tight#ConstString'.definitions)
-CREATE OR REPLACE FUNCTION _jm_f_193(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_190(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -3959,7 +3923,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_31_map_description (.'$tight#ConstString'.description)
-CREATE OR REPLACE FUNCTION _jm_f_194(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_191(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -3971,7 +3935,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_31_map_examples (.'$tight#ConstString'.examples)
-CREATE OR REPLACE FUNCTION _jm_f_195(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_192(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -3983,7 +3947,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_31_map_id (.'$tight#ConstString'.id)
-CREATE OR REPLACE FUNCTION _jm_f_196(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_193(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -3995,7 +3959,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_31_map_title (.'$tight#ConstString'.title)
-CREATE OR REPLACE FUNCTION _jm_f_197(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_194(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -4009,7 +3973,7 @@ $$ LANGUAGE PLpgSQL;
 CREATE OR REPLACE FUNCTION json_model_31_map(name TEXT)
 RETURNS TEXT STRICT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
-  map JSONB := JSONB '{"$comment":"_jm_f_188","$defs":"_jm_f_189","$id":"_jm_f_190","$schema":"_jm_f_191","default":"_jm_f_192","definitions":"_jm_f_193","description":"_jm_f_194","examples":"_jm_f_195","id":"_jm_f_196","title":"_jm_f_197"}';
+  map JSONB := JSONB '{"$comment":"_jm_f_185","$defs":"_jm_f_186","$id":"_jm_f_187","$schema":"_jm_f_188","default":"_jm_f_189","definitions":"_jm_f_190","description":"_jm_f_191","examples":"_jm_f_192","id":"_jm_f_193","title":"_jm_f_194"}';
 BEGIN
   RETURN map->>name;
 END;
@@ -4065,7 +4029,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_32_map_$comment (.'$tight#ConstNum'.'$comment')
-CREATE OR REPLACE FUNCTION _jm_f_198(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_195(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -4077,7 +4041,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_32_map_$defs (.'$tight#ConstNum'.'$defs')
-CREATE OR REPLACE FUNCTION _jm_f_199(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_196(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -4101,7 +4065,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_32_map_$id (.'$tight#ConstNum'.'$id')
-CREATE OR REPLACE FUNCTION _jm_f_200(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_197(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -4113,7 +4077,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_32_map_$schema (.'$tight#ConstNum'.'$schema')
-CREATE OR REPLACE FUNCTION _jm_f_201(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_198(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -4125,7 +4089,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_32_map_default (.'$tight#ConstNum'.default)
-CREATE OR REPLACE FUNCTION _jm_f_202(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_199(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -4137,7 +4101,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_32_map_definitions (.'$tight#ConstNum'.definitions)
-CREATE OR REPLACE FUNCTION _jm_f_203(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_200(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -4161,7 +4125,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_32_map_description (.'$tight#ConstNum'.description)
-CREATE OR REPLACE FUNCTION _jm_f_204(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_201(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -4173,7 +4137,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_32_map_examples (.'$tight#ConstNum'.examples)
-CREATE OR REPLACE FUNCTION _jm_f_205(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_202(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -4185,7 +4149,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_32_map_id (.'$tight#ConstNum'.id)
-CREATE OR REPLACE FUNCTION _jm_f_206(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_203(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -4197,7 +4161,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_32_map_title (.'$tight#ConstNum'.title)
-CREATE OR REPLACE FUNCTION _jm_f_207(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_204(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -4211,7 +4175,7 @@ $$ LANGUAGE PLpgSQL;
 CREATE OR REPLACE FUNCTION json_model_32_map(name TEXT)
 RETURNS TEXT STRICT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
-  map JSONB := JSONB '{"$comment":"_jm_f_198","$defs":"_jm_f_199","$id":"_jm_f_200","$schema":"_jm_f_201","default":"_jm_f_202","definitions":"_jm_f_203","description":"_jm_f_204","examples":"_jm_f_205","id":"_jm_f_206","title":"_jm_f_207"}';
+  map JSONB := JSONB '{"$comment":"_jm_f_195","$defs":"_jm_f_196","$id":"_jm_f_197","$schema":"_jm_f_198","default":"_jm_f_199","definitions":"_jm_f_200","description":"_jm_f_201","examples":"_jm_f_202","id":"_jm_f_203","title":"_jm_f_204"}';
 BEGIN
   RETURN map->>name;
 END;
@@ -4267,7 +4231,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_33_map_$comment (.'$tight#ConstInt'.'$comment')
-CREATE OR REPLACE FUNCTION _jm_f_208(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_205(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -4279,7 +4243,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_33_map_$defs (.'$tight#ConstInt'.'$defs')
-CREATE OR REPLACE FUNCTION _jm_f_209(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_206(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -4303,7 +4267,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_33_map_$id (.'$tight#ConstInt'.'$id')
-CREATE OR REPLACE FUNCTION _jm_f_210(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_207(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -4315,7 +4279,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_33_map_$schema (.'$tight#ConstInt'.'$schema')
-CREATE OR REPLACE FUNCTION _jm_f_211(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_208(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -4327,7 +4291,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_33_map_default (.'$tight#ConstInt'.default)
-CREATE OR REPLACE FUNCTION _jm_f_212(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_209(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -4339,7 +4303,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_33_map_definitions (.'$tight#ConstInt'.definitions)
-CREATE OR REPLACE FUNCTION _jm_f_213(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_210(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -4363,7 +4327,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_33_map_description (.'$tight#ConstInt'.description)
-CREATE OR REPLACE FUNCTION _jm_f_214(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_211(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -4375,7 +4339,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_33_map_examples (.'$tight#ConstInt'.examples)
-CREATE OR REPLACE FUNCTION _jm_f_215(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_212(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -4387,7 +4351,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_33_map_id (.'$tight#ConstInt'.id)
-CREATE OR REPLACE FUNCTION _jm_f_216(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_213(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -4399,7 +4363,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_33_map_title (.'$tight#ConstInt'.title)
-CREATE OR REPLACE FUNCTION _jm_f_217(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_214(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -4413,7 +4377,7 @@ $$ LANGUAGE PLpgSQL;
 CREATE OR REPLACE FUNCTION json_model_33_map(name TEXT)
 RETURNS TEXT STRICT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
-  map JSONB := JSONB '{"$comment":"_jm_f_208","$defs":"_jm_f_209","$id":"_jm_f_210","$schema":"_jm_f_211","default":"_jm_f_212","definitions":"_jm_f_213","description":"_jm_f_214","examples":"_jm_f_215","id":"_jm_f_216","title":"_jm_f_217"}';
+  map JSONB := JSONB '{"$comment":"_jm_f_205","$defs":"_jm_f_206","$id":"_jm_f_207","$schema":"_jm_f_208","default":"_jm_f_209","definitions":"_jm_f_210","description":"_jm_f_211","examples":"_jm_f_212","id":"_jm_f_213","title":"_jm_f_214"}';
 BEGIN
   RETURN map->>name;
 END;
@@ -4469,7 +4433,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_34_map_$comment (.'$tight#ConstBool'.'$comment')
-CREATE OR REPLACE FUNCTION _jm_f_218(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_215(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -4481,7 +4445,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_34_map_$defs (.'$tight#ConstBool'.'$defs')
-CREATE OR REPLACE FUNCTION _jm_f_219(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_216(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -4505,7 +4469,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_34_map_$id (.'$tight#ConstBool'.'$id')
-CREATE OR REPLACE FUNCTION _jm_f_220(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_217(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -4517,7 +4481,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_34_map_$schema (.'$tight#ConstBool'.'$schema')
-CREATE OR REPLACE FUNCTION _jm_f_221(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_218(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -4529,7 +4493,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_34_map_default (.'$tight#ConstBool'.default)
-CREATE OR REPLACE FUNCTION _jm_f_222(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_219(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -4541,7 +4505,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_34_map_definitions (.'$tight#ConstBool'.definitions)
-CREATE OR REPLACE FUNCTION _jm_f_223(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_220(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -4565,7 +4529,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_34_map_description (.'$tight#ConstBool'.description)
-CREATE OR REPLACE FUNCTION _jm_f_224(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_221(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -4577,7 +4541,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_34_map_examples (.'$tight#ConstBool'.examples)
-CREATE OR REPLACE FUNCTION _jm_f_225(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_222(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -4589,7 +4553,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_34_map_id (.'$tight#ConstBool'.id)
-CREATE OR REPLACE FUNCTION _jm_f_226(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_223(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -4601,7 +4565,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_34_map_title (.'$tight#ConstBool'.title)
-CREATE OR REPLACE FUNCTION _jm_f_227(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_224(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -4615,7 +4579,7 @@ $$ LANGUAGE PLpgSQL;
 CREATE OR REPLACE FUNCTION json_model_34_map(name TEXT)
 RETURNS TEXT STRICT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
-  map JSONB := JSONB '{"$comment":"_jm_f_218","$defs":"_jm_f_219","$id":"_jm_f_220","$schema":"_jm_f_221","default":"_jm_f_222","definitions":"_jm_f_223","description":"_jm_f_224","examples":"_jm_f_225","id":"_jm_f_226","title":"_jm_f_227"}';
+  map JSONB := JSONB '{"$comment":"_jm_f_215","$defs":"_jm_f_216","$id":"_jm_f_217","$schema":"_jm_f_218","default":"_jm_f_219","definitions":"_jm_f_220","description":"_jm_f_221","examples":"_jm_f_222","id":"_jm_f_223","title":"_jm_f_224"}';
 BEGIN
   RETURN map->>name;
 END;

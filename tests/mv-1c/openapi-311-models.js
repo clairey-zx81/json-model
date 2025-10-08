@@ -66,34 +66,8 @@ function json_model_1(val, path, rep)
 
 const _jm_re_0 = (s) => _jm_re_0_re.exec(s) !== null
 
-// check json_model_4_map_components (.'$openapi#OpenAPI'.components)
-function _jm_f_0(val, path, rep)
-{
-    let res;
-    // .'$openapi#OpenAPI'.components
-    res = json_model_10(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $Components [.'$openapi#OpenAPI'.components]", path])
-    }
-    return res;
-}
-
-// check json_model_4_map_externalDocs (.'$openapi#OpenAPI'.externalDocs)
-function _jm_f_1(val, path, rep)
-{
-    let res;
-    // .'$openapi#OpenAPI'.externalDocs
-    res = json_model_14(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $ExternalDocumentation [.'$openapi#OpenAPI'.externalDocs]", path])
-    }
-    return res;
-}
-
 // check json_model_4_map_jsonModelVersion (.'$openapi#OpenAPI'.jsonModelVersion)
-function _jm_f_2(val, path, rep)
+function _jm_f_0(val, path, rep)
 {
     let res;
     // .'$openapi#OpenAPI'.jsonModelVersion
@@ -105,21 +79,8 @@ function _jm_f_2(val, path, rep)
     return res;
 }
 
-// check json_model_4_map_paths (.'$openapi#OpenAPI'.paths)
-function _jm_f_3(val, path, rep)
-{
-    let res;
-    // .'$openapi#OpenAPI'.paths
-    res = json_model_11(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $Paths [.'$openapi#OpenAPI'.paths]", path])
-    }
-    return res;
-}
-
 // check json_model_4_map_security (.'$openapi#OpenAPI'.security)
-function _jm_f_4(val, path, rep)
+function _jm_f_1(val, path, rep)
 {
     let res;
     // .'$openapi#OpenAPI'.security
@@ -147,7 +108,7 @@ function _jm_f_4(val, path, rep)
 }
 
 // check json_model_4_map_servers (.'$openapi#OpenAPI'.servers)
-function _jm_f_5(val, path, rep)
+function _jm_f_2(val, path, rep)
 {
     let res;
     // .'$openapi#OpenAPI'.servers
@@ -175,7 +136,7 @@ function _jm_f_5(val, path, rep)
 }
 
 // check json_model_4_map_tags (.'$openapi#OpenAPI'.tags)
-function _jm_f_6(val, path, rep)
+function _jm_f_3(val, path, rep)
 {
     let res;
     // .'$openapi#OpenAPI'.tags
@@ -203,7 +164,7 @@ function _jm_f_6(val, path, rep)
 }
 
 // check json_model_4_map_webhooks (.'$openapi#OpenAPI'.webhooks)
-function _jm_f_7(val, path, rep)
+function _jm_f_4(val, path, rep)
 {
     // .'$openapi#OpenAPI'.webhooks
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
@@ -911,7 +872,7 @@ function json_model_9(val, path, rep)
 }
 
 // check json_model_10_map_callbacks (.'$openapi#Components'.callbacks)
-function _jm_f_8(val, path, rep)
+function _jm_f_5(val, path, rep)
 {
     // .'$openapi#Components'.callbacks
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
@@ -954,7 +915,7 @@ function _jm_f_8(val, path, rep)
 }
 
 // check json_model_10_map_examples (.'$openapi#Components'.examples)
-function _jm_f_9(val, path, rep)
+function _jm_f_6(val, path, rep)
 {
     // .'$openapi#Components'.examples
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
@@ -997,7 +958,7 @@ function _jm_f_9(val, path, rep)
 }
 
 // check json_model_10_map_headers (.'$openapi#Components'.headers)
-function _jm_f_10(val, path, rep)
+function _jm_f_7(val, path, rep)
 {
     // .'$openapi#Components'.headers
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
@@ -1040,7 +1001,7 @@ function _jm_f_10(val, path, rep)
 }
 
 // check json_model_10_map_links (.'$openapi#Components'.links)
-function _jm_f_11(val, path, rep)
+function _jm_f_8(val, path, rep)
 {
     // .'$openapi#Components'.links
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
@@ -1083,7 +1044,7 @@ function _jm_f_11(val, path, rep)
 }
 
 // check json_model_10_map_models (.'$openapi#Components'.models)
-function _jm_f_12(val, path, rep)
+function _jm_f_9(val, path, rep)
 {
     // .'$openapi#Components'.models
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
@@ -1108,7 +1069,7 @@ function _jm_f_12(val, path, rep)
 }
 
 // check json_model_10_map_parameters (.'$openapi#Components'.parameters)
-function _jm_f_13(val, path, rep)
+function _jm_f_10(val, path, rep)
 {
     // .'$openapi#Components'.parameters
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
@@ -1151,7 +1112,7 @@ function _jm_f_13(val, path, rep)
 }
 
 // check json_model_10_map_pathItems (.'$openapi#Components'.pathItems)
-function _jm_f_14(val, path, rep)
+function _jm_f_11(val, path, rep)
 {
     // .'$openapi#Components'.pathItems
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
@@ -1194,7 +1155,7 @@ function _jm_f_14(val, path, rep)
 }
 
 // check json_model_10_map_requestBodies (.'$openapi#Components'.requestBodies)
-function _jm_f_15(val, path, rep)
+function _jm_f_12(val, path, rep)
 {
     // .'$openapi#Components'.requestBodies
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
@@ -1237,7 +1198,7 @@ function _jm_f_15(val, path, rep)
 }
 
 // check json_model_10_map_responses (.'$openapi#Components'.responses)
-function _jm_f_16(val, path, rep)
+function _jm_f_13(val, path, rep)
 {
     // .'$openapi#Components'.responses
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
@@ -1280,7 +1241,7 @@ function _jm_f_16(val, path, rep)
 }
 
 // check json_model_10_map_securitySchemes (.'$openapi#Components'.securitySchemes)
-function _jm_f_17(val, path, rep)
+function _jm_f_14(val, path, rep)
 {
     // .'$openapi#Components'.securitySchemes
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
@@ -1411,7 +1372,7 @@ function json_model_11(val, path, rep)
 }
 
 // check json_model_12_map_$ref (.'$openapi#PathItem'.'$ref')
-function _jm_f_18(val, path, rep)
+function _jm_f_15(val, path, rep)
 {
     let res;
     // .'$openapi#PathItem'.'$ref'
@@ -1423,21 +1384,8 @@ function _jm_f_18(val, path, rep)
     return res;
 }
 
-// check json_model_12_map_delete (.'$openapi#PathItem'.delete)
-function _jm_f_19(val, path, rep)
-{
-    let res;
-    // .'$openapi#PathItem'.delete
-    res = json_model_13(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $Operation [.'$openapi#PathItem'.delete]", path])
-    }
-    return res;
-}
-
 // check json_model_12_map_description (.'$openapi#PathItem'.description)
-function _jm_f_20(val, path, rep)
+function _jm_f_16(val, path, rep)
 {
     let res;
     // .'$openapi#PathItem'.description
@@ -1449,47 +1397,8 @@ function _jm_f_20(val, path, rep)
     return res;
 }
 
-// check json_model_12_map_get (.'$openapi#PathItem'.get)
-function _jm_f_21(val, path, rep)
-{
-    let res;
-    // .'$openapi#PathItem'.get
-    res = json_model_13(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $Operation [.'$openapi#PathItem'.get]", path])
-    }
-    return res;
-}
-
-// check json_model_12_map_head (.'$openapi#PathItem'.head)
-function _jm_f_22(val, path, rep)
-{
-    let res;
-    // .'$openapi#PathItem'.head
-    res = json_model_13(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $Operation [.'$openapi#PathItem'.head]", path])
-    }
-    return res;
-}
-
-// check json_model_12_map_options (.'$openapi#PathItem'.options)
-function _jm_f_23(val, path, rep)
-{
-    let res;
-    // .'$openapi#PathItem'.options
-    res = json_model_13(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $Operation [.'$openapi#PathItem'.options]", path])
-    }
-    return res;
-}
-
 // check json_model_12_map_parameters (.'$openapi#PathItem'.parameters)
-function _jm_f_24(val, path, rep)
+function _jm_f_17(val, path, rep)
 {
     let res;
     // .'$openapi#PathItem'.parameters
@@ -1534,47 +1443,8 @@ function _jm_f_24(val, path, rep)
     return res;
 }
 
-// check json_model_12_map_patch (.'$openapi#PathItem'.patch)
-function _jm_f_25(val, path, rep)
-{
-    let res;
-    // .'$openapi#PathItem'.patch
-    res = json_model_13(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $Operation [.'$openapi#PathItem'.patch]", path])
-    }
-    return res;
-}
-
-// check json_model_12_map_post (.'$openapi#PathItem'.post)
-function _jm_f_26(val, path, rep)
-{
-    let res;
-    // .'$openapi#PathItem'.post
-    res = json_model_13(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $Operation [.'$openapi#PathItem'.post]", path])
-    }
-    return res;
-}
-
-// check json_model_12_map_put (.'$openapi#PathItem'.put)
-function _jm_f_27(val, path, rep)
-{
-    let res;
-    // .'$openapi#PathItem'.put
-    res = json_model_13(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $Operation [.'$openapi#PathItem'.put]", path])
-    }
-    return res;
-}
-
 // check json_model_12_map_servers (.'$openapi#PathItem'.servers)
-function _jm_f_28(val, path, rep)
+function _jm_f_18(val, path, rep)
 {
     let res;
     // .'$openapi#PathItem'.servers
@@ -1602,7 +1472,7 @@ function _jm_f_28(val, path, rep)
 }
 
 // check json_model_12_map_summary (.'$openapi#PathItem'.summary)
-function _jm_f_29(val, path, rep)
+function _jm_f_19(val, path, rep)
 {
     let res;
     // .'$openapi#PathItem'.summary
@@ -1610,19 +1480,6 @@ function _jm_f_29(val, path, rep)
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.'$openapi#PathItem'.summary]", path])
-    }
-    return res;
-}
-
-// check json_model_12_map_trace (.'$openapi#PathItem'.trace)
-function _jm_f_30(val, path, rep)
-{
-    let res;
-    // .'$openapi#PathItem'.trace
-    res = json_model_13(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $Operation [.'$openapi#PathItem'.trace]", path])
     }
     return res;
 }
@@ -1672,7 +1529,7 @@ function json_model_12(val, path, rep)
 }
 
 // check json_model_13_map_callbacks (.'$openapi#Operation'.callbacks)
-function _jm_f_31(val, path, rep)
+function _jm_f_20(val, path, rep)
 {
     // .'$openapi#Operation'.callbacks
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
@@ -1715,7 +1572,7 @@ function _jm_f_31(val, path, rep)
 }
 
 // check json_model_13_map_deprecated (.'$openapi#Operation'.deprecated)
-function _jm_f_32(val, path, rep)
+function _jm_f_21(val, path, rep)
 {
     let res;
     // .'$openapi#Operation'.deprecated
@@ -1728,7 +1585,7 @@ function _jm_f_32(val, path, rep)
 }
 
 // check json_model_13_map_description (.'$openapi#Operation'.description)
-function _jm_f_33(val, path, rep)
+function _jm_f_22(val, path, rep)
 {
     let res;
     // .'$openapi#Operation'.description
@@ -1740,21 +1597,8 @@ function _jm_f_33(val, path, rep)
     return res;
 }
 
-// check json_model_13_map_externalDocs (.'$openapi#Operation'.externalDocs)
-function _jm_f_34(val, path, rep)
-{
-    let res;
-    // .'$openapi#Operation'.externalDocs
-    res = json_model_14(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $ExternalDocumentation [.'$openapi#Operation'.externalDocs]", path])
-    }
-    return res;
-}
-
 // check json_model_13_map_operationId (.'$openapi#Operation'.operationId)
-function _jm_f_35(val, path, rep)
+function _jm_f_23(val, path, rep)
 {
     let res;
     // .'$openapi#Operation'.operationId
@@ -1767,7 +1611,7 @@ function _jm_f_35(val, path, rep)
 }
 
 // check json_model_13_map_parameters (.'$openapi#Operation'.parameters)
-function _jm_f_36(val, path, rep)
+function _jm_f_24(val, path, rep)
 {
     let res;
     // .'$openapi#Operation'.parameters
@@ -1813,7 +1657,7 @@ function _jm_f_36(val, path, rep)
 }
 
 // check json_model_13_map_requestBody (.'$openapi#Operation'.requestBody)
-function _jm_f_37(val, path, rep)
+function _jm_f_25(val, path, rep)
 {
     let res;
     // .'$openapi#Operation'.requestBody
@@ -1843,21 +1687,8 @@ function _jm_f_37(val, path, rep)
     return res;
 }
 
-// check json_model_13_map_responses (.'$openapi#Operation'.responses)
-function _jm_f_38(val, path, rep)
-{
-    let res;
-    // .'$openapi#Operation'.responses
-    res = json_model_24(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $Responses [.'$openapi#Operation'.responses]", path])
-    }
-    return res;
-}
-
 // check json_model_13_map_security (.'$openapi#Operation'.security)
-function _jm_f_39(val, path, rep)
+function _jm_f_26(val, path, rep)
 {
     let res;
     // .'$openapi#Operation'.security
@@ -1885,7 +1716,7 @@ function _jm_f_39(val, path, rep)
 }
 
 // check json_model_13_map_servers (.'$openapi#Operation'.servers)
-function _jm_f_40(val, path, rep)
+function _jm_f_27(val, path, rep)
 {
     let res;
     // .'$openapi#Operation'.servers
@@ -1913,7 +1744,7 @@ function _jm_f_40(val, path, rep)
 }
 
 // check json_model_13_map_summary (.'$openapi#Operation'.summary)
-function _jm_f_41(val, path, rep)
+function _jm_f_28(val, path, rep)
 {
     let res;
     // .'$openapi#Operation'.summary
@@ -1926,7 +1757,7 @@ function _jm_f_41(val, path, rep)
 }
 
 // check json_model_13_map_tags (.'$openapi#Operation'.tags)
-function _jm_f_42(val, path, rep)
+function _jm_f_29(val, path, rep)
 {
     let res;
     // .'$openapi#Operation'.tags
@@ -2069,7 +1900,7 @@ function json_model_14(val, path, rep)
 
 
 // check _jm_obj_3_map_allowEmptyValue (.'$openapi#Parameter'.'|'.0.allowEmptyValue)
-function _jm_f_43(val, path, rep)
+function _jm_f_30(val, path, rep)
 {
     let res;
     // .'$openapi#Parameter'.'|'.0.allowEmptyValue
@@ -2082,7 +1913,7 @@ function _jm_f_43(val, path, rep)
 }
 
 // check _jm_obj_3_map_allowReserved (.'$openapi#Parameter'.'|'.0.allowReserved)
-function _jm_f_44(val, path, rep)
+function _jm_f_31(val, path, rep)
 {
     let res;
     // .'$openapi#Parameter'.'|'.0.allowReserved
@@ -2095,7 +1926,7 @@ function _jm_f_44(val, path, rep)
 }
 
 // check _jm_obj_3_map_deprecated (.'$openapi#Parameter'.'|'.0.deprecated)
-function _jm_f_45(val, path, rep)
+function _jm_f_32(val, path, rep)
 {
     let res;
     // .'$openapi#Parameter'.'|'.0.deprecated
@@ -2108,7 +1939,7 @@ function _jm_f_45(val, path, rep)
 }
 
 // check _jm_obj_3_map_description (.'$openapi#Parameter'.'|'.0.description)
-function _jm_f_46(val, path, rep)
+function _jm_f_33(val, path, rep)
 {
     let res;
     // .'$openapi#Parameter'.'|'.0.description
@@ -2121,7 +1952,7 @@ function _jm_f_46(val, path, rep)
 }
 
 // check _jm_obj_3_map_example (.'$openapi#Parameter'.'|'.0.example)
-function _jm_f_47(val, path, rep)
+function _jm_f_34(val, path, rep)
 {
     let res;
     // .'$openapi#Parameter'.'|'.0.example
@@ -2134,7 +1965,7 @@ function _jm_f_47(val, path, rep)
 }
 
 // check _jm_obj_3_map_examples (.'$openapi#Parameter'.'|'.0.examples)
-function _jm_f_48(val, path, rep)
+function _jm_f_35(val, path, rep)
 {
     // .'$openapi#Parameter'.'|'.0.examples
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
@@ -2177,7 +2008,7 @@ function _jm_f_48(val, path, rep)
 }
 
 // check _jm_obj_3_map_explode (.'$openapi#Parameter'.'|'.0.explode)
-function _jm_f_49(val, path, rep)
+function _jm_f_36(val, path, rep)
 {
     let res;
     // .'$openapi#Parameter'.'|'.0.explode
@@ -2189,21 +2020,8 @@ function _jm_f_49(val, path, rep)
     return res;
 }
 
-// check _jm_obj_3_map_model (.'$openapi#Parameter'.'|'.0.model)
-function _jm_f_50(val, path, rep)
-{
-    let res;
-    // .'$openapi#Parameter'.'|'.0.model
-    res = json_model_97(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $Model [.'$openapi#Parameter'.'|'.0.model]", path])
-    }
-    return res;
-}
-
 // check _jm_obj_3_map_required (.'$openapi#Parameter'.'|'.0.required)
-function _jm_f_51(val, path, rep)
+function _jm_f_37(val, path, rep)
 {
     let res;
     // .'$openapi#Parameter'.'|'.0.required
@@ -2211,19 +2029,6 @@ function _jm_f_51(val, path, rep)
     if (! res)
     {
         rep !== null && rep.push(["not a bool [.'$openapi#Parameter'.'|'.0.required]", path])
-    }
-    return res;
-}
-
-// check _jm_obj_3_map_style (.'$openapi#Parameter'.'|'.0.style)
-function _jm_f_52(val, path, rep)
-{
-    let res;
-    // .'$openapi#Parameter'.'|'.0.style
-    res = json_model_17(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $Style [.'$openapi#Parameter'.'|'.0.style]", path])
     }
     return res;
 }
@@ -3728,7 +3533,7 @@ function _jm_obj_17(val, path, rep)
 }
 
 // check _jm_obj_19_map_allowEmptyValue (.'$openapi#Header'.'|'.0.allowEmptyValue)
-function _jm_f_53(val, path, rep)
+function _jm_f_38(val, path, rep)
 {
     let res;
     // .'$openapi#Header'.'|'.0.allowEmptyValue
@@ -3741,7 +3546,7 @@ function _jm_f_53(val, path, rep)
 }
 
 // check _jm_obj_19_map_allowReserved (.'$openapi#Header'.'|'.0.allowReserved)
-function _jm_f_54(val, path, rep)
+function _jm_f_39(val, path, rep)
 {
     let res;
     // .'$openapi#Header'.'|'.0.allowReserved
@@ -3754,7 +3559,7 @@ function _jm_f_54(val, path, rep)
 }
 
 // check _jm_obj_19_map_deprecated (.'$openapi#Header'.'|'.0.deprecated)
-function _jm_f_55(val, path, rep)
+function _jm_f_40(val, path, rep)
 {
     let res;
     // .'$openapi#Header'.'|'.0.deprecated
@@ -3767,7 +3572,7 @@ function _jm_f_55(val, path, rep)
 }
 
 // check _jm_obj_19_map_description (.'$openapi#Header'.'|'.0.description)
-function _jm_f_56(val, path, rep)
+function _jm_f_41(val, path, rep)
 {
     let res;
     // .'$openapi#Header'.'|'.0.description
@@ -3780,7 +3585,7 @@ function _jm_f_56(val, path, rep)
 }
 
 // check _jm_obj_19_map_example (.'$openapi#Header'.'|'.0.example)
-function _jm_f_57(val, path, rep)
+function _jm_f_42(val, path, rep)
 {
     let res;
     // .'$openapi#Header'.'|'.0.example
@@ -3793,7 +3598,7 @@ function _jm_f_57(val, path, rep)
 }
 
 // check _jm_obj_19_map_examples (.'$openapi#Header'.'|'.0.examples)
-function _jm_f_58(val, path, rep)
+function _jm_f_43(val, path, rep)
 {
     // .'$openapi#Header'.'|'.0.examples
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
@@ -3836,7 +3641,7 @@ function _jm_f_58(val, path, rep)
 }
 
 // check _jm_obj_19_map_explode (.'$openapi#Header'.'|'.0.explode)
-function _jm_f_59(val, path, rep)
+function _jm_f_44(val, path, rep)
 {
     let res;
     // .'$openapi#Header'.'|'.0.explode
@@ -3848,21 +3653,8 @@ function _jm_f_59(val, path, rep)
     return res;
 }
 
-// check _jm_obj_19_map_model (.'$openapi#Header'.'|'.0.model)
-function _jm_f_60(val, path, rep)
-{
-    let res;
-    // .'$openapi#Header'.'|'.0.model
-    res = json_model_97(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $Model [.'$openapi#Header'.'|'.0.model]", path])
-    }
-    return res;
-}
-
 // check _jm_obj_19_map_required (.'$openapi#Header'.'|'.0.required)
-function _jm_f_61(val, path, rep)
+function _jm_f_45(val, path, rep)
 {
     let res;
     // .'$openapi#Header'.'|'.0.required
@@ -3870,19 +3662,6 @@ function _jm_f_61(val, path, rep)
     if (! res)
     {
         rep !== null && rep.push(["not a bool [.'$openapi#Header'.'|'.0.required]", path])
-    }
-    return res;
-}
-
-// check _jm_obj_19_map_style (.'$openapi#Header'.'|'.0.style)
-function _jm_f_62(val, path, rep)
-{
-    let res;
-    // .'$openapi#Header'.'|'.0.style
-    res = json_model_17(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $Style [.'$openapi#Header'.'|'.0.style]", path])
     }
     return res;
 }
@@ -5996,63 +5775,63 @@ export function check_model_init()
     {
         initialized = true;
         runtime.jm_set_rx(RegExp)
-        json_model_4_map.set("components", _jm_f_0)
-        json_model_4_map.set("externalDocs", _jm_f_1)
-        json_model_4_map.set("jsonModelVersion", _jm_f_2)
-        json_model_4_map.set("paths", _jm_f_3)
-        json_model_4_map.set("security", _jm_f_4)
-        json_model_4_map.set("servers", _jm_f_5)
-        json_model_4_map.set("tags", _jm_f_6)
-        json_model_4_map.set("webhooks", _jm_f_7)
-        json_model_10_map.set("callbacks", _jm_f_8)
-        json_model_10_map.set("examples", _jm_f_9)
-        json_model_10_map.set("headers", _jm_f_10)
-        json_model_10_map.set("links", _jm_f_11)
-        json_model_10_map.set("models", _jm_f_12)
-        json_model_10_map.set("parameters", _jm_f_13)
-        json_model_10_map.set("pathItems", _jm_f_14)
-        json_model_10_map.set("requestBodies", _jm_f_15)
-        json_model_10_map.set("responses", _jm_f_16)
-        json_model_10_map.set("securitySchemes", _jm_f_17)
-        json_model_12_map.set("$ref", _jm_f_18)
-        json_model_12_map.set("delete", _jm_f_19)
-        json_model_12_map.set("description", _jm_f_20)
-        json_model_12_map.set("get", _jm_f_21)
-        json_model_12_map.set("head", _jm_f_22)
-        json_model_12_map.set("options", _jm_f_23)
-        json_model_12_map.set("parameters", _jm_f_24)
-        json_model_12_map.set("patch", _jm_f_25)
-        json_model_12_map.set("post", _jm_f_26)
-        json_model_12_map.set("put", _jm_f_27)
-        json_model_12_map.set("servers", _jm_f_28)
-        json_model_12_map.set("summary", _jm_f_29)
-        json_model_12_map.set("trace", _jm_f_30)
-        json_model_13_map.set("callbacks", _jm_f_31)
-        json_model_13_map.set("deprecated", _jm_f_32)
-        json_model_13_map.set("description", _jm_f_33)
-        json_model_13_map.set("externalDocs", _jm_f_34)
-        json_model_13_map.set("operationId", _jm_f_35)
-        json_model_13_map.set("parameters", _jm_f_36)
-        json_model_13_map.set("requestBody", _jm_f_37)
-        json_model_13_map.set("responses", _jm_f_38)
-        json_model_13_map.set("security", _jm_f_39)
-        json_model_13_map.set("servers", _jm_f_40)
-        json_model_13_map.set("summary", _jm_f_41)
-        json_model_13_map.set("tags", _jm_f_42)
+        json_model_4_map.set("components", json_model_10)
+        json_model_4_map.set("externalDocs", json_model_14)
+        json_model_4_map.set("jsonModelVersion", _jm_f_0)
+        json_model_4_map.set("paths", json_model_11)
+        json_model_4_map.set("security", _jm_f_1)
+        json_model_4_map.set("servers", _jm_f_2)
+        json_model_4_map.set("tags", _jm_f_3)
+        json_model_4_map.set("webhooks", _jm_f_4)
+        json_model_10_map.set("callbacks", _jm_f_5)
+        json_model_10_map.set("examples", _jm_f_6)
+        json_model_10_map.set("headers", _jm_f_7)
+        json_model_10_map.set("links", _jm_f_8)
+        json_model_10_map.set("models", _jm_f_9)
+        json_model_10_map.set("parameters", _jm_f_10)
+        json_model_10_map.set("pathItems", _jm_f_11)
+        json_model_10_map.set("requestBodies", _jm_f_12)
+        json_model_10_map.set("responses", _jm_f_13)
+        json_model_10_map.set("securitySchemes", _jm_f_14)
+        json_model_12_map.set("$ref", _jm_f_15)
+        json_model_12_map.set("delete", json_model_13)
+        json_model_12_map.set("description", _jm_f_16)
+        json_model_12_map.set("get", json_model_13)
+        json_model_12_map.set("head", json_model_13)
+        json_model_12_map.set("options", json_model_13)
+        json_model_12_map.set("parameters", _jm_f_17)
+        json_model_12_map.set("patch", json_model_13)
+        json_model_12_map.set("post", json_model_13)
+        json_model_12_map.set("put", json_model_13)
+        json_model_12_map.set("servers", _jm_f_18)
+        json_model_12_map.set("summary", _jm_f_19)
+        json_model_12_map.set("trace", json_model_13)
+        json_model_13_map.set("callbacks", _jm_f_20)
+        json_model_13_map.set("deprecated", _jm_f_21)
+        json_model_13_map.set("description", _jm_f_22)
+        json_model_13_map.set("externalDocs", json_model_14)
+        json_model_13_map.set("operationId", _jm_f_23)
+        json_model_13_map.set("parameters", _jm_f_24)
+        json_model_13_map.set("requestBody", _jm_f_25)
+        json_model_13_map.set("responses", json_model_24)
+        json_model_13_map.set("security", _jm_f_26)
+        json_model_13_map.set("servers", _jm_f_27)
+        json_model_13_map.set("summary", _jm_f_28)
+        json_model_13_map.set("tags", _jm_f_29)
         _jm_cst_0.add("query")
         _jm_cst_0.add("header")
         _jm_cst_0.add("path")
         _jm_cst_0.add("cookie")
-        _jm_obj_3_map.set("allowEmptyValue", _jm_f_43)
-        _jm_obj_3_map.set("allowReserved", _jm_f_44)
-        _jm_obj_3_map.set("deprecated", _jm_f_45)
-        _jm_obj_3_map.set("description", _jm_f_46)
-        _jm_obj_3_map.set("example", _jm_f_47)
-        _jm_obj_3_map.set("examples", _jm_f_48)
-        _jm_obj_3_map.set("explode", _jm_f_49)
-        _jm_obj_3_map.set("model", _jm_f_50)
-        _jm_obj_3_map.set("required", _jm_f_51)
-        _jm_obj_3_map.set("style", _jm_f_52)
+        _jm_obj_3_map.set("allowEmptyValue", _jm_f_30)
+        _jm_obj_3_map.set("allowReserved", _jm_f_31)
+        _jm_obj_3_map.set("deprecated", _jm_f_32)
+        _jm_obj_3_map.set("description", _jm_f_33)
+        _jm_obj_3_map.set("example", _jm_f_34)
+        _jm_obj_3_map.set("examples", _jm_f_35)
+        _jm_obj_3_map.set("explode", _jm_f_36)
+        _jm_obj_3_map.set("model", json_model_97)
+        _jm_obj_3_map.set("required", _jm_f_37)
+        _jm_obj_3_map.set("style", json_model_17)
         _jm_cst_1.add("query")
         _jm_cst_1.add("header")
         _jm_cst_1.add("path")
@@ -6068,16 +5847,16 @@ export function check_model_init()
         _jm_cst_2.add("spaceDelimited")
         _jm_cst_2.add("pipeDelimited")
         _jm_cst_2.add("deepObject")
-        _jm_obj_19_map.set("allowEmptyValue", _jm_f_53)
-        _jm_obj_19_map.set("allowReserved", _jm_f_54)
-        _jm_obj_19_map.set("deprecated", _jm_f_55)
-        _jm_obj_19_map.set("description", _jm_f_56)
-        _jm_obj_19_map.set("example", _jm_f_57)
-        _jm_obj_19_map.set("examples", _jm_f_58)
-        _jm_obj_19_map.set("explode", _jm_f_59)
-        _jm_obj_19_map.set("model", _jm_f_60)
-        _jm_obj_19_map.set("required", _jm_f_61)
-        _jm_obj_19_map.set("style", _jm_f_62)
+        _jm_obj_19_map.set("allowEmptyValue", _jm_f_38)
+        _jm_obj_19_map.set("allowReserved", _jm_f_39)
+        _jm_obj_19_map.set("deprecated", _jm_f_40)
+        _jm_obj_19_map.set("description", _jm_f_41)
+        _jm_obj_19_map.set("example", _jm_f_42)
+        _jm_obj_19_map.set("examples", _jm_f_43)
+        _jm_obj_19_map.set("explode", _jm_f_44)
+        _jm_obj_19_map.set("model", json_model_97)
+        _jm_obj_19_map.set("required", _jm_f_45)
+        _jm_obj_19_map.set("style", json_model_17)
         _jm_cst_3.add("query")
         _jm_cst_3.add("header")
         _jm_cst_3.add("cookie")

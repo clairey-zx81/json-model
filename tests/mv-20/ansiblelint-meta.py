@@ -4190,18 +4190,9 @@ def _jm_f_3(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("unexpected /^[a-z][-a-z0-9_]+$/ [.'$GalaxyInfoModelCollection'.namespace]", path))
     return res
 
-# check json_model_51_map_platforms (.'$GalaxyInfoModelCollection'.platforms)
-def _jm_f_4(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .'$GalaxyInfoModelCollection'.platforms
-    res = json_model_50(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected $platforms [.'$GalaxyInfoModelCollection'.platforms]", path))
-    return res
-
 
 # check json_model_51_map_role_name (.'$GalaxyInfoModelCollection'.role_name)
-def _jm_f_5(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_4(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$GalaxyInfoModelCollection'.role_name
     # "/^[a-z][a-z0-9_]+$/"
@@ -4211,7 +4202,7 @@ def _jm_f_5(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_51_map_video_links (.'$GalaxyInfoModelCollection'.video_links)
-def _jm_f_6(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_5(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$GalaxyInfoModelCollection'.video_links
     res = isinstance(val, list)
@@ -4241,7 +4232,7 @@ def json_model_51(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # check json_model_52_map_author (.'$GalaxyInfoModelLoose'.author)
-def _jm_f_7(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_6(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$GalaxyInfoModelLoose'.author
     res = isinstance(val, str)
@@ -4250,7 +4241,7 @@ def _jm_f_7(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_52_map_company (.'$GalaxyInfoModelLoose'.company)
-def _jm_f_8(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_7(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$GalaxyInfoModelLoose'.company
     res = isinstance(val, str)
@@ -4259,7 +4250,7 @@ def _jm_f_8(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_52_map_github_branch (.'$GalaxyInfoModelLoose'.github_branch)
-def _jm_f_9(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_8(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$GalaxyInfoModelLoose'.github_branch
     res = isinstance(val, str)
@@ -4268,7 +4259,7 @@ def _jm_f_9(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_52_map_issue_tracker_url (.'$GalaxyInfoModelLoose'.issue_tracker_url)
-def _jm_f_10(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_9(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$GalaxyInfoModelLoose'.issue_tracker_url
     res = isinstance(val, str)
@@ -4277,7 +4268,7 @@ def _jm_f_10(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_52_map_license (.'$GalaxyInfoModelLoose'.license)
-def _jm_f_11(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_10(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$GalaxyInfoModelLoose'.license
     res = isinstance(val, str)
@@ -4286,7 +4277,7 @@ def _jm_f_11(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_52_map_min_ansible_container_version (.'$GalaxyInfoModelLoose'.min_ansible_container_version)
-def _jm_f_12(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_11(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$GalaxyInfoModelLoose'.min_ansible_container_version
     res = isinstance(val, str)
@@ -4333,7 +4324,7 @@ def json_model_52(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # check json_model_53_map_cloud_platforms (.'$GalaxyInfoModelStandalone'.cloud_platforms)
-def _jm_f_13(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_12(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$GalaxyInfoModelStandalone'.cloud_platforms
     res = True
@@ -4342,7 +4333,7 @@ def _jm_f_13(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_53_map_company (.'$GalaxyInfoModelStandalone'.company)
-def _jm_f_14(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_13(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$GalaxyInfoModelStandalone'.company
     res = isinstance(val, str)
@@ -4351,7 +4342,7 @@ def _jm_f_14(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_53_map_galaxy_tags (.'$GalaxyInfoModelStandalone'.galaxy_tags)
-def _jm_f_15(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_14(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$GalaxyInfoModelStandalone'.galaxy_tags
     res = isinstance(val, list)
@@ -4368,7 +4359,7 @@ def _jm_f_15(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_53_map_github_branch (.'$GalaxyInfoModelStandalone'.github_branch)
-def _jm_f_16(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_15(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$GalaxyInfoModelStandalone'.github_branch
     res = isinstance(val, str)
@@ -4377,7 +4368,7 @@ def _jm_f_16(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_53_map_issue_tracker_url (.'$GalaxyInfoModelStandalone'.issue_tracker_url)
-def _jm_f_17(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_16(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$GalaxyInfoModelStandalone'.issue_tracker_url
     res = isinstance(val, str)
@@ -4386,7 +4377,7 @@ def _jm_f_17(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_53_map_min_ansible_container_version (.'$GalaxyInfoModelStandalone'.min_ansible_container_version)
-def _jm_f_18(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_17(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$GalaxyInfoModelStandalone'.min_ansible_container_version
     res = isinstance(val, str)
@@ -4395,7 +4386,7 @@ def _jm_f_18(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_53_map_namespace (.'$GalaxyInfoModelStandalone'.namespace)
-def _jm_f_19(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_18(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$GalaxyInfoModelStandalone'.namespace
     # "/^[a-z][-a-z0-9_]+$/"
@@ -4404,17 +4395,8 @@ def _jm_f_19(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("unexpected /^[a-z][-a-z0-9_]+$/ [.'$GalaxyInfoModelStandalone'.namespace]", path))
     return res
 
-# check json_model_53_map_platforms (.'$GalaxyInfoModelStandalone'.platforms)
-def _jm_f_20(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .'$GalaxyInfoModelStandalone'.platforms
-    res = json_model_50(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected $platforms [.'$GalaxyInfoModelStandalone'.platforms]", path))
-    return res
-
 # check json_model_53_map_role_name (.'$GalaxyInfoModelStandalone'.role_name)
-def _jm_f_21(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_19(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$GalaxyInfoModelStandalone'.role_name
     # "/^[a-z][a-z0-9_]+$/"
@@ -4424,7 +4406,7 @@ def _jm_f_21(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_53_map_video_links (.'$GalaxyInfoModelStandalone'.video_links)
-def _jm_f_22(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_20(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$GalaxyInfoModelStandalone'.video_links
     res = isinstance(val, list)
@@ -4514,7 +4496,7 @@ def json_model_53(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # check _jm_obj_47_map_author (.'$GalaxyInfoModel'.'|'.1.author)
-def _jm_f_23(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_21(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$GalaxyInfoModel'.'|'.1.author
     res = isinstance(val, str)
@@ -4523,7 +4505,7 @@ def _jm_f_23(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_47_map_cloud_platforms (.'$GalaxyInfoModel'.'|'.1.cloud_platforms)
-def _jm_f_24(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_22(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$GalaxyInfoModel'.'|'.1.cloud_platforms
     res = True
@@ -4532,7 +4514,7 @@ def _jm_f_24(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_47_map_company (.'$GalaxyInfoModel'.'|'.1.company)
-def _jm_f_25(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_23(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$GalaxyInfoModel'.'|'.1.company
     res = isinstance(val, str)
@@ -4541,7 +4523,7 @@ def _jm_f_25(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_47_map_galaxy_tags (.'$GalaxyInfoModel'.'|'.1.galaxy_tags)
-def _jm_f_26(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_24(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$GalaxyInfoModel'.'|'.1.galaxy_tags
     res = isinstance(val, list)
@@ -4558,7 +4540,7 @@ def _jm_f_26(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_47_map_github_branch (.'$GalaxyInfoModel'.'|'.1.github_branch)
-def _jm_f_27(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_25(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$GalaxyInfoModel'.'|'.1.github_branch
     res = isinstance(val, str)
@@ -4567,7 +4549,7 @@ def _jm_f_27(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_47_map_issue_tracker_url (.'$GalaxyInfoModel'.'|'.1.issue_tracker_url)
-def _jm_f_28(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_26(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$GalaxyInfoModel'.'|'.1.issue_tracker_url
     res = isinstance(val, str)
@@ -4576,7 +4558,7 @@ def _jm_f_28(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_47_map_license (.'$GalaxyInfoModel'.'|'.1.license)
-def _jm_f_29(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_27(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$GalaxyInfoModel'.'|'.1.license
     res = isinstance(val, str)
@@ -4585,7 +4567,7 @@ def _jm_f_29(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_47_map_min_ansible_container_version (.'$GalaxyInfoModel'.'|'.1.min_ansible_container_version)
-def _jm_f_30(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_28(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$GalaxyInfoModel'.'|'.1.min_ansible_container_version
     res = isinstance(val, str)
@@ -4594,7 +4576,7 @@ def _jm_f_30(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_47_map_min_ansible_version (.'$GalaxyInfoModel'.'|'.1.min_ansible_version)
-def _jm_f_31(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_29(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$GalaxyInfoModel'.'|'.1.min_ansible_version
     res = isinstance(val, str)
@@ -4603,7 +4585,7 @@ def _jm_f_31(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_47_map_namespace (.'$GalaxyInfoModel'.'|'.1.namespace)
-def _jm_f_32(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_30(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$GalaxyInfoModel'.'|'.1.namespace
     # "/^[a-z][-a-z0-9_]+$/"
@@ -4612,17 +4594,8 @@ def _jm_f_32(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("unexpected /^[a-z][-a-z0-9_]+$/ [.'$GalaxyInfoModel'.'|'.1.namespace]", path))
     return res
 
-# check _jm_obj_47_map_platforms (.'$GalaxyInfoModel'.'|'.1.platforms)
-def _jm_f_33(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .'$GalaxyInfoModel'.'|'.1.platforms
-    res = json_model_50(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected $platforms [.'$GalaxyInfoModel'.'|'.1.platforms]", path))
-    return res
-
 # check _jm_obj_47_map_role_name (.'$GalaxyInfoModel'.'|'.1.role_name)
-def _jm_f_34(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_31(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$GalaxyInfoModel'.'|'.1.role_name
     # "/^[a-z][a-z0-9_]+$/"
@@ -4632,7 +4605,7 @@ def _jm_f_34(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_47_map_video_links (.'$GalaxyInfoModel'.'|'.1.video_links)
-def _jm_f_35(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_32(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$GalaxyInfoModel'.'|'.1.video_links
     res = isinstance(val, list)
@@ -4688,7 +4661,7 @@ def _jm_obj_47(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # check _jm_obj_48_map_author (.'$GalaxyInfoModel'.'|'.2.author)
-def _jm_f_36(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_33(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$GalaxyInfoModel'.'|'.2.author
     res = isinstance(val, str)
@@ -4697,7 +4670,7 @@ def _jm_f_36(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_48_map_cloud_platforms (.'$GalaxyInfoModel'.'|'.2.cloud_platforms)
-def _jm_f_37(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_34(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$GalaxyInfoModel'.'|'.2.cloud_platforms
     res = True
@@ -4706,7 +4679,7 @@ def _jm_f_37(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_48_map_company (.'$GalaxyInfoModel'.'|'.2.company)
-def _jm_f_38(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_35(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$GalaxyInfoModel'.'|'.2.company
     res = isinstance(val, str)
@@ -4715,7 +4688,7 @@ def _jm_f_38(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_48_map_galaxy_tags (.'$GalaxyInfoModel'.'|'.2.galaxy_tags)
-def _jm_f_39(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_36(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$GalaxyInfoModel'.'|'.2.galaxy_tags
     res = isinstance(val, list)
@@ -4732,7 +4705,7 @@ def _jm_f_39(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_48_map_github_branch (.'$GalaxyInfoModel'.'|'.2.github_branch)
-def _jm_f_40(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_37(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$GalaxyInfoModel'.'|'.2.github_branch
     res = isinstance(val, str)
@@ -4741,7 +4714,7 @@ def _jm_f_40(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_48_map_issue_tracker_url (.'$GalaxyInfoModel'.'|'.2.issue_tracker_url)
-def _jm_f_41(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_38(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$GalaxyInfoModel'.'|'.2.issue_tracker_url
     res = isinstance(val, str)
@@ -4750,7 +4723,7 @@ def _jm_f_41(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_48_map_license (.'$GalaxyInfoModel'.'|'.2.license)
-def _jm_f_42(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_39(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$GalaxyInfoModel'.'|'.2.license
     res = isinstance(val, str)
@@ -4759,7 +4732,7 @@ def _jm_f_42(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_48_map_min_ansible_container_version (.'$GalaxyInfoModel'.'|'.2.min_ansible_container_version)
-def _jm_f_43(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_40(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$GalaxyInfoModel'.'|'.2.min_ansible_container_version
     res = isinstance(val, str)
@@ -4768,7 +4741,7 @@ def _jm_f_43(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_48_map_min_ansible_version (.'$GalaxyInfoModel'.'|'.2.min_ansible_version)
-def _jm_f_44(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_41(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$GalaxyInfoModel'.'|'.2.min_ansible_version
     res = isinstance(val, str)
@@ -4777,7 +4750,7 @@ def _jm_f_44(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_48_map_namespace (.'$GalaxyInfoModel'.'|'.2.namespace)
-def _jm_f_45(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_42(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$GalaxyInfoModel'.'|'.2.namespace
     # "/^[a-z][-a-z0-9_]+$/"
@@ -4786,17 +4759,8 @@ def _jm_f_45(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("unexpected /^[a-z][-a-z0-9_]+$/ [.'$GalaxyInfoModel'.'|'.2.namespace]", path))
     return res
 
-# check _jm_obj_48_map_platforms (.'$GalaxyInfoModel'.'|'.2.platforms)
-def _jm_f_46(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .'$GalaxyInfoModel'.'|'.2.platforms
-    res = json_model_50(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected $platforms [.'$GalaxyInfoModel'.'|'.2.platforms]", path))
-    return res
-
 # check _jm_obj_48_map_role_name (.'$GalaxyInfoModel'.'|'.2.role_name)
-def _jm_f_47(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_43(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$GalaxyInfoModel'.'|'.2.role_name
     # "/^[a-z][a-z0-9_]+$/"
@@ -4806,7 +4770,7 @@ def _jm_f_47(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_48_map_video_links (.'$GalaxyInfoModel'.'|'.2.video_links)
-def _jm_f_48(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_44(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$GalaxyInfoModel'.'|'.2.video_links
     res = isinstance(val, list)
@@ -4931,7 +4895,7 @@ def json_model_56(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_57_map_become (.'$DependencyModelLoose'.become)
-def _jm_f_49(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_45(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$DependencyModelLoose'.become
     res = isinstance(val, bool)
@@ -4940,7 +4904,7 @@ def _jm_f_49(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_57_map_name (.'$DependencyModelLoose'.name)
-def _jm_f_50(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_46(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$DependencyModelLoose'.name
     res = isinstance(val, str)
@@ -4949,7 +4913,7 @@ def _jm_f_50(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_57_map_role (.'$DependencyModelLoose'.role)
-def _jm_f_51(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_47(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$DependencyModelLoose'.role
     res = isinstance(val, str)
@@ -4959,7 +4923,7 @@ def _jm_f_51(val: Jsonable, path: Path, rep: Report) -> bool:
 
 
 # check json_model_57_map_scm (.'$DependencyModelLoose'.scm)
-def _jm_f_52(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_48(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$DependencyModelLoose'.scm
     res = ((val is None or isinstance(val, (bool, int, float, str)))) and val in _jm_cst_64
@@ -4968,7 +4932,7 @@ def _jm_f_52(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_57_map_src (.'$DependencyModelLoose'.src)
-def _jm_f_53(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_49(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$DependencyModelLoose'.src
     res = isinstance(val, str)
@@ -4977,7 +4941,7 @@ def _jm_f_53(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_57_map_tags (.'$DependencyModelLoose'.tags)
-def _jm_f_54(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_50(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$DependencyModelLoose'.tags
     # .'$DependencyModelLoose'.tags.'|'.0
@@ -5004,7 +4968,7 @@ def _jm_f_54(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_57_map_vars (.'$DependencyModelLoose'.vars)
-def _jm_f_55(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_51(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$DependencyModelLoose'.vars
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$DependencyModelLoose'.vars]", path))
@@ -5013,21 +4977,12 @@ def _jm_f_55(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # check json_model_57_map_version (.'$DependencyModelLoose'.version)
-def _jm_f_56(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_52(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$DependencyModelLoose'.version
     res = isinstance(val, str)
     if not res:
         rep is None or rep.append(("unexpected string [.'$DependencyModelLoose'.version]", path))
-    return res
-
-# check json_model_57_map_when (.'$DependencyModelLoose'.when)
-def _jm_f_57(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .'$DependencyModelLoose'.when
-    res = json_model_56(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected $complex_conditional [.'$DependencyModelLoose'.when]", path))
     return res
 
 
@@ -5401,63 +5356,63 @@ def check_model_init():
             "galaxy_tags": _jm_f_1,
             "min_ansible_version": _jm_f_2,
             "namespace": _jm_f_3,
-            "platforms": _jm_f_4,
-            "role_name": _jm_f_5,
-            "video_links": _jm_f_6,
+            "platforms": json_model_50,
+            "role_name": _jm_f_4,
+            "video_links": _jm_f_5,
         }
         global json_model_52_map
         json_model_52_map = {
-            "author": _jm_f_7,
-            "company": _jm_f_8,
-            "github_branch": _jm_f_9,
-            "issue_tracker_url": _jm_f_10,
-            "license": _jm_f_11,
-            "min_ansible_container_version": _jm_f_12,
+            "author": _jm_f_6,
+            "company": _jm_f_7,
+            "github_branch": _jm_f_8,
+            "issue_tracker_url": _jm_f_9,
+            "license": _jm_f_10,
+            "min_ansible_container_version": _jm_f_11,
         }
         global json_model_53_map
         json_model_53_map = {
-            "cloud_platforms": _jm_f_13,
-            "company": _jm_f_14,
-            "galaxy_tags": _jm_f_15,
-            "github_branch": _jm_f_16,
-            "issue_tracker_url": _jm_f_17,
-            "min_ansible_container_version": _jm_f_18,
-            "namespace": _jm_f_19,
-            "platforms": _jm_f_20,
-            "role_name": _jm_f_21,
-            "video_links": _jm_f_22,
+            "cloud_platforms": _jm_f_12,
+            "company": _jm_f_13,
+            "galaxy_tags": _jm_f_14,
+            "github_branch": _jm_f_15,
+            "issue_tracker_url": _jm_f_16,
+            "min_ansible_container_version": _jm_f_17,
+            "namespace": _jm_f_18,
+            "platforms": json_model_50,
+            "role_name": _jm_f_19,
+            "video_links": _jm_f_20,
         }
         global _jm_obj_47_map
         _jm_obj_47_map = {
-            "author": _jm_f_23,
-            "cloud_platforms": _jm_f_24,
-            "company": _jm_f_25,
-            "galaxy_tags": _jm_f_26,
-            "github_branch": _jm_f_27,
-            "issue_tracker_url": _jm_f_28,
-            "license": _jm_f_29,
-            "min_ansible_container_version": _jm_f_30,
-            "min_ansible_version": _jm_f_31,
-            "namespace": _jm_f_32,
-            "platforms": _jm_f_33,
-            "role_name": _jm_f_34,
-            "video_links": _jm_f_35,
+            "author": _jm_f_21,
+            "cloud_platforms": _jm_f_22,
+            "company": _jm_f_23,
+            "galaxy_tags": _jm_f_24,
+            "github_branch": _jm_f_25,
+            "issue_tracker_url": _jm_f_26,
+            "license": _jm_f_27,
+            "min_ansible_container_version": _jm_f_28,
+            "min_ansible_version": _jm_f_29,
+            "namespace": _jm_f_30,
+            "platforms": json_model_50,
+            "role_name": _jm_f_31,
+            "video_links": _jm_f_32,
         }
         global _jm_obj_48_map
         _jm_obj_48_map = {
-            "author": _jm_f_36,
-            "cloud_platforms": _jm_f_37,
-            "company": _jm_f_38,
-            "galaxy_tags": _jm_f_39,
-            "github_branch": _jm_f_40,
-            "issue_tracker_url": _jm_f_41,
-            "license": _jm_f_42,
-            "min_ansible_container_version": _jm_f_43,
-            "min_ansible_version": _jm_f_44,
-            "namespace": _jm_f_45,
-            "platforms": _jm_f_46,
-            "role_name": _jm_f_47,
-            "video_links": _jm_f_48,
+            "author": _jm_f_33,
+            "cloud_platforms": _jm_f_34,
+            "company": _jm_f_35,
+            "galaxy_tags": _jm_f_36,
+            "github_branch": _jm_f_37,
+            "issue_tracker_url": _jm_f_38,
+            "license": _jm_f_39,
+            "min_ansible_container_version": _jm_f_40,
+            "min_ansible_version": _jm_f_41,
+            "namespace": _jm_f_42,
+            "platforms": json_model_50,
+            "role_name": _jm_f_43,
+            "video_links": _jm_f_44,
         }
         global _jm_map_0
         _jm_map_0[True] = json_model_53
@@ -5469,15 +5424,15 @@ def check_model_init():
         _jm_cst_64 = {'git', 'hg'}
         global json_model_57_map
         json_model_57_map = {
-            "become": _jm_f_49,
-            "name": _jm_f_50,
-            "role": _jm_f_51,
-            "scm": _jm_f_52,
-            "src": _jm_f_53,
-            "tags": _jm_f_54,
-            "vars": _jm_f_55,
-            "version": _jm_f_56,
-            "when": _jm_f_57,
+            "become": _jm_f_45,
+            "name": _jm_f_46,
+            "role": _jm_f_47,
+            "scm": _jm_f_48,
+            "src": _jm_f_49,
+            "tags": _jm_f_50,
+            "vars": _jm_f_51,
+            "version": _jm_f_52,
+            "when": json_model_56,
         }
         global check_model_map
         check_model_map = {

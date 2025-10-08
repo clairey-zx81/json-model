@@ -267,32 +267,8 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check json_model_6_map_maxExclusive (.'$Atomic'.maxExclusive)
-CREATE OR REPLACE FUNCTION _jm_f_4(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .'$Atomic'.maxExclusive
-  res := json_model_5(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
--- check json_model_6_map_maxInclusive (.'$Atomic'.maxInclusive)
-CREATE OR REPLACE FUNCTION _jm_f_5(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .'$Atomic'.maxInclusive
-  res := json_model_5(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
 -- check json_model_6_map_maxLength (.'$Atomic'.maxLength)
-CREATE OR REPLACE FUNCTION _jm_f_6(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_4(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -303,32 +279,8 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check json_model_6_map_minExclusive (.'$Atomic'.minExclusive)
-CREATE OR REPLACE FUNCTION _jm_f_7(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .'$Atomic'.minExclusive
-  res := json_model_5(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
--- check json_model_6_map_minInclusive (.'$Atomic'.minInclusive)
-CREATE OR REPLACE FUNCTION _jm_f_8(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .'$Atomic'.minInclusive
-  res := json_model_5(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
 -- check json_model_6_map_minLength (.'$Atomic'.minLength)
-CREATE OR REPLACE FUNCTION _jm_f_9(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_5(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -340,7 +292,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_6_map_name (.'$Atomic'.name)
-CREATE OR REPLACE FUNCTION _jm_f_10(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_6(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -352,7 +304,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_6_map_pattern (.'$Atomic'.pattern)
-CREATE OR REPLACE FUNCTION _jm_f_11(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_7(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -364,7 +316,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_6_map_totalDigits (.'$Atomic'.totalDigits)
-CREATE OR REPLACE FUNCTION _jm_f_12(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_8(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -378,7 +330,7 @@ $$ LANGUAGE PLpgSQL;
 CREATE OR REPLACE FUNCTION json_model_6_map(name TEXT)
 RETURNS TEXT STRICT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
-  map JSONB := JSONB '{"enumeration":"_jm_f_0","explicitTypeZone":"_jm_f_1","fractionDigits":"_jm_f_2","length":"_jm_f_3","maxExclusive":"_jm_f_4","maxInclusive":"_jm_f_5","maxLength":"_jm_f_6","minExclusive":"_jm_f_7","minInclusive":"_jm_f_8","minLength":"_jm_f_9","name":"_jm_f_10","pattern":"_jm_f_11","totalDigits":"_jm_f_12"}';
+  map JSONB := JSONB '{"enumeration":"_jm_f_0","explicitTypeZone":"_jm_f_1","fractionDigits":"_jm_f_2","length":"_jm_f_3","maxExclusive":"json_model_5","maxInclusive":"json_model_5","maxLength":"_jm_f_4","minExclusive":"json_model_5","minInclusive":"json_model_5","minLength":"_jm_f_5","name":"_jm_f_6","pattern":"_jm_f_7","totalDigits":"_jm_f_8"}';
 BEGIN
   RETURN map->>name;
 END;

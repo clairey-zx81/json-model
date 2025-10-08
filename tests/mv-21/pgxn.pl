@@ -40,16 +40,11 @@ sub _jm_f_2($$$);
 sub _jm_f_3($$$);
 sub _jm_f_4($$$);
 sub _jm_f_5($$$);
-sub _jm_f_6($$$);
 my %json_model_1_mup;
+sub _jm_f_6($$$);
 sub _jm_f_7($$$);
 sub _jm_f_8($$$);
 sub _jm_f_9($$$);
-sub _jm_f_10($$$);
-sub _jm_f_11($$$);
-sub _jm_f_12($$$);
-sub _jm_f_13($$$);
-sub _jm_f_14($$$);
 my %json_model_1_map;
 sub json_model_1($$$);
 my %check_model_map;
@@ -732,18 +727,8 @@ sub _jm_f_3($$$)
     return 1;
 }
 
-# check json_model_1_mup_name (.name)
-sub _jm_f_4($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .name
-    $res = json_model_2($val, $path, $rep);
-    return $res;
-}
-
 # check json_model_1_mup_provides (.provides)
-sub _jm_f_5($$$)
+sub _jm_f_4($$$)
 {
     my ($val, $path, $rep) = @_;
     # .provides
@@ -767,7 +752,7 @@ sub _jm_f_5($$$)
 }
 
 # check json_model_1_mup_version (.version)
-sub _jm_f_6($$$)
+sub _jm_f_5($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
@@ -778,7 +763,7 @@ sub _jm_f_6($$$)
 
 
 # check json_model_1_map_description (.description)
-sub _jm_f_7($$$)
+sub _jm_f_6($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
@@ -788,7 +773,7 @@ sub _jm_f_7($$$)
 }
 
 # check json_model_1_map_generated_by (.generated_by)
-sub _jm_f_8($$$)
+sub _jm_f_7($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
@@ -798,7 +783,7 @@ sub _jm_f_8($$$)
 }
 
 # check json_model_1_map_no_index (.no_index)
-sub _jm_f_9($$$)
+sub _jm_f_8($$$)
 {
     my ($val, $path, $rep) = @_;
     # .no_index
@@ -838,48 +823,8 @@ sub _jm_f_9($$$)
     return 1;
 }
 
-# check json_model_1_map_prereqs (.prereqs)
-sub _jm_f_10($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .prereqs
-    $res = json_model_16($val, $path, $rep);
-    return $res;
-}
-
-# check json_model_1_map_release_status (.release_status)
-sub _jm_f_11($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .release_status
-    $res = json_model_7($val, $path, $rep);
-    return $res;
-}
-
-# check json_model_1_map_resources (.resources)
-sub _jm_f_12($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .resources
-    $res = json_model_8($val, $path, $rep);
-    return $res;
-}
-
-# check json_model_1_map_tags (.tags)
-sub _jm_f_13($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .tags
-    $res = json_model_3($val, $path, $rep);
-    return $res;
-}
-
 # check json_model_1_map_url (.url)
-sub _jm_f_14($$$)
+sub _jm_f_9($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
@@ -1009,19 +954,19 @@ sub check_model_init()
             'license' => \&_jm_f_1,
             'maintainer' => \&_jm_f_2,
             'meta-spec' => \&_jm_f_3,
-            'name' => \&_jm_f_4,
-            'provides' => \&_jm_f_5,
-            'version' => \&_jm_f_6,
+            'name' => \&json_model_2,
+            'provides' => \&_jm_f_4,
+            'version' => \&_jm_f_5,
         );
         %json_model_1_map = (
-            'description' => \&_jm_f_7,
-            'generated_by' => \&_jm_f_8,
-            'no_index' => \&_jm_f_9,
-            'prereqs' => \&_jm_f_10,
-            'release_status' => \&_jm_f_11,
-            'resources' => \&_jm_f_12,
-            'tags' => \&_jm_f_13,
-            'url' => \&_jm_f_14,
+            'description' => \&_jm_f_6,
+            'generated_by' => \&_jm_f_7,
+            'no_index' => \&_jm_f_8,
+            'prereqs' => \&json_model_16,
+            'release_status' => \&json_model_7,
+            'resources' => \&json_model_8,
+            'tags' => \&json_model_3,
+            'url' => \&_jm_f_9,
         );
         %check_model_map = (
             '' => \&json_model_1,

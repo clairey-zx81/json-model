@@ -373,34 +373,8 @@ public class jsound extends ModelChecker
         return res;
     }
 
-    // check json_model_6_map_maxExclusive (.'$Atomic'.maxExclusive)
-    public boolean _jm_f_4(Object val, Path path, Report rep)
-    {
-        boolean res;
-        // .'$Atomic'.maxExclusive
-        res = json_model_5(val, path, rep);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected $atomic [.'$Atomic'.maxExclusive]", path);
-        }
-        return res;
-    }
-
-    // check json_model_6_map_maxInclusive (.'$Atomic'.maxInclusive)
-    public boolean _jm_f_5(Object val, Path path, Report rep)
-    {
-        boolean res;
-        // .'$Atomic'.maxInclusive
-        res = json_model_5(val, path, rep);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected $atomic [.'$Atomic'.maxInclusive]", path);
-        }
-        return res;
-    }
-
     // check json_model_6_map_maxLength (.'$Atomic'.maxLength)
-    public boolean _jm_f_6(Object val, Path path, Report rep)
+    public boolean _jm_f_4(Object val, Path path, Report rep)
     {
         boolean res;
         // .'$Atomic'.maxLength
@@ -412,34 +386,8 @@ public class jsound extends ModelChecker
         return res;
     }
 
-    // check json_model_6_map_minExclusive (.'$Atomic'.minExclusive)
-    public boolean _jm_f_7(Object val, Path path, Report rep)
-    {
-        boolean res;
-        // .'$Atomic'.minExclusive
-        res = json_model_5(val, path, rep);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected $atomic [.'$Atomic'.minExclusive]", path);
-        }
-        return res;
-    }
-
-    // check json_model_6_map_minInclusive (.'$Atomic'.minInclusive)
-    public boolean _jm_f_8(Object val, Path path, Report rep)
-    {
-        boolean res;
-        // .'$Atomic'.minInclusive
-        res = json_model_5(val, path, rep);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected $atomic [.'$Atomic'.minInclusive]", path);
-        }
-        return res;
-    }
-
     // check json_model_6_map_minLength (.'$Atomic'.minLength)
-    public boolean _jm_f_9(Object val, Path path, Report rep)
+    public boolean _jm_f_5(Object val, Path path, Report rep)
     {
         boolean res;
         // .'$Atomic'.minLength
@@ -452,7 +400,7 @@ public class jsound extends ModelChecker
     }
 
     // check json_model_6_map_name (.'$Atomic'.name)
-    public boolean _jm_f_10(Object val, Path path, Report rep)
+    public boolean _jm_f_6(Object val, Path path, Report rep)
     {
         boolean res;
         // .'$Atomic'.name
@@ -465,7 +413,7 @@ public class jsound extends ModelChecker
     }
 
     // check json_model_6_map_pattern (.'$Atomic'.pattern)
-    public boolean _jm_f_11(Object val, Path path, Report rep)
+    public boolean _jm_f_7(Object val, Path path, Report rep)
     {
         boolean res;
         // .'$Atomic'.pattern
@@ -478,7 +426,7 @@ public class jsound extends ModelChecker
     }
 
     // check json_model_6_map_totalDigits (.'$Atomic'.totalDigits)
-    public boolean _jm_f_12(Object val, Path path, Report rep)
+    public boolean _jm_f_8(Object val, Path path, Report rep)
     {
         boolean res;
         // .'$Atomic'.totalDigits
@@ -1093,15 +1041,15 @@ public class jsound extends ModelChecker
             json_model_6_map_pmap.put("explicitTypeZone", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_1(o, p, r);} });
             json_model_6_map_pmap.put("fractionDigits", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_2(o, p, r);} });
             json_model_6_map_pmap.put("length", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_3(o, p, r);} });
-            json_model_6_map_pmap.put("maxExclusive", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_4(o, p, r);} });
-            json_model_6_map_pmap.put("maxInclusive", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_5(o, p, r);} });
-            json_model_6_map_pmap.put("maxLength", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_6(o, p, r);} });
-            json_model_6_map_pmap.put("minExclusive", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_7(o, p, r);} });
-            json_model_6_map_pmap.put("minInclusive", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_8(o, p, r);} });
-            json_model_6_map_pmap.put("minLength", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_9(o, p, r);} });
-            json_model_6_map_pmap.put("name", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_10(o, p, r);} });
-            json_model_6_map_pmap.put("pattern", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_11(o, p, r);} });
-            json_model_6_map_pmap.put("totalDigits", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_12(o, p, r);} });
+            json_model_6_map_pmap.put("maxExclusive", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_5(o, p, r);} });
+            json_model_6_map_pmap.put("maxInclusive", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_5(o, p, r);} });
+            json_model_6_map_pmap.put("maxLength", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_4(o, p, r);} });
+            json_model_6_map_pmap.put("minExclusive", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_5(o, p, r);} });
+            json_model_6_map_pmap.put("minInclusive", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_5(o, p, r);} });
+            json_model_6_map_pmap.put("minLength", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_5(o, p, r);} });
+            json_model_6_map_pmap.put("name", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_6(o, p, r);} });
+            json_model_6_map_pmap.put("pattern", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_7(o, p, r);} });
+            json_model_6_map_pmap.put("totalDigits", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_8(o, p, r);} });
             jsound_map_pmap = new HashMap<String, Checker>();
             jsound_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_2(o, p, r);} });
             jsound_map_pmap.put("Schema", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_2(o, p, r);} });

@@ -6618,23 +6618,10 @@ function _jm_f_3(val, path, rep)
     return res;
 }
 
-// check json_model_51_map_platforms (.'$GalaxyInfoModelCollection'.platforms)
-function _jm_f_4(val, path, rep)
-{
-    let res;
-    // .'$GalaxyInfoModelCollection'.platforms
-    res = json_model_50(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $platforms [.'$GalaxyInfoModelCollection'.platforms]", path])
-    }
-    return res;
-}
-
 const _jm_re_1 = (s) => _jm_re_1_re.exec(s) !== null
 
 // check json_model_51_map_role_name (.'$GalaxyInfoModelCollection'.role_name)
-function _jm_f_5(val, path, rep)
+function _jm_f_4(val, path, rep)
 {
     let res;
     // .'$GalaxyInfoModelCollection'.role_name
@@ -6648,7 +6635,7 @@ function _jm_f_5(val, path, rep)
 }
 
 // check json_model_51_map_video_links (.'$GalaxyInfoModelCollection'.video_links)
-function _jm_f_6(val, path, rep)
+function _jm_f_5(val, path, rep)
 {
     let res;
     // .'$GalaxyInfoModelCollection'.video_links
@@ -6693,7 +6680,7 @@ function json_model_51(val, path, rep)
 }
 
 // check json_model_52_map_author (.'$GalaxyInfoModelLoose'.author)
-function _jm_f_7(val, path, rep)
+function _jm_f_6(val, path, rep)
 {
     let res;
     // .'$GalaxyInfoModelLoose'.author
@@ -6706,7 +6693,7 @@ function _jm_f_7(val, path, rep)
 }
 
 // check json_model_52_map_company (.'$GalaxyInfoModelLoose'.company)
-function _jm_f_8(val, path, rep)
+function _jm_f_7(val, path, rep)
 {
     let res;
     // .'$GalaxyInfoModelLoose'.company
@@ -6719,7 +6706,7 @@ function _jm_f_8(val, path, rep)
 }
 
 // check json_model_52_map_github_branch (.'$GalaxyInfoModelLoose'.github_branch)
-function _jm_f_9(val, path, rep)
+function _jm_f_8(val, path, rep)
 {
     let res;
     // .'$GalaxyInfoModelLoose'.github_branch
@@ -6732,7 +6719,7 @@ function _jm_f_9(val, path, rep)
 }
 
 // check json_model_52_map_issue_tracker_url (.'$GalaxyInfoModelLoose'.issue_tracker_url)
-function _jm_f_10(val, path, rep)
+function _jm_f_9(val, path, rep)
 {
     let res;
     // .'$GalaxyInfoModelLoose'.issue_tracker_url
@@ -6745,7 +6732,7 @@ function _jm_f_10(val, path, rep)
 }
 
 // check json_model_52_map_license (.'$GalaxyInfoModelLoose'.license)
-function _jm_f_11(val, path, rep)
+function _jm_f_10(val, path, rep)
 {
     let res;
     // .'$GalaxyInfoModelLoose'.license
@@ -6758,7 +6745,7 @@ function _jm_f_11(val, path, rep)
 }
 
 // check json_model_52_map_min_ansible_container_version (.'$GalaxyInfoModelLoose'.min_ansible_container_version)
-function _jm_f_12(val, path, rep)
+function _jm_f_11(val, path, rep)
 {
     let res;
     // .'$GalaxyInfoModelLoose'.min_ansible_container_version
@@ -6830,7 +6817,7 @@ function json_model_52(val, path, rep)
 }
 
 // check json_model_53_map_cloud_platforms (.'$GalaxyInfoModelStandalone'.cloud_platforms)
-function _jm_f_13(val, path, rep)
+function _jm_f_12(val, path, rep)
 {
     let res;
     // .'$GalaxyInfoModelStandalone'.cloud_platforms
@@ -6843,7 +6830,7 @@ function _jm_f_13(val, path, rep)
 }
 
 // check json_model_53_map_company (.'$GalaxyInfoModelStandalone'.company)
-function _jm_f_14(val, path, rep)
+function _jm_f_13(val, path, rep)
 {
     let res;
     // .'$GalaxyInfoModelStandalone'.company
@@ -6856,7 +6843,7 @@ function _jm_f_14(val, path, rep)
 }
 
 // check json_model_53_map_galaxy_tags (.'$GalaxyInfoModelStandalone'.galaxy_tags)
-function _jm_f_15(val, path, rep)
+function _jm_f_14(val, path, rep)
 {
     let res;
     // .'$GalaxyInfoModelStandalone'.galaxy_tags
@@ -6884,7 +6871,7 @@ function _jm_f_15(val, path, rep)
 }
 
 // check json_model_53_map_github_branch (.'$GalaxyInfoModelStandalone'.github_branch)
-function _jm_f_16(val, path, rep)
+function _jm_f_15(val, path, rep)
 {
     let res;
     // .'$GalaxyInfoModelStandalone'.github_branch
@@ -6897,7 +6884,7 @@ function _jm_f_16(val, path, rep)
 }
 
 // check json_model_53_map_issue_tracker_url (.'$GalaxyInfoModelStandalone'.issue_tracker_url)
-function _jm_f_17(val, path, rep)
+function _jm_f_16(val, path, rep)
 {
     let res;
     // .'$GalaxyInfoModelStandalone'.issue_tracker_url
@@ -6910,7 +6897,7 @@ function _jm_f_17(val, path, rep)
 }
 
 // check json_model_53_map_min_ansible_container_version (.'$GalaxyInfoModelStandalone'.min_ansible_container_version)
-function _jm_f_18(val, path, rep)
+function _jm_f_17(val, path, rep)
 {
     let res;
     // .'$GalaxyInfoModelStandalone'.min_ansible_container_version
@@ -6923,7 +6910,7 @@ function _jm_f_18(val, path, rep)
 }
 
 // check json_model_53_map_namespace (.'$GalaxyInfoModelStandalone'.namespace)
-function _jm_f_19(val, path, rep)
+function _jm_f_18(val, path, rep)
 {
     let res;
     // .'$GalaxyInfoModelStandalone'.namespace
@@ -6936,21 +6923,8 @@ function _jm_f_19(val, path, rep)
     return res;
 }
 
-// check json_model_53_map_platforms (.'$GalaxyInfoModelStandalone'.platforms)
-function _jm_f_20(val, path, rep)
-{
-    let res;
-    // .'$GalaxyInfoModelStandalone'.platforms
-    res = json_model_50(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $platforms [.'$GalaxyInfoModelStandalone'.platforms]", path])
-    }
-    return res;
-}
-
 // check json_model_53_map_role_name (.'$GalaxyInfoModelStandalone'.role_name)
-function _jm_f_21(val, path, rep)
+function _jm_f_19(val, path, rep)
 {
     let res;
     // .'$GalaxyInfoModelStandalone'.role_name
@@ -6964,7 +6938,7 @@ function _jm_f_21(val, path, rep)
 }
 
 // check json_model_53_map_video_links (.'$GalaxyInfoModelStandalone'.video_links)
-function _jm_f_22(val, path, rep)
+function _jm_f_20(val, path, rep)
 {
     let res;
     // .'$GalaxyInfoModelStandalone'.video_links
@@ -7103,7 +7077,7 @@ function json_model_53(val, path, rep)
 }
 
 // check _jm_obj_47_map_author (.'$GalaxyInfoModel'.'|'.1.author)
-function _jm_f_23(val, path, rep)
+function _jm_f_21(val, path, rep)
 {
     let res;
     // .'$GalaxyInfoModel'.'|'.1.author
@@ -7116,7 +7090,7 @@ function _jm_f_23(val, path, rep)
 }
 
 // check _jm_obj_47_map_cloud_platforms (.'$GalaxyInfoModel'.'|'.1.cloud_platforms)
-function _jm_f_24(val, path, rep)
+function _jm_f_22(val, path, rep)
 {
     let res;
     // .'$GalaxyInfoModel'.'|'.1.cloud_platforms
@@ -7129,7 +7103,7 @@ function _jm_f_24(val, path, rep)
 }
 
 // check _jm_obj_47_map_company (.'$GalaxyInfoModel'.'|'.1.company)
-function _jm_f_25(val, path, rep)
+function _jm_f_23(val, path, rep)
 {
     let res;
     // .'$GalaxyInfoModel'.'|'.1.company
@@ -7142,7 +7116,7 @@ function _jm_f_25(val, path, rep)
 }
 
 // check _jm_obj_47_map_galaxy_tags (.'$GalaxyInfoModel'.'|'.1.galaxy_tags)
-function _jm_f_26(val, path, rep)
+function _jm_f_24(val, path, rep)
 {
     let res;
     // .'$GalaxyInfoModel'.'|'.1.galaxy_tags
@@ -7170,7 +7144,7 @@ function _jm_f_26(val, path, rep)
 }
 
 // check _jm_obj_47_map_github_branch (.'$GalaxyInfoModel'.'|'.1.github_branch)
-function _jm_f_27(val, path, rep)
+function _jm_f_25(val, path, rep)
 {
     let res;
     // .'$GalaxyInfoModel'.'|'.1.github_branch
@@ -7183,7 +7157,7 @@ function _jm_f_27(val, path, rep)
 }
 
 // check _jm_obj_47_map_issue_tracker_url (.'$GalaxyInfoModel'.'|'.1.issue_tracker_url)
-function _jm_f_28(val, path, rep)
+function _jm_f_26(val, path, rep)
 {
     let res;
     // .'$GalaxyInfoModel'.'|'.1.issue_tracker_url
@@ -7196,7 +7170,7 @@ function _jm_f_28(val, path, rep)
 }
 
 // check _jm_obj_47_map_license (.'$GalaxyInfoModel'.'|'.1.license)
-function _jm_f_29(val, path, rep)
+function _jm_f_27(val, path, rep)
 {
     let res;
     // .'$GalaxyInfoModel'.'|'.1.license
@@ -7209,7 +7183,7 @@ function _jm_f_29(val, path, rep)
 }
 
 // check _jm_obj_47_map_min_ansible_container_version (.'$GalaxyInfoModel'.'|'.1.min_ansible_container_version)
-function _jm_f_30(val, path, rep)
+function _jm_f_28(val, path, rep)
 {
     let res;
     // .'$GalaxyInfoModel'.'|'.1.min_ansible_container_version
@@ -7222,7 +7196,7 @@ function _jm_f_30(val, path, rep)
 }
 
 // check _jm_obj_47_map_min_ansible_version (.'$GalaxyInfoModel'.'|'.1.min_ansible_version)
-function _jm_f_31(val, path, rep)
+function _jm_f_29(val, path, rep)
 {
     let res;
     // .'$GalaxyInfoModel'.'|'.1.min_ansible_version
@@ -7235,7 +7209,7 @@ function _jm_f_31(val, path, rep)
 }
 
 // check _jm_obj_47_map_namespace (.'$GalaxyInfoModel'.'|'.1.namespace)
-function _jm_f_32(val, path, rep)
+function _jm_f_30(val, path, rep)
 {
     let res;
     // .'$GalaxyInfoModel'.'|'.1.namespace
@@ -7248,21 +7222,8 @@ function _jm_f_32(val, path, rep)
     return res;
 }
 
-// check _jm_obj_47_map_platforms (.'$GalaxyInfoModel'.'|'.1.platforms)
-function _jm_f_33(val, path, rep)
-{
-    let res;
-    // .'$GalaxyInfoModel'.'|'.1.platforms
-    res = json_model_50(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $platforms [.'$GalaxyInfoModel'.'|'.1.platforms]", path])
-    }
-    return res;
-}
-
 // check _jm_obj_47_map_role_name (.'$GalaxyInfoModel'.'|'.1.role_name)
-function _jm_f_34(val, path, rep)
+function _jm_f_31(val, path, rep)
 {
     let res;
     // .'$GalaxyInfoModel'.'|'.1.role_name
@@ -7276,7 +7237,7 @@ function _jm_f_34(val, path, rep)
 }
 
 // check _jm_obj_47_map_video_links (.'$GalaxyInfoModel'.'|'.1.video_links)
-function _jm_f_35(val, path, rep)
+function _jm_f_32(val, path, rep)
 {
     let res;
     // .'$GalaxyInfoModel'.'|'.1.video_links
@@ -7363,7 +7324,7 @@ function _jm_obj_47(val, path, rep)
 }
 
 // check _jm_obj_48_map_author (.'$GalaxyInfoModel'.'|'.2.author)
-function _jm_f_36(val, path, rep)
+function _jm_f_33(val, path, rep)
 {
     let res;
     // .'$GalaxyInfoModel'.'|'.2.author
@@ -7376,7 +7337,7 @@ function _jm_f_36(val, path, rep)
 }
 
 // check _jm_obj_48_map_cloud_platforms (.'$GalaxyInfoModel'.'|'.2.cloud_platforms)
-function _jm_f_37(val, path, rep)
+function _jm_f_34(val, path, rep)
 {
     let res;
     // .'$GalaxyInfoModel'.'|'.2.cloud_platforms
@@ -7389,7 +7350,7 @@ function _jm_f_37(val, path, rep)
 }
 
 // check _jm_obj_48_map_company (.'$GalaxyInfoModel'.'|'.2.company)
-function _jm_f_38(val, path, rep)
+function _jm_f_35(val, path, rep)
 {
     let res;
     // .'$GalaxyInfoModel'.'|'.2.company
@@ -7402,7 +7363,7 @@ function _jm_f_38(val, path, rep)
 }
 
 // check _jm_obj_48_map_galaxy_tags (.'$GalaxyInfoModel'.'|'.2.galaxy_tags)
-function _jm_f_39(val, path, rep)
+function _jm_f_36(val, path, rep)
 {
     let res;
     // .'$GalaxyInfoModel'.'|'.2.galaxy_tags
@@ -7430,7 +7391,7 @@ function _jm_f_39(val, path, rep)
 }
 
 // check _jm_obj_48_map_github_branch (.'$GalaxyInfoModel'.'|'.2.github_branch)
-function _jm_f_40(val, path, rep)
+function _jm_f_37(val, path, rep)
 {
     let res;
     // .'$GalaxyInfoModel'.'|'.2.github_branch
@@ -7443,7 +7404,7 @@ function _jm_f_40(val, path, rep)
 }
 
 // check _jm_obj_48_map_issue_tracker_url (.'$GalaxyInfoModel'.'|'.2.issue_tracker_url)
-function _jm_f_41(val, path, rep)
+function _jm_f_38(val, path, rep)
 {
     let res;
     // .'$GalaxyInfoModel'.'|'.2.issue_tracker_url
@@ -7456,7 +7417,7 @@ function _jm_f_41(val, path, rep)
 }
 
 // check _jm_obj_48_map_license (.'$GalaxyInfoModel'.'|'.2.license)
-function _jm_f_42(val, path, rep)
+function _jm_f_39(val, path, rep)
 {
     let res;
     // .'$GalaxyInfoModel'.'|'.2.license
@@ -7469,7 +7430,7 @@ function _jm_f_42(val, path, rep)
 }
 
 // check _jm_obj_48_map_min_ansible_container_version (.'$GalaxyInfoModel'.'|'.2.min_ansible_container_version)
-function _jm_f_43(val, path, rep)
+function _jm_f_40(val, path, rep)
 {
     let res;
     // .'$GalaxyInfoModel'.'|'.2.min_ansible_container_version
@@ -7482,7 +7443,7 @@ function _jm_f_43(val, path, rep)
 }
 
 // check _jm_obj_48_map_min_ansible_version (.'$GalaxyInfoModel'.'|'.2.min_ansible_version)
-function _jm_f_44(val, path, rep)
+function _jm_f_41(val, path, rep)
 {
     let res;
     // .'$GalaxyInfoModel'.'|'.2.min_ansible_version
@@ -7495,7 +7456,7 @@ function _jm_f_44(val, path, rep)
 }
 
 // check _jm_obj_48_map_namespace (.'$GalaxyInfoModel'.'|'.2.namespace)
-function _jm_f_45(val, path, rep)
+function _jm_f_42(val, path, rep)
 {
     let res;
     // .'$GalaxyInfoModel'.'|'.2.namespace
@@ -7508,21 +7469,8 @@ function _jm_f_45(val, path, rep)
     return res;
 }
 
-// check _jm_obj_48_map_platforms (.'$GalaxyInfoModel'.'|'.2.platforms)
-function _jm_f_46(val, path, rep)
-{
-    let res;
-    // .'$GalaxyInfoModel'.'|'.2.platforms
-    res = json_model_50(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $platforms [.'$GalaxyInfoModel'.'|'.2.platforms]", path])
-    }
-    return res;
-}
-
 // check _jm_obj_48_map_role_name (.'$GalaxyInfoModel'.'|'.2.role_name)
-function _jm_f_47(val, path, rep)
+function _jm_f_43(val, path, rep)
 {
     let res;
     // .'$GalaxyInfoModel'.'|'.2.role_name
@@ -7536,7 +7484,7 @@ function _jm_f_47(val, path, rep)
 }
 
 // check _jm_obj_48_map_video_links (.'$GalaxyInfoModel'.'|'.2.video_links)
-function _jm_f_48(val, path, rep)
+function _jm_f_44(val, path, rep)
 {
     let res;
     // .'$GalaxyInfoModel'.'|'.2.video_links
@@ -7739,7 +7687,7 @@ function json_model_56(val, path, rep)
 }
 
 // check json_model_57_map_become (.'$DependencyModelLoose'.become)
-function _jm_f_49(val, path, rep)
+function _jm_f_45(val, path, rep)
 {
     let res;
     // .'$DependencyModelLoose'.become
@@ -7752,7 +7700,7 @@ function _jm_f_49(val, path, rep)
 }
 
 // check json_model_57_map_name (.'$DependencyModelLoose'.name)
-function _jm_f_50(val, path, rep)
+function _jm_f_46(val, path, rep)
 {
     let res;
     // .'$DependencyModelLoose'.name
@@ -7765,7 +7713,7 @@ function _jm_f_50(val, path, rep)
 }
 
 // check json_model_57_map_role (.'$DependencyModelLoose'.role)
-function _jm_f_51(val, path, rep)
+function _jm_f_47(val, path, rep)
 {
     let res;
     // .'$DependencyModelLoose'.role
@@ -7779,7 +7727,7 @@ function _jm_f_51(val, path, rep)
 
 
 // check json_model_57_map_scm (.'$DependencyModelLoose'.scm)
-function _jm_f_52(val, path, rep)
+function _jm_f_48(val, path, rep)
 {
     let res;
     // .'$DependencyModelLoose'.scm
@@ -7792,7 +7740,7 @@ function _jm_f_52(val, path, rep)
 }
 
 // check json_model_57_map_src (.'$DependencyModelLoose'.src)
-function _jm_f_53(val, path, rep)
+function _jm_f_49(val, path, rep)
 {
     let res;
     // .'$DependencyModelLoose'.src
@@ -7805,7 +7753,7 @@ function _jm_f_53(val, path, rep)
 }
 
 // check json_model_57_map_tags (.'$DependencyModelLoose'.tags)
-function _jm_f_54(val, path, rep)
+function _jm_f_50(val, path, rep)
 {
     let res;
     // .'$DependencyModelLoose'.tags
@@ -7851,7 +7799,7 @@ function _jm_f_54(val, path, rep)
 }
 
 // check json_model_57_map_vars (.'$DependencyModelLoose'.vars)
-function _jm_f_55(val, path, rep)
+function _jm_f_51(val, path, rep)
 {
     // .'$DependencyModelLoose'.vars
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
@@ -7864,7 +7812,7 @@ function _jm_f_55(val, path, rep)
 }
 
 // check json_model_57_map_version (.'$DependencyModelLoose'.version)
-function _jm_f_56(val, path, rep)
+function _jm_f_52(val, path, rep)
 {
     let res;
     // .'$DependencyModelLoose'.version
@@ -7872,19 +7820,6 @@ function _jm_f_56(val, path, rep)
     if (! res)
     {
         rep !== null && rep.push(["unexpected string [.'$DependencyModelLoose'.version]", path])
-    }
-    return res;
-}
-
-// check json_model_57_map_when (.'$DependencyModelLoose'.when)
-function _jm_f_57(val, path, rep)
-{
-    let res;
-    // .'$DependencyModelLoose'.when
-    res = json_model_56(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $complex_conditional [.'$DependencyModelLoose'.when]", path])
     }
     return res;
 }
@@ -8950,64 +8885,64 @@ export function check_model_init()
         json_model_51_map.set("galaxy_tags", _jm_f_1)
         json_model_51_map.set("min_ansible_version", _jm_f_2)
         json_model_51_map.set("namespace", _jm_f_3)
-        json_model_51_map.set("platforms", _jm_f_4)
-        json_model_51_map.set("role_name", _jm_f_5)
-        json_model_51_map.set("video_links", _jm_f_6)
-        json_model_52_map.set("author", _jm_f_7)
-        json_model_52_map.set("company", _jm_f_8)
-        json_model_52_map.set("github_branch", _jm_f_9)
-        json_model_52_map.set("issue_tracker_url", _jm_f_10)
-        json_model_52_map.set("license", _jm_f_11)
-        json_model_52_map.set("min_ansible_container_version", _jm_f_12)
-        json_model_53_map.set("cloud_platforms", _jm_f_13)
-        json_model_53_map.set("company", _jm_f_14)
-        json_model_53_map.set("galaxy_tags", _jm_f_15)
-        json_model_53_map.set("github_branch", _jm_f_16)
-        json_model_53_map.set("issue_tracker_url", _jm_f_17)
-        json_model_53_map.set("min_ansible_container_version", _jm_f_18)
-        json_model_53_map.set("namespace", _jm_f_19)
-        json_model_53_map.set("platforms", _jm_f_20)
-        json_model_53_map.set("role_name", _jm_f_21)
-        json_model_53_map.set("video_links", _jm_f_22)
-        _jm_obj_47_map.set("author", _jm_f_23)
-        _jm_obj_47_map.set("cloud_platforms", _jm_f_24)
-        _jm_obj_47_map.set("company", _jm_f_25)
-        _jm_obj_47_map.set("galaxy_tags", _jm_f_26)
-        _jm_obj_47_map.set("github_branch", _jm_f_27)
-        _jm_obj_47_map.set("issue_tracker_url", _jm_f_28)
-        _jm_obj_47_map.set("license", _jm_f_29)
-        _jm_obj_47_map.set("min_ansible_container_version", _jm_f_30)
-        _jm_obj_47_map.set("min_ansible_version", _jm_f_31)
-        _jm_obj_47_map.set("namespace", _jm_f_32)
-        _jm_obj_47_map.set("platforms", _jm_f_33)
-        _jm_obj_47_map.set("role_name", _jm_f_34)
-        _jm_obj_47_map.set("video_links", _jm_f_35)
-        _jm_obj_48_map.set("author", _jm_f_36)
-        _jm_obj_48_map.set("cloud_platforms", _jm_f_37)
-        _jm_obj_48_map.set("company", _jm_f_38)
-        _jm_obj_48_map.set("galaxy_tags", _jm_f_39)
-        _jm_obj_48_map.set("github_branch", _jm_f_40)
-        _jm_obj_48_map.set("issue_tracker_url", _jm_f_41)
-        _jm_obj_48_map.set("license", _jm_f_42)
-        _jm_obj_48_map.set("min_ansible_container_version", _jm_f_43)
-        _jm_obj_48_map.set("min_ansible_version", _jm_f_44)
-        _jm_obj_48_map.set("namespace", _jm_f_45)
-        _jm_obj_48_map.set("platforms", _jm_f_46)
-        _jm_obj_48_map.set("role_name", _jm_f_47)
-        _jm_obj_48_map.set("video_links", _jm_f_48)
+        json_model_51_map.set("platforms", json_model_50)
+        json_model_51_map.set("role_name", _jm_f_4)
+        json_model_51_map.set("video_links", _jm_f_5)
+        json_model_52_map.set("author", _jm_f_6)
+        json_model_52_map.set("company", _jm_f_7)
+        json_model_52_map.set("github_branch", _jm_f_8)
+        json_model_52_map.set("issue_tracker_url", _jm_f_9)
+        json_model_52_map.set("license", _jm_f_10)
+        json_model_52_map.set("min_ansible_container_version", _jm_f_11)
+        json_model_53_map.set("cloud_platforms", _jm_f_12)
+        json_model_53_map.set("company", _jm_f_13)
+        json_model_53_map.set("galaxy_tags", _jm_f_14)
+        json_model_53_map.set("github_branch", _jm_f_15)
+        json_model_53_map.set("issue_tracker_url", _jm_f_16)
+        json_model_53_map.set("min_ansible_container_version", _jm_f_17)
+        json_model_53_map.set("namespace", _jm_f_18)
+        json_model_53_map.set("platforms", json_model_50)
+        json_model_53_map.set("role_name", _jm_f_19)
+        json_model_53_map.set("video_links", _jm_f_20)
+        _jm_obj_47_map.set("author", _jm_f_21)
+        _jm_obj_47_map.set("cloud_platforms", _jm_f_22)
+        _jm_obj_47_map.set("company", _jm_f_23)
+        _jm_obj_47_map.set("galaxy_tags", _jm_f_24)
+        _jm_obj_47_map.set("github_branch", _jm_f_25)
+        _jm_obj_47_map.set("issue_tracker_url", _jm_f_26)
+        _jm_obj_47_map.set("license", _jm_f_27)
+        _jm_obj_47_map.set("min_ansible_container_version", _jm_f_28)
+        _jm_obj_47_map.set("min_ansible_version", _jm_f_29)
+        _jm_obj_47_map.set("namespace", _jm_f_30)
+        _jm_obj_47_map.set("platforms", json_model_50)
+        _jm_obj_47_map.set("role_name", _jm_f_31)
+        _jm_obj_47_map.set("video_links", _jm_f_32)
+        _jm_obj_48_map.set("author", _jm_f_33)
+        _jm_obj_48_map.set("cloud_platforms", _jm_f_34)
+        _jm_obj_48_map.set("company", _jm_f_35)
+        _jm_obj_48_map.set("galaxy_tags", _jm_f_36)
+        _jm_obj_48_map.set("github_branch", _jm_f_37)
+        _jm_obj_48_map.set("issue_tracker_url", _jm_f_38)
+        _jm_obj_48_map.set("license", _jm_f_39)
+        _jm_obj_48_map.set("min_ansible_container_version", _jm_f_40)
+        _jm_obj_48_map.set("min_ansible_version", _jm_f_41)
+        _jm_obj_48_map.set("namespace", _jm_f_42)
+        _jm_obj_48_map.set("platforms", json_model_50)
+        _jm_obj_48_map.set("role_name", _jm_f_43)
+        _jm_obj_48_map.set("video_links", _jm_f_44)
         _jm_map_0.set(true, json_model_53)
         _jm_map_0.set(false, _jm_obj_47)
         _jm_cst_64.add("hg")
         _jm_cst_64.add("git")
-        json_model_57_map.set("become", _jm_f_49)
-        json_model_57_map.set("name", _jm_f_50)
-        json_model_57_map.set("role", _jm_f_51)
-        json_model_57_map.set("scm", _jm_f_52)
-        json_model_57_map.set("src", _jm_f_53)
-        json_model_57_map.set("tags", _jm_f_54)
-        json_model_57_map.set("vars", _jm_f_55)
-        json_model_57_map.set("version", _jm_f_56)
-        json_model_57_map.set("when", _jm_f_57)
+        json_model_57_map.set("become", _jm_f_45)
+        json_model_57_map.set("name", _jm_f_46)
+        json_model_57_map.set("role", _jm_f_47)
+        json_model_57_map.set("scm", _jm_f_48)
+        json_model_57_map.set("src", _jm_f_49)
+        json_model_57_map.set("tags", _jm_f_50)
+        json_model_57_map.set("vars", _jm_f_51)
+        json_model_57_map.set("version", _jm_f_52)
+        json_model_57_map.set("when", json_model_56)
         check_model_map.set("", json_model_60)
         check_model_map.set("AIXPlatformModel", json_model_2)
         check_model_map.set("AlpinePlatformModel", json_model_3)

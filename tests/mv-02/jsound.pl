@@ -28,10 +28,6 @@ sub _jm_f_5($$$);
 sub _jm_f_6($$$);
 sub _jm_f_7($$$);
 sub _jm_f_8($$$);
-sub _jm_f_9($$$);
-sub _jm_f_10($$$);
-sub _jm_f_11($$$);
-sub _jm_f_12($$$);
 my %json_model_6_map;
 sub json_model_6($$$);
 sub json_model_7($$$);
@@ -303,28 +299,8 @@ sub _jm_f_3($$$)
     return $res;
 }
 
-# check json_model_6_map_maxExclusive (.'$Atomic'.maxExclusive)
-sub _jm_f_4($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$Atomic'.maxExclusive
-    $res = json_model_5($val, $path, $rep);
-    return $res;
-}
-
-# check json_model_6_map_maxInclusive (.'$Atomic'.maxInclusive)
-sub _jm_f_5($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$Atomic'.maxInclusive
-    $res = json_model_5($val, $path, $rep);
-    return $res;
-}
-
 # check json_model_6_map_maxLength (.'$Atomic'.maxLength)
-sub _jm_f_6($$$)
+sub _jm_f_4($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
@@ -333,28 +309,8 @@ sub _jm_f_6($$$)
     return $res;
 }
 
-# check json_model_6_map_minExclusive (.'$Atomic'.minExclusive)
-sub _jm_f_7($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$Atomic'.minExclusive
-    $res = json_model_5($val, $path, $rep);
-    return $res;
-}
-
-# check json_model_6_map_minInclusive (.'$Atomic'.minInclusive)
-sub _jm_f_8($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$Atomic'.minInclusive
-    $res = json_model_5($val, $path, $rep);
-    return $res;
-}
-
 # check json_model_6_map_minLength (.'$Atomic'.minLength)
-sub _jm_f_9($$$)
+sub _jm_f_5($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
@@ -364,7 +320,7 @@ sub _jm_f_9($$$)
 }
 
 # check json_model_6_map_name (.'$Atomic'.name)
-sub _jm_f_10($$$)
+sub _jm_f_6($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
@@ -374,7 +330,7 @@ sub _jm_f_10($$$)
 }
 
 # check json_model_6_map_pattern (.'$Atomic'.pattern)
-sub _jm_f_11($$$)
+sub _jm_f_7($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
@@ -384,7 +340,7 @@ sub _jm_f_11($$$)
 }
 
 # check json_model_6_map_totalDigits (.'$Atomic'.totalDigits)
-sub _jm_f_12($$$)
+sub _jm_f_8($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
@@ -859,15 +815,15 @@ sub check_model_init()
             'explicitTypeZone' => \&_jm_f_1,
             'fractionDigits' => \&_jm_f_2,
             'length' => \&_jm_f_3,
-            'maxExclusive' => \&_jm_f_4,
-            'maxInclusive' => \&_jm_f_5,
-            'maxLength' => \&_jm_f_6,
-            'minExclusive' => \&_jm_f_7,
-            'minInclusive' => \&_jm_f_8,
-            'minLength' => \&_jm_f_9,
-            'name' => \&_jm_f_10,
-            'pattern' => \&_jm_f_11,
-            'totalDigits' => \&_jm_f_12,
+            'maxExclusive' => \&json_model_5,
+            'maxInclusive' => \&json_model_5,
+            'maxLength' => \&_jm_f_4,
+            'minExclusive' => \&json_model_5,
+            'minInclusive' => \&json_model_5,
+            'minLength' => \&_jm_f_5,
+            'name' => \&_jm_f_6,
+            'pattern' => \&_jm_f_7,
+            'totalDigits' => \&_jm_f_8,
         );
         %check_model_map = (
             '' => \&json_model_2,

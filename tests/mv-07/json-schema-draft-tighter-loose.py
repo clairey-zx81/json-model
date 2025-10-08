@@ -501,17 +501,8 @@ def _jm_f_27(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("unexpected string [.'$tight#Array'.'$schema']", path))
     return res
 
-# check json_model_13_map_additionalItems (.'$tight#Array'.additionalItems)
-def _jm_f_28(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .'$tight#Array'.additionalItems
-    res = json_model_26(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected $Schema [.'$tight#Array'.additionalItems]", path))
-    return res
-
 # check json_model_13_map_default (.'$tight#Array'.default)
-def _jm_f_29(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_28(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$tight#Array'.default
     res = True
@@ -520,7 +511,7 @@ def _jm_f_29(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_13_map_definitions (.'$tight#Array'.definitions)
-def _jm_f_30(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_29(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$tight#Array'.definitions
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$tight#Array'.definitions]", path))
@@ -538,7 +529,7 @@ def _jm_f_30(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # check json_model_13_map_description (.'$tight#Array'.description)
-def _jm_f_31(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_30(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$tight#Array'.description
     res = isinstance(val, str)
@@ -547,7 +538,7 @@ def _jm_f_31(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_13_map_examples (.'$tight#Array'.examples)
-def _jm_f_32(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_31(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$tight#Array'.examples
     res = isinstance(val, list)
@@ -556,7 +547,7 @@ def _jm_f_32(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_13_map_id (.'$tight#Array'.id)
-def _jm_f_33(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_32(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$tight#Array'.id
     res = isinstance(val, str)
@@ -565,7 +556,7 @@ def _jm_f_33(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_13_map_items (.'$tight#Array'.items)
-def _jm_f_34(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_33(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$tight#Array'.items
     # .'$tight#Array'.items.'|'.0
@@ -584,7 +575,7 @@ def _jm_f_34(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_13_map_maxItems (.'$tight#Array'.maxItems)
-def _jm_f_35(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_34(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$tight#Array'.maxItems
     res = isinstance(val, int) and not isinstance(val, bool) and val >= 0
@@ -593,7 +584,7 @@ def _jm_f_35(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_13_map_minItems (.'$tight#Array'.minItems)
-def _jm_f_36(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_35(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$tight#Array'.minItems
     res = isinstance(val, int) and not isinstance(val, bool) and val >= 0
@@ -601,17 +592,8 @@ def _jm_f_36(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("not a 0 strict int [.'$tight#Array'.minItems]", path))
     return res
 
-# check json_model_13_map_prefixItems (.'$tight#Array'.prefixItems)
-def _jm_f_37(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .'$tight#Array'.prefixItems
-    res = json_model_6(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected $schemaArray [.'$tight#Array'.prefixItems]", path))
-    return res
-
 # check json_model_13_map_title (.'$tight#Array'.title)
-def _jm_f_38(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_36(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$tight#Array'.title
     res = isinstance(val, str)
@@ -620,7 +602,7 @@ def _jm_f_38(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_13_map_uniqueItems (.'$tight#Array'.uniqueItems)
-def _jm_f_39(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_37(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$tight#Array'.uniqueItems
     res = isinstance(val, bool)
@@ -683,7 +665,7 @@ def json_model_6(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_14_map_$comment (.'$tight#Object'.'$comment')
-def _jm_f_40(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_38(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$tight#Object'.'$comment'
     res = isinstance(val, str)
@@ -692,7 +674,7 @@ def _jm_f_40(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_14_map_$defs (.'$tight#Object'.'$defs')
-def _jm_f_41(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_39(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$tight#Object'.'$defs'
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$tight#Object'.'$defs']", path))
@@ -710,7 +692,7 @@ def _jm_f_41(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # check json_model_14_map_$id (.'$tight#Object'.'$id')
-def _jm_f_42(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_40(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$tight#Object'.'$id'
     res = isinstance(val, str)
@@ -719,7 +701,7 @@ def _jm_f_42(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_14_map_$schema (.'$tight#Object'.'$schema')
-def _jm_f_43(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_41(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$tight#Object'.'$schema'
     res = isinstance(val, str)
@@ -727,17 +709,8 @@ def _jm_f_43(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("unexpected string [.'$tight#Object'.'$schema']", path))
     return res
 
-# check json_model_14_map_additionalProperties (.'$tight#Object'.additionalProperties)
-def _jm_f_44(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .'$tight#Object'.additionalProperties
-    res = json_model_26(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected $Schema [.'$tight#Object'.additionalProperties]", path))
-    return res
-
 # check json_model_14_map_default (.'$tight#Object'.default)
-def _jm_f_45(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_42(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$tight#Object'.default
     res = True
@@ -746,7 +719,7 @@ def _jm_f_45(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_14_map_definitions (.'$tight#Object'.definitions)
-def _jm_f_46(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_43(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$tight#Object'.definitions
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$tight#Object'.definitions]", path))
@@ -764,7 +737,7 @@ def _jm_f_46(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # check json_model_14_map_description (.'$tight#Object'.description)
-def _jm_f_47(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_44(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$tight#Object'.description
     res = isinstance(val, str)
@@ -773,7 +746,7 @@ def _jm_f_47(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_14_map_examples (.'$tight#Object'.examples)
-def _jm_f_48(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_45(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$tight#Object'.examples
     res = isinstance(val, list)
@@ -782,7 +755,7 @@ def _jm_f_48(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_14_map_id (.'$tight#Object'.id)
-def _jm_f_49(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_46(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$tight#Object'.id
     res = isinstance(val, str)
@@ -791,7 +764,7 @@ def _jm_f_49(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_14_map_patternProperties (.'$tight#Object'.patternProperties)
-def _jm_f_50(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_47(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$tight#Object'.patternProperties
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$tight#Object'.patternProperties]", path))
@@ -813,7 +786,7 @@ def _jm_f_50(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # check json_model_14_map_properties (.'$tight#Object'.properties)
-def _jm_f_51(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_48(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$tight#Object'.properties
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$tight#Object'.properties]", path))
@@ -831,7 +804,7 @@ def _jm_f_51(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # check json_model_14_map_required (.'$tight#Object'.required)
-def _jm_f_52(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_49(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$tight#Object'.required
     res = isinstance(val, list)
@@ -848,7 +821,7 @@ def _jm_f_52(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_14_map_title (.'$tight#Object'.title)
-def _jm_f_53(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_50(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$tight#Object'.title
     res = isinstance(val, str)
@@ -894,7 +867,7 @@ def json_model_14(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # check json_model_15_map_$comment (.'$tight#Integer'.'$comment')
-def _jm_f_54(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_51(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$tight#Integer'.'$comment'
     res = isinstance(val, str)
@@ -903,7 +876,7 @@ def _jm_f_54(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_15_map_$defs (.'$tight#Integer'.'$defs')
-def _jm_f_55(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_52(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$tight#Integer'.'$defs'
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$tight#Integer'.'$defs']", path))
@@ -921,7 +894,7 @@ def _jm_f_55(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # check json_model_15_map_$id (.'$tight#Integer'.'$id')
-def _jm_f_56(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_53(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$tight#Integer'.'$id'
     res = isinstance(val, str)
@@ -930,7 +903,7 @@ def _jm_f_56(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_15_map_$schema (.'$tight#Integer'.'$schema')
-def _jm_f_57(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_54(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$tight#Integer'.'$schema'
     res = isinstance(val, str)
@@ -939,7 +912,7 @@ def _jm_f_57(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_15_map_default (.'$tight#Integer'.default)
-def _jm_f_58(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_55(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$tight#Integer'.default
     res = True
@@ -948,7 +921,7 @@ def _jm_f_58(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_15_map_definitions (.'$tight#Integer'.definitions)
-def _jm_f_59(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_56(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$tight#Integer'.definitions
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$tight#Integer'.definitions]", path))
@@ -966,7 +939,7 @@ def _jm_f_59(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # check json_model_15_map_description (.'$tight#Integer'.description)
-def _jm_f_60(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_57(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$tight#Integer'.description
     res = isinstance(val, str)
@@ -975,7 +948,7 @@ def _jm_f_60(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_15_map_examples (.'$tight#Integer'.examples)
-def _jm_f_61(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_58(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$tight#Integer'.examples
     res = isinstance(val, list)
@@ -984,7 +957,7 @@ def _jm_f_61(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_15_map_id (.'$tight#Integer'.id)
-def _jm_f_62(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_59(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$tight#Integer'.id
     res = isinstance(val, str)
@@ -993,7 +966,7 @@ def _jm_f_62(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_15_map_maximum (.'$tight#Integer'.maximum)
-def _jm_f_63(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_60(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$tight#Integer'.maximum
     res = isinstance(val, float)
@@ -1002,7 +975,7 @@ def _jm_f_63(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_15_map_minimum (.'$tight#Integer'.minimum)
-def _jm_f_64(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_61(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$tight#Integer'.minimum
     res = isinstance(val, float)
@@ -1011,7 +984,7 @@ def _jm_f_64(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_15_map_title (.'$tight#Integer'.title)
-def _jm_f_65(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_62(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$tight#Integer'.title
     res = isinstance(val, str)
@@ -1057,7 +1030,7 @@ def json_model_15(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # check json_model_16_map_$comment (.'$tight#Number'.'$comment')
-def _jm_f_66(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_63(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$tight#Number'.'$comment'
     res = isinstance(val, str)
@@ -1066,7 +1039,7 @@ def _jm_f_66(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_16_map_$defs (.'$tight#Number'.'$defs')
-def _jm_f_67(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_64(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$tight#Number'.'$defs'
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$tight#Number'.'$defs']", path))
@@ -1084,7 +1057,7 @@ def _jm_f_67(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # check json_model_16_map_$id (.'$tight#Number'.'$id')
-def _jm_f_68(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_65(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$tight#Number'.'$id'
     res = isinstance(val, str)
@@ -1093,7 +1066,7 @@ def _jm_f_68(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_16_map_$schema (.'$tight#Number'.'$schema')
-def _jm_f_69(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_66(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$tight#Number'.'$schema'
     res = isinstance(val, str)
@@ -1102,7 +1075,7 @@ def _jm_f_69(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_16_map_default (.'$tight#Number'.default)
-def _jm_f_70(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_67(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$tight#Number'.default
     res = True
@@ -1111,7 +1084,7 @@ def _jm_f_70(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_16_map_definitions (.'$tight#Number'.definitions)
-def _jm_f_71(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_68(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$tight#Number'.definitions
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$tight#Number'.definitions]", path))
@@ -1129,7 +1102,7 @@ def _jm_f_71(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # check json_model_16_map_description (.'$tight#Number'.description)
-def _jm_f_72(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_69(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$tight#Number'.description
     res = isinstance(val, str)
@@ -1138,7 +1111,7 @@ def _jm_f_72(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_16_map_examples (.'$tight#Number'.examples)
-def _jm_f_73(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_70(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$tight#Number'.examples
     res = isinstance(val, list)
@@ -1147,7 +1120,7 @@ def _jm_f_73(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_16_map_id (.'$tight#Number'.id)
-def _jm_f_74(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_71(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$tight#Number'.id
     res = isinstance(val, str)
@@ -1156,7 +1129,7 @@ def _jm_f_74(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_16_map_maximum (.'$tight#Number'.maximum)
-def _jm_f_75(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_72(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$tight#Number'.maximum
     res = isinstance(val, float)
@@ -1165,7 +1138,7 @@ def _jm_f_75(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_16_map_minimum (.'$tight#Number'.minimum)
-def _jm_f_76(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_73(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$tight#Number'.minimum
     res = isinstance(val, float)
@@ -1174,7 +1147,7 @@ def _jm_f_76(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_16_map_title (.'$tight#Number'.title)
-def _jm_f_77(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_74(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$tight#Number'.title
     res = isinstance(val, str)
@@ -1220,7 +1193,7 @@ def json_model_16(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # check json_model_17_map_$comment (.'$tight#Bool'.'$comment')
-def _jm_f_78(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_75(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$tight#Bool'.'$comment'
     res = isinstance(val, str)
@@ -1229,7 +1202,7 @@ def _jm_f_78(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_17_map_$defs (.'$tight#Bool'.'$defs')
-def _jm_f_79(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_76(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$tight#Bool'.'$defs'
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$tight#Bool'.'$defs']", path))
@@ -1247,7 +1220,7 @@ def _jm_f_79(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # check json_model_17_map_$id (.'$tight#Bool'.'$id')
-def _jm_f_80(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_77(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$tight#Bool'.'$id'
     res = isinstance(val, str)
@@ -1256,7 +1229,7 @@ def _jm_f_80(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_17_map_$schema (.'$tight#Bool'.'$schema')
-def _jm_f_81(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_78(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$tight#Bool'.'$schema'
     res = isinstance(val, str)
@@ -1265,7 +1238,7 @@ def _jm_f_81(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_17_map_default (.'$tight#Bool'.default)
-def _jm_f_82(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_79(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$tight#Bool'.default
     res = True
@@ -1274,7 +1247,7 @@ def _jm_f_82(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_17_map_definitions (.'$tight#Bool'.definitions)
-def _jm_f_83(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_80(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$tight#Bool'.definitions
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$tight#Bool'.definitions]", path))
@@ -1292,7 +1265,7 @@ def _jm_f_83(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # check json_model_17_map_description (.'$tight#Bool'.description)
-def _jm_f_84(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_81(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$tight#Bool'.description
     res = isinstance(val, str)
@@ -1301,7 +1274,7 @@ def _jm_f_84(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_17_map_examples (.'$tight#Bool'.examples)
-def _jm_f_85(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_82(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$tight#Bool'.examples
     res = isinstance(val, list)
@@ -1310,7 +1283,7 @@ def _jm_f_85(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_17_map_id (.'$tight#Bool'.id)
-def _jm_f_86(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_83(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$tight#Bool'.id
     res = isinstance(val, str)
@@ -1319,7 +1292,7 @@ def _jm_f_86(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_17_map_title (.'$tight#Bool'.title)
-def _jm_f_87(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_84(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$tight#Bool'.title
     res = isinstance(val, str)
@@ -1365,7 +1338,7 @@ def json_model_17(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # check json_model_18_map_$comment (.'$tight#Null'.'$comment')
-def _jm_f_88(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_85(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$tight#Null'.'$comment'
     res = isinstance(val, str)
@@ -1374,7 +1347,7 @@ def _jm_f_88(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_18_map_$defs (.'$tight#Null'.'$defs')
-def _jm_f_89(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_86(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$tight#Null'.'$defs'
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$tight#Null'.'$defs']", path))
@@ -1392,7 +1365,7 @@ def _jm_f_89(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # check json_model_18_map_$id (.'$tight#Null'.'$id')
-def _jm_f_90(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_87(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$tight#Null'.'$id'
     res = isinstance(val, str)
@@ -1401,7 +1374,7 @@ def _jm_f_90(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_18_map_$schema (.'$tight#Null'.'$schema')
-def _jm_f_91(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_88(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$tight#Null'.'$schema'
     res = isinstance(val, str)
@@ -1410,7 +1383,7 @@ def _jm_f_91(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_18_map_default (.'$tight#Null'.default)
-def _jm_f_92(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_89(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$tight#Null'.default
     res = True
@@ -1419,7 +1392,7 @@ def _jm_f_92(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_18_map_definitions (.'$tight#Null'.definitions)
-def _jm_f_93(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_90(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$tight#Null'.definitions
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$tight#Null'.definitions]", path))
@@ -1437,7 +1410,7 @@ def _jm_f_93(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # check json_model_18_map_description (.'$tight#Null'.description)
-def _jm_f_94(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_91(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$tight#Null'.description
     res = isinstance(val, str)
@@ -1446,7 +1419,7 @@ def _jm_f_94(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_18_map_examples (.'$tight#Null'.examples)
-def _jm_f_95(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_92(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$tight#Null'.examples
     res = isinstance(val, list)
@@ -1455,7 +1428,7 @@ def _jm_f_95(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_18_map_id (.'$tight#Null'.id)
-def _jm_f_96(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_93(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$tight#Null'.id
     res = isinstance(val, str)
@@ -1464,7 +1437,7 @@ def _jm_f_96(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_18_map_title (.'$tight#Null'.title)
-def _jm_f_97(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_94(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$tight#Null'.title
     res = isinstance(val, str)
@@ -1510,7 +1483,7 @@ def json_model_18(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # check json_model_19_map_$comment (.'$tight#AllOf'.'$comment')
-def _jm_f_98(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_95(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$tight#AllOf'.'$comment'
     res = isinstance(val, str)
@@ -1519,7 +1492,7 @@ def _jm_f_98(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_19_map_$defs (.'$tight#AllOf'.'$defs')
-def _jm_f_99(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_96(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$tight#AllOf'.'$defs'
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$tight#AllOf'.'$defs']", path))
@@ -1537,7 +1510,7 @@ def _jm_f_99(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # check json_model_19_map_$id (.'$tight#AllOf'.'$id')
-def _jm_f_100(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_97(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$tight#AllOf'.'$id'
     res = isinstance(val, str)
@@ -1546,7 +1519,7 @@ def _jm_f_100(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_19_map_$schema (.'$tight#AllOf'.'$schema')
-def _jm_f_101(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_98(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$tight#AllOf'.'$schema'
     res = isinstance(val, str)
@@ -1555,7 +1528,7 @@ def _jm_f_101(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_19_map_default (.'$tight#AllOf'.default)
-def _jm_f_102(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_99(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$tight#AllOf'.default
     res = True
@@ -1564,7 +1537,7 @@ def _jm_f_102(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_19_map_definitions (.'$tight#AllOf'.definitions)
-def _jm_f_103(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_100(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$tight#AllOf'.definitions
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$tight#AllOf'.definitions]", path))
@@ -1582,7 +1555,7 @@ def _jm_f_103(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # check json_model_19_map_description (.'$tight#AllOf'.description)
-def _jm_f_104(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_101(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$tight#AllOf'.description
     res = isinstance(val, str)
@@ -1591,7 +1564,7 @@ def _jm_f_104(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_19_map_examples (.'$tight#AllOf'.examples)
-def _jm_f_105(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_102(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$tight#AllOf'.examples
     res = isinstance(val, list)
@@ -1600,7 +1573,7 @@ def _jm_f_105(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_19_map_id (.'$tight#AllOf'.id)
-def _jm_f_106(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_103(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$tight#AllOf'.id
     res = isinstance(val, str)
@@ -1609,7 +1582,7 @@ def _jm_f_106(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_19_map_title (.'$tight#AllOf'.title)
-def _jm_f_107(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_104(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$tight#AllOf'.title
     res = isinstance(val, str)
@@ -1655,7 +1628,7 @@ def json_model_19(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # check json_model_20_map_$comment (.'$tight#AnyOf'.'$comment')
-def _jm_f_108(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_105(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$tight#AnyOf'.'$comment'
     res = isinstance(val, str)
@@ -1664,7 +1637,7 @@ def _jm_f_108(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_20_map_$defs (.'$tight#AnyOf'.'$defs')
-def _jm_f_109(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_106(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$tight#AnyOf'.'$defs'
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$tight#AnyOf'.'$defs']", path))
@@ -1682,7 +1655,7 @@ def _jm_f_109(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # check json_model_20_map_$id (.'$tight#AnyOf'.'$id')
-def _jm_f_110(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_107(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$tight#AnyOf'.'$id'
     res = isinstance(val, str)
@@ -1691,7 +1664,7 @@ def _jm_f_110(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_20_map_$schema (.'$tight#AnyOf'.'$schema')
-def _jm_f_111(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_108(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$tight#AnyOf'.'$schema'
     res = isinstance(val, str)
@@ -1700,7 +1673,7 @@ def _jm_f_111(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_20_map_default (.'$tight#AnyOf'.default)
-def _jm_f_112(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_109(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$tight#AnyOf'.default
     res = True
@@ -1709,7 +1682,7 @@ def _jm_f_112(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_20_map_definitions (.'$tight#AnyOf'.definitions)
-def _jm_f_113(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_110(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$tight#AnyOf'.definitions
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$tight#AnyOf'.definitions]", path))
@@ -1727,7 +1700,7 @@ def _jm_f_113(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # check json_model_20_map_description (.'$tight#AnyOf'.description)
-def _jm_f_114(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_111(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$tight#AnyOf'.description
     res = isinstance(val, str)
@@ -1736,7 +1709,7 @@ def _jm_f_114(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_20_map_examples (.'$tight#AnyOf'.examples)
-def _jm_f_115(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_112(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$tight#AnyOf'.examples
     res = isinstance(val, list)
@@ -1745,7 +1718,7 @@ def _jm_f_115(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_20_map_id (.'$tight#AnyOf'.id)
-def _jm_f_116(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_113(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$tight#AnyOf'.id
     res = isinstance(val, str)
@@ -1754,7 +1727,7 @@ def _jm_f_116(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_20_map_title (.'$tight#AnyOf'.title)
-def _jm_f_117(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_114(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$tight#AnyOf'.title
     res = isinstance(val, str)
@@ -1800,7 +1773,7 @@ def json_model_20(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # check json_model_21_map_$comment (.'$tight#OneOf'.'$comment')
-def _jm_f_118(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_115(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$tight#OneOf'.'$comment'
     res = isinstance(val, str)
@@ -1809,7 +1782,7 @@ def _jm_f_118(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_21_map_$defs (.'$tight#OneOf'.'$defs')
-def _jm_f_119(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_116(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$tight#OneOf'.'$defs'
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$tight#OneOf'.'$defs']", path))
@@ -1827,7 +1800,7 @@ def _jm_f_119(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # check json_model_21_map_$id (.'$tight#OneOf'.'$id')
-def _jm_f_120(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_117(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$tight#OneOf'.'$id'
     res = isinstance(val, str)
@@ -1836,7 +1809,7 @@ def _jm_f_120(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_21_map_$schema (.'$tight#OneOf'.'$schema')
-def _jm_f_121(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_118(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$tight#OneOf'.'$schema'
     res = isinstance(val, str)
@@ -1845,7 +1818,7 @@ def _jm_f_121(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_21_map_default (.'$tight#OneOf'.default)
-def _jm_f_122(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_119(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$tight#OneOf'.default
     res = True
@@ -1854,7 +1827,7 @@ def _jm_f_122(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_21_map_definitions (.'$tight#OneOf'.definitions)
-def _jm_f_123(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_120(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$tight#OneOf'.definitions
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$tight#OneOf'.definitions]", path))
@@ -1872,7 +1845,7 @@ def _jm_f_123(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # check json_model_21_map_description (.'$tight#OneOf'.description)
-def _jm_f_124(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_121(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$tight#OneOf'.description
     res = isinstance(val, str)
@@ -1881,7 +1854,7 @@ def _jm_f_124(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_21_map_examples (.'$tight#OneOf'.examples)
-def _jm_f_125(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_122(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$tight#OneOf'.examples
     res = isinstance(val, list)
@@ -1890,7 +1863,7 @@ def _jm_f_125(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_21_map_id (.'$tight#OneOf'.id)
-def _jm_f_126(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_123(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$tight#OneOf'.id
     res = isinstance(val, str)
@@ -1899,7 +1872,7 @@ def _jm_f_126(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_21_map_title (.'$tight#OneOf'.title)
-def _jm_f_127(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_124(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$tight#OneOf'.title
     res = isinstance(val, str)
@@ -1945,7 +1918,7 @@ def json_model_21(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # check json_model_22_map_$comment (.'$tight#Enum'.'$comment')
-def _jm_f_128(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_125(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$tight#Enum'.'$comment'
     res = isinstance(val, str)
@@ -1954,7 +1927,7 @@ def _jm_f_128(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_22_map_$defs (.'$tight#Enum'.'$defs')
-def _jm_f_129(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_126(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$tight#Enum'.'$defs'
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$tight#Enum'.'$defs']", path))
@@ -1972,7 +1945,7 @@ def _jm_f_129(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # check json_model_22_map_$id (.'$tight#Enum'.'$id')
-def _jm_f_130(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_127(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$tight#Enum'.'$id'
     res = isinstance(val, str)
@@ -1981,7 +1954,7 @@ def _jm_f_130(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_22_map_$schema (.'$tight#Enum'.'$schema')
-def _jm_f_131(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_128(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$tight#Enum'.'$schema'
     res = isinstance(val, str)
@@ -1990,7 +1963,7 @@ def _jm_f_131(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_22_map_default (.'$tight#Enum'.default)
-def _jm_f_132(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_129(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$tight#Enum'.default
     res = True
@@ -1999,7 +1972,7 @@ def _jm_f_132(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_22_map_definitions (.'$tight#Enum'.definitions)
-def _jm_f_133(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_130(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$tight#Enum'.definitions
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$tight#Enum'.definitions]", path))
@@ -2017,7 +1990,7 @@ def _jm_f_133(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # check json_model_22_map_description (.'$tight#Enum'.description)
-def _jm_f_134(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_131(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$tight#Enum'.description
     res = isinstance(val, str)
@@ -2026,7 +1999,7 @@ def _jm_f_134(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_22_map_examples (.'$tight#Enum'.examples)
-def _jm_f_135(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_132(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$tight#Enum'.examples
     res = isinstance(val, list)
@@ -2035,7 +2008,7 @@ def _jm_f_135(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_22_map_id (.'$tight#Enum'.id)
-def _jm_f_136(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_133(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$tight#Enum'.id
     res = isinstance(val, str)
@@ -2044,7 +2017,7 @@ def _jm_f_136(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_22_map_title (.'$tight#Enum'.title)
-def _jm_f_137(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_134(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$tight#Enum'.title
     res = isinstance(val, str)
@@ -2136,7 +2109,7 @@ def json_model_5(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_23_map_$comment (.'$tight#Const'.'$comment')
-def _jm_f_138(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_135(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$tight#Const'.'$comment'
     res = isinstance(val, str)
@@ -2145,7 +2118,7 @@ def _jm_f_138(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_23_map_$defs (.'$tight#Const'.'$defs')
-def _jm_f_139(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_136(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$tight#Const'.'$defs'
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$tight#Const'.'$defs']", path))
@@ -2163,7 +2136,7 @@ def _jm_f_139(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # check json_model_23_map_$id (.'$tight#Const'.'$id')
-def _jm_f_140(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_137(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$tight#Const'.'$id'
     res = isinstance(val, str)
@@ -2172,7 +2145,7 @@ def _jm_f_140(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_23_map_$schema (.'$tight#Const'.'$schema')
-def _jm_f_141(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_138(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$tight#Const'.'$schema'
     res = isinstance(val, str)
@@ -2181,7 +2154,7 @@ def _jm_f_141(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_23_map_default (.'$tight#Const'.default)
-def _jm_f_142(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_139(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$tight#Const'.default
     res = True
@@ -2190,7 +2163,7 @@ def _jm_f_142(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_23_map_definitions (.'$tight#Const'.definitions)
-def _jm_f_143(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_140(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$tight#Const'.definitions
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$tight#Const'.definitions]", path))
@@ -2208,7 +2181,7 @@ def _jm_f_143(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # check json_model_23_map_description (.'$tight#Const'.description)
-def _jm_f_144(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_141(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$tight#Const'.description
     res = isinstance(val, str)
@@ -2217,7 +2190,7 @@ def _jm_f_144(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_23_map_examples (.'$tight#Const'.examples)
-def _jm_f_145(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_142(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$tight#Const'.examples
     res = isinstance(val, list)
@@ -2226,7 +2199,7 @@ def _jm_f_145(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_23_map_id (.'$tight#Const'.id)
-def _jm_f_146(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_143(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$tight#Const'.id
     res = isinstance(val, str)
@@ -2235,7 +2208,7 @@ def _jm_f_146(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_23_map_title (.'$tight#Const'.title)
-def _jm_f_147(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_144(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$tight#Const'.title
     res = isinstance(val, str)
@@ -2315,7 +2288,7 @@ def json_model_4(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_24_map_$comment (.'$tight#Ref'.'$comment')
-def _jm_f_148(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_145(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$tight#Ref'.'$comment'
     res = isinstance(val, str)
@@ -2324,7 +2297,7 @@ def _jm_f_148(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_24_map_$defs (.'$tight#Ref'.'$defs')
-def _jm_f_149(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_146(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$tight#Ref'.'$defs'
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$tight#Ref'.'$defs']", path))
@@ -2342,7 +2315,7 @@ def _jm_f_149(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # check json_model_24_map_$id (.'$tight#Ref'.'$id')
-def _jm_f_150(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_147(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$tight#Ref'.'$id'
     res = isinstance(val, str)
@@ -2351,7 +2324,7 @@ def _jm_f_150(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_24_map_$schema (.'$tight#Ref'.'$schema')
-def _jm_f_151(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_148(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$tight#Ref'.'$schema'
     res = isinstance(val, str)
@@ -2360,7 +2333,7 @@ def _jm_f_151(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_24_map_default (.'$tight#Ref'.default)
-def _jm_f_152(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_149(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$tight#Ref'.default
     res = True
@@ -2369,7 +2342,7 @@ def _jm_f_152(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_24_map_definitions (.'$tight#Ref'.definitions)
-def _jm_f_153(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_150(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$tight#Ref'.definitions
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$tight#Ref'.definitions]", path))
@@ -2387,7 +2360,7 @@ def _jm_f_153(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # check json_model_24_map_description (.'$tight#Ref'.description)
-def _jm_f_154(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_151(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$tight#Ref'.description
     res = isinstance(val, str)
@@ -2396,7 +2369,7 @@ def _jm_f_154(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_24_map_examples (.'$tight#Ref'.examples)
-def _jm_f_155(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_152(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$tight#Ref'.examples
     res = isinstance(val, list)
@@ -2405,7 +2378,7 @@ def _jm_f_155(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_24_map_id (.'$tight#Ref'.id)
-def _jm_f_156(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_153(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$tight#Ref'.id
     res = isinstance(val, str)
@@ -2414,7 +2387,7 @@ def _jm_f_156(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_24_map_title (.'$tight#Ref'.title)
-def _jm_f_157(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_154(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$tight#Ref'.title
     res = isinstance(val, str)
@@ -2479,7 +2452,7 @@ def json_model_26(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_28_map_$comment (.'$tight#EnumString'.'$comment')
-def _jm_f_158(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_155(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$tight#EnumString'.'$comment'
     res = isinstance(val, str)
@@ -2488,7 +2461,7 @@ def _jm_f_158(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_28_map_$defs (.'$tight#EnumString'.'$defs')
-def _jm_f_159(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_156(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$tight#EnumString'.'$defs'
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$tight#EnumString'.'$defs']", path))
@@ -2506,7 +2479,7 @@ def _jm_f_159(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # check json_model_28_map_$id (.'$tight#EnumString'.'$id')
-def _jm_f_160(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_157(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$tight#EnumString'.'$id'
     res = isinstance(val, str)
@@ -2515,7 +2488,7 @@ def _jm_f_160(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_28_map_$schema (.'$tight#EnumString'.'$schema')
-def _jm_f_161(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_158(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$tight#EnumString'.'$schema'
     res = isinstance(val, str)
@@ -2524,7 +2497,7 @@ def _jm_f_161(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_28_map_default (.'$tight#EnumString'.default)
-def _jm_f_162(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_159(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$tight#EnumString'.default
     res = True
@@ -2533,7 +2506,7 @@ def _jm_f_162(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_28_map_definitions (.'$tight#EnumString'.definitions)
-def _jm_f_163(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_160(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$tight#EnumString'.definitions
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$tight#EnumString'.definitions]", path))
@@ -2551,7 +2524,7 @@ def _jm_f_163(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # check json_model_28_map_description (.'$tight#EnumString'.description)
-def _jm_f_164(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_161(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$tight#EnumString'.description
     res = isinstance(val, str)
@@ -2560,7 +2533,7 @@ def _jm_f_164(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_28_map_examples (.'$tight#EnumString'.examples)
-def _jm_f_165(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_162(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$tight#EnumString'.examples
     res = isinstance(val, list)
@@ -2569,7 +2542,7 @@ def _jm_f_165(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_28_map_id (.'$tight#EnumString'.id)
-def _jm_f_166(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_163(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$tight#EnumString'.id
     res = isinstance(val, str)
@@ -2578,7 +2551,7 @@ def _jm_f_166(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_28_map_title (.'$tight#EnumString'.title)
-def _jm_f_167(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_164(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$tight#EnumString'.title
     res = isinstance(val, str)
@@ -2643,7 +2616,7 @@ def json_model_28(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # check json_model_29_map_$comment (.'$tight#EnumNum'.'$comment')
-def _jm_f_168(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_165(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$tight#EnumNum'.'$comment'
     res = isinstance(val, str)
@@ -2652,7 +2625,7 @@ def _jm_f_168(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_29_map_$defs (.'$tight#EnumNum'.'$defs')
-def _jm_f_169(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_166(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$tight#EnumNum'.'$defs'
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$tight#EnumNum'.'$defs']", path))
@@ -2670,7 +2643,7 @@ def _jm_f_169(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # check json_model_29_map_$id (.'$tight#EnumNum'.'$id')
-def _jm_f_170(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_167(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$tight#EnumNum'.'$id'
     res = isinstance(val, str)
@@ -2679,7 +2652,7 @@ def _jm_f_170(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_29_map_$schema (.'$tight#EnumNum'.'$schema')
-def _jm_f_171(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_168(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$tight#EnumNum'.'$schema'
     res = isinstance(val, str)
@@ -2688,7 +2661,7 @@ def _jm_f_171(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_29_map_default (.'$tight#EnumNum'.default)
-def _jm_f_172(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_169(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$tight#EnumNum'.default
     res = True
@@ -2697,7 +2670,7 @@ def _jm_f_172(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_29_map_definitions (.'$tight#EnumNum'.definitions)
-def _jm_f_173(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_170(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$tight#EnumNum'.definitions
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$tight#EnumNum'.definitions]", path))
@@ -2715,7 +2688,7 @@ def _jm_f_173(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # check json_model_29_map_description (.'$tight#EnumNum'.description)
-def _jm_f_174(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_171(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$tight#EnumNum'.description
     res = isinstance(val, str)
@@ -2724,7 +2697,7 @@ def _jm_f_174(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_29_map_examples (.'$tight#EnumNum'.examples)
-def _jm_f_175(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_172(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$tight#EnumNum'.examples
     res = isinstance(val, list)
@@ -2733,7 +2706,7 @@ def _jm_f_175(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_29_map_id (.'$tight#EnumNum'.id)
-def _jm_f_176(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_173(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$tight#EnumNum'.id
     res = isinstance(val, str)
@@ -2742,7 +2715,7 @@ def _jm_f_176(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_29_map_title (.'$tight#EnumNum'.title)
-def _jm_f_177(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_174(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$tight#EnumNum'.title
     res = isinstance(val, str)
@@ -2807,7 +2780,7 @@ def json_model_29(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # check json_model_30_map_$comment (.'$tight#EnumInt'.'$comment')
-def _jm_f_178(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_175(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$tight#EnumInt'.'$comment'
     res = isinstance(val, str)
@@ -2816,7 +2789,7 @@ def _jm_f_178(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_30_map_$defs (.'$tight#EnumInt'.'$defs')
-def _jm_f_179(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_176(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$tight#EnumInt'.'$defs'
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$tight#EnumInt'.'$defs']", path))
@@ -2834,7 +2807,7 @@ def _jm_f_179(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # check json_model_30_map_$id (.'$tight#EnumInt'.'$id')
-def _jm_f_180(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_177(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$tight#EnumInt'.'$id'
     res = isinstance(val, str)
@@ -2843,7 +2816,7 @@ def _jm_f_180(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_30_map_$schema (.'$tight#EnumInt'.'$schema')
-def _jm_f_181(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_178(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$tight#EnumInt'.'$schema'
     res = isinstance(val, str)
@@ -2852,7 +2825,7 @@ def _jm_f_181(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_30_map_default (.'$tight#EnumInt'.default)
-def _jm_f_182(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_179(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$tight#EnumInt'.default
     res = True
@@ -2861,7 +2834,7 @@ def _jm_f_182(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_30_map_definitions (.'$tight#EnumInt'.definitions)
-def _jm_f_183(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_180(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$tight#EnumInt'.definitions
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$tight#EnumInt'.definitions]", path))
@@ -2879,7 +2852,7 @@ def _jm_f_183(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # check json_model_30_map_description (.'$tight#EnumInt'.description)
-def _jm_f_184(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_181(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$tight#EnumInt'.description
     res = isinstance(val, str)
@@ -2888,7 +2861,7 @@ def _jm_f_184(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_30_map_examples (.'$tight#EnumInt'.examples)
-def _jm_f_185(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_182(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$tight#EnumInt'.examples
     res = isinstance(val, list)
@@ -2897,7 +2870,7 @@ def _jm_f_185(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_30_map_id (.'$tight#EnumInt'.id)
-def _jm_f_186(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_183(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$tight#EnumInt'.id
     res = isinstance(val, str)
@@ -2906,7 +2879,7 @@ def _jm_f_186(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_30_map_title (.'$tight#EnumInt'.title)
-def _jm_f_187(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_184(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$tight#EnumInt'.title
     res = isinstance(val, str)
@@ -2971,7 +2944,7 @@ def json_model_30(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # check json_model_31_map_$comment (.'$tight#ConstString'.'$comment')
-def _jm_f_188(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_185(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$tight#ConstString'.'$comment'
     res = isinstance(val, str)
@@ -2980,7 +2953,7 @@ def _jm_f_188(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_31_map_$defs (.'$tight#ConstString'.'$defs')
-def _jm_f_189(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_186(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$tight#ConstString'.'$defs'
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$tight#ConstString'.'$defs']", path))
@@ -2998,7 +2971,7 @@ def _jm_f_189(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # check json_model_31_map_$id (.'$tight#ConstString'.'$id')
-def _jm_f_190(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_187(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$tight#ConstString'.'$id'
     res = isinstance(val, str)
@@ -3007,7 +2980,7 @@ def _jm_f_190(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_31_map_$schema (.'$tight#ConstString'.'$schema')
-def _jm_f_191(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_188(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$tight#ConstString'.'$schema'
     res = isinstance(val, str)
@@ -3016,7 +2989,7 @@ def _jm_f_191(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_31_map_default (.'$tight#ConstString'.default)
-def _jm_f_192(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_189(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$tight#ConstString'.default
     res = True
@@ -3025,7 +2998,7 @@ def _jm_f_192(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_31_map_definitions (.'$tight#ConstString'.definitions)
-def _jm_f_193(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_190(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$tight#ConstString'.definitions
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$tight#ConstString'.definitions]", path))
@@ -3043,7 +3016,7 @@ def _jm_f_193(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # check json_model_31_map_description (.'$tight#ConstString'.description)
-def _jm_f_194(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_191(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$tight#ConstString'.description
     res = isinstance(val, str)
@@ -3052,7 +3025,7 @@ def _jm_f_194(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_31_map_examples (.'$tight#ConstString'.examples)
-def _jm_f_195(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_192(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$tight#ConstString'.examples
     res = isinstance(val, list)
@@ -3061,7 +3034,7 @@ def _jm_f_195(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_31_map_id (.'$tight#ConstString'.id)
-def _jm_f_196(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_193(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$tight#ConstString'.id
     res = isinstance(val, str)
@@ -3070,7 +3043,7 @@ def _jm_f_196(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_31_map_title (.'$tight#ConstString'.title)
-def _jm_f_197(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_194(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$tight#ConstString'.title
     res = isinstance(val, str)
@@ -3127,7 +3100,7 @@ def json_model_31(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # check json_model_32_map_$comment (.'$tight#ConstNum'.'$comment')
-def _jm_f_198(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_195(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$tight#ConstNum'.'$comment'
     res = isinstance(val, str)
@@ -3136,7 +3109,7 @@ def _jm_f_198(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_32_map_$defs (.'$tight#ConstNum'.'$defs')
-def _jm_f_199(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_196(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$tight#ConstNum'.'$defs'
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$tight#ConstNum'.'$defs']", path))
@@ -3154,7 +3127,7 @@ def _jm_f_199(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # check json_model_32_map_$id (.'$tight#ConstNum'.'$id')
-def _jm_f_200(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_197(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$tight#ConstNum'.'$id'
     res = isinstance(val, str)
@@ -3163,7 +3136,7 @@ def _jm_f_200(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_32_map_$schema (.'$tight#ConstNum'.'$schema')
-def _jm_f_201(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_198(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$tight#ConstNum'.'$schema'
     res = isinstance(val, str)
@@ -3172,7 +3145,7 @@ def _jm_f_201(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_32_map_default (.'$tight#ConstNum'.default)
-def _jm_f_202(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_199(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$tight#ConstNum'.default
     res = True
@@ -3181,7 +3154,7 @@ def _jm_f_202(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_32_map_definitions (.'$tight#ConstNum'.definitions)
-def _jm_f_203(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_200(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$tight#ConstNum'.definitions
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$tight#ConstNum'.definitions]", path))
@@ -3199,7 +3172,7 @@ def _jm_f_203(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # check json_model_32_map_description (.'$tight#ConstNum'.description)
-def _jm_f_204(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_201(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$tight#ConstNum'.description
     res = isinstance(val, str)
@@ -3208,7 +3181,7 @@ def _jm_f_204(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_32_map_examples (.'$tight#ConstNum'.examples)
-def _jm_f_205(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_202(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$tight#ConstNum'.examples
     res = isinstance(val, list)
@@ -3217,7 +3190,7 @@ def _jm_f_205(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_32_map_id (.'$tight#ConstNum'.id)
-def _jm_f_206(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_203(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$tight#ConstNum'.id
     res = isinstance(val, str)
@@ -3226,7 +3199,7 @@ def _jm_f_206(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_32_map_title (.'$tight#ConstNum'.title)
-def _jm_f_207(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_204(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$tight#ConstNum'.title
     res = isinstance(val, str)
@@ -3283,7 +3256,7 @@ def json_model_32(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # check json_model_33_map_$comment (.'$tight#ConstInt'.'$comment')
-def _jm_f_208(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_205(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$tight#ConstInt'.'$comment'
     res = isinstance(val, str)
@@ -3292,7 +3265,7 @@ def _jm_f_208(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_33_map_$defs (.'$tight#ConstInt'.'$defs')
-def _jm_f_209(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_206(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$tight#ConstInt'.'$defs'
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$tight#ConstInt'.'$defs']", path))
@@ -3310,7 +3283,7 @@ def _jm_f_209(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # check json_model_33_map_$id (.'$tight#ConstInt'.'$id')
-def _jm_f_210(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_207(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$tight#ConstInt'.'$id'
     res = isinstance(val, str)
@@ -3319,7 +3292,7 @@ def _jm_f_210(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_33_map_$schema (.'$tight#ConstInt'.'$schema')
-def _jm_f_211(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_208(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$tight#ConstInt'.'$schema'
     res = isinstance(val, str)
@@ -3328,7 +3301,7 @@ def _jm_f_211(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_33_map_default (.'$tight#ConstInt'.default)
-def _jm_f_212(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_209(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$tight#ConstInt'.default
     res = True
@@ -3337,7 +3310,7 @@ def _jm_f_212(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_33_map_definitions (.'$tight#ConstInt'.definitions)
-def _jm_f_213(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_210(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$tight#ConstInt'.definitions
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$tight#ConstInt'.definitions]", path))
@@ -3355,7 +3328,7 @@ def _jm_f_213(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # check json_model_33_map_description (.'$tight#ConstInt'.description)
-def _jm_f_214(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_211(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$tight#ConstInt'.description
     res = isinstance(val, str)
@@ -3364,7 +3337,7 @@ def _jm_f_214(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_33_map_examples (.'$tight#ConstInt'.examples)
-def _jm_f_215(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_212(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$tight#ConstInt'.examples
     res = isinstance(val, list)
@@ -3373,7 +3346,7 @@ def _jm_f_215(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_33_map_id (.'$tight#ConstInt'.id)
-def _jm_f_216(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_213(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$tight#ConstInt'.id
     res = isinstance(val, str)
@@ -3382,7 +3355,7 @@ def _jm_f_216(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_33_map_title (.'$tight#ConstInt'.title)
-def _jm_f_217(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_214(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$tight#ConstInt'.title
     res = isinstance(val, str)
@@ -3439,7 +3412,7 @@ def json_model_33(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # check json_model_34_map_$comment (.'$tight#ConstBool'.'$comment')
-def _jm_f_218(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_215(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$tight#ConstBool'.'$comment'
     res = isinstance(val, str)
@@ -3448,7 +3421,7 @@ def _jm_f_218(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_34_map_$defs (.'$tight#ConstBool'.'$defs')
-def _jm_f_219(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_216(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$tight#ConstBool'.'$defs'
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$tight#ConstBool'.'$defs']", path))
@@ -3466,7 +3439,7 @@ def _jm_f_219(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # check json_model_34_map_$id (.'$tight#ConstBool'.'$id')
-def _jm_f_220(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_217(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$tight#ConstBool'.'$id'
     res = isinstance(val, str)
@@ -3475,7 +3448,7 @@ def _jm_f_220(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_34_map_$schema (.'$tight#ConstBool'.'$schema')
-def _jm_f_221(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_218(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$tight#ConstBool'.'$schema'
     res = isinstance(val, str)
@@ -3484,7 +3457,7 @@ def _jm_f_221(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_34_map_default (.'$tight#ConstBool'.default)
-def _jm_f_222(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_219(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$tight#ConstBool'.default
     res = True
@@ -3493,7 +3466,7 @@ def _jm_f_222(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_34_map_definitions (.'$tight#ConstBool'.definitions)
-def _jm_f_223(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_220(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$tight#ConstBool'.definitions
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$tight#ConstBool'.definitions]", path))
@@ -3511,7 +3484,7 @@ def _jm_f_223(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # check json_model_34_map_description (.'$tight#ConstBool'.description)
-def _jm_f_224(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_221(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$tight#ConstBool'.description
     res = isinstance(val, str)
@@ -3520,7 +3493,7 @@ def _jm_f_224(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_34_map_examples (.'$tight#ConstBool'.examples)
-def _jm_f_225(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_222(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$tight#ConstBool'.examples
     res = isinstance(val, list)
@@ -3529,7 +3502,7 @@ def _jm_f_225(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_34_map_id (.'$tight#ConstBool'.id)
-def _jm_f_226(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_223(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$tight#ConstBool'.id
     res = isinstance(val, str)
@@ -3538,7 +3511,7 @@ def _jm_f_226(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_34_map_title (.'$tight#ConstBool'.title)
-def _jm_f_227(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_224(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$tight#ConstBool'.title
     res = isinstance(val, str)
@@ -3651,260 +3624,260 @@ def check_model_init():
             "$defs": _jm_f_25,
             "$id": _jm_f_26,
             "$schema": _jm_f_27,
-            "additionalItems": _jm_f_28,
-            "default": _jm_f_29,
-            "definitions": _jm_f_30,
-            "description": _jm_f_31,
-            "examples": _jm_f_32,
-            "id": _jm_f_33,
-            "items": _jm_f_34,
-            "maxItems": _jm_f_35,
-            "minItems": _jm_f_36,
-            "prefixItems": _jm_f_37,
-            "title": _jm_f_38,
-            "uniqueItems": _jm_f_39,
+            "additionalItems": json_model_26,
+            "default": _jm_f_28,
+            "definitions": _jm_f_29,
+            "description": _jm_f_30,
+            "examples": _jm_f_31,
+            "id": _jm_f_32,
+            "items": _jm_f_33,
+            "maxItems": _jm_f_34,
+            "minItems": _jm_f_35,
+            "prefixItems": json_model_6,
+            "title": _jm_f_36,
+            "uniqueItems": _jm_f_37,
         }
         global json_model_14_map
         json_model_14_map = {
-            "$comment": _jm_f_40,
-            "$defs": _jm_f_41,
-            "$id": _jm_f_42,
-            "$schema": _jm_f_43,
-            "additionalProperties": _jm_f_44,
-            "default": _jm_f_45,
-            "definitions": _jm_f_46,
-            "description": _jm_f_47,
-            "examples": _jm_f_48,
-            "id": _jm_f_49,
-            "patternProperties": _jm_f_50,
-            "properties": _jm_f_51,
-            "required": _jm_f_52,
-            "title": _jm_f_53,
+            "$comment": _jm_f_38,
+            "$defs": _jm_f_39,
+            "$id": _jm_f_40,
+            "$schema": _jm_f_41,
+            "additionalProperties": json_model_26,
+            "default": _jm_f_42,
+            "definitions": _jm_f_43,
+            "description": _jm_f_44,
+            "examples": _jm_f_45,
+            "id": _jm_f_46,
+            "patternProperties": _jm_f_47,
+            "properties": _jm_f_48,
+            "required": _jm_f_49,
+            "title": _jm_f_50,
         }
         global json_model_15_map
         json_model_15_map = {
-            "$comment": _jm_f_54,
-            "$defs": _jm_f_55,
-            "$id": _jm_f_56,
-            "$schema": _jm_f_57,
-            "default": _jm_f_58,
-            "definitions": _jm_f_59,
-            "description": _jm_f_60,
-            "examples": _jm_f_61,
-            "id": _jm_f_62,
-            "maximum": _jm_f_63,
-            "minimum": _jm_f_64,
-            "title": _jm_f_65,
+            "$comment": _jm_f_51,
+            "$defs": _jm_f_52,
+            "$id": _jm_f_53,
+            "$schema": _jm_f_54,
+            "default": _jm_f_55,
+            "definitions": _jm_f_56,
+            "description": _jm_f_57,
+            "examples": _jm_f_58,
+            "id": _jm_f_59,
+            "maximum": _jm_f_60,
+            "minimum": _jm_f_61,
+            "title": _jm_f_62,
         }
         global json_model_16_map
         json_model_16_map = {
-            "$comment": _jm_f_66,
-            "$defs": _jm_f_67,
-            "$id": _jm_f_68,
-            "$schema": _jm_f_69,
-            "default": _jm_f_70,
-            "definitions": _jm_f_71,
-            "description": _jm_f_72,
-            "examples": _jm_f_73,
-            "id": _jm_f_74,
-            "maximum": _jm_f_75,
-            "minimum": _jm_f_76,
-            "title": _jm_f_77,
+            "$comment": _jm_f_63,
+            "$defs": _jm_f_64,
+            "$id": _jm_f_65,
+            "$schema": _jm_f_66,
+            "default": _jm_f_67,
+            "definitions": _jm_f_68,
+            "description": _jm_f_69,
+            "examples": _jm_f_70,
+            "id": _jm_f_71,
+            "maximum": _jm_f_72,
+            "minimum": _jm_f_73,
+            "title": _jm_f_74,
         }
         global json_model_17_map
         json_model_17_map = {
-            "$comment": _jm_f_78,
-            "$defs": _jm_f_79,
-            "$id": _jm_f_80,
-            "$schema": _jm_f_81,
-            "default": _jm_f_82,
-            "definitions": _jm_f_83,
-            "description": _jm_f_84,
-            "examples": _jm_f_85,
-            "id": _jm_f_86,
-            "title": _jm_f_87,
+            "$comment": _jm_f_75,
+            "$defs": _jm_f_76,
+            "$id": _jm_f_77,
+            "$schema": _jm_f_78,
+            "default": _jm_f_79,
+            "definitions": _jm_f_80,
+            "description": _jm_f_81,
+            "examples": _jm_f_82,
+            "id": _jm_f_83,
+            "title": _jm_f_84,
         }
         global json_model_18_map
         json_model_18_map = {
-            "$comment": _jm_f_88,
-            "$defs": _jm_f_89,
-            "$id": _jm_f_90,
-            "$schema": _jm_f_91,
-            "default": _jm_f_92,
-            "definitions": _jm_f_93,
-            "description": _jm_f_94,
-            "examples": _jm_f_95,
-            "id": _jm_f_96,
-            "title": _jm_f_97,
+            "$comment": _jm_f_85,
+            "$defs": _jm_f_86,
+            "$id": _jm_f_87,
+            "$schema": _jm_f_88,
+            "default": _jm_f_89,
+            "definitions": _jm_f_90,
+            "description": _jm_f_91,
+            "examples": _jm_f_92,
+            "id": _jm_f_93,
+            "title": _jm_f_94,
         }
         global json_model_19_map
         json_model_19_map = {
-            "$comment": _jm_f_98,
-            "$defs": _jm_f_99,
-            "$id": _jm_f_100,
-            "$schema": _jm_f_101,
-            "default": _jm_f_102,
-            "definitions": _jm_f_103,
-            "description": _jm_f_104,
-            "examples": _jm_f_105,
-            "id": _jm_f_106,
-            "title": _jm_f_107,
+            "$comment": _jm_f_95,
+            "$defs": _jm_f_96,
+            "$id": _jm_f_97,
+            "$schema": _jm_f_98,
+            "default": _jm_f_99,
+            "definitions": _jm_f_100,
+            "description": _jm_f_101,
+            "examples": _jm_f_102,
+            "id": _jm_f_103,
+            "title": _jm_f_104,
         }
         global json_model_20_map
         json_model_20_map = {
-            "$comment": _jm_f_108,
-            "$defs": _jm_f_109,
-            "$id": _jm_f_110,
-            "$schema": _jm_f_111,
-            "default": _jm_f_112,
-            "definitions": _jm_f_113,
-            "description": _jm_f_114,
-            "examples": _jm_f_115,
-            "id": _jm_f_116,
-            "title": _jm_f_117,
+            "$comment": _jm_f_105,
+            "$defs": _jm_f_106,
+            "$id": _jm_f_107,
+            "$schema": _jm_f_108,
+            "default": _jm_f_109,
+            "definitions": _jm_f_110,
+            "description": _jm_f_111,
+            "examples": _jm_f_112,
+            "id": _jm_f_113,
+            "title": _jm_f_114,
         }
         global json_model_21_map
         json_model_21_map = {
-            "$comment": _jm_f_118,
-            "$defs": _jm_f_119,
-            "$id": _jm_f_120,
-            "$schema": _jm_f_121,
-            "default": _jm_f_122,
-            "definitions": _jm_f_123,
-            "description": _jm_f_124,
-            "examples": _jm_f_125,
-            "id": _jm_f_126,
-            "title": _jm_f_127,
+            "$comment": _jm_f_115,
+            "$defs": _jm_f_116,
+            "$id": _jm_f_117,
+            "$schema": _jm_f_118,
+            "default": _jm_f_119,
+            "definitions": _jm_f_120,
+            "description": _jm_f_121,
+            "examples": _jm_f_122,
+            "id": _jm_f_123,
+            "title": _jm_f_124,
         }
         global json_model_22_map
         json_model_22_map = {
-            "$comment": _jm_f_128,
-            "$defs": _jm_f_129,
-            "$id": _jm_f_130,
-            "$schema": _jm_f_131,
-            "default": _jm_f_132,
-            "definitions": _jm_f_133,
-            "description": _jm_f_134,
-            "examples": _jm_f_135,
-            "id": _jm_f_136,
-            "title": _jm_f_137,
+            "$comment": _jm_f_125,
+            "$defs": _jm_f_126,
+            "$id": _jm_f_127,
+            "$schema": _jm_f_128,
+            "default": _jm_f_129,
+            "definitions": _jm_f_130,
+            "description": _jm_f_131,
+            "examples": _jm_f_132,
+            "id": _jm_f_133,
+            "title": _jm_f_134,
         }
         global json_model_23_map
         json_model_23_map = {
-            "$comment": _jm_f_138,
-            "$defs": _jm_f_139,
-            "$id": _jm_f_140,
-            "$schema": _jm_f_141,
-            "default": _jm_f_142,
-            "definitions": _jm_f_143,
-            "description": _jm_f_144,
-            "examples": _jm_f_145,
-            "id": _jm_f_146,
-            "title": _jm_f_147,
+            "$comment": _jm_f_135,
+            "$defs": _jm_f_136,
+            "$id": _jm_f_137,
+            "$schema": _jm_f_138,
+            "default": _jm_f_139,
+            "definitions": _jm_f_140,
+            "description": _jm_f_141,
+            "examples": _jm_f_142,
+            "id": _jm_f_143,
+            "title": _jm_f_144,
         }
         global json_model_24_map
         json_model_24_map = {
-            "$comment": _jm_f_148,
-            "$defs": _jm_f_149,
-            "$id": _jm_f_150,
-            "$schema": _jm_f_151,
-            "default": _jm_f_152,
-            "definitions": _jm_f_153,
-            "description": _jm_f_154,
-            "examples": _jm_f_155,
-            "id": _jm_f_156,
-            "title": _jm_f_157,
+            "$comment": _jm_f_145,
+            "$defs": _jm_f_146,
+            "$id": _jm_f_147,
+            "$schema": _jm_f_148,
+            "default": _jm_f_149,
+            "definitions": _jm_f_150,
+            "description": _jm_f_151,
+            "examples": _jm_f_152,
+            "id": _jm_f_153,
+            "title": _jm_f_154,
         }
         global json_model_28_map
         json_model_28_map = {
-            "$comment": _jm_f_158,
-            "$defs": _jm_f_159,
-            "$id": _jm_f_160,
-            "$schema": _jm_f_161,
-            "default": _jm_f_162,
-            "definitions": _jm_f_163,
-            "description": _jm_f_164,
-            "examples": _jm_f_165,
-            "id": _jm_f_166,
-            "title": _jm_f_167,
+            "$comment": _jm_f_155,
+            "$defs": _jm_f_156,
+            "$id": _jm_f_157,
+            "$schema": _jm_f_158,
+            "default": _jm_f_159,
+            "definitions": _jm_f_160,
+            "description": _jm_f_161,
+            "examples": _jm_f_162,
+            "id": _jm_f_163,
+            "title": _jm_f_164,
         }
         global json_model_29_map
         json_model_29_map = {
-            "$comment": _jm_f_168,
-            "$defs": _jm_f_169,
-            "$id": _jm_f_170,
-            "$schema": _jm_f_171,
-            "default": _jm_f_172,
-            "definitions": _jm_f_173,
-            "description": _jm_f_174,
-            "examples": _jm_f_175,
-            "id": _jm_f_176,
-            "title": _jm_f_177,
+            "$comment": _jm_f_165,
+            "$defs": _jm_f_166,
+            "$id": _jm_f_167,
+            "$schema": _jm_f_168,
+            "default": _jm_f_169,
+            "definitions": _jm_f_170,
+            "description": _jm_f_171,
+            "examples": _jm_f_172,
+            "id": _jm_f_173,
+            "title": _jm_f_174,
         }
         global json_model_30_map
         json_model_30_map = {
-            "$comment": _jm_f_178,
-            "$defs": _jm_f_179,
-            "$id": _jm_f_180,
-            "$schema": _jm_f_181,
-            "default": _jm_f_182,
-            "definitions": _jm_f_183,
-            "description": _jm_f_184,
-            "examples": _jm_f_185,
-            "id": _jm_f_186,
-            "title": _jm_f_187,
+            "$comment": _jm_f_175,
+            "$defs": _jm_f_176,
+            "$id": _jm_f_177,
+            "$schema": _jm_f_178,
+            "default": _jm_f_179,
+            "definitions": _jm_f_180,
+            "description": _jm_f_181,
+            "examples": _jm_f_182,
+            "id": _jm_f_183,
+            "title": _jm_f_184,
         }
         global json_model_31_map
         json_model_31_map = {
-            "$comment": _jm_f_188,
-            "$defs": _jm_f_189,
-            "$id": _jm_f_190,
-            "$schema": _jm_f_191,
-            "default": _jm_f_192,
-            "definitions": _jm_f_193,
-            "description": _jm_f_194,
-            "examples": _jm_f_195,
-            "id": _jm_f_196,
-            "title": _jm_f_197,
+            "$comment": _jm_f_185,
+            "$defs": _jm_f_186,
+            "$id": _jm_f_187,
+            "$schema": _jm_f_188,
+            "default": _jm_f_189,
+            "definitions": _jm_f_190,
+            "description": _jm_f_191,
+            "examples": _jm_f_192,
+            "id": _jm_f_193,
+            "title": _jm_f_194,
         }
         global json_model_32_map
         json_model_32_map = {
-            "$comment": _jm_f_198,
-            "$defs": _jm_f_199,
-            "$id": _jm_f_200,
-            "$schema": _jm_f_201,
-            "default": _jm_f_202,
-            "definitions": _jm_f_203,
-            "description": _jm_f_204,
-            "examples": _jm_f_205,
-            "id": _jm_f_206,
-            "title": _jm_f_207,
+            "$comment": _jm_f_195,
+            "$defs": _jm_f_196,
+            "$id": _jm_f_197,
+            "$schema": _jm_f_198,
+            "default": _jm_f_199,
+            "definitions": _jm_f_200,
+            "description": _jm_f_201,
+            "examples": _jm_f_202,
+            "id": _jm_f_203,
+            "title": _jm_f_204,
         }
         global json_model_33_map
         json_model_33_map = {
-            "$comment": _jm_f_208,
-            "$defs": _jm_f_209,
-            "$id": _jm_f_210,
-            "$schema": _jm_f_211,
-            "default": _jm_f_212,
-            "definitions": _jm_f_213,
-            "description": _jm_f_214,
-            "examples": _jm_f_215,
-            "id": _jm_f_216,
-            "title": _jm_f_217,
+            "$comment": _jm_f_205,
+            "$defs": _jm_f_206,
+            "$id": _jm_f_207,
+            "$schema": _jm_f_208,
+            "default": _jm_f_209,
+            "definitions": _jm_f_210,
+            "description": _jm_f_211,
+            "examples": _jm_f_212,
+            "id": _jm_f_213,
+            "title": _jm_f_214,
         }
         global json_model_34_map
         json_model_34_map = {
-            "$comment": _jm_f_218,
-            "$defs": _jm_f_219,
-            "$id": _jm_f_220,
-            "$schema": _jm_f_221,
-            "default": _jm_f_222,
-            "definitions": _jm_f_223,
-            "description": _jm_f_224,
-            "examples": _jm_f_225,
-            "id": _jm_f_226,
-            "title": _jm_f_227,
+            "$comment": _jm_f_215,
+            "$defs": _jm_f_216,
+            "$id": _jm_f_217,
+            "$schema": _jm_f_218,
+            "default": _jm_f_219,
+            "definitions": _jm_f_220,
+            "description": _jm_f_221,
+            "examples": _jm_f_222,
+            "id": _jm_f_223,
+            "title": _jm_f_224,
         }
         global check_model_map
         check_model_map = {

@@ -82,26 +82,8 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 
-# check json_model_4_map_components (.'$openapi#OpenAPI'.components)
-def _jm_f_0(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .'$openapi#OpenAPI'.components
-    res = json_model_10(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected $Components [.'$openapi#OpenAPI'.components]", path))
-    return res
-
-# check json_model_4_map_externalDocs (.'$openapi#OpenAPI'.externalDocs)
-def _jm_f_1(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .'$openapi#OpenAPI'.externalDocs
-    res = json_model_14(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected $ExternalDocumentation [.'$openapi#OpenAPI'.externalDocs]", path))
-    return res
-
 # check json_model_4_map_jsonModelVersion (.'$openapi#OpenAPI'.jsonModelVersion)
-def _jm_f_2(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_0(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$openapi#OpenAPI'.jsonModelVersion
     res = is_valid_url(val, path, rep)
@@ -109,17 +91,8 @@ def _jm_f_2(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("unexpected $URL [.'$openapi#OpenAPI'.jsonModelVersion]", path))
     return res
 
-# check json_model_4_map_paths (.'$openapi#OpenAPI'.paths)
-def _jm_f_3(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .'$openapi#OpenAPI'.paths
-    res = json_model_11(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected $Paths [.'$openapi#OpenAPI'.paths]", path))
-    return res
-
 # check json_model_4_map_security (.'$openapi#OpenAPI'.security)
-def _jm_f_4(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_1(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$openapi#OpenAPI'.security
     res = isinstance(val, list)
@@ -136,7 +109,7 @@ def _jm_f_4(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_4_map_servers (.'$openapi#OpenAPI'.servers)
-def _jm_f_5(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_2(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$openapi#OpenAPI'.servers
     res = isinstance(val, list)
@@ -153,7 +126,7 @@ def _jm_f_5(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_4_map_tags (.'$openapi#OpenAPI'.tags)
-def _jm_f_6(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_3(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$openapi#OpenAPI'.tags
     res = isinstance(val, list)
@@ -170,7 +143,7 @@ def _jm_f_6(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_4_map_webhooks (.'$openapi#OpenAPI'.webhooks)
-def _jm_f_7(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_4(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$openapi#OpenAPI'.webhooks
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$openapi#OpenAPI'.webhooks]", path))
@@ -627,7 +600,7 @@ def json_model_9(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # check json_model_10_map_callbacks (.'$openapi#Components'.callbacks)
-def _jm_f_8(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_5(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$openapi#Components'.callbacks
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$openapi#Components'.callbacks]", path))
@@ -655,7 +628,7 @@ def _jm_f_8(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # check json_model_10_map_examples (.'$openapi#Components'.examples)
-def _jm_f_9(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_6(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$openapi#Components'.examples
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$openapi#Components'.examples]", path))
@@ -683,7 +656,7 @@ def _jm_f_9(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # check json_model_10_map_headers (.'$openapi#Components'.headers)
-def _jm_f_10(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_7(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$openapi#Components'.headers
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$openapi#Components'.headers]", path))
@@ -711,7 +684,7 @@ def _jm_f_10(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # check json_model_10_map_links (.'$openapi#Components'.links)
-def _jm_f_11(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_8(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$openapi#Components'.links
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$openapi#Components'.links]", path))
@@ -739,7 +712,7 @@ def _jm_f_11(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # check json_model_10_map_models (.'$openapi#Components'.models)
-def _jm_f_12(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_9(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$openapi#Components'.models
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$openapi#Components'.models]", path))
@@ -757,7 +730,7 @@ def _jm_f_12(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # check json_model_10_map_parameters (.'$openapi#Components'.parameters)
-def _jm_f_13(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_10(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$openapi#Components'.parameters
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$openapi#Components'.parameters]", path))
@@ -785,7 +758,7 @@ def _jm_f_13(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # check json_model_10_map_pathItems (.'$openapi#Components'.pathItems)
-def _jm_f_14(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_11(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$openapi#Components'.pathItems
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$openapi#Components'.pathItems]", path))
@@ -813,7 +786,7 @@ def _jm_f_14(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # check json_model_10_map_requestBodies (.'$openapi#Components'.requestBodies)
-def _jm_f_15(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_12(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$openapi#Components'.requestBodies
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$openapi#Components'.requestBodies]", path))
@@ -841,7 +814,7 @@ def _jm_f_15(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # check json_model_10_map_responses (.'$openapi#Components'.responses)
-def _jm_f_16(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_13(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$openapi#Components'.responses
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$openapi#Components'.responses]", path))
@@ -869,7 +842,7 @@ def _jm_f_16(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # check json_model_10_map_securitySchemes (.'$openapi#Components'.securitySchemes)
-def _jm_f_17(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_14(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$openapi#Components'.securitySchemes
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$openapi#Components'.securitySchemes]", path))
@@ -955,7 +928,7 @@ def json_model_11(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # check json_model_12_map_$ref (.'$openapi#PathItem'.'$ref')
-def _jm_f_18(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_15(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$openapi#PathItem'.'$ref'
     res = is_valid_url(val, path, rep)
@@ -963,17 +936,8 @@ def _jm_f_18(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("unexpected $URI [.'$openapi#PathItem'.'$ref']", path))
     return res
 
-# check json_model_12_map_delete (.'$openapi#PathItem'.delete)
-def _jm_f_19(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .'$openapi#PathItem'.delete
-    res = json_model_13(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected $Operation [.'$openapi#PathItem'.delete]", path))
-    return res
-
 # check json_model_12_map_description (.'$openapi#PathItem'.description)
-def _jm_f_20(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_16(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$openapi#PathItem'.description
     res = isinstance(val, str)
@@ -981,35 +945,8 @@ def _jm_f_20(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("unexpected string [.'$openapi#PathItem'.description]", path))
     return res
 
-# check json_model_12_map_get (.'$openapi#PathItem'.get)
-def _jm_f_21(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .'$openapi#PathItem'.get
-    res = json_model_13(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected $Operation [.'$openapi#PathItem'.get]", path))
-    return res
-
-# check json_model_12_map_head (.'$openapi#PathItem'.head)
-def _jm_f_22(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .'$openapi#PathItem'.head
-    res = json_model_13(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected $Operation [.'$openapi#PathItem'.head]", path))
-    return res
-
-# check json_model_12_map_options (.'$openapi#PathItem'.options)
-def _jm_f_23(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .'$openapi#PathItem'.options
-    res = json_model_13(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected $Operation [.'$openapi#PathItem'.options]", path))
-    return res
-
 # check json_model_12_map_parameters (.'$openapi#PathItem'.parameters)
-def _jm_f_24(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_17(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$openapi#PathItem'.parameters
     res = isinstance(val, list)
@@ -1035,35 +972,8 @@ def _jm_f_24(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("not array or unexpected array [.'$openapi#PathItem'.parameters]", path))
     return res
 
-# check json_model_12_map_patch (.'$openapi#PathItem'.patch)
-def _jm_f_25(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .'$openapi#PathItem'.patch
-    res = json_model_13(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected $Operation [.'$openapi#PathItem'.patch]", path))
-    return res
-
-# check json_model_12_map_post (.'$openapi#PathItem'.post)
-def _jm_f_26(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .'$openapi#PathItem'.post
-    res = json_model_13(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected $Operation [.'$openapi#PathItem'.post]", path))
-    return res
-
-# check json_model_12_map_put (.'$openapi#PathItem'.put)
-def _jm_f_27(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .'$openapi#PathItem'.put
-    res = json_model_13(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected $Operation [.'$openapi#PathItem'.put]", path))
-    return res
-
 # check json_model_12_map_servers (.'$openapi#PathItem'.servers)
-def _jm_f_28(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_18(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$openapi#PathItem'.servers
     res = isinstance(val, list)
@@ -1080,21 +990,12 @@ def _jm_f_28(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_12_map_summary (.'$openapi#PathItem'.summary)
-def _jm_f_29(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_19(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$openapi#PathItem'.summary
     res = isinstance(val, str)
     if not res:
         rep is None or rep.append(("unexpected string [.'$openapi#PathItem'.summary]", path))
-    return res
-
-# check json_model_12_map_trace (.'$openapi#PathItem'.trace)
-def _jm_f_30(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .'$openapi#PathItem'.trace
-    res = json_model_13(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected $Operation [.'$openapi#PathItem'.trace]", path))
     return res
 
 
@@ -1127,7 +1028,7 @@ def json_model_12(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # check json_model_13_map_callbacks (.'$openapi#Operation'.callbacks)
-def _jm_f_31(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_20(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$openapi#Operation'.callbacks
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$openapi#Operation'.callbacks]", path))
@@ -1155,7 +1056,7 @@ def _jm_f_31(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # check json_model_13_map_deprecated (.'$openapi#Operation'.deprecated)
-def _jm_f_32(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_21(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$openapi#Operation'.deprecated
     res = isinstance(val, bool)
@@ -1164,7 +1065,7 @@ def _jm_f_32(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_13_map_description (.'$openapi#Operation'.description)
-def _jm_f_33(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_22(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$openapi#Operation'.description
     res = isinstance(val, str)
@@ -1172,17 +1073,8 @@ def _jm_f_33(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("unexpected string [.'$openapi#Operation'.description]", path))
     return res
 
-# check json_model_13_map_externalDocs (.'$openapi#Operation'.externalDocs)
-def _jm_f_34(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .'$openapi#Operation'.externalDocs
-    res = json_model_14(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected $ExternalDocumentation [.'$openapi#Operation'.externalDocs]", path))
-    return res
-
 # check json_model_13_map_operationId (.'$openapi#Operation'.operationId)
-def _jm_f_35(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_23(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$openapi#Operation'.operationId
     res = isinstance(val, str)
@@ -1191,7 +1083,7 @@ def _jm_f_35(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_13_map_parameters (.'$openapi#Operation'.parameters)
-def _jm_f_36(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_24(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$openapi#Operation'.parameters
     res = isinstance(val, list)
@@ -1218,7 +1110,7 @@ def _jm_f_36(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_13_map_requestBody (.'$openapi#Operation'.requestBody)
-def _jm_f_37(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_25(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$openapi#Operation'.requestBody
     # .'$openapi#Operation'.requestBody.'|'.0
@@ -1236,17 +1128,8 @@ def _jm_f_37(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("no model matched [.'$openapi#Operation'.requestBody.'|']", path))
     return res
 
-# check json_model_13_map_responses (.'$openapi#Operation'.responses)
-def _jm_f_38(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .'$openapi#Operation'.responses
-    res = json_model_24(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected $Responses [.'$openapi#Operation'.responses]", path))
-    return res
-
 # check json_model_13_map_security (.'$openapi#Operation'.security)
-def _jm_f_39(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_26(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$openapi#Operation'.security
     res = isinstance(val, list)
@@ -1263,7 +1146,7 @@ def _jm_f_39(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_13_map_servers (.'$openapi#Operation'.servers)
-def _jm_f_40(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_27(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$openapi#Operation'.servers
     res = isinstance(val, list)
@@ -1280,7 +1163,7 @@ def _jm_f_40(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_13_map_summary (.'$openapi#Operation'.summary)
-def _jm_f_41(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_28(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$openapi#Operation'.summary
     res = isinstance(val, str)
@@ -1289,7 +1172,7 @@ def _jm_f_41(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_13_map_tags (.'$openapi#Operation'.tags)
-def _jm_f_42(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_29(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$openapi#Operation'.tags
     res = isinstance(val, list)
@@ -1381,7 +1264,7 @@ def json_model_14(val: Jsonable, path: Path, rep: Report) -> bool:
 
 
 # check _jm_obj_3_map_allowEmptyValue (.'$openapi#Parameter'.'|'.0.allowEmptyValue)
-def _jm_f_43(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_30(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$openapi#Parameter'.'|'.0.allowEmptyValue
     res = isinstance(val, bool)
@@ -1390,7 +1273,7 @@ def _jm_f_43(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_3_map_allowReserved (.'$openapi#Parameter'.'|'.0.allowReserved)
-def _jm_f_44(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_31(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$openapi#Parameter'.'|'.0.allowReserved
     res = isinstance(val, bool)
@@ -1399,7 +1282,7 @@ def _jm_f_44(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_3_map_deprecated (.'$openapi#Parameter'.'|'.0.deprecated)
-def _jm_f_45(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_32(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$openapi#Parameter'.'|'.0.deprecated
     res = isinstance(val, bool)
@@ -1408,7 +1291,7 @@ def _jm_f_45(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_3_map_description (.'$openapi#Parameter'.'|'.0.description)
-def _jm_f_46(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_33(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$openapi#Parameter'.'|'.0.description
     res = isinstance(val, str)
@@ -1417,7 +1300,7 @@ def _jm_f_46(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_3_map_example (.'$openapi#Parameter'.'|'.0.example)
-def _jm_f_47(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_34(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$openapi#Parameter'.'|'.0.example
     res = True
@@ -1426,7 +1309,7 @@ def _jm_f_47(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_3_map_examples (.'$openapi#Parameter'.'|'.0.examples)
-def _jm_f_48(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_35(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$openapi#Parameter'.'|'.0.examples
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$openapi#Parameter'.'|'.0.examples]", path))
@@ -1454,7 +1337,7 @@ def _jm_f_48(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # check _jm_obj_3_map_explode (.'$openapi#Parameter'.'|'.0.explode)
-def _jm_f_49(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_36(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$openapi#Parameter'.'|'.0.explode
     res = isinstance(val, bool)
@@ -1462,31 +1345,13 @@ def _jm_f_49(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("not a bool [.'$openapi#Parameter'.'|'.0.explode]", path))
     return res
 
-# check _jm_obj_3_map_model (.'$openapi#Parameter'.'|'.0.model)
-def _jm_f_50(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .'$openapi#Parameter'.'|'.0.model
-    res = json_model_97(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected $Model [.'$openapi#Parameter'.'|'.0.model]", path))
-    return res
-
 # check _jm_obj_3_map_required (.'$openapi#Parameter'.'|'.0.required)
-def _jm_f_51(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_37(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$openapi#Parameter'.'|'.0.required
     res = isinstance(val, bool)
     if not res:
         rep is None or rep.append(("not a bool [.'$openapi#Parameter'.'|'.0.required]", path))
-    return res
-
-# check _jm_obj_3_map_style (.'$openapi#Parameter'.'|'.0.style)
-def _jm_f_52(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .'$openapi#Parameter'.'|'.0.style
-    res = json_model_17(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected $Style [.'$openapi#Parameter'.'|'.0.style]", path))
     return res
 
 
@@ -2471,7 +2336,7 @@ def _jm_obj_17(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # check _jm_obj_19_map_allowEmptyValue (.'$openapi#Header'.'|'.0.allowEmptyValue)
-def _jm_f_53(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_38(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$openapi#Header'.'|'.0.allowEmptyValue
     res = isinstance(val, bool)
@@ -2480,7 +2345,7 @@ def _jm_f_53(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_19_map_allowReserved (.'$openapi#Header'.'|'.0.allowReserved)
-def _jm_f_54(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_39(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$openapi#Header'.'|'.0.allowReserved
     res = isinstance(val, bool)
@@ -2489,7 +2354,7 @@ def _jm_f_54(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_19_map_deprecated (.'$openapi#Header'.'|'.0.deprecated)
-def _jm_f_55(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_40(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$openapi#Header'.'|'.0.deprecated
     res = isinstance(val, bool)
@@ -2498,7 +2363,7 @@ def _jm_f_55(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_19_map_description (.'$openapi#Header'.'|'.0.description)
-def _jm_f_56(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_41(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$openapi#Header'.'|'.0.description
     res = isinstance(val, str)
@@ -2507,7 +2372,7 @@ def _jm_f_56(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_19_map_example (.'$openapi#Header'.'|'.0.example)
-def _jm_f_57(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_42(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$openapi#Header'.'|'.0.example
     res = True
@@ -2516,7 +2381,7 @@ def _jm_f_57(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_19_map_examples (.'$openapi#Header'.'|'.0.examples)
-def _jm_f_58(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_43(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$openapi#Header'.'|'.0.examples
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$openapi#Header'.'|'.0.examples]", path))
@@ -2544,7 +2409,7 @@ def _jm_f_58(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # check _jm_obj_19_map_explode (.'$openapi#Header'.'|'.0.explode)
-def _jm_f_59(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_44(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$openapi#Header'.'|'.0.explode
     res = isinstance(val, bool)
@@ -2552,31 +2417,13 @@ def _jm_f_59(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("not a bool [.'$openapi#Header'.'|'.0.explode]", path))
     return res
 
-# check _jm_obj_19_map_model (.'$openapi#Header'.'|'.0.model)
-def _jm_f_60(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .'$openapi#Header'.'|'.0.model
-    res = json_model_97(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected $Model [.'$openapi#Header'.'|'.0.model]", path))
-    return res
-
 # check _jm_obj_19_map_required (.'$openapi#Header'.'|'.0.required)
-def _jm_f_61(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_45(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$openapi#Header'.'|'.0.required
     res = isinstance(val, bool)
     if not res:
         rep is None or rep.append(("not a bool [.'$openapi#Header'.'|'.0.required]", path))
-    return res
-
-# check _jm_obj_19_map_style (.'$openapi#Header'.'|'.0.style)
-def _jm_f_62(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .'$openapi#Header'.'|'.0.style
-    res = json_model_17(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected $Style [.'$openapi#Header'.'|'.0.style]", path))
     return res
 
 
@@ -3958,76 +3805,76 @@ def check_model_init():
         _jm_re_0 = lambda s, p, r: _jm_re_0_reco.search(s) is not None
         global json_model_4_map
         json_model_4_map = {
-            "components": _jm_f_0,
-            "externalDocs": _jm_f_1,
-            "jsonModelVersion": _jm_f_2,
-            "paths": _jm_f_3,
-            "security": _jm_f_4,
-            "servers": _jm_f_5,
-            "tags": _jm_f_6,
-            "webhooks": _jm_f_7,
+            "components": json_model_10,
+            "externalDocs": json_model_14,
+            "jsonModelVersion": _jm_f_0,
+            "paths": json_model_11,
+            "security": _jm_f_1,
+            "servers": _jm_f_2,
+            "tags": _jm_f_3,
+            "webhooks": _jm_f_4,
         }
         global _jm_re_1_reco, _jm_re_1
         _jm_re_1_reco = re.compile("^x\\-.*$")
         _jm_re_1 = lambda s, p, r: _jm_re_1_reco.search(s) is not None
         global json_model_10_map
         json_model_10_map = {
-            "callbacks": _jm_f_8,
-            "examples": _jm_f_9,
-            "headers": _jm_f_10,
-            "links": _jm_f_11,
-            "models": _jm_f_12,
-            "parameters": _jm_f_13,
-            "pathItems": _jm_f_14,
-            "requestBodies": _jm_f_15,
-            "responses": _jm_f_16,
-            "securitySchemes": _jm_f_17,
+            "callbacks": _jm_f_5,
+            "examples": _jm_f_6,
+            "headers": _jm_f_7,
+            "links": _jm_f_8,
+            "models": _jm_f_9,
+            "parameters": _jm_f_10,
+            "pathItems": _jm_f_11,
+            "requestBodies": _jm_f_12,
+            "responses": _jm_f_13,
+            "securitySchemes": _jm_f_14,
         }
         global json_model_12_map
         json_model_12_map = {
-            "$ref": _jm_f_18,
-            "delete": _jm_f_19,
-            "description": _jm_f_20,
-            "get": _jm_f_21,
-            "head": _jm_f_22,
-            "options": _jm_f_23,
-            "parameters": _jm_f_24,
-            "patch": _jm_f_25,
-            "post": _jm_f_26,
-            "put": _jm_f_27,
-            "servers": _jm_f_28,
-            "summary": _jm_f_29,
-            "trace": _jm_f_30,
+            "$ref": _jm_f_15,
+            "delete": json_model_13,
+            "description": _jm_f_16,
+            "get": json_model_13,
+            "head": json_model_13,
+            "options": json_model_13,
+            "parameters": _jm_f_17,
+            "patch": json_model_13,
+            "post": json_model_13,
+            "put": json_model_13,
+            "servers": _jm_f_18,
+            "summary": _jm_f_19,
+            "trace": json_model_13,
         }
         global json_model_13_map
         json_model_13_map = {
-            "callbacks": _jm_f_31,
-            "deprecated": _jm_f_32,
-            "description": _jm_f_33,
-            "externalDocs": _jm_f_34,
-            "operationId": _jm_f_35,
-            "parameters": _jm_f_36,
-            "requestBody": _jm_f_37,
-            "responses": _jm_f_38,
-            "security": _jm_f_39,
-            "servers": _jm_f_40,
-            "summary": _jm_f_41,
-            "tags": _jm_f_42,
+            "callbacks": _jm_f_20,
+            "deprecated": _jm_f_21,
+            "description": _jm_f_22,
+            "externalDocs": json_model_14,
+            "operationId": _jm_f_23,
+            "parameters": _jm_f_24,
+            "requestBody": _jm_f_25,
+            "responses": json_model_24,
+            "security": _jm_f_26,
+            "servers": _jm_f_27,
+            "summary": _jm_f_28,
+            "tags": _jm_f_29,
         }
         global _jm_cst_0
         _jm_cst_0 = {'cookie', 'header', 'path', 'query'}
         global _jm_obj_3_map
         _jm_obj_3_map = {
-            "allowEmptyValue": _jm_f_43,
-            "allowReserved": _jm_f_44,
-            "deprecated": _jm_f_45,
-            "description": _jm_f_46,
-            "example": _jm_f_47,
-            "examples": _jm_f_48,
-            "explode": _jm_f_49,
-            "model": _jm_f_50,
-            "required": _jm_f_51,
-            "style": _jm_f_52,
+            "allowEmptyValue": _jm_f_30,
+            "allowReserved": _jm_f_31,
+            "deprecated": _jm_f_32,
+            "description": _jm_f_33,
+            "example": _jm_f_34,
+            "examples": _jm_f_35,
+            "explode": _jm_f_36,
+            "model": json_model_97,
+            "required": _jm_f_37,
+            "style": json_model_17,
         }
         global _jm_cst_1
         _jm_cst_1 = {'cookie', 'header', 'path', 'query'}
@@ -4045,16 +3892,16 @@ def check_model_init():
         _jm_re_2 = lambda s, p, r: _jm_re_2_reco.search(s) is not None
         global _jm_obj_19_map
         _jm_obj_19_map = {
-            "allowEmptyValue": _jm_f_53,
-            "allowReserved": _jm_f_54,
-            "deprecated": _jm_f_55,
-            "description": _jm_f_56,
-            "example": _jm_f_57,
-            "examples": _jm_f_58,
-            "explode": _jm_f_59,
-            "model": _jm_f_60,
-            "required": _jm_f_61,
-            "style": _jm_f_62,
+            "allowEmptyValue": _jm_f_38,
+            "allowReserved": _jm_f_39,
+            "deprecated": _jm_f_40,
+            "description": _jm_f_41,
+            "example": _jm_f_42,
+            "examples": _jm_f_43,
+            "explode": _jm_f_44,
+            "model": json_model_97,
+            "required": _jm_f_45,
+            "style": json_model_17,
         }
         global _jm_cst_3
         _jm_cst_3 = {'cookie', 'header', 'query'}

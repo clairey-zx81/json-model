@@ -54,16 +54,11 @@ static bool _jm_f_2(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_3(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_4(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_5(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static bool _jm_f_6(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static jm_propmap_t json_model_1_mup_tab[7];
+static bool _jm_f_6(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_7(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_8(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_9(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static bool _jm_f_10(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static bool _jm_f_11(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static bool _jm_f_12(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static bool _jm_f_13(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static bool _jm_f_14(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static jm_propmap_t json_model_1_map_tab[8];
 static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep);
 jm_propmap_t check_model_map_tab[16];
@@ -930,21 +925,8 @@ static bool _jm_f_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return true;
 }
 
-// check json_model_1_mup_name (.name)
-static bool _jm_f_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
-    bool res;
-    // .name
-    res = json_model_2(val, path, rep);
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected $neStr [.name]", path);
-    }
-    return res;
-}
-
 // check json_model_1_mup_provides (.provides)
-static bool _jm_f_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static bool _jm_f_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .provides
     if (! json_is_object(val))
@@ -971,7 +953,7 @@ static bool _jm_f_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
 }
 
 // check json_model_1_mup_version (.version)
-static bool _jm_f_6(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static bool _jm_f_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
     // .version
@@ -989,7 +971,7 @@ static INLINE jm_check_fun_t json_model_1_mup(const char *pname)
 }
 
 // check json_model_1_map_description (.description)
-static bool _jm_f_7(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static bool _jm_f_6(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
     // .description
@@ -1002,7 +984,7 @@ static bool _jm_f_7(const json_t *val, jm_path_t *path, jm_report_t *rep)
 }
 
 // check json_model_1_map_generated_by (.generated_by)
-static bool _jm_f_8(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static bool _jm_f_7(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
     // .generated_by
@@ -1015,7 +997,7 @@ static bool _jm_f_8(const json_t *val, jm_path_t *path, jm_report_t *rep)
 }
 
 // check json_model_1_map_no_index (.no_index)
-static bool _jm_f_9(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static bool _jm_f_8(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .no_index
     if (! json_is_object(val))
@@ -1062,60 +1044,8 @@ static bool _jm_f_9(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return true;
 }
 
-// check json_model_1_map_prereqs (.prereqs)
-static bool _jm_f_10(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
-    bool res;
-    // .prereqs
-    res = json_model_16(val, path, rep);
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected $Prereqs [.prereqs]", path);
-    }
-    return res;
-}
-
-// check json_model_1_map_release_status (.release_status)
-static bool _jm_f_11(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
-    bool res;
-    // .release_status
-    res = json_model_7(val, path, rep);
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected $Status [.release_status]", path);
-    }
-    return res;
-}
-
-// check json_model_1_map_resources (.resources)
-static bool _jm_f_12(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
-    bool res;
-    // .resources
-    res = json_model_8(val, path, rep);
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected $Resources [.resources]", path);
-    }
-    return res;
-}
-
-// check json_model_1_map_tags (.tags)
-static bool _jm_f_13(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
-    bool res;
-    // .tags
-    res = json_model_3(val, path, rep);
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected $neStrList [.tags]", path);
-    }
-    return res;
-}
-
 // check json_model_1_map_url (.url)
-static bool _jm_f_14(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static bool _jm_f_9(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
     // .url
@@ -1311,18 +1241,18 @@ const char *check_model_init(void)
         json_model_1_mup_tab[1] = (jm_propmap_t) { "license", _jm_f_1 };
         json_model_1_mup_tab[2] = (jm_propmap_t) { "maintainer", _jm_f_2 };
         json_model_1_mup_tab[3] = (jm_propmap_t) { "meta-spec", _jm_f_3 };
-        json_model_1_mup_tab[4] = (jm_propmap_t) { "name", _jm_f_4 };
-        json_model_1_mup_tab[5] = (jm_propmap_t) { "provides", _jm_f_5 };
-        json_model_1_mup_tab[6] = (jm_propmap_t) { "version", _jm_f_6 };
+        json_model_1_mup_tab[4] = (jm_propmap_t) { "name", json_model_2 };
+        json_model_1_mup_tab[5] = (jm_propmap_t) { "provides", _jm_f_4 };
+        json_model_1_mup_tab[6] = (jm_propmap_t) { "version", _jm_f_5 };
         jm_sort_propmap(json_model_1_mup_tab, 7);
-        json_model_1_map_tab[0] = (jm_propmap_t) { "description", _jm_f_7 };
-        json_model_1_map_tab[1] = (jm_propmap_t) { "generated_by", _jm_f_8 };
-        json_model_1_map_tab[2] = (jm_propmap_t) { "no_index", _jm_f_9 };
-        json_model_1_map_tab[3] = (jm_propmap_t) { "prereqs", _jm_f_10 };
-        json_model_1_map_tab[4] = (jm_propmap_t) { "release_status", _jm_f_11 };
-        json_model_1_map_tab[5] = (jm_propmap_t) { "resources", _jm_f_12 };
-        json_model_1_map_tab[6] = (jm_propmap_t) { "tags", _jm_f_13 };
-        json_model_1_map_tab[7] = (jm_propmap_t) { "url", _jm_f_14 };
+        json_model_1_map_tab[0] = (jm_propmap_t) { "description", _jm_f_6 };
+        json_model_1_map_tab[1] = (jm_propmap_t) { "generated_by", _jm_f_7 };
+        json_model_1_map_tab[2] = (jm_propmap_t) { "no_index", _jm_f_8 };
+        json_model_1_map_tab[3] = (jm_propmap_t) { "prereqs", json_model_16 };
+        json_model_1_map_tab[4] = (jm_propmap_t) { "release_status", json_model_7 };
+        json_model_1_map_tab[5] = (jm_propmap_t) { "resources", json_model_8 };
+        json_model_1_map_tab[6] = (jm_propmap_t) { "tags", json_model_3 };
+        json_model_1_map_tab[7] = (jm_propmap_t) { "url", _jm_f_9 };
         jm_sort_propmap(json_model_1_map_tab, 8);
         check_model_map_tab[0] = (jm_propmap_t) { "", json_model_1 };
         check_model_map_tab[1] = (jm_propmap_t) { "neStr", json_model_2 };

@@ -1,0 +1,25 @@
+[
+  {
+    "?f0": "$empty",
+    "?f1": "$empty",
+    "?f2": "$empty",
+    "?f3": "$empty",
+    "?f4": "$empty",
+    "?f5": "$empty",
+    "?f6": "$empty",
+    "?f7": "$empty",
+    "?f8": "$empty",
+    "?f9": "$empty",
+    "#": "JsonModel 1",
+    "$": {
+      "empty": {
+        "#": "JsonModel 2"
+      },
+      "#": "Symbol 1",
+      "": "./objs5.model.json"
+    }
+  },
+  {
+    "#": "JsonModel 2"
+  }
+]

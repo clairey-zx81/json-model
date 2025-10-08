@@ -84,8 +84,6 @@ sub _jm_obj_44($$$);
 sub _jm_f_3($$$);
 sub _jm_f_4($$$);
 sub _jm_f_5($$$);
-sub _jm_f_6($$$);
-sub _jm_f_7($$$);
 my %_jm_obj_42_map;
 sub _jm_obj_42($$$);
 sub json_model_41($$$);
@@ -2950,18 +2948,8 @@ sub _jm_f_3($$$)
     return 1;
 }
 
-# check _jm_obj_42_map_.in (.'$Model#Root'.'|'.0.'.in')
-sub _jm_f_4($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$Model#Root'.'|'.0.'.in'
-    $res = json_model_35($val, $path, $rep);
-    return $res;
-}
-
 # check _jm_obj_42_map_.mo (.'$Model#Root'.'|'.0.'.mo')
-sub _jm_f_5($$$)
+sub _jm_f_4($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
@@ -2971,7 +2959,7 @@ sub _jm_f_5($$$)
 }
 
 # check _jm_obj_42_map_.schema (.'$Model#Root'.'|'.0.'.schema')
-sub _jm_f_6($$$)
+sub _jm_f_5($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$Model#Root'.'|'.0.'.schema'
@@ -2981,16 +2969,6 @@ sub _jm_f_6($$$)
     }
     # accept any object
     return 1;
-}
-
-# check _jm_obj_42_map_~ (.'$Model#Root'.'|'.0.'~')
-sub _jm_f_7($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$Model#Root'.'|'.0.'~'
-    $res = json_model_4($val, $path, $rep);
-    return $res;
 }
 
 
@@ -3346,10 +3324,10 @@ sub check_model_init()
             '#' => \&_jm_f_1,
             '$' => \&_jm_f_2,
             '%' => \&_jm_f_3,
-            '.in' => \&_jm_f_4,
-            '.mo' => \&_jm_f_5,
-            '.schema' => \&_jm_f_6,
-            '~' => \&_jm_f_7,
+            '.in' => \&json_model_35,
+            '.mo' => \&_jm_f_4,
+            '.schema' => \&_jm_f_5,
+            '~' => \&json_model_4,
         );
         %check_model_map = (
             '' => \&json_model_42,

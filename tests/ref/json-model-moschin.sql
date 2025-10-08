@@ -2457,20 +2457,8 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_obj_42_map_.in (.'$Model#Root'.'|'.0.'.in')
-CREATE OR REPLACE FUNCTION _jm_f_4(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .'$Model#Root'.'|'.0.'.in'
-  res := json_model_35(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
 -- check _jm_obj_42_map_.mo (.'$Model#Root'.'|'.0.'.mo')
-CREATE OR REPLACE FUNCTION _jm_f_5(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_4(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -2482,7 +2470,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check _jm_obj_42_map_.schema (.'$Model#Root'.'|'.0.'.schema')
-CREATE OR REPLACE FUNCTION _jm_f_6(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_5(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
   -- .'$Model#Root'.'|'.0.'.schema'
@@ -2494,22 +2482,10 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_obj_42_map_~ (.'$Model#Root'.'|'.0.'~')
-CREATE OR REPLACE FUNCTION _jm_f_7(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .'$Model#Root'.'|'.0.'~'
-  res := json_model_4(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
 CREATE OR REPLACE FUNCTION _jm_obj_42_map(name TEXT)
 RETURNS TEXT STRICT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
-  map JSONB := JSONB '{"!":"_jm_f_0","#":"_jm_f_1","$":"_jm_f_2","%":"_jm_f_3",".in":"_jm_f_4",".mo":"_jm_f_5",".schema":"_jm_f_6","~":"_jm_f_7"}';
+  map JSONB := JSONB '{"!":"_jm_f_0","#":"_jm_f_1","$":"_jm_f_2","%":"_jm_f_3",".in":"json_model_35",".mo":"_jm_f_4",".schema":"_jm_f_5","~":"json_model_4"}';
 BEGIN
   RETURN map->>name;
 END;

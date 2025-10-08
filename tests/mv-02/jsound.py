@@ -238,26 +238,8 @@ def _jm_f_3(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("not a 0 strict int [.'$Atomic'.length]", path))
     return res
 
-# check json_model_6_map_maxExclusive (.'$Atomic'.maxExclusive)
-def _jm_f_4(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .'$Atomic'.maxExclusive
-    res = json_model_5(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected $atomic [.'$Atomic'.maxExclusive]", path))
-    return res
-
-# check json_model_6_map_maxInclusive (.'$Atomic'.maxInclusive)
-def _jm_f_5(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .'$Atomic'.maxInclusive
-    res = json_model_5(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected $atomic [.'$Atomic'.maxInclusive]", path))
-    return res
-
 # check json_model_6_map_maxLength (.'$Atomic'.maxLength)
-def _jm_f_6(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_4(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$Atomic'.maxLength
     res = isinstance(val, int) and not isinstance(val, bool) and val >= 0
@@ -265,26 +247,8 @@ def _jm_f_6(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("not a 0 strict int [.'$Atomic'.maxLength]", path))
     return res
 
-# check json_model_6_map_minExclusive (.'$Atomic'.minExclusive)
-def _jm_f_7(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .'$Atomic'.minExclusive
-    res = json_model_5(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected $atomic [.'$Atomic'.minExclusive]", path))
-    return res
-
-# check json_model_6_map_minInclusive (.'$Atomic'.minInclusive)
-def _jm_f_8(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .'$Atomic'.minInclusive
-    res = json_model_5(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected $atomic [.'$Atomic'.minInclusive]", path))
-    return res
-
 # check json_model_6_map_minLength (.'$Atomic'.minLength)
-def _jm_f_9(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_5(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$Atomic'.minLength
     res = isinstance(val, int) and not isinstance(val, bool) and val >= 0
@@ -293,7 +257,7 @@ def _jm_f_9(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_6_map_name (.'$Atomic'.name)
-def _jm_f_10(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_6(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$Atomic'.name
     res = isinstance(val, str)
@@ -302,7 +266,7 @@ def _jm_f_10(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_6_map_pattern (.'$Atomic'.pattern)
-def _jm_f_11(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_7(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$Atomic'.pattern
     res = isinstance(val, str)
@@ -311,7 +275,7 @@ def _jm_f_11(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_6_map_totalDigits (.'$Atomic'.totalDigits)
-def _jm_f_12(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_8(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$Atomic'.totalDigits
     res = isinstance(val, int) and not isinstance(val, bool) and val >= 0
@@ -697,15 +661,15 @@ def check_model_init():
             "explicitTypeZone": _jm_f_1,
             "fractionDigits": _jm_f_2,
             "length": _jm_f_3,
-            "maxExclusive": _jm_f_4,
-            "maxInclusive": _jm_f_5,
-            "maxLength": _jm_f_6,
-            "minExclusive": _jm_f_7,
-            "minInclusive": _jm_f_8,
-            "minLength": _jm_f_9,
-            "name": _jm_f_10,
-            "pattern": _jm_f_11,
-            "totalDigits": _jm_f_12,
+            "maxExclusive": json_model_5,
+            "maxInclusive": json_model_5,
+            "maxLength": _jm_f_4,
+            "minExclusive": json_model_5,
+            "minInclusive": json_model_5,
+            "minLength": _jm_f_5,
+            "name": _jm_f_6,
+            "pattern": _jm_f_7,
+            "totalDigits": _jm_f_8,
         }
         global check_model_map
         check_model_map = {

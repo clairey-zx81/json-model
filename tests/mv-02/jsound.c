@@ -27,10 +27,6 @@ static bool _jm_f_5(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_6(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_7(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_8(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static bool _jm_f_9(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static bool _jm_f_10(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static bool _jm_f_11(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static bool _jm_f_12(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static jm_propmap_t json_model_6_map_tab[13];
 static bool json_model_6(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_7(const json_t *val, jm_path_t *path, jm_report_t *rep);
@@ -390,34 +386,8 @@ static bool _jm_f_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check json_model_6_map_maxExclusive (.'$Atomic'.maxExclusive)
-static bool _jm_f_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
-    bool res;
-    // .'$Atomic'.maxExclusive
-    res = json_model_5(val, path, rep);
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected $atomic [.'$Atomic'.maxExclusive]", path);
-    }
-    return res;
-}
-
-// check json_model_6_map_maxInclusive (.'$Atomic'.maxInclusive)
-static bool _jm_f_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
-    bool res;
-    // .'$Atomic'.maxInclusive
-    res = json_model_5(val, path, rep);
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected $atomic [.'$Atomic'.maxInclusive]", path);
-    }
-    return res;
-}
-
 // check json_model_6_map_maxLength (.'$Atomic'.maxLength)
-static bool _jm_f_6(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static bool _jm_f_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
     // .'$Atomic'.maxLength
@@ -429,34 +399,8 @@ static bool _jm_f_6(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check json_model_6_map_minExclusive (.'$Atomic'.minExclusive)
-static bool _jm_f_7(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
-    bool res;
-    // .'$Atomic'.minExclusive
-    res = json_model_5(val, path, rep);
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected $atomic [.'$Atomic'.minExclusive]", path);
-    }
-    return res;
-}
-
-// check json_model_6_map_minInclusive (.'$Atomic'.minInclusive)
-static bool _jm_f_8(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
-    bool res;
-    // .'$Atomic'.minInclusive
-    res = json_model_5(val, path, rep);
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected $atomic [.'$Atomic'.minInclusive]", path);
-    }
-    return res;
-}
-
 // check json_model_6_map_minLength (.'$Atomic'.minLength)
-static bool _jm_f_9(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static bool _jm_f_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
     // .'$Atomic'.minLength
@@ -469,7 +413,7 @@ static bool _jm_f_9(const json_t *val, jm_path_t *path, jm_report_t *rep)
 }
 
 // check json_model_6_map_name (.'$Atomic'.name)
-static bool _jm_f_10(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static bool _jm_f_6(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
     // .'$Atomic'.name
@@ -482,7 +426,7 @@ static bool _jm_f_10(const json_t *val, jm_path_t *path, jm_report_t *rep)
 }
 
 // check json_model_6_map_pattern (.'$Atomic'.pattern)
-static bool _jm_f_11(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static bool _jm_f_7(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
     // .'$Atomic'.pattern
@@ -495,7 +439,7 @@ static bool _jm_f_11(const json_t *val, jm_path_t *path, jm_report_t *rep)
 }
 
 // check json_model_6_map_totalDigits (.'$Atomic'.totalDigits)
-static bool _jm_f_12(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static bool _jm_f_8(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
     // .'$Atomic'.totalDigits
@@ -1113,15 +1057,15 @@ const char *check_model_init(void)
         json_model_6_map_tab[1] = (jm_propmap_t) { "explicitTypeZone", _jm_f_1 };
         json_model_6_map_tab[2] = (jm_propmap_t) { "fractionDigits", _jm_f_2 };
         json_model_6_map_tab[3] = (jm_propmap_t) { "length", _jm_f_3 };
-        json_model_6_map_tab[4] = (jm_propmap_t) { "maxExclusive", _jm_f_4 };
-        json_model_6_map_tab[5] = (jm_propmap_t) { "maxInclusive", _jm_f_5 };
-        json_model_6_map_tab[6] = (jm_propmap_t) { "maxLength", _jm_f_6 };
-        json_model_6_map_tab[7] = (jm_propmap_t) { "minExclusive", _jm_f_7 };
-        json_model_6_map_tab[8] = (jm_propmap_t) { "minInclusive", _jm_f_8 };
-        json_model_6_map_tab[9] = (jm_propmap_t) { "minLength", _jm_f_9 };
-        json_model_6_map_tab[10] = (jm_propmap_t) { "name", _jm_f_10 };
-        json_model_6_map_tab[11] = (jm_propmap_t) { "pattern", _jm_f_11 };
-        json_model_6_map_tab[12] = (jm_propmap_t) { "totalDigits", _jm_f_12 };
+        json_model_6_map_tab[4] = (jm_propmap_t) { "maxExclusive", json_model_5 };
+        json_model_6_map_tab[5] = (jm_propmap_t) { "maxInclusive", json_model_5 };
+        json_model_6_map_tab[6] = (jm_propmap_t) { "maxLength", _jm_f_4 };
+        json_model_6_map_tab[7] = (jm_propmap_t) { "minExclusive", json_model_5 };
+        json_model_6_map_tab[8] = (jm_propmap_t) { "minInclusive", json_model_5 };
+        json_model_6_map_tab[9] = (jm_propmap_t) { "minLength", _jm_f_5 };
+        json_model_6_map_tab[10] = (jm_propmap_t) { "name", _jm_f_6 };
+        json_model_6_map_tab[11] = (jm_propmap_t) { "pattern", _jm_f_7 };
+        json_model_6_map_tab[12] = (jm_propmap_t) { "totalDigits", _jm_f_8 };
         jm_sort_propmap(json_model_6_map_tab, 13);
         check_model_map_tab[0] = (jm_propmap_t) { "", json_model_2 };
         check_model_map_tab[1] = (jm_propmap_t) { "Schema", json_model_2 };

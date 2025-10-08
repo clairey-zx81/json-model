@@ -3450,21 +3450,8 @@ function _jm_f_3(val, path, rep)
     return true;
 }
 
-// check _jm_obj_42_map_.in (.'$Model#Root'.'|'.0.'.in')
-function _jm_f_4(val, path, rep)
-{
-    let res;
-    // .'$Model#Root'.'|'.0.'.in'
-    res = json_model_35(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $Model [.'$Model#Root'.'|'.0.'.in']", path])
-    }
-    return res;
-}
-
 // check _jm_obj_42_map_.mo (.'$Model#Root'.'|'.0.'.mo')
-function _jm_f_5(val, path, rep)
+function _jm_f_4(val, path, rep)
 {
     let res;
     // .'$Model#Root'.'|'.0.'.mo'
@@ -3477,7 +3464,7 @@ function _jm_f_5(val, path, rep)
 }
 
 // check _jm_obj_42_map_.schema (.'$Model#Root'.'|'.0.'.schema')
-function _jm_f_6(val, path, rep)
+function _jm_f_5(val, path, rep)
 {
     // .'$Model#Root'.'|'.0.'.schema'
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
@@ -3487,19 +3474,6 @@ function _jm_f_6(val, path, rep)
     }
     // accept any object
     return true;
-}
-
-// check _jm_obj_42_map_~ (.'$Model#Root'.'|'.0.'~')
-function _jm_f_7(val, path, rep)
-{
-    let res;
-    // .'$Model#Root'.'|'.0.'~'
-    res = json_model_4(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $Url [.'$Model#Root'.'|'.0.'~']", path])
-    }
-    return res;
 }
 
 
@@ -3952,10 +3926,10 @@ export function check_model_init()
         _jm_obj_42_map.set("#", _jm_f_1)
         _jm_obj_42_map.set("$", _jm_f_2)
         _jm_obj_42_map.set("%", _jm_f_3)
-        _jm_obj_42_map.set(".in", _jm_f_4)
-        _jm_obj_42_map.set(".mo", _jm_f_5)
-        _jm_obj_42_map.set(".schema", _jm_f_6)
-        _jm_obj_42_map.set("~", _jm_f_7)
+        _jm_obj_42_map.set(".in", json_model_35)
+        _jm_obj_42_map.set(".mo", _jm_f_4)
+        _jm_obj_42_map.set(".schema", _jm_f_5)
+        _jm_obj_42_map.set("~", json_model_4)
         check_model_map.set("", json_model_42)
         check_model_map.set("Model", json_model_42)
     }

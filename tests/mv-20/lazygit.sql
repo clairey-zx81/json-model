@@ -1077,20 +1077,8 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_f_10_map_mainBranches (.git.mainBranches)
-CREATE OR REPLACE FUNCTION _jm_f_21(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .git.mainBranches
-  res := json_model_9(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
 -- check _jm_f_10_map_merging (.git.merging)
-CREATE OR REPLACE FUNCTION _jm_f_22(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_21(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -1125,7 +1113,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check _jm_f_10_map_overrideGpg (.git.overrideGpg)
-CREATE OR REPLACE FUNCTION _jm_f_23(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_22(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -1146,7 +1134,7 @@ END;
 $$ LANGUAGE plpgsql;
 
 -- check _jm_f_10_map_paging (.git.paging)
-CREATE OR REPLACE FUNCTION _jm_f_24(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_23(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -1194,7 +1182,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check _jm_f_10_map_parseEmoji (.git.parseEmoji)
-CREATE OR REPLACE FUNCTION _jm_f_25(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_24(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -1206,7 +1194,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check _jm_f_10_map_skipHookPrefix (.git.skipHookPrefix)
-CREATE OR REPLACE FUNCTION _jm_f_26(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_25(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -1220,7 +1208,7 @@ $$ LANGUAGE PLpgSQL;
 CREATE OR REPLACE FUNCTION _jm_f_10_map(name TEXT)
 RETURNS TEXT STRICT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
-  map JSONB := JSONB '{"allBranchesLogCmd":"_jm_f_11","autoFetch":"_jm_f_12","autoRefresh":"_jm_f_13","branchLogCmd":"_jm_f_14","commit":"_jm_f_15","commitPrefixes":"_jm_f_16","diffContextSize":"_jm_f_17","disableForcePushing":"_jm_f_18","fetchAll":"_jm_f_19","log":"_jm_f_20","mainBranches":"_jm_f_21","merging":"_jm_f_22","overrideGpg":"_jm_f_23","paging":"_jm_f_24","parseEmoji":"_jm_f_25","skipHookPrefix":"_jm_f_26"}';
+  map JSONB := JSONB '{"allBranchesLogCmd":"_jm_f_11","autoFetch":"_jm_f_12","autoRefresh":"_jm_f_13","branchLogCmd":"_jm_f_14","commit":"_jm_f_15","commitPrefixes":"_jm_f_16","diffContextSize":"_jm_f_17","disableForcePushing":"_jm_f_18","fetchAll":"_jm_f_19","log":"_jm_f_20","mainBranches":"json_model_9","merging":"_jm_f_21","overrideGpg":"_jm_f_22","paging":"_jm_f_23","parseEmoji":"_jm_f_24","skipHookPrefix":"_jm_f_25"}';
 BEGIN
   RETURN map->>name;
 END;
@@ -1253,8 +1241,8 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_f_27_map_animateExplosion (.gui.animateExplosion)
-CREATE OR REPLACE FUNCTION _jm_f_28(val JSONB, path TEXT[], rep jm_report_entry[])
+-- check _jm_f_26_map_animateExplosion (.gui.animateExplosion)
+CREATE OR REPLACE FUNCTION _jm_f_27(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -1265,8 +1253,8 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_f_27_map_authorColors (.gui.authorColors)
-CREATE OR REPLACE FUNCTION _jm_f_29(val JSONB, path TEXT[], rep jm_report_entry[])
+-- check _jm_f_26_map_authorColors (.gui.authorColors)
+CREATE OR REPLACE FUNCTION _jm_f_28(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -1302,8 +1290,8 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
--- check _jm_f_27_map_border (.gui.border)
-CREATE OR REPLACE FUNCTION _jm_f_30(val JSONB, path TEXT[], rep jm_report_entry[])
+-- check _jm_f_26_map_border (.gui.border)
+CREATE OR REPLACE FUNCTION _jm_f_29(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -1314,8 +1302,8 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_f_27_map_branchColors (.gui.branchColors)
-CREATE OR REPLACE FUNCTION _jm_f_31(val JSONB, path TEXT[], rep jm_report_entry[])
+-- check _jm_f_26_map_branchColors (.gui.branchColors)
+CREATE OR REPLACE FUNCTION _jm_f_30(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -1342,8 +1330,8 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_f_27_map_commandLogSize (.gui.commandLogSize)
-CREATE OR REPLACE FUNCTION _jm_f_32(val JSONB, path TEXT[], rep jm_report_entry[])
+-- check _jm_f_26_map_commandLogSize (.gui.commandLogSize)
+CREATE OR REPLACE FUNCTION _jm_f_31(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -1354,8 +1342,8 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_f_27_map_commitLength (.gui.commitLength)
-CREATE OR REPLACE FUNCTION _jm_f_33(val JSONB, path TEXT[], rep jm_report_entry[])
+-- check _jm_f_26_map_commitLength (.gui.commitLength)
+CREATE OR REPLACE FUNCTION _jm_f_32(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -1382,8 +1370,8 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_f_27_map_expandFocusedSidePanel (.gui.expandFocusedSidePanel)
-CREATE OR REPLACE FUNCTION _jm_f_34(val JSONB, path TEXT[], rep jm_report_entry[])
+-- check _jm_f_26_map_expandFocusedSidePanel (.gui.expandFocusedSidePanel)
+CREATE OR REPLACE FUNCTION _jm_f_33(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -1403,8 +1391,8 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
--- check _jm_f_27_map_language (.gui.language)
-CREATE OR REPLACE FUNCTION _jm_f_35(val JSONB, path TEXT[], rep jm_report_entry[])
+-- check _jm_f_26_map_language (.gui.language)
+CREATE OR REPLACE FUNCTION _jm_f_34(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -1424,8 +1412,8 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
--- check _jm_f_27_map_mainPanelSplitMode (.gui.mainPanelSplitMode)
-CREATE OR REPLACE FUNCTION _jm_f_36(val JSONB, path TEXT[], rep jm_report_entry[])
+-- check _jm_f_26_map_mainPanelSplitMode (.gui.mainPanelSplitMode)
+CREATE OR REPLACE FUNCTION _jm_f_35(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -1436,8 +1424,8 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_f_27_map_mouseEvents (.gui.mouseEvents)
-CREATE OR REPLACE FUNCTION _jm_f_37(val JSONB, path TEXT[], rep jm_report_entry[])
+-- check _jm_f_26_map_mouseEvents (.gui.mouseEvents)
+CREATE OR REPLACE FUNCTION _jm_f_36(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -1457,8 +1445,8 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
--- check _jm_f_27_map_nerdFontsVersion (.gui.nerdFontsVersion)
-CREATE OR REPLACE FUNCTION _jm_f_38(val JSONB, path TEXT[], rep jm_report_entry[])
+-- check _jm_f_26_map_nerdFontsVersion (.gui.nerdFontsVersion)
+CREATE OR REPLACE FUNCTION _jm_f_37(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -1476,8 +1464,8 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_f_27_map_scrollHeight (.gui.scrollHeight)
-CREATE OR REPLACE FUNCTION _jm_f_39(val JSONB, path TEXT[], rep jm_report_entry[])
+-- check _jm_f_26_map_scrollHeight (.gui.scrollHeight)
+CREATE OR REPLACE FUNCTION _jm_f_38(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -1488,8 +1476,8 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_f_27_map_scrollPastBottom (.gui.scrollPastBottom)
-CREATE OR REPLACE FUNCTION _jm_f_40(val JSONB, path TEXT[], rep jm_report_entry[])
+-- check _jm_f_26_map_scrollPastBottom (.gui.scrollPastBottom)
+CREATE OR REPLACE FUNCTION _jm_f_39(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -1500,8 +1488,8 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_f_27_map_shortTimeFormat (.gui.shortTimeFormat)
-CREATE OR REPLACE FUNCTION _jm_f_41(val JSONB, path TEXT[], rep jm_report_entry[])
+-- check _jm_f_26_map_shortTimeFormat (.gui.shortTimeFormat)
+CREATE OR REPLACE FUNCTION _jm_f_40(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -1512,8 +1500,8 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_f_27_map_showBottomLine (.gui.showBottomLine)
-CREATE OR REPLACE FUNCTION _jm_f_42(val JSONB, path TEXT[], rep jm_report_entry[])
+-- check _jm_f_26_map_showBottomLine (.gui.showBottomLine)
+CREATE OR REPLACE FUNCTION _jm_f_41(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -1524,8 +1512,8 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_f_27_map_showBranchCommitHash (.gui.showBranchCommitHash)
-CREATE OR REPLACE FUNCTION _jm_f_43(val JSONB, path TEXT[], rep jm_report_entry[])
+-- check _jm_f_26_map_showBranchCommitHash (.gui.showBranchCommitHash)
+CREATE OR REPLACE FUNCTION _jm_f_42(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -1536,8 +1524,8 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_f_27_map_showCommandLog (.gui.showCommandLog)
-CREATE OR REPLACE FUNCTION _jm_f_44(val JSONB, path TEXT[], rep jm_report_entry[])
+-- check _jm_f_26_map_showCommandLog (.gui.showCommandLog)
+CREATE OR REPLACE FUNCTION _jm_f_43(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -1548,8 +1536,8 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_f_27_map_showFileTree (.gui.showFileTree)
-CREATE OR REPLACE FUNCTION _jm_f_45(val JSONB, path TEXT[], rep jm_report_entry[])
+-- check _jm_f_26_map_showFileTree (.gui.showFileTree)
+CREATE OR REPLACE FUNCTION _jm_f_44(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -1560,8 +1548,8 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_f_27_map_showListFooter (.gui.showListFooter)
-CREATE OR REPLACE FUNCTION _jm_f_46(val JSONB, path TEXT[], rep jm_report_entry[])
+-- check _jm_f_26_map_showListFooter (.gui.showListFooter)
+CREATE OR REPLACE FUNCTION _jm_f_45(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -1572,8 +1560,8 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_f_27_map_showRandomTip (.gui.showRandomTip)
-CREATE OR REPLACE FUNCTION _jm_f_47(val JSONB, path TEXT[], rep jm_report_entry[])
+-- check _jm_f_26_map_showRandomTip (.gui.showRandomTip)
+CREATE OR REPLACE FUNCTION _jm_f_46(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -1584,8 +1572,8 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_f_27_map_sidePanelWidth (.gui.sidePanelWidth)
-CREATE OR REPLACE FUNCTION _jm_f_48(val JSONB, path TEXT[], rep jm_report_entry[])
+-- check _jm_f_26_map_sidePanelWidth (.gui.sidePanelWidth)
+CREATE OR REPLACE FUNCTION _jm_f_47(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -1602,8 +1590,8 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_f_27_map_skipDiscardChangeWarning (.gui.skipDiscardChangeWarning)
-CREATE OR REPLACE FUNCTION _jm_f_49(val JSONB, path TEXT[], rep jm_report_entry[])
+-- check _jm_f_26_map_skipDiscardChangeWarning (.gui.skipDiscardChangeWarning)
+CREATE OR REPLACE FUNCTION _jm_f_48(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -1614,8 +1602,8 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_f_27_map_skipRewordInEditorWarning (.gui.skipRewordInEditorWarning)
-CREATE OR REPLACE FUNCTION _jm_f_50(val JSONB, path TEXT[], rep jm_report_entry[])
+-- check _jm_f_26_map_skipRewordInEditorWarning (.gui.skipRewordInEditorWarning)
+CREATE OR REPLACE FUNCTION _jm_f_49(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -1626,8 +1614,8 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_f_27_map_skipStashWarning (.gui.skipStashWarning)
-CREATE OR REPLACE FUNCTION _jm_f_51(val JSONB, path TEXT[], rep jm_report_entry[])
+-- check _jm_f_26_map_skipStashWarning (.gui.skipStashWarning)
+CREATE OR REPLACE FUNCTION _jm_f_50(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -1647,8 +1635,8 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
--- check _jm_f_27_map_splitDiff (.gui.splitDiff)
-CREATE OR REPLACE FUNCTION _jm_f_52(val JSONB, path TEXT[], rep jm_report_entry[])
+-- check _jm_f_26_map_splitDiff (.gui.splitDiff)
+CREATE OR REPLACE FUNCTION _jm_f_51(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -1659,137 +1647,17 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_f_53_map_activeBorderColor (.gui.theme.activeBorderColor)
-CREATE OR REPLACE FUNCTION _jm_f_54(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .gui.theme.activeBorderColor
-  res := json_model_3(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
--- check _jm_f_53_map_cherryPickedCommitBgColor (.gui.theme.cherryPickedCommitBgColor)
-CREATE OR REPLACE FUNCTION _jm_f_55(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .gui.theme.cherryPickedCommitBgColor
-  res := json_model_3(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
--- check _jm_f_53_map_cherryPickedCommitFgColor (.gui.theme.cherryPickedCommitFgColor)
-CREATE OR REPLACE FUNCTION _jm_f_56(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .gui.theme.cherryPickedCommitFgColor
-  res := json_model_3(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
--- check _jm_f_53_map_defaultFgColor (.gui.theme.defaultFgColor)
-CREATE OR REPLACE FUNCTION _jm_f_57(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .gui.theme.defaultFgColor
-  res := json_model_3(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
--- check _jm_f_53_map_inactiveBorderColor (.gui.theme.inactiveBorderColor)
-CREATE OR REPLACE FUNCTION _jm_f_58(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .gui.theme.inactiveBorderColor
-  res := json_model_3(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
--- check _jm_f_53_map_optionsTextColor (.gui.theme.optionsTextColor)
-CREATE OR REPLACE FUNCTION _jm_f_59(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .gui.theme.optionsTextColor
-  res := json_model_3(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
--- check _jm_f_53_map_searchingActiveBorderColor (.gui.theme.searchingActiveBorderColor)
-CREATE OR REPLACE FUNCTION _jm_f_60(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .gui.theme.searchingActiveBorderColor
-  res := json_model_3(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
--- check _jm_f_53_map_selectedLineBgColor (.gui.theme.selectedLineBgColor)
-CREATE OR REPLACE FUNCTION _jm_f_61(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .gui.theme.selectedLineBgColor
-  res := json_model_3(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
--- check _jm_f_53_map_selectedRangeBgColor (.gui.theme.selectedRangeBgColor)
-CREATE OR REPLACE FUNCTION _jm_f_62(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .gui.theme.selectedRangeBgColor
-  res := json_model_3(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
--- check _jm_f_53_map_unstagedChangesColor (.gui.theme.unstagedChangesColor)
-CREATE OR REPLACE FUNCTION _jm_f_63(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .gui.theme.unstagedChangesColor
-  res := json_model_3(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
-CREATE OR REPLACE FUNCTION _jm_f_53_map(name TEXT)
+CREATE OR REPLACE FUNCTION _jm_f_52_map(name TEXT)
 RETURNS TEXT STRICT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
-  map JSONB := JSONB '{"activeBorderColor":"_jm_f_54","cherryPickedCommitBgColor":"_jm_f_55","cherryPickedCommitFgColor":"_jm_f_56","defaultFgColor":"_jm_f_57","inactiveBorderColor":"_jm_f_58","optionsTextColor":"_jm_f_59","searchingActiveBorderColor":"_jm_f_60","selectedLineBgColor":"_jm_f_61","selectedRangeBgColor":"_jm_f_62","unstagedChangesColor":"_jm_f_63"}';
+  map JSONB := JSONB '{"activeBorderColor":"json_model_3","cherryPickedCommitBgColor":"json_model_3","cherryPickedCommitFgColor":"json_model_3","defaultFgColor":"json_model_3","inactiveBorderColor":"json_model_3","optionsTextColor":"json_model_3","searchingActiveBorderColor":"json_model_3","selectedLineBgColor":"json_model_3","selectedRangeBgColor":"json_model_3","unstagedChangesColor":"json_model_3"}';
 BEGIN
   RETURN map->>name;
 END;
 $$ LANGUAGE plpgsql;
 
--- check _jm_f_27_map_theme (.gui.theme)
-CREATE OR REPLACE FUNCTION _jm_f_53(val JSONB, path TEXT[], rep jm_report_entry[])
+-- check _jm_f_26_map_theme (.gui.theme)
+CREATE OR REPLACE FUNCTION _jm_f_52(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   pfun TEXT;
@@ -1801,9 +1669,9 @@ BEGIN
     RETURN FALSE;
   END IF;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF _jm_f_53_map(prop) IS NOT NULL THEN
+    IF _jm_f_52_map(prop) IS NOT NULL THEN
       -- handle 10 may props
-      pfun := _jm_f_53_map(prop);
+      pfun := _jm_f_52_map(prop);
       IF NOT jm_call(pfun, pval, NULL, rep) THEN
         RETURN FALSE;
       END IF;
@@ -1815,8 +1683,8 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_f_27_map_timeFormat (.gui.timeFormat)
-CREATE OR REPLACE FUNCTION _jm_f_64(val JSONB, path TEXT[], rep jm_report_entry[])
+-- check _jm_f_26_map_timeFormat (.gui.timeFormat)
+CREATE OR REPLACE FUNCTION _jm_f_53(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -1836,8 +1704,8 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
--- check _jm_f_27_map_windowSize (.gui.windowSize)
-CREATE OR REPLACE FUNCTION _jm_f_65(val JSONB, path TEXT[], rep jm_report_entry[])
+-- check _jm_f_26_map_windowSize (.gui.windowSize)
+CREATE OR REPLACE FUNCTION _jm_f_54(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -1848,17 +1716,17 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
-CREATE OR REPLACE FUNCTION _jm_f_27_map(name TEXT)
+CREATE OR REPLACE FUNCTION _jm_f_26_map(name TEXT)
 RETURNS TEXT STRICT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
-  map JSONB := JSONB '{"animateExplosion":"_jm_f_28","authorColors":"_jm_f_29","border":"_jm_f_30","branchColors":"_jm_f_31","commandLogSize":"_jm_f_32","commitLength":"_jm_f_33","expandFocusedSidePanel":"_jm_f_34","language":"_jm_f_35","mainPanelSplitMode":"_jm_f_36","mouseEvents":"_jm_f_37","nerdFontsVersion":"_jm_f_38","scrollHeight":"_jm_f_39","scrollPastBottom":"_jm_f_40","shortTimeFormat":"_jm_f_41","showBottomLine":"_jm_f_42","showBranchCommitHash":"_jm_f_43","showCommandLog":"_jm_f_44","showFileTree":"_jm_f_45","showListFooter":"_jm_f_46","showRandomTip":"_jm_f_47","sidePanelWidth":"_jm_f_48","skipDiscardChangeWarning":"_jm_f_49","skipRewordInEditorWarning":"_jm_f_50","skipStashWarning":"_jm_f_51","splitDiff":"_jm_f_52","theme":"_jm_f_53","timeFormat":"_jm_f_64","windowSize":"_jm_f_65"}';
+  map JSONB := JSONB '{"animateExplosion":"_jm_f_27","authorColors":"_jm_f_28","border":"_jm_f_29","branchColors":"_jm_f_30","commandLogSize":"_jm_f_31","commitLength":"_jm_f_32","expandFocusedSidePanel":"_jm_f_33","language":"_jm_f_34","mainPanelSplitMode":"_jm_f_35","mouseEvents":"_jm_f_36","nerdFontsVersion":"_jm_f_37","scrollHeight":"_jm_f_38","scrollPastBottom":"_jm_f_39","shortTimeFormat":"_jm_f_40","showBottomLine":"_jm_f_41","showBranchCommitHash":"_jm_f_42","showCommandLog":"_jm_f_43","showFileTree":"_jm_f_44","showListFooter":"_jm_f_45","showRandomTip":"_jm_f_46","sidePanelWidth":"_jm_f_47","skipDiscardChangeWarning":"_jm_f_48","skipRewordInEditorWarning":"_jm_f_49","skipStashWarning":"_jm_f_50","splitDiff":"_jm_f_51","theme":"_jm_f_52","timeFormat":"_jm_f_53","windowSize":"_jm_f_54"}';
 BEGIN
   RETURN map->>name;
 END;
 $$ LANGUAGE plpgsql;
 
 -- check json_model_1_map_gui (.gui)
-CREATE OR REPLACE FUNCTION _jm_f_27(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_26(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   pfun TEXT;
@@ -1870,9 +1738,9 @@ BEGIN
     RETURN FALSE;
   END IF;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF _jm_f_27_map(prop) IS NOT NULL THEN
+    IF _jm_f_26_map(prop) IS NOT NULL THEN
       -- handle 28 may props
-      pfun := _jm_f_27_map(prop);
+      pfun := _jm_f_26_map(prop);
       IF NOT jm_call(pfun, pval, NULL, rep) THEN
         RETURN FALSE;
       END IF;
@@ -1884,173 +1752,17 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_f_67_map_checkoutBranchByName (.keybinding.branches.checkoutBranchByName)
-CREATE OR REPLACE FUNCTION _jm_f_68(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .keybinding.branches.checkoutBranchByName
-  res := json_model_4(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
--- check _jm_f_67_map_createPullRequest (.keybinding.branches.createPullRequest)
-CREATE OR REPLACE FUNCTION _jm_f_69(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .keybinding.branches.createPullRequest
-  res := json_model_4(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
--- check _jm_f_67_map_createTag (.keybinding.branches.createTag)
-CREATE OR REPLACE FUNCTION _jm_f_70(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .keybinding.branches.createTag
-  res := json_model_4(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
--- check _jm_f_67_map_fastForward (.keybinding.branches.fastForward)
-CREATE OR REPLACE FUNCTION _jm_f_71(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .keybinding.branches.fastForward
-  res := json_model_4(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
--- check _jm_f_67_map_fetchRemote (.keybinding.branches.fetchRemote)
-CREATE OR REPLACE FUNCTION _jm_f_72(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .keybinding.branches.fetchRemote
-  res := json_model_4(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
--- check _jm_f_67_map_forceCheckoutBranch (.keybinding.branches.forceCheckoutBranch)
-CREATE OR REPLACE FUNCTION _jm_f_73(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .keybinding.branches.forceCheckoutBranch
-  res := json_model_4(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
--- check _jm_f_67_map_mergeIntoCurrentBranch (.keybinding.branches.mergeIntoCurrentBranch)
-CREATE OR REPLACE FUNCTION _jm_f_74(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .keybinding.branches.mergeIntoCurrentBranch
-  res := json_model_4(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
--- check _jm_f_67_map_pushTag (.keybinding.branches.pushTag)
-CREATE OR REPLACE FUNCTION _jm_f_75(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .keybinding.branches.pushTag
-  res := json_model_4(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
--- check _jm_f_67_map_rebaseBranch (.keybinding.branches.rebaseBranch)
-CREATE OR REPLACE FUNCTION _jm_f_76(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .keybinding.branches.rebaseBranch
-  res := json_model_4(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
--- check _jm_f_67_map_renameBranch (.keybinding.branches.renameBranch)
-CREATE OR REPLACE FUNCTION _jm_f_77(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .keybinding.branches.renameBranch
-  res := json_model_4(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
--- check _jm_f_67_map_setUpstream (.keybinding.branches.setUpstream)
-CREATE OR REPLACE FUNCTION _jm_f_78(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .keybinding.branches.setUpstream
-  res := json_model_4(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
--- check _jm_f_67_map_viewGitFlowOptions (.keybinding.branches.viewGitFlowOptions)
-CREATE OR REPLACE FUNCTION _jm_f_79(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .keybinding.branches.viewGitFlowOptions
-  res := json_model_4(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
--- check _jm_f_67_map_viewPullRequestOptions (.keybinding.branches.viewPullRequestOptions)
-CREATE OR REPLACE FUNCTION _jm_f_80(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .keybinding.branches.viewPullRequestOptions
-  res := json_model_4(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
-CREATE OR REPLACE FUNCTION _jm_f_67_map(name TEXT)
+CREATE OR REPLACE FUNCTION _jm_f_56_map(name TEXT)
 RETURNS TEXT STRICT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
-  map JSONB := JSONB '{"checkoutBranchByName":"_jm_f_68","createPullRequest":"_jm_f_69","createTag":"_jm_f_70","fastForward":"_jm_f_71","fetchRemote":"_jm_f_72","forceCheckoutBranch":"_jm_f_73","mergeIntoCurrentBranch":"_jm_f_74","pushTag":"_jm_f_75","rebaseBranch":"_jm_f_76","renameBranch":"_jm_f_77","setUpstream":"_jm_f_78","viewGitFlowOptions":"_jm_f_79","viewPullRequestOptions":"_jm_f_80"}';
+  map JSONB := JSONB '{"checkoutBranchByName":"json_model_4","createPullRequest":"json_model_4","createTag":"json_model_4","fastForward":"json_model_4","fetchRemote":"json_model_4","forceCheckoutBranch":"json_model_4","mergeIntoCurrentBranch":"json_model_4","pushTag":"json_model_4","rebaseBranch":"json_model_4","renameBranch":"json_model_4","setUpstream":"json_model_4","viewGitFlowOptions":"json_model_4","viewPullRequestOptions":"json_model_4"}';
 BEGIN
   RETURN map->>name;
 END;
 $$ LANGUAGE plpgsql;
 
--- check _jm_f_66_map_branches (.keybinding.branches)
-CREATE OR REPLACE FUNCTION _jm_f_67(val JSONB, path TEXT[], rep jm_report_entry[])
+-- check _jm_f_55_map_branches (.keybinding.branches)
+CREATE OR REPLACE FUNCTION _jm_f_56(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   pfun TEXT;
@@ -2062,9 +1774,9 @@ BEGIN
     RETURN FALSE;
   END IF;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF _jm_f_67_map(prop) IS NOT NULL THEN
+    IF _jm_f_56_map(prop) IS NOT NULL THEN
       -- handle 13 may props
-      pfun := _jm_f_67_map(prop);
+      pfun := _jm_f_56_map(prop);
       IF NOT jm_call(pfun, pval, NULL, rep) THEN
         RETURN FALSE;
       END IF;
@@ -2076,8 +1788,8 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_f_66_map_commitFiles (.keybinding.commitFiles)
-CREATE OR REPLACE FUNCTION _jm_f_81(val JSONB, path TEXT[], rep jm_report_entry[])
+-- check _jm_f_55_map_commitFiles (.keybinding.commitFiles)
+CREATE OR REPLACE FUNCTION _jm_f_57(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -2104,269 +1816,17 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_f_82_map_amendToCommit (.keybinding.commits.amendToCommit)
-CREATE OR REPLACE FUNCTION _jm_f_83(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .keybinding.commits.amendToCommit
-  res := json_model_4(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
--- check _jm_f_82_map_checkoutCommit (.keybinding.commits.checkoutCommit)
-CREATE OR REPLACE FUNCTION _jm_f_84(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .keybinding.commits.checkoutCommit
-  res := json_model_4(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
--- check _jm_f_82_map_cherryPickCopy (.keybinding.commits.cherryPickCopy)
-CREATE OR REPLACE FUNCTION _jm_f_85(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .keybinding.commits.cherryPickCopy
-  res := json_model_4(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
--- check _jm_f_82_map_cherryPickCopyRange (.keybinding.commits.cherryPickCopyRange)
-CREATE OR REPLACE FUNCTION _jm_f_86(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .keybinding.commits.cherryPickCopyRange
-  res := json_model_4(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
--- check _jm_f_82_map_copyCommitMessageToClipboard (.keybinding.commits.copyCommitMessageToClipboard)
-CREATE OR REPLACE FUNCTION _jm_f_87(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .keybinding.commits.copyCommitMessageToClipboard
-  res := json_model_4(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
--- check _jm_f_82_map_createFixupCommit (.keybinding.commits.createFixupCommit)
-CREATE OR REPLACE FUNCTION _jm_f_88(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .keybinding.commits.createFixupCommit
-  res := json_model_4(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
--- check _jm_f_82_map_markCommitAsFixup (.keybinding.commits.markCommitAsFixup)
-CREATE OR REPLACE FUNCTION _jm_f_89(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .keybinding.commits.markCommitAsFixup
-  res := json_model_4(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
--- check _jm_f_82_map_moveDownCommit (.keybinding.commits.moveDownCommit)
-CREATE OR REPLACE FUNCTION _jm_f_90(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .keybinding.commits.moveDownCommit
-  res := json_model_4(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
--- check _jm_f_82_map_moveUpCommit (.keybinding.commits.moveUpCommit)
-CREATE OR REPLACE FUNCTION _jm_f_91(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .keybinding.commits.moveUpCommit
-  res := json_model_4(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
--- check _jm_f_82_map_openLogMenu (.keybinding.commits.openLogMenu)
-CREATE OR REPLACE FUNCTION _jm_f_92(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .keybinding.commits.openLogMenu
-  res := json_model_4(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
--- check _jm_f_82_map_pasteCommits (.keybinding.commits.pasteCommits)
-CREATE OR REPLACE FUNCTION _jm_f_93(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .keybinding.commits.pasteCommits
-  res := json_model_4(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
--- check _jm_f_82_map_pickCommit (.keybinding.commits.pickCommit)
-CREATE OR REPLACE FUNCTION _jm_f_94(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .keybinding.commits.pickCommit
-  res := json_model_4(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
--- check _jm_f_82_map_renameCommit (.keybinding.commits.renameCommit)
-CREATE OR REPLACE FUNCTION _jm_f_95(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .keybinding.commits.renameCommit
-  res := json_model_4(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
--- check _jm_f_82_map_renameCommitWithEditor (.keybinding.commits.renameCommitWithEditor)
-CREATE OR REPLACE FUNCTION _jm_f_96(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .keybinding.commits.renameCommitWithEditor
-  res := json_model_4(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
--- check _jm_f_82_map_resetCherryPick (.keybinding.commits.resetCherryPick)
-CREATE OR REPLACE FUNCTION _jm_f_97(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .keybinding.commits.resetCherryPick
-  res := json_model_4(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
--- check _jm_f_82_map_revertCommit (.keybinding.commits.revertCommit)
-CREATE OR REPLACE FUNCTION _jm_f_98(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .keybinding.commits.revertCommit
-  res := json_model_4(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
--- check _jm_f_82_map_squashAboveCommits (.keybinding.commits.squashAboveCommits)
-CREATE OR REPLACE FUNCTION _jm_f_99(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .keybinding.commits.squashAboveCommits
-  res := json_model_4(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
--- check _jm_f_82_map_squashDown (.keybinding.commits.squashDown)
-CREATE OR REPLACE FUNCTION _jm_f_100(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .keybinding.commits.squashDown
-  res := json_model_4(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
--- check _jm_f_82_map_tagCommit (.keybinding.commits.tagCommit)
-CREATE OR REPLACE FUNCTION _jm_f_101(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .keybinding.commits.tagCommit
-  res := json_model_4(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
--- check _jm_f_82_map_viewBisectOptions (.keybinding.commits.viewBisectOptions)
-CREATE OR REPLACE FUNCTION _jm_f_102(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .keybinding.commits.viewBisectOptions
-  res := json_model_4(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
--- check _jm_f_82_map_viewResetOptions (.keybinding.commits.viewResetOptions)
-CREATE OR REPLACE FUNCTION _jm_f_103(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .keybinding.commits.viewResetOptions
-  res := json_model_4(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
-CREATE OR REPLACE FUNCTION _jm_f_82_map(name TEXT)
+CREATE OR REPLACE FUNCTION _jm_f_58_map(name TEXT)
 RETURNS TEXT STRICT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
-  map JSONB := JSONB '{"amendToCommit":"_jm_f_83","checkoutCommit":"_jm_f_84","cherryPickCopy":"_jm_f_85","cherryPickCopyRange":"_jm_f_86","copyCommitMessageToClipboard":"_jm_f_87","createFixupCommit":"_jm_f_88","markCommitAsFixup":"_jm_f_89","moveDownCommit":"_jm_f_90","moveUpCommit":"_jm_f_91","openLogMenu":"_jm_f_92","pasteCommits":"_jm_f_93","pickCommit":"_jm_f_94","renameCommit":"_jm_f_95","renameCommitWithEditor":"_jm_f_96","resetCherryPick":"_jm_f_97","revertCommit":"_jm_f_98","squashAboveCommits":"_jm_f_99","squashDown":"_jm_f_100","tagCommit":"_jm_f_101","viewBisectOptions":"_jm_f_102","viewResetOptions":"_jm_f_103"}';
+  map JSONB := JSONB '{"amendToCommit":"json_model_4","checkoutCommit":"json_model_4","cherryPickCopy":"json_model_4","cherryPickCopyRange":"json_model_4","copyCommitMessageToClipboard":"json_model_4","createFixupCommit":"json_model_4","markCommitAsFixup":"json_model_4","moveDownCommit":"json_model_4","moveUpCommit":"json_model_4","openLogMenu":"json_model_4","pasteCommits":"json_model_4","pickCommit":"json_model_4","renameCommit":"json_model_4","renameCommitWithEditor":"json_model_4","resetCherryPick":"json_model_4","revertCommit":"json_model_4","squashAboveCommits":"json_model_4","squashDown":"json_model_4","tagCommit":"json_model_4","viewBisectOptions":"json_model_4","viewResetOptions":"json_model_4"}';
 BEGIN
   RETURN map->>name;
 END;
 $$ LANGUAGE plpgsql;
 
--- check _jm_f_66_map_commits (.keybinding.commits)
-CREATE OR REPLACE FUNCTION _jm_f_82(val JSONB, path TEXT[], rep jm_report_entry[])
+-- check _jm_f_55_map_commits (.keybinding.commits)
+CREATE OR REPLACE FUNCTION _jm_f_58(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   pfun TEXT;
@@ -2378,9 +1838,9 @@ BEGIN
     RETURN FALSE;
   END IF;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF _jm_f_82_map(prop) IS NOT NULL THEN
+    IF _jm_f_58_map(prop) IS NOT NULL THEN
       -- handle 21 may props
-      pfun := _jm_f_82_map(prop);
+      pfun := _jm_f_58_map(prop);
       IF NOT jm_call(pfun, pval, NULL, rep) THEN
         RETURN FALSE;
       END IF;
@@ -2392,185 +1852,17 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_f_104_map_amendLastCommit (.keybinding.files.amendLastCommit)
-CREATE OR REPLACE FUNCTION _jm_f_105(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .keybinding.files.amendLastCommit
-  res := json_model_4(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
--- check _jm_f_104_map_commitChanges (.keybinding.files.commitChanges)
-CREATE OR REPLACE FUNCTION _jm_f_106(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .keybinding.files.commitChanges
-  res := json_model_4(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
--- check _jm_f_104_map_commitChangesWithEditor (.keybinding.files.commitChangesWithEditor)
-CREATE OR REPLACE FUNCTION _jm_f_107(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .keybinding.files.commitChangesWithEditor
-  res := json_model_4(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
--- check _jm_f_104_map_commitChangesWithoutHook (.keybinding.files.commitChangesWithoutHook)
-CREATE OR REPLACE FUNCTION _jm_f_108(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .keybinding.files.commitChangesWithoutHook
-  res := json_model_4(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
--- check _jm_f_104_map_fetch (.keybinding.files.fetch)
-CREATE OR REPLACE FUNCTION _jm_f_109(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .keybinding.files.fetch
-  res := json_model_4(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
--- check _jm_f_104_map_ignoreFile (.keybinding.files.ignoreFile)
-CREATE OR REPLACE FUNCTION _jm_f_110(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .keybinding.files.ignoreFile
-  res := json_model_4(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
--- check _jm_f_104_map_openMergeTool (.keybinding.files.openMergeTool)
-CREATE OR REPLACE FUNCTION _jm_f_111(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .keybinding.files.openMergeTool
-  res := json_model_4(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
--- check _jm_f_104_map_openStatusFilter (.keybinding.files.openStatusFilter)
-CREATE OR REPLACE FUNCTION _jm_f_112(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .keybinding.files.openStatusFilter
-  res := json_model_4(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
--- check _jm_f_104_map_refreshFiles (.keybinding.files.refreshFiles)
-CREATE OR REPLACE FUNCTION _jm_f_113(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .keybinding.files.refreshFiles
-  res := json_model_4(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
--- check _jm_f_104_map_stashAllChanges (.keybinding.files.stashAllChanges)
-CREATE OR REPLACE FUNCTION _jm_f_114(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .keybinding.files.stashAllChanges
-  res := json_model_4(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
--- check _jm_f_104_map_toggleStagedAll (.keybinding.files.toggleStagedAll)
-CREATE OR REPLACE FUNCTION _jm_f_115(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .keybinding.files.toggleStagedAll
-  res := json_model_4(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
--- check _jm_f_104_map_toggleTreeView (.keybinding.files.toggleTreeView)
-CREATE OR REPLACE FUNCTION _jm_f_116(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .keybinding.files.toggleTreeView
-  res := json_model_4(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
--- check _jm_f_104_map_viewResetOptions (.keybinding.files.viewResetOptions)
-CREATE OR REPLACE FUNCTION _jm_f_117(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .keybinding.files.viewResetOptions
-  res := json_model_4(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
--- check _jm_f_104_map_viewStashOptions (.keybinding.files.viewStashOptions)
-CREATE OR REPLACE FUNCTION _jm_f_118(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .keybinding.files.viewStashOptions
-  res := json_model_4(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
-CREATE OR REPLACE FUNCTION _jm_f_104_map(name TEXT)
+CREATE OR REPLACE FUNCTION _jm_f_59_map(name TEXT)
 RETURNS TEXT STRICT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
-  map JSONB := JSONB '{"amendLastCommit":"_jm_f_105","commitChanges":"_jm_f_106","commitChangesWithEditor":"_jm_f_107","commitChangesWithoutHook":"_jm_f_108","fetch":"_jm_f_109","ignoreFile":"_jm_f_110","openMergeTool":"_jm_f_111","openStatusFilter":"_jm_f_112","refreshFiles":"_jm_f_113","stashAllChanges":"_jm_f_114","toggleStagedAll":"_jm_f_115","toggleTreeView":"_jm_f_116","viewResetOptions":"_jm_f_117","viewStashOptions":"_jm_f_118"}';
+  map JSONB := JSONB '{"amendLastCommit":"json_model_4","commitChanges":"json_model_4","commitChangesWithEditor":"json_model_4","commitChangesWithoutHook":"json_model_4","fetch":"json_model_4","ignoreFile":"json_model_4","openMergeTool":"json_model_4","openStatusFilter":"json_model_4","refreshFiles":"json_model_4","stashAllChanges":"json_model_4","toggleStagedAll":"json_model_4","toggleTreeView":"json_model_4","viewResetOptions":"json_model_4","viewStashOptions":"json_model_4"}';
 BEGIN
   RETURN map->>name;
 END;
 $$ LANGUAGE plpgsql;
 
--- check _jm_f_66_map_files (.keybinding.files)
-CREATE OR REPLACE FUNCTION _jm_f_104(val JSONB, path TEXT[], rep jm_report_entry[])
+-- check _jm_f_55_map_files (.keybinding.files)
+CREATE OR REPLACE FUNCTION _jm_f_59(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   pfun TEXT;
@@ -2582,9 +1874,9 @@ BEGIN
     RETURN FALSE;
   END IF;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF _jm_f_104_map(prop) IS NOT NULL THEN
+    IF _jm_f_59_map(prop) IS NOT NULL THEN
       -- handle 14 may props
-      pfun := _jm_f_104_map(prop);
+      pfun := _jm_f_59_map(prop);
       IF NOT jm_call(pfun, pval, NULL, rep) THEN
         RETURN FALSE;
       END IF;
@@ -2596,8 +1888,8 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_f_66_map_main (.keybinding.main)
-CREATE OR REPLACE FUNCTION _jm_f_119(val JSONB, path TEXT[], rep jm_report_entry[])
+-- check _jm_f_55_map_main (.keybinding.main)
+CREATE OR REPLACE FUNCTION _jm_f_60(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -2645,8 +1937,8 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_f_66_map_stash (.keybinding.stash)
-CREATE OR REPLACE FUNCTION _jm_f_120(val JSONB, path TEXT[], rep jm_report_entry[])
+-- check _jm_f_55_map_stash (.keybinding.stash)
+CREATE OR REPLACE FUNCTION _jm_f_61(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -2680,8 +1972,8 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_f_66_map_status (.keybinding.status)
-CREATE OR REPLACE FUNCTION _jm_f_121(val JSONB, path TEXT[], rep jm_report_entry[])
+-- check _jm_f_55_map_status (.keybinding.status)
+CREATE OR REPLACE FUNCTION _jm_f_62(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -2715,8 +2007,8 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_f_66_map_submodules (.keybinding.submodules)
-CREATE OR REPLACE FUNCTION _jm_f_122(val JSONB, path TEXT[], rep jm_report_entry[])
+-- check _jm_f_55_map_submodules (.keybinding.submodules)
+CREATE OR REPLACE FUNCTION _jm_f_63(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -2757,188 +2049,8 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_f_123_map_confirm (.keybinding.universal.confirm)
-CREATE OR REPLACE FUNCTION _jm_f_124(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .keybinding.universal.confirm
-  res := json_model_4(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
--- check _jm_f_123_map_copyToClipboard (.keybinding.universal.copyToClipboard)
-CREATE OR REPLACE FUNCTION _jm_f_125(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .keybinding.universal.copyToClipboard
-  res := json_model_4(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
--- check _jm_f_123_map_createPatchOptionsMenu (.keybinding.universal.createPatchOptionsMenu)
-CREATE OR REPLACE FUNCTION _jm_f_126(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .keybinding.universal.createPatchOptionsMenu
-  res := json_model_4(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
--- check _jm_f_123_map_createRebaseOptionsMenu (.keybinding.universal.createRebaseOptionsMenu)
-CREATE OR REPLACE FUNCTION _jm_f_127(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .keybinding.universal.createRebaseOptionsMenu
-  res := json_model_4(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
--- check _jm_f_123_map_decreaseContextInDiffView (.keybinding.universal.decreaseContextInDiffView)
-CREATE OR REPLACE FUNCTION _jm_f_128(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .keybinding.universal.decreaseContextInDiffView
-  res := json_model_4(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
--- check _jm_f_123_map_diffingMenu (.keybinding.universal.diffingMenu)
-CREATE OR REPLACE FUNCTION _jm_f_129(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .keybinding.universal.diffingMenu
-  res := json_model_4(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
--- check _jm_f_123_map_diffingMenu-alt (.keybinding.universal.'diffingMenu-alt')
-CREATE OR REPLACE FUNCTION _jm_f_130(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .keybinding.universal.'diffingMenu-alt'
-  res := json_model_4(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
--- check _jm_f_123_map_edit (.keybinding.universal.edit)
-CREATE OR REPLACE FUNCTION _jm_f_131(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .keybinding.universal.edit
-  res := json_model_4(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
--- check _jm_f_123_map_executeCustomCommand (.keybinding.universal.executeCustomCommand)
-CREATE OR REPLACE FUNCTION _jm_f_132(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .keybinding.universal.executeCustomCommand
-  res := json_model_4(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
--- check _jm_f_123_map_extrasMenu (.keybinding.universal.extrasMenu)
-CREATE OR REPLACE FUNCTION _jm_f_133(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .keybinding.universal.extrasMenu
-  res := json_model_4(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
--- check _jm_f_123_map_filteringMenu (.keybinding.universal.filteringMenu)
-CREATE OR REPLACE FUNCTION _jm_f_134(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .keybinding.universal.filteringMenu
-  res := json_model_4(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
--- check _jm_f_123_map_goInto (.keybinding.universal.goInto)
-CREATE OR REPLACE FUNCTION _jm_f_135(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .keybinding.universal.goInto
-  res := json_model_4(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
--- check _jm_f_123_map_gotoBottom (.keybinding.universal.gotoBottom)
-CREATE OR REPLACE FUNCTION _jm_f_136(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .keybinding.universal.gotoBottom
-  res := json_model_4(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
--- check _jm_f_123_map_gotoTop (.keybinding.universal.gotoTop)
-CREATE OR REPLACE FUNCTION _jm_f_137(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .keybinding.universal.gotoTop
-  res := json_model_4(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
--- check _jm_f_123_map_increaseContextInDiffView (.keybinding.universal.increaseContextInDiffView)
-CREATE OR REPLACE FUNCTION _jm_f_138(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .keybinding.universal.increaseContextInDiffView
-  res := json_model_4(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
--- check _jm_f_123_map_jumpToBlock (.keybinding.universal.jumpToBlock)
-CREATE OR REPLACE FUNCTION _jm_f_139(val JSONB, path TEXT[], rep jm_report_entry[])
+-- check _jm_f_64_map_jumpToBlock (.keybinding.universal.jumpToBlock)
+CREATE OR REPLACE FUNCTION _jm_f_65(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -2949,140 +2061,8 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_f_123_map_new (.keybinding.universal.new)
-CREATE OR REPLACE FUNCTION _jm_f_140(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .keybinding.universal.new
-  res := json_model_4(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
--- check _jm_f_123_map_nextBlock (.keybinding.universal.nextBlock)
-CREATE OR REPLACE FUNCTION _jm_f_141(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .keybinding.universal.nextBlock
-  res := json_model_4(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
--- check _jm_f_123_map_nextBlock-alt (.keybinding.universal.'nextBlock-alt')
-CREATE OR REPLACE FUNCTION _jm_f_142(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .keybinding.universal.'nextBlock-alt'
-  res := json_model_4(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
--- check _jm_f_123_map_nextItem (.keybinding.universal.nextItem)
-CREATE OR REPLACE FUNCTION _jm_f_143(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .keybinding.universal.nextItem
-  res := json_model_4(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
--- check _jm_f_123_map_nextItem-alt (.keybinding.universal.'nextItem-alt')
-CREATE OR REPLACE FUNCTION _jm_f_144(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .keybinding.universal.'nextItem-alt'
-  res := json_model_4(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
--- check _jm_f_123_map_nextMatch (.keybinding.universal.nextMatch)
-CREATE OR REPLACE FUNCTION _jm_f_145(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .keybinding.universal.nextMatch
-  res := json_model_4(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
--- check _jm_f_123_map_nextPage (.keybinding.universal.nextPage)
-CREATE OR REPLACE FUNCTION _jm_f_146(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .keybinding.universal.nextPage
-  res := json_model_4(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
--- check _jm_f_123_map_nextScreenMode (.keybinding.universal.nextScreenMode)
-CREATE OR REPLACE FUNCTION _jm_f_147(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .keybinding.universal.nextScreenMode
-  res := json_model_4(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
--- check _jm_f_123_map_nextTab (.keybinding.universal.nextTab)
-CREATE OR REPLACE FUNCTION _jm_f_148(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .keybinding.universal.nextTab
-  res := json_model_4(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
--- check _jm_f_123_map_openFile (.keybinding.universal.openFile)
-CREATE OR REPLACE FUNCTION _jm_f_149(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .keybinding.universal.openFile
-  res := json_model_4(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
--- check _jm_f_123_map_openRecentRepos (.keybinding.universal.openRecentRepos)
-CREATE OR REPLACE FUNCTION _jm_f_150(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .keybinding.universal.openRecentRepos
-  res := json_model_4(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
--- check _jm_f_123_map_optionMenu (.keybinding.universal.optionMenu)
-CREATE OR REPLACE FUNCTION _jm_f_151(val JSONB, path TEXT[], rep jm_report_entry[])
+-- check _jm_f_64_map_optionMenu (.keybinding.universal.optionMenu)
+CREATE OR REPLACE FUNCTION _jm_f_66(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -3093,389 +2073,17 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_f_123_map_optionMenu-alt1 (.keybinding.universal.'optionMenu-alt1')
-CREATE OR REPLACE FUNCTION _jm_f_152(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .keybinding.universal.'optionMenu-alt1'
-  res := json_model_4(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
--- check _jm_f_123_map_prevBlock (.keybinding.universal.prevBlock)
-CREATE OR REPLACE FUNCTION _jm_f_153(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .keybinding.universal.prevBlock
-  res := json_model_4(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
--- check _jm_f_123_map_prevBlock-alt (.keybinding.universal.'prevBlock-alt')
-CREATE OR REPLACE FUNCTION _jm_f_154(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .keybinding.universal.'prevBlock-alt'
-  res := json_model_4(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
--- check _jm_f_123_map_prevItem (.keybinding.universal.prevItem)
-CREATE OR REPLACE FUNCTION _jm_f_155(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .keybinding.universal.prevItem
-  res := json_model_4(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
--- check _jm_f_123_map_prevItem-alt (.keybinding.universal.'prevItem-alt')
-CREATE OR REPLACE FUNCTION _jm_f_156(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .keybinding.universal.'prevItem-alt'
-  res := json_model_4(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
--- check _jm_f_123_map_prevMatch (.keybinding.universal.prevMatch)
-CREATE OR REPLACE FUNCTION _jm_f_157(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .keybinding.universal.prevMatch
-  res := json_model_4(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
--- check _jm_f_123_map_prevPage (.keybinding.universal.prevPage)
-CREATE OR REPLACE FUNCTION _jm_f_158(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .keybinding.universal.prevPage
-  res := json_model_4(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
--- check _jm_f_123_map_prevScreenMode (.keybinding.universal.prevScreenMode)
-CREATE OR REPLACE FUNCTION _jm_f_159(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .keybinding.universal.prevScreenMode
-  res := json_model_4(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
--- check _jm_f_123_map_prevTab (.keybinding.universal.prevTab)
-CREATE OR REPLACE FUNCTION _jm_f_160(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .keybinding.universal.prevTab
-  res := json_model_4(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
--- check _jm_f_123_map_pullFiles (.keybinding.universal.pullFiles)
-CREATE OR REPLACE FUNCTION _jm_f_161(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .keybinding.universal.pullFiles
-  res := json_model_4(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
--- check _jm_f_123_map_pushFiles (.keybinding.universal.pushFiles)
-CREATE OR REPLACE FUNCTION _jm_f_162(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .keybinding.universal.pushFiles
-  res := json_model_4(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
--- check _jm_f_123_map_quit (.keybinding.universal.quit)
-CREATE OR REPLACE FUNCTION _jm_f_163(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .keybinding.universal.quit
-  res := json_model_4(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
--- check _jm_f_123_map_quit-alt1 (.keybinding.universal.'quit-alt1')
-CREATE OR REPLACE FUNCTION _jm_f_164(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .keybinding.universal.'quit-alt1'
-  res := json_model_4(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
--- check _jm_f_123_map_quitWithoutChangingDirectory (.keybinding.universal.quitWithoutChangingDirectory)
-CREATE OR REPLACE FUNCTION _jm_f_165(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .keybinding.universal.quitWithoutChangingDirectory
-  res := json_model_4(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
--- check _jm_f_123_map_redo (.keybinding.universal.redo)
-CREATE OR REPLACE FUNCTION _jm_f_166(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .keybinding.universal.redo
-  res := json_model_4(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
--- check _jm_f_123_map_refresh (.keybinding.universal.refresh)
-CREATE OR REPLACE FUNCTION _jm_f_167(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .keybinding.universal.refresh
-  res := json_model_4(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
--- check _jm_f_123_map_remove (.keybinding.universal.remove)
-CREATE OR REPLACE FUNCTION _jm_f_168(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .keybinding.universal.remove
-  res := json_model_4(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
--- check _jm_f_123_map_return (.keybinding.universal.return)
-CREATE OR REPLACE FUNCTION _jm_f_169(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .keybinding.universal.return
-  res := json_model_4(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
--- check _jm_f_123_map_scrollDownMain (.keybinding.universal.scrollDownMain)
-CREATE OR REPLACE FUNCTION _jm_f_170(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .keybinding.universal.scrollDownMain
-  res := json_model_4(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
--- check _jm_f_123_map_scrollDownMain-alt1 (.keybinding.universal.'scrollDownMain-alt1')
-CREATE OR REPLACE FUNCTION _jm_f_171(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .keybinding.universal.'scrollDownMain-alt1'
-  res := json_model_4(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
--- check _jm_f_123_map_scrollDownMain-alt2 (.keybinding.universal.'scrollDownMain-alt2')
-CREATE OR REPLACE FUNCTION _jm_f_172(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .keybinding.universal.'scrollDownMain-alt2'
-  res := json_model_4(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
--- check _jm_f_123_map_scrollLeft (.keybinding.universal.scrollLeft)
-CREATE OR REPLACE FUNCTION _jm_f_173(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .keybinding.universal.scrollLeft
-  res := json_model_4(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
--- check _jm_f_123_map_scrollRight (.keybinding.universal.scrollRight)
-CREATE OR REPLACE FUNCTION _jm_f_174(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .keybinding.universal.scrollRight
-  res := json_model_4(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
--- check _jm_f_123_map_scrollUpMain (.keybinding.universal.scrollUpMain)
-CREATE OR REPLACE FUNCTION _jm_f_175(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .keybinding.universal.scrollUpMain
-  res := json_model_4(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
--- check _jm_f_123_map_scrollUpMain-alt1 (.keybinding.universal.'scrollUpMain-alt1')
-CREATE OR REPLACE FUNCTION _jm_f_176(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .keybinding.universal.'scrollUpMain-alt1'
-  res := json_model_4(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
--- check _jm_f_123_map_scrollUpMain-alt2 (.keybinding.universal.'scrollUpMain-alt2')
-CREATE OR REPLACE FUNCTION _jm_f_177(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .keybinding.universal.'scrollUpMain-alt2'
-  res := json_model_4(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
--- check _jm_f_123_map_select (.keybinding.universal.select)
-CREATE OR REPLACE FUNCTION _jm_f_178(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .keybinding.universal.select
-  res := json_model_4(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
--- check _jm_f_123_map_submitEditorText (.keybinding.universal.submitEditorText)
-CREATE OR REPLACE FUNCTION _jm_f_179(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .keybinding.universal.submitEditorText
-  res := json_model_4(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
--- check _jm_f_123_map_togglePanel (.keybinding.universal.togglePanel)
-CREATE OR REPLACE FUNCTION _jm_f_180(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .keybinding.universal.togglePanel
-  res := json_model_4(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
--- check _jm_f_123_map_toggleWhitespaceInDiffView (.keybinding.universal.toggleWhitespaceInDiffView)
-CREATE OR REPLACE FUNCTION _jm_f_181(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .keybinding.universal.toggleWhitespaceInDiffView
-  res := json_model_4(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
--- check _jm_f_123_map_undo (.keybinding.universal.undo)
-CREATE OR REPLACE FUNCTION _jm_f_182(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .keybinding.universal.undo
-  res := json_model_4(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
-CREATE OR REPLACE FUNCTION _jm_f_123_map(name TEXT)
+CREATE OR REPLACE FUNCTION _jm_f_64_map(name TEXT)
 RETURNS TEXT STRICT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
-  map JSONB := JSONB '{"confirm":"_jm_f_124","copyToClipboard":"_jm_f_125","createPatchOptionsMenu":"_jm_f_126","createRebaseOptionsMenu":"_jm_f_127","decreaseContextInDiffView":"_jm_f_128","diffingMenu":"_jm_f_129","diffingMenu-alt":"_jm_f_130","edit":"_jm_f_131","executeCustomCommand":"_jm_f_132","extrasMenu":"_jm_f_133","filteringMenu":"_jm_f_134","goInto":"_jm_f_135","gotoBottom":"_jm_f_136","gotoTop":"_jm_f_137","increaseContextInDiffView":"_jm_f_138","jumpToBlock":"_jm_f_139","new":"_jm_f_140","nextBlock":"_jm_f_141","nextBlock-alt":"_jm_f_142","nextItem":"_jm_f_143","nextItem-alt":"_jm_f_144","nextMatch":"_jm_f_145","nextPage":"_jm_f_146","nextScreenMode":"_jm_f_147","nextTab":"_jm_f_148","openFile":"_jm_f_149","openRecentRepos":"_jm_f_150","optionMenu":"_jm_f_151","optionMenu-alt1":"_jm_f_152","prevBlock":"_jm_f_153","prevBlock-alt":"_jm_f_154","prevItem":"_jm_f_155","prevItem-alt":"_jm_f_156","prevMatch":"_jm_f_157","prevPage":"_jm_f_158","prevScreenMode":"_jm_f_159","prevTab":"_jm_f_160","pullFiles":"_jm_f_161","pushFiles":"_jm_f_162","quit":"_jm_f_163","quit-alt1":"_jm_f_164","quitWithoutChangingDirectory":"_jm_f_165","redo":"_jm_f_166","refresh":"_jm_f_167","remove":"_jm_f_168","return":"_jm_f_169","scrollDownMain":"_jm_f_170","scrollDownMain-alt1":"_jm_f_171","scrollDownMain-alt2":"_jm_f_172","scrollLeft":"_jm_f_173","scrollRight":"_jm_f_174","scrollUpMain":"_jm_f_175","scrollUpMain-alt1":"_jm_f_176","scrollUpMain-alt2":"_jm_f_177","select":"_jm_f_178","submitEditorText":"_jm_f_179","togglePanel":"_jm_f_180","toggleWhitespaceInDiffView":"_jm_f_181","undo":"_jm_f_182"}';
+  map JSONB := JSONB '{"confirm":"json_model_4","copyToClipboard":"json_model_4","createPatchOptionsMenu":"json_model_4","createRebaseOptionsMenu":"json_model_4","decreaseContextInDiffView":"json_model_4","diffingMenu":"json_model_4","diffingMenu-alt":"json_model_4","edit":"json_model_4","executeCustomCommand":"json_model_4","extrasMenu":"json_model_4","filteringMenu":"json_model_4","goInto":"json_model_4","gotoBottom":"json_model_4","gotoTop":"json_model_4","increaseContextInDiffView":"json_model_4","jumpToBlock":"_jm_f_65","new":"json_model_4","nextBlock":"json_model_4","nextBlock-alt":"json_model_4","nextItem":"json_model_4","nextItem-alt":"json_model_4","nextMatch":"json_model_4","nextPage":"json_model_4","nextScreenMode":"json_model_4","nextTab":"json_model_4","openFile":"json_model_4","openRecentRepos":"json_model_4","optionMenu":"_jm_f_66","optionMenu-alt1":"json_model_4","prevBlock":"json_model_4","prevBlock-alt":"json_model_4","prevItem":"json_model_4","prevItem-alt":"json_model_4","prevMatch":"json_model_4","prevPage":"json_model_4","prevScreenMode":"json_model_4","prevTab":"json_model_4","pullFiles":"json_model_4","pushFiles":"json_model_4","quit":"json_model_4","quit-alt1":"json_model_4","quitWithoutChangingDirectory":"json_model_4","redo":"json_model_4","refresh":"json_model_4","remove":"json_model_4","return":"json_model_4","scrollDownMain":"json_model_4","scrollDownMain-alt1":"json_model_4","scrollDownMain-alt2":"json_model_4","scrollLeft":"json_model_4","scrollRight":"json_model_4","scrollUpMain":"json_model_4","scrollUpMain-alt1":"json_model_4","scrollUpMain-alt2":"json_model_4","select":"json_model_4","submitEditorText":"json_model_4","togglePanel":"json_model_4","toggleWhitespaceInDiffView":"json_model_4","undo":"json_model_4"}';
 BEGIN
   RETURN map->>name;
 END;
 $$ LANGUAGE plpgsql;
 
--- check _jm_f_66_map_universal (.keybinding.universal)
-CREATE OR REPLACE FUNCTION _jm_f_123(val JSONB, path TEXT[], rep jm_report_entry[])
+-- check _jm_f_55_map_universal (.keybinding.universal)
+CREATE OR REPLACE FUNCTION _jm_f_64(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   pfun TEXT;
@@ -3487,9 +2095,9 @@ BEGIN
     RETURN FALSE;
   END IF;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF _jm_f_123_map(prop) IS NOT NULL THEN
+    IF _jm_f_64_map(prop) IS NOT NULL THEN
       -- handle 59 may props
-      pfun := _jm_f_123_map(prop);
+      pfun := _jm_f_64_map(prop);
       IF NOT jm_call(pfun, pval, NULL, rep) THEN
         RETURN FALSE;
       END IF;
@@ -3501,17 +2109,17 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
-CREATE OR REPLACE FUNCTION _jm_f_66_map(name TEXT)
+CREATE OR REPLACE FUNCTION _jm_f_55_map(name TEXT)
 RETURNS TEXT STRICT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
-  map JSONB := JSONB '{"branches":"_jm_f_67","commitFiles":"_jm_f_81","commits":"_jm_f_82","files":"_jm_f_104","main":"_jm_f_119","stash":"_jm_f_120","status":"_jm_f_121","submodules":"_jm_f_122","universal":"_jm_f_123"}';
+  map JSONB := JSONB '{"branches":"_jm_f_56","commitFiles":"_jm_f_57","commits":"_jm_f_58","files":"_jm_f_59","main":"_jm_f_60","stash":"_jm_f_61","status":"_jm_f_62","submodules":"_jm_f_63","universal":"_jm_f_64"}';
 BEGIN
   RETURN map->>name;
 END;
 $$ LANGUAGE plpgsql;
 
 -- check json_model_1_map_keybinding (.keybinding)
-CREATE OR REPLACE FUNCTION _jm_f_66(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_55(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   pfun TEXT;
@@ -3523,9 +2131,9 @@ BEGIN
     RETURN FALSE;
   END IF;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF _jm_f_66_map(prop) IS NOT NULL THEN
+    IF _jm_f_55_map(prop) IS NOT NULL THEN
       -- handle 9 may props
-      pfun := _jm_f_66_map(prop);
+      pfun := _jm_f_55_map(prop);
       IF NOT jm_call(pfun, pval, NULL, rep) THEN
         RETURN FALSE;
       END IF;
@@ -3547,7 +2155,7 @@ END;
 $$ LANGUAGE plpgsql;
 
 -- check json_model_1_map_notARepository (.notARepository)
-CREATE OR REPLACE FUNCTION _jm_f_183(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_67(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -3558,8 +2166,8 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_f_184_map_copyToClipboardCmd (.os.copyToClipboardCmd)
-CREATE OR REPLACE FUNCTION _jm_f_185(val JSONB, path TEXT[], rep jm_report_entry[])
+-- check _jm_f_68_map_copyToClipboardCmd (.os.copyToClipboardCmd)
+CREATE OR REPLACE FUNCTION _jm_f_69(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -3570,8 +2178,8 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_f_184_map_edit (.os.edit)
-CREATE OR REPLACE FUNCTION _jm_f_186(val JSONB, path TEXT[], rep jm_report_entry[])
+-- check _jm_f_68_map_edit (.os.edit)
+CREATE OR REPLACE FUNCTION _jm_f_70(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -3582,8 +2190,8 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_f_184_map_editAtLine (.os.editAtLine)
-CREATE OR REPLACE FUNCTION _jm_f_187(val JSONB, path TEXT[], rep jm_report_entry[])
+-- check _jm_f_68_map_editAtLine (.os.editAtLine)
+CREATE OR REPLACE FUNCTION _jm_f_71(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -3594,8 +2202,8 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_f_184_map_editAtLineAndWait (.os.editAtLineAndWait)
-CREATE OR REPLACE FUNCTION _jm_f_188(val JSONB, path TEXT[], rep jm_report_entry[])
+-- check _jm_f_68_map_editAtLineAndWait (.os.editAtLineAndWait)
+CREATE OR REPLACE FUNCTION _jm_f_72(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -3615,8 +2223,8 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
--- check _jm_f_184_map_editPreset (.os.editPreset)
-CREATE OR REPLACE FUNCTION _jm_f_189(val JSONB, path TEXT[], rep jm_report_entry[])
+-- check _jm_f_68_map_editPreset (.os.editPreset)
+CREATE OR REPLACE FUNCTION _jm_f_73(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -3634,8 +2242,8 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_f_184_map_open (.os.open)
-CREATE OR REPLACE FUNCTION _jm_f_190(val JSONB, path TEXT[], rep jm_report_entry[])
+-- check _jm_f_68_map_open (.os.open)
+CREATE OR REPLACE FUNCTION _jm_f_74(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -3646,8 +2254,8 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_f_184_map_openLink (.os.openLink)
-CREATE OR REPLACE FUNCTION _jm_f_191(val JSONB, path TEXT[], rep jm_report_entry[])
+-- check _jm_f_68_map_openLink (.os.openLink)
+CREATE OR REPLACE FUNCTION _jm_f_75(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -3658,17 +2266,17 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
-CREATE OR REPLACE FUNCTION _jm_f_184_map(name TEXT)
+CREATE OR REPLACE FUNCTION _jm_f_68_map(name TEXT)
 RETURNS TEXT STRICT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
-  map JSONB := JSONB '{"copyToClipboardCmd":"_jm_f_185","edit":"_jm_f_186","editAtLine":"_jm_f_187","editAtLineAndWait":"_jm_f_188","editPreset":"_jm_f_189","open":"_jm_f_190","openLink":"_jm_f_191"}';
+  map JSONB := JSONB '{"copyToClipboardCmd":"_jm_f_69","edit":"_jm_f_70","editAtLine":"_jm_f_71","editAtLineAndWait":"_jm_f_72","editPreset":"_jm_f_73","open":"_jm_f_74","openLink":"_jm_f_75"}';
 BEGIN
   RETURN map->>name;
 END;
 $$ LANGUAGE plpgsql;
 
 -- check json_model_1_map_os (.os)
-CREATE OR REPLACE FUNCTION _jm_f_184(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_68(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   pfun TEXT;
@@ -3680,9 +2288,9 @@ BEGIN
     RETURN FALSE;
   END IF;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF _jm_f_184_map(prop) IS NOT NULL THEN
+    IF _jm_f_68_map(prop) IS NOT NULL THEN
       -- handle 7 may props
-      pfun := _jm_f_184_map(prop);
+      pfun := _jm_f_68_map(prop);
       IF NOT jm_call(pfun, pval, NULL, rep) THEN
         RETURN FALSE;
       END IF;
@@ -3695,7 +2303,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_1_map_promptToReturnFromSubprocess (.promptToReturnFromSubprocess)
-CREATE OR REPLACE FUNCTION _jm_f_192(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_76(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -3707,7 +2315,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_1_map_quitOnTopLevelReturn (.quitOnTopLevelReturn)
-CREATE OR REPLACE FUNCTION _jm_f_193(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_77(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -3719,7 +2327,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_1_map_refresher (.refresher)
-CREATE OR REPLACE FUNCTION _jm_f_194(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_78(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -3762,7 +2370,7 @@ END;
 $$ LANGUAGE plpgsql;
 
 -- check json_model_1_map_services (.services)
-CREATE OR REPLACE FUNCTION _jm_f_195(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_79(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -3800,7 +2408,7 @@ END;
 $$ LANGUAGE plpgsql;
 
 -- check json_model_1_map_update (.update)
-CREATE OR REPLACE FUNCTION _jm_f_196(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_80(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -3837,7 +2445,7 @@ $$ LANGUAGE PLpgSQL;
 CREATE OR REPLACE FUNCTION json_model_1_map(name TEXT)
 RETURNS TEXT STRICT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
-  map JSONB := JSONB '{"confirmOnQuit":"_jm_f_0","customCommands":"_jm_f_1","disableStartupPopups":"_jm_f_9","git":"_jm_f_10","gui":"_jm_f_27","keybinding":"_jm_f_66","notARepository":"_jm_f_183","os":"_jm_f_184","promptToReturnFromSubprocess":"_jm_f_192","quitOnTopLevelReturn":"_jm_f_193","refresher":"_jm_f_194","services":"_jm_f_195","update":"_jm_f_196"}';
+  map JSONB := JSONB '{"confirmOnQuit":"_jm_f_0","customCommands":"_jm_f_1","disableStartupPopups":"_jm_f_9","git":"_jm_f_10","gui":"_jm_f_26","keybinding":"_jm_f_55","notARepository":"_jm_f_67","os":"_jm_f_68","promptToReturnFromSubprocess":"_jm_f_76","quitOnTopLevelReturn":"_jm_f_77","refresher":"_jm_f_78","services":"_jm_f_79","update":"_jm_f_80"}';
 BEGIN
   RETURN map->>name;
 END;

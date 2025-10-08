@@ -899,21 +899,8 @@ public class pgxn extends ModelChecker
         return true;
     }
 
-    // check json_model_1_mup_name (.name)
-    public boolean _jm_f_4(Object val, Path path, Report rep)
-    {
-        boolean res;
-        // .name
-        res = json_model_2(val, path, rep);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected $neStr [.name]", path);
-        }
-        return res;
-    }
-
     // check json_model_1_mup_provides (.provides)
-    public boolean _jm_f_5(Object val, Path path, Report rep)
+    public boolean _jm_f_4(Object val, Path path, Report rep)
     {
         // .provides
         if (! json.isObject(val))
@@ -941,7 +928,7 @@ public class pgxn extends ModelChecker
     }
 
     // check json_model_1_mup_version (.version)
-    public boolean _jm_f_6(Object val, Path path, Report rep)
+    public boolean _jm_f_5(Object val, Path path, Report rep)
     {
         boolean res;
         // .version
@@ -955,7 +942,7 @@ public class pgxn extends ModelChecker
 
 
     // check json_model_1_map_description (.description)
-    public boolean _jm_f_7(Object val, Path path, Report rep)
+    public boolean _jm_f_6(Object val, Path path, Report rep)
     {
         boolean res;
         // .description
@@ -968,7 +955,7 @@ public class pgxn extends ModelChecker
     }
 
     // check json_model_1_map_generated_by (.generated_by)
-    public boolean _jm_f_8(Object val, Path path, Report rep)
+    public boolean _jm_f_7(Object val, Path path, Report rep)
     {
         boolean res;
         // .generated_by
@@ -981,7 +968,7 @@ public class pgxn extends ModelChecker
     }
 
     // check json_model_1_map_no_index (.no_index)
-    public boolean _jm_f_9(Object val, Path path, Report rep)
+    public boolean _jm_f_8(Object val, Path path, Report rep)
     {
         // .no_index
         if (! json.isObject(val))
@@ -1029,60 +1016,8 @@ public class pgxn extends ModelChecker
         return true;
     }
 
-    // check json_model_1_map_prereqs (.prereqs)
-    public boolean _jm_f_10(Object val, Path path, Report rep)
-    {
-        boolean res;
-        // .prereqs
-        res = json_model_16(val, path, rep);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected $Prereqs [.prereqs]", path);
-        }
-        return res;
-    }
-
-    // check json_model_1_map_release_status (.release_status)
-    public boolean _jm_f_11(Object val, Path path, Report rep)
-    {
-        boolean res;
-        // .release_status
-        res = json_model_7(val, path, rep);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected $Status [.release_status]", path);
-        }
-        return res;
-    }
-
-    // check json_model_1_map_resources (.resources)
-    public boolean _jm_f_12(Object val, Path path, Report rep)
-    {
-        boolean res;
-        // .resources
-        res = json_model_8(val, path, rep);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected $Resources [.resources]", path);
-        }
-        return res;
-    }
-
-    // check json_model_1_map_tags (.tags)
-    public boolean _jm_f_13(Object val, Path path, Report rep)
-    {
-        boolean res;
-        // .tags
-        res = json_model_3(val, path, rep);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected $neStrList [.tags]", path);
-        }
-        return res;
-    }
-
     // check json_model_1_map_url (.url)
-    public boolean _jm_f_14(Object val, Path path, Report rep)
+    public boolean _jm_f_9(Object val, Path path, Report rep)
     {
         boolean res;
         // .url
@@ -1250,18 +1185,18 @@ public class pgxn extends ModelChecker
             json_model_1_mup_pmap.put("license", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_1(o, p, r);} });
             json_model_1_mup_pmap.put("maintainer", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_2(o, p, r);} });
             json_model_1_mup_pmap.put("meta-spec", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_3(o, p, r);} });
-            json_model_1_mup_pmap.put("name", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_4(o, p, r);} });
-            json_model_1_mup_pmap.put("provides", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_5(o, p, r);} });
-            json_model_1_mup_pmap.put("version", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_6(o, p, r);} });
+            json_model_1_mup_pmap.put("name", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_2(o, p, r);} });
+            json_model_1_mup_pmap.put("provides", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_4(o, p, r);} });
+            json_model_1_mup_pmap.put("version", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_5(o, p, r);} });
             json_model_1_map_pmap = new HashMap<String, Checker>();
-            json_model_1_map_pmap.put("description", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_7(o, p, r);} });
-            json_model_1_map_pmap.put("generated_by", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_8(o, p, r);} });
-            json_model_1_map_pmap.put("no_index", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_9(o, p, r);} });
-            json_model_1_map_pmap.put("prereqs", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_10(o, p, r);} });
-            json_model_1_map_pmap.put("release_status", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_11(o, p, r);} });
-            json_model_1_map_pmap.put("resources", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_12(o, p, r);} });
-            json_model_1_map_pmap.put("tags", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_13(o, p, r);} });
-            json_model_1_map_pmap.put("url", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_14(o, p, r);} });
+            json_model_1_map_pmap.put("description", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_6(o, p, r);} });
+            json_model_1_map_pmap.put("generated_by", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_7(o, p, r);} });
+            json_model_1_map_pmap.put("no_index", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_8(o, p, r);} });
+            json_model_1_map_pmap.put("prereqs", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_16(o, p, r);} });
+            json_model_1_map_pmap.put("release_status", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_7(o, p, r);} });
+            json_model_1_map_pmap.put("resources", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_8(o, p, r);} });
+            json_model_1_map_pmap.put("tags", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_3(o, p, r);} });
+            json_model_1_map_pmap.put("url", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_9(o, p, r);} });
             pgxn_map_pmap = new HashMap<String, Checker>();
             pgxn_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_1(o, p, r);} });
             pgxn_map_pmap.put("neStr", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_2(o, p, r);} });

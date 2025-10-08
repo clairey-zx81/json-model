@@ -39,21 +39,8 @@ function json_model_2(val, path, rep)
     return res;
 }
 
-// check json_model_3_map_$anchor (.'$core'.'$anchor')
-function _jm_f_0(val, path, rep)
-{
-    let res;
-    // .'$core'.'$anchor'
-    res = json_model_2(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $URI-REFERENCE [.'$core'.'$anchor']", path])
-    }
-    return res;
-}
-
 // check json_model_3_map_$comment (.'$core'.'$comment')
-function _jm_f_1(val, path, rep)
+function _jm_f_0(val, path, rep)
 {
     let res;
     // .'$core'.'$comment'
@@ -66,7 +53,7 @@ function _jm_f_1(val, path, rep)
 }
 
 // check json_model_3_map_$defs (.'$core'.'$defs')
-function _jm_f_2(val, path, rep)
+function _jm_f_1(val, path, rep)
 {
     // .'$core'.'$defs'
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
@@ -90,60 +77,8 @@ function _jm_f_2(val, path, rep)
     return true;
 }
 
-// check json_model_3_map_$dynamicAnchor (.'$core'.'$dynamicAnchor')
-function _jm_f_3(val, path, rep)
-{
-    let res;
-    // .'$core'.'$dynamicAnchor'
-    res = json_model_2(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $URI-REFERENCE [.'$core'.'$dynamicAnchor']", path])
-    }
-    return res;
-}
-
-// check json_model_3_map_$dynamicRef (.'$core'.'$dynamicRef')
-function _jm_f_4(val, path, rep)
-{
-    let res;
-    // .'$core'.'$dynamicRef'
-    res = json_model_2(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $URI-REFERENCE [.'$core'.'$dynamicRef']", path])
-    }
-    return res;
-}
-
-// check json_model_3_map_$id (.'$core'.'$id')
-function _jm_f_5(val, path, rep)
-{
-    let res;
-    // .'$core'.'$id'
-    res = json_model_2(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $URI-REFERENCE [.'$core'.'$id']", path])
-    }
-    return res;
-}
-
-// check json_model_3_map_$ref (.'$core'.'$ref')
-function _jm_f_6(val, path, rep)
-{
-    let res;
-    // .'$core'.'$ref'
-    res = json_model_2(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $URI-REFERENCE [.'$core'.'$ref']", path])
-    }
-    return res;
-}
-
 // check json_model_3_map_$schema (.'$core'.'$schema')
-function _jm_f_7(val, path, rep)
+function _jm_f_2(val, path, rep)
 {
     let res;
     // .'$core'.'$schema'
@@ -156,7 +91,7 @@ function _jm_f_7(val, path, rep)
 }
 
 // check json_model_3_map_$vocabulary (.'$core'.'$vocabulary')
-function _jm_f_8(val, path, rep)
+function _jm_f_3(val, path, rep)
 {
     // .'$core'.'$vocabulary'
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
@@ -221,7 +156,7 @@ function json_model_3(val, path, rep)
 }
 
 // check json_model_4_map_default (.'$meta'.default)
-function _jm_f_9(val, path, rep)
+function _jm_f_4(val, path, rep)
 {
     let res;
     // .'$meta'.default
@@ -234,7 +169,7 @@ function _jm_f_9(val, path, rep)
 }
 
 // check json_model_4_map_deprecated (.'$meta'.deprecated)
-function _jm_f_10(val, path, rep)
+function _jm_f_5(val, path, rep)
 {
     let res;
     // .'$meta'.deprecated
@@ -247,7 +182,7 @@ function _jm_f_10(val, path, rep)
 }
 
 // check json_model_4_map_description (.'$meta'.description)
-function _jm_f_11(val, path, rep)
+function _jm_f_6(val, path, rep)
 {
     let res;
     // .'$meta'.description
@@ -260,7 +195,7 @@ function _jm_f_11(val, path, rep)
 }
 
 // check json_model_4_map_examples (.'$meta'.examples)
-function _jm_f_12(val, path, rep)
+function _jm_f_7(val, path, rep)
 {
     let res;
     // .'$meta'.examples
@@ -273,7 +208,7 @@ function _jm_f_12(val, path, rep)
 }
 
 // check json_model_4_map_readOnly (.'$meta'.readOnly)
-function _jm_f_13(val, path, rep)
+function _jm_f_8(val, path, rep)
 {
     let res;
     // .'$meta'.readOnly
@@ -286,7 +221,7 @@ function _jm_f_13(val, path, rep)
 }
 
 // check json_model_4_map_title (.'$meta'.title)
-function _jm_f_14(val, path, rep)
+function _jm_f_9(val, path, rep)
 {
     let res;
     // .'$meta'.title
@@ -299,7 +234,7 @@ function _jm_f_14(val, path, rep)
 }
 
 // check json_model_4_map_writeOnly (.'$meta'.writeOnly)
-function _jm_f_15(val, path, rep)
+function _jm_f_10(val, path, rep)
 {
     let res;
     // .'$meta'.writeOnly
@@ -720,7 +655,7 @@ function json_model_8(val, path, rep)
 }
 
 // check json_model_9_map_contentEncoding (.'$String'.contentEncoding)
-function _jm_f_16(val, path, rep)
+function _jm_f_11(val, path, rep)
 {
     let res;
     // .'$String'.contentEncoding
@@ -733,7 +668,7 @@ function _jm_f_16(val, path, rep)
 }
 
 // check json_model_9_map_contentMediaType (.'$String'.contentMediaType)
-function _jm_f_17(val, path, rep)
+function _jm_f_12(val, path, rep)
 {
     let res;
     // .'$String'.contentMediaType
@@ -745,21 +680,8 @@ function _jm_f_17(val, path, rep)
     return res;
 }
 
-// check json_model_9_map_contentSchema (.'$String'.contentSchema)
-function _jm_f_18(val, path, rep)
-{
-    let res;
-    // .'$String'.contentSchema
-    res = json_model_16(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $Schema [.'$String'.contentSchema]", path])
-    }
-    return res;
-}
-
 // check json_model_9_map_format (.'$String'.format)
-function _jm_f_19(val, path, rep)
+function _jm_f_13(val, path, rep)
 {
     let res;
     // .'$String'.format
@@ -772,7 +694,7 @@ function _jm_f_19(val, path, rep)
 }
 
 // check json_model_9_map_maxLength (.'$String'.maxLength)
-function _jm_f_20(val, path, rep)
+function _jm_f_14(val, path, rep)
 {
     let res;
     // .'$String'.maxLength
@@ -785,7 +707,7 @@ function _jm_f_20(val, path, rep)
 }
 
 // check json_model_9_map_minLength (.'$String'.minLength)
-function _jm_f_21(val, path, rep)
+function _jm_f_15(val, path, rep)
 {
     let res;
     // .'$String'.minLength
@@ -798,7 +720,7 @@ function _jm_f_21(val, path, rep)
 }
 
 // check json_model_9_map_pattern (.'$String'.pattern)
-function _jm_f_22(val, path, rep)
+function _jm_f_16(val, path, rep)
 {
     let res;
     // .'$String'.pattern
@@ -944,34 +866,8 @@ function json_model_11(val, path, rep)
     return res;
 }
 
-// check json_model_12_map_contains (.'$Array'.contains)
-function _jm_f_23(val, path, rep)
-{
-    let res;
-    // .'$Array'.contains
-    res = json_model_16(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $Schema [.'$Array'.contains]", path])
-    }
-    return res;
-}
-
-// check json_model_12_map_items (.'$Array'.items)
-function _jm_f_24(val, path, rep)
-{
-    let res;
-    // .'$Array'.items
-    res = json_model_16(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $Schema [.'$Array'.items]", path])
-    }
-    return res;
-}
-
 // check json_model_12_map_maxContains (.'$Array'.maxContains)
-function _jm_f_25(val, path, rep)
+function _jm_f_17(val, path, rep)
 {
     let res;
     // .'$Array'.maxContains
@@ -984,7 +880,7 @@ function _jm_f_25(val, path, rep)
 }
 
 // check json_model_12_map_maxItems (.'$Array'.maxItems)
-function _jm_f_26(val, path, rep)
+function _jm_f_18(val, path, rep)
 {
     let res;
     // .'$Array'.maxItems
@@ -997,7 +893,7 @@ function _jm_f_26(val, path, rep)
 }
 
 // check json_model_12_map_minContains (.'$Array'.minContains)
-function _jm_f_27(val, path, rep)
+function _jm_f_19(val, path, rep)
 {
     let res;
     // .'$Array'.minContains
@@ -1010,7 +906,7 @@ function _jm_f_27(val, path, rep)
 }
 
 // check json_model_12_map_minItems (.'$Array'.minItems)
-function _jm_f_28(val, path, rep)
+function _jm_f_20(val, path, rep)
 {
     let res;
     // .'$Array'.minItems
@@ -1022,34 +918,8 @@ function _jm_f_28(val, path, rep)
     return res;
 }
 
-// check json_model_12_map_prefixItems (.'$Array'.prefixItems)
-function _jm_f_29(val, path, rep)
-{
-    let res;
-    // .'$Array'.prefixItems
-    res = json_model_11(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $schemaArray [.'$Array'.prefixItems]", path])
-    }
-    return res;
-}
-
-// check json_model_12_map_unevaluatedItems (.'$Array'.unevaluatedItems)
-function _jm_f_30(val, path, rep)
-{
-    let res;
-    // .'$Array'.unevaluatedItems
-    res = json_model_16(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $Schema [.'$Array'.unevaluatedItems]", path])
-    }
-    return res;
-}
-
 // check json_model_12_map_uniqueItems (.'$Array'.uniqueItems)
-function _jm_f_31(val, path, rep)
+function _jm_f_21(val, path, rep)
 {
     let res;
     // .'$Array'.uniqueItems
@@ -1119,21 +989,8 @@ function json_model_12(val, path, rep)
     return true;
 }
 
-// check json_model_13_map_additionalProperties (.'$Object'.additionalProperties)
-function _jm_f_32(val, path, rep)
-{
-    let res;
-    // .'$Object'.additionalProperties
-    res = json_model_16(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $Schema [.'$Object'.additionalProperties]", path])
-    }
-    return res;
-}
-
 // check json_model_13_map_dependentRequired (.'$Object'.dependentRequired)
-function _jm_f_33(val, path, rep)
+function _jm_f_22(val, path, rep)
 {
     // .'$Object'.dependentRequired
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
@@ -1158,7 +1015,7 @@ function _jm_f_33(val, path, rep)
 }
 
 // check json_model_13_map_dependentSchemas (.'$Object'.dependentSchemas)
-function _jm_f_34(val, path, rep)
+function _jm_f_23(val, path, rep)
 {
     // .'$Object'.dependentSchemas
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
@@ -1183,7 +1040,7 @@ function _jm_f_34(val, path, rep)
 }
 
 // check json_model_13_map_maxProperties (.'$Object'.maxProperties)
-function _jm_f_35(val, path, rep)
+function _jm_f_24(val, path, rep)
 {
     let res;
     // .'$Object'.maxProperties
@@ -1196,7 +1053,7 @@ function _jm_f_35(val, path, rep)
 }
 
 // check json_model_13_map_minProperties (.'$Object'.minProperties)
-function _jm_f_36(val, path, rep)
+function _jm_f_25(val, path, rep)
 {
     let res;
     // .'$Object'.minProperties
@@ -1209,7 +1066,7 @@ function _jm_f_36(val, path, rep)
 }
 
 // check json_model_13_map_patternProperties (.'$Object'.patternProperties)
-function _jm_f_37(val, path, rep)
+function _jm_f_26(val, path, rep)
 {
     // .'$Object'.patternProperties
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
@@ -1242,7 +1099,7 @@ function _jm_f_37(val, path, rep)
 }
 
 // check json_model_13_map_properties (.'$Object'.properties)
-function _jm_f_38(val, path, rep)
+function _jm_f_27(val, path, rep)
 {
     // .'$Object'.properties
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
@@ -1264,45 +1121,6 @@ function _jm_f_38(val, path, rep)
         }
     }
     return true;
-}
-
-// check json_model_13_map_propertyNames (.'$Object'.propertyNames)
-function _jm_f_39(val, path, rep)
-{
-    let res;
-    // .'$Object'.propertyNames
-    res = json_model_16(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $Schema [.'$Object'.propertyNames]", path])
-    }
-    return res;
-}
-
-// check json_model_13_map_required (.'$Object'.required)
-function _jm_f_40(val, path, rep)
-{
-    let res;
-    // .'$Object'.required
-    res = json_model_10(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $stringArray [.'$Object'.required]", path])
-    }
-    return res;
-}
-
-// check json_model_13_map_unevaluatedProperties (.'$Object'.unevaluatedProperties)
-function _jm_f_41(val, path, rep)
-{
-    let res;
-    // .'$Object'.unevaluatedProperties
-    res = json_model_16(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $Schema [.'$Object'.unevaluatedProperties]", path])
-    }
-    return res;
 }
 
 
@@ -1363,34 +1181,8 @@ function json_model_13(val, path, rep)
     return true;
 }
 
-// check json_model_14_map_allOf (.'$Misc'.allOf)
-function _jm_f_42(val, path, rep)
-{
-    let res;
-    // .'$Misc'.allOf
-    res = json_model_11(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $schemaArray [.'$Misc'.allOf]", path])
-    }
-    return res;
-}
-
-// check json_model_14_map_anyOf (.'$Misc'.anyOf)
-function _jm_f_43(val, path, rep)
-{
-    let res;
-    // .'$Misc'.anyOf
-    res = json_model_11(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $schemaArray [.'$Misc'.anyOf]", path])
-    }
-    return res;
-}
-
 // check json_model_14_map_const (.'$Misc'.const)
-function _jm_f_44(val, path, rep)
+function _jm_f_28(val, path, rep)
 {
     let res;
     // .'$Misc'.const
@@ -1402,21 +1194,8 @@ function _jm_f_44(val, path, rep)
     return res;
 }
 
-// check json_model_14_map_else (.'$Misc'.else)
-function _jm_f_45(val, path, rep)
-{
-    let res;
-    // .'$Misc'.else
-    res = json_model_16(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $Schema [.'$Misc'.else]", path])
-    }
-    return res;
-}
-
 // check json_model_14_map_enum (.'$Misc'.enum)
-function _jm_f_46(val, path, rep)
+function _jm_f_29(val, path, rep)
 {
     let res;
     // .'$Misc'.enum
@@ -1424,58 +1203,6 @@ function _jm_f_46(val, path, rep)
     if (! res)
     {
         rep !== null && rep.push(["not array or unexpected array [.'$Misc'.enum]", path])
-    }
-    return res;
-}
-
-// check json_model_14_map_if (.'$Misc'.if)
-function _jm_f_47(val, path, rep)
-{
-    let res;
-    // .'$Misc'.if
-    res = json_model_16(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $Schema [.'$Misc'.if]", path])
-    }
-    return res;
-}
-
-// check json_model_14_map_not (.'$Misc'.not)
-function _jm_f_48(val, path, rep)
-{
-    let res;
-    // .'$Misc'.not
-    res = json_model_16(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $Schema [.'$Misc'.not]", path])
-    }
-    return res;
-}
-
-// check json_model_14_map_oneOf (.'$Misc'.oneOf)
-function _jm_f_49(val, path, rep)
-{
-    let res;
-    // .'$Misc'.oneOf
-    res = json_model_11(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $schemaArray [.'$Misc'.oneOf]", path])
-    }
-    return res;
-}
-
-// check json_model_14_map_then (.'$Misc'.then)
-function _jm_f_50(val, path, rep)
-{
-    let res;
-    // .'$Misc'.then
-    res = json_model_16(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $Schema [.'$Misc'.then]", path])
     }
     return res;
 }
@@ -1512,21 +1239,8 @@ function json_model_14(val, path, rep)
     return true;
 }
 
-// check _jm_obj_0_map_$anchor (.'$TightSchema'.'|'.0.'$anchor')
-function _jm_f_51(val, path, rep)
-{
-    let res;
-    // .'$TightSchema'.'|'.0.'$anchor'
-    res = json_model_2(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $URI-REFERENCE [.'$TightSchema'.'|'.0.'$anchor']", path])
-    }
-    return res;
-}
-
 // check _jm_obj_0_map_$comment (.'$TightSchema'.'|'.0.'$comment')
-function _jm_f_52(val, path, rep)
+function _jm_f_30(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.0.'$comment'
@@ -1539,7 +1253,7 @@ function _jm_f_52(val, path, rep)
 }
 
 // check _jm_obj_0_map_$defs (.'$TightSchema'.'|'.0.'$defs')
-function _jm_f_53(val, path, rep)
+function _jm_f_31(val, path, rep)
 {
     // .'$TightSchema'.'|'.0.'$defs'
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
@@ -1563,60 +1277,8 @@ function _jm_f_53(val, path, rep)
     return true;
 }
 
-// check _jm_obj_0_map_$dynamicAnchor (.'$TightSchema'.'|'.0.'$dynamicAnchor')
-function _jm_f_54(val, path, rep)
-{
-    let res;
-    // .'$TightSchema'.'|'.0.'$dynamicAnchor'
-    res = json_model_2(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $URI-REFERENCE [.'$TightSchema'.'|'.0.'$dynamicAnchor']", path])
-    }
-    return res;
-}
-
-// check _jm_obj_0_map_$dynamicRef (.'$TightSchema'.'|'.0.'$dynamicRef')
-function _jm_f_55(val, path, rep)
-{
-    let res;
-    // .'$TightSchema'.'|'.0.'$dynamicRef'
-    res = json_model_2(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $URI-REFERENCE [.'$TightSchema'.'|'.0.'$dynamicRef']", path])
-    }
-    return res;
-}
-
-// check _jm_obj_0_map_$id (.'$TightSchema'.'|'.0.'$id')
-function _jm_f_56(val, path, rep)
-{
-    let res;
-    // .'$TightSchema'.'|'.0.'$id'
-    res = json_model_2(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $URI-REFERENCE [.'$TightSchema'.'|'.0.'$id']", path])
-    }
-    return res;
-}
-
-// check _jm_obj_0_map_$ref (.'$TightSchema'.'|'.0.'$ref')
-function _jm_f_57(val, path, rep)
-{
-    let res;
-    // .'$TightSchema'.'|'.0.'$ref'
-    res = json_model_2(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $URI-REFERENCE [.'$TightSchema'.'|'.0.'$ref']", path])
-    }
-    return res;
-}
-
 // check _jm_obj_0_map_$schema (.'$TightSchema'.'|'.0.'$schema')
-function _jm_f_58(val, path, rep)
+function _jm_f_32(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.0.'$schema'
@@ -1629,7 +1291,7 @@ function _jm_f_58(val, path, rep)
 }
 
 // check _jm_obj_0_map_$vocabulary (.'$TightSchema'.'|'.0.'$vocabulary')
-function _jm_f_59(val, path, rep)
+function _jm_f_33(val, path, rep)
 {
     // .'$TightSchema'.'|'.0.'$vocabulary'
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
@@ -1662,7 +1324,7 @@ function _jm_f_59(val, path, rep)
 }
 
 // check _jm_obj_0_map_default (.'$TightSchema'.'|'.0.default)
-function _jm_f_60(val, path, rep)
+function _jm_f_34(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.0.default
@@ -1675,7 +1337,7 @@ function _jm_f_60(val, path, rep)
 }
 
 // check _jm_obj_0_map_deprecated (.'$TightSchema'.'|'.0.deprecated)
-function _jm_f_61(val, path, rep)
+function _jm_f_35(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.0.deprecated
@@ -1688,7 +1350,7 @@ function _jm_f_61(val, path, rep)
 }
 
 // check _jm_obj_0_map_description (.'$TightSchema'.'|'.0.description)
-function _jm_f_62(val, path, rep)
+function _jm_f_36(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.0.description
@@ -1701,7 +1363,7 @@ function _jm_f_62(val, path, rep)
 }
 
 // check _jm_obj_0_map_examples (.'$TightSchema'.'|'.0.examples)
-function _jm_f_63(val, path, rep)
+function _jm_f_37(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.0.examples
@@ -1714,7 +1376,7 @@ function _jm_f_63(val, path, rep)
 }
 
 // check _jm_obj_0_map_readOnly (.'$TightSchema'.'|'.0.readOnly)
-function _jm_f_64(val, path, rep)
+function _jm_f_38(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.0.readOnly
@@ -1727,7 +1389,7 @@ function _jm_f_64(val, path, rep)
 }
 
 // check _jm_obj_0_map_title (.'$TightSchema'.'|'.0.title)
-function _jm_f_65(val, path, rep)
+function _jm_f_39(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.0.title
@@ -1740,7 +1402,7 @@ function _jm_f_65(val, path, rep)
 }
 
 // check _jm_obj_0_map_writeOnly (.'$TightSchema'.'|'.0.writeOnly)
-function _jm_f_66(val, path, rep)
+function _jm_f_40(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.0.writeOnly
@@ -1809,21 +1471,8 @@ function _jm_obj_0(val, path, rep)
     return true;
 }
 
-// check _jm_obj_1_map_$anchor (.'$TightSchema'.'|'.1.'$anchor')
-function _jm_f_67(val, path, rep)
-{
-    let res;
-    // .'$TightSchema'.'|'.1.'$anchor'
-    res = json_model_2(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $URI-REFERENCE [.'$TightSchema'.'|'.1.'$anchor']", path])
-    }
-    return res;
-}
-
 // check _jm_obj_1_map_$comment (.'$TightSchema'.'|'.1.'$comment')
-function _jm_f_68(val, path, rep)
+function _jm_f_41(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.1.'$comment'
@@ -1836,7 +1485,7 @@ function _jm_f_68(val, path, rep)
 }
 
 // check _jm_obj_1_map_$defs (.'$TightSchema'.'|'.1.'$defs')
-function _jm_f_69(val, path, rep)
+function _jm_f_42(val, path, rep)
 {
     // .'$TightSchema'.'|'.1.'$defs'
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
@@ -1860,60 +1509,8 @@ function _jm_f_69(val, path, rep)
     return true;
 }
 
-// check _jm_obj_1_map_$dynamicAnchor (.'$TightSchema'.'|'.1.'$dynamicAnchor')
-function _jm_f_70(val, path, rep)
-{
-    let res;
-    // .'$TightSchema'.'|'.1.'$dynamicAnchor'
-    res = json_model_2(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $URI-REFERENCE [.'$TightSchema'.'|'.1.'$dynamicAnchor']", path])
-    }
-    return res;
-}
-
-// check _jm_obj_1_map_$dynamicRef (.'$TightSchema'.'|'.1.'$dynamicRef')
-function _jm_f_71(val, path, rep)
-{
-    let res;
-    // .'$TightSchema'.'|'.1.'$dynamicRef'
-    res = json_model_2(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $URI-REFERENCE [.'$TightSchema'.'|'.1.'$dynamicRef']", path])
-    }
-    return res;
-}
-
-// check _jm_obj_1_map_$id (.'$TightSchema'.'|'.1.'$id')
-function _jm_f_72(val, path, rep)
-{
-    let res;
-    // .'$TightSchema'.'|'.1.'$id'
-    res = json_model_2(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $URI-REFERENCE [.'$TightSchema'.'|'.1.'$id']", path])
-    }
-    return res;
-}
-
-// check _jm_obj_1_map_$ref (.'$TightSchema'.'|'.1.'$ref')
-function _jm_f_73(val, path, rep)
-{
-    let res;
-    // .'$TightSchema'.'|'.1.'$ref'
-    res = json_model_2(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $URI-REFERENCE [.'$TightSchema'.'|'.1.'$ref']", path])
-    }
-    return res;
-}
-
 // check _jm_obj_1_map_$schema (.'$TightSchema'.'|'.1.'$schema')
-function _jm_f_74(val, path, rep)
+function _jm_f_43(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.1.'$schema'
@@ -1926,7 +1523,7 @@ function _jm_f_74(val, path, rep)
 }
 
 // check _jm_obj_1_map_$vocabulary (.'$TightSchema'.'|'.1.'$vocabulary')
-function _jm_f_75(val, path, rep)
+function _jm_f_44(val, path, rep)
 {
     // .'$TightSchema'.'|'.1.'$vocabulary'
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
@@ -1959,7 +1556,7 @@ function _jm_f_75(val, path, rep)
 }
 
 // check _jm_obj_1_map_default (.'$TightSchema'.'|'.1.default)
-function _jm_f_76(val, path, rep)
+function _jm_f_45(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.1.default
@@ -1972,7 +1569,7 @@ function _jm_f_76(val, path, rep)
 }
 
 // check _jm_obj_1_map_deprecated (.'$TightSchema'.'|'.1.deprecated)
-function _jm_f_77(val, path, rep)
+function _jm_f_46(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.1.deprecated
@@ -1985,7 +1582,7 @@ function _jm_f_77(val, path, rep)
 }
 
 // check _jm_obj_1_map_description (.'$TightSchema'.'|'.1.description)
-function _jm_f_78(val, path, rep)
+function _jm_f_47(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.1.description
@@ -1998,7 +1595,7 @@ function _jm_f_78(val, path, rep)
 }
 
 // check _jm_obj_1_map_examples (.'$TightSchema'.'|'.1.examples)
-function _jm_f_79(val, path, rep)
+function _jm_f_48(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.1.examples
@@ -2011,7 +1608,7 @@ function _jm_f_79(val, path, rep)
 }
 
 // check _jm_obj_1_map_readOnly (.'$TightSchema'.'|'.1.readOnly)
-function _jm_f_80(val, path, rep)
+function _jm_f_49(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.1.readOnly
@@ -2024,7 +1621,7 @@ function _jm_f_80(val, path, rep)
 }
 
 // check _jm_obj_1_map_title (.'$TightSchema'.'|'.1.title)
-function _jm_f_81(val, path, rep)
+function _jm_f_50(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.1.title
@@ -2037,7 +1634,7 @@ function _jm_f_81(val, path, rep)
 }
 
 // check _jm_obj_1_map_writeOnly (.'$TightSchema'.'|'.1.writeOnly)
-function _jm_f_82(val, path, rep)
+function _jm_f_51(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.1.writeOnly
@@ -2106,21 +1703,8 @@ function _jm_obj_1(val, path, rep)
     return true;
 }
 
-// check _jm_obj_2_map_$anchor (.'$TightSchema'.'|'.2.'$anchor')
-function _jm_f_83(val, path, rep)
-{
-    let res;
-    // .'$TightSchema'.'|'.2.'$anchor'
-    res = json_model_2(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $URI-REFERENCE [.'$TightSchema'.'|'.2.'$anchor']", path])
-    }
-    return res;
-}
-
 // check _jm_obj_2_map_$comment (.'$TightSchema'.'|'.2.'$comment')
-function _jm_f_84(val, path, rep)
+function _jm_f_52(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.2.'$comment'
@@ -2133,7 +1717,7 @@ function _jm_f_84(val, path, rep)
 }
 
 // check _jm_obj_2_map_$defs (.'$TightSchema'.'|'.2.'$defs')
-function _jm_f_85(val, path, rep)
+function _jm_f_53(val, path, rep)
 {
     // .'$TightSchema'.'|'.2.'$defs'
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
@@ -2157,60 +1741,8 @@ function _jm_f_85(val, path, rep)
     return true;
 }
 
-// check _jm_obj_2_map_$dynamicAnchor (.'$TightSchema'.'|'.2.'$dynamicAnchor')
-function _jm_f_86(val, path, rep)
-{
-    let res;
-    // .'$TightSchema'.'|'.2.'$dynamicAnchor'
-    res = json_model_2(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $URI-REFERENCE [.'$TightSchema'.'|'.2.'$dynamicAnchor']", path])
-    }
-    return res;
-}
-
-// check _jm_obj_2_map_$dynamicRef (.'$TightSchema'.'|'.2.'$dynamicRef')
-function _jm_f_87(val, path, rep)
-{
-    let res;
-    // .'$TightSchema'.'|'.2.'$dynamicRef'
-    res = json_model_2(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $URI-REFERENCE [.'$TightSchema'.'|'.2.'$dynamicRef']", path])
-    }
-    return res;
-}
-
-// check _jm_obj_2_map_$id (.'$TightSchema'.'|'.2.'$id')
-function _jm_f_88(val, path, rep)
-{
-    let res;
-    // .'$TightSchema'.'|'.2.'$id'
-    res = json_model_2(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $URI-REFERENCE [.'$TightSchema'.'|'.2.'$id']", path])
-    }
-    return res;
-}
-
-// check _jm_obj_2_map_$ref (.'$TightSchema'.'|'.2.'$ref')
-function _jm_f_89(val, path, rep)
-{
-    let res;
-    // .'$TightSchema'.'|'.2.'$ref'
-    res = json_model_2(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $URI-REFERENCE [.'$TightSchema'.'|'.2.'$ref']", path])
-    }
-    return res;
-}
-
 // check _jm_obj_2_map_$schema (.'$TightSchema'.'|'.2.'$schema')
-function _jm_f_90(val, path, rep)
+function _jm_f_54(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.2.'$schema'
@@ -2223,7 +1755,7 @@ function _jm_f_90(val, path, rep)
 }
 
 // check _jm_obj_2_map_$vocabulary (.'$TightSchema'.'|'.2.'$vocabulary')
-function _jm_f_91(val, path, rep)
+function _jm_f_55(val, path, rep)
 {
     // .'$TightSchema'.'|'.2.'$vocabulary'
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
@@ -2256,7 +1788,7 @@ function _jm_f_91(val, path, rep)
 }
 
 // check _jm_obj_2_map_default (.'$TightSchema'.'|'.2.default)
-function _jm_f_92(val, path, rep)
+function _jm_f_56(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.2.default
@@ -2269,7 +1801,7 @@ function _jm_f_92(val, path, rep)
 }
 
 // check _jm_obj_2_map_deprecated (.'$TightSchema'.'|'.2.deprecated)
-function _jm_f_93(val, path, rep)
+function _jm_f_57(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.2.deprecated
@@ -2282,7 +1814,7 @@ function _jm_f_93(val, path, rep)
 }
 
 // check _jm_obj_2_map_description (.'$TightSchema'.'|'.2.description)
-function _jm_f_94(val, path, rep)
+function _jm_f_58(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.2.description
@@ -2295,7 +1827,7 @@ function _jm_f_94(val, path, rep)
 }
 
 // check _jm_obj_2_map_examples (.'$TightSchema'.'|'.2.examples)
-function _jm_f_95(val, path, rep)
+function _jm_f_59(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.2.examples
@@ -2308,7 +1840,7 @@ function _jm_f_95(val, path, rep)
 }
 
 // check _jm_obj_2_map_exclusiveMaximum (.'$TightSchema'.'|'.2.exclusiveMaximum)
-function _jm_f_96(val, path, rep)
+function _jm_f_60(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.2.exclusiveMaximum
@@ -2339,7 +1871,7 @@ function _jm_f_96(val, path, rep)
 }
 
 // check _jm_obj_2_map_exclusiveMinimum (.'$TightSchema'.'|'.2.exclusiveMinimum)
-function _jm_f_97(val, path, rep)
+function _jm_f_61(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.2.exclusiveMinimum
@@ -2370,7 +1902,7 @@ function _jm_f_97(val, path, rep)
 }
 
 // check _jm_obj_2_map_maximum (.'$TightSchema'.'|'.2.maximum)
-function _jm_f_98(val, path, rep)
+function _jm_f_62(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.2.maximum
@@ -2401,7 +1933,7 @@ function _jm_f_98(val, path, rep)
 }
 
 // check _jm_obj_2_map_minimum (.'$TightSchema'.'|'.2.minimum)
-function _jm_f_99(val, path, rep)
+function _jm_f_63(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.2.minimum
@@ -2432,7 +1964,7 @@ function _jm_f_99(val, path, rep)
 }
 
 // check _jm_obj_2_map_multipleOf (.'$TightSchema'.'|'.2.multipleOf)
-function _jm_f_100(val, path, rep)
+function _jm_f_64(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.2.multipleOf
@@ -2463,7 +1995,7 @@ function _jm_f_100(val, path, rep)
 }
 
 // check _jm_obj_2_map_readOnly (.'$TightSchema'.'|'.2.readOnly)
-function _jm_f_101(val, path, rep)
+function _jm_f_65(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.2.readOnly
@@ -2476,7 +2008,7 @@ function _jm_f_101(val, path, rep)
 }
 
 // check _jm_obj_2_map_title (.'$TightSchema'.'|'.2.title)
-function _jm_f_102(val, path, rep)
+function _jm_f_66(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.2.title
@@ -2489,7 +2021,7 @@ function _jm_f_102(val, path, rep)
 }
 
 // check _jm_obj_2_map_writeOnly (.'$TightSchema'.'|'.2.writeOnly)
-function _jm_f_103(val, path, rep)
+function _jm_f_67(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.2.writeOnly
@@ -2558,21 +2090,8 @@ function _jm_obj_2(val, path, rep)
     return true;
 }
 
-// check _jm_obj_3_map_$anchor (.'$TightSchema'.'|'.3.'$anchor')
-function _jm_f_104(val, path, rep)
-{
-    let res;
-    // .'$TightSchema'.'|'.3.'$anchor'
-    res = json_model_2(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $URI-REFERENCE [.'$TightSchema'.'|'.3.'$anchor']", path])
-    }
-    return res;
-}
-
 // check _jm_obj_3_map_$comment (.'$TightSchema'.'|'.3.'$comment')
-function _jm_f_105(val, path, rep)
+function _jm_f_68(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.3.'$comment'
@@ -2585,7 +2104,7 @@ function _jm_f_105(val, path, rep)
 }
 
 // check _jm_obj_3_map_$defs (.'$TightSchema'.'|'.3.'$defs')
-function _jm_f_106(val, path, rep)
+function _jm_f_69(val, path, rep)
 {
     // .'$TightSchema'.'|'.3.'$defs'
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
@@ -2609,60 +2128,8 @@ function _jm_f_106(val, path, rep)
     return true;
 }
 
-// check _jm_obj_3_map_$dynamicAnchor (.'$TightSchema'.'|'.3.'$dynamicAnchor')
-function _jm_f_107(val, path, rep)
-{
-    let res;
-    // .'$TightSchema'.'|'.3.'$dynamicAnchor'
-    res = json_model_2(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $URI-REFERENCE [.'$TightSchema'.'|'.3.'$dynamicAnchor']", path])
-    }
-    return res;
-}
-
-// check _jm_obj_3_map_$dynamicRef (.'$TightSchema'.'|'.3.'$dynamicRef')
-function _jm_f_108(val, path, rep)
-{
-    let res;
-    // .'$TightSchema'.'|'.3.'$dynamicRef'
-    res = json_model_2(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $URI-REFERENCE [.'$TightSchema'.'|'.3.'$dynamicRef']", path])
-    }
-    return res;
-}
-
-// check _jm_obj_3_map_$id (.'$TightSchema'.'|'.3.'$id')
-function _jm_f_109(val, path, rep)
-{
-    let res;
-    // .'$TightSchema'.'|'.3.'$id'
-    res = json_model_2(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $URI-REFERENCE [.'$TightSchema'.'|'.3.'$id']", path])
-    }
-    return res;
-}
-
-// check _jm_obj_3_map_$ref (.'$TightSchema'.'|'.3.'$ref')
-function _jm_f_110(val, path, rep)
-{
-    let res;
-    // .'$TightSchema'.'|'.3.'$ref'
-    res = json_model_2(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $URI-REFERENCE [.'$TightSchema'.'|'.3.'$ref']", path])
-    }
-    return res;
-}
-
 // check _jm_obj_3_map_$schema (.'$TightSchema'.'|'.3.'$schema')
-function _jm_f_111(val, path, rep)
+function _jm_f_70(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.3.'$schema'
@@ -2675,7 +2142,7 @@ function _jm_f_111(val, path, rep)
 }
 
 // check _jm_obj_3_map_$vocabulary (.'$TightSchema'.'|'.3.'$vocabulary')
-function _jm_f_112(val, path, rep)
+function _jm_f_71(val, path, rep)
 {
     // .'$TightSchema'.'|'.3.'$vocabulary'
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
@@ -2708,7 +2175,7 @@ function _jm_f_112(val, path, rep)
 }
 
 // check _jm_obj_3_map_default (.'$TightSchema'.'|'.3.default)
-function _jm_f_113(val, path, rep)
+function _jm_f_72(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.3.default
@@ -2721,7 +2188,7 @@ function _jm_f_113(val, path, rep)
 }
 
 // check _jm_obj_3_map_deprecated (.'$TightSchema'.'|'.3.deprecated)
-function _jm_f_114(val, path, rep)
+function _jm_f_73(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.3.deprecated
@@ -2734,7 +2201,7 @@ function _jm_f_114(val, path, rep)
 }
 
 // check _jm_obj_3_map_description (.'$TightSchema'.'|'.3.description)
-function _jm_f_115(val, path, rep)
+function _jm_f_74(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.3.description
@@ -2747,7 +2214,7 @@ function _jm_f_115(val, path, rep)
 }
 
 // check _jm_obj_3_map_examples (.'$TightSchema'.'|'.3.examples)
-function _jm_f_116(val, path, rep)
+function _jm_f_75(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.3.examples
@@ -2760,7 +2227,7 @@ function _jm_f_116(val, path, rep)
 }
 
 // check _jm_obj_3_map_exclusiveMaximum (.'$TightSchema'.'|'.3.exclusiveMaximum)
-function _jm_f_117(val, path, rep)
+function _jm_f_76(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.3.exclusiveMaximum
@@ -2773,7 +2240,7 @@ function _jm_f_117(val, path, rep)
 }
 
 // check _jm_obj_3_map_exclusiveMinimum (.'$TightSchema'.'|'.3.exclusiveMinimum)
-function _jm_f_118(val, path, rep)
+function _jm_f_77(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.3.exclusiveMinimum
@@ -2786,7 +2253,7 @@ function _jm_f_118(val, path, rep)
 }
 
 // check _jm_obj_3_map_maximum (.'$TightSchema'.'|'.3.maximum)
-function _jm_f_119(val, path, rep)
+function _jm_f_78(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.3.maximum
@@ -2799,7 +2266,7 @@ function _jm_f_119(val, path, rep)
 }
 
 // check _jm_obj_3_map_minimum (.'$TightSchema'.'|'.3.minimum)
-function _jm_f_120(val, path, rep)
+function _jm_f_79(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.3.minimum
@@ -2812,7 +2279,7 @@ function _jm_f_120(val, path, rep)
 }
 
 // check _jm_obj_3_map_multipleOf (.'$TightSchema'.'|'.3.multipleOf)
-function _jm_f_121(val, path, rep)
+function _jm_f_80(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.3.multipleOf
@@ -2825,7 +2292,7 @@ function _jm_f_121(val, path, rep)
 }
 
 // check _jm_obj_3_map_readOnly (.'$TightSchema'.'|'.3.readOnly)
-function _jm_f_122(val, path, rep)
+function _jm_f_81(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.3.readOnly
@@ -2838,7 +2305,7 @@ function _jm_f_122(val, path, rep)
 }
 
 // check _jm_obj_3_map_title (.'$TightSchema'.'|'.3.title)
-function _jm_f_123(val, path, rep)
+function _jm_f_82(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.3.title
@@ -2851,7 +2318,7 @@ function _jm_f_123(val, path, rep)
 }
 
 // check _jm_obj_3_map_writeOnly (.'$TightSchema'.'|'.3.writeOnly)
-function _jm_f_124(val, path, rep)
+function _jm_f_83(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.3.writeOnly
@@ -2920,21 +2387,8 @@ function _jm_obj_3(val, path, rep)
     return true;
 }
 
-// check _jm_obj_4_map_$anchor (.'$TightSchema'.'|'.4.'$anchor')
-function _jm_f_125(val, path, rep)
-{
-    let res;
-    // .'$TightSchema'.'|'.4.'$anchor'
-    res = json_model_2(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $URI-REFERENCE [.'$TightSchema'.'|'.4.'$anchor']", path])
-    }
-    return res;
-}
-
 // check _jm_obj_4_map_$comment (.'$TightSchema'.'|'.4.'$comment')
-function _jm_f_126(val, path, rep)
+function _jm_f_84(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.4.'$comment'
@@ -2947,7 +2401,7 @@ function _jm_f_126(val, path, rep)
 }
 
 // check _jm_obj_4_map_$defs (.'$TightSchema'.'|'.4.'$defs')
-function _jm_f_127(val, path, rep)
+function _jm_f_85(val, path, rep)
 {
     // .'$TightSchema'.'|'.4.'$defs'
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
@@ -2971,60 +2425,8 @@ function _jm_f_127(val, path, rep)
     return true;
 }
 
-// check _jm_obj_4_map_$dynamicAnchor (.'$TightSchema'.'|'.4.'$dynamicAnchor')
-function _jm_f_128(val, path, rep)
-{
-    let res;
-    // .'$TightSchema'.'|'.4.'$dynamicAnchor'
-    res = json_model_2(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $URI-REFERENCE [.'$TightSchema'.'|'.4.'$dynamicAnchor']", path])
-    }
-    return res;
-}
-
-// check _jm_obj_4_map_$dynamicRef (.'$TightSchema'.'|'.4.'$dynamicRef')
-function _jm_f_129(val, path, rep)
-{
-    let res;
-    // .'$TightSchema'.'|'.4.'$dynamicRef'
-    res = json_model_2(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $URI-REFERENCE [.'$TightSchema'.'|'.4.'$dynamicRef']", path])
-    }
-    return res;
-}
-
-// check _jm_obj_4_map_$id (.'$TightSchema'.'|'.4.'$id')
-function _jm_f_130(val, path, rep)
-{
-    let res;
-    // .'$TightSchema'.'|'.4.'$id'
-    res = json_model_2(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $URI-REFERENCE [.'$TightSchema'.'|'.4.'$id']", path])
-    }
-    return res;
-}
-
-// check _jm_obj_4_map_$ref (.'$TightSchema'.'|'.4.'$ref')
-function _jm_f_131(val, path, rep)
-{
-    let res;
-    // .'$TightSchema'.'|'.4.'$ref'
-    res = json_model_2(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $URI-REFERENCE [.'$TightSchema'.'|'.4.'$ref']", path])
-    }
-    return res;
-}
-
 // check _jm_obj_4_map_$schema (.'$TightSchema'.'|'.4.'$schema')
-function _jm_f_132(val, path, rep)
+function _jm_f_86(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.4.'$schema'
@@ -3037,7 +2439,7 @@ function _jm_f_132(val, path, rep)
 }
 
 // check _jm_obj_4_map_$vocabulary (.'$TightSchema'.'|'.4.'$vocabulary')
-function _jm_f_133(val, path, rep)
+function _jm_f_87(val, path, rep)
 {
     // .'$TightSchema'.'|'.4.'$vocabulary'
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
@@ -3070,7 +2472,7 @@ function _jm_f_133(val, path, rep)
 }
 
 // check _jm_obj_4_map_contentEncoding (.'$TightSchema'.'|'.4.contentEncoding)
-function _jm_f_134(val, path, rep)
+function _jm_f_88(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.4.contentEncoding
@@ -3083,7 +2485,7 @@ function _jm_f_134(val, path, rep)
 }
 
 // check _jm_obj_4_map_contentMediaType (.'$TightSchema'.'|'.4.contentMediaType)
-function _jm_f_135(val, path, rep)
+function _jm_f_89(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.4.contentMediaType
@@ -3095,21 +2497,8 @@ function _jm_f_135(val, path, rep)
     return res;
 }
 
-// check _jm_obj_4_map_contentSchema (.'$TightSchema'.'|'.4.contentSchema)
-function _jm_f_136(val, path, rep)
-{
-    let res;
-    // .'$TightSchema'.'|'.4.contentSchema
-    res = json_model_16(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $Schema [.'$TightSchema'.'|'.4.contentSchema]", path])
-    }
-    return res;
-}
-
 // check _jm_obj_4_map_default (.'$TightSchema'.'|'.4.default)
-function _jm_f_137(val, path, rep)
+function _jm_f_90(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.4.default
@@ -3122,7 +2511,7 @@ function _jm_f_137(val, path, rep)
 }
 
 // check _jm_obj_4_map_deprecated (.'$TightSchema'.'|'.4.deprecated)
-function _jm_f_138(val, path, rep)
+function _jm_f_91(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.4.deprecated
@@ -3135,7 +2524,7 @@ function _jm_f_138(val, path, rep)
 }
 
 // check _jm_obj_4_map_description (.'$TightSchema'.'|'.4.description)
-function _jm_f_139(val, path, rep)
+function _jm_f_92(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.4.description
@@ -3148,7 +2537,7 @@ function _jm_f_139(val, path, rep)
 }
 
 // check _jm_obj_4_map_examples (.'$TightSchema'.'|'.4.examples)
-function _jm_f_140(val, path, rep)
+function _jm_f_93(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.4.examples
@@ -3161,7 +2550,7 @@ function _jm_f_140(val, path, rep)
 }
 
 // check _jm_obj_4_map_format (.'$TightSchema'.'|'.4.format)
-function _jm_f_141(val, path, rep)
+function _jm_f_94(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.4.format
@@ -3174,7 +2563,7 @@ function _jm_f_141(val, path, rep)
 }
 
 // check _jm_obj_4_map_maxLength (.'$TightSchema'.'|'.4.maxLength)
-function _jm_f_142(val, path, rep)
+function _jm_f_95(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.4.maxLength
@@ -3187,7 +2576,7 @@ function _jm_f_142(val, path, rep)
 }
 
 // check _jm_obj_4_map_minLength (.'$TightSchema'.'|'.4.minLength)
-function _jm_f_143(val, path, rep)
+function _jm_f_96(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.4.minLength
@@ -3200,7 +2589,7 @@ function _jm_f_143(val, path, rep)
 }
 
 // check _jm_obj_4_map_pattern (.'$TightSchema'.'|'.4.pattern)
-function _jm_f_144(val, path, rep)
+function _jm_f_97(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.4.pattern
@@ -3213,7 +2602,7 @@ function _jm_f_144(val, path, rep)
 }
 
 // check _jm_obj_4_map_readOnly (.'$TightSchema'.'|'.4.readOnly)
-function _jm_f_145(val, path, rep)
+function _jm_f_98(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.4.readOnly
@@ -3226,7 +2615,7 @@ function _jm_f_145(val, path, rep)
 }
 
 // check _jm_obj_4_map_title (.'$TightSchema'.'|'.4.title)
-function _jm_f_146(val, path, rep)
+function _jm_f_99(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.4.title
@@ -3239,7 +2628,7 @@ function _jm_f_146(val, path, rep)
 }
 
 // check _jm_obj_4_map_writeOnly (.'$TightSchema'.'|'.4.writeOnly)
-function _jm_f_147(val, path, rep)
+function _jm_f_100(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.4.writeOnly
@@ -3308,21 +2697,8 @@ function _jm_obj_4(val, path, rep)
     return true;
 }
 
-// check _jm_obj_5_map_$anchor (.'$TightSchema'.'|'.5.'$anchor')
-function _jm_f_148(val, path, rep)
-{
-    let res;
-    // .'$TightSchema'.'|'.5.'$anchor'
-    res = json_model_2(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $URI-REFERENCE [.'$TightSchema'.'|'.5.'$anchor']", path])
-    }
-    return res;
-}
-
 // check _jm_obj_5_map_$comment (.'$TightSchema'.'|'.5.'$comment')
-function _jm_f_149(val, path, rep)
+function _jm_f_101(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.5.'$comment'
@@ -3335,7 +2711,7 @@ function _jm_f_149(val, path, rep)
 }
 
 // check _jm_obj_5_map_$defs (.'$TightSchema'.'|'.5.'$defs')
-function _jm_f_150(val, path, rep)
+function _jm_f_102(val, path, rep)
 {
     // .'$TightSchema'.'|'.5.'$defs'
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
@@ -3359,60 +2735,8 @@ function _jm_f_150(val, path, rep)
     return true;
 }
 
-// check _jm_obj_5_map_$dynamicAnchor (.'$TightSchema'.'|'.5.'$dynamicAnchor')
-function _jm_f_151(val, path, rep)
-{
-    let res;
-    // .'$TightSchema'.'|'.5.'$dynamicAnchor'
-    res = json_model_2(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $URI-REFERENCE [.'$TightSchema'.'|'.5.'$dynamicAnchor']", path])
-    }
-    return res;
-}
-
-// check _jm_obj_5_map_$dynamicRef (.'$TightSchema'.'|'.5.'$dynamicRef')
-function _jm_f_152(val, path, rep)
-{
-    let res;
-    // .'$TightSchema'.'|'.5.'$dynamicRef'
-    res = json_model_2(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $URI-REFERENCE [.'$TightSchema'.'|'.5.'$dynamicRef']", path])
-    }
-    return res;
-}
-
-// check _jm_obj_5_map_$id (.'$TightSchema'.'|'.5.'$id')
-function _jm_f_153(val, path, rep)
-{
-    let res;
-    // .'$TightSchema'.'|'.5.'$id'
-    res = json_model_2(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $URI-REFERENCE [.'$TightSchema'.'|'.5.'$id']", path])
-    }
-    return res;
-}
-
-// check _jm_obj_5_map_$ref (.'$TightSchema'.'|'.5.'$ref')
-function _jm_f_154(val, path, rep)
-{
-    let res;
-    // .'$TightSchema'.'|'.5.'$ref'
-    res = json_model_2(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $URI-REFERENCE [.'$TightSchema'.'|'.5.'$ref']", path])
-    }
-    return res;
-}
-
 // check _jm_obj_5_map_$schema (.'$TightSchema'.'|'.5.'$schema')
-function _jm_f_155(val, path, rep)
+function _jm_f_103(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.5.'$schema'
@@ -3425,7 +2749,7 @@ function _jm_f_155(val, path, rep)
 }
 
 // check _jm_obj_5_map_$vocabulary (.'$TightSchema'.'|'.5.'$vocabulary')
-function _jm_f_156(val, path, rep)
+function _jm_f_104(val, path, rep)
 {
     // .'$TightSchema'.'|'.5.'$vocabulary'
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
@@ -3457,21 +2781,8 @@ function _jm_f_156(val, path, rep)
     return true;
 }
 
-// check _jm_obj_5_map_contains (.'$TightSchema'.'|'.5.contains)
-function _jm_f_157(val, path, rep)
-{
-    let res;
-    // .'$TightSchema'.'|'.5.contains
-    res = json_model_16(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $Schema [.'$TightSchema'.'|'.5.contains]", path])
-    }
-    return res;
-}
-
 // check _jm_obj_5_map_default (.'$TightSchema'.'|'.5.default)
-function _jm_f_158(val, path, rep)
+function _jm_f_105(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.5.default
@@ -3484,7 +2795,7 @@ function _jm_f_158(val, path, rep)
 }
 
 // check _jm_obj_5_map_deprecated (.'$TightSchema'.'|'.5.deprecated)
-function _jm_f_159(val, path, rep)
+function _jm_f_106(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.5.deprecated
@@ -3497,7 +2808,7 @@ function _jm_f_159(val, path, rep)
 }
 
 // check _jm_obj_5_map_description (.'$TightSchema'.'|'.5.description)
-function _jm_f_160(val, path, rep)
+function _jm_f_107(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.5.description
@@ -3510,7 +2821,7 @@ function _jm_f_160(val, path, rep)
 }
 
 // check _jm_obj_5_map_examples (.'$TightSchema'.'|'.5.examples)
-function _jm_f_161(val, path, rep)
+function _jm_f_108(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.5.examples
@@ -3522,21 +2833,8 @@ function _jm_f_161(val, path, rep)
     return res;
 }
 
-// check _jm_obj_5_map_items (.'$TightSchema'.'|'.5.items)
-function _jm_f_162(val, path, rep)
-{
-    let res;
-    // .'$TightSchema'.'|'.5.items
-    res = json_model_16(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $Schema [.'$TightSchema'.'|'.5.items]", path])
-    }
-    return res;
-}
-
 // check _jm_obj_5_map_maxContains (.'$TightSchema'.'|'.5.maxContains)
-function _jm_f_163(val, path, rep)
+function _jm_f_109(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.5.maxContains
@@ -3549,7 +2847,7 @@ function _jm_f_163(val, path, rep)
 }
 
 // check _jm_obj_5_map_maxItems (.'$TightSchema'.'|'.5.maxItems)
-function _jm_f_164(val, path, rep)
+function _jm_f_110(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.5.maxItems
@@ -3562,7 +2860,7 @@ function _jm_f_164(val, path, rep)
 }
 
 // check _jm_obj_5_map_minContains (.'$TightSchema'.'|'.5.minContains)
-function _jm_f_165(val, path, rep)
+function _jm_f_111(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.5.minContains
@@ -3575,7 +2873,7 @@ function _jm_f_165(val, path, rep)
 }
 
 // check _jm_obj_5_map_minItems (.'$TightSchema'.'|'.5.minItems)
-function _jm_f_166(val, path, rep)
+function _jm_f_112(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.5.minItems
@@ -3587,21 +2885,8 @@ function _jm_f_166(val, path, rep)
     return res;
 }
 
-// check _jm_obj_5_map_prefixItems (.'$TightSchema'.'|'.5.prefixItems)
-function _jm_f_167(val, path, rep)
-{
-    let res;
-    // .'$TightSchema'.'|'.5.prefixItems
-    res = json_model_11(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $schemaArray [.'$TightSchema'.'|'.5.prefixItems]", path])
-    }
-    return res;
-}
-
 // check _jm_obj_5_map_readOnly (.'$TightSchema'.'|'.5.readOnly)
-function _jm_f_168(val, path, rep)
+function _jm_f_113(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.5.readOnly
@@ -3614,7 +2899,7 @@ function _jm_f_168(val, path, rep)
 }
 
 // check _jm_obj_5_map_title (.'$TightSchema'.'|'.5.title)
-function _jm_f_169(val, path, rep)
+function _jm_f_114(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.5.title
@@ -3626,21 +2911,8 @@ function _jm_f_169(val, path, rep)
     return res;
 }
 
-// check _jm_obj_5_map_unevaluatedItems (.'$TightSchema'.'|'.5.unevaluatedItems)
-function _jm_f_170(val, path, rep)
-{
-    let res;
-    // .'$TightSchema'.'|'.5.unevaluatedItems
-    res = json_model_16(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $Schema [.'$TightSchema'.'|'.5.unevaluatedItems]", path])
-    }
-    return res;
-}
-
 // check _jm_obj_5_map_uniqueItems (.'$TightSchema'.'|'.5.uniqueItems)
-function _jm_f_171(val, path, rep)
+function _jm_f_115(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.5.uniqueItems
@@ -3653,7 +2925,7 @@ function _jm_f_171(val, path, rep)
 }
 
 // check _jm_obj_5_map_writeOnly (.'$TightSchema'.'|'.5.writeOnly)
-function _jm_f_172(val, path, rep)
+function _jm_f_116(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.5.writeOnly
@@ -3722,21 +2994,8 @@ function _jm_obj_5(val, path, rep)
     return true;
 }
 
-// check _jm_obj_6_map_$anchor (.'$TightSchema'.'|'.6.'$anchor')
-function _jm_f_173(val, path, rep)
-{
-    let res;
-    // .'$TightSchema'.'|'.6.'$anchor'
-    res = json_model_2(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $URI-REFERENCE [.'$TightSchema'.'|'.6.'$anchor']", path])
-    }
-    return res;
-}
-
 // check _jm_obj_6_map_$comment (.'$TightSchema'.'|'.6.'$comment')
-function _jm_f_174(val, path, rep)
+function _jm_f_117(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.6.'$comment'
@@ -3749,7 +3008,7 @@ function _jm_f_174(val, path, rep)
 }
 
 // check _jm_obj_6_map_$defs (.'$TightSchema'.'|'.6.'$defs')
-function _jm_f_175(val, path, rep)
+function _jm_f_118(val, path, rep)
 {
     // .'$TightSchema'.'|'.6.'$defs'
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
@@ -3773,60 +3032,8 @@ function _jm_f_175(val, path, rep)
     return true;
 }
 
-// check _jm_obj_6_map_$dynamicAnchor (.'$TightSchema'.'|'.6.'$dynamicAnchor')
-function _jm_f_176(val, path, rep)
-{
-    let res;
-    // .'$TightSchema'.'|'.6.'$dynamicAnchor'
-    res = json_model_2(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $URI-REFERENCE [.'$TightSchema'.'|'.6.'$dynamicAnchor']", path])
-    }
-    return res;
-}
-
-// check _jm_obj_6_map_$dynamicRef (.'$TightSchema'.'|'.6.'$dynamicRef')
-function _jm_f_177(val, path, rep)
-{
-    let res;
-    // .'$TightSchema'.'|'.6.'$dynamicRef'
-    res = json_model_2(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $URI-REFERENCE [.'$TightSchema'.'|'.6.'$dynamicRef']", path])
-    }
-    return res;
-}
-
-// check _jm_obj_6_map_$id (.'$TightSchema'.'|'.6.'$id')
-function _jm_f_178(val, path, rep)
-{
-    let res;
-    // .'$TightSchema'.'|'.6.'$id'
-    res = json_model_2(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $URI-REFERENCE [.'$TightSchema'.'|'.6.'$id']", path])
-    }
-    return res;
-}
-
-// check _jm_obj_6_map_$ref (.'$TightSchema'.'|'.6.'$ref')
-function _jm_f_179(val, path, rep)
-{
-    let res;
-    // .'$TightSchema'.'|'.6.'$ref'
-    res = json_model_2(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $URI-REFERENCE [.'$TightSchema'.'|'.6.'$ref']", path])
-    }
-    return res;
-}
-
 // check _jm_obj_6_map_$schema (.'$TightSchema'.'|'.6.'$schema')
-function _jm_f_180(val, path, rep)
+function _jm_f_119(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.6.'$schema'
@@ -3839,7 +3046,7 @@ function _jm_f_180(val, path, rep)
 }
 
 // check _jm_obj_6_map_$vocabulary (.'$TightSchema'.'|'.6.'$vocabulary')
-function _jm_f_181(val, path, rep)
+function _jm_f_120(val, path, rep)
 {
     // .'$TightSchema'.'|'.6.'$vocabulary'
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
@@ -3871,21 +3078,8 @@ function _jm_f_181(val, path, rep)
     return true;
 }
 
-// check _jm_obj_6_map_additionalProperties (.'$TightSchema'.'|'.6.additionalProperties)
-function _jm_f_182(val, path, rep)
-{
-    let res;
-    // .'$TightSchema'.'|'.6.additionalProperties
-    res = json_model_16(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $Schema [.'$TightSchema'.'|'.6.additionalProperties]", path])
-    }
-    return res;
-}
-
 // check _jm_obj_6_map_default (.'$TightSchema'.'|'.6.default)
-function _jm_f_183(val, path, rep)
+function _jm_f_121(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.6.default
@@ -3898,7 +3092,7 @@ function _jm_f_183(val, path, rep)
 }
 
 // check _jm_obj_6_map_dependentRequired (.'$TightSchema'.'|'.6.dependentRequired)
-function _jm_f_184(val, path, rep)
+function _jm_f_122(val, path, rep)
 {
     // .'$TightSchema'.'|'.6.dependentRequired
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
@@ -3923,7 +3117,7 @@ function _jm_f_184(val, path, rep)
 }
 
 // check _jm_obj_6_map_dependentSchemas (.'$TightSchema'.'|'.6.dependentSchemas)
-function _jm_f_185(val, path, rep)
+function _jm_f_123(val, path, rep)
 {
     // .'$TightSchema'.'|'.6.dependentSchemas
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
@@ -3948,7 +3142,7 @@ function _jm_f_185(val, path, rep)
 }
 
 // check _jm_obj_6_map_deprecated (.'$TightSchema'.'|'.6.deprecated)
-function _jm_f_186(val, path, rep)
+function _jm_f_124(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.6.deprecated
@@ -3961,7 +3155,7 @@ function _jm_f_186(val, path, rep)
 }
 
 // check _jm_obj_6_map_description (.'$TightSchema'.'|'.6.description)
-function _jm_f_187(val, path, rep)
+function _jm_f_125(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.6.description
@@ -3974,7 +3168,7 @@ function _jm_f_187(val, path, rep)
 }
 
 // check _jm_obj_6_map_examples (.'$TightSchema'.'|'.6.examples)
-function _jm_f_188(val, path, rep)
+function _jm_f_126(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.6.examples
@@ -3987,7 +3181,7 @@ function _jm_f_188(val, path, rep)
 }
 
 // check _jm_obj_6_map_maxProperties (.'$TightSchema'.'|'.6.maxProperties)
-function _jm_f_189(val, path, rep)
+function _jm_f_127(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.6.maxProperties
@@ -4000,7 +3194,7 @@ function _jm_f_189(val, path, rep)
 }
 
 // check _jm_obj_6_map_minProperties (.'$TightSchema'.'|'.6.minProperties)
-function _jm_f_190(val, path, rep)
+function _jm_f_128(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.6.minProperties
@@ -4013,7 +3207,7 @@ function _jm_f_190(val, path, rep)
 }
 
 // check _jm_obj_6_map_patternProperties (.'$TightSchema'.'|'.6.patternProperties)
-function _jm_f_191(val, path, rep)
+function _jm_f_129(val, path, rep)
 {
     // .'$TightSchema'.'|'.6.patternProperties
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
@@ -4046,7 +3240,7 @@ function _jm_f_191(val, path, rep)
 }
 
 // check _jm_obj_6_map_properties (.'$TightSchema'.'|'.6.properties)
-function _jm_f_192(val, path, rep)
+function _jm_f_130(val, path, rep)
 {
     // .'$TightSchema'.'|'.6.properties
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
@@ -4070,21 +3264,8 @@ function _jm_f_192(val, path, rep)
     return true;
 }
 
-// check _jm_obj_6_map_propertyNames (.'$TightSchema'.'|'.6.propertyNames)
-function _jm_f_193(val, path, rep)
-{
-    let res;
-    // .'$TightSchema'.'|'.6.propertyNames
-    res = json_model_16(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $Schema [.'$TightSchema'.'|'.6.propertyNames]", path])
-    }
-    return res;
-}
-
 // check _jm_obj_6_map_readOnly (.'$TightSchema'.'|'.6.readOnly)
-function _jm_f_194(val, path, rep)
+function _jm_f_131(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.6.readOnly
@@ -4096,21 +3277,8 @@ function _jm_f_194(val, path, rep)
     return res;
 }
 
-// check _jm_obj_6_map_required (.'$TightSchema'.'|'.6.required)
-function _jm_f_195(val, path, rep)
-{
-    let res;
-    // .'$TightSchema'.'|'.6.required
-    res = json_model_10(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $stringArray [.'$TightSchema'.'|'.6.required]", path])
-    }
-    return res;
-}
-
 // check _jm_obj_6_map_title (.'$TightSchema'.'|'.6.title)
-function _jm_f_196(val, path, rep)
+function _jm_f_132(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.6.title
@@ -4122,21 +3290,8 @@ function _jm_f_196(val, path, rep)
     return res;
 }
 
-// check _jm_obj_6_map_unevaluatedProperties (.'$TightSchema'.'|'.6.unevaluatedProperties)
-function _jm_f_197(val, path, rep)
-{
-    let res;
-    // .'$TightSchema'.'|'.6.unevaluatedProperties
-    res = json_model_16(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $Schema [.'$TightSchema'.'|'.6.unevaluatedProperties]", path])
-    }
-    return res;
-}
-
 // check _jm_obj_6_map_writeOnly (.'$TightSchema'.'|'.6.writeOnly)
-function _jm_f_198(val, path, rep)
+function _jm_f_133(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.6.writeOnly
@@ -4205,21 +3360,8 @@ function _jm_obj_6(val, path, rep)
     return true;
 }
 
-// check _jm_obj_7_map_$anchor (.'$TightSchema'.'|'.7.'$anchor')
-function _jm_f_199(val, path, rep)
-{
-    let res;
-    // .'$TightSchema'.'|'.7.'$anchor'
-    res = json_model_2(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $URI-REFERENCE [.'$TightSchema'.'|'.7.'$anchor']", path])
-    }
-    return res;
-}
-
 // check _jm_obj_7_map_$comment (.'$TightSchema'.'|'.7.'$comment')
-function _jm_f_200(val, path, rep)
+function _jm_f_134(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.7.'$comment'
@@ -4232,7 +3374,7 @@ function _jm_f_200(val, path, rep)
 }
 
 // check _jm_obj_7_map_$defs (.'$TightSchema'.'|'.7.'$defs')
-function _jm_f_201(val, path, rep)
+function _jm_f_135(val, path, rep)
 {
     // .'$TightSchema'.'|'.7.'$defs'
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
@@ -4256,60 +3398,8 @@ function _jm_f_201(val, path, rep)
     return true;
 }
 
-// check _jm_obj_7_map_$dynamicAnchor (.'$TightSchema'.'|'.7.'$dynamicAnchor')
-function _jm_f_202(val, path, rep)
-{
-    let res;
-    // .'$TightSchema'.'|'.7.'$dynamicAnchor'
-    res = json_model_2(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $URI-REFERENCE [.'$TightSchema'.'|'.7.'$dynamicAnchor']", path])
-    }
-    return res;
-}
-
-// check _jm_obj_7_map_$dynamicRef (.'$TightSchema'.'|'.7.'$dynamicRef')
-function _jm_f_203(val, path, rep)
-{
-    let res;
-    // .'$TightSchema'.'|'.7.'$dynamicRef'
-    res = json_model_2(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $URI-REFERENCE [.'$TightSchema'.'|'.7.'$dynamicRef']", path])
-    }
-    return res;
-}
-
-// check _jm_obj_7_map_$id (.'$TightSchema'.'|'.7.'$id')
-function _jm_f_204(val, path, rep)
-{
-    let res;
-    // .'$TightSchema'.'|'.7.'$id'
-    res = json_model_2(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $URI-REFERENCE [.'$TightSchema'.'|'.7.'$id']", path])
-    }
-    return res;
-}
-
-// check _jm_obj_7_map_$ref (.'$TightSchema'.'|'.7.'$ref')
-function _jm_f_205(val, path, rep)
-{
-    let res;
-    // .'$TightSchema'.'|'.7.'$ref'
-    res = json_model_2(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $URI-REFERENCE [.'$TightSchema'.'|'.7.'$ref']", path])
-    }
-    return res;
-}
-
 // check _jm_obj_7_map_$schema (.'$TightSchema'.'|'.7.'$schema')
-function _jm_f_206(val, path, rep)
+function _jm_f_136(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.7.'$schema'
@@ -4322,7 +3412,7 @@ function _jm_f_206(val, path, rep)
 }
 
 // check _jm_obj_7_map_$vocabulary (.'$TightSchema'.'|'.7.'$vocabulary')
-function _jm_f_207(val, path, rep)
+function _jm_f_137(val, path, rep)
 {
     // .'$TightSchema'.'|'.7.'$vocabulary'
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
@@ -4354,34 +3444,8 @@ function _jm_f_207(val, path, rep)
     return true;
 }
 
-// check _jm_obj_7_map_allOf (.'$TightSchema'.'|'.7.allOf)
-function _jm_f_208(val, path, rep)
-{
-    let res;
-    // .'$TightSchema'.'|'.7.allOf
-    res = json_model_11(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $schemaArray [.'$TightSchema'.'|'.7.allOf]", path])
-    }
-    return res;
-}
-
-// check _jm_obj_7_map_anyOf (.'$TightSchema'.'|'.7.anyOf)
-function _jm_f_209(val, path, rep)
-{
-    let res;
-    // .'$TightSchema'.'|'.7.anyOf
-    res = json_model_11(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $schemaArray [.'$TightSchema'.'|'.7.anyOf]", path])
-    }
-    return res;
-}
-
 // check _jm_obj_7_map_const (.'$TightSchema'.'|'.7.const)
-function _jm_f_210(val, path, rep)
+function _jm_f_138(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.7.const
@@ -4394,7 +3458,7 @@ function _jm_f_210(val, path, rep)
 }
 
 // check _jm_obj_7_map_default (.'$TightSchema'.'|'.7.default)
-function _jm_f_211(val, path, rep)
+function _jm_f_139(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.7.default
@@ -4407,7 +3471,7 @@ function _jm_f_211(val, path, rep)
 }
 
 // check _jm_obj_7_map_deprecated (.'$TightSchema'.'|'.7.deprecated)
-function _jm_f_212(val, path, rep)
+function _jm_f_140(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.7.deprecated
@@ -4420,7 +3484,7 @@ function _jm_f_212(val, path, rep)
 }
 
 // check _jm_obj_7_map_description (.'$TightSchema'.'|'.7.description)
-function _jm_f_213(val, path, rep)
+function _jm_f_141(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.7.description
@@ -4432,21 +3496,8 @@ function _jm_f_213(val, path, rep)
     return res;
 }
 
-// check _jm_obj_7_map_else (.'$TightSchema'.'|'.7.else)
-function _jm_f_214(val, path, rep)
-{
-    let res;
-    // .'$TightSchema'.'|'.7.else
-    res = json_model_16(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $Schema [.'$TightSchema'.'|'.7.else]", path])
-    }
-    return res;
-}
-
 // check _jm_obj_7_map_enum (.'$TightSchema'.'|'.7.enum)
-function _jm_f_215(val, path, rep)
+function _jm_f_142(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.7.enum
@@ -4459,7 +3510,7 @@ function _jm_f_215(val, path, rep)
 }
 
 // check _jm_obj_7_map_examples (.'$TightSchema'.'|'.7.examples)
-function _jm_f_216(val, path, rep)
+function _jm_f_143(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.7.examples
@@ -4471,47 +3522,8 @@ function _jm_f_216(val, path, rep)
     return res;
 }
 
-// check _jm_obj_7_map_if (.'$TightSchema'.'|'.7.if)
-function _jm_f_217(val, path, rep)
-{
-    let res;
-    // .'$TightSchema'.'|'.7.if
-    res = json_model_16(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $Schema [.'$TightSchema'.'|'.7.if]", path])
-    }
-    return res;
-}
-
-// check _jm_obj_7_map_not (.'$TightSchema'.'|'.7.not)
-function _jm_f_218(val, path, rep)
-{
-    let res;
-    // .'$TightSchema'.'|'.7.not
-    res = json_model_16(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $Schema [.'$TightSchema'.'|'.7.not]", path])
-    }
-    return res;
-}
-
-// check _jm_obj_7_map_oneOf (.'$TightSchema'.'|'.7.oneOf)
-function _jm_f_219(val, path, rep)
-{
-    let res;
-    // .'$TightSchema'.'|'.7.oneOf
-    res = json_model_11(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $schemaArray [.'$TightSchema'.'|'.7.oneOf]", path])
-    }
-    return res;
-}
-
 // check _jm_obj_7_map_readOnly (.'$TightSchema'.'|'.7.readOnly)
-function _jm_f_220(val, path, rep)
+function _jm_f_144(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.7.readOnly
@@ -4523,21 +3535,8 @@ function _jm_f_220(val, path, rep)
     return res;
 }
 
-// check _jm_obj_7_map_then (.'$TightSchema'.'|'.7.then)
-function _jm_f_221(val, path, rep)
-{
-    let res;
-    // .'$TightSchema'.'|'.7.then
-    res = json_model_16(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $Schema [.'$TightSchema'.'|'.7.then]", path])
-    }
-    return res;
-}
-
 // check _jm_obj_7_map_title (.'$TightSchema'.'|'.7.title)
-function _jm_f_222(val, path, rep)
+function _jm_f_145(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.7.title
@@ -4550,7 +3549,7 @@ function _jm_f_222(val, path, rep)
 }
 
 // check _jm_obj_7_map_writeOnly (.'$TightSchema'.'|'.7.writeOnly)
-function _jm_f_223(val, path, rep)
+function _jm_f_146(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.7.writeOnly
@@ -4693,230 +3692,230 @@ export function check_model_init()
     {
         initialized = true;
         runtime.jm_set_rx(RegExp)
-        json_model_3_map.set("$anchor", _jm_f_0)
-        json_model_3_map.set("$comment", _jm_f_1)
-        json_model_3_map.set("$defs", _jm_f_2)
-        json_model_3_map.set("$dynamicAnchor", _jm_f_3)
-        json_model_3_map.set("$dynamicRef", _jm_f_4)
-        json_model_3_map.set("$id", _jm_f_5)
-        json_model_3_map.set("$ref", _jm_f_6)
-        json_model_3_map.set("$schema", _jm_f_7)
-        json_model_3_map.set("$vocabulary", _jm_f_8)
-        json_model_4_map.set("default", _jm_f_9)
-        json_model_4_map.set("deprecated", _jm_f_10)
-        json_model_4_map.set("description", _jm_f_11)
-        json_model_4_map.set("examples", _jm_f_12)
-        json_model_4_map.set("readOnly", _jm_f_13)
-        json_model_4_map.set("title", _jm_f_14)
-        json_model_4_map.set("writeOnly", _jm_f_15)
-        json_model_9_map.set("contentEncoding", _jm_f_16)
-        json_model_9_map.set("contentMediaType", _jm_f_17)
-        json_model_9_map.set("contentSchema", _jm_f_18)
-        json_model_9_map.set("format", _jm_f_19)
-        json_model_9_map.set("maxLength", _jm_f_20)
-        json_model_9_map.set("minLength", _jm_f_21)
-        json_model_9_map.set("pattern", _jm_f_22)
-        json_model_12_map.set("contains", _jm_f_23)
-        json_model_12_map.set("items", _jm_f_24)
-        json_model_12_map.set("maxContains", _jm_f_25)
-        json_model_12_map.set("maxItems", _jm_f_26)
-        json_model_12_map.set("minContains", _jm_f_27)
-        json_model_12_map.set("minItems", _jm_f_28)
-        json_model_12_map.set("prefixItems", _jm_f_29)
-        json_model_12_map.set("unevaluatedItems", _jm_f_30)
-        json_model_12_map.set("uniqueItems", _jm_f_31)
-        json_model_13_map.set("additionalProperties", _jm_f_32)
-        json_model_13_map.set("dependentRequired", _jm_f_33)
-        json_model_13_map.set("dependentSchemas", _jm_f_34)
-        json_model_13_map.set("maxProperties", _jm_f_35)
-        json_model_13_map.set("minProperties", _jm_f_36)
-        json_model_13_map.set("patternProperties", _jm_f_37)
-        json_model_13_map.set("properties", _jm_f_38)
-        json_model_13_map.set("propertyNames", _jm_f_39)
-        json_model_13_map.set("required", _jm_f_40)
-        json_model_13_map.set("unevaluatedProperties", _jm_f_41)
-        json_model_14_map.set("allOf", _jm_f_42)
-        json_model_14_map.set("anyOf", _jm_f_43)
-        json_model_14_map.set("const", _jm_f_44)
-        json_model_14_map.set("else", _jm_f_45)
-        json_model_14_map.set("enum", _jm_f_46)
-        json_model_14_map.set("if", _jm_f_47)
-        json_model_14_map.set("not", _jm_f_48)
-        json_model_14_map.set("oneOf", _jm_f_49)
-        json_model_14_map.set("then", _jm_f_50)
-        _jm_obj_0_map.set("$anchor", _jm_f_51)
-        _jm_obj_0_map.set("$comment", _jm_f_52)
-        _jm_obj_0_map.set("$defs", _jm_f_53)
-        _jm_obj_0_map.set("$dynamicAnchor", _jm_f_54)
-        _jm_obj_0_map.set("$dynamicRef", _jm_f_55)
-        _jm_obj_0_map.set("$id", _jm_f_56)
-        _jm_obj_0_map.set("$ref", _jm_f_57)
-        _jm_obj_0_map.set("$schema", _jm_f_58)
-        _jm_obj_0_map.set("$vocabulary", _jm_f_59)
-        _jm_obj_0_map.set("default", _jm_f_60)
-        _jm_obj_0_map.set("deprecated", _jm_f_61)
-        _jm_obj_0_map.set("description", _jm_f_62)
-        _jm_obj_0_map.set("examples", _jm_f_63)
-        _jm_obj_0_map.set("readOnly", _jm_f_64)
-        _jm_obj_0_map.set("title", _jm_f_65)
-        _jm_obj_0_map.set("writeOnly", _jm_f_66)
-        _jm_obj_1_map.set("$anchor", _jm_f_67)
-        _jm_obj_1_map.set("$comment", _jm_f_68)
-        _jm_obj_1_map.set("$defs", _jm_f_69)
-        _jm_obj_1_map.set("$dynamicAnchor", _jm_f_70)
-        _jm_obj_1_map.set("$dynamicRef", _jm_f_71)
-        _jm_obj_1_map.set("$id", _jm_f_72)
-        _jm_obj_1_map.set("$ref", _jm_f_73)
-        _jm_obj_1_map.set("$schema", _jm_f_74)
-        _jm_obj_1_map.set("$vocabulary", _jm_f_75)
-        _jm_obj_1_map.set("default", _jm_f_76)
-        _jm_obj_1_map.set("deprecated", _jm_f_77)
-        _jm_obj_1_map.set("description", _jm_f_78)
-        _jm_obj_1_map.set("examples", _jm_f_79)
-        _jm_obj_1_map.set("readOnly", _jm_f_80)
-        _jm_obj_1_map.set("title", _jm_f_81)
-        _jm_obj_1_map.set("writeOnly", _jm_f_82)
-        _jm_obj_2_map.set("$anchor", _jm_f_83)
-        _jm_obj_2_map.set("$comment", _jm_f_84)
-        _jm_obj_2_map.set("$defs", _jm_f_85)
-        _jm_obj_2_map.set("$dynamicAnchor", _jm_f_86)
-        _jm_obj_2_map.set("$dynamicRef", _jm_f_87)
-        _jm_obj_2_map.set("$id", _jm_f_88)
-        _jm_obj_2_map.set("$ref", _jm_f_89)
-        _jm_obj_2_map.set("$schema", _jm_f_90)
-        _jm_obj_2_map.set("$vocabulary", _jm_f_91)
-        _jm_obj_2_map.set("default", _jm_f_92)
-        _jm_obj_2_map.set("deprecated", _jm_f_93)
-        _jm_obj_2_map.set("description", _jm_f_94)
-        _jm_obj_2_map.set("examples", _jm_f_95)
-        _jm_obj_2_map.set("exclusiveMaximum", _jm_f_96)
-        _jm_obj_2_map.set("exclusiveMinimum", _jm_f_97)
-        _jm_obj_2_map.set("maximum", _jm_f_98)
-        _jm_obj_2_map.set("minimum", _jm_f_99)
-        _jm_obj_2_map.set("multipleOf", _jm_f_100)
-        _jm_obj_2_map.set("readOnly", _jm_f_101)
-        _jm_obj_2_map.set("title", _jm_f_102)
-        _jm_obj_2_map.set("writeOnly", _jm_f_103)
-        _jm_obj_3_map.set("$anchor", _jm_f_104)
-        _jm_obj_3_map.set("$comment", _jm_f_105)
-        _jm_obj_3_map.set("$defs", _jm_f_106)
-        _jm_obj_3_map.set("$dynamicAnchor", _jm_f_107)
-        _jm_obj_3_map.set("$dynamicRef", _jm_f_108)
-        _jm_obj_3_map.set("$id", _jm_f_109)
-        _jm_obj_3_map.set("$ref", _jm_f_110)
-        _jm_obj_3_map.set("$schema", _jm_f_111)
-        _jm_obj_3_map.set("$vocabulary", _jm_f_112)
-        _jm_obj_3_map.set("default", _jm_f_113)
-        _jm_obj_3_map.set("deprecated", _jm_f_114)
-        _jm_obj_3_map.set("description", _jm_f_115)
-        _jm_obj_3_map.set("examples", _jm_f_116)
-        _jm_obj_3_map.set("exclusiveMaximum", _jm_f_117)
-        _jm_obj_3_map.set("exclusiveMinimum", _jm_f_118)
-        _jm_obj_3_map.set("maximum", _jm_f_119)
-        _jm_obj_3_map.set("minimum", _jm_f_120)
-        _jm_obj_3_map.set("multipleOf", _jm_f_121)
-        _jm_obj_3_map.set("readOnly", _jm_f_122)
-        _jm_obj_3_map.set("title", _jm_f_123)
-        _jm_obj_3_map.set("writeOnly", _jm_f_124)
-        _jm_obj_4_map.set("$anchor", _jm_f_125)
-        _jm_obj_4_map.set("$comment", _jm_f_126)
-        _jm_obj_4_map.set("$defs", _jm_f_127)
-        _jm_obj_4_map.set("$dynamicAnchor", _jm_f_128)
-        _jm_obj_4_map.set("$dynamicRef", _jm_f_129)
-        _jm_obj_4_map.set("$id", _jm_f_130)
-        _jm_obj_4_map.set("$ref", _jm_f_131)
-        _jm_obj_4_map.set("$schema", _jm_f_132)
-        _jm_obj_4_map.set("$vocabulary", _jm_f_133)
-        _jm_obj_4_map.set("contentEncoding", _jm_f_134)
-        _jm_obj_4_map.set("contentMediaType", _jm_f_135)
-        _jm_obj_4_map.set("contentSchema", _jm_f_136)
-        _jm_obj_4_map.set("default", _jm_f_137)
-        _jm_obj_4_map.set("deprecated", _jm_f_138)
-        _jm_obj_4_map.set("description", _jm_f_139)
-        _jm_obj_4_map.set("examples", _jm_f_140)
-        _jm_obj_4_map.set("format", _jm_f_141)
-        _jm_obj_4_map.set("maxLength", _jm_f_142)
-        _jm_obj_4_map.set("minLength", _jm_f_143)
-        _jm_obj_4_map.set("pattern", _jm_f_144)
-        _jm_obj_4_map.set("readOnly", _jm_f_145)
-        _jm_obj_4_map.set("title", _jm_f_146)
-        _jm_obj_4_map.set("writeOnly", _jm_f_147)
-        _jm_obj_5_map.set("$anchor", _jm_f_148)
-        _jm_obj_5_map.set("$comment", _jm_f_149)
-        _jm_obj_5_map.set("$defs", _jm_f_150)
-        _jm_obj_5_map.set("$dynamicAnchor", _jm_f_151)
-        _jm_obj_5_map.set("$dynamicRef", _jm_f_152)
-        _jm_obj_5_map.set("$id", _jm_f_153)
-        _jm_obj_5_map.set("$ref", _jm_f_154)
-        _jm_obj_5_map.set("$schema", _jm_f_155)
-        _jm_obj_5_map.set("$vocabulary", _jm_f_156)
-        _jm_obj_5_map.set("contains", _jm_f_157)
-        _jm_obj_5_map.set("default", _jm_f_158)
-        _jm_obj_5_map.set("deprecated", _jm_f_159)
-        _jm_obj_5_map.set("description", _jm_f_160)
-        _jm_obj_5_map.set("examples", _jm_f_161)
-        _jm_obj_5_map.set("items", _jm_f_162)
-        _jm_obj_5_map.set("maxContains", _jm_f_163)
-        _jm_obj_5_map.set("maxItems", _jm_f_164)
-        _jm_obj_5_map.set("minContains", _jm_f_165)
-        _jm_obj_5_map.set("minItems", _jm_f_166)
-        _jm_obj_5_map.set("prefixItems", _jm_f_167)
-        _jm_obj_5_map.set("readOnly", _jm_f_168)
-        _jm_obj_5_map.set("title", _jm_f_169)
-        _jm_obj_5_map.set("unevaluatedItems", _jm_f_170)
-        _jm_obj_5_map.set("uniqueItems", _jm_f_171)
-        _jm_obj_5_map.set("writeOnly", _jm_f_172)
-        _jm_obj_6_map.set("$anchor", _jm_f_173)
-        _jm_obj_6_map.set("$comment", _jm_f_174)
-        _jm_obj_6_map.set("$defs", _jm_f_175)
-        _jm_obj_6_map.set("$dynamicAnchor", _jm_f_176)
-        _jm_obj_6_map.set("$dynamicRef", _jm_f_177)
-        _jm_obj_6_map.set("$id", _jm_f_178)
-        _jm_obj_6_map.set("$ref", _jm_f_179)
-        _jm_obj_6_map.set("$schema", _jm_f_180)
-        _jm_obj_6_map.set("$vocabulary", _jm_f_181)
-        _jm_obj_6_map.set("additionalProperties", _jm_f_182)
-        _jm_obj_6_map.set("default", _jm_f_183)
-        _jm_obj_6_map.set("dependentRequired", _jm_f_184)
-        _jm_obj_6_map.set("dependentSchemas", _jm_f_185)
-        _jm_obj_6_map.set("deprecated", _jm_f_186)
-        _jm_obj_6_map.set("description", _jm_f_187)
-        _jm_obj_6_map.set("examples", _jm_f_188)
-        _jm_obj_6_map.set("maxProperties", _jm_f_189)
-        _jm_obj_6_map.set("minProperties", _jm_f_190)
-        _jm_obj_6_map.set("patternProperties", _jm_f_191)
-        _jm_obj_6_map.set("properties", _jm_f_192)
-        _jm_obj_6_map.set("propertyNames", _jm_f_193)
-        _jm_obj_6_map.set("readOnly", _jm_f_194)
-        _jm_obj_6_map.set("required", _jm_f_195)
-        _jm_obj_6_map.set("title", _jm_f_196)
-        _jm_obj_6_map.set("unevaluatedProperties", _jm_f_197)
-        _jm_obj_6_map.set("writeOnly", _jm_f_198)
-        _jm_obj_7_map.set("$anchor", _jm_f_199)
-        _jm_obj_7_map.set("$comment", _jm_f_200)
-        _jm_obj_7_map.set("$defs", _jm_f_201)
-        _jm_obj_7_map.set("$dynamicAnchor", _jm_f_202)
-        _jm_obj_7_map.set("$dynamicRef", _jm_f_203)
-        _jm_obj_7_map.set("$id", _jm_f_204)
-        _jm_obj_7_map.set("$ref", _jm_f_205)
-        _jm_obj_7_map.set("$schema", _jm_f_206)
-        _jm_obj_7_map.set("$vocabulary", _jm_f_207)
-        _jm_obj_7_map.set("allOf", _jm_f_208)
-        _jm_obj_7_map.set("anyOf", _jm_f_209)
-        _jm_obj_7_map.set("const", _jm_f_210)
-        _jm_obj_7_map.set("default", _jm_f_211)
-        _jm_obj_7_map.set("deprecated", _jm_f_212)
-        _jm_obj_7_map.set("description", _jm_f_213)
-        _jm_obj_7_map.set("else", _jm_f_214)
-        _jm_obj_7_map.set("enum", _jm_f_215)
-        _jm_obj_7_map.set("examples", _jm_f_216)
-        _jm_obj_7_map.set("if", _jm_f_217)
-        _jm_obj_7_map.set("not", _jm_f_218)
-        _jm_obj_7_map.set("oneOf", _jm_f_219)
-        _jm_obj_7_map.set("readOnly", _jm_f_220)
-        _jm_obj_7_map.set("then", _jm_f_221)
-        _jm_obj_7_map.set("title", _jm_f_222)
-        _jm_obj_7_map.set("writeOnly", _jm_f_223)
+        json_model_3_map.set("$anchor", json_model_2)
+        json_model_3_map.set("$comment", _jm_f_0)
+        json_model_3_map.set("$defs", _jm_f_1)
+        json_model_3_map.set("$dynamicAnchor", json_model_2)
+        json_model_3_map.set("$dynamicRef", json_model_2)
+        json_model_3_map.set("$id", json_model_2)
+        json_model_3_map.set("$ref", json_model_2)
+        json_model_3_map.set("$schema", _jm_f_2)
+        json_model_3_map.set("$vocabulary", _jm_f_3)
+        json_model_4_map.set("default", _jm_f_4)
+        json_model_4_map.set("deprecated", _jm_f_5)
+        json_model_4_map.set("description", _jm_f_6)
+        json_model_4_map.set("examples", _jm_f_7)
+        json_model_4_map.set("readOnly", _jm_f_8)
+        json_model_4_map.set("title", _jm_f_9)
+        json_model_4_map.set("writeOnly", _jm_f_10)
+        json_model_9_map.set("contentEncoding", _jm_f_11)
+        json_model_9_map.set("contentMediaType", _jm_f_12)
+        json_model_9_map.set("contentSchema", json_model_16)
+        json_model_9_map.set("format", _jm_f_13)
+        json_model_9_map.set("maxLength", _jm_f_14)
+        json_model_9_map.set("minLength", _jm_f_15)
+        json_model_9_map.set("pattern", _jm_f_16)
+        json_model_12_map.set("contains", json_model_16)
+        json_model_12_map.set("items", json_model_16)
+        json_model_12_map.set("maxContains", _jm_f_17)
+        json_model_12_map.set("maxItems", _jm_f_18)
+        json_model_12_map.set("minContains", _jm_f_19)
+        json_model_12_map.set("minItems", _jm_f_20)
+        json_model_12_map.set("prefixItems", json_model_11)
+        json_model_12_map.set("unevaluatedItems", json_model_16)
+        json_model_12_map.set("uniqueItems", _jm_f_21)
+        json_model_13_map.set("additionalProperties", json_model_16)
+        json_model_13_map.set("dependentRequired", _jm_f_22)
+        json_model_13_map.set("dependentSchemas", _jm_f_23)
+        json_model_13_map.set("maxProperties", _jm_f_24)
+        json_model_13_map.set("minProperties", _jm_f_25)
+        json_model_13_map.set("patternProperties", _jm_f_26)
+        json_model_13_map.set("properties", _jm_f_27)
+        json_model_13_map.set("propertyNames", json_model_16)
+        json_model_13_map.set("required", json_model_10)
+        json_model_13_map.set("unevaluatedProperties", json_model_16)
+        json_model_14_map.set("allOf", json_model_11)
+        json_model_14_map.set("anyOf", json_model_11)
+        json_model_14_map.set("const", _jm_f_28)
+        json_model_14_map.set("else", json_model_16)
+        json_model_14_map.set("enum", _jm_f_29)
+        json_model_14_map.set("if", json_model_16)
+        json_model_14_map.set("not", json_model_16)
+        json_model_14_map.set("oneOf", json_model_11)
+        json_model_14_map.set("then", json_model_16)
+        _jm_obj_0_map.set("$anchor", json_model_2)
+        _jm_obj_0_map.set("$comment", _jm_f_30)
+        _jm_obj_0_map.set("$defs", _jm_f_31)
+        _jm_obj_0_map.set("$dynamicAnchor", json_model_2)
+        _jm_obj_0_map.set("$dynamicRef", json_model_2)
+        _jm_obj_0_map.set("$id", json_model_2)
+        _jm_obj_0_map.set("$ref", json_model_2)
+        _jm_obj_0_map.set("$schema", _jm_f_32)
+        _jm_obj_0_map.set("$vocabulary", _jm_f_33)
+        _jm_obj_0_map.set("default", _jm_f_34)
+        _jm_obj_0_map.set("deprecated", _jm_f_35)
+        _jm_obj_0_map.set("description", _jm_f_36)
+        _jm_obj_0_map.set("examples", _jm_f_37)
+        _jm_obj_0_map.set("readOnly", _jm_f_38)
+        _jm_obj_0_map.set("title", _jm_f_39)
+        _jm_obj_0_map.set("writeOnly", _jm_f_40)
+        _jm_obj_1_map.set("$anchor", json_model_2)
+        _jm_obj_1_map.set("$comment", _jm_f_41)
+        _jm_obj_1_map.set("$defs", _jm_f_42)
+        _jm_obj_1_map.set("$dynamicAnchor", json_model_2)
+        _jm_obj_1_map.set("$dynamicRef", json_model_2)
+        _jm_obj_1_map.set("$id", json_model_2)
+        _jm_obj_1_map.set("$ref", json_model_2)
+        _jm_obj_1_map.set("$schema", _jm_f_43)
+        _jm_obj_1_map.set("$vocabulary", _jm_f_44)
+        _jm_obj_1_map.set("default", _jm_f_45)
+        _jm_obj_1_map.set("deprecated", _jm_f_46)
+        _jm_obj_1_map.set("description", _jm_f_47)
+        _jm_obj_1_map.set("examples", _jm_f_48)
+        _jm_obj_1_map.set("readOnly", _jm_f_49)
+        _jm_obj_1_map.set("title", _jm_f_50)
+        _jm_obj_1_map.set("writeOnly", _jm_f_51)
+        _jm_obj_2_map.set("$anchor", json_model_2)
+        _jm_obj_2_map.set("$comment", _jm_f_52)
+        _jm_obj_2_map.set("$defs", _jm_f_53)
+        _jm_obj_2_map.set("$dynamicAnchor", json_model_2)
+        _jm_obj_2_map.set("$dynamicRef", json_model_2)
+        _jm_obj_2_map.set("$id", json_model_2)
+        _jm_obj_2_map.set("$ref", json_model_2)
+        _jm_obj_2_map.set("$schema", _jm_f_54)
+        _jm_obj_2_map.set("$vocabulary", _jm_f_55)
+        _jm_obj_2_map.set("default", _jm_f_56)
+        _jm_obj_2_map.set("deprecated", _jm_f_57)
+        _jm_obj_2_map.set("description", _jm_f_58)
+        _jm_obj_2_map.set("examples", _jm_f_59)
+        _jm_obj_2_map.set("exclusiveMaximum", _jm_f_60)
+        _jm_obj_2_map.set("exclusiveMinimum", _jm_f_61)
+        _jm_obj_2_map.set("maximum", _jm_f_62)
+        _jm_obj_2_map.set("minimum", _jm_f_63)
+        _jm_obj_2_map.set("multipleOf", _jm_f_64)
+        _jm_obj_2_map.set("readOnly", _jm_f_65)
+        _jm_obj_2_map.set("title", _jm_f_66)
+        _jm_obj_2_map.set("writeOnly", _jm_f_67)
+        _jm_obj_3_map.set("$anchor", json_model_2)
+        _jm_obj_3_map.set("$comment", _jm_f_68)
+        _jm_obj_3_map.set("$defs", _jm_f_69)
+        _jm_obj_3_map.set("$dynamicAnchor", json_model_2)
+        _jm_obj_3_map.set("$dynamicRef", json_model_2)
+        _jm_obj_3_map.set("$id", json_model_2)
+        _jm_obj_3_map.set("$ref", json_model_2)
+        _jm_obj_3_map.set("$schema", _jm_f_70)
+        _jm_obj_3_map.set("$vocabulary", _jm_f_71)
+        _jm_obj_3_map.set("default", _jm_f_72)
+        _jm_obj_3_map.set("deprecated", _jm_f_73)
+        _jm_obj_3_map.set("description", _jm_f_74)
+        _jm_obj_3_map.set("examples", _jm_f_75)
+        _jm_obj_3_map.set("exclusiveMaximum", _jm_f_76)
+        _jm_obj_3_map.set("exclusiveMinimum", _jm_f_77)
+        _jm_obj_3_map.set("maximum", _jm_f_78)
+        _jm_obj_3_map.set("minimum", _jm_f_79)
+        _jm_obj_3_map.set("multipleOf", _jm_f_80)
+        _jm_obj_3_map.set("readOnly", _jm_f_81)
+        _jm_obj_3_map.set("title", _jm_f_82)
+        _jm_obj_3_map.set("writeOnly", _jm_f_83)
+        _jm_obj_4_map.set("$anchor", json_model_2)
+        _jm_obj_4_map.set("$comment", _jm_f_84)
+        _jm_obj_4_map.set("$defs", _jm_f_85)
+        _jm_obj_4_map.set("$dynamicAnchor", json_model_2)
+        _jm_obj_4_map.set("$dynamicRef", json_model_2)
+        _jm_obj_4_map.set("$id", json_model_2)
+        _jm_obj_4_map.set("$ref", json_model_2)
+        _jm_obj_4_map.set("$schema", _jm_f_86)
+        _jm_obj_4_map.set("$vocabulary", _jm_f_87)
+        _jm_obj_4_map.set("contentEncoding", _jm_f_88)
+        _jm_obj_4_map.set("contentMediaType", _jm_f_89)
+        _jm_obj_4_map.set("contentSchema", json_model_16)
+        _jm_obj_4_map.set("default", _jm_f_90)
+        _jm_obj_4_map.set("deprecated", _jm_f_91)
+        _jm_obj_4_map.set("description", _jm_f_92)
+        _jm_obj_4_map.set("examples", _jm_f_93)
+        _jm_obj_4_map.set("format", _jm_f_94)
+        _jm_obj_4_map.set("maxLength", _jm_f_95)
+        _jm_obj_4_map.set("minLength", _jm_f_96)
+        _jm_obj_4_map.set("pattern", _jm_f_97)
+        _jm_obj_4_map.set("readOnly", _jm_f_98)
+        _jm_obj_4_map.set("title", _jm_f_99)
+        _jm_obj_4_map.set("writeOnly", _jm_f_100)
+        _jm_obj_5_map.set("$anchor", json_model_2)
+        _jm_obj_5_map.set("$comment", _jm_f_101)
+        _jm_obj_5_map.set("$defs", _jm_f_102)
+        _jm_obj_5_map.set("$dynamicAnchor", json_model_2)
+        _jm_obj_5_map.set("$dynamicRef", json_model_2)
+        _jm_obj_5_map.set("$id", json_model_2)
+        _jm_obj_5_map.set("$ref", json_model_2)
+        _jm_obj_5_map.set("$schema", _jm_f_103)
+        _jm_obj_5_map.set("$vocabulary", _jm_f_104)
+        _jm_obj_5_map.set("contains", json_model_16)
+        _jm_obj_5_map.set("default", _jm_f_105)
+        _jm_obj_5_map.set("deprecated", _jm_f_106)
+        _jm_obj_5_map.set("description", _jm_f_107)
+        _jm_obj_5_map.set("examples", _jm_f_108)
+        _jm_obj_5_map.set("items", json_model_16)
+        _jm_obj_5_map.set("maxContains", _jm_f_109)
+        _jm_obj_5_map.set("maxItems", _jm_f_110)
+        _jm_obj_5_map.set("minContains", _jm_f_111)
+        _jm_obj_5_map.set("minItems", _jm_f_112)
+        _jm_obj_5_map.set("prefixItems", json_model_11)
+        _jm_obj_5_map.set("readOnly", _jm_f_113)
+        _jm_obj_5_map.set("title", _jm_f_114)
+        _jm_obj_5_map.set("unevaluatedItems", json_model_16)
+        _jm_obj_5_map.set("uniqueItems", _jm_f_115)
+        _jm_obj_5_map.set("writeOnly", _jm_f_116)
+        _jm_obj_6_map.set("$anchor", json_model_2)
+        _jm_obj_6_map.set("$comment", _jm_f_117)
+        _jm_obj_6_map.set("$defs", _jm_f_118)
+        _jm_obj_6_map.set("$dynamicAnchor", json_model_2)
+        _jm_obj_6_map.set("$dynamicRef", json_model_2)
+        _jm_obj_6_map.set("$id", json_model_2)
+        _jm_obj_6_map.set("$ref", json_model_2)
+        _jm_obj_6_map.set("$schema", _jm_f_119)
+        _jm_obj_6_map.set("$vocabulary", _jm_f_120)
+        _jm_obj_6_map.set("additionalProperties", json_model_16)
+        _jm_obj_6_map.set("default", _jm_f_121)
+        _jm_obj_6_map.set("dependentRequired", _jm_f_122)
+        _jm_obj_6_map.set("dependentSchemas", _jm_f_123)
+        _jm_obj_6_map.set("deprecated", _jm_f_124)
+        _jm_obj_6_map.set("description", _jm_f_125)
+        _jm_obj_6_map.set("examples", _jm_f_126)
+        _jm_obj_6_map.set("maxProperties", _jm_f_127)
+        _jm_obj_6_map.set("minProperties", _jm_f_128)
+        _jm_obj_6_map.set("patternProperties", _jm_f_129)
+        _jm_obj_6_map.set("properties", _jm_f_130)
+        _jm_obj_6_map.set("propertyNames", json_model_16)
+        _jm_obj_6_map.set("readOnly", _jm_f_131)
+        _jm_obj_6_map.set("required", json_model_10)
+        _jm_obj_6_map.set("title", _jm_f_132)
+        _jm_obj_6_map.set("unevaluatedProperties", json_model_16)
+        _jm_obj_6_map.set("writeOnly", _jm_f_133)
+        _jm_obj_7_map.set("$anchor", json_model_2)
+        _jm_obj_7_map.set("$comment", _jm_f_134)
+        _jm_obj_7_map.set("$defs", _jm_f_135)
+        _jm_obj_7_map.set("$dynamicAnchor", json_model_2)
+        _jm_obj_7_map.set("$dynamicRef", json_model_2)
+        _jm_obj_7_map.set("$id", json_model_2)
+        _jm_obj_7_map.set("$ref", json_model_2)
+        _jm_obj_7_map.set("$schema", _jm_f_136)
+        _jm_obj_7_map.set("$vocabulary", _jm_f_137)
+        _jm_obj_7_map.set("allOf", json_model_11)
+        _jm_obj_7_map.set("anyOf", json_model_11)
+        _jm_obj_7_map.set("const", _jm_f_138)
+        _jm_obj_7_map.set("default", _jm_f_139)
+        _jm_obj_7_map.set("deprecated", _jm_f_140)
+        _jm_obj_7_map.set("description", _jm_f_141)
+        _jm_obj_7_map.set("else", json_model_16)
+        _jm_obj_7_map.set("enum", _jm_f_142)
+        _jm_obj_7_map.set("examples", _jm_f_143)
+        _jm_obj_7_map.set("if", json_model_16)
+        _jm_obj_7_map.set("not", json_model_16)
+        _jm_obj_7_map.set("oneOf", json_model_11)
+        _jm_obj_7_map.set("readOnly", _jm_f_144)
+        _jm_obj_7_map.set("then", json_model_16)
+        _jm_obj_7_map.set("title", _jm_f_145)
+        _jm_obj_7_map.set("writeOnly", _jm_f_146)
         _jm_map_0.set("null", _jm_obj_0)
         _jm_map_0.set("boolean", _jm_obj_1)
         _jm_map_0.set("number", _jm_obj_2)

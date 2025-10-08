@@ -575,17 +575,8 @@ def _jm_f_3(val: Jsonable, path: Path, rep: Report) -> bool:
         return False
     return True
 
-# check json_model_1_mup_name (.name)
-def _jm_f_4(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .name
-    res = json_model_2(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected $neStr [.name]", path))
-    return res
-
 # check json_model_1_mup_provides (.provides)
-def _jm_f_5(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_4(val: Jsonable, path: Path, rep: Report) -> bool:
     # .provides
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.provides]", path))
@@ -603,7 +594,7 @@ def _jm_f_5(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # check json_model_1_mup_version (.version)
-def _jm_f_6(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_5(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .version
     res = isinstance(val, str)
@@ -613,7 +604,7 @@ def _jm_f_6(val: Jsonable, path: Path, rep: Report) -> bool:
 
 
 # check json_model_1_map_description (.description)
-def _jm_f_7(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_6(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .description
     res = isinstance(val, str)
@@ -622,7 +613,7 @@ def _jm_f_7(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_1_map_generated_by (.generated_by)
-def _jm_f_8(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_7(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .generated_by
     res = isinstance(val, str)
@@ -631,7 +622,7 @@ def _jm_f_8(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_1_map_no_index (.no_index)
-def _jm_f_9(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_8(val: Jsonable, path: Path, rep: Report) -> bool:
     # .no_index
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.no_index]", path))
@@ -661,44 +652,8 @@ def _jm_f_9(val: Jsonable, path: Path, rep: Report) -> bool:
             return False
     return True
 
-# check json_model_1_map_prereqs (.prereqs)
-def _jm_f_10(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .prereqs
-    res = json_model_16(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected $Prereqs [.prereqs]", path))
-    return res
-
-# check json_model_1_map_release_status (.release_status)
-def _jm_f_11(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .release_status
-    res = json_model_7(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected $Status [.release_status]", path))
-    return res
-
-# check json_model_1_map_resources (.resources)
-def _jm_f_12(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .resources
-    res = json_model_8(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected $Resources [.resources]", path))
-    return res
-
-# check json_model_1_map_tags (.tags)
-def _jm_f_13(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .tags
-    res = json_model_3(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected $neStrList [.tags]", path))
-    return res
-
 # check json_model_1_map_url (.url)
-def _jm_f_14(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_9(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .url
     res = is_valid_url(val, path, rep)
@@ -798,20 +753,20 @@ def check_model_init():
             "license": _jm_f_1,
             "maintainer": _jm_f_2,
             "meta-spec": _jm_f_3,
-            "name": _jm_f_4,
-            "provides": _jm_f_5,
-            "version": _jm_f_6,
+            "name": json_model_2,
+            "provides": _jm_f_4,
+            "version": _jm_f_5,
         }
         global json_model_1_map
         json_model_1_map = {
-            "description": _jm_f_7,
-            "generated_by": _jm_f_8,
-            "no_index": _jm_f_9,
-            "prereqs": _jm_f_10,
-            "release_status": _jm_f_11,
-            "resources": _jm_f_12,
-            "tags": _jm_f_13,
-            "url": _jm_f_14,
+            "description": _jm_f_6,
+            "generated_by": _jm_f_7,
+            "no_index": _jm_f_8,
+            "prereqs": json_model_16,
+            "release_status": json_model_7,
+            "resources": json_model_8,
+            "tags": json_model_3,
+            "url": _jm_f_9,
         }
         global check_model_map
         check_model_map = {

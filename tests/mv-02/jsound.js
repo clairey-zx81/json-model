@@ -350,34 +350,8 @@ function _jm_f_3(val, path, rep)
     return res;
 }
 
-// check json_model_6_map_maxExclusive (.'$Atomic'.maxExclusive)
-function _jm_f_4(val, path, rep)
-{
-    let res;
-    // .'$Atomic'.maxExclusive
-    res = json_model_5(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $atomic [.'$Atomic'.maxExclusive]", path])
-    }
-    return res;
-}
-
-// check json_model_6_map_maxInclusive (.'$Atomic'.maxInclusive)
-function _jm_f_5(val, path, rep)
-{
-    let res;
-    // .'$Atomic'.maxInclusive
-    res = json_model_5(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $atomic [.'$Atomic'.maxInclusive]", path])
-    }
-    return res;
-}
-
 // check json_model_6_map_maxLength (.'$Atomic'.maxLength)
-function _jm_f_6(val, path, rep)
+function _jm_f_4(val, path, rep)
 {
     let res;
     // .'$Atomic'.maxLength
@@ -389,34 +363,8 @@ function _jm_f_6(val, path, rep)
     return res;
 }
 
-// check json_model_6_map_minExclusive (.'$Atomic'.minExclusive)
-function _jm_f_7(val, path, rep)
-{
-    let res;
-    // .'$Atomic'.minExclusive
-    res = json_model_5(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $atomic [.'$Atomic'.minExclusive]", path])
-    }
-    return res;
-}
-
-// check json_model_6_map_minInclusive (.'$Atomic'.minInclusive)
-function _jm_f_8(val, path, rep)
-{
-    let res;
-    // .'$Atomic'.minInclusive
-    res = json_model_5(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $atomic [.'$Atomic'.minInclusive]", path])
-    }
-    return res;
-}
-
 // check json_model_6_map_minLength (.'$Atomic'.minLength)
-function _jm_f_9(val, path, rep)
+function _jm_f_5(val, path, rep)
 {
     let res;
     // .'$Atomic'.minLength
@@ -429,7 +377,7 @@ function _jm_f_9(val, path, rep)
 }
 
 // check json_model_6_map_name (.'$Atomic'.name)
-function _jm_f_10(val, path, rep)
+function _jm_f_6(val, path, rep)
 {
     let res;
     // .'$Atomic'.name
@@ -442,7 +390,7 @@ function _jm_f_10(val, path, rep)
 }
 
 // check json_model_6_map_pattern (.'$Atomic'.pattern)
-function _jm_f_11(val, path, rep)
+function _jm_f_7(val, path, rep)
 {
     let res;
     // .'$Atomic'.pattern
@@ -455,7 +403,7 @@ function _jm_f_11(val, path, rep)
 }
 
 // check json_model_6_map_totalDigits (.'$Atomic'.totalDigits)
-function _jm_f_12(val, path, rep)
+function _jm_f_8(val, path, rep)
 {
     let res;
     // .'$Atomic'.totalDigits
@@ -1049,15 +997,15 @@ export function check_model_init()
         json_model_6_map.set("explicitTypeZone", _jm_f_1)
         json_model_6_map.set("fractionDigits", _jm_f_2)
         json_model_6_map.set("length", _jm_f_3)
-        json_model_6_map.set("maxExclusive", _jm_f_4)
-        json_model_6_map.set("maxInclusive", _jm_f_5)
-        json_model_6_map.set("maxLength", _jm_f_6)
-        json_model_6_map.set("minExclusive", _jm_f_7)
-        json_model_6_map.set("minInclusive", _jm_f_8)
-        json_model_6_map.set("minLength", _jm_f_9)
-        json_model_6_map.set("name", _jm_f_10)
-        json_model_6_map.set("pattern", _jm_f_11)
-        json_model_6_map.set("totalDigits", _jm_f_12)
+        json_model_6_map.set("maxExclusive", json_model_5)
+        json_model_6_map.set("maxInclusive", json_model_5)
+        json_model_6_map.set("maxLength", _jm_f_4)
+        json_model_6_map.set("minExclusive", json_model_5)
+        json_model_6_map.set("minInclusive", json_model_5)
+        json_model_6_map.set("minLength", _jm_f_5)
+        json_model_6_map.set("name", _jm_f_6)
+        json_model_6_map.set("pattern", _jm_f_7)
+        json_model_6_map.set("totalDigits", _jm_f_8)
         check_model_map.set("", json_model_2)
         check_model_map.set("Schema", json_model_2)
         check_model_map.set("Type", json_model_3)

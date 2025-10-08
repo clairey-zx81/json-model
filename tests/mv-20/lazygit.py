@@ -39,17 +39,17 @@ _jm_cst_8: set[str]
 _jm_cst_9: set[str]
 _jm_cst_10: set[str]
 _jm_cst_11: set[str]
-_jm_f_53_map: PropMap
+_jm_f_52_map: PropMap
 _jm_cst_12: set[str]
-_jm_f_27_map: PropMap
-_jm_f_67_map: PropMap
-_jm_f_82_map: PropMap
-_jm_f_104_map: PropMap
-_jm_f_123_map: PropMap
-_jm_f_66_map: PropMap
+_jm_f_26_map: PropMap
+_jm_f_56_map: PropMap
+_jm_f_58_map: PropMap
+_jm_f_59_map: PropMap
+_jm_f_64_map: PropMap
+_jm_f_55_map: PropMap
 _jm_cst_13: set[str]
 _jm_cst_14: set[str]
-_jm_f_184_map: PropMap
+_jm_f_68_map: PropMap
 _jm_re_2_reco: object
 _jm_re_2: RegexFun
 _jm_cst_15: set[str]
@@ -967,17 +967,8 @@ def _jm_f_20(val: Jsonable, path: Path, rep: Report) -> bool:
             return False
     return True
 
-# check _jm_f_10_map_mainBranches (.git.mainBranches)
-def _jm_f_21(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .git.mainBranches
-    res = json_model_9(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected $stringArray [.git.mainBranches]", path))
-    return res
-
 # check _jm_f_10_map_merging (.git.merging)
-def _jm_f_22(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_21(val: Jsonable, path: Path, rep: Report) -> bool:
     # .git.merging
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.git.merging]", path))
@@ -1008,7 +999,7 @@ def _jm_f_22(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # check _jm_f_10_map_overrideGpg (.git.overrideGpg)
-def _jm_f_23(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_22(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .git.overrideGpg
     res = isinstance(val, bool)
@@ -1018,7 +1009,7 @@ def _jm_f_23(val: Jsonable, path: Path, rep: Report) -> bool:
 
 
 # check _jm_f_10_map_paging (.git.paging)
-def _jm_f_24(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_23(val: Jsonable, path: Path, rep: Report) -> bool:
     # .git.paging
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.git.paging]", path))
@@ -1064,7 +1055,7 @@ def _jm_f_24(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # check _jm_f_10_map_parseEmoji (.git.parseEmoji)
-def _jm_f_25(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_24(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .git.parseEmoji
     res = isinstance(val, bool)
@@ -1073,7 +1064,7 @@ def _jm_f_25(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_f_10_map_skipHookPrefix (.git.skipHookPrefix)
-def _jm_f_26(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_25(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .git.skipHookPrefix
     res = isinstance(val, str)
@@ -1102,8 +1093,8 @@ def _jm_f_10(val: Jsonable, path: Path, rep: Report) -> bool:
             return False
     return True
 
-# check _jm_f_27_map_animateExplosion (.gui.animateExplosion)
-def _jm_f_28(val: Jsonable, path: Path, rep: Report) -> bool:
+# check _jm_f_26_map_animateExplosion (.gui.animateExplosion)
+def _jm_f_27(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .gui.animateExplosion
     res = isinstance(val, bool)
@@ -1111,8 +1102,8 @@ def _jm_f_28(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("not a bool [.gui.animateExplosion]", path))
     return res
 
-# check _jm_f_27_map_authorColors (.gui.authorColors)
-def _jm_f_29(val: Jsonable, path: Path, rep: Report) -> bool:
+# check _jm_f_26_map_authorColors (.gui.authorColors)
+def _jm_f_28(val: Jsonable, path: Path, rep: Report) -> bool:
     # .gui.authorColors
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.gui.authorColors]", path))
@@ -1134,8 +1125,8 @@ def _jm_f_29(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 
-# check _jm_f_27_map_border (.gui.border)
-def _jm_f_30(val: Jsonable, path: Path, rep: Report) -> bool:
+# check _jm_f_26_map_border (.gui.border)
+def _jm_f_29(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .gui.border
     res = ((val is None or isinstance(val, (bool, int, float, str)))) and val in _jm_cst_7
@@ -1143,8 +1134,8 @@ def _jm_f_30(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("value not in enum [.gui.border.'|']", path))
     return res
 
-# check _jm_f_27_map_branchColors (.gui.branchColors)
-def _jm_f_31(val: Jsonable, path: Path, rep: Report) -> bool:
+# check _jm_f_26_map_branchColors (.gui.branchColors)
+def _jm_f_30(val: Jsonable, path: Path, rep: Report) -> bool:
     # .gui.branchColors
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.gui.branchColors]", path))
@@ -1165,8 +1156,8 @@ def _jm_f_31(val: Jsonable, path: Path, rep: Report) -> bool:
             return False
     return True
 
-# check _jm_f_27_map_commandLogSize (.gui.commandLogSize)
-def _jm_f_32(val: Jsonable, path: Path, rep: Report) -> bool:
+# check _jm_f_26_map_commandLogSize (.gui.commandLogSize)
+def _jm_f_31(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .gui.commandLogSize
     res = isinstance(val, int) and not isinstance(val, bool) and val >= 0
@@ -1174,8 +1165,8 @@ def _jm_f_32(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("not a 0 strict int [.gui.commandLogSize]", path))
     return res
 
-# check _jm_f_27_map_commitLength (.gui.commitLength)
-def _jm_f_33(val: Jsonable, path: Path, rep: Report) -> bool:
+# check _jm_f_26_map_commitLength (.gui.commitLength)
+def _jm_f_32(val: Jsonable, path: Path, rep: Report) -> bool:
     # .gui.commitLength
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.gui.commitLength]", path))
@@ -1197,8 +1188,8 @@ def _jm_f_33(val: Jsonable, path: Path, rep: Report) -> bool:
             return False
     return True
 
-# check _jm_f_27_map_expandFocusedSidePanel (.gui.expandFocusedSidePanel)
-def _jm_f_34(val: Jsonable, path: Path, rep: Report) -> bool:
+# check _jm_f_26_map_expandFocusedSidePanel (.gui.expandFocusedSidePanel)
+def _jm_f_33(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .gui.expandFocusedSidePanel
     res = isinstance(val, bool)
@@ -1207,8 +1198,8 @@ def _jm_f_34(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 
-# check _jm_f_27_map_language (.gui.language)
-def _jm_f_35(val: Jsonable, path: Path, rep: Report) -> bool:
+# check _jm_f_26_map_language (.gui.language)
+def _jm_f_34(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .gui.language
     res = ((val is None or isinstance(val, (bool, int, float, str)))) and val in _jm_cst_8
@@ -1217,8 +1208,8 @@ def _jm_f_35(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 
-# check _jm_f_27_map_mainPanelSplitMode (.gui.mainPanelSplitMode)
-def _jm_f_36(val: Jsonable, path: Path, rep: Report) -> bool:
+# check _jm_f_26_map_mainPanelSplitMode (.gui.mainPanelSplitMode)
+def _jm_f_35(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .gui.mainPanelSplitMode
     res = ((val is None or isinstance(val, (bool, int, float, str)))) and val in _jm_cst_9
@@ -1226,8 +1217,8 @@ def _jm_f_36(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("value not in enum [.gui.mainPanelSplitMode.'|']", path))
     return res
 
-# check _jm_f_27_map_mouseEvents (.gui.mouseEvents)
-def _jm_f_37(val: Jsonable, path: Path, rep: Report) -> bool:
+# check _jm_f_26_map_mouseEvents (.gui.mouseEvents)
+def _jm_f_36(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .gui.mouseEvents
     res = isinstance(val, bool)
@@ -1236,8 +1227,8 @@ def _jm_f_37(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 
-# check _jm_f_27_map_nerdFontsVersion (.gui.nerdFontsVersion)
-def _jm_f_38(val: Jsonable, path: Path, rep: Report) -> bool:
+# check _jm_f_26_map_nerdFontsVersion (.gui.nerdFontsVersion)
+def _jm_f_37(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .gui.nerdFontsVersion
     res = ((val is None or isinstance(val, (bool, int, float, str)))) and val in _jm_cst_10
@@ -1257,8 +1248,8 @@ def _jm_f_38(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("no model matched [.gui.nerdFontsVersion.'|']", path))
     return res
 
-# check _jm_f_27_map_scrollHeight (.gui.scrollHeight)
-def _jm_f_39(val: Jsonable, path: Path, rep: Report) -> bool:
+# check _jm_f_26_map_scrollHeight (.gui.scrollHeight)
+def _jm_f_38(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .gui.scrollHeight
     res = isinstance(val, int) and not isinstance(val, bool) and val >= 1
@@ -1266,8 +1257,8 @@ def _jm_f_39(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("not a 1 strict int [.gui.scrollHeight]", path))
     return res
 
-# check _jm_f_27_map_scrollPastBottom (.gui.scrollPastBottom)
-def _jm_f_40(val: Jsonable, path: Path, rep: Report) -> bool:
+# check _jm_f_26_map_scrollPastBottom (.gui.scrollPastBottom)
+def _jm_f_39(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .gui.scrollPastBottom
     res = isinstance(val, bool)
@@ -1275,8 +1266,8 @@ def _jm_f_40(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("not a bool [.gui.scrollPastBottom]", path))
     return res
 
-# check _jm_f_27_map_shortTimeFormat (.gui.shortTimeFormat)
-def _jm_f_41(val: Jsonable, path: Path, rep: Report) -> bool:
+# check _jm_f_26_map_shortTimeFormat (.gui.shortTimeFormat)
+def _jm_f_40(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .gui.shortTimeFormat
     res = isinstance(val, str)
@@ -1284,8 +1275,8 @@ def _jm_f_41(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("unexpected string [.gui.shortTimeFormat]", path))
     return res
 
-# check _jm_f_27_map_showBottomLine (.gui.showBottomLine)
-def _jm_f_42(val: Jsonable, path: Path, rep: Report) -> bool:
+# check _jm_f_26_map_showBottomLine (.gui.showBottomLine)
+def _jm_f_41(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .gui.showBottomLine
     res = isinstance(val, bool)
@@ -1293,8 +1284,8 @@ def _jm_f_42(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("not a bool [.gui.showBottomLine]", path))
     return res
 
-# check _jm_f_27_map_showBranchCommitHash (.gui.showBranchCommitHash)
-def _jm_f_43(val: Jsonable, path: Path, rep: Report) -> bool:
+# check _jm_f_26_map_showBranchCommitHash (.gui.showBranchCommitHash)
+def _jm_f_42(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .gui.showBranchCommitHash
     res = isinstance(val, bool)
@@ -1302,8 +1293,8 @@ def _jm_f_43(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("not a bool [.gui.showBranchCommitHash]", path))
     return res
 
-# check _jm_f_27_map_showCommandLog (.gui.showCommandLog)
-def _jm_f_44(val: Jsonable, path: Path, rep: Report) -> bool:
+# check _jm_f_26_map_showCommandLog (.gui.showCommandLog)
+def _jm_f_43(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .gui.showCommandLog
     res = isinstance(val, bool)
@@ -1311,8 +1302,8 @@ def _jm_f_44(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("not a bool [.gui.showCommandLog]", path))
     return res
 
-# check _jm_f_27_map_showFileTree (.gui.showFileTree)
-def _jm_f_45(val: Jsonable, path: Path, rep: Report) -> bool:
+# check _jm_f_26_map_showFileTree (.gui.showFileTree)
+def _jm_f_44(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .gui.showFileTree
     res = isinstance(val, bool)
@@ -1320,8 +1311,8 @@ def _jm_f_45(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("not a bool [.gui.showFileTree]", path))
     return res
 
-# check _jm_f_27_map_showListFooter (.gui.showListFooter)
-def _jm_f_46(val: Jsonable, path: Path, rep: Report) -> bool:
+# check _jm_f_26_map_showListFooter (.gui.showListFooter)
+def _jm_f_45(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .gui.showListFooter
     res = isinstance(val, bool)
@@ -1329,8 +1320,8 @@ def _jm_f_46(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("not a bool [.gui.showListFooter]", path))
     return res
 
-# check _jm_f_27_map_showRandomTip (.gui.showRandomTip)
-def _jm_f_47(val: Jsonable, path: Path, rep: Report) -> bool:
+# check _jm_f_26_map_showRandomTip (.gui.showRandomTip)
+def _jm_f_46(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .gui.showRandomTip
     res = isinstance(val, bool)
@@ -1338,8 +1329,8 @@ def _jm_f_47(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("not a bool [.gui.showRandomTip]", path))
     return res
 
-# check _jm_f_27_map_sidePanelWidth (.gui.sidePanelWidth)
-def _jm_f_48(val: Jsonable, path: Path, rep: Report) -> bool:
+# check _jm_f_26_map_sidePanelWidth (.gui.sidePanelWidth)
+def _jm_f_47(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .gui.sidePanelWidth
     # .gui.sidePanelWidth.'@'
@@ -1353,8 +1344,8 @@ def _jm_f_48(val: Jsonable, path: Path, rep: Report) -> bool:
             rep is None or rep.append(("constraints failed [.gui.sidePanelWidth]", path))
     return res
 
-# check _jm_f_27_map_skipDiscardChangeWarning (.gui.skipDiscardChangeWarning)
-def _jm_f_49(val: Jsonable, path: Path, rep: Report) -> bool:
+# check _jm_f_26_map_skipDiscardChangeWarning (.gui.skipDiscardChangeWarning)
+def _jm_f_48(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .gui.skipDiscardChangeWarning
     res = isinstance(val, bool)
@@ -1362,8 +1353,8 @@ def _jm_f_49(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("not a bool [.gui.skipDiscardChangeWarning]", path))
     return res
 
-# check _jm_f_27_map_skipRewordInEditorWarning (.gui.skipRewordInEditorWarning)
-def _jm_f_50(val: Jsonable, path: Path, rep: Report) -> bool:
+# check _jm_f_26_map_skipRewordInEditorWarning (.gui.skipRewordInEditorWarning)
+def _jm_f_49(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .gui.skipRewordInEditorWarning
     res = isinstance(val, bool)
@@ -1371,8 +1362,8 @@ def _jm_f_50(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("not a bool [.gui.skipRewordInEditorWarning]", path))
     return res
 
-# check _jm_f_27_map_skipStashWarning (.gui.skipStashWarning)
-def _jm_f_51(val: Jsonable, path: Path, rep: Report) -> bool:
+# check _jm_f_26_map_skipStashWarning (.gui.skipStashWarning)
+def _jm_f_50(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .gui.skipStashWarning
     res = isinstance(val, bool)
@@ -1381,8 +1372,8 @@ def _jm_f_51(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 
-# check _jm_f_27_map_splitDiff (.gui.splitDiff)
-def _jm_f_52(val: Jsonable, path: Path, rep: Report) -> bool:
+# check _jm_f_26_map_splitDiff (.gui.splitDiff)
+def _jm_f_51(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .gui.splitDiff
     res = ((val is None or isinstance(val, (bool, int, float, str)))) and val in _jm_cst_11
@@ -1390,99 +1381,9 @@ def _jm_f_52(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("value not in enum [.gui.splitDiff.'|']", path))
     return res
 
-# check _jm_f_53_map_activeBorderColor (.gui.theme.activeBorderColor)
-def _jm_f_54(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .gui.theme.activeBorderColor
-    res = json_model_3(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected $colorArray [.gui.theme.activeBorderColor]", path))
-    return res
 
-# check _jm_f_53_map_cherryPickedCommitBgColor (.gui.theme.cherryPickedCommitBgColor)
-def _jm_f_55(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .gui.theme.cherryPickedCommitBgColor
-    res = json_model_3(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected $colorArray [.gui.theme.cherryPickedCommitBgColor]", path))
-    return res
-
-# check _jm_f_53_map_cherryPickedCommitFgColor (.gui.theme.cherryPickedCommitFgColor)
-def _jm_f_56(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .gui.theme.cherryPickedCommitFgColor
-    res = json_model_3(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected $colorArray [.gui.theme.cherryPickedCommitFgColor]", path))
-    return res
-
-# check _jm_f_53_map_defaultFgColor (.gui.theme.defaultFgColor)
-def _jm_f_57(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .gui.theme.defaultFgColor
-    res = json_model_3(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected $colorArray [.gui.theme.defaultFgColor]", path))
-    return res
-
-# check _jm_f_53_map_inactiveBorderColor (.gui.theme.inactiveBorderColor)
-def _jm_f_58(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .gui.theme.inactiveBorderColor
-    res = json_model_3(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected $colorArray [.gui.theme.inactiveBorderColor]", path))
-    return res
-
-# check _jm_f_53_map_optionsTextColor (.gui.theme.optionsTextColor)
-def _jm_f_59(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .gui.theme.optionsTextColor
-    res = json_model_3(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected $colorArray [.gui.theme.optionsTextColor]", path))
-    return res
-
-# check _jm_f_53_map_searchingActiveBorderColor (.gui.theme.searchingActiveBorderColor)
-def _jm_f_60(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .gui.theme.searchingActiveBorderColor
-    res = json_model_3(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected $colorArray [.gui.theme.searchingActiveBorderColor]", path))
-    return res
-
-# check _jm_f_53_map_selectedLineBgColor (.gui.theme.selectedLineBgColor)
-def _jm_f_61(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .gui.theme.selectedLineBgColor
-    res = json_model_3(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected $colorArray [.gui.theme.selectedLineBgColor]", path))
-    return res
-
-# check _jm_f_53_map_selectedRangeBgColor (.gui.theme.selectedRangeBgColor)
-def _jm_f_62(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .gui.theme.selectedRangeBgColor
-    res = json_model_3(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected $colorArray [.gui.theme.selectedRangeBgColor]", path))
-    return res
-
-# check _jm_f_53_map_unstagedChangesColor (.gui.theme.unstagedChangesColor)
-def _jm_f_63(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .gui.theme.unstagedChangesColor
-    res = json_model_3(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected $colorArray [.gui.theme.unstagedChangesColor]", path))
-    return res
-
-
-# check _jm_f_27_map_theme (.gui.theme)
-def _jm_f_53(val: Jsonable, path: Path, rep: Report) -> bool:
+# check _jm_f_26_map_theme (.gui.theme)
+def _jm_f_52(val: Jsonable, path: Path, rep: Report) -> bool:
     # .gui.theme
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.gui.theme]", path))
@@ -1491,7 +1392,7 @@ def _jm_f_53(val: Jsonable, path: Path, rep: Report) -> bool:
     for prop, pval in val.items():
         assert isinstance(prop, str)
         lpath_17: Path = (path + [ prop ]) if path is not None else None
-        if pfun := _jm_f_53_map.get(prop):
+        if pfun := _jm_f_52_map.get(prop):
             # handle 10 may props
             if pfun != UNDEFINED and not pfun(pval, lpath_17 if path is not None else None, rep):
                 rep is None or rep.append(("invalid optional prop value [.gui.theme]", lpath_17 if path is not None else None))
@@ -1501,8 +1402,8 @@ def _jm_f_53(val: Jsonable, path: Path, rep: Report) -> bool:
             return False
     return True
 
-# check _jm_f_27_map_timeFormat (.gui.timeFormat)
-def _jm_f_64(val: Jsonable, path: Path, rep: Report) -> bool:
+# check _jm_f_26_map_timeFormat (.gui.timeFormat)
+def _jm_f_53(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .gui.timeFormat
     res = isinstance(val, str)
@@ -1511,8 +1412,8 @@ def _jm_f_64(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 
-# check _jm_f_27_map_windowSize (.gui.windowSize)
-def _jm_f_65(val: Jsonable, path: Path, rep: Report) -> bool:
+# check _jm_f_26_map_windowSize (.gui.windowSize)
+def _jm_f_54(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .gui.windowSize
     res = ((val is None or isinstance(val, (bool, int, float, str)))) and val in _jm_cst_12
@@ -1522,7 +1423,7 @@ def _jm_f_65(val: Jsonable, path: Path, rep: Report) -> bool:
 
 
 # check json_model_1_map_gui (.gui)
-def _jm_f_27(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_26(val: Jsonable, path: Path, rep: Report) -> bool:
     # .gui
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.gui]", path))
@@ -1531,7 +1432,7 @@ def _jm_f_27(val: Jsonable, path: Path, rep: Report) -> bool:
     for prop, pval in val.items():
         assert isinstance(prop, str)
         lpath_13: Path = (path + [ prop ]) if path is not None else None
-        if pfun := _jm_f_27_map.get(prop):
+        if pfun := _jm_f_26_map.get(prop):
             # handle 28 may props
             if pfun != UNDEFINED and not pfun(pval, lpath_13 if path is not None else None, rep):
                 rep is None or rep.append(("invalid optional prop value [.gui]", lpath_13 if path is not None else None))
@@ -1541,126 +1442,9 @@ def _jm_f_27(val: Jsonable, path: Path, rep: Report) -> bool:
             return False
     return True
 
-# check _jm_f_67_map_checkoutBranchByName (.keybinding.branches.checkoutBranchByName)
-def _jm_f_68(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .keybinding.branches.checkoutBranchByName
-    res = json_model_4(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected $keybinding [.keybinding.branches.checkoutBranchByName]", path))
-    return res
 
-# check _jm_f_67_map_createPullRequest (.keybinding.branches.createPullRequest)
-def _jm_f_69(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .keybinding.branches.createPullRequest
-    res = json_model_4(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected $keybinding [.keybinding.branches.createPullRequest]", path))
-    return res
-
-# check _jm_f_67_map_createTag (.keybinding.branches.createTag)
-def _jm_f_70(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .keybinding.branches.createTag
-    res = json_model_4(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected $keybinding [.keybinding.branches.createTag]", path))
-    return res
-
-# check _jm_f_67_map_fastForward (.keybinding.branches.fastForward)
-def _jm_f_71(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .keybinding.branches.fastForward
-    res = json_model_4(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected $keybinding [.keybinding.branches.fastForward]", path))
-    return res
-
-# check _jm_f_67_map_fetchRemote (.keybinding.branches.fetchRemote)
-def _jm_f_72(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .keybinding.branches.fetchRemote
-    res = json_model_4(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected $keybinding [.keybinding.branches.fetchRemote]", path))
-    return res
-
-# check _jm_f_67_map_forceCheckoutBranch (.keybinding.branches.forceCheckoutBranch)
-def _jm_f_73(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .keybinding.branches.forceCheckoutBranch
-    res = json_model_4(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected $keybinding [.keybinding.branches.forceCheckoutBranch]", path))
-    return res
-
-# check _jm_f_67_map_mergeIntoCurrentBranch (.keybinding.branches.mergeIntoCurrentBranch)
-def _jm_f_74(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .keybinding.branches.mergeIntoCurrentBranch
-    res = json_model_4(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected $keybinding [.keybinding.branches.mergeIntoCurrentBranch]", path))
-    return res
-
-# check _jm_f_67_map_pushTag (.keybinding.branches.pushTag)
-def _jm_f_75(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .keybinding.branches.pushTag
-    res = json_model_4(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected $keybinding [.keybinding.branches.pushTag]", path))
-    return res
-
-# check _jm_f_67_map_rebaseBranch (.keybinding.branches.rebaseBranch)
-def _jm_f_76(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .keybinding.branches.rebaseBranch
-    res = json_model_4(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected $keybinding [.keybinding.branches.rebaseBranch]", path))
-    return res
-
-# check _jm_f_67_map_renameBranch (.keybinding.branches.renameBranch)
-def _jm_f_77(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .keybinding.branches.renameBranch
-    res = json_model_4(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected $keybinding [.keybinding.branches.renameBranch]", path))
-    return res
-
-# check _jm_f_67_map_setUpstream (.keybinding.branches.setUpstream)
-def _jm_f_78(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .keybinding.branches.setUpstream
-    res = json_model_4(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected $keybinding [.keybinding.branches.setUpstream]", path))
-    return res
-
-# check _jm_f_67_map_viewGitFlowOptions (.keybinding.branches.viewGitFlowOptions)
-def _jm_f_79(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .keybinding.branches.viewGitFlowOptions
-    res = json_model_4(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected $keybinding [.keybinding.branches.viewGitFlowOptions]", path))
-    return res
-
-# check _jm_f_67_map_viewPullRequestOptions (.keybinding.branches.viewPullRequestOptions)
-def _jm_f_80(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .keybinding.branches.viewPullRequestOptions
-    res = json_model_4(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected $keybinding [.keybinding.branches.viewPullRequestOptions]", path))
-    return res
-
-
-# check _jm_f_66_map_branches (.keybinding.branches)
-def _jm_f_67(val: Jsonable, path: Path, rep: Report) -> bool:
+# check _jm_f_55_map_branches (.keybinding.branches)
+def _jm_f_56(val: Jsonable, path: Path, rep: Report) -> bool:
     # .keybinding.branches
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.keybinding.branches]", path))
@@ -1669,7 +1453,7 @@ def _jm_f_67(val: Jsonable, path: Path, rep: Report) -> bool:
     for prop, pval in val.items():
         assert isinstance(prop, str)
         lpath_19: Path = (path + [ prop ]) if path is not None else None
-        if pfun := _jm_f_67_map.get(prop):
+        if pfun := _jm_f_56_map.get(prop):
             # handle 13 may props
             if pfun != UNDEFINED and not pfun(pval, lpath_19 if path is not None else None, rep):
                 rep is None or rep.append(("invalid optional prop value [.keybinding.branches]", lpath_19 if path is not None else None))
@@ -1679,8 +1463,8 @@ def _jm_f_67(val: Jsonable, path: Path, rep: Report) -> bool:
             return False
     return True
 
-# check _jm_f_66_map_commitFiles (.keybinding.commitFiles)
-def _jm_f_81(val: Jsonable, path: Path, rep: Report) -> bool:
+# check _jm_f_55_map_commitFiles (.keybinding.commitFiles)
+def _jm_f_57(val: Jsonable, path: Path, rep: Report) -> bool:
     # .keybinding.commitFiles
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.keybinding.commitFiles]", path))
@@ -1702,198 +1486,9 @@ def _jm_f_81(val: Jsonable, path: Path, rep: Report) -> bool:
             return False
     return True
 
-# check _jm_f_82_map_amendToCommit (.keybinding.commits.amendToCommit)
-def _jm_f_83(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .keybinding.commits.amendToCommit
-    res = json_model_4(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected $keybinding [.keybinding.commits.amendToCommit]", path))
-    return res
 
-# check _jm_f_82_map_checkoutCommit (.keybinding.commits.checkoutCommit)
-def _jm_f_84(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .keybinding.commits.checkoutCommit
-    res = json_model_4(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected $keybinding [.keybinding.commits.checkoutCommit]", path))
-    return res
-
-# check _jm_f_82_map_cherryPickCopy (.keybinding.commits.cherryPickCopy)
-def _jm_f_85(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .keybinding.commits.cherryPickCopy
-    res = json_model_4(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected $keybinding [.keybinding.commits.cherryPickCopy]", path))
-    return res
-
-# check _jm_f_82_map_cherryPickCopyRange (.keybinding.commits.cherryPickCopyRange)
-def _jm_f_86(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .keybinding.commits.cherryPickCopyRange
-    res = json_model_4(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected $keybinding [.keybinding.commits.cherryPickCopyRange]", path))
-    return res
-
-# check _jm_f_82_map_copyCommitMessageToClipboard (.keybinding.commits.copyCommitMessageToClipboard)
-def _jm_f_87(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .keybinding.commits.copyCommitMessageToClipboard
-    res = json_model_4(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected $keybinding [.keybinding.commits.copyCommitMessageToClipboard]", path))
-    return res
-
-# check _jm_f_82_map_createFixupCommit (.keybinding.commits.createFixupCommit)
-def _jm_f_88(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .keybinding.commits.createFixupCommit
-    res = json_model_4(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected $keybinding [.keybinding.commits.createFixupCommit]", path))
-    return res
-
-# check _jm_f_82_map_markCommitAsFixup (.keybinding.commits.markCommitAsFixup)
-def _jm_f_89(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .keybinding.commits.markCommitAsFixup
-    res = json_model_4(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected $keybinding [.keybinding.commits.markCommitAsFixup]", path))
-    return res
-
-# check _jm_f_82_map_moveDownCommit (.keybinding.commits.moveDownCommit)
-def _jm_f_90(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .keybinding.commits.moveDownCommit
-    res = json_model_4(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected $keybinding [.keybinding.commits.moveDownCommit]", path))
-    return res
-
-# check _jm_f_82_map_moveUpCommit (.keybinding.commits.moveUpCommit)
-def _jm_f_91(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .keybinding.commits.moveUpCommit
-    res = json_model_4(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected $keybinding [.keybinding.commits.moveUpCommit]", path))
-    return res
-
-# check _jm_f_82_map_openLogMenu (.keybinding.commits.openLogMenu)
-def _jm_f_92(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .keybinding.commits.openLogMenu
-    res = json_model_4(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected $keybinding [.keybinding.commits.openLogMenu]", path))
-    return res
-
-# check _jm_f_82_map_pasteCommits (.keybinding.commits.pasteCommits)
-def _jm_f_93(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .keybinding.commits.pasteCommits
-    res = json_model_4(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected $keybinding [.keybinding.commits.pasteCommits]", path))
-    return res
-
-# check _jm_f_82_map_pickCommit (.keybinding.commits.pickCommit)
-def _jm_f_94(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .keybinding.commits.pickCommit
-    res = json_model_4(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected $keybinding [.keybinding.commits.pickCommit]", path))
-    return res
-
-# check _jm_f_82_map_renameCommit (.keybinding.commits.renameCommit)
-def _jm_f_95(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .keybinding.commits.renameCommit
-    res = json_model_4(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected $keybinding [.keybinding.commits.renameCommit]", path))
-    return res
-
-# check _jm_f_82_map_renameCommitWithEditor (.keybinding.commits.renameCommitWithEditor)
-def _jm_f_96(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .keybinding.commits.renameCommitWithEditor
-    res = json_model_4(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected $keybinding [.keybinding.commits.renameCommitWithEditor]", path))
-    return res
-
-# check _jm_f_82_map_resetCherryPick (.keybinding.commits.resetCherryPick)
-def _jm_f_97(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .keybinding.commits.resetCherryPick
-    res = json_model_4(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected $keybinding [.keybinding.commits.resetCherryPick]", path))
-    return res
-
-# check _jm_f_82_map_revertCommit (.keybinding.commits.revertCommit)
-def _jm_f_98(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .keybinding.commits.revertCommit
-    res = json_model_4(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected $keybinding [.keybinding.commits.revertCommit]", path))
-    return res
-
-# check _jm_f_82_map_squashAboveCommits (.keybinding.commits.squashAboveCommits)
-def _jm_f_99(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .keybinding.commits.squashAboveCommits
-    res = json_model_4(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected $keybinding [.keybinding.commits.squashAboveCommits]", path))
-    return res
-
-# check _jm_f_82_map_squashDown (.keybinding.commits.squashDown)
-def _jm_f_100(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .keybinding.commits.squashDown
-    res = json_model_4(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected $keybinding [.keybinding.commits.squashDown]", path))
-    return res
-
-# check _jm_f_82_map_tagCommit (.keybinding.commits.tagCommit)
-def _jm_f_101(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .keybinding.commits.tagCommit
-    res = json_model_4(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected $keybinding [.keybinding.commits.tagCommit]", path))
-    return res
-
-# check _jm_f_82_map_viewBisectOptions (.keybinding.commits.viewBisectOptions)
-def _jm_f_102(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .keybinding.commits.viewBisectOptions
-    res = json_model_4(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected $keybinding [.keybinding.commits.viewBisectOptions]", path))
-    return res
-
-# check _jm_f_82_map_viewResetOptions (.keybinding.commits.viewResetOptions)
-def _jm_f_103(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .keybinding.commits.viewResetOptions
-    res = json_model_4(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected $keybinding [.keybinding.commits.viewResetOptions]", path))
-    return res
-
-
-# check _jm_f_66_map_commits (.keybinding.commits)
-def _jm_f_82(val: Jsonable, path: Path, rep: Report) -> bool:
+# check _jm_f_55_map_commits (.keybinding.commits)
+def _jm_f_58(val: Jsonable, path: Path, rep: Report) -> bool:
     # .keybinding.commits
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.keybinding.commits]", path))
@@ -1902,7 +1497,7 @@ def _jm_f_82(val: Jsonable, path: Path, rep: Report) -> bool:
     for prop, pval in val.items():
         assert isinstance(prop, str)
         lpath_21: Path = (path + [ prop ]) if path is not None else None
-        if pfun := _jm_f_82_map.get(prop):
+        if pfun := _jm_f_58_map.get(prop):
             # handle 21 may props
             if pfun != UNDEFINED and not pfun(pval, lpath_21 if path is not None else None, rep):
                 rep is None or rep.append(("invalid optional prop value [.keybinding.commits]", lpath_21 if path is not None else None))
@@ -1912,135 +1507,9 @@ def _jm_f_82(val: Jsonable, path: Path, rep: Report) -> bool:
             return False
     return True
 
-# check _jm_f_104_map_amendLastCommit (.keybinding.files.amendLastCommit)
-def _jm_f_105(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .keybinding.files.amendLastCommit
-    res = json_model_4(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected $keybinding [.keybinding.files.amendLastCommit]", path))
-    return res
 
-# check _jm_f_104_map_commitChanges (.keybinding.files.commitChanges)
-def _jm_f_106(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .keybinding.files.commitChanges
-    res = json_model_4(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected $keybinding [.keybinding.files.commitChanges]", path))
-    return res
-
-# check _jm_f_104_map_commitChangesWithEditor (.keybinding.files.commitChangesWithEditor)
-def _jm_f_107(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .keybinding.files.commitChangesWithEditor
-    res = json_model_4(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected $keybinding [.keybinding.files.commitChangesWithEditor]", path))
-    return res
-
-# check _jm_f_104_map_commitChangesWithoutHook (.keybinding.files.commitChangesWithoutHook)
-def _jm_f_108(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .keybinding.files.commitChangesWithoutHook
-    res = json_model_4(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected $keybinding [.keybinding.files.commitChangesWithoutHook]", path))
-    return res
-
-# check _jm_f_104_map_fetch (.keybinding.files.fetch)
-def _jm_f_109(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .keybinding.files.fetch
-    res = json_model_4(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected $keybinding [.keybinding.files.fetch]", path))
-    return res
-
-# check _jm_f_104_map_ignoreFile (.keybinding.files.ignoreFile)
-def _jm_f_110(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .keybinding.files.ignoreFile
-    res = json_model_4(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected $keybinding [.keybinding.files.ignoreFile]", path))
-    return res
-
-# check _jm_f_104_map_openMergeTool (.keybinding.files.openMergeTool)
-def _jm_f_111(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .keybinding.files.openMergeTool
-    res = json_model_4(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected $keybinding [.keybinding.files.openMergeTool]", path))
-    return res
-
-# check _jm_f_104_map_openStatusFilter (.keybinding.files.openStatusFilter)
-def _jm_f_112(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .keybinding.files.openStatusFilter
-    res = json_model_4(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected $keybinding [.keybinding.files.openStatusFilter]", path))
-    return res
-
-# check _jm_f_104_map_refreshFiles (.keybinding.files.refreshFiles)
-def _jm_f_113(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .keybinding.files.refreshFiles
-    res = json_model_4(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected $keybinding [.keybinding.files.refreshFiles]", path))
-    return res
-
-# check _jm_f_104_map_stashAllChanges (.keybinding.files.stashAllChanges)
-def _jm_f_114(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .keybinding.files.stashAllChanges
-    res = json_model_4(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected $keybinding [.keybinding.files.stashAllChanges]", path))
-    return res
-
-# check _jm_f_104_map_toggleStagedAll (.keybinding.files.toggleStagedAll)
-def _jm_f_115(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .keybinding.files.toggleStagedAll
-    res = json_model_4(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected $keybinding [.keybinding.files.toggleStagedAll]", path))
-    return res
-
-# check _jm_f_104_map_toggleTreeView (.keybinding.files.toggleTreeView)
-def _jm_f_116(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .keybinding.files.toggleTreeView
-    res = json_model_4(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected $keybinding [.keybinding.files.toggleTreeView]", path))
-    return res
-
-# check _jm_f_104_map_viewResetOptions (.keybinding.files.viewResetOptions)
-def _jm_f_117(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .keybinding.files.viewResetOptions
-    res = json_model_4(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected $keybinding [.keybinding.files.viewResetOptions]", path))
-    return res
-
-# check _jm_f_104_map_viewStashOptions (.keybinding.files.viewStashOptions)
-def _jm_f_118(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .keybinding.files.viewStashOptions
-    res = json_model_4(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected $keybinding [.keybinding.files.viewStashOptions]", path))
-    return res
-
-
-# check _jm_f_66_map_files (.keybinding.files)
-def _jm_f_104(val: Jsonable, path: Path, rep: Report) -> bool:
+# check _jm_f_55_map_files (.keybinding.files)
+def _jm_f_59(val: Jsonable, path: Path, rep: Report) -> bool:
     # .keybinding.files
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.keybinding.files]", path))
@@ -2049,7 +1518,7 @@ def _jm_f_104(val: Jsonable, path: Path, rep: Report) -> bool:
     for prop, pval in val.items():
         assert isinstance(prop, str)
         lpath_22: Path = (path + [ prop ]) if path is not None else None
-        if pfun := _jm_f_104_map.get(prop):
+        if pfun := _jm_f_59_map.get(prop):
             # handle 14 may props
             if pfun != UNDEFINED and not pfun(pval, lpath_22 if path is not None else None, rep):
                 rep is None or rep.append(("invalid optional prop value [.keybinding.files]", lpath_22 if path is not None else None))
@@ -2059,8 +1528,8 @@ def _jm_f_104(val: Jsonable, path: Path, rep: Report) -> bool:
             return False
     return True
 
-# check _jm_f_66_map_main (.keybinding.main)
-def _jm_f_119(val: Jsonable, path: Path, rep: Report) -> bool:
+# check _jm_f_55_map_main (.keybinding.main)
+def _jm_f_60(val: Jsonable, path: Path, rep: Report) -> bool:
     # .keybinding.main
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.keybinding.main]", path))
@@ -2106,8 +1575,8 @@ def _jm_f_119(val: Jsonable, path: Path, rep: Report) -> bool:
             return False
     return True
 
-# check _jm_f_66_map_stash (.keybinding.stash)
-def _jm_f_120(val: Jsonable, path: Path, rep: Report) -> bool:
+# check _jm_f_55_map_stash (.keybinding.stash)
+def _jm_f_61(val: Jsonable, path: Path, rep: Report) -> bool:
     # .keybinding.stash
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.keybinding.stash]", path))
@@ -2137,8 +1606,8 @@ def _jm_f_120(val: Jsonable, path: Path, rep: Report) -> bool:
             return False
     return True
 
-# check _jm_f_66_map_status (.keybinding.status)
-def _jm_f_121(val: Jsonable, path: Path, rep: Report) -> bool:
+# check _jm_f_55_map_status (.keybinding.status)
+def _jm_f_62(val: Jsonable, path: Path, rep: Report) -> bool:
     # .keybinding.status
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.keybinding.status]", path))
@@ -2168,8 +1637,8 @@ def _jm_f_121(val: Jsonable, path: Path, rep: Report) -> bool:
             return False
     return True
 
-# check _jm_f_66_map_submodules (.keybinding.submodules)
-def _jm_f_122(val: Jsonable, path: Path, rep: Report) -> bool:
+# check _jm_f_55_map_submodules (.keybinding.submodules)
+def _jm_f_63(val: Jsonable, path: Path, rep: Report) -> bool:
     # .keybinding.submodules
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.keybinding.submodules]", path))
@@ -2207,143 +1676,8 @@ def _jm_f_122(val: Jsonable, path: Path, rep: Report) -> bool:
             return False
     return True
 
-# check _jm_f_123_map_confirm (.keybinding.universal.confirm)
-def _jm_f_124(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .keybinding.universal.confirm
-    res = json_model_4(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected $keybinding [.keybinding.universal.confirm]", path))
-    return res
-
-# check _jm_f_123_map_copyToClipboard (.keybinding.universal.copyToClipboard)
-def _jm_f_125(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .keybinding.universal.copyToClipboard
-    res = json_model_4(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected $keybinding [.keybinding.universal.copyToClipboard]", path))
-    return res
-
-# check _jm_f_123_map_createPatchOptionsMenu (.keybinding.universal.createPatchOptionsMenu)
-def _jm_f_126(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .keybinding.universal.createPatchOptionsMenu
-    res = json_model_4(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected $keybinding [.keybinding.universal.createPatchOptionsMenu]", path))
-    return res
-
-# check _jm_f_123_map_createRebaseOptionsMenu (.keybinding.universal.createRebaseOptionsMenu)
-def _jm_f_127(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .keybinding.universal.createRebaseOptionsMenu
-    res = json_model_4(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected $keybinding [.keybinding.universal.createRebaseOptionsMenu]", path))
-    return res
-
-# check _jm_f_123_map_decreaseContextInDiffView (.keybinding.universal.decreaseContextInDiffView)
-def _jm_f_128(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .keybinding.universal.decreaseContextInDiffView
-    res = json_model_4(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected $keybinding [.keybinding.universal.decreaseContextInDiffView]", path))
-    return res
-
-# check _jm_f_123_map_diffingMenu (.keybinding.universal.diffingMenu)
-def _jm_f_129(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .keybinding.universal.diffingMenu
-    res = json_model_4(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected $keybinding [.keybinding.universal.diffingMenu]", path))
-    return res
-
-# check _jm_f_123_map_diffingMenu-alt (.keybinding.universal.'diffingMenu-alt')
-def _jm_f_130(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .keybinding.universal.'diffingMenu-alt'
-    res = json_model_4(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected $keybinding [.keybinding.universal.'diffingMenu-alt']", path))
-    return res
-
-# check _jm_f_123_map_edit (.keybinding.universal.edit)
-def _jm_f_131(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .keybinding.universal.edit
-    res = json_model_4(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected $keybinding [.keybinding.universal.edit]", path))
-    return res
-
-# check _jm_f_123_map_executeCustomCommand (.keybinding.universal.executeCustomCommand)
-def _jm_f_132(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .keybinding.universal.executeCustomCommand
-    res = json_model_4(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected $keybinding [.keybinding.universal.executeCustomCommand]", path))
-    return res
-
-# check _jm_f_123_map_extrasMenu (.keybinding.universal.extrasMenu)
-def _jm_f_133(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .keybinding.universal.extrasMenu
-    res = json_model_4(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected $keybinding [.keybinding.universal.extrasMenu]", path))
-    return res
-
-# check _jm_f_123_map_filteringMenu (.keybinding.universal.filteringMenu)
-def _jm_f_134(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .keybinding.universal.filteringMenu
-    res = json_model_4(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected $keybinding [.keybinding.universal.filteringMenu]", path))
-    return res
-
-# check _jm_f_123_map_goInto (.keybinding.universal.goInto)
-def _jm_f_135(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .keybinding.universal.goInto
-    res = json_model_4(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected $keybinding [.keybinding.universal.goInto]", path))
-    return res
-
-# check _jm_f_123_map_gotoBottom (.keybinding.universal.gotoBottom)
-def _jm_f_136(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .keybinding.universal.gotoBottom
-    res = json_model_4(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected $keybinding [.keybinding.universal.gotoBottom]", path))
-    return res
-
-# check _jm_f_123_map_gotoTop (.keybinding.universal.gotoTop)
-def _jm_f_137(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .keybinding.universal.gotoTop
-    res = json_model_4(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected $keybinding [.keybinding.universal.gotoTop]", path))
-    return res
-
-# check _jm_f_123_map_increaseContextInDiffView (.keybinding.universal.increaseContextInDiffView)
-def _jm_f_138(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .keybinding.universal.increaseContextInDiffView
-    res = json_model_4(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected $keybinding [.keybinding.universal.increaseContextInDiffView]", path))
-    return res
-
-# check _jm_f_123_map_jumpToBlock (.keybinding.universal.jumpToBlock)
-def _jm_f_139(val: Jsonable, path: Path, rep: Report) -> bool:
+# check _jm_f_64_map_jumpToBlock (.keybinding.universal.jumpToBlock)
+def _jm_f_65(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .keybinding.universal.jumpToBlock
     res = isinstance(val, list)
@@ -2351,107 +1685,8 @@ def _jm_f_139(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("not array or unexpected array [.keybinding.universal.jumpToBlock]", path))
     return res
 
-# check _jm_f_123_map_new (.keybinding.universal.new)
-def _jm_f_140(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .keybinding.universal.new
-    res = json_model_4(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected $keybinding [.keybinding.universal.new]", path))
-    return res
-
-# check _jm_f_123_map_nextBlock (.keybinding.universal.nextBlock)
-def _jm_f_141(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .keybinding.universal.nextBlock
-    res = json_model_4(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected $keybinding [.keybinding.universal.nextBlock]", path))
-    return res
-
-# check _jm_f_123_map_nextBlock-alt (.keybinding.universal.'nextBlock-alt')
-def _jm_f_142(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .keybinding.universal.'nextBlock-alt'
-    res = json_model_4(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected $keybinding [.keybinding.universal.'nextBlock-alt']", path))
-    return res
-
-# check _jm_f_123_map_nextItem (.keybinding.universal.nextItem)
-def _jm_f_143(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .keybinding.universal.nextItem
-    res = json_model_4(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected $keybinding [.keybinding.universal.nextItem]", path))
-    return res
-
-# check _jm_f_123_map_nextItem-alt (.keybinding.universal.'nextItem-alt')
-def _jm_f_144(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .keybinding.universal.'nextItem-alt'
-    res = json_model_4(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected $keybinding [.keybinding.universal.'nextItem-alt']", path))
-    return res
-
-# check _jm_f_123_map_nextMatch (.keybinding.universal.nextMatch)
-def _jm_f_145(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .keybinding.universal.nextMatch
-    res = json_model_4(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected $keybinding [.keybinding.universal.nextMatch]", path))
-    return res
-
-# check _jm_f_123_map_nextPage (.keybinding.universal.nextPage)
-def _jm_f_146(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .keybinding.universal.nextPage
-    res = json_model_4(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected $keybinding [.keybinding.universal.nextPage]", path))
-    return res
-
-# check _jm_f_123_map_nextScreenMode (.keybinding.universal.nextScreenMode)
-def _jm_f_147(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .keybinding.universal.nextScreenMode
-    res = json_model_4(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected $keybinding [.keybinding.universal.nextScreenMode]", path))
-    return res
-
-# check _jm_f_123_map_nextTab (.keybinding.universal.nextTab)
-def _jm_f_148(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .keybinding.universal.nextTab
-    res = json_model_4(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected $keybinding [.keybinding.universal.nextTab]", path))
-    return res
-
-# check _jm_f_123_map_openFile (.keybinding.universal.openFile)
-def _jm_f_149(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .keybinding.universal.openFile
-    res = json_model_4(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected $keybinding [.keybinding.universal.openFile]", path))
-    return res
-
-# check _jm_f_123_map_openRecentRepos (.keybinding.universal.openRecentRepos)
-def _jm_f_150(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .keybinding.universal.openRecentRepos
-    res = json_model_4(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected $keybinding [.keybinding.universal.openRecentRepos]", path))
-    return res
-
-# check _jm_f_123_map_optionMenu (.keybinding.universal.optionMenu)
-def _jm_f_151(val: Jsonable, path: Path, rep: Report) -> bool:
+# check _jm_f_64_map_optionMenu (.keybinding.universal.optionMenu)
+def _jm_f_66(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .keybinding.universal.optionMenu
     res = val is None
@@ -2459,288 +1694,9 @@ def _jm_f_151(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("not null [.keybinding.universal.optionMenu]", path))
     return res
 
-# check _jm_f_123_map_optionMenu-alt1 (.keybinding.universal.'optionMenu-alt1')
-def _jm_f_152(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .keybinding.universal.'optionMenu-alt1'
-    res = json_model_4(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected $keybinding [.keybinding.universal.'optionMenu-alt1']", path))
-    return res
 
-# check _jm_f_123_map_prevBlock (.keybinding.universal.prevBlock)
-def _jm_f_153(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .keybinding.universal.prevBlock
-    res = json_model_4(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected $keybinding [.keybinding.universal.prevBlock]", path))
-    return res
-
-# check _jm_f_123_map_prevBlock-alt (.keybinding.universal.'prevBlock-alt')
-def _jm_f_154(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .keybinding.universal.'prevBlock-alt'
-    res = json_model_4(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected $keybinding [.keybinding.universal.'prevBlock-alt']", path))
-    return res
-
-# check _jm_f_123_map_prevItem (.keybinding.universal.prevItem)
-def _jm_f_155(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .keybinding.universal.prevItem
-    res = json_model_4(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected $keybinding [.keybinding.universal.prevItem]", path))
-    return res
-
-# check _jm_f_123_map_prevItem-alt (.keybinding.universal.'prevItem-alt')
-def _jm_f_156(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .keybinding.universal.'prevItem-alt'
-    res = json_model_4(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected $keybinding [.keybinding.universal.'prevItem-alt']", path))
-    return res
-
-# check _jm_f_123_map_prevMatch (.keybinding.universal.prevMatch)
-def _jm_f_157(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .keybinding.universal.prevMatch
-    res = json_model_4(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected $keybinding [.keybinding.universal.prevMatch]", path))
-    return res
-
-# check _jm_f_123_map_prevPage (.keybinding.universal.prevPage)
-def _jm_f_158(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .keybinding.universal.prevPage
-    res = json_model_4(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected $keybinding [.keybinding.universal.prevPage]", path))
-    return res
-
-# check _jm_f_123_map_prevScreenMode (.keybinding.universal.prevScreenMode)
-def _jm_f_159(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .keybinding.universal.prevScreenMode
-    res = json_model_4(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected $keybinding [.keybinding.universal.prevScreenMode]", path))
-    return res
-
-# check _jm_f_123_map_prevTab (.keybinding.universal.prevTab)
-def _jm_f_160(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .keybinding.universal.prevTab
-    res = json_model_4(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected $keybinding [.keybinding.universal.prevTab]", path))
-    return res
-
-# check _jm_f_123_map_pullFiles (.keybinding.universal.pullFiles)
-def _jm_f_161(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .keybinding.universal.pullFiles
-    res = json_model_4(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected $keybinding [.keybinding.universal.pullFiles]", path))
-    return res
-
-# check _jm_f_123_map_pushFiles (.keybinding.universal.pushFiles)
-def _jm_f_162(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .keybinding.universal.pushFiles
-    res = json_model_4(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected $keybinding [.keybinding.universal.pushFiles]", path))
-    return res
-
-# check _jm_f_123_map_quit (.keybinding.universal.quit)
-def _jm_f_163(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .keybinding.universal.quit
-    res = json_model_4(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected $keybinding [.keybinding.universal.quit]", path))
-    return res
-
-# check _jm_f_123_map_quit-alt1 (.keybinding.universal.'quit-alt1')
-def _jm_f_164(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .keybinding.universal.'quit-alt1'
-    res = json_model_4(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected $keybinding [.keybinding.universal.'quit-alt1']", path))
-    return res
-
-# check _jm_f_123_map_quitWithoutChangingDirectory (.keybinding.universal.quitWithoutChangingDirectory)
-def _jm_f_165(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .keybinding.universal.quitWithoutChangingDirectory
-    res = json_model_4(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected $keybinding [.keybinding.universal.quitWithoutChangingDirectory]", path))
-    return res
-
-# check _jm_f_123_map_redo (.keybinding.universal.redo)
-def _jm_f_166(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .keybinding.universal.redo
-    res = json_model_4(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected $keybinding [.keybinding.universal.redo]", path))
-    return res
-
-# check _jm_f_123_map_refresh (.keybinding.universal.refresh)
-def _jm_f_167(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .keybinding.universal.refresh
-    res = json_model_4(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected $keybinding [.keybinding.universal.refresh]", path))
-    return res
-
-# check _jm_f_123_map_remove (.keybinding.universal.remove)
-def _jm_f_168(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .keybinding.universal.remove
-    res = json_model_4(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected $keybinding [.keybinding.universal.remove]", path))
-    return res
-
-# check _jm_f_123_map_return (.keybinding.universal.return)
-def _jm_f_169(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .keybinding.universal.return
-    res = json_model_4(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected $keybinding [.keybinding.universal.return]", path))
-    return res
-
-# check _jm_f_123_map_scrollDownMain (.keybinding.universal.scrollDownMain)
-def _jm_f_170(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .keybinding.universal.scrollDownMain
-    res = json_model_4(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected $keybinding [.keybinding.universal.scrollDownMain]", path))
-    return res
-
-# check _jm_f_123_map_scrollDownMain-alt1 (.keybinding.universal.'scrollDownMain-alt1')
-def _jm_f_171(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .keybinding.universal.'scrollDownMain-alt1'
-    res = json_model_4(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected $keybinding [.keybinding.universal.'scrollDownMain-alt1']", path))
-    return res
-
-# check _jm_f_123_map_scrollDownMain-alt2 (.keybinding.universal.'scrollDownMain-alt2')
-def _jm_f_172(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .keybinding.universal.'scrollDownMain-alt2'
-    res = json_model_4(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected $keybinding [.keybinding.universal.'scrollDownMain-alt2']", path))
-    return res
-
-# check _jm_f_123_map_scrollLeft (.keybinding.universal.scrollLeft)
-def _jm_f_173(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .keybinding.universal.scrollLeft
-    res = json_model_4(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected $keybinding [.keybinding.universal.scrollLeft]", path))
-    return res
-
-# check _jm_f_123_map_scrollRight (.keybinding.universal.scrollRight)
-def _jm_f_174(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .keybinding.universal.scrollRight
-    res = json_model_4(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected $keybinding [.keybinding.universal.scrollRight]", path))
-    return res
-
-# check _jm_f_123_map_scrollUpMain (.keybinding.universal.scrollUpMain)
-def _jm_f_175(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .keybinding.universal.scrollUpMain
-    res = json_model_4(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected $keybinding [.keybinding.universal.scrollUpMain]", path))
-    return res
-
-# check _jm_f_123_map_scrollUpMain-alt1 (.keybinding.universal.'scrollUpMain-alt1')
-def _jm_f_176(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .keybinding.universal.'scrollUpMain-alt1'
-    res = json_model_4(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected $keybinding [.keybinding.universal.'scrollUpMain-alt1']", path))
-    return res
-
-# check _jm_f_123_map_scrollUpMain-alt2 (.keybinding.universal.'scrollUpMain-alt2')
-def _jm_f_177(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .keybinding.universal.'scrollUpMain-alt2'
-    res = json_model_4(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected $keybinding [.keybinding.universal.'scrollUpMain-alt2']", path))
-    return res
-
-# check _jm_f_123_map_select (.keybinding.universal.select)
-def _jm_f_178(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .keybinding.universal.select
-    res = json_model_4(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected $keybinding [.keybinding.universal.select]", path))
-    return res
-
-# check _jm_f_123_map_submitEditorText (.keybinding.universal.submitEditorText)
-def _jm_f_179(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .keybinding.universal.submitEditorText
-    res = json_model_4(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected $keybinding [.keybinding.universal.submitEditorText]", path))
-    return res
-
-# check _jm_f_123_map_togglePanel (.keybinding.universal.togglePanel)
-def _jm_f_180(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .keybinding.universal.togglePanel
-    res = json_model_4(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected $keybinding [.keybinding.universal.togglePanel]", path))
-    return res
-
-# check _jm_f_123_map_toggleWhitespaceInDiffView (.keybinding.universal.toggleWhitespaceInDiffView)
-def _jm_f_181(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .keybinding.universal.toggleWhitespaceInDiffView
-    res = json_model_4(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected $keybinding [.keybinding.universal.toggleWhitespaceInDiffView]", path))
-    return res
-
-# check _jm_f_123_map_undo (.keybinding.universal.undo)
-def _jm_f_182(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .keybinding.universal.undo
-    res = json_model_4(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected $keybinding [.keybinding.universal.undo]", path))
-    return res
-
-
-# check _jm_f_66_map_universal (.keybinding.universal)
-def _jm_f_123(val: Jsonable, path: Path, rep: Report) -> bool:
+# check _jm_f_55_map_universal (.keybinding.universal)
+def _jm_f_64(val: Jsonable, path: Path, rep: Report) -> bool:
     # .keybinding.universal
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.keybinding.universal]", path))
@@ -2749,7 +1705,7 @@ def _jm_f_123(val: Jsonable, path: Path, rep: Report) -> bool:
     for prop, pval in val.items():
         assert isinstance(prop, str)
         lpath_27: Path = (path + [ prop ]) if path is not None else None
-        if pfun := _jm_f_123_map.get(prop):
+        if pfun := _jm_f_64_map.get(prop):
             # handle 59 may props
             if pfun != UNDEFINED and not pfun(pval, lpath_27 if path is not None else None, rep):
                 rep is None or rep.append(("invalid optional prop value [.keybinding.universal]", lpath_27 if path is not None else None))
@@ -2761,7 +1717,7 @@ def _jm_f_123(val: Jsonable, path: Path, rep: Report) -> bool:
 
 
 # check json_model_1_map_keybinding (.keybinding)
-def _jm_f_66(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_55(val: Jsonable, path: Path, rep: Report) -> bool:
     # .keybinding
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.keybinding]", path))
@@ -2770,7 +1726,7 @@ def _jm_f_66(val: Jsonable, path: Path, rep: Report) -> bool:
     for prop, pval in val.items():
         assert isinstance(prop, str)
         lpath_18: Path = (path + [ prop ]) if path is not None else None
-        if pfun := _jm_f_66_map.get(prop):
+        if pfun := _jm_f_55_map.get(prop):
             # handle 9 may props
             if pfun != UNDEFINED and not pfun(pval, lpath_18 if path is not None else None, rep):
                 rep is None or rep.append(("invalid optional prop value [.keybinding]", lpath_18 if path is not None else None))
@@ -2782,7 +1738,7 @@ def _jm_f_66(val: Jsonable, path: Path, rep: Report) -> bool:
 
 
 # check json_model_1_map_notARepository (.notARepository)
-def _jm_f_183(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_67(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .notARepository
     res = ((val is None or isinstance(val, (bool, int, float, str)))) and val in _jm_cst_13
@@ -2790,8 +1746,8 @@ def _jm_f_183(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("value not in enum [.notARepository.'|']", path))
     return res
 
-# check _jm_f_184_map_copyToClipboardCmd (.os.copyToClipboardCmd)
-def _jm_f_185(val: Jsonable, path: Path, rep: Report) -> bool:
+# check _jm_f_68_map_copyToClipboardCmd (.os.copyToClipboardCmd)
+def _jm_f_69(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .os.copyToClipboardCmd
     res = isinstance(val, str)
@@ -2799,8 +1755,8 @@ def _jm_f_185(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("unexpected string [.os.copyToClipboardCmd]", path))
     return res
 
-# check _jm_f_184_map_edit (.os.edit)
-def _jm_f_186(val: Jsonable, path: Path, rep: Report) -> bool:
+# check _jm_f_68_map_edit (.os.edit)
+def _jm_f_70(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .os.edit
     res = isinstance(val, str)
@@ -2808,8 +1764,8 @@ def _jm_f_186(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("unexpected string [.os.edit]", path))
     return res
 
-# check _jm_f_184_map_editAtLine (.os.editAtLine)
-def _jm_f_187(val: Jsonable, path: Path, rep: Report) -> bool:
+# check _jm_f_68_map_editAtLine (.os.editAtLine)
+def _jm_f_71(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .os.editAtLine
     res = isinstance(val, str)
@@ -2817,8 +1773,8 @@ def _jm_f_187(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("unexpected string [.os.editAtLine]", path))
     return res
 
-# check _jm_f_184_map_editAtLineAndWait (.os.editAtLineAndWait)
-def _jm_f_188(val: Jsonable, path: Path, rep: Report) -> bool:
+# check _jm_f_68_map_editAtLineAndWait (.os.editAtLineAndWait)
+def _jm_f_72(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .os.editAtLineAndWait
     res = isinstance(val, str)
@@ -2827,8 +1783,8 @@ def _jm_f_188(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 
-# check _jm_f_184_map_editPreset (.os.editPreset)
-def _jm_f_189(val: Jsonable, path: Path, rep: Report) -> bool:
+# check _jm_f_68_map_editPreset (.os.editPreset)
+def _jm_f_73(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .os.editPreset
     res = ((val is None or isinstance(val, (bool, int, float, str)))) and val in _jm_cst_14
@@ -2848,8 +1804,8 @@ def _jm_f_189(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("no model matched [.os.editPreset.'|']", path))
     return res
 
-# check _jm_f_184_map_open (.os.open)
-def _jm_f_190(val: Jsonable, path: Path, rep: Report) -> bool:
+# check _jm_f_68_map_open (.os.open)
+def _jm_f_74(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .os.open
     res = isinstance(val, str)
@@ -2857,8 +1813,8 @@ def _jm_f_190(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("unexpected string [.os.open]", path))
     return res
 
-# check _jm_f_184_map_openLink (.os.openLink)
-def _jm_f_191(val: Jsonable, path: Path, rep: Report) -> bool:
+# check _jm_f_68_map_openLink (.os.openLink)
+def _jm_f_75(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .os.openLink
     res = isinstance(val, str)
@@ -2868,7 +1824,7 @@ def _jm_f_191(val: Jsonable, path: Path, rep: Report) -> bool:
 
 
 # check json_model_1_map_os (.os)
-def _jm_f_184(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_68(val: Jsonable, path: Path, rep: Report) -> bool:
     # .os
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.os]", path))
@@ -2877,7 +1833,7 @@ def _jm_f_184(val: Jsonable, path: Path, rep: Report) -> bool:
     for prop, pval in val.items():
         assert isinstance(prop, str)
         lpath_28: Path = (path + [ prop ]) if path is not None else None
-        if pfun := _jm_f_184_map.get(prop):
+        if pfun := _jm_f_68_map.get(prop):
             # handle 7 may props
             if pfun != UNDEFINED and not pfun(pval, lpath_28 if path is not None else None, rep):
                 rep is None or rep.append(("invalid optional prop value [.os]", lpath_28 if path is not None else None))
@@ -2888,7 +1844,7 @@ def _jm_f_184(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # check json_model_1_map_promptToReturnFromSubprocess (.promptToReturnFromSubprocess)
-def _jm_f_192(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_76(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .promptToReturnFromSubprocess
     res = isinstance(val, bool)
@@ -2897,7 +1853,7 @@ def _jm_f_192(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_1_map_quitOnTopLevelReturn (.quitOnTopLevelReturn)
-def _jm_f_193(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_77(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .quitOnTopLevelReturn
     res = isinstance(val, bool)
@@ -2906,7 +1862,7 @@ def _jm_f_193(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_1_map_refresher (.refresher)
-def _jm_f_194(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_78(val: Jsonable, path: Path, rep: Report) -> bool:
     # .refresher
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.refresher]", path))
@@ -2938,7 +1894,7 @@ def _jm_f_194(val: Jsonable, path: Path, rep: Report) -> bool:
 
 
 # check json_model_1_map_services (.services)
-def _jm_f_195(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_79(val: Jsonable, path: Path, rep: Report) -> bool:
     # .services
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.services]", path))
@@ -2962,7 +1918,7 @@ def _jm_f_195(val: Jsonable, path: Path, rep: Report) -> bool:
 
 
 # check json_model_1_map_update (.update)
-def _jm_f_196(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_80(val: Jsonable, path: Path, rep: Report) -> bool:
     # .update
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.update]", path))
@@ -3072,12 +2028,12 @@ def check_model_init():
             "disableForcePushing": _jm_f_18,
             "fetchAll": _jm_f_19,
             "log": _jm_f_20,
-            "mainBranches": _jm_f_21,
-            "merging": _jm_f_22,
-            "overrideGpg": _jm_f_23,
-            "paging": _jm_f_24,
-            "parseEmoji": _jm_f_25,
-            "skipHookPrefix": _jm_f_26,
+            "mainBranches": json_model_9,
+            "merging": _jm_f_21,
+            "overrideGpg": _jm_f_22,
+            "paging": _jm_f_23,
+            "parseEmoji": _jm_f_24,
+            "skipHookPrefix": _jm_f_25,
         }
         global _jm_cst_7
         _jm_cst_7 = {'double', 'hidden', 'rounded', 'single'}
@@ -3089,196 +2045,196 @@ def check_model_init():
         _jm_cst_10 = {'2', '3'}
         global _jm_cst_11
         _jm_cst_11 = {'always', 'auto'}
-        global _jm_f_53_map
-        _jm_f_53_map = {
-            "activeBorderColor": _jm_f_54,
-            "cherryPickedCommitBgColor": _jm_f_55,
-            "cherryPickedCommitFgColor": _jm_f_56,
-            "defaultFgColor": _jm_f_57,
-            "inactiveBorderColor": _jm_f_58,
-            "optionsTextColor": _jm_f_59,
-            "searchingActiveBorderColor": _jm_f_60,
-            "selectedLineBgColor": _jm_f_61,
-            "selectedRangeBgColor": _jm_f_62,
-            "unstagedChangesColor": _jm_f_63,
+        global _jm_f_52_map
+        _jm_f_52_map = {
+            "activeBorderColor": json_model_3,
+            "cherryPickedCommitBgColor": json_model_3,
+            "cherryPickedCommitFgColor": json_model_3,
+            "defaultFgColor": json_model_3,
+            "inactiveBorderColor": json_model_3,
+            "optionsTextColor": json_model_3,
+            "searchingActiveBorderColor": json_model_3,
+            "selectedLineBgColor": json_model_3,
+            "selectedRangeBgColor": json_model_3,
+            "unstagedChangesColor": json_model_3,
         }
         global _jm_cst_12
         _jm_cst_12 = {'full', 'half', 'normal'}
-        global _jm_f_27_map
-        _jm_f_27_map = {
-            "animateExplosion": _jm_f_28,
-            "authorColors": _jm_f_29,
-            "border": _jm_f_30,
-            "branchColors": _jm_f_31,
-            "commandLogSize": _jm_f_32,
-            "commitLength": _jm_f_33,
-            "expandFocusedSidePanel": _jm_f_34,
-            "language": _jm_f_35,
-            "mainPanelSplitMode": _jm_f_36,
-            "mouseEvents": _jm_f_37,
-            "nerdFontsVersion": _jm_f_38,
-            "scrollHeight": _jm_f_39,
-            "scrollPastBottom": _jm_f_40,
-            "shortTimeFormat": _jm_f_41,
-            "showBottomLine": _jm_f_42,
-            "showBranchCommitHash": _jm_f_43,
-            "showCommandLog": _jm_f_44,
-            "showFileTree": _jm_f_45,
-            "showListFooter": _jm_f_46,
-            "showRandomTip": _jm_f_47,
-            "sidePanelWidth": _jm_f_48,
-            "skipDiscardChangeWarning": _jm_f_49,
-            "skipRewordInEditorWarning": _jm_f_50,
-            "skipStashWarning": _jm_f_51,
-            "splitDiff": _jm_f_52,
-            "theme": _jm_f_53,
-            "timeFormat": _jm_f_64,
-            "windowSize": _jm_f_65,
+        global _jm_f_26_map
+        _jm_f_26_map = {
+            "animateExplosion": _jm_f_27,
+            "authorColors": _jm_f_28,
+            "border": _jm_f_29,
+            "branchColors": _jm_f_30,
+            "commandLogSize": _jm_f_31,
+            "commitLength": _jm_f_32,
+            "expandFocusedSidePanel": _jm_f_33,
+            "language": _jm_f_34,
+            "mainPanelSplitMode": _jm_f_35,
+            "mouseEvents": _jm_f_36,
+            "nerdFontsVersion": _jm_f_37,
+            "scrollHeight": _jm_f_38,
+            "scrollPastBottom": _jm_f_39,
+            "shortTimeFormat": _jm_f_40,
+            "showBottomLine": _jm_f_41,
+            "showBranchCommitHash": _jm_f_42,
+            "showCommandLog": _jm_f_43,
+            "showFileTree": _jm_f_44,
+            "showListFooter": _jm_f_45,
+            "showRandomTip": _jm_f_46,
+            "sidePanelWidth": _jm_f_47,
+            "skipDiscardChangeWarning": _jm_f_48,
+            "skipRewordInEditorWarning": _jm_f_49,
+            "skipStashWarning": _jm_f_50,
+            "splitDiff": _jm_f_51,
+            "theme": _jm_f_52,
+            "timeFormat": _jm_f_53,
+            "windowSize": _jm_f_54,
         }
-        global _jm_f_67_map
-        _jm_f_67_map = {
-            "checkoutBranchByName": _jm_f_68,
-            "createPullRequest": _jm_f_69,
-            "createTag": _jm_f_70,
-            "fastForward": _jm_f_71,
-            "fetchRemote": _jm_f_72,
-            "forceCheckoutBranch": _jm_f_73,
-            "mergeIntoCurrentBranch": _jm_f_74,
-            "pushTag": _jm_f_75,
-            "rebaseBranch": _jm_f_76,
-            "renameBranch": _jm_f_77,
-            "setUpstream": _jm_f_78,
-            "viewGitFlowOptions": _jm_f_79,
-            "viewPullRequestOptions": _jm_f_80,
+        global _jm_f_56_map
+        _jm_f_56_map = {
+            "checkoutBranchByName": json_model_4,
+            "createPullRequest": json_model_4,
+            "createTag": json_model_4,
+            "fastForward": json_model_4,
+            "fetchRemote": json_model_4,
+            "forceCheckoutBranch": json_model_4,
+            "mergeIntoCurrentBranch": json_model_4,
+            "pushTag": json_model_4,
+            "rebaseBranch": json_model_4,
+            "renameBranch": json_model_4,
+            "setUpstream": json_model_4,
+            "viewGitFlowOptions": json_model_4,
+            "viewPullRequestOptions": json_model_4,
         }
-        global _jm_f_82_map
-        _jm_f_82_map = {
-            "amendToCommit": _jm_f_83,
-            "checkoutCommit": _jm_f_84,
-            "cherryPickCopy": _jm_f_85,
-            "cherryPickCopyRange": _jm_f_86,
-            "copyCommitMessageToClipboard": _jm_f_87,
-            "createFixupCommit": _jm_f_88,
-            "markCommitAsFixup": _jm_f_89,
-            "moveDownCommit": _jm_f_90,
-            "moveUpCommit": _jm_f_91,
-            "openLogMenu": _jm_f_92,
-            "pasteCommits": _jm_f_93,
-            "pickCommit": _jm_f_94,
-            "renameCommit": _jm_f_95,
-            "renameCommitWithEditor": _jm_f_96,
-            "resetCherryPick": _jm_f_97,
-            "revertCommit": _jm_f_98,
-            "squashAboveCommits": _jm_f_99,
-            "squashDown": _jm_f_100,
-            "tagCommit": _jm_f_101,
-            "viewBisectOptions": _jm_f_102,
-            "viewResetOptions": _jm_f_103,
+        global _jm_f_58_map
+        _jm_f_58_map = {
+            "amendToCommit": json_model_4,
+            "checkoutCommit": json_model_4,
+            "cherryPickCopy": json_model_4,
+            "cherryPickCopyRange": json_model_4,
+            "copyCommitMessageToClipboard": json_model_4,
+            "createFixupCommit": json_model_4,
+            "markCommitAsFixup": json_model_4,
+            "moveDownCommit": json_model_4,
+            "moveUpCommit": json_model_4,
+            "openLogMenu": json_model_4,
+            "pasteCommits": json_model_4,
+            "pickCommit": json_model_4,
+            "renameCommit": json_model_4,
+            "renameCommitWithEditor": json_model_4,
+            "resetCherryPick": json_model_4,
+            "revertCommit": json_model_4,
+            "squashAboveCommits": json_model_4,
+            "squashDown": json_model_4,
+            "tagCommit": json_model_4,
+            "viewBisectOptions": json_model_4,
+            "viewResetOptions": json_model_4,
         }
-        global _jm_f_104_map
-        _jm_f_104_map = {
-            "amendLastCommit": _jm_f_105,
-            "commitChanges": _jm_f_106,
-            "commitChangesWithEditor": _jm_f_107,
-            "commitChangesWithoutHook": _jm_f_108,
-            "fetch": _jm_f_109,
-            "ignoreFile": _jm_f_110,
-            "openMergeTool": _jm_f_111,
-            "openStatusFilter": _jm_f_112,
-            "refreshFiles": _jm_f_113,
-            "stashAllChanges": _jm_f_114,
-            "toggleStagedAll": _jm_f_115,
-            "toggleTreeView": _jm_f_116,
-            "viewResetOptions": _jm_f_117,
-            "viewStashOptions": _jm_f_118,
+        global _jm_f_59_map
+        _jm_f_59_map = {
+            "amendLastCommit": json_model_4,
+            "commitChanges": json_model_4,
+            "commitChangesWithEditor": json_model_4,
+            "commitChangesWithoutHook": json_model_4,
+            "fetch": json_model_4,
+            "ignoreFile": json_model_4,
+            "openMergeTool": json_model_4,
+            "openStatusFilter": json_model_4,
+            "refreshFiles": json_model_4,
+            "stashAllChanges": json_model_4,
+            "toggleStagedAll": json_model_4,
+            "toggleTreeView": json_model_4,
+            "viewResetOptions": json_model_4,
+            "viewStashOptions": json_model_4,
         }
-        global _jm_f_123_map
-        _jm_f_123_map = {
-            "confirm": _jm_f_124,
-            "copyToClipboard": _jm_f_125,
-            "createPatchOptionsMenu": _jm_f_126,
-            "createRebaseOptionsMenu": _jm_f_127,
-            "decreaseContextInDiffView": _jm_f_128,
-            "diffingMenu": _jm_f_129,
-            "diffingMenu-alt": _jm_f_130,
-            "edit": _jm_f_131,
-            "executeCustomCommand": _jm_f_132,
-            "extrasMenu": _jm_f_133,
-            "filteringMenu": _jm_f_134,
-            "goInto": _jm_f_135,
-            "gotoBottom": _jm_f_136,
-            "gotoTop": _jm_f_137,
-            "increaseContextInDiffView": _jm_f_138,
-            "jumpToBlock": _jm_f_139,
-            "new": _jm_f_140,
-            "nextBlock": _jm_f_141,
-            "nextBlock-alt": _jm_f_142,
-            "nextItem": _jm_f_143,
-            "nextItem-alt": _jm_f_144,
-            "nextMatch": _jm_f_145,
-            "nextPage": _jm_f_146,
-            "nextScreenMode": _jm_f_147,
-            "nextTab": _jm_f_148,
-            "openFile": _jm_f_149,
-            "openRecentRepos": _jm_f_150,
-            "optionMenu": _jm_f_151,
-            "optionMenu-alt1": _jm_f_152,
-            "prevBlock": _jm_f_153,
-            "prevBlock-alt": _jm_f_154,
-            "prevItem": _jm_f_155,
-            "prevItem-alt": _jm_f_156,
-            "prevMatch": _jm_f_157,
-            "prevPage": _jm_f_158,
-            "prevScreenMode": _jm_f_159,
-            "prevTab": _jm_f_160,
-            "pullFiles": _jm_f_161,
-            "pushFiles": _jm_f_162,
-            "quit": _jm_f_163,
-            "quit-alt1": _jm_f_164,
-            "quitWithoutChangingDirectory": _jm_f_165,
-            "redo": _jm_f_166,
-            "refresh": _jm_f_167,
-            "remove": _jm_f_168,
-            "return": _jm_f_169,
-            "scrollDownMain": _jm_f_170,
-            "scrollDownMain-alt1": _jm_f_171,
-            "scrollDownMain-alt2": _jm_f_172,
-            "scrollLeft": _jm_f_173,
-            "scrollRight": _jm_f_174,
-            "scrollUpMain": _jm_f_175,
-            "scrollUpMain-alt1": _jm_f_176,
-            "scrollUpMain-alt2": _jm_f_177,
-            "select": _jm_f_178,
-            "submitEditorText": _jm_f_179,
-            "togglePanel": _jm_f_180,
-            "toggleWhitespaceInDiffView": _jm_f_181,
-            "undo": _jm_f_182,
+        global _jm_f_64_map
+        _jm_f_64_map = {
+            "confirm": json_model_4,
+            "copyToClipboard": json_model_4,
+            "createPatchOptionsMenu": json_model_4,
+            "createRebaseOptionsMenu": json_model_4,
+            "decreaseContextInDiffView": json_model_4,
+            "diffingMenu": json_model_4,
+            "diffingMenu-alt": json_model_4,
+            "edit": json_model_4,
+            "executeCustomCommand": json_model_4,
+            "extrasMenu": json_model_4,
+            "filteringMenu": json_model_4,
+            "goInto": json_model_4,
+            "gotoBottom": json_model_4,
+            "gotoTop": json_model_4,
+            "increaseContextInDiffView": json_model_4,
+            "jumpToBlock": _jm_f_65,
+            "new": json_model_4,
+            "nextBlock": json_model_4,
+            "nextBlock-alt": json_model_4,
+            "nextItem": json_model_4,
+            "nextItem-alt": json_model_4,
+            "nextMatch": json_model_4,
+            "nextPage": json_model_4,
+            "nextScreenMode": json_model_4,
+            "nextTab": json_model_4,
+            "openFile": json_model_4,
+            "openRecentRepos": json_model_4,
+            "optionMenu": _jm_f_66,
+            "optionMenu-alt1": json_model_4,
+            "prevBlock": json_model_4,
+            "prevBlock-alt": json_model_4,
+            "prevItem": json_model_4,
+            "prevItem-alt": json_model_4,
+            "prevMatch": json_model_4,
+            "prevPage": json_model_4,
+            "prevScreenMode": json_model_4,
+            "prevTab": json_model_4,
+            "pullFiles": json_model_4,
+            "pushFiles": json_model_4,
+            "quit": json_model_4,
+            "quit-alt1": json_model_4,
+            "quitWithoutChangingDirectory": json_model_4,
+            "redo": json_model_4,
+            "refresh": json_model_4,
+            "remove": json_model_4,
+            "return": json_model_4,
+            "scrollDownMain": json_model_4,
+            "scrollDownMain-alt1": json_model_4,
+            "scrollDownMain-alt2": json_model_4,
+            "scrollLeft": json_model_4,
+            "scrollRight": json_model_4,
+            "scrollUpMain": json_model_4,
+            "scrollUpMain-alt1": json_model_4,
+            "scrollUpMain-alt2": json_model_4,
+            "select": json_model_4,
+            "submitEditorText": json_model_4,
+            "togglePanel": json_model_4,
+            "toggleWhitespaceInDiffView": json_model_4,
+            "undo": json_model_4,
         }
-        global _jm_f_66_map
-        _jm_f_66_map = {
-            "branches": _jm_f_67,
-            "commitFiles": _jm_f_81,
-            "commits": _jm_f_82,
-            "files": _jm_f_104,
-            "main": _jm_f_119,
-            "stash": _jm_f_120,
-            "status": _jm_f_121,
-            "submodules": _jm_f_122,
-            "universal": _jm_f_123,
+        global _jm_f_55_map
+        _jm_f_55_map = {
+            "branches": _jm_f_56,
+            "commitFiles": _jm_f_57,
+            "commits": _jm_f_58,
+            "files": _jm_f_59,
+            "main": _jm_f_60,
+            "stash": _jm_f_61,
+            "status": _jm_f_62,
+            "submodules": _jm_f_63,
+            "universal": _jm_f_64,
         }
         global _jm_cst_13
         _jm_cst_13 = {'create', 'prompt', 'quit', 'skip'}
         global _jm_cst_14
         _jm_cst_14 = {'bbedit', 'emacs', 'helix', 'kakoune', 'nano', 'nvim', 'sublime', 'vim', 'vscode', 'xcode'}
-        global _jm_f_184_map
-        _jm_f_184_map = {
-            "copyToClipboardCmd": _jm_f_185,
-            "edit": _jm_f_186,
-            "editAtLine": _jm_f_187,
-            "editAtLineAndWait": _jm_f_188,
-            "editPreset": _jm_f_189,
-            "open": _jm_f_190,
-            "openLink": _jm_f_191,
+        global _jm_f_68_map
+        _jm_f_68_map = {
+            "copyToClipboardCmd": _jm_f_69,
+            "edit": _jm_f_70,
+            "editAtLine": _jm_f_71,
+            "editAtLineAndWait": _jm_f_72,
+            "editPreset": _jm_f_73,
+            "open": _jm_f_74,
+            "openLink": _jm_f_75,
         }
         global _jm_re_2_reco, _jm_re_2
         _jm_re_2_reco = re.compile("^[^:]+:[^:]+$")
@@ -3291,15 +2247,15 @@ def check_model_init():
             "customCommands": _jm_f_1,
             "disableStartupPopups": _jm_f_9,
             "git": _jm_f_10,
-            "gui": _jm_f_27,
-            "keybinding": _jm_f_66,
-            "notARepository": _jm_f_183,
-            "os": _jm_f_184,
-            "promptToReturnFromSubprocess": _jm_f_192,
-            "quitOnTopLevelReturn": _jm_f_193,
-            "refresher": _jm_f_194,
-            "services": _jm_f_195,
-            "update": _jm_f_196,
+            "gui": _jm_f_26,
+            "keybinding": _jm_f_55,
+            "notARepository": _jm_f_67,
+            "os": _jm_f_68,
+            "promptToReturnFromSubprocess": _jm_f_76,
+            "quitOnTopLevelReturn": _jm_f_77,
+            "refresher": _jm_f_78,
+            "services": _jm_f_79,
+            "update": _jm_f_80,
         }
         global check_model_map
         check_model_map = {

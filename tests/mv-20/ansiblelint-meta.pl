@@ -177,17 +177,17 @@ sub _jm_f_2($$$);
 sub _jm_f_3($$$);
 sub _jm_f_4($$$);
 sub _jm_f_5($$$);
-sub _jm_f_6($$$);
 my %json_model_51_map;
 sub json_model_51($$$);
+sub _jm_f_6($$$);
 sub _jm_f_7($$$);
 sub _jm_f_8($$$);
 sub _jm_f_9($$$);
 sub _jm_f_10($$$);
 sub _jm_f_11($$$);
-sub _jm_f_12($$$);
 my %json_model_52_map;
 sub json_model_52($$$);
+sub _jm_f_12($$$);
 sub _jm_f_13($$$);
 sub _jm_f_14($$$);
 sub _jm_f_15($$$);
@@ -196,10 +196,10 @@ sub _jm_f_17($$$);
 sub _jm_f_18($$$);
 sub _jm_f_19($$$);
 sub _jm_f_20($$$);
-sub _jm_f_21($$$);
-sub _jm_f_22($$$);
 my %json_model_53_map;
 sub json_model_53($$$);
+sub _jm_f_21($$$);
+sub _jm_f_22($$$);
 sub _jm_f_23($$$);
 sub _jm_f_24($$$);
 sub _jm_f_25($$$);
@@ -210,11 +210,11 @@ sub _jm_f_29($$$);
 sub _jm_f_30($$$);
 sub _jm_f_31($$$);
 sub _jm_f_32($$$);
+my %_jm_obj_47_map;
+sub _jm_obj_47($$$);
 sub _jm_f_33($$$);
 sub _jm_f_34($$$);
 sub _jm_f_35($$$);
-my %_jm_obj_47_map;
-sub _jm_obj_47($$$);
 sub _jm_f_36($$$);
 sub _jm_f_37($$$);
 sub _jm_f_38($$$);
@@ -224,26 +224,21 @@ sub _jm_f_41($$$);
 sub _jm_f_42($$$);
 sub _jm_f_43($$$);
 sub _jm_f_44($$$);
-sub _jm_f_45($$$);
-sub _jm_f_46($$$);
-sub _jm_f_47($$$);
-sub _jm_f_48($$$);
 my %_jm_obj_48_map;
 sub _jm_obj_48($$$);
 my %_jm_map_0;
 sub json_model_54($$$);
 sub json_model_55($$$);
 sub json_model_56($$$);
+sub _jm_f_45($$$);
+sub _jm_f_46($$$);
+sub _jm_f_47($$$);
+my %_jm_cst_64;
+sub _jm_f_48($$$);
 sub _jm_f_49($$$);
 sub _jm_f_50($$$);
 sub _jm_f_51($$$);
-my %_jm_cst_64;
 sub _jm_f_52($$$);
-sub _jm_f_53($$$);
-sub _jm_f_54($$$);
-sub _jm_f_55($$$);
-sub _jm_f_56($$$);
-sub _jm_f_57($$$);
 my %json_model_57_map;
 sub json_model_57($$$);
 sub _jm_obj_49($$$);
@@ -5627,16 +5622,6 @@ sub _jm_f_3($$$)
     return $res;
 }
 
-# check json_model_51_map_platforms (.'$GalaxyInfoModelCollection'.platforms)
-sub _jm_f_4($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$GalaxyInfoModelCollection'.platforms
-    $res = json_model_50($val, $path, $rep);
-    return $res;
-}
-
 sub _jm_re_1($$$)
 {
     my ($val, $path, $rep) = @_;
@@ -5645,7 +5630,7 @@ sub _jm_re_1($$$)
 }
 
 # check json_model_51_map_role_name (.'$GalaxyInfoModelCollection'.role_name)
-sub _jm_f_5($$$)
+sub _jm_f_4($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
@@ -5656,7 +5641,7 @@ sub _jm_f_5($$$)
 }
 
 # check json_model_51_map_video_links (.'$GalaxyInfoModelCollection'.video_links)
-sub _jm_f_6($$$)
+sub _jm_f_5($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
@@ -5696,7 +5681,7 @@ sub json_model_51($$$)
 }
 
 # check json_model_52_map_author (.'$GalaxyInfoModelLoose'.author)
-sub _jm_f_7($$$)
+sub _jm_f_6($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
@@ -5706,7 +5691,7 @@ sub _jm_f_7($$$)
 }
 
 # check json_model_52_map_company (.'$GalaxyInfoModelLoose'.company)
-sub _jm_f_8($$$)
+sub _jm_f_7($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
@@ -5716,7 +5701,7 @@ sub _jm_f_8($$$)
 }
 
 # check json_model_52_map_github_branch (.'$GalaxyInfoModelLoose'.github_branch)
-sub _jm_f_9($$$)
+sub _jm_f_8($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
@@ -5726,7 +5711,7 @@ sub _jm_f_9($$$)
 }
 
 # check json_model_52_map_issue_tracker_url (.'$GalaxyInfoModelLoose'.issue_tracker_url)
-sub _jm_f_10($$$)
+sub _jm_f_9($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
@@ -5736,7 +5721,7 @@ sub _jm_f_10($$$)
 }
 
 # check json_model_52_map_license (.'$GalaxyInfoModelLoose'.license)
-sub _jm_f_11($$$)
+sub _jm_f_10($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
@@ -5746,7 +5731,7 @@ sub _jm_f_11($$$)
 }
 
 # check json_model_52_map_min_ansible_container_version (.'$GalaxyInfoModelLoose'.min_ansible_container_version)
-sub _jm_f_12($$$)
+sub _jm_f_11($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
@@ -5804,7 +5789,7 @@ sub json_model_52($$$)
 }
 
 # check json_model_53_map_cloud_platforms (.'$GalaxyInfoModelStandalone'.cloud_platforms)
-sub _jm_f_13($$$)
+sub _jm_f_12($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
@@ -5814,7 +5799,7 @@ sub _jm_f_13($$$)
 }
 
 # check json_model_53_map_company (.'$GalaxyInfoModelStandalone'.company)
-sub _jm_f_14($$$)
+sub _jm_f_13($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
@@ -5824,7 +5809,7 @@ sub _jm_f_14($$$)
 }
 
 # check json_model_53_map_galaxy_tags (.'$GalaxyInfoModelStandalone'.galaxy_tags)
-sub _jm_f_15($$$)
+sub _jm_f_14($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
@@ -5847,7 +5832,7 @@ sub _jm_f_15($$$)
 }
 
 # check json_model_53_map_github_branch (.'$GalaxyInfoModelStandalone'.github_branch)
-sub _jm_f_16($$$)
+sub _jm_f_15($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
@@ -5857,7 +5842,7 @@ sub _jm_f_16($$$)
 }
 
 # check json_model_53_map_issue_tracker_url (.'$GalaxyInfoModelStandalone'.issue_tracker_url)
-sub _jm_f_17($$$)
+sub _jm_f_16($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
@@ -5867,7 +5852,7 @@ sub _jm_f_17($$$)
 }
 
 # check json_model_53_map_min_ansible_container_version (.'$GalaxyInfoModelStandalone'.min_ansible_container_version)
-sub _jm_f_18($$$)
+sub _jm_f_17($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
@@ -5877,7 +5862,7 @@ sub _jm_f_18($$$)
 }
 
 # check json_model_53_map_namespace (.'$GalaxyInfoModelStandalone'.namespace)
-sub _jm_f_19($$$)
+sub _jm_f_18($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
@@ -5887,18 +5872,8 @@ sub _jm_f_19($$$)
     return $res;
 }
 
-# check json_model_53_map_platforms (.'$GalaxyInfoModelStandalone'.platforms)
-sub _jm_f_20($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$GalaxyInfoModelStandalone'.platforms
-    $res = json_model_50($val, $path, $rep);
-    return $res;
-}
-
 # check json_model_53_map_role_name (.'$GalaxyInfoModelStandalone'.role_name)
-sub _jm_f_21($$$)
+sub _jm_f_19($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
@@ -5909,7 +5884,7 @@ sub _jm_f_21($$$)
 }
 
 # check json_model_53_map_video_links (.'$GalaxyInfoModelStandalone'.video_links)
-sub _jm_f_22($$$)
+sub _jm_f_20($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
@@ -6010,7 +5985,7 @@ sub json_model_53($$$)
 }
 
 # check _jm_obj_47_map_author (.'$GalaxyInfoModel'.'|'.1.author)
-sub _jm_f_23($$$)
+sub _jm_f_21($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
@@ -6020,7 +5995,7 @@ sub _jm_f_23($$$)
 }
 
 # check _jm_obj_47_map_cloud_platforms (.'$GalaxyInfoModel'.'|'.1.cloud_platforms)
-sub _jm_f_24($$$)
+sub _jm_f_22($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
@@ -6030,7 +6005,7 @@ sub _jm_f_24($$$)
 }
 
 # check _jm_obj_47_map_company (.'$GalaxyInfoModel'.'|'.1.company)
-sub _jm_f_25($$$)
+sub _jm_f_23($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
@@ -6040,7 +6015,7 @@ sub _jm_f_25($$$)
 }
 
 # check _jm_obj_47_map_galaxy_tags (.'$GalaxyInfoModel'.'|'.1.galaxy_tags)
-sub _jm_f_26($$$)
+sub _jm_f_24($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
@@ -6063,7 +6038,7 @@ sub _jm_f_26($$$)
 }
 
 # check _jm_obj_47_map_github_branch (.'$GalaxyInfoModel'.'|'.1.github_branch)
-sub _jm_f_27($$$)
+sub _jm_f_25($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
@@ -6073,7 +6048,7 @@ sub _jm_f_27($$$)
 }
 
 # check _jm_obj_47_map_issue_tracker_url (.'$GalaxyInfoModel'.'|'.1.issue_tracker_url)
-sub _jm_f_28($$$)
+sub _jm_f_26($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
@@ -6083,7 +6058,7 @@ sub _jm_f_28($$$)
 }
 
 # check _jm_obj_47_map_license (.'$GalaxyInfoModel'.'|'.1.license)
-sub _jm_f_29($$$)
+sub _jm_f_27($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
@@ -6093,7 +6068,7 @@ sub _jm_f_29($$$)
 }
 
 # check _jm_obj_47_map_min_ansible_container_version (.'$GalaxyInfoModel'.'|'.1.min_ansible_container_version)
-sub _jm_f_30($$$)
+sub _jm_f_28($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
@@ -6103,7 +6078,7 @@ sub _jm_f_30($$$)
 }
 
 # check _jm_obj_47_map_min_ansible_version (.'$GalaxyInfoModel'.'|'.1.min_ansible_version)
-sub _jm_f_31($$$)
+sub _jm_f_29($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
@@ -6113,7 +6088,7 @@ sub _jm_f_31($$$)
 }
 
 # check _jm_obj_47_map_namespace (.'$GalaxyInfoModel'.'|'.1.namespace)
-sub _jm_f_32($$$)
+sub _jm_f_30($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
@@ -6123,18 +6098,8 @@ sub _jm_f_32($$$)
     return $res;
 }
 
-# check _jm_obj_47_map_platforms (.'$GalaxyInfoModel'.'|'.1.platforms)
-sub _jm_f_33($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$GalaxyInfoModel'.'|'.1.platforms
-    $res = json_model_50($val, $path, $rep);
-    return $res;
-}
-
 # check _jm_obj_47_map_role_name (.'$GalaxyInfoModel'.'|'.1.role_name)
-sub _jm_f_34($$$)
+sub _jm_f_31($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
@@ -6145,7 +6110,7 @@ sub _jm_f_34($$$)
 }
 
 # check _jm_obj_47_map_video_links (.'$GalaxyInfoModel'.'|'.1.video_links)
-sub _jm_f_35($$$)
+sub _jm_f_32($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
@@ -6212,7 +6177,7 @@ sub _jm_obj_47($$$)
 }
 
 # check _jm_obj_48_map_author (.'$GalaxyInfoModel'.'|'.2.author)
-sub _jm_f_36($$$)
+sub _jm_f_33($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
@@ -6222,7 +6187,7 @@ sub _jm_f_36($$$)
 }
 
 # check _jm_obj_48_map_cloud_platforms (.'$GalaxyInfoModel'.'|'.2.cloud_platforms)
-sub _jm_f_37($$$)
+sub _jm_f_34($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
@@ -6232,7 +6197,7 @@ sub _jm_f_37($$$)
 }
 
 # check _jm_obj_48_map_company (.'$GalaxyInfoModel'.'|'.2.company)
-sub _jm_f_38($$$)
+sub _jm_f_35($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
@@ -6242,7 +6207,7 @@ sub _jm_f_38($$$)
 }
 
 # check _jm_obj_48_map_galaxy_tags (.'$GalaxyInfoModel'.'|'.2.galaxy_tags)
-sub _jm_f_39($$$)
+sub _jm_f_36($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
@@ -6265,7 +6230,7 @@ sub _jm_f_39($$$)
 }
 
 # check _jm_obj_48_map_github_branch (.'$GalaxyInfoModel'.'|'.2.github_branch)
-sub _jm_f_40($$$)
+sub _jm_f_37($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
@@ -6275,7 +6240,7 @@ sub _jm_f_40($$$)
 }
 
 # check _jm_obj_48_map_issue_tracker_url (.'$GalaxyInfoModel'.'|'.2.issue_tracker_url)
-sub _jm_f_41($$$)
+sub _jm_f_38($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
@@ -6285,7 +6250,7 @@ sub _jm_f_41($$$)
 }
 
 # check _jm_obj_48_map_license (.'$GalaxyInfoModel'.'|'.2.license)
-sub _jm_f_42($$$)
+sub _jm_f_39($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
@@ -6295,7 +6260,7 @@ sub _jm_f_42($$$)
 }
 
 # check _jm_obj_48_map_min_ansible_container_version (.'$GalaxyInfoModel'.'|'.2.min_ansible_container_version)
-sub _jm_f_43($$$)
+sub _jm_f_40($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
@@ -6305,7 +6270,7 @@ sub _jm_f_43($$$)
 }
 
 # check _jm_obj_48_map_min_ansible_version (.'$GalaxyInfoModel'.'|'.2.min_ansible_version)
-sub _jm_f_44($$$)
+sub _jm_f_41($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
@@ -6315,7 +6280,7 @@ sub _jm_f_44($$$)
 }
 
 # check _jm_obj_48_map_namespace (.'$GalaxyInfoModel'.'|'.2.namespace)
-sub _jm_f_45($$$)
+sub _jm_f_42($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
@@ -6325,18 +6290,8 @@ sub _jm_f_45($$$)
     return $res;
 }
 
-# check _jm_obj_48_map_platforms (.'$GalaxyInfoModel'.'|'.2.platforms)
-sub _jm_f_46($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$GalaxyInfoModel'.'|'.2.platforms
-    $res = json_model_50($val, $path, $rep);
-    return $res;
-}
-
 # check _jm_obj_48_map_role_name (.'$GalaxyInfoModel'.'|'.2.role_name)
-sub _jm_f_47($$$)
+sub _jm_f_43($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
@@ -6347,7 +6302,7 @@ sub _jm_f_47($$$)
 }
 
 # check _jm_obj_48_map_video_links (.'$GalaxyInfoModel'.'|'.2.video_links)
-sub _jm_f_48($$$)
+sub _jm_f_44($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
@@ -6506,7 +6461,7 @@ sub json_model_56($$$)
 }
 
 # check json_model_57_map_become (.'$DependencyModelLoose'.become)
-sub _jm_f_49($$$)
+sub _jm_f_45($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
@@ -6516,7 +6471,7 @@ sub _jm_f_49($$$)
 }
 
 # check json_model_57_map_name (.'$DependencyModelLoose'.name)
-sub _jm_f_50($$$)
+sub _jm_f_46($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
@@ -6526,7 +6481,7 @@ sub _jm_f_50($$$)
 }
 
 # check json_model_57_map_role (.'$DependencyModelLoose'.role)
-sub _jm_f_51($$$)
+sub _jm_f_47($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
@@ -6537,7 +6492,7 @@ sub _jm_f_51($$$)
 
 
 # check json_model_57_map_scm (.'$DependencyModelLoose'.scm)
-sub _jm_f_52($$$)
+sub _jm_f_48($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
@@ -6547,7 +6502,7 @@ sub _jm_f_52($$$)
 }
 
 # check json_model_57_map_src (.'$DependencyModelLoose'.src)
-sub _jm_f_53($$$)
+sub _jm_f_49($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
@@ -6557,7 +6512,7 @@ sub _jm_f_53($$$)
 }
 
 # check json_model_57_map_tags (.'$DependencyModelLoose'.tags)
-sub _jm_f_54($$$)
+sub _jm_f_50($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
@@ -6586,7 +6541,7 @@ sub _jm_f_54($$$)
 }
 
 # check json_model_57_map_vars (.'$DependencyModelLoose'.vars)
-sub _jm_f_55($$$)
+sub _jm_f_51($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$DependencyModelLoose'.vars
@@ -6599,22 +6554,12 @@ sub _jm_f_55($$$)
 }
 
 # check json_model_57_map_version (.'$DependencyModelLoose'.version)
-sub _jm_f_56($$$)
+sub _jm_f_52($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
     # .'$DependencyModelLoose'.version
     $res = jm_is_string($val);
-    return $res;
-}
-
-# check json_model_57_map_when (.'$DependencyModelLoose'.when)
-sub _jm_f_57($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$DependencyModelLoose'.when
-    $res = json_model_56($val, $path, $rep);
     return $res;
 }
 
@@ -7717,59 +7662,59 @@ sub check_model_init()
             'galaxy_tags' => \&_jm_f_1,
             'min_ansible_version' => \&_jm_f_2,
             'namespace' => \&_jm_f_3,
-            'platforms' => \&_jm_f_4,
-            'role_name' => \&_jm_f_5,
-            'video_links' => \&_jm_f_6,
+            'platforms' => \&json_model_50,
+            'role_name' => \&_jm_f_4,
+            'video_links' => \&_jm_f_5,
         );
         %json_model_52_map = (
-            'author' => \&_jm_f_7,
-            'company' => \&_jm_f_8,
-            'github_branch' => \&_jm_f_9,
-            'issue_tracker_url' => \&_jm_f_10,
-            'license' => \&_jm_f_11,
-            'min_ansible_container_version' => \&_jm_f_12,
+            'author' => \&_jm_f_6,
+            'company' => \&_jm_f_7,
+            'github_branch' => \&_jm_f_8,
+            'issue_tracker_url' => \&_jm_f_9,
+            'license' => \&_jm_f_10,
+            'min_ansible_container_version' => \&_jm_f_11,
         );
         %json_model_53_map = (
-            'cloud_platforms' => \&_jm_f_13,
-            'company' => \&_jm_f_14,
-            'galaxy_tags' => \&_jm_f_15,
-            'github_branch' => \&_jm_f_16,
-            'issue_tracker_url' => \&_jm_f_17,
-            'min_ansible_container_version' => \&_jm_f_18,
-            'namespace' => \&_jm_f_19,
-            'platforms' => \&_jm_f_20,
-            'role_name' => \&_jm_f_21,
-            'video_links' => \&_jm_f_22,
+            'cloud_platforms' => \&_jm_f_12,
+            'company' => \&_jm_f_13,
+            'galaxy_tags' => \&_jm_f_14,
+            'github_branch' => \&_jm_f_15,
+            'issue_tracker_url' => \&_jm_f_16,
+            'min_ansible_container_version' => \&_jm_f_17,
+            'namespace' => \&_jm_f_18,
+            'platforms' => \&json_model_50,
+            'role_name' => \&_jm_f_19,
+            'video_links' => \&_jm_f_20,
         );
         %_jm_obj_47_map = (
-            'author' => \&_jm_f_23,
-            'cloud_platforms' => \&_jm_f_24,
-            'company' => \&_jm_f_25,
-            'galaxy_tags' => \&_jm_f_26,
-            'github_branch' => \&_jm_f_27,
-            'issue_tracker_url' => \&_jm_f_28,
-            'license' => \&_jm_f_29,
-            'min_ansible_container_version' => \&_jm_f_30,
-            'min_ansible_version' => \&_jm_f_31,
-            'namespace' => \&_jm_f_32,
-            'platforms' => \&_jm_f_33,
-            'role_name' => \&_jm_f_34,
-            'video_links' => \&_jm_f_35,
+            'author' => \&_jm_f_21,
+            'cloud_platforms' => \&_jm_f_22,
+            'company' => \&_jm_f_23,
+            'galaxy_tags' => \&_jm_f_24,
+            'github_branch' => \&_jm_f_25,
+            'issue_tracker_url' => \&_jm_f_26,
+            'license' => \&_jm_f_27,
+            'min_ansible_container_version' => \&_jm_f_28,
+            'min_ansible_version' => \&_jm_f_29,
+            'namespace' => \&_jm_f_30,
+            'platforms' => \&json_model_50,
+            'role_name' => \&_jm_f_31,
+            'video_links' => \&_jm_f_32,
         );
         %_jm_obj_48_map = (
-            'author' => \&_jm_f_36,
-            'cloud_platforms' => \&_jm_f_37,
-            'company' => \&_jm_f_38,
-            'galaxy_tags' => \&_jm_f_39,
-            'github_branch' => \&_jm_f_40,
-            'issue_tracker_url' => \&_jm_f_41,
-            'license' => \&_jm_f_42,
-            'min_ansible_container_version' => \&_jm_f_43,
-            'min_ansible_version' => \&_jm_f_44,
-            'namespace' => \&_jm_f_45,
-            'platforms' => \&_jm_f_46,
-            'role_name' => \&_jm_f_47,
-            'video_links' => \&_jm_f_48,
+            'author' => \&_jm_f_33,
+            'cloud_platforms' => \&_jm_f_34,
+            'company' => \&_jm_f_35,
+            'galaxy_tags' => \&_jm_f_36,
+            'github_branch' => \&_jm_f_37,
+            'issue_tracker_url' => \&_jm_f_38,
+            'license' => \&_jm_f_39,
+            'min_ansible_container_version' => \&_jm_f_40,
+            'min_ansible_version' => \&_jm_f_41,
+            'namespace' => \&_jm_f_42,
+            'platforms' => \&json_model_50,
+            'role_name' => \&_jm_f_43,
+            'video_links' => \&_jm_f_44,
         );
         %_jm_map_0 = (
             1 => \&json_model_53,
@@ -7780,15 +7725,15 @@ sub check_model_init()
             'git' => 1,
         );
         %json_model_57_map = (
-            'become' => \&_jm_f_49,
-            'name' => \&_jm_f_50,
-            'role' => \&_jm_f_51,
-            'scm' => \&_jm_f_52,
-            'src' => \&_jm_f_53,
-            'tags' => \&_jm_f_54,
-            'vars' => \&_jm_f_55,
-            'version' => \&_jm_f_56,
-            'when' => \&_jm_f_57,
+            'become' => \&_jm_f_45,
+            'name' => \&_jm_f_46,
+            'role' => \&_jm_f_47,
+            'scm' => \&_jm_f_48,
+            'src' => \&_jm_f_49,
+            'tags' => \&_jm_f_50,
+            'vars' => \&_jm_f_51,
+            'version' => \&_jm_f_52,
+            'when' => \&json_model_56,
         );
         %check_model_map = (
             '' => \&json_model_60,

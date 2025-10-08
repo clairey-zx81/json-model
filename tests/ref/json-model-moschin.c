@@ -118,8 +118,6 @@ static bool _jm_obj_44(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_3(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_4(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_5(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static bool _jm_f_6(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static bool _jm_f_7(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static jm_propmap_t _jm_obj_42_map_tab[8];
 static bool _jm_obj_42(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_41(const json_t *val, jm_path_t *path, jm_report_t *rep);
@@ -3684,21 +3682,8 @@ static bool _jm_f_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return true;
 }
 
-// check _jm_obj_42_map_.in (.'$Model#Root'.'|'.0.'.in')
-static bool _jm_f_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
-    bool res;
-    // .'$Model#Root'.'|'.0.'.in'
-    res = json_model_35(val, path, rep);
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected $Model [.'$Model#Root'.'|'.0.'.in']", path);
-    }
-    return res;
-}
-
 // check _jm_obj_42_map_.mo (.'$Model#Root'.'|'.0.'.mo')
-static bool _jm_f_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static bool _jm_f_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
     // .'$Model#Root'.'|'.0.'.mo'
@@ -3711,7 +3696,7 @@ static bool _jm_f_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
 }
 
 // check _jm_obj_42_map_.schema (.'$Model#Root'.'|'.0.'.schema')
-static bool _jm_f_6(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static bool _jm_f_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .'$Model#Root'.'|'.0.'.schema'
     if (! json_is_object(val))
@@ -3721,19 +3706,6 @@ static bool _jm_f_6(const json_t *val, jm_path_t *path, jm_report_t *rep)
     }
     // accept any object
     return true;
-}
-
-// check _jm_obj_42_map_~ (.'$Model#Root'.'|'.0.'~')
-static bool _jm_f_7(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
-    bool res;
-    // .'$Model#Root'.'|'.0.'~'
-    res = json_model_4(val, path, rep);
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected $Url [.'$Model#Root'.'|'.0.'~']", path);
-    }
-    return res;
 }
 
 static INLINE jm_check_fun_t _jm_obj_42_map(const char *pname)
@@ -4259,10 +4231,10 @@ const char *check_model_init(void)
         _jm_obj_42_map_tab[1] = (jm_propmap_t) { "#", _jm_f_1 };
         _jm_obj_42_map_tab[2] = (jm_propmap_t) { "$", _jm_f_2 };
         _jm_obj_42_map_tab[3] = (jm_propmap_t) { "%", _jm_f_3 };
-        _jm_obj_42_map_tab[4] = (jm_propmap_t) { ".in", _jm_f_4 };
-        _jm_obj_42_map_tab[5] = (jm_propmap_t) { ".mo", _jm_f_5 };
-        _jm_obj_42_map_tab[6] = (jm_propmap_t) { ".schema", _jm_f_6 };
-        _jm_obj_42_map_tab[7] = (jm_propmap_t) { "~", _jm_f_7 };
+        _jm_obj_42_map_tab[4] = (jm_propmap_t) { ".in", json_model_35 };
+        _jm_obj_42_map_tab[5] = (jm_propmap_t) { ".mo", _jm_f_4 };
+        _jm_obj_42_map_tab[6] = (jm_propmap_t) { ".schema", _jm_f_5 };
+        _jm_obj_42_map_tab[7] = (jm_propmap_t) { "~", json_model_4 };
         jm_sort_propmap(_jm_obj_42_map_tab, 8);
         _jm_re_9_re2 = cre2_new("^((file|https?)://.+|\\./.*|\\.\\./.*)$", strlen("^((file|https?)://.+|\\./.*|\\.\\./.*)$"), NULL);
         if (cre2_error_code(_jm_re_9_re2))

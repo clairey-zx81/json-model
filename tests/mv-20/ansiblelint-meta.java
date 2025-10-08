@@ -6964,26 +6964,13 @@ public class ansiblelint_meta extends ModelChecker
         return res;
     }
 
-    // check json_model_51_map_platforms (.'$GalaxyInfoModelCollection'.platforms)
-    public boolean _jm_f_4(Object val, Path path, Report rep)
-    {
-        boolean res;
-        // .'$GalaxyInfoModelCollection'.platforms
-        res = json_model_50(val, path, rep);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected $platforms [.'$GalaxyInfoModelCollection'.platforms]", path);
-        }
-        return res;
-    }
-
     public boolean _jm_re_1(String val, Path path, Report rep)
     {
         return _jm_re_1_pat.matcher(val).find();
     }
 
     // check json_model_51_map_role_name (.'$GalaxyInfoModelCollection'.role_name)
-    public boolean _jm_f_5(Object val, Path path, Report rep)
+    public boolean _jm_f_4(Object val, Path path, Report rep)
     {
         boolean res;
         // .'$GalaxyInfoModelCollection'.role_name
@@ -6997,7 +6984,7 @@ public class ansiblelint_meta extends ModelChecker
     }
 
     // check json_model_51_map_video_links (.'$GalaxyInfoModelCollection'.video_links)
-    public boolean _jm_f_6(Object val, Path path, Report rep)
+    public boolean _jm_f_5(Object val, Path path, Report rep)
     {
         boolean res;
         // .'$GalaxyInfoModelCollection'.video_links
@@ -7045,7 +7032,7 @@ public class ansiblelint_meta extends ModelChecker
     }
 
     // check json_model_52_map_author (.'$GalaxyInfoModelLoose'.author)
-    public boolean _jm_f_7(Object val, Path path, Report rep)
+    public boolean _jm_f_6(Object val, Path path, Report rep)
     {
         boolean res;
         // .'$GalaxyInfoModelLoose'.author
@@ -7058,7 +7045,7 @@ public class ansiblelint_meta extends ModelChecker
     }
 
     // check json_model_52_map_company (.'$GalaxyInfoModelLoose'.company)
-    public boolean _jm_f_8(Object val, Path path, Report rep)
+    public boolean _jm_f_7(Object val, Path path, Report rep)
     {
         boolean res;
         // .'$GalaxyInfoModelLoose'.company
@@ -7071,7 +7058,7 @@ public class ansiblelint_meta extends ModelChecker
     }
 
     // check json_model_52_map_github_branch (.'$GalaxyInfoModelLoose'.github_branch)
-    public boolean _jm_f_9(Object val, Path path, Report rep)
+    public boolean _jm_f_8(Object val, Path path, Report rep)
     {
         boolean res;
         // .'$GalaxyInfoModelLoose'.github_branch
@@ -7084,7 +7071,7 @@ public class ansiblelint_meta extends ModelChecker
     }
 
     // check json_model_52_map_issue_tracker_url (.'$GalaxyInfoModelLoose'.issue_tracker_url)
-    public boolean _jm_f_10(Object val, Path path, Report rep)
+    public boolean _jm_f_9(Object val, Path path, Report rep)
     {
         boolean res;
         // .'$GalaxyInfoModelLoose'.issue_tracker_url
@@ -7097,7 +7084,7 @@ public class ansiblelint_meta extends ModelChecker
     }
 
     // check json_model_52_map_license (.'$GalaxyInfoModelLoose'.license)
-    public boolean _jm_f_11(Object val, Path path, Report rep)
+    public boolean _jm_f_10(Object val, Path path, Report rep)
     {
         boolean res;
         // .'$GalaxyInfoModelLoose'.license
@@ -7110,7 +7097,7 @@ public class ansiblelint_meta extends ModelChecker
     }
 
     // check json_model_52_map_min_ansible_container_version (.'$GalaxyInfoModelLoose'.min_ansible_container_version)
-    public boolean _jm_f_12(Object val, Path path, Report rep)
+    public boolean _jm_f_11(Object val, Path path, Report rep)
     {
         boolean res;
         // .'$GalaxyInfoModelLoose'.min_ansible_container_version
@@ -7185,7 +7172,7 @@ public class ansiblelint_meta extends ModelChecker
     }
 
     // check json_model_53_map_cloud_platforms (.'$GalaxyInfoModelStandalone'.cloud_platforms)
-    public boolean _jm_f_13(Object val, Path path, Report rep)
+    public boolean _jm_f_12(Object val, Path path, Report rep)
     {
         boolean res;
         // .'$GalaxyInfoModelStandalone'.cloud_platforms
@@ -7198,7 +7185,7 @@ public class ansiblelint_meta extends ModelChecker
     }
 
     // check json_model_53_map_company (.'$GalaxyInfoModelStandalone'.company)
-    public boolean _jm_f_14(Object val, Path path, Report rep)
+    public boolean _jm_f_13(Object val, Path path, Report rep)
     {
         boolean res;
         // .'$GalaxyInfoModelStandalone'.company
@@ -7211,7 +7198,7 @@ public class ansiblelint_meta extends ModelChecker
     }
 
     // check json_model_53_map_galaxy_tags (.'$GalaxyInfoModelStandalone'.galaxy_tags)
-    public boolean _jm_f_15(Object val, Path path, Report rep)
+    public boolean _jm_f_14(Object val, Path path, Report rep)
     {
         boolean res;
         // .'$GalaxyInfoModelStandalone'.galaxy_tags
@@ -7242,7 +7229,7 @@ public class ansiblelint_meta extends ModelChecker
     }
 
     // check json_model_53_map_github_branch (.'$GalaxyInfoModelStandalone'.github_branch)
-    public boolean _jm_f_16(Object val, Path path, Report rep)
+    public boolean _jm_f_15(Object val, Path path, Report rep)
     {
         boolean res;
         // .'$GalaxyInfoModelStandalone'.github_branch
@@ -7255,7 +7242,7 @@ public class ansiblelint_meta extends ModelChecker
     }
 
     // check json_model_53_map_issue_tracker_url (.'$GalaxyInfoModelStandalone'.issue_tracker_url)
-    public boolean _jm_f_17(Object val, Path path, Report rep)
+    public boolean _jm_f_16(Object val, Path path, Report rep)
     {
         boolean res;
         // .'$GalaxyInfoModelStandalone'.issue_tracker_url
@@ -7268,7 +7255,7 @@ public class ansiblelint_meta extends ModelChecker
     }
 
     // check json_model_53_map_min_ansible_container_version (.'$GalaxyInfoModelStandalone'.min_ansible_container_version)
-    public boolean _jm_f_18(Object val, Path path, Report rep)
+    public boolean _jm_f_17(Object val, Path path, Report rep)
     {
         boolean res;
         // .'$GalaxyInfoModelStandalone'.min_ansible_container_version
@@ -7281,7 +7268,7 @@ public class ansiblelint_meta extends ModelChecker
     }
 
     // check json_model_53_map_namespace (.'$GalaxyInfoModelStandalone'.namespace)
-    public boolean _jm_f_19(Object val, Path path, Report rep)
+    public boolean _jm_f_18(Object val, Path path, Report rep)
     {
         boolean res;
         // .'$GalaxyInfoModelStandalone'.namespace
@@ -7294,21 +7281,8 @@ public class ansiblelint_meta extends ModelChecker
         return res;
     }
 
-    // check json_model_53_map_platforms (.'$GalaxyInfoModelStandalone'.platforms)
-    public boolean _jm_f_20(Object val, Path path, Report rep)
-    {
-        boolean res;
-        // .'$GalaxyInfoModelStandalone'.platforms
-        res = json_model_50(val, path, rep);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected $platforms [.'$GalaxyInfoModelStandalone'.platforms]", path);
-        }
-        return res;
-    }
-
     // check json_model_53_map_role_name (.'$GalaxyInfoModelStandalone'.role_name)
-    public boolean _jm_f_21(Object val, Path path, Report rep)
+    public boolean _jm_f_19(Object val, Path path, Report rep)
     {
         boolean res;
         // .'$GalaxyInfoModelStandalone'.role_name
@@ -7322,7 +7296,7 @@ public class ansiblelint_meta extends ModelChecker
     }
 
     // check json_model_53_map_video_links (.'$GalaxyInfoModelStandalone'.video_links)
-    public boolean _jm_f_22(Object val, Path path, Report rep)
+    public boolean _jm_f_20(Object val, Path path, Report rep)
     {
         boolean res;
         // .'$GalaxyInfoModelStandalone'.video_links
@@ -7464,7 +7438,7 @@ public class ansiblelint_meta extends ModelChecker
     }
 
     // check _jm_obj_47_map_author (.'$GalaxyInfoModel'.'|'.1.author)
-    public boolean _jm_f_23(Object val, Path path, Report rep)
+    public boolean _jm_f_21(Object val, Path path, Report rep)
     {
         boolean res;
         // .'$GalaxyInfoModel'.'|'.1.author
@@ -7477,7 +7451,7 @@ public class ansiblelint_meta extends ModelChecker
     }
 
     // check _jm_obj_47_map_cloud_platforms (.'$GalaxyInfoModel'.'|'.1.cloud_platforms)
-    public boolean _jm_f_24(Object val, Path path, Report rep)
+    public boolean _jm_f_22(Object val, Path path, Report rep)
     {
         boolean res;
         // .'$GalaxyInfoModel'.'|'.1.cloud_platforms
@@ -7490,7 +7464,7 @@ public class ansiblelint_meta extends ModelChecker
     }
 
     // check _jm_obj_47_map_company (.'$GalaxyInfoModel'.'|'.1.company)
-    public boolean _jm_f_25(Object val, Path path, Report rep)
+    public boolean _jm_f_23(Object val, Path path, Report rep)
     {
         boolean res;
         // .'$GalaxyInfoModel'.'|'.1.company
@@ -7503,7 +7477,7 @@ public class ansiblelint_meta extends ModelChecker
     }
 
     // check _jm_obj_47_map_galaxy_tags (.'$GalaxyInfoModel'.'|'.1.galaxy_tags)
-    public boolean _jm_f_26(Object val, Path path, Report rep)
+    public boolean _jm_f_24(Object val, Path path, Report rep)
     {
         boolean res;
         // .'$GalaxyInfoModel'.'|'.1.galaxy_tags
@@ -7534,7 +7508,7 @@ public class ansiblelint_meta extends ModelChecker
     }
 
     // check _jm_obj_47_map_github_branch (.'$GalaxyInfoModel'.'|'.1.github_branch)
-    public boolean _jm_f_27(Object val, Path path, Report rep)
+    public boolean _jm_f_25(Object val, Path path, Report rep)
     {
         boolean res;
         // .'$GalaxyInfoModel'.'|'.1.github_branch
@@ -7547,7 +7521,7 @@ public class ansiblelint_meta extends ModelChecker
     }
 
     // check _jm_obj_47_map_issue_tracker_url (.'$GalaxyInfoModel'.'|'.1.issue_tracker_url)
-    public boolean _jm_f_28(Object val, Path path, Report rep)
+    public boolean _jm_f_26(Object val, Path path, Report rep)
     {
         boolean res;
         // .'$GalaxyInfoModel'.'|'.1.issue_tracker_url
@@ -7560,7 +7534,7 @@ public class ansiblelint_meta extends ModelChecker
     }
 
     // check _jm_obj_47_map_license (.'$GalaxyInfoModel'.'|'.1.license)
-    public boolean _jm_f_29(Object val, Path path, Report rep)
+    public boolean _jm_f_27(Object val, Path path, Report rep)
     {
         boolean res;
         // .'$GalaxyInfoModel'.'|'.1.license
@@ -7573,7 +7547,7 @@ public class ansiblelint_meta extends ModelChecker
     }
 
     // check _jm_obj_47_map_min_ansible_container_version (.'$GalaxyInfoModel'.'|'.1.min_ansible_container_version)
-    public boolean _jm_f_30(Object val, Path path, Report rep)
+    public boolean _jm_f_28(Object val, Path path, Report rep)
     {
         boolean res;
         // .'$GalaxyInfoModel'.'|'.1.min_ansible_container_version
@@ -7586,7 +7560,7 @@ public class ansiblelint_meta extends ModelChecker
     }
 
     // check _jm_obj_47_map_min_ansible_version (.'$GalaxyInfoModel'.'|'.1.min_ansible_version)
-    public boolean _jm_f_31(Object val, Path path, Report rep)
+    public boolean _jm_f_29(Object val, Path path, Report rep)
     {
         boolean res;
         // .'$GalaxyInfoModel'.'|'.1.min_ansible_version
@@ -7599,7 +7573,7 @@ public class ansiblelint_meta extends ModelChecker
     }
 
     // check _jm_obj_47_map_namespace (.'$GalaxyInfoModel'.'|'.1.namespace)
-    public boolean _jm_f_32(Object val, Path path, Report rep)
+    public boolean _jm_f_30(Object val, Path path, Report rep)
     {
         boolean res;
         // .'$GalaxyInfoModel'.'|'.1.namespace
@@ -7612,21 +7586,8 @@ public class ansiblelint_meta extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_47_map_platforms (.'$GalaxyInfoModel'.'|'.1.platforms)
-    public boolean _jm_f_33(Object val, Path path, Report rep)
-    {
-        boolean res;
-        // .'$GalaxyInfoModel'.'|'.1.platforms
-        res = json_model_50(val, path, rep);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected $platforms [.'$GalaxyInfoModel'.'|'.1.platforms]", path);
-        }
-        return res;
-    }
-
     // check _jm_obj_47_map_role_name (.'$GalaxyInfoModel'.'|'.1.role_name)
-    public boolean _jm_f_34(Object val, Path path, Report rep)
+    public boolean _jm_f_31(Object val, Path path, Report rep)
     {
         boolean res;
         // .'$GalaxyInfoModel'.'|'.1.role_name
@@ -7640,7 +7601,7 @@ public class ansiblelint_meta extends ModelChecker
     }
 
     // check _jm_obj_47_map_video_links (.'$GalaxyInfoModel'.'|'.1.video_links)
-    public boolean _jm_f_35(Object val, Path path, Report rep)
+    public boolean _jm_f_32(Object val, Path path, Report rep)
     {
         boolean res;
         // .'$GalaxyInfoModel'.'|'.1.video_links
@@ -7730,7 +7691,7 @@ public class ansiblelint_meta extends ModelChecker
     }
 
     // check _jm_obj_48_map_author (.'$GalaxyInfoModel'.'|'.2.author)
-    public boolean _jm_f_36(Object val, Path path, Report rep)
+    public boolean _jm_f_33(Object val, Path path, Report rep)
     {
         boolean res;
         // .'$GalaxyInfoModel'.'|'.2.author
@@ -7743,7 +7704,7 @@ public class ansiblelint_meta extends ModelChecker
     }
 
     // check _jm_obj_48_map_cloud_platforms (.'$GalaxyInfoModel'.'|'.2.cloud_platforms)
-    public boolean _jm_f_37(Object val, Path path, Report rep)
+    public boolean _jm_f_34(Object val, Path path, Report rep)
     {
         boolean res;
         // .'$GalaxyInfoModel'.'|'.2.cloud_platforms
@@ -7756,7 +7717,7 @@ public class ansiblelint_meta extends ModelChecker
     }
 
     // check _jm_obj_48_map_company (.'$GalaxyInfoModel'.'|'.2.company)
-    public boolean _jm_f_38(Object val, Path path, Report rep)
+    public boolean _jm_f_35(Object val, Path path, Report rep)
     {
         boolean res;
         // .'$GalaxyInfoModel'.'|'.2.company
@@ -7769,7 +7730,7 @@ public class ansiblelint_meta extends ModelChecker
     }
 
     // check _jm_obj_48_map_galaxy_tags (.'$GalaxyInfoModel'.'|'.2.galaxy_tags)
-    public boolean _jm_f_39(Object val, Path path, Report rep)
+    public boolean _jm_f_36(Object val, Path path, Report rep)
     {
         boolean res;
         // .'$GalaxyInfoModel'.'|'.2.galaxy_tags
@@ -7800,7 +7761,7 @@ public class ansiblelint_meta extends ModelChecker
     }
 
     // check _jm_obj_48_map_github_branch (.'$GalaxyInfoModel'.'|'.2.github_branch)
-    public boolean _jm_f_40(Object val, Path path, Report rep)
+    public boolean _jm_f_37(Object val, Path path, Report rep)
     {
         boolean res;
         // .'$GalaxyInfoModel'.'|'.2.github_branch
@@ -7813,7 +7774,7 @@ public class ansiblelint_meta extends ModelChecker
     }
 
     // check _jm_obj_48_map_issue_tracker_url (.'$GalaxyInfoModel'.'|'.2.issue_tracker_url)
-    public boolean _jm_f_41(Object val, Path path, Report rep)
+    public boolean _jm_f_38(Object val, Path path, Report rep)
     {
         boolean res;
         // .'$GalaxyInfoModel'.'|'.2.issue_tracker_url
@@ -7826,7 +7787,7 @@ public class ansiblelint_meta extends ModelChecker
     }
 
     // check _jm_obj_48_map_license (.'$GalaxyInfoModel'.'|'.2.license)
-    public boolean _jm_f_42(Object val, Path path, Report rep)
+    public boolean _jm_f_39(Object val, Path path, Report rep)
     {
         boolean res;
         // .'$GalaxyInfoModel'.'|'.2.license
@@ -7839,7 +7800,7 @@ public class ansiblelint_meta extends ModelChecker
     }
 
     // check _jm_obj_48_map_min_ansible_container_version (.'$GalaxyInfoModel'.'|'.2.min_ansible_container_version)
-    public boolean _jm_f_43(Object val, Path path, Report rep)
+    public boolean _jm_f_40(Object val, Path path, Report rep)
     {
         boolean res;
         // .'$GalaxyInfoModel'.'|'.2.min_ansible_container_version
@@ -7852,7 +7813,7 @@ public class ansiblelint_meta extends ModelChecker
     }
 
     // check _jm_obj_48_map_min_ansible_version (.'$GalaxyInfoModel'.'|'.2.min_ansible_version)
-    public boolean _jm_f_44(Object val, Path path, Report rep)
+    public boolean _jm_f_41(Object val, Path path, Report rep)
     {
         boolean res;
         // .'$GalaxyInfoModel'.'|'.2.min_ansible_version
@@ -7865,7 +7826,7 @@ public class ansiblelint_meta extends ModelChecker
     }
 
     // check _jm_obj_48_map_namespace (.'$GalaxyInfoModel'.'|'.2.namespace)
-    public boolean _jm_f_45(Object val, Path path, Report rep)
+    public boolean _jm_f_42(Object val, Path path, Report rep)
     {
         boolean res;
         // .'$GalaxyInfoModel'.'|'.2.namespace
@@ -7878,21 +7839,8 @@ public class ansiblelint_meta extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_48_map_platforms (.'$GalaxyInfoModel'.'|'.2.platforms)
-    public boolean _jm_f_46(Object val, Path path, Report rep)
-    {
-        boolean res;
-        // .'$GalaxyInfoModel'.'|'.2.platforms
-        res = json_model_50(val, path, rep);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected $platforms [.'$GalaxyInfoModel'.'|'.2.platforms]", path);
-        }
-        return res;
-    }
-
     // check _jm_obj_48_map_role_name (.'$GalaxyInfoModel'.'|'.2.role_name)
-    public boolean _jm_f_47(Object val, Path path, Report rep)
+    public boolean _jm_f_43(Object val, Path path, Report rep)
     {
         boolean res;
         // .'$GalaxyInfoModel'.'|'.2.role_name
@@ -7906,7 +7854,7 @@ public class ansiblelint_meta extends ModelChecker
     }
 
     // check _jm_obj_48_map_video_links (.'$GalaxyInfoModel'.'|'.2.video_links)
-    public boolean _jm_f_48(Object val, Path path, Report rep)
+    public boolean _jm_f_44(Object val, Path path, Report rep)
     {
         boolean res;
         // .'$GalaxyInfoModel'.'|'.2.video_links
@@ -8121,7 +8069,7 @@ public class ansiblelint_meta extends ModelChecker
     }
 
     // check json_model_57_map_become (.'$DependencyModelLoose'.become)
-    public boolean _jm_f_49(Object val, Path path, Report rep)
+    public boolean _jm_f_45(Object val, Path path, Report rep)
     {
         boolean res;
         // .'$DependencyModelLoose'.become
@@ -8134,7 +8082,7 @@ public class ansiblelint_meta extends ModelChecker
     }
 
     // check json_model_57_map_name (.'$DependencyModelLoose'.name)
-    public boolean _jm_f_50(Object val, Path path, Report rep)
+    public boolean _jm_f_46(Object val, Path path, Report rep)
     {
         boolean res;
         // .'$DependencyModelLoose'.name
@@ -8147,7 +8095,7 @@ public class ansiblelint_meta extends ModelChecker
     }
 
     // check json_model_57_map_role (.'$DependencyModelLoose'.role)
-    public boolean _jm_f_51(Object val, Path path, Report rep)
+    public boolean _jm_f_47(Object val, Path path, Report rep)
     {
         boolean res;
         // .'$DependencyModelLoose'.role
@@ -8161,7 +8109,7 @@ public class ansiblelint_meta extends ModelChecker
 
 
     // check json_model_57_map_scm (.'$DependencyModelLoose'.scm)
-    public boolean _jm_f_52(Object val, Path path, Report rep)
+    public boolean _jm_f_48(Object val, Path path, Report rep)
     {
         boolean res;
         // .'$DependencyModelLoose'.scm
@@ -8174,7 +8122,7 @@ public class ansiblelint_meta extends ModelChecker
     }
 
     // check json_model_57_map_src (.'$DependencyModelLoose'.src)
-    public boolean _jm_f_53(Object val, Path path, Report rep)
+    public boolean _jm_f_49(Object val, Path path, Report rep)
     {
         boolean res;
         // .'$DependencyModelLoose'.src
@@ -8187,7 +8135,7 @@ public class ansiblelint_meta extends ModelChecker
     }
 
     // check json_model_57_map_tags (.'$DependencyModelLoose'.tags)
-    public boolean _jm_f_54(Object val, Path path, Report rep)
+    public boolean _jm_f_50(Object val, Path path, Report rep)
     {
         boolean res;
         // .'$DependencyModelLoose'.tags
@@ -8236,7 +8184,7 @@ public class ansiblelint_meta extends ModelChecker
     }
 
     // check json_model_57_map_vars (.'$DependencyModelLoose'.vars)
-    public boolean _jm_f_55(Object val, Path path, Report rep)
+    public boolean _jm_f_51(Object val, Path path, Report rep)
     {
         // .'$DependencyModelLoose'.vars
         if (! json.isObject(val))
@@ -8249,7 +8197,7 @@ public class ansiblelint_meta extends ModelChecker
     }
 
     // check json_model_57_map_version (.'$DependencyModelLoose'.version)
-    public boolean _jm_f_56(Object val, Path path, Report rep)
+    public boolean _jm_f_52(Object val, Path path, Report rep)
     {
         boolean res;
         // .'$DependencyModelLoose'.version
@@ -8257,19 +8205,6 @@ public class ansiblelint_meta extends ModelChecker
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected string [.'$DependencyModelLoose'.version]", path);
-        }
-        return res;
-    }
-
-    // check json_model_57_map_when (.'$DependencyModelLoose'.when)
-    public boolean _jm_f_57(Object val, Path path, Report rep)
-    {
-        boolean res;
-        // .'$DependencyModelLoose'.when
-        res = json_model_56(val, path, rep);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected $complex_conditional [.'$DependencyModelLoose'.when]", path);
         }
         return res;
     }
@@ -9404,55 +9339,55 @@ public class ansiblelint_meta extends ModelChecker
             json_model_51_map_pmap.put("galaxy_tags", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_1(o, p, r);} });
             json_model_51_map_pmap.put("min_ansible_version", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_2(o, p, r);} });
             json_model_51_map_pmap.put("namespace", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_3(o, p, r);} });
-            json_model_51_map_pmap.put("platforms", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_4(o, p, r);} });
-            json_model_51_map_pmap.put("role_name", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_5(o, p, r);} });
-            json_model_51_map_pmap.put("video_links", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_6(o, p, r);} });
+            json_model_51_map_pmap.put("platforms", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_50(o, p, r);} });
+            json_model_51_map_pmap.put("role_name", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_4(o, p, r);} });
+            json_model_51_map_pmap.put("video_links", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_5(o, p, r);} });
             json_model_52_map_pmap = new HashMap<String, Checker>();
-            json_model_52_map_pmap.put("author", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_7(o, p, r);} });
-            json_model_52_map_pmap.put("company", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_8(o, p, r);} });
-            json_model_52_map_pmap.put("github_branch", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_9(o, p, r);} });
-            json_model_52_map_pmap.put("issue_tracker_url", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_10(o, p, r);} });
-            json_model_52_map_pmap.put("license", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_11(o, p, r);} });
-            json_model_52_map_pmap.put("min_ansible_container_version", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_12(o, p, r);} });
+            json_model_52_map_pmap.put("author", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_6(o, p, r);} });
+            json_model_52_map_pmap.put("company", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_7(o, p, r);} });
+            json_model_52_map_pmap.put("github_branch", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_8(o, p, r);} });
+            json_model_52_map_pmap.put("issue_tracker_url", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_9(o, p, r);} });
+            json_model_52_map_pmap.put("license", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_10(o, p, r);} });
+            json_model_52_map_pmap.put("min_ansible_container_version", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_11(o, p, r);} });
             json_model_53_map_pmap = new HashMap<String, Checker>();
-            json_model_53_map_pmap.put("cloud_platforms", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_13(o, p, r);} });
-            json_model_53_map_pmap.put("company", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_14(o, p, r);} });
-            json_model_53_map_pmap.put("galaxy_tags", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_15(o, p, r);} });
-            json_model_53_map_pmap.put("github_branch", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_16(o, p, r);} });
-            json_model_53_map_pmap.put("issue_tracker_url", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_17(o, p, r);} });
-            json_model_53_map_pmap.put("min_ansible_container_version", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_18(o, p, r);} });
-            json_model_53_map_pmap.put("namespace", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_19(o, p, r);} });
-            json_model_53_map_pmap.put("platforms", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_20(o, p, r);} });
-            json_model_53_map_pmap.put("role_name", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_21(o, p, r);} });
-            json_model_53_map_pmap.put("video_links", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_22(o, p, r);} });
+            json_model_53_map_pmap.put("cloud_platforms", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_12(o, p, r);} });
+            json_model_53_map_pmap.put("company", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_13(o, p, r);} });
+            json_model_53_map_pmap.put("galaxy_tags", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_14(o, p, r);} });
+            json_model_53_map_pmap.put("github_branch", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_15(o, p, r);} });
+            json_model_53_map_pmap.put("issue_tracker_url", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_16(o, p, r);} });
+            json_model_53_map_pmap.put("min_ansible_container_version", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_17(o, p, r);} });
+            json_model_53_map_pmap.put("namespace", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_18(o, p, r);} });
+            json_model_53_map_pmap.put("platforms", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_50(o, p, r);} });
+            json_model_53_map_pmap.put("role_name", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_19(o, p, r);} });
+            json_model_53_map_pmap.put("video_links", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_20(o, p, r);} });
             _jm_obj_47_map_pmap = new HashMap<String, Checker>();
-            _jm_obj_47_map_pmap.put("author", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_23(o, p, r);} });
-            _jm_obj_47_map_pmap.put("cloud_platforms", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_24(o, p, r);} });
-            _jm_obj_47_map_pmap.put("company", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_25(o, p, r);} });
-            _jm_obj_47_map_pmap.put("galaxy_tags", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_26(o, p, r);} });
-            _jm_obj_47_map_pmap.put("github_branch", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_27(o, p, r);} });
-            _jm_obj_47_map_pmap.put("issue_tracker_url", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_28(o, p, r);} });
-            _jm_obj_47_map_pmap.put("license", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_29(o, p, r);} });
-            _jm_obj_47_map_pmap.put("min_ansible_container_version", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_30(o, p, r);} });
-            _jm_obj_47_map_pmap.put("min_ansible_version", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_31(o, p, r);} });
-            _jm_obj_47_map_pmap.put("namespace", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_32(o, p, r);} });
-            _jm_obj_47_map_pmap.put("platforms", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_33(o, p, r);} });
-            _jm_obj_47_map_pmap.put("role_name", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_34(o, p, r);} });
-            _jm_obj_47_map_pmap.put("video_links", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_35(o, p, r);} });
+            _jm_obj_47_map_pmap.put("author", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_21(o, p, r);} });
+            _jm_obj_47_map_pmap.put("cloud_platforms", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_22(o, p, r);} });
+            _jm_obj_47_map_pmap.put("company", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_23(o, p, r);} });
+            _jm_obj_47_map_pmap.put("galaxy_tags", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_24(o, p, r);} });
+            _jm_obj_47_map_pmap.put("github_branch", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_25(o, p, r);} });
+            _jm_obj_47_map_pmap.put("issue_tracker_url", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_26(o, p, r);} });
+            _jm_obj_47_map_pmap.put("license", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_27(o, p, r);} });
+            _jm_obj_47_map_pmap.put("min_ansible_container_version", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_28(o, p, r);} });
+            _jm_obj_47_map_pmap.put("min_ansible_version", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_29(o, p, r);} });
+            _jm_obj_47_map_pmap.put("namespace", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_30(o, p, r);} });
+            _jm_obj_47_map_pmap.put("platforms", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_50(o, p, r);} });
+            _jm_obj_47_map_pmap.put("role_name", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_31(o, p, r);} });
+            _jm_obj_47_map_pmap.put("video_links", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_32(o, p, r);} });
             _jm_obj_48_map_pmap = new HashMap<String, Checker>();
-            _jm_obj_48_map_pmap.put("author", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_36(o, p, r);} });
-            _jm_obj_48_map_pmap.put("cloud_platforms", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_37(o, p, r);} });
-            _jm_obj_48_map_pmap.put("company", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_38(o, p, r);} });
-            _jm_obj_48_map_pmap.put("galaxy_tags", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_39(o, p, r);} });
-            _jm_obj_48_map_pmap.put("github_branch", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_40(o, p, r);} });
-            _jm_obj_48_map_pmap.put("issue_tracker_url", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_41(o, p, r);} });
-            _jm_obj_48_map_pmap.put("license", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_42(o, p, r);} });
-            _jm_obj_48_map_pmap.put("min_ansible_container_version", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_43(o, p, r);} });
-            _jm_obj_48_map_pmap.put("min_ansible_version", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_44(o, p, r);} });
-            _jm_obj_48_map_pmap.put("namespace", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_45(o, p, r);} });
-            _jm_obj_48_map_pmap.put("platforms", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_46(o, p, r);} });
-            _jm_obj_48_map_pmap.put("role_name", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_47(o, p, r);} });
-            _jm_obj_48_map_pmap.put("video_links", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_48(o, p, r);} });
+            _jm_obj_48_map_pmap.put("author", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_33(o, p, r);} });
+            _jm_obj_48_map_pmap.put("cloud_platforms", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_34(o, p, r);} });
+            _jm_obj_48_map_pmap.put("company", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_35(o, p, r);} });
+            _jm_obj_48_map_pmap.put("galaxy_tags", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_36(o, p, r);} });
+            _jm_obj_48_map_pmap.put("github_branch", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_37(o, p, r);} });
+            _jm_obj_48_map_pmap.put("issue_tracker_url", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_38(o, p, r);} });
+            _jm_obj_48_map_pmap.put("license", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_39(o, p, r);} });
+            _jm_obj_48_map_pmap.put("min_ansible_container_version", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_40(o, p, r);} });
+            _jm_obj_48_map_pmap.put("min_ansible_version", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_41(o, p, r);} });
+            _jm_obj_48_map_pmap.put("namespace", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_42(o, p, r);} });
+            _jm_obj_48_map_pmap.put("platforms", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_50(o, p, r);} });
+            _jm_obj_48_map_pmap.put("role_name", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_43(o, p, r);} });
+            _jm_obj_48_map_pmap.put("video_links", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_44(o, p, r);} });
             _jm_map_0_cmap = new HashMap<Object, Checker>();
             _jm_map_0_cmap.put(json.safeJSON("true"), new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_53(o, p, r);} });
             _jm_map_0_cmap.put(json.safeJSON("false"), new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_47(o, p, r);} });
@@ -9461,15 +9396,15 @@ public class ansiblelint_meta extends ModelChecker
             _jm_cst_64_set.add(json.safeJSON("\"hg\""));
             _jm_cst_64_set.add(json.safeJSON("\"git\""));
             json_model_57_map_pmap = new HashMap<String, Checker>();
-            json_model_57_map_pmap.put("become", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_49(o, p, r);} });
-            json_model_57_map_pmap.put("name", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_50(o, p, r);} });
-            json_model_57_map_pmap.put("role", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_51(o, p, r);} });
-            json_model_57_map_pmap.put("scm", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_52(o, p, r);} });
-            json_model_57_map_pmap.put("src", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_53(o, p, r);} });
-            json_model_57_map_pmap.put("tags", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_54(o, p, r);} });
-            json_model_57_map_pmap.put("vars", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_55(o, p, r);} });
-            json_model_57_map_pmap.put("version", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_56(o, p, r);} });
-            json_model_57_map_pmap.put("when", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_57(o, p, r);} });
+            json_model_57_map_pmap.put("become", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_45(o, p, r);} });
+            json_model_57_map_pmap.put("name", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_46(o, p, r);} });
+            json_model_57_map_pmap.put("role", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_47(o, p, r);} });
+            json_model_57_map_pmap.put("scm", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_48(o, p, r);} });
+            json_model_57_map_pmap.put("src", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_49(o, p, r);} });
+            json_model_57_map_pmap.put("tags", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_50(o, p, r);} });
+            json_model_57_map_pmap.put("vars", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_51(o, p, r);} });
+            json_model_57_map_pmap.put("version", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_52(o, p, r);} });
+            json_model_57_map_pmap.put("when", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_56(o, p, r);} });
             ansiblelint_meta_map_pmap = new HashMap<String, Checker>();
             ansiblelint_meta_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_60(o, p, r);} });
             ansiblelint_meta_map_pmap.put("AIXPlatformModel", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_2(o, p, r);} });

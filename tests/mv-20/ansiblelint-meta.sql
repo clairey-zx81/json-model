@@ -5290,18 +5290,6 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check json_model_51_map_platforms (.'$GalaxyInfoModelCollection'.platforms)
-CREATE OR REPLACE FUNCTION _jm_f_4(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .'$GalaxyInfoModelCollection'.platforms
-  res := json_model_50(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
 -- regex=^[a-z][a-z0-9_]+$ opts=n
 CREATE OR REPLACE FUNCTION _jm_re_1(val TEXT, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
@@ -5311,7 +5299,7 @@ END;
 $$ LANGUAGE plpgsql;
 
 -- check json_model_51_map_role_name (.'$GalaxyInfoModelCollection'.role_name)
-CREATE OR REPLACE FUNCTION _jm_f_5(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_4(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -5324,7 +5312,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_51_map_video_links (.'$GalaxyInfoModelCollection'.video_links)
-CREATE OR REPLACE FUNCTION _jm_f_6(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_5(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -5338,7 +5326,7 @@ $$ LANGUAGE PLpgSQL;
 CREATE OR REPLACE FUNCTION json_model_51_map(name TEXT)
 RETURNS TEXT STRICT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
-  map JSONB := JSONB '{"cloud_platforms":"_jm_f_0","galaxy_tags":"_jm_f_1","min_ansible_version":"_jm_f_2","namespace":"_jm_f_3","platforms":"_jm_f_4","role_name":"_jm_f_5","video_links":"_jm_f_6"}';
+  map JSONB := JSONB '{"cloud_platforms":"_jm_f_0","galaxy_tags":"_jm_f_1","min_ansible_version":"_jm_f_2","namespace":"_jm_f_3","platforms":"json_model_50","role_name":"_jm_f_4","video_links":"_jm_f_5"}';
 BEGIN
   RETURN map->>name;
 END;
@@ -5372,7 +5360,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_52_map_author (.'$GalaxyInfoModelLoose'.author)
-CREATE OR REPLACE FUNCTION _jm_f_7(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_6(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -5384,7 +5372,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_52_map_company (.'$GalaxyInfoModelLoose'.company)
-CREATE OR REPLACE FUNCTION _jm_f_8(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_7(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -5396,7 +5384,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_52_map_github_branch (.'$GalaxyInfoModelLoose'.github_branch)
-CREATE OR REPLACE FUNCTION _jm_f_9(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_8(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -5408,7 +5396,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_52_map_issue_tracker_url (.'$GalaxyInfoModelLoose'.issue_tracker_url)
-CREATE OR REPLACE FUNCTION _jm_f_10(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_9(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -5420,7 +5408,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_52_map_license (.'$GalaxyInfoModelLoose'.license)
-CREATE OR REPLACE FUNCTION _jm_f_11(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_10(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -5432,7 +5420,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_52_map_min_ansible_container_version (.'$GalaxyInfoModelLoose'.min_ansible_container_version)
-CREATE OR REPLACE FUNCTION _jm_f_12(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_11(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -5446,7 +5434,7 @@ $$ LANGUAGE PLpgSQL;
 CREATE OR REPLACE FUNCTION json_model_52_map(name TEXT)
 RETURNS TEXT STRICT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
-  map JSONB := JSONB '{"author":"_jm_f_7","company":"_jm_f_8","github_branch":"_jm_f_9","issue_tracker_url":"_jm_f_10","license":"_jm_f_11","min_ansible_container_version":"_jm_f_12"}';
+  map JSONB := JSONB '{"author":"_jm_f_6","company":"_jm_f_7","github_branch":"_jm_f_8","issue_tracker_url":"_jm_f_9","license":"_jm_f_10","min_ansible_container_version":"_jm_f_11"}';
 BEGIN
   RETURN map->>name;
 END;
@@ -5495,7 +5483,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_53_map_cloud_platforms (.'$GalaxyInfoModelStandalone'.cloud_platforms)
-CREATE OR REPLACE FUNCTION _jm_f_13(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_12(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -5507,7 +5495,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_53_map_company (.'$GalaxyInfoModelStandalone'.company)
-CREATE OR REPLACE FUNCTION _jm_f_14(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_13(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -5519,7 +5507,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_53_map_galaxy_tags (.'$GalaxyInfoModelStandalone'.galaxy_tags)
-CREATE OR REPLACE FUNCTION _jm_f_15(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_14(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -5543,7 +5531,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_53_map_github_branch (.'$GalaxyInfoModelStandalone'.github_branch)
-CREATE OR REPLACE FUNCTION _jm_f_16(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_15(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -5555,7 +5543,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_53_map_issue_tracker_url (.'$GalaxyInfoModelStandalone'.issue_tracker_url)
-CREATE OR REPLACE FUNCTION _jm_f_17(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_16(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -5567,7 +5555,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_53_map_min_ansible_container_version (.'$GalaxyInfoModelStandalone'.min_ansible_container_version)
-CREATE OR REPLACE FUNCTION _jm_f_18(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_17(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -5579,7 +5567,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_53_map_namespace (.'$GalaxyInfoModelStandalone'.namespace)
-CREATE OR REPLACE FUNCTION _jm_f_19(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_18(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -5591,20 +5579,8 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check json_model_53_map_platforms (.'$GalaxyInfoModelStandalone'.platforms)
-CREATE OR REPLACE FUNCTION _jm_f_20(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .'$GalaxyInfoModelStandalone'.platforms
-  res := json_model_50(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
 -- check json_model_53_map_role_name (.'$GalaxyInfoModelStandalone'.role_name)
-CREATE OR REPLACE FUNCTION _jm_f_21(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_19(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -5617,7 +5593,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_53_map_video_links (.'$GalaxyInfoModelStandalone'.video_links)
-CREATE OR REPLACE FUNCTION _jm_f_22(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_20(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -5631,7 +5607,7 @@ $$ LANGUAGE PLpgSQL;
 CREATE OR REPLACE FUNCTION json_model_53_map(name TEXT)
 RETURNS TEXT STRICT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
-  map JSONB := JSONB '{"cloud_platforms":"_jm_f_13","company":"_jm_f_14","galaxy_tags":"_jm_f_15","github_branch":"_jm_f_16","issue_tracker_url":"_jm_f_17","min_ansible_container_version":"_jm_f_18","namespace":"_jm_f_19","platforms":"_jm_f_20","role_name":"_jm_f_21","video_links":"_jm_f_22"}';
+  map JSONB := JSONB '{"cloud_platforms":"_jm_f_12","company":"_jm_f_13","galaxy_tags":"_jm_f_14","github_branch":"_jm_f_15","issue_tracker_url":"_jm_f_16","min_ansible_container_version":"_jm_f_17","namespace":"_jm_f_18","platforms":"json_model_50","role_name":"_jm_f_19","video_links":"_jm_f_20"}';
 BEGIN
   RETURN map->>name;
 END;
@@ -5711,7 +5687,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check _jm_obj_47_map_author (.'$GalaxyInfoModel'.'|'.1.author)
-CREATE OR REPLACE FUNCTION _jm_f_23(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_21(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -5723,7 +5699,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check _jm_obj_47_map_cloud_platforms (.'$GalaxyInfoModel'.'|'.1.cloud_platforms)
-CREATE OR REPLACE FUNCTION _jm_f_24(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_22(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -5735,7 +5711,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check _jm_obj_47_map_company (.'$GalaxyInfoModel'.'|'.1.company)
-CREATE OR REPLACE FUNCTION _jm_f_25(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_23(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -5747,7 +5723,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check _jm_obj_47_map_galaxy_tags (.'$GalaxyInfoModel'.'|'.1.galaxy_tags)
-CREATE OR REPLACE FUNCTION _jm_f_26(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_24(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -5771,7 +5747,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check _jm_obj_47_map_github_branch (.'$GalaxyInfoModel'.'|'.1.github_branch)
-CREATE OR REPLACE FUNCTION _jm_f_27(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_25(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -5783,7 +5759,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check _jm_obj_47_map_issue_tracker_url (.'$GalaxyInfoModel'.'|'.1.issue_tracker_url)
-CREATE OR REPLACE FUNCTION _jm_f_28(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_26(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -5795,7 +5771,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check _jm_obj_47_map_license (.'$GalaxyInfoModel'.'|'.1.license)
-CREATE OR REPLACE FUNCTION _jm_f_29(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_27(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -5807,7 +5783,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check _jm_obj_47_map_min_ansible_container_version (.'$GalaxyInfoModel'.'|'.1.min_ansible_container_version)
-CREATE OR REPLACE FUNCTION _jm_f_30(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_28(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -5819,7 +5795,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check _jm_obj_47_map_min_ansible_version (.'$GalaxyInfoModel'.'|'.1.min_ansible_version)
-CREATE OR REPLACE FUNCTION _jm_f_31(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_29(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -5831,7 +5807,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check _jm_obj_47_map_namespace (.'$GalaxyInfoModel'.'|'.1.namespace)
-CREATE OR REPLACE FUNCTION _jm_f_32(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_30(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -5843,20 +5819,8 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_obj_47_map_platforms (.'$GalaxyInfoModel'.'|'.1.platforms)
-CREATE OR REPLACE FUNCTION _jm_f_33(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .'$GalaxyInfoModel'.'|'.1.platforms
-  res := json_model_50(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
 -- check _jm_obj_47_map_role_name (.'$GalaxyInfoModel'.'|'.1.role_name)
-CREATE OR REPLACE FUNCTION _jm_f_34(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_31(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -5869,7 +5833,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check _jm_obj_47_map_video_links (.'$GalaxyInfoModel'.'|'.1.video_links)
-CREATE OR REPLACE FUNCTION _jm_f_35(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_32(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -5883,7 +5847,7 @@ $$ LANGUAGE PLpgSQL;
 CREATE OR REPLACE FUNCTION _jm_obj_47_map(name TEXT)
 RETURNS TEXT STRICT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
-  map JSONB := JSONB '{"author":"_jm_f_23","cloud_platforms":"_jm_f_24","company":"_jm_f_25","galaxy_tags":"_jm_f_26","github_branch":"_jm_f_27","issue_tracker_url":"_jm_f_28","license":"_jm_f_29","min_ansible_container_version":"_jm_f_30","min_ansible_version":"_jm_f_31","namespace":"_jm_f_32","platforms":"_jm_f_33","role_name":"_jm_f_34","video_links":"_jm_f_35"}';
+  map JSONB := JSONB '{"author":"_jm_f_21","cloud_platforms":"_jm_f_22","company":"_jm_f_23","galaxy_tags":"_jm_f_24","github_branch":"_jm_f_25","issue_tracker_url":"_jm_f_26","license":"_jm_f_27","min_ansible_container_version":"_jm_f_28","min_ansible_version":"_jm_f_29","namespace":"_jm_f_30","platforms":"json_model_50","role_name":"_jm_f_31","video_links":"_jm_f_32"}';
 BEGIN
   RETURN map->>name;
 END;
@@ -5938,7 +5902,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check _jm_obj_48_map_author (.'$GalaxyInfoModel'.'|'.2.author)
-CREATE OR REPLACE FUNCTION _jm_f_36(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_33(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -5950,7 +5914,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check _jm_obj_48_map_cloud_platforms (.'$GalaxyInfoModel'.'|'.2.cloud_platforms)
-CREATE OR REPLACE FUNCTION _jm_f_37(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_34(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -5962,7 +5926,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check _jm_obj_48_map_company (.'$GalaxyInfoModel'.'|'.2.company)
-CREATE OR REPLACE FUNCTION _jm_f_38(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_35(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -5974,7 +5938,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check _jm_obj_48_map_galaxy_tags (.'$GalaxyInfoModel'.'|'.2.galaxy_tags)
-CREATE OR REPLACE FUNCTION _jm_f_39(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_36(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -5998,7 +5962,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check _jm_obj_48_map_github_branch (.'$GalaxyInfoModel'.'|'.2.github_branch)
-CREATE OR REPLACE FUNCTION _jm_f_40(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_37(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -6010,7 +5974,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check _jm_obj_48_map_issue_tracker_url (.'$GalaxyInfoModel'.'|'.2.issue_tracker_url)
-CREATE OR REPLACE FUNCTION _jm_f_41(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_38(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -6022,7 +5986,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check _jm_obj_48_map_license (.'$GalaxyInfoModel'.'|'.2.license)
-CREATE OR REPLACE FUNCTION _jm_f_42(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_39(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -6034,7 +5998,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check _jm_obj_48_map_min_ansible_container_version (.'$GalaxyInfoModel'.'|'.2.min_ansible_container_version)
-CREATE OR REPLACE FUNCTION _jm_f_43(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_40(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -6046,7 +6010,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check _jm_obj_48_map_min_ansible_version (.'$GalaxyInfoModel'.'|'.2.min_ansible_version)
-CREATE OR REPLACE FUNCTION _jm_f_44(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_41(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -6058,7 +6022,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check _jm_obj_48_map_namespace (.'$GalaxyInfoModel'.'|'.2.namespace)
-CREATE OR REPLACE FUNCTION _jm_f_45(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_42(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -6070,20 +6034,8 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_obj_48_map_platforms (.'$GalaxyInfoModel'.'|'.2.platforms)
-CREATE OR REPLACE FUNCTION _jm_f_46(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .'$GalaxyInfoModel'.'|'.2.platforms
-  res := json_model_50(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
 -- check _jm_obj_48_map_role_name (.'$GalaxyInfoModel'.'|'.2.role_name)
-CREATE OR REPLACE FUNCTION _jm_f_47(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_43(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -6096,7 +6048,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check _jm_obj_48_map_video_links (.'$GalaxyInfoModel'.'|'.2.video_links)
-CREATE OR REPLACE FUNCTION _jm_f_48(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_44(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -6110,7 +6062,7 @@ $$ LANGUAGE PLpgSQL;
 CREATE OR REPLACE FUNCTION _jm_obj_48_map(name TEXT)
 RETURNS TEXT STRICT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
-  map JSONB := JSONB '{"author":"_jm_f_36","cloud_platforms":"_jm_f_37","company":"_jm_f_38","galaxy_tags":"_jm_f_39","github_branch":"_jm_f_40","issue_tracker_url":"_jm_f_41","license":"_jm_f_42","min_ansible_container_version":"_jm_f_43","min_ansible_version":"_jm_f_44","namespace":"_jm_f_45","platforms":"_jm_f_46","role_name":"_jm_f_47","video_links":"_jm_f_48"}';
+  map JSONB := JSONB '{"author":"_jm_f_33","cloud_platforms":"_jm_f_34","company":"_jm_f_35","galaxy_tags":"_jm_f_36","github_branch":"_jm_f_37","issue_tracker_url":"_jm_f_38","license":"_jm_f_39","min_ansible_container_version":"_jm_f_40","min_ansible_version":"_jm_f_41","namespace":"_jm_f_42","platforms":"json_model_50","role_name":"_jm_f_43","video_links":"_jm_f_44"}';
 BEGIN
   RETURN map->>name;
 END;
@@ -6258,7 +6210,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_57_map_become (.'$DependencyModelLoose'.become)
-CREATE OR REPLACE FUNCTION _jm_f_49(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_45(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -6270,7 +6222,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_57_map_name (.'$DependencyModelLoose'.name)
-CREATE OR REPLACE FUNCTION _jm_f_50(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_46(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -6282,7 +6234,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_57_map_role (.'$DependencyModelLoose'.role)
-CREATE OR REPLACE FUNCTION _jm_f_51(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_47(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -6303,7 +6255,7 @@ END;
 $$ LANGUAGE plpgsql;
 
 -- check json_model_57_map_scm (.'$DependencyModelLoose'.scm)
-CREATE OR REPLACE FUNCTION _jm_f_52(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_48(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -6315,7 +6267,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_57_map_src (.'$DependencyModelLoose'.src)
-CREATE OR REPLACE FUNCTION _jm_f_53(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_49(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -6327,7 +6279,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_57_map_tags (.'$DependencyModelLoose'.tags)
-CREATE OR REPLACE FUNCTION _jm_f_54(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_50(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -6356,7 +6308,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_57_map_vars (.'$DependencyModelLoose'.vars)
-CREATE OR REPLACE FUNCTION _jm_f_55(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_51(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
   -- .'$DependencyModelLoose'.vars
@@ -6369,7 +6321,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_57_map_version (.'$DependencyModelLoose'.version)
-CREATE OR REPLACE FUNCTION _jm_f_56(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_52(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -6380,22 +6332,10 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check json_model_57_map_when (.'$DependencyModelLoose'.when)
-CREATE OR REPLACE FUNCTION _jm_f_57(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .'$DependencyModelLoose'.when
-  res := json_model_56(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
 CREATE OR REPLACE FUNCTION json_model_57_map(name TEXT)
 RETURNS TEXT STRICT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
-  map JSONB := JSONB '{"become":"_jm_f_49","name":"_jm_f_50","role":"_jm_f_51","scm":"_jm_f_52","src":"_jm_f_53","tags":"_jm_f_54","vars":"_jm_f_55","version":"_jm_f_56","when":"_jm_f_57"}';
+  map JSONB := JSONB '{"become":"_jm_f_45","name":"_jm_f_46","role":"_jm_f_47","scm":"_jm_f_48","src":"_jm_f_49","tags":"_jm_f_50","vars":"_jm_f_51","version":"_jm_f_52","when":"json_model_56"}';
 BEGIN
   RETURN map->>name;
 END;

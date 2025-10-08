@@ -177,22 +177,22 @@ static cre2_regexp_t *_jm_re_0_re2 = NULL;
 static int _jm_re_0_nn = 0;
 static bool _jm_re_0(const char *s, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_3(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static bool _jm_f_4(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static cre2_regexp_t *_jm_re_1_re2 = NULL;
 static int _jm_re_1_nn = 0;
 static bool _jm_re_1(const char *s, jm_path_t *path, jm_report_t *rep);
+static bool _jm_f_4(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_5(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static bool _jm_f_6(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static jm_propmap_t json_model_51_map_tab[7];
 static bool json_model_51(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static bool _jm_f_6(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_7(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_8(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_9(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_10(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_11(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static bool _jm_f_12(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static jm_propmap_t json_model_52_map_tab[6];
 static bool json_model_52(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static bool _jm_f_12(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_13(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_14(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_15(const json_t *val, jm_path_t *path, jm_report_t *rep);
@@ -201,10 +201,10 @@ static bool _jm_f_17(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_18(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_19(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_20(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static bool _jm_f_21(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static bool _jm_f_22(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static jm_propmap_t json_model_53_map_tab[10];
 static bool json_model_53(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static bool _jm_f_21(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static bool _jm_f_22(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_23(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_24(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_25(const json_t *val, jm_path_t *path, jm_report_t *rep);
@@ -215,11 +215,11 @@ static bool _jm_f_29(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_30(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_31(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_32(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static jm_propmap_t _jm_obj_47_map_tab[13];
+static bool _jm_obj_47(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_33(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_34(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_35(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static jm_propmap_t _jm_obj_47_map_tab[13];
-static bool _jm_obj_47(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_36(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_37(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_38(const json_t *val, jm_path_t *path, jm_report_t *rep);
@@ -229,10 +229,6 @@ static bool _jm_f_41(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_42(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_43(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_44(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static bool _jm_f_45(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static bool _jm_f_46(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static bool _jm_f_47(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static bool _jm_f_48(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static jm_propmap_t _jm_obj_48_map_tab[13];
 static bool _jm_obj_48(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static jm_constmap_t _jm_map_0_tab[2];
@@ -242,16 +238,15 @@ static int _jm_re_2_nn = 0;
 static bool _jm_re_2(const char *s, jm_path_t *path, jm_report_t *rep);
 static bool json_model_55(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_56(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static bool _jm_f_45(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static bool _jm_f_46(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static bool _jm_f_47(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static jm_constant_t _jm_cst_64[2];
+static bool _jm_f_48(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_49(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_50(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_51(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static jm_constant_t _jm_cst_64[2];
 static bool _jm_f_52(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static bool _jm_f_53(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static bool _jm_f_54(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static bool _jm_f_55(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static bool _jm_f_56(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static bool _jm_f_57(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static jm_propmap_t json_model_57_map_tab[9];
 static bool json_model_57(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_obj_49(const json_t *val, jm_path_t *path, jm_report_t *rep);
@@ -6896,19 +6891,6 @@ static bool _jm_f_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check json_model_51_map_platforms (.'$GalaxyInfoModelCollection'.platforms)
-static bool _jm_f_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
-    bool res;
-    // .'$GalaxyInfoModelCollection'.platforms
-    res = json_model_50(val, path, rep);
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected $platforms [.'$GalaxyInfoModelCollection'.platforms]", path);
-    }
-    return res;
-}
-
 static bool _jm_re_1(const char *s, jm_path_t *path, jm_report_t *rep)
 {
     size_t slen = strlen(s);
@@ -6916,7 +6898,7 @@ static bool _jm_re_1(const char *s, jm_path_t *path, jm_report_t *rep)
 }
 
 // check json_model_51_map_role_name (.'$GalaxyInfoModelCollection'.role_name)
-static bool _jm_f_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static bool _jm_f_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
     // .'$GalaxyInfoModelCollection'.role_name
@@ -6930,7 +6912,7 @@ static bool _jm_f_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
 }
 
 // check json_model_51_map_video_links (.'$GalaxyInfoModelCollection'.video_links)
-static bool _jm_f_6(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static bool _jm_f_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
     // .'$GalaxyInfoModelCollection'.video_links
@@ -6981,7 +6963,7 @@ static bool json_model_51(const json_t *val, jm_path_t *path, jm_report_t *rep)
 }
 
 // check json_model_52_map_author (.'$GalaxyInfoModelLoose'.author)
-static bool _jm_f_7(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static bool _jm_f_6(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
     // .'$GalaxyInfoModelLoose'.author
@@ -6994,7 +6976,7 @@ static bool _jm_f_7(const json_t *val, jm_path_t *path, jm_report_t *rep)
 }
 
 // check json_model_52_map_company (.'$GalaxyInfoModelLoose'.company)
-static bool _jm_f_8(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static bool _jm_f_7(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
     // .'$GalaxyInfoModelLoose'.company
@@ -7007,7 +6989,7 @@ static bool _jm_f_8(const json_t *val, jm_path_t *path, jm_report_t *rep)
 }
 
 // check json_model_52_map_github_branch (.'$GalaxyInfoModelLoose'.github_branch)
-static bool _jm_f_9(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static bool _jm_f_8(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
     // .'$GalaxyInfoModelLoose'.github_branch
@@ -7020,7 +7002,7 @@ static bool _jm_f_9(const json_t *val, jm_path_t *path, jm_report_t *rep)
 }
 
 // check json_model_52_map_issue_tracker_url (.'$GalaxyInfoModelLoose'.issue_tracker_url)
-static bool _jm_f_10(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static bool _jm_f_9(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
     // .'$GalaxyInfoModelLoose'.issue_tracker_url
@@ -7033,7 +7015,7 @@ static bool _jm_f_10(const json_t *val, jm_path_t *path, jm_report_t *rep)
 }
 
 // check json_model_52_map_license (.'$GalaxyInfoModelLoose'.license)
-static bool _jm_f_11(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static bool _jm_f_10(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
     // .'$GalaxyInfoModelLoose'.license
@@ -7046,7 +7028,7 @@ static bool _jm_f_11(const json_t *val, jm_path_t *path, jm_report_t *rep)
 }
 
 // check json_model_52_map_min_ansible_container_version (.'$GalaxyInfoModelLoose'.min_ansible_container_version)
-static bool _jm_f_12(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static bool _jm_f_11(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
     // .'$GalaxyInfoModelLoose'.min_ansible_container_version
@@ -7124,7 +7106,7 @@ static bool json_model_52(const json_t *val, jm_path_t *path, jm_report_t *rep)
 }
 
 // check json_model_53_map_cloud_platforms (.'$GalaxyInfoModelStandalone'.cloud_platforms)
-static bool _jm_f_13(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static bool _jm_f_12(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
     // .'$GalaxyInfoModelStandalone'.cloud_platforms
@@ -7137,7 +7119,7 @@ static bool _jm_f_13(const json_t *val, jm_path_t *path, jm_report_t *rep)
 }
 
 // check json_model_53_map_company (.'$GalaxyInfoModelStandalone'.company)
-static bool _jm_f_14(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static bool _jm_f_13(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
     // .'$GalaxyInfoModelStandalone'.company
@@ -7150,7 +7132,7 @@ static bool _jm_f_14(const json_t *val, jm_path_t *path, jm_report_t *rep)
 }
 
 // check json_model_53_map_galaxy_tags (.'$GalaxyInfoModelStandalone'.galaxy_tags)
-static bool _jm_f_15(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static bool _jm_f_14(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
     // .'$GalaxyInfoModelStandalone'.galaxy_tags
@@ -7179,7 +7161,7 @@ static bool _jm_f_15(const json_t *val, jm_path_t *path, jm_report_t *rep)
 }
 
 // check json_model_53_map_github_branch (.'$GalaxyInfoModelStandalone'.github_branch)
-static bool _jm_f_16(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static bool _jm_f_15(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
     // .'$GalaxyInfoModelStandalone'.github_branch
@@ -7192,7 +7174,7 @@ static bool _jm_f_16(const json_t *val, jm_path_t *path, jm_report_t *rep)
 }
 
 // check json_model_53_map_issue_tracker_url (.'$GalaxyInfoModelStandalone'.issue_tracker_url)
-static bool _jm_f_17(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static bool _jm_f_16(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
     // .'$GalaxyInfoModelStandalone'.issue_tracker_url
@@ -7205,7 +7187,7 @@ static bool _jm_f_17(const json_t *val, jm_path_t *path, jm_report_t *rep)
 }
 
 // check json_model_53_map_min_ansible_container_version (.'$GalaxyInfoModelStandalone'.min_ansible_container_version)
-static bool _jm_f_18(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static bool _jm_f_17(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
     // .'$GalaxyInfoModelStandalone'.min_ansible_container_version
@@ -7218,7 +7200,7 @@ static bool _jm_f_18(const json_t *val, jm_path_t *path, jm_report_t *rep)
 }
 
 // check json_model_53_map_namespace (.'$GalaxyInfoModelStandalone'.namespace)
-static bool _jm_f_19(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static bool _jm_f_18(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
     // .'$GalaxyInfoModelStandalone'.namespace
@@ -7231,21 +7213,8 @@ static bool _jm_f_19(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check json_model_53_map_platforms (.'$GalaxyInfoModelStandalone'.platforms)
-static bool _jm_f_20(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
-    bool res;
-    // .'$GalaxyInfoModelStandalone'.platforms
-    res = json_model_50(val, path, rep);
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected $platforms [.'$GalaxyInfoModelStandalone'.platforms]", path);
-    }
-    return res;
-}
-
 // check json_model_53_map_role_name (.'$GalaxyInfoModelStandalone'.role_name)
-static bool _jm_f_21(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static bool _jm_f_19(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
     // .'$GalaxyInfoModelStandalone'.role_name
@@ -7259,7 +7228,7 @@ static bool _jm_f_21(const json_t *val, jm_path_t *path, jm_report_t *rep)
 }
 
 // check json_model_53_map_video_links (.'$GalaxyInfoModelStandalone'.video_links)
-static bool _jm_f_22(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static bool _jm_f_20(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
     // .'$GalaxyInfoModelStandalone'.video_links
@@ -7404,7 +7373,7 @@ static bool json_model_53(const json_t *val, jm_path_t *path, jm_report_t *rep)
 }
 
 // check _jm_obj_47_map_author (.'$GalaxyInfoModel'.'|'.1.author)
-static bool _jm_f_23(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static bool _jm_f_21(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
     // .'$GalaxyInfoModel'.'|'.1.author
@@ -7417,7 +7386,7 @@ static bool _jm_f_23(const json_t *val, jm_path_t *path, jm_report_t *rep)
 }
 
 // check _jm_obj_47_map_cloud_platforms (.'$GalaxyInfoModel'.'|'.1.cloud_platforms)
-static bool _jm_f_24(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static bool _jm_f_22(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
     // .'$GalaxyInfoModel'.'|'.1.cloud_platforms
@@ -7430,7 +7399,7 @@ static bool _jm_f_24(const json_t *val, jm_path_t *path, jm_report_t *rep)
 }
 
 // check _jm_obj_47_map_company (.'$GalaxyInfoModel'.'|'.1.company)
-static bool _jm_f_25(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static bool _jm_f_23(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
     // .'$GalaxyInfoModel'.'|'.1.company
@@ -7443,7 +7412,7 @@ static bool _jm_f_25(const json_t *val, jm_path_t *path, jm_report_t *rep)
 }
 
 // check _jm_obj_47_map_galaxy_tags (.'$GalaxyInfoModel'.'|'.1.galaxy_tags)
-static bool _jm_f_26(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static bool _jm_f_24(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
     // .'$GalaxyInfoModel'.'|'.1.galaxy_tags
@@ -7472,7 +7441,7 @@ static bool _jm_f_26(const json_t *val, jm_path_t *path, jm_report_t *rep)
 }
 
 // check _jm_obj_47_map_github_branch (.'$GalaxyInfoModel'.'|'.1.github_branch)
-static bool _jm_f_27(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static bool _jm_f_25(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
     // .'$GalaxyInfoModel'.'|'.1.github_branch
@@ -7485,7 +7454,7 @@ static bool _jm_f_27(const json_t *val, jm_path_t *path, jm_report_t *rep)
 }
 
 // check _jm_obj_47_map_issue_tracker_url (.'$GalaxyInfoModel'.'|'.1.issue_tracker_url)
-static bool _jm_f_28(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static bool _jm_f_26(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
     // .'$GalaxyInfoModel'.'|'.1.issue_tracker_url
@@ -7498,7 +7467,7 @@ static bool _jm_f_28(const json_t *val, jm_path_t *path, jm_report_t *rep)
 }
 
 // check _jm_obj_47_map_license (.'$GalaxyInfoModel'.'|'.1.license)
-static bool _jm_f_29(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static bool _jm_f_27(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
     // .'$GalaxyInfoModel'.'|'.1.license
@@ -7511,7 +7480,7 @@ static bool _jm_f_29(const json_t *val, jm_path_t *path, jm_report_t *rep)
 }
 
 // check _jm_obj_47_map_min_ansible_container_version (.'$GalaxyInfoModel'.'|'.1.min_ansible_container_version)
-static bool _jm_f_30(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static bool _jm_f_28(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
     // .'$GalaxyInfoModel'.'|'.1.min_ansible_container_version
@@ -7524,7 +7493,7 @@ static bool _jm_f_30(const json_t *val, jm_path_t *path, jm_report_t *rep)
 }
 
 // check _jm_obj_47_map_min_ansible_version (.'$GalaxyInfoModel'.'|'.1.min_ansible_version)
-static bool _jm_f_31(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static bool _jm_f_29(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
     // .'$GalaxyInfoModel'.'|'.1.min_ansible_version
@@ -7537,7 +7506,7 @@ static bool _jm_f_31(const json_t *val, jm_path_t *path, jm_report_t *rep)
 }
 
 // check _jm_obj_47_map_namespace (.'$GalaxyInfoModel'.'|'.1.namespace)
-static bool _jm_f_32(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static bool _jm_f_30(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
     // .'$GalaxyInfoModel'.'|'.1.namespace
@@ -7550,21 +7519,8 @@ static bool _jm_f_32(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_47_map_platforms (.'$GalaxyInfoModel'.'|'.1.platforms)
-static bool _jm_f_33(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
-    bool res;
-    // .'$GalaxyInfoModel'.'|'.1.platforms
-    res = json_model_50(val, path, rep);
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected $platforms [.'$GalaxyInfoModel'.'|'.1.platforms]", path);
-    }
-    return res;
-}
-
 // check _jm_obj_47_map_role_name (.'$GalaxyInfoModel'.'|'.1.role_name)
-static bool _jm_f_34(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static bool _jm_f_31(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
     // .'$GalaxyInfoModel'.'|'.1.role_name
@@ -7578,7 +7534,7 @@ static bool _jm_f_34(const json_t *val, jm_path_t *path, jm_report_t *rep)
 }
 
 // check _jm_obj_47_map_video_links (.'$GalaxyInfoModel'.'|'.1.video_links)
-static bool _jm_f_35(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static bool _jm_f_32(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
     // .'$GalaxyInfoModel'.'|'.1.video_links
@@ -7671,7 +7627,7 @@ static INLINE bool _jm_obj_47(const json_t *val, jm_path_t *path, jm_report_t *r
 }
 
 // check _jm_obj_48_map_author (.'$GalaxyInfoModel'.'|'.2.author)
-static bool _jm_f_36(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static bool _jm_f_33(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
     // .'$GalaxyInfoModel'.'|'.2.author
@@ -7684,7 +7640,7 @@ static bool _jm_f_36(const json_t *val, jm_path_t *path, jm_report_t *rep)
 }
 
 // check _jm_obj_48_map_cloud_platforms (.'$GalaxyInfoModel'.'|'.2.cloud_platforms)
-static bool _jm_f_37(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static bool _jm_f_34(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
     // .'$GalaxyInfoModel'.'|'.2.cloud_platforms
@@ -7697,7 +7653,7 @@ static bool _jm_f_37(const json_t *val, jm_path_t *path, jm_report_t *rep)
 }
 
 // check _jm_obj_48_map_company (.'$GalaxyInfoModel'.'|'.2.company)
-static bool _jm_f_38(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static bool _jm_f_35(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
     // .'$GalaxyInfoModel'.'|'.2.company
@@ -7710,7 +7666,7 @@ static bool _jm_f_38(const json_t *val, jm_path_t *path, jm_report_t *rep)
 }
 
 // check _jm_obj_48_map_galaxy_tags (.'$GalaxyInfoModel'.'|'.2.galaxy_tags)
-static bool _jm_f_39(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static bool _jm_f_36(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
     // .'$GalaxyInfoModel'.'|'.2.galaxy_tags
@@ -7739,7 +7695,7 @@ static bool _jm_f_39(const json_t *val, jm_path_t *path, jm_report_t *rep)
 }
 
 // check _jm_obj_48_map_github_branch (.'$GalaxyInfoModel'.'|'.2.github_branch)
-static bool _jm_f_40(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static bool _jm_f_37(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
     // .'$GalaxyInfoModel'.'|'.2.github_branch
@@ -7752,7 +7708,7 @@ static bool _jm_f_40(const json_t *val, jm_path_t *path, jm_report_t *rep)
 }
 
 // check _jm_obj_48_map_issue_tracker_url (.'$GalaxyInfoModel'.'|'.2.issue_tracker_url)
-static bool _jm_f_41(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static bool _jm_f_38(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
     // .'$GalaxyInfoModel'.'|'.2.issue_tracker_url
@@ -7765,7 +7721,7 @@ static bool _jm_f_41(const json_t *val, jm_path_t *path, jm_report_t *rep)
 }
 
 // check _jm_obj_48_map_license (.'$GalaxyInfoModel'.'|'.2.license)
-static bool _jm_f_42(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static bool _jm_f_39(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
     // .'$GalaxyInfoModel'.'|'.2.license
@@ -7778,7 +7734,7 @@ static bool _jm_f_42(const json_t *val, jm_path_t *path, jm_report_t *rep)
 }
 
 // check _jm_obj_48_map_min_ansible_container_version (.'$GalaxyInfoModel'.'|'.2.min_ansible_container_version)
-static bool _jm_f_43(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static bool _jm_f_40(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
     // .'$GalaxyInfoModel'.'|'.2.min_ansible_container_version
@@ -7791,7 +7747,7 @@ static bool _jm_f_43(const json_t *val, jm_path_t *path, jm_report_t *rep)
 }
 
 // check _jm_obj_48_map_min_ansible_version (.'$GalaxyInfoModel'.'|'.2.min_ansible_version)
-static bool _jm_f_44(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static bool _jm_f_41(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
     // .'$GalaxyInfoModel'.'|'.2.min_ansible_version
@@ -7804,7 +7760,7 @@ static bool _jm_f_44(const json_t *val, jm_path_t *path, jm_report_t *rep)
 }
 
 // check _jm_obj_48_map_namespace (.'$GalaxyInfoModel'.'|'.2.namespace)
-static bool _jm_f_45(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static bool _jm_f_42(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
     // .'$GalaxyInfoModel'.'|'.2.namespace
@@ -7817,21 +7773,8 @@ static bool _jm_f_45(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_48_map_platforms (.'$GalaxyInfoModel'.'|'.2.platforms)
-static bool _jm_f_46(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
-    bool res;
-    // .'$GalaxyInfoModel'.'|'.2.platforms
-    res = json_model_50(val, path, rep);
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected $platforms [.'$GalaxyInfoModel'.'|'.2.platforms]", path);
-    }
-    return res;
-}
-
 // check _jm_obj_48_map_role_name (.'$GalaxyInfoModel'.'|'.2.role_name)
-static bool _jm_f_47(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static bool _jm_f_43(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
     // .'$GalaxyInfoModel'.'|'.2.role_name
@@ -7845,7 +7788,7 @@ static bool _jm_f_47(const json_t *val, jm_path_t *path, jm_report_t *rep)
 }
 
 // check _jm_obj_48_map_video_links (.'$GalaxyInfoModel'.'|'.2.video_links)
-static bool _jm_f_48(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static bool _jm_f_44(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
     // .'$GalaxyInfoModel'.'|'.2.video_links
@@ -8066,7 +8009,7 @@ static bool json_model_56(const json_t *val, jm_path_t *path, jm_report_t *rep)
 }
 
 // check json_model_57_map_become (.'$DependencyModelLoose'.become)
-static bool _jm_f_49(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static bool _jm_f_45(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
     // .'$DependencyModelLoose'.become
@@ -8079,7 +8022,7 @@ static bool _jm_f_49(const json_t *val, jm_path_t *path, jm_report_t *rep)
 }
 
 // check json_model_57_map_name (.'$DependencyModelLoose'.name)
-static bool _jm_f_50(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static bool _jm_f_46(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
     // .'$DependencyModelLoose'.name
@@ -8092,7 +8035,7 @@ static bool _jm_f_50(const json_t *val, jm_path_t *path, jm_report_t *rep)
 }
 
 // check json_model_57_map_role (.'$DependencyModelLoose'.role)
-static bool _jm_f_51(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static bool _jm_f_47(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
     // .'$DependencyModelLoose'.role
@@ -8106,7 +8049,7 @@ static bool _jm_f_51(const json_t *val, jm_path_t *path, jm_report_t *rep)
 
 
 // check json_model_57_map_scm (.'$DependencyModelLoose'.scm)
-static bool _jm_f_52(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static bool _jm_f_48(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
     // .'$DependencyModelLoose'.scm
@@ -8119,7 +8062,7 @@ static bool _jm_f_52(const json_t *val, jm_path_t *path, jm_report_t *rep)
 }
 
 // check json_model_57_map_src (.'$DependencyModelLoose'.src)
-static bool _jm_f_53(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static bool _jm_f_49(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
     // .'$DependencyModelLoose'.src
@@ -8132,7 +8075,7 @@ static bool _jm_f_53(const json_t *val, jm_path_t *path, jm_report_t *rep)
 }
 
 // check json_model_57_map_tags (.'$DependencyModelLoose'.tags)
-static bool _jm_f_54(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static bool _jm_f_50(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
     // .'$DependencyModelLoose'.tags
@@ -8179,7 +8122,7 @@ static bool _jm_f_54(const json_t *val, jm_path_t *path, jm_report_t *rep)
 }
 
 // check json_model_57_map_vars (.'$DependencyModelLoose'.vars)
-static bool _jm_f_55(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static bool _jm_f_51(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .'$DependencyModelLoose'.vars
     if (! json_is_object(val))
@@ -8192,7 +8135,7 @@ static bool _jm_f_55(const json_t *val, jm_path_t *path, jm_report_t *rep)
 }
 
 // check json_model_57_map_version (.'$DependencyModelLoose'.version)
-static bool _jm_f_56(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static bool _jm_f_52(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
     // .'$DependencyModelLoose'.version
@@ -8200,19 +8143,6 @@ static bool _jm_f_56(const json_t *val, jm_path_t *path, jm_report_t *rep)
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected string [.'$DependencyModelLoose'.version]", path);
-    }
-    return res;
-}
-
-// check json_model_57_map_when (.'$DependencyModelLoose'.when)
-static bool _jm_f_57(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
-    bool res;
-    // .'$DependencyModelLoose'.when
-    res = json_model_56(val, path, rep);
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected $complex_conditional [.'$DependencyModelLoose'.when]", path);
     }
     return res;
 }
@@ -9423,55 +9353,55 @@ const char *check_model_init(void)
         json_model_51_map_tab[1] = (jm_propmap_t) { "galaxy_tags", _jm_f_1 };
         json_model_51_map_tab[2] = (jm_propmap_t) { "min_ansible_version", _jm_f_2 };
         json_model_51_map_tab[3] = (jm_propmap_t) { "namespace", _jm_f_3 };
-        json_model_51_map_tab[4] = (jm_propmap_t) { "platforms", _jm_f_4 };
-        json_model_51_map_tab[5] = (jm_propmap_t) { "role_name", _jm_f_5 };
-        json_model_51_map_tab[6] = (jm_propmap_t) { "video_links", _jm_f_6 };
+        json_model_51_map_tab[4] = (jm_propmap_t) { "platforms", json_model_50 };
+        json_model_51_map_tab[5] = (jm_propmap_t) { "role_name", _jm_f_4 };
+        json_model_51_map_tab[6] = (jm_propmap_t) { "video_links", _jm_f_5 };
         jm_sort_propmap(json_model_51_map_tab, 7);
-        json_model_52_map_tab[0] = (jm_propmap_t) { "author", _jm_f_7 };
-        json_model_52_map_tab[1] = (jm_propmap_t) { "company", _jm_f_8 };
-        json_model_52_map_tab[2] = (jm_propmap_t) { "github_branch", _jm_f_9 };
-        json_model_52_map_tab[3] = (jm_propmap_t) { "issue_tracker_url", _jm_f_10 };
-        json_model_52_map_tab[4] = (jm_propmap_t) { "license", _jm_f_11 };
-        json_model_52_map_tab[5] = (jm_propmap_t) { "min_ansible_container_version", _jm_f_12 };
+        json_model_52_map_tab[0] = (jm_propmap_t) { "author", _jm_f_6 };
+        json_model_52_map_tab[1] = (jm_propmap_t) { "company", _jm_f_7 };
+        json_model_52_map_tab[2] = (jm_propmap_t) { "github_branch", _jm_f_8 };
+        json_model_52_map_tab[3] = (jm_propmap_t) { "issue_tracker_url", _jm_f_9 };
+        json_model_52_map_tab[4] = (jm_propmap_t) { "license", _jm_f_10 };
+        json_model_52_map_tab[5] = (jm_propmap_t) { "min_ansible_container_version", _jm_f_11 };
         jm_sort_propmap(json_model_52_map_tab, 6);
-        json_model_53_map_tab[0] = (jm_propmap_t) { "cloud_platforms", _jm_f_13 };
-        json_model_53_map_tab[1] = (jm_propmap_t) { "company", _jm_f_14 };
-        json_model_53_map_tab[2] = (jm_propmap_t) { "galaxy_tags", _jm_f_15 };
-        json_model_53_map_tab[3] = (jm_propmap_t) { "github_branch", _jm_f_16 };
-        json_model_53_map_tab[4] = (jm_propmap_t) { "issue_tracker_url", _jm_f_17 };
-        json_model_53_map_tab[5] = (jm_propmap_t) { "min_ansible_container_version", _jm_f_18 };
-        json_model_53_map_tab[6] = (jm_propmap_t) { "namespace", _jm_f_19 };
-        json_model_53_map_tab[7] = (jm_propmap_t) { "platforms", _jm_f_20 };
-        json_model_53_map_tab[8] = (jm_propmap_t) { "role_name", _jm_f_21 };
-        json_model_53_map_tab[9] = (jm_propmap_t) { "video_links", _jm_f_22 };
+        json_model_53_map_tab[0] = (jm_propmap_t) { "cloud_platforms", _jm_f_12 };
+        json_model_53_map_tab[1] = (jm_propmap_t) { "company", _jm_f_13 };
+        json_model_53_map_tab[2] = (jm_propmap_t) { "galaxy_tags", _jm_f_14 };
+        json_model_53_map_tab[3] = (jm_propmap_t) { "github_branch", _jm_f_15 };
+        json_model_53_map_tab[4] = (jm_propmap_t) { "issue_tracker_url", _jm_f_16 };
+        json_model_53_map_tab[5] = (jm_propmap_t) { "min_ansible_container_version", _jm_f_17 };
+        json_model_53_map_tab[6] = (jm_propmap_t) { "namespace", _jm_f_18 };
+        json_model_53_map_tab[7] = (jm_propmap_t) { "platforms", json_model_50 };
+        json_model_53_map_tab[8] = (jm_propmap_t) { "role_name", _jm_f_19 };
+        json_model_53_map_tab[9] = (jm_propmap_t) { "video_links", _jm_f_20 };
         jm_sort_propmap(json_model_53_map_tab, 10);
-        _jm_obj_47_map_tab[0] = (jm_propmap_t) { "author", _jm_f_23 };
-        _jm_obj_47_map_tab[1] = (jm_propmap_t) { "cloud_platforms", _jm_f_24 };
-        _jm_obj_47_map_tab[2] = (jm_propmap_t) { "company", _jm_f_25 };
-        _jm_obj_47_map_tab[3] = (jm_propmap_t) { "galaxy_tags", _jm_f_26 };
-        _jm_obj_47_map_tab[4] = (jm_propmap_t) { "github_branch", _jm_f_27 };
-        _jm_obj_47_map_tab[5] = (jm_propmap_t) { "issue_tracker_url", _jm_f_28 };
-        _jm_obj_47_map_tab[6] = (jm_propmap_t) { "license", _jm_f_29 };
-        _jm_obj_47_map_tab[7] = (jm_propmap_t) { "min_ansible_container_version", _jm_f_30 };
-        _jm_obj_47_map_tab[8] = (jm_propmap_t) { "min_ansible_version", _jm_f_31 };
-        _jm_obj_47_map_tab[9] = (jm_propmap_t) { "namespace", _jm_f_32 };
-        _jm_obj_47_map_tab[10] = (jm_propmap_t) { "platforms", _jm_f_33 };
-        _jm_obj_47_map_tab[11] = (jm_propmap_t) { "role_name", _jm_f_34 };
-        _jm_obj_47_map_tab[12] = (jm_propmap_t) { "video_links", _jm_f_35 };
+        _jm_obj_47_map_tab[0] = (jm_propmap_t) { "author", _jm_f_21 };
+        _jm_obj_47_map_tab[1] = (jm_propmap_t) { "cloud_platforms", _jm_f_22 };
+        _jm_obj_47_map_tab[2] = (jm_propmap_t) { "company", _jm_f_23 };
+        _jm_obj_47_map_tab[3] = (jm_propmap_t) { "galaxy_tags", _jm_f_24 };
+        _jm_obj_47_map_tab[4] = (jm_propmap_t) { "github_branch", _jm_f_25 };
+        _jm_obj_47_map_tab[5] = (jm_propmap_t) { "issue_tracker_url", _jm_f_26 };
+        _jm_obj_47_map_tab[6] = (jm_propmap_t) { "license", _jm_f_27 };
+        _jm_obj_47_map_tab[7] = (jm_propmap_t) { "min_ansible_container_version", _jm_f_28 };
+        _jm_obj_47_map_tab[8] = (jm_propmap_t) { "min_ansible_version", _jm_f_29 };
+        _jm_obj_47_map_tab[9] = (jm_propmap_t) { "namespace", _jm_f_30 };
+        _jm_obj_47_map_tab[10] = (jm_propmap_t) { "platforms", json_model_50 };
+        _jm_obj_47_map_tab[11] = (jm_propmap_t) { "role_name", _jm_f_31 };
+        _jm_obj_47_map_tab[12] = (jm_propmap_t) { "video_links", _jm_f_32 };
         jm_sort_propmap(_jm_obj_47_map_tab, 13);
-        _jm_obj_48_map_tab[0] = (jm_propmap_t) { "author", _jm_f_36 };
-        _jm_obj_48_map_tab[1] = (jm_propmap_t) { "cloud_platforms", _jm_f_37 };
-        _jm_obj_48_map_tab[2] = (jm_propmap_t) { "company", _jm_f_38 };
-        _jm_obj_48_map_tab[3] = (jm_propmap_t) { "galaxy_tags", _jm_f_39 };
-        _jm_obj_48_map_tab[4] = (jm_propmap_t) { "github_branch", _jm_f_40 };
-        _jm_obj_48_map_tab[5] = (jm_propmap_t) { "issue_tracker_url", _jm_f_41 };
-        _jm_obj_48_map_tab[6] = (jm_propmap_t) { "license", _jm_f_42 };
-        _jm_obj_48_map_tab[7] = (jm_propmap_t) { "min_ansible_container_version", _jm_f_43 };
-        _jm_obj_48_map_tab[8] = (jm_propmap_t) { "min_ansible_version", _jm_f_44 };
-        _jm_obj_48_map_tab[9] = (jm_propmap_t) { "namespace", _jm_f_45 };
-        _jm_obj_48_map_tab[10] = (jm_propmap_t) { "platforms", _jm_f_46 };
-        _jm_obj_48_map_tab[11] = (jm_propmap_t) { "role_name", _jm_f_47 };
-        _jm_obj_48_map_tab[12] = (jm_propmap_t) { "video_links", _jm_f_48 };
+        _jm_obj_48_map_tab[0] = (jm_propmap_t) { "author", _jm_f_33 };
+        _jm_obj_48_map_tab[1] = (jm_propmap_t) { "cloud_platforms", _jm_f_34 };
+        _jm_obj_48_map_tab[2] = (jm_propmap_t) { "company", _jm_f_35 };
+        _jm_obj_48_map_tab[3] = (jm_propmap_t) { "galaxy_tags", _jm_f_36 };
+        _jm_obj_48_map_tab[4] = (jm_propmap_t) { "github_branch", _jm_f_37 };
+        _jm_obj_48_map_tab[5] = (jm_propmap_t) { "issue_tracker_url", _jm_f_38 };
+        _jm_obj_48_map_tab[6] = (jm_propmap_t) { "license", _jm_f_39 };
+        _jm_obj_48_map_tab[7] = (jm_propmap_t) { "min_ansible_container_version", _jm_f_40 };
+        _jm_obj_48_map_tab[8] = (jm_propmap_t) { "min_ansible_version", _jm_f_41 };
+        _jm_obj_48_map_tab[9] = (jm_propmap_t) { "namespace", _jm_f_42 };
+        _jm_obj_48_map_tab[10] = (jm_propmap_t) { "platforms", json_model_50 };
+        _jm_obj_48_map_tab[11] = (jm_propmap_t) { "role_name", _jm_f_43 };
+        _jm_obj_48_map_tab[12] = (jm_propmap_t) { "video_links", _jm_f_44 };
         jm_sort_propmap(_jm_obj_48_map_tab, 13);
         _jm_map_0_tab[0] = (jm_constmap_t) { (jm_constant_t) { cst_is_bool, { .b = true } }, json_model_53 };
         _jm_map_0_tab[1] = (jm_constmap_t) { (jm_constant_t) { cst_is_bool, { .b = false } }, _jm_obj_47 };
@@ -9484,15 +9414,15 @@ const char *check_model_init(void)
         _jm_cst_64[0] = (jm_constant_t) { cst_is_string, { .s = "hg" } };
         _jm_cst_64[1] = (jm_constant_t) { cst_is_string, { .s = "git" } };
         jm_sort_cst(_jm_cst_64, 2);
-        json_model_57_map_tab[0] = (jm_propmap_t) { "become", _jm_f_49 };
-        json_model_57_map_tab[1] = (jm_propmap_t) { "name", _jm_f_50 };
-        json_model_57_map_tab[2] = (jm_propmap_t) { "role", _jm_f_51 };
-        json_model_57_map_tab[3] = (jm_propmap_t) { "scm", _jm_f_52 };
-        json_model_57_map_tab[4] = (jm_propmap_t) { "src", _jm_f_53 };
-        json_model_57_map_tab[5] = (jm_propmap_t) { "tags", _jm_f_54 };
-        json_model_57_map_tab[6] = (jm_propmap_t) { "vars", _jm_f_55 };
-        json_model_57_map_tab[7] = (jm_propmap_t) { "version", _jm_f_56 };
-        json_model_57_map_tab[8] = (jm_propmap_t) { "when", _jm_f_57 };
+        json_model_57_map_tab[0] = (jm_propmap_t) { "become", _jm_f_45 };
+        json_model_57_map_tab[1] = (jm_propmap_t) { "name", _jm_f_46 };
+        json_model_57_map_tab[2] = (jm_propmap_t) { "role", _jm_f_47 };
+        json_model_57_map_tab[3] = (jm_propmap_t) { "scm", _jm_f_48 };
+        json_model_57_map_tab[4] = (jm_propmap_t) { "src", _jm_f_49 };
+        json_model_57_map_tab[5] = (jm_propmap_t) { "tags", _jm_f_50 };
+        json_model_57_map_tab[6] = (jm_propmap_t) { "vars", _jm_f_51 };
+        json_model_57_map_tab[7] = (jm_propmap_t) { "version", _jm_f_52 };
+        json_model_57_map_tab[8] = (jm_propmap_t) { "when", json_model_56 };
         jm_sort_propmap(json_model_57_map_tab, 9);
         check_model_map_tab[0] = (jm_propmap_t) { "", json_model_60 };
         check_model_map_tab[1] = (jm_propmap_t) { "AIXPlatformModel", json_model_2 };

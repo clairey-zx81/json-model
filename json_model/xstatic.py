@@ -493,12 +493,19 @@ class CodeGenerator:
     def _propmap_gen(self, jm: JsonModel, model: ModelObject, name: str, mpath: ModelPath):
         """Generate property map for sub-model."""
         assert isinstance(model, dict)
+
         prop_map: dict[str, str] = {}
+
         for p in sorted(model.keys()):
             m = model[p]
-            pid = f"{name}_{p}"  # unique identifier for value function
-            self._compileName(jm, pid, m, mpath + [p], True)
-            prop_map[p] = self._getName(jm, pid)
+            if jm._isRef(m):
+                # direct reference
+                prop_map[p] = self._getNameRef(jm, m, mpath)
+            else:
+                pid = f"{name}_{p}"  # unique identifier for value function
+                self._compileName(jm, pid, m, mpath + [p], True)
+                prop_map[p] = self._getName(jm, pid)
+
         self._code.pmap(name, prop_map)
 
     # TODO known?
