@@ -11,9 +11,10 @@ const JSON_MODEL_VERSION = "2";
 
 var check_model_map = new Map()
 
-// object .'$Oa'
-function _jm_obj_0(val, path, rep)
+// check $Oa (.'$Oa')
+function json_model_2(val, path, rep)
 {
+    // .'$Oa'
     // check open must/may only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
@@ -34,18 +35,10 @@ function _jm_obj_0(val, path, rep)
     return true;
 }
 
-// check $Oa (.'$Oa')
-function json_model_2(val, path, rep)
+// check $Ob (.'$Ob')
+function json_model_3(val, path, rep)
 {
-    let res;
-    // .'$Oa'
-    res = _jm_obj_0(val, path, rep);
-    return res;
-}
-
-// object .'$Ob'
-function _jm_obj_1(val, path, rep)
-{
+    // .'$Ob'
     // check open must/may only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
@@ -66,18 +59,10 @@ function _jm_obj_1(val, path, rep)
     return true;
 }
 
-// check $Ob (.'$Ob')
-function json_model_3(val, path, rep)
+// check $merge (.'$merge')
+function json_model_4(val, path, rep)
 {
-    let res;
-    // .'$Ob'
-    res = _jm_obj_1(val, path, rep);
-    return res;
-}
-
-// object .'$merge'
-function _jm_obj_2(val, path, rep)
-{
+    // .'$merge'
     // check open must/may only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
@@ -108,17 +93,8 @@ function _jm_obj_2(val, path, rep)
     return true;
 }
 
-// check $merge (.'$merge')
-function json_model_4(val, path, rep)
-{
-    let res;
-    // .'$merge'
-    res = _jm_obj_2(val, path, rep);
-    return res;
-}
-
 // object .'$nomerge'.'&'.1
-function _jm_obj_3(val, path, rep)
+function _jm_obj_0(val, path, rep)
 {
     // check close must only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
@@ -154,11 +130,11 @@ function json_model_5(val, path, rep)
     if (res)
     {
         // .'$nomerge'.'&'.0
-        res = _jm_obj_0(val, path, rep);
+        res = json_model_2(val, path, rep);
         if (res)
         {
             // .'$nomerge'.'&'.1
-            res = _jm_obj_3(val, path, rep);
+            res = _jm_obj_0(val, path, rep);
         }
     }
     return res;
@@ -170,7 +146,7 @@ function json_model_1(val, path, rep)
     let res;
     // .
     // .'|'.0
-    res = _jm_obj_2(val, path, rep);
+    res = json_model_4(val, path, rep);
     if (! res)
     {
         // .'|'.1
@@ -190,9 +166,9 @@ export function check_model_init()
         initialized = true;
         runtime.jm_set_rx(RegExp)
         check_model_map.set("", json_model_1)
-        check_model_map.set("Oa", _jm_obj_0)
-        check_model_map.set("Ob", _jm_obj_1)
-        check_model_map.set("merge", _jm_obj_2)
+        check_model_map.set("Oa", json_model_2)
+        check_model_map.set("Ob", json_model_3)
+        check_model_map.set("merge", json_model_4)
         check_model_map.set("nomerge", json_model_5)
     }
 }

@@ -26,14 +26,16 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- object .
-CREATE OR REPLACE FUNCTION _jm_obj_0(val JSONB, path TEXT[], rep jm_report_entry[])
+-- check $ (.)
+CREATE OR REPLACE FUNCTION json_model_1(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
   prop TEXT;
   pval JSONB;
 BEGIN
+  -- prop ref to enum
+  -- .
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
@@ -53,23 +55,10 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check $ (.)
-CREATE OR REPLACE FUNCTION json_model_1(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- prop ref to enum
-  -- .
-  res := _jm_obj_0(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
 CREATE OR REPLACE FUNCTION check_model_map(name TEXT)
 RETURNS TEXT STRICT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
-  map JSONB := JSONB '{"":"_jm_obj_0","Xxx":"json_model_2"}';
+  map JSONB := JSONB '{"":"json_model_1","Xxx":"json_model_2"}';
 BEGIN
   RETURN map->>name;
 END;

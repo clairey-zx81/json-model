@@ -64,7 +64,7 @@ public class more_comments extends ModelChecker
     }
 
     // object .o
-    public boolean _jm_obj_1(Object val, Path path, Report rep)
+    public boolean _jm_obj_0(Object val, Path path, Report rep)
     {
         if (! json.isObject(val))
         {
@@ -143,9 +143,11 @@ public class more_comments extends ModelChecker
         return true;
     }
 
-    // object .
-    public boolean _jm_obj_0(Object val, Path path, Report rep)
+    // check $ (.)
+    public boolean json_model_1(Object val, Path path, Report rep)
     {
+        // trivial and non trivial comments
+        // .
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.]", path);
@@ -163,7 +165,7 @@ public class more_comments extends ModelChecker
                 // handle may o property
                 // an object
                 // .o
-                res = _jm_obj_1(pval, (path != null ? lpath_0 : null), rep);
+                res = _jm_obj_0(pval, (path != null ? lpath_0 : null), rep);
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected element [.o]", (path != null ? lpath_0 : null));
@@ -180,20 +182,6 @@ public class more_comments extends ModelChecker
         return true;
     }
 
-    // check $ (.)
-    public boolean json_model_1(Object val, Path path, Report rep)
-    {
-        boolean res;
-        // trivial and non trivial comments
-        // .
-        res = _jm_obj_0(val, path, rep);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected element [.]", path);
-        }
-        return res;
-    }
-
 
     public void init(JSON json)
     {
@@ -201,7 +189,7 @@ public class more_comments extends ModelChecker
         {
             try {
             more_comments_map_pmap = new HashMap<String, Checker>();
-            more_comments_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_0(o, p, r);} });
+            more_comments_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_1(o, p, r);} });
             more_comments_map_pmap.put("Pp", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_2(o, p, r);} });
             more_comments_map_pmap.put("Qq", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_3(o, p, r);} });
                 super.init(json);

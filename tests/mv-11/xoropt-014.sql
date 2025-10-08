@@ -6,7 +6,7 @@
 CREATE EXTENSION IF NOT EXISTS json_model;
 
 -- object .movie.'|'.0
-CREATE OR REPLACE FUNCTION _jm_obj_1(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_obj_0(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   pval JSONB;
@@ -42,7 +42,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- object .movie.'|'.1
-CREATE OR REPLACE FUNCTION _jm_obj_2(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_obj_1(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   pval JSONB;
@@ -78,7 +78,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- object .movie.'|'.2
-CREATE OR REPLACE FUNCTION _jm_obj_3(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_obj_2(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   pval JSONB;
@@ -114,7 +114,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- object .movie.'|'.3
-CREATE OR REPLACE FUNCTION _jm_obj_4(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_obj_3(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   pval JSONB;
@@ -150,8 +150,8 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 
--- object .
-CREATE OR REPLACE FUNCTION _jm_obj_0(val JSONB, path TEXT[], rep jm_report_entry[])
+-- check $ (.)
+CREATE OR REPLACE FUNCTION json_model_1(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   pval JSONB;
@@ -160,6 +160,7 @@ DECLARE
   tag_0 JSONB;
   fun_0 TEXT;
 BEGIN
+  -- .
   -- check close must only props
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
@@ -194,22 +195,10 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check $ (.)
-CREATE OR REPLACE FUNCTION json_model_1(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .
-  res := _jm_obj_0(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
 CREATE OR REPLACE FUNCTION check_model_map(name TEXT)
 RETURNS TEXT STRICT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
-  map JSONB := JSONB '{"":"_jm_obj_0"}';
+  map JSONB := JSONB '{"":"json_model_1"}';
 BEGIN
   RETURN map->>name;
 END;
@@ -220,10 +209,10 @@ $$ LANGUAGE plpgsql;
 --
 TRUNCATE jm_constant_maps;
 INSERT INTO jm_constant_maps(mapname, tagval, value) VALUES
-  ('_jm_map_0', JSONB '"fr"', '_jm_obj_1'),
-  ('_jm_map_0', JSONB '"en"', '_jm_obj_2'),
-  ('_jm_map_0', JSONB '"de"', '_jm_obj_3'),
-  ('_jm_map_0', JSONB '"ru"', '_jm_obj_4')
+  ('_jm_map_0', JSONB '"fr"', '_jm_obj_0'),
+  ('_jm_map_0', JSONB '"en"', '_jm_obj_1'),
+  ('_jm_map_0', JSONB '"de"', '_jm_obj_2'),
+  ('_jm_map_0', JSONB '"ru"', '_jm_obj_3')
 ;
 
 --

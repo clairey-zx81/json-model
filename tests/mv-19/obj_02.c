@@ -13,7 +13,6 @@
 static cre2_regexp_t *_jm_re_0_re2 = NULL;
 static int _jm_re_0_nn = 0;
 static bool _jm_re_0(const char *s, jm_path_t *path, jm_report_t *rep);
-static bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep);
 jm_propmap_t check_model_map_tab[1];
 const size_t check_model_map_size = 1;
@@ -24,9 +23,11 @@ static bool _jm_re_0(const char *s, jm_path_t *path, jm_report_t *rep)
     return cre2_match(_jm_re_0_re2, s, slen, 0, slen, CRE2_UNANCHORED, NULL, 0);
 }
 
-// object .
-static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *rep)
+// check $ (.)
+static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
+    // minimal regex prop
+    // .
     if (! json_is_object(val))
     {
         if (rep) jm_report_add_entry(rep, "not an object [.]", path);
@@ -58,20 +59,6 @@ static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *re
     return true;
 }
 
-// check $ (.)
-static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
-    bool res;
-    // minimal regex prop
-    // .
-    res = _jm_obj_0(val, path, rep);
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected element [.]", path);
-    }
-    return res;
-}
-
 jm_check_fun_t check_model_map(const char *pname)
 {
     return jm_search_propmap(pname, check_model_map_tab, 1);
@@ -89,7 +76,7 @@ const char *check_model_init(void)
         if (cre2_error_code(_jm_re_0_re2))
             return cre2_error_string(_jm_re_0_re2);
         _jm_re_0_nn = cre2_num_capturing_groups(_jm_re_0_re2) + 1;
-        check_model_map_tab[0] = (jm_propmap_t) { "", _jm_obj_0 };
+        check_model_map_tab[0] = (jm_propmap_t) { "", json_model_1 };
         jm_sort_propmap(check_model_map_tab, 1);
     }
     return NULL;

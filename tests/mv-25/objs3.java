@@ -19,9 +19,10 @@ public class objs3 extends ModelChecker
 
     public Map<String, Checker> objs3_map_pmap;
 
-    // object .'$book'
-    public boolean _jm_obj_0(Object val, Path path, Report rep)
+    // check $book (.'$book')
+    public boolean json_model_2(Object val, Path path, Report rep)
     {
+        // .'$book'
         // check close must only props
         if (! json.isObject(val))
         {
@@ -56,15 +57,6 @@ public class objs3 extends ModelChecker
         return true;
     }
 
-    // check $book (.'$book')
-    public boolean json_model_2(Object val, Path path, Report rep)
-    {
-        boolean res;
-        // .'$book'
-        res = _jm_obj_0(val, path, rep);
-        return res;
-    }
-
     // check $ (.)
     public boolean json_model_1(Object val, Path path, Report rep)
     {
@@ -80,7 +72,7 @@ public class objs3 extends ModelChecker
                 arr_0_idx++;
                 Object arr_0_item = arr_0_item_loop.next();
                 // .0
-                res = _jm_obj_0(arr_0_item, null, rep);
+                res = json_model_2(arr_0_item, null, rep);
                 if (! res)
                 {
                     break;
@@ -98,7 +90,7 @@ public class objs3 extends ModelChecker
             try {
             objs3_map_pmap = new HashMap<String, Checker>();
             objs3_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_1(o, p, r);} });
-            objs3_map_pmap.put("book", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_0(o, p, r);} });
+            objs3_map_pmap.put("book", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_2(o, p, r);} });
                 super.init(json);
             }
             catch (Exception e) {

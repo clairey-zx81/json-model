@@ -26,7 +26,7 @@ check_model_map: PropMap
 def json_model_4(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$root'
-    res = _jm_obj_0(val, path, rep)
+    res = json_model_5(val, path, rep)
     if not res:
         rep is None or rep.append(("unexpected $Root [.'$root']", path))
     return res
@@ -35,7 +35,7 @@ def json_model_4(val: Jsonable, path: Path, rep: Report) -> bool:
 def json_model_3(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$Root'
-    res = _jm_obj_0(val, path, rep)
+    res = json_model_5(val, path, rep)
     if not res:
         rep is None or rep.append(("unexpected $root#Root [.'$Root']", path))
     return res
@@ -44,13 +44,14 @@ def json_model_3(val: Jsonable, path: Path, rep: Report) -> bool:
 def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .
-    res = _jm_obj_0(val, path, rep)
+    res = json_model_5(val, path, rep)
     if not res:
         rep is None or rep.append(("unexpected $Root [.]", path))
     return res
 
-# object .'$root#Root'
-def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
+# check $root#Root (.'$root#Root')
+def json_model_5(val: Jsonable, path: Path, rep: Report) -> bool:
+    # .'$root#Root'
     # check close must only props
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$root#Root']", path))
@@ -83,15 +84,6 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
         return False
     return True
 
-# check $root#Root (.'$root#Root')
-def json_model_5(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .'$root#Root'
-    res = _jm_obj_0(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected element [.'$root#Root']", path))
-    return res
-
 
 # initialization guard
 initialized: bool = False
@@ -103,9 +95,9 @@ def check_model_init():
         initialized = True
         global check_model_map
         check_model_map = {
-            "": _jm_obj_0,
-            "root": _jm_obj_0,
-            "Root": _jm_obj_0,
+            "": json_model_5,
+            "root": json_model_5,
+            "Root": json_model_5,
         }
 
 # differed module cleanup

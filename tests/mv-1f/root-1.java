@@ -24,7 +24,7 @@ public class root_1 extends ModelChecker
     {
         boolean res;
         // .'$root'
-        res = _jm_obj_0(val, path, rep);
+        res = json_model_5(val, path, rep);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected $Root [.'$root']", path);
@@ -37,7 +37,7 @@ public class root_1 extends ModelChecker
     {
         boolean res;
         // .'$Root'
-        res = _jm_obj_0(val, path, rep);
+        res = json_model_5(val, path, rep);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected $root#Root [.'$Root']", path);
@@ -50,7 +50,7 @@ public class root_1 extends ModelChecker
     {
         boolean res;
         // .
-        res = _jm_obj_0(val, path, rep);
+        res = json_model_5(val, path, rep);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected $Root [.]", path);
@@ -58,9 +58,10 @@ public class root_1 extends ModelChecker
         return res;
     }
 
-    // object .'$root#Root'
-    public boolean _jm_obj_0(Object val, Path path, Report rep)
+    // check $root#Root (.'$root#Root')
+    public boolean json_model_5(Object val, Path path, Report rep)
     {
+        // .'$root#Root'
         // check close must only props
         if (! json.isObject(val))
         {
@@ -106,19 +107,6 @@ public class root_1 extends ModelChecker
         return true;
     }
 
-    // check $root#Root (.'$root#Root')
-    public boolean json_model_5(Object val, Path path, Report rep)
-    {
-        boolean res;
-        // .'$root#Root'
-        res = _jm_obj_0(val, path, rep);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected element [.'$root#Root']", path);
-        }
-        return res;
-    }
-
 
     public void init(JSON json)
     {
@@ -126,9 +114,9 @@ public class root_1 extends ModelChecker
         {
             try {
             root_1_map_pmap = new HashMap<String, Checker>();
-            root_1_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_0(o, p, r);} });
-            root_1_map_pmap.put("root", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_0(o, p, r);} });
-            root_1_map_pmap.put("Root", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_0(o, p, r);} });
+            root_1_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_5(o, p, r);} });
+            root_1_map_pmap.put("root", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_5(o, p, r);} });
+            root_1_map_pmap.put("Root", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_5(o, p, r);} });
                 super.init(json);
             }
             catch (Exception e) {

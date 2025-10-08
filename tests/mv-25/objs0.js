@@ -12,9 +12,10 @@ const JSON_MODEL_VERSION = "2";
 let _jm_map_0 = new Map()
 var check_model_map = new Map()
 
-// object .'$table'
-function _jm_obj_0(val, path, rep)
+// check $table (.'$table')
+function json_model_2(val, path, rep)
 {
+    // .'$table'
     // check close must only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
@@ -51,18 +52,10 @@ function _jm_obj_0(val, path, rep)
     return true;
 }
 
-// check $table (.'$table')
-function json_model_2(val, path, rep)
+// check $chair (.'$chair')
+function json_model_3(val, path, rep)
 {
-    let res;
-    // .'$table'
-    res = _jm_obj_0(val, path, rep);
-    return res;
-}
-
-// object .'$chair'
-function _jm_obj_1(val, path, rep)
-{
+    // .'$chair'
     // check close must only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
@@ -99,15 +92,6 @@ function _jm_obj_1(val, path, rep)
     return true;
 }
 
-// check $chair (.'$chair')
-function json_model_3(val, path, rep)
-{
-    let res;
-    // .'$chair'
-    res = _jm_obj_1(val, path, rep);
-    return res;
-}
-
 
 // check $furniture (.'$furniture')
 function json_model_4(val, path, rep)
@@ -139,9 +123,10 @@ function json_model_4(val, path, rep)
     return res;
 }
 
-// object .
-function _jm_obj_2(val, path, rep)
+// check $ (.)
+function json_model_1(val, path, rep)
 {
+    // .
     // check close must only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
@@ -180,15 +165,6 @@ function _jm_obj_2(val, path, rep)
     return true;
 }
 
-// check $ (.)
-function json_model_1(val, path, rep)
-{
-    let res;
-    // .
-    res = _jm_obj_2(val, path, rep);
-    return res;
-}
-
 
 var initialized = false
 
@@ -199,11 +175,11 @@ export function check_model_init()
     {
         initialized = true;
         runtime.jm_set_rx(RegExp)
-        _jm_map_0.set("table", _jm_obj_0)
-        _jm_map_0.set("chair", _jm_obj_1)
-        check_model_map.set("", _jm_obj_2)
-        check_model_map.set("table", _jm_obj_0)
-        check_model_map.set("chair", _jm_obj_1)
+        _jm_map_0.set("table", json_model_2)
+        _jm_map_0.set("chair", json_model_3)
+        check_model_map.set("", json_model_1)
+        check_model_map.set("table", json_model_2)
+        check_model_map.set("chair", json_model_3)
         check_model_map.set("furniture", json_model_4)
     }
 }

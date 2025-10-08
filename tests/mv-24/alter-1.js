@@ -34,9 +34,10 @@ function json_model_3(val, path, rep)
     return res;
 }
 
-// object .'$d'
-function _jm_obj_0(val, path, rep)
+// check $d (.'$d')
+function json_model_4(val, path, rep)
 {
+    // .'$d'
     // check close must only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
@@ -73,19 +74,11 @@ function _jm_obj_0(val, path, rep)
     return true;
 }
 
-// check $d (.'$d')
-function json_model_4(val, path, rep)
-{
-    let res;
-    // .'$d'
-    res = _jm_obj_0(val, path, rep);
-    return res;
-}
 
-
-// object .'$ef'
-function _jm_obj_1(val, path, rep)
+// check $ef (.'$ef')
+function json_model_5(val, path, rep)
 {
+    // .'$ef'
     // check close must only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
@@ -122,17 +115,8 @@ function _jm_obj_1(val, path, rep)
     return true;
 }
 
-// check $ef (.'$ef')
-function json_model_5(val, path, rep)
-{
-    let res;
-    // .'$ef'
-    res = _jm_obj_1(val, path, rep);
-    return res;
-}
-
 // object .'$alternative'.'|'.0
-function _jm_obj_2(val, path, rep)
+function _jm_obj_0(val, path, rep)
 {
     // check close must only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
@@ -172,7 +156,7 @@ function _jm_obj_2(val, path, rep)
 
 
 // object .'$alternative'.'|'.1
-function _jm_obj_3(val, path, rep)
+function _jm_obj_1(val, path, rep)
 {
     // check close must only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
@@ -211,7 +195,7 @@ function _jm_obj_3(val, path, rep)
 }
 
 // object .'$alternative'.'|'.2
-function _jm_obj_4(val, path, rep)
+function _jm_obj_2(val, path, rep)
 {
     // check close must only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
@@ -250,7 +234,7 @@ function _jm_obj_4(val, path, rep)
 }
 
 // object .'$alternative'.'|'.3
-function _jm_obj_5(val, path, rep)
+function _jm_obj_3(val, path, rep)
 {
     // check close must only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
@@ -345,20 +329,20 @@ export function check_model_init()
         _jm_cst_1.add("f")
         _jm_cst_2.add("b")
         _jm_cst_2.add("c")
-        _jm_map_0.set("a", _jm_obj_2)
-        _jm_map_0.set("b", _jm_obj_3)
-        _jm_map_0.set("c", _jm_obj_3)
-        _jm_map_0.set("g", _jm_obj_4)
-        _jm_map_0.set("h", _jm_obj_5)
-        _jm_map_0.set("i", _jm_obj_5)
-        _jm_map_0.set("d", _jm_obj_0)
-        _jm_map_0.set("e", _jm_obj_1)
-        _jm_map_0.set("f", _jm_obj_1)
+        _jm_map_0.set("a", _jm_obj_0)
+        _jm_map_0.set("b", _jm_obj_1)
+        _jm_map_0.set("c", _jm_obj_1)
+        _jm_map_0.set("g", _jm_obj_2)
+        _jm_map_0.set("h", _jm_obj_3)
+        _jm_map_0.set("i", _jm_obj_3)
+        _jm_map_0.set("d", json_model_4)
+        _jm_map_0.set("e", json_model_5)
+        _jm_map_0.set("f", json_model_5)
         check_model_map.set("", json_model_6)
         check_model_map.set("g", json_model_2)
         check_model_map.set("h_ou_i", json_model_3)
-        check_model_map.set("d", _jm_obj_0)
-        check_model_map.set("ef", _jm_obj_1)
+        check_model_map.set("d", json_model_4)
+        check_model_map.set("ef", json_model_5)
         check_model_map.set("alternative", json_model_6)
     }
 }

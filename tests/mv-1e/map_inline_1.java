@@ -19,9 +19,11 @@ public class map_inline_1 extends ModelChecker
 
     public Map<String, Checker> map_inline_1_map_pmap;
 
-    // object .
-    public boolean _jm_obj_0(Object val, Path path, Report rep)
+    // check $ (.)
+    public boolean json_model_1(Object val, Path path, Report rep)
     {
+        // inline up to 3 must/may properties
+        // .
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.]", path);
@@ -138,20 +140,6 @@ public class map_inline_1 extends ModelChecker
         return true;
     }
 
-    // check $ (.)
-    public boolean json_model_1(Object val, Path path, Report rep)
-    {
-        boolean res;
-        // inline up to 3 must/may properties
-        // .
-        res = _jm_obj_0(val, path, rep);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected element [.]", path);
-        }
-        return res;
-    }
-
 
     public void init(JSON json)
     {
@@ -159,7 +147,7 @@ public class map_inline_1 extends ModelChecker
         {
             try {
             map_inline_1_map_pmap = new HashMap<String, Checker>();
-            map_inline_1_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_0(o, p, r);} });
+            map_inline_1_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_1(o, p, r);} });
                 super.init(json);
             }
             catch (Exception e) {

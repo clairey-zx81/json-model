@@ -19,9 +19,10 @@ public class base_031 extends ModelChecker
 
     public Map<String, Checker> base_031_map_pmap;
 
-    // object .'$bibi'
-    public boolean _jm_obj_0(Object val, Path path, Report rep)
+    // check $bibi (.'$bibi')
+    public boolean json_model_2(Object val, Path path, Report rep)
     {
+        // .'$bibi'
         // check close must only props
         if (! json.isObject(val))
         {
@@ -54,7 +55,7 @@ public class base_031 extends ModelChecker
                 Object arr_0_item = arr_0_item_loop.next();
                 Path arr_0_lpath = new Path(arr_0_idx, (path != null ? lpath : null));
                 // .'$bibi'.bibi.0
-                res = _jm_obj_0(arr_0_item, ((path != null ? lpath : null) != null ? arr_0_lpath : null), rep);
+                res = json_model_2(arr_0_item, ((path != null ? lpath : null) != null ? arr_0_lpath : null), rep);
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected $bibi [.'$bibi'.bibi.0]", ((path != null ? lpath : null) != null ? arr_0_lpath : null));
@@ -71,25 +72,12 @@ public class base_031 extends ModelChecker
         return true;
     }
 
-    // check $bibi (.'$bibi')
-    public boolean json_model_2(Object val, Path path, Report rep)
-    {
-        boolean res;
-        // .'$bibi'
-        res = _jm_obj_0(val, path, rep);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected element [.'$bibi']", path);
-        }
-        return res;
-    }
-
     // check $ (.)
     public boolean json_model_1(Object val, Path path, Report rep)
     {
         boolean res;
         // .
-        res = _jm_obj_0(val, path, rep);
+        res = json_model_2(val, path, rep);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected $bibi [.]", path);
@@ -104,8 +92,8 @@ public class base_031 extends ModelChecker
         {
             try {
             base_031_map_pmap = new HashMap<String, Checker>();
-            base_031_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_0(o, p, r);} });
-            base_031_map_pmap.put("bibi", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_0(o, p, r);} });
+            base_031_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_2(o, p, r);} });
+            base_031_map_pmap.put("bibi", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_2(o, p, r);} });
                 super.init(json);
             }
             catch (Exception e) {

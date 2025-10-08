@@ -1102,7 +1102,7 @@ class CodeGenerator:
 
     def _compileModel(self, jm: JsonModel, model: ModelType, mpath: ModelPath,
                       res: str, val: str, vpath: str, known: set[BoolExpr]|None = None,
-                      constrained: bool = False) -> Block:
+                      constrained: bool = False, name: str|None = None) -> Block:
         # TODO break each level into a separate function and let the compiler inline
         # known = expression already verified
         log.debug(f"mpath={mpath} model={model} res={res} val={val} vpath={vpath}")
@@ -1364,20 +1364,25 @@ class CodeGenerator:
                     assert isinstance(models, list)  # pyright hint
                     code += self._compileXor(jm, models, mpath + ["^"], res, val, vpath, known)
                 else:
-                    # new function to check the object
-                    objid = gen.ident(self._prefix + "obj")
-                    self._code.sub(
-                        objid,
-                        self._compileObject(jm, model, mpath, objid, "res", "val", "path"),
-                        comment=f"object {json_path(mpath)}",
-                        inline=True
-                    )
+                    if name:
+                        objid = name
+                        code += self._compileObject(jm, model, mpath, name, res, val, vpath)
+                    else:
+                        # new function to check the object
+                        objid = gen.ident(self._prefix + "obj")
+                        self._code.sub(
+                            objid,
+                            self._compileObject(jm, model, mpath, objid, "res", "val", "path"),
+                            comment=f"object {json_path(mpath)}",
+                            inline=True
+                        )
 
-                    # call object check and possibly report
-                    code += gen.bool_var(res, gen.check_call(objid, val, vpath))
-                    code += self._gen_report(res, f"unexpected element [{smpath}]", vpath)
+                        # call object check and possibly report
+                        code += gen.bool_var(res, gen.check_call(objid, val, vpath))
+                        code += self._gen_report(res, f"unexpected element [{smpath}]", vpath)
 
                     # record object function for path
+                    log.warning(f"{mpath} -> {objid}")
                     self._paths[tuple(mpath)] = objid
 
                 if "#" in model:
@@ -1441,9 +1446,13 @@ class CodeGenerator:
             fun = self._getName(jm, name)
             self._paths[hpath] = fun
 
-        body = self._lang.bool_var("res", declare=True) + \
-            self._compileModel(jm, model, mpath, "res", "val", "path", set()) + \
-            self._lang.ret("res")
+        # on a simple object, do not generate a useless intermediate function by imposing the name
+        if is_a_simple_object(model):
+            body = self._compileModel(jm, model, mpath, "res", "val", "path", set(), name=fun)
+        else:
+            body = self._lang.bool_var("res", declare=True) + \
+                self._compileModel(jm, model, mpath, "res", "val", "path", set(), name=fun) + \
+                self._lang.ret("res")
 
         self._code.sub(fun, body, comment=f"check {name} ({json_path(mpath)})")
 

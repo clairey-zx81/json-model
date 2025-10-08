@@ -13,7 +13,6 @@ use constant JMC_VERSION => '2';
 
 sub json_model_2($$$);
 sub json_model_3($$$);
-sub _jm_obj_0($$$);
 sub json_model_1($$$);
 my %check_model_map;
 
@@ -37,10 +36,11 @@ sub json_model_3($$$)
     return $res;
 }
 
-# object .
-sub _jm_obj_0($$$)
+# check $ (.)
+sub json_model_1($$$)
 {
     my ($val, $path, $rep) = @_;
+    # .
     if (! jm_is_object($val))
     {
         return 0;
@@ -55,16 +55,6 @@ sub _jm_obj_0($$$)
     }
 }
 
-# check $ (.)
-sub json_model_1($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .
-    $res = _jm_obj_0($val, $path, $rep);
-    return $res;
-}
-
 
 # initialization of global variables
 
@@ -76,7 +66,7 @@ sub check_model_init()
     {
         $initialized = 1;
         %check_model_map = (
-            '' => \&_jm_obj_0,
+            '' => \&json_model_1,
             'forty-two' => \&json_model_2,
             'positif' => \&json_model_3,
         );

@@ -11,21 +11,19 @@ use JSON::JsonModel;
 use constant JMC_VERSION => '2';
 
 
-sub _jm_obj_0($$$);
 sub json_model_2($$$);
-sub _jm_obj_1($$$);
 sub json_model_3($$$);
-sub _jm_obj_2($$$);
 sub json_model_4($$$);
-sub _jm_obj_3($$$);
+sub _jm_obj_0($$$);
 sub json_model_5($$$);
 sub json_model_1($$$);
 my %check_model_map;
 
-# object .'$Oa'
-sub _jm_obj_0($$$)
+# check $Oa (.'$Oa')
+sub json_model_2($$$)
 {
     my ($val, $path, $rep) = @_;
+    # .'$Oa'
     # check open must/may only props
     if (! jm_is_object($val))
     {
@@ -46,20 +44,11 @@ sub _jm_obj_0($$$)
     return 1;
 }
 
-# check $Oa (.'$Oa')
-sub json_model_2($$$)
+# check $Ob (.'$Ob')
+sub json_model_3($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$Oa'
-    $res = _jm_obj_0($val, $path, $rep);
-    return $res;
-}
-
-# object .'$Ob'
-sub _jm_obj_1($$$)
-{
-    my ($val, $path, $rep) = @_;
+    # .'$Ob'
     # check open must/may only props
     if (! jm_is_object($val))
     {
@@ -80,20 +69,11 @@ sub _jm_obj_1($$$)
     return 1;
 }
 
-# check $Ob (.'$Ob')
-sub json_model_3($$$)
+# check $merge (.'$merge')
+sub json_model_4($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$Ob'
-    $res = _jm_obj_1($val, $path, $rep);
-    return $res;
-}
-
-# object .'$merge'
-sub _jm_obj_2($$$)
-{
-    my ($val, $path, $rep) = @_;
+    # .'$merge'
     # check open must/may only props
     if (! jm_is_object($val))
     {
@@ -124,18 +104,8 @@ sub _jm_obj_2($$$)
     return 1;
 }
 
-# check $merge (.'$merge')
-sub json_model_4($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$merge'
-    $res = _jm_obj_2($val, $path, $rep);
-    return $res;
-}
-
 # object .'$nomerge'.'&'.1
-sub _jm_obj_3($$$)
+sub _jm_obj_0($$$)
 {
     my ($val, $path, $rep) = @_;
     # check close must only props
@@ -173,11 +143,11 @@ sub json_model_5($$$)
     if ($res)
     {
         # .'$nomerge'.'&'.0
-        $res = _jm_obj_0($val, $path, $rep);
+        $res = json_model_2($val, $path, $rep);
         if ($res)
         {
             # .'$nomerge'.'&'.1
-            $res = _jm_obj_3($val, $path, $rep);
+            $res = _jm_obj_0($val, $path, $rep);
         }
     }
     return $res;
@@ -190,7 +160,7 @@ sub json_model_1($$$)
     my $res;
     # .
     # .'|'.0
-    $res = _jm_obj_2($val, $path, $rep);
+    $res = json_model_4($val, $path, $rep);
     if (! $res)
     {
         # .'|'.1
@@ -211,9 +181,9 @@ sub check_model_init()
         $initialized = 1;
         %check_model_map = (
             '' => \&json_model_1,
-            'Oa' => \&_jm_obj_0,
-            'Ob' => \&_jm_obj_1,
-            'merge' => \&_jm_obj_2,
+            'Oa' => \&json_model_2,
+            'Ob' => \&json_model_3,
+            'merge' => \&json_model_4,
             'nomerge' => \&json_model_5,
         );
     }

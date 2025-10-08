@@ -24,7 +24,7 @@ public class trafo_2 extends ModelChecker
     {
         boolean res;
         // .'$Zz'
-        res = _jm_obj_0(val, path, rep);
+        res = json_model_6(val, path, rep);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected $zero [.'$Zz']", path);
@@ -37,7 +37,7 @@ public class trafo_2 extends ModelChecker
     {
         boolean res;
         // .'$z'
-        res = _jm_obj_0(val, path, rep);
+        res = json_model_6(val, path, rep);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected $Zz#zero [.'$z']", path);
@@ -61,7 +61,7 @@ public class trafo_2 extends ModelChecker
                 Object arr_0_item = arr_0_item_loop.next();
                 Path arr_0_lpath = new Path(arr_0_idx, path);
                 // .'$l'.0
-                res = _jm_obj_0(arr_0_item, (path != null ? arr_0_lpath : null), rep);
+                res = json_model_6(arr_0_item, (path != null ? arr_0_lpath : null), rep);
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected $z [.'$l'.0]", (path != null ? arr_0_lpath : null));
@@ -89,9 +89,10 @@ public class trafo_2 extends ModelChecker
         return res;
     }
 
-    // object .'$Zz#zero'
-    public boolean _jm_obj_0(Object val, Path path, Report rep)
+    // check $Zz#zero (.'$Zz#zero')
+    public boolean json_model_6(Object val, Path path, Report rep)
     {
+        // .'$Zz#zero'
         // check close must only props
         if (! json.isObject(val))
         {
@@ -137,19 +138,6 @@ public class trafo_2 extends ModelChecker
         return true;
     }
 
-    // check $Zz#zero (.'$Zz#zero')
-    public boolean json_model_6(Object val, Path path, Report rep)
-    {
-        boolean res;
-        // .'$Zz#zero'
-        res = _jm_obj_0(val, path, rep);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected element [.'$Zz#zero']", path);
-        }
-        return res;
-    }
-
 
     public void init(JSON json)
     {
@@ -158,8 +146,8 @@ public class trafo_2 extends ModelChecker
             try {
             trafo_2_map_pmap = new HashMap<String, Checker>();
             trafo_2_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
-            trafo_2_map_pmap.put("Zz", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_0(o, p, r);} });
-            trafo_2_map_pmap.put("z", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_0(o, p, r);} });
+            trafo_2_map_pmap.put("Zz", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_6(o, p, r);} });
+            trafo_2_map_pmap.put("z", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_6(o, p, r);} });
             trafo_2_map_pmap.put("l", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
                 super.init(json);
             }

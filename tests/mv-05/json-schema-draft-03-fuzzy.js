@@ -9,11 +9,11 @@ const require = createRequire(import.meta.url);
 import * as runtime from "json_model_runtime"
 const JSON_MODEL_VERSION = "2";
 
-var _jm_obj_0_map = new Map()
+var json_model_3_map = new Map()
 let _jm_cst_0 = new Set()
 var check_model_map = new Map()
 
-// check _jm_obj_0_map_$ref (.'$schema'.'$ref')
+// check json_model_3_map_$ref (.'$schema'.'$ref')
 function _jm_f_0(val, path, rep)
 {
     let res;
@@ -26,7 +26,7 @@ function _jm_f_0(val, path, rep)
     return res;
 }
 
-// check _jm_obj_0_map_$schema (.'$schema'.'$schema')
+// check json_model_3_map_$schema (.'$schema'.'$schema')
 function _jm_f_1(val, path, rep)
 {
     let res;
@@ -39,7 +39,7 @@ function _jm_f_1(val, path, rep)
     return res;
 }
 
-// check _jm_obj_0_map_additionalItems (.'$schema'.additionalItems)
+// check json_model_3_map_additionalItems (.'$schema'.additionalItems)
 function _jm_f_2(val, path, rep)
 {
     let res;
@@ -53,7 +53,7 @@ function _jm_f_2(val, path, rep)
     if (! res)
     {
         // .'$schema'.additionalItems.'|'.1
-        res = _jm_obj_0(val, path, rep);
+        res = json_model_3(val, path, rep);
         if (! res)
         {
             rep !== null && rep.push(["unexpected $Schema [.'$schema'.additionalItems.'|'.1]", path])
@@ -70,7 +70,7 @@ function _jm_f_2(val, path, rep)
     return res;
 }
 
-// check _jm_obj_0_map_additionalProperties (.'$schema'.additionalProperties)
+// check json_model_3_map_additionalProperties (.'$schema'.additionalProperties)
 function _jm_f_3(val, path, rep)
 {
     let res;
@@ -84,7 +84,7 @@ function _jm_f_3(val, path, rep)
     if (! res)
     {
         // .'$schema'.additionalProperties.'|'.1
-        res = _jm_obj_0(val, path, rep);
+        res = json_model_3(val, path, rep);
         if (! res)
         {
             rep !== null && rep.push(["unexpected $Schema [.'$schema'.additionalProperties.'|'.1]", path])
@@ -101,7 +101,7 @@ function _jm_f_3(val, path, rep)
     return res;
 }
 
-// check _jm_obj_0_map_default (.'$schema'.default)
+// check json_model_3_map_default (.'$schema'.default)
 function _jm_f_4(val, path, rep)
 {
     let res;
@@ -114,9 +114,10 @@ function _jm_f_4(val, path, rep)
     return res;
 }
 
-// object .'$schema'.dependencies
-function _jm_obj_1(val, path, rep)
+// check json_model_3_map_dependencies (.'$schema'.dependencies)
+function _jm_f_5(val, path, rep)
 {
+    // .'$schema'.dependencies
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.'$schema'.dependencies]", path])
@@ -160,7 +161,7 @@ function _jm_obj_1(val, path, rep)
             if (! res)
             {
                 // .'$schema'.dependencies.''.'|'.2
-                res = _jm_obj_0(pval, (path ? lpath_1 : null), rep);
+                res = json_model_3(pval, (path ? lpath_1 : null), rep);
                 if (! res)
                 {
                     rep !== null && rep.push(["unexpected $Schema [.'$schema'.dependencies.''.'|'.2]", (path ? lpath_1 : null)])
@@ -180,20 +181,7 @@ function _jm_obj_1(val, path, rep)
     return true;
 }
 
-// check _jm_obj_0_map_dependencies (.'$schema'.dependencies)
-function _jm_f_5(val, path, rep)
-{
-    let res;
-    // .'$schema'.dependencies
-    res = _jm_obj_1(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected element [.'$schema'.dependencies]", path])
-    }
-    return res;
-}
-
-// check _jm_obj_0_map_description (.'$schema'.description)
+// check json_model_3_map_description (.'$schema'.description)
 function _jm_f_6(val, path, rep)
 {
     let res;
@@ -206,7 +194,7 @@ function _jm_f_6(val, path, rep)
     return res;
 }
 
-// check _jm_obj_0_map_disallow (.'$schema'.disallow)
+// check json_model_3_map_disallow (.'$schema'.disallow)
 function _jm_f_7(val, path, rep)
 {
     let res;
@@ -237,7 +225,7 @@ function _jm_f_7(val, path, rep)
     return res;
 }
 
-// check _jm_obj_0_map_divisibleBy (.'$schema'.divisibleBy)
+// check json_model_3_map_divisibleBy (.'$schema'.divisibleBy)
 function _jm_f_8(val, path, rep)
 {
     let res;
@@ -250,7 +238,7 @@ function _jm_f_8(val, path, rep)
     return res;
 }
 
-// check _jm_obj_0_map_enum (.'$schema'.enum)
+// check json_model_3_map_enum (.'$schema'.enum)
 function _jm_f_9(val, path, rep)
 {
     let res;
@@ -273,7 +261,7 @@ function _jm_f_9(val, path, rep)
     return res;
 }
 
-// check _jm_obj_0_map_exclusiveMaximum (.'$schema'.exclusiveMaximum)
+// check json_model_3_map_exclusiveMaximum (.'$schema'.exclusiveMaximum)
 function _jm_f_10(val, path, rep)
 {
     let res;
@@ -286,7 +274,7 @@ function _jm_f_10(val, path, rep)
     return res;
 }
 
-// check _jm_obj_0_map_exclusiveMinimum (.'$schema'.exclusiveMinimum)
+// check json_model_3_map_exclusiveMinimum (.'$schema'.exclusiveMinimum)
 function _jm_f_11(val, path, rep)
 {
     let res;
@@ -299,13 +287,13 @@ function _jm_f_11(val, path, rep)
     return res;
 }
 
-// check _jm_obj_0_map_extends (.'$schema'.extends)
+// check json_model_3_map_extends (.'$schema'.extends)
 function _jm_f_12(val, path, rep)
 {
     let res;
     // .'$schema'.extends
     // .'$schema'.extends.'|'.0
-    res = _jm_obj_0(val, path, rep);
+    res = json_model_3(val, path, rep);
     if (! res)
     {
         rep !== null && rep.push(["unexpected $Schema [.'$schema'.extends.'|'.0]", path])
@@ -321,7 +309,7 @@ function _jm_f_12(val, path, rep)
                 let arr_1_item = val[arr_1_idx]
                 let arr_1_lpath = path ? path.concat([arr_1_idx]) : null;
                 // .'$schema'.extends.'|'.1.0
-                res = _jm_obj_0(arr_1_item, (path ? arr_1_lpath : null), rep);
+                res = json_model_3(arr_1_item, (path ? arr_1_lpath : null), rep);
                 if (! res)
                 {
                     rep !== null && rep.push(["unexpected $Schema [.'$schema'.extends.'|'.1.0]", (path ? arr_1_lpath : null)])
@@ -345,7 +333,7 @@ function _jm_f_12(val, path, rep)
     return res;
 }
 
-// check _jm_obj_0_map_format (.'$schema'.format)
+// check json_model_3_map_format (.'$schema'.format)
 function _jm_f_13(val, path, rep)
 {
     let res;
@@ -358,7 +346,7 @@ function _jm_f_13(val, path, rep)
     return res;
 }
 
-// check _jm_obj_0_map_id (.'$schema'.id)
+// check json_model_3_map_id (.'$schema'.id)
 function _jm_f_14(val, path, rep)
 {
     let res;
@@ -371,13 +359,13 @@ function _jm_f_14(val, path, rep)
     return res;
 }
 
-// check _jm_obj_0_map_items (.'$schema'.items)
+// check json_model_3_map_items (.'$schema'.items)
 function _jm_f_15(val, path, rep)
 {
     let res;
     // .'$schema'.items
     // .'$schema'.items.'|'.0
-    res = _jm_obj_0(val, path, rep);
+    res = json_model_3(val, path, rep);
     if (! res)
     {
         rep !== null && rep.push(["unexpected $Schema [.'$schema'.items.'|'.0]", path])
@@ -393,7 +381,7 @@ function _jm_f_15(val, path, rep)
                 let arr_2_item = val[arr_2_idx]
                 let arr_2_lpath = path ? path.concat([arr_2_idx]) : null;
                 // .'$schema'.items.'|'.1.0
-                res = _jm_obj_0(arr_2_item, (path ? arr_2_lpath : null), rep);
+                res = json_model_3(arr_2_item, (path ? arr_2_lpath : null), rep);
                 if (! res)
                 {
                     rep !== null && rep.push(["unexpected $Schema [.'$schema'.items.'|'.1.0]", (path ? arr_2_lpath : null)])
@@ -417,7 +405,7 @@ function _jm_f_15(val, path, rep)
     return res;
 }
 
-// check _jm_obj_0_map_maxItems (.'$schema'.maxItems)
+// check json_model_3_map_maxItems (.'$schema'.maxItems)
 function _jm_f_16(val, path, rep)
 {
     let res;
@@ -430,7 +418,7 @@ function _jm_f_16(val, path, rep)
     return res;
 }
 
-// check _jm_obj_0_map_maxLength (.'$schema'.maxLength)
+// check json_model_3_map_maxLength (.'$schema'.maxLength)
 function _jm_f_17(val, path, rep)
 {
     let res;
@@ -443,7 +431,7 @@ function _jm_f_17(val, path, rep)
     return res;
 }
 
-// check _jm_obj_0_map_maximum (.'$schema'.maximum)
+// check json_model_3_map_maximum (.'$schema'.maximum)
 function _jm_f_18(val, path, rep)
 {
     let res;
@@ -456,7 +444,7 @@ function _jm_f_18(val, path, rep)
     return res;
 }
 
-// check _jm_obj_0_map_minItems (.'$schema'.minItems)
+// check json_model_3_map_minItems (.'$schema'.minItems)
 function _jm_f_19(val, path, rep)
 {
     let res;
@@ -469,7 +457,7 @@ function _jm_f_19(val, path, rep)
     return res;
 }
 
-// check _jm_obj_0_map_minLength (.'$schema'.minLength)
+// check json_model_3_map_minLength (.'$schema'.minLength)
 function _jm_f_20(val, path, rep)
 {
     let res;
@@ -482,7 +470,7 @@ function _jm_f_20(val, path, rep)
     return res;
 }
 
-// check _jm_obj_0_map_minimum (.'$schema'.minimum)
+// check json_model_3_map_minimum (.'$schema'.minimum)
 function _jm_f_21(val, path, rep)
 {
     let res;
@@ -495,7 +483,7 @@ function _jm_f_21(val, path, rep)
     return res;
 }
 
-// check _jm_obj_0_map_pattern (.'$schema'.pattern)
+// check json_model_3_map_pattern (.'$schema'.pattern)
 function _jm_f_22(val, path, rep)
 {
     let res;
@@ -508,9 +496,10 @@ function _jm_f_22(val, path, rep)
     return res;
 }
 
-// object .'$schema'.patternProperties
-function _jm_obj_2(val, path, rep)
+// check json_model_3_map_patternProperties (.'$schema'.patternProperties)
+function _jm_f_23(val, path, rep)
 {
+    // .'$schema'.patternProperties
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.'$schema'.patternProperties]", path])
@@ -522,7 +511,7 @@ function _jm_obj_2(val, path, rep)
         let lpath_2 = path ? path.concat([prop]) : null;
         // handle other props
         // .'$schema'.patternProperties.''
-        res = _jm_obj_0(pval, (path ? lpath_2 : null), rep);
+        res = json_model_3(pval, (path ? lpath_2 : null), rep);
         if (! res)
         {
             rep !== null && rep.push(["unexpected $Schema [.'$schema'.patternProperties.'']", (path ? lpath_2 : null)])
@@ -532,22 +521,10 @@ function _jm_obj_2(val, path, rep)
     return true;
 }
 
-// check _jm_obj_0_map_patternProperties (.'$schema'.patternProperties)
-function _jm_f_23(val, path, rep)
+// check json_model_3_map_properties (.'$schema'.properties)
+function _jm_f_24(val, path, rep)
 {
-    let res;
-    // .'$schema'.patternProperties
-    res = _jm_obj_2(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected element [.'$schema'.patternProperties]", path])
-    }
-    return res;
-}
-
-// object .'$schema'.properties
-function _jm_obj_3(val, path, rep)
-{
+    // .'$schema'.properties
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.'$schema'.properties]", path])
@@ -559,7 +536,7 @@ function _jm_obj_3(val, path, rep)
         let lpath_3 = path ? path.concat([prop]) : null;
         // handle other props
         // .'$schema'.properties.''
-        res = _jm_obj_0(pval, (path ? lpath_3 : null), rep);
+        res = json_model_3(pval, (path ? lpath_3 : null), rep);
         if (! res)
         {
             rep !== null && rep.push(["unexpected $Schema [.'$schema'.properties.'']", (path ? lpath_3 : null)])
@@ -569,20 +546,7 @@ function _jm_obj_3(val, path, rep)
     return true;
 }
 
-// check _jm_obj_0_map_properties (.'$schema'.properties)
-function _jm_f_24(val, path, rep)
-{
-    let res;
-    // .'$schema'.properties
-    res = _jm_obj_3(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected element [.'$schema'.properties]", path])
-    }
-    return res;
-}
-
-// check _jm_obj_0_map_required (.'$schema'.required)
+// check json_model_3_map_required (.'$schema'.required)
 function _jm_f_25(val, path, rep)
 {
     let res;
@@ -595,7 +559,7 @@ function _jm_f_25(val, path, rep)
     return res;
 }
 
-// check _jm_obj_0_map_title (.'$schema'.title)
+// check json_model_3_map_title (.'$schema'.title)
 function _jm_f_26(val, path, rep)
 {
     let res;
@@ -608,7 +572,7 @@ function _jm_f_26(val, path, rep)
     return res;
 }
 
-// check _jm_obj_0_map_type (.'$schema'.type)
+// check json_model_3_map_type (.'$schema'.type)
 function _jm_f_27(val, path, rep)
 {
     let res;
@@ -639,7 +603,7 @@ function _jm_f_27(val, path, rep)
                 if (! res)
                 {
                     // .'$schema'.type.'|'.1.0.'|'.1
-                    res = _jm_obj_0(arr_3_item, (path ? arr_3_lpath : null), rep);
+                    res = json_model_3(arr_3_item, (path ? arr_3_lpath : null), rep);
                     if (! res)
                     {
                         rep !== null && rep.push(["unexpected $Schema [.'$schema'.type.'|'.1.0.'|'.1]", (path ? arr_3_lpath : null)])
@@ -672,7 +636,7 @@ function _jm_f_27(val, path, rep)
     return res;
 }
 
-// check _jm_obj_0_map_uniqueItems (.'$schema'.uniqueItems)
+// check json_model_3_map_uniqueItems (.'$schema'.uniqueItems)
 function _jm_f_28(val, path, rep)
 {
     let res;
@@ -686,9 +650,11 @@ function _jm_f_28(val, path, rep)
 }
 
 
-// object .'$schema'
-function _jm_obj_0(val, path, rep)
+// check $schema (.'$schema')
+function json_model_3(val, path, rep)
 {
+    // JSON Model for JSON Schema Draft 03 [JSON_MODEL_STRICT_INT, JSON_MODEL_LOOSE_FLOAT]
+    // .'$schema'
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.'$schema']", path])
@@ -698,7 +664,7 @@ function _jm_obj_0(val, path, rep)
     for (const [prop, pval] of Object.entries(val))
     {
         let lpath_0 = path ? path.concat([prop]) : null;
-        if ((pfun = _jm_obj_0_map.get(prop)))
+        if ((pfun = json_model_3_map.get(prop)))
         {
             // handle 29 may props
             if (pfun !== undefined && ! pfun(pval, (path ? lpath_0 : null), rep))
@@ -715,26 +681,12 @@ function _jm_obj_0(val, path, rep)
     return true;
 }
 
-// check $schema (.'$schema')
-function json_model_3(val, path, rep)
-{
-    let res;
-    // JSON Model for JSON Schema Draft 03 [JSON_MODEL_STRICT_INT, JSON_MODEL_LOOSE_FLOAT]
-    // .'$schema'
-    res = _jm_obj_0(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected element [.'$schema']", path])
-    }
-    return res;
-}
-
 // check $ (.)
 function json_model_1(val, path, rep)
 {
     let res;
     // .
-    res = _jm_obj_0(val, path, rep);
+    res = json_model_3(val, path, rep);
     if (! res)
     {
         rep !== null && rep.push(["unexpected $schema [.]", path])
@@ -779,7 +731,7 @@ function json_model_5(val, path, rep)
             if (! res)
             {
                 // .'$schema#distinctSchemaArray'.'@'.0.'|'.1
-                res = _jm_obj_0(arr_4_item, (path ? arr_4_lpath : null), rep);
+                res = json_model_3(arr_4_item, (path ? arr_4_lpath : null), rep);
                 if (! res)
                 {
                     rep !== null && rep.push(["unexpected $Schema [.'$schema#distinctSchemaArray'.'@'.0.'|'.1]", (path ? arr_4_lpath : null)])
@@ -821,35 +773,35 @@ export function check_model_init()
     {
         initialized = true;
         runtime.jm_set_rx(RegExp)
-        _jm_obj_0_map.set("$ref", _jm_f_0)
-        _jm_obj_0_map.set("$schema", _jm_f_1)
-        _jm_obj_0_map.set("additionalItems", _jm_f_2)
-        _jm_obj_0_map.set("additionalProperties", _jm_f_3)
-        _jm_obj_0_map.set("default", _jm_f_4)
-        _jm_obj_0_map.set("dependencies", _jm_f_5)
-        _jm_obj_0_map.set("description", _jm_f_6)
-        _jm_obj_0_map.set("disallow", _jm_f_7)
-        _jm_obj_0_map.set("divisibleBy", _jm_f_8)
-        _jm_obj_0_map.set("enum", _jm_f_9)
-        _jm_obj_0_map.set("exclusiveMaximum", _jm_f_10)
-        _jm_obj_0_map.set("exclusiveMinimum", _jm_f_11)
-        _jm_obj_0_map.set("extends", _jm_f_12)
-        _jm_obj_0_map.set("format", _jm_f_13)
-        _jm_obj_0_map.set("id", _jm_f_14)
-        _jm_obj_0_map.set("items", _jm_f_15)
-        _jm_obj_0_map.set("maxItems", _jm_f_16)
-        _jm_obj_0_map.set("maxLength", _jm_f_17)
-        _jm_obj_0_map.set("maximum", _jm_f_18)
-        _jm_obj_0_map.set("minItems", _jm_f_19)
-        _jm_obj_0_map.set("minLength", _jm_f_20)
-        _jm_obj_0_map.set("minimum", _jm_f_21)
-        _jm_obj_0_map.set("pattern", _jm_f_22)
-        _jm_obj_0_map.set("patternProperties", _jm_f_23)
-        _jm_obj_0_map.set("properties", _jm_f_24)
-        _jm_obj_0_map.set("required", _jm_f_25)
-        _jm_obj_0_map.set("title", _jm_f_26)
-        _jm_obj_0_map.set("type", _jm_f_27)
-        _jm_obj_0_map.set("uniqueItems", _jm_f_28)
+        json_model_3_map.set("$ref", _jm_f_0)
+        json_model_3_map.set("$schema", _jm_f_1)
+        json_model_3_map.set("additionalItems", _jm_f_2)
+        json_model_3_map.set("additionalProperties", _jm_f_3)
+        json_model_3_map.set("default", _jm_f_4)
+        json_model_3_map.set("dependencies", _jm_f_5)
+        json_model_3_map.set("description", _jm_f_6)
+        json_model_3_map.set("disallow", _jm_f_7)
+        json_model_3_map.set("divisibleBy", _jm_f_8)
+        json_model_3_map.set("enum", _jm_f_9)
+        json_model_3_map.set("exclusiveMaximum", _jm_f_10)
+        json_model_3_map.set("exclusiveMinimum", _jm_f_11)
+        json_model_3_map.set("extends", _jm_f_12)
+        json_model_3_map.set("format", _jm_f_13)
+        json_model_3_map.set("id", _jm_f_14)
+        json_model_3_map.set("items", _jm_f_15)
+        json_model_3_map.set("maxItems", _jm_f_16)
+        json_model_3_map.set("maxLength", _jm_f_17)
+        json_model_3_map.set("maximum", _jm_f_18)
+        json_model_3_map.set("minItems", _jm_f_19)
+        json_model_3_map.set("minLength", _jm_f_20)
+        json_model_3_map.set("minimum", _jm_f_21)
+        json_model_3_map.set("pattern", _jm_f_22)
+        json_model_3_map.set("patternProperties", _jm_f_23)
+        json_model_3_map.set("properties", _jm_f_24)
+        json_model_3_map.set("required", _jm_f_25)
+        json_model_3_map.set("title", _jm_f_26)
+        json_model_3_map.set("type", _jm_f_27)
+        json_model_3_map.set("uniqueItems", _jm_f_28)
         _jm_cst_0.add("null")
         _jm_cst_0.add("boolean")
         _jm_cst_0.add("integer")
@@ -858,8 +810,8 @@ export function check_model_init()
         _jm_cst_0.add("array")
         _jm_cst_0.add("object")
         _jm_cst_0.add("any")
-        check_model_map.set("", _jm_obj_0)
-        check_model_map.set("schema", _jm_obj_0)
+        check_model_map.set("", json_model_3)
+        check_model_map.set("schema", json_model_3)
     }
 }
 

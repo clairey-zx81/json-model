@@ -21,7 +21,7 @@ public class xoropt_014 extends ModelChecker
     public Map<String, Checker> xoropt_014_map_pmap;
 
     // object .movie.'|'.0
-    public boolean _jm_obj_1(Object val, Path path, Report rep)
+    public boolean _jm_obj_0(Object val, Path path, Report rep)
     {
         // check close must only props
         if (! json.isObject(val))
@@ -69,7 +69,7 @@ public class xoropt_014 extends ModelChecker
     }
 
     // object .movie.'|'.1
-    public boolean _jm_obj_2(Object val, Path path, Report rep)
+    public boolean _jm_obj_1(Object val, Path path, Report rep)
     {
         // check close must only props
         if (! json.isObject(val))
@@ -117,7 +117,7 @@ public class xoropt_014 extends ModelChecker
     }
 
     // object .movie.'|'.2
-    public boolean _jm_obj_3(Object val, Path path, Report rep)
+    public boolean _jm_obj_2(Object val, Path path, Report rep)
     {
         // check close must only props
         if (! json.isObject(val))
@@ -165,7 +165,7 @@ public class xoropt_014 extends ModelChecker
     }
 
     // object .movie.'|'.3
-    public boolean _jm_obj_4(Object val, Path path, Report rep)
+    public boolean _jm_obj_3(Object val, Path path, Report rep)
     {
         // check close must only props
         if (! json.isObject(val))
@@ -213,9 +213,10 @@ public class xoropt_014 extends ModelChecker
     }
 
 
-    // object .
-    public boolean _jm_obj_0(Object val, Path path, Report rep)
+    // check $ (.)
+    public boolean json_model_1(Object val, Path path, Report rep)
     {
+        // .
         // check close must only props
         if (! json.isObject(val))
         {
@@ -273,19 +274,6 @@ public class xoropt_014 extends ModelChecker
         return true;
     }
 
-    // check $ (.)
-    public boolean json_model_1(Object val, Path path, Report rep)
-    {
-        boolean res;
-        // .
-        res = _jm_obj_0(val, path, rep);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected element [.]", path);
-        }
-        return res;
-    }
-
 
     public void init(JSON json)
     {
@@ -293,12 +281,12 @@ public class xoropt_014 extends ModelChecker
         {
             try {
             _jm_map_0_cmap = new HashMap<Object, Checker>();
-            _jm_map_0_cmap.put(json.safeJSON("\"fr\""), new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_1(o, p, r);} });
-            _jm_map_0_cmap.put(json.safeJSON("\"en\""), new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_2(o, p, r);} });
-            _jm_map_0_cmap.put(json.safeJSON("\"de\""), new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_3(o, p, r);} });
-            _jm_map_0_cmap.put(json.safeJSON("\"ru\""), new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_4(o, p, r);} });
+            _jm_map_0_cmap.put(json.safeJSON("\"fr\""), new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_0(o, p, r);} });
+            _jm_map_0_cmap.put(json.safeJSON("\"en\""), new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_1(o, p, r);} });
+            _jm_map_0_cmap.put(json.safeJSON("\"de\""), new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_2(o, p, r);} });
+            _jm_map_0_cmap.put(json.safeJSON("\"ru\""), new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_3(o, p, r);} });
             xoropt_014_map_pmap = new HashMap<String, Checker>();
-            xoropt_014_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_0(o, p, r);} });
+            xoropt_014_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_1(o, p, r);} });
                 super.init(json);
             }
             catch (Exception e) {

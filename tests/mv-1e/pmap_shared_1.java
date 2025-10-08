@@ -19,9 +19,10 @@ public class pmap_shared_1 extends ModelChecker
 
     public Map<String, Checker> pmap_shared_1_map_pmap;
 
-    // object .'$Oo0'
-    public boolean _jm_obj_0(Object val, Path path, Report rep)
+    // check $Oo0 (.'$Oo0')
+    public boolean json_model_2(Object val, Path path, Report rep)
     {
+        // .'$Oo0'
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.'$Oo0']", path);
@@ -125,22 +126,10 @@ public class pmap_shared_1 extends ModelChecker
         return true;
     }
 
-    // check $Oo0 (.'$Oo0')
-    public boolean json_model_2(Object val, Path path, Report rep)
+    // check $Oo1 (.'$Oo1')
+    public boolean json_model_3(Object val, Path path, Report rep)
     {
-        boolean res;
-        // .'$Oo0'
-        res = _jm_obj_0(val, path, rep);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected element [.'$Oo0']", path);
-        }
-        return res;
-    }
-
-    // object .'$Oo1'
-    public boolean _jm_obj_1(Object val, Path path, Report rep)
-    {
+        // .'$Oo1'
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.'$Oo1']", path);
@@ -235,22 +224,10 @@ public class pmap_shared_1 extends ModelChecker
         return true;
     }
 
-    // check $Oo1 (.'$Oo1')
-    public boolean json_model_3(Object val, Path path, Report rep)
+    // check $Oo2 (.'$Oo2')
+    public boolean json_model_4(Object val, Path path, Report rep)
     {
-        boolean res;
-        // .'$Oo1'
-        res = _jm_obj_1(val, path, rep);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected element [.'$Oo1']", path);
-        }
-        return res;
-    }
-
-    // object .'$Oo2'
-    public boolean _jm_obj_2(Object val, Path path, Report rep)
-    {
+        // .'$Oo2'
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.'$Oo2']", path);
@@ -360,26 +337,13 @@ public class pmap_shared_1 extends ModelChecker
         return true;
     }
 
-    // check $Oo2 (.'$Oo2')
-    public boolean json_model_4(Object val, Path path, Report rep)
-    {
-        boolean res;
-        // .'$Oo2'
-        res = _jm_obj_2(val, path, rep);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected element [.'$Oo2']", path);
-        }
-        return res;
-    }
-
     // check $ (.)
     public boolean json_model_1(Object val, Path path, Report rep)
     {
         boolean res;
         // .
         // .'|'.0
-        res = _jm_obj_0(val, path, rep);
+        res = json_model_2(val, path, rep);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected $Oo0 [.'|'.0]", path);
@@ -387,7 +351,7 @@ public class pmap_shared_1 extends ModelChecker
         if (! res)
         {
             // .'|'.1
-            res = _jm_obj_1(val, path, rep);
+            res = json_model_3(val, path, rep);
             if (! res)
             {
                 if (rep != null) rep.addEntry("unexpected $Oo1 [.'|'.1]", path);
@@ -395,7 +359,7 @@ public class pmap_shared_1 extends ModelChecker
             if (! res)
             {
                 // .'|'.2
-                res = _jm_obj_2(val, path, rep);
+                res = json_model_4(val, path, rep);
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected $Oo2 [.'|'.2]", path);
@@ -421,9 +385,9 @@ public class pmap_shared_1 extends ModelChecker
             try {
             pmap_shared_1_map_pmap = new HashMap<String, Checker>();
             pmap_shared_1_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_1(o, p, r);} });
-            pmap_shared_1_map_pmap.put("Oo0", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_0(o, p, r);} });
-            pmap_shared_1_map_pmap.put("Oo1", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_1(o, p, r);} });
-            pmap_shared_1_map_pmap.put("Oo2", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_2(o, p, r);} });
+            pmap_shared_1_map_pmap.put("Oo0", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_2(o, p, r);} });
+            pmap_shared_1_map_pmap.put("Oo1", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_3(o, p, r);} });
+            pmap_shared_1_map_pmap.put("Oo2", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
                 super.init(json);
             }
             catch (Exception e) {

@@ -20,7 +20,7 @@ public class alts_2 extends ModelChecker
     public Map<String, Checker> alts_2_map_pmap;
 
     // object .'$a'.''.'|'.1
-    public boolean _jm_obj_1(Object val, Path path, Report rep)
+    public boolean _jm_obj_0(Object val, Path path, Report rep)
     {
         if (! json.isObject(val))
         {
@@ -38,9 +38,10 @@ public class alts_2 extends ModelChecker
         }
     }
 
-    // object .'$a'
-    public boolean _jm_obj_0(Object val, Path path, Report rep)
+    // check $a (.'$a')
+    public boolean json_model_2(Object val, Path path, Report rep)
     {
+        // .'$a'
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.'$a']", path);
@@ -64,7 +65,7 @@ public class alts_2 extends ModelChecker
             if (! res)
             {
                 // .'$a'.''.'|'.1
-                res = _jm_obj_1(pval, (path != null ? lpath_0 : null), rep);
+                res = _jm_obj_0(pval, (path != null ? lpath_0 : null), rep);
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected element [.'$a'.''.'|'.1]", (path != null ? lpath_0 : null));
@@ -83,21 +84,8 @@ public class alts_2 extends ModelChecker
         return true;
     }
 
-    // check $a (.'$a')
-    public boolean json_model_2(Object val, Path path, Report rep)
-    {
-        boolean res;
-        // .'$a'
-        res = _jm_obj_0(val, path, rep);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected element [.'$a']", path);
-        }
-        return res;
-    }
-
     // object .'$r'.'|'.1
-    public boolean _jm_obj_2(Object val, Path path, Report rep)
+    public boolean _jm_obj_1(Object val, Path path, Report rep)
     {
         if (! json.isObject(val))
         {
@@ -121,7 +109,7 @@ public class alts_2 extends ModelChecker
         boolean res;
         // .'$r'
         // .'$r'.'|'.0
-        res = _jm_obj_0(val, path, rep);
+        res = json_model_2(val, path, rep);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected $a [.'$r'.'|'.0]", path);
@@ -129,7 +117,7 @@ public class alts_2 extends ModelChecker
         if (! res)
         {
             // .'$r'.'|'.1
-            res = _jm_obj_2(val, path, rep);
+            res = _jm_obj_1(val, path, rep);
             if (! res)
             {
                 if (rep != null) rep.addEntry("unexpected element [.'$r'.'|'.1]", path);
@@ -167,7 +155,7 @@ public class alts_2 extends ModelChecker
             try {
             alts_2_map_pmap = new HashMap<String, Checker>();
             alts_2_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_3(o, p, r);} });
-            alts_2_map_pmap.put("a", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_0(o, p, r);} });
+            alts_2_map_pmap.put("a", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_2(o, p, r);} });
             alts_2_map_pmap.put("r", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_3(o, p, r);} });
                 super.init(json);
             }

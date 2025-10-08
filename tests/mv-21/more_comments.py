@@ -49,7 +49,7 @@ def json_model_3(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # object .o
-def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.o]", path))
         return False
@@ -98,8 +98,10 @@ def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
             return False
     return True
 
-# object .
-def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
+# check $ (.)
+def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
+    # trivial and non trivial comments
+    # .
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.]", path))
         return False
@@ -111,7 +113,7 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
             # handle may o property
             # an object
             # .o
-            res = _jm_obj_1(pval, lpath_0 if path is not None else None, rep)
+            res = _jm_obj_0(pval, lpath_0 if path is not None else None, rep)
             if not res:
                 rep is None or rep.append(("unexpected element [.o]", lpath_0 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.o]", lpath_0 if path is not None else None))
@@ -120,16 +122,6 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
             rep is None or rep.append(("unexpected prop [.]", lpath_0 if path is not None else None))
             return False
     return True
-
-# check $ (.)
-def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # trivial and non trivial comments
-    # .
-    res = _jm_obj_0(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected element [.]", path))
-    return res
 
 
 # initialization guard
@@ -142,7 +134,7 @@ def check_model_init():
         initialized = True
         global check_model_map
         check_model_map = {
-            "": _jm_obj_0,
+            "": json_model_1,
             "Pp": json_model_2,
             "Qq": json_model_3,
         }

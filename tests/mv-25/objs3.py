@@ -22,8 +22,9 @@ def check_model(val: Jsonable, name: str = "", rep: Report = None) -> bool:
 
 check_model_map: PropMap
 
-# object .'$book'
-def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
+# check $book (.'$book')
+def json_model_2(val: Jsonable, path: Path, rep: Report) -> bool:
+    # .'$book'
     # check close must only props
     if not isinstance(val, dict):
         return False
@@ -45,13 +46,6 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
         return False
     return True
 
-# check $book (.'$book')
-def json_model_2(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .'$book'
-    res = _jm_obj_0(val, path, rep)
-    return res
-
 # check $ (.)
 def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
@@ -60,7 +54,7 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     if res:
         for arr_0_idx, arr_0_item in enumerate(val):
             # .0
-            res = _jm_obj_0(arr_0_item, None, rep)
+            res = json_model_2(arr_0_item, None, rep)
             if not res:
                 break
     return res
@@ -77,7 +71,7 @@ def check_model_init():
         global check_model_map
         check_model_map = {
             "": json_model_1,
-            "book": _jm_obj_0,
+            "book": json_model_2,
         }
 
 # differed module cleanup

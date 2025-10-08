@@ -10,18 +10,17 @@
 #include <json-model.h>
 #define JSON_MODEL_VERSION "2"
 
-static bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static bool _jm_obj_1(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static jm_constmap_t _jm_map_0_tab[2];
 static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep);
 jm_propmap_t check_model_map_tab[3];
 const size_t check_model_map_size = 3;
 
-// object .'$Aa'
-static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *rep)
+// check $Aa (.'$Aa')
+static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
+    // .'$Aa'
     // check close must only props
     if (! json_is_object(val))
     {
@@ -67,22 +66,10 @@ static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *re
     return true;
 }
 
-// check $Aa (.'$Aa')
-static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
+// check $Bb (.'$Bb')
+static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
-    // .'$Aa'
-    res = _jm_obj_0(val, path, rep);
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected element [.'$Aa']", path);
-    }
-    return res;
-}
-
-// object .'$Bb'
-static INLINE bool _jm_obj_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
+    // .'$Bb'
     // check close must only props
     if (! json_is_object(val))
     {
@@ -126,19 +113,6 @@ static INLINE bool _jm_obj_1(const json_t *val, jm_path_t *path, jm_report_t *re
         return false;
     }
     return true;
-}
-
-// check $Bb (.'$Bb')
-static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
-    bool res;
-    // .'$Bb'
-    res = _jm_obj_1(val, path, rep);
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected element [.'$Bb']", path);
-    }
-    return res;
 }
 
 static INLINE jm_check_fun_t _jm_map_0(json_t *val)
@@ -197,12 +171,12 @@ const char *check_model_init(void)
     {
         initialized = true;
         jm_version_string = JSON_MODEL_VERSION;
-        _jm_map_0_tab[0] = (jm_constmap_t) { (jm_constant_t) { cst_is_integer, { .i = 1 } }, _jm_obj_0 };
-        _jm_map_0_tab[1] = (jm_constmap_t) { (jm_constant_t) { cst_is_integer, { .i = 2 } }, _jm_obj_1 };
+        _jm_map_0_tab[0] = (jm_constmap_t) { (jm_constant_t) { cst_is_integer, { .i = 1 } }, json_model_2 };
+        _jm_map_0_tab[1] = (jm_constmap_t) { (jm_constant_t) { cst_is_integer, { .i = 2 } }, json_model_3 };
         jm_sort_constmap(_jm_map_0_tab, 2);
         check_model_map_tab[0] = (jm_propmap_t) { "", json_model_1 };
-        check_model_map_tab[1] = (jm_propmap_t) { "Aa", _jm_obj_0 };
-        check_model_map_tab[2] = (jm_propmap_t) { "Bb", _jm_obj_1 };
+        check_model_map_tab[1] = (jm_propmap_t) { "Aa", json_model_2 };
+        check_model_map_tab[2] = (jm_propmap_t) { "Bb", json_model_3 };
         jm_sort_propmap(check_model_map_tab, 3);
     }
     return NULL;

@@ -14,7 +14,6 @@ static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_6(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_10(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_12(const json_t *val, jm_path_t *path, jm_report_t *rep);
 jm_propmap_t check_model_map_tab[2];
 const size_t check_model_map_size = 2;
@@ -59,7 +58,7 @@ static bool json_model_6(const json_t *val, jm_path_t *path, jm_report_t *rep)
         {
             jm_path_t arr_0_lpath = (jm_path_t) { NULL, arr_0_idx, path, NULL };
             // .'$Dd#l'.0
-            res = _jm_obj_0(arr_0_item, (path ? &arr_0_lpath : NULL), rep);
+            res = json_model_12(arr_0_item, (path ? &arr_0_lpath : NULL), rep);
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected $u [.'$Dd#l'.0]", (path ? &arr_0_lpath : NULL));
@@ -79,7 +78,7 @@ static bool json_model_10(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
     // .'$Dd#u'
-    res = _jm_obj_0(val, path, rep);
+    res = json_model_12(val, path, rep);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected $Uu#un [.'$Dd#u']", path);
@@ -87,9 +86,10 @@ static bool json_model_10(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// object .'$Dd#Uu#un'
-static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *rep)
+// check $Dd#Uu#un (.'$Dd#Uu#un')
+static bool json_model_12(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
+    // .'$Dd#Uu#un'
     // check close must only props
     if (! json_is_object(val))
     {
@@ -133,19 +133,6 @@ static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *re
         return false;
     }
     return true;
-}
-
-// check $Dd#Uu#un (.'$Dd#Uu#un')
-static bool json_model_12(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
-    bool res;
-    // .'$Dd#Uu#un'
-    res = _jm_obj_0(val, path, rep);
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected element [.'$Dd#Uu#un']", path);
-    }
-    return res;
 }
 
 jm_check_fun_t check_model_map(const char *pname)

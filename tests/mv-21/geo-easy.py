@@ -92,8 +92,9 @@ def json_model_4(val: Jsonable, path: Path, rep: Report) -> bool:
             rep is None or rep.append(("constraints failed [.'$linear_ring']", path))
     return res
 
-# object .'$Point'
-def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
+# check $Point (.'$Point')
+def json_model_5(val: Jsonable, path: Path, rep: Report) -> bool:
+    # .'$Point'
     # check open must/may only props
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$Point']", path))
@@ -139,17 +140,9 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
             return False
     return True
 
-# check $Point (.'$Point')
-def json_model_5(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .'$Point'
-    res = _jm_obj_0(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected element [.'$Point']", path))
-    return res
-
-# object .'$MultiPoint'
-def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
+# check $MultiPoint (.'$MultiPoint')
+def json_model_6(val: Jsonable, path: Path, rep: Report) -> bool:
+    # .'$MultiPoint'
     # check open must/may only props
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$MultiPoint']", path))
@@ -203,17 +196,9 @@ def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
             return False
     return True
 
-# check $MultiPoint (.'$MultiPoint')
-def json_model_6(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .'$MultiPoint'
-    res = _jm_obj_1(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected element [.'$MultiPoint']", path))
-    return res
-
-# object .'$LineString'
-def _jm_obj_2(val: Jsonable, path: Path, rep: Report) -> bool:
+# check $LineString (.'$LineString')
+def json_model_7(val: Jsonable, path: Path, rep: Report) -> bool:
+    # .'$LineString'
     # check open must/may only props
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$LineString']", path))
@@ -259,17 +244,9 @@ def _jm_obj_2(val: Jsonable, path: Path, rep: Report) -> bool:
             return False
     return True
 
-# check $LineString (.'$LineString')
-def json_model_7(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .'$LineString'
-    res = _jm_obj_2(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected element [.'$LineString']", path))
-    return res
-
-# object .'$MultiLineString'
-def _jm_obj_3(val: Jsonable, path: Path, rep: Report) -> bool:
+# check $MultiLineString (.'$MultiLineString')
+def json_model_8(val: Jsonable, path: Path, rep: Report) -> bool:
+    # .'$MultiLineString'
     # check open must/may only props
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$MultiLineString']", path))
@@ -323,17 +300,9 @@ def _jm_obj_3(val: Jsonable, path: Path, rep: Report) -> bool:
             return False
     return True
 
-# check $MultiLineString (.'$MultiLineString')
-def json_model_8(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .'$MultiLineString'
-    res = _jm_obj_3(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected element [.'$MultiLineString']", path))
-    return res
-
-# object .'$Polygon'
-def _jm_obj_4(val: Jsonable, path: Path, rep: Report) -> bool:
+# check $Polygon (.'$Polygon')
+def json_model_9(val: Jsonable, path: Path, rep: Report) -> bool:
+    # .'$Polygon'
     # check open must/may only props
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$Polygon']", path))
@@ -387,17 +356,9 @@ def _jm_obj_4(val: Jsonable, path: Path, rep: Report) -> bool:
             return False
     return True
 
-# check $Polygon (.'$Polygon')
-def json_model_9(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .'$Polygon'
-    res = _jm_obj_4(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected element [.'$Polygon']", path))
-    return res
-
-# object .'$MultiPolygon'
-def _jm_obj_5(val: Jsonable, path: Path, rep: Report) -> bool:
+# check $MultiPolygon (.'$MultiPolygon')
+def json_model_10(val: Jsonable, path: Path, rep: Report) -> bool:
+    # .'$MultiPolygon'
     # check open must/may only props
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$MultiPolygon']", path))
@@ -459,15 +420,6 @@ def _jm_obj_5(val: Jsonable, path: Path, rep: Report) -> bool:
             return False
     return True
 
-# check $MultiPolygon (.'$MultiPolygon')
-def json_model_10(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .'$MultiPolygon'
-    res = _jm_obj_5(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected element [.'$MultiPolygon']", path))
-    return res
-
 
 # check $geometry (.'$geometry')
 def json_model_11(val: Jsonable, path: Path, rep: Report) -> bool:
@@ -491,8 +443,9 @@ def json_model_11(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("value is not an object [.'$geometry'.'|']", path))
     return res
 
-# object .'$GeometryCollection'
-def _jm_obj_6(val: Jsonable, path: Path, rep: Report) -> bool:
+# check $GeometryCollection (.'$GeometryCollection')
+def json_model_12(val: Jsonable, path: Path, rep: Report) -> bool:
+    # .'$GeometryCollection'
     # check open must/may only props
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$GeometryCollection']", path))
@@ -546,25 +499,17 @@ def _jm_obj_6(val: Jsonable, path: Path, rep: Report) -> bool:
             return False
     return True
 
-# check $GeometryCollection (.'$GeometryCollection')
-def json_model_12(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .'$GeometryCollection'
-    res = _jm_obj_6(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected element [.'$GeometryCollection']", path))
-    return res
-
 # object .'$Feature'.properties.'|'.1
-def _jm_obj_8(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$Feature'.properties.'|'.1]", path))
         return False
     # accept any object
     return True
 
-# object .'$Feature'
-def _jm_obj_7(val: Jsonable, path: Path, rep: Report) -> bool:
+# check $Feature (.'$Feature')
+def json_model_13(val: Jsonable, path: Path, rep: Report) -> bool:
+    # .'$Feature'
     # check open must/may only props
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$Feature']", path))
@@ -598,7 +543,7 @@ def _jm_obj_7(val: Jsonable, path: Path, rep: Report) -> bool:
             rep is None or rep.append(("unexpected $geometry [.'$Feature'.geometry.'|'.1]", lpath if path is not None else None))
         if not res:
             # .'$Feature'.geometry.'|'.2
-            res = _jm_obj_6(pval, lpath if path is not None else None, rep)
+            res = json_model_12(pval, lpath if path is not None else None, rep)
             if not res:
                 rep is None or rep.append(("unexpected $GeometryCollection [.'$Feature'.geometry.'|'.2]", lpath if path is not None else None))
     if res:
@@ -618,7 +563,7 @@ def _jm_obj_7(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("not null [.'$Feature'.properties.'|'.0]", lpath if path is not None else None))
     if not res:
         # .'$Feature'.properties.'|'.1
-        res = _jm_obj_8(pval, lpath if path is not None else None, rep)
+        res = _jm_obj_0(pval, lpath if path is not None else None, rep)
         if not res:
             rep is None or rep.append(("unexpected element [.'$Feature'.properties.'|'.1]", lpath if path is not None else None))
     if res:
@@ -663,17 +608,9 @@ def _jm_obj_7(val: Jsonable, path: Path, rep: Report) -> bool:
             return False
     return True
 
-# check $Feature (.'$Feature')
-def json_model_13(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .'$Feature'
-    res = _jm_obj_7(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected element [.'$Feature']", path))
-    return res
-
-# object .'$FeatureCollection'
-def _jm_obj_9(val: Jsonable, path: Path, rep: Report) -> bool:
+# check $FeatureCollection (.'$FeatureCollection')
+def json_model_14(val: Jsonable, path: Path, rep: Report) -> bool:
+    # .'$FeatureCollection'
     # check open must/may only props
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$FeatureCollection']", path))
@@ -701,7 +638,7 @@ def _jm_obj_9(val: Jsonable, path: Path, rep: Report) -> bool:
         for arr_17_idx, arr_17_item in enumerate(pval):
             arr_17_lpath: Path = ((lpath if path is not None else None) + [ arr_17_idx ]) if (lpath if path is not None else None) is not None else None
             # .'$FeatureCollection'.features.0
-            res = _jm_obj_7(arr_17_item, arr_17_lpath if (lpath if path is not None else None) is not None else None, rep)
+            res = json_model_13(arr_17_item, arr_17_lpath if (lpath if path is not None else None) is not None else None, rep)
             if not res:
                 rep is None or rep.append(("unexpected $Feature [.'$FeatureCollection'.features.0]", arr_17_lpath if (lpath if path is not None else None) is not None else None))
                 break
@@ -727,15 +664,6 @@ def _jm_obj_9(val: Jsonable, path: Path, rep: Report) -> bool:
             return False
     return True
 
-# check $FeatureCollection (.'$FeatureCollection')
-def json_model_14(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .'$FeatureCollection'
-    res = _jm_obj_9(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected element [.'$FeatureCollection']", path))
-    return res
-
 # check $ (.)
 def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
@@ -751,21 +679,21 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     else:
         rep is None or rep.append(("unexpected $geometry [.'^'.0]", path))
     # .'^'.1
-    xr_0 = _jm_obj_6(val, path, rep)
+    xr_0 = json_model_12(val, path, rep)
     if xr_0:
         xc_0 += 1
     else:
         rep is None or rep.append(("unexpected $GeometryCollection [.'^'.1]", path))
     if xc_0 <= 1:
         # .'^'.2
-        xr_0 = _jm_obj_7(val, path, rep)
+        xr_0 = json_model_13(val, path, rep)
         if xr_0:
             xc_0 += 1
         else:
             rep is None or rep.append(("unexpected $Feature [.'^'.2]", path))
     if xc_0 <= 1:
         # .'^'.3
-        xr_0 = _jm_obj_9(val, path, rep)
+        xr_0 = json_model_14(val, path, rep)
         if xr_0:
             xc_0 += 1
         else:
@@ -788,12 +716,12 @@ def check_model_init():
         initialized = True
         global _jm_map_0
         _jm_map_0 = {
-            "Point": _jm_obj_0,
-            "MultiPoint": _jm_obj_1,
-            "LineString": _jm_obj_2,
-            "MultiLineString": _jm_obj_3,
-            "Polygon": _jm_obj_4,
-            "MultiPolygon": _jm_obj_5,
+            "Point": json_model_5,
+            "MultiPoint": json_model_6,
+            "LineString": json_model_7,
+            "MultiLineString": json_model_8,
+            "Polygon": json_model_9,
+            "MultiPolygon": json_model_10,
         }
         global check_model_map
         check_model_map = {
@@ -801,16 +729,16 @@ def check_model_init():
             "position": json_model_2,
             "coord_array": json_model_3,
             "linear_ring": json_model_4,
-            "Point": _jm_obj_0,
-            "MultiPoint": _jm_obj_1,
-            "LineString": _jm_obj_2,
-            "MultiLineString": _jm_obj_3,
-            "Polygon": _jm_obj_4,
-            "MultiPolygon": _jm_obj_5,
+            "Point": json_model_5,
+            "MultiPoint": json_model_6,
+            "LineString": json_model_7,
+            "MultiLineString": json_model_8,
+            "Polygon": json_model_9,
+            "MultiPolygon": json_model_10,
             "geometry": json_model_11,
-            "GeometryCollection": _jm_obj_6,
-            "Feature": _jm_obj_7,
-            "FeatureCollection": _jm_obj_9,
+            "GeometryCollection": json_model_12,
+            "Feature": json_model_13,
+            "FeatureCollection": json_model_14,
         }
 
 # differed module cleanup

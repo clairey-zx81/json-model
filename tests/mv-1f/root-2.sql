@@ -12,18 +12,19 @@ DECLARE
   res bool;
 BEGIN
   -- .'$root'
-  res := _jm_obj_1(val, path, rep);
+  res := json_model_5(val, path, rep);
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
 
--- object .'$Foo'
-CREATE OR REPLACE FUNCTION _jm_obj_0(val JSONB, path TEXT[], rep jm_report_entry[])
+-- check $Foo (.'$Foo')
+CREATE OR REPLACE FUNCTION json_model_3(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   pval JSONB;
   res bool;
 BEGIN
+  -- .'$Foo'
   -- check close must only props
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
@@ -36,23 +37,11 @@ BEGIN
   END IF;
   pval := val -> 'rt';
   -- .'$Foo'.rt
-  res := _jm_obj_1(pval, NULL, rep);
+  res := json_model_5(pval, NULL, rep);
   IF NOT res THEN
     RETURN FALSE;
   END IF;
   RETURN TRUE;
-END;
-$$ LANGUAGE PLpgSQL;
-
--- check $Foo (.'$Foo')
-CREATE OR REPLACE FUNCTION json_model_3(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .'$Foo'
-  res := _jm_obj_0(val, path, rep);
-  RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -63,18 +52,19 @@ DECLARE
   res bool;
 BEGIN
   -- .
-  res := _jm_obj_0(val, path, rep);
+  res := json_model_3(val, path, rep);
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
 
--- object .'$root#Root'
-CREATE OR REPLACE FUNCTION _jm_obj_1(val JSONB, path TEXT[], rep jm_report_entry[])
+-- check $root#Root (.'$root#Root')
+CREATE OR REPLACE FUNCTION json_model_5(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   pval JSONB;
   res bool;
 BEGIN
+  -- .'$root#Root'
   -- check close must only props
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
@@ -104,22 +94,10 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check $root#Root (.'$root#Root')
-CREATE OR REPLACE FUNCTION json_model_5(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .'$root#Root'
-  res := _jm_obj_1(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
 CREATE OR REPLACE FUNCTION check_model_map(name TEXT)
 RETURNS TEXT STRICT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
-  map JSONB := JSONB '{"":"_jm_obj_0","root":"_jm_obj_1","Foo":"_jm_obj_0"}';
+  map JSONB := JSONB '{"":"json_model_3","root":"json_model_5","Foo":"json_model_3"}';
 BEGIN
   RETURN map->>name;
 END;

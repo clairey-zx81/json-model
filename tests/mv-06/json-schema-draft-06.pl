@@ -27,9 +27,7 @@ sub _jm_f_6($$$);
 sub _jm_f_7($$$);
 sub _jm_f_8($$$);
 sub _jm_f_9($$$);
-sub _jm_obj_1($$$);
 sub _jm_f_10($$$);
-sub _jm_obj_2($$$);
 sub _jm_f_11($$$);
 sub _jm_f_12($$$);
 sub _jm_f_13($$$);
@@ -50,17 +48,14 @@ sub _jm_f_27($$$);
 sub _jm_f_28($$$);
 sub _jm_f_29($$$);
 sub _jm_f_30($$$);
-sub _jm_obj_3($$$);
 sub _jm_f_31($$$);
-sub _jm_obj_4($$$);
 sub _jm_f_32($$$);
 sub _jm_f_33($$$);
 sub _jm_f_34($$$);
 sub _jm_f_35($$$);
 sub _jm_f_36($$$);
 sub _jm_f_37($$$);
-my %_jm_obj_0_map;
-sub _jm_obj_0($$$);
+my %json_model_7_map;
 sub json_model_7($$$);
 sub json_model_8($$$);
 sub json_model_1($$$);
@@ -168,7 +163,7 @@ sub json_model_6($$$)
     return $res;
 }
 
-# check _jm_obj_0_map_$id (.'$ObjectSchema'.'$id')
+# check json_model_7_map_$id (.'$ObjectSchema'.'$id')
 sub _jm_f_0($$$)
 {
     my ($val, $path, $rep) = @_;
@@ -178,7 +173,7 @@ sub _jm_f_0($$$)
     return $res;
 }
 
-# check _jm_obj_0_map_$ref (.'$ObjectSchema'.'$ref')
+# check json_model_7_map_$ref (.'$ObjectSchema'.'$ref')
 sub _jm_f_1($$$)
 {
     my ($val, $path, $rep) = @_;
@@ -188,7 +183,7 @@ sub _jm_f_1($$$)
     return $res;
 }
 
-# check _jm_obj_0_map_$schema (.'$ObjectSchema'.'$schema')
+# check json_model_7_map_$schema (.'$ObjectSchema'.'$schema')
 sub _jm_f_2($$$)
 {
     my ($val, $path, $rep) = @_;
@@ -198,7 +193,7 @@ sub _jm_f_2($$$)
     return $res;
 }
 
-# check _jm_obj_0_map_additionalItems (.'$ObjectSchema'.additionalItems)
+# check json_model_7_map_additionalItems (.'$ObjectSchema'.additionalItems)
 sub _jm_f_3($$$)
 {
     my ($val, $path, $rep) = @_;
@@ -208,7 +203,7 @@ sub _jm_f_3($$$)
     return $res;
 }
 
-# check _jm_obj_0_map_additionalProperties (.'$ObjectSchema'.additionalProperties)
+# check json_model_7_map_additionalProperties (.'$ObjectSchema'.additionalProperties)
 sub _jm_f_4($$$)
 {
     my ($val, $path, $rep) = @_;
@@ -218,7 +213,7 @@ sub _jm_f_4($$$)
     return $res;
 }
 
-# check _jm_obj_0_map_allOf (.'$ObjectSchema'.allOf)
+# check json_model_7_map_allOf (.'$ObjectSchema'.allOf)
 sub _jm_f_5($$$)
 {
     my ($val, $path, $rep) = @_;
@@ -228,7 +223,7 @@ sub _jm_f_5($$$)
     return $res;
 }
 
-# check _jm_obj_0_map_anyOf (.'$ObjectSchema'.anyOf)
+# check json_model_7_map_anyOf (.'$ObjectSchema'.anyOf)
 sub _jm_f_6($$$)
 {
     my ($val, $path, $rep) = @_;
@@ -238,7 +233,7 @@ sub _jm_f_6($$$)
     return $res;
 }
 
-# check _jm_obj_0_map_const (.'$ObjectSchema'.const)
+# check json_model_7_map_const (.'$ObjectSchema'.const)
 sub _jm_f_7($$$)
 {
     my ($val, $path, $rep) = @_;
@@ -248,7 +243,7 @@ sub _jm_f_7($$$)
     return $res;
 }
 
-# check _jm_obj_0_map_contains (.'$ObjectSchema'.contains)
+# check json_model_7_map_contains (.'$ObjectSchema'.contains)
 sub _jm_f_8($$$)
 {
     my ($val, $path, $rep) = @_;
@@ -258,7 +253,7 @@ sub _jm_f_8($$$)
     return $res;
 }
 
-# check _jm_obj_0_map_default (.'$ObjectSchema'.default)
+# check json_model_7_map_default (.'$ObjectSchema'.default)
 sub _jm_f_9($$$)
 {
     my ($val, $path, $rep) = @_;
@@ -268,10 +263,11 @@ sub _jm_f_9($$$)
     return $res;
 }
 
-# object .'$ObjectSchema'.definitions
-sub _jm_obj_1($$$)
+# check json_model_7_map_definitions (.'$ObjectSchema'.definitions)
+sub _jm_f_10($$$)
 {
     my ($val, $path, $rep) = @_;
+    # .'$ObjectSchema'.definitions
     if (! jm_is_object($val))
     {
         return 0;
@@ -291,20 +287,11 @@ sub _jm_obj_1($$$)
     return 1;
 }
 
-# check _jm_obj_0_map_definitions (.'$ObjectSchema'.definitions)
-sub _jm_f_10($$$)
+# check json_model_7_map_dependencies (.'$ObjectSchema'.dependencies)
+sub _jm_f_11($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$ObjectSchema'.definitions
-    $res = _jm_obj_1($val, $path, $rep);
-    return $res;
-}
-
-# object .'$ObjectSchema'.dependencies
-sub _jm_obj_2($$$)
-{
-    my ($val, $path, $rep) = @_;
+    # .'$ObjectSchema'.dependencies
     if (! jm_is_object($val))
     {
         return 0;
@@ -330,17 +317,7 @@ sub _jm_obj_2($$$)
     return 1;
 }
 
-# check _jm_obj_0_map_dependencies (.'$ObjectSchema'.dependencies)
-sub _jm_f_11($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$ObjectSchema'.dependencies
-    $res = _jm_obj_2($val, $path, $rep);
-    return $res;
-}
-
-# check _jm_obj_0_map_description (.'$ObjectSchema'.description)
+# check json_model_7_map_description (.'$ObjectSchema'.description)
 sub _jm_f_12($$$)
 {
     my ($val, $path, $rep) = @_;
@@ -350,7 +327,7 @@ sub _jm_f_12($$$)
     return $res;
 }
 
-# check _jm_obj_0_map_enum (.'$ObjectSchema'.enum)
+# check json_model_7_map_enum (.'$ObjectSchema'.enum)
 sub _jm_f_13($$$)
 {
     my ($val, $path, $rep) = @_;
@@ -366,7 +343,7 @@ sub _jm_f_13($$$)
     return $res;
 }
 
-# check _jm_obj_0_map_examples (.'$ObjectSchema'.examples)
+# check json_model_7_map_examples (.'$ObjectSchema'.examples)
 sub _jm_f_14($$$)
 {
     my ($val, $path, $rep) = @_;
@@ -376,7 +353,7 @@ sub _jm_f_14($$$)
     return $res;
 }
 
-# check _jm_obj_0_map_exclusiveMaximum (.'$ObjectSchema'.exclusiveMaximum)
+# check json_model_7_map_exclusiveMaximum (.'$ObjectSchema'.exclusiveMaximum)
 sub _jm_f_15($$$)
 {
     my ($val, $path, $rep) = @_;
@@ -386,7 +363,7 @@ sub _jm_f_15($$$)
     return $res;
 }
 
-# check _jm_obj_0_map_exclusiveMinimum (.'$ObjectSchema'.exclusiveMinimum)
+# check json_model_7_map_exclusiveMinimum (.'$ObjectSchema'.exclusiveMinimum)
 sub _jm_f_16($$$)
 {
     my ($val, $path, $rep) = @_;
@@ -396,7 +373,7 @@ sub _jm_f_16($$$)
     return $res;
 }
 
-# check _jm_obj_0_map_format (.'$ObjectSchema'.format)
+# check json_model_7_map_format (.'$ObjectSchema'.format)
 sub _jm_f_17($$$)
 {
     my ($val, $path, $rep) = @_;
@@ -406,7 +383,7 @@ sub _jm_f_17($$$)
     return $res;
 }
 
-# check _jm_obj_0_map_items (.'$ObjectSchema'.items)
+# check json_model_7_map_items (.'$ObjectSchema'.items)
 sub _jm_f_18($$$)
 {
     my ($val, $path, $rep) = @_;
@@ -422,7 +399,7 @@ sub _jm_f_18($$$)
     return $res;
 }
 
-# check _jm_obj_0_map_maxItems (.'$ObjectSchema'.maxItems)
+# check json_model_7_map_maxItems (.'$ObjectSchema'.maxItems)
 sub _jm_f_19($$$)
 {
     my ($val, $path, $rep) = @_;
@@ -432,7 +409,7 @@ sub _jm_f_19($$$)
     return $res;
 }
 
-# check _jm_obj_0_map_maxLength (.'$ObjectSchema'.maxLength)
+# check json_model_7_map_maxLength (.'$ObjectSchema'.maxLength)
 sub _jm_f_20($$$)
 {
     my ($val, $path, $rep) = @_;
@@ -442,7 +419,7 @@ sub _jm_f_20($$$)
     return $res;
 }
 
-# check _jm_obj_0_map_maxProperties (.'$ObjectSchema'.maxProperties)
+# check json_model_7_map_maxProperties (.'$ObjectSchema'.maxProperties)
 sub _jm_f_21($$$)
 {
     my ($val, $path, $rep) = @_;
@@ -452,7 +429,7 @@ sub _jm_f_21($$$)
     return $res;
 }
 
-# check _jm_obj_0_map_maximum (.'$ObjectSchema'.maximum)
+# check json_model_7_map_maximum (.'$ObjectSchema'.maximum)
 sub _jm_f_22($$$)
 {
     my ($val, $path, $rep) = @_;
@@ -462,7 +439,7 @@ sub _jm_f_22($$$)
     return $res;
 }
 
-# check _jm_obj_0_map_minItems (.'$ObjectSchema'.minItems)
+# check json_model_7_map_minItems (.'$ObjectSchema'.minItems)
 sub _jm_f_23($$$)
 {
     my ($val, $path, $rep) = @_;
@@ -472,7 +449,7 @@ sub _jm_f_23($$$)
     return $res;
 }
 
-# check _jm_obj_0_map_minLength (.'$ObjectSchema'.minLength)
+# check json_model_7_map_minLength (.'$ObjectSchema'.minLength)
 sub _jm_f_24($$$)
 {
     my ($val, $path, $rep) = @_;
@@ -482,7 +459,7 @@ sub _jm_f_24($$$)
     return $res;
 }
 
-# check _jm_obj_0_map_minProperties (.'$ObjectSchema'.minProperties)
+# check json_model_7_map_minProperties (.'$ObjectSchema'.minProperties)
 sub _jm_f_25($$$)
 {
     my ($val, $path, $rep) = @_;
@@ -492,7 +469,7 @@ sub _jm_f_25($$$)
     return $res;
 }
 
-# check _jm_obj_0_map_minimum (.'$ObjectSchema'.minimum)
+# check json_model_7_map_minimum (.'$ObjectSchema'.minimum)
 sub _jm_f_26($$$)
 {
     my ($val, $path, $rep) = @_;
@@ -502,7 +479,7 @@ sub _jm_f_26($$$)
     return $res;
 }
 
-# check _jm_obj_0_map_multipleOf (.'$ObjectSchema'.multipleOf)
+# check json_model_7_map_multipleOf (.'$ObjectSchema'.multipleOf)
 sub _jm_f_27($$$)
 {
     my ($val, $path, $rep) = @_;
@@ -512,7 +489,7 @@ sub _jm_f_27($$$)
     return $res;
 }
 
-# check _jm_obj_0_map_not (.'$ObjectSchema'.not)
+# check json_model_7_map_not (.'$ObjectSchema'.not)
 sub _jm_f_28($$$)
 {
     my ($val, $path, $rep) = @_;
@@ -522,7 +499,7 @@ sub _jm_f_28($$$)
     return $res;
 }
 
-# check _jm_obj_0_map_oneOf (.'$ObjectSchema'.oneOf)
+# check json_model_7_map_oneOf (.'$ObjectSchema'.oneOf)
 sub _jm_f_29($$$)
 {
     my ($val, $path, $rep) = @_;
@@ -532,7 +509,7 @@ sub _jm_f_29($$$)
     return $res;
 }
 
-# check _jm_obj_0_map_pattern (.'$ObjectSchema'.pattern)
+# check json_model_7_map_pattern (.'$ObjectSchema'.pattern)
 sub _jm_f_30($$$)
 {
     my ($val, $path, $rep) = @_;
@@ -542,10 +519,11 @@ sub _jm_f_30($$$)
     return $res;
 }
 
-# object .'$ObjectSchema'.patternProperties
-sub _jm_obj_3($$$)
+# check json_model_7_map_patternProperties (.'$ObjectSchema'.patternProperties)
+sub _jm_f_31($$$)
 {
     my ($val, $path, $rep) = @_;
+    # .'$ObjectSchema'.patternProperties
     if (! jm_is_object($val))
     {
         return 0;
@@ -572,20 +550,11 @@ sub _jm_obj_3($$$)
     return 1;
 }
 
-# check _jm_obj_0_map_patternProperties (.'$ObjectSchema'.patternProperties)
-sub _jm_f_31($$$)
+# check json_model_7_map_properties (.'$ObjectSchema'.properties)
+sub _jm_f_32($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$ObjectSchema'.patternProperties
-    $res = _jm_obj_3($val, $path, $rep);
-    return $res;
-}
-
-# object .'$ObjectSchema'.properties
-sub _jm_obj_4($$$)
-{
-    my ($val, $path, $rep) = @_;
+    # .'$ObjectSchema'.properties
     if (! jm_is_object($val))
     {
         return 0;
@@ -605,17 +574,7 @@ sub _jm_obj_4($$$)
     return 1;
 }
 
-# check _jm_obj_0_map_properties (.'$ObjectSchema'.properties)
-sub _jm_f_32($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$ObjectSchema'.properties
-    $res = _jm_obj_4($val, $path, $rep);
-    return $res;
-}
-
-# check _jm_obj_0_map_propertyNames (.'$ObjectSchema'.propertyNames)
+# check json_model_7_map_propertyNames (.'$ObjectSchema'.propertyNames)
 sub _jm_f_33($$$)
 {
     my ($val, $path, $rep) = @_;
@@ -625,7 +584,7 @@ sub _jm_f_33($$$)
     return $res;
 }
 
-# check _jm_obj_0_map_required (.'$ObjectSchema'.required)
+# check json_model_7_map_required (.'$ObjectSchema'.required)
 sub _jm_f_34($$$)
 {
     my ($val, $path, $rep) = @_;
@@ -635,7 +594,7 @@ sub _jm_f_34($$$)
     return $res;
 }
 
-# check _jm_obj_0_map_title (.'$ObjectSchema'.title)
+# check json_model_7_map_title (.'$ObjectSchema'.title)
 sub _jm_f_35($$$)
 {
     my ($val, $path, $rep) = @_;
@@ -645,7 +604,7 @@ sub _jm_f_35($$$)
     return $res;
 }
 
-# check _jm_obj_0_map_type (.'$ObjectSchema'.type)
+# check json_model_7_map_type (.'$ObjectSchema'.type)
 sub _jm_f_36($$$)
 {
     my ($val, $path, $rep) = @_;
@@ -661,7 +620,7 @@ sub _jm_f_36($$$)
     return $res;
 }
 
-# check _jm_obj_0_map_uniqueItems (.'$ObjectSchema'.uniqueItems)
+# check json_model_7_map_uniqueItems (.'$ObjectSchema'.uniqueItems)
 sub _jm_f_37($$$)
 {
     my ($val, $path, $rep) = @_;
@@ -672,10 +631,11 @@ sub _jm_f_37($$$)
 }
 
 
-# object .'$ObjectSchema'
-sub _jm_obj_0($$$)
+# check $ObjectSchema (.'$ObjectSchema')
+sub json_model_7($$$)
 {
     my ($val, $path, $rep) = @_;
+    # .'$ObjectSchema'
     if (! jm_is_object($val))
     {
         return 0;
@@ -684,7 +644,7 @@ sub _jm_obj_0($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if (($pfun = $_jm_obj_0_map{$prop}))
+        if (($pfun = $json_model_7_map{$prop}))
         {
             # handle 38 may props
             if (defined($pfun) && ! &$pfun($pval, undef, $rep))
@@ -700,16 +660,6 @@ sub _jm_obj_0($$$)
     return 1;
 }
 
-# check $ObjectSchema (.'$ObjectSchema')
-sub json_model_7($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$ObjectSchema'
-    $res = _jm_obj_0($val, $path, $rep);
-    return $res;
-}
-
 # check $Schema (.'$Schema')
 sub json_model_8($$$)
 {
@@ -721,7 +671,7 @@ sub json_model_8($$$)
     if (! $res)
     {
         # .'$Schema'.'|'.1
-        $res = _jm_obj_0($val, $path, $rep);
+        $res = json_model_7($val, $path, $rep);
     }
     return $res;
 }
@@ -757,7 +707,7 @@ sub check_model_init()
             'array' => 1,
             'object' => 1,
         );
-        %_jm_obj_0_map = (
+        %json_model_7_map = (
             '$id' => \&_jm_f_0,
             '$ref' => \&_jm_f_1,
             '$schema' => \&_jm_f_2,
@@ -804,7 +754,7 @@ sub check_model_init()
             'simpleTypes' => \&json_model_4,
             'typeArray' => \&json_model_5,
             'stringArray' => \&json_model_6,
-            'ObjectSchema' => \&_jm_obj_0,
+            'ObjectSchema' => \&json_model_7,
             'Schema' => \&json_model_8,
         );
     }
@@ -816,7 +766,7 @@ sub check_model_free()
     {
         $initialized = 0;
         %_jm_cst_0 = ();
-        %_jm_obj_0_map = ();
+        %json_model_7_map = ();
         %check_model_map = ();
     }
 }

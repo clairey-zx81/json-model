@@ -11,14 +11,13 @@ use JSON::JsonModel;
 use constant JMC_VERSION => '2';
 
 
-sub _jm_obj_1($$$);
-sub _jm_obj_2($$$);
 sub _jm_obj_0($$$);
+sub _jm_obj_1($$$);
 sub json_model_1($$$);
 my %check_model_map;
 
 # object .'$'
-sub _jm_obj_1($$$)
+sub _jm_obj_0($$$)
 {
     my ($val, $path, $rep) = @_;
     if (! jm_is_object($val))
@@ -78,7 +77,7 @@ sub _jm_re_1($$$)
 }
 
 # object .'%'
-sub _jm_obj_2($$$)
+sub _jm_obj_1($$$)
 {
     my ($val, $path, $rep) = @_;
     if (! jm_is_object($val))
@@ -118,10 +117,12 @@ sub _jm_obj_2($$$)
     return 1;
 }
 
-# object .
-sub _jm_obj_0($$$)
+# check $ (.)
+sub json_model_1($$$)
 {
     my ($val, $path, $rep) = @_;
+    # JSON Model Subset for Localization Renames
+    # .
     if (! jm_is_object($val))
     {
         return 0;
@@ -136,7 +137,7 @@ sub _jm_obj_0($$$)
             # handle must $ property
             $must_count++;
             # .'$'
-            $res = _jm_obj_1($pval, undef, $rep);
+            $res = _jm_obj_0($pval, undef, $rep);
             if (! $res)
             {
                 return 0;
@@ -159,7 +160,7 @@ sub _jm_obj_0($$$)
             $must_count++;
             # dot-prefixed arbitrary key, one or two char keyword values
             # .'%'
-            $res = _jm_obj_2($pval, undef, $rep);
+            $res = _jm_obj_1($pval, undef, $rep);
             if (! $res)
             {
                 return 0;
@@ -198,17 +199,6 @@ sub _jm_obj_0($$$)
     return 1;
 }
 
-# check $ (.)
-sub json_model_1($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # JSON Model Subset for Localization Renames
-    # .
-    $res = _jm_obj_0($val, $path, $rep);
-    return $res;
-}
-
 
 # initialization of global variables
 
@@ -220,7 +210,7 @@ sub check_model_init()
     {
         $initialized = 1;
         %check_model_map = (
-            '' => \&_jm_obj_0,
+            '' => \&json_model_1,
         );
     }
 }

@@ -11,9 +11,11 @@ const JSON_MODEL_VERSION = "2";
 
 var check_model_map = new Map()
 
-// object .
-function _jm_obj_0(val, path, rep)
+// check $ (.)
+function json_model_1(val, path, rep)
 {
+    // Recursion test 03
+    // .
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.]", path])
@@ -28,7 +30,7 @@ function _jm_obj_0(val, path, rep)
             // handle may foo property
             // .foo
             // .foo.'|'.0
-            res = _jm_obj_0(pval, (path ? lpath_0 : null), rep);
+            res = json_model_1(pval, (path ? lpath_0 : null), rep);
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $root [.foo.'|'.0]", (path ? lpath_0 : null)])
@@ -44,7 +46,7 @@ function _jm_obj_0(val, path, rep)
                         let arr_0_item = pval[arr_0_idx]
                         let arr_0_lpath = (path ? lpath_0 : null) ? (path ? lpath_0 : null).concat([arr_0_idx]) : null;
                         // .foo.'|'.1.0
-                        res = _jm_obj_0(arr_0_item, ((path ? lpath_0 : null) ? arr_0_lpath : null), rep);
+                        res = json_model_1(arr_0_item, ((path ? lpath_0 : null) ? arr_0_lpath : null), rep);
                         if (! res)
                         {
                             rep !== null && rep.push(["unexpected $root [.foo.'|'.1.0]", ((path ? lpath_0 : null) ? arr_0_lpath : null)])
@@ -77,20 +79,6 @@ function _jm_obj_0(val, path, rep)
     return true;
 }
 
-// check $ (.)
-function json_model_1(val, path, rep)
-{
-    let res;
-    // Recursion test 03
-    // .
-    res = _jm_obj_0(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected element [.]", path])
-    }
-    return res;
-}
-
 
 var initialized = false
 
@@ -101,8 +89,8 @@ export function check_model_init()
     {
         initialized = true;
         runtime.jm_set_rx(RegExp)
-        check_model_map.set("", _jm_obj_0)
-        check_model_map.set("root", _jm_obj_0)
+        check_model_map.set("", json_model_1)
+        check_model_map.set("root", json_model_1)
     }
 }
 

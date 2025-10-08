@@ -11,9 +11,13 @@ const JSON_MODEL_VERSION = "2";
 
 var check_model_map = new Map()
 
-// object .
-function _jm_obj_0(val, path, rep)
+// check $ (.)
+function json_model_1(val, path, rep)
 {
+    // This is a
+    // multiline
+    // comment.
+    // .
     // check close must only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
@@ -62,22 +66,6 @@ function _jm_obj_0(val, path, rep)
     return true;
 }
 
-// check $ (.)
-function json_model_1(val, path, rep)
-{
-    let res;
-    // This is a
-    // multiline
-    // comment.
-    // .
-    res = _jm_obj_0(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected element [.]", path])
-    }
-    return res;
-}
-
 
 var initialized = false
 
@@ -88,7 +76,7 @@ export function check_model_init()
     {
         initialized = true;
         runtime.jm_set_rx(RegExp)
-        check_model_map.set("", _jm_obj_0)
+        check_model_map.set("", json_model_1)
     }
 }
 

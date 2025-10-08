@@ -10,21 +10,19 @@
 #include <json-model.h>
 #define JSON_MODEL_VERSION "2"
 
-static bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static bool _jm_obj_1(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static bool _jm_obj_2(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_4(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static bool _jm_obj_3(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_5(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep);
 jm_propmap_t check_model_map_tab[5];
 const size_t check_model_map_size = 5;
 
-// object .'$Oa'
-static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *rep)
+// check $Oa (.'$Oa')
+static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
+    // .'$Oa'
     // check open must/may only props
     if (! json_is_object(val))
     {
@@ -44,18 +42,10 @@ static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *re
     return true;
 }
 
-// check $Oa (.'$Oa')
-static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
+// check $Ob (.'$Ob')
+static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
-    // .'$Oa'
-    res = _jm_obj_0(val, path, rep);
-    return res;
-}
-
-// object .'$Ob'
-static INLINE bool _jm_obj_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
+    // .'$Ob'
     // check open must/may only props
     if (! json_is_object(val))
     {
@@ -75,18 +65,10 @@ static INLINE bool _jm_obj_1(const json_t *val, jm_path_t *path, jm_report_t *re
     return true;
 }
 
-// check $Ob (.'$Ob')
-static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
+// check $merge (.'$merge')
+static bool json_model_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
-    // .'$Ob'
-    res = _jm_obj_1(val, path, rep);
-    return res;
-}
-
-// object .'$merge'
-static INLINE bool _jm_obj_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
+    // .'$merge'
     // check open must/may only props
     if (! json_is_object(val))
     {
@@ -115,17 +97,8 @@ static INLINE bool _jm_obj_2(const json_t *val, jm_path_t *path, jm_report_t *re
     return true;
 }
 
-// check $merge (.'$merge')
-static bool json_model_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
-    bool res;
-    // .'$merge'
-    res = _jm_obj_2(val, path, rep);
-    return res;
-}
-
 // object .'$nomerge'.'&'.1
-static INLINE bool _jm_obj_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // check close must only props
     if (! json_is_object(val))
@@ -160,11 +133,11 @@ static bool json_model_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
     if (res)
     {
         // .'$nomerge'.'&'.0
-        res = _jm_obj_0(val, path, rep);
+        res = json_model_2(val, path, rep);
         if (res)
         {
             // .'$nomerge'.'&'.1
-            res = _jm_obj_3(val, path, rep);
+            res = _jm_obj_0(val, path, rep);
         }
     }
     return res;
@@ -176,7 +149,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
     bool res;
     // .
     // .'|'.0
-    res = _jm_obj_2(val, path, rep);
+    res = json_model_4(val, path, rep);
     if (! res)
     {
         // .'|'.1
@@ -199,9 +172,9 @@ const char *check_model_init(void)
         initialized = true;
         jm_version_string = JSON_MODEL_VERSION;
         check_model_map_tab[0] = (jm_propmap_t) { "", json_model_1 };
-        check_model_map_tab[1] = (jm_propmap_t) { "Oa", _jm_obj_0 };
-        check_model_map_tab[2] = (jm_propmap_t) { "Ob", _jm_obj_1 };
-        check_model_map_tab[3] = (jm_propmap_t) { "merge", _jm_obj_2 };
+        check_model_map_tab[1] = (jm_propmap_t) { "Oa", json_model_2 };
+        check_model_map_tab[2] = (jm_propmap_t) { "Ob", json_model_3 };
+        check_model_map_tab[3] = (jm_propmap_t) { "merge", json_model_4 };
         check_model_map_tab[4] = (jm_propmap_t) { "nomerge", json_model_5 };
         jm_sort_propmap(check_model_map_tab, 5);
     }

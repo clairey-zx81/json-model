@@ -40,8 +40,9 @@ def json_model_3(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("unexpected string [.'$Bb']", path))
     return res
 
-# object .'$Rr'
-def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
+# check $Rr (.'$Rr')
+def json_model_5(val: Jsonable, path: Path, rep: Report) -> bool:
+    # .'$Rr'
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$Rr']", path))
         return False
@@ -62,17 +63,9 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
             return False
     return True
 
-# check $Rr (.'$Rr')
-def json_model_5(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .'$Rr'
-    res = _jm_obj_0(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected element [.'$Rr']", path))
-    return res
-
-# object .
-def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
+# check $ (.)
+def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
+    # .
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.]", path))
         return False
@@ -85,7 +78,7 @@ def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
             # handle must RA property
             must_count += 1
             # .RA
-            res = _jm_obj_0(pval, lpath_1 if path is not None else None, rep)
+            res = json_model_5(pval, lpath_1 if path is not None else None, rep)
             if not res:
                 rep is None or rep.append(("unexpected $Rr [.RA]", lpath_1 if path is not None else None))
                 rep is None or rep.append(("invalid mandatory prop value [.RA]", lpath_1 if path is not None else None))
@@ -116,15 +109,6 @@ def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
         return False
     return True
 
-# check $ (.)
-def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .
-    res = _jm_obj_1(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected element [.]", path))
-    return res
-
 # check $Rr#Aa (.'$Rr#Aa')
 def json_model_7(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
@@ -145,10 +129,10 @@ def check_model_init():
         initialized = True
         global check_model_map
         check_model_map = {
-            "": _jm_obj_1,
+            "": json_model_1,
             "b": json_model_2,
             "Bb": json_model_3,
-            "Rr": _jm_obj_0,
+            "Rr": json_model_5,
         }
 
 # differed module cleanup

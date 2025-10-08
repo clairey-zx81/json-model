@@ -12,11 +12,8 @@ use constant JMC_VERSION => '2';
 
 
 sub json_model_2($$$);
-sub _jm_obj_0($$$);
 sub json_model_5($$$);
-sub _jm_obj_1($$$);
 sub json_model_4($$$);
-sub _jm_obj_2($$$);
 sub json_model_1($$$);
 my %check_model_map;
 
@@ -30,10 +27,11 @@ sub json_model_2($$$)
     return $res;
 }
 
-# object .'$r'
-sub _jm_obj_0($$$)
+# check $r (.'$r')
+sub json_model_5($$$)
 {
     my ($val, $path, $rep) = @_;
+    # .'$r'
     # check close must only props
     if (! jm_is_object($val))
     {
@@ -92,20 +90,11 @@ sub _jm_obj_0($$$)
     return 1;
 }
 
-# check $r (.'$r')
-sub json_model_5($$$)
+# check $z (.'$z')
+sub json_model_4($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$r'
-    $res = _jm_obj_0($val, $path, $rep);
-    return $res;
-}
-
-# object .'$z'
-sub _jm_obj_1($$$)
-{
-    my ($val, $path, $rep) = @_;
+    # .'$z'
     # check close must only props
     if (! jm_is_object($val))
     {
@@ -142,20 +131,11 @@ sub _jm_obj_1($$$)
     return 1;
 }
 
-# check $z (.'$z')
-sub json_model_4($$$)
+# check $ (.)
+sub json_model_1($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$z'
-    $res = _jm_obj_1($val, $path, $rep);
-    return $res;
-}
-
-# object .
-sub _jm_obj_2($$$)
-{
-    my ($val, $path, $rep) = @_;
+    # .
     # check close must only props
     if (! jm_is_object($val))
     {
@@ -236,16 +216,6 @@ sub _jm_obj_2($$$)
     return 1;
 }
 
-# check $ (.)
-sub json_model_1($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .
-    $res = _jm_obj_2($val, $path, $rep);
-    return $res;
-}
-
 
 # initialization of global variables
 
@@ -257,10 +227,10 @@ sub check_model_init()
     {
         $initialized = 1;
         %check_model_map = (
-            '' => \&_jm_obj_2,
+            '' => \&json_model_1,
             't' => \&json_model_2,
-            'r' => \&_jm_obj_0,
-            'z' => \&_jm_obj_1,
+            'r' => \&json_model_5,
+            'z' => \&json_model_4,
         );
     }
 }

@@ -22,8 +22,10 @@ def check_model(val: Jsonable, name: str = "", rep: Report = None) -> bool:
 
 check_model_map: PropMap
 
-# object .
-def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
+# check $ (.)
+def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
+    # Recursion test 03
+    # .
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.]", path))
         return False
@@ -35,7 +37,7 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
             # handle may foo property
             # .foo
             # .foo.'|'.0
-            res = _jm_obj_0(pval, lpath_0 if path is not None else None, rep)
+            res = json_model_1(pval, lpath_0 if path is not None else None, rep)
             if not res:
                 rep is None or rep.append(("unexpected $root [.foo.'|'.0]", lpath_0 if path is not None else None))
             if not res:
@@ -45,7 +47,7 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
                     for arr_0_idx, arr_0_item in enumerate(pval):
                         arr_0_lpath: Path = ((lpath_0 if path is not None else None) + [ arr_0_idx ]) if (lpath_0 if path is not None else None) is not None else None
                         # .foo.'|'.1.0
-                        res = _jm_obj_0(arr_0_item, arr_0_lpath if (lpath_0 if path is not None else None) is not None else None, rep)
+                        res = json_model_1(arr_0_item, arr_0_lpath if (lpath_0 if path is not None else None) is not None else None, rep)
                         if not res:
                             rep is None or rep.append(("unexpected $root [.foo.'|'.1.0]", arr_0_lpath if (lpath_0 if path is not None else None) is not None else None))
                             break
@@ -62,16 +64,6 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
             return False
     return True
 
-# check $ (.)
-def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # Recursion test 03
-    # .
-    res = _jm_obj_0(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected element [.]", path))
-    return res
-
 
 # initialization guard
 initialized: bool = False
@@ -83,8 +75,8 @@ def check_model_init():
         initialized = True
         global check_model_map
         check_model_map = {
-            "": _jm_obj_0,
-            "root": _jm_obj_0,
+            "": json_model_1,
+            "root": json_model_1,
         }
 
 # differed module cleanup

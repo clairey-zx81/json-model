@@ -214,8 +214,8 @@ EXPECT: dict[str, int] = {
     "mv-24:values": 127,
     # mv-25
     "mv-25:cmp-opts": {"report": False},
-    "mv-25:models": 6,
-    "mv-25:values": 90,
+    "mv-25:models": 7,
+    "mv-25:values": 112,
     "mv-25:verrors:schema": 4,
     # miscellaneous tests
     "bads:models": 58,

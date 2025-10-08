@@ -14,26 +14,17 @@ use constant JMC_VERSION => '2';
 sub json_model_2($$$);
 sub json_model_3($$$);
 sub json_model_4($$$);
-sub _jm_obj_0($$$);
 sub json_model_5($$$);
-sub _jm_obj_1($$$);
 sub json_model_6($$$);
-sub _jm_obj_2($$$);
 sub json_model_7($$$);
-sub _jm_obj_3($$$);
 sub json_model_8($$$);
-sub _jm_obj_4($$$);
 sub json_model_9($$$);
-sub _jm_obj_5($$$);
 sub json_model_10($$$);
 my %_jm_map_0;
 sub json_model_11($$$);
-sub _jm_obj_6($$$);
 sub json_model_12($$$);
-sub _jm_obj_8($$$);
-sub _jm_obj_7($$$);
+sub _jm_obj_0($$$);
 sub json_model_13($$$);
-sub _jm_obj_9($$$);
 sub json_model_14($$$);
 sub json_model_1($$$);
 my %check_model_map;
@@ -125,10 +116,11 @@ sub json_model_4($$$)
     return $res;
 }
 
-# object .'$Point'
-sub _jm_obj_0($$$)
+# check $Point (.'$Point')
+sub json_model_5($$$)
 {
     my ($val, $path, $rep) = @_;
+    # .'$Point'
     # check open must/may only props
     if (! jm_is_object($val))
     {
@@ -184,20 +176,11 @@ sub _jm_obj_0($$$)
     return 1;
 }
 
-# check $Point (.'$Point')
-sub json_model_5($$$)
+# check $MultiPoint (.'$MultiPoint')
+sub json_model_6($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$Point'
-    $res = _jm_obj_0($val, $path, $rep);
-    return $res;
-}
-
-# object .'$MultiPoint'
-sub _jm_obj_1($$$)
-{
-    my ($val, $path, $rep) = @_;
+    # .'$MultiPoint'
     # check open must/may only props
     if (! jm_is_object($val))
     {
@@ -266,20 +249,11 @@ sub _jm_obj_1($$$)
     return 1;
 }
 
-# check $MultiPoint (.'$MultiPoint')
-sub json_model_6($$$)
+# check $LineString (.'$LineString')
+sub json_model_7($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$MultiPoint'
-    $res = _jm_obj_1($val, $path, $rep);
-    return $res;
-}
-
-# object .'$LineString'
-sub _jm_obj_2($$$)
-{
-    my ($val, $path, $rep) = @_;
+    # .'$LineString'
     # check open must/may only props
     if (! jm_is_object($val))
     {
@@ -335,20 +309,11 @@ sub _jm_obj_2($$$)
     return 1;
 }
 
-# check $LineString (.'$LineString')
-sub json_model_7($$$)
+# check $MultiLineString (.'$MultiLineString')
+sub json_model_8($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$LineString'
-    $res = _jm_obj_2($val, $path, $rep);
-    return $res;
-}
-
-# object .'$MultiLineString'
-sub _jm_obj_3($$$)
-{
-    my ($val, $path, $rep) = @_;
+    # .'$MultiLineString'
     # check open must/may only props
     if (! jm_is_object($val))
     {
@@ -417,20 +382,11 @@ sub _jm_obj_3($$$)
     return 1;
 }
 
-# check $MultiLineString (.'$MultiLineString')
-sub json_model_8($$$)
+# check $Polygon (.'$Polygon')
+sub json_model_9($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$MultiLineString'
-    $res = _jm_obj_3($val, $path, $rep);
-    return $res;
-}
-
-# object .'$Polygon'
-sub _jm_obj_4($$$)
-{
-    my ($val, $path, $rep) = @_;
+    # .'$Polygon'
     # check open must/may only props
     if (! jm_is_object($val))
     {
@@ -499,20 +455,11 @@ sub _jm_obj_4($$$)
     return 1;
 }
 
-# check $Polygon (.'$Polygon')
-sub json_model_9($$$)
+# check $MultiPolygon (.'$MultiPolygon')
+sub json_model_10($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$Polygon'
-    $res = _jm_obj_4($val, $path, $rep);
-    return $res;
-}
-
-# object .'$MultiPolygon'
-sub _jm_obj_5($$$)
-{
-    my ($val, $path, $rep) = @_;
+    # .'$MultiPolygon'
     # check open must/may only props
     if (! jm_is_object($val))
     {
@@ -594,16 +541,6 @@ sub _jm_obj_5($$$)
     return 1;
 }
 
-# check $MultiPolygon (.'$MultiPolygon')
-sub json_model_10($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$MultiPolygon'
-    $res = _jm_obj_5($val, $path, $rep);
-    return $res;
-}
-
 
 # check $geometry (.'$geometry')
 sub json_model_11($$$)
@@ -636,10 +573,11 @@ sub json_model_11($$$)
     return $res;
 }
 
-# object .'$GeometryCollection'
-sub _jm_obj_6($$$)
+# check $GeometryCollection (.'$GeometryCollection')
+sub json_model_12($$$)
 {
     my ($val, $path, $rep) = @_;
+    # .'$GeometryCollection'
     # check open must/may only props
     if (! jm_is_object($val))
     {
@@ -708,18 +646,8 @@ sub _jm_obj_6($$$)
     return 1;
 }
 
-# check $GeometryCollection (.'$GeometryCollection')
-sub json_model_12($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$GeometryCollection'
-    $res = _jm_obj_6($val, $path, $rep);
-    return $res;
-}
-
 # object .'$Feature'.properties.'|'.1
-sub _jm_obj_8($$$)
+sub _jm_obj_0($$$)
 {
     my ($val, $path, $rep) = @_;
     if (! jm_is_object($val))
@@ -730,10 +658,11 @@ sub _jm_obj_8($$$)
     return 1;
 }
 
-# object .'$Feature'
-sub _jm_obj_7($$$)
+# check $Feature (.'$Feature')
+sub json_model_13($$$)
 {
     my ($val, $path, $rep) = @_;
+    # .'$Feature'
     # check open must/may only props
     if (! jm_is_object($val))
     {
@@ -767,7 +696,7 @@ sub _jm_obj_7($$$)
         if (! $res)
         {
             # .'$Feature'.geometry.'|'.2
-            $res = _jm_obj_6($pval, undef, $rep);
+            $res = json_model_12($pval, undef, $rep);
         }
     }
     if (! $res)
@@ -785,7 +714,7 @@ sub _jm_obj_7($$$)
     if (! $res)
     {
         # .'$Feature'.properties.'|'.1
-        $res = _jm_obj_8($pval, undef, $rep);
+        $res = _jm_obj_0($pval, undef, $rep);
     }
     if (! $res)
     {
@@ -833,20 +762,11 @@ sub _jm_obj_7($$$)
     return 1;
 }
 
-# check $Feature (.'$Feature')
-sub json_model_13($$$)
+# check $FeatureCollection (.'$FeatureCollection')
+sub json_model_14($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$Feature'
-    $res = _jm_obj_7($val, $path, $rep);
-    return $res;
-}
-
-# object .'$FeatureCollection'
-sub _jm_obj_9($$$)
-{
-    my ($val, $path, $rep) = @_;
+    # .'$FeatureCollection'
     # check open must/may only props
     if (! jm_is_object($val))
     {
@@ -878,7 +798,7 @@ sub _jm_obj_9($$$)
         {
             my $arr_17_item = $$pval[$arr_17_idx];
             # .'$FeatureCollection'.features.0
-            $res = _jm_obj_7($arr_17_item, undef, $rep);
+            $res = json_model_13($arr_17_item, undef, $rep);
             if (! $res)
             {
                 last;
@@ -915,16 +835,6 @@ sub _jm_obj_9($$$)
     return 1;
 }
 
-# check $FeatureCollection (.'$FeatureCollection')
-sub json_model_14($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$FeatureCollection'
-    $res = _jm_obj_9($val, $path, $rep);
-    return $res;
-}
-
 # check $ (.)
 sub json_model_1($$$)
 {
@@ -942,7 +852,7 @@ sub json_model_1($$$)
         $xc_0++;
     }
     # .'^'.1
-    $xr_0 = _jm_obj_6($val, $path, $rep);
+    $xr_0 = json_model_12($val, $path, $rep);
     if ($xr_0)
     {
         $xc_0++;
@@ -950,7 +860,7 @@ sub json_model_1($$$)
     if ($xc_0 <= 1)
     {
         # .'^'.2
-        $xr_0 = _jm_obj_7($val, $path, $rep);
+        $xr_0 = json_model_13($val, $path, $rep);
         if ($xr_0)
         {
             $xc_0++;
@@ -959,7 +869,7 @@ sub json_model_1($$$)
     if ($xc_0 <= 1)
     {
         # .'^'.3
-        $xr_0 = _jm_obj_9($val, $path, $rep);
+        $xr_0 = json_model_14($val, $path, $rep);
         if ($xr_0)
         {
             $xc_0++;
@@ -980,28 +890,28 @@ sub check_model_init()
     {
         $initialized = 1;
         %_jm_map_0 = (
-            'Point' => \&_jm_obj_0,
-            'MultiPoint' => \&_jm_obj_1,
-            'LineString' => \&_jm_obj_2,
-            'MultiLineString' => \&_jm_obj_3,
-            'Polygon' => \&_jm_obj_4,
-            'MultiPolygon' => \&_jm_obj_5,
+            'Point' => \&json_model_5,
+            'MultiPoint' => \&json_model_6,
+            'LineString' => \&json_model_7,
+            'MultiLineString' => \&json_model_8,
+            'Polygon' => \&json_model_9,
+            'MultiPolygon' => \&json_model_10,
         );
         %check_model_map = (
             '' => \&json_model_1,
             'position' => \&json_model_2,
             'coord_array' => \&json_model_3,
             'linear_ring' => \&json_model_4,
-            'Point' => \&_jm_obj_0,
-            'MultiPoint' => \&_jm_obj_1,
-            'LineString' => \&_jm_obj_2,
-            'MultiLineString' => \&_jm_obj_3,
-            'Polygon' => \&_jm_obj_4,
-            'MultiPolygon' => \&_jm_obj_5,
+            'Point' => \&json_model_5,
+            'MultiPoint' => \&json_model_6,
+            'LineString' => \&json_model_7,
+            'MultiLineString' => \&json_model_8,
+            'Polygon' => \&json_model_9,
+            'MultiPolygon' => \&json_model_10,
             'geometry' => \&json_model_11,
-            'GeometryCollection' => \&_jm_obj_6,
-            'Feature' => \&_jm_obj_7,
-            'FeatureCollection' => \&_jm_obj_9,
+            'GeometryCollection' => \&json_model_12,
+            'Feature' => \&json_model_13,
+            'FeatureCollection' => \&json_model_14,
         );
     }
 }

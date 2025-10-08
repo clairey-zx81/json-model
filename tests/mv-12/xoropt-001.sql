@@ -89,14 +89,15 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- object .'$Oo'
-CREATE OR REPLACE FUNCTION _jm_obj_0(val JSONB, path TEXT[], rep jm_report_entry[])
+-- check $Oo (.'$Oo')
+CREATE OR REPLACE FUNCTION json_model_8(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
   prop TEXT;
   pval JSONB;
 BEGIN
+  -- .'$Oo'
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
@@ -109,18 +110,6 @@ BEGIN
     END IF;
   END LOOP;
   RETURN TRUE;
-END;
-$$ LANGUAGE PLpgSQL;
-
--- check $Oo (.'$Oo')
-CREATE OR REPLACE FUNCTION json_model_8(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .'$Oo'
-  res := _jm_obj_0(val, path, rep);
-  RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -150,7 +139,7 @@ BEGIN
             res := json_model_7(val, path, rep);
             IF NOT res THEN
               -- .'$Any'.'|'.6
-              res := _jm_obj_0(val, path, rep);
+              res := json_model_8(val, path, rep);
             END IF;
           END IF;
         END IF;
@@ -176,7 +165,7 @@ $$ LANGUAGE PLpgSQL;
 CREATE OR REPLACE FUNCTION check_model_map(name TEXT)
 RETURNS TEXT STRICT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
-  map JSONB := JSONB '{"":"json_model_9","Nn":"json_model_2","Bb":"json_model_3","Ii":"json_model_4","Ff":"json_model_5","Ss":"json_model_6","Aa":"json_model_7","Oo":"_jm_obj_0","Any":"json_model_9"}';
+  map JSONB := JSONB '{"":"json_model_9","Nn":"json_model_2","Bb":"json_model_3","Ii":"json_model_4","Ff":"json_model_5","Ss":"json_model_6","Aa":"json_model_7","Oo":"json_model_8","Any":"json_model_9"}';
 BEGIN
   RETURN map->>name;
 END;

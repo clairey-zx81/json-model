@@ -5,13 +5,14 @@
 -- JSON_MODEL_VERSION is 2
 CREATE EXTENSION IF NOT EXISTS json_model;
 
--- object .'$Oa'
-CREATE OR REPLACE FUNCTION _jm_obj_0(val JSONB, path TEXT[], rep jm_report_entry[])
+-- check $Oa (.'$Oa')
+CREATE OR REPLACE FUNCTION json_model_2(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   pval JSONB;
   res bool;
 BEGIN
+  -- .'$Oa'
   -- check open must/may only props
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
@@ -28,25 +29,14 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check $Oa (.'$Oa')
-CREATE OR REPLACE FUNCTION json_model_2(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .'$Oa'
-  res := _jm_obj_0(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
--- object .'$Ob'
-CREATE OR REPLACE FUNCTION _jm_obj_1(val JSONB, path TEXT[], rep jm_report_entry[])
+-- check $Ob (.'$Ob')
+CREATE OR REPLACE FUNCTION json_model_3(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   pval JSONB;
   res bool;
 BEGIN
+  -- .'$Ob'
   -- check open must/may only props
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
@@ -63,25 +53,14 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check $Ob (.'$Ob')
-CREATE OR REPLACE FUNCTION json_model_3(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .'$Ob'
-  res := _jm_obj_1(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
--- object .'$merge'
-CREATE OR REPLACE FUNCTION _jm_obj_2(val JSONB, path TEXT[], rep jm_report_entry[])
+-- check $merge (.'$merge')
+CREATE OR REPLACE FUNCTION json_model_4(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   pval JSONB;
   res bool;
 BEGIN
+  -- .'$merge'
   -- check open must/may only props
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
@@ -106,20 +85,8 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check $merge (.'$merge')
-CREATE OR REPLACE FUNCTION json_model_4(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .'$merge'
-  res := _jm_obj_2(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
 -- object .'$nomerge'.'&'.1
-CREATE OR REPLACE FUNCTION _jm_obj_3(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_obj_0(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   pval JSONB;
@@ -155,10 +122,10 @@ BEGIN
   res := TRUE;
   IF res THEN
     -- .'$nomerge'.'&'.0
-    res := _jm_obj_0(val, path, rep);
+    res := json_model_2(val, path, rep);
     IF res THEN
       -- .'$nomerge'.'&'.1
-      res := _jm_obj_3(val, path, rep);
+      res := _jm_obj_0(val, path, rep);
     END IF;
   END IF;
   RETURN res;
@@ -173,7 +140,7 @@ DECLARE
 BEGIN
   -- .
   -- .'|'.0
-  res := _jm_obj_2(val, path, rep);
+  res := json_model_4(val, path, rep);
   IF NOT res THEN
     -- .'|'.1
     res := json_model_5(val, path, rep);
@@ -185,7 +152,7 @@ $$ LANGUAGE PLpgSQL;
 CREATE OR REPLACE FUNCTION check_model_map(name TEXT)
 RETURNS TEXT STRICT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
-  map JSONB := JSONB '{"":"json_model_1","Oa":"_jm_obj_0","Ob":"_jm_obj_1","merge":"_jm_obj_2","nomerge":"json_model_5"}';
+  map JSONB := JSONB '{"":"json_model_1","Oa":"json_model_2","Ob":"json_model_3","merge":"json_model_4","nomerge":"json_model_5"}';
 BEGIN
   RETURN map->>name;
 END;

@@ -15,7 +15,6 @@ sub json_model_5($$$);
 sub json_model_3($$$);
 sub json_model_4($$$);
 sub json_model_1($$$);
-sub _jm_obj_0($$$);
 sub json_model_6($$$);
 my %check_model_map;
 
@@ -25,7 +24,7 @@ sub json_model_5($$$)
     my ($val, $path, $rep) = @_;
     my $res;
     # .'$Zz'
-    $res = _jm_obj_0($val, $path, $rep);
+    $res = json_model_6($val, $path, $rep);
     return $res;
 }
 
@@ -35,7 +34,7 @@ sub json_model_3($$$)
     my ($val, $path, $rep) = @_;
     my $res;
     # .'$z'
-    $res = _jm_obj_0($val, $path, $rep);
+    $res = json_model_6($val, $path, $rep);
     return $res;
 }
 
@@ -52,7 +51,7 @@ sub json_model_4($$$)
         {
             my $arr_0_item = $$val[$arr_0_idx];
             # .'$l'.0
-            $res = _jm_obj_0($arr_0_item, undef, $rep);
+            $res = json_model_6($arr_0_item, undef, $rep);
             if (! $res)
             {
                 last;
@@ -72,10 +71,11 @@ sub json_model_1($$$)
     return $res;
 }
 
-# object .'$Zz#zero'
-sub _jm_obj_0($$$)
+# check $Zz#zero (.'$Zz#zero')
+sub json_model_6($$$)
 {
     my ($val, $path, $rep) = @_;
+    # .'$Zz#zero'
     # check close must only props
     if (! jm_is_object($val))
     {
@@ -112,16 +112,6 @@ sub _jm_obj_0($$$)
     return 1;
 }
 
-# check $Zz#zero (.'$Zz#zero')
-sub json_model_6($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$Zz#zero'
-    $res = _jm_obj_0($val, $path, $rep);
-    return $res;
-}
-
 
 # initialization of global variables
 
@@ -134,8 +124,8 @@ sub check_model_init()
         $initialized = 1;
         %check_model_map = (
             '' => \&json_model_4,
-            'Zz' => \&_jm_obj_0,
-            'z' => \&_jm_obj_0,
+            'Zz' => \&json_model_6,
+            'z' => \&json_model_6,
             'l' => \&json_model_4,
         );
     }

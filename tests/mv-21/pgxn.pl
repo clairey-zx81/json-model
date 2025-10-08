@@ -16,12 +16,10 @@ sub json_model_3($$$);
 my %_jm_cst_0;
 sub json_model_4($$$);
 sub json_model_5($$$);
-sub _jm_obj_0($$$);
 sub json_model_6($$$);
 my %_jm_cst_1;
 sub json_model_7($$$);
-sub _jm_obj_2($$$);
-sub _jm_obj_3($$$);
+sub _jm_obj_0($$$);
 sub _jm_obj_1($$$);
 sub json_model_8($$$);
 sub json_model_9($$$);
@@ -32,33 +30,27 @@ my %_jm_cst_2;
 sub json_model_13($$$);
 my %_jm_cst_3;
 sub json_model_14($$$);
-sub _jm_obj_4($$$);
 sub json_model_15($$$);
-sub _jm_obj_6($$$);
-sub _jm_obj_5($$$);
+sub _jm_obj_2($$$);
 sub json_model_16($$$);
 sub _jm_f_0($$$);
-sub _jm_obj_8($$$);
+sub _jm_obj_3($$$);
 sub _jm_f_1($$$);
 sub _jm_f_2($$$);
-sub _jm_obj_9($$$);
 sub _jm_f_3($$$);
 sub _jm_f_4($$$);
-sub _jm_obj_10($$$);
 sub _jm_f_5($$$);
 sub _jm_f_6($$$);
-my %_jm_obj_7_mup;
+my %json_model_1_mup;
 sub _jm_f_7($$$);
 sub _jm_f_8($$$);
-sub _jm_obj_11($$$);
 sub _jm_f_9($$$);
 sub _jm_f_10($$$);
 sub _jm_f_11($$$);
 sub _jm_f_12($$$);
 sub _jm_f_13($$$);
 sub _jm_f_14($$$);
-my %_jm_obj_7_map;
-sub _jm_obj_7($$$);
+my %json_model_1_map;
 sub json_model_1($$$);
 my %check_model_map;
 
@@ -156,10 +148,11 @@ sub _jm_re_1($$$)
     return $res;
 }
 
-# object .'$Provide'
-sub _jm_obj_0($$$)
+# check $Provide (.'$Provide')
+sub json_model_6($$$)
 {
     my ($val, $path, $rep) = @_;
+    # .'$Provide'
     if (! jm_is_object($val))
     {
         return 0;
@@ -233,16 +226,6 @@ sub _jm_obj_0($$$)
     return 1;
 }
 
-# check $Provide (.'$Provide')
-sub json_model_6($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$Provide'
-    $res = _jm_obj_0($val, $path, $rep);
-    return $res;
-}
-
 
 # check $Status (.'$Status')
 sub json_model_7($$$)
@@ -255,7 +238,7 @@ sub json_model_7($$$)
 }
 
 # object .'$Resources'.bugtracker
-sub _jm_obj_2($$$)
+sub _jm_obj_0($$$)
 {
     my ($val, $path, $rep) = @_;
     if (! jm_is_object($val))
@@ -305,7 +288,7 @@ sub _jm_obj_2($$$)
 }
 
 # object .'$Resources'.repository
-sub _jm_obj_3($$$)
+sub _jm_obj_1($$$)
 {
     my ($val, $path, $rep) = @_;
     if (! jm_is_object($val))
@@ -355,10 +338,11 @@ sub _jm_obj_3($$$)
     return 1;
 }
 
-# object .'$Resources'
-sub _jm_obj_1($$$)
+# check $Resources (.'$Resources')
+sub json_model_8($$$)
 {
     my ($val, $path, $rep) = @_;
+    # .'$Resources'
     if (! jm_is_object($val))
     {
         return 0;
@@ -381,7 +365,7 @@ sub _jm_obj_1($$$)
         {
             # handle may bugtracker property
             # .'$Resources'.bugtracker
-            $res = _jm_obj_2($pval, undef, $rep);
+            $res = _jm_obj_0($pval, undef, $rep);
             if (! $res)
             {
                 return 0;
@@ -391,7 +375,7 @@ sub _jm_obj_1($$$)
         {
             # handle may repository property
             # .'$Resources'.repository
-            $res = _jm_obj_3($pval, undef, $rep);
+            $res = _jm_obj_1($pval, undef, $rep);
             if (! $res)
             {
                 return 0;
@@ -403,16 +387,6 @@ sub _jm_obj_1($$$)
         }
     }
     return 1;
-}
-
-# check $Resources (.'$Resources')
-sub json_model_8($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$Resources'
-    $res = _jm_obj_1($val, $path, $rep);
-    return $res;
 }
 
 sub _jm_re_2($$$)
@@ -507,10 +481,11 @@ sub json_model_14($$$)
     return $res;
 }
 
-# object .'$Prereq'
-sub _jm_obj_4($$$)
+# check $Prereq (.'$Prereq')
+sub json_model_15($$$)
 {
     my ($val, $path, $rep) = @_;
+    # .'$Prereq'
     if (! jm_is_object($val))
     {
         return 0;
@@ -536,18 +511,8 @@ sub _jm_obj_4($$$)
     return 1;
 }
 
-# check $Prereq (.'$Prereq')
-sub json_model_15($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$Prereq'
-    $res = _jm_obj_4($val, $path, $rep);
-    return $res;
-}
-
 # object .'$Prereqs'.'$Phase'
-sub _jm_obj_6($$$)
+sub _jm_obj_2($$$)
 {
     my ($val, $path, $rep) = @_;
     if (! jm_is_object($val))
@@ -562,7 +527,7 @@ sub _jm_obj_6($$$)
         {
             # handle 1 key props
             # .'$Prereqs'.'$Phase'.'$Relation'
-            $res = _jm_obj_4($pval, undef, $rep);
+            $res = json_model_15($pval, undef, $rep);
             if (! $res)
             {
                 return 0;
@@ -586,10 +551,11 @@ sub _jm_obj_6($$$)
     return 1;
 }
 
-# object .'$Prereqs'
-sub _jm_obj_5($$$)
+# check $Prereqs (.'$Prereqs')
+sub json_model_16($$$)
 {
     my ($val, $path, $rep) = @_;
+    # .'$Prereqs'
     if (! jm_is_object($val))
     {
         return 0;
@@ -602,7 +568,7 @@ sub _jm_obj_5($$$)
         {
             # handle 1 key props
             # .'$Prereqs'.'$Phase'
-            $res = _jm_obj_6($pval, undef, $rep);
+            $res = _jm_obj_2($pval, undef, $rep);
             if (! $res)
             {
                 return 0;
@@ -626,17 +592,7 @@ sub _jm_obj_5($$$)
     return 1;
 }
 
-# check $Prereqs (.'$Prereqs')
-sub json_model_16($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$Prereqs'
-    $res = _jm_obj_5($val, $path, $rep);
-    return $res;
-}
-
-# check _jm_obj_7_mup_abstract (.abstract)
+# check json_model_1_mup_abstract (.abstract)
 sub _jm_f_0($$$)
 {
     my ($val, $path, $rep) = @_;
@@ -647,7 +603,7 @@ sub _jm_f_0($$$)
 }
 
 # object .license.'^'.2
-sub _jm_obj_8($$$)
+sub _jm_obj_3($$$)
 {
     my ($val, $path, $rep) = @_;
     if (! jm_is_object($val))
@@ -669,7 +625,7 @@ sub _jm_obj_8($$$)
     return 1;
 }
 
-# check _jm_obj_7_mup_license (.license)
+# check json_model_1_mup_license (.license)
 sub _jm_f_1($$$)
 {
     my ($val, $path, $rep) = @_;
@@ -693,7 +649,7 @@ sub _jm_f_1($$$)
     if ($xc_0 <= 1)
     {
         # .license.'^'.2
-        $xr_0 = _jm_obj_8($val, $path, $rep);
+        $xr_0 = _jm_obj_3($val, $path, $rep);
         if ($xr_0)
         {
             $xc_0++;
@@ -703,7 +659,7 @@ sub _jm_f_1($$$)
     return $res;
 }
 
-# check _jm_obj_7_mup_maintainer (.maintainer)
+# check json_model_1_mup_maintainer (.maintainer)
 sub _jm_f_2($$$)
 {
     my ($val, $path, $rep) = @_;
@@ -719,10 +675,11 @@ sub _jm_f_2($$$)
     return $res;
 }
 
-# object .'meta-spec'
-sub _jm_obj_9($$$)
+# check json_model_1_mup_meta-spec (.'meta-spec')
+sub _jm_f_3($$$)
 {
     my ($val, $path, $rep) = @_;
+    # .'meta-spec'
     if (! jm_is_object($val))
     {
         return 0;
@@ -775,17 +732,7 @@ sub _jm_obj_9($$$)
     return 1;
 }
 
-# check _jm_obj_7_mup_meta-spec (.'meta-spec')
-sub _jm_f_3($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'meta-spec'
-    $res = _jm_obj_9($val, $path, $rep);
-    return $res;
-}
-
-# check _jm_obj_7_mup_name (.name)
+# check json_model_1_mup_name (.name)
 sub _jm_f_4($$$)
 {
     my ($val, $path, $rep) = @_;
@@ -795,10 +742,11 @@ sub _jm_f_4($$$)
     return $res;
 }
 
-# object .provides
-sub _jm_obj_10($$$)
+# check json_model_1_mup_provides (.provides)
+sub _jm_f_5($$$)
 {
     my ($val, $path, $rep) = @_;
+    # .provides
     if (! jm_is_object($val))
     {
         return 0;
@@ -809,7 +757,7 @@ sub _jm_obj_10($$$)
     {
         # handle other props
         # .provides.''
-        $res = _jm_obj_0($pval, undef, $rep);
+        $res = json_model_6($pval, undef, $rep);
         if (! $res)
         {
             return 0;
@@ -818,17 +766,7 @@ sub _jm_obj_10($$$)
     return 1;
 }
 
-# check _jm_obj_7_mup_provides (.provides)
-sub _jm_f_5($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .provides
-    $res = _jm_obj_10($val, $path, $rep);
-    return $res;
-}
-
-# check _jm_obj_7_mup_version (.version)
+# check json_model_1_mup_version (.version)
 sub _jm_f_6($$$)
 {
     my ($val, $path, $rep) = @_;
@@ -839,7 +777,7 @@ sub _jm_f_6($$$)
 }
 
 
-# check _jm_obj_7_map_description (.description)
+# check json_model_1_map_description (.description)
 sub _jm_f_7($$$)
 {
     my ($val, $path, $rep) = @_;
@@ -849,7 +787,7 @@ sub _jm_f_7($$$)
     return $res;
 }
 
-# check _jm_obj_7_map_generated_by (.generated_by)
+# check json_model_1_map_generated_by (.generated_by)
 sub _jm_f_8($$$)
 {
     my ($val, $path, $rep) = @_;
@@ -859,10 +797,11 @@ sub _jm_f_8($$$)
     return $res;
 }
 
-# object .no_index
-sub _jm_obj_11($$$)
+# check json_model_1_map_no_index (.no_index)
+sub _jm_f_9($$$)
 {
     my ($val, $path, $rep) = @_;
+    # .no_index
     if (! jm_is_object($val))
     {
         return 0;
@@ -899,27 +838,17 @@ sub _jm_obj_11($$$)
     return 1;
 }
 
-# check _jm_obj_7_map_no_index (.no_index)
-sub _jm_f_9($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .no_index
-    $res = _jm_obj_11($val, $path, $rep);
-    return $res;
-}
-
-# check _jm_obj_7_map_prereqs (.prereqs)
+# check json_model_1_map_prereqs (.prereqs)
 sub _jm_f_10($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
     # .prereqs
-    $res = _jm_obj_5($val, $path, $rep);
+    $res = json_model_16($val, $path, $rep);
     return $res;
 }
 
-# check _jm_obj_7_map_release_status (.release_status)
+# check json_model_1_map_release_status (.release_status)
 sub _jm_f_11($$$)
 {
     my ($val, $path, $rep) = @_;
@@ -929,17 +858,17 @@ sub _jm_f_11($$$)
     return $res;
 }
 
-# check _jm_obj_7_map_resources (.resources)
+# check json_model_1_map_resources (.resources)
 sub _jm_f_12($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
     # .resources
-    $res = _jm_obj_1($val, $path, $rep);
+    $res = json_model_8($val, $path, $rep);
     return $res;
 }
 
-# check _jm_obj_7_map_tags (.tags)
+# check json_model_1_map_tags (.tags)
 sub _jm_f_13($$$)
 {
     my ($val, $path, $rep) = @_;
@@ -949,7 +878,7 @@ sub _jm_f_13($$$)
     return $res;
 }
 
-# check _jm_obj_7_map_url (.url)
+# check json_model_1_map_url (.url)
 sub _jm_f_14($$$)
 {
     my ($val, $path, $rep) = @_;
@@ -960,10 +889,11 @@ sub _jm_f_14($$$)
 }
 
 
-# object .
-sub _jm_obj_7($$$)
+# check $ (.)
+sub json_model_1($$$)
 {
     my ($val, $path, $rep) = @_;
+    # .
     if (! jm_is_object($val))
     {
         return 0;
@@ -974,7 +904,7 @@ sub _jm_obj_7($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if (($pfun = $_jm_obj_7_mup{$prop}))
+        if (($pfun = $json_model_1_mup{$prop}))
         {
             # handle 7 mandatory props
             if (defined($pfun))
@@ -986,7 +916,7 @@ sub _jm_obj_7($$$)
                 }
             }
         }
-        elsif (($pfun = $_jm_obj_7_map{$prop}))
+        elsif (($pfun = $json_model_1_map{$prop}))
         {
             # handle 8 may props
             if (defined($pfun) && ! &$pfun($pval, undef, $rep))
@@ -1014,16 +944,6 @@ sub _jm_obj_7($$$)
         return 0;
     }
     return 1;
-}
-
-# check $ (.)
-sub json_model_1($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .
-    $res = _jm_obj_7($val, $path, $rep);
-    return $res;
 }
 
 
@@ -1084,7 +1004,7 @@ sub check_model_init()
             'suggests' => 1,
             'conflicts' => 1,
         );
-        %_jm_obj_7_mup = (
+        %json_model_1_mup = (
             'abstract' => \&_jm_f_0,
             'license' => \&_jm_f_1,
             'maintainer' => \&_jm_f_2,
@@ -1093,7 +1013,7 @@ sub check_model_init()
             'provides' => \&_jm_f_5,
             'version' => \&_jm_f_6,
         );
-        %_jm_obj_7_map = (
+        %json_model_1_map = (
             'description' => \&_jm_f_7,
             'generated_by' => \&_jm_f_8,
             'no_index' => \&_jm_f_9,
@@ -1104,22 +1024,22 @@ sub check_model_init()
             'url' => \&_jm_f_14,
         );
         %check_model_map = (
-            '' => \&_jm_obj_7,
+            '' => \&json_model_1,
             'neStr' => \&json_model_2,
             'neStrList' => \&json_model_3,
             'License' => \&json_model_4,
             'LicenseList' => \&json_model_5,
-            'Provide' => \&_jm_obj_0,
+            'Provide' => \&json_model_6,
             'Status' => \&json_model_7,
-            'Resources' => \&_jm_obj_1,
+            'Resources' => \&json_model_8,
             'SemVer' => \&json_model_9,
             'Version' => \&json_model_10,
             'Ops' => \&json_model_11,
             'VersionRange' => \&json_model_12,
             'Phase' => \&json_model_13,
             'Relation' => \&json_model_14,
-            'Prereq' => \&_jm_obj_4,
-            'Prereqs' => \&_jm_obj_5,
+            'Prereq' => \&json_model_15,
+            'Prereqs' => \&json_model_16,
         );
     }
 }
@@ -1133,8 +1053,8 @@ sub check_model_free()
         %_jm_cst_1 = ();
         %_jm_cst_2 = ();
         %_jm_cst_3 = ();
-        %_jm_obj_7_mup = ();
-        %_jm_obj_7_map = ();
+        %json_model_1_mup = ();
+        %json_model_1_map = ();
         %check_model_map = ();
     }
 }

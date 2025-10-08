@@ -11,9 +11,10 @@ const JSON_MODEL_VERSION = "2";
 
 var check_model_map = new Map()
 
-// object .'$book'
-function _jm_obj_0(val, path, rep)
+// check $book (.'$book')
+function json_model_2(val, path, rep)
 {
+    // .'$book'
     // check close must only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
@@ -50,15 +51,6 @@ function _jm_obj_0(val, path, rep)
     return true;
 }
 
-// check $book (.'$book')
-function json_model_2(val, path, rep)
-{
-    let res;
-    // .'$book'
-    res = _jm_obj_0(val, path, rep);
-    return res;
-}
-
 // check $ (.)
 function json_model_1(val, path, rep)
 {
@@ -71,7 +63,7 @@ function json_model_1(val, path, rep)
         {
             let arr_0_item = val[arr_0_idx]
             // .0
-            res = _jm_obj_0(arr_0_item, null, rep);
+            res = json_model_2(arr_0_item, null, rep);
             if (! res)
             {
                 break;
@@ -92,7 +84,7 @@ export function check_model_init()
         initialized = true;
         runtime.jm_set_rx(RegExp)
         check_model_map.set("", json_model_1)
-        check_model_map.set("book", _jm_obj_0)
+        check_model_map.set("book", json_model_2)
     }
 }
 

@@ -11,19 +11,17 @@ use JSON::JsonModel;
 use constant JMC_VERSION => '2';
 
 
-sub _jm_obj_0($$$);
 sub json_model_2($$$);
-sub _jm_obj_1($$$);
 sub json_model_3($$$);
-sub _jm_obj_2($$$);
 sub json_model_4($$$);
 sub json_model_1($$$);
 my %check_model_map;
 
-# object .'$Oo0'
-sub _jm_obj_0($$$)
+# check $Oo0 (.'$Oo0')
+sub json_model_2($$$)
 {
     my ($val, $path, $rep) = @_;
+    # .'$Oo0'
     if (! jm_is_object($val))
     {
         return 0;
@@ -95,20 +93,11 @@ sub _jm_obj_0($$$)
     return 1;
 }
 
-# check $Oo0 (.'$Oo0')
-sub json_model_2($$$)
+# check $Oo1 (.'$Oo1')
+sub json_model_3($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$Oo0'
-    $res = _jm_obj_0($val, $path, $rep);
-    return $res;
-}
-
-# object .'$Oo1'
-sub _jm_obj_1($$$)
-{
-    my ($val, $path, $rep) = @_;
+    # .'$Oo1'
     if (! jm_is_object($val))
     {
         return 0;
@@ -181,20 +170,11 @@ sub _jm_obj_1($$$)
     return 1;
 }
 
-# check $Oo1 (.'$Oo1')
-sub json_model_3($$$)
+# check $Oo2 (.'$Oo2')
+sub json_model_4($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$Oo1'
-    $res = _jm_obj_1($val, $path, $rep);
-    return $res;
-}
-
-# object .'$Oo2'
-sub _jm_obj_2($$$)
-{
-    my ($val, $path, $rep) = @_;
+    # .'$Oo2'
     if (! jm_is_object($val))
     {
         return 0;
@@ -270,16 +250,6 @@ sub _jm_obj_2($$$)
     return 1;
 }
 
-# check $Oo2 (.'$Oo2')
-sub json_model_4($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$Oo2'
-    $res = _jm_obj_2($val, $path, $rep);
-    return $res;
-}
-
 # check $ (.)
 sub json_model_1($$$)
 {
@@ -287,15 +257,15 @@ sub json_model_1($$$)
     my $res;
     # .
     # .'|'.0
-    $res = _jm_obj_0($val, $path, $rep);
+    $res = json_model_2($val, $path, $rep);
     if (! $res)
     {
         # .'|'.1
-        $res = _jm_obj_1($val, $path, $rep);
+        $res = json_model_3($val, $path, $rep);
         if (! $res)
         {
             # .'|'.2
-            $res = _jm_obj_2($val, $path, $rep);
+            $res = json_model_4($val, $path, $rep);
         }
     }
     return $res;
@@ -313,9 +283,9 @@ sub check_model_init()
         $initialized = 1;
         %check_model_map = (
             '' => \&json_model_1,
-            'Oo0' => \&_jm_obj_0,
-            'Oo1' => \&_jm_obj_1,
-            'Oo2' => \&_jm_obj_2,
+            'Oo0' => \&json_model_2,
+            'Oo1' => \&json_model_3,
+            'Oo2' => \&json_model_4,
         );
     }
 }

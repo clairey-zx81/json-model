@@ -50,9 +50,10 @@ public class xoropt_015 extends ModelChecker
         return res;
     }
 
-    // object .'$Xx'
-    public boolean _jm_obj_0(Object val, Path path, Report rep)
+    // check $Xx (.'$Xx')
+    public boolean json_model_3(Object val, Path path, Report rep)
     {
+        // .'$Xx'
         // check close must only props
         if (! json.isObject(val))
         {
@@ -84,22 +85,10 @@ public class xoropt_015 extends ModelChecker
         return true;
     }
 
-    // check $Xx (.'$Xx')
-    public boolean json_model_3(Object val, Path path, Report rep)
+    // check $Yy (.'$Yy')
+    public boolean json_model_4(Object val, Path path, Report rep)
     {
-        boolean res;
-        // .'$Xx'
-        res = _jm_obj_0(val, path, rep);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected element [.'$Xx']", path);
-        }
-        return res;
-    }
-
-    // object .'$Yy'
-    public boolean _jm_obj_1(Object val, Path path, Report rep)
-    {
+        // .'$Yy'
         // check close must only props
         if (! json.isObject(val))
         {
@@ -131,21 +120,8 @@ public class xoropt_015 extends ModelChecker
         return true;
     }
 
-    // check $Yy (.'$Yy')
-    public boolean json_model_4(Object val, Path path, Report rep)
-    {
-        boolean res;
-        // .'$Yy'
-        res = _jm_obj_1(val, path, rep);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected element [.'$Yy']", path);
-        }
-        return res;
-    }
-
     // object .'$Ee'.'|'.1
-    public boolean _jm_obj_2(Object val, Path path, Report rep)
+    public boolean _jm_obj_0(Object val, Path path, Report rep)
     {
         if (! json.isObject(val))
         {
@@ -206,7 +182,7 @@ public class xoropt_015 extends ModelChecker
     }
 
     // object .'$Ee'.'|'.0
-    public boolean _jm_obj_3(Object val, Path path, Report rep)
+    public boolean _jm_obj_1(Object val, Path path, Report rep)
     {
         if (! json.isObject(val))
         {
@@ -279,7 +255,7 @@ public class xoropt_015 extends ModelChecker
         if (res)
         {
             // .'$Ee'.'|'.0
-            res = _jm_obj_3(val, path, rep);
+            res = _jm_obj_1(val, path, rep);
             if (! res)
             {
                 if (rep != null) rep.addEntry("unexpected element [.'$Ee'.'|'.0]", path);
@@ -287,7 +263,7 @@ public class xoropt_015 extends ModelChecker
             if (! res)
             {
                 // .'$Ee'.'|'.1
-                res = _jm_obj_2(val, path, rep);
+                res = _jm_obj_0(val, path, rep);
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected element [.'$Ee'.'|'.1]", path);
@@ -367,8 +343,8 @@ public class xoropt_015 extends ModelChecker
             xoropt_015_map_pmap = new HashMap<String, Checker>();
             xoropt_015_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_6(o, p, r);} });
             xoropt_015_map_pmap.put("Vv", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_2(o, p, r);} });
-            xoropt_015_map_pmap.put("Xx", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_0(o, p, r);} });
-            xoropt_015_map_pmap.put("Yy", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_1(o, p, r);} });
+            xoropt_015_map_pmap.put("Xx", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_3(o, p, r);} });
+            xoropt_015_map_pmap.put("Yy", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
             xoropt_015_map_pmap.put("Ee", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_5(o, p, r);} });
             xoropt_015_map_pmap.put("Mm", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_6(o, p, r);} });
                 super.init(json);

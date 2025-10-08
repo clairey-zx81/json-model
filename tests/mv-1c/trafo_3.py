@@ -49,7 +49,7 @@ def json_model_6(val: Jsonable, path: Path, rep: Report) -> bool:
         for arr_0_idx, arr_0_item in enumerate(val):
             arr_0_lpath: Path = (path + [ arr_0_idx ]) if path is not None else None
             # .'$Dd#l'.0
-            res = _jm_obj_0(arr_0_item, arr_0_lpath if path is not None else None, rep)
+            res = json_model_12(arr_0_item, arr_0_lpath if path is not None else None, rep)
             if not res:
                 rep is None or rep.append(("unexpected $u [.'$Dd#l'.0]", arr_0_lpath if path is not None else None))
                 break
@@ -61,13 +61,14 @@ def json_model_6(val: Jsonable, path: Path, rep: Report) -> bool:
 def json_model_10(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$Dd#u'
-    res = _jm_obj_0(val, path, rep)
+    res = json_model_12(val, path, rep)
     if not res:
         rep is None or rep.append(("unexpected $Uu#un [.'$Dd#u']", path))
     return res
 
-# object .'$Dd#Uu#un'
-def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
+# check $Dd#Uu#un (.'$Dd#Uu#un')
+def json_model_12(val: Jsonable, path: Path, rep: Report) -> bool:
+    # .'$Dd#Uu#un'
     # check close must only props
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$Dd#Uu#un']", path))
@@ -99,15 +100,6 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("unexpected value for mandatory prop <ub> [.'$Dd#Uu#un']", lpath if path is not None else None))
         return False
     return True
-
-# check $Dd#Uu#un (.'$Dd#Uu#un')
-def json_model_12(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .'$Dd#Uu#un'
-    res = _jm_obj_0(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected element [.'$Dd#Uu#un']", path))
-    return res
 
 
 # initialization guard

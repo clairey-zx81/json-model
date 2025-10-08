@@ -16,7 +16,7 @@ function json_model_3(val, path, rep)
 {
     let res;
     // .'$over'
-    res = _jm_obj_0(val, path, rep);
+    res = json_model_4(val, path, rep);
     if (! res)
     {
         rep !== null && rep.push(["unexpected $Foo [.'$over']", path])
@@ -29,7 +29,7 @@ function json_model_1(val, path, rep)
 {
     let res;
     // .
-    res = _jm_obj_0(val, path, rep);
+    res = json_model_4(val, path, rep);
     if (! res)
     {
         rep !== null && rep.push(["unexpected $over#Foo [.]", path])
@@ -37,9 +37,10 @@ function json_model_1(val, path, rep)
     return res;
 }
 
-// object .'$over#Foo'
-function _jm_obj_0(val, path, rep)
+// check $over#Foo (.'$over#Foo')
+function json_model_4(val, path, rep)
 {
+    // .'$over#Foo'
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.'$over#Foo']", path])
@@ -70,19 +71,6 @@ function _jm_obj_0(val, path, rep)
     return true;
 }
 
-// check $over#Foo (.'$over#Foo')
-function json_model_4(val, path, rep)
-{
-    let res;
-    // .'$over#Foo'
-    res = _jm_obj_0(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected element [.'$over#Foo']", path])
-    }
-    return res;
-}
-
 
 var initialized = false
 
@@ -93,8 +81,8 @@ export function check_model_init()
     {
         initialized = true;
         runtime.jm_set_rx(RegExp)
-        check_model_map.set("", _jm_obj_0)
-        check_model_map.set("over", _jm_obj_0)
+        check_model_map.set("", json_model_4)
+        check_model_map.set("over", json_model_4)
     }
 }
 

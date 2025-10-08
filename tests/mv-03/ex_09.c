@@ -12,12 +12,10 @@
 
 static bool json_model_5(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_4(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_6(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_9(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static bool _jm_obj_1(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_8(const json_t *val, jm_path_t *path, jm_report_t *rep);
 jm_propmap_t check_model_map_tab[4];
 const size_t check_model_map_size = 4;
@@ -48,9 +46,10 @@ static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// object .'$Ex09'
-static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *rep)
+// check $Ex09 (.'$Ex09')
+static bool json_model_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
+    // .'$Ex09'
     if (! json_is_object(val))
     {
         if (rep) jm_report_add_entry(rep, "not an object [.'$Ex09']", path);
@@ -94,25 +93,12 @@ static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *re
     return true;
 }
 
-// check $Ex09 (.'$Ex09')
-static bool json_model_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
-    bool res;
-    // .'$Ex09'
-    res = _jm_obj_0(val, path, rep);
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected element [.'$Ex09']", path);
-    }
-    return res;
-}
-
 // check $ (.)
 static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
     // .
-    res = _jm_obj_0(val, path, rep);
+    res = json_model_4(val, path, rep);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected $Ex09 [.]", path);
@@ -139,7 +125,7 @@ static bool json_model_9(const json_t *val, jm_path_t *path, jm_report_t *rep)
     bool res;
     // .'$ex08#Ex08'
     // .'$ex08#Ex08'.'|'.0
-    res = _jm_obj_1(val, path, rep);
+    res = json_model_8(val, path, rep);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected $map [.'$ex08#Ex08'.'|'.0]", path);
@@ -173,9 +159,10 @@ static bool json_model_9(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// object .'$ex08#map'
-static INLINE bool _jm_obj_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
+// check $ex08#map (.'$ex08#map')
+static bool json_model_8(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
+    // .'$ex08#map'
     if (! json_is_object(val))
     {
         if (rep) jm_report_add_entry(rep, "not an object [.'$ex08#map']", path);
@@ -207,19 +194,6 @@ static INLINE bool _jm_obj_1(const json_t *val, jm_path_t *path, jm_report_t *re
     return true;
 }
 
-// check $ex08#map (.'$ex08#map')
-static bool json_model_8(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
-    bool res;
-    // .'$ex08#map'
-    res = _jm_obj_1(val, path, rep);
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected element [.'$ex08#map']", path);
-    }
-    return res;
-}
-
 jm_check_fun_t check_model_map(const char *pname)
 {
     return jm_search_propmap(pname, check_model_map_tab, 4);
@@ -233,10 +207,10 @@ const char *check_model_init(void)
     {
         initialized = true;
         jm_version_string = JSON_MODEL_VERSION;
-        check_model_map_tab[0] = (jm_propmap_t) { "", _jm_obj_0 };
+        check_model_map_tab[0] = (jm_propmap_t) { "", json_model_4 };
         check_model_map_tab[1] = (jm_propmap_t) { "ex08", json_model_9 };
         check_model_map_tab[2] = (jm_propmap_t) { "Ex08", json_model_9 };
-        check_model_map_tab[3] = (jm_propmap_t) { "Ex09", _jm_obj_0 };
+        check_model_map_tab[3] = (jm_propmap_t) { "Ex09", json_model_4 };
         jm_sort_propmap(check_model_map_tab, 4);
     }
     return NULL;

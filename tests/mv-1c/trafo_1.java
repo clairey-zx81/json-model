@@ -19,9 +19,10 @@ public class trafo_1 extends ModelChecker
 
     public Map<String, Checker> trafo_1_map_pmap;
 
-    // object .'$un'
-    public boolean _jm_obj_0(Object val, Path path, Report rep)
+    // check $un (.'$un')
+    public boolean json_model_2(Object val, Path path, Report rep)
     {
+        // .'$un'
         // check close must only props
         if (! json.isObject(val))
         {
@@ -67,25 +68,12 @@ public class trafo_1 extends ModelChecker
         return true;
     }
 
-    // check $un (.'$un')
-    public boolean json_model_2(Object val, Path path, Report rep)
-    {
-        boolean res;
-        // .'$un'
-        res = _jm_obj_0(val, path, rep);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected element [.'$un']", path);
-        }
-        return res;
-    }
-
     // check $ (.)
     public boolean json_model_1(Object val, Path path, Report rep)
     {
         boolean res;
         // .
-        res = _jm_obj_0(val, path, rep);
+        res = json_model_2(val, path, rep);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected $un [.]", path);
@@ -100,8 +88,8 @@ public class trafo_1 extends ModelChecker
         {
             try {
             trafo_1_map_pmap = new HashMap<String, Checker>();
-            trafo_1_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_0(o, p, r);} });
-            trafo_1_map_pmap.put("un", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_0(o, p, r);} });
+            trafo_1_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_2(o, p, r);} });
+            trafo_1_map_pmap.put("un", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_2(o, p, r);} });
                 super.init(json);
             }
             catch (Exception e) {

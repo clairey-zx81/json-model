@@ -24,9 +24,10 @@ function json_model_2(val, path, rep)
     return res;
 }
 
-// object .'$r'
-function _jm_obj_0(val, path, rep)
+// check $r (.'$r')
+function json_model_5(val, path, rep)
 {
+    // .'$r'
     // check close must only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
@@ -104,22 +105,10 @@ function _jm_obj_0(val, path, rep)
     return true;
 }
 
-// check $r (.'$r')
-function json_model_5(val, path, rep)
+// check $z (.'$z')
+function json_model_4(val, path, rep)
 {
-    let res;
-    // .'$r'
-    res = _jm_obj_0(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected element [.'$r']", path])
-    }
-    return res;
-}
-
-// object .'$z'
-function _jm_obj_1(val, path, rep)
-{
+    // .'$z'
     // check close must only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
@@ -167,22 +156,10 @@ function _jm_obj_1(val, path, rep)
     return true;
 }
 
-// check $z (.'$z')
-function json_model_4(val, path, rep)
+// check $ (.)
+function json_model_1(val, path, rep)
 {
-    let res;
-    // .'$z'
-    res = _jm_obj_1(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected element [.'$z']", path])
-    }
-    return res;
-}
-
-// object .
-function _jm_obj_2(val, path, rep)
-{
+    // .
     // check close must only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
@@ -290,19 +267,6 @@ function _jm_obj_2(val, path, rep)
     return true;
 }
 
-// check $ (.)
-function json_model_1(val, path, rep)
-{
-    let res;
-    // .
-    res = _jm_obj_2(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected element [.]", path])
-    }
-    return res;
-}
-
 
 var initialized = false
 
@@ -313,10 +277,10 @@ export function check_model_init()
     {
         initialized = true;
         runtime.jm_set_rx(RegExp)
-        check_model_map.set("", _jm_obj_2)
+        check_model_map.set("", json_model_1)
         check_model_map.set("t", json_model_2)
-        check_model_map.set("r", _jm_obj_0)
-        check_model_map.set("z", _jm_obj_1)
+        check_model_map.set("r", json_model_5)
+        check_model_map.set("z", json_model_4)
     }
 }
 

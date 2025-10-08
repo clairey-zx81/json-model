@@ -10,20 +10,18 @@
 #include <json-model.h>
 #define JSON_MODEL_VERSION "2"
 
-static bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static bool _jm_obj_1(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static jm_constmap_t _jm_map_0_tab[2];
 static bool json_model_4(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static bool _jm_obj_2(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep);
 jm_propmap_t check_model_map_tab[4];
 const size_t check_model_map_size = 4;
 
-// object .'$table'
-static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *rep)
+// check $table (.'$table')
+static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
+    // .'$table'
     // check close must only props
     if (! json_is_object(val))
     {
@@ -58,18 +56,10 @@ static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *re
     return true;
 }
 
-// check $table (.'$table')
-static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
+// check $chair (.'$chair')
+static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
-    // .'$table'
-    res = _jm_obj_0(val, path, rep);
-    return res;
-}
-
-// object .'$chair'
-static INLINE bool _jm_obj_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
+    // .'$chair'
     // check close must only props
     if (! json_is_object(val))
     {
@@ -102,15 +92,6 @@ static INLINE bool _jm_obj_1(const json_t *val, jm_path_t *path, jm_report_t *re
         return false;
     }
     return true;
-}
-
-// check $chair (.'$chair')
-static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
-    bool res;
-    // .'$chair'
-    res = _jm_obj_1(val, path, rep);
-    return res;
 }
 
 static INLINE jm_check_fun_t _jm_map_0(json_t *val)
@@ -150,9 +131,10 @@ static bool json_model_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// object .
-static INLINE bool _jm_obj_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
+// check $ (.)
+static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
+    // .
     // check close must only props
     if (! json_is_object(val))
     {
@@ -191,15 +173,6 @@ static INLINE bool _jm_obj_2(const json_t *val, jm_path_t *path, jm_report_t *re
     return true;
 }
 
-// check $ (.)
-static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
-    bool res;
-    // .
-    res = _jm_obj_2(val, path, rep);
-    return res;
-}
-
 jm_check_fun_t check_model_map(const char *pname)
 {
     return jm_search_propmap(pname, check_model_map_tab, 4);
@@ -213,12 +186,12 @@ const char *check_model_init(void)
     {
         initialized = true;
         jm_version_string = JSON_MODEL_VERSION;
-        _jm_map_0_tab[0] = (jm_constmap_t) { (jm_constant_t) { cst_is_string, { .s = "table" } }, _jm_obj_0 };
-        _jm_map_0_tab[1] = (jm_constmap_t) { (jm_constant_t) { cst_is_string, { .s = "chair" } }, _jm_obj_1 };
+        _jm_map_0_tab[0] = (jm_constmap_t) { (jm_constant_t) { cst_is_string, { .s = "table" } }, json_model_2 };
+        _jm_map_0_tab[1] = (jm_constmap_t) { (jm_constant_t) { cst_is_string, { .s = "chair" } }, json_model_3 };
         jm_sort_constmap(_jm_map_0_tab, 2);
-        check_model_map_tab[0] = (jm_propmap_t) { "", _jm_obj_2 };
-        check_model_map_tab[1] = (jm_propmap_t) { "table", _jm_obj_0 };
-        check_model_map_tab[2] = (jm_propmap_t) { "chair", _jm_obj_1 };
+        check_model_map_tab[0] = (jm_propmap_t) { "", json_model_1 };
+        check_model_map_tab[1] = (jm_propmap_t) { "table", json_model_2 };
+        check_model_map_tab[2] = (jm_propmap_t) { "chair", json_model_3 };
         check_model_map_tab[3] = (jm_propmap_t) { "furniture", json_model_4 };
         jm_sort_propmap(check_model_map_tab, 4);
     }

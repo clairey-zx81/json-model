@@ -10,15 +10,15 @@
 #include <json-model.h>
 #define JSON_MODEL_VERSION "2"
 
-static bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep);
 jm_propmap_t check_model_map_tab[2];
 const size_t check_model_map_size = 2;
 
-// object .'$book'
-static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *rep)
+// check $book (.'$book')
+static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
+    // .'$book'
     // check close must only props
     if (! json_is_object(val))
     {
@@ -53,15 +53,6 @@ static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *re
     return true;
 }
 
-// check $book (.'$book')
-static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
-    bool res;
-    // .'$book'
-    res = _jm_obj_0(val, path, rep);
-    return res;
-}
-
 // check $ (.)
 static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
@@ -75,7 +66,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
         json_array_foreach(val, arr_0_idx, arr_0_item)
         {
             // .0
-            res = _jm_obj_0(arr_0_item, NULL, rep);
+            res = json_model_2(arr_0_item, NULL, rep);
             if (! res)
             {
                 break;
@@ -99,7 +90,7 @@ const char *check_model_init(void)
         initialized = true;
         jm_version_string = JSON_MODEL_VERSION;
         check_model_map_tab[0] = (jm_propmap_t) { "", json_model_1 };
-        check_model_map_tab[1] = (jm_propmap_t) { "book", _jm_obj_0 };
+        check_model_map_tab[1] = (jm_propmap_t) { "book", json_model_2 };
         jm_sort_propmap(check_model_map_tab, 2);
     }
     return NULL;

@@ -37,9 +37,10 @@ function json_model_3(val, path, rep)
     return res;
 }
 
-// object .'$Ex09'
-function _jm_obj_0(val, path, rep)
+// check $Ex09 (.'$Ex09')
+function json_model_4(val, path, rep)
 {
+    // .'$Ex09'
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.'$Ex09']", path])
@@ -81,25 +82,12 @@ function _jm_obj_0(val, path, rep)
     return true;
 }
 
-// check $Ex09 (.'$Ex09')
-function json_model_4(val, path, rep)
-{
-    let res;
-    // .'$Ex09'
-    res = _jm_obj_0(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected element [.'$Ex09']", path])
-    }
-    return res;
-}
-
 // check $ (.)
 function json_model_1(val, path, rep)
 {
     let res;
     // .
-    res = _jm_obj_0(val, path, rep);
+    res = json_model_4(val, path, rep);
     if (! res)
     {
         rep !== null && rep.push(["unexpected $Ex09 [.]", path])
@@ -126,7 +114,7 @@ function json_model_9(val, path, rep)
     let res;
     // .'$ex08#Ex08'
     // .'$ex08#Ex08'.'|'.0
-    res = _jm_obj_1(val, path, rep);
+    res = json_model_8(val, path, rep);
     if (! res)
     {
         rep !== null && rep.push(["unexpected $map [.'$ex08#Ex08'.'|'.0]", path])
@@ -160,9 +148,10 @@ function json_model_9(val, path, rep)
     return res;
 }
 
-// object .'$ex08#map'
-function _jm_obj_1(val, path, rep)
+// check $ex08#map (.'$ex08#map')
+function json_model_8(val, path, rep)
 {
+    // .'$ex08#map'
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.'$ex08#map']", path])
@@ -192,19 +181,6 @@ function _jm_obj_1(val, path, rep)
     return true;
 }
 
-// check $ex08#map (.'$ex08#map')
-function json_model_8(val, path, rep)
-{
-    let res;
-    // .'$ex08#map'
-    res = _jm_obj_1(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected element [.'$ex08#map']", path])
-    }
-    return res;
-}
-
 
 var initialized = false
 
@@ -215,10 +191,10 @@ export function check_model_init()
     {
         initialized = true;
         runtime.jm_set_rx(RegExp)
-        check_model_map.set("", _jm_obj_0)
+        check_model_map.set("", json_model_4)
         check_model_map.set("ex08", json_model_9)
         check_model_map.set("Ex08", json_model_9)
-        check_model_map.set("Ex09", _jm_obj_0)
+        check_model_map.set("Ex09", json_model_4)
     }
 }
 

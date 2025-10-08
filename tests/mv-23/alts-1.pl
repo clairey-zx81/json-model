@@ -11,25 +11,22 @@ use JSON::JsonModel;
 use constant JMC_VERSION => '2';
 
 
-sub _jm_obj_0($$$);
 sub json_model_2($$$);
 my %_jm_cst_0;
-sub _jm_obj_1($$$);
 sub json_model_3($$$);
 my %_jm_map_0;
 sub json_model_4($$$);
-sub _jm_obj_2($$$);
 sub json_model_5($$$);
 my %_jm_cst_1;
-sub _jm_obj_3($$$);
 sub json_model_6($$$);
 sub json_model_1($$$);
 my %check_model_map;
 
-# object .'$oA'
-sub _jm_obj_0($$$)
+# check $oA (.'$oA')
+sub json_model_2($$$)
 {
     my ($val, $path, $rep) = @_;
+    # .'$oA'
     # check open must/may only props
     if (! jm_is_object($val))
     {
@@ -62,21 +59,12 @@ sub _jm_obj_0($$$)
     return 1;
 }
 
-# check $oA (.'$oA')
-sub json_model_2($$$)
+
+# check $oB (.'$oB')
+sub json_model_3($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$oA'
-    $res = _jm_obj_0($val, $path, $rep);
-    return $res;
-}
-
-
-# object .'$oB'
-sub _jm_obj_1($$$)
-{
-    my ($val, $path, $rep) = @_;
+    # .'$oB'
     # check open must/may only props
     if (! jm_is_object($val))
     {
@@ -107,16 +95,6 @@ sub _jm_obj_1($$$)
         return 0;
     }
     return 1;
-}
-
-# check $oB (.'$oB')
-sub json_model_3($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$oB'
-    $res = _jm_obj_1($val, $path, $rep);
-    return $res;
 }
 
 
@@ -151,10 +129,11 @@ sub json_model_4($$$)
     return $res;
 }
 
-# object .'$oL'
-sub _jm_obj_2($$$)
+# check $oL (.'$oL')
+sub json_model_5($$$)
 {
     my ($val, $path, $rep) = @_;
+    # .'$oL'
     # check open must/may only props
     if (! jm_is_object($val))
     {
@@ -187,21 +166,12 @@ sub _jm_obj_2($$$)
     return 1;
 }
 
-# check $oL (.'$oL')
-sub json_model_5($$$)
+
+# check $oX (.'$oX')
+sub json_model_6($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$oL'
-    $res = _jm_obj_2($val, $path, $rep);
-    return $res;
-}
-
-
-# object .'$oX'
-sub _jm_obj_3($$$)
-{
-    my ($val, $path, $rep) = @_;
+    # .'$oX'
     # check open must/may only props
     if (! jm_is_object($val))
     {
@@ -234,16 +204,6 @@ sub _jm_obj_3($$$)
     return 1;
 }
 
-# check $oX (.'$oX')
-sub json_model_6($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$oX'
-    $res = _jm_obj_3($val, $path, $rep);
-    return $res;
-}
-
 # check $ (.)
 sub json_model_1($$$)
 {
@@ -254,13 +214,13 @@ sub json_model_1($$$)
     my $xc_0 = 0;
     my $xr_0;
     # .'^'.0
-    $xr_0 = _jm_obj_0($val, $path, $rep);
+    $xr_0 = json_model_2($val, $path, $rep);
     if ($xr_0)
     {
         $xc_0++;
     }
     # .'^'.1
-    $xr_0 = _jm_obj_1($val, $path, $rep);
+    $xr_0 = json_model_3($val, $path, $rep);
     if ($xr_0)
     {
         $xc_0++;
@@ -293,9 +253,9 @@ sub check_model_init()
             'c' => 1,
         );
         %_jm_map_0 = (
-            'e' => \&_jm_obj_3,
-            'f' => \&_jm_obj_3,
-            'd' => \&_jm_obj_2,
+            'e' => \&json_model_6,
+            'f' => \&json_model_6,
+            'd' => \&json_model_5,
         );
         %_jm_cst_1 = (
             'e' => 1,
@@ -303,11 +263,11 @@ sub check_model_init()
         );
         %check_model_map = (
             '' => \&json_model_1,
-            'oA' => \&_jm_obj_0,
-            'oB' => \&_jm_obj_1,
+            'oA' => \&json_model_2,
+            'oB' => \&json_model_3,
             'oC' => \&json_model_4,
-            'oL' => \&_jm_obj_2,
-            'oX' => \&_jm_obj_3,
+            'oL' => \&json_model_5,
+            'oX' => \&json_model_6,
         );
     }
 }

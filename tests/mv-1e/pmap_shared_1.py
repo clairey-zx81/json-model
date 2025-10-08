@@ -22,8 +22,9 @@ def check_model(val: Jsonable, name: str = "", rep: Report = None) -> bool:
 
 check_model_map: PropMap
 
-# object .'$Oo0'
-def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
+# check $Oo0 (.'$Oo0')
+def json_model_2(val: Jsonable, path: Path, rep: Report) -> bool:
+    # .'$Oo0'
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$Oo0']", path))
         return False
@@ -88,17 +89,9 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
         return False
     return True
 
-# check $Oo0 (.'$Oo0')
-def json_model_2(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .'$Oo0'
-    res = _jm_obj_0(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected element [.'$Oo0']", path))
-    return res
-
-# object .'$Oo1'
-def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
+# check $Oo1 (.'$Oo1')
+def json_model_3(val: Jsonable, path: Path, rep: Report) -> bool:
+    # .'$Oo1'
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$Oo1']", path))
         return False
@@ -158,17 +151,9 @@ def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
         return False
     return True
 
-# check $Oo1 (.'$Oo1')
-def json_model_3(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .'$Oo1'
-    res = _jm_obj_1(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected element [.'$Oo1']", path))
-    return res
-
-# object .'$Oo2'
-def _jm_obj_2(val: Jsonable, path: Path, rep: Report) -> bool:
+# check $Oo2 (.'$Oo2')
+def json_model_4(val: Jsonable, path: Path, rep: Report) -> bool:
+    # .'$Oo2'
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$Oo2']", path))
         return False
@@ -237,31 +222,22 @@ def _jm_obj_2(val: Jsonable, path: Path, rep: Report) -> bool:
         return False
     return True
 
-# check $Oo2 (.'$Oo2')
-def json_model_4(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .'$Oo2'
-    res = _jm_obj_2(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected element [.'$Oo2']", path))
-    return res
-
 # check $ (.)
 def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .
     # .'|'.0
-    res = _jm_obj_0(val, path, rep)
+    res = json_model_2(val, path, rep)
     if not res:
         rep is None or rep.append(("unexpected $Oo0 [.'|'.0]", path))
     if not res:
         # .'|'.1
-        res = _jm_obj_1(val, path, rep)
+        res = json_model_3(val, path, rep)
         if not res:
             rep is None or rep.append(("unexpected $Oo1 [.'|'.1]", path))
         if not res:
             # .'|'.2
-            res = _jm_obj_2(val, path, rep)
+            res = json_model_4(val, path, rep)
             if not res:
                 rep is None or rep.append(("unexpected $Oo2 [.'|'.2]", path))
     if res:
@@ -282,9 +258,9 @@ def check_model_init():
         global check_model_map
         check_model_map = {
             "": json_model_1,
-            "Oo0": _jm_obj_0,
-            "Oo1": _jm_obj_1,
-            "Oo2": _jm_obj_2,
+            "Oo0": json_model_2,
+            "Oo1": json_model_3,
+            "Oo2": json_model_4,
         }
 
 # differed module cleanup

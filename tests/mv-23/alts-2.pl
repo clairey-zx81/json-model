@@ -11,16 +11,15 @@ use JSON::JsonModel;
 use constant JMC_VERSION => '2';
 
 
-sub _jm_obj_1($$$);
 sub _jm_obj_0($$$);
 sub json_model_2($$$);
-sub _jm_obj_2($$$);
+sub _jm_obj_1($$$);
 sub json_model_3($$$);
 sub json_model_1($$$);
 my %check_model_map;
 
 # object .'$a'.''.'|'.1
-sub _jm_obj_1($$$)
+sub _jm_obj_0($$$)
 {
     my ($val, $path, $rep) = @_;
     if (! jm_is_object($val))
@@ -37,10 +36,11 @@ sub _jm_obj_1($$$)
     }
 }
 
-# object .'$a'
-sub _jm_obj_0($$$)
+# check $a (.'$a')
+sub json_model_2($$$)
 {
     my ($val, $path, $rep) = @_;
+    # .'$a'
     if (! jm_is_object($val))
     {
         return 0;
@@ -56,7 +56,7 @@ sub _jm_obj_0($$$)
         if (! $res)
         {
             # .'$a'.''.'|'.1
-            $res = _jm_obj_1($pval, undef, $rep);
+            $res = _jm_obj_0($pval, undef, $rep);
         }
         if (! $res)
         {
@@ -66,18 +66,8 @@ sub _jm_obj_0($$$)
     return 1;
 }
 
-# check $a (.'$a')
-sub json_model_2($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$a'
-    $res = _jm_obj_0($val, $path, $rep);
-    return $res;
-}
-
 # object .'$r'.'|'.1
-sub _jm_obj_2($$$)
+sub _jm_obj_1($$$)
 {
     my ($val, $path, $rep) = @_;
     if (! jm_is_object($val))
@@ -101,11 +91,11 @@ sub json_model_3($$$)
     my $res;
     # .'$r'
     # .'$r'.'|'.0
-    $res = _jm_obj_0($val, $path, $rep);
+    $res = json_model_2($val, $path, $rep);
     if (! $res)
     {
         # .'$r'.'|'.1
-        $res = _jm_obj_2($val, $path, $rep);
+        $res = _jm_obj_1($val, $path, $rep);
     }
     return $res;
 }
@@ -132,7 +122,7 @@ sub check_model_init()
         $initialized = 1;
         %check_model_map = (
             '' => \&json_model_3,
-            'a' => \&_jm_obj_0,
+            'a' => \&json_model_2,
             'r' => \&json_model_3,
         );
     }

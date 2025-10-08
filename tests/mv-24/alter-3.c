@@ -10,20 +10,20 @@
 #include <json-model.h>
 #define JSON_MODEL_VERSION "2"
 
-static bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static bool _jm_obj_1(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static jm_constant_t _jm_cst_0[2];
-static bool _jm_obj_2(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static bool _jm_obj_1(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static jm_constmap_t _jm_map_0_tab[3];
 static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep);
 jm_propmap_t check_model_map_tab[3];
 const size_t check_model_map_size = 3;
 
-// object .'$d'
-static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *rep)
+// check $d (.'$d')
+static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
+    // .'$d'
     // check close must only props
     if (! json_is_object(val))
     {
@@ -58,17 +58,8 @@ static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *re
     return true;
 }
 
-// check $d (.'$d')
-static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
-    bool res;
-    // .'$d'
-    res = _jm_obj_0(val, path, rep);
-    return res;
-}
-
 // object .'$alternative'.'|'.0
-static INLINE bool _jm_obj_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // check close must only props
     if (! json_is_object(val))
@@ -106,7 +97,7 @@ static INLINE bool _jm_obj_1(const json_t *val, jm_path_t *path, jm_report_t *re
 
 
 // object .'$alternative'.'|'.1
-static INLINE bool _jm_obj_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_obj_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // check close must only props
     if (! json_is_object(val))
@@ -180,7 +171,7 @@ static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
     if (! res)
     {
         // .'$alternative'.'|'.0
-        res = _jm_obj_1(val, path, rep);
+        res = _jm_obj_0(val, path, rep);
     }
     return res;
 }
@@ -211,12 +202,12 @@ const char *check_model_init(void)
         _jm_cst_0[0] = (jm_constant_t) { cst_is_string, { .s = "b" } };
         _jm_cst_0[1] = (jm_constant_t) { cst_is_string, { .s = "c" } };
         jm_sort_cst(_jm_cst_0, 2);
-        _jm_map_0_tab[0] = (jm_constmap_t) { (jm_constant_t) { cst_is_string, { .s = "b" } }, _jm_obj_2 };
-        _jm_map_0_tab[1] = (jm_constmap_t) { (jm_constant_t) { cst_is_string, { .s = "c" } }, _jm_obj_2 };
-        _jm_map_0_tab[2] = (jm_constmap_t) { (jm_constant_t) { cst_is_string, { .s = "d" } }, _jm_obj_0 };
+        _jm_map_0_tab[0] = (jm_constmap_t) { (jm_constant_t) { cst_is_string, { .s = "b" } }, _jm_obj_1 };
+        _jm_map_0_tab[1] = (jm_constmap_t) { (jm_constant_t) { cst_is_string, { .s = "c" } }, _jm_obj_1 };
+        _jm_map_0_tab[2] = (jm_constmap_t) { (jm_constant_t) { cst_is_string, { .s = "d" } }, json_model_2 };
         jm_sort_constmap(_jm_map_0_tab, 3);
         check_model_map_tab[0] = (jm_propmap_t) { "", json_model_3 };
-        check_model_map_tab[1] = (jm_propmap_t) { "d", _jm_obj_0 };
+        check_model_map_tab[1] = (jm_propmap_t) { "d", json_model_2 };
         check_model_map_tab[2] = (jm_propmap_t) { "alternative", json_model_3 };
         jm_sort_propmap(check_model_map_tab, 3);
     }

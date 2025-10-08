@@ -12,7 +12,7 @@ DECLARE
   res bool;
 BEGIN
   -- .'$foo'
-  res := _jm_obj_0(val, path, rep);
+  res := json_model_5(val, path, rep);
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
@@ -24,18 +24,19 @@ DECLARE
   res bool;
 BEGIN
   -- .
-  res := _jm_obj_0(val, path, rep);
+  res := json_model_5(val, path, rep);
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
 
--- object .'$foo#Foo'
-CREATE OR REPLACE FUNCTION _jm_obj_0(val JSONB, path TEXT[], rep jm_report_entry[])
+-- check $foo#Foo (.'$foo#Foo')
+CREATE OR REPLACE FUNCTION json_model_5(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   pval JSONB;
   res bool;
 BEGIN
+  -- .'$foo#Foo'
   -- check close must only props
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
@@ -48,7 +49,7 @@ BEGIN
   END IF;
   pval := val -> 'rt';
   -- .'$foo#Foo'.rt
-  res := _jm_obj_1(pval, NULL, rep);
+  res := json_model_12(pval, NULL, rep);
   IF NOT res THEN
     RETURN FALSE;
   END IF;
@@ -56,25 +57,14 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check $foo#Foo (.'$foo#Foo')
-CREATE OR REPLACE FUNCTION json_model_5(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .'$foo#Foo'
-  res := _jm_obj_0(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
--- object .'$foo#root#root#Root'
-CREATE OR REPLACE FUNCTION _jm_obj_1(val JSONB, path TEXT[], rep jm_report_entry[])
+-- check $foo#root#root#Root (.'$foo#root#root#Root')
+CREATE OR REPLACE FUNCTION json_model_12(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   pval JSONB;
   res bool;
 BEGIN
+  -- .'$foo#root#root#Root'
   -- check close must only props
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
@@ -104,22 +94,10 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check $foo#root#root#Root (.'$foo#root#root#Root')
-CREATE OR REPLACE FUNCTION json_model_12(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .'$foo#root#root#Root'
-  res := _jm_obj_1(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
 CREATE OR REPLACE FUNCTION check_model_map(name TEXT)
 RETURNS TEXT STRICT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
-  map JSONB := JSONB '{"":"_jm_obj_0","foo":"_jm_obj_0"}';
+  map JSONB := JSONB '{"":"json_model_5","foo":"json_model_5"}';
 BEGIN
   RETURN map->>name;
 END;

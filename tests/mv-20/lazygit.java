@@ -23,31 +23,31 @@ public class lazygit extends ModelChecker
     Set<Object> _jm_cst_2_set;
     Map<Object, Checker> _jm_map_0_cmap;
     Set<Object> _jm_cst_3_set;
-    Map<String, Checker> _jm_obj_8_map_pmap;
+    Map<String, Checker> _jm_obj_7_map_pmap;
     public Pattern _jm_re_1_pat = null;
     Set<Object> _jm_cst_4_set;
     Set<Object> _jm_cst_5_set;
     Set<Object> _jm_cst_6_set;
-    Map<String, Checker> _jm_obj_10_map_pmap;
+    Map<String, Checker> _jm_f_10_map_pmap;
     Set<Object> _jm_cst_7_set;
     Set<Object> _jm_cst_8_set;
     Set<Object> _jm_cst_9_set;
     Set<Object> _jm_cst_10_set;
     Set<Object> _jm_cst_11_set;
-    Map<String, Checker> _jm_obj_21_map_pmap;
+    Map<String, Checker> _jm_f_53_map_pmap;
     Set<Object> _jm_cst_12_set;
-    Map<String, Checker> _jm_obj_17_map_pmap;
-    Map<String, Checker> _jm_obj_23_map_pmap;
-    Map<String, Checker> _jm_obj_25_map_pmap;
-    Map<String, Checker> _jm_obj_26_map_pmap;
-    Map<String, Checker> _jm_obj_31_map_pmap;
-    Map<String, Checker> _jm_obj_22_map_pmap;
+    Map<String, Checker> _jm_f_27_map_pmap;
+    Map<String, Checker> _jm_f_67_map_pmap;
+    Map<String, Checker> _jm_f_82_map_pmap;
+    Map<String, Checker> _jm_f_104_map_pmap;
+    Map<String, Checker> _jm_f_123_map_pmap;
+    Map<String, Checker> _jm_f_66_map_pmap;
     Set<Object> _jm_cst_13_set;
     Set<Object> _jm_cst_14_set;
-    Map<String, Checker> _jm_obj_32_map_pmap;
+    Map<String, Checker> _jm_f_184_map_pmap;
     public Pattern _jm_re_2_pat = null;
     Set<Object> _jm_cst_15_set;
-    Map<String, Checker> _jm_obj_7_map_pmap;
+    Map<String, Checker> json_model_1_map_pmap;
     public Map<String, Checker> lazygit_map_pmap;
 
 
@@ -919,7 +919,7 @@ public class lazygit extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_7_map_confirmOnQuit (.confirmOnQuit)
+    // check json_model_1_map_confirmOnQuit (.confirmOnQuit)
     public boolean _jm_f_0(Object val, Path path, Report rep)
     {
         boolean res;
@@ -933,9 +933,10 @@ public class lazygit extends ModelChecker
     }
 
 
-    // object .customCommands.'@'.0.after
-    public boolean _jm_obj_9(Object val, Path path, Report rep)
+    // check _jm_obj_7_map_after (.customCommands.'@'.0.after)
+    public boolean _jm_f_2(Object val, Path path, Report rep)
     {
+        // .customCommands.'@'.0.after
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.customCommands.'@'.0.after]", path);
@@ -969,20 +970,7 @@ public class lazygit extends ModelChecker
         return true;
     }
 
-    // check _jm_obj_8_map_after (.customCommands.'@'.0.after)
-    public boolean _jm_f_2(Object val, Path path, Report rep)
-    {
-        boolean res;
-        // .customCommands.'@'.0.after
-        res = _jm_obj_9(val, path, rep);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected element [.customCommands.'@'.0.after]", path);
-        }
-        return res;
-    }
-
-    // check _jm_obj_8_map_description (.customCommands.'@'.0.description)
+    // check _jm_obj_7_map_description (.customCommands.'@'.0.description)
     public boolean _jm_f_3(Object val, Path path, Report rep)
     {
         boolean res;
@@ -995,7 +983,7 @@ public class lazygit extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_8_map_loadingText (.customCommands.'@'.0.loadingText)
+    // check _jm_obj_7_map_loadingText (.customCommands.'@'.0.loadingText)
     public boolean _jm_f_4(Object val, Path path, Report rep)
     {
         boolean res;
@@ -1008,7 +996,7 @@ public class lazygit extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_8_map_prompts (.customCommands.'@'.0.prompts)
+    // check _jm_obj_7_map_prompts (.customCommands.'@'.0.prompts)
     public boolean _jm_f_5(Object val, Path path, Report rep)
     {
         boolean res;
@@ -1039,7 +1027,7 @@ public class lazygit extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_8_map_showOutput (.customCommands.'@'.0.showOutput)
+    // check _jm_obj_7_map_showOutput (.customCommands.'@'.0.showOutput)
     public boolean _jm_f_6(Object val, Path path, Report rep)
     {
         boolean res;
@@ -1052,7 +1040,7 @@ public class lazygit extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_8_map_stream (.customCommands.'@'.0.stream)
+    // check _jm_obj_7_map_stream (.customCommands.'@'.0.stream)
     public boolean _jm_f_7(Object val, Path path, Report rep)
     {
         boolean res;
@@ -1065,7 +1053,7 @@ public class lazygit extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_8_map_subprocess (.customCommands.'@'.0.subprocess)
+    // check _jm_obj_7_map_subprocess (.customCommands.'@'.0.subprocess)
     public boolean _jm_f_8(Object val, Path path, Report rep)
     {
         boolean res;
@@ -1080,7 +1068,7 @@ public class lazygit extends ModelChecker
 
 
     // object .customCommands.'@'.0
-    public boolean _jm_obj_8(Object val, Path path, Report rep)
+    public boolean _jm_obj_7(Object val, Path path, Report rep)
     {
         if (! json.isObject(val))
         {
@@ -1135,7 +1123,7 @@ public class lazygit extends ModelChecker
                     return false;
                 }
             }
-            else if ((pfun = _jm_obj_8_map_pmap.get(prop)) != null)
+            else if ((pfun = _jm_obj_7_map_pmap.get(prop)) != null)
             {
                 // handle 7 may props
                 if (pfun != null && ! (pfun.call(pval, (path != null ? lpath_5 : null), rep)))
@@ -1172,7 +1160,7 @@ public class lazygit extends ModelChecker
         return true;
     }
 
-    // check _jm_obj_7_map_customCommands (.customCommands)
+    // check json_model_1_map_customCommands (.customCommands)
     public boolean _jm_f_1(Object val, Path path, Report rep)
     {
         boolean res;
@@ -1189,7 +1177,7 @@ public class lazygit extends ModelChecker
                 Object arr_3_item = arr_3_item_loop.next();
                 Path arr_3_lpath = new Path(arr_3_idx, path);
                 // .customCommands.'@'.0
-                res = _jm_obj_8(arr_3_item, (path != null ? arr_3_lpath : null), rep);
+                res = _jm_obj_7(arr_3_item, (path != null ? arr_3_lpath : null), rep);
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected element [.customCommands.'@'.0]", (path != null ? arr_3_lpath : null));
@@ -1212,7 +1200,7 @@ public class lazygit extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_7_map_disableStartupPopups (.disableStartupPopups)
+    // check json_model_1_map_disableStartupPopups (.disableStartupPopups)
     public boolean _jm_f_9(Object val, Path path, Report rep)
     {
         boolean res;
@@ -1225,7 +1213,7 @@ public class lazygit extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_10_map_allBranchesLogCmd (.git.allBranchesLogCmd)
+    // check _jm_f_10_map_allBranchesLogCmd (.git.allBranchesLogCmd)
     public boolean _jm_f_11(Object val, Path path, Report rep)
     {
         boolean res;
@@ -1238,7 +1226,7 @@ public class lazygit extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_10_map_autoFetch (.git.autoFetch)
+    // check _jm_f_10_map_autoFetch (.git.autoFetch)
     public boolean _jm_f_12(Object val, Path path, Report rep)
     {
         boolean res;
@@ -1251,7 +1239,7 @@ public class lazygit extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_10_map_autoRefresh (.git.autoRefresh)
+    // check _jm_f_10_map_autoRefresh (.git.autoRefresh)
     public boolean _jm_f_13(Object val, Path path, Report rep)
     {
         boolean res;
@@ -1264,7 +1252,7 @@ public class lazygit extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_10_map_branchLogCmd (.git.branchLogCmd)
+    // check _jm_f_10_map_branchLogCmd (.git.branchLogCmd)
     public boolean _jm_f_14(Object val, Path path, Report rep)
     {
         boolean res;
@@ -1277,9 +1265,10 @@ public class lazygit extends ModelChecker
         return res;
     }
 
-    // object .git.commit
-    public boolean _jm_obj_11(Object val, Path path, Report rep)
+    // check _jm_f_10_map_commit (.git.commit)
+    public boolean _jm_f_15(Object val, Path path, Report rep)
     {
+        // .git.commit
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.git.commit]", path);
@@ -1313,26 +1302,13 @@ public class lazygit extends ModelChecker
         return true;
     }
 
-    // check _jm_obj_10_map_commit (.git.commit)
-    public boolean _jm_f_15(Object val, Path path, Report rep)
-    {
-        boolean res;
-        // .git.commit
-        res = _jm_obj_11(val, path, rep);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected element [.git.commit]", path);
-        }
-        return res;
-    }
-
     public boolean _jm_re_1(String val, Path path, Report rep)
     {
         return _jm_re_1_pat.matcher(val).find();
     }
 
     // object .git.commitPrefixes.'/./'
-    public boolean _jm_obj_13(Object val, Path path, Report rep)
+    public boolean _jm_obj_8(Object val, Path path, Report rep)
     {
         // check close must only props
         if (! json.isObject(val))
@@ -1379,9 +1355,10 @@ public class lazygit extends ModelChecker
         return true;
     }
 
-    // object .git.commitPrefixes
-    public boolean _jm_obj_12(Object val, Path path, Report rep)
+    // check _jm_f_10_map_commitPrefixes (.git.commitPrefixes)
+    public boolean _jm_f_16(Object val, Path path, Report rep)
     {
+        // .git.commitPrefixes
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.git.commitPrefixes]", path);
@@ -1398,7 +1375,7 @@ public class lazygit extends ModelChecker
             {
                 // handle 1 re props
                 // .git.commitPrefixes.'/./'
-                res = _jm_obj_13(pval, (path != null ? lpath_9 : null), rep);
+                res = _jm_obj_8(pval, (path != null ? lpath_9 : null), rep);
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected element [.git.commitPrefixes.'/./']", (path != null ? lpath_9 : null));
@@ -1414,20 +1391,7 @@ public class lazygit extends ModelChecker
         return true;
     }
 
-    // check _jm_obj_10_map_commitPrefixes (.git.commitPrefixes)
-    public boolean _jm_f_16(Object val, Path path, Report rep)
-    {
-        boolean res;
-        // .git.commitPrefixes
-        res = _jm_obj_12(val, path, rep);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected element [.git.commitPrefixes]", path);
-        }
-        return res;
-    }
-
-    // check _jm_obj_10_map_diffContextSize (.git.diffContextSize)
+    // check _jm_f_10_map_diffContextSize (.git.diffContextSize)
     public boolean _jm_f_17(Object val, Path path, Report rep)
     {
         boolean res;
@@ -1440,7 +1404,7 @@ public class lazygit extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_10_map_disableForcePushing (.git.disableForcePushing)
+    // check _jm_f_10_map_disableForcePushing (.git.disableForcePushing)
     public boolean _jm_f_18(Object val, Path path, Report rep)
     {
         boolean res;
@@ -1453,7 +1417,7 @@ public class lazygit extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_10_map_fetchAll (.git.fetchAll)
+    // check _jm_f_10_map_fetchAll (.git.fetchAll)
     public boolean _jm_f_19(Object val, Path path, Report rep)
     {
         boolean res;
@@ -1468,9 +1432,10 @@ public class lazygit extends ModelChecker
 
 
 
-    // object .git.log
-    public boolean _jm_obj_14(Object val, Path path, Report rep)
+    // check _jm_f_10_map_log (.git.log)
+    public boolean _jm_f_20(Object val, Path path, Report rep)
     {
+        // .git.log
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.git.log]", path);
@@ -1528,20 +1493,7 @@ public class lazygit extends ModelChecker
         return true;
     }
 
-    // check _jm_obj_10_map_log (.git.log)
-    public boolean _jm_f_20(Object val, Path path, Report rep)
-    {
-        boolean res;
-        // .git.log
-        res = _jm_obj_14(val, path, rep);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected element [.git.log]", path);
-        }
-        return res;
-    }
-
-    // check _jm_obj_10_map_mainBranches (.git.mainBranches)
+    // check _jm_f_10_map_mainBranches (.git.mainBranches)
     public boolean _jm_f_21(Object val, Path path, Report rep)
     {
         boolean res;
@@ -1554,9 +1506,10 @@ public class lazygit extends ModelChecker
         return res;
     }
 
-    // object .git.merging
-    public boolean _jm_obj_15(Object val, Path path, Report rep)
+    // check _jm_f_10_map_merging (.git.merging)
+    public boolean _jm_f_22(Object val, Path path, Report rep)
     {
+        // .git.merging
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.git.merging]", path);
@@ -1602,20 +1555,7 @@ public class lazygit extends ModelChecker
         return true;
     }
 
-    // check _jm_obj_10_map_merging (.git.merging)
-    public boolean _jm_f_22(Object val, Path path, Report rep)
-    {
-        boolean res;
-        // .git.merging
-        res = _jm_obj_15(val, path, rep);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected element [.git.merging]", path);
-        }
-        return res;
-    }
-
-    // check _jm_obj_10_map_overrideGpg (.git.overrideGpg)
+    // check _jm_f_10_map_overrideGpg (.git.overrideGpg)
     public boolean _jm_f_23(Object val, Path path, Report rep)
     {
         boolean res;
@@ -1629,9 +1569,10 @@ public class lazygit extends ModelChecker
     }
 
 
-    // object .git.paging
-    public boolean _jm_obj_16(Object val, Path path, Report rep)
+    // check _jm_f_10_map_paging (.git.paging)
+    public boolean _jm_f_24(Object val, Path path, Report rep)
     {
+        // .git.paging
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.git.paging]", path);
@@ -1702,20 +1643,7 @@ public class lazygit extends ModelChecker
         return true;
     }
 
-    // check _jm_obj_10_map_paging (.git.paging)
-    public boolean _jm_f_24(Object val, Path path, Report rep)
-    {
-        boolean res;
-        // .git.paging
-        res = _jm_obj_16(val, path, rep);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected element [.git.paging]", path);
-        }
-        return res;
-    }
-
-    // check _jm_obj_10_map_parseEmoji (.git.parseEmoji)
+    // check _jm_f_10_map_parseEmoji (.git.parseEmoji)
     public boolean _jm_f_25(Object val, Path path, Report rep)
     {
         boolean res;
@@ -1728,7 +1656,7 @@ public class lazygit extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_10_map_skipHookPrefix (.git.skipHookPrefix)
+    // check _jm_f_10_map_skipHookPrefix (.git.skipHookPrefix)
     public boolean _jm_f_26(Object val, Path path, Report rep)
     {
         boolean res;
@@ -1742,9 +1670,10 @@ public class lazygit extends ModelChecker
     }
 
 
-    // object .git
-    public boolean _jm_obj_10(Object val, Path path, Report rep)
+    // check json_model_1_map_git (.git)
+    public boolean _jm_f_10(Object val, Path path, Report rep)
     {
+        // .git
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.git]", path);
@@ -1757,7 +1686,7 @@ public class lazygit extends ModelChecker
             String prop = prop_loop.next();
             Object pval = json.objectValue(val, prop);
             Path lpath_7 = new Path(prop, path);
-            if ((pfun = _jm_obj_10_map_pmap.get(prop)) != null)
+            if ((pfun = _jm_f_10_map_pmap.get(prop)) != null)
             {
                 // handle 16 may props
                 if (pfun != null && ! (pfun.call(pval, (path != null ? lpath_7 : null), rep)))
@@ -1775,20 +1704,7 @@ public class lazygit extends ModelChecker
         return true;
     }
 
-    // check _jm_obj_7_map_git (.git)
-    public boolean _jm_f_10(Object val, Path path, Report rep)
-    {
-        boolean res;
-        // .git
-        res = _jm_obj_10(val, path, rep);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected element [.git]", path);
-        }
-        return res;
-    }
-
-    // check _jm_obj_17_map_animateExplosion (.gui.animateExplosion)
+    // check _jm_f_27_map_animateExplosion (.gui.animateExplosion)
     public boolean _jm_f_28(Object val, Path path, Report rep)
     {
         boolean res;
@@ -1801,9 +1717,10 @@ public class lazygit extends ModelChecker
         return res;
     }
 
-    // object .gui.authorColors
-    public boolean _jm_obj_18(Object val, Path path, Report rep)
+    // check _jm_f_27_map_authorColors (.gui.authorColors)
+    public boolean _jm_f_29(Object val, Path path, Report rep)
     {
+        // .gui.authorColors
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.gui.authorColors]", path);
@@ -1836,21 +1753,8 @@ public class lazygit extends ModelChecker
         return true;
     }
 
-    // check _jm_obj_17_map_authorColors (.gui.authorColors)
-    public boolean _jm_f_29(Object val, Path path, Report rep)
-    {
-        boolean res;
-        // .gui.authorColors
-        res = _jm_obj_18(val, path, rep);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected element [.gui.authorColors]", path);
-        }
-        return res;
-    }
 
-
-    // check _jm_obj_17_map_border (.gui.border)
+    // check _jm_f_27_map_border (.gui.border)
     public boolean _jm_f_30(Object val, Path path, Report rep)
     {
         boolean res;
@@ -1863,9 +1767,10 @@ public class lazygit extends ModelChecker
         return res;
     }
 
-    // object .gui.branchColors
-    public boolean _jm_obj_19(Object val, Path path, Report rep)
+    // check _jm_f_27_map_branchColors (.gui.branchColors)
+    public boolean _jm_f_31(Object val, Path path, Report rep)
     {
+        // .gui.branchColors
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.gui.branchColors]", path);
@@ -1898,20 +1803,7 @@ public class lazygit extends ModelChecker
         return true;
     }
 
-    // check _jm_obj_17_map_branchColors (.gui.branchColors)
-    public boolean _jm_f_31(Object val, Path path, Report rep)
-    {
-        boolean res;
-        // .gui.branchColors
-        res = _jm_obj_19(val, path, rep);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected element [.gui.branchColors]", path);
-        }
-        return res;
-    }
-
-    // check _jm_obj_17_map_commandLogSize (.gui.commandLogSize)
+    // check _jm_f_27_map_commandLogSize (.gui.commandLogSize)
     public boolean _jm_f_32(Object val, Path path, Report rep)
     {
         boolean res;
@@ -1924,9 +1816,10 @@ public class lazygit extends ModelChecker
         return res;
     }
 
-    // object .gui.commitLength
-    public boolean _jm_obj_20(Object val, Path path, Report rep)
+    // check _jm_f_27_map_commitLength (.gui.commitLength)
+    public boolean _jm_f_33(Object val, Path path, Report rep)
     {
+        // .gui.commitLength
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.gui.commitLength]", path);
@@ -1960,20 +1853,7 @@ public class lazygit extends ModelChecker
         return true;
     }
 
-    // check _jm_obj_17_map_commitLength (.gui.commitLength)
-    public boolean _jm_f_33(Object val, Path path, Report rep)
-    {
-        boolean res;
-        // .gui.commitLength
-        res = _jm_obj_20(val, path, rep);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected element [.gui.commitLength]", path);
-        }
-        return res;
-    }
-
-    // check _jm_obj_17_map_expandFocusedSidePanel (.gui.expandFocusedSidePanel)
+    // check _jm_f_27_map_expandFocusedSidePanel (.gui.expandFocusedSidePanel)
     public boolean _jm_f_34(Object val, Path path, Report rep)
     {
         boolean res;
@@ -1987,7 +1867,7 @@ public class lazygit extends ModelChecker
     }
 
 
-    // check _jm_obj_17_map_language (.gui.language)
+    // check _jm_f_27_map_language (.gui.language)
     public boolean _jm_f_35(Object val, Path path, Report rep)
     {
         boolean res;
@@ -2001,7 +1881,7 @@ public class lazygit extends ModelChecker
     }
 
 
-    // check _jm_obj_17_map_mainPanelSplitMode (.gui.mainPanelSplitMode)
+    // check _jm_f_27_map_mainPanelSplitMode (.gui.mainPanelSplitMode)
     public boolean _jm_f_36(Object val, Path path, Report rep)
     {
         boolean res;
@@ -2014,7 +1894,7 @@ public class lazygit extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_17_map_mouseEvents (.gui.mouseEvents)
+    // check _jm_f_27_map_mouseEvents (.gui.mouseEvents)
     public boolean _jm_f_37(Object val, Path path, Report rep)
     {
         boolean res;
@@ -2028,7 +1908,7 @@ public class lazygit extends ModelChecker
     }
 
 
-    // check _jm_obj_17_map_nerdFontsVersion (.gui.nerdFontsVersion)
+    // check _jm_f_27_map_nerdFontsVersion (.gui.nerdFontsVersion)
     public boolean _jm_f_38(Object val, Path path, Report rep)
     {
         boolean res;
@@ -2063,7 +1943,7 @@ public class lazygit extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_17_map_scrollHeight (.gui.scrollHeight)
+    // check _jm_f_27_map_scrollHeight (.gui.scrollHeight)
     public boolean _jm_f_39(Object val, Path path, Report rep)
     {
         boolean res;
@@ -2076,7 +1956,7 @@ public class lazygit extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_17_map_scrollPastBottom (.gui.scrollPastBottom)
+    // check _jm_f_27_map_scrollPastBottom (.gui.scrollPastBottom)
     public boolean _jm_f_40(Object val, Path path, Report rep)
     {
         boolean res;
@@ -2089,7 +1969,7 @@ public class lazygit extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_17_map_shortTimeFormat (.gui.shortTimeFormat)
+    // check _jm_f_27_map_shortTimeFormat (.gui.shortTimeFormat)
     public boolean _jm_f_41(Object val, Path path, Report rep)
     {
         boolean res;
@@ -2102,7 +1982,7 @@ public class lazygit extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_17_map_showBottomLine (.gui.showBottomLine)
+    // check _jm_f_27_map_showBottomLine (.gui.showBottomLine)
     public boolean _jm_f_42(Object val, Path path, Report rep)
     {
         boolean res;
@@ -2115,7 +1995,7 @@ public class lazygit extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_17_map_showBranchCommitHash (.gui.showBranchCommitHash)
+    // check _jm_f_27_map_showBranchCommitHash (.gui.showBranchCommitHash)
     public boolean _jm_f_43(Object val, Path path, Report rep)
     {
         boolean res;
@@ -2128,7 +2008,7 @@ public class lazygit extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_17_map_showCommandLog (.gui.showCommandLog)
+    // check _jm_f_27_map_showCommandLog (.gui.showCommandLog)
     public boolean _jm_f_44(Object val, Path path, Report rep)
     {
         boolean res;
@@ -2141,7 +2021,7 @@ public class lazygit extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_17_map_showFileTree (.gui.showFileTree)
+    // check _jm_f_27_map_showFileTree (.gui.showFileTree)
     public boolean _jm_f_45(Object val, Path path, Report rep)
     {
         boolean res;
@@ -2154,7 +2034,7 @@ public class lazygit extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_17_map_showListFooter (.gui.showListFooter)
+    // check _jm_f_27_map_showListFooter (.gui.showListFooter)
     public boolean _jm_f_46(Object val, Path path, Report rep)
     {
         boolean res;
@@ -2167,7 +2047,7 @@ public class lazygit extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_17_map_showRandomTip (.gui.showRandomTip)
+    // check _jm_f_27_map_showRandomTip (.gui.showRandomTip)
     public boolean _jm_f_47(Object val, Path path, Report rep)
     {
         boolean res;
@@ -2180,7 +2060,7 @@ public class lazygit extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_17_map_sidePanelWidth (.gui.sidePanelWidth)
+    // check _jm_f_27_map_sidePanelWidth (.gui.sidePanelWidth)
     public boolean _jm_f_48(Object val, Path path, Report rep)
     {
         boolean res;
@@ -2203,7 +2083,7 @@ public class lazygit extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_17_map_skipDiscardChangeWarning (.gui.skipDiscardChangeWarning)
+    // check _jm_f_27_map_skipDiscardChangeWarning (.gui.skipDiscardChangeWarning)
     public boolean _jm_f_49(Object val, Path path, Report rep)
     {
         boolean res;
@@ -2216,7 +2096,7 @@ public class lazygit extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_17_map_skipRewordInEditorWarning (.gui.skipRewordInEditorWarning)
+    // check _jm_f_27_map_skipRewordInEditorWarning (.gui.skipRewordInEditorWarning)
     public boolean _jm_f_50(Object val, Path path, Report rep)
     {
         boolean res;
@@ -2229,7 +2109,7 @@ public class lazygit extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_17_map_skipStashWarning (.gui.skipStashWarning)
+    // check _jm_f_27_map_skipStashWarning (.gui.skipStashWarning)
     public boolean _jm_f_51(Object val, Path path, Report rep)
     {
         boolean res;
@@ -2243,7 +2123,7 @@ public class lazygit extends ModelChecker
     }
 
 
-    // check _jm_obj_17_map_splitDiff (.gui.splitDiff)
+    // check _jm_f_27_map_splitDiff (.gui.splitDiff)
     public boolean _jm_f_52(Object val, Path path, Report rep)
     {
         boolean res;
@@ -2256,7 +2136,7 @@ public class lazygit extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_21_map_activeBorderColor (.gui.theme.activeBorderColor)
+    // check _jm_f_53_map_activeBorderColor (.gui.theme.activeBorderColor)
     public boolean _jm_f_54(Object val, Path path, Report rep)
     {
         boolean res;
@@ -2269,7 +2149,7 @@ public class lazygit extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_21_map_cherryPickedCommitBgColor (.gui.theme.cherryPickedCommitBgColor)
+    // check _jm_f_53_map_cherryPickedCommitBgColor (.gui.theme.cherryPickedCommitBgColor)
     public boolean _jm_f_55(Object val, Path path, Report rep)
     {
         boolean res;
@@ -2282,7 +2162,7 @@ public class lazygit extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_21_map_cherryPickedCommitFgColor (.gui.theme.cherryPickedCommitFgColor)
+    // check _jm_f_53_map_cherryPickedCommitFgColor (.gui.theme.cherryPickedCommitFgColor)
     public boolean _jm_f_56(Object val, Path path, Report rep)
     {
         boolean res;
@@ -2295,7 +2175,7 @@ public class lazygit extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_21_map_defaultFgColor (.gui.theme.defaultFgColor)
+    // check _jm_f_53_map_defaultFgColor (.gui.theme.defaultFgColor)
     public boolean _jm_f_57(Object val, Path path, Report rep)
     {
         boolean res;
@@ -2308,7 +2188,7 @@ public class lazygit extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_21_map_inactiveBorderColor (.gui.theme.inactiveBorderColor)
+    // check _jm_f_53_map_inactiveBorderColor (.gui.theme.inactiveBorderColor)
     public boolean _jm_f_58(Object val, Path path, Report rep)
     {
         boolean res;
@@ -2321,7 +2201,7 @@ public class lazygit extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_21_map_optionsTextColor (.gui.theme.optionsTextColor)
+    // check _jm_f_53_map_optionsTextColor (.gui.theme.optionsTextColor)
     public boolean _jm_f_59(Object val, Path path, Report rep)
     {
         boolean res;
@@ -2334,7 +2214,7 @@ public class lazygit extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_21_map_searchingActiveBorderColor (.gui.theme.searchingActiveBorderColor)
+    // check _jm_f_53_map_searchingActiveBorderColor (.gui.theme.searchingActiveBorderColor)
     public boolean _jm_f_60(Object val, Path path, Report rep)
     {
         boolean res;
@@ -2347,7 +2227,7 @@ public class lazygit extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_21_map_selectedLineBgColor (.gui.theme.selectedLineBgColor)
+    // check _jm_f_53_map_selectedLineBgColor (.gui.theme.selectedLineBgColor)
     public boolean _jm_f_61(Object val, Path path, Report rep)
     {
         boolean res;
@@ -2360,7 +2240,7 @@ public class lazygit extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_21_map_selectedRangeBgColor (.gui.theme.selectedRangeBgColor)
+    // check _jm_f_53_map_selectedRangeBgColor (.gui.theme.selectedRangeBgColor)
     public boolean _jm_f_62(Object val, Path path, Report rep)
     {
         boolean res;
@@ -2373,7 +2253,7 @@ public class lazygit extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_21_map_unstagedChangesColor (.gui.theme.unstagedChangesColor)
+    // check _jm_f_53_map_unstagedChangesColor (.gui.theme.unstagedChangesColor)
     public boolean _jm_f_63(Object val, Path path, Report rep)
     {
         boolean res;
@@ -2387,9 +2267,10 @@ public class lazygit extends ModelChecker
     }
 
 
-    // object .gui.theme
-    public boolean _jm_obj_21(Object val, Path path, Report rep)
+    // check _jm_f_27_map_theme (.gui.theme)
+    public boolean _jm_f_53(Object val, Path path, Report rep)
     {
+        // .gui.theme
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.gui.theme]", path);
@@ -2402,7 +2283,7 @@ public class lazygit extends ModelChecker
             String prop = prop_loop.next();
             Object pval = json.objectValue(val, prop);
             Path lpath_17 = new Path(prop, path);
-            if ((pfun = _jm_obj_21_map_pmap.get(prop)) != null)
+            if ((pfun = _jm_f_53_map_pmap.get(prop)) != null)
             {
                 // handle 10 may props
                 if (pfun != null && ! (pfun.call(pval, (path != null ? lpath_17 : null), rep)))
@@ -2420,20 +2301,7 @@ public class lazygit extends ModelChecker
         return true;
     }
 
-    // check _jm_obj_17_map_theme (.gui.theme)
-    public boolean _jm_f_53(Object val, Path path, Report rep)
-    {
-        boolean res;
-        // .gui.theme
-        res = _jm_obj_21(val, path, rep);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected element [.gui.theme]", path);
-        }
-        return res;
-    }
-
-    // check _jm_obj_17_map_timeFormat (.gui.timeFormat)
+    // check _jm_f_27_map_timeFormat (.gui.timeFormat)
     public boolean _jm_f_64(Object val, Path path, Report rep)
     {
         boolean res;
@@ -2447,7 +2315,7 @@ public class lazygit extends ModelChecker
     }
 
 
-    // check _jm_obj_17_map_windowSize (.gui.windowSize)
+    // check _jm_f_27_map_windowSize (.gui.windowSize)
     public boolean _jm_f_65(Object val, Path path, Report rep)
     {
         boolean res;
@@ -2461,9 +2329,10 @@ public class lazygit extends ModelChecker
     }
 
 
-    // object .gui
-    public boolean _jm_obj_17(Object val, Path path, Report rep)
+    // check json_model_1_map_gui (.gui)
+    public boolean _jm_f_27(Object val, Path path, Report rep)
     {
+        // .gui
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.gui]", path);
@@ -2476,7 +2345,7 @@ public class lazygit extends ModelChecker
             String prop = prop_loop.next();
             Object pval = json.objectValue(val, prop);
             Path lpath_13 = new Path(prop, path);
-            if ((pfun = _jm_obj_17_map_pmap.get(prop)) != null)
+            if ((pfun = _jm_f_27_map_pmap.get(prop)) != null)
             {
                 // handle 28 may props
                 if (pfun != null && ! (pfun.call(pval, (path != null ? lpath_13 : null), rep)))
@@ -2494,20 +2363,7 @@ public class lazygit extends ModelChecker
         return true;
     }
 
-    // check _jm_obj_7_map_gui (.gui)
-    public boolean _jm_f_27(Object val, Path path, Report rep)
-    {
-        boolean res;
-        // .gui
-        res = _jm_obj_17(val, path, rep);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected element [.gui]", path);
-        }
-        return res;
-    }
-
-    // check _jm_obj_23_map_checkoutBranchByName (.keybinding.branches.checkoutBranchByName)
+    // check _jm_f_67_map_checkoutBranchByName (.keybinding.branches.checkoutBranchByName)
     public boolean _jm_f_68(Object val, Path path, Report rep)
     {
         boolean res;
@@ -2520,7 +2376,7 @@ public class lazygit extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_23_map_createPullRequest (.keybinding.branches.createPullRequest)
+    // check _jm_f_67_map_createPullRequest (.keybinding.branches.createPullRequest)
     public boolean _jm_f_69(Object val, Path path, Report rep)
     {
         boolean res;
@@ -2533,7 +2389,7 @@ public class lazygit extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_23_map_createTag (.keybinding.branches.createTag)
+    // check _jm_f_67_map_createTag (.keybinding.branches.createTag)
     public boolean _jm_f_70(Object val, Path path, Report rep)
     {
         boolean res;
@@ -2546,7 +2402,7 @@ public class lazygit extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_23_map_fastForward (.keybinding.branches.fastForward)
+    // check _jm_f_67_map_fastForward (.keybinding.branches.fastForward)
     public boolean _jm_f_71(Object val, Path path, Report rep)
     {
         boolean res;
@@ -2559,7 +2415,7 @@ public class lazygit extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_23_map_fetchRemote (.keybinding.branches.fetchRemote)
+    // check _jm_f_67_map_fetchRemote (.keybinding.branches.fetchRemote)
     public boolean _jm_f_72(Object val, Path path, Report rep)
     {
         boolean res;
@@ -2572,7 +2428,7 @@ public class lazygit extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_23_map_forceCheckoutBranch (.keybinding.branches.forceCheckoutBranch)
+    // check _jm_f_67_map_forceCheckoutBranch (.keybinding.branches.forceCheckoutBranch)
     public boolean _jm_f_73(Object val, Path path, Report rep)
     {
         boolean res;
@@ -2585,7 +2441,7 @@ public class lazygit extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_23_map_mergeIntoCurrentBranch (.keybinding.branches.mergeIntoCurrentBranch)
+    // check _jm_f_67_map_mergeIntoCurrentBranch (.keybinding.branches.mergeIntoCurrentBranch)
     public boolean _jm_f_74(Object val, Path path, Report rep)
     {
         boolean res;
@@ -2598,7 +2454,7 @@ public class lazygit extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_23_map_pushTag (.keybinding.branches.pushTag)
+    // check _jm_f_67_map_pushTag (.keybinding.branches.pushTag)
     public boolean _jm_f_75(Object val, Path path, Report rep)
     {
         boolean res;
@@ -2611,7 +2467,7 @@ public class lazygit extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_23_map_rebaseBranch (.keybinding.branches.rebaseBranch)
+    // check _jm_f_67_map_rebaseBranch (.keybinding.branches.rebaseBranch)
     public boolean _jm_f_76(Object val, Path path, Report rep)
     {
         boolean res;
@@ -2624,7 +2480,7 @@ public class lazygit extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_23_map_renameBranch (.keybinding.branches.renameBranch)
+    // check _jm_f_67_map_renameBranch (.keybinding.branches.renameBranch)
     public boolean _jm_f_77(Object val, Path path, Report rep)
     {
         boolean res;
@@ -2637,7 +2493,7 @@ public class lazygit extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_23_map_setUpstream (.keybinding.branches.setUpstream)
+    // check _jm_f_67_map_setUpstream (.keybinding.branches.setUpstream)
     public boolean _jm_f_78(Object val, Path path, Report rep)
     {
         boolean res;
@@ -2650,7 +2506,7 @@ public class lazygit extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_23_map_viewGitFlowOptions (.keybinding.branches.viewGitFlowOptions)
+    // check _jm_f_67_map_viewGitFlowOptions (.keybinding.branches.viewGitFlowOptions)
     public boolean _jm_f_79(Object val, Path path, Report rep)
     {
         boolean res;
@@ -2663,7 +2519,7 @@ public class lazygit extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_23_map_viewPullRequestOptions (.keybinding.branches.viewPullRequestOptions)
+    // check _jm_f_67_map_viewPullRequestOptions (.keybinding.branches.viewPullRequestOptions)
     public boolean _jm_f_80(Object val, Path path, Report rep)
     {
         boolean res;
@@ -2677,9 +2533,10 @@ public class lazygit extends ModelChecker
     }
 
 
-    // object .keybinding.branches
-    public boolean _jm_obj_23(Object val, Path path, Report rep)
+    // check _jm_f_66_map_branches (.keybinding.branches)
+    public boolean _jm_f_67(Object val, Path path, Report rep)
     {
+        // .keybinding.branches
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.keybinding.branches]", path);
@@ -2692,7 +2549,7 @@ public class lazygit extends ModelChecker
             String prop = prop_loop.next();
             Object pval = json.objectValue(val, prop);
             Path lpath_19 = new Path(prop, path);
-            if ((pfun = _jm_obj_23_map_pmap.get(prop)) != null)
+            if ((pfun = _jm_f_67_map_pmap.get(prop)) != null)
             {
                 // handle 13 may props
                 if (pfun != null && ! (pfun.call(pval, (path != null ? lpath_19 : null), rep)))
@@ -2710,22 +2567,10 @@ public class lazygit extends ModelChecker
         return true;
     }
 
-    // check _jm_obj_22_map_branches (.keybinding.branches)
-    public boolean _jm_f_67(Object val, Path path, Report rep)
+    // check _jm_f_66_map_commitFiles (.keybinding.commitFiles)
+    public boolean _jm_f_81(Object val, Path path, Report rep)
     {
-        boolean res;
-        // .keybinding.branches
-        res = _jm_obj_23(val, path, rep);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected element [.keybinding.branches]", path);
-        }
-        return res;
-    }
-
-    // object .keybinding.commitFiles
-    public boolean _jm_obj_24(Object val, Path path, Report rep)
-    {
+        // .keybinding.commitFiles
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.keybinding.commitFiles]", path);
@@ -2759,20 +2604,7 @@ public class lazygit extends ModelChecker
         return true;
     }
 
-    // check _jm_obj_22_map_commitFiles (.keybinding.commitFiles)
-    public boolean _jm_f_81(Object val, Path path, Report rep)
-    {
-        boolean res;
-        // .keybinding.commitFiles
-        res = _jm_obj_24(val, path, rep);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected element [.keybinding.commitFiles]", path);
-        }
-        return res;
-    }
-
-    // check _jm_obj_25_map_amendToCommit (.keybinding.commits.amendToCommit)
+    // check _jm_f_82_map_amendToCommit (.keybinding.commits.amendToCommit)
     public boolean _jm_f_83(Object val, Path path, Report rep)
     {
         boolean res;
@@ -2785,7 +2617,7 @@ public class lazygit extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_25_map_checkoutCommit (.keybinding.commits.checkoutCommit)
+    // check _jm_f_82_map_checkoutCommit (.keybinding.commits.checkoutCommit)
     public boolean _jm_f_84(Object val, Path path, Report rep)
     {
         boolean res;
@@ -2798,7 +2630,7 @@ public class lazygit extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_25_map_cherryPickCopy (.keybinding.commits.cherryPickCopy)
+    // check _jm_f_82_map_cherryPickCopy (.keybinding.commits.cherryPickCopy)
     public boolean _jm_f_85(Object val, Path path, Report rep)
     {
         boolean res;
@@ -2811,7 +2643,7 @@ public class lazygit extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_25_map_cherryPickCopyRange (.keybinding.commits.cherryPickCopyRange)
+    // check _jm_f_82_map_cherryPickCopyRange (.keybinding.commits.cherryPickCopyRange)
     public boolean _jm_f_86(Object val, Path path, Report rep)
     {
         boolean res;
@@ -2824,7 +2656,7 @@ public class lazygit extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_25_map_copyCommitMessageToClipboard (.keybinding.commits.copyCommitMessageToClipboard)
+    // check _jm_f_82_map_copyCommitMessageToClipboard (.keybinding.commits.copyCommitMessageToClipboard)
     public boolean _jm_f_87(Object val, Path path, Report rep)
     {
         boolean res;
@@ -2837,7 +2669,7 @@ public class lazygit extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_25_map_createFixupCommit (.keybinding.commits.createFixupCommit)
+    // check _jm_f_82_map_createFixupCommit (.keybinding.commits.createFixupCommit)
     public boolean _jm_f_88(Object val, Path path, Report rep)
     {
         boolean res;
@@ -2850,7 +2682,7 @@ public class lazygit extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_25_map_markCommitAsFixup (.keybinding.commits.markCommitAsFixup)
+    // check _jm_f_82_map_markCommitAsFixup (.keybinding.commits.markCommitAsFixup)
     public boolean _jm_f_89(Object val, Path path, Report rep)
     {
         boolean res;
@@ -2863,7 +2695,7 @@ public class lazygit extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_25_map_moveDownCommit (.keybinding.commits.moveDownCommit)
+    // check _jm_f_82_map_moveDownCommit (.keybinding.commits.moveDownCommit)
     public boolean _jm_f_90(Object val, Path path, Report rep)
     {
         boolean res;
@@ -2876,7 +2708,7 @@ public class lazygit extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_25_map_moveUpCommit (.keybinding.commits.moveUpCommit)
+    // check _jm_f_82_map_moveUpCommit (.keybinding.commits.moveUpCommit)
     public boolean _jm_f_91(Object val, Path path, Report rep)
     {
         boolean res;
@@ -2889,7 +2721,7 @@ public class lazygit extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_25_map_openLogMenu (.keybinding.commits.openLogMenu)
+    // check _jm_f_82_map_openLogMenu (.keybinding.commits.openLogMenu)
     public boolean _jm_f_92(Object val, Path path, Report rep)
     {
         boolean res;
@@ -2902,7 +2734,7 @@ public class lazygit extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_25_map_pasteCommits (.keybinding.commits.pasteCommits)
+    // check _jm_f_82_map_pasteCommits (.keybinding.commits.pasteCommits)
     public boolean _jm_f_93(Object val, Path path, Report rep)
     {
         boolean res;
@@ -2915,7 +2747,7 @@ public class lazygit extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_25_map_pickCommit (.keybinding.commits.pickCommit)
+    // check _jm_f_82_map_pickCommit (.keybinding.commits.pickCommit)
     public boolean _jm_f_94(Object val, Path path, Report rep)
     {
         boolean res;
@@ -2928,7 +2760,7 @@ public class lazygit extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_25_map_renameCommit (.keybinding.commits.renameCommit)
+    // check _jm_f_82_map_renameCommit (.keybinding.commits.renameCommit)
     public boolean _jm_f_95(Object val, Path path, Report rep)
     {
         boolean res;
@@ -2941,7 +2773,7 @@ public class lazygit extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_25_map_renameCommitWithEditor (.keybinding.commits.renameCommitWithEditor)
+    // check _jm_f_82_map_renameCommitWithEditor (.keybinding.commits.renameCommitWithEditor)
     public boolean _jm_f_96(Object val, Path path, Report rep)
     {
         boolean res;
@@ -2954,7 +2786,7 @@ public class lazygit extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_25_map_resetCherryPick (.keybinding.commits.resetCherryPick)
+    // check _jm_f_82_map_resetCherryPick (.keybinding.commits.resetCherryPick)
     public boolean _jm_f_97(Object val, Path path, Report rep)
     {
         boolean res;
@@ -2967,7 +2799,7 @@ public class lazygit extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_25_map_revertCommit (.keybinding.commits.revertCommit)
+    // check _jm_f_82_map_revertCommit (.keybinding.commits.revertCommit)
     public boolean _jm_f_98(Object val, Path path, Report rep)
     {
         boolean res;
@@ -2980,7 +2812,7 @@ public class lazygit extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_25_map_squashAboveCommits (.keybinding.commits.squashAboveCommits)
+    // check _jm_f_82_map_squashAboveCommits (.keybinding.commits.squashAboveCommits)
     public boolean _jm_f_99(Object val, Path path, Report rep)
     {
         boolean res;
@@ -2993,7 +2825,7 @@ public class lazygit extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_25_map_squashDown (.keybinding.commits.squashDown)
+    // check _jm_f_82_map_squashDown (.keybinding.commits.squashDown)
     public boolean _jm_f_100(Object val, Path path, Report rep)
     {
         boolean res;
@@ -3006,7 +2838,7 @@ public class lazygit extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_25_map_tagCommit (.keybinding.commits.tagCommit)
+    // check _jm_f_82_map_tagCommit (.keybinding.commits.tagCommit)
     public boolean _jm_f_101(Object val, Path path, Report rep)
     {
         boolean res;
@@ -3019,7 +2851,7 @@ public class lazygit extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_25_map_viewBisectOptions (.keybinding.commits.viewBisectOptions)
+    // check _jm_f_82_map_viewBisectOptions (.keybinding.commits.viewBisectOptions)
     public boolean _jm_f_102(Object val, Path path, Report rep)
     {
         boolean res;
@@ -3032,7 +2864,7 @@ public class lazygit extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_25_map_viewResetOptions (.keybinding.commits.viewResetOptions)
+    // check _jm_f_82_map_viewResetOptions (.keybinding.commits.viewResetOptions)
     public boolean _jm_f_103(Object val, Path path, Report rep)
     {
         boolean res;
@@ -3046,9 +2878,10 @@ public class lazygit extends ModelChecker
     }
 
 
-    // object .keybinding.commits
-    public boolean _jm_obj_25(Object val, Path path, Report rep)
+    // check _jm_f_66_map_commits (.keybinding.commits)
+    public boolean _jm_f_82(Object val, Path path, Report rep)
     {
+        // .keybinding.commits
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.keybinding.commits]", path);
@@ -3061,7 +2894,7 @@ public class lazygit extends ModelChecker
             String prop = prop_loop.next();
             Object pval = json.objectValue(val, prop);
             Path lpath_21 = new Path(prop, path);
-            if ((pfun = _jm_obj_25_map_pmap.get(prop)) != null)
+            if ((pfun = _jm_f_82_map_pmap.get(prop)) != null)
             {
                 // handle 21 may props
                 if (pfun != null && ! (pfun.call(pval, (path != null ? lpath_21 : null), rep)))
@@ -3079,20 +2912,7 @@ public class lazygit extends ModelChecker
         return true;
     }
 
-    // check _jm_obj_22_map_commits (.keybinding.commits)
-    public boolean _jm_f_82(Object val, Path path, Report rep)
-    {
-        boolean res;
-        // .keybinding.commits
-        res = _jm_obj_25(val, path, rep);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected element [.keybinding.commits]", path);
-        }
-        return res;
-    }
-
-    // check _jm_obj_26_map_amendLastCommit (.keybinding.files.amendLastCommit)
+    // check _jm_f_104_map_amendLastCommit (.keybinding.files.amendLastCommit)
     public boolean _jm_f_105(Object val, Path path, Report rep)
     {
         boolean res;
@@ -3105,7 +2925,7 @@ public class lazygit extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_26_map_commitChanges (.keybinding.files.commitChanges)
+    // check _jm_f_104_map_commitChanges (.keybinding.files.commitChanges)
     public boolean _jm_f_106(Object val, Path path, Report rep)
     {
         boolean res;
@@ -3118,7 +2938,7 @@ public class lazygit extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_26_map_commitChangesWithEditor (.keybinding.files.commitChangesWithEditor)
+    // check _jm_f_104_map_commitChangesWithEditor (.keybinding.files.commitChangesWithEditor)
     public boolean _jm_f_107(Object val, Path path, Report rep)
     {
         boolean res;
@@ -3131,7 +2951,7 @@ public class lazygit extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_26_map_commitChangesWithoutHook (.keybinding.files.commitChangesWithoutHook)
+    // check _jm_f_104_map_commitChangesWithoutHook (.keybinding.files.commitChangesWithoutHook)
     public boolean _jm_f_108(Object val, Path path, Report rep)
     {
         boolean res;
@@ -3144,7 +2964,7 @@ public class lazygit extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_26_map_fetch (.keybinding.files.fetch)
+    // check _jm_f_104_map_fetch (.keybinding.files.fetch)
     public boolean _jm_f_109(Object val, Path path, Report rep)
     {
         boolean res;
@@ -3157,7 +2977,7 @@ public class lazygit extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_26_map_ignoreFile (.keybinding.files.ignoreFile)
+    // check _jm_f_104_map_ignoreFile (.keybinding.files.ignoreFile)
     public boolean _jm_f_110(Object val, Path path, Report rep)
     {
         boolean res;
@@ -3170,7 +2990,7 @@ public class lazygit extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_26_map_openMergeTool (.keybinding.files.openMergeTool)
+    // check _jm_f_104_map_openMergeTool (.keybinding.files.openMergeTool)
     public boolean _jm_f_111(Object val, Path path, Report rep)
     {
         boolean res;
@@ -3183,7 +3003,7 @@ public class lazygit extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_26_map_openStatusFilter (.keybinding.files.openStatusFilter)
+    // check _jm_f_104_map_openStatusFilter (.keybinding.files.openStatusFilter)
     public boolean _jm_f_112(Object val, Path path, Report rep)
     {
         boolean res;
@@ -3196,7 +3016,7 @@ public class lazygit extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_26_map_refreshFiles (.keybinding.files.refreshFiles)
+    // check _jm_f_104_map_refreshFiles (.keybinding.files.refreshFiles)
     public boolean _jm_f_113(Object val, Path path, Report rep)
     {
         boolean res;
@@ -3209,7 +3029,7 @@ public class lazygit extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_26_map_stashAllChanges (.keybinding.files.stashAllChanges)
+    // check _jm_f_104_map_stashAllChanges (.keybinding.files.stashAllChanges)
     public boolean _jm_f_114(Object val, Path path, Report rep)
     {
         boolean res;
@@ -3222,7 +3042,7 @@ public class lazygit extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_26_map_toggleStagedAll (.keybinding.files.toggleStagedAll)
+    // check _jm_f_104_map_toggleStagedAll (.keybinding.files.toggleStagedAll)
     public boolean _jm_f_115(Object val, Path path, Report rep)
     {
         boolean res;
@@ -3235,7 +3055,7 @@ public class lazygit extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_26_map_toggleTreeView (.keybinding.files.toggleTreeView)
+    // check _jm_f_104_map_toggleTreeView (.keybinding.files.toggleTreeView)
     public boolean _jm_f_116(Object val, Path path, Report rep)
     {
         boolean res;
@@ -3248,7 +3068,7 @@ public class lazygit extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_26_map_viewResetOptions (.keybinding.files.viewResetOptions)
+    // check _jm_f_104_map_viewResetOptions (.keybinding.files.viewResetOptions)
     public boolean _jm_f_117(Object val, Path path, Report rep)
     {
         boolean res;
@@ -3261,7 +3081,7 @@ public class lazygit extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_26_map_viewStashOptions (.keybinding.files.viewStashOptions)
+    // check _jm_f_104_map_viewStashOptions (.keybinding.files.viewStashOptions)
     public boolean _jm_f_118(Object val, Path path, Report rep)
     {
         boolean res;
@@ -3275,9 +3095,10 @@ public class lazygit extends ModelChecker
     }
 
 
-    // object .keybinding.files
-    public boolean _jm_obj_26(Object val, Path path, Report rep)
+    // check _jm_f_66_map_files (.keybinding.files)
+    public boolean _jm_f_104(Object val, Path path, Report rep)
     {
+        // .keybinding.files
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.keybinding.files]", path);
@@ -3290,7 +3111,7 @@ public class lazygit extends ModelChecker
             String prop = prop_loop.next();
             Object pval = json.objectValue(val, prop);
             Path lpath_22 = new Path(prop, path);
-            if ((pfun = _jm_obj_26_map_pmap.get(prop)) != null)
+            if ((pfun = _jm_f_104_map_pmap.get(prop)) != null)
             {
                 // handle 14 may props
                 if (pfun != null && ! (pfun.call(pval, (path != null ? lpath_22 : null), rep)))
@@ -3308,22 +3129,10 @@ public class lazygit extends ModelChecker
         return true;
     }
 
-    // check _jm_obj_22_map_files (.keybinding.files)
-    public boolean _jm_f_104(Object val, Path path, Report rep)
+    // check _jm_f_66_map_main (.keybinding.main)
+    public boolean _jm_f_119(Object val, Path path, Report rep)
     {
-        boolean res;
-        // .keybinding.files
-        res = _jm_obj_26(val, path, rep);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected element [.keybinding.files]", path);
-        }
-        return res;
-    }
-
-    // object .keybinding.main
-    public boolean _jm_obj_27(Object val, Path path, Report rep)
-    {
+        // .keybinding.main
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.keybinding.main]", path);
@@ -3393,22 +3202,10 @@ public class lazygit extends ModelChecker
         return true;
     }
 
-    // check _jm_obj_22_map_main (.keybinding.main)
-    public boolean _jm_f_119(Object val, Path path, Report rep)
+    // check _jm_f_66_map_stash (.keybinding.stash)
+    public boolean _jm_f_120(Object val, Path path, Report rep)
     {
-        boolean res;
-        // .keybinding.main
-        res = _jm_obj_27(val, path, rep);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected element [.keybinding.main]", path);
-        }
-        return res;
-    }
-
-    // object .keybinding.stash
-    public boolean _jm_obj_28(Object val, Path path, Report rep)
-    {
+        // .keybinding.stash
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.keybinding.stash]", path);
@@ -3454,22 +3251,10 @@ public class lazygit extends ModelChecker
         return true;
     }
 
-    // check _jm_obj_22_map_stash (.keybinding.stash)
-    public boolean _jm_f_120(Object val, Path path, Report rep)
+    // check _jm_f_66_map_status (.keybinding.status)
+    public boolean _jm_f_121(Object val, Path path, Report rep)
     {
-        boolean res;
-        // .keybinding.stash
-        res = _jm_obj_28(val, path, rep);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected element [.keybinding.stash]", path);
-        }
-        return res;
-    }
-
-    // object .keybinding.status
-    public boolean _jm_obj_29(Object val, Path path, Report rep)
-    {
+        // .keybinding.status
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.keybinding.status]", path);
@@ -3515,22 +3300,10 @@ public class lazygit extends ModelChecker
         return true;
     }
 
-    // check _jm_obj_22_map_status (.keybinding.status)
-    public boolean _jm_f_121(Object val, Path path, Report rep)
+    // check _jm_f_66_map_submodules (.keybinding.submodules)
+    public boolean _jm_f_122(Object val, Path path, Report rep)
     {
-        boolean res;
-        // .keybinding.status
-        res = _jm_obj_29(val, path, rep);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected element [.keybinding.status]", path);
-        }
-        return res;
-    }
-
-    // object .keybinding.submodules
-    public boolean _jm_obj_30(Object val, Path path, Report rep)
-    {
+        // .keybinding.submodules
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.keybinding.submodules]", path);
@@ -3588,20 +3361,7 @@ public class lazygit extends ModelChecker
         return true;
     }
 
-    // check _jm_obj_22_map_submodules (.keybinding.submodules)
-    public boolean _jm_f_122(Object val, Path path, Report rep)
-    {
-        boolean res;
-        // .keybinding.submodules
-        res = _jm_obj_30(val, path, rep);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected element [.keybinding.submodules]", path);
-        }
-        return res;
-    }
-
-    // check _jm_obj_31_map_confirm (.keybinding.universal.confirm)
+    // check _jm_f_123_map_confirm (.keybinding.universal.confirm)
     public boolean _jm_f_124(Object val, Path path, Report rep)
     {
         boolean res;
@@ -3614,7 +3374,7 @@ public class lazygit extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_31_map_copyToClipboard (.keybinding.universal.copyToClipboard)
+    // check _jm_f_123_map_copyToClipboard (.keybinding.universal.copyToClipboard)
     public boolean _jm_f_125(Object val, Path path, Report rep)
     {
         boolean res;
@@ -3627,7 +3387,7 @@ public class lazygit extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_31_map_createPatchOptionsMenu (.keybinding.universal.createPatchOptionsMenu)
+    // check _jm_f_123_map_createPatchOptionsMenu (.keybinding.universal.createPatchOptionsMenu)
     public boolean _jm_f_126(Object val, Path path, Report rep)
     {
         boolean res;
@@ -3640,7 +3400,7 @@ public class lazygit extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_31_map_createRebaseOptionsMenu (.keybinding.universal.createRebaseOptionsMenu)
+    // check _jm_f_123_map_createRebaseOptionsMenu (.keybinding.universal.createRebaseOptionsMenu)
     public boolean _jm_f_127(Object val, Path path, Report rep)
     {
         boolean res;
@@ -3653,7 +3413,7 @@ public class lazygit extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_31_map_decreaseContextInDiffView (.keybinding.universal.decreaseContextInDiffView)
+    // check _jm_f_123_map_decreaseContextInDiffView (.keybinding.universal.decreaseContextInDiffView)
     public boolean _jm_f_128(Object val, Path path, Report rep)
     {
         boolean res;
@@ -3666,7 +3426,7 @@ public class lazygit extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_31_map_diffingMenu (.keybinding.universal.diffingMenu)
+    // check _jm_f_123_map_diffingMenu (.keybinding.universal.diffingMenu)
     public boolean _jm_f_129(Object val, Path path, Report rep)
     {
         boolean res;
@@ -3679,7 +3439,7 @@ public class lazygit extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_31_map_diffingMenu-alt (.keybinding.universal.'diffingMenu-alt')
+    // check _jm_f_123_map_diffingMenu-alt (.keybinding.universal.'diffingMenu-alt')
     public boolean _jm_f_130(Object val, Path path, Report rep)
     {
         boolean res;
@@ -3692,7 +3452,7 @@ public class lazygit extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_31_map_edit (.keybinding.universal.edit)
+    // check _jm_f_123_map_edit (.keybinding.universal.edit)
     public boolean _jm_f_131(Object val, Path path, Report rep)
     {
         boolean res;
@@ -3705,7 +3465,7 @@ public class lazygit extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_31_map_executeCustomCommand (.keybinding.universal.executeCustomCommand)
+    // check _jm_f_123_map_executeCustomCommand (.keybinding.universal.executeCustomCommand)
     public boolean _jm_f_132(Object val, Path path, Report rep)
     {
         boolean res;
@@ -3718,7 +3478,7 @@ public class lazygit extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_31_map_extrasMenu (.keybinding.universal.extrasMenu)
+    // check _jm_f_123_map_extrasMenu (.keybinding.universal.extrasMenu)
     public boolean _jm_f_133(Object val, Path path, Report rep)
     {
         boolean res;
@@ -3731,7 +3491,7 @@ public class lazygit extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_31_map_filteringMenu (.keybinding.universal.filteringMenu)
+    // check _jm_f_123_map_filteringMenu (.keybinding.universal.filteringMenu)
     public boolean _jm_f_134(Object val, Path path, Report rep)
     {
         boolean res;
@@ -3744,7 +3504,7 @@ public class lazygit extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_31_map_goInto (.keybinding.universal.goInto)
+    // check _jm_f_123_map_goInto (.keybinding.universal.goInto)
     public boolean _jm_f_135(Object val, Path path, Report rep)
     {
         boolean res;
@@ -3757,7 +3517,7 @@ public class lazygit extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_31_map_gotoBottom (.keybinding.universal.gotoBottom)
+    // check _jm_f_123_map_gotoBottom (.keybinding.universal.gotoBottom)
     public boolean _jm_f_136(Object val, Path path, Report rep)
     {
         boolean res;
@@ -3770,7 +3530,7 @@ public class lazygit extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_31_map_gotoTop (.keybinding.universal.gotoTop)
+    // check _jm_f_123_map_gotoTop (.keybinding.universal.gotoTop)
     public boolean _jm_f_137(Object val, Path path, Report rep)
     {
         boolean res;
@@ -3783,7 +3543,7 @@ public class lazygit extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_31_map_increaseContextInDiffView (.keybinding.universal.increaseContextInDiffView)
+    // check _jm_f_123_map_increaseContextInDiffView (.keybinding.universal.increaseContextInDiffView)
     public boolean _jm_f_138(Object val, Path path, Report rep)
     {
         boolean res;
@@ -3796,7 +3556,7 @@ public class lazygit extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_31_map_jumpToBlock (.keybinding.universal.jumpToBlock)
+    // check _jm_f_123_map_jumpToBlock (.keybinding.universal.jumpToBlock)
     public boolean _jm_f_139(Object val, Path path, Report rep)
     {
         boolean res;
@@ -3809,7 +3569,7 @@ public class lazygit extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_31_map_new (.keybinding.universal.new)
+    // check _jm_f_123_map_new (.keybinding.universal.new)
     public boolean _jm_f_140(Object val, Path path, Report rep)
     {
         boolean res;
@@ -3822,7 +3582,7 @@ public class lazygit extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_31_map_nextBlock (.keybinding.universal.nextBlock)
+    // check _jm_f_123_map_nextBlock (.keybinding.universal.nextBlock)
     public boolean _jm_f_141(Object val, Path path, Report rep)
     {
         boolean res;
@@ -3835,7 +3595,7 @@ public class lazygit extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_31_map_nextBlock-alt (.keybinding.universal.'nextBlock-alt')
+    // check _jm_f_123_map_nextBlock-alt (.keybinding.universal.'nextBlock-alt')
     public boolean _jm_f_142(Object val, Path path, Report rep)
     {
         boolean res;
@@ -3848,7 +3608,7 @@ public class lazygit extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_31_map_nextItem (.keybinding.universal.nextItem)
+    // check _jm_f_123_map_nextItem (.keybinding.universal.nextItem)
     public boolean _jm_f_143(Object val, Path path, Report rep)
     {
         boolean res;
@@ -3861,7 +3621,7 @@ public class lazygit extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_31_map_nextItem-alt (.keybinding.universal.'nextItem-alt')
+    // check _jm_f_123_map_nextItem-alt (.keybinding.universal.'nextItem-alt')
     public boolean _jm_f_144(Object val, Path path, Report rep)
     {
         boolean res;
@@ -3874,7 +3634,7 @@ public class lazygit extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_31_map_nextMatch (.keybinding.universal.nextMatch)
+    // check _jm_f_123_map_nextMatch (.keybinding.universal.nextMatch)
     public boolean _jm_f_145(Object val, Path path, Report rep)
     {
         boolean res;
@@ -3887,7 +3647,7 @@ public class lazygit extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_31_map_nextPage (.keybinding.universal.nextPage)
+    // check _jm_f_123_map_nextPage (.keybinding.universal.nextPage)
     public boolean _jm_f_146(Object val, Path path, Report rep)
     {
         boolean res;
@@ -3900,7 +3660,7 @@ public class lazygit extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_31_map_nextScreenMode (.keybinding.universal.nextScreenMode)
+    // check _jm_f_123_map_nextScreenMode (.keybinding.universal.nextScreenMode)
     public boolean _jm_f_147(Object val, Path path, Report rep)
     {
         boolean res;
@@ -3913,7 +3673,7 @@ public class lazygit extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_31_map_nextTab (.keybinding.universal.nextTab)
+    // check _jm_f_123_map_nextTab (.keybinding.universal.nextTab)
     public boolean _jm_f_148(Object val, Path path, Report rep)
     {
         boolean res;
@@ -3926,7 +3686,7 @@ public class lazygit extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_31_map_openFile (.keybinding.universal.openFile)
+    // check _jm_f_123_map_openFile (.keybinding.universal.openFile)
     public boolean _jm_f_149(Object val, Path path, Report rep)
     {
         boolean res;
@@ -3939,7 +3699,7 @@ public class lazygit extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_31_map_openRecentRepos (.keybinding.universal.openRecentRepos)
+    // check _jm_f_123_map_openRecentRepos (.keybinding.universal.openRecentRepos)
     public boolean _jm_f_150(Object val, Path path, Report rep)
     {
         boolean res;
@@ -3952,7 +3712,7 @@ public class lazygit extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_31_map_optionMenu (.keybinding.universal.optionMenu)
+    // check _jm_f_123_map_optionMenu (.keybinding.universal.optionMenu)
     public boolean _jm_f_151(Object val, Path path, Report rep)
     {
         boolean res;
@@ -3965,7 +3725,7 @@ public class lazygit extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_31_map_optionMenu-alt1 (.keybinding.universal.'optionMenu-alt1')
+    // check _jm_f_123_map_optionMenu-alt1 (.keybinding.universal.'optionMenu-alt1')
     public boolean _jm_f_152(Object val, Path path, Report rep)
     {
         boolean res;
@@ -3978,7 +3738,7 @@ public class lazygit extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_31_map_prevBlock (.keybinding.universal.prevBlock)
+    // check _jm_f_123_map_prevBlock (.keybinding.universal.prevBlock)
     public boolean _jm_f_153(Object val, Path path, Report rep)
     {
         boolean res;
@@ -3991,7 +3751,7 @@ public class lazygit extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_31_map_prevBlock-alt (.keybinding.universal.'prevBlock-alt')
+    // check _jm_f_123_map_prevBlock-alt (.keybinding.universal.'prevBlock-alt')
     public boolean _jm_f_154(Object val, Path path, Report rep)
     {
         boolean res;
@@ -4004,7 +3764,7 @@ public class lazygit extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_31_map_prevItem (.keybinding.universal.prevItem)
+    // check _jm_f_123_map_prevItem (.keybinding.universal.prevItem)
     public boolean _jm_f_155(Object val, Path path, Report rep)
     {
         boolean res;
@@ -4017,7 +3777,7 @@ public class lazygit extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_31_map_prevItem-alt (.keybinding.universal.'prevItem-alt')
+    // check _jm_f_123_map_prevItem-alt (.keybinding.universal.'prevItem-alt')
     public boolean _jm_f_156(Object val, Path path, Report rep)
     {
         boolean res;
@@ -4030,7 +3790,7 @@ public class lazygit extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_31_map_prevMatch (.keybinding.universal.prevMatch)
+    // check _jm_f_123_map_prevMatch (.keybinding.universal.prevMatch)
     public boolean _jm_f_157(Object val, Path path, Report rep)
     {
         boolean res;
@@ -4043,7 +3803,7 @@ public class lazygit extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_31_map_prevPage (.keybinding.universal.prevPage)
+    // check _jm_f_123_map_prevPage (.keybinding.universal.prevPage)
     public boolean _jm_f_158(Object val, Path path, Report rep)
     {
         boolean res;
@@ -4056,7 +3816,7 @@ public class lazygit extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_31_map_prevScreenMode (.keybinding.universal.prevScreenMode)
+    // check _jm_f_123_map_prevScreenMode (.keybinding.universal.prevScreenMode)
     public boolean _jm_f_159(Object val, Path path, Report rep)
     {
         boolean res;
@@ -4069,7 +3829,7 @@ public class lazygit extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_31_map_prevTab (.keybinding.universal.prevTab)
+    // check _jm_f_123_map_prevTab (.keybinding.universal.prevTab)
     public boolean _jm_f_160(Object val, Path path, Report rep)
     {
         boolean res;
@@ -4082,7 +3842,7 @@ public class lazygit extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_31_map_pullFiles (.keybinding.universal.pullFiles)
+    // check _jm_f_123_map_pullFiles (.keybinding.universal.pullFiles)
     public boolean _jm_f_161(Object val, Path path, Report rep)
     {
         boolean res;
@@ -4095,7 +3855,7 @@ public class lazygit extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_31_map_pushFiles (.keybinding.universal.pushFiles)
+    // check _jm_f_123_map_pushFiles (.keybinding.universal.pushFiles)
     public boolean _jm_f_162(Object val, Path path, Report rep)
     {
         boolean res;
@@ -4108,7 +3868,7 @@ public class lazygit extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_31_map_quit (.keybinding.universal.quit)
+    // check _jm_f_123_map_quit (.keybinding.universal.quit)
     public boolean _jm_f_163(Object val, Path path, Report rep)
     {
         boolean res;
@@ -4121,7 +3881,7 @@ public class lazygit extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_31_map_quit-alt1 (.keybinding.universal.'quit-alt1')
+    // check _jm_f_123_map_quit-alt1 (.keybinding.universal.'quit-alt1')
     public boolean _jm_f_164(Object val, Path path, Report rep)
     {
         boolean res;
@@ -4134,7 +3894,7 @@ public class lazygit extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_31_map_quitWithoutChangingDirectory (.keybinding.universal.quitWithoutChangingDirectory)
+    // check _jm_f_123_map_quitWithoutChangingDirectory (.keybinding.universal.quitWithoutChangingDirectory)
     public boolean _jm_f_165(Object val, Path path, Report rep)
     {
         boolean res;
@@ -4147,7 +3907,7 @@ public class lazygit extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_31_map_redo (.keybinding.universal.redo)
+    // check _jm_f_123_map_redo (.keybinding.universal.redo)
     public boolean _jm_f_166(Object val, Path path, Report rep)
     {
         boolean res;
@@ -4160,7 +3920,7 @@ public class lazygit extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_31_map_refresh (.keybinding.universal.refresh)
+    // check _jm_f_123_map_refresh (.keybinding.universal.refresh)
     public boolean _jm_f_167(Object val, Path path, Report rep)
     {
         boolean res;
@@ -4173,7 +3933,7 @@ public class lazygit extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_31_map_remove (.keybinding.universal.remove)
+    // check _jm_f_123_map_remove (.keybinding.universal.remove)
     public boolean _jm_f_168(Object val, Path path, Report rep)
     {
         boolean res;
@@ -4186,7 +3946,7 @@ public class lazygit extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_31_map_return (.keybinding.universal.return)
+    // check _jm_f_123_map_return (.keybinding.universal.return)
     public boolean _jm_f_169(Object val, Path path, Report rep)
     {
         boolean res;
@@ -4199,7 +3959,7 @@ public class lazygit extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_31_map_scrollDownMain (.keybinding.universal.scrollDownMain)
+    // check _jm_f_123_map_scrollDownMain (.keybinding.universal.scrollDownMain)
     public boolean _jm_f_170(Object val, Path path, Report rep)
     {
         boolean res;
@@ -4212,7 +3972,7 @@ public class lazygit extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_31_map_scrollDownMain-alt1 (.keybinding.universal.'scrollDownMain-alt1')
+    // check _jm_f_123_map_scrollDownMain-alt1 (.keybinding.universal.'scrollDownMain-alt1')
     public boolean _jm_f_171(Object val, Path path, Report rep)
     {
         boolean res;
@@ -4225,7 +3985,7 @@ public class lazygit extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_31_map_scrollDownMain-alt2 (.keybinding.universal.'scrollDownMain-alt2')
+    // check _jm_f_123_map_scrollDownMain-alt2 (.keybinding.universal.'scrollDownMain-alt2')
     public boolean _jm_f_172(Object val, Path path, Report rep)
     {
         boolean res;
@@ -4238,7 +3998,7 @@ public class lazygit extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_31_map_scrollLeft (.keybinding.universal.scrollLeft)
+    // check _jm_f_123_map_scrollLeft (.keybinding.universal.scrollLeft)
     public boolean _jm_f_173(Object val, Path path, Report rep)
     {
         boolean res;
@@ -4251,7 +4011,7 @@ public class lazygit extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_31_map_scrollRight (.keybinding.universal.scrollRight)
+    // check _jm_f_123_map_scrollRight (.keybinding.universal.scrollRight)
     public boolean _jm_f_174(Object val, Path path, Report rep)
     {
         boolean res;
@@ -4264,7 +4024,7 @@ public class lazygit extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_31_map_scrollUpMain (.keybinding.universal.scrollUpMain)
+    // check _jm_f_123_map_scrollUpMain (.keybinding.universal.scrollUpMain)
     public boolean _jm_f_175(Object val, Path path, Report rep)
     {
         boolean res;
@@ -4277,7 +4037,7 @@ public class lazygit extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_31_map_scrollUpMain-alt1 (.keybinding.universal.'scrollUpMain-alt1')
+    // check _jm_f_123_map_scrollUpMain-alt1 (.keybinding.universal.'scrollUpMain-alt1')
     public boolean _jm_f_176(Object val, Path path, Report rep)
     {
         boolean res;
@@ -4290,7 +4050,7 @@ public class lazygit extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_31_map_scrollUpMain-alt2 (.keybinding.universal.'scrollUpMain-alt2')
+    // check _jm_f_123_map_scrollUpMain-alt2 (.keybinding.universal.'scrollUpMain-alt2')
     public boolean _jm_f_177(Object val, Path path, Report rep)
     {
         boolean res;
@@ -4303,7 +4063,7 @@ public class lazygit extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_31_map_select (.keybinding.universal.select)
+    // check _jm_f_123_map_select (.keybinding.universal.select)
     public boolean _jm_f_178(Object val, Path path, Report rep)
     {
         boolean res;
@@ -4316,7 +4076,7 @@ public class lazygit extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_31_map_submitEditorText (.keybinding.universal.submitEditorText)
+    // check _jm_f_123_map_submitEditorText (.keybinding.universal.submitEditorText)
     public boolean _jm_f_179(Object val, Path path, Report rep)
     {
         boolean res;
@@ -4329,7 +4089,7 @@ public class lazygit extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_31_map_togglePanel (.keybinding.universal.togglePanel)
+    // check _jm_f_123_map_togglePanel (.keybinding.universal.togglePanel)
     public boolean _jm_f_180(Object val, Path path, Report rep)
     {
         boolean res;
@@ -4342,7 +4102,7 @@ public class lazygit extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_31_map_toggleWhitespaceInDiffView (.keybinding.universal.toggleWhitespaceInDiffView)
+    // check _jm_f_123_map_toggleWhitespaceInDiffView (.keybinding.universal.toggleWhitespaceInDiffView)
     public boolean _jm_f_181(Object val, Path path, Report rep)
     {
         boolean res;
@@ -4355,7 +4115,7 @@ public class lazygit extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_31_map_undo (.keybinding.universal.undo)
+    // check _jm_f_123_map_undo (.keybinding.universal.undo)
     public boolean _jm_f_182(Object val, Path path, Report rep)
     {
         boolean res;
@@ -4369,9 +4129,10 @@ public class lazygit extends ModelChecker
     }
 
 
-    // object .keybinding.universal
-    public boolean _jm_obj_31(Object val, Path path, Report rep)
+    // check _jm_f_66_map_universal (.keybinding.universal)
+    public boolean _jm_f_123(Object val, Path path, Report rep)
     {
+        // .keybinding.universal
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.keybinding.universal]", path);
@@ -4384,7 +4145,7 @@ public class lazygit extends ModelChecker
             String prop = prop_loop.next();
             Object pval = json.objectValue(val, prop);
             Path lpath_27 = new Path(prop, path);
-            if ((pfun = _jm_obj_31_map_pmap.get(prop)) != null)
+            if ((pfun = _jm_f_123_map_pmap.get(prop)) != null)
             {
                 // handle 59 may props
                 if (pfun != null && ! (pfun.call(pval, (path != null ? lpath_27 : null), rep)))
@@ -4402,23 +4163,11 @@ public class lazygit extends ModelChecker
         return true;
     }
 
-    // check _jm_obj_22_map_universal (.keybinding.universal)
-    public boolean _jm_f_123(Object val, Path path, Report rep)
-    {
-        boolean res;
-        // .keybinding.universal
-        res = _jm_obj_31(val, path, rep);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected element [.keybinding.universal]", path);
-        }
-        return res;
-    }
 
-
-    // object .keybinding
-    public boolean _jm_obj_22(Object val, Path path, Report rep)
+    // check json_model_1_map_keybinding (.keybinding)
+    public boolean _jm_f_66(Object val, Path path, Report rep)
     {
+        // .keybinding
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.keybinding]", path);
@@ -4431,7 +4180,7 @@ public class lazygit extends ModelChecker
             String prop = prop_loop.next();
             Object pval = json.objectValue(val, prop);
             Path lpath_18 = new Path(prop, path);
-            if ((pfun = _jm_obj_22_map_pmap.get(prop)) != null)
+            if ((pfun = _jm_f_66_map_pmap.get(prop)) != null)
             {
                 // handle 9 may props
                 if (pfun != null && ! (pfun.call(pval, (path != null ? lpath_18 : null), rep)))
@@ -4449,21 +4198,8 @@ public class lazygit extends ModelChecker
         return true;
     }
 
-    // check _jm_obj_7_map_keybinding (.keybinding)
-    public boolean _jm_f_66(Object val, Path path, Report rep)
-    {
-        boolean res;
-        // .keybinding
-        res = _jm_obj_22(val, path, rep);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected element [.keybinding]", path);
-        }
-        return res;
-    }
 
-
-    // check _jm_obj_7_map_notARepository (.notARepository)
+    // check json_model_1_map_notARepository (.notARepository)
     public boolean _jm_f_183(Object val, Path path, Report rep)
     {
         boolean res;
@@ -4476,7 +4212,7 @@ public class lazygit extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_32_map_copyToClipboardCmd (.os.copyToClipboardCmd)
+    // check _jm_f_184_map_copyToClipboardCmd (.os.copyToClipboardCmd)
     public boolean _jm_f_185(Object val, Path path, Report rep)
     {
         boolean res;
@@ -4489,7 +4225,7 @@ public class lazygit extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_32_map_edit (.os.edit)
+    // check _jm_f_184_map_edit (.os.edit)
     public boolean _jm_f_186(Object val, Path path, Report rep)
     {
         boolean res;
@@ -4502,7 +4238,7 @@ public class lazygit extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_32_map_editAtLine (.os.editAtLine)
+    // check _jm_f_184_map_editAtLine (.os.editAtLine)
     public boolean _jm_f_187(Object val, Path path, Report rep)
     {
         boolean res;
@@ -4515,7 +4251,7 @@ public class lazygit extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_32_map_editAtLineAndWait (.os.editAtLineAndWait)
+    // check _jm_f_184_map_editAtLineAndWait (.os.editAtLineAndWait)
     public boolean _jm_f_188(Object val, Path path, Report rep)
     {
         boolean res;
@@ -4529,7 +4265,7 @@ public class lazygit extends ModelChecker
     }
 
 
-    // check _jm_obj_32_map_editPreset (.os.editPreset)
+    // check _jm_f_184_map_editPreset (.os.editPreset)
     public boolean _jm_f_189(Object val, Path path, Report rep)
     {
         boolean res;
@@ -4564,7 +4300,7 @@ public class lazygit extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_32_map_open (.os.open)
+    // check _jm_f_184_map_open (.os.open)
     public boolean _jm_f_190(Object val, Path path, Report rep)
     {
         boolean res;
@@ -4577,7 +4313,7 @@ public class lazygit extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_32_map_openLink (.os.openLink)
+    // check _jm_f_184_map_openLink (.os.openLink)
     public boolean _jm_f_191(Object val, Path path, Report rep)
     {
         boolean res;
@@ -4591,9 +4327,10 @@ public class lazygit extends ModelChecker
     }
 
 
-    // object .os
-    public boolean _jm_obj_32(Object val, Path path, Report rep)
+    // check json_model_1_map_os (.os)
+    public boolean _jm_f_184(Object val, Path path, Report rep)
     {
+        // .os
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.os]", path);
@@ -4606,7 +4343,7 @@ public class lazygit extends ModelChecker
             String prop = prop_loop.next();
             Object pval = json.objectValue(val, prop);
             Path lpath_28 = new Path(prop, path);
-            if ((pfun = _jm_obj_32_map_pmap.get(prop)) != null)
+            if ((pfun = _jm_f_184_map_pmap.get(prop)) != null)
             {
                 // handle 7 may props
                 if (pfun != null && ! (pfun.call(pval, (path != null ? lpath_28 : null), rep)))
@@ -4624,20 +4361,7 @@ public class lazygit extends ModelChecker
         return true;
     }
 
-    // check _jm_obj_7_map_os (.os)
-    public boolean _jm_f_184(Object val, Path path, Report rep)
-    {
-        boolean res;
-        // .os
-        res = _jm_obj_32(val, path, rep);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected element [.os]", path);
-        }
-        return res;
-    }
-
-    // check _jm_obj_7_map_promptToReturnFromSubprocess (.promptToReturnFromSubprocess)
+    // check json_model_1_map_promptToReturnFromSubprocess (.promptToReturnFromSubprocess)
     public boolean _jm_f_192(Object val, Path path, Report rep)
     {
         boolean res;
@@ -4650,7 +4374,7 @@ public class lazygit extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_7_map_quitOnTopLevelReturn (.quitOnTopLevelReturn)
+    // check json_model_1_map_quitOnTopLevelReturn (.quitOnTopLevelReturn)
     public boolean _jm_f_193(Object val, Path path, Report rep)
     {
         boolean res;
@@ -4663,9 +4387,10 @@ public class lazygit extends ModelChecker
         return res;
     }
 
-    // object .refresher
-    public boolean _jm_obj_33(Object val, Path path, Report rep)
+    // check json_model_1_map_refresher (.refresher)
+    public boolean _jm_f_194(Object val, Path path, Report rep)
     {
+        // .refresher
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.refresher]", path);
@@ -4711,27 +4436,15 @@ public class lazygit extends ModelChecker
         return true;
     }
 
-    // check _jm_obj_7_map_refresher (.refresher)
-    public boolean _jm_f_194(Object val, Path path, Report rep)
-    {
-        boolean res;
-        // .refresher
-        res = _jm_obj_33(val, path, rep);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected element [.refresher]", path);
-        }
-        return res;
-    }
-
     public boolean _jm_re_2(String val, Path path, Report rep)
     {
         return _jm_re_2_pat.matcher(val).find();
     }
 
-    // object .services
-    public boolean _jm_obj_34(Object val, Path path, Report rep)
+    // check json_model_1_map_services (.services)
+    public boolean _jm_f_195(Object val, Path path, Report rep)
     {
+        // .services
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.services]", path);
@@ -4765,23 +4478,11 @@ public class lazygit extends ModelChecker
         return true;
     }
 
-    // check _jm_obj_7_map_services (.services)
-    public boolean _jm_f_195(Object val, Path path, Report rep)
-    {
-        boolean res;
-        // .services
-        res = _jm_obj_34(val, path, rep);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected element [.services]", path);
-        }
-        return res;
-    }
 
-
-    // object .update
-    public boolean _jm_obj_35(Object val, Path path, Report rep)
+    // check json_model_1_map_update (.update)
+    public boolean _jm_f_196(Object val, Path path, Report rep)
     {
+        // .update
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.update]", path);
@@ -4827,23 +4528,12 @@ public class lazygit extends ModelChecker
         return true;
     }
 
-    // check _jm_obj_7_map_update (.update)
-    public boolean _jm_f_196(Object val, Path path, Report rep)
-    {
-        boolean res;
-        // .update
-        res = _jm_obj_35(val, path, rep);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected element [.update]", path);
-        }
-        return res;
-    }
 
-
-    // object .
-    public boolean _jm_obj_7(Object val, Path path, Report rep)
+    // check $ (.)
+    public boolean json_model_1(Object val, Path path, Report rep)
     {
+        // JSON Model for Lazy Git
+        // .
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.]", path);
@@ -4856,7 +4546,7 @@ public class lazygit extends ModelChecker
             String prop = prop_loop.next();
             Object pval = json.objectValue(val, prop);
             Path lpath_4 = new Path(prop, path);
-            if ((pfun = _jm_obj_7_map_pmap.get(prop)) != null)
+            if ((pfun = json_model_1_map_pmap.get(prop)) != null)
             {
                 // handle 13 may props
                 if (pfun != null && ! (pfun.call(pval, (path != null ? lpath_4 : null), rep)))
@@ -4872,20 +4562,6 @@ public class lazygit extends ModelChecker
             }
         }
         return true;
-    }
-
-    // check $ (.)
-    public boolean json_model_1(Object val, Path path, Report rep)
-    {
-        boolean res;
-        // JSON Model for Lazy Git
-        // .
-        res = _jm_obj_7(val, path, rep);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected element [.]", path);
-        }
-        return res;
     }
 
 
@@ -4941,14 +4617,14 @@ public class lazygit extends ModelChecker
             _jm_cst_3_set.add(json.safeJSON("\"commitFiles\""));
             _jm_cst_3_set.add(json.safeJSON("\"stash\""));
             _jm_cst_3_set.add(json.safeJSON("\"global\""));
-            _jm_obj_8_map_pmap = new HashMap<String, Checker>();
-            _jm_obj_8_map_pmap.put("after", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_2(o, p, r);} });
-            _jm_obj_8_map_pmap.put("description", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_3(o, p, r);} });
-            _jm_obj_8_map_pmap.put("loadingText", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_4(o, p, r);} });
-            _jm_obj_8_map_pmap.put("prompts", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_5(o, p, r);} });
-            _jm_obj_8_map_pmap.put("showOutput", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_6(o, p, r);} });
-            _jm_obj_8_map_pmap.put("stream", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_7(o, p, r);} });
-            _jm_obj_8_map_pmap.put("subprocess", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_8(o, p, r);} });
+            _jm_obj_7_map_pmap = new HashMap<String, Checker>();
+            _jm_obj_7_map_pmap.put("after", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_2(o, p, r);} });
+            _jm_obj_7_map_pmap.put("description", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_3(o, p, r);} });
+            _jm_obj_7_map_pmap.put("loadingText", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_4(o, p, r);} });
+            _jm_obj_7_map_pmap.put("prompts", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_5(o, p, r);} });
+            _jm_obj_7_map_pmap.put("showOutput", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_6(o, p, r);} });
+            _jm_obj_7_map_pmap.put("stream", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_7(o, p, r);} });
+            _jm_obj_7_map_pmap.put("subprocess", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_8(o, p, r);} });
             _jm_re_1_pat = Pattern.compile(".");
             _jm_cst_4_set = new HashSet<Object>();
             _jm_cst_4_set.add(json.safeJSON("\"date-order\""));
@@ -4962,23 +4638,23 @@ public class lazygit extends ModelChecker
             _jm_cst_6_set = new HashSet<Object>();
             _jm_cst_6_set.add(json.safeJSON("\"always\""));
             _jm_cst_6_set.add(json.safeJSON("\"never\""));
-            _jm_obj_10_map_pmap = new HashMap<String, Checker>();
-            _jm_obj_10_map_pmap.put("allBranchesLogCmd", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_11(o, p, r);} });
-            _jm_obj_10_map_pmap.put("autoFetch", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_12(o, p, r);} });
-            _jm_obj_10_map_pmap.put("autoRefresh", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_13(o, p, r);} });
-            _jm_obj_10_map_pmap.put("branchLogCmd", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_14(o, p, r);} });
-            _jm_obj_10_map_pmap.put("commit", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_15(o, p, r);} });
-            _jm_obj_10_map_pmap.put("commitPrefixes", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_16(o, p, r);} });
-            _jm_obj_10_map_pmap.put("diffContextSize", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_17(o, p, r);} });
-            _jm_obj_10_map_pmap.put("disableForcePushing", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_18(o, p, r);} });
-            _jm_obj_10_map_pmap.put("fetchAll", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_19(o, p, r);} });
-            _jm_obj_10_map_pmap.put("log", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_20(o, p, r);} });
-            _jm_obj_10_map_pmap.put("mainBranches", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_21(o, p, r);} });
-            _jm_obj_10_map_pmap.put("merging", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_22(o, p, r);} });
-            _jm_obj_10_map_pmap.put("overrideGpg", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_23(o, p, r);} });
-            _jm_obj_10_map_pmap.put("paging", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_24(o, p, r);} });
-            _jm_obj_10_map_pmap.put("parseEmoji", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_25(o, p, r);} });
-            _jm_obj_10_map_pmap.put("skipHookPrefix", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_26(o, p, r);} });
+            _jm_f_10_map_pmap = new HashMap<String, Checker>();
+            _jm_f_10_map_pmap.put("allBranchesLogCmd", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_11(o, p, r);} });
+            _jm_f_10_map_pmap.put("autoFetch", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_12(o, p, r);} });
+            _jm_f_10_map_pmap.put("autoRefresh", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_13(o, p, r);} });
+            _jm_f_10_map_pmap.put("branchLogCmd", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_14(o, p, r);} });
+            _jm_f_10_map_pmap.put("commit", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_15(o, p, r);} });
+            _jm_f_10_map_pmap.put("commitPrefixes", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_16(o, p, r);} });
+            _jm_f_10_map_pmap.put("diffContextSize", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_17(o, p, r);} });
+            _jm_f_10_map_pmap.put("disableForcePushing", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_18(o, p, r);} });
+            _jm_f_10_map_pmap.put("fetchAll", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_19(o, p, r);} });
+            _jm_f_10_map_pmap.put("log", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_20(o, p, r);} });
+            _jm_f_10_map_pmap.put("mainBranches", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_21(o, p, r);} });
+            _jm_f_10_map_pmap.put("merging", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_22(o, p, r);} });
+            _jm_f_10_map_pmap.put("overrideGpg", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_23(o, p, r);} });
+            _jm_f_10_map_pmap.put("paging", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_24(o, p, r);} });
+            _jm_f_10_map_pmap.put("parseEmoji", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_25(o, p, r);} });
+            _jm_f_10_map_pmap.put("skipHookPrefix", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_26(o, p, r);} });
             _jm_cst_7_set = new HashSet<Object>();
             _jm_cst_7_set.add(json.safeJSON("\"single\""));
             _jm_cst_7_set.add(json.safeJSON("\"double\""));
@@ -5004,171 +4680,171 @@ public class lazygit extends ModelChecker
             _jm_cst_11_set = new HashSet<Object>();
             _jm_cst_11_set.add(json.safeJSON("\"auto\""));
             _jm_cst_11_set.add(json.safeJSON("\"always\""));
-            _jm_obj_21_map_pmap = new HashMap<String, Checker>();
-            _jm_obj_21_map_pmap.put("activeBorderColor", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_54(o, p, r);} });
-            _jm_obj_21_map_pmap.put("cherryPickedCommitBgColor", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_55(o, p, r);} });
-            _jm_obj_21_map_pmap.put("cherryPickedCommitFgColor", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_56(o, p, r);} });
-            _jm_obj_21_map_pmap.put("defaultFgColor", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_57(o, p, r);} });
-            _jm_obj_21_map_pmap.put("inactiveBorderColor", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_58(o, p, r);} });
-            _jm_obj_21_map_pmap.put("optionsTextColor", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_59(o, p, r);} });
-            _jm_obj_21_map_pmap.put("searchingActiveBorderColor", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_60(o, p, r);} });
-            _jm_obj_21_map_pmap.put("selectedLineBgColor", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_61(o, p, r);} });
-            _jm_obj_21_map_pmap.put("selectedRangeBgColor", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_62(o, p, r);} });
-            _jm_obj_21_map_pmap.put("unstagedChangesColor", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_63(o, p, r);} });
+            _jm_f_53_map_pmap = new HashMap<String, Checker>();
+            _jm_f_53_map_pmap.put("activeBorderColor", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_54(o, p, r);} });
+            _jm_f_53_map_pmap.put("cherryPickedCommitBgColor", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_55(o, p, r);} });
+            _jm_f_53_map_pmap.put("cherryPickedCommitFgColor", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_56(o, p, r);} });
+            _jm_f_53_map_pmap.put("defaultFgColor", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_57(o, p, r);} });
+            _jm_f_53_map_pmap.put("inactiveBorderColor", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_58(o, p, r);} });
+            _jm_f_53_map_pmap.put("optionsTextColor", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_59(o, p, r);} });
+            _jm_f_53_map_pmap.put("searchingActiveBorderColor", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_60(o, p, r);} });
+            _jm_f_53_map_pmap.put("selectedLineBgColor", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_61(o, p, r);} });
+            _jm_f_53_map_pmap.put("selectedRangeBgColor", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_62(o, p, r);} });
+            _jm_f_53_map_pmap.put("unstagedChangesColor", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_63(o, p, r);} });
             _jm_cst_12_set = new HashSet<Object>();
             _jm_cst_12_set.add(json.safeJSON("\"normal\""));
             _jm_cst_12_set.add(json.safeJSON("\"half\""));
             _jm_cst_12_set.add(json.safeJSON("\"full\""));
-            _jm_obj_17_map_pmap = new HashMap<String, Checker>();
-            _jm_obj_17_map_pmap.put("animateExplosion", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_28(o, p, r);} });
-            _jm_obj_17_map_pmap.put("authorColors", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_29(o, p, r);} });
-            _jm_obj_17_map_pmap.put("border", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_30(o, p, r);} });
-            _jm_obj_17_map_pmap.put("branchColors", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_31(o, p, r);} });
-            _jm_obj_17_map_pmap.put("commandLogSize", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_32(o, p, r);} });
-            _jm_obj_17_map_pmap.put("commitLength", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_33(o, p, r);} });
-            _jm_obj_17_map_pmap.put("expandFocusedSidePanel", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_34(o, p, r);} });
-            _jm_obj_17_map_pmap.put("language", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_35(o, p, r);} });
-            _jm_obj_17_map_pmap.put("mainPanelSplitMode", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_36(o, p, r);} });
-            _jm_obj_17_map_pmap.put("mouseEvents", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_37(o, p, r);} });
-            _jm_obj_17_map_pmap.put("nerdFontsVersion", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_38(o, p, r);} });
-            _jm_obj_17_map_pmap.put("scrollHeight", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_39(o, p, r);} });
-            _jm_obj_17_map_pmap.put("scrollPastBottom", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_40(o, p, r);} });
-            _jm_obj_17_map_pmap.put("shortTimeFormat", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_41(o, p, r);} });
-            _jm_obj_17_map_pmap.put("showBottomLine", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_42(o, p, r);} });
-            _jm_obj_17_map_pmap.put("showBranchCommitHash", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_43(o, p, r);} });
-            _jm_obj_17_map_pmap.put("showCommandLog", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_44(o, p, r);} });
-            _jm_obj_17_map_pmap.put("showFileTree", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_45(o, p, r);} });
-            _jm_obj_17_map_pmap.put("showListFooter", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_46(o, p, r);} });
-            _jm_obj_17_map_pmap.put("showRandomTip", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_47(o, p, r);} });
-            _jm_obj_17_map_pmap.put("sidePanelWidth", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_48(o, p, r);} });
-            _jm_obj_17_map_pmap.put("skipDiscardChangeWarning", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_49(o, p, r);} });
-            _jm_obj_17_map_pmap.put("skipRewordInEditorWarning", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_50(o, p, r);} });
-            _jm_obj_17_map_pmap.put("skipStashWarning", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_51(o, p, r);} });
-            _jm_obj_17_map_pmap.put("splitDiff", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_52(o, p, r);} });
-            _jm_obj_17_map_pmap.put("theme", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_53(o, p, r);} });
-            _jm_obj_17_map_pmap.put("timeFormat", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_64(o, p, r);} });
-            _jm_obj_17_map_pmap.put("windowSize", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_65(o, p, r);} });
-            _jm_obj_23_map_pmap = new HashMap<String, Checker>();
-            _jm_obj_23_map_pmap.put("checkoutBranchByName", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_68(o, p, r);} });
-            _jm_obj_23_map_pmap.put("createPullRequest", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_69(o, p, r);} });
-            _jm_obj_23_map_pmap.put("createTag", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_70(o, p, r);} });
-            _jm_obj_23_map_pmap.put("fastForward", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_71(o, p, r);} });
-            _jm_obj_23_map_pmap.put("fetchRemote", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_72(o, p, r);} });
-            _jm_obj_23_map_pmap.put("forceCheckoutBranch", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_73(o, p, r);} });
-            _jm_obj_23_map_pmap.put("mergeIntoCurrentBranch", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_74(o, p, r);} });
-            _jm_obj_23_map_pmap.put("pushTag", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_75(o, p, r);} });
-            _jm_obj_23_map_pmap.put("rebaseBranch", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_76(o, p, r);} });
-            _jm_obj_23_map_pmap.put("renameBranch", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_77(o, p, r);} });
-            _jm_obj_23_map_pmap.put("setUpstream", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_78(o, p, r);} });
-            _jm_obj_23_map_pmap.put("viewGitFlowOptions", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_79(o, p, r);} });
-            _jm_obj_23_map_pmap.put("viewPullRequestOptions", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_80(o, p, r);} });
-            _jm_obj_25_map_pmap = new HashMap<String, Checker>();
-            _jm_obj_25_map_pmap.put("amendToCommit", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_83(o, p, r);} });
-            _jm_obj_25_map_pmap.put("checkoutCommit", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_84(o, p, r);} });
-            _jm_obj_25_map_pmap.put("cherryPickCopy", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_85(o, p, r);} });
-            _jm_obj_25_map_pmap.put("cherryPickCopyRange", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_86(o, p, r);} });
-            _jm_obj_25_map_pmap.put("copyCommitMessageToClipboard", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_87(o, p, r);} });
-            _jm_obj_25_map_pmap.put("createFixupCommit", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_88(o, p, r);} });
-            _jm_obj_25_map_pmap.put("markCommitAsFixup", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_89(o, p, r);} });
-            _jm_obj_25_map_pmap.put("moveDownCommit", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_90(o, p, r);} });
-            _jm_obj_25_map_pmap.put("moveUpCommit", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_91(o, p, r);} });
-            _jm_obj_25_map_pmap.put("openLogMenu", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_92(o, p, r);} });
-            _jm_obj_25_map_pmap.put("pasteCommits", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_93(o, p, r);} });
-            _jm_obj_25_map_pmap.put("pickCommit", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_94(o, p, r);} });
-            _jm_obj_25_map_pmap.put("renameCommit", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_95(o, p, r);} });
-            _jm_obj_25_map_pmap.put("renameCommitWithEditor", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_96(o, p, r);} });
-            _jm_obj_25_map_pmap.put("resetCherryPick", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_97(o, p, r);} });
-            _jm_obj_25_map_pmap.put("revertCommit", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_98(o, p, r);} });
-            _jm_obj_25_map_pmap.put("squashAboveCommits", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_99(o, p, r);} });
-            _jm_obj_25_map_pmap.put("squashDown", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_100(o, p, r);} });
-            _jm_obj_25_map_pmap.put("tagCommit", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_101(o, p, r);} });
-            _jm_obj_25_map_pmap.put("viewBisectOptions", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_102(o, p, r);} });
-            _jm_obj_25_map_pmap.put("viewResetOptions", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_103(o, p, r);} });
-            _jm_obj_26_map_pmap = new HashMap<String, Checker>();
-            _jm_obj_26_map_pmap.put("amendLastCommit", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_105(o, p, r);} });
-            _jm_obj_26_map_pmap.put("commitChanges", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_106(o, p, r);} });
-            _jm_obj_26_map_pmap.put("commitChangesWithEditor", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_107(o, p, r);} });
-            _jm_obj_26_map_pmap.put("commitChangesWithoutHook", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_108(o, p, r);} });
-            _jm_obj_26_map_pmap.put("fetch", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_109(o, p, r);} });
-            _jm_obj_26_map_pmap.put("ignoreFile", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_110(o, p, r);} });
-            _jm_obj_26_map_pmap.put("openMergeTool", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_111(o, p, r);} });
-            _jm_obj_26_map_pmap.put("openStatusFilter", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_112(o, p, r);} });
-            _jm_obj_26_map_pmap.put("refreshFiles", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_113(o, p, r);} });
-            _jm_obj_26_map_pmap.put("stashAllChanges", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_114(o, p, r);} });
-            _jm_obj_26_map_pmap.put("toggleStagedAll", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_115(o, p, r);} });
-            _jm_obj_26_map_pmap.put("toggleTreeView", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_116(o, p, r);} });
-            _jm_obj_26_map_pmap.put("viewResetOptions", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_117(o, p, r);} });
-            _jm_obj_26_map_pmap.put("viewStashOptions", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_118(o, p, r);} });
-            _jm_obj_31_map_pmap = new HashMap<String, Checker>();
-            _jm_obj_31_map_pmap.put("confirm", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_124(o, p, r);} });
-            _jm_obj_31_map_pmap.put("copyToClipboard", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_125(o, p, r);} });
-            _jm_obj_31_map_pmap.put("createPatchOptionsMenu", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_126(o, p, r);} });
-            _jm_obj_31_map_pmap.put("createRebaseOptionsMenu", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_127(o, p, r);} });
-            _jm_obj_31_map_pmap.put("decreaseContextInDiffView", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_128(o, p, r);} });
-            _jm_obj_31_map_pmap.put("diffingMenu", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_129(o, p, r);} });
-            _jm_obj_31_map_pmap.put("diffingMenu-alt", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_130(o, p, r);} });
-            _jm_obj_31_map_pmap.put("edit", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_131(o, p, r);} });
-            _jm_obj_31_map_pmap.put("executeCustomCommand", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_132(o, p, r);} });
-            _jm_obj_31_map_pmap.put("extrasMenu", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_133(o, p, r);} });
-            _jm_obj_31_map_pmap.put("filteringMenu", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_134(o, p, r);} });
-            _jm_obj_31_map_pmap.put("goInto", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_135(o, p, r);} });
-            _jm_obj_31_map_pmap.put("gotoBottom", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_136(o, p, r);} });
-            _jm_obj_31_map_pmap.put("gotoTop", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_137(o, p, r);} });
-            _jm_obj_31_map_pmap.put("increaseContextInDiffView", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_138(o, p, r);} });
-            _jm_obj_31_map_pmap.put("jumpToBlock", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_139(o, p, r);} });
-            _jm_obj_31_map_pmap.put("new", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_140(o, p, r);} });
-            _jm_obj_31_map_pmap.put("nextBlock", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_141(o, p, r);} });
-            _jm_obj_31_map_pmap.put("nextBlock-alt", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_142(o, p, r);} });
-            _jm_obj_31_map_pmap.put("nextItem", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_143(o, p, r);} });
-            _jm_obj_31_map_pmap.put("nextItem-alt", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_144(o, p, r);} });
-            _jm_obj_31_map_pmap.put("nextMatch", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_145(o, p, r);} });
-            _jm_obj_31_map_pmap.put("nextPage", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_146(o, p, r);} });
-            _jm_obj_31_map_pmap.put("nextScreenMode", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_147(o, p, r);} });
-            _jm_obj_31_map_pmap.put("nextTab", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_148(o, p, r);} });
-            _jm_obj_31_map_pmap.put("openFile", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_149(o, p, r);} });
-            _jm_obj_31_map_pmap.put("openRecentRepos", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_150(o, p, r);} });
-            _jm_obj_31_map_pmap.put("optionMenu", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_151(o, p, r);} });
-            _jm_obj_31_map_pmap.put("optionMenu-alt1", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_152(o, p, r);} });
-            _jm_obj_31_map_pmap.put("prevBlock", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_153(o, p, r);} });
-            _jm_obj_31_map_pmap.put("prevBlock-alt", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_154(o, p, r);} });
-            _jm_obj_31_map_pmap.put("prevItem", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_155(o, p, r);} });
-            _jm_obj_31_map_pmap.put("prevItem-alt", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_156(o, p, r);} });
-            _jm_obj_31_map_pmap.put("prevMatch", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_157(o, p, r);} });
-            _jm_obj_31_map_pmap.put("prevPage", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_158(o, p, r);} });
-            _jm_obj_31_map_pmap.put("prevScreenMode", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_159(o, p, r);} });
-            _jm_obj_31_map_pmap.put("prevTab", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_160(o, p, r);} });
-            _jm_obj_31_map_pmap.put("pullFiles", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_161(o, p, r);} });
-            _jm_obj_31_map_pmap.put("pushFiles", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_162(o, p, r);} });
-            _jm_obj_31_map_pmap.put("quit", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_163(o, p, r);} });
-            _jm_obj_31_map_pmap.put("quit-alt1", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_164(o, p, r);} });
-            _jm_obj_31_map_pmap.put("quitWithoutChangingDirectory", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_165(o, p, r);} });
-            _jm_obj_31_map_pmap.put("redo", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_166(o, p, r);} });
-            _jm_obj_31_map_pmap.put("refresh", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_167(o, p, r);} });
-            _jm_obj_31_map_pmap.put("remove", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_168(o, p, r);} });
-            _jm_obj_31_map_pmap.put("return", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_169(o, p, r);} });
-            _jm_obj_31_map_pmap.put("scrollDownMain", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_170(o, p, r);} });
-            _jm_obj_31_map_pmap.put("scrollDownMain-alt1", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_171(o, p, r);} });
-            _jm_obj_31_map_pmap.put("scrollDownMain-alt2", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_172(o, p, r);} });
-            _jm_obj_31_map_pmap.put("scrollLeft", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_173(o, p, r);} });
-            _jm_obj_31_map_pmap.put("scrollRight", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_174(o, p, r);} });
-            _jm_obj_31_map_pmap.put("scrollUpMain", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_175(o, p, r);} });
-            _jm_obj_31_map_pmap.put("scrollUpMain-alt1", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_176(o, p, r);} });
-            _jm_obj_31_map_pmap.put("scrollUpMain-alt2", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_177(o, p, r);} });
-            _jm_obj_31_map_pmap.put("select", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_178(o, p, r);} });
-            _jm_obj_31_map_pmap.put("submitEditorText", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_179(o, p, r);} });
-            _jm_obj_31_map_pmap.put("togglePanel", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_180(o, p, r);} });
-            _jm_obj_31_map_pmap.put("toggleWhitespaceInDiffView", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_181(o, p, r);} });
-            _jm_obj_31_map_pmap.put("undo", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_182(o, p, r);} });
-            _jm_obj_22_map_pmap = new HashMap<String, Checker>();
-            _jm_obj_22_map_pmap.put("branches", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_67(o, p, r);} });
-            _jm_obj_22_map_pmap.put("commitFiles", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_81(o, p, r);} });
-            _jm_obj_22_map_pmap.put("commits", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_82(o, p, r);} });
-            _jm_obj_22_map_pmap.put("files", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_104(o, p, r);} });
-            _jm_obj_22_map_pmap.put("main", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_119(o, p, r);} });
-            _jm_obj_22_map_pmap.put("stash", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_120(o, p, r);} });
-            _jm_obj_22_map_pmap.put("status", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_121(o, p, r);} });
-            _jm_obj_22_map_pmap.put("submodules", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_122(o, p, r);} });
-            _jm_obj_22_map_pmap.put("universal", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_123(o, p, r);} });
+            _jm_f_27_map_pmap = new HashMap<String, Checker>();
+            _jm_f_27_map_pmap.put("animateExplosion", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_28(o, p, r);} });
+            _jm_f_27_map_pmap.put("authorColors", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_29(o, p, r);} });
+            _jm_f_27_map_pmap.put("border", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_30(o, p, r);} });
+            _jm_f_27_map_pmap.put("branchColors", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_31(o, p, r);} });
+            _jm_f_27_map_pmap.put("commandLogSize", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_32(o, p, r);} });
+            _jm_f_27_map_pmap.put("commitLength", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_33(o, p, r);} });
+            _jm_f_27_map_pmap.put("expandFocusedSidePanel", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_34(o, p, r);} });
+            _jm_f_27_map_pmap.put("language", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_35(o, p, r);} });
+            _jm_f_27_map_pmap.put("mainPanelSplitMode", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_36(o, p, r);} });
+            _jm_f_27_map_pmap.put("mouseEvents", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_37(o, p, r);} });
+            _jm_f_27_map_pmap.put("nerdFontsVersion", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_38(o, p, r);} });
+            _jm_f_27_map_pmap.put("scrollHeight", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_39(o, p, r);} });
+            _jm_f_27_map_pmap.put("scrollPastBottom", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_40(o, p, r);} });
+            _jm_f_27_map_pmap.put("shortTimeFormat", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_41(o, p, r);} });
+            _jm_f_27_map_pmap.put("showBottomLine", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_42(o, p, r);} });
+            _jm_f_27_map_pmap.put("showBranchCommitHash", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_43(o, p, r);} });
+            _jm_f_27_map_pmap.put("showCommandLog", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_44(o, p, r);} });
+            _jm_f_27_map_pmap.put("showFileTree", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_45(o, p, r);} });
+            _jm_f_27_map_pmap.put("showListFooter", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_46(o, p, r);} });
+            _jm_f_27_map_pmap.put("showRandomTip", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_47(o, p, r);} });
+            _jm_f_27_map_pmap.put("sidePanelWidth", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_48(o, p, r);} });
+            _jm_f_27_map_pmap.put("skipDiscardChangeWarning", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_49(o, p, r);} });
+            _jm_f_27_map_pmap.put("skipRewordInEditorWarning", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_50(o, p, r);} });
+            _jm_f_27_map_pmap.put("skipStashWarning", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_51(o, p, r);} });
+            _jm_f_27_map_pmap.put("splitDiff", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_52(o, p, r);} });
+            _jm_f_27_map_pmap.put("theme", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_53(o, p, r);} });
+            _jm_f_27_map_pmap.put("timeFormat", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_64(o, p, r);} });
+            _jm_f_27_map_pmap.put("windowSize", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_65(o, p, r);} });
+            _jm_f_67_map_pmap = new HashMap<String, Checker>();
+            _jm_f_67_map_pmap.put("checkoutBranchByName", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_68(o, p, r);} });
+            _jm_f_67_map_pmap.put("createPullRequest", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_69(o, p, r);} });
+            _jm_f_67_map_pmap.put("createTag", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_70(o, p, r);} });
+            _jm_f_67_map_pmap.put("fastForward", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_71(o, p, r);} });
+            _jm_f_67_map_pmap.put("fetchRemote", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_72(o, p, r);} });
+            _jm_f_67_map_pmap.put("forceCheckoutBranch", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_73(o, p, r);} });
+            _jm_f_67_map_pmap.put("mergeIntoCurrentBranch", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_74(o, p, r);} });
+            _jm_f_67_map_pmap.put("pushTag", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_75(o, p, r);} });
+            _jm_f_67_map_pmap.put("rebaseBranch", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_76(o, p, r);} });
+            _jm_f_67_map_pmap.put("renameBranch", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_77(o, p, r);} });
+            _jm_f_67_map_pmap.put("setUpstream", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_78(o, p, r);} });
+            _jm_f_67_map_pmap.put("viewGitFlowOptions", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_79(o, p, r);} });
+            _jm_f_67_map_pmap.put("viewPullRequestOptions", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_80(o, p, r);} });
+            _jm_f_82_map_pmap = new HashMap<String, Checker>();
+            _jm_f_82_map_pmap.put("amendToCommit", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_83(o, p, r);} });
+            _jm_f_82_map_pmap.put("checkoutCommit", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_84(o, p, r);} });
+            _jm_f_82_map_pmap.put("cherryPickCopy", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_85(o, p, r);} });
+            _jm_f_82_map_pmap.put("cherryPickCopyRange", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_86(o, p, r);} });
+            _jm_f_82_map_pmap.put("copyCommitMessageToClipboard", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_87(o, p, r);} });
+            _jm_f_82_map_pmap.put("createFixupCommit", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_88(o, p, r);} });
+            _jm_f_82_map_pmap.put("markCommitAsFixup", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_89(o, p, r);} });
+            _jm_f_82_map_pmap.put("moveDownCommit", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_90(o, p, r);} });
+            _jm_f_82_map_pmap.put("moveUpCommit", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_91(o, p, r);} });
+            _jm_f_82_map_pmap.put("openLogMenu", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_92(o, p, r);} });
+            _jm_f_82_map_pmap.put("pasteCommits", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_93(o, p, r);} });
+            _jm_f_82_map_pmap.put("pickCommit", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_94(o, p, r);} });
+            _jm_f_82_map_pmap.put("renameCommit", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_95(o, p, r);} });
+            _jm_f_82_map_pmap.put("renameCommitWithEditor", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_96(o, p, r);} });
+            _jm_f_82_map_pmap.put("resetCherryPick", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_97(o, p, r);} });
+            _jm_f_82_map_pmap.put("revertCommit", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_98(o, p, r);} });
+            _jm_f_82_map_pmap.put("squashAboveCommits", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_99(o, p, r);} });
+            _jm_f_82_map_pmap.put("squashDown", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_100(o, p, r);} });
+            _jm_f_82_map_pmap.put("tagCommit", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_101(o, p, r);} });
+            _jm_f_82_map_pmap.put("viewBisectOptions", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_102(o, p, r);} });
+            _jm_f_82_map_pmap.put("viewResetOptions", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_103(o, p, r);} });
+            _jm_f_104_map_pmap = new HashMap<String, Checker>();
+            _jm_f_104_map_pmap.put("amendLastCommit", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_105(o, p, r);} });
+            _jm_f_104_map_pmap.put("commitChanges", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_106(o, p, r);} });
+            _jm_f_104_map_pmap.put("commitChangesWithEditor", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_107(o, p, r);} });
+            _jm_f_104_map_pmap.put("commitChangesWithoutHook", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_108(o, p, r);} });
+            _jm_f_104_map_pmap.put("fetch", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_109(o, p, r);} });
+            _jm_f_104_map_pmap.put("ignoreFile", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_110(o, p, r);} });
+            _jm_f_104_map_pmap.put("openMergeTool", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_111(o, p, r);} });
+            _jm_f_104_map_pmap.put("openStatusFilter", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_112(o, p, r);} });
+            _jm_f_104_map_pmap.put("refreshFiles", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_113(o, p, r);} });
+            _jm_f_104_map_pmap.put("stashAllChanges", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_114(o, p, r);} });
+            _jm_f_104_map_pmap.put("toggleStagedAll", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_115(o, p, r);} });
+            _jm_f_104_map_pmap.put("toggleTreeView", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_116(o, p, r);} });
+            _jm_f_104_map_pmap.put("viewResetOptions", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_117(o, p, r);} });
+            _jm_f_104_map_pmap.put("viewStashOptions", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_118(o, p, r);} });
+            _jm_f_123_map_pmap = new HashMap<String, Checker>();
+            _jm_f_123_map_pmap.put("confirm", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_124(o, p, r);} });
+            _jm_f_123_map_pmap.put("copyToClipboard", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_125(o, p, r);} });
+            _jm_f_123_map_pmap.put("createPatchOptionsMenu", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_126(o, p, r);} });
+            _jm_f_123_map_pmap.put("createRebaseOptionsMenu", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_127(o, p, r);} });
+            _jm_f_123_map_pmap.put("decreaseContextInDiffView", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_128(o, p, r);} });
+            _jm_f_123_map_pmap.put("diffingMenu", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_129(o, p, r);} });
+            _jm_f_123_map_pmap.put("diffingMenu-alt", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_130(o, p, r);} });
+            _jm_f_123_map_pmap.put("edit", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_131(o, p, r);} });
+            _jm_f_123_map_pmap.put("executeCustomCommand", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_132(o, p, r);} });
+            _jm_f_123_map_pmap.put("extrasMenu", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_133(o, p, r);} });
+            _jm_f_123_map_pmap.put("filteringMenu", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_134(o, p, r);} });
+            _jm_f_123_map_pmap.put("goInto", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_135(o, p, r);} });
+            _jm_f_123_map_pmap.put("gotoBottom", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_136(o, p, r);} });
+            _jm_f_123_map_pmap.put("gotoTop", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_137(o, p, r);} });
+            _jm_f_123_map_pmap.put("increaseContextInDiffView", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_138(o, p, r);} });
+            _jm_f_123_map_pmap.put("jumpToBlock", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_139(o, p, r);} });
+            _jm_f_123_map_pmap.put("new", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_140(o, p, r);} });
+            _jm_f_123_map_pmap.put("nextBlock", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_141(o, p, r);} });
+            _jm_f_123_map_pmap.put("nextBlock-alt", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_142(o, p, r);} });
+            _jm_f_123_map_pmap.put("nextItem", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_143(o, p, r);} });
+            _jm_f_123_map_pmap.put("nextItem-alt", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_144(o, p, r);} });
+            _jm_f_123_map_pmap.put("nextMatch", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_145(o, p, r);} });
+            _jm_f_123_map_pmap.put("nextPage", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_146(o, p, r);} });
+            _jm_f_123_map_pmap.put("nextScreenMode", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_147(o, p, r);} });
+            _jm_f_123_map_pmap.put("nextTab", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_148(o, p, r);} });
+            _jm_f_123_map_pmap.put("openFile", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_149(o, p, r);} });
+            _jm_f_123_map_pmap.put("openRecentRepos", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_150(o, p, r);} });
+            _jm_f_123_map_pmap.put("optionMenu", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_151(o, p, r);} });
+            _jm_f_123_map_pmap.put("optionMenu-alt1", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_152(o, p, r);} });
+            _jm_f_123_map_pmap.put("prevBlock", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_153(o, p, r);} });
+            _jm_f_123_map_pmap.put("prevBlock-alt", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_154(o, p, r);} });
+            _jm_f_123_map_pmap.put("prevItem", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_155(o, p, r);} });
+            _jm_f_123_map_pmap.put("prevItem-alt", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_156(o, p, r);} });
+            _jm_f_123_map_pmap.put("prevMatch", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_157(o, p, r);} });
+            _jm_f_123_map_pmap.put("prevPage", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_158(o, p, r);} });
+            _jm_f_123_map_pmap.put("prevScreenMode", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_159(o, p, r);} });
+            _jm_f_123_map_pmap.put("prevTab", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_160(o, p, r);} });
+            _jm_f_123_map_pmap.put("pullFiles", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_161(o, p, r);} });
+            _jm_f_123_map_pmap.put("pushFiles", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_162(o, p, r);} });
+            _jm_f_123_map_pmap.put("quit", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_163(o, p, r);} });
+            _jm_f_123_map_pmap.put("quit-alt1", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_164(o, p, r);} });
+            _jm_f_123_map_pmap.put("quitWithoutChangingDirectory", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_165(o, p, r);} });
+            _jm_f_123_map_pmap.put("redo", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_166(o, p, r);} });
+            _jm_f_123_map_pmap.put("refresh", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_167(o, p, r);} });
+            _jm_f_123_map_pmap.put("remove", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_168(o, p, r);} });
+            _jm_f_123_map_pmap.put("return", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_169(o, p, r);} });
+            _jm_f_123_map_pmap.put("scrollDownMain", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_170(o, p, r);} });
+            _jm_f_123_map_pmap.put("scrollDownMain-alt1", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_171(o, p, r);} });
+            _jm_f_123_map_pmap.put("scrollDownMain-alt2", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_172(o, p, r);} });
+            _jm_f_123_map_pmap.put("scrollLeft", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_173(o, p, r);} });
+            _jm_f_123_map_pmap.put("scrollRight", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_174(o, p, r);} });
+            _jm_f_123_map_pmap.put("scrollUpMain", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_175(o, p, r);} });
+            _jm_f_123_map_pmap.put("scrollUpMain-alt1", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_176(o, p, r);} });
+            _jm_f_123_map_pmap.put("scrollUpMain-alt2", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_177(o, p, r);} });
+            _jm_f_123_map_pmap.put("select", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_178(o, p, r);} });
+            _jm_f_123_map_pmap.put("submitEditorText", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_179(o, p, r);} });
+            _jm_f_123_map_pmap.put("togglePanel", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_180(o, p, r);} });
+            _jm_f_123_map_pmap.put("toggleWhitespaceInDiffView", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_181(o, p, r);} });
+            _jm_f_123_map_pmap.put("undo", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_182(o, p, r);} });
+            _jm_f_66_map_pmap = new HashMap<String, Checker>();
+            _jm_f_66_map_pmap.put("branches", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_67(o, p, r);} });
+            _jm_f_66_map_pmap.put("commitFiles", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_81(o, p, r);} });
+            _jm_f_66_map_pmap.put("commits", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_82(o, p, r);} });
+            _jm_f_66_map_pmap.put("files", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_104(o, p, r);} });
+            _jm_f_66_map_pmap.put("main", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_119(o, p, r);} });
+            _jm_f_66_map_pmap.put("stash", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_120(o, p, r);} });
+            _jm_f_66_map_pmap.put("status", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_121(o, p, r);} });
+            _jm_f_66_map_pmap.put("submodules", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_122(o, p, r);} });
+            _jm_f_66_map_pmap.put("universal", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_123(o, p, r);} });
             _jm_cst_13_set = new HashSet<Object>();
             _jm_cst_13_set.add(json.safeJSON("\"prompt\""));
             _jm_cst_13_set.add(json.safeJSON("\"create\""));
@@ -5185,35 +4861,35 @@ public class lazygit extends ModelChecker
             _jm_cst_14_set.add(json.safeJSON("\"kakoune\""));
             _jm_cst_14_set.add(json.safeJSON("\"helix\""));
             _jm_cst_14_set.add(json.safeJSON("\"xcode\""));
-            _jm_obj_32_map_pmap = new HashMap<String, Checker>();
-            _jm_obj_32_map_pmap.put("copyToClipboardCmd", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_185(o, p, r);} });
-            _jm_obj_32_map_pmap.put("edit", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_186(o, p, r);} });
-            _jm_obj_32_map_pmap.put("editAtLine", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_187(o, p, r);} });
-            _jm_obj_32_map_pmap.put("editAtLineAndWait", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_188(o, p, r);} });
-            _jm_obj_32_map_pmap.put("editPreset", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_189(o, p, r);} });
-            _jm_obj_32_map_pmap.put("open", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_190(o, p, r);} });
-            _jm_obj_32_map_pmap.put("openLink", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_191(o, p, r);} });
+            _jm_f_184_map_pmap = new HashMap<String, Checker>();
+            _jm_f_184_map_pmap.put("copyToClipboardCmd", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_185(o, p, r);} });
+            _jm_f_184_map_pmap.put("edit", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_186(o, p, r);} });
+            _jm_f_184_map_pmap.put("editAtLine", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_187(o, p, r);} });
+            _jm_f_184_map_pmap.put("editAtLineAndWait", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_188(o, p, r);} });
+            _jm_f_184_map_pmap.put("editPreset", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_189(o, p, r);} });
+            _jm_f_184_map_pmap.put("open", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_190(o, p, r);} });
+            _jm_f_184_map_pmap.put("openLink", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_191(o, p, r);} });
             _jm_re_2_pat = Pattern.compile("^[^:]+:[^:]+$");
             _jm_cst_15_set = new HashSet<Object>();
             _jm_cst_15_set.add(json.safeJSON("\"prompt\""));
             _jm_cst_15_set.add(json.safeJSON("\"background\""));
             _jm_cst_15_set.add(json.safeJSON("\"never\""));
-            _jm_obj_7_map_pmap = new HashMap<String, Checker>();
-            _jm_obj_7_map_pmap.put("confirmOnQuit", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_0(o, p, r);} });
-            _jm_obj_7_map_pmap.put("customCommands", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_1(o, p, r);} });
-            _jm_obj_7_map_pmap.put("disableStartupPopups", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_9(o, p, r);} });
-            _jm_obj_7_map_pmap.put("git", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_10(o, p, r);} });
-            _jm_obj_7_map_pmap.put("gui", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_27(o, p, r);} });
-            _jm_obj_7_map_pmap.put("keybinding", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_66(o, p, r);} });
-            _jm_obj_7_map_pmap.put("notARepository", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_183(o, p, r);} });
-            _jm_obj_7_map_pmap.put("os", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_184(o, p, r);} });
-            _jm_obj_7_map_pmap.put("promptToReturnFromSubprocess", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_192(o, p, r);} });
-            _jm_obj_7_map_pmap.put("quitOnTopLevelReturn", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_193(o, p, r);} });
-            _jm_obj_7_map_pmap.put("refresher", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_194(o, p, r);} });
-            _jm_obj_7_map_pmap.put("services", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_195(o, p, r);} });
-            _jm_obj_7_map_pmap.put("update", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_196(o, p, r);} });
+            json_model_1_map_pmap = new HashMap<String, Checker>();
+            json_model_1_map_pmap.put("confirmOnQuit", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_0(o, p, r);} });
+            json_model_1_map_pmap.put("customCommands", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_1(o, p, r);} });
+            json_model_1_map_pmap.put("disableStartupPopups", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_9(o, p, r);} });
+            json_model_1_map_pmap.put("git", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_10(o, p, r);} });
+            json_model_1_map_pmap.put("gui", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_27(o, p, r);} });
+            json_model_1_map_pmap.put("keybinding", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_66(o, p, r);} });
+            json_model_1_map_pmap.put("notARepository", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_183(o, p, r);} });
+            json_model_1_map_pmap.put("os", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_184(o, p, r);} });
+            json_model_1_map_pmap.put("promptToReturnFromSubprocess", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_192(o, p, r);} });
+            json_model_1_map_pmap.put("quitOnTopLevelReturn", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_193(o, p, r);} });
+            json_model_1_map_pmap.put("refresher", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_194(o, p, r);} });
+            json_model_1_map_pmap.put("services", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_195(o, p, r);} });
+            json_model_1_map_pmap.put("update", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_196(o, p, r);} });
             lazygit_map_pmap = new HashMap<String, Checker>();
-            lazygit_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_7(o, p, r);} });
+            lazygit_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_1(o, p, r);} });
             lazygit_map_pmap.put("color", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_2(o, p, r);} });
             lazygit_map_pmap.put("colorArray", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_3(o, p, r);} });
             lazygit_map_pmap.put("keybinding", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
@@ -5242,31 +4918,31 @@ public class lazygit extends ModelChecker
             _jm_cst_2_set = null;
             _jm_map_0_cmap = null;
             _jm_cst_3_set = null;
-            _jm_obj_8_map_pmap = null;
+            _jm_obj_7_map_pmap = null;
             _jm_re_1_pat = null;
             _jm_cst_4_set = null;
             _jm_cst_5_set = null;
             _jm_cst_6_set = null;
-            _jm_obj_10_map_pmap = null;
+            _jm_f_10_map_pmap = null;
             _jm_cst_7_set = null;
             _jm_cst_8_set = null;
             _jm_cst_9_set = null;
             _jm_cst_10_set = null;
             _jm_cst_11_set = null;
-            _jm_obj_21_map_pmap = null;
+            _jm_f_53_map_pmap = null;
             _jm_cst_12_set = null;
-            _jm_obj_17_map_pmap = null;
-            _jm_obj_23_map_pmap = null;
-            _jm_obj_25_map_pmap = null;
-            _jm_obj_26_map_pmap = null;
-            _jm_obj_31_map_pmap = null;
-            _jm_obj_22_map_pmap = null;
+            _jm_f_27_map_pmap = null;
+            _jm_f_67_map_pmap = null;
+            _jm_f_82_map_pmap = null;
+            _jm_f_104_map_pmap = null;
+            _jm_f_123_map_pmap = null;
+            _jm_f_66_map_pmap = null;
             _jm_cst_13_set = null;
             _jm_cst_14_set = null;
-            _jm_obj_32_map_pmap = null;
+            _jm_f_184_map_pmap = null;
             _jm_re_2_pat = null;
             _jm_cst_15_set = null;
-            _jm_obj_7_map_pmap = null;
+            json_model_1_map_pmap = null;
             lazygit_map_pmap = null;
         }
     }

@@ -22,8 +22,9 @@ def check_model(val: Jsonable, name: str = "", rep: Report = None) -> bool:
 
 check_model_map: PropMap
 
-# object .'$bibi'
-def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
+# check $bibi (.'$bibi')
+def json_model_2(val: Jsonable, path: Path, rep: Report) -> bool:
+    # .'$bibi'
     # check close must only props
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$bibi']", path))
@@ -44,7 +45,7 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
         for arr_0_idx, arr_0_item in enumerate(pval):
             arr_0_lpath: Path = ((lpath if path is not None else None) + [ arr_0_idx ]) if (lpath if path is not None else None) is not None else None
             # .'$bibi'.bibi.0
-            res = _jm_obj_0(arr_0_item, arr_0_lpath if (lpath if path is not None else None) is not None else None, rep)
+            res = json_model_2(arr_0_item, arr_0_lpath if (lpath if path is not None else None) is not None else None, rep)
             if not res:
                 rep is None or rep.append(("unexpected $bibi [.'$bibi'.bibi.0]", arr_0_lpath if (lpath if path is not None else None) is not None else None))
                 break
@@ -54,20 +55,11 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
         return False
     return True
 
-# check $bibi (.'$bibi')
-def json_model_2(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .'$bibi'
-    res = _jm_obj_0(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected element [.'$bibi']", path))
-    return res
-
 # check $ (.)
 def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .
-    res = _jm_obj_0(val, path, rep)
+    res = json_model_2(val, path, rep)
     if not res:
         rep is None or rep.append(("unexpected $bibi [.]", path))
     return res
@@ -83,8 +75,8 @@ def check_model_init():
         initialized = True
         global check_model_map
         check_model_map = {
-            "": _jm_obj_0,
-            "bibi": _jm_obj_0,
+            "": json_model_2,
+            "bibi": json_model_2,
         }
 
 # differed module cleanup

@@ -26,9 +26,11 @@ function json_model_2(val, path, rep)
     return res;
 }
 
-// object .
-function _jm_obj_0(val, path, rep)
+// check $ (.)
+function json_model_1(val, path, rep)
 {
+    // prop ref to enum
+    // .
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.]", path])
@@ -58,20 +60,6 @@ function _jm_obj_0(val, path, rep)
     return true;
 }
 
-// check $ (.)
-function json_model_1(val, path, rep)
-{
-    let res;
-    // prop ref to enum
-    // .
-    res = _jm_obj_0(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected element [.]", path])
-    }
-    return res;
-}
-
 
 var initialized = false
 
@@ -85,7 +73,7 @@ export function check_model_init()
         _jm_cst_0.add("X")
         _jm_cst_0.add("XX")
         _jm_cst_0.add("XXX")
-        check_model_map.set("", _jm_obj_0)
+        check_model_map.set("", json_model_1)
         check_model_map.set("Xxx", json_model_2)
     }
 }

@@ -22,7 +22,7 @@ public class l10n extends ModelChecker
     public Map<String, Checker> l10n_map_pmap;
 
     // object .'$'
-    public boolean _jm_obj_1(Object val, Path path, Report rep)
+    public boolean _jm_obj_0(Object val, Path path, Report rep)
     {
         if (! json.isObject(val))
         {
@@ -93,7 +93,7 @@ public class l10n extends ModelChecker
     }
 
     // object .'%'
-    public boolean _jm_obj_2(Object val, Path path, Report rep)
+    public boolean _jm_obj_1(Object val, Path path, Report rep)
     {
         if (! json.isObject(val))
         {
@@ -139,9 +139,11 @@ public class l10n extends ModelChecker
         return true;
     }
 
-    // object .
-    public boolean _jm_obj_0(Object val, Path path, Report rep)
+    // check $ (.)
+    public boolean json_model_1(Object val, Path path, Report rep)
     {
+        // JSON Model Subset for Localization Renames
+        // .
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.]", path);
@@ -160,7 +162,7 @@ public class l10n extends ModelChecker
                 // handle must $ property
                 must_count += 1;
                 // .'$'
-                res = _jm_obj_1(pval, (path != null ? lpath_0 : null), rep);
+                res = _jm_obj_0(pval, (path != null ? lpath_0 : null), rep);
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected element [.'$']", (path != null ? lpath_0 : null));
@@ -187,7 +189,7 @@ public class l10n extends ModelChecker
                 must_count += 1;
                 // dot-prefixed arbitrary key, one or two char keyword values
                 // .'%'
-                res = _jm_obj_2(pval, (path != null ? lpath_0 : null), rep);
+                res = _jm_obj_1(pval, (path != null ? lpath_0 : null), rep);
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected element [.'%']", (path != null ? lpath_0 : null));
@@ -251,20 +253,6 @@ public class l10n extends ModelChecker
         return true;
     }
 
-    // check $ (.)
-    public boolean json_model_1(Object val, Path path, Report rep)
-    {
-        boolean res;
-        // JSON Model Subset for Localization Renames
-        // .
-        res = _jm_obj_0(val, path, rep);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected element [.]", path);
-        }
-        return res;
-    }
-
 
     public void init(JSON json)
     {
@@ -274,7 +262,7 @@ public class l10n extends ModelChecker
             _jm_re_0_pat = Pattern.compile("^\\..+$");
             _jm_re_1_pat = Pattern.compile("^([#~$%@|&+^/*=]|[<>!]=?)$");
             l10n_map_pmap = new HashMap<String, Checker>();
-            l10n_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_0(o, p, r);} });
+            l10n_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_1(o, p, r);} });
                 super.init(json);
             }
             catch (Exception e) {

@@ -11,16 +11,15 @@ use JSON::JsonModel;
 use constant JMC_VERSION => '2';
 
 
+sub _jm_obj_0($$$);
 sub _jm_obj_1($$$);
 sub _jm_obj_2($$$);
-sub _jm_obj_3($$$);
 my %_jm_map_0;
-sub _jm_obj_0($$$);
 sub json_model_1($$$);
 my %check_model_map;
 
 # object .movie.'|'.0
-sub _jm_obj_1($$$)
+sub _jm_obj_0($$$)
 {
     my ($val, $path, $rep) = @_;
     # check close must only props
@@ -60,7 +59,7 @@ sub _jm_obj_1($$$)
 }
 
 # object .movie.'|'.1
-sub _jm_obj_2($$$)
+sub _jm_obj_1($$$)
 {
     my ($val, $path, $rep) = @_;
     # check close must only props
@@ -100,7 +99,7 @@ sub _jm_obj_2($$$)
 }
 
 # object .movie.'|'.2
-sub _jm_obj_3($$$)
+sub _jm_obj_2($$$)
 {
     my ($val, $path, $rep) = @_;
     # check close must only props
@@ -140,10 +139,12 @@ sub _jm_obj_3($$$)
 }
 
 
-# object .
-sub _jm_obj_0($$$)
+# check $ (.)
+sub json_model_1($$$)
 {
     my ($val, $path, $rep) = @_;
+    # exemple d'un rapport
+    # .
     # check close must only props
     if (! jm_is_object($val))
     {
@@ -190,17 +191,6 @@ sub _jm_obj_0($$$)
     return 1;
 }
 
-# check $ (.)
-sub json_model_1($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # exemple d'un rapport
-    # .
-    $res = _jm_obj_0($val, $path, $rep);
-    return $res;
-}
-
 
 # initialization of global variables
 
@@ -212,12 +202,12 @@ sub check_model_init()
     {
         $initialized = 1;
         %_jm_map_0 = (
-            'fr' => \&_jm_obj_1,
-            'en' => \&_jm_obj_2,
-            'ru' => \&_jm_obj_3,
+            'fr' => \&_jm_obj_0,
+            'en' => \&_jm_obj_1,
+            'ru' => \&_jm_obj_2,
         );
         %check_model_map = (
-            '' => \&_jm_obj_0,
+            '' => \&json_model_1,
         );
     }
 }

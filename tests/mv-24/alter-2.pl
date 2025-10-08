@@ -11,24 +11,23 @@ use JSON::JsonModel;
 use constant JMC_VERSION => '2';
 
 
-sub _jm_obj_0($$$);
 sub json_model_2($$$);
 my %_jm_cst_0;
-sub _jm_obj_1($$$);
 sub json_model_3($$$);
-sub _jm_obj_2($$$);
+sub _jm_obj_0($$$);
 my %_jm_cst_1;
-sub _jm_obj_3($$$);
+sub _jm_obj_1($$$);
 my %_jm_map_0;
 my %_jm_map_1;
 sub json_model_4($$$);
 sub json_model_1($$$);
 my %check_model_map;
 
-# object .'$d'
-sub _jm_obj_0($$$)
+# check $d (.'$d')
+sub json_model_2($$$)
 {
     my ($val, $path, $rep) = @_;
+    # .'$d'
     # check close must only props
     if (! jm_is_object($val))
     {
@@ -65,21 +64,12 @@ sub _jm_obj_0($$$)
     return 1;
 }
 
-# check $d (.'$d')
-sub json_model_2($$$)
+
+# check $efg (.'$efg')
+sub json_model_3($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$d'
-    $res = _jm_obj_0($val, $path, $rep);
-    return $res;
-}
-
-
-# object .'$efg'
-sub _jm_obj_1($$$)
-{
-    my ($val, $path, $rep) = @_;
+    # .'$efg'
     # check close must only props
     if (! jm_is_object($val))
     {
@@ -116,18 +106,8 @@ sub _jm_obj_1($$$)
     return 1;
 }
 
-# check $efg (.'$efg')
-sub json_model_3($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$efg'
-    $res = _jm_obj_1($val, $path, $rep);
-    return $res;
-}
-
 # object .'$alternative'.'|'.0
-sub _jm_obj_2($$$)
+sub _jm_obj_0($$$)
 {
     my ($val, $path, $rep) = @_;
     # check close must only props
@@ -168,7 +148,7 @@ sub _jm_obj_2($$$)
 
 
 # object .'$alternative'.'|'.1
-sub _jm_obj_3($$$)
+sub _jm_obj_1($$$)
 {
     my ($val, $path, $rep) = @_;
     # check close must only props
@@ -295,20 +275,20 @@ sub check_model_init()
             'c' => 1,
         );
         %_jm_map_0 = (
-            'a' => \&_jm_obj_2,
-            'e' => \&_jm_obj_1,
-            'f' => \&_jm_obj_1,
-            'g' => \&_jm_obj_1,
+            'a' => \&_jm_obj_0,
+            'e' => \&json_model_3,
+            'f' => \&json_model_3,
+            'g' => \&json_model_3,
         );
         %_jm_map_1 = (
-            'b' => \&_jm_obj_3,
-            'c' => \&_jm_obj_3,
-            'd' => \&_jm_obj_0,
+            'b' => \&_jm_obj_1,
+            'c' => \&_jm_obj_1,
+            'd' => \&json_model_2,
         );
         %check_model_map = (
             '' => \&json_model_4,
-            'd' => \&_jm_obj_0,
-            'efg' => \&_jm_obj_1,
+            'd' => \&json_model_2,
+            'efg' => \&json_model_3,
             'alternative' => \&json_model_4,
         );
     }

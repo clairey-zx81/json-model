@@ -15,31 +15,31 @@ let _jm_cst_1 = new Set()
 let _jm_cst_2 = new Set()
 let _jm_map_0 = new Map()
 let _jm_cst_3 = new Set()
-var _jm_obj_8_map = new Map()
+var _jm_obj_7_map = new Map()
 const _jm_re_1_re = new runtime.RX(".", "")
 let _jm_cst_4 = new Set()
 let _jm_cst_5 = new Set()
 let _jm_cst_6 = new Set()
-var _jm_obj_10_map = new Map()
+var _jm_f_10_map = new Map()
 let _jm_cst_7 = new Set()
 let _jm_cst_8 = new Set()
 let _jm_cst_9 = new Set()
 let _jm_cst_10 = new Set()
 let _jm_cst_11 = new Set()
-var _jm_obj_21_map = new Map()
+var _jm_f_53_map = new Map()
 let _jm_cst_12 = new Set()
-var _jm_obj_17_map = new Map()
-var _jm_obj_23_map = new Map()
-var _jm_obj_25_map = new Map()
-var _jm_obj_26_map = new Map()
-var _jm_obj_31_map = new Map()
-var _jm_obj_22_map = new Map()
+var _jm_f_27_map = new Map()
+var _jm_f_67_map = new Map()
+var _jm_f_82_map = new Map()
+var _jm_f_104_map = new Map()
+var _jm_f_123_map = new Map()
+var _jm_f_66_map = new Map()
 let _jm_cst_13 = new Set()
 let _jm_cst_14 = new Set()
-var _jm_obj_32_map = new Map()
+var _jm_f_184_map = new Map()
 const _jm_re_2_re = new runtime.RX("^[^:]+:[^:]+$", "")
 let _jm_cst_15 = new Set()
-var _jm_obj_7_map = new Map()
+var json_model_1_map = new Map()
 var check_model_map = new Map()
 
 
@@ -893,7 +893,7 @@ function json_model_10(val, path, rep)
     return res;
 }
 
-// check _jm_obj_7_map_confirmOnQuit (.confirmOnQuit)
+// check json_model_1_map_confirmOnQuit (.confirmOnQuit)
 function _jm_f_0(val, path, rep)
 {
     let res;
@@ -907,9 +907,10 @@ function _jm_f_0(val, path, rep)
 }
 
 
-// object .customCommands.'@'.0.after
-function _jm_obj_9(val, path, rep)
+// check _jm_obj_7_map_after (.customCommands.'@'.0.after)
+function _jm_f_2(val, path, rep)
 {
+    // .customCommands.'@'.0.after
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.customCommands.'@'.0.after]", path])
@@ -940,20 +941,7 @@ function _jm_obj_9(val, path, rep)
     return true;
 }
 
-// check _jm_obj_8_map_after (.customCommands.'@'.0.after)
-function _jm_f_2(val, path, rep)
-{
-    let res;
-    // .customCommands.'@'.0.after
-    res = _jm_obj_9(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected element [.customCommands.'@'.0.after]", path])
-    }
-    return res;
-}
-
-// check _jm_obj_8_map_description (.customCommands.'@'.0.description)
+// check _jm_obj_7_map_description (.customCommands.'@'.0.description)
 function _jm_f_3(val, path, rep)
 {
     let res;
@@ -966,7 +954,7 @@ function _jm_f_3(val, path, rep)
     return res;
 }
 
-// check _jm_obj_8_map_loadingText (.customCommands.'@'.0.loadingText)
+// check _jm_obj_7_map_loadingText (.customCommands.'@'.0.loadingText)
 function _jm_f_4(val, path, rep)
 {
     let res;
@@ -979,7 +967,7 @@ function _jm_f_4(val, path, rep)
     return res;
 }
 
-// check _jm_obj_8_map_prompts (.customCommands.'@'.0.prompts)
+// check _jm_obj_7_map_prompts (.customCommands.'@'.0.prompts)
 function _jm_f_5(val, path, rep)
 {
     let res;
@@ -1007,7 +995,7 @@ function _jm_f_5(val, path, rep)
     return res;
 }
 
-// check _jm_obj_8_map_showOutput (.customCommands.'@'.0.showOutput)
+// check _jm_obj_7_map_showOutput (.customCommands.'@'.0.showOutput)
 function _jm_f_6(val, path, rep)
 {
     let res;
@@ -1020,7 +1008,7 @@ function _jm_f_6(val, path, rep)
     return res;
 }
 
-// check _jm_obj_8_map_stream (.customCommands.'@'.0.stream)
+// check _jm_obj_7_map_stream (.customCommands.'@'.0.stream)
 function _jm_f_7(val, path, rep)
 {
     let res;
@@ -1033,7 +1021,7 @@ function _jm_f_7(val, path, rep)
     return res;
 }
 
-// check _jm_obj_8_map_subprocess (.customCommands.'@'.0.subprocess)
+// check _jm_obj_7_map_subprocess (.customCommands.'@'.0.subprocess)
 function _jm_f_8(val, path, rep)
 {
     let res;
@@ -1048,7 +1036,7 @@ function _jm_f_8(val, path, rep)
 
 
 // object .customCommands.'@'.0
-function _jm_obj_8(val, path, rep)
+function _jm_obj_7(val, path, rep)
 {
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
@@ -1100,7 +1088,7 @@ function _jm_obj_8(val, path, rep)
                 return false;
             }
         }
-        else if ((pfun = _jm_obj_8_map.get(prop)))
+        else if ((pfun = _jm_obj_7_map.get(prop)))
         {
             // handle 7 may props
             if (pfun !== undefined && ! pfun(pval, (path ? lpath_5 : null), rep))
@@ -1137,7 +1125,7 @@ function _jm_obj_8(val, path, rep)
     return true;
 }
 
-// check _jm_obj_7_map_customCommands (.customCommands)
+// check json_model_1_map_customCommands (.customCommands)
 function _jm_f_1(val, path, rep)
 {
     let res;
@@ -1151,7 +1139,7 @@ function _jm_f_1(val, path, rep)
             let arr_3_item = val[arr_3_idx]
             let arr_3_lpath = path ? path.concat([arr_3_idx]) : null;
             // .customCommands.'@'.0
-            res = _jm_obj_8(arr_3_item, (path ? arr_3_lpath : null), rep);
+            res = _jm_obj_7(arr_3_item, (path ? arr_3_lpath : null), rep);
             if (! res)
             {
                 rep !== null && rep.push(["unexpected element [.customCommands.'@'.0]", (path ? arr_3_lpath : null)])
@@ -1174,7 +1162,7 @@ function _jm_f_1(val, path, rep)
     return res;
 }
 
-// check _jm_obj_7_map_disableStartupPopups (.disableStartupPopups)
+// check json_model_1_map_disableStartupPopups (.disableStartupPopups)
 function _jm_f_9(val, path, rep)
 {
     let res;
@@ -1187,7 +1175,7 @@ function _jm_f_9(val, path, rep)
     return res;
 }
 
-// check _jm_obj_10_map_allBranchesLogCmd (.git.allBranchesLogCmd)
+// check _jm_f_10_map_allBranchesLogCmd (.git.allBranchesLogCmd)
 function _jm_f_11(val, path, rep)
 {
     let res;
@@ -1200,7 +1188,7 @@ function _jm_f_11(val, path, rep)
     return res;
 }
 
-// check _jm_obj_10_map_autoFetch (.git.autoFetch)
+// check _jm_f_10_map_autoFetch (.git.autoFetch)
 function _jm_f_12(val, path, rep)
 {
     let res;
@@ -1213,7 +1201,7 @@ function _jm_f_12(val, path, rep)
     return res;
 }
 
-// check _jm_obj_10_map_autoRefresh (.git.autoRefresh)
+// check _jm_f_10_map_autoRefresh (.git.autoRefresh)
 function _jm_f_13(val, path, rep)
 {
     let res;
@@ -1226,7 +1214,7 @@ function _jm_f_13(val, path, rep)
     return res;
 }
 
-// check _jm_obj_10_map_branchLogCmd (.git.branchLogCmd)
+// check _jm_f_10_map_branchLogCmd (.git.branchLogCmd)
 function _jm_f_14(val, path, rep)
 {
     let res;
@@ -1239,9 +1227,10 @@ function _jm_f_14(val, path, rep)
     return res;
 }
 
-// object .git.commit
-function _jm_obj_11(val, path, rep)
+// check _jm_f_10_map_commit (.git.commit)
+function _jm_f_15(val, path, rep)
 {
+    // .git.commit
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.git.commit]", path])
@@ -1272,23 +1261,10 @@ function _jm_obj_11(val, path, rep)
     return true;
 }
 
-// check _jm_obj_10_map_commit (.git.commit)
-function _jm_f_15(val, path, rep)
-{
-    let res;
-    // .git.commit
-    res = _jm_obj_11(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected element [.git.commit]", path])
-    }
-    return res;
-}
-
 const _jm_re_1 = (s) => _jm_re_1_re.exec(s) !== null
 
 // object .git.commitPrefixes.'/./'
-function _jm_obj_13(val, path, rep)
+function _jm_obj_8(val, path, rep)
 {
     // check close must only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
@@ -1337,9 +1313,10 @@ function _jm_obj_13(val, path, rep)
     return true;
 }
 
-// object .git.commitPrefixes
-function _jm_obj_12(val, path, rep)
+// check _jm_f_10_map_commitPrefixes (.git.commitPrefixes)
+function _jm_f_16(val, path, rep)
 {
+    // .git.commitPrefixes
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.git.commitPrefixes]", path])
@@ -1353,7 +1330,7 @@ function _jm_obj_12(val, path, rep)
         {
             // handle 1 re props
             // .git.commitPrefixes.'/./'
-            res = _jm_obj_13(pval, (path ? lpath_9 : null), rep);
+            res = _jm_obj_8(pval, (path ? lpath_9 : null), rep);
             if (! res)
             {
                 rep !== null && rep.push(["unexpected element [.git.commitPrefixes.'/./']", (path ? lpath_9 : null)])
@@ -1369,20 +1346,7 @@ function _jm_obj_12(val, path, rep)
     return true;
 }
 
-// check _jm_obj_10_map_commitPrefixes (.git.commitPrefixes)
-function _jm_f_16(val, path, rep)
-{
-    let res;
-    // .git.commitPrefixes
-    res = _jm_obj_12(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected element [.git.commitPrefixes]", path])
-    }
-    return res;
-}
-
-// check _jm_obj_10_map_diffContextSize (.git.diffContextSize)
+// check _jm_f_10_map_diffContextSize (.git.diffContextSize)
 function _jm_f_17(val, path, rep)
 {
     let res;
@@ -1395,7 +1359,7 @@ function _jm_f_17(val, path, rep)
     return res;
 }
 
-// check _jm_obj_10_map_disableForcePushing (.git.disableForcePushing)
+// check _jm_f_10_map_disableForcePushing (.git.disableForcePushing)
 function _jm_f_18(val, path, rep)
 {
     let res;
@@ -1408,7 +1372,7 @@ function _jm_f_18(val, path, rep)
     return res;
 }
 
-// check _jm_obj_10_map_fetchAll (.git.fetchAll)
+// check _jm_f_10_map_fetchAll (.git.fetchAll)
 function _jm_f_19(val, path, rep)
 {
     let res;
@@ -1423,9 +1387,10 @@ function _jm_f_19(val, path, rep)
 
 
 
-// object .git.log
-function _jm_obj_14(val, path, rep)
+// check _jm_f_10_map_log (.git.log)
+function _jm_f_20(val, path, rep)
 {
+    // .git.log
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.git.log]", path])
@@ -1480,20 +1445,7 @@ function _jm_obj_14(val, path, rep)
     return true;
 }
 
-// check _jm_obj_10_map_log (.git.log)
-function _jm_f_20(val, path, rep)
-{
-    let res;
-    // .git.log
-    res = _jm_obj_14(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected element [.git.log]", path])
-    }
-    return res;
-}
-
-// check _jm_obj_10_map_mainBranches (.git.mainBranches)
+// check _jm_f_10_map_mainBranches (.git.mainBranches)
 function _jm_f_21(val, path, rep)
 {
     let res;
@@ -1506,9 +1458,10 @@ function _jm_f_21(val, path, rep)
     return res;
 }
 
-// object .git.merging
-function _jm_obj_15(val, path, rep)
+// check _jm_f_10_map_merging (.git.merging)
+function _jm_f_22(val, path, rep)
 {
+    // .git.merging
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.git.merging]", path])
@@ -1551,20 +1504,7 @@ function _jm_obj_15(val, path, rep)
     return true;
 }
 
-// check _jm_obj_10_map_merging (.git.merging)
-function _jm_f_22(val, path, rep)
-{
-    let res;
-    // .git.merging
-    res = _jm_obj_15(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected element [.git.merging]", path])
-    }
-    return res;
-}
-
-// check _jm_obj_10_map_overrideGpg (.git.overrideGpg)
+// check _jm_f_10_map_overrideGpg (.git.overrideGpg)
 function _jm_f_23(val, path, rep)
 {
     let res;
@@ -1578,9 +1518,10 @@ function _jm_f_23(val, path, rep)
 }
 
 
-// object .git.paging
-function _jm_obj_16(val, path, rep)
+// check _jm_f_10_map_paging (.git.paging)
+function _jm_f_24(val, path, rep)
 {
+    // .git.paging
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.git.paging]", path])
@@ -1648,20 +1589,7 @@ function _jm_obj_16(val, path, rep)
     return true;
 }
 
-// check _jm_obj_10_map_paging (.git.paging)
-function _jm_f_24(val, path, rep)
-{
-    let res;
-    // .git.paging
-    res = _jm_obj_16(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected element [.git.paging]", path])
-    }
-    return res;
-}
-
-// check _jm_obj_10_map_parseEmoji (.git.parseEmoji)
+// check _jm_f_10_map_parseEmoji (.git.parseEmoji)
 function _jm_f_25(val, path, rep)
 {
     let res;
@@ -1674,7 +1602,7 @@ function _jm_f_25(val, path, rep)
     return res;
 }
 
-// check _jm_obj_10_map_skipHookPrefix (.git.skipHookPrefix)
+// check _jm_f_10_map_skipHookPrefix (.git.skipHookPrefix)
 function _jm_f_26(val, path, rep)
 {
     let res;
@@ -1688,9 +1616,10 @@ function _jm_f_26(val, path, rep)
 }
 
 
-// object .git
-function _jm_obj_10(val, path, rep)
+// check json_model_1_map_git (.git)
+function _jm_f_10(val, path, rep)
 {
+    // .git
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.git]", path])
@@ -1700,7 +1629,7 @@ function _jm_obj_10(val, path, rep)
     for (const [prop, pval] of Object.entries(val))
     {
         let lpath_7 = path ? path.concat([prop]) : null;
-        if ((pfun = _jm_obj_10_map.get(prop)))
+        if ((pfun = _jm_f_10_map.get(prop)))
         {
             // handle 16 may props
             if (pfun !== undefined && ! pfun(pval, (path ? lpath_7 : null), rep))
@@ -1718,20 +1647,7 @@ function _jm_obj_10(val, path, rep)
     return true;
 }
 
-// check _jm_obj_7_map_git (.git)
-function _jm_f_10(val, path, rep)
-{
-    let res;
-    // .git
-    res = _jm_obj_10(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected element [.git]", path])
-    }
-    return res;
-}
-
-// check _jm_obj_17_map_animateExplosion (.gui.animateExplosion)
+// check _jm_f_27_map_animateExplosion (.gui.animateExplosion)
 function _jm_f_28(val, path, rep)
 {
     let res;
@@ -1744,9 +1660,10 @@ function _jm_f_28(val, path, rep)
     return res;
 }
 
-// object .gui.authorColors
-function _jm_obj_18(val, path, rep)
+// check _jm_f_27_map_authorColors (.gui.authorColors)
+function _jm_f_29(val, path, rep)
 {
+    // .gui.authorColors
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.gui.authorColors]", path])
@@ -1776,21 +1693,8 @@ function _jm_obj_18(val, path, rep)
     return true;
 }
 
-// check _jm_obj_17_map_authorColors (.gui.authorColors)
-function _jm_f_29(val, path, rep)
-{
-    let res;
-    // .gui.authorColors
-    res = _jm_obj_18(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected element [.gui.authorColors]", path])
-    }
-    return res;
-}
 
-
-// check _jm_obj_17_map_border (.gui.border)
+// check _jm_f_27_map_border (.gui.border)
 function _jm_f_30(val, path, rep)
 {
     let res;
@@ -1803,9 +1707,10 @@ function _jm_f_30(val, path, rep)
     return res;
 }
 
-// object .gui.branchColors
-function _jm_obj_19(val, path, rep)
+// check _jm_f_27_map_branchColors (.gui.branchColors)
+function _jm_f_31(val, path, rep)
 {
+    // .gui.branchColors
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.gui.branchColors]", path])
@@ -1835,20 +1740,7 @@ function _jm_obj_19(val, path, rep)
     return true;
 }
 
-// check _jm_obj_17_map_branchColors (.gui.branchColors)
-function _jm_f_31(val, path, rep)
-{
-    let res;
-    // .gui.branchColors
-    res = _jm_obj_19(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected element [.gui.branchColors]", path])
-    }
-    return res;
-}
-
-// check _jm_obj_17_map_commandLogSize (.gui.commandLogSize)
+// check _jm_f_27_map_commandLogSize (.gui.commandLogSize)
 function _jm_f_32(val, path, rep)
 {
     let res;
@@ -1861,9 +1753,10 @@ function _jm_f_32(val, path, rep)
     return res;
 }
 
-// object .gui.commitLength
-function _jm_obj_20(val, path, rep)
+// check _jm_f_27_map_commitLength (.gui.commitLength)
+function _jm_f_33(val, path, rep)
 {
+    // .gui.commitLength
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.gui.commitLength]", path])
@@ -1894,20 +1787,7 @@ function _jm_obj_20(val, path, rep)
     return true;
 }
 
-// check _jm_obj_17_map_commitLength (.gui.commitLength)
-function _jm_f_33(val, path, rep)
-{
-    let res;
-    // .gui.commitLength
-    res = _jm_obj_20(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected element [.gui.commitLength]", path])
-    }
-    return res;
-}
-
-// check _jm_obj_17_map_expandFocusedSidePanel (.gui.expandFocusedSidePanel)
+// check _jm_f_27_map_expandFocusedSidePanel (.gui.expandFocusedSidePanel)
 function _jm_f_34(val, path, rep)
 {
     let res;
@@ -1921,7 +1801,7 @@ function _jm_f_34(val, path, rep)
 }
 
 
-// check _jm_obj_17_map_language (.gui.language)
+// check _jm_f_27_map_language (.gui.language)
 function _jm_f_35(val, path, rep)
 {
     let res;
@@ -1935,7 +1815,7 @@ function _jm_f_35(val, path, rep)
 }
 
 
-// check _jm_obj_17_map_mainPanelSplitMode (.gui.mainPanelSplitMode)
+// check _jm_f_27_map_mainPanelSplitMode (.gui.mainPanelSplitMode)
 function _jm_f_36(val, path, rep)
 {
     let res;
@@ -1948,7 +1828,7 @@ function _jm_f_36(val, path, rep)
     return res;
 }
 
-// check _jm_obj_17_map_mouseEvents (.gui.mouseEvents)
+// check _jm_f_27_map_mouseEvents (.gui.mouseEvents)
 function _jm_f_37(val, path, rep)
 {
     let res;
@@ -1962,7 +1842,7 @@ function _jm_f_37(val, path, rep)
 }
 
 
-// check _jm_obj_17_map_nerdFontsVersion (.gui.nerdFontsVersion)
+// check _jm_f_27_map_nerdFontsVersion (.gui.nerdFontsVersion)
 function _jm_f_38(val, path, rep)
 {
     let res;
@@ -1997,7 +1877,7 @@ function _jm_f_38(val, path, rep)
     return res;
 }
 
-// check _jm_obj_17_map_scrollHeight (.gui.scrollHeight)
+// check _jm_f_27_map_scrollHeight (.gui.scrollHeight)
 function _jm_f_39(val, path, rep)
 {
     let res;
@@ -2010,7 +1890,7 @@ function _jm_f_39(val, path, rep)
     return res;
 }
 
-// check _jm_obj_17_map_scrollPastBottom (.gui.scrollPastBottom)
+// check _jm_f_27_map_scrollPastBottom (.gui.scrollPastBottom)
 function _jm_f_40(val, path, rep)
 {
     let res;
@@ -2023,7 +1903,7 @@ function _jm_f_40(val, path, rep)
     return res;
 }
 
-// check _jm_obj_17_map_shortTimeFormat (.gui.shortTimeFormat)
+// check _jm_f_27_map_shortTimeFormat (.gui.shortTimeFormat)
 function _jm_f_41(val, path, rep)
 {
     let res;
@@ -2036,7 +1916,7 @@ function _jm_f_41(val, path, rep)
     return res;
 }
 
-// check _jm_obj_17_map_showBottomLine (.gui.showBottomLine)
+// check _jm_f_27_map_showBottomLine (.gui.showBottomLine)
 function _jm_f_42(val, path, rep)
 {
     let res;
@@ -2049,7 +1929,7 @@ function _jm_f_42(val, path, rep)
     return res;
 }
 
-// check _jm_obj_17_map_showBranchCommitHash (.gui.showBranchCommitHash)
+// check _jm_f_27_map_showBranchCommitHash (.gui.showBranchCommitHash)
 function _jm_f_43(val, path, rep)
 {
     let res;
@@ -2062,7 +1942,7 @@ function _jm_f_43(val, path, rep)
     return res;
 }
 
-// check _jm_obj_17_map_showCommandLog (.gui.showCommandLog)
+// check _jm_f_27_map_showCommandLog (.gui.showCommandLog)
 function _jm_f_44(val, path, rep)
 {
     let res;
@@ -2075,7 +1955,7 @@ function _jm_f_44(val, path, rep)
     return res;
 }
 
-// check _jm_obj_17_map_showFileTree (.gui.showFileTree)
+// check _jm_f_27_map_showFileTree (.gui.showFileTree)
 function _jm_f_45(val, path, rep)
 {
     let res;
@@ -2088,7 +1968,7 @@ function _jm_f_45(val, path, rep)
     return res;
 }
 
-// check _jm_obj_17_map_showListFooter (.gui.showListFooter)
+// check _jm_f_27_map_showListFooter (.gui.showListFooter)
 function _jm_f_46(val, path, rep)
 {
     let res;
@@ -2101,7 +1981,7 @@ function _jm_f_46(val, path, rep)
     return res;
 }
 
-// check _jm_obj_17_map_showRandomTip (.gui.showRandomTip)
+// check _jm_f_27_map_showRandomTip (.gui.showRandomTip)
 function _jm_f_47(val, path, rep)
 {
     let res;
@@ -2114,7 +1994,7 @@ function _jm_f_47(val, path, rep)
     return res;
 }
 
-// check _jm_obj_17_map_sidePanelWidth (.gui.sidePanelWidth)
+// check _jm_f_27_map_sidePanelWidth (.gui.sidePanelWidth)
 function _jm_f_48(val, path, rep)
 {
     let res;
@@ -2137,7 +2017,7 @@ function _jm_f_48(val, path, rep)
     return res;
 }
 
-// check _jm_obj_17_map_skipDiscardChangeWarning (.gui.skipDiscardChangeWarning)
+// check _jm_f_27_map_skipDiscardChangeWarning (.gui.skipDiscardChangeWarning)
 function _jm_f_49(val, path, rep)
 {
     let res;
@@ -2150,7 +2030,7 @@ function _jm_f_49(val, path, rep)
     return res;
 }
 
-// check _jm_obj_17_map_skipRewordInEditorWarning (.gui.skipRewordInEditorWarning)
+// check _jm_f_27_map_skipRewordInEditorWarning (.gui.skipRewordInEditorWarning)
 function _jm_f_50(val, path, rep)
 {
     let res;
@@ -2163,7 +2043,7 @@ function _jm_f_50(val, path, rep)
     return res;
 }
 
-// check _jm_obj_17_map_skipStashWarning (.gui.skipStashWarning)
+// check _jm_f_27_map_skipStashWarning (.gui.skipStashWarning)
 function _jm_f_51(val, path, rep)
 {
     let res;
@@ -2177,7 +2057,7 @@ function _jm_f_51(val, path, rep)
 }
 
 
-// check _jm_obj_17_map_splitDiff (.gui.splitDiff)
+// check _jm_f_27_map_splitDiff (.gui.splitDiff)
 function _jm_f_52(val, path, rep)
 {
     let res;
@@ -2190,7 +2070,7 @@ function _jm_f_52(val, path, rep)
     return res;
 }
 
-// check _jm_obj_21_map_activeBorderColor (.gui.theme.activeBorderColor)
+// check _jm_f_53_map_activeBorderColor (.gui.theme.activeBorderColor)
 function _jm_f_54(val, path, rep)
 {
     let res;
@@ -2203,7 +2083,7 @@ function _jm_f_54(val, path, rep)
     return res;
 }
 
-// check _jm_obj_21_map_cherryPickedCommitBgColor (.gui.theme.cherryPickedCommitBgColor)
+// check _jm_f_53_map_cherryPickedCommitBgColor (.gui.theme.cherryPickedCommitBgColor)
 function _jm_f_55(val, path, rep)
 {
     let res;
@@ -2216,7 +2096,7 @@ function _jm_f_55(val, path, rep)
     return res;
 }
 
-// check _jm_obj_21_map_cherryPickedCommitFgColor (.gui.theme.cherryPickedCommitFgColor)
+// check _jm_f_53_map_cherryPickedCommitFgColor (.gui.theme.cherryPickedCommitFgColor)
 function _jm_f_56(val, path, rep)
 {
     let res;
@@ -2229,7 +2109,7 @@ function _jm_f_56(val, path, rep)
     return res;
 }
 
-// check _jm_obj_21_map_defaultFgColor (.gui.theme.defaultFgColor)
+// check _jm_f_53_map_defaultFgColor (.gui.theme.defaultFgColor)
 function _jm_f_57(val, path, rep)
 {
     let res;
@@ -2242,7 +2122,7 @@ function _jm_f_57(val, path, rep)
     return res;
 }
 
-// check _jm_obj_21_map_inactiveBorderColor (.gui.theme.inactiveBorderColor)
+// check _jm_f_53_map_inactiveBorderColor (.gui.theme.inactiveBorderColor)
 function _jm_f_58(val, path, rep)
 {
     let res;
@@ -2255,7 +2135,7 @@ function _jm_f_58(val, path, rep)
     return res;
 }
 
-// check _jm_obj_21_map_optionsTextColor (.gui.theme.optionsTextColor)
+// check _jm_f_53_map_optionsTextColor (.gui.theme.optionsTextColor)
 function _jm_f_59(val, path, rep)
 {
     let res;
@@ -2268,7 +2148,7 @@ function _jm_f_59(val, path, rep)
     return res;
 }
 
-// check _jm_obj_21_map_searchingActiveBorderColor (.gui.theme.searchingActiveBorderColor)
+// check _jm_f_53_map_searchingActiveBorderColor (.gui.theme.searchingActiveBorderColor)
 function _jm_f_60(val, path, rep)
 {
     let res;
@@ -2281,7 +2161,7 @@ function _jm_f_60(val, path, rep)
     return res;
 }
 
-// check _jm_obj_21_map_selectedLineBgColor (.gui.theme.selectedLineBgColor)
+// check _jm_f_53_map_selectedLineBgColor (.gui.theme.selectedLineBgColor)
 function _jm_f_61(val, path, rep)
 {
     let res;
@@ -2294,7 +2174,7 @@ function _jm_f_61(val, path, rep)
     return res;
 }
 
-// check _jm_obj_21_map_selectedRangeBgColor (.gui.theme.selectedRangeBgColor)
+// check _jm_f_53_map_selectedRangeBgColor (.gui.theme.selectedRangeBgColor)
 function _jm_f_62(val, path, rep)
 {
     let res;
@@ -2307,7 +2187,7 @@ function _jm_f_62(val, path, rep)
     return res;
 }
 
-// check _jm_obj_21_map_unstagedChangesColor (.gui.theme.unstagedChangesColor)
+// check _jm_f_53_map_unstagedChangesColor (.gui.theme.unstagedChangesColor)
 function _jm_f_63(val, path, rep)
 {
     let res;
@@ -2321,9 +2201,10 @@ function _jm_f_63(val, path, rep)
 }
 
 
-// object .gui.theme
-function _jm_obj_21(val, path, rep)
+// check _jm_f_27_map_theme (.gui.theme)
+function _jm_f_53(val, path, rep)
 {
+    // .gui.theme
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.gui.theme]", path])
@@ -2333,7 +2214,7 @@ function _jm_obj_21(val, path, rep)
     for (const [prop, pval] of Object.entries(val))
     {
         let lpath_17 = path ? path.concat([prop]) : null;
-        if ((pfun = _jm_obj_21_map.get(prop)))
+        if ((pfun = _jm_f_53_map.get(prop)))
         {
             // handle 10 may props
             if (pfun !== undefined && ! pfun(pval, (path ? lpath_17 : null), rep))
@@ -2351,20 +2232,7 @@ function _jm_obj_21(val, path, rep)
     return true;
 }
 
-// check _jm_obj_17_map_theme (.gui.theme)
-function _jm_f_53(val, path, rep)
-{
-    let res;
-    // .gui.theme
-    res = _jm_obj_21(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected element [.gui.theme]", path])
-    }
-    return res;
-}
-
-// check _jm_obj_17_map_timeFormat (.gui.timeFormat)
+// check _jm_f_27_map_timeFormat (.gui.timeFormat)
 function _jm_f_64(val, path, rep)
 {
     let res;
@@ -2378,7 +2246,7 @@ function _jm_f_64(val, path, rep)
 }
 
 
-// check _jm_obj_17_map_windowSize (.gui.windowSize)
+// check _jm_f_27_map_windowSize (.gui.windowSize)
 function _jm_f_65(val, path, rep)
 {
     let res;
@@ -2392,9 +2260,10 @@ function _jm_f_65(val, path, rep)
 }
 
 
-// object .gui
-function _jm_obj_17(val, path, rep)
+// check json_model_1_map_gui (.gui)
+function _jm_f_27(val, path, rep)
 {
+    // .gui
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.gui]", path])
@@ -2404,7 +2273,7 @@ function _jm_obj_17(val, path, rep)
     for (const [prop, pval] of Object.entries(val))
     {
         let lpath_13 = path ? path.concat([prop]) : null;
-        if ((pfun = _jm_obj_17_map.get(prop)))
+        if ((pfun = _jm_f_27_map.get(prop)))
         {
             // handle 28 may props
             if (pfun !== undefined && ! pfun(pval, (path ? lpath_13 : null), rep))
@@ -2422,20 +2291,7 @@ function _jm_obj_17(val, path, rep)
     return true;
 }
 
-// check _jm_obj_7_map_gui (.gui)
-function _jm_f_27(val, path, rep)
-{
-    let res;
-    // .gui
-    res = _jm_obj_17(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected element [.gui]", path])
-    }
-    return res;
-}
-
-// check _jm_obj_23_map_checkoutBranchByName (.keybinding.branches.checkoutBranchByName)
+// check _jm_f_67_map_checkoutBranchByName (.keybinding.branches.checkoutBranchByName)
 function _jm_f_68(val, path, rep)
 {
     let res;
@@ -2448,7 +2304,7 @@ function _jm_f_68(val, path, rep)
     return res;
 }
 
-// check _jm_obj_23_map_createPullRequest (.keybinding.branches.createPullRequest)
+// check _jm_f_67_map_createPullRequest (.keybinding.branches.createPullRequest)
 function _jm_f_69(val, path, rep)
 {
     let res;
@@ -2461,7 +2317,7 @@ function _jm_f_69(val, path, rep)
     return res;
 }
 
-// check _jm_obj_23_map_createTag (.keybinding.branches.createTag)
+// check _jm_f_67_map_createTag (.keybinding.branches.createTag)
 function _jm_f_70(val, path, rep)
 {
     let res;
@@ -2474,7 +2330,7 @@ function _jm_f_70(val, path, rep)
     return res;
 }
 
-// check _jm_obj_23_map_fastForward (.keybinding.branches.fastForward)
+// check _jm_f_67_map_fastForward (.keybinding.branches.fastForward)
 function _jm_f_71(val, path, rep)
 {
     let res;
@@ -2487,7 +2343,7 @@ function _jm_f_71(val, path, rep)
     return res;
 }
 
-// check _jm_obj_23_map_fetchRemote (.keybinding.branches.fetchRemote)
+// check _jm_f_67_map_fetchRemote (.keybinding.branches.fetchRemote)
 function _jm_f_72(val, path, rep)
 {
     let res;
@@ -2500,7 +2356,7 @@ function _jm_f_72(val, path, rep)
     return res;
 }
 
-// check _jm_obj_23_map_forceCheckoutBranch (.keybinding.branches.forceCheckoutBranch)
+// check _jm_f_67_map_forceCheckoutBranch (.keybinding.branches.forceCheckoutBranch)
 function _jm_f_73(val, path, rep)
 {
     let res;
@@ -2513,7 +2369,7 @@ function _jm_f_73(val, path, rep)
     return res;
 }
 
-// check _jm_obj_23_map_mergeIntoCurrentBranch (.keybinding.branches.mergeIntoCurrentBranch)
+// check _jm_f_67_map_mergeIntoCurrentBranch (.keybinding.branches.mergeIntoCurrentBranch)
 function _jm_f_74(val, path, rep)
 {
     let res;
@@ -2526,7 +2382,7 @@ function _jm_f_74(val, path, rep)
     return res;
 }
 
-// check _jm_obj_23_map_pushTag (.keybinding.branches.pushTag)
+// check _jm_f_67_map_pushTag (.keybinding.branches.pushTag)
 function _jm_f_75(val, path, rep)
 {
     let res;
@@ -2539,7 +2395,7 @@ function _jm_f_75(val, path, rep)
     return res;
 }
 
-// check _jm_obj_23_map_rebaseBranch (.keybinding.branches.rebaseBranch)
+// check _jm_f_67_map_rebaseBranch (.keybinding.branches.rebaseBranch)
 function _jm_f_76(val, path, rep)
 {
     let res;
@@ -2552,7 +2408,7 @@ function _jm_f_76(val, path, rep)
     return res;
 }
 
-// check _jm_obj_23_map_renameBranch (.keybinding.branches.renameBranch)
+// check _jm_f_67_map_renameBranch (.keybinding.branches.renameBranch)
 function _jm_f_77(val, path, rep)
 {
     let res;
@@ -2565,7 +2421,7 @@ function _jm_f_77(val, path, rep)
     return res;
 }
 
-// check _jm_obj_23_map_setUpstream (.keybinding.branches.setUpstream)
+// check _jm_f_67_map_setUpstream (.keybinding.branches.setUpstream)
 function _jm_f_78(val, path, rep)
 {
     let res;
@@ -2578,7 +2434,7 @@ function _jm_f_78(val, path, rep)
     return res;
 }
 
-// check _jm_obj_23_map_viewGitFlowOptions (.keybinding.branches.viewGitFlowOptions)
+// check _jm_f_67_map_viewGitFlowOptions (.keybinding.branches.viewGitFlowOptions)
 function _jm_f_79(val, path, rep)
 {
     let res;
@@ -2591,7 +2447,7 @@ function _jm_f_79(val, path, rep)
     return res;
 }
 
-// check _jm_obj_23_map_viewPullRequestOptions (.keybinding.branches.viewPullRequestOptions)
+// check _jm_f_67_map_viewPullRequestOptions (.keybinding.branches.viewPullRequestOptions)
 function _jm_f_80(val, path, rep)
 {
     let res;
@@ -2605,9 +2461,10 @@ function _jm_f_80(val, path, rep)
 }
 
 
-// object .keybinding.branches
-function _jm_obj_23(val, path, rep)
+// check _jm_f_66_map_branches (.keybinding.branches)
+function _jm_f_67(val, path, rep)
 {
+    // .keybinding.branches
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.keybinding.branches]", path])
@@ -2617,7 +2474,7 @@ function _jm_obj_23(val, path, rep)
     for (const [prop, pval] of Object.entries(val))
     {
         let lpath_19 = path ? path.concat([prop]) : null;
-        if ((pfun = _jm_obj_23_map.get(prop)))
+        if ((pfun = _jm_f_67_map.get(prop)))
         {
             // handle 13 may props
             if (pfun !== undefined && ! pfun(pval, (path ? lpath_19 : null), rep))
@@ -2635,22 +2492,10 @@ function _jm_obj_23(val, path, rep)
     return true;
 }
 
-// check _jm_obj_22_map_branches (.keybinding.branches)
-function _jm_f_67(val, path, rep)
+// check _jm_f_66_map_commitFiles (.keybinding.commitFiles)
+function _jm_f_81(val, path, rep)
 {
-    let res;
-    // .keybinding.branches
-    res = _jm_obj_23(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected element [.keybinding.branches]", path])
-    }
-    return res;
-}
-
-// object .keybinding.commitFiles
-function _jm_obj_24(val, path, rep)
-{
+    // .keybinding.commitFiles
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.keybinding.commitFiles]", path])
@@ -2681,20 +2526,7 @@ function _jm_obj_24(val, path, rep)
     return true;
 }
 
-// check _jm_obj_22_map_commitFiles (.keybinding.commitFiles)
-function _jm_f_81(val, path, rep)
-{
-    let res;
-    // .keybinding.commitFiles
-    res = _jm_obj_24(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected element [.keybinding.commitFiles]", path])
-    }
-    return res;
-}
-
-// check _jm_obj_25_map_amendToCommit (.keybinding.commits.amendToCommit)
+// check _jm_f_82_map_amendToCommit (.keybinding.commits.amendToCommit)
 function _jm_f_83(val, path, rep)
 {
     let res;
@@ -2707,7 +2539,7 @@ function _jm_f_83(val, path, rep)
     return res;
 }
 
-// check _jm_obj_25_map_checkoutCommit (.keybinding.commits.checkoutCommit)
+// check _jm_f_82_map_checkoutCommit (.keybinding.commits.checkoutCommit)
 function _jm_f_84(val, path, rep)
 {
     let res;
@@ -2720,7 +2552,7 @@ function _jm_f_84(val, path, rep)
     return res;
 }
 
-// check _jm_obj_25_map_cherryPickCopy (.keybinding.commits.cherryPickCopy)
+// check _jm_f_82_map_cherryPickCopy (.keybinding.commits.cherryPickCopy)
 function _jm_f_85(val, path, rep)
 {
     let res;
@@ -2733,7 +2565,7 @@ function _jm_f_85(val, path, rep)
     return res;
 }
 
-// check _jm_obj_25_map_cherryPickCopyRange (.keybinding.commits.cherryPickCopyRange)
+// check _jm_f_82_map_cherryPickCopyRange (.keybinding.commits.cherryPickCopyRange)
 function _jm_f_86(val, path, rep)
 {
     let res;
@@ -2746,7 +2578,7 @@ function _jm_f_86(val, path, rep)
     return res;
 }
 
-// check _jm_obj_25_map_copyCommitMessageToClipboard (.keybinding.commits.copyCommitMessageToClipboard)
+// check _jm_f_82_map_copyCommitMessageToClipboard (.keybinding.commits.copyCommitMessageToClipboard)
 function _jm_f_87(val, path, rep)
 {
     let res;
@@ -2759,7 +2591,7 @@ function _jm_f_87(val, path, rep)
     return res;
 }
 
-// check _jm_obj_25_map_createFixupCommit (.keybinding.commits.createFixupCommit)
+// check _jm_f_82_map_createFixupCommit (.keybinding.commits.createFixupCommit)
 function _jm_f_88(val, path, rep)
 {
     let res;
@@ -2772,7 +2604,7 @@ function _jm_f_88(val, path, rep)
     return res;
 }
 
-// check _jm_obj_25_map_markCommitAsFixup (.keybinding.commits.markCommitAsFixup)
+// check _jm_f_82_map_markCommitAsFixup (.keybinding.commits.markCommitAsFixup)
 function _jm_f_89(val, path, rep)
 {
     let res;
@@ -2785,7 +2617,7 @@ function _jm_f_89(val, path, rep)
     return res;
 }
 
-// check _jm_obj_25_map_moveDownCommit (.keybinding.commits.moveDownCommit)
+// check _jm_f_82_map_moveDownCommit (.keybinding.commits.moveDownCommit)
 function _jm_f_90(val, path, rep)
 {
     let res;
@@ -2798,7 +2630,7 @@ function _jm_f_90(val, path, rep)
     return res;
 }
 
-// check _jm_obj_25_map_moveUpCommit (.keybinding.commits.moveUpCommit)
+// check _jm_f_82_map_moveUpCommit (.keybinding.commits.moveUpCommit)
 function _jm_f_91(val, path, rep)
 {
     let res;
@@ -2811,7 +2643,7 @@ function _jm_f_91(val, path, rep)
     return res;
 }
 
-// check _jm_obj_25_map_openLogMenu (.keybinding.commits.openLogMenu)
+// check _jm_f_82_map_openLogMenu (.keybinding.commits.openLogMenu)
 function _jm_f_92(val, path, rep)
 {
     let res;
@@ -2824,7 +2656,7 @@ function _jm_f_92(val, path, rep)
     return res;
 }
 
-// check _jm_obj_25_map_pasteCommits (.keybinding.commits.pasteCommits)
+// check _jm_f_82_map_pasteCommits (.keybinding.commits.pasteCommits)
 function _jm_f_93(val, path, rep)
 {
     let res;
@@ -2837,7 +2669,7 @@ function _jm_f_93(val, path, rep)
     return res;
 }
 
-// check _jm_obj_25_map_pickCommit (.keybinding.commits.pickCommit)
+// check _jm_f_82_map_pickCommit (.keybinding.commits.pickCommit)
 function _jm_f_94(val, path, rep)
 {
     let res;
@@ -2850,7 +2682,7 @@ function _jm_f_94(val, path, rep)
     return res;
 }
 
-// check _jm_obj_25_map_renameCommit (.keybinding.commits.renameCommit)
+// check _jm_f_82_map_renameCommit (.keybinding.commits.renameCommit)
 function _jm_f_95(val, path, rep)
 {
     let res;
@@ -2863,7 +2695,7 @@ function _jm_f_95(val, path, rep)
     return res;
 }
 
-// check _jm_obj_25_map_renameCommitWithEditor (.keybinding.commits.renameCommitWithEditor)
+// check _jm_f_82_map_renameCommitWithEditor (.keybinding.commits.renameCommitWithEditor)
 function _jm_f_96(val, path, rep)
 {
     let res;
@@ -2876,7 +2708,7 @@ function _jm_f_96(val, path, rep)
     return res;
 }
 
-// check _jm_obj_25_map_resetCherryPick (.keybinding.commits.resetCherryPick)
+// check _jm_f_82_map_resetCherryPick (.keybinding.commits.resetCherryPick)
 function _jm_f_97(val, path, rep)
 {
     let res;
@@ -2889,7 +2721,7 @@ function _jm_f_97(val, path, rep)
     return res;
 }
 
-// check _jm_obj_25_map_revertCommit (.keybinding.commits.revertCommit)
+// check _jm_f_82_map_revertCommit (.keybinding.commits.revertCommit)
 function _jm_f_98(val, path, rep)
 {
     let res;
@@ -2902,7 +2734,7 @@ function _jm_f_98(val, path, rep)
     return res;
 }
 
-// check _jm_obj_25_map_squashAboveCommits (.keybinding.commits.squashAboveCommits)
+// check _jm_f_82_map_squashAboveCommits (.keybinding.commits.squashAboveCommits)
 function _jm_f_99(val, path, rep)
 {
     let res;
@@ -2915,7 +2747,7 @@ function _jm_f_99(val, path, rep)
     return res;
 }
 
-// check _jm_obj_25_map_squashDown (.keybinding.commits.squashDown)
+// check _jm_f_82_map_squashDown (.keybinding.commits.squashDown)
 function _jm_f_100(val, path, rep)
 {
     let res;
@@ -2928,7 +2760,7 @@ function _jm_f_100(val, path, rep)
     return res;
 }
 
-// check _jm_obj_25_map_tagCommit (.keybinding.commits.tagCommit)
+// check _jm_f_82_map_tagCommit (.keybinding.commits.tagCommit)
 function _jm_f_101(val, path, rep)
 {
     let res;
@@ -2941,7 +2773,7 @@ function _jm_f_101(val, path, rep)
     return res;
 }
 
-// check _jm_obj_25_map_viewBisectOptions (.keybinding.commits.viewBisectOptions)
+// check _jm_f_82_map_viewBisectOptions (.keybinding.commits.viewBisectOptions)
 function _jm_f_102(val, path, rep)
 {
     let res;
@@ -2954,7 +2786,7 @@ function _jm_f_102(val, path, rep)
     return res;
 }
 
-// check _jm_obj_25_map_viewResetOptions (.keybinding.commits.viewResetOptions)
+// check _jm_f_82_map_viewResetOptions (.keybinding.commits.viewResetOptions)
 function _jm_f_103(val, path, rep)
 {
     let res;
@@ -2968,9 +2800,10 @@ function _jm_f_103(val, path, rep)
 }
 
 
-// object .keybinding.commits
-function _jm_obj_25(val, path, rep)
+// check _jm_f_66_map_commits (.keybinding.commits)
+function _jm_f_82(val, path, rep)
 {
+    // .keybinding.commits
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.keybinding.commits]", path])
@@ -2980,7 +2813,7 @@ function _jm_obj_25(val, path, rep)
     for (const [prop, pval] of Object.entries(val))
     {
         let lpath_21 = path ? path.concat([prop]) : null;
-        if ((pfun = _jm_obj_25_map.get(prop)))
+        if ((pfun = _jm_f_82_map.get(prop)))
         {
             // handle 21 may props
             if (pfun !== undefined && ! pfun(pval, (path ? lpath_21 : null), rep))
@@ -2998,20 +2831,7 @@ function _jm_obj_25(val, path, rep)
     return true;
 }
 
-// check _jm_obj_22_map_commits (.keybinding.commits)
-function _jm_f_82(val, path, rep)
-{
-    let res;
-    // .keybinding.commits
-    res = _jm_obj_25(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected element [.keybinding.commits]", path])
-    }
-    return res;
-}
-
-// check _jm_obj_26_map_amendLastCommit (.keybinding.files.amendLastCommit)
+// check _jm_f_104_map_amendLastCommit (.keybinding.files.amendLastCommit)
 function _jm_f_105(val, path, rep)
 {
     let res;
@@ -3024,7 +2844,7 @@ function _jm_f_105(val, path, rep)
     return res;
 }
 
-// check _jm_obj_26_map_commitChanges (.keybinding.files.commitChanges)
+// check _jm_f_104_map_commitChanges (.keybinding.files.commitChanges)
 function _jm_f_106(val, path, rep)
 {
     let res;
@@ -3037,7 +2857,7 @@ function _jm_f_106(val, path, rep)
     return res;
 }
 
-// check _jm_obj_26_map_commitChangesWithEditor (.keybinding.files.commitChangesWithEditor)
+// check _jm_f_104_map_commitChangesWithEditor (.keybinding.files.commitChangesWithEditor)
 function _jm_f_107(val, path, rep)
 {
     let res;
@@ -3050,7 +2870,7 @@ function _jm_f_107(val, path, rep)
     return res;
 }
 
-// check _jm_obj_26_map_commitChangesWithoutHook (.keybinding.files.commitChangesWithoutHook)
+// check _jm_f_104_map_commitChangesWithoutHook (.keybinding.files.commitChangesWithoutHook)
 function _jm_f_108(val, path, rep)
 {
     let res;
@@ -3063,7 +2883,7 @@ function _jm_f_108(val, path, rep)
     return res;
 }
 
-// check _jm_obj_26_map_fetch (.keybinding.files.fetch)
+// check _jm_f_104_map_fetch (.keybinding.files.fetch)
 function _jm_f_109(val, path, rep)
 {
     let res;
@@ -3076,7 +2896,7 @@ function _jm_f_109(val, path, rep)
     return res;
 }
 
-// check _jm_obj_26_map_ignoreFile (.keybinding.files.ignoreFile)
+// check _jm_f_104_map_ignoreFile (.keybinding.files.ignoreFile)
 function _jm_f_110(val, path, rep)
 {
     let res;
@@ -3089,7 +2909,7 @@ function _jm_f_110(val, path, rep)
     return res;
 }
 
-// check _jm_obj_26_map_openMergeTool (.keybinding.files.openMergeTool)
+// check _jm_f_104_map_openMergeTool (.keybinding.files.openMergeTool)
 function _jm_f_111(val, path, rep)
 {
     let res;
@@ -3102,7 +2922,7 @@ function _jm_f_111(val, path, rep)
     return res;
 }
 
-// check _jm_obj_26_map_openStatusFilter (.keybinding.files.openStatusFilter)
+// check _jm_f_104_map_openStatusFilter (.keybinding.files.openStatusFilter)
 function _jm_f_112(val, path, rep)
 {
     let res;
@@ -3115,7 +2935,7 @@ function _jm_f_112(val, path, rep)
     return res;
 }
 
-// check _jm_obj_26_map_refreshFiles (.keybinding.files.refreshFiles)
+// check _jm_f_104_map_refreshFiles (.keybinding.files.refreshFiles)
 function _jm_f_113(val, path, rep)
 {
     let res;
@@ -3128,7 +2948,7 @@ function _jm_f_113(val, path, rep)
     return res;
 }
 
-// check _jm_obj_26_map_stashAllChanges (.keybinding.files.stashAllChanges)
+// check _jm_f_104_map_stashAllChanges (.keybinding.files.stashAllChanges)
 function _jm_f_114(val, path, rep)
 {
     let res;
@@ -3141,7 +2961,7 @@ function _jm_f_114(val, path, rep)
     return res;
 }
 
-// check _jm_obj_26_map_toggleStagedAll (.keybinding.files.toggleStagedAll)
+// check _jm_f_104_map_toggleStagedAll (.keybinding.files.toggleStagedAll)
 function _jm_f_115(val, path, rep)
 {
     let res;
@@ -3154,7 +2974,7 @@ function _jm_f_115(val, path, rep)
     return res;
 }
 
-// check _jm_obj_26_map_toggleTreeView (.keybinding.files.toggleTreeView)
+// check _jm_f_104_map_toggleTreeView (.keybinding.files.toggleTreeView)
 function _jm_f_116(val, path, rep)
 {
     let res;
@@ -3167,7 +2987,7 @@ function _jm_f_116(val, path, rep)
     return res;
 }
 
-// check _jm_obj_26_map_viewResetOptions (.keybinding.files.viewResetOptions)
+// check _jm_f_104_map_viewResetOptions (.keybinding.files.viewResetOptions)
 function _jm_f_117(val, path, rep)
 {
     let res;
@@ -3180,7 +3000,7 @@ function _jm_f_117(val, path, rep)
     return res;
 }
 
-// check _jm_obj_26_map_viewStashOptions (.keybinding.files.viewStashOptions)
+// check _jm_f_104_map_viewStashOptions (.keybinding.files.viewStashOptions)
 function _jm_f_118(val, path, rep)
 {
     let res;
@@ -3194,9 +3014,10 @@ function _jm_f_118(val, path, rep)
 }
 
 
-// object .keybinding.files
-function _jm_obj_26(val, path, rep)
+// check _jm_f_66_map_files (.keybinding.files)
+function _jm_f_104(val, path, rep)
 {
+    // .keybinding.files
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.keybinding.files]", path])
@@ -3206,7 +3027,7 @@ function _jm_obj_26(val, path, rep)
     for (const [prop, pval] of Object.entries(val))
     {
         let lpath_22 = path ? path.concat([prop]) : null;
-        if ((pfun = _jm_obj_26_map.get(prop)))
+        if ((pfun = _jm_f_104_map.get(prop)))
         {
             // handle 14 may props
             if (pfun !== undefined && ! pfun(pval, (path ? lpath_22 : null), rep))
@@ -3224,22 +3045,10 @@ function _jm_obj_26(val, path, rep)
     return true;
 }
 
-// check _jm_obj_22_map_files (.keybinding.files)
-function _jm_f_104(val, path, rep)
+// check _jm_f_66_map_main (.keybinding.main)
+function _jm_f_119(val, path, rep)
 {
-    let res;
-    // .keybinding.files
-    res = _jm_obj_26(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected element [.keybinding.files]", path])
-    }
-    return res;
-}
-
-// object .keybinding.main
-function _jm_obj_27(val, path, rep)
-{
+    // .keybinding.main
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.keybinding.main]", path])
@@ -3306,22 +3115,10 @@ function _jm_obj_27(val, path, rep)
     return true;
 }
 
-// check _jm_obj_22_map_main (.keybinding.main)
-function _jm_f_119(val, path, rep)
+// check _jm_f_66_map_stash (.keybinding.stash)
+function _jm_f_120(val, path, rep)
 {
-    let res;
-    // .keybinding.main
-    res = _jm_obj_27(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected element [.keybinding.main]", path])
-    }
-    return res;
-}
-
-// object .keybinding.stash
-function _jm_obj_28(val, path, rep)
-{
+    // .keybinding.stash
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.keybinding.stash]", path])
@@ -3364,22 +3161,10 @@ function _jm_obj_28(val, path, rep)
     return true;
 }
 
-// check _jm_obj_22_map_stash (.keybinding.stash)
-function _jm_f_120(val, path, rep)
+// check _jm_f_66_map_status (.keybinding.status)
+function _jm_f_121(val, path, rep)
 {
-    let res;
-    // .keybinding.stash
-    res = _jm_obj_28(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected element [.keybinding.stash]", path])
-    }
-    return res;
-}
-
-// object .keybinding.status
-function _jm_obj_29(val, path, rep)
-{
+    // .keybinding.status
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.keybinding.status]", path])
@@ -3422,22 +3207,10 @@ function _jm_obj_29(val, path, rep)
     return true;
 }
 
-// check _jm_obj_22_map_status (.keybinding.status)
-function _jm_f_121(val, path, rep)
+// check _jm_f_66_map_submodules (.keybinding.submodules)
+function _jm_f_122(val, path, rep)
 {
-    let res;
-    // .keybinding.status
-    res = _jm_obj_29(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected element [.keybinding.status]", path])
-    }
-    return res;
-}
-
-// object .keybinding.submodules
-function _jm_obj_30(val, path, rep)
-{
+    // .keybinding.submodules
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.keybinding.submodules]", path])
@@ -3492,20 +3265,7 @@ function _jm_obj_30(val, path, rep)
     return true;
 }
 
-// check _jm_obj_22_map_submodules (.keybinding.submodules)
-function _jm_f_122(val, path, rep)
-{
-    let res;
-    // .keybinding.submodules
-    res = _jm_obj_30(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected element [.keybinding.submodules]", path])
-    }
-    return res;
-}
-
-// check _jm_obj_31_map_confirm (.keybinding.universal.confirm)
+// check _jm_f_123_map_confirm (.keybinding.universal.confirm)
 function _jm_f_124(val, path, rep)
 {
     let res;
@@ -3518,7 +3278,7 @@ function _jm_f_124(val, path, rep)
     return res;
 }
 
-// check _jm_obj_31_map_copyToClipboard (.keybinding.universal.copyToClipboard)
+// check _jm_f_123_map_copyToClipboard (.keybinding.universal.copyToClipboard)
 function _jm_f_125(val, path, rep)
 {
     let res;
@@ -3531,7 +3291,7 @@ function _jm_f_125(val, path, rep)
     return res;
 }
 
-// check _jm_obj_31_map_createPatchOptionsMenu (.keybinding.universal.createPatchOptionsMenu)
+// check _jm_f_123_map_createPatchOptionsMenu (.keybinding.universal.createPatchOptionsMenu)
 function _jm_f_126(val, path, rep)
 {
     let res;
@@ -3544,7 +3304,7 @@ function _jm_f_126(val, path, rep)
     return res;
 }
 
-// check _jm_obj_31_map_createRebaseOptionsMenu (.keybinding.universal.createRebaseOptionsMenu)
+// check _jm_f_123_map_createRebaseOptionsMenu (.keybinding.universal.createRebaseOptionsMenu)
 function _jm_f_127(val, path, rep)
 {
     let res;
@@ -3557,7 +3317,7 @@ function _jm_f_127(val, path, rep)
     return res;
 }
 
-// check _jm_obj_31_map_decreaseContextInDiffView (.keybinding.universal.decreaseContextInDiffView)
+// check _jm_f_123_map_decreaseContextInDiffView (.keybinding.universal.decreaseContextInDiffView)
 function _jm_f_128(val, path, rep)
 {
     let res;
@@ -3570,7 +3330,7 @@ function _jm_f_128(val, path, rep)
     return res;
 }
 
-// check _jm_obj_31_map_diffingMenu (.keybinding.universal.diffingMenu)
+// check _jm_f_123_map_diffingMenu (.keybinding.universal.diffingMenu)
 function _jm_f_129(val, path, rep)
 {
     let res;
@@ -3583,7 +3343,7 @@ function _jm_f_129(val, path, rep)
     return res;
 }
 
-// check _jm_obj_31_map_diffingMenu-alt (.keybinding.universal.'diffingMenu-alt')
+// check _jm_f_123_map_diffingMenu-alt (.keybinding.universal.'diffingMenu-alt')
 function _jm_f_130(val, path, rep)
 {
     let res;
@@ -3596,7 +3356,7 @@ function _jm_f_130(val, path, rep)
     return res;
 }
 
-// check _jm_obj_31_map_edit (.keybinding.universal.edit)
+// check _jm_f_123_map_edit (.keybinding.universal.edit)
 function _jm_f_131(val, path, rep)
 {
     let res;
@@ -3609,7 +3369,7 @@ function _jm_f_131(val, path, rep)
     return res;
 }
 
-// check _jm_obj_31_map_executeCustomCommand (.keybinding.universal.executeCustomCommand)
+// check _jm_f_123_map_executeCustomCommand (.keybinding.universal.executeCustomCommand)
 function _jm_f_132(val, path, rep)
 {
     let res;
@@ -3622,7 +3382,7 @@ function _jm_f_132(val, path, rep)
     return res;
 }
 
-// check _jm_obj_31_map_extrasMenu (.keybinding.universal.extrasMenu)
+// check _jm_f_123_map_extrasMenu (.keybinding.universal.extrasMenu)
 function _jm_f_133(val, path, rep)
 {
     let res;
@@ -3635,7 +3395,7 @@ function _jm_f_133(val, path, rep)
     return res;
 }
 
-// check _jm_obj_31_map_filteringMenu (.keybinding.universal.filteringMenu)
+// check _jm_f_123_map_filteringMenu (.keybinding.universal.filteringMenu)
 function _jm_f_134(val, path, rep)
 {
     let res;
@@ -3648,7 +3408,7 @@ function _jm_f_134(val, path, rep)
     return res;
 }
 
-// check _jm_obj_31_map_goInto (.keybinding.universal.goInto)
+// check _jm_f_123_map_goInto (.keybinding.universal.goInto)
 function _jm_f_135(val, path, rep)
 {
     let res;
@@ -3661,7 +3421,7 @@ function _jm_f_135(val, path, rep)
     return res;
 }
 
-// check _jm_obj_31_map_gotoBottom (.keybinding.universal.gotoBottom)
+// check _jm_f_123_map_gotoBottom (.keybinding.universal.gotoBottom)
 function _jm_f_136(val, path, rep)
 {
     let res;
@@ -3674,7 +3434,7 @@ function _jm_f_136(val, path, rep)
     return res;
 }
 
-// check _jm_obj_31_map_gotoTop (.keybinding.universal.gotoTop)
+// check _jm_f_123_map_gotoTop (.keybinding.universal.gotoTop)
 function _jm_f_137(val, path, rep)
 {
     let res;
@@ -3687,7 +3447,7 @@ function _jm_f_137(val, path, rep)
     return res;
 }
 
-// check _jm_obj_31_map_increaseContextInDiffView (.keybinding.universal.increaseContextInDiffView)
+// check _jm_f_123_map_increaseContextInDiffView (.keybinding.universal.increaseContextInDiffView)
 function _jm_f_138(val, path, rep)
 {
     let res;
@@ -3700,7 +3460,7 @@ function _jm_f_138(val, path, rep)
     return res;
 }
 
-// check _jm_obj_31_map_jumpToBlock (.keybinding.universal.jumpToBlock)
+// check _jm_f_123_map_jumpToBlock (.keybinding.universal.jumpToBlock)
 function _jm_f_139(val, path, rep)
 {
     let res;
@@ -3713,7 +3473,7 @@ function _jm_f_139(val, path, rep)
     return res;
 }
 
-// check _jm_obj_31_map_new (.keybinding.universal.new)
+// check _jm_f_123_map_new (.keybinding.universal.new)
 function _jm_f_140(val, path, rep)
 {
     let res;
@@ -3726,7 +3486,7 @@ function _jm_f_140(val, path, rep)
     return res;
 }
 
-// check _jm_obj_31_map_nextBlock (.keybinding.universal.nextBlock)
+// check _jm_f_123_map_nextBlock (.keybinding.universal.nextBlock)
 function _jm_f_141(val, path, rep)
 {
     let res;
@@ -3739,7 +3499,7 @@ function _jm_f_141(val, path, rep)
     return res;
 }
 
-// check _jm_obj_31_map_nextBlock-alt (.keybinding.universal.'nextBlock-alt')
+// check _jm_f_123_map_nextBlock-alt (.keybinding.universal.'nextBlock-alt')
 function _jm_f_142(val, path, rep)
 {
     let res;
@@ -3752,7 +3512,7 @@ function _jm_f_142(val, path, rep)
     return res;
 }
 
-// check _jm_obj_31_map_nextItem (.keybinding.universal.nextItem)
+// check _jm_f_123_map_nextItem (.keybinding.universal.nextItem)
 function _jm_f_143(val, path, rep)
 {
     let res;
@@ -3765,7 +3525,7 @@ function _jm_f_143(val, path, rep)
     return res;
 }
 
-// check _jm_obj_31_map_nextItem-alt (.keybinding.universal.'nextItem-alt')
+// check _jm_f_123_map_nextItem-alt (.keybinding.universal.'nextItem-alt')
 function _jm_f_144(val, path, rep)
 {
     let res;
@@ -3778,7 +3538,7 @@ function _jm_f_144(val, path, rep)
     return res;
 }
 
-// check _jm_obj_31_map_nextMatch (.keybinding.universal.nextMatch)
+// check _jm_f_123_map_nextMatch (.keybinding.universal.nextMatch)
 function _jm_f_145(val, path, rep)
 {
     let res;
@@ -3791,7 +3551,7 @@ function _jm_f_145(val, path, rep)
     return res;
 }
 
-// check _jm_obj_31_map_nextPage (.keybinding.universal.nextPage)
+// check _jm_f_123_map_nextPage (.keybinding.universal.nextPage)
 function _jm_f_146(val, path, rep)
 {
     let res;
@@ -3804,7 +3564,7 @@ function _jm_f_146(val, path, rep)
     return res;
 }
 
-// check _jm_obj_31_map_nextScreenMode (.keybinding.universal.nextScreenMode)
+// check _jm_f_123_map_nextScreenMode (.keybinding.universal.nextScreenMode)
 function _jm_f_147(val, path, rep)
 {
     let res;
@@ -3817,7 +3577,7 @@ function _jm_f_147(val, path, rep)
     return res;
 }
 
-// check _jm_obj_31_map_nextTab (.keybinding.universal.nextTab)
+// check _jm_f_123_map_nextTab (.keybinding.universal.nextTab)
 function _jm_f_148(val, path, rep)
 {
     let res;
@@ -3830,7 +3590,7 @@ function _jm_f_148(val, path, rep)
     return res;
 }
 
-// check _jm_obj_31_map_openFile (.keybinding.universal.openFile)
+// check _jm_f_123_map_openFile (.keybinding.universal.openFile)
 function _jm_f_149(val, path, rep)
 {
     let res;
@@ -3843,7 +3603,7 @@ function _jm_f_149(val, path, rep)
     return res;
 }
 
-// check _jm_obj_31_map_openRecentRepos (.keybinding.universal.openRecentRepos)
+// check _jm_f_123_map_openRecentRepos (.keybinding.universal.openRecentRepos)
 function _jm_f_150(val, path, rep)
 {
     let res;
@@ -3856,7 +3616,7 @@ function _jm_f_150(val, path, rep)
     return res;
 }
 
-// check _jm_obj_31_map_optionMenu (.keybinding.universal.optionMenu)
+// check _jm_f_123_map_optionMenu (.keybinding.universal.optionMenu)
 function _jm_f_151(val, path, rep)
 {
     let res;
@@ -3869,7 +3629,7 @@ function _jm_f_151(val, path, rep)
     return res;
 }
 
-// check _jm_obj_31_map_optionMenu-alt1 (.keybinding.universal.'optionMenu-alt1')
+// check _jm_f_123_map_optionMenu-alt1 (.keybinding.universal.'optionMenu-alt1')
 function _jm_f_152(val, path, rep)
 {
     let res;
@@ -3882,7 +3642,7 @@ function _jm_f_152(val, path, rep)
     return res;
 }
 
-// check _jm_obj_31_map_prevBlock (.keybinding.universal.prevBlock)
+// check _jm_f_123_map_prevBlock (.keybinding.universal.prevBlock)
 function _jm_f_153(val, path, rep)
 {
     let res;
@@ -3895,7 +3655,7 @@ function _jm_f_153(val, path, rep)
     return res;
 }
 
-// check _jm_obj_31_map_prevBlock-alt (.keybinding.universal.'prevBlock-alt')
+// check _jm_f_123_map_prevBlock-alt (.keybinding.universal.'prevBlock-alt')
 function _jm_f_154(val, path, rep)
 {
     let res;
@@ -3908,7 +3668,7 @@ function _jm_f_154(val, path, rep)
     return res;
 }
 
-// check _jm_obj_31_map_prevItem (.keybinding.universal.prevItem)
+// check _jm_f_123_map_prevItem (.keybinding.universal.prevItem)
 function _jm_f_155(val, path, rep)
 {
     let res;
@@ -3921,7 +3681,7 @@ function _jm_f_155(val, path, rep)
     return res;
 }
 
-// check _jm_obj_31_map_prevItem-alt (.keybinding.universal.'prevItem-alt')
+// check _jm_f_123_map_prevItem-alt (.keybinding.universal.'prevItem-alt')
 function _jm_f_156(val, path, rep)
 {
     let res;
@@ -3934,7 +3694,7 @@ function _jm_f_156(val, path, rep)
     return res;
 }
 
-// check _jm_obj_31_map_prevMatch (.keybinding.universal.prevMatch)
+// check _jm_f_123_map_prevMatch (.keybinding.universal.prevMatch)
 function _jm_f_157(val, path, rep)
 {
     let res;
@@ -3947,7 +3707,7 @@ function _jm_f_157(val, path, rep)
     return res;
 }
 
-// check _jm_obj_31_map_prevPage (.keybinding.universal.prevPage)
+// check _jm_f_123_map_prevPage (.keybinding.universal.prevPage)
 function _jm_f_158(val, path, rep)
 {
     let res;
@@ -3960,7 +3720,7 @@ function _jm_f_158(val, path, rep)
     return res;
 }
 
-// check _jm_obj_31_map_prevScreenMode (.keybinding.universal.prevScreenMode)
+// check _jm_f_123_map_prevScreenMode (.keybinding.universal.prevScreenMode)
 function _jm_f_159(val, path, rep)
 {
     let res;
@@ -3973,7 +3733,7 @@ function _jm_f_159(val, path, rep)
     return res;
 }
 
-// check _jm_obj_31_map_prevTab (.keybinding.universal.prevTab)
+// check _jm_f_123_map_prevTab (.keybinding.universal.prevTab)
 function _jm_f_160(val, path, rep)
 {
     let res;
@@ -3986,7 +3746,7 @@ function _jm_f_160(val, path, rep)
     return res;
 }
 
-// check _jm_obj_31_map_pullFiles (.keybinding.universal.pullFiles)
+// check _jm_f_123_map_pullFiles (.keybinding.universal.pullFiles)
 function _jm_f_161(val, path, rep)
 {
     let res;
@@ -3999,7 +3759,7 @@ function _jm_f_161(val, path, rep)
     return res;
 }
 
-// check _jm_obj_31_map_pushFiles (.keybinding.universal.pushFiles)
+// check _jm_f_123_map_pushFiles (.keybinding.universal.pushFiles)
 function _jm_f_162(val, path, rep)
 {
     let res;
@@ -4012,7 +3772,7 @@ function _jm_f_162(val, path, rep)
     return res;
 }
 
-// check _jm_obj_31_map_quit (.keybinding.universal.quit)
+// check _jm_f_123_map_quit (.keybinding.universal.quit)
 function _jm_f_163(val, path, rep)
 {
     let res;
@@ -4025,7 +3785,7 @@ function _jm_f_163(val, path, rep)
     return res;
 }
 
-// check _jm_obj_31_map_quit-alt1 (.keybinding.universal.'quit-alt1')
+// check _jm_f_123_map_quit-alt1 (.keybinding.universal.'quit-alt1')
 function _jm_f_164(val, path, rep)
 {
     let res;
@@ -4038,7 +3798,7 @@ function _jm_f_164(val, path, rep)
     return res;
 }
 
-// check _jm_obj_31_map_quitWithoutChangingDirectory (.keybinding.universal.quitWithoutChangingDirectory)
+// check _jm_f_123_map_quitWithoutChangingDirectory (.keybinding.universal.quitWithoutChangingDirectory)
 function _jm_f_165(val, path, rep)
 {
     let res;
@@ -4051,7 +3811,7 @@ function _jm_f_165(val, path, rep)
     return res;
 }
 
-// check _jm_obj_31_map_redo (.keybinding.universal.redo)
+// check _jm_f_123_map_redo (.keybinding.universal.redo)
 function _jm_f_166(val, path, rep)
 {
     let res;
@@ -4064,7 +3824,7 @@ function _jm_f_166(val, path, rep)
     return res;
 }
 
-// check _jm_obj_31_map_refresh (.keybinding.universal.refresh)
+// check _jm_f_123_map_refresh (.keybinding.universal.refresh)
 function _jm_f_167(val, path, rep)
 {
     let res;
@@ -4077,7 +3837,7 @@ function _jm_f_167(val, path, rep)
     return res;
 }
 
-// check _jm_obj_31_map_remove (.keybinding.universal.remove)
+// check _jm_f_123_map_remove (.keybinding.universal.remove)
 function _jm_f_168(val, path, rep)
 {
     let res;
@@ -4090,7 +3850,7 @@ function _jm_f_168(val, path, rep)
     return res;
 }
 
-// check _jm_obj_31_map_return (.keybinding.universal.return)
+// check _jm_f_123_map_return (.keybinding.universal.return)
 function _jm_f_169(val, path, rep)
 {
     let res;
@@ -4103,7 +3863,7 @@ function _jm_f_169(val, path, rep)
     return res;
 }
 
-// check _jm_obj_31_map_scrollDownMain (.keybinding.universal.scrollDownMain)
+// check _jm_f_123_map_scrollDownMain (.keybinding.universal.scrollDownMain)
 function _jm_f_170(val, path, rep)
 {
     let res;
@@ -4116,7 +3876,7 @@ function _jm_f_170(val, path, rep)
     return res;
 }
 
-// check _jm_obj_31_map_scrollDownMain-alt1 (.keybinding.universal.'scrollDownMain-alt1')
+// check _jm_f_123_map_scrollDownMain-alt1 (.keybinding.universal.'scrollDownMain-alt1')
 function _jm_f_171(val, path, rep)
 {
     let res;
@@ -4129,7 +3889,7 @@ function _jm_f_171(val, path, rep)
     return res;
 }
 
-// check _jm_obj_31_map_scrollDownMain-alt2 (.keybinding.universal.'scrollDownMain-alt2')
+// check _jm_f_123_map_scrollDownMain-alt2 (.keybinding.universal.'scrollDownMain-alt2')
 function _jm_f_172(val, path, rep)
 {
     let res;
@@ -4142,7 +3902,7 @@ function _jm_f_172(val, path, rep)
     return res;
 }
 
-// check _jm_obj_31_map_scrollLeft (.keybinding.universal.scrollLeft)
+// check _jm_f_123_map_scrollLeft (.keybinding.universal.scrollLeft)
 function _jm_f_173(val, path, rep)
 {
     let res;
@@ -4155,7 +3915,7 @@ function _jm_f_173(val, path, rep)
     return res;
 }
 
-// check _jm_obj_31_map_scrollRight (.keybinding.universal.scrollRight)
+// check _jm_f_123_map_scrollRight (.keybinding.universal.scrollRight)
 function _jm_f_174(val, path, rep)
 {
     let res;
@@ -4168,7 +3928,7 @@ function _jm_f_174(val, path, rep)
     return res;
 }
 
-// check _jm_obj_31_map_scrollUpMain (.keybinding.universal.scrollUpMain)
+// check _jm_f_123_map_scrollUpMain (.keybinding.universal.scrollUpMain)
 function _jm_f_175(val, path, rep)
 {
     let res;
@@ -4181,7 +3941,7 @@ function _jm_f_175(val, path, rep)
     return res;
 }
 
-// check _jm_obj_31_map_scrollUpMain-alt1 (.keybinding.universal.'scrollUpMain-alt1')
+// check _jm_f_123_map_scrollUpMain-alt1 (.keybinding.universal.'scrollUpMain-alt1')
 function _jm_f_176(val, path, rep)
 {
     let res;
@@ -4194,7 +3954,7 @@ function _jm_f_176(val, path, rep)
     return res;
 }
 
-// check _jm_obj_31_map_scrollUpMain-alt2 (.keybinding.universal.'scrollUpMain-alt2')
+// check _jm_f_123_map_scrollUpMain-alt2 (.keybinding.universal.'scrollUpMain-alt2')
 function _jm_f_177(val, path, rep)
 {
     let res;
@@ -4207,7 +3967,7 @@ function _jm_f_177(val, path, rep)
     return res;
 }
 
-// check _jm_obj_31_map_select (.keybinding.universal.select)
+// check _jm_f_123_map_select (.keybinding.universal.select)
 function _jm_f_178(val, path, rep)
 {
     let res;
@@ -4220,7 +3980,7 @@ function _jm_f_178(val, path, rep)
     return res;
 }
 
-// check _jm_obj_31_map_submitEditorText (.keybinding.universal.submitEditorText)
+// check _jm_f_123_map_submitEditorText (.keybinding.universal.submitEditorText)
 function _jm_f_179(val, path, rep)
 {
     let res;
@@ -4233,7 +3993,7 @@ function _jm_f_179(val, path, rep)
     return res;
 }
 
-// check _jm_obj_31_map_togglePanel (.keybinding.universal.togglePanel)
+// check _jm_f_123_map_togglePanel (.keybinding.universal.togglePanel)
 function _jm_f_180(val, path, rep)
 {
     let res;
@@ -4246,7 +4006,7 @@ function _jm_f_180(val, path, rep)
     return res;
 }
 
-// check _jm_obj_31_map_toggleWhitespaceInDiffView (.keybinding.universal.toggleWhitespaceInDiffView)
+// check _jm_f_123_map_toggleWhitespaceInDiffView (.keybinding.universal.toggleWhitespaceInDiffView)
 function _jm_f_181(val, path, rep)
 {
     let res;
@@ -4259,7 +4019,7 @@ function _jm_f_181(val, path, rep)
     return res;
 }
 
-// check _jm_obj_31_map_undo (.keybinding.universal.undo)
+// check _jm_f_123_map_undo (.keybinding.universal.undo)
 function _jm_f_182(val, path, rep)
 {
     let res;
@@ -4273,9 +4033,10 @@ function _jm_f_182(val, path, rep)
 }
 
 
-// object .keybinding.universal
-function _jm_obj_31(val, path, rep)
+// check _jm_f_66_map_universal (.keybinding.universal)
+function _jm_f_123(val, path, rep)
 {
+    // .keybinding.universal
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.keybinding.universal]", path])
@@ -4285,7 +4046,7 @@ function _jm_obj_31(val, path, rep)
     for (const [prop, pval] of Object.entries(val))
     {
         let lpath_27 = path ? path.concat([prop]) : null;
-        if ((pfun = _jm_obj_31_map.get(prop)))
+        if ((pfun = _jm_f_123_map.get(prop)))
         {
             // handle 59 may props
             if (pfun !== undefined && ! pfun(pval, (path ? lpath_27 : null), rep))
@@ -4303,23 +4064,11 @@ function _jm_obj_31(val, path, rep)
     return true;
 }
 
-// check _jm_obj_22_map_universal (.keybinding.universal)
-function _jm_f_123(val, path, rep)
-{
-    let res;
-    // .keybinding.universal
-    res = _jm_obj_31(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected element [.keybinding.universal]", path])
-    }
-    return res;
-}
 
-
-// object .keybinding
-function _jm_obj_22(val, path, rep)
+// check json_model_1_map_keybinding (.keybinding)
+function _jm_f_66(val, path, rep)
 {
+    // .keybinding
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.keybinding]", path])
@@ -4329,7 +4078,7 @@ function _jm_obj_22(val, path, rep)
     for (const [prop, pval] of Object.entries(val))
     {
         let lpath_18 = path ? path.concat([prop]) : null;
-        if ((pfun = _jm_obj_22_map.get(prop)))
+        if ((pfun = _jm_f_66_map.get(prop)))
         {
             // handle 9 may props
             if (pfun !== undefined && ! pfun(pval, (path ? lpath_18 : null), rep))
@@ -4347,21 +4096,8 @@ function _jm_obj_22(val, path, rep)
     return true;
 }
 
-// check _jm_obj_7_map_keybinding (.keybinding)
-function _jm_f_66(val, path, rep)
-{
-    let res;
-    // .keybinding
-    res = _jm_obj_22(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected element [.keybinding]", path])
-    }
-    return res;
-}
 
-
-// check _jm_obj_7_map_notARepository (.notARepository)
+// check json_model_1_map_notARepository (.notARepository)
 function _jm_f_183(val, path, rep)
 {
     let res;
@@ -4374,7 +4110,7 @@ function _jm_f_183(val, path, rep)
     return res;
 }
 
-// check _jm_obj_32_map_copyToClipboardCmd (.os.copyToClipboardCmd)
+// check _jm_f_184_map_copyToClipboardCmd (.os.copyToClipboardCmd)
 function _jm_f_185(val, path, rep)
 {
     let res;
@@ -4387,7 +4123,7 @@ function _jm_f_185(val, path, rep)
     return res;
 }
 
-// check _jm_obj_32_map_edit (.os.edit)
+// check _jm_f_184_map_edit (.os.edit)
 function _jm_f_186(val, path, rep)
 {
     let res;
@@ -4400,7 +4136,7 @@ function _jm_f_186(val, path, rep)
     return res;
 }
 
-// check _jm_obj_32_map_editAtLine (.os.editAtLine)
+// check _jm_f_184_map_editAtLine (.os.editAtLine)
 function _jm_f_187(val, path, rep)
 {
     let res;
@@ -4413,7 +4149,7 @@ function _jm_f_187(val, path, rep)
     return res;
 }
 
-// check _jm_obj_32_map_editAtLineAndWait (.os.editAtLineAndWait)
+// check _jm_f_184_map_editAtLineAndWait (.os.editAtLineAndWait)
 function _jm_f_188(val, path, rep)
 {
     let res;
@@ -4427,7 +4163,7 @@ function _jm_f_188(val, path, rep)
 }
 
 
-// check _jm_obj_32_map_editPreset (.os.editPreset)
+// check _jm_f_184_map_editPreset (.os.editPreset)
 function _jm_f_189(val, path, rep)
 {
     let res;
@@ -4462,7 +4198,7 @@ function _jm_f_189(val, path, rep)
     return res;
 }
 
-// check _jm_obj_32_map_open (.os.open)
+// check _jm_f_184_map_open (.os.open)
 function _jm_f_190(val, path, rep)
 {
     let res;
@@ -4475,7 +4211,7 @@ function _jm_f_190(val, path, rep)
     return res;
 }
 
-// check _jm_obj_32_map_openLink (.os.openLink)
+// check _jm_f_184_map_openLink (.os.openLink)
 function _jm_f_191(val, path, rep)
 {
     let res;
@@ -4489,9 +4225,10 @@ function _jm_f_191(val, path, rep)
 }
 
 
-// object .os
-function _jm_obj_32(val, path, rep)
+// check json_model_1_map_os (.os)
+function _jm_f_184(val, path, rep)
 {
+    // .os
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.os]", path])
@@ -4501,7 +4238,7 @@ function _jm_obj_32(val, path, rep)
     for (const [prop, pval] of Object.entries(val))
     {
         let lpath_28 = path ? path.concat([prop]) : null;
-        if ((pfun = _jm_obj_32_map.get(prop)))
+        if ((pfun = _jm_f_184_map.get(prop)))
         {
             // handle 7 may props
             if (pfun !== undefined && ! pfun(pval, (path ? lpath_28 : null), rep))
@@ -4519,20 +4256,7 @@ function _jm_obj_32(val, path, rep)
     return true;
 }
 
-// check _jm_obj_7_map_os (.os)
-function _jm_f_184(val, path, rep)
-{
-    let res;
-    // .os
-    res = _jm_obj_32(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected element [.os]", path])
-    }
-    return res;
-}
-
-// check _jm_obj_7_map_promptToReturnFromSubprocess (.promptToReturnFromSubprocess)
+// check json_model_1_map_promptToReturnFromSubprocess (.promptToReturnFromSubprocess)
 function _jm_f_192(val, path, rep)
 {
     let res;
@@ -4545,7 +4269,7 @@ function _jm_f_192(val, path, rep)
     return res;
 }
 
-// check _jm_obj_7_map_quitOnTopLevelReturn (.quitOnTopLevelReturn)
+// check json_model_1_map_quitOnTopLevelReturn (.quitOnTopLevelReturn)
 function _jm_f_193(val, path, rep)
 {
     let res;
@@ -4558,9 +4282,10 @@ function _jm_f_193(val, path, rep)
     return res;
 }
 
-// object .refresher
-function _jm_obj_33(val, path, rep)
+// check json_model_1_map_refresher (.refresher)
+function _jm_f_194(val, path, rep)
 {
+    // .refresher
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.refresher]", path])
@@ -4603,24 +4328,12 @@ function _jm_obj_33(val, path, rep)
     return true;
 }
 
-// check _jm_obj_7_map_refresher (.refresher)
-function _jm_f_194(val, path, rep)
-{
-    let res;
-    // .refresher
-    res = _jm_obj_33(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected element [.refresher]", path])
-    }
-    return res;
-}
-
 const _jm_re_2 = (s) => _jm_re_2_re.exec(s) !== null
 
-// object .services
-function _jm_obj_34(val, path, rep)
+// check json_model_1_map_services (.services)
+function _jm_f_195(val, path, rep)
 {
+    // .services
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.services]", path])
@@ -4651,23 +4364,11 @@ function _jm_obj_34(val, path, rep)
     return true;
 }
 
-// check _jm_obj_7_map_services (.services)
-function _jm_f_195(val, path, rep)
-{
-    let res;
-    // .services
-    res = _jm_obj_34(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected element [.services]", path])
-    }
-    return res;
-}
 
-
-// object .update
-function _jm_obj_35(val, path, rep)
+// check json_model_1_map_update (.update)
+function _jm_f_196(val, path, rep)
 {
+    // .update
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.update]", path])
@@ -4710,23 +4411,12 @@ function _jm_obj_35(val, path, rep)
     return true;
 }
 
-// check _jm_obj_7_map_update (.update)
-function _jm_f_196(val, path, rep)
-{
-    let res;
-    // .update
-    res = _jm_obj_35(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected element [.update]", path])
-    }
-    return res;
-}
 
-
-// object .
-function _jm_obj_7(val, path, rep)
+// check $ (.)
+function json_model_1(val, path, rep)
 {
+    // JSON Model for Lazy Git
+    // .
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.]", path])
@@ -4736,7 +4426,7 @@ function _jm_obj_7(val, path, rep)
     for (const [prop, pval] of Object.entries(val))
     {
         let lpath_4 = path ? path.concat([prop]) : null;
-        if ((pfun = _jm_obj_7_map.get(prop)))
+        if ((pfun = json_model_1_map.get(prop)))
         {
             // handle 13 may props
             if (pfun !== undefined && ! pfun(pval, (path ? lpath_4 : null), rep))
@@ -4752,20 +4442,6 @@ function _jm_obj_7(val, path, rep)
         }
     }
     return true;
-}
-
-// check $ (.)
-function json_model_1(val, path, rep)
-{
-    let res;
-    // JSON Model for Lazy Git
-    // .
-    res = _jm_obj_7(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected element [.]", path])
-    }
-    return res;
 }
 
 
@@ -4819,13 +4495,13 @@ export function check_model_init()
         _jm_cst_3.add("commitFiles")
         _jm_cst_3.add("stash")
         _jm_cst_3.add("global")
-        _jm_obj_8_map.set("after", _jm_f_2)
-        _jm_obj_8_map.set("description", _jm_f_3)
-        _jm_obj_8_map.set("loadingText", _jm_f_4)
-        _jm_obj_8_map.set("prompts", _jm_f_5)
-        _jm_obj_8_map.set("showOutput", _jm_f_6)
-        _jm_obj_8_map.set("stream", _jm_f_7)
-        _jm_obj_8_map.set("subprocess", _jm_f_8)
+        _jm_obj_7_map.set("after", _jm_f_2)
+        _jm_obj_7_map.set("description", _jm_f_3)
+        _jm_obj_7_map.set("loadingText", _jm_f_4)
+        _jm_obj_7_map.set("prompts", _jm_f_5)
+        _jm_obj_7_map.set("showOutput", _jm_f_6)
+        _jm_obj_7_map.set("stream", _jm_f_7)
+        _jm_obj_7_map.set("subprocess", _jm_f_8)
         _jm_cst_4.add("date-order")
         _jm_cst_4.add("author-date-order")
         _jm_cst_4.add("topo-order")
@@ -4835,22 +4511,22 @@ export function check_model_init()
         _jm_cst_5.add("when-maximised")
         _jm_cst_6.add("always")
         _jm_cst_6.add("never")
-        _jm_obj_10_map.set("allBranchesLogCmd", _jm_f_11)
-        _jm_obj_10_map.set("autoFetch", _jm_f_12)
-        _jm_obj_10_map.set("autoRefresh", _jm_f_13)
-        _jm_obj_10_map.set("branchLogCmd", _jm_f_14)
-        _jm_obj_10_map.set("commit", _jm_f_15)
-        _jm_obj_10_map.set("commitPrefixes", _jm_f_16)
-        _jm_obj_10_map.set("diffContextSize", _jm_f_17)
-        _jm_obj_10_map.set("disableForcePushing", _jm_f_18)
-        _jm_obj_10_map.set("fetchAll", _jm_f_19)
-        _jm_obj_10_map.set("log", _jm_f_20)
-        _jm_obj_10_map.set("mainBranches", _jm_f_21)
-        _jm_obj_10_map.set("merging", _jm_f_22)
-        _jm_obj_10_map.set("overrideGpg", _jm_f_23)
-        _jm_obj_10_map.set("paging", _jm_f_24)
-        _jm_obj_10_map.set("parseEmoji", _jm_f_25)
-        _jm_obj_10_map.set("skipHookPrefix", _jm_f_26)
+        _jm_f_10_map.set("allBranchesLogCmd", _jm_f_11)
+        _jm_f_10_map.set("autoFetch", _jm_f_12)
+        _jm_f_10_map.set("autoRefresh", _jm_f_13)
+        _jm_f_10_map.set("branchLogCmd", _jm_f_14)
+        _jm_f_10_map.set("commit", _jm_f_15)
+        _jm_f_10_map.set("commitPrefixes", _jm_f_16)
+        _jm_f_10_map.set("diffContextSize", _jm_f_17)
+        _jm_f_10_map.set("disableForcePushing", _jm_f_18)
+        _jm_f_10_map.set("fetchAll", _jm_f_19)
+        _jm_f_10_map.set("log", _jm_f_20)
+        _jm_f_10_map.set("mainBranches", _jm_f_21)
+        _jm_f_10_map.set("merging", _jm_f_22)
+        _jm_f_10_map.set("overrideGpg", _jm_f_23)
+        _jm_f_10_map.set("paging", _jm_f_24)
+        _jm_f_10_map.set("parseEmoji", _jm_f_25)
+        _jm_f_10_map.set("skipHookPrefix", _jm_f_26)
         _jm_cst_7.add("single")
         _jm_cst_7.add("double")
         _jm_cst_7.add("rounded")
@@ -4871,163 +4547,163 @@ export function check_model_init()
         _jm_cst_10.add("3")
         _jm_cst_11.add("auto")
         _jm_cst_11.add("always")
-        _jm_obj_21_map.set("activeBorderColor", _jm_f_54)
-        _jm_obj_21_map.set("cherryPickedCommitBgColor", _jm_f_55)
-        _jm_obj_21_map.set("cherryPickedCommitFgColor", _jm_f_56)
-        _jm_obj_21_map.set("defaultFgColor", _jm_f_57)
-        _jm_obj_21_map.set("inactiveBorderColor", _jm_f_58)
-        _jm_obj_21_map.set("optionsTextColor", _jm_f_59)
-        _jm_obj_21_map.set("searchingActiveBorderColor", _jm_f_60)
-        _jm_obj_21_map.set("selectedLineBgColor", _jm_f_61)
-        _jm_obj_21_map.set("selectedRangeBgColor", _jm_f_62)
-        _jm_obj_21_map.set("unstagedChangesColor", _jm_f_63)
+        _jm_f_53_map.set("activeBorderColor", _jm_f_54)
+        _jm_f_53_map.set("cherryPickedCommitBgColor", _jm_f_55)
+        _jm_f_53_map.set("cherryPickedCommitFgColor", _jm_f_56)
+        _jm_f_53_map.set("defaultFgColor", _jm_f_57)
+        _jm_f_53_map.set("inactiveBorderColor", _jm_f_58)
+        _jm_f_53_map.set("optionsTextColor", _jm_f_59)
+        _jm_f_53_map.set("searchingActiveBorderColor", _jm_f_60)
+        _jm_f_53_map.set("selectedLineBgColor", _jm_f_61)
+        _jm_f_53_map.set("selectedRangeBgColor", _jm_f_62)
+        _jm_f_53_map.set("unstagedChangesColor", _jm_f_63)
         _jm_cst_12.add("normal")
         _jm_cst_12.add("half")
         _jm_cst_12.add("full")
-        _jm_obj_17_map.set("animateExplosion", _jm_f_28)
-        _jm_obj_17_map.set("authorColors", _jm_f_29)
-        _jm_obj_17_map.set("border", _jm_f_30)
-        _jm_obj_17_map.set("branchColors", _jm_f_31)
-        _jm_obj_17_map.set("commandLogSize", _jm_f_32)
-        _jm_obj_17_map.set("commitLength", _jm_f_33)
-        _jm_obj_17_map.set("expandFocusedSidePanel", _jm_f_34)
-        _jm_obj_17_map.set("language", _jm_f_35)
-        _jm_obj_17_map.set("mainPanelSplitMode", _jm_f_36)
-        _jm_obj_17_map.set("mouseEvents", _jm_f_37)
-        _jm_obj_17_map.set("nerdFontsVersion", _jm_f_38)
-        _jm_obj_17_map.set("scrollHeight", _jm_f_39)
-        _jm_obj_17_map.set("scrollPastBottom", _jm_f_40)
-        _jm_obj_17_map.set("shortTimeFormat", _jm_f_41)
-        _jm_obj_17_map.set("showBottomLine", _jm_f_42)
-        _jm_obj_17_map.set("showBranchCommitHash", _jm_f_43)
-        _jm_obj_17_map.set("showCommandLog", _jm_f_44)
-        _jm_obj_17_map.set("showFileTree", _jm_f_45)
-        _jm_obj_17_map.set("showListFooter", _jm_f_46)
-        _jm_obj_17_map.set("showRandomTip", _jm_f_47)
-        _jm_obj_17_map.set("sidePanelWidth", _jm_f_48)
-        _jm_obj_17_map.set("skipDiscardChangeWarning", _jm_f_49)
-        _jm_obj_17_map.set("skipRewordInEditorWarning", _jm_f_50)
-        _jm_obj_17_map.set("skipStashWarning", _jm_f_51)
-        _jm_obj_17_map.set("splitDiff", _jm_f_52)
-        _jm_obj_17_map.set("theme", _jm_f_53)
-        _jm_obj_17_map.set("timeFormat", _jm_f_64)
-        _jm_obj_17_map.set("windowSize", _jm_f_65)
-        _jm_obj_23_map.set("checkoutBranchByName", _jm_f_68)
-        _jm_obj_23_map.set("createPullRequest", _jm_f_69)
-        _jm_obj_23_map.set("createTag", _jm_f_70)
-        _jm_obj_23_map.set("fastForward", _jm_f_71)
-        _jm_obj_23_map.set("fetchRemote", _jm_f_72)
-        _jm_obj_23_map.set("forceCheckoutBranch", _jm_f_73)
-        _jm_obj_23_map.set("mergeIntoCurrentBranch", _jm_f_74)
-        _jm_obj_23_map.set("pushTag", _jm_f_75)
-        _jm_obj_23_map.set("rebaseBranch", _jm_f_76)
-        _jm_obj_23_map.set("renameBranch", _jm_f_77)
-        _jm_obj_23_map.set("setUpstream", _jm_f_78)
-        _jm_obj_23_map.set("viewGitFlowOptions", _jm_f_79)
-        _jm_obj_23_map.set("viewPullRequestOptions", _jm_f_80)
-        _jm_obj_25_map.set("amendToCommit", _jm_f_83)
-        _jm_obj_25_map.set("checkoutCommit", _jm_f_84)
-        _jm_obj_25_map.set("cherryPickCopy", _jm_f_85)
-        _jm_obj_25_map.set("cherryPickCopyRange", _jm_f_86)
-        _jm_obj_25_map.set("copyCommitMessageToClipboard", _jm_f_87)
-        _jm_obj_25_map.set("createFixupCommit", _jm_f_88)
-        _jm_obj_25_map.set("markCommitAsFixup", _jm_f_89)
-        _jm_obj_25_map.set("moveDownCommit", _jm_f_90)
-        _jm_obj_25_map.set("moveUpCommit", _jm_f_91)
-        _jm_obj_25_map.set("openLogMenu", _jm_f_92)
-        _jm_obj_25_map.set("pasteCommits", _jm_f_93)
-        _jm_obj_25_map.set("pickCommit", _jm_f_94)
-        _jm_obj_25_map.set("renameCommit", _jm_f_95)
-        _jm_obj_25_map.set("renameCommitWithEditor", _jm_f_96)
-        _jm_obj_25_map.set("resetCherryPick", _jm_f_97)
-        _jm_obj_25_map.set("revertCommit", _jm_f_98)
-        _jm_obj_25_map.set("squashAboveCommits", _jm_f_99)
-        _jm_obj_25_map.set("squashDown", _jm_f_100)
-        _jm_obj_25_map.set("tagCommit", _jm_f_101)
-        _jm_obj_25_map.set("viewBisectOptions", _jm_f_102)
-        _jm_obj_25_map.set("viewResetOptions", _jm_f_103)
-        _jm_obj_26_map.set("amendLastCommit", _jm_f_105)
-        _jm_obj_26_map.set("commitChanges", _jm_f_106)
-        _jm_obj_26_map.set("commitChangesWithEditor", _jm_f_107)
-        _jm_obj_26_map.set("commitChangesWithoutHook", _jm_f_108)
-        _jm_obj_26_map.set("fetch", _jm_f_109)
-        _jm_obj_26_map.set("ignoreFile", _jm_f_110)
-        _jm_obj_26_map.set("openMergeTool", _jm_f_111)
-        _jm_obj_26_map.set("openStatusFilter", _jm_f_112)
-        _jm_obj_26_map.set("refreshFiles", _jm_f_113)
-        _jm_obj_26_map.set("stashAllChanges", _jm_f_114)
-        _jm_obj_26_map.set("toggleStagedAll", _jm_f_115)
-        _jm_obj_26_map.set("toggleTreeView", _jm_f_116)
-        _jm_obj_26_map.set("viewResetOptions", _jm_f_117)
-        _jm_obj_26_map.set("viewStashOptions", _jm_f_118)
-        _jm_obj_31_map.set("confirm", _jm_f_124)
-        _jm_obj_31_map.set("copyToClipboard", _jm_f_125)
-        _jm_obj_31_map.set("createPatchOptionsMenu", _jm_f_126)
-        _jm_obj_31_map.set("createRebaseOptionsMenu", _jm_f_127)
-        _jm_obj_31_map.set("decreaseContextInDiffView", _jm_f_128)
-        _jm_obj_31_map.set("diffingMenu", _jm_f_129)
-        _jm_obj_31_map.set("diffingMenu-alt", _jm_f_130)
-        _jm_obj_31_map.set("edit", _jm_f_131)
-        _jm_obj_31_map.set("executeCustomCommand", _jm_f_132)
-        _jm_obj_31_map.set("extrasMenu", _jm_f_133)
-        _jm_obj_31_map.set("filteringMenu", _jm_f_134)
-        _jm_obj_31_map.set("goInto", _jm_f_135)
-        _jm_obj_31_map.set("gotoBottom", _jm_f_136)
-        _jm_obj_31_map.set("gotoTop", _jm_f_137)
-        _jm_obj_31_map.set("increaseContextInDiffView", _jm_f_138)
-        _jm_obj_31_map.set("jumpToBlock", _jm_f_139)
-        _jm_obj_31_map.set("new", _jm_f_140)
-        _jm_obj_31_map.set("nextBlock", _jm_f_141)
-        _jm_obj_31_map.set("nextBlock-alt", _jm_f_142)
-        _jm_obj_31_map.set("nextItem", _jm_f_143)
-        _jm_obj_31_map.set("nextItem-alt", _jm_f_144)
-        _jm_obj_31_map.set("nextMatch", _jm_f_145)
-        _jm_obj_31_map.set("nextPage", _jm_f_146)
-        _jm_obj_31_map.set("nextScreenMode", _jm_f_147)
-        _jm_obj_31_map.set("nextTab", _jm_f_148)
-        _jm_obj_31_map.set("openFile", _jm_f_149)
-        _jm_obj_31_map.set("openRecentRepos", _jm_f_150)
-        _jm_obj_31_map.set("optionMenu", _jm_f_151)
-        _jm_obj_31_map.set("optionMenu-alt1", _jm_f_152)
-        _jm_obj_31_map.set("prevBlock", _jm_f_153)
-        _jm_obj_31_map.set("prevBlock-alt", _jm_f_154)
-        _jm_obj_31_map.set("prevItem", _jm_f_155)
-        _jm_obj_31_map.set("prevItem-alt", _jm_f_156)
-        _jm_obj_31_map.set("prevMatch", _jm_f_157)
-        _jm_obj_31_map.set("prevPage", _jm_f_158)
-        _jm_obj_31_map.set("prevScreenMode", _jm_f_159)
-        _jm_obj_31_map.set("prevTab", _jm_f_160)
-        _jm_obj_31_map.set("pullFiles", _jm_f_161)
-        _jm_obj_31_map.set("pushFiles", _jm_f_162)
-        _jm_obj_31_map.set("quit", _jm_f_163)
-        _jm_obj_31_map.set("quit-alt1", _jm_f_164)
-        _jm_obj_31_map.set("quitWithoutChangingDirectory", _jm_f_165)
-        _jm_obj_31_map.set("redo", _jm_f_166)
-        _jm_obj_31_map.set("refresh", _jm_f_167)
-        _jm_obj_31_map.set("remove", _jm_f_168)
-        _jm_obj_31_map.set("return", _jm_f_169)
-        _jm_obj_31_map.set("scrollDownMain", _jm_f_170)
-        _jm_obj_31_map.set("scrollDownMain-alt1", _jm_f_171)
-        _jm_obj_31_map.set("scrollDownMain-alt2", _jm_f_172)
-        _jm_obj_31_map.set("scrollLeft", _jm_f_173)
-        _jm_obj_31_map.set("scrollRight", _jm_f_174)
-        _jm_obj_31_map.set("scrollUpMain", _jm_f_175)
-        _jm_obj_31_map.set("scrollUpMain-alt1", _jm_f_176)
-        _jm_obj_31_map.set("scrollUpMain-alt2", _jm_f_177)
-        _jm_obj_31_map.set("select", _jm_f_178)
-        _jm_obj_31_map.set("submitEditorText", _jm_f_179)
-        _jm_obj_31_map.set("togglePanel", _jm_f_180)
-        _jm_obj_31_map.set("toggleWhitespaceInDiffView", _jm_f_181)
-        _jm_obj_31_map.set("undo", _jm_f_182)
-        _jm_obj_22_map.set("branches", _jm_f_67)
-        _jm_obj_22_map.set("commitFiles", _jm_f_81)
-        _jm_obj_22_map.set("commits", _jm_f_82)
-        _jm_obj_22_map.set("files", _jm_f_104)
-        _jm_obj_22_map.set("main", _jm_f_119)
-        _jm_obj_22_map.set("stash", _jm_f_120)
-        _jm_obj_22_map.set("status", _jm_f_121)
-        _jm_obj_22_map.set("submodules", _jm_f_122)
-        _jm_obj_22_map.set("universal", _jm_f_123)
+        _jm_f_27_map.set("animateExplosion", _jm_f_28)
+        _jm_f_27_map.set("authorColors", _jm_f_29)
+        _jm_f_27_map.set("border", _jm_f_30)
+        _jm_f_27_map.set("branchColors", _jm_f_31)
+        _jm_f_27_map.set("commandLogSize", _jm_f_32)
+        _jm_f_27_map.set("commitLength", _jm_f_33)
+        _jm_f_27_map.set("expandFocusedSidePanel", _jm_f_34)
+        _jm_f_27_map.set("language", _jm_f_35)
+        _jm_f_27_map.set("mainPanelSplitMode", _jm_f_36)
+        _jm_f_27_map.set("mouseEvents", _jm_f_37)
+        _jm_f_27_map.set("nerdFontsVersion", _jm_f_38)
+        _jm_f_27_map.set("scrollHeight", _jm_f_39)
+        _jm_f_27_map.set("scrollPastBottom", _jm_f_40)
+        _jm_f_27_map.set("shortTimeFormat", _jm_f_41)
+        _jm_f_27_map.set("showBottomLine", _jm_f_42)
+        _jm_f_27_map.set("showBranchCommitHash", _jm_f_43)
+        _jm_f_27_map.set("showCommandLog", _jm_f_44)
+        _jm_f_27_map.set("showFileTree", _jm_f_45)
+        _jm_f_27_map.set("showListFooter", _jm_f_46)
+        _jm_f_27_map.set("showRandomTip", _jm_f_47)
+        _jm_f_27_map.set("sidePanelWidth", _jm_f_48)
+        _jm_f_27_map.set("skipDiscardChangeWarning", _jm_f_49)
+        _jm_f_27_map.set("skipRewordInEditorWarning", _jm_f_50)
+        _jm_f_27_map.set("skipStashWarning", _jm_f_51)
+        _jm_f_27_map.set("splitDiff", _jm_f_52)
+        _jm_f_27_map.set("theme", _jm_f_53)
+        _jm_f_27_map.set("timeFormat", _jm_f_64)
+        _jm_f_27_map.set("windowSize", _jm_f_65)
+        _jm_f_67_map.set("checkoutBranchByName", _jm_f_68)
+        _jm_f_67_map.set("createPullRequest", _jm_f_69)
+        _jm_f_67_map.set("createTag", _jm_f_70)
+        _jm_f_67_map.set("fastForward", _jm_f_71)
+        _jm_f_67_map.set("fetchRemote", _jm_f_72)
+        _jm_f_67_map.set("forceCheckoutBranch", _jm_f_73)
+        _jm_f_67_map.set("mergeIntoCurrentBranch", _jm_f_74)
+        _jm_f_67_map.set("pushTag", _jm_f_75)
+        _jm_f_67_map.set("rebaseBranch", _jm_f_76)
+        _jm_f_67_map.set("renameBranch", _jm_f_77)
+        _jm_f_67_map.set("setUpstream", _jm_f_78)
+        _jm_f_67_map.set("viewGitFlowOptions", _jm_f_79)
+        _jm_f_67_map.set("viewPullRequestOptions", _jm_f_80)
+        _jm_f_82_map.set("amendToCommit", _jm_f_83)
+        _jm_f_82_map.set("checkoutCommit", _jm_f_84)
+        _jm_f_82_map.set("cherryPickCopy", _jm_f_85)
+        _jm_f_82_map.set("cherryPickCopyRange", _jm_f_86)
+        _jm_f_82_map.set("copyCommitMessageToClipboard", _jm_f_87)
+        _jm_f_82_map.set("createFixupCommit", _jm_f_88)
+        _jm_f_82_map.set("markCommitAsFixup", _jm_f_89)
+        _jm_f_82_map.set("moveDownCommit", _jm_f_90)
+        _jm_f_82_map.set("moveUpCommit", _jm_f_91)
+        _jm_f_82_map.set("openLogMenu", _jm_f_92)
+        _jm_f_82_map.set("pasteCommits", _jm_f_93)
+        _jm_f_82_map.set("pickCommit", _jm_f_94)
+        _jm_f_82_map.set("renameCommit", _jm_f_95)
+        _jm_f_82_map.set("renameCommitWithEditor", _jm_f_96)
+        _jm_f_82_map.set("resetCherryPick", _jm_f_97)
+        _jm_f_82_map.set("revertCommit", _jm_f_98)
+        _jm_f_82_map.set("squashAboveCommits", _jm_f_99)
+        _jm_f_82_map.set("squashDown", _jm_f_100)
+        _jm_f_82_map.set("tagCommit", _jm_f_101)
+        _jm_f_82_map.set("viewBisectOptions", _jm_f_102)
+        _jm_f_82_map.set("viewResetOptions", _jm_f_103)
+        _jm_f_104_map.set("amendLastCommit", _jm_f_105)
+        _jm_f_104_map.set("commitChanges", _jm_f_106)
+        _jm_f_104_map.set("commitChangesWithEditor", _jm_f_107)
+        _jm_f_104_map.set("commitChangesWithoutHook", _jm_f_108)
+        _jm_f_104_map.set("fetch", _jm_f_109)
+        _jm_f_104_map.set("ignoreFile", _jm_f_110)
+        _jm_f_104_map.set("openMergeTool", _jm_f_111)
+        _jm_f_104_map.set("openStatusFilter", _jm_f_112)
+        _jm_f_104_map.set("refreshFiles", _jm_f_113)
+        _jm_f_104_map.set("stashAllChanges", _jm_f_114)
+        _jm_f_104_map.set("toggleStagedAll", _jm_f_115)
+        _jm_f_104_map.set("toggleTreeView", _jm_f_116)
+        _jm_f_104_map.set("viewResetOptions", _jm_f_117)
+        _jm_f_104_map.set("viewStashOptions", _jm_f_118)
+        _jm_f_123_map.set("confirm", _jm_f_124)
+        _jm_f_123_map.set("copyToClipboard", _jm_f_125)
+        _jm_f_123_map.set("createPatchOptionsMenu", _jm_f_126)
+        _jm_f_123_map.set("createRebaseOptionsMenu", _jm_f_127)
+        _jm_f_123_map.set("decreaseContextInDiffView", _jm_f_128)
+        _jm_f_123_map.set("diffingMenu", _jm_f_129)
+        _jm_f_123_map.set("diffingMenu-alt", _jm_f_130)
+        _jm_f_123_map.set("edit", _jm_f_131)
+        _jm_f_123_map.set("executeCustomCommand", _jm_f_132)
+        _jm_f_123_map.set("extrasMenu", _jm_f_133)
+        _jm_f_123_map.set("filteringMenu", _jm_f_134)
+        _jm_f_123_map.set("goInto", _jm_f_135)
+        _jm_f_123_map.set("gotoBottom", _jm_f_136)
+        _jm_f_123_map.set("gotoTop", _jm_f_137)
+        _jm_f_123_map.set("increaseContextInDiffView", _jm_f_138)
+        _jm_f_123_map.set("jumpToBlock", _jm_f_139)
+        _jm_f_123_map.set("new", _jm_f_140)
+        _jm_f_123_map.set("nextBlock", _jm_f_141)
+        _jm_f_123_map.set("nextBlock-alt", _jm_f_142)
+        _jm_f_123_map.set("nextItem", _jm_f_143)
+        _jm_f_123_map.set("nextItem-alt", _jm_f_144)
+        _jm_f_123_map.set("nextMatch", _jm_f_145)
+        _jm_f_123_map.set("nextPage", _jm_f_146)
+        _jm_f_123_map.set("nextScreenMode", _jm_f_147)
+        _jm_f_123_map.set("nextTab", _jm_f_148)
+        _jm_f_123_map.set("openFile", _jm_f_149)
+        _jm_f_123_map.set("openRecentRepos", _jm_f_150)
+        _jm_f_123_map.set("optionMenu", _jm_f_151)
+        _jm_f_123_map.set("optionMenu-alt1", _jm_f_152)
+        _jm_f_123_map.set("prevBlock", _jm_f_153)
+        _jm_f_123_map.set("prevBlock-alt", _jm_f_154)
+        _jm_f_123_map.set("prevItem", _jm_f_155)
+        _jm_f_123_map.set("prevItem-alt", _jm_f_156)
+        _jm_f_123_map.set("prevMatch", _jm_f_157)
+        _jm_f_123_map.set("prevPage", _jm_f_158)
+        _jm_f_123_map.set("prevScreenMode", _jm_f_159)
+        _jm_f_123_map.set("prevTab", _jm_f_160)
+        _jm_f_123_map.set("pullFiles", _jm_f_161)
+        _jm_f_123_map.set("pushFiles", _jm_f_162)
+        _jm_f_123_map.set("quit", _jm_f_163)
+        _jm_f_123_map.set("quit-alt1", _jm_f_164)
+        _jm_f_123_map.set("quitWithoutChangingDirectory", _jm_f_165)
+        _jm_f_123_map.set("redo", _jm_f_166)
+        _jm_f_123_map.set("refresh", _jm_f_167)
+        _jm_f_123_map.set("remove", _jm_f_168)
+        _jm_f_123_map.set("return", _jm_f_169)
+        _jm_f_123_map.set("scrollDownMain", _jm_f_170)
+        _jm_f_123_map.set("scrollDownMain-alt1", _jm_f_171)
+        _jm_f_123_map.set("scrollDownMain-alt2", _jm_f_172)
+        _jm_f_123_map.set("scrollLeft", _jm_f_173)
+        _jm_f_123_map.set("scrollRight", _jm_f_174)
+        _jm_f_123_map.set("scrollUpMain", _jm_f_175)
+        _jm_f_123_map.set("scrollUpMain-alt1", _jm_f_176)
+        _jm_f_123_map.set("scrollUpMain-alt2", _jm_f_177)
+        _jm_f_123_map.set("select", _jm_f_178)
+        _jm_f_123_map.set("submitEditorText", _jm_f_179)
+        _jm_f_123_map.set("togglePanel", _jm_f_180)
+        _jm_f_123_map.set("toggleWhitespaceInDiffView", _jm_f_181)
+        _jm_f_123_map.set("undo", _jm_f_182)
+        _jm_f_66_map.set("branches", _jm_f_67)
+        _jm_f_66_map.set("commitFiles", _jm_f_81)
+        _jm_f_66_map.set("commits", _jm_f_82)
+        _jm_f_66_map.set("files", _jm_f_104)
+        _jm_f_66_map.set("main", _jm_f_119)
+        _jm_f_66_map.set("stash", _jm_f_120)
+        _jm_f_66_map.set("status", _jm_f_121)
+        _jm_f_66_map.set("submodules", _jm_f_122)
+        _jm_f_66_map.set("universal", _jm_f_123)
         _jm_cst_13.add("prompt")
         _jm_cst_13.add("create")
         _jm_cst_13.add("skip")
@@ -5042,30 +4718,30 @@ export function check_model_init()
         _jm_cst_14.add("kakoune")
         _jm_cst_14.add("helix")
         _jm_cst_14.add("xcode")
-        _jm_obj_32_map.set("copyToClipboardCmd", _jm_f_185)
-        _jm_obj_32_map.set("edit", _jm_f_186)
-        _jm_obj_32_map.set("editAtLine", _jm_f_187)
-        _jm_obj_32_map.set("editAtLineAndWait", _jm_f_188)
-        _jm_obj_32_map.set("editPreset", _jm_f_189)
-        _jm_obj_32_map.set("open", _jm_f_190)
-        _jm_obj_32_map.set("openLink", _jm_f_191)
+        _jm_f_184_map.set("copyToClipboardCmd", _jm_f_185)
+        _jm_f_184_map.set("edit", _jm_f_186)
+        _jm_f_184_map.set("editAtLine", _jm_f_187)
+        _jm_f_184_map.set("editAtLineAndWait", _jm_f_188)
+        _jm_f_184_map.set("editPreset", _jm_f_189)
+        _jm_f_184_map.set("open", _jm_f_190)
+        _jm_f_184_map.set("openLink", _jm_f_191)
         _jm_cst_15.add("prompt")
         _jm_cst_15.add("background")
         _jm_cst_15.add("never")
-        _jm_obj_7_map.set("confirmOnQuit", _jm_f_0)
-        _jm_obj_7_map.set("customCommands", _jm_f_1)
-        _jm_obj_7_map.set("disableStartupPopups", _jm_f_9)
-        _jm_obj_7_map.set("git", _jm_f_10)
-        _jm_obj_7_map.set("gui", _jm_f_27)
-        _jm_obj_7_map.set("keybinding", _jm_f_66)
-        _jm_obj_7_map.set("notARepository", _jm_f_183)
-        _jm_obj_7_map.set("os", _jm_f_184)
-        _jm_obj_7_map.set("promptToReturnFromSubprocess", _jm_f_192)
-        _jm_obj_7_map.set("quitOnTopLevelReturn", _jm_f_193)
-        _jm_obj_7_map.set("refresher", _jm_f_194)
-        _jm_obj_7_map.set("services", _jm_f_195)
-        _jm_obj_7_map.set("update", _jm_f_196)
-        check_model_map.set("", _jm_obj_7)
+        json_model_1_map.set("confirmOnQuit", _jm_f_0)
+        json_model_1_map.set("customCommands", _jm_f_1)
+        json_model_1_map.set("disableStartupPopups", _jm_f_9)
+        json_model_1_map.set("git", _jm_f_10)
+        json_model_1_map.set("gui", _jm_f_27)
+        json_model_1_map.set("keybinding", _jm_f_66)
+        json_model_1_map.set("notARepository", _jm_f_183)
+        json_model_1_map.set("os", _jm_f_184)
+        json_model_1_map.set("promptToReturnFromSubprocess", _jm_f_192)
+        json_model_1_map.set("quitOnTopLevelReturn", _jm_f_193)
+        json_model_1_map.set("refresher", _jm_f_194)
+        json_model_1_map.set("services", _jm_f_195)
+        json_model_1_map.set("update", _jm_f_196)
+        check_model_map.set("", json_model_1)
         check_model_map.set("color", json_model_2)
         check_model_map.set("colorArray", json_model_3)
         check_model_map.set("keybinding", json_model_4)

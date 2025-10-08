@@ -11,15 +11,15 @@ use JSON::JsonModel;
 use constant JMC_VERSION => '2';
 
 
-sub _jm_obj_0($$$);
 sub json_model_2($$$);
 sub json_model_1($$$);
 my %check_model_map;
 
-# object .'$book'
-sub _jm_obj_0($$$)
+# check $book (.'$book')
+sub json_model_2($$$)
 {
     my ($val, $path, $rep) = @_;
+    # .'$book'
     # check close must only props
     if (! jm_is_object($val))
     {
@@ -56,16 +56,6 @@ sub _jm_obj_0($$$)
     return 1;
 }
 
-# check $book (.'$book')
-sub json_model_2($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$book'
-    $res = _jm_obj_0($val, $path, $rep);
-    return $res;
-}
-
 # check $ (.)
 sub json_model_1($$$)
 {
@@ -79,7 +69,7 @@ sub json_model_1($$$)
         {
             my $arr_0_item = $$val[$arr_0_idx];
             # .0
-            $res = _jm_obj_0($arr_0_item, undef, $rep);
+            $res = json_model_2($arr_0_item, undef, $rep);
             if (! $res)
             {
                 last;
@@ -101,7 +91,7 @@ sub check_model_init()
         $initialized = 1;
         %check_model_map = (
             '' => \&json_model_1,
-            'book' => \&_jm_obj_0,
+            'book' => \&json_model_2,
         );
     }
 }

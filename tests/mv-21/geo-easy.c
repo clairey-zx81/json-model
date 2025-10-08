@@ -13,26 +13,17 @@
 static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_4(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_5(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static bool _jm_obj_1(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_6(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static bool _jm_obj_2(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_7(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static bool _jm_obj_3(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_8(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static bool _jm_obj_4(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_9(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static bool _jm_obj_5(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_10(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static jm_constmap_t _jm_map_0_tab[6];
 static bool json_model_11(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static bool _jm_obj_6(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_12(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static bool _jm_obj_8(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static bool _jm_obj_7(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_13(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static bool _jm_obj_9(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_14(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep);
 jm_propmap_t check_model_map_tab[14];
@@ -155,9 +146,10 @@ static bool json_model_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// object .'$Point'
-static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *rep)
+// check $Point (.'$Point')
+static bool json_model_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
+    // .'$Point'
     // check open must/may only props
     if (! json_is_object(val))
     {
@@ -226,22 +218,10 @@ static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *re
     return true;
 }
 
-// check $Point (.'$Point')
-static bool json_model_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
+// check $MultiPoint (.'$MultiPoint')
+static bool json_model_6(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
-    // .'$Point'
-    res = _jm_obj_0(val, path, rep);
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected element [.'$Point']", path);
-    }
-    return res;
-}
-
-// object .'$MultiPoint'
-static INLINE bool _jm_obj_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
+    // .'$MultiPoint'
     // check open must/may only props
     if (! json_is_object(val))
     {
@@ -326,22 +306,10 @@ static INLINE bool _jm_obj_1(const json_t *val, jm_path_t *path, jm_report_t *re
     return true;
 }
 
-// check $MultiPoint (.'$MultiPoint')
-static bool json_model_6(const json_t *val, jm_path_t *path, jm_report_t *rep)
+// check $LineString (.'$LineString')
+static bool json_model_7(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
-    // .'$MultiPoint'
-    res = _jm_obj_1(val, path, rep);
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected element [.'$MultiPoint']", path);
-    }
-    return res;
-}
-
-// object .'$LineString'
-static INLINE bool _jm_obj_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
+    // .'$LineString'
     // check open must/may only props
     if (! json_is_object(val))
     {
@@ -410,22 +378,10 @@ static INLINE bool _jm_obj_2(const json_t *val, jm_path_t *path, jm_report_t *re
     return true;
 }
 
-// check $LineString (.'$LineString')
-static bool json_model_7(const json_t *val, jm_path_t *path, jm_report_t *rep)
+// check $MultiLineString (.'$MultiLineString')
+static bool json_model_8(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
-    // .'$LineString'
-    res = _jm_obj_2(val, path, rep);
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected element [.'$LineString']", path);
-    }
-    return res;
-}
-
-// object .'$MultiLineString'
-static INLINE bool _jm_obj_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
+    // .'$MultiLineString'
     // check open must/may only props
     if (! json_is_object(val))
     {
@@ -510,22 +466,10 @@ static INLINE bool _jm_obj_3(const json_t *val, jm_path_t *path, jm_report_t *re
     return true;
 }
 
-// check $MultiLineString (.'$MultiLineString')
-static bool json_model_8(const json_t *val, jm_path_t *path, jm_report_t *rep)
+// check $Polygon (.'$Polygon')
+static bool json_model_9(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
-    // .'$MultiLineString'
-    res = _jm_obj_3(val, path, rep);
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected element [.'$MultiLineString']", path);
-    }
-    return res;
-}
-
-// object .'$Polygon'
-static INLINE bool _jm_obj_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
+    // .'$Polygon'
     // check open must/may only props
     if (! json_is_object(val))
     {
@@ -610,22 +554,10 @@ static INLINE bool _jm_obj_4(const json_t *val, jm_path_t *path, jm_report_t *re
     return true;
 }
 
-// check $Polygon (.'$Polygon')
-static bool json_model_9(const json_t *val, jm_path_t *path, jm_report_t *rep)
+// check $MultiPolygon (.'$MultiPolygon')
+static bool json_model_10(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
-    // .'$Polygon'
-    res = _jm_obj_4(val, path, rep);
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected element [.'$Polygon']", path);
-    }
-    return res;
-}
-
-// object .'$MultiPolygon'
-static INLINE bool _jm_obj_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
+    // .'$MultiPolygon'
     // check open must/may only props
     if (! json_is_object(val))
     {
@@ -726,19 +658,6 @@ static INLINE bool _jm_obj_5(const json_t *val, jm_path_t *path, jm_report_t *re
     return true;
 }
 
-// check $MultiPolygon (.'$MultiPolygon')
-static bool json_model_10(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
-    bool res;
-    // .'$MultiPolygon'
-    res = _jm_obj_5(val, path, rep);
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected element [.'$MultiPolygon']", path);
-    }
-    return res;
-}
-
 static INLINE jm_check_fun_t _jm_map_0(json_t *val)
 {
     jm_constant_t cst;
@@ -782,9 +701,10 @@ static bool json_model_11(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// object .'$GeometryCollection'
-static INLINE bool _jm_obj_6(const json_t *val, jm_path_t *path, jm_report_t *rep)
+// check $GeometryCollection (.'$GeometryCollection')
+static bool json_model_12(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
+    // .'$GeometryCollection'
     // check open must/may only props
     if (! json_is_object(val))
     {
@@ -869,21 +789,8 @@ static INLINE bool _jm_obj_6(const json_t *val, jm_path_t *path, jm_report_t *re
     return true;
 }
 
-// check $GeometryCollection (.'$GeometryCollection')
-static bool json_model_12(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
-    bool res;
-    // .'$GeometryCollection'
-    res = _jm_obj_6(val, path, rep);
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected element [.'$GeometryCollection']", path);
-    }
-    return res;
-}
-
 // object .'$Feature'.properties.'|'.1
-static INLINE bool _jm_obj_8(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (! json_is_object(val))
     {
@@ -894,9 +801,10 @@ static INLINE bool _jm_obj_8(const json_t *val, jm_path_t *path, jm_report_t *re
     return true;
 }
 
-// object .'$Feature'
-static INLINE bool _jm_obj_7(const json_t *val, jm_path_t *path, jm_report_t *rep)
+// check $Feature (.'$Feature')
+static bool json_model_13(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
+    // .'$Feature'
     // check open must/may only props
     if (! json_is_object(val))
     {
@@ -944,7 +852,7 @@ static INLINE bool _jm_obj_7(const json_t *val, jm_path_t *path, jm_report_t *re
         if (! res)
         {
             // .'$Feature'.geometry.'|'.2
-            res = _jm_obj_6(pval, (path ? &lpath : NULL), rep);
+            res = json_model_12(pval, (path ? &lpath : NULL), rep);
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected $GeometryCollection [.'$Feature'.geometry.'|'.2]", (path ? &lpath : NULL));
@@ -977,7 +885,7 @@ static INLINE bool _jm_obj_7(const json_t *val, jm_path_t *path, jm_report_t *re
     if (! res)
     {
         // .'$Feature'.properties.'|'.1
-        res = _jm_obj_8(pval, (path ? &lpath : NULL), rep);
+        res = _jm_obj_0(pval, (path ? &lpath : NULL), rep);
         if (! res)
         {
             if (rep) jm_report_add_entry(rep, "unexpected element [.'$Feature'.properties.'|'.1]", (path ? &lpath : NULL));
@@ -1054,22 +962,10 @@ static INLINE bool _jm_obj_7(const json_t *val, jm_path_t *path, jm_report_t *re
     return true;
 }
 
-// check $Feature (.'$Feature')
-static bool json_model_13(const json_t *val, jm_path_t *path, jm_report_t *rep)
+// check $FeatureCollection (.'$FeatureCollection')
+static bool json_model_14(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
-    // .'$Feature'
-    res = _jm_obj_7(val, path, rep);
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected element [.'$Feature']", path);
-    }
-    return res;
-}
-
-// object .'$FeatureCollection'
-static INLINE bool _jm_obj_9(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
+    // .'$FeatureCollection'
     // check open must/may only props
     if (! json_is_object(val))
     {
@@ -1109,7 +1005,7 @@ static INLINE bool _jm_obj_9(const json_t *val, jm_path_t *path, jm_report_t *re
         {
             jm_path_t arr_17_lpath = (jm_path_t) { NULL, arr_17_idx, (path ? &lpath : NULL), NULL };
             // .'$FeatureCollection'.features.0
-            res = _jm_obj_7(arr_17_item, ((path ? &lpath : NULL) ? &arr_17_lpath : NULL), rep);
+            res = json_model_13(arr_17_item, ((path ? &lpath : NULL) ? &arr_17_lpath : NULL), rep);
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected $Feature [.'$FeatureCollection'.features.0]", ((path ? &lpath : NULL) ? &arr_17_lpath : NULL));
@@ -1154,19 +1050,6 @@ static INLINE bool _jm_obj_9(const json_t *val, jm_path_t *path, jm_report_t *re
     return true;
 }
 
-// check $FeatureCollection (.'$FeatureCollection')
-static bool json_model_14(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
-    bool res;
-    // .'$FeatureCollection'
-    res = _jm_obj_9(val, path, rep);
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected element [.'$FeatureCollection']", path);
-    }
-    return res;
-}
-
 // check $ (.)
 static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
@@ -1187,7 +1070,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
         if (rep) jm_report_add_entry(rep, "unexpected $geometry [.'^'.0]", path);
     }
     // .'^'.1
-    xr_0 = _jm_obj_6(val, path, rep);
+    xr_0 = json_model_12(val, path, rep);
     if (xr_0)
     {
         xc_0 += 1;
@@ -1199,7 +1082,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
     if (xc_0 <= 1)
     {
         // .'^'.2
-        xr_0 = _jm_obj_7(val, path, rep);
+        xr_0 = json_model_13(val, path, rep);
         if (xr_0)
         {
             xc_0 += 1;
@@ -1212,7 +1095,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
     if (xc_0 <= 1)
     {
         // .'^'.3
-        xr_0 = _jm_obj_9(val, path, rep);
+        xr_0 = json_model_14(val, path, rep);
         if (xr_0)
         {
             xc_0 += 1;
@@ -1247,27 +1130,27 @@ const char *check_model_init(void)
     {
         initialized = true;
         jm_version_string = JSON_MODEL_VERSION;
-        _jm_map_0_tab[0] = (jm_constmap_t) { (jm_constant_t) { cst_is_string, { .s = "Point" } }, _jm_obj_0 };
-        _jm_map_0_tab[1] = (jm_constmap_t) { (jm_constant_t) { cst_is_string, { .s = "MultiPoint" } }, _jm_obj_1 };
-        _jm_map_0_tab[2] = (jm_constmap_t) { (jm_constant_t) { cst_is_string, { .s = "LineString" } }, _jm_obj_2 };
-        _jm_map_0_tab[3] = (jm_constmap_t) { (jm_constant_t) { cst_is_string, { .s = "MultiLineString" } }, _jm_obj_3 };
-        _jm_map_0_tab[4] = (jm_constmap_t) { (jm_constant_t) { cst_is_string, { .s = "Polygon" } }, _jm_obj_4 };
-        _jm_map_0_tab[5] = (jm_constmap_t) { (jm_constant_t) { cst_is_string, { .s = "MultiPolygon" } }, _jm_obj_5 };
+        _jm_map_0_tab[0] = (jm_constmap_t) { (jm_constant_t) { cst_is_string, { .s = "Point" } }, json_model_5 };
+        _jm_map_0_tab[1] = (jm_constmap_t) { (jm_constant_t) { cst_is_string, { .s = "MultiPoint" } }, json_model_6 };
+        _jm_map_0_tab[2] = (jm_constmap_t) { (jm_constant_t) { cst_is_string, { .s = "LineString" } }, json_model_7 };
+        _jm_map_0_tab[3] = (jm_constmap_t) { (jm_constant_t) { cst_is_string, { .s = "MultiLineString" } }, json_model_8 };
+        _jm_map_0_tab[4] = (jm_constmap_t) { (jm_constant_t) { cst_is_string, { .s = "Polygon" } }, json_model_9 };
+        _jm_map_0_tab[5] = (jm_constmap_t) { (jm_constant_t) { cst_is_string, { .s = "MultiPolygon" } }, json_model_10 };
         jm_sort_constmap(_jm_map_0_tab, 6);
         check_model_map_tab[0] = (jm_propmap_t) { "", json_model_1 };
         check_model_map_tab[1] = (jm_propmap_t) { "position", json_model_2 };
         check_model_map_tab[2] = (jm_propmap_t) { "coord_array", json_model_3 };
         check_model_map_tab[3] = (jm_propmap_t) { "linear_ring", json_model_4 };
-        check_model_map_tab[4] = (jm_propmap_t) { "Point", _jm_obj_0 };
-        check_model_map_tab[5] = (jm_propmap_t) { "MultiPoint", _jm_obj_1 };
-        check_model_map_tab[6] = (jm_propmap_t) { "LineString", _jm_obj_2 };
-        check_model_map_tab[7] = (jm_propmap_t) { "MultiLineString", _jm_obj_3 };
-        check_model_map_tab[8] = (jm_propmap_t) { "Polygon", _jm_obj_4 };
-        check_model_map_tab[9] = (jm_propmap_t) { "MultiPolygon", _jm_obj_5 };
+        check_model_map_tab[4] = (jm_propmap_t) { "Point", json_model_5 };
+        check_model_map_tab[5] = (jm_propmap_t) { "MultiPoint", json_model_6 };
+        check_model_map_tab[6] = (jm_propmap_t) { "LineString", json_model_7 };
+        check_model_map_tab[7] = (jm_propmap_t) { "MultiLineString", json_model_8 };
+        check_model_map_tab[8] = (jm_propmap_t) { "Polygon", json_model_9 };
+        check_model_map_tab[9] = (jm_propmap_t) { "MultiPolygon", json_model_10 };
         check_model_map_tab[10] = (jm_propmap_t) { "geometry", json_model_11 };
-        check_model_map_tab[11] = (jm_propmap_t) { "GeometryCollection", _jm_obj_6 };
-        check_model_map_tab[12] = (jm_propmap_t) { "Feature", _jm_obj_7 };
-        check_model_map_tab[13] = (jm_propmap_t) { "FeatureCollection", _jm_obj_9 };
+        check_model_map_tab[11] = (jm_propmap_t) { "GeometryCollection", json_model_12 };
+        check_model_map_tab[12] = (jm_propmap_t) { "Feature", json_model_13 };
+        check_model_map_tab[13] = (jm_propmap_t) { "FeatureCollection", json_model_14 };
         jm_sort_propmap(check_model_map_tab, 14);
     }
     return NULL;

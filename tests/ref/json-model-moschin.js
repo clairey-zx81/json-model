@@ -3222,7 +3222,7 @@ function _jm_f_1(val, path, rep)
 }
 
 // object .'$Model#Root'.'|'.0.'$'.'.schema'
-function _jm_obj_44(val, path, rep)
+function _jm_obj_43(val, path, rep)
 {
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
@@ -3233,9 +3233,10 @@ function _jm_obj_44(val, path, rep)
     return true;
 }
 
-// object .'$Model#Root'.'|'.0.'$'
-function _jm_obj_43(val, path, rep)
+// check _jm_obj_42_map_$ (.'$Model#Root'.'|'.0.'$')
+function _jm_f_2(val, path, rep)
 {
+    // .'$Model#Root'.'|'.0.'$'
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.'$Model#Root'.'|'.0.'$']", path])
@@ -3261,7 +3262,7 @@ function _jm_obj_43(val, path, rep)
         {
             // handle may .schema property
             // .'$Model#Root'.'|'.0.'$'.'.schema'
-            res = _jm_obj_44(pval, (path ? lpath_22 : null), rep);
+            res = _jm_obj_43(pval, (path ? lpath_22 : null), rep);
             if (! res)
             {
                 rep !== null && rep.push(["unexpected element [.'$Model#Root'.'|'.0.'$'.'.schema']", (path ? lpath_22 : null)])
@@ -3312,21 +3313,8 @@ function _jm_obj_43(val, path, rep)
     return true;
 }
 
-// check _jm_obj_42_map_$ (.'$Model#Root'.'|'.0.'$')
-function _jm_f_2(val, path, rep)
-{
-    let res;
-    // .'$Model#Root'.'|'.0.'$'
-    res = _jm_obj_43(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected element [.'$Model#Root'.'|'.0.'$']", path])
-    }
-    return res;
-}
-
 // object .'$Model#Root'.'|'.0.'%'.'.schema'
-function _jm_obj_46(val, path, rep)
+function _jm_obj_44(val, path, rep)
 {
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
@@ -3337,9 +3325,10 @@ function _jm_obj_46(val, path, rep)
     return true;
 }
 
-// object .'$Model#Root'.'|'.0.'%'
-function _jm_obj_45(val, path, rep)
+// check _jm_obj_42_map_% (.'$Model#Root'.'|'.0.'%')
+function _jm_f_3(val, path, rep)
 {
+    // .'$Model#Root'.'|'.0.'%'
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.'$Model#Root'.'|'.0.'%']", path])
@@ -3365,7 +3354,7 @@ function _jm_obj_45(val, path, rep)
         {
             // handle may .schema property
             // .'$Model#Root'.'|'.0.'%'.'.schema'
-            res = _jm_obj_46(pval, (path ? lpath_23 : null), rep);
+            res = _jm_obj_44(pval, (path ? lpath_23 : null), rep);
             if (! res)
             {
                 rep !== null && rep.push(["unexpected element [.'$Model#Root'.'|'.0.'%'.'.schema']", (path ? lpath_23 : null)])
@@ -3461,19 +3450,6 @@ function _jm_obj_45(val, path, rep)
     return true;
 }
 
-// check _jm_obj_42_map_% (.'$Model#Root'.'|'.0.'%')
-function _jm_f_3(val, path, rep)
-{
-    let res;
-    // .'$Model#Root'.'|'.0.'%'
-    res = _jm_obj_45(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected element [.'$Model#Root'.'|'.0.'%']", path])
-    }
-    return res;
-}
-
 // check _jm_obj_42_map_.in (.'$Model#Root'.'|'.0.'.in')
 function _jm_f_4(val, path, rep)
 {
@@ -3500,9 +3476,10 @@ function _jm_f_5(val, path, rep)
     return res;
 }
 
-// object .'$Model#Root'.'|'.0.'.schema'
-function _jm_obj_47(val, path, rep)
+// check _jm_obj_42_map_.schema (.'$Model#Root'.'|'.0.'.schema')
+function _jm_f_6(val, path, rep)
 {
+    // .'$Model#Root'.'|'.0.'.schema'
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.'$Model#Root'.'|'.0.'.schema']", path])
@@ -3510,19 +3487,6 @@ function _jm_obj_47(val, path, rep)
     }
     // accept any object
     return true;
-}
-
-// check _jm_obj_42_map_.schema (.'$Model#Root'.'|'.0.'.schema')
-function _jm_f_6(val, path, rep)
-{
-    let res;
-    // .'$Model#Root'.'|'.0.'.schema'
-    res = _jm_obj_47(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected element [.'$Model#Root'.'|'.0.'.schema']", path])
-    }
-    return res;
 }
 
 // check _jm_obj_42_map_~ (.'$Model#Root'.'|'.0.'~')
@@ -3761,7 +3725,7 @@ function json_model_6(val, path, rep)
 }
 
 // object .'$Model#Transformation'.'|'.1.'.schema'
-function _jm_obj_49(val, path, rep)
+function _jm_obj_46(val, path, rep)
 {
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
@@ -3773,7 +3737,7 @@ function _jm_obj_49(val, path, rep)
 }
 
 // object .'$Model#Transformation'.'|'.1.'~'
-function _jm_obj_50(val, path, rep)
+function _jm_obj_47(val, path, rep)
 {
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
@@ -3797,7 +3761,7 @@ function _jm_obj_50(val, path, rep)
 }
 
 // object .'$Model#Transformation'.'|'.1
-function _jm_obj_48(val, path, rep)
+function _jm_obj_45(val, path, rep)
 {
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
@@ -3824,7 +3788,7 @@ function _jm_obj_48(val, path, rep)
         {
             // handle may .schema property
             // .'$Model#Transformation'.'|'.1.'.schema'
-            res = _jm_obj_49(pval, (path ? lpath_24 : null), rep);
+            res = _jm_obj_46(pval, (path ? lpath_24 : null), rep);
             if (! res)
             {
                 rep !== null && rep.push(["unexpected element [.'$Model#Transformation'.'|'.1.'.schema']", (path ? lpath_24 : null)])
@@ -3866,7 +3830,7 @@ function _jm_obj_48(val, path, rep)
         {
             // handle may ~ property
             // .'$Model#Transformation'.'|'.1.'~'
-            res = _jm_obj_50(pval, (path ? lpath_24 : null), rep);
+            res = _jm_obj_47(pval, (path ? lpath_24 : null), rep);
             if (! res)
             {
                 rep !== null && rep.push(["unexpected element [.'$Model#Transformation'.'|'.1.'~']", (path ? lpath_24 : null)])
@@ -3920,7 +3884,7 @@ function json_model_33(val, path, rep)
     if (! res)
     {
         // .'$Model#Transformation'.'|'.1
-        res = _jm_obj_48(val, path, rep);
+        res = _jm_obj_45(val, path, rep);
         if (! res)
         {
             rep !== null && rep.push(["unexpected element [.'$Model#Transformation'.'|'.1]", path])

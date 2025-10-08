@@ -11,9 +11,10 @@ const JSON_MODEL_VERSION = "2";
 
 var check_model_map = new Map()
 
-// object .'$bibi'
-function _jm_obj_0(val, path, rep)
+// check $bibi (.'$bibi')
+function json_model_2(val, path, rep)
 {
+    // .'$bibi'
     // check close must only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
@@ -44,7 +45,7 @@ function _jm_obj_0(val, path, rep)
             let arr_0_item = pval[arr_0_idx]
             let arr_0_lpath = (path ? lpath : null) ? (path ? lpath : null).concat([arr_0_idx]) : null;
             // .'$bibi'.bibi.0
-            res = _jm_obj_0(arr_0_item, ((path ? lpath : null) ? arr_0_lpath : null), rep);
+            res = json_model_2(arr_0_item, ((path ? lpath : null) ? arr_0_lpath : null), rep);
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $bibi [.'$bibi'.bibi.0]", ((path ? lpath : null) ? arr_0_lpath : null)])
@@ -61,25 +62,12 @@ function _jm_obj_0(val, path, rep)
     return true;
 }
 
-// check $bibi (.'$bibi')
-function json_model_2(val, path, rep)
-{
-    let res;
-    // .'$bibi'
-    res = _jm_obj_0(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected element [.'$bibi']", path])
-    }
-    return res;
-}
-
 // check $ (.)
 function json_model_1(val, path, rep)
 {
     let res;
     // .
-    res = _jm_obj_0(val, path, rep);
+    res = json_model_2(val, path, rep);
     if (! res)
     {
         rep !== null && rep.push(["unexpected $bibi [.]", path])
@@ -97,8 +85,8 @@ export function check_model_init()
     {
         initialized = true;
         runtime.jm_set_rx(RegExp)
-        check_model_map.set("", _jm_obj_0)
-        check_model_map.set("bibi", _jm_obj_0)
+        check_model_map.set("", json_model_2)
+        check_model_map.set("bibi", json_model_2)
     }
 }
 

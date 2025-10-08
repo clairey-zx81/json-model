@@ -26,7 +26,7 @@ check_model_map: PropMap
 def json_model_3(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$foo'
-    res = _jm_obj_0(val, path, rep)
+    res = json_model_5(val, path, rep)
     if not res:
         rep is None or rep.append(("unexpected $Foo [.'$foo']", path))
     return res
@@ -35,13 +35,14 @@ def json_model_3(val: Jsonable, path: Path, rep: Report) -> bool:
 def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .
-    res = _jm_obj_0(val, path, rep)
+    res = json_model_5(val, path, rep)
     if not res:
         rep is None or rep.append(("unexpected $foo#Foo [.]", path))
     return res
 
-# object .'$foo#Foo'
-def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
+# check $foo#Foo (.'$foo#Foo')
+def json_model_5(val: Jsonable, path: Path, rep: Report) -> bool:
+    # .'$foo#Foo'
     # check close must only props
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$foo#Foo']", path))
@@ -57,24 +58,16 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
         return False
     lpath = (path + [ "rt" ]) if path is not None else None
     # .'$foo#Foo'.rt
-    res = _jm_obj_1(pval, lpath if path is not None else None, rep)
+    res = json_model_12(pval, lpath if path is not None else None, rep)
     if not res:
         rep is None or rep.append(("unexpected $root#Root [.'$foo#Foo'.rt]", lpath if path is not None else None))
         rep is None or rep.append(("unexpected value for mandatory prop <rt> [.'$foo#Foo']", lpath if path is not None else None))
         return False
     return True
 
-# check $foo#Foo (.'$foo#Foo')
-def json_model_5(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .'$foo#Foo'
-    res = _jm_obj_0(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected element [.'$foo#Foo']", path))
-    return res
-
-# object .'$foo#root#root#Root'
-def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
+# check $foo#root#root#Root (.'$foo#root#root#Root')
+def json_model_12(val: Jsonable, path: Path, rep: Report) -> bool:
+    # .'$foo#root#root#Root'
     # check close must only props
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$foo#root#root#Root']", path))
@@ -107,15 +100,6 @@ def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
         return False
     return True
 
-# check $foo#root#root#Root (.'$foo#root#root#Root')
-def json_model_12(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .'$foo#root#root#Root'
-    res = _jm_obj_1(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected element [.'$foo#root#root#Root']", path))
-    return res
-
 
 # initialization guard
 initialized: bool = False
@@ -127,8 +111,8 @@ def check_model_init():
         initialized = True
         global check_model_map
         check_model_map = {
-            "": _jm_obj_0,
-            "foo": _jm_obj_0,
+            "": json_model_5,
+            "foo": json_model_5,
         }
 
 # differed module cleanup

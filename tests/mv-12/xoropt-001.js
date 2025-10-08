@@ -104,9 +104,10 @@ function json_model_7(val, path, rep)
     return res;
 }
 
-// object .'$Oo'
-function _jm_obj_0(val, path, rep)
+// check $Oo (.'$Oo')
+function json_model_8(val, path, rep)
 {
+    // .'$Oo'
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.'$Oo']", path])
@@ -126,19 +127,6 @@ function _jm_obj_0(val, path, rep)
         }
     }
     return true;
-}
-
-// check $Oo (.'$Oo')
-function json_model_8(val, path, rep)
-{
-    let res;
-    // .'$Oo'
-    res = _jm_obj_0(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected element [.'$Oo']", path])
-    }
-    return res;
 }
 
 // check $Any (.'$Any')
@@ -195,7 +183,7 @@ function json_model_9(val, path, rep)
                         if (! res)
                         {
                             // .'$Any'.'|'.6
-                            res = _jm_obj_0(val, path, rep);
+                            res = json_model_8(val, path, rep);
                             if (! res)
                             {
                                 rep !== null && rep.push(["unexpected $Oo [.'$Any'.'|'.6]", path])
@@ -247,7 +235,7 @@ export function check_model_init()
         check_model_map.set("Ff", json_model_5)
         check_model_map.set("Ss", json_model_6)
         check_model_map.set("Aa", json_model_7)
-        check_model_map.set("Oo", _jm_obj_0)
+        check_model_map.set("Oo", json_model_8)
         check_model_map.set("Any", json_model_9)
     }
 }

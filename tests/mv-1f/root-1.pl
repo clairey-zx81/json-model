@@ -14,7 +14,6 @@ use constant JMC_VERSION => '2';
 sub json_model_4($$$);
 sub json_model_3($$$);
 sub json_model_1($$$);
-sub _jm_obj_0($$$);
 sub json_model_5($$$);
 my %check_model_map;
 
@@ -24,7 +23,7 @@ sub json_model_4($$$)
     my ($val, $path, $rep) = @_;
     my $res;
     # .'$root'
-    $res = _jm_obj_0($val, $path, $rep);
+    $res = json_model_5($val, $path, $rep);
     return $res;
 }
 
@@ -34,7 +33,7 @@ sub json_model_3($$$)
     my ($val, $path, $rep) = @_;
     my $res;
     # .'$Root'
-    $res = _jm_obj_0($val, $path, $rep);
+    $res = json_model_5($val, $path, $rep);
     return $res;
 }
 
@@ -44,14 +43,15 @@ sub json_model_1($$$)
     my ($val, $path, $rep) = @_;
     my $res;
     # .
-    $res = _jm_obj_0($val, $path, $rep);
+    $res = json_model_5($val, $path, $rep);
     return $res;
 }
 
-# object .'$root#Root'
-sub _jm_obj_0($$$)
+# check $root#Root (.'$root#Root')
+sub json_model_5($$$)
 {
     my ($val, $path, $rep) = @_;
+    # .'$root#Root'
     # check close must only props
     if (! jm_is_object($val))
     {
@@ -88,16 +88,6 @@ sub _jm_obj_0($$$)
     return 1;
 }
 
-# check $root#Root (.'$root#Root')
-sub json_model_5($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$root#Root'
-    $res = _jm_obj_0($val, $path, $rep);
-    return $res;
-}
-
 
 # initialization of global variables
 
@@ -109,9 +99,9 @@ sub check_model_init()
     {
         $initialized = 1;
         %check_model_map = (
-            '' => \&_jm_obj_0,
-            'root' => \&_jm_obj_0,
-            'Root' => \&_jm_obj_0,
+            '' => \&json_model_5,
+            'root' => \&json_model_5,
+            'Root' => \&json_model_5,
         );
     }
 }

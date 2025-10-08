@@ -1,0 +1,46 @@
+{
+  "type": "object",
+  "properties": {
+    "f0": {
+      "type": "object",
+      "additionalProperties": false
+    },
+    "f1": {
+      "type": "object",
+      "additionalProperties": false
+    },
+    "f2": {
+      "type": "object",
+      "additionalProperties": false
+    },
+    "f3": {
+      "type": "object",
+      "additionalProperties": false
+    },
+    "f4": {
+      "type": "object",
+      "additionalProperties": false
+    },
+    "f5": {
+      "type": "object",
+      "additionalProperties": false
+    },
+    "f6": {
+      "type": "object",
+      "additionalProperties": false
+    },
+    "f7": {
+      "type": "object",
+      "additionalProperties": false
+    },
+    "f8": {
+      "type": "object",
+      "additionalProperties": false
+    },
+    "f9": {
+      "type": "object",
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

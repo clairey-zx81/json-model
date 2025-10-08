@@ -13,9 +13,7 @@ use constant JMC_VERSION => '2';
 
 sub json_model_2($$$);
 sub json_model_3($$$);
-sub _jm_obj_0($$$);
 sub json_model_5($$$);
-sub _jm_obj_1($$$);
 sub json_model_1($$$);
 sub json_model_7($$$);
 my %check_model_map;
@@ -40,10 +38,11 @@ sub json_model_3($$$)
     return $res;
 }
 
-# object .'$Rr'
-sub _jm_obj_0($$$)
+# check $Rr (.'$Rr')
+sub json_model_5($$$)
 {
     my ($val, $path, $rep) = @_;
+    # .'$Rr'
     if (! jm_is_object($val))
     {
         return 0;
@@ -70,20 +69,11 @@ sub _jm_obj_0($$$)
     return 1;
 }
 
-# check $Rr (.'$Rr')
-sub json_model_5($$$)
+# check $ (.)
+sub json_model_1($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$Rr'
-    $res = _jm_obj_0($val, $path, $rep);
-    return $res;
-}
-
-# object .
-sub _jm_obj_1($$$)
-{
-    my ($val, $path, $rep) = @_;
+    # .
     if (! jm_is_object($val))
     {
         return 0;
@@ -98,7 +88,7 @@ sub _jm_obj_1($$$)
             # handle must RA property
             $must_count++;
             # .RA
-            $res = _jm_obj_0($pval, undef, $rep);
+            $res = json_model_5($pval, undef, $rep);
             if (! $res)
             {
                 return 0;
@@ -136,16 +126,6 @@ sub _jm_obj_1($$$)
     return 1;
 }
 
-# check $ (.)
-sub json_model_1($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .
-    $res = _jm_obj_1($val, $path, $rep);
-    return $res;
-}
-
 # check $Rr#Aa (.'$Rr#Aa')
 sub json_model_7($$$)
 {
@@ -167,10 +147,10 @@ sub check_model_init()
     {
         $initialized = 1;
         %check_model_map = (
-            '' => \&_jm_obj_1,
+            '' => \&json_model_1,
             'b' => \&json_model_2,
             'Bb' => \&json_model_3,
-            'Rr' => \&_jm_obj_0,
+            'Rr' => \&json_model_5,
         );
     }
 }

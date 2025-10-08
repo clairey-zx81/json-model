@@ -24,9 +24,10 @@ function json_model_2(val, path, rep)
     return res;
 }
 
-// object .'$x'
-function _jm_obj_0(val, path, rep)
+// check $x (.'$x')
+function json_model_3(val, path, rep)
 {
+    // .'$x'
     // check close must only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
@@ -74,22 +75,10 @@ function _jm_obj_0(val, path, rep)
     return true;
 }
 
-// check $x (.'$x')
-function json_model_3(val, path, rep)
+// check $y (.'$y')
+function json_model_4(val, path, rep)
 {
-    let res;
-    // .'$x'
-    res = _jm_obj_0(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected element [.'$x']", path])
-    }
-    return res;
-}
-
-// object .'$y'
-function _jm_obj_1(val, path, rep)
-{
+    // .'$y'
     // check close must only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
@@ -137,22 +126,10 @@ function _jm_obj_1(val, path, rep)
     return true;
 }
 
-// check $y (.'$y')
-function json_model_4(val, path, rep)
+// check $ (.)
+function json_model_1(val, path, rep)
 {
-    let res;
-    // .'$y'
-    res = _jm_obj_1(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected element [.'$y']", path])
-    }
-    return res;
-}
-
-// object .
-function _jm_obj_2(val, path, rep)
-{
+    // .
     // check close must only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
@@ -230,19 +207,6 @@ function _jm_obj_2(val, path, rep)
     return true;
 }
 
-// check $ (.)
-function json_model_1(val, path, rep)
-{
-    let res;
-    // .
-    res = _jm_obj_2(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected element [.]", path])
-    }
-    return res;
-}
-
 
 var initialized = false
 
@@ -253,10 +217,10 @@ export function check_model_init()
     {
         initialized = true;
         runtime.jm_set_rx(RegExp)
-        check_model_map.set("", _jm_obj_2)
+        check_model_map.set("", json_model_1)
         check_model_map.set("t", json_model_2)
-        check_model_map.set("x", _jm_obj_0)
-        check_model_map.set("y", _jm_obj_1)
+        check_model_map.set("x", json_model_3)
+        check_model_map.set("y", json_model_4)
     }
 }
 

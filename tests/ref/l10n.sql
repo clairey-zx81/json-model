@@ -6,7 +6,7 @@
 CREATE EXTENSION IF NOT EXISTS json_model;
 
 -- object .'$'
-CREATE OR REPLACE FUNCTION _jm_obj_1(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_obj_0(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -62,7 +62,7 @@ END;
 $$ LANGUAGE plpgsql;
 
 -- object .'%'
-CREATE OR REPLACE FUNCTION _jm_obj_2(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_obj_1(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -96,8 +96,8 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- object .
-CREATE OR REPLACE FUNCTION _jm_obj_0(val JSONB, path TEXT[], rep jm_report_entry[])
+-- check $ (.)
+CREATE OR REPLACE FUNCTION json_model_1(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -105,6 +105,8 @@ DECLARE
   prop TEXT;
   pval JSONB;
 BEGIN
+  -- JSON Model Subset for Localization Renames
+  -- .
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
@@ -114,7 +116,7 @@ BEGIN
       -- handle must $ property
       must_count := must_count + 1;
       -- .'$'
-      res := _jm_obj_1(pval, NULL, rep);
+      res := _jm_obj_0(pval, NULL, rep);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -131,7 +133,7 @@ BEGIN
       must_count := must_count + 1;
       -- dot-prefixed arbitrary key, one or two char keyword values
       -- .'%'
-      res := _jm_obj_2(pval, NULL, rep);
+      res := _jm_obj_1(pval, NULL, rep);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -161,23 +163,10 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check $ (.)
-CREATE OR REPLACE FUNCTION json_model_1(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- JSON Model Subset for Localization Renames
-  -- .
-  res := _jm_obj_0(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
 CREATE OR REPLACE FUNCTION check_model_map(name TEXT)
 RETURNS TEXT STRICT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
-  map JSONB := JSONB '{"":"_jm_obj_0"}';
+  map JSONB := JSONB '{"":"json_model_1"}';
 BEGIN
   RETURN map->>name;
 END;

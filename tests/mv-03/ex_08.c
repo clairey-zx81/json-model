@@ -12,7 +12,6 @@
 
 static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_4(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_5(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep);
@@ -45,9 +44,10 @@ static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// object .'$map'
-static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *rep)
+// check $map (.'$map')
+static bool json_model_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
+    // .'$map'
     if (! json_is_object(val))
     {
         if (rep) jm_report_add_entry(rep, "not an object [.'$map']", path);
@@ -79,26 +79,13 @@ static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *re
     return true;
 }
 
-// check $map (.'$map')
-static bool json_model_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
-    bool res;
-    // .'$map'
-    res = _jm_obj_0(val, path, rep);
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected element [.'$map']", path);
-    }
-    return res;
-}
-
 // check $Ex08 (.'$Ex08')
 static bool json_model_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
     // .'$Ex08'
     // .'$Ex08'.'|'.0
-    res = _jm_obj_0(val, path, rep);
+    res = json_model_4(val, path, rep);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected $map [.'$Ex08'.'|'.0]", path);
@@ -161,7 +148,7 @@ const char *check_model_init(void)
         check_model_map_tab[0] = (jm_propmap_t) { "", json_model_5 };
         check_model_map_tab[1] = (jm_propmap_t) { "Val", json_model_2 };
         check_model_map_tab[2] = (jm_propmap_t) { "Key", json_model_3 };
-        check_model_map_tab[3] = (jm_propmap_t) { "map", _jm_obj_0 };
+        check_model_map_tab[3] = (jm_propmap_t) { "map", json_model_4 };
         check_model_map_tab[4] = (jm_propmap_t) { "Ex08", json_model_5 };
         jm_sort_propmap(check_model_map_tab, 5);
     }

@@ -24,7 +24,7 @@ public class over_01 extends ModelChecker
     {
         boolean res;
         // .'$over'
-        res = _jm_obj_0(val, path, rep);
+        res = json_model_4(val, path, rep);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected $Foo [.'$over']", path);
@@ -37,7 +37,7 @@ public class over_01 extends ModelChecker
     {
         boolean res;
         // .
-        res = _jm_obj_0(val, path, rep);
+        res = json_model_4(val, path, rep);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected $over#Foo [.]", path);
@@ -45,9 +45,10 @@ public class over_01 extends ModelChecker
         return res;
     }
 
-    // object .'$over#Foo'
-    public boolean _jm_obj_0(Object val, Path path, Report rep)
+    // check $over#Foo (.'$over#Foo')
+    public boolean json_model_4(Object val, Path path, Report rep)
     {
+        // .'$over#Foo'
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.'$over#Foo']", path);
@@ -81,19 +82,6 @@ public class over_01 extends ModelChecker
         return true;
     }
 
-    // check $over#Foo (.'$over#Foo')
-    public boolean json_model_4(Object val, Path path, Report rep)
-    {
-        boolean res;
-        // .'$over#Foo'
-        res = _jm_obj_0(val, path, rep);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected element [.'$over#Foo']", path);
-        }
-        return res;
-    }
-
 
     public void init(JSON json)
     {
@@ -101,8 +89,8 @@ public class over_01 extends ModelChecker
         {
             try {
             over_01_map_pmap = new HashMap<String, Checker>();
-            over_01_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_0(o, p, r);} });
-            over_01_map_pmap.put("over", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_0(o, p, r);} });
+            over_01_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
+            over_01_map_pmap.put("over", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
                 super.init(json);
             }
             catch (Exception e) {

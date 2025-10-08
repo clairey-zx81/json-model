@@ -10,15 +10,15 @@
 #include <json-model.h>
 #define JSON_MODEL_VERSION "2"
 
-static bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep);
 jm_propmap_t check_model_map_tab[2];
 const size_t check_model_map_size = 2;
 
-// object .'$bibi'
-static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *rep)
+// check $bibi (.'$bibi')
+static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
+    // .'$bibi'
     // check close must only props
     if (! json_is_object(val))
     {
@@ -49,7 +49,7 @@ static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *re
         {
             jm_path_t arr_0_lpath = (jm_path_t) { NULL, arr_0_idx, (path ? &lpath : NULL), NULL };
             // .'$bibi'.bibi.0
-            res = _jm_obj_0(arr_0_item, ((path ? &lpath : NULL) ? &arr_0_lpath : NULL), rep);
+            res = json_model_2(arr_0_item, ((path ? &lpath : NULL) ? &arr_0_lpath : NULL), rep);
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected $bibi [.'$bibi'.bibi.0]", ((path ? &lpath : NULL) ? &arr_0_lpath : NULL));
@@ -66,25 +66,12 @@ static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *re
     return true;
 }
 
-// check $bibi (.'$bibi')
-static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
-    bool res;
-    // .'$bibi'
-    res = _jm_obj_0(val, path, rep);
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected element [.'$bibi']", path);
-    }
-    return res;
-}
-
 // check $ (.)
 static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
     // .
-    res = _jm_obj_0(val, path, rep);
+    res = json_model_2(val, path, rep);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected $bibi [.]", path);
@@ -105,8 +92,8 @@ const char *check_model_init(void)
     {
         initialized = true;
         jm_version_string = JSON_MODEL_VERSION;
-        check_model_map_tab[0] = (jm_propmap_t) { "", _jm_obj_0 };
-        check_model_map_tab[1] = (jm_propmap_t) { "bibi", _jm_obj_0 };
+        check_model_map_tab[0] = (jm_propmap_t) { "", json_model_2 };
+        check_model_map_tab[1] = (jm_propmap_t) { "bibi", json_model_2 };
         jm_sort_propmap(check_model_map_tab, 2);
     }
     return NULL;

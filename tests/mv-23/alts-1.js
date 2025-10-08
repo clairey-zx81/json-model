@@ -14,9 +14,10 @@ let _jm_map_0 = new Map()
 let _jm_cst_1 = new Set()
 var check_model_map = new Map()
 
-// object .'$oA'
-function _jm_obj_0(val, path, rep)
+// check $oA (.'$oA')
+function json_model_2(val, path, rep)
 {
+    // .'$oA'
     // check open must/may only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
@@ -59,23 +60,11 @@ function _jm_obj_0(val, path, rep)
     return true;
 }
 
-// check $oA (.'$oA')
-function json_model_2(val, path, rep)
-{
-    let res;
-    // .'$oA'
-    res = _jm_obj_0(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected element [.'$oA']", path])
-    }
-    return res;
-}
 
-
-// object .'$oB'
-function _jm_obj_1(val, path, rep)
+// check $oB (.'$oB')
+function json_model_3(val, path, rep)
 {
+    // .'$oB'
     // check open must/may only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
@@ -118,19 +107,6 @@ function _jm_obj_1(val, path, rep)
     return true;
 }
 
-// check $oB (.'$oB')
-function json_model_3(val, path, rep)
-{
-    let res;
-    // .'$oB'
-    res = _jm_obj_1(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected element [.'$oB']", path])
-    }
-    return res;
-}
-
 
 // check $oC (.'$oC')
 function json_model_4(val, path, rep)
@@ -168,9 +144,10 @@ function json_model_4(val, path, rep)
     return res;
 }
 
-// object .'$oL'
-function _jm_obj_2(val, path, rep)
+// check $oL (.'$oL')
+function json_model_5(val, path, rep)
 {
+    // .'$oL'
     // check open must/may only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
@@ -213,23 +190,11 @@ function _jm_obj_2(val, path, rep)
     return true;
 }
 
-// check $oL (.'$oL')
-function json_model_5(val, path, rep)
-{
-    let res;
-    // .'$oL'
-    res = _jm_obj_2(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected element [.'$oL']", path])
-    }
-    return res;
-}
 
-
-// object .'$oX'
-function _jm_obj_3(val, path, rep)
+// check $oX (.'$oX')
+function json_model_6(val, path, rep)
 {
+    // .'$oX'
     // check open must/may only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
@@ -272,19 +237,6 @@ function _jm_obj_3(val, path, rep)
     return true;
 }
 
-// check $oX (.'$oX')
-function json_model_6(val, path, rep)
-{
-    let res;
-    // .'$oX'
-    res = _jm_obj_3(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected element [.'$oX']", path])
-    }
-    return res;
-}
-
 // check $ (.)
 function json_model_1(val, path, rep)
 {
@@ -294,7 +246,7 @@ function json_model_1(val, path, rep)
     let xc_0 = 0;
     let xr_0;
     // .'^'.0
-    xr_0 = _jm_obj_0(val, path, rep);
+    xr_0 = json_model_2(val, path, rep);
     if (xr_0)
     {
         xc_0 += 1;
@@ -304,7 +256,7 @@ function json_model_1(val, path, rep)
         rep !== null && rep.push(["unexpected $oA [.'^'.0]", path])
     }
     // .'^'.1
-    xr_0 = _jm_obj_1(val, path, rep);
+    xr_0 = json_model_3(val, path, rep);
     if (xr_0)
     {
         xc_0 += 1;
@@ -350,17 +302,17 @@ export function check_model_init()
         runtime.jm_set_rx(RegExp)
         _jm_cst_0.add("b")
         _jm_cst_0.add("c")
-        _jm_map_0.set("e", _jm_obj_3)
-        _jm_map_0.set("f", _jm_obj_3)
-        _jm_map_0.set("d", _jm_obj_2)
+        _jm_map_0.set("e", json_model_6)
+        _jm_map_0.set("f", json_model_6)
+        _jm_map_0.set("d", json_model_5)
         _jm_cst_1.add("e")
         _jm_cst_1.add("f")
         check_model_map.set("", json_model_1)
-        check_model_map.set("oA", _jm_obj_0)
-        check_model_map.set("oB", _jm_obj_1)
+        check_model_map.set("oA", json_model_2)
+        check_model_map.set("oB", json_model_3)
         check_model_map.set("oC", json_model_4)
-        check_model_map.set("oL", _jm_obj_2)
-        check_model_map.set("oX", _jm_obj_3)
+        check_model_map.set("oL", json_model_5)
+        check_model_map.set("oX", json_model_6)
     }
 }
 

@@ -23,8 +23,9 @@ def check_model(val: Jsonable, name: str = "", rep: Report = None) -> bool:
 _jm_map_0: dict[str, str]
 check_model_map: PropMap
 
-# object .'$objs0'
-def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
+# check $objs0 (.'$objs0')
+def json_model_3(val: Jsonable, path: Path, rep: Report) -> bool:
+    # .'$objs0'
     # check close must only props
     if not isinstance(val, dict):
         return False
@@ -46,15 +47,9 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
         return False
     return True
 
-# check $objs0 (.'$objs0')
-def json_model_3(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .'$objs0'
-    res = _jm_obj_0(val, path, rep)
-    return res
-
-# object .
-def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
+# check $ (.)
+def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
+    # .
     # check close must only props
     if not isinstance(val, dict):
         return False
@@ -65,17 +60,10 @@ def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
     if not ((pval := val.get("foo", UNDEFINED)) != UNDEFINED):
         return False
     # .foo
-    res = _jm_obj_0(pval, None, rep)
+    res = json_model_3(pval, None, rep)
     if not res:
         return False
     return True
-
-# check $ (.)
-def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .
-    res = _jm_obj_1(val, path, rep)
-    return res
 
 
 # check $objs0#furniture (.'$objs0#furniture')
@@ -96,8 +84,9 @@ def json_model_6(val: Jsonable, path: Path, rep: Report) -> bool:
             res = False
     return res
 
-# object .'$objs0#table'
-def _jm_obj_2(val: Jsonable, path: Path, rep: Report) -> bool:
+# check $objs0#table (.'$objs0#table')
+def json_model_4(val: Jsonable, path: Path, rep: Report) -> bool:
+    # .'$objs0#table'
     # check close must only props
     if not isinstance(val, dict):
         return False
@@ -119,15 +108,9 @@ def _jm_obj_2(val: Jsonable, path: Path, rep: Report) -> bool:
         return False
     return True
 
-# check $objs0#table (.'$objs0#table')
-def json_model_4(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .'$objs0#table'
-    res = _jm_obj_2(val, path, rep)
-    return res
-
-# object .'$objs0#chair'
-def _jm_obj_3(val: Jsonable, path: Path, rep: Report) -> bool:
+# check $objs0#chair (.'$objs0#chair')
+def json_model_5(val: Jsonable, path: Path, rep: Report) -> bool:
+    # .'$objs0#chair'
     # check close must only props
     if not isinstance(val, dict):
         return False
@@ -149,13 +132,6 @@ def _jm_obj_3(val: Jsonable, path: Path, rep: Report) -> bool:
         return False
     return True
 
-# check $objs0#chair (.'$objs0#chair')
-def json_model_5(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .'$objs0#chair'
-    res = _jm_obj_3(val, path, rep)
-    return res
-
 
 # initialization guard
 initialized: bool = False
@@ -167,13 +143,13 @@ def check_model_init():
         initialized = True
         global _jm_map_0
         _jm_map_0 = {
-            "table": _jm_obj_2,
-            "chair": _jm_obj_3,
+            "table": json_model_4,
+            "chair": json_model_5,
         }
         global check_model_map
         check_model_map = {
-            "": _jm_obj_1,
-            "objs0": _jm_obj_0,
+            "": json_model_1,
+            "objs0": json_model_3,
         }
 
 # differed module cleanup

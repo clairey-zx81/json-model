@@ -13,12 +13,10 @@ use constant JMC_VERSION => '2';
 
 sub json_model_5($$$);
 sub json_model_3($$$);
-sub _jm_obj_0($$$);
 sub json_model_4($$$);
 sub json_model_1($$$);
 sub json_model_6($$$);
 sub json_model_9($$$);
-sub _jm_obj_1($$$);
 sub json_model_8($$$);
 my %check_model_map;
 
@@ -42,10 +40,11 @@ sub json_model_3($$$)
     return $res;
 }
 
-# object .'$Ex09'
-sub _jm_obj_0($$$)
+# check $Ex09 (.'$Ex09')
+sub json_model_4($$$)
 {
     my ($val, $path, $rep) = @_;
+    # .'$Ex09'
     if (! jm_is_object($val))
     {
         return 0;
@@ -82,23 +81,13 @@ sub _jm_obj_0($$$)
     return 1;
 }
 
-# check $Ex09 (.'$Ex09')
-sub json_model_4($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$Ex09'
-    $res = _jm_obj_0($val, $path, $rep);
-    return $res;
-}
-
 # check $ (.)
 sub json_model_1($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
     # .
-    $res = _jm_obj_0($val, $path, $rep);
+    $res = json_model_4($val, $path, $rep);
     return $res;
 }
 
@@ -119,7 +108,7 @@ sub json_model_9($$$)
     my $res;
     # .'$ex08#Ex08'
     # .'$ex08#Ex08'.'|'.0
-    $res = _jm_obj_1($val, $path, $rep);
+    $res = json_model_8($val, $path, $rep);
     if (! $res)
     {
         # .'$ex08#Ex08'.'|'.1
@@ -133,10 +122,11 @@ sub json_model_9($$$)
     return $res;
 }
 
-# object .'$ex08#map'
-sub _jm_obj_1($$$)
+# check $ex08#map (.'$ex08#map')
+sub json_model_8($$$)
 {
     my ($val, $path, $rep) = @_;
+    # .'$ex08#map'
     if (! jm_is_object($val))
     {
         return 0;
@@ -163,16 +153,6 @@ sub _jm_obj_1($$$)
     return 1;
 }
 
-# check $ex08#map (.'$ex08#map')
-sub json_model_8($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$ex08#map'
-    $res = _jm_obj_1($val, $path, $rep);
-    return $res;
-}
-
 
 # initialization of global variables
 
@@ -184,10 +164,10 @@ sub check_model_init()
     {
         $initialized = 1;
         %check_model_map = (
-            '' => \&_jm_obj_0,
+            '' => \&json_model_4,
             'ex08' => \&json_model_9,
             'Ex08' => \&json_model_9,
-            'Ex09' => \&_jm_obj_0,
+            'Ex09' => \&json_model_4,
         );
     }
 }

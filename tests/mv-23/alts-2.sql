@@ -6,7 +6,7 @@
 CREATE EXTENSION IF NOT EXISTS json_model;
 
 -- object .'$a'.''.'|'.1
-CREATE OR REPLACE FUNCTION _jm_obj_1(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_obj_0(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
@@ -20,14 +20,15 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- object .'$a'
-CREATE OR REPLACE FUNCTION _jm_obj_0(val JSONB, path TEXT[], rep jm_report_entry[])
+-- check $a (.'$a')
+CREATE OR REPLACE FUNCTION json_model_2(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
   prop TEXT;
   pval JSONB;
 BEGIN
+  -- .'$a'
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
@@ -38,7 +39,7 @@ BEGIN
     res := json_model_3(pval, NULL, rep);
     IF NOT res THEN
       -- .'$a'.''.'|'.1
-      res := _jm_obj_1(pval, NULL, rep);
+      res := _jm_obj_0(pval, NULL, rep);
     END IF;
     IF NOT res THEN
       RETURN FALSE;
@@ -48,20 +49,8 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check $a (.'$a')
-CREATE OR REPLACE FUNCTION json_model_2(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .'$a'
-  res := _jm_obj_0(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
 -- object .'$r'.'|'.1
-CREATE OR REPLACE FUNCTION _jm_obj_2(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_obj_1(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
@@ -83,10 +72,10 @@ DECLARE
 BEGIN
   -- .'$r'
   -- .'$r'.'|'.0
-  res := _jm_obj_0(val, path, rep);
+  res := json_model_2(val, path, rep);
   IF NOT res THEN
     -- .'$r'.'|'.1
-    res := _jm_obj_2(val, path, rep);
+    res := _jm_obj_1(val, path, rep);
   END IF;
   RETURN res;
 END;
@@ -107,7 +96,7 @@ $$ LANGUAGE PLpgSQL;
 CREATE OR REPLACE FUNCTION check_model_map(name TEXT)
 RETURNS TEXT STRICT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
-  map JSONB := JSONB '{"":"json_model_3","a":"_jm_obj_0","r":"json_model_3"}';
+  map JSONB := JSONB '{"":"json_model_3","a":"json_model_2","r":"json_model_3"}';
 BEGIN
   RETURN map->>name;
 END;

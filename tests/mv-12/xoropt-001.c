@@ -16,7 +16,6 @@ static bool json_model_4(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_5(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_6(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_7(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_8(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_9(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep);
@@ -117,9 +116,10 @@ static bool json_model_7(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// object .'$Oo'
-static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *rep)
+// check $Oo (.'$Oo')
+static bool json_model_8(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
+    // .'$Oo'
     if (! json_is_object(val))
     {
         if (rep) jm_report_add_entry(rep, "not an object [.'$Oo']", path);
@@ -141,19 +141,6 @@ static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *re
         }
     }
     return true;
-}
-
-// check $Oo (.'$Oo')
-static bool json_model_8(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
-    bool res;
-    // .'$Oo'
-    res = _jm_obj_0(val, path, rep);
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected element [.'$Oo']", path);
-    }
-    return res;
 }
 
 // check $Any (.'$Any')
@@ -210,7 +197,7 @@ static bool json_model_9(const json_t *val, jm_path_t *path, jm_report_t *rep)
                         if (! res)
                         {
                             // .'$Any'.'|'.6
-                            res = _jm_obj_0(val, path, rep);
+                            res = json_model_8(val, path, rep);
                             if (! res)
                             {
                                 if (rep) jm_report_add_entry(rep, "unexpected $Oo [.'$Any'.'|'.6]", path);
@@ -265,7 +252,7 @@ const char *check_model_init(void)
         check_model_map_tab[4] = (jm_propmap_t) { "Ff", json_model_5 };
         check_model_map_tab[5] = (jm_propmap_t) { "Ss", json_model_6 };
         check_model_map_tab[6] = (jm_propmap_t) { "Aa", json_model_7 };
-        check_model_map_tab[7] = (jm_propmap_t) { "Oo", _jm_obj_0 };
+        check_model_map_tab[7] = (jm_propmap_t) { "Oo", json_model_8 };
         check_model_map_tab[8] = (jm_propmap_t) { "Any", json_model_9 };
         jm_sort_propmap(check_model_map_tab, 9);
     }

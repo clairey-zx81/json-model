@@ -2297,7 +2297,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- object .'$Model#Root'.'|'.0.'$'.'.schema'
-CREATE OR REPLACE FUNCTION _jm_obj_44(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_obj_43(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
@@ -2308,14 +2308,15 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- object .'$Model#Root'.'|'.0.'$'
-CREATE OR REPLACE FUNCTION _jm_obj_43(val JSONB, path TEXT[], rep jm_report_entry[])
+-- check _jm_obj_42_map_$ (.'$Model#Root'.'|'.0.'$')
+CREATE OR REPLACE FUNCTION _jm_f_2(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
   prop TEXT;
   pval JSONB;
 BEGIN
+  -- .'$Model#Root'.'|'.0.'$'
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
@@ -2330,7 +2331,7 @@ BEGIN
     ELSEIF prop = '.schema' THEN
       -- handle may .schema property
       -- .'$Model#Root'.'|'.0.'$'.'.schema'
-      res := _jm_obj_44(pval, NULL, rep);
+      res := _jm_obj_43(pval, NULL, rep);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -2363,20 +2364,8 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_obj_42_map_$ (.'$Model#Root'.'|'.0.'$')
-CREATE OR REPLACE FUNCTION _jm_f_2(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .'$Model#Root'.'|'.0.'$'
-  res := _jm_obj_43(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
 -- object .'$Model#Root'.'|'.0.'%'.'.schema'
-CREATE OR REPLACE FUNCTION _jm_obj_46(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_obj_44(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
@@ -2387,8 +2376,8 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- object .'$Model#Root'.'|'.0.'%'
-CREATE OR REPLACE FUNCTION _jm_obj_45(val JSONB, path TEXT[], rep jm_report_entry[])
+-- check _jm_obj_42_map_% (.'$Model#Root'.'|'.0.'%')
+CREATE OR REPLACE FUNCTION _jm_f_3(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -2397,6 +2386,7 @@ DECLARE
   arr_14_idx INT8;
   arr_14_item JSONB;
 BEGIN
+  -- .'$Model#Root'.'|'.0.'%'
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
@@ -2411,7 +2401,7 @@ BEGIN
     ELSEIF prop = '.schema' THEN
       -- handle may .schema property
       -- .'$Model#Root'.'|'.0.'%'.'.schema'
-      res := _jm_obj_46(pval, NULL, rep);
+      res := _jm_obj_44(pval, NULL, rep);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -2467,18 +2457,6 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_obj_42_map_% (.'$Model#Root'.'|'.0.'%')
-CREATE OR REPLACE FUNCTION _jm_f_3(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .'$Model#Root'.'|'.0.'%'
-  res := _jm_obj_45(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
 -- check _jm_obj_42_map_.in (.'$Model#Root'.'|'.0.'.in')
 CREATE OR REPLACE FUNCTION _jm_f_4(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
@@ -2503,27 +2481,16 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- object .'$Model#Root'.'|'.0.'.schema'
-CREATE OR REPLACE FUNCTION _jm_obj_47(val JSONB, path TEXT[], rep jm_report_entry[])
+-- check _jm_obj_42_map_.schema (.'$Model#Root'.'|'.0.'.schema')
+CREATE OR REPLACE FUNCTION _jm_f_6(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
+  -- .'$Model#Root'.'|'.0.'.schema'
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
   -- accept any object
   RETURN TRUE;
-END;
-$$ LANGUAGE PLpgSQL;
-
--- check _jm_obj_42_map_.schema (.'$Model#Root'.'|'.0.'.schema')
-CREATE OR REPLACE FUNCTION _jm_f_6(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .'$Model#Root'.'|'.0.'.schema'
-  res := _jm_obj_47(val, path, rep);
-  RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -2705,7 +2672,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- object .'$Model#Transformation'.'|'.1.'.schema'
-CREATE OR REPLACE FUNCTION _jm_obj_49(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_obj_46(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
@@ -2717,7 +2684,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- object .'$Model#Transformation'.'|'.1.'~'
-CREATE OR REPLACE FUNCTION _jm_obj_50(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_obj_47(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -2740,7 +2707,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- object .'$Model#Transformation'.'|'.1
-CREATE OR REPLACE FUNCTION _jm_obj_48(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_obj_45(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -2761,7 +2728,7 @@ BEGIN
     ELSEIF prop = '.schema' THEN
       -- handle may .schema property
       -- .'$Model#Transformation'.'|'.1.'.schema'
-      res := _jm_obj_49(pval, NULL, rep);
+      res := _jm_obj_46(pval, NULL, rep);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -2780,7 +2747,7 @@ BEGIN
     ELSEIF prop = '~' THEN
       -- handle may ~ property
       -- .'$Model#Transformation'.'|'.1.'~'
-      res := _jm_obj_50(pval, NULL, rep);
+      res := _jm_obj_47(pval, NULL, rep);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -2817,7 +2784,7 @@ BEGIN
   res := json_model_35(val, path, rep);
   IF NOT res THEN
     -- .'$Model#Transformation'.'|'.1
-    res := _jm_obj_48(val, path, rep);
+    res := _jm_obj_45(val, path, rep);
   END IF;
   RETURN res;
 END;

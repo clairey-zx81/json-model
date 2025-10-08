@@ -22,8 +22,9 @@ def check_model(val: Jsonable, name: str = "", rep: Report = None) -> bool:
 
 check_model_map: PropMap
 
-# object .'$Oa'
-def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
+# check $Oa (.'$Oa')
+def json_model_2(val: Jsonable, path: Path, rep: Report) -> bool:
+    # .'$Oa'
     # check open must/may only props
     if not isinstance(val, dict):
         return False
@@ -36,15 +37,9 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
             return False
     return True
 
-# check $Oa (.'$Oa')
-def json_model_2(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .'$Oa'
-    res = _jm_obj_0(val, path, rep)
-    return res
-
-# object .'$Ob'
-def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
+# check $Ob (.'$Ob')
+def json_model_3(val: Jsonable, path: Path, rep: Report) -> bool:
+    # .'$Ob'
     # check open must/may only props
     if not isinstance(val, dict):
         return False
@@ -57,15 +52,9 @@ def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
             return False
     return True
 
-# check $Ob (.'$Ob')
-def json_model_3(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .'$Ob'
-    res = _jm_obj_1(val, path, rep)
-    return res
-
-# object .'$merge'
-def _jm_obj_2(val: Jsonable, path: Path, rep: Report) -> bool:
+# check $merge (.'$merge')
+def json_model_4(val: Jsonable, path: Path, rep: Report) -> bool:
+    # .'$merge'
     # check open must/may only props
     if not isinstance(val, dict):
         return False
@@ -83,15 +72,8 @@ def _jm_obj_2(val: Jsonable, path: Path, rep: Report) -> bool:
             return False
     return True
 
-# check $merge (.'$merge')
-def json_model_4(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .'$merge'
-    res = _jm_obj_2(val, path, rep)
-    return res
-
 # object .'$nomerge'.'&'.1
-def _jm_obj_3(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
     # check close must only props
     if not isinstance(val, dict):
         return False
@@ -114,10 +96,10 @@ def json_model_5(val: Jsonable, path: Path, rep: Report) -> bool:
     res = True
     if res:
         # .'$nomerge'.'&'.0
-        res = _jm_obj_0(val, path, rep)
+        res = json_model_2(val, path, rep)
         if res:
             # .'$nomerge'.'&'.1
-            res = _jm_obj_3(val, path, rep)
+            res = _jm_obj_0(val, path, rep)
     return res
 
 # check $ (.)
@@ -125,7 +107,7 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .
     # .'|'.0
-    res = _jm_obj_2(val, path, rep)
+    res = json_model_4(val, path, rep)
     if not res:
         # .'|'.1
         res = json_model_5(val, path, rep)
@@ -143,9 +125,9 @@ def check_model_init():
         global check_model_map
         check_model_map = {
             "": json_model_1,
-            "Oa": _jm_obj_0,
-            "Ob": _jm_obj_1,
-            "merge": _jm_obj_2,
+            "Oa": json_model_2,
+            "Ob": json_model_3,
+            "merge": json_model_4,
             "nomerge": json_model_5,
         }
 

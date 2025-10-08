@@ -17,11 +17,11 @@ public class json_schema_draft_03_fuzzy extends ModelChecker
 {
     static public final String VERSION = "2";
 
-    Map<String, Checker> _jm_obj_0_map_pmap;
+    Map<String, Checker> json_model_3_map_pmap;
     Set<Object> _jm_cst_0_set;
     public Map<String, Checker> json_schema_draft_03_fuzzy_map_pmap;
 
-    // check _jm_obj_0_map_$ref (.'$schema'.'$ref')
+    // check json_model_3_map_$ref (.'$schema'.'$ref')
     public boolean _jm_f_0(Object val, Path path, Report rep)
     {
         boolean res;
@@ -34,7 +34,7 @@ public class json_schema_draft_03_fuzzy extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_0_map_$schema (.'$schema'.'$schema')
+    // check json_model_3_map_$schema (.'$schema'.'$schema')
     public boolean _jm_f_1(Object val, Path path, Report rep)
     {
         boolean res;
@@ -47,7 +47,7 @@ public class json_schema_draft_03_fuzzy extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_0_map_additionalItems (.'$schema'.additionalItems)
+    // check json_model_3_map_additionalItems (.'$schema'.additionalItems)
     public boolean _jm_f_2(Object val, Path path, Report rep)
     {
         boolean res;
@@ -61,7 +61,7 @@ public class json_schema_draft_03_fuzzy extends ModelChecker
         if (! res)
         {
             // .'$schema'.additionalItems.'|'.1
-            res = _jm_obj_0(val, path, rep);
+            res = json_model_3(val, path, rep);
             if (! res)
             {
                 if (rep != null) rep.addEntry("unexpected $Schema [.'$schema'.additionalItems.'|'.1]", path);
@@ -78,7 +78,7 @@ public class json_schema_draft_03_fuzzy extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_0_map_additionalProperties (.'$schema'.additionalProperties)
+    // check json_model_3_map_additionalProperties (.'$schema'.additionalProperties)
     public boolean _jm_f_3(Object val, Path path, Report rep)
     {
         boolean res;
@@ -92,7 +92,7 @@ public class json_schema_draft_03_fuzzy extends ModelChecker
         if (! res)
         {
             // .'$schema'.additionalProperties.'|'.1
-            res = _jm_obj_0(val, path, rep);
+            res = json_model_3(val, path, rep);
             if (! res)
             {
                 if (rep != null) rep.addEntry("unexpected $Schema [.'$schema'.additionalProperties.'|'.1]", path);
@@ -109,7 +109,7 @@ public class json_schema_draft_03_fuzzy extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_0_map_default (.'$schema'.default)
+    // check json_model_3_map_default (.'$schema'.default)
     public boolean _jm_f_4(Object val, Path path, Report rep)
     {
         boolean res;
@@ -122,9 +122,10 @@ public class json_schema_draft_03_fuzzy extends ModelChecker
         return res;
     }
 
-    // object .'$schema'.dependencies
-    public boolean _jm_obj_1(Object val, Path path, Report rep)
+    // check json_model_3_map_dependencies (.'$schema'.dependencies)
+    public boolean _jm_f_5(Object val, Path path, Report rep)
     {
+        // .'$schema'.dependencies
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.'$schema'.dependencies]", path);
@@ -174,7 +175,7 @@ public class json_schema_draft_03_fuzzy extends ModelChecker
                 if (! res)
                 {
                     // .'$schema'.dependencies.''.'|'.2
-                    res = _jm_obj_0(pval, (path != null ? lpath_1 : null), rep);
+                    res = json_model_3(pval, (path != null ? lpath_1 : null), rep);
                     if (! res)
                     {
                         if (rep != null) rep.addEntry("unexpected $Schema [.'$schema'.dependencies.''.'|'.2]", (path != null ? lpath_1 : null));
@@ -194,20 +195,7 @@ public class json_schema_draft_03_fuzzy extends ModelChecker
         return true;
     }
 
-    // check _jm_obj_0_map_dependencies (.'$schema'.dependencies)
-    public boolean _jm_f_5(Object val, Path path, Report rep)
-    {
-        boolean res;
-        // .'$schema'.dependencies
-        res = _jm_obj_1(val, path, rep);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected element [.'$schema'.dependencies]", path);
-        }
-        return res;
-    }
-
-    // check _jm_obj_0_map_description (.'$schema'.description)
+    // check json_model_3_map_description (.'$schema'.description)
     public boolean _jm_f_6(Object val, Path path, Report rep)
     {
         boolean res;
@@ -220,7 +208,7 @@ public class json_schema_draft_03_fuzzy extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_0_map_disallow (.'$schema'.disallow)
+    // check json_model_3_map_disallow (.'$schema'.disallow)
     public boolean _jm_f_7(Object val, Path path, Report rep)
     {
         boolean res;
@@ -251,7 +239,7 @@ public class json_schema_draft_03_fuzzy extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_0_map_divisibleBy (.'$schema'.divisibleBy)
+    // check json_model_3_map_divisibleBy (.'$schema'.divisibleBy)
     public boolean _jm_f_8(Object val, Path path, Report rep)
     {
         boolean res;
@@ -264,7 +252,7 @@ public class json_schema_draft_03_fuzzy extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_0_map_enum (.'$schema'.enum)
+    // check json_model_3_map_enum (.'$schema'.enum)
     public boolean _jm_f_9(Object val, Path path, Report rep)
     {
         boolean res;
@@ -287,7 +275,7 @@ public class json_schema_draft_03_fuzzy extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_0_map_exclusiveMaximum (.'$schema'.exclusiveMaximum)
+    // check json_model_3_map_exclusiveMaximum (.'$schema'.exclusiveMaximum)
     public boolean _jm_f_10(Object val, Path path, Report rep)
     {
         boolean res;
@@ -300,7 +288,7 @@ public class json_schema_draft_03_fuzzy extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_0_map_exclusiveMinimum (.'$schema'.exclusiveMinimum)
+    // check json_model_3_map_exclusiveMinimum (.'$schema'.exclusiveMinimum)
     public boolean _jm_f_11(Object val, Path path, Report rep)
     {
         boolean res;
@@ -313,13 +301,13 @@ public class json_schema_draft_03_fuzzy extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_0_map_extends (.'$schema'.extends)
+    // check json_model_3_map_extends (.'$schema'.extends)
     public boolean _jm_f_12(Object val, Path path, Report rep)
     {
         boolean res;
         // .'$schema'.extends
         // .'$schema'.extends.'|'.0
-        res = _jm_obj_0(val, path, rep);
+        res = json_model_3(val, path, rep);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected $Schema [.'$schema'.extends.'|'.0]", path);
@@ -338,7 +326,7 @@ public class json_schema_draft_03_fuzzy extends ModelChecker
                     Object arr_1_item = arr_1_item_loop.next();
                     Path arr_1_lpath = new Path(arr_1_idx, path);
                     // .'$schema'.extends.'|'.1.0
-                    res = _jm_obj_0(arr_1_item, (path != null ? arr_1_lpath : null), rep);
+                    res = json_model_3(arr_1_item, (path != null ? arr_1_lpath : null), rep);
                     if (! res)
                     {
                         if (rep != null) rep.addEntry("unexpected $Schema [.'$schema'.extends.'|'.1.0]", (path != null ? arr_1_lpath : null));
@@ -362,7 +350,7 @@ public class json_schema_draft_03_fuzzy extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_0_map_format (.'$schema'.format)
+    // check json_model_3_map_format (.'$schema'.format)
     public boolean _jm_f_13(Object val, Path path, Report rep)
     {
         boolean res;
@@ -375,7 +363,7 @@ public class json_schema_draft_03_fuzzy extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_0_map_id (.'$schema'.id)
+    // check json_model_3_map_id (.'$schema'.id)
     public boolean _jm_f_14(Object val, Path path, Report rep)
     {
         boolean res;
@@ -388,13 +376,13 @@ public class json_schema_draft_03_fuzzy extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_0_map_items (.'$schema'.items)
+    // check json_model_3_map_items (.'$schema'.items)
     public boolean _jm_f_15(Object val, Path path, Report rep)
     {
         boolean res;
         // .'$schema'.items
         // .'$schema'.items.'|'.0
-        res = _jm_obj_0(val, path, rep);
+        res = json_model_3(val, path, rep);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected $Schema [.'$schema'.items.'|'.0]", path);
@@ -413,7 +401,7 @@ public class json_schema_draft_03_fuzzy extends ModelChecker
                     Object arr_2_item = arr_2_item_loop.next();
                     Path arr_2_lpath = new Path(arr_2_idx, path);
                     // .'$schema'.items.'|'.1.0
-                    res = _jm_obj_0(arr_2_item, (path != null ? arr_2_lpath : null), rep);
+                    res = json_model_3(arr_2_item, (path != null ? arr_2_lpath : null), rep);
                     if (! res)
                     {
                         if (rep != null) rep.addEntry("unexpected $Schema [.'$schema'.items.'|'.1.0]", (path != null ? arr_2_lpath : null));
@@ -437,7 +425,7 @@ public class json_schema_draft_03_fuzzy extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_0_map_maxItems (.'$schema'.maxItems)
+    // check json_model_3_map_maxItems (.'$schema'.maxItems)
     public boolean _jm_f_16(Object val, Path path, Report rep)
     {
         boolean res;
@@ -450,7 +438,7 @@ public class json_schema_draft_03_fuzzy extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_0_map_maxLength (.'$schema'.maxLength)
+    // check json_model_3_map_maxLength (.'$schema'.maxLength)
     public boolean _jm_f_17(Object val, Path path, Report rep)
     {
         boolean res;
@@ -463,7 +451,7 @@ public class json_schema_draft_03_fuzzy extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_0_map_maximum (.'$schema'.maximum)
+    // check json_model_3_map_maximum (.'$schema'.maximum)
     public boolean _jm_f_18(Object val, Path path, Report rep)
     {
         boolean res;
@@ -476,7 +464,7 @@ public class json_schema_draft_03_fuzzy extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_0_map_minItems (.'$schema'.minItems)
+    // check json_model_3_map_minItems (.'$schema'.minItems)
     public boolean _jm_f_19(Object val, Path path, Report rep)
     {
         boolean res;
@@ -489,7 +477,7 @@ public class json_schema_draft_03_fuzzy extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_0_map_minLength (.'$schema'.minLength)
+    // check json_model_3_map_minLength (.'$schema'.minLength)
     public boolean _jm_f_20(Object val, Path path, Report rep)
     {
         boolean res;
@@ -502,7 +490,7 @@ public class json_schema_draft_03_fuzzy extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_0_map_minimum (.'$schema'.minimum)
+    // check json_model_3_map_minimum (.'$schema'.minimum)
     public boolean _jm_f_21(Object val, Path path, Report rep)
     {
         boolean res;
@@ -515,7 +503,7 @@ public class json_schema_draft_03_fuzzy extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_0_map_pattern (.'$schema'.pattern)
+    // check json_model_3_map_pattern (.'$schema'.pattern)
     public boolean _jm_f_22(Object val, Path path, Report rep)
     {
         boolean res;
@@ -528,9 +516,10 @@ public class json_schema_draft_03_fuzzy extends ModelChecker
         return res;
     }
 
-    // object .'$schema'.patternProperties
-    public boolean _jm_obj_2(Object val, Path path, Report rep)
+    // check json_model_3_map_patternProperties (.'$schema'.patternProperties)
+    public boolean _jm_f_23(Object val, Path path, Report rep)
     {
+        // .'$schema'.patternProperties
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.'$schema'.patternProperties]", path);
@@ -545,7 +534,7 @@ public class json_schema_draft_03_fuzzy extends ModelChecker
             Path lpath_2 = new Path(prop, path);
             // handle other props
             // .'$schema'.patternProperties.''
-            res = _jm_obj_0(pval, (path != null ? lpath_2 : null), rep);
+            res = json_model_3(pval, (path != null ? lpath_2 : null), rep);
             if (! res)
             {
                 if (rep != null) rep.addEntry("unexpected $Schema [.'$schema'.patternProperties.'']", (path != null ? lpath_2 : null));
@@ -555,22 +544,10 @@ public class json_schema_draft_03_fuzzy extends ModelChecker
         return true;
     }
 
-    // check _jm_obj_0_map_patternProperties (.'$schema'.patternProperties)
-    public boolean _jm_f_23(Object val, Path path, Report rep)
+    // check json_model_3_map_properties (.'$schema'.properties)
+    public boolean _jm_f_24(Object val, Path path, Report rep)
     {
-        boolean res;
-        // .'$schema'.patternProperties
-        res = _jm_obj_2(val, path, rep);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected element [.'$schema'.patternProperties]", path);
-        }
-        return res;
-    }
-
-    // object .'$schema'.properties
-    public boolean _jm_obj_3(Object val, Path path, Report rep)
-    {
+        // .'$schema'.properties
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.'$schema'.properties]", path);
@@ -585,7 +562,7 @@ public class json_schema_draft_03_fuzzy extends ModelChecker
             Path lpath_3 = new Path(prop, path);
             // handle other props
             // .'$schema'.properties.''
-            res = _jm_obj_0(pval, (path != null ? lpath_3 : null), rep);
+            res = json_model_3(pval, (path != null ? lpath_3 : null), rep);
             if (! res)
             {
                 if (rep != null) rep.addEntry("unexpected $Schema [.'$schema'.properties.'']", (path != null ? lpath_3 : null));
@@ -595,20 +572,7 @@ public class json_schema_draft_03_fuzzy extends ModelChecker
         return true;
     }
 
-    // check _jm_obj_0_map_properties (.'$schema'.properties)
-    public boolean _jm_f_24(Object val, Path path, Report rep)
-    {
-        boolean res;
-        // .'$schema'.properties
-        res = _jm_obj_3(val, path, rep);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected element [.'$schema'.properties]", path);
-        }
-        return res;
-    }
-
-    // check _jm_obj_0_map_required (.'$schema'.required)
+    // check json_model_3_map_required (.'$schema'.required)
     public boolean _jm_f_25(Object val, Path path, Report rep)
     {
         boolean res;
@@ -621,7 +585,7 @@ public class json_schema_draft_03_fuzzy extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_0_map_title (.'$schema'.title)
+    // check json_model_3_map_title (.'$schema'.title)
     public boolean _jm_f_26(Object val, Path path, Report rep)
     {
         boolean res;
@@ -634,7 +598,7 @@ public class json_schema_draft_03_fuzzy extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_0_map_type (.'$schema'.type)
+    // check json_model_3_map_type (.'$schema'.type)
     public boolean _jm_f_27(Object val, Path path, Report rep)
     {
         boolean res;
@@ -668,7 +632,7 @@ public class json_schema_draft_03_fuzzy extends ModelChecker
                     if (! res)
                     {
                         // .'$schema'.type.'|'.1.0.'|'.1
-                        res = _jm_obj_0(arr_3_item, (path != null ? arr_3_lpath : null), rep);
+                        res = json_model_3(arr_3_item, (path != null ? arr_3_lpath : null), rep);
                         if (! res)
                         {
                             if (rep != null) rep.addEntry("unexpected $Schema [.'$schema'.type.'|'.1.0.'|'.1]", (path != null ? arr_3_lpath : null));
@@ -701,7 +665,7 @@ public class json_schema_draft_03_fuzzy extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_0_map_uniqueItems (.'$schema'.uniqueItems)
+    // check json_model_3_map_uniqueItems (.'$schema'.uniqueItems)
     public boolean _jm_f_28(Object val, Path path, Report rep)
     {
         boolean res;
@@ -715,9 +679,11 @@ public class json_schema_draft_03_fuzzy extends ModelChecker
     }
 
 
-    // object .'$schema'
-    public boolean _jm_obj_0(Object val, Path path, Report rep)
+    // check $schema (.'$schema')
+    public boolean json_model_3(Object val, Path path, Report rep)
     {
+        // JSON Model for JSON Schema Draft 03 [JSON_MODEL_STRICT_INT, JSON_MODEL_LOOSE_FLOAT]
+        // .'$schema'
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.'$schema']", path);
@@ -730,7 +696,7 @@ public class json_schema_draft_03_fuzzy extends ModelChecker
             String prop = prop_loop.next();
             Object pval = json.objectValue(val, prop);
             Path lpath_0 = new Path(prop, path);
-            if ((pfun = _jm_obj_0_map_pmap.get(prop)) != null)
+            if ((pfun = json_model_3_map_pmap.get(prop)) != null)
             {
                 // handle 29 may props
                 if (pfun != null && ! (pfun.call(pval, (path != null ? lpath_0 : null), rep)))
@@ -747,26 +713,12 @@ public class json_schema_draft_03_fuzzy extends ModelChecker
         return true;
     }
 
-    // check $schema (.'$schema')
-    public boolean json_model_3(Object val, Path path, Report rep)
-    {
-        boolean res;
-        // JSON Model for JSON Schema Draft 03 [JSON_MODEL_STRICT_INT, JSON_MODEL_LOOSE_FLOAT]
-        // .'$schema'
-        res = _jm_obj_0(val, path, rep);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected element [.'$schema']", path);
-        }
-        return res;
-    }
-
     // check $ (.)
     public boolean json_model_1(Object val, Path path, Report rep)
     {
         boolean res;
         // .
-        res = _jm_obj_0(val, path, rep);
+        res = json_model_3(val, path, rep);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected $schema [.]", path);
@@ -814,7 +766,7 @@ public class json_schema_draft_03_fuzzy extends ModelChecker
                 if (! res)
                 {
                     // .'$schema#distinctSchemaArray'.'@'.0.'|'.1
-                    res = _jm_obj_0(arr_4_item, (path != null ? arr_4_lpath : null), rep);
+                    res = json_model_3(arr_4_item, (path != null ? arr_4_lpath : null), rep);
                     if (! res)
                     {
                         if (rep != null) rep.addEntry("unexpected $Schema [.'$schema#distinctSchemaArray'.'@'.0.'|'.1]", (path != null ? arr_4_lpath : null));
@@ -852,36 +804,36 @@ public class json_schema_draft_03_fuzzy extends ModelChecker
         if (!initialized)
         {
             try {
-            _jm_obj_0_map_pmap = new HashMap<String, Checker>();
-            _jm_obj_0_map_pmap.put("$ref", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_0(o, p, r);} });
-            _jm_obj_0_map_pmap.put("$schema", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_1(o, p, r);} });
-            _jm_obj_0_map_pmap.put("additionalItems", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_2(o, p, r);} });
-            _jm_obj_0_map_pmap.put("additionalProperties", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_3(o, p, r);} });
-            _jm_obj_0_map_pmap.put("default", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_4(o, p, r);} });
-            _jm_obj_0_map_pmap.put("dependencies", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_5(o, p, r);} });
-            _jm_obj_0_map_pmap.put("description", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_6(o, p, r);} });
-            _jm_obj_0_map_pmap.put("disallow", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_7(o, p, r);} });
-            _jm_obj_0_map_pmap.put("divisibleBy", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_8(o, p, r);} });
-            _jm_obj_0_map_pmap.put("enum", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_9(o, p, r);} });
-            _jm_obj_0_map_pmap.put("exclusiveMaximum", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_10(o, p, r);} });
-            _jm_obj_0_map_pmap.put("exclusiveMinimum", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_11(o, p, r);} });
-            _jm_obj_0_map_pmap.put("extends", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_12(o, p, r);} });
-            _jm_obj_0_map_pmap.put("format", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_13(o, p, r);} });
-            _jm_obj_0_map_pmap.put("id", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_14(o, p, r);} });
-            _jm_obj_0_map_pmap.put("items", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_15(o, p, r);} });
-            _jm_obj_0_map_pmap.put("maxItems", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_16(o, p, r);} });
-            _jm_obj_0_map_pmap.put("maxLength", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_17(o, p, r);} });
-            _jm_obj_0_map_pmap.put("maximum", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_18(o, p, r);} });
-            _jm_obj_0_map_pmap.put("minItems", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_19(o, p, r);} });
-            _jm_obj_0_map_pmap.put("minLength", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_20(o, p, r);} });
-            _jm_obj_0_map_pmap.put("minimum", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_21(o, p, r);} });
-            _jm_obj_0_map_pmap.put("pattern", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_22(o, p, r);} });
-            _jm_obj_0_map_pmap.put("patternProperties", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_23(o, p, r);} });
-            _jm_obj_0_map_pmap.put("properties", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_24(o, p, r);} });
-            _jm_obj_0_map_pmap.put("required", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_25(o, p, r);} });
-            _jm_obj_0_map_pmap.put("title", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_26(o, p, r);} });
-            _jm_obj_0_map_pmap.put("type", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_27(o, p, r);} });
-            _jm_obj_0_map_pmap.put("uniqueItems", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_28(o, p, r);} });
+            json_model_3_map_pmap = new HashMap<String, Checker>();
+            json_model_3_map_pmap.put("$ref", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_0(o, p, r);} });
+            json_model_3_map_pmap.put("$schema", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_1(o, p, r);} });
+            json_model_3_map_pmap.put("additionalItems", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_2(o, p, r);} });
+            json_model_3_map_pmap.put("additionalProperties", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_3(o, p, r);} });
+            json_model_3_map_pmap.put("default", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_4(o, p, r);} });
+            json_model_3_map_pmap.put("dependencies", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_5(o, p, r);} });
+            json_model_3_map_pmap.put("description", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_6(o, p, r);} });
+            json_model_3_map_pmap.put("disallow", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_7(o, p, r);} });
+            json_model_3_map_pmap.put("divisibleBy", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_8(o, p, r);} });
+            json_model_3_map_pmap.put("enum", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_9(o, p, r);} });
+            json_model_3_map_pmap.put("exclusiveMaximum", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_10(o, p, r);} });
+            json_model_3_map_pmap.put("exclusiveMinimum", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_11(o, p, r);} });
+            json_model_3_map_pmap.put("extends", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_12(o, p, r);} });
+            json_model_3_map_pmap.put("format", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_13(o, p, r);} });
+            json_model_3_map_pmap.put("id", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_14(o, p, r);} });
+            json_model_3_map_pmap.put("items", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_15(o, p, r);} });
+            json_model_3_map_pmap.put("maxItems", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_16(o, p, r);} });
+            json_model_3_map_pmap.put("maxLength", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_17(o, p, r);} });
+            json_model_3_map_pmap.put("maximum", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_18(o, p, r);} });
+            json_model_3_map_pmap.put("minItems", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_19(o, p, r);} });
+            json_model_3_map_pmap.put("minLength", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_20(o, p, r);} });
+            json_model_3_map_pmap.put("minimum", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_21(o, p, r);} });
+            json_model_3_map_pmap.put("pattern", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_22(o, p, r);} });
+            json_model_3_map_pmap.put("patternProperties", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_23(o, p, r);} });
+            json_model_3_map_pmap.put("properties", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_24(o, p, r);} });
+            json_model_3_map_pmap.put("required", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_25(o, p, r);} });
+            json_model_3_map_pmap.put("title", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_26(o, p, r);} });
+            json_model_3_map_pmap.put("type", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_27(o, p, r);} });
+            json_model_3_map_pmap.put("uniqueItems", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_28(o, p, r);} });
             _jm_cst_0_set = new HashSet<Object>();
             _jm_cst_0_set.add(json.safeJSON("\"null\""));
             _jm_cst_0_set.add(json.safeJSON("\"boolean\""));
@@ -892,8 +844,8 @@ public class json_schema_draft_03_fuzzy extends ModelChecker
             _jm_cst_0_set.add(json.safeJSON("\"object\""));
             _jm_cst_0_set.add(json.safeJSON("\"any\""));
             json_schema_draft_03_fuzzy_map_pmap = new HashMap<String, Checker>();
-            json_schema_draft_03_fuzzy_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_0(o, p, r);} });
-            json_schema_draft_03_fuzzy_map_pmap.put("schema", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_0(o, p, r);} });
+            json_schema_draft_03_fuzzy_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_3(o, p, r);} });
+            json_schema_draft_03_fuzzy_map_pmap.put("schema", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_3(o, p, r);} });
                 super.init(json);
             }
             catch (Exception e) {
@@ -907,7 +859,7 @@ public class json_schema_draft_03_fuzzy extends ModelChecker
         if (initialized)
         {
             super.free();
-            _jm_obj_0_map_pmap = null;
+            json_model_3_map_pmap = null;
             _jm_cst_0_set = null;
             json_schema_draft_03_fuzzy_map_pmap = null;
         }

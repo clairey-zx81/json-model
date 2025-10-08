@@ -19,9 +19,10 @@ public class ppp_002 extends ModelChecker
 
     public Map<String, Checker> ppp_002_map_pmap;
 
-    // object .
-    public boolean _jm_obj_0(Object val, Path path, Report rep)
+    // check $ (.)
+    public boolean json_model_1(Object val, Path path, Report rep)
     {
+        // .
         // check close must only props
         if (! json.isObject(val))
         {
@@ -81,19 +82,6 @@ public class ppp_002 extends ModelChecker
         return true;
     }
 
-    // check $ (.)
-    public boolean json_model_1(Object val, Path path, Report rep)
-    {
-        boolean res;
-        // .
-        res = _jm_obj_0(val, path, rep);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected element [.]", path);
-        }
-        return res;
-    }
-
 
     public void init(JSON json)
     {
@@ -101,7 +89,7 @@ public class ppp_002 extends ModelChecker
         {
             try {
             ppp_002_map_pmap = new HashMap<String, Checker>();
-            ppp_002_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_0(o, p, r);} });
+            ppp_002_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_1(o, p, r);} });
                 super.init(json);
             }
             catch (Exception e) {

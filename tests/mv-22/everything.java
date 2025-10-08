@@ -18,18 +18,18 @@ public class everything extends ModelChecker
     static public final String VERSION = "2";
 
     Set<Object> _jm_cst_0_set;
-    Map<String, Checker> _jm_obj_5_map_pmap;
-    Map<String, Checker> _jm_obj_6_map_pmap;
+    Map<String, Checker> _jm_f_2_map_pmap;
+    Map<String, Checker> _jm_f_9_map_pmap;
     Set<Object> _jm_cst_1_set;
     Set<Object> _jm_cst_2_set;
     Set<Object> _jm_cst_3_set;
     Set<Object> _jm_cst_4_set;
-    Map<String, Checker> _jm_obj_11_map_pmap;
-    Map<String, Checker> _jm_obj_12_map_pmap;
-    Map<String, Checker> _jm_obj_25_map_pmap;
-    Map<String, Checker> _jm_obj_35_map_pmap;
+    Map<String, Checker> _jm_f_36_map_pmap;
+    Map<String, Checker> _jm_f_46_map_pmap;
+    Map<String, Checker> _jm_f_60_map_pmap;
+    Map<String, Checker> _jm_f_69_map_pmap;
     public Pattern _jm_re_0_pat = null;
-    Map<String, Checker> _jm_obj_2_map_pmap;
+    Map<String, Checker> json_model_1_map_pmap;
     public Map<String, Checker> everything_map_pmap;
 
     // check $a (.'$a')
@@ -58,9 +58,10 @@ public class everything extends ModelChecker
         return res;
     }
 
-    // object .'$ab'
-    public boolean _jm_obj_0(Object val, Path path, Report rep)
+    // check $ab (.'$ab')
+    public boolean json_model_4(Object val, Path path, Report rep)
     {
+        // .'$ab'
         // check close must only props
         if (! json.isObject(val))
         {
@@ -106,22 +107,10 @@ public class everything extends ModelChecker
         return true;
     }
 
-    // check $ab (.'$ab')
-    public boolean json_model_4(Object val, Path path, Report rep)
+    // check $cd (.'$cd')
+    public boolean json_model_5(Object val, Path path, Report rep)
     {
-        boolean res;
-        // .'$ab'
-        res = _jm_obj_0(val, path, rep);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected element [.'$ab']", path);
-        }
-        return res;
-    }
-
-    // object .'$cd'
-    public boolean _jm_obj_1(Object val, Path path, Report rep)
-    {
+        // .'$cd'
         // check close must only props
         if (! json.isObject(val))
         {
@@ -167,22 +156,11 @@ public class everything extends ModelChecker
         return true;
     }
 
-    // check $cd (.'$cd')
-    public boolean json_model_5(Object val, Path path, Report rep)
+    // check json_model_1_map_and (.and)
+    public boolean _jm_f_0(Object val, Path path, Report rep)
     {
-        boolean res;
-        // .'$cd'
-        res = _jm_obj_1(val, path, rep);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected element [.'$cd']", path);
-        }
-        return res;
-    }
-
-    // object .and
-    public boolean _jm_obj_3(Object val, Path path, Report rep)
-    {
+        // conjunction, all must match
+        // .and
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.and]", path);
@@ -239,23 +217,11 @@ public class everything extends ModelChecker
         return true;
     }
 
-    // check _jm_obj_2_map_and (.and)
-    public boolean _jm_f_0(Object val, Path path, Report rep)
+    // check json_model_1_map_array (.array)
+    public boolean _jm_f_1(Object val, Path path, Report rep)
     {
-        boolean res;
-        // conjunction, all must match
-        // .and
-        res = _jm_obj_3(val, path, rep);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected element [.and]", path);
-        }
-        return res;
-    }
-
-    // object .array
-    public boolean _jm_obj_4(Object val, Path path, Report rep)
-    {
+        // example arrays
+        // .array
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.array]", path);
@@ -409,21 +375,7 @@ public class everything extends ModelChecker
         return true;
     }
 
-    // check _jm_obj_2_map_array (.array)
-    public boolean _jm_f_1(Object val, Path path, Report rep)
-    {
-        boolean res;
-        // example arrays
-        // .array
-        res = _jm_obj_4(val, path, rep);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected element [.array]", path);
-        }
-        return res;
-    }
-
-    // check _jm_obj_5_map_b0 (.bool.b0)
+    // check _jm_f_2_map_b0 (.bool.b0)
     public boolean _jm_f_3(Object val, Path path, Report rep)
     {
         boolean res;
@@ -436,7 +388,7 @@ public class everything extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_5_map_b1 (.bool.b1)
+    // check _jm_f_2_map_b1 (.bool.b1)
     public boolean _jm_f_4(Object val, Path path, Report rep)
     {
         boolean res;
@@ -449,7 +401,7 @@ public class everything extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_5_map_b2 (.bool.b2)
+    // check _jm_f_2_map_b2 (.bool.b2)
     public boolean _jm_f_5(Object val, Path path, Report rep)
     {
         boolean res;
@@ -462,7 +414,7 @@ public class everything extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_5_map_b3 (.bool.b3)
+    // check _jm_f_2_map_b3 (.bool.b3)
     public boolean _jm_f_6(Object val, Path path, Report rep)
     {
         boolean res;
@@ -475,7 +427,7 @@ public class everything extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_5_map_b4 (.bool.b4)
+    // check _jm_f_2_map_b4 (.bool.b4)
     public boolean _jm_f_7(Object val, Path path, Report rep)
     {
         boolean res;
@@ -489,7 +441,7 @@ public class everything extends ModelChecker
     }
 
 
-    // check _jm_obj_5_map_b5 (.bool.b5)
+    // check _jm_f_2_map_b5 (.bool.b5)
     public boolean _jm_f_8(Object val, Path path, Report rep)
     {
         boolean res;
@@ -503,9 +455,11 @@ public class everything extends ModelChecker
     }
 
 
-    // object .bool
-    public boolean _jm_obj_5(Object val, Path path, Report rep)
+    // check json_model_1_map_bool (.bool)
+    public boolean _jm_f_2(Object val, Path path, Report rep)
     {
+        // booleans: inference, predefs, constants, enum
+        // .bool
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.bool]", path);
@@ -518,7 +472,7 @@ public class everything extends ModelChecker
             String prop = prop_loop.next();
             Object pval = json.objectValue(val, prop);
             Path lpath_3 = new Path(prop, path);
-            if ((pfun = _jm_obj_5_map_pmap.get(prop)) != null)
+            if ((pfun = _jm_f_2_map_pmap.get(prop)) != null)
             {
                 // handle 6 may props
                 if (pfun != null && ! (pfun.call(pval, (path != null ? lpath_3 : null), rep)))
@@ -536,21 +490,7 @@ public class everything extends ModelChecker
         return true;
     }
 
-    // check _jm_obj_2_map_bool (.bool)
-    public boolean _jm_f_2(Object val, Path path, Report rep)
-    {
-        boolean res;
-        // booleans: inference, predefs, constants, enum
-        // .bool
-        res = _jm_obj_5(val, path, rep);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected element [.bool]", path);
-        }
-        return res;
-    }
-
-    // check _jm_obj_6_map_cia0 (.constraints.cia0)
+    // check _jm_f_9_map_cia0 (.constraints.cia0)
     public boolean _jm_f_10(Object val, Path path, Report rep)
     {
         boolean res;
@@ -591,7 +531,7 @@ public class everything extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_6_map_cia1 (.constraints.cia1)
+    // check _jm_f_9_map_cia1 (.constraints.cia1)
     public boolean _jm_f_11(Object val, Path path, Report rep)
     {
         boolean res;
@@ -632,7 +572,7 @@ public class everything extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_6_map_cia2 (.constraints.cia2)
+    // check _jm_f_9_map_cia2 (.constraints.cia2)
     public boolean _jm_f_12(Object val, Path path, Report rep)
     {
         boolean res;
@@ -673,7 +613,7 @@ public class everything extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_6_map_cii0 (.constraints.cii0)
+    // check _jm_f_9_map_cii0 (.constraints.cii0)
     public boolean _jm_f_13(Object val, Path path, Report rep)
     {
         boolean res;
@@ -686,7 +626,7 @@ public class everything extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_6_map_cii1 (.constraints.cii1)
+    // check _jm_f_9_map_cii1 (.constraints.cii1)
     public boolean _jm_f_14(Object val, Path path, Report rep)
     {
         boolean res;
@@ -709,7 +649,7 @@ public class everything extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_6_map_cii2 (.constraints.cii2)
+    // check _jm_f_9_map_cii2 (.constraints.cii2)
     public boolean _jm_f_15(Object val, Path path, Report rep)
     {
         boolean res;
@@ -732,7 +672,7 @@ public class everything extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_6_map_cin0 (.constraints.cin0)
+    // check _jm_f_9_map_cin0 (.constraints.cin0)
     public boolean _jm_f_16(Object val, Path path, Report rep)
     {
         boolean res;
@@ -755,7 +695,7 @@ public class everything extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_6_map_cin1 (.constraints.cin1)
+    // check _jm_f_9_map_cin1 (.constraints.cin1)
     public boolean _jm_f_17(Object val, Path path, Report rep)
     {
         boolean res;
@@ -778,7 +718,7 @@ public class everything extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_6_map_cin2 (.constraints.cin2)
+    // check _jm_f_9_map_cin2 (.constraints.cin2)
     public boolean _jm_f_18(Object val, Path path, Report rep)
     {
         boolean res;
@@ -802,7 +742,7 @@ public class everything extends ModelChecker
     }
 
     // object .constraints.cio0.'@'
-    public boolean _jm_obj_7(Object val, Path path, Report rep)
+    public boolean _jm_obj_0(Object val, Path path, Report rep)
     {
         if (! json.isObject(val))
         {
@@ -813,13 +753,13 @@ public class everything extends ModelChecker
         return true;
     }
 
-    // check _jm_obj_6_map_cio0 (.constraints.cio0)
+    // check _jm_f_9_map_cio0 (.constraints.cio0)
     public boolean _jm_f_19(Object val, Path path, Report rep)
     {
         boolean res;
         // .constraints.cio0
         // .constraints.cio0.'@'
-        res = _jm_obj_7(val, path, rep);
+        res = _jm_obj_0(val, path, rep);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected element [.constraints.cio0.'@']", path);
@@ -837,7 +777,7 @@ public class everything extends ModelChecker
     }
 
     // object .constraints.cio1.'@'
-    public boolean _jm_obj_8(Object val, Path path, Report rep)
+    public boolean _jm_obj_1(Object val, Path path, Report rep)
     {
         if (! json.isObject(val))
         {
@@ -848,13 +788,13 @@ public class everything extends ModelChecker
         return true;
     }
 
-    // check _jm_obj_6_map_cio1 (.constraints.cio1)
+    // check _jm_f_9_map_cio1 (.constraints.cio1)
     public boolean _jm_f_20(Object val, Path path, Report rep)
     {
         boolean res;
         // .constraints.cio1
         // .constraints.cio1.'@'
-        res = _jm_obj_8(val, path, rep);
+        res = _jm_obj_1(val, path, rep);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected element [.constraints.cio1.'@']", path);
@@ -872,7 +812,7 @@ public class everything extends ModelChecker
     }
 
     // object .constraints.cio2.'@'
-    public boolean _jm_obj_9(Object val, Path path, Report rep)
+    public boolean _jm_obj_2(Object val, Path path, Report rep)
     {
         if (! json.isObject(val))
         {
@@ -883,13 +823,13 @@ public class everything extends ModelChecker
         return true;
     }
 
-    // check _jm_obj_6_map_cio2 (.constraints.cio2)
+    // check _jm_f_9_map_cio2 (.constraints.cio2)
     public boolean _jm_f_21(Object val, Path path, Report rep)
     {
         boolean res;
         // .constraints.cio2
         // .constraints.cio2.'@'
-        res = _jm_obj_9(val, path, rep);
+        res = _jm_obj_2(val, path, rep);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected element [.constraints.cio2.'@']", path);
@@ -906,7 +846,7 @@ public class everything extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_6_map_cis0 (.constraints.cis0)
+    // check _jm_f_9_map_cis0 (.constraints.cis0)
     public boolean _jm_f_22(Object val, Path path, Report rep)
     {
         boolean res;
@@ -929,7 +869,7 @@ public class everything extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_6_map_cis1 (.constraints.cis1)
+    // check _jm_f_9_map_cis1 (.constraints.cis1)
     public boolean _jm_f_23(Object val, Path path, Report rep)
     {
         boolean res;
@@ -952,7 +892,7 @@ public class everything extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_6_map_cis2 (.constraints.cis2)
+    // check _jm_f_9_map_cis2 (.constraints.cis2)
     public boolean _jm_f_24(Object val, Path path, Report rep)
     {
         boolean res;
@@ -975,7 +915,7 @@ public class everything extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_6_map_cni0 (.constraints.cni0)
+    // check _jm_f_9_map_cni0 (.constraints.cni0)
     public boolean _jm_f_25(Object val, Path path, Report rep)
     {
         boolean res;
@@ -988,7 +928,7 @@ public class everything extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_6_map_cni1 (.constraints.cni1)
+    // check _jm_f_9_map_cni1 (.constraints.cni1)
     public boolean _jm_f_26(Object val, Path path, Report rep)
     {
         boolean res;
@@ -1012,7 +952,7 @@ public class everything extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_6_map_cni2 (.constraints.cni2)
+    // check _jm_f_9_map_cni2 (.constraints.cni2)
     public boolean _jm_f_27(Object val, Path path, Report rep)
     {
         boolean res;
@@ -1025,7 +965,7 @@ public class everything extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_6_map_cnn0 (.constraints.cnn0)
+    // check _jm_f_9_map_cnn0 (.constraints.cnn0)
     public boolean _jm_f_28(Object val, Path path, Report rep)
     {
         boolean res;
@@ -1048,7 +988,7 @@ public class everything extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_6_map_cnn1 (.constraints.cnn1)
+    // check _jm_f_9_map_cnn1 (.constraints.cnn1)
     public boolean _jm_f_29(Object val, Path path, Report rep)
     {
         boolean res;
@@ -1071,7 +1011,7 @@ public class everything extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_6_map_cnn2 (.constraints.cnn2)
+    // check _jm_f_9_map_cnn2 (.constraints.cnn2)
     public boolean _jm_f_30(Object val, Path path, Report rep)
     {
         boolean res;
@@ -1094,7 +1034,7 @@ public class everything extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_6_map_css0 (.constraints.css0)
+    // check _jm_f_9_map_css0 (.constraints.css0)
     public boolean _jm_f_31(Object val, Path path, Report rep)
     {
         boolean res;
@@ -1117,7 +1057,7 @@ public class everything extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_6_map_css1 (.constraints.css1)
+    // check _jm_f_9_map_css1 (.constraints.css1)
     public boolean _jm_f_32(Object val, Path path, Report rep)
     {
         boolean res;
@@ -1140,7 +1080,7 @@ public class everything extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_6_map_css2 (.constraints.css2)
+    // check _jm_f_9_map_css2 (.constraints.css2)
     public boolean _jm_f_33(Object val, Path path, Report rep)
     {
         boolean res;
@@ -1163,7 +1103,7 @@ public class everything extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_6_map_cua0 (.constraints.cua0)
+    // check _jm_f_9_map_cua0 (.constraints.cua0)
     public boolean _jm_f_34(Object val, Path path, Report rep)
     {
         boolean res;
@@ -1186,9 +1126,10 @@ public class everything extends ModelChecker
     }
 
 
-    // object .constraints
-    public boolean _jm_obj_6(Object val, Path path, Report rep)
+    // check json_model_1_map_constraints (.constraints)
+    public boolean _jm_f_9(Object val, Path path, Report rep)
     {
+        // .constraints
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.constraints]", path);
@@ -1201,7 +1142,7 @@ public class everything extends ModelChecker
             String prop = prop_loop.next();
             Object pval = json.objectValue(val, prop);
             Path lpath_4 = new Path(prop, path);
-            if ((pfun = _jm_obj_6_map_pmap.get(prop)) != null)
+            if ((pfun = _jm_f_9_map_pmap.get(prop)) != null)
             {
                 // handle 25 may props
                 if (pfun != null && ! (pfun.call(pval, (path != null ? lpath_4 : null), rep)))
@@ -1219,26 +1160,15 @@ public class everything extends ModelChecker
         return true;
     }
 
-    // check _jm_obj_2_map_constraints (.constraints)
-    public boolean _jm_f_9(Object val, Path path, Report rep)
+
+
+
+
+    // check json_model_1_map_enum (.enum)
+    public boolean _jm_f_35(Object val, Path path, Report rep)
     {
-        boolean res;
-        // .constraints
-        res = _jm_obj_6(val, path, rep);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected element [.constraints]", path);
-        }
-        return res;
-    }
-
-
-
-
-
-    // object .enum
-    public boolean _jm_obj_10(Object val, Path path, Report rep)
-    {
+        // an enumeration only contains constants
+        // .enum
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.enum]", path);
@@ -1308,21 +1238,7 @@ public class everything extends ModelChecker
         return true;
     }
 
-    // check _jm_obj_2_map_enum (.enum)
-    public boolean _jm_f_35(Object val, Path path, Report rep)
-    {
-        boolean res;
-        // an enumeration only contains constants
-        // .enum
-        res = _jm_obj_10(val, path, rep);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected element [.enum]", path);
-        }
-        return res;
-    }
-
-    // check _jm_obj_11_map_f0 (.float.f0)
+    // check _jm_f_36_map_f0 (.float.f0)
     public boolean _jm_f_37(Object val, Path path, Report rep)
     {
         boolean res;
@@ -1335,7 +1251,7 @@ public class everything extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_11_map_f1 (.float.f1)
+    // check _jm_f_36_map_f1 (.float.f1)
     public boolean _jm_f_38(Object val, Path path, Report rep)
     {
         boolean res;
@@ -1348,7 +1264,7 @@ public class everything extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_11_map_f2 (.float.f2)
+    // check _jm_f_36_map_f2 (.float.f2)
     public boolean _jm_f_39(Object val, Path path, Report rep)
     {
         boolean res;
@@ -1361,7 +1277,7 @@ public class everything extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_11_map_f3 (.float.f3)
+    // check _jm_f_36_map_f3 (.float.f3)
     public boolean _jm_f_40(Object val, Path path, Report rep)
     {
         boolean res;
@@ -1374,7 +1290,7 @@ public class everything extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_11_map_f4 (.float.f4)
+    // check _jm_f_36_map_f4 (.float.f4)
     public boolean _jm_f_41(Object val, Path path, Report rep)
     {
         boolean res;
@@ -1387,7 +1303,7 @@ public class everything extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_11_map_f5 (.float.f5)
+    // check _jm_f_36_map_f5 (.float.f5)
     public boolean _jm_f_42(Object val, Path path, Report rep)
     {
         boolean res;
@@ -1400,7 +1316,7 @@ public class everything extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_11_map_f6 (.float.f6)
+    // check _jm_f_36_map_f6 (.float.f6)
     public boolean _jm_f_43(Object val, Path path, Report rep)
     {
         boolean res;
@@ -1413,7 +1329,7 @@ public class everything extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_11_map_f7 (.float.f7)
+    // check _jm_f_36_map_f7 (.float.f7)
     public boolean _jm_f_44(Object val, Path path, Report rep)
     {
         boolean res;
@@ -1426,7 +1342,7 @@ public class everything extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_11_map_f8 (.float.f8)
+    // check _jm_f_36_map_f8 (.float.f8)
     public boolean _jm_f_45(Object val, Path path, Report rep)
     {
         boolean res;
@@ -1440,9 +1356,11 @@ public class everything extends ModelChecker
     }
 
 
-    // object .float
-    public boolean _jm_obj_11(Object val, Path path, Report rep)
+    // check json_model_1_map_float (.float)
+    public boolean _jm_f_36(Object val, Path path, Report rep)
     {
+        // floats: inference, predefs, constants
+        // .float
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.float]", path);
@@ -1455,7 +1373,7 @@ public class everything extends ModelChecker
             String prop = prop_loop.next();
             Object pval = json.objectValue(val, prop);
             Path lpath_6 = new Path(prop, path);
-            if ((pfun = _jm_obj_11_map_pmap.get(prop)) != null)
+            if ((pfun = _jm_f_36_map_pmap.get(prop)) != null)
             {
                 // handle 9 may props
                 if (pfun != null && ! (pfun.call(pval, (path != null ? lpath_6 : null), rep)))
@@ -1473,21 +1391,7 @@ public class everything extends ModelChecker
         return true;
     }
 
-    // check _jm_obj_2_map_float (.float)
-    public boolean _jm_f_36(Object val, Path path, Report rep)
-    {
-        boolean res;
-        // floats: inference, predefs, constants
-        // .float
-        res = _jm_obj_11(val, path, rep);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected element [.float]", path);
-        }
-        return res;
-    }
-
-    // check _jm_obj_12_map_i0 (.int.i0)
+    // check _jm_f_46_map_i0 (.int.i0)
     public boolean _jm_f_47(Object val, Path path, Report rep)
     {
         boolean res;
@@ -1500,7 +1404,7 @@ public class everything extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_12_map_i1 (.int.i1)
+    // check _jm_f_46_map_i1 (.int.i1)
     public boolean _jm_f_48(Object val, Path path, Report rep)
     {
         boolean res;
@@ -1513,7 +1417,7 @@ public class everything extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_12_map_i2 (.int.i2)
+    // check _jm_f_46_map_i2 (.int.i2)
     public boolean _jm_f_49(Object val, Path path, Report rep)
     {
         boolean res;
@@ -1526,7 +1430,7 @@ public class everything extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_12_map_i3 (.int.i3)
+    // check _jm_f_46_map_i3 (.int.i3)
     public boolean _jm_f_50(Object val, Path path, Report rep)
     {
         boolean res;
@@ -1539,7 +1443,7 @@ public class everything extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_12_map_i4 (.int.i4)
+    // check _jm_f_46_map_i4 (.int.i4)
     public boolean _jm_f_51(Object val, Path path, Report rep)
     {
         boolean res;
@@ -1552,7 +1456,7 @@ public class everything extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_12_map_i5 (.int.i5)
+    // check _jm_f_46_map_i5 (.int.i5)
     public boolean _jm_f_52(Object val, Path path, Report rep)
     {
         boolean res;
@@ -1565,7 +1469,7 @@ public class everything extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_12_map_i6 (.int.i6)
+    // check _jm_f_46_map_i6 (.int.i6)
     public boolean _jm_f_53(Object val, Path path, Report rep)
     {
         boolean res;
@@ -1578,7 +1482,7 @@ public class everything extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_12_map_i7 (.int.i7)
+    // check _jm_f_46_map_i7 (.int.i7)
     public boolean _jm_f_54(Object val, Path path, Report rep)
     {
         boolean res;
@@ -1591,7 +1495,7 @@ public class everything extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_12_map_i8 (.int.i8)
+    // check _jm_f_46_map_i8 (.int.i8)
     public boolean _jm_f_55(Object val, Path path, Report rep)
     {
         boolean res;
@@ -1604,7 +1508,7 @@ public class everything extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_12_map_i9 (.int.i9)
+    // check _jm_f_46_map_i9 (.int.i9)
     public boolean _jm_f_56(Object val, Path path, Report rep)
     {
         boolean res;
@@ -1617,7 +1521,7 @@ public class everything extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_12_map_ia (.int.ia)
+    // check _jm_f_46_map_ia (.int.ia)
     public boolean _jm_f_57(Object val, Path path, Report rep)
     {
         boolean res;
@@ -1631,9 +1535,11 @@ public class everything extends ModelChecker
     }
 
 
-    // object .int
-    public boolean _jm_obj_12(Object val, Path path, Report rep)
+    // check json_model_1_map_int (.int)
+    public boolean _jm_f_46(Object val, Path path, Report rep)
     {
+        // integers: inference, predefs, constants
+        // .int
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.int]", path);
@@ -1646,7 +1552,7 @@ public class everything extends ModelChecker
             String prop = prop_loop.next();
             Object pval = json.objectValue(val, prop);
             Path lpath_7 = new Path(prop, path);
-            if ((pfun = _jm_obj_12_map_pmap.get(prop)) != null)
+            if ((pfun = _jm_f_46_map_pmap.get(prop)) != null)
             {
                 // handle 11 may props
                 if (pfun != null && ! (pfun.call(pval, (path != null ? lpath_7 : null), rep)))
@@ -1664,22 +1570,8 @@ public class everything extends ModelChecker
         return true;
     }
 
-    // check _jm_obj_2_map_int (.int)
-    public boolean _jm_f_46(Object val, Path path, Report rep)
-    {
-        boolean res;
-        // integers: inference, predefs, constants
-        // .int
-        res = _jm_obj_12(val, path, rep);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected element [.int]", path);
-        }
-        return res;
-    }
-
     // object .merge.m0
-    public boolean _jm_obj_14(Object val, Path path, Report rep)
+    public boolean _jm_obj_3(Object val, Path path, Report rep)
     {
         if (! json.isObject(val))
         {
@@ -1740,7 +1632,7 @@ public class everything extends ModelChecker
     }
 
     // object .merge.m1.'|'.1
-    public boolean _jm_obj_15(Object val, Path path, Report rep)
+    public boolean _jm_obj_4(Object val, Path path, Report rep)
     {
         // check close must only props
         if (! json.isObject(val))
@@ -1788,7 +1680,7 @@ public class everything extends ModelChecker
     }
 
     // object .merge.m1.'|'.0
-    public boolean _jm_obj_16(Object val, Path path, Report rep)
+    public boolean _jm_obj_5(Object val, Path path, Report rep)
     {
         // check close must only props
         if (! json.isObject(val))
@@ -1836,7 +1728,7 @@ public class everything extends ModelChecker
     }
 
     // object .merge.m2.'|'.1
-    public boolean _jm_obj_17(Object val, Path path, Report rep)
+    public boolean _jm_obj_6(Object val, Path path, Report rep)
     {
         // check close must only props
         if (! json.isObject(val))
@@ -1884,7 +1776,7 @@ public class everything extends ModelChecker
     }
 
     // object .merge.m2.'|'.0
-    public boolean _jm_obj_18(Object val, Path path, Report rep)
+    public boolean _jm_obj_7(Object val, Path path, Report rep)
     {
         // check close must only props
         if (! json.isObject(val))
@@ -1932,7 +1824,7 @@ public class everything extends ModelChecker
     }
 
     // object .merge.m3.'|'.3
-    public boolean _jm_obj_19(Object val, Path path, Report rep)
+    public boolean _jm_obj_8(Object val, Path path, Report rep)
     {
         // check close must only props
         if (! json.isObject(val))
@@ -1980,7 +1872,7 @@ public class everything extends ModelChecker
     }
 
     // object .merge.m3.'|'.2
-    public boolean _jm_obj_20(Object val, Path path, Report rep)
+    public boolean _jm_obj_9(Object val, Path path, Report rep)
     {
         // check close must only props
         if (! json.isObject(val))
@@ -2028,7 +1920,7 @@ public class everything extends ModelChecker
     }
 
     // object .merge.m3.'|'.1
-    public boolean _jm_obj_21(Object val, Path path, Report rep)
+    public boolean _jm_obj_10(Object val, Path path, Report rep)
     {
         // check close must only props
         if (! json.isObject(val))
@@ -2076,7 +1968,7 @@ public class everything extends ModelChecker
     }
 
     // object .merge.m3.'|'.0
-    public boolean _jm_obj_22(Object val, Path path, Report rep)
+    public boolean _jm_obj_11(Object val, Path path, Report rep)
     {
         // check close must only props
         if (! json.isObject(val))
@@ -2124,7 +2016,7 @@ public class everything extends ModelChecker
     }
 
     // object .merge.m4
-    public boolean _jm_obj_23(Object val, Path path, Report rep)
+    public boolean _jm_obj_12(Object val, Path path, Report rep)
     {
         // check close must only props
         if (! json.isObject(val))
@@ -2199,9 +2091,11 @@ public class everything extends ModelChecker
         return true;
     }
 
-    // object .merge
-    public boolean _jm_obj_13(Object val, Path path, Report rep)
+    // check json_model_1_map_merge (.merge)
+    public boolean _jm_f_58(Object val, Path path, Report rep)
     {
+        // merge object properties
+        // .merge
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.merge]", path);
@@ -2218,7 +2112,7 @@ public class everything extends ModelChecker
             {
                 // handle may m0 property
                 // .merge.m0
-                res = _jm_obj_14(pval, (path != null ? lpath_8 : null), rep);
+                res = _jm_obj_3(pval, (path != null ? lpath_8 : null), rep);
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected element [.merge.m0]", (path != null ? lpath_8 : null));
@@ -2238,7 +2132,7 @@ public class everything extends ModelChecker
                 if (res)
                 {
                     // .merge.m1.'|'.0
-                    res = _jm_obj_16(pval, (path != null ? lpath_8 : null), rep);
+                    res = _jm_obj_5(pval, (path != null ? lpath_8 : null), rep);
                     if (! res)
                     {
                         if (rep != null) rep.addEntry("unexpected element [.merge.m1.'|'.0]", (path != null ? lpath_8 : null));
@@ -2246,7 +2140,7 @@ public class everything extends ModelChecker
                     if (! res)
                     {
                         // .merge.m1.'|'.1
-                        res = _jm_obj_15(pval, (path != null ? lpath_8 : null), rep);
+                        res = _jm_obj_4(pval, (path != null ? lpath_8 : null), rep);
                         if (! res)
                         {
                             if (rep != null) rep.addEntry("unexpected element [.merge.m1.'|'.1]", (path != null ? lpath_8 : null));
@@ -2279,7 +2173,7 @@ public class everything extends ModelChecker
                 if (res)
                 {
                     // .merge.m2.'|'.0
-                    res = _jm_obj_18(pval, (path != null ? lpath_8 : null), rep);
+                    res = _jm_obj_7(pval, (path != null ? lpath_8 : null), rep);
                     if (! res)
                     {
                         if (rep != null) rep.addEntry("unexpected element [.merge.m2.'|'.0]", (path != null ? lpath_8 : null));
@@ -2287,7 +2181,7 @@ public class everything extends ModelChecker
                     if (! res)
                     {
                         // .merge.m2.'|'.1
-                        res = _jm_obj_17(pval, (path != null ? lpath_8 : null), rep);
+                        res = _jm_obj_6(pval, (path != null ? lpath_8 : null), rep);
                         if (! res)
                         {
                             if (rep != null) rep.addEntry("unexpected element [.merge.m2.'|'.1]", (path != null ? lpath_8 : null));
@@ -2320,7 +2214,7 @@ public class everything extends ModelChecker
                 if (res)
                 {
                     // .merge.m3.'|'.0
-                    res = _jm_obj_22(pval, (path != null ? lpath_8 : null), rep);
+                    res = _jm_obj_11(pval, (path != null ? lpath_8 : null), rep);
                     if (! res)
                     {
                         if (rep != null) rep.addEntry("unexpected element [.merge.m3.'|'.0]", (path != null ? lpath_8 : null));
@@ -2328,7 +2222,7 @@ public class everything extends ModelChecker
                     if (! res)
                     {
                         // .merge.m3.'|'.1
-                        res = _jm_obj_21(pval, (path != null ? lpath_8 : null), rep);
+                        res = _jm_obj_10(pval, (path != null ? lpath_8 : null), rep);
                         if (! res)
                         {
                             if (rep != null) rep.addEntry("unexpected element [.merge.m3.'|'.1]", (path != null ? lpath_8 : null));
@@ -2336,7 +2230,7 @@ public class everything extends ModelChecker
                         if (! res)
                         {
                             // .merge.m3.'|'.2
-                            res = _jm_obj_20(pval, (path != null ? lpath_8 : null), rep);
+                            res = _jm_obj_9(pval, (path != null ? lpath_8 : null), rep);
                             if (! res)
                             {
                                 if (rep != null) rep.addEntry("unexpected element [.merge.m3.'|'.2]", (path != null ? lpath_8 : null));
@@ -2344,7 +2238,7 @@ public class everything extends ModelChecker
                             if (! res)
                             {
                                 // .merge.m3.'|'.3
-                                res = _jm_obj_19(pval, (path != null ? lpath_8 : null), rep);
+                                res = _jm_obj_8(pval, (path != null ? lpath_8 : null), rep);
                                 if (! res)
                                 {
                                     if (rep != null) rep.addEntry("unexpected element [.merge.m3.'|'.3]", (path != null ? lpath_8 : null));
@@ -2371,7 +2265,7 @@ public class everything extends ModelChecker
             {
                 // handle may m4 property
                 // .merge.m4
-                res = _jm_obj_23(pval, (path != null ? lpath_8 : null), rep);
+                res = _jm_obj_12(pval, (path != null ? lpath_8 : null), rep);
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected element [.merge.m4]", (path != null ? lpath_8 : null));
@@ -2388,23 +2282,11 @@ public class everything extends ModelChecker
         return true;
     }
 
-    // check _jm_obj_2_map_merge (.merge)
-    public boolean _jm_f_58(Object val, Path path, Report rep)
+    // check json_model_1_map_null (.null)
+    public boolean _jm_f_59(Object val, Path path, Report rep)
     {
-        boolean res;
-        // merge object properties
-        // .merge
-        res = _jm_obj_13(val, path, rep);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected element [.merge]", path);
-        }
-        return res;
-    }
-
-    // object .null
-    public boolean _jm_obj_24(Object val, Path path, Report rep)
-    {
+        // null: inference, predefs, constants
+        // .null
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.null]", path);
@@ -2462,23 +2344,10 @@ public class everything extends ModelChecker
         return true;
     }
 
-    // check _jm_obj_2_map_null (.null)
-    public boolean _jm_f_59(Object val, Path path, Report rep)
+    // check _jm_f_60_map_o0 (.object.o0)
+    public boolean _jm_f_61(Object val, Path path, Report rep)
     {
-        boolean res;
-        // null: inference, predefs, constants
-        // .null
-        res = _jm_obj_24(val, path, rep);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected element [.null]", path);
-        }
-        return res;
-    }
-
-    // object .object.o0
-    public boolean _jm_obj_26(Object val, Path path, Report rep)
-    {
+        // .object.o0
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.object.o0]", path);
@@ -2495,22 +2364,10 @@ public class everything extends ModelChecker
         }
     }
 
-    // check _jm_obj_25_map_o0 (.object.o0)
-    public boolean _jm_f_61(Object val, Path path, Report rep)
+    // check _jm_f_60_map_o1 (.object.o1)
+    public boolean _jm_f_62(Object val, Path path, Report rep)
     {
-        boolean res;
-        // .object.o0
-        res = _jm_obj_26(val, path, rep);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected element [.object.o0]", path);
-        }
-        return res;
-    }
-
-    // object .object.o1
-    public boolean _jm_obj_27(Object val, Path path, Report rep)
-    {
+        // .object.o1
         // check close must only props
         if (! json.isObject(val))
         {
@@ -2570,22 +2427,10 @@ public class everything extends ModelChecker
         return true;
     }
 
-    // check _jm_obj_25_map_o1 (.object.o1)
-    public boolean _jm_f_62(Object val, Path path, Report rep)
+    // check _jm_f_60_map_o2 (.object.o2)
+    public boolean _jm_f_63(Object val, Path path, Report rep)
     {
-        boolean res;
-        // .object.o1
-        res = _jm_obj_27(val, path, rep);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected element [.object.o1]", path);
-        }
-        return res;
-    }
-
-    // object .object.o2
-    public boolean _jm_obj_28(Object val, Path path, Report rep)
-    {
+        // .object.o2
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.object.o2]", path);
@@ -2619,22 +2464,10 @@ public class everything extends ModelChecker
         return true;
     }
 
-    // check _jm_obj_25_map_o2 (.object.o2)
-    public boolean _jm_f_63(Object val, Path path, Report rep)
+    // check _jm_f_60_map_o3 (.object.o3)
+    public boolean _jm_f_64(Object val, Path path, Report rep)
     {
-        boolean res;
-        // .object.o2
-        res = _jm_obj_28(val, path, rep);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected element [.object.o2]", path);
-        }
-        return res;
-    }
-
-    // object .object.o3
-    public boolean _jm_obj_29(Object val, Path path, Report rep)
-    {
+        // .object.o3
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.object.o3]", path);
@@ -2667,22 +2500,10 @@ public class everything extends ModelChecker
         return true;
     }
 
-    // check _jm_obj_25_map_o3 (.object.o3)
-    public boolean _jm_f_64(Object val, Path path, Report rep)
+    // check _jm_f_60_map_o4 (.object.o4)
+    public boolean _jm_f_65(Object val, Path path, Report rep)
     {
-        boolean res;
-        // .object.o3
-        res = _jm_obj_29(val, path, rep);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected element [.object.o3]", path);
-        }
-        return res;
-    }
-
-    // object .object.o4
-    public boolean _jm_obj_30(Object val, Path path, Report rep)
-    {
+        // .object.o4
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.object.o4]", path);
@@ -2715,22 +2536,10 @@ public class everything extends ModelChecker
         return true;
     }
 
-    // check _jm_obj_25_map_o4 (.object.o4)
-    public boolean _jm_f_65(Object val, Path path, Report rep)
+    // check _jm_f_60_map_o5 (.object.o5)
+    public boolean _jm_f_66(Object val, Path path, Report rep)
     {
-        boolean res;
-        // .object.o4
-        res = _jm_obj_30(val, path, rep);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected element [.object.o4]", path);
-        }
-        return res;
-    }
-
-    // object .object.o5
-    public boolean _jm_obj_31(Object val, Path path, Report rep)
-    {
+        // .object.o5
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.object.o5]", path);
@@ -2755,22 +2564,10 @@ public class everything extends ModelChecker
         return true;
     }
 
-    // check _jm_obj_25_map_o5 (.object.o5)
-    public boolean _jm_f_66(Object val, Path path, Report rep)
+    // check _jm_f_60_map_o6 (.object.o6)
+    public boolean _jm_f_67(Object val, Path path, Report rep)
     {
-        boolean res;
-        // .object.o5
-        res = _jm_obj_31(val, path, rep);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected element [.object.o5]", path);
-        }
-        return res;
-    }
-
-    // object .object.o6
-    public boolean _jm_obj_32(Object val, Path path, Report rep)
-    {
+        // .object.o6
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.object.o6]", path);
@@ -2780,23 +2577,12 @@ public class everything extends ModelChecker
         return true;
     }
 
-    // check _jm_obj_25_map_o6 (.object.o6)
-    public boolean _jm_f_67(Object val, Path path, Report rep)
-    {
-        boolean res;
-        // .object.o6
-        res = _jm_obj_32(val, path, rep);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected element [.object.o6]", path);
-        }
-        return res;
-    }
 
-
-    // object .object
-    public boolean _jm_obj_25(Object val, Path path, Report rep)
+    // check json_model_1_map_object (.object)
+    public boolean _jm_f_60(Object val, Path path, Report rep)
     {
+        // object map property names to values
+        // .object
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.object]", path);
@@ -2809,7 +2595,7 @@ public class everything extends ModelChecker
             String prop = prop_loop.next();
             Object pval = json.objectValue(val, prop);
             Path lpath_11 = new Path(prop, path);
-            if ((pfun = _jm_obj_25_map_pmap.get(prop)) != null)
+            if ((pfun = _jm_f_60_map_pmap.get(prop)) != null)
             {
                 // handle 7 may props
                 if (pfun != null && ! (pfun.call(pval, (path != null ? lpath_11 : null), rep)))
@@ -2827,22 +2613,8 @@ public class everything extends ModelChecker
         return true;
     }
 
-    // check _jm_obj_2_map_object (.object)
-    public boolean _jm_f_60(Object val, Path path, Report rep)
-    {
-        boolean res;
-        // object map property names to values
-        // .object
-        res = _jm_obj_25(val, path, rep);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected element [.object]", path);
-        }
-        return res;
-    }
-
     // object .or.o2.'|'.3
-    public boolean _jm_obj_34(Object val, Path path, Report rep)
+    public boolean _jm_obj_13(Object val, Path path, Report rep)
     {
         if (! json.isObject(val))
         {
@@ -2853,9 +2625,11 @@ public class everything extends ModelChecker
         return true;
     }
 
-    // object .or
-    public boolean _jm_obj_33(Object val, Path path, Report rep)
+    // check json_model_1_map_or (.or)
+    public boolean _jm_f_68(Object val, Path path, Report rep)
     {
+        // soft alternative, first match
+        // .or
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.or]", path);
@@ -2957,7 +2731,7 @@ public class everything extends ModelChecker
                         if (! res)
                         {
                             // .or.o2.'|'.3
-                            res = _jm_obj_34(pval, (path != null ? lpath_16 : null), rep);
+                            res = _jm_obj_13(pval, (path != null ? lpath_16 : null), rep);
                             if (! res)
                             {
                                 if (rep != null) rep.addEntry("unexpected element [.or.o2.'|'.3]", (path != null ? lpath_16 : null));
@@ -2985,21 +2759,7 @@ public class everything extends ModelChecker
         return true;
     }
 
-    // check _jm_obj_2_map_or (.or)
-    public boolean _jm_f_68(Object val, Path path, Report rep)
-    {
-        boolean res;
-        // soft alternative, first match
-        // .or
-        res = _jm_obj_33(val, path, rep);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected element [.or]", path);
-        }
-        return res;
-    }
-
-    // check _jm_obj_35_map_ANY (.predefs.ANY)
+    // check _jm_f_69_map_ANY (.predefs.ANY)
     public boolean _jm_f_70(Object val, Path path, Report rep)
     {
         boolean res;
@@ -3012,7 +2772,7 @@ public class everything extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_35_map_BOOL (.predefs.BOOL)
+    // check _jm_f_69_map_BOOL (.predefs.BOOL)
     public boolean _jm_f_71(Object val, Path path, Report rep)
     {
         boolean res;
@@ -3025,7 +2785,7 @@ public class everything extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_35_map_BOOLEAN (.predefs.BOOLEAN)
+    // check _jm_f_69_map_BOOLEAN (.predefs.BOOLEAN)
     public boolean _jm_f_72(Object val, Path path, Report rep)
     {
         boolean res;
@@ -3038,7 +2798,7 @@ public class everything extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_35_map_DATE (.predefs.DATE)
+    // check _jm_f_69_map_DATE (.predefs.DATE)
     public boolean _jm_f_73(Object val, Path path, Report rep)
     {
         boolean res;
@@ -3051,7 +2811,7 @@ public class everything extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_35_map_DATETIME (.predefs.DATETIME)
+    // check _jm_f_69_map_DATETIME (.predefs.DATETIME)
     public boolean _jm_f_74(Object val, Path path, Report rep)
     {
         boolean res;
@@ -3064,7 +2824,7 @@ public class everything extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_35_map_EMAIL (.predefs.EMAIL)
+    // check _jm_f_69_map_EMAIL (.predefs.EMAIL)
     public boolean _jm_f_75(Object val, Path path, Report rep)
     {
         boolean res;
@@ -3077,7 +2837,7 @@ public class everything extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_35_map_EXREG (.predefs.EXREG)
+    // check _jm_f_69_map_EXREG (.predefs.EXREG)
     public boolean _jm_f_76(Object val, Path path, Report rep)
     {
         boolean res;
@@ -3090,7 +2850,7 @@ public class everything extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_35_map_F32 (.predefs.F32)
+    // check _jm_f_69_map_F32 (.predefs.F32)
     public boolean _jm_f_77(Object val, Path path, Report rep)
     {
         boolean res;
@@ -3103,7 +2863,7 @@ public class everything extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_35_map_F64 (.predefs.F64)
+    // check _jm_f_69_map_F64 (.predefs.F64)
     public boolean _jm_f_78(Object val, Path path, Report rep)
     {
         boolean res;
@@ -3116,7 +2876,7 @@ public class everything extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_35_map_FLOAT (.predefs.FLOAT)
+    // check _jm_f_69_map_FLOAT (.predefs.FLOAT)
     public boolean _jm_f_79(Object val, Path path, Report rep)
     {
         boolean res;
@@ -3129,7 +2889,7 @@ public class everything extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_35_map_I32 (.predefs.I32)
+    // check _jm_f_69_map_I32 (.predefs.I32)
     public boolean _jm_f_80(Object val, Path path, Report rep)
     {
         boolean res;
@@ -3142,7 +2902,7 @@ public class everything extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_35_map_I64 (.predefs.I64)
+    // check _jm_f_69_map_I64 (.predefs.I64)
     public boolean _jm_f_81(Object val, Path path, Report rep)
     {
         boolean res;
@@ -3155,7 +2915,7 @@ public class everything extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_35_map_INT (.predefs.INT)
+    // check _jm_f_69_map_INT (.predefs.INT)
     public boolean _jm_f_82(Object val, Path path, Report rep)
     {
         boolean res;
@@ -3168,7 +2928,7 @@ public class everything extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_35_map_INTEGER (.predefs.INTEGER)
+    // check _jm_f_69_map_INTEGER (.predefs.INTEGER)
     public boolean _jm_f_83(Object val, Path path, Report rep)
     {
         boolean res;
@@ -3181,7 +2941,7 @@ public class everything extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_35_map_JSON (.predefs.JSON)
+    // check _jm_f_69_map_JSON (.predefs.JSON)
     public boolean _jm_f_84(Object val, Path path, Report rep)
     {
         boolean res;
@@ -3194,7 +2954,7 @@ public class everything extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_35_map_NONE (.predefs.NONE)
+    // check _jm_f_69_map_NONE (.predefs.NONE)
     public boolean _jm_f_85(Object val, Path path, Report rep)
     {
         boolean res;
@@ -3207,7 +2967,7 @@ public class everything extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_35_map_NULL (.predefs.NULL)
+    // check _jm_f_69_map_NULL (.predefs.NULL)
     public boolean _jm_f_86(Object val, Path path, Report rep)
     {
         boolean res;
@@ -3220,7 +2980,7 @@ public class everything extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_35_map_NUMBER (.predefs.NUMBER)
+    // check _jm_f_69_map_NUMBER (.predefs.NUMBER)
     public boolean _jm_f_87(Object val, Path path, Report rep)
     {
         boolean res;
@@ -3233,7 +2993,7 @@ public class everything extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_35_map_REGEX (.predefs.REGEX)
+    // check _jm_f_69_map_REGEX (.predefs.REGEX)
     public boolean _jm_f_88(Object val, Path path, Report rep)
     {
         boolean res;
@@ -3246,7 +3006,7 @@ public class everything extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_35_map_STRING (.predefs.STRING)
+    // check _jm_f_69_map_STRING (.predefs.STRING)
     public boolean _jm_f_89(Object val, Path path, Report rep)
     {
         boolean res;
@@ -3259,7 +3019,7 @@ public class everything extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_35_map_TIME (.predefs.TIME)
+    // check _jm_f_69_map_TIME (.predefs.TIME)
     public boolean _jm_f_90(Object val, Path path, Report rep)
     {
         boolean res;
@@ -3272,7 +3032,7 @@ public class everything extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_35_map_U32 (.predefs.U32)
+    // check _jm_f_69_map_U32 (.predefs.U32)
     public boolean _jm_f_91(Object val, Path path, Report rep)
     {
         boolean res;
@@ -3285,7 +3045,7 @@ public class everything extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_35_map_U64 (.predefs.U64)
+    // check _jm_f_69_map_U64 (.predefs.U64)
     public boolean _jm_f_92(Object val, Path path, Report rep)
     {
         boolean res;
@@ -3298,7 +3058,7 @@ public class everything extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_35_map_URI (.predefs.URI)
+    // check _jm_f_69_map_URI (.predefs.URI)
     public boolean _jm_f_93(Object val, Path path, Report rep)
     {
         boolean res;
@@ -3311,7 +3071,7 @@ public class everything extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_35_map_URL (.predefs.URL)
+    // check _jm_f_69_map_URL (.predefs.URL)
     public boolean _jm_f_94(Object val, Path path, Report rep)
     {
         boolean res;
@@ -3324,7 +3084,7 @@ public class everything extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_35_map_UUID (.predefs.UUID)
+    // check _jm_f_69_map_UUID (.predefs.UUID)
     public boolean _jm_f_95(Object val, Path path, Report rep)
     {
         boolean res;
@@ -3338,9 +3098,11 @@ public class everything extends ModelChecker
     }
 
 
-    // object .predefs
-    public boolean _jm_obj_35(Object val, Path path, Report rep)
+    // check json_model_1_map_predefs (.predefs)
+    public boolean _jm_f_69(Object val, Path path, Report rep)
     {
+        // predefined models
+        // .predefs
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.predefs]", path);
@@ -3353,7 +3115,7 @@ public class everything extends ModelChecker
             String prop = prop_loop.next();
             Object pval = json.objectValue(val, prop);
             Path lpath_17 = new Path(prop, path);
-            if ((pfun = _jm_obj_35_map_pmap.get(prop)) != null)
+            if ((pfun = _jm_f_69_map_pmap.get(prop)) != null)
             {
                 // handle 26 may props
                 if (pfun != null && ! (pfun.call(pval, (path != null ? lpath_17 : null), rep)))
@@ -3371,28 +3133,16 @@ public class everything extends ModelChecker
         return true;
     }
 
-    // check _jm_obj_2_map_predefs (.predefs)
-    public boolean _jm_f_69(Object val, Path path, Report rep)
-    {
-        boolean res;
-        // predefined models
-        // .predefs
-        res = _jm_obj_35(val, path, rep);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected element [.predefs]", path);
-        }
-        return res;
-    }
-
     public boolean _jm_re_0(String val, Path path, Report rep)
     {
         return _jm_re_0_pat.matcher(val).find();
     }
 
-    // object .string
-    public boolean _jm_obj_36(Object val, Path path, Report rep)
+    // check json_model_1_map_string (.string)
+    public boolean _jm_f_96(Object val, Path path, Report rep)
     {
+        // strings: inference, predef, constants, regex
+        // .string
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.string]", path);
@@ -3475,23 +3225,11 @@ public class everything extends ModelChecker
         return true;
     }
 
-    // check _jm_obj_2_map_string (.string)
-    public boolean _jm_f_96(Object val, Path path, Report rep)
+    // check json_model_1_map_tuple (.tuple)
+    public boolean _jm_f_97(Object val, Path path, Report rep)
     {
-        boolean res;
-        // strings: inference, predef, constants, regex
-        // .string
-        res = _jm_obj_36(val, path, rep);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected element [.string]", path);
-        }
-        return res;
-    }
-
-    // object .tuple
-    public boolean _jm_obj_37(Object val, Path path, Report rep)
-    {
+        // tuple items have a type
+        // .tuple
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.tuple]", path);
@@ -3696,23 +3434,11 @@ public class everything extends ModelChecker
         return true;
     }
 
-    // check _jm_obj_2_map_tuple (.tuple)
-    public boolean _jm_f_97(Object val, Path path, Report rep)
+    // check json_model_1_map_xor (.xor)
+    public boolean _jm_f_98(Object val, Path path, Report rep)
     {
-        boolean res;
-        // tuple items have a type
-        // .tuple
-        res = _jm_obj_37(val, path, rep);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected element [.tuple]", path);
-        }
-        return res;
-    }
-
-    // object .xor
-    public boolean _jm_obj_38(Object val, Path path, Report rep)
-    {
+        // hard alternative, only one must match
+        // .xor
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.xor]", path);
@@ -3868,24 +3594,12 @@ public class everything extends ModelChecker
         return true;
     }
 
-    // check _jm_obj_2_map_xor (.xor)
-    public boolean _jm_f_98(Object val, Path path, Report rep)
-    {
-        boolean res;
-        // hard alternative, only one must match
-        // .xor
-        res = _jm_obj_38(val, path, rep);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected element [.xor]", path);
-        }
-        return res;
-    }
 
-
-    // object .
-    public boolean _jm_obj_2(Object val, Path path, Report rep)
+    // check $ (.)
+    public boolean json_model_1(Object val, Path path, Report rep)
     {
+        // A model to illustrate most design features
+        // .
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.]", path);
@@ -3898,7 +3612,7 @@ public class everything extends ModelChecker
             String prop = prop_loop.next();
             Object pval = json.objectValue(val, prop);
             Path lpath_0 = new Path(prop, path);
-            if ((pfun = _jm_obj_2_map_pmap.get(prop)) != null)
+            if ((pfun = json_model_1_map_pmap.get(prop)) != null)
             {
                 // handle 15 may props
                 if (pfun != null && ! (pfun.call(pval, (path != null ? lpath_0 : null), rep)))
@@ -3916,20 +3630,6 @@ public class everything extends ModelChecker
         return true;
     }
 
-    // check $ (.)
-    public boolean json_model_1(Object val, Path path, Report rep)
-    {
-        boolean res;
-        // A model to illustrate most design features
-        // .
-        res = _jm_obj_2(val, path, rep);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected element [.]", path);
-        }
-        return res;
-    }
-
 
     public void init(JSON json)
     {
@@ -3939,39 +3639,39 @@ public class everything extends ModelChecker
             _jm_cst_0_set = new HashSet<Object>();
             _jm_cst_0_set.add(json.safeJSON("false"));
             _jm_cst_0_set.add(json.safeJSON("true"));
-            _jm_obj_5_map_pmap = new HashMap<String, Checker>();
-            _jm_obj_5_map_pmap.put("b0", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_3(o, p, r);} });
-            _jm_obj_5_map_pmap.put("b1", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_4(o, p, r);} });
-            _jm_obj_5_map_pmap.put("b2", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_5(o, p, r);} });
-            _jm_obj_5_map_pmap.put("b3", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_6(o, p, r);} });
-            _jm_obj_5_map_pmap.put("b4", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_7(o, p, r);} });
-            _jm_obj_5_map_pmap.put("b5", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_8(o, p, r);} });
-            _jm_obj_6_map_pmap = new HashMap<String, Checker>();
-            _jm_obj_6_map_pmap.put("cia0", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_10(o, p, r);} });
-            _jm_obj_6_map_pmap.put("cia1", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_11(o, p, r);} });
-            _jm_obj_6_map_pmap.put("cia2", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_12(o, p, r);} });
-            _jm_obj_6_map_pmap.put("cii0", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_13(o, p, r);} });
-            _jm_obj_6_map_pmap.put("cii1", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_14(o, p, r);} });
-            _jm_obj_6_map_pmap.put("cii2", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_15(o, p, r);} });
-            _jm_obj_6_map_pmap.put("cin0", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_16(o, p, r);} });
-            _jm_obj_6_map_pmap.put("cin1", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_17(o, p, r);} });
-            _jm_obj_6_map_pmap.put("cin2", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_18(o, p, r);} });
-            _jm_obj_6_map_pmap.put("cio0", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_19(o, p, r);} });
-            _jm_obj_6_map_pmap.put("cio1", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_20(o, p, r);} });
-            _jm_obj_6_map_pmap.put("cio2", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_21(o, p, r);} });
-            _jm_obj_6_map_pmap.put("cis0", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_22(o, p, r);} });
-            _jm_obj_6_map_pmap.put("cis1", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_23(o, p, r);} });
-            _jm_obj_6_map_pmap.put("cis2", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_24(o, p, r);} });
-            _jm_obj_6_map_pmap.put("cni0", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_25(o, p, r);} });
-            _jm_obj_6_map_pmap.put("cni1", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_26(o, p, r);} });
-            _jm_obj_6_map_pmap.put("cni2", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_27(o, p, r);} });
-            _jm_obj_6_map_pmap.put("cnn0", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_28(o, p, r);} });
-            _jm_obj_6_map_pmap.put("cnn1", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_29(o, p, r);} });
-            _jm_obj_6_map_pmap.put("cnn2", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_30(o, p, r);} });
-            _jm_obj_6_map_pmap.put("css0", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_31(o, p, r);} });
-            _jm_obj_6_map_pmap.put("css1", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_32(o, p, r);} });
-            _jm_obj_6_map_pmap.put("css2", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_33(o, p, r);} });
-            _jm_obj_6_map_pmap.put("cua0", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_34(o, p, r);} });
+            _jm_f_2_map_pmap = new HashMap<String, Checker>();
+            _jm_f_2_map_pmap.put("b0", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_3(o, p, r);} });
+            _jm_f_2_map_pmap.put("b1", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_4(o, p, r);} });
+            _jm_f_2_map_pmap.put("b2", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_5(o, p, r);} });
+            _jm_f_2_map_pmap.put("b3", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_6(o, p, r);} });
+            _jm_f_2_map_pmap.put("b4", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_7(o, p, r);} });
+            _jm_f_2_map_pmap.put("b5", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_8(o, p, r);} });
+            _jm_f_9_map_pmap = new HashMap<String, Checker>();
+            _jm_f_9_map_pmap.put("cia0", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_10(o, p, r);} });
+            _jm_f_9_map_pmap.put("cia1", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_11(o, p, r);} });
+            _jm_f_9_map_pmap.put("cia2", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_12(o, p, r);} });
+            _jm_f_9_map_pmap.put("cii0", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_13(o, p, r);} });
+            _jm_f_9_map_pmap.put("cii1", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_14(o, p, r);} });
+            _jm_f_9_map_pmap.put("cii2", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_15(o, p, r);} });
+            _jm_f_9_map_pmap.put("cin0", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_16(o, p, r);} });
+            _jm_f_9_map_pmap.put("cin1", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_17(o, p, r);} });
+            _jm_f_9_map_pmap.put("cin2", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_18(o, p, r);} });
+            _jm_f_9_map_pmap.put("cio0", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_19(o, p, r);} });
+            _jm_f_9_map_pmap.put("cio1", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_20(o, p, r);} });
+            _jm_f_9_map_pmap.put("cio2", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_21(o, p, r);} });
+            _jm_f_9_map_pmap.put("cis0", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_22(o, p, r);} });
+            _jm_f_9_map_pmap.put("cis1", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_23(o, p, r);} });
+            _jm_f_9_map_pmap.put("cis2", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_24(o, p, r);} });
+            _jm_f_9_map_pmap.put("cni0", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_25(o, p, r);} });
+            _jm_f_9_map_pmap.put("cni1", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_26(o, p, r);} });
+            _jm_f_9_map_pmap.put("cni2", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_27(o, p, r);} });
+            _jm_f_9_map_pmap.put("cnn0", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_28(o, p, r);} });
+            _jm_f_9_map_pmap.put("cnn1", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_29(o, p, r);} });
+            _jm_f_9_map_pmap.put("cnn2", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_30(o, p, r);} });
+            _jm_f_9_map_pmap.put("css0", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_31(o, p, r);} });
+            _jm_f_9_map_pmap.put("css1", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_32(o, p, r);} });
+            _jm_f_9_map_pmap.put("css2", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_33(o, p, r);} });
+            _jm_f_9_map_pmap.put("cua0", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_34(o, p, r);} });
             _jm_cst_1_set = new HashSet<Object>();
             _jm_cst_1_set.add(json.safeJSON("true"));
             _jm_cst_1_set.add(json.safeJSON("false"));
@@ -3988,86 +3688,86 @@ public class everything extends ModelChecker
             _jm_cst_4_set.add(json.safeJSON("42"));
             _jm_cst_4_set.add(json.safeJSON("true"));
             _jm_cst_4_set.add(json.safeJSON("null"));
-            _jm_obj_11_map_pmap = new HashMap<String, Checker>();
-            _jm_obj_11_map_pmap.put("f0", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_37(o, p, r);} });
-            _jm_obj_11_map_pmap.put("f1", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_38(o, p, r);} });
-            _jm_obj_11_map_pmap.put("f2", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_39(o, p, r);} });
-            _jm_obj_11_map_pmap.put("f3", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_40(o, p, r);} });
-            _jm_obj_11_map_pmap.put("f4", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_41(o, p, r);} });
-            _jm_obj_11_map_pmap.put("f5", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_42(o, p, r);} });
-            _jm_obj_11_map_pmap.put("f6", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_43(o, p, r);} });
-            _jm_obj_11_map_pmap.put("f7", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_44(o, p, r);} });
-            _jm_obj_11_map_pmap.put("f8", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_45(o, p, r);} });
-            _jm_obj_12_map_pmap = new HashMap<String, Checker>();
-            _jm_obj_12_map_pmap.put("i0", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_47(o, p, r);} });
-            _jm_obj_12_map_pmap.put("i1", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_48(o, p, r);} });
-            _jm_obj_12_map_pmap.put("i2", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_49(o, p, r);} });
-            _jm_obj_12_map_pmap.put("i3", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_50(o, p, r);} });
-            _jm_obj_12_map_pmap.put("i4", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_51(o, p, r);} });
-            _jm_obj_12_map_pmap.put("i5", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_52(o, p, r);} });
-            _jm_obj_12_map_pmap.put("i6", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_53(o, p, r);} });
-            _jm_obj_12_map_pmap.put("i7", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_54(o, p, r);} });
-            _jm_obj_12_map_pmap.put("i8", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_55(o, p, r);} });
-            _jm_obj_12_map_pmap.put("i9", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_56(o, p, r);} });
-            _jm_obj_12_map_pmap.put("ia", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_57(o, p, r);} });
-            _jm_obj_25_map_pmap = new HashMap<String, Checker>();
-            _jm_obj_25_map_pmap.put("o0", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_61(o, p, r);} });
-            _jm_obj_25_map_pmap.put("o1", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_62(o, p, r);} });
-            _jm_obj_25_map_pmap.put("o2", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_63(o, p, r);} });
-            _jm_obj_25_map_pmap.put("o3", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_64(o, p, r);} });
-            _jm_obj_25_map_pmap.put("o4", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_65(o, p, r);} });
-            _jm_obj_25_map_pmap.put("o5", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_66(o, p, r);} });
-            _jm_obj_25_map_pmap.put("o6", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_67(o, p, r);} });
-            _jm_obj_35_map_pmap = new HashMap<String, Checker>();
-            _jm_obj_35_map_pmap.put("ANY", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_70(o, p, r);} });
-            _jm_obj_35_map_pmap.put("BOOL", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_71(o, p, r);} });
-            _jm_obj_35_map_pmap.put("BOOLEAN", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_72(o, p, r);} });
-            _jm_obj_35_map_pmap.put("DATE", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_73(o, p, r);} });
-            _jm_obj_35_map_pmap.put("DATETIME", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_74(o, p, r);} });
-            _jm_obj_35_map_pmap.put("EMAIL", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_75(o, p, r);} });
-            _jm_obj_35_map_pmap.put("EXREG", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_76(o, p, r);} });
-            _jm_obj_35_map_pmap.put("F32", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_77(o, p, r);} });
-            _jm_obj_35_map_pmap.put("F64", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_78(o, p, r);} });
-            _jm_obj_35_map_pmap.put("FLOAT", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_79(o, p, r);} });
-            _jm_obj_35_map_pmap.put("I32", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_80(o, p, r);} });
-            _jm_obj_35_map_pmap.put("I64", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_81(o, p, r);} });
-            _jm_obj_35_map_pmap.put("INT", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_82(o, p, r);} });
-            _jm_obj_35_map_pmap.put("INTEGER", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_83(o, p, r);} });
-            _jm_obj_35_map_pmap.put("JSON", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_84(o, p, r);} });
-            _jm_obj_35_map_pmap.put("NONE", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_85(o, p, r);} });
-            _jm_obj_35_map_pmap.put("NULL", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_86(o, p, r);} });
-            _jm_obj_35_map_pmap.put("NUMBER", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_87(o, p, r);} });
-            _jm_obj_35_map_pmap.put("REGEX", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_88(o, p, r);} });
-            _jm_obj_35_map_pmap.put("STRING", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_89(o, p, r);} });
-            _jm_obj_35_map_pmap.put("TIME", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_90(o, p, r);} });
-            _jm_obj_35_map_pmap.put("U32", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_91(o, p, r);} });
-            _jm_obj_35_map_pmap.put("U64", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_92(o, p, r);} });
-            _jm_obj_35_map_pmap.put("URI", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_93(o, p, r);} });
-            _jm_obj_35_map_pmap.put("URL", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_94(o, p, r);} });
-            _jm_obj_35_map_pmap.put("UUID", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_95(o, p, r);} });
+            _jm_f_36_map_pmap = new HashMap<String, Checker>();
+            _jm_f_36_map_pmap.put("f0", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_37(o, p, r);} });
+            _jm_f_36_map_pmap.put("f1", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_38(o, p, r);} });
+            _jm_f_36_map_pmap.put("f2", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_39(o, p, r);} });
+            _jm_f_36_map_pmap.put("f3", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_40(o, p, r);} });
+            _jm_f_36_map_pmap.put("f4", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_41(o, p, r);} });
+            _jm_f_36_map_pmap.put("f5", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_42(o, p, r);} });
+            _jm_f_36_map_pmap.put("f6", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_43(o, p, r);} });
+            _jm_f_36_map_pmap.put("f7", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_44(o, p, r);} });
+            _jm_f_36_map_pmap.put("f8", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_45(o, p, r);} });
+            _jm_f_46_map_pmap = new HashMap<String, Checker>();
+            _jm_f_46_map_pmap.put("i0", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_47(o, p, r);} });
+            _jm_f_46_map_pmap.put("i1", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_48(o, p, r);} });
+            _jm_f_46_map_pmap.put("i2", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_49(o, p, r);} });
+            _jm_f_46_map_pmap.put("i3", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_50(o, p, r);} });
+            _jm_f_46_map_pmap.put("i4", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_51(o, p, r);} });
+            _jm_f_46_map_pmap.put("i5", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_52(o, p, r);} });
+            _jm_f_46_map_pmap.put("i6", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_53(o, p, r);} });
+            _jm_f_46_map_pmap.put("i7", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_54(o, p, r);} });
+            _jm_f_46_map_pmap.put("i8", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_55(o, p, r);} });
+            _jm_f_46_map_pmap.put("i9", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_56(o, p, r);} });
+            _jm_f_46_map_pmap.put("ia", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_57(o, p, r);} });
+            _jm_f_60_map_pmap = new HashMap<String, Checker>();
+            _jm_f_60_map_pmap.put("o0", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_61(o, p, r);} });
+            _jm_f_60_map_pmap.put("o1", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_62(o, p, r);} });
+            _jm_f_60_map_pmap.put("o2", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_63(o, p, r);} });
+            _jm_f_60_map_pmap.put("o3", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_64(o, p, r);} });
+            _jm_f_60_map_pmap.put("o4", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_65(o, p, r);} });
+            _jm_f_60_map_pmap.put("o5", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_66(o, p, r);} });
+            _jm_f_60_map_pmap.put("o6", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_67(o, p, r);} });
+            _jm_f_69_map_pmap = new HashMap<String, Checker>();
+            _jm_f_69_map_pmap.put("ANY", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_70(o, p, r);} });
+            _jm_f_69_map_pmap.put("BOOL", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_71(o, p, r);} });
+            _jm_f_69_map_pmap.put("BOOLEAN", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_72(o, p, r);} });
+            _jm_f_69_map_pmap.put("DATE", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_73(o, p, r);} });
+            _jm_f_69_map_pmap.put("DATETIME", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_74(o, p, r);} });
+            _jm_f_69_map_pmap.put("EMAIL", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_75(o, p, r);} });
+            _jm_f_69_map_pmap.put("EXREG", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_76(o, p, r);} });
+            _jm_f_69_map_pmap.put("F32", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_77(o, p, r);} });
+            _jm_f_69_map_pmap.put("F64", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_78(o, p, r);} });
+            _jm_f_69_map_pmap.put("FLOAT", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_79(o, p, r);} });
+            _jm_f_69_map_pmap.put("I32", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_80(o, p, r);} });
+            _jm_f_69_map_pmap.put("I64", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_81(o, p, r);} });
+            _jm_f_69_map_pmap.put("INT", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_82(o, p, r);} });
+            _jm_f_69_map_pmap.put("INTEGER", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_83(o, p, r);} });
+            _jm_f_69_map_pmap.put("JSON", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_84(o, p, r);} });
+            _jm_f_69_map_pmap.put("NONE", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_85(o, p, r);} });
+            _jm_f_69_map_pmap.put("NULL", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_86(o, p, r);} });
+            _jm_f_69_map_pmap.put("NUMBER", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_87(o, p, r);} });
+            _jm_f_69_map_pmap.put("REGEX", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_88(o, p, r);} });
+            _jm_f_69_map_pmap.put("STRING", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_89(o, p, r);} });
+            _jm_f_69_map_pmap.put("TIME", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_90(o, p, r);} });
+            _jm_f_69_map_pmap.put("U32", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_91(o, p, r);} });
+            _jm_f_69_map_pmap.put("U64", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_92(o, p, r);} });
+            _jm_f_69_map_pmap.put("URI", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_93(o, p, r);} });
+            _jm_f_69_map_pmap.put("URL", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_94(o, p, r);} });
+            _jm_f_69_map_pmap.put("UUID", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_95(o, p, r);} });
             _jm_re_0_pat = Pattern.compile("^(Calvin|Susie)$");
-            _jm_obj_2_map_pmap = new HashMap<String, Checker>();
-            _jm_obj_2_map_pmap.put("and", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_0(o, p, r);} });
-            _jm_obj_2_map_pmap.put("array", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_1(o, p, r);} });
-            _jm_obj_2_map_pmap.put("bool", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_2(o, p, r);} });
-            _jm_obj_2_map_pmap.put("constraints", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_9(o, p, r);} });
-            _jm_obj_2_map_pmap.put("enum", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_35(o, p, r);} });
-            _jm_obj_2_map_pmap.put("float", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_36(o, p, r);} });
-            _jm_obj_2_map_pmap.put("int", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_46(o, p, r);} });
-            _jm_obj_2_map_pmap.put("merge", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_58(o, p, r);} });
-            _jm_obj_2_map_pmap.put("null", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_59(o, p, r);} });
-            _jm_obj_2_map_pmap.put("object", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_60(o, p, r);} });
-            _jm_obj_2_map_pmap.put("or", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_68(o, p, r);} });
-            _jm_obj_2_map_pmap.put("predefs", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_69(o, p, r);} });
-            _jm_obj_2_map_pmap.put("string", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_96(o, p, r);} });
-            _jm_obj_2_map_pmap.put("tuple", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_97(o, p, r);} });
-            _jm_obj_2_map_pmap.put("xor", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_98(o, p, r);} });
+            json_model_1_map_pmap = new HashMap<String, Checker>();
+            json_model_1_map_pmap.put("and", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_0(o, p, r);} });
+            json_model_1_map_pmap.put("array", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_1(o, p, r);} });
+            json_model_1_map_pmap.put("bool", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_2(o, p, r);} });
+            json_model_1_map_pmap.put("constraints", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_9(o, p, r);} });
+            json_model_1_map_pmap.put("enum", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_35(o, p, r);} });
+            json_model_1_map_pmap.put("float", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_36(o, p, r);} });
+            json_model_1_map_pmap.put("int", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_46(o, p, r);} });
+            json_model_1_map_pmap.put("merge", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_58(o, p, r);} });
+            json_model_1_map_pmap.put("null", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_59(o, p, r);} });
+            json_model_1_map_pmap.put("object", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_60(o, p, r);} });
+            json_model_1_map_pmap.put("or", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_68(o, p, r);} });
+            json_model_1_map_pmap.put("predefs", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_69(o, p, r);} });
+            json_model_1_map_pmap.put("string", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_96(o, p, r);} });
+            json_model_1_map_pmap.put("tuple", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_97(o, p, r);} });
+            json_model_1_map_pmap.put("xor", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_98(o, p, r);} });
             everything_map_pmap = new HashMap<String, Checker>();
-            everything_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_2(o, p, r);} });
+            everything_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_1(o, p, r);} });
             everything_map_pmap.put("a", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_2(o, p, r);} });
             everything_map_pmap.put("b", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_3(o, p, r);} });
-            everything_map_pmap.put("ab", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_0(o, p, r);} });
-            everything_map_pmap.put("cd", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_1(o, p, r);} });
+            everything_map_pmap.put("ab", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
+            everything_map_pmap.put("cd", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_5(o, p, r);} });
                 super.init(json);
             }
             catch (Exception e) {
@@ -4082,18 +3782,18 @@ public class everything extends ModelChecker
         {
             super.free();
             _jm_cst_0_set = null;
-            _jm_obj_5_map_pmap = null;
-            _jm_obj_6_map_pmap = null;
+            _jm_f_2_map_pmap = null;
+            _jm_f_9_map_pmap = null;
             _jm_cst_1_set = null;
             _jm_cst_2_set = null;
             _jm_cst_3_set = null;
             _jm_cst_4_set = null;
-            _jm_obj_11_map_pmap = null;
-            _jm_obj_12_map_pmap = null;
-            _jm_obj_25_map_pmap = null;
-            _jm_obj_35_map_pmap = null;
+            _jm_f_36_map_pmap = null;
+            _jm_f_46_map_pmap = null;
+            _jm_f_60_map_pmap = null;
+            _jm_f_69_map_pmap = null;
             _jm_re_0_pat = null;
-            _jm_obj_2_map_pmap = null;
+            json_model_1_map_pmap = null;
             everything_map_pmap = null;
         }
     }

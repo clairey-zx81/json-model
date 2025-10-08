@@ -40,8 +40,9 @@ def json_model_3(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("unexpected $ex08#Ex08 [.'$Ex08']", path))
     return res
 
-# object .'$Ex09'
-def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
+# check $Ex09 (.'$Ex09')
+def json_model_4(val: Jsonable, path: Path, rep: Report) -> bool:
+    # .'$Ex09'
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$Ex09']", path))
         return False
@@ -69,20 +70,11 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
             return False
     return True
 
-# check $Ex09 (.'$Ex09')
-def json_model_4(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .'$Ex09'
-    res = _jm_obj_0(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected element [.'$Ex09']", path))
-    return res
-
 # check $ (.)
 def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .
-    res = _jm_obj_0(val, path, rep)
+    res = json_model_4(val, path, rep)
     if not res:
         rep is None or rep.append(("unexpected $Ex09 [.]", path))
     return res
@@ -101,7 +93,7 @@ def json_model_9(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$ex08#Ex08'
     # .'$ex08#Ex08'.'|'.0
-    res = _jm_obj_1(val, path, rep)
+    res = json_model_8(val, path, rep)
     if not res:
         rep is None or rep.append(("unexpected $map [.'$ex08#Ex08'.'|'.0]", path))
     if not res:
@@ -120,8 +112,9 @@ def json_model_9(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("no model matched [.'$ex08#Ex08'.'|']", path))
     return res
 
-# object .'$ex08#map'
-def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
+# check $ex08#map (.'$ex08#map')
+def json_model_8(val: Jsonable, path: Path, rep: Report) -> bool:
+    # .'$ex08#map'
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$ex08#map']", path))
         return False
@@ -141,15 +134,6 @@ def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
             return False
     return True
 
-# check $ex08#map (.'$ex08#map')
-def json_model_8(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .'$ex08#map'
-    res = _jm_obj_1(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected element [.'$ex08#map']", path))
-    return res
-
 
 # initialization guard
 initialized: bool = False
@@ -161,10 +145,10 @@ def check_model_init():
         initialized = True
         global check_model_map
         check_model_map = {
-            "": _jm_obj_0,
+            "": json_model_4,
             "ex08": json_model_9,
             "Ex08": json_model_9,
-            "Ex09": _jm_obj_0,
+            "Ex09": json_model_4,
         }
 
 # differed module cleanup

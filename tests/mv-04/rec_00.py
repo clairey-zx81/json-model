@@ -22,8 +22,9 @@ def check_model(val: Jsonable, name: str = "", rep: Report = None) -> bool:
 
 check_model_map: PropMap
 
-# object .'$obj'
-def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
+# check $obj (.'$obj')
+def json_model_2(val: Jsonable, path: Path, rep: Report) -> bool:
+    # .'$obj'
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$obj']", path))
         return False
@@ -39,15 +40,6 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
             return False
     return True
 
-# check $obj (.'$obj')
-def json_model_2(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .'$obj'
-    res = _jm_obj_0(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected element [.'$obj']", path))
-    return res
-
 # check $rec (.'$rec')
 def json_model_3(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
@@ -58,7 +50,7 @@ def json_model_3(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("not a bool [.'$rec'.'|'.0]", path))
     if not res:
         # .'$rec'.'|'.1
-        res = _jm_obj_0(val, path, rep)
+        res = json_model_2(val, path, rep)
         if not res:
             rep is None or rep.append(("unexpected $obj [.'$rec'.'|'.1]", path))
     if res:
@@ -88,7 +80,7 @@ def check_model_init():
         global check_model_map
         check_model_map = {
             "": json_model_3,
-            "obj": _jm_obj_0,
+            "obj": json_model_2,
             "rec": json_model_3,
         }
 

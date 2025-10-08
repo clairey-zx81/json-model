@@ -35,7 +35,6 @@ static jm_constmap_t _jm_map_0_tab[4];
 static bool json_model_10(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_0(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static jm_constant_t _jm_cst_3[13];
-static bool _jm_obj_9(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_2(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_3(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_4(const json_t *val, jm_path_t *path, jm_report_t *rep);
@@ -43,50 +42,41 @@ static bool _jm_f_5(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_6(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_7(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_8(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static jm_propmap_t _jm_obj_8_map_tab[7];
-static bool _jm_obj_8(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static jm_propmap_t _jm_obj_7_map_tab[7];
+static bool _jm_obj_7(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_1(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_9(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_11(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_12(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_13(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_14(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static bool _jm_obj_11(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_15(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static cre2_regexp_t *_jm_re_1_re2 = NULL;
 static int _jm_re_1_nn = 0;
 static bool _jm_re_1(const char *s, jm_path_t *path, jm_report_t *rep);
-static bool _jm_obj_13(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static bool _jm_obj_12(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static bool _jm_obj_8(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_16(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_17(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_18(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_19(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static jm_constant_t _jm_cst_4[4];
 static jm_constant_t _jm_cst_5[3];
-static bool _jm_obj_14(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_20(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_21(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static bool _jm_obj_15(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_22(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_23(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static jm_constant_t _jm_cst_6[2];
-static bool _jm_obj_16(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_24(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_25(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_26(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static jm_propmap_t _jm_obj_10_map_tab[16];
-static bool _jm_obj_10(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static jm_propmap_t _jm_f_10_map_tab[16];
 static bool _jm_f_10(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_28(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static bool _jm_obj_18(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_29(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static jm_constant_t _jm_cst_7[4];
 static bool _jm_f_30(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static bool _jm_obj_19(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_31(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_32(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static bool _jm_obj_20(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_33(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_34(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static jm_constant_t _jm_cst_8[9];
@@ -121,14 +111,12 @@ static bool _jm_f_60(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_61(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_62(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_63(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static jm_propmap_t _jm_obj_21_map_tab[10];
-static bool _jm_obj_21(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static jm_propmap_t _jm_f_53_map_tab[10];
 static bool _jm_f_53(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_64(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static jm_constant_t _jm_cst_12[3];
 static bool _jm_f_65(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static jm_propmap_t _jm_obj_17_map_tab[28];
-static bool _jm_obj_17(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static jm_propmap_t _jm_f_27_map_tab[28];
 static bool _jm_f_27(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_68(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_69(const json_t *val, jm_path_t *path, jm_report_t *rep);
@@ -143,10 +131,8 @@ static bool _jm_f_77(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_78(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_79(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_80(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static jm_propmap_t _jm_obj_23_map_tab[13];
-static bool _jm_obj_23(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static jm_propmap_t _jm_f_67_map_tab[13];
 static bool _jm_f_67(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static bool _jm_obj_24(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_81(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_83(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_84(const json_t *val, jm_path_t *path, jm_report_t *rep);
@@ -169,8 +155,7 @@ static bool _jm_f_100(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_101(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_102(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_103(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static jm_propmap_t _jm_obj_25_map_tab[21];
-static bool _jm_obj_25(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static jm_propmap_t _jm_f_82_map_tab[21];
 static bool _jm_f_82(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_105(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_106(const json_t *val, jm_path_t *path, jm_report_t *rep);
@@ -186,16 +171,11 @@ static bool _jm_f_115(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_116(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_117(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_118(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static jm_propmap_t _jm_obj_26_map_tab[14];
-static bool _jm_obj_26(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static jm_propmap_t _jm_f_104_map_tab[14];
 static bool _jm_f_104(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static bool _jm_obj_27(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_119(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static bool _jm_obj_28(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_120(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static bool _jm_obj_29(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_121(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static bool _jm_obj_30(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_122(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_124(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_125(const json_t *val, jm_path_t *path, jm_report_t *rep);
@@ -256,11 +236,9 @@ static bool _jm_f_179(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_180(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_181(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_182(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static jm_propmap_t _jm_obj_31_map_tab[59];
-static bool _jm_obj_31(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static jm_propmap_t _jm_f_123_map_tab[59];
 static bool _jm_f_123(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static jm_propmap_t _jm_obj_22_map_tab[9];
-static bool _jm_obj_22(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static jm_propmap_t _jm_f_66_map_tab[9];
 static bool _jm_f_66(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static jm_constant_t _jm_cst_13[4];
 static bool _jm_f_183(const json_t *val, jm_path_t *path, jm_report_t *rep);
@@ -272,23 +250,18 @@ static jm_constant_t _jm_cst_14[10];
 static bool _jm_f_189(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_190(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_191(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static jm_propmap_t _jm_obj_32_map_tab[7];
-static bool _jm_obj_32(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static jm_propmap_t _jm_f_184_map_tab[7];
 static bool _jm_f_184(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_192(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_193(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static bool _jm_obj_33(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_194(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static cre2_regexp_t *_jm_re_2_re2 = NULL;
 static int _jm_re_2_nn = 0;
 static bool _jm_re_2(const char *s, jm_path_t *path, jm_report_t *rep);
-static bool _jm_obj_34(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_195(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static jm_constant_t _jm_cst_15[3];
-static bool _jm_obj_35(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_196(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static jm_propmap_t _jm_obj_7_map_tab[13];
-static bool _jm_obj_7(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static jm_propmap_t json_model_1_map_tab[13];
 static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep);
 jm_propmap_t check_model_map_tab[10];
 const size_t check_model_map_size = 10;
@@ -1159,7 +1132,7 @@ static bool json_model_10(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_7_map_confirmOnQuit (.confirmOnQuit)
+// check json_model_1_map_confirmOnQuit (.confirmOnQuit)
 static bool _jm_f_0(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -1173,9 +1146,10 @@ static bool _jm_f_0(const json_t *val, jm_path_t *path, jm_report_t *rep)
 }
 
 
-// object .customCommands.'@'.0.after
-static INLINE bool _jm_obj_9(const json_t *val, jm_path_t *path, jm_report_t *rep)
+// check _jm_obj_7_map_after (.customCommands.'@'.0.after)
+static bool _jm_f_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
+    // .customCommands.'@'.0.after
     if (! json_is_object(val))
     {
         if (rep) jm_report_add_entry(rep, "not an object [.customCommands.'@'.0.after]", path);
@@ -1208,20 +1182,7 @@ static INLINE bool _jm_obj_9(const json_t *val, jm_path_t *path, jm_report_t *re
     return true;
 }
 
-// check _jm_obj_8_map_after (.customCommands.'@'.0.after)
-static bool _jm_f_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
-    bool res;
-    // .customCommands.'@'.0.after
-    res = _jm_obj_9(val, path, rep);
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected element [.customCommands.'@'.0.after]", path);
-    }
-    return res;
-}
-
-// check _jm_obj_8_map_description (.customCommands.'@'.0.description)
+// check _jm_obj_7_map_description (.customCommands.'@'.0.description)
 static bool _jm_f_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -1234,7 +1195,7 @@ static bool _jm_f_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_8_map_loadingText (.customCommands.'@'.0.loadingText)
+// check _jm_obj_7_map_loadingText (.customCommands.'@'.0.loadingText)
 static bool _jm_f_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -1247,7 +1208,7 @@ static bool _jm_f_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_8_map_prompts (.customCommands.'@'.0.prompts)
+// check _jm_obj_7_map_prompts (.customCommands.'@'.0.prompts)
 static bool _jm_f_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -1276,7 +1237,7 @@ static bool _jm_f_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_8_map_showOutput (.customCommands.'@'.0.showOutput)
+// check _jm_obj_7_map_showOutput (.customCommands.'@'.0.showOutput)
 static bool _jm_f_6(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -1289,7 +1250,7 @@ static bool _jm_f_6(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_8_map_stream (.customCommands.'@'.0.stream)
+// check _jm_obj_7_map_stream (.customCommands.'@'.0.stream)
 static bool _jm_f_7(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -1302,7 +1263,7 @@ static bool _jm_f_7(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_8_map_subprocess (.customCommands.'@'.0.subprocess)
+// check _jm_obj_7_map_subprocess (.customCommands.'@'.0.subprocess)
 static bool _jm_f_8(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -1315,13 +1276,13 @@ static bool _jm_f_8(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-static INLINE jm_check_fun_t _jm_obj_8_map(const char *pname)
+static INLINE jm_check_fun_t _jm_obj_7_map(const char *pname)
 {
-    return jm_search_propmap(pname, _jm_obj_8_map_tab, 7);
+    return jm_search_propmap(pname, _jm_obj_7_map_tab, 7);
 }
 
 // object .customCommands.'@'.0
-static INLINE bool _jm_obj_8(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_obj_7(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (! json_is_object(val))
     {
@@ -1375,7 +1336,7 @@ static INLINE bool _jm_obj_8(const json_t *val, jm_path_t *path, jm_report_t *re
                 return false;
             }
         }
-        else if ((pfun = _jm_obj_8_map(prop)))
+        else if ((pfun = _jm_obj_7_map(prop)))
         {
             // handle 7 may props
             if (pfun != NULL && ! pfun(pval, (path ? &lpath_5 : NULL), rep))
@@ -1412,7 +1373,7 @@ static INLINE bool _jm_obj_8(const json_t *val, jm_path_t *path, jm_report_t *re
     return true;
 }
 
-// check _jm_obj_7_map_customCommands (.customCommands)
+// check json_model_1_map_customCommands (.customCommands)
 static bool _jm_f_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -1427,7 +1388,7 @@ static bool _jm_f_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
         {
             jm_path_t arr_3_lpath = (jm_path_t) { NULL, arr_3_idx, path, NULL };
             // .customCommands.'@'.0
-            res = _jm_obj_8(arr_3_item, (path ? &arr_3_lpath : NULL), rep);
+            res = _jm_obj_7(arr_3_item, (path ? &arr_3_lpath : NULL), rep);
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected element [.customCommands.'@'.0]", (path ? &arr_3_lpath : NULL));
@@ -1450,7 +1411,7 @@ static bool _jm_f_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_7_map_disableStartupPopups (.disableStartupPopups)
+// check json_model_1_map_disableStartupPopups (.disableStartupPopups)
 static bool _jm_f_9(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -1463,7 +1424,7 @@ static bool _jm_f_9(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_10_map_allBranchesLogCmd (.git.allBranchesLogCmd)
+// check _jm_f_10_map_allBranchesLogCmd (.git.allBranchesLogCmd)
 static bool _jm_f_11(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -1476,7 +1437,7 @@ static bool _jm_f_11(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_10_map_autoFetch (.git.autoFetch)
+// check _jm_f_10_map_autoFetch (.git.autoFetch)
 static bool _jm_f_12(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -1489,7 +1450,7 @@ static bool _jm_f_12(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_10_map_autoRefresh (.git.autoRefresh)
+// check _jm_f_10_map_autoRefresh (.git.autoRefresh)
 static bool _jm_f_13(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -1502,7 +1463,7 @@ static bool _jm_f_13(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_10_map_branchLogCmd (.git.branchLogCmd)
+// check _jm_f_10_map_branchLogCmd (.git.branchLogCmd)
 static bool _jm_f_14(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -1515,9 +1476,10 @@ static bool _jm_f_14(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// object .git.commit
-static INLINE bool _jm_obj_11(const json_t *val, jm_path_t *path, jm_report_t *rep)
+// check _jm_f_10_map_commit (.git.commit)
+static bool _jm_f_15(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
+    // .git.commit
     if (! json_is_object(val))
     {
         if (rep) jm_report_add_entry(rep, "not an object [.git.commit]", path);
@@ -1550,19 +1512,6 @@ static INLINE bool _jm_obj_11(const json_t *val, jm_path_t *path, jm_report_t *r
     return true;
 }
 
-// check _jm_obj_10_map_commit (.git.commit)
-static bool _jm_f_15(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
-    bool res;
-    // .git.commit
-    res = _jm_obj_11(val, path, rep);
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected element [.git.commit]", path);
-    }
-    return res;
-}
-
 static bool _jm_re_1(const char *s, jm_path_t *path, jm_report_t *rep)
 {
     size_t slen = strlen(s);
@@ -1570,7 +1519,7 @@ static bool _jm_re_1(const char *s, jm_path_t *path, jm_report_t *rep)
 }
 
 // object .git.commitPrefixes.'/./'
-static INLINE bool _jm_obj_13(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_obj_8(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // check close must only props
     if (! json_is_object(val))
@@ -1617,9 +1566,10 @@ static INLINE bool _jm_obj_13(const json_t *val, jm_path_t *path, jm_report_t *r
     return true;
 }
 
-// object .git.commitPrefixes
-static INLINE bool _jm_obj_12(const json_t *val, jm_path_t *path, jm_report_t *rep)
+// check _jm_f_10_map_commitPrefixes (.git.commitPrefixes)
+static bool _jm_f_16(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
+    // .git.commitPrefixes
     if (! json_is_object(val))
     {
         if (rep) jm_report_add_entry(rep, "not an object [.git.commitPrefixes]", path);
@@ -1635,7 +1585,7 @@ static INLINE bool _jm_obj_12(const json_t *val, jm_path_t *path, jm_report_t *r
         {
             // handle 1 re props
             // .git.commitPrefixes.'/./'
-            res = _jm_obj_13(pval, (path ? &lpath_9 : NULL), rep);
+            res = _jm_obj_8(pval, (path ? &lpath_9 : NULL), rep);
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected element [.git.commitPrefixes.'/./']", (path ? &lpath_9 : NULL));
@@ -1651,20 +1601,7 @@ static INLINE bool _jm_obj_12(const json_t *val, jm_path_t *path, jm_report_t *r
     return true;
 }
 
-// check _jm_obj_10_map_commitPrefixes (.git.commitPrefixes)
-static bool _jm_f_16(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
-    bool res;
-    // .git.commitPrefixes
-    res = _jm_obj_12(val, path, rep);
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected element [.git.commitPrefixes]", path);
-    }
-    return res;
-}
-
-// check _jm_obj_10_map_diffContextSize (.git.diffContextSize)
+// check _jm_f_10_map_diffContextSize (.git.diffContextSize)
 static bool _jm_f_17(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -1677,7 +1614,7 @@ static bool _jm_f_17(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_10_map_disableForcePushing (.git.disableForcePushing)
+// check _jm_f_10_map_disableForcePushing (.git.disableForcePushing)
 static bool _jm_f_18(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -1690,7 +1627,7 @@ static bool _jm_f_18(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_10_map_fetchAll (.git.fetchAll)
+// check _jm_f_10_map_fetchAll (.git.fetchAll)
 static bool _jm_f_19(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -1705,9 +1642,10 @@ static bool _jm_f_19(const json_t *val, jm_path_t *path, jm_report_t *rep)
 
 
 
-// object .git.log
-static INLINE bool _jm_obj_14(const json_t *val, jm_path_t *path, jm_report_t *rep)
+// check _jm_f_10_map_log (.git.log)
+static bool _jm_f_20(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
+    // .git.log
     if (! json_is_object(val))
     {
         if (rep) jm_report_add_entry(rep, "not an object [.git.log]", path);
@@ -1764,20 +1702,7 @@ static INLINE bool _jm_obj_14(const json_t *val, jm_path_t *path, jm_report_t *r
     return true;
 }
 
-// check _jm_obj_10_map_log (.git.log)
-static bool _jm_f_20(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
-    bool res;
-    // .git.log
-    res = _jm_obj_14(val, path, rep);
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected element [.git.log]", path);
-    }
-    return res;
-}
-
-// check _jm_obj_10_map_mainBranches (.git.mainBranches)
+// check _jm_f_10_map_mainBranches (.git.mainBranches)
 static bool _jm_f_21(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -1790,9 +1715,10 @@ static bool _jm_f_21(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// object .git.merging
-static INLINE bool _jm_obj_15(const json_t *val, jm_path_t *path, jm_report_t *rep)
+// check _jm_f_10_map_merging (.git.merging)
+static bool _jm_f_22(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
+    // .git.merging
     if (! json_is_object(val))
     {
         if (rep) jm_report_add_entry(rep, "not an object [.git.merging]", path);
@@ -1837,20 +1763,7 @@ static INLINE bool _jm_obj_15(const json_t *val, jm_path_t *path, jm_report_t *r
     return true;
 }
 
-// check _jm_obj_10_map_merging (.git.merging)
-static bool _jm_f_22(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
-    bool res;
-    // .git.merging
-    res = _jm_obj_15(val, path, rep);
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected element [.git.merging]", path);
-    }
-    return res;
-}
-
-// check _jm_obj_10_map_overrideGpg (.git.overrideGpg)
+// check _jm_f_10_map_overrideGpg (.git.overrideGpg)
 static bool _jm_f_23(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -1864,9 +1777,10 @@ static bool _jm_f_23(const json_t *val, jm_path_t *path, jm_report_t *rep)
 }
 
 
-// object .git.paging
-static INLINE bool _jm_obj_16(const json_t *val, jm_path_t *path, jm_report_t *rep)
+// check _jm_f_10_map_paging (.git.paging)
+static bool _jm_f_24(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
+    // .git.paging
     if (! json_is_object(val))
     {
         if (rep) jm_report_add_entry(rep, "not an object [.git.paging]", path);
@@ -1936,20 +1850,7 @@ static INLINE bool _jm_obj_16(const json_t *val, jm_path_t *path, jm_report_t *r
     return true;
 }
 
-// check _jm_obj_10_map_paging (.git.paging)
-static bool _jm_f_24(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
-    bool res;
-    // .git.paging
-    res = _jm_obj_16(val, path, rep);
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected element [.git.paging]", path);
-    }
-    return res;
-}
-
-// check _jm_obj_10_map_parseEmoji (.git.parseEmoji)
+// check _jm_f_10_map_parseEmoji (.git.parseEmoji)
 static bool _jm_f_25(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -1962,7 +1863,7 @@ static bool _jm_f_25(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_10_map_skipHookPrefix (.git.skipHookPrefix)
+// check _jm_f_10_map_skipHookPrefix (.git.skipHookPrefix)
 static bool _jm_f_26(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -1975,14 +1876,15 @@ static bool _jm_f_26(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-static INLINE jm_check_fun_t _jm_obj_10_map(const char *pname)
+static INLINE jm_check_fun_t _jm_f_10_map(const char *pname)
 {
-    return jm_search_propmap(pname, _jm_obj_10_map_tab, 16);
+    return jm_search_propmap(pname, _jm_f_10_map_tab, 16);
 }
 
-// object .git
-static INLINE bool _jm_obj_10(const json_t *val, jm_path_t *path, jm_report_t *rep)
+// check json_model_1_map_git (.git)
+static bool _jm_f_10(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
+    // .git
     if (! json_is_object(val))
     {
         if (rep) jm_report_add_entry(rep, "not an object [.git]", path);
@@ -1994,7 +1896,7 @@ static INLINE bool _jm_obj_10(const json_t *val, jm_path_t *path, jm_report_t *r
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_7 = (jm_path_t) { prop, 0, path, NULL };
-        if ((pfun = _jm_obj_10_map(prop)))
+        if ((pfun = _jm_f_10_map(prop)))
         {
             // handle 16 may props
             if (pfun != NULL && ! pfun(pval, (path ? &lpath_7 : NULL), rep))
@@ -2012,20 +1914,7 @@ static INLINE bool _jm_obj_10(const json_t *val, jm_path_t *path, jm_report_t *r
     return true;
 }
 
-// check _jm_obj_7_map_git (.git)
-static bool _jm_f_10(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
-    bool res;
-    // .git
-    res = _jm_obj_10(val, path, rep);
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected element [.git]", path);
-    }
-    return res;
-}
-
-// check _jm_obj_17_map_animateExplosion (.gui.animateExplosion)
+// check _jm_f_27_map_animateExplosion (.gui.animateExplosion)
 static bool _jm_f_28(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -2038,9 +1927,10 @@ static bool _jm_f_28(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// object .gui.authorColors
-static INLINE bool _jm_obj_18(const json_t *val, jm_path_t *path, jm_report_t *rep)
+// check _jm_f_27_map_authorColors (.gui.authorColors)
+static bool _jm_f_29(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
+    // .gui.authorColors
     if (! json_is_object(val))
     {
         if (rep) jm_report_add_entry(rep, "not an object [.gui.authorColors]", path);
@@ -2072,21 +1962,8 @@ static INLINE bool _jm_obj_18(const json_t *val, jm_path_t *path, jm_report_t *r
     return true;
 }
 
-// check _jm_obj_17_map_authorColors (.gui.authorColors)
-static bool _jm_f_29(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
-    bool res;
-    // .gui.authorColors
-    res = _jm_obj_18(val, path, rep);
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected element [.gui.authorColors]", path);
-    }
-    return res;
-}
 
-
-// check _jm_obj_17_map_border (.gui.border)
+// check _jm_f_27_map_border (.gui.border)
 static bool _jm_f_30(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -2099,9 +1976,10 @@ static bool _jm_f_30(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// object .gui.branchColors
-static INLINE bool _jm_obj_19(const json_t *val, jm_path_t *path, jm_report_t *rep)
+// check _jm_f_27_map_branchColors (.gui.branchColors)
+static bool _jm_f_31(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
+    // .gui.branchColors
     if (! json_is_object(val))
     {
         if (rep) jm_report_add_entry(rep, "not an object [.gui.branchColors]", path);
@@ -2133,20 +2011,7 @@ static INLINE bool _jm_obj_19(const json_t *val, jm_path_t *path, jm_report_t *r
     return true;
 }
 
-// check _jm_obj_17_map_branchColors (.gui.branchColors)
-static bool _jm_f_31(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
-    bool res;
-    // .gui.branchColors
-    res = _jm_obj_19(val, path, rep);
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected element [.gui.branchColors]", path);
-    }
-    return res;
-}
-
-// check _jm_obj_17_map_commandLogSize (.gui.commandLogSize)
+// check _jm_f_27_map_commandLogSize (.gui.commandLogSize)
 static bool _jm_f_32(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -2159,9 +2024,10 @@ static bool _jm_f_32(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// object .gui.commitLength
-static INLINE bool _jm_obj_20(const json_t *val, jm_path_t *path, jm_report_t *rep)
+// check _jm_f_27_map_commitLength (.gui.commitLength)
+static bool _jm_f_33(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
+    // .gui.commitLength
     if (! json_is_object(val))
     {
         if (rep) jm_report_add_entry(rep, "not an object [.gui.commitLength]", path);
@@ -2194,20 +2060,7 @@ static INLINE bool _jm_obj_20(const json_t *val, jm_path_t *path, jm_report_t *r
     return true;
 }
 
-// check _jm_obj_17_map_commitLength (.gui.commitLength)
-static bool _jm_f_33(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
-    bool res;
-    // .gui.commitLength
-    res = _jm_obj_20(val, path, rep);
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected element [.gui.commitLength]", path);
-    }
-    return res;
-}
-
-// check _jm_obj_17_map_expandFocusedSidePanel (.gui.expandFocusedSidePanel)
+// check _jm_f_27_map_expandFocusedSidePanel (.gui.expandFocusedSidePanel)
 static bool _jm_f_34(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -2221,7 +2074,7 @@ static bool _jm_f_34(const json_t *val, jm_path_t *path, jm_report_t *rep)
 }
 
 
-// check _jm_obj_17_map_language (.gui.language)
+// check _jm_f_27_map_language (.gui.language)
 static bool _jm_f_35(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -2235,7 +2088,7 @@ static bool _jm_f_35(const json_t *val, jm_path_t *path, jm_report_t *rep)
 }
 
 
-// check _jm_obj_17_map_mainPanelSplitMode (.gui.mainPanelSplitMode)
+// check _jm_f_27_map_mainPanelSplitMode (.gui.mainPanelSplitMode)
 static bool _jm_f_36(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -2248,7 +2101,7 @@ static bool _jm_f_36(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_17_map_mouseEvents (.gui.mouseEvents)
+// check _jm_f_27_map_mouseEvents (.gui.mouseEvents)
 static bool _jm_f_37(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -2262,7 +2115,7 @@ static bool _jm_f_37(const json_t *val, jm_path_t *path, jm_report_t *rep)
 }
 
 
-// check _jm_obj_17_map_nerdFontsVersion (.gui.nerdFontsVersion)
+// check _jm_f_27_map_nerdFontsVersion (.gui.nerdFontsVersion)
 static bool _jm_f_38(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -2297,7 +2150,7 @@ static bool _jm_f_38(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_17_map_scrollHeight (.gui.scrollHeight)
+// check _jm_f_27_map_scrollHeight (.gui.scrollHeight)
 static bool _jm_f_39(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -2310,7 +2163,7 @@ static bool _jm_f_39(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_17_map_scrollPastBottom (.gui.scrollPastBottom)
+// check _jm_f_27_map_scrollPastBottom (.gui.scrollPastBottom)
 static bool _jm_f_40(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -2323,7 +2176,7 @@ static bool _jm_f_40(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_17_map_shortTimeFormat (.gui.shortTimeFormat)
+// check _jm_f_27_map_shortTimeFormat (.gui.shortTimeFormat)
 static bool _jm_f_41(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -2336,7 +2189,7 @@ static bool _jm_f_41(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_17_map_showBottomLine (.gui.showBottomLine)
+// check _jm_f_27_map_showBottomLine (.gui.showBottomLine)
 static bool _jm_f_42(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -2349,7 +2202,7 @@ static bool _jm_f_42(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_17_map_showBranchCommitHash (.gui.showBranchCommitHash)
+// check _jm_f_27_map_showBranchCommitHash (.gui.showBranchCommitHash)
 static bool _jm_f_43(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -2362,7 +2215,7 @@ static bool _jm_f_43(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_17_map_showCommandLog (.gui.showCommandLog)
+// check _jm_f_27_map_showCommandLog (.gui.showCommandLog)
 static bool _jm_f_44(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -2375,7 +2228,7 @@ static bool _jm_f_44(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_17_map_showFileTree (.gui.showFileTree)
+// check _jm_f_27_map_showFileTree (.gui.showFileTree)
 static bool _jm_f_45(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -2388,7 +2241,7 @@ static bool _jm_f_45(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_17_map_showListFooter (.gui.showListFooter)
+// check _jm_f_27_map_showListFooter (.gui.showListFooter)
 static bool _jm_f_46(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -2401,7 +2254,7 @@ static bool _jm_f_46(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_17_map_showRandomTip (.gui.showRandomTip)
+// check _jm_f_27_map_showRandomTip (.gui.showRandomTip)
 static bool _jm_f_47(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -2414,7 +2267,7 @@ static bool _jm_f_47(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_17_map_sidePanelWidth (.gui.sidePanelWidth)
+// check _jm_f_27_map_sidePanelWidth (.gui.sidePanelWidth)
 static bool _jm_f_48(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -2437,7 +2290,7 @@ static bool _jm_f_48(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_17_map_skipDiscardChangeWarning (.gui.skipDiscardChangeWarning)
+// check _jm_f_27_map_skipDiscardChangeWarning (.gui.skipDiscardChangeWarning)
 static bool _jm_f_49(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -2450,7 +2303,7 @@ static bool _jm_f_49(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_17_map_skipRewordInEditorWarning (.gui.skipRewordInEditorWarning)
+// check _jm_f_27_map_skipRewordInEditorWarning (.gui.skipRewordInEditorWarning)
 static bool _jm_f_50(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -2463,7 +2316,7 @@ static bool _jm_f_50(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_17_map_skipStashWarning (.gui.skipStashWarning)
+// check _jm_f_27_map_skipStashWarning (.gui.skipStashWarning)
 static bool _jm_f_51(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -2477,7 +2330,7 @@ static bool _jm_f_51(const json_t *val, jm_path_t *path, jm_report_t *rep)
 }
 
 
-// check _jm_obj_17_map_splitDiff (.gui.splitDiff)
+// check _jm_f_27_map_splitDiff (.gui.splitDiff)
 static bool _jm_f_52(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -2490,7 +2343,7 @@ static bool _jm_f_52(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_21_map_activeBorderColor (.gui.theme.activeBorderColor)
+// check _jm_f_53_map_activeBorderColor (.gui.theme.activeBorderColor)
 static bool _jm_f_54(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -2503,7 +2356,7 @@ static bool _jm_f_54(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_21_map_cherryPickedCommitBgColor (.gui.theme.cherryPickedCommitBgColor)
+// check _jm_f_53_map_cherryPickedCommitBgColor (.gui.theme.cherryPickedCommitBgColor)
 static bool _jm_f_55(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -2516,7 +2369,7 @@ static bool _jm_f_55(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_21_map_cherryPickedCommitFgColor (.gui.theme.cherryPickedCommitFgColor)
+// check _jm_f_53_map_cherryPickedCommitFgColor (.gui.theme.cherryPickedCommitFgColor)
 static bool _jm_f_56(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -2529,7 +2382,7 @@ static bool _jm_f_56(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_21_map_defaultFgColor (.gui.theme.defaultFgColor)
+// check _jm_f_53_map_defaultFgColor (.gui.theme.defaultFgColor)
 static bool _jm_f_57(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -2542,7 +2395,7 @@ static bool _jm_f_57(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_21_map_inactiveBorderColor (.gui.theme.inactiveBorderColor)
+// check _jm_f_53_map_inactiveBorderColor (.gui.theme.inactiveBorderColor)
 static bool _jm_f_58(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -2555,7 +2408,7 @@ static bool _jm_f_58(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_21_map_optionsTextColor (.gui.theme.optionsTextColor)
+// check _jm_f_53_map_optionsTextColor (.gui.theme.optionsTextColor)
 static bool _jm_f_59(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -2568,7 +2421,7 @@ static bool _jm_f_59(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_21_map_searchingActiveBorderColor (.gui.theme.searchingActiveBorderColor)
+// check _jm_f_53_map_searchingActiveBorderColor (.gui.theme.searchingActiveBorderColor)
 static bool _jm_f_60(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -2581,7 +2434,7 @@ static bool _jm_f_60(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_21_map_selectedLineBgColor (.gui.theme.selectedLineBgColor)
+// check _jm_f_53_map_selectedLineBgColor (.gui.theme.selectedLineBgColor)
 static bool _jm_f_61(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -2594,7 +2447,7 @@ static bool _jm_f_61(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_21_map_selectedRangeBgColor (.gui.theme.selectedRangeBgColor)
+// check _jm_f_53_map_selectedRangeBgColor (.gui.theme.selectedRangeBgColor)
 static bool _jm_f_62(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -2607,7 +2460,7 @@ static bool _jm_f_62(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_21_map_unstagedChangesColor (.gui.theme.unstagedChangesColor)
+// check _jm_f_53_map_unstagedChangesColor (.gui.theme.unstagedChangesColor)
 static bool _jm_f_63(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -2620,14 +2473,15 @@ static bool _jm_f_63(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-static INLINE jm_check_fun_t _jm_obj_21_map(const char *pname)
+static INLINE jm_check_fun_t _jm_f_53_map(const char *pname)
 {
-    return jm_search_propmap(pname, _jm_obj_21_map_tab, 10);
+    return jm_search_propmap(pname, _jm_f_53_map_tab, 10);
 }
 
-// object .gui.theme
-static INLINE bool _jm_obj_21(const json_t *val, jm_path_t *path, jm_report_t *rep)
+// check _jm_f_27_map_theme (.gui.theme)
+static bool _jm_f_53(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
+    // .gui.theme
     if (! json_is_object(val))
     {
         if (rep) jm_report_add_entry(rep, "not an object [.gui.theme]", path);
@@ -2639,7 +2493,7 @@ static INLINE bool _jm_obj_21(const json_t *val, jm_path_t *path, jm_report_t *r
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_17 = (jm_path_t) { prop, 0, path, NULL };
-        if ((pfun = _jm_obj_21_map(prop)))
+        if ((pfun = _jm_f_53_map(prop)))
         {
             // handle 10 may props
             if (pfun != NULL && ! pfun(pval, (path ? &lpath_17 : NULL), rep))
@@ -2657,20 +2511,7 @@ static INLINE bool _jm_obj_21(const json_t *val, jm_path_t *path, jm_report_t *r
     return true;
 }
 
-// check _jm_obj_17_map_theme (.gui.theme)
-static bool _jm_f_53(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
-    bool res;
-    // .gui.theme
-    res = _jm_obj_21(val, path, rep);
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected element [.gui.theme]", path);
-    }
-    return res;
-}
-
-// check _jm_obj_17_map_timeFormat (.gui.timeFormat)
+// check _jm_f_27_map_timeFormat (.gui.timeFormat)
 static bool _jm_f_64(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -2684,7 +2525,7 @@ static bool _jm_f_64(const json_t *val, jm_path_t *path, jm_report_t *rep)
 }
 
 
-// check _jm_obj_17_map_windowSize (.gui.windowSize)
+// check _jm_f_27_map_windowSize (.gui.windowSize)
 static bool _jm_f_65(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -2697,14 +2538,15 @@ static bool _jm_f_65(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-static INLINE jm_check_fun_t _jm_obj_17_map(const char *pname)
+static INLINE jm_check_fun_t _jm_f_27_map(const char *pname)
 {
-    return jm_search_propmap(pname, _jm_obj_17_map_tab, 28);
+    return jm_search_propmap(pname, _jm_f_27_map_tab, 28);
 }
 
-// object .gui
-static INLINE bool _jm_obj_17(const json_t *val, jm_path_t *path, jm_report_t *rep)
+// check json_model_1_map_gui (.gui)
+static bool _jm_f_27(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
+    // .gui
     if (! json_is_object(val))
     {
         if (rep) jm_report_add_entry(rep, "not an object [.gui]", path);
@@ -2716,7 +2558,7 @@ static INLINE bool _jm_obj_17(const json_t *val, jm_path_t *path, jm_report_t *r
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_13 = (jm_path_t) { prop, 0, path, NULL };
-        if ((pfun = _jm_obj_17_map(prop)))
+        if ((pfun = _jm_f_27_map(prop)))
         {
             // handle 28 may props
             if (pfun != NULL && ! pfun(pval, (path ? &lpath_13 : NULL), rep))
@@ -2734,20 +2576,7 @@ static INLINE bool _jm_obj_17(const json_t *val, jm_path_t *path, jm_report_t *r
     return true;
 }
 
-// check _jm_obj_7_map_gui (.gui)
-static bool _jm_f_27(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
-    bool res;
-    // .gui
-    res = _jm_obj_17(val, path, rep);
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected element [.gui]", path);
-    }
-    return res;
-}
-
-// check _jm_obj_23_map_checkoutBranchByName (.keybinding.branches.checkoutBranchByName)
+// check _jm_f_67_map_checkoutBranchByName (.keybinding.branches.checkoutBranchByName)
 static bool _jm_f_68(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -2760,7 +2589,7 @@ static bool _jm_f_68(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_23_map_createPullRequest (.keybinding.branches.createPullRequest)
+// check _jm_f_67_map_createPullRequest (.keybinding.branches.createPullRequest)
 static bool _jm_f_69(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -2773,7 +2602,7 @@ static bool _jm_f_69(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_23_map_createTag (.keybinding.branches.createTag)
+// check _jm_f_67_map_createTag (.keybinding.branches.createTag)
 static bool _jm_f_70(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -2786,7 +2615,7 @@ static bool _jm_f_70(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_23_map_fastForward (.keybinding.branches.fastForward)
+// check _jm_f_67_map_fastForward (.keybinding.branches.fastForward)
 static bool _jm_f_71(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -2799,7 +2628,7 @@ static bool _jm_f_71(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_23_map_fetchRemote (.keybinding.branches.fetchRemote)
+// check _jm_f_67_map_fetchRemote (.keybinding.branches.fetchRemote)
 static bool _jm_f_72(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -2812,7 +2641,7 @@ static bool _jm_f_72(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_23_map_forceCheckoutBranch (.keybinding.branches.forceCheckoutBranch)
+// check _jm_f_67_map_forceCheckoutBranch (.keybinding.branches.forceCheckoutBranch)
 static bool _jm_f_73(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -2825,7 +2654,7 @@ static bool _jm_f_73(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_23_map_mergeIntoCurrentBranch (.keybinding.branches.mergeIntoCurrentBranch)
+// check _jm_f_67_map_mergeIntoCurrentBranch (.keybinding.branches.mergeIntoCurrentBranch)
 static bool _jm_f_74(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -2838,7 +2667,7 @@ static bool _jm_f_74(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_23_map_pushTag (.keybinding.branches.pushTag)
+// check _jm_f_67_map_pushTag (.keybinding.branches.pushTag)
 static bool _jm_f_75(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -2851,7 +2680,7 @@ static bool _jm_f_75(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_23_map_rebaseBranch (.keybinding.branches.rebaseBranch)
+// check _jm_f_67_map_rebaseBranch (.keybinding.branches.rebaseBranch)
 static bool _jm_f_76(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -2864,7 +2693,7 @@ static bool _jm_f_76(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_23_map_renameBranch (.keybinding.branches.renameBranch)
+// check _jm_f_67_map_renameBranch (.keybinding.branches.renameBranch)
 static bool _jm_f_77(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -2877,7 +2706,7 @@ static bool _jm_f_77(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_23_map_setUpstream (.keybinding.branches.setUpstream)
+// check _jm_f_67_map_setUpstream (.keybinding.branches.setUpstream)
 static bool _jm_f_78(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -2890,7 +2719,7 @@ static bool _jm_f_78(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_23_map_viewGitFlowOptions (.keybinding.branches.viewGitFlowOptions)
+// check _jm_f_67_map_viewGitFlowOptions (.keybinding.branches.viewGitFlowOptions)
 static bool _jm_f_79(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -2903,7 +2732,7 @@ static bool _jm_f_79(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_23_map_viewPullRequestOptions (.keybinding.branches.viewPullRequestOptions)
+// check _jm_f_67_map_viewPullRequestOptions (.keybinding.branches.viewPullRequestOptions)
 static bool _jm_f_80(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -2916,14 +2745,15 @@ static bool _jm_f_80(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-static INLINE jm_check_fun_t _jm_obj_23_map(const char *pname)
+static INLINE jm_check_fun_t _jm_f_67_map(const char *pname)
 {
-    return jm_search_propmap(pname, _jm_obj_23_map_tab, 13);
+    return jm_search_propmap(pname, _jm_f_67_map_tab, 13);
 }
 
-// object .keybinding.branches
-static INLINE bool _jm_obj_23(const json_t *val, jm_path_t *path, jm_report_t *rep)
+// check _jm_f_66_map_branches (.keybinding.branches)
+static bool _jm_f_67(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
+    // .keybinding.branches
     if (! json_is_object(val))
     {
         if (rep) jm_report_add_entry(rep, "not an object [.keybinding.branches]", path);
@@ -2935,7 +2765,7 @@ static INLINE bool _jm_obj_23(const json_t *val, jm_path_t *path, jm_report_t *r
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_19 = (jm_path_t) { prop, 0, path, NULL };
-        if ((pfun = _jm_obj_23_map(prop)))
+        if ((pfun = _jm_f_67_map(prop)))
         {
             // handle 13 may props
             if (pfun != NULL && ! pfun(pval, (path ? &lpath_19 : NULL), rep))
@@ -2953,22 +2783,10 @@ static INLINE bool _jm_obj_23(const json_t *val, jm_path_t *path, jm_report_t *r
     return true;
 }
 
-// check _jm_obj_22_map_branches (.keybinding.branches)
-static bool _jm_f_67(const json_t *val, jm_path_t *path, jm_report_t *rep)
+// check _jm_f_66_map_commitFiles (.keybinding.commitFiles)
+static bool _jm_f_81(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
-    // .keybinding.branches
-    res = _jm_obj_23(val, path, rep);
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected element [.keybinding.branches]", path);
-    }
-    return res;
-}
-
-// object .keybinding.commitFiles
-static INLINE bool _jm_obj_24(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
+    // .keybinding.commitFiles
     if (! json_is_object(val))
     {
         if (rep) jm_report_add_entry(rep, "not an object [.keybinding.commitFiles]", path);
@@ -3001,20 +2819,7 @@ static INLINE bool _jm_obj_24(const json_t *val, jm_path_t *path, jm_report_t *r
     return true;
 }
 
-// check _jm_obj_22_map_commitFiles (.keybinding.commitFiles)
-static bool _jm_f_81(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
-    bool res;
-    // .keybinding.commitFiles
-    res = _jm_obj_24(val, path, rep);
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected element [.keybinding.commitFiles]", path);
-    }
-    return res;
-}
-
-// check _jm_obj_25_map_amendToCommit (.keybinding.commits.amendToCommit)
+// check _jm_f_82_map_amendToCommit (.keybinding.commits.amendToCommit)
 static bool _jm_f_83(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -3027,7 +2832,7 @@ static bool _jm_f_83(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_25_map_checkoutCommit (.keybinding.commits.checkoutCommit)
+// check _jm_f_82_map_checkoutCommit (.keybinding.commits.checkoutCommit)
 static bool _jm_f_84(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -3040,7 +2845,7 @@ static bool _jm_f_84(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_25_map_cherryPickCopy (.keybinding.commits.cherryPickCopy)
+// check _jm_f_82_map_cherryPickCopy (.keybinding.commits.cherryPickCopy)
 static bool _jm_f_85(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -3053,7 +2858,7 @@ static bool _jm_f_85(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_25_map_cherryPickCopyRange (.keybinding.commits.cherryPickCopyRange)
+// check _jm_f_82_map_cherryPickCopyRange (.keybinding.commits.cherryPickCopyRange)
 static bool _jm_f_86(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -3066,7 +2871,7 @@ static bool _jm_f_86(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_25_map_copyCommitMessageToClipboard (.keybinding.commits.copyCommitMessageToClipboard)
+// check _jm_f_82_map_copyCommitMessageToClipboard (.keybinding.commits.copyCommitMessageToClipboard)
 static bool _jm_f_87(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -3079,7 +2884,7 @@ static bool _jm_f_87(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_25_map_createFixupCommit (.keybinding.commits.createFixupCommit)
+// check _jm_f_82_map_createFixupCommit (.keybinding.commits.createFixupCommit)
 static bool _jm_f_88(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -3092,7 +2897,7 @@ static bool _jm_f_88(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_25_map_markCommitAsFixup (.keybinding.commits.markCommitAsFixup)
+// check _jm_f_82_map_markCommitAsFixup (.keybinding.commits.markCommitAsFixup)
 static bool _jm_f_89(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -3105,7 +2910,7 @@ static bool _jm_f_89(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_25_map_moveDownCommit (.keybinding.commits.moveDownCommit)
+// check _jm_f_82_map_moveDownCommit (.keybinding.commits.moveDownCommit)
 static bool _jm_f_90(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -3118,7 +2923,7 @@ static bool _jm_f_90(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_25_map_moveUpCommit (.keybinding.commits.moveUpCommit)
+// check _jm_f_82_map_moveUpCommit (.keybinding.commits.moveUpCommit)
 static bool _jm_f_91(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -3131,7 +2936,7 @@ static bool _jm_f_91(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_25_map_openLogMenu (.keybinding.commits.openLogMenu)
+// check _jm_f_82_map_openLogMenu (.keybinding.commits.openLogMenu)
 static bool _jm_f_92(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -3144,7 +2949,7 @@ static bool _jm_f_92(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_25_map_pasteCommits (.keybinding.commits.pasteCommits)
+// check _jm_f_82_map_pasteCommits (.keybinding.commits.pasteCommits)
 static bool _jm_f_93(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -3157,7 +2962,7 @@ static bool _jm_f_93(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_25_map_pickCommit (.keybinding.commits.pickCommit)
+// check _jm_f_82_map_pickCommit (.keybinding.commits.pickCommit)
 static bool _jm_f_94(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -3170,7 +2975,7 @@ static bool _jm_f_94(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_25_map_renameCommit (.keybinding.commits.renameCommit)
+// check _jm_f_82_map_renameCommit (.keybinding.commits.renameCommit)
 static bool _jm_f_95(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -3183,7 +2988,7 @@ static bool _jm_f_95(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_25_map_renameCommitWithEditor (.keybinding.commits.renameCommitWithEditor)
+// check _jm_f_82_map_renameCommitWithEditor (.keybinding.commits.renameCommitWithEditor)
 static bool _jm_f_96(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -3196,7 +3001,7 @@ static bool _jm_f_96(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_25_map_resetCherryPick (.keybinding.commits.resetCherryPick)
+// check _jm_f_82_map_resetCherryPick (.keybinding.commits.resetCherryPick)
 static bool _jm_f_97(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -3209,7 +3014,7 @@ static bool _jm_f_97(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_25_map_revertCommit (.keybinding.commits.revertCommit)
+// check _jm_f_82_map_revertCommit (.keybinding.commits.revertCommit)
 static bool _jm_f_98(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -3222,7 +3027,7 @@ static bool _jm_f_98(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_25_map_squashAboveCommits (.keybinding.commits.squashAboveCommits)
+// check _jm_f_82_map_squashAboveCommits (.keybinding.commits.squashAboveCommits)
 static bool _jm_f_99(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -3235,7 +3040,7 @@ static bool _jm_f_99(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_25_map_squashDown (.keybinding.commits.squashDown)
+// check _jm_f_82_map_squashDown (.keybinding.commits.squashDown)
 static bool _jm_f_100(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -3248,7 +3053,7 @@ static bool _jm_f_100(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_25_map_tagCommit (.keybinding.commits.tagCommit)
+// check _jm_f_82_map_tagCommit (.keybinding.commits.tagCommit)
 static bool _jm_f_101(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -3261,7 +3066,7 @@ static bool _jm_f_101(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_25_map_viewBisectOptions (.keybinding.commits.viewBisectOptions)
+// check _jm_f_82_map_viewBisectOptions (.keybinding.commits.viewBisectOptions)
 static bool _jm_f_102(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -3274,7 +3079,7 @@ static bool _jm_f_102(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_25_map_viewResetOptions (.keybinding.commits.viewResetOptions)
+// check _jm_f_82_map_viewResetOptions (.keybinding.commits.viewResetOptions)
 static bool _jm_f_103(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -3287,14 +3092,15 @@ static bool _jm_f_103(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-static INLINE jm_check_fun_t _jm_obj_25_map(const char *pname)
+static INLINE jm_check_fun_t _jm_f_82_map(const char *pname)
 {
-    return jm_search_propmap(pname, _jm_obj_25_map_tab, 21);
+    return jm_search_propmap(pname, _jm_f_82_map_tab, 21);
 }
 
-// object .keybinding.commits
-static INLINE bool _jm_obj_25(const json_t *val, jm_path_t *path, jm_report_t *rep)
+// check _jm_f_66_map_commits (.keybinding.commits)
+static bool _jm_f_82(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
+    // .keybinding.commits
     if (! json_is_object(val))
     {
         if (rep) jm_report_add_entry(rep, "not an object [.keybinding.commits]", path);
@@ -3306,7 +3112,7 @@ static INLINE bool _jm_obj_25(const json_t *val, jm_path_t *path, jm_report_t *r
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_21 = (jm_path_t) { prop, 0, path, NULL };
-        if ((pfun = _jm_obj_25_map(prop)))
+        if ((pfun = _jm_f_82_map(prop)))
         {
             // handle 21 may props
             if (pfun != NULL && ! pfun(pval, (path ? &lpath_21 : NULL), rep))
@@ -3324,20 +3130,7 @@ static INLINE bool _jm_obj_25(const json_t *val, jm_path_t *path, jm_report_t *r
     return true;
 }
 
-// check _jm_obj_22_map_commits (.keybinding.commits)
-static bool _jm_f_82(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
-    bool res;
-    // .keybinding.commits
-    res = _jm_obj_25(val, path, rep);
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected element [.keybinding.commits]", path);
-    }
-    return res;
-}
-
-// check _jm_obj_26_map_amendLastCommit (.keybinding.files.amendLastCommit)
+// check _jm_f_104_map_amendLastCommit (.keybinding.files.amendLastCommit)
 static bool _jm_f_105(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -3350,7 +3143,7 @@ static bool _jm_f_105(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_26_map_commitChanges (.keybinding.files.commitChanges)
+// check _jm_f_104_map_commitChanges (.keybinding.files.commitChanges)
 static bool _jm_f_106(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -3363,7 +3156,7 @@ static bool _jm_f_106(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_26_map_commitChangesWithEditor (.keybinding.files.commitChangesWithEditor)
+// check _jm_f_104_map_commitChangesWithEditor (.keybinding.files.commitChangesWithEditor)
 static bool _jm_f_107(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -3376,7 +3169,7 @@ static bool _jm_f_107(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_26_map_commitChangesWithoutHook (.keybinding.files.commitChangesWithoutHook)
+// check _jm_f_104_map_commitChangesWithoutHook (.keybinding.files.commitChangesWithoutHook)
 static bool _jm_f_108(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -3389,7 +3182,7 @@ static bool _jm_f_108(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_26_map_fetch (.keybinding.files.fetch)
+// check _jm_f_104_map_fetch (.keybinding.files.fetch)
 static bool _jm_f_109(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -3402,7 +3195,7 @@ static bool _jm_f_109(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_26_map_ignoreFile (.keybinding.files.ignoreFile)
+// check _jm_f_104_map_ignoreFile (.keybinding.files.ignoreFile)
 static bool _jm_f_110(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -3415,7 +3208,7 @@ static bool _jm_f_110(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_26_map_openMergeTool (.keybinding.files.openMergeTool)
+// check _jm_f_104_map_openMergeTool (.keybinding.files.openMergeTool)
 static bool _jm_f_111(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -3428,7 +3221,7 @@ static bool _jm_f_111(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_26_map_openStatusFilter (.keybinding.files.openStatusFilter)
+// check _jm_f_104_map_openStatusFilter (.keybinding.files.openStatusFilter)
 static bool _jm_f_112(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -3441,7 +3234,7 @@ static bool _jm_f_112(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_26_map_refreshFiles (.keybinding.files.refreshFiles)
+// check _jm_f_104_map_refreshFiles (.keybinding.files.refreshFiles)
 static bool _jm_f_113(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -3454,7 +3247,7 @@ static bool _jm_f_113(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_26_map_stashAllChanges (.keybinding.files.stashAllChanges)
+// check _jm_f_104_map_stashAllChanges (.keybinding.files.stashAllChanges)
 static bool _jm_f_114(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -3467,7 +3260,7 @@ static bool _jm_f_114(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_26_map_toggleStagedAll (.keybinding.files.toggleStagedAll)
+// check _jm_f_104_map_toggleStagedAll (.keybinding.files.toggleStagedAll)
 static bool _jm_f_115(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -3480,7 +3273,7 @@ static bool _jm_f_115(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_26_map_toggleTreeView (.keybinding.files.toggleTreeView)
+// check _jm_f_104_map_toggleTreeView (.keybinding.files.toggleTreeView)
 static bool _jm_f_116(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -3493,7 +3286,7 @@ static bool _jm_f_116(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_26_map_viewResetOptions (.keybinding.files.viewResetOptions)
+// check _jm_f_104_map_viewResetOptions (.keybinding.files.viewResetOptions)
 static bool _jm_f_117(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -3506,7 +3299,7 @@ static bool _jm_f_117(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_26_map_viewStashOptions (.keybinding.files.viewStashOptions)
+// check _jm_f_104_map_viewStashOptions (.keybinding.files.viewStashOptions)
 static bool _jm_f_118(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -3519,14 +3312,15 @@ static bool _jm_f_118(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-static INLINE jm_check_fun_t _jm_obj_26_map(const char *pname)
+static INLINE jm_check_fun_t _jm_f_104_map(const char *pname)
 {
-    return jm_search_propmap(pname, _jm_obj_26_map_tab, 14);
+    return jm_search_propmap(pname, _jm_f_104_map_tab, 14);
 }
 
-// object .keybinding.files
-static INLINE bool _jm_obj_26(const json_t *val, jm_path_t *path, jm_report_t *rep)
+// check _jm_f_66_map_files (.keybinding.files)
+static bool _jm_f_104(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
+    // .keybinding.files
     if (! json_is_object(val))
     {
         if (rep) jm_report_add_entry(rep, "not an object [.keybinding.files]", path);
@@ -3538,7 +3332,7 @@ static INLINE bool _jm_obj_26(const json_t *val, jm_path_t *path, jm_report_t *r
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_22 = (jm_path_t) { prop, 0, path, NULL };
-        if ((pfun = _jm_obj_26_map(prop)))
+        if ((pfun = _jm_f_104_map(prop)))
         {
             // handle 14 may props
             if (pfun != NULL && ! pfun(pval, (path ? &lpath_22 : NULL), rep))
@@ -3556,22 +3350,10 @@ static INLINE bool _jm_obj_26(const json_t *val, jm_path_t *path, jm_report_t *r
     return true;
 }
 
-// check _jm_obj_22_map_files (.keybinding.files)
-static bool _jm_f_104(const json_t *val, jm_path_t *path, jm_report_t *rep)
+// check _jm_f_66_map_main (.keybinding.main)
+static bool _jm_f_119(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
-    // .keybinding.files
-    res = _jm_obj_26(val, path, rep);
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected element [.keybinding.files]", path);
-    }
-    return res;
-}
-
-// object .keybinding.main
-static INLINE bool _jm_obj_27(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
+    // .keybinding.main
     if (! json_is_object(val))
     {
         if (rep) jm_report_add_entry(rep, "not an object [.keybinding.main]", path);
@@ -3640,22 +3422,10 @@ static INLINE bool _jm_obj_27(const json_t *val, jm_path_t *path, jm_report_t *r
     return true;
 }
 
-// check _jm_obj_22_map_main (.keybinding.main)
-static bool _jm_f_119(const json_t *val, jm_path_t *path, jm_report_t *rep)
+// check _jm_f_66_map_stash (.keybinding.stash)
+static bool _jm_f_120(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
-    // .keybinding.main
-    res = _jm_obj_27(val, path, rep);
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected element [.keybinding.main]", path);
-    }
-    return res;
-}
-
-// object .keybinding.stash
-static INLINE bool _jm_obj_28(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
+    // .keybinding.stash
     if (! json_is_object(val))
     {
         if (rep) jm_report_add_entry(rep, "not an object [.keybinding.stash]", path);
@@ -3700,22 +3470,10 @@ static INLINE bool _jm_obj_28(const json_t *val, jm_path_t *path, jm_report_t *r
     return true;
 }
 
-// check _jm_obj_22_map_stash (.keybinding.stash)
-static bool _jm_f_120(const json_t *val, jm_path_t *path, jm_report_t *rep)
+// check _jm_f_66_map_status (.keybinding.status)
+static bool _jm_f_121(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
-    // .keybinding.stash
-    res = _jm_obj_28(val, path, rep);
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected element [.keybinding.stash]", path);
-    }
-    return res;
-}
-
-// object .keybinding.status
-static INLINE bool _jm_obj_29(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
+    // .keybinding.status
     if (! json_is_object(val))
     {
         if (rep) jm_report_add_entry(rep, "not an object [.keybinding.status]", path);
@@ -3760,22 +3518,10 @@ static INLINE bool _jm_obj_29(const json_t *val, jm_path_t *path, jm_report_t *r
     return true;
 }
 
-// check _jm_obj_22_map_status (.keybinding.status)
-static bool _jm_f_121(const json_t *val, jm_path_t *path, jm_report_t *rep)
+// check _jm_f_66_map_submodules (.keybinding.submodules)
+static bool _jm_f_122(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
-    // .keybinding.status
-    res = _jm_obj_29(val, path, rep);
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected element [.keybinding.status]", path);
-    }
-    return res;
-}
-
-// object .keybinding.submodules
-static INLINE bool _jm_obj_30(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
+    // .keybinding.submodules
     if (! json_is_object(val))
     {
         if (rep) jm_report_add_entry(rep, "not an object [.keybinding.submodules]", path);
@@ -3832,20 +3578,7 @@ static INLINE bool _jm_obj_30(const json_t *val, jm_path_t *path, jm_report_t *r
     return true;
 }
 
-// check _jm_obj_22_map_submodules (.keybinding.submodules)
-static bool _jm_f_122(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
-    bool res;
-    // .keybinding.submodules
-    res = _jm_obj_30(val, path, rep);
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected element [.keybinding.submodules]", path);
-    }
-    return res;
-}
-
-// check _jm_obj_31_map_confirm (.keybinding.universal.confirm)
+// check _jm_f_123_map_confirm (.keybinding.universal.confirm)
 static bool _jm_f_124(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -3858,7 +3591,7 @@ static bool _jm_f_124(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_31_map_copyToClipboard (.keybinding.universal.copyToClipboard)
+// check _jm_f_123_map_copyToClipboard (.keybinding.universal.copyToClipboard)
 static bool _jm_f_125(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -3871,7 +3604,7 @@ static bool _jm_f_125(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_31_map_createPatchOptionsMenu (.keybinding.universal.createPatchOptionsMenu)
+// check _jm_f_123_map_createPatchOptionsMenu (.keybinding.universal.createPatchOptionsMenu)
 static bool _jm_f_126(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -3884,7 +3617,7 @@ static bool _jm_f_126(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_31_map_createRebaseOptionsMenu (.keybinding.universal.createRebaseOptionsMenu)
+// check _jm_f_123_map_createRebaseOptionsMenu (.keybinding.universal.createRebaseOptionsMenu)
 static bool _jm_f_127(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -3897,7 +3630,7 @@ static bool _jm_f_127(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_31_map_decreaseContextInDiffView (.keybinding.universal.decreaseContextInDiffView)
+// check _jm_f_123_map_decreaseContextInDiffView (.keybinding.universal.decreaseContextInDiffView)
 static bool _jm_f_128(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -3910,7 +3643,7 @@ static bool _jm_f_128(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_31_map_diffingMenu (.keybinding.universal.diffingMenu)
+// check _jm_f_123_map_diffingMenu (.keybinding.universal.diffingMenu)
 static bool _jm_f_129(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -3923,7 +3656,7 @@ static bool _jm_f_129(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_31_map_diffingMenu-alt (.keybinding.universal.'diffingMenu-alt')
+// check _jm_f_123_map_diffingMenu-alt (.keybinding.universal.'diffingMenu-alt')
 static bool _jm_f_130(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -3936,7 +3669,7 @@ static bool _jm_f_130(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_31_map_edit (.keybinding.universal.edit)
+// check _jm_f_123_map_edit (.keybinding.universal.edit)
 static bool _jm_f_131(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -3949,7 +3682,7 @@ static bool _jm_f_131(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_31_map_executeCustomCommand (.keybinding.universal.executeCustomCommand)
+// check _jm_f_123_map_executeCustomCommand (.keybinding.universal.executeCustomCommand)
 static bool _jm_f_132(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -3962,7 +3695,7 @@ static bool _jm_f_132(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_31_map_extrasMenu (.keybinding.universal.extrasMenu)
+// check _jm_f_123_map_extrasMenu (.keybinding.universal.extrasMenu)
 static bool _jm_f_133(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -3975,7 +3708,7 @@ static bool _jm_f_133(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_31_map_filteringMenu (.keybinding.universal.filteringMenu)
+// check _jm_f_123_map_filteringMenu (.keybinding.universal.filteringMenu)
 static bool _jm_f_134(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -3988,7 +3721,7 @@ static bool _jm_f_134(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_31_map_goInto (.keybinding.universal.goInto)
+// check _jm_f_123_map_goInto (.keybinding.universal.goInto)
 static bool _jm_f_135(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -4001,7 +3734,7 @@ static bool _jm_f_135(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_31_map_gotoBottom (.keybinding.universal.gotoBottom)
+// check _jm_f_123_map_gotoBottom (.keybinding.universal.gotoBottom)
 static bool _jm_f_136(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -4014,7 +3747,7 @@ static bool _jm_f_136(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_31_map_gotoTop (.keybinding.universal.gotoTop)
+// check _jm_f_123_map_gotoTop (.keybinding.universal.gotoTop)
 static bool _jm_f_137(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -4027,7 +3760,7 @@ static bool _jm_f_137(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_31_map_increaseContextInDiffView (.keybinding.universal.increaseContextInDiffView)
+// check _jm_f_123_map_increaseContextInDiffView (.keybinding.universal.increaseContextInDiffView)
 static bool _jm_f_138(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -4040,7 +3773,7 @@ static bool _jm_f_138(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_31_map_jumpToBlock (.keybinding.universal.jumpToBlock)
+// check _jm_f_123_map_jumpToBlock (.keybinding.universal.jumpToBlock)
 static bool _jm_f_139(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -4053,7 +3786,7 @@ static bool _jm_f_139(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_31_map_new (.keybinding.universal.new)
+// check _jm_f_123_map_new (.keybinding.universal.new)
 static bool _jm_f_140(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -4066,7 +3799,7 @@ static bool _jm_f_140(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_31_map_nextBlock (.keybinding.universal.nextBlock)
+// check _jm_f_123_map_nextBlock (.keybinding.universal.nextBlock)
 static bool _jm_f_141(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -4079,7 +3812,7 @@ static bool _jm_f_141(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_31_map_nextBlock-alt (.keybinding.universal.'nextBlock-alt')
+// check _jm_f_123_map_nextBlock-alt (.keybinding.universal.'nextBlock-alt')
 static bool _jm_f_142(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -4092,7 +3825,7 @@ static bool _jm_f_142(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_31_map_nextItem (.keybinding.universal.nextItem)
+// check _jm_f_123_map_nextItem (.keybinding.universal.nextItem)
 static bool _jm_f_143(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -4105,7 +3838,7 @@ static bool _jm_f_143(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_31_map_nextItem-alt (.keybinding.universal.'nextItem-alt')
+// check _jm_f_123_map_nextItem-alt (.keybinding.universal.'nextItem-alt')
 static bool _jm_f_144(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -4118,7 +3851,7 @@ static bool _jm_f_144(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_31_map_nextMatch (.keybinding.universal.nextMatch)
+// check _jm_f_123_map_nextMatch (.keybinding.universal.nextMatch)
 static bool _jm_f_145(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -4131,7 +3864,7 @@ static bool _jm_f_145(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_31_map_nextPage (.keybinding.universal.nextPage)
+// check _jm_f_123_map_nextPage (.keybinding.universal.nextPage)
 static bool _jm_f_146(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -4144,7 +3877,7 @@ static bool _jm_f_146(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_31_map_nextScreenMode (.keybinding.universal.nextScreenMode)
+// check _jm_f_123_map_nextScreenMode (.keybinding.universal.nextScreenMode)
 static bool _jm_f_147(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -4157,7 +3890,7 @@ static bool _jm_f_147(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_31_map_nextTab (.keybinding.universal.nextTab)
+// check _jm_f_123_map_nextTab (.keybinding.universal.nextTab)
 static bool _jm_f_148(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -4170,7 +3903,7 @@ static bool _jm_f_148(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_31_map_openFile (.keybinding.universal.openFile)
+// check _jm_f_123_map_openFile (.keybinding.universal.openFile)
 static bool _jm_f_149(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -4183,7 +3916,7 @@ static bool _jm_f_149(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_31_map_openRecentRepos (.keybinding.universal.openRecentRepos)
+// check _jm_f_123_map_openRecentRepos (.keybinding.universal.openRecentRepos)
 static bool _jm_f_150(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -4196,7 +3929,7 @@ static bool _jm_f_150(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_31_map_optionMenu (.keybinding.universal.optionMenu)
+// check _jm_f_123_map_optionMenu (.keybinding.universal.optionMenu)
 static bool _jm_f_151(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -4209,7 +3942,7 @@ static bool _jm_f_151(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_31_map_optionMenu-alt1 (.keybinding.universal.'optionMenu-alt1')
+// check _jm_f_123_map_optionMenu-alt1 (.keybinding.universal.'optionMenu-alt1')
 static bool _jm_f_152(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -4222,7 +3955,7 @@ static bool _jm_f_152(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_31_map_prevBlock (.keybinding.universal.prevBlock)
+// check _jm_f_123_map_prevBlock (.keybinding.universal.prevBlock)
 static bool _jm_f_153(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -4235,7 +3968,7 @@ static bool _jm_f_153(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_31_map_prevBlock-alt (.keybinding.universal.'prevBlock-alt')
+// check _jm_f_123_map_prevBlock-alt (.keybinding.universal.'prevBlock-alt')
 static bool _jm_f_154(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -4248,7 +3981,7 @@ static bool _jm_f_154(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_31_map_prevItem (.keybinding.universal.prevItem)
+// check _jm_f_123_map_prevItem (.keybinding.universal.prevItem)
 static bool _jm_f_155(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -4261,7 +3994,7 @@ static bool _jm_f_155(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_31_map_prevItem-alt (.keybinding.universal.'prevItem-alt')
+// check _jm_f_123_map_prevItem-alt (.keybinding.universal.'prevItem-alt')
 static bool _jm_f_156(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -4274,7 +4007,7 @@ static bool _jm_f_156(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_31_map_prevMatch (.keybinding.universal.prevMatch)
+// check _jm_f_123_map_prevMatch (.keybinding.universal.prevMatch)
 static bool _jm_f_157(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -4287,7 +4020,7 @@ static bool _jm_f_157(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_31_map_prevPage (.keybinding.universal.prevPage)
+// check _jm_f_123_map_prevPage (.keybinding.universal.prevPage)
 static bool _jm_f_158(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -4300,7 +4033,7 @@ static bool _jm_f_158(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_31_map_prevScreenMode (.keybinding.universal.prevScreenMode)
+// check _jm_f_123_map_prevScreenMode (.keybinding.universal.prevScreenMode)
 static bool _jm_f_159(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -4313,7 +4046,7 @@ static bool _jm_f_159(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_31_map_prevTab (.keybinding.universal.prevTab)
+// check _jm_f_123_map_prevTab (.keybinding.universal.prevTab)
 static bool _jm_f_160(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -4326,7 +4059,7 @@ static bool _jm_f_160(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_31_map_pullFiles (.keybinding.universal.pullFiles)
+// check _jm_f_123_map_pullFiles (.keybinding.universal.pullFiles)
 static bool _jm_f_161(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -4339,7 +4072,7 @@ static bool _jm_f_161(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_31_map_pushFiles (.keybinding.universal.pushFiles)
+// check _jm_f_123_map_pushFiles (.keybinding.universal.pushFiles)
 static bool _jm_f_162(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -4352,7 +4085,7 @@ static bool _jm_f_162(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_31_map_quit (.keybinding.universal.quit)
+// check _jm_f_123_map_quit (.keybinding.universal.quit)
 static bool _jm_f_163(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -4365,7 +4098,7 @@ static bool _jm_f_163(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_31_map_quit-alt1 (.keybinding.universal.'quit-alt1')
+// check _jm_f_123_map_quit-alt1 (.keybinding.universal.'quit-alt1')
 static bool _jm_f_164(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -4378,7 +4111,7 @@ static bool _jm_f_164(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_31_map_quitWithoutChangingDirectory (.keybinding.universal.quitWithoutChangingDirectory)
+// check _jm_f_123_map_quitWithoutChangingDirectory (.keybinding.universal.quitWithoutChangingDirectory)
 static bool _jm_f_165(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -4391,7 +4124,7 @@ static bool _jm_f_165(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_31_map_redo (.keybinding.universal.redo)
+// check _jm_f_123_map_redo (.keybinding.universal.redo)
 static bool _jm_f_166(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -4404,7 +4137,7 @@ static bool _jm_f_166(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_31_map_refresh (.keybinding.universal.refresh)
+// check _jm_f_123_map_refresh (.keybinding.universal.refresh)
 static bool _jm_f_167(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -4417,7 +4150,7 @@ static bool _jm_f_167(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_31_map_remove (.keybinding.universal.remove)
+// check _jm_f_123_map_remove (.keybinding.universal.remove)
 static bool _jm_f_168(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -4430,7 +4163,7 @@ static bool _jm_f_168(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_31_map_return (.keybinding.universal.return)
+// check _jm_f_123_map_return (.keybinding.universal.return)
 static bool _jm_f_169(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -4443,7 +4176,7 @@ static bool _jm_f_169(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_31_map_scrollDownMain (.keybinding.universal.scrollDownMain)
+// check _jm_f_123_map_scrollDownMain (.keybinding.universal.scrollDownMain)
 static bool _jm_f_170(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -4456,7 +4189,7 @@ static bool _jm_f_170(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_31_map_scrollDownMain-alt1 (.keybinding.universal.'scrollDownMain-alt1')
+// check _jm_f_123_map_scrollDownMain-alt1 (.keybinding.universal.'scrollDownMain-alt1')
 static bool _jm_f_171(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -4469,7 +4202,7 @@ static bool _jm_f_171(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_31_map_scrollDownMain-alt2 (.keybinding.universal.'scrollDownMain-alt2')
+// check _jm_f_123_map_scrollDownMain-alt2 (.keybinding.universal.'scrollDownMain-alt2')
 static bool _jm_f_172(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -4482,7 +4215,7 @@ static bool _jm_f_172(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_31_map_scrollLeft (.keybinding.universal.scrollLeft)
+// check _jm_f_123_map_scrollLeft (.keybinding.universal.scrollLeft)
 static bool _jm_f_173(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -4495,7 +4228,7 @@ static bool _jm_f_173(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_31_map_scrollRight (.keybinding.universal.scrollRight)
+// check _jm_f_123_map_scrollRight (.keybinding.universal.scrollRight)
 static bool _jm_f_174(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -4508,7 +4241,7 @@ static bool _jm_f_174(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_31_map_scrollUpMain (.keybinding.universal.scrollUpMain)
+// check _jm_f_123_map_scrollUpMain (.keybinding.universal.scrollUpMain)
 static bool _jm_f_175(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -4521,7 +4254,7 @@ static bool _jm_f_175(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_31_map_scrollUpMain-alt1 (.keybinding.universal.'scrollUpMain-alt1')
+// check _jm_f_123_map_scrollUpMain-alt1 (.keybinding.universal.'scrollUpMain-alt1')
 static bool _jm_f_176(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -4534,7 +4267,7 @@ static bool _jm_f_176(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_31_map_scrollUpMain-alt2 (.keybinding.universal.'scrollUpMain-alt2')
+// check _jm_f_123_map_scrollUpMain-alt2 (.keybinding.universal.'scrollUpMain-alt2')
 static bool _jm_f_177(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -4547,7 +4280,7 @@ static bool _jm_f_177(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_31_map_select (.keybinding.universal.select)
+// check _jm_f_123_map_select (.keybinding.universal.select)
 static bool _jm_f_178(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -4560,7 +4293,7 @@ static bool _jm_f_178(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_31_map_submitEditorText (.keybinding.universal.submitEditorText)
+// check _jm_f_123_map_submitEditorText (.keybinding.universal.submitEditorText)
 static bool _jm_f_179(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -4573,7 +4306,7 @@ static bool _jm_f_179(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_31_map_togglePanel (.keybinding.universal.togglePanel)
+// check _jm_f_123_map_togglePanel (.keybinding.universal.togglePanel)
 static bool _jm_f_180(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -4586,7 +4319,7 @@ static bool _jm_f_180(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_31_map_toggleWhitespaceInDiffView (.keybinding.universal.toggleWhitespaceInDiffView)
+// check _jm_f_123_map_toggleWhitespaceInDiffView (.keybinding.universal.toggleWhitespaceInDiffView)
 static bool _jm_f_181(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -4599,7 +4332,7 @@ static bool _jm_f_181(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_31_map_undo (.keybinding.universal.undo)
+// check _jm_f_123_map_undo (.keybinding.universal.undo)
 static bool _jm_f_182(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -4612,14 +4345,15 @@ static bool _jm_f_182(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-static INLINE jm_check_fun_t _jm_obj_31_map(const char *pname)
+static INLINE jm_check_fun_t _jm_f_123_map(const char *pname)
 {
-    return jm_search_propmap(pname, _jm_obj_31_map_tab, 59);
+    return jm_search_propmap(pname, _jm_f_123_map_tab, 59);
 }
 
-// object .keybinding.universal
-static INLINE bool _jm_obj_31(const json_t *val, jm_path_t *path, jm_report_t *rep)
+// check _jm_f_66_map_universal (.keybinding.universal)
+static bool _jm_f_123(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
+    // .keybinding.universal
     if (! json_is_object(val))
     {
         if (rep) jm_report_add_entry(rep, "not an object [.keybinding.universal]", path);
@@ -4631,7 +4365,7 @@ static INLINE bool _jm_obj_31(const json_t *val, jm_path_t *path, jm_report_t *r
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_27 = (jm_path_t) { prop, 0, path, NULL };
-        if ((pfun = _jm_obj_31_map(prop)))
+        if ((pfun = _jm_f_123_map(prop)))
         {
             // handle 59 may props
             if (pfun != NULL && ! pfun(pval, (path ? &lpath_27 : NULL), rep))
@@ -4649,27 +4383,15 @@ static INLINE bool _jm_obj_31(const json_t *val, jm_path_t *path, jm_report_t *r
     return true;
 }
 
-// check _jm_obj_22_map_universal (.keybinding.universal)
-static bool _jm_f_123(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE jm_check_fun_t _jm_f_66_map(const char *pname)
 {
-    bool res;
-    // .keybinding.universal
-    res = _jm_obj_31(val, path, rep);
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected element [.keybinding.universal]", path);
-    }
-    return res;
+    return jm_search_propmap(pname, _jm_f_66_map_tab, 9);
 }
 
-static INLINE jm_check_fun_t _jm_obj_22_map(const char *pname)
+// check json_model_1_map_keybinding (.keybinding)
+static bool _jm_f_66(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    return jm_search_propmap(pname, _jm_obj_22_map_tab, 9);
-}
-
-// object .keybinding
-static INLINE bool _jm_obj_22(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
+    // .keybinding
     if (! json_is_object(val))
     {
         if (rep) jm_report_add_entry(rep, "not an object [.keybinding]", path);
@@ -4681,7 +4403,7 @@ static INLINE bool _jm_obj_22(const json_t *val, jm_path_t *path, jm_report_t *r
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_18 = (jm_path_t) { prop, 0, path, NULL };
-        if ((pfun = _jm_obj_22_map(prop)))
+        if ((pfun = _jm_f_66_map(prop)))
         {
             // handle 9 may props
             if (pfun != NULL && ! pfun(pval, (path ? &lpath_18 : NULL), rep))
@@ -4699,21 +4421,8 @@ static INLINE bool _jm_obj_22(const json_t *val, jm_path_t *path, jm_report_t *r
     return true;
 }
 
-// check _jm_obj_7_map_keybinding (.keybinding)
-static bool _jm_f_66(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
-    bool res;
-    // .keybinding
-    res = _jm_obj_22(val, path, rep);
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected element [.keybinding]", path);
-    }
-    return res;
-}
 
-
-// check _jm_obj_7_map_notARepository (.notARepository)
+// check json_model_1_map_notARepository (.notARepository)
 static bool _jm_f_183(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -4726,7 +4435,7 @@ static bool _jm_f_183(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_32_map_copyToClipboardCmd (.os.copyToClipboardCmd)
+// check _jm_f_184_map_copyToClipboardCmd (.os.copyToClipboardCmd)
 static bool _jm_f_185(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -4739,7 +4448,7 @@ static bool _jm_f_185(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_32_map_edit (.os.edit)
+// check _jm_f_184_map_edit (.os.edit)
 static bool _jm_f_186(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -4752,7 +4461,7 @@ static bool _jm_f_186(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_32_map_editAtLine (.os.editAtLine)
+// check _jm_f_184_map_editAtLine (.os.editAtLine)
 static bool _jm_f_187(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -4765,7 +4474,7 @@ static bool _jm_f_187(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_32_map_editAtLineAndWait (.os.editAtLineAndWait)
+// check _jm_f_184_map_editAtLineAndWait (.os.editAtLineAndWait)
 static bool _jm_f_188(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -4779,7 +4488,7 @@ static bool _jm_f_188(const json_t *val, jm_path_t *path, jm_report_t *rep)
 }
 
 
-// check _jm_obj_32_map_editPreset (.os.editPreset)
+// check _jm_f_184_map_editPreset (.os.editPreset)
 static bool _jm_f_189(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -4814,7 +4523,7 @@ static bool _jm_f_189(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_32_map_open (.os.open)
+// check _jm_f_184_map_open (.os.open)
 static bool _jm_f_190(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -4827,7 +4536,7 @@ static bool _jm_f_190(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_32_map_openLink (.os.openLink)
+// check _jm_f_184_map_openLink (.os.openLink)
 static bool _jm_f_191(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -4840,14 +4549,15 @@ static bool _jm_f_191(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-static INLINE jm_check_fun_t _jm_obj_32_map(const char *pname)
+static INLINE jm_check_fun_t _jm_f_184_map(const char *pname)
 {
-    return jm_search_propmap(pname, _jm_obj_32_map_tab, 7);
+    return jm_search_propmap(pname, _jm_f_184_map_tab, 7);
 }
 
-// object .os
-static INLINE bool _jm_obj_32(const json_t *val, jm_path_t *path, jm_report_t *rep)
+// check json_model_1_map_os (.os)
+static bool _jm_f_184(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
+    // .os
     if (! json_is_object(val))
     {
         if (rep) jm_report_add_entry(rep, "not an object [.os]", path);
@@ -4859,7 +4569,7 @@ static INLINE bool _jm_obj_32(const json_t *val, jm_path_t *path, jm_report_t *r
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_28 = (jm_path_t) { prop, 0, path, NULL };
-        if ((pfun = _jm_obj_32_map(prop)))
+        if ((pfun = _jm_f_184_map(prop)))
         {
             // handle 7 may props
             if (pfun != NULL && ! pfun(pval, (path ? &lpath_28 : NULL), rep))
@@ -4877,20 +4587,7 @@ static INLINE bool _jm_obj_32(const json_t *val, jm_path_t *path, jm_report_t *r
     return true;
 }
 
-// check _jm_obj_7_map_os (.os)
-static bool _jm_f_184(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
-    bool res;
-    // .os
-    res = _jm_obj_32(val, path, rep);
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected element [.os]", path);
-    }
-    return res;
-}
-
-// check _jm_obj_7_map_promptToReturnFromSubprocess (.promptToReturnFromSubprocess)
+// check json_model_1_map_promptToReturnFromSubprocess (.promptToReturnFromSubprocess)
 static bool _jm_f_192(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -4903,7 +4600,7 @@ static bool _jm_f_192(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_7_map_quitOnTopLevelReturn (.quitOnTopLevelReturn)
+// check json_model_1_map_quitOnTopLevelReturn (.quitOnTopLevelReturn)
 static bool _jm_f_193(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -4916,9 +4613,10 @@ static bool _jm_f_193(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// object .refresher
-static INLINE bool _jm_obj_33(const json_t *val, jm_path_t *path, jm_report_t *rep)
+// check json_model_1_map_refresher (.refresher)
+static bool _jm_f_194(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
+    // .refresher
     if (! json_is_object(val))
     {
         if (rep) jm_report_add_entry(rep, "not an object [.refresher]", path);
@@ -4963,28 +4661,16 @@ static INLINE bool _jm_obj_33(const json_t *val, jm_path_t *path, jm_report_t *r
     return true;
 }
 
-// check _jm_obj_7_map_refresher (.refresher)
-static bool _jm_f_194(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
-    bool res;
-    // .refresher
-    res = _jm_obj_33(val, path, rep);
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected element [.refresher]", path);
-    }
-    return res;
-}
-
 static bool _jm_re_2(const char *s, jm_path_t *path, jm_report_t *rep)
 {
     size_t slen = strlen(s);
     return cre2_match(_jm_re_2_re2, s, slen, 0, slen, CRE2_UNANCHORED, NULL, 0);
 }
 
-// object .services
-static INLINE bool _jm_obj_34(const json_t *val, jm_path_t *path, jm_report_t *rep)
+// check json_model_1_map_services (.services)
+static bool _jm_f_195(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
+    // .services
     if (! json_is_object(val))
     {
         if (rep) jm_report_add_entry(rep, "not an object [.services]", path);
@@ -5017,23 +4703,11 @@ static INLINE bool _jm_obj_34(const json_t *val, jm_path_t *path, jm_report_t *r
     return true;
 }
 
-// check _jm_obj_7_map_services (.services)
-static bool _jm_f_195(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
-    bool res;
-    // .services
-    res = _jm_obj_34(val, path, rep);
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected element [.services]", path);
-    }
-    return res;
-}
 
-
-// object .update
-static INLINE bool _jm_obj_35(const json_t *val, jm_path_t *path, jm_report_t *rep)
+// check json_model_1_map_update (.update)
+static bool _jm_f_196(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
+    // .update
     if (! json_is_object(val))
     {
         if (rep) jm_report_add_entry(rep, "not an object [.update]", path);
@@ -5078,27 +4752,16 @@ static INLINE bool _jm_obj_35(const json_t *val, jm_path_t *path, jm_report_t *r
     return true;
 }
 
-// check _jm_obj_7_map_update (.update)
-static bool _jm_f_196(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE jm_check_fun_t json_model_1_map(const char *pname)
 {
-    bool res;
-    // .update
-    res = _jm_obj_35(val, path, rep);
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected element [.update]", path);
-    }
-    return res;
+    return jm_search_propmap(pname, json_model_1_map_tab, 13);
 }
 
-static INLINE jm_check_fun_t _jm_obj_7_map(const char *pname)
+// check $ (.)
+static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    return jm_search_propmap(pname, _jm_obj_7_map_tab, 13);
-}
-
-// object .
-static INLINE bool _jm_obj_7(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
+    // JSON Model for Lazy Git
+    // .
     if (! json_is_object(val))
     {
         if (rep) jm_report_add_entry(rep, "not an object [.]", path);
@@ -5110,7 +4773,7 @@ static INLINE bool _jm_obj_7(const json_t *val, jm_path_t *path, jm_report_t *re
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_4 = (jm_path_t) { prop, 0, path, NULL };
-        if ((pfun = _jm_obj_7_map(prop)))
+        if ((pfun = json_model_1_map(prop)))
         {
             // handle 13 may props
             if (pfun != NULL && ! pfun(pval, (path ? &lpath_4 : NULL), rep))
@@ -5126,20 +4789,6 @@ static INLINE bool _jm_obj_7(const json_t *val, jm_path_t *path, jm_report_t *re
         }
     }
     return true;
-}
-
-// check $ (.)
-static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
-    bool res;
-    // JSON Model for Lazy Git
-    // .
-    res = _jm_obj_7(val, path, rep);
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected element [.]", path);
-    }
-    return res;
 }
 
 jm_check_fun_t check_model_map(const char *pname)
@@ -5209,14 +4858,14 @@ const char *check_model_init(void)
         _jm_cst_3[11] = (jm_constant_t) { cst_is_string, { .s = "stash" } };
         _jm_cst_3[12] = (jm_constant_t) { cst_is_string, { .s = "global" } };
         jm_sort_cst(_jm_cst_3, 13);
-        _jm_obj_8_map_tab[0] = (jm_propmap_t) { "after", _jm_f_2 };
-        _jm_obj_8_map_tab[1] = (jm_propmap_t) { "description", _jm_f_3 };
-        _jm_obj_8_map_tab[2] = (jm_propmap_t) { "loadingText", _jm_f_4 };
-        _jm_obj_8_map_tab[3] = (jm_propmap_t) { "prompts", _jm_f_5 };
-        _jm_obj_8_map_tab[4] = (jm_propmap_t) { "showOutput", _jm_f_6 };
-        _jm_obj_8_map_tab[5] = (jm_propmap_t) { "stream", _jm_f_7 };
-        _jm_obj_8_map_tab[6] = (jm_propmap_t) { "subprocess", _jm_f_8 };
-        jm_sort_propmap(_jm_obj_8_map_tab, 7);
+        _jm_obj_7_map_tab[0] = (jm_propmap_t) { "after", _jm_f_2 };
+        _jm_obj_7_map_tab[1] = (jm_propmap_t) { "description", _jm_f_3 };
+        _jm_obj_7_map_tab[2] = (jm_propmap_t) { "loadingText", _jm_f_4 };
+        _jm_obj_7_map_tab[3] = (jm_propmap_t) { "prompts", _jm_f_5 };
+        _jm_obj_7_map_tab[4] = (jm_propmap_t) { "showOutput", _jm_f_6 };
+        _jm_obj_7_map_tab[5] = (jm_propmap_t) { "stream", _jm_f_7 };
+        _jm_obj_7_map_tab[6] = (jm_propmap_t) { "subprocess", _jm_f_8 };
+        jm_sort_propmap(_jm_obj_7_map_tab, 7);
         _jm_re_1_re2 = cre2_new(".", strlen("."), NULL);
         if (cre2_error_code(_jm_re_1_re2))
             return cre2_error_string(_jm_re_1_re2);
@@ -5236,23 +4885,23 @@ const char *check_model_init(void)
         _jm_cst_6[0] = (jm_constant_t) { cst_is_string, { .s = "always" } };
         _jm_cst_6[1] = (jm_constant_t) { cst_is_string, { .s = "never" } };
         jm_sort_cst(_jm_cst_6, 2);
-        _jm_obj_10_map_tab[0] = (jm_propmap_t) { "allBranchesLogCmd", _jm_f_11 };
-        _jm_obj_10_map_tab[1] = (jm_propmap_t) { "autoFetch", _jm_f_12 };
-        _jm_obj_10_map_tab[2] = (jm_propmap_t) { "autoRefresh", _jm_f_13 };
-        _jm_obj_10_map_tab[3] = (jm_propmap_t) { "branchLogCmd", _jm_f_14 };
-        _jm_obj_10_map_tab[4] = (jm_propmap_t) { "commit", _jm_f_15 };
-        _jm_obj_10_map_tab[5] = (jm_propmap_t) { "commitPrefixes", _jm_f_16 };
-        _jm_obj_10_map_tab[6] = (jm_propmap_t) { "diffContextSize", _jm_f_17 };
-        _jm_obj_10_map_tab[7] = (jm_propmap_t) { "disableForcePushing", _jm_f_18 };
-        _jm_obj_10_map_tab[8] = (jm_propmap_t) { "fetchAll", _jm_f_19 };
-        _jm_obj_10_map_tab[9] = (jm_propmap_t) { "log", _jm_f_20 };
-        _jm_obj_10_map_tab[10] = (jm_propmap_t) { "mainBranches", _jm_f_21 };
-        _jm_obj_10_map_tab[11] = (jm_propmap_t) { "merging", _jm_f_22 };
-        _jm_obj_10_map_tab[12] = (jm_propmap_t) { "overrideGpg", _jm_f_23 };
-        _jm_obj_10_map_tab[13] = (jm_propmap_t) { "paging", _jm_f_24 };
-        _jm_obj_10_map_tab[14] = (jm_propmap_t) { "parseEmoji", _jm_f_25 };
-        _jm_obj_10_map_tab[15] = (jm_propmap_t) { "skipHookPrefix", _jm_f_26 };
-        jm_sort_propmap(_jm_obj_10_map_tab, 16);
+        _jm_f_10_map_tab[0] = (jm_propmap_t) { "allBranchesLogCmd", _jm_f_11 };
+        _jm_f_10_map_tab[1] = (jm_propmap_t) { "autoFetch", _jm_f_12 };
+        _jm_f_10_map_tab[2] = (jm_propmap_t) { "autoRefresh", _jm_f_13 };
+        _jm_f_10_map_tab[3] = (jm_propmap_t) { "branchLogCmd", _jm_f_14 };
+        _jm_f_10_map_tab[4] = (jm_propmap_t) { "commit", _jm_f_15 };
+        _jm_f_10_map_tab[5] = (jm_propmap_t) { "commitPrefixes", _jm_f_16 };
+        _jm_f_10_map_tab[6] = (jm_propmap_t) { "diffContextSize", _jm_f_17 };
+        _jm_f_10_map_tab[7] = (jm_propmap_t) { "disableForcePushing", _jm_f_18 };
+        _jm_f_10_map_tab[8] = (jm_propmap_t) { "fetchAll", _jm_f_19 };
+        _jm_f_10_map_tab[9] = (jm_propmap_t) { "log", _jm_f_20 };
+        _jm_f_10_map_tab[10] = (jm_propmap_t) { "mainBranches", _jm_f_21 };
+        _jm_f_10_map_tab[11] = (jm_propmap_t) { "merging", _jm_f_22 };
+        _jm_f_10_map_tab[12] = (jm_propmap_t) { "overrideGpg", _jm_f_23 };
+        _jm_f_10_map_tab[13] = (jm_propmap_t) { "paging", _jm_f_24 };
+        _jm_f_10_map_tab[14] = (jm_propmap_t) { "parseEmoji", _jm_f_25 };
+        _jm_f_10_map_tab[15] = (jm_propmap_t) { "skipHookPrefix", _jm_f_26 };
+        jm_sort_propmap(_jm_f_10_map_tab, 16);
         // initialize sorted set _jm_cst_7
         _jm_cst_7[0] = (jm_constant_t) { cst_is_string, { .s = "single" } };
         _jm_cst_7[1] = (jm_constant_t) { cst_is_string, { .s = "double" } };
@@ -5283,172 +4932,172 @@ const char *check_model_init(void)
         _jm_cst_11[0] = (jm_constant_t) { cst_is_string, { .s = "auto" } };
         _jm_cst_11[1] = (jm_constant_t) { cst_is_string, { .s = "always" } };
         jm_sort_cst(_jm_cst_11, 2);
-        _jm_obj_21_map_tab[0] = (jm_propmap_t) { "activeBorderColor", _jm_f_54 };
-        _jm_obj_21_map_tab[1] = (jm_propmap_t) { "cherryPickedCommitBgColor", _jm_f_55 };
-        _jm_obj_21_map_tab[2] = (jm_propmap_t) { "cherryPickedCommitFgColor", _jm_f_56 };
-        _jm_obj_21_map_tab[3] = (jm_propmap_t) { "defaultFgColor", _jm_f_57 };
-        _jm_obj_21_map_tab[4] = (jm_propmap_t) { "inactiveBorderColor", _jm_f_58 };
-        _jm_obj_21_map_tab[5] = (jm_propmap_t) { "optionsTextColor", _jm_f_59 };
-        _jm_obj_21_map_tab[6] = (jm_propmap_t) { "searchingActiveBorderColor", _jm_f_60 };
-        _jm_obj_21_map_tab[7] = (jm_propmap_t) { "selectedLineBgColor", _jm_f_61 };
-        _jm_obj_21_map_tab[8] = (jm_propmap_t) { "selectedRangeBgColor", _jm_f_62 };
-        _jm_obj_21_map_tab[9] = (jm_propmap_t) { "unstagedChangesColor", _jm_f_63 };
-        jm_sort_propmap(_jm_obj_21_map_tab, 10);
+        _jm_f_53_map_tab[0] = (jm_propmap_t) { "activeBorderColor", _jm_f_54 };
+        _jm_f_53_map_tab[1] = (jm_propmap_t) { "cherryPickedCommitBgColor", _jm_f_55 };
+        _jm_f_53_map_tab[2] = (jm_propmap_t) { "cherryPickedCommitFgColor", _jm_f_56 };
+        _jm_f_53_map_tab[3] = (jm_propmap_t) { "defaultFgColor", _jm_f_57 };
+        _jm_f_53_map_tab[4] = (jm_propmap_t) { "inactiveBorderColor", _jm_f_58 };
+        _jm_f_53_map_tab[5] = (jm_propmap_t) { "optionsTextColor", _jm_f_59 };
+        _jm_f_53_map_tab[6] = (jm_propmap_t) { "searchingActiveBorderColor", _jm_f_60 };
+        _jm_f_53_map_tab[7] = (jm_propmap_t) { "selectedLineBgColor", _jm_f_61 };
+        _jm_f_53_map_tab[8] = (jm_propmap_t) { "selectedRangeBgColor", _jm_f_62 };
+        _jm_f_53_map_tab[9] = (jm_propmap_t) { "unstagedChangesColor", _jm_f_63 };
+        jm_sort_propmap(_jm_f_53_map_tab, 10);
         // initialize sorted set _jm_cst_12
         _jm_cst_12[0] = (jm_constant_t) { cst_is_string, { .s = "normal" } };
         _jm_cst_12[1] = (jm_constant_t) { cst_is_string, { .s = "half" } };
         _jm_cst_12[2] = (jm_constant_t) { cst_is_string, { .s = "full" } };
         jm_sort_cst(_jm_cst_12, 3);
-        _jm_obj_17_map_tab[0] = (jm_propmap_t) { "animateExplosion", _jm_f_28 };
-        _jm_obj_17_map_tab[1] = (jm_propmap_t) { "authorColors", _jm_f_29 };
-        _jm_obj_17_map_tab[2] = (jm_propmap_t) { "border", _jm_f_30 };
-        _jm_obj_17_map_tab[3] = (jm_propmap_t) { "branchColors", _jm_f_31 };
-        _jm_obj_17_map_tab[4] = (jm_propmap_t) { "commandLogSize", _jm_f_32 };
-        _jm_obj_17_map_tab[5] = (jm_propmap_t) { "commitLength", _jm_f_33 };
-        _jm_obj_17_map_tab[6] = (jm_propmap_t) { "expandFocusedSidePanel", _jm_f_34 };
-        _jm_obj_17_map_tab[7] = (jm_propmap_t) { "language", _jm_f_35 };
-        _jm_obj_17_map_tab[8] = (jm_propmap_t) { "mainPanelSplitMode", _jm_f_36 };
-        _jm_obj_17_map_tab[9] = (jm_propmap_t) { "mouseEvents", _jm_f_37 };
-        _jm_obj_17_map_tab[10] = (jm_propmap_t) { "nerdFontsVersion", _jm_f_38 };
-        _jm_obj_17_map_tab[11] = (jm_propmap_t) { "scrollHeight", _jm_f_39 };
-        _jm_obj_17_map_tab[12] = (jm_propmap_t) { "scrollPastBottom", _jm_f_40 };
-        _jm_obj_17_map_tab[13] = (jm_propmap_t) { "shortTimeFormat", _jm_f_41 };
-        _jm_obj_17_map_tab[14] = (jm_propmap_t) { "showBottomLine", _jm_f_42 };
-        _jm_obj_17_map_tab[15] = (jm_propmap_t) { "showBranchCommitHash", _jm_f_43 };
-        _jm_obj_17_map_tab[16] = (jm_propmap_t) { "showCommandLog", _jm_f_44 };
-        _jm_obj_17_map_tab[17] = (jm_propmap_t) { "showFileTree", _jm_f_45 };
-        _jm_obj_17_map_tab[18] = (jm_propmap_t) { "showListFooter", _jm_f_46 };
-        _jm_obj_17_map_tab[19] = (jm_propmap_t) { "showRandomTip", _jm_f_47 };
-        _jm_obj_17_map_tab[20] = (jm_propmap_t) { "sidePanelWidth", _jm_f_48 };
-        _jm_obj_17_map_tab[21] = (jm_propmap_t) { "skipDiscardChangeWarning", _jm_f_49 };
-        _jm_obj_17_map_tab[22] = (jm_propmap_t) { "skipRewordInEditorWarning", _jm_f_50 };
-        _jm_obj_17_map_tab[23] = (jm_propmap_t) { "skipStashWarning", _jm_f_51 };
-        _jm_obj_17_map_tab[24] = (jm_propmap_t) { "splitDiff", _jm_f_52 };
-        _jm_obj_17_map_tab[25] = (jm_propmap_t) { "theme", _jm_f_53 };
-        _jm_obj_17_map_tab[26] = (jm_propmap_t) { "timeFormat", _jm_f_64 };
-        _jm_obj_17_map_tab[27] = (jm_propmap_t) { "windowSize", _jm_f_65 };
-        jm_sort_propmap(_jm_obj_17_map_tab, 28);
-        _jm_obj_23_map_tab[0] = (jm_propmap_t) { "checkoutBranchByName", _jm_f_68 };
-        _jm_obj_23_map_tab[1] = (jm_propmap_t) { "createPullRequest", _jm_f_69 };
-        _jm_obj_23_map_tab[2] = (jm_propmap_t) { "createTag", _jm_f_70 };
-        _jm_obj_23_map_tab[3] = (jm_propmap_t) { "fastForward", _jm_f_71 };
-        _jm_obj_23_map_tab[4] = (jm_propmap_t) { "fetchRemote", _jm_f_72 };
-        _jm_obj_23_map_tab[5] = (jm_propmap_t) { "forceCheckoutBranch", _jm_f_73 };
-        _jm_obj_23_map_tab[6] = (jm_propmap_t) { "mergeIntoCurrentBranch", _jm_f_74 };
-        _jm_obj_23_map_tab[7] = (jm_propmap_t) { "pushTag", _jm_f_75 };
-        _jm_obj_23_map_tab[8] = (jm_propmap_t) { "rebaseBranch", _jm_f_76 };
-        _jm_obj_23_map_tab[9] = (jm_propmap_t) { "renameBranch", _jm_f_77 };
-        _jm_obj_23_map_tab[10] = (jm_propmap_t) { "setUpstream", _jm_f_78 };
-        _jm_obj_23_map_tab[11] = (jm_propmap_t) { "viewGitFlowOptions", _jm_f_79 };
-        _jm_obj_23_map_tab[12] = (jm_propmap_t) { "viewPullRequestOptions", _jm_f_80 };
-        jm_sort_propmap(_jm_obj_23_map_tab, 13);
-        _jm_obj_25_map_tab[0] = (jm_propmap_t) { "amendToCommit", _jm_f_83 };
-        _jm_obj_25_map_tab[1] = (jm_propmap_t) { "checkoutCommit", _jm_f_84 };
-        _jm_obj_25_map_tab[2] = (jm_propmap_t) { "cherryPickCopy", _jm_f_85 };
-        _jm_obj_25_map_tab[3] = (jm_propmap_t) { "cherryPickCopyRange", _jm_f_86 };
-        _jm_obj_25_map_tab[4] = (jm_propmap_t) { "copyCommitMessageToClipboard", _jm_f_87 };
-        _jm_obj_25_map_tab[5] = (jm_propmap_t) { "createFixupCommit", _jm_f_88 };
-        _jm_obj_25_map_tab[6] = (jm_propmap_t) { "markCommitAsFixup", _jm_f_89 };
-        _jm_obj_25_map_tab[7] = (jm_propmap_t) { "moveDownCommit", _jm_f_90 };
-        _jm_obj_25_map_tab[8] = (jm_propmap_t) { "moveUpCommit", _jm_f_91 };
-        _jm_obj_25_map_tab[9] = (jm_propmap_t) { "openLogMenu", _jm_f_92 };
-        _jm_obj_25_map_tab[10] = (jm_propmap_t) { "pasteCommits", _jm_f_93 };
-        _jm_obj_25_map_tab[11] = (jm_propmap_t) { "pickCommit", _jm_f_94 };
-        _jm_obj_25_map_tab[12] = (jm_propmap_t) { "renameCommit", _jm_f_95 };
-        _jm_obj_25_map_tab[13] = (jm_propmap_t) { "renameCommitWithEditor", _jm_f_96 };
-        _jm_obj_25_map_tab[14] = (jm_propmap_t) { "resetCherryPick", _jm_f_97 };
-        _jm_obj_25_map_tab[15] = (jm_propmap_t) { "revertCommit", _jm_f_98 };
-        _jm_obj_25_map_tab[16] = (jm_propmap_t) { "squashAboveCommits", _jm_f_99 };
-        _jm_obj_25_map_tab[17] = (jm_propmap_t) { "squashDown", _jm_f_100 };
-        _jm_obj_25_map_tab[18] = (jm_propmap_t) { "tagCommit", _jm_f_101 };
-        _jm_obj_25_map_tab[19] = (jm_propmap_t) { "viewBisectOptions", _jm_f_102 };
-        _jm_obj_25_map_tab[20] = (jm_propmap_t) { "viewResetOptions", _jm_f_103 };
-        jm_sort_propmap(_jm_obj_25_map_tab, 21);
-        _jm_obj_26_map_tab[0] = (jm_propmap_t) { "amendLastCommit", _jm_f_105 };
-        _jm_obj_26_map_tab[1] = (jm_propmap_t) { "commitChanges", _jm_f_106 };
-        _jm_obj_26_map_tab[2] = (jm_propmap_t) { "commitChangesWithEditor", _jm_f_107 };
-        _jm_obj_26_map_tab[3] = (jm_propmap_t) { "commitChangesWithoutHook", _jm_f_108 };
-        _jm_obj_26_map_tab[4] = (jm_propmap_t) { "fetch", _jm_f_109 };
-        _jm_obj_26_map_tab[5] = (jm_propmap_t) { "ignoreFile", _jm_f_110 };
-        _jm_obj_26_map_tab[6] = (jm_propmap_t) { "openMergeTool", _jm_f_111 };
-        _jm_obj_26_map_tab[7] = (jm_propmap_t) { "openStatusFilter", _jm_f_112 };
-        _jm_obj_26_map_tab[8] = (jm_propmap_t) { "refreshFiles", _jm_f_113 };
-        _jm_obj_26_map_tab[9] = (jm_propmap_t) { "stashAllChanges", _jm_f_114 };
-        _jm_obj_26_map_tab[10] = (jm_propmap_t) { "toggleStagedAll", _jm_f_115 };
-        _jm_obj_26_map_tab[11] = (jm_propmap_t) { "toggleTreeView", _jm_f_116 };
-        _jm_obj_26_map_tab[12] = (jm_propmap_t) { "viewResetOptions", _jm_f_117 };
-        _jm_obj_26_map_tab[13] = (jm_propmap_t) { "viewStashOptions", _jm_f_118 };
-        jm_sort_propmap(_jm_obj_26_map_tab, 14);
-        _jm_obj_31_map_tab[0] = (jm_propmap_t) { "confirm", _jm_f_124 };
-        _jm_obj_31_map_tab[1] = (jm_propmap_t) { "copyToClipboard", _jm_f_125 };
-        _jm_obj_31_map_tab[2] = (jm_propmap_t) { "createPatchOptionsMenu", _jm_f_126 };
-        _jm_obj_31_map_tab[3] = (jm_propmap_t) { "createRebaseOptionsMenu", _jm_f_127 };
-        _jm_obj_31_map_tab[4] = (jm_propmap_t) { "decreaseContextInDiffView", _jm_f_128 };
-        _jm_obj_31_map_tab[5] = (jm_propmap_t) { "diffingMenu", _jm_f_129 };
-        _jm_obj_31_map_tab[6] = (jm_propmap_t) { "diffingMenu-alt", _jm_f_130 };
-        _jm_obj_31_map_tab[7] = (jm_propmap_t) { "edit", _jm_f_131 };
-        _jm_obj_31_map_tab[8] = (jm_propmap_t) { "executeCustomCommand", _jm_f_132 };
-        _jm_obj_31_map_tab[9] = (jm_propmap_t) { "extrasMenu", _jm_f_133 };
-        _jm_obj_31_map_tab[10] = (jm_propmap_t) { "filteringMenu", _jm_f_134 };
-        _jm_obj_31_map_tab[11] = (jm_propmap_t) { "goInto", _jm_f_135 };
-        _jm_obj_31_map_tab[12] = (jm_propmap_t) { "gotoBottom", _jm_f_136 };
-        _jm_obj_31_map_tab[13] = (jm_propmap_t) { "gotoTop", _jm_f_137 };
-        _jm_obj_31_map_tab[14] = (jm_propmap_t) { "increaseContextInDiffView", _jm_f_138 };
-        _jm_obj_31_map_tab[15] = (jm_propmap_t) { "jumpToBlock", _jm_f_139 };
-        _jm_obj_31_map_tab[16] = (jm_propmap_t) { "new", _jm_f_140 };
-        _jm_obj_31_map_tab[17] = (jm_propmap_t) { "nextBlock", _jm_f_141 };
-        _jm_obj_31_map_tab[18] = (jm_propmap_t) { "nextBlock-alt", _jm_f_142 };
-        _jm_obj_31_map_tab[19] = (jm_propmap_t) { "nextItem", _jm_f_143 };
-        _jm_obj_31_map_tab[20] = (jm_propmap_t) { "nextItem-alt", _jm_f_144 };
-        _jm_obj_31_map_tab[21] = (jm_propmap_t) { "nextMatch", _jm_f_145 };
-        _jm_obj_31_map_tab[22] = (jm_propmap_t) { "nextPage", _jm_f_146 };
-        _jm_obj_31_map_tab[23] = (jm_propmap_t) { "nextScreenMode", _jm_f_147 };
-        _jm_obj_31_map_tab[24] = (jm_propmap_t) { "nextTab", _jm_f_148 };
-        _jm_obj_31_map_tab[25] = (jm_propmap_t) { "openFile", _jm_f_149 };
-        _jm_obj_31_map_tab[26] = (jm_propmap_t) { "openRecentRepos", _jm_f_150 };
-        _jm_obj_31_map_tab[27] = (jm_propmap_t) { "optionMenu", _jm_f_151 };
-        _jm_obj_31_map_tab[28] = (jm_propmap_t) { "optionMenu-alt1", _jm_f_152 };
-        _jm_obj_31_map_tab[29] = (jm_propmap_t) { "prevBlock", _jm_f_153 };
-        _jm_obj_31_map_tab[30] = (jm_propmap_t) { "prevBlock-alt", _jm_f_154 };
-        _jm_obj_31_map_tab[31] = (jm_propmap_t) { "prevItem", _jm_f_155 };
-        _jm_obj_31_map_tab[32] = (jm_propmap_t) { "prevItem-alt", _jm_f_156 };
-        _jm_obj_31_map_tab[33] = (jm_propmap_t) { "prevMatch", _jm_f_157 };
-        _jm_obj_31_map_tab[34] = (jm_propmap_t) { "prevPage", _jm_f_158 };
-        _jm_obj_31_map_tab[35] = (jm_propmap_t) { "prevScreenMode", _jm_f_159 };
-        _jm_obj_31_map_tab[36] = (jm_propmap_t) { "prevTab", _jm_f_160 };
-        _jm_obj_31_map_tab[37] = (jm_propmap_t) { "pullFiles", _jm_f_161 };
-        _jm_obj_31_map_tab[38] = (jm_propmap_t) { "pushFiles", _jm_f_162 };
-        _jm_obj_31_map_tab[39] = (jm_propmap_t) { "quit", _jm_f_163 };
-        _jm_obj_31_map_tab[40] = (jm_propmap_t) { "quit-alt1", _jm_f_164 };
-        _jm_obj_31_map_tab[41] = (jm_propmap_t) { "quitWithoutChangingDirectory", _jm_f_165 };
-        _jm_obj_31_map_tab[42] = (jm_propmap_t) { "redo", _jm_f_166 };
-        _jm_obj_31_map_tab[43] = (jm_propmap_t) { "refresh", _jm_f_167 };
-        _jm_obj_31_map_tab[44] = (jm_propmap_t) { "remove", _jm_f_168 };
-        _jm_obj_31_map_tab[45] = (jm_propmap_t) { "return", _jm_f_169 };
-        _jm_obj_31_map_tab[46] = (jm_propmap_t) { "scrollDownMain", _jm_f_170 };
-        _jm_obj_31_map_tab[47] = (jm_propmap_t) { "scrollDownMain-alt1", _jm_f_171 };
-        _jm_obj_31_map_tab[48] = (jm_propmap_t) { "scrollDownMain-alt2", _jm_f_172 };
-        _jm_obj_31_map_tab[49] = (jm_propmap_t) { "scrollLeft", _jm_f_173 };
-        _jm_obj_31_map_tab[50] = (jm_propmap_t) { "scrollRight", _jm_f_174 };
-        _jm_obj_31_map_tab[51] = (jm_propmap_t) { "scrollUpMain", _jm_f_175 };
-        _jm_obj_31_map_tab[52] = (jm_propmap_t) { "scrollUpMain-alt1", _jm_f_176 };
-        _jm_obj_31_map_tab[53] = (jm_propmap_t) { "scrollUpMain-alt2", _jm_f_177 };
-        _jm_obj_31_map_tab[54] = (jm_propmap_t) { "select", _jm_f_178 };
-        _jm_obj_31_map_tab[55] = (jm_propmap_t) { "submitEditorText", _jm_f_179 };
-        _jm_obj_31_map_tab[56] = (jm_propmap_t) { "togglePanel", _jm_f_180 };
-        _jm_obj_31_map_tab[57] = (jm_propmap_t) { "toggleWhitespaceInDiffView", _jm_f_181 };
-        _jm_obj_31_map_tab[58] = (jm_propmap_t) { "undo", _jm_f_182 };
-        jm_sort_propmap(_jm_obj_31_map_tab, 59);
-        _jm_obj_22_map_tab[0] = (jm_propmap_t) { "branches", _jm_f_67 };
-        _jm_obj_22_map_tab[1] = (jm_propmap_t) { "commitFiles", _jm_f_81 };
-        _jm_obj_22_map_tab[2] = (jm_propmap_t) { "commits", _jm_f_82 };
-        _jm_obj_22_map_tab[3] = (jm_propmap_t) { "files", _jm_f_104 };
-        _jm_obj_22_map_tab[4] = (jm_propmap_t) { "main", _jm_f_119 };
-        _jm_obj_22_map_tab[5] = (jm_propmap_t) { "stash", _jm_f_120 };
-        _jm_obj_22_map_tab[6] = (jm_propmap_t) { "status", _jm_f_121 };
-        _jm_obj_22_map_tab[7] = (jm_propmap_t) { "submodules", _jm_f_122 };
-        _jm_obj_22_map_tab[8] = (jm_propmap_t) { "universal", _jm_f_123 };
-        jm_sort_propmap(_jm_obj_22_map_tab, 9);
+        _jm_f_27_map_tab[0] = (jm_propmap_t) { "animateExplosion", _jm_f_28 };
+        _jm_f_27_map_tab[1] = (jm_propmap_t) { "authorColors", _jm_f_29 };
+        _jm_f_27_map_tab[2] = (jm_propmap_t) { "border", _jm_f_30 };
+        _jm_f_27_map_tab[3] = (jm_propmap_t) { "branchColors", _jm_f_31 };
+        _jm_f_27_map_tab[4] = (jm_propmap_t) { "commandLogSize", _jm_f_32 };
+        _jm_f_27_map_tab[5] = (jm_propmap_t) { "commitLength", _jm_f_33 };
+        _jm_f_27_map_tab[6] = (jm_propmap_t) { "expandFocusedSidePanel", _jm_f_34 };
+        _jm_f_27_map_tab[7] = (jm_propmap_t) { "language", _jm_f_35 };
+        _jm_f_27_map_tab[8] = (jm_propmap_t) { "mainPanelSplitMode", _jm_f_36 };
+        _jm_f_27_map_tab[9] = (jm_propmap_t) { "mouseEvents", _jm_f_37 };
+        _jm_f_27_map_tab[10] = (jm_propmap_t) { "nerdFontsVersion", _jm_f_38 };
+        _jm_f_27_map_tab[11] = (jm_propmap_t) { "scrollHeight", _jm_f_39 };
+        _jm_f_27_map_tab[12] = (jm_propmap_t) { "scrollPastBottom", _jm_f_40 };
+        _jm_f_27_map_tab[13] = (jm_propmap_t) { "shortTimeFormat", _jm_f_41 };
+        _jm_f_27_map_tab[14] = (jm_propmap_t) { "showBottomLine", _jm_f_42 };
+        _jm_f_27_map_tab[15] = (jm_propmap_t) { "showBranchCommitHash", _jm_f_43 };
+        _jm_f_27_map_tab[16] = (jm_propmap_t) { "showCommandLog", _jm_f_44 };
+        _jm_f_27_map_tab[17] = (jm_propmap_t) { "showFileTree", _jm_f_45 };
+        _jm_f_27_map_tab[18] = (jm_propmap_t) { "showListFooter", _jm_f_46 };
+        _jm_f_27_map_tab[19] = (jm_propmap_t) { "showRandomTip", _jm_f_47 };
+        _jm_f_27_map_tab[20] = (jm_propmap_t) { "sidePanelWidth", _jm_f_48 };
+        _jm_f_27_map_tab[21] = (jm_propmap_t) { "skipDiscardChangeWarning", _jm_f_49 };
+        _jm_f_27_map_tab[22] = (jm_propmap_t) { "skipRewordInEditorWarning", _jm_f_50 };
+        _jm_f_27_map_tab[23] = (jm_propmap_t) { "skipStashWarning", _jm_f_51 };
+        _jm_f_27_map_tab[24] = (jm_propmap_t) { "splitDiff", _jm_f_52 };
+        _jm_f_27_map_tab[25] = (jm_propmap_t) { "theme", _jm_f_53 };
+        _jm_f_27_map_tab[26] = (jm_propmap_t) { "timeFormat", _jm_f_64 };
+        _jm_f_27_map_tab[27] = (jm_propmap_t) { "windowSize", _jm_f_65 };
+        jm_sort_propmap(_jm_f_27_map_tab, 28);
+        _jm_f_67_map_tab[0] = (jm_propmap_t) { "checkoutBranchByName", _jm_f_68 };
+        _jm_f_67_map_tab[1] = (jm_propmap_t) { "createPullRequest", _jm_f_69 };
+        _jm_f_67_map_tab[2] = (jm_propmap_t) { "createTag", _jm_f_70 };
+        _jm_f_67_map_tab[3] = (jm_propmap_t) { "fastForward", _jm_f_71 };
+        _jm_f_67_map_tab[4] = (jm_propmap_t) { "fetchRemote", _jm_f_72 };
+        _jm_f_67_map_tab[5] = (jm_propmap_t) { "forceCheckoutBranch", _jm_f_73 };
+        _jm_f_67_map_tab[6] = (jm_propmap_t) { "mergeIntoCurrentBranch", _jm_f_74 };
+        _jm_f_67_map_tab[7] = (jm_propmap_t) { "pushTag", _jm_f_75 };
+        _jm_f_67_map_tab[8] = (jm_propmap_t) { "rebaseBranch", _jm_f_76 };
+        _jm_f_67_map_tab[9] = (jm_propmap_t) { "renameBranch", _jm_f_77 };
+        _jm_f_67_map_tab[10] = (jm_propmap_t) { "setUpstream", _jm_f_78 };
+        _jm_f_67_map_tab[11] = (jm_propmap_t) { "viewGitFlowOptions", _jm_f_79 };
+        _jm_f_67_map_tab[12] = (jm_propmap_t) { "viewPullRequestOptions", _jm_f_80 };
+        jm_sort_propmap(_jm_f_67_map_tab, 13);
+        _jm_f_82_map_tab[0] = (jm_propmap_t) { "amendToCommit", _jm_f_83 };
+        _jm_f_82_map_tab[1] = (jm_propmap_t) { "checkoutCommit", _jm_f_84 };
+        _jm_f_82_map_tab[2] = (jm_propmap_t) { "cherryPickCopy", _jm_f_85 };
+        _jm_f_82_map_tab[3] = (jm_propmap_t) { "cherryPickCopyRange", _jm_f_86 };
+        _jm_f_82_map_tab[4] = (jm_propmap_t) { "copyCommitMessageToClipboard", _jm_f_87 };
+        _jm_f_82_map_tab[5] = (jm_propmap_t) { "createFixupCommit", _jm_f_88 };
+        _jm_f_82_map_tab[6] = (jm_propmap_t) { "markCommitAsFixup", _jm_f_89 };
+        _jm_f_82_map_tab[7] = (jm_propmap_t) { "moveDownCommit", _jm_f_90 };
+        _jm_f_82_map_tab[8] = (jm_propmap_t) { "moveUpCommit", _jm_f_91 };
+        _jm_f_82_map_tab[9] = (jm_propmap_t) { "openLogMenu", _jm_f_92 };
+        _jm_f_82_map_tab[10] = (jm_propmap_t) { "pasteCommits", _jm_f_93 };
+        _jm_f_82_map_tab[11] = (jm_propmap_t) { "pickCommit", _jm_f_94 };
+        _jm_f_82_map_tab[12] = (jm_propmap_t) { "renameCommit", _jm_f_95 };
+        _jm_f_82_map_tab[13] = (jm_propmap_t) { "renameCommitWithEditor", _jm_f_96 };
+        _jm_f_82_map_tab[14] = (jm_propmap_t) { "resetCherryPick", _jm_f_97 };
+        _jm_f_82_map_tab[15] = (jm_propmap_t) { "revertCommit", _jm_f_98 };
+        _jm_f_82_map_tab[16] = (jm_propmap_t) { "squashAboveCommits", _jm_f_99 };
+        _jm_f_82_map_tab[17] = (jm_propmap_t) { "squashDown", _jm_f_100 };
+        _jm_f_82_map_tab[18] = (jm_propmap_t) { "tagCommit", _jm_f_101 };
+        _jm_f_82_map_tab[19] = (jm_propmap_t) { "viewBisectOptions", _jm_f_102 };
+        _jm_f_82_map_tab[20] = (jm_propmap_t) { "viewResetOptions", _jm_f_103 };
+        jm_sort_propmap(_jm_f_82_map_tab, 21);
+        _jm_f_104_map_tab[0] = (jm_propmap_t) { "amendLastCommit", _jm_f_105 };
+        _jm_f_104_map_tab[1] = (jm_propmap_t) { "commitChanges", _jm_f_106 };
+        _jm_f_104_map_tab[2] = (jm_propmap_t) { "commitChangesWithEditor", _jm_f_107 };
+        _jm_f_104_map_tab[3] = (jm_propmap_t) { "commitChangesWithoutHook", _jm_f_108 };
+        _jm_f_104_map_tab[4] = (jm_propmap_t) { "fetch", _jm_f_109 };
+        _jm_f_104_map_tab[5] = (jm_propmap_t) { "ignoreFile", _jm_f_110 };
+        _jm_f_104_map_tab[6] = (jm_propmap_t) { "openMergeTool", _jm_f_111 };
+        _jm_f_104_map_tab[7] = (jm_propmap_t) { "openStatusFilter", _jm_f_112 };
+        _jm_f_104_map_tab[8] = (jm_propmap_t) { "refreshFiles", _jm_f_113 };
+        _jm_f_104_map_tab[9] = (jm_propmap_t) { "stashAllChanges", _jm_f_114 };
+        _jm_f_104_map_tab[10] = (jm_propmap_t) { "toggleStagedAll", _jm_f_115 };
+        _jm_f_104_map_tab[11] = (jm_propmap_t) { "toggleTreeView", _jm_f_116 };
+        _jm_f_104_map_tab[12] = (jm_propmap_t) { "viewResetOptions", _jm_f_117 };
+        _jm_f_104_map_tab[13] = (jm_propmap_t) { "viewStashOptions", _jm_f_118 };
+        jm_sort_propmap(_jm_f_104_map_tab, 14);
+        _jm_f_123_map_tab[0] = (jm_propmap_t) { "confirm", _jm_f_124 };
+        _jm_f_123_map_tab[1] = (jm_propmap_t) { "copyToClipboard", _jm_f_125 };
+        _jm_f_123_map_tab[2] = (jm_propmap_t) { "createPatchOptionsMenu", _jm_f_126 };
+        _jm_f_123_map_tab[3] = (jm_propmap_t) { "createRebaseOptionsMenu", _jm_f_127 };
+        _jm_f_123_map_tab[4] = (jm_propmap_t) { "decreaseContextInDiffView", _jm_f_128 };
+        _jm_f_123_map_tab[5] = (jm_propmap_t) { "diffingMenu", _jm_f_129 };
+        _jm_f_123_map_tab[6] = (jm_propmap_t) { "diffingMenu-alt", _jm_f_130 };
+        _jm_f_123_map_tab[7] = (jm_propmap_t) { "edit", _jm_f_131 };
+        _jm_f_123_map_tab[8] = (jm_propmap_t) { "executeCustomCommand", _jm_f_132 };
+        _jm_f_123_map_tab[9] = (jm_propmap_t) { "extrasMenu", _jm_f_133 };
+        _jm_f_123_map_tab[10] = (jm_propmap_t) { "filteringMenu", _jm_f_134 };
+        _jm_f_123_map_tab[11] = (jm_propmap_t) { "goInto", _jm_f_135 };
+        _jm_f_123_map_tab[12] = (jm_propmap_t) { "gotoBottom", _jm_f_136 };
+        _jm_f_123_map_tab[13] = (jm_propmap_t) { "gotoTop", _jm_f_137 };
+        _jm_f_123_map_tab[14] = (jm_propmap_t) { "increaseContextInDiffView", _jm_f_138 };
+        _jm_f_123_map_tab[15] = (jm_propmap_t) { "jumpToBlock", _jm_f_139 };
+        _jm_f_123_map_tab[16] = (jm_propmap_t) { "new", _jm_f_140 };
+        _jm_f_123_map_tab[17] = (jm_propmap_t) { "nextBlock", _jm_f_141 };
+        _jm_f_123_map_tab[18] = (jm_propmap_t) { "nextBlock-alt", _jm_f_142 };
+        _jm_f_123_map_tab[19] = (jm_propmap_t) { "nextItem", _jm_f_143 };
+        _jm_f_123_map_tab[20] = (jm_propmap_t) { "nextItem-alt", _jm_f_144 };
+        _jm_f_123_map_tab[21] = (jm_propmap_t) { "nextMatch", _jm_f_145 };
+        _jm_f_123_map_tab[22] = (jm_propmap_t) { "nextPage", _jm_f_146 };
+        _jm_f_123_map_tab[23] = (jm_propmap_t) { "nextScreenMode", _jm_f_147 };
+        _jm_f_123_map_tab[24] = (jm_propmap_t) { "nextTab", _jm_f_148 };
+        _jm_f_123_map_tab[25] = (jm_propmap_t) { "openFile", _jm_f_149 };
+        _jm_f_123_map_tab[26] = (jm_propmap_t) { "openRecentRepos", _jm_f_150 };
+        _jm_f_123_map_tab[27] = (jm_propmap_t) { "optionMenu", _jm_f_151 };
+        _jm_f_123_map_tab[28] = (jm_propmap_t) { "optionMenu-alt1", _jm_f_152 };
+        _jm_f_123_map_tab[29] = (jm_propmap_t) { "prevBlock", _jm_f_153 };
+        _jm_f_123_map_tab[30] = (jm_propmap_t) { "prevBlock-alt", _jm_f_154 };
+        _jm_f_123_map_tab[31] = (jm_propmap_t) { "prevItem", _jm_f_155 };
+        _jm_f_123_map_tab[32] = (jm_propmap_t) { "prevItem-alt", _jm_f_156 };
+        _jm_f_123_map_tab[33] = (jm_propmap_t) { "prevMatch", _jm_f_157 };
+        _jm_f_123_map_tab[34] = (jm_propmap_t) { "prevPage", _jm_f_158 };
+        _jm_f_123_map_tab[35] = (jm_propmap_t) { "prevScreenMode", _jm_f_159 };
+        _jm_f_123_map_tab[36] = (jm_propmap_t) { "prevTab", _jm_f_160 };
+        _jm_f_123_map_tab[37] = (jm_propmap_t) { "pullFiles", _jm_f_161 };
+        _jm_f_123_map_tab[38] = (jm_propmap_t) { "pushFiles", _jm_f_162 };
+        _jm_f_123_map_tab[39] = (jm_propmap_t) { "quit", _jm_f_163 };
+        _jm_f_123_map_tab[40] = (jm_propmap_t) { "quit-alt1", _jm_f_164 };
+        _jm_f_123_map_tab[41] = (jm_propmap_t) { "quitWithoutChangingDirectory", _jm_f_165 };
+        _jm_f_123_map_tab[42] = (jm_propmap_t) { "redo", _jm_f_166 };
+        _jm_f_123_map_tab[43] = (jm_propmap_t) { "refresh", _jm_f_167 };
+        _jm_f_123_map_tab[44] = (jm_propmap_t) { "remove", _jm_f_168 };
+        _jm_f_123_map_tab[45] = (jm_propmap_t) { "return", _jm_f_169 };
+        _jm_f_123_map_tab[46] = (jm_propmap_t) { "scrollDownMain", _jm_f_170 };
+        _jm_f_123_map_tab[47] = (jm_propmap_t) { "scrollDownMain-alt1", _jm_f_171 };
+        _jm_f_123_map_tab[48] = (jm_propmap_t) { "scrollDownMain-alt2", _jm_f_172 };
+        _jm_f_123_map_tab[49] = (jm_propmap_t) { "scrollLeft", _jm_f_173 };
+        _jm_f_123_map_tab[50] = (jm_propmap_t) { "scrollRight", _jm_f_174 };
+        _jm_f_123_map_tab[51] = (jm_propmap_t) { "scrollUpMain", _jm_f_175 };
+        _jm_f_123_map_tab[52] = (jm_propmap_t) { "scrollUpMain-alt1", _jm_f_176 };
+        _jm_f_123_map_tab[53] = (jm_propmap_t) { "scrollUpMain-alt2", _jm_f_177 };
+        _jm_f_123_map_tab[54] = (jm_propmap_t) { "select", _jm_f_178 };
+        _jm_f_123_map_tab[55] = (jm_propmap_t) { "submitEditorText", _jm_f_179 };
+        _jm_f_123_map_tab[56] = (jm_propmap_t) { "togglePanel", _jm_f_180 };
+        _jm_f_123_map_tab[57] = (jm_propmap_t) { "toggleWhitespaceInDiffView", _jm_f_181 };
+        _jm_f_123_map_tab[58] = (jm_propmap_t) { "undo", _jm_f_182 };
+        jm_sort_propmap(_jm_f_123_map_tab, 59);
+        _jm_f_66_map_tab[0] = (jm_propmap_t) { "branches", _jm_f_67 };
+        _jm_f_66_map_tab[1] = (jm_propmap_t) { "commitFiles", _jm_f_81 };
+        _jm_f_66_map_tab[2] = (jm_propmap_t) { "commits", _jm_f_82 };
+        _jm_f_66_map_tab[3] = (jm_propmap_t) { "files", _jm_f_104 };
+        _jm_f_66_map_tab[4] = (jm_propmap_t) { "main", _jm_f_119 };
+        _jm_f_66_map_tab[5] = (jm_propmap_t) { "stash", _jm_f_120 };
+        _jm_f_66_map_tab[6] = (jm_propmap_t) { "status", _jm_f_121 };
+        _jm_f_66_map_tab[7] = (jm_propmap_t) { "submodules", _jm_f_122 };
+        _jm_f_66_map_tab[8] = (jm_propmap_t) { "universal", _jm_f_123 };
+        jm_sort_propmap(_jm_f_66_map_tab, 9);
         // initialize sorted set _jm_cst_13
         _jm_cst_13[0] = (jm_constant_t) { cst_is_string, { .s = "prompt" } };
         _jm_cst_13[1] = (jm_constant_t) { cst_is_string, { .s = "create" } };
@@ -5467,14 +5116,14 @@ const char *check_model_init(void)
         _jm_cst_14[8] = (jm_constant_t) { cst_is_string, { .s = "helix" } };
         _jm_cst_14[9] = (jm_constant_t) { cst_is_string, { .s = "xcode" } };
         jm_sort_cst(_jm_cst_14, 10);
-        _jm_obj_32_map_tab[0] = (jm_propmap_t) { "copyToClipboardCmd", _jm_f_185 };
-        _jm_obj_32_map_tab[1] = (jm_propmap_t) { "edit", _jm_f_186 };
-        _jm_obj_32_map_tab[2] = (jm_propmap_t) { "editAtLine", _jm_f_187 };
-        _jm_obj_32_map_tab[3] = (jm_propmap_t) { "editAtLineAndWait", _jm_f_188 };
-        _jm_obj_32_map_tab[4] = (jm_propmap_t) { "editPreset", _jm_f_189 };
-        _jm_obj_32_map_tab[5] = (jm_propmap_t) { "open", _jm_f_190 };
-        _jm_obj_32_map_tab[6] = (jm_propmap_t) { "openLink", _jm_f_191 };
-        jm_sort_propmap(_jm_obj_32_map_tab, 7);
+        _jm_f_184_map_tab[0] = (jm_propmap_t) { "copyToClipboardCmd", _jm_f_185 };
+        _jm_f_184_map_tab[1] = (jm_propmap_t) { "edit", _jm_f_186 };
+        _jm_f_184_map_tab[2] = (jm_propmap_t) { "editAtLine", _jm_f_187 };
+        _jm_f_184_map_tab[3] = (jm_propmap_t) { "editAtLineAndWait", _jm_f_188 };
+        _jm_f_184_map_tab[4] = (jm_propmap_t) { "editPreset", _jm_f_189 };
+        _jm_f_184_map_tab[5] = (jm_propmap_t) { "open", _jm_f_190 };
+        _jm_f_184_map_tab[6] = (jm_propmap_t) { "openLink", _jm_f_191 };
+        jm_sort_propmap(_jm_f_184_map_tab, 7);
         _jm_re_2_re2 = cre2_new("^[^:]+:[^:]+$", strlen("^[^:]+:[^:]+$"), NULL);
         if (cre2_error_code(_jm_re_2_re2))
             return cre2_error_string(_jm_re_2_re2);
@@ -5484,21 +5133,21 @@ const char *check_model_init(void)
         _jm_cst_15[1] = (jm_constant_t) { cst_is_string, { .s = "background" } };
         _jm_cst_15[2] = (jm_constant_t) { cst_is_string, { .s = "never" } };
         jm_sort_cst(_jm_cst_15, 3);
-        _jm_obj_7_map_tab[0] = (jm_propmap_t) { "confirmOnQuit", _jm_f_0 };
-        _jm_obj_7_map_tab[1] = (jm_propmap_t) { "customCommands", _jm_f_1 };
-        _jm_obj_7_map_tab[2] = (jm_propmap_t) { "disableStartupPopups", _jm_f_9 };
-        _jm_obj_7_map_tab[3] = (jm_propmap_t) { "git", _jm_f_10 };
-        _jm_obj_7_map_tab[4] = (jm_propmap_t) { "gui", _jm_f_27 };
-        _jm_obj_7_map_tab[5] = (jm_propmap_t) { "keybinding", _jm_f_66 };
-        _jm_obj_7_map_tab[6] = (jm_propmap_t) { "notARepository", _jm_f_183 };
-        _jm_obj_7_map_tab[7] = (jm_propmap_t) { "os", _jm_f_184 };
-        _jm_obj_7_map_tab[8] = (jm_propmap_t) { "promptToReturnFromSubprocess", _jm_f_192 };
-        _jm_obj_7_map_tab[9] = (jm_propmap_t) { "quitOnTopLevelReturn", _jm_f_193 };
-        _jm_obj_7_map_tab[10] = (jm_propmap_t) { "refresher", _jm_f_194 };
-        _jm_obj_7_map_tab[11] = (jm_propmap_t) { "services", _jm_f_195 };
-        _jm_obj_7_map_tab[12] = (jm_propmap_t) { "update", _jm_f_196 };
-        jm_sort_propmap(_jm_obj_7_map_tab, 13);
-        check_model_map_tab[0] = (jm_propmap_t) { "", _jm_obj_7 };
+        json_model_1_map_tab[0] = (jm_propmap_t) { "confirmOnQuit", _jm_f_0 };
+        json_model_1_map_tab[1] = (jm_propmap_t) { "customCommands", _jm_f_1 };
+        json_model_1_map_tab[2] = (jm_propmap_t) { "disableStartupPopups", _jm_f_9 };
+        json_model_1_map_tab[3] = (jm_propmap_t) { "git", _jm_f_10 };
+        json_model_1_map_tab[4] = (jm_propmap_t) { "gui", _jm_f_27 };
+        json_model_1_map_tab[5] = (jm_propmap_t) { "keybinding", _jm_f_66 };
+        json_model_1_map_tab[6] = (jm_propmap_t) { "notARepository", _jm_f_183 };
+        json_model_1_map_tab[7] = (jm_propmap_t) { "os", _jm_f_184 };
+        json_model_1_map_tab[8] = (jm_propmap_t) { "promptToReturnFromSubprocess", _jm_f_192 };
+        json_model_1_map_tab[9] = (jm_propmap_t) { "quitOnTopLevelReturn", _jm_f_193 };
+        json_model_1_map_tab[10] = (jm_propmap_t) { "refresher", _jm_f_194 };
+        json_model_1_map_tab[11] = (jm_propmap_t) { "services", _jm_f_195 };
+        json_model_1_map_tab[12] = (jm_propmap_t) { "update", _jm_f_196 };
+        jm_sort_propmap(json_model_1_map_tab, 13);
+        check_model_map_tab[0] = (jm_propmap_t) { "", json_model_1 };
         check_model_map_tab[1] = (jm_propmap_t) { "color", json_model_2 };
         check_model_map_tab[2] = (jm_propmap_t) { "colorArray", json_model_3 };
         check_model_map_tab[3] = (jm_propmap_t) { "keybinding", json_model_4 };

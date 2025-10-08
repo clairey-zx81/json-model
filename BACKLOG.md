@@ -2,6 +2,7 @@
 
 ## Current Tasks
 
+- [x] optim: skip map target functions for objects
 - [ ] optim: improve xor-to-or with references
 - [ ] perf: compute performance overhead globally instead of per run
 - [ ] tests: add ir optimized output (too large?)

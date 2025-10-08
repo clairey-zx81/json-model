@@ -13,7 +13,6 @@ use constant JMC_VERSION => '2';
 
 my %_jm_cst_0;
 sub json_model_2($$$);
-sub _jm_obj_0($$$);
 sub json_model_1($$$);
 my %check_model_map;
 
@@ -35,10 +34,12 @@ sub _jm_re_0($$$)
     return $res;
 }
 
-# object .
-sub _jm_obj_0($$$)
+# check $ (.)
+sub json_model_1($$$)
 {
     my ($val, $path, $rep) = @_;
+    # object with must/may/regex/ref/others
+    # .
     if (! jm_is_object($val))
     {
         return 0;
@@ -107,17 +108,6 @@ sub _jm_obj_0($$$)
     return 1;
 }
 
-# check $ (.)
-sub json_model_1($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # object with must/may/regex/ref/others
-    # .
-    $res = _jm_obj_0($val, $path, $rep);
-    return $res;
-}
-
 
 # initialization of global variables
 
@@ -134,7 +124,7 @@ sub check_model_init()
             'XXX' => 1,
         );
         %check_model_map = (
-            '' => \&_jm_obj_0,
+            '' => \&json_model_1,
             'Xxx' => \&json_model_2,
         );
     }

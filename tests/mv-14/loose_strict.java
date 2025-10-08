@@ -19,9 +19,11 @@ public class loose_strict extends ModelChecker
 
     public Map<String, Checker> loose_strict_map_pmap;
 
-    // object .'$loose'
-    public boolean _jm_obj_0(Object val, Path path, Report rep)
+    // check $loose (.'$loose')
+    public boolean json_model_5(Object val, Path path, Report rep)
     {
+        // JSON_MODEL_LOOSE_INT
+        // .'$loose'
         // check close must only props
         if (! json.isObject(val))
         {
@@ -53,23 +55,11 @@ public class loose_strict extends ModelChecker
         return true;
     }
 
-    // check $loose (.'$loose')
-    public boolean json_model_5(Object val, Path path, Report rep)
+    // check $strict (.'$strict')
+    public boolean json_model_6(Object val, Path path, Report rep)
     {
-        boolean res;
-        // JSON_MODEL_LOOSE_INT
-        // .'$loose'
-        res = _jm_obj_0(val, path, rep);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected element [.'$loose']", path);
-        }
-        return res;
-    }
-
-    // object .'$strict'
-    public boolean _jm_obj_1(Object val, Path path, Report rep)
-    {
+        // JSON_MODEL_STRICT_INT
+        // .'$strict'
         // check close must only props
         if (! json.isObject(val))
         {
@@ -101,23 +91,10 @@ public class loose_strict extends ModelChecker
         return true;
     }
 
-    // check $strict (.'$strict')
-    public boolean json_model_6(Object val, Path path, Report rep)
+    // check $combined (.'$combined')
+    public boolean json_model_4(Object val, Path path, Report rep)
     {
-        boolean res;
-        // JSON_MODEL_STRICT_INT
-        // .'$strict'
-        res = _jm_obj_1(val, path, rep);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected element [.'$strict']", path);
-        }
-        return res;
-    }
-
-    // object .'$combined'
-    public boolean _jm_obj_2(Object val, Path path, Report rep)
-    {
+        // .'$combined'
         // check close must only props
         if (! json.isObject(val))
         {
@@ -163,25 +140,12 @@ public class loose_strict extends ModelChecker
         return true;
     }
 
-    // check $combined (.'$combined')
-    public boolean json_model_4(Object val, Path path, Report rep)
-    {
-        boolean res;
-        // .'$combined'
-        res = _jm_obj_2(val, path, rep);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected element [.'$combined']", path);
-        }
-        return res;
-    }
-
     // check $ (.)
     public boolean json_model_1(Object val, Path path, Report rep)
     {
         boolean res;
         // .
-        res = _jm_obj_2(val, path, rep);
+        res = json_model_4(val, path, rep);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected $combined [.]", path);
@@ -196,10 +160,10 @@ public class loose_strict extends ModelChecker
         {
             try {
             loose_strict_map_pmap = new HashMap<String, Checker>();
-            loose_strict_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_2(o, p, r);} });
-            loose_strict_map_pmap.put("loose", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_0(o, p, r);} });
-            loose_strict_map_pmap.put("strict", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_1(o, p, r);} });
-            loose_strict_map_pmap.put("combined", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_2(o, p, r);} });
+            loose_strict_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
+            loose_strict_map_pmap.put("loose", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_5(o, p, r);} });
+            loose_strict_map_pmap.put("strict", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_6(o, p, r);} });
+            loose_strict_map_pmap.put("combined", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
                 super.init(json);
             }
             catch (Exception e) {

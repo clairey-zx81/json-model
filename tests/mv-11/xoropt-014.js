@@ -13,7 +13,7 @@ let _jm_map_0 = new Map()
 var check_model_map = new Map()
 
 // object .movie.'|'.0
-function _jm_obj_1(val, path, rep)
+function _jm_obj_0(val, path, rep)
 {
     // check close must only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
@@ -63,7 +63,7 @@ function _jm_obj_1(val, path, rep)
 }
 
 // object .movie.'|'.1
-function _jm_obj_2(val, path, rep)
+function _jm_obj_1(val, path, rep)
 {
     // check close must only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
@@ -113,7 +113,7 @@ function _jm_obj_2(val, path, rep)
 }
 
 // object .movie.'|'.2
-function _jm_obj_3(val, path, rep)
+function _jm_obj_2(val, path, rep)
 {
     // check close must only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
@@ -163,7 +163,7 @@ function _jm_obj_3(val, path, rep)
 }
 
 // object .movie.'|'.3
-function _jm_obj_4(val, path, rep)
+function _jm_obj_3(val, path, rep)
 {
     // check close must only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
@@ -213,9 +213,10 @@ function _jm_obj_4(val, path, rep)
 }
 
 
-// object .
-function _jm_obj_0(val, path, rep)
+// check $ (.)
+function json_model_1(val, path, rep)
 {
+    // .
     // check close must only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
@@ -274,19 +275,6 @@ function _jm_obj_0(val, path, rep)
     return true;
 }
 
-// check $ (.)
-function json_model_1(val, path, rep)
-{
-    let res;
-    // .
-    res = _jm_obj_0(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected element [.]", path])
-    }
-    return res;
-}
-
 
 var initialized = false
 
@@ -297,11 +285,11 @@ export function check_model_init()
     {
         initialized = true;
         runtime.jm_set_rx(RegExp)
-        _jm_map_0.set("fr", _jm_obj_1)
-        _jm_map_0.set("en", _jm_obj_2)
-        _jm_map_0.set("de", _jm_obj_3)
-        _jm_map_0.set("ru", _jm_obj_4)
-        check_model_map.set("", _jm_obj_0)
+        _jm_map_0.set("fr", _jm_obj_0)
+        _jm_map_0.set("en", _jm_obj_1)
+        _jm_map_0.set("de", _jm_obj_2)
+        _jm_map_0.set("ru", _jm_obj_3)
+        check_model_map.set("", json_model_1)
     }
 }
 

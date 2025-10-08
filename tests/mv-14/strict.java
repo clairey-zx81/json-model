@@ -19,9 +19,11 @@ public class strict extends ModelChecker
 
     public Map<String, Checker> strict_map_pmap;
 
-    // object .
-    public boolean _jm_obj_0(Object val, Path path, Report rep)
+    // check $ (.)
+    public boolean json_model_1(Object val, Path path, Report rep)
     {
+        // JSON_MODEL_STRICT_INT
+        // .
         // check close must only props
         if (! json.isObject(val))
         {
@@ -53,20 +55,6 @@ public class strict extends ModelChecker
         return true;
     }
 
-    // check $ (.)
-    public boolean json_model_1(Object val, Path path, Report rep)
-    {
-        boolean res;
-        // JSON_MODEL_STRICT_INT
-        // .
-        res = _jm_obj_0(val, path, rep);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected element [.]", path);
-        }
-        return res;
-    }
-
 
     public void init(JSON json)
     {
@@ -74,7 +62,7 @@ public class strict extends ModelChecker
         {
             try {
             strict_map_pmap = new HashMap<String, Checker>();
-            strict_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_0(o, p, r);} });
+            strict_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_1(o, p, r);} });
                 super.init(json);
             }
             catch (Exception e) {

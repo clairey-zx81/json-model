@@ -24,8 +24,9 @@ _jm_cst_0: set[str]
 _jm_map_0: dict[str, str]
 check_model_map: PropMap
 
-# object .'$d'
-def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
+# check $d (.'$d')
+def json_model_2(val: Jsonable, path: Path, rep: Report) -> bool:
+    # .'$d'
     # check close must only props
     if not isinstance(val, dict):
         return False
@@ -47,15 +48,8 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
         return False
     return True
 
-# check $d (.'$d')
-def json_model_2(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .'$d'
-    res = _jm_obj_0(val, path, rep)
-    return res
-
 # object .'$alternative'.'|'.0
-def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
     # check close must only props
     if not isinstance(val, dict):
         return False
@@ -79,7 +73,7 @@ def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
 
 
 # object .'$alternative'.'|'.1
-def _jm_obj_2(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
     # check close must only props
     if not isinstance(val, dict):
         return False
@@ -121,7 +115,7 @@ def json_model_3(val: Jsonable, path: Path, rep: Report) -> bool:
             res = False
     if not res:
         # .'$alternative'.'|'.0
-        res = _jm_obj_1(val, path, rep)
+        res = _jm_obj_0(val, path, rep)
     return res
 
 # check $ (.)
@@ -144,14 +138,14 @@ def check_model_init():
         _jm_cst_0 = {'b', 'c'}
         global _jm_map_0
         _jm_map_0 = {
-            "b": _jm_obj_2,
-            "c": _jm_obj_2,
-            "d": _jm_obj_0,
+            "b": _jm_obj_1,
+            "c": _jm_obj_1,
+            "d": json_model_2,
         }
         global check_model_map
         check_model_map = {
             "": json_model_3,
-            "d": _jm_obj_0,
+            "d": json_model_2,
             "alternative": json_model_3,
         }
 

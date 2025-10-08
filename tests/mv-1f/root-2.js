@@ -16,7 +16,7 @@ function json_model_4(val, path, rep)
 {
     let res;
     // .'$root'
-    res = _jm_obj_1(val, path, rep);
+    res = json_model_5(val, path, rep);
     if (! res)
     {
         rep !== null && rep.push(["unexpected $Root [.'$root']", path])
@@ -24,9 +24,10 @@ function json_model_4(val, path, rep)
     return res;
 }
 
-// object .'$Foo'
-function _jm_obj_0(val, path, rep)
+// check $Foo (.'$Foo')
+function json_model_3(val, path, rep)
 {
+    // .'$Foo'
     // check close must only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
@@ -49,7 +50,7 @@ function _jm_obj_0(val, path, rep)
     lpath = path ? path.concat(["rt"]) : null;
     pval = val["rt"];
     // .'$Foo'.rt
-    res = _jm_obj_1(pval, (path ? lpath : null), rep);
+    res = json_model_5(pval, (path ? lpath : null), rep);
     if (! res)
     {
         rep !== null && rep.push(["unexpected $root#Root [.'$Foo'.rt]", (path ? lpath : null)])
@@ -59,25 +60,12 @@ function _jm_obj_0(val, path, rep)
     return true;
 }
 
-// check $Foo (.'$Foo')
-function json_model_3(val, path, rep)
-{
-    let res;
-    // .'$Foo'
-    res = _jm_obj_0(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected element [.'$Foo']", path])
-    }
-    return res;
-}
-
 // check $ (.)
 function json_model_1(val, path, rep)
 {
     let res;
     // .
-    res = _jm_obj_0(val, path, rep);
+    res = json_model_3(val, path, rep);
     if (! res)
     {
         rep !== null && rep.push(["unexpected $Foo [.]", path])
@@ -85,9 +73,10 @@ function json_model_1(val, path, rep)
     return res;
 }
 
-// object .'$root#Root'
-function _jm_obj_1(val, path, rep)
+// check $root#Root (.'$root#Root')
+function json_model_5(val, path, rep)
 {
+    // .'$root#Root'
     // check close must only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
@@ -135,19 +124,6 @@ function _jm_obj_1(val, path, rep)
     return true;
 }
 
-// check $root#Root (.'$root#Root')
-function json_model_5(val, path, rep)
-{
-    let res;
-    // .'$root#Root'
-    res = _jm_obj_1(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected element [.'$root#Root']", path])
-    }
-    return res;
-}
-
 
 var initialized = false
 
@@ -158,9 +134,9 @@ export function check_model_init()
     {
         initialized = true;
         runtime.jm_set_rx(RegExp)
-        check_model_map.set("", _jm_obj_0)
-        check_model_map.set("root", _jm_obj_1)
-        check_model_map.set("Foo", _jm_obj_0)
+        check_model_map.set("", json_model_3)
+        check_model_map.set("root", json_model_5)
+        check_model_map.set("Foo", json_model_3)
     }
 }
 

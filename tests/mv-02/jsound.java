@@ -20,11 +20,11 @@ public class jsound extends ModelChecker
     Map<Object, Checker> _jm_map_0_cmap;
     Set<Object> _jm_cst_0_set;
     Set<Object> _jm_cst_1_set;
-    Map<String, Checker> _jm_obj_2_map_pmap;
+    Map<String, Checker> json_model_6_map_pmap;
     public Map<String, Checker> jsound_map_pmap;
 
     // object .'$Schema'.metadata
-    public boolean _jm_obj_1(Object val, Path path, Report rep)
+    public boolean _jm_obj_0(Object val, Path path, Report rep)
     {
         if (! json.isObject(val))
         {
@@ -113,9 +113,10 @@ public class jsound extends ModelChecker
         return true;
     }
 
-    // object .'$Schema'
-    public boolean _jm_obj_0(Object val, Path path, Report rep)
+    // check $Schema (.'$Schema')
+    public boolean json_model_2(Object val, Path path, Report rep)
     {
+        // .'$Schema'
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.'$Schema']", path);
@@ -164,7 +165,7 @@ public class jsound extends ModelChecker
             {
                 // handle may metadata property
                 // .'$Schema'.metadata
-                res = _jm_obj_1(pval, (path != null ? lpath_0 : null), rep);
+                res = _jm_obj_0(pval, (path != null ? lpath_0 : null), rep);
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected element [.'$Schema'.metadata]", (path != null ? lpath_0 : null));
@@ -190,19 +191,6 @@ public class jsound extends ModelChecker
             return false;
         }
         return true;
-    }
-
-    // check $Schema (.'$Schema')
-    public boolean json_model_2(Object val, Path path, Report rep)
-    {
-        boolean res;
-        // .'$Schema'
-        res = _jm_obj_0(val, path, rep);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected element [.'$Schema']", path);
-        }
-        return res;
     }
 
 
@@ -314,7 +302,7 @@ public class jsound extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_2_map_enumeration (.'$Atomic'.enumeration)
+    // check json_model_6_map_enumeration (.'$Atomic'.enumeration)
     public boolean _jm_f_0(Object val, Path path, Report rep)
     {
         boolean res;
@@ -346,7 +334,7 @@ public class jsound extends ModelChecker
     }
 
 
-    // check _jm_obj_2_map_explicitTypeZone (.'$Atomic'.explicitTypeZone)
+    // check json_model_6_map_explicitTypeZone (.'$Atomic'.explicitTypeZone)
     public boolean _jm_f_1(Object val, Path path, Report rep)
     {
         boolean res;
@@ -359,7 +347,7 @@ public class jsound extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_2_map_fractionDigits (.'$Atomic'.fractionDigits)
+    // check json_model_6_map_fractionDigits (.'$Atomic'.fractionDigits)
     public boolean _jm_f_2(Object val, Path path, Report rep)
     {
         boolean res;
@@ -372,7 +360,7 @@ public class jsound extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_2_map_length (.'$Atomic'.length)
+    // check json_model_6_map_length (.'$Atomic'.length)
     public boolean _jm_f_3(Object val, Path path, Report rep)
     {
         boolean res;
@@ -385,7 +373,7 @@ public class jsound extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_2_map_maxExclusive (.'$Atomic'.maxExclusive)
+    // check json_model_6_map_maxExclusive (.'$Atomic'.maxExclusive)
     public boolean _jm_f_4(Object val, Path path, Report rep)
     {
         boolean res;
@@ -398,7 +386,7 @@ public class jsound extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_2_map_maxInclusive (.'$Atomic'.maxInclusive)
+    // check json_model_6_map_maxInclusive (.'$Atomic'.maxInclusive)
     public boolean _jm_f_5(Object val, Path path, Report rep)
     {
         boolean res;
@@ -411,7 +399,7 @@ public class jsound extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_2_map_maxLength (.'$Atomic'.maxLength)
+    // check json_model_6_map_maxLength (.'$Atomic'.maxLength)
     public boolean _jm_f_6(Object val, Path path, Report rep)
     {
         boolean res;
@@ -424,7 +412,7 @@ public class jsound extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_2_map_minExclusive (.'$Atomic'.minExclusive)
+    // check json_model_6_map_minExclusive (.'$Atomic'.minExclusive)
     public boolean _jm_f_7(Object val, Path path, Report rep)
     {
         boolean res;
@@ -437,7 +425,7 @@ public class jsound extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_2_map_minInclusive (.'$Atomic'.minInclusive)
+    // check json_model_6_map_minInclusive (.'$Atomic'.minInclusive)
     public boolean _jm_f_8(Object val, Path path, Report rep)
     {
         boolean res;
@@ -450,7 +438,7 @@ public class jsound extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_2_map_minLength (.'$Atomic'.minLength)
+    // check json_model_6_map_minLength (.'$Atomic'.minLength)
     public boolean _jm_f_9(Object val, Path path, Report rep)
     {
         boolean res;
@@ -463,7 +451,7 @@ public class jsound extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_2_map_name (.'$Atomic'.name)
+    // check json_model_6_map_name (.'$Atomic'.name)
     public boolean _jm_f_10(Object val, Path path, Report rep)
     {
         boolean res;
@@ -476,7 +464,7 @@ public class jsound extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_2_map_pattern (.'$Atomic'.pattern)
+    // check json_model_6_map_pattern (.'$Atomic'.pattern)
     public boolean _jm_f_11(Object val, Path path, Report rep)
     {
         boolean res;
@@ -489,7 +477,7 @@ public class jsound extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_2_map_totalDigits (.'$Atomic'.totalDigits)
+    // check json_model_6_map_totalDigits (.'$Atomic'.totalDigits)
     public boolean _jm_f_12(Object val, Path path, Report rep)
     {
         boolean res;
@@ -503,9 +491,11 @@ public class jsound extends ModelChecker
     }
 
 
-    // object .'$Atomic'
-    public boolean _jm_obj_2(Object val, Path path, Report rep)
+    // check $Atomic (.'$Atomic')
+    public boolean json_model_6(Object val, Path path, Report rep)
     {
+        // could there be derived atomics as well?
+        // .'$Atomic'
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.'$Atomic']", path);
@@ -546,7 +536,7 @@ public class jsound extends ModelChecker
                     return false;
                 }
             }
-            else if ((pfun = _jm_obj_2_map_pmap.get(prop)) != null)
+            else if ((pfun = json_model_6_map_pmap.get(prop)) != null)
             {
                 // handle 13 may props
                 if (pfun != null && ! (pfun.call(pval, (path != null ? lpath_2 : null), rep)))
@@ -579,23 +569,10 @@ public class jsound extends ModelChecker
         return true;
     }
 
-    // check $Atomic (.'$Atomic')
-    public boolean json_model_6(Object val, Path path, Report rep)
+    // check $Object (.'$Object')
+    public boolean json_model_7(Object val, Path path, Report rep)
     {
-        boolean res;
-        // could there be derived atomics as well?
-        // .'$Atomic'
-        res = _jm_obj_2(val, path, rep);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected element [.'$Atomic']", path);
-        }
-        return res;
-    }
-
-    // object .'$Object'
-    public boolean _jm_obj_3(Object val, Path path, Report rep)
-    {
+        // .'$Object'
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.'$Object']", path);
@@ -661,7 +638,7 @@ public class jsound extends ModelChecker
                         Object arr_3_item = arr_3_item_loop.next();
                         Path arr_3_lpath = new Path(arr_3_idx, (path != null ? lpath_3 : null));
                         // .'$Object'.content.0
-                        res = _jm_obj_4(arr_3_item, ((path != null ? lpath_3 : null) != null ? arr_3_lpath : null), rep);
+                        res = json_model_8(arr_3_item, ((path != null ? lpath_3 : null) != null ? arr_3_lpath : null), rep);
                         if (! res)
                         {
                             if (rep != null) rep.addEntry("unexpected $Fields [.'$Object'.content.0]", ((path != null ? lpath_3 : null) != null ? arr_3_lpath : null));
@@ -708,22 +685,10 @@ public class jsound extends ModelChecker
         return true;
     }
 
-    // check $Object (.'$Object')
-    public boolean json_model_7(Object val, Path path, Report rep)
+    // check $Fields (.'$Fields')
+    public boolean json_model_8(Object val, Path path, Report rep)
     {
-        boolean res;
-        // .'$Object'
-        res = _jm_obj_3(val, path, rep);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected element [.'$Object']", path);
-        }
-        return res;
-    }
-
-    // object .'$Fields'
-    public boolean _jm_obj_4(Object val, Path path, Report rep)
-    {
+        // .'$Fields'
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.'$Fields']", path);
@@ -823,22 +788,11 @@ public class jsound extends ModelChecker
         return true;
     }
 
-    // check $Fields (.'$Fields')
-    public boolean json_model_8(Object val, Path path, Report rep)
+    // check $Array (.'$Array')
+    public boolean json_model_9(Object val, Path path, Report rep)
     {
-        boolean res;
-        // .'$Fields'
-        res = _jm_obj_4(val, path, rep);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected element [.'$Fields']", path);
-        }
-        return res;
-    }
-
-    // object .'$Array'
-    public boolean _jm_obj_5(Object val, Path path, Report rep)
-    {
+        // WTF about 'content'?
+        // .'$Array'
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.'$Array']", path);
@@ -945,23 +899,11 @@ public class jsound extends ModelChecker
         return true;
     }
 
-    // check $Array (.'$Array')
-    public boolean json_model_9(Object val, Path path, Report rep)
+    // check $Union (.'$Union')
+    public boolean json_model_10(Object val, Path path, Report rep)
     {
-        boolean res;
-        // WTF about 'content'?
-        // .'$Array'
-        res = _jm_obj_5(val, path, rep);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected element [.'$Array']", path);
-        }
-        return res;
-    }
-
-    // object .'$Union'
-    public boolean _jm_obj_6(Object val, Path path, Report rep)
-    {
+        // jsound.jsound.json does not say that it is a type…
+        // .'$Union'
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.'$Union']", path);
@@ -1072,20 +1014,6 @@ public class jsound extends ModelChecker
         return true;
     }
 
-    // check $Union (.'$Union')
-    public boolean json_model_10(Object val, Path path, Report rep)
-    {
-        boolean res;
-        // jsound.jsound.json does not say that it is a type…
-        // .'$Union'
-        res = _jm_obj_6(val, path, rep);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected element [.'$Union']", path);
-        }
-        return res;
-    }
-
     // check $type-or-ref (.'$type-or-ref')
     public boolean json_model_11(Object val, Path path, Report rep)
     {
@@ -1122,7 +1050,7 @@ public class jsound extends ModelChecker
     {
         boolean res;
         // .
-        res = _jm_obj_0(val, path, rep);
+        res = json_model_2(val, path, rep);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected $Schema [.]", path);
@@ -1137,10 +1065,10 @@ public class jsound extends ModelChecker
         {
             try {
             _jm_map_0_cmap = new HashMap<Object, Checker>();
-            _jm_map_0_cmap.put(json.safeJSON("\"atomic\""), new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_2(o, p, r);} });
-            _jm_map_0_cmap.put(json.safeJSON("\"object\""), new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_3(o, p, r);} });
-            _jm_map_0_cmap.put(json.safeJSON("\"array\""), new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_5(o, p, r);} });
-            _jm_map_0_cmap.put(json.safeJSON("\"union\""), new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_6(o, p, r);} });
+            _jm_map_0_cmap.put(json.safeJSON("\"atomic\""), new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_6(o, p, r);} });
+            _jm_map_0_cmap.put(json.safeJSON("\"object\""), new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_7(o, p, r);} });
+            _jm_map_0_cmap.put(json.safeJSON("\"array\""), new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_9(o, p, r);} });
+            _jm_map_0_cmap.put(json.safeJSON("\"union\""), new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_10(o, p, r);} });
             _jm_cst_0_set = new HashSet<Object>();
             _jm_cst_0_set.add(json.safeJSON("\"string\""));
             _jm_cst_0_set.add(json.safeJSON("\"decimal\""));
@@ -1160,31 +1088,31 @@ public class jsound extends ModelChecker
             _jm_cst_1_set.add(json.safeJSON("\"required\""));
             _jm_cst_1_set.add(json.safeJSON("\"prohibited\""));
             _jm_cst_1_set.add(json.safeJSON("\"optional\""));
-            _jm_obj_2_map_pmap = new HashMap<String, Checker>();
-            _jm_obj_2_map_pmap.put("enumeration", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_0(o, p, r);} });
-            _jm_obj_2_map_pmap.put("explicitTypeZone", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_1(o, p, r);} });
-            _jm_obj_2_map_pmap.put("fractionDigits", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_2(o, p, r);} });
-            _jm_obj_2_map_pmap.put("length", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_3(o, p, r);} });
-            _jm_obj_2_map_pmap.put("maxExclusive", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_4(o, p, r);} });
-            _jm_obj_2_map_pmap.put("maxInclusive", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_5(o, p, r);} });
-            _jm_obj_2_map_pmap.put("maxLength", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_6(o, p, r);} });
-            _jm_obj_2_map_pmap.put("minExclusive", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_7(o, p, r);} });
-            _jm_obj_2_map_pmap.put("minInclusive", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_8(o, p, r);} });
-            _jm_obj_2_map_pmap.put("minLength", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_9(o, p, r);} });
-            _jm_obj_2_map_pmap.put("name", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_10(o, p, r);} });
-            _jm_obj_2_map_pmap.put("pattern", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_11(o, p, r);} });
-            _jm_obj_2_map_pmap.put("totalDigits", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_12(o, p, r);} });
+            json_model_6_map_pmap = new HashMap<String, Checker>();
+            json_model_6_map_pmap.put("enumeration", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_0(o, p, r);} });
+            json_model_6_map_pmap.put("explicitTypeZone", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_1(o, p, r);} });
+            json_model_6_map_pmap.put("fractionDigits", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_2(o, p, r);} });
+            json_model_6_map_pmap.put("length", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_3(o, p, r);} });
+            json_model_6_map_pmap.put("maxExclusive", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_4(o, p, r);} });
+            json_model_6_map_pmap.put("maxInclusive", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_5(o, p, r);} });
+            json_model_6_map_pmap.put("maxLength", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_6(o, p, r);} });
+            json_model_6_map_pmap.put("minExclusive", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_7(o, p, r);} });
+            json_model_6_map_pmap.put("minInclusive", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_8(o, p, r);} });
+            json_model_6_map_pmap.put("minLength", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_9(o, p, r);} });
+            json_model_6_map_pmap.put("name", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_10(o, p, r);} });
+            json_model_6_map_pmap.put("pattern", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_11(o, p, r);} });
+            json_model_6_map_pmap.put("totalDigits", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_12(o, p, r);} });
             jsound_map_pmap = new HashMap<String, Checker>();
-            jsound_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_0(o, p, r);} });
-            jsound_map_pmap.put("Schema", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_0(o, p, r);} });
+            jsound_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_2(o, p, r);} });
+            jsound_map_pmap.put("Schema", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_2(o, p, r);} });
             jsound_map_pmap.put("Type", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_3(o, p, r);} });
             jsound_map_pmap.put("atomic-types", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
             jsound_map_pmap.put("atomic", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_5(o, p, r);} });
-            jsound_map_pmap.put("Atomic", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_2(o, p, r);} });
-            jsound_map_pmap.put("Object", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_3(o, p, r);} });
-            jsound_map_pmap.put("Fields", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_4(o, p, r);} });
-            jsound_map_pmap.put("Array", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_5(o, p, r);} });
-            jsound_map_pmap.put("Union", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_6(o, p, r);} });
+            jsound_map_pmap.put("Atomic", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_6(o, p, r);} });
+            jsound_map_pmap.put("Object", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_7(o, p, r);} });
+            jsound_map_pmap.put("Fields", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_8(o, p, r);} });
+            jsound_map_pmap.put("Array", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_9(o, p, r);} });
+            jsound_map_pmap.put("Union", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_10(o, p, r);} });
             jsound_map_pmap.put("type-or-ref", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_11(o, p, r);} });
                 super.init(json);
             }
@@ -1202,7 +1130,7 @@ public class jsound extends ModelChecker
             _jm_map_0_cmap = null;
             _jm_cst_0_set = null;
             _jm_cst_1_set = null;
-            _jm_obj_2_map_pmap = null;
+            json_model_6_map_pmap = null;
             jsound_map_pmap = null;
         }
     }

@@ -12,9 +12,10 @@ const JSON_MODEL_VERSION = "2";
 let _jm_map_0 = new Map()
 var check_model_map = new Map()
 
-// object .'$objs0'
-function _jm_obj_0(val, path, rep)
+// check $objs0 (.'$objs0')
+function json_model_3(val, path, rep)
 {
+    // .'$objs0'
     // check close must only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
@@ -53,18 +54,10 @@ function _jm_obj_0(val, path, rep)
     return true;
 }
 
-// check $objs0 (.'$objs0')
-function json_model_3(val, path, rep)
+// check $ (.)
+function json_model_1(val, path, rep)
 {
-    let res;
-    // .'$objs0'
-    res = _jm_obj_0(val, path, rep);
-    return res;
-}
-
-// object .
-function _jm_obj_1(val, path, rep)
-{
+    // .
     // check close must only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
@@ -82,21 +75,12 @@ function _jm_obj_1(val, path, rep)
     }
     pval = val["foo"];
     // .foo
-    res = _jm_obj_0(pval, null, rep);
+    res = json_model_3(pval, null, rep);
     if (! res)
     {
         return false;
     }
     return true;
-}
-
-// check $ (.)
-function json_model_1(val, path, rep)
-{
-    let res;
-    // .
-    res = _jm_obj_1(val, path, rep);
-    return res;
 }
 
 
@@ -130,9 +114,10 @@ function json_model_6(val, path, rep)
     return res;
 }
 
-// object .'$objs0#table'
-function _jm_obj_2(val, path, rep)
+// check $objs0#table (.'$objs0#table')
+function json_model_4(val, path, rep)
 {
+    // .'$objs0#table'
     // check close must only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
@@ -169,18 +154,10 @@ function _jm_obj_2(val, path, rep)
     return true;
 }
 
-// check $objs0#table (.'$objs0#table')
-function json_model_4(val, path, rep)
+// check $objs0#chair (.'$objs0#chair')
+function json_model_5(val, path, rep)
 {
-    let res;
-    // .'$objs0#table'
-    res = _jm_obj_2(val, path, rep);
-    return res;
-}
-
-// object .'$objs0#chair'
-function _jm_obj_3(val, path, rep)
-{
+    // .'$objs0#chair'
     // check close must only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
@@ -217,15 +194,6 @@ function _jm_obj_3(val, path, rep)
     return true;
 }
 
-// check $objs0#chair (.'$objs0#chair')
-function json_model_5(val, path, rep)
-{
-    let res;
-    // .'$objs0#chair'
-    res = _jm_obj_3(val, path, rep);
-    return res;
-}
-
 
 var initialized = false
 
@@ -236,10 +204,10 @@ export function check_model_init()
     {
         initialized = true;
         runtime.jm_set_rx(RegExp)
-        _jm_map_0.set("table", _jm_obj_2)
-        _jm_map_0.set("chair", _jm_obj_3)
-        check_model_map.set("", _jm_obj_1)
-        check_model_map.set("objs0", _jm_obj_0)
+        _jm_map_0.set("table", json_model_4)
+        _jm_map_0.set("chair", json_model_5)
+        check_model_map.set("", json_model_1)
+        check_model_map.set("objs0", json_model_3)
     }
 }
 

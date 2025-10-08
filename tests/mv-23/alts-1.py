@@ -25,8 +25,9 @@ _jm_map_0: dict[str, str]
 _jm_cst_1: set[str]
 check_model_map: PropMap
 
-# object .'$oA'
-def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
+# check $oA (.'$oA')
+def json_model_2(val: Jsonable, path: Path, rep: Report) -> bool:
+    # .'$oA'
     # check open must/may only props
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$oA']", path))
@@ -56,18 +57,10 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
         return False
     return True
 
-# check $oA (.'$oA')
-def json_model_2(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .'$oA'
-    res = _jm_obj_0(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected element [.'$oA']", path))
-    return res
 
-
-# object .'$oB'
-def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
+# check $oB (.'$oB')
+def json_model_3(val: Jsonable, path: Path, rep: Report) -> bool:
+    # .'$oB'
     # check open must/may only props
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$oB']", path))
@@ -97,15 +90,6 @@ def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
         return False
     return True
 
-# check $oB (.'$oB')
-def json_model_3(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .'$oB'
-    res = _jm_obj_1(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected element [.'$oB']", path))
-    return res
-
 
 # check $oC (.'$oC')
 def json_model_4(val: Jsonable, path: Path, rep: Report) -> bool:
@@ -129,8 +113,9 @@ def json_model_4(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("value is not an object [.'$oC'.'|']", path))
     return res
 
-# object .'$oL'
-def _jm_obj_2(val: Jsonable, path: Path, rep: Report) -> bool:
+# check $oL (.'$oL')
+def json_model_5(val: Jsonable, path: Path, rep: Report) -> bool:
+    # .'$oL'
     # check open must/may only props
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$oL']", path))
@@ -160,18 +145,10 @@ def _jm_obj_2(val: Jsonable, path: Path, rep: Report) -> bool:
         return False
     return True
 
-# check $oL (.'$oL')
-def json_model_5(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .'$oL'
-    res = _jm_obj_2(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected element [.'$oL']", path))
-    return res
 
-
-# object .'$oX'
-def _jm_obj_3(val: Jsonable, path: Path, rep: Report) -> bool:
+# check $oX (.'$oX')
+def json_model_6(val: Jsonable, path: Path, rep: Report) -> bool:
+    # .'$oX'
     # check open must/may only props
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$oX']", path))
@@ -201,15 +178,6 @@ def _jm_obj_3(val: Jsonable, path: Path, rep: Report) -> bool:
         return False
     return True
 
-# check $oX (.'$oX')
-def json_model_6(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .'$oX'
-    res = _jm_obj_3(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected element [.'$oX']", path))
-    return res
-
 # check $ (.)
 def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
@@ -218,13 +186,13 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     xc_0: int = 0
     xr_0: bool
     # .'^'.0
-    xr_0 = _jm_obj_0(val, path, rep)
+    xr_0 = json_model_2(val, path, rep)
     if xr_0:
         xc_0 += 1
     else:
         rep is None or rep.append(("unexpected $oA [.'^'.0]", path))
     # .'^'.1
-    xr_0 = _jm_obj_1(val, path, rep)
+    xr_0 = json_model_3(val, path, rep)
     if xr_0:
         xc_0 += 1
     else:
@@ -256,20 +224,20 @@ def check_model_init():
         _jm_cst_0 = {'b', 'c'}
         global _jm_map_0
         _jm_map_0 = {
-            "e": _jm_obj_3,
-            "f": _jm_obj_3,
-            "d": _jm_obj_2,
+            "e": json_model_6,
+            "f": json_model_6,
+            "d": json_model_5,
         }
         global _jm_cst_1
         _jm_cst_1 = {'e', 'f'}
         global check_model_map
         check_model_map = {
             "": json_model_1,
-            "oA": _jm_obj_0,
-            "oB": _jm_obj_1,
+            "oA": json_model_2,
+            "oB": json_model_3,
             "oC": json_model_4,
-            "oL": _jm_obj_2,
-            "oX": _jm_obj_3,
+            "oL": json_model_5,
+            "oX": json_model_6,
         }
 
 # differed module cleanup

@@ -17,7 +17,6 @@ sub json_model_4($$$);
 sub json_model_5($$$);
 sub json_model_6($$$);
 sub json_model_7($$$);
-sub _jm_obj_0($$$);
 sub json_model_8($$$);
 sub json_model_9($$$);
 sub json_model_1($$$);
@@ -96,10 +95,11 @@ sub json_model_7($$$)
     return $res;
 }
 
-# object .'$Oo'
-sub _jm_obj_0($$$)
+# check $Oo (.'$Oo')
+sub json_model_8($$$)
 {
     my ($val, $path, $rep) = @_;
+    # .'$Oo'
     if (! jm_is_object($val))
     {
         return 0;
@@ -117,16 +117,6 @@ sub _jm_obj_0($$$)
         }
     }
     return 1;
-}
-
-# check $Oo (.'$Oo')
-sub json_model_8($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$Oo'
-    $res = _jm_obj_0($val, $path, $rep);
-    return $res;
 }
 
 # check $Any (.'$Any')
@@ -160,7 +150,7 @@ sub json_model_9($$$)
                         if (! $res)
                         {
                             # .'$Any'.'|'.6
-                            $res = _jm_obj_0($val, $path, $rep);
+                            $res = json_model_8($val, $path, $rep);
                         }
                     }
                 }
@@ -198,7 +188,7 @@ sub check_model_init()
             'Ff' => \&json_model_5,
             'Ss' => \&json_model_6,
             'Aa' => \&json_model_7,
-            'Oo' => \&_jm_obj_0,
+            'Oo' => \&json_model_8,
             'Any' => \&json_model_9,
         );
     }

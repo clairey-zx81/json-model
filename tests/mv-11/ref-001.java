@@ -19,9 +19,10 @@ public class ref_001 extends ModelChecker
 
     public Map<String, Checker> ref_001_map_pmap;
 
-    // object .'$a'
-    public boolean _jm_obj_0(Object val, Path path, Report rep)
+    // check $a (.'$a')
+    public boolean json_model_2(Object val, Path path, Report rep)
     {
+        // .'$a'
         // check close must only props
         if (! json.isObject(val))
         {
@@ -67,22 +68,10 @@ public class ref_001 extends ModelChecker
         return true;
     }
 
-    // check $a (.'$a')
-    public boolean json_model_2(Object val, Path path, Report rep)
+    // check $b (.'$b')
+    public boolean json_model_3(Object val, Path path, Report rep)
     {
-        boolean res;
-        // .'$a'
-        res = _jm_obj_0(val, path, rep);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected element [.'$a']", path);
-        }
-        return res;
-    }
-
-    // object .'$b'
-    public boolean _jm_obj_1(Object val, Path path, Report rep)
-    {
+        // .'$b'
         // check close must only props
         if (! json.isObject(val))
         {
@@ -142,22 +131,10 @@ public class ref_001 extends ModelChecker
         return true;
     }
 
-    // check $b (.'$b')
-    public boolean json_model_3(Object val, Path path, Report rep)
+    // check $ (.)
+    public boolean json_model_1(Object val, Path path, Report rep)
     {
-        boolean res;
-        // .'$b'
-        res = _jm_obj_1(val, path, rep);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected element [.'$b']", path);
-        }
-        return res;
-    }
-
-    // object .
-    public boolean _jm_obj_2(Object val, Path path, Report rep)
-    {
+        // .
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.]", path);
@@ -174,19 +151,6 @@ public class ref_001 extends ModelChecker
         }
     }
 
-    // check $ (.)
-    public boolean json_model_1(Object val, Path path, Report rep)
-    {
-        boolean res;
-        // .
-        res = _jm_obj_2(val, path, rep);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected element [.]", path);
-        }
-        return res;
-    }
-
 
     public void init(JSON json)
     {
@@ -194,9 +158,9 @@ public class ref_001 extends ModelChecker
         {
             try {
             ref_001_map_pmap = new HashMap<String, Checker>();
-            ref_001_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_2(o, p, r);} });
-            ref_001_map_pmap.put("a", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_0(o, p, r);} });
-            ref_001_map_pmap.put("b", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_1(o, p, r);} });
+            ref_001_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_1(o, p, r);} });
+            ref_001_map_pmap.put("a", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_2(o, p, r);} });
+            ref_001_map_pmap.put("b", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_3(o, p, r);} });
                 super.init(json);
             }
             catch (Exception e) {

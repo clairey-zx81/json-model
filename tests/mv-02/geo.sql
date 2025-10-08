@@ -95,8 +95,8 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- object .'$Point'
-CREATE OR REPLACE FUNCTION _jm_obj_0(val JSONB, path TEXT[], rep jm_report_entry[])
+-- check $Point (.'$Point')
+CREATE OR REPLACE FUNCTION json_model_5(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -106,6 +106,7 @@ DECLARE
   arr_3_idx INT8;
   arr_3_item JSONB;
 BEGIN
+  -- .'$Point'
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
@@ -155,20 +156,8 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check $Point (.'$Point')
-CREATE OR REPLACE FUNCTION json_model_5(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .'$Point'
-  res := _jm_obj_0(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
--- object .'$MultiPoint'
-CREATE OR REPLACE FUNCTION _jm_obj_1(val JSONB, path TEXT[], rep jm_report_entry[])
+-- check $MultiPoint (.'$MultiPoint')
+CREATE OR REPLACE FUNCTION json_model_6(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -180,6 +169,7 @@ DECLARE
   arr_5_idx INT8;
   arr_5_item JSONB;
 BEGIN
+  -- .'$MultiPoint'
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
@@ -239,20 +229,8 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check $MultiPoint (.'$MultiPoint')
-CREATE OR REPLACE FUNCTION json_model_6(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .'$MultiPoint'
-  res := _jm_obj_1(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
--- object .'$LineString'
-CREATE OR REPLACE FUNCTION _jm_obj_2(val JSONB, path TEXT[], rep jm_report_entry[])
+-- check $LineString (.'$LineString')
+CREATE OR REPLACE FUNCTION json_model_7(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -262,6 +240,7 @@ DECLARE
   arr_6_idx INT8;
   arr_6_item JSONB;
 BEGIN
+  -- .'$LineString'
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
@@ -311,20 +290,8 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check $LineString (.'$LineString')
-CREATE OR REPLACE FUNCTION json_model_7(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .'$LineString'
-  res := _jm_obj_2(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
--- object .'$MultiLineString'
-CREATE OR REPLACE FUNCTION _jm_obj_3(val JSONB, path TEXT[], rep jm_report_entry[])
+-- check $MultiLineString (.'$MultiLineString')
+CREATE OR REPLACE FUNCTION json_model_8(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -336,6 +303,7 @@ DECLARE
   arr_8_idx INT8;
   arr_8_item JSONB;
 BEGIN
+  -- .'$MultiLineString'
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
@@ -395,20 +363,8 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check $MultiLineString (.'$MultiLineString')
-CREATE OR REPLACE FUNCTION json_model_8(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .'$MultiLineString'
-  res := _jm_obj_3(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
--- object .'$Polygon'
-CREATE OR REPLACE FUNCTION _jm_obj_4(val JSONB, path TEXT[], rep jm_report_entry[])
+-- check $Polygon (.'$Polygon')
+CREATE OR REPLACE FUNCTION json_model_9(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -420,6 +376,7 @@ DECLARE
   arr_10_idx INT8;
   arr_10_item JSONB;
 BEGIN
+  -- .'$Polygon'
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
@@ -479,20 +436,8 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check $Polygon (.'$Polygon')
-CREATE OR REPLACE FUNCTION json_model_9(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .'$Polygon'
-  res := _jm_obj_4(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
--- object .'$MultiPolygon'
-CREATE OR REPLACE FUNCTION _jm_obj_5(val JSONB, path TEXT[], rep jm_report_entry[])
+-- check $MultiPolygon (.'$MultiPolygon')
+CREATE OR REPLACE FUNCTION json_model_10(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -506,6 +451,7 @@ DECLARE
   arr_13_idx INT8;
   arr_13_item JSONB;
 BEGIN
+  -- .'$MultiPolygon'
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
@@ -575,20 +521,8 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check $MultiPolygon (.'$MultiPolygon')
-CREATE OR REPLACE FUNCTION json_model_10(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .'$MultiPolygon'
-  res := _jm_obj_5(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
 -- object .'$geometry'.'|'.0
-CREATE OR REPLACE FUNCTION _jm_obj_6(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_obj_0(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   pval JSONB;
@@ -641,7 +575,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- object .'$geometry'.'|'.1
-CREATE OR REPLACE FUNCTION _jm_obj_7(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_obj_1(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   pval JSONB;
@@ -706,7 +640,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- object .'$geometry'.'|'.2
-CREATE OR REPLACE FUNCTION _jm_obj_8(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_obj_2(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   pval JSONB;
@@ -759,7 +693,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- object .'$geometry'.'|'.3
-CREATE OR REPLACE FUNCTION _jm_obj_9(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_obj_3(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   pval JSONB;
@@ -824,7 +758,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- object .'$geometry'.'|'.4
-CREATE OR REPLACE FUNCTION _jm_obj_10(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_obj_4(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   pval JSONB;
@@ -889,7 +823,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- object .'$geometry'.'|'.5
-CREATE OR REPLACE FUNCTION _jm_obj_11(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_obj_5(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   pval JSONB;
@@ -995,8 +929,8 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- object .'$GeometryCollection'
-CREATE OR REPLACE FUNCTION _jm_obj_12(val JSONB, path TEXT[], rep jm_report_entry[])
+-- check $GeometryCollection (.'$GeometryCollection')
+CREATE OR REPLACE FUNCTION json_model_12(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   pval JSONB;
@@ -1006,6 +940,7 @@ DECLARE
   arr_26_idx INT8;
   arr_26_item JSONB;
 BEGIN
+  -- .'$GeometryCollection'
   -- check open must/may only props
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
@@ -1060,20 +995,8 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check $GeometryCollection (.'$GeometryCollection')
-CREATE OR REPLACE FUNCTION json_model_12(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .'$GeometryCollection'
-  res := _jm_obj_12(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
 -- object .'$Feature'.properties.'|'.1
-CREATE OR REPLACE FUNCTION _jm_obj_14(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_obj_6(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
@@ -1084,8 +1007,8 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- object .'$Feature'
-CREATE OR REPLACE FUNCTION _jm_obj_13(val JSONB, path TEXT[], rep jm_report_entry[])
+-- check $Feature (.'$Feature')
+CREATE OR REPLACE FUNCTION json_model_13(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   pval JSONB;
@@ -1093,6 +1016,7 @@ DECLARE
   arr_27_idx INT8;
   arr_27_item JSONB;
 BEGIN
+  -- .'$Feature'
   -- check open must/may only props
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
@@ -1118,7 +1042,7 @@ BEGIN
     res := json_model_11(pval, NULL, rep);
     IF NOT res THEN
       -- .'$Feature'.geometry.'|'.2
-      res := _jm_obj_12(pval, NULL, rep);
+      res := json_model_12(pval, NULL, rep);
     END IF;
   END IF;
   IF NOT res THEN
@@ -1133,7 +1057,7 @@ BEGIN
   res := JSONB_TYPEOF(pval) = 'null';
   IF NOT res THEN
     -- .'$Feature'.properties.'|'.1
-    res := _jm_obj_14(pval, NULL, rep);
+    res := _jm_obj_6(pval, NULL, rep);
   END IF;
   IF NOT res THEN
     RETURN FALSE;
@@ -1173,20 +1097,8 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check $Feature (.'$Feature')
-CREATE OR REPLACE FUNCTION json_model_13(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .'$Feature'
-  res := _jm_obj_13(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
--- object .'$FeatureCollection'
-CREATE OR REPLACE FUNCTION _jm_obj_15(val JSONB, path TEXT[], rep jm_report_entry[])
+-- check $FeatureCollection (.'$FeatureCollection')
+CREATE OR REPLACE FUNCTION json_model_14(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   pval JSONB;
@@ -1196,6 +1108,7 @@ DECLARE
   arr_29_idx INT8;
   arr_29_item JSONB;
 BEGIN
+  -- .'$FeatureCollection'
   -- check open must/may only props
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
@@ -1219,7 +1132,7 @@ BEGIN
     FOR arr_28_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
       arr_28_item := pval -> arr_28_idx;
       -- .'$FeatureCollection'.features.0
-      res := _jm_obj_13(arr_28_item, NULL, rep);
+      res := json_model_13(arr_28_item, NULL, rep);
       IF NOT res THEN
         EXIT;
       END IF;
@@ -1250,18 +1163,6 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check $FeatureCollection (.'$FeatureCollection')
-CREATE OR REPLACE FUNCTION json_model_14(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .'$FeatureCollection'
-  res := _jm_obj_15(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
 -- check $ (.)
 CREATE OR REPLACE FUNCTION json_model_1(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
@@ -1280,20 +1181,20 @@ BEGIN
     xc_0 := xc_0 + 1;
   END IF;
   -- .'^'.1
-  xr_0 := _jm_obj_12(val, path, rep);
+  xr_0 := json_model_12(val, path, rep);
   IF xr_0 THEN
     xc_0 := xc_0 + 1;
   END IF;
   IF xc_0 <= 1 THEN
     -- .'^'.2
-    xr_0 := _jm_obj_13(val, path, rep);
+    xr_0 := json_model_13(val, path, rep);
     IF xr_0 THEN
       xc_0 := xc_0 + 1;
     END IF;
   END IF;
   IF xc_0 <= 1 THEN
     -- .'^'.3
-    xr_0 := _jm_obj_15(val, path, rep);
+    xr_0 := json_model_14(val, path, rep);
     IF xr_0 THEN
       xc_0 := xc_0 + 1;
     END IF;
@@ -1306,7 +1207,7 @@ $$ LANGUAGE PLpgSQL;
 CREATE OR REPLACE FUNCTION check_model_map(name TEXT)
 RETURNS TEXT STRICT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
-  map JSONB := JSONB '{"":"json_model_1","position":"json_model_2","coord_array":"json_model_3","linear_ring":"json_model_4","Point":"_jm_obj_0","MultiPoint":"_jm_obj_1","LineString":"_jm_obj_2","MultiLineString":"_jm_obj_3","Polygon":"_jm_obj_4","MultiPolygon":"_jm_obj_5","geometry":"json_model_11","GeometryCollection":"_jm_obj_12","Feature":"_jm_obj_13","FeatureCollection":"_jm_obj_15"}';
+  map JSONB := JSONB '{"":"json_model_1","position":"json_model_2","coord_array":"json_model_3","linear_ring":"json_model_4","Point":"json_model_5","MultiPoint":"json_model_6","LineString":"json_model_7","MultiLineString":"json_model_8","Polygon":"json_model_9","MultiPolygon":"json_model_10","geometry":"json_model_11","GeometryCollection":"json_model_12","Feature":"json_model_13","FeatureCollection":"json_model_14"}';
 BEGIN
   RETURN map->>name;
 END;
@@ -1317,12 +1218,12 @@ $$ LANGUAGE plpgsql;
 --
 TRUNCATE jm_constant_maps;
 INSERT INTO jm_constant_maps(mapname, tagval, value) VALUES
-  ('_jm_map_0', JSONB '"Point"', '_jm_obj_6'),
-  ('_jm_map_0', JSONB '"MultiPoint"', '_jm_obj_7'),
-  ('_jm_map_0', JSONB '"LineString"', '_jm_obj_8'),
-  ('_jm_map_0', JSONB '"MultiLineString"', '_jm_obj_9'),
-  ('_jm_map_0', JSONB '"Polygon"', '_jm_obj_10'),
-  ('_jm_map_0', JSONB '"MultiPolygon"', '_jm_obj_11')
+  ('_jm_map_0', JSONB '"Point"', '_jm_obj_0'),
+  ('_jm_map_0', JSONB '"MultiPoint"', '_jm_obj_1'),
+  ('_jm_map_0', JSONB '"LineString"', '_jm_obj_2'),
+  ('_jm_map_0', JSONB '"MultiLineString"', '_jm_obj_3'),
+  ('_jm_map_0', JSONB '"Polygon"', '_jm_obj_4'),
+  ('_jm_map_0', JSONB '"MultiPolygon"', '_jm_obj_5')
 ;
 
 --

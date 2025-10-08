@@ -11,7 +11,6 @@ use JSON::JsonModel;
 use constant JMC_VERSION => '2';
 
 
-sub _jm_obj_1($$$);
 sub _jm_obj_0($$$);
 sub json_model_2($$$);
 my %_jm_map_0;
@@ -33,23 +32,18 @@ sub _jm_f_9($$$);
 sub _jm_f_10($$$);
 sub _jm_f_11($$$);
 sub _jm_f_12($$$);
-my %_jm_obj_2_map;
-sub _jm_obj_2($$$);
+my %json_model_6_map;
 sub json_model_6($$$);
-sub _jm_obj_3($$$);
 sub json_model_7($$$);
-sub _jm_obj_4($$$);
 sub json_model_8($$$);
-sub _jm_obj_5($$$);
 sub json_model_9($$$);
-sub _jm_obj_6($$$);
 sub json_model_10($$$);
 sub json_model_11($$$);
 sub json_model_1($$$);
 my %check_model_map;
 
 # object .'$Schema'.metadata
-sub _jm_obj_1($$$)
+sub _jm_obj_0($$$)
 {
     my ($val, $path, $rep) = @_;
     if (! jm_is_object($val))
@@ -121,10 +115,11 @@ sub _jm_obj_1($$$)
     return 1;
 }
 
-# object .'$Schema'
-sub _jm_obj_0($$$)
+# check $Schema (.'$Schema')
+sub json_model_2($$$)
 {
     my ($val, $path, $rep) = @_;
+    # .'$Schema'
     if (! jm_is_object($val))
     {
         return 0;
@@ -162,7 +157,7 @@ sub _jm_obj_0($$$)
         {
             # handle may metadata property
             # .'$Schema'.metadata
-            $res = _jm_obj_1($pval, undef, $rep);
+            $res = _jm_obj_0($pval, undef, $rep);
             if (! $res)
             {
                 return 0;
@@ -178,16 +173,6 @@ sub _jm_obj_0($$$)
         return 0;
     }
     return 1;
-}
-
-# check $Schema (.'$Schema')
-sub json_model_2($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$Schema'
-    $res = _jm_obj_0($val, $path, $rep);
-    return $res;
 }
 
 
@@ -264,7 +249,7 @@ sub json_model_5($$$)
     return $res;
 }
 
-# check _jm_obj_2_map_enumeration (.'$Atomic'.enumeration)
+# check json_model_6_map_enumeration (.'$Atomic'.enumeration)
 sub _jm_f_0($$$)
 {
     my ($val, $path, $rep) = @_;
@@ -288,7 +273,7 @@ sub _jm_f_0($$$)
 }
 
 
-# check _jm_obj_2_map_explicitTypeZone (.'$Atomic'.explicitTypeZone)
+# check json_model_6_map_explicitTypeZone (.'$Atomic'.explicitTypeZone)
 sub _jm_f_1($$$)
 {
     my ($val, $path, $rep) = @_;
@@ -298,7 +283,7 @@ sub _jm_f_1($$$)
     return $res;
 }
 
-# check _jm_obj_2_map_fractionDigits (.'$Atomic'.fractionDigits)
+# check json_model_6_map_fractionDigits (.'$Atomic'.fractionDigits)
 sub _jm_f_2($$$)
 {
     my ($val, $path, $rep) = @_;
@@ -308,7 +293,7 @@ sub _jm_f_2($$$)
     return $res;
 }
 
-# check _jm_obj_2_map_length (.'$Atomic'.length)
+# check json_model_6_map_length (.'$Atomic'.length)
 sub _jm_f_3($$$)
 {
     my ($val, $path, $rep) = @_;
@@ -318,7 +303,7 @@ sub _jm_f_3($$$)
     return $res;
 }
 
-# check _jm_obj_2_map_maxExclusive (.'$Atomic'.maxExclusive)
+# check json_model_6_map_maxExclusive (.'$Atomic'.maxExclusive)
 sub _jm_f_4($$$)
 {
     my ($val, $path, $rep) = @_;
@@ -328,7 +313,7 @@ sub _jm_f_4($$$)
     return $res;
 }
 
-# check _jm_obj_2_map_maxInclusive (.'$Atomic'.maxInclusive)
+# check json_model_6_map_maxInclusive (.'$Atomic'.maxInclusive)
 sub _jm_f_5($$$)
 {
     my ($val, $path, $rep) = @_;
@@ -338,7 +323,7 @@ sub _jm_f_5($$$)
     return $res;
 }
 
-# check _jm_obj_2_map_maxLength (.'$Atomic'.maxLength)
+# check json_model_6_map_maxLength (.'$Atomic'.maxLength)
 sub _jm_f_6($$$)
 {
     my ($val, $path, $rep) = @_;
@@ -348,7 +333,7 @@ sub _jm_f_6($$$)
     return $res;
 }
 
-# check _jm_obj_2_map_minExclusive (.'$Atomic'.minExclusive)
+# check json_model_6_map_minExclusive (.'$Atomic'.minExclusive)
 sub _jm_f_7($$$)
 {
     my ($val, $path, $rep) = @_;
@@ -358,7 +343,7 @@ sub _jm_f_7($$$)
     return $res;
 }
 
-# check _jm_obj_2_map_minInclusive (.'$Atomic'.minInclusive)
+# check json_model_6_map_minInclusive (.'$Atomic'.minInclusive)
 sub _jm_f_8($$$)
 {
     my ($val, $path, $rep) = @_;
@@ -368,7 +353,7 @@ sub _jm_f_8($$$)
     return $res;
 }
 
-# check _jm_obj_2_map_minLength (.'$Atomic'.minLength)
+# check json_model_6_map_minLength (.'$Atomic'.minLength)
 sub _jm_f_9($$$)
 {
     my ($val, $path, $rep) = @_;
@@ -378,7 +363,7 @@ sub _jm_f_9($$$)
     return $res;
 }
 
-# check _jm_obj_2_map_name (.'$Atomic'.name)
+# check json_model_6_map_name (.'$Atomic'.name)
 sub _jm_f_10($$$)
 {
     my ($val, $path, $rep) = @_;
@@ -388,7 +373,7 @@ sub _jm_f_10($$$)
     return $res;
 }
 
-# check _jm_obj_2_map_pattern (.'$Atomic'.pattern)
+# check json_model_6_map_pattern (.'$Atomic'.pattern)
 sub _jm_f_11($$$)
 {
     my ($val, $path, $rep) = @_;
@@ -398,7 +383,7 @@ sub _jm_f_11($$$)
     return $res;
 }
 
-# check _jm_obj_2_map_totalDigits (.'$Atomic'.totalDigits)
+# check json_model_6_map_totalDigits (.'$Atomic'.totalDigits)
 sub _jm_f_12($$$)
 {
     my ($val, $path, $rep) = @_;
@@ -409,10 +394,12 @@ sub _jm_f_12($$$)
 }
 
 
-# object .'$Atomic'
-sub _jm_obj_2($$$)
+# check $Atomic (.'$Atomic')
+sub json_model_6($$$)
 {
     my ($val, $path, $rep) = @_;
+    # could there be derived atomics as well?
+    # .'$Atomic'
     if (! jm_is_object($val))
     {
         return 0;
@@ -445,7 +432,7 @@ sub _jm_obj_2($$$)
                 return 0;
             }
         }
-        elsif (($pfun = $_jm_obj_2_map{$prop}))
+        elsif (($pfun = $json_model_6_map{$prop}))
         {
             # handle 13 may props
             if (defined($pfun) && ! &$pfun($pval, undef, $rep))
@@ -465,21 +452,11 @@ sub _jm_obj_2($$$)
     return 1;
 }
 
-# check $Atomic (.'$Atomic')
-sub json_model_6($$$)
+# check $Object (.'$Object')
+sub json_model_7($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
-    # could there be derived atomics as well?
-    # .'$Atomic'
-    $res = _jm_obj_2($val, $path, $rep);
-    return $res;
-}
-
-# object .'$Object'
-sub _jm_obj_3($$$)
-{
-    my ($val, $path, $rep) = @_;
+    # .'$Object'
     if (! jm_is_object($val))
     {
         return 0;
@@ -531,7 +508,7 @@ sub _jm_obj_3($$$)
                 {
                     my $arr_3_item = $$pval[$arr_3_idx];
                     # .'$Object'.content.0
-                    $res = _jm_obj_4($arr_3_item, undef, $rep);
+                    $res = json_model_8($arr_3_item, undef, $rep);
                     if (! $res)
                     {
                         last;
@@ -565,20 +542,11 @@ sub _jm_obj_3($$$)
     return 1;
 }
 
-# check $Object (.'$Object')
-sub json_model_7($$$)
+# check $Fields (.'$Fields')
+sub json_model_8($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$Object'
-    $res = _jm_obj_3($val, $path, $rep);
-    return $res;
-}
-
-# object .'$Fields'
-sub _jm_obj_4($$$)
-{
-    my ($val, $path, $rep) = @_;
+    # .'$Fields'
     if (! jm_is_object($val))
     {
         return 0;
@@ -652,20 +620,12 @@ sub _jm_obj_4($$$)
     return 1;
 }
 
-# check $Fields (.'$Fields')
-sub json_model_8($$$)
+# check $Array (.'$Array')
+sub json_model_9($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$Fields'
-    $res = _jm_obj_4($val, $path, $rep);
-    return $res;
-}
-
-# object .'$Array'
-sub _jm_obj_5($$$)
-{
-    my ($val, $path, $rep) = @_;
+    # WTF about 'content'?
+    # .'$Array'
     if (! jm_is_object($val))
     {
         return 0;
@@ -748,21 +708,12 @@ sub _jm_obj_5($$$)
     return 1;
 }
 
-# check $Array (.'$Array')
-sub json_model_9($$$)
+# check $Union (.'$Union')
+sub json_model_10($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
-    # WTF about 'content'?
-    # .'$Array'
-    $res = _jm_obj_5($val, $path, $rep);
-    return $res;
-}
-
-# object .'$Union'
-sub _jm_obj_6($$$)
-{
-    my ($val, $path, $rep) = @_;
+    # jsound.jsound.json does not say that it is a type…
+    # .'$Union'
     if (! jm_is_object($val))
     {
         return 0;
@@ -840,17 +791,6 @@ sub _jm_obj_6($$$)
     return 1;
 }
 
-# check $Union (.'$Union')
-sub json_model_10($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # jsound.jsound.json does not say that it is a type…
-    # .'$Union'
-    $res = _jm_obj_6($val, $path, $rep);
-    return $res;
-}
-
 # check $type-or-ref (.'$type-or-ref')
 sub json_model_11($$$)
 {
@@ -873,7 +813,7 @@ sub json_model_1($$$)
     my ($val, $path, $rep) = @_;
     my $res;
     # .
-    $res = _jm_obj_0($val, $path, $rep);
+    $res = json_model_2($val, $path, $rep);
     return $res;
 }
 
@@ -888,10 +828,10 @@ sub check_model_init()
     {
         $initialized = 1;
         %_jm_map_0 = (
-            'atomic' => \&_jm_obj_2,
-            'object' => \&_jm_obj_3,
-            'array' => \&_jm_obj_5,
-            'union' => \&_jm_obj_6,
+            'atomic' => \&json_model_6,
+            'object' => \&json_model_7,
+            'array' => \&json_model_9,
+            'union' => \&json_model_10,
         );
         %_jm_cst_0 = (
             'string' => 1,
@@ -914,7 +854,7 @@ sub check_model_init()
             'prohibited' => 1,
             'optional' => 1,
         );
-        %_jm_obj_2_map = (
+        %json_model_6_map = (
             'enumeration' => \&_jm_f_0,
             'explicitTypeZone' => \&_jm_f_1,
             'fractionDigits' => \&_jm_f_2,
@@ -930,16 +870,16 @@ sub check_model_init()
             'totalDigits' => \&_jm_f_12,
         );
         %check_model_map = (
-            '' => \&_jm_obj_0,
-            'Schema' => \&_jm_obj_0,
+            '' => \&json_model_2,
+            'Schema' => \&json_model_2,
             'Type' => \&json_model_3,
             'atomic-types' => \&json_model_4,
             'atomic' => \&json_model_5,
-            'Atomic' => \&_jm_obj_2,
-            'Object' => \&_jm_obj_3,
-            'Fields' => \&_jm_obj_4,
-            'Array' => \&_jm_obj_5,
-            'Union' => \&_jm_obj_6,
+            'Atomic' => \&json_model_6,
+            'Object' => \&json_model_7,
+            'Fields' => \&json_model_8,
+            'Array' => \&json_model_9,
+            'Union' => \&json_model_10,
             'type-or-ref' => \&json_model_11,
         );
     }
@@ -953,7 +893,7 @@ sub check_model_free()
         %_jm_map_0 = ();
         %_jm_cst_0 = ();
         %_jm_cst_1 = ();
-        %_jm_obj_2_map = ();
+        %json_model_6_map = ();
         %check_model_map = ();
     }
 }

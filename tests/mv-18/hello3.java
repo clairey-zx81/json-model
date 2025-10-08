@@ -19,9 +19,10 @@ public class hello3 extends ModelChecker
 
     public Map<String, Checker> hello3_map_pmap;
 
-    // object .
-    public boolean _jm_obj_0(Object val, Path path, Report rep)
+    // check $ (.)
+    public boolean json_model_2(Object val, Path path, Report rep)
     {
+        // .
         // check close must only props
         if (! json.isObject(val))
         {
@@ -67,19 +68,6 @@ public class hello3 extends ModelChecker
         return true;
     }
 
-    // check $ (.)
-    public boolean json_model_2(Object val, Path path, Report rep)
-    {
-        boolean res;
-        // .
-        res = _jm_obj_0(val, path, rep);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected element [.]", path);
-        }
-        return res;
-    }
-
 
     public void init(JSON json)
     {
@@ -87,7 +75,7 @@ public class hello3 extends ModelChecker
         {
             try {
             hello3_map_pmap = new HashMap<String, Checker>();
-            hello3_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_0(o, p, r);} });
+            hello3_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_2(o, p, r);} });
                 super.init(json);
             }
             catch (Exception e) {

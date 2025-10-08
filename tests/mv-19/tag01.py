@@ -23,8 +23,9 @@ def check_model(val: Jsonable, name: str = "", rep: Report = None) -> bool:
 _jm_map_0: ConstMap = ConstMap()
 check_model_map: PropMap
 
-# object .'$Aa'
-def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
+# check $Aa (.'$Aa')
+def json_model_2(val: Jsonable, path: Path, rep: Report) -> bool:
+    # .'$Aa'
     # check close must only props
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$Aa']", path))
@@ -57,17 +58,9 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
         return False
     return True
 
-# check $Aa (.'$Aa')
-def json_model_2(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .'$Aa'
-    res = _jm_obj_0(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected element [.'$Aa']", path))
-    return res
-
-# object .'$Bb'
-def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
+# check $Bb (.'$Bb')
+def json_model_3(val: Jsonable, path: Path, rep: Report) -> bool:
+    # .'$Bb'
     # check close must only props
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$Bb']", path))
@@ -99,15 +92,6 @@ def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("unexpected value for mandatory prop <b> [.'$Bb']", lpath if path is not None else None))
         return False
     return True
-
-# check $Bb (.'$Bb')
-def json_model_3(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .'$Bb'
-    res = _jm_obj_1(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected element [.'$Bb']", path))
-    return res
 
 
 # check $ (.)
@@ -142,13 +126,13 @@ def check_model_init():
     if not initialized:
         initialized = True
         global _jm_map_0
-        _jm_map_0[True] = _jm_obj_0
-        _jm_map_0[False] = _jm_obj_1
+        _jm_map_0[True] = json_model_2
+        _jm_map_0[False] = json_model_3
         global check_model_map
         check_model_map = {
             "": json_model_1,
-            "Aa": _jm_obj_0,
-            "Bb": _jm_obj_1,
+            "Aa": json_model_2,
+            "Bb": json_model_3,
         }
 
 # differed module cleanup

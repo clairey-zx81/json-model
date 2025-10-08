@@ -40,8 +40,9 @@ def json_model_3(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("unexpected $URL [.'$Key']", path))
     return res
 
-# object .'$map'
-def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
+# check $map (.'$map')
+def json_model_4(val: Jsonable, path: Path, rep: Report) -> bool:
+    # .'$map'
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$map']", path))
         return False
@@ -61,21 +62,12 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
             return False
     return True
 
-# check $map (.'$map')
-def json_model_4(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .'$map'
-    res = _jm_obj_0(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected element [.'$map']", path))
-    return res
-
 # check $Ex08 (.'$Ex08')
 def json_model_5(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$Ex08'
     # .'$Ex08'.'|'.0
-    res = _jm_obj_0(val, path, rep)
+    res = json_model_4(val, path, rep)
     if not res:
         rep is None or rep.append(("unexpected $map [.'$Ex08'.'|'.0]", path))
     if not res:
@@ -117,7 +109,7 @@ def check_model_init():
             "": json_model_5,
             "Val": json_model_2,
             "Key": json_model_3,
-            "map": _jm_obj_0,
+            "map": json_model_4,
             "Ex08": json_model_5,
         }
 

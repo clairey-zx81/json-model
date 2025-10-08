@@ -34,9 +34,11 @@ public class obj_04 extends ModelChecker
         return res;
     }
 
-    // object .
-    public boolean _jm_obj_0(Object val, Path path, Report rep)
+    // check $ (.)
+    public boolean json_model_1(Object val, Path path, Report rep)
     {
+        // prop ref to enum
+        // .
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.]", path);
@@ -69,20 +71,6 @@ public class obj_04 extends ModelChecker
         return true;
     }
 
-    // check $ (.)
-    public boolean json_model_1(Object val, Path path, Report rep)
-    {
-        boolean res;
-        // prop ref to enum
-        // .
-        res = _jm_obj_0(val, path, rep);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected element [.]", path);
-        }
-        return res;
-    }
-
 
     public void init(JSON json)
     {
@@ -94,7 +82,7 @@ public class obj_04 extends ModelChecker
             _jm_cst_0_set.add(json.safeJSON("\"XX\""));
             _jm_cst_0_set.add(json.safeJSON("\"XXX\""));
             obj_04_map_pmap = new HashMap<String, Checker>();
-            obj_04_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_0(o, p, r);} });
+            obj_04_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_1(o, p, r);} });
             obj_04_map_pmap.put("Xxx", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_2(o, p, r);} });
                 super.init(json);
             }

@@ -10,19 +10,18 @@
 #include <json-model.h>
 #define JSON_MODEL_VERSION "2"
 
-static bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_5(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static bool _jm_obj_1(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_6(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static bool _jm_obj_2(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_4(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep);
 jm_propmap_t check_model_map_tab[4];
 const size_t check_model_map_size = 4;
 
-// object .'$loose'
-static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *rep)
+// check $loose (.'$loose')
+static bool json_model_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
+    // JSON_MODEL_LOOSE_INT
+    // .'$loose'
     // check close must only props
     if (! json_is_object(val))
     {
@@ -54,23 +53,11 @@ static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *re
     return true;
 }
 
-// check $loose (.'$loose')
-static bool json_model_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
+// check $strict (.'$strict')
+static bool json_model_6(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
-    // JSON_MODEL_LOOSE_INT
-    // .'$loose'
-    res = _jm_obj_0(val, path, rep);
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected element [.'$loose']", path);
-    }
-    return res;
-}
-
-// object .'$strict'
-static INLINE bool _jm_obj_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
+    // JSON_MODEL_STRICT_INT
+    // .'$strict'
     // check close must only props
     if (! json_is_object(val))
     {
@@ -102,23 +89,10 @@ static INLINE bool _jm_obj_1(const json_t *val, jm_path_t *path, jm_report_t *re
     return true;
 }
 
-// check $strict (.'$strict')
-static bool json_model_6(const json_t *val, jm_path_t *path, jm_report_t *rep)
+// check $combined (.'$combined')
+static bool json_model_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
-    // JSON_MODEL_STRICT_INT
-    // .'$strict'
-    res = _jm_obj_1(val, path, rep);
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected element [.'$strict']", path);
-    }
-    return res;
-}
-
-// object .'$combined'
-static INLINE bool _jm_obj_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
+    // .'$combined'
     // check close must only props
     if (! json_is_object(val))
     {
@@ -164,25 +138,12 @@ static INLINE bool _jm_obj_2(const json_t *val, jm_path_t *path, jm_report_t *re
     return true;
 }
 
-// check $combined (.'$combined')
-static bool json_model_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
-    bool res;
-    // .'$combined'
-    res = _jm_obj_2(val, path, rep);
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected element [.'$combined']", path);
-    }
-    return res;
-}
-
 // check $ (.)
 static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
     // .
-    res = _jm_obj_2(val, path, rep);
+    res = json_model_4(val, path, rep);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected $combined [.]", path);
@@ -203,10 +164,10 @@ const char *check_model_init(void)
     {
         initialized = true;
         jm_version_string = JSON_MODEL_VERSION;
-        check_model_map_tab[0] = (jm_propmap_t) { "", _jm_obj_2 };
-        check_model_map_tab[1] = (jm_propmap_t) { "loose", _jm_obj_0 };
-        check_model_map_tab[2] = (jm_propmap_t) { "strict", _jm_obj_1 };
-        check_model_map_tab[3] = (jm_propmap_t) { "combined", _jm_obj_2 };
+        check_model_map_tab[0] = (jm_propmap_t) { "", json_model_4 };
+        check_model_map_tab[1] = (jm_propmap_t) { "loose", json_model_5 };
+        check_model_map_tab[2] = (jm_propmap_t) { "strict", json_model_6 };
+        check_model_map_tab[3] = (jm_propmap_t) { "combined", json_model_4 };
         jm_sort_propmap(check_model_map_tab, 4);
     }
     return NULL;

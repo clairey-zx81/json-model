@@ -13,7 +13,6 @@ use constant JMC_VERSION => '2';
 
 sub json_model_2($$$);
 sub json_model_3($$$);
-sub _jm_obj_0($$$);
 sub json_model_4($$$);
 sub json_model_5($$$);
 sub json_model_1($$$);
@@ -39,10 +38,11 @@ sub json_model_3($$$)
     return $res;
 }
 
-# object .'$map'
-sub _jm_obj_0($$$)
+# check $map (.'$map')
+sub json_model_4($$$)
 {
     my ($val, $path, $rep) = @_;
+    # .'$map'
     if (! jm_is_object($val))
     {
         return 0;
@@ -69,16 +69,6 @@ sub _jm_obj_0($$$)
     return 1;
 }
 
-# check $map (.'$map')
-sub json_model_4($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$map'
-    $res = _jm_obj_0($val, $path, $rep);
-    return $res;
-}
-
 # check $Ex08 (.'$Ex08')
 sub json_model_5($$$)
 {
@@ -86,7 +76,7 @@ sub json_model_5($$$)
     my $res;
     # .'$Ex08'
     # .'$Ex08'.'|'.0
-    $res = _jm_obj_0($val, $path, $rep);
+    $res = json_model_4($val, $path, $rep);
     if (! $res)
     {
         # .'$Ex08'.'|'.1
@@ -124,7 +114,7 @@ sub check_model_init()
             '' => \&json_model_5,
             'Val' => \&json_model_2,
             'Key' => \&json_model_3,
-            'map' => \&_jm_obj_0,
+            'map' => \&json_model_4,
             'Ex08' => \&json_model_5,
         );
     }

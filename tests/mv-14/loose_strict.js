@@ -11,9 +11,11 @@ const JSON_MODEL_VERSION = "2";
 
 var check_model_map = new Map()
 
-// object .'$loose'
-function _jm_obj_0(val, path, rep)
+// check $loose (.'$loose')
+function json_model_5(val, path, rep)
 {
+    // JSON_MODEL_LOOSE_INT
+    // .'$loose'
     // check close must only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
@@ -46,23 +48,11 @@ function _jm_obj_0(val, path, rep)
     return true;
 }
 
-// check $loose (.'$loose')
-function json_model_5(val, path, rep)
+// check $strict (.'$strict')
+function json_model_6(val, path, rep)
 {
-    let res;
-    // JSON_MODEL_LOOSE_INT
-    // .'$loose'
-    res = _jm_obj_0(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected element [.'$loose']", path])
-    }
-    return res;
-}
-
-// object .'$strict'
-function _jm_obj_1(val, path, rep)
-{
+    // JSON_MODEL_STRICT_INT
+    // .'$strict'
     // check close must only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
@@ -95,23 +85,10 @@ function _jm_obj_1(val, path, rep)
     return true;
 }
 
-// check $strict (.'$strict')
-function json_model_6(val, path, rep)
+// check $combined (.'$combined')
+function json_model_4(val, path, rep)
 {
-    let res;
-    // JSON_MODEL_STRICT_INT
-    // .'$strict'
-    res = _jm_obj_1(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected element [.'$strict']", path])
-    }
-    return res;
-}
-
-// object .'$combined'
-function _jm_obj_2(val, path, rep)
-{
+    // .'$combined'
     // check close must only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
@@ -159,25 +136,12 @@ function _jm_obj_2(val, path, rep)
     return true;
 }
 
-// check $combined (.'$combined')
-function json_model_4(val, path, rep)
-{
-    let res;
-    // .'$combined'
-    res = _jm_obj_2(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected element [.'$combined']", path])
-    }
-    return res;
-}
-
 // check $ (.)
 function json_model_1(val, path, rep)
 {
     let res;
     // .
-    res = _jm_obj_2(val, path, rep);
+    res = json_model_4(val, path, rep);
     if (! res)
     {
         rep !== null && rep.push(["unexpected $combined [.]", path])
@@ -195,10 +159,10 @@ export function check_model_init()
     {
         initialized = true;
         runtime.jm_set_rx(RegExp)
-        check_model_map.set("", _jm_obj_2)
-        check_model_map.set("loose", _jm_obj_0)
-        check_model_map.set("strict", _jm_obj_1)
-        check_model_map.set("combined", _jm_obj_2)
+        check_model_map.set("", json_model_4)
+        check_model_map.set("loose", json_model_5)
+        check_model_map.set("strict", json_model_6)
+        check_model_map.set("combined", json_model_4)
     }
 }
 

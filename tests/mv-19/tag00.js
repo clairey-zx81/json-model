@@ -12,9 +12,10 @@ const JSON_MODEL_VERSION = "2";
 let _jm_map_0 = new Map()
 var check_model_map = new Map()
 
-// object .'$Aa'
-function _jm_obj_0(val, path, rep)
+// check $Aa (.'$Aa')
+function json_model_2(val, path, rep)
 {
+    // .'$Aa'
     // check close must only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
@@ -62,22 +63,10 @@ function _jm_obj_0(val, path, rep)
     return true;
 }
 
-// check $Aa (.'$Aa')
-function json_model_2(val, path, rep)
+// check $Bb (.'$Bb')
+function json_model_3(val, path, rep)
 {
-    let res;
-    // .'$Aa'
-    res = _jm_obj_0(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected element [.'$Aa']", path])
-    }
-    return res;
-}
-
-// object .'$Bb'
-function _jm_obj_1(val, path, rep)
-{
+    // .'$Bb'
     // check close must only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
@@ -123,19 +112,6 @@ function _jm_obj_1(val, path, rep)
         return false;
     }
     return true;
-}
-
-// check $Bb (.'$Bb')
-function json_model_3(val, path, rep)
-{
-    let res;
-    // .'$Bb'
-    res = _jm_obj_1(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected element [.'$Bb']", path])
-    }
-    return res;
 }
 
 
@@ -185,11 +161,11 @@ export function check_model_init()
     {
         initialized = true;
         runtime.jm_set_rx(RegExp)
-        _jm_map_0.set(1, _jm_obj_0)
-        _jm_map_0.set(2, _jm_obj_1)
+        _jm_map_0.set(1, json_model_2)
+        _jm_map_0.set(2, json_model_3)
         check_model_map.set("", json_model_1)
-        check_model_map.set("Aa", _jm_obj_0)
-        check_model_map.set("Bb", _jm_obj_1)
+        check_model_map.set("Aa", json_model_2)
+        check_model_map.set("Bb", json_model_3)
     }
 }
 

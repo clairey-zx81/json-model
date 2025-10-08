@@ -45,9 +45,10 @@ public class ex_09 extends ModelChecker
         return res;
     }
 
-    // object .'$Ex09'
-    public boolean _jm_obj_0(Object val, Path path, Report rep)
+    // check $Ex09 (.'$Ex09')
+    public boolean json_model_4(Object val, Path path, Report rep)
     {
+        // .'$Ex09'
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.'$Ex09']", path);
@@ -92,25 +93,12 @@ public class ex_09 extends ModelChecker
         return true;
     }
 
-    // check $Ex09 (.'$Ex09')
-    public boolean json_model_4(Object val, Path path, Report rep)
-    {
-        boolean res;
-        // .'$Ex09'
-        res = _jm_obj_0(val, path, rep);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected element [.'$Ex09']", path);
-        }
-        return res;
-    }
-
     // check $ (.)
     public boolean json_model_1(Object val, Path path, Report rep)
     {
         boolean res;
         // .
-        res = _jm_obj_0(val, path, rep);
+        res = json_model_4(val, path, rep);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected $Ex09 [.]", path);
@@ -137,7 +125,7 @@ public class ex_09 extends ModelChecker
         boolean res;
         // .'$ex08#Ex08'
         // .'$ex08#Ex08'.'|'.0
-        res = _jm_obj_1(val, path, rep);
+        res = json_model_8(val, path, rep);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected $map [.'$ex08#Ex08'.'|'.0]", path);
@@ -171,9 +159,10 @@ public class ex_09 extends ModelChecker
         return res;
     }
 
-    // object .'$ex08#map'
-    public boolean _jm_obj_1(Object val, Path path, Report rep)
+    // check $ex08#map (.'$ex08#map')
+    public boolean json_model_8(Object val, Path path, Report rep)
     {
+        // .'$ex08#map'
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.'$ex08#map']", path);
@@ -206,19 +195,6 @@ public class ex_09 extends ModelChecker
         return true;
     }
 
-    // check $ex08#map (.'$ex08#map')
-    public boolean json_model_8(Object val, Path path, Report rep)
-    {
-        boolean res;
-        // .'$ex08#map'
-        res = _jm_obj_1(val, path, rep);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected element [.'$ex08#map']", path);
-        }
-        return res;
-    }
-
 
     public void init(JSON json)
     {
@@ -226,10 +202,10 @@ public class ex_09 extends ModelChecker
         {
             try {
             ex_09_map_pmap = new HashMap<String, Checker>();
-            ex_09_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_0(o, p, r);} });
+            ex_09_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
             ex_09_map_pmap.put("ex08", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_9(o, p, r);} });
             ex_09_map_pmap.put("Ex08", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_9(o, p, r);} });
-            ex_09_map_pmap.put("Ex09", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_0(o, p, r);} });
+            ex_09_map_pmap.put("Ex09", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
                 super.init(json);
             }
             catch (Exception e) {

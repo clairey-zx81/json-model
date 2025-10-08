@@ -19,9 +19,10 @@ public class rec_00 extends ModelChecker
 
     public Map<String, Checker> rec_00_map_pmap;
 
-    // object .'$obj'
-    public boolean _jm_obj_0(Object val, Path path, Report rep)
+    // check $obj (.'$obj')
+    public boolean json_model_2(Object val, Path path, Report rep)
     {
+        // .'$obj'
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.'$obj']", path);
@@ -46,19 +47,6 @@ public class rec_00 extends ModelChecker
         return true;
     }
 
-    // check $obj (.'$obj')
-    public boolean json_model_2(Object val, Path path, Report rep)
-    {
-        boolean res;
-        // .'$obj'
-        res = _jm_obj_0(val, path, rep);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected element [.'$obj']", path);
-        }
-        return res;
-    }
-
     // check $rec (.'$rec')
     public boolean json_model_3(Object val, Path path, Report rep)
     {
@@ -73,7 +61,7 @@ public class rec_00 extends ModelChecker
         if (! res)
         {
             // .'$rec'.'|'.1
-            res = _jm_obj_0(val, path, rep);
+            res = json_model_2(val, path, rep);
             if (! res)
             {
                 if (rep != null) rep.addEntry("unexpected $obj [.'$rec'.'|'.1]", path);
@@ -111,7 +99,7 @@ public class rec_00 extends ModelChecker
             try {
             rec_00_map_pmap = new HashMap<String, Checker>();
             rec_00_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_3(o, p, r);} });
-            rec_00_map_pmap.put("obj", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_0(o, p, r);} });
+            rec_00_map_pmap.put("obj", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_2(o, p, r);} });
             rec_00_map_pmap.put("rec", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_3(o, p, r);} });
                 super.init(json);
             }

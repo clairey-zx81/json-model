@@ -10,7 +10,6 @@
 #include <json-model.h>
 #define JSON_MODEL_VERSION "2"
 
-static bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_4(const json_t *val, jm_path_t *path, jm_report_t *rep);
@@ -18,9 +17,10 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep);
 jm_propmap_t check_model_map_tab[4];
 const size_t check_model_map_size = 4;
 
-// object .'$bla'
-static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *rep)
+// check $bla (.'$bla')
+static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
+    // .'$bla'
     // check close must only props
     if (! json_is_object(val))
     {
@@ -55,21 +55,12 @@ static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *re
     return true;
 }
 
-// check $bla (.'$bla')
-static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
-    bool res;
-    // .'$bla'
-    res = _jm_obj_0(val, path, rep);
-    return res;
-}
-
 // check $foo (.'$foo')
 static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
     // .'$foo'
-    res = _jm_obj_0(val, path, rep);
+    res = json_model_2(val, path, rep);
     return res;
 }
 
@@ -78,7 +69,7 @@ static bool json_model_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
     // .'$ob'
-    res = _jm_obj_0(val, path, rep);
+    res = json_model_2(val, path, rep);
     return res;
 }
 
@@ -87,7 +78,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
     // .
-    res = _jm_obj_0(val, path, rep);
+    res = json_model_2(val, path, rep);
     return res;
 }
 
@@ -104,10 +95,10 @@ const char *check_model_init(void)
     {
         initialized = true;
         jm_version_string = JSON_MODEL_VERSION;
-        check_model_map_tab[0] = (jm_propmap_t) { "", _jm_obj_0 };
-        check_model_map_tab[1] = (jm_propmap_t) { "bla", _jm_obj_0 };
-        check_model_map_tab[2] = (jm_propmap_t) { "foo", _jm_obj_0 };
-        check_model_map_tab[3] = (jm_propmap_t) { "ob", _jm_obj_0 };
+        check_model_map_tab[0] = (jm_propmap_t) { "", json_model_2 };
+        check_model_map_tab[1] = (jm_propmap_t) { "bla", json_model_2 };
+        check_model_map_tab[2] = (jm_propmap_t) { "foo", json_model_2 };
+        check_model_map_tab[3] = (jm_propmap_t) { "ob", json_model_2 };
         jm_sort_propmap(check_model_map_tab, 4);
     }
     return NULL;

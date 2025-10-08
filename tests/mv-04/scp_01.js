@@ -37,9 +37,10 @@ function json_model_3(val, path, rep)
     return res;
 }
 
-// object .'$Rr'
-function _jm_obj_0(val, path, rep)
+// check $Rr (.'$Rr')
+function json_model_5(val, path, rep)
 {
+    // .'$Rr'
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.'$Rr']", path])
@@ -70,22 +71,10 @@ function _jm_obj_0(val, path, rep)
     return true;
 }
 
-// check $Rr (.'$Rr')
-function json_model_5(val, path, rep)
+// check $ (.)
+function json_model_1(val, path, rep)
 {
-    let res;
-    // .'$Rr'
-    res = _jm_obj_0(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected element [.'$Rr']", path])
-    }
-    return res;
-}
-
-// object .
-function _jm_obj_1(val, path, rep)
-{
+    // .
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.]", path])
@@ -101,7 +90,7 @@ function _jm_obj_1(val, path, rep)
             // handle must RA property
             must_count += 1;
             // .RA
-            res = _jm_obj_0(pval, (path ? lpath_1 : null), rep);
+            res = json_model_5(pval, (path ? lpath_1 : null), rep);
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $Rr [.RA]", (path ? lpath_1 : null)])
@@ -153,19 +142,6 @@ function _jm_obj_1(val, path, rep)
     return true;
 }
 
-// check $ (.)
-function json_model_1(val, path, rep)
-{
-    let res;
-    // .
-    res = _jm_obj_1(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected element [.]", path])
-    }
-    return res;
-}
-
 // check $Rr#Aa (.'$Rr#Aa')
 function json_model_7(val, path, rep)
 {
@@ -189,10 +165,10 @@ export function check_model_init()
     {
         initialized = true;
         runtime.jm_set_rx(RegExp)
-        check_model_map.set("", _jm_obj_1)
+        check_model_map.set("", json_model_1)
         check_model_map.set("b", json_model_2)
         check_model_map.set("Bb", json_model_3)
-        check_model_map.set("Rr", _jm_obj_0)
+        check_model_map.set("Rr", json_model_5)
     }
 }
 

@@ -45,9 +45,10 @@ public class scp_01 extends ModelChecker
         return res;
     }
 
-    // object .'$Rr'
-    public boolean _jm_obj_0(Object val, Path path, Report rep)
+    // check $Rr (.'$Rr')
+    public boolean json_model_5(Object val, Path path, Report rep)
     {
+        // .'$Rr'
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.'$Rr']", path);
@@ -81,22 +82,10 @@ public class scp_01 extends ModelChecker
         return true;
     }
 
-    // check $Rr (.'$Rr')
-    public boolean json_model_5(Object val, Path path, Report rep)
+    // check $ (.)
+    public boolean json_model_1(Object val, Path path, Report rep)
     {
-        boolean res;
-        // .'$Rr'
-        res = _jm_obj_0(val, path, rep);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected element [.'$Rr']", path);
-        }
-        return res;
-    }
-
-    // object .
-    public boolean _jm_obj_1(Object val, Path path, Report rep)
-    {
+        // .
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.]", path);
@@ -115,7 +104,7 @@ public class scp_01 extends ModelChecker
                 // handle must RA property
                 must_count += 1;
                 // .RA
-                res = _jm_obj_0(pval, (path != null ? lpath_1 : null), rep);
+                res = json_model_5(pval, (path != null ? lpath_1 : null), rep);
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected $Rr [.RA]", (path != null ? lpath_1 : null));
@@ -167,19 +156,6 @@ public class scp_01 extends ModelChecker
         return true;
     }
 
-    // check $ (.)
-    public boolean json_model_1(Object val, Path path, Report rep)
-    {
-        boolean res;
-        // .
-        res = _jm_obj_1(val, path, rep);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected element [.]", path);
-        }
-        return res;
-    }
-
     // check $Rr#Aa (.'$Rr#Aa')
     public boolean json_model_7(Object val, Path path, Report rep)
     {
@@ -200,10 +176,10 @@ public class scp_01 extends ModelChecker
         {
             try {
             scp_01_map_pmap = new HashMap<String, Checker>();
-            scp_01_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_1(o, p, r);} });
+            scp_01_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_1(o, p, r);} });
             scp_01_map_pmap.put("b", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_2(o, p, r);} });
             scp_01_map_pmap.put("Bb", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_3(o, p, r);} });
-            scp_01_map_pmap.put("Rr", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_0(o, p, r);} });
+            scp_01_map_pmap.put("Rr", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_5(o, p, r);} });
                 super.init(json);
             }
             catch (Exception e) {

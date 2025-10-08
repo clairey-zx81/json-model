@@ -12,7 +12,7 @@ DECLARE
   res bool;
 BEGIN
   -- .'$openapi'
-  res := _jm_obj_0(val, path, rep);
+  res := json_model_4(val, path, rep);
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
@@ -24,7 +24,7 @@ DECLARE
   res bool;
 BEGIN
   -- .
-  res := _jm_obj_0(val, path, rep);
+  res := json_model_4(val, path, rep);
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
@@ -37,31 +37,31 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
--- check _jm_obj_0_map_components (.'$openapi#OpenAPI'.components)
+-- check json_model_4_map_components (.'$openapi#OpenAPI'.components)
 CREATE OR REPLACE FUNCTION _jm_f_0(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
 BEGIN
   -- .'$openapi#OpenAPI'.components
-  res := _jm_obj_9(val, path, rep);
+  res := json_model_10(val, path, rep);
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_obj_0_map_externalDocs (.'$openapi#OpenAPI'.externalDocs)
+-- check json_model_4_map_externalDocs (.'$openapi#OpenAPI'.externalDocs)
 CREATE OR REPLACE FUNCTION _jm_f_1(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
 BEGIN
   -- .'$openapi#OpenAPI'.externalDocs
-  res := _jm_obj_24(val, path, rep);
+  res := json_model_14(val, path, rep);
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_obj_0_map_jsonModelVersion (.'$openapi#OpenAPI'.jsonModelVersion)
+-- check json_model_4_map_jsonModelVersion (.'$openapi#OpenAPI'.jsonModelVersion)
 CREATE OR REPLACE FUNCTION _jm_f_2(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
@@ -73,19 +73,19 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_obj_0_map_paths (.'$openapi#OpenAPI'.paths)
+-- check json_model_4_map_paths (.'$openapi#OpenAPI'.paths)
 CREATE OR REPLACE FUNCTION _jm_f_3(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
 BEGIN
   -- .'$openapi#OpenAPI'.paths
-  res := _jm_obj_20(val, path, rep);
+  res := json_model_11(val, path, rep);
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_obj_0_map_security (.'$openapi#OpenAPI'.security)
+-- check json_model_4_map_security (.'$openapi#OpenAPI'.security)
 CREATE OR REPLACE FUNCTION _jm_f_4(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
@@ -99,7 +99,7 @@ BEGIN
     FOR arr_0_idx IN 0 .. JSONB_ARRAY_LENGTH(val) - 1 LOOP
       arr_0_item := val -> arr_0_idx;
       -- .'$openapi#OpenAPI'.security.0
-      res := _jm_obj_62(arr_0_item, NULL, rep);
+      res := json_model_45(arr_0_item, NULL, rep);
       IF NOT res THEN
         EXIT;
       END IF;
@@ -109,7 +109,7 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_obj_0_map_servers (.'$openapi#OpenAPI'.servers)
+-- check json_model_4_map_servers (.'$openapi#OpenAPI'.servers)
 CREATE OR REPLACE FUNCTION _jm_f_5(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
@@ -123,7 +123,7 @@ BEGIN
     FOR arr_1_idx IN 0 .. JSONB_ARRAY_LENGTH(val) - 1 LOOP
       arr_1_item := val -> arr_1_idx;
       -- .'$openapi#OpenAPI'.servers.0
-      res := _jm_obj_6(arr_1_item, NULL, rep);
+      res := json_model_8(arr_1_item, NULL, rep);
       IF NOT res THEN
         EXIT;
       END IF;
@@ -133,7 +133,7 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_obj_0_map_tags (.'$openapi#OpenAPI'.tags)
+-- check json_model_4_map_tags (.'$openapi#OpenAPI'.tags)
 CREATE OR REPLACE FUNCTION _jm_f_6(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
@@ -147,7 +147,7 @@ BEGIN
     FOR arr_2_idx IN 0 .. JSONB_ARRAY_LENGTH(val) - 1 LOOP
       arr_2_item := val -> arr_2_idx;
       -- .'$openapi#OpenAPI'.tags.0
-      res := _jm_obj_51(arr_2_item, NULL, rep);
+      res := json_model_31(arr_2_item, NULL, rep);
       IF NOT res THEN
         EXIT;
       END IF;
@@ -157,21 +157,22 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- object .'$openapi#OpenAPI'.webhooks
-CREATE OR REPLACE FUNCTION _jm_obj_1(val JSONB, path TEXT[], rep jm_report_entry[])
+-- check json_model_4_map_webhooks (.'$openapi#OpenAPI'.webhooks)
+CREATE OR REPLACE FUNCTION _jm_f_7(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
   prop TEXT;
   pval JSONB;
 BEGIN
+  -- .'$openapi#OpenAPI'.webhooks
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     -- handle other props
     -- .'$openapi#OpenAPI'.webhooks.''
-    res := _jm_obj_21(pval, NULL, rep);
+    res := json_model_12(pval, NULL, rep);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -180,19 +181,7 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_obj_0_map_webhooks (.'$openapi#OpenAPI'.webhooks)
-CREATE OR REPLACE FUNCTION _jm_f_7(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .'$openapi#OpenAPI'.webhooks
-  res := _jm_obj_1(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
-CREATE OR REPLACE FUNCTION _jm_obj_0_map(name TEXT)
+CREATE OR REPLACE FUNCTION json_model_4_map(name TEXT)
 RETURNS TEXT STRICT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   map JSONB := JSONB '{"components":"_jm_f_0","externalDocs":"_jm_f_1","jsonModelVersion":"_jm_f_2","paths":"_jm_f_3","security":"_jm_f_4","servers":"_jm_f_5","tags":"_jm_f_6","webhooks":"_jm_f_7"}';
@@ -201,8 +190,8 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
--- object .'$openapi#OpenAPI'
-CREATE OR REPLACE FUNCTION _jm_obj_0(val JSONB, path TEXT[], rep jm_report_entry[])
+-- check $openapi#OpenAPI (.'$openapi#OpenAPI')
+CREATE OR REPLACE FUNCTION json_model_4(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -211,6 +200,7 @@ DECLARE
   prop TEXT;
   pval JSONB;
 BEGIN
+  -- .'$openapi#OpenAPI'
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
@@ -229,13 +219,13 @@ BEGIN
       -- handle must info property
       must_count := must_count + 1;
       -- .'$openapi#OpenAPI'.info
-      res := _jm_obj_2(pval, NULL, rep);
+      res := json_model_5(pval, NULL, rep);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF _jm_obj_0_map(prop) IS NOT NULL THEN
+    ELSEIF json_model_4_map(prop) IS NOT NULL THEN
       -- handle 8 may props
-      pfun := _jm_obj_0_map(prop);
+      pfun := json_model_4_map(prop);
       IF NOT jm_call(pfun, pval, NULL, rep) THEN
         RETURN FALSE;
       END IF;
@@ -257,20 +247,8 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check $openapi#OpenAPI (.'$openapi#OpenAPI')
-CREATE OR REPLACE FUNCTION json_model_4(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .'$openapi#OpenAPI'
-  res := _jm_obj_0(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
--- object .'$openapi#Info'
-CREATE OR REPLACE FUNCTION _jm_obj_2(val JSONB, path TEXT[], rep jm_report_entry[])
+-- check $openapi#Info (.'$openapi#Info')
+CREATE OR REPLACE FUNCTION json_model_5(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -278,6 +256,7 @@ DECLARE
   prop TEXT;
   pval JSONB;
 BEGIN
+  -- .'$openapi#Info'
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
@@ -323,7 +302,7 @@ BEGIN
     ELSEIF prop = 'contact' THEN
       -- handle may contact property
       -- .'$openapi#Info'.contact
-      res := _jm_obj_3(pval, NULL, rep);
+      res := json_model_6(pval, NULL, rep);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -352,26 +331,15 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check $openapi#Info (.'$openapi#Info')
-CREATE OR REPLACE FUNCTION json_model_5(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .'$openapi#Info'
-  res := _jm_obj_2(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
--- object .'$openapi#Contact'
-CREATE OR REPLACE FUNCTION _jm_obj_3(val JSONB, path TEXT[], rep jm_report_entry[])
+-- check $openapi#Contact (.'$openapi#Contact')
+CREATE OR REPLACE FUNCTION json_model_6(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
   prop TEXT;
   pval JSONB;
 BEGIN
+  -- .'$openapi#Contact'
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
@@ -412,18 +380,6 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check $openapi#Contact (.'$openapi#Contact')
-CREATE OR REPLACE FUNCTION json_model_6(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .'$openapi#Contact'
-  res := _jm_obj_3(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
 -- regex=^x\-.*$ opts=n
 CREATE OR REPLACE FUNCTION _jm_re_1(val TEXT, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
@@ -433,7 +389,7 @@ END;
 $$ LANGUAGE plpgsql;
 
 -- object .'$openapi#License'.'|'.1
-CREATE OR REPLACE FUNCTION _jm_obj_4(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_obj_0(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -481,7 +437,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- object .'$openapi#License'.'|'.0
-CREATE OR REPLACE FUNCTION _jm_obj_5(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_obj_1(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -538,10 +494,10 @@ BEGIN
   res := JSONB_TYPEOF(val) = 'object';
   IF res THEN
     -- .'$openapi#License'.'|'.0
-    res := _jm_obj_5(val, path, rep);
+    res := _jm_obj_1(val, path, rep);
     IF NOT res THEN
       -- .'$openapi#License'.'|'.1
-      res := _jm_obj_4(val, path, rep);
+      res := _jm_obj_0(val, path, rep);
     END IF;
   END IF;
   RETURN res;
@@ -549,7 +505,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- object .'$openapi#Server'.variables
-CREATE OR REPLACE FUNCTION _jm_obj_7(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_obj_2(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -562,7 +518,7 @@ BEGIN
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     -- handle other props
     -- .'$openapi#Server'.variables.''
-    res := _jm_obj_8(pval, NULL, rep);
+    res := json_model_9(pval, NULL, rep);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -571,8 +527,8 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- object .'$openapi#Server'
-CREATE OR REPLACE FUNCTION _jm_obj_6(val JSONB, path TEXT[], rep jm_report_entry[])
+-- check $openapi#Server (.'$openapi#Server')
+CREATE OR REPLACE FUNCTION json_model_8(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -580,6 +536,7 @@ DECLARE
   prop TEXT;
   pval JSONB;
 BEGIN
+  -- .'$openapi#Server'
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
@@ -603,7 +560,7 @@ BEGIN
     ELSEIF prop = 'variables' THEN
       -- handle may variables property
       -- .'$openapi#Server'.variables
-      res := _jm_obj_7(pval, NULL, rep);
+      res := _jm_obj_2(pval, NULL, rep);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -625,20 +582,8 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check $openapi#Server (.'$openapi#Server')
-CREATE OR REPLACE FUNCTION json_model_8(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .'$openapi#Server'
-  res := _jm_obj_6(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
--- object .'$openapi#ServerVariable'
-CREATE OR REPLACE FUNCTION _jm_obj_8(val JSONB, path TEXT[], rep jm_report_entry[])
+-- check $openapi#ServerVariable (.'$openapi#ServerVariable')
+CREATE OR REPLACE FUNCTION json_model_9(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -648,6 +593,7 @@ DECLARE
   arr_3_idx INT8;
   arr_3_item JSONB;
 BEGIN
+  -- .'$openapi#ServerVariable'
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
@@ -703,26 +649,15 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check $openapi#ServerVariable (.'$openapi#ServerVariable')
-CREATE OR REPLACE FUNCTION json_model_9(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .'$openapi#ServerVariable'
-  res := _jm_obj_8(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
--- object .'$openapi#Components'.callbacks
-CREATE OR REPLACE FUNCTION _jm_obj_10(val JSONB, path TEXT[], rep jm_report_entry[])
+-- check json_model_10_map_callbacks (.'$openapi#Components'.callbacks)
+CREATE OR REPLACE FUNCTION _jm_f_8(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
   prop TEXT;
   pval JSONB;
 BEGIN
+  -- .'$openapi#Components'.callbacks
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
@@ -730,10 +665,10 @@ BEGIN
     -- handle other props
     -- .'$openapi#Components'.callbacks.''
     -- .'$openapi#Components'.callbacks.''.'|'.0
-    res := _jm_obj_41(pval, NULL, rep);
+    res := json_model_26(pval, NULL, rep);
     IF NOT res THEN
       -- .'$openapi#Components'.callbacks.''.'|'.1
-      res := _jm_obj_52(pval, NULL, rep);
+      res := json_model_32(pval, NULL, rep);
     END IF;
     IF NOT res THEN
       RETURN FALSE;
@@ -743,26 +678,15 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_obj_9_map_callbacks (.'$openapi#Components'.callbacks)
-CREATE OR REPLACE FUNCTION _jm_f_8(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .'$openapi#Components'.callbacks
-  res := _jm_obj_10(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
--- object .'$openapi#Components'.examples
-CREATE OR REPLACE FUNCTION _jm_obj_11(val JSONB, path TEXT[], rep jm_report_entry[])
+-- check json_model_10_map_examples (.'$openapi#Components'.examples)
+CREATE OR REPLACE FUNCTION _jm_f_9(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
   prop TEXT;
   pval JSONB;
 BEGIN
+  -- .'$openapi#Components'.examples
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
@@ -770,10 +694,10 @@ BEGIN
     -- handle other props
     -- .'$openapi#Components'.examples.''
     -- .'$openapi#Components'.examples.''.'|'.0
-    res := _jm_obj_42(pval, NULL, rep);
+    res := json_model_27(pval, NULL, rep);
     IF NOT res THEN
       -- .'$openapi#Components'.examples.''.'|'.1
-      res := _jm_obj_52(pval, NULL, rep);
+      res := json_model_32(pval, NULL, rep);
     END IF;
     IF NOT res THEN
       RETURN FALSE;
@@ -783,26 +707,15 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_obj_9_map_examples (.'$openapi#Components'.examples)
-CREATE OR REPLACE FUNCTION _jm_f_9(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .'$openapi#Components'.examples
-  res := _jm_obj_11(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
--- object .'$openapi#Components'.headers
-CREATE OR REPLACE FUNCTION _jm_obj_12(val JSONB, path TEXT[], rep jm_report_entry[])
+-- check json_model_10_map_headers (.'$openapi#Components'.headers)
+CREATE OR REPLACE FUNCTION _jm_f_10(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
   prop TEXT;
   pval JSONB;
 BEGIN
+  -- .'$openapi#Components'.headers
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
@@ -813,7 +726,7 @@ BEGIN
     res := json_model_30(pval, NULL, rep);
     IF NOT res THEN
       -- .'$openapi#Components'.headers.''.'|'.1
-      res := _jm_obj_52(pval, NULL, rep);
+      res := json_model_32(pval, NULL, rep);
     END IF;
     IF NOT res THEN
       RETURN FALSE;
@@ -823,26 +736,15 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_obj_9_map_headers (.'$openapi#Components'.headers)
-CREATE OR REPLACE FUNCTION _jm_f_10(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .'$openapi#Components'.headers
-  res := _jm_obj_12(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
--- object .'$openapi#Components'.links
-CREATE OR REPLACE FUNCTION _jm_obj_13(val JSONB, path TEXT[], rep jm_report_entry[])
+-- check json_model_10_map_links (.'$openapi#Components'.links)
+CREATE OR REPLACE FUNCTION _jm_f_11(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
   prop TEXT;
   pval JSONB;
 BEGIN
+  -- .'$openapi#Components'.links
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
@@ -853,7 +755,7 @@ BEGIN
     res := json_model_29(pval, NULL, rep);
     IF NOT res THEN
       -- .'$openapi#Components'.links.''.'|'.1
-      res := _jm_obj_52(pval, NULL, rep);
+      res := json_model_32(pval, NULL, rep);
     END IF;
     IF NOT res THEN
       RETURN FALSE;
@@ -863,26 +765,15 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_obj_9_map_links (.'$openapi#Components'.links)
-CREATE OR REPLACE FUNCTION _jm_f_11(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .'$openapi#Components'.links
-  res := _jm_obj_13(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
--- object .'$openapi#Components'.models
-CREATE OR REPLACE FUNCTION _jm_obj_14(val JSONB, path TEXT[], rep jm_report_entry[])
+-- check json_model_10_map_models (.'$openapi#Components'.models)
+CREATE OR REPLACE FUNCTION _jm_f_12(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
   prop TEXT;
   pval JSONB;
 BEGIN
+  -- .'$openapi#Components'.models
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
@@ -898,26 +789,15 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_obj_9_map_models (.'$openapi#Components'.models)
-CREATE OR REPLACE FUNCTION _jm_f_12(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .'$openapi#Components'.models
-  res := _jm_obj_14(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
--- object .'$openapi#Components'.parameters
-CREATE OR REPLACE FUNCTION _jm_obj_15(val JSONB, path TEXT[], rep jm_report_entry[])
+-- check json_model_10_map_parameters (.'$openapi#Components'.parameters)
+CREATE OR REPLACE FUNCTION _jm_f_13(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
   prop TEXT;
   pval JSONB;
 BEGIN
+  -- .'$openapi#Components'.parameters
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
@@ -928,7 +808,7 @@ BEGIN
     res := json_model_20(pval, NULL, rep);
     IF NOT res THEN
       -- .'$openapi#Components'.parameters.''.'|'.1
-      res := _jm_obj_52(pval, NULL, rep);
+      res := json_model_32(pval, NULL, rep);
     END IF;
     IF NOT res THEN
       RETURN FALSE;
@@ -938,26 +818,15 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_obj_9_map_parameters (.'$openapi#Components'.parameters)
-CREATE OR REPLACE FUNCTION _jm_f_13(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .'$openapi#Components'.parameters
-  res := _jm_obj_15(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
--- object .'$openapi#Components'.pathItems
-CREATE OR REPLACE FUNCTION _jm_obj_16(val JSONB, path TEXT[], rep jm_report_entry[])
+-- check json_model_10_map_pathItems (.'$openapi#Components'.pathItems)
+CREATE OR REPLACE FUNCTION _jm_f_14(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
   prop TEXT;
   pval JSONB;
 BEGIN
+  -- .'$openapi#Components'.pathItems
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
@@ -965,10 +834,10 @@ BEGIN
     -- handle other props
     -- .'$openapi#Components'.pathItems.''
     -- .'$openapi#Components'.pathItems.''.'|'.0
-    res := _jm_obj_21(pval, NULL, rep);
+    res := json_model_12(pval, NULL, rep);
     IF NOT res THEN
       -- .'$openapi#Components'.pathItems.''.'|'.1
-      res := _jm_obj_52(pval, NULL, rep);
+      res := json_model_32(pval, NULL, rep);
     END IF;
     IF NOT res THEN
       RETURN FALSE;
@@ -978,26 +847,15 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_obj_9_map_pathItems (.'$openapi#Components'.pathItems)
-CREATE OR REPLACE FUNCTION _jm_f_14(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .'$openapi#Components'.pathItems
-  res := _jm_obj_16(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
--- object .'$openapi#Components'.requestBodies
-CREATE OR REPLACE FUNCTION _jm_obj_17(val JSONB, path TEXT[], rep jm_report_entry[])
+-- check json_model_10_map_requestBodies (.'$openapi#Components'.requestBodies)
+CREATE OR REPLACE FUNCTION _jm_f_15(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
   prop TEXT;
   pval JSONB;
 BEGIN
+  -- .'$openapi#Components'.requestBodies
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
@@ -1005,10 +863,10 @@ BEGIN
     -- handle other props
     -- .'$openapi#Components'.requestBodies.''
     -- .'$openapi#Components'.requestBodies.''.'|'.0
-    res := _jm_obj_29(pval, NULL, rep);
+    res := json_model_21(pval, NULL, rep);
     IF NOT res THEN
       -- .'$openapi#Components'.requestBodies.''.'|'.1
-      res := _jm_obj_52(pval, NULL, rep);
+      res := json_model_32(pval, NULL, rep);
     END IF;
     IF NOT res THEN
       RETURN FALSE;
@@ -1018,26 +876,15 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_obj_9_map_requestBodies (.'$openapi#Components'.requestBodies)
-CREATE OR REPLACE FUNCTION _jm_f_15(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .'$openapi#Components'.requestBodies
-  res := _jm_obj_17(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
--- object .'$openapi#Components'.responses
-CREATE OR REPLACE FUNCTION _jm_obj_18(val JSONB, path TEXT[], rep jm_report_entry[])
+-- check json_model_10_map_responses (.'$openapi#Components'.responses)
+CREATE OR REPLACE FUNCTION _jm_f_16(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
   prop TEXT;
   pval JSONB;
 BEGIN
+  -- .'$openapi#Components'.responses
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
@@ -1045,10 +892,10 @@ BEGIN
     -- handle other props
     -- .'$openapi#Components'.responses.''
     -- .'$openapi#Components'.responses.''.'|'.0
-    res := _jm_obj_37(pval, NULL, rep);
+    res := json_model_25(pval, NULL, rep);
     IF NOT res THEN
       -- .'$openapi#Components'.responses.''.'|'.1
-      res := _jm_obj_52(pval, NULL, rep);
+      res := json_model_32(pval, NULL, rep);
     END IF;
     IF NOT res THEN
       RETURN FALSE;
@@ -1058,26 +905,15 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_obj_9_map_responses (.'$openapi#Components'.responses)
-CREATE OR REPLACE FUNCTION _jm_f_16(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .'$openapi#Components'.responses
-  res := _jm_obj_18(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
--- object .'$openapi#Components'.securitySchemes
-CREATE OR REPLACE FUNCTION _jm_obj_19(val JSONB, path TEXT[], rep jm_report_entry[])
+-- check json_model_10_map_securitySchemes (.'$openapi#Components'.securitySchemes)
+CREATE OR REPLACE FUNCTION _jm_f_17(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
   prop TEXT;
   pval JSONB;
 BEGIN
+  -- .'$openapi#Components'.securitySchemes
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
@@ -1088,7 +924,7 @@ BEGIN
     res := json_model_42(pval, NULL, rep);
     IF NOT res THEN
       -- .'$openapi#Components'.securitySchemes.''.'|'.1
-      res := _jm_obj_52(pval, NULL, rep);
+      res := json_model_32(pval, NULL, rep);
     END IF;
     IF NOT res THEN
       RETURN FALSE;
@@ -1098,19 +934,7 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_obj_9_map_securitySchemes (.'$openapi#Components'.securitySchemes)
-CREATE OR REPLACE FUNCTION _jm_f_17(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .'$openapi#Components'.securitySchemes
-  res := _jm_obj_19(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
-CREATE OR REPLACE FUNCTION _jm_obj_9_map(name TEXT)
+CREATE OR REPLACE FUNCTION json_model_10_map(name TEXT)
 RETURNS TEXT STRICT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   map JSONB := JSONB '{"callbacks":"_jm_f_8","examples":"_jm_f_9","headers":"_jm_f_10","links":"_jm_f_11","models":"_jm_f_12","parameters":"_jm_f_13","pathItems":"_jm_f_14","requestBodies":"_jm_f_15","responses":"_jm_f_16","securitySchemes":"_jm_f_17"}';
@@ -1119,8 +943,8 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
--- object .'$openapi#Components'
-CREATE OR REPLACE FUNCTION _jm_obj_9(val JSONB, path TEXT[], rep jm_report_entry[])
+-- check $openapi#Components (.'$openapi#Components')
+CREATE OR REPLACE FUNCTION json_model_10(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -1128,13 +952,14 @@ DECLARE
   prop TEXT;
   pval JSONB;
 BEGIN
+  -- .'$openapi#Components'
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF _jm_obj_9_map(prop) IS NOT NULL THEN
+    IF json_model_10_map(prop) IS NOT NULL THEN
       -- handle 10 may props
-      pfun := _jm_obj_9_map(prop);
+      pfun := json_model_10_map(prop);
       IF NOT jm_call(pfun, pval, NULL, rep) THEN
         RETURN FALSE;
       END IF;
@@ -1153,26 +978,15 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check $openapi#Components (.'$openapi#Components')
-CREATE OR REPLACE FUNCTION json_model_10(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .'$openapi#Components'
-  res := _jm_obj_9(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
--- object .'$openapi#Paths'
-CREATE OR REPLACE FUNCTION _jm_obj_20(val JSONB, path TEXT[], rep jm_report_entry[])
+-- check $openapi#Paths (.'$openapi#Paths')
+CREATE OR REPLACE FUNCTION json_model_11(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
   prop TEXT;
   pval JSONB;
 BEGIN
+  -- .'$openapi#Paths'
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
@@ -1180,7 +994,7 @@ BEGIN
     IF STARTS_WITH(prop, '/') THEN
       -- handle 2 re props
       -- .'$openapi#Paths'.'/^//'
-      res := _jm_obj_21(pval, NULL, rep);
+      res := json_model_12(pval, NULL, rep);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -1199,19 +1013,7 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check $openapi#Paths (.'$openapi#Paths')
-CREATE OR REPLACE FUNCTION json_model_11(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .'$openapi#Paths'
-  res := _jm_obj_20(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
--- check _jm_obj_21_map_$ref (.'$openapi#PathItem'.'$ref')
+-- check json_model_12_map_$ref (.'$openapi#PathItem'.'$ref')
 CREATE OR REPLACE FUNCTION _jm_f_18(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
@@ -1223,19 +1025,19 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_obj_21_map_delete (.'$openapi#PathItem'.delete)
+-- check json_model_12_map_delete (.'$openapi#PathItem'.delete)
 CREATE OR REPLACE FUNCTION _jm_f_19(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
 BEGIN
   -- .'$openapi#PathItem'.delete
-  res := _jm_obj_22(val, path, rep);
+  res := json_model_13(val, path, rep);
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_obj_21_map_description (.'$openapi#PathItem'.description)
+-- check json_model_12_map_description (.'$openapi#PathItem'.description)
 CREATE OR REPLACE FUNCTION _jm_f_20(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
@@ -1247,43 +1049,43 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_obj_21_map_get (.'$openapi#PathItem'.get)
+-- check json_model_12_map_get (.'$openapi#PathItem'.get)
 CREATE OR REPLACE FUNCTION _jm_f_21(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
 BEGIN
   -- .'$openapi#PathItem'.get
-  res := _jm_obj_22(val, path, rep);
+  res := json_model_13(val, path, rep);
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_obj_21_map_head (.'$openapi#PathItem'.head)
+-- check json_model_12_map_head (.'$openapi#PathItem'.head)
 CREATE OR REPLACE FUNCTION _jm_f_22(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
 BEGIN
   -- .'$openapi#PathItem'.head
-  res := _jm_obj_22(val, path, rep);
+  res := json_model_13(val, path, rep);
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_obj_21_map_options (.'$openapi#PathItem'.options)
+-- check json_model_12_map_options (.'$openapi#PathItem'.options)
 CREATE OR REPLACE FUNCTION _jm_f_23(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
 BEGIN
   -- .'$openapi#PathItem'.options
-  res := _jm_obj_22(val, path, rep);
+  res := json_model_13(val, path, rep);
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_obj_21_map_parameters (.'$openapi#PathItem'.parameters)
+-- check json_model_12_map_parameters (.'$openapi#PathItem'.parameters)
 CREATE OR REPLACE FUNCTION _jm_f_24(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
@@ -1301,7 +1103,7 @@ BEGIN
       res := json_model_20(arr_4_item, NULL, rep);
       IF NOT res THEN
         -- .'$openapi#PathItem'.parameters.0.'|'.1
-        res := _jm_obj_52(arr_4_item, NULL, rep);
+        res := json_model_32(arr_4_item, NULL, rep);
       END IF;
       IF NOT res THEN
         EXIT;
@@ -1312,43 +1114,43 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_obj_21_map_patch (.'$openapi#PathItem'.patch)
+-- check json_model_12_map_patch (.'$openapi#PathItem'.patch)
 CREATE OR REPLACE FUNCTION _jm_f_25(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
 BEGIN
   -- .'$openapi#PathItem'.patch
-  res := _jm_obj_22(val, path, rep);
+  res := json_model_13(val, path, rep);
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_obj_21_map_post (.'$openapi#PathItem'.post)
+-- check json_model_12_map_post (.'$openapi#PathItem'.post)
 CREATE OR REPLACE FUNCTION _jm_f_26(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
 BEGIN
   -- .'$openapi#PathItem'.post
-  res := _jm_obj_22(val, path, rep);
+  res := json_model_13(val, path, rep);
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_obj_21_map_put (.'$openapi#PathItem'.put)
+-- check json_model_12_map_put (.'$openapi#PathItem'.put)
 CREATE OR REPLACE FUNCTION _jm_f_27(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
 BEGIN
   -- .'$openapi#PathItem'.put
-  res := _jm_obj_22(val, path, rep);
+  res := json_model_13(val, path, rep);
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_obj_21_map_servers (.'$openapi#PathItem'.servers)
+-- check json_model_12_map_servers (.'$openapi#PathItem'.servers)
 CREATE OR REPLACE FUNCTION _jm_f_28(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
@@ -1362,7 +1164,7 @@ BEGIN
     FOR arr_5_idx IN 0 .. JSONB_ARRAY_LENGTH(val) - 1 LOOP
       arr_5_item := val -> arr_5_idx;
       -- .'$openapi#PathItem'.servers.0
-      res := _jm_obj_22(arr_5_item, NULL, rep);
+      res := json_model_13(arr_5_item, NULL, rep);
       IF NOT res THEN
         EXIT;
       END IF;
@@ -1372,7 +1174,7 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_obj_21_map_summary (.'$openapi#PathItem'.summary)
+-- check json_model_12_map_summary (.'$openapi#PathItem'.summary)
 CREATE OR REPLACE FUNCTION _jm_f_29(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
@@ -1384,19 +1186,19 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_obj_21_map_trace (.'$openapi#PathItem'.trace)
+-- check json_model_12_map_trace (.'$openapi#PathItem'.trace)
 CREATE OR REPLACE FUNCTION _jm_f_30(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
 BEGIN
   -- .'$openapi#PathItem'.trace
-  res := _jm_obj_22(val, path, rep);
+  res := json_model_13(val, path, rep);
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
 
-CREATE OR REPLACE FUNCTION _jm_obj_21_map(name TEXT)
+CREATE OR REPLACE FUNCTION json_model_12_map(name TEXT)
 RETURNS TEXT STRICT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   map JSONB := JSONB '{"$ref":"_jm_f_18","delete":"_jm_f_19","description":"_jm_f_20","get":"_jm_f_21","head":"_jm_f_22","options":"_jm_f_23","parameters":"_jm_f_24","patch":"_jm_f_25","post":"_jm_f_26","put":"_jm_f_27","servers":"_jm_f_28","summary":"_jm_f_29","trace":"_jm_f_30"}';
@@ -1405,8 +1207,8 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
--- object .'$openapi#PathItem'
-CREATE OR REPLACE FUNCTION _jm_obj_21(val JSONB, path TEXT[], rep jm_report_entry[])
+-- check $openapi#PathItem (.'$openapi#PathItem')
+CREATE OR REPLACE FUNCTION json_model_12(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -1414,13 +1216,14 @@ DECLARE
   prop TEXT;
   pval JSONB;
 BEGIN
+  -- .'$openapi#PathItem'
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF _jm_obj_21_map(prop) IS NOT NULL THEN
+    IF json_model_12_map(prop) IS NOT NULL THEN
       -- handle 13 may props
-      pfun := _jm_obj_21_map(prop);
+      pfun := json_model_12_map(prop);
       IF NOT jm_call(pfun, pval, NULL, rep) THEN
         RETURN FALSE;
       END IF;
@@ -1439,26 +1242,15 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check $openapi#PathItem (.'$openapi#PathItem')
-CREATE OR REPLACE FUNCTION json_model_12(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .'$openapi#PathItem'
-  res := _jm_obj_21(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
--- object .'$openapi#Operation'.callbacks
-CREATE OR REPLACE FUNCTION _jm_obj_23(val JSONB, path TEXT[], rep jm_report_entry[])
+-- check json_model_13_map_callbacks (.'$openapi#Operation'.callbacks)
+CREATE OR REPLACE FUNCTION _jm_f_31(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
   prop TEXT;
   pval JSONB;
 BEGIN
+  -- .'$openapi#Operation'.callbacks
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
@@ -1466,10 +1258,10 @@ BEGIN
     -- handle other props
     -- .'$openapi#Operation'.callbacks.''
     -- .'$openapi#Operation'.callbacks.''.'|'.0
-    res := _jm_obj_41(pval, NULL, rep);
+    res := json_model_26(pval, NULL, rep);
     IF NOT res THEN
       -- .'$openapi#Operation'.callbacks.''.'|'.1
-      res := _jm_obj_52(pval, NULL, rep);
+      res := json_model_32(pval, NULL, rep);
     END IF;
     IF NOT res THEN
       RETURN FALSE;
@@ -1479,19 +1271,7 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_obj_22_map_callbacks (.'$openapi#Operation'.callbacks)
-CREATE OR REPLACE FUNCTION _jm_f_31(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .'$openapi#Operation'.callbacks
-  res := _jm_obj_23(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
--- check _jm_obj_22_map_deprecated (.'$openapi#Operation'.deprecated)
+-- check json_model_13_map_deprecated (.'$openapi#Operation'.deprecated)
 CREATE OR REPLACE FUNCTION _jm_f_32(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
@@ -1503,7 +1283,7 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_obj_22_map_description (.'$openapi#Operation'.description)
+-- check json_model_13_map_description (.'$openapi#Operation'.description)
 CREATE OR REPLACE FUNCTION _jm_f_33(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
@@ -1515,19 +1295,19 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_obj_22_map_externalDocs (.'$openapi#Operation'.externalDocs)
+-- check json_model_13_map_externalDocs (.'$openapi#Operation'.externalDocs)
 CREATE OR REPLACE FUNCTION _jm_f_34(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
 BEGIN
   -- .'$openapi#Operation'.externalDocs
-  res := _jm_obj_24(val, path, rep);
+  res := json_model_14(val, path, rep);
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_obj_22_map_operationId (.'$openapi#Operation'.operationId)
+-- check json_model_13_map_operationId (.'$openapi#Operation'.operationId)
 CREATE OR REPLACE FUNCTION _jm_f_35(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
@@ -1539,7 +1319,7 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_obj_22_map_parameters (.'$openapi#Operation'.parameters)
+-- check json_model_13_map_parameters (.'$openapi#Operation'.parameters)
 CREATE OR REPLACE FUNCTION _jm_f_36(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
@@ -1557,7 +1337,7 @@ BEGIN
       res := json_model_20(arr_6_item, NULL, rep);
       IF NOT res THEN
         -- .'$openapi#Operation'.parameters.0.'|'.1
-        res := _jm_obj_52(arr_6_item, NULL, rep);
+        res := json_model_32(arr_6_item, NULL, rep);
       END IF;
       IF NOT res THEN
         EXIT;
@@ -1568,7 +1348,7 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_obj_22_map_requestBody (.'$openapi#Operation'.requestBody)
+-- check json_model_13_map_requestBody (.'$openapi#Operation'.requestBody)
 CREATE OR REPLACE FUNCTION _jm_f_37(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
@@ -1576,28 +1356,28 @@ DECLARE
 BEGIN
   -- .'$openapi#Operation'.requestBody
   -- .'$openapi#Operation'.requestBody.'|'.0
-  res := _jm_obj_29(val, path, rep);
+  res := json_model_21(val, path, rep);
   IF NOT res THEN
     -- .'$openapi#Operation'.requestBody.'|'.1
-    res := _jm_obj_52(val, path, rep);
+    res := json_model_32(val, path, rep);
   END IF;
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_obj_22_map_responses (.'$openapi#Operation'.responses)
+-- check json_model_13_map_responses (.'$openapi#Operation'.responses)
 CREATE OR REPLACE FUNCTION _jm_f_38(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
 BEGIN
   -- .'$openapi#Operation'.responses
-  res := _jm_obj_36(val, path, rep);
+  res := json_model_24(val, path, rep);
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_obj_22_map_security (.'$openapi#Operation'.security)
+-- check json_model_13_map_security (.'$openapi#Operation'.security)
 CREATE OR REPLACE FUNCTION _jm_f_39(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
@@ -1611,7 +1391,7 @@ BEGIN
     FOR arr_7_idx IN 0 .. JSONB_ARRAY_LENGTH(val) - 1 LOOP
       arr_7_item := val -> arr_7_idx;
       -- .'$openapi#Operation'.security.0
-      res := _jm_obj_62(arr_7_item, NULL, rep);
+      res := json_model_45(arr_7_item, NULL, rep);
       IF NOT res THEN
         EXIT;
       END IF;
@@ -1621,7 +1401,7 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_obj_22_map_servers (.'$openapi#Operation'.servers)
+-- check json_model_13_map_servers (.'$openapi#Operation'.servers)
 CREATE OR REPLACE FUNCTION _jm_f_40(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
@@ -1635,7 +1415,7 @@ BEGIN
     FOR arr_8_idx IN 0 .. JSONB_ARRAY_LENGTH(val) - 1 LOOP
       arr_8_item := val -> arr_8_idx;
       -- .'$openapi#Operation'.servers.0
-      res := _jm_obj_6(arr_8_item, NULL, rep);
+      res := json_model_8(arr_8_item, NULL, rep);
       IF NOT res THEN
         EXIT;
       END IF;
@@ -1645,7 +1425,7 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_obj_22_map_summary (.'$openapi#Operation'.summary)
+-- check json_model_13_map_summary (.'$openapi#Operation'.summary)
 CREATE OR REPLACE FUNCTION _jm_f_41(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
@@ -1657,7 +1437,7 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_obj_22_map_tags (.'$openapi#Operation'.tags)
+-- check json_model_13_map_tags (.'$openapi#Operation'.tags)
 CREATE OR REPLACE FUNCTION _jm_f_42(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
@@ -1681,7 +1461,7 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
-CREATE OR REPLACE FUNCTION _jm_obj_22_map(name TEXT)
+CREATE OR REPLACE FUNCTION json_model_13_map(name TEXT)
 RETURNS TEXT STRICT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   map JSONB := JSONB '{"callbacks":"_jm_f_31","deprecated":"_jm_f_32","description":"_jm_f_33","externalDocs":"_jm_f_34","operationId":"_jm_f_35","parameters":"_jm_f_36","requestBody":"_jm_f_37","responses":"_jm_f_38","security":"_jm_f_39","servers":"_jm_f_40","summary":"_jm_f_41","tags":"_jm_f_42"}';
@@ -1690,8 +1470,8 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
--- object .'$openapi#Operation'
-CREATE OR REPLACE FUNCTION _jm_obj_22(val JSONB, path TEXT[], rep jm_report_entry[])
+-- check $openapi#Operation (.'$openapi#Operation')
+CREATE OR REPLACE FUNCTION json_model_13(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -1699,13 +1479,14 @@ DECLARE
   prop TEXT;
   pval JSONB;
 BEGIN
+  -- .'$openapi#Operation'
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF _jm_obj_22_map(prop) IS NOT NULL THEN
+    IF json_model_13_map(prop) IS NOT NULL THEN
       -- handle 12 may props
-      pfun := _jm_obj_22_map(prop);
+      pfun := json_model_13_map(prop);
       IF NOT jm_call(pfun, pval, NULL, rep) THEN
         RETURN FALSE;
       END IF;
@@ -1724,20 +1505,8 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check $openapi#Operation (.'$openapi#Operation')
-CREATE OR REPLACE FUNCTION json_model_13(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .'$openapi#Operation'
-  res := _jm_obj_22(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
--- object .'$openapi#ExternalDocumentation'
-CREATE OR REPLACE FUNCTION _jm_obj_24(val JSONB, path TEXT[], rep jm_report_entry[])
+-- check $openapi#ExternalDocumentation (.'$openapi#ExternalDocumentation')
+CREATE OR REPLACE FUNCTION json_model_14(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -1745,6 +1514,7 @@ DECLARE
   prop TEXT;
   pval JSONB;
 BEGIN
+  -- .'$openapi#ExternalDocumentation'
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
@@ -1783,18 +1553,6 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check $openapi#ExternalDocumentation (.'$openapi#ExternalDocumentation')
-CREATE OR REPLACE FUNCTION json_model_14(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .'$openapi#ExternalDocumentation'
-  res := _jm_obj_24(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
 CREATE OR REPLACE FUNCTION _jm_cst_0(value JSONB)
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
@@ -1804,7 +1562,7 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
--- check _jm_obj_25_map_allowEmptyValue (.'$openapi#Parameter'.'|'.0.allowEmptyValue)
+-- check _jm_obj_3_map_allowEmptyValue (.'$openapi#Parameter'.'|'.0.allowEmptyValue)
 CREATE OR REPLACE FUNCTION _jm_f_43(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
@@ -1816,7 +1574,7 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_obj_25_map_allowReserved (.'$openapi#Parameter'.'|'.0.allowReserved)
+-- check _jm_obj_3_map_allowReserved (.'$openapi#Parameter'.'|'.0.allowReserved)
 CREATE OR REPLACE FUNCTION _jm_f_44(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
@@ -1828,7 +1586,7 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_obj_25_map_deprecated (.'$openapi#Parameter'.'|'.0.deprecated)
+-- check _jm_obj_3_map_deprecated (.'$openapi#Parameter'.'|'.0.deprecated)
 CREATE OR REPLACE FUNCTION _jm_f_45(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
@@ -1840,7 +1598,7 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_obj_25_map_description (.'$openapi#Parameter'.'|'.0.description)
+-- check _jm_obj_3_map_description (.'$openapi#Parameter'.'|'.0.description)
 CREATE OR REPLACE FUNCTION _jm_f_46(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
@@ -1852,7 +1610,7 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_obj_25_map_example (.'$openapi#Parameter'.'|'.0.example)
+-- check _jm_obj_3_map_example (.'$openapi#Parameter'.'|'.0.example)
 CREATE OR REPLACE FUNCTION _jm_f_47(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
@@ -1864,14 +1622,15 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- object .'$openapi#Parameter'.'|'.0.examples
-CREATE OR REPLACE FUNCTION _jm_obj_26(val JSONB, path TEXT[], rep jm_report_entry[])
+-- check _jm_obj_3_map_examples (.'$openapi#Parameter'.'|'.0.examples)
+CREATE OR REPLACE FUNCTION _jm_f_48(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
   prop TEXT;
   pval JSONB;
 BEGIN
+  -- .'$openapi#Parameter'.'|'.0.examples
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
@@ -1879,10 +1638,10 @@ BEGIN
     -- handle other props
     -- .'$openapi#Parameter'.'|'.0.examples.''
     -- .'$openapi#Parameter'.'|'.0.examples.''.'|'.0
-    res := _jm_obj_42(pval, NULL, rep);
+    res := json_model_27(pval, NULL, rep);
     IF NOT res THEN
       -- .'$openapi#Parameter'.'|'.0.examples.''.'|'.1
-      res := _jm_obj_52(pval, NULL, rep);
+      res := json_model_32(pval, NULL, rep);
     END IF;
     IF NOT res THEN
       RETURN FALSE;
@@ -1892,19 +1651,7 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_obj_25_map_examples (.'$openapi#Parameter'.'|'.0.examples)
-CREATE OR REPLACE FUNCTION _jm_f_48(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .'$openapi#Parameter'.'|'.0.examples
-  res := _jm_obj_26(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
--- check _jm_obj_25_map_explode (.'$openapi#Parameter'.'|'.0.explode)
+-- check _jm_obj_3_map_explode (.'$openapi#Parameter'.'|'.0.explode)
 CREATE OR REPLACE FUNCTION _jm_f_49(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
@@ -1916,7 +1663,7 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_obj_25_map_model (.'$openapi#Parameter'.'|'.0.model)
+-- check _jm_obj_3_map_model (.'$openapi#Parameter'.'|'.0.model)
 CREATE OR REPLACE FUNCTION _jm_f_50(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
@@ -1928,7 +1675,7 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_obj_25_map_required (.'$openapi#Parameter'.'|'.0.required)
+-- check _jm_obj_3_map_required (.'$openapi#Parameter'.'|'.0.required)
 CREATE OR REPLACE FUNCTION _jm_f_51(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
@@ -1940,7 +1687,7 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_obj_25_map_style (.'$openapi#Parameter'.'|'.0.style)
+-- check _jm_obj_3_map_style (.'$openapi#Parameter'.'|'.0.style)
 CREATE OR REPLACE FUNCTION _jm_f_52(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
@@ -1952,7 +1699,7 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
-CREATE OR REPLACE FUNCTION _jm_obj_25_map(name TEXT)
+CREATE OR REPLACE FUNCTION _jm_obj_3_map(name TEXT)
 RETURNS TEXT STRICT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   map JSONB := JSONB '{"allowEmptyValue":"_jm_f_43","allowReserved":"_jm_f_44","deprecated":"_jm_f_45","description":"_jm_f_46","example":"_jm_f_47","examples":"_jm_f_48","explode":"_jm_f_49","model":"_jm_f_50","required":"_jm_f_51","style":"_jm_f_52"}';
@@ -1962,7 +1709,7 @@ END;
 $$ LANGUAGE plpgsql;
 
 -- object .'$openapi#Parameter'.'|'.0
-CREATE OR REPLACE FUNCTION _jm_obj_25(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_obj_3(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -1992,9 +1739,9 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF _jm_obj_25_map(prop) IS NOT NULL THEN
+    ELSEIF _jm_obj_3_map(prop) IS NOT NULL THEN
       -- handle 10 may props
-      pfun := _jm_obj_25_map(prop);
+      pfun := _jm_obj_3_map(prop);
       IF NOT jm_call(pfun, pval, NULL, rep) THEN
         RETURN FALSE;
       END IF;
@@ -2026,7 +1773,7 @@ END;
 $$ LANGUAGE plpgsql;
 
 -- object .'$openapi#Parameter'.'|'.1.content
-CREATE OR REPLACE FUNCTION _jm_obj_28(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_obj_5(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -2039,7 +1786,7 @@ BEGIN
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     -- handle other props
     -- .'$openapi#Parameter'.'|'.1.content.''
-    res := _jm_obj_31(pval, NULL, rep);
+    res := json_model_22(pval, NULL, rep);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -2049,7 +1796,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- object .'$openapi#Parameter'.'|'.1
-CREATE OR REPLACE FUNCTION _jm_obj_27(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_obj_4(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -2109,7 +1856,7 @@ BEGIN
     ELSEIF prop = 'content' THEN
       -- handle may content property
       -- .'$openapi#Parameter'.'|'.1.content
-      res := _jm_obj_28(pval, NULL, rep);
+      res := _jm_obj_5(pval, NULL, rep);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -2184,7 +1931,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- object .'$openapi#RequestBody'.content
-CREATE OR REPLACE FUNCTION _jm_obj_30(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_obj_6(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -2197,7 +1944,7 @@ BEGIN
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     -- handle other props
     -- .'$openapi#RequestBody'.content.''
-    res := _jm_obj_31(pval, NULL, rep);
+    res := json_model_22(pval, NULL, rep);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -2206,14 +1953,15 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- object .'$openapi#RequestBody'
-CREATE OR REPLACE FUNCTION _jm_obj_29(val JSONB, path TEXT[], rep jm_report_entry[])
+-- check $openapi#RequestBody (.'$openapi#RequestBody')
+CREATE OR REPLACE FUNCTION json_model_21(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
   prop TEXT;
   pval JSONB;
 BEGIN
+  -- .'$openapi#RequestBody'
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
@@ -2228,7 +1976,7 @@ BEGIN
     ELSEIF prop = 'content' THEN
       -- handle may content property
       -- .'$openapi#RequestBody'.content
-      res := _jm_obj_30(pval, NULL, rep);
+      res := _jm_obj_6(pval, NULL, rep);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -2254,20 +2002,8 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check $openapi#RequestBody (.'$openapi#RequestBody')
-CREATE OR REPLACE FUNCTION json_model_21(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .'$openapi#RequestBody'
-  res := _jm_obj_29(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
 -- object .'$openapi#MediaType'.examples
-CREATE OR REPLACE FUNCTION _jm_obj_32(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_obj_7(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -2281,10 +2017,10 @@ BEGIN
     -- handle other props
     -- .'$openapi#MediaType'.examples.''
     -- .'$openapi#MediaType'.examples.''.'|'.0
-    res := _jm_obj_42(pval, NULL, rep);
+    res := json_model_27(pval, NULL, rep);
     IF NOT res THEN
       -- .'$openapi#MediaType'.examples.''.'|'.1
-      res := _jm_obj_52(pval, NULL, rep);
+      res := json_model_32(pval, NULL, rep);
     END IF;
     IF NOT res THEN
       RETURN FALSE;
@@ -2295,7 +2031,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- object .'$openapi#MediaType'.encoding
-CREATE OR REPLACE FUNCTION _jm_obj_33(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_obj_8(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -2308,7 +2044,7 @@ BEGIN
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     -- handle other props
     -- .'$openapi#MediaType'.encoding.''
-    res := _jm_obj_34(pval, NULL, rep);
+    res := json_model_23(pval, NULL, rep);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -2317,14 +2053,15 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- object .'$openapi#MediaType'
-CREATE OR REPLACE FUNCTION _jm_obj_31(val JSONB, path TEXT[], rep jm_report_entry[])
+-- check $openapi#MediaType (.'$openapi#MediaType')
+CREATE OR REPLACE FUNCTION json_model_22(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
   prop TEXT;
   pval JSONB;
 BEGIN
+  -- .'$openapi#MediaType'
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
@@ -2339,14 +2076,14 @@ BEGIN
     ELSEIF prop = 'examples' THEN
       -- handle may examples property
       -- .'$openapi#MediaType'.examples
-      res := _jm_obj_32(pval, NULL, rep);
+      res := _jm_obj_7(pval, NULL, rep);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
     ELSEIF prop = 'encoding' THEN
       -- handle may encoding property
       -- .'$openapi#MediaType'.encoding
-      res := _jm_obj_33(pval, NULL, rep);
+      res := _jm_obj_8(pval, NULL, rep);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -2372,20 +2109,8 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check $openapi#MediaType (.'$openapi#MediaType')
-CREATE OR REPLACE FUNCTION json_model_22(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .'$openapi#MediaType'
-  res := _jm_obj_31(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
 -- object .'$openapi#Encoding'.headers
-CREATE OR REPLACE FUNCTION _jm_obj_35(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_obj_9(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -2402,7 +2127,7 @@ BEGIN
     res := json_model_30(pval, NULL, rep);
     IF NOT res THEN
       -- .'$openapi#Encoding'.headers.''.'|'.1
-      res := _jm_obj_52(pval, NULL, rep);
+      res := json_model_32(pval, NULL, rep);
     END IF;
     IF NOT res THEN
       RETURN FALSE;
@@ -2412,14 +2137,15 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- object .'$openapi#Encoding'
-CREATE OR REPLACE FUNCTION _jm_obj_34(val JSONB, path TEXT[], rep jm_report_entry[])
+-- check $openapi#Encoding (.'$openapi#Encoding')
+CREATE OR REPLACE FUNCTION json_model_23(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
   prop TEXT;
   pval JSONB;
 BEGIN
+  -- .'$openapi#Encoding'
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
@@ -2434,7 +2160,7 @@ BEGIN
     ELSEIF prop = 'headers' THEN
       -- handle may headers property
       -- .'$openapi#Encoding'.headers
-      res := _jm_obj_35(pval, NULL, rep);
+      res := _jm_obj_9(pval, NULL, rep);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -2474,18 +2200,6 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check $openapi#Encoding (.'$openapi#Encoding')
-CREATE OR REPLACE FUNCTION json_model_23(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .'$openapi#Encoding'
-  res := _jm_obj_34(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
 -- regex=^[1-5](\d\d|XX)$ opts=n
 CREATE OR REPLACE FUNCTION _jm_re_2(val TEXT, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
@@ -2494,14 +2208,15 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
--- object .'$openapi#Responses'
-CREATE OR REPLACE FUNCTION _jm_obj_36(val JSONB, path TEXT[], rep jm_report_entry[])
+-- check $openapi#Responses (.'$openapi#Responses')
+CREATE OR REPLACE FUNCTION json_model_24(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
   prop TEXT;
   pval JSONB;
 BEGIN
+  -- .'$openapi#Responses'
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
@@ -2510,10 +2225,10 @@ BEGIN
       -- handle may default property
       -- .'$openapi#Responses'.default
       -- .'$openapi#Responses'.default.'|'.0
-      res := _jm_obj_37(pval, NULL, rep);
+      res := json_model_25(pval, NULL, rep);
       IF NOT res THEN
         -- .'$openapi#Responses'.default.'|'.1
-        res := _jm_obj_52(pval, NULL, rep);
+        res := json_model_32(pval, NULL, rep);
       END IF;
       IF NOT res THEN
         RETURN FALSE;
@@ -2522,10 +2237,10 @@ BEGIN
       -- handle 2 re props
       -- .'$openapi#Responses'.'/^[1-5](\\d\\d|XX)$/'
       -- .'$openapi#Responses'.'/^[1-5](\\d\\d|XX)$/'.'|'.0
-      res := _jm_obj_37(pval, NULL, rep);
+      res := json_model_25(pval, NULL, rep);
       IF NOT res THEN
         -- .'$openapi#Responses'.'/^[1-5](\\d\\d|XX)$/'.'|'.1
-        res := _jm_obj_52(pval, NULL, rep);
+        res := json_model_32(pval, NULL, rep);
       END IF;
       IF NOT res THEN
         RETURN FALSE;
@@ -2545,20 +2260,8 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check $openapi#Responses (.'$openapi#Responses')
-CREATE OR REPLACE FUNCTION json_model_24(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .'$openapi#Responses'
-  res := _jm_obj_36(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
 -- object .'$openapi#Response'.headers
-CREATE OR REPLACE FUNCTION _jm_obj_38(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_obj_10(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -2575,7 +2278,7 @@ BEGIN
     res := json_model_30(pval, NULL, rep);
     IF NOT res THEN
       -- .'$openapi#Response'.headers.''.'|'.1
-      res := _jm_obj_52(pval, NULL, rep);
+      res := json_model_32(pval, NULL, rep);
     END IF;
     IF NOT res THEN
       RETURN FALSE;
@@ -2586,7 +2289,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- object .'$openapi#Response'.content
-CREATE OR REPLACE FUNCTION _jm_obj_39(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_obj_11(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -2599,7 +2302,7 @@ BEGIN
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     -- handle other props
     -- .'$openapi#Response'.content.''
-    res := _jm_obj_31(pval, NULL, rep);
+    res := json_model_22(pval, NULL, rep);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -2609,7 +2312,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- object .'$openapi#Response'.links
-CREATE OR REPLACE FUNCTION _jm_obj_40(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_obj_12(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -2626,7 +2329,7 @@ BEGIN
     res := json_model_29(pval, NULL, rep);
     IF NOT res THEN
       -- .'$openapi#Response'.links.''.'|'.1
-      res := _jm_obj_52(pval, NULL, rep);
+      res := json_model_32(pval, NULL, rep);
     END IF;
     IF NOT res THEN
       RETURN FALSE;
@@ -2636,14 +2339,15 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- object .'$openapi#Response'
-CREATE OR REPLACE FUNCTION _jm_obj_37(val JSONB, path TEXT[], rep jm_report_entry[])
+-- check $openapi#Response (.'$openapi#Response')
+CREATE OR REPLACE FUNCTION json_model_25(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
   prop TEXT;
   pval JSONB;
 BEGIN
+  -- .'$openapi#Response'
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
@@ -2658,21 +2362,21 @@ BEGIN
     ELSEIF prop = 'headers' THEN
       -- handle may headers property
       -- .'$openapi#Response'.headers
-      res := _jm_obj_38(pval, NULL, rep);
+      res := _jm_obj_10(pval, NULL, rep);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
     ELSEIF prop = 'content' THEN
       -- handle may content property
       -- .'$openapi#Response'.content
-      res := _jm_obj_39(pval, NULL, rep);
+      res := _jm_obj_11(pval, NULL, rep);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
     ELSEIF prop = 'links' THEN
       -- handle may links property
       -- .'$openapi#Response'.links
-      res := _jm_obj_40(pval, NULL, rep);
+      res := _jm_obj_12(pval, NULL, rep);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -2691,26 +2395,15 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check $openapi#Response (.'$openapi#Response')
-CREATE OR REPLACE FUNCTION json_model_25(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .'$openapi#Response'
-  res := _jm_obj_37(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
--- object .'$openapi#Callback'
-CREATE OR REPLACE FUNCTION _jm_obj_41(val JSONB, path TEXT[], rep jm_report_entry[])
+-- check $openapi#Callback (.'$openapi#Callback')
+CREATE OR REPLACE FUNCTION json_model_26(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
   prop TEXT;
   pval JSONB;
 BEGIN
+  -- .'$openapi#Callback'
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
@@ -2719,10 +2412,10 @@ BEGIN
       -- handle 1 key props
       -- .'$openapi#Callback'.'$Expression'
       -- .'$openapi#Callback'.'$Expression'.'|'.0
-      res := _jm_obj_21(pval, NULL, rep);
+      res := json_model_12(pval, NULL, rep);
       IF NOT res THEN
         -- .'$openapi#Callback'.'$Expression'.'|'.1
-        res := _jm_obj_52(pval, NULL, rep);
+        res := json_model_32(pval, NULL, rep);
       END IF;
       IF NOT res THEN
         RETURN FALSE;
@@ -2742,26 +2435,15 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check $openapi#Callback (.'$openapi#Callback')
-CREATE OR REPLACE FUNCTION json_model_26(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .'$openapi#Callback'
-  res := _jm_obj_41(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
--- object .'$openapi#Example'
-CREATE OR REPLACE FUNCTION _jm_obj_42(val JSONB, path TEXT[], rep jm_report_entry[])
+-- check $openapi#Example (.'$openapi#Example')
+CREATE OR REPLACE FUNCTION json_model_27(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
   prop TEXT;
   pval JSONB;
 BEGIN
+  -- .'$openapi#Example'
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
@@ -2809,18 +2491,6 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check $openapi#Example (.'$openapi#Example')
-CREATE OR REPLACE FUNCTION json_model_27(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .'$openapi#Example'
-  res := _jm_obj_42(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
 -- check $openapi#Expression (.'$openapi#Expression')
 CREATE OR REPLACE FUNCTION json_model_28(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
@@ -2834,7 +2504,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- object .'$openapi#Link'.'|'.1.parameters
-CREATE OR REPLACE FUNCTION _jm_obj_44(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_obj_14(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
@@ -2846,7 +2516,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- object .'$openapi#Link'.'|'.1
-CREATE OR REPLACE FUNCTION _jm_obj_43(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_obj_13(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -2870,7 +2540,7 @@ BEGIN
     ELSEIF prop = 'parameters' THEN
       -- handle may parameters property
       -- .'$openapi#Link'.'|'.1.parameters
-      res := _jm_obj_44(pval, NULL, rep);
+      res := _jm_obj_14(pval, NULL, rep);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -2891,7 +2561,7 @@ BEGIN
     ELSEIF prop = 'server' THEN
       -- handle may server property
       -- .'$openapi#Link'.'|'.1.server
-      res := _jm_obj_6(pval, NULL, rep);
+      res := json_model_8(pval, NULL, rep);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -2914,7 +2584,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- object .'$openapi#Link'.'|'.0.parameters
-CREATE OR REPLACE FUNCTION _jm_obj_46(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_obj_16(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
@@ -2926,7 +2596,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- object .'$openapi#Link'.'|'.0
-CREATE OR REPLACE FUNCTION _jm_obj_45(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_obj_15(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -2950,7 +2620,7 @@ BEGIN
     ELSEIF prop = 'parameters' THEN
       -- handle may parameters property
       -- .'$openapi#Link'.'|'.0.parameters
-      res := _jm_obj_46(pval, NULL, rep);
+      res := _jm_obj_16(pval, NULL, rep);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -2971,7 +2641,7 @@ BEGIN
     ELSEIF prop = 'server' THEN
       -- handle may server property
       -- .'$openapi#Link'.'|'.0.server
-      res := _jm_obj_6(pval, NULL, rep);
+      res := json_model_8(pval, NULL, rep);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -3003,10 +2673,10 @@ BEGIN
   res := JSONB_TYPEOF(val) = 'object';
   IF res THEN
     -- .'$openapi#Link'.'|'.0
-    res := _jm_obj_45(val, path, rep);
+    res := _jm_obj_15(val, path, rep);
     IF NOT res THEN
       -- .'$openapi#Link'.'|'.1
-      res := _jm_obj_43(val, path, rep);
+      res := _jm_obj_13(val, path, rep);
     END IF;
   END IF;
   RETURN res;
@@ -3014,7 +2684,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- object .'$openapi#Header'.'|'.1.content
-CREATE OR REPLACE FUNCTION _jm_obj_48(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_obj_18(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -3027,7 +2697,7 @@ BEGIN
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     -- handle other props
     -- .'$openapi#Header'.'|'.1.content.''
-    res := _jm_obj_31(pval, NULL, rep);
+    res := json_model_22(pval, NULL, rep);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -3037,7 +2707,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- object .'$openapi#Header'.'|'.1
-CREATE OR REPLACE FUNCTION _jm_obj_47(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_obj_17(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -3079,7 +2749,7 @@ BEGIN
     ELSEIF prop = 'content' THEN
       -- handle may content property
       -- .'$openapi#Header'.'|'.1.content
-      res := _jm_obj_48(pval, NULL, rep);
+      res := _jm_obj_18(pval, NULL, rep);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -3098,7 +2768,7 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_obj_49_map_allowEmptyValue (.'$openapi#Header'.'|'.0.allowEmptyValue)
+-- check _jm_obj_19_map_allowEmptyValue (.'$openapi#Header'.'|'.0.allowEmptyValue)
 CREATE OR REPLACE FUNCTION _jm_f_53(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
@@ -3110,7 +2780,7 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_obj_49_map_allowReserved (.'$openapi#Header'.'|'.0.allowReserved)
+-- check _jm_obj_19_map_allowReserved (.'$openapi#Header'.'|'.0.allowReserved)
 CREATE OR REPLACE FUNCTION _jm_f_54(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
@@ -3122,7 +2792,7 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_obj_49_map_deprecated (.'$openapi#Header'.'|'.0.deprecated)
+-- check _jm_obj_19_map_deprecated (.'$openapi#Header'.'|'.0.deprecated)
 CREATE OR REPLACE FUNCTION _jm_f_55(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
@@ -3134,7 +2804,7 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_obj_49_map_description (.'$openapi#Header'.'|'.0.description)
+-- check _jm_obj_19_map_description (.'$openapi#Header'.'|'.0.description)
 CREATE OR REPLACE FUNCTION _jm_f_56(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
@@ -3146,7 +2816,7 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_obj_49_map_example (.'$openapi#Header'.'|'.0.example)
+-- check _jm_obj_19_map_example (.'$openapi#Header'.'|'.0.example)
 CREATE OR REPLACE FUNCTION _jm_f_57(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
@@ -3158,14 +2828,15 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- object .'$openapi#Header'.'|'.0.examples
-CREATE OR REPLACE FUNCTION _jm_obj_50(val JSONB, path TEXT[], rep jm_report_entry[])
+-- check _jm_obj_19_map_examples (.'$openapi#Header'.'|'.0.examples)
+CREATE OR REPLACE FUNCTION _jm_f_58(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
   prop TEXT;
   pval JSONB;
 BEGIN
+  -- .'$openapi#Header'.'|'.0.examples
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
@@ -3173,10 +2844,10 @@ BEGIN
     -- handle other props
     -- .'$openapi#Header'.'|'.0.examples.''
     -- .'$openapi#Header'.'|'.0.examples.''.'|'.0
-    res := _jm_obj_42(pval, NULL, rep);
+    res := json_model_27(pval, NULL, rep);
     IF NOT res THEN
       -- .'$openapi#Header'.'|'.0.examples.''.'|'.1
-      res := _jm_obj_52(pval, NULL, rep);
+      res := json_model_32(pval, NULL, rep);
     END IF;
     IF NOT res THEN
       RETURN FALSE;
@@ -3186,19 +2857,7 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_obj_49_map_examples (.'$openapi#Header'.'|'.0.examples)
-CREATE OR REPLACE FUNCTION _jm_f_58(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .'$openapi#Header'.'|'.0.examples
-  res := _jm_obj_50(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
--- check _jm_obj_49_map_explode (.'$openapi#Header'.'|'.0.explode)
+-- check _jm_obj_19_map_explode (.'$openapi#Header'.'|'.0.explode)
 CREATE OR REPLACE FUNCTION _jm_f_59(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
@@ -3210,7 +2869,7 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_obj_49_map_model (.'$openapi#Header'.'|'.0.model)
+-- check _jm_obj_19_map_model (.'$openapi#Header'.'|'.0.model)
 CREATE OR REPLACE FUNCTION _jm_f_60(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
@@ -3222,7 +2881,7 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_obj_49_map_required (.'$openapi#Header'.'|'.0.required)
+-- check _jm_obj_19_map_required (.'$openapi#Header'.'|'.0.required)
 CREATE OR REPLACE FUNCTION _jm_f_61(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
@@ -3234,7 +2893,7 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_obj_49_map_style (.'$openapi#Header'.'|'.0.style)
+-- check _jm_obj_19_map_style (.'$openapi#Header'.'|'.0.style)
 CREATE OR REPLACE FUNCTION _jm_f_62(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
@@ -3246,7 +2905,7 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
-CREATE OR REPLACE FUNCTION _jm_obj_49_map(name TEXT)
+CREATE OR REPLACE FUNCTION _jm_obj_19_map(name TEXT)
 RETURNS TEXT STRICT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   map JSONB := JSONB '{"allowEmptyValue":"_jm_f_53","allowReserved":"_jm_f_54","deprecated":"_jm_f_55","description":"_jm_f_56","example":"_jm_f_57","examples":"_jm_f_58","explode":"_jm_f_59","model":"_jm_f_60","required":"_jm_f_61","style":"_jm_f_62"}';
@@ -3256,7 +2915,7 @@ END;
 $$ LANGUAGE plpgsql;
 
 -- object .'$openapi#Header'.'|'.0
-CREATE OR REPLACE FUNCTION _jm_obj_49(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_obj_19(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -3268,9 +2927,9 @@ BEGIN
     RETURN FALSE;
   END IF;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF _jm_obj_49_map(prop) IS NOT NULL THEN
+    IF _jm_obj_19_map(prop) IS NOT NULL THEN
       -- handle 10 may props
-      pfun := _jm_obj_49_map(prop);
+      pfun := _jm_obj_19_map(prop);
       IF NOT jm_call(pfun, pval, NULL, rep) THEN
         RETURN FALSE;
       END IF;
@@ -3300,18 +2959,18 @@ BEGIN
   res := JSONB_TYPEOF(val) = 'object';
   IF res THEN
     -- .'$openapi#Header'.'|'.0
-    res := _jm_obj_49(val, path, rep);
+    res := _jm_obj_19(val, path, rep);
     IF NOT res THEN
       -- .'$openapi#Header'.'|'.1
-      res := _jm_obj_47(val, path, rep);
+      res := _jm_obj_17(val, path, rep);
     END IF;
   END IF;
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
 
--- object .'$openapi#Tag'
-CREATE OR REPLACE FUNCTION _jm_obj_51(val JSONB, path TEXT[], rep jm_report_entry[])
+-- check $openapi#Tag (.'$openapi#Tag')
+CREATE OR REPLACE FUNCTION json_model_31(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -3319,6 +2978,7 @@ DECLARE
   prop TEXT;
   pval JSONB;
 BEGIN
+  -- .'$openapi#Tag'
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
@@ -3342,7 +3002,7 @@ BEGIN
     ELSEIF prop = 'externalDocs' THEN
       -- handle may externalDocs property
       -- .'$openapi#Tag'.externalDocs
-      res := _jm_obj_24(pval, NULL, rep);
+      res := json_model_14(pval, NULL, rep);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -3364,20 +3024,8 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check $openapi#Tag (.'$openapi#Tag')
-CREATE OR REPLACE FUNCTION json_model_31(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .'$openapi#Tag'
-  res := _jm_obj_51(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
--- object .'$openapi#Reference'
-CREATE OR REPLACE FUNCTION _jm_obj_52(val JSONB, path TEXT[], rep jm_report_entry[])
+-- check $openapi#Reference (.'$openapi#Reference')
+CREATE OR REPLACE FUNCTION json_model_32(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -3385,6 +3033,7 @@ DECLARE
   prop TEXT;
   pval JSONB;
 BEGIN
+  -- .'$openapi#Reference'
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
@@ -3423,18 +3072,6 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check $openapi#Reference (.'$openapi#Reference')
-CREATE OR REPLACE FUNCTION json_model_32(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .'$openapi#Reference'
-  res := _jm_obj_52(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
 CREATE OR REPLACE FUNCTION _jm_cst_3(value JSONB)
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
@@ -3445,7 +3082,7 @@ END;
 $$ LANGUAGE plpgsql;
 
 -- object .'$openapi#SecurityScheme'.'|'.0
-CREATE OR REPLACE FUNCTION _jm_obj_53(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_obj_20(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -3509,7 +3146,7 @@ END;
 $$ LANGUAGE plpgsql;
 
 -- object .'$openapi#SecurityScheme'.'|'.1
-CREATE OR REPLACE FUNCTION _jm_obj_54(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_obj_21(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -3565,7 +3202,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- object .'$openapi#SecurityScheme'.'|'.2
-CREATE OR REPLACE FUNCTION _jm_obj_55(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_obj_22(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -3613,7 +3250,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- object .'$openapi#SecurityScheme'.'|'.3
-CREATE OR REPLACE FUNCTION _jm_obj_56(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_obj_23(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -3638,7 +3275,7 @@ BEGIN
       -- handle must flows property
       must_count := must_count + 1;
       -- .'$openapi#SecurityScheme'.'|'.3.flows
-      res := _jm_obj_59(pval, NULL, rep);
+      res := json_model_43(pval, NULL, rep);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -3661,7 +3298,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- object .'$openapi#SecurityScheme'.'|'.4
-CREATE OR REPLACE FUNCTION _jm_obj_57(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_obj_24(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -3709,7 +3346,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- object .'$openapi#SecurityScheme'.'|'.5
-CREATE OR REPLACE FUNCTION _jm_obj_58(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_obj_25(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -3770,20 +3407,21 @@ BEGIN
   END IF;
   IF NOT res THEN
     -- .'$openapi#SecurityScheme'.'|'.5
-    res := _jm_obj_58(val, path, rep);
+    res := _jm_obj_25(val, path, rep);
   END IF;
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
 
--- object .'$openapi#OAuthFlows'
-CREATE OR REPLACE FUNCTION _jm_obj_59(val JSONB, path TEXT[], rep jm_report_entry[])
+-- check $openapi#OAuthFlows (.'$openapi#OAuthFlows')
+CREATE OR REPLACE FUNCTION json_model_43(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
   prop TEXT;
   pval JSONB;
 BEGIN
+  -- .'$openapi#OAuthFlows'
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
@@ -3791,28 +3429,28 @@ BEGIN
     IF prop = 'implicit' THEN
       -- handle may implicit property
       -- .'$openapi#OAuthFlows'.implicit
-      res := _jm_obj_60(pval, NULL, rep);
+      res := json_model_44(pval, NULL, rep);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
     ELSEIF prop = 'password' THEN
       -- handle may password property
       -- .'$openapi#OAuthFlows'.password
-      res := _jm_obj_60(pval, NULL, rep);
+      res := json_model_44(pval, NULL, rep);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
     ELSEIF prop = 'clientCredentials' THEN
       -- handle may clientCredentials property
       -- .'$openapi#OAuthFlows'.clientCredentials
-      res := _jm_obj_60(pval, NULL, rep);
+      res := json_model_44(pval, NULL, rep);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
     ELSEIF prop = 'authorizationCode' THEN
       -- handle may authorizationCode property
       -- .'$openapi#OAuthFlows'.authorizationCode
-      res := _jm_obj_60(pval, NULL, rep);
+      res := json_model_44(pval, NULL, rep);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -3831,20 +3469,8 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check $openapi#OAuthFlows (.'$openapi#OAuthFlows')
-CREATE OR REPLACE FUNCTION json_model_43(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .'$openapi#OAuthFlows'
-  res := _jm_obj_59(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
 -- object .'$openapi#OAuthFlow'.scopes
-CREATE OR REPLACE FUNCTION _jm_obj_61(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_obj_26(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -3866,8 +3492,8 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- object .'$openapi#OAuthFlow'
-CREATE OR REPLACE FUNCTION _jm_obj_60(val JSONB, path TEXT[], rep jm_report_entry[])
+-- check $openapi#OAuthFlow (.'$openapi#OAuthFlow')
+CREATE OR REPLACE FUNCTION json_model_44(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -3875,6 +3501,7 @@ DECLARE
   prop TEXT;
   pval JSONB;
 BEGIN
+  -- .'$openapi#OAuthFlow'
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
@@ -3900,7 +3527,7 @@ BEGIN
       -- handle must scopes property
       must_count := must_count + 1;
       -- .'$openapi#OAuthFlow'.scopes
-      res := _jm_obj_61(pval, NULL, rep);
+      res := _jm_obj_26(pval, NULL, rep);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -3929,20 +3556,8 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check $openapi#OAuthFlow (.'$openapi#OAuthFlow')
-CREATE OR REPLACE FUNCTION json_model_44(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .'$openapi#OAuthFlow'
-  res := _jm_obj_60(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
--- object .'$openapi#SecurityRequirement'
-CREATE OR REPLACE FUNCTION _jm_obj_62(val JSONB, path TEXT[], rep jm_report_entry[])
+-- check $openapi#SecurityRequirement (.'$openapi#SecurityRequirement')
+CREATE OR REPLACE FUNCTION json_model_45(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -3951,6 +3566,7 @@ DECLARE
   arr_10_idx INT8;
   arr_10_item JSONB;
 BEGIN
+  -- .'$openapi#SecurityRequirement'
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
@@ -3973,18 +3589,6 @@ BEGIN
     END IF;
   END LOOP;
   RETURN TRUE;
-END;
-$$ LANGUAGE PLpgSQL;
-
--- check $openapi#SecurityRequirement (.'$openapi#SecurityRequirement')
-CREATE OR REPLACE FUNCTION json_model_45(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .'$openapi#SecurityRequirement'
-  res := _jm_obj_62(val, path, rep);
-  RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -4076,7 +3680,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- object .'$openapi#model#Element'.'|'.5
-CREATE OR REPLACE FUNCTION _jm_obj_63(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_obj_27(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -4117,7 +3721,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- object .'$openapi#model#Element'.'|'.4
-CREATE OR REPLACE FUNCTION _jm_obj_64(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_obj_28(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -4176,7 +3780,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- object .'$openapi#model#Element'.'|'.3
-CREATE OR REPLACE FUNCTION _jm_obj_65(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_obj_29(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -4235,7 +3839,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- object .'$openapi#model#Element'.'|'.2
-CREATE OR REPLACE FUNCTION _jm_obj_66(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_obj_30(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -4294,7 +3898,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- object .'$openapi#model#Element'.'|'.1
-CREATE OR REPLACE FUNCTION _jm_obj_67(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_obj_31(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -4369,7 +3973,7 @@ END;
 $$ LANGUAGE plpgsql;
 
 -- object .'$openapi#model#Element'.'|'.0
-CREATE OR REPLACE FUNCTION _jm_obj_68(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_obj_32(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -4446,22 +4050,22 @@ BEGIN
   res := JSONB_TYPEOF(val) = 'object';
   IF res THEN
     -- .'$openapi#model#Element'.'|'.0
-    res := _jm_obj_68(val, path, rep);
+    res := _jm_obj_32(val, path, rep);
     IF NOT res THEN
       -- .'$openapi#model#Element'.'|'.1
-      res := _jm_obj_67(val, path, rep);
+      res := _jm_obj_31(val, path, rep);
       IF NOT res THEN
         -- .'$openapi#model#Element'.'|'.2
-        res := _jm_obj_66(val, path, rep);
+        res := _jm_obj_30(val, path, rep);
         IF NOT res THEN
           -- .'$openapi#model#Element'.'|'.3
-          res := _jm_obj_65(val, path, rep);
+          res := _jm_obj_29(val, path, rep);
           IF NOT res THEN
             -- .'$openapi#model#Element'.'|'.4
-            res := _jm_obj_64(val, path, rep);
+            res := _jm_obj_28(val, path, rep);
             IF NOT res THEN
               -- .'$openapi#model#Element'.'|'.5
-              res := _jm_obj_63(val, path, rep);
+              res := _jm_obj_27(val, path, rep);
             END IF;
           END IF;
         END IF;
@@ -4809,7 +4413,7 @@ $$ LANGUAGE PLpgSQL;
 CREATE OR REPLACE FUNCTION check_model_map(name TEXT)
 RETURNS TEXT STRICT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
-  map JSONB := JSONB '{"":"_jm_obj_0","openapi":"_jm_obj_0"}';
+  map JSONB := JSONB '{"":"json_model_4","openapi":"json_model_4"}';
 BEGIN
   RETURN map->>name;
 END;
@@ -4820,16 +4424,16 @@ $$ LANGUAGE plpgsql;
 --
 TRUNCATE jm_constant_maps;
 INSERT INTO jm_constant_maps(mapname, tagval, value) VALUES
-  ('_jm_map_0', JSONB '"cookie"', '_jm_obj_27'),
-  ('_jm_map_0', JSONB '"header"', '_jm_obj_27'),
-  ('_jm_map_0', JSONB '"path"', '_jm_obj_27'),
-  ('_jm_map_0', JSONB '"query"', '_jm_obj_27')
+  ('_jm_map_0', JSONB '"cookie"', '_jm_obj_4'),
+  ('_jm_map_0', JSONB '"header"', '_jm_obj_4'),
+  ('_jm_map_0', JSONB '"path"', '_jm_obj_4'),
+  ('_jm_map_0', JSONB '"query"', '_jm_obj_4')
 ;
 INSERT INTO jm_constant_maps(mapname, tagval, value) VALUES
-  ('_jm_map_1', JSONB '"apiKey"', '_jm_obj_53'),
-  ('_jm_map_1', JSONB '"http"', '_jm_obj_55'),
-  ('_jm_map_1', JSONB '"oauth2"', '_jm_obj_56'),
-  ('_jm_map_1', JSONB '"openIdConnect"', '_jm_obj_57')
+  ('_jm_map_1', JSONB '"apiKey"', '_jm_obj_20'),
+  ('_jm_map_1', JSONB '"http"', '_jm_obj_22'),
+  ('_jm_map_1', JSONB '"oauth2"', '_jm_obj_23'),
+  ('_jm_map_1', JSONB '"openIdConnect"', '_jm_obj_24')
 ;
 
 --

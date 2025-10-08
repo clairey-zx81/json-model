@@ -31,8 +31,9 @@ def json_model_2(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("unexpected _cst_02 [.'$t']", path))
     return res
 
-# object .'$r'
-def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
+# check $r (.'$r')
+def json_model_5(val: Jsonable, path: Path, rep: Report) -> bool:
+    # .'$r'
     # check close must only props
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$r']", path))
@@ -85,17 +86,9 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
         return False
     return True
 
-# check $r (.'$r')
-def json_model_5(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .'$r'
-    res = _jm_obj_0(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected element [.'$r']", path))
-    return res
-
-# object .'$z'
-def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
+# check $z (.'$z')
+def json_model_4(val: Jsonable, path: Path, rep: Report) -> bool:
+    # .'$z'
     # check close must only props
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$z']", path))
@@ -128,17 +121,9 @@ def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
         return False
     return True
 
-# check $z (.'$z')
-def json_model_4(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .'$z'
-    res = _jm_obj_1(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected element [.'$z']", path))
-    return res
-
-# object .
-def _jm_obj_2(val: Jsonable, path: Path, rep: Report) -> bool:
+# check $ (.)
+def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
+    # .
     # check close must only props
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.]", path))
@@ -211,15 +196,6 @@ def _jm_obj_2(val: Jsonable, path: Path, rep: Report) -> bool:
         return False
     return True
 
-# check $ (.)
-def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .
-    res = _jm_obj_2(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected element [.]", path))
-    return res
-
 
 # initialization guard
 initialized: bool = False
@@ -231,10 +207,10 @@ def check_model_init():
         initialized = True
         global check_model_map
         check_model_map = {
-            "": _jm_obj_2,
+            "": json_model_1,
             "t": json_model_2,
-            "r": _jm_obj_0,
-            "z": _jm_obj_1,
+            "r": json_model_5,
+            "z": json_model_4,
         }
 
 # differed module cleanup

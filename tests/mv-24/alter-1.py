@@ -41,8 +41,9 @@ def json_model_3(val: Jsonable, path: Path, rep: Report) -> bool:
     res = ((val is None or isinstance(val, (bool, int, float, str)))) and val in _jm_cst_0
     return res
 
-# object .'$d'
-def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
+# check $d (.'$d')
+def json_model_4(val: Jsonable, path: Path, rep: Report) -> bool:
+    # .'$d'
     # check close must only props
     if not isinstance(val, dict):
         return False
@@ -64,16 +65,10 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
         return False
     return True
 
-# check $d (.'$d')
-def json_model_4(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .'$d'
-    res = _jm_obj_0(val, path, rep)
-    return res
 
-
-# object .'$ef'
-def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
+# check $ef (.'$ef')
+def json_model_5(val: Jsonable, path: Path, rep: Report) -> bool:
+    # .'$ef'
     # check close must only props
     if not isinstance(val, dict):
         return False
@@ -95,15 +90,8 @@ def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
         return False
     return True
 
-# check $ef (.'$ef')
-def json_model_5(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .'$ef'
-    res = _jm_obj_1(val, path, rep)
-    return res
-
 # object .'$alternative'.'|'.0
-def _jm_obj_2(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
     # check close must only props
     if not isinstance(val, dict):
         return False
@@ -127,7 +115,7 @@ def _jm_obj_2(val: Jsonable, path: Path, rep: Report) -> bool:
 
 
 # object .'$alternative'.'|'.1
-def _jm_obj_3(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
     # check close must only props
     if not isinstance(val, dict):
         return False
@@ -150,7 +138,7 @@ def _jm_obj_3(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # object .'$alternative'.'|'.2
-def _jm_obj_4(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_obj_2(val: Jsonable, path: Path, rep: Report) -> bool:
     # check close must only props
     if not isinstance(val, dict):
         return False
@@ -173,7 +161,7 @@ def _jm_obj_4(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # object .'$alternative'.'|'.3
-def _jm_obj_5(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_obj_3(val: Jsonable, path: Path, rep: Report) -> bool:
     # check close must only props
     if not isinstance(val, dict):
         return False
@@ -239,23 +227,23 @@ def check_model_init():
         _jm_cst_2 = {'b', 'c'}
         global _jm_map_0
         _jm_map_0 = {
-            "a": _jm_obj_2,
-            "b": _jm_obj_3,
-            "c": _jm_obj_3,
-            "g": _jm_obj_4,
-            "h": _jm_obj_5,
-            "i": _jm_obj_5,
-            "d": _jm_obj_0,
-            "e": _jm_obj_1,
-            "f": _jm_obj_1,
+            "a": _jm_obj_0,
+            "b": _jm_obj_1,
+            "c": _jm_obj_1,
+            "g": _jm_obj_2,
+            "h": _jm_obj_3,
+            "i": _jm_obj_3,
+            "d": json_model_4,
+            "e": json_model_5,
+            "f": json_model_5,
         }
         global check_model_map
         check_model_map = {
             "": json_model_6,
             "g": json_model_2,
             "h_ou_i": json_model_3,
-            "d": _jm_obj_0,
-            "ef": _jm_obj_1,
+            "d": json_model_4,
+            "ef": json_model_5,
             "alternative": json_model_6,
         }
 

@@ -83,21 +83,22 @@ public class ansiblelint_meta extends ModelChecker
     Set<Object> _jm_cst_63_set;
     public Pattern _jm_re_0_pat = null;
     public Pattern _jm_re_1_pat = null;
-    Map<String, Checker> _jm_obj_94_map_pmap;
-    Map<String, Checker> _jm_obj_95_map_pmap;
-    Map<String, Checker> _jm_obj_96_map_pmap;
-    Map<String, Checker> _jm_obj_97_map_pmap;
-    Map<String, Checker> _jm_obj_98_map_pmap;
+    Map<String, Checker> json_model_51_map_pmap;
+    Map<String, Checker> json_model_52_map_pmap;
+    Map<String, Checker> json_model_53_map_pmap;
+    Map<String, Checker> _jm_obj_47_map_pmap;
+    Map<String, Checker> _jm_obj_48_map_pmap;
     Map<Object, Checker> _jm_map_0_cmap;
     public Pattern _jm_re_2_pat = null;
     Set<Object> _jm_cst_64_set;
-    Map<String, Checker> _jm_obj_99_map_pmap;
+    Map<String, Checker> json_model_57_map_pmap;
     public Map<String, Checker> ansiblelint_meta_map_pmap;
 
 
-    // object .'$AIXPlatformModel'
-    public boolean _jm_obj_0(Object val, Path path, Report rep)
+    // check $AIXPlatformModel (.'$AIXPlatformModel')
+    public boolean json_model_2(Object val, Path path, Report rep)
     {
+        // .'$AIXPlatformModel'
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.'$AIXPlatformModel']", path);
@@ -161,22 +162,10 @@ public class ansiblelint_meta extends ModelChecker
         return true;
     }
 
-    // check $AIXPlatformModel (.'$AIXPlatformModel')
-    public boolean json_model_2(Object val, Path path, Report rep)
+    // check $AlpinePlatformModel (.'$AlpinePlatformModel')
+    public boolean json_model_3(Object val, Path path, Report rep)
     {
-        boolean res;
-        // .'$AIXPlatformModel'
-        res = _jm_obj_0(val, path, rep);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected element [.'$AIXPlatformModel']", path);
-        }
-        return res;
-    }
-
-    // object .'$AlpinePlatformModel'
-    public boolean _jm_obj_1(Object val, Path path, Report rep)
-    {
+        // .'$AlpinePlatformModel'
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.'$AlpinePlatformModel']", path);
@@ -240,23 +229,11 @@ public class ansiblelint_meta extends ModelChecker
         return true;
     }
 
-    // check $AlpinePlatformModel (.'$AlpinePlatformModel')
-    public boolean json_model_3(Object val, Path path, Report rep)
-    {
-        boolean res;
-        // .'$AlpinePlatformModel'
-        res = _jm_obj_1(val, path, rep);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected element [.'$AlpinePlatformModel']", path);
-        }
-        return res;
-    }
 
-
-    // object .'$AmazonLinuxPlatformModel'
-    public boolean _jm_obj_2(Object val, Path path, Report rep)
+    // check $AmazonLinuxPlatformModel (.'$AmazonLinuxPlatformModel')
+    public boolean json_model_4(Object val, Path path, Report rep)
     {
+        // .'$AmazonLinuxPlatformModel'
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.'$AmazonLinuxPlatformModel']", path);
@@ -320,23 +297,11 @@ public class ansiblelint_meta extends ModelChecker
         return true;
     }
 
-    // check $AmazonLinuxPlatformModel (.'$AmazonLinuxPlatformModel')
-    public boolean json_model_4(Object val, Path path, Report rep)
-    {
-        boolean res;
-        // .'$AmazonLinuxPlatformModel'
-        res = _jm_obj_2(val, path, rep);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected element [.'$AmazonLinuxPlatformModel']", path);
-        }
-        return res;
-    }
 
-
-    // object .'$AmazonPlatformModel'
-    public boolean _jm_obj_3(Object val, Path path, Report rep)
+    // check $AmazonPlatformModel (.'$AmazonPlatformModel')
+    public boolean json_model_5(Object val, Path path, Report rep)
     {
+        // .'$AmazonPlatformModel'
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.'$AmazonPlatformModel']", path);
@@ -400,22 +365,10 @@ public class ansiblelint_meta extends ModelChecker
         return true;
     }
 
-    // check $AmazonPlatformModel (.'$AmazonPlatformModel')
-    public boolean json_model_5(Object val, Path path, Report rep)
+    // check $ArchLinuxPlatformModel (.'$ArchLinuxPlatformModel')
+    public boolean json_model_6(Object val, Path path, Report rep)
     {
-        boolean res;
-        // .'$AmazonPlatformModel'
-        res = _jm_obj_3(val, path, rep);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected element [.'$AmazonPlatformModel']", path);
-        }
-        return res;
-    }
-
-    // object .'$ArchLinuxPlatformModel'
-    public boolean _jm_obj_4(Object val, Path path, Report rep)
-    {
+        // .'$ArchLinuxPlatformModel'
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.'$ArchLinuxPlatformModel']", path);
@@ -479,23 +432,11 @@ public class ansiblelint_meta extends ModelChecker
         return true;
     }
 
-    // check $ArchLinuxPlatformModel (.'$ArchLinuxPlatformModel')
-    public boolean json_model_6(Object val, Path path, Report rep)
-    {
-        boolean res;
-        // .'$ArchLinuxPlatformModel'
-        res = _jm_obj_4(val, path, rep);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected element [.'$ArchLinuxPlatformModel']", path);
-        }
-        return res;
-    }
 
-
-    // object .'$AstraLinuxPlatformModel'
-    public boolean _jm_obj_5(Object val, Path path, Report rep)
+    // check $AstraLinuxPlatformModel (.'$AstraLinuxPlatformModel')
+    public boolean json_model_7(Object val, Path path, Report rep)
     {
+        // .'$AstraLinuxPlatformModel'
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.'$AstraLinuxPlatformModel']", path);
@@ -559,22 +500,10 @@ public class ansiblelint_meta extends ModelChecker
         return true;
     }
 
-    // check $AstraLinuxPlatformModel (.'$AstraLinuxPlatformModel')
-    public boolean json_model_7(Object val, Path path, Report rep)
+    // check $ClearLinuxPlatformModel (.'$ClearLinuxPlatformModel')
+    public boolean json_model_8(Object val, Path path, Report rep)
     {
-        boolean res;
-        // .'$AstraLinuxPlatformModel'
-        res = _jm_obj_5(val, path, rep);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected element [.'$AstraLinuxPlatformModel']", path);
-        }
-        return res;
-    }
-
-    // object .'$ClearLinuxPlatformModel'
-    public boolean _jm_obj_6(Object val, Path path, Report rep)
-    {
+        // .'$ClearLinuxPlatformModel'
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.'$ClearLinuxPlatformModel']", path);
@@ -638,23 +567,11 @@ public class ansiblelint_meta extends ModelChecker
         return true;
     }
 
-    // check $ClearLinuxPlatformModel (.'$ClearLinuxPlatformModel')
-    public boolean json_model_8(Object val, Path path, Report rep)
-    {
-        boolean res;
-        // .'$ClearLinuxPlatformModel'
-        res = _jm_obj_6(val, path, rep);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected element [.'$ClearLinuxPlatformModel']", path);
-        }
-        return res;
-    }
 
-
-    // object .'$CumulusPlatformModel'
-    public boolean _jm_obj_7(Object val, Path path, Report rep)
+    // check $CumulusPlatformModel (.'$CumulusPlatformModel')
+    public boolean json_model_9(Object val, Path path, Report rep)
     {
+        // .'$CumulusPlatformModel'
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.'$CumulusPlatformModel']", path);
@@ -718,23 +635,11 @@ public class ansiblelint_meta extends ModelChecker
         return true;
     }
 
-    // check $CumulusPlatformModel (.'$CumulusPlatformModel')
-    public boolean json_model_9(Object val, Path path, Report rep)
-    {
-        boolean res;
-        // .'$CumulusPlatformModel'
-        res = _jm_obj_7(val, path, rep);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected element [.'$CumulusPlatformModel']", path);
-        }
-        return res;
-    }
 
-
-    // object .'$DebianPlatformModel'
-    public boolean _jm_obj_8(Object val, Path path, Report rep)
+    // check $DebianPlatformModel (.'$DebianPlatformModel')
+    public boolean json_model_10(Object val, Path path, Report rep)
     {
+        // .'$DebianPlatformModel'
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.'$DebianPlatformModel']", path);
@@ -798,23 +703,11 @@ public class ansiblelint_meta extends ModelChecker
         return true;
     }
 
-    // check $DebianPlatformModel (.'$DebianPlatformModel')
-    public boolean json_model_10(Object val, Path path, Report rep)
-    {
-        boolean res;
-        // .'$DebianPlatformModel'
-        res = _jm_obj_8(val, path, rep);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected element [.'$DebianPlatformModel']", path);
-        }
-        return res;
-    }
 
-
-    // object .'$DellOSPlatformModel'
-    public boolean _jm_obj_9(Object val, Path path, Report rep)
+    // check $DellOSPlatformModel (.'$DellOSPlatformModel')
+    public boolean json_model_11(Object val, Path path, Report rep)
     {
+        // .'$DellOSPlatformModel'
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.'$DellOSPlatformModel']", path);
@@ -878,23 +771,11 @@ public class ansiblelint_meta extends ModelChecker
         return true;
     }
 
-    // check $DellOSPlatformModel (.'$DellOSPlatformModel')
-    public boolean json_model_11(Object val, Path path, Report rep)
-    {
-        boolean res;
-        // .'$DellOSPlatformModel'
-        res = _jm_obj_9(val, path, rep);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected element [.'$DellOSPlatformModel']", path);
-        }
-        return res;
-    }
 
-
-    // object .'$DevuanPlatformModel'
-    public boolean _jm_obj_10(Object val, Path path, Report rep)
+    // check $DevuanPlatformModel (.'$DevuanPlatformModel')
+    public boolean json_model_12(Object val, Path path, Report rep)
     {
+        // .'$DevuanPlatformModel'
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.'$DevuanPlatformModel']", path);
@@ -958,23 +839,11 @@ public class ansiblelint_meta extends ModelChecker
         return true;
     }
 
-    // check $DevuanPlatformModel (.'$DevuanPlatformModel')
-    public boolean json_model_12(Object val, Path path, Report rep)
-    {
-        boolean res;
-        // .'$DevuanPlatformModel'
-        res = _jm_obj_10(val, path, rep);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected element [.'$DevuanPlatformModel']", path);
-        }
-        return res;
-    }
 
-
-    // object .'$DragonFlyBSDPlatformModel'
-    public boolean _jm_obj_11(Object val, Path path, Report rep)
+    // check $DragonFlyBSDPlatformModel (.'$DragonFlyBSDPlatformModel')
+    public boolean json_model_13(Object val, Path path, Report rep)
     {
+        // .'$DragonFlyBSDPlatformModel'
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.'$DragonFlyBSDPlatformModel']", path);
@@ -1038,23 +907,11 @@ public class ansiblelint_meta extends ModelChecker
         return true;
     }
 
-    // check $DragonFlyBSDPlatformModel (.'$DragonFlyBSDPlatformModel')
-    public boolean json_model_13(Object val, Path path, Report rep)
-    {
-        boolean res;
-        // .'$DragonFlyBSDPlatformModel'
-        res = _jm_obj_11(val, path, rep);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected element [.'$DragonFlyBSDPlatformModel']", path);
-        }
-        return res;
-    }
 
-
-    // object .'$ELPlatformModel'
-    public boolean _jm_obj_12(Object val, Path path, Report rep)
+    // check $ELPlatformModel (.'$ELPlatformModel')
+    public boolean json_model_14(Object val, Path path, Report rep)
     {
+        // .'$ELPlatformModel'
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.'$ELPlatformModel']", path);
@@ -1118,23 +975,11 @@ public class ansiblelint_meta extends ModelChecker
         return true;
     }
 
-    // check $ELPlatformModel (.'$ELPlatformModel')
-    public boolean json_model_14(Object val, Path path, Report rep)
-    {
-        boolean res;
-        // .'$ELPlatformModel'
-        res = _jm_obj_12(val, path, rep);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected element [.'$ELPlatformModel']", path);
-        }
-        return res;
-    }
 
-
-    // object .'$FedoraPlatformModel'
-    public boolean _jm_obj_13(Object val, Path path, Report rep)
+    // check $FedoraPlatformModel (.'$FedoraPlatformModel')
+    public boolean json_model_15(Object val, Path path, Report rep)
     {
+        // .'$FedoraPlatformModel'
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.'$FedoraPlatformModel']", path);
@@ -1198,23 +1043,11 @@ public class ansiblelint_meta extends ModelChecker
         return true;
     }
 
-    // check $FedoraPlatformModel (.'$FedoraPlatformModel')
-    public boolean json_model_15(Object val, Path path, Report rep)
-    {
-        boolean res;
-        // .'$FedoraPlatformModel'
-        res = _jm_obj_13(val, path, rep);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected element [.'$FedoraPlatformModel']", path);
-        }
-        return res;
-    }
 
-
-    // object .'$FreeBSDPlatformModel'
-    public boolean _jm_obj_14(Object val, Path path, Report rep)
+    // check $FreeBSDPlatformModel (.'$FreeBSDPlatformModel')
+    public boolean json_model_16(Object val, Path path, Report rep)
     {
+        // .'$FreeBSDPlatformModel'
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.'$FreeBSDPlatformModel']", path);
@@ -1278,22 +1111,10 @@ public class ansiblelint_meta extends ModelChecker
         return true;
     }
 
-    // check $FreeBSDPlatformModel (.'$FreeBSDPlatformModel')
-    public boolean json_model_16(Object val, Path path, Report rep)
+    // check $GenericBSDPlatformModel (.'$GenericBSDPlatformModel')
+    public boolean json_model_17(Object val, Path path, Report rep)
     {
-        boolean res;
-        // .'$FreeBSDPlatformModel'
-        res = _jm_obj_14(val, path, rep);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected element [.'$FreeBSDPlatformModel']", path);
-        }
-        return res;
-    }
-
-    // object .'$GenericBSDPlatformModel'
-    public boolean _jm_obj_15(Object val, Path path, Report rep)
-    {
+        // .'$GenericBSDPlatformModel'
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.'$GenericBSDPlatformModel']", path);
@@ -1357,22 +1178,10 @@ public class ansiblelint_meta extends ModelChecker
         return true;
     }
 
-    // check $GenericBSDPlatformModel (.'$GenericBSDPlatformModel')
-    public boolean json_model_17(Object val, Path path, Report rep)
+    // check $GenericLinuxPlatformModel (.'$GenericLinuxPlatformModel')
+    public boolean json_model_18(Object val, Path path, Report rep)
     {
-        boolean res;
-        // .'$GenericBSDPlatformModel'
-        res = _jm_obj_15(val, path, rep);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected element [.'$GenericBSDPlatformModel']", path);
-        }
-        return res;
-    }
-
-    // object .'$GenericLinuxPlatformModel'
-    public boolean _jm_obj_16(Object val, Path path, Report rep)
-    {
+        // .'$GenericLinuxPlatformModel'
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.'$GenericLinuxPlatformModel']", path);
@@ -1436,22 +1245,10 @@ public class ansiblelint_meta extends ModelChecker
         return true;
     }
 
-    // check $GenericLinuxPlatformModel (.'$GenericLinuxPlatformModel')
-    public boolean json_model_18(Object val, Path path, Report rep)
+    // check $GenericUNIXPlatformModel (.'$GenericUNIXPlatformModel')
+    public boolean json_model_19(Object val, Path path, Report rep)
     {
-        boolean res;
-        // .'$GenericLinuxPlatformModel'
-        res = _jm_obj_16(val, path, rep);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected element [.'$GenericLinuxPlatformModel']", path);
-        }
-        return res;
-    }
-
-    // object .'$GenericUNIXPlatformModel'
-    public boolean _jm_obj_17(Object val, Path path, Report rep)
-    {
+        // .'$GenericUNIXPlatformModel'
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.'$GenericUNIXPlatformModel']", path);
@@ -1515,22 +1312,10 @@ public class ansiblelint_meta extends ModelChecker
         return true;
     }
 
-    // check $GenericUNIXPlatformModel (.'$GenericUNIXPlatformModel')
-    public boolean json_model_19(Object val, Path path, Report rep)
+    // check $GentooPlatformModel (.'$GentooPlatformModel')
+    public boolean json_model_20(Object val, Path path, Report rep)
     {
-        boolean res;
-        // .'$GenericUNIXPlatformModel'
-        res = _jm_obj_17(val, path, rep);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected element [.'$GenericUNIXPlatformModel']", path);
-        }
-        return res;
-    }
-
-    // object .'$GentooPlatformModel'
-    public boolean _jm_obj_18(Object val, Path path, Report rep)
-    {
+        // .'$GentooPlatformModel'
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.'$GentooPlatformModel']", path);
@@ -1594,23 +1379,11 @@ public class ansiblelint_meta extends ModelChecker
         return true;
     }
 
-    // check $GentooPlatformModel (.'$GentooPlatformModel')
-    public boolean json_model_20(Object val, Path path, Report rep)
-    {
-        boolean res;
-        // .'$GentooPlatformModel'
-        res = _jm_obj_18(val, path, rep);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected element [.'$GentooPlatformModel']", path);
-        }
-        return res;
-    }
 
-
-    // object .'$HardenedBSDPlatformModel'
-    public boolean _jm_obj_19(Object val, Path path, Report rep)
+    // check $HardenedBSDPlatformModel (.'$HardenedBSDPlatformModel')
+    public boolean json_model_21(Object val, Path path, Report rep)
     {
+        // .'$HardenedBSDPlatformModel'
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.'$HardenedBSDPlatformModel']", path);
@@ -1674,22 +1447,10 @@ public class ansiblelint_meta extends ModelChecker
         return true;
     }
 
-    // check $HardenedBSDPlatformModel (.'$HardenedBSDPlatformModel')
-    public boolean json_model_21(Object val, Path path, Report rep)
+    // check $IOSPlatformModel (.'$IOSPlatformModel')
+    public boolean json_model_22(Object val, Path path, Report rep)
     {
-        boolean res;
-        // .'$HardenedBSDPlatformModel'
-        res = _jm_obj_19(val, path, rep);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected element [.'$HardenedBSDPlatformModel']", path);
-        }
-        return res;
-    }
-
-    // object .'$IOSPlatformModel'
-    public boolean _jm_obj_20(Object val, Path path, Report rep)
-    {
+        // .'$IOSPlatformModel'
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.'$IOSPlatformModel']", path);
@@ -1753,22 +1514,10 @@ public class ansiblelint_meta extends ModelChecker
         return true;
     }
 
-    // check $IOSPlatformModel (.'$IOSPlatformModel')
-    public boolean json_model_22(Object val, Path path, Report rep)
+    // check $JunosPlatformModel (.'$JunosPlatformModel')
+    public boolean json_model_23(Object val, Path path, Report rep)
     {
-        boolean res;
-        // .'$IOSPlatformModel'
-        res = _jm_obj_20(val, path, rep);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected element [.'$IOSPlatformModel']", path);
-        }
-        return res;
-    }
-
-    // object .'$JunosPlatformModel'
-    public boolean _jm_obj_21(Object val, Path path, Report rep)
-    {
+        // .'$JunosPlatformModel'
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.'$JunosPlatformModel']", path);
@@ -1832,23 +1581,11 @@ public class ansiblelint_meta extends ModelChecker
         return true;
     }
 
-    // check $JunosPlatformModel (.'$JunosPlatformModel')
-    public boolean json_model_23(Object val, Path path, Report rep)
-    {
-        boolean res;
-        // .'$JunosPlatformModel'
-        res = _jm_obj_21(val, path, rep);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected element [.'$JunosPlatformModel']", path);
-        }
-        return res;
-    }
 
-
-    // object .'$KaliPlatformModel'
-    public boolean _jm_obj_22(Object val, Path path, Report rep)
+    // check $KaliPlatformModel (.'$KaliPlatformModel')
+    public boolean json_model_24(Object val, Path path, Report rep)
     {
+        // .'$KaliPlatformModel'
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.'$KaliPlatformModel']", path);
@@ -1912,23 +1649,11 @@ public class ansiblelint_meta extends ModelChecker
         return true;
     }
 
-    // check $KaliPlatformModel (.'$KaliPlatformModel')
-    public boolean json_model_24(Object val, Path path, Report rep)
-    {
-        boolean res;
-        // .'$KaliPlatformModel'
-        res = _jm_obj_22(val, path, rep);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected element [.'$KaliPlatformModel']", path);
-        }
-        return res;
-    }
 
-
-    // object .'$MacOSXPlatformModel'
-    public boolean _jm_obj_23(Object val, Path path, Report rep)
+    // check $MacOSXPlatformModel (.'$MacOSXPlatformModel')
+    public boolean json_model_25(Object val, Path path, Report rep)
     {
+        // .'$MacOSXPlatformModel'
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.'$MacOSXPlatformModel']", path);
@@ -1992,23 +1717,11 @@ public class ansiblelint_meta extends ModelChecker
         return true;
     }
 
-    // check $MacOSXPlatformModel (.'$MacOSXPlatformModel')
-    public boolean json_model_25(Object val, Path path, Report rep)
-    {
-        boolean res;
-        // .'$MacOSXPlatformModel'
-        res = _jm_obj_23(val, path, rep);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected element [.'$MacOSXPlatformModel']", path);
-        }
-        return res;
-    }
 
-
-    // object .'$MageiaPlatformModel'
-    public boolean _jm_obj_24(Object val, Path path, Report rep)
+    // check $MageiaPlatformModel (.'$MageiaPlatformModel')
+    public boolean json_model_26(Object val, Path path, Report rep)
     {
+        // .'$MageiaPlatformModel'
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.'$MageiaPlatformModel']", path);
@@ -2072,22 +1785,10 @@ public class ansiblelint_meta extends ModelChecker
         return true;
     }
 
-    // check $MageiaPlatformModel (.'$MageiaPlatformModel')
-    public boolean json_model_26(Object val, Path path, Report rep)
+    // check $NXOSPlatformModel (.'$NXOSPlatformModel')
+    public boolean json_model_27(Object val, Path path, Report rep)
     {
-        boolean res;
-        // .'$MageiaPlatformModel'
-        res = _jm_obj_24(val, path, rep);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected element [.'$MageiaPlatformModel']", path);
-        }
-        return res;
-    }
-
-    // object .'$NXOSPlatformModel'
-    public boolean _jm_obj_25(Object val, Path path, Report rep)
-    {
+        // .'$NXOSPlatformModel'
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.'$NXOSPlatformModel']", path);
@@ -2151,23 +1852,11 @@ public class ansiblelint_meta extends ModelChecker
         return true;
     }
 
-    // check $NXOSPlatformModel (.'$NXOSPlatformModel')
-    public boolean json_model_27(Object val, Path path, Report rep)
-    {
-        boolean res;
-        // .'$NXOSPlatformModel'
-        res = _jm_obj_25(val, path, rep);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected element [.'$NXOSPlatformModel']", path);
-        }
-        return res;
-    }
 
-
-    // object .'$NetBSDPlatformModel'
-    public boolean _jm_obj_26(Object val, Path path, Report rep)
+    // check $NetBSDPlatformModel (.'$NetBSDPlatformModel')
+    public boolean json_model_28(Object val, Path path, Report rep)
     {
+        // .'$NetBSDPlatformModel'
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.'$NetBSDPlatformModel']", path);
@@ -2231,23 +1920,11 @@ public class ansiblelint_meta extends ModelChecker
         return true;
     }
 
-    // check $NetBSDPlatformModel (.'$NetBSDPlatformModel')
-    public boolean json_model_28(Object val, Path path, Report rep)
-    {
-        boolean res;
-        // .'$NetBSDPlatformModel'
-        res = _jm_obj_26(val, path, rep);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected element [.'$NetBSDPlatformModel']", path);
-        }
-        return res;
-    }
 
-
-    // object .'$OpenBSDPlatformModel'
-    public boolean _jm_obj_27(Object val, Path path, Report rep)
+    // check $OpenBSDPlatformModel (.'$OpenBSDPlatformModel')
+    public boolean json_model_29(Object val, Path path, Report rep)
     {
+        // .'$OpenBSDPlatformModel'
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.'$OpenBSDPlatformModel']", path);
@@ -2311,23 +1988,11 @@ public class ansiblelint_meta extends ModelChecker
         return true;
     }
 
-    // check $OpenBSDPlatformModel (.'$OpenBSDPlatformModel')
-    public boolean json_model_29(Object val, Path path, Report rep)
-    {
-        boolean res;
-        // .'$OpenBSDPlatformModel'
-        res = _jm_obj_27(val, path, rep);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected element [.'$OpenBSDPlatformModel']", path);
-        }
-        return res;
-    }
 
-
-    // object .'$OpenWrtPlatformModel'
-    public boolean _jm_obj_28(Object val, Path path, Report rep)
+    // check $OpenWrtPlatformModel (.'$OpenWrtPlatformModel')
+    public boolean json_model_30(Object val, Path path, Report rep)
     {
+        // .'$OpenWrtPlatformModel'
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.'$OpenWrtPlatformModel']", path);
@@ -2391,23 +2056,11 @@ public class ansiblelint_meta extends ModelChecker
         return true;
     }
 
-    // check $OpenWrtPlatformModel (.'$OpenWrtPlatformModel')
-    public boolean json_model_30(Object val, Path path, Report rep)
-    {
-        boolean res;
-        // .'$OpenWrtPlatformModel'
-        res = _jm_obj_28(val, path, rep);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected element [.'$OpenWrtPlatformModel']", path);
-        }
-        return res;
-    }
 
-
-    // object .'$OracleLinuxPlatformModel'
-    public boolean _jm_obj_29(Object val, Path path, Report rep)
+    // check $OracleLinuxPlatformModel (.'$OracleLinuxPlatformModel')
+    public boolean json_model_31(Object val, Path path, Report rep)
     {
+        // .'$OracleLinuxPlatformModel'
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.'$OracleLinuxPlatformModel']", path);
@@ -2471,23 +2124,11 @@ public class ansiblelint_meta extends ModelChecker
         return true;
     }
 
-    // check $OracleLinuxPlatformModel (.'$OracleLinuxPlatformModel')
-    public boolean json_model_31(Object val, Path path, Report rep)
-    {
-        boolean res;
-        // .'$OracleLinuxPlatformModel'
-        res = _jm_obj_29(val, path, rep);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected element [.'$OracleLinuxPlatformModel']", path);
-        }
-        return res;
-    }
 
-
-    // object .'$PAN-OSPlatformModel'
-    public boolean _jm_obj_30(Object val, Path path, Report rep)
+    // check $PAN-OSPlatformModel (.'$PAN-OSPlatformModel')
+    public boolean json_model_32(Object val, Path path, Report rep)
     {
+        // .'$PAN-OSPlatformModel'
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.'$PAN-OSPlatformModel']", path);
@@ -2551,23 +2192,11 @@ public class ansiblelint_meta extends ModelChecker
         return true;
     }
 
-    // check $PAN-OSPlatformModel (.'$PAN-OSPlatformModel')
-    public boolean json_model_32(Object val, Path path, Report rep)
-    {
-        boolean res;
-        // .'$PAN-OSPlatformModel'
-        res = _jm_obj_30(val, path, rep);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected element [.'$PAN-OSPlatformModel']", path);
-        }
-        return res;
-    }
 
-
-    // object .'$RockyLinuxPlatformModel'
-    public boolean _jm_obj_31(Object val, Path path, Report rep)
+    // check $RockyLinuxPlatformModel (.'$RockyLinuxPlatformModel')
+    public boolean json_model_33(Object val, Path path, Report rep)
     {
+        // .'$RockyLinuxPlatformModel'
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.'$RockyLinuxPlatformModel']", path);
@@ -2631,23 +2260,11 @@ public class ansiblelint_meta extends ModelChecker
         return true;
     }
 
-    // check $RockyLinuxPlatformModel (.'$RockyLinuxPlatformModel')
-    public boolean json_model_33(Object val, Path path, Report rep)
-    {
-        boolean res;
-        // .'$RockyLinuxPlatformModel'
-        res = _jm_obj_31(val, path, rep);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected element [.'$RockyLinuxPlatformModel']", path);
-        }
-        return res;
-    }
 
-
-    // object .'$SLESPlatformModel'
-    public boolean _jm_obj_32(Object val, Path path, Report rep)
+    // check $SLESPlatformModel (.'$SLESPlatformModel')
+    public boolean json_model_34(Object val, Path path, Report rep)
     {
+        // .'$SLESPlatformModel'
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.'$SLESPlatformModel']", path);
@@ -2711,22 +2328,10 @@ public class ansiblelint_meta extends ModelChecker
         return true;
     }
 
-    // check $SLESPlatformModel (.'$SLESPlatformModel')
-    public boolean json_model_34(Object val, Path path, Report rep)
+    // check $SmartOSPlatformModel (.'$SmartOSPlatformModel')
+    public boolean json_model_35(Object val, Path path, Report rep)
     {
-        boolean res;
-        // .'$SLESPlatformModel'
-        res = _jm_obj_32(val, path, rep);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected element [.'$SLESPlatformModel']", path);
-        }
-        return res;
-    }
-
-    // object .'$SmartOSPlatformModel'
-    public boolean _jm_obj_33(Object val, Path path, Report rep)
-    {
+        // .'$SmartOSPlatformModel'
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.'$SmartOSPlatformModel']", path);
@@ -2790,23 +2395,11 @@ public class ansiblelint_meta extends ModelChecker
         return true;
     }
 
-    // check $SmartOSPlatformModel (.'$SmartOSPlatformModel')
-    public boolean json_model_35(Object val, Path path, Report rep)
-    {
-        boolean res;
-        // .'$SmartOSPlatformModel'
-        res = _jm_obj_33(val, path, rep);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected element [.'$SmartOSPlatformModel']", path);
-        }
-        return res;
-    }
 
-
-    // object .'$SolarisPlatformModel'
-    public boolean _jm_obj_34(Object val, Path path, Report rep)
+    // check $SolarisPlatformModel (.'$SolarisPlatformModel')
+    public boolean json_model_36(Object val, Path path, Report rep)
     {
+        // .'$SolarisPlatformModel'
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.'$SolarisPlatformModel']", path);
@@ -2870,23 +2463,11 @@ public class ansiblelint_meta extends ModelChecker
         return true;
     }
 
-    // check $SolarisPlatformModel (.'$SolarisPlatformModel')
-    public boolean json_model_36(Object val, Path path, Report rep)
-    {
-        boolean res;
-        // .'$SolarisPlatformModel'
-        res = _jm_obj_34(val, path, rep);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected element [.'$SolarisPlatformModel']", path);
-        }
-        return res;
-    }
 
-
-    // object .'$SynologyPlatformModel'
-    public boolean _jm_obj_35(Object val, Path path, Report rep)
+    // check $SynologyPlatformModel (.'$SynologyPlatformModel')
+    public boolean json_model_37(Object val, Path path, Report rep)
     {
+        // .'$SynologyPlatformModel'
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.'$SynologyPlatformModel']", path);
@@ -2950,23 +2531,11 @@ public class ansiblelint_meta extends ModelChecker
         return true;
     }
 
-    // check $SynologyPlatformModel (.'$SynologyPlatformModel')
-    public boolean json_model_37(Object val, Path path, Report rep)
-    {
-        boolean res;
-        // .'$SynologyPlatformModel'
-        res = _jm_obj_35(val, path, rep);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected element [.'$SynologyPlatformModel']", path);
-        }
-        return res;
-    }
 
-
-    // object .'$TMOSPlatformModel'
-    public boolean _jm_obj_36(Object val, Path path, Report rep)
+    // check $TMOSPlatformModel (.'$TMOSPlatformModel')
+    public boolean json_model_38(Object val, Path path, Report rep)
     {
+        // .'$TMOSPlatformModel'
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.'$TMOSPlatformModel']", path);
@@ -3030,23 +2599,11 @@ public class ansiblelint_meta extends ModelChecker
         return true;
     }
 
-    // check $TMOSPlatformModel (.'$TMOSPlatformModel')
-    public boolean json_model_38(Object val, Path path, Report rep)
-    {
-        boolean res;
-        // .'$TMOSPlatformModel'
-        res = _jm_obj_36(val, path, rep);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected element [.'$TMOSPlatformModel']", path);
-        }
-        return res;
-    }
 
-
-    // object .'$UbuntuPlatformModel'
-    public boolean _jm_obj_37(Object val, Path path, Report rep)
+    // check $UbuntuPlatformModel (.'$UbuntuPlatformModel')
+    public boolean json_model_39(Object val, Path path, Report rep)
     {
+        // .'$UbuntuPlatformModel'
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.'$UbuntuPlatformModel']", path);
@@ -3110,22 +2667,10 @@ public class ansiblelint_meta extends ModelChecker
         return true;
     }
 
-    // check $UbuntuPlatformModel (.'$UbuntuPlatformModel')
-    public boolean json_model_39(Object val, Path path, Report rep)
+    // check $Void_LinuxPlatformModel (.'$Void_LinuxPlatformModel')
+    public boolean json_model_40(Object val, Path path, Report rep)
     {
-        boolean res;
-        // .'$UbuntuPlatformModel'
-        res = _jm_obj_37(val, path, rep);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected element [.'$UbuntuPlatformModel']", path);
-        }
-        return res;
-    }
-
-    // object .'$Void_LinuxPlatformModel'
-    public boolean _jm_obj_38(Object val, Path path, Report rep)
-    {
+        // .'$Void_LinuxPlatformModel'
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.'$Void_LinuxPlatformModel']", path);
@@ -3189,23 +2734,11 @@ public class ansiblelint_meta extends ModelChecker
         return true;
     }
 
-    // check $Void_LinuxPlatformModel (.'$Void_LinuxPlatformModel')
-    public boolean json_model_40(Object val, Path path, Report rep)
-    {
-        boolean res;
-        // .'$Void_LinuxPlatformModel'
-        res = _jm_obj_38(val, path, rep);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected element [.'$Void_LinuxPlatformModel']", path);
-        }
-        return res;
-    }
 
-
-    // object .'$WindowsPlatformModel'
-    public boolean _jm_obj_39(Object val, Path path, Report rep)
+    // check $WindowsPlatformModel (.'$WindowsPlatformModel')
+    public boolean json_model_41(Object val, Path path, Report rep)
     {
+        // .'$WindowsPlatformModel'
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.'$WindowsPlatformModel']", path);
@@ -3269,22 +2802,10 @@ public class ansiblelint_meta extends ModelChecker
         return true;
     }
 
-    // check $WindowsPlatformModel (.'$WindowsPlatformModel')
-    public boolean json_model_41(Object val, Path path, Report rep)
+    // check $aosPlatformModel (.'$aosPlatformModel')
+    public boolean json_model_42(Object val, Path path, Report rep)
     {
-        boolean res;
-        // .'$WindowsPlatformModel'
-        res = _jm_obj_39(val, path, rep);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected element [.'$WindowsPlatformModel']", path);
-        }
-        return res;
-    }
-
-    // object .'$aosPlatformModel'
-    public boolean _jm_obj_40(Object val, Path path, Report rep)
-    {
+        // .'$aosPlatformModel'
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.'$aosPlatformModel']", path);
@@ -3348,22 +2869,10 @@ public class ansiblelint_meta extends ModelChecker
         return true;
     }
 
-    // check $aosPlatformModel (.'$aosPlatformModel')
-    public boolean json_model_42(Object val, Path path, Report rep)
+    // check $eosPlatformModel (.'$eosPlatformModel')
+    public boolean json_model_43(Object val, Path path, Report rep)
     {
-        boolean res;
-        // .'$aosPlatformModel'
-        res = _jm_obj_40(val, path, rep);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected element [.'$aosPlatformModel']", path);
-        }
-        return res;
-    }
-
-    // object .'$eosPlatformModel'
-    public boolean _jm_obj_41(Object val, Path path, Report rep)
-    {
+        // .'$eosPlatformModel'
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.'$eosPlatformModel']", path);
@@ -3427,23 +2936,11 @@ public class ansiblelint_meta extends ModelChecker
         return true;
     }
 
-    // check $eosPlatformModel (.'$eosPlatformModel')
-    public boolean json_model_43(Object val, Path path, Report rep)
-    {
-        boolean res;
-        // .'$eosPlatformModel'
-        res = _jm_obj_41(val, path, rep);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected element [.'$eosPlatformModel']", path);
-        }
-        return res;
-    }
 
-
-    // object .'$macOSPlatformModel'
-    public boolean _jm_obj_42(Object val, Path path, Report rep)
+    // check $macOSPlatformModel (.'$macOSPlatformModel')
+    public boolean json_model_44(Object val, Path path, Report rep)
     {
+        // .'$macOSPlatformModel'
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.'$macOSPlatformModel']", path);
@@ -3507,23 +3004,11 @@ public class ansiblelint_meta extends ModelChecker
         return true;
     }
 
-    // check $macOSPlatformModel (.'$macOSPlatformModel')
-    public boolean json_model_44(Object val, Path path, Report rep)
-    {
-        boolean res;
-        // .'$macOSPlatformModel'
-        res = _jm_obj_42(val, path, rep);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected element [.'$macOSPlatformModel']", path);
-        }
-        return res;
-    }
 
-
-    // object .'$opensusePlatformModel'
-    public boolean _jm_obj_43(Object val, Path path, Report rep)
+    // check $opensusePlatformModel (.'$opensusePlatformModel')
+    public boolean json_model_45(Object val, Path path, Report rep)
     {
+        // .'$opensusePlatformModel'
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.'$opensusePlatformModel']", path);
@@ -3587,22 +3072,10 @@ public class ansiblelint_meta extends ModelChecker
         return true;
     }
 
-    // check $opensusePlatformModel (.'$opensusePlatformModel')
-    public boolean json_model_45(Object val, Path path, Report rep)
+    // check $os10PlatformModel (.'$os10PlatformModel')
+    public boolean json_model_46(Object val, Path path, Report rep)
     {
-        boolean res;
-        // .'$opensusePlatformModel'
-        res = _jm_obj_43(val, path, rep);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected element [.'$opensusePlatformModel']", path);
-        }
-        return res;
-    }
-
-    // object .'$os10PlatformModel'
-    public boolean _jm_obj_44(Object val, Path path, Report rep)
-    {
+        // .'$os10PlatformModel'
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.'$os10PlatformModel']", path);
@@ -3666,23 +3139,11 @@ public class ansiblelint_meta extends ModelChecker
         return true;
     }
 
-    // check $os10PlatformModel (.'$os10PlatformModel')
-    public boolean json_model_46(Object val, Path path, Report rep)
-    {
-        boolean res;
-        // .'$os10PlatformModel'
-        res = _jm_obj_44(val, path, rep);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected element [.'$os10PlatformModel']", path);
-        }
-        return res;
-    }
 
-
-    // object .'$vCenterPlatformModel'
-    public boolean _jm_obj_45(Object val, Path path, Report rep)
+    // check $vCenterPlatformModel (.'$vCenterPlatformModel')
+    public boolean json_model_47(Object val, Path path, Report rep)
     {
+        // .'$vCenterPlatformModel'
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.'$vCenterPlatformModel']", path);
@@ -3746,23 +3207,11 @@ public class ansiblelint_meta extends ModelChecker
         return true;
     }
 
-    // check $vCenterPlatformModel (.'$vCenterPlatformModel')
-    public boolean json_model_47(Object val, Path path, Report rep)
-    {
-        boolean res;
-        // .'$vCenterPlatformModel'
-        res = _jm_obj_45(val, path, rep);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected element [.'$vCenterPlatformModel']", path);
-        }
-        return res;
-    }
 
-
-    // object .'$vSpherePlatformModel'
-    public boolean _jm_obj_46(Object val, Path path, Report rep)
+    // check $vSpherePlatformModel (.'$vSpherePlatformModel')
+    public boolean json_model_48(Object val, Path path, Report rep)
     {
+        // .'$vSpherePlatformModel'
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.'$vSpherePlatformModel']", path);
@@ -3826,19 +3275,6 @@ public class ansiblelint_meta extends ModelChecker
         return true;
     }
 
-    // check $vSpherePlatformModel (.'$vSpherePlatformModel')
-    public boolean json_model_48(Object val, Path path, Report rep)
-    {
-        boolean res;
-        // .'$vSpherePlatformModel'
-        res = _jm_obj_46(val, path, rep);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected element [.'$vSpherePlatformModel']", path);
-        }
-        return res;
-    }
-
     // check $any_platform (.'$any_platform')
     public boolean json_model_49(Object val, Path path, Report rep)
     {
@@ -3846,7 +3282,7 @@ public class ansiblelint_meta extends ModelChecker
         // FIXME: name is not mandatory, not sure it makes much sense… versions should be unique?
         // .'$any_platform'
         // .'$any_platform'.'|'.0
-        res = _jm_obj_0(val, path, rep);
+        res = json_model_2(val, path, rep);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected $AIXPlatformModel [.'$any_platform'.'|'.0]", path);
@@ -3854,7 +3290,7 @@ public class ansiblelint_meta extends ModelChecker
         if (! res)
         {
             // .'$any_platform'.'|'.1
-            res = _jm_obj_1(val, path, rep);
+            res = json_model_3(val, path, rep);
             if (! res)
             {
                 if (rep != null) rep.addEntry("unexpected $AlpinePlatformModel [.'$any_platform'.'|'.1]", path);
@@ -3862,7 +3298,7 @@ public class ansiblelint_meta extends ModelChecker
             if (! res)
             {
                 // .'$any_platform'.'|'.2
-                res = _jm_obj_3(val, path, rep);
+                res = json_model_5(val, path, rep);
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected $AmazonPlatformModel [.'$any_platform'.'|'.2]", path);
@@ -3870,7 +3306,7 @@ public class ansiblelint_meta extends ModelChecker
                 if (! res)
                 {
                     // .'$any_platform'.'|'.3
-                    res = _jm_obj_2(val, path, rep);
+                    res = json_model_4(val, path, rep);
                     if (! res)
                     {
                         if (rep != null) rep.addEntry("unexpected $AmazonLinuxPlatformModel [.'$any_platform'.'|'.3]", path);
@@ -3878,7 +3314,7 @@ public class ansiblelint_meta extends ModelChecker
                     if (! res)
                     {
                         // .'$any_platform'.'|'.4
-                        res = _jm_obj_40(val, path, rep);
+                        res = json_model_42(val, path, rep);
                         if (! res)
                         {
                             if (rep != null) rep.addEntry("unexpected $aosPlatformModel [.'$any_platform'.'|'.4]", path);
@@ -3886,7 +3322,7 @@ public class ansiblelint_meta extends ModelChecker
                         if (! res)
                         {
                             // .'$any_platform'.'|'.5
-                            res = _jm_obj_4(val, path, rep);
+                            res = json_model_6(val, path, rep);
                             if (! res)
                             {
                                 if (rep != null) rep.addEntry("unexpected $ArchLinuxPlatformModel [.'$any_platform'.'|'.5]", path);
@@ -3894,7 +3330,7 @@ public class ansiblelint_meta extends ModelChecker
                             if (! res)
                             {
                                 // .'$any_platform'.'|'.6
-                                res = _jm_obj_5(val, path, rep);
+                                res = json_model_7(val, path, rep);
                                 if (! res)
                                 {
                                     if (rep != null) rep.addEntry("unexpected $AstraLinuxPlatformModel [.'$any_platform'.'|'.6]", path);
@@ -3902,7 +3338,7 @@ public class ansiblelint_meta extends ModelChecker
                                 if (! res)
                                 {
                                     // .'$any_platform'.'|'.7
-                                    res = _jm_obj_6(val, path, rep);
+                                    res = json_model_8(val, path, rep);
                                     if (! res)
                                     {
                                         if (rep != null) rep.addEntry("unexpected $ClearLinuxPlatformModel [.'$any_platform'.'|'.7]", path);
@@ -3910,7 +3346,7 @@ public class ansiblelint_meta extends ModelChecker
                                     if (! res)
                                     {
                                         // .'$any_platform'.'|'.8
-                                        res = _jm_obj_7(val, path, rep);
+                                        res = json_model_9(val, path, rep);
                                         if (! res)
                                         {
                                             if (rep != null) rep.addEntry("unexpected $CumulusPlatformModel [.'$any_platform'.'|'.8]", path);
@@ -3918,7 +3354,7 @@ public class ansiblelint_meta extends ModelChecker
                                         if (! res)
                                         {
                                             // .'$any_platform'.'|'.9
-                                            res = _jm_obj_26(val, path, rep);
+                                            res = json_model_28(val, path, rep);
                                             if (! res)
                                             {
                                                 if (rep != null) rep.addEntry("unexpected $NetBSDPlatformModel [.'$any_platform'.'|'.9]", path);
@@ -3926,7 +3362,7 @@ public class ansiblelint_meta extends ModelChecker
                                             if (! res)
                                             {
                                                 // .'$any_platform'.'|'.10
-                                                res = _jm_obj_8(val, path, rep);
+                                                res = json_model_10(val, path, rep);
                                                 if (! res)
                                                 {
                                                     if (rep != null) rep.addEntry("unexpected $DebianPlatformModel [.'$any_platform'.'|'.10]", path);
@@ -3934,7 +3370,7 @@ public class ansiblelint_meta extends ModelChecker
                                                 if (! res)
                                                 {
                                                     // .'$any_platform'.'|'.11
-                                                    res = _jm_obj_9(val, path, rep);
+                                                    res = json_model_11(val, path, rep);
                                                     if (! res)
                                                     {
                                                         if (rep != null) rep.addEntry("unexpected $DellOSPlatformModel [.'$any_platform'.'|'.11]", path);
@@ -3942,7 +3378,7 @@ public class ansiblelint_meta extends ModelChecker
                                                     if (! res)
                                                     {
                                                         // .'$any_platform'.'|'.12
-                                                        res = _jm_obj_10(val, path, rep);
+                                                        res = json_model_12(val, path, rep);
                                                         if (! res)
                                                         {
                                                             if (rep != null) rep.addEntry("unexpected $DevuanPlatformModel [.'$any_platform'.'|'.12]", path);
@@ -3950,7 +3386,7 @@ public class ansiblelint_meta extends ModelChecker
                                                         if (! res)
                                                         {
                                                             // .'$any_platform'.'|'.13
-                                                            res = _jm_obj_11(val, path, rep);
+                                                            res = json_model_13(val, path, rep);
                                                             if (! res)
                                                             {
                                                                 if (rep != null) rep.addEntry("unexpected $DragonFlyBSDPlatformModel [.'$any_platform'.'|'.13]", path);
@@ -3958,7 +3394,7 @@ public class ansiblelint_meta extends ModelChecker
                                                             if (! res)
                                                             {
                                                                 // .'$any_platform'.'|'.14
-                                                                res = _jm_obj_12(val, path, rep);
+                                                                res = json_model_14(val, path, rep);
                                                                 if (! res)
                                                                 {
                                                                     if (rep != null) rep.addEntry("unexpected $ELPlatformModel [.'$any_platform'.'|'.14]", path);
@@ -3966,7 +3402,7 @@ public class ansiblelint_meta extends ModelChecker
                                                                 if (! res)
                                                                 {
                                                                     // .'$any_platform'.'|'.15
-                                                                    res = _jm_obj_41(val, path, rep);
+                                                                    res = json_model_43(val, path, rep);
                                                                     if (! res)
                                                                     {
                                                                         if (rep != null) rep.addEntry("unexpected $eosPlatformModel [.'$any_platform'.'|'.15]", path);
@@ -3974,7 +3410,7 @@ public class ansiblelint_meta extends ModelChecker
                                                                     if (! res)
                                                                     {
                                                                         // .'$any_platform'.'|'.16
-                                                                        res = _jm_obj_13(val, path, rep);
+                                                                        res = json_model_15(val, path, rep);
                                                                         if (! res)
                                                                         {
                                                                             if (rep != null) rep.addEntry("unexpected $FedoraPlatformModel [.'$any_platform'.'|'.16]", path);
@@ -3982,7 +3418,7 @@ public class ansiblelint_meta extends ModelChecker
                                                                         if (! res)
                                                                         {
                                                                             // .'$any_platform'.'|'.17
-                                                                            res = _jm_obj_14(val, path, rep);
+                                                                            res = json_model_16(val, path, rep);
                                                                             if (! res)
                                                                             {
                                                                                 if (rep != null) rep.addEntry("unexpected $FreeBSDPlatformModel [.'$any_platform'.'|'.17]", path);
@@ -3990,7 +3426,7 @@ public class ansiblelint_meta extends ModelChecker
                                                                             if (! res)
                                                                             {
                                                                                 // .'$any_platform'.'|'.18
-                                                                                res = _jm_obj_15(val, path, rep);
+                                                                                res = json_model_17(val, path, rep);
                                                                                 if (! res)
                                                                                 {
                                                                                     if (rep != null) rep.addEntry("unexpected $GenericBSDPlatformModel [.'$any_platform'.'|'.18]", path);
@@ -3998,7 +3434,7 @@ public class ansiblelint_meta extends ModelChecker
                                                                                 if (! res)
                                                                                 {
                                                                                     // .'$any_platform'.'|'.19
-                                                                                    res = _jm_obj_16(val, path, rep);
+                                                                                    res = json_model_18(val, path, rep);
                                                                                     if (! res)
                                                                                     {
                                                                                         if (rep != null) rep.addEntry("unexpected $GenericLinuxPlatformModel [.'$any_platform'.'|'.19]", path);
@@ -4006,7 +3442,7 @@ public class ansiblelint_meta extends ModelChecker
                                                                                     if (! res)
                                                                                     {
                                                                                         // .'$any_platform'.'|'.20
-                                                                                        res = _jm_obj_17(val, path, rep);
+                                                                                        res = json_model_19(val, path, rep);
                                                                                         if (! res)
                                                                                         {
                                                                                             if (rep != null) rep.addEntry("unexpected $GenericUNIXPlatformModel [.'$any_platform'.'|'.20]", path);
@@ -4014,7 +3450,7 @@ public class ansiblelint_meta extends ModelChecker
                                                                                         if (! res)
                                                                                         {
                                                                                             // .'$any_platform'.'|'.21
-                                                                                            res = _jm_obj_18(val, path, rep);
+                                                                                            res = json_model_20(val, path, rep);
                                                                                             if (! res)
                                                                                             {
                                                                                                 if (rep != null) rep.addEntry("unexpected $GentooPlatformModel [.'$any_platform'.'|'.21]", path);
@@ -4022,7 +3458,7 @@ public class ansiblelint_meta extends ModelChecker
                                                                                             if (! res)
                                                                                             {
                                                                                                 // .'$any_platform'.'|'.22
-                                                                                                res = _jm_obj_19(val, path, rep);
+                                                                                                res = json_model_21(val, path, rep);
                                                                                                 if (! res)
                                                                                                 {
                                                                                                     if (rep != null) rep.addEntry("unexpected $HardenedBSDPlatformModel [.'$any_platform'.'|'.22]", path);
@@ -4030,7 +3466,7 @@ public class ansiblelint_meta extends ModelChecker
                                                                                                 if (! res)
                                                                                                 {
                                                                                                     // .'$any_platform'.'|'.23
-                                                                                                    res = _jm_obj_20(val, path, rep);
+                                                                                                    res = json_model_22(val, path, rep);
                                                                                                     if (! res)
                                                                                                     {
                                                                                                         if (rep != null) rep.addEntry("unexpected $IOSPlatformModel [.'$any_platform'.'|'.23]", path);
@@ -4038,7 +3474,7 @@ public class ansiblelint_meta extends ModelChecker
                                                                                                     if (! res)
                                                                                                     {
                                                                                                         // .'$any_platform'.'|'.24
-                                                                                                        res = _jm_obj_21(val, path, rep);
+                                                                                                        res = json_model_23(val, path, rep);
                                                                                                         if (! res)
                                                                                                         {
                                                                                                             if (rep != null) rep.addEntry("unexpected $JunosPlatformModel [.'$any_platform'.'|'.24]", path);
@@ -4046,7 +3482,7 @@ public class ansiblelint_meta extends ModelChecker
                                                                                                         if (! res)
                                                                                                         {
                                                                                                             // .'$any_platform'.'|'.25
-                                                                                                            res = _jm_obj_22(val, path, rep);
+                                                                                                            res = json_model_24(val, path, rep);
                                                                                                             if (! res)
                                                                                                             {
                                                                                                                 if (rep != null) rep.addEntry("unexpected $KaliPlatformModel [.'$any_platform'.'|'.25]", path);
@@ -4054,7 +3490,7 @@ public class ansiblelint_meta extends ModelChecker
                                                                                                             if (! res)
                                                                                                             {
                                                                                                                 // .'$any_platform'.'|'.26
-                                                                                                                res = _jm_obj_42(val, path, rep);
+                                                                                                                res = json_model_44(val, path, rep);
                                                                                                                 if (! res)
                                                                                                                 {
                                                                                                                     if (rep != null) rep.addEntry("unexpected $macOSPlatformModel [.'$any_platform'.'|'.26]", path);
@@ -4062,7 +3498,7 @@ public class ansiblelint_meta extends ModelChecker
                                                                                                                 if (! res)
                                                                                                                 {
                                                                                                                     // .'$any_platform'.'|'.27
-                                                                                                                    res = _jm_obj_23(val, path, rep);
+                                                                                                                    res = json_model_25(val, path, rep);
                                                                                                                     if (! res)
                                                                                                                     {
                                                                                                                         if (rep != null) rep.addEntry("unexpected $MacOSXPlatformModel [.'$any_platform'.'|'.27]", path);
@@ -4070,7 +3506,7 @@ public class ansiblelint_meta extends ModelChecker
                                                                                                                     if (! res)
                                                                                                                     {
                                                                                                                         // .'$any_platform'.'|'.28
-                                                                                                                        res = _jm_obj_24(val, path, rep);
+                                                                                                                        res = json_model_26(val, path, rep);
                                                                                                                         if (! res)
                                                                                                                         {
                                                                                                                             if (rep != null) rep.addEntry("unexpected $MageiaPlatformModel [.'$any_platform'.'|'.28]", path);
@@ -4078,7 +3514,7 @@ public class ansiblelint_meta extends ModelChecker
                                                                                                                         if (! res)
                                                                                                                         {
                                                                                                                             // .'$any_platform'.'|'.29
-                                                                                                                            res = _jm_obj_25(val, path, rep);
+                                                                                                                            res = json_model_27(val, path, rep);
                                                                                                                             if (! res)
                                                                                                                             {
                                                                                                                                 if (rep != null) rep.addEntry("unexpected $NXOSPlatformModel [.'$any_platform'.'|'.29]", path);
@@ -4086,7 +3522,7 @@ public class ansiblelint_meta extends ModelChecker
                                                                                                                             if (! res)
                                                                                                                             {
                                                                                                                                 // .'$any_platform'.'|'.30
-                                                                                                                                res = _jm_obj_27(val, path, rep);
+                                                                                                                                res = json_model_29(val, path, rep);
                                                                                                                                 if (! res)
                                                                                                                                 {
                                                                                                                                     if (rep != null) rep.addEntry("unexpected $OpenBSDPlatformModel [.'$any_platform'.'|'.30]", path);
@@ -4094,7 +3530,7 @@ public class ansiblelint_meta extends ModelChecker
                                                                                                                                 if (! res)
                                                                                                                                 {
                                                                                                                                     // .'$any_platform'.'|'.31
-                                                                                                                                    res = _jm_obj_43(val, path, rep);
+                                                                                                                                    res = json_model_45(val, path, rep);
                                                                                                                                     if (! res)
                                                                                                                                     {
                                                                                                                                         if (rep != null) rep.addEntry("unexpected $opensusePlatformModel [.'$any_platform'.'|'.31]", path);
@@ -4102,7 +3538,7 @@ public class ansiblelint_meta extends ModelChecker
                                                                                                                                     if (! res)
                                                                                                                                     {
                                                                                                                                         // .'$any_platform'.'|'.32
-                                                                                                                                        res = _jm_obj_28(val, path, rep);
+                                                                                                                                        res = json_model_30(val, path, rep);
                                                                                                                                         if (! res)
                                                                                                                                         {
                                                                                                                                             if (rep != null) rep.addEntry("unexpected $OpenWrtPlatformModel [.'$any_platform'.'|'.32]", path);
@@ -4110,7 +3546,7 @@ public class ansiblelint_meta extends ModelChecker
                                                                                                                                         if (! res)
                                                                                                                                         {
                                                                                                                                             // .'$any_platform'.'|'.33
-                                                                                                                                            res = _jm_obj_29(val, path, rep);
+                                                                                                                                            res = json_model_31(val, path, rep);
                                                                                                                                             if (! res)
                                                                                                                                             {
                                                                                                                                                 if (rep != null) rep.addEntry("unexpected $OracleLinuxPlatformModel [.'$any_platform'.'|'.33]", path);
@@ -4118,7 +3554,7 @@ public class ansiblelint_meta extends ModelChecker
                                                                                                                                             if (! res)
                                                                                                                                             {
                                                                                                                                                 // .'$any_platform'.'|'.34
-                                                                                                                                                res = _jm_obj_44(val, path, rep);
+                                                                                                                                                res = json_model_46(val, path, rep);
                                                                                                                                                 if (! res)
                                                                                                                                                 {
                                                                                                                                                     if (rep != null) rep.addEntry("unexpected $os10PlatformModel [.'$any_platform'.'|'.34]", path);
@@ -4126,7 +3562,7 @@ public class ansiblelint_meta extends ModelChecker
                                                                                                                                                 if (! res)
                                                                                                                                                 {
                                                                                                                                                     // .'$any_platform'.'|'.35
-                                                                                                                                                    res = _jm_obj_30(val, path, rep);
+                                                                                                                                                    res = json_model_32(val, path, rep);
                                                                                                                                                     if (! res)
                                                                                                                                                     {
                                                                                                                                                         if (rep != null) rep.addEntry("unexpected $PAN-OSPlatformModel [.'$any_platform'.'|'.35]", path);
@@ -4134,7 +3570,7 @@ public class ansiblelint_meta extends ModelChecker
                                                                                                                                                     if (! res)
                                                                                                                                                     {
                                                                                                                                                         // .'$any_platform'.'|'.36
-                                                                                                                                                        res = _jm_obj_31(val, path, rep);
+                                                                                                                                                        res = json_model_33(val, path, rep);
                                                                                                                                                         if (! res)
                                                                                                                                                         {
                                                                                                                                                             if (rep != null) rep.addEntry("unexpected $RockyLinuxPlatformModel [.'$any_platform'.'|'.36]", path);
@@ -4142,7 +3578,7 @@ public class ansiblelint_meta extends ModelChecker
                                                                                                                                                         if (! res)
                                                                                                                                                         {
                                                                                                                                                             // .'$any_platform'.'|'.37
-                                                                                                                                                            res = _jm_obj_32(val, path, rep);
+                                                                                                                                                            res = json_model_34(val, path, rep);
                                                                                                                                                             if (! res)
                                                                                                                                                             {
                                                                                                                                                                 if (rep != null) rep.addEntry("unexpected $SLESPlatformModel [.'$any_platform'.'|'.37]", path);
@@ -4150,7 +3586,7 @@ public class ansiblelint_meta extends ModelChecker
                                                                                                                                                             if (! res)
                                                                                                                                                             {
                                                                                                                                                                 // .'$any_platform'.'|'.38
-                                                                                                                                                                res = _jm_obj_33(val, path, rep);
+                                                                                                                                                                res = json_model_35(val, path, rep);
                                                                                                                                                                 if (! res)
                                                                                                                                                                 {
                                                                                                                                                                     if (rep != null) rep.addEntry("unexpected $SmartOSPlatformModel [.'$any_platform'.'|'.38]", path);
@@ -4158,7 +3594,7 @@ public class ansiblelint_meta extends ModelChecker
                                                                                                                                                                 if (! res)
                                                                                                                                                                 {
                                                                                                                                                                     // .'$any_platform'.'|'.39
-                                                                                                                                                                    res = _jm_obj_34(val, path, rep);
+                                                                                                                                                                    res = json_model_36(val, path, rep);
                                                                                                                                                                     if (! res)
                                                                                                                                                                     {
                                                                                                                                                                         if (rep != null) rep.addEntry("unexpected $SolarisPlatformModel [.'$any_platform'.'|'.39]", path);
@@ -4166,7 +3602,7 @@ public class ansiblelint_meta extends ModelChecker
                                                                                                                                                                     if (! res)
                                                                                                                                                                     {
                                                                                                                                                                         // .'$any_platform'.'|'.40
-                                                                                                                                                                        res = _jm_obj_35(val, path, rep);
+                                                                                                                                                                        res = json_model_37(val, path, rep);
                                                                                                                                                                         if (! res)
                                                                                                                                                                         {
                                                                                                                                                                             if (rep != null) rep.addEntry("unexpected $SynologyPlatformModel [.'$any_platform'.'|'.40]", path);
@@ -4174,7 +3610,7 @@ public class ansiblelint_meta extends ModelChecker
                                                                                                                                                                         if (! res)
                                                                                                                                                                         {
                                                                                                                                                                             // .'$any_platform'.'|'.41
-                                                                                                                                                                            res = _jm_obj_36(val, path, rep);
+                                                                                                                                                                            res = json_model_38(val, path, rep);
                                                                                                                                                                             if (! res)
                                                                                                                                                                             {
                                                                                                                                                                                 if (rep != null) rep.addEntry("unexpected $TMOSPlatformModel [.'$any_platform'.'|'.41]", path);
@@ -4182,7 +3618,7 @@ public class ansiblelint_meta extends ModelChecker
                                                                                                                                                                             if (! res)
                                                                                                                                                                             {
                                                                                                                                                                                 // .'$any_platform'.'|'.42
-                                                                                                                                                                                res = _jm_obj_37(val, path, rep);
+                                                                                                                                                                                res = json_model_39(val, path, rep);
                                                                                                                                                                                 if (! res)
                                                                                                                                                                                 {
                                                                                                                                                                                     if (rep != null) rep.addEntry("unexpected $UbuntuPlatformModel [.'$any_platform'.'|'.42]", path);
@@ -4190,7 +3626,7 @@ public class ansiblelint_meta extends ModelChecker
                                                                                                                                                                                 if (! res)
                                                                                                                                                                                 {
                                                                                                                                                                                     // .'$any_platform'.'|'.43
-                                                                                                                                                                                    res = _jm_obj_45(val, path, rep);
+                                                                                                                                                                                    res = json_model_47(val, path, rep);
                                                                                                                                                                                     if (! res)
                                                                                                                                                                                     {
                                                                                                                                                                                         if (rep != null) rep.addEntry("unexpected $vCenterPlatformModel [.'$any_platform'.'|'.43]", path);
@@ -4198,7 +3634,7 @@ public class ansiblelint_meta extends ModelChecker
                                                                                                                                                                                     if (! res)
                                                                                                                                                                                     {
                                                                                                                                                                                         // .'$any_platform'.'|'.44
-                                                                                                                                                                                        res = _jm_obj_38(val, path, rep);
+                                                                                                                                                                                        res = json_model_40(val, path, rep);
                                                                                                                                                                                         if (! res)
                                                                                                                                                                                         {
                                                                                                                                                                                             if (rep != null) rep.addEntry("unexpected $Void_LinuxPlatformModel [.'$any_platform'.'|'.44]", path);
@@ -4206,7 +3642,7 @@ public class ansiblelint_meta extends ModelChecker
                                                                                                                                                                                         if (! res)
                                                                                                                                                                                         {
                                                                                                                                                                                             // .'$any_platform'.'|'.45
-                                                                                                                                                                                            res = _jm_obj_46(val, path, rep);
+                                                                                                                                                                                            res = json_model_48(val, path, rep);
                                                                                                                                                                                             if (! res)
                                                                                                                                                                                             {
                                                                                                                                                                                                 if (rep != null) rep.addEntry("unexpected $vSpherePlatformModel [.'$any_platform'.'|'.45]", path);
@@ -4214,7 +3650,7 @@ public class ansiblelint_meta extends ModelChecker
                                                                                                                                                                                             if (! res)
                                                                                                                                                                                             {
                                                                                                                                                                                                 // .'$any_platform'.'|'.46
-                                                                                                                                                                                                res = _jm_obj_39(val, path, rep);
+                                                                                                                                                                                                res = json_model_41(val, path, rep);
                                                                                                                                                                                                 if (! res)
                                                                                                                                                                                                 {
                                                                                                                                                                                                     if (rep != null) rep.addEntry("unexpected $WindowsPlatformModel [.'$any_platform'.'|'.46]", path);
@@ -4278,7 +3714,7 @@ public class ansiblelint_meta extends ModelChecker
 
 
     // object .'$platforms'.0.'|'.46
-    public boolean _jm_obj_47(Object val, Path path, Report rep)
+    public boolean _jm_obj_0(Object val, Path path, Report rep)
     {
         // check open must/may only props
         if (! json.isObject(val))
@@ -4336,7 +3772,7 @@ public class ansiblelint_meta extends ModelChecker
 
 
     // object .'$platforms'.0.'|'.45
-    public boolean _jm_obj_48(Object val, Path path, Report rep)
+    public boolean _jm_obj_1(Object val, Path path, Report rep)
     {
         // check open must/may only props
         if (! json.isObject(val))
@@ -4393,7 +3829,7 @@ public class ansiblelint_meta extends ModelChecker
     }
 
     // object .'$platforms'.0.'|'.44
-    public boolean _jm_obj_49(Object val, Path path, Report rep)
+    public boolean _jm_obj_2(Object val, Path path, Report rep)
     {
         // check open must/may only props
         if (! json.isObject(val))
@@ -4451,7 +3887,7 @@ public class ansiblelint_meta extends ModelChecker
 
 
     // object .'$platforms'.0.'|'.43
-    public boolean _jm_obj_50(Object val, Path path, Report rep)
+    public boolean _jm_obj_3(Object val, Path path, Report rep)
     {
         // check open must/may only props
         if (! json.isObject(val))
@@ -4509,7 +3945,7 @@ public class ansiblelint_meta extends ModelChecker
 
 
     // object .'$platforms'.0.'|'.42
-    public boolean _jm_obj_51(Object val, Path path, Report rep)
+    public boolean _jm_obj_4(Object val, Path path, Report rep)
     {
         // check open must/may only props
         if (! json.isObject(val))
@@ -4567,7 +4003,7 @@ public class ansiblelint_meta extends ModelChecker
 
 
     // object .'$platforms'.0.'|'.41
-    public boolean _jm_obj_52(Object val, Path path, Report rep)
+    public boolean _jm_obj_5(Object val, Path path, Report rep)
     {
         // check open must/may only props
         if (! json.isObject(val))
@@ -4625,7 +4061,7 @@ public class ansiblelint_meta extends ModelChecker
 
 
     // object .'$platforms'.0.'|'.40
-    public boolean _jm_obj_53(Object val, Path path, Report rep)
+    public boolean _jm_obj_6(Object val, Path path, Report rep)
     {
         // check open must/may only props
         if (! json.isObject(val))
@@ -4683,7 +4119,7 @@ public class ansiblelint_meta extends ModelChecker
 
 
     // object .'$platforms'.0.'|'.39
-    public boolean _jm_obj_54(Object val, Path path, Report rep)
+    public boolean _jm_obj_7(Object val, Path path, Report rep)
     {
         // check open must/may only props
         if (! json.isObject(val))
@@ -4740,7 +4176,7 @@ public class ansiblelint_meta extends ModelChecker
     }
 
     // object .'$platforms'.0.'|'.38
-    public boolean _jm_obj_55(Object val, Path path, Report rep)
+    public boolean _jm_obj_8(Object val, Path path, Report rep)
     {
         // check open must/may only props
         if (! json.isObject(val))
@@ -4798,7 +4234,7 @@ public class ansiblelint_meta extends ModelChecker
 
 
     // object .'$platforms'.0.'|'.37
-    public boolean _jm_obj_56(Object val, Path path, Report rep)
+    public boolean _jm_obj_9(Object val, Path path, Report rep)
     {
         // check open must/may only props
         if (! json.isObject(val))
@@ -4856,7 +4292,7 @@ public class ansiblelint_meta extends ModelChecker
 
 
     // object .'$platforms'.0.'|'.36
-    public boolean _jm_obj_57(Object val, Path path, Report rep)
+    public boolean _jm_obj_10(Object val, Path path, Report rep)
     {
         // check open must/may only props
         if (! json.isObject(val))
@@ -4914,7 +4350,7 @@ public class ansiblelint_meta extends ModelChecker
 
 
     // object .'$platforms'.0.'|'.35
-    public boolean _jm_obj_58(Object val, Path path, Report rep)
+    public boolean _jm_obj_11(Object val, Path path, Report rep)
     {
         // check open must/may only props
         if (! json.isObject(val))
@@ -4971,7 +4407,7 @@ public class ansiblelint_meta extends ModelChecker
     }
 
     // object .'$platforms'.0.'|'.34
-    public boolean _jm_obj_59(Object val, Path path, Report rep)
+    public boolean _jm_obj_12(Object val, Path path, Report rep)
     {
         // check open must/may only props
         if (! json.isObject(val))
@@ -5029,7 +4465,7 @@ public class ansiblelint_meta extends ModelChecker
 
 
     // object .'$platforms'.0.'|'.33
-    public boolean _jm_obj_60(Object val, Path path, Report rep)
+    public boolean _jm_obj_13(Object val, Path path, Report rep)
     {
         // check open must/may only props
         if (! json.isObject(val))
@@ -5087,7 +4523,7 @@ public class ansiblelint_meta extends ModelChecker
 
 
     // object .'$platforms'.0.'|'.32
-    public boolean _jm_obj_61(Object val, Path path, Report rep)
+    public boolean _jm_obj_14(Object val, Path path, Report rep)
     {
         // check open must/may only props
         if (! json.isObject(val))
@@ -5145,7 +4581,7 @@ public class ansiblelint_meta extends ModelChecker
 
 
     // object .'$platforms'.0.'|'.31
-    public boolean _jm_obj_62(Object val, Path path, Report rep)
+    public boolean _jm_obj_15(Object val, Path path, Report rep)
     {
         // check open must/may only props
         if (! json.isObject(val))
@@ -5203,7 +4639,7 @@ public class ansiblelint_meta extends ModelChecker
 
 
     // object .'$platforms'.0.'|'.30
-    public boolean _jm_obj_63(Object val, Path path, Report rep)
+    public boolean _jm_obj_16(Object val, Path path, Report rep)
     {
         // check open must/may only props
         if (! json.isObject(val))
@@ -5260,7 +4696,7 @@ public class ansiblelint_meta extends ModelChecker
     }
 
     // object .'$platforms'.0.'|'.29
-    public boolean _jm_obj_64(Object val, Path path, Report rep)
+    public boolean _jm_obj_17(Object val, Path path, Report rep)
     {
         // check open must/may only props
         if (! json.isObject(val))
@@ -5318,7 +4754,7 @@ public class ansiblelint_meta extends ModelChecker
 
 
     // object .'$platforms'.0.'|'.28
-    public boolean _jm_obj_65(Object val, Path path, Report rep)
+    public boolean _jm_obj_18(Object val, Path path, Report rep)
     {
         // check open must/may only props
         if (! json.isObject(val))
@@ -5376,7 +4812,7 @@ public class ansiblelint_meta extends ModelChecker
 
 
     // object .'$platforms'.0.'|'.27
-    public boolean _jm_obj_66(Object val, Path path, Report rep)
+    public boolean _jm_obj_19(Object val, Path path, Report rep)
     {
         // check open must/may only props
         if (! json.isObject(val))
@@ -5434,7 +4870,7 @@ public class ansiblelint_meta extends ModelChecker
 
 
     // object .'$platforms'.0.'|'.26
-    public boolean _jm_obj_67(Object val, Path path, Report rep)
+    public boolean _jm_obj_20(Object val, Path path, Report rep)
     {
         // check open must/may only props
         if (! json.isObject(val))
@@ -5492,7 +4928,7 @@ public class ansiblelint_meta extends ModelChecker
 
 
     // object .'$platforms'.0.'|'.25
-    public boolean _jm_obj_68(Object val, Path path, Report rep)
+    public boolean _jm_obj_21(Object val, Path path, Report rep)
     {
         // check open must/may only props
         if (! json.isObject(val))
@@ -5549,7 +4985,7 @@ public class ansiblelint_meta extends ModelChecker
     }
 
     // object .'$platforms'.0.'|'.24
-    public boolean _jm_obj_69(Object val, Path path, Report rep)
+    public boolean _jm_obj_22(Object val, Path path, Report rep)
     {
         // check open must/may only props
         if (! json.isObject(val))
@@ -5606,7 +5042,7 @@ public class ansiblelint_meta extends ModelChecker
     }
 
     // object .'$platforms'.0.'|'.23
-    public boolean _jm_obj_70(Object val, Path path, Report rep)
+    public boolean _jm_obj_23(Object val, Path path, Report rep)
     {
         // check open must/may only props
         if (! json.isObject(val))
@@ -5664,7 +5100,7 @@ public class ansiblelint_meta extends ModelChecker
 
 
     // object .'$platforms'.0.'|'.22
-    public boolean _jm_obj_71(Object val, Path path, Report rep)
+    public boolean _jm_obj_24(Object val, Path path, Report rep)
     {
         // check open must/may only props
         if (! json.isObject(val))
@@ -5721,7 +5157,7 @@ public class ansiblelint_meta extends ModelChecker
     }
 
     // object .'$platforms'.0.'|'.21
-    public boolean _jm_obj_72(Object val, Path path, Report rep)
+    public boolean _jm_obj_25(Object val, Path path, Report rep)
     {
         // check open must/may only props
         if (! json.isObject(val))
@@ -5778,7 +5214,7 @@ public class ansiblelint_meta extends ModelChecker
     }
 
     // object .'$platforms'.0.'|'.20
-    public boolean _jm_obj_73(Object val, Path path, Report rep)
+    public boolean _jm_obj_26(Object val, Path path, Report rep)
     {
         // check open must/may only props
         if (! json.isObject(val))
@@ -5835,7 +5271,7 @@ public class ansiblelint_meta extends ModelChecker
     }
 
     // object .'$platforms'.0.'|'.19
-    public boolean _jm_obj_74(Object val, Path path, Report rep)
+    public boolean _jm_obj_27(Object val, Path path, Report rep)
     {
         // check open must/may only props
         if (! json.isObject(val))
@@ -5892,7 +5328,7 @@ public class ansiblelint_meta extends ModelChecker
     }
 
     // object .'$platforms'.0.'|'.18
-    public boolean _jm_obj_75(Object val, Path path, Report rep)
+    public boolean _jm_obj_28(Object val, Path path, Report rep)
     {
         // check open must/may only props
         if (! json.isObject(val))
@@ -5950,7 +5386,7 @@ public class ansiblelint_meta extends ModelChecker
 
 
     // object .'$platforms'.0.'|'.17
-    public boolean _jm_obj_76(Object val, Path path, Report rep)
+    public boolean _jm_obj_29(Object val, Path path, Report rep)
     {
         // check open must/may only props
         if (! json.isObject(val))
@@ -6008,7 +5444,7 @@ public class ansiblelint_meta extends ModelChecker
 
 
     // object .'$platforms'.0.'|'.16
-    public boolean _jm_obj_77(Object val, Path path, Report rep)
+    public boolean _jm_obj_30(Object val, Path path, Report rep)
     {
         // check open must/may only props
         if (! json.isObject(val))
@@ -6065,7 +5501,7 @@ public class ansiblelint_meta extends ModelChecker
     }
 
     // object .'$platforms'.0.'|'.15
-    public boolean _jm_obj_78(Object val, Path path, Report rep)
+    public boolean _jm_obj_31(Object val, Path path, Report rep)
     {
         // check open must/may only props
         if (! json.isObject(val))
@@ -6123,7 +5559,7 @@ public class ansiblelint_meta extends ModelChecker
 
 
     // object .'$platforms'.0.'|'.14
-    public boolean _jm_obj_79(Object val, Path path, Report rep)
+    public boolean _jm_obj_32(Object val, Path path, Report rep)
     {
         // check open must/may only props
         if (! json.isObject(val))
@@ -6181,7 +5617,7 @@ public class ansiblelint_meta extends ModelChecker
 
 
     // object .'$platforms'.0.'|'.13
-    public boolean _jm_obj_80(Object val, Path path, Report rep)
+    public boolean _jm_obj_33(Object val, Path path, Report rep)
     {
         // check open must/may only props
         if (! json.isObject(val))
@@ -6239,7 +5675,7 @@ public class ansiblelint_meta extends ModelChecker
 
 
     // object .'$platforms'.0.'|'.12
-    public boolean _jm_obj_81(Object val, Path path, Report rep)
+    public boolean _jm_obj_34(Object val, Path path, Report rep)
     {
         // check open must/may only props
         if (! json.isObject(val))
@@ -6297,7 +5733,7 @@ public class ansiblelint_meta extends ModelChecker
 
 
     // object .'$platforms'.0.'|'.11
-    public boolean _jm_obj_82(Object val, Path path, Report rep)
+    public boolean _jm_obj_35(Object val, Path path, Report rep)
     {
         // check open must/may only props
         if (! json.isObject(val))
@@ -6355,7 +5791,7 @@ public class ansiblelint_meta extends ModelChecker
 
 
     // object .'$platforms'.0.'|'.10
-    public boolean _jm_obj_83(Object val, Path path, Report rep)
+    public boolean _jm_obj_36(Object val, Path path, Report rep)
     {
         // check open must/may only props
         if (! json.isObject(val))
@@ -6413,7 +5849,7 @@ public class ansiblelint_meta extends ModelChecker
 
 
     // object .'$platforms'.0.'|'.9
-    public boolean _jm_obj_84(Object val, Path path, Report rep)
+    public boolean _jm_obj_37(Object val, Path path, Report rep)
     {
         // check open must/may only props
         if (! json.isObject(val))
@@ -6471,7 +5907,7 @@ public class ansiblelint_meta extends ModelChecker
 
 
     // object .'$platforms'.0.'|'.8
-    public boolean _jm_obj_85(Object val, Path path, Report rep)
+    public boolean _jm_obj_38(Object val, Path path, Report rep)
     {
         // check open must/may only props
         if (! json.isObject(val))
@@ -6528,7 +5964,7 @@ public class ansiblelint_meta extends ModelChecker
     }
 
     // object .'$platforms'.0.'|'.7
-    public boolean _jm_obj_86(Object val, Path path, Report rep)
+    public boolean _jm_obj_39(Object val, Path path, Report rep)
     {
         // check open must/may only props
         if (! json.isObject(val))
@@ -6586,7 +6022,7 @@ public class ansiblelint_meta extends ModelChecker
 
 
     // object .'$platforms'.0.'|'.6
-    public boolean _jm_obj_87(Object val, Path path, Report rep)
+    public boolean _jm_obj_40(Object val, Path path, Report rep)
     {
         // check open must/may only props
         if (! json.isObject(val))
@@ -6643,7 +6079,7 @@ public class ansiblelint_meta extends ModelChecker
     }
 
     // object .'$platforms'.0.'|'.5
-    public boolean _jm_obj_88(Object val, Path path, Report rep)
+    public boolean _jm_obj_41(Object val, Path path, Report rep)
     {
         // check open must/may only props
         if (! json.isObject(val))
@@ -6700,7 +6136,7 @@ public class ansiblelint_meta extends ModelChecker
     }
 
     // object .'$platforms'.0.'|'.4
-    public boolean _jm_obj_89(Object val, Path path, Report rep)
+    public boolean _jm_obj_42(Object val, Path path, Report rep)
     {
         // check open must/may only props
         if (! json.isObject(val))
@@ -6758,7 +6194,7 @@ public class ansiblelint_meta extends ModelChecker
 
 
     // object .'$platforms'.0.'|'.3
-    public boolean _jm_obj_90(Object val, Path path, Report rep)
+    public boolean _jm_obj_43(Object val, Path path, Report rep)
     {
         // check open must/may only props
         if (! json.isObject(val))
@@ -6816,7 +6252,7 @@ public class ansiblelint_meta extends ModelChecker
 
 
     // object .'$platforms'.0.'|'.2
-    public boolean _jm_obj_91(Object val, Path path, Report rep)
+    public boolean _jm_obj_44(Object val, Path path, Report rep)
     {
         // check open must/may only props
         if (! json.isObject(val))
@@ -6873,7 +6309,7 @@ public class ansiblelint_meta extends ModelChecker
     }
 
     // object .'$platforms'.0.'|'.1
-    public boolean _jm_obj_92(Object val, Path path, Report rep)
+    public boolean _jm_obj_45(Object val, Path path, Report rep)
     {
         // check open must/may only props
         if (! json.isObject(val))
@@ -6931,7 +6367,7 @@ public class ansiblelint_meta extends ModelChecker
 
 
     // object .'$platforms'.0.'|'.0
-    public boolean _jm_obj_93(Object val, Path path, Report rep)
+    public boolean _jm_obj_46(Object val, Path path, Report rep)
     {
         // check open must/may only props
         if (! json.isObject(val))
@@ -7011,7 +6447,7 @@ public class ansiblelint_meta extends ModelChecker
                 if (res)
                 {
                     // .'$platforms'.0.'|'.0
-                    res = _jm_obj_93(arr_47_item, (path != null ? arr_47_lpath : null), rep);
+                    res = _jm_obj_46(arr_47_item, (path != null ? arr_47_lpath : null), rep);
                     if (! res)
                     {
                         if (rep != null) rep.addEntry("unexpected element [.'$platforms'.0.'|'.0]", (path != null ? arr_47_lpath : null));
@@ -7019,7 +6455,7 @@ public class ansiblelint_meta extends ModelChecker
                     if (! res)
                     {
                         // .'$platforms'.0.'|'.1
-                        res = _jm_obj_92(arr_47_item, (path != null ? arr_47_lpath : null), rep);
+                        res = _jm_obj_45(arr_47_item, (path != null ? arr_47_lpath : null), rep);
                         if (! res)
                         {
                             if (rep != null) rep.addEntry("unexpected element [.'$platforms'.0.'|'.1]", (path != null ? arr_47_lpath : null));
@@ -7027,7 +6463,7 @@ public class ansiblelint_meta extends ModelChecker
                         if (! res)
                         {
                             // .'$platforms'.0.'|'.2
-                            res = _jm_obj_91(arr_47_item, (path != null ? arr_47_lpath : null), rep);
+                            res = _jm_obj_44(arr_47_item, (path != null ? arr_47_lpath : null), rep);
                             if (! res)
                             {
                                 if (rep != null) rep.addEntry("unexpected element [.'$platforms'.0.'|'.2]", (path != null ? arr_47_lpath : null));
@@ -7035,7 +6471,7 @@ public class ansiblelint_meta extends ModelChecker
                             if (! res)
                             {
                                 // .'$platforms'.0.'|'.3
-                                res = _jm_obj_90(arr_47_item, (path != null ? arr_47_lpath : null), rep);
+                                res = _jm_obj_43(arr_47_item, (path != null ? arr_47_lpath : null), rep);
                                 if (! res)
                                 {
                                     if (rep != null) rep.addEntry("unexpected element [.'$platforms'.0.'|'.3]", (path != null ? arr_47_lpath : null));
@@ -7043,7 +6479,7 @@ public class ansiblelint_meta extends ModelChecker
                                 if (! res)
                                 {
                                     // .'$platforms'.0.'|'.4
-                                    res = _jm_obj_89(arr_47_item, (path != null ? arr_47_lpath : null), rep);
+                                    res = _jm_obj_42(arr_47_item, (path != null ? arr_47_lpath : null), rep);
                                     if (! res)
                                     {
                                         if (rep != null) rep.addEntry("unexpected element [.'$platforms'.0.'|'.4]", (path != null ? arr_47_lpath : null));
@@ -7051,7 +6487,7 @@ public class ansiblelint_meta extends ModelChecker
                                     if (! res)
                                     {
                                         // .'$platforms'.0.'|'.5
-                                        res = _jm_obj_88(arr_47_item, (path != null ? arr_47_lpath : null), rep);
+                                        res = _jm_obj_41(arr_47_item, (path != null ? arr_47_lpath : null), rep);
                                         if (! res)
                                         {
                                             if (rep != null) rep.addEntry("unexpected element [.'$platforms'.0.'|'.5]", (path != null ? arr_47_lpath : null));
@@ -7059,7 +6495,7 @@ public class ansiblelint_meta extends ModelChecker
                                         if (! res)
                                         {
                                             // .'$platforms'.0.'|'.6
-                                            res = _jm_obj_87(arr_47_item, (path != null ? arr_47_lpath : null), rep);
+                                            res = _jm_obj_40(arr_47_item, (path != null ? arr_47_lpath : null), rep);
                                             if (! res)
                                             {
                                                 if (rep != null) rep.addEntry("unexpected element [.'$platforms'.0.'|'.6]", (path != null ? arr_47_lpath : null));
@@ -7067,7 +6503,7 @@ public class ansiblelint_meta extends ModelChecker
                                             if (! res)
                                             {
                                                 // .'$platforms'.0.'|'.7
-                                                res = _jm_obj_86(arr_47_item, (path != null ? arr_47_lpath : null), rep);
+                                                res = _jm_obj_39(arr_47_item, (path != null ? arr_47_lpath : null), rep);
                                                 if (! res)
                                                 {
                                                     if (rep != null) rep.addEntry("unexpected element [.'$platforms'.0.'|'.7]", (path != null ? arr_47_lpath : null));
@@ -7075,7 +6511,7 @@ public class ansiblelint_meta extends ModelChecker
                                                 if (! res)
                                                 {
                                                     // .'$platforms'.0.'|'.8
-                                                    res = _jm_obj_85(arr_47_item, (path != null ? arr_47_lpath : null), rep);
+                                                    res = _jm_obj_38(arr_47_item, (path != null ? arr_47_lpath : null), rep);
                                                     if (! res)
                                                     {
                                                         if (rep != null) rep.addEntry("unexpected element [.'$platforms'.0.'|'.8]", (path != null ? arr_47_lpath : null));
@@ -7083,7 +6519,7 @@ public class ansiblelint_meta extends ModelChecker
                                                     if (! res)
                                                     {
                                                         // .'$platforms'.0.'|'.9
-                                                        res = _jm_obj_84(arr_47_item, (path != null ? arr_47_lpath : null), rep);
+                                                        res = _jm_obj_37(arr_47_item, (path != null ? arr_47_lpath : null), rep);
                                                         if (! res)
                                                         {
                                                             if (rep != null) rep.addEntry("unexpected element [.'$platforms'.0.'|'.9]", (path != null ? arr_47_lpath : null));
@@ -7091,7 +6527,7 @@ public class ansiblelint_meta extends ModelChecker
                                                         if (! res)
                                                         {
                                                             // .'$platforms'.0.'|'.10
-                                                            res = _jm_obj_83(arr_47_item, (path != null ? arr_47_lpath : null), rep);
+                                                            res = _jm_obj_36(arr_47_item, (path != null ? arr_47_lpath : null), rep);
                                                             if (! res)
                                                             {
                                                                 if (rep != null) rep.addEntry("unexpected element [.'$platforms'.0.'|'.10]", (path != null ? arr_47_lpath : null));
@@ -7099,7 +6535,7 @@ public class ansiblelint_meta extends ModelChecker
                                                             if (! res)
                                                             {
                                                                 // .'$platforms'.0.'|'.11
-                                                                res = _jm_obj_82(arr_47_item, (path != null ? arr_47_lpath : null), rep);
+                                                                res = _jm_obj_35(arr_47_item, (path != null ? arr_47_lpath : null), rep);
                                                                 if (! res)
                                                                 {
                                                                     if (rep != null) rep.addEntry("unexpected element [.'$platforms'.0.'|'.11]", (path != null ? arr_47_lpath : null));
@@ -7107,7 +6543,7 @@ public class ansiblelint_meta extends ModelChecker
                                                                 if (! res)
                                                                 {
                                                                     // .'$platforms'.0.'|'.12
-                                                                    res = _jm_obj_81(arr_47_item, (path != null ? arr_47_lpath : null), rep);
+                                                                    res = _jm_obj_34(arr_47_item, (path != null ? arr_47_lpath : null), rep);
                                                                     if (! res)
                                                                     {
                                                                         if (rep != null) rep.addEntry("unexpected element [.'$platforms'.0.'|'.12]", (path != null ? arr_47_lpath : null));
@@ -7115,7 +6551,7 @@ public class ansiblelint_meta extends ModelChecker
                                                                     if (! res)
                                                                     {
                                                                         // .'$platforms'.0.'|'.13
-                                                                        res = _jm_obj_80(arr_47_item, (path != null ? arr_47_lpath : null), rep);
+                                                                        res = _jm_obj_33(arr_47_item, (path != null ? arr_47_lpath : null), rep);
                                                                         if (! res)
                                                                         {
                                                                             if (rep != null) rep.addEntry("unexpected element [.'$platforms'.0.'|'.13]", (path != null ? arr_47_lpath : null));
@@ -7123,7 +6559,7 @@ public class ansiblelint_meta extends ModelChecker
                                                                         if (! res)
                                                                         {
                                                                             // .'$platforms'.0.'|'.14
-                                                                            res = _jm_obj_79(arr_47_item, (path != null ? arr_47_lpath : null), rep);
+                                                                            res = _jm_obj_32(arr_47_item, (path != null ? arr_47_lpath : null), rep);
                                                                             if (! res)
                                                                             {
                                                                                 if (rep != null) rep.addEntry("unexpected element [.'$platforms'.0.'|'.14]", (path != null ? arr_47_lpath : null));
@@ -7131,7 +6567,7 @@ public class ansiblelint_meta extends ModelChecker
                                                                             if (! res)
                                                                             {
                                                                                 // .'$platforms'.0.'|'.15
-                                                                                res = _jm_obj_78(arr_47_item, (path != null ? arr_47_lpath : null), rep);
+                                                                                res = _jm_obj_31(arr_47_item, (path != null ? arr_47_lpath : null), rep);
                                                                                 if (! res)
                                                                                 {
                                                                                     if (rep != null) rep.addEntry("unexpected element [.'$platforms'.0.'|'.15]", (path != null ? arr_47_lpath : null));
@@ -7139,7 +6575,7 @@ public class ansiblelint_meta extends ModelChecker
                                                                                 if (! res)
                                                                                 {
                                                                                     // .'$platforms'.0.'|'.16
-                                                                                    res = _jm_obj_77(arr_47_item, (path != null ? arr_47_lpath : null), rep);
+                                                                                    res = _jm_obj_30(arr_47_item, (path != null ? arr_47_lpath : null), rep);
                                                                                     if (! res)
                                                                                     {
                                                                                         if (rep != null) rep.addEntry("unexpected element [.'$platforms'.0.'|'.16]", (path != null ? arr_47_lpath : null));
@@ -7147,7 +6583,7 @@ public class ansiblelint_meta extends ModelChecker
                                                                                     if (! res)
                                                                                     {
                                                                                         // .'$platforms'.0.'|'.17
-                                                                                        res = _jm_obj_76(arr_47_item, (path != null ? arr_47_lpath : null), rep);
+                                                                                        res = _jm_obj_29(arr_47_item, (path != null ? arr_47_lpath : null), rep);
                                                                                         if (! res)
                                                                                         {
                                                                                             if (rep != null) rep.addEntry("unexpected element [.'$platforms'.0.'|'.17]", (path != null ? arr_47_lpath : null));
@@ -7155,7 +6591,7 @@ public class ansiblelint_meta extends ModelChecker
                                                                                         if (! res)
                                                                                         {
                                                                                             // .'$platforms'.0.'|'.18
-                                                                                            res = _jm_obj_75(arr_47_item, (path != null ? arr_47_lpath : null), rep);
+                                                                                            res = _jm_obj_28(arr_47_item, (path != null ? arr_47_lpath : null), rep);
                                                                                             if (! res)
                                                                                             {
                                                                                                 if (rep != null) rep.addEntry("unexpected element [.'$platforms'.0.'|'.18]", (path != null ? arr_47_lpath : null));
@@ -7163,7 +6599,7 @@ public class ansiblelint_meta extends ModelChecker
                                                                                             if (! res)
                                                                                             {
                                                                                                 // .'$platforms'.0.'|'.19
-                                                                                                res = _jm_obj_74(arr_47_item, (path != null ? arr_47_lpath : null), rep);
+                                                                                                res = _jm_obj_27(arr_47_item, (path != null ? arr_47_lpath : null), rep);
                                                                                                 if (! res)
                                                                                                 {
                                                                                                     if (rep != null) rep.addEntry("unexpected element [.'$platforms'.0.'|'.19]", (path != null ? arr_47_lpath : null));
@@ -7171,7 +6607,7 @@ public class ansiblelint_meta extends ModelChecker
                                                                                                 if (! res)
                                                                                                 {
                                                                                                     // .'$platforms'.0.'|'.20
-                                                                                                    res = _jm_obj_73(arr_47_item, (path != null ? arr_47_lpath : null), rep);
+                                                                                                    res = _jm_obj_26(arr_47_item, (path != null ? arr_47_lpath : null), rep);
                                                                                                     if (! res)
                                                                                                     {
                                                                                                         if (rep != null) rep.addEntry("unexpected element [.'$platforms'.0.'|'.20]", (path != null ? arr_47_lpath : null));
@@ -7179,7 +6615,7 @@ public class ansiblelint_meta extends ModelChecker
                                                                                                     if (! res)
                                                                                                     {
                                                                                                         // .'$platforms'.0.'|'.21
-                                                                                                        res = _jm_obj_72(arr_47_item, (path != null ? arr_47_lpath : null), rep);
+                                                                                                        res = _jm_obj_25(arr_47_item, (path != null ? arr_47_lpath : null), rep);
                                                                                                         if (! res)
                                                                                                         {
                                                                                                             if (rep != null) rep.addEntry("unexpected element [.'$platforms'.0.'|'.21]", (path != null ? arr_47_lpath : null));
@@ -7187,7 +6623,7 @@ public class ansiblelint_meta extends ModelChecker
                                                                                                         if (! res)
                                                                                                         {
                                                                                                             // .'$platforms'.0.'|'.22
-                                                                                                            res = _jm_obj_71(arr_47_item, (path != null ? arr_47_lpath : null), rep);
+                                                                                                            res = _jm_obj_24(arr_47_item, (path != null ? arr_47_lpath : null), rep);
                                                                                                             if (! res)
                                                                                                             {
                                                                                                                 if (rep != null) rep.addEntry("unexpected element [.'$platforms'.0.'|'.22]", (path != null ? arr_47_lpath : null));
@@ -7195,7 +6631,7 @@ public class ansiblelint_meta extends ModelChecker
                                                                                                             if (! res)
                                                                                                             {
                                                                                                                 // .'$platforms'.0.'|'.23
-                                                                                                                res = _jm_obj_70(arr_47_item, (path != null ? arr_47_lpath : null), rep);
+                                                                                                                res = _jm_obj_23(arr_47_item, (path != null ? arr_47_lpath : null), rep);
                                                                                                                 if (! res)
                                                                                                                 {
                                                                                                                     if (rep != null) rep.addEntry("unexpected element [.'$platforms'.0.'|'.23]", (path != null ? arr_47_lpath : null));
@@ -7203,7 +6639,7 @@ public class ansiblelint_meta extends ModelChecker
                                                                                                                 if (! res)
                                                                                                                 {
                                                                                                                     // .'$platforms'.0.'|'.24
-                                                                                                                    res = _jm_obj_69(arr_47_item, (path != null ? arr_47_lpath : null), rep);
+                                                                                                                    res = _jm_obj_22(arr_47_item, (path != null ? arr_47_lpath : null), rep);
                                                                                                                     if (! res)
                                                                                                                     {
                                                                                                                         if (rep != null) rep.addEntry("unexpected element [.'$platforms'.0.'|'.24]", (path != null ? arr_47_lpath : null));
@@ -7211,7 +6647,7 @@ public class ansiblelint_meta extends ModelChecker
                                                                                                                     if (! res)
                                                                                                                     {
                                                                                                                         // .'$platforms'.0.'|'.25
-                                                                                                                        res = _jm_obj_68(arr_47_item, (path != null ? arr_47_lpath : null), rep);
+                                                                                                                        res = _jm_obj_21(arr_47_item, (path != null ? arr_47_lpath : null), rep);
                                                                                                                         if (! res)
                                                                                                                         {
                                                                                                                             if (rep != null) rep.addEntry("unexpected element [.'$platforms'.0.'|'.25]", (path != null ? arr_47_lpath : null));
@@ -7219,7 +6655,7 @@ public class ansiblelint_meta extends ModelChecker
                                                                                                                         if (! res)
                                                                                                                         {
                                                                                                                             // .'$platforms'.0.'|'.26
-                                                                                                                            res = _jm_obj_67(arr_47_item, (path != null ? arr_47_lpath : null), rep);
+                                                                                                                            res = _jm_obj_20(arr_47_item, (path != null ? arr_47_lpath : null), rep);
                                                                                                                             if (! res)
                                                                                                                             {
                                                                                                                                 if (rep != null) rep.addEntry("unexpected element [.'$platforms'.0.'|'.26]", (path != null ? arr_47_lpath : null));
@@ -7227,7 +6663,7 @@ public class ansiblelint_meta extends ModelChecker
                                                                                                                             if (! res)
                                                                                                                             {
                                                                                                                                 // .'$platforms'.0.'|'.27
-                                                                                                                                res = _jm_obj_66(arr_47_item, (path != null ? arr_47_lpath : null), rep);
+                                                                                                                                res = _jm_obj_19(arr_47_item, (path != null ? arr_47_lpath : null), rep);
                                                                                                                                 if (! res)
                                                                                                                                 {
                                                                                                                                     if (rep != null) rep.addEntry("unexpected element [.'$platforms'.0.'|'.27]", (path != null ? arr_47_lpath : null));
@@ -7235,7 +6671,7 @@ public class ansiblelint_meta extends ModelChecker
                                                                                                                                 if (! res)
                                                                                                                                 {
                                                                                                                                     // .'$platforms'.0.'|'.28
-                                                                                                                                    res = _jm_obj_65(arr_47_item, (path != null ? arr_47_lpath : null), rep);
+                                                                                                                                    res = _jm_obj_18(arr_47_item, (path != null ? arr_47_lpath : null), rep);
                                                                                                                                     if (! res)
                                                                                                                                     {
                                                                                                                                         if (rep != null) rep.addEntry("unexpected element [.'$platforms'.0.'|'.28]", (path != null ? arr_47_lpath : null));
@@ -7243,7 +6679,7 @@ public class ansiblelint_meta extends ModelChecker
                                                                                                                                     if (! res)
                                                                                                                                     {
                                                                                                                                         // .'$platforms'.0.'|'.29
-                                                                                                                                        res = _jm_obj_64(arr_47_item, (path != null ? arr_47_lpath : null), rep);
+                                                                                                                                        res = _jm_obj_17(arr_47_item, (path != null ? arr_47_lpath : null), rep);
                                                                                                                                         if (! res)
                                                                                                                                         {
                                                                                                                                             if (rep != null) rep.addEntry("unexpected element [.'$platforms'.0.'|'.29]", (path != null ? arr_47_lpath : null));
@@ -7251,7 +6687,7 @@ public class ansiblelint_meta extends ModelChecker
                                                                                                                                         if (! res)
                                                                                                                                         {
                                                                                                                                             // .'$platforms'.0.'|'.30
-                                                                                                                                            res = _jm_obj_63(arr_47_item, (path != null ? arr_47_lpath : null), rep);
+                                                                                                                                            res = _jm_obj_16(arr_47_item, (path != null ? arr_47_lpath : null), rep);
                                                                                                                                             if (! res)
                                                                                                                                             {
                                                                                                                                                 if (rep != null) rep.addEntry("unexpected element [.'$platforms'.0.'|'.30]", (path != null ? arr_47_lpath : null));
@@ -7259,7 +6695,7 @@ public class ansiblelint_meta extends ModelChecker
                                                                                                                                             if (! res)
                                                                                                                                             {
                                                                                                                                                 // .'$platforms'.0.'|'.31
-                                                                                                                                                res = _jm_obj_62(arr_47_item, (path != null ? arr_47_lpath : null), rep);
+                                                                                                                                                res = _jm_obj_15(arr_47_item, (path != null ? arr_47_lpath : null), rep);
                                                                                                                                                 if (! res)
                                                                                                                                                 {
                                                                                                                                                     if (rep != null) rep.addEntry("unexpected element [.'$platforms'.0.'|'.31]", (path != null ? arr_47_lpath : null));
@@ -7267,7 +6703,7 @@ public class ansiblelint_meta extends ModelChecker
                                                                                                                                                 if (! res)
                                                                                                                                                 {
                                                                                                                                                     // .'$platforms'.0.'|'.32
-                                                                                                                                                    res = _jm_obj_61(arr_47_item, (path != null ? arr_47_lpath : null), rep);
+                                                                                                                                                    res = _jm_obj_14(arr_47_item, (path != null ? arr_47_lpath : null), rep);
                                                                                                                                                     if (! res)
                                                                                                                                                     {
                                                                                                                                                         if (rep != null) rep.addEntry("unexpected element [.'$platforms'.0.'|'.32]", (path != null ? arr_47_lpath : null));
@@ -7275,7 +6711,7 @@ public class ansiblelint_meta extends ModelChecker
                                                                                                                                                     if (! res)
                                                                                                                                                     {
                                                                                                                                                         // .'$platforms'.0.'|'.33
-                                                                                                                                                        res = _jm_obj_60(arr_47_item, (path != null ? arr_47_lpath : null), rep);
+                                                                                                                                                        res = _jm_obj_13(arr_47_item, (path != null ? arr_47_lpath : null), rep);
                                                                                                                                                         if (! res)
                                                                                                                                                         {
                                                                                                                                                             if (rep != null) rep.addEntry("unexpected element [.'$platforms'.0.'|'.33]", (path != null ? arr_47_lpath : null));
@@ -7283,7 +6719,7 @@ public class ansiblelint_meta extends ModelChecker
                                                                                                                                                         if (! res)
                                                                                                                                                         {
                                                                                                                                                             // .'$platforms'.0.'|'.34
-                                                                                                                                                            res = _jm_obj_59(arr_47_item, (path != null ? arr_47_lpath : null), rep);
+                                                                                                                                                            res = _jm_obj_12(arr_47_item, (path != null ? arr_47_lpath : null), rep);
                                                                                                                                                             if (! res)
                                                                                                                                                             {
                                                                                                                                                                 if (rep != null) rep.addEntry("unexpected element [.'$platforms'.0.'|'.34]", (path != null ? arr_47_lpath : null));
@@ -7291,7 +6727,7 @@ public class ansiblelint_meta extends ModelChecker
                                                                                                                                                             if (! res)
                                                                                                                                                             {
                                                                                                                                                                 // .'$platforms'.0.'|'.35
-                                                                                                                                                                res = _jm_obj_58(arr_47_item, (path != null ? arr_47_lpath : null), rep);
+                                                                                                                                                                res = _jm_obj_11(arr_47_item, (path != null ? arr_47_lpath : null), rep);
                                                                                                                                                                 if (! res)
                                                                                                                                                                 {
                                                                                                                                                                     if (rep != null) rep.addEntry("unexpected element [.'$platforms'.0.'|'.35]", (path != null ? arr_47_lpath : null));
@@ -7299,7 +6735,7 @@ public class ansiblelint_meta extends ModelChecker
                                                                                                                                                                 if (! res)
                                                                                                                                                                 {
                                                                                                                                                                     // .'$platforms'.0.'|'.36
-                                                                                                                                                                    res = _jm_obj_57(arr_47_item, (path != null ? arr_47_lpath : null), rep);
+                                                                                                                                                                    res = _jm_obj_10(arr_47_item, (path != null ? arr_47_lpath : null), rep);
                                                                                                                                                                     if (! res)
                                                                                                                                                                     {
                                                                                                                                                                         if (rep != null) rep.addEntry("unexpected element [.'$platforms'.0.'|'.36]", (path != null ? arr_47_lpath : null));
@@ -7307,7 +6743,7 @@ public class ansiblelint_meta extends ModelChecker
                                                                                                                                                                     if (! res)
                                                                                                                                                                     {
                                                                                                                                                                         // .'$platforms'.0.'|'.37
-                                                                                                                                                                        res = _jm_obj_56(arr_47_item, (path != null ? arr_47_lpath : null), rep);
+                                                                                                                                                                        res = _jm_obj_9(arr_47_item, (path != null ? arr_47_lpath : null), rep);
                                                                                                                                                                         if (! res)
                                                                                                                                                                         {
                                                                                                                                                                             if (rep != null) rep.addEntry("unexpected element [.'$platforms'.0.'|'.37]", (path != null ? arr_47_lpath : null));
@@ -7315,7 +6751,7 @@ public class ansiblelint_meta extends ModelChecker
                                                                                                                                                                         if (! res)
                                                                                                                                                                         {
                                                                                                                                                                             // .'$platforms'.0.'|'.38
-                                                                                                                                                                            res = _jm_obj_55(arr_47_item, (path != null ? arr_47_lpath : null), rep);
+                                                                                                                                                                            res = _jm_obj_8(arr_47_item, (path != null ? arr_47_lpath : null), rep);
                                                                                                                                                                             if (! res)
                                                                                                                                                                             {
                                                                                                                                                                                 if (rep != null) rep.addEntry("unexpected element [.'$platforms'.0.'|'.38]", (path != null ? arr_47_lpath : null));
@@ -7323,7 +6759,7 @@ public class ansiblelint_meta extends ModelChecker
                                                                                                                                                                             if (! res)
                                                                                                                                                                             {
                                                                                                                                                                                 // .'$platforms'.0.'|'.39
-                                                                                                                                                                                res = _jm_obj_54(arr_47_item, (path != null ? arr_47_lpath : null), rep);
+                                                                                                                                                                                res = _jm_obj_7(arr_47_item, (path != null ? arr_47_lpath : null), rep);
                                                                                                                                                                                 if (! res)
                                                                                                                                                                                 {
                                                                                                                                                                                     if (rep != null) rep.addEntry("unexpected element [.'$platforms'.0.'|'.39]", (path != null ? arr_47_lpath : null));
@@ -7331,7 +6767,7 @@ public class ansiblelint_meta extends ModelChecker
                                                                                                                                                                                 if (! res)
                                                                                                                                                                                 {
                                                                                                                                                                                     // .'$platforms'.0.'|'.40
-                                                                                                                                                                                    res = _jm_obj_53(arr_47_item, (path != null ? arr_47_lpath : null), rep);
+                                                                                                                                                                                    res = _jm_obj_6(arr_47_item, (path != null ? arr_47_lpath : null), rep);
                                                                                                                                                                                     if (! res)
                                                                                                                                                                                     {
                                                                                                                                                                                         if (rep != null) rep.addEntry("unexpected element [.'$platforms'.0.'|'.40]", (path != null ? arr_47_lpath : null));
@@ -7339,7 +6775,7 @@ public class ansiblelint_meta extends ModelChecker
                                                                                                                                                                                     if (! res)
                                                                                                                                                                                     {
                                                                                                                                                                                         // .'$platforms'.0.'|'.41
-                                                                                                                                                                                        res = _jm_obj_52(arr_47_item, (path != null ? arr_47_lpath : null), rep);
+                                                                                                                                                                                        res = _jm_obj_5(arr_47_item, (path != null ? arr_47_lpath : null), rep);
                                                                                                                                                                                         if (! res)
                                                                                                                                                                                         {
                                                                                                                                                                                             if (rep != null) rep.addEntry("unexpected element [.'$platforms'.0.'|'.41]", (path != null ? arr_47_lpath : null));
@@ -7347,7 +6783,7 @@ public class ansiblelint_meta extends ModelChecker
                                                                                                                                                                                         if (! res)
                                                                                                                                                                                         {
                                                                                                                                                                                             // .'$platforms'.0.'|'.42
-                                                                                                                                                                                            res = _jm_obj_51(arr_47_item, (path != null ? arr_47_lpath : null), rep);
+                                                                                                                                                                                            res = _jm_obj_4(arr_47_item, (path != null ? arr_47_lpath : null), rep);
                                                                                                                                                                                             if (! res)
                                                                                                                                                                                             {
                                                                                                                                                                                                 if (rep != null) rep.addEntry("unexpected element [.'$platforms'.0.'|'.42]", (path != null ? arr_47_lpath : null));
@@ -7355,7 +6791,7 @@ public class ansiblelint_meta extends ModelChecker
                                                                                                                                                                                             if (! res)
                                                                                                                                                                                             {
                                                                                                                                                                                                 // .'$platforms'.0.'|'.43
-                                                                                                                                                                                                res = _jm_obj_50(arr_47_item, (path != null ? arr_47_lpath : null), rep);
+                                                                                                                                                                                                res = _jm_obj_3(arr_47_item, (path != null ? arr_47_lpath : null), rep);
                                                                                                                                                                                                 if (! res)
                                                                                                                                                                                                 {
                                                                                                                                                                                                     if (rep != null) rep.addEntry("unexpected element [.'$platforms'.0.'|'.43]", (path != null ? arr_47_lpath : null));
@@ -7363,7 +6799,7 @@ public class ansiblelint_meta extends ModelChecker
                                                                                                                                                                                                 if (! res)
                                                                                                                                                                                                 {
                                                                                                                                                                                                     // .'$platforms'.0.'|'.44
-                                                                                                                                                                                                    res = _jm_obj_49(arr_47_item, (path != null ? arr_47_lpath : null), rep);
+                                                                                                                                                                                                    res = _jm_obj_2(arr_47_item, (path != null ? arr_47_lpath : null), rep);
                                                                                                                                                                                                     if (! res)
                                                                                                                                                                                                     {
                                                                                                                                                                                                         if (rep != null) rep.addEntry("unexpected element [.'$platforms'.0.'|'.44]", (path != null ? arr_47_lpath : null));
@@ -7371,7 +6807,7 @@ public class ansiblelint_meta extends ModelChecker
                                                                                                                                                                                                     if (! res)
                                                                                                                                                                                                     {
                                                                                                                                                                                                         // .'$platforms'.0.'|'.45
-                                                                                                                                                                                                        res = _jm_obj_48(arr_47_item, (path != null ? arr_47_lpath : null), rep);
+                                                                                                                                                                                                        res = _jm_obj_1(arr_47_item, (path != null ? arr_47_lpath : null), rep);
                                                                                                                                                                                                         if (! res)
                                                                                                                                                                                                         {
                                                                                                                                                                                                             if (rep != null) rep.addEntry("unexpected element [.'$platforms'.0.'|'.45]", (path != null ? arr_47_lpath : null));
@@ -7379,7 +6815,7 @@ public class ansiblelint_meta extends ModelChecker
                                                                                                                                                                                                         if (! res)
                                                                                                                                                                                                         {
                                                                                                                                                                                                             // .'$platforms'.0.'|'.46
-                                                                                                                                                                                                            res = _jm_obj_47(arr_47_item, (path != null ? arr_47_lpath : null), rep);
+                                                                                                                                                                                                            res = _jm_obj_0(arr_47_item, (path != null ? arr_47_lpath : null), rep);
                                                                                                                                                                                                             if (! res)
                                                                                                                                                                                                             {
                                                                                                                                                                                                                 if (rep != null) rep.addEntry("unexpected element [.'$platforms'.0.'|'.46]", (path != null ? arr_47_lpath : null));
@@ -7452,7 +6888,7 @@ public class ansiblelint_meta extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_94_map_cloud_platforms (.'$GalaxyInfoModelCollection'.cloud_platforms)
+    // check json_model_51_map_cloud_platforms (.'$GalaxyInfoModelCollection'.cloud_platforms)
     public boolean _jm_f_0(Object val, Path path, Report rep)
     {
         boolean res;
@@ -7465,7 +6901,7 @@ public class ansiblelint_meta extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_94_map_galaxy_tags (.'$GalaxyInfoModelCollection'.galaxy_tags)
+    // check json_model_51_map_galaxy_tags (.'$GalaxyInfoModelCollection'.galaxy_tags)
     public boolean _jm_f_1(Object val, Path path, Report rep)
     {
         boolean res;
@@ -7496,7 +6932,7 @@ public class ansiblelint_meta extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_94_map_min_ansible_version (.'$GalaxyInfoModelCollection'.min_ansible_version)
+    // check json_model_51_map_min_ansible_version (.'$GalaxyInfoModelCollection'.min_ansible_version)
     public boolean _jm_f_2(Object val, Path path, Report rep)
     {
         boolean res;
@@ -7514,7 +6950,7 @@ public class ansiblelint_meta extends ModelChecker
         return _jm_re_0_pat.matcher(val).find();
     }
 
-    // check _jm_obj_94_map_namespace (.'$GalaxyInfoModelCollection'.namespace)
+    // check json_model_51_map_namespace (.'$GalaxyInfoModelCollection'.namespace)
     public boolean _jm_f_3(Object val, Path path, Report rep)
     {
         boolean res;
@@ -7528,7 +6964,7 @@ public class ansiblelint_meta extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_94_map_platforms (.'$GalaxyInfoModelCollection'.platforms)
+    // check json_model_51_map_platforms (.'$GalaxyInfoModelCollection'.platforms)
     public boolean _jm_f_4(Object val, Path path, Report rep)
     {
         boolean res;
@@ -7546,7 +6982,7 @@ public class ansiblelint_meta extends ModelChecker
         return _jm_re_1_pat.matcher(val).find();
     }
 
-    // check _jm_obj_94_map_role_name (.'$GalaxyInfoModelCollection'.role_name)
+    // check json_model_51_map_role_name (.'$GalaxyInfoModelCollection'.role_name)
     public boolean _jm_f_5(Object val, Path path, Report rep)
     {
         boolean res;
@@ -7560,7 +6996,7 @@ public class ansiblelint_meta extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_94_map_video_links (.'$GalaxyInfoModelCollection'.video_links)
+    // check json_model_51_map_video_links (.'$GalaxyInfoModelCollection'.video_links)
     public boolean _jm_f_6(Object val, Path path, Report rep)
     {
         boolean res;
@@ -7574,9 +7010,10 @@ public class ansiblelint_meta extends ModelChecker
     }
 
 
-    // object .'$GalaxyInfoModelCollection'
-    public boolean _jm_obj_94(Object val, Path path, Report rep)
+    // check $GalaxyInfoModelCollection (.'$GalaxyInfoModelCollection')
+    public boolean json_model_51(Object val, Path path, Report rep)
     {
+        // .'$GalaxyInfoModelCollection'
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.'$GalaxyInfoModelCollection']", path);
@@ -7589,7 +7026,7 @@ public class ansiblelint_meta extends ModelChecker
             String prop = prop_loop.next();
             Object pval = json.objectValue(val, prop);
             Path lpath_47 = new Path(prop, path);
-            if ((pfun = _jm_obj_94_map_pmap.get(prop)) != null)
+            if ((pfun = json_model_51_map_pmap.get(prop)) != null)
             {
                 // handle 7 may props
                 if (pfun != null && ! (pfun.call(pval, (path != null ? lpath_47 : null), rep)))
@@ -7607,20 +7044,7 @@ public class ansiblelint_meta extends ModelChecker
         return true;
     }
 
-    // check $GalaxyInfoModelCollection (.'$GalaxyInfoModelCollection')
-    public boolean json_model_51(Object val, Path path, Report rep)
-    {
-        boolean res;
-        // .'$GalaxyInfoModelCollection'
-        res = _jm_obj_94(val, path, rep);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected element [.'$GalaxyInfoModelCollection']", path);
-        }
-        return res;
-    }
-
-    // check _jm_obj_95_map_author (.'$GalaxyInfoModelLoose'.author)
+    // check json_model_52_map_author (.'$GalaxyInfoModelLoose'.author)
     public boolean _jm_f_7(Object val, Path path, Report rep)
     {
         boolean res;
@@ -7633,7 +7057,7 @@ public class ansiblelint_meta extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_95_map_company (.'$GalaxyInfoModelLoose'.company)
+    // check json_model_52_map_company (.'$GalaxyInfoModelLoose'.company)
     public boolean _jm_f_8(Object val, Path path, Report rep)
     {
         boolean res;
@@ -7646,7 +7070,7 @@ public class ansiblelint_meta extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_95_map_github_branch (.'$GalaxyInfoModelLoose'.github_branch)
+    // check json_model_52_map_github_branch (.'$GalaxyInfoModelLoose'.github_branch)
     public boolean _jm_f_9(Object val, Path path, Report rep)
     {
         boolean res;
@@ -7659,7 +7083,7 @@ public class ansiblelint_meta extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_95_map_issue_tracker_url (.'$GalaxyInfoModelLoose'.issue_tracker_url)
+    // check json_model_52_map_issue_tracker_url (.'$GalaxyInfoModelLoose'.issue_tracker_url)
     public boolean _jm_f_10(Object val, Path path, Report rep)
     {
         boolean res;
@@ -7672,7 +7096,7 @@ public class ansiblelint_meta extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_95_map_license (.'$GalaxyInfoModelLoose'.license)
+    // check json_model_52_map_license (.'$GalaxyInfoModelLoose'.license)
     public boolean _jm_f_11(Object val, Path path, Report rep)
     {
         boolean res;
@@ -7685,7 +7109,7 @@ public class ansiblelint_meta extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_95_map_min_ansible_container_version (.'$GalaxyInfoModelLoose'.min_ansible_container_version)
+    // check json_model_52_map_min_ansible_container_version (.'$GalaxyInfoModelLoose'.min_ansible_container_version)
     public boolean _jm_f_12(Object val, Path path, Report rep)
     {
         boolean res;
@@ -7699,9 +7123,11 @@ public class ansiblelint_meta extends ModelChecker
     }
 
 
-    // object .'$GalaxyInfoModelLoose'
-    public boolean _jm_obj_95(Object val, Path path, Report rep)
+    // check $GalaxyInfoModelLoose (.'$GalaxyInfoModelLoose')
+    public boolean json_model_52(Object val, Path path, Report rep)
     {
+        // some $URL should be added?
+        // .'$GalaxyInfoModelLoose'
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.'$GalaxyInfoModelLoose']", path);
@@ -7729,7 +7155,7 @@ public class ansiblelint_meta extends ModelChecker
                     return false;
                 }
             }
-            else if ((pfun = _jm_obj_95_map_pmap.get(prop)) != null)
+            else if ((pfun = json_model_52_map_pmap.get(prop)) != null)
             {
                 // handle 6 may props
                 if (pfun != null && ! (pfun.call(pval, (path != null ? lpath_48 : null), rep)))
@@ -7758,21 +7184,7 @@ public class ansiblelint_meta extends ModelChecker
         return true;
     }
 
-    // check $GalaxyInfoModelLoose (.'$GalaxyInfoModelLoose')
-    public boolean json_model_52(Object val, Path path, Report rep)
-    {
-        boolean res;
-        // some $URL should be added?
-        // .'$GalaxyInfoModelLoose'
-        res = _jm_obj_95(val, path, rep);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected element [.'$GalaxyInfoModelLoose']", path);
-        }
-        return res;
-    }
-
-    // check _jm_obj_96_map_cloud_platforms (.'$GalaxyInfoModelStandalone'.cloud_platforms)
+    // check json_model_53_map_cloud_platforms (.'$GalaxyInfoModelStandalone'.cloud_platforms)
     public boolean _jm_f_13(Object val, Path path, Report rep)
     {
         boolean res;
@@ -7785,7 +7197,7 @@ public class ansiblelint_meta extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_96_map_company (.'$GalaxyInfoModelStandalone'.company)
+    // check json_model_53_map_company (.'$GalaxyInfoModelStandalone'.company)
     public boolean _jm_f_14(Object val, Path path, Report rep)
     {
         boolean res;
@@ -7798,7 +7210,7 @@ public class ansiblelint_meta extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_96_map_galaxy_tags (.'$GalaxyInfoModelStandalone'.galaxy_tags)
+    // check json_model_53_map_galaxy_tags (.'$GalaxyInfoModelStandalone'.galaxy_tags)
     public boolean _jm_f_15(Object val, Path path, Report rep)
     {
         boolean res;
@@ -7829,7 +7241,7 @@ public class ansiblelint_meta extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_96_map_github_branch (.'$GalaxyInfoModelStandalone'.github_branch)
+    // check json_model_53_map_github_branch (.'$GalaxyInfoModelStandalone'.github_branch)
     public boolean _jm_f_16(Object val, Path path, Report rep)
     {
         boolean res;
@@ -7842,7 +7254,7 @@ public class ansiblelint_meta extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_96_map_issue_tracker_url (.'$GalaxyInfoModelStandalone'.issue_tracker_url)
+    // check json_model_53_map_issue_tracker_url (.'$GalaxyInfoModelStandalone'.issue_tracker_url)
     public boolean _jm_f_17(Object val, Path path, Report rep)
     {
         boolean res;
@@ -7855,7 +7267,7 @@ public class ansiblelint_meta extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_96_map_min_ansible_container_version (.'$GalaxyInfoModelStandalone'.min_ansible_container_version)
+    // check json_model_53_map_min_ansible_container_version (.'$GalaxyInfoModelStandalone'.min_ansible_container_version)
     public boolean _jm_f_18(Object val, Path path, Report rep)
     {
         boolean res;
@@ -7868,7 +7280,7 @@ public class ansiblelint_meta extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_96_map_namespace (.'$GalaxyInfoModelStandalone'.namespace)
+    // check json_model_53_map_namespace (.'$GalaxyInfoModelStandalone'.namespace)
     public boolean _jm_f_19(Object val, Path path, Report rep)
     {
         boolean res;
@@ -7882,7 +7294,7 @@ public class ansiblelint_meta extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_96_map_platforms (.'$GalaxyInfoModelStandalone'.platforms)
+    // check json_model_53_map_platforms (.'$GalaxyInfoModelStandalone'.platforms)
     public boolean _jm_f_20(Object val, Path path, Report rep)
     {
         boolean res;
@@ -7895,7 +7307,7 @@ public class ansiblelint_meta extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_96_map_role_name (.'$GalaxyInfoModelStandalone'.role_name)
+    // check json_model_53_map_role_name (.'$GalaxyInfoModelStandalone'.role_name)
     public boolean _jm_f_21(Object val, Path path, Report rep)
     {
         boolean res;
@@ -7909,7 +7321,7 @@ public class ansiblelint_meta extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_96_map_video_links (.'$GalaxyInfoModelStandalone'.video_links)
+    // check json_model_53_map_video_links (.'$GalaxyInfoModelStandalone'.video_links)
     public boolean _jm_f_22(Object val, Path path, Report rep)
     {
         boolean res;
@@ -7923,9 +7335,10 @@ public class ansiblelint_meta extends ModelChecker
     }
 
 
-    // object .'$GalaxyInfoModelStandalone'
-    public boolean _jm_obj_96(Object val, Path path, Report rep)
+    // check $GalaxyInfoModelStandalone (.'$GalaxyInfoModelStandalone')
+    public boolean json_model_53(Object val, Path path, Report rep)
     {
+        // .'$GalaxyInfoModelStandalone'
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.'$GalaxyInfoModelStandalone']", path);
@@ -8005,7 +7418,7 @@ public class ansiblelint_meta extends ModelChecker
                     return false;
                 }
             }
-            else if ((pfun = _jm_obj_96_map_pmap.get(prop)) != null)
+            else if ((pfun = json_model_53_map_pmap.get(prop)) != null)
             {
                 // handle 10 may props
                 if (pfun != null && ! (pfun.call(pval, (path != null ? lpath_49 : null), rep)))
@@ -8050,20 +7463,7 @@ public class ansiblelint_meta extends ModelChecker
         return true;
     }
 
-    // check $GalaxyInfoModelStandalone (.'$GalaxyInfoModelStandalone')
-    public boolean json_model_53(Object val, Path path, Report rep)
-    {
-        boolean res;
-        // .'$GalaxyInfoModelStandalone'
-        res = _jm_obj_96(val, path, rep);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected element [.'$GalaxyInfoModelStandalone']", path);
-        }
-        return res;
-    }
-
-    // check _jm_obj_97_map_author (.'$GalaxyInfoModel'.'|'.1.author)
+    // check _jm_obj_47_map_author (.'$GalaxyInfoModel'.'|'.1.author)
     public boolean _jm_f_23(Object val, Path path, Report rep)
     {
         boolean res;
@@ -8076,7 +7476,7 @@ public class ansiblelint_meta extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_97_map_cloud_platforms (.'$GalaxyInfoModel'.'|'.1.cloud_platforms)
+    // check _jm_obj_47_map_cloud_platforms (.'$GalaxyInfoModel'.'|'.1.cloud_platforms)
     public boolean _jm_f_24(Object val, Path path, Report rep)
     {
         boolean res;
@@ -8089,7 +7489,7 @@ public class ansiblelint_meta extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_97_map_company (.'$GalaxyInfoModel'.'|'.1.company)
+    // check _jm_obj_47_map_company (.'$GalaxyInfoModel'.'|'.1.company)
     public boolean _jm_f_25(Object val, Path path, Report rep)
     {
         boolean res;
@@ -8102,7 +7502,7 @@ public class ansiblelint_meta extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_97_map_galaxy_tags (.'$GalaxyInfoModel'.'|'.1.galaxy_tags)
+    // check _jm_obj_47_map_galaxy_tags (.'$GalaxyInfoModel'.'|'.1.galaxy_tags)
     public boolean _jm_f_26(Object val, Path path, Report rep)
     {
         boolean res;
@@ -8133,7 +7533,7 @@ public class ansiblelint_meta extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_97_map_github_branch (.'$GalaxyInfoModel'.'|'.1.github_branch)
+    // check _jm_obj_47_map_github_branch (.'$GalaxyInfoModel'.'|'.1.github_branch)
     public boolean _jm_f_27(Object val, Path path, Report rep)
     {
         boolean res;
@@ -8146,7 +7546,7 @@ public class ansiblelint_meta extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_97_map_issue_tracker_url (.'$GalaxyInfoModel'.'|'.1.issue_tracker_url)
+    // check _jm_obj_47_map_issue_tracker_url (.'$GalaxyInfoModel'.'|'.1.issue_tracker_url)
     public boolean _jm_f_28(Object val, Path path, Report rep)
     {
         boolean res;
@@ -8159,7 +7559,7 @@ public class ansiblelint_meta extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_97_map_license (.'$GalaxyInfoModel'.'|'.1.license)
+    // check _jm_obj_47_map_license (.'$GalaxyInfoModel'.'|'.1.license)
     public boolean _jm_f_29(Object val, Path path, Report rep)
     {
         boolean res;
@@ -8172,7 +7572,7 @@ public class ansiblelint_meta extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_97_map_min_ansible_container_version (.'$GalaxyInfoModel'.'|'.1.min_ansible_container_version)
+    // check _jm_obj_47_map_min_ansible_container_version (.'$GalaxyInfoModel'.'|'.1.min_ansible_container_version)
     public boolean _jm_f_30(Object val, Path path, Report rep)
     {
         boolean res;
@@ -8185,7 +7585,7 @@ public class ansiblelint_meta extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_97_map_min_ansible_version (.'$GalaxyInfoModel'.'|'.1.min_ansible_version)
+    // check _jm_obj_47_map_min_ansible_version (.'$GalaxyInfoModel'.'|'.1.min_ansible_version)
     public boolean _jm_f_31(Object val, Path path, Report rep)
     {
         boolean res;
@@ -8198,7 +7598,7 @@ public class ansiblelint_meta extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_97_map_namespace (.'$GalaxyInfoModel'.'|'.1.namespace)
+    // check _jm_obj_47_map_namespace (.'$GalaxyInfoModel'.'|'.1.namespace)
     public boolean _jm_f_32(Object val, Path path, Report rep)
     {
         boolean res;
@@ -8212,7 +7612,7 @@ public class ansiblelint_meta extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_97_map_platforms (.'$GalaxyInfoModel'.'|'.1.platforms)
+    // check _jm_obj_47_map_platforms (.'$GalaxyInfoModel'.'|'.1.platforms)
     public boolean _jm_f_33(Object val, Path path, Report rep)
     {
         boolean res;
@@ -8225,7 +7625,7 @@ public class ansiblelint_meta extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_97_map_role_name (.'$GalaxyInfoModel'.'|'.1.role_name)
+    // check _jm_obj_47_map_role_name (.'$GalaxyInfoModel'.'|'.1.role_name)
     public boolean _jm_f_34(Object val, Path path, Report rep)
     {
         boolean res;
@@ -8239,7 +7639,7 @@ public class ansiblelint_meta extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_97_map_video_links (.'$GalaxyInfoModel'.'|'.1.video_links)
+    // check _jm_obj_47_map_video_links (.'$GalaxyInfoModel'.'|'.1.video_links)
     public boolean _jm_f_35(Object val, Path path, Report rep)
     {
         boolean res;
@@ -8254,7 +7654,7 @@ public class ansiblelint_meta extends ModelChecker
 
 
     // object .'$GalaxyInfoModel'.'|'.1
-    public boolean _jm_obj_97(Object val, Path path, Report rep)
+    public boolean _jm_obj_47(Object val, Path path, Report rep)
     {
         if (! json.isObject(val))
         {
@@ -8296,7 +7696,7 @@ public class ansiblelint_meta extends ModelChecker
                     return false;
                 }
             }
-            else if ((pfun = _jm_obj_97_map_pmap.get(prop)) != null)
+            else if ((pfun = _jm_obj_47_map_pmap.get(prop)) != null)
             {
                 // handle 13 may props
                 if (pfun != null && ! (pfun.call(pval, (path != null ? lpath_50 : null), rep)))
@@ -8329,7 +7729,7 @@ public class ansiblelint_meta extends ModelChecker
         return true;
     }
 
-    // check _jm_obj_98_map_author (.'$GalaxyInfoModel'.'|'.2.author)
+    // check _jm_obj_48_map_author (.'$GalaxyInfoModel'.'|'.2.author)
     public boolean _jm_f_36(Object val, Path path, Report rep)
     {
         boolean res;
@@ -8342,7 +7742,7 @@ public class ansiblelint_meta extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_98_map_cloud_platforms (.'$GalaxyInfoModel'.'|'.2.cloud_platforms)
+    // check _jm_obj_48_map_cloud_platforms (.'$GalaxyInfoModel'.'|'.2.cloud_platforms)
     public boolean _jm_f_37(Object val, Path path, Report rep)
     {
         boolean res;
@@ -8355,7 +7755,7 @@ public class ansiblelint_meta extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_98_map_company (.'$GalaxyInfoModel'.'|'.2.company)
+    // check _jm_obj_48_map_company (.'$GalaxyInfoModel'.'|'.2.company)
     public boolean _jm_f_38(Object val, Path path, Report rep)
     {
         boolean res;
@@ -8368,7 +7768,7 @@ public class ansiblelint_meta extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_98_map_galaxy_tags (.'$GalaxyInfoModel'.'|'.2.galaxy_tags)
+    // check _jm_obj_48_map_galaxy_tags (.'$GalaxyInfoModel'.'|'.2.galaxy_tags)
     public boolean _jm_f_39(Object val, Path path, Report rep)
     {
         boolean res;
@@ -8399,7 +7799,7 @@ public class ansiblelint_meta extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_98_map_github_branch (.'$GalaxyInfoModel'.'|'.2.github_branch)
+    // check _jm_obj_48_map_github_branch (.'$GalaxyInfoModel'.'|'.2.github_branch)
     public boolean _jm_f_40(Object val, Path path, Report rep)
     {
         boolean res;
@@ -8412,7 +7812,7 @@ public class ansiblelint_meta extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_98_map_issue_tracker_url (.'$GalaxyInfoModel'.'|'.2.issue_tracker_url)
+    // check _jm_obj_48_map_issue_tracker_url (.'$GalaxyInfoModel'.'|'.2.issue_tracker_url)
     public boolean _jm_f_41(Object val, Path path, Report rep)
     {
         boolean res;
@@ -8425,7 +7825,7 @@ public class ansiblelint_meta extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_98_map_license (.'$GalaxyInfoModel'.'|'.2.license)
+    // check _jm_obj_48_map_license (.'$GalaxyInfoModel'.'|'.2.license)
     public boolean _jm_f_42(Object val, Path path, Report rep)
     {
         boolean res;
@@ -8438,7 +7838,7 @@ public class ansiblelint_meta extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_98_map_min_ansible_container_version (.'$GalaxyInfoModel'.'|'.2.min_ansible_container_version)
+    // check _jm_obj_48_map_min_ansible_container_version (.'$GalaxyInfoModel'.'|'.2.min_ansible_container_version)
     public boolean _jm_f_43(Object val, Path path, Report rep)
     {
         boolean res;
@@ -8451,7 +7851,7 @@ public class ansiblelint_meta extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_98_map_min_ansible_version (.'$GalaxyInfoModel'.'|'.2.min_ansible_version)
+    // check _jm_obj_48_map_min_ansible_version (.'$GalaxyInfoModel'.'|'.2.min_ansible_version)
     public boolean _jm_f_44(Object val, Path path, Report rep)
     {
         boolean res;
@@ -8464,7 +7864,7 @@ public class ansiblelint_meta extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_98_map_namespace (.'$GalaxyInfoModel'.'|'.2.namespace)
+    // check _jm_obj_48_map_namespace (.'$GalaxyInfoModel'.'|'.2.namespace)
     public boolean _jm_f_45(Object val, Path path, Report rep)
     {
         boolean res;
@@ -8478,7 +7878,7 @@ public class ansiblelint_meta extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_98_map_platforms (.'$GalaxyInfoModel'.'|'.2.platforms)
+    // check _jm_obj_48_map_platforms (.'$GalaxyInfoModel'.'|'.2.platforms)
     public boolean _jm_f_46(Object val, Path path, Report rep)
     {
         boolean res;
@@ -8491,7 +7891,7 @@ public class ansiblelint_meta extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_98_map_role_name (.'$GalaxyInfoModel'.'|'.2.role_name)
+    // check _jm_obj_48_map_role_name (.'$GalaxyInfoModel'.'|'.2.role_name)
     public boolean _jm_f_47(Object val, Path path, Report rep)
     {
         boolean res;
@@ -8505,7 +7905,7 @@ public class ansiblelint_meta extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_98_map_video_links (.'$GalaxyInfoModel'.'|'.2.video_links)
+    // check _jm_obj_48_map_video_links (.'$GalaxyInfoModel'.'|'.2.video_links)
     public boolean _jm_f_48(Object val, Path path, Report rep)
     {
         boolean res;
@@ -8520,7 +7920,7 @@ public class ansiblelint_meta extends ModelChecker
 
 
     // object .'$GalaxyInfoModel'.'|'.2
-    public boolean _jm_obj_98(Object val, Path path, Report rep)
+    public boolean _jm_obj_48(Object val, Path path, Report rep)
     {
         if (! json.isObject(val))
         {
@@ -8549,7 +7949,7 @@ public class ansiblelint_meta extends ModelChecker
                     return false;
                 }
             }
-            else if ((pfun = _jm_obj_98_map_pmap.get(prop)) != null)
+            else if ((pfun = _jm_obj_48_map_pmap.get(prop)) != null)
             {
                 // handle 13 may props
                 if (pfun != null && ! (pfun.call(pval, (path != null ? lpath_51 : null), rep)))
@@ -8616,7 +8016,7 @@ public class ansiblelint_meta extends ModelChecker
         if (! res)
         {
             // .'$GalaxyInfoModel'.'|'.2
-            res = _jm_obj_98(val, path, rep);
+            res = _jm_obj_48(val, path, rep);
             if (! res)
             {
                 if (rep != null) rep.addEntry("unexpected element [.'$GalaxyInfoModel'.'|'.2]", path);
@@ -8720,7 +8120,7 @@ public class ansiblelint_meta extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_99_map_become (.'$DependencyModelLoose'.become)
+    // check json_model_57_map_become (.'$DependencyModelLoose'.become)
     public boolean _jm_f_49(Object val, Path path, Report rep)
     {
         boolean res;
@@ -8733,7 +8133,7 @@ public class ansiblelint_meta extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_99_map_name (.'$DependencyModelLoose'.name)
+    // check json_model_57_map_name (.'$DependencyModelLoose'.name)
     public boolean _jm_f_50(Object val, Path path, Report rep)
     {
         boolean res;
@@ -8746,7 +8146,7 @@ public class ansiblelint_meta extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_99_map_role (.'$DependencyModelLoose'.role)
+    // check json_model_57_map_role (.'$DependencyModelLoose'.role)
     public boolean _jm_f_51(Object val, Path path, Report rep)
     {
         boolean res;
@@ -8760,7 +8160,7 @@ public class ansiblelint_meta extends ModelChecker
     }
 
 
-    // check _jm_obj_99_map_scm (.'$DependencyModelLoose'.scm)
+    // check json_model_57_map_scm (.'$DependencyModelLoose'.scm)
     public boolean _jm_f_52(Object val, Path path, Report rep)
     {
         boolean res;
@@ -8773,7 +8173,7 @@ public class ansiblelint_meta extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_99_map_src (.'$DependencyModelLoose'.src)
+    // check json_model_57_map_src (.'$DependencyModelLoose'.src)
     public boolean _jm_f_53(Object val, Path path, Report rep)
     {
         boolean res;
@@ -8786,7 +8186,7 @@ public class ansiblelint_meta extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_99_map_tags (.'$DependencyModelLoose'.tags)
+    // check json_model_57_map_tags (.'$DependencyModelLoose'.tags)
     public boolean _jm_f_54(Object val, Path path, Report rep)
     {
         boolean res;
@@ -8835,9 +8235,10 @@ public class ansiblelint_meta extends ModelChecker
         return res;
     }
 
-    // object .'$DependencyModelLoose'.vars
-    public boolean _jm_obj_100(Object val, Path path, Report rep)
+    // check json_model_57_map_vars (.'$DependencyModelLoose'.vars)
+    public boolean _jm_f_55(Object val, Path path, Report rep)
     {
+        // .'$DependencyModelLoose'.vars
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.'$DependencyModelLoose'.vars]", path);
@@ -8847,20 +8248,7 @@ public class ansiblelint_meta extends ModelChecker
         return true;
     }
 
-    // check _jm_obj_99_map_vars (.'$DependencyModelLoose'.vars)
-    public boolean _jm_f_55(Object val, Path path, Report rep)
-    {
-        boolean res;
-        // .'$DependencyModelLoose'.vars
-        res = _jm_obj_100(val, path, rep);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected element [.'$DependencyModelLoose'.vars]", path);
-        }
-        return res;
-    }
-
-    // check _jm_obj_99_map_version (.'$DependencyModelLoose'.version)
+    // check json_model_57_map_version (.'$DependencyModelLoose'.version)
     public boolean _jm_f_56(Object val, Path path, Report rep)
     {
         boolean res;
@@ -8873,7 +8261,7 @@ public class ansiblelint_meta extends ModelChecker
         return res;
     }
 
-    // check _jm_obj_99_map_when (.'$DependencyModelLoose'.when)
+    // check json_model_57_map_when (.'$DependencyModelLoose'.when)
     public boolean _jm_f_57(Object val, Path path, Report rep)
     {
         boolean res;
@@ -8887,9 +8275,13 @@ public class ansiblelint_meta extends ModelChecker
     }
 
 
-    // object .'$DependencyModelLoose'
-    public boolean _jm_obj_99(Object val, Path path, Report rep)
+    // check $DependencyModelLoose (.'$DependencyModelLoose')
+    public boolean json_model_57(Object val, Path path, Report rep)
     {
+        // See https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_reuse_roles.html#role-dependencies and https://github.com/ansible/ansible/blob/devel/lib/ansible/playbook/role/metadata.py#L79
+        // 
+        // Other keys are treated as role [parameters](https://docs.ansible.com/ansible/latest/user_guide/playbooks_reuse_roles.html#passing-different-parameters).
+        // .'$DependencyModelLoose'
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.'$DependencyModelLoose']", path);
@@ -8902,7 +8294,7 @@ public class ansiblelint_meta extends ModelChecker
             String prop = prop_loop.next();
             Object pval = json.objectValue(val, prop);
             Path lpath_52 = new Path(prop, path);
-            if ((pfun = _jm_obj_99_map_pmap.get(prop)) != null)
+            if ((pfun = json_model_57_map_pmap.get(prop)) != null)
             {
                 // handle 9 may props
                 if (pfun != null && ! (pfun.call(pval, (path != null ? lpath_52 : null), rep)))
@@ -8919,24 +8311,8 @@ public class ansiblelint_meta extends ModelChecker
         return true;
     }
 
-    // check $DependencyModelLoose (.'$DependencyModelLoose')
-    public boolean json_model_57(Object val, Path path, Report rep)
-    {
-        boolean res;
-        // See https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_reuse_roles.html#role-dependencies and https://github.com/ansible/ansible/blob/devel/lib/ansible/playbook/role/metadata.py#L79
-        // 
-        // Other keys are treated as role [parameters](https://docs.ansible.com/ansible/latest/user_guide/playbooks_reuse_roles.html#passing-different-parameters).
-        // .'$DependencyModelLoose'
-        res = _jm_obj_99(val, path, rep);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected element [.'$DependencyModelLoose']", path);
-        }
-        return res;
-    }
-
     // object .'$DependencyModel'.'&'.1.'|'.2
-    public boolean _jm_obj_101(Object val, Path path, Report rep)
+    public boolean _jm_obj_49(Object val, Path path, Report rep)
     {
         // check open must/may only props
         if (! json.isObject(val))
@@ -8965,7 +8341,7 @@ public class ansiblelint_meta extends ModelChecker
     }
 
     // object .'$DependencyModel'.'&'.1.'|'.1
-    public boolean _jm_obj_102(Object val, Path path, Report rep)
+    public boolean _jm_obj_50(Object val, Path path, Report rep)
     {
         // check open must/may only props
         if (! json.isObject(val))
@@ -8994,7 +8370,7 @@ public class ansiblelint_meta extends ModelChecker
     }
 
     // object .'$DependencyModel'.'&'.1.'|'.0
-    public boolean _jm_obj_103(Object val, Path path, Report rep)
+    public boolean _jm_obj_51(Object val, Path path, Report rep)
     {
         // check open must/may only props
         if (! json.isObject(val))
@@ -9032,7 +8408,7 @@ public class ansiblelint_meta extends ModelChecker
         if (res)
         {
             // .'$DependencyModel'.'&'.0
-            res = _jm_obj_99(val, path, rep);
+            res = json_model_57(val, path, rep);
             if (! res)
             {
                 if (rep != null) rep.addEntry("unexpected $DependencyModelLoose [.'$DependencyModel'.'&'.0]", path);
@@ -9048,7 +8424,7 @@ public class ansiblelint_meta extends ModelChecker
                 if (res)
                 {
                     // .'$DependencyModel'.'&'.1.'|'.0
-                    res = _jm_obj_103(val, path, rep);
+                    res = _jm_obj_51(val, path, rep);
                     if (! res)
                     {
                         if (rep != null) rep.addEntry("unexpected element [.'$DependencyModel'.'&'.1.'|'.0]", path);
@@ -9056,7 +8432,7 @@ public class ansiblelint_meta extends ModelChecker
                     if (! res)
                     {
                         // .'$DependencyModel'.'&'.1.'|'.1
-                        res = _jm_obj_102(val, path, rep);
+                        res = _jm_obj_50(val, path, rep);
                         if (! res)
                         {
                             if (rep != null) rep.addEntry("unexpected element [.'$DependencyModel'.'&'.1.'|'.1]", path);
@@ -9064,7 +8440,7 @@ public class ansiblelint_meta extends ModelChecker
                         if (! res)
                         {
                             // .'$DependencyModel'.'&'.1.'|'.2
-                            res = _jm_obj_101(val, path, rep);
+                            res = _jm_obj_49(val, path, rep);
                             if (! res)
                             {
                                 if (rep != null) rep.addEntry("unexpected element [.'$DependencyModel'.'&'.1.'|'.2]", path);
@@ -9093,9 +8469,10 @@ public class ansiblelint_meta extends ModelChecker
         return res;
     }
 
-    // object .'$AnsibleMetaObj'
-    public boolean _jm_obj_104(Object val, Path path, Report rep)
+    // check $AnsibleMetaObj (.'$AnsibleMetaObj')
+    public boolean json_model_59(Object val, Path path, Report rep)
     {
+        // .'$AnsibleMetaObj'
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.'$AnsibleMetaObj']", path);
@@ -9201,19 +8578,6 @@ public class ansiblelint_meta extends ModelChecker
         return true;
     }
 
-    // check $AnsibleMetaObj (.'$AnsibleMetaObj')
-    public boolean json_model_59(Object val, Path path, Report rep)
-    {
-        boolean res;
-        // .'$AnsibleMetaObj'
-        res = _jm_obj_104(val, path, rep);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected element [.'$AnsibleMetaObj']", path);
-        }
-        return res;
-    }
-
     // check $AnsibleMeta (.'$AnsibleMeta')
     public boolean json_model_60(Object val, Path path, Report rep)
     {
@@ -9229,7 +8593,7 @@ public class ansiblelint_meta extends ModelChecker
         if (! res)
         {
             // .'$AnsibleMeta'.'|'.1
-            res = _jm_obj_104(val, path, rep);
+            res = json_model_59(val, path, rep);
             if (! res)
             {
                 if (rep != null) rep.addEntry("unexpected $AnsibleMetaObj [.'$AnsibleMeta'.'|'.1]", path);
@@ -10035,137 +9399,137 @@ public class ansiblelint_meta extends ModelChecker
             _jm_cst_63_set.add(json.safeJSON("\"all\""));
             _jm_re_0_pat = Pattern.compile("^[a-z][-a-z0-9_]+$");
             _jm_re_1_pat = Pattern.compile("^[a-z][a-z0-9_]+$");
-            _jm_obj_94_map_pmap = new HashMap<String, Checker>();
-            _jm_obj_94_map_pmap.put("cloud_platforms", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_0(o, p, r);} });
-            _jm_obj_94_map_pmap.put("galaxy_tags", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_1(o, p, r);} });
-            _jm_obj_94_map_pmap.put("min_ansible_version", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_2(o, p, r);} });
-            _jm_obj_94_map_pmap.put("namespace", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_3(o, p, r);} });
-            _jm_obj_94_map_pmap.put("platforms", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_4(o, p, r);} });
-            _jm_obj_94_map_pmap.put("role_name", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_5(o, p, r);} });
-            _jm_obj_94_map_pmap.put("video_links", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_6(o, p, r);} });
-            _jm_obj_95_map_pmap = new HashMap<String, Checker>();
-            _jm_obj_95_map_pmap.put("author", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_7(o, p, r);} });
-            _jm_obj_95_map_pmap.put("company", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_8(o, p, r);} });
-            _jm_obj_95_map_pmap.put("github_branch", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_9(o, p, r);} });
-            _jm_obj_95_map_pmap.put("issue_tracker_url", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_10(o, p, r);} });
-            _jm_obj_95_map_pmap.put("license", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_11(o, p, r);} });
-            _jm_obj_95_map_pmap.put("min_ansible_container_version", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_12(o, p, r);} });
-            _jm_obj_96_map_pmap = new HashMap<String, Checker>();
-            _jm_obj_96_map_pmap.put("cloud_platforms", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_13(o, p, r);} });
-            _jm_obj_96_map_pmap.put("company", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_14(o, p, r);} });
-            _jm_obj_96_map_pmap.put("galaxy_tags", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_15(o, p, r);} });
-            _jm_obj_96_map_pmap.put("github_branch", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_16(o, p, r);} });
-            _jm_obj_96_map_pmap.put("issue_tracker_url", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_17(o, p, r);} });
-            _jm_obj_96_map_pmap.put("min_ansible_container_version", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_18(o, p, r);} });
-            _jm_obj_96_map_pmap.put("namespace", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_19(o, p, r);} });
-            _jm_obj_96_map_pmap.put("platforms", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_20(o, p, r);} });
-            _jm_obj_96_map_pmap.put("role_name", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_21(o, p, r);} });
-            _jm_obj_96_map_pmap.put("video_links", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_22(o, p, r);} });
-            _jm_obj_97_map_pmap = new HashMap<String, Checker>();
-            _jm_obj_97_map_pmap.put("author", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_23(o, p, r);} });
-            _jm_obj_97_map_pmap.put("cloud_platforms", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_24(o, p, r);} });
-            _jm_obj_97_map_pmap.put("company", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_25(o, p, r);} });
-            _jm_obj_97_map_pmap.put("galaxy_tags", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_26(o, p, r);} });
-            _jm_obj_97_map_pmap.put("github_branch", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_27(o, p, r);} });
-            _jm_obj_97_map_pmap.put("issue_tracker_url", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_28(o, p, r);} });
-            _jm_obj_97_map_pmap.put("license", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_29(o, p, r);} });
-            _jm_obj_97_map_pmap.put("min_ansible_container_version", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_30(o, p, r);} });
-            _jm_obj_97_map_pmap.put("min_ansible_version", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_31(o, p, r);} });
-            _jm_obj_97_map_pmap.put("namespace", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_32(o, p, r);} });
-            _jm_obj_97_map_pmap.put("platforms", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_33(o, p, r);} });
-            _jm_obj_97_map_pmap.put("role_name", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_34(o, p, r);} });
-            _jm_obj_97_map_pmap.put("video_links", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_35(o, p, r);} });
-            _jm_obj_98_map_pmap = new HashMap<String, Checker>();
-            _jm_obj_98_map_pmap.put("author", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_36(o, p, r);} });
-            _jm_obj_98_map_pmap.put("cloud_platforms", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_37(o, p, r);} });
-            _jm_obj_98_map_pmap.put("company", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_38(o, p, r);} });
-            _jm_obj_98_map_pmap.put("galaxy_tags", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_39(o, p, r);} });
-            _jm_obj_98_map_pmap.put("github_branch", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_40(o, p, r);} });
-            _jm_obj_98_map_pmap.put("issue_tracker_url", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_41(o, p, r);} });
-            _jm_obj_98_map_pmap.put("license", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_42(o, p, r);} });
-            _jm_obj_98_map_pmap.put("min_ansible_container_version", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_43(o, p, r);} });
-            _jm_obj_98_map_pmap.put("min_ansible_version", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_44(o, p, r);} });
-            _jm_obj_98_map_pmap.put("namespace", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_45(o, p, r);} });
-            _jm_obj_98_map_pmap.put("platforms", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_46(o, p, r);} });
-            _jm_obj_98_map_pmap.put("role_name", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_47(o, p, r);} });
-            _jm_obj_98_map_pmap.put("video_links", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_48(o, p, r);} });
+            json_model_51_map_pmap = new HashMap<String, Checker>();
+            json_model_51_map_pmap.put("cloud_platforms", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_0(o, p, r);} });
+            json_model_51_map_pmap.put("galaxy_tags", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_1(o, p, r);} });
+            json_model_51_map_pmap.put("min_ansible_version", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_2(o, p, r);} });
+            json_model_51_map_pmap.put("namespace", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_3(o, p, r);} });
+            json_model_51_map_pmap.put("platforms", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_4(o, p, r);} });
+            json_model_51_map_pmap.put("role_name", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_5(o, p, r);} });
+            json_model_51_map_pmap.put("video_links", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_6(o, p, r);} });
+            json_model_52_map_pmap = new HashMap<String, Checker>();
+            json_model_52_map_pmap.put("author", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_7(o, p, r);} });
+            json_model_52_map_pmap.put("company", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_8(o, p, r);} });
+            json_model_52_map_pmap.put("github_branch", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_9(o, p, r);} });
+            json_model_52_map_pmap.put("issue_tracker_url", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_10(o, p, r);} });
+            json_model_52_map_pmap.put("license", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_11(o, p, r);} });
+            json_model_52_map_pmap.put("min_ansible_container_version", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_12(o, p, r);} });
+            json_model_53_map_pmap = new HashMap<String, Checker>();
+            json_model_53_map_pmap.put("cloud_platforms", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_13(o, p, r);} });
+            json_model_53_map_pmap.put("company", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_14(o, p, r);} });
+            json_model_53_map_pmap.put("galaxy_tags", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_15(o, p, r);} });
+            json_model_53_map_pmap.put("github_branch", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_16(o, p, r);} });
+            json_model_53_map_pmap.put("issue_tracker_url", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_17(o, p, r);} });
+            json_model_53_map_pmap.put("min_ansible_container_version", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_18(o, p, r);} });
+            json_model_53_map_pmap.put("namespace", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_19(o, p, r);} });
+            json_model_53_map_pmap.put("platforms", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_20(o, p, r);} });
+            json_model_53_map_pmap.put("role_name", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_21(o, p, r);} });
+            json_model_53_map_pmap.put("video_links", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_22(o, p, r);} });
+            _jm_obj_47_map_pmap = new HashMap<String, Checker>();
+            _jm_obj_47_map_pmap.put("author", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_23(o, p, r);} });
+            _jm_obj_47_map_pmap.put("cloud_platforms", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_24(o, p, r);} });
+            _jm_obj_47_map_pmap.put("company", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_25(o, p, r);} });
+            _jm_obj_47_map_pmap.put("galaxy_tags", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_26(o, p, r);} });
+            _jm_obj_47_map_pmap.put("github_branch", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_27(o, p, r);} });
+            _jm_obj_47_map_pmap.put("issue_tracker_url", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_28(o, p, r);} });
+            _jm_obj_47_map_pmap.put("license", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_29(o, p, r);} });
+            _jm_obj_47_map_pmap.put("min_ansible_container_version", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_30(o, p, r);} });
+            _jm_obj_47_map_pmap.put("min_ansible_version", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_31(o, p, r);} });
+            _jm_obj_47_map_pmap.put("namespace", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_32(o, p, r);} });
+            _jm_obj_47_map_pmap.put("platforms", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_33(o, p, r);} });
+            _jm_obj_47_map_pmap.put("role_name", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_34(o, p, r);} });
+            _jm_obj_47_map_pmap.put("video_links", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_35(o, p, r);} });
+            _jm_obj_48_map_pmap = new HashMap<String, Checker>();
+            _jm_obj_48_map_pmap.put("author", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_36(o, p, r);} });
+            _jm_obj_48_map_pmap.put("cloud_platforms", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_37(o, p, r);} });
+            _jm_obj_48_map_pmap.put("company", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_38(o, p, r);} });
+            _jm_obj_48_map_pmap.put("galaxy_tags", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_39(o, p, r);} });
+            _jm_obj_48_map_pmap.put("github_branch", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_40(o, p, r);} });
+            _jm_obj_48_map_pmap.put("issue_tracker_url", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_41(o, p, r);} });
+            _jm_obj_48_map_pmap.put("license", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_42(o, p, r);} });
+            _jm_obj_48_map_pmap.put("min_ansible_container_version", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_43(o, p, r);} });
+            _jm_obj_48_map_pmap.put("min_ansible_version", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_44(o, p, r);} });
+            _jm_obj_48_map_pmap.put("namespace", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_45(o, p, r);} });
+            _jm_obj_48_map_pmap.put("platforms", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_46(o, p, r);} });
+            _jm_obj_48_map_pmap.put("role_name", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_47(o, p, r);} });
+            _jm_obj_48_map_pmap.put("video_links", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_48(o, p, r);} });
             _jm_map_0_cmap = new HashMap<Object, Checker>();
-            _jm_map_0_cmap.put(json.safeJSON("true"), new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_96(o, p, r);} });
-            _jm_map_0_cmap.put(json.safeJSON("false"), new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_97(o, p, r);} });
+            _jm_map_0_cmap.put(json.safeJSON("true"), new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_53(o, p, r);} });
+            _jm_map_0_cmap.put(json.safeJSON("false"), new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_47(o, p, r);} });
             _jm_re_2_pat = Pattern.compile("^[a-z_]+\\.[a-z_]+$");
             _jm_cst_64_set = new HashSet<Object>();
             _jm_cst_64_set.add(json.safeJSON("\"hg\""));
             _jm_cst_64_set.add(json.safeJSON("\"git\""));
-            _jm_obj_99_map_pmap = new HashMap<String, Checker>();
-            _jm_obj_99_map_pmap.put("become", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_49(o, p, r);} });
-            _jm_obj_99_map_pmap.put("name", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_50(o, p, r);} });
-            _jm_obj_99_map_pmap.put("role", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_51(o, p, r);} });
-            _jm_obj_99_map_pmap.put("scm", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_52(o, p, r);} });
-            _jm_obj_99_map_pmap.put("src", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_53(o, p, r);} });
-            _jm_obj_99_map_pmap.put("tags", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_54(o, p, r);} });
-            _jm_obj_99_map_pmap.put("vars", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_55(o, p, r);} });
-            _jm_obj_99_map_pmap.put("version", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_56(o, p, r);} });
-            _jm_obj_99_map_pmap.put("when", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_57(o, p, r);} });
+            json_model_57_map_pmap = new HashMap<String, Checker>();
+            json_model_57_map_pmap.put("become", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_49(o, p, r);} });
+            json_model_57_map_pmap.put("name", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_50(o, p, r);} });
+            json_model_57_map_pmap.put("role", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_51(o, p, r);} });
+            json_model_57_map_pmap.put("scm", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_52(o, p, r);} });
+            json_model_57_map_pmap.put("src", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_53(o, p, r);} });
+            json_model_57_map_pmap.put("tags", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_54(o, p, r);} });
+            json_model_57_map_pmap.put("vars", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_55(o, p, r);} });
+            json_model_57_map_pmap.put("version", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_56(o, p, r);} });
+            json_model_57_map_pmap.put("when", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_57(o, p, r);} });
             ansiblelint_meta_map_pmap = new HashMap<String, Checker>();
             ansiblelint_meta_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_60(o, p, r);} });
-            ansiblelint_meta_map_pmap.put("AIXPlatformModel", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_0(o, p, r);} });
-            ansiblelint_meta_map_pmap.put("AlpinePlatformModel", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_1(o, p, r);} });
-            ansiblelint_meta_map_pmap.put("AmazonLinuxPlatformModel", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_2(o, p, r);} });
-            ansiblelint_meta_map_pmap.put("AmazonPlatformModel", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_3(o, p, r);} });
-            ansiblelint_meta_map_pmap.put("ArchLinuxPlatformModel", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_4(o, p, r);} });
-            ansiblelint_meta_map_pmap.put("AstraLinuxPlatformModel", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_5(o, p, r);} });
-            ansiblelint_meta_map_pmap.put("ClearLinuxPlatformModel", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_6(o, p, r);} });
-            ansiblelint_meta_map_pmap.put("CumulusPlatformModel", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_7(o, p, r);} });
-            ansiblelint_meta_map_pmap.put("DebianPlatformModel", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_8(o, p, r);} });
-            ansiblelint_meta_map_pmap.put("DellOSPlatformModel", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_9(o, p, r);} });
-            ansiblelint_meta_map_pmap.put("DevuanPlatformModel", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_10(o, p, r);} });
-            ansiblelint_meta_map_pmap.put("DragonFlyBSDPlatformModel", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_11(o, p, r);} });
-            ansiblelint_meta_map_pmap.put("ELPlatformModel", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_12(o, p, r);} });
-            ansiblelint_meta_map_pmap.put("FedoraPlatformModel", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_13(o, p, r);} });
-            ansiblelint_meta_map_pmap.put("FreeBSDPlatformModel", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_14(o, p, r);} });
-            ansiblelint_meta_map_pmap.put("GenericBSDPlatformModel", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_15(o, p, r);} });
-            ansiblelint_meta_map_pmap.put("GenericLinuxPlatformModel", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_16(o, p, r);} });
-            ansiblelint_meta_map_pmap.put("GenericUNIXPlatformModel", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_17(o, p, r);} });
-            ansiblelint_meta_map_pmap.put("GentooPlatformModel", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_18(o, p, r);} });
-            ansiblelint_meta_map_pmap.put("HardenedBSDPlatformModel", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_19(o, p, r);} });
-            ansiblelint_meta_map_pmap.put("IOSPlatformModel", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_20(o, p, r);} });
-            ansiblelint_meta_map_pmap.put("JunosPlatformModel", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_21(o, p, r);} });
-            ansiblelint_meta_map_pmap.put("KaliPlatformModel", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_22(o, p, r);} });
-            ansiblelint_meta_map_pmap.put("MacOSXPlatformModel", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_23(o, p, r);} });
-            ansiblelint_meta_map_pmap.put("MageiaPlatformModel", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_24(o, p, r);} });
-            ansiblelint_meta_map_pmap.put("NXOSPlatformModel", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_25(o, p, r);} });
-            ansiblelint_meta_map_pmap.put("NetBSDPlatformModel", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_26(o, p, r);} });
-            ansiblelint_meta_map_pmap.put("OpenBSDPlatformModel", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_27(o, p, r);} });
-            ansiblelint_meta_map_pmap.put("OpenWrtPlatformModel", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_28(o, p, r);} });
-            ansiblelint_meta_map_pmap.put("OracleLinuxPlatformModel", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_29(o, p, r);} });
-            ansiblelint_meta_map_pmap.put("PAN-OSPlatformModel", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_30(o, p, r);} });
-            ansiblelint_meta_map_pmap.put("RockyLinuxPlatformModel", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_31(o, p, r);} });
-            ansiblelint_meta_map_pmap.put("SLESPlatformModel", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_32(o, p, r);} });
-            ansiblelint_meta_map_pmap.put("SmartOSPlatformModel", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_33(o, p, r);} });
-            ansiblelint_meta_map_pmap.put("SolarisPlatformModel", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_34(o, p, r);} });
-            ansiblelint_meta_map_pmap.put("SynologyPlatformModel", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_35(o, p, r);} });
-            ansiblelint_meta_map_pmap.put("TMOSPlatformModel", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_36(o, p, r);} });
-            ansiblelint_meta_map_pmap.put("UbuntuPlatformModel", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_37(o, p, r);} });
-            ansiblelint_meta_map_pmap.put("Void_LinuxPlatformModel", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_38(o, p, r);} });
-            ansiblelint_meta_map_pmap.put("WindowsPlatformModel", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_39(o, p, r);} });
-            ansiblelint_meta_map_pmap.put("aosPlatformModel", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_40(o, p, r);} });
-            ansiblelint_meta_map_pmap.put("eosPlatformModel", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_41(o, p, r);} });
-            ansiblelint_meta_map_pmap.put("macOSPlatformModel", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_42(o, p, r);} });
-            ansiblelint_meta_map_pmap.put("opensusePlatformModel", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_43(o, p, r);} });
-            ansiblelint_meta_map_pmap.put("os10PlatformModel", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_44(o, p, r);} });
-            ansiblelint_meta_map_pmap.put("vCenterPlatformModel", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_45(o, p, r);} });
-            ansiblelint_meta_map_pmap.put("vSpherePlatformModel", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_46(o, p, r);} });
+            ansiblelint_meta_map_pmap.put("AIXPlatformModel", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_2(o, p, r);} });
+            ansiblelint_meta_map_pmap.put("AlpinePlatformModel", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_3(o, p, r);} });
+            ansiblelint_meta_map_pmap.put("AmazonLinuxPlatformModel", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
+            ansiblelint_meta_map_pmap.put("AmazonPlatformModel", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_5(o, p, r);} });
+            ansiblelint_meta_map_pmap.put("ArchLinuxPlatformModel", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_6(o, p, r);} });
+            ansiblelint_meta_map_pmap.put("AstraLinuxPlatformModel", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_7(o, p, r);} });
+            ansiblelint_meta_map_pmap.put("ClearLinuxPlatformModel", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_8(o, p, r);} });
+            ansiblelint_meta_map_pmap.put("CumulusPlatformModel", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_9(o, p, r);} });
+            ansiblelint_meta_map_pmap.put("DebianPlatformModel", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_10(o, p, r);} });
+            ansiblelint_meta_map_pmap.put("DellOSPlatformModel", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_11(o, p, r);} });
+            ansiblelint_meta_map_pmap.put("DevuanPlatformModel", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_12(o, p, r);} });
+            ansiblelint_meta_map_pmap.put("DragonFlyBSDPlatformModel", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_13(o, p, r);} });
+            ansiblelint_meta_map_pmap.put("ELPlatformModel", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_14(o, p, r);} });
+            ansiblelint_meta_map_pmap.put("FedoraPlatformModel", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_15(o, p, r);} });
+            ansiblelint_meta_map_pmap.put("FreeBSDPlatformModel", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_16(o, p, r);} });
+            ansiblelint_meta_map_pmap.put("GenericBSDPlatformModel", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_17(o, p, r);} });
+            ansiblelint_meta_map_pmap.put("GenericLinuxPlatformModel", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_18(o, p, r);} });
+            ansiblelint_meta_map_pmap.put("GenericUNIXPlatformModel", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_19(o, p, r);} });
+            ansiblelint_meta_map_pmap.put("GentooPlatformModel", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_20(o, p, r);} });
+            ansiblelint_meta_map_pmap.put("HardenedBSDPlatformModel", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_21(o, p, r);} });
+            ansiblelint_meta_map_pmap.put("IOSPlatformModel", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_22(o, p, r);} });
+            ansiblelint_meta_map_pmap.put("JunosPlatformModel", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_23(o, p, r);} });
+            ansiblelint_meta_map_pmap.put("KaliPlatformModel", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_24(o, p, r);} });
+            ansiblelint_meta_map_pmap.put("MacOSXPlatformModel", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_25(o, p, r);} });
+            ansiblelint_meta_map_pmap.put("MageiaPlatformModel", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_26(o, p, r);} });
+            ansiblelint_meta_map_pmap.put("NXOSPlatformModel", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_27(o, p, r);} });
+            ansiblelint_meta_map_pmap.put("NetBSDPlatformModel", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_28(o, p, r);} });
+            ansiblelint_meta_map_pmap.put("OpenBSDPlatformModel", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_29(o, p, r);} });
+            ansiblelint_meta_map_pmap.put("OpenWrtPlatformModel", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_30(o, p, r);} });
+            ansiblelint_meta_map_pmap.put("OracleLinuxPlatformModel", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_31(o, p, r);} });
+            ansiblelint_meta_map_pmap.put("PAN-OSPlatformModel", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_32(o, p, r);} });
+            ansiblelint_meta_map_pmap.put("RockyLinuxPlatformModel", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_33(o, p, r);} });
+            ansiblelint_meta_map_pmap.put("SLESPlatformModel", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_34(o, p, r);} });
+            ansiblelint_meta_map_pmap.put("SmartOSPlatformModel", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_35(o, p, r);} });
+            ansiblelint_meta_map_pmap.put("SolarisPlatformModel", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_36(o, p, r);} });
+            ansiblelint_meta_map_pmap.put("SynologyPlatformModel", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_37(o, p, r);} });
+            ansiblelint_meta_map_pmap.put("TMOSPlatformModel", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_38(o, p, r);} });
+            ansiblelint_meta_map_pmap.put("UbuntuPlatformModel", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_39(o, p, r);} });
+            ansiblelint_meta_map_pmap.put("Void_LinuxPlatformModel", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_40(o, p, r);} });
+            ansiblelint_meta_map_pmap.put("WindowsPlatformModel", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_41(o, p, r);} });
+            ansiblelint_meta_map_pmap.put("aosPlatformModel", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_42(o, p, r);} });
+            ansiblelint_meta_map_pmap.put("eosPlatformModel", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_43(o, p, r);} });
+            ansiblelint_meta_map_pmap.put("macOSPlatformModel", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_44(o, p, r);} });
+            ansiblelint_meta_map_pmap.put("opensusePlatformModel", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_45(o, p, r);} });
+            ansiblelint_meta_map_pmap.put("os10PlatformModel", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_46(o, p, r);} });
+            ansiblelint_meta_map_pmap.put("vCenterPlatformModel", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_47(o, p, r);} });
+            ansiblelint_meta_map_pmap.put("vSpherePlatformModel", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_48(o, p, r);} });
             ansiblelint_meta_map_pmap.put("any_platform", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_49(o, p, r);} });
             ansiblelint_meta_map_pmap.put("platforms", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_50(o, p, r);} });
-            ansiblelint_meta_map_pmap.put("GalaxyInfoModelCollection", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_94(o, p, r);} });
-            ansiblelint_meta_map_pmap.put("GalaxyInfoModelLoose", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_95(o, p, r);} });
-            ansiblelint_meta_map_pmap.put("GalaxyInfoModelStandalone", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_96(o, p, r);} });
+            ansiblelint_meta_map_pmap.put("GalaxyInfoModelCollection", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_51(o, p, r);} });
+            ansiblelint_meta_map_pmap.put("GalaxyInfoModelLoose", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_52(o, p, r);} });
+            ansiblelint_meta_map_pmap.put("GalaxyInfoModelStandalone", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_53(o, p, r);} });
             ansiblelint_meta_map_pmap.put("GalaxyInfoModel", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_54(o, p, r);} });
             ansiblelint_meta_map_pmap.put("collections", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_55(o, p, r);} });
             ansiblelint_meta_map_pmap.put("complex_conditional", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_56(o, p, r);} });
-            ansiblelint_meta_map_pmap.put("DependencyModelLoose", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_99(o, p, r);} });
+            ansiblelint_meta_map_pmap.put("DependencyModelLoose", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_57(o, p, r);} });
             ansiblelint_meta_map_pmap.put("DependencyModel", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_58(o, p, r);} });
-            ansiblelint_meta_map_pmap.put("AnsibleMetaObj", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_104(o, p, r);} });
+            ansiblelint_meta_map_pmap.put("AnsibleMetaObj", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_59(o, p, r);} });
             ansiblelint_meta_map_pmap.put("AnsibleMeta", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_60(o, p, r);} });
                 super.init(json);
             }
@@ -10246,15 +9610,15 @@ public class ansiblelint_meta extends ModelChecker
             _jm_cst_63_set = null;
             _jm_re_0_pat = null;
             _jm_re_1_pat = null;
-            _jm_obj_94_map_pmap = null;
-            _jm_obj_95_map_pmap = null;
-            _jm_obj_96_map_pmap = null;
-            _jm_obj_97_map_pmap = null;
-            _jm_obj_98_map_pmap = null;
+            json_model_51_map_pmap = null;
+            json_model_52_map_pmap = null;
+            json_model_53_map_pmap = null;
+            _jm_obj_47_map_pmap = null;
+            _jm_obj_48_map_pmap = null;
             _jm_map_0_cmap = null;
             _jm_re_2_pat = null;
             _jm_cst_64_set = null;
-            _jm_obj_99_map_pmap = null;
+            json_model_57_map_pmap = null;
             ansiblelint_meta_map_pmap = null;
         }
     }

@@ -50,7 +50,7 @@ function json_model_6(val, path, rep)
             let arr_0_item = val[arr_0_idx]
             let arr_0_lpath = path ? path.concat([arr_0_idx]) : null;
             // .'$Dd#l'.0
-            res = _jm_obj_0(arr_0_item, (path ? arr_0_lpath : null), rep);
+            res = json_model_12(arr_0_item, (path ? arr_0_lpath : null), rep);
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $u [.'$Dd#l'.0]", (path ? arr_0_lpath : null)])
@@ -70,7 +70,7 @@ function json_model_10(val, path, rep)
 {
     let res;
     // .'$Dd#u'
-    res = _jm_obj_0(val, path, rep);
+    res = json_model_12(val, path, rep);
     if (! res)
     {
         rep !== null && rep.push(["unexpected $Uu#un [.'$Dd#u']", path])
@@ -78,9 +78,10 @@ function json_model_10(val, path, rep)
     return res;
 }
 
-// object .'$Dd#Uu#un'
-function _jm_obj_0(val, path, rep)
+// check $Dd#Uu#un (.'$Dd#Uu#un')
+function json_model_12(val, path, rep)
 {
+    // .'$Dd#Uu#un'
     // check close must only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
@@ -126,19 +127,6 @@ function _jm_obj_0(val, path, rep)
         return false;
     }
     return true;
-}
-
-// check $Dd#Uu#un (.'$Dd#Uu#un')
-function json_model_12(val, path, rep)
-{
-    let res;
-    // .'$Dd#Uu#un'
-    res = _jm_obj_0(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected element [.'$Dd#Uu#un']", path])
-    }
-    return res;
 }
 
 

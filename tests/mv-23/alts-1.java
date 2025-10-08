@@ -22,9 +22,10 @@ public class alts_1 extends ModelChecker
     Set<Object> _jm_cst_1_set;
     public Map<String, Checker> alts_1_map_pmap;
 
-    // object .'$oA'
-    public boolean _jm_obj_0(Object val, Path path, Report rep)
+    // check $oA (.'$oA')
+    public boolean json_model_2(Object val, Path path, Report rep)
     {
+        // .'$oA'
         // check open must/may only props
         if (! json.isObject(val))
         {
@@ -65,23 +66,11 @@ public class alts_1 extends ModelChecker
         return true;
     }
 
-    // check $oA (.'$oA')
-    public boolean json_model_2(Object val, Path path, Report rep)
-    {
-        boolean res;
-        // .'$oA'
-        res = _jm_obj_0(val, path, rep);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected element [.'$oA']", path);
-        }
-        return res;
-    }
 
-
-    // object .'$oB'
-    public boolean _jm_obj_1(Object val, Path path, Report rep)
+    // check $oB (.'$oB')
+    public boolean json_model_3(Object val, Path path, Report rep)
     {
+        // .'$oB'
         // check open must/may only props
         if (! json.isObject(val))
         {
@@ -122,19 +111,6 @@ public class alts_1 extends ModelChecker
         return true;
     }
 
-    // check $oB (.'$oB')
-    public boolean json_model_3(Object val, Path path, Report rep)
-    {
-        boolean res;
-        // .'$oB'
-        res = _jm_obj_1(val, path, rep);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected element [.'$oB']", path);
-        }
-        return res;
-    }
-
 
     // check $oC (.'$oC')
     public boolean json_model_4(Object val, Path path, Report rep)
@@ -172,9 +148,10 @@ public class alts_1 extends ModelChecker
         return res;
     }
 
-    // object .'$oL'
-    public boolean _jm_obj_2(Object val, Path path, Report rep)
+    // check $oL (.'$oL')
+    public boolean json_model_5(Object val, Path path, Report rep)
     {
+        // .'$oL'
         // check open must/may only props
         if (! json.isObject(val))
         {
@@ -215,23 +192,11 @@ public class alts_1 extends ModelChecker
         return true;
     }
 
-    // check $oL (.'$oL')
-    public boolean json_model_5(Object val, Path path, Report rep)
-    {
-        boolean res;
-        // .'$oL'
-        res = _jm_obj_2(val, path, rep);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected element [.'$oL']", path);
-        }
-        return res;
-    }
 
-
-    // object .'$oX'
-    public boolean _jm_obj_3(Object val, Path path, Report rep)
+    // check $oX (.'$oX')
+    public boolean json_model_6(Object val, Path path, Report rep)
     {
+        // .'$oX'
         // check open must/may only props
         if (! json.isObject(val))
         {
@@ -272,19 +237,6 @@ public class alts_1 extends ModelChecker
         return true;
     }
 
-    // check $oX (.'$oX')
-    public boolean json_model_6(Object val, Path path, Report rep)
-    {
-        boolean res;
-        // .'$oX'
-        res = _jm_obj_3(val, path, rep);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected element [.'$oX']", path);
-        }
-        return res;
-    }
-
     // check $ (.)
     public boolean json_model_1(Object val, Path path, Report rep)
     {
@@ -294,7 +246,7 @@ public class alts_1 extends ModelChecker
         long xc_0 = 0;
         boolean xr_0;
         // .'^'.0
-        xr_0 = _jm_obj_0(val, path, rep);
+        xr_0 = json_model_2(val, path, rep);
         if (xr_0)
         {
             xc_0 += 1;
@@ -304,7 +256,7 @@ public class alts_1 extends ModelChecker
             if (rep != null) rep.addEntry("unexpected $oA [.'^'.0]", path);
         }
         // .'^'.1
-        xr_0 = _jm_obj_1(val, path, rep);
+        xr_0 = json_model_3(val, path, rep);
         if (xr_0)
         {
             xc_0 += 1;
@@ -348,19 +300,19 @@ public class alts_1 extends ModelChecker
             _jm_cst_0_set.add(json.safeJSON("\"b\""));
             _jm_cst_0_set.add(json.safeJSON("\"c\""));
             _jm_map_0_cmap = new HashMap<Object, Checker>();
-            _jm_map_0_cmap.put(json.safeJSON("\"e\""), new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_3(o, p, r);} });
-            _jm_map_0_cmap.put(json.safeJSON("\"f\""), new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_3(o, p, r);} });
-            _jm_map_0_cmap.put(json.safeJSON("\"d\""), new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_2(o, p, r);} });
+            _jm_map_0_cmap.put(json.safeJSON("\"e\""), new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_6(o, p, r);} });
+            _jm_map_0_cmap.put(json.safeJSON("\"f\""), new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_6(o, p, r);} });
+            _jm_map_0_cmap.put(json.safeJSON("\"d\""), new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_5(o, p, r);} });
             _jm_cst_1_set = new HashSet<Object>();
             _jm_cst_1_set.add(json.safeJSON("\"e\""));
             _jm_cst_1_set.add(json.safeJSON("\"f\""));
             alts_1_map_pmap = new HashMap<String, Checker>();
             alts_1_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_1(o, p, r);} });
-            alts_1_map_pmap.put("oA", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_0(o, p, r);} });
-            alts_1_map_pmap.put("oB", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_1(o, p, r);} });
+            alts_1_map_pmap.put("oA", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_2(o, p, r);} });
+            alts_1_map_pmap.put("oB", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_3(o, p, r);} });
             alts_1_map_pmap.put("oC", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
-            alts_1_map_pmap.put("oL", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_2(o, p, r);} });
-            alts_1_map_pmap.put("oX", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_3(o, p, r);} });
+            alts_1_map_pmap.put("oL", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_5(o, p, r);} });
+            alts_1_map_pmap.put("oX", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_6(o, p, r);} });
                 super.init(json);
             }
             catch (Exception e) {

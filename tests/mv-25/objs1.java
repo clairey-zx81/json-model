@@ -20,9 +20,10 @@ public class objs1 extends ModelChecker
     Map<Object, Checker> _jm_map_0_cmap;
     public Map<String, Checker> objs1_map_pmap;
 
-    // object .'$objs0'
-    public boolean _jm_obj_0(Object val, Path path, Report rep)
+    // check $objs0 (.'$objs0')
+    public boolean json_model_3(Object val, Path path, Report rep)
     {
+        // .'$objs0'
         // check close must only props
         if (! json.isObject(val))
         {
@@ -63,18 +64,10 @@ public class objs1 extends ModelChecker
         return true;
     }
 
-    // check $objs0 (.'$objs0')
-    public boolean json_model_3(Object val, Path path, Report rep)
+    // check $ (.)
+    public boolean json_model_1(Object val, Path path, Report rep)
     {
-        boolean res;
-        // .'$objs0'
-        res = _jm_obj_0(val, path, rep);
-        return res;
-    }
-
-    // object .
-    public boolean _jm_obj_1(Object val, Path path, Report rep)
-    {
+        // .
         // check close must only props
         if (! json.isObject(val))
         {
@@ -91,21 +84,12 @@ public class objs1 extends ModelChecker
             return false;
         }
         // .foo
-        res = _jm_obj_0(pval, null, rep);
+        res = json_model_3(pval, null, rep);
         if (! res)
         {
             return false;
         }
         return true;
-    }
-
-    // check $ (.)
-    public boolean json_model_1(Object val, Path path, Report rep)
-    {
-        boolean res;
-        // .
-        res = _jm_obj_1(val, path, rep);
-        return res;
     }
 
 
@@ -139,9 +123,10 @@ public class objs1 extends ModelChecker
         return res;
     }
 
-    // object .'$objs0#table'
-    public boolean _jm_obj_2(Object val, Path path, Report rep)
+    // check $objs0#table (.'$objs0#table')
+    public boolean json_model_4(Object val, Path path, Report rep)
     {
+        // .'$objs0#table'
         // check close must only props
         if (! json.isObject(val))
         {
@@ -176,18 +161,10 @@ public class objs1 extends ModelChecker
         return true;
     }
 
-    // check $objs0#table (.'$objs0#table')
-    public boolean json_model_4(Object val, Path path, Report rep)
+    // check $objs0#chair (.'$objs0#chair')
+    public boolean json_model_5(Object val, Path path, Report rep)
     {
-        boolean res;
-        // .'$objs0#table'
-        res = _jm_obj_2(val, path, rep);
-        return res;
-    }
-
-    // object .'$objs0#chair'
-    public boolean _jm_obj_3(Object val, Path path, Report rep)
-    {
+        // .'$objs0#chair'
         // check close must only props
         if (! json.isObject(val))
         {
@@ -222,15 +199,6 @@ public class objs1 extends ModelChecker
         return true;
     }
 
-    // check $objs0#chair (.'$objs0#chair')
-    public boolean json_model_5(Object val, Path path, Report rep)
-    {
-        boolean res;
-        // .'$objs0#chair'
-        res = _jm_obj_3(val, path, rep);
-        return res;
-    }
-
 
     public void init(JSON json)
     {
@@ -238,11 +206,11 @@ public class objs1 extends ModelChecker
         {
             try {
             _jm_map_0_cmap = new HashMap<Object, Checker>();
-            _jm_map_0_cmap.put(json.safeJSON("\"table\""), new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_2(o, p, r);} });
-            _jm_map_0_cmap.put(json.safeJSON("\"chair\""), new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_3(o, p, r);} });
+            _jm_map_0_cmap.put(json.safeJSON("\"table\""), new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
+            _jm_map_0_cmap.put(json.safeJSON("\"chair\""), new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_5(o, p, r);} });
             objs1_map_pmap = new HashMap<String, Checker>();
-            objs1_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_1(o, p, r);} });
-            objs1_map_pmap.put("objs0", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_0(o, p, r);} });
+            objs1_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_1(o, p, r);} });
+            objs1_map_pmap.put("objs0", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_3(o, p, r);} });
                 super.init(json);
             }
             catch (Exception e) {

@@ -13,9 +13,10 @@ let _jm_cst_0 = new Set()
 let _jm_map_0 = new Map()
 var check_model_map = new Map()
 
-// object .'$d'
-function _jm_obj_0(val, path, rep)
+// check $d (.'$d')
+function json_model_2(val, path, rep)
 {
+    // .'$d'
     // check close must only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
@@ -52,17 +53,8 @@ function _jm_obj_0(val, path, rep)
     return true;
 }
 
-// check $d (.'$d')
-function json_model_2(val, path, rep)
-{
-    let res;
-    // .'$d'
-    res = _jm_obj_0(val, path, rep);
-    return res;
-}
-
 // object .'$alternative'.'|'.0
-function _jm_obj_1(val, path, rep)
+function _jm_obj_0(val, path, rep)
 {
     // check close must only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
@@ -102,7 +94,7 @@ function _jm_obj_1(val, path, rep)
 
 
 // object .'$alternative'.'|'.1
-function _jm_obj_2(val, path, rep)
+function _jm_obj_1(val, path, rep)
 {
     // check close must only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
@@ -172,7 +164,7 @@ function json_model_3(val, path, rep)
     if (! res)
     {
         // .'$alternative'.'|'.0
-        res = _jm_obj_1(val, path, rep);
+        res = _jm_obj_0(val, path, rep);
     }
     return res;
 }
@@ -198,11 +190,11 @@ export function check_model_init()
         runtime.jm_set_rx(RegExp)
         _jm_cst_0.add("b")
         _jm_cst_0.add("c")
-        _jm_map_0.set("b", _jm_obj_2)
-        _jm_map_0.set("c", _jm_obj_2)
-        _jm_map_0.set("d", _jm_obj_0)
+        _jm_map_0.set("b", _jm_obj_1)
+        _jm_map_0.set("c", _jm_obj_1)
+        _jm_map_0.set("d", json_model_2)
         check_model_map.set("", json_model_3)
-        check_model_map.set("d", _jm_obj_0)
+        check_model_map.set("d", json_model_2)
         check_model_map.set("alternative", json_model_3)
     }
 }

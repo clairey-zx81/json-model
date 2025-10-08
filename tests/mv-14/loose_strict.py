@@ -22,8 +22,10 @@ def check_model(val: Jsonable, name: str = "", rep: Report = None) -> bool:
 
 check_model_map: PropMap
 
-# object .'$loose'
-def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
+# check $loose (.'$loose')
+def json_model_5(val: Jsonable, path: Path, rep: Report) -> bool:
+    # JSON_MODEL_LOOSE_INT
+    # .'$loose'
     # check close must only props
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$loose']", path))
@@ -46,18 +48,10 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
         return False
     return True
 
-# check $loose (.'$loose')
-def json_model_5(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # JSON_MODEL_LOOSE_INT
-    # .'$loose'
-    res = _jm_obj_0(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected element [.'$loose']", path))
-    return res
-
-# object .'$strict'
-def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
+# check $strict (.'$strict')
+def json_model_6(val: Jsonable, path: Path, rep: Report) -> bool:
+    # JSON_MODEL_STRICT_INT
+    # .'$strict'
     # check close must only props
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$strict']", path))
@@ -80,18 +74,9 @@ def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
         return False
     return True
 
-# check $strict (.'$strict')
-def json_model_6(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # JSON_MODEL_STRICT_INT
-    # .'$strict'
-    res = _jm_obj_1(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected element [.'$strict']", path))
-    return res
-
-# object .'$combined'
-def _jm_obj_2(val: Jsonable, path: Path, rep: Report) -> bool:
+# check $combined (.'$combined')
+def json_model_4(val: Jsonable, path: Path, rep: Report) -> bool:
+    # .'$combined'
     # check close must only props
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$combined']", path))
@@ -124,20 +109,11 @@ def _jm_obj_2(val: Jsonable, path: Path, rep: Report) -> bool:
         return False
     return True
 
-# check $combined (.'$combined')
-def json_model_4(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .'$combined'
-    res = _jm_obj_2(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected element [.'$combined']", path))
-    return res
-
 # check $ (.)
 def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .
-    res = _jm_obj_2(val, path, rep)
+    res = json_model_4(val, path, rep)
     if not res:
         rep is None or rep.append(("unexpected $combined [.]", path))
     return res
@@ -153,10 +129,10 @@ def check_model_init():
         initialized = True
         global check_model_map
         check_model_map = {
-            "": _jm_obj_2,
-            "loose": _jm_obj_0,
-            "strict": _jm_obj_1,
-            "combined": _jm_obj_2,
+            "": json_model_4,
+            "loose": json_model_5,
+            "strict": json_model_6,
+            "combined": json_model_4,
         }
 
 # differed module cleanup

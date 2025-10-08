@@ -126,9 +126,10 @@ function json_model_4(val, path, rep)
     return res;
 }
 
-// object .'$Point'
-function _jm_obj_0(val, path, rep)
+// check $Point (.'$Point')
+function json_model_5(val, path, rep)
 {
+    // .'$Point'
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.'$Point']", path])
@@ -216,22 +217,10 @@ function _jm_obj_0(val, path, rep)
     return true;
 }
 
-// check $Point (.'$Point')
-function json_model_5(val, path, rep)
+// check $MultiPoint (.'$MultiPoint')
+function json_model_6(val, path, rep)
 {
-    let res;
-    // .'$Point'
-    res = _jm_obj_0(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected element [.'$Point']", path])
-    }
-    return res;
-}
-
-// object .'$MultiPoint'
-function _jm_obj_1(val, path, rep)
-{
+    // .'$MultiPoint'
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.'$MultiPoint']", path])
@@ -334,22 +323,10 @@ function _jm_obj_1(val, path, rep)
     return true;
 }
 
-// check $MultiPoint (.'$MultiPoint')
-function json_model_6(val, path, rep)
+// check $LineString (.'$LineString')
+function json_model_7(val, path, rep)
 {
-    let res;
-    // .'$MultiPoint'
-    res = _jm_obj_1(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected element [.'$MultiPoint']", path])
-    }
-    return res;
-}
-
-// object .'$LineString'
-function _jm_obj_2(val, path, rep)
-{
+    // .'$LineString'
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.'$LineString']", path])
@@ -437,22 +414,10 @@ function _jm_obj_2(val, path, rep)
     return true;
 }
 
-// check $LineString (.'$LineString')
-function json_model_7(val, path, rep)
+// check $MultiLineString (.'$MultiLineString')
+function json_model_8(val, path, rep)
 {
-    let res;
-    // .'$LineString'
-    res = _jm_obj_2(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected element [.'$LineString']", path])
-    }
-    return res;
-}
-
-// object .'$MultiLineString'
-function _jm_obj_3(val, path, rep)
-{
+    // .'$MultiLineString'
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.'$MultiLineString']", path])
@@ -555,22 +520,10 @@ function _jm_obj_3(val, path, rep)
     return true;
 }
 
-// check $MultiLineString (.'$MultiLineString')
-function json_model_8(val, path, rep)
+// check $Polygon (.'$Polygon')
+function json_model_9(val, path, rep)
 {
-    let res;
-    // .'$MultiLineString'
-    res = _jm_obj_3(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected element [.'$MultiLineString']", path])
-    }
-    return res;
-}
-
-// object .'$Polygon'
-function _jm_obj_4(val, path, rep)
-{
+    // .'$Polygon'
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.'$Polygon']", path])
@@ -673,22 +626,10 @@ function _jm_obj_4(val, path, rep)
     return true;
 }
 
-// check $Polygon (.'$Polygon')
-function json_model_9(val, path, rep)
+// check $MultiPolygon (.'$MultiPolygon')
+function json_model_10(val, path, rep)
 {
-    let res;
-    // .'$Polygon'
-    res = _jm_obj_4(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected element [.'$Polygon']", path])
-    }
-    return res;
-}
-
-// object .'$MultiPolygon'
-function _jm_obj_5(val, path, rep)
-{
+    // .'$MultiPolygon'
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.'$MultiPolygon']", path])
@@ -806,21 +747,8 @@ function _jm_obj_5(val, path, rep)
     return true;
 }
 
-// check $MultiPolygon (.'$MultiPolygon')
-function json_model_10(val, path, rep)
-{
-    let res;
-    // .'$MultiPolygon'
-    res = _jm_obj_5(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected element [.'$MultiPolygon']", path])
-    }
-    return res;
-}
-
 // object .'$geometry'.'|'.0
-function _jm_obj_6(val, path, rep)
+function _jm_obj_0(val, path, rep)
 {
     // check open must/may only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
@@ -893,7 +821,7 @@ function _jm_obj_6(val, path, rep)
 }
 
 // object .'$geometry'.'|'.1
-function _jm_obj_7(val, path, rep)
+function _jm_obj_1(val, path, rep)
 {
     // check open must/may only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
@@ -981,7 +909,7 @@ function _jm_obj_7(val, path, rep)
 }
 
 // object .'$geometry'.'|'.2
-function _jm_obj_8(val, path, rep)
+function _jm_obj_2(val, path, rep)
 {
     // check open must/may only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
@@ -1054,7 +982,7 @@ function _jm_obj_8(val, path, rep)
 }
 
 // object .'$geometry'.'|'.3
-function _jm_obj_9(val, path, rep)
+function _jm_obj_3(val, path, rep)
 {
     // check open must/may only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
@@ -1142,7 +1070,7 @@ function _jm_obj_9(val, path, rep)
 }
 
 // object .'$geometry'.'|'.4
-function _jm_obj_10(val, path, rep)
+function _jm_obj_4(val, path, rep)
 {
     // check open must/may only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
@@ -1230,7 +1158,7 @@ function _jm_obj_10(val, path, rep)
 }
 
 // object .'$geometry'.'|'.5
-function _jm_obj_11(val, path, rep)
+function _jm_obj_5(val, path, rep)
 {
     // check open must/may only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
@@ -1369,9 +1297,10 @@ function json_model_11(val, path, rep)
     return res;
 }
 
-// object .'$GeometryCollection'
-function _jm_obj_12(val, path, rep)
+// check $GeometryCollection (.'$GeometryCollection')
+function json_model_12(val, path, rep)
 {
+    // .'$GeometryCollection'
     // check open must/may only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
@@ -1457,21 +1386,8 @@ function _jm_obj_12(val, path, rep)
     return true;
 }
 
-// check $GeometryCollection (.'$GeometryCollection')
-function json_model_12(val, path, rep)
-{
-    let res;
-    // .'$GeometryCollection'
-    res = _jm_obj_12(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected element [.'$GeometryCollection']", path])
-    }
-    return res;
-}
-
 // object .'$Feature'.properties.'|'.1
-function _jm_obj_14(val, path, rep)
+function _jm_obj_6(val, path, rep)
 {
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
@@ -1482,9 +1398,10 @@ function _jm_obj_14(val, path, rep)
     return true;
 }
 
-// object .'$Feature'
-function _jm_obj_13(val, path, rep)
+// check $Feature (.'$Feature')
+function json_model_13(val, path, rep)
 {
+    // .'$Feature'
     // check open must/may only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
@@ -1534,7 +1451,7 @@ function _jm_obj_13(val, path, rep)
         if (! res)
         {
             // .'$Feature'.geometry.'|'.2
-            res = _jm_obj_12(pval, (path ? lpath : null), rep);
+            res = json_model_12(pval, (path ? lpath : null), rep);
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $GeometryCollection [.'$Feature'.geometry.'|'.2]", (path ? lpath : null)])
@@ -1568,7 +1485,7 @@ function _jm_obj_13(val, path, rep)
     if (! res)
     {
         // .'$Feature'.properties.'|'.1
-        res = _jm_obj_14(pval, (path ? lpath : null), rep);
+        res = _jm_obj_6(pval, (path ? lpath : null), rep);
         if (! res)
         {
             rep !== null && rep.push(["unexpected element [.'$Feature'.properties.'|'.1]", (path ? lpath : null)])
@@ -1646,22 +1563,10 @@ function _jm_obj_13(val, path, rep)
     return true;
 }
 
-// check $Feature (.'$Feature')
-function json_model_13(val, path, rep)
+// check $FeatureCollection (.'$FeatureCollection')
+function json_model_14(val, path, rep)
 {
-    let res;
-    // .'$Feature'
-    res = _jm_obj_13(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected element [.'$Feature']", path])
-    }
-    return res;
-}
-
-// object .'$FeatureCollection'
-function _jm_obj_15(val, path, rep)
-{
+    // .'$FeatureCollection'
     // check open must/may only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
@@ -1702,7 +1607,7 @@ function _jm_obj_15(val, path, rep)
             let arr_28_item = pval[arr_28_idx]
             let arr_28_lpath = (path ? lpath : null) ? (path ? lpath : null).concat([arr_28_idx]) : null;
             // .'$FeatureCollection'.features.0
-            res = _jm_obj_13(arr_28_item, ((path ? lpath : null) ? arr_28_lpath : null), rep);
+            res = json_model_13(arr_28_item, ((path ? lpath : null) ? arr_28_lpath : null), rep);
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $Feature [.'$FeatureCollection'.features.0]", ((path ? lpath : null) ? arr_28_lpath : null)])
@@ -1747,19 +1652,6 @@ function _jm_obj_15(val, path, rep)
     return true;
 }
 
-// check $FeatureCollection (.'$FeatureCollection')
-function json_model_14(val, path, rep)
-{
-    let res;
-    // .'$FeatureCollection'
-    res = _jm_obj_15(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected element [.'$FeatureCollection']", path])
-    }
-    return res;
-}
-
 // check $ (.)
 function json_model_1(val, path, rep)
 {
@@ -1780,7 +1672,7 @@ function json_model_1(val, path, rep)
         rep !== null && rep.push(["unexpected $geometry [.'^'.0]", path])
     }
     // .'^'.1
-    xr_0 = _jm_obj_12(val, path, rep);
+    xr_0 = json_model_12(val, path, rep);
     if (xr_0)
     {
         xc_0 += 1;
@@ -1792,7 +1684,7 @@ function json_model_1(val, path, rep)
     if (xc_0 <= 1)
     {
         // .'^'.2
-        xr_0 = _jm_obj_13(val, path, rep);
+        xr_0 = json_model_13(val, path, rep);
         if (xr_0)
         {
             xc_0 += 1;
@@ -1805,7 +1697,7 @@ function json_model_1(val, path, rep)
     if (xc_0 <= 1)
     {
         // .'^'.3
-        xr_0 = _jm_obj_15(val, path, rep);
+        xr_0 = json_model_14(val, path, rep);
         if (xr_0)
         {
             xc_0 += 1;
@@ -1837,26 +1729,26 @@ export function check_model_init()
     {
         initialized = true;
         runtime.jm_set_rx(RegExp)
-        _jm_map_0.set("Point", _jm_obj_6)
-        _jm_map_0.set("MultiPoint", _jm_obj_7)
-        _jm_map_0.set("LineString", _jm_obj_8)
-        _jm_map_0.set("MultiLineString", _jm_obj_9)
-        _jm_map_0.set("Polygon", _jm_obj_10)
-        _jm_map_0.set("MultiPolygon", _jm_obj_11)
+        _jm_map_0.set("Point", _jm_obj_0)
+        _jm_map_0.set("MultiPoint", _jm_obj_1)
+        _jm_map_0.set("LineString", _jm_obj_2)
+        _jm_map_0.set("MultiLineString", _jm_obj_3)
+        _jm_map_0.set("Polygon", _jm_obj_4)
+        _jm_map_0.set("MultiPolygon", _jm_obj_5)
         check_model_map.set("", json_model_1)
         check_model_map.set("position", json_model_2)
         check_model_map.set("coord_array", json_model_3)
         check_model_map.set("linear_ring", json_model_4)
-        check_model_map.set("Point", _jm_obj_0)
-        check_model_map.set("MultiPoint", _jm_obj_1)
-        check_model_map.set("LineString", _jm_obj_2)
-        check_model_map.set("MultiLineString", _jm_obj_3)
-        check_model_map.set("Polygon", _jm_obj_4)
-        check_model_map.set("MultiPolygon", _jm_obj_5)
+        check_model_map.set("Point", json_model_5)
+        check_model_map.set("MultiPoint", json_model_6)
+        check_model_map.set("LineString", json_model_7)
+        check_model_map.set("MultiLineString", json_model_8)
+        check_model_map.set("Polygon", json_model_9)
+        check_model_map.set("MultiPolygon", json_model_10)
         check_model_map.set("geometry", json_model_11)
-        check_model_map.set("GeometryCollection", _jm_obj_12)
-        check_model_map.set("Feature", _jm_obj_13)
-        check_model_map.set("FeatureCollection", _jm_obj_15)
+        check_model_map.set("GeometryCollection", json_model_12)
+        check_model_map.set("Feature", json_model_13)
+        check_model_map.set("FeatureCollection", json_model_14)
     }
 }
 

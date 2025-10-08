@@ -112,9 +112,10 @@ function json_model_5(val, path, rep)
     return res;
 }
 
-// object .'$ObjectComment'
-function _jm_obj_0(val, path, rep)
+// check $ObjectComment (.'$ObjectComment')
+function json_model_6(val, path, rep)
 {
+    // .'$ObjectComment'
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.'$ObjectComment']", path])
@@ -154,19 +155,6 @@ function _jm_obj_0(val, path, rep)
         }
     }
     return true;
-}
-
-// check $ObjectComment (.'$ObjectComment')
-function json_model_6(val, path, rep)
-{
-    let res;
-    // .'$ObjectComment'
-    res = _jm_obj_0(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected element [.'$ObjectComment']", path])
-    }
-    return res;
 }
 
 const _jm_re_3 = (s) => _jm_re_3_re.exec(s) !== null
@@ -561,7 +549,7 @@ function json_model_20(val, path, rep)
 {
     let res;
     // .'$Common'
-    res = _jm_obj_0(val, path, rep);
+    res = json_model_6(val, path, rep);
     if (! res)
     {
         rep !== null && rep.push(["unexpected $ObjectComment [.'$Common']", path])
@@ -573,9 +561,10 @@ const _jm_re_7 = (s) => _jm_re_7_re.exec(s) !== null
 
 const _jm_re_8 = (s) => _jm_re_8_re.exec(s) !== null
 
-// object .'$Constraint'
-function _jm_obj_1(val, path, rep)
+// check $Constraint (.'$Constraint')
+function json_model_21(val, path, rep)
 {
+    // .'$Constraint'
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.'$Constraint']", path])
@@ -653,22 +642,10 @@ function _jm_obj_1(val, path, rep)
     return true;
 }
 
-// check $Constraint (.'$Constraint')
-function json_model_21(val, path, rep)
+// check $Or (.'$Or')
+function json_model_22(val, path, rep)
 {
-    let res;
-    // .'$Constraint'
-    res = _jm_obj_1(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected element [.'$Constraint']", path])
-    }
-    return res;
-}
-
-// object .'$Or'
-function _jm_obj_2(val, path, rep)
-{
+    // .'$Or'
     // check close must only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
@@ -716,22 +693,10 @@ function _jm_obj_2(val, path, rep)
     return true;
 }
 
-// check $Or (.'$Or')
-function json_model_22(val, path, rep)
+// check $And (.'$And')
+function json_model_23(val, path, rep)
 {
-    let res;
-    // .'$Or'
-    res = _jm_obj_2(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected element [.'$Or']", path])
-    }
-    return res;
-}
-
-// object .'$And'
-function _jm_obj_3(val, path, rep)
-{
+    // .'$And'
     // check close must only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
@@ -779,22 +744,10 @@ function _jm_obj_3(val, path, rep)
     return true;
 }
 
-// check $And (.'$And')
-function json_model_23(val, path, rep)
+// check $Xor (.'$Xor')
+function json_model_24(val, path, rep)
 {
-    let res;
-    // .'$And'
-    res = _jm_obj_3(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected element [.'$And']", path])
-    }
-    return res;
-}
-
-// object .'$Xor'
-function _jm_obj_4(val, path, rep)
-{
+    // .'$Xor'
     // check close must only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
@@ -842,22 +795,10 @@ function _jm_obj_4(val, path, rep)
     return true;
 }
 
-// check $Xor (.'$Xor')
-function json_model_24(val, path, rep)
+// check $Add (.'$Add')
+function json_model_25(val, path, rep)
 {
-    let res;
-    // .'$Xor'
-    res = _jm_obj_4(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected element [.'$Xor']", path])
-    }
-    return res;
-}
-
-// object .'$Add'
-function _jm_obj_5(val, path, rep)
-{
+    // .'$Add'
     // check close must only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
@@ -903,19 +844,6 @@ function _jm_obj_5(val, path, rep)
         return false;
     }
     return true;
-}
-
-// check $Add (.'$Add')
-function json_model_25(val, path, rep)
-{
-    let res;
-    // .'$Add'
-    res = _jm_obj_5(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected element [.'$Add']", path])
-    }
-    return res;
 }
 
 const _jm_re_9 = (s) => _jm_re_9_re.exec(s) !== null
@@ -988,9 +916,10 @@ function json_model_26(val, path, rep)
     return res;
 }
 
-// object .'$Obj'
-function _jm_obj_6(val, path, rep)
+// check $Obj (.'$Obj')
+function json_model_27(val, path, rep)
 {
+    // .'$Obj'
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.'$Obj']", path])
@@ -1020,26 +949,13 @@ function _jm_obj_6(val, path, rep)
     return true;
 }
 
-// check $Obj (.'$Obj')
-function json_model_27(val, path, rep)
-{
-    let res;
-    // .'$Obj'
-    res = _jm_obj_6(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected element [.'$Obj']", path])
-    }
-    return res;
-}
-
 // check $Elem (.'$Elem')
 function json_model_28(val, path, rep)
 {
     let res;
     // .'$Elem'
     // .'$Elem'.'|'.0
-    res = _jm_obj_1(val, path, rep);
+    res = json_model_21(val, path, rep);
     if (! res)
     {
         rep !== null && rep.push(["unexpected $Constraint [.'$Elem'.'|'.0]", path])
@@ -1047,7 +963,7 @@ function json_model_28(val, path, rep)
     if (! res)
     {
         // .'$Elem'.'|'.1
-        res = _jm_obj_2(val, path, rep);
+        res = json_model_22(val, path, rep);
         if (! res)
         {
             rep !== null && rep.push(["unexpected $Or [.'$Elem'.'|'.1]", path])
@@ -1055,7 +971,7 @@ function json_model_28(val, path, rep)
         if (! res)
         {
             // .'$Elem'.'|'.2
-            res = _jm_obj_3(val, path, rep);
+            res = json_model_23(val, path, rep);
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $And [.'$Elem'.'|'.2]", path])
@@ -1063,7 +979,7 @@ function json_model_28(val, path, rep)
             if (! res)
             {
                 // .'$Elem'.'|'.3
-                res = _jm_obj_4(val, path, rep);
+                res = json_model_24(val, path, rep);
                 if (! res)
                 {
                     rep !== null && rep.push(["unexpected $Xor [.'$Elem'.'|'.3]", path])
@@ -1071,7 +987,7 @@ function json_model_28(val, path, rep)
                 if (! res)
                 {
                     // .'$Elem'.'|'.4
-                    res = _jm_obj_5(val, path, rep);
+                    res = json_model_25(val, path, rep);
                     if (! res)
                     {
                         rep !== null && rep.push(["unexpected $Add [.'$Elem'.'|'.4]", path])
@@ -1079,7 +995,7 @@ function json_model_28(val, path, rep)
                     if (! res)
                     {
                         // .'$Elem'.'|'.5
-                        res = _jm_obj_6(val, path, rep);
+                        res = json_model_27(val, path, rep);
                         if (! res)
                         {
                             rep !== null && rep.push(["unexpected $Obj [.'$Elem'.'|'.5]", path])
@@ -1101,7 +1017,7 @@ function json_model_28(val, path, rep)
 }
 
 // object .'$Element'.'|'.5
-function _jm_obj_7(val, path, rep)
+function _jm_obj_0(val, path, rep)
 {
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
@@ -1156,7 +1072,7 @@ function _jm_obj_7(val, path, rep)
 }
 
 // object .'$Element'.'|'.4
-function _jm_obj_8(val, path, rep)
+function _jm_obj_1(val, path, rep)
 {
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
@@ -1240,7 +1156,7 @@ function _jm_obj_8(val, path, rep)
 }
 
 // object .'$Element'.'|'.3
-function _jm_obj_9(val, path, rep)
+function _jm_obj_2(val, path, rep)
 {
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
@@ -1324,7 +1240,7 @@ function _jm_obj_9(val, path, rep)
 }
 
 // object .'$Element'.'|'.2
-function _jm_obj_10(val, path, rep)
+function _jm_obj_3(val, path, rep)
 {
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
@@ -1408,7 +1324,7 @@ function _jm_obj_10(val, path, rep)
 }
 
 // object .'$Element'.'|'.1
-function _jm_obj_11(val, path, rep)
+function _jm_obj_4(val, path, rep)
 {
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
@@ -1492,7 +1408,7 @@ function _jm_obj_11(val, path, rep)
 }
 
 // object .'$Element'.'|'.0
-function _jm_obj_12(val, path, rep)
+function _jm_obj_5(val, path, rep)
 {
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
@@ -1607,7 +1523,7 @@ function json_model_29(val, path, rep)
     if (res)
     {
         // .'$Element'.'|'.0
-        res = _jm_obj_12(val, path, rep);
+        res = _jm_obj_5(val, path, rep);
         if (! res)
         {
             rep !== null && rep.push(["unexpected element [.'$Element'.'|'.0]", path])
@@ -1615,7 +1531,7 @@ function json_model_29(val, path, rep)
         if (! res)
         {
             // .'$Element'.'|'.1
-            res = _jm_obj_11(val, path, rep);
+            res = _jm_obj_4(val, path, rep);
             if (! res)
             {
                 rep !== null && rep.push(["unexpected element [.'$Element'.'|'.1]", path])
@@ -1623,7 +1539,7 @@ function json_model_29(val, path, rep)
             if (! res)
             {
                 // .'$Element'.'|'.2
-                res = _jm_obj_10(val, path, rep);
+                res = _jm_obj_3(val, path, rep);
                 if (! res)
                 {
                     rep !== null && rep.push(["unexpected element [.'$Element'.'|'.2]", path])
@@ -1631,7 +1547,7 @@ function json_model_29(val, path, rep)
                 if (! res)
                 {
                     // .'$Element'.'|'.3
-                    res = _jm_obj_9(val, path, rep);
+                    res = _jm_obj_2(val, path, rep);
                     if (! res)
                     {
                         rep !== null && rep.push(["unexpected element [.'$Element'.'|'.3]", path])
@@ -1639,7 +1555,7 @@ function json_model_29(val, path, rep)
                     if (! res)
                     {
                         // .'$Element'.'|'.4
-                        res = _jm_obj_8(val, path, rep);
+                        res = _jm_obj_1(val, path, rep);
                         if (! res)
                         {
                             rep !== null && rep.push(["unexpected element [.'$Element'.'|'.4]", path])
@@ -1647,7 +1563,7 @@ function json_model_29(val, path, rep)
                         if (! res)
                         {
                             // .'$Element'.'|'.5
-                            res = _jm_obj_7(val, path, rep);
+                            res = _jm_obj_0(val, path, rep);
                             if (! res)
                             {
                                 rep !== null && rep.push(["unexpected element [.'$Element'.'|'.5]", path])
@@ -1670,7 +1586,7 @@ function json_model_29(val, path, rep)
 }
 
 // object .'$Trafo'.'~'
-function _jm_obj_14(val, path, rep)
+function _jm_obj_6(val, path, rep)
 {
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
@@ -1693,9 +1609,11 @@ function _jm_obj_14(val, path, rep)
     return true;
 }
 
-// object .'$Trafo'
-function _jm_obj_13(val, path, rep)
+// check $Trafo (.'$Trafo')
+function json_model_30(val, path, rep)
 {
+    // remove, rename or add stuff
+    // .'$Trafo'
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.'$Trafo']", path])
@@ -1739,7 +1657,7 @@ function _jm_obj_13(val, path, rep)
         {
             // handle may ~ property
             // .'$Trafo'.'~'
-            res = _jm_obj_14(pval, (path ? lpath_9 : null), rep);
+            res = _jm_obj_6(pval, (path ? lpath_9 : null), rep);
             if (! res)
             {
                 rep !== null && rep.push(["unexpected element [.'$Trafo'.'~']", (path ? lpath_9 : null)])
@@ -1768,22 +1686,8 @@ function _jm_obj_13(val, path, rep)
     return true;
 }
 
-// check $Trafo (.'$Trafo')
-function json_model_30(val, path, rep)
-{
-    let res;
-    // remove, rename or add stuff
-    // .'$Trafo'
-    res = _jm_obj_13(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected element [.'$Trafo']", path])
-    }
-    return res;
-}
-
 // object .'$Transformation'.'|'.1.'~'
-function _jm_obj_16(val, path, rep)
+function _jm_obj_8(val, path, rep)
 {
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
@@ -1807,7 +1711,7 @@ function _jm_obj_16(val, path, rep)
 }
 
 // object .'$Transformation'.'|'.1
-function _jm_obj_15(val, path, rep)
+function _jm_obj_7(val, path, rep)
 {
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
@@ -1864,7 +1768,7 @@ function _jm_obj_15(val, path, rep)
         {
             // handle may ~ property
             // .'$Transformation'.'|'.1.'~'
-            res = _jm_obj_16(pval, (path ? lpath_11 : null), rep);
+            res = _jm_obj_8(pval, (path ? lpath_11 : null), rep);
             if (! res)
             {
                 rep !== null && rep.push(["unexpected element [.'$Transformation'.'|'.1.'~']", (path ? lpath_11 : null)])
@@ -1918,7 +1822,7 @@ function json_model_31(val, path, rep)
     if (! res)
     {
         // .'$Transformation'.'|'.1
-        res = _jm_obj_15(val, path, rep);
+        res = _jm_obj_7(val, path, rep);
         if (! res)
         {
             rep !== null && rep.push(["unexpected element [.'$Transformation'.'|'.1]", path])
@@ -2006,9 +1910,10 @@ function json_model_33(val, path, rep)
     return res;
 }
 
-// object .'$Defs'
-function _jm_obj_17(val, path, rep)
+// check $Defs (.'$Defs')
+function json_model_34(val, path, rep)
 {
+    // .'$Defs'
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.'$Defs']", path])
@@ -2050,24 +1955,12 @@ function _jm_obj_17(val, path, rep)
     return true;
 }
 
-// check $Defs (.'$Defs')
-function json_model_34(val, path, rep)
-{
-    let res;
-    // .'$Defs'
-    res = _jm_obj_17(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected element [.'$Defs']", path])
-    }
-    return res;
-}
-
 const _jm_re_10 = (s) => _jm_re_10_re.exec(s) !== null
 
-// object .'$Rename'
-function _jm_obj_18(val, path, rep)
+// check $Rename (.'$Rename')
+function json_model_35(val, path, rep)
 {
+    // .'$Rename'
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.'$Rename']", path])
@@ -2098,24 +1991,12 @@ function _jm_obj_18(val, path, rep)
     return true;
 }
 
-// check $Rename (.'$Rename')
-function json_model_35(val, path, rep)
-{
-    let res;
-    // .'$Rename'
-    res = _jm_obj_18(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected element [.'$Rename']", path])
-    }
-    return res;
-}
-
 const _jm_re_11 = (s) => _jm_re_11_re.exec(s) !== null
 
-// object .'$Rewrite'
-function _jm_obj_19(val, path, rep)
+// check $Rewrite (.'$Rewrite')
+function json_model_36(val, path, rep)
 {
+    // .'$Rewrite'
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.'$Rewrite']", path])
@@ -2145,22 +2026,10 @@ function _jm_obj_19(val, path, rep)
     return true;
 }
 
-// check $Rewrite (.'$Rewrite')
-function json_model_36(val, path, rep)
+// check $Import (.'$Import')
+function json_model_37(val, path, rep)
 {
-    let res;
-    // .'$Rewrite'
-    res = _jm_obj_19(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected element [.'$Rewrite']", path])
-    }
-    return res;
-}
-
-// object .'$Import'
-function _jm_obj_20(val, path, rep)
-{
+    // .'$Import'
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.'$Import']", path])
@@ -2224,21 +2093,8 @@ function _jm_obj_20(val, path, rep)
     return true;
 }
 
-// check $Import (.'$Import')
-function json_model_37(val, path, rep)
-{
-    let res;
-    // .'$Import'
-    res = _jm_obj_20(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected element [.'$Import']", path])
-    }
-    return res;
-}
-
 // object .'$RootOnly'.'$'
-function _jm_obj_22(val, path, rep)
+function _jm_obj_9(val, path, rep)
 {
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
@@ -2305,7 +2161,7 @@ function _jm_obj_22(val, path, rep)
 }
 
 // object .'$RootOnly'.'%'
-function _jm_obj_23(val, path, rep)
+function _jm_obj_10(val, path, rep)
 {
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
@@ -2416,9 +2272,11 @@ function _jm_obj_23(val, path, rep)
     return true;
 }
 
-// object .'$RootOnly'
-function _jm_obj_21(val, path, rep)
+// check $RootOnly (.'$RootOnly')
+function json_model_38(val, path, rep)
 {
+    // symbols that can only appear at the model's root
+    // .'$RootOnly'
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.'$RootOnly']", path])
@@ -2444,7 +2302,7 @@ function _jm_obj_21(val, path, rep)
         {
             // handle may $ property
             // .'$RootOnly'.'$'
-            res = _jm_obj_22(pval, (path ? lpath_17 : null), rep);
+            res = _jm_obj_9(pval, (path ? lpath_17 : null), rep);
             if (! res)
             {
                 rep !== null && rep.push(["unexpected element [.'$RootOnly'.'$']", (path ? lpath_17 : null)])
@@ -2456,7 +2314,7 @@ function _jm_obj_21(val, path, rep)
         {
             // handle may % property
             // .'$RootOnly'.'%'
-            res = _jm_obj_23(pval, (path ? lpath_17 : null), rep);
+            res = _jm_obj_10(pval, (path ? lpath_17 : null), rep);
             if (! res)
             {
                 rep !== null && rep.push(["unexpected element [.'$RootOnly'.'%']", (path ? lpath_17 : null)])
@@ -2473,22 +2331,8 @@ function _jm_obj_21(val, path, rep)
     return true;
 }
 
-// check $RootOnly (.'$RootOnly')
-function json_model_38(val, path, rep)
-{
-    let res;
-    // symbols that can only appear at the model's root
-    // .'$RootOnly'
-    res = _jm_obj_21(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected element [.'$RootOnly']", path])
-    }
-    return res;
-}
-
 // object .'$Root'.'|'.5.'$'
-function _jm_obj_25(val, path, rep)
+function _jm_obj_12(val, path, rep)
 {
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
@@ -2555,7 +2399,7 @@ function _jm_obj_25(val, path, rep)
 }
 
 // object .'$Root'.'|'.5.'%'
-function _jm_obj_26(val, path, rep)
+function _jm_obj_13(val, path, rep)
 {
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
@@ -2667,7 +2511,7 @@ function _jm_obj_26(val, path, rep)
 }
 
 // object .'$Root'.'|'.5
-function _jm_obj_24(val, path, rep)
+function _jm_obj_11(val, path, rep)
 {
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
@@ -2694,7 +2538,7 @@ function _jm_obj_24(val, path, rep)
         {
             // handle may $ property
             // .'$Root'.'|'.5.'$'
-            res = _jm_obj_25(pval, (path ? lpath_20 : null), rep);
+            res = _jm_obj_12(pval, (path ? lpath_20 : null), rep);
             if (! res)
             {
                 rep !== null && rep.push(["unexpected element [.'$Root'.'|'.5.'$']", (path ? lpath_20 : null)])
@@ -2706,7 +2550,7 @@ function _jm_obj_24(val, path, rep)
         {
             // handle may % property
             // .'$Root'.'|'.5.'%'
-            res = _jm_obj_26(pval, (path ? lpath_20 : null), rep);
+            res = _jm_obj_13(pval, (path ? lpath_20 : null), rep);
             if (! res)
             {
                 rep !== null && rep.push(["unexpected element [.'$Root'.'|'.5.'%']", (path ? lpath_20 : null)])
@@ -2758,7 +2602,7 @@ function _jm_obj_24(val, path, rep)
 }
 
 // object .'$Root'.'|'.4.'$'
-function _jm_obj_28(val, path, rep)
+function _jm_obj_15(val, path, rep)
 {
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
@@ -2825,7 +2669,7 @@ function _jm_obj_28(val, path, rep)
 }
 
 // object .'$Root'.'|'.4.'%'
-function _jm_obj_29(val, path, rep)
+function _jm_obj_16(val, path, rep)
 {
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
@@ -2937,7 +2781,7 @@ function _jm_obj_29(val, path, rep)
 }
 
 // object .'$Root'.'|'.4
-function _jm_obj_27(val, path, rep)
+function _jm_obj_14(val, path, rep)
 {
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
@@ -2993,7 +2837,7 @@ function _jm_obj_27(val, path, rep)
         {
             // handle may $ property
             // .'$Root'.'|'.4.'$'
-            res = _jm_obj_28(pval, (path ? lpath_23 : null), rep);
+            res = _jm_obj_15(pval, (path ? lpath_23 : null), rep);
             if (! res)
             {
                 rep !== null && rep.push(["unexpected element [.'$Root'.'|'.4.'$']", (path ? lpath_23 : null)])
@@ -3005,7 +2849,7 @@ function _jm_obj_27(val, path, rep)
         {
             // handle may % property
             // .'$Root'.'|'.4.'%'
-            res = _jm_obj_29(pval, (path ? lpath_23 : null), rep);
+            res = _jm_obj_16(pval, (path ? lpath_23 : null), rep);
             if (! res)
             {
                 rep !== null && rep.push(["unexpected element [.'$Root'.'|'.4.'%']", (path ? lpath_23 : null)])
@@ -3057,7 +2901,7 @@ function _jm_obj_27(val, path, rep)
 }
 
 // object .'$Root'.'|'.3.'$'
-function _jm_obj_31(val, path, rep)
+function _jm_obj_18(val, path, rep)
 {
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
@@ -3124,7 +2968,7 @@ function _jm_obj_31(val, path, rep)
 }
 
 // object .'$Root'.'|'.3.'%'
-function _jm_obj_32(val, path, rep)
+function _jm_obj_19(val, path, rep)
 {
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
@@ -3236,7 +3080,7 @@ function _jm_obj_32(val, path, rep)
 }
 
 // object .'$Root'.'|'.3
-function _jm_obj_30(val, path, rep)
+function _jm_obj_17(val, path, rep)
 {
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
@@ -3292,7 +3136,7 @@ function _jm_obj_30(val, path, rep)
         {
             // handle may $ property
             // .'$Root'.'|'.3.'$'
-            res = _jm_obj_31(pval, (path ? lpath_26 : null), rep);
+            res = _jm_obj_18(pval, (path ? lpath_26 : null), rep);
             if (! res)
             {
                 rep !== null && rep.push(["unexpected element [.'$Root'.'|'.3.'$']", (path ? lpath_26 : null)])
@@ -3304,7 +3148,7 @@ function _jm_obj_30(val, path, rep)
         {
             // handle may % property
             // .'$Root'.'|'.3.'%'
-            res = _jm_obj_32(pval, (path ? lpath_26 : null), rep);
+            res = _jm_obj_19(pval, (path ? lpath_26 : null), rep);
             if (! res)
             {
                 rep !== null && rep.push(["unexpected element [.'$Root'.'|'.3.'%']", (path ? lpath_26 : null)])
@@ -3356,7 +3200,7 @@ function _jm_obj_30(val, path, rep)
 }
 
 // object .'$Root'.'|'.2.'$'
-function _jm_obj_34(val, path, rep)
+function _jm_obj_21(val, path, rep)
 {
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
@@ -3423,7 +3267,7 @@ function _jm_obj_34(val, path, rep)
 }
 
 // object .'$Root'.'|'.2.'%'
-function _jm_obj_35(val, path, rep)
+function _jm_obj_22(val, path, rep)
 {
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
@@ -3535,7 +3379,7 @@ function _jm_obj_35(val, path, rep)
 }
 
 // object .'$Root'.'|'.2
-function _jm_obj_33(val, path, rep)
+function _jm_obj_20(val, path, rep)
 {
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
@@ -3591,7 +3435,7 @@ function _jm_obj_33(val, path, rep)
         {
             // handle may $ property
             // .'$Root'.'|'.2.'$'
-            res = _jm_obj_34(pval, (path ? lpath_29 : null), rep);
+            res = _jm_obj_21(pval, (path ? lpath_29 : null), rep);
             if (! res)
             {
                 rep !== null && rep.push(["unexpected element [.'$Root'.'|'.2.'$']", (path ? lpath_29 : null)])
@@ -3603,7 +3447,7 @@ function _jm_obj_33(val, path, rep)
         {
             // handle may % property
             // .'$Root'.'|'.2.'%'
-            res = _jm_obj_35(pval, (path ? lpath_29 : null), rep);
+            res = _jm_obj_22(pval, (path ? lpath_29 : null), rep);
             if (! res)
             {
                 rep !== null && rep.push(["unexpected element [.'$Root'.'|'.2.'%']", (path ? lpath_29 : null)])
@@ -3655,7 +3499,7 @@ function _jm_obj_33(val, path, rep)
 }
 
 // object .'$Root'.'|'.1.'$'
-function _jm_obj_37(val, path, rep)
+function _jm_obj_24(val, path, rep)
 {
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
@@ -3722,7 +3566,7 @@ function _jm_obj_37(val, path, rep)
 }
 
 // object .'$Root'.'|'.1.'%'
-function _jm_obj_38(val, path, rep)
+function _jm_obj_25(val, path, rep)
 {
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
@@ -3834,7 +3678,7 @@ function _jm_obj_38(val, path, rep)
 }
 
 // object .'$Root'.'|'.1
-function _jm_obj_36(val, path, rep)
+function _jm_obj_23(val, path, rep)
 {
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
@@ -3890,7 +3734,7 @@ function _jm_obj_36(val, path, rep)
         {
             // handle may $ property
             // .'$Root'.'|'.1.'$'
-            res = _jm_obj_37(pval, (path ? lpath_32 : null), rep);
+            res = _jm_obj_24(pval, (path ? lpath_32 : null), rep);
             if (! res)
             {
                 rep !== null && rep.push(["unexpected element [.'$Root'.'|'.1.'$']", (path ? lpath_32 : null)])
@@ -3902,7 +3746,7 @@ function _jm_obj_36(val, path, rep)
         {
             // handle may % property
             // .'$Root'.'|'.1.'%'
-            res = _jm_obj_38(pval, (path ? lpath_32 : null), rep);
+            res = _jm_obj_25(pval, (path ? lpath_32 : null), rep);
             if (! res)
             {
                 rep !== null && rep.push(["unexpected element [.'$Root'.'|'.1.'%']", (path ? lpath_32 : null)])
@@ -3954,7 +3798,7 @@ function _jm_obj_36(val, path, rep)
 }
 
 // object .'$Root'.'|'.0.'$'
-function _jm_obj_40(val, path, rep)
+function _jm_obj_27(val, path, rep)
 {
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
@@ -4021,7 +3865,7 @@ function _jm_obj_40(val, path, rep)
 }
 
 // object .'$Root'.'|'.0.'%'
-function _jm_obj_41(val, path, rep)
+function _jm_obj_28(val, path, rep)
 {
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
@@ -4133,7 +3977,7 @@ function _jm_obj_41(val, path, rep)
 }
 
 // object .'$Root'.'|'.0
-function _jm_obj_39(val, path, rep)
+function _jm_obj_26(val, path, rep)
 {
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
@@ -4174,7 +4018,7 @@ function _jm_obj_39(val, path, rep)
         {
             // handle may $ property
             // .'$Root'.'|'.0.'$'
-            res = _jm_obj_40(pval, (path ? lpath_35 : null), rep);
+            res = _jm_obj_27(pval, (path ? lpath_35 : null), rep);
             if (! res)
             {
                 rep !== null && rep.push(["unexpected element [.'$Root'.'|'.0.'$']", (path ? lpath_35 : null)])
@@ -4186,7 +4030,7 @@ function _jm_obj_39(val, path, rep)
         {
             // handle may % property
             // .'$Root'.'|'.0.'%'
-            res = _jm_obj_41(pval, (path ? lpath_35 : null), rep);
+            res = _jm_obj_28(pval, (path ? lpath_35 : null), rep);
             if (! res)
             {
                 rep !== null && rep.push(["unexpected element [.'$Root'.'|'.0.'%']", (path ? lpath_35 : null)])
@@ -4284,7 +4128,7 @@ function json_model_39(val, path, rep)
     if (res)
     {
         // .'$Root'.'|'.0
-        res = _jm_obj_39(val, path, rep);
+        res = _jm_obj_26(val, path, rep);
         if (! res)
         {
             rep !== null && rep.push(["unexpected element [.'$Root'.'|'.0]", path])
@@ -4292,7 +4136,7 @@ function json_model_39(val, path, rep)
         if (! res)
         {
             // .'$Root'.'|'.1
-            res = _jm_obj_36(val, path, rep);
+            res = _jm_obj_23(val, path, rep);
             if (! res)
             {
                 rep !== null && rep.push(["unexpected element [.'$Root'.'|'.1]", path])
@@ -4300,7 +4144,7 @@ function json_model_39(val, path, rep)
             if (! res)
             {
                 // .'$Root'.'|'.2
-                res = _jm_obj_33(val, path, rep);
+                res = _jm_obj_20(val, path, rep);
                 if (! res)
                 {
                     rep !== null && rep.push(["unexpected element [.'$Root'.'|'.2]", path])
@@ -4308,7 +4152,7 @@ function json_model_39(val, path, rep)
                 if (! res)
                 {
                     // .'$Root'.'|'.3
-                    res = _jm_obj_30(val, path, rep);
+                    res = _jm_obj_17(val, path, rep);
                     if (! res)
                     {
                         rep !== null && rep.push(["unexpected element [.'$Root'.'|'.3]", path])
@@ -4316,7 +4160,7 @@ function json_model_39(val, path, rep)
                     if (! res)
                     {
                         // .'$Root'.'|'.4
-                        res = _jm_obj_27(val, path, rep);
+                        res = _jm_obj_14(val, path, rep);
                         if (! res)
                         {
                             rep !== null && rep.push(["unexpected element [.'$Root'.'|'.4]", path])
@@ -4324,7 +4168,7 @@ function json_model_39(val, path, rep)
                         if (! res)
                         {
                             // .'$Root'.'|'.5
-                            res = _jm_obj_24(val, path, rep);
+                            res = _jm_obj_11(val, path, rep);
                             if (! res)
                             {
                                 rep !== null && rep.push(["unexpected element [.'$Root'.'|'.5]", path])
@@ -4451,7 +4295,7 @@ export function check_model_init()
         check_model_map.set("PreDef", json_model_3)
         check_model_map.set("Identifier", json_model_4)
         check_model_map.set("ArrayComment", json_model_5)
-        check_model_map.set("ObjectComment", _jm_obj_0)
+        check_model_map.set("ObjectComment", json_model_6)
         check_model_map.set("Ref", json_model_7)
         check_model_map.set("ValConst", json_model_8)
         check_model_map.set("StrConst", json_model_9)
@@ -4465,25 +4309,25 @@ export function check_model_init()
         check_model_map.set("None", json_model_17)
         check_model_map.set("CModel", json_model_18)
         check_model_map.set("Array", json_model_19)
-        check_model_map.set("Common", _jm_obj_0)
-        check_model_map.set("Constraint", _jm_obj_1)
-        check_model_map.set("Or", _jm_obj_2)
-        check_model_map.set("And", _jm_obj_3)
-        check_model_map.set("Xor", _jm_obj_4)
-        check_model_map.set("Add", _jm_obj_5)
+        check_model_map.set("Common", json_model_6)
+        check_model_map.set("Constraint", json_model_21)
+        check_model_map.set("Or", json_model_22)
+        check_model_map.set("And", json_model_23)
+        check_model_map.set("Xor", json_model_24)
+        check_model_map.set("Add", json_model_25)
         check_model_map.set("Prop", json_model_26)
-        check_model_map.set("Obj", _jm_obj_6)
+        check_model_map.set("Obj", json_model_27)
         check_model_map.set("Elem", json_model_28)
         check_model_map.set("Element", json_model_29)
-        check_model_map.set("Trafo", _jm_obj_13)
+        check_model_map.set("Trafo", json_model_30)
         check_model_map.set("Transformation", json_model_31)
         check_model_map.set("ScalarModel", json_model_32)
         check_model_map.set("Model", json_model_33)
-        check_model_map.set("Defs", _jm_obj_17)
-        check_model_map.set("Rename", _jm_obj_18)
-        check_model_map.set("Rewrite", _jm_obj_19)
-        check_model_map.set("Import", _jm_obj_20)
-        check_model_map.set("RootOnly", _jm_obj_21)
+        check_model_map.set("Defs", json_model_34)
+        check_model_map.set("Rename", json_model_35)
+        check_model_map.set("Rewrite", json_model_36)
+        check_model_map.set("Import", json_model_37)
+        check_model_map.set("RootOnly", json_model_38)
         check_model_map.set("Root", json_model_39)
         check_model_map.set("RootModel", json_model_40)
     }

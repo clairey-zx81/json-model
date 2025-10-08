@@ -14,16 +14,14 @@ use constant JMC_VERSION => '2';
 sub json_model_2($$$);
 my %_jm_cst_0;
 sub json_model_3($$$);
-sub _jm_obj_0($$$);
 sub json_model_4($$$);
 my %_jm_cst_1;
-sub _jm_obj_1($$$);
 sub json_model_5($$$);
-sub _jm_obj_2($$$);
+sub _jm_obj_0($$$);
 my %_jm_cst_2;
+sub _jm_obj_1($$$);
+sub _jm_obj_2($$$);
 sub _jm_obj_3($$$);
-sub _jm_obj_4($$$);
-sub _jm_obj_5($$$);
 my %_jm_map_0;
 sub json_model_6($$$);
 sub json_model_1($$$);
@@ -50,10 +48,11 @@ sub json_model_3($$$)
     return $res;
 }
 
-# object .'$d'
-sub _jm_obj_0($$$)
+# check $d (.'$d')
+sub json_model_4($$$)
 {
     my ($val, $path, $rep) = @_;
+    # .'$d'
     # check close must only props
     if (! jm_is_object($val))
     {
@@ -90,21 +89,12 @@ sub _jm_obj_0($$$)
     return 1;
 }
 
-# check $d (.'$d')
-sub json_model_4($$$)
+
+# check $ef (.'$ef')
+sub json_model_5($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$d'
-    $res = _jm_obj_0($val, $path, $rep);
-    return $res;
-}
-
-
-# object .'$ef'
-sub _jm_obj_1($$$)
-{
-    my ($val, $path, $rep) = @_;
+    # .'$ef'
     # check close must only props
     if (! jm_is_object($val))
     {
@@ -141,18 +131,8 @@ sub _jm_obj_1($$$)
     return 1;
 }
 
-# check $ef (.'$ef')
-sub json_model_5($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$ef'
-    $res = _jm_obj_1($val, $path, $rep);
-    return $res;
-}
-
 # object .'$alternative'.'|'.0
-sub _jm_obj_2($$$)
+sub _jm_obj_0($$$)
 {
     my ($val, $path, $rep) = @_;
     # check close must only props
@@ -193,7 +173,7 @@ sub _jm_obj_2($$$)
 
 
 # object .'$alternative'.'|'.1
-sub _jm_obj_3($$$)
+sub _jm_obj_1($$$)
 {
     my ($val, $path, $rep) = @_;
     # check close must only props
@@ -233,7 +213,7 @@ sub _jm_obj_3($$$)
 }
 
 # object .'$alternative'.'|'.2
-sub _jm_obj_4($$$)
+sub _jm_obj_2($$$)
 {
     my ($val, $path, $rep) = @_;
     # check close must only props
@@ -273,7 +253,7 @@ sub _jm_obj_4($$$)
 }
 
 # object .'$alternative'.'|'.3
-sub _jm_obj_5($$$)
+sub _jm_obj_3($$$)
 {
     my ($val, $path, $rep) = @_;
     # check close must only props
@@ -378,22 +358,22 @@ sub check_model_init()
             'c' => 1,
         );
         %_jm_map_0 = (
-            'a' => \&_jm_obj_2,
-            'b' => \&_jm_obj_3,
-            'c' => \&_jm_obj_3,
-            'g' => \&_jm_obj_4,
-            'h' => \&_jm_obj_5,
-            'i' => \&_jm_obj_5,
-            'd' => \&_jm_obj_0,
-            'e' => \&_jm_obj_1,
-            'f' => \&_jm_obj_1,
+            'a' => \&_jm_obj_0,
+            'b' => \&_jm_obj_1,
+            'c' => \&_jm_obj_1,
+            'g' => \&_jm_obj_2,
+            'h' => \&_jm_obj_3,
+            'i' => \&_jm_obj_3,
+            'd' => \&json_model_4,
+            'e' => \&json_model_5,
+            'f' => \&json_model_5,
         );
         %check_model_map = (
             '' => \&json_model_6,
             'g' => \&json_model_2,
             'h_ou_i' => \&json_model_3,
-            'd' => \&_jm_obj_0,
-            'ef' => \&_jm_obj_1,
+            'd' => \&json_model_4,
+            'ef' => \&json_model_5,
             'alternative' => \&json_model_6,
         );
     }

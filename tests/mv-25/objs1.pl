@@ -11,22 +11,19 @@ use JSON::JsonModel;
 use constant JMC_VERSION => '2';
 
 
-sub _jm_obj_0($$$);
 sub json_model_3($$$);
-sub _jm_obj_1($$$);
 sub json_model_1($$$);
 my %_jm_map_0;
 sub json_model_6($$$);
-sub _jm_obj_2($$$);
 sub json_model_4($$$);
-sub _jm_obj_3($$$);
 sub json_model_5($$$);
 my %check_model_map;
 
-# object .'$objs0'
-sub _jm_obj_0($$$)
+# check $objs0 (.'$objs0')
+sub json_model_3($$$)
 {
     my ($val, $path, $rep) = @_;
+    # .'$objs0'
     # check close must only props
     if (! jm_is_object($val))
     {
@@ -65,20 +62,11 @@ sub _jm_obj_0($$$)
     return 1;
 }
 
-# check $objs0 (.'$objs0')
-sub json_model_3($$$)
+# check $ (.)
+sub json_model_1($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$objs0'
-    $res = _jm_obj_0($val, $path, $rep);
-    return $res;
-}
-
-# object .
-sub _jm_obj_1($$$)
-{
-    my ($val, $path, $rep) = @_;
+    # .
     # check close must only props
     if (! jm_is_object($val))
     {
@@ -96,22 +84,12 @@ sub _jm_obj_1($$$)
     }
     $pval = $$val{'foo'};
     # .foo
-    $res = _jm_obj_0($pval, undef, $rep);
+    $res = json_model_3($pval, undef, $rep);
     if (! $res)
     {
         return 0;
     }
     return 1;
-}
-
-# check $ (.)
-sub json_model_1($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .
-    $res = _jm_obj_1($val, $path, $rep);
-    return $res;
 }
 
 
@@ -146,10 +124,11 @@ sub json_model_6($$$)
     return $res;
 }
 
-# object .'$objs0#table'
-sub _jm_obj_2($$$)
+# check $objs0#table (.'$objs0#table')
+sub json_model_4($$$)
 {
     my ($val, $path, $rep) = @_;
+    # .'$objs0#table'
     # check close must only props
     if (! jm_is_object($val))
     {
@@ -186,20 +165,11 @@ sub _jm_obj_2($$$)
     return 1;
 }
 
-# check $objs0#table (.'$objs0#table')
-sub json_model_4($$$)
+# check $objs0#chair (.'$objs0#chair')
+sub json_model_5($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$objs0#table'
-    $res = _jm_obj_2($val, $path, $rep);
-    return $res;
-}
-
-# object .'$objs0#chair'
-sub _jm_obj_3($$$)
-{
-    my ($val, $path, $rep) = @_;
+    # .'$objs0#chair'
     # check close must only props
     if (! jm_is_object($val))
     {
@@ -236,16 +206,6 @@ sub _jm_obj_3($$$)
     return 1;
 }
 
-# check $objs0#chair (.'$objs0#chair')
-sub json_model_5($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$objs0#chair'
-    $res = _jm_obj_3($val, $path, $rep);
-    return $res;
-}
-
 
 # initialization of global variables
 
@@ -257,12 +217,12 @@ sub check_model_init()
     {
         $initialized = 1;
         %_jm_map_0 = (
-            'table' => \&_jm_obj_2,
-            'chair' => \&_jm_obj_3,
+            'table' => \&json_model_4,
+            'chair' => \&json_model_5,
         );
         %check_model_map = (
-            '' => \&_jm_obj_1,
-            'objs0' => \&_jm_obj_0,
+            '' => \&json_model_1,
+            'objs0' => \&json_model_3,
         );
     }
 }

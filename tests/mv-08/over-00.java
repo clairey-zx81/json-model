@@ -19,9 +19,10 @@ public class over_00 extends ModelChecker
 
     public Map<String, Checker> over_00_map_pmap;
 
-    // object .'$Foo'
-    public boolean _jm_obj_0(Object val, Path path, Report rep)
+    // check $Foo (.'$Foo')
+    public boolean json_model_2(Object val, Path path, Report rep)
     {
+        // .'$Foo'
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.'$Foo']", path);
@@ -55,25 +56,12 @@ public class over_00 extends ModelChecker
         return true;
     }
 
-    // check $Foo (.'$Foo')
-    public boolean json_model_2(Object val, Path path, Report rep)
-    {
-        boolean res;
-        // .'$Foo'
-        res = _jm_obj_0(val, path, rep);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected element [.'$Foo']", path);
-        }
-        return res;
-    }
-
     // check $ (.)
     public boolean json_model_1(Object val, Path path, Report rep)
     {
         boolean res;
         // .
-        res = _jm_obj_0(val, path, rep);
+        res = json_model_2(val, path, rep);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected $Foo [.]", path);
@@ -88,8 +76,8 @@ public class over_00 extends ModelChecker
         {
             try {
             over_00_map_pmap = new HashMap<String, Checker>();
-            over_00_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_0(o, p, r);} });
-            over_00_map_pmap.put("Foo", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_0(o, p, r);} });
+            over_00_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_2(o, p, r);} });
+            over_00_map_pmap.put("Foo", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_2(o, p, r);} });
                 super.init(json);
             }
             catch (Exception e) {

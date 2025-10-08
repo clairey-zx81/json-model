@@ -23,8 +23,9 @@ def check_model(val: Jsonable, name: str = "", rep: Report = None) -> bool:
 _jm_map_0: dict[str, str]
 check_model_map: PropMap
 
-# object .'$table'
-def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
+# check $table (.'$table')
+def json_model_2(val: Jsonable, path: Path, rep: Report) -> bool:
+    # .'$table'
     # check close must only props
     if not isinstance(val, dict):
         return False
@@ -46,15 +47,9 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
         return False
     return True
 
-# check $table (.'$table')
-def json_model_2(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .'$table'
-    res = _jm_obj_0(val, path, rep)
-    return res
-
-# object .'$chair'
-def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
+# check $chair (.'$chair')
+def json_model_3(val: Jsonable, path: Path, rep: Report) -> bool:
+    # .'$chair'
     # check close must only props
     if not isinstance(val, dict):
         return False
@@ -76,13 +71,6 @@ def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
         return False
     return True
 
-# check $chair (.'$chair')
-def json_model_3(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .'$chair'
-    res = _jm_obj_1(val, path, rep)
-    return res
-
 
 # check $furniture (.'$furniture')
 def json_model_4(val: Jsonable, path: Path, rep: Report) -> bool:
@@ -102,8 +90,9 @@ def json_model_4(val: Jsonable, path: Path, rep: Report) -> bool:
             res = False
     return res
 
-# object .
-def _jm_obj_2(val: Jsonable, path: Path, rep: Report) -> bool:
+# check $ (.)
+def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
+    # .
     # check close must only props
     if not isinstance(val, dict):
         return False
@@ -125,13 +114,6 @@ def _jm_obj_2(val: Jsonable, path: Path, rep: Report) -> bool:
         return False
     return True
 
-# check $ (.)
-def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .
-    res = _jm_obj_2(val, path, rep)
-    return res
-
 
 # initialization guard
 initialized: bool = False
@@ -143,14 +125,14 @@ def check_model_init():
         initialized = True
         global _jm_map_0
         _jm_map_0 = {
-            "table": _jm_obj_0,
-            "chair": _jm_obj_1,
+            "table": json_model_2,
+            "chair": json_model_3,
         }
         global check_model_map
         check_model_map = {
-            "": _jm_obj_2,
-            "table": _jm_obj_0,
-            "chair": _jm_obj_1,
+            "": json_model_1,
+            "table": json_model_2,
+            "chair": json_model_3,
             "furniture": json_model_4,
         }
 

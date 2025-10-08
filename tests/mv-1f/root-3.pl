@@ -13,9 +13,7 @@ use constant JMC_VERSION => '2';
 
 sub json_model_3($$$);
 sub json_model_1($$$);
-sub _jm_obj_0($$$);
 sub json_model_5($$$);
-sub _jm_obj_1($$$);
 sub json_model_12($$$);
 my %check_model_map;
 
@@ -25,7 +23,7 @@ sub json_model_3($$$)
     my ($val, $path, $rep) = @_;
     my $res;
     # .'$foo'
-    $res = _jm_obj_0($val, $path, $rep);
+    $res = json_model_5($val, $path, $rep);
     return $res;
 }
 
@@ -35,14 +33,15 @@ sub json_model_1($$$)
     my ($val, $path, $rep) = @_;
     my $res;
     # .
-    $res = _jm_obj_0($val, $path, $rep);
+    $res = json_model_5($val, $path, $rep);
     return $res;
 }
 
-# object .'$foo#Foo'
-sub _jm_obj_0($$$)
+# check $foo#Foo (.'$foo#Foo')
+sub json_model_5($$$)
 {
     my ($val, $path, $rep) = @_;
+    # .'$foo#Foo'
     # check close must only props
     if (! jm_is_object($val))
     {
@@ -60,7 +59,7 @@ sub _jm_obj_0($$$)
     }
     $pval = $$val{'rt'};
     # .'$foo#Foo'.rt
-    $res = _jm_obj_1($pval, undef, $rep);
+    $res = json_model_12($pval, undef, $rep);
     if (! $res)
     {
         return 0;
@@ -68,20 +67,11 @@ sub _jm_obj_0($$$)
     return 1;
 }
 
-# check $foo#Foo (.'$foo#Foo')
-sub json_model_5($$$)
+# check $foo#root#root#Root (.'$foo#root#root#Root')
+sub json_model_12($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$foo#Foo'
-    $res = _jm_obj_0($val, $path, $rep);
-    return $res;
-}
-
-# object .'$foo#root#root#Root'
-sub _jm_obj_1($$$)
-{
-    my ($val, $path, $rep) = @_;
+    # .'$foo#root#root#Root'
     # check close must only props
     if (! jm_is_object($val))
     {
@@ -118,16 +108,6 @@ sub _jm_obj_1($$$)
     return 1;
 }
 
-# check $foo#root#root#Root (.'$foo#root#root#Root')
-sub json_model_12($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$foo#root#root#Root'
-    $res = _jm_obj_1($val, $path, $rep);
-    return $res;
-}
-
 
 # initialization of global variables
 
@@ -139,8 +119,8 @@ sub check_model_init()
     {
         $initialized = 1;
         %check_model_map = (
-            '' => \&_jm_obj_0,
-            'foo' => \&_jm_obj_0,
+            '' => \&json_model_5,
+            'foo' => \&json_model_5,
         );
     }
 }

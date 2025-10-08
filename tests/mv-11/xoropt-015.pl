@@ -12,12 +12,10 @@ use constant JMC_VERSION => '2';
 
 
 sub json_model_2($$$);
-sub _jm_obj_0($$$);
 sub json_model_3($$$);
-sub _jm_obj_1($$$);
 sub json_model_4($$$);
-sub _jm_obj_2($$$);
-sub _jm_obj_3($$$);
+sub _jm_obj_0($$$);
+sub _jm_obj_1($$$);
 sub json_model_5($$$);
 sub json_model_6($$$);
 sub json_model_1($$$);
@@ -39,10 +37,11 @@ sub json_model_2($$$)
     return $res;
 }
 
-# object .'$Xx'
-sub _jm_obj_0($$$)
+# check $Xx (.'$Xx')
+sub json_model_3($$$)
 {
     my ($val, $path, $rep) = @_;
+    # .'$Xx'
     # check close must only props
     if (! jm_is_object($val))
     {
@@ -68,20 +67,11 @@ sub _jm_obj_0($$$)
     return 1;
 }
 
-# check $Xx (.'$Xx')
-sub json_model_3($$$)
+# check $Yy (.'$Yy')
+sub json_model_4($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$Xx'
-    $res = _jm_obj_0($val, $path, $rep);
-    return $res;
-}
-
-# object .'$Yy'
-sub _jm_obj_1($$$)
-{
-    my ($val, $path, $rep) = @_;
+    # .'$Yy'
     # check close must only props
     if (! jm_is_object($val))
     {
@@ -107,18 +97,8 @@ sub _jm_obj_1($$$)
     return 1;
 }
 
-# check $Yy (.'$Yy')
-sub json_model_4($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$Yy'
-    $res = _jm_obj_1($val, $path, $rep);
-    return $res;
-}
-
 # object .'$Ee'.'|'.1
-sub _jm_obj_2($$$)
+sub _jm_obj_0($$$)
 {
     my ($val, $path, $rep) = @_;
     if (! jm_is_object($val))
@@ -164,7 +144,7 @@ sub _jm_obj_2($$$)
 }
 
 # object .'$Ee'.'|'.0
-sub _jm_obj_3($$$)
+sub _jm_obj_1($$$)
 {
     my ($val, $path, $rep) = @_;
     if (! jm_is_object($val))
@@ -219,11 +199,11 @@ sub json_model_5($$$)
     if ($res)
     {
         # .'$Ee'.'|'.0
-        $res = _jm_obj_3($val, $path, $rep);
+        $res = _jm_obj_1($val, $path, $rep);
         if (! $res)
         {
             # .'$Ee'.'|'.1
-            $res = _jm_obj_2($val, $path, $rep);
+            $res = _jm_obj_0($val, $path, $rep);
         }
     }
     return $res;
@@ -277,8 +257,8 @@ sub check_model_init()
         %check_model_map = (
             '' => \&json_model_6,
             'Vv' => \&json_model_2,
-            'Xx' => \&_jm_obj_0,
-            'Yy' => \&_jm_obj_1,
+            'Xx' => \&json_model_3,
+            'Yy' => \&json_model_4,
             'Ee' => \&json_model_5,
             'Mm' => \&json_model_6,
         );

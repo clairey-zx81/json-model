@@ -11,20 +11,18 @@ use JSON::JsonModel;
 use constant JMC_VERSION => '2';
 
 
-sub _jm_obj_0($$$);
 sub json_model_2($$$);
-sub _jm_obj_1($$$);
 sub json_model_3($$$);
 my %_jm_map_0;
 sub json_model_4($$$);
-sub _jm_obj_2($$$);
 sub json_model_1($$$);
 my %check_model_map;
 
-# object .'$table'
-sub _jm_obj_0($$$)
+# check $table (.'$table')
+sub json_model_2($$$)
 {
     my ($val, $path, $rep) = @_;
+    # .'$table'
     # check close must only props
     if (! jm_is_object($val))
     {
@@ -61,20 +59,11 @@ sub _jm_obj_0($$$)
     return 1;
 }
 
-# check $table (.'$table')
-sub json_model_2($$$)
+# check $chair (.'$chair')
+sub json_model_3($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$table'
-    $res = _jm_obj_0($val, $path, $rep);
-    return $res;
-}
-
-# object .'$chair'
-sub _jm_obj_1($$$)
-{
-    my ($val, $path, $rep) = @_;
+    # .'$chair'
     # check close must only props
     if (! jm_is_object($val))
     {
@@ -111,16 +100,6 @@ sub _jm_obj_1($$$)
     return 1;
 }
 
-# check $chair (.'$chair')
-sub json_model_3($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$chair'
-    $res = _jm_obj_1($val, $path, $rep);
-    return $res;
-}
-
 
 # check $furniture (.'$furniture')
 sub json_model_4($$$)
@@ -153,10 +132,11 @@ sub json_model_4($$$)
     return $res;
 }
 
-# object .
-sub _jm_obj_2($$$)
+# check $ (.)
+sub json_model_1($$$)
 {
     my ($val, $path, $rep) = @_;
+    # .
     # check close must only props
     if (! jm_is_object($val))
     {
@@ -195,16 +175,6 @@ sub _jm_obj_2($$$)
     return 1;
 }
 
-# check $ (.)
-sub json_model_1($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .
-    $res = _jm_obj_2($val, $path, $rep);
-    return $res;
-}
-
 
 # initialization of global variables
 
@@ -216,13 +186,13 @@ sub check_model_init()
     {
         $initialized = 1;
         %_jm_map_0 = (
-            'table' => \&_jm_obj_0,
-            'chair' => \&_jm_obj_1,
+            'table' => \&json_model_2,
+            'chair' => \&json_model_3,
         );
         %check_model_map = (
-            '' => \&_jm_obj_2,
-            'table' => \&_jm_obj_0,
-            'chair' => \&_jm_obj_1,
+            '' => \&json_model_1,
+            'table' => \&json_model_2,
+            'chair' => \&json_model_3,
             'furniture' => \&json_model_4,
         );
     }

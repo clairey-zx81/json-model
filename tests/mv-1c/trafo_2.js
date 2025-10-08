@@ -16,7 +16,7 @@ function json_model_5(val, path, rep)
 {
     let res;
     // .'$Zz'
-    res = _jm_obj_0(val, path, rep);
+    res = json_model_6(val, path, rep);
     if (! res)
     {
         rep !== null && rep.push(["unexpected $zero [.'$Zz']", path])
@@ -29,7 +29,7 @@ function json_model_3(val, path, rep)
 {
     let res;
     // .'$z'
-    res = _jm_obj_0(val, path, rep);
+    res = json_model_6(val, path, rep);
     if (! res)
     {
         rep !== null && rep.push(["unexpected $Zz#zero [.'$z']", path])
@@ -50,7 +50,7 @@ function json_model_4(val, path, rep)
             let arr_0_item = val[arr_0_idx]
             let arr_0_lpath = path ? path.concat([arr_0_idx]) : null;
             // .'$l'.0
-            res = _jm_obj_0(arr_0_item, (path ? arr_0_lpath : null), rep);
+            res = json_model_6(arr_0_item, (path ? arr_0_lpath : null), rep);
             if (! res)
             {
                 rep !== null && rep.push(["unexpected $z [.'$l'.0]", (path ? arr_0_lpath : null)])
@@ -78,9 +78,10 @@ function json_model_1(val, path, rep)
     return res;
 }
 
-// object .'$Zz#zero'
-function _jm_obj_0(val, path, rep)
+// check $Zz#zero (.'$Zz#zero')
+function json_model_6(val, path, rep)
 {
+    // .'$Zz#zero'
     // check close must only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
@@ -128,19 +129,6 @@ function _jm_obj_0(val, path, rep)
     return true;
 }
 
-// check $Zz#zero (.'$Zz#zero')
-function json_model_6(val, path, rep)
-{
-    let res;
-    // .'$Zz#zero'
-    res = _jm_obj_0(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected element [.'$Zz#zero']", path])
-    }
-    return res;
-}
-
 
 var initialized = false
 
@@ -152,8 +140,8 @@ export function check_model_init()
         initialized = true;
         runtime.jm_set_rx(RegExp)
         check_model_map.set("", json_model_4)
-        check_model_map.set("Zz", _jm_obj_0)
-        check_model_map.set("z", _jm_obj_0)
+        check_model_map.set("Zz", json_model_6)
+        check_model_map.set("z", json_model_6)
         check_model_map.set("l", json_model_4)
     }
 }

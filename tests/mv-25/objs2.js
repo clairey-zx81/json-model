@@ -11,9 +11,10 @@ const JSON_MODEL_VERSION = "2";
 
 var check_model_map = new Map()
 
-// object .'$bla'
-function _jm_obj_0(val, path, rep)
+// check $bla (.'$bla')
+function json_model_2(val, path, rep)
 {
+    // .'$bla'
     // check close must only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
@@ -50,21 +51,12 @@ function _jm_obj_0(val, path, rep)
     return true;
 }
 
-// check $bla (.'$bla')
-function json_model_2(val, path, rep)
-{
-    let res;
-    // .'$bla'
-    res = _jm_obj_0(val, path, rep);
-    return res;
-}
-
 // check $foo (.'$foo')
 function json_model_3(val, path, rep)
 {
     let res;
     // .'$foo'
-    res = _jm_obj_0(val, path, rep);
+    res = json_model_2(val, path, rep);
     return res;
 }
 
@@ -73,7 +65,7 @@ function json_model_4(val, path, rep)
 {
     let res;
     // .'$ob'
-    res = _jm_obj_0(val, path, rep);
+    res = json_model_2(val, path, rep);
     return res;
 }
 
@@ -82,7 +74,7 @@ function json_model_1(val, path, rep)
 {
     let res;
     // .
-    res = _jm_obj_0(val, path, rep);
+    res = json_model_2(val, path, rep);
     return res;
 }
 
@@ -96,10 +88,10 @@ export function check_model_init()
     {
         initialized = true;
         runtime.jm_set_rx(RegExp)
-        check_model_map.set("", _jm_obj_0)
-        check_model_map.set("bla", _jm_obj_0)
-        check_model_map.set("foo", _jm_obj_0)
-        check_model_map.set("ob", _jm_obj_0)
+        check_model_map.set("", json_model_2)
+        check_model_map.set("bla", json_model_2)
+        check_model_map.set("foo", json_model_2)
+        check_model_map.set("ob", json_model_2)
     }
 }
 

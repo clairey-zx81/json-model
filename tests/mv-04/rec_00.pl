@@ -11,16 +11,16 @@ use JSON::JsonModel;
 use constant JMC_VERSION => '2';
 
 
-sub _jm_obj_0($$$);
 sub json_model_2($$$);
 sub json_model_3($$$);
 sub json_model_1($$$);
 my %check_model_map;
 
-# object .'$obj'
-sub _jm_obj_0($$$)
+# check $obj (.'$obj')
+sub json_model_2($$$)
 {
     my ($val, $path, $rep) = @_;
+    # .'$obj'
     if (! jm_is_object($val))
     {
         return 0;
@@ -40,16 +40,6 @@ sub _jm_obj_0($$$)
     return 1;
 }
 
-# check $obj (.'$obj')
-sub json_model_2($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$obj'
-    $res = _jm_obj_0($val, $path, $rep);
-    return $res;
-}
-
 # check $rec (.'$rec')
 sub json_model_3($$$)
 {
@@ -61,7 +51,7 @@ sub json_model_3($$$)
     if (! $res)
     {
         # .'$rec'.'|'.1
-        $res = _jm_obj_0($val, $path, $rep);
+        $res = json_model_2($val, $path, $rep);
     }
     return $res;
 }
@@ -88,7 +78,7 @@ sub check_model_init()
         $initialized = 1;
         %check_model_map = (
             '' => \&json_model_3,
-            'obj' => \&_jm_obj_0,
+            'obj' => \&json_model_2,
             'rec' => \&json_model_3,
         );
     }

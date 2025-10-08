@@ -42,9 +42,10 @@ function json_model_2(val, path, rep)
     return res;
 }
 
-// object .'$Xx'
-function _jm_obj_0(val, path, rep)
+// check $Xx (.'$Xx')
+function json_model_3(val, path, rep)
 {
+    // .'$Xx'
     // check close must only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
@@ -77,22 +78,10 @@ function _jm_obj_0(val, path, rep)
     return true;
 }
 
-// check $Xx (.'$Xx')
-function json_model_3(val, path, rep)
+// check $Yy (.'$Yy')
+function json_model_4(val, path, rep)
 {
-    let res;
-    // .'$Xx'
-    res = _jm_obj_0(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected element [.'$Xx']", path])
-    }
-    return res;
-}
-
-// object .'$Yy'
-function _jm_obj_1(val, path, rep)
-{
+    // .'$Yy'
     // check close must only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
@@ -125,21 +114,8 @@ function _jm_obj_1(val, path, rep)
     return true;
 }
 
-// check $Yy (.'$Yy')
-function json_model_4(val, path, rep)
-{
-    let res;
-    // .'$Yy'
-    res = _jm_obj_1(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected element [.'$Yy']", path])
-    }
-    return res;
-}
-
 // object .'$Ee'.'|'.1
-function _jm_obj_2(val, path, rep)
+function _jm_obj_0(val, path, rep)
 {
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
@@ -197,7 +173,7 @@ function _jm_obj_2(val, path, rep)
 }
 
 // object .'$Ee'.'|'.0
-function _jm_obj_3(val, path, rep)
+function _jm_obj_1(val, path, rep)
 {
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
@@ -267,7 +243,7 @@ function json_model_5(val, path, rep)
     if (res)
     {
         // .'$Ee'.'|'.0
-        res = _jm_obj_3(val, path, rep);
+        res = _jm_obj_1(val, path, rep);
         if (! res)
         {
             rep !== null && rep.push(["unexpected element [.'$Ee'.'|'.0]", path])
@@ -275,7 +251,7 @@ function json_model_5(val, path, rep)
         if (! res)
         {
             // .'$Ee'.'|'.1
-            res = _jm_obj_2(val, path, rep);
+            res = _jm_obj_0(val, path, rep);
             if (! res)
             {
                 rep !== null && rep.push(["unexpected element [.'$Ee'.'|'.1]", path])
@@ -358,8 +334,8 @@ export function check_model_init()
         runtime.jm_set_rx(RegExp)
         check_model_map.set("", json_model_6)
         check_model_map.set("Vv", json_model_2)
-        check_model_map.set("Xx", _jm_obj_0)
-        check_model_map.set("Yy", _jm_obj_1)
+        check_model_map.set("Xx", json_model_3)
+        check_model_map.set("Yy", json_model_4)
         check_model_map.set("Ee", json_model_5)
         check_model_map.set("Mm", json_model_6)
     }

@@ -11,18 +11,17 @@ use JSON::JsonModel;
 use constant JMC_VERSION => '2';
 
 
-sub _jm_obj_0($$$);
 sub json_model_2($$$);
-sub _jm_obj_1($$$);
 sub json_model_3($$$);
 my %_jm_map_0;
 sub json_model_1($$$);
 my %check_model_map;
 
-# object .'$Aa'
-sub _jm_obj_0($$$)
+# check $Aa (.'$Aa')
+sub json_model_2($$$)
 {
     my ($val, $path, $rep) = @_;
+    # .'$Aa'
     # check close must only props
     if (! jm_is_object($val))
     {
@@ -59,20 +58,11 @@ sub _jm_obj_0($$$)
     return 1;
 }
 
-# check $Aa (.'$Aa')
-sub json_model_2($$$)
+# check $Bb (.'$Bb')
+sub json_model_3($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$Aa'
-    $res = _jm_obj_0($val, $path, $rep);
-    return $res;
-}
-
-# object .'$Bb'
-sub _jm_obj_1($$$)
-{
-    my ($val, $path, $rep) = @_;
+    # .'$Bb'
     # check close must only props
     if (! jm_is_object($val))
     {
@@ -107,16 +97,6 @@ sub _jm_obj_1($$$)
         return 0;
     }
     return 1;
-}
-
-# check $Bb (.'$Bb')
-sub json_model_3($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$Bb'
-    $res = _jm_obj_1($val, $path, $rep);
-    return $res;
 }
 
 
@@ -162,13 +142,13 @@ sub check_model_init()
     {
         $initialized = 1;
         %_jm_map_0 = (
-            1 => \&_jm_obj_0,
-            2 => \&_jm_obj_1,
+            1 => \&json_model_2,
+            2 => \&json_model_3,
         );
         %check_model_map = (
             '' => \&json_model_1,
-            'Aa' => \&_jm_obj_0,
-            'Bb' => \&_jm_obj_1,
+            'Aa' => \&json_model_2,
+            'Bb' => \&json_model_3,
         );
     }
 }

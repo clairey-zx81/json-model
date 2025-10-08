@@ -41,8 +41,9 @@ def json_model_2(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("no model matched [.'$Vv'.'|']", path))
     return res
 
-# object .'$Xx'
-def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
+# check $Xx (.'$Xx')
+def json_model_3(val: Jsonable, path: Path, rep: Report) -> bool:
+    # .'$Xx'
     # check close must only props
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$Xx']", path))
@@ -65,17 +66,9 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
         return False
     return True
 
-# check $Xx (.'$Xx')
-def json_model_3(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .'$Xx'
-    res = _jm_obj_0(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected element [.'$Xx']", path))
-    return res
-
-# object .'$Yy'
-def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
+# check $Yy (.'$Yy')
+def json_model_4(val: Jsonable, path: Path, rep: Report) -> bool:
+    # .'$Yy'
     # check close must only props
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$Yy']", path))
@@ -98,17 +91,8 @@ def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
         return False
     return True
 
-# check $Yy (.'$Yy')
-def json_model_4(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .'$Yy'
-    res = _jm_obj_1(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected element [.'$Yy']", path))
-    return res
-
 # object .'$Ee'.'|'.1
-def _jm_obj_2(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$Ee'.'|'.1]", path))
         return False
@@ -145,7 +129,7 @@ def _jm_obj_2(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # object .'$Ee'.'|'.0
-def _jm_obj_3(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$Ee'.'|'.0]", path))
         return False
@@ -190,12 +174,12 @@ def json_model_5(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("unexpected type [.'$Ee'.'|']", path))
     if res:
         # .'$Ee'.'|'.0
-        res = _jm_obj_3(val, path, rep)
+        res = _jm_obj_1(val, path, rep)
         if not res:
             rep is None or rep.append(("unexpected element [.'$Ee'.'|'.0]", path))
         if not res:
             # .'$Ee'.'|'.1
-            res = _jm_obj_2(val, path, rep)
+            res = _jm_obj_0(val, path, rep)
             if not res:
                 rep is None or rep.append(("unexpected element [.'$Ee'.'|'.1]", path))
         if res:
@@ -252,8 +236,8 @@ def check_model_init():
         check_model_map = {
             "": json_model_6,
             "Vv": json_model_2,
-            "Xx": _jm_obj_0,
-            "Yy": _jm_obj_1,
+            "Xx": json_model_3,
+            "Yy": json_model_4,
             "Ee": json_model_5,
             "Mm": json_model_6,
         }

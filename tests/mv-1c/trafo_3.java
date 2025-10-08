@@ -61,7 +61,7 @@ public class trafo_3 extends ModelChecker
                 Object arr_0_item = arr_0_item_loop.next();
                 Path arr_0_lpath = new Path(arr_0_idx, path);
                 // .'$Dd#l'.0
-                res = _jm_obj_0(arr_0_item, (path != null ? arr_0_lpath : null), rep);
+                res = json_model_12(arr_0_item, (path != null ? arr_0_lpath : null), rep);
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected $u [.'$Dd#l'.0]", (path != null ? arr_0_lpath : null));
@@ -81,7 +81,7 @@ public class trafo_3 extends ModelChecker
     {
         boolean res;
         // .'$Dd#u'
-        res = _jm_obj_0(val, path, rep);
+        res = json_model_12(val, path, rep);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected $Uu#un [.'$Dd#u']", path);
@@ -89,9 +89,10 @@ public class trafo_3 extends ModelChecker
         return res;
     }
 
-    // object .'$Dd#Uu#un'
-    public boolean _jm_obj_0(Object val, Path path, Report rep)
+    // check $Dd#Uu#un (.'$Dd#Uu#un')
+    public boolean json_model_12(Object val, Path path, Report rep)
     {
+        // .'$Dd#Uu#un'
         // check close must only props
         if (! json.isObject(val))
         {
@@ -135,19 +136,6 @@ public class trafo_3 extends ModelChecker
             return false;
         }
         return true;
-    }
-
-    // check $Dd#Uu#un (.'$Dd#Uu#un')
-    public boolean json_model_12(Object val, Path path, Report rep)
-    {
-        boolean res;
-        // .'$Dd#Uu#un'
-        res = _jm_obj_0(val, path, rep);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected element [.'$Dd#Uu#un']", path);
-        }
-        return res;
     }
 
 

@@ -21,9 +21,10 @@ public class alter_3 extends ModelChecker
     Map<Object, Checker> _jm_map_0_cmap;
     public Map<String, Checker> alter_3_map_pmap;
 
-    // object .'$d'
-    public boolean _jm_obj_0(Object val, Path path, Report rep)
+    // check $d (.'$d')
+    public boolean json_model_2(Object val, Path path, Report rep)
     {
+        // .'$d'
         // check close must only props
         if (! json.isObject(val))
         {
@@ -58,17 +59,8 @@ public class alter_3 extends ModelChecker
         return true;
     }
 
-    // check $d (.'$d')
-    public boolean json_model_2(Object val, Path path, Report rep)
-    {
-        boolean res;
-        // .'$d'
-        res = _jm_obj_0(val, path, rep);
-        return res;
-    }
-
     // object .'$alternative'.'|'.0
-    public boolean _jm_obj_1(Object val, Path path, Report rep)
+    public boolean _jm_obj_0(Object val, Path path, Report rep)
     {
         // check close must only props
         if (! json.isObject(val))
@@ -106,7 +98,7 @@ public class alter_3 extends ModelChecker
 
 
     // object .'$alternative'.'|'.1
-    public boolean _jm_obj_2(Object val, Path path, Report rep)
+    public boolean _jm_obj_1(Object val, Path path, Report rep)
     {
         // check close must only props
         if (! json.isObject(val))
@@ -174,7 +166,7 @@ public class alter_3 extends ModelChecker
         if (! res)
         {
             // .'$alternative'.'|'.0
-            res = _jm_obj_1(val, path, rep);
+            res = _jm_obj_0(val, path, rep);
         }
         return res;
     }
@@ -198,12 +190,12 @@ public class alter_3 extends ModelChecker
             _jm_cst_0_set.add(json.safeJSON("\"b\""));
             _jm_cst_0_set.add(json.safeJSON("\"c\""));
             _jm_map_0_cmap = new HashMap<Object, Checker>();
-            _jm_map_0_cmap.put(json.safeJSON("\"b\""), new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_2(o, p, r);} });
-            _jm_map_0_cmap.put(json.safeJSON("\"c\""), new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_2(o, p, r);} });
-            _jm_map_0_cmap.put(json.safeJSON("\"d\""), new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_0(o, p, r);} });
+            _jm_map_0_cmap.put(json.safeJSON("\"b\""), new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_1(o, p, r);} });
+            _jm_map_0_cmap.put(json.safeJSON("\"c\""), new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_1(o, p, r);} });
+            _jm_map_0_cmap.put(json.safeJSON("\"d\""), new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_2(o, p, r);} });
             alter_3_map_pmap = new HashMap<String, Checker>();
             alter_3_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_3(o, p, r);} });
-            alter_3_map_pmap.put("d", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_0(o, p, r);} });
+            alter_3_map_pmap.put("d", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_2(o, p, r);} });
             alter_3_map_pmap.put("alternative", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_3(o, p, r);} });
                 super.init(json);
             }

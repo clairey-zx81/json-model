@@ -45,9 +45,10 @@ public class ex_08 extends ModelChecker
         return res;
     }
 
-    // object .'$map'
-    public boolean _jm_obj_0(Object val, Path path, Report rep)
+    // check $map (.'$map')
+    public boolean json_model_4(Object val, Path path, Report rep)
     {
+        // .'$map'
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.'$map']", path);
@@ -80,26 +81,13 @@ public class ex_08 extends ModelChecker
         return true;
     }
 
-    // check $map (.'$map')
-    public boolean json_model_4(Object val, Path path, Report rep)
-    {
-        boolean res;
-        // .'$map'
-        res = _jm_obj_0(val, path, rep);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected element [.'$map']", path);
-        }
-        return res;
-    }
-
     // check $Ex08 (.'$Ex08')
     public boolean json_model_5(Object val, Path path, Report rep)
     {
         boolean res;
         // .'$Ex08'
         // .'$Ex08'.'|'.0
-        res = _jm_obj_0(val, path, rep);
+        res = json_model_4(val, path, rep);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected $map [.'$Ex08'.'|'.0]", path);
@@ -156,7 +144,7 @@ public class ex_08 extends ModelChecker
             ex_08_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_5(o, p, r);} });
             ex_08_map_pmap.put("Val", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_2(o, p, r);} });
             ex_08_map_pmap.put("Key", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_3(o, p, r);} });
-            ex_08_map_pmap.put("map", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_0(o, p, r);} });
+            ex_08_map_pmap.put("map", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
             ex_08_map_pmap.put("Ex08", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_5(o, p, r);} });
                 super.init(json);
             }

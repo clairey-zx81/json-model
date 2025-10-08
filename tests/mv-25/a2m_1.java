@@ -19,9 +19,10 @@ public class a2m_1 extends ModelChecker
 
     public Map<String, Checker> a2m_1_map_pmap;
 
-    // object .'$Oa'
-    public boolean _jm_obj_0(Object val, Path path, Report rep)
+    // check $Oa (.'$Oa')
+    public boolean json_model_2(Object val, Path path, Report rep)
     {
+        // .'$Oa'
         // check open must/may only props
         if (! json.isObject(val))
         {
@@ -41,18 +42,10 @@ public class a2m_1 extends ModelChecker
         return true;
     }
 
-    // check $Oa (.'$Oa')
-    public boolean json_model_2(Object val, Path path, Report rep)
+    // check $Ob (.'$Ob')
+    public boolean json_model_3(Object val, Path path, Report rep)
     {
-        boolean res;
-        // .'$Oa'
-        res = _jm_obj_0(val, path, rep);
-        return res;
-    }
-
-    // object .'$Ob'
-    public boolean _jm_obj_1(Object val, Path path, Report rep)
-    {
+        // .'$Ob'
         // check open must/may only props
         if (! json.isObject(val))
         {
@@ -72,18 +65,10 @@ public class a2m_1 extends ModelChecker
         return true;
     }
 
-    // check $Ob (.'$Ob')
-    public boolean json_model_3(Object val, Path path, Report rep)
+    // check $merge (.'$merge')
+    public boolean json_model_4(Object val, Path path, Report rep)
     {
-        boolean res;
-        // .'$Ob'
-        res = _jm_obj_1(val, path, rep);
-        return res;
-    }
-
-    // object .'$merge'
-    public boolean _jm_obj_2(Object val, Path path, Report rep)
-    {
+        // .'$merge'
         // check open must/may only props
         if (! json.isObject(val))
         {
@@ -112,17 +97,8 @@ public class a2m_1 extends ModelChecker
         return true;
     }
 
-    // check $merge (.'$merge')
-    public boolean json_model_4(Object val, Path path, Report rep)
-    {
-        boolean res;
-        // .'$merge'
-        res = _jm_obj_2(val, path, rep);
-        return res;
-    }
-
     // object .'$nomerge'.'&'.1
-    public boolean _jm_obj_3(Object val, Path path, Report rep)
+    public boolean _jm_obj_0(Object val, Path path, Report rep)
     {
         // check close must only props
         if (! json.isObject(val))
@@ -157,11 +133,11 @@ public class a2m_1 extends ModelChecker
         if (res)
         {
             // .'$nomerge'.'&'.0
-            res = _jm_obj_0(val, path, rep);
+            res = json_model_2(val, path, rep);
             if (res)
             {
                 // .'$nomerge'.'&'.1
-                res = _jm_obj_3(val, path, rep);
+                res = _jm_obj_0(val, path, rep);
             }
         }
         return res;
@@ -173,7 +149,7 @@ public class a2m_1 extends ModelChecker
         boolean res;
         // .
         // .'|'.0
-        res = _jm_obj_2(val, path, rep);
+        res = json_model_4(val, path, rep);
         if (! res)
         {
             // .'|'.1
@@ -190,9 +166,9 @@ public class a2m_1 extends ModelChecker
             try {
             a2m_1_map_pmap = new HashMap<String, Checker>();
             a2m_1_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_1(o, p, r);} });
-            a2m_1_map_pmap.put("Oa", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_0(o, p, r);} });
-            a2m_1_map_pmap.put("Ob", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_1(o, p, r);} });
-            a2m_1_map_pmap.put("merge", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_2(o, p, r);} });
+            a2m_1_map_pmap.put("Oa", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_2(o, p, r);} });
+            a2m_1_map_pmap.put("Ob", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_3(o, p, r);} });
+            a2m_1_map_pmap.put("merge", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
             a2m_1_map_pmap.put("nomerge", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_5(o, p, r);} });
                 super.init(json);
             }

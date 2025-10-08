@@ -19,9 +19,11 @@ public class must_0 extends ModelChecker
 
     public Map<String, Checker> must_0_map_pmap;
 
-    // object .
-    public boolean _jm_obj_0(Object val, Path path, Report rep)
+    // check $ (.)
+    public boolean json_model_1(Object val, Path path, Report rep)
     {
+        // open with only some mandatory properties
+        // .
         // check open must/may only props
         if (! json.isObject(val))
         {
@@ -62,20 +64,6 @@ public class must_0 extends ModelChecker
         return true;
     }
 
-    // check $ (.)
-    public boolean json_model_1(Object val, Path path, Report rep)
-    {
-        boolean res;
-        // open with only some mandatory properties
-        // .
-        res = _jm_obj_0(val, path, rep);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected element [.]", path);
-        }
-        return res;
-    }
-
 
     public void init(JSON json)
     {
@@ -83,7 +71,7 @@ public class must_0 extends ModelChecker
         {
             try {
             must_0_map_pmap = new HashMap<String, Checker>();
-            must_0_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_0(o, p, r);} });
+            must_0_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_1(o, p, r);} });
                 super.init(json);
             }
             catch (Exception e) {

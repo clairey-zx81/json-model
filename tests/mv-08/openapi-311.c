@@ -20,50 +20,32 @@ static bool _jm_f_3(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_4(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_5(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_6(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static bool _jm_obj_1(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_7(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static jm_propmap_t _jm_obj_0_map_tab[8];
-static bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static jm_propmap_t json_model_2_map_tab[8];
 static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static bool _jm_obj_2(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static bool _jm_obj_3(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_4(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static cre2_regexp_t *_jm_re_1_re2 = NULL;
 static int _jm_re_1_nn = 0;
 static bool _jm_re_1(const char *s, jm_path_t *path, jm_report_t *rep);
-static bool _jm_obj_4(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static bool _jm_obj_5(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static bool _jm_obj_1(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_5(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static bool _jm_obj_7(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static bool _jm_obj_6(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static bool _jm_obj_2(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_6(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static bool _jm_obj_8(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_7(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static bool _jm_obj_10(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_8(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static bool _jm_obj_11(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_9(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static bool _jm_obj_12(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_10(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static bool _jm_obj_13(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_11(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static bool _jm_obj_14(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_12(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static bool _jm_obj_15(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_13(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static bool _jm_obj_16(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_14(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static bool _jm_obj_17(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_15(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static bool _jm_obj_18(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_16(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static bool _jm_obj_19(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_17(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static jm_propmap_t _jm_obj_9_map_tab[10];
-static bool _jm_obj_9(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static jm_propmap_t json_model_8_map_tab[10];
 static bool json_model_8(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static bool _jm_obj_20(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_9(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_18(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_19(const json_t *val, jm_path_t *path, jm_report_t *rep);
@@ -78,10 +60,8 @@ static bool _jm_f_27(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_28(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_29(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_30(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static jm_propmap_t _jm_obj_21_map_tab[13];
-static bool _jm_obj_21(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static jm_propmap_t json_model_10_map_tab[13];
 static bool json_model_10(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static bool _jm_obj_23(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_31(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_32(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_33(const json_t *val, jm_path_t *path, jm_report_t *rep);
@@ -94,30 +74,23 @@ static bool _jm_f_39(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_40(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_41(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_42(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static jm_propmap_t _jm_obj_22_map_tab[12];
-static bool _jm_obj_22(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static jm_propmap_t json_model_11_map_tab[12];
 static bool json_model_11(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static bool _jm_obj_24(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_12(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static bool _jm_obj_25(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_13(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static jm_constant_t _jm_cst_0[4];
-static bool _jm_obj_26(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_14(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static jm_constant_t _jm_cst_1[7];
 static bool json_model_15(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_43(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_44(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static bool _jm_obj_28(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_45(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_46(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_47(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_48(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static jm_propmap_t _jm_obj_27_map_tab[6];
-static bool _jm_obj_27(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static jm_propmap_t json_model_16_map_tab[6];
 static bool json_model_16(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static bool _jm_obj_30(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static bool _jm_obj_29(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static bool _jm_obj_3(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_17(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static jm_constant_t _jm_cst_2[4];
 static bool _jm_f_49(const json_t *val, jm_path_t *path, jm_report_t *rep);
@@ -125,80 +98,67 @@ static bool _jm_f_50(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_51(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_52(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_53(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static bool _jm_obj_32(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_54(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_55(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_56(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_57(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_58(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static jm_propmap_t _jm_obj_31_map_tab[10];
-static bool _jm_obj_31(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static jm_propmap_t _jm_obj_4_map_tab[10];
+static bool _jm_obj_4(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static jm_constant_t _jm_cst_3[4];
-static bool _jm_obj_34(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static bool _jm_obj_33(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static bool _jm_obj_6(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static bool _jm_obj_5(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static jm_constmap_t _jm_map_0_tab[4];
 static bool json_model_18(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static bool _jm_obj_36(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static bool _jm_obj_35(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static bool _jm_obj_7(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_19(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static bool _jm_obj_38(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static bool _jm_obj_39(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static bool _jm_obj_37(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static bool _jm_obj_8(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static bool _jm_obj_9(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_20(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static bool _jm_obj_41(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static bool _jm_obj_40(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static bool _jm_obj_10(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_21(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static cre2_regexp_t *_jm_re_2_re2 = NULL;
 static int _jm_re_2_nn = 0;
 static bool _jm_re_2(const char *s, jm_path_t *path, jm_report_t *rep);
-static bool _jm_obj_42(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_22(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static bool _jm_obj_44(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static bool _jm_obj_45(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static bool _jm_obj_46(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static bool _jm_obj_43(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static bool _jm_obj_11(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static bool _jm_obj_12(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static bool _jm_obj_13(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_23(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static bool _jm_obj_47(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_24(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static bool _jm_obj_48(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_25(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_26(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static bool _jm_obj_50(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static bool _jm_obj_49(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static bool _jm_obj_52(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static bool _jm_obj_51(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static bool _jm_obj_15(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static bool _jm_obj_14(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static bool _jm_obj_17(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static bool _jm_obj_16(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_27(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static bool _jm_obj_54(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static bool _jm_obj_53(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static bool _jm_obj_19(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static bool _jm_obj_18(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_59(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_60(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_61(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_62(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_63(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static bool _jm_obj_56(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_64(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_65(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_66(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_67(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_68(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static jm_propmap_t _jm_obj_55_map_tab[10];
-static bool _jm_obj_55(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static jm_propmap_t _jm_obj_20_map_tab[10];
+static bool _jm_obj_20(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_28(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static bool _jm_obj_57(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_29(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static bool _jm_obj_58(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_30(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_45(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_69(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_70(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static bool _jm_obj_60(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_71(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_72(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_73(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_74(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_75(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_76(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static bool _jm_obj_61(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_77(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_78(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_79(const json_t *val, jm_path_t *path, jm_report_t *rep);
@@ -209,9 +169,7 @@ static bool _jm_f_83(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_84(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_85(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_86(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static bool _jm_obj_62(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_87(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static bool _jm_obj_63(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_88(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_89(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_90(const json_t *val, jm_path_t *path, jm_report_t *rep);
@@ -240,10 +198,8 @@ static bool _jm_f_112(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_113(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_114(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_115(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static bool _jm_obj_64(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_116(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_117(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static bool _jm_obj_65(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_118(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_119(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_120(const json_t *val, jm_path_t *path, jm_report_t *rep);
@@ -256,45 +212,33 @@ static bool _jm_f_126(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_127(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_128(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_129(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static jm_propmap_t _jm_obj_59_map_tab[61];
-static bool _jm_obj_59(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static jm_propmap_t json_model_32_map_tab[61];
 static bool json_model_32(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static bool _jm_obj_67(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static bool _jm_obj_66(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static bool _jm_obj_21(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_33(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static bool _jm_obj_68(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_34(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static jm_constant_t _jm_cst_4[3];
-static bool _jm_obj_69(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_35(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static bool _jm_obj_70(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_36(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static cre2_regexp_t *_jm_re_3_re2 = NULL;
 static int _jm_re_3_nn = 0;
 static bool _jm_re_3(const char *s, jm_path_t *path, jm_report_t *rep);
-static bool _jm_obj_71(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_37(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static bool _jm_obj_72(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_38(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static bool _jm_obj_73(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_39(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static jm_constant_t _jm_cst_5[3];
-static bool _jm_obj_74(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static bool _jm_obj_75(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static bool _jm_obj_76(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static bool _jm_obj_77(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static bool _jm_obj_78(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static bool _jm_obj_79(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static bool _jm_obj_22(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static bool _jm_obj_23(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static bool _jm_obj_24(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static bool _jm_obj_25(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static bool _jm_obj_26(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static bool _jm_obj_27(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static jm_constmap_t _jm_map_1_tab[4];
 static bool json_model_40(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static bool _jm_obj_80(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_41(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static bool _jm_obj_82(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static bool _jm_obj_81(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static bool _jm_obj_28(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_42(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static bool _jm_obj_83(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_43(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static bool _jm_obj_84(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_44(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_46(const json_t *val, jm_path_t *path, jm_report_t *rep);
@@ -307,14 +251,12 @@ static bool json_model_57(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_60(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_130(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_131(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static bool _jm_obj_86(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_132(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_133(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_134(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_135(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_136(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_137(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static bool _jm_obj_87(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_138(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_139(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_140(const json_t *val, jm_path_t *path, jm_report_t *rep);
@@ -325,9 +267,7 @@ static bool _jm_f_144(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_145(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_146(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_147(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static bool _jm_obj_88(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_148(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static bool _jm_obj_89(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_149(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_150(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_151(const json_t *val, jm_path_t *path, jm_report_t *rep);
@@ -353,10 +293,8 @@ static bool _jm_f_170(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_171(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_172(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_173(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static bool _jm_obj_90(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_174(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_175(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static bool _jm_obj_91(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_176(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_177(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_178(const json_t *val, jm_path_t *path, jm_report_t *rep);
@@ -368,8 +306,7 @@ static bool _jm_f_183(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_184(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_185(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_186(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static jm_propmap_t _jm_obj_85_map_tab[57];
-static bool _jm_obj_85(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static jm_propmap_t json_model_59_map_tab[57];
 static bool json_model_59(const json_t *val, jm_path_t *path, jm_report_t *rep);
 jm_propmap_t check_model_map_tab[44];
 const size_t check_model_map_size = 44;
@@ -380,12 +317,12 @@ static bool _jm_re_0(const char *s, jm_path_t *path, jm_report_t *rep)
     return cre2_match(_jm_re_0_re2, s, slen, 0, slen, CRE2_UNANCHORED, NULL, 0);
 }
 
-// check _jm_obj_0_map_components (.'$OpenAPI'.components)
+// check json_model_2_map_components (.'$OpenAPI'.components)
 static bool _jm_f_0(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
     // .'$OpenAPI'.components
-    res = _jm_obj_9(val, path, rep);
+    res = json_model_8(val, path, rep);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected $Components [.'$OpenAPI'.components]", path);
@@ -393,12 +330,12 @@ static bool _jm_f_0(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_0_map_externalDocs (.'$OpenAPI'.externalDocs)
+// check json_model_2_map_externalDocs (.'$OpenAPI'.externalDocs)
 static bool _jm_f_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
     // .'$OpenAPI'.externalDocs
-    res = _jm_obj_24(val, path, rep);
+    res = json_model_12(val, path, rep);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected $ExternalDocumentation [.'$OpenAPI'.externalDocs]", path);
@@ -406,7 +343,7 @@ static bool _jm_f_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_0_map_jsonSchemaDialect (.'$OpenAPI'.jsonSchemaDialect)
+// check json_model_2_map_jsonSchemaDialect (.'$OpenAPI'.jsonSchemaDialect)
 static bool _jm_f_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -419,12 +356,12 @@ static bool _jm_f_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_0_map_paths (.'$OpenAPI'.paths)
+// check json_model_2_map_paths (.'$OpenAPI'.paths)
 static bool _jm_f_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
     // .'$OpenAPI'.paths
-    res = _jm_obj_20(val, path, rep);
+    res = json_model_9(val, path, rep);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected $Paths [.'$OpenAPI'.paths]", path);
@@ -432,7 +369,7 @@ static bool _jm_f_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_0_map_security (.'$OpenAPI'.security)
+// check json_model_2_map_security (.'$OpenAPI'.security)
 static bool _jm_f_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -446,7 +383,7 @@ static bool _jm_f_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
         {
             jm_path_t arr_0_lpath = (jm_path_t) { NULL, arr_0_idx, path, NULL };
             // .'$OpenAPI'.security.0
-            res = _jm_obj_83(arr_0_item, (path ? &arr_0_lpath : NULL), rep);
+            res = json_model_43(arr_0_item, (path ? &arr_0_lpath : NULL), rep);
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected $SecurityRequirement [.'$OpenAPI'.security.0]", (path ? &arr_0_lpath : NULL));
@@ -461,7 +398,7 @@ static bool _jm_f_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_0_map_servers (.'$OpenAPI'.servers)
+// check json_model_2_map_servers (.'$OpenAPI'.servers)
 static bool _jm_f_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -475,7 +412,7 @@ static bool _jm_f_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
         {
             jm_path_t arr_1_lpath = (jm_path_t) { NULL, arr_1_idx, path, NULL };
             // .'$OpenAPI'.servers.0
-            res = _jm_obj_6(arr_1_item, (path ? &arr_1_lpath : NULL), rep);
+            res = json_model_6(arr_1_item, (path ? &arr_1_lpath : NULL), rep);
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected $Server [.'$OpenAPI'.servers.0]", (path ? &arr_1_lpath : NULL));
@@ -490,7 +427,7 @@ static bool _jm_f_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_0_map_tags (.'$OpenAPI'.tags)
+// check json_model_2_map_tags (.'$OpenAPI'.tags)
 static bool _jm_f_6(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -504,7 +441,7 @@ static bool _jm_f_6(const json_t *val, jm_path_t *path, jm_report_t *rep)
         {
             jm_path_t arr_2_lpath = (jm_path_t) { NULL, arr_2_idx, path, NULL };
             // .'$OpenAPI'.tags.0
-            res = _jm_obj_57(arr_2_item, (path ? &arr_2_lpath : NULL), rep);
+            res = json_model_29(arr_2_item, (path ? &arr_2_lpath : NULL), rep);
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected $Tag [.'$OpenAPI'.tags.0]", (path ? &arr_2_lpath : NULL));
@@ -519,9 +456,10 @@ static bool _jm_f_6(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// object .'$OpenAPI'.webhooks
-static INLINE bool _jm_obj_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
+// check json_model_2_map_webhooks (.'$OpenAPI'.webhooks)
+static bool _jm_f_7(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
+    // .'$OpenAPI'.webhooks
     if (! json_is_object(val))
     {
         if (rep) jm_report_add_entry(rep, "not an object [.'$OpenAPI'.webhooks]", path);
@@ -535,7 +473,7 @@ static INLINE bool _jm_obj_1(const json_t *val, jm_path_t *path, jm_report_t *re
         jm_path_t lpath_1 = (jm_path_t) { prop, 0, path, NULL };
         // handle other props
         // .'$OpenAPI'.webhooks.''
-        res = _jm_obj_21(pval, (path ? &lpath_1 : NULL), rep);
+        res = json_model_10(pval, (path ? &lpath_1 : NULL), rep);
         if (! res)
         {
             if (rep) jm_report_add_entry(rep, "unexpected $PathItem [.'$OpenAPI'.webhooks.'']", (path ? &lpath_1 : NULL));
@@ -545,27 +483,15 @@ static INLINE bool _jm_obj_1(const json_t *val, jm_path_t *path, jm_report_t *re
     return true;
 }
 
-// check _jm_obj_0_map_webhooks (.'$OpenAPI'.webhooks)
-static bool _jm_f_7(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE jm_check_fun_t json_model_2_map(const char *pname)
 {
-    bool res;
-    // .'$OpenAPI'.webhooks
-    res = _jm_obj_1(val, path, rep);
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected element [.'$OpenAPI'.webhooks]", path);
-    }
-    return res;
+    return jm_search_propmap(pname, json_model_2_map_tab, 8);
 }
 
-static INLINE jm_check_fun_t _jm_obj_0_map(const char *pname)
+// check $OpenAPI (.'$OpenAPI')
+static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    return jm_search_propmap(pname, _jm_obj_0_map_tab, 8);
-}
-
-// object .'$OpenAPI'
-static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
+    // .'$OpenAPI'
     if (! json_is_object(val))
     {
         if (rep) jm_report_add_entry(rep, "not an object [.'$OpenAPI']", path);
@@ -598,7 +524,7 @@ static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *re
             // handle must info property
             must_count += 1;
             // .'$OpenAPI'.info
-            res = _jm_obj_2(pval, (path ? &lpath_0 : NULL), rep);
+            res = json_model_3(pval, (path ? &lpath_0 : NULL), rep);
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected $Info [.'$OpenAPI'.info]", (path ? &lpath_0 : NULL));
@@ -606,7 +532,7 @@ static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *re
                 return false;
             }
         }
-        else if ((pfun = _jm_obj_0_map(prop)))
+        else if ((pfun = json_model_2_map(prop)))
         {
             // handle 8 may props
             if (pfun != NULL && ! pfun(pval, (path ? &lpath_0 : NULL), rep))
@@ -650,22 +576,10 @@ static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *re
     return true;
 }
 
-// check $OpenAPI (.'$OpenAPI')
-static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
+// check $Info (.'$Info')
+static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
-    // .'$OpenAPI'
-    res = _jm_obj_0(val, path, rep);
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected element [.'$OpenAPI']", path);
-    }
-    return res;
-}
-
-// object .'$Info'
-static INLINE bool _jm_obj_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
+    // .'$Info'
     if (! json_is_object(val))
     {
         if (rep) jm_report_add_entry(rep, "not an object [.'$Info']", path);
@@ -744,7 +658,7 @@ static INLINE bool _jm_obj_2(const json_t *val, jm_path_t *path, jm_report_t *re
         {
             // handle may contact property
             // .'$Info'.contact
-            res = _jm_obj_3(pval, (path ? &lpath_2 : NULL), rep);
+            res = json_model_4(pval, (path ? &lpath_2 : NULL), rep);
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected $Contact [.'$Info'.contact]", (path ? &lpath_2 : NULL));
@@ -799,22 +713,10 @@ static INLINE bool _jm_obj_2(const json_t *val, jm_path_t *path, jm_report_t *re
     return true;
 }
 
-// check $Info (.'$Info')
-static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
+// check $Contact (.'$Contact')
+static bool json_model_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
-    // .'$Info'
-    res = _jm_obj_2(val, path, rep);
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected element [.'$Info']", path);
-    }
-    return res;
-}
-
-// object .'$Contact'
-static INLINE bool _jm_obj_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
+    // .'$Contact'
     if (! json_is_object(val))
     {
         if (rep) jm_report_add_entry(rep, "not an object [.'$Contact']", path);
@@ -882,19 +784,6 @@ static INLINE bool _jm_obj_3(const json_t *val, jm_path_t *path, jm_report_t *re
     return true;
 }
 
-// check $Contact (.'$Contact')
-static bool json_model_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
-    bool res;
-    // .'$Contact'
-    res = _jm_obj_3(val, path, rep);
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected element [.'$Contact']", path);
-    }
-    return res;
-}
-
 static bool _jm_re_1(const char *s, jm_path_t *path, jm_report_t *rep)
 {
     size_t slen = strlen(s);
@@ -902,7 +791,7 @@ static bool _jm_re_1(const char *s, jm_path_t *path, jm_report_t *rep)
 }
 
 // object .'$License'.'|'.1
-static INLINE bool _jm_obj_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (! json_is_object(val))
     {
@@ -978,7 +867,7 @@ static INLINE bool _jm_obj_4(const json_t *val, jm_path_t *path, jm_report_t *re
 }
 
 // object .'$License'.'|'.0
-static INLINE bool _jm_obj_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_obj_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (! json_is_object(val))
     {
@@ -1066,7 +955,7 @@ static bool json_model_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
     if (res)
     {
         // .'$License'.'|'.0
-        res = _jm_obj_5(val, path, rep);
+        res = _jm_obj_1(val, path, rep);
         if (! res)
         {
             if (rep) jm_report_add_entry(rep, "unexpected element [.'$License'.'|'.0]", path);
@@ -1074,7 +963,7 @@ static bool json_model_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
         if (! res)
         {
             // .'$License'.'|'.1
-            res = _jm_obj_4(val, path, rep);
+            res = _jm_obj_0(val, path, rep);
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected element [.'$License'.'|'.1]", path);
@@ -1093,7 +982,7 @@ static bool json_model_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
 }
 
 // object .'$Server'.variables
-static INLINE bool _jm_obj_7(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_obj_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (! json_is_object(val))
     {
@@ -1108,7 +997,7 @@ static INLINE bool _jm_obj_7(const json_t *val, jm_path_t *path, jm_report_t *re
         jm_path_t lpath_7 = (jm_path_t) { prop, 0, path, NULL };
         // handle other props
         // .'$Server'.variables.''
-        res = _jm_obj_8(pval, (path ? &lpath_7 : NULL), rep);
+        res = json_model_7(pval, (path ? &lpath_7 : NULL), rep);
         if (! res)
         {
             if (rep) jm_report_add_entry(rep, "unexpected $ServerVariable [.'$Server'.variables.'']", (path ? &lpath_7 : NULL));
@@ -1118,9 +1007,10 @@ static INLINE bool _jm_obj_7(const json_t *val, jm_path_t *path, jm_report_t *re
     return true;
 }
 
-// object .'$Server'
-static INLINE bool _jm_obj_6(const json_t *val, jm_path_t *path, jm_report_t *rep)
+// check $Server (.'$Server')
+static bool json_model_6(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
+    // .'$Server'
     if (! json_is_object(val))
     {
         if (rep) jm_report_add_entry(rep, "not an object [.'$Server']", path);
@@ -1162,7 +1052,7 @@ static INLINE bool _jm_obj_6(const json_t *val, jm_path_t *path, jm_report_t *re
         {
             // handle may variables property
             // .'$Server'.variables
-            res = _jm_obj_7(pval, (path ? &lpath_6 : NULL), rep);
+            res = _jm_obj_2(pval, (path ? &lpath_6 : NULL), rep);
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected element [.'$Server'.variables]", (path ? &lpath_6 : NULL));
@@ -1201,22 +1091,10 @@ static INLINE bool _jm_obj_6(const json_t *val, jm_path_t *path, jm_report_t *re
     return true;
 }
 
-// check $Server (.'$Server')
-static bool json_model_6(const json_t *val, jm_path_t *path, jm_report_t *rep)
+// check $ServerVariable (.'$ServerVariable')
+static bool json_model_7(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
-    // .'$Server'
-    res = _jm_obj_6(val, path, rep);
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected element [.'$Server']", path);
-    }
-    return res;
-}
-
-// object .'$ServerVariable'
-static INLINE bool _jm_obj_8(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
+    // .'$ServerVariable'
     if (! json_is_object(val))
     {
         if (rep) jm_report_add_entry(rep, "not an object [.'$ServerVariable']", path);
@@ -1313,22 +1191,10 @@ static INLINE bool _jm_obj_8(const json_t *val, jm_path_t *path, jm_report_t *re
     return true;
 }
 
-// check $ServerVariable (.'$ServerVariable')
-static bool json_model_7(const json_t *val, jm_path_t *path, jm_report_t *rep)
+// check json_model_8_map_callbacks (.'$Components'.callbacks)
+static bool _jm_f_8(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
-    // .'$ServerVariable'
-    res = _jm_obj_8(val, path, rep);
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected element [.'$ServerVariable']", path);
-    }
-    return res;
-}
-
-// object .'$Components'.callbacks
-static INLINE bool _jm_obj_10(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
+    // .'$Components'.callbacks
     if (! json_is_object(val))
     {
         if (rep) jm_report_add_entry(rep, "not an object [.'$Components'.callbacks]", path);
@@ -1343,7 +1209,7 @@ static INLINE bool _jm_obj_10(const json_t *val, jm_path_t *path, jm_report_t *r
         // handle other props
         // .'$Components'.callbacks.''
         // .'$Components'.callbacks.''.'|'.0
-        res = _jm_obj_47(pval, (path ? &lpath_10 : NULL), rep);
+        res = json_model_24(pval, (path ? &lpath_10 : NULL), rep);
         if (! res)
         {
             if (rep) jm_report_add_entry(rep, "unexpected $Callback [.'$Components'.callbacks.''.'|'.0]", (path ? &lpath_10 : NULL));
@@ -1351,7 +1217,7 @@ static INLINE bool _jm_obj_10(const json_t *val, jm_path_t *path, jm_report_t *r
         if (! res)
         {
             // .'$Components'.callbacks.''.'|'.1
-            res = _jm_obj_58(pval, (path ? &lpath_10 : NULL), rep);
+            res = json_model_30(pval, (path ? &lpath_10 : NULL), rep);
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected $Reference [.'$Components'.callbacks.''.'|'.1]", (path ? &lpath_10 : NULL));
@@ -1370,22 +1236,10 @@ static INLINE bool _jm_obj_10(const json_t *val, jm_path_t *path, jm_report_t *r
     return true;
 }
 
-// check _jm_obj_9_map_callbacks (.'$Components'.callbacks)
-static bool _jm_f_8(const json_t *val, jm_path_t *path, jm_report_t *rep)
+// check json_model_8_map_examples (.'$Components'.examples)
+static bool _jm_f_9(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
-    // .'$Components'.callbacks
-    res = _jm_obj_10(val, path, rep);
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected element [.'$Components'.callbacks]", path);
-    }
-    return res;
-}
-
-// object .'$Components'.examples
-static INLINE bool _jm_obj_11(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
+    // .'$Components'.examples
     if (! json_is_object(val))
     {
         if (rep) jm_report_add_entry(rep, "not an object [.'$Components'.examples]", path);
@@ -1400,7 +1254,7 @@ static INLINE bool _jm_obj_11(const json_t *val, jm_path_t *path, jm_report_t *r
         // handle other props
         // .'$Components'.examples.''
         // .'$Components'.examples.''.'|'.0
-        res = _jm_obj_48(pval, (path ? &lpath_11 : NULL), rep);
+        res = json_model_25(pval, (path ? &lpath_11 : NULL), rep);
         if (! res)
         {
             if (rep) jm_report_add_entry(rep, "unexpected $Example [.'$Components'.examples.''.'|'.0]", (path ? &lpath_11 : NULL));
@@ -1408,7 +1262,7 @@ static INLINE bool _jm_obj_11(const json_t *val, jm_path_t *path, jm_report_t *r
         if (! res)
         {
             // .'$Components'.examples.''.'|'.1
-            res = _jm_obj_58(pval, (path ? &lpath_11 : NULL), rep);
+            res = json_model_30(pval, (path ? &lpath_11 : NULL), rep);
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected $Reference [.'$Components'.examples.''.'|'.1]", (path ? &lpath_11 : NULL));
@@ -1427,22 +1281,10 @@ static INLINE bool _jm_obj_11(const json_t *val, jm_path_t *path, jm_report_t *r
     return true;
 }
 
-// check _jm_obj_9_map_examples (.'$Components'.examples)
-static bool _jm_f_9(const json_t *val, jm_path_t *path, jm_report_t *rep)
+// check json_model_8_map_headers (.'$Components'.headers)
+static bool _jm_f_10(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
-    // .'$Components'.examples
-    res = _jm_obj_11(val, path, rep);
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected element [.'$Components'.examples]", path);
-    }
-    return res;
-}
-
-// object .'$Components'.headers
-static INLINE bool _jm_obj_12(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
+    // .'$Components'.headers
     if (! json_is_object(val))
     {
         if (rep) jm_report_add_entry(rep, "not an object [.'$Components'.headers]", path);
@@ -1465,7 +1307,7 @@ static INLINE bool _jm_obj_12(const json_t *val, jm_path_t *path, jm_report_t *r
         if (! res)
         {
             // .'$Components'.headers.''.'|'.1
-            res = _jm_obj_58(pval, (path ? &lpath_12 : NULL), rep);
+            res = json_model_30(pval, (path ? &lpath_12 : NULL), rep);
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected $Reference [.'$Components'.headers.''.'|'.1]", (path ? &lpath_12 : NULL));
@@ -1484,22 +1326,10 @@ static INLINE bool _jm_obj_12(const json_t *val, jm_path_t *path, jm_report_t *r
     return true;
 }
 
-// check _jm_obj_9_map_headers (.'$Components'.headers)
-static bool _jm_f_10(const json_t *val, jm_path_t *path, jm_report_t *rep)
+// check json_model_8_map_links (.'$Components'.links)
+static bool _jm_f_11(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
-    // .'$Components'.headers
-    res = _jm_obj_12(val, path, rep);
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected element [.'$Components'.headers]", path);
-    }
-    return res;
-}
-
-// object .'$Components'.links
-static INLINE bool _jm_obj_13(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
+    // .'$Components'.links
     if (! json_is_object(val))
     {
         if (rep) jm_report_add_entry(rep, "not an object [.'$Components'.links]", path);
@@ -1522,7 +1352,7 @@ static INLINE bool _jm_obj_13(const json_t *val, jm_path_t *path, jm_report_t *r
         if (! res)
         {
             // .'$Components'.links.''.'|'.1
-            res = _jm_obj_58(pval, (path ? &lpath_13 : NULL), rep);
+            res = json_model_30(pval, (path ? &lpath_13 : NULL), rep);
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected $Reference [.'$Components'.links.''.'|'.1]", (path ? &lpath_13 : NULL));
@@ -1541,22 +1371,10 @@ static INLINE bool _jm_obj_13(const json_t *val, jm_path_t *path, jm_report_t *r
     return true;
 }
 
-// check _jm_obj_9_map_links (.'$Components'.links)
-static bool _jm_f_11(const json_t *val, jm_path_t *path, jm_report_t *rep)
+// check json_model_8_map_parameters (.'$Components'.parameters)
+static bool _jm_f_12(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
-    // .'$Components'.links
-    res = _jm_obj_13(val, path, rep);
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected element [.'$Components'.links]", path);
-    }
-    return res;
-}
-
-// object .'$Components'.parameters
-static INLINE bool _jm_obj_14(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
+    // .'$Components'.parameters
     if (! json_is_object(val))
     {
         if (rep) jm_report_add_entry(rep, "not an object [.'$Components'.parameters]", path);
@@ -1579,7 +1397,7 @@ static INLINE bool _jm_obj_14(const json_t *val, jm_path_t *path, jm_report_t *r
         if (! res)
         {
             // .'$Components'.parameters.''.'|'.1
-            res = _jm_obj_58(pval, (path ? &lpath_14 : NULL), rep);
+            res = json_model_30(pval, (path ? &lpath_14 : NULL), rep);
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected $Reference [.'$Components'.parameters.''.'|'.1]", (path ? &lpath_14 : NULL));
@@ -1598,22 +1416,10 @@ static INLINE bool _jm_obj_14(const json_t *val, jm_path_t *path, jm_report_t *r
     return true;
 }
 
-// check _jm_obj_9_map_parameters (.'$Components'.parameters)
-static bool _jm_f_12(const json_t *val, jm_path_t *path, jm_report_t *rep)
+// check json_model_8_map_pathItems (.'$Components'.pathItems)
+static bool _jm_f_13(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
-    // .'$Components'.parameters
-    res = _jm_obj_14(val, path, rep);
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected element [.'$Components'.parameters]", path);
-    }
-    return res;
-}
-
-// object .'$Components'.pathItems
-static INLINE bool _jm_obj_15(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
+    // .'$Components'.pathItems
     if (! json_is_object(val))
     {
         if (rep) jm_report_add_entry(rep, "not an object [.'$Components'.pathItems]", path);
@@ -1628,7 +1434,7 @@ static INLINE bool _jm_obj_15(const json_t *val, jm_path_t *path, jm_report_t *r
         // handle other props
         // .'$Components'.pathItems.''
         // .'$Components'.pathItems.''.'|'.0
-        res = _jm_obj_21(pval, (path ? &lpath_15 : NULL), rep);
+        res = json_model_10(pval, (path ? &lpath_15 : NULL), rep);
         if (! res)
         {
             if (rep) jm_report_add_entry(rep, "unexpected $PathItem [.'$Components'.pathItems.''.'|'.0]", (path ? &lpath_15 : NULL));
@@ -1636,7 +1442,7 @@ static INLINE bool _jm_obj_15(const json_t *val, jm_path_t *path, jm_report_t *r
         if (! res)
         {
             // .'$Components'.pathItems.''.'|'.1
-            res = _jm_obj_58(pval, (path ? &lpath_15 : NULL), rep);
+            res = json_model_30(pval, (path ? &lpath_15 : NULL), rep);
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected $Reference [.'$Components'.pathItems.''.'|'.1]", (path ? &lpath_15 : NULL));
@@ -1655,22 +1461,10 @@ static INLINE bool _jm_obj_15(const json_t *val, jm_path_t *path, jm_report_t *r
     return true;
 }
 
-// check _jm_obj_9_map_pathItems (.'$Components'.pathItems)
-static bool _jm_f_13(const json_t *val, jm_path_t *path, jm_report_t *rep)
+// check json_model_8_map_requestBodies (.'$Components'.requestBodies)
+static bool _jm_f_14(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
-    // .'$Components'.pathItems
-    res = _jm_obj_15(val, path, rep);
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected element [.'$Components'.pathItems]", path);
-    }
-    return res;
-}
-
-// object .'$Components'.requestBodies
-static INLINE bool _jm_obj_16(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
+    // .'$Components'.requestBodies
     if (! json_is_object(val))
     {
         if (rep) jm_report_add_entry(rep, "not an object [.'$Components'.requestBodies]", path);
@@ -1685,7 +1479,7 @@ static INLINE bool _jm_obj_16(const json_t *val, jm_path_t *path, jm_report_t *r
         // handle other props
         // .'$Components'.requestBodies.''
         // .'$Components'.requestBodies.''.'|'.0
-        res = _jm_obj_35(pval, (path ? &lpath_16 : NULL), rep);
+        res = json_model_19(pval, (path ? &lpath_16 : NULL), rep);
         if (! res)
         {
             if (rep) jm_report_add_entry(rep, "unexpected $RequestBody [.'$Components'.requestBodies.''.'|'.0]", (path ? &lpath_16 : NULL));
@@ -1693,7 +1487,7 @@ static INLINE bool _jm_obj_16(const json_t *val, jm_path_t *path, jm_report_t *r
         if (! res)
         {
             // .'$Components'.requestBodies.''.'|'.1
-            res = _jm_obj_58(pval, (path ? &lpath_16 : NULL), rep);
+            res = json_model_30(pval, (path ? &lpath_16 : NULL), rep);
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected $Reference [.'$Components'.requestBodies.''.'|'.1]", (path ? &lpath_16 : NULL));
@@ -1712,22 +1506,10 @@ static INLINE bool _jm_obj_16(const json_t *val, jm_path_t *path, jm_report_t *r
     return true;
 }
 
-// check _jm_obj_9_map_requestBodies (.'$Components'.requestBodies)
-static bool _jm_f_14(const json_t *val, jm_path_t *path, jm_report_t *rep)
+// check json_model_8_map_responses (.'$Components'.responses)
+static bool _jm_f_15(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
-    // .'$Components'.requestBodies
-    res = _jm_obj_16(val, path, rep);
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected element [.'$Components'.requestBodies]", path);
-    }
-    return res;
-}
-
-// object .'$Components'.responses
-static INLINE bool _jm_obj_17(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
+    // .'$Components'.responses
     if (! json_is_object(val))
     {
         if (rep) jm_report_add_entry(rep, "not an object [.'$Components'.responses]", path);
@@ -1742,7 +1524,7 @@ static INLINE bool _jm_obj_17(const json_t *val, jm_path_t *path, jm_report_t *r
         // handle other props
         // .'$Components'.responses.''
         // .'$Components'.responses.''.'|'.0
-        res = _jm_obj_43(pval, (path ? &lpath_17 : NULL), rep);
+        res = json_model_23(pval, (path ? &lpath_17 : NULL), rep);
         if (! res)
         {
             if (rep) jm_report_add_entry(rep, "unexpected $Response [.'$Components'.responses.''.'|'.0]", (path ? &lpath_17 : NULL));
@@ -1750,7 +1532,7 @@ static INLINE bool _jm_obj_17(const json_t *val, jm_path_t *path, jm_report_t *r
         if (! res)
         {
             // .'$Components'.responses.''.'|'.1
-            res = _jm_obj_58(pval, (path ? &lpath_17 : NULL), rep);
+            res = json_model_30(pval, (path ? &lpath_17 : NULL), rep);
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected $Reference [.'$Components'.responses.''.'|'.1]", (path ? &lpath_17 : NULL));
@@ -1769,22 +1551,10 @@ static INLINE bool _jm_obj_17(const json_t *val, jm_path_t *path, jm_report_t *r
     return true;
 }
 
-// check _jm_obj_9_map_responses (.'$Components'.responses)
-static bool _jm_f_15(const json_t *val, jm_path_t *path, jm_report_t *rep)
+// check json_model_8_map_schemas (.'$Components'.schemas)
+static bool _jm_f_16(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
-    // .'$Components'.responses
-    res = _jm_obj_17(val, path, rep);
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected element [.'$Components'.responses]", path);
-    }
-    return res;
-}
-
-// object .'$Components'.schemas
-static INLINE bool _jm_obj_18(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
+    // .'$Components'.schemas
     if (! json_is_object(val))
     {
         if (rep) jm_report_add_entry(rep, "not an object [.'$Components'.schemas]", path);
@@ -1798,7 +1568,7 @@ static INLINE bool _jm_obj_18(const json_t *val, jm_path_t *path, jm_report_t *r
         jm_path_t lpath_18 = (jm_path_t) { prop, 0, path, NULL };
         // handle other props
         // .'$Components'.schemas.''
-        res = _jm_obj_59(pval, (path ? &lpath_18 : NULL), rep);
+        res = json_model_32(pval, (path ? &lpath_18 : NULL), rep);
         if (! res)
         {
             if (rep) jm_report_add_entry(rep, "unexpected $Schema [.'$Components'.schemas.'']", (path ? &lpath_18 : NULL));
@@ -1808,22 +1578,10 @@ static INLINE bool _jm_obj_18(const json_t *val, jm_path_t *path, jm_report_t *r
     return true;
 }
 
-// check _jm_obj_9_map_schemas (.'$Components'.schemas)
-static bool _jm_f_16(const json_t *val, jm_path_t *path, jm_report_t *rep)
+// check json_model_8_map_securitySchemes (.'$Components'.securitySchemes)
+static bool _jm_f_17(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
-    // .'$Components'.schemas
-    res = _jm_obj_18(val, path, rep);
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected element [.'$Components'.schemas]", path);
-    }
-    return res;
-}
-
-// object .'$Components'.securitySchemes
-static INLINE bool _jm_obj_19(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
+    // .'$Components'.securitySchemes
     if (! json_is_object(val))
     {
         if (rep) jm_report_add_entry(rep, "not an object [.'$Components'.securitySchemes]", path);
@@ -1846,7 +1604,7 @@ static INLINE bool _jm_obj_19(const json_t *val, jm_path_t *path, jm_report_t *r
         if (! res)
         {
             // .'$Components'.securitySchemes.''.'|'.1
-            res = _jm_obj_58(pval, (path ? &lpath_19 : NULL), rep);
+            res = json_model_30(pval, (path ? &lpath_19 : NULL), rep);
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected $Reference [.'$Components'.securitySchemes.''.'|'.1]", (path ? &lpath_19 : NULL));
@@ -1865,27 +1623,15 @@ static INLINE bool _jm_obj_19(const json_t *val, jm_path_t *path, jm_report_t *r
     return true;
 }
 
-// check _jm_obj_9_map_securitySchemes (.'$Components'.securitySchemes)
-static bool _jm_f_17(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE jm_check_fun_t json_model_8_map(const char *pname)
 {
-    bool res;
-    // .'$Components'.securitySchemes
-    res = _jm_obj_19(val, path, rep);
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected element [.'$Components'.securitySchemes]", path);
-    }
-    return res;
+    return jm_search_propmap(pname, json_model_8_map_tab, 10);
 }
 
-static INLINE jm_check_fun_t _jm_obj_9_map(const char *pname)
+// check $Components (.'$Components')
+static bool json_model_8(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    return jm_search_propmap(pname, _jm_obj_9_map_tab, 10);
-}
-
-// object .'$Components'
-static INLINE bool _jm_obj_9(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
+    // .'$Components'
     if (! json_is_object(val))
     {
         if (rep) jm_report_add_entry(rep, "not an object [.'$Components']", path);
@@ -1898,7 +1644,7 @@ static INLINE bool _jm_obj_9(const json_t *val, jm_path_t *path, jm_report_t *re
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_9 = (jm_path_t) { prop, 0, path, NULL };
-        if ((pfun = _jm_obj_9_map(prop)))
+        if ((pfun = json_model_8_map(prop)))
         {
             // handle 10 may props
             if (pfun != NULL && ! pfun(pval, (path ? &lpath_9 : NULL), rep))
@@ -1927,22 +1673,10 @@ static INLINE bool _jm_obj_9(const json_t *val, jm_path_t *path, jm_report_t *re
     return true;
 }
 
-// check $Components (.'$Components')
-static bool json_model_8(const json_t *val, jm_path_t *path, jm_report_t *rep)
+// check $Paths (.'$Paths')
+static bool json_model_9(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
-    // .'$Components'
-    res = _jm_obj_9(val, path, rep);
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected element [.'$Components']", path);
-    }
-    return res;
-}
-
-// object .'$Paths'
-static INLINE bool _jm_obj_20(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
+    // .'$Paths'
     if (! json_is_object(val))
     {
         if (rep) jm_report_add_entry(rep, "not an object [.'$Paths']", path);
@@ -1958,7 +1692,7 @@ static INLINE bool _jm_obj_20(const json_t *val, jm_path_t *path, jm_report_t *r
         {
             // handle 2 re props
             // .'$Paths'.'/^//'
-            res = _jm_obj_21(pval, (path ? &lpath_20 : NULL), rep);
+            res = json_model_10(pval, (path ? &lpath_20 : NULL), rep);
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected $PathItem [.'$Paths'.'/^//']", (path ? &lpath_20 : NULL));
@@ -1985,20 +1719,7 @@ static INLINE bool _jm_obj_20(const json_t *val, jm_path_t *path, jm_report_t *r
     return true;
 }
 
-// check $Paths (.'$Paths')
-static bool json_model_9(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
-    bool res;
-    // .'$Paths'
-    res = _jm_obj_20(val, path, rep);
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected element [.'$Paths']", path);
-    }
-    return res;
-}
-
-// check _jm_obj_21_map_$ref (.'$PathItem'.'$ref')
+// check json_model_10_map_$ref (.'$PathItem'.'$ref')
 static bool _jm_f_18(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -2011,12 +1732,12 @@ static bool _jm_f_18(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_21_map_delete (.'$PathItem'.delete)
+// check json_model_10_map_delete (.'$PathItem'.delete)
 static bool _jm_f_19(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
     // .'$PathItem'.delete
-    res = _jm_obj_22(val, path, rep);
+    res = json_model_11(val, path, rep);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected $Operation [.'$PathItem'.delete]", path);
@@ -2024,7 +1745,7 @@ static bool _jm_f_19(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_21_map_description (.'$PathItem'.description)
+// check json_model_10_map_description (.'$PathItem'.description)
 static bool _jm_f_20(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -2037,12 +1758,12 @@ static bool _jm_f_20(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_21_map_get (.'$PathItem'.get)
+// check json_model_10_map_get (.'$PathItem'.get)
 static bool _jm_f_21(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
     // .'$PathItem'.get
-    res = _jm_obj_22(val, path, rep);
+    res = json_model_11(val, path, rep);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected $Operation [.'$PathItem'.get]", path);
@@ -2050,12 +1771,12 @@ static bool _jm_f_21(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_21_map_head (.'$PathItem'.head)
+// check json_model_10_map_head (.'$PathItem'.head)
 static bool _jm_f_22(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
     // .'$PathItem'.head
-    res = _jm_obj_22(val, path, rep);
+    res = json_model_11(val, path, rep);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected $Operation [.'$PathItem'.head]", path);
@@ -2063,12 +1784,12 @@ static bool _jm_f_22(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_21_map_options (.'$PathItem'.options)
+// check json_model_10_map_options (.'$PathItem'.options)
 static bool _jm_f_23(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
     // .'$PathItem'.options
-    res = _jm_obj_22(val, path, rep);
+    res = json_model_11(val, path, rep);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected $Operation [.'$PathItem'.options]", path);
@@ -2076,7 +1797,7 @@ static bool _jm_f_23(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_21_map_parameters (.'$PathItem'.parameters)
+// check json_model_10_map_parameters (.'$PathItem'.parameters)
 static bool _jm_f_24(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -2099,7 +1820,7 @@ static bool _jm_f_24(const json_t *val, jm_path_t *path, jm_report_t *rep)
             if (! res)
             {
                 // .'$PathItem'.parameters.0.'|'.1
-                res = _jm_obj_58(arr_4_item, (path ? &arr_4_lpath : NULL), rep);
+                res = json_model_30(arr_4_item, (path ? &arr_4_lpath : NULL), rep);
                 if (! res)
                 {
                     if (rep) jm_report_add_entry(rep, "unexpected $Reference [.'$PathItem'.parameters.0.'|'.1]", (path ? &arr_4_lpath : NULL));
@@ -2123,12 +1844,12 @@ static bool _jm_f_24(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_21_map_patch (.'$PathItem'.patch)
+// check json_model_10_map_patch (.'$PathItem'.patch)
 static bool _jm_f_25(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
     // .'$PathItem'.patch
-    res = _jm_obj_22(val, path, rep);
+    res = json_model_11(val, path, rep);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected $Operation [.'$PathItem'.patch]", path);
@@ -2136,12 +1857,12 @@ static bool _jm_f_25(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_21_map_post (.'$PathItem'.post)
+// check json_model_10_map_post (.'$PathItem'.post)
 static bool _jm_f_26(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
     // .'$PathItem'.post
-    res = _jm_obj_22(val, path, rep);
+    res = json_model_11(val, path, rep);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected $Operation [.'$PathItem'.post]", path);
@@ -2149,12 +1870,12 @@ static bool _jm_f_26(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_21_map_put (.'$PathItem'.put)
+// check json_model_10_map_put (.'$PathItem'.put)
 static bool _jm_f_27(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
     // .'$PathItem'.put
-    res = _jm_obj_22(val, path, rep);
+    res = json_model_11(val, path, rep);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected $Operation [.'$PathItem'.put]", path);
@@ -2162,7 +1883,7 @@ static bool _jm_f_27(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_21_map_servers (.'$PathItem'.servers)
+// check json_model_10_map_servers (.'$PathItem'.servers)
 static bool _jm_f_28(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -2176,7 +1897,7 @@ static bool _jm_f_28(const json_t *val, jm_path_t *path, jm_report_t *rep)
         {
             jm_path_t arr_5_lpath = (jm_path_t) { NULL, arr_5_idx, path, NULL };
             // .'$PathItem'.servers.0
-            res = _jm_obj_22(arr_5_item, (path ? &arr_5_lpath : NULL), rep);
+            res = json_model_11(arr_5_item, (path ? &arr_5_lpath : NULL), rep);
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected $Operation [.'$PathItem'.servers.0]", (path ? &arr_5_lpath : NULL));
@@ -2191,7 +1912,7 @@ static bool _jm_f_28(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_21_map_summary (.'$PathItem'.summary)
+// check json_model_10_map_summary (.'$PathItem'.summary)
 static bool _jm_f_29(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -2204,12 +1925,12 @@ static bool _jm_f_29(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_21_map_trace (.'$PathItem'.trace)
+// check json_model_10_map_trace (.'$PathItem'.trace)
 static bool _jm_f_30(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
     // .'$PathItem'.trace
-    res = _jm_obj_22(val, path, rep);
+    res = json_model_11(val, path, rep);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected $Operation [.'$PathItem'.trace]", path);
@@ -2217,14 +1938,15 @@ static bool _jm_f_30(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-static INLINE jm_check_fun_t _jm_obj_21_map(const char *pname)
+static INLINE jm_check_fun_t json_model_10_map(const char *pname)
 {
-    return jm_search_propmap(pname, _jm_obj_21_map_tab, 13);
+    return jm_search_propmap(pname, json_model_10_map_tab, 13);
 }
 
-// object .'$PathItem'
-static INLINE bool _jm_obj_21(const json_t *val, jm_path_t *path, jm_report_t *rep)
+// check $PathItem (.'$PathItem')
+static bool json_model_10(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
+    // .'$PathItem'
     if (! json_is_object(val))
     {
         if (rep) jm_report_add_entry(rep, "not an object [.'$PathItem']", path);
@@ -2237,7 +1959,7 @@ static INLINE bool _jm_obj_21(const json_t *val, jm_path_t *path, jm_report_t *r
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_21 = (jm_path_t) { prop, 0, path, NULL };
-        if ((pfun = _jm_obj_21_map(prop)))
+        if ((pfun = json_model_10_map(prop)))
         {
             // handle 13 may props
             if (pfun != NULL && ! pfun(pval, (path ? &lpath_21 : NULL), rep))
@@ -2266,22 +1988,10 @@ static INLINE bool _jm_obj_21(const json_t *val, jm_path_t *path, jm_report_t *r
     return true;
 }
 
-// check $PathItem (.'$PathItem')
-static bool json_model_10(const json_t *val, jm_path_t *path, jm_report_t *rep)
+// check json_model_11_map_callbacks (.'$Operation'.callbacks)
+static bool _jm_f_31(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
-    // .'$PathItem'
-    res = _jm_obj_21(val, path, rep);
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected element [.'$PathItem']", path);
-    }
-    return res;
-}
-
-// object .'$Operation'.callbacks
-static INLINE bool _jm_obj_23(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
+    // .'$Operation'.callbacks
     if (! json_is_object(val))
     {
         if (rep) jm_report_add_entry(rep, "not an object [.'$Operation'.callbacks]", path);
@@ -2296,7 +2006,7 @@ static INLINE bool _jm_obj_23(const json_t *val, jm_path_t *path, jm_report_t *r
         // handle other props
         // .'$Operation'.callbacks.''
         // .'$Operation'.callbacks.''.'|'.0
-        res = _jm_obj_47(pval, (path ? &lpath_23 : NULL), rep);
+        res = json_model_24(pval, (path ? &lpath_23 : NULL), rep);
         if (! res)
         {
             if (rep) jm_report_add_entry(rep, "unexpected $Callback [.'$Operation'.callbacks.''.'|'.0]", (path ? &lpath_23 : NULL));
@@ -2304,7 +2014,7 @@ static INLINE bool _jm_obj_23(const json_t *val, jm_path_t *path, jm_report_t *r
         if (! res)
         {
             // .'$Operation'.callbacks.''.'|'.1
-            res = _jm_obj_58(pval, (path ? &lpath_23 : NULL), rep);
+            res = json_model_30(pval, (path ? &lpath_23 : NULL), rep);
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected $Reference [.'$Operation'.callbacks.''.'|'.1]", (path ? &lpath_23 : NULL));
@@ -2323,20 +2033,7 @@ static INLINE bool _jm_obj_23(const json_t *val, jm_path_t *path, jm_report_t *r
     return true;
 }
 
-// check _jm_obj_22_map_callbacks (.'$Operation'.callbacks)
-static bool _jm_f_31(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
-    bool res;
-    // .'$Operation'.callbacks
-    res = _jm_obj_23(val, path, rep);
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected element [.'$Operation'.callbacks]", path);
-    }
-    return res;
-}
-
-// check _jm_obj_22_map_deprecated (.'$Operation'.deprecated)
+// check json_model_11_map_deprecated (.'$Operation'.deprecated)
 static bool _jm_f_32(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -2349,7 +2046,7 @@ static bool _jm_f_32(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_22_map_description (.'$Operation'.description)
+// check json_model_11_map_description (.'$Operation'.description)
 static bool _jm_f_33(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -2362,12 +2059,12 @@ static bool _jm_f_33(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_22_map_externalDocs (.'$Operation'.externalDocs)
+// check json_model_11_map_externalDocs (.'$Operation'.externalDocs)
 static bool _jm_f_34(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
     // .'$Operation'.externalDocs
-    res = _jm_obj_24(val, path, rep);
+    res = json_model_12(val, path, rep);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected $ExternalDocumentation [.'$Operation'.externalDocs]", path);
@@ -2375,7 +2072,7 @@ static bool _jm_f_34(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_22_map_operationId (.'$Operation'.operationId)
+// check json_model_11_map_operationId (.'$Operation'.operationId)
 static bool _jm_f_35(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -2388,7 +2085,7 @@ static bool _jm_f_35(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_22_map_parameters (.'$Operation'.parameters)
+// check json_model_11_map_parameters (.'$Operation'.parameters)
 static bool _jm_f_36(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -2411,7 +2108,7 @@ static bool _jm_f_36(const json_t *val, jm_path_t *path, jm_report_t *rep)
             if (! res)
             {
                 // .'$Operation'.parameters.0.'|'.1
-                res = _jm_obj_58(arr_6_item, (path ? &arr_6_lpath : NULL), rep);
+                res = json_model_30(arr_6_item, (path ? &arr_6_lpath : NULL), rep);
                 if (! res)
                 {
                     if (rep) jm_report_add_entry(rep, "unexpected $Reference [.'$Operation'.parameters.0.'|'.1]", (path ? &arr_6_lpath : NULL));
@@ -2435,13 +2132,13 @@ static bool _jm_f_36(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_22_map_requestBody (.'$Operation'.requestBody)
+// check json_model_11_map_requestBody (.'$Operation'.requestBody)
 static bool _jm_f_37(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
     // .'$Operation'.requestBody
     // .'$Operation'.requestBody.'|'.0
-    res = _jm_obj_35(val, path, rep);
+    res = json_model_19(val, path, rep);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected $RequestBody [.'$Operation'.requestBody.'|'.0]", path);
@@ -2449,7 +2146,7 @@ static bool _jm_f_37(const json_t *val, jm_path_t *path, jm_report_t *rep)
     if (! res)
     {
         // .'$Operation'.requestBody.'|'.1
-        res = _jm_obj_58(val, path, rep);
+        res = json_model_30(val, path, rep);
         if (! res)
         {
             if (rep) jm_report_add_entry(rep, "unexpected $Reference [.'$Operation'.requestBody.'|'.1]", path);
@@ -2466,12 +2163,12 @@ static bool _jm_f_37(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_22_map_responses (.'$Operation'.responses)
+// check json_model_11_map_responses (.'$Operation'.responses)
 static bool _jm_f_38(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
     // .'$Operation'.responses
-    res = _jm_obj_42(val, path, rep);
+    res = json_model_22(val, path, rep);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected $Responses [.'$Operation'.responses]", path);
@@ -2479,7 +2176,7 @@ static bool _jm_f_38(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_22_map_security (.'$Operation'.security)
+// check json_model_11_map_security (.'$Operation'.security)
 static bool _jm_f_39(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -2493,7 +2190,7 @@ static bool _jm_f_39(const json_t *val, jm_path_t *path, jm_report_t *rep)
         {
             jm_path_t arr_7_lpath = (jm_path_t) { NULL, arr_7_idx, path, NULL };
             // .'$Operation'.security.0
-            res = _jm_obj_83(arr_7_item, (path ? &arr_7_lpath : NULL), rep);
+            res = json_model_43(arr_7_item, (path ? &arr_7_lpath : NULL), rep);
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected $SecurityRequirement [.'$Operation'.security.0]", (path ? &arr_7_lpath : NULL));
@@ -2508,7 +2205,7 @@ static bool _jm_f_39(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_22_map_servers (.'$Operation'.servers)
+// check json_model_11_map_servers (.'$Operation'.servers)
 static bool _jm_f_40(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -2522,7 +2219,7 @@ static bool _jm_f_40(const json_t *val, jm_path_t *path, jm_report_t *rep)
         {
             jm_path_t arr_8_lpath = (jm_path_t) { NULL, arr_8_idx, path, NULL };
             // .'$Operation'.servers.0
-            res = _jm_obj_6(arr_8_item, (path ? &arr_8_lpath : NULL), rep);
+            res = json_model_6(arr_8_item, (path ? &arr_8_lpath : NULL), rep);
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected $Server [.'$Operation'.servers.0]", (path ? &arr_8_lpath : NULL));
@@ -2537,7 +2234,7 @@ static bool _jm_f_40(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_22_map_summary (.'$Operation'.summary)
+// check json_model_11_map_summary (.'$Operation'.summary)
 static bool _jm_f_41(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -2550,7 +2247,7 @@ static bool _jm_f_41(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_22_map_tags (.'$Operation'.tags)
+// check json_model_11_map_tags (.'$Operation'.tags)
 static bool _jm_f_42(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -2579,14 +2276,15 @@ static bool _jm_f_42(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-static INLINE jm_check_fun_t _jm_obj_22_map(const char *pname)
+static INLINE jm_check_fun_t json_model_11_map(const char *pname)
 {
-    return jm_search_propmap(pname, _jm_obj_22_map_tab, 12);
+    return jm_search_propmap(pname, json_model_11_map_tab, 12);
 }
 
-// object .'$Operation'
-static INLINE bool _jm_obj_22(const json_t *val, jm_path_t *path, jm_report_t *rep)
+// check $Operation (.'$Operation')
+static bool json_model_11(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
+    // .'$Operation'
     if (! json_is_object(val))
     {
         if (rep) jm_report_add_entry(rep, "not an object [.'$Operation']", path);
@@ -2599,7 +2297,7 @@ static INLINE bool _jm_obj_22(const json_t *val, jm_path_t *path, jm_report_t *r
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_22 = (jm_path_t) { prop, 0, path, NULL };
-        if ((pfun = _jm_obj_22_map(prop)))
+        if ((pfun = json_model_11_map(prop)))
         {
             // handle 12 may props
             if (pfun != NULL && ! pfun(pval, (path ? &lpath_22 : NULL), rep))
@@ -2628,22 +2326,10 @@ static INLINE bool _jm_obj_22(const json_t *val, jm_path_t *path, jm_report_t *r
     return true;
 }
 
-// check $Operation (.'$Operation')
-static bool json_model_11(const json_t *val, jm_path_t *path, jm_report_t *rep)
+// check $ExternalDocumentation (.'$ExternalDocumentation')
+static bool json_model_12(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
-    // .'$Operation'
-    res = _jm_obj_22(val, path, rep);
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected element [.'$Operation']", path);
-    }
-    return res;
-}
-
-// object .'$ExternalDocumentation'
-static INLINE bool _jm_obj_24(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
+    // .'$ExternalDocumentation'
     if (! json_is_object(val))
     {
         if (rep) jm_report_add_entry(rep, "not an object [.'$ExternalDocumentation']", path);
@@ -2712,22 +2398,10 @@ static INLINE bool _jm_obj_24(const json_t *val, jm_path_t *path, jm_report_t *r
     return true;
 }
 
-// check $ExternalDocumentation (.'$ExternalDocumentation')
-static bool json_model_12(const json_t *val, jm_path_t *path, jm_report_t *rep)
+// check $parameterShare (.'$parameterShare')
+static bool json_model_13(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
-    // .'$ExternalDocumentation'
-    res = _jm_obj_24(val, path, rep);
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected element [.'$ExternalDocumentation']", path);
-    }
-    return res;
-}
-
-// object .'$parameterShare'
-static INLINE bool _jm_obj_25(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
+    // .'$parameterShare'
     if (! json_is_object(val))
     {
         if (rep) jm_report_add_entry(rep, "not an object [.'$parameterShare']", path);
@@ -2807,23 +2481,11 @@ static INLINE bool _jm_obj_25(const json_t *val, jm_path_t *path, jm_report_t *r
     return true;
 }
 
-// check $parameterShare (.'$parameterShare')
-static bool json_model_13(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
-    bool res;
-    // .'$parameterShare'
-    res = _jm_obj_25(val, path, rep);
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected element [.'$parameterShare']", path);
-    }
-    return res;
-}
 
-
-// object .'$commonParameter'
-static INLINE bool _jm_obj_26(const json_t *val, jm_path_t *path, jm_report_t *rep)
+// check $commonParameter (.'$commonParameter')
+static bool json_model_14(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
+    // .'$commonParameter'
     if (! json_is_object(val))
     {
         if (rep) jm_report_add_entry(rep, "not an object [.'$commonParameter']", path);
@@ -2945,19 +2607,6 @@ static INLINE bool _jm_obj_26(const json_t *val, jm_path_t *path, jm_report_t *r
     return true;
 }
 
-// check $commonParameter (.'$commonParameter')
-static bool json_model_14(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
-    bool res;
-    // .'$commonParameter'
-    res = _jm_obj_26(val, path, rep);
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected element [.'$commonParameter']", path);
-    }
-    return res;
-}
-
 
 // check $Style (.'$Style')
 static bool json_model_15(const json_t *val, jm_path_t *path, jm_report_t *rep)
@@ -2973,7 +2622,7 @@ static bool json_model_15(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_27_map_allowReserved (.'$parameterSchemaOnly'.allowReserved)
+// check json_model_16_map_allowReserved (.'$parameterSchemaOnly'.allowReserved)
 static bool _jm_f_43(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -2986,7 +2635,7 @@ static bool _jm_f_43(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_27_map_example (.'$parameterSchemaOnly'.example)
+// check json_model_16_map_example (.'$parameterSchemaOnly'.example)
 static bool _jm_f_44(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -2999,9 +2648,10 @@ static bool _jm_f_44(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// object .'$parameterSchemaOnly'.examples
-static INLINE bool _jm_obj_28(const json_t *val, jm_path_t *path, jm_report_t *rep)
+// check json_model_16_map_examples (.'$parameterSchemaOnly'.examples)
+static bool _jm_f_45(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
+    // .'$parameterSchemaOnly'.examples
     if (! json_is_object(val))
     {
         if (rep) jm_report_add_entry(rep, "not an object [.'$parameterSchemaOnly'.examples]", path);
@@ -3016,7 +2666,7 @@ static INLINE bool _jm_obj_28(const json_t *val, jm_path_t *path, jm_report_t *r
         // handle other props
         // .'$parameterSchemaOnly'.examples.''
         // .'$parameterSchemaOnly'.examples.''.'|'.0
-        res = _jm_obj_48(pval, (path ? &lpath_28 : NULL), rep);
+        res = json_model_25(pval, (path ? &lpath_28 : NULL), rep);
         if (! res)
         {
             if (rep) jm_report_add_entry(rep, "unexpected $Example [.'$parameterSchemaOnly'.examples.''.'|'.0]", (path ? &lpath_28 : NULL));
@@ -3024,7 +2674,7 @@ static INLINE bool _jm_obj_28(const json_t *val, jm_path_t *path, jm_report_t *r
         if (! res)
         {
             // .'$parameterSchemaOnly'.examples.''.'|'.1
-            res = _jm_obj_58(pval, (path ? &lpath_28 : NULL), rep);
+            res = json_model_30(pval, (path ? &lpath_28 : NULL), rep);
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected $Reference [.'$parameterSchemaOnly'.examples.''.'|'.1]", (path ? &lpath_28 : NULL));
@@ -3043,20 +2693,7 @@ static INLINE bool _jm_obj_28(const json_t *val, jm_path_t *path, jm_report_t *r
     return true;
 }
 
-// check _jm_obj_27_map_examples (.'$parameterSchemaOnly'.examples)
-static bool _jm_f_45(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
-    bool res;
-    // .'$parameterSchemaOnly'.examples
-    res = _jm_obj_28(val, path, rep);
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected element [.'$parameterSchemaOnly'.examples]", path);
-    }
-    return res;
-}
-
-// check _jm_obj_27_map_explode (.'$parameterSchemaOnly'.explode)
+// check json_model_16_map_explode (.'$parameterSchemaOnly'.explode)
 static bool _jm_f_46(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -3069,12 +2706,12 @@ static bool _jm_f_46(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_27_map_schema (.'$parameterSchemaOnly'.schema)
+// check json_model_16_map_schema (.'$parameterSchemaOnly'.schema)
 static bool _jm_f_47(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
     // .'$parameterSchemaOnly'.schema
-    res = _jm_obj_59(val, path, rep);
+    res = json_model_32(val, path, rep);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected $Schema [.'$parameterSchemaOnly'.schema]", path);
@@ -3082,7 +2719,7 @@ static bool _jm_f_47(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_27_map_style (.'$parameterSchemaOnly'.style)
+// check json_model_16_map_style (.'$parameterSchemaOnly'.style)
 static bool _jm_f_48(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -3095,14 +2732,15 @@ static bool _jm_f_48(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-static INLINE jm_check_fun_t _jm_obj_27_map(const char *pname)
+static INLINE jm_check_fun_t json_model_16_map(const char *pname)
 {
-    return jm_search_propmap(pname, _jm_obj_27_map_tab, 6);
+    return jm_search_propmap(pname, json_model_16_map_tab, 6);
 }
 
-// object .'$parameterSchemaOnly'
-static INLINE bool _jm_obj_27(const json_t *val, jm_path_t *path, jm_report_t *rep)
+// check $parameterSchemaOnly (.'$parameterSchemaOnly')
+static bool json_model_16(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
+    // .'$parameterSchemaOnly'
     if (! json_is_object(val))
     {
         if (rep) jm_report_add_entry(rep, "not an object [.'$parameterSchemaOnly']", path);
@@ -3114,7 +2752,7 @@ static INLINE bool _jm_obj_27(const json_t *val, jm_path_t *path, jm_report_t *r
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_27 = (jm_path_t) { prop, 0, path, NULL };
-        if ((pfun = _jm_obj_27_map(prop)))
+        if ((pfun = json_model_16_map(prop)))
         {
             // handle 6 may props
             if (pfun != NULL && ! pfun(pval, (path ? &lpath_27 : NULL), rep))
@@ -3132,21 +2770,8 @@ static INLINE bool _jm_obj_27(const json_t *val, jm_path_t *path, jm_report_t *r
     return true;
 }
 
-// check $parameterSchemaOnly (.'$parameterSchemaOnly')
-static bool json_model_16(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
-    bool res;
-    // .'$parameterSchemaOnly'
-    res = _jm_obj_27(val, path, rep);
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected element [.'$parameterSchemaOnly']", path);
-    }
-    return res;
-}
-
 // object .'$parameterContentOnly'.content
-static INLINE bool _jm_obj_30(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_obj_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (! json_is_object(val))
     {
@@ -3161,7 +2786,7 @@ static INLINE bool _jm_obj_30(const json_t *val, jm_path_t *path, jm_report_t *r
         jm_path_t lpath_30 = (jm_path_t) { prop, 0, path, NULL };
         // handle other props
         // .'$parameterContentOnly'.content.''
-        res = _jm_obj_37(pval, (path ? &lpath_30 : NULL), rep);
+        res = json_model_20(pval, (path ? &lpath_30 : NULL), rep);
         if (! res)
         {
             if (rep) jm_report_add_entry(rep, "unexpected $MediaType [.'$parameterContentOnly'.content.'']", (path ? &lpath_30 : NULL));
@@ -3171,9 +2796,10 @@ static INLINE bool _jm_obj_30(const json_t *val, jm_path_t *path, jm_report_t *r
     return true;
 }
 
-// object .'$parameterContentOnly'
-static INLINE bool _jm_obj_29(const json_t *val, jm_path_t *path, jm_report_t *rep)
+// check $parameterContentOnly (.'$parameterContentOnly')
+static bool json_model_17(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
+    // .'$parameterContentOnly'
     if (! json_is_object(val))
     {
         if (rep) jm_report_add_entry(rep, "not an object [.'$parameterContentOnly']", path);
@@ -3189,7 +2815,7 @@ static INLINE bool _jm_obj_29(const json_t *val, jm_path_t *path, jm_report_t *r
         {
             // handle may content property
             // .'$parameterContentOnly'.content
-            res = _jm_obj_30(pval, (path ? &lpath_29 : NULL), rep);
+            res = _jm_obj_3(pval, (path ? &lpath_29 : NULL), rep);
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected element [.'$parameterContentOnly'.content]", (path ? &lpath_29 : NULL));
@@ -3206,21 +2832,8 @@ static INLINE bool _jm_obj_29(const json_t *val, jm_path_t *path, jm_report_t *r
     return true;
 }
 
-// check $parameterContentOnly (.'$parameterContentOnly')
-static bool json_model_17(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
-    bool res;
-    // .'$parameterContentOnly'
-    res = _jm_obj_29(val, path, rep);
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected element [.'$parameterContentOnly']", path);
-    }
-    return res;
-}
 
-
-// check _jm_obj_31_map_allowEmptyValue (.'$Parameter'.'|'.0.allowEmptyValue)
+// check _jm_obj_4_map_allowEmptyValue (.'$Parameter'.'|'.0.allowEmptyValue)
 static bool _jm_f_49(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -3233,7 +2846,7 @@ static bool _jm_f_49(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_31_map_allowReserved (.'$Parameter'.'|'.0.allowReserved)
+// check _jm_obj_4_map_allowReserved (.'$Parameter'.'|'.0.allowReserved)
 static bool _jm_f_50(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -3246,7 +2859,7 @@ static bool _jm_f_50(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_31_map_deprecated (.'$Parameter'.'|'.0.deprecated)
+// check _jm_obj_4_map_deprecated (.'$Parameter'.'|'.0.deprecated)
 static bool _jm_f_51(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -3259,7 +2872,7 @@ static bool _jm_f_51(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_31_map_description (.'$Parameter'.'|'.0.description)
+// check _jm_obj_4_map_description (.'$Parameter'.'|'.0.description)
 static bool _jm_f_52(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -3272,7 +2885,7 @@ static bool _jm_f_52(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_31_map_example (.'$Parameter'.'|'.0.example)
+// check _jm_obj_4_map_example (.'$Parameter'.'|'.0.example)
 static bool _jm_f_53(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -3285,9 +2898,10 @@ static bool _jm_f_53(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// object .'$Parameter'.'|'.0.examples
-static INLINE bool _jm_obj_32(const json_t *val, jm_path_t *path, jm_report_t *rep)
+// check _jm_obj_4_map_examples (.'$Parameter'.'|'.0.examples)
+static bool _jm_f_54(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
+    // .'$Parameter'.'|'.0.examples
     if (! json_is_object(val))
     {
         if (rep) jm_report_add_entry(rep, "not an object [.'$Parameter'.'|'.0.examples]", path);
@@ -3302,7 +2916,7 @@ static INLINE bool _jm_obj_32(const json_t *val, jm_path_t *path, jm_report_t *r
         // handle other props
         // .'$Parameter'.'|'.0.examples.''
         // .'$Parameter'.'|'.0.examples.''.'|'.0
-        res = _jm_obj_48(pval, (path ? &lpath_32 : NULL), rep);
+        res = json_model_25(pval, (path ? &lpath_32 : NULL), rep);
         if (! res)
         {
             if (rep) jm_report_add_entry(rep, "unexpected $Example [.'$Parameter'.'|'.0.examples.''.'|'.0]", (path ? &lpath_32 : NULL));
@@ -3310,7 +2924,7 @@ static INLINE bool _jm_obj_32(const json_t *val, jm_path_t *path, jm_report_t *r
         if (! res)
         {
             // .'$Parameter'.'|'.0.examples.''.'|'.1
-            res = _jm_obj_58(pval, (path ? &lpath_32 : NULL), rep);
+            res = json_model_30(pval, (path ? &lpath_32 : NULL), rep);
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected $Reference [.'$Parameter'.'|'.0.examples.''.'|'.1]", (path ? &lpath_32 : NULL));
@@ -3329,20 +2943,7 @@ static INLINE bool _jm_obj_32(const json_t *val, jm_path_t *path, jm_report_t *r
     return true;
 }
 
-// check _jm_obj_31_map_examples (.'$Parameter'.'|'.0.examples)
-static bool _jm_f_54(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
-    bool res;
-    // .'$Parameter'.'|'.0.examples
-    res = _jm_obj_32(val, path, rep);
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected element [.'$Parameter'.'|'.0.examples]", path);
-    }
-    return res;
-}
-
-// check _jm_obj_31_map_explode (.'$Parameter'.'|'.0.explode)
+// check _jm_obj_4_map_explode (.'$Parameter'.'|'.0.explode)
 static bool _jm_f_55(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -3355,7 +2956,7 @@ static bool _jm_f_55(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_31_map_required (.'$Parameter'.'|'.0.required)
+// check _jm_obj_4_map_required (.'$Parameter'.'|'.0.required)
 static bool _jm_f_56(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -3368,12 +2969,12 @@ static bool _jm_f_56(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_31_map_schema (.'$Parameter'.'|'.0.schema)
+// check _jm_obj_4_map_schema (.'$Parameter'.'|'.0.schema)
 static bool _jm_f_57(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
     // .'$Parameter'.'|'.0.schema
-    res = _jm_obj_59(val, path, rep);
+    res = json_model_32(val, path, rep);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected $Schema [.'$Parameter'.'|'.0.schema]", path);
@@ -3381,7 +2982,7 @@ static bool _jm_f_57(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_31_map_style (.'$Parameter'.'|'.0.style)
+// check _jm_obj_4_map_style (.'$Parameter'.'|'.0.style)
 static bool _jm_f_58(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -3394,13 +2995,13 @@ static bool _jm_f_58(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-static INLINE jm_check_fun_t _jm_obj_31_map(const char *pname)
+static INLINE jm_check_fun_t _jm_obj_4_map(const char *pname)
 {
-    return jm_search_propmap(pname, _jm_obj_31_map_tab, 10);
+    return jm_search_propmap(pname, _jm_obj_4_map_tab, 10);
 }
 
 // object .'$Parameter'.'|'.0
-static INLINE bool _jm_obj_31(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_obj_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (! json_is_object(val))
     {
@@ -3441,7 +3042,7 @@ static INLINE bool _jm_obj_31(const json_t *val, jm_path_t *path, jm_report_t *r
                 return false;
             }
         }
-        else if ((pfun = _jm_obj_31_map(prop)))
+        else if ((pfun = _jm_obj_4_map(prop)))
         {
             // handle 10 may props
             if (pfun != NULL && ! pfun(pval, (path ? &lpath_31 : NULL), rep))
@@ -3487,7 +3088,7 @@ static INLINE bool _jm_obj_31(const json_t *val, jm_path_t *path, jm_report_t *r
 
 
 // object .'$Parameter'.'|'.1.content
-static INLINE bool _jm_obj_34(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_obj_6(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (! json_is_object(val))
     {
@@ -3502,7 +3103,7 @@ static INLINE bool _jm_obj_34(const json_t *val, jm_path_t *path, jm_report_t *r
         jm_path_t lpath_34 = (jm_path_t) { prop, 0, path, NULL };
         // handle other props
         // .'$Parameter'.'|'.1.content.''
-        res = _jm_obj_37(pval, (path ? &lpath_34 : NULL), rep);
+        res = json_model_20(pval, (path ? &lpath_34 : NULL), rep);
         if (! res)
         {
             if (rep) jm_report_add_entry(rep, "unexpected $MediaType [.'$Parameter'.'|'.1.content.'']", (path ? &lpath_34 : NULL));
@@ -3513,7 +3114,7 @@ static INLINE bool _jm_obj_34(const json_t *val, jm_path_t *path, jm_report_t *r
 }
 
 // object .'$Parameter'.'|'.1
-static INLINE bool _jm_obj_33(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_obj_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (! json_is_object(val))
     {
@@ -3605,7 +3206,7 @@ static INLINE bool _jm_obj_33(const json_t *val, jm_path_t *path, jm_report_t *r
         {
             // handle may content property
             // .'$Parameter'.'|'.1.content
-            res = _jm_obj_34(pval, (path ? &lpath_33 : NULL), rep);
+            res = _jm_obj_6(pval, (path ? &lpath_33 : NULL), rep);
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected element [.'$Parameter'.'|'.1.content]", (path ? &lpath_33 : NULL));
@@ -3692,7 +3293,7 @@ static bool json_model_18(const json_t *val, jm_path_t *path, jm_report_t *rep)
 }
 
 // object .'$RequestBody'.content
-static INLINE bool _jm_obj_36(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_obj_7(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (! json_is_object(val))
     {
@@ -3707,7 +3308,7 @@ static INLINE bool _jm_obj_36(const json_t *val, jm_path_t *path, jm_report_t *r
         jm_path_t lpath_36 = (jm_path_t) { prop, 0, path, NULL };
         // handle other props
         // .'$RequestBody'.content.''
-        res = _jm_obj_37(pval, (path ? &lpath_36 : NULL), rep);
+        res = json_model_20(pval, (path ? &lpath_36 : NULL), rep);
         if (! res)
         {
             if (rep) jm_report_add_entry(rep, "unexpected $MediaType [.'$RequestBody'.content.'']", (path ? &lpath_36 : NULL));
@@ -3717,9 +3318,10 @@ static INLINE bool _jm_obj_36(const json_t *val, jm_path_t *path, jm_report_t *r
     return true;
 }
 
-// object .'$RequestBody'
-static INLINE bool _jm_obj_35(const json_t *val, jm_path_t *path, jm_report_t *rep)
+// check $RequestBody (.'$RequestBody')
+static bool json_model_19(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
+    // .'$RequestBody'
     if (! json_is_object(val))
     {
         if (rep) jm_report_add_entry(rep, "not an object [.'$RequestBody']", path);
@@ -3747,7 +3349,7 @@ static INLINE bool _jm_obj_35(const json_t *val, jm_path_t *path, jm_report_t *r
         {
             // handle may content property
             // .'$RequestBody'.content
-            res = _jm_obj_36(pval, (path ? &lpath_35 : NULL), rep);
+            res = _jm_obj_7(pval, (path ? &lpath_35 : NULL), rep);
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected element [.'$RequestBody'.content]", (path ? &lpath_35 : NULL));
@@ -3787,21 +3389,8 @@ static INLINE bool _jm_obj_35(const json_t *val, jm_path_t *path, jm_report_t *r
     return true;
 }
 
-// check $RequestBody (.'$RequestBody')
-static bool json_model_19(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
-    bool res;
-    // .'$RequestBody'
-    res = _jm_obj_35(val, path, rep);
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected element [.'$RequestBody']", path);
-    }
-    return res;
-}
-
 // object .'$MediaType'.examples
-static INLINE bool _jm_obj_38(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_obj_8(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (! json_is_object(val))
     {
@@ -3817,7 +3406,7 @@ static INLINE bool _jm_obj_38(const json_t *val, jm_path_t *path, jm_report_t *r
         // handle other props
         // .'$MediaType'.examples.''
         // .'$MediaType'.examples.''.'|'.0
-        res = _jm_obj_48(pval, (path ? &lpath_38 : NULL), rep);
+        res = json_model_25(pval, (path ? &lpath_38 : NULL), rep);
         if (! res)
         {
             if (rep) jm_report_add_entry(rep, "unexpected $Example [.'$MediaType'.examples.''.'|'.0]", (path ? &lpath_38 : NULL));
@@ -3825,7 +3414,7 @@ static INLINE bool _jm_obj_38(const json_t *val, jm_path_t *path, jm_report_t *r
         if (! res)
         {
             // .'$MediaType'.examples.''.'|'.1
-            res = _jm_obj_58(pval, (path ? &lpath_38 : NULL), rep);
+            res = json_model_30(pval, (path ? &lpath_38 : NULL), rep);
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected $Reference [.'$MediaType'.examples.''.'|'.1]", (path ? &lpath_38 : NULL));
@@ -3845,7 +3434,7 @@ static INLINE bool _jm_obj_38(const json_t *val, jm_path_t *path, jm_report_t *r
 }
 
 // object .'$MediaType'.encoding
-static INLINE bool _jm_obj_39(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_obj_9(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (! json_is_object(val))
     {
@@ -3860,7 +3449,7 @@ static INLINE bool _jm_obj_39(const json_t *val, jm_path_t *path, jm_report_t *r
         jm_path_t lpath_39 = (jm_path_t) { prop, 0, path, NULL };
         // handle other props
         // .'$MediaType'.encoding.''
-        res = _jm_obj_40(pval, (path ? &lpath_39 : NULL), rep);
+        res = json_model_21(pval, (path ? &lpath_39 : NULL), rep);
         if (! res)
         {
             if (rep) jm_report_add_entry(rep, "unexpected $Encoding [.'$MediaType'.encoding.'']", (path ? &lpath_39 : NULL));
@@ -3870,9 +3459,10 @@ static INLINE bool _jm_obj_39(const json_t *val, jm_path_t *path, jm_report_t *r
     return true;
 }
 
-// object .'$MediaType'
-static INLINE bool _jm_obj_37(const json_t *val, jm_path_t *path, jm_report_t *rep)
+// check $MediaType (.'$MediaType')
+static bool json_model_20(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
+    // .'$MediaType'
     if (! json_is_object(val))
     {
         if (rep) jm_report_add_entry(rep, "not an object [.'$MediaType']", path);
@@ -3888,7 +3478,7 @@ static INLINE bool _jm_obj_37(const json_t *val, jm_path_t *path, jm_report_t *r
         {
             // handle may schema property
             // .'$MediaType'.schema
-            res = _jm_obj_59(pval, (path ? &lpath_37 : NULL), rep);
+            res = json_model_32(pval, (path ? &lpath_37 : NULL), rep);
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected $Schema [.'$MediaType'.schema]", (path ? &lpath_37 : NULL));
@@ -3912,7 +3502,7 @@ static INLINE bool _jm_obj_37(const json_t *val, jm_path_t *path, jm_report_t *r
         {
             // handle may examples property
             // .'$MediaType'.examples
-            res = _jm_obj_38(pval, (path ? &lpath_37 : NULL), rep);
+            res = _jm_obj_8(pval, (path ? &lpath_37 : NULL), rep);
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected element [.'$MediaType'.examples]", (path ? &lpath_37 : NULL));
@@ -3924,7 +3514,7 @@ static INLINE bool _jm_obj_37(const json_t *val, jm_path_t *path, jm_report_t *r
         {
             // handle may encoding property
             // .'$MediaType'.encoding
-            res = _jm_obj_39(pval, (path ? &lpath_37 : NULL), rep);
+            res = _jm_obj_9(pval, (path ? &lpath_37 : NULL), rep);
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected element [.'$MediaType'.encoding]", (path ? &lpath_37 : NULL));
@@ -3952,21 +3542,8 @@ static INLINE bool _jm_obj_37(const json_t *val, jm_path_t *path, jm_report_t *r
     return true;
 }
 
-// check $MediaType (.'$MediaType')
-static bool json_model_20(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
-    bool res;
-    // .'$MediaType'
-    res = _jm_obj_37(val, path, rep);
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected element [.'$MediaType']", path);
-    }
-    return res;
-}
-
 // object .'$Encoding'.headers
-static INLINE bool _jm_obj_41(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_obj_10(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (! json_is_object(val))
     {
@@ -3990,7 +3567,7 @@ static INLINE bool _jm_obj_41(const json_t *val, jm_path_t *path, jm_report_t *r
         if (! res)
         {
             // .'$Encoding'.headers.''.'|'.1
-            res = _jm_obj_58(pval, (path ? &lpath_41 : NULL), rep);
+            res = json_model_30(pval, (path ? &lpath_41 : NULL), rep);
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected $Reference [.'$Encoding'.headers.''.'|'.1]", (path ? &lpath_41 : NULL));
@@ -4009,9 +3586,10 @@ static INLINE bool _jm_obj_41(const json_t *val, jm_path_t *path, jm_report_t *r
     return true;
 }
 
-// object .'$Encoding'
-static INLINE bool _jm_obj_40(const json_t *val, jm_path_t *path, jm_report_t *rep)
+// check $Encoding (.'$Encoding')
+static bool json_model_21(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
+    // .'$Encoding'
     if (! json_is_object(val))
     {
         if (rep) jm_report_add_entry(rep, "not an object [.'$Encoding']", path);
@@ -4039,7 +3617,7 @@ static INLINE bool _jm_obj_40(const json_t *val, jm_path_t *path, jm_report_t *r
         {
             // handle may headers property
             // .'$Encoding'.headers
-            res = _jm_obj_41(pval, (path ? &lpath_40 : NULL), rep);
+            res = _jm_obj_10(pval, (path ? &lpath_40 : NULL), rep);
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected element [.'$Encoding'.headers]", (path ? &lpath_40 : NULL));
@@ -4103,28 +3681,16 @@ static INLINE bool _jm_obj_40(const json_t *val, jm_path_t *path, jm_report_t *r
     return true;
 }
 
-// check $Encoding (.'$Encoding')
-static bool json_model_21(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
-    bool res;
-    // .'$Encoding'
-    res = _jm_obj_40(val, path, rep);
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected element [.'$Encoding']", path);
-    }
-    return res;
-}
-
 static bool _jm_re_2(const char *s, jm_path_t *path, jm_report_t *rep)
 {
     size_t slen = strlen(s);
     return cre2_match(_jm_re_2_re2, s, slen, 0, slen, CRE2_UNANCHORED, NULL, 0);
 }
 
-// object .'$Responses'
-static INLINE bool _jm_obj_42(const json_t *val, jm_path_t *path, jm_report_t *rep)
+// check $Responses (.'$Responses')
+static bool json_model_22(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
+    // .'$Responses'
     if (! json_is_object(val))
     {
         if (rep) jm_report_add_entry(rep, "not an object [.'$Responses']", path);
@@ -4141,7 +3707,7 @@ static INLINE bool _jm_obj_42(const json_t *val, jm_path_t *path, jm_report_t *r
             // handle may default property
             // .'$Responses'.default
             // .'$Responses'.default.'|'.0
-            res = _jm_obj_43(pval, (path ? &lpath_42 : NULL), rep);
+            res = json_model_23(pval, (path ? &lpath_42 : NULL), rep);
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected $Response [.'$Responses'.default.'|'.0]", (path ? &lpath_42 : NULL));
@@ -4149,7 +3715,7 @@ static INLINE bool _jm_obj_42(const json_t *val, jm_path_t *path, jm_report_t *r
             if (! res)
             {
                 // .'$Responses'.default.'|'.1
-                res = _jm_obj_58(pval, (path ? &lpath_42 : NULL), rep);
+                res = json_model_30(pval, (path ? &lpath_42 : NULL), rep);
                 if (! res)
                 {
                     if (rep) jm_report_add_entry(rep, "unexpected $Reference [.'$Responses'.default.'|'.1]", (path ? &lpath_42 : NULL));
@@ -4171,7 +3737,7 @@ static INLINE bool _jm_obj_42(const json_t *val, jm_path_t *path, jm_report_t *r
             // handle 2 re props
             // .'$Responses'.'/^[1-5](\\d\\d|XX)$/'
             // .'$Responses'.'/^[1-5](\\d\\d|XX)$/'.'|'.0
-            res = _jm_obj_43(pval, (path ? &lpath_42 : NULL), rep);
+            res = json_model_23(pval, (path ? &lpath_42 : NULL), rep);
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected $Response [.'$Responses'.'/^[1-5](\\\\d\\\\d|XX)$/'.'|'.0]", (path ? &lpath_42 : NULL));
@@ -4179,7 +3745,7 @@ static INLINE bool _jm_obj_42(const json_t *val, jm_path_t *path, jm_report_t *r
             if (! res)
             {
                 // .'$Responses'.'/^[1-5](\\d\\d|XX)$/'.'|'.1
-                res = _jm_obj_58(pval, (path ? &lpath_42 : NULL), rep);
+                res = json_model_30(pval, (path ? &lpath_42 : NULL), rep);
                 if (! res)
                 {
                     if (rep) jm_report_add_entry(rep, "unexpected $Reference [.'$Responses'.'/^[1-5](\\\\d\\\\d|XX)$/'.'|'.1]", (path ? &lpath_42 : NULL));
@@ -4215,21 +3781,8 @@ static INLINE bool _jm_obj_42(const json_t *val, jm_path_t *path, jm_report_t *r
     return true;
 }
 
-// check $Responses (.'$Responses')
-static bool json_model_22(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
-    bool res;
-    // .'$Responses'
-    res = _jm_obj_42(val, path, rep);
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected element [.'$Responses']", path);
-    }
-    return res;
-}
-
 // object .'$Response'.headers
-static INLINE bool _jm_obj_44(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_obj_11(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (! json_is_object(val))
     {
@@ -4253,7 +3806,7 @@ static INLINE bool _jm_obj_44(const json_t *val, jm_path_t *path, jm_report_t *r
         if (! res)
         {
             // .'$Response'.headers.''.'|'.1
-            res = _jm_obj_58(pval, (path ? &lpath_44 : NULL), rep);
+            res = json_model_30(pval, (path ? &lpath_44 : NULL), rep);
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected $Reference [.'$Response'.headers.''.'|'.1]", (path ? &lpath_44 : NULL));
@@ -4273,7 +3826,7 @@ static INLINE bool _jm_obj_44(const json_t *val, jm_path_t *path, jm_report_t *r
 }
 
 // object .'$Response'.content
-static INLINE bool _jm_obj_45(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_obj_12(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (! json_is_object(val))
     {
@@ -4288,7 +3841,7 @@ static INLINE bool _jm_obj_45(const json_t *val, jm_path_t *path, jm_report_t *r
         jm_path_t lpath_45 = (jm_path_t) { prop, 0, path, NULL };
         // handle other props
         // .'$Response'.content.''
-        res = _jm_obj_37(pval, (path ? &lpath_45 : NULL), rep);
+        res = json_model_20(pval, (path ? &lpath_45 : NULL), rep);
         if (! res)
         {
             if (rep) jm_report_add_entry(rep, "unexpected $MediaType [.'$Response'.content.'']", (path ? &lpath_45 : NULL));
@@ -4299,7 +3852,7 @@ static INLINE bool _jm_obj_45(const json_t *val, jm_path_t *path, jm_report_t *r
 }
 
 // object .'$Response'.links
-static INLINE bool _jm_obj_46(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_obj_13(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (! json_is_object(val))
     {
@@ -4323,7 +3876,7 @@ static INLINE bool _jm_obj_46(const json_t *val, jm_path_t *path, jm_report_t *r
         if (! res)
         {
             // .'$Response'.links.''.'|'.1
-            res = _jm_obj_58(pval, (path ? &lpath_46 : NULL), rep);
+            res = json_model_30(pval, (path ? &lpath_46 : NULL), rep);
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected $Reference [.'$Response'.links.''.'|'.1]", (path ? &lpath_46 : NULL));
@@ -4342,9 +3895,10 @@ static INLINE bool _jm_obj_46(const json_t *val, jm_path_t *path, jm_report_t *r
     return true;
 }
 
-// object .'$Response'
-static INLINE bool _jm_obj_43(const json_t *val, jm_path_t *path, jm_report_t *rep)
+// check $Response (.'$Response')
+static bool json_model_23(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
+    // .'$Response'
     if (! json_is_object(val))
     {
         if (rep) jm_report_add_entry(rep, "not an object [.'$Response']", path);
@@ -4372,7 +3926,7 @@ static INLINE bool _jm_obj_43(const json_t *val, jm_path_t *path, jm_report_t *r
         {
             // handle may headers property
             // .'$Response'.headers
-            res = _jm_obj_44(pval, (path ? &lpath_43 : NULL), rep);
+            res = _jm_obj_11(pval, (path ? &lpath_43 : NULL), rep);
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected element [.'$Response'.headers]", (path ? &lpath_43 : NULL));
@@ -4384,7 +3938,7 @@ static INLINE bool _jm_obj_43(const json_t *val, jm_path_t *path, jm_report_t *r
         {
             // handle may content property
             // .'$Response'.content
-            res = _jm_obj_45(pval, (path ? &lpath_43 : NULL), rep);
+            res = _jm_obj_12(pval, (path ? &lpath_43 : NULL), rep);
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected element [.'$Response'.content]", (path ? &lpath_43 : NULL));
@@ -4396,7 +3950,7 @@ static INLINE bool _jm_obj_43(const json_t *val, jm_path_t *path, jm_report_t *r
         {
             // handle may links property
             // .'$Response'.links
-            res = _jm_obj_46(pval, (path ? &lpath_43 : NULL), rep);
+            res = _jm_obj_13(pval, (path ? &lpath_43 : NULL), rep);
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected element [.'$Response'.links]", (path ? &lpath_43 : NULL));
@@ -4424,22 +3978,10 @@ static INLINE bool _jm_obj_43(const json_t *val, jm_path_t *path, jm_report_t *r
     return true;
 }
 
-// check $Response (.'$Response')
-static bool json_model_23(const json_t *val, jm_path_t *path, jm_report_t *rep)
+// check $Callback (.'$Callback')
+static bool json_model_24(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
-    // .'$Response'
-    res = _jm_obj_43(val, path, rep);
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected element [.'$Response']", path);
-    }
-    return res;
-}
-
-// object .'$Callback'
-static INLINE bool _jm_obj_47(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
+    // .'$Callback'
     if (! json_is_object(val))
     {
         if (rep) jm_report_add_entry(rep, "not an object [.'$Callback']", path);
@@ -4456,7 +3998,7 @@ static INLINE bool _jm_obj_47(const json_t *val, jm_path_t *path, jm_report_t *r
             // handle 1 key props
             // .'$Callback'.'$Expression'
             // .'$Callback'.'$Expression'.'|'.0
-            res = _jm_obj_21(pval, (path ? &lpath_47 : NULL), rep);
+            res = json_model_10(pval, (path ? &lpath_47 : NULL), rep);
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected $PathItem [.'$Callback'.'$Expression'.'|'.0]", (path ? &lpath_47 : NULL));
@@ -4464,7 +4006,7 @@ static INLINE bool _jm_obj_47(const json_t *val, jm_path_t *path, jm_report_t *r
             if (! res)
             {
                 // .'$Callback'.'$Expression'.'|'.1
-                res = _jm_obj_58(pval, (path ? &lpath_47 : NULL), rep);
+                res = json_model_30(pval, (path ? &lpath_47 : NULL), rep);
                 if (! res)
                 {
                     if (rep) jm_report_add_entry(rep, "unexpected $Reference [.'$Callback'.'$Expression'.'|'.1]", (path ? &lpath_47 : NULL));
@@ -4500,22 +4042,10 @@ static INLINE bool _jm_obj_47(const json_t *val, jm_path_t *path, jm_report_t *r
     return true;
 }
 
-// check $Callback (.'$Callback')
-static bool json_model_24(const json_t *val, jm_path_t *path, jm_report_t *rep)
+// check $Example (.'$Example')
+static bool json_model_25(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
-    // .'$Callback'
-    res = _jm_obj_47(val, path, rep);
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected element [.'$Callback']", path);
-    }
-    return res;
-}
-
-// object .'$Example'
-static INLINE bool _jm_obj_48(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
+    // .'$Example'
     if (! json_is_object(val))
     {
         if (rep) jm_report_add_entry(rep, "not an object [.'$Example']", path);
@@ -4595,19 +4125,6 @@ static INLINE bool _jm_obj_48(const json_t *val, jm_path_t *path, jm_report_t *r
     return true;
 }
 
-// check $Example (.'$Example')
-static bool json_model_25(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
-    bool res;
-    // .'$Example'
-    res = _jm_obj_48(val, path, rep);
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected element [.'$Example']", path);
-    }
-    return res;
-}
-
 // check $Expression (.'$Expression')
 static bool json_model_26(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
@@ -4622,7 +4139,7 @@ static bool json_model_26(const json_t *val, jm_path_t *path, jm_report_t *rep)
 }
 
 // object .'$Link'.'|'.1.parameters
-static INLINE bool _jm_obj_50(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_obj_15(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (! json_is_object(val))
     {
@@ -4634,7 +4151,7 @@ static INLINE bool _jm_obj_50(const json_t *val, jm_path_t *path, jm_report_t *r
 }
 
 // object .'$Link'.'|'.1
-static INLINE bool _jm_obj_49(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_obj_14(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (! json_is_object(val))
     {
@@ -4665,7 +4182,7 @@ static INLINE bool _jm_obj_49(const json_t *val, jm_path_t *path, jm_report_t *r
         {
             // handle may parameters property
             // .'$Link'.'|'.1.parameters
-            res = _jm_obj_50(pval, (path ? &lpath_49 : NULL), rep);
+            res = _jm_obj_15(pval, (path ? &lpath_49 : NULL), rep);
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected element [.'$Link'.'|'.1.parameters]", (path ? &lpath_49 : NULL));
@@ -4701,7 +4218,7 @@ static INLINE bool _jm_obj_49(const json_t *val, jm_path_t *path, jm_report_t *r
         {
             // handle may server property
             // .'$Link'.'|'.1.server
-            res = _jm_obj_6(pval, (path ? &lpath_49 : NULL), rep);
+            res = json_model_6(pval, (path ? &lpath_49 : NULL), rep);
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected $Server [.'$Link'.'|'.1.server]", (path ? &lpath_49 : NULL));
@@ -4741,7 +4258,7 @@ static INLINE bool _jm_obj_49(const json_t *val, jm_path_t *path, jm_report_t *r
 }
 
 // object .'$Link'.'|'.0.parameters
-static INLINE bool _jm_obj_52(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_obj_17(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (! json_is_object(val))
     {
@@ -4753,7 +4270,7 @@ static INLINE bool _jm_obj_52(const json_t *val, jm_path_t *path, jm_report_t *r
 }
 
 // object .'$Link'.'|'.0
-static INLINE bool _jm_obj_51(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_obj_16(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (! json_is_object(val))
     {
@@ -4784,7 +4301,7 @@ static INLINE bool _jm_obj_51(const json_t *val, jm_path_t *path, jm_report_t *r
         {
             // handle may parameters property
             // .'$Link'.'|'.0.parameters
-            res = _jm_obj_52(pval, (path ? &lpath_50 : NULL), rep);
+            res = _jm_obj_17(pval, (path ? &lpath_50 : NULL), rep);
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected element [.'$Link'.'|'.0.parameters]", (path ? &lpath_50 : NULL));
@@ -4820,7 +4337,7 @@ static INLINE bool _jm_obj_51(const json_t *val, jm_path_t *path, jm_report_t *r
         {
             // handle may server property
             // .'$Link'.'|'.0.server
-            res = _jm_obj_6(pval, (path ? &lpath_50 : NULL), rep);
+            res = json_model_6(pval, (path ? &lpath_50 : NULL), rep);
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected $Server [.'$Link'.'|'.0.server]", (path ? &lpath_50 : NULL));
@@ -4872,7 +4389,7 @@ static bool json_model_27(const json_t *val, jm_path_t *path, jm_report_t *rep)
     if (res)
     {
         // .'$Link'.'|'.0
-        res = _jm_obj_51(val, path, rep);
+        res = _jm_obj_16(val, path, rep);
         if (! res)
         {
             if (rep) jm_report_add_entry(rep, "unexpected element [.'$Link'.'|'.0]", path);
@@ -4880,7 +4397,7 @@ static bool json_model_27(const json_t *val, jm_path_t *path, jm_report_t *rep)
         if (! res)
         {
             // .'$Link'.'|'.1
-            res = _jm_obj_49(val, path, rep);
+            res = _jm_obj_14(val, path, rep);
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected element [.'$Link'.'|'.1]", path);
@@ -4899,7 +4416,7 @@ static bool json_model_27(const json_t *val, jm_path_t *path, jm_report_t *rep)
 }
 
 // object .'$Header'.'|'.1.content
-static INLINE bool _jm_obj_54(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_obj_19(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (! json_is_object(val))
     {
@@ -4914,7 +4431,7 @@ static INLINE bool _jm_obj_54(const json_t *val, jm_path_t *path, jm_report_t *r
         jm_path_t lpath_52 = (jm_path_t) { prop, 0, path, NULL };
         // handle other props
         // .'$Header'.'|'.1.content.''
-        res = _jm_obj_37(pval, (path ? &lpath_52 : NULL), rep);
+        res = json_model_20(pval, (path ? &lpath_52 : NULL), rep);
         if (! res)
         {
             if (rep) jm_report_add_entry(rep, "unexpected $MediaType [.'$Header'.'|'.1.content.'']", (path ? &lpath_52 : NULL));
@@ -4925,7 +4442,7 @@ static INLINE bool _jm_obj_54(const json_t *val, jm_path_t *path, jm_report_t *r
 }
 
 // object .'$Header'.'|'.1
-static INLINE bool _jm_obj_53(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_obj_18(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (! json_is_object(val))
     {
@@ -4990,7 +4507,7 @@ static INLINE bool _jm_obj_53(const json_t *val, jm_path_t *path, jm_report_t *r
         {
             // handle may content property
             // .'$Header'.'|'.1.content
-            res = _jm_obj_54(pval, (path ? &lpath_51 : NULL), rep);
+            res = _jm_obj_19(pval, (path ? &lpath_51 : NULL), rep);
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected element [.'$Header'.'|'.1.content]", (path ? &lpath_51 : NULL));
@@ -5018,7 +4535,7 @@ static INLINE bool _jm_obj_53(const json_t *val, jm_path_t *path, jm_report_t *r
     return true;
 }
 
-// check _jm_obj_55_map_allowEmptyValue (.'$Header'.'|'.0.allowEmptyValue)
+// check _jm_obj_20_map_allowEmptyValue (.'$Header'.'|'.0.allowEmptyValue)
 static bool _jm_f_59(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -5031,7 +4548,7 @@ static bool _jm_f_59(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_55_map_allowReserved (.'$Header'.'|'.0.allowReserved)
+// check _jm_obj_20_map_allowReserved (.'$Header'.'|'.0.allowReserved)
 static bool _jm_f_60(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -5044,7 +4561,7 @@ static bool _jm_f_60(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_55_map_deprecated (.'$Header'.'|'.0.deprecated)
+// check _jm_obj_20_map_deprecated (.'$Header'.'|'.0.deprecated)
 static bool _jm_f_61(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -5057,7 +4574,7 @@ static bool _jm_f_61(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_55_map_description (.'$Header'.'|'.0.description)
+// check _jm_obj_20_map_description (.'$Header'.'|'.0.description)
 static bool _jm_f_62(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -5070,7 +4587,7 @@ static bool _jm_f_62(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_55_map_example (.'$Header'.'|'.0.example)
+// check _jm_obj_20_map_example (.'$Header'.'|'.0.example)
 static bool _jm_f_63(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -5083,9 +4600,10 @@ static bool _jm_f_63(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// object .'$Header'.'|'.0.examples
-static INLINE bool _jm_obj_56(const json_t *val, jm_path_t *path, jm_report_t *rep)
+// check _jm_obj_20_map_examples (.'$Header'.'|'.0.examples)
+static bool _jm_f_64(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
+    // .'$Header'.'|'.0.examples
     if (! json_is_object(val))
     {
         if (rep) jm_report_add_entry(rep, "not an object [.'$Header'.'|'.0.examples]", path);
@@ -5100,7 +4618,7 @@ static INLINE bool _jm_obj_56(const json_t *val, jm_path_t *path, jm_report_t *r
         // handle other props
         // .'$Header'.'|'.0.examples.''
         // .'$Header'.'|'.0.examples.''.'|'.0
-        res = _jm_obj_48(pval, (path ? &lpath_54 : NULL), rep);
+        res = json_model_25(pval, (path ? &lpath_54 : NULL), rep);
         if (! res)
         {
             if (rep) jm_report_add_entry(rep, "unexpected $Example [.'$Header'.'|'.0.examples.''.'|'.0]", (path ? &lpath_54 : NULL));
@@ -5108,7 +4626,7 @@ static INLINE bool _jm_obj_56(const json_t *val, jm_path_t *path, jm_report_t *r
         if (! res)
         {
             // .'$Header'.'|'.0.examples.''.'|'.1
-            res = _jm_obj_58(pval, (path ? &lpath_54 : NULL), rep);
+            res = json_model_30(pval, (path ? &lpath_54 : NULL), rep);
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected $Reference [.'$Header'.'|'.0.examples.''.'|'.1]", (path ? &lpath_54 : NULL));
@@ -5127,20 +4645,7 @@ static INLINE bool _jm_obj_56(const json_t *val, jm_path_t *path, jm_report_t *r
     return true;
 }
 
-// check _jm_obj_55_map_examples (.'$Header'.'|'.0.examples)
-static bool _jm_f_64(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
-    bool res;
-    // .'$Header'.'|'.0.examples
-    res = _jm_obj_56(val, path, rep);
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected element [.'$Header'.'|'.0.examples]", path);
-    }
-    return res;
-}
-
-// check _jm_obj_55_map_explode (.'$Header'.'|'.0.explode)
+// check _jm_obj_20_map_explode (.'$Header'.'|'.0.explode)
 static bool _jm_f_65(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -5153,7 +4658,7 @@ static bool _jm_f_65(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_55_map_required (.'$Header'.'|'.0.required)
+// check _jm_obj_20_map_required (.'$Header'.'|'.0.required)
 static bool _jm_f_66(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -5166,12 +4671,12 @@ static bool _jm_f_66(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_55_map_schema (.'$Header'.'|'.0.schema)
+// check _jm_obj_20_map_schema (.'$Header'.'|'.0.schema)
 static bool _jm_f_67(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
     // .'$Header'.'|'.0.schema
-    res = _jm_obj_59(val, path, rep);
+    res = json_model_32(val, path, rep);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected $Schema [.'$Header'.'|'.0.schema]", path);
@@ -5179,7 +4684,7 @@ static bool _jm_f_67(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_55_map_style (.'$Header'.'|'.0.style)
+// check _jm_obj_20_map_style (.'$Header'.'|'.0.style)
 static bool _jm_f_68(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -5192,13 +4697,13 @@ static bool _jm_f_68(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-static INLINE jm_check_fun_t _jm_obj_55_map(const char *pname)
+static INLINE jm_check_fun_t _jm_obj_20_map(const char *pname)
 {
-    return jm_search_propmap(pname, _jm_obj_55_map_tab, 10);
+    return jm_search_propmap(pname, _jm_obj_20_map_tab, 10);
 }
 
 // object .'$Header'.'|'.0
-static INLINE bool _jm_obj_55(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_obj_20(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (! json_is_object(val))
     {
@@ -5212,7 +4717,7 @@ static INLINE bool _jm_obj_55(const json_t *val, jm_path_t *path, jm_report_t *r
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_53 = (jm_path_t) { prop, 0, path, NULL };
-        if ((pfun = _jm_obj_55_map(prop)))
+        if ((pfun = _jm_obj_20_map(prop)))
         {
             // handle 10 may props
             if (pfun != NULL && ! pfun(pval, (path ? &lpath_53 : NULL), rep))
@@ -5255,7 +4760,7 @@ static bool json_model_28(const json_t *val, jm_path_t *path, jm_report_t *rep)
     if (res)
     {
         // .'$Header'.'|'.0
-        res = _jm_obj_55(val, path, rep);
+        res = _jm_obj_20(val, path, rep);
         if (! res)
         {
             if (rep) jm_report_add_entry(rep, "unexpected element [.'$Header'.'|'.0]", path);
@@ -5263,7 +4768,7 @@ static bool json_model_28(const json_t *val, jm_path_t *path, jm_report_t *rep)
         if (! res)
         {
             // .'$Header'.'|'.1
-            res = _jm_obj_53(val, path, rep);
+            res = _jm_obj_18(val, path, rep);
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected element [.'$Header'.'|'.1]", path);
@@ -5281,9 +4786,10 @@ static bool json_model_28(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// object .'$Tag'
-static INLINE bool _jm_obj_57(const json_t *val, jm_path_t *path, jm_report_t *rep)
+// check $Tag (.'$Tag')
+static bool json_model_29(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
+    // .'$Tag'
     if (! json_is_object(val))
     {
         if (rep) jm_report_add_entry(rep, "not an object [.'$Tag']", path);
@@ -5325,7 +4831,7 @@ static INLINE bool _jm_obj_57(const json_t *val, jm_path_t *path, jm_report_t *r
         {
             // handle may externalDocs property
             // .'$Tag'.externalDocs
-            res = _jm_obj_24(pval, (path ? &lpath_55 : NULL), rep);
+            res = json_model_12(pval, (path ? &lpath_55 : NULL), rep);
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected $ExternalDocumentation [.'$Tag'.externalDocs]", (path ? &lpath_55 : NULL));
@@ -5364,22 +4870,10 @@ static INLINE bool _jm_obj_57(const json_t *val, jm_path_t *path, jm_report_t *r
     return true;
 }
 
-// check $Tag (.'$Tag')
-static bool json_model_29(const json_t *val, jm_path_t *path, jm_report_t *rep)
+// check $Reference (.'$Reference')
+static bool json_model_30(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
-    // .'$Tag'
-    res = _jm_obj_57(val, path, rep);
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected element [.'$Tag']", path);
-    }
-    return res;
-}
-
-// object .'$Reference'
-static INLINE bool _jm_obj_58(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
+    // .'$Reference'
     if (! json_is_object(val))
     {
         if (rep) jm_report_add_entry(rep, "not an object [.'$Reference']", path);
@@ -5449,19 +4943,6 @@ static INLINE bool _jm_obj_58(const json_t *val, jm_path_t *path, jm_report_t *r
     return true;
 }
 
-// check $Reference (.'$Reference')
-static bool json_model_30(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
-    bool res;
-    // .'$Reference'
-    res = _jm_obj_58(val, path, rep);
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected element [.'$Reference']", path);
-    }
-    return res;
-}
-
 // check $schema (.'$schema')
 static bool json_model_45(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
@@ -5477,7 +4958,7 @@ static bool json_model_45(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_59_map_$anchor (.'$Schema'.'$anchor')
+// check json_model_32_map_$anchor (.'$Schema'.'$anchor')
 static bool _jm_f_69(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -5490,7 +4971,7 @@ static bool _jm_f_69(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_59_map_$comment (.'$Schema'.'$comment')
+// check json_model_32_map_$comment (.'$Schema'.'$comment')
 static bool _jm_f_70(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -5503,9 +4984,10 @@ static bool _jm_f_70(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// object .'$Schema'.'$defs'
-static INLINE bool _jm_obj_60(const json_t *val, jm_path_t *path, jm_report_t *rep)
+// check json_model_32_map_$defs (.'$Schema'.'$defs')
+static bool _jm_f_71(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
+    // .'$Schema'.'$defs'
     if (! json_is_object(val))
     {
         if (rep) jm_report_add_entry(rep, "not an object [.'$Schema'.'$defs']", path);
@@ -5529,20 +5011,7 @@ static INLINE bool _jm_obj_60(const json_t *val, jm_path_t *path, jm_report_t *r
     return true;
 }
 
-// check _jm_obj_59_map_$defs (.'$Schema'.'$defs')
-static bool _jm_f_71(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
-    bool res;
-    // .'$Schema'.'$defs'
-    res = _jm_obj_60(val, path, rep);
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected element [.'$Schema'.'$defs']", path);
-    }
-    return res;
-}
-
-// check _jm_obj_59_map_$dynamicAnchor (.'$Schema'.'$dynamicAnchor')
+// check json_model_32_map_$dynamicAnchor (.'$Schema'.'$dynamicAnchor')
 static bool _jm_f_72(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -5555,7 +5024,7 @@ static bool _jm_f_72(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_59_map_$dynamicRef (.'$Schema'.'$dynamicRef')
+// check json_model_32_map_$dynamicRef (.'$Schema'.'$dynamicRef')
 static bool _jm_f_73(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -5568,7 +5037,7 @@ static bool _jm_f_73(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_59_map_$id (.'$Schema'.'$id')
+// check json_model_32_map_$id (.'$Schema'.'$id')
 static bool _jm_f_74(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -5581,7 +5050,7 @@ static bool _jm_f_74(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_59_map_$ref (.'$Schema'.'$ref')
+// check json_model_32_map_$ref (.'$Schema'.'$ref')
 static bool _jm_f_75(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -5594,7 +5063,7 @@ static bool _jm_f_75(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_59_map_$schema (.'$Schema'.'$schema')
+// check json_model_32_map_$schema (.'$Schema'.'$schema')
 static bool _jm_f_76(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -5607,9 +5076,10 @@ static bool _jm_f_76(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// object .'$Schema'.'$vocabulary'
-static INLINE bool _jm_obj_61(const json_t *val, jm_path_t *path, jm_report_t *rep)
+// check json_model_32_map_$vocabulary (.'$Schema'.'$vocabulary')
+static bool _jm_f_77(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
+    // .'$Schema'.'$vocabulary'
     if (! json_is_object(val))
     {
         if (rep) jm_report_add_entry(rep, "not an object [.'$Schema'.'$vocabulary']", path);
@@ -5641,20 +5111,7 @@ static INLINE bool _jm_obj_61(const json_t *val, jm_path_t *path, jm_report_t *r
     return true;
 }
 
-// check _jm_obj_59_map_$vocabulary (.'$Schema'.'$vocabulary')
-static bool _jm_f_77(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
-    bool res;
-    // .'$Schema'.'$vocabulary'
-    res = _jm_obj_61(val, path, rep);
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected element [.'$Schema'.'$vocabulary']", path);
-    }
-    return res;
-}
-
-// check _jm_obj_59_map_additionalProperties (.'$Schema'.additionalProperties)
+// check json_model_32_map_additionalProperties (.'$Schema'.additionalProperties)
 static bool _jm_f_78(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -5667,7 +5124,7 @@ static bool _jm_f_78(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_59_map_allOf (.'$Schema'.allOf)
+// check json_model_32_map_allOf (.'$Schema'.allOf)
 static bool _jm_f_79(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -5680,7 +5137,7 @@ static bool _jm_f_79(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_59_map_anyOf (.'$Schema'.anyOf)
+// check json_model_32_map_anyOf (.'$Schema'.anyOf)
 static bool _jm_f_80(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -5693,7 +5150,7 @@ static bool _jm_f_80(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_59_map_const (.'$Schema'.const)
+// check json_model_32_map_const (.'$Schema'.const)
 static bool _jm_f_81(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -5706,7 +5163,7 @@ static bool _jm_f_81(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_59_map_contains (.'$Schema'.contains)
+// check json_model_32_map_contains (.'$Schema'.contains)
 static bool _jm_f_82(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -5719,7 +5176,7 @@ static bool _jm_f_82(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_59_map_contentEncoding (.'$Schema'.contentEncoding)
+// check json_model_32_map_contentEncoding (.'$Schema'.contentEncoding)
 static bool _jm_f_83(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -5732,7 +5189,7 @@ static bool _jm_f_83(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_59_map_contentMediaType (.'$Schema'.contentMediaType)
+// check json_model_32_map_contentMediaType (.'$Schema'.contentMediaType)
 static bool _jm_f_84(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -5745,7 +5202,7 @@ static bool _jm_f_84(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_59_map_contentSchema (.'$Schema'.contentSchema)
+// check json_model_32_map_contentSchema (.'$Schema'.contentSchema)
 static bool _jm_f_85(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -5758,7 +5215,7 @@ static bool _jm_f_85(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_59_map_default (.'$Schema'.default)
+// check json_model_32_map_default (.'$Schema'.default)
 static bool _jm_f_86(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -5771,9 +5228,10 @@ static bool _jm_f_86(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// object .'$Schema'.dependentRequired
-static INLINE bool _jm_obj_62(const json_t *val, jm_path_t *path, jm_report_t *rep)
+// check json_model_32_map_dependentRequired (.'$Schema'.dependentRequired)
+static bool _jm_f_87(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
+    // .'$Schema'.dependentRequired
     if (! json_is_object(val))
     {
         if (rep) jm_report_add_entry(rep, "not an object [.'$Schema'.dependentRequired]", path);
@@ -5797,22 +5255,10 @@ static INLINE bool _jm_obj_62(const json_t *val, jm_path_t *path, jm_report_t *r
     return true;
 }
 
-// check _jm_obj_59_map_dependentRequired (.'$Schema'.dependentRequired)
-static bool _jm_f_87(const json_t *val, jm_path_t *path, jm_report_t *rep)
+// check json_model_32_map_dependentSchemas (.'$Schema'.dependentSchemas)
+static bool _jm_f_88(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
-    // .'$Schema'.dependentRequired
-    res = _jm_obj_62(val, path, rep);
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected element [.'$Schema'.dependentRequired]", path);
-    }
-    return res;
-}
-
-// object .'$Schema'.dependentSchemas
-static INLINE bool _jm_obj_63(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
+    // .'$Schema'.dependentSchemas
     if (! json_is_object(val))
     {
         if (rep) jm_report_add_entry(rep, "not an object [.'$Schema'.dependentSchemas]", path);
@@ -5836,20 +5282,7 @@ static INLINE bool _jm_obj_63(const json_t *val, jm_path_t *path, jm_report_t *r
     return true;
 }
 
-// check _jm_obj_59_map_dependentSchemas (.'$Schema'.dependentSchemas)
-static bool _jm_f_88(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
-    bool res;
-    // .'$Schema'.dependentSchemas
-    res = _jm_obj_63(val, path, rep);
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected element [.'$Schema'.dependentSchemas]", path);
-    }
-    return res;
-}
-
-// check _jm_obj_59_map_deprecated (.'$Schema'.deprecated)
+// check json_model_32_map_deprecated (.'$Schema'.deprecated)
 static bool _jm_f_89(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -5862,7 +5295,7 @@ static bool _jm_f_89(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_59_map_description (.'$Schema'.description)
+// check json_model_32_map_description (.'$Schema'.description)
 static bool _jm_f_90(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -5875,12 +5308,12 @@ static bool _jm_f_90(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_59_map_discriminator (.'$Schema'.discriminator)
+// check json_model_32_map_discriminator (.'$Schema'.discriminator)
 static bool _jm_f_91(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
     // .'$Schema'.discriminator
-    res = _jm_obj_66(val, path, rep);
+    res = json_model_33(val, path, rep);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected $Discriminator [.'$Schema'.discriminator]", path);
@@ -5888,7 +5321,7 @@ static bool _jm_f_91(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_59_map_else (.'$Schema'.else)
+// check json_model_32_map_else (.'$Schema'.else)
 static bool _jm_f_92(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -5901,7 +5334,7 @@ static bool _jm_f_92(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_59_map_enum (.'$Schema'.enum)
+// check json_model_32_map_enum (.'$Schema'.enum)
 static bool _jm_f_93(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -5914,7 +5347,7 @@ static bool _jm_f_93(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_59_map_example (.'$Schema'.example)
+// check json_model_32_map_example (.'$Schema'.example)
 static bool _jm_f_94(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -5927,7 +5360,7 @@ static bool _jm_f_94(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_59_map_examples (.'$Schema'.examples)
+// check json_model_32_map_examples (.'$Schema'.examples)
 static bool _jm_f_95(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -5940,7 +5373,7 @@ static bool _jm_f_95(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_59_map_exclusiveMaximum (.'$Schema'.exclusiveMaximum)
+// check json_model_32_map_exclusiveMaximum (.'$Schema'.exclusiveMaximum)
 static bool _jm_f_96(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -5953,7 +5386,7 @@ static bool _jm_f_96(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_59_map_exclusiveMinimum (.'$Schema'.exclusiveMinimum)
+// check json_model_32_map_exclusiveMinimum (.'$Schema'.exclusiveMinimum)
 static bool _jm_f_97(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -5966,12 +5399,12 @@ static bool _jm_f_97(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_59_map_externalDocs (.'$Schema'.externalDocs)
+// check json_model_32_map_externalDocs (.'$Schema'.externalDocs)
 static bool _jm_f_98(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
     // .'$Schema'.externalDocs
-    res = _jm_obj_24(val, path, rep);
+    res = json_model_12(val, path, rep);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected $ExternalDocumentation [.'$Schema'.externalDocs]", path);
@@ -5979,7 +5412,7 @@ static bool _jm_f_98(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_59_map_format (.'$Schema'.format)
+// check json_model_32_map_format (.'$Schema'.format)
 static bool _jm_f_99(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -5992,7 +5425,7 @@ static bool _jm_f_99(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_59_map_if (.'$Schema'.if)
+// check json_model_32_map_if (.'$Schema'.if)
 static bool _jm_f_100(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -6005,7 +5438,7 @@ static bool _jm_f_100(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_59_map_items (.'$Schema'.items)
+// check json_model_32_map_items (.'$Schema'.items)
 static bool _jm_f_101(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -6018,7 +5451,7 @@ static bool _jm_f_101(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_59_map_maxContains (.'$Schema'.maxContains)
+// check json_model_32_map_maxContains (.'$Schema'.maxContains)
 static bool _jm_f_102(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -6031,7 +5464,7 @@ static bool _jm_f_102(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_59_map_maxItems (.'$Schema'.maxItems)
+// check json_model_32_map_maxItems (.'$Schema'.maxItems)
 static bool _jm_f_103(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -6044,7 +5477,7 @@ static bool _jm_f_103(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_59_map_maxLength (.'$Schema'.maxLength)
+// check json_model_32_map_maxLength (.'$Schema'.maxLength)
 static bool _jm_f_104(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -6057,7 +5490,7 @@ static bool _jm_f_104(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_59_map_maxProperties (.'$Schema'.maxProperties)
+// check json_model_32_map_maxProperties (.'$Schema'.maxProperties)
 static bool _jm_f_105(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -6070,7 +5503,7 @@ static bool _jm_f_105(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_59_map_maximum (.'$Schema'.maximum)
+// check json_model_32_map_maximum (.'$Schema'.maximum)
 static bool _jm_f_106(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -6083,7 +5516,7 @@ static bool _jm_f_106(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_59_map_minContains (.'$Schema'.minContains)
+// check json_model_32_map_minContains (.'$Schema'.minContains)
 static bool _jm_f_107(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -6096,7 +5529,7 @@ static bool _jm_f_107(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_59_map_minItems (.'$Schema'.minItems)
+// check json_model_32_map_minItems (.'$Schema'.minItems)
 static bool _jm_f_108(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -6109,7 +5542,7 @@ static bool _jm_f_108(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_59_map_minLength (.'$Schema'.minLength)
+// check json_model_32_map_minLength (.'$Schema'.minLength)
 static bool _jm_f_109(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -6122,7 +5555,7 @@ static bool _jm_f_109(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_59_map_minProperties (.'$Schema'.minProperties)
+// check json_model_32_map_minProperties (.'$Schema'.minProperties)
 static bool _jm_f_110(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -6135,7 +5568,7 @@ static bool _jm_f_110(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_59_map_minimum (.'$Schema'.minimum)
+// check json_model_32_map_minimum (.'$Schema'.minimum)
 static bool _jm_f_111(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -6148,7 +5581,7 @@ static bool _jm_f_111(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_59_map_multipleOf (.'$Schema'.multipleOf)
+// check json_model_32_map_multipleOf (.'$Schema'.multipleOf)
 static bool _jm_f_112(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -6161,7 +5594,7 @@ static bool _jm_f_112(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_59_map_not (.'$Schema'.not)
+// check json_model_32_map_not (.'$Schema'.not)
 static bool _jm_f_113(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -6174,7 +5607,7 @@ static bool _jm_f_113(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_59_map_oneOf (.'$Schema'.oneOf)
+// check json_model_32_map_oneOf (.'$Schema'.oneOf)
 static bool _jm_f_114(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -6187,7 +5620,7 @@ static bool _jm_f_114(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_59_map_pattern (.'$Schema'.pattern)
+// check json_model_32_map_pattern (.'$Schema'.pattern)
 static bool _jm_f_115(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -6200,9 +5633,10 @@ static bool _jm_f_115(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// object .'$Schema'.patternProperties
-static INLINE bool _jm_obj_64(const json_t *val, jm_path_t *path, jm_report_t *rep)
+// check json_model_32_map_patternProperties (.'$Schema'.patternProperties)
+static bool _jm_f_116(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
+    // .'$Schema'.patternProperties
     if (! json_is_object(val))
     {
         if (rep) jm_report_add_entry(rep, "not an object [.'$Schema'.patternProperties]", path);
@@ -6234,20 +5668,7 @@ static INLINE bool _jm_obj_64(const json_t *val, jm_path_t *path, jm_report_t *r
     return true;
 }
 
-// check _jm_obj_59_map_patternProperties (.'$Schema'.patternProperties)
-static bool _jm_f_116(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
-    bool res;
-    // .'$Schema'.patternProperties
-    res = _jm_obj_64(val, path, rep);
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected element [.'$Schema'.patternProperties]", path);
-    }
-    return res;
-}
-
-// check _jm_obj_59_map_prefixItems (.'$Schema'.prefixItems)
+// check json_model_32_map_prefixItems (.'$Schema'.prefixItems)
 static bool _jm_f_117(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -6260,9 +5681,10 @@ static bool _jm_f_117(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// object .'$Schema'.properties
-static INLINE bool _jm_obj_65(const json_t *val, jm_path_t *path, jm_report_t *rep)
+// check json_model_32_map_properties (.'$Schema'.properties)
+static bool _jm_f_118(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
+    // .'$Schema'.properties
     if (! json_is_object(val))
     {
         if (rep) jm_report_add_entry(rep, "not an object [.'$Schema'.properties]", path);
@@ -6286,20 +5708,7 @@ static INLINE bool _jm_obj_65(const json_t *val, jm_path_t *path, jm_report_t *r
     return true;
 }
 
-// check _jm_obj_59_map_properties (.'$Schema'.properties)
-static bool _jm_f_118(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
-    bool res;
-    // .'$Schema'.properties
-    res = _jm_obj_65(val, path, rep);
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected element [.'$Schema'.properties]", path);
-    }
-    return res;
-}
-
-// check _jm_obj_59_map_propertyNames (.'$Schema'.propertyNames)
+// check json_model_32_map_propertyNames (.'$Schema'.propertyNames)
 static bool _jm_f_119(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -6312,7 +5721,7 @@ static bool _jm_f_119(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_59_map_readOnly (.'$Schema'.readOnly)
+// check json_model_32_map_readOnly (.'$Schema'.readOnly)
 static bool _jm_f_120(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -6325,7 +5734,7 @@ static bool _jm_f_120(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_59_map_required (.'$Schema'.required)
+// check json_model_32_map_required (.'$Schema'.required)
 static bool _jm_f_121(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -6338,7 +5747,7 @@ static bool _jm_f_121(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_59_map_then (.'$Schema'.then)
+// check json_model_32_map_then (.'$Schema'.then)
 static bool _jm_f_122(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -6351,7 +5760,7 @@ static bool _jm_f_122(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_59_map_title (.'$Schema'.title)
+// check json_model_32_map_title (.'$Schema'.title)
 static bool _jm_f_123(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -6364,7 +5773,7 @@ static bool _jm_f_123(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_59_map_type (.'$Schema'.type)
+// check json_model_32_map_type (.'$Schema'.type)
 static bool _jm_f_124(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -6395,7 +5804,7 @@ static bool _jm_f_124(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_59_map_unevaluatedItems (.'$Schema'.unevaluatedItems)
+// check json_model_32_map_unevaluatedItems (.'$Schema'.unevaluatedItems)
 static bool _jm_f_125(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -6408,7 +5817,7 @@ static bool _jm_f_125(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_59_map_unevaluatedProperties (.'$Schema'.unevaluatedProperties)
+// check json_model_32_map_unevaluatedProperties (.'$Schema'.unevaluatedProperties)
 static bool _jm_f_126(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -6421,7 +5830,7 @@ static bool _jm_f_126(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_59_map_uniqueItems (.'$Schema'.uniqueItems)
+// check json_model_32_map_uniqueItems (.'$Schema'.uniqueItems)
 static bool _jm_f_127(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -6434,7 +5843,7 @@ static bool _jm_f_127(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_59_map_writeOnly (.'$Schema'.writeOnly)
+// check json_model_32_map_writeOnly (.'$Schema'.writeOnly)
 static bool _jm_f_128(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -6447,12 +5856,12 @@ static bool _jm_f_128(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_59_map_xml (.'$Schema'.xml)
+// check json_model_32_map_xml (.'$Schema'.xml)
 static bool _jm_f_129(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
     // .'$Schema'.xml
-    res = _jm_obj_68(val, path, rep);
+    res = json_model_34(val, path, rep);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected $xml [.'$Schema'.xml]", path);
@@ -6460,14 +5869,15 @@ static bool _jm_f_129(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-static INLINE jm_check_fun_t _jm_obj_59_map(const char *pname)
+static INLINE jm_check_fun_t json_model_32_map(const char *pname)
 {
-    return jm_search_propmap(pname, _jm_obj_59_map_tab, 61);
+    return jm_search_propmap(pname, json_model_32_map_tab, 61);
 }
 
-// object .'$Schema'
-static INLINE bool _jm_obj_59(const json_t *val, jm_path_t *path, jm_report_t *rep)
+// check $Schema (.'$Schema')
+static bool json_model_32(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
+    // .'$Schema'
     if (! json_is_object(val))
     {
         if (rep) jm_report_add_entry(rep, "not an object [.'$Schema']", path);
@@ -6479,7 +5889,7 @@ static INLINE bool _jm_obj_59(const json_t *val, jm_path_t *path, jm_report_t *r
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_57 = (jm_path_t) { prop, 0, path, NULL };
-        if ((pfun = _jm_obj_59_map(prop)))
+        if ((pfun = json_model_32_map(prop)))
         {
             // handle 61 may props
             if (pfun != NULL && ! pfun(pval, (path ? &lpath_57 : NULL), rep))
@@ -6497,21 +5907,8 @@ static INLINE bool _jm_obj_59(const json_t *val, jm_path_t *path, jm_report_t *r
     return true;
 }
 
-// check $Schema (.'$Schema')
-static bool json_model_32(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
-    bool res;
-    // .'$Schema'
-    res = _jm_obj_59(val, path, rep);
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected element [.'$Schema']", path);
-    }
-    return res;
-}
-
 // object .'$Discriminator'.mapping
-static INLINE bool _jm_obj_67(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_obj_21(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (! json_is_object(val))
     {
@@ -6536,9 +5933,10 @@ static INLINE bool _jm_obj_67(const json_t *val, jm_path_t *path, jm_report_t *r
     return true;
 }
 
-// object .'$Discriminator'
-static INLINE bool _jm_obj_66(const json_t *val, jm_path_t *path, jm_report_t *rep)
+// check $Discriminator (.'$Discriminator')
+static bool json_model_33(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
+    // .'$Discriminator'
     if (! json_is_object(val))
     {
         if (rep) jm_report_add_entry(rep, "not an object [.'$Discriminator']", path);
@@ -6568,7 +5966,7 @@ static INLINE bool _jm_obj_66(const json_t *val, jm_path_t *path, jm_report_t *r
         {
             // handle may mapping property
             // .'$Discriminator'.mapping
-            res = _jm_obj_67(pval, (path ? &lpath_64 : NULL), rep);
+            res = _jm_obj_21(pval, (path ? &lpath_64 : NULL), rep);
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected element [.'$Discriminator'.mapping]", (path ? &lpath_64 : NULL));
@@ -6607,22 +6005,10 @@ static INLINE bool _jm_obj_66(const json_t *val, jm_path_t *path, jm_report_t *r
     return true;
 }
 
-// check $Discriminator (.'$Discriminator')
-static bool json_model_33(const json_t *val, jm_path_t *path, jm_report_t *rep)
+// check $xml (.'$xml')
+static bool json_model_34(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
-    // .'$Discriminator'
-    res = _jm_obj_66(val, path, rep);
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected element [.'$Discriminator']", path);
-    }
-    return res;
-}
-
-// object .'$xml'
-static INLINE bool _jm_obj_68(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
+    // .'$xml'
     if (! json_is_object(val))
     {
         if (rep) jm_report_add_entry(rep, "not an object [.'$xml']", path);
@@ -6714,23 +6100,11 @@ static INLINE bool _jm_obj_68(const json_t *val, jm_path_t *path, jm_report_t *r
     return true;
 }
 
-// check $xml (.'$xml')
-static bool json_model_34(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
-    bool res;
-    // .'$xml'
-    res = _jm_obj_68(val, path, rep);
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected element [.'$xml']", path);
-    }
-    return res;
-}
 
-
-// object .'$SS-apikey'
-static INLINE bool _jm_obj_69(const json_t *val, jm_path_t *path, jm_report_t *rep)
+// check $SS-apikey (.'$SS-apikey')
+static bool json_model_35(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
+    // .'$SS-apikey'
     // check close must only props
     if (! json_is_object(val))
     {
@@ -6790,22 +6164,10 @@ static INLINE bool _jm_obj_69(const json_t *val, jm_path_t *path, jm_report_t *r
     return true;
 }
 
-// check $SS-apikey (.'$SS-apikey')
-static bool json_model_35(const json_t *val, jm_path_t *path, jm_report_t *rep)
+// check $SS-http (.'$SS-http')
+static bool json_model_36(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
-    // .'$SS-apikey'
-    res = _jm_obj_69(val, path, rep);
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected element [.'$SS-apikey']", path);
-    }
-    return res;
-}
-
-// object .'$SS-http'
-static INLINE bool _jm_obj_70(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
+    // .'$SS-http'
     // check close must only props
     if (! json_is_object(val))
     {
@@ -6851,28 +6213,16 @@ static INLINE bool _jm_obj_70(const json_t *val, jm_path_t *path, jm_report_t *r
     return true;
 }
 
-// check $SS-http (.'$SS-http')
-static bool json_model_36(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
-    bool res;
-    // .'$SS-http'
-    res = _jm_obj_70(val, path, rep);
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected element [.'$SS-http']", path);
-    }
-    return res;
-}
-
 static bool _jm_re_3(const char *s, jm_path_t *path, jm_report_t *rep)
 {
     size_t slen = strlen(s);
     return cre2_match(_jm_re_3_re2, s, slen, 0, slen, CRE2_UNANCHORED, NULL, 0);
 }
 
-// object .'$SS-http-bearer'
-static INLINE bool _jm_obj_71(const json_t *val, jm_path_t *path, jm_report_t *rep)
+// check $SS-http-bearer (.'$SS-http-bearer')
+static bool json_model_37(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
+    // .'$SS-http-bearer'
     if (! json_is_object(val))
     {
         if (rep) jm_report_add_entry(rep, "not an object [.'$SS-http-bearer']", path);
@@ -6948,22 +6298,10 @@ static INLINE bool _jm_obj_71(const json_t *val, jm_path_t *path, jm_report_t *r
     return true;
 }
 
-// check $SS-http-bearer (.'$SS-http-bearer')
-static bool json_model_37(const json_t *val, jm_path_t *path, jm_report_t *rep)
+// check $SS-oauth2 (.'$SS-oauth2')
+static bool json_model_38(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
-    // .'$SS-http-bearer'
-    res = _jm_obj_71(val, path, rep);
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected element [.'$SS-http-bearer']", path);
-    }
-    return res;
-}
-
-// object .'$SS-oauth2'
-static INLINE bool _jm_obj_72(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
+    // .'$SS-oauth2'
     // check close must only props
     if (! json_is_object(val))
     {
@@ -6999,7 +6337,7 @@ static INLINE bool _jm_obj_72(const json_t *val, jm_path_t *path, jm_report_t *r
     }
     lpath = (jm_path_t) { "flows", 0, path, NULL };
     // .'$SS-oauth2'.flows
-    res = _jm_obj_80(pval, (path ? &lpath : NULL), rep);
+    res = json_model_41(pval, (path ? &lpath : NULL), rep);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected $OAuthFlows [.'$SS-oauth2'.flows]", (path ? &lpath : NULL));
@@ -7009,22 +6347,10 @@ static INLINE bool _jm_obj_72(const json_t *val, jm_path_t *path, jm_report_t *r
     return true;
 }
 
-// check $SS-oauth2 (.'$SS-oauth2')
-static bool json_model_38(const json_t *val, jm_path_t *path, jm_report_t *rep)
+// check $SS-oic (.'$SS-oic')
+static bool json_model_39(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
-    // .'$SS-oauth2'
-    res = _jm_obj_72(val, path, rep);
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected element [.'$SS-oauth2']", path);
-    }
-    return res;
-}
-
-// object .'$SS-oic'
-static INLINE bool _jm_obj_73(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
+    // .'$SS-oic'
     // check close must only props
     if (! json_is_object(val))
     {
@@ -7070,22 +6396,9 @@ static INLINE bool _jm_obj_73(const json_t *val, jm_path_t *path, jm_report_t *r
     return true;
 }
 
-// check $SS-oic (.'$SS-oic')
-static bool json_model_39(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
-    bool res;
-    // .'$SS-oic'
-    res = _jm_obj_73(val, path, rep);
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected element [.'$SS-oic']", path);
-    }
-    return res;
-}
-
 
 // object .'$SecurityScheme'.'|'.0
-static INLINE bool _jm_obj_74(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_obj_22(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (! json_is_object(val))
     {
@@ -7179,7 +6492,7 @@ static INLINE bool _jm_obj_74(const json_t *val, jm_path_t *path, jm_report_t *r
 }
 
 // object .'$SecurityScheme'.'|'.1
-static INLINE bool _jm_obj_75(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_obj_23(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (! json_is_object(val))
     {
@@ -7269,7 +6582,7 @@ static INLINE bool _jm_obj_75(const json_t *val, jm_path_t *path, jm_report_t *r
 }
 
 // object .'$SecurityScheme'.'|'.2
-static INLINE bool _jm_obj_76(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_obj_24(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (! json_is_object(val))
     {
@@ -7346,7 +6659,7 @@ static INLINE bool _jm_obj_76(const json_t *val, jm_path_t *path, jm_report_t *r
 }
 
 // object .'$SecurityScheme'.'|'.3
-static INLINE bool _jm_obj_77(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_obj_25(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (! json_is_object(val))
     {
@@ -7378,7 +6691,7 @@ static INLINE bool _jm_obj_77(const json_t *val, jm_path_t *path, jm_report_t *r
             // handle must flows property
             must_count += 1;
             // .'$SecurityScheme'.'|'.3.flows
-            res = _jm_obj_80(pval, (path ? &lpath_71 : NULL), rep);
+            res = json_model_41(pval, (path ? &lpath_71 : NULL), rep);
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected $OAuthFlows [.'$SecurityScheme'.'|'.3.flows]", (path ? &lpath_71 : NULL));
@@ -7423,7 +6736,7 @@ static INLINE bool _jm_obj_77(const json_t *val, jm_path_t *path, jm_report_t *r
 }
 
 // object .'$SecurityScheme'.'|'.4
-static INLINE bool _jm_obj_78(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_obj_26(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (! json_is_object(val))
     {
@@ -7500,7 +6813,7 @@ static INLINE bool _jm_obj_78(const json_t *val, jm_path_t *path, jm_report_t *r
 }
 
 // object .'$SecurityScheme'.'|'.5
-static INLINE bool _jm_obj_79(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_obj_27(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (! json_is_object(val))
     {
@@ -7588,7 +6901,7 @@ static bool json_model_40(const json_t *val, jm_path_t *path, jm_report_t *rep)
     if (! res)
     {
         // .'$SecurityScheme'.'|'.5
-        res = _jm_obj_79(val, path, rep);
+        res = _jm_obj_27(val, path, rep);
         if (! res)
         {
             if (rep) jm_report_add_entry(rep, "unexpected element [.'$SecurityScheme'.'|'.5]", path);
@@ -7597,9 +6910,10 @@ static bool json_model_40(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// object .'$OAuthFlows'
-static INLINE bool _jm_obj_80(const json_t *val, jm_path_t *path, jm_report_t *rep)
+// check $OAuthFlows (.'$OAuthFlows')
+static bool json_model_41(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
+    // .'$OAuthFlows'
     if (! json_is_object(val))
     {
         if (rep) jm_report_add_entry(rep, "not an object [.'$OAuthFlows']", path);
@@ -7615,7 +6929,7 @@ static INLINE bool _jm_obj_80(const json_t *val, jm_path_t *path, jm_report_t *r
         {
             // handle may implicit property
             // .'$OAuthFlows'.implicit
-            res = _jm_obj_81(pval, (path ? &lpath_74 : NULL), rep);
+            res = json_model_42(pval, (path ? &lpath_74 : NULL), rep);
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected $OAuthFlow [.'$OAuthFlows'.implicit]", (path ? &lpath_74 : NULL));
@@ -7627,7 +6941,7 @@ static INLINE bool _jm_obj_80(const json_t *val, jm_path_t *path, jm_report_t *r
         {
             // handle may password property
             // .'$OAuthFlows'.password
-            res = _jm_obj_81(pval, (path ? &lpath_74 : NULL), rep);
+            res = json_model_42(pval, (path ? &lpath_74 : NULL), rep);
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected $OAuthFlow [.'$OAuthFlows'.password]", (path ? &lpath_74 : NULL));
@@ -7639,7 +6953,7 @@ static INLINE bool _jm_obj_80(const json_t *val, jm_path_t *path, jm_report_t *r
         {
             // handle may clientCredentials property
             // .'$OAuthFlows'.clientCredentials
-            res = _jm_obj_81(pval, (path ? &lpath_74 : NULL), rep);
+            res = json_model_42(pval, (path ? &lpath_74 : NULL), rep);
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected $OAuthFlow [.'$OAuthFlows'.clientCredentials]", (path ? &lpath_74 : NULL));
@@ -7651,7 +6965,7 @@ static INLINE bool _jm_obj_80(const json_t *val, jm_path_t *path, jm_report_t *r
         {
             // handle may authorizationCode property
             // .'$OAuthFlows'.authorizationCode
-            res = _jm_obj_81(pval, (path ? &lpath_74 : NULL), rep);
+            res = json_model_42(pval, (path ? &lpath_74 : NULL), rep);
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected $OAuthFlow [.'$OAuthFlows'.authorizationCode]", (path ? &lpath_74 : NULL));
@@ -7679,21 +6993,8 @@ static INLINE bool _jm_obj_80(const json_t *val, jm_path_t *path, jm_report_t *r
     return true;
 }
 
-// check $OAuthFlows (.'$OAuthFlows')
-static bool json_model_41(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
-    bool res;
-    // .'$OAuthFlows'
-    res = _jm_obj_80(val, path, rep);
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected element [.'$OAuthFlows']", path);
-    }
-    return res;
-}
-
 // object .'$OAuthFlow'.scopes
-static INLINE bool _jm_obj_82(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_obj_28(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (! json_is_object(val))
     {
@@ -7718,9 +7019,10 @@ static INLINE bool _jm_obj_82(const json_t *val, jm_path_t *path, jm_report_t *r
     return true;
 }
 
-// object .'$OAuthFlow'
-static INLINE bool _jm_obj_81(const json_t *val, jm_path_t *path, jm_report_t *rep)
+// check $OAuthFlow (.'$OAuthFlow')
+static bool json_model_42(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
+    // .'$OAuthFlow'
     if (! json_is_object(val))
     {
         if (rep) jm_report_add_entry(rep, "not an object [.'$OAuthFlow']", path);
@@ -7764,7 +7066,7 @@ static INLINE bool _jm_obj_81(const json_t *val, jm_path_t *path, jm_report_t *r
             // handle must scopes property
             must_count += 1;
             // .'$OAuthFlow'.scopes
-            res = _jm_obj_82(pval, (path ? &lpath_75 : NULL), rep);
+            res = _jm_obj_28(pval, (path ? &lpath_75 : NULL), rep);
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected element [.'$OAuthFlow'.scopes]", (path ? &lpath_75 : NULL));
@@ -7823,22 +7125,10 @@ static INLINE bool _jm_obj_81(const json_t *val, jm_path_t *path, jm_report_t *r
     return true;
 }
 
-// check $OAuthFlow (.'$OAuthFlow')
-static bool json_model_42(const json_t *val, jm_path_t *path, jm_report_t *rep)
+// check $SecurityRequirement (.'$SecurityRequirement')
+static bool json_model_43(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
-    // .'$OAuthFlow'
-    res = _jm_obj_81(val, path, rep);
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected element [.'$OAuthFlow']", path);
-    }
-    return res;
-}
-
-// object .'$SecurityRequirement'
-static INLINE bool _jm_obj_83(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
+    // .'$SecurityRequirement'
     if (! json_is_object(val))
     {
         if (rep) jm_report_add_entry(rep, "not an object [.'$SecurityRequirement']", path);
@@ -7878,22 +7168,10 @@ static INLINE bool _jm_obj_83(const json_t *val, jm_path_t *path, jm_report_t *r
     return true;
 }
 
-// check $SecurityRequirement (.'$SecurityRequirement')
-static bool json_model_43(const json_t *val, jm_path_t *path, jm_report_t *rep)
+// check $Extension (.'$Extension')
+static bool json_model_44(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
-    // .'$SecurityRequirement'
-    res = _jm_obj_83(val, path, rep);
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected element [.'$SecurityRequirement']", path);
-    }
-    return res;
-}
-
-// object .'$Extension'
-static INLINE bool _jm_obj_84(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
+    // .'$Extension'
     if (! json_is_object(val))
     {
         if (rep) jm_report_add_entry(rep, "not an object [.'$Extension']", path);
@@ -7925,25 +7203,12 @@ static INLINE bool _jm_obj_84(const json_t *val, jm_path_t *path, jm_report_t *r
     return true;
 }
 
-// check $Extension (.'$Extension')
-static bool json_model_44(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
-    bool res;
-    // .'$Extension'
-    res = _jm_obj_84(val, path, rep);
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected element [.'$Extension']", path);
-    }
-    return res;
-}
-
 // check $ (.)
 static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
     // .
-    res = _jm_obj_0(val, path, rep);
+    res = json_model_2(val, path, rep);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected $OpenAPI [.]", path);
@@ -8121,7 +7386,7 @@ static bool json_model_60(const json_t *val, jm_path_t *path, jm_report_t *rep)
     if (! res)
     {
         // .'$schema#Schema'.'|'.1
-        res = _jm_obj_85(val, path, rep);
+        res = json_model_59(val, path, rep);
         if (! res)
         {
             if (rep) jm_report_add_entry(rep, "unexpected $ObjectSchema [.'$schema#Schema'.'|'.1]", path);
@@ -8138,7 +7403,7 @@ static bool json_model_60(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_85_map_$anchor (.'$schema#ObjectSchema'.'$anchor')
+// check json_model_59_map_$anchor (.'$schema#ObjectSchema'.'$anchor')
 static bool _jm_f_130(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -8151,7 +7416,7 @@ static bool _jm_f_130(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_85_map_$comment (.'$schema#ObjectSchema'.'$comment')
+// check json_model_59_map_$comment (.'$schema#ObjectSchema'.'$comment')
 static bool _jm_f_131(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -8164,9 +7429,10 @@ static bool _jm_f_131(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// object .'$schema#ObjectSchema'.'$defs'
-static INLINE bool _jm_obj_86(const json_t *val, jm_path_t *path, jm_report_t *rep)
+// check json_model_59_map_$defs (.'$schema#ObjectSchema'.'$defs')
+static bool _jm_f_132(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
+    // .'$schema#ObjectSchema'.'$defs'
     if (! json_is_object(val))
     {
         if (rep) jm_report_add_entry(rep, "not an object [.'$schema#ObjectSchema'.'$defs']", path);
@@ -8190,20 +7456,7 @@ static INLINE bool _jm_obj_86(const json_t *val, jm_path_t *path, jm_report_t *r
     return true;
 }
 
-// check _jm_obj_85_map_$defs (.'$schema#ObjectSchema'.'$defs')
-static bool _jm_f_132(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
-    bool res;
-    // .'$schema#ObjectSchema'.'$defs'
-    res = _jm_obj_86(val, path, rep);
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected element [.'$schema#ObjectSchema'.'$defs']", path);
-    }
-    return res;
-}
-
-// check _jm_obj_85_map_$dynamicAnchor (.'$schema#ObjectSchema'.'$dynamicAnchor')
+// check json_model_59_map_$dynamicAnchor (.'$schema#ObjectSchema'.'$dynamicAnchor')
 static bool _jm_f_133(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -8216,7 +7469,7 @@ static bool _jm_f_133(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_85_map_$dynamicRef (.'$schema#ObjectSchema'.'$dynamicRef')
+// check json_model_59_map_$dynamicRef (.'$schema#ObjectSchema'.'$dynamicRef')
 static bool _jm_f_134(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -8229,7 +7482,7 @@ static bool _jm_f_134(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_85_map_$id (.'$schema#ObjectSchema'.'$id')
+// check json_model_59_map_$id (.'$schema#ObjectSchema'.'$id')
 static bool _jm_f_135(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -8242,7 +7495,7 @@ static bool _jm_f_135(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_85_map_$ref (.'$schema#ObjectSchema'.'$ref')
+// check json_model_59_map_$ref (.'$schema#ObjectSchema'.'$ref')
 static bool _jm_f_136(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -8255,7 +7508,7 @@ static bool _jm_f_136(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_85_map_$schema (.'$schema#ObjectSchema'.'$schema')
+// check json_model_59_map_$schema (.'$schema#ObjectSchema'.'$schema')
 static bool _jm_f_137(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -8268,9 +7521,10 @@ static bool _jm_f_137(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// object .'$schema#ObjectSchema'.'$vocabulary'
-static INLINE bool _jm_obj_87(const json_t *val, jm_path_t *path, jm_report_t *rep)
+// check json_model_59_map_$vocabulary (.'$schema#ObjectSchema'.'$vocabulary')
+static bool _jm_f_138(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
+    // .'$schema#ObjectSchema'.'$vocabulary'
     if (! json_is_object(val))
     {
         if (rep) jm_report_add_entry(rep, "not an object [.'$schema#ObjectSchema'.'$vocabulary']", path);
@@ -8302,20 +7556,7 @@ static INLINE bool _jm_obj_87(const json_t *val, jm_path_t *path, jm_report_t *r
     return true;
 }
 
-// check _jm_obj_85_map_$vocabulary (.'$schema#ObjectSchema'.'$vocabulary')
-static bool _jm_f_138(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
-    bool res;
-    // .'$schema#ObjectSchema'.'$vocabulary'
-    res = _jm_obj_87(val, path, rep);
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected element [.'$schema#ObjectSchema'.'$vocabulary']", path);
-    }
-    return res;
-}
-
-// check _jm_obj_85_map_additionalProperties (.'$schema#ObjectSchema'.additionalProperties)
+// check json_model_59_map_additionalProperties (.'$schema#ObjectSchema'.additionalProperties)
 static bool _jm_f_139(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -8328,7 +7569,7 @@ static bool _jm_f_139(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_85_map_allOf (.'$schema#ObjectSchema'.allOf)
+// check json_model_59_map_allOf (.'$schema#ObjectSchema'.allOf)
 static bool _jm_f_140(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -8341,7 +7582,7 @@ static bool _jm_f_140(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_85_map_anyOf (.'$schema#ObjectSchema'.anyOf)
+// check json_model_59_map_anyOf (.'$schema#ObjectSchema'.anyOf)
 static bool _jm_f_141(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -8354,7 +7595,7 @@ static bool _jm_f_141(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_85_map_const (.'$schema#ObjectSchema'.const)
+// check json_model_59_map_const (.'$schema#ObjectSchema'.const)
 static bool _jm_f_142(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -8367,7 +7608,7 @@ static bool _jm_f_142(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_85_map_contains (.'$schema#ObjectSchema'.contains)
+// check json_model_59_map_contains (.'$schema#ObjectSchema'.contains)
 static bool _jm_f_143(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -8380,7 +7621,7 @@ static bool _jm_f_143(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_85_map_contentEncoding (.'$schema#ObjectSchema'.contentEncoding)
+// check json_model_59_map_contentEncoding (.'$schema#ObjectSchema'.contentEncoding)
 static bool _jm_f_144(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -8393,7 +7634,7 @@ static bool _jm_f_144(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_85_map_contentMediaType (.'$schema#ObjectSchema'.contentMediaType)
+// check json_model_59_map_contentMediaType (.'$schema#ObjectSchema'.contentMediaType)
 static bool _jm_f_145(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -8406,7 +7647,7 @@ static bool _jm_f_145(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_85_map_contentSchema (.'$schema#ObjectSchema'.contentSchema)
+// check json_model_59_map_contentSchema (.'$schema#ObjectSchema'.contentSchema)
 static bool _jm_f_146(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -8419,7 +7660,7 @@ static bool _jm_f_146(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_85_map_default (.'$schema#ObjectSchema'.default)
+// check json_model_59_map_default (.'$schema#ObjectSchema'.default)
 static bool _jm_f_147(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -8432,9 +7673,10 @@ static bool _jm_f_147(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// object .'$schema#ObjectSchema'.dependentRequired
-static INLINE bool _jm_obj_88(const json_t *val, jm_path_t *path, jm_report_t *rep)
+// check json_model_59_map_dependentRequired (.'$schema#ObjectSchema'.dependentRequired)
+static bool _jm_f_148(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
+    // .'$schema#ObjectSchema'.dependentRequired
     if (! json_is_object(val))
     {
         if (rep) jm_report_add_entry(rep, "not an object [.'$schema#ObjectSchema'.dependentRequired]", path);
@@ -8458,22 +7700,10 @@ static INLINE bool _jm_obj_88(const json_t *val, jm_path_t *path, jm_report_t *r
     return true;
 }
 
-// check _jm_obj_85_map_dependentRequired (.'$schema#ObjectSchema'.dependentRequired)
-static bool _jm_f_148(const json_t *val, jm_path_t *path, jm_report_t *rep)
+// check json_model_59_map_dependentSchemas (.'$schema#ObjectSchema'.dependentSchemas)
+static bool _jm_f_149(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
-    // .'$schema#ObjectSchema'.dependentRequired
-    res = _jm_obj_88(val, path, rep);
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected element [.'$schema#ObjectSchema'.dependentRequired]", path);
-    }
-    return res;
-}
-
-// object .'$schema#ObjectSchema'.dependentSchemas
-static INLINE bool _jm_obj_89(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
+    // .'$schema#ObjectSchema'.dependentSchemas
     if (! json_is_object(val))
     {
         if (rep) jm_report_add_entry(rep, "not an object [.'$schema#ObjectSchema'.dependentSchemas]", path);
@@ -8497,20 +7727,7 @@ static INLINE bool _jm_obj_89(const json_t *val, jm_path_t *path, jm_report_t *r
     return true;
 }
 
-// check _jm_obj_85_map_dependentSchemas (.'$schema#ObjectSchema'.dependentSchemas)
-static bool _jm_f_149(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
-    bool res;
-    // .'$schema#ObjectSchema'.dependentSchemas
-    res = _jm_obj_89(val, path, rep);
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected element [.'$schema#ObjectSchema'.dependentSchemas]", path);
-    }
-    return res;
-}
-
-// check _jm_obj_85_map_deprecated (.'$schema#ObjectSchema'.deprecated)
+// check json_model_59_map_deprecated (.'$schema#ObjectSchema'.deprecated)
 static bool _jm_f_150(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -8523,7 +7740,7 @@ static bool _jm_f_150(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_85_map_description (.'$schema#ObjectSchema'.description)
+// check json_model_59_map_description (.'$schema#ObjectSchema'.description)
 static bool _jm_f_151(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -8536,7 +7753,7 @@ static bool _jm_f_151(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_85_map_else (.'$schema#ObjectSchema'.else)
+// check json_model_59_map_else (.'$schema#ObjectSchema'.else)
 static bool _jm_f_152(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -8549,7 +7766,7 @@ static bool _jm_f_152(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_85_map_enum (.'$schema#ObjectSchema'.enum)
+// check json_model_59_map_enum (.'$schema#ObjectSchema'.enum)
 static bool _jm_f_153(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -8562,7 +7779,7 @@ static bool _jm_f_153(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_85_map_examples (.'$schema#ObjectSchema'.examples)
+// check json_model_59_map_examples (.'$schema#ObjectSchema'.examples)
 static bool _jm_f_154(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -8575,7 +7792,7 @@ static bool _jm_f_154(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_85_map_exclusiveMaximum (.'$schema#ObjectSchema'.exclusiveMaximum)
+// check json_model_59_map_exclusiveMaximum (.'$schema#ObjectSchema'.exclusiveMaximum)
 static bool _jm_f_155(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -8588,7 +7805,7 @@ static bool _jm_f_155(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_85_map_exclusiveMinimum (.'$schema#ObjectSchema'.exclusiveMinimum)
+// check json_model_59_map_exclusiveMinimum (.'$schema#ObjectSchema'.exclusiveMinimum)
 static bool _jm_f_156(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -8601,7 +7818,7 @@ static bool _jm_f_156(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_85_map_format (.'$schema#ObjectSchema'.format)
+// check json_model_59_map_format (.'$schema#ObjectSchema'.format)
 static bool _jm_f_157(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -8614,7 +7831,7 @@ static bool _jm_f_157(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_85_map_if (.'$schema#ObjectSchema'.if)
+// check json_model_59_map_if (.'$schema#ObjectSchema'.if)
 static bool _jm_f_158(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -8627,7 +7844,7 @@ static bool _jm_f_158(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_85_map_items (.'$schema#ObjectSchema'.items)
+// check json_model_59_map_items (.'$schema#ObjectSchema'.items)
 static bool _jm_f_159(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -8640,7 +7857,7 @@ static bool _jm_f_159(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_85_map_maxContains (.'$schema#ObjectSchema'.maxContains)
+// check json_model_59_map_maxContains (.'$schema#ObjectSchema'.maxContains)
 static bool _jm_f_160(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -8653,7 +7870,7 @@ static bool _jm_f_160(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_85_map_maxItems (.'$schema#ObjectSchema'.maxItems)
+// check json_model_59_map_maxItems (.'$schema#ObjectSchema'.maxItems)
 static bool _jm_f_161(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -8666,7 +7883,7 @@ static bool _jm_f_161(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_85_map_maxLength (.'$schema#ObjectSchema'.maxLength)
+// check json_model_59_map_maxLength (.'$schema#ObjectSchema'.maxLength)
 static bool _jm_f_162(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -8679,7 +7896,7 @@ static bool _jm_f_162(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_85_map_maxProperties (.'$schema#ObjectSchema'.maxProperties)
+// check json_model_59_map_maxProperties (.'$schema#ObjectSchema'.maxProperties)
 static bool _jm_f_163(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -8692,7 +7909,7 @@ static bool _jm_f_163(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_85_map_maximum (.'$schema#ObjectSchema'.maximum)
+// check json_model_59_map_maximum (.'$schema#ObjectSchema'.maximum)
 static bool _jm_f_164(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -8705,7 +7922,7 @@ static bool _jm_f_164(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_85_map_minContains (.'$schema#ObjectSchema'.minContains)
+// check json_model_59_map_minContains (.'$schema#ObjectSchema'.minContains)
 static bool _jm_f_165(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -8718,7 +7935,7 @@ static bool _jm_f_165(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_85_map_minItems (.'$schema#ObjectSchema'.minItems)
+// check json_model_59_map_minItems (.'$schema#ObjectSchema'.minItems)
 static bool _jm_f_166(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -8731,7 +7948,7 @@ static bool _jm_f_166(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_85_map_minLength (.'$schema#ObjectSchema'.minLength)
+// check json_model_59_map_minLength (.'$schema#ObjectSchema'.minLength)
 static bool _jm_f_167(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -8744,7 +7961,7 @@ static bool _jm_f_167(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_85_map_minProperties (.'$schema#ObjectSchema'.minProperties)
+// check json_model_59_map_minProperties (.'$schema#ObjectSchema'.minProperties)
 static bool _jm_f_168(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -8757,7 +7974,7 @@ static bool _jm_f_168(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_85_map_minimum (.'$schema#ObjectSchema'.minimum)
+// check json_model_59_map_minimum (.'$schema#ObjectSchema'.minimum)
 static bool _jm_f_169(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -8770,7 +7987,7 @@ static bool _jm_f_169(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_85_map_multipleOf (.'$schema#ObjectSchema'.multipleOf)
+// check json_model_59_map_multipleOf (.'$schema#ObjectSchema'.multipleOf)
 static bool _jm_f_170(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -8783,7 +8000,7 @@ static bool _jm_f_170(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_85_map_not (.'$schema#ObjectSchema'.not)
+// check json_model_59_map_not (.'$schema#ObjectSchema'.not)
 static bool _jm_f_171(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -8796,7 +8013,7 @@ static bool _jm_f_171(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_85_map_oneOf (.'$schema#ObjectSchema'.oneOf)
+// check json_model_59_map_oneOf (.'$schema#ObjectSchema'.oneOf)
 static bool _jm_f_172(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -8809,7 +8026,7 @@ static bool _jm_f_172(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_85_map_pattern (.'$schema#ObjectSchema'.pattern)
+// check json_model_59_map_pattern (.'$schema#ObjectSchema'.pattern)
 static bool _jm_f_173(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -8822,9 +8039,10 @@ static bool _jm_f_173(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// object .'$schema#ObjectSchema'.patternProperties
-static INLINE bool _jm_obj_90(const json_t *val, jm_path_t *path, jm_report_t *rep)
+// check json_model_59_map_patternProperties (.'$schema#ObjectSchema'.patternProperties)
+static bool _jm_f_174(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
+    // .'$schema#ObjectSchema'.patternProperties
     if (! json_is_object(val))
     {
         if (rep) jm_report_add_entry(rep, "not an object [.'$schema#ObjectSchema'.patternProperties]", path);
@@ -8856,20 +8074,7 @@ static INLINE bool _jm_obj_90(const json_t *val, jm_path_t *path, jm_report_t *r
     return true;
 }
 
-// check _jm_obj_85_map_patternProperties (.'$schema#ObjectSchema'.patternProperties)
-static bool _jm_f_174(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
-    bool res;
-    // .'$schema#ObjectSchema'.patternProperties
-    res = _jm_obj_90(val, path, rep);
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected element [.'$schema#ObjectSchema'.patternProperties]", path);
-    }
-    return res;
-}
-
-// check _jm_obj_85_map_prefixItems (.'$schema#ObjectSchema'.prefixItems)
+// check json_model_59_map_prefixItems (.'$schema#ObjectSchema'.prefixItems)
 static bool _jm_f_175(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -8882,9 +8087,10 @@ static bool _jm_f_175(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// object .'$schema#ObjectSchema'.properties
-static INLINE bool _jm_obj_91(const json_t *val, jm_path_t *path, jm_report_t *rep)
+// check json_model_59_map_properties (.'$schema#ObjectSchema'.properties)
+static bool _jm_f_176(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
+    // .'$schema#ObjectSchema'.properties
     if (! json_is_object(val))
     {
         if (rep) jm_report_add_entry(rep, "not an object [.'$schema#ObjectSchema'.properties]", path);
@@ -8908,20 +8114,7 @@ static INLINE bool _jm_obj_91(const json_t *val, jm_path_t *path, jm_report_t *r
     return true;
 }
 
-// check _jm_obj_85_map_properties (.'$schema#ObjectSchema'.properties)
-static bool _jm_f_176(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
-    bool res;
-    // .'$schema#ObjectSchema'.properties
-    res = _jm_obj_91(val, path, rep);
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected element [.'$schema#ObjectSchema'.properties]", path);
-    }
-    return res;
-}
-
-// check _jm_obj_85_map_propertyNames (.'$schema#ObjectSchema'.propertyNames)
+// check json_model_59_map_propertyNames (.'$schema#ObjectSchema'.propertyNames)
 static bool _jm_f_177(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -8934,7 +8127,7 @@ static bool _jm_f_177(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_85_map_readOnly (.'$schema#ObjectSchema'.readOnly)
+// check json_model_59_map_readOnly (.'$schema#ObjectSchema'.readOnly)
 static bool _jm_f_178(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -8947,7 +8140,7 @@ static bool _jm_f_178(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_85_map_required (.'$schema#ObjectSchema'.required)
+// check json_model_59_map_required (.'$schema#ObjectSchema'.required)
 static bool _jm_f_179(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -8960,7 +8153,7 @@ static bool _jm_f_179(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_85_map_then (.'$schema#ObjectSchema'.then)
+// check json_model_59_map_then (.'$schema#ObjectSchema'.then)
 static bool _jm_f_180(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -8973,7 +8166,7 @@ static bool _jm_f_180(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_85_map_title (.'$schema#ObjectSchema'.title)
+// check json_model_59_map_title (.'$schema#ObjectSchema'.title)
 static bool _jm_f_181(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -8986,7 +8179,7 @@ static bool _jm_f_181(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_85_map_type (.'$schema#ObjectSchema'.type)
+// check json_model_59_map_type (.'$schema#ObjectSchema'.type)
 static bool _jm_f_182(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -9017,7 +8210,7 @@ static bool _jm_f_182(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_85_map_unevaluatedItems (.'$schema#ObjectSchema'.unevaluatedItems)
+// check json_model_59_map_unevaluatedItems (.'$schema#ObjectSchema'.unevaluatedItems)
 static bool _jm_f_183(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -9030,7 +8223,7 @@ static bool _jm_f_183(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_85_map_unevaluatedProperties (.'$schema#ObjectSchema'.unevaluatedProperties)
+// check json_model_59_map_unevaluatedProperties (.'$schema#ObjectSchema'.unevaluatedProperties)
 static bool _jm_f_184(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -9043,7 +8236,7 @@ static bool _jm_f_184(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_85_map_uniqueItems (.'$schema#ObjectSchema'.uniqueItems)
+// check json_model_59_map_uniqueItems (.'$schema#ObjectSchema'.uniqueItems)
 static bool _jm_f_185(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -9056,7 +8249,7 @@ static bool _jm_f_185(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check _jm_obj_85_map_writeOnly (.'$schema#ObjectSchema'.writeOnly)
+// check json_model_59_map_writeOnly (.'$schema#ObjectSchema'.writeOnly)
 static bool _jm_f_186(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
@@ -9069,14 +8262,15 @@ static bool _jm_f_186(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-static INLINE jm_check_fun_t _jm_obj_85_map(const char *pname)
+static INLINE jm_check_fun_t json_model_59_map(const char *pname)
 {
-    return jm_search_propmap(pname, _jm_obj_85_map_tab, 57);
+    return jm_search_propmap(pname, json_model_59_map_tab, 57);
 }
 
-// object .'$schema#ObjectSchema'
-static INLINE bool _jm_obj_85(const json_t *val, jm_path_t *path, jm_report_t *rep)
+// check $schema#ObjectSchema (.'$schema#ObjectSchema')
+static bool json_model_59(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
+    // .'$schema#ObjectSchema'
     if (! json_is_object(val))
     {
         if (rep) jm_report_add_entry(rep, "not an object [.'$schema#ObjectSchema']", path);
@@ -9088,7 +8282,7 @@ static INLINE bool _jm_obj_85(const json_t *val, jm_path_t *path, jm_report_t *r
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_79 = (jm_path_t) { prop, 0, path, NULL };
-        if ((pfun = _jm_obj_85_map(prop)))
+        if ((pfun = json_model_59_map(prop)))
         {
             // handle 57 may props
             if (pfun != NULL && ! pfun(pval, (path ? &lpath_79 : NULL), rep))
@@ -9104,19 +8298,6 @@ static INLINE bool _jm_obj_85(const json_t *val, jm_path_t *path, jm_report_t *r
         }
     }
     return true;
-}
-
-// check $schema#ObjectSchema (.'$schema#ObjectSchema')
-static bool json_model_59(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
-    bool res;
-    // .'$schema#ObjectSchema'
-    res = _jm_obj_85(val, path, rep);
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected element [.'$schema#ObjectSchema']", path);
-    }
-    return res;
 }
 
 jm_check_fun_t check_model_map(const char *pname)
@@ -9136,57 +8317,57 @@ const char *check_model_init(void)
         if (cre2_error_code(_jm_re_0_re2))
             return cre2_error_string(_jm_re_0_re2);
         _jm_re_0_nn = cre2_num_capturing_groups(_jm_re_0_re2) + 1;
-        _jm_obj_0_map_tab[0] = (jm_propmap_t) { "components", _jm_f_0 };
-        _jm_obj_0_map_tab[1] = (jm_propmap_t) { "externalDocs", _jm_f_1 };
-        _jm_obj_0_map_tab[2] = (jm_propmap_t) { "jsonSchemaDialect", _jm_f_2 };
-        _jm_obj_0_map_tab[3] = (jm_propmap_t) { "paths", _jm_f_3 };
-        _jm_obj_0_map_tab[4] = (jm_propmap_t) { "security", _jm_f_4 };
-        _jm_obj_0_map_tab[5] = (jm_propmap_t) { "servers", _jm_f_5 };
-        _jm_obj_0_map_tab[6] = (jm_propmap_t) { "tags", _jm_f_6 };
-        _jm_obj_0_map_tab[7] = (jm_propmap_t) { "webhooks", _jm_f_7 };
-        jm_sort_propmap(_jm_obj_0_map_tab, 8);
+        json_model_2_map_tab[0] = (jm_propmap_t) { "components", _jm_f_0 };
+        json_model_2_map_tab[1] = (jm_propmap_t) { "externalDocs", _jm_f_1 };
+        json_model_2_map_tab[2] = (jm_propmap_t) { "jsonSchemaDialect", _jm_f_2 };
+        json_model_2_map_tab[3] = (jm_propmap_t) { "paths", _jm_f_3 };
+        json_model_2_map_tab[4] = (jm_propmap_t) { "security", _jm_f_4 };
+        json_model_2_map_tab[5] = (jm_propmap_t) { "servers", _jm_f_5 };
+        json_model_2_map_tab[6] = (jm_propmap_t) { "tags", _jm_f_6 };
+        json_model_2_map_tab[7] = (jm_propmap_t) { "webhooks", _jm_f_7 };
+        jm_sort_propmap(json_model_2_map_tab, 8);
         _jm_re_1_re2 = cre2_new("^x\\-.*$", strlen("^x\\-.*$"), NULL);
         if (cre2_error_code(_jm_re_1_re2))
             return cre2_error_string(_jm_re_1_re2);
         _jm_re_1_nn = cre2_num_capturing_groups(_jm_re_1_re2) + 1;
-        _jm_obj_9_map_tab[0] = (jm_propmap_t) { "callbacks", _jm_f_8 };
-        _jm_obj_9_map_tab[1] = (jm_propmap_t) { "examples", _jm_f_9 };
-        _jm_obj_9_map_tab[2] = (jm_propmap_t) { "headers", _jm_f_10 };
-        _jm_obj_9_map_tab[3] = (jm_propmap_t) { "links", _jm_f_11 };
-        _jm_obj_9_map_tab[4] = (jm_propmap_t) { "parameters", _jm_f_12 };
-        _jm_obj_9_map_tab[5] = (jm_propmap_t) { "pathItems", _jm_f_13 };
-        _jm_obj_9_map_tab[6] = (jm_propmap_t) { "requestBodies", _jm_f_14 };
-        _jm_obj_9_map_tab[7] = (jm_propmap_t) { "responses", _jm_f_15 };
-        _jm_obj_9_map_tab[8] = (jm_propmap_t) { "schemas", _jm_f_16 };
-        _jm_obj_9_map_tab[9] = (jm_propmap_t) { "securitySchemes", _jm_f_17 };
-        jm_sort_propmap(_jm_obj_9_map_tab, 10);
-        _jm_obj_21_map_tab[0] = (jm_propmap_t) { "$ref", _jm_f_18 };
-        _jm_obj_21_map_tab[1] = (jm_propmap_t) { "delete", _jm_f_19 };
-        _jm_obj_21_map_tab[2] = (jm_propmap_t) { "description", _jm_f_20 };
-        _jm_obj_21_map_tab[3] = (jm_propmap_t) { "get", _jm_f_21 };
-        _jm_obj_21_map_tab[4] = (jm_propmap_t) { "head", _jm_f_22 };
-        _jm_obj_21_map_tab[5] = (jm_propmap_t) { "options", _jm_f_23 };
-        _jm_obj_21_map_tab[6] = (jm_propmap_t) { "parameters", _jm_f_24 };
-        _jm_obj_21_map_tab[7] = (jm_propmap_t) { "patch", _jm_f_25 };
-        _jm_obj_21_map_tab[8] = (jm_propmap_t) { "post", _jm_f_26 };
-        _jm_obj_21_map_tab[9] = (jm_propmap_t) { "put", _jm_f_27 };
-        _jm_obj_21_map_tab[10] = (jm_propmap_t) { "servers", _jm_f_28 };
-        _jm_obj_21_map_tab[11] = (jm_propmap_t) { "summary", _jm_f_29 };
-        _jm_obj_21_map_tab[12] = (jm_propmap_t) { "trace", _jm_f_30 };
-        jm_sort_propmap(_jm_obj_21_map_tab, 13);
-        _jm_obj_22_map_tab[0] = (jm_propmap_t) { "callbacks", _jm_f_31 };
-        _jm_obj_22_map_tab[1] = (jm_propmap_t) { "deprecated", _jm_f_32 };
-        _jm_obj_22_map_tab[2] = (jm_propmap_t) { "description", _jm_f_33 };
-        _jm_obj_22_map_tab[3] = (jm_propmap_t) { "externalDocs", _jm_f_34 };
-        _jm_obj_22_map_tab[4] = (jm_propmap_t) { "operationId", _jm_f_35 };
-        _jm_obj_22_map_tab[5] = (jm_propmap_t) { "parameters", _jm_f_36 };
-        _jm_obj_22_map_tab[6] = (jm_propmap_t) { "requestBody", _jm_f_37 };
-        _jm_obj_22_map_tab[7] = (jm_propmap_t) { "responses", _jm_f_38 };
-        _jm_obj_22_map_tab[8] = (jm_propmap_t) { "security", _jm_f_39 };
-        _jm_obj_22_map_tab[9] = (jm_propmap_t) { "servers", _jm_f_40 };
-        _jm_obj_22_map_tab[10] = (jm_propmap_t) { "summary", _jm_f_41 };
-        _jm_obj_22_map_tab[11] = (jm_propmap_t) { "tags", _jm_f_42 };
-        jm_sort_propmap(_jm_obj_22_map_tab, 12);
+        json_model_8_map_tab[0] = (jm_propmap_t) { "callbacks", _jm_f_8 };
+        json_model_8_map_tab[1] = (jm_propmap_t) { "examples", _jm_f_9 };
+        json_model_8_map_tab[2] = (jm_propmap_t) { "headers", _jm_f_10 };
+        json_model_8_map_tab[3] = (jm_propmap_t) { "links", _jm_f_11 };
+        json_model_8_map_tab[4] = (jm_propmap_t) { "parameters", _jm_f_12 };
+        json_model_8_map_tab[5] = (jm_propmap_t) { "pathItems", _jm_f_13 };
+        json_model_8_map_tab[6] = (jm_propmap_t) { "requestBodies", _jm_f_14 };
+        json_model_8_map_tab[7] = (jm_propmap_t) { "responses", _jm_f_15 };
+        json_model_8_map_tab[8] = (jm_propmap_t) { "schemas", _jm_f_16 };
+        json_model_8_map_tab[9] = (jm_propmap_t) { "securitySchemes", _jm_f_17 };
+        jm_sort_propmap(json_model_8_map_tab, 10);
+        json_model_10_map_tab[0] = (jm_propmap_t) { "$ref", _jm_f_18 };
+        json_model_10_map_tab[1] = (jm_propmap_t) { "delete", _jm_f_19 };
+        json_model_10_map_tab[2] = (jm_propmap_t) { "description", _jm_f_20 };
+        json_model_10_map_tab[3] = (jm_propmap_t) { "get", _jm_f_21 };
+        json_model_10_map_tab[4] = (jm_propmap_t) { "head", _jm_f_22 };
+        json_model_10_map_tab[5] = (jm_propmap_t) { "options", _jm_f_23 };
+        json_model_10_map_tab[6] = (jm_propmap_t) { "parameters", _jm_f_24 };
+        json_model_10_map_tab[7] = (jm_propmap_t) { "patch", _jm_f_25 };
+        json_model_10_map_tab[8] = (jm_propmap_t) { "post", _jm_f_26 };
+        json_model_10_map_tab[9] = (jm_propmap_t) { "put", _jm_f_27 };
+        json_model_10_map_tab[10] = (jm_propmap_t) { "servers", _jm_f_28 };
+        json_model_10_map_tab[11] = (jm_propmap_t) { "summary", _jm_f_29 };
+        json_model_10_map_tab[12] = (jm_propmap_t) { "trace", _jm_f_30 };
+        jm_sort_propmap(json_model_10_map_tab, 13);
+        json_model_11_map_tab[0] = (jm_propmap_t) { "callbacks", _jm_f_31 };
+        json_model_11_map_tab[1] = (jm_propmap_t) { "deprecated", _jm_f_32 };
+        json_model_11_map_tab[2] = (jm_propmap_t) { "description", _jm_f_33 };
+        json_model_11_map_tab[3] = (jm_propmap_t) { "externalDocs", _jm_f_34 };
+        json_model_11_map_tab[4] = (jm_propmap_t) { "operationId", _jm_f_35 };
+        json_model_11_map_tab[5] = (jm_propmap_t) { "parameters", _jm_f_36 };
+        json_model_11_map_tab[6] = (jm_propmap_t) { "requestBody", _jm_f_37 };
+        json_model_11_map_tab[7] = (jm_propmap_t) { "responses", _jm_f_38 };
+        json_model_11_map_tab[8] = (jm_propmap_t) { "security", _jm_f_39 };
+        json_model_11_map_tab[9] = (jm_propmap_t) { "servers", _jm_f_40 };
+        json_model_11_map_tab[10] = (jm_propmap_t) { "summary", _jm_f_41 };
+        json_model_11_map_tab[11] = (jm_propmap_t) { "tags", _jm_f_42 };
+        jm_sort_propmap(json_model_11_map_tab, 12);
         // initialize sorted set _jm_cst_0
         _jm_cst_0[0] = (jm_constant_t) { cst_is_string, { .s = "query" } };
         _jm_cst_0[1] = (jm_constant_t) { cst_is_string, { .s = "header" } };
@@ -9202,118 +8383,118 @@ const char *check_model_init(void)
         _jm_cst_1[5] = (jm_constant_t) { cst_is_string, { .s = "pipeDelimited" } };
         _jm_cst_1[6] = (jm_constant_t) { cst_is_string, { .s = "deepObject" } };
         jm_sort_cst(_jm_cst_1, 7);
-        _jm_obj_27_map_tab[0] = (jm_propmap_t) { "allowReserved", _jm_f_43 };
-        _jm_obj_27_map_tab[1] = (jm_propmap_t) { "example", _jm_f_44 };
-        _jm_obj_27_map_tab[2] = (jm_propmap_t) { "examples", _jm_f_45 };
-        _jm_obj_27_map_tab[3] = (jm_propmap_t) { "explode", _jm_f_46 };
-        _jm_obj_27_map_tab[4] = (jm_propmap_t) { "schema", _jm_f_47 };
-        _jm_obj_27_map_tab[5] = (jm_propmap_t) { "style", _jm_f_48 };
-        jm_sort_propmap(_jm_obj_27_map_tab, 6);
+        json_model_16_map_tab[0] = (jm_propmap_t) { "allowReserved", _jm_f_43 };
+        json_model_16_map_tab[1] = (jm_propmap_t) { "example", _jm_f_44 };
+        json_model_16_map_tab[2] = (jm_propmap_t) { "examples", _jm_f_45 };
+        json_model_16_map_tab[3] = (jm_propmap_t) { "explode", _jm_f_46 };
+        json_model_16_map_tab[4] = (jm_propmap_t) { "schema", _jm_f_47 };
+        json_model_16_map_tab[5] = (jm_propmap_t) { "style", _jm_f_48 };
+        jm_sort_propmap(json_model_16_map_tab, 6);
         // initialize sorted set _jm_cst_2
         _jm_cst_2[0] = (jm_constant_t) { cst_is_string, { .s = "query" } };
         _jm_cst_2[1] = (jm_constant_t) { cst_is_string, { .s = "header" } };
         _jm_cst_2[2] = (jm_constant_t) { cst_is_string, { .s = "path" } };
         _jm_cst_2[3] = (jm_constant_t) { cst_is_string, { .s = "cookie" } };
         jm_sort_cst(_jm_cst_2, 4);
-        _jm_obj_31_map_tab[0] = (jm_propmap_t) { "allowEmptyValue", _jm_f_49 };
-        _jm_obj_31_map_tab[1] = (jm_propmap_t) { "allowReserved", _jm_f_50 };
-        _jm_obj_31_map_tab[2] = (jm_propmap_t) { "deprecated", _jm_f_51 };
-        _jm_obj_31_map_tab[3] = (jm_propmap_t) { "description", _jm_f_52 };
-        _jm_obj_31_map_tab[4] = (jm_propmap_t) { "example", _jm_f_53 };
-        _jm_obj_31_map_tab[5] = (jm_propmap_t) { "examples", _jm_f_54 };
-        _jm_obj_31_map_tab[6] = (jm_propmap_t) { "explode", _jm_f_55 };
-        _jm_obj_31_map_tab[7] = (jm_propmap_t) { "required", _jm_f_56 };
-        _jm_obj_31_map_tab[8] = (jm_propmap_t) { "schema", _jm_f_57 };
-        _jm_obj_31_map_tab[9] = (jm_propmap_t) { "style", _jm_f_58 };
-        jm_sort_propmap(_jm_obj_31_map_tab, 10);
+        _jm_obj_4_map_tab[0] = (jm_propmap_t) { "allowEmptyValue", _jm_f_49 };
+        _jm_obj_4_map_tab[1] = (jm_propmap_t) { "allowReserved", _jm_f_50 };
+        _jm_obj_4_map_tab[2] = (jm_propmap_t) { "deprecated", _jm_f_51 };
+        _jm_obj_4_map_tab[3] = (jm_propmap_t) { "description", _jm_f_52 };
+        _jm_obj_4_map_tab[4] = (jm_propmap_t) { "example", _jm_f_53 };
+        _jm_obj_4_map_tab[5] = (jm_propmap_t) { "examples", _jm_f_54 };
+        _jm_obj_4_map_tab[6] = (jm_propmap_t) { "explode", _jm_f_55 };
+        _jm_obj_4_map_tab[7] = (jm_propmap_t) { "required", _jm_f_56 };
+        _jm_obj_4_map_tab[8] = (jm_propmap_t) { "schema", _jm_f_57 };
+        _jm_obj_4_map_tab[9] = (jm_propmap_t) { "style", _jm_f_58 };
+        jm_sort_propmap(_jm_obj_4_map_tab, 10);
         // initialize sorted set _jm_cst_3
         _jm_cst_3[0] = (jm_constant_t) { cst_is_string, { .s = "query" } };
         _jm_cst_3[1] = (jm_constant_t) { cst_is_string, { .s = "header" } };
         _jm_cst_3[2] = (jm_constant_t) { cst_is_string, { .s = "path" } };
         _jm_cst_3[3] = (jm_constant_t) { cst_is_string, { .s = "cookie" } };
         jm_sort_cst(_jm_cst_3, 4);
-        _jm_map_0_tab[0] = (jm_constmap_t) { (jm_constant_t) { cst_is_string, { .s = "cookie" } }, _jm_obj_33 };
-        _jm_map_0_tab[1] = (jm_constmap_t) { (jm_constant_t) { cst_is_string, { .s = "header" } }, _jm_obj_33 };
-        _jm_map_0_tab[2] = (jm_constmap_t) { (jm_constant_t) { cst_is_string, { .s = "path" } }, _jm_obj_33 };
-        _jm_map_0_tab[3] = (jm_constmap_t) { (jm_constant_t) { cst_is_string, { .s = "query" } }, _jm_obj_33 };
+        _jm_map_0_tab[0] = (jm_constmap_t) { (jm_constant_t) { cst_is_string, { .s = "cookie" } }, _jm_obj_5 };
+        _jm_map_0_tab[1] = (jm_constmap_t) { (jm_constant_t) { cst_is_string, { .s = "header" } }, _jm_obj_5 };
+        _jm_map_0_tab[2] = (jm_constmap_t) { (jm_constant_t) { cst_is_string, { .s = "path" } }, _jm_obj_5 };
+        _jm_map_0_tab[3] = (jm_constmap_t) { (jm_constant_t) { cst_is_string, { .s = "query" } }, _jm_obj_5 };
         jm_sort_constmap(_jm_map_0_tab, 4);
         _jm_re_2_re2 = cre2_new("^[1-5](\\d\\d|XX)$", strlen("^[1-5](\\d\\d|XX)$"), NULL);
         if (cre2_error_code(_jm_re_2_re2))
             return cre2_error_string(_jm_re_2_re2);
         _jm_re_2_nn = cre2_num_capturing_groups(_jm_re_2_re2) + 1;
-        _jm_obj_55_map_tab[0] = (jm_propmap_t) { "allowEmptyValue", _jm_f_59 };
-        _jm_obj_55_map_tab[1] = (jm_propmap_t) { "allowReserved", _jm_f_60 };
-        _jm_obj_55_map_tab[2] = (jm_propmap_t) { "deprecated", _jm_f_61 };
-        _jm_obj_55_map_tab[3] = (jm_propmap_t) { "description", _jm_f_62 };
-        _jm_obj_55_map_tab[4] = (jm_propmap_t) { "example", _jm_f_63 };
-        _jm_obj_55_map_tab[5] = (jm_propmap_t) { "examples", _jm_f_64 };
-        _jm_obj_55_map_tab[6] = (jm_propmap_t) { "explode", _jm_f_65 };
-        _jm_obj_55_map_tab[7] = (jm_propmap_t) { "required", _jm_f_66 };
-        _jm_obj_55_map_tab[8] = (jm_propmap_t) { "schema", _jm_f_67 };
-        _jm_obj_55_map_tab[9] = (jm_propmap_t) { "style", _jm_f_68 };
-        jm_sort_propmap(_jm_obj_55_map_tab, 10);
-        _jm_obj_59_map_tab[0] = (jm_propmap_t) { "$anchor", _jm_f_69 };
-        _jm_obj_59_map_tab[1] = (jm_propmap_t) { "$comment", _jm_f_70 };
-        _jm_obj_59_map_tab[2] = (jm_propmap_t) { "$defs", _jm_f_71 };
-        _jm_obj_59_map_tab[3] = (jm_propmap_t) { "$dynamicAnchor", _jm_f_72 };
-        _jm_obj_59_map_tab[4] = (jm_propmap_t) { "$dynamicRef", _jm_f_73 };
-        _jm_obj_59_map_tab[5] = (jm_propmap_t) { "$id", _jm_f_74 };
-        _jm_obj_59_map_tab[6] = (jm_propmap_t) { "$ref", _jm_f_75 };
-        _jm_obj_59_map_tab[7] = (jm_propmap_t) { "$schema", _jm_f_76 };
-        _jm_obj_59_map_tab[8] = (jm_propmap_t) { "$vocabulary", _jm_f_77 };
-        _jm_obj_59_map_tab[9] = (jm_propmap_t) { "additionalProperties", _jm_f_78 };
-        _jm_obj_59_map_tab[10] = (jm_propmap_t) { "allOf", _jm_f_79 };
-        _jm_obj_59_map_tab[11] = (jm_propmap_t) { "anyOf", _jm_f_80 };
-        _jm_obj_59_map_tab[12] = (jm_propmap_t) { "const", _jm_f_81 };
-        _jm_obj_59_map_tab[13] = (jm_propmap_t) { "contains", _jm_f_82 };
-        _jm_obj_59_map_tab[14] = (jm_propmap_t) { "contentEncoding", _jm_f_83 };
-        _jm_obj_59_map_tab[15] = (jm_propmap_t) { "contentMediaType", _jm_f_84 };
-        _jm_obj_59_map_tab[16] = (jm_propmap_t) { "contentSchema", _jm_f_85 };
-        _jm_obj_59_map_tab[17] = (jm_propmap_t) { "default", _jm_f_86 };
-        _jm_obj_59_map_tab[18] = (jm_propmap_t) { "dependentRequired", _jm_f_87 };
-        _jm_obj_59_map_tab[19] = (jm_propmap_t) { "dependentSchemas", _jm_f_88 };
-        _jm_obj_59_map_tab[20] = (jm_propmap_t) { "deprecated", _jm_f_89 };
-        _jm_obj_59_map_tab[21] = (jm_propmap_t) { "description", _jm_f_90 };
-        _jm_obj_59_map_tab[22] = (jm_propmap_t) { "discriminator", _jm_f_91 };
-        _jm_obj_59_map_tab[23] = (jm_propmap_t) { "else", _jm_f_92 };
-        _jm_obj_59_map_tab[24] = (jm_propmap_t) { "enum", _jm_f_93 };
-        _jm_obj_59_map_tab[25] = (jm_propmap_t) { "example", _jm_f_94 };
-        _jm_obj_59_map_tab[26] = (jm_propmap_t) { "examples", _jm_f_95 };
-        _jm_obj_59_map_tab[27] = (jm_propmap_t) { "exclusiveMaximum", _jm_f_96 };
-        _jm_obj_59_map_tab[28] = (jm_propmap_t) { "exclusiveMinimum", _jm_f_97 };
-        _jm_obj_59_map_tab[29] = (jm_propmap_t) { "externalDocs", _jm_f_98 };
-        _jm_obj_59_map_tab[30] = (jm_propmap_t) { "format", _jm_f_99 };
-        _jm_obj_59_map_tab[31] = (jm_propmap_t) { "if", _jm_f_100 };
-        _jm_obj_59_map_tab[32] = (jm_propmap_t) { "items", _jm_f_101 };
-        _jm_obj_59_map_tab[33] = (jm_propmap_t) { "maxContains", _jm_f_102 };
-        _jm_obj_59_map_tab[34] = (jm_propmap_t) { "maxItems", _jm_f_103 };
-        _jm_obj_59_map_tab[35] = (jm_propmap_t) { "maxLength", _jm_f_104 };
-        _jm_obj_59_map_tab[36] = (jm_propmap_t) { "maxProperties", _jm_f_105 };
-        _jm_obj_59_map_tab[37] = (jm_propmap_t) { "maximum", _jm_f_106 };
-        _jm_obj_59_map_tab[38] = (jm_propmap_t) { "minContains", _jm_f_107 };
-        _jm_obj_59_map_tab[39] = (jm_propmap_t) { "minItems", _jm_f_108 };
-        _jm_obj_59_map_tab[40] = (jm_propmap_t) { "minLength", _jm_f_109 };
-        _jm_obj_59_map_tab[41] = (jm_propmap_t) { "minProperties", _jm_f_110 };
-        _jm_obj_59_map_tab[42] = (jm_propmap_t) { "minimum", _jm_f_111 };
-        _jm_obj_59_map_tab[43] = (jm_propmap_t) { "multipleOf", _jm_f_112 };
-        _jm_obj_59_map_tab[44] = (jm_propmap_t) { "not", _jm_f_113 };
-        _jm_obj_59_map_tab[45] = (jm_propmap_t) { "oneOf", _jm_f_114 };
-        _jm_obj_59_map_tab[46] = (jm_propmap_t) { "pattern", _jm_f_115 };
-        _jm_obj_59_map_tab[47] = (jm_propmap_t) { "patternProperties", _jm_f_116 };
-        _jm_obj_59_map_tab[48] = (jm_propmap_t) { "prefixItems", _jm_f_117 };
-        _jm_obj_59_map_tab[49] = (jm_propmap_t) { "properties", _jm_f_118 };
-        _jm_obj_59_map_tab[50] = (jm_propmap_t) { "propertyNames", _jm_f_119 };
-        _jm_obj_59_map_tab[51] = (jm_propmap_t) { "readOnly", _jm_f_120 };
-        _jm_obj_59_map_tab[52] = (jm_propmap_t) { "required", _jm_f_121 };
-        _jm_obj_59_map_tab[53] = (jm_propmap_t) { "then", _jm_f_122 };
-        _jm_obj_59_map_tab[54] = (jm_propmap_t) { "title", _jm_f_123 };
-        _jm_obj_59_map_tab[55] = (jm_propmap_t) { "type", _jm_f_124 };
-        _jm_obj_59_map_tab[56] = (jm_propmap_t) { "unevaluatedItems", _jm_f_125 };
-        _jm_obj_59_map_tab[57] = (jm_propmap_t) { "unevaluatedProperties", _jm_f_126 };
-        _jm_obj_59_map_tab[58] = (jm_propmap_t) { "uniqueItems", _jm_f_127 };
-        _jm_obj_59_map_tab[59] = (jm_propmap_t) { "writeOnly", _jm_f_128 };
-        _jm_obj_59_map_tab[60] = (jm_propmap_t) { "xml", _jm_f_129 };
-        jm_sort_propmap(_jm_obj_59_map_tab, 61);
+        _jm_obj_20_map_tab[0] = (jm_propmap_t) { "allowEmptyValue", _jm_f_59 };
+        _jm_obj_20_map_tab[1] = (jm_propmap_t) { "allowReserved", _jm_f_60 };
+        _jm_obj_20_map_tab[2] = (jm_propmap_t) { "deprecated", _jm_f_61 };
+        _jm_obj_20_map_tab[3] = (jm_propmap_t) { "description", _jm_f_62 };
+        _jm_obj_20_map_tab[4] = (jm_propmap_t) { "example", _jm_f_63 };
+        _jm_obj_20_map_tab[5] = (jm_propmap_t) { "examples", _jm_f_64 };
+        _jm_obj_20_map_tab[6] = (jm_propmap_t) { "explode", _jm_f_65 };
+        _jm_obj_20_map_tab[7] = (jm_propmap_t) { "required", _jm_f_66 };
+        _jm_obj_20_map_tab[8] = (jm_propmap_t) { "schema", _jm_f_67 };
+        _jm_obj_20_map_tab[9] = (jm_propmap_t) { "style", _jm_f_68 };
+        jm_sort_propmap(_jm_obj_20_map_tab, 10);
+        json_model_32_map_tab[0] = (jm_propmap_t) { "$anchor", _jm_f_69 };
+        json_model_32_map_tab[1] = (jm_propmap_t) { "$comment", _jm_f_70 };
+        json_model_32_map_tab[2] = (jm_propmap_t) { "$defs", _jm_f_71 };
+        json_model_32_map_tab[3] = (jm_propmap_t) { "$dynamicAnchor", _jm_f_72 };
+        json_model_32_map_tab[4] = (jm_propmap_t) { "$dynamicRef", _jm_f_73 };
+        json_model_32_map_tab[5] = (jm_propmap_t) { "$id", _jm_f_74 };
+        json_model_32_map_tab[6] = (jm_propmap_t) { "$ref", _jm_f_75 };
+        json_model_32_map_tab[7] = (jm_propmap_t) { "$schema", _jm_f_76 };
+        json_model_32_map_tab[8] = (jm_propmap_t) { "$vocabulary", _jm_f_77 };
+        json_model_32_map_tab[9] = (jm_propmap_t) { "additionalProperties", _jm_f_78 };
+        json_model_32_map_tab[10] = (jm_propmap_t) { "allOf", _jm_f_79 };
+        json_model_32_map_tab[11] = (jm_propmap_t) { "anyOf", _jm_f_80 };
+        json_model_32_map_tab[12] = (jm_propmap_t) { "const", _jm_f_81 };
+        json_model_32_map_tab[13] = (jm_propmap_t) { "contains", _jm_f_82 };
+        json_model_32_map_tab[14] = (jm_propmap_t) { "contentEncoding", _jm_f_83 };
+        json_model_32_map_tab[15] = (jm_propmap_t) { "contentMediaType", _jm_f_84 };
+        json_model_32_map_tab[16] = (jm_propmap_t) { "contentSchema", _jm_f_85 };
+        json_model_32_map_tab[17] = (jm_propmap_t) { "default", _jm_f_86 };
+        json_model_32_map_tab[18] = (jm_propmap_t) { "dependentRequired", _jm_f_87 };
+        json_model_32_map_tab[19] = (jm_propmap_t) { "dependentSchemas", _jm_f_88 };
+        json_model_32_map_tab[20] = (jm_propmap_t) { "deprecated", _jm_f_89 };
+        json_model_32_map_tab[21] = (jm_propmap_t) { "description", _jm_f_90 };
+        json_model_32_map_tab[22] = (jm_propmap_t) { "discriminator", _jm_f_91 };
+        json_model_32_map_tab[23] = (jm_propmap_t) { "else", _jm_f_92 };
+        json_model_32_map_tab[24] = (jm_propmap_t) { "enum", _jm_f_93 };
+        json_model_32_map_tab[25] = (jm_propmap_t) { "example", _jm_f_94 };
+        json_model_32_map_tab[26] = (jm_propmap_t) { "examples", _jm_f_95 };
+        json_model_32_map_tab[27] = (jm_propmap_t) { "exclusiveMaximum", _jm_f_96 };
+        json_model_32_map_tab[28] = (jm_propmap_t) { "exclusiveMinimum", _jm_f_97 };
+        json_model_32_map_tab[29] = (jm_propmap_t) { "externalDocs", _jm_f_98 };
+        json_model_32_map_tab[30] = (jm_propmap_t) { "format", _jm_f_99 };
+        json_model_32_map_tab[31] = (jm_propmap_t) { "if", _jm_f_100 };
+        json_model_32_map_tab[32] = (jm_propmap_t) { "items", _jm_f_101 };
+        json_model_32_map_tab[33] = (jm_propmap_t) { "maxContains", _jm_f_102 };
+        json_model_32_map_tab[34] = (jm_propmap_t) { "maxItems", _jm_f_103 };
+        json_model_32_map_tab[35] = (jm_propmap_t) { "maxLength", _jm_f_104 };
+        json_model_32_map_tab[36] = (jm_propmap_t) { "maxProperties", _jm_f_105 };
+        json_model_32_map_tab[37] = (jm_propmap_t) { "maximum", _jm_f_106 };
+        json_model_32_map_tab[38] = (jm_propmap_t) { "minContains", _jm_f_107 };
+        json_model_32_map_tab[39] = (jm_propmap_t) { "minItems", _jm_f_108 };
+        json_model_32_map_tab[40] = (jm_propmap_t) { "minLength", _jm_f_109 };
+        json_model_32_map_tab[41] = (jm_propmap_t) { "minProperties", _jm_f_110 };
+        json_model_32_map_tab[42] = (jm_propmap_t) { "minimum", _jm_f_111 };
+        json_model_32_map_tab[43] = (jm_propmap_t) { "multipleOf", _jm_f_112 };
+        json_model_32_map_tab[44] = (jm_propmap_t) { "not", _jm_f_113 };
+        json_model_32_map_tab[45] = (jm_propmap_t) { "oneOf", _jm_f_114 };
+        json_model_32_map_tab[46] = (jm_propmap_t) { "pattern", _jm_f_115 };
+        json_model_32_map_tab[47] = (jm_propmap_t) { "patternProperties", _jm_f_116 };
+        json_model_32_map_tab[48] = (jm_propmap_t) { "prefixItems", _jm_f_117 };
+        json_model_32_map_tab[49] = (jm_propmap_t) { "properties", _jm_f_118 };
+        json_model_32_map_tab[50] = (jm_propmap_t) { "propertyNames", _jm_f_119 };
+        json_model_32_map_tab[51] = (jm_propmap_t) { "readOnly", _jm_f_120 };
+        json_model_32_map_tab[52] = (jm_propmap_t) { "required", _jm_f_121 };
+        json_model_32_map_tab[53] = (jm_propmap_t) { "then", _jm_f_122 };
+        json_model_32_map_tab[54] = (jm_propmap_t) { "title", _jm_f_123 };
+        json_model_32_map_tab[55] = (jm_propmap_t) { "type", _jm_f_124 };
+        json_model_32_map_tab[56] = (jm_propmap_t) { "unevaluatedItems", _jm_f_125 };
+        json_model_32_map_tab[57] = (jm_propmap_t) { "unevaluatedProperties", _jm_f_126 };
+        json_model_32_map_tab[58] = (jm_propmap_t) { "uniqueItems", _jm_f_127 };
+        json_model_32_map_tab[59] = (jm_propmap_t) { "writeOnly", _jm_f_128 };
+        json_model_32_map_tab[60] = (jm_propmap_t) { "xml", _jm_f_129 };
+        jm_sort_propmap(json_model_32_map_tab, 61);
         // initialize sorted set _jm_cst_4
         _jm_cst_4[0] = (jm_constant_t) { cst_is_string, { .s = "query" } };
         _jm_cst_4[1] = (jm_constant_t) { cst_is_string, { .s = "header" } };
@@ -9328,10 +8509,10 @@ const char *check_model_init(void)
         _jm_cst_5[1] = (jm_constant_t) { cst_is_string, { .s = "header" } };
         _jm_cst_5[2] = (jm_constant_t) { cst_is_string, { .s = "cookie" } };
         jm_sort_cst(_jm_cst_5, 3);
-        _jm_map_1_tab[0] = (jm_constmap_t) { (jm_constant_t) { cst_is_string, { .s = "apiKey" } }, _jm_obj_74 };
-        _jm_map_1_tab[1] = (jm_constmap_t) { (jm_constant_t) { cst_is_string, { .s = "http" } }, _jm_obj_76 };
-        _jm_map_1_tab[2] = (jm_constmap_t) { (jm_constant_t) { cst_is_string, { .s = "oauth2" } }, _jm_obj_77 };
-        _jm_map_1_tab[3] = (jm_constmap_t) { (jm_constant_t) { cst_is_string, { .s = "openIdConnect" } }, _jm_obj_78 };
+        _jm_map_1_tab[0] = (jm_constmap_t) { (jm_constant_t) { cst_is_string, { .s = "apiKey" } }, _jm_obj_22 };
+        _jm_map_1_tab[1] = (jm_constmap_t) { (jm_constant_t) { cst_is_string, { .s = "http" } }, _jm_obj_24 };
+        _jm_map_1_tab[2] = (jm_constmap_t) { (jm_constant_t) { cst_is_string, { .s = "oauth2" } }, _jm_obj_25 };
+        _jm_map_1_tab[3] = (jm_constmap_t) { (jm_constant_t) { cst_is_string, { .s = "openIdConnect" } }, _jm_obj_26 };
         jm_sort_constmap(_jm_map_1_tab, 4);
         // initialize sorted set _jm_cst_6
         _jm_cst_6[0] = (jm_constant_t) { cst_is_string, { .s = "array" } };
@@ -9342,108 +8523,108 @@ const char *check_model_init(void)
         _jm_cst_6[5] = (jm_constant_t) { cst_is_string, { .s = "object" } };
         _jm_cst_6[6] = (jm_constant_t) { cst_is_string, { .s = "string" } };
         jm_sort_cst(_jm_cst_6, 7);
-        _jm_obj_85_map_tab[0] = (jm_propmap_t) { "$anchor", _jm_f_130 };
-        _jm_obj_85_map_tab[1] = (jm_propmap_t) { "$comment", _jm_f_131 };
-        _jm_obj_85_map_tab[2] = (jm_propmap_t) { "$defs", _jm_f_132 };
-        _jm_obj_85_map_tab[3] = (jm_propmap_t) { "$dynamicAnchor", _jm_f_133 };
-        _jm_obj_85_map_tab[4] = (jm_propmap_t) { "$dynamicRef", _jm_f_134 };
-        _jm_obj_85_map_tab[5] = (jm_propmap_t) { "$id", _jm_f_135 };
-        _jm_obj_85_map_tab[6] = (jm_propmap_t) { "$ref", _jm_f_136 };
-        _jm_obj_85_map_tab[7] = (jm_propmap_t) { "$schema", _jm_f_137 };
-        _jm_obj_85_map_tab[8] = (jm_propmap_t) { "$vocabulary", _jm_f_138 };
-        _jm_obj_85_map_tab[9] = (jm_propmap_t) { "additionalProperties", _jm_f_139 };
-        _jm_obj_85_map_tab[10] = (jm_propmap_t) { "allOf", _jm_f_140 };
-        _jm_obj_85_map_tab[11] = (jm_propmap_t) { "anyOf", _jm_f_141 };
-        _jm_obj_85_map_tab[12] = (jm_propmap_t) { "const", _jm_f_142 };
-        _jm_obj_85_map_tab[13] = (jm_propmap_t) { "contains", _jm_f_143 };
-        _jm_obj_85_map_tab[14] = (jm_propmap_t) { "contentEncoding", _jm_f_144 };
-        _jm_obj_85_map_tab[15] = (jm_propmap_t) { "contentMediaType", _jm_f_145 };
-        _jm_obj_85_map_tab[16] = (jm_propmap_t) { "contentSchema", _jm_f_146 };
-        _jm_obj_85_map_tab[17] = (jm_propmap_t) { "default", _jm_f_147 };
-        _jm_obj_85_map_tab[18] = (jm_propmap_t) { "dependentRequired", _jm_f_148 };
-        _jm_obj_85_map_tab[19] = (jm_propmap_t) { "dependentSchemas", _jm_f_149 };
-        _jm_obj_85_map_tab[20] = (jm_propmap_t) { "deprecated", _jm_f_150 };
-        _jm_obj_85_map_tab[21] = (jm_propmap_t) { "description", _jm_f_151 };
-        _jm_obj_85_map_tab[22] = (jm_propmap_t) { "else", _jm_f_152 };
-        _jm_obj_85_map_tab[23] = (jm_propmap_t) { "enum", _jm_f_153 };
-        _jm_obj_85_map_tab[24] = (jm_propmap_t) { "examples", _jm_f_154 };
-        _jm_obj_85_map_tab[25] = (jm_propmap_t) { "exclusiveMaximum", _jm_f_155 };
-        _jm_obj_85_map_tab[26] = (jm_propmap_t) { "exclusiveMinimum", _jm_f_156 };
-        _jm_obj_85_map_tab[27] = (jm_propmap_t) { "format", _jm_f_157 };
-        _jm_obj_85_map_tab[28] = (jm_propmap_t) { "if", _jm_f_158 };
-        _jm_obj_85_map_tab[29] = (jm_propmap_t) { "items", _jm_f_159 };
-        _jm_obj_85_map_tab[30] = (jm_propmap_t) { "maxContains", _jm_f_160 };
-        _jm_obj_85_map_tab[31] = (jm_propmap_t) { "maxItems", _jm_f_161 };
-        _jm_obj_85_map_tab[32] = (jm_propmap_t) { "maxLength", _jm_f_162 };
-        _jm_obj_85_map_tab[33] = (jm_propmap_t) { "maxProperties", _jm_f_163 };
-        _jm_obj_85_map_tab[34] = (jm_propmap_t) { "maximum", _jm_f_164 };
-        _jm_obj_85_map_tab[35] = (jm_propmap_t) { "minContains", _jm_f_165 };
-        _jm_obj_85_map_tab[36] = (jm_propmap_t) { "minItems", _jm_f_166 };
-        _jm_obj_85_map_tab[37] = (jm_propmap_t) { "minLength", _jm_f_167 };
-        _jm_obj_85_map_tab[38] = (jm_propmap_t) { "minProperties", _jm_f_168 };
-        _jm_obj_85_map_tab[39] = (jm_propmap_t) { "minimum", _jm_f_169 };
-        _jm_obj_85_map_tab[40] = (jm_propmap_t) { "multipleOf", _jm_f_170 };
-        _jm_obj_85_map_tab[41] = (jm_propmap_t) { "not", _jm_f_171 };
-        _jm_obj_85_map_tab[42] = (jm_propmap_t) { "oneOf", _jm_f_172 };
-        _jm_obj_85_map_tab[43] = (jm_propmap_t) { "pattern", _jm_f_173 };
-        _jm_obj_85_map_tab[44] = (jm_propmap_t) { "patternProperties", _jm_f_174 };
-        _jm_obj_85_map_tab[45] = (jm_propmap_t) { "prefixItems", _jm_f_175 };
-        _jm_obj_85_map_tab[46] = (jm_propmap_t) { "properties", _jm_f_176 };
-        _jm_obj_85_map_tab[47] = (jm_propmap_t) { "propertyNames", _jm_f_177 };
-        _jm_obj_85_map_tab[48] = (jm_propmap_t) { "readOnly", _jm_f_178 };
-        _jm_obj_85_map_tab[49] = (jm_propmap_t) { "required", _jm_f_179 };
-        _jm_obj_85_map_tab[50] = (jm_propmap_t) { "then", _jm_f_180 };
-        _jm_obj_85_map_tab[51] = (jm_propmap_t) { "title", _jm_f_181 };
-        _jm_obj_85_map_tab[52] = (jm_propmap_t) { "type", _jm_f_182 };
-        _jm_obj_85_map_tab[53] = (jm_propmap_t) { "unevaluatedItems", _jm_f_183 };
-        _jm_obj_85_map_tab[54] = (jm_propmap_t) { "unevaluatedProperties", _jm_f_184 };
-        _jm_obj_85_map_tab[55] = (jm_propmap_t) { "uniqueItems", _jm_f_185 };
-        _jm_obj_85_map_tab[56] = (jm_propmap_t) { "writeOnly", _jm_f_186 };
-        jm_sort_propmap(_jm_obj_85_map_tab, 57);
-        check_model_map_tab[0] = (jm_propmap_t) { "", _jm_obj_0 };
-        check_model_map_tab[1] = (jm_propmap_t) { "OpenAPI", _jm_obj_0 };
-        check_model_map_tab[2] = (jm_propmap_t) { "Info", _jm_obj_2 };
-        check_model_map_tab[3] = (jm_propmap_t) { "Contact", _jm_obj_3 };
+        json_model_59_map_tab[0] = (jm_propmap_t) { "$anchor", _jm_f_130 };
+        json_model_59_map_tab[1] = (jm_propmap_t) { "$comment", _jm_f_131 };
+        json_model_59_map_tab[2] = (jm_propmap_t) { "$defs", _jm_f_132 };
+        json_model_59_map_tab[3] = (jm_propmap_t) { "$dynamicAnchor", _jm_f_133 };
+        json_model_59_map_tab[4] = (jm_propmap_t) { "$dynamicRef", _jm_f_134 };
+        json_model_59_map_tab[5] = (jm_propmap_t) { "$id", _jm_f_135 };
+        json_model_59_map_tab[6] = (jm_propmap_t) { "$ref", _jm_f_136 };
+        json_model_59_map_tab[7] = (jm_propmap_t) { "$schema", _jm_f_137 };
+        json_model_59_map_tab[8] = (jm_propmap_t) { "$vocabulary", _jm_f_138 };
+        json_model_59_map_tab[9] = (jm_propmap_t) { "additionalProperties", _jm_f_139 };
+        json_model_59_map_tab[10] = (jm_propmap_t) { "allOf", _jm_f_140 };
+        json_model_59_map_tab[11] = (jm_propmap_t) { "anyOf", _jm_f_141 };
+        json_model_59_map_tab[12] = (jm_propmap_t) { "const", _jm_f_142 };
+        json_model_59_map_tab[13] = (jm_propmap_t) { "contains", _jm_f_143 };
+        json_model_59_map_tab[14] = (jm_propmap_t) { "contentEncoding", _jm_f_144 };
+        json_model_59_map_tab[15] = (jm_propmap_t) { "contentMediaType", _jm_f_145 };
+        json_model_59_map_tab[16] = (jm_propmap_t) { "contentSchema", _jm_f_146 };
+        json_model_59_map_tab[17] = (jm_propmap_t) { "default", _jm_f_147 };
+        json_model_59_map_tab[18] = (jm_propmap_t) { "dependentRequired", _jm_f_148 };
+        json_model_59_map_tab[19] = (jm_propmap_t) { "dependentSchemas", _jm_f_149 };
+        json_model_59_map_tab[20] = (jm_propmap_t) { "deprecated", _jm_f_150 };
+        json_model_59_map_tab[21] = (jm_propmap_t) { "description", _jm_f_151 };
+        json_model_59_map_tab[22] = (jm_propmap_t) { "else", _jm_f_152 };
+        json_model_59_map_tab[23] = (jm_propmap_t) { "enum", _jm_f_153 };
+        json_model_59_map_tab[24] = (jm_propmap_t) { "examples", _jm_f_154 };
+        json_model_59_map_tab[25] = (jm_propmap_t) { "exclusiveMaximum", _jm_f_155 };
+        json_model_59_map_tab[26] = (jm_propmap_t) { "exclusiveMinimum", _jm_f_156 };
+        json_model_59_map_tab[27] = (jm_propmap_t) { "format", _jm_f_157 };
+        json_model_59_map_tab[28] = (jm_propmap_t) { "if", _jm_f_158 };
+        json_model_59_map_tab[29] = (jm_propmap_t) { "items", _jm_f_159 };
+        json_model_59_map_tab[30] = (jm_propmap_t) { "maxContains", _jm_f_160 };
+        json_model_59_map_tab[31] = (jm_propmap_t) { "maxItems", _jm_f_161 };
+        json_model_59_map_tab[32] = (jm_propmap_t) { "maxLength", _jm_f_162 };
+        json_model_59_map_tab[33] = (jm_propmap_t) { "maxProperties", _jm_f_163 };
+        json_model_59_map_tab[34] = (jm_propmap_t) { "maximum", _jm_f_164 };
+        json_model_59_map_tab[35] = (jm_propmap_t) { "minContains", _jm_f_165 };
+        json_model_59_map_tab[36] = (jm_propmap_t) { "minItems", _jm_f_166 };
+        json_model_59_map_tab[37] = (jm_propmap_t) { "minLength", _jm_f_167 };
+        json_model_59_map_tab[38] = (jm_propmap_t) { "minProperties", _jm_f_168 };
+        json_model_59_map_tab[39] = (jm_propmap_t) { "minimum", _jm_f_169 };
+        json_model_59_map_tab[40] = (jm_propmap_t) { "multipleOf", _jm_f_170 };
+        json_model_59_map_tab[41] = (jm_propmap_t) { "not", _jm_f_171 };
+        json_model_59_map_tab[42] = (jm_propmap_t) { "oneOf", _jm_f_172 };
+        json_model_59_map_tab[43] = (jm_propmap_t) { "pattern", _jm_f_173 };
+        json_model_59_map_tab[44] = (jm_propmap_t) { "patternProperties", _jm_f_174 };
+        json_model_59_map_tab[45] = (jm_propmap_t) { "prefixItems", _jm_f_175 };
+        json_model_59_map_tab[46] = (jm_propmap_t) { "properties", _jm_f_176 };
+        json_model_59_map_tab[47] = (jm_propmap_t) { "propertyNames", _jm_f_177 };
+        json_model_59_map_tab[48] = (jm_propmap_t) { "readOnly", _jm_f_178 };
+        json_model_59_map_tab[49] = (jm_propmap_t) { "required", _jm_f_179 };
+        json_model_59_map_tab[50] = (jm_propmap_t) { "then", _jm_f_180 };
+        json_model_59_map_tab[51] = (jm_propmap_t) { "title", _jm_f_181 };
+        json_model_59_map_tab[52] = (jm_propmap_t) { "type", _jm_f_182 };
+        json_model_59_map_tab[53] = (jm_propmap_t) { "unevaluatedItems", _jm_f_183 };
+        json_model_59_map_tab[54] = (jm_propmap_t) { "unevaluatedProperties", _jm_f_184 };
+        json_model_59_map_tab[55] = (jm_propmap_t) { "uniqueItems", _jm_f_185 };
+        json_model_59_map_tab[56] = (jm_propmap_t) { "writeOnly", _jm_f_186 };
+        jm_sort_propmap(json_model_59_map_tab, 57);
+        check_model_map_tab[0] = (jm_propmap_t) { "", json_model_2 };
+        check_model_map_tab[1] = (jm_propmap_t) { "OpenAPI", json_model_2 };
+        check_model_map_tab[2] = (jm_propmap_t) { "Info", json_model_3 };
+        check_model_map_tab[3] = (jm_propmap_t) { "Contact", json_model_4 };
         check_model_map_tab[4] = (jm_propmap_t) { "License", json_model_5 };
-        check_model_map_tab[5] = (jm_propmap_t) { "Server", _jm_obj_6 };
-        check_model_map_tab[6] = (jm_propmap_t) { "ServerVariable", _jm_obj_8 };
-        check_model_map_tab[7] = (jm_propmap_t) { "Components", _jm_obj_9 };
-        check_model_map_tab[8] = (jm_propmap_t) { "Paths", _jm_obj_20 };
-        check_model_map_tab[9] = (jm_propmap_t) { "PathItem", _jm_obj_21 };
-        check_model_map_tab[10] = (jm_propmap_t) { "Operation", _jm_obj_22 };
-        check_model_map_tab[11] = (jm_propmap_t) { "ExternalDocumentation", _jm_obj_24 };
-        check_model_map_tab[12] = (jm_propmap_t) { "parameterShare", _jm_obj_25 };
-        check_model_map_tab[13] = (jm_propmap_t) { "commonParameter", _jm_obj_26 };
+        check_model_map_tab[5] = (jm_propmap_t) { "Server", json_model_6 };
+        check_model_map_tab[6] = (jm_propmap_t) { "ServerVariable", json_model_7 };
+        check_model_map_tab[7] = (jm_propmap_t) { "Components", json_model_8 };
+        check_model_map_tab[8] = (jm_propmap_t) { "Paths", json_model_9 };
+        check_model_map_tab[9] = (jm_propmap_t) { "PathItem", json_model_10 };
+        check_model_map_tab[10] = (jm_propmap_t) { "Operation", json_model_11 };
+        check_model_map_tab[11] = (jm_propmap_t) { "ExternalDocumentation", json_model_12 };
+        check_model_map_tab[12] = (jm_propmap_t) { "parameterShare", json_model_13 };
+        check_model_map_tab[13] = (jm_propmap_t) { "commonParameter", json_model_14 };
         check_model_map_tab[14] = (jm_propmap_t) { "Style", json_model_15 };
-        check_model_map_tab[15] = (jm_propmap_t) { "parameterSchemaOnly", _jm_obj_27 };
-        check_model_map_tab[16] = (jm_propmap_t) { "parameterContentOnly", _jm_obj_29 };
+        check_model_map_tab[15] = (jm_propmap_t) { "parameterSchemaOnly", json_model_16 };
+        check_model_map_tab[16] = (jm_propmap_t) { "parameterContentOnly", json_model_17 };
         check_model_map_tab[17] = (jm_propmap_t) { "Parameter", json_model_18 };
-        check_model_map_tab[18] = (jm_propmap_t) { "RequestBody", _jm_obj_35 };
-        check_model_map_tab[19] = (jm_propmap_t) { "MediaType", _jm_obj_37 };
-        check_model_map_tab[20] = (jm_propmap_t) { "Encoding", _jm_obj_40 };
-        check_model_map_tab[21] = (jm_propmap_t) { "Responses", _jm_obj_42 };
-        check_model_map_tab[22] = (jm_propmap_t) { "Response", _jm_obj_43 };
-        check_model_map_tab[23] = (jm_propmap_t) { "Callback", _jm_obj_47 };
-        check_model_map_tab[24] = (jm_propmap_t) { "Example", _jm_obj_48 };
+        check_model_map_tab[18] = (jm_propmap_t) { "RequestBody", json_model_19 };
+        check_model_map_tab[19] = (jm_propmap_t) { "MediaType", json_model_20 };
+        check_model_map_tab[20] = (jm_propmap_t) { "Encoding", json_model_21 };
+        check_model_map_tab[21] = (jm_propmap_t) { "Responses", json_model_22 };
+        check_model_map_tab[22] = (jm_propmap_t) { "Response", json_model_23 };
+        check_model_map_tab[23] = (jm_propmap_t) { "Callback", json_model_24 };
+        check_model_map_tab[24] = (jm_propmap_t) { "Example", json_model_25 };
         check_model_map_tab[25] = (jm_propmap_t) { "Expression", json_model_26 };
         check_model_map_tab[26] = (jm_propmap_t) { "Link", json_model_27 };
         check_model_map_tab[27] = (jm_propmap_t) { "Header", json_model_28 };
-        check_model_map_tab[28] = (jm_propmap_t) { "Tag", _jm_obj_57 };
-        check_model_map_tab[29] = (jm_propmap_t) { "Reference", _jm_obj_58 };
+        check_model_map_tab[28] = (jm_propmap_t) { "Tag", json_model_29 };
+        check_model_map_tab[29] = (jm_propmap_t) { "Reference", json_model_30 };
         check_model_map_tab[30] = (jm_propmap_t) { "schema", json_model_45 };
-        check_model_map_tab[31] = (jm_propmap_t) { "Schema", _jm_obj_59 };
-        check_model_map_tab[32] = (jm_propmap_t) { "Discriminator", _jm_obj_66 };
-        check_model_map_tab[33] = (jm_propmap_t) { "xml", _jm_obj_68 };
-        check_model_map_tab[34] = (jm_propmap_t) { "SS-apikey", _jm_obj_69 };
-        check_model_map_tab[35] = (jm_propmap_t) { "SS-http", _jm_obj_70 };
-        check_model_map_tab[36] = (jm_propmap_t) { "SS-http-bearer", _jm_obj_71 };
-        check_model_map_tab[37] = (jm_propmap_t) { "SS-oauth2", _jm_obj_72 };
-        check_model_map_tab[38] = (jm_propmap_t) { "SS-oic", _jm_obj_73 };
+        check_model_map_tab[31] = (jm_propmap_t) { "Schema", json_model_32 };
+        check_model_map_tab[32] = (jm_propmap_t) { "Discriminator", json_model_33 };
+        check_model_map_tab[33] = (jm_propmap_t) { "xml", json_model_34 };
+        check_model_map_tab[34] = (jm_propmap_t) { "SS-apikey", json_model_35 };
+        check_model_map_tab[35] = (jm_propmap_t) { "SS-http", json_model_36 };
+        check_model_map_tab[36] = (jm_propmap_t) { "SS-http-bearer", json_model_37 };
+        check_model_map_tab[37] = (jm_propmap_t) { "SS-oauth2", json_model_38 };
+        check_model_map_tab[38] = (jm_propmap_t) { "SS-oic", json_model_39 };
         check_model_map_tab[39] = (jm_propmap_t) { "SecurityScheme", json_model_40 };
-        check_model_map_tab[40] = (jm_propmap_t) { "OAuthFlows", _jm_obj_80 };
-        check_model_map_tab[41] = (jm_propmap_t) { "OAuthFlow", _jm_obj_81 };
-        check_model_map_tab[42] = (jm_propmap_t) { "SecurityRequirement", _jm_obj_83 };
-        check_model_map_tab[43] = (jm_propmap_t) { "Extension", _jm_obj_84 };
+        check_model_map_tab[40] = (jm_propmap_t) { "OAuthFlows", json_model_41 };
+        check_model_map_tab[41] = (jm_propmap_t) { "OAuthFlow", json_model_42 };
+        check_model_map_tab[42] = (jm_propmap_t) { "SecurityRequirement", json_model_43 };
+        check_model_map_tab[43] = (jm_propmap_t) { "Extension", json_model_44 };
         jm_sort_propmap(check_model_map_tab, 44);
     }
     return NULL;

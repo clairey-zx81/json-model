@@ -12,7 +12,7 @@ const JSON_MODEL_VERSION = "2";
 var check_model_map = new Map()
 
 // object .'$a'.''.'|'.1
-function _jm_obj_1(val, path, rep)
+function _jm_obj_0(val, path, rep)
 {
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
@@ -30,9 +30,10 @@ function _jm_obj_1(val, path, rep)
     }
 }
 
-// object .'$a'
-function _jm_obj_0(val, path, rep)
+// check $a (.'$a')
+function json_model_2(val, path, rep)
 {
+    // .'$a'
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.'$a']", path])
@@ -53,7 +54,7 @@ function _jm_obj_0(val, path, rep)
         if (! res)
         {
             // .'$a'.''.'|'.1
-            res = _jm_obj_1(pval, (path ? lpath_0 : null), rep);
+            res = _jm_obj_0(pval, (path ? lpath_0 : null), rep);
             if (! res)
             {
                 rep !== null && rep.push(["unexpected element [.'$a'.''.'|'.1]", (path ? lpath_0 : null)])
@@ -72,21 +73,8 @@ function _jm_obj_0(val, path, rep)
     return true;
 }
 
-// check $a (.'$a')
-function json_model_2(val, path, rep)
-{
-    let res;
-    // .'$a'
-    res = _jm_obj_0(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected element [.'$a']", path])
-    }
-    return res;
-}
-
 // object .'$r'.'|'.1
-function _jm_obj_2(val, path, rep)
+function _jm_obj_1(val, path, rep)
 {
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
@@ -110,7 +98,7 @@ function json_model_3(val, path, rep)
     let res;
     // .'$r'
     // .'$r'.'|'.0
-    res = _jm_obj_0(val, path, rep);
+    res = json_model_2(val, path, rep);
     if (! res)
     {
         rep !== null && rep.push(["unexpected $a [.'$r'.'|'.0]", path])
@@ -118,7 +106,7 @@ function json_model_3(val, path, rep)
     if (! res)
     {
         // .'$r'.'|'.1
-        res = _jm_obj_2(val, path, rep);
+        res = _jm_obj_1(val, path, rep);
         if (! res)
         {
             rep !== null && rep.push(["unexpected element [.'$r'.'|'.1]", path])
@@ -159,7 +147,7 @@ export function check_model_init()
         initialized = true;
         runtime.jm_set_rx(RegExp)
         check_model_map.set("", json_model_3)
-        check_model_map.set("a", _jm_obj_0)
+        check_model_map.set("a", json_model_2)
         check_model_map.set("r", json_model_3)
     }
 }

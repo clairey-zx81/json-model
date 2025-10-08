@@ -5,8 +5,8 @@
 -- JSON_MODEL_VERSION is 2
 CREATE EXTENSION IF NOT EXISTS json_model;
 
--- object .
-CREATE OR REPLACE FUNCTION _jm_obj_0(val JSONB, path TEXT[], rep jm_report_entry[])
+-- check $ (.)
+CREATE OR REPLACE FUNCTION json_model_1(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -15,6 +15,8 @@ DECLARE
   arr_0_idx INT8;
   arr_0_item JSONB;
 BEGIN
+  -- Recursion test 03
+  -- .
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
@@ -23,7 +25,7 @@ BEGIN
       -- handle may foo property
       -- .foo
       -- .foo.'|'.0
-      res := _jm_obj_0(pval, NULL, rep);
+      res := json_model_1(pval, NULL, rep);
       IF NOT res THEN
         -- .foo.'|'.1
         res := JSONB_TYPEOF(pval) = 'array';
@@ -31,7 +33,7 @@ BEGIN
           FOR arr_0_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
             arr_0_item := pval -> arr_0_idx;
             -- .foo.'|'.1.0
-            res := _jm_obj_0(arr_0_item, NULL, rep);
+            res := json_model_1(arr_0_item, NULL, rep);
             IF NOT res THEN
               EXIT;
             END IF;
@@ -49,23 +51,10 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check $ (.)
-CREATE OR REPLACE FUNCTION json_model_1(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- Recursion test 03
-  -- .
-  res := _jm_obj_0(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
 CREATE OR REPLACE FUNCTION check_model_map(name TEXT)
 RETURNS TEXT STRICT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
-  map JSONB := JSONB '{"":"_jm_obj_0","root":"_jm_obj_0"}';
+  map JSONB := JSONB '{"":"json_model_1","root":"json_model_1"}';
 BEGIN
   RETURN map->>name;
 END;

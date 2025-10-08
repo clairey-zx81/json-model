@@ -14,8 +14,8 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
--- object .'$AIXPlatformModel'
-CREATE OR REPLACE FUNCTION _jm_obj_0(val JSONB, path TEXT[], rep jm_report_entry[])
+-- check $AIXPlatformModel (.'$AIXPlatformModel')
+CREATE OR REPLACE FUNCTION json_model_2(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -24,6 +24,7 @@ DECLARE
   arr_0_idx INT8;
   arr_0_item JSONB;
 BEGIN
+  -- .'$AIXPlatformModel'
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
@@ -60,20 +61,8 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check $AIXPlatformModel (.'$AIXPlatformModel')
-CREATE OR REPLACE FUNCTION json_model_2(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .'$AIXPlatformModel'
-  res := _jm_obj_0(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
--- object .'$AlpinePlatformModel'
-CREATE OR REPLACE FUNCTION _jm_obj_1(val JSONB, path TEXT[], rep jm_report_entry[])
+-- check $AlpinePlatformModel (.'$AlpinePlatformModel')
+CREATE OR REPLACE FUNCTION json_model_3(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -82,6 +71,7 @@ DECLARE
   arr_1_idx INT8;
   arr_1_item JSONB;
 BEGIN
+  -- .'$AlpinePlatformModel'
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
@@ -118,18 +108,6 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check $AlpinePlatformModel (.'$AlpinePlatformModel')
-CREATE OR REPLACE FUNCTION json_model_3(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .'$AlpinePlatformModel'
-  res := _jm_obj_1(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
 CREATE OR REPLACE FUNCTION _jm_cst_1(value JSONB)
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
@@ -139,8 +117,8 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
--- object .'$AmazonLinuxPlatformModel'
-CREATE OR REPLACE FUNCTION _jm_obj_2(val JSONB, path TEXT[], rep jm_report_entry[])
+-- check $AmazonLinuxPlatformModel (.'$AmazonLinuxPlatformModel')
+CREATE OR REPLACE FUNCTION json_model_4(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -149,6 +127,7 @@ DECLARE
   arr_2_idx INT8;
   arr_2_item JSONB;
 BEGIN
+  -- .'$AmazonLinuxPlatformModel'
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
@@ -185,18 +164,6 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check $AmazonLinuxPlatformModel (.'$AmazonLinuxPlatformModel')
-CREATE OR REPLACE FUNCTION json_model_4(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .'$AmazonLinuxPlatformModel'
-  res := _jm_obj_2(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
 CREATE OR REPLACE FUNCTION _jm_cst_2(value JSONB)
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
@@ -206,8 +173,8 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
--- object .'$AmazonPlatformModel'
-CREATE OR REPLACE FUNCTION _jm_obj_3(val JSONB, path TEXT[], rep jm_report_entry[])
+-- check $AmazonPlatformModel (.'$AmazonPlatformModel')
+CREATE OR REPLACE FUNCTION json_model_5(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -216,6 +183,7 @@ DECLARE
   arr_3_idx INT8;
   arr_3_item JSONB;
 BEGIN
+  -- .'$AmazonPlatformModel'
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
@@ -252,20 +220,8 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check $AmazonPlatformModel (.'$AmazonPlatformModel')
-CREATE OR REPLACE FUNCTION json_model_5(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .'$AmazonPlatformModel'
-  res := _jm_obj_3(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
--- object .'$ArchLinuxPlatformModel'
-CREATE OR REPLACE FUNCTION _jm_obj_4(val JSONB, path TEXT[], rep jm_report_entry[])
+-- check $ArchLinuxPlatformModel (.'$ArchLinuxPlatformModel')
+CREATE OR REPLACE FUNCTION json_model_6(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -274,6 +230,7 @@ DECLARE
   arr_4_idx INT8;
   arr_4_item JSONB;
 BEGIN
+  -- .'$ArchLinuxPlatformModel'
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
@@ -310,18 +267,6 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check $ArchLinuxPlatformModel (.'$ArchLinuxPlatformModel')
-CREATE OR REPLACE FUNCTION json_model_6(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .'$ArchLinuxPlatformModel'
-  res := _jm_obj_4(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
 CREATE OR REPLACE FUNCTION _jm_cst_3(value JSONB)
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
@@ -331,8 +276,8 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
--- object .'$AstraLinuxPlatformModel'
-CREATE OR REPLACE FUNCTION _jm_obj_5(val JSONB, path TEXT[], rep jm_report_entry[])
+-- check $AstraLinuxPlatformModel (.'$AstraLinuxPlatformModel')
+CREATE OR REPLACE FUNCTION json_model_7(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -341,6 +286,7 @@ DECLARE
   arr_5_idx INT8;
   arr_5_item JSONB;
 BEGIN
+  -- .'$AstraLinuxPlatformModel'
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
@@ -377,20 +323,8 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check $AstraLinuxPlatformModel (.'$AstraLinuxPlatformModel')
-CREATE OR REPLACE FUNCTION json_model_7(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .'$AstraLinuxPlatformModel'
-  res := _jm_obj_5(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
--- object .'$ClearLinuxPlatformModel'
-CREATE OR REPLACE FUNCTION _jm_obj_6(val JSONB, path TEXT[], rep jm_report_entry[])
+-- check $ClearLinuxPlatformModel (.'$ClearLinuxPlatformModel')
+CREATE OR REPLACE FUNCTION json_model_8(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -399,6 +333,7 @@ DECLARE
   arr_6_idx INT8;
   arr_6_item JSONB;
 BEGIN
+  -- .'$ClearLinuxPlatformModel'
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
@@ -435,18 +370,6 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check $ClearLinuxPlatformModel (.'$ClearLinuxPlatformModel')
-CREATE OR REPLACE FUNCTION json_model_8(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .'$ClearLinuxPlatformModel'
-  res := _jm_obj_6(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
 CREATE OR REPLACE FUNCTION _jm_cst_4(value JSONB)
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
@@ -456,8 +379,8 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
--- object .'$CumulusPlatformModel'
-CREATE OR REPLACE FUNCTION _jm_obj_7(val JSONB, path TEXT[], rep jm_report_entry[])
+-- check $CumulusPlatformModel (.'$CumulusPlatformModel')
+CREATE OR REPLACE FUNCTION json_model_9(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -466,6 +389,7 @@ DECLARE
   arr_7_idx INT8;
   arr_7_item JSONB;
 BEGIN
+  -- .'$CumulusPlatformModel'
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
@@ -502,18 +426,6 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check $CumulusPlatformModel (.'$CumulusPlatformModel')
-CREATE OR REPLACE FUNCTION json_model_9(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .'$CumulusPlatformModel'
-  res := _jm_obj_7(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
 CREATE OR REPLACE FUNCTION _jm_cst_5(value JSONB)
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
@@ -523,8 +435,8 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
--- object .'$DebianPlatformModel'
-CREATE OR REPLACE FUNCTION _jm_obj_8(val JSONB, path TEXT[], rep jm_report_entry[])
+-- check $DebianPlatformModel (.'$DebianPlatformModel')
+CREATE OR REPLACE FUNCTION json_model_10(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -533,6 +445,7 @@ DECLARE
   arr_8_idx INT8;
   arr_8_item JSONB;
 BEGIN
+  -- .'$DebianPlatformModel'
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
@@ -569,18 +482,6 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check $DebianPlatformModel (.'$DebianPlatformModel')
-CREATE OR REPLACE FUNCTION json_model_10(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .'$DebianPlatformModel'
-  res := _jm_obj_8(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
 CREATE OR REPLACE FUNCTION _jm_cst_6(value JSONB)
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
@@ -590,8 +491,8 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
--- object .'$DellOSPlatformModel'
-CREATE OR REPLACE FUNCTION _jm_obj_9(val JSONB, path TEXT[], rep jm_report_entry[])
+-- check $DellOSPlatformModel (.'$DellOSPlatformModel')
+CREATE OR REPLACE FUNCTION json_model_11(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -600,6 +501,7 @@ DECLARE
   arr_9_idx INT8;
   arr_9_item JSONB;
 BEGIN
+  -- .'$DellOSPlatformModel'
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
@@ -636,18 +538,6 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check $DellOSPlatformModel (.'$DellOSPlatformModel')
-CREATE OR REPLACE FUNCTION json_model_11(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .'$DellOSPlatformModel'
-  res := _jm_obj_9(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
 CREATE OR REPLACE FUNCTION _jm_cst_7(value JSONB)
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
@@ -657,8 +547,8 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
--- object .'$DevuanPlatformModel'
-CREATE OR REPLACE FUNCTION _jm_obj_10(val JSONB, path TEXT[], rep jm_report_entry[])
+-- check $DevuanPlatformModel (.'$DevuanPlatformModel')
+CREATE OR REPLACE FUNCTION json_model_12(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -667,6 +557,7 @@ DECLARE
   arr_10_idx INT8;
   arr_10_item JSONB;
 BEGIN
+  -- .'$DevuanPlatformModel'
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
@@ -703,18 +594,6 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check $DevuanPlatformModel (.'$DevuanPlatformModel')
-CREATE OR REPLACE FUNCTION json_model_12(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .'$DevuanPlatformModel'
-  res := _jm_obj_10(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
 CREATE OR REPLACE FUNCTION _jm_cst_8(value JSONB)
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
@@ -724,8 +603,8 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
--- object .'$DragonFlyBSDPlatformModel'
-CREATE OR REPLACE FUNCTION _jm_obj_11(val JSONB, path TEXT[], rep jm_report_entry[])
+-- check $DragonFlyBSDPlatformModel (.'$DragonFlyBSDPlatformModel')
+CREATE OR REPLACE FUNCTION json_model_13(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -734,6 +613,7 @@ DECLARE
   arr_11_idx INT8;
   arr_11_item JSONB;
 BEGIN
+  -- .'$DragonFlyBSDPlatformModel'
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
@@ -770,18 +650,6 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check $DragonFlyBSDPlatformModel (.'$DragonFlyBSDPlatformModel')
-CREATE OR REPLACE FUNCTION json_model_13(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .'$DragonFlyBSDPlatformModel'
-  res := _jm_obj_11(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
 CREATE OR REPLACE FUNCTION _jm_cst_9(value JSONB)
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
@@ -791,8 +659,8 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
--- object .'$ELPlatformModel'
-CREATE OR REPLACE FUNCTION _jm_obj_12(val JSONB, path TEXT[], rep jm_report_entry[])
+-- check $ELPlatformModel (.'$ELPlatformModel')
+CREATE OR REPLACE FUNCTION json_model_14(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -801,6 +669,7 @@ DECLARE
   arr_12_idx INT8;
   arr_12_item JSONB;
 BEGIN
+  -- .'$ELPlatformModel'
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
@@ -837,18 +706,6 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check $ELPlatformModel (.'$ELPlatformModel')
-CREATE OR REPLACE FUNCTION json_model_14(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .'$ELPlatformModel'
-  res := _jm_obj_12(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
 CREATE OR REPLACE FUNCTION _jm_cst_10(value JSONB)
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
@@ -858,8 +715,8 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
--- object .'$FedoraPlatformModel'
-CREATE OR REPLACE FUNCTION _jm_obj_13(val JSONB, path TEXT[], rep jm_report_entry[])
+-- check $FedoraPlatformModel (.'$FedoraPlatformModel')
+CREATE OR REPLACE FUNCTION json_model_15(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -868,6 +725,7 @@ DECLARE
   arr_13_idx INT8;
   arr_13_item JSONB;
 BEGIN
+  -- .'$FedoraPlatformModel'
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
@@ -904,18 +762,6 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check $FedoraPlatformModel (.'$FedoraPlatformModel')
-CREATE OR REPLACE FUNCTION json_model_15(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .'$FedoraPlatformModel'
-  res := _jm_obj_13(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
 CREATE OR REPLACE FUNCTION _jm_cst_11(value JSONB)
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
@@ -925,8 +771,8 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
--- object .'$FreeBSDPlatformModel'
-CREATE OR REPLACE FUNCTION _jm_obj_14(val JSONB, path TEXT[], rep jm_report_entry[])
+-- check $FreeBSDPlatformModel (.'$FreeBSDPlatformModel')
+CREATE OR REPLACE FUNCTION json_model_16(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -935,6 +781,7 @@ DECLARE
   arr_14_idx INT8;
   arr_14_item JSONB;
 BEGIN
+  -- .'$FreeBSDPlatformModel'
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
@@ -971,20 +818,8 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check $FreeBSDPlatformModel (.'$FreeBSDPlatformModel')
-CREATE OR REPLACE FUNCTION json_model_16(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .'$FreeBSDPlatformModel'
-  res := _jm_obj_14(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
--- object .'$GenericBSDPlatformModel'
-CREATE OR REPLACE FUNCTION _jm_obj_15(val JSONB, path TEXT[], rep jm_report_entry[])
+-- check $GenericBSDPlatformModel (.'$GenericBSDPlatformModel')
+CREATE OR REPLACE FUNCTION json_model_17(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -993,6 +828,7 @@ DECLARE
   arr_15_idx INT8;
   arr_15_item JSONB;
 BEGIN
+  -- .'$GenericBSDPlatformModel'
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
@@ -1029,20 +865,8 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check $GenericBSDPlatformModel (.'$GenericBSDPlatformModel')
-CREATE OR REPLACE FUNCTION json_model_17(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .'$GenericBSDPlatformModel'
-  res := _jm_obj_15(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
--- object .'$GenericLinuxPlatformModel'
-CREATE OR REPLACE FUNCTION _jm_obj_16(val JSONB, path TEXT[], rep jm_report_entry[])
+-- check $GenericLinuxPlatformModel (.'$GenericLinuxPlatformModel')
+CREATE OR REPLACE FUNCTION json_model_18(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -1051,6 +875,7 @@ DECLARE
   arr_16_idx INT8;
   arr_16_item JSONB;
 BEGIN
+  -- .'$GenericLinuxPlatformModel'
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
@@ -1087,20 +912,8 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check $GenericLinuxPlatformModel (.'$GenericLinuxPlatformModel')
-CREATE OR REPLACE FUNCTION json_model_18(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .'$GenericLinuxPlatformModel'
-  res := _jm_obj_16(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
--- object .'$GenericUNIXPlatformModel'
-CREATE OR REPLACE FUNCTION _jm_obj_17(val JSONB, path TEXT[], rep jm_report_entry[])
+-- check $GenericUNIXPlatformModel (.'$GenericUNIXPlatformModel')
+CREATE OR REPLACE FUNCTION json_model_19(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -1109,6 +922,7 @@ DECLARE
   arr_17_idx INT8;
   arr_17_item JSONB;
 BEGIN
+  -- .'$GenericUNIXPlatformModel'
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
@@ -1145,20 +959,8 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check $GenericUNIXPlatformModel (.'$GenericUNIXPlatformModel')
-CREATE OR REPLACE FUNCTION json_model_19(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .'$GenericUNIXPlatformModel'
-  res := _jm_obj_17(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
--- object .'$GentooPlatformModel'
-CREATE OR REPLACE FUNCTION _jm_obj_18(val JSONB, path TEXT[], rep jm_report_entry[])
+-- check $GentooPlatformModel (.'$GentooPlatformModel')
+CREATE OR REPLACE FUNCTION json_model_20(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -1167,6 +969,7 @@ DECLARE
   arr_18_idx INT8;
   arr_18_item JSONB;
 BEGIN
+  -- .'$GentooPlatformModel'
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
@@ -1203,18 +1006,6 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check $GentooPlatformModel (.'$GentooPlatformModel')
-CREATE OR REPLACE FUNCTION json_model_20(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .'$GentooPlatformModel'
-  res := _jm_obj_18(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
 CREATE OR REPLACE FUNCTION _jm_cst_12(value JSONB)
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
@@ -1224,8 +1015,8 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
--- object .'$HardenedBSDPlatformModel'
-CREATE OR REPLACE FUNCTION _jm_obj_19(val JSONB, path TEXT[], rep jm_report_entry[])
+-- check $HardenedBSDPlatformModel (.'$HardenedBSDPlatformModel')
+CREATE OR REPLACE FUNCTION json_model_21(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -1234,6 +1025,7 @@ DECLARE
   arr_19_idx INT8;
   arr_19_item JSONB;
 BEGIN
+  -- .'$HardenedBSDPlatformModel'
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
@@ -1270,20 +1062,8 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check $HardenedBSDPlatformModel (.'$HardenedBSDPlatformModel')
-CREATE OR REPLACE FUNCTION json_model_21(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .'$HardenedBSDPlatformModel'
-  res := _jm_obj_19(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
--- object .'$IOSPlatformModel'
-CREATE OR REPLACE FUNCTION _jm_obj_20(val JSONB, path TEXT[], rep jm_report_entry[])
+-- check $IOSPlatformModel (.'$IOSPlatformModel')
+CREATE OR REPLACE FUNCTION json_model_22(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -1292,6 +1072,7 @@ DECLARE
   arr_20_idx INT8;
   arr_20_item JSONB;
 BEGIN
+  -- .'$IOSPlatformModel'
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
@@ -1328,20 +1109,8 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check $IOSPlatformModel (.'$IOSPlatformModel')
-CREATE OR REPLACE FUNCTION json_model_22(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .'$IOSPlatformModel'
-  res := _jm_obj_20(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
--- object .'$JunosPlatformModel'
-CREATE OR REPLACE FUNCTION _jm_obj_21(val JSONB, path TEXT[], rep jm_report_entry[])
+-- check $JunosPlatformModel (.'$JunosPlatformModel')
+CREATE OR REPLACE FUNCTION json_model_23(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -1350,6 +1119,7 @@ DECLARE
   arr_21_idx INT8;
   arr_21_item JSONB;
 BEGIN
+  -- .'$JunosPlatformModel'
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
@@ -1386,18 +1156,6 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check $JunosPlatformModel (.'$JunosPlatformModel')
-CREATE OR REPLACE FUNCTION json_model_23(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .'$JunosPlatformModel'
-  res := _jm_obj_21(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
 CREATE OR REPLACE FUNCTION _jm_cst_13(value JSONB)
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
@@ -1407,8 +1165,8 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
--- object .'$KaliPlatformModel'
-CREATE OR REPLACE FUNCTION _jm_obj_22(val JSONB, path TEXT[], rep jm_report_entry[])
+-- check $KaliPlatformModel (.'$KaliPlatformModel')
+CREATE OR REPLACE FUNCTION json_model_24(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -1417,6 +1175,7 @@ DECLARE
   arr_22_idx INT8;
   arr_22_item JSONB;
 BEGIN
+  -- .'$KaliPlatformModel'
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
@@ -1453,18 +1212,6 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check $KaliPlatformModel (.'$KaliPlatformModel')
-CREATE OR REPLACE FUNCTION json_model_24(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .'$KaliPlatformModel'
-  res := _jm_obj_22(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
 CREATE OR REPLACE FUNCTION _jm_cst_14(value JSONB)
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
@@ -1474,8 +1221,8 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
--- object .'$MacOSXPlatformModel'
-CREATE OR REPLACE FUNCTION _jm_obj_23(val JSONB, path TEXT[], rep jm_report_entry[])
+-- check $MacOSXPlatformModel (.'$MacOSXPlatformModel')
+CREATE OR REPLACE FUNCTION json_model_25(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -1484,6 +1231,7 @@ DECLARE
   arr_23_idx INT8;
   arr_23_item JSONB;
 BEGIN
+  -- .'$MacOSXPlatformModel'
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
@@ -1520,18 +1268,6 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check $MacOSXPlatformModel (.'$MacOSXPlatformModel')
-CREATE OR REPLACE FUNCTION json_model_25(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .'$MacOSXPlatformModel'
-  res := _jm_obj_23(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
 CREATE OR REPLACE FUNCTION _jm_cst_15(value JSONB)
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
@@ -1541,8 +1277,8 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
--- object .'$MageiaPlatformModel'
-CREATE OR REPLACE FUNCTION _jm_obj_24(val JSONB, path TEXT[], rep jm_report_entry[])
+-- check $MageiaPlatformModel (.'$MageiaPlatformModel')
+CREATE OR REPLACE FUNCTION json_model_26(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -1551,6 +1287,7 @@ DECLARE
   arr_24_idx INT8;
   arr_24_item JSONB;
 BEGIN
+  -- .'$MageiaPlatformModel'
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
@@ -1587,20 +1324,8 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check $MageiaPlatformModel (.'$MageiaPlatformModel')
-CREATE OR REPLACE FUNCTION json_model_26(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .'$MageiaPlatformModel'
-  res := _jm_obj_24(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
--- object .'$NXOSPlatformModel'
-CREATE OR REPLACE FUNCTION _jm_obj_25(val JSONB, path TEXT[], rep jm_report_entry[])
+-- check $NXOSPlatformModel (.'$NXOSPlatformModel')
+CREATE OR REPLACE FUNCTION json_model_27(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -1609,6 +1334,7 @@ DECLARE
   arr_25_idx INT8;
   arr_25_item JSONB;
 BEGIN
+  -- .'$NXOSPlatformModel'
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
@@ -1645,18 +1371,6 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check $NXOSPlatformModel (.'$NXOSPlatformModel')
-CREATE OR REPLACE FUNCTION json_model_27(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .'$NXOSPlatformModel'
-  res := _jm_obj_25(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
 CREATE OR REPLACE FUNCTION _jm_cst_16(value JSONB)
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
@@ -1666,8 +1380,8 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
--- object .'$NetBSDPlatformModel'
-CREATE OR REPLACE FUNCTION _jm_obj_26(val JSONB, path TEXT[], rep jm_report_entry[])
+-- check $NetBSDPlatformModel (.'$NetBSDPlatformModel')
+CREATE OR REPLACE FUNCTION json_model_28(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -1676,6 +1390,7 @@ DECLARE
   arr_26_idx INT8;
   arr_26_item JSONB;
 BEGIN
+  -- .'$NetBSDPlatformModel'
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
@@ -1712,18 +1427,6 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check $NetBSDPlatformModel (.'$NetBSDPlatformModel')
-CREATE OR REPLACE FUNCTION json_model_28(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .'$NetBSDPlatformModel'
-  res := _jm_obj_26(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
 CREATE OR REPLACE FUNCTION _jm_cst_17(value JSONB)
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
@@ -1733,8 +1436,8 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
--- object .'$OpenBSDPlatformModel'
-CREATE OR REPLACE FUNCTION _jm_obj_27(val JSONB, path TEXT[], rep jm_report_entry[])
+-- check $OpenBSDPlatformModel (.'$OpenBSDPlatformModel')
+CREATE OR REPLACE FUNCTION json_model_29(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -1743,6 +1446,7 @@ DECLARE
   arr_27_idx INT8;
   arr_27_item JSONB;
 BEGIN
+  -- .'$OpenBSDPlatformModel'
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
@@ -1779,18 +1483,6 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check $OpenBSDPlatformModel (.'$OpenBSDPlatformModel')
-CREATE OR REPLACE FUNCTION json_model_29(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .'$OpenBSDPlatformModel'
-  res := _jm_obj_27(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
 CREATE OR REPLACE FUNCTION _jm_cst_18(value JSONB)
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
@@ -1800,8 +1492,8 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
--- object .'$OpenWrtPlatformModel'
-CREATE OR REPLACE FUNCTION _jm_obj_28(val JSONB, path TEXT[], rep jm_report_entry[])
+-- check $OpenWrtPlatformModel (.'$OpenWrtPlatformModel')
+CREATE OR REPLACE FUNCTION json_model_30(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -1810,6 +1502,7 @@ DECLARE
   arr_28_idx INT8;
   arr_28_item JSONB;
 BEGIN
+  -- .'$OpenWrtPlatformModel'
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
@@ -1846,18 +1539,6 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check $OpenWrtPlatformModel (.'$OpenWrtPlatformModel')
-CREATE OR REPLACE FUNCTION json_model_30(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .'$OpenWrtPlatformModel'
-  res := _jm_obj_28(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
 CREATE OR REPLACE FUNCTION _jm_cst_19(value JSONB)
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
@@ -1867,8 +1548,8 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
--- object .'$OracleLinuxPlatformModel'
-CREATE OR REPLACE FUNCTION _jm_obj_29(val JSONB, path TEXT[], rep jm_report_entry[])
+-- check $OracleLinuxPlatformModel (.'$OracleLinuxPlatformModel')
+CREATE OR REPLACE FUNCTION json_model_31(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -1877,6 +1558,7 @@ DECLARE
   arr_29_idx INT8;
   arr_29_item JSONB;
 BEGIN
+  -- .'$OracleLinuxPlatformModel'
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
@@ -1913,18 +1595,6 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check $OracleLinuxPlatformModel (.'$OracleLinuxPlatformModel')
-CREATE OR REPLACE FUNCTION json_model_31(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .'$OracleLinuxPlatformModel'
-  res := _jm_obj_29(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
 CREATE OR REPLACE FUNCTION _jm_cst_20(value JSONB)
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
@@ -1934,8 +1604,8 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
--- object .'$PAN-OSPlatformModel'
-CREATE OR REPLACE FUNCTION _jm_obj_30(val JSONB, path TEXT[], rep jm_report_entry[])
+-- check $PAN-OSPlatformModel (.'$PAN-OSPlatformModel')
+CREATE OR REPLACE FUNCTION json_model_32(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -1944,6 +1614,7 @@ DECLARE
   arr_30_idx INT8;
   arr_30_item JSONB;
 BEGIN
+  -- .'$PAN-OSPlatformModel'
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
@@ -1980,18 +1651,6 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check $PAN-OSPlatformModel (.'$PAN-OSPlatformModel')
-CREATE OR REPLACE FUNCTION json_model_32(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .'$PAN-OSPlatformModel'
-  res := _jm_obj_30(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
 CREATE OR REPLACE FUNCTION _jm_cst_21(value JSONB)
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
@@ -2001,8 +1660,8 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
--- object .'$RockyLinuxPlatformModel'
-CREATE OR REPLACE FUNCTION _jm_obj_31(val JSONB, path TEXT[], rep jm_report_entry[])
+-- check $RockyLinuxPlatformModel (.'$RockyLinuxPlatformModel')
+CREATE OR REPLACE FUNCTION json_model_33(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -2011,6 +1670,7 @@ DECLARE
   arr_31_idx INT8;
   arr_31_item JSONB;
 BEGIN
+  -- .'$RockyLinuxPlatformModel'
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
@@ -2047,18 +1707,6 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check $RockyLinuxPlatformModel (.'$RockyLinuxPlatformModel')
-CREATE OR REPLACE FUNCTION json_model_33(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .'$RockyLinuxPlatformModel'
-  res := _jm_obj_31(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
 CREATE OR REPLACE FUNCTION _jm_cst_22(value JSONB)
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
@@ -2068,8 +1716,8 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
--- object .'$SLESPlatformModel'
-CREATE OR REPLACE FUNCTION _jm_obj_32(val JSONB, path TEXT[], rep jm_report_entry[])
+-- check $SLESPlatformModel (.'$SLESPlatformModel')
+CREATE OR REPLACE FUNCTION json_model_34(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -2078,6 +1726,7 @@ DECLARE
   arr_32_idx INT8;
   arr_32_item JSONB;
 BEGIN
+  -- .'$SLESPlatformModel'
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
@@ -2114,20 +1763,8 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check $SLESPlatformModel (.'$SLESPlatformModel')
-CREATE OR REPLACE FUNCTION json_model_34(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .'$SLESPlatformModel'
-  res := _jm_obj_32(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
--- object .'$SmartOSPlatformModel'
-CREATE OR REPLACE FUNCTION _jm_obj_33(val JSONB, path TEXT[], rep jm_report_entry[])
+-- check $SmartOSPlatformModel (.'$SmartOSPlatformModel')
+CREATE OR REPLACE FUNCTION json_model_35(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -2136,6 +1773,7 @@ DECLARE
   arr_33_idx INT8;
   arr_33_item JSONB;
 BEGIN
+  -- .'$SmartOSPlatformModel'
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
@@ -2172,18 +1810,6 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check $SmartOSPlatformModel (.'$SmartOSPlatformModel')
-CREATE OR REPLACE FUNCTION json_model_35(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .'$SmartOSPlatformModel'
-  res := _jm_obj_33(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
 CREATE OR REPLACE FUNCTION _jm_cst_23(value JSONB)
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
@@ -2193,8 +1819,8 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
--- object .'$SolarisPlatformModel'
-CREATE OR REPLACE FUNCTION _jm_obj_34(val JSONB, path TEXT[], rep jm_report_entry[])
+-- check $SolarisPlatformModel (.'$SolarisPlatformModel')
+CREATE OR REPLACE FUNCTION json_model_36(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -2203,6 +1829,7 @@ DECLARE
   arr_34_idx INT8;
   arr_34_item JSONB;
 BEGIN
+  -- .'$SolarisPlatformModel'
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
@@ -2239,18 +1866,6 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check $SolarisPlatformModel (.'$SolarisPlatformModel')
-CREATE OR REPLACE FUNCTION json_model_36(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .'$SolarisPlatformModel'
-  res := _jm_obj_34(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
 CREATE OR REPLACE FUNCTION _jm_cst_24(value JSONB)
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
@@ -2260,8 +1875,8 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
--- object .'$SynologyPlatformModel'
-CREATE OR REPLACE FUNCTION _jm_obj_35(val JSONB, path TEXT[], rep jm_report_entry[])
+-- check $SynologyPlatformModel (.'$SynologyPlatformModel')
+CREATE OR REPLACE FUNCTION json_model_37(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -2270,6 +1885,7 @@ DECLARE
   arr_35_idx INT8;
   arr_35_item JSONB;
 BEGIN
+  -- .'$SynologyPlatformModel'
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
@@ -2306,18 +1922,6 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check $SynologyPlatformModel (.'$SynologyPlatformModel')
-CREATE OR REPLACE FUNCTION json_model_37(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .'$SynologyPlatformModel'
-  res := _jm_obj_35(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
 CREATE OR REPLACE FUNCTION _jm_cst_25(value JSONB)
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
@@ -2327,8 +1931,8 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
--- object .'$TMOSPlatformModel'
-CREATE OR REPLACE FUNCTION _jm_obj_36(val JSONB, path TEXT[], rep jm_report_entry[])
+-- check $TMOSPlatformModel (.'$TMOSPlatformModel')
+CREATE OR REPLACE FUNCTION json_model_38(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -2337,6 +1941,7 @@ DECLARE
   arr_36_idx INT8;
   arr_36_item JSONB;
 BEGIN
+  -- .'$TMOSPlatformModel'
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
@@ -2373,18 +1978,6 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check $TMOSPlatformModel (.'$TMOSPlatformModel')
-CREATE OR REPLACE FUNCTION json_model_38(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .'$TMOSPlatformModel'
-  res := _jm_obj_36(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
 CREATE OR REPLACE FUNCTION _jm_cst_26(value JSONB)
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
@@ -2394,8 +1987,8 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
--- object .'$UbuntuPlatformModel'
-CREATE OR REPLACE FUNCTION _jm_obj_37(val JSONB, path TEXT[], rep jm_report_entry[])
+-- check $UbuntuPlatformModel (.'$UbuntuPlatformModel')
+CREATE OR REPLACE FUNCTION json_model_39(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -2404,6 +1997,7 @@ DECLARE
   arr_37_idx INT8;
   arr_37_item JSONB;
 BEGIN
+  -- .'$UbuntuPlatformModel'
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
@@ -2440,20 +2034,8 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check $UbuntuPlatformModel (.'$UbuntuPlatformModel')
-CREATE OR REPLACE FUNCTION json_model_39(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .'$UbuntuPlatformModel'
-  res := _jm_obj_37(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
--- object .'$Void_LinuxPlatformModel'
-CREATE OR REPLACE FUNCTION _jm_obj_38(val JSONB, path TEXT[], rep jm_report_entry[])
+-- check $Void_LinuxPlatformModel (.'$Void_LinuxPlatformModel')
+CREATE OR REPLACE FUNCTION json_model_40(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -2462,6 +2044,7 @@ DECLARE
   arr_38_idx INT8;
   arr_38_item JSONB;
 BEGIN
+  -- .'$Void_LinuxPlatformModel'
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
@@ -2498,18 +2081,6 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check $Void_LinuxPlatformModel (.'$Void_LinuxPlatformModel')
-CREATE OR REPLACE FUNCTION json_model_40(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .'$Void_LinuxPlatformModel'
-  res := _jm_obj_38(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
 CREATE OR REPLACE FUNCTION _jm_cst_27(value JSONB)
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
@@ -2519,8 +2090,8 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
--- object .'$WindowsPlatformModel'
-CREATE OR REPLACE FUNCTION _jm_obj_39(val JSONB, path TEXT[], rep jm_report_entry[])
+-- check $WindowsPlatformModel (.'$WindowsPlatformModel')
+CREATE OR REPLACE FUNCTION json_model_41(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -2529,6 +2100,7 @@ DECLARE
   arr_39_idx INT8;
   arr_39_item JSONB;
 BEGIN
+  -- .'$WindowsPlatformModel'
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
@@ -2565,20 +2137,8 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check $WindowsPlatformModel (.'$WindowsPlatformModel')
-CREATE OR REPLACE FUNCTION json_model_41(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .'$WindowsPlatformModel'
-  res := _jm_obj_39(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
--- object .'$aosPlatformModel'
-CREATE OR REPLACE FUNCTION _jm_obj_40(val JSONB, path TEXT[], rep jm_report_entry[])
+-- check $aosPlatformModel (.'$aosPlatformModel')
+CREATE OR REPLACE FUNCTION json_model_42(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -2587,6 +2147,7 @@ DECLARE
   arr_40_idx INT8;
   arr_40_item JSONB;
 BEGIN
+  -- .'$aosPlatformModel'
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
@@ -2623,20 +2184,8 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check $aosPlatformModel (.'$aosPlatformModel')
-CREATE OR REPLACE FUNCTION json_model_42(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .'$aosPlatformModel'
-  res := _jm_obj_40(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
--- object .'$eosPlatformModel'
-CREATE OR REPLACE FUNCTION _jm_obj_41(val JSONB, path TEXT[], rep jm_report_entry[])
+-- check $eosPlatformModel (.'$eosPlatformModel')
+CREATE OR REPLACE FUNCTION json_model_43(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -2645,6 +2194,7 @@ DECLARE
   arr_41_idx INT8;
   arr_41_item JSONB;
 BEGIN
+  -- .'$eosPlatformModel'
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
@@ -2681,18 +2231,6 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check $eosPlatformModel (.'$eosPlatformModel')
-CREATE OR REPLACE FUNCTION json_model_43(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .'$eosPlatformModel'
-  res := _jm_obj_41(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
 CREATE OR REPLACE FUNCTION _jm_cst_28(value JSONB)
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
@@ -2702,8 +2240,8 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
--- object .'$macOSPlatformModel'
-CREATE OR REPLACE FUNCTION _jm_obj_42(val JSONB, path TEXT[], rep jm_report_entry[])
+-- check $macOSPlatformModel (.'$macOSPlatformModel')
+CREATE OR REPLACE FUNCTION json_model_44(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -2712,6 +2250,7 @@ DECLARE
   arr_42_idx INT8;
   arr_42_item JSONB;
 BEGIN
+  -- .'$macOSPlatformModel'
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
@@ -2748,18 +2287,6 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check $macOSPlatformModel (.'$macOSPlatformModel')
-CREATE OR REPLACE FUNCTION json_model_44(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .'$macOSPlatformModel'
-  res := _jm_obj_42(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
 CREATE OR REPLACE FUNCTION _jm_cst_29(value JSONB)
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
@@ -2769,8 +2296,8 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
--- object .'$opensusePlatformModel'
-CREATE OR REPLACE FUNCTION _jm_obj_43(val JSONB, path TEXT[], rep jm_report_entry[])
+-- check $opensusePlatformModel (.'$opensusePlatformModel')
+CREATE OR REPLACE FUNCTION json_model_45(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -2779,6 +2306,7 @@ DECLARE
   arr_43_idx INT8;
   arr_43_item JSONB;
 BEGIN
+  -- .'$opensusePlatformModel'
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
@@ -2815,20 +2343,8 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check $opensusePlatformModel (.'$opensusePlatformModel')
-CREATE OR REPLACE FUNCTION json_model_45(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .'$opensusePlatformModel'
-  res := _jm_obj_43(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
--- object .'$os10PlatformModel'
-CREATE OR REPLACE FUNCTION _jm_obj_44(val JSONB, path TEXT[], rep jm_report_entry[])
+-- check $os10PlatformModel (.'$os10PlatformModel')
+CREATE OR REPLACE FUNCTION json_model_46(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -2837,6 +2353,7 @@ DECLARE
   arr_44_idx INT8;
   arr_44_item JSONB;
 BEGIN
+  -- .'$os10PlatformModel'
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
@@ -2873,18 +2390,6 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check $os10PlatformModel (.'$os10PlatformModel')
-CREATE OR REPLACE FUNCTION json_model_46(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .'$os10PlatformModel'
-  res := _jm_obj_44(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
 CREATE OR REPLACE FUNCTION _jm_cst_30(value JSONB)
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
@@ -2894,8 +2399,8 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
--- object .'$vCenterPlatformModel'
-CREATE OR REPLACE FUNCTION _jm_obj_45(val JSONB, path TEXT[], rep jm_report_entry[])
+-- check $vCenterPlatformModel (.'$vCenterPlatformModel')
+CREATE OR REPLACE FUNCTION json_model_47(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -2904,6 +2409,7 @@ DECLARE
   arr_45_idx INT8;
   arr_45_item JSONB;
 BEGIN
+  -- .'$vCenterPlatformModel'
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
@@ -2940,18 +2446,6 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check $vCenterPlatformModel (.'$vCenterPlatformModel')
-CREATE OR REPLACE FUNCTION json_model_47(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .'$vCenterPlatformModel'
-  res := _jm_obj_45(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
 CREATE OR REPLACE FUNCTION _jm_cst_31(value JSONB)
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
@@ -2961,8 +2455,8 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
--- object .'$vSpherePlatformModel'
-CREATE OR REPLACE FUNCTION _jm_obj_46(val JSONB, path TEXT[], rep jm_report_entry[])
+-- check $vSpherePlatformModel (.'$vSpherePlatformModel')
+CREATE OR REPLACE FUNCTION json_model_48(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -2971,6 +2465,7 @@ DECLARE
   arr_46_idx INT8;
   arr_46_item JSONB;
 BEGIN
+  -- .'$vSpherePlatformModel'
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
@@ -3007,18 +2502,6 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check $vSpherePlatformModel (.'$vSpherePlatformModel')
-CREATE OR REPLACE FUNCTION json_model_48(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .'$vSpherePlatformModel'
-  res := _jm_obj_46(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
 -- check $any_platform (.'$any_platform')
 CREATE OR REPLACE FUNCTION json_model_49(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
@@ -3028,145 +2511,145 @@ BEGIN
   -- FIXME: name is not mandatory, not sure it makes much sense… versions should be unique?
   -- .'$any_platform'
   -- .'$any_platform'.'|'.0
-  res := _jm_obj_0(val, path, rep);
+  res := json_model_2(val, path, rep);
   IF NOT res THEN
     -- .'$any_platform'.'|'.1
-    res := _jm_obj_1(val, path, rep);
+    res := json_model_3(val, path, rep);
     IF NOT res THEN
       -- .'$any_platform'.'|'.2
-      res := _jm_obj_3(val, path, rep);
+      res := json_model_5(val, path, rep);
       IF NOT res THEN
         -- .'$any_platform'.'|'.3
-        res := _jm_obj_2(val, path, rep);
+        res := json_model_4(val, path, rep);
         IF NOT res THEN
           -- .'$any_platform'.'|'.4
-          res := _jm_obj_40(val, path, rep);
+          res := json_model_42(val, path, rep);
           IF NOT res THEN
             -- .'$any_platform'.'|'.5
-            res := _jm_obj_4(val, path, rep);
+            res := json_model_6(val, path, rep);
             IF NOT res THEN
               -- .'$any_platform'.'|'.6
-              res := _jm_obj_5(val, path, rep);
+              res := json_model_7(val, path, rep);
               IF NOT res THEN
                 -- .'$any_platform'.'|'.7
-                res := _jm_obj_6(val, path, rep);
+                res := json_model_8(val, path, rep);
                 IF NOT res THEN
                   -- .'$any_platform'.'|'.8
-                  res := _jm_obj_7(val, path, rep);
+                  res := json_model_9(val, path, rep);
                   IF NOT res THEN
                     -- .'$any_platform'.'|'.9
-                    res := _jm_obj_26(val, path, rep);
+                    res := json_model_28(val, path, rep);
                     IF NOT res THEN
                       -- .'$any_platform'.'|'.10
-                      res := _jm_obj_8(val, path, rep);
+                      res := json_model_10(val, path, rep);
                       IF NOT res THEN
                         -- .'$any_platform'.'|'.11
-                        res := _jm_obj_9(val, path, rep);
+                        res := json_model_11(val, path, rep);
                         IF NOT res THEN
                           -- .'$any_platform'.'|'.12
-                          res := _jm_obj_10(val, path, rep);
+                          res := json_model_12(val, path, rep);
                           IF NOT res THEN
                             -- .'$any_platform'.'|'.13
-                            res := _jm_obj_11(val, path, rep);
+                            res := json_model_13(val, path, rep);
                             IF NOT res THEN
                               -- .'$any_platform'.'|'.14
-                              res := _jm_obj_12(val, path, rep);
+                              res := json_model_14(val, path, rep);
                               IF NOT res THEN
                                 -- .'$any_platform'.'|'.15
-                                res := _jm_obj_41(val, path, rep);
+                                res := json_model_43(val, path, rep);
                                 IF NOT res THEN
                                   -- .'$any_platform'.'|'.16
-                                  res := _jm_obj_13(val, path, rep);
+                                  res := json_model_15(val, path, rep);
                                   IF NOT res THEN
                                     -- .'$any_platform'.'|'.17
-                                    res := _jm_obj_14(val, path, rep);
+                                    res := json_model_16(val, path, rep);
                                     IF NOT res THEN
                                       -- .'$any_platform'.'|'.18
-                                      res := _jm_obj_15(val, path, rep);
+                                      res := json_model_17(val, path, rep);
                                       IF NOT res THEN
                                         -- .'$any_platform'.'|'.19
-                                        res := _jm_obj_16(val, path, rep);
+                                        res := json_model_18(val, path, rep);
                                         IF NOT res THEN
                                           -- .'$any_platform'.'|'.20
-                                          res := _jm_obj_17(val, path, rep);
+                                          res := json_model_19(val, path, rep);
                                           IF NOT res THEN
                                             -- .'$any_platform'.'|'.21
-                                            res := _jm_obj_18(val, path, rep);
+                                            res := json_model_20(val, path, rep);
                                             IF NOT res THEN
                                               -- .'$any_platform'.'|'.22
-                                              res := _jm_obj_19(val, path, rep);
+                                              res := json_model_21(val, path, rep);
                                               IF NOT res THEN
                                                 -- .'$any_platform'.'|'.23
-                                                res := _jm_obj_20(val, path, rep);
+                                                res := json_model_22(val, path, rep);
                                                 IF NOT res THEN
                                                   -- .'$any_platform'.'|'.24
-                                                  res := _jm_obj_21(val, path, rep);
+                                                  res := json_model_23(val, path, rep);
                                                   IF NOT res THEN
                                                     -- .'$any_platform'.'|'.25
-                                                    res := _jm_obj_22(val, path, rep);
+                                                    res := json_model_24(val, path, rep);
                                                     IF NOT res THEN
                                                       -- .'$any_platform'.'|'.26
-                                                      res := _jm_obj_42(val, path, rep);
+                                                      res := json_model_44(val, path, rep);
                                                       IF NOT res THEN
                                                         -- .'$any_platform'.'|'.27
-                                                        res := _jm_obj_23(val, path, rep);
+                                                        res := json_model_25(val, path, rep);
                                                         IF NOT res THEN
                                                           -- .'$any_platform'.'|'.28
-                                                          res := _jm_obj_24(val, path, rep);
+                                                          res := json_model_26(val, path, rep);
                                                           IF NOT res THEN
                                                             -- .'$any_platform'.'|'.29
-                                                            res := _jm_obj_25(val, path, rep);
+                                                            res := json_model_27(val, path, rep);
                                                             IF NOT res THEN
                                                               -- .'$any_platform'.'|'.30
-                                                              res := _jm_obj_27(val, path, rep);
+                                                              res := json_model_29(val, path, rep);
                                                               IF NOT res THEN
                                                                 -- .'$any_platform'.'|'.31
-                                                                res := _jm_obj_43(val, path, rep);
+                                                                res := json_model_45(val, path, rep);
                                                                 IF NOT res THEN
                                                                   -- .'$any_platform'.'|'.32
-                                                                  res := _jm_obj_28(val, path, rep);
+                                                                  res := json_model_30(val, path, rep);
                                                                   IF NOT res THEN
                                                                     -- .'$any_platform'.'|'.33
-                                                                    res := _jm_obj_29(val, path, rep);
+                                                                    res := json_model_31(val, path, rep);
                                                                     IF NOT res THEN
                                                                       -- .'$any_platform'.'|'.34
-                                                                      res := _jm_obj_44(val, path, rep);
+                                                                      res := json_model_46(val, path, rep);
                                                                       IF NOT res THEN
                                                                         -- .'$any_platform'.'|'.35
-                                                                        res := _jm_obj_30(val, path, rep);
+                                                                        res := json_model_32(val, path, rep);
                                                                         IF NOT res THEN
                                                                           -- .'$any_platform'.'|'.36
-                                                                          res := _jm_obj_31(val, path, rep);
+                                                                          res := json_model_33(val, path, rep);
                                                                           IF NOT res THEN
                                                                             -- .'$any_platform'.'|'.37
-                                                                            res := _jm_obj_32(val, path, rep);
+                                                                            res := json_model_34(val, path, rep);
                                                                             IF NOT res THEN
                                                                               -- .'$any_platform'.'|'.38
-                                                                              res := _jm_obj_33(val, path, rep);
+                                                                              res := json_model_35(val, path, rep);
                                                                               IF NOT res THEN
                                                                                 -- .'$any_platform'.'|'.39
-                                                                                res := _jm_obj_34(val, path, rep);
+                                                                                res := json_model_36(val, path, rep);
                                                                                 IF NOT res THEN
                                                                                   -- .'$any_platform'.'|'.40
-                                                                                  res := _jm_obj_35(val, path, rep);
+                                                                                  res := json_model_37(val, path, rep);
                                                                                   IF NOT res THEN
                                                                                     -- .'$any_platform'.'|'.41
-                                                                                    res := _jm_obj_36(val, path, rep);
+                                                                                    res := json_model_38(val, path, rep);
                                                                                     IF NOT res THEN
                                                                                       -- .'$any_platform'.'|'.42
-                                                                                      res := _jm_obj_37(val, path, rep);
+                                                                                      res := json_model_39(val, path, rep);
                                                                                       IF NOT res THEN
                                                                                         -- .'$any_platform'.'|'.43
-                                                                                        res := _jm_obj_45(val, path, rep);
+                                                                                        res := json_model_47(val, path, rep);
                                                                                         IF NOT res THEN
                                                                                           -- .'$any_platform'.'|'.44
-                                                                                          res := _jm_obj_38(val, path, rep);
+                                                                                          res := json_model_40(val, path, rep);
                                                                                           IF NOT res THEN
                                                                                             -- .'$any_platform'.'|'.45
-                                                                                            res := _jm_obj_46(val, path, rep);
+                                                                                            res := json_model_48(val, path, rep);
                                                                                             IF NOT res THEN
                                                                                               -- .'$any_platform'.'|'.46
-                                                                                              res := _jm_obj_39(val, path, rep);
+                                                                                              res := json_model_41(val, path, rep);
                                                                                             END IF;
                                                                                           END IF;
                                                                                         END IF;
@@ -3227,7 +2710,7 @@ END;
 $$ LANGUAGE plpgsql;
 
 -- object .'$platforms'.0.'|'.46
-CREATE OR REPLACE FUNCTION _jm_obj_47(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_obj_0(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   pval JSONB;
@@ -3279,7 +2762,7 @@ END;
 $$ LANGUAGE plpgsql;
 
 -- object .'$platforms'.0.'|'.45
-CREATE OR REPLACE FUNCTION _jm_obj_48(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_obj_1(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   pval JSONB;
@@ -3322,7 +2805,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- object .'$platforms'.0.'|'.44
-CREATE OR REPLACE FUNCTION _jm_obj_49(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_obj_2(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   pval JSONB;
@@ -3374,7 +2857,7 @@ END;
 $$ LANGUAGE plpgsql;
 
 -- object .'$platforms'.0.'|'.43
-CREATE OR REPLACE FUNCTION _jm_obj_50(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_obj_3(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   pval JSONB;
@@ -3426,7 +2909,7 @@ END;
 $$ LANGUAGE plpgsql;
 
 -- object .'$platforms'.0.'|'.42
-CREATE OR REPLACE FUNCTION _jm_obj_51(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_obj_4(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   pval JSONB;
@@ -3478,7 +2961,7 @@ END;
 $$ LANGUAGE plpgsql;
 
 -- object .'$platforms'.0.'|'.41
-CREATE OR REPLACE FUNCTION _jm_obj_52(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_obj_5(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   pval JSONB;
@@ -3530,7 +3013,7 @@ END;
 $$ LANGUAGE plpgsql;
 
 -- object .'$platforms'.0.'|'.40
-CREATE OR REPLACE FUNCTION _jm_obj_53(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_obj_6(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   pval JSONB;
@@ -3582,7 +3065,7 @@ END;
 $$ LANGUAGE plpgsql;
 
 -- object .'$platforms'.0.'|'.39
-CREATE OR REPLACE FUNCTION _jm_obj_54(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_obj_7(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   pval JSONB;
@@ -3625,7 +3108,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- object .'$platforms'.0.'|'.38
-CREATE OR REPLACE FUNCTION _jm_obj_55(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_obj_8(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   pval JSONB;
@@ -3677,7 +3160,7 @@ END;
 $$ LANGUAGE plpgsql;
 
 -- object .'$platforms'.0.'|'.37
-CREATE OR REPLACE FUNCTION _jm_obj_56(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_obj_9(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   pval JSONB;
@@ -3729,7 +3212,7 @@ END;
 $$ LANGUAGE plpgsql;
 
 -- object .'$platforms'.0.'|'.36
-CREATE OR REPLACE FUNCTION _jm_obj_57(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_obj_10(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   pval JSONB;
@@ -3781,7 +3264,7 @@ END;
 $$ LANGUAGE plpgsql;
 
 -- object .'$platforms'.0.'|'.35
-CREATE OR REPLACE FUNCTION _jm_obj_58(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_obj_11(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   pval JSONB;
@@ -3824,7 +3307,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- object .'$platforms'.0.'|'.34
-CREATE OR REPLACE FUNCTION _jm_obj_59(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_obj_12(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   pval JSONB;
@@ -3876,7 +3359,7 @@ END;
 $$ LANGUAGE plpgsql;
 
 -- object .'$platforms'.0.'|'.33
-CREATE OR REPLACE FUNCTION _jm_obj_60(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_obj_13(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   pval JSONB;
@@ -3928,7 +3411,7 @@ END;
 $$ LANGUAGE plpgsql;
 
 -- object .'$platforms'.0.'|'.32
-CREATE OR REPLACE FUNCTION _jm_obj_61(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_obj_14(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   pval JSONB;
@@ -3980,7 +3463,7 @@ END;
 $$ LANGUAGE plpgsql;
 
 -- object .'$platforms'.0.'|'.31
-CREATE OR REPLACE FUNCTION _jm_obj_62(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_obj_15(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   pval JSONB;
@@ -4032,7 +3515,7 @@ END;
 $$ LANGUAGE plpgsql;
 
 -- object .'$platforms'.0.'|'.30
-CREATE OR REPLACE FUNCTION _jm_obj_63(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_obj_16(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   pval JSONB;
@@ -4075,7 +3558,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- object .'$platforms'.0.'|'.29
-CREATE OR REPLACE FUNCTION _jm_obj_64(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_obj_17(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   pval JSONB;
@@ -4127,7 +3610,7 @@ END;
 $$ LANGUAGE plpgsql;
 
 -- object .'$platforms'.0.'|'.28
-CREATE OR REPLACE FUNCTION _jm_obj_65(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_obj_18(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   pval JSONB;
@@ -4179,7 +3662,7 @@ END;
 $$ LANGUAGE plpgsql;
 
 -- object .'$platforms'.0.'|'.27
-CREATE OR REPLACE FUNCTION _jm_obj_66(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_obj_19(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   pval JSONB;
@@ -4231,7 +3714,7 @@ END;
 $$ LANGUAGE plpgsql;
 
 -- object .'$platforms'.0.'|'.26
-CREATE OR REPLACE FUNCTION _jm_obj_67(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_obj_20(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   pval JSONB;
@@ -4283,7 +3766,7 @@ END;
 $$ LANGUAGE plpgsql;
 
 -- object .'$platforms'.0.'|'.25
-CREATE OR REPLACE FUNCTION _jm_obj_68(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_obj_21(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   pval JSONB;
@@ -4326,7 +3809,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- object .'$platforms'.0.'|'.24
-CREATE OR REPLACE FUNCTION _jm_obj_69(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_obj_22(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   pval JSONB;
@@ -4369,7 +3852,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- object .'$platforms'.0.'|'.23
-CREATE OR REPLACE FUNCTION _jm_obj_70(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_obj_23(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   pval JSONB;
@@ -4421,7 +3904,7 @@ END;
 $$ LANGUAGE plpgsql;
 
 -- object .'$platforms'.0.'|'.22
-CREATE OR REPLACE FUNCTION _jm_obj_71(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_obj_24(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   pval JSONB;
@@ -4464,7 +3947,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- object .'$platforms'.0.'|'.21
-CREATE OR REPLACE FUNCTION _jm_obj_72(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_obj_25(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   pval JSONB;
@@ -4507,7 +3990,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- object .'$platforms'.0.'|'.20
-CREATE OR REPLACE FUNCTION _jm_obj_73(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_obj_26(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   pval JSONB;
@@ -4550,7 +4033,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- object .'$platforms'.0.'|'.19
-CREATE OR REPLACE FUNCTION _jm_obj_74(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_obj_27(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   pval JSONB;
@@ -4593,7 +4076,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- object .'$platforms'.0.'|'.18
-CREATE OR REPLACE FUNCTION _jm_obj_75(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_obj_28(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   pval JSONB;
@@ -4645,7 +4128,7 @@ END;
 $$ LANGUAGE plpgsql;
 
 -- object .'$platforms'.0.'|'.17
-CREATE OR REPLACE FUNCTION _jm_obj_76(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_obj_29(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   pval JSONB;
@@ -4697,7 +4180,7 @@ END;
 $$ LANGUAGE plpgsql;
 
 -- object .'$platforms'.0.'|'.16
-CREATE OR REPLACE FUNCTION _jm_obj_77(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_obj_30(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   pval JSONB;
@@ -4740,7 +4223,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- object .'$platforms'.0.'|'.15
-CREATE OR REPLACE FUNCTION _jm_obj_78(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_obj_31(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   pval JSONB;
@@ -4792,7 +4275,7 @@ END;
 $$ LANGUAGE plpgsql;
 
 -- object .'$platforms'.0.'|'.14
-CREATE OR REPLACE FUNCTION _jm_obj_79(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_obj_32(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   pval JSONB;
@@ -4844,7 +4327,7 @@ END;
 $$ LANGUAGE plpgsql;
 
 -- object .'$platforms'.0.'|'.13
-CREATE OR REPLACE FUNCTION _jm_obj_80(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_obj_33(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   pval JSONB;
@@ -4896,7 +4379,7 @@ END;
 $$ LANGUAGE plpgsql;
 
 -- object .'$platforms'.0.'|'.12
-CREATE OR REPLACE FUNCTION _jm_obj_81(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_obj_34(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   pval JSONB;
@@ -4948,7 +4431,7 @@ END;
 $$ LANGUAGE plpgsql;
 
 -- object .'$platforms'.0.'|'.11
-CREATE OR REPLACE FUNCTION _jm_obj_82(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_obj_35(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   pval JSONB;
@@ -5000,7 +4483,7 @@ END;
 $$ LANGUAGE plpgsql;
 
 -- object .'$platforms'.0.'|'.10
-CREATE OR REPLACE FUNCTION _jm_obj_83(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_obj_36(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   pval JSONB;
@@ -5052,7 +4535,7 @@ END;
 $$ LANGUAGE plpgsql;
 
 -- object .'$platforms'.0.'|'.9
-CREATE OR REPLACE FUNCTION _jm_obj_84(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_obj_37(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   pval JSONB;
@@ -5104,7 +4587,7 @@ END;
 $$ LANGUAGE plpgsql;
 
 -- object .'$platforms'.0.'|'.8
-CREATE OR REPLACE FUNCTION _jm_obj_85(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_obj_38(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   pval JSONB;
@@ -5147,7 +4630,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- object .'$platforms'.0.'|'.7
-CREATE OR REPLACE FUNCTION _jm_obj_86(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_obj_39(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   pval JSONB;
@@ -5199,7 +4682,7 @@ END;
 $$ LANGUAGE plpgsql;
 
 -- object .'$platforms'.0.'|'.6
-CREATE OR REPLACE FUNCTION _jm_obj_87(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_obj_40(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   pval JSONB;
@@ -5242,7 +4725,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- object .'$platforms'.0.'|'.5
-CREATE OR REPLACE FUNCTION _jm_obj_88(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_obj_41(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   pval JSONB;
@@ -5285,7 +4768,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- object .'$platforms'.0.'|'.4
-CREATE OR REPLACE FUNCTION _jm_obj_89(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_obj_42(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   pval JSONB;
@@ -5337,7 +4820,7 @@ END;
 $$ LANGUAGE plpgsql;
 
 -- object .'$platforms'.0.'|'.3
-CREATE OR REPLACE FUNCTION _jm_obj_90(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_obj_43(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   pval JSONB;
@@ -5389,7 +4872,7 @@ END;
 $$ LANGUAGE plpgsql;
 
 -- object .'$platforms'.0.'|'.2
-CREATE OR REPLACE FUNCTION _jm_obj_91(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_obj_44(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   pval JSONB;
@@ -5432,7 +4915,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- object .'$platforms'.0.'|'.1
-CREATE OR REPLACE FUNCTION _jm_obj_92(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_obj_45(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   pval JSONB;
@@ -5484,7 +4967,7 @@ END;
 $$ LANGUAGE plpgsql;
 
 -- object .'$platforms'.0.'|'.0
-CREATE OR REPLACE FUNCTION _jm_obj_93(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_obj_46(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   pval JSONB;
@@ -5543,145 +5026,145 @@ BEGIN
       res := JSONB_TYPEOF(arr_47_item) = 'object';
       IF res THEN
         -- .'$platforms'.0.'|'.0
-        res := _jm_obj_93(arr_47_item, NULL, rep);
+        res := _jm_obj_46(arr_47_item, NULL, rep);
         IF NOT res THEN
           -- .'$platforms'.0.'|'.1
-          res := _jm_obj_92(arr_47_item, NULL, rep);
+          res := _jm_obj_45(arr_47_item, NULL, rep);
           IF NOT res THEN
             -- .'$platforms'.0.'|'.2
-            res := _jm_obj_91(arr_47_item, NULL, rep);
+            res := _jm_obj_44(arr_47_item, NULL, rep);
             IF NOT res THEN
               -- .'$platforms'.0.'|'.3
-              res := _jm_obj_90(arr_47_item, NULL, rep);
+              res := _jm_obj_43(arr_47_item, NULL, rep);
               IF NOT res THEN
                 -- .'$platforms'.0.'|'.4
-                res := _jm_obj_89(arr_47_item, NULL, rep);
+                res := _jm_obj_42(arr_47_item, NULL, rep);
                 IF NOT res THEN
                   -- .'$platforms'.0.'|'.5
-                  res := _jm_obj_88(arr_47_item, NULL, rep);
+                  res := _jm_obj_41(arr_47_item, NULL, rep);
                   IF NOT res THEN
                     -- .'$platforms'.0.'|'.6
-                    res := _jm_obj_87(arr_47_item, NULL, rep);
+                    res := _jm_obj_40(arr_47_item, NULL, rep);
                     IF NOT res THEN
                       -- .'$platforms'.0.'|'.7
-                      res := _jm_obj_86(arr_47_item, NULL, rep);
+                      res := _jm_obj_39(arr_47_item, NULL, rep);
                       IF NOT res THEN
                         -- .'$platforms'.0.'|'.8
-                        res := _jm_obj_85(arr_47_item, NULL, rep);
+                        res := _jm_obj_38(arr_47_item, NULL, rep);
                         IF NOT res THEN
                           -- .'$platforms'.0.'|'.9
-                          res := _jm_obj_84(arr_47_item, NULL, rep);
+                          res := _jm_obj_37(arr_47_item, NULL, rep);
                           IF NOT res THEN
                             -- .'$platforms'.0.'|'.10
-                            res := _jm_obj_83(arr_47_item, NULL, rep);
+                            res := _jm_obj_36(arr_47_item, NULL, rep);
                             IF NOT res THEN
                               -- .'$platforms'.0.'|'.11
-                              res := _jm_obj_82(arr_47_item, NULL, rep);
+                              res := _jm_obj_35(arr_47_item, NULL, rep);
                               IF NOT res THEN
                                 -- .'$platforms'.0.'|'.12
-                                res := _jm_obj_81(arr_47_item, NULL, rep);
+                                res := _jm_obj_34(arr_47_item, NULL, rep);
                                 IF NOT res THEN
                                   -- .'$platforms'.0.'|'.13
-                                  res := _jm_obj_80(arr_47_item, NULL, rep);
+                                  res := _jm_obj_33(arr_47_item, NULL, rep);
                                   IF NOT res THEN
                                     -- .'$platforms'.0.'|'.14
-                                    res := _jm_obj_79(arr_47_item, NULL, rep);
+                                    res := _jm_obj_32(arr_47_item, NULL, rep);
                                     IF NOT res THEN
                                       -- .'$platforms'.0.'|'.15
-                                      res := _jm_obj_78(arr_47_item, NULL, rep);
+                                      res := _jm_obj_31(arr_47_item, NULL, rep);
                                       IF NOT res THEN
                                         -- .'$platforms'.0.'|'.16
-                                        res := _jm_obj_77(arr_47_item, NULL, rep);
+                                        res := _jm_obj_30(arr_47_item, NULL, rep);
                                         IF NOT res THEN
                                           -- .'$platforms'.0.'|'.17
-                                          res := _jm_obj_76(arr_47_item, NULL, rep);
+                                          res := _jm_obj_29(arr_47_item, NULL, rep);
                                           IF NOT res THEN
                                             -- .'$platforms'.0.'|'.18
-                                            res := _jm_obj_75(arr_47_item, NULL, rep);
+                                            res := _jm_obj_28(arr_47_item, NULL, rep);
                                             IF NOT res THEN
                                               -- .'$platforms'.0.'|'.19
-                                              res := _jm_obj_74(arr_47_item, NULL, rep);
+                                              res := _jm_obj_27(arr_47_item, NULL, rep);
                                               IF NOT res THEN
                                                 -- .'$platforms'.0.'|'.20
-                                                res := _jm_obj_73(arr_47_item, NULL, rep);
+                                                res := _jm_obj_26(arr_47_item, NULL, rep);
                                                 IF NOT res THEN
                                                   -- .'$platforms'.0.'|'.21
-                                                  res := _jm_obj_72(arr_47_item, NULL, rep);
+                                                  res := _jm_obj_25(arr_47_item, NULL, rep);
                                                   IF NOT res THEN
                                                     -- .'$platforms'.0.'|'.22
-                                                    res := _jm_obj_71(arr_47_item, NULL, rep);
+                                                    res := _jm_obj_24(arr_47_item, NULL, rep);
                                                     IF NOT res THEN
                                                       -- .'$platforms'.0.'|'.23
-                                                      res := _jm_obj_70(arr_47_item, NULL, rep);
+                                                      res := _jm_obj_23(arr_47_item, NULL, rep);
                                                       IF NOT res THEN
                                                         -- .'$platforms'.0.'|'.24
-                                                        res := _jm_obj_69(arr_47_item, NULL, rep);
+                                                        res := _jm_obj_22(arr_47_item, NULL, rep);
                                                         IF NOT res THEN
                                                           -- .'$platforms'.0.'|'.25
-                                                          res := _jm_obj_68(arr_47_item, NULL, rep);
+                                                          res := _jm_obj_21(arr_47_item, NULL, rep);
                                                           IF NOT res THEN
                                                             -- .'$platforms'.0.'|'.26
-                                                            res := _jm_obj_67(arr_47_item, NULL, rep);
+                                                            res := _jm_obj_20(arr_47_item, NULL, rep);
                                                             IF NOT res THEN
                                                               -- .'$platforms'.0.'|'.27
-                                                              res := _jm_obj_66(arr_47_item, NULL, rep);
+                                                              res := _jm_obj_19(arr_47_item, NULL, rep);
                                                               IF NOT res THEN
                                                                 -- .'$platforms'.0.'|'.28
-                                                                res := _jm_obj_65(arr_47_item, NULL, rep);
+                                                                res := _jm_obj_18(arr_47_item, NULL, rep);
                                                                 IF NOT res THEN
                                                                   -- .'$platforms'.0.'|'.29
-                                                                  res := _jm_obj_64(arr_47_item, NULL, rep);
+                                                                  res := _jm_obj_17(arr_47_item, NULL, rep);
                                                                   IF NOT res THEN
                                                                     -- .'$platforms'.0.'|'.30
-                                                                    res := _jm_obj_63(arr_47_item, NULL, rep);
+                                                                    res := _jm_obj_16(arr_47_item, NULL, rep);
                                                                     IF NOT res THEN
                                                                       -- .'$platforms'.0.'|'.31
-                                                                      res := _jm_obj_62(arr_47_item, NULL, rep);
+                                                                      res := _jm_obj_15(arr_47_item, NULL, rep);
                                                                       IF NOT res THEN
                                                                         -- .'$platforms'.0.'|'.32
-                                                                        res := _jm_obj_61(arr_47_item, NULL, rep);
+                                                                        res := _jm_obj_14(arr_47_item, NULL, rep);
                                                                         IF NOT res THEN
                                                                           -- .'$platforms'.0.'|'.33
-                                                                          res := _jm_obj_60(arr_47_item, NULL, rep);
+                                                                          res := _jm_obj_13(arr_47_item, NULL, rep);
                                                                           IF NOT res THEN
                                                                             -- .'$platforms'.0.'|'.34
-                                                                            res := _jm_obj_59(arr_47_item, NULL, rep);
+                                                                            res := _jm_obj_12(arr_47_item, NULL, rep);
                                                                             IF NOT res THEN
                                                                               -- .'$platforms'.0.'|'.35
-                                                                              res := _jm_obj_58(arr_47_item, NULL, rep);
+                                                                              res := _jm_obj_11(arr_47_item, NULL, rep);
                                                                               IF NOT res THEN
                                                                                 -- .'$platforms'.0.'|'.36
-                                                                                res := _jm_obj_57(arr_47_item, NULL, rep);
+                                                                                res := _jm_obj_10(arr_47_item, NULL, rep);
                                                                                 IF NOT res THEN
                                                                                   -- .'$platforms'.0.'|'.37
-                                                                                  res := _jm_obj_56(arr_47_item, NULL, rep);
+                                                                                  res := _jm_obj_9(arr_47_item, NULL, rep);
                                                                                   IF NOT res THEN
                                                                                     -- .'$platforms'.0.'|'.38
-                                                                                    res := _jm_obj_55(arr_47_item, NULL, rep);
+                                                                                    res := _jm_obj_8(arr_47_item, NULL, rep);
                                                                                     IF NOT res THEN
                                                                                       -- .'$platforms'.0.'|'.39
-                                                                                      res := _jm_obj_54(arr_47_item, NULL, rep);
+                                                                                      res := _jm_obj_7(arr_47_item, NULL, rep);
                                                                                       IF NOT res THEN
                                                                                         -- .'$platforms'.0.'|'.40
-                                                                                        res := _jm_obj_53(arr_47_item, NULL, rep);
+                                                                                        res := _jm_obj_6(arr_47_item, NULL, rep);
                                                                                         IF NOT res THEN
                                                                                           -- .'$platforms'.0.'|'.41
-                                                                                          res := _jm_obj_52(arr_47_item, NULL, rep);
+                                                                                          res := _jm_obj_5(arr_47_item, NULL, rep);
                                                                                           IF NOT res THEN
                                                                                             -- .'$platforms'.0.'|'.42
-                                                                                            res := _jm_obj_51(arr_47_item, NULL, rep);
+                                                                                            res := _jm_obj_4(arr_47_item, NULL, rep);
                                                                                             IF NOT res THEN
                                                                                               -- .'$platforms'.0.'|'.43
-                                                                                              res := _jm_obj_50(arr_47_item, NULL, rep);
+                                                                                              res := _jm_obj_3(arr_47_item, NULL, rep);
                                                                                               IF NOT res THEN
                                                                                                 -- .'$platforms'.0.'|'.44
-                                                                                                res := _jm_obj_49(arr_47_item, NULL, rep);
+                                                                                                res := _jm_obj_2(arr_47_item, NULL, rep);
                                                                                                 IF NOT res THEN
                                                                                                   -- .'$platforms'.0.'|'.45
-                                                                                                  res := _jm_obj_48(arr_47_item, NULL, rep);
+                                                                                                  res := _jm_obj_1(arr_47_item, NULL, rep);
                                                                                                   IF NOT res THEN
                                                                                                     -- .'$platforms'.0.'|'.46
-                                                                                                    res := _jm_obj_47(arr_47_item, NULL, rep);
+                                                                                                    res := _jm_obj_0(arr_47_item, NULL, rep);
                                                                                                   END IF;
                                                                                                 END IF;
                                                                                               END IF;
@@ -5738,7 +5221,7 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_obj_94_map_cloud_platforms (.'$GalaxyInfoModelCollection'.cloud_platforms)
+-- check json_model_51_map_cloud_platforms (.'$GalaxyInfoModelCollection'.cloud_platforms)
 CREATE OR REPLACE FUNCTION _jm_f_0(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
@@ -5750,7 +5233,7 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_obj_94_map_galaxy_tags (.'$GalaxyInfoModelCollection'.galaxy_tags)
+-- check json_model_51_map_galaxy_tags (.'$GalaxyInfoModelCollection'.galaxy_tags)
 CREATE OR REPLACE FUNCTION _jm_f_1(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
@@ -5774,7 +5257,7 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_obj_94_map_min_ansible_version (.'$GalaxyInfoModelCollection'.min_ansible_version)
+-- check json_model_51_map_min_ansible_version (.'$GalaxyInfoModelCollection'.min_ansible_version)
 CREATE OR REPLACE FUNCTION _jm_f_2(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
@@ -5794,7 +5277,7 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
--- check _jm_obj_94_map_namespace (.'$GalaxyInfoModelCollection'.namespace)
+-- check json_model_51_map_namespace (.'$GalaxyInfoModelCollection'.namespace)
 CREATE OR REPLACE FUNCTION _jm_f_3(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
@@ -5807,7 +5290,7 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_obj_94_map_platforms (.'$GalaxyInfoModelCollection'.platforms)
+-- check json_model_51_map_platforms (.'$GalaxyInfoModelCollection'.platforms)
 CREATE OR REPLACE FUNCTION _jm_f_4(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
@@ -5827,7 +5310,7 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
--- check _jm_obj_94_map_role_name (.'$GalaxyInfoModelCollection'.role_name)
+-- check json_model_51_map_role_name (.'$GalaxyInfoModelCollection'.role_name)
 CREATE OR REPLACE FUNCTION _jm_f_5(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
@@ -5840,7 +5323,7 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_obj_94_map_video_links (.'$GalaxyInfoModelCollection'.video_links)
+-- check json_model_51_map_video_links (.'$GalaxyInfoModelCollection'.video_links)
 CREATE OR REPLACE FUNCTION _jm_f_6(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
@@ -5852,7 +5335,7 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
-CREATE OR REPLACE FUNCTION _jm_obj_94_map(name TEXT)
+CREATE OR REPLACE FUNCTION json_model_51_map(name TEXT)
 RETURNS TEXT STRICT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   map JSONB := JSONB '{"cloud_platforms":"_jm_f_0","galaxy_tags":"_jm_f_1","min_ansible_version":"_jm_f_2","namespace":"_jm_f_3","platforms":"_jm_f_4","role_name":"_jm_f_5","video_links":"_jm_f_6"}';
@@ -5861,21 +5344,22 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
--- object .'$GalaxyInfoModelCollection'
-CREATE OR REPLACE FUNCTION _jm_obj_94(val JSONB, path TEXT[], rep jm_report_entry[])
+-- check $GalaxyInfoModelCollection (.'$GalaxyInfoModelCollection')
+CREATE OR REPLACE FUNCTION json_model_51(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   pfun TEXT;
   prop TEXT;
   pval JSONB;
 BEGIN
+  -- .'$GalaxyInfoModelCollection'
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF _jm_obj_94_map(prop) IS NOT NULL THEN
+    IF json_model_51_map(prop) IS NOT NULL THEN
       -- handle 7 may props
-      pfun := _jm_obj_94_map(prop);
+      pfun := json_model_51_map(prop);
       IF NOT jm_call(pfun, pval, NULL, rep) THEN
         RETURN FALSE;
       END IF;
@@ -5887,19 +5371,7 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check $GalaxyInfoModelCollection (.'$GalaxyInfoModelCollection')
-CREATE OR REPLACE FUNCTION json_model_51(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .'$GalaxyInfoModelCollection'
-  res := _jm_obj_94(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
--- check _jm_obj_95_map_author (.'$GalaxyInfoModelLoose'.author)
+-- check json_model_52_map_author (.'$GalaxyInfoModelLoose'.author)
 CREATE OR REPLACE FUNCTION _jm_f_7(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
@@ -5911,7 +5383,7 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_obj_95_map_company (.'$GalaxyInfoModelLoose'.company)
+-- check json_model_52_map_company (.'$GalaxyInfoModelLoose'.company)
 CREATE OR REPLACE FUNCTION _jm_f_8(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
@@ -5923,7 +5395,7 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_obj_95_map_github_branch (.'$GalaxyInfoModelLoose'.github_branch)
+-- check json_model_52_map_github_branch (.'$GalaxyInfoModelLoose'.github_branch)
 CREATE OR REPLACE FUNCTION _jm_f_9(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
@@ -5935,7 +5407,7 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_obj_95_map_issue_tracker_url (.'$GalaxyInfoModelLoose'.issue_tracker_url)
+-- check json_model_52_map_issue_tracker_url (.'$GalaxyInfoModelLoose'.issue_tracker_url)
 CREATE OR REPLACE FUNCTION _jm_f_10(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
@@ -5947,7 +5419,7 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_obj_95_map_license (.'$GalaxyInfoModelLoose'.license)
+-- check json_model_52_map_license (.'$GalaxyInfoModelLoose'.license)
 CREATE OR REPLACE FUNCTION _jm_f_11(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
@@ -5959,7 +5431,7 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_obj_95_map_min_ansible_container_version (.'$GalaxyInfoModelLoose'.min_ansible_container_version)
+-- check json_model_52_map_min_ansible_container_version (.'$GalaxyInfoModelLoose'.min_ansible_container_version)
 CREATE OR REPLACE FUNCTION _jm_f_12(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
@@ -5971,7 +5443,7 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
-CREATE OR REPLACE FUNCTION _jm_obj_95_map(name TEXT)
+CREATE OR REPLACE FUNCTION json_model_52_map(name TEXT)
 RETURNS TEXT STRICT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   map JSONB := JSONB '{"author":"_jm_f_7","company":"_jm_f_8","github_branch":"_jm_f_9","issue_tracker_url":"_jm_f_10","license":"_jm_f_11","min_ansible_container_version":"_jm_f_12"}';
@@ -5980,8 +5452,8 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
--- object .'$GalaxyInfoModelLoose'
-CREATE OR REPLACE FUNCTION _jm_obj_95(val JSONB, path TEXT[], rep jm_report_entry[])
+-- check $GalaxyInfoModelLoose (.'$GalaxyInfoModelLoose')
+CREATE OR REPLACE FUNCTION json_model_52(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -5990,6 +5462,8 @@ DECLARE
   prop TEXT;
   pval JSONB;
 BEGIN
+  -- some $URL should be added?
+  -- .'$GalaxyInfoModelLoose'
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
@@ -6003,9 +5477,9 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF _jm_obj_95_map(prop) IS NOT NULL THEN
+    ELSEIF json_model_52_map(prop) IS NOT NULL THEN
       -- handle 6 may props
-      pfun := _jm_obj_95_map(prop);
+      pfun := json_model_52_map(prop);
       IF NOT jm_call(pfun, pval, NULL, rep) THEN
         RETURN FALSE;
       END IF;
@@ -6020,20 +5494,7 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check $GalaxyInfoModelLoose (.'$GalaxyInfoModelLoose')
-CREATE OR REPLACE FUNCTION json_model_52(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- some $URL should be added?
-  -- .'$GalaxyInfoModelLoose'
-  res := _jm_obj_95(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
--- check _jm_obj_96_map_cloud_platforms (.'$GalaxyInfoModelStandalone'.cloud_platforms)
+-- check json_model_53_map_cloud_platforms (.'$GalaxyInfoModelStandalone'.cloud_platforms)
 CREATE OR REPLACE FUNCTION _jm_f_13(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
@@ -6045,7 +5506,7 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_obj_96_map_company (.'$GalaxyInfoModelStandalone'.company)
+-- check json_model_53_map_company (.'$GalaxyInfoModelStandalone'.company)
 CREATE OR REPLACE FUNCTION _jm_f_14(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
@@ -6057,7 +5518,7 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_obj_96_map_galaxy_tags (.'$GalaxyInfoModelStandalone'.galaxy_tags)
+-- check json_model_53_map_galaxy_tags (.'$GalaxyInfoModelStandalone'.galaxy_tags)
 CREATE OR REPLACE FUNCTION _jm_f_15(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
@@ -6081,7 +5542,7 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_obj_96_map_github_branch (.'$GalaxyInfoModelStandalone'.github_branch)
+-- check json_model_53_map_github_branch (.'$GalaxyInfoModelStandalone'.github_branch)
 CREATE OR REPLACE FUNCTION _jm_f_16(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
@@ -6093,7 +5554,7 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_obj_96_map_issue_tracker_url (.'$GalaxyInfoModelStandalone'.issue_tracker_url)
+-- check json_model_53_map_issue_tracker_url (.'$GalaxyInfoModelStandalone'.issue_tracker_url)
 CREATE OR REPLACE FUNCTION _jm_f_17(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
@@ -6105,7 +5566,7 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_obj_96_map_min_ansible_container_version (.'$GalaxyInfoModelStandalone'.min_ansible_container_version)
+-- check json_model_53_map_min_ansible_container_version (.'$GalaxyInfoModelStandalone'.min_ansible_container_version)
 CREATE OR REPLACE FUNCTION _jm_f_18(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
@@ -6117,7 +5578,7 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_obj_96_map_namespace (.'$GalaxyInfoModelStandalone'.namespace)
+-- check json_model_53_map_namespace (.'$GalaxyInfoModelStandalone'.namespace)
 CREATE OR REPLACE FUNCTION _jm_f_19(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
@@ -6130,7 +5591,7 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_obj_96_map_platforms (.'$GalaxyInfoModelStandalone'.platforms)
+-- check json_model_53_map_platforms (.'$GalaxyInfoModelStandalone'.platforms)
 CREATE OR REPLACE FUNCTION _jm_f_20(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
@@ -6142,7 +5603,7 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_obj_96_map_role_name (.'$GalaxyInfoModelStandalone'.role_name)
+-- check json_model_53_map_role_name (.'$GalaxyInfoModelStandalone'.role_name)
 CREATE OR REPLACE FUNCTION _jm_f_21(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
@@ -6155,7 +5616,7 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_obj_96_map_video_links (.'$GalaxyInfoModelStandalone'.video_links)
+-- check json_model_53_map_video_links (.'$GalaxyInfoModelStandalone'.video_links)
 CREATE OR REPLACE FUNCTION _jm_f_22(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
@@ -6167,7 +5628,7 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
-CREATE OR REPLACE FUNCTION _jm_obj_96_map(name TEXT)
+CREATE OR REPLACE FUNCTION json_model_53_map(name TEXT)
 RETURNS TEXT STRICT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   map JSONB := JSONB '{"cloud_platforms":"_jm_f_13","company":"_jm_f_14","galaxy_tags":"_jm_f_15","github_branch":"_jm_f_16","issue_tracker_url":"_jm_f_17","min_ansible_container_version":"_jm_f_18","namespace":"_jm_f_19","platforms":"_jm_f_20","role_name":"_jm_f_21","video_links":"_jm_f_22"}';
@@ -6176,8 +5637,8 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
--- object .'$GalaxyInfoModelStandalone'
-CREATE OR REPLACE FUNCTION _jm_obj_96(val JSONB, path TEXT[], rep jm_report_entry[])
+-- check $GalaxyInfoModelStandalone (.'$GalaxyInfoModelStandalone')
+CREATE OR REPLACE FUNCTION json_model_53(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -6186,6 +5647,7 @@ DECLARE
   prop TEXT;
   pval JSONB;
 BEGIN
+  -- .'$GalaxyInfoModelStandalone'
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
@@ -6231,9 +5693,9 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF _jm_obj_96_map(prop) IS NOT NULL THEN
+    ELSEIF json_model_53_map(prop) IS NOT NULL THEN
       -- handle 10 may props
-      pfun := _jm_obj_96_map(prop);
+      pfun := json_model_53_map(prop);
       IF NOT jm_call(pfun, pval, NULL, rep) THEN
         RETURN FALSE;
       END IF;
@@ -6248,19 +5710,7 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check $GalaxyInfoModelStandalone (.'$GalaxyInfoModelStandalone')
-CREATE OR REPLACE FUNCTION json_model_53(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .'$GalaxyInfoModelStandalone'
-  res := _jm_obj_96(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
--- check _jm_obj_97_map_author (.'$GalaxyInfoModel'.'|'.1.author)
+-- check _jm_obj_47_map_author (.'$GalaxyInfoModel'.'|'.1.author)
 CREATE OR REPLACE FUNCTION _jm_f_23(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
@@ -6272,7 +5722,7 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_obj_97_map_cloud_platforms (.'$GalaxyInfoModel'.'|'.1.cloud_platforms)
+-- check _jm_obj_47_map_cloud_platforms (.'$GalaxyInfoModel'.'|'.1.cloud_platforms)
 CREATE OR REPLACE FUNCTION _jm_f_24(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
@@ -6284,7 +5734,7 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_obj_97_map_company (.'$GalaxyInfoModel'.'|'.1.company)
+-- check _jm_obj_47_map_company (.'$GalaxyInfoModel'.'|'.1.company)
 CREATE OR REPLACE FUNCTION _jm_f_25(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
@@ -6296,7 +5746,7 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_obj_97_map_galaxy_tags (.'$GalaxyInfoModel'.'|'.1.galaxy_tags)
+-- check _jm_obj_47_map_galaxy_tags (.'$GalaxyInfoModel'.'|'.1.galaxy_tags)
 CREATE OR REPLACE FUNCTION _jm_f_26(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
@@ -6320,7 +5770,7 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_obj_97_map_github_branch (.'$GalaxyInfoModel'.'|'.1.github_branch)
+-- check _jm_obj_47_map_github_branch (.'$GalaxyInfoModel'.'|'.1.github_branch)
 CREATE OR REPLACE FUNCTION _jm_f_27(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
@@ -6332,7 +5782,7 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_obj_97_map_issue_tracker_url (.'$GalaxyInfoModel'.'|'.1.issue_tracker_url)
+-- check _jm_obj_47_map_issue_tracker_url (.'$GalaxyInfoModel'.'|'.1.issue_tracker_url)
 CREATE OR REPLACE FUNCTION _jm_f_28(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
@@ -6344,7 +5794,7 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_obj_97_map_license (.'$GalaxyInfoModel'.'|'.1.license)
+-- check _jm_obj_47_map_license (.'$GalaxyInfoModel'.'|'.1.license)
 CREATE OR REPLACE FUNCTION _jm_f_29(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
@@ -6356,7 +5806,7 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_obj_97_map_min_ansible_container_version (.'$GalaxyInfoModel'.'|'.1.min_ansible_container_version)
+-- check _jm_obj_47_map_min_ansible_container_version (.'$GalaxyInfoModel'.'|'.1.min_ansible_container_version)
 CREATE OR REPLACE FUNCTION _jm_f_30(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
@@ -6368,7 +5818,7 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_obj_97_map_min_ansible_version (.'$GalaxyInfoModel'.'|'.1.min_ansible_version)
+-- check _jm_obj_47_map_min_ansible_version (.'$GalaxyInfoModel'.'|'.1.min_ansible_version)
 CREATE OR REPLACE FUNCTION _jm_f_31(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
@@ -6380,7 +5830,7 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_obj_97_map_namespace (.'$GalaxyInfoModel'.'|'.1.namespace)
+-- check _jm_obj_47_map_namespace (.'$GalaxyInfoModel'.'|'.1.namespace)
 CREATE OR REPLACE FUNCTION _jm_f_32(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
@@ -6393,7 +5843,7 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_obj_97_map_platforms (.'$GalaxyInfoModel'.'|'.1.platforms)
+-- check _jm_obj_47_map_platforms (.'$GalaxyInfoModel'.'|'.1.platforms)
 CREATE OR REPLACE FUNCTION _jm_f_33(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
@@ -6405,7 +5855,7 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_obj_97_map_role_name (.'$GalaxyInfoModel'.'|'.1.role_name)
+-- check _jm_obj_47_map_role_name (.'$GalaxyInfoModel'.'|'.1.role_name)
 CREATE OR REPLACE FUNCTION _jm_f_34(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
@@ -6418,7 +5868,7 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_obj_97_map_video_links (.'$GalaxyInfoModel'.'|'.1.video_links)
+-- check _jm_obj_47_map_video_links (.'$GalaxyInfoModel'.'|'.1.video_links)
 CREATE OR REPLACE FUNCTION _jm_f_35(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
@@ -6430,7 +5880,7 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
-CREATE OR REPLACE FUNCTION _jm_obj_97_map(name TEXT)
+CREATE OR REPLACE FUNCTION _jm_obj_47_map(name TEXT)
 RETURNS TEXT STRICT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   map JSONB := JSONB '{"author":"_jm_f_23","cloud_platforms":"_jm_f_24","company":"_jm_f_25","galaxy_tags":"_jm_f_26","github_branch":"_jm_f_27","issue_tracker_url":"_jm_f_28","license":"_jm_f_29","min_ansible_container_version":"_jm_f_30","min_ansible_version":"_jm_f_31","namespace":"_jm_f_32","platforms":"_jm_f_33","role_name":"_jm_f_34","video_links":"_jm_f_35"}';
@@ -6440,7 +5890,7 @@ END;
 $$ LANGUAGE plpgsql;
 
 -- object .'$GalaxyInfoModel'.'|'.1
-CREATE OR REPLACE FUNCTION _jm_obj_97(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_obj_47(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -6470,9 +5920,9 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF _jm_obj_97_map(prop) IS NOT NULL THEN
+    ELSEIF _jm_obj_47_map(prop) IS NOT NULL THEN
       -- handle 13 may props
-      pfun := _jm_obj_97_map(prop);
+      pfun := _jm_obj_47_map(prop);
       IF NOT jm_call(pfun, pval, NULL, rep) THEN
         RETURN FALSE;
       END IF;
@@ -6487,7 +5937,7 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_obj_98_map_author (.'$GalaxyInfoModel'.'|'.2.author)
+-- check _jm_obj_48_map_author (.'$GalaxyInfoModel'.'|'.2.author)
 CREATE OR REPLACE FUNCTION _jm_f_36(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
@@ -6499,7 +5949,7 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_obj_98_map_cloud_platforms (.'$GalaxyInfoModel'.'|'.2.cloud_platforms)
+-- check _jm_obj_48_map_cloud_platforms (.'$GalaxyInfoModel'.'|'.2.cloud_platforms)
 CREATE OR REPLACE FUNCTION _jm_f_37(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
@@ -6511,7 +5961,7 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_obj_98_map_company (.'$GalaxyInfoModel'.'|'.2.company)
+-- check _jm_obj_48_map_company (.'$GalaxyInfoModel'.'|'.2.company)
 CREATE OR REPLACE FUNCTION _jm_f_38(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
@@ -6523,7 +5973,7 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_obj_98_map_galaxy_tags (.'$GalaxyInfoModel'.'|'.2.galaxy_tags)
+-- check _jm_obj_48_map_galaxy_tags (.'$GalaxyInfoModel'.'|'.2.galaxy_tags)
 CREATE OR REPLACE FUNCTION _jm_f_39(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
@@ -6547,7 +5997,7 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_obj_98_map_github_branch (.'$GalaxyInfoModel'.'|'.2.github_branch)
+-- check _jm_obj_48_map_github_branch (.'$GalaxyInfoModel'.'|'.2.github_branch)
 CREATE OR REPLACE FUNCTION _jm_f_40(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
@@ -6559,7 +6009,7 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_obj_98_map_issue_tracker_url (.'$GalaxyInfoModel'.'|'.2.issue_tracker_url)
+-- check _jm_obj_48_map_issue_tracker_url (.'$GalaxyInfoModel'.'|'.2.issue_tracker_url)
 CREATE OR REPLACE FUNCTION _jm_f_41(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
@@ -6571,7 +6021,7 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_obj_98_map_license (.'$GalaxyInfoModel'.'|'.2.license)
+-- check _jm_obj_48_map_license (.'$GalaxyInfoModel'.'|'.2.license)
 CREATE OR REPLACE FUNCTION _jm_f_42(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
@@ -6583,7 +6033,7 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_obj_98_map_min_ansible_container_version (.'$GalaxyInfoModel'.'|'.2.min_ansible_container_version)
+-- check _jm_obj_48_map_min_ansible_container_version (.'$GalaxyInfoModel'.'|'.2.min_ansible_container_version)
 CREATE OR REPLACE FUNCTION _jm_f_43(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
@@ -6595,7 +6045,7 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_obj_98_map_min_ansible_version (.'$GalaxyInfoModel'.'|'.2.min_ansible_version)
+-- check _jm_obj_48_map_min_ansible_version (.'$GalaxyInfoModel'.'|'.2.min_ansible_version)
 CREATE OR REPLACE FUNCTION _jm_f_44(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
@@ -6607,7 +6057,7 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_obj_98_map_namespace (.'$GalaxyInfoModel'.'|'.2.namespace)
+-- check _jm_obj_48_map_namespace (.'$GalaxyInfoModel'.'|'.2.namespace)
 CREATE OR REPLACE FUNCTION _jm_f_45(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
@@ -6620,7 +6070,7 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_obj_98_map_platforms (.'$GalaxyInfoModel'.'|'.2.platforms)
+-- check _jm_obj_48_map_platforms (.'$GalaxyInfoModel'.'|'.2.platforms)
 CREATE OR REPLACE FUNCTION _jm_f_46(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
@@ -6632,7 +6082,7 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_obj_98_map_role_name (.'$GalaxyInfoModel'.'|'.2.role_name)
+-- check _jm_obj_48_map_role_name (.'$GalaxyInfoModel'.'|'.2.role_name)
 CREATE OR REPLACE FUNCTION _jm_f_47(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
@@ -6645,7 +6095,7 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_obj_98_map_video_links (.'$GalaxyInfoModel'.'|'.2.video_links)
+-- check _jm_obj_48_map_video_links (.'$GalaxyInfoModel'.'|'.2.video_links)
 CREATE OR REPLACE FUNCTION _jm_f_48(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
@@ -6657,7 +6107,7 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
-CREATE OR REPLACE FUNCTION _jm_obj_98_map(name TEXT)
+CREATE OR REPLACE FUNCTION _jm_obj_48_map(name TEXT)
 RETURNS TEXT STRICT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   map JSONB := JSONB '{"author":"_jm_f_36","cloud_platforms":"_jm_f_37","company":"_jm_f_38","galaxy_tags":"_jm_f_39","github_branch":"_jm_f_40","issue_tracker_url":"_jm_f_41","license":"_jm_f_42","min_ansible_container_version":"_jm_f_43","min_ansible_version":"_jm_f_44","namespace":"_jm_f_45","platforms":"_jm_f_46","role_name":"_jm_f_47","video_links":"_jm_f_48"}';
@@ -6667,7 +6117,7 @@ END;
 $$ LANGUAGE plpgsql;
 
 -- object .'$GalaxyInfoModel'.'|'.2
-CREATE OR REPLACE FUNCTION _jm_obj_98(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_obj_48(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -6689,9 +6139,9 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF _jm_obj_98_map(prop) IS NOT NULL THEN
+    ELSEIF _jm_obj_48_map(prop) IS NOT NULL THEN
       -- handle 13 may props
-      pfun := _jm_obj_98_map(prop);
+      pfun := _jm_obj_48_map(prop);
       IF NOT jm_call(pfun, pval, NULL, rep) THEN
         RETURN FALSE;
       END IF;
@@ -6735,7 +6185,7 @@ BEGIN
   END IF;
   IF NOT res THEN
     -- .'$GalaxyInfoModel'.'|'.2
-    res := _jm_obj_98(val, path, rep);
+    res := _jm_obj_48(val, path, rep);
   END IF;
   RETURN res;
 END;
@@ -6807,7 +6257,7 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_obj_99_map_become (.'$DependencyModelLoose'.become)
+-- check json_model_57_map_become (.'$DependencyModelLoose'.become)
 CREATE OR REPLACE FUNCTION _jm_f_49(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
@@ -6819,7 +6269,7 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_obj_99_map_name (.'$DependencyModelLoose'.name)
+-- check json_model_57_map_name (.'$DependencyModelLoose'.name)
 CREATE OR REPLACE FUNCTION _jm_f_50(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
@@ -6831,7 +6281,7 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_obj_99_map_role (.'$DependencyModelLoose'.role)
+-- check json_model_57_map_role (.'$DependencyModelLoose'.role)
 CREATE OR REPLACE FUNCTION _jm_f_51(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
@@ -6852,7 +6302,7 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
--- check _jm_obj_99_map_scm (.'$DependencyModelLoose'.scm)
+-- check json_model_57_map_scm (.'$DependencyModelLoose'.scm)
 CREATE OR REPLACE FUNCTION _jm_f_52(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
@@ -6864,7 +6314,7 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_obj_99_map_src (.'$DependencyModelLoose'.src)
+-- check json_model_57_map_src (.'$DependencyModelLoose'.src)
 CREATE OR REPLACE FUNCTION _jm_f_53(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
@@ -6876,7 +6326,7 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_obj_99_map_tags (.'$DependencyModelLoose'.tags)
+-- check json_model_57_map_tags (.'$DependencyModelLoose'.tags)
 CREATE OR REPLACE FUNCTION _jm_f_54(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
@@ -6905,10 +6355,11 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- object .'$DependencyModelLoose'.vars
-CREATE OR REPLACE FUNCTION _jm_obj_100(val JSONB, path TEXT[], rep jm_report_entry[])
+-- check json_model_57_map_vars (.'$DependencyModelLoose'.vars)
+CREATE OR REPLACE FUNCTION _jm_f_55(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
+  -- .'$DependencyModelLoose'.vars
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
@@ -6917,19 +6368,7 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_obj_99_map_vars (.'$DependencyModelLoose'.vars)
-CREATE OR REPLACE FUNCTION _jm_f_55(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .'$DependencyModelLoose'.vars
-  res := _jm_obj_100(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
--- check _jm_obj_99_map_version (.'$DependencyModelLoose'.version)
+-- check json_model_57_map_version (.'$DependencyModelLoose'.version)
 CREATE OR REPLACE FUNCTION _jm_f_56(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
@@ -6941,7 +6380,7 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_obj_99_map_when (.'$DependencyModelLoose'.when)
+-- check json_model_57_map_when (.'$DependencyModelLoose'.when)
 CREATE OR REPLACE FUNCTION _jm_f_57(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
@@ -6953,7 +6392,7 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
-CREATE OR REPLACE FUNCTION _jm_obj_99_map(name TEXT)
+CREATE OR REPLACE FUNCTION json_model_57_map(name TEXT)
 RETURNS TEXT STRICT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   map JSONB := JSONB '{"become":"_jm_f_49","name":"_jm_f_50","role":"_jm_f_51","scm":"_jm_f_52","src":"_jm_f_53","tags":"_jm_f_54","vars":"_jm_f_55","version":"_jm_f_56","when":"_jm_f_57"}';
@@ -6962,21 +6401,25 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
--- object .'$DependencyModelLoose'
-CREATE OR REPLACE FUNCTION _jm_obj_99(val JSONB, path TEXT[], rep jm_report_entry[])
+-- check $DependencyModelLoose (.'$DependencyModelLoose')
+CREATE OR REPLACE FUNCTION json_model_57(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   pfun TEXT;
   prop TEXT;
   pval JSONB;
 BEGIN
+  -- See https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_reuse_roles.html#role-dependencies and https://github.com/ansible/ansible/blob/devel/lib/ansible/playbook/role/metadata.py#L79
+  -- 
+  -- Other keys are treated as role [parameters](https://docs.ansible.com/ansible/latest/user_guide/playbooks_reuse_roles.html#passing-different-parameters).
+  -- .'$DependencyModelLoose'
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF _jm_obj_99_map(prop) IS NOT NULL THEN
+    IF json_model_57_map(prop) IS NOT NULL THEN
       -- handle 9 may props
-      pfun := _jm_obj_99_map(prop);
+      pfun := json_model_57_map(prop);
       IF NOT jm_call(pfun, pval, NULL, rep) THEN
         RETURN FALSE;
       END IF;
@@ -6989,23 +6432,8 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check $DependencyModelLoose (.'$DependencyModelLoose')
-CREATE OR REPLACE FUNCTION json_model_57(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- See https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_reuse_roles.html#role-dependencies and https://github.com/ansible/ansible/blob/devel/lib/ansible/playbook/role/metadata.py#L79
-  -- 
-  -- Other keys are treated as role [parameters](https://docs.ansible.com/ansible/latest/user_guide/playbooks_reuse_roles.html#passing-different-parameters).
-  -- .'$DependencyModelLoose'
-  res := _jm_obj_99(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
 -- object .'$DependencyModel'.'&'.1.'|'.2
-CREATE OR REPLACE FUNCTION _jm_obj_101(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_obj_49(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   pval JSONB;
@@ -7029,7 +6457,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- object .'$DependencyModel'.'&'.1.'|'.1
-CREATE OR REPLACE FUNCTION _jm_obj_102(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_obj_50(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   pval JSONB;
@@ -7053,7 +6481,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- object .'$DependencyModel'.'&'.1.'|'.0
-CREATE OR REPLACE FUNCTION _jm_obj_103(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_obj_51(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   pval JSONB;
@@ -7087,19 +6515,19 @@ BEGIN
   res := TRUE;
   IF res THEN
     -- .'$DependencyModel'.'&'.0
-    res := _jm_obj_99(val, path, rep);
+    res := json_model_57(val, path, rep);
     IF res THEN
       -- .'$DependencyModel'.'&'.1
       res := JSONB_TYPEOF(val) = 'object';
       IF res THEN
         -- .'$DependencyModel'.'&'.1.'|'.0
-        res := _jm_obj_103(val, path, rep);
+        res := _jm_obj_51(val, path, rep);
         IF NOT res THEN
           -- .'$DependencyModel'.'&'.1.'|'.1
-          res := _jm_obj_102(val, path, rep);
+          res := _jm_obj_50(val, path, rep);
           IF NOT res THEN
             -- .'$DependencyModel'.'&'.1.'|'.2
-            res := _jm_obj_101(val, path, rep);
+            res := _jm_obj_49(val, path, rep);
           END IF;
         END IF;
       END IF;
@@ -7109,8 +6537,8 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- object .'$AnsibleMetaObj'
-CREATE OR REPLACE FUNCTION _jm_obj_104(val JSONB, path TEXT[], rep jm_report_entry[])
+-- check $AnsibleMetaObj (.'$AnsibleMetaObj')
+CREATE OR REPLACE FUNCTION json_model_59(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -7119,6 +6547,7 @@ DECLARE
   arr_102_idx INT8;
   arr_102_item JSONB;
 BEGIN
+  -- .'$AnsibleMetaObj'
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
@@ -7174,18 +6603,6 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check $AnsibleMetaObj (.'$AnsibleMetaObj')
-CREATE OR REPLACE FUNCTION json_model_59(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .'$AnsibleMetaObj'
-  res := _jm_obj_104(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
 -- check $AnsibleMeta (.'$AnsibleMeta')
 CREATE OR REPLACE FUNCTION json_model_60(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
@@ -7198,7 +6615,7 @@ BEGIN
   res := JSONB_TYPEOF(val) = 'null';
   IF NOT res THEN
     -- .'$AnsibleMeta'.'|'.1
-    res := _jm_obj_104(val, path, rep);
+    res := json_model_59(val, path, rep);
   END IF;
   RETURN res;
 END;
@@ -7219,7 +6636,7 @@ $$ LANGUAGE PLpgSQL;
 CREATE OR REPLACE FUNCTION check_model_map(name TEXT)
 RETURNS TEXT STRICT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
-  map JSONB := JSONB '{"":"json_model_60","AIXPlatformModel":"_jm_obj_0","AlpinePlatformModel":"_jm_obj_1","AmazonLinuxPlatformModel":"_jm_obj_2","AmazonPlatformModel":"_jm_obj_3","ArchLinuxPlatformModel":"_jm_obj_4","AstraLinuxPlatformModel":"_jm_obj_5","ClearLinuxPlatformModel":"_jm_obj_6","CumulusPlatformModel":"_jm_obj_7","DebianPlatformModel":"_jm_obj_8","DellOSPlatformModel":"_jm_obj_9","DevuanPlatformModel":"_jm_obj_10","DragonFlyBSDPlatformModel":"_jm_obj_11","ELPlatformModel":"_jm_obj_12","FedoraPlatformModel":"_jm_obj_13","FreeBSDPlatformModel":"_jm_obj_14","GenericBSDPlatformModel":"_jm_obj_15","GenericLinuxPlatformModel":"_jm_obj_16","GenericUNIXPlatformModel":"_jm_obj_17","GentooPlatformModel":"_jm_obj_18","HardenedBSDPlatformModel":"_jm_obj_19","IOSPlatformModel":"_jm_obj_20","JunosPlatformModel":"_jm_obj_21","KaliPlatformModel":"_jm_obj_22","MacOSXPlatformModel":"_jm_obj_23","MageiaPlatformModel":"_jm_obj_24","NXOSPlatformModel":"_jm_obj_25","NetBSDPlatformModel":"_jm_obj_26","OpenBSDPlatformModel":"_jm_obj_27","OpenWrtPlatformModel":"_jm_obj_28","OracleLinuxPlatformModel":"_jm_obj_29","PAN-OSPlatformModel":"_jm_obj_30","RockyLinuxPlatformModel":"_jm_obj_31","SLESPlatformModel":"_jm_obj_32","SmartOSPlatformModel":"_jm_obj_33","SolarisPlatformModel":"_jm_obj_34","SynologyPlatformModel":"_jm_obj_35","TMOSPlatformModel":"_jm_obj_36","UbuntuPlatformModel":"_jm_obj_37","Void_LinuxPlatformModel":"_jm_obj_38","WindowsPlatformModel":"_jm_obj_39","aosPlatformModel":"_jm_obj_40","eosPlatformModel":"_jm_obj_41","macOSPlatformModel":"_jm_obj_42","opensusePlatformModel":"_jm_obj_43","os10PlatformModel":"_jm_obj_44","vCenterPlatformModel":"_jm_obj_45","vSpherePlatformModel":"_jm_obj_46","any_platform":"json_model_49","platforms":"json_model_50","GalaxyInfoModelCollection":"_jm_obj_94","GalaxyInfoModelLoose":"_jm_obj_95","GalaxyInfoModelStandalone":"_jm_obj_96","GalaxyInfoModel":"json_model_54","collections":"json_model_55","complex_conditional":"json_model_56","DependencyModelLoose":"_jm_obj_99","DependencyModel":"json_model_58","AnsibleMetaObj":"_jm_obj_104","AnsibleMeta":"json_model_60"}';
+  map JSONB := JSONB '{"":"json_model_60","AIXPlatformModel":"json_model_2","AlpinePlatformModel":"json_model_3","AmazonLinuxPlatformModel":"json_model_4","AmazonPlatformModel":"json_model_5","ArchLinuxPlatformModel":"json_model_6","AstraLinuxPlatformModel":"json_model_7","ClearLinuxPlatformModel":"json_model_8","CumulusPlatformModel":"json_model_9","DebianPlatformModel":"json_model_10","DellOSPlatformModel":"json_model_11","DevuanPlatformModel":"json_model_12","DragonFlyBSDPlatformModel":"json_model_13","ELPlatformModel":"json_model_14","FedoraPlatformModel":"json_model_15","FreeBSDPlatformModel":"json_model_16","GenericBSDPlatformModel":"json_model_17","GenericLinuxPlatformModel":"json_model_18","GenericUNIXPlatformModel":"json_model_19","GentooPlatformModel":"json_model_20","HardenedBSDPlatformModel":"json_model_21","IOSPlatformModel":"json_model_22","JunosPlatformModel":"json_model_23","KaliPlatformModel":"json_model_24","MacOSXPlatformModel":"json_model_25","MageiaPlatformModel":"json_model_26","NXOSPlatformModel":"json_model_27","NetBSDPlatformModel":"json_model_28","OpenBSDPlatformModel":"json_model_29","OpenWrtPlatformModel":"json_model_30","OracleLinuxPlatformModel":"json_model_31","PAN-OSPlatformModel":"json_model_32","RockyLinuxPlatformModel":"json_model_33","SLESPlatformModel":"json_model_34","SmartOSPlatformModel":"json_model_35","SolarisPlatformModel":"json_model_36","SynologyPlatformModel":"json_model_37","TMOSPlatformModel":"json_model_38","UbuntuPlatformModel":"json_model_39","Void_LinuxPlatformModel":"json_model_40","WindowsPlatformModel":"json_model_41","aosPlatformModel":"json_model_42","eosPlatformModel":"json_model_43","macOSPlatformModel":"json_model_44","opensusePlatformModel":"json_model_45","os10PlatformModel":"json_model_46","vCenterPlatformModel":"json_model_47","vSpherePlatformModel":"json_model_48","any_platform":"json_model_49","platforms":"json_model_50","GalaxyInfoModelCollection":"json_model_51","GalaxyInfoModelLoose":"json_model_52","GalaxyInfoModelStandalone":"json_model_53","GalaxyInfoModel":"json_model_54","collections":"json_model_55","complex_conditional":"json_model_56","DependencyModelLoose":"json_model_57","DependencyModel":"json_model_58","AnsibleMetaObj":"json_model_59","AnsibleMeta":"json_model_60"}';
 BEGIN
   RETURN map->>name;
 END;
@@ -7230,8 +6647,8 @@ $$ LANGUAGE plpgsql;
 --
 TRUNCATE jm_constant_maps;
 INSERT INTO jm_constant_maps(mapname, tagval, value) VALUES
-  ('_jm_map_0', JSONB 'true', '_jm_obj_96'),
-  ('_jm_map_0', JSONB 'false', '_jm_obj_97')
+  ('_jm_map_0', JSONB 'true', 'json_model_53'),
+  ('_jm_map_0', JSONB 'false', '_jm_obj_47')
 ;
 
 --

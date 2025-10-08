@@ -115,9 +115,10 @@ public class xoropt_001 extends ModelChecker
         return res;
     }
 
-    // object .'$Oo'
-    public boolean _jm_obj_0(Object val, Path path, Report rep)
+    // check $Oo (.'$Oo')
+    public boolean json_model_8(Object val, Path path, Report rep)
     {
+        // .'$Oo'
         if (! json.isObject(val))
         {
             if (rep != null) rep.addEntry("not an object [.'$Oo']", path);
@@ -140,19 +141,6 @@ public class xoropt_001 extends ModelChecker
             }
         }
         return true;
-    }
-
-    // check $Oo (.'$Oo')
-    public boolean json_model_8(Object val, Path path, Report rep)
-    {
-        boolean res;
-        // .'$Oo'
-        res = _jm_obj_0(val, path, rep);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("unexpected element [.'$Oo']", path);
-        }
-        return res;
     }
 
     // check $Any (.'$Any')
@@ -209,7 +197,7 @@ public class xoropt_001 extends ModelChecker
                             if (! res)
                             {
                                 // .'$Any'.'|'.6
-                                res = _jm_obj_0(val, path, rep);
+                                res = json_model_8(val, path, rep);
                                 if (! res)
                                 {
                                     if (rep != null) rep.addEntry("unexpected $Oo [.'$Any'.'|'.6]", path);
@@ -258,7 +246,7 @@ public class xoropt_001 extends ModelChecker
             xoropt_001_map_pmap.put("Ff", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_5(o, p, r);} });
             xoropt_001_map_pmap.put("Ss", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_6(o, p, r);} });
             xoropt_001_map_pmap.put("Aa", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_7(o, p, r);} });
-            xoropt_001_map_pmap.put("Oo", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_0(o, p, r);} });
+            xoropt_001_map_pmap.put("Oo", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_8(o, p, r);} });
             xoropt_001_map_pmap.put("Any", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_9(o, p, r);} });
                 super.init(json);
             }

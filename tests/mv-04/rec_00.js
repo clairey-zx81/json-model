@@ -11,9 +11,10 @@ const JSON_MODEL_VERSION = "2";
 
 var check_model_map = new Map()
 
-// object .'$obj'
-function _jm_obj_0(val, path, rep)
+// check $obj (.'$obj')
+function json_model_2(val, path, rep)
 {
+    // .'$obj'
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.'$obj']", path])
@@ -35,19 +36,6 @@ function _jm_obj_0(val, path, rep)
     return true;
 }
 
-// check $obj (.'$obj')
-function json_model_2(val, path, rep)
-{
-    let res;
-    // .'$obj'
-    res = _jm_obj_0(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected element [.'$obj']", path])
-    }
-    return res;
-}
-
 // check $rec (.'$rec')
 function json_model_3(val, path, rep)
 {
@@ -62,7 +50,7 @@ function json_model_3(val, path, rep)
     if (! res)
     {
         // .'$rec'.'|'.1
-        res = _jm_obj_0(val, path, rep);
+        res = json_model_2(val, path, rep);
         if (! res)
         {
             rep !== null && rep.push(["unexpected $obj [.'$rec'.'|'.1]", path])
@@ -103,7 +91,7 @@ export function check_model_init()
         initialized = true;
         runtime.jm_set_rx(RegExp)
         check_model_map.set("", json_model_3)
-        check_model_map.set("obj", _jm_obj_0)
+        check_model_map.set("obj", json_model_2)
         check_model_map.set("rec", json_model_3)
     }
 }
