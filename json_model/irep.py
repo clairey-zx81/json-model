@@ -61,10 +61,13 @@ def _getEffect(op: Jsonable, bool_vars: set[str], reporting: bool) -> Effect:
     # TODO interruption (return)
     # exit: bool
 
+    NO_BOOL_EFFECT = {
+        "co", "rep", "cst", "pl", "isa", "val", "iv", "i+", "hp", "isr", "cr",
+        "brk", "apf", "id", "ss", "se", "pre", "no", "esc", "pvl", "scc", "jv",
+        "gcm", "hpf", "gpf", "ol", "al", "sl", "nl", "cpv",
+    }
+
     match op["o"]:
-        # no boolean effect expected on these
-        case "co"|"rep"|"cst"|"pl"|"isa"|"val"|"iv"|"i+"|"hp"|"isr"|"cr"|"brk"|"apf"|"id"|"ss"|"se"|"pre"|"no"|"esc"|"pvl"|"scc"|"jv"|"gcm"|"hpf"|"gpf"|"ol"|"al"|"sl"|"nl"|"cpv":
-            pass
         # declaration/assignment
         case "bv":
             var = op["var"]
@@ -111,7 +114,8 @@ def _getEffect(op: Jsonable, bool_vars: set[str], reporting: bool) -> Effect:
         case "oL"|"aL"|"iL":
             read, write, value = _optimSeq(op["body"], bool_vars, reporting)
         case _:
-            raise Exception(f"missing effect computation on operation {op['o']}")
+            if not op["o"] in NO_BOOL_EFFECT:
+                raise Exception(f"missing effect computation on operation {op['o']}")
 
     return read, write, value
 
@@ -343,7 +347,7 @@ def _optimSeq(seq: Sequence, bool_vars: set[str], reporting: bool) -> Effect:
     for (idx, op) in enumerate(seq):
         if _isOp(op, "co") or _isOp(op, "no") or (not reporting and _isOp(op, "rep")):
             pass
-        if _isOp(op, "if") and not op["false"] and _isRet(op["true"], reporting):
+        elif _isOp(op, "if") and not op["false"] and _isRet(op["true"], reporting):
             prev_if_ret = idx
         elif _isOp(op, "ret") and prev_if_ret is not None:
             ifop = seq[prev_if_ret]
@@ -371,8 +375,10 @@ def _optimSeq(seq: Sequence, bool_vars: set[str], reporting: bool) -> Effect:
                 op.clear()
                 op["o"] = "no"
             else:
+                # NOT it is unsure whether this can be triggered by the compiler
                 log.info("TODO more if simplification")
         else:
+            # reset previous if return
             prev_if_ret = None
 
     # TODO look for more optimizable patterns in the generated code
