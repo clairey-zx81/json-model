@@ -593,7 +593,7 @@ sub _jm_f_0($$$)
     return $res;
 }
 
-# object .license.'^'.2
+# object .license.'|'.2
 sub _jm_obj_3($$$)
 {
     my ($val, $path, $rep) = @_;
@@ -606,7 +606,7 @@ sub _jm_obj_3($$$)
     while (my ($prop, $pval) = each %$val)
     {
         # handle other props
-        # .license.'^'.2.''
+        # .license.'|'.2.''
         $res = jm_is_string($pval) && jm_is_valid_url($pval, undef, $rep);
         if (! $res)
         {
@@ -622,31 +622,18 @@ sub _jm_f_1($$$)
     my ($val, $path, $rep) = @_;
     my $res;
     # .license
-    # generic xor list
-    my $xc_0 = 0;
-    my $xr_0;
-    # .license.'^'.0
-    $xr_0 = json_model_4($val, $path, $rep);
-    if ($xr_0)
+    # .license.'|'.0
+    $res = json_model_4($val, $path, $rep);
+    if (! $res)
     {
-        $xc_0++;
-    }
-    # .license.'^'.1
-    $xr_0 = json_model_5($val, $path, $rep);
-    if ($xr_0)
-    {
-        $xc_0++;
-    }
-    if ($xc_0 <= 1)
-    {
-        # .license.'^'.2
-        $xr_0 = _jm_obj_3($val, $path, $rep);
-        if ($xr_0)
+        # .license.'|'.1
+        $res = json_model_5($val, $path, $rep);
+        if (! $res)
         {
-            $xc_0++;
+            # .license.'|'.2
+            $res = _jm_obj_3($val, $path, $rep);
         }
     }
-    $res = $xc_0 == 1;
     return $res;
 }
 

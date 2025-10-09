@@ -69,53 +69,44 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
     // .
-    // generic xor list
-    int64_t xc_0 = 0;
-    bool xr_0;
-    // .'^'.0
-    xr_0 = json_model_2(val, path, rep);
-    if (xr_0)
+    // .'|'.0
+    res = json_model_2(val, path, rep);
+    if (! res)
     {
-        xc_0 += 1;
+        if (rep) jm_report_add_entry(rep, "unexpected $Xx [.'|'.0]", path);
     }
-    else
+    if (! res)
     {
-        if (rep) jm_report_add_entry(rep, "unexpected $Xx [.'^'.0]", path);
-    }
-    // .'^'.1
-    xr_0 = json_is_array(val);
-    if (xr_0)
-    {
-        size_t arr_0_idx;
-        json_t *arr_0_item;
-        json_array_foreach(val, arr_0_idx, arr_0_item)
+        // .'|'.1
+        res = json_is_array(val);
+        if (res)
         {
-            jm_path_t arr_0_lpath = (jm_path_t) { NULL, arr_0_idx, path, NULL };
-            // .'^'.1.0
-            xr_0 = json_model_2(arr_0_item, (path ? &arr_0_lpath : NULL), rep);
-            if (! xr_0)
+            size_t arr_0_idx;
+            json_t *arr_0_item;
+            json_array_foreach(val, arr_0_idx, arr_0_item)
             {
-                if (rep) jm_report_add_entry(rep, "unexpected $Xx [.'^'.1.0]", (path ? &arr_0_lpath : NULL));
-                break;
+                jm_path_t arr_0_lpath = (jm_path_t) { NULL, arr_0_idx, path, NULL };
+                // .'|'.1.0
+                res = json_model_2(arr_0_item, (path ? &arr_0_lpath : NULL), rep);
+                if (! res)
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected $Xx [.'|'.1.0]", (path ? &arr_0_lpath : NULL));
+                    break;
+                }
             }
         }
+        if (! res)
+        {
+            if (rep) jm_report_add_entry(rep, "not array or unexpected array [.'|'.1]", path);
+        }
     }
-    if (xr_0)
-    {
-        xc_0 += 1;
-    }
-    else
-    {
-        if (rep) jm_report_add_entry(rep, "not array or unexpected array [.'^'.1]", path);
-    }
-    res = xc_0 == 1;
     if (res)
     {
         if (rep) jm_report_free_entries(rep);
     }
     else
     {
-        if (rep) jm_report_add_entry(rep, "not one model match [.'^']", path);
+        if (rep) jm_report_add_entry(rep, "no model matched [.'|']", path);
     }
     return res;
 }

@@ -171,23 +171,14 @@ CREATE OR REPLACE FUNCTION json_model_6(val JSONB, path TEXT[], rep jm_report_en
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
-  xc_0 int;
-  xr_0 bool;
 BEGIN
   -- .'$Mm'
-  -- generic xor list
-  xc_0 := 0;
-  -- .'$Mm'.'^'.0
-  xr_0 := json_model_2(val, path, rep);
-  IF xr_0 THEN
-    xc_0 := xc_0 + 1;
+  -- .'$Mm'.'|'.0
+  res := json_model_2(val, path, rep);
+  IF NOT res THEN
+    -- .'$Mm'.'|'.1
+    res := json_model_5(val, path, rep);
   END IF;
-  -- .'$Mm'.'^'.1
-  xr_0 := json_model_5(val, path, rep);
-  IF xr_0 THEN
-    xc_0 := xc_0 + 1;
-  END IF;
-  res := xc_0 = 1;
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;

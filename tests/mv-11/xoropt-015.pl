@@ -199,22 +199,13 @@ sub json_model_6($$$)
     my ($val, $path, $rep) = @_;
     my $res;
     # .'$Mm'
-    # generic xor list
-    my $xc_0 = 0;
-    my $xr_0;
-    # .'$Mm'.'^'.0
-    $xr_0 = json_model_2($val, $path, $rep);
-    if ($xr_0)
+    # .'$Mm'.'|'.0
+    $res = json_model_2($val, $path, $rep);
+    if (! $res)
     {
-        $xc_0++;
+        # .'$Mm'.'|'.1
+        $res = json_model_5($val, $path, $rep);
     }
-    # .'$Mm'.'^'.1
-    $xr_0 = json_model_5($val, $path, $rep);
-    if ($xr_0)
-    {
-        $xc_0++;
-    }
-    $res = $xc_0 == 1;
     return $res;
 }
 

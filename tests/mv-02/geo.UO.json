@@ -1,6 +1,6 @@
 [
   {
-    "^": [
+    "|": [
       "$geometry",
       "$GeometryCollection",
       "$Feature",

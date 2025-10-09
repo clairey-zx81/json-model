@@ -19,6 +19,7 @@ sub json_model_4($$$);
 sub json_model_5($$$);
 my %_jm_cst_1;
 sub json_model_6($$$);
+my %_jm_map_1;
 sub json_model_1($$$);
 my %check_model_map;
 
@@ -188,37 +189,39 @@ sub json_model_6($$$)
     return $res;
 }
 
+
 # check $ (.)
 sub json_model_1($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
     # .
-    # generic xor list
-    my $xc_0 = 0;
-    my $xr_0;
-    # .'^'.0
-    $xr_0 = json_model_2($val, $path, $rep);
-    if ($xr_0)
+    my $iso_1 = jm_is_object($val);
+    $res = $iso_1;
+    if ($res)
     {
-        $xc_0++;
-    }
-    # .'^'.1
-    $xr_0 = json_model_3($val, $path, $rep);
-    if ($xr_0)
-    {
-        $xc_0++;
-    }
-    if ($xc_0 <= 1)
-    {
-        # .'^'.2
-        $xr_0 = json_model_4($val, $path, $rep);
-        if ($xr_0)
+        if (exists $$val{'t'})
         {
-            $xc_0++;
+            my $tag_1 = $$val{'t'};
+            my $fun_1 = $_jm_map_1{$tag_1};
+            if (defined($fun_1))
+            {
+                $res = &$fun_1($val, $path, $rep);
+            }
+            else
+            {
+                $res = 0;
+            }
+        }
+        else
+        {
+            $res = 0;
         }
     }
-    $res = $xc_0 == 1;
+    if (! $res)
+    {
+        $res = json_model_4($val, $path, $rep);
+    }
     return $res;
 }
 
@@ -245,6 +248,11 @@ sub check_model_init()
             'e' => 1,
             'f' => 1,
         );
+        %_jm_map_1 = (
+            'a' => \&json_model_2,
+            'b' => \&json_model_3,
+            'c' => \&json_model_3,
+        );
         %check_model_map = (
             '' => \&json_model_1,
             'oA' => \&json_model_2,
@@ -264,6 +272,7 @@ sub check_model_free()
         %_jm_cst_0 = ();
         %_jm_map_0 = ();
         %_jm_cst_1 = ();
+        %_jm_map_1 = ();
         %check_model_map = ();
     }
 }

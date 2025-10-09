@@ -177,35 +177,35 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
+
 -- check $ (.)
 CREATE OR REPLACE FUNCTION json_model_1(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
-  xc_0 int;
-  xr_0 bool;
+  iso_1 bool;
+  tag_1 JSONB;
+  fun_1 TEXT;
 BEGIN
   -- .
-  -- generic xor list
-  xc_0 := 0;
-  -- .'^'.0
-  xr_0 := json_model_2(val, path, rep);
-  IF xr_0 THEN
-    xc_0 := xc_0 + 1;
-  END IF;
-  -- .'^'.1
-  xr_0 := json_model_3(val, path, rep);
-  IF xr_0 THEN
-    xc_0 := xc_0 + 1;
-  END IF;
-  IF xc_0 <= 1 THEN
-    -- .'^'.2
-    xr_0 := json_model_4(val, path, rep);
-    IF xr_0 THEN
-      xc_0 := xc_0 + 1;
+  iso_1 := JSONB_TYPEOF(val) = 'object';
+  res := iso_1;
+  IF res THEN
+    IF val ? 't' THEN
+      tag_1 := val -> 't';
+      fun_1 := jm_cmap_get('_jm_map_1', tag_1);
+      IF fun_1 IS NOT NULL THEN
+        res := jm_call(fun_1, val, path, rep);
+      ELSE
+        res := FALSE;
+      END IF;
+    ELSE
+      res := FALSE;
     END IF;
   END IF;
-  res := xc_0 = 1;
+  IF NOT res THEN
+    res := json_model_4(val, path, rep);
+  END IF;
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
@@ -227,6 +227,11 @@ INSERT INTO jm_constant_maps(mapname, tagval, value) VALUES
   ('_jm_map_0', JSONB '"e"', 'json_model_6'),
   ('_jm_map_0', JSONB '"f"', 'json_model_6'),
   ('_jm_map_0', JSONB '"d"', 'json_model_5')
+;
+INSERT INTO jm_constant_maps(mapname, tagval, value) VALUES
+  ('_jm_map_1', JSONB '"a"', 'json_model_2'),
+  ('_jm_map_1', JSONB '"b"', 'json_model_3'),
+  ('_jm_map_1', JSONB '"c"', 'json_model_3')
 ;
 
 --

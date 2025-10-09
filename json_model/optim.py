@@ -121,15 +121,14 @@ def xor_to_or(jm: JsonModel) -> bool:
     def x2oRwt(model: ModelType, path: ModelPath) -> ModelType:
         nonlocal changes
         if isinstance(model, dict) and "^" in model:
-            xor = model["^"]
-            lpath = path + ["^"]
+            xor, lpath = model["^"], path + ["^"]
             assert isinstance(xor, list) and "|" not in model
 
             consts = [constant_values(m, lpath + [i]) for i, m in enumerate(xor)]
 
             # constant-only enum case
             if all(consts[i][0] for i in range(len(xor))):
-                # check if all collected values are distinct
+                # check if all collected values are distinct constants
                 nconsts, sconsts = 0, ConstSet()
                 for i in range(len(xor)):
                     lc = consts[i][1]
@@ -141,7 +140,7 @@ def xor_to_or(jm: JsonModel) -> bool:
                     del model["^"]
                     model["|"] = xor
                 # else some constants are repeated thus excluded by "^"
-            elif _structurally_distinct_models(xor, jm._defs, lpath):  # pyright: ignore
+            elif _structurally_distinct_models(jm, xor, lpath):  # pyright: ignore
                 changes += 1
                 del model["^"]
                 model["|"] = xor

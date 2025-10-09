@@ -286,37 +286,28 @@ static bool json_model_6(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
     // .'$Mm'
-    // generic xor list
-    int64_t xc_0 = 0;
-    bool xr_0;
-    // .'$Mm'.'^'.0
-    xr_0 = json_model_2(val, path, rep);
-    if (xr_0)
+    // .'$Mm'.'|'.0
+    res = json_model_2(val, path, rep);
+    if (! res)
     {
-        xc_0 += 1;
+        if (rep) jm_report_add_entry(rep, "unexpected $Vv [.'$Mm'.'|'.0]", path);
     }
-    else
+    if (! res)
     {
-        if (rep) jm_report_add_entry(rep, "unexpected $Vv [.'$Mm'.'^'.0]", path);
+        // .'$Mm'.'|'.1
+        res = json_model_5(val, path, rep);
+        if (! res)
+        {
+            if (rep) jm_report_add_entry(rep, "unexpected $Ee [.'$Mm'.'|'.1]", path);
+        }
     }
-    // .'$Mm'.'^'.1
-    xr_0 = json_model_5(val, path, rep);
-    if (xr_0)
-    {
-        xc_0 += 1;
-    }
-    else
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected $Ee [.'$Mm'.'^'.1]", path);
-    }
-    res = xc_0 == 1;
     if (res)
     {
         if (rep) jm_report_free_entries(rep);
     }
     else
     {
-        if (rep) jm_report_add_entry(rep, "not one model match [.'$Mm'.'^']", path);
+        if (rep) jm_report_add_entry(rep, "no model matched [.'$Mm'.'|']", path);
     }
     return res;
 }

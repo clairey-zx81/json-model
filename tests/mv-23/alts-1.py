@@ -23,6 +23,7 @@ def check_model(val: Jsonable, name: str = "", rep: Report = None) -> bool:
 _jm_cst_0: set[str]
 _jm_map_0: dict[str, str]
 _jm_cst_1: set[str]
+_jm_map_1: dict[str, str]
 check_model_map: PropMap
 
 # check $oA (.'$oA')
@@ -178,37 +179,29 @@ def json_model_6(val: Jsonable, path: Path, rep: Report) -> bool:
         return False
     return True
 
+
 # check $ (.)
 def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .
-    # generic xor list
-    xc_0: int = 0
-    xr_0: bool
-    # .'^'.0
-    xr_0 = json_model_2(val, path, rep)
-    if xr_0:
-        xc_0 += 1
-    else:
-        rep is None or rep.append(("unexpected $oA [.'^'.0]", path))
-    # .'^'.1
-    xr_0 = json_model_3(val, path, rep)
-    if xr_0:
-        xc_0 += 1
-    else:
-        rep is None or rep.append(("unexpected $oB [.'^'.1]", path))
-    if xc_0 <= 1:
-        # .'^'.2
-        xr_0 = json_model_4(val, path, rep)
-        if xr_0:
-            xc_0 += 1
-        else:
-            rep is None or rep.append(("unexpected $oC [.'^'.2]", path))
-    res = xc_0 == 1
+    iso_1: bool = isinstance(val, dict)
+    res = iso_1
     if res:
-        rep is None or rep.clear()
+        if "t" in val:
+            tag_1: Jsonable = val.get("t", UNDEFINED)
+            fun_1: CheckFun = _jm_map_1.get(tag_1, UNDEFINED)
+            if fun_1 != UNDEFINED:
+                res = fun_1(val, path, rep)
+            else:
+                res = False
+                rep is None or rep.append(("tag <t> value not found [.'|']", path))
+        else:
+            res = False
+            rep is None or rep.append(("tag prop <t> is missing [.'|']", path))
     else:
-        rep is None or rep.append(("not one model match [.'^']", path))
+        rep is None or rep.append(("value is not an object [.'|']", path))
+    if not res:
+        res = json_model_4(val, path, rep)
     return res
 
 
@@ -230,6 +223,12 @@ def check_model_init():
         }
         global _jm_cst_1
         _jm_cst_1 = {'e', 'f'}
+        global _jm_map_1
+        _jm_map_1 = {
+            "a": json_model_2,
+            "b": json_model_3,
+            "c": json_model_3,
+        }
         global check_model_map
         check_model_map = {
             "": json_model_1,

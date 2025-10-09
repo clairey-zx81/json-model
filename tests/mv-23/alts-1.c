@@ -18,6 +18,7 @@ static bool json_model_4(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_5(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static jm_constant_t _jm_cst_1[2];
 static bool json_model_6(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static jm_constmap_t _jm_map_1_tab[3];
 static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep);
 jm_propmap_t check_model_map_tab[6];
 const size_t check_model_map_size = 6;
@@ -243,55 +244,49 @@ static bool json_model_6(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return true;
 }
 
+static INLINE jm_check_fun_t _jm_map_1(json_t *val)
+{
+    jm_constant_t cst;
+    jm_set_cst(&cst, val);
+    return jm_search_constmap(&cst, _jm_map_1_tab, 3);
+}
+
 // check $ (.)
 static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
     // .
-    // generic xor list
-    int64_t xc_0 = 0;
-    bool xr_0;
-    // .'^'.0
-    xr_0 = json_model_2(val, path, rep);
-    if (xr_0)
+    bool iso_1 = json_is_object(val);
+    res = iso_1;
+    if (res)
     {
-        xc_0 += 1;
-    }
-    else
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected $oA [.'^'.0]", path);
-    }
-    // .'^'.1
-    xr_0 = json_model_3(val, path, rep);
-    if (xr_0)
-    {
-        xc_0 += 1;
-    }
-    else
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected $oB [.'^'.1]", path);
-    }
-    if (xc_0 <= 1)
-    {
-        // .'^'.2
-        xr_0 = json_model_4(val, path, rep);
-        if (xr_0)
+        if (json_object_get(val, "t") != NULL)
         {
-            xc_0 += 1;
+            json_t * tag_1 = json_object_get(val, "t");
+            jm_check_fun_t fun_1 = _jm_map_1(tag_1);
+            if (fun_1 != NULL)
+            {
+                res = fun_1(val, path, rep);
+            }
+            else
+            {
+                res = false;
+                if (rep) jm_report_add_entry(rep, "tag <t> value not found [.'|']", path);
+            }
         }
         else
         {
-            if (rep) jm_report_add_entry(rep, "unexpected $oC [.'^'.2]", path);
+            res = false;
+            if (rep) jm_report_add_entry(rep, "tag prop <t> is missing [.'|']", path);
         }
-    }
-    res = xc_0 == 1;
-    if (res)
-    {
-        if (rep) jm_report_free_entries(rep);
     }
     else
     {
-        if (rep) jm_report_add_entry(rep, "not one model match [.'^']", path);
+        if (rep) jm_report_add_entry(rep, "value is not an object [.'|']", path);
+    }
+    if (! res)
+    {
+        res = json_model_4(val, path, rep);
     }
     return res;
 }
@@ -321,6 +316,10 @@ const char *check_model_init(void)
         _jm_cst_1[0] = (jm_constant_t) { cst_is_string, { .s = "e" } };
         _jm_cst_1[1] = (jm_constant_t) { cst_is_string, { .s = "f" } };
         jm_sort_cst(_jm_cst_1, 2);
+        _jm_map_1_tab[0] = (jm_constmap_t) { (jm_constant_t) { cst_is_string, { .s = "a" } }, json_model_2 };
+        _jm_map_1_tab[1] = (jm_constmap_t) { (jm_constant_t) { cst_is_string, { .s = "b" } }, json_model_3 };
+        _jm_map_1_tab[2] = (jm_constmap_t) { (jm_constant_t) { cst_is_string, { .s = "c" } }, json_model_3 };
+        jm_sort_constmap(_jm_map_1_tab, 3);
         check_model_map_tab[0] = (jm_propmap_t) { "", json_model_1 };
         check_model_map_tab[1] = (jm_propmap_t) { "oA", json_model_2 };
         check_model_map_tab[2] = (jm_propmap_t) { "oB", json_model_3 };

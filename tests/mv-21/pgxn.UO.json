@@ -10,7 +10,7 @@
       ]
     },
     "license": {
-      "^": [
+      "|": [
         "$License",
         "$LicenseList",
         {

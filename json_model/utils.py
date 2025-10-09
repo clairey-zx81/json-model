@@ -441,7 +441,7 @@ def _distinct_models(m1: ModelType, m2: ModelType, defs: Symbols, mpath: ModelPa
 class _Object:
     """Internal representation of an object model."""
 
-    def __init__(self, model: ModelType, gdefs: Symbols, mpath: ModelPath):
+    def __init__(self, model: ModelType, jm, mpath: ModelPath):
         assert isinstance(model, dict)
         must, may, defs, regs, oth = split_object(model, mpath)
         self._must = must
@@ -449,7 +449,7 @@ class _Object:
         self._defs = defs
         self._regs = regs
         self._oth = oth
-        self._global_defs = gdefs
+        self._jm = jm
         self._mpath = mpath
 
     def __contains__(self, o):
@@ -467,12 +467,12 @@ class _Object:
         # we look for mandatory one property in o which allows to discriminate
         for p, m in o._must.items():
             if p in self._must:
-                if _distinct_models(m, self._must[p], self._global_defs, self._mpath):
+                if _distinct_models(m, self._must[p], self._jm._defs, self._mpath):
                     return False
                 # o.p does not discriminate with self
                 continue
             elif p in self._may:
-                if _distinct_models(m, self._may[p], self._global_defs, self._mpath):
+                if _distinct_models(m, self._may[p], self._jm._defs, self._mpath):
                     return False
                 continue
             for reg, model in self._regs.items():
@@ -481,15 +481,15 @@ class _Object:
                     if model == "$NONE":
                         return False
                     # else try model resolution… this may depend on the execution order?
-                    resolved = resolve_model(model, self._global_defs)
+                    resolved = resolve_model(model, self._jm._defs)
                     if resolved == "$NONE":
                         return False
-                    if _distinct_models(m, model, self._global_defs, self._mpath):
+                    if _distinct_models(m, model, self._jm._defs, self._mpath):
                         return False
                     # else o.p does not discrimate
                     continue
             if "" in self._oth:
-                if _distinct_models(m, self._oth[""], self._global_defs, self._mpath):
+                if _distinct_models(m, self._oth[""], self._jm._defs, self._mpath):
                     return False
                 # self is open so would accept p
                 continue
@@ -590,23 +590,31 @@ def merge_objects(models: list[ModelObject], path: ModelPath) -> JsonObject|str:
 
     return unsplit_object(must, may, refs, regs, others)
 
-
-def _structurally_distinct_models(lm: list[ModelType], defs: Symbols, mpath: ModelPath) -> bool:
-    """Whether all models are structurally distinct.
-
-    This ensures that values in these are distinct.
-    """
-    log.debug(f"distinct on {lm}")
+def _distinct_models_summary(jm, lm: list[ModelType], mpath: ModelPath) -> \
+        tuple[set[type], list[_Object], set[str]] | None:
     # TODO add other constant values?
     types, objects, strings = set(), [], set()
     for m in lm:
-        m = resolve_model(m, defs)
+
+        # best-effort resolution
+        updated: bool = True
+        while updated:
+            updated = False
+            if jm._isRef(m):
+                jmm = jm.resolveRef(m, mpath)
+                m, updated = jmm._model, True
+            else:
+                jmm = jm
+            # we possibly ignore constraints to check only for the container model
+            while isinstance(m, dict) and "@" in m:
+                m, updated = m["@"], True
         mt = type(m)
+
         # special str preprocessing
         if isinstance(m, str):
-            if m.startswith("$"):  # unresolved reference
+            if m.startswith("$"):  # unresolved reference?
                 log.debug("- unresolved $-reference")
-                return False
+                return None
             elif m.startswith("="):
                 c, v = constant_value(m, mpath)
                 assert c
@@ -616,50 +624,84 @@ def _structurally_distinct_models(lm: list[ModelType], defs: Symbols, mpath: Mod
         if mt in (type(None), bool, int, float, list):
             if mt in types:
                 log.debug(f"- multiple type {mt.__name__}")
-                return False
+                return None
             types.add(mt)
         elif isinstance(m, str):
             if m == "" or m[0] == "/":  # generic string
                 if str in types or strings:
                     log.debug("- multiple strings")
-                    return False
+                    return None
                 types.add(str)
             else:  # constant string
                 if str in types:
                     log.debug("- constant strings")
-                    return False
+                    return None
                 if m[0] == "_":
                     m = m[1:]
                 # ???
                 if m in strings:
                     log.warning(f"repeated constant: {m} {mpath}")
                     log.debug("- repeated constant strings")
-                    return False
+                    return None
                 strings.add(m)
+        # TODO other constants
         elif isinstance(m, dict):
             if "+" in m:  # may try later, after merging
-                return False
-            assert "@" not in m  # should have been resolved!
-            # assert "+" not in m  # should have been merged!
-            if is_constructed(m):
+                return None
+            elif "|" in m:  # try diving into or
+                orlm = m["|"]
+                assert isinstance(orlm, list)
+                ot = _distinct_models_summary(jm, orlm, mpath + ["|"])
+                if ot is None:
+                    return None
+                # else merge summary with current stuff
+                ort, oro, ors = ot
+                for t in ort:
+                    if t is str and strings:
+                        return None
+                    if t in types:
+                        return None
+                    types.add(t)
+                if str in types and ors:
+                    return None
+                for s in ors:
+                    if s in strings:
+                        return None
+                    strings.add(s)
+                for no in oro:
+                    for o in objects:
+                        if o in no or no in o:
+                            return None
+                    objects.append(no)
+            elif is_constructed(m):  # XOR AND
                 log.debug(f"- constructed model: {m}")
-                return False
-            # else dict is a model for an object
-            obj = _Object(m, defs, mpath)
-            # distinguishable objects?
-            # - each object has a mandatory prop which cannot exists in others objects
-            #   possibly with one exception
-            if not objects:  # first encounted object
-                objects.append(obj)
+                return None
             else:
+                # else dict is a model for an object
+                obj = _Object(m, jm, mpath)
+
+                # distinguishable objects?
+                # - each object has a mandatory prop which cannot exists in others objects
+                #   possibly with one exception
                 for o in objects:
                     if o in obj and obj in o:
                         log.debug("- conflicting objects")
-                        return False
+                        return None
+
                 objects.append(obj)
         else:
             raise ModelError(f"unexpected model type ({mt.__name__}) {mpath}")
-    return True
+
+    return types, objects, strings
+
+def _structurally_distinct_models(jm, lm: list[ModelType], mpath: ModelPath) -> bool:
+    """Whether all models are structurally distinct.
+
+    This ensures that values in these are distinct.
+    """
+    log.debug(f"distinct on {lm}")
+    t = _distinct_models_summary(jm, lm, mpath)
+    return t is not None
 
 def json_loads(j: str, *, allow_duplicates: bool = False) -> Jsonable:
     """Load JSON, possibly rejecting duplicated keys."""

@@ -26,6 +26,7 @@ sub json_model_12($$$);
 sub _jm_obj_0($$$);
 sub json_model_13($$$);
 sub json_model_14($$$);
+my %_jm_map_1;
 sub json_model_1($$$);
 my %check_model_map;
 
@@ -831,6 +832,7 @@ sub json_model_14($$$)
     return 1;
 }
 
+
 # check $ (.)
 sub json_model_1($$$)
 {
@@ -838,40 +840,32 @@ sub json_model_1($$$)
     my $res;
     # Easy Geo JSON Model JSON_MODEL_LOOSE_FLOAT
     # .
-    # generic xor list
-    my $xc_0 = 0;
-    my $xr_0;
-    # .'^'.0
-    $xr_0 = json_model_11($val, $path, $rep);
-    if ($xr_0)
+    my $iso_1 = jm_is_object($val);
+    $res = $iso_1;
+    if ($res)
     {
-        $xc_0++;
-    }
-    # .'^'.1
-    $xr_0 = json_model_12($val, $path, $rep);
-    if ($xr_0)
-    {
-        $xc_0++;
-    }
-    if ($xc_0 <= 1)
-    {
-        # .'^'.2
-        $xr_0 = json_model_13($val, $path, $rep);
-        if ($xr_0)
+        if (exists $$val{'type'})
         {
-            $xc_0++;
+            my $tag_1 = $$val{'type'};
+            my $fun_1 = $_jm_map_1{$tag_1};
+            if (defined($fun_1))
+            {
+                $res = &$fun_1($val, $path, $rep);
+            }
+            else
+            {
+                $res = 0;
+            }
+        }
+        else
+        {
+            $res = 0;
         }
     }
-    if ($xc_0 <= 1)
+    if (! $res)
     {
-        # .'^'.3
-        $xr_0 = json_model_14($val, $path, $rep);
-        if ($xr_0)
-        {
-            $xc_0++;
-        }
+        $res = json_model_11($val, $path, $rep);
     }
-    $res = $xc_0 == 1;
     return $res;
 }
 
@@ -892,6 +886,11 @@ sub check_model_init()
             'MultiLineString' => \&json_model_8,
             'Polygon' => \&json_model_9,
             'MultiPolygon' => \&json_model_10,
+        );
+        %_jm_map_1 = (
+            'GeometryCollection' => \&json_model_12,
+            'Feature' => \&json_model_13,
+            'FeatureCollection' => \&json_model_14,
         );
         %check_model_map = (
             '' => \&json_model_1,
@@ -918,6 +917,7 @@ sub check_model_free()
     {
         $initialized = 0;
         %_jm_map_0 = ();
+        %_jm_map_1 = ();
         %check_model_map = ();
     }
 }

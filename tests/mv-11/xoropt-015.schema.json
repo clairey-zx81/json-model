@@ -71,7 +71,7 @@
       ]
     },
     "Mm": {
-      "oneOf": [
+      "anyOf": [
         {
           "$ref": "#/$defs/Vv"
         },

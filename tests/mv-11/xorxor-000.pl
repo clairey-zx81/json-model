@@ -47,35 +47,26 @@ sub json_model_1($$$)
     my ($val, $path, $rep) = @_;
     my $res;
     # .
-    # generic xor list
-    my $xc_0 = 0;
-    my $xr_0;
-    # .'^'.0
-    $xr_0 = json_model_2($val, $path, $rep);
-    if ($xr_0)
+    # .'|'.0
+    $res = json_model_2($val, $path, $rep);
+    if (! $res)
     {
-        $xc_0++;
-    }
-    # .'^'.1
-    $xr_0 = jm_is_array($val);
-    if ($xr_0)
-    {
-        for my $arr_0_idx (0 .. $#$val)
+        # .'|'.1
+        $res = jm_is_array($val);
+        if ($res)
         {
-            my $arr_0_item = $$val[$arr_0_idx];
-            # .'^'.1.0
-            $xr_0 = json_model_2($arr_0_item, undef, $rep);
-            if (! $xr_0)
+            for my $arr_0_idx (0 .. $#$val)
             {
-                last;
+                my $arr_0_item = $$val[$arr_0_idx];
+                # .'|'.1.0
+                $res = json_model_2($arr_0_item, undef, $rep);
+                if (! $res)
+                {
+                    last;
+                }
             }
         }
     }
-    if ($xr_0)
-    {
-        $xc_0++;
-    }
-    $res = $xc_0 == 1;
     return $res;
 }
 

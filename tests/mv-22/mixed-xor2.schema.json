@@ -41,7 +41,7 @@
       ]
     }
   },
-  "oneOf": [
+  "anyOf": [
     {
       "type": "object",
       "properties": {

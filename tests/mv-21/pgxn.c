@@ -743,12 +743,12 @@ static bool _jm_f_0(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// object .license.'^'.2
+// object .license.'|'.2
 static INLINE bool _jm_obj_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (! json_is_object(val))
     {
-        if (rep) jm_report_add_entry(rep, "not an object [.license.'^'.2]", path);
+        if (rep) jm_report_add_entry(rep, "not an object [.license.'|'.2]", path);
         return false;
     }
     bool res;
@@ -758,11 +758,11 @@ static INLINE bool _jm_obj_3(const json_t *val, jm_path_t *path, jm_report_t *re
     {
         jm_path_t lpath_8 = (jm_path_t) { prop, 0, path, NULL };
         // handle other props
-        // .license.'^'.2.''
+        // .license.'|'.2.''
         res = jm_is_valid_url(json_string_value(pval), (path ? &lpath_8 : NULL), rep);
         if (! res)
         {
-            if (rep) jm_report_add_entry(rep, "unexpected $URL [.license.'^'.2.'']", (path ? &lpath_8 : NULL));
+            if (rep) jm_report_add_entry(rep, "unexpected $URL [.license.'|'.2.'']", (path ? &lpath_8 : NULL));
             return false;
         }
     }
@@ -774,50 +774,37 @@ static bool _jm_f_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
     // .license
-    // generic xor list
-    int64_t xc_0 = 0;
-    bool xr_0;
-    // .license.'^'.0
-    xr_0 = json_model_4(val, path, rep);
-    if (xr_0)
+    // .license.'|'.0
+    res = json_model_4(val, path, rep);
+    if (! res)
     {
-        xc_0 += 1;
+        if (rep) jm_report_add_entry(rep, "unexpected $License [.license.'|'.0]", path);
     }
-    else
+    if (! res)
     {
-        if (rep) jm_report_add_entry(rep, "unexpected $License [.license.'^'.0]", path);
-    }
-    // .license.'^'.1
-    xr_0 = json_model_5(val, path, rep);
-    if (xr_0)
-    {
-        xc_0 += 1;
-    }
-    else
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected $LicenseList [.license.'^'.1]", path);
-    }
-    if (xc_0 <= 1)
-    {
-        // .license.'^'.2
-        xr_0 = _jm_obj_3(val, path, rep);
-        if (xr_0)
+        // .license.'|'.1
+        res = json_model_5(val, path, rep);
+        if (! res)
         {
-            xc_0 += 1;
+            if (rep) jm_report_add_entry(rep, "unexpected $LicenseList [.license.'|'.1]", path);
         }
-        else
+        if (! res)
         {
-            if (rep) jm_report_add_entry(rep, "unexpected element [.license.'^'.2]", path);
+            // .license.'|'.2
+            res = _jm_obj_3(val, path, rep);
+            if (! res)
+            {
+                if (rep) jm_report_add_entry(rep, "unexpected element [.license.'|'.2]", path);
+            }
         }
     }
-    res = xc_0 == 1;
     if (res)
     {
         if (rep) jm_report_free_entries(rep);
     }
     else
     {
-        if (rep) jm_report_add_entry(rep, "not one model match [.license.'^']", path);
+        if (rep) jm_report_add_entry(rep, "no model matched [.license.'|']", path);
     }
     return res;
 }

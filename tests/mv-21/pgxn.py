@@ -461,20 +461,20 @@ def _jm_f_0(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("unexpected string [.abstract]", path))
     return res
 
-# object .license.'^'.2
+# object .license.'|'.2
 def _jm_obj_3(val: Jsonable, path: Path, rep: Report) -> bool:
     if not isinstance(val, dict):
-        rep is None or rep.append(("not an object [.license.'^'.2]", path))
+        rep is None or rep.append(("not an object [.license.'|'.2]", path))
         return False
     res: bool
     for prop, pval in val.items():
         assert isinstance(prop, str)
         lpath_8: Path = (path + [ prop ]) if path is not None else None
         # handle other props
-        # .license.'^'.2.''
+        # .license.'|'.2.''
         res = is_valid_url(pval, lpath_8 if path is not None else None, rep)
         if not res:
-            rep is None or rep.append(("unexpected $URL [.license.'^'.2.'']", lpath_8 if path is not None else None))
+            rep is None or rep.append(("unexpected $URL [.license.'|'.2.'']", lpath_8 if path is not None else None))
             return False
     return True
 
@@ -482,33 +482,24 @@ def _jm_obj_3(val: Jsonable, path: Path, rep: Report) -> bool:
 def _jm_f_1(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .license
-    # generic xor list
-    xc_0: int = 0
-    xr_0: bool
-    # .license.'^'.0
-    xr_0 = json_model_4(val, path, rep)
-    if xr_0:
-        xc_0 += 1
-    else:
-        rep is None or rep.append(("unexpected $License [.license.'^'.0]", path))
-    # .license.'^'.1
-    xr_0 = json_model_5(val, path, rep)
-    if xr_0:
-        xc_0 += 1
-    else:
-        rep is None or rep.append(("unexpected $LicenseList [.license.'^'.1]", path))
-    if xc_0 <= 1:
-        # .license.'^'.2
-        xr_0 = _jm_obj_3(val, path, rep)
-        if xr_0:
-            xc_0 += 1
-        else:
-            rep is None or rep.append(("unexpected element [.license.'^'.2]", path))
-    res = xc_0 == 1
+    # .license.'|'.0
+    res = json_model_4(val, path, rep)
+    if not res:
+        rep is None or rep.append(("unexpected $License [.license.'|'.0]", path))
+    if not res:
+        # .license.'|'.1
+        res = json_model_5(val, path, rep)
+        if not res:
+            rep is None or rep.append(("unexpected $LicenseList [.license.'|'.1]", path))
+        if not res:
+            # .license.'|'.2
+            res = _jm_obj_3(val, path, rep)
+            if not res:
+                rep is None or rep.append(("unexpected element [.license.'|'.2]", path))
     if res:
         rep is None or rep.clear()
     else:
-        rep is None or rep.append(("not one model match [.license.'^']", path))
+        rep is None or rep.append(("no model matched [.license.'|']", path))
     return res
 
 # check json_model_1_mup_maintainer (.maintainer)

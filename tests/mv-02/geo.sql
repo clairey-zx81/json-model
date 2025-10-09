@@ -1142,43 +1142,36 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
+
 -- check $ (.)
 CREATE OR REPLACE FUNCTION json_model_1(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
-  xc_0 int;
-  xr_0 bool;
+  iso_1 bool;
+  tag_1 JSONB;
+  fun_1 TEXT;
 BEGIN
   -- Geo JSON Model JSON_MODEL_LOOSE_FLOAT
   -- .
-  -- generic xor list
-  xc_0 := 0;
-  -- .'^'.0
-  xr_0 := json_model_11(val, path, rep);
-  IF xr_0 THEN
-    xc_0 := xc_0 + 1;
-  END IF;
-  -- .'^'.1
-  xr_0 := json_model_12(val, path, rep);
-  IF xr_0 THEN
-    xc_0 := xc_0 + 1;
-  END IF;
-  IF xc_0 <= 1 THEN
-    -- .'^'.2
-    xr_0 := json_model_13(val, path, rep);
-    IF xr_0 THEN
-      xc_0 := xc_0 + 1;
+  iso_1 := JSONB_TYPEOF(val) = 'object';
+  res := iso_1;
+  IF res THEN
+    IF val ? 'type' THEN
+      tag_1 := val -> 'type';
+      fun_1 := jm_cmap_get('_jm_map_1', tag_1);
+      IF fun_1 IS NOT NULL THEN
+        res := jm_call(fun_1, val, path, rep);
+      ELSE
+        res := FALSE;
+      END IF;
+    ELSE
+      res := FALSE;
     END IF;
   END IF;
-  IF xc_0 <= 1 THEN
-    -- .'^'.3
-    xr_0 := json_model_14(val, path, rep);
-    IF xr_0 THEN
-      xc_0 := xc_0 + 1;
-    END IF;
+  IF NOT res THEN
+    res := json_model_11(val, path, rep);
   END IF;
-  res := xc_0 = 1;
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
@@ -1203,6 +1196,11 @@ INSERT INTO jm_constant_maps(mapname, tagval, value) VALUES
   ('_jm_map_0', JSONB '"MultiLineString"', '_jm_obj_3'),
   ('_jm_map_0', JSONB '"Polygon"', '_jm_obj_4'),
   ('_jm_map_0', JSONB '"MultiPolygon"', '_jm_obj_5')
+;
+INSERT INTO jm_constant_maps(mapname, tagval, value) VALUES
+  ('_jm_map_1', JSONB '"GeometryCollection"', 'json_model_12'),
+  ('_jm_map_1', JSONB '"Feature"', 'json_model_13'),
+  ('_jm_map_1', JSONB '"FeatureCollection"', 'json_model_14')
 ;
 
 --

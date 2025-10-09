@@ -5,7 +5,7 @@
 - [x] static: skip map target functions for objects
 - [x] static: skip map target functions for references
 - [x] optim: add more if simplifications in IR
-- [ ] optim: improve xor-to-or with references
+- [x] optim: improve xor-to-or over references and sub-ors
 - [ ] perf: compute performance overhead globally instead of per run
 - [ ] tests: add ir optimized output (too large?)
 - [ ] tests: add pytest ir tests

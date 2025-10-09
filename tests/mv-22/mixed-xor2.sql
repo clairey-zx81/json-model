@@ -101,7 +101,7 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- object .'^'.0
+-- object .'|'.0
 CREATE OR REPLACE FUNCTION _jm_obj_2(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
@@ -119,7 +119,7 @@ BEGIN
     RETURN FALSE;
   END IF;
   pval := val -> 't';
-  -- .'^'.0.t
+  -- .'|'.0.t
   res := JSONB_TYPEOF(pval) = 'string' AND JSON_VALUE(pval, '$' RETURNING TEXT) = 'm';
   IF NOT res THEN
     RETURN FALSE;
@@ -128,13 +128,13 @@ BEGIN
     RETURN FALSE;
   END IF;
   pval := val -> 'moe';
-  -- .'^'.0.moe
+  -- .'|'.0.moe
   res := JSONB_TYPEOF(pval) = 'number' AND (pval)::INT8 = (pval)::FLOAT8 AND (pval)::INT8 >= 1;
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
 
--- object .'^'.1
+-- object .'|'.1
 CREATE OR REPLACE FUNCTION _jm_obj_3(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
@@ -152,7 +152,7 @@ BEGIN
     RETURN FALSE;
   END IF;
   pval := val -> 't';
-  -- .'^'.1.t
+  -- .'|'.1.t
   res := JSONB_TYPEOF(pval) = 'string' AND JSON_VALUE(pval, '$' RETURNING TEXT) = 'h';
   IF NOT res THEN
     RETURN FALSE;
@@ -161,41 +161,41 @@ BEGIN
     RETURN FALSE;
   END IF;
   pval := val -> 'hob';
-  -- .'^'.1.hob
+  -- .'|'.1.hob
   res := JSONB_TYPEOF(pval) = 'number' AND (pval)::INT8 = (pval)::FLOAT8 AND (pval)::INT8 >= 1;
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
+
 
 -- check $ (.)
 CREATE OR REPLACE FUNCTION json_model_1(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
-  xc_0 int;
-  xr_0 bool;
+  iso_1 bool;
+  tag_1 JSONB;
+  fun_1 TEXT;
 BEGIN
   -- .
-  -- generic xor list
-  xc_0 := 0;
-  -- .'^'.0
-  xr_0 := _jm_obj_2(val, path, rep);
-  IF xr_0 THEN
-    xc_0 := xc_0 + 1;
-  END IF;
-  -- .'^'.1
-  xr_0 := _jm_obj_3(val, path, rep);
-  IF xr_0 THEN
-    xc_0 := xc_0 + 1;
-  END IF;
-  IF xc_0 <= 1 THEN
-    -- .'^'.2
-    xr_0 := json_model_2(val, path, rep);
-    IF xr_0 THEN
-      xc_0 := xc_0 + 1;
+  iso_1 := JSONB_TYPEOF(val) = 'object';
+  res := iso_1;
+  IF res THEN
+    IF val ? 't' THEN
+      tag_1 := val -> 't';
+      fun_1 := jm_cmap_get('_jm_map_1', tag_1);
+      IF fun_1 IS NOT NULL THEN
+        res := jm_call(fun_1, val, path, rep);
+      ELSE
+        res := FALSE;
+      END IF;
+    ELSE
+      res := FALSE;
     END IF;
   END IF;
-  res := xc_0 = 1;
+  IF NOT res THEN
+    res := json_model_2(val, path, rep);
+  END IF;
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
@@ -216,6 +216,10 @@ TRUNCATE jm_constant_maps;
 INSERT INTO jm_constant_maps(mapname, tagval, value) VALUES
   ('_jm_map_0', JSONB '"c"', '_jm_obj_0'),
   ('_jm_map_0', JSONB '"s"', '_jm_obj_1')
+;
+INSERT INTO jm_constant_maps(mapname, tagval, value) VALUES
+  ('_jm_map_1', JSONB '"m"', '_jm_obj_2'),
+  ('_jm_map_1', JSONB '"h"', '_jm_obj_3')
 ;
 
 --

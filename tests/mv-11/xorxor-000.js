@@ -65,52 +65,43 @@ function json_model_1(val, path, rep)
 {
     let res;
     // .
-    // generic xor list
-    let xc_0 = 0;
-    let xr_0;
-    // .'^'.0
-    xr_0 = json_model_2(val, path, rep);
-    if (xr_0)
+    // .'|'.0
+    res = json_model_2(val, path, rep);
+    if (! res)
     {
-        xc_0 += 1;
+        rep !== null && rep.push(["unexpected $Xx [.'|'.0]", path])
     }
-    else
+    if (! res)
     {
-        rep !== null && rep.push(["unexpected $Xx [.'^'.0]", path])
-    }
-    // .'^'.1
-    xr_0 = Array.isArray(val);
-    if (xr_0)
-    {
-        for (let arr_0_idx = 0; arr_0_idx < val.length; arr_0_idx++)
+        // .'|'.1
+        res = Array.isArray(val);
+        if (res)
         {
-            let arr_0_item = val[arr_0_idx]
-            let arr_0_lpath = path ? path.concat([arr_0_idx]) : null;
-            // .'^'.1.0
-            xr_0 = json_model_2(arr_0_item, (path ? arr_0_lpath : null), rep);
-            if (! xr_0)
+            for (let arr_0_idx = 0; arr_0_idx < val.length; arr_0_idx++)
             {
-                rep !== null && rep.push(["unexpected $Xx [.'^'.1.0]", (path ? arr_0_lpath : null)])
-                break;
+                let arr_0_item = val[arr_0_idx]
+                let arr_0_lpath = path ? path.concat([arr_0_idx]) : null;
+                // .'|'.1.0
+                res = json_model_2(arr_0_item, (path ? arr_0_lpath : null), rep);
+                if (! res)
+                {
+                    rep !== null && rep.push(["unexpected $Xx [.'|'.1.0]", (path ? arr_0_lpath : null)])
+                    break;
+                }
             }
         }
+        if (! res)
+        {
+            rep !== null && rep.push(["not array or unexpected array [.'|'.1]", path])
+        }
     }
-    if (xr_0)
-    {
-        xc_0 += 1;
-    }
-    else
-    {
-        rep !== null && rep.push(["not array or unexpected array [.'^'.1]", path])
-    }
-    res = xc_0 == 1;
     if (res)
     {
         if (rep !== null) rep.length = 0
     }
     else
     {
-        rep !== null && rep.push(["not one model match [.'^']", path])
+        rep !== null && rep.push(["no model matched [.'|']", path])
     }
     return res;
 }

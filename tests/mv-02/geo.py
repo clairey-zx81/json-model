@@ -21,6 +21,7 @@ def check_model(val: Jsonable, name: str = "", rep: Report = None) -> bool:
     return checker(val, [], rep)
 
 _jm_map_0: dict[str, str]
+_jm_map_1: dict[str, str]
 check_model_map: PropMap
 
 # check $position (.'$position')
@@ -1040,45 +1041,30 @@ def json_model_14(val: Jsonable, path: Path, rep: Report) -> bool:
             return False
     return True
 
+
 # check $ (.)
 def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # Geo JSON Model JSON_MODEL_LOOSE_FLOAT
     # .
-    # generic xor list
-    xc_0: int = 0
-    xr_0: bool
-    # .'^'.0
-    xr_0 = json_model_11(val, path, rep)
-    if xr_0:
-        xc_0 += 1
-    else:
-        rep is None or rep.append(("unexpected $geometry [.'^'.0]", path))
-    # .'^'.1
-    xr_0 = json_model_12(val, path, rep)
-    if xr_0:
-        xc_0 += 1
-    else:
-        rep is None or rep.append(("unexpected $GeometryCollection [.'^'.1]", path))
-    if xc_0 <= 1:
-        # .'^'.2
-        xr_0 = json_model_13(val, path, rep)
-        if xr_0:
-            xc_0 += 1
-        else:
-            rep is None or rep.append(("unexpected $Feature [.'^'.2]", path))
-    if xc_0 <= 1:
-        # .'^'.3
-        xr_0 = json_model_14(val, path, rep)
-        if xr_0:
-            xc_0 += 1
-        else:
-            rep is None or rep.append(("unexpected $FeatureCollection [.'^'.3]", path))
-    res = xc_0 == 1
+    iso_1: bool = isinstance(val, dict)
+    res = iso_1
     if res:
-        rep is None or rep.clear()
+        if "type" in val:
+            tag_1: Jsonable = val.get("type", UNDEFINED)
+            fun_1: CheckFun = _jm_map_1.get(tag_1, UNDEFINED)
+            if fun_1 != UNDEFINED:
+                res = fun_1(val, path, rep)
+            else:
+                res = False
+                rep is None or rep.append(("tag <type> value not found [.'|']", path))
+        else:
+            res = False
+            rep is None or rep.append(("tag prop <type> is missing [.'|']", path))
     else:
-        rep is None or rep.append(("not one model match [.'^']", path))
+        rep is None or rep.append(("value is not an object [.'|']", path))
+    if not res:
+        res = json_model_11(val, path, rep)
     return res
 
 
@@ -1098,6 +1084,12 @@ def check_model_init():
             "MultiLineString": _jm_obj_3,
             "Polygon": _jm_obj_4,
             "MultiPolygon": _jm_obj_5,
+        }
+        global _jm_map_1
+        _jm_map_1 = {
+            "GeometryCollection": json_model_12,
+            "Feature": json_model_13,
+            "FeatureCollection": json_model_14,
         }
         global check_model_map
         check_model_map = {

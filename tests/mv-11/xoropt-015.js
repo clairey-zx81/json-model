@@ -274,37 +274,28 @@ function json_model_6(val, path, rep)
 {
     let res;
     // .'$Mm'
-    // generic xor list
-    let xc_0 = 0;
-    let xr_0;
-    // .'$Mm'.'^'.0
-    xr_0 = json_model_2(val, path, rep);
-    if (xr_0)
+    // .'$Mm'.'|'.0
+    res = json_model_2(val, path, rep);
+    if (! res)
     {
-        xc_0 += 1;
+        rep !== null && rep.push(["unexpected $Vv [.'$Mm'.'|'.0]", path])
     }
-    else
+    if (! res)
     {
-        rep !== null && rep.push(["unexpected $Vv [.'$Mm'.'^'.0]", path])
+        // .'$Mm'.'|'.1
+        res = json_model_5(val, path, rep);
+        if (! res)
+        {
+            rep !== null && rep.push(["unexpected $Ee [.'$Mm'.'|'.1]", path])
+        }
     }
-    // .'$Mm'.'^'.1
-    xr_0 = json_model_5(val, path, rep);
-    if (xr_0)
-    {
-        xc_0 += 1;
-    }
-    else
-    {
-        rep !== null && rep.push(["unexpected $Ee [.'$Mm'.'^'.1]", path])
-    }
-    res = xc_0 == 1;
     if (res)
     {
         if (rep !== null) rep.length = 0
     }
     else
     {
-        rep !== null && rep.push(["not one model match [.'$Mm'.'^']", path])
+        rep !== null && rep.push(["no model matched [.'$Mm'.'|']", path])
     }
     return res;
 }

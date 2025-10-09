@@ -20,6 +20,7 @@ public class alts_1 extends ModelChecker
     Set<Object> _jm_cst_0_set;
     Map<Object, Checker> _jm_map_0_cmap;
     Set<Object> _jm_cst_1_set;
+    Map<Object, Checker> _jm_map_1_cmap;
     public Map<String, Checker> alts_1_map_pmap;
 
     // check $oA (.'$oA')
@@ -237,55 +238,43 @@ public class alts_1 extends ModelChecker
         return true;
     }
 
+
     // check $ (.)
     public boolean json_model_1(Object val, Path path, Report rep)
     {
         boolean res;
         // .
-        // generic xor list
-        long xc_0 = 0;
-        boolean xr_0;
-        // .'^'.0
-        xr_0 = json_model_2(val, path, rep);
-        if (xr_0)
+        boolean iso_1 = json.isObject(val);
+        res = iso_1;
+        if (res)
         {
-            xc_0 += 1;
-        }
-        else
-        {
-            if (rep != null) rep.addEntry("unexpected $oA [.'^'.0]", path);
-        }
-        // .'^'.1
-        xr_0 = json_model_3(val, path, rep);
-        if (xr_0)
-        {
-            xc_0 += 1;
-        }
-        else
-        {
-            if (rep != null) rep.addEntry("unexpected $oB [.'^'.1]", path);
-        }
-        if (xc_0 <= 1)
-        {
-            // .'^'.2
-            xr_0 = json_model_4(val, path, rep);
-            if (xr_0)
+            if (json.objectHasProp(val, "t"))
             {
-                xc_0 += 1;
+                Object tag_1 = json.objectValue(val, "t");
+                Checker fun_1 = _jm_map_1_cmap.get(tag_1);
+                if (fun_1 != null)
+                {
+                    res = fun_1.call(val, path, rep);
+                }
+                else
+                {
+                    res = false;
+                    if (rep != null) rep.addEntry("tag <t> value not found [.'|']", path);
+                }
             }
             else
             {
-                if (rep != null) rep.addEntry("unexpected $oC [.'^'.2]", path);
+                res = false;
+                if (rep != null) rep.addEntry("tag prop <t> is missing [.'|']", path);
             }
-        }
-        res = xc_0 == 1;
-        if (res)
-        {
-            if (rep != null) rep.clearEntries();
         }
         else
         {
-            if (rep != null) rep.addEntry("not one model match [.'^']", path);
+            if (rep != null) rep.addEntry("value is not an object [.'|']", path);
+        }
+        if (! res)
+        {
+            res = json_model_4(val, path, rep);
         }
         return res;
     }
@@ -306,6 +295,10 @@ public class alts_1 extends ModelChecker
             _jm_cst_1_set = new HashSet<Object>();
             _jm_cst_1_set.add(json.safeJSON("\"e\""));
             _jm_cst_1_set.add(json.safeJSON("\"f\""));
+            _jm_map_1_cmap = new HashMap<Object, Checker>();
+            _jm_map_1_cmap.put(json.safeJSON("\"a\""), new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_2(o, p, r);} });
+            _jm_map_1_cmap.put(json.safeJSON("\"b\""), new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_3(o, p, r);} });
+            _jm_map_1_cmap.put(json.safeJSON("\"c\""), new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_3(o, p, r);} });
             alts_1_map_pmap = new HashMap<String, Checker>();
             alts_1_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_1(o, p, r);} });
             alts_1_map_pmap.put("oA", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_2(o, p, r);} });
@@ -329,6 +322,7 @@ public class alts_1 extends ModelChecker
             _jm_cst_0_set = null;
             _jm_map_0_cmap = null;
             _jm_cst_1_set = null;
+            _jm_map_1_cmap = null;
             alts_1_map_pmap = null;
         }
     }

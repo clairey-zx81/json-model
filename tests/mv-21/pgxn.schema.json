@@ -226,7 +226,7 @@
       ]
     },
     "license": {
-      "oneOf": [
+      "anyOf": [
         {
           "$ref": "#/$defs/License"
         },

@@ -73,55 +73,46 @@ public class xorxor_000 extends ModelChecker
     {
         boolean res;
         // .
-        // generic xor list
-        long xc_0 = 0;
-        boolean xr_0;
-        // .'^'.0
-        xr_0 = json_model_2(val, path, rep);
-        if (xr_0)
+        // .'|'.0
+        res = json_model_2(val, path, rep);
+        if (! res)
         {
-            xc_0 += 1;
+            if (rep != null) rep.addEntry("unexpected $Xx [.'|'.0]", path);
         }
-        else
+        if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected $Xx [.'^'.0]", path);
-        }
-        // .'^'.1
-        xr_0 = json.isArray(val);
-        if (xr_0)
-        {
-            int arr_0_idx = -1;
-            Iterator<Object> arr_0_item_loop = json.arrayIterator(val);
-            while (arr_0_item_loop.hasNext())
+            // .'|'.1
+            res = json.isArray(val);
+            if (res)
             {
-                arr_0_idx++;
-                Object arr_0_item = arr_0_item_loop.next();
-                Path arr_0_lpath = new Path(arr_0_idx, path);
-                // .'^'.1.0
-                xr_0 = json_model_2(arr_0_item, (path != null ? arr_0_lpath : null), rep);
-                if (! xr_0)
+                int arr_0_idx = -1;
+                Iterator<Object> arr_0_item_loop = json.arrayIterator(val);
+                while (arr_0_item_loop.hasNext())
                 {
-                    if (rep != null) rep.addEntry("unexpected $Xx [.'^'.1.0]", (path != null ? arr_0_lpath : null));
-                    break;
+                    arr_0_idx++;
+                    Object arr_0_item = arr_0_item_loop.next();
+                    Path arr_0_lpath = new Path(arr_0_idx, path);
+                    // .'|'.1.0
+                    res = json_model_2(arr_0_item, (path != null ? arr_0_lpath : null), rep);
+                    if (! res)
+                    {
+                        if (rep != null) rep.addEntry("unexpected $Xx [.'|'.1.0]", (path != null ? arr_0_lpath : null));
+                        break;
+                    }
                 }
             }
+            if (! res)
+            {
+                if (rep != null) rep.addEntry("not array or unexpected array [.'|'.1]", path);
+            }
         }
-        if (xr_0)
-        {
-            xc_0 += 1;
-        }
-        else
-        {
-            if (rep != null) rep.addEntry("not array or unexpected array [.'^'.1]", path);
-        }
-        res = xc_0 == 1;
         if (res)
         {
             if (rep != null) rep.clearEntries();
         }
         else
         {
-            if (rep != null) rep.addEntry("not one model match [.'^']", path);
+            if (rep != null) rep.addEntry("no model matched [.'|']", path);
         }
         return res;
     }

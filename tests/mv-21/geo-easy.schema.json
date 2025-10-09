@@ -299,7 +299,7 @@
       "additionalProperties": true
     }
   },
-  "oneOf": [
+  "anyOf": [
     {
       "$ref": "#/$defs/geometry"
     },

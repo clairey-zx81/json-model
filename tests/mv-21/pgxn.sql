@@ -553,7 +553,7 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- object .license.'^'.2
+-- object .license.'|'.2
 CREATE OR REPLACE FUNCTION _jm_obj_3(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
@@ -566,7 +566,7 @@ BEGIN
   END IF;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     -- handle other props
-    -- .license.'^'.2.''
+    -- .license.'|'.2.''
     res := JSONB_TYPEOF(pval) = 'string' AND jm_is_valid_url(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, rep);
     IF NOT res THEN
       RETURN FALSE;
@@ -581,30 +581,18 @@ CREATE OR REPLACE FUNCTION _jm_f_1(val JSONB, path TEXT[], rep jm_report_entry[]
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
-  xc_0 int;
-  xr_0 bool;
 BEGIN
   -- .license
-  -- generic xor list
-  xc_0 := 0;
-  -- .license.'^'.0
-  xr_0 := json_model_4(val, path, rep);
-  IF xr_0 THEN
-    xc_0 := xc_0 + 1;
-  END IF;
-  -- .license.'^'.1
-  xr_0 := json_model_5(val, path, rep);
-  IF xr_0 THEN
-    xc_0 := xc_0 + 1;
-  END IF;
-  IF xc_0 <= 1 THEN
-    -- .license.'^'.2
-    xr_0 := _jm_obj_3(val, path, rep);
-    IF xr_0 THEN
-      xc_0 := xc_0 + 1;
+  -- .license.'|'.0
+  res := json_model_4(val, path, rep);
+  IF NOT res THEN
+    -- .license.'|'.1
+    res := json_model_5(val, path, rep);
+    IF NOT res THEN
+      -- .license.'|'.2
+      res := _jm_obj_3(val, path, rep);
     END IF;
   END IF;
-  res := xc_0 = 1;
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;

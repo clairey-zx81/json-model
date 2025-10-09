@@ -192,26 +192,19 @@ def json_model_5(val: Jsonable, path: Path, rep: Report) -> bool:
 def json_model_6(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$Mm'
-    # generic xor list
-    xc_0: int = 0
-    xr_0: bool
-    # .'$Mm'.'^'.0
-    xr_0 = json_model_2(val, path, rep)
-    if xr_0:
-        xc_0 += 1
-    else:
-        rep is None or rep.append(("unexpected $Vv [.'$Mm'.'^'.0]", path))
-    # .'$Mm'.'^'.1
-    xr_0 = json_model_5(val, path, rep)
-    if xr_0:
-        xc_0 += 1
-    else:
-        rep is None or rep.append(("unexpected $Ee [.'$Mm'.'^'.1]", path))
-    res = xc_0 == 1
+    # .'$Mm'.'|'.0
+    res = json_model_2(val, path, rep)
+    if not res:
+        rep is None or rep.append(("unexpected $Vv [.'$Mm'.'|'.0]", path))
+    if not res:
+        # .'$Mm'.'|'.1
+        res = json_model_5(val, path, rep)
+        if not res:
+            rep is None or rep.append(("unexpected $Ee [.'$Mm'.'|'.1]", path))
     if res:
         rep is None or rep.clear()
     else:
-        rep is None or rep.append(("not one model match [.'$Mm'.'^']", path))
+        rep is None or rep.append(("no model matched [.'$Mm'.'|']", path))
     return res
 
 # check $ (.)

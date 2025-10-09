@@ -12,6 +12,7 @@ const JSON_MODEL_VERSION = "2";
 let _jm_cst_0 = new Set()
 let _jm_map_0 = new Map()
 let _jm_cst_1 = new Set()
+let _jm_map_1 = new Map()
 var check_model_map = new Map()
 
 // check $oA (.'$oA')
@@ -237,55 +238,43 @@ function json_model_6(val, path, rep)
     return true;
 }
 
+
 // check $ (.)
 function json_model_1(val, path, rep)
 {
     let res;
     // .
-    // generic xor list
-    let xc_0 = 0;
-    let xr_0;
-    // .'^'.0
-    xr_0 = json_model_2(val, path, rep);
-    if (xr_0)
+    let iso_1 = Object.prototype.toString.call(val) === '[object Object]';
+    res = iso_1;
+    if (res)
     {
-        xc_0 += 1;
-    }
-    else
-    {
-        rep !== null && rep.push(["unexpected $oA [.'^'.0]", path])
-    }
-    // .'^'.1
-    xr_0 = json_model_3(val, path, rep);
-    if (xr_0)
-    {
-        xc_0 += 1;
-    }
-    else
-    {
-        rep !== null && rep.push(["unexpected $oB [.'^'.1]", path])
-    }
-    if (xc_0 <= 1)
-    {
-        // .'^'.2
-        xr_0 = json_model_4(val, path, rep);
-        if (xr_0)
+        if (val.hasOwnProperty("t"))
         {
-            xc_0 += 1;
+            let tag_1 = val["t"];
+            let fun_1 = _jm_map_1.get(tag_1);
+            if (fun_1 !== undefined)
+            {
+                res = fun_1(val, path, rep);
+            }
+            else
+            {
+                res = false;
+                rep !== null && rep.push(["tag <t> value not found [.'|']", path])
+            }
         }
         else
         {
-            rep !== null && rep.push(["unexpected $oC [.'^'.2]", path])
+            res = false;
+            rep !== null && rep.push(["tag prop <t> is missing [.'|']", path])
         }
-    }
-    res = xc_0 == 1;
-    if (res)
-    {
-        if (rep !== null) rep.length = 0
     }
     else
     {
-        rep !== null && rep.push(["not one model match [.'^']", path])
+        rep !== null && rep.push(["value is not an object [.'|']", path])
+    }
+    if (! res)
+    {
+        res = json_model_4(val, path, rep);
     }
     return res;
 }
@@ -307,6 +296,9 @@ export function check_model_init()
         _jm_map_0.set("d", json_model_5)
         _jm_cst_1.add("e")
         _jm_cst_1.add("f")
+        _jm_map_1.set("a", json_model_2)
+        _jm_map_1.set("b", json_model_3)
+        _jm_map_1.set("c", json_model_3)
         check_model_map.set("", json_model_1)
         check_model_map.set("oA", json_model_2)
         check_model_map.set("oB", json_model_3)

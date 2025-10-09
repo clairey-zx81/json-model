@@ -665,12 +665,12 @@ function _jm_f_0(val, path, rep)
     return res;
 }
 
-// object .license.'^'.2
+// object .license.'|'.2
 function _jm_obj_3(val, path, rep)
 {
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
-        rep !== null && rep.push(["not an object [.license.'^'.2]", path])
+        rep !== null && rep.push(["not an object [.license.'|'.2]", path])
         return false;
     }
     let res;
@@ -678,11 +678,11 @@ function _jm_obj_3(val, path, rep)
     {
         let lpath_8 = path ? path.concat([prop]) : null;
         // handle other props
-        // .license.'^'.2.''
+        // .license.'|'.2.''
         res = runtime.jm_is_valid_url(pval);
         if (! res)
         {
-            rep !== null && rep.push(["unexpected $URL [.license.'^'.2.'']", (path ? lpath_8 : null)])
+            rep !== null && rep.push(["unexpected $URL [.license.'|'.2.'']", (path ? lpath_8 : null)])
             return false;
         }
     }
@@ -694,50 +694,37 @@ function _jm_f_1(val, path, rep)
 {
     let res;
     // .license
-    // generic xor list
-    let xc_0 = 0;
-    let xr_0;
-    // .license.'^'.0
-    xr_0 = json_model_4(val, path, rep);
-    if (xr_0)
+    // .license.'|'.0
+    res = json_model_4(val, path, rep);
+    if (! res)
     {
-        xc_0 += 1;
+        rep !== null && rep.push(["unexpected $License [.license.'|'.0]", path])
     }
-    else
+    if (! res)
     {
-        rep !== null && rep.push(["unexpected $License [.license.'^'.0]", path])
-    }
-    // .license.'^'.1
-    xr_0 = json_model_5(val, path, rep);
-    if (xr_0)
-    {
-        xc_0 += 1;
-    }
-    else
-    {
-        rep !== null && rep.push(["unexpected $LicenseList [.license.'^'.1]", path])
-    }
-    if (xc_0 <= 1)
-    {
-        // .license.'^'.2
-        xr_0 = _jm_obj_3(val, path, rep);
-        if (xr_0)
+        // .license.'|'.1
+        res = json_model_5(val, path, rep);
+        if (! res)
         {
-            xc_0 += 1;
+            rep !== null && rep.push(["unexpected $LicenseList [.license.'|'.1]", path])
         }
-        else
+        if (! res)
         {
-            rep !== null && rep.push(["unexpected element [.license.'^'.2]", path])
+            // .license.'|'.2
+            res = _jm_obj_3(val, path, rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected element [.license.'|'.2]", path])
+            }
         }
     }
-    res = xc_0 == 1;
     if (res)
     {
         if (rep !== null) rep.length = 0
     }
     else
     {
-        rep !== null && rep.push(["not one model match [.license.'^']", path])
+        rep !== null && rep.push(["no model matched [.license.'|']", path])
     }
     return res;
 }

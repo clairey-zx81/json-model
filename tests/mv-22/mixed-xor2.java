@@ -18,6 +18,7 @@ public class mixed_xor2 extends ModelChecker
     static public final String VERSION = "2";
 
     Map<Object, Checker> _jm_map_0_cmap;
+    Map<Object, Checker> _jm_map_1_cmap;
     public Map<String, Checker> mixed_xor2_map_pmap;
 
     // object .'$cs'.'|'.0
@@ -153,18 +154,18 @@ public class mixed_xor2 extends ModelChecker
         return res;
     }
 
-    // object .'^'.0
+    // object .'|'.0
     public boolean _jm_obj_2(Object val, Path path, Report rep)
     {
         // check close must only props
         if (! json.isObject(val))
         {
-            if (rep != null) rep.addEntry("not an object [.'^'.0]", path);
+            if (rep != null) rep.addEntry("not an object [.'|'.0]", path);
             return false;
         }
         if (json.objectSize(val) != 2)
         {
-            if (rep != null) rep.addEntry("bad property count [.'^'.0]", path);
+            if (rep != null) rep.addEntry("bad property count [.'|'.0]", path);
             return false;
         }
         Path lpath;
@@ -172,47 +173,47 @@ public class mixed_xor2 extends ModelChecker
         boolean res;
         if (! ((pval = json.objectValue(val, "t")) != null))
         {
-            if (rep != null) rep.addEntry("missing mandatory prop <t> [.'^'.0]", path);
+            if (rep != null) rep.addEntry("missing mandatory prop <t> [.'|'.0]", path);
             return false;
         }
         lpath = new Path("t", path);
-        // .'^'.0.t
+        // .'|'.0.t
         res = json.isString(pval) && json.asString(pval).compareTo("m") == 0;
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected m [.'^'.0.t]", (path != null ? lpath : null));
-            if (rep != null) rep.addEntry("unexpected value for mandatory prop <t> [.'^'.0]", (path != null ? lpath : null));
+            if (rep != null) rep.addEntry("unexpected m [.'|'.0.t]", (path != null ? lpath : null));
+            if (rep != null) rep.addEntry("unexpected value for mandatory prop <t> [.'|'.0]", (path != null ? lpath : null));
             return false;
         }
         if (! ((pval = json.objectValue(val, "moe")) != null))
         {
-            if (rep != null) rep.addEntry("missing mandatory prop <moe> [.'^'.0]", path);
+            if (rep != null) rep.addEntry("missing mandatory prop <moe> [.'|'.0]", path);
             return false;
         }
         lpath = new Path("moe", path);
-        // .'^'.0.moe
+        // .'|'.0.moe
         res = json.isInteger(pval) && json.asLong(pval) >= 1;
         if (! res)
         {
-            if (rep != null) rep.addEntry("not a 1 strict int [.'^'.0.moe]", (path != null ? lpath : null));
-            if (rep != null) rep.addEntry("unexpected value for mandatory prop <moe> [.'^'.0]", (path != null ? lpath : null));
+            if (rep != null) rep.addEntry("not a 1 strict int [.'|'.0.moe]", (path != null ? lpath : null));
+            if (rep != null) rep.addEntry("unexpected value for mandatory prop <moe> [.'|'.0]", (path != null ? lpath : null));
             return false;
         }
         return true;
     }
 
-    // object .'^'.1
+    // object .'|'.1
     public boolean _jm_obj_3(Object val, Path path, Report rep)
     {
         // check close must only props
         if (! json.isObject(val))
         {
-            if (rep != null) rep.addEntry("not an object [.'^'.1]", path);
+            if (rep != null) rep.addEntry("not an object [.'|'.1]", path);
             return false;
         }
         if (json.objectSize(val) != 2)
         {
-            if (rep != null) rep.addEntry("bad property count [.'^'.1]", path);
+            if (rep != null) rep.addEntry("bad property count [.'|'.1]", path);
             return false;
         }
         Path lpath;
@@ -220,84 +221,72 @@ public class mixed_xor2 extends ModelChecker
         boolean res;
         if (! ((pval = json.objectValue(val, "t")) != null))
         {
-            if (rep != null) rep.addEntry("missing mandatory prop <t> [.'^'.1]", path);
+            if (rep != null) rep.addEntry("missing mandatory prop <t> [.'|'.1]", path);
             return false;
         }
         lpath = new Path("t", path);
-        // .'^'.1.t
+        // .'|'.1.t
         res = json.isString(pval) && json.asString(pval).compareTo("h") == 0;
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected h [.'^'.1.t]", (path != null ? lpath : null));
-            if (rep != null) rep.addEntry("unexpected value for mandatory prop <t> [.'^'.1]", (path != null ? lpath : null));
+            if (rep != null) rep.addEntry("unexpected h [.'|'.1.t]", (path != null ? lpath : null));
+            if (rep != null) rep.addEntry("unexpected value for mandatory prop <t> [.'|'.1]", (path != null ? lpath : null));
             return false;
         }
         if (! ((pval = json.objectValue(val, "hob")) != null))
         {
-            if (rep != null) rep.addEntry("missing mandatory prop <hob> [.'^'.1]", path);
+            if (rep != null) rep.addEntry("missing mandatory prop <hob> [.'|'.1]", path);
             return false;
         }
         lpath = new Path("hob", path);
-        // .'^'.1.hob
+        // .'|'.1.hob
         res = json.isInteger(pval) && json.asLong(pval) >= 1;
         if (! res)
         {
-            if (rep != null) rep.addEntry("not a 1 strict int [.'^'.1.hob]", (path != null ? lpath : null));
-            if (rep != null) rep.addEntry("unexpected value for mandatory prop <hob> [.'^'.1]", (path != null ? lpath : null));
+            if (rep != null) rep.addEntry("not a 1 strict int [.'|'.1.hob]", (path != null ? lpath : null));
+            if (rep != null) rep.addEntry("unexpected value for mandatory prop <hob> [.'|'.1]", (path != null ? lpath : null));
             return false;
         }
         return true;
     }
+
 
     // check $ (.)
     public boolean json_model_1(Object val, Path path, Report rep)
     {
         boolean res;
         // .
-        // generic xor list
-        long xc_0 = 0;
-        boolean xr_0;
-        // .'^'.0
-        xr_0 = _jm_obj_2(val, path, rep);
-        if (xr_0)
+        boolean iso_1 = json.isObject(val);
+        res = iso_1;
+        if (res)
         {
-            xc_0 += 1;
-        }
-        else
-        {
-            if (rep != null) rep.addEntry("unexpected element [.'^'.0]", path);
-        }
-        // .'^'.1
-        xr_0 = _jm_obj_3(val, path, rep);
-        if (xr_0)
-        {
-            xc_0 += 1;
-        }
-        else
-        {
-            if (rep != null) rep.addEntry("unexpected element [.'^'.1]", path);
-        }
-        if (xc_0 <= 1)
-        {
-            // .'^'.2
-            xr_0 = json_model_2(val, path, rep);
-            if (xr_0)
+            if (json.objectHasProp(val, "t"))
             {
-                xc_0 += 1;
+                Object tag_1 = json.objectValue(val, "t");
+                Checker fun_1 = _jm_map_1_cmap.get(tag_1);
+                if (fun_1 != null)
+                {
+                    res = fun_1.call(val, path, rep);
+                }
+                else
+                {
+                    res = false;
+                    if (rep != null) rep.addEntry("tag <t> value not found [.'|']", path);
+                }
             }
             else
             {
-                if (rep != null) rep.addEntry("unexpected $cs [.'^'.2]", path);
+                res = false;
+                if (rep != null) rep.addEntry("tag prop <t> is missing [.'|']", path);
             }
-        }
-        res = xc_0 == 1;
-        if (res)
-        {
-            if (rep != null) rep.clearEntries();
         }
         else
         {
-            if (rep != null) rep.addEntry("not one model match [.'^']", path);
+            if (rep != null) rep.addEntry("value is not an object [.'|']", path);
+        }
+        if (! res)
+        {
+            res = json_model_2(val, path, rep);
         }
         return res;
     }
@@ -311,6 +300,9 @@ public class mixed_xor2 extends ModelChecker
             _jm_map_0_cmap = new HashMap<Object, Checker>();
             _jm_map_0_cmap.put(json.safeJSON("\"c\""), new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_0(o, p, r);} });
             _jm_map_0_cmap.put(json.safeJSON("\"s\""), new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_1(o, p, r);} });
+            _jm_map_1_cmap = new HashMap<Object, Checker>();
+            _jm_map_1_cmap.put(json.safeJSON("\"m\""), new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_2(o, p, r);} });
+            _jm_map_1_cmap.put(json.safeJSON("\"h\""), new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_obj_3(o, p, r);} });
             mixed_xor2_map_pmap = new HashMap<String, Checker>();
             mixed_xor2_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_1(o, p, r);} });
             mixed_xor2_map_pmap.put("cs", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_2(o, p, r);} });
@@ -328,6 +320,7 @@ public class mixed_xor2 extends ModelChecker
         {
             super.free();
             _jm_map_0_cmap = null;
+            _jm_map_1_cmap = null;
             mixed_xor2_map_pmap = null;
         }
     }

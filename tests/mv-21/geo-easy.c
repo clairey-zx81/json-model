@@ -25,6 +25,7 @@ static bool json_model_12(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_13(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_14(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static jm_constmap_t _jm_map_1_tab[3];
 static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep);
 jm_propmap_t check_model_map_tab[14];
 const size_t check_model_map_size = 14;
@@ -1050,69 +1051,50 @@ static bool json_model_14(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return true;
 }
 
+static INLINE jm_check_fun_t _jm_map_1(json_t *val)
+{
+    jm_constant_t cst;
+    jm_set_cst(&cst, val);
+    return jm_search_constmap(&cst, _jm_map_1_tab, 3);
+}
+
 // check $ (.)
 static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
     // Easy Geo JSON Model JSON_MODEL_LOOSE_FLOAT
     // .
-    // generic xor list
-    int64_t xc_0 = 0;
-    bool xr_0;
-    // .'^'.0
-    xr_0 = json_model_11(val, path, rep);
-    if (xr_0)
-    {
-        xc_0 += 1;
-    }
-    else
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected $geometry [.'^'.0]", path);
-    }
-    // .'^'.1
-    xr_0 = json_model_12(val, path, rep);
-    if (xr_0)
-    {
-        xc_0 += 1;
-    }
-    else
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected $GeometryCollection [.'^'.1]", path);
-    }
-    if (xc_0 <= 1)
-    {
-        // .'^'.2
-        xr_0 = json_model_13(val, path, rep);
-        if (xr_0)
-        {
-            xc_0 += 1;
-        }
-        else
-        {
-            if (rep) jm_report_add_entry(rep, "unexpected $Feature [.'^'.2]", path);
-        }
-    }
-    if (xc_0 <= 1)
-    {
-        // .'^'.3
-        xr_0 = json_model_14(val, path, rep);
-        if (xr_0)
-        {
-            xc_0 += 1;
-        }
-        else
-        {
-            if (rep) jm_report_add_entry(rep, "unexpected $FeatureCollection [.'^'.3]", path);
-        }
-    }
-    res = xc_0 == 1;
+    bool iso_1 = json_is_object(val);
+    res = iso_1;
     if (res)
     {
-        if (rep) jm_report_free_entries(rep);
+        if (json_object_get(val, "type") != NULL)
+        {
+            json_t * tag_1 = json_object_get(val, "type");
+            jm_check_fun_t fun_1 = _jm_map_1(tag_1);
+            if (fun_1 != NULL)
+            {
+                res = fun_1(val, path, rep);
+            }
+            else
+            {
+                res = false;
+                if (rep) jm_report_add_entry(rep, "tag <type> value not found [.'|']", path);
+            }
+        }
+        else
+        {
+            res = false;
+            if (rep) jm_report_add_entry(rep, "tag prop <type> is missing [.'|']", path);
+        }
     }
     else
     {
-        if (rep) jm_report_add_entry(rep, "not one model match [.'^']", path);
+        if (rep) jm_report_add_entry(rep, "value is not an object [.'|']", path);
+    }
+    if (! res)
+    {
+        res = json_model_11(val, path, rep);
     }
     return res;
 }
@@ -1137,6 +1119,10 @@ const char *check_model_init(void)
         _jm_map_0_tab[4] = (jm_constmap_t) { (jm_constant_t) { cst_is_string, { .s = "Polygon" } }, json_model_9 };
         _jm_map_0_tab[5] = (jm_constmap_t) { (jm_constant_t) { cst_is_string, { .s = "MultiPolygon" } }, json_model_10 };
         jm_sort_constmap(_jm_map_0_tab, 6);
+        _jm_map_1_tab[0] = (jm_constmap_t) { (jm_constant_t) { cst_is_string, { .s = "GeometryCollection" } }, json_model_12 };
+        _jm_map_1_tab[1] = (jm_constmap_t) { (jm_constant_t) { cst_is_string, { .s = "Feature" } }, json_model_13 };
+        _jm_map_1_tab[2] = (jm_constmap_t) { (jm_constant_t) { cst_is_string, { .s = "FeatureCollection" } }, json_model_14 };
+        jm_sort_constmap(_jm_map_1_tab, 3);
         check_model_map_tab[0] = (jm_propmap_t) { "", json_model_1 };
         check_model_map_tab[1] = (jm_propmap_t) { "position", json_model_2 };
         check_model_map_tab[2] = (jm_propmap_t) { "coord_array", json_model_3 };
