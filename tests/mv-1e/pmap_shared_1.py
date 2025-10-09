@@ -31,7 +31,6 @@ def json_model_2(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     must_count: int = 0
     for prop, pval in val.items():
-        assert isinstance(prop, str)
         lpath_0: Path = (path + [ prop ]) if path is not None else None
         if prop == "a":
             # handle must a property
@@ -98,7 +97,6 @@ def json_model_3(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     must_count: int = 0
     for prop, pval in val.items():
-        assert isinstance(prop, str)
         lpath_1: Path = (path + [ prop ]) if path is not None else None
         if prop == "z":
             # handle must z property
@@ -160,7 +158,6 @@ def json_model_4(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     must_count: int = 0
     for prop, pval in val.items():
-        assert isinstance(prop, str)
         lpath_2: Path = (path + [ prop ]) if path is not None else None
         if prop == "a":
             # handle must a property

@@ -30,7 +30,6 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     must_count: int = 0
     for prop, pval in val.items():
-        assert isinstance(prop, str)
         lpath_0: Path = (path + [ prop ]) if path is not None else None
         if prop == "a":
             # handle must a property
@@ -67,7 +66,6 @@ def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     must_count: int = 0
     for prop, pval in val.items():
-        assert isinstance(prop, str)
         lpath_1: Path = (path + [ prop ]) if path is not None else None
         if prop == "b":
             # handle must b property

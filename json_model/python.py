@@ -155,8 +155,7 @@ class Python(Language):
         return [ f"for {idx}, {val} in enumerate({arr}):" ] + self.indent(body)
 
     def obj_loop(self, obj: Var, key: Var, val: Var, body: Block) -> Block:
-        return [ f"for {key}, {val} in {obj}.items():" ] + \
-            self.indent([ f"assert isinstance({key}, str)" ] + body)
+        return [ f"for {key}, {val} in {obj}.items():" ] + self.indent(body)
 
     def int_loop(self, idx: Var, start: IntExpr, end: IntExpr, body: Block) -> Block:
         return [ f"for {idx} in range({start}, {end}):" ] + self.indent(body)

@@ -378,7 +378,6 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
         return False
     res: bool
     for prop, pval in val.items():
-        assert isinstance(prop, str)
         lpath_0: Path = (path + [ prop ]) if path is not None else None
         if prop == "#":
             # handle may # property
@@ -431,7 +430,6 @@ def _jm_obj_2(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     must_count: int = 0
     for prop, pval in val.items():
-        assert isinstance(prop, str)
         lpath_1: Path = (path + [ prop ]) if path is not None else None
         if prop == "+":
             # handle must + property
@@ -499,7 +497,6 @@ def _jm_obj_4(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     must_count: int = 0
     for prop, pval in val.items():
-        assert isinstance(prop, str)
         lpath_2: Path = (path + [ prop ]) if path is not None else None
         if prop == "^":
             # handle must ^ property
@@ -567,7 +564,6 @@ def _jm_obj_6(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     must_count: int = 0
     for prop, pval in val.items():
-        assert isinstance(prop, str)
         lpath_3: Path = (path + [ prop ]) if path is not None else None
         if prop == "&":
             # handle must & property
@@ -635,7 +631,6 @@ def _jm_obj_8(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     must_count: int = 0
     for prop, pval in val.items():
-        assert isinstance(prop, str)
         lpath_4: Path = (path + [ prop ]) if path is not None else None
         if prop == "|":
             # handle must | property
@@ -705,7 +700,6 @@ def _jm_obj_10(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     must_count: int = 0
     for prop, pval in val.items():
-        assert isinstance(prop, str)
         lpath_5: Path = (path + [ prop ]) if path is not None else None
         if prop == "@":
             # handle must @ property
@@ -945,7 +939,6 @@ def _jm_obj_13(val: Jsonable, path: Path, rep: Report) -> bool:
         return False
     res: bool
     for prop, pval in val.items():
-        assert isinstance(prop, str)
         lpath_7: Path = (path + [ prop ]) if path is not None else None
         if prop == "#":
             # handle may # property
@@ -1007,7 +1000,6 @@ def _jm_obj_15(val: Jsonable, path: Path, rep: Report) -> bool:
         return False
     res: bool
     for prop, pval in val.items():
-        assert isinstance(prop, str)
         lpath_8: Path = (path + [ prop ]) if path is not None else None
         if prop == "#":
             # handle may # property
@@ -1093,7 +1085,6 @@ def _jm_obj_12(val: Jsonable, path: Path, rep: Report) -> bool:
         return False
     res: bool
     for prop, pval in val.items():
-        assert isinstance(prop, str)
         lpath_6: Path = (path + [ prop ]) if path is not None else None
         if prop == "~":
             # handle may ~ property
@@ -1169,7 +1160,6 @@ def _jm_obj_19(val: Jsonable, path: Path, rep: Report) -> bool:
         return False
     res: bool
     for prop, pval in val.items():
-        assert isinstance(prop, str)
         lpath_10: Path = (path + [ prop ]) if path is not None else None
         if prop == "#":
             # handle may # property
@@ -1229,7 +1219,6 @@ def _jm_obj_21(val: Jsonable, path: Path, rep: Report) -> bool:
         return False
     res: bool
     for prop, pval in val.items():
-        assert isinstance(prop, str)
         lpath_11: Path = (path + [ prop ]) if path is not None else None
         if prop == "#":
             # handle may # property
@@ -1316,7 +1305,6 @@ def _jm_obj_18(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     must_count: int = 0
     for prop, pval in val.items():
-        assert isinstance(prop, str)
         lpath_9: Path = (path + [ prop ]) if path is not None else None
         if prop == "+":
             # handle must + property
@@ -1407,7 +1395,6 @@ def _jm_obj_25(val: Jsonable, path: Path, rep: Report) -> bool:
         return False
     res: bool
     for prop, pval in val.items():
-        assert isinstance(prop, str)
         lpath_13: Path = (path + [ prop ]) if path is not None else None
         if prop == "#":
             # handle may # property
@@ -1467,7 +1454,6 @@ def _jm_obj_27(val: Jsonable, path: Path, rep: Report) -> bool:
         return False
     res: bool
     for prop, pval in val.items():
-        assert isinstance(prop, str)
         lpath_14: Path = (path + [ prop ]) if path is not None else None
         if prop == "#":
             # handle may # property
@@ -1554,7 +1540,6 @@ def _jm_obj_24(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     must_count: int = 0
     for prop, pval in val.items():
-        assert isinstance(prop, str)
         lpath_12: Path = (path + [ prop ]) if path is not None else None
         if prop == "^":
             # handle must ^ property
@@ -1645,7 +1630,6 @@ def _jm_obj_31(val: Jsonable, path: Path, rep: Report) -> bool:
         return False
     res: bool
     for prop, pval in val.items():
-        assert isinstance(prop, str)
         lpath_16: Path = (path + [ prop ]) if path is not None else None
         if prop == "#":
             # handle may # property
@@ -1705,7 +1689,6 @@ def _jm_obj_33(val: Jsonable, path: Path, rep: Report) -> bool:
         return False
     res: bool
     for prop, pval in val.items():
-        assert isinstance(prop, str)
         lpath_17: Path = (path + [ prop ]) if path is not None else None
         if prop == "#":
             # handle may # property
@@ -1792,7 +1775,6 @@ def _jm_obj_30(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     must_count: int = 0
     for prop, pval in val.items():
-        assert isinstance(prop, str)
         lpath_15: Path = (path + [ prop ]) if path is not None else None
         if prop == "&":
             # handle must & property
@@ -1883,7 +1865,6 @@ def _jm_obj_37(val: Jsonable, path: Path, rep: Report) -> bool:
         return False
     res: bool
     for prop, pval in val.items():
-        assert isinstance(prop, str)
         lpath_19: Path = (path + [ prop ]) if path is not None else None
         if prop == "#":
             # handle may # property
@@ -1943,7 +1924,6 @@ def _jm_obj_39(val: Jsonable, path: Path, rep: Report) -> bool:
         return False
     res: bool
     for prop, pval in val.items():
-        assert isinstance(prop, str)
         lpath_20: Path = (path + [ prop ]) if path is not None else None
         if prop == "#":
             # handle may # property
@@ -2030,7 +2010,6 @@ def _jm_obj_36(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     must_count: int = 0
     for prop, pval in val.items():
-        assert isinstance(prop, str)
         lpath_18: Path = (path + [ prop ]) if path is not None else None
         if prop == "|":
             # handle must | property
@@ -2140,7 +2119,6 @@ def _jm_f_2(val: Jsonable, path: Path, rep: Report) -> bool:
         return False
     res: bool
     for prop, pval in val.items():
-        assert isinstance(prop, str)
         lpath_22: Path = (path + [ prop ]) if path is not None else None
         if prop == "#":
             # handle may # property
@@ -2201,7 +2179,6 @@ def _jm_f_3(val: Jsonable, path: Path, rep: Report) -> bool:
         return False
     res: bool
     for prop, pval in val.items():
-        assert isinstance(prop, str)
         lpath_23: Path = (path + [ prop ]) if path is not None else None
         if prop == "#":
             # handle may # property
@@ -2300,7 +2277,6 @@ def _jm_obj_42(val: Jsonable, path: Path, rep: Report) -> bool:
     pfun: CheckFun
     must_count: int = 0
     for prop, pval in val.items():
-        assert isinstance(prop, str)
         lpath_21: Path = (path + [ prop ]) if path is not None else None
         if prop == "@":
             # handle must @ property
@@ -2441,7 +2417,6 @@ def _jm_obj_47(val: Jsonable, path: Path, rep: Report) -> bool:
         return False
     res: bool
     for prop, pval in val.items():
-        assert isinstance(prop, str)
         lpath_25: Path = (path + [ prop ]) if path is not None else None
         # handle other props
         # .'$Model#Transformation'.'|'.1.'~'.''
@@ -2458,7 +2433,6 @@ def _jm_obj_45(val: Jsonable, path: Path, rep: Report) -> bool:
         return False
     res: bool
     for prop, pval in val.items():
-        assert isinstance(prop, str)
         lpath_24: Path = (path + [ prop ]) if path is not None else None
         if prop == "#":
             # handle may # property

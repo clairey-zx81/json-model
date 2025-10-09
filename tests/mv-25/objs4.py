@@ -81,7 +81,6 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
         return False
     pfun: CheckFun
     for prop, pval in val.items():
-        assert isinstance(prop, str)
         if pfun := json_model_1_map.get(prop):
             # handle 10 may props
             if pfun != UNDEFINED and not pfun(pval, None, rep):

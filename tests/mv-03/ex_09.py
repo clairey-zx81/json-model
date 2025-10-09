@@ -48,7 +48,6 @@ def json_model_4(val: Jsonable, path: Path, rep: Report) -> bool:
         return False
     res: bool
     for prop, pval in val.items():
-        assert isinstance(prop, str)
         lpath_0: Path = (path + [ prop ]) if path is not None else None
         if prop == "#":
             # handle may # property
@@ -120,7 +119,6 @@ def json_model_8(val: Jsonable, path: Path, rep: Report) -> bool:
         return False
     res: bool
     for prop, pval in val.items():
-        assert isinstance(prop, str)
         lpath_1: Path = (path + [ prop ]) if path is not None else None
         if is_valid_url(prop, lpath_1 if path is not None else None, rep):
             # handle 1 key props

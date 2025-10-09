@@ -98,7 +98,6 @@ def _jm_f_5(val: Jsonable, path: Path, rep: Report) -> bool:
         return False
     res: bool
     for prop, pval in val.items():
-        assert isinstance(prop, str)
         lpath_1: Path = (path + [ prop ]) if path is not None else None
         # handle other props
         # .'$schema'.dependencies.''
@@ -345,7 +344,6 @@ def _jm_f_23(val: Jsonable, path: Path, rep: Report) -> bool:
         return False
     res: bool
     for prop, pval in val.items():
-        assert isinstance(prop, str)
         lpath_2: Path = (path + [ prop ]) if path is not None else None
         # handle other props
         # .'$schema'.patternProperties.''
@@ -363,7 +361,6 @@ def _jm_f_24(val: Jsonable, path: Path, rep: Report) -> bool:
         return False
     res: bool
     for prop, pval in val.items():
-        assert isinstance(prop, str)
         lpath_3: Path = (path + [ prop ]) if path is not None else None
         # handle other props
         # .'$schema'.properties.''
@@ -448,7 +445,6 @@ def json_model_3(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     pfun: CheckFun
     for prop, pval in val.items():
-        assert isinstance(prop, str)
         lpath_0: Path = (path + [ prop ]) if path is not None else None
         if pfun := json_model_3_map.get(prop):
             # handle 29 may props
