@@ -220,6 +220,11 @@ sqlite3 perf.db < $script_dir/perf.sql
 cpu_model=$(lscpu --extended=MODELNAME | sed -n 2p)
 cpu_count=$(lscpu --extended=CPU | sed 1d | wc -l)
 
+function docker_id()
+{
+    docker inspect --format="{{.Id}}" "$1" | cut -d: -f2 | cut -c -8
+}
+
 #
 # OUTPUT
 #
@@ -237,8 +242,8 @@ cpu_count=$(lscpu --extended=CPU | sed 1d | wc -l)
   echo "- para: $PARA"
   echo "- runs: $RUNS"
   echo "- loop: $LOOP"
-  echo "- jmc: $JMC"
-  echo "- jsc: $JSC"
+  echo "- jmc: $JMC [$(docker_id zx80/jmc:$JMC)]"
+  echo "- jsc: $JSC [$(docker_id ghcr.io/sourcemeta/jsonschema:$JSC)]"
   echo "- cap_py: $cap_py"
   echo "- debug: $debug"
   echo "- format: $JMC_BENCH_TIME_FMT"

@@ -7,6 +7,7 @@
 - [x] optim: add more if simplifications in IR
 - [x] optim: improve xor-to-or over references and sub-ors
 - [x] python: remove useless (debugging) assertion in generated code
+- [x] perf: also show docker id of tested image
 - [ ] perf: compute performance overhead globally instead of per run
 - [ ] tests: add ir optimized output (too large?)
 - [ ] tests: add pytest ir tests
