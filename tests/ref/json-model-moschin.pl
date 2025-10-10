@@ -444,8 +444,8 @@ sub json_model_35($$$)
 sub _jm_obj_1($$$)
 {
     my ($val, $path, $rep) = @_;
-    return jm_is_object($val);
     # accept any object
+    return jm_is_object($val);
 }
 
 # object .'$Model#Element'.'|'.5
@@ -512,8 +512,8 @@ sub _jm_obj_0($$$)
 sub _jm_obj_3($$$)
 {
     my ($val, $path, $rep) = @_;
-    return jm_is_object($val);
     # accept any object
+    return jm_is_object($val);
 }
 
 # object .'$Model#Element'.'|'.4
@@ -595,8 +595,8 @@ sub _jm_obj_2($$$)
 sub _jm_obj_5($$$)
 {
     my ($val, $path, $rep) = @_;
-    return jm_is_object($val);
     # accept any object
+    return jm_is_object($val);
 }
 
 # object .'$Model#Element'.'|'.3
@@ -678,8 +678,8 @@ sub _jm_obj_4($$$)
 sub _jm_obj_7($$$)
 {
     my ($val, $path, $rep) = @_;
-    return jm_is_object($val);
     # accept any object
+    return jm_is_object($val);
 }
 
 # object .'$Model#Element'.'|'.2
@@ -761,8 +761,8 @@ sub _jm_obj_6($$$)
 sub _jm_obj_9($$$)
 {
     my ($val, $path, $rep) = @_;
-    return jm_is_object($val);
     # accept any object
+    return jm_is_object($val);
 }
 
 # object .'$Model#Element'.'|'.1
@@ -844,8 +844,8 @@ sub _jm_obj_8($$$)
 sub _jm_obj_11($$$)
 {
     my ($val, $path, $rep) = @_;
-    return jm_is_object($val);
     # accept any object
+    return jm_is_object($val);
 }
 
 sub _jm_re_3($$$)
@@ -1122,8 +1122,8 @@ sub json_model_13($$$)
 sub _jm_obj_14($$$)
 {
     my ($val, $path, $rep) = @_;
-    return jm_is_object($val);
     # accept any object
+    return jm_is_object($val);
 }
 
 # object .'$Model#Root'.'|'.5.'$'
@@ -1200,8 +1200,8 @@ sub _jm_obj_13($$$)
 sub _jm_obj_16($$$)
 {
     my ($val, $path, $rep) = @_;
-    return jm_is_object($val);
     # accept any object
+    return jm_is_object($val);
 }
 
 sub _jm_re_7($$$)
@@ -1322,8 +1322,8 @@ sub _jm_obj_15($$$)
 sub _jm_obj_17($$$)
 {
     my ($val, $path, $rep) = @_;
-    return jm_is_object($val);
     # accept any object
+    return jm_is_object($val);
 }
 
 # object .'$Model#Root'.'|'.5
@@ -1420,8 +1420,8 @@ sub _jm_obj_12($$$)
 sub _jm_obj_20($$$)
 {
     my ($val, $path, $rep) = @_;
-    return jm_is_object($val);
     # accept any object
+    return jm_is_object($val);
 }
 
 # object .'$Model#Root'.'|'.4.'$'
@@ -1498,8 +1498,8 @@ sub _jm_obj_19($$$)
 sub _jm_obj_22($$$)
 {
     my ($val, $path, $rep) = @_;
-    return jm_is_object($val);
     # accept any object
+    return jm_is_object($val);
 }
 
 # object .'$Model#Root'.'|'.4.'%'
@@ -1606,8 +1606,8 @@ sub _jm_obj_21($$$)
 sub _jm_obj_23($$$)
 {
     my ($val, $path, $rep) = @_;
-    return jm_is_object($val);
     # accept any object
+    return jm_is_object($val);
 }
 
 # object .'$Model#Root'.'|'.4
@@ -1719,8 +1719,8 @@ sub _jm_obj_18($$$)
 sub _jm_obj_26($$$)
 {
     my ($val, $path, $rep) = @_;
-    return jm_is_object($val);
     # accept any object
+    return jm_is_object($val);
 }
 
 # object .'$Model#Root'.'|'.3.'$'
@@ -1797,8 +1797,8 @@ sub _jm_obj_25($$$)
 sub _jm_obj_28($$$)
 {
     my ($val, $path, $rep) = @_;
-    return jm_is_object($val);
     # accept any object
+    return jm_is_object($val);
 }
 
 # object .'$Model#Root'.'|'.3.'%'
@@ -1905,8 +1905,8 @@ sub _jm_obj_27($$$)
 sub _jm_obj_29($$$)
 {
     my ($val, $path, $rep) = @_;
-    return jm_is_object($val);
     # accept any object
+    return jm_is_object($val);
 }
 
 # object .'$Model#Root'.'|'.3
@@ -2018,8 +2018,8 @@ sub _jm_obj_24($$$)
 sub _jm_obj_32($$$)
 {
     my ($val, $path, $rep) = @_;
-    return jm_is_object($val);
     # accept any object
+    return jm_is_object($val);
 }
 
 # object .'$Model#Root'.'|'.2.'$'
@@ -2096,8 +2096,8 @@ sub _jm_obj_31($$$)
 sub _jm_obj_34($$$)
 {
     my ($val, $path, $rep) = @_;
-    return jm_is_object($val);
     # accept any object
+    return jm_is_object($val);
 }
 
 # object .'$Model#Root'.'|'.2.'%'
@@ -2204,8 +2204,8 @@ sub _jm_obj_33($$$)
 sub _jm_obj_35($$$)
 {
     my ($val, $path, $rep) = @_;
-    return jm_is_object($val);
     # accept any object
+    return jm_is_object($val);
 }
 
 # object .'$Model#Root'.'|'.2
@@ -2317,8 +2317,8 @@ sub _jm_obj_30($$$)
 sub _jm_obj_38($$$)
 {
     my ($val, $path, $rep) = @_;
-    return jm_is_object($val);
     # accept any object
+    return jm_is_object($val);
 }
 
 # object .'$Model#Root'.'|'.1.'$'
@@ -2395,8 +2395,8 @@ sub _jm_obj_37($$$)
 sub _jm_obj_40($$$)
 {
     my ($val, $path, $rep) = @_;
-    return jm_is_object($val);
     # accept any object
+    return jm_is_object($val);
 }
 
 # object .'$Model#Root'.'|'.1.'%'
@@ -2503,8 +2503,8 @@ sub _jm_obj_39($$$)
 sub _jm_obj_41($$$)
 {
     my ($val, $path, $rep) = @_;
-    return jm_is_object($val);
     # accept any object
+    return jm_is_object($val);
 }
 
 # object .'$Model#Root'.'|'.1
@@ -2636,8 +2636,8 @@ sub _jm_f_1($$$)
 sub _jm_obj_43($$$)
 {
     my ($val, $path, $rep) = @_;
-    return jm_is_object($val);
     # accept any object
+    return jm_is_object($val);
 }
 
 # check _jm_obj_42_map_$ (.'$Model#Root'.'|'.0.'$')
@@ -2715,8 +2715,8 @@ sub _jm_f_2($$$)
 sub _jm_obj_44($$$)
 {
     my ($val, $path, $rep) = @_;
-    return jm_is_object($val);
     # accept any object
+    return jm_is_object($val);
 }
 
 # check _jm_obj_42_map_% (.'$Model#Root'.'|'.0.'%')
@@ -2835,8 +2835,8 @@ sub _jm_f_5($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$Model#Root'.'|'.0.'.schema'
-    return jm_is_object($val);
     # accept any object
+    return jm_is_object($val);
 }
 
 
@@ -3009,8 +3009,8 @@ sub json_model_6($$$)
 sub _jm_obj_46($$$)
 {
     my ($val, $path, $rep) = @_;
-    return jm_is_object($val);
     # accept any object
+    return jm_is_object($val);
 }
 
 # object .'$Model#Transformation'.'|'.1.'~'

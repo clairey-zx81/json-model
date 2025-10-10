@@ -19,8 +19,8 @@ sub json_model_1($$$)
 {
     my ($val, $path, $rep) = @_;
     # .
-    return jm_is_object($val);
     # accept any object
+    return jm_is_object($val);
 }
 
 

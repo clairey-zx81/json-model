@@ -2947,8 +2947,8 @@ sub json_model_26($$$)
 sub _jm_obj_15($$$)
 {
     my ($val, $path, $rep) = @_;
-    return jm_is_object($val);
     # accept any object
+    return jm_is_object($val);
 }
 
 # object .'$Link'.'|'.1
@@ -3037,8 +3037,8 @@ sub _jm_obj_14($$$)
 sub _jm_obj_17($$$)
 {
     my ($val, $path, $rep) = @_;
-    return jm_is_object($val);
     # accept any object
+    return jm_is_object($val);
 }
 
 # object .'$Link'.'|'.0

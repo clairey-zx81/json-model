@@ -2594,8 +2594,8 @@ sub json_model_28($$$)
 sub _jm_obj_14($$$)
 {
     my ($val, $path, $rep) = @_;
-    return jm_is_object($val);
     # accept any object
+    return jm_is_object($val);
 }
 
 # object .'$openapi#Link'.'|'.1
@@ -2684,8 +2684,8 @@ sub _jm_obj_13($$$)
 sub _jm_obj_16($$$)
 {
     my ($val, $path, $rep) = @_;
-    return jm_is_object($val);
     # accept any object
+    return jm_is_object($val);
 }
 
 # object .'$openapi#Link'.'|'.0

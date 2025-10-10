@@ -1421,8 +1421,8 @@ CREATE OR REPLACE FUNCTION json_model_19(val JSONB, path TEXT[], rep jm_report_e
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
   -- .'$fuzzy'
-  RETURN JSONB_TYPEOF(val) = 'object';
   -- accept any object
+  RETURN JSONB_TYPEOF(val) = 'object';
 END;
 $$ LANGUAGE PLpgSQL;
 

@@ -2567,8 +2567,8 @@ $$ LANGUAGE PLpgSQL;
 CREATE OR REPLACE FUNCTION _jm_obj_15(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
-  RETURN JSONB_TYPEOF(val) = 'object';
   -- accept any object
+  RETURN JSONB_TYPEOF(val) = 'object';
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -2641,8 +2641,8 @@ $$ LANGUAGE PLpgSQL;
 CREATE OR REPLACE FUNCTION _jm_obj_17(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
-  RETURN JSONB_TYPEOF(val) = 'object';
   -- accept any object
+  RETURN JSONB_TYPEOF(val) = 'object';
 END;
 $$ LANGUAGE PLpgSQL;
 

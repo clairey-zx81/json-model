@@ -6529,8 +6529,8 @@ sub _jm_f_51($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$DependencyModelLoose'.vars
-    return jm_is_object($val);
     # accept any object
+    return jm_is_object($val);
 }
 
 # check json_model_57_map_version (.'$DependencyModelLoose'.version)

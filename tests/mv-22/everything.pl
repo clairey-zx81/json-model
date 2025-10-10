@@ -683,8 +683,8 @@ sub _jm_f_18($$$)
 sub _jm_obj_0($$$)
 {
     my ($val, $path, $rep) = @_;
-    return jm_is_object($val);
     # accept any object
+    return jm_is_object($val);
 }
 
 # check _jm_f_9_map_cio0 (.constraints.cio0)
@@ -707,8 +707,8 @@ sub _jm_f_19($$$)
 sub _jm_obj_1($$$)
 {
     my ($val, $path, $rep) = @_;
-    return jm_is_object($val);
     # accept any object
+    return jm_is_object($val);
 }
 
 # check _jm_f_9_map_cio1 (.constraints.cio1)
@@ -731,8 +731,8 @@ sub _jm_f_20($$$)
 sub _jm_obj_2($$$)
 {
     my ($val, $path, $rep) = @_;
-    return jm_is_object($val);
     # accept any object
+    return jm_is_object($val);
 }
 
 # check _jm_f_9_map_cio2 (.constraints.cio2)
@@ -2073,8 +2073,8 @@ sub _jm_f_67($$$)
 {
     my ($val, $path, $rep) = @_;
     # .object.o6
-    return jm_is_object($val);
     # accept any object
+    return jm_is_object($val);
 }
 
 
@@ -2112,8 +2112,8 @@ sub _jm_f_60($$$)
 sub _jm_obj_13($$$)
 {
     my ($val, $path, $rep) = @_;
-    return jm_is_object($val);
     # accept any object
+    return jm_is_object($val);
 }
 
 # check json_model_1_map_or (.or)

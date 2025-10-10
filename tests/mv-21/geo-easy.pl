@@ -651,8 +651,8 @@ sub json_model_12($$$)
 sub _jm_obj_0($$$)
 {
     my ($val, $path, $rep) = @_;
-    return jm_is_object($val);
     # accept any object
+    return jm_is_object($val);
 }
 
 # check $Feature (.'$Feature')

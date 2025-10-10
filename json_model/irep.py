@@ -370,12 +370,14 @@ def _optimSeq(seq: Sequence, bool_vars: set[str], reporting: bool) -> Effect:
                             newop = {"o": "ret", "res": {"o": "cst", "c": False}}
                     else:
                         newop = {"o": "ret", "res": {"o": "&", "exprs": [invertBool(ifop["cond"]), op["res"]]} }
+                # set return on latter instruction
                 ifop.clear()
-                ifop.update(newop)
+                ifop["o"] = "no"
                 op.clear()
-                op["o"] = "no"
+                op.update(newop)
             else:
-                # NOT it is unsure whether this can be triggered by the compiler
+                # NOTE it is unsure whether this can be triggered by the compiler
+                # return true_result? X: Y
                 log.info("TODO more if simplification")
         else:
             # reset previous if return

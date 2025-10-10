@@ -1419,8 +1419,8 @@ sub json_model_19($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$fuzzy'
-    return jm_is_object($val);
     # accept any object
+    return jm_is_object($val);
 }
 
 # check $ (.)
