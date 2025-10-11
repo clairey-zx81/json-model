@@ -8,7 +8,7 @@
 # - WORKDIR: working directory to use
 
 docker_image="zx80/jmc:${JMC:-latest}"
-docker_root=(docker run --name awesome_jmc_$$ -v "${WORKDIR:-.}:/app/workspace" --rm)
+docker_root=(docker run --name acme_jmc_$$ -v "${WORKDIR:-.}:/app/workspace" --rm)
 
 # export environment variables to docker
 for var in $JMC_ENV ; do
