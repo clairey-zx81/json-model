@@ -208,7 +208,7 @@ public class ansiblelint_meta extends ModelChecker
                         res = json.isString(arr_1_item) && json.asString(arr_1_item).compareTo("all") == 0;
                         if (! res)
                         {
-                            if (rep != null) rep.addEntry("unexpected all [.'$AlpinePlatformModel'.versions.0]", ((path != null ? lpath_1 : null) != null ? arr_1_lpath : null));
+                            if (rep != null) rep.addEntry("unexpected _all [.'$AlpinePlatformModel'.versions.0]", ((path != null ? lpath_1 : null) != null ? arr_1_lpath : null));
                             break;
                         }
                     }
@@ -411,7 +411,7 @@ public class ansiblelint_meta extends ModelChecker
                         res = json.isString(arr_4_item) && json.asString(arr_4_item).compareTo("all") == 0;
                         if (! res)
                         {
-                            if (rep != null) rep.addEntry("unexpected all [.'$ArchLinuxPlatformModel'.versions.0]", ((path != null ? lpath_4 : null) != null ? arr_4_lpath : null));
+                            if (rep != null) rep.addEntry("unexpected _all [.'$ArchLinuxPlatformModel'.versions.0]", ((path != null ? lpath_4 : null) != null ? arr_4_lpath : null));
                             break;
                         }
                     }
@@ -546,7 +546,7 @@ public class ansiblelint_meta extends ModelChecker
                         res = json.isString(arr_6_item) && json.asString(arr_6_item).compareTo("all") == 0;
                         if (! res)
                         {
-                            if (rep != null) rep.addEntry("unexpected all [.'$ClearLinuxPlatformModel'.versions.0]", ((path != null ? lpath_6 : null) != null ? arr_6_lpath : null));
+                            if (rep != null) rep.addEntry("unexpected _all [.'$ClearLinuxPlatformModel'.versions.0]", ((path != null ? lpath_6 : null) != null ? arr_6_lpath : null));
                             break;
                         }
                     }
@@ -1157,7 +1157,7 @@ public class ansiblelint_meta extends ModelChecker
                         res = json.isString(arr_15_item) && json.asString(arr_15_item).compareTo("all") == 0;
                         if (! res)
                         {
-                            if (rep != null) rep.addEntry("unexpected all [.'$GenericBSDPlatformModel'.versions.0]", ((path != null ? lpath_15 : null) != null ? arr_15_lpath : null));
+                            if (rep != null) rep.addEntry("unexpected _all [.'$GenericBSDPlatformModel'.versions.0]", ((path != null ? lpath_15 : null) != null ? arr_15_lpath : null));
                             break;
                         }
                     }
@@ -1224,7 +1224,7 @@ public class ansiblelint_meta extends ModelChecker
                         res = json.isString(arr_16_item) && json.asString(arr_16_item).compareTo("all") == 0;
                         if (! res)
                         {
-                            if (rep != null) rep.addEntry("unexpected all [.'$GenericLinuxPlatformModel'.versions.0]", ((path != null ? lpath_16 : null) != null ? arr_16_lpath : null));
+                            if (rep != null) rep.addEntry("unexpected _all [.'$GenericLinuxPlatformModel'.versions.0]", ((path != null ? lpath_16 : null) != null ? arr_16_lpath : null));
                             break;
                         }
                     }
@@ -1291,7 +1291,7 @@ public class ansiblelint_meta extends ModelChecker
                         res = json.isString(arr_17_item) && json.asString(arr_17_item).compareTo("all") == 0;
                         if (! res)
                         {
-                            if (rep != null) rep.addEntry("unexpected all [.'$GenericUNIXPlatformModel'.versions.0]", ((path != null ? lpath_17 : null) != null ? arr_17_lpath : null));
+                            if (rep != null) rep.addEntry("unexpected _all [.'$GenericUNIXPlatformModel'.versions.0]", ((path != null ? lpath_17 : null) != null ? arr_17_lpath : null));
                             break;
                         }
                     }
@@ -1358,7 +1358,7 @@ public class ansiblelint_meta extends ModelChecker
                         res = json.isString(arr_18_item) && json.asString(arr_18_item).compareTo("all") == 0;
                         if (! res)
                         {
-                            if (rep != null) rep.addEntry("unexpected all [.'$GentooPlatformModel'.versions.0]", ((path != null ? lpath_18 : null) != null ? arr_18_lpath : null));
+                            if (rep != null) rep.addEntry("unexpected _all [.'$GentooPlatformModel'.versions.0]", ((path != null ? lpath_18 : null) != null ? arr_18_lpath : null));
                             break;
                         }
                     }
@@ -1493,7 +1493,7 @@ public class ansiblelint_meta extends ModelChecker
                         res = json.isString(arr_20_item) && json.asString(arr_20_item).compareTo("all") == 0;
                         if (! res)
                         {
-                            if (rep != null) rep.addEntry("unexpected all [.'$IOSPlatformModel'.versions.0]", ((path != null ? lpath_20 : null) != null ? arr_20_lpath : null));
+                            if (rep != null) rep.addEntry("unexpected _all [.'$IOSPlatformModel'.versions.0]", ((path != null ? lpath_20 : null) != null ? arr_20_lpath : null));
                             break;
                         }
                     }
@@ -1560,7 +1560,7 @@ public class ansiblelint_meta extends ModelChecker
                         res = json.isString(arr_21_item) && json.asString(arr_21_item).compareTo("all") == 0;
                         if (! res)
                         {
-                            if (rep != null) rep.addEntry("unexpected all [.'$JunosPlatformModel'.versions.0]", ((path != null ? lpath_21 : null) != null ? arr_21_lpath : null));
+                            if (rep != null) rep.addEntry("unexpected _all [.'$JunosPlatformModel'.versions.0]", ((path != null ? lpath_21 : null) != null ? arr_21_lpath : null));
                             break;
                         }
                     }
@@ -1831,7 +1831,7 @@ public class ansiblelint_meta extends ModelChecker
                         res = json.isString(arr_25_item) && json.asString(arr_25_item).compareTo("all") == 0;
                         if (! res)
                         {
-                            if (rep != null) rep.addEntry("unexpected all [.'$NXOSPlatformModel'.versions.0]", ((path != null ? lpath_25 : null) != null ? arr_25_lpath : null));
+                            if (rep != null) rep.addEntry("unexpected _all [.'$NXOSPlatformModel'.versions.0]", ((path != null ? lpath_25 : null) != null ? arr_25_lpath : null));
                             break;
                         }
                     }
@@ -2374,7 +2374,7 @@ public class ansiblelint_meta extends ModelChecker
                         res = json.isString(arr_33_item) && json.asString(arr_33_item).compareTo("all") == 0;
                         if (! res)
                         {
-                            if (rep != null) rep.addEntry("unexpected all [.'$SmartOSPlatformModel'.versions.0]", ((path != null ? lpath_33 : null) != null ? arr_33_lpath : null));
+                            if (rep != null) rep.addEntry("unexpected _all [.'$SmartOSPlatformModel'.versions.0]", ((path != null ? lpath_33 : null) != null ? arr_33_lpath : null));
                             break;
                         }
                     }
@@ -2713,7 +2713,7 @@ public class ansiblelint_meta extends ModelChecker
                         res = json.isString(arr_38_item) && json.asString(arr_38_item).compareTo("all") == 0;
                         if (! res)
                         {
-                            if (rep != null) rep.addEntry("unexpected all [.'$Void_LinuxPlatformModel'.versions.0]", ((path != null ? lpath_38 : null) != null ? arr_38_lpath : null));
+                            if (rep != null) rep.addEntry("unexpected _all [.'$Void_LinuxPlatformModel'.versions.0]", ((path != null ? lpath_38 : null) != null ? arr_38_lpath : null));
                             break;
                         }
                     }
@@ -2848,7 +2848,7 @@ public class ansiblelint_meta extends ModelChecker
                         res = json.isString(arr_40_item) && json.asString(arr_40_item).compareTo("all") == 0;
                         if (! res)
                         {
-                            if (rep != null) rep.addEntry("unexpected all [.'$aosPlatformModel'.versions.0]", ((path != null ? lpath_40 : null) != null ? arr_40_lpath : null));
+                            if (rep != null) rep.addEntry("unexpected _all [.'$aosPlatformModel'.versions.0]", ((path != null ? lpath_40 : null) != null ? arr_40_lpath : null));
                             break;
                         }
                     }
@@ -2915,7 +2915,7 @@ public class ansiblelint_meta extends ModelChecker
                         res = json.isString(arr_41_item) && json.asString(arr_41_item).compareTo("all") == 0;
                         if (! res)
                         {
-                            if (rep != null) rep.addEntry("unexpected all [.'$eosPlatformModel'.versions.0]", ((path != null ? lpath_41 : null) != null ? arr_41_lpath : null));
+                            if (rep != null) rep.addEntry("unexpected _all [.'$eosPlatformModel'.versions.0]", ((path != null ? lpath_41 : null) != null ? arr_41_lpath : null));
                             break;
                         }
                     }
@@ -3118,7 +3118,7 @@ public class ansiblelint_meta extends ModelChecker
                         res = json.isString(arr_44_item) && json.asString(arr_44_item).compareTo("all") == 0;
                         if (! res)
                         {
-                            if (rep != null) rep.addEntry("unexpected all [.'$os10PlatformModel'.versions.0]", ((path != null ? lpath_44 : null) != null ? arr_44_lpath : null));
+                            if (rep != null) rep.addEntry("unexpected _all [.'$os10PlatformModel'.versions.0]", ((path != null ? lpath_44 : null) != null ? arr_44_lpath : null));
                             break;
                         }
                     }
@@ -3870,7 +3870,7 @@ public class ansiblelint_meta extends ModelChecker
                     res = json.isString(arr_50_item) && json.asString(arr_50_item).compareTo("all") == 0;
                     if (! res)
                     {
-                        if (rep != null) rep.addEntry("unexpected all [.'$platforms'.0.'|'.44.versions.0]", ((path != null ? lpath : null) != null ? arr_50_lpath : null));
+                        if (rep != null) rep.addEntry("unexpected _all [.'$platforms'.0.'|'.44.versions.0]", ((path != null ? lpath : null) != null ? arr_50_lpath : null));
                         break;
                     }
                 }
@@ -4217,7 +4217,7 @@ public class ansiblelint_meta extends ModelChecker
                     res = json.isString(arr_56_item) && json.asString(arr_56_item).compareTo("all") == 0;
                     if (! res)
                     {
-                        if (rep != null) rep.addEntry("unexpected all [.'$platforms'.0.'|'.38.versions.0]", ((path != null ? lpath : null) != null ? arr_56_lpath : null));
+                        if (rep != null) rep.addEntry("unexpected _all [.'$platforms'.0.'|'.38.versions.0]", ((path != null ? lpath : null) != null ? arr_56_lpath : null));
                         break;
                     }
                 }
@@ -4448,7 +4448,7 @@ public class ansiblelint_meta extends ModelChecker
                     res = json.isString(arr_60_item) && json.asString(arr_60_item).compareTo("all") == 0;
                     if (! res)
                     {
-                        if (rep != null) rep.addEntry("unexpected all [.'$platforms'.0.'|'.34.versions.0]", ((path != null ? lpath : null) != null ? arr_60_lpath : null));
+                        if (rep != null) rep.addEntry("unexpected _all [.'$platforms'.0.'|'.34.versions.0]", ((path != null ? lpath : null) != null ? arr_60_lpath : null));
                         break;
                     }
                 }
@@ -4737,7 +4737,7 @@ public class ansiblelint_meta extends ModelChecker
                     res = json.isString(arr_65_item) && json.asString(arr_65_item).compareTo("all") == 0;
                     if (! res)
                     {
-                        if (rep != null) rep.addEntry("unexpected all [.'$platforms'.0.'|'.29.versions.0]", ((path != null ? lpath : null) != null ? arr_65_lpath : null));
+                        if (rep != null) rep.addEntry("unexpected _all [.'$platforms'.0.'|'.29.versions.0]", ((path != null ? lpath : null) != null ? arr_65_lpath : null));
                         break;
                     }
                 }
@@ -5026,7 +5026,7 @@ public class ansiblelint_meta extends ModelChecker
                     res = json.isString(arr_70_item) && json.asString(arr_70_item).compareTo("all") == 0;
                     if (! res)
                     {
-                        if (rep != null) rep.addEntry("unexpected all [.'$platforms'.0.'|'.24.versions.0]", ((path != null ? lpath : null) != null ? arr_70_lpath : null));
+                        if (rep != null) rep.addEntry("unexpected _all [.'$platforms'.0.'|'.24.versions.0]", ((path != null ? lpath : null) != null ? arr_70_lpath : null));
                         break;
                     }
                 }
@@ -5083,7 +5083,7 @@ public class ansiblelint_meta extends ModelChecker
                     res = json.isString(arr_71_item) && json.asString(arr_71_item).compareTo("all") == 0;
                     if (! res)
                     {
-                        if (rep != null) rep.addEntry("unexpected all [.'$platforms'.0.'|'.23.versions.0]", ((path != null ? lpath : null) != null ? arr_71_lpath : null));
+                        if (rep != null) rep.addEntry("unexpected _all [.'$platforms'.0.'|'.23.versions.0]", ((path != null ? lpath : null) != null ? arr_71_lpath : null));
                         break;
                     }
                 }
@@ -5198,7 +5198,7 @@ public class ansiblelint_meta extends ModelChecker
                     res = json.isString(arr_73_item) && json.asString(arr_73_item).compareTo("all") == 0;
                     if (! res)
                     {
-                        if (rep != null) rep.addEntry("unexpected all [.'$platforms'.0.'|'.21.versions.0]", ((path != null ? lpath : null) != null ? arr_73_lpath : null));
+                        if (rep != null) rep.addEntry("unexpected _all [.'$platforms'.0.'|'.21.versions.0]", ((path != null ? lpath : null) != null ? arr_73_lpath : null));
                         break;
                     }
                 }
@@ -5255,7 +5255,7 @@ public class ansiblelint_meta extends ModelChecker
                     res = json.isString(arr_74_item) && json.asString(arr_74_item).compareTo("all") == 0;
                     if (! res)
                     {
-                        if (rep != null) rep.addEntry("unexpected all [.'$platforms'.0.'|'.20.versions.0]", ((path != null ? lpath : null) != null ? arr_74_lpath : null));
+                        if (rep != null) rep.addEntry("unexpected _all [.'$platforms'.0.'|'.20.versions.0]", ((path != null ? lpath : null) != null ? arr_74_lpath : null));
                         break;
                     }
                 }
@@ -5312,7 +5312,7 @@ public class ansiblelint_meta extends ModelChecker
                     res = json.isString(arr_75_item) && json.asString(arr_75_item).compareTo("all") == 0;
                     if (! res)
                     {
-                        if (rep != null) rep.addEntry("unexpected all [.'$platforms'.0.'|'.19.versions.0]", ((path != null ? lpath : null) != null ? arr_75_lpath : null));
+                        if (rep != null) rep.addEntry("unexpected _all [.'$platforms'.0.'|'.19.versions.0]", ((path != null ? lpath : null) != null ? arr_75_lpath : null));
                         break;
                     }
                 }
@@ -5369,7 +5369,7 @@ public class ansiblelint_meta extends ModelChecker
                     res = json.isString(arr_76_item) && json.asString(arr_76_item).compareTo("all") == 0;
                     if (! res)
                     {
-                        if (rep != null) rep.addEntry("unexpected all [.'$platforms'.0.'|'.18.versions.0]", ((path != null ? lpath : null) != null ? arr_76_lpath : null));
+                        if (rep != null) rep.addEntry("unexpected _all [.'$platforms'.0.'|'.18.versions.0]", ((path != null ? lpath : null) != null ? arr_76_lpath : null));
                         break;
                     }
                 }
@@ -5542,7 +5542,7 @@ public class ansiblelint_meta extends ModelChecker
                     res = json.isString(arr_79_item) && json.asString(arr_79_item).compareTo("all") == 0;
                     if (! res)
                     {
-                        if (rep != null) rep.addEntry("unexpected all [.'$platforms'.0.'|'.15.versions.0]", ((path != null ? lpath : null) != null ? arr_79_lpath : null));
+                        if (rep != null) rep.addEntry("unexpected _all [.'$platforms'.0.'|'.15.versions.0]", ((path != null ? lpath : null) != null ? arr_79_lpath : null));
                         break;
                     }
                 }
@@ -6005,7 +6005,7 @@ public class ansiblelint_meta extends ModelChecker
                     res = json.isString(arr_87_item) && json.asString(arr_87_item).compareTo("all") == 0;
                     if (! res)
                     {
-                        if (rep != null) rep.addEntry("unexpected all [.'$platforms'.0.'|'.7.versions.0]", ((path != null ? lpath : null) != null ? arr_87_lpath : null));
+                        if (rep != null) rep.addEntry("unexpected _all [.'$platforms'.0.'|'.7.versions.0]", ((path != null ? lpath : null) != null ? arr_87_lpath : null));
                         break;
                     }
                 }
@@ -6120,7 +6120,7 @@ public class ansiblelint_meta extends ModelChecker
                     res = json.isString(arr_89_item) && json.asString(arr_89_item).compareTo("all") == 0;
                     if (! res)
                     {
-                        if (rep != null) rep.addEntry("unexpected all [.'$platforms'.0.'|'.5.versions.0]", ((path != null ? lpath : null) != null ? arr_89_lpath : null));
+                        if (rep != null) rep.addEntry("unexpected _all [.'$platforms'.0.'|'.5.versions.0]", ((path != null ? lpath : null) != null ? arr_89_lpath : null));
                         break;
                     }
                 }
@@ -6177,7 +6177,7 @@ public class ansiblelint_meta extends ModelChecker
                     res = json.isString(arr_90_item) && json.asString(arr_90_item).compareTo("all") == 0;
                     if (! res)
                     {
-                        if (rep != null) rep.addEntry("unexpected all [.'$platforms'.0.'|'.4.versions.0]", ((path != null ? lpath : null) != null ? arr_90_lpath : null));
+                        if (rep != null) rep.addEntry("unexpected _all [.'$platforms'.0.'|'.4.versions.0]", ((path != null ? lpath : null) != null ? arr_90_lpath : null));
                         break;
                     }
                 }
@@ -6350,7 +6350,7 @@ public class ansiblelint_meta extends ModelChecker
                     res = json.isString(arr_93_item) && json.asString(arr_93_item).compareTo("all") == 0;
                     if (! res)
                     {
-                        if (rep != null) rep.addEntry("unexpected all [.'$platforms'.0.'|'.1.versions.0]", ((path != null ? lpath : null) != null ? arr_93_lpath : null));
+                        if (rep != null) rep.addEntry("unexpected _all [.'$platforms'.0.'|'.1.versions.0]", ((path != null ? lpath : null) != null ? arr_93_lpath : null));
                         break;
                     }
                 }

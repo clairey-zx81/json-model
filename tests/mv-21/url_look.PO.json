@@ -1,7 +1,7 @@
 {
   "|": [
-    "https://json-model.org/models/json-model",
-    "file://./url_looking.model.json"
+    "_https://json-model.org/models/json-model",
+    "_file://./url_looking.model.json"
   ],
   "#": "JsonModel 1",
   "$": {

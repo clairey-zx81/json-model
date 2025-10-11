@@ -74,19 +74,19 @@
       "?description": "",
       "?format": {
         "|": [
-          "date-time",
-          "date",
-          "time",
-          "utc-millisec",
-          "regex",
-          "color",
-          "style",
-          "phone",
-          "uri",
-          "email",
-          "ip-address",
-          "ipv6",
-          "host-name"
+          "_date-time",
+          "_date",
+          "_time",
+          "_utc-millisec",
+          "_regex",
+          "_color",
+          "_style",
+          "_phone",
+          "_uri",
+          "_email",
+          "_ip-address",
+          "_ipv6",
+          "_host-name"
         ]
       },
       "?default": "$ANY",

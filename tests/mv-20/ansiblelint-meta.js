@@ -188,7 +188,7 @@ function json_model_3(val, path, rep)
                     res = ((typeof arr_1_item === 'string' || arr_1_item instanceof String)) && arr_1_item == "all";
                     if (! res)
                     {
-                        rep !== null && rep.push(["unexpected all [.'$AlpinePlatformModel'.versions.0]", ((path ? lpath_1 : null) ? arr_1_lpath : null)])
+                        rep !== null && rep.push(["unexpected _all [.'$AlpinePlatformModel'.versions.0]", ((path ? lpath_1 : null) ? arr_1_lpath : null)])
                         break;
                     }
                 }
@@ -373,7 +373,7 @@ function json_model_6(val, path, rep)
                     res = ((typeof arr_4_item === 'string' || arr_4_item instanceof String)) && arr_4_item == "all";
                     if (! res)
                     {
-                        rep !== null && rep.push(["unexpected all [.'$ArchLinuxPlatformModel'.versions.0]", ((path ? lpath_4 : null) ? arr_4_lpath : null)])
+                        rep !== null && rep.push(["unexpected _all [.'$ArchLinuxPlatformModel'.versions.0]", ((path ? lpath_4 : null) ? arr_4_lpath : null)])
                         break;
                     }
                 }
@@ -496,7 +496,7 @@ function json_model_8(val, path, rep)
                     res = ((typeof arr_6_item === 'string' || arr_6_item instanceof String)) && arr_6_item == "all";
                     if (! res)
                     {
-                        rep !== null && rep.push(["unexpected all [.'$ClearLinuxPlatformModel'.versions.0]", ((path ? lpath_6 : null) ? arr_6_lpath : null)])
+                        rep !== null && rep.push(["unexpected _all [.'$ClearLinuxPlatformModel'.versions.0]", ((path ? lpath_6 : null) ? arr_6_lpath : null)])
                         break;
                     }
                 }
@@ -1053,7 +1053,7 @@ function json_model_17(val, path, rep)
                     res = ((typeof arr_15_item === 'string' || arr_15_item instanceof String)) && arr_15_item == "all";
                     if (! res)
                     {
-                        rep !== null && rep.push(["unexpected all [.'$GenericBSDPlatformModel'.versions.0]", ((path ? lpath_15 : null) ? arr_15_lpath : null)])
+                        rep !== null && rep.push(["unexpected _all [.'$GenericBSDPlatformModel'.versions.0]", ((path ? lpath_15 : null) ? arr_15_lpath : null)])
                         break;
                     }
                 }
@@ -1114,7 +1114,7 @@ function json_model_18(val, path, rep)
                     res = ((typeof arr_16_item === 'string' || arr_16_item instanceof String)) && arr_16_item == "all";
                     if (! res)
                     {
-                        rep !== null && rep.push(["unexpected all [.'$GenericLinuxPlatformModel'.versions.0]", ((path ? lpath_16 : null) ? arr_16_lpath : null)])
+                        rep !== null && rep.push(["unexpected _all [.'$GenericLinuxPlatformModel'.versions.0]", ((path ? lpath_16 : null) ? arr_16_lpath : null)])
                         break;
                     }
                 }
@@ -1175,7 +1175,7 @@ function json_model_19(val, path, rep)
                     res = ((typeof arr_17_item === 'string' || arr_17_item instanceof String)) && arr_17_item == "all";
                     if (! res)
                     {
-                        rep !== null && rep.push(["unexpected all [.'$GenericUNIXPlatformModel'.versions.0]", ((path ? lpath_17 : null) ? arr_17_lpath : null)])
+                        rep !== null && rep.push(["unexpected _all [.'$GenericUNIXPlatformModel'.versions.0]", ((path ? lpath_17 : null) ? arr_17_lpath : null)])
                         break;
                     }
                 }
@@ -1236,7 +1236,7 @@ function json_model_20(val, path, rep)
                     res = ((typeof arr_18_item === 'string' || arr_18_item instanceof String)) && arr_18_item == "all";
                     if (! res)
                     {
-                        rep !== null && rep.push(["unexpected all [.'$GentooPlatformModel'.versions.0]", ((path ? lpath_18 : null) ? arr_18_lpath : null)])
+                        rep !== null && rep.push(["unexpected _all [.'$GentooPlatformModel'.versions.0]", ((path ? lpath_18 : null) ? arr_18_lpath : null)])
                         break;
                     }
                 }
@@ -1359,7 +1359,7 @@ function json_model_22(val, path, rep)
                     res = ((typeof arr_20_item === 'string' || arr_20_item instanceof String)) && arr_20_item == "all";
                     if (! res)
                     {
-                        rep !== null && rep.push(["unexpected all [.'$IOSPlatformModel'.versions.0]", ((path ? lpath_20 : null) ? arr_20_lpath : null)])
+                        rep !== null && rep.push(["unexpected _all [.'$IOSPlatformModel'.versions.0]", ((path ? lpath_20 : null) ? arr_20_lpath : null)])
                         break;
                     }
                 }
@@ -1420,7 +1420,7 @@ function json_model_23(val, path, rep)
                     res = ((typeof arr_21_item === 'string' || arr_21_item instanceof String)) && arr_21_item == "all";
                     if (! res)
                     {
-                        rep !== null && rep.push(["unexpected all [.'$JunosPlatformModel'.versions.0]", ((path ? lpath_21 : null) ? arr_21_lpath : null)])
+                        rep !== null && rep.push(["unexpected _all [.'$JunosPlatformModel'.versions.0]", ((path ? lpath_21 : null) ? arr_21_lpath : null)])
                         break;
                     }
                 }
@@ -1667,7 +1667,7 @@ function json_model_27(val, path, rep)
                     res = ((typeof arr_25_item === 'string' || arr_25_item instanceof String)) && arr_25_item == "all";
                     if (! res)
                     {
-                        rep !== null && rep.push(["unexpected all [.'$NXOSPlatformModel'.versions.0]", ((path ? lpath_25 : null) ? arr_25_lpath : null)])
+                        rep !== null && rep.push(["unexpected _all [.'$NXOSPlatformModel'.versions.0]", ((path ? lpath_25 : null) ? arr_25_lpath : null)])
                         break;
                     }
                 }
@@ -2162,7 +2162,7 @@ function json_model_35(val, path, rep)
                     res = ((typeof arr_33_item === 'string' || arr_33_item instanceof String)) && arr_33_item == "all";
                     if (! res)
                     {
-                        rep !== null && rep.push(["unexpected all [.'$SmartOSPlatformModel'.versions.0]", ((path ? lpath_33 : null) ? arr_33_lpath : null)])
+                        rep !== null && rep.push(["unexpected _all [.'$SmartOSPlatformModel'.versions.0]", ((path ? lpath_33 : null) ? arr_33_lpath : null)])
                         break;
                     }
                 }
@@ -2471,7 +2471,7 @@ function json_model_40(val, path, rep)
                     res = ((typeof arr_38_item === 'string' || arr_38_item instanceof String)) && arr_38_item == "all";
                     if (! res)
                     {
-                        rep !== null && rep.push(["unexpected all [.'$Void_LinuxPlatformModel'.versions.0]", ((path ? lpath_38 : null) ? arr_38_lpath : null)])
+                        rep !== null && rep.push(["unexpected _all [.'$Void_LinuxPlatformModel'.versions.0]", ((path ? lpath_38 : null) ? arr_38_lpath : null)])
                         break;
                     }
                 }
@@ -2594,7 +2594,7 @@ function json_model_42(val, path, rep)
                     res = ((typeof arr_40_item === 'string' || arr_40_item instanceof String)) && arr_40_item == "all";
                     if (! res)
                     {
-                        rep !== null && rep.push(["unexpected all [.'$aosPlatformModel'.versions.0]", ((path ? lpath_40 : null) ? arr_40_lpath : null)])
+                        rep !== null && rep.push(["unexpected _all [.'$aosPlatformModel'.versions.0]", ((path ? lpath_40 : null) ? arr_40_lpath : null)])
                         break;
                     }
                 }
@@ -2655,7 +2655,7 @@ function json_model_43(val, path, rep)
                     res = ((typeof arr_41_item === 'string' || arr_41_item instanceof String)) && arr_41_item == "all";
                     if (! res)
                     {
-                        rep !== null && rep.push(["unexpected all [.'$eosPlatformModel'.versions.0]", ((path ? lpath_41 : null) ? arr_41_lpath : null)])
+                        rep !== null && rep.push(["unexpected _all [.'$eosPlatformModel'.versions.0]", ((path ? lpath_41 : null) ? arr_41_lpath : null)])
                         break;
                     }
                 }
@@ -2840,7 +2840,7 @@ function json_model_46(val, path, rep)
                     res = ((typeof arr_44_item === 'string' || arr_44_item instanceof String)) && arr_44_item == "all";
                     if (! res)
                     {
-                        rep !== null && rep.push(["unexpected all [.'$os10PlatformModel'.versions.0]", ((path ? lpath_44 : null) ? arr_44_lpath : null)])
+                        rep !== null && rep.push(["unexpected _all [.'$os10PlatformModel'.versions.0]", ((path ? lpath_44 : null) ? arr_44_lpath : null)])
                         break;
                     }
                 }
@@ -3577,7 +3577,7 @@ function _jm_obj_2(val, path, rep)
                 res = ((typeof arr_50_item === 'string' || arr_50_item instanceof String)) && arr_50_item == "all";
                 if (! res)
                 {
-                    rep !== null && rep.push(["unexpected all [.'$platforms'.0.'|'.44.versions.0]", ((path ? lpath : null) ? arr_50_lpath : null)])
+                    rep !== null && rep.push(["unexpected _all [.'$platforms'.0.'|'.44.versions.0]", ((path ? lpath : null) ? arr_50_lpath : null)])
                     break;
                 }
             }
@@ -3918,7 +3918,7 @@ function _jm_obj_8(val, path, rep)
                 res = ((typeof arr_56_item === 'string' || arr_56_item instanceof String)) && arr_56_item == "all";
                 if (! res)
                 {
-                    rep !== null && rep.push(["unexpected all [.'$platforms'.0.'|'.38.versions.0]", ((path ? lpath : null) ? arr_56_lpath : null)])
+                    rep !== null && rep.push(["unexpected _all [.'$platforms'.0.'|'.38.versions.0]", ((path ? lpath : null) ? arr_56_lpath : null)])
                     break;
                 }
             }
@@ -4145,7 +4145,7 @@ function _jm_obj_12(val, path, rep)
                 res = ((typeof arr_60_item === 'string' || arr_60_item instanceof String)) && arr_60_item == "all";
                 if (! res)
                 {
-                    rep !== null && rep.push(["unexpected all [.'$platforms'.0.'|'.34.versions.0]", ((path ? lpath : null) ? arr_60_lpath : null)])
+                    rep !== null && rep.push(["unexpected _all [.'$platforms'.0.'|'.34.versions.0]", ((path ? lpath : null) ? arr_60_lpath : null)])
                     break;
                 }
             }
@@ -4429,7 +4429,7 @@ function _jm_obj_17(val, path, rep)
                 res = ((typeof arr_65_item === 'string' || arr_65_item instanceof String)) && arr_65_item == "all";
                 if (! res)
                 {
-                    rep !== null && rep.push(["unexpected all [.'$platforms'.0.'|'.29.versions.0]", ((path ? lpath : null) ? arr_65_lpath : null)])
+                    rep !== null && rep.push(["unexpected _all [.'$platforms'.0.'|'.29.versions.0]", ((path ? lpath : null) ? arr_65_lpath : null)])
                     break;
                 }
             }
@@ -4713,7 +4713,7 @@ function _jm_obj_22(val, path, rep)
                 res = ((typeof arr_70_item === 'string' || arr_70_item instanceof String)) && arr_70_item == "all";
                 if (! res)
                 {
-                    rep !== null && rep.push(["unexpected all [.'$platforms'.0.'|'.24.versions.0]", ((path ? lpath : null) ? arr_70_lpath : null)])
+                    rep !== null && rep.push(["unexpected _all [.'$platforms'.0.'|'.24.versions.0]", ((path ? lpath : null) ? arr_70_lpath : null)])
                     break;
                 }
             }
@@ -4769,7 +4769,7 @@ function _jm_obj_23(val, path, rep)
                 res = ((typeof arr_71_item === 'string' || arr_71_item instanceof String)) && arr_71_item == "all";
                 if (! res)
                 {
-                    rep !== null && rep.push(["unexpected all [.'$platforms'.0.'|'.23.versions.0]", ((path ? lpath : null) ? arr_71_lpath : null)])
+                    rep !== null && rep.push(["unexpected _all [.'$platforms'.0.'|'.23.versions.0]", ((path ? lpath : null) ? arr_71_lpath : null)])
                     break;
                 }
             }
@@ -4882,7 +4882,7 @@ function _jm_obj_25(val, path, rep)
                 res = ((typeof arr_73_item === 'string' || arr_73_item instanceof String)) && arr_73_item == "all";
                 if (! res)
                 {
-                    rep !== null && rep.push(["unexpected all [.'$platforms'.0.'|'.21.versions.0]", ((path ? lpath : null) ? arr_73_lpath : null)])
+                    rep !== null && rep.push(["unexpected _all [.'$platforms'.0.'|'.21.versions.0]", ((path ? lpath : null) ? arr_73_lpath : null)])
                     break;
                 }
             }
@@ -4938,7 +4938,7 @@ function _jm_obj_26(val, path, rep)
                 res = ((typeof arr_74_item === 'string' || arr_74_item instanceof String)) && arr_74_item == "all";
                 if (! res)
                 {
-                    rep !== null && rep.push(["unexpected all [.'$platforms'.0.'|'.20.versions.0]", ((path ? lpath : null) ? arr_74_lpath : null)])
+                    rep !== null && rep.push(["unexpected _all [.'$platforms'.0.'|'.20.versions.0]", ((path ? lpath : null) ? arr_74_lpath : null)])
                     break;
                 }
             }
@@ -4994,7 +4994,7 @@ function _jm_obj_27(val, path, rep)
                 res = ((typeof arr_75_item === 'string' || arr_75_item instanceof String)) && arr_75_item == "all";
                 if (! res)
                 {
-                    rep !== null && rep.push(["unexpected all [.'$platforms'.0.'|'.19.versions.0]", ((path ? lpath : null) ? arr_75_lpath : null)])
+                    rep !== null && rep.push(["unexpected _all [.'$platforms'.0.'|'.19.versions.0]", ((path ? lpath : null) ? arr_75_lpath : null)])
                     break;
                 }
             }
@@ -5050,7 +5050,7 @@ function _jm_obj_28(val, path, rep)
                 res = ((typeof arr_76_item === 'string' || arr_76_item instanceof String)) && arr_76_item == "all";
                 if (! res)
                 {
-                    rep !== null && rep.push(["unexpected all [.'$platforms'.0.'|'.18.versions.0]", ((path ? lpath : null) ? arr_76_lpath : null)])
+                    rep !== null && rep.push(["unexpected _all [.'$platforms'.0.'|'.18.versions.0]", ((path ? lpath : null) ? arr_76_lpath : null)])
                     break;
                 }
             }
@@ -5220,7 +5220,7 @@ function _jm_obj_31(val, path, rep)
                 res = ((typeof arr_79_item === 'string' || arr_79_item instanceof String)) && arr_79_item == "all";
                 if (! res)
                 {
-                    rep !== null && rep.push(["unexpected all [.'$platforms'.0.'|'.15.versions.0]", ((path ? lpath : null) ? arr_79_lpath : null)])
+                    rep !== null && rep.push(["unexpected _all [.'$platforms'.0.'|'.15.versions.0]", ((path ? lpath : null) ? arr_79_lpath : null)])
                     break;
                 }
             }
@@ -5675,7 +5675,7 @@ function _jm_obj_39(val, path, rep)
                 res = ((typeof arr_87_item === 'string' || arr_87_item instanceof String)) && arr_87_item == "all";
                 if (! res)
                 {
-                    rep !== null && rep.push(["unexpected all [.'$platforms'.0.'|'.7.versions.0]", ((path ? lpath : null) ? arr_87_lpath : null)])
+                    rep !== null && rep.push(["unexpected _all [.'$platforms'.0.'|'.7.versions.0]", ((path ? lpath : null) ? arr_87_lpath : null)])
                     break;
                 }
             }
@@ -5788,7 +5788,7 @@ function _jm_obj_41(val, path, rep)
                 res = ((typeof arr_89_item === 'string' || arr_89_item instanceof String)) && arr_89_item == "all";
                 if (! res)
                 {
-                    rep !== null && rep.push(["unexpected all [.'$platforms'.0.'|'.5.versions.0]", ((path ? lpath : null) ? arr_89_lpath : null)])
+                    rep !== null && rep.push(["unexpected _all [.'$platforms'.0.'|'.5.versions.0]", ((path ? lpath : null) ? arr_89_lpath : null)])
                     break;
                 }
             }
@@ -5844,7 +5844,7 @@ function _jm_obj_42(val, path, rep)
                 res = ((typeof arr_90_item === 'string' || arr_90_item instanceof String)) && arr_90_item == "all";
                 if (! res)
                 {
-                    rep !== null && rep.push(["unexpected all [.'$platforms'.0.'|'.4.versions.0]", ((path ? lpath : null) ? arr_90_lpath : null)])
+                    rep !== null && rep.push(["unexpected _all [.'$platforms'.0.'|'.4.versions.0]", ((path ? lpath : null) ? arr_90_lpath : null)])
                     break;
                 }
             }
@@ -6014,7 +6014,7 @@ function _jm_obj_45(val, path, rep)
                 res = ((typeof arr_93_item === 'string' || arr_93_item instanceof String)) && arr_93_item == "all";
                 if (! res)
                 {
-                    rep !== null && rep.push(["unexpected all [.'$platforms'.0.'|'.1.versions.0]", ((path ? lpath : null) ? arr_93_lpath : null)])
+                    rep !== null && rep.push(["unexpected _all [.'$platforms'.0.'|'.1.versions.0]", ((path ? lpath : null) ? arr_93_lpath : null)])
                     break;
                 }
             }

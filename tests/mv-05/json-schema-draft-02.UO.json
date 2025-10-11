@@ -80,14 +80,14 @@
     "$": {
       "allTypes": {
         "|": [
-          "null",
-          "boolean",
-          "integer",
-          "number",
-          "string",
-          "array",
-          "object",
-          "any"
+          "_null",
+          "_boolean",
+          "_integer",
+          "_number",
+          "_string",
+          "_array",
+          "_object",
+          "_any"
         ],
         "#": "JsonModel 2 (JSON_MODEL_LOOSE_FLOAT)"
       },
@@ -106,14 +106,14 @@
   },
   {
     "|": [
-      "null",
-      "boolean",
-      "integer",
-      "number",
-      "string",
-      "array",
-      "object",
-      "any"
+      "_null",
+      "_boolean",
+      "_integer",
+      "_number",
+      "_string",
+      "_array",
+      "_object",
+      "_any"
     ],
     "#": "JsonModel 2 (JSON_MODEL_LOOSE_FLOAT)"
   },

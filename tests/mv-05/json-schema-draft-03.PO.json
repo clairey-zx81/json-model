@@ -71,19 +71,19 @@
   "?description": "",
   "?format": {
     "|": [
-      "date-time",
-      "date",
-      "time",
-      "utc-millisec",
-      "regex",
-      "color",
-      "style",
-      "phone",
-      "uri",
-      "email",
-      "ip-address",
-      "ipv6",
-      "host-name"
+      "_date-time",
+      "_date",
+      "_time",
+      "_utc-millisec",
+      "_regex",
+      "_color",
+      "_style",
+      "_phone",
+      "_uri",
+      "_email",
+      "_ip-address",
+      "_ipv6",
+      "_host-name"
     ]
   },
   "?default": "$ANY",
@@ -109,14 +109,14 @@
   "$": {
     "allTypes": {
       "|": [
-        "null",
-        "boolean",
-        "integer",
-        "number",
-        "string",
-        "array",
-        "object",
-        "any"
+        "_null",
+        "_boolean",
+        "_integer",
+        "_number",
+        "_string",
+        "_array",
+        "_object",
+        "_any"
       ],
       "#": "JsonModel 2 (JSON_MODEL_LOOSE_FLOAT)"
     },

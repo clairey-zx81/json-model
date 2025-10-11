@@ -367,7 +367,7 @@ static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
                     res = json_is_string(arr_1_item) && strcmp(json_string_value(arr_1_item), "all") == 0;
                     if (! res)
                     {
-                        if (rep) jm_report_add_entry(rep, "unexpected all [.'$AlpinePlatformModel'.versions.0]", ((path ? &lpath_1 : NULL) ? &arr_1_lpath : NULL));
+                        if (rep) jm_report_add_entry(rep, "unexpected _all [.'$AlpinePlatformModel'.versions.0]", ((path ? &lpath_1 : NULL) ? &arr_1_lpath : NULL));
                         break;
                     }
                 }
@@ -561,7 +561,7 @@ static bool json_model_6(const json_t *val, jm_path_t *path, jm_report_t *rep)
                     res = json_is_string(arr_4_item) && strcmp(json_string_value(arr_4_item), "all") == 0;
                     if (! res)
                     {
-                        if (rep) jm_report_add_entry(rep, "unexpected all [.'$ArchLinuxPlatformModel'.versions.0]", ((path ? &lpath_4 : NULL) ? &arr_4_lpath : NULL));
+                        if (rep) jm_report_add_entry(rep, "unexpected _all [.'$ArchLinuxPlatformModel'.versions.0]", ((path ? &lpath_4 : NULL) ? &arr_4_lpath : NULL));
                         break;
                     }
                 }
@@ -690,7 +690,7 @@ static bool json_model_8(const json_t *val, jm_path_t *path, jm_report_t *rep)
                     res = json_is_string(arr_6_item) && strcmp(json_string_value(arr_6_item), "all") == 0;
                     if (! res)
                     {
-                        if (rep) jm_report_add_entry(rep, "unexpected all [.'$ClearLinuxPlatformModel'.versions.0]", ((path ? &lpath_6 : NULL) ? &arr_6_lpath : NULL));
+                        if (rep) jm_report_add_entry(rep, "unexpected _all [.'$ClearLinuxPlatformModel'.versions.0]", ((path ? &lpath_6 : NULL) ? &arr_6_lpath : NULL));
                         break;
                     }
                 }
@@ -1274,7 +1274,7 @@ static bool json_model_17(const json_t *val, jm_path_t *path, jm_report_t *rep)
                     res = json_is_string(arr_15_item) && strcmp(json_string_value(arr_15_item), "all") == 0;
                     if (! res)
                     {
-                        if (rep) jm_report_add_entry(rep, "unexpected all [.'$GenericBSDPlatformModel'.versions.0]", ((path ? &lpath_15 : NULL) ? &arr_15_lpath : NULL));
+                        if (rep) jm_report_add_entry(rep, "unexpected _all [.'$GenericBSDPlatformModel'.versions.0]", ((path ? &lpath_15 : NULL) ? &arr_15_lpath : NULL));
                         break;
                     }
                 }
@@ -1338,7 +1338,7 @@ static bool json_model_18(const json_t *val, jm_path_t *path, jm_report_t *rep)
                     res = json_is_string(arr_16_item) && strcmp(json_string_value(arr_16_item), "all") == 0;
                     if (! res)
                     {
-                        if (rep) jm_report_add_entry(rep, "unexpected all [.'$GenericLinuxPlatformModel'.versions.0]", ((path ? &lpath_16 : NULL) ? &arr_16_lpath : NULL));
+                        if (rep) jm_report_add_entry(rep, "unexpected _all [.'$GenericLinuxPlatformModel'.versions.0]", ((path ? &lpath_16 : NULL) ? &arr_16_lpath : NULL));
                         break;
                     }
                 }
@@ -1402,7 +1402,7 @@ static bool json_model_19(const json_t *val, jm_path_t *path, jm_report_t *rep)
                     res = json_is_string(arr_17_item) && strcmp(json_string_value(arr_17_item), "all") == 0;
                     if (! res)
                     {
-                        if (rep) jm_report_add_entry(rep, "unexpected all [.'$GenericUNIXPlatformModel'.versions.0]", ((path ? &lpath_17 : NULL) ? &arr_17_lpath : NULL));
+                        if (rep) jm_report_add_entry(rep, "unexpected _all [.'$GenericUNIXPlatformModel'.versions.0]", ((path ? &lpath_17 : NULL) ? &arr_17_lpath : NULL));
                         break;
                     }
                 }
@@ -1466,7 +1466,7 @@ static bool json_model_20(const json_t *val, jm_path_t *path, jm_report_t *rep)
                     res = json_is_string(arr_18_item) && strcmp(json_string_value(arr_18_item), "all") == 0;
                     if (! res)
                     {
-                        if (rep) jm_report_add_entry(rep, "unexpected all [.'$GentooPlatformModel'.versions.0]", ((path ? &lpath_18 : NULL) ? &arr_18_lpath : NULL));
+                        if (rep) jm_report_add_entry(rep, "unexpected _all [.'$GentooPlatformModel'.versions.0]", ((path ? &lpath_18 : NULL) ? &arr_18_lpath : NULL));
                         break;
                     }
                 }
@@ -1595,7 +1595,7 @@ static bool json_model_22(const json_t *val, jm_path_t *path, jm_report_t *rep)
                     res = json_is_string(arr_20_item) && strcmp(json_string_value(arr_20_item), "all") == 0;
                     if (! res)
                     {
-                        if (rep) jm_report_add_entry(rep, "unexpected all [.'$IOSPlatformModel'.versions.0]", ((path ? &lpath_20 : NULL) ? &arr_20_lpath : NULL));
+                        if (rep) jm_report_add_entry(rep, "unexpected _all [.'$IOSPlatformModel'.versions.0]", ((path ? &lpath_20 : NULL) ? &arr_20_lpath : NULL));
                         break;
                     }
                 }
@@ -1659,7 +1659,7 @@ static bool json_model_23(const json_t *val, jm_path_t *path, jm_report_t *rep)
                     res = json_is_string(arr_21_item) && strcmp(json_string_value(arr_21_item), "all") == 0;
                     if (! res)
                     {
-                        if (rep) jm_report_add_entry(rep, "unexpected all [.'$JunosPlatformModel'.versions.0]", ((path ? &lpath_21 : NULL) ? &arr_21_lpath : NULL));
+                        if (rep) jm_report_add_entry(rep, "unexpected _all [.'$JunosPlatformModel'.versions.0]", ((path ? &lpath_21 : NULL) ? &arr_21_lpath : NULL));
                         break;
                     }
                 }
@@ -1918,7 +1918,7 @@ static bool json_model_27(const json_t *val, jm_path_t *path, jm_report_t *rep)
                     res = json_is_string(arr_25_item) && strcmp(json_string_value(arr_25_item), "all") == 0;
                     if (! res)
                     {
-                        if (rep) jm_report_add_entry(rep, "unexpected all [.'$NXOSPlatformModel'.versions.0]", ((path ? &lpath_25 : NULL) ? &arr_25_lpath : NULL));
+                        if (rep) jm_report_add_entry(rep, "unexpected _all [.'$NXOSPlatformModel'.versions.0]", ((path ? &lpath_25 : NULL) ? &arr_25_lpath : NULL));
                         break;
                     }
                 }
@@ -2437,7 +2437,7 @@ static bool json_model_35(const json_t *val, jm_path_t *path, jm_report_t *rep)
                     res = json_is_string(arr_33_item) && strcmp(json_string_value(arr_33_item), "all") == 0;
                     if (! res)
                     {
-                        if (rep) jm_report_add_entry(rep, "unexpected all [.'$SmartOSPlatformModel'.versions.0]", ((path ? &lpath_33 : NULL) ? &arr_33_lpath : NULL));
+                        if (rep) jm_report_add_entry(rep, "unexpected _all [.'$SmartOSPlatformModel'.versions.0]", ((path ? &lpath_33 : NULL) ? &arr_33_lpath : NULL));
                         break;
                     }
                 }
@@ -2761,7 +2761,7 @@ static bool json_model_40(const json_t *val, jm_path_t *path, jm_report_t *rep)
                     res = json_is_string(arr_38_item) && strcmp(json_string_value(arr_38_item), "all") == 0;
                     if (! res)
                     {
-                        if (rep) jm_report_add_entry(rep, "unexpected all [.'$Void_LinuxPlatformModel'.versions.0]", ((path ? &lpath_38 : NULL) ? &arr_38_lpath : NULL));
+                        if (rep) jm_report_add_entry(rep, "unexpected _all [.'$Void_LinuxPlatformModel'.versions.0]", ((path ? &lpath_38 : NULL) ? &arr_38_lpath : NULL));
                         break;
                     }
                 }
@@ -2890,7 +2890,7 @@ static bool json_model_42(const json_t *val, jm_path_t *path, jm_report_t *rep)
                     res = json_is_string(arr_40_item) && strcmp(json_string_value(arr_40_item), "all") == 0;
                     if (! res)
                     {
-                        if (rep) jm_report_add_entry(rep, "unexpected all [.'$aosPlatformModel'.versions.0]", ((path ? &lpath_40 : NULL) ? &arr_40_lpath : NULL));
+                        if (rep) jm_report_add_entry(rep, "unexpected _all [.'$aosPlatformModel'.versions.0]", ((path ? &lpath_40 : NULL) ? &arr_40_lpath : NULL));
                         break;
                     }
                 }
@@ -2954,7 +2954,7 @@ static bool json_model_43(const json_t *val, jm_path_t *path, jm_report_t *rep)
                     res = json_is_string(arr_41_item) && strcmp(json_string_value(arr_41_item), "all") == 0;
                     if (! res)
                     {
-                        if (rep) jm_report_add_entry(rep, "unexpected all [.'$eosPlatformModel'.versions.0]", ((path ? &lpath_41 : NULL) ? &arr_41_lpath : NULL));
+                        if (rep) jm_report_add_entry(rep, "unexpected _all [.'$eosPlatformModel'.versions.0]", ((path ? &lpath_41 : NULL) ? &arr_41_lpath : NULL));
                         break;
                     }
                 }
@@ -3148,7 +3148,7 @@ static bool json_model_46(const json_t *val, jm_path_t *path, jm_report_t *rep)
                     res = json_is_string(arr_44_item) && strcmp(json_string_value(arr_44_item), "all") == 0;
                     if (! res)
                     {
-                        if (rep) jm_report_add_entry(rep, "unexpected all [.'$os10PlatformModel'.versions.0]", ((path ? &lpath_44 : NULL) ? &arr_44_lpath : NULL));
+                        if (rep) jm_report_add_entry(rep, "unexpected _all [.'$os10PlatformModel'.versions.0]", ((path ? &lpath_44 : NULL) ? &arr_44_lpath : NULL));
                         break;
                     }
                 }
@@ -3888,7 +3888,7 @@ static INLINE bool _jm_obj_2(const json_t *val, jm_path_t *path, jm_report_t *re
                 res = json_is_string(arr_50_item) && strcmp(json_string_value(arr_50_item), "all") == 0;
                 if (! res)
                 {
-                    if (rep) jm_report_add_entry(rep, "unexpected all [.'$platforms'.0.'|'.44.versions.0]", ((path ? &lpath : NULL) ? &arr_50_lpath : NULL));
+                    if (rep) jm_report_add_entry(rep, "unexpected _all [.'$platforms'.0.'|'.44.versions.0]", ((path ? &lpath : NULL) ? &arr_50_lpath : NULL));
                     break;
                 }
             }
@@ -4223,7 +4223,7 @@ static INLINE bool _jm_obj_8(const json_t *val, jm_path_t *path, jm_report_t *re
                 res = json_is_string(arr_56_item) && strcmp(json_string_value(arr_56_item), "all") == 0;
                 if (! res)
                 {
-                    if (rep) jm_report_add_entry(rep, "unexpected all [.'$platforms'.0.'|'.38.versions.0]", ((path ? &lpath : NULL) ? &arr_56_lpath : NULL));
+                    if (rep) jm_report_add_entry(rep, "unexpected _all [.'$platforms'.0.'|'.38.versions.0]", ((path ? &lpath : NULL) ? &arr_56_lpath : NULL));
                     break;
                 }
             }
@@ -4446,7 +4446,7 @@ static INLINE bool _jm_obj_12(const json_t *val, jm_path_t *path, jm_report_t *r
                 res = json_is_string(arr_60_item) && strcmp(json_string_value(arr_60_item), "all") == 0;
                 if (! res)
                 {
-                    if (rep) jm_report_add_entry(rep, "unexpected all [.'$platforms'.0.'|'.34.versions.0]", ((path ? &lpath : NULL) ? &arr_60_lpath : NULL));
+                    if (rep) jm_report_add_entry(rep, "unexpected _all [.'$platforms'.0.'|'.34.versions.0]", ((path ? &lpath : NULL) ? &arr_60_lpath : NULL));
                     break;
                 }
             }
@@ -4725,7 +4725,7 @@ static INLINE bool _jm_obj_17(const json_t *val, jm_path_t *path, jm_report_t *r
                 res = json_is_string(arr_65_item) && strcmp(json_string_value(arr_65_item), "all") == 0;
                 if (! res)
                 {
-                    if (rep) jm_report_add_entry(rep, "unexpected all [.'$platforms'.0.'|'.29.versions.0]", ((path ? &lpath : NULL) ? &arr_65_lpath : NULL));
+                    if (rep) jm_report_add_entry(rep, "unexpected _all [.'$platforms'.0.'|'.29.versions.0]", ((path ? &lpath : NULL) ? &arr_65_lpath : NULL));
                     break;
                 }
             }
@@ -5004,7 +5004,7 @@ static INLINE bool _jm_obj_22(const json_t *val, jm_path_t *path, jm_report_t *r
                 res = json_is_string(arr_70_item) && strcmp(json_string_value(arr_70_item), "all") == 0;
                 if (! res)
                 {
-                    if (rep) jm_report_add_entry(rep, "unexpected all [.'$platforms'.0.'|'.24.versions.0]", ((path ? &lpath : NULL) ? &arr_70_lpath : NULL));
+                    if (rep) jm_report_add_entry(rep, "unexpected _all [.'$platforms'.0.'|'.24.versions.0]", ((path ? &lpath : NULL) ? &arr_70_lpath : NULL));
                     break;
                 }
             }
@@ -5059,7 +5059,7 @@ static INLINE bool _jm_obj_23(const json_t *val, jm_path_t *path, jm_report_t *r
                 res = json_is_string(arr_71_item) && strcmp(json_string_value(arr_71_item), "all") == 0;
                 if (! res)
                 {
-                    if (rep) jm_report_add_entry(rep, "unexpected all [.'$platforms'.0.'|'.23.versions.0]", ((path ? &lpath : NULL) ? &arr_71_lpath : NULL));
+                    if (rep) jm_report_add_entry(rep, "unexpected _all [.'$platforms'.0.'|'.23.versions.0]", ((path ? &lpath : NULL) ? &arr_71_lpath : NULL));
                     break;
                 }
             }
@@ -5170,7 +5170,7 @@ static INLINE bool _jm_obj_25(const json_t *val, jm_path_t *path, jm_report_t *r
                 res = json_is_string(arr_73_item) && strcmp(json_string_value(arr_73_item), "all") == 0;
                 if (! res)
                 {
-                    if (rep) jm_report_add_entry(rep, "unexpected all [.'$platforms'.0.'|'.21.versions.0]", ((path ? &lpath : NULL) ? &arr_73_lpath : NULL));
+                    if (rep) jm_report_add_entry(rep, "unexpected _all [.'$platforms'.0.'|'.21.versions.0]", ((path ? &lpath : NULL) ? &arr_73_lpath : NULL));
                     break;
                 }
             }
@@ -5225,7 +5225,7 @@ static INLINE bool _jm_obj_26(const json_t *val, jm_path_t *path, jm_report_t *r
                 res = json_is_string(arr_74_item) && strcmp(json_string_value(arr_74_item), "all") == 0;
                 if (! res)
                 {
-                    if (rep) jm_report_add_entry(rep, "unexpected all [.'$platforms'.0.'|'.20.versions.0]", ((path ? &lpath : NULL) ? &arr_74_lpath : NULL));
+                    if (rep) jm_report_add_entry(rep, "unexpected _all [.'$platforms'.0.'|'.20.versions.0]", ((path ? &lpath : NULL) ? &arr_74_lpath : NULL));
                     break;
                 }
             }
@@ -5280,7 +5280,7 @@ static INLINE bool _jm_obj_27(const json_t *val, jm_path_t *path, jm_report_t *r
                 res = json_is_string(arr_75_item) && strcmp(json_string_value(arr_75_item), "all") == 0;
                 if (! res)
                 {
-                    if (rep) jm_report_add_entry(rep, "unexpected all [.'$platforms'.0.'|'.19.versions.0]", ((path ? &lpath : NULL) ? &arr_75_lpath : NULL));
+                    if (rep) jm_report_add_entry(rep, "unexpected _all [.'$platforms'.0.'|'.19.versions.0]", ((path ? &lpath : NULL) ? &arr_75_lpath : NULL));
                     break;
                 }
             }
@@ -5335,7 +5335,7 @@ static INLINE bool _jm_obj_28(const json_t *val, jm_path_t *path, jm_report_t *r
                 res = json_is_string(arr_76_item) && strcmp(json_string_value(arr_76_item), "all") == 0;
                 if (! res)
                 {
-                    if (rep) jm_report_add_entry(rep, "unexpected all [.'$platforms'.0.'|'.18.versions.0]", ((path ? &lpath : NULL) ? &arr_76_lpath : NULL));
+                    if (rep) jm_report_add_entry(rep, "unexpected _all [.'$platforms'.0.'|'.18.versions.0]", ((path ? &lpath : NULL) ? &arr_76_lpath : NULL));
                     break;
                 }
             }
@@ -5502,7 +5502,7 @@ static INLINE bool _jm_obj_31(const json_t *val, jm_path_t *path, jm_report_t *r
                 res = json_is_string(arr_79_item) && strcmp(json_string_value(arr_79_item), "all") == 0;
                 if (! res)
                 {
-                    if (rep) jm_report_add_entry(rep, "unexpected all [.'$platforms'.0.'|'.15.versions.0]", ((path ? &lpath : NULL) ? &arr_79_lpath : NULL));
+                    if (rep) jm_report_add_entry(rep, "unexpected _all [.'$platforms'.0.'|'.15.versions.0]", ((path ? &lpath : NULL) ? &arr_79_lpath : NULL));
                     break;
                 }
             }
@@ -5949,7 +5949,7 @@ static INLINE bool _jm_obj_39(const json_t *val, jm_path_t *path, jm_report_t *r
                 res = json_is_string(arr_87_item) && strcmp(json_string_value(arr_87_item), "all") == 0;
                 if (! res)
                 {
-                    if (rep) jm_report_add_entry(rep, "unexpected all [.'$platforms'.0.'|'.7.versions.0]", ((path ? &lpath : NULL) ? &arr_87_lpath : NULL));
+                    if (rep) jm_report_add_entry(rep, "unexpected _all [.'$platforms'.0.'|'.7.versions.0]", ((path ? &lpath : NULL) ? &arr_87_lpath : NULL));
                     break;
                 }
             }
@@ -6060,7 +6060,7 @@ static INLINE bool _jm_obj_41(const json_t *val, jm_path_t *path, jm_report_t *r
                 res = json_is_string(arr_89_item) && strcmp(json_string_value(arr_89_item), "all") == 0;
                 if (! res)
                 {
-                    if (rep) jm_report_add_entry(rep, "unexpected all [.'$platforms'.0.'|'.5.versions.0]", ((path ? &lpath : NULL) ? &arr_89_lpath : NULL));
+                    if (rep) jm_report_add_entry(rep, "unexpected _all [.'$platforms'.0.'|'.5.versions.0]", ((path ? &lpath : NULL) ? &arr_89_lpath : NULL));
                     break;
                 }
             }
@@ -6115,7 +6115,7 @@ static INLINE bool _jm_obj_42(const json_t *val, jm_path_t *path, jm_report_t *r
                 res = json_is_string(arr_90_item) && strcmp(json_string_value(arr_90_item), "all") == 0;
                 if (! res)
                 {
-                    if (rep) jm_report_add_entry(rep, "unexpected all [.'$platforms'.0.'|'.4.versions.0]", ((path ? &lpath : NULL) ? &arr_90_lpath : NULL));
+                    if (rep) jm_report_add_entry(rep, "unexpected _all [.'$platforms'.0.'|'.4.versions.0]", ((path ? &lpath : NULL) ? &arr_90_lpath : NULL));
                     break;
                 }
             }
@@ -6282,7 +6282,7 @@ static INLINE bool _jm_obj_45(const json_t *val, jm_path_t *path, jm_report_t *r
                 res = json_is_string(arr_93_item) && strcmp(json_string_value(arr_93_item), "all") == 0;
                 if (! res)
                 {
-                    if (rep) jm_report_add_entry(rep, "unexpected all [.'$platforms'.0.'|'.1.versions.0]", ((path ? &lpath : NULL) ? &arr_93_lpath : NULL));
+                    if (rep) jm_report_add_entry(rep, "unexpected _all [.'$platforms'.0.'|'.1.versions.0]", ((path ? &lpath : NULL) ? &arr_93_lpath : NULL));
                     break;
                 }
             }

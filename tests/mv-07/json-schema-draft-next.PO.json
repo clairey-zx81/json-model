@@ -48,13 +48,13 @@
     },
     "simpleTypes": {
       "|": [
-        "array",
-        "boolean",
-        "integer",
-        "null",
-        "number",
-        "object",
-        "string"
+        "_array",
+        "_boolean",
+        "_integer",
+        "_null",
+        "_number",
+        "_object",
+        "_string"
       ],
       "#": "JsonModel 8 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)"
     },

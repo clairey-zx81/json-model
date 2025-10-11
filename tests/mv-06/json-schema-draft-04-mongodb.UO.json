@@ -205,12 +205,12 @@
       },
       "simpleTypes": {
         "|": [
-          "null",
-          "boolean",
-          "number",
-          "string",
-          "array",
-          "object"
+          "_null",
+          "_boolean",
+          "_number",
+          "_string",
+          "_array",
+          "_object"
         ],
         "#": "JsonModel 5 (JSON_MODEL_LOOSE_FLOAT)"
       },
@@ -233,23 +233,23 @@
       "Schema": "$#",
       "bsonType": {
         "|": [
-          "null",
-          "bool",
-          "string",
-          "object",
-          "array",
-          "double",
-          "int",
-          "long",
-          "decimal",
-          "binData",
-          "objectId",
-          "date",
-          "regex",
-          "javascript",
-          "timestamp",
-          "minKey",
-          "maxKey"
+          "_null",
+          "_bool",
+          "_string",
+          "_object",
+          "_array",
+          "_double",
+          "_int",
+          "_long",
+          "_decimal",
+          "_binData",
+          "_objectId",
+          "_date",
+          "_regex",
+          "_javascript",
+          "_timestamp",
+          "_minKey",
+          "_maxKey"
         ],
         "#": "JsonModel 9 (JSON_MODEL_LOOSE_FLOAT)"
       },
@@ -267,12 +267,12 @@
   },
   {
     "|": [
-      "null",
-      "boolean",
-      "number",
-      "string",
-      "array",
-      "object"
+      "_null",
+      "_boolean",
+      "_number",
+      "_string",
+      "_array",
+      "_object"
     ],
     "#": "JsonModel 5 (JSON_MODEL_LOOSE_FLOAT)"
   },
@@ -295,23 +295,23 @@
   "$#",
   {
     "|": [
-      "null",
-      "bool",
-      "string",
-      "object",
-      "array",
-      "double",
-      "int",
-      "long",
-      "decimal",
-      "binData",
-      "objectId",
-      "date",
-      "regex",
-      "javascript",
-      "timestamp",
-      "minKey",
-      "maxKey"
+      "_null",
+      "_bool",
+      "_string",
+      "_object",
+      "_array",
+      "_double",
+      "_int",
+      "_long",
+      "_decimal",
+      "_binData",
+      "_objectId",
+      "_date",
+      "_regex",
+      "_javascript",
+      "_timestamp",
+      "_minKey",
+      "_maxKey"
     ],
     "#": "JsonModel 9 (JSON_MODEL_LOOSE_FLOAT)"
   }

@@ -35,7 +35,9 @@ def normalizeModels(models: list[ModelType]) -> int:
     for idx, model in enumerate(models):
         nmodel = IGNORE
         if isinstance(model, str):
-            if model == "$STRING":
+            if model == "":
+                pass
+            elif model == "$STRING":
                 nmodel = ""
             elif model in ("$INT", "$INTEGER", "$I32", "$I64"):
                 nmodel = -1
@@ -47,6 +49,8 @@ def normalizeModels(models: list[ModelType]) -> int:
                 nmodel = True
             elif model in ("$NULL", "=null"):
                 nmodel = None
+            elif model[0] not in "$/=_":  # string constants
+                nmodel = "_" + model
         if nmodel != IGNORE:
             changes += 1
             models[idx] = nmodel  # type: ignore
@@ -81,6 +85,35 @@ def _simple_open_object(model: ModelType, jm: JsonModel, path: ModelPath) -> lis
         return props if is_open else None
     else:
         return None
+
+def and_not_simpler(jm: JsonModel) -> bool:
+    """Change and(X, xor(ANY, ...)) to xor(X, ...)."""
+
+    changes = 0
+
+    def ansRwt(model: ModelType, path: ModelPath) -> ModelType:
+        nonlocal changes
+        if isinstance(model, dict) and "&" in model:
+            ands = model["&"]
+            if not len(ands) == 2:
+                return model
+            idx: int|None = None
+            for i, m in enumerate(ands):
+                if isinstance(m, dict) and "^" in m and "$ANY" in m["^"]:
+                    idx = i
+                    break
+            if idx is None:
+                return model
+            changes += 1
+            contain, notm = ands[1-idx], ands[idx]
+            del model["&"]
+            model["^"] = list(map(lambda i: contain if i == "$ANY" else i, m["^"]))
+        return model
+
+    jm._model = recModel(jm._model, builtFlt, ansRwt)
+
+    log.debug(f"{jm._id}: ans {changes}")
+    return changes > 0
 
 def and_to_merge(jm: JsonModel) -> bool:
     """Change and to less costly merge if possible."""
@@ -335,8 +368,26 @@ def partial_eval(jm: JsonModel):
                 elif len(list(filter(lambda m: m == "$ANY", lxor))) >= 2:
                     changes += 1
                     return "$NONE"
-                # TODO more cleanups
-                # ^(A A ...) = ^(...) ? not so, depends on inclusions?
+                elif all(map(lambda m: isinstance(m, str) and (m == "" or m[0] not in "$/="), lxor)):
+
+                    # beware of type inclusions!
+                    if len(list(filter(lambda m: m == "", lxor))) == 2:
+                        changes += 1
+                        return "$NONE"
+                    has_str = "" in lxor
+
+                    # move doubled (or more) string constants
+                    seen, doubled = set(), set()
+                    for m in lxor:
+                        if m in seen:
+                            doubled.add(m)
+                        seen.add(m)
+
+                    if len(doubled) != 0:
+                        changes += 1
+                        model["^"] = list(filter(lambda m: m not in doubled, lxor))
+                        if has_str:
+                            model["^"] += list(sorted(doubled))
 
             elif "+" in model:  # optimize MERGE
                 plus = model["+"]
@@ -417,7 +468,6 @@ def partial_eval(jm: JsonModel):
     jm._model = recModel(jm._model, allFlt, evalRwt)
 
     log.debug(f"{jm._id}: eval {changes}")
-
     return changes > 0
 
 # NOTE could also follow empty @
@@ -618,5 +668,6 @@ def optimize(jm: JsonModel, *, debug: bool = False):
         changed |= simplify(jm)
         changed |= partial_eval(jm)
         changed |= flatten(jm)
+        changed |= and_not_simpler(jm)
         changed |= and_to_merge(jm)
         changed |= xor_to_or(jm)

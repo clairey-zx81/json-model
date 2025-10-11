@@ -166,7 +166,7 @@ def json_model_3(val: Jsonable, path: Path, rep: Report) -> bool:
                     # .'$AlpinePlatformModel'.versions.0
                     res = isinstance(arr_1_item, str) and arr_1_item == "all"
                     if not res:
-                        rep is None or rep.append(("unexpected all [.'$AlpinePlatformModel'.versions.0]", arr_1_lpath if (lpath_1 if path is not None else None) is not None else None))
+                        rep is None or rep.append(("unexpected _all [.'$AlpinePlatformModel'.versions.0]", arr_1_lpath if (lpath_1 if path is not None else None) is not None else None))
                         break
             if not res:
                 rep is None or rep.append(("not array or unexpected array [.'$AlpinePlatformModel'.versions]", lpath_1 if path is not None else None))
@@ -282,7 +282,7 @@ def json_model_6(val: Jsonable, path: Path, rep: Report) -> bool:
                     # .'$ArchLinuxPlatformModel'.versions.0
                     res = isinstance(arr_4_item, str) and arr_4_item == "all"
                     if not res:
-                        rep is None or rep.append(("unexpected all [.'$ArchLinuxPlatformModel'.versions.0]", arr_4_lpath if (lpath_4 if path is not None else None) is not None else None))
+                        rep is None or rep.append(("unexpected _all [.'$ArchLinuxPlatformModel'.versions.0]", arr_4_lpath if (lpath_4 if path is not None else None) is not None else None))
                         break
             if not res:
                 rep is None or rep.append(("not array or unexpected array [.'$ArchLinuxPlatformModel'.versions]", lpath_4 if path is not None else None))
@@ -359,7 +359,7 @@ def json_model_8(val: Jsonable, path: Path, rep: Report) -> bool:
                     # .'$ClearLinuxPlatformModel'.versions.0
                     res = isinstance(arr_6_item, str) and arr_6_item == "all"
                     if not res:
-                        rep is None or rep.append(("unexpected all [.'$ClearLinuxPlatformModel'.versions.0]", arr_6_lpath if (lpath_6 if path is not None else None) is not None else None))
+                        rep is None or rep.append(("unexpected _all [.'$ClearLinuxPlatformModel'.versions.0]", arr_6_lpath if (lpath_6 if path is not None else None) is not None else None))
                         break
             if not res:
                 rep is None or rep.append(("not array or unexpected array [.'$ClearLinuxPlatformModel'.versions]", lpath_6 if path is not None else None))
@@ -709,7 +709,7 @@ def json_model_17(val: Jsonable, path: Path, rep: Report) -> bool:
                     # .'$GenericBSDPlatformModel'.versions.0
                     res = isinstance(arr_15_item, str) and arr_15_item == "all"
                     if not res:
-                        rep is None or rep.append(("unexpected all [.'$GenericBSDPlatformModel'.versions.0]", arr_15_lpath if (lpath_15 if path is not None else None) is not None else None))
+                        rep is None or rep.append(("unexpected _all [.'$GenericBSDPlatformModel'.versions.0]", arr_15_lpath if (lpath_15 if path is not None else None) is not None else None))
                         break
             if not res:
                 rep is None or rep.append(("not array or unexpected array [.'$GenericBSDPlatformModel'.versions]", lpath_15 if path is not None else None))
@@ -747,7 +747,7 @@ def json_model_18(val: Jsonable, path: Path, rep: Report) -> bool:
                     # .'$GenericLinuxPlatformModel'.versions.0
                     res = isinstance(arr_16_item, str) and arr_16_item == "all"
                     if not res:
-                        rep is None or rep.append(("unexpected all [.'$GenericLinuxPlatformModel'.versions.0]", arr_16_lpath if (lpath_16 if path is not None else None) is not None else None))
+                        rep is None or rep.append(("unexpected _all [.'$GenericLinuxPlatformModel'.versions.0]", arr_16_lpath if (lpath_16 if path is not None else None) is not None else None))
                         break
             if not res:
                 rep is None or rep.append(("not array or unexpected array [.'$GenericLinuxPlatformModel'.versions]", lpath_16 if path is not None else None))
@@ -785,7 +785,7 @@ def json_model_19(val: Jsonable, path: Path, rep: Report) -> bool:
                     # .'$GenericUNIXPlatformModel'.versions.0
                     res = isinstance(arr_17_item, str) and arr_17_item == "all"
                     if not res:
-                        rep is None or rep.append(("unexpected all [.'$GenericUNIXPlatformModel'.versions.0]", arr_17_lpath if (lpath_17 if path is not None else None) is not None else None))
+                        rep is None or rep.append(("unexpected _all [.'$GenericUNIXPlatformModel'.versions.0]", arr_17_lpath if (lpath_17 if path is not None else None) is not None else None))
                         break
             if not res:
                 rep is None or rep.append(("not array or unexpected array [.'$GenericUNIXPlatformModel'.versions]", lpath_17 if path is not None else None))
@@ -823,7 +823,7 @@ def json_model_20(val: Jsonable, path: Path, rep: Report) -> bool:
                     # .'$GentooPlatformModel'.versions.0
                     res = isinstance(arr_18_item, str) and arr_18_item == "all"
                     if not res:
-                        rep is None or rep.append(("unexpected all [.'$GentooPlatformModel'.versions.0]", arr_18_lpath if (lpath_18 if path is not None else None) is not None else None))
+                        rep is None or rep.append(("unexpected _all [.'$GentooPlatformModel'.versions.0]", arr_18_lpath if (lpath_18 if path is not None else None) is not None else None))
                         break
             if not res:
                 rep is None or rep.append(("not array or unexpected array [.'$GentooPlatformModel'.versions]", lpath_18 if path is not None else None))
@@ -900,7 +900,7 @@ def json_model_22(val: Jsonable, path: Path, rep: Report) -> bool:
                     # .'$IOSPlatformModel'.versions.0
                     res = isinstance(arr_20_item, str) and arr_20_item == "all"
                     if not res:
-                        rep is None or rep.append(("unexpected all [.'$IOSPlatformModel'.versions.0]", arr_20_lpath if (lpath_20 if path is not None else None) is not None else None))
+                        rep is None or rep.append(("unexpected _all [.'$IOSPlatformModel'.versions.0]", arr_20_lpath if (lpath_20 if path is not None else None) is not None else None))
                         break
             if not res:
                 rep is None or rep.append(("not array or unexpected array [.'$IOSPlatformModel'.versions]", lpath_20 if path is not None else None))
@@ -938,7 +938,7 @@ def json_model_23(val: Jsonable, path: Path, rep: Report) -> bool:
                     # .'$JunosPlatformModel'.versions.0
                     res = isinstance(arr_21_item, str) and arr_21_item == "all"
                     if not res:
-                        rep is None or rep.append(("unexpected all [.'$JunosPlatformModel'.versions.0]", arr_21_lpath if (lpath_21 if path is not None else None) is not None else None))
+                        rep is None or rep.append(("unexpected _all [.'$JunosPlatformModel'.versions.0]", arr_21_lpath if (lpath_21 if path is not None else None) is not None else None))
                         break
             if not res:
                 rep is None or rep.append(("not array or unexpected array [.'$JunosPlatformModel'.versions]", lpath_21 if path is not None else None))
@@ -1093,7 +1093,7 @@ def json_model_27(val: Jsonable, path: Path, rep: Report) -> bool:
                     # .'$NXOSPlatformModel'.versions.0
                     res = isinstance(arr_25_item, str) and arr_25_item == "all"
                     if not res:
-                        rep is None or rep.append(("unexpected all [.'$NXOSPlatformModel'.versions.0]", arr_25_lpath if (lpath_25 if path is not None else None) is not None else None))
+                        rep is None or rep.append(("unexpected _all [.'$NXOSPlatformModel'.versions.0]", arr_25_lpath if (lpath_25 if path is not None else None) is not None else None))
                         break
             if not res:
                 rep is None or rep.append(("not array or unexpected array [.'$NXOSPlatformModel'.versions]", lpath_25 if path is not None else None))
@@ -1404,7 +1404,7 @@ def json_model_35(val: Jsonable, path: Path, rep: Report) -> bool:
                     # .'$SmartOSPlatformModel'.versions.0
                     res = isinstance(arr_33_item, str) and arr_33_item == "all"
                     if not res:
-                        rep is None or rep.append(("unexpected all [.'$SmartOSPlatformModel'.versions.0]", arr_33_lpath if (lpath_33 if path is not None else None) is not None else None))
+                        rep is None or rep.append(("unexpected _all [.'$SmartOSPlatformModel'.versions.0]", arr_33_lpath if (lpath_33 if path is not None else None) is not None else None))
                         break
             if not res:
                 rep is None or rep.append(("not array or unexpected array [.'$SmartOSPlatformModel'.versions]", lpath_33 if path is not None else None))
@@ -1598,7 +1598,7 @@ def json_model_40(val: Jsonable, path: Path, rep: Report) -> bool:
                     # .'$Void_LinuxPlatformModel'.versions.0
                     res = isinstance(arr_38_item, str) and arr_38_item == "all"
                     if not res:
-                        rep is None or rep.append(("unexpected all [.'$Void_LinuxPlatformModel'.versions.0]", arr_38_lpath if (lpath_38 if path is not None else None) is not None else None))
+                        rep is None or rep.append(("unexpected _all [.'$Void_LinuxPlatformModel'.versions.0]", arr_38_lpath if (lpath_38 if path is not None else None) is not None else None))
                         break
             if not res:
                 rep is None or rep.append(("not array or unexpected array [.'$Void_LinuxPlatformModel'.versions]", lpath_38 if path is not None else None))
@@ -1675,7 +1675,7 @@ def json_model_42(val: Jsonable, path: Path, rep: Report) -> bool:
                     # .'$aosPlatformModel'.versions.0
                     res = isinstance(arr_40_item, str) and arr_40_item == "all"
                     if not res:
-                        rep is None or rep.append(("unexpected all [.'$aosPlatformModel'.versions.0]", arr_40_lpath if (lpath_40 if path is not None else None) is not None else None))
+                        rep is None or rep.append(("unexpected _all [.'$aosPlatformModel'.versions.0]", arr_40_lpath if (lpath_40 if path is not None else None) is not None else None))
                         break
             if not res:
                 rep is None or rep.append(("not array or unexpected array [.'$aosPlatformModel'.versions]", lpath_40 if path is not None else None))
@@ -1713,7 +1713,7 @@ def json_model_43(val: Jsonable, path: Path, rep: Report) -> bool:
                     # .'$eosPlatformModel'.versions.0
                     res = isinstance(arr_41_item, str) and arr_41_item == "all"
                     if not res:
-                        rep is None or rep.append(("unexpected all [.'$eosPlatformModel'.versions.0]", arr_41_lpath if (lpath_41 if path is not None else None) is not None else None))
+                        rep is None or rep.append(("unexpected _all [.'$eosPlatformModel'.versions.0]", arr_41_lpath if (lpath_41 if path is not None else None) is not None else None))
                         break
             if not res:
                 rep is None or rep.append(("not array or unexpected array [.'$eosPlatformModel'.versions]", lpath_41 if path is not None else None))
@@ -1829,7 +1829,7 @@ def json_model_46(val: Jsonable, path: Path, rep: Report) -> bool:
                     # .'$os10PlatformModel'.versions.0
                     res = isinstance(arr_44_item, str) and arr_44_item == "all"
                     if not res:
-                        rep is None or rep.append(("unexpected all [.'$os10PlatformModel'.versions.0]", arr_44_lpath if (lpath_44 if path is not None else None) is not None else None))
+                        rep is None or rep.append(("unexpected _all [.'$os10PlatformModel'.versions.0]", arr_44_lpath if (lpath_44 if path is not None else None) is not None else None))
                         break
             if not res:
                 rep is None or rep.append(("not array or unexpected array [.'$os10PlatformModel'.versions]", lpath_44 if path is not None else None))
@@ -2262,7 +2262,7 @@ def _jm_obj_2(val: Jsonable, path: Path, rep: Report) -> bool:
                 # .'$platforms'.0.'|'.44.versions.0
                 res = isinstance(arr_50_item, str) and arr_50_item == "all"
                 if not res:
-                    rep is None or rep.append(("unexpected all [.'$platforms'.0.'|'.44.versions.0]", arr_50_lpath if (lpath if path is not None else None) is not None else None))
+                    rep is None or rep.append(("unexpected _all [.'$platforms'.0.'|'.44.versions.0]", arr_50_lpath if (lpath if path is not None else None) is not None else None))
                     break
         if not res:
             rep is None or rep.append(("not array or unexpected array [.'$platforms'.0.'|'.44.versions]", lpath if path is not None else None))
@@ -2477,7 +2477,7 @@ def _jm_obj_8(val: Jsonable, path: Path, rep: Report) -> bool:
                 # .'$platforms'.0.'|'.38.versions.0
                 res = isinstance(arr_56_item, str) and arr_56_item == "all"
                 if not res:
-                    rep is None or rep.append(("unexpected all [.'$platforms'.0.'|'.38.versions.0]", arr_56_lpath if (lpath if path is not None else None) is not None else None))
+                    rep is None or rep.append(("unexpected _all [.'$platforms'.0.'|'.38.versions.0]", arr_56_lpath if (lpath if path is not None else None) is not None else None))
                     break
         if not res:
             rep is None or rep.append(("not array or unexpected array [.'$platforms'.0.'|'.38.versions]", lpath if path is not None else None))
@@ -2620,7 +2620,7 @@ def _jm_obj_12(val: Jsonable, path: Path, rep: Report) -> bool:
                 # .'$platforms'.0.'|'.34.versions.0
                 res = isinstance(arr_60_item, str) and arr_60_item == "all"
                 if not res:
-                    rep is None or rep.append(("unexpected all [.'$platforms'.0.'|'.34.versions.0]", arr_60_lpath if (lpath if path is not None else None) is not None else None))
+                    rep is None or rep.append(("unexpected _all [.'$platforms'.0.'|'.34.versions.0]", arr_60_lpath if (lpath if path is not None else None) is not None else None))
                     break
         if not res:
             rep is None or rep.append(("not array or unexpected array [.'$platforms'.0.'|'.34.versions]", lpath if path is not None else None))
@@ -2799,7 +2799,7 @@ def _jm_obj_17(val: Jsonable, path: Path, rep: Report) -> bool:
                 # .'$platforms'.0.'|'.29.versions.0
                 res = isinstance(arr_65_item, str) and arr_65_item == "all"
                 if not res:
-                    rep is None or rep.append(("unexpected all [.'$platforms'.0.'|'.29.versions.0]", arr_65_lpath if (lpath if path is not None else None) is not None else None))
+                    rep is None or rep.append(("unexpected _all [.'$platforms'.0.'|'.29.versions.0]", arr_65_lpath if (lpath if path is not None else None) is not None else None))
                     break
         if not res:
             rep is None or rep.append(("not array or unexpected array [.'$platforms'.0.'|'.29.versions]", lpath if path is not None else None))
@@ -2978,7 +2978,7 @@ def _jm_obj_22(val: Jsonable, path: Path, rep: Report) -> bool:
                 # .'$platforms'.0.'|'.24.versions.0
                 res = isinstance(arr_70_item, str) and arr_70_item == "all"
                 if not res:
-                    rep is None or rep.append(("unexpected all [.'$platforms'.0.'|'.24.versions.0]", arr_70_lpath if (lpath if path is not None else None) is not None else None))
+                    rep is None or rep.append(("unexpected _all [.'$platforms'.0.'|'.24.versions.0]", arr_70_lpath if (lpath if path is not None else None) is not None else None))
                     break
         if not res:
             rep is None or rep.append(("not array or unexpected array [.'$platforms'.0.'|'.24.versions]", lpath if path is not None else None))
@@ -3013,7 +3013,7 @@ def _jm_obj_23(val: Jsonable, path: Path, rep: Report) -> bool:
                 # .'$platforms'.0.'|'.23.versions.0
                 res = isinstance(arr_71_item, str) and arr_71_item == "all"
                 if not res:
-                    rep is None or rep.append(("unexpected all [.'$platforms'.0.'|'.23.versions.0]", arr_71_lpath if (lpath if path is not None else None) is not None else None))
+                    rep is None or rep.append(("unexpected _all [.'$platforms'.0.'|'.23.versions.0]", arr_71_lpath if (lpath if path is not None else None) is not None else None))
                     break
         if not res:
             rep is None or rep.append(("not array or unexpected array [.'$platforms'.0.'|'.23.versions]", lpath if path is not None else None))
@@ -3084,7 +3084,7 @@ def _jm_obj_25(val: Jsonable, path: Path, rep: Report) -> bool:
                 # .'$platforms'.0.'|'.21.versions.0
                 res = isinstance(arr_73_item, str) and arr_73_item == "all"
                 if not res:
-                    rep is None or rep.append(("unexpected all [.'$platforms'.0.'|'.21.versions.0]", arr_73_lpath if (lpath if path is not None else None) is not None else None))
+                    rep is None or rep.append(("unexpected _all [.'$platforms'.0.'|'.21.versions.0]", arr_73_lpath if (lpath if path is not None else None) is not None else None))
                     break
         if not res:
             rep is None or rep.append(("not array or unexpected array [.'$platforms'.0.'|'.21.versions]", lpath if path is not None else None))
@@ -3119,7 +3119,7 @@ def _jm_obj_26(val: Jsonable, path: Path, rep: Report) -> bool:
                 # .'$platforms'.0.'|'.20.versions.0
                 res = isinstance(arr_74_item, str) and arr_74_item == "all"
                 if not res:
-                    rep is None or rep.append(("unexpected all [.'$platforms'.0.'|'.20.versions.0]", arr_74_lpath if (lpath if path is not None else None) is not None else None))
+                    rep is None or rep.append(("unexpected _all [.'$platforms'.0.'|'.20.versions.0]", arr_74_lpath if (lpath if path is not None else None) is not None else None))
                     break
         if not res:
             rep is None or rep.append(("not array or unexpected array [.'$platforms'.0.'|'.20.versions]", lpath if path is not None else None))
@@ -3154,7 +3154,7 @@ def _jm_obj_27(val: Jsonable, path: Path, rep: Report) -> bool:
                 # .'$platforms'.0.'|'.19.versions.0
                 res = isinstance(arr_75_item, str) and arr_75_item == "all"
                 if not res:
-                    rep is None or rep.append(("unexpected all [.'$platforms'.0.'|'.19.versions.0]", arr_75_lpath if (lpath if path is not None else None) is not None else None))
+                    rep is None or rep.append(("unexpected _all [.'$platforms'.0.'|'.19.versions.0]", arr_75_lpath if (lpath if path is not None else None) is not None else None))
                     break
         if not res:
             rep is None or rep.append(("not array or unexpected array [.'$platforms'.0.'|'.19.versions]", lpath if path is not None else None))
@@ -3189,7 +3189,7 @@ def _jm_obj_28(val: Jsonable, path: Path, rep: Report) -> bool:
                 # .'$platforms'.0.'|'.18.versions.0
                 res = isinstance(arr_76_item, str) and arr_76_item == "all"
                 if not res:
-                    rep is None or rep.append(("unexpected all [.'$platforms'.0.'|'.18.versions.0]", arr_76_lpath if (lpath if path is not None else None) is not None else None))
+                    rep is None or rep.append(("unexpected _all [.'$platforms'.0.'|'.18.versions.0]", arr_76_lpath if (lpath if path is not None else None) is not None else None))
                     break
         if not res:
             rep is None or rep.append(("not array or unexpected array [.'$platforms'.0.'|'.18.versions]", lpath if path is not None else None))
@@ -3296,7 +3296,7 @@ def _jm_obj_31(val: Jsonable, path: Path, rep: Report) -> bool:
                 # .'$platforms'.0.'|'.15.versions.0
                 res = isinstance(arr_79_item, str) and arr_79_item == "all"
                 if not res:
-                    rep is None or rep.append(("unexpected all [.'$platforms'.0.'|'.15.versions.0]", arr_79_lpath if (lpath if path is not None else None) is not None else None))
+                    rep is None or rep.append(("unexpected _all [.'$platforms'.0.'|'.15.versions.0]", arr_79_lpath if (lpath if path is not None else None) is not None else None))
                     break
         if not res:
             rep is None or rep.append(("not array or unexpected array [.'$platforms'.0.'|'.15.versions]", lpath if path is not None else None))
@@ -3583,7 +3583,7 @@ def _jm_obj_39(val: Jsonable, path: Path, rep: Report) -> bool:
                 # .'$platforms'.0.'|'.7.versions.0
                 res = isinstance(arr_87_item, str) and arr_87_item == "all"
                 if not res:
-                    rep is None or rep.append(("unexpected all [.'$platforms'.0.'|'.7.versions.0]", arr_87_lpath if (lpath if path is not None else None) is not None else None))
+                    rep is None or rep.append(("unexpected _all [.'$platforms'.0.'|'.7.versions.0]", arr_87_lpath if (lpath if path is not None else None) is not None else None))
                     break
         if not res:
             rep is None or rep.append(("not array or unexpected array [.'$platforms'.0.'|'.7.versions]", lpath if path is not None else None))
@@ -3654,7 +3654,7 @@ def _jm_obj_41(val: Jsonable, path: Path, rep: Report) -> bool:
                 # .'$platforms'.0.'|'.5.versions.0
                 res = isinstance(arr_89_item, str) and arr_89_item == "all"
                 if not res:
-                    rep is None or rep.append(("unexpected all [.'$platforms'.0.'|'.5.versions.0]", arr_89_lpath if (lpath if path is not None else None) is not None else None))
+                    rep is None or rep.append(("unexpected _all [.'$platforms'.0.'|'.5.versions.0]", arr_89_lpath if (lpath if path is not None else None) is not None else None))
                     break
         if not res:
             rep is None or rep.append(("not array or unexpected array [.'$platforms'.0.'|'.5.versions]", lpath if path is not None else None))
@@ -3689,7 +3689,7 @@ def _jm_obj_42(val: Jsonable, path: Path, rep: Report) -> bool:
                 # .'$platforms'.0.'|'.4.versions.0
                 res = isinstance(arr_90_item, str) and arr_90_item == "all"
                 if not res:
-                    rep is None or rep.append(("unexpected all [.'$platforms'.0.'|'.4.versions.0]", arr_90_lpath if (lpath if path is not None else None) is not None else None))
+                    rep is None or rep.append(("unexpected _all [.'$platforms'.0.'|'.4.versions.0]", arr_90_lpath if (lpath if path is not None else None) is not None else None))
                     break
         if not res:
             rep is None or rep.append(("not array or unexpected array [.'$platforms'.0.'|'.4.versions]", lpath if path is not None else None))
@@ -3796,7 +3796,7 @@ def _jm_obj_45(val: Jsonable, path: Path, rep: Report) -> bool:
                 # .'$platforms'.0.'|'.1.versions.0
                 res = isinstance(arr_93_item, str) and arr_93_item == "all"
                 if not res:
-                    rep is None or rep.append(("unexpected all [.'$platforms'.0.'|'.1.versions.0]", arr_93_lpath if (lpath if path is not None else None) is not None else None))
+                    rep is None or rep.append(("unexpected _all [.'$platforms'.0.'|'.1.versions.0]", arr_93_lpath if (lpath if path is not None else None) is not None else None))
                     break
         if not res:
             rep is None or rep.append(("not array or unexpected array [.'$platforms'.0.'|'.1.versions]", lpath if path is not None else None))

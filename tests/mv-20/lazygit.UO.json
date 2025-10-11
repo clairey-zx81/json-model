@@ -3,9 +3,9 @@
     "?gui": {
       "?windowSize": {
         "|": [
-          "normal",
-          "half",
-          "full"
+          "_normal",
+          "_half",
+          "_full"
         ]
       },
       "?scrollHeight": 1,
@@ -17,22 +17,22 @@
       "?expandFocusedSidePanel": true,
       "?mainPanelSplitMode": {
         "|": [
-          "horizontal",
-          "flexible",
-          "vertical"
+          "_horizontal",
+          "_flexible",
+          "_vertical"
         ]
       },
       "?language": {
         "|": [
-          "auto",
-          "en",
-          "zh-CN",
-          "zh-TW",
-          "pl",
-          "nl",
-          "ja",
-          "ko",
-          "ru"
+          "_auto",
+          "_en",
+          "_zh-CN",
+          "_zh-TW",
+          "_pl",
+          "_nl",
+          "_ja",
+          "_ko",
+          "_ru"
         ]
       },
       "?timeFormat": "",
@@ -63,25 +63,25 @@
       "?showCommandLog": true,
       "?nerdFontsVersion": {
         "|": [
-          "2",
-          "3",
+          "_2",
+          "_3",
           ""
         ]
       },
       "?commandLogSize": 0,
       "?splitDiff": {
         "|": [
-          "auto",
-          "always"
+          "_auto",
+          "_always"
         ]
       },
       "?skipRewordInEditorWarning": true,
       "?border": {
         "|": [
-          "single",
-          "double",
-          "rounded",
-          "hidden"
+          "_single",
+          "_double",
+          "_rounded",
+          "_hidden"
         ]
       },
       "?animateExplosion": true,
@@ -96,8 +96,8 @@
       "?paging": {
         "?colorArg": {
           "|": [
-            "always",
-            "never"
+            "_always",
+            "_never"
           ]
         },
         "?useConfig": true,
@@ -116,17 +116,17 @@
       "?log": {
         "?order": {
           "|": [
-            "date-order",
-            "author-date-order",
-            "topo-order",
-            "default"
+            "_date-order",
+            "_author-date-order",
+            "_topo-order",
+            "_default"
           ]
         },
         "?showGraph": {
           "|": [
-            "always",
-            "never",
-            "when-maximised"
+            "_always",
+            "_never",
+            "_when-maximised"
           ]
         },
         "?showWholeGraph": true
@@ -153,16 +153,16 @@
       "?copyToClipboardCmd": "",
       "?editPreset": {
         "|": [
-          "vim",
-          "nvim",
-          "emacs",
-          "nano",
-          "vscode",
-          "sublime",
-          "bbedit",
-          "kakoune",
-          "helix",
-          "xcode",
+          "_vim",
+          "_nvim",
+          "_emacs",
+          "_nano",
+          "_vscode",
+          "_sublime",
+          "_bbedit",
+          "_kakoune",
+          "_helix",
+          "_xcode",
           ""
         ]
       },
@@ -179,9 +179,9 @@
     "?update": {
       "?method": {
         "|": [
-          "prompt",
-          "background",
-          "never"
+          "_prompt",
+          "_background",
+          "_never"
         ]
       },
       "?days": 0
@@ -191,10 +191,10 @@
     "?disableStartupPopups": true,
     "?notARepository": {
       "|": [
-        "prompt",
-        "create",
-        "skip",
-        "quit"
+        "_prompt",
+        "_create",
+        "_skip",
+        "_quit"
       ]
     },
     "?promptToReturnFromSubprocess": true,
@@ -349,19 +349,19 @@
           "command": "",
           "context": {
             "|": [
-              "status",
-              "files",
-              "worktrees",
-              "localBranches",
-              "remotes",
-              "remoteBranches",
-              "tags",
-              "commits",
-              "reflogCommits",
-              "subCommits",
-              "commitFiles",
-              "stash",
-              "global"
+              "_status",
+              "_files",
+              "_worktrees",
+              "_localBranches",
+              "_remotes",
+              "_remoteBranches",
+              "_tags",
+              "_commits",
+              "_reflogCommits",
+              "_subCommits",
+              "_commitFiles",
+              "_stash",
+              "_global"
             ]
           },
           "?subprocess": true,
@@ -383,19 +383,19 @@
     "$": {
       "color": {
         "|": [
-          "black",
-          "red",
-          "green",
-          "yellow",
-          "blue",
-          "magenta",
-          "cyan",
-          "white",
-          "bold",
-          "default",
-          "reverse",
-          "underline",
-          "strikethrough",
+          "_black",
+          "_red",
+          "_green",
+          "_yellow",
+          "_blue",
+          "_magenta",
+          "_cyan",
+          "_white",
+          "_bold",
+          "_default",
+          "_reverse",
+          "_underline",
+          "_strikethrough",
           "/^#[0-9a-fA-F]{6}$/"
         ],
         "#": "JsonModel 2"
@@ -417,10 +417,10 @@
       },
       "custom-commands-prompts-type-property": {
         "|": [
-          "input",
-          "confirm",
-          "menu",
-          "menuFromCommand"
+          "_input",
+          "_confirm",
+          "_menu",
+          "_menuFromCommand"
         ],
         "#": "JsonModel 5"
       },
@@ -450,13 +450,13 @@
                 {
                   "preset": {
                     "|": [
-                      "authors",
-                      "branches",
-                      "files",
-                      "refs",
-                      "remotes",
-                      "remoteBranches",
-                      "tags"
+                      "_authors",
+                      "_branches",
+                      "_files",
+                      "_refs",
+                      "_remotes",
+                      "_remoteBranches",
+                      "_tags"
                     ]
                   }
                 },
@@ -505,19 +505,19 @@
   },
   {
     "|": [
-      "black",
-      "red",
-      "green",
-      "yellow",
-      "blue",
-      "magenta",
-      "cyan",
-      "white",
-      "bold",
-      "default",
-      "reverse",
-      "underline",
-      "strikethrough",
+      "_black",
+      "_red",
+      "_green",
+      "_yellow",
+      "_blue",
+      "_magenta",
+      "_cyan",
+      "_white",
+      "_bold",
+      "_default",
+      "_reverse",
+      "_underline",
+      "_strikethrough",
       "/^#[0-9a-fA-F]{6}$/"
     ],
     "#": "JsonModel 2"
@@ -539,10 +539,10 @@
   },
   {
     "|": [
-      "input",
-      "confirm",
-      "menu",
-      "menuFromCommand"
+      "_input",
+      "_confirm",
+      "_menu",
+      "_menuFromCommand"
     ],
     "#": "JsonModel 5"
   },
@@ -572,13 +572,13 @@
             {
               "preset": {
                 "|": [
-                  "authors",
-                  "branches",
-                  "files",
-                  "refs",
-                  "remotes",
-                  "remoteBranches",
-                  "tags"
+                  "_authors",
+                  "_branches",
+                  "_files",
+                  "_refs",
+                  "_remotes",
+                  "_remoteBranches",
+                  "_tags"
                 ]
               }
             },

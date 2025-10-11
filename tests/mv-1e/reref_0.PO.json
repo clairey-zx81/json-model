@@ -3,9 +3,9 @@
   "$": {
     "character": {
       "|": [
-        "Susie",
-        "Calvin",
-        "Hobbes"
+        "_Susie",
+        "_Calvin",
+        "_Hobbes"
       ],
       "#": "JsonModel 2"
     },

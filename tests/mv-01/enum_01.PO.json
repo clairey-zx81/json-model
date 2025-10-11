@@ -7,21 +7,21 @@
   "$": {
     "p1": {
       "|": [
-        "Susie",
-        "Calvin",
-        "Hobbes",
-        "Moe",
-        "Bad"
+        "_Susie",
+        "_Calvin",
+        "_Hobbes",
+        "_Moe",
+        "_Bad"
       ],
       "#": "JsonModel 2"
     },
     "p2": {
       "|": [
-        "Castafiore",
-        "Haddock",
-        "Milou",
-        "Tintin",
-        "Bad"
+        "_Castafiore",
+        "_Haddock",
+        "_Milou",
+        "_Tintin",
+        "_Bad"
       ],
       "#": "JsonModel 3"
     },

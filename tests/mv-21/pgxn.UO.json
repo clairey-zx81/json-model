@@ -51,34 +51,34 @@
       },
       "License": {
         "|": [
-          "agpl_3",
-          "apache_1_1",
-          "apache_2_0",
-          "artistic_1",
-          "artistic_2",
-          "bsd",
-          "freebsd",
-          "gfdl_1_2",
-          "gfdl_1_3",
-          "gpl_1",
-          "gpl_2",
-          "gpl_3",
-          "lgpl_2_1",
-          "lgpl_3_0",
-          "mit",
-          "mozilla_1_0",
-          "mozilla_1_1",
-          "openssl",
-          "perl_5",
-          "postgresql",
-          "qpl_1_0",
-          "ssleay",
-          "sun",
-          "zlib",
-          "open_source",
-          "restricted",
-          "unrestricted",
-          "unknown"
+          "_agpl_3",
+          "_apache_1_1",
+          "_apache_2_0",
+          "_artistic_1",
+          "_artistic_2",
+          "_bsd",
+          "_freebsd",
+          "_gfdl_1_2",
+          "_gfdl_1_3",
+          "_gpl_1",
+          "_gpl_2",
+          "_gpl_3",
+          "_lgpl_2_1",
+          "_lgpl_3_0",
+          "_mit",
+          "_mozilla_1_0",
+          "_mozilla_1_1",
+          "_openssl",
+          "_perl_5",
+          "_postgresql",
+          "_qpl_1_0",
+          "_ssleay",
+          "_sun",
+          "_zlib",
+          "_open_source",
+          "_restricted",
+          "_unrestricted",
+          "_unknown"
         ],
         "#": "JsonModel 4"
       },
@@ -100,9 +100,9 @@
       },
       "Status": {
         "|": [
-          "stable",
-          "testing",
-          "unstable"
+          "_stable",
+          "_testing",
+          "_unstable"
         ],
         "#": "JsonModel 7"
       },
@@ -132,20 +132,20 @@
       "VersionRange": "/^\\s*(<=|<|>=|>|!=|==)\\s*(\\d+\\.\\d+\\.\\d+[-_A-Za-z0-9]*)\\s*(,\\s*(<=|<|>=|>|!=|==)\\s*(\\d+\\.\\d+\\.\\d+[-_A-Za-z0-9]*))*\\s*$/",
       "Phase": {
         "|": [
-          "configure",
-          "build",
-          "test",
-          "runtime",
-          "develop"
+          "_configure",
+          "_build",
+          "_test",
+          "_runtime",
+          "_develop"
         ],
         "#": "JsonModel 13"
       },
       "Relation": {
         "|": [
-          "requires",
-          "recommends",
-          "suggests",
-          "conflicts"
+          "_requires",
+          "_recommends",
+          "_suggests",
+          "_conflicts"
         ],
         "#": "JsonModel 14"
       },
@@ -182,34 +182,34 @@
   },
   {
     "|": [
-      "agpl_3",
-      "apache_1_1",
-      "apache_2_0",
-      "artistic_1",
-      "artistic_2",
-      "bsd",
-      "freebsd",
-      "gfdl_1_2",
-      "gfdl_1_3",
-      "gpl_1",
-      "gpl_2",
-      "gpl_3",
-      "lgpl_2_1",
-      "lgpl_3_0",
-      "mit",
-      "mozilla_1_0",
-      "mozilla_1_1",
-      "openssl",
-      "perl_5",
-      "postgresql",
-      "qpl_1_0",
-      "ssleay",
-      "sun",
-      "zlib",
-      "open_source",
-      "restricted",
-      "unrestricted",
-      "unknown"
+      "_agpl_3",
+      "_apache_1_1",
+      "_apache_2_0",
+      "_artistic_1",
+      "_artistic_2",
+      "_bsd",
+      "_freebsd",
+      "_gfdl_1_2",
+      "_gfdl_1_3",
+      "_gpl_1",
+      "_gpl_2",
+      "_gpl_3",
+      "_lgpl_2_1",
+      "_lgpl_3_0",
+      "_mit",
+      "_mozilla_1_0",
+      "_mozilla_1_1",
+      "_openssl",
+      "_perl_5",
+      "_postgresql",
+      "_qpl_1_0",
+      "_ssleay",
+      "_sun",
+      "_zlib",
+      "_open_source",
+      "_restricted",
+      "_unrestricted",
+      "_unknown"
     ],
     "#": "JsonModel 4"
   },
@@ -231,9 +231,9 @@
   },
   {
     "|": [
-      "stable",
-      "testing",
-      "unstable"
+      "_stable",
+      "_testing",
+      "_unstable"
     ],
     "#": "JsonModel 7"
   },
@@ -263,20 +263,20 @@
   "/^\\s*(<=|<|>=|>|!=|==)\\s*(\\d+\\.\\d+\\.\\d+[-_A-Za-z0-9]*)\\s*(,\\s*(<=|<|>=|>|!=|==)\\s*(\\d+\\.\\d+\\.\\d+[-_A-Za-z0-9]*))*\\s*$/",
   {
     "|": [
-      "configure",
-      "build",
-      "test",
-      "runtime",
-      "develop"
+      "_configure",
+      "_build",
+      "_test",
+      "_runtime",
+      "_develop"
     ],
     "#": "JsonModel 13"
   },
   {
     "|": [
-      "requires",
-      "recommends",
-      "suggests",
-      "conflicts"
+      "_requires",
+      "_recommends",
+      "_suggests",
+      "_conflicts"
     ],
     "#": "JsonModel 14"
   },

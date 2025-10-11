@@ -26,20 +26,20 @@
     },
     "atomic-types": {
       "|": [
-        "string",
-        "decimal",
-        "integer",
-        "double",
-        "boolean",
-        "anyURI",
-        "base64Binary",
-        "hexBinary",
-        "date",
-        "dateTime",
-        "time",
-        "dateTimeStamp",
-        "duration",
-        "null"
+        "_string",
+        "_decimal",
+        "_integer",
+        "_double",
+        "_boolean",
+        "_anyURI",
+        "_base64Binary",
+        "_hexBinary",
+        "_date",
+        "_dateTime",
+        "_time",
+        "_dateTimeStamp",
+        "_duration",
+        "_null"
       ],
       "#": "JsonModel 4"
     },
@@ -72,9 +72,9 @@
       ],
       "?explicitTypeZone": {
         "|": [
-          "required",
-          "prohibited",
-          "optional"
+          "_required",
+          "_prohibited",
+          "_optional"
         ]
       },
       "#": "JsonModel 6"
