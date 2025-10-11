@@ -1,0 +1,17 @@
+x2o_1.values.json[0]: PASS
+x2o_1.values.json[1]: PASS
+x2o_1.values.json[2]: PASS
+x2o_1.values.json[3]: PASS
+x2o_1.values.json[4]: PASS
+x2o_1.values.json[5]: FAIL (: tag <t> value not found [.'|']; t: unexpected string [.'$Nabc'.t.'^'.0]; t: unexpected _a [.'$Nabc'.t.'^'.1]; t: unexpected _b [.'$Nabc'.t.'^'.2]; t: unexpected _c [.'$Nabc'.t.'^'.3]; t: not one model match [.'$Nabc'.t.'^']; t: unexpected value for mandatory prop <t> [.'$Nabc'])
+x2o_1.values.json[6]: FAIL (: bad property count [.'$a']; : bad property count [.'$Nabc'])
+x2o_1.values.json[7]: FAIL (: tag prop <t> is missing [.'|']; : bad property count [.'$Nabc'])
+x2o_1.values.json[8]: FAIL (: value is not an object [.'|']; : not an object [.'$Nabc'])
+x2o_1.values.json[9]: FAIL (: value is not an object [.'|']; : not an object [.'$Nabc'])
+x2o_1.values.json[10]: FAIL (: value is not an object [.'|']; : not an object [.'$Nabc'])
+x2o_1.values.json[11]: FAIL (: value is not an object [.'|']; : not an object [.'$Nabc'])
+x2o_1.values.json[12]: FAIL (: value is not an object [.'|']; : not an object [.'$Nabc'])
+x2o_1.values.json[13]: FAIL (: value is not an object [.'|']; : not an object [.'$Nabc'])
+x2o_1.values.json[14]: FAIL (: value is not an object [.'|']; : not an object [.'$Nabc'])
+x2o_1.values.json[15]: FAIL (: value is not an object [.'|']; : not an object [.'$Nabc'])
+x2o_1.values.json[16]: FAIL (: value is not an object [.'|']; : not an object [.'$Nabc'])

@@ -1,0 +1,9 @@
+{
+  "#": "xor-to-or with not constant exclusion behind references",
+  "$": {
+    "a": {"t": "a"},
+    "bc": {"t": {"^": ["b", "c"]}},
+    "Nabc": {"t": {"^": ["", "a", "b", "c"]}}
+  },
+  "^": ["$a", "$bc", "$Nabc"]
+}

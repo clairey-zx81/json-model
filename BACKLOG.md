@@ -9,7 +9,7 @@
 - [x] python: remove useless (debugging) assertion in generated code
 - [x] perf: also show docker id of tested image
 - [x] optim: more xor/not/or simplifications
-- [x] optim: xor-to-or model difference based on not exclusion
+- [x] optim: xor-to-or model difference based on not exclusion, possibly behind refs
 - [ ] optim: partial xor to or?
 - [ ] static: partial discriminator with else?
 - [ ] static: optimize not string cst test?

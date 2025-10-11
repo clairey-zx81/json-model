@@ -365,19 +365,21 @@ def model_type(model: ModelType, mpath: ModelPath) -> tuple[bool, type|None]:
         case _:
             raise ModelError(f"unexpected model: {model} ({tname(model)})")
 
-def resolve_model(m: ModelType, defs: Symbols) -> ModelType:
+def resolve_model(m: ModelType, jm, path: ModelPath) -> ModelType:
     """Follow definitions and @ to find the underlying type, if possible."""
     changed, resolved = True, set()
-    while changed:
-        # FIXME possible infinite recursion?
+    while changed and jm._id not in resolved:
         changed = False
-        if isinstance(m, str) and m != "" and m[0] == "$":
-            name = m[1:]
-            if name not in resolved and name in defs:
-                m, changed = defs[name]._model, True  # pyright: ignore
-            resolved.add(name)
+        if jm._isRef(m):
+            njm = jm.resolveRef(m, path)
+            changed = jm._id != njm._id
+            if changed:
+                resolved.add(jm._id)
+                path = path + [m]
+                jm = njm
+                m = njm._model
         if isinstance(m, dict) and "@" in m:
-            m, changed = m["@"], True
+            m, changed, path = m["@"], True, (path + ["@"])
     return m
 
 def openfiles(args: list[str] = []):
@@ -397,29 +399,12 @@ def _dedup_models(models: list[ModelType]) -> list[ModelType]:
             dedups.append(m)
     return dedups
 
-# def _mandatory_props(m: ModelType) -> set[str]:
-#     assert is_a_simple_object(m)
-#     props = set()
-#     for a in m:
-#         assert isinstance(m, str)
-#         if (a in ("", "#", "%", "$", "~") or
-#             a.startswith("#") or a.startwith("/") or a.startswith("$") or a.startswith("?")):
-#             continue
-#         if a[0] in ("!", "_"):
-#             props.add(a[1])
-#         else:
-#             props.add(a)
-#     return props
-
 def _is_not_str_cst(m: ModelType):
     return isinstance(m, str) and (m == "" or m[0] not in "$/=")
 
-# FIXME consistency with _structurally_distinct_models…
-# TODO add name resolution?
-def _distinct_models(m1: ModelType, m2: ModelType, defs: Symbols, mpath: ModelPath) -> bool:
+def _distinct_models(m1: ModelType, m2: ModelType, jm, mpath: ModelPath) -> bool:
     """Whether m1 and m2 are provably distinct, i.e. do not have values in common."""
-    m1, m2 = resolve_model(m1, defs), resolve_model(m2, defs)
-    # log.warning(f"distinct models: m1={m1} m2={m2}")
+    m1, m2 = resolve_model(m1, jm, mpath), resolve_model(m2, jm, mpath)
     if isinstance(m1, str) and m1 and m1[0] == "$":  # unresolved reference
         return m1 == "$NONE"  # special case for none which interact with nothing
     if isinstance(m2, str) and m2 and m2[0] == "$":  # unresolved reference
@@ -496,12 +481,12 @@ class _Object:
         # we look for mandatory one property in o which allows to discriminate
         for p, m in o._must.items():
             if p in self._must:
-                if _distinct_models(m, self._must[p], self._jm._defs, self._mpath):
+                if _distinct_models(m, self._must[p], self._jm, self._mpath):
                     return False
                 # o.p does not discriminate with self
                 continue
             elif p in self._may:
-                if _distinct_models(m, self._may[p], self._jm._defs, self._mpath):
+                if _distinct_models(m, self._may[p], self._jm, self._mpath):
                     return False
                 continue
             for reg, model in self._regs.items():
@@ -510,15 +495,15 @@ class _Object:
                     if model == "$NONE":
                         return False
                     # else try model resolution… this may depend on the execution order?
-                    resolved = resolve_model(model, self._jm._defs)
+                    resolved = resolve_model(model, self._jm, self._mpath)
                     if resolved == "$NONE":
                         return False
-                    if _distinct_models(m, model, self._jm._defs, self._mpath):
+                    if _distinct_models(m, model, self._jm, self._mpath):
                         return False
                     # else o.p does not discrimate
                     continue
             if "" in self._oth:
-                if _distinct_models(m, self._oth[""], self._jm._defs, self._mpath):
+                if _distinct_models(m, self._oth[""], self._jm, self._mpath):
                     return False
                 # self is open so would accept p
                 continue
@@ -619,9 +604,10 @@ def merge_objects(models: list[ModelObject], path: ModelPath) -> JsonObject|str:
 
     return unsplit_object(must, may, refs, regs, others)
 
+# TODO add other constant values?
+# TODO partial extraction?
 def _distinct_models_summary(jm, lm: list[ModelType], mpath: ModelPath) -> \
         tuple[set[type], list[_Object], set[str]] | None:
-    # TODO add other constant values?
     types, objects, strings = set(), [], set()
     for m in lm:
 

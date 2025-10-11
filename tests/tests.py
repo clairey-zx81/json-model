@@ -218,8 +218,8 @@ EXPECT: dict[str, int] = {
     "mv-25:values": 134,
     "mv-25:verrors:schema": 4,
     # mv-26
-    "mv-26:models": 4,
-    "mv-26:values": 59,
+    "mv-26:models": 5,
+    "mv-26:values": 76,
     # miscellaneous tests
     "bads:models": 58,
     # tests json models of json schema versions
