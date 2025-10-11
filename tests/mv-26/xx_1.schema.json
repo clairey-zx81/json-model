@@ -1,0 +1,17 @@
+{
+  "description": "not hello, world or !",
+  "oneOf": [
+    {
+      "type": "string"
+    },
+    {
+      "const": "world"
+    },
+    {
+      "const": "!"
+    },
+    {
+      "const": "hello"
+    }
+  ]
+}

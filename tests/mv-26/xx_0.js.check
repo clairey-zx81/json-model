@@ -1,0 +1,14 @@
+xx_0.values.json[0]: PASS
+xx_0.values.json[1]: PASS
+xx_0.values.json[2]: FAIL (.: value not in enum [.'|'])
+xx_0.values.json[3]: FAIL (.: value not in enum [.'|'])
+xx_0.values.json[4]: FAIL (.: value not in enum [.'|'])
+xx_0.values.json[5]: FAIL (.: value not in enum [.'|'])
+xx_0.values.json[6]: FAIL (.: value not in enum [.'|'])
+xx_0.values.json[7]: FAIL (.: value not in enum [.'|'])
+xx_0.values.json[8]: FAIL (.: value not in enum [.'|'])
+xx_0.values.json[9]: FAIL (.: value not in enum [.'|'])
+xx_0.values.json[10]: FAIL (.: value not in enum [.'|'])
+xx_0.values.json[11]: FAIL (.: value not in enum [.'|'])
+xx_0.values.json[12]: FAIL (.: value not in enum [.'|'])
+xx_0.values.json[13]: FAIL (.: value not in enum [.'|'])

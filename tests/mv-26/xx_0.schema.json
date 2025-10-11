@@ -1,0 +1,7 @@
+{
+  "description": "world or !",
+  "enum": [
+    "world",
+    "!"
+  ]
+}

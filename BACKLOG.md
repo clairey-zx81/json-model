@@ -8,6 +8,10 @@
 - [x] optim: improve xor-to-or over references and sub-ors
 - [x] python: remove useless (debugging) assertion in generated code
 - [x] perf: also show docker id of tested image
+- [x] optim: more xor/not/or simplifications
+- [ ] optim: partial xor to or?
+- [ ] static: partial discriminator with else?
+- [ ] static: optimize not string cst test?
 - [ ] perf: compute performance overhead globally instead of per run
 - [ ] tests: add ir optimized output (too large?)
 - [ ] tests: add pytest ir tests

@@ -1,0 +1,13 @@
+{
+  "oneOf": [
+    {
+      "type": "string"
+    },
+    {
+      "const": "!"
+    },
+    {
+      "const": "world"
+    }
+  ]
+}

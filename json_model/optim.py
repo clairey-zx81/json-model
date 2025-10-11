@@ -186,7 +186,40 @@ def xor_to_or(jm: JsonModel) -> bool:
 
     return changes > 0
 
-def flatten(jm: JsonModel):
+def is_str_cst(m: ModelType) -> bool:
+    return isinstance(m, str) and m and m[0] not in "$/="
+
+# TODO generalize if useful
+def notor_to_not(jm: JsonModel) -> bool:
+    """Change xor(gen, or(constants…)) to xor(gen, constants…)"""
+    changes = 0
+
+    def no2nRwt(model: ModelType, path: ModelPath) -> ModelType:
+        nonlocal changes
+        if isinstance(model, dict) and "^" in model:
+            lox = model["^"]
+            if len(lox) != 2:
+                return model
+            gen_idx, or_idx, lor = None, None, None
+            for i, m in enumerate(model["^"]):
+                if m in ("$ANY", ""):
+                    gen_idx = i
+                elif isinstance(m, dict) and "|" in m:
+                    lor = m["|"]
+                    assert isinstance(lor, list)
+                    if all(map(is_str_cst, lor)):
+                        or_idx = i
+            if or_idx is not None and gen_idx is not None:
+                changes += 1
+                model["^"] = [lox[gen_idx]] + lor
+        return model
+
+    jm._model = recModel(jm._model, builtFlt, no2nRwt)
+
+    log.debug(f"{jm._id}: no2n {changes}")
+    return changes > 0
+
+def flatten(jm: JsonModel) -> bool:
     """Flatten or, xor, and and merge operators."""
 
     changes = 0
@@ -671,3 +704,4 @@ def optimize(jm: JsonModel, *, debug: bool = False):
         changed |= and_not_simpler(jm)
         changed |= and_to_merge(jm)
         changed |= xor_to_or(jm)
+        changed |= notor_to_not(jm)
