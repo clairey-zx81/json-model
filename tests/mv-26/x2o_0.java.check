@@ -1,0 +1,17 @@
+x2o_0.values.json[0]: PASS
+x2o_0.values.json[1]: PASS
+x2o_0.values.json[2]: PASS
+x2o_0.values.json[3]: PASS
+x2o_0.values.json[4]: PASS
+x2o_0.values.json[5]: FAIL (: tag <t> value not found [.'|']; t: unexpected string [.'|'.2.t.'^'.0]; t: unexpected _a [.'|'.2.t.'^'.1]; t: unexpected _b [.'|'.2.t.'^'.2]; t: unexpected _c [.'|'.2.t.'^'.3]; t: not one model match [.'|'.2.t.'^']; t: unexpected value for mandatory prop <t> [.'|'.2]; : unexpected element [.'|'.2])
+x2o_0.values.json[6]: FAIL (: bad property count [.'|'.0]; : bad property count [.'|'.2]; : unexpected element [.'|'.2])
+x2o_0.values.json[7]: FAIL (: tag prop <t> is missing [.'|']; : bad property count [.'|'.2]; : unexpected element [.'|'.2])
+x2o_0.values.json[8]: FAIL (: value is not an object [.'|']; : not an object [.'|'.2]; : unexpected element [.'|'.2])
+x2o_0.values.json[9]: FAIL (: value is not an object [.'|']; : not an object [.'|'.2]; : unexpected element [.'|'.2])
+x2o_0.values.json[10]: FAIL (: value is not an object [.'|']; : not an object [.'|'.2]; : unexpected element [.'|'.2])
+x2o_0.values.json[11]: FAIL (: value is not an object [.'|']; : not an object [.'|'.2]; : unexpected element [.'|'.2])
+x2o_0.values.json[12]: FAIL (: value is not an object [.'|']; : not an object [.'|'.2]; : unexpected element [.'|'.2])
+x2o_0.values.json[13]: FAIL (: value is not an object [.'|']; : not an object [.'|'.2]; : unexpected element [.'|'.2])
+x2o_0.values.json[14]: FAIL (: value is not an object [.'|']; : not an object [.'|'.2]; : unexpected element [.'|'.2])
+x2o_0.values.json[15]: FAIL (: value is not an object [.'|']; : not an object [.'|'.2]; : unexpected element [.'|'.2])
+x2o_0.values.json[16]: FAIL (: value is not an object [.'|']; : not an object [.'|'.2]; : unexpected element [.'|'.2])

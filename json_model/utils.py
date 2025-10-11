@@ -238,6 +238,7 @@ def is_constructed(model: ModelType):
     return isinstance(model, dict) and \
         ("|" in model or "&" in model or "^" in model or "+" in model or "@" in model)
 
+# NOTE comments are not handled here
 def constant_value(m: ModelType, mpath: ModelPath) -> tuple[bool, ValueType]:
     """Return whether model is a scalar constant."""
     if m is None:
@@ -410,7 +411,11 @@ def _dedup_models(models: list[ModelType]) -> list[ModelType]:
 #             props.add(a)
 #     return props
 
+def _is_not_str_cst(m: ModelType):
+    return isinstance(m, str) and (m == "" or m[0] not in "$/=")
+
 # FIXME consistency with _structurally_distinct_models…
+# TODO add name resolution?
 def _distinct_models(m1: ModelType, m2: ModelType, defs: Symbols, mpath: ModelPath) -> bool:
     """Whether m1 and m2 are provably distinct, i.e. do not have values in common."""
     m1, m2 = resolve_model(m1, defs), resolve_model(m2, defs)
@@ -435,9 +440,33 @@ def _distinct_models(m1: ModelType, m2: ModelType, defs: Symbols, mpath: ModelPa
     c2, lv2 = constant_values(m2, mpath)
     if c1 and c2 and len(ConstSet(lv1) & ConstSet(lv2)) == 0:
         return True
+    # try "not" string constants assurance
+    if c1 and not c2 or c2 and not c1:
+        if c2:
+            c1, lv1 = c2, lv2
+            m = m1
+        else:
+            m = m2
+        if not all(map(lambda s: isinstance(s, str), lv1)):
+            return False
+        if isinstance(m, dict) and "^" in m and "" in m["^"]:
+            lxor = m["^"]
+            assert isinstance(lxor, list)
+            if not all(map(_is_not_str_cst, lxor)):
+                return False
+            # get set of not cst strings
+            not_cst: set[str] = set()
+            for s in lxor:
+                if s == "" or s[0] == "#":
+                    continue
+                not_cst.add(s[1:] if s[0] == "_" else s)
+            cst: set[str] = set(lv1)
+            log.warning(f"cst={cst} not_cst={not_cst}")
+            return cst < not_cst
     return False
 
 
+# FIXME drop resolve_model?
 class _Object:
     """Internal representation of an object model."""
 

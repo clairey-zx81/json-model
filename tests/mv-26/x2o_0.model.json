@@ -1,0 +1,8 @@
+{
+  "#": "xor-to-or with not constant exclusion",
+  "^": [
+    {"t": "a"},
+    {"t": {"^": ["b", "c"]}},
+    {"t": {"^": ["", "a", "b", "c"]}}
+  ]
+}

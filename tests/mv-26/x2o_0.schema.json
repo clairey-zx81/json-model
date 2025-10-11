@@ -1,0 +1,57 @@
+{
+  "description": "xor-to-or with not constant exclusion",
+  "anyOf": [
+    {
+      "type": "object",
+      "properties": {
+        "t": {
+          "const": "a"
+        }
+      },
+      "required": [
+        "t"
+      ],
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "properties": {
+        "t": {
+          "enum": [
+            "b",
+            "c"
+          ]
+        }
+      },
+      "required": [
+        "t"
+      ],
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "properties": {
+        "t": {
+          "oneOf": [
+            {
+              "type": "string"
+            },
+            {
+              "const": "a"
+            },
+            {
+              "const": "b"
+            },
+            {
+              "const": "c"
+            }
+          ]
+        }
+      },
+      "required": [
+        "t"
+      ],
+      "additionalProperties": false
+    }
+  ]
+}
