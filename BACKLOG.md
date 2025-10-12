@@ -2,14 +2,7 @@
 
 ## Current Tasks
 
-- [x] static: skip map target functions for objects
-- [x] static: skip map target functions for references
-- [x] optim: add more if simplifications in IR
-- [x] optim: improve xor-to-or over references and sub-ors
-- [x] python: remove useless (debugging) assertion in generated code
-- [x] perf: also show docker id of tested image
-- [x] optim: more xor/not/or simplifications
-- [x] optim: xor-to-or model difference based on not exclusion, possibly behind refs
+- [ ] perf: add a performance artifact page
 - [ ] optim: partial xor to or?
 - [ ] static: partial discriminator with else?
 - [ ] static: optimize not string cst test?
@@ -48,9 +41,11 @@
 - [ ] pr: submit jsonschema-benchmark java PR
 - [ ] frontends: reject json with duplicated props
 - [ ] c-backend: header file for generated code?
+- [ ] backend: implement str comparison using some fast hash in some cases?
 - [ ] command: allow to pass some options from rc file?
 - [ ] tests: parallelize per-case instead of per-dir?
 - [ ] static: shorten xor exit?
+- [ ] perf: profile some cases
 
 ## Re Do
 
@@ -647,3 +642,11 @@
 - [x] ~pr: submit jsonschema-benchmark PL/pgSQL PR~
 - [x] optim: get rid of double object with C, Python and Java
 - [x] backend: ~do not generate intermediate empty functions for direct objects? (skip)~
+- [x] static: skip map target functions for objects
+- [x] static: skip map target functions for references
+- [x] optim: add more if simplifications in IR
+- [x] optim: improve xor-to-or over references and sub-ors
+- [x] python: remove useless (debugging) assertion in generated code
+- [x] perf: also show docker id of tested image
+- [x] optim: more xor/not/or simplifications
+- [x] optim: xor-to-or model difference based on not exclusion, possibly behind refs
