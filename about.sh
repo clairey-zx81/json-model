@@ -80,6 +80,7 @@ cloc --md \
     json_model/data/*.java \
     | tail -1 | sed "s/SUM:/Java/"
 
+# all of the above
 cloc --md \
     json_model/python.py \
     json_model/data/*.py \
@@ -118,8 +119,7 @@ Test models cover the various features of JSON Model.
 Each model is tested for each target language (Python, C, JavaScript, PL/pgSQL, Perl, Java)
 on a set of test vectors.
 
+- number of models: $(echo tests/*/*.model.json | wc -w)
+- model JSON locs: $(cat tests/*/*.model.json | wc -l)
+- number of test values: $(cat tests/*/*.values.json | egrep '(true|false)' | wc -l)
 EOF
-
-echo "- number of models: $(echo tests/*/*.model.json | wc -w)"
-echo "- model JSON locs: $(cat tests/*/*.model.json | wc -l)"
-echo "- number of test values: $(cat tests/*/*.values.json | egrep '(true|false)' | wc -l)"
