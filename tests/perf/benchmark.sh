@@ -19,7 +19,7 @@ function err()
 script_dir=$(dirname $0)
 
 # defaults
-PARA=8 LOOP=1000 RUNS=3 cap_py= debug=
+PARA=8 LOOP=1000 RUNS=3 ID="unset" cap_py= debug=
 export JMC=latest JSC=latest JMC_ENV=$JMC_ENV JMC_BENCH_TIME_FMT='%e'
 
 # get options
@@ -33,6 +33,7 @@ while [[ "$1" == -* ]] ; do
       echo " --help|-h: this help"
       echo " --debug|-d: set debugging messages"
       echo " --version|-v: show jmc version"
+      echo " --id ID: benchmark identifier"
       echo " --parallel|-p N: benchmark parallelism, eg half available cores ($PARA)"
       echo " --loop|-l L: number of run iterations for performance figures ($LOOP)"
       echo " --runs|-r R: number of runs ($RUNS)"
@@ -50,6 +51,8 @@ while [[ "$1" == -* ]] ; do
       jmc --version
       exit 0
       ;;
+    --id=*) ID=${opt#*=} ;;
+    --id) ID=$1 ; shift ;;
     -p|--para|--par|--parallel) PARA=$1 ; shift ;;
     --par=*|--para=*|--parallel=*) PARA=${opt#*=} ;;
     -l|--loop) LOOP=$1 ; shift ;;
@@ -228,44 +231,43 @@ function docker_id()
 #
 # OUTPUT
 #
-{
-  echo "# JSON Model Compiler Benchmark Run"
+cat <<EOF > benchmark.md
+# JSON Model Compiler Benchmark Run
 
-  echo "## Summary"
-  echo "- now: $(date)"
-  echo "- host: $(hostname)"
-  echo "- model: $cpu_model"
-  echo "- cores: $cpu_count"
-  echo "- duration: $SECONDS"
+## Summary
 
-  echo "## Benchmark Parameters"
-  echo "- para: $PARA"
-  echo "- runs: $RUNS"
-  echo "- loop: $LOOP"
-  echo "- jmc: $JMC [$(docker_id zx80/jmc:$JMC)]"
-  echo "- jsc: $JSC [$(docker_id ghcr.io/sourcemeta/jsonschema:$JSC)]"
-  echo "- cap_py: $cap_py"
-  echo "- debug: $debug"
-  echo "- format: $JMC_BENCH_TIME_FMT"
+- id: $ID
+- now: $(date)
+- host: $(hostname) (NOTE docker gives a 6-byte hexadecimal)
+- model: $cpu_model
+- cores: $cpu_count
+- jmc: $(jmc --version)
+- jsonschema: $(js-cli --version)
+- jsonschema-benchmark: $(GIT_DIR=./jsb/.git git rev-parse --short=8 HEAD)  
+  uniq tests: $(cat jsb/schemas/*/instances.jsonl | sort -u | wc -l)
+- duration: $SECONDS seconds
 
-  echo "## Environment"
-  echo "- JMC_ENV: $JMC_ENV"
-  for var in $JMC_ENV ; do
-    echo "  - $var: ${!var}"
-  done
+## Parameters
 
-  echo "## Versions"
-  echo "- jmc: $(jmc --version)"
-  echo "- js-cli: $(js-cli --version)"
-  echo "- jsb: $(GIT_DIR=./jsb/.git git rev-parse --short=8 HEAD)"
+- para: $PARA
+- runs: $RUNS
+- loop: $LOOP
+- jmc: $JMC ($(docker_id zx80/jmc:$JMC))
+- jsc: $JSC ($(docker_id ghcr.io/sourcemeta/jsonschema:$JSC))
+- cap_py: $cap_py
+- debug: $debug
+- format: $JMC_BENCH_TIME_FMT
+- JMC_ENV: $JMC_ENV
+$(for var in $JMC_ENV ; do echo "  - $var: ${!var}" ; done)
 
-  echo "## Statistics"
-  echo "- jsb uniq tests: $(cat jsb/schemas/*/instances.jsonl | sort -u | wc -l)"
+## Stats and Results
 
-  # TODO markdown
-  sqlite3 -box perf.db < $script_dir/show.sql
-} > benchmark.output
+EOF
 
+# for markdown
+sqlite3 -markdown perf.db < $script_dir/show.sql >> benchmark.md
+
+# for latex
 sqlite3 -csv perf.db < $script_dir/show.sql > benchmark.csv
 
 #
