@@ -22,4 +22,4 @@ for line in fileinput.input(encoding="utf-8"):
                 align[i+1] = " :--- "
         print("|".join(align), end="")
     else:
-        print(line)
+        print(line, end="")

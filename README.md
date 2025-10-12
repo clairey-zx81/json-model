@@ -123,20 +123,11 @@ print("reasons:", reasons)
 
 ## JSON Model Validation Performance
 
-Preliminary performance tests below compare validation times for a _large_ 500 KB JSON OpenAPI
-description using JSON Model compiled to C, Java, JS, Python, Perl and
-JSON Schema Blaze 11.5.0 implementation, with an average collected on 1000 runs,
-in _fast_ (no reporting) mode, including format validations, on a laptop:
-
-- JSON Model C: _197_ µs/check (about ⅕ ms)
-- JSON Model Java (with GSON): _304_ µs/check (under ⅓ ms)
-- JSON Model JS: _747_ µs/check (under ¾ ms)
-- JSON Schema C++ Blaze: _1677_ µs/check (under 2 ms, 30 seconds compilation time)
-- JSON Model Python: _3,944_ µs/check (under 4 ms)
-- JSON Model Perl: _32,024_ µs/check (about 32 ms)
-
-On this benchmark, JSON Model Compiler outperforms the fastest JSON Schema library 8:1,
-and both Java and JavaScript model validation are faster than the C++ schema validation.
+See the [benchmark page](BENCH.md) for artifacts which compare various
+[JSON Model Compiler](https://github.com/clairey-zx81/json-model) runs (C, JS, Java, Python) with
+[Sourcemeta Blaze CLI](https://github.com/sourcemeta/jsonschema) using test cases from
+[JSON Schema Benchmark](https://github.com/sourcemeta-research/jsonschema-benchmark).
+Overall, JMC C implementation is about 25\% faster than blaze on these tests.
 
 ## More Information
 

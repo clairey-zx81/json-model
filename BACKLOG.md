@@ -2,7 +2,7 @@
 
 ## Current Tasks
 
-- [ ] perf: add a performance artifact page
+- [x] pr: add a benchmarking performance artifact page
 - [ ] optim: partial xor to or?
 - [ ] static: partial discriminator with else?
 - [ ] static: optimize not string cst test?

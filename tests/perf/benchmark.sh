@@ -236,32 +236,31 @@ cat <<EOF > benchmark.md
 
 ## Summary
 
-- id: $ID
-- now: $(date)
-- host: $(hostname) (NOTE docker gives a 6-byte hexadecimal)
-- model: $cpu_model
-- cores: $cpu_count
-- jmc: $(jmc --version)
-- jsonschema: $(js-cli --version)
-- jsonschema-benchmark: $(GIT_DIR=./jsb/.git git rev-parse --short=8 HEAD)  
-  uniq tests: $(cat jsb/schemas/*/instances.jsonl | sort -u | wc -l)
-- duration: $SECONDS seconds
+- **id:** $ID
+- **now:** $(date)
+- **host:** $(hostname) (NOTE docker gives a 6-byte hexadecimal)
+- **cpu model:** $cpu_model
+- **cpu cores:** $cpu_count
+- **jmc version:** $(jmc --version)
+- **jsonschema version:** $(js-cli --version)
+- **jsonschema-benchmark version:** $(GIT_DIR=./jsb/.git git rev-parse --short=8 HEAD),
+  $(cat jsb/schemas/*/instances.jsonl | sort -u | wc -l) uniq tests
+- **duration:** $SECONDS seconds
 
 ## Parameters
 
-- para: $PARA
-- runs: $RUNS
-- loop: $LOOP
-- jmc: $JMC ($(docker_id zx80/jmc:$JMC))
-- jsc: $JSC ($(docker_id ghcr.io/sourcemeta/jsonschema:$JSC))
-- cap_py: $cap_py
-- debug: $debug
-- format: $JMC_BENCH_TIME_FMT
-- JMC_ENV: $JMC_ENV
-$(for var in $JMC_ENV ; do echo "  - $var: ${!var}" ; done)
+- **jmc docker version:** $JMC ($(docker_id zx80/jmc:$JMC))
+- **jsc docker version:** $JSC ($(docker_id ghcr.io/sourcemeta/jsonschema:$JSC))
+- **benchmark parallelism:** $PARA
+- **number of runs:** $RUNS
+- **number of case iterations:** $LOOP
+- **cap python:** $cap_py (whether to reduce iterations for python runs)
+- **debug:** $debug
+- **format:** $JMC_BENCH_TIME_FMT
+- **exported environment variables:** $JMC_ENV
+$(for var in $JMC_ENV ; do echo "  - $var: \`${!var}\`" ; done)
 
 ## Stats and Results
-
 EOF
 
 # for markdown

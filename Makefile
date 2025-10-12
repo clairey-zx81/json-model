@@ -100,8 +100,8 @@ build.site: site/MODELS.md site/JMC.md site/ABOUT.md
 .PHONY: publish.site
 publish.site: build.site
 	rsync -avL --progress ./site/. $(SITE):$(SITEPATH)/.
-	ssh $(SITE) chmod a+rx $(SITEPATH) $(SITEPATH)/models
-	ssh $(SITE) chmod a+r $(SITEPATH)/* $(SITEPATH)/models/*
+	ssh $(SITE) chmod a+rx $(SITEPATH) $(SITEPATH)/models $(SITEPATH)/benchmarks
+	ssh $(SITE) chmod a+r $(SITEPATH)/* $(SITEPATH)/models/* $(SITEPATH)/benchmarks/*
 
 .PHONY: publish.py
 publish.py: dev
