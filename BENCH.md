@@ -8,7 +8,8 @@ C, JS, Java (GSON, Jackson and JSONP using Johnzon) and Python with
 
 ## Recent Artifacts
 
-- [2025101204](benchmarks/2025101204.md)
+- [2025101205](benchmarks/2025101205.md) no predefs, jmc 2.0b28 vs jsc 11.10.0
+- [2025101204](benchmarks/2025101204.md) no predefs, jmc 2.0b28 vs jsc 11.10.0
 
 ## Benchmarking Script
 
