@@ -173,10 +173,21 @@ def xor_to_or(jm: JsonModel) -> bool:
                     del model["^"]
                     model["|"] = xor
                 # else some constants are repeated thus excluded by "^"
-            elif _structurally_distinct_models(jm, xor, lpath):  # pyright: ignore
-                changes += 1
-                del model["^"]
-                model["|"] = xor
+            else:
+                t = _structurally_distinct_models(jm, xor, lpath, True)  # pyright: ignore
+                if isinstance(t, bool):
+                    if t:
+                        changes += 1
+                        del model["^"]
+                        model["|"] = xor
+                    # else nothing
+                else:
+                    # partial xor to or case
+                    assert isinstance(t, tuple) and len(t) == 2
+                    kept, failed = t
+                    # NOTE this must not be the inverse of notor to not!
+                    changes += 1
+                    model["^"] = [ {"|": kept} ] + failed
 
         return model
 

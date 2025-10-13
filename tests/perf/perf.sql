@@ -205,7 +205,7 @@ CREATE TABLE CompilePerfCompare AS
 -- result summary
 CREATE TABLE ResultComparison AS
   SELECT
-    RANK() OVER (ORDER BY name) AS nb,
+    RANK() OVER (ORDER BY name) AS "#",
     c.name AS name,
     (SELECT pc FROM ResultRate AS r WHERE r.name = c.name AND r.tool = 'blaze') AS blaze,
     (SELECT pc FROM ResultRate AS r WHERE r.name = c.name AND r.tool = 'jmc-c') AS c,
@@ -221,15 +221,16 @@ CREATE TABLE ResultComparison AS
 CREATE TABLE ShowCases AS WITH
   CaseInstances AS (
     SELECT
+      RANK() OVER (ORDER BY name) AS rnk,
       name,
       COUNT(*) AS nb,
       MIN(vsize) AS minb,
       FORMAT('%.0f', AVG(vsize)) AS avgb,
       MAX(vsize) AS maxb
     FROM CaseValues
-    GROUP BY 1
+    GROUP BY 2
     UNION
-    SELECT NULL, COUNT(*), MIN(vsize), FORMAT('%.0f', AVG(vsize)), MAX(vsize)
+    SELECT NULL, NULL, COUNT(*), MIN(vsize), FORMAT('%.0f', AVG(vsize)), MAX(vsize)
     FROM CaseValues
   ),
   CaseStats AS (
@@ -243,7 +244,7 @@ CREATE TABLE ShowCases AS WITH
     FROM Cases
   )
   SELECT
-    cs.name, cs.schema, cs.model,
+    ci.rnk AS "#", cs.name, cs.schema, cs.model,
     ci.nb, ci.minb AS "min (b)", ci.avgb AS "avg (b)", ci.maxb AS "max (b)"
   FROM CaseInstances AS ci
   JOIN CaseStats AS cs ON (ci.name IS NULL AND cs.name IS NULL OR ci.name = cs.name)

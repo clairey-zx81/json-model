@@ -446,7 +446,7 @@ def _distinct_models(m1: ModelType, m2: ModelType, jm, mpath: ModelPath) -> bool
                     continue
                 not_cst.add(s[1:] if s[0] == "_" else s)
             cst: set[str] = set(lv1)
-            log.warning(f"cst={cst} not_cst={not_cst}")
+            # log.warning(f"cst={cst} not_cst={not_cst}")
             return cst < not_cst
     return False
 
@@ -606,12 +606,14 @@ def merge_objects(models: list[ModelObject], path: ModelPath) -> JsonObject|str:
 
 # TODO add other constant values?
 # TODO partial extraction?
-def _distinct_models_summary(jm, lm: list[ModelType], mpath: ModelPath) -> \
-        tuple[set[type], list[_Object], set[str]] | None:
-    types, objects, strings = set(), [], set()
-    for m in lm:
+def _distinct_models_summary(jm, lm: list[ModelType], mpath: ModelPath, partial: bool) -> \
+        tuple[set[type], list[_Object], set[str], list[ModelType], list[ModelType]] | None:
+    # distinct types, objects, string constants
+    types, objects, strings, kept, failed = set(), [], set(), [], []
+    for m0 in lm:
+        m = m0
 
-        # best-effort resolution
+        # best-effort reference resolution
         updated: bool = True
         while updated:
             updated = False
@@ -623,13 +625,15 @@ def _distinct_models_summary(jm, lm: list[ModelType], mpath: ModelPath) -> \
             # we possibly ignore constraints to check only for the container model
             while isinstance(m, dict) and "@" in m:
                 m, updated = m["@"], True
+
         mt = type(m)
 
         # special str preprocessing
         if isinstance(m, str):
             if m.startswith("$"):  # unresolved reference?
                 log.debug("- unresolved $-reference")
-                return None
+                failed.append(m0)
+                continue
             elif m.startswith("="):
                 c, v = constant_value(m, mpath)
                 assert c
@@ -640,41 +644,51 @@ def _distinct_models_summary(jm, lm: list[ModelType], mpath: ModelPath) -> \
             if mt in types:
                 log.debug(f"- multiple type {mt.__name__}")
                 return None
+            kept.append(m0)
             types.add(mt)
         elif isinstance(m, str):
             if m == "" or m[0] == "/":  # generic string
                 if str in types or strings:
                     log.debug("- multiple strings")
-                    return None
+                    failed.append(m)
+                    continue
                 types.add(str)
+            elif m[0] == "=":
+                log.debug("- non string constant (TODO)")
+                failed.append(m0)
+                continue
             else:  # constant string
                 if str in types:
                     log.debug("- constant strings")
-                    return None
+                    failed.append(m0)
+                    continue
                 if m[0] == "_":
                     m = m[1:]
                 # ???
                 if m in strings:
                     log.warning(f"repeated constant: {m} {mpath}")
                     log.debug("- repeated constant strings")
-                    return None
+                    failed.append(m0)
+                    continue
                 strings.add(m)
+            kept.append(m)
         # TODO other constants
         elif isinstance(m, dict):
+            # NOTE no partial here for now
             if "+" in m:  # may try later, after merging
                 return None
             elif "|" in m:  # try diving into or
                 orlm = m["|"]
                 assert isinstance(orlm, list)
-                ot = _distinct_models_summary(jm, orlm, mpath + ["|"])
+                ot = _distinct_models_summary(jm, orlm, mpath + ["|"], partial)
                 if ot is None:
                     return None
                 # else merge summary with current stuff
-                ort, oro, ors = ot
+                ort, oro, ors, ork, orf = ot
+                if orf:
+                    return None
                 for t in ort:
-                    if t is str and strings:
-                        return None
-                    if t in types:
+                    if (t is str and strings) or t in types:
                         return None
                     types.add(t)
                 if str in types and ors:
@@ -688,12 +702,14 @@ def _distinct_models_summary(jm, lm: list[ModelType], mpath: ModelPath) -> \
                         if o in no or no in o:
                             return None
                     objects.append(no)
+                kept.append(m0)
             elif is_constructed(m):  # XOR AND
                 log.debug(f"- constructed model: {m}")
-                return None
+                failed.append(m0)
+                continue
             else:
                 # else dict is a model for an object
-                obj = _Object(m, jm, mpath)
+                obj, failed_obj = _Object(m, jm, mpath), False
 
                 # distinguishable objects?
                 # - each object has a mandatory prop which cannot exists in others objects
@@ -701,21 +717,39 @@ def _distinct_models_summary(jm, lm: list[ModelType], mpath: ModelPath) -> \
                 for o in objects:
                     if o in obj and obj in o:
                         log.debug("- conflicting objects")
-                        return None
+                        failed.append(m0)
+                        failed_obj = True
+                        break
+
+                if failed_obj:
+                    continue
 
                 objects.append(obj)
+                kept.append(m0)
         else:
             raise ModelError(f"unexpected model type ({mt.__name__}) {mpath}")
 
-    return types, objects, strings
+    if failed and not partial:
+        return None
+    else:
+        assert len(lm) == len(kept) + len(failed)
+        return types, objects, strings, kept, failed
 
-def _structurally_distinct_models(jm, lm: list[ModelType], mpath: ModelPath) -> bool:
+def _structurally_distinct_models(jm, lm: list[ModelType], mpath: ModelPath, partial: bool) \
+        -> bool | tuple[list[ModelType], list[ModelType]]:
     """Whether all models are structurally distinct.
 
     This ensures that values in these are distinct.
     """
     log.debug(f"distinct on {lm}")
-    t = _distinct_models_summary(jm, lm, mpath)
+    t = _distinct_models_summary(jm, lm, mpath, partial)
+    if partial and t is not None:
+        _1, _2, _3, kept, failed = t
+        if len(kept) == 1:
+            return False
+        if not failed:
+            return True
+        return kept, failed
     return t is not None
 
 def json_loads(j: str, *, allow_duplicates: bool = False) -> Jsonable:

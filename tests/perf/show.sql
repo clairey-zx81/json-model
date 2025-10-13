@@ -4,19 +4,19 @@
 .print
 .print ### Cases Statistics
 .print
-.print For each case plus the summary: the schema and model sizes (number of lines, model size 1
+.print For each case and a summary: the schema and model sizes (number of lines, model size 1
 .print denotes a reference to a predefined model), number/min/average/max size of test values.
 .print
-.print LRRRRRR
-.width 0 -6, -6, -5 -8 -8 -8
+.print RLRRRRRR
+.width -2, 0 -6, -6, -5 -8 -8 -8
 SELECT * FROM ShowCases ORDER BY 1;
 
 .print
 .print ### Tool Performance Per Case
 .print
-.print For each case: number and name, number of test cases, best cumulated median performance,
-.print performance ratio for blaze and jmc variants (java 1 is gson, 2 is jackson,
-.print 3 is jsonp/johnzon), the lower the better.
+.print For each case: number and name, number of test cases, best cumulated median performance (µs),
+.print performance slowdown ratio for blaze and jmc variants (java 1 is gson, 2 is jackson,
+.print 3 is jsonp/johnzon), the lower the better, **1.0** is best.
 .print
 .print RLRRRRRRRRR
 .width -2 16 -5 -7 -6 -6 -6 -6 -6 -6 -6
@@ -32,6 +32,15 @@ SELECT * FROM ShowPerfPerCase ORDER BY 1;
 .width 0 -5 -5 -5 -5 -5 -5 -5
 SELECT summary, blaze, c, js, jv1, jv2, jv3, py
 FROM ShowPerfSummary ORDER BY ordre;
+
+.print
+.print ### Result Success
+.print
+.print For each tool and cases with a partial success rate, percent of test cases validated.
+.print
+.print RLRRRRRRR
+.width -2 16 -5 -5 -5 -5 -5 -5 -5
+SELECT * FROM ShowBadResults ORDER BY 1;
 
 .print
 .print ### Compilation Per Case
@@ -50,12 +59,3 @@ SELECT * FROM ShowCompilePerCase ORDER BY 1;
 .print LRRRRR
 .width 0 -5 -5 -5 -5 -5
 SELECT * FROM ShowCompileSummary ORDER BY 1;
-
-.print
-.print ### Result Summary
-.print
-.print For each tool and cases with a partial success rate, percent of test cases validated.
-.print
-.print RLRRRRRRR
-.width -2 16 -5 -5 -5 -5 -5 -5 -5
-SELECT * FROM ShowBadResults ORDER BY 1;
