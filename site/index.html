@@ -34,6 +34,7 @@
         relativePath: true,
         auto2top: true,
         coverpage: "cover.md",
+        executeScript: true,
       };
     </script>
     <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
@@ -47,5 +48,68 @@
     <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-java.min.js"></script>
     <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-markdown.min.js"></script>
     <script src="//cdn.jsdelivr.net/npm/docsify-copy-code/dist/docsify-copy-code.min.js"></script>
+    <!-- Performance Radar Chart -->
+    <script src="//cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+      async function showRadar(display, source, sort = true) {
+        const resp = await fetch(source)
+        const res = await resp.json()
+        const data = res.map((x) => { return {...x, fill: true} })
+
+        // only keep used indexes
+        let indexes = []
+
+        for (let i = 0; i < data[0].data.length; i++)
+          for (let t = 0; t < data.length; t++)
+            if (data[t].data[i] !== 0.0 && data[t].data[i] !== null) {
+              indexes.push(i)
+              break
+            }
+
+        // sort display by decreasing jmc-c then blaze perf
+        if (sort)
+          indexes.sort( (i, j) => {
+            const ict = data[1].data[i] === 1.0
+            const jct = data[1].data[j] === 1.0
+            const ibt = data[0].data[i] === 1.0
+            const jbt = data[0].data[j] === 1.0
+            // jmc c top
+            if (ict && jct)
+              return data[0].data[j] - data[0].data[i]
+            // blaze top
+            if (ibt && jbt)
+              return data[1].data[j] - data[1].data[i]
+            if (ict && jbt)
+              return -1
+            if (jct && ibt)
+              return 1
+            if (jct || jbt)
+              return 1
+            return i - j
+          })
+
+        // extract needed data in order
+        data.forEach(o => {
+          o.data = indexes.map(i => o.data[i])
+        })
+
+        const labels = indexes.map(i => i + 1)
+        const ctx = document.getElementById(display).getContext('2d')
+
+        const RadarChart = new Chart(ctx, {
+          type: 'radar',
+          data: { labels: labels, datasets: data },
+          options: {
+            scales: {
+              r: {
+                beginAtZero: true,
+                max: 1.0
+              }
+            },
+            aspectRatio: 2
+          }
+        });
+      }
+    </script>
   </body>
 </html>

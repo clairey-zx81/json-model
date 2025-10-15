@@ -19,7 +19,7 @@ function err()
 script_dir=$(dirname $0)
 
 # defaults
-PARA=8 LOOP=1000 RUNS=3 ID="unset" cap_py= debug=
+PARA=8 LOOP=1000 RUNS=3 ID="benchmark" cap_py= debug=
 export JMC=latest JSC=latest JMC_ENV=$JMC_ENV JMC_BENCH_TIME_FMT='%e'
 
 # get options
@@ -231,8 +231,14 @@ function docker_id()
 #
 # OUTPUT
 #
-cat <<EOF > benchmark.md
+cat <<EOF > "$ID.md"
 # JSON Model Compiler Benchmark Run
+
+For each test case, a radar or the relative performance of each tool,
+1.0 is best. Fully non working case(s) removed.
+
+<canvas id="RadarChart"></canvas>
+<script>showRadar("RadarChart", "/benchmarks/$ID.json")</script>
 
 ## Summary
 
@@ -264,10 +270,13 @@ $(for var in $JMC_ENV ; do echo "  - $var: \`${!var}\`" ; done)
 EOF
 
 # for markdown
-sqlite3 -markdown perf.db < $script_dir/show.sql >> benchmark.md
+sqlite3 -markdown perf.db < $script_dir/show.sql >> "$ID.md"
 
 # for latex
-sqlite3 -csv perf.db < $script_dir/show.sql > benchmark.csv
+sqlite3 -csv perf.db < $script_dir/show.sql > "$ID.csv"
+
+# for chart
+sqlite3 perf.db < $script_dir/radar.sql | jq > "$ID.json"
 
 #
 # DONE

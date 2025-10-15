@@ -44,6 +44,21 @@ CREATE TABLE CaseValues(
   PRIMARY KEY (name, line)
 );
 
+CREATE TABLE Labels(
+  tool TEXT PRIMARY KEY,
+  label TEXT UNIQUE NOT NULL
+);
+
+INSERT INTO Labels(tool, label) VALUES
+  ('blaze', 'Blaze CLI'),
+  ('jmc-c', 'JMC C'),
+  ('jmc-js', 'JMC JS'),
+  ('jmc-java-gson', 'JMC Java GSON'),
+  ('jmc-java-jackson', 'JMC Java Jackson'),
+  ('jmc-java-jsonp', 'JMC Java JSONP/Johnzon'),
+  ('jmc-py', 'JMC Python')
+;
+
 -- load raw data
 .mode csv
 .import perf.csv RawRun
@@ -81,6 +96,12 @@ CREATE TABLE Tools(tool TEXT PRIMARY KEY);
 INSERT INTO Tools(tool)
   SELECT DISTINCT tool FROM Run ORDER BY 1;
 
+-- tools x cases
+CREATE TABLE ToolCase AS
+  SELECT name, tool
+  FROM Cases CROSS JOIN Tools
+  ORDER BY 1, 2;
+
 -- results selection, keep MIN pass
 CREATE TABLE Result AS
   WITH OrderedRawResult AS (
@@ -115,8 +136,9 @@ CREATE TABLE CumulatedPerf AS
     SUM(runavg) AS run,
     AVG(runstd/runavg) AS spread,
     AVG(empty) AS empty,
-    COUNT(*) AS nb
+    COUNT(runavg) AS nb
   FROM Run
+  RIGHT JOIN ToolCase USING (name, tool)
   GROUP BY 1, 2
   ORDER BY 1, 2;
 
