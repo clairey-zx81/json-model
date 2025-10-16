@@ -1389,7 +1389,6 @@ class CodeGenerator:
                         code += self._gen_report(res, f"unexpected element [{smpath}]", vpath)
 
                     # record object function for path
-                    log.warning(f"{mpath} -> {objid}")
                     self._paths[tuple(mpath)] = objid
 
                 if "#" in model:
