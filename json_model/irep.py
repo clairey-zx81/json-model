@@ -18,7 +18,12 @@ def _j(o: str, **params) -> str:
 def _l(s: str) -> Jsonable:
     """Parse a JSON operation or something else."""
     # FIXME true/false/null handling is adhoc and can be wrong
-    return json.loads(s) if isinstance(s, str) and s and (s[0] in '{["0123456789-' or s in ("null", "true", "false")) else s
+    try:
+        return json.loads(s) if isinstance(s, str) and s and (s[0] in '{["0123456789-' or s in ("null", "true", "false")) else s
+    except:
+        # FIXME triggered on strange property names, eg "[a-z]"
+        log.warning(f"shamefully ignoring json oops on {s}")
+        return s
 
 def _u(block: Block) -> list[Jsonable]:
     """Parse a JSON code block."""

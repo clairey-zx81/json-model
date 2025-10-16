@@ -3,6 +3,7 @@
 ## Current Tasks
 
 - [x] pr: add a benchmarking performance artifact page
+- [x] backend: shamefully ignore bad json due to strange prop names
 - [ ] optim: partial xor to or?
 - [ ] static: partial discriminator with else?
 - [ ] static: optimize not string cst test?
