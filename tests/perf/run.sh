@@ -86,11 +86,17 @@ for dir ; do
   sprefix="$PREFIX${safe}"
 
   # compiler options
+  jsum_opts=
   jmc_c_opt="--loose --no-reporting"
   jmc_x_opt=$jmc_c_opt
   if [ $name = "cspell" -o $name = "ui5-manifest" ] ; then
     jmc_c_opt+=" -re pcre2"
     jmc_x_opt+=" -re re"
+  fi
+
+  # skip custom OpenAPI model as it is much too strict
+  if [ $name = "openapi" ] ; then
+    jsum_opts+=" --no-id"
   fi
 
   for trg in $targets ; do
@@ -115,7 +121,7 @@ for dir ; do
         $jsu_simpler $dir/schema.json > ${prefix}_schema-simpler.json
       echo -n "$name,jsu-model,$now," >> $compile_csv
       ctime "$name,jsu-model,$now," "$prefix" jsu \
-        $jsu_model --quiet --id --loose --no-fix ${prefix}_schema-simpler.json > ${prefix}_model.json
+        $jsu_model --quiet --id --loose --no-fix $jsum_opts ${prefix}_schema-simpler.json > ${prefix}_model.json
     }
     [ "$do_cmp" -a "$trg" = "jmc-c" ] && {
       echo "## $dir jmc-c compile"
