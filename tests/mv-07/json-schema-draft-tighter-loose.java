@@ -189,6 +189,34 @@ public class json_schema_draft_tighter_loose extends ModelChecker
                                 if (! res)
                                 {
                                     res = json_model_24(val, path, rep);
+                                    if (! res)
+                                    {
+                                        res = json_model_28(val, path, rep);
+                                        if (! res)
+                                        {
+                                            res = json_model_29(val, path, rep);
+                                            if (! res)
+                                            {
+                                                res = json_model_30(val, path, rep);
+                                                if (! res)
+                                                {
+                                                    res = json_model_31(val, path, rep);
+                                                    if (! res)
+                                                    {
+                                                        res = json_model_32(val, path, rep);
+                                                        if (! res)
+                                                        {
+                                                            res = json_model_33(val, path, rep);
+                                                            if (! res)
+                                                            {
+                                                                res = json_model_34(val, path, rep);
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
                                 }
                             }
                         }
@@ -5476,10 +5504,10 @@ public class json_schema_draft_tighter_loose extends ModelChecker
             try {
             _jm_map_0_cmap = new HashMap<Object, Checker>();
             _jm_map_0_cmap.put(json.safeJSON("\"null\""), new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_18(o, p, r);} });
-            _jm_map_0_cmap.put(json.safeJSON("\"boolean\""), new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_34(o, p, r);} });
-            _jm_map_0_cmap.put(json.safeJSON("\"integer\""), new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_33(o, p, r);} });
-            _jm_map_0_cmap.put(json.safeJSON("\"number\""), new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_32(o, p, r);} });
-            _jm_map_0_cmap.put(json.safeJSON("\"string\""), new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_31(o, p, r);} });
+            _jm_map_0_cmap.put(json.safeJSON("\"boolean\""), new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_17(o, p, r);} });
+            _jm_map_0_cmap.put(json.safeJSON("\"integer\""), new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_15(o, p, r);} });
+            _jm_map_0_cmap.put(json.safeJSON("\"number\""), new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_16(o, p, r);} });
+            _jm_map_0_cmap.put(json.safeJSON("\"string\""), new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_12(o, p, r);} });
             _jm_map_0_cmap.put(json.safeJSON("\"array\""), new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_13(o, p, r);} });
             _jm_map_0_cmap.put(json.safeJSON("\"object\""), new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_14(o, p, r);} });
             json_model_11_map_pmap = new HashMap<String, Checker>();

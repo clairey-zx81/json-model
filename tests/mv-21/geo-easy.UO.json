@@ -1,10 +1,10 @@
 [
   {
     "|": [
-      "$geometry",
       "$GeometryCollection",
       "$Feature",
-      "$FeatureCollection"
+      "$FeatureCollection",
+      "$geometry"
     ],
     "#": "JsonModel 1 (JSON_MODEL_LOOSE_FLOAT)",
     "$": {

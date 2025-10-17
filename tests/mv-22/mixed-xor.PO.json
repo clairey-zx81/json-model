@@ -8,8 +8,8 @@
       "t": "h",
       "hob": 1
     },
-    "$cs",
-    true
+    true,
+    "$cs"
   ],
   "#": "JsonModel 1",
   "$": {

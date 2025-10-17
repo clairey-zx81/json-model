@@ -301,9 +301,6 @@
   },
   "anyOf": [
     {
-      "$ref": "#/$defs/geometry"
-    },
-    {
       "$ref": "#/$defs/GeometryCollection"
     },
     {
@@ -311,6 +308,9 @@
     },
     {
       "$ref": "#/$defs/FeatureCollection"
+    },
+    {
+      "$ref": "#/$defs/geometry"
     }
   ]
 }

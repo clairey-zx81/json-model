@@ -182,6 +182,34 @@ function json_model_25(val, path, rep)
                             if (! res)
                             {
                                 res = json_model_24(val, path, rep);
+                                if (! res)
+                                {
+                                    res = json_model_28(val, path, rep);
+                                    if (! res)
+                                    {
+                                        res = json_model_29(val, path, rep);
+                                        if (! res)
+                                        {
+                                            res = json_model_30(val, path, rep);
+                                            if (! res)
+                                            {
+                                                res = json_model_31(val, path, rep);
+                                                if (! res)
+                                                {
+                                                    res = json_model_32(val, path, rep);
+                                                    if (! res)
+                                                    {
+                                                        res = json_model_33(val, path, rep);
+                                                        if (! res)
+                                                        {
+                                                            res = json_model_34(val, path, rep);
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
                             }
                         }
                     }
@@ -5253,10 +5281,10 @@ export function check_model_init()
         initialized = true;
         runtime.jm_set_rx(RegExp)
         _jm_map_0.set("null", json_model_18)
-        _jm_map_0.set("boolean", json_model_34)
-        _jm_map_0.set("integer", json_model_33)
-        _jm_map_0.set("number", json_model_32)
-        _jm_map_0.set("string", json_model_31)
+        _jm_map_0.set("boolean", json_model_17)
+        _jm_map_0.set("integer", json_model_15)
+        _jm_map_0.set("number", json_model_16)
+        _jm_map_0.set("string", json_model_12)
         _jm_map_0.set("array", json_model_13)
         _jm_map_0.set("object", json_model_14)
         json_model_11_map.set("$comment", _jm_f_0)

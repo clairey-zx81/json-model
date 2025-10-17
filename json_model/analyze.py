@@ -435,6 +435,7 @@ def disjunct_analyse(jm: JsonModel, model: ModelType, mpath: ModelPath, lists: b
         log.debug("not enough object with mandatory constant props for disjunction")
         return None
     # build tag candidates, for each prop which models indexes are ok, and all values
+    # property name -> set of models that contain the property with a constant
     tag_to_model: dict[str, set[int]] = {}
     # cumulated constants
     tag_to_csts: dict[str, ConstSet] = {}

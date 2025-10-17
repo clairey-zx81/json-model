@@ -1,0 +1,36 @@
+{
+  "anyOf": [
+    {
+      "type": "object",
+      "properties": {
+        "t": {
+          "const": "A"
+        },
+        "foo": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "t",
+        "foo"
+      ],
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "properties": {
+        "t": {
+          "const": "A"
+        },
+        "bla": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "t",
+        "bla"
+      ],
+      "additionalProperties": false
+    }
+  ]
+}

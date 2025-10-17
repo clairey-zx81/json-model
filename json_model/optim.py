@@ -185,9 +185,9 @@ def xor_to_or(jm: JsonModel) -> bool:
                     # partial xor to or case
                     assert isinstance(t, tuple) and len(t) == 2
                     kept, failed = t
-                    # NOTE this must not be the inverse of notor to not!
-                    changes += 1
-                    model["^"] = [ {"|": kept} ] + failed
+                    if len(kept) > 1:
+                        changes += 1
+                        model["^"] = [ {"|": kept} ] + failed
 
         return model
 

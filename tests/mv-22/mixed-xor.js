@@ -286,15 +286,15 @@ function json_model_1(val, path, rep)
     }
     if (! res)
     {
-        res = json_model_2(val, path, rep);
+        // .'|'.2
+        res = (typeof val === 'boolean' || val instanceof Boolean);
         if (! res)
         {
-            // .'|'.3
-            res = (typeof val === 'boolean' || val instanceof Boolean);
-            if (! res)
-            {
-                rep !== null && rep.push(["not a bool [.'|'.3]", path])
-            }
+            rep !== null && rep.push(["not a bool [.'|'.2]", path])
+        }
+        if (! res)
+        {
+            res = json_model_2(val, path, rep);
         }
     }
     return res;

@@ -73,6 +73,9 @@ sub json_model_16($$$);
 sub _jm_obj_3($$$);
 sub json_model_17($$$);
 my %_jm_cst_2;
+sub _jm_obj_5($$$);
+sub _jm_obj_4($$$);
+my %_jm_cst_3;
 sub _jm_f_34($$$);
 sub _jm_f_35($$$);
 sub _jm_f_36($$$);
@@ -81,12 +84,8 @@ sub _jm_f_38($$$);
 sub _jm_f_39($$$);
 sub _jm_f_40($$$);
 sub _jm_f_41($$$);
-my %_jm_obj_4_map;
-sub _jm_obj_4($$$);
-my %_jm_cst_3;
+my %_jm_obj_6_map;
 sub _jm_obj_6($$$);
-sub _jm_obj_5($$$);
-my %_jm_map_0;
 sub json_model_18($$$);
 sub _jm_obj_7($$$);
 sub json_model_19($$$);
@@ -171,7 +170,7 @@ sub _jm_obj_24($$$);
 sub _jm_obj_25($$$);
 sub _jm_obj_26($$$);
 sub _jm_obj_27($$$);
-my %_jm_map_1;
+my %_jm_map_0;
 sub json_model_40($$$);
 sub json_model_41($$$);
 sub _jm_obj_28($$$);
@@ -1954,172 +1953,8 @@ sub json_model_17($$$)
 }
 
 
-# check _jm_obj_4_map_allowEmptyValue (.'$Parameter'.'|'.0.allowEmptyValue)
-sub _jm_f_34($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$Parameter'.'|'.0.allowEmptyValue
-    $res = jm_is_boolean($val);
-    return $res;
-}
-
-# check _jm_obj_4_map_allowReserved (.'$Parameter'.'|'.0.allowReserved)
-sub _jm_f_35($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$Parameter'.'|'.0.allowReserved
-    $res = jm_is_boolean($val);
-    return $res;
-}
-
-# check _jm_obj_4_map_deprecated (.'$Parameter'.'|'.0.deprecated)
-sub _jm_f_36($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$Parameter'.'|'.0.deprecated
-    $res = jm_is_boolean($val);
-    return $res;
-}
-
-# check _jm_obj_4_map_description (.'$Parameter'.'|'.0.description)
-sub _jm_f_37($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$Parameter'.'|'.0.description
-    $res = jm_is_string($val);
-    return $res;
-}
-
-# check _jm_obj_4_map_example (.'$Parameter'.'|'.0.example)
-sub _jm_f_38($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$Parameter'.'|'.0.example
-    $res = 1;
-    return $res;
-}
-
-# check _jm_obj_4_map_examples (.'$Parameter'.'|'.0.examples)
-sub _jm_f_39($$$)
-{
-    my ($val, $path, $rep) = @_;
-    # .'$Parameter'.'|'.0.examples
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
-    my $res;
-    scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
-    {
-        # handle other props
-        # .'$Parameter'.'|'.0.examples.''
-        # .'$Parameter'.'|'.0.examples.''.'|'.0
-        $res = json_model_25($pval, undef, $rep);
-        if (! $res)
-        {
-            # .'$Parameter'.'|'.0.examples.''.'|'.1
-            $res = json_model_30($pval, undef, $rep);
-        }
-        if (! $res)
-        {
-            return 0;
-        }
-    }
-    return 1;
-}
-
-# check _jm_obj_4_map_explode (.'$Parameter'.'|'.0.explode)
-sub _jm_f_40($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$Parameter'.'|'.0.explode
-    $res = jm_is_boolean($val);
-    return $res;
-}
-
-# check _jm_obj_4_map_required (.'$Parameter'.'|'.0.required)
-sub _jm_f_41($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$Parameter'.'|'.0.required
-    $res = jm_is_boolean($val);
-    return $res;
-}
-
-
-# object .'$Parameter'.'|'.0
-sub _jm_obj_4($$$)
-{
-    my ($val, $path, $rep) = @_;
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
-    my $res;
-    my $pfun;
-    my $must_count = 0;
-    scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
-    {
-        if ($prop eq 'name')
-        {
-            # handle must name property
-            $must_count++;
-            # .'$Parameter'.'|'.0.name
-            $res = jm_is_string($pval);
-            if (! $res)
-            {
-                return 0;
-            }
-        }
-        elsif ($prop eq 'in')
-        {
-            # handle must in property
-            $must_count++;
-            # .'$Parameter'.'|'.0.in
-            $res = jm_is_scalar($pval) && jm_is_string($pval) && exists $_jm_cst_2{$pval};
-            if (! $res)
-            {
-                return 0;
-            }
-        }
-        elsif (($pfun = $_jm_obj_4_map{$prop}))
-        {
-            # handle 10 may props
-            if (defined($pfun) && ! &$pfun($pval, undef, $rep))
-            {
-                return 0;
-            }
-        }
-        elsif (jm_starts_with($prop, 'x-'))
-        {
-            # handle 1 re props
-            # .'$Parameter'.'|'.0.'/^x-/'
-            $res = 1;
-            if (! $res)
-            {
-                return 0;
-            }
-        }
-        else
-        {
-            return 0;
-        }
-    }
-    return $must_count == 2;
-}
-
-
 # object .'$Parameter'.'|'.1.content
-sub _jm_obj_6($$$)
+sub _jm_obj_5($$$)
 {
     my ($val, $path, $rep) = @_;
     if (! jm_is_object($val))
@@ -2142,7 +1977,7 @@ sub _jm_obj_6($$$)
 }
 
 # object .'$Parameter'.'|'.1
-sub _jm_obj_5($$$)
+sub _jm_obj_4($$$)
 {
     my ($val, $path, $rep) = @_;
     if (! jm_is_object($val))
@@ -2170,7 +2005,7 @@ sub _jm_obj_5($$$)
             # handle must in property
             $must_count++;
             # .'$Parameter'.'|'.1.in
-            $res = jm_is_scalar($pval) && jm_is_string($pval) && exists $_jm_cst_3{$pval};
+            $res = jm_is_scalar($pval) && jm_is_string($pval) && exists $_jm_cst_2{$pval};
             if (! $res)
             {
                 return 0;
@@ -2220,7 +2055,7 @@ sub _jm_obj_5($$$)
         {
             # handle may content property
             # .'$Parameter'.'|'.1.content
-            $res = _jm_obj_6($pval, undef, $rep);
+            $res = _jm_obj_5($pval, undef, $rep);
             if (! $res)
             {
                 return 0;
@@ -2245,32 +2080,184 @@ sub _jm_obj_5($$$)
 }
 
 
+# check _jm_obj_6_map_allowEmptyValue (.'$Parameter'.'|'.0.allowEmptyValue)
+sub _jm_f_34($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$Parameter'.'|'.0.allowEmptyValue
+    $res = jm_is_boolean($val);
+    return $res;
+}
+
+# check _jm_obj_6_map_allowReserved (.'$Parameter'.'|'.0.allowReserved)
+sub _jm_f_35($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$Parameter'.'|'.0.allowReserved
+    $res = jm_is_boolean($val);
+    return $res;
+}
+
+# check _jm_obj_6_map_deprecated (.'$Parameter'.'|'.0.deprecated)
+sub _jm_f_36($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$Parameter'.'|'.0.deprecated
+    $res = jm_is_boolean($val);
+    return $res;
+}
+
+# check _jm_obj_6_map_description (.'$Parameter'.'|'.0.description)
+sub _jm_f_37($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$Parameter'.'|'.0.description
+    $res = jm_is_string($val);
+    return $res;
+}
+
+# check _jm_obj_6_map_example (.'$Parameter'.'|'.0.example)
+sub _jm_f_38($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$Parameter'.'|'.0.example
+    $res = 1;
+    return $res;
+}
+
+# check _jm_obj_6_map_examples (.'$Parameter'.'|'.0.examples)
+sub _jm_f_39($$$)
+{
+    my ($val, $path, $rep) = @_;
+    # .'$Parameter'.'|'.0.examples
+    if (! jm_is_object($val))
+    {
+        return 0;
+    }
+    my $res;
+    scalar keys %$val;
+    while (my ($prop, $pval) = each %$val)
+    {
+        # handle other props
+        # .'$Parameter'.'|'.0.examples.''
+        # .'$Parameter'.'|'.0.examples.''.'|'.0
+        $res = json_model_25($pval, undef, $rep);
+        if (! $res)
+        {
+            # .'$Parameter'.'|'.0.examples.''.'|'.1
+            $res = json_model_30($pval, undef, $rep);
+        }
+        if (! $res)
+        {
+            return 0;
+        }
+    }
+    return 1;
+}
+
+# check _jm_obj_6_map_explode (.'$Parameter'.'|'.0.explode)
+sub _jm_f_40($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$Parameter'.'|'.0.explode
+    $res = jm_is_boolean($val);
+    return $res;
+}
+
+# check _jm_obj_6_map_required (.'$Parameter'.'|'.0.required)
+sub _jm_f_41($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$Parameter'.'|'.0.required
+    $res = jm_is_boolean($val);
+    return $res;
+}
+
+
+# object .'$Parameter'.'|'.0
+sub _jm_obj_6($$$)
+{
+    my ($val, $path, $rep) = @_;
+    if (! jm_is_object($val))
+    {
+        return 0;
+    }
+    my $res;
+    my $pfun;
+    my $must_count = 0;
+    scalar keys %$val;
+    while (my ($prop, $pval) = each %$val)
+    {
+        if ($prop eq 'name')
+        {
+            # handle must name property
+            $must_count++;
+            # .'$Parameter'.'|'.0.name
+            $res = jm_is_string($pval);
+            if (! $res)
+            {
+                return 0;
+            }
+        }
+        elsif ($prop eq 'in')
+        {
+            # handle must in property
+            $must_count++;
+            # .'$Parameter'.'|'.0.in
+            $res = jm_is_scalar($pval) && jm_is_string($pval) && exists $_jm_cst_3{$pval};
+            if (! $res)
+            {
+                return 0;
+            }
+        }
+        elsif (($pfun = $_jm_obj_6_map{$prop}))
+        {
+            # handle 10 may props
+            if (defined($pfun) && ! &$pfun($pval, undef, $rep))
+            {
+                return 0;
+            }
+        }
+        elsif (jm_starts_with($prop, 'x-'))
+        {
+            # handle 1 re props
+            # .'$Parameter'.'|'.0.'/^x-/'
+            $res = 1;
+            if (! $res)
+            {
+                return 0;
+            }
+        }
+        else
+        {
+            return 0;
+        }
+    }
+    return $must_count == 2;
+}
+
 # check $Parameter (.'$Parameter')
 sub json_model_18($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
     # .'$Parameter'
-    my $iso_0 = jm_is_object($val);
-    $res = $iso_0;
+    $res = jm_is_object($val);
     if ($res)
     {
-        if (exists $$val{'in'})
+        # .'$Parameter'.'|'.0
+        $res = _jm_obj_6($val, $path, $rep);
+        if (! $res)
         {
-            my $tag_0 = $$val{'in'};
-            my $fun_0 = $_jm_map_0{$tag_0};
-            if (defined($fun_0))
-            {
-                $res = &$fun_0($val, $path, $rep);
-            }
-            else
-            {
-                $res = 0;
-            }
-        }
-        else
-        {
-            $res = 0;
+            # .'$Parameter'.'|'.1
+            $res = _jm_obj_4($val, $path, $rep);
         }
     }
     return $res;
@@ -4673,17 +4660,17 @@ sub json_model_40($$$)
     my ($val, $path, $rep) = @_;
     my $res;
     # .'$SecurityScheme'
-    my $iso_1 = jm_is_object($val);
-    $res = $iso_1;
+    my $iso_0 = jm_is_object($val);
+    $res = $iso_0;
     if ($res)
     {
         if (exists $$val{'type'})
         {
-            my $tag_1 = $$val{'type'};
-            my $fun_1 = $_jm_map_1{$tag_1};
-            if (defined($fun_1))
+            my $tag_0 = $$val{'type'};
+            my $fun_0 = $_jm_map_0{$tag_0};
+            if (defined($fun_0))
             {
-                $res = &$fun_1($val, $path, $rep);
+                $res = &$fun_0($val, $path, $rep);
             }
             else
             {
@@ -4699,6 +4686,11 @@ sub json_model_40($$$)
     {
         # .'$SecurityScheme'.'|'.5
         $res = _jm_obj_27($val, $path, $rep);
+        if (! $res)
+        {
+            # .'$SecurityScheme'.'|'.2
+            $res = _jm_obj_24($val, $path, $rep);
+        }
     }
     return $res;
 }
@@ -5587,7 +5579,13 @@ sub check_model_init()
             'path' => 1,
             'cookie' => 1,
         );
-        %_jm_obj_4_map = (
+        %_jm_cst_3 = (
+            'query' => 1,
+            'header' => 1,
+            'path' => 1,
+            'cookie' => 1,
+        );
+        %_jm_obj_6_map = (
             'allowEmptyValue' => \&_jm_f_34,
             'allowReserved' => \&_jm_f_35,
             'deprecated' => \&_jm_f_36,
@@ -5598,18 +5596,6 @@ sub check_model_init()
             'required' => \&_jm_f_41,
             'schema' => \&json_model_32,
             'style' => \&json_model_15,
-        );
-        %_jm_cst_3 = (
-            'query' => 1,
-            'header' => 1,
-            'path' => 1,
-            'cookie' => 1,
-        );
-        %_jm_map_0 = (
-            'cookie' => \&_jm_obj_5,
-            'header' => \&_jm_obj_5,
-            'path' => \&_jm_obj_5,
-            'query' => \&_jm_obj_5,
         );
         %_jm_obj_20_map = (
             'allowEmptyValue' => \&_jm_f_42,
@@ -5696,9 +5682,9 @@ sub check_model_init()
             'header' => 1,
             'cookie' => 1,
         );
-        %_jm_map_1 = (
+        %_jm_map_0 = (
             'apiKey' => \&_jm_obj_22,
-            'http' => \&_jm_obj_24,
+            'http' => \&_jm_obj_23,
             'oauth2' => \&_jm_obj_25,
             'openIdConnect' => \&_jm_obj_26,
         );
@@ -5832,14 +5818,13 @@ sub check_model_free()
         %_jm_cst_1 = ();
         %json_model_16_map = ();
         %_jm_cst_2 = ();
-        %_jm_obj_4_map = ();
         %_jm_cst_3 = ();
-        %_jm_map_0 = ();
+        %_jm_obj_6_map = ();
         %_jm_obj_20_map = ();
         %json_model_32_map = ();
         %_jm_cst_4 = ();
         %_jm_cst_5 = ();
-        %_jm_map_1 = ();
+        %_jm_map_0 = ();
         %_jm_cst_6 = ();
         %json_model_59_map = ();
         %check_model_map = ();

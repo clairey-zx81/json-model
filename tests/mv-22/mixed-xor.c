@@ -298,15 +298,15 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
     }
     if (! res)
     {
-        res = json_model_2(val, path, rep);
+        // .'|'.2
+        res = json_is_boolean(val);
         if (! res)
         {
-            // .'|'.3
-            res = json_is_boolean(val);
-            if (! res)
-            {
-                if (rep) jm_report_add_entry(rep, "not a bool [.'|'.3]", path);
-            }
+            if (rep) jm_report_add_entry(rep, "not a bool [.'|'.2]", path);
+        }
+        if (! res)
+        {
+            res = json_model_2(val, path, rep);
         }
     }
     return res;

@@ -77,10 +77,10 @@
       "additionalProperties": false
     },
     {
-      "$ref": "#/$defs/cs"
+      "type": "boolean"
     },
     {
-      "type": "boolean"
+      "$ref": "#/$defs/cs"
     }
   ]
 }

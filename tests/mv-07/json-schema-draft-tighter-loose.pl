@@ -404,6 +404,34 @@ sub json_model_25($$$)
                             if (! $res)
                             {
                                 $res = json_model_24($val, $path, $rep);
+                                if (! $res)
+                                {
+                                    $res = json_model_28($val, $path, $rep);
+                                    if (! $res)
+                                    {
+                                        $res = json_model_29($val, $path, $rep);
+                                        if (! $res)
+                                        {
+                                            $res = json_model_30($val, $path, $rep);
+                                            if (! $res)
+                                            {
+                                                $res = json_model_31($val, $path, $rep);
+                                                if (! $res)
+                                                {
+                                                    $res = json_model_32($val, $path, $rep);
+                                                    if (! $res)
+                                                    {
+                                                        $res = json_model_33($val, $path, $rep);
+                                                        if (! $res)
+                                                        {
+                                                            $res = json_model_34($val, $path, $rep);
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
                             }
                         }
                     }
@@ -4448,10 +4476,10 @@ sub check_model_init()
         $initialized = 1;
         %_jm_map_0 = (
             'null' => \&json_model_18,
-            'boolean' => \&json_model_34,
-            'integer' => \&json_model_33,
-            'number' => \&json_model_32,
-            'string' => \&json_model_31,
+            'boolean' => \&json_model_17,
+            'integer' => \&json_model_15,
+            'number' => \&json_model_16,
+            'string' => \&json_model_12,
             'array' => \&json_model_13,
             'object' => \&json_model_14,
         );

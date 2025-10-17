@@ -228,11 +228,11 @@ sub json_model_1($$$)
     }
     if (! $res)
     {
-        $res = json_model_2($val, $path, $rep);
+        # .'|'.2
+        $res = jm_is_boolean($val);
         if (! $res)
         {
-            # .'|'.3
-            $res = jm_is_boolean($val);
+            $res = json_model_2($val, $path, $rep);
         }
     }
     return $res;

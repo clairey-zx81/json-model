@@ -112,6 +112,27 @@ BEGIN
               res := json_model_21(val, path, rep);
               IF NOT res THEN
                 res := json_model_24(val, path, rep);
+                IF NOT res THEN
+                  res := json_model_28(val, path, rep);
+                  IF NOT res THEN
+                    res := json_model_29(val, path, rep);
+                    IF NOT res THEN
+                      res := json_model_30(val, path, rep);
+                      IF NOT res THEN
+                        res := json_model_31(val, path, rep);
+                        IF NOT res THEN
+                          res := json_model_32(val, path, rep);
+                          IF NOT res THEN
+                            res := json_model_33(val, path, rep);
+                            IF NOT res THEN
+                              res := json_model_34(val, path, rep);
+                            END IF;
+                          END IF;
+                        END IF;
+                      END IF;
+                    END IF;
+                  END IF;
+                END IF;
               END IF;
             END IF;
           END IF;
@@ -4586,10 +4607,10 @@ $$ LANGUAGE plpgsql;
 TRUNCATE jm_constant_maps;
 INSERT INTO jm_constant_maps(mapname, tagval, value) VALUES
   ('_jm_map_0', JSONB '"null"', 'json_model_18'),
-  ('_jm_map_0', JSONB '"boolean"', 'json_model_34'),
-  ('_jm_map_0', JSONB '"integer"', 'json_model_33'),
-  ('_jm_map_0', JSONB '"number"', 'json_model_32'),
-  ('_jm_map_0', JSONB '"string"', 'json_model_31'),
+  ('_jm_map_0', JSONB '"boolean"', 'json_model_17'),
+  ('_jm_map_0', JSONB '"integer"', 'json_model_15'),
+  ('_jm_map_0', JSONB '"number"', 'json_model_16'),
+  ('_jm_map_0', JSONB '"string"', 'json_model_12'),
   ('_jm_map_0', JSONB '"array"', 'json_model_13'),
   ('_jm_map_0', JSONB '"object"', 'json_model_14')
 ;

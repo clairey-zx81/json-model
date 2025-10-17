@@ -4,6 +4,8 @@
 
 - [x] pr: add a benchmarking performance artifact page
 - [x] backend: shamefully ignore bad json due to strange prop names
+- [x] static: fix disjunct analysis issue
+- [x] optim: fix infinite loop between xor-to-or and partial eval
 - [ ] optim: partial xor to or?
 - [ ] static: partial discriminator with else?
 - [ ] static: optimize not string cst test?

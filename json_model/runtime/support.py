@@ -114,7 +114,18 @@ class ConstSet(MutableSet[JsonScalar]):
         """Set of underlying constant types."""
         return { c.ctype() for c in self._set }
 
+    def __and__(self, cs: set):
+        """WTF: the default implementation does _not_ work as expected."""
+        if not isinstance(cs, ConstSet):
+            raise Exception(f"unexpected type: {type(cs).__name__}")
+        ns = ConstSet()
+        for i in self:
+            if i in cs:
+                ns.add(i)
+        return ns
+
     def __str__(self) -> str:
+        """Return a JSON array build over the set."""
         return "[" + ", ".join(str(c) for c in self._set) + "]"
 
     def __repr__(self) -> str:

@@ -194,10 +194,10 @@ BEGIN
     END IF;
   END IF;
   IF NOT res THEN
-    res := json_model_2(val, path, rep);
+    -- .'|'.2
+    res := JSONB_TYPEOF(val) = 'boolean';
     IF NOT res THEN
-      -- .'|'.3
-      res := JSONB_TYPEOF(val) = 'boolean';
+      res := json_model_2(val, path, rep);
     END IF;
   END IF;
   RETURN res;

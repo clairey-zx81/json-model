@@ -286,15 +286,15 @@ public class mixed_xor extends ModelChecker
         }
         if (! res)
         {
-            res = json_model_2(val, path, rep);
+            // .'|'.2
+            res = json.isBoolean(val);
             if (! res)
             {
-                // .'|'.3
-                res = json.isBoolean(val);
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("not a bool [.'|'.3]", path);
-                }
+                if (rep != null) rep.addEntry("not a bool [.'|'.2]", path);
+            }
+            if (! res)
+            {
+                res = json_model_2(val, path, rep);
             }
         }
         return res;
