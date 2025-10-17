@@ -2,14 +2,10 @@
 
 ## Current Tasks
 
-- [x] pr: add a benchmarking performance artifact page
-- [x] backend: shamefully ignore bad json due to strange prop names
-- [x] static: fix disjunct analysis issue
-- [x] optim: fix infinite loop between xor-to-or and partial eval
-- [ ] optim: partial xor to or?
 - [ ] static: partial discriminator with else?
 - [ ] static: optimize not string cst test?
 - [ ] perf: compute performance overhead globally instead of per run
+- [ ] perf: allow running over a subset of tools only
 - [ ] tests: add ir optimized output (too large?)
 - [ ] tests: add pytest ir tests
 - [ ] tests: add generated ir model check
@@ -653,3 +649,7 @@
 - [x] perf: also show docker id of tested image
 - [x] optim: more xor/not/or simplifications
 - [x] optim: xor-to-or model difference based on not exclusion, possibly behind refs
+- [x] pr: add a benchmarking performance artifact page
+- [x] backend: shamefully ignore bad json due to strange prop names
+- [x] static: fix disjunct analysis issue
+- [x] optim: fix infinite loop between xor-to-or and partial eval
