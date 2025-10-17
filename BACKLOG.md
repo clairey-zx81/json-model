@@ -2,6 +2,7 @@
 
 ## Current Tasks
 
+- [x] pr: improve bench page
 - [ ] static: partial discriminator with else?
 - [ ] static: optimize not string cst test?
 - [ ] perf: compute performance overhead globally instead of per run

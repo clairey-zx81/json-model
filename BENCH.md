@@ -28,16 +28,21 @@ nohup \
     -v /var/run/docker.sock:/var/run/docker.sock \
     -e JMC_OPTS=--no-predef \
     -e WORKDIR=$PWD -v .:/workspace \
-      zx80/jmc-bench:latest --id BENCH_ID -p 20 -l 10000 -r 5 --cap-py --jmc=latest --env=JMC_OPTS \
-        > bench.output 2>&1 &
-# see generated benchmark.md
+      zx80/jmc-bench:latest \
+        --id BENCH_ID -p 20 -l 10000 -r 5 --cap-py --jmc=latest --env=JMC_OPTS \
+          > bench.output 2>&1 &
+# see generated BENCH_ID.md (report) and BENCH_ID.json (radar)
 ```
 
 The main script options are:
 
-- `-p PARA` parallelism (a little less that the number of available cores)
-- `-l LOOP` loop iterations for performance average (at least 1000)
-- `-r RUNS` number of runs (odd number, usually 5)
+- `-p PARA` parallelism (a little less that the number of available cores, default is _8_)
+- `-l LOOP` loop iterations for performance average (at least _1000_, the default)
+- `-r RUNS` number of runs (odd number, default is _3_)
+- `--cap-py` reduce python iterations by a factor of 10 (default is _no_)
+- `--jmc=TAG` use json model compiler docker image with this tag (default is _latest_)
+- `--jsc=TAG` use jsonschema blaze cli docker image with this tag (default is _latest_)
+- `--env=NAMES` list of environment variables to export to spawned containers
 
 ## Benchmarking Conditions
 
