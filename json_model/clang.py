@@ -15,7 +15,7 @@ class CLangJansson(Language):
     def __init__(self, *,
                  debug: bool = False,
                  with_path: bool = True, with_report: bool = True, with_comment: bool = True,
-                 with_predef: bool = True,
+                 with_predef: bool = True, streq_optim: bool = True,
                  inline: bool = True, relib: str = "pcre2", int_t: str = "int64_t"):
 
         super().__init__(
@@ -34,6 +34,7 @@ class CLangJansson(Language):
         self._int: str = int_t
         self._json_esc_table = str.maketrans(_ESC_TABLE)
         self._inline = "INLINE " if inline else ""
+        self._streq_optim = streq_optim
 
     #
     # file
@@ -224,6 +225,17 @@ class CLangJansson(Language):
     def str_cmp(self, e1: StrExpr, op: str, e2: StrExpr) -> BoolExpr:
         assert op in ("=", "!=", "<", "<=", ">=", ">")
         if op == "=":
+            if self._streq_optim and len(e2) >= 2 and e2[0] == '"' and e2[-1] == '"':
+                le2 = len(e2) - 2
+                if le2 == 0:
+                    return f"(*{e1}) == '\\0')"
+                elif le2 >= 1 and le2 < 4:
+                    return f"jm_str_eq({e1}, {e2})"
+                elif le2 >= 4 and le2 < 8:
+                    return f"jm_str_eq_4({e1}, {e2})"
+                else:
+                    return f"jm_str_eq_8({e1}, {e2})"
+            # else
             return f"strcmp({e1}, {e2}) == 0"
         elif op == "!=":
             return f"strcmp({e1}, {e2}) != 0"

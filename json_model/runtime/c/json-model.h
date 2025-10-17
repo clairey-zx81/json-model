@@ -183,6 +183,16 @@ jm_check_constraint(const json_t *, jm_constraint_op_t, const jm_constant_t *,
                     jm_path_t *, jm_report_t *);
 
 /*
+ * Variable to constant string comparison depending on constant length.
+ * NOTE Using the endian-ness we could mask over the relevant bytes.
+ */
+#define jm_str_eq(s1, s2) (strcmp(s1, s2) == 0)
+#define jm_str_eq_4(s1, s2) \
+    (((* ((uint32_t *) s1)) == (* ((uint32_t *) s2))) && jm_str_eq(s1+4, s2+4))
+#define jm_str_eq_8(s1, s2) \
+    (((* ((uint64_t *) s1)) == (* ((uint64_t *) s2))) && jm_str_eq(s1+8, s2+8))
+
+/*
  * Shared high-level entry point
  */
 extern bool jm_generic_entry(const char *(*)(void), jm_check_fun_t (*)(const char *),
