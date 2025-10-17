@@ -14,7 +14,7 @@ def check_model_fun(name: str) -> CheckFun:
 
 # entry point for generated checkers
 def check_model(val: Jsonable, name: str = "", rep: Report = None) -> bool:
-    """Check val validity agains JSON Model name."""
+    """Check val validity against JSON Model name."""
     if name not in check_model_map:
         raise Exception(f"unexpected model name: {name}")
     checker = check_model_map[name]
