@@ -234,11 +234,12 @@ function docker_id()
 cat <<EOF > "$ID.md"
 # JSON Model Compiler Benchmark Run
 
-For each test case, a radar or the relative performance of each tool,
-1.0 is best. Fully non working case(s) removed.
+For each test case, a radar or the relative speed performance of each tool,
+the higher the better, 1.0 is best. Fully non working case(s) removed, if any.
+Cases are sorted per decreasing performance of the fastest tools.
 
-<canvas id="RadarChart"></canvas>
-<script>showRadar("RadarChart", "/benchmarks/$ID.json")</script>
+<canvas id="PerformanceRadar"></canvas>
+<script>showRadar("PerformanceRadar", "/benchmarks/$ID.json")</script>
 
 ## Summary
 
