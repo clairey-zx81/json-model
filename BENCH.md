@@ -1,4 +1,4 @@
-# JSON Model Compiler Benchmarking Artifacts
+# JSON Model Compiler Benchmark Artifacts
 
 These artifacts compare
 [JSON Model Compiler](https://github.com/clairey-zx81/json-model) generated code in
@@ -54,9 +54,10 @@ JSON schemas for the benchmark are translated to models based on
 Runs are performed in _fast_ mode: the rejection reasons are not collected, and
 the run stops as soon as possible.
 
-- Compilation times are the _minimum_ of at least $RUNS compilations,
-  whereas performance times are the _median_ of $RUNS runs.
-- For JMC, the compilation time includes the schema to model conversion.
+- Compilation times are the _minimum_ encountered of over the runs.
+  whereas performance times are the _median_ over the runs.
+- For JMC, the compilation time includes the schema to model conversion,
+  which adds a uniform time to all target languages.
 - The C backend also includes the runtime compilation from sources.
 - To smooth out the wide range of collected performances (from 10 ns to
   over 300 µs for validating one value), a relative comparison ratio is shown.
