@@ -3,6 +3,10 @@
 ## Current Tasks
 
 - [x] pr: improve bench page
+- [x] command: set default to compile on `-F language` instead of model preprocessing
+- [ ] c-backend: add _optimized_ str comparison code for eq and ne
+- [ ] c-backend: consider big endian for strcmp runtime and code generation
+- [ ] static: remove unexpected `$ANY` messages (irep dead code elimination)
 - [ ] static: partial discriminator with else?
 - [ ] static: optimize not string cst test?
 - [ ] perf: compute performance overhead globally instead of per run

@@ -519,7 +519,7 @@ def jmc_script():
         args.reporting = False if args.format == "plpgsql" else True
 
     if args.op is None:
-        args.op = "P"
+        args.op = "C" if args.format in ("c", "py", "js", "java", "plpgsql", "pl") else "P"
 
     # update op-dependent default
     if args.gen is None:
